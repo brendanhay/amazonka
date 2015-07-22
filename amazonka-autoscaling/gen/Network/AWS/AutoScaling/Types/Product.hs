@@ -63,18 +63,18 @@ data Activity = Activity'
 
 -- | 'Activity' smart constructor.
 activity :: Text -> Text -> Text -> UTCTime -> ScalingActivityStatusCode -> Activity
-activity pActivityId pAutoScalingGroupName pCause pStartTime pStatusCode =
+activity pActivityId_ pAutoScalingGroupName_ pCause_ pStartTime_ pStatusCode_ =
     Activity'
     { _aProgress = Nothing
     , _aStatusMessage = Nothing
     , _aDetails = Nothing
     , _aEndTime = Nothing
     , _aDescription = Nothing
-    , _aActivityId = pActivityId
-    , _aAutoScalingGroupName = pAutoScalingGroupName
-    , _aCause = pCause
-    , _aStartTime = _Time # pStartTime
-    , _aStatusCode = pStatusCode
+    , _aActivityId = pActivityId_
+    , _aAutoScalingGroupName = pAutoScalingGroupName_
+    , _aCause = pCause_
+    , _aStartTime = _Time # pStartTime_
+    , _aStatusCode = pStatusCode_
     }
 
 -- | A value between 0 and 100 that indicates the progress of the activity.
@@ -266,7 +266,7 @@ data AutoScalingGroup = AutoScalingGroup'
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: Text -> Text -> Int -> Int -> Int -> Int -> NonEmpty Text -> Text -> UTCTime -> AutoScalingGroup
-autoScalingGroup pAutoScalingGroupName pLaunchConfigurationName pMinSize pMaxSize pDesiredCapacity pDefaultCooldown pAvailabilityZones pHealthCheckType pCreatedTime =
+autoScalingGroup pAutoScalingGroupName_ pLaunchConfigurationName_ pMinSize_ pMaxSize_ pDesiredCapacity_ pDefaultCooldown_ pAvailabilityZones_ pHealthCheckType_ pCreatedTime_ =
     AutoScalingGroup'
     { _asgStatus = Nothing
     , _asgTerminationPolicies = Nothing
@@ -279,15 +279,15 @@ autoScalingGroup pAutoScalingGroupName pLaunchConfigurationName pMinSize pMaxSiz
     , _asgPlacementGroup = Nothing
     , _asgLoadBalancerNames = Nothing
     , _asgTags = Nothing
-    , _asgAutoScalingGroupName = pAutoScalingGroupName
-    , _asgLaunchConfigurationName = pLaunchConfigurationName
-    , _asgMinSize = pMinSize
-    , _asgMaxSize = pMaxSize
-    , _asgDesiredCapacity = pDesiredCapacity
-    , _asgDefaultCooldown = pDefaultCooldown
-    , _asgAvailabilityZones = _List1 # pAvailabilityZones
-    , _asgHealthCheckType = pHealthCheckType
-    , _asgCreatedTime = _Time # pCreatedTime
+    , _asgAutoScalingGroupName = pAutoScalingGroupName_
+    , _asgLaunchConfigurationName = pLaunchConfigurationName_
+    , _asgMinSize = pMinSize_
+    , _asgMaxSize = pMaxSize_
+    , _asgDesiredCapacity = pDesiredCapacity_
+    , _asgDefaultCooldown = pDefaultCooldown_
+    , _asgAvailabilityZones = _List1 # pAvailabilityZones_
+    , _asgHealthCheckType = pHealthCheckType_
+    , _asgCreatedTime = _Time # pCreatedTime_
     }
 
 -- | The current state of the group when DeleteAutoScalingGroup is in
@@ -446,14 +446,14 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
 
 -- | 'AutoScalingInstanceDetails' smart constructor.
 autoScalingInstanceDetails :: Text -> Text -> Text -> Text -> Text -> Text -> AutoScalingInstanceDetails
-autoScalingInstanceDetails pInstanceId pAutoScalingGroupName pAvailabilityZone pLifecycleState pHealthStatus pLaunchConfigurationName =
+autoScalingInstanceDetails pInstanceId_ pAutoScalingGroupName_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ =
     AutoScalingInstanceDetails'
-    { _asidInstanceId = pInstanceId
-    , _asidAutoScalingGroupName = pAutoScalingGroupName
-    , _asidAvailabilityZone = pAvailabilityZone
-    , _asidLifecycleState = pLifecycleState
-    , _asidHealthStatus = pHealthStatus
-    , _asidLaunchConfigurationName = pLaunchConfigurationName
+    { _asidInstanceId = pInstanceId_
+    , _asidAutoScalingGroupName = pAutoScalingGroupName_
+    , _asidAvailabilityZone = pAvailabilityZone_
+    , _asidLifecycleState = pLifecycleState_
+    , _asidHealthStatus = pHealthStatus_
+    , _asidLaunchConfigurationName = pLaunchConfigurationName_
     }
 
 -- | The ID of the instance.
@@ -515,12 +515,12 @@ data BlockDeviceMapping = BlockDeviceMapping'
 
 -- | 'BlockDeviceMapping' smart constructor.
 blockDeviceMapping :: Text -> BlockDeviceMapping
-blockDeviceMapping pDeviceName =
+blockDeviceMapping pDeviceName_ =
     BlockDeviceMapping'
     { _bdmVirtualName = Nothing
     , _bdmNoDevice = Nothing
     , _bdmEBS = Nothing
-    , _bdmDeviceName = pDeviceName
+    , _bdmDeviceName = pDeviceName_
     }
 
 -- | The name of the virtual device, @ephemeral0@ to @ephemeral3@.
@@ -717,10 +717,10 @@ data Filter = Filter'
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
-filter' pName =
+filter' pName_ =
     Filter'
     { _fValues = Nothing
-    , _fName = pName
+    , _fName = pName_
     }
 
 -- | The value of the filter.
@@ -764,13 +764,13 @@ data Instance = Instance'
 
 -- | 'Instance' smart constructor.
 instance' :: Text -> Text -> LifecycleState -> Text -> Text -> Instance
-instance' pInstanceId pAvailabilityZone pLifecycleState pHealthStatus pLaunchConfigurationName =
+instance' pInstanceId_ pAvailabilityZone_ pLifecycleState_ pHealthStatus_ pLaunchConfigurationName_ =
     Instance'
-    { _iInstanceId = pInstanceId
-    , _iAvailabilityZone = pAvailabilityZone
-    , _iLifecycleState = pLifecycleState
-    , _iHealthStatus = pHealthStatus
-    , _iLaunchConfigurationName = pLaunchConfigurationName
+    { _iInstanceId = pInstanceId_
+    , _iAvailabilityZone = pAvailabilityZone_
+    , _iLifecycleState = pLifecycleState_
+    , _iHealthStatus = pHealthStatus_
+    , _iLaunchConfigurationName = pLaunchConfigurationName_
     }
 
 -- | The ID of the instance.
@@ -899,7 +899,7 @@ data LaunchConfiguration = LaunchConfiguration'
 
 -- | 'LaunchConfiguration' smart constructor.
 launchConfiguration :: Text -> Text -> Text -> UTCTime -> LaunchConfiguration
-launchConfiguration pLaunchConfigurationName pImageId pInstanceType pCreatedTime =
+launchConfiguration pLaunchConfigurationName_ pImageId_ pInstanceType_ pCreatedTime_ =
     LaunchConfiguration'
     { _lcSecurityGroups = Nothing
     , _lcAssociatePublicIPAddress = Nothing
@@ -916,10 +916,10 @@ launchConfiguration pLaunchConfigurationName pImageId pInstanceType pCreatedTime
     , _lcLaunchConfigurationARN = Nothing
     , _lcPlacementTenancy = Nothing
     , _lcBlockDeviceMappings = Nothing
-    , _lcLaunchConfigurationName = pLaunchConfigurationName
-    , _lcImageId = pImageId
-    , _lcInstanceType = pInstanceType
-    , _lcCreatedTime = _Time # pCreatedTime
+    , _lcLaunchConfigurationName = pLaunchConfigurationName_
+    , _lcImageId = pImageId_
+    , _lcInstanceType = pInstanceType_
+    , _lcCreatedTime = _Time # pCreatedTime_
     }
 
 -- | The security groups to associate with the instances.
@@ -1366,9 +1366,9 @@ newtype ProcessType = ProcessType'
 
 -- | 'ProcessType' smart constructor.
 processType :: Text -> ProcessType
-processType pProcessName =
+processType pProcessName_ =
     ProcessType'
-    { _ptProcessName = pProcessName
+    { _ptProcessName = pProcessName_
     }
 
 -- | The name of the process.
@@ -1560,10 +1560,10 @@ data ScalingProcessQuery = ScalingProcessQuery'
 
 -- | 'ScalingProcessQuery' smart constructor.
 scalingProcessQuery :: Text -> ScalingProcessQuery
-scalingProcessQuery pAutoScalingGroupName =
+scalingProcessQuery pAutoScalingGroupName_ =
     ScalingProcessQuery'
     { _spqScalingProcesses = Nothing
-    , _spqAutoScalingGroupName = pAutoScalingGroupName
+    , _spqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | One or more of the following processes:
@@ -1759,11 +1759,11 @@ data StepAdjustment = StepAdjustment'
 
 -- | 'StepAdjustment' smart constructor.
 stepAdjustment :: Int -> StepAdjustment
-stepAdjustment pScalingAdjustment =
+stepAdjustment pScalingAdjustment_ =
     StepAdjustment'
     { _saMetricIntervalLowerBound = Nothing
     , _saMetricIntervalUpperBound = Nothing
-    , _saScalingAdjustment = pScalingAdjustment
+    , _saScalingAdjustment = pScalingAdjustment_
     }
 
 -- | The lower bound for the difference between the alarm threshold and the
@@ -1869,13 +1869,13 @@ data Tag = Tag'
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Text -> Bool -> Text -> Tag
-tag pKey pResourceId pResourceType pPropagateAtLaunch pValue =
+tag pKey_ pResourceId_ pResourceType_ pPropagateAtLaunch_ pValue_ =
     Tag'
-    { _tagKey = pKey
-    , _tagResourceId = pResourceId
-    , _tagResourceType = pResourceType
-    , _tagPropagateAtLaunch = pPropagateAtLaunch
-    , _tagValue = pValue
+    { _tagKey = pKey_
+    , _tagResourceId = pResourceId_
+    , _tagResourceType = pResourceType_
+    , _tagPropagateAtLaunch = pPropagateAtLaunch_
+    , _tagValue = pValue_
     }
 
 -- | The tag key.
@@ -1932,13 +1932,13 @@ data TagDescription = TagDescription'
 
 -- | 'TagDescription' smart constructor.
 tagDescription :: Text -> Text -> Text -> Bool -> Text -> TagDescription
-tagDescription pResourceId pResourceType pKey pPropagateAtLaunch pValue =
+tagDescription pResourceId_ pResourceType_ pKey_ pPropagateAtLaunch_ pValue_ =
     TagDescription'
-    { _tdResourceId = pResourceId
-    , _tdResourceType = pResourceType
-    , _tdKey = pKey
-    , _tdPropagateAtLaunch = pPropagateAtLaunch
-    , _tdValue = pValue
+    { _tdResourceId = pResourceId_
+    , _tdResourceType = pResourceType_
+    , _tdKey = pKey_
+    , _tdPropagateAtLaunch = pPropagateAtLaunch_
+    , _tdValue = pValue_
     }
 
 -- | The name of the group.

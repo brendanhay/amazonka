@@ -73,11 +73,11 @@ data DeleteDBInstance = DeleteDBInstance'
 
 -- | 'DeleteDBInstance' smart constructor.
 deleteDBInstance :: Text -> DeleteDBInstance
-deleteDBInstance pDBInstanceIdentifier =
+deleteDBInstance pDBInstanceIdentifier_ =
     DeleteDBInstance'
     { _ddirqFinalDBSnapshotIdentifier = Nothing
     , _ddirqSkipFinalSnapshot = Nothing
-    , _ddirqDBInstanceIdentifier = pDBInstanceIdentifier
+    , _ddirqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
@@ -160,10 +160,10 @@ data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
 
 -- | 'DeleteDBInstanceResponse' smart constructor.
 deleteDBInstanceResponse :: Int -> DeleteDBInstanceResponse
-deleteDBInstanceResponse pStatus =
+deleteDBInstanceResponse pStatus_ =
     DeleteDBInstanceResponse'
     { _ddirsDBInstance = Nothing
-    , _ddirsStatus = pStatus
+    , _ddirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

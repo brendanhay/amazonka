@@ -96,14 +96,14 @@ data ListWorkflowTypes = ListWorkflowTypes'
 
 -- | 'ListWorkflowTypes' smart constructor.
 listWorkflowTypes :: Text -> RegistrationStatus -> ListWorkflowTypes
-listWorkflowTypes pDomain pRegistrationStatus =
+listWorkflowTypes pDomain_ pRegistrationStatus_ =
     ListWorkflowTypes'
     { _lwtrqNextPageToken = Nothing
     , _lwtrqReverseOrder = Nothing
     , _lwtrqName = Nothing
     , _lwtrqMaximumPageSize = Nothing
-    , _lwtrqDomain = pDomain
-    , _lwtrqRegistrationStatus = pRegistrationStatus
+    , _lwtrqDomain = pDomain_
+    , _lwtrqRegistrationStatus = pRegistrationStatus_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -209,10 +209,10 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
 listWorkflowTypesResponse :: Int -> ListWorkflowTypesResponse
-listWorkflowTypesResponse pStatus =
+listWorkflowTypesResponse pStatus_ =
     ListWorkflowTypesResponse'
     { _lwtrsNextPageToken = Nothing
-    , _lwtrsStatus = pStatus
+    , _lwtrsStatus = pStatus_
     , _lwtrsTypeInfos = mempty
     }
 

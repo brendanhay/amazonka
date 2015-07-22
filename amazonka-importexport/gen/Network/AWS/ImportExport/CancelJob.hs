@@ -61,10 +61,10 @@ data CancelJob = CancelJob'
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
-cancelJob pJobId =
+cancelJob pJobId_ =
     CancelJob'
     { _crqAPIVersion = Nothing
-    , _crqJobId = pJobId
+    , _crqJobId = pJobId_
     }
 
 -- | FIXME: Undocumented member.
@@ -115,10 +115,10 @@ data CancelJobResponse = CancelJobResponse'
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
-cancelJobResponse pStatus =
+cancelJobResponse pStatus_ =
     CancelJobResponse'
     { _crsSuccess = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -61,9 +61,9 @@ newtype DescribeIdentity = DescribeIdentity'
 
 -- | 'DescribeIdentity' smart constructor.
 describeIdentity :: Text -> DescribeIdentity
-describeIdentity pIdentityId =
+describeIdentity pIdentityId_ =
     DescribeIdentity'
-    { _dirqIdentityId = pIdentityId
+    { _dirqIdentityId = pIdentityId_
     }
 
 -- | A unique identifier in the format REGION:GUID.

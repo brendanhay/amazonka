@@ -154,11 +154,11 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
 describeCacheSecurityGroupsResponse :: Int -> DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse pStatus =
+describeCacheSecurityGroupsResponse pStatus_ =
     DescribeCacheSecurityGroupsResponse'
     { _dcsgsrsCacheSecurityGroups = Nothing
     , _dcsgsrsMarker = Nothing
-    , _dcsgsrsStatus = pStatus
+    , _dcsgsrsStatus = pStatus_
     }
 
 -- | A list of cache security groups. Each element in the list contains

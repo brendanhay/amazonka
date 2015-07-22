@@ -62,10 +62,10 @@ data DeleteVolume = DeleteVolume'
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
-deleteVolume pVolumeId =
+deleteVolume pVolumeId_ =
     DeleteVolume'
     { _dvvrqDryRun = Nothing
-    , _dvvrqVolumeId = pVolumeId
+    , _dvvrqVolumeId = pVolumeId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

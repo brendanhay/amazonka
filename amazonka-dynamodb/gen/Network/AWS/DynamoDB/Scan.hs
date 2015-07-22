@@ -141,7 +141,7 @@ data Scan = Scan'
 
 -- | 'Scan' smart constructor.
 scan :: Text -> Scan
-scan pTableName =
+scan pTableName_ =
     Scan'
     { _srqProjectionExpression = Nothing
     , _srqScanFilter = Nothing
@@ -158,7 +158,7 @@ scan pTableName =
     , _srqConditionalOperator = Nothing
     , _srqExclusiveStartKey = Nothing
     , _srqIndexName = Nothing
-    , _srqTableName = pTableName
+    , _srqTableName = pTableName_
     }
 
 -- | A string that identifies one or more attributes to retrieve from the
@@ -554,14 +554,14 @@ data ScanResponse = ScanResponse'
 
 -- | 'ScanResponse' smart constructor.
 scanResponse :: Int -> ScanResponse
-scanResponse pStatus =
+scanResponse pStatus_ =
     ScanResponse'
     { _srsLastEvaluatedKey = Nothing
     , _srsCount = Nothing
     , _srsScannedCount = Nothing
     , _srsItems = Nothing
     , _srsConsumedCapacity = Nothing
-    , _srsStatus = pStatus
+    , _srsStatus = pStatus_
     }
 
 -- | The primary key of the item where the operation stopped, inclusive of

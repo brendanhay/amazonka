@@ -75,13 +75,13 @@ data ImportVolume = ImportVolume'
 
 -- | 'ImportVolume' smart constructor.
 importVolume :: Text -> DiskImageDetail -> VolumeDetail -> ImportVolume
-importVolume pAvailabilityZone pImage pVolume =
+importVolume pAvailabilityZone_ pImage_ pVolume_ =
     ImportVolume'
     { _ivrqDryRun = Nothing
     , _ivrqDescription = Nothing
-    , _ivrqAvailabilityZone = pAvailabilityZone
-    , _ivrqImage = pImage
-    , _ivrqVolume = pVolume
+    , _ivrqAvailabilityZone = pAvailabilityZone_
+    , _ivrqImage = pImage_
+    , _ivrqVolume = pVolume_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -147,10 +147,10 @@ data ImportVolumeResponse = ImportVolumeResponse'
 
 -- | 'ImportVolumeResponse' smart constructor.
 importVolumeResponse :: Int -> ImportVolumeResponse
-importVolumeResponse pStatus =
+importVolumeResponse pStatus_ =
     ImportVolumeResponse'
     { _ivrsConversionTask = Nothing
-    , _ivrsStatus = pStatus
+    , _ivrsStatus = pStatus_
     }
 
 -- | Information about the conversion task.

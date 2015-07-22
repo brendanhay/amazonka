@@ -59,9 +59,9 @@ newtype CancelJob = CancelJob'
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
-cancelJob pId =
+cancelJob pId_ =
     CancelJob'
-    { _cjrqId = pId
+    { _cjrqId = pId_
     }
 
 -- | The identifier of the job that you want to cancel.
@@ -104,9 +104,9 @@ newtype CancelJobResponse = CancelJobResponse'
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
-cancelJobResponse pStatus =
+cancelJobResponse pStatus_ =
     CancelJobResponse'
-    { _canrsStatus = pStatus
+    { _canrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

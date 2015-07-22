@@ -56,9 +56,9 @@ newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
 
 -- | 'GetSubscriptionAttributes' smart constructor.
 getSubscriptionAttributes :: Text -> GetSubscriptionAttributes
-getSubscriptionAttributes pSubscriptionARN =
+getSubscriptionAttributes pSubscriptionARN_ =
     GetSubscriptionAttributes'
-    { _gsarqSubscriptionARN = pSubscriptionARN
+    { _gsarqSubscriptionARN = pSubscriptionARN_
     }
 
 -- | The ARN of the subscription whose properties you want to get.
@@ -108,10 +108,10 @@ data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
 
 -- | 'GetSubscriptionAttributesResponse' smart constructor.
 getSubscriptionAttributesResponse :: Int -> GetSubscriptionAttributesResponse
-getSubscriptionAttributesResponse pStatus =
+getSubscriptionAttributesResponse pStatus_ =
     GetSubscriptionAttributesResponse'
     { _gsarsAttributes = Nothing
-    , _gsarsStatus = pStatus
+    , _gsarsStatus = pStatus_
     }
 
 -- | A map of the subscription\'s attributes. Attributes in this map include

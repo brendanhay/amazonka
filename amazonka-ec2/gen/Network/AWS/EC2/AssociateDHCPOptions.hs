@@ -71,11 +71,11 @@ data AssociateDHCPOptions = AssociateDHCPOptions'
 
 -- | 'AssociateDHCPOptions' smart constructor.
 associateDHCPOptions :: Text -> Text -> AssociateDHCPOptions
-associateDHCPOptions pDHCPOptionsId pVPCId =
+associateDHCPOptions pDHCPOptionsId_ pVPCId_ =
     AssociateDHCPOptions'
     { _adorqDryRun = Nothing
-    , _adorqDHCPOptionsId = pDHCPOptionsId
-    , _adorqVPCId = pVPCId
+    , _adorqDHCPOptionsId = pDHCPOptionsId_
+    , _adorqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

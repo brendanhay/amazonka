@@ -56,10 +56,10 @@ data DisableMetricsCollection = DisableMetricsCollection'
 
 -- | 'DisableMetricsCollection' smart constructor.
 disableMetricsCollection :: Text -> DisableMetricsCollection
-disableMetricsCollection pAutoScalingGroupName =
+disableMetricsCollection pAutoScalingGroupName_ =
     DisableMetricsCollection'
     { _dmcrqMetrics = Nothing
-    , _dmcrqAutoScalingGroupName = pAutoScalingGroupName
+    , _dmcrqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | One or more metrics. If you omit this parameter, all metrics are

@@ -86,13 +86,13 @@ data CreateVPNConnection = CreateVPNConnection'
 
 -- | 'CreateVPNConnection' smart constructor.
 createVPNConnection :: Text -> Text -> Text -> CreateVPNConnection
-createVPNConnection pType pCustomerGatewayId pVPNGatewayId =
+createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
     CreateVPNConnection'
     { _cvcrqOptions = Nothing
     , _cvcrqDryRun = Nothing
-    , _cvcrqType = pType
-    , _cvcrqCustomerGatewayId = pCustomerGatewayId
-    , _cvcrqVPNGatewayId = pVPNGatewayId
+    , _cvcrqType = pType_
+    , _cvcrqCustomerGatewayId = pCustomerGatewayId_
+    , _cvcrqVPNGatewayId = pVPNGatewayId_
     }
 
 -- | Indicates whether the VPN connection requires static routes. If you are
@@ -163,10 +163,10 @@ data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
 
 -- | 'CreateVPNConnectionResponse' smart constructor.
 createVPNConnectionResponse :: Int -> CreateVPNConnectionResponse
-createVPNConnectionResponse pStatus =
+createVPNConnectionResponse pStatus_ =
     CreateVPNConnectionResponse'
     { _cvcrsVPNConnection = Nothing
-    , _cvcrsStatus = pStatus
+    , _cvcrsStatus = pStatus_
     }
 
 -- | Information about the VPN connection.

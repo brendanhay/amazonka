@@ -61,10 +61,10 @@ data DeactivateMFADevice = DeactivateMFADevice'
 
 -- | 'DeactivateMFADevice' smart constructor.
 deactivateMFADevice :: Text -> Text -> DeactivateMFADevice
-deactivateMFADevice pUserName pSerialNumber =
+deactivateMFADevice pUserName_ pSerialNumber_ =
     DeactivateMFADevice'
-    { _dmdrqUserName = pUserName
-    , _dmdrqSerialNumber = pSerialNumber
+    { _dmdrqUserName = pUserName_
+    , _dmdrqSerialNumber = pSerialNumber_
     }
 
 -- | The name of the user whose MFA device you want to deactivate.

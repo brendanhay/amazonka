@@ -68,9 +68,9 @@ newtype DeleteQueue = DeleteQueue'
 
 -- | 'DeleteQueue' smart constructor.
 deleteQueue :: Text -> DeleteQueue
-deleteQueue pQueueURL =
+deleteQueue pQueueURL_ =
     DeleteQueue'
-    { _dqrqQueueURL = pQueueURL
+    { _dqrqQueueURL = pQueueURL_
     }
 
 -- | The URL of the Amazon SQS queue to take action on.

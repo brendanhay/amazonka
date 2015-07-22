@@ -55,9 +55,9 @@ newtype GetDocument = GetDocument'
 
 -- | 'GetDocument' smart constructor.
 getDocument :: Text -> GetDocument
-getDocument pName =
+getDocument pName_ =
     GetDocument'
-    { _gdrqName = pName
+    { _gdrqName = pName_
     }
 
 -- | The name of the configuration document.
@@ -111,11 +111,11 @@ data GetDocumentResponse = GetDocumentResponse'
 
 -- | 'GetDocumentResponse' smart constructor.
 getDocumentResponse :: Int -> GetDocumentResponse
-getDocumentResponse pStatus =
+getDocumentResponse pStatus_ =
     GetDocumentResponse'
     { _gdrsContent = Nothing
     , _gdrsName = Nothing
-    , _gdrsStatus = pStatus
+    , _gdrsStatus = pStatus_
     }
 
 -- | The contents of the configuration document.

@@ -115,11 +115,11 @@ data DescribeClustersResponse = DescribeClustersResponse'
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Int -> DescribeClustersResponse
-describeClustersResponse pStatus =
+describeClustersResponse pStatus_ =
     DescribeClustersResponse'
     { _dcrsFailures = Nothing
     , _dcrsClusters = Nothing
-    , _dcrsStatus = pStatus
+    , _dcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -59,10 +59,10 @@ data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
 
 -- | 'AddRoleToInstanceProfile' smart constructor.
 addRoleToInstanceProfile :: Text -> Text -> AddRoleToInstanceProfile
-addRoleToInstanceProfile pInstanceProfileName pRoleName =
+addRoleToInstanceProfile pInstanceProfileName_ pRoleName_ =
     AddRoleToInstanceProfile'
-    { _artiprqInstanceProfileName = pInstanceProfileName
-    , _artiprqRoleName = pRoleName
+    { _artiprqInstanceProfileName = pInstanceProfileName_
+    , _artiprqRoleName = pRoleName_
     }
 
 -- | The name of the instance profile to update.

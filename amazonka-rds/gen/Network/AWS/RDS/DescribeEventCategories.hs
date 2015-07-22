@@ -126,10 +126,10 @@ data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
 describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse
-describeEventCategoriesResponse pStatus =
+describeEventCategoriesResponse pStatus_ =
     DescribeEventCategoriesResponse'
     { _decrsEventCategoriesMapList = Nothing
-    , _decrsStatus = pStatus
+    , _decrsStatus = pStatus_
     }
 
 -- | A list of EventCategoriesMap data types.

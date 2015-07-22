@@ -142,11 +142,11 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pStatus =
+describeLoadBalancersResponse pStatus_ =
     DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancerDescriptions = Nothing
     , _dlbrsNextMarker = Nothing
-    , _dlbrsStatus = pStatus
+    , _dlbrsStatus = pStatus_
     }
 
 -- | Information about the load balancers.

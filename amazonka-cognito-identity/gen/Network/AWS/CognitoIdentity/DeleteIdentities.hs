@@ -59,9 +59,9 @@ newtype DeleteIdentities = DeleteIdentities'
 
 -- | 'DeleteIdentities' smart constructor.
 deleteIdentities :: NonEmpty Text -> DeleteIdentities
-deleteIdentities pIdentityIdsToDelete =
+deleteIdentities pIdentityIdsToDelete_ =
     DeleteIdentities'
-    { _dirqIdentityIdsToDelete = _List1 # pIdentityIdsToDelete
+    { _dirqIdentityIdsToDelete = _List1 # pIdentityIdsToDelete_
     }
 
 -- | A list of 1-60 identities that you want to delete.
@@ -116,10 +116,10 @@ data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
 
 -- | 'DeleteIdentitiesResponse' smart constructor.
 deleteIdentitiesResponse :: Int -> DeleteIdentitiesResponse
-deleteIdentitiesResponse pStatus =
+deleteIdentitiesResponse pStatus_ =
     DeleteIdentitiesResponse'
     { _dirsUnprocessedIdentityIds = Nothing
-    , _dirsStatus = pStatus
+    , _dirsStatus = pStatus_
     }
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an

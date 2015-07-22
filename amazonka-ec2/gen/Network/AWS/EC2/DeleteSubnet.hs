@@ -56,10 +56,10 @@ data DeleteSubnet = DeleteSubnet'
 
 -- | 'DeleteSubnet' smart constructor.
 deleteSubnet :: Text -> DeleteSubnet
-deleteSubnet pSubnetId =
+deleteSubnet pSubnetId_ =
     DeleteSubnet'
     { _ddrqDryRun = Nothing
-    , _ddrqSubnetId = pSubnetId
+    , _ddrqSubnetId = pSubnetId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

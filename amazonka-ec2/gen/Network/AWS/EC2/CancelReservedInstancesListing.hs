@@ -59,9 +59,9 @@ newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
 
 -- | 'CancelReservedInstancesListing' smart constructor.
 cancelReservedInstancesListing :: Text -> CancelReservedInstancesListing
-cancelReservedInstancesListing pReservedInstancesListingId =
+cancelReservedInstancesListing pReservedInstancesListingId_ =
     CancelReservedInstancesListing'
-    { _crilrqReservedInstancesListingId = pReservedInstancesListingId
+    { _crilrqReservedInstancesListingId = pReservedInstancesListingId_
     }
 
 -- | The ID of the Reserved Instance listing.
@@ -112,10 +112,10 @@ data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResp
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
 cancelReservedInstancesListingResponse :: Int -> CancelReservedInstancesListingResponse
-cancelReservedInstancesListingResponse pStatus =
+cancelReservedInstancesListingResponse pStatus_ =
     CancelReservedInstancesListingResponse'
     { _crilrsReservedInstancesListings = Nothing
-    , _crilrsStatus = pStatus
+    , _crilrsStatus = pStatus_
     }
 
 -- | The Reserved Instance listing.

@@ -77,11 +77,11 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
 
 -- | 'CreateAppCookieStickinessPolicy' smart constructor.
 createAppCookieStickinessPolicy :: Text -> Text -> Text -> CreateAppCookieStickinessPolicy
-createAppCookieStickinessPolicy pLoadBalancerName pPolicyName pCookieName =
+createAppCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ pCookieName_ =
     CreateAppCookieStickinessPolicy'
-    { _cacsprqLoadBalancerName = pLoadBalancerName
-    , _cacsprqPolicyName = pPolicyName
-    , _cacsprqCookieName = pCookieName
+    { _cacsprqLoadBalancerName = pLoadBalancerName_
+    , _cacsprqPolicyName = pPolicyName_
+    , _cacsprqCookieName = pCookieName_
     }
 
 -- | The name of the load balancer.
@@ -139,9 +139,9 @@ newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolic
 
 -- | 'CreateAppCookieStickinessPolicyResponse' smart constructor.
 createAppCookieStickinessPolicyResponse :: Int -> CreateAppCookieStickinessPolicyResponse
-createAppCookieStickinessPolicyResponse pStatus =
+createAppCookieStickinessPolicyResponse pStatus_ =
     CreateAppCookieStickinessPolicyResponse'
-    { _cacsprsStatus = pStatus
+    { _cacsprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

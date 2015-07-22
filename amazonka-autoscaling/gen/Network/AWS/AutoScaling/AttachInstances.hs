@@ -59,10 +59,10 @@ data AttachInstances = AttachInstances'
 
 -- | 'AttachInstances' smart constructor.
 attachInstances :: Text -> AttachInstances
-attachInstances pAutoScalingGroupName =
+attachInstances pAutoScalingGroupName_ =
     AttachInstances'
     { _airqInstanceIds = Nothing
-    , _airqAutoScalingGroupName = pAutoScalingGroupName
+    , _airqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | One or more EC2 instance IDs.

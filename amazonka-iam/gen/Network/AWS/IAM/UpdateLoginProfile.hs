@@ -64,11 +64,11 @@ data UpdateLoginProfile = UpdateLoginProfile'
 
 -- | 'UpdateLoginProfile' smart constructor.
 updateLoginProfile :: Text -> UpdateLoginProfile
-updateLoginProfile pUserName =
+updateLoginProfile pUserName_ =
     UpdateLoginProfile'
     { _ulprqPassword = Nothing
     , _ulprqPasswordResetRequired = Nothing
-    , _ulprqUserName = pUserName
+    , _ulprqUserName = pUserName_
     }
 
 -- | The new password for the specified user.

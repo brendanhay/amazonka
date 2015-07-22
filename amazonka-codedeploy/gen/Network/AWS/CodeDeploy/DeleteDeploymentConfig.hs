@@ -56,9 +56,9 @@ newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
 
 -- | 'DeleteDeploymentConfig' smart constructor.
 deleteDeploymentConfig :: Text -> DeleteDeploymentConfig
-deleteDeploymentConfig pDeploymentConfigName =
+deleteDeploymentConfig pDeploymentConfigName_ =
     DeleteDeploymentConfig'
-    { _ddcrqDeploymentConfigName = pDeploymentConfigName
+    { _ddcrqDeploymentConfigName = pDeploymentConfigName_
     }
 
 -- | The name of an existing deployment configuration associated with the

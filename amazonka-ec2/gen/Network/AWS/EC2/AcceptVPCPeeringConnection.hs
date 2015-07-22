@@ -121,10 +121,10 @@ data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
 
 -- | 'AcceptVPCPeeringConnectionResponse' smart constructor.
 acceptVPCPeeringConnectionResponse :: Int -> AcceptVPCPeeringConnectionResponse
-acceptVPCPeeringConnectionResponse pStatus =
+acceptVPCPeeringConnectionResponse pStatus_ =
     AcceptVPCPeeringConnectionResponse'
     { _avpcrsVPCPeeringConnection = Nothing
-    , _avpcrsStatus = pStatus
+    , _avpcrsStatus = pStatus_
     }
 
 -- | Information about the VPC peering connection.

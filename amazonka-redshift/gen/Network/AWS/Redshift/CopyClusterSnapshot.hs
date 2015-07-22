@@ -77,11 +77,11 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
 
 -- | 'CopyClusterSnapshot' smart constructor.
 copyClusterSnapshot :: Text -> Text -> CopyClusterSnapshot
-copyClusterSnapshot pSourceSnapshotIdentifier pTargetSnapshotIdentifier =
+copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
     CopyClusterSnapshot'
     { _ccsrqSourceSnapshotClusterIdentifier = Nothing
-    , _ccsrqSourceSnapshotIdentifier = pSourceSnapshotIdentifier
-    , _ccsrqTargetSnapshotIdentifier = pTargetSnapshotIdentifier
+    , _ccsrqSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
+    , _ccsrqTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
     }
 
 -- | The identifier of the cluster the source snapshot was created from. This
@@ -159,10 +159,10 @@ data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
 
 -- | 'CopyClusterSnapshotResponse' smart constructor.
 copyClusterSnapshotResponse :: Int -> CopyClusterSnapshotResponse
-copyClusterSnapshotResponse pStatus =
+copyClusterSnapshotResponse pStatus_ =
     CopyClusterSnapshotResponse'
     { _ccsrsSnapshot = Nothing
-    , _ccsrsStatus = pStatus
+    , _ccsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -52,9 +52,9 @@ newtype DeleteGroup = DeleteGroup'
 
 -- | 'DeleteGroup' smart constructor.
 deleteGroup :: Text -> DeleteGroup
-deleteGroup pGroupName =
+deleteGroup pGroupName_ =
     DeleteGroup'
-    { _dgrqGroupName = pGroupName
+    { _dgrqGroupName = pGroupName_
     }
 
 -- | The name of the group to delete.

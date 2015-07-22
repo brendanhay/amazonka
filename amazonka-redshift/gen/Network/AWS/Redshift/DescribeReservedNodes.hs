@@ -153,11 +153,11 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
 
 -- | 'DescribeReservedNodesResponse' smart constructor.
 describeReservedNodesResponse :: Int -> DescribeReservedNodesResponse
-describeReservedNodesResponse pStatus =
+describeReservedNodesResponse pStatus_ =
     DescribeReservedNodesResponse'
     { _drnrsReservedNodes = Nothing
     , _drnrsMarker = Nothing
-    , _drnrsStatus = pStatus
+    , _drnrsStatus = pStatus_
     }
 
 -- | The list of reserved nodes.

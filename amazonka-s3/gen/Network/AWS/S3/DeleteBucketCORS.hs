@@ -51,9 +51,9 @@ newtype DeleteBucketCORS = DeleteBucketCORS'
 
 -- | 'DeleteBucketCORS' smart constructor.
 deleteBucketCORS :: BucketName -> DeleteBucketCORS
-deleteBucketCORS pBucket =
+deleteBucketCORS pBucket_ =
     DeleteBucketCORS'
-    { _dbcrqBucket = pBucket
+    { _dbcrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

@@ -126,10 +126,10 @@ data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
 
 -- | 'DescribeAgentVersionsResponse' smart constructor.
 describeAgentVersionsResponse :: Int -> DescribeAgentVersionsResponse
-describeAgentVersionsResponse pStatus =
+describeAgentVersionsResponse pStatus_ =
     DescribeAgentVersionsResponse'
     { _davrsAgentVersions = Nothing
-    , _davrsStatus = pStatus
+    , _davrsStatus = pStatus_
     }
 
 -- | The agent versions for the specified stack or configuration manager.

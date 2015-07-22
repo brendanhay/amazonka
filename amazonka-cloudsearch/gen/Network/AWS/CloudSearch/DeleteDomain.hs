@@ -60,9 +60,9 @@ newtype DeleteDomain = DeleteDomain'
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
-deleteDomain pDomainName =
+deleteDomain pDomainName_ =
     DeleteDomain'
-    { _dddrqDomainName = pDomainName
+    { _dddrqDomainName = pDomainName_
     }
 
 -- | The name of the domain you want to permanently delete.
@@ -110,10 +110,10 @@ data DeleteDomainResponse = DeleteDomainResponse'
 
 -- | 'DeleteDomainResponse' smart constructor.
 deleteDomainResponse :: Int -> DeleteDomainResponse
-deleteDomainResponse pStatus =
+deleteDomainResponse pStatus_ =
     DeleteDomainResponse'
     { _ddrsDomainStatus = Nothing
-    , _ddrsStatus = pStatus
+    , _ddrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

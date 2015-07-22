@@ -88,12 +88,12 @@ data Encrypt = Encrypt'
 
 -- | 'Encrypt' smart constructor.
 encrypt :: Text -> Base64 -> Encrypt
-encrypt pKeyId pPlaintext =
+encrypt pKeyId_ pPlaintext_ =
     Encrypt'
     { _erqEncryptionContext = Nothing
     , _erqGrantTokens = Nothing
-    , _erqKeyId = pKeyId
-    , _erqPlaintext = _Sensitive # pPlaintext
+    , _erqKeyId = pKeyId_
+    , _erqPlaintext = _Sensitive # pPlaintext_
     }
 
 -- | Name\/value pair that specifies the encryption context to be used for
@@ -176,11 +176,11 @@ data EncryptResponse = EncryptResponse'
 
 -- | 'EncryptResponse' smart constructor.
 encryptResponse :: Int -> EncryptResponse
-encryptResponse pStatus =
+encryptResponse pStatus_ =
     EncryptResponse'
     { _ersKeyId = Nothing
     , _ersCiphertextBlob = Nothing
-    , _ersStatus = pStatus
+    , _ersStatus = pStatus_
     }
 
 -- | The ID of the key used during encryption.

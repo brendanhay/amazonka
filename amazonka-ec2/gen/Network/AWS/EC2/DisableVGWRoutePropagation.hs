@@ -56,10 +56,10 @@ data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
 
 -- | 'DisableVGWRoutePropagation' smart constructor.
 disableVGWRoutePropagation :: Text -> Text -> DisableVGWRoutePropagation
-disableVGWRoutePropagation pRouteTableId pGatewayId =
+disableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
     DisableVGWRoutePropagation'
-    { _dvrprqRouteTableId = pRouteTableId
-    , _dvrprqGatewayId = pGatewayId
+    { _dvrprqRouteTableId = pRouteTableId_
+    , _dvrprqGatewayId = pGatewayId_
     }
 
 -- | The ID of the route table.

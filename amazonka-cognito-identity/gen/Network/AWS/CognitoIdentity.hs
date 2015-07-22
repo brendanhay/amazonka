@@ -67,8 +67,6 @@ import           Network.AWS.CognitoIdentity.LookupDeveloperIdentity            
 import           Network.AWS.CognitoIdentity.MergeDeveloperIdentities           as Export
 import           Network.AWS.CognitoIdentity.SetIdentityPoolRoles               as Export
 import           Network.AWS.CognitoIdentity.Types                              as Export
-import           Network.AWS.CognitoIdentity.Types.Product                      as Export
-import           Network.AWS.CognitoIdentity.Types.Sum                          as Export
 import           Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity            as Export
 import           Network.AWS.CognitoIdentity.UnlinkIdentity                     as Export
 import           Network.AWS.CognitoIdentity.UpdateIdentityPool                 as Export

@@ -59,9 +59,9 @@ newtype DescribeTaskDefinition = DescribeTaskDefinition'
 
 -- | 'DescribeTaskDefinition' smart constructor.
 describeTaskDefinition :: Text -> DescribeTaskDefinition
-describeTaskDefinition pTaskDefinition =
+describeTaskDefinition pTaskDefinition_ =
     DescribeTaskDefinition'
-    { _dtdrqTaskDefinition = pTaskDefinition
+    { _dtdrqTaskDefinition = pTaskDefinition_
     }
 
 -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
@@ -116,10 +116,10 @@ data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
 describeTaskDefinitionResponse :: Int -> DescribeTaskDefinitionResponse
-describeTaskDefinitionResponse pStatus =
+describeTaskDefinitionResponse pStatus_ =
     DescribeTaskDefinitionResponse'
     { _desrsTaskDefinition = Nothing
-    , _desrsStatus = pStatus
+    , _desrsStatus = pStatus_
     }
 
 -- | The full task definition description.

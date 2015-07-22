@@ -61,10 +61,10 @@ data CreateDocument = CreateDocument'
 
 -- | 'CreateDocument' smart constructor.
 createDocument :: Text -> Text -> CreateDocument
-createDocument pContent pName =
+createDocument pContent_ pName_ =
     CreateDocument'
-    { _cdrqContent = pContent
-    , _cdrqName = pName
+    { _cdrqContent = pContent_
+    , _cdrqName = pName_
     }
 
 -- | A valid JSON file. For more information about the contents of this file,
@@ -122,10 +122,10 @@ data CreateDocumentResponse = CreateDocumentResponse'
 
 -- | 'CreateDocumentResponse' smart constructor.
 createDocumentResponse :: Int -> CreateDocumentResponse
-createDocumentResponse pStatus =
+createDocumentResponse pStatus_ =
     CreateDocumentResponse'
     { _cdrsDocumentDescription = Nothing
-    , _cdrsStatus = pStatus
+    , _cdrsStatus = pStatus_
     }
 
 -- | Information about the configuration document.

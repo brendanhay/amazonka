@@ -61,10 +61,10 @@ data UpdateBatchPrediction = UpdateBatchPrediction'
 
 -- | 'UpdateBatchPrediction' smart constructor.
 updateBatchPrediction :: Text -> Text -> UpdateBatchPrediction
-updateBatchPrediction pBatchPredictionId pBatchPredictionName =
+updateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ =
     UpdateBatchPrediction'
-    { _ubprqBatchPredictionId = pBatchPredictionId
-    , _ubprqBatchPredictionName = pBatchPredictionName
+    { _ubprqBatchPredictionId = pBatchPredictionId_
+    , _ubprqBatchPredictionName = pBatchPredictionName_
     }
 
 -- | The ID assigned to the @BatchPrediction@ during creation.
@@ -127,10 +127,10 @@ data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
 updateBatchPredictionResponse :: Int -> UpdateBatchPredictionResponse
-updateBatchPredictionResponse pStatus =
+updateBatchPredictionResponse pStatus_ =
     UpdateBatchPredictionResponse'
     { _ubprsBatchPredictionId = Nothing
-    , _ubprsStatus = pStatus
+    , _ubprsStatus = pStatus_
     }
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value

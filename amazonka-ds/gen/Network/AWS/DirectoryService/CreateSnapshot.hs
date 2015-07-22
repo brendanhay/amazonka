@@ -62,10 +62,10 @@ data CreateSnapshot = CreateSnapshot'
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
-createSnapshot pDirectoryId =
+createSnapshot pDirectoryId_ =
     CreateSnapshot'
     { _csrqName = Nothing
-    , _csrqDirectoryId = pDirectoryId
+    , _csrqDirectoryId = pDirectoryId_
     }
 
 -- | The descriptive name to apply to the snapshot.
@@ -124,10 +124,10 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
-createSnapshotResponse pStatus =
+createSnapshotResponse pStatus_ =
     CreateSnapshotResponse'
     { _csrsSnapshotId = Nothing
-    , _csrsStatus = pStatus
+    , _csrsStatus = pStatus_
     }
 
 -- | The identifier of the snapshot that was created.

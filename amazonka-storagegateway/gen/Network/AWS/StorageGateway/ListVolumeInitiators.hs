@@ -58,9 +58,9 @@ newtype ListVolumeInitiators = ListVolumeInitiators'
 
 -- | 'ListVolumeInitiators' smart constructor.
 listVolumeInitiators :: Text -> ListVolumeInitiators
-listVolumeInitiators pVolumeARN =
+listVolumeInitiators pVolumeARN_ =
     ListVolumeInitiators'
-    { _lvirqVolumeARN = pVolumeARN
+    { _lvirqVolumeARN = pVolumeARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
@@ -116,10 +116,10 @@ data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
 
 -- | 'ListVolumeInitiatorsResponse' smart constructor.
 listVolumeInitiatorsResponse :: Int -> ListVolumeInitiatorsResponse
-listVolumeInitiatorsResponse pStatus =
+listVolumeInitiatorsResponse pStatus_ =
     ListVolumeInitiatorsResponse'
     { _lvirsInitiators = Nothing
-    , _lvirsStatus = pStatus
+    , _lvirsStatus = pStatus_
     }
 
 -- | The host names and port numbers of all iSCSI initiators that are

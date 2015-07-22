@@ -63,11 +63,11 @@ data GetObjectTorrent = GetObjectTorrent'
 
 -- | 'GetObjectTorrent' smart constructor.
 getObjectTorrent :: BucketName -> ObjectKey -> GetObjectTorrent
-getObjectTorrent pBucket pKey =
+getObjectTorrent pBucket_ pKey_ =
     GetObjectTorrent'
     { _gotrqRequestPayer = Nothing
-    , _gotrqBucket = pBucket
-    , _gotrqKey = pKey
+    , _gotrqBucket = pBucket_
+    , _gotrqKey = pKey_
     }
 
 -- | FIXME: Undocumented member.
@@ -124,11 +124,11 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
 
 -- | 'GetObjectTorrentResponse' smart constructor.
 getObjectTorrentResponse :: Int -> RsBody -> GetObjectTorrentResponse
-getObjectTorrentResponse pStatus pBody =
+getObjectTorrentResponse pStatus_ pBody_ =
     GetObjectTorrentResponse'
     { _gotrsRequestCharged = Nothing
-    , _gotrsStatus = pStatus
-    , _gotrsBody = pBody
+    , _gotrsStatus = pStatus_
+    , _gotrsBody = pBody_
     }
 
 -- | FIXME: Undocumented member.

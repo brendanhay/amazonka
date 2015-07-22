@@ -67,11 +67,11 @@ data DeleteCustomActionType = DeleteCustomActionType'
 
 -- | 'DeleteCustomActionType' smart constructor.
 deleteCustomActionType :: ActionCategory -> Text -> Text -> DeleteCustomActionType
-deleteCustomActionType pCategory pProvider pVersion =
+deleteCustomActionType pCategory_ pProvider_ pVersion_ =
     DeleteCustomActionType'
-    { _dcatrqCategory = pCategory
-    , _dcatrqProvider = pProvider
-    , _dcatrqVersion = pVersion
+    { _dcatrqCategory = pCategory_
+    , _dcatrqProvider = pProvider_
+    , _dcatrqVersion = pVersion_
     }
 
 -- | The category of the custom action that you want to delete, such as

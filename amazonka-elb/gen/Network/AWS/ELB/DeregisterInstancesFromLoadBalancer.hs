@@ -67,9 +67,9 @@ data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
 
 -- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
 deregisterInstancesFromLoadBalancer :: Text -> DeregisterInstancesFromLoadBalancer
-deregisterInstancesFromLoadBalancer pLoadBalancerName =
+deregisterInstancesFromLoadBalancer pLoadBalancerName_ =
     DeregisterInstancesFromLoadBalancer'
-    { _diflbrqLoadBalancerName = pLoadBalancerName
+    { _diflbrqLoadBalancerName = pLoadBalancerName_
     , _diflbrqInstances = mempty
     }
 
@@ -130,10 +130,10 @@ data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBa
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
 deregisterInstancesFromLoadBalancerResponse :: Int -> DeregisterInstancesFromLoadBalancerResponse
-deregisterInstancesFromLoadBalancerResponse pStatus =
+deregisterInstancesFromLoadBalancerResponse pStatus_ =
     DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrsInstances = Nothing
-    , _diflbrsStatus = pStatus
+    , _diflbrsStatus = pStatus_
     }
 
 -- | The remaining instances registered with the load balancer.

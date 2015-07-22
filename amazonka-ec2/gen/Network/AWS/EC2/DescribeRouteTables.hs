@@ -197,10 +197,10 @@ data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
 describeRouteTablesResponse :: Int -> DescribeRouteTablesResponse
-describeRouteTablesResponse pStatus =
+describeRouteTablesResponse pStatus_ =
     DescribeRouteTablesResponse'
     { _drtrsRouteTables = Nothing
-    , _drtrsStatus = pStatus
+    , _drtrsStatus = pStatus_
     }
 
 -- | Information about one or more route tables.

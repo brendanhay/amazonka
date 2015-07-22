@@ -167,11 +167,11 @@ data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
 
 -- | 'ListEventSourceMappingsResponse' smart constructor.
 listEventSourceMappingsResponse :: Int -> ListEventSourceMappingsResponse
-listEventSourceMappingsResponse pStatus =
+listEventSourceMappingsResponse pStatus_ =
     ListEventSourceMappingsResponse'
     { _lesmrsEventSourceMappings = Nothing
     , _lesmrsNextMarker = Nothing
-    , _lesmrsStatus = pStatus
+    , _lesmrsStatus = pStatus_
     }
 
 -- | An array of @EventSourceMappingConfiguration@ objects.

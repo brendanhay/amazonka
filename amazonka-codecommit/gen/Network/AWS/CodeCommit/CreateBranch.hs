@@ -64,11 +64,11 @@ data CreateBranch = CreateBranch'
 
 -- | 'CreateBranch' smart constructor.
 createBranch :: Text -> Text -> Text -> CreateBranch
-createBranch pRepositoryName pBranchName pCommitId =
+createBranch pRepositoryName_ pBranchName_ pCommitId_ =
     CreateBranch'
-    { _cbrqRepositoryName = pRepositoryName
-    , _cbrqBranchName = pBranchName
-    , _cbrqCommitId = pCommitId
+    { _cbrqRepositoryName = pRepositoryName_
+    , _cbrqBranchName = pBranchName_
+    , _cbrqCommitId = pCommitId_
     }
 
 -- | The name of the repository in which you want to create the new branch.

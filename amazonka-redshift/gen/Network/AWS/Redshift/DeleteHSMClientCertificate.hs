@@ -53,9 +53,9 @@ newtype DeleteHSMClientCertificate = DeleteHSMClientCertificate'
 
 -- | 'DeleteHSMClientCertificate' smart constructor.
 deleteHSMClientCertificate :: Text -> DeleteHSMClientCertificate
-deleteHSMClientCertificate pHSMClientCertificateIdentifier =
+deleteHSMClientCertificate pHSMClientCertificateIdentifier_ =
     DeleteHSMClientCertificate'
-    { _dhsmccrqHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier
+    { _dhsmccrqHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
     }
 
 -- | The identifier of the HSM client certificate to be deleted.

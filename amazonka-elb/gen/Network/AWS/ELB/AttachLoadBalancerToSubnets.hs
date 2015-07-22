@@ -64,9 +64,9 @@ data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
 
 -- | 'AttachLoadBalancerToSubnets' smart constructor.
 attachLoadBalancerToSubnets :: Text -> AttachLoadBalancerToSubnets
-attachLoadBalancerToSubnets pLoadBalancerName =
+attachLoadBalancerToSubnets pLoadBalancerName_ =
     AttachLoadBalancerToSubnets'
-    { _albtsrqLoadBalancerName = pLoadBalancerName
+    { _albtsrqLoadBalancerName = pLoadBalancerName_
     , _albtsrqSubnets = mempty
     }
 
@@ -122,10 +122,10 @@ data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
 attachLoadBalancerToSubnetsResponse :: Int -> AttachLoadBalancerToSubnetsResponse
-attachLoadBalancerToSubnetsResponse pStatus =
+attachLoadBalancerToSubnetsResponse pStatus_ =
     AttachLoadBalancerToSubnetsResponse'
     { _albtsrsSubnets = Nothing
-    , _albtsrsStatus = pStatus
+    , _albtsrsStatus = pStatus_
     }
 
 -- | The IDs of the subnets attached to the load balancer.

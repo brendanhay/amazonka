@@ -135,10 +135,10 @@ data DescribeRegionsResponse = DescribeRegionsResponse'
 
 -- | 'DescribeRegionsResponse' smart constructor.
 describeRegionsResponse :: Int -> DescribeRegionsResponse
-describeRegionsResponse pStatus =
+describeRegionsResponse pStatus_ =
     DescribeRegionsResponse'
     { _drrsRegions = Nothing
-    , _drrsStatus = pStatus
+    , _drrsStatus = pStatus_
     }
 
 -- | Information about one or more regions.

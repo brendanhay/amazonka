@@ -119,12 +119,12 @@ data GetJobOutput = GetJobOutput'
 
 -- | 'GetJobOutput' smart constructor.
 getJobOutput :: Text -> Text -> Text -> GetJobOutput
-getJobOutput pAccountId pVaultName pJobId =
+getJobOutput pAccountId_ pVaultName_ pJobId_ =
     GetJobOutput'
     { _gjorqRange = Nothing
-    , _gjorqAccountId = pAccountId
-    , _gjorqVaultName = pVaultName
-    , _gjorqJobId = pJobId
+    , _gjorqAccountId = pAccountId_
+    , _gjorqVaultName = pVaultName_
+    , _gjorqJobId = pJobId_
     }
 
 -- | The range of bytes to retrieve from the output. For example, if you want
@@ -211,15 +211,15 @@ data GetJobOutputResponse = GetJobOutputResponse'
 
 -- | 'GetJobOutputResponse' smart constructor.
 getJobOutputResponse :: Int -> RsBody -> GetJobOutputResponse
-getJobOutputResponse pStatus pBody =
+getJobOutputResponse pStatus_ pBody_ =
     GetJobOutputResponse'
     { _gjorsChecksum = Nothing
     , _gjorsAcceptRanges = Nothing
     , _gjorsArchiveDescription = Nothing
     , _gjorsContentRange = Nothing
     , _gjorsContentType = Nothing
-    , _gjorsStatus = pStatus
-    , _gjorsBody = pBody
+    , _gjorsStatus = pStatus_
+    , _gjorsBody = pBody_
     }
 
 -- | The checksum of the data in the response. This header is returned only

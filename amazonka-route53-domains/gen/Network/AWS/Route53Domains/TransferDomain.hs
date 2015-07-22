@@ -125,7 +125,7 @@ data TransferDomain = TransferDomain'
 
 -- | 'TransferDomain' smart constructor.
 transferDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> TransferDomain
-transferDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact =
+transferDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_ pTechContact_ =
     TransferDomain'
     { _tdrqPrivacyProtectTechContact = Nothing
     , _tdrqPrivacyProtectRegistrantContact = Nothing
@@ -134,11 +134,11 @@ transferDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTe
     , _tdrqIdNLangCode = Nothing
     , _tdrqAuthCode = Nothing
     , _tdrqNameservers = Nothing
-    , _tdrqDomainName = pDomainName
-    , _tdrqDurationInYears = _Nat # pDurationInYears
-    , _tdrqAdminContact = _Sensitive # pAdminContact
-    , _tdrqRegistrantContact = _Sensitive # pRegistrantContact
-    , _tdrqTechContact = _Sensitive # pTechContact
+    , _tdrqDomainName = pDomainName_
+    , _tdrqDurationInYears = _Nat # pDurationInYears_
+    , _tdrqAdminContact = _Sensitive # pAdminContact_
+    , _tdrqRegistrantContact = _Sensitive # pRegistrantContact_
+    , _tdrqTechContact = _Sensitive # pTechContact_
     }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -347,10 +347,10 @@ data TransferDomainResponse = TransferDomainResponse'
 
 -- | 'TransferDomainResponse' smart constructor.
 transferDomainResponse :: Int -> Text -> TransferDomainResponse
-transferDomainResponse pStatus pOperationId =
+transferDomainResponse pStatus_ pOperationId_ =
     TransferDomainResponse'
-    { _tdrsStatus = pStatus
-    , _tdrsOperationId = pOperationId
+    { _tdrsStatus = pStatus_
+    , _tdrsOperationId = pOperationId_
     }
 
 -- | FIXME: Undocumented member.

@@ -80,12 +80,12 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
 
 -- | 'PurchaseReservedInstancesOffering' smart constructor.
 purchaseReservedInstancesOffering :: Text -> Int -> PurchaseReservedInstancesOffering
-purchaseReservedInstancesOffering pReservedInstancesOfferingId pInstanceCount =
+purchaseReservedInstancesOffering pReservedInstancesOfferingId_ pInstanceCount_ =
     PurchaseReservedInstancesOffering'
     { _priorqLimitPrice = Nothing
     , _priorqDryRun = Nothing
-    , _priorqReservedInstancesOfferingId = pReservedInstancesOfferingId
-    , _priorqInstanceCount = pInstanceCount
+    , _priorqReservedInstancesOfferingId = pReservedInstancesOfferingId_
+    , _priorqInstanceCount = pInstanceCount_
     }
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
@@ -157,10 +157,10 @@ data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferi
 
 -- | 'PurchaseReservedInstancesOfferingResponse' smart constructor.
 purchaseReservedInstancesOfferingResponse :: Int -> PurchaseReservedInstancesOfferingResponse
-purchaseReservedInstancesOfferingResponse pStatus =
+purchaseReservedInstancesOfferingResponse pStatus_ =
     PurchaseReservedInstancesOfferingResponse'
     { _priorsReservedInstancesId = Nothing
-    , _priorsStatus = pStatus
+    , _priorsStatus = pStatus_
     }
 
 -- | The IDs of the purchased Reserved Instances.

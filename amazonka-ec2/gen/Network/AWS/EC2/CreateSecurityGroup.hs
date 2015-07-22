@@ -94,12 +94,12 @@ data CreateSecurityGroup = CreateSecurityGroup'
 
 -- | 'CreateSecurityGroup' smart constructor.
 createSecurityGroup :: Text -> Text -> CreateSecurityGroup
-createSecurityGroup pGroupName pDescription =
+createSecurityGroup pGroupName_ pDescription_ =
     CreateSecurityGroup'
     { _csgrqVPCId = Nothing
     , _csgrqDryRun = Nothing
-    , _csgrqGroupName = pGroupName
-    , _csgrqDescription = pDescription
+    , _csgrqGroupName = pGroupName_
+    , _csgrqDescription = pDescription_
     }
 
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
@@ -175,10 +175,10 @@ data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
 
 -- | 'CreateSecurityGroupResponse' smart constructor.
 createSecurityGroupResponse :: Int -> Text -> CreateSecurityGroupResponse
-createSecurityGroupResponse pStatus pGroupId =
+createSecurityGroupResponse pStatus_ pGroupId_ =
     CreateSecurityGroupResponse'
-    { _csgrsStatus = pStatus
-    , _csgrsGroupId = pGroupId
+    { _csgrsStatus = pStatus_
+    , _csgrsGroupId = pGroupId_
     }
 
 -- | FIXME: Undocumented member.

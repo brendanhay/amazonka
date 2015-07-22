@@ -67,12 +67,12 @@ data SetAlarmState = SetAlarmState'
 
 -- | 'SetAlarmState' smart constructor.
 setAlarmState :: Text -> StateValue -> Text -> SetAlarmState
-setAlarmState pAlarmName pStateValue pStateReason =
+setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
     SetAlarmState'
     { _sasrqStateReasonData = Nothing
-    , _sasrqAlarmName = pAlarmName
-    , _sasrqStateValue = pStateValue
-    , _sasrqStateReason = pStateReason
+    , _sasrqAlarmName = pAlarmName_
+    , _sasrqStateValue = pStateValue_
+    , _sasrqStateReason = pStateReason_
     }
 
 -- | The reason that this alarm is set to this specific state (in

@@ -61,10 +61,10 @@ data ListRuns = ListRuns'
 
 -- | 'ListRuns' smart constructor.
 listRuns :: Text -> ListRuns
-listRuns pArn =
+listRuns pArn_ =
     ListRuns'
     { _lrrqNextToken = Nothing
-    , _lrrqArn = pArn
+    , _lrrqArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -127,11 +127,11 @@ data ListRunsResponse = ListRunsResponse'
 
 -- | 'ListRunsResponse' smart constructor.
 listRunsResponse :: Int -> ListRunsResponse
-listRunsResponse pStatus =
+listRunsResponse pStatus_ =
     ListRunsResponse'
     { _lrrsRuns = Nothing
     , _lrrsNextToken = Nothing
-    , _lrrsStatus = pStatus
+    , _lrrsStatus = pStatus_
     }
 
 -- | Information about the runs.

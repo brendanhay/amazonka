@@ -58,9 +58,9 @@ newtype DeleteRole = DeleteRole'
 
 -- | 'DeleteRole' smart constructor.
 deleteRole :: Text -> DeleteRole
-deleteRole pRoleName =
+deleteRole pRoleName_ =
     DeleteRole'
-    { _drrqRoleName = pRoleName
+    { _drrqRoleName = pRoleName_
     }
 
 -- | The name of the role to delete.

@@ -120,11 +120,11 @@ data ListTopicsResponse = ListTopicsResponse'
 
 -- | 'ListTopicsResponse' smart constructor.
 listTopicsResponse :: Int -> ListTopicsResponse
-listTopicsResponse pStatus =
+listTopicsResponse pStatus_ =
     ListTopicsResponse'
     { _ltrsTopics = Nothing
     , _ltrsNextToken = Nothing
-    , _ltrsStatus = pStatus
+    , _ltrsStatus = pStatus_
     }
 
 -- | A list of topic ARNs.

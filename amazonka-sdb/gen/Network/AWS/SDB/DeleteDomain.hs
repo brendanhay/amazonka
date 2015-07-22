@@ -53,9 +53,9 @@ newtype DeleteDomain = DeleteDomain'
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
-deleteDomain pDomainName =
+deleteDomain pDomainName_ =
     DeleteDomain'
-    { _ddrqDomainName = pDomainName
+    { _ddrqDomainName = pDomainName_
     }
 
 -- | The name of the domain to delete.

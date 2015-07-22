@@ -151,7 +151,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
 
 -- | 'CreateMultipartUpload' smart constructor.
 createMultipartUpload :: BucketName -> ObjectKey -> CreateMultipartUpload
-createMultipartUpload pBucket pKey =
+createMultipartUpload pBucket_ pKey_ =
     CreateMultipartUpload'
     { _cmurqExpires = Nothing
     , _cmurqSSECustomerAlgorithm = Nothing
@@ -173,8 +173,8 @@ createMultipartUpload pBucket pKey =
     , _cmurqContentDisposition = Nothing
     , _cmurqServerSideEncryption = Nothing
     , _cmurqContentType = Nothing
-    , _cmurqBucket = pBucket
-    , _cmurqKey = pKey
+    , _cmurqBucket = pBucket_
+    , _cmurqKey = pKey_
     }
 
 -- | The date and time at which the object is no longer cacheable.
@@ -378,7 +378,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
 
 -- | 'CreateMultipartUploadResponse' smart constructor.
 createMultipartUploadResponse :: Int -> CreateMultipartUploadResponse
-createMultipartUploadResponse pStatus =
+createMultipartUploadResponse pStatus_ =
     CreateMultipartUploadResponse'
     { _cmursRequestCharged = Nothing
     , _cmursSSECustomerAlgorithm = Nothing
@@ -388,7 +388,7 @@ createMultipartUploadResponse pStatus =
     , _cmursSSECustomerKeyMD5 = Nothing
     , _cmursUploadId = Nothing
     , _cmursServerSideEncryption = Nothing
-    , _cmursStatus = pStatus
+    , _cmursStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

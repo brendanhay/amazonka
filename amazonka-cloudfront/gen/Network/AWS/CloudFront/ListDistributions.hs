@@ -116,10 +116,10 @@ data ListDistributionsResponse = ListDistributionsResponse'
 
 -- | 'ListDistributionsResponse' smart constructor.
 listDistributionsResponse :: Int -> DistributionList -> ListDistributionsResponse
-listDistributionsResponse pStatus pDistributionList =
+listDistributionsResponse pStatus_ pDistributionList_ =
     ListDistributionsResponse'
-    { _ldrsStatus = pStatus
-    , _ldrsDistributionList = pDistributionList
+    { _ldrsStatus = pStatus_
+    , _ldrsDistributionList = pDistributionList_
     }
 
 -- | FIXME: Undocumented member.

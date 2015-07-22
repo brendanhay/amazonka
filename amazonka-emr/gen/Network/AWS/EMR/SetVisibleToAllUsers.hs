@@ -62,10 +62,10 @@ data SetVisibleToAllUsers = SetVisibleToAllUsers'
 
 -- | 'SetVisibleToAllUsers' smart constructor.
 setVisibleToAllUsers :: Bool -> SetVisibleToAllUsers
-setVisibleToAllUsers pVisibleToAllUsers =
+setVisibleToAllUsers pVisibleToAllUsers_ =
     SetVisibleToAllUsers'
     { _svtaurqJobFlowIds = mempty
-    , _svtaurqVisibleToAllUsers = pVisibleToAllUsers
+    , _svtaurqVisibleToAllUsers = pVisibleToAllUsers_
     }
 
 -- | Identifiers of the job flows to receive the new visibility setting.

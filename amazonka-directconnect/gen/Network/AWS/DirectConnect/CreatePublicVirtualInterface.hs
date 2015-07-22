@@ -77,10 +77,10 @@ data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
 
 -- | 'CreatePublicVirtualInterface' smart constructor.
 createPublicVirtualInterface :: Text -> NewPublicVirtualInterface -> CreatePublicVirtualInterface
-createPublicVirtualInterface pConnectionId pNewPublicVirtualInterface =
+createPublicVirtualInterface pConnectionId_ pNewPublicVirtualInterface_ =
     CreatePublicVirtualInterface'
-    { _cpvirqConnectionId = pConnectionId
-    , _cpvirqNewPublicVirtualInterface = pNewPublicVirtualInterface
+    { _cpvirqConnectionId = pConnectionId_
+    , _cpvirqNewPublicVirtualInterface = pNewPublicVirtualInterface_
     }
 
 -- | FIXME: Undocumented member.

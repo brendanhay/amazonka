@@ -64,12 +64,12 @@ data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
 
 -- | 'DeleteNetworkACLEntry' smart constructor.
 deleteNetworkACLEntry :: Text -> Int -> Bool -> DeleteNetworkACLEntry
-deleteNetworkACLEntry pNetworkACLId pRuleNumber pEgress =
+deleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ =
     DeleteNetworkACLEntry'
     { _dnaerqDryRun = Nothing
-    , _dnaerqNetworkACLId = pNetworkACLId
-    , _dnaerqRuleNumber = pRuleNumber
-    , _dnaerqEgress = pEgress
+    , _dnaerqNetworkACLId = pNetworkACLId_
+    , _dnaerqRuleNumber = pRuleNumber_
+    , _dnaerqEgress = pEgress_
     }
 
 -- | Checks whether you have the required permissions for the action, without

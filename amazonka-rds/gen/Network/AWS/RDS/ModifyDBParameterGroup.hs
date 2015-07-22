@@ -79,9 +79,9 @@ data ModifyDBParameterGroup = ModifyDBParameterGroup'
 
 -- | 'ModifyDBParameterGroup' smart constructor.
 modifyDBParameterGroup :: Text -> ModifyDBParameterGroup
-modifyDBParameterGroup pDBParameterGroupName =
+modifyDBParameterGroup pDBParameterGroupName_ =
     ModifyDBParameterGroup'
-    { _mdpgrqDBParameterGroupName = pDBParameterGroupName
+    { _mdpgrqDBParameterGroupName = pDBParameterGroupName_
     , _mdpgrqParameters = mempty
     }
 

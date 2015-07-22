@@ -68,11 +68,11 @@ data CreateVPNGateway = CreateVPNGateway'
 
 -- | 'CreateVPNGateway' smart constructor.
 createVPNGateway :: GatewayType -> CreateVPNGateway
-createVPNGateway pType =
+createVPNGateway pType_ =
     CreateVPNGateway'
     { _cvgrqAvailabilityZone = Nothing
     , _cvgrqDryRun = Nothing
-    , _cvgrqType = pType
+    , _cvgrqType = pType_
     }
 
 -- | The Availability Zone for the virtual private gateway.
@@ -128,10 +128,10 @@ data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
 
 -- | 'CreateVPNGatewayResponse' smart constructor.
 createVPNGatewayResponse :: Int -> CreateVPNGatewayResponse
-createVPNGatewayResponse pStatus =
+createVPNGatewayResponse pStatus_ =
     CreateVPNGatewayResponse'
     { _cvgrsVPNGateway = Nothing
-    , _cvgrsStatus = pStatus
+    , _cvgrsStatus = pStatus_
     }
 
 -- | Information about the virtual private gateway.

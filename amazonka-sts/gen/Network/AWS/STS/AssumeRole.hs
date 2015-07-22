@@ -157,15 +157,15 @@ data AssumeRole = AssumeRole'
 
 -- | 'AssumeRole' smart constructor.
 assumeRole :: Text -> Text -> AssumeRole
-assumeRole pRoleARN pRoleSessionName =
+assumeRole pRoleARN_ pRoleSessionName_ =
     AssumeRole'
     { _arrqTokenCode = Nothing
     , _arrqDurationSeconds = Nothing
     , _arrqExternalId = Nothing
     , _arrqPolicy = Nothing
     , _arrqSerialNumber = Nothing
-    , _arrqRoleARN = pRoleARN
-    , _arrqRoleSessionName = pRoleSessionName
+    , _arrqRoleARN = pRoleARN_
+    , _arrqRoleSessionName = pRoleSessionName_
     }
 
 -- | The value provided by the MFA device, if the trust policy of the role
@@ -297,12 +297,12 @@ data AssumeRoleResponse = AssumeRoleResponse'
 
 -- | 'AssumeRoleResponse' smart constructor.
 assumeRoleResponse :: Int -> AssumeRoleResponse
-assumeRoleResponse pStatus =
+assumeRoleResponse pStatus_ =
     AssumeRoleResponse'
     { _arrsPackedPolicySize = Nothing
     , _arrsCredentials = Nothing
     , _arrsAssumedRoleUser = Nothing
-    , _arrsStatus = pStatus
+    , _arrsStatus = pStatus_
     }
 
 -- | A percentage value that indicates the size of the policy in packed form.

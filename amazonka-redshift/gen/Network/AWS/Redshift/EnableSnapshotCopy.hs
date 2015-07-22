@@ -69,12 +69,12 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
 
 -- | 'EnableSnapshotCopy' smart constructor.
 enableSnapshotCopy :: Text -> Text -> EnableSnapshotCopy
-enableSnapshotCopy pClusterIdentifier pDestinationRegion =
+enableSnapshotCopy pClusterIdentifier_ pDestinationRegion_ =
     EnableSnapshotCopy'
     { _escrqRetentionPeriod = Nothing
     , _escrqSnapshotCopyGrantName = Nothing
-    , _escrqClusterIdentifier = pClusterIdentifier
-    , _escrqDestinationRegion = pDestinationRegion
+    , _escrqClusterIdentifier = pClusterIdentifier_
+    , _escrqDestinationRegion = pDestinationRegion_
     }
 
 -- | The number of days to retain automated snapshots in the destination
@@ -149,10 +149,10 @@ data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
 
 -- | 'EnableSnapshotCopyResponse' smart constructor.
 enableSnapshotCopyResponse :: Int -> EnableSnapshotCopyResponse
-enableSnapshotCopyResponse pStatus =
+enableSnapshotCopyResponse pStatus_ =
     EnableSnapshotCopyResponse'
     { _escrsCluster = Nothing
-    , _escrsStatus = pStatus
+    , _escrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

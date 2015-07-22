@@ -119,13 +119,13 @@ data ListResourceRecordSets = ListResourceRecordSets'
 
 -- | 'ListResourceRecordSets' smart constructor.
 listResourceRecordSets :: Text -> ListResourceRecordSets
-listResourceRecordSets pHostedZoneId =
+listResourceRecordSets pHostedZoneId_ =
     ListResourceRecordSets'
     { _lrrsrqStartRecordName = Nothing
     , _lrrsrqStartRecordType = Nothing
     , _lrrsrqStartRecordIdentifier = Nothing
     , _lrrsrqMaxItems = Nothing
-    , _lrrsrqHostedZoneId = pHostedZoneId
+    , _lrrsrqHostedZoneId = pHostedZoneId_
     }
 
 -- | The first name in the lexicographic ordering of domain names that you
@@ -248,15 +248,15 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
 listResourceRecordSetsResponse :: Int -> Bool -> Text -> ListResourceRecordSetsResponse
-listResourceRecordSetsResponse pStatus pIsTruncated pMaxItems =
+listResourceRecordSetsResponse pStatus_ pIsTruncated_ pMaxItems_ =
     ListResourceRecordSetsResponse'
     { _lrrsrsNextRecordType = Nothing
     , _lrrsrsNextRecordName = Nothing
     , _lrrsrsNextRecordIdentifier = Nothing
-    , _lrrsrsStatus = pStatus
+    , _lrrsrsStatus = pStatus_
     , _lrrsrsResourceRecordSets = mempty
-    , _lrrsrsIsTruncated = pIsTruncated
-    , _lrrsrsMaxItems = pMaxItems
+    , _lrrsrsIsTruncated = pIsTruncated_
+    , _lrrsrsMaxItems = pMaxItems_
     }
 
 -- | If the results were truncated, the type of the next record in the list.

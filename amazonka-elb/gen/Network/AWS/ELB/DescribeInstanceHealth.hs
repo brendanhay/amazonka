@@ -61,10 +61,10 @@ data DescribeInstanceHealth = DescribeInstanceHealth'
 
 -- | 'DescribeInstanceHealth' smart constructor.
 describeInstanceHealth :: Text -> DescribeInstanceHealth
-describeInstanceHealth pLoadBalancerName =
+describeInstanceHealth pLoadBalancerName_ =
     DescribeInstanceHealth'
     { _dihrqInstances = Nothing
-    , _dihrqLoadBalancerName = pLoadBalancerName
+    , _dihrqLoadBalancerName = pLoadBalancerName_
     }
 
 -- | The IDs of the instances.
@@ -118,10 +118,10 @@ data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
 describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse
-describeInstanceHealthResponse pStatus =
+describeInstanceHealthResponse pStatus_ =
     DescribeInstanceHealthResponse'
     { _dihrsInstanceStates = Nothing
-    , _dihrsStatus = pStatus
+    , _dihrsStatus = pStatus_
     }
 
 -- | Information about the health of the instances.

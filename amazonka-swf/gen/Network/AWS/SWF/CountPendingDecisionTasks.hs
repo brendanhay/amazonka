@@ -81,10 +81,10 @@ data CountPendingDecisionTasks = CountPendingDecisionTasks'
 
 -- | 'CountPendingDecisionTasks' smart constructor.
 countPendingDecisionTasks :: Text -> TaskList -> CountPendingDecisionTasks
-countPendingDecisionTasks pDomain pTaskList =
+countPendingDecisionTasks pDomain_ pTaskList_ =
     CountPendingDecisionTasks'
-    { _cpdtrqDomain = pDomain
-    , _cpdtrqTaskList = pTaskList
+    { _cpdtrqDomain = pDomain_
+    , _cpdtrqTaskList = pTaskList_
     }
 
 -- | The name of the domain that contains the task list.

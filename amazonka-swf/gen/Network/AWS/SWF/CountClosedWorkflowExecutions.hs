@@ -107,7 +107,7 @@ data CountClosedWorkflowExecutions = CountClosedWorkflowExecutions'
 
 -- | 'CountClosedWorkflowExecutions' smart constructor.
 countClosedWorkflowExecutions :: Text -> CountClosedWorkflowExecutions
-countClosedWorkflowExecutions pDomain =
+countClosedWorkflowExecutions pDomain_ =
     CountClosedWorkflowExecutions'
     { _ccwerqCloseStatusFilter = Nothing
     , _ccwerqExecutionFilter = Nothing
@@ -115,7 +115,7 @@ countClosedWorkflowExecutions pDomain =
     , _ccwerqCloseTimeFilter = Nothing
     , _ccwerqTagFilter = Nothing
     , _ccwerqStartTimeFilter = Nothing
-    , _ccwerqDomain = pDomain
+    , _ccwerqDomain = pDomain_
     }
 
 -- | If specified, only workflow executions that match this close status are

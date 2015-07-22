@@ -61,11 +61,11 @@ data SetStackPolicy = SetStackPolicy'
 
 -- | 'SetStackPolicy' smart constructor.
 setStackPolicy :: Text -> SetStackPolicy
-setStackPolicy pStackName =
+setStackPolicy pStackName_ =
     SetStackPolicy'
     { _ssprqStackPolicyBody = Nothing
     , _ssprqStackPolicyURL = Nothing
-    , _ssprqStackName = pStackName
+    , _ssprqStackName = pStackName_
     }
 
 -- | Structure containing the stack policy body. For more information, go to

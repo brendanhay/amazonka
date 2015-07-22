@@ -170,12 +170,12 @@ data CreateMountTarget = CreateMountTarget'
 
 -- | 'CreateMountTarget' smart constructor.
 createMountTarget :: Text -> Text -> CreateMountTarget
-createMountTarget pFileSystemId pSubnetId =
+createMountTarget pFileSystemId_ pSubnetId_ =
     CreateMountTarget'
     { _cmtrqIPAddress = Nothing
     , _cmtrqSecurityGroups = Nothing
-    , _cmtrqFileSystemId = pFileSystemId
-    , _cmtrqSubnetId = pSubnetId
+    , _cmtrqFileSystemId = pFileSystemId_
+    , _cmtrqSubnetId = pSubnetId_
     }
 
 -- | A valid IPv4 address within the address range of the specified subnet.

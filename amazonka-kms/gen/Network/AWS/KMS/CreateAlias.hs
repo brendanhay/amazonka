@@ -67,10 +67,10 @@ data CreateAlias = CreateAlias'
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
-createAlias pAliasName pTargetKeyId =
+createAlias pAliasName_ pTargetKeyId_ =
     CreateAlias'
-    { _carqAliasName = pAliasName
-    , _carqTargetKeyId = pTargetKeyId
+    { _carqAliasName = pAliasName_
+    , _carqTargetKeyId = pTargetKeyId_
     }
 
 -- | String that contains the display name. The name must start with the word

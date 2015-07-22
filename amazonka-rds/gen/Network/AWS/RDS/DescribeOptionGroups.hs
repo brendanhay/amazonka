@@ -184,11 +184,11 @@ data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
 
 -- | 'DescribeOptionGroupsResponse' smart constructor.
 describeOptionGroupsResponse :: Int -> DescribeOptionGroupsResponse
-describeOptionGroupsResponse pStatus =
+describeOptionGroupsResponse pStatus_ =
     DescribeOptionGroupsResponse'
     { _dogrsMarker = Nothing
     , _dogrsOptionGroupsList = Nothing
-    , _dogrsStatus = pStatus
+    , _dogrsStatus = pStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this

@@ -190,11 +190,11 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
 describeReservedInstancesModificationsResponse :: Int -> DescribeReservedInstancesModificationsResponse
-describeReservedInstancesModificationsResponse pStatus =
+describeReservedInstancesModificationsResponse pStatus_ =
     DescribeReservedInstancesModificationsResponse'
     { _drimrsNextToken = Nothing
     , _drimrsReservedInstancesModifications = Nothing
-    , _drimrsStatus = pStatus
+    , _drimrsStatus = pStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is

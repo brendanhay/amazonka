@@ -158,10 +158,10 @@ data ListDomainsResponse = ListDomainsResponse'
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
-listDomainsResponse pStatus =
+listDomainsResponse pStatus_ =
     ListDomainsResponse'
     { _ldrsNextPageMarker = Nothing
-    , _ldrsStatus = pStatus
+    , _ldrsStatus = pStatus_
     , _ldrsDomains = mempty
     }
 

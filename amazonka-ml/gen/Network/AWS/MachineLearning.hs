@@ -37,8 +37,6 @@ import           Network.AWS.MachineLearning.GetEvaluation                as Exp
 import           Network.AWS.MachineLearning.GetMLModel                   as Export
 import           Network.AWS.MachineLearning.Predict                      as Export
 import           Network.AWS.MachineLearning.Types                        as Export
-import           Network.AWS.MachineLearning.Types.Product                as Export
-import           Network.AWS.MachineLearning.Types.Sum                    as Export
 import           Network.AWS.MachineLearning.UpdateBatchPrediction        as Export
 import           Network.AWS.MachineLearning.UpdateDataSource             as Export
 import           Network.AWS.MachineLearning.UpdateEvaluation             as Export

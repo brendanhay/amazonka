@@ -135,9 +135,9 @@ data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
 getIdentityDkimAttributesResponse :: Int -> GetIdentityDkimAttributesResponse
-getIdentityDkimAttributesResponse pStatus =
+getIdentityDkimAttributesResponse pStatus_ =
     GetIdentityDkimAttributesResponse'
-    { _gidarsStatus = pStatus
+    { _gidarsStatus = pStatus_
     , _gidarsDkimAttributes = mempty
     }
 

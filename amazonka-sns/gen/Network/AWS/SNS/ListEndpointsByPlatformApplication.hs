@@ -71,10 +71,10 @@ data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
 
 -- | 'ListEndpointsByPlatformApplication' smart constructor.
 listEndpointsByPlatformApplication :: Text -> ListEndpointsByPlatformApplication
-listEndpointsByPlatformApplication pPlatformApplicationARN =
+listEndpointsByPlatformApplication pPlatformApplicationARN_ =
     ListEndpointsByPlatformApplication'
     { _lebparqNextToken = Nothing
-    , _lebparqPlatformApplicationARN = pPlatformApplicationARN
+    , _lebparqPlatformApplicationARN = pPlatformApplicationARN_
     }
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication
@@ -151,11 +151,11 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
 
 -- | 'ListEndpointsByPlatformApplicationResponse' smart constructor.
 listEndpointsByPlatformApplicationResponse :: Int -> ListEndpointsByPlatformApplicationResponse
-listEndpointsByPlatformApplicationResponse pStatus =
+listEndpointsByPlatformApplicationResponse pStatus_ =
     ListEndpointsByPlatformApplicationResponse'
     { _lebparsNextToken = Nothing
     , _lebparsEndpoints = Nothing
-    , _lebparsStatus = pStatus
+    , _lebparsStatus = pStatus_
     }
 
 -- | NextToken string is returned when calling

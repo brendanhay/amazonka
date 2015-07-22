@@ -84,7 +84,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
 
 -- | 'UpdateDeploymentGroup' smart constructor.
 updateDeploymentGroup :: Text -> Text -> UpdateDeploymentGroup
-updateDeploymentGroup pApplicationName pCurrentDeploymentGroupName =
+updateDeploymentGroup pApplicationName_ pCurrentDeploymentGroupName_ =
     UpdateDeploymentGroup'
     { _udgrqServiceRoleARN = Nothing
     , _udgrqDeploymentConfigName = Nothing
@@ -92,8 +92,8 @@ updateDeploymentGroup pApplicationName pCurrentDeploymentGroupName =
     , _udgrqNewDeploymentGroupName = Nothing
     , _udgrqOnPremisesInstanceTagFilters = Nothing
     , _udgrqAutoScalingGroups = Nothing
-    , _udgrqApplicationName = pApplicationName
-    , _udgrqCurrentDeploymentGroupName = pCurrentDeploymentGroupName
+    , _udgrqApplicationName = pApplicationName_
+    , _udgrqCurrentDeploymentGroupName = pCurrentDeploymentGroupName_
     }
 
 -- | A replacement service role\'s ARN, if you want to change it.
@@ -191,10 +191,10 @@ data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
 
 -- | 'UpdateDeploymentGroupResponse' smart constructor.
 updateDeploymentGroupResponse :: Int -> UpdateDeploymentGroupResponse
-updateDeploymentGroupResponse pStatus =
+updateDeploymentGroupResponse pStatus_ =
     UpdateDeploymentGroupResponse'
     { _udgrsHooksNotCleanedUp = Nothing
-    , _udgrsStatus = pStatus
+    , _udgrsStatus = pStatus_
     }
 
 -- | If the output contains no data, and the corresponding deployment group

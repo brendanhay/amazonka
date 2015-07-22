@@ -56,9 +56,9 @@ newtype CreatePipeline = CreatePipeline'
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: PipelineDeclaration -> CreatePipeline
-createPipeline pPipeline =
+createPipeline pPipeline_ =
     CreatePipeline'
-    { _cprqPipeline = pPipeline
+    { _cprqPipeline = pPipeline_
     }
 
 -- | FIXME: Undocumented member.
@@ -111,10 +111,10 @@ data CreatePipelineResponse = CreatePipelineResponse'
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> CreatePipelineResponse
-createPipelineResponse pStatus =
+createPipelineResponse pStatus_ =
     CreatePipelineResponse'
     { _cprsPipeline = Nothing
-    , _cprsStatus = pStatus
+    , _cprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

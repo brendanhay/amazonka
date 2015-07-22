@@ -65,10 +65,10 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
 
 -- | 'ModifyDBSubnetGroup' smart constructor.
 modifyDBSubnetGroup :: Text -> ModifyDBSubnetGroup
-modifyDBSubnetGroup pDBSubnetGroupName =
+modifyDBSubnetGroup pDBSubnetGroupName_ =
     ModifyDBSubnetGroup'
     { _mdsgrqDBSubnetGroupDescription = Nothing
-    , _mdsgrqDBSubnetGroupName = pDBSubnetGroupName
+    , _mdsgrqDBSubnetGroupName = pDBSubnetGroupName_
     , _mdsgrqSubnetIds = mempty
     }
 
@@ -132,10 +132,10 @@ data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
 
 -- | 'ModifyDBSubnetGroupResponse' smart constructor.
 modifyDBSubnetGroupResponse :: Int -> ModifyDBSubnetGroupResponse
-modifyDBSubnetGroupResponse pStatus =
+modifyDBSubnetGroupResponse pStatus_ =
     ModifyDBSubnetGroupResponse'
     { _mdsgrsDBSubnetGroup = Nothing
-    , _mdsgrsStatus = pStatus
+    , _mdsgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

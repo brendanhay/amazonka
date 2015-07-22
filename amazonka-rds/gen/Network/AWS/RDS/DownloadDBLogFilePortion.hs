@@ -71,12 +71,12 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
 
 -- | 'DownloadDBLogFilePortion' smart constructor.
 downloadDBLogFilePortion :: Text -> Text -> DownloadDBLogFilePortion
-downloadDBLogFilePortion pDBInstanceIdentifier pLogFileName =
+downloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
     DownloadDBLogFilePortion'
     { _ddlfprqNumberOfLines = Nothing
     , _ddlfprqMarker = Nothing
-    , _ddlfprqDBInstanceIdentifier = pDBInstanceIdentifier
-    , _ddlfprqLogFileName = pLogFileName
+    , _ddlfprqDBInstanceIdentifier = pDBInstanceIdentifier_
+    , _ddlfprqLogFileName = pLogFileName_
     }
 
 -- | The number of lines to download.
@@ -187,12 +187,12 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
 
 -- | 'DownloadDBLogFilePortionResponse' smart constructor.
 downloadDBLogFilePortionResponse :: Int -> DownloadDBLogFilePortionResponse
-downloadDBLogFilePortionResponse pStatus =
+downloadDBLogFilePortionResponse pStatus_ =
     DownloadDBLogFilePortionResponse'
     { _ddlfprsLogFileData = Nothing
     , _ddlfprsAdditionalDataPending = Nothing
     , _ddlfprsMarker = Nothing
-    , _ddlfprsStatus = pStatus
+    , _ddlfprsStatus = pStatus_
     }
 
 -- | Entries from the specified log file.

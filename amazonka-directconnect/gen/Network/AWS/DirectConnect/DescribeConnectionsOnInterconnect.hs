@@ -57,9 +57,9 @@ newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
 
 -- | 'DescribeConnectionsOnInterconnect' smart constructor.
 describeConnectionsOnInterconnect :: Text -> DescribeConnectionsOnInterconnect
-describeConnectionsOnInterconnect pInterconnectId =
+describeConnectionsOnInterconnect pInterconnectId_ =
     DescribeConnectionsOnInterconnect'
-    { _dcoirqInterconnectId = pInterconnectId
+    { _dcoirqInterconnectId = pInterconnectId_
     }
 
 -- | ID of the interconnect on which a list of connection is provisioned.

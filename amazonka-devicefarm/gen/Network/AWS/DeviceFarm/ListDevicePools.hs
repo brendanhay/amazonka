@@ -65,11 +65,11 @@ data ListDevicePools = ListDevicePools'
 
 -- | 'ListDevicePools' smart constructor.
 listDevicePools :: Text -> ListDevicePools
-listDevicePools pArn =
+listDevicePools pArn_ =
     ListDevicePools'
     { _ldprqNextToken = Nothing
     , _ldprqType = Nothing
-    , _ldprqArn = pArn
+    , _ldprqArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -148,11 +148,11 @@ data ListDevicePoolsResponse = ListDevicePoolsResponse'
 
 -- | 'ListDevicePoolsResponse' smart constructor.
 listDevicePoolsResponse :: Int -> ListDevicePoolsResponse
-listDevicePoolsResponse pStatus =
+listDevicePoolsResponse pStatus_ =
     ListDevicePoolsResponse'
     { _ldprsDevicePools = Nothing
     , _ldprsNextToken = Nothing
-    , _ldprsStatus = pStatus
+    , _ldprsStatus = pStatus_
     }
 
 -- | Information about the device pools.

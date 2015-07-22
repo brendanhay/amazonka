@@ -62,10 +62,10 @@ data GetApplicationRevision = GetApplicationRevision'
 
 -- | 'GetApplicationRevision' smart constructor.
 getApplicationRevision :: Text -> RevisionLocation -> GetApplicationRevision
-getApplicationRevision pApplicationName pRevision =
+getApplicationRevision pApplicationName_ pRevision_ =
     GetApplicationRevision'
-    { _garrqApplicationName = pApplicationName
-    , _garrqRevision = pRevision
+    { _garrqApplicationName = pApplicationName_
+    , _garrqRevision = pRevision_
     }
 
 -- | The name of the application that corresponds to the revision.
@@ -134,12 +134,12 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
 
 -- | 'GetApplicationRevisionResponse' smart constructor.
 getApplicationRevisionResponse :: Int -> GetApplicationRevisionResponse
-getApplicationRevisionResponse pStatus =
+getApplicationRevisionResponse pStatus_ =
     GetApplicationRevisionResponse'
     { _garrsRevisionInfo = Nothing
     , _garrsApplicationName = Nothing
     , _garrsRevision = Nothing
-    , _garrsStatus = pStatus
+    , _garrsStatus = pStatus_
     }
 
 -- | General information about the revision.

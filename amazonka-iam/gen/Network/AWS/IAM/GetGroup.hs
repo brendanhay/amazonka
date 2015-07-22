@@ -67,11 +67,11 @@ data GetGroup = GetGroup'
 
 -- | 'GetGroup' smart constructor.
 getGroup :: Text -> GetGroup
-getGroup pGroupName =
+getGroup pGroupName_ =
     GetGroup'
     { _ggrqMaxItems = Nothing
     , _ggrqMarker = Nothing
-    , _ggrqGroupName = pGroupName
+    , _ggrqGroupName = pGroupName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -153,12 +153,12 @@ data GetGroupResponse = GetGroupResponse'
 
 -- | 'GetGroupResponse' smart constructor.
 getGroupResponse :: Int -> Group -> GetGroupResponse
-getGroupResponse pStatus pGroup =
+getGroupResponse pStatus_ pGroup_ =
     GetGroupResponse'
     { _ggrsMarker = Nothing
     , _ggrsIsTruncated = Nothing
-    , _ggrsStatus = pStatus
-    , _ggrsGroup = pGroup
+    , _ggrsStatus = pStatus_
+    , _ggrsGroup = pGroup_
     , _ggrsUsers = mempty
     }
 

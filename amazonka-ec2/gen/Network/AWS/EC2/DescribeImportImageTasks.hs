@@ -155,11 +155,11 @@ data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
 describeImportImageTasksResponse :: Int -> DescribeImportImageTasksResponse
-describeImportImageTasksResponse pStatus =
+describeImportImageTasksResponse pStatus_ =
     DescribeImportImageTasksResponse'
     { _diitrsImportImageTasks = Nothing
     , _diitrsNextToken = Nothing
-    , _diitrsStatus = pStatus
+    , _diitrsStatus = pStatus_
     }
 
 -- | A list of zero or more import image tasks that are currently active or

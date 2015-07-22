@@ -92,10 +92,10 @@ data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
 
 -- | 'DescribeLifecycleHookTypesResponse' smart constructor.
 describeLifecycleHookTypesResponse :: Int -> DescribeLifecycleHookTypesResponse
-describeLifecycleHookTypesResponse pStatus =
+describeLifecycleHookTypesResponse pStatus_ =
     DescribeLifecycleHookTypesResponse'
     { _dlhtrsLifecycleHookTypes = Nothing
-    , _dlhtrsStatus = pStatus
+    , _dlhtrsStatus = pStatus_
     }
 
 -- | One or more of the following notification types:

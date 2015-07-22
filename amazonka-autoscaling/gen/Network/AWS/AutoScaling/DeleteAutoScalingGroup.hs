@@ -61,10 +61,10 @@ data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
 
 -- | 'DeleteAutoScalingGroup' smart constructor.
 deleteAutoScalingGroup :: Text -> DeleteAutoScalingGroup
-deleteAutoScalingGroup pAutoScalingGroupName =
+deleteAutoScalingGroup pAutoScalingGroupName_ =
     DeleteAutoScalingGroup'
     { _dasgrqForceDelete = Nothing
-    , _dasgrqAutoScalingGroupName = pAutoScalingGroupName
+    , _dasgrqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | Specifies that the group will be deleted along with all instances

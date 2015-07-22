@@ -101,11 +101,11 @@ data DescribeJob = DescribeJob'
 
 -- | 'DescribeJob' smart constructor.
 describeJob :: Text -> Text -> Text -> DescribeJob
-describeJob pAccountId pVaultName pJobId =
+describeJob pAccountId_ pVaultName_ pJobId_ =
     DescribeJob'
-    { _djrqAccountId = pAccountId
-    , _djrqVaultName = pVaultName
-    , _djrqJobId = pJobId
+    { _djrqAccountId = pAccountId_
+    , _djrqVaultName = pVaultName_
+    , _djrqJobId = pJobId_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the

@@ -55,16 +55,16 @@ data FileSystemDescription = FileSystemDescription'
 
 -- | 'FileSystemDescription' smart constructor.
 fileSystemDescription :: Text -> Text -> Text -> UTCTime -> LifeCycleState -> Natural -> FileSystemSize -> FileSystemDescription
-fileSystemDescription pOwnerId pCreationToken pFileSystemId pCreationTime pLifeCycleState pNumberOfMountTargets pSizeInBytes =
+fileSystemDescription pOwnerId_ pCreationToken_ pFileSystemId_ pCreationTime_ pLifeCycleState_ pNumberOfMountTargets_ pSizeInBytes_ =
     FileSystemDescription'
     { _fsdName = Nothing
-    , _fsdOwnerId = pOwnerId
-    , _fsdCreationToken = pCreationToken
-    , _fsdFileSystemId = pFileSystemId
-    , _fsdCreationTime = _Time # pCreationTime
-    , _fsdLifeCycleState = pLifeCycleState
-    , _fsdNumberOfMountTargets = _Nat # pNumberOfMountTargets
-    , _fsdSizeInBytes = pSizeInBytes
+    , _fsdOwnerId = pOwnerId_
+    , _fsdCreationToken = pCreationToken_
+    , _fsdFileSystemId = pFileSystemId_
+    , _fsdCreationTime = _Time # pCreationTime_
+    , _fsdLifeCycleState = pLifeCycleState_
+    , _fsdNumberOfMountTargets = _Nat # pNumberOfMountTargets_
+    , _fsdSizeInBytes = pSizeInBytes_
     }
 
 -- | You can add tags to a file system (see CreateTags) including a \"Name\"
@@ -152,10 +152,10 @@ data FileSystemSize = FileSystemSize'
 
 -- | 'FileSystemSize' smart constructor.
 fileSystemSize :: Natural -> FileSystemSize
-fileSystemSize pValue =
+fileSystemSize pValue_ =
     FileSystemSize'
     { _fssTimestamp = Nothing
-    , _fssValue = _Nat # pValue
+    , _fssValue = _Nat # pValue_
     }
 
 -- | The time at which the size of data, returned in the @Value@ field, was
@@ -207,15 +207,15 @@ data MountTargetDescription = MountTargetDescription'
 
 -- | 'MountTargetDescription' smart constructor.
 mountTargetDescription :: Text -> Text -> Text -> LifeCycleState -> MountTargetDescription
-mountTargetDescription pMountTargetId pFileSystemId pSubnetId pLifeCycleState =
+mountTargetDescription pMountTargetId_ pFileSystemId_ pSubnetId_ pLifeCycleState_ =
     MountTargetDescription'
     { _mtdIPAddress = Nothing
     , _mtdNetworkInterfaceId = Nothing
     , _mtdOwnerId = Nothing
-    , _mtdMountTargetId = pMountTargetId
-    , _mtdFileSystemId = pFileSystemId
-    , _mtdSubnetId = pSubnetId
-    , _mtdLifeCycleState = pLifeCycleState
+    , _mtdMountTargetId = pMountTargetId_
+    , _mtdFileSystemId = pFileSystemId_
+    , _mtdSubnetId = pSubnetId_
+    , _mtdLifeCycleState = pLifeCycleState_
     }
 
 -- | The address at which the file system may be mounted via the mount
@@ -278,10 +278,10 @@ data Tag = Tag'
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
-tag pKey pValue =
+tag pKey_ pValue_ =
     Tag'
-    { _tagKey = pKey
-    , _tagValue = pValue
+    { _tagKey = pKey_
+    , _tagValue = pValue_
     }
 
 -- | Tag key, a string. The key must not start with \"aws:\".

@@ -66,10 +66,10 @@ data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
 
 -- | 'ListSubscriptionsByTopic' smart constructor.
 listSubscriptionsByTopic :: Text -> ListSubscriptionsByTopic
-listSubscriptionsByTopic pTopicARN =
+listSubscriptionsByTopic pTopicARN_ =
     ListSubscriptionsByTopic'
     { _lsbtrqNextToken = Nothing
-    , _lsbtrqTopicARN = pTopicARN
+    , _lsbtrqTopicARN = pTopicARN_
     }
 
 -- | Token returned by the previous @ListSubscriptionsByTopic@ request.
@@ -135,11 +135,11 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
 
 -- | 'ListSubscriptionsByTopicResponse' smart constructor.
 listSubscriptionsByTopicResponse :: Int -> ListSubscriptionsByTopicResponse
-listSubscriptionsByTopicResponse pStatus =
+listSubscriptionsByTopicResponse pStatus_ =
     ListSubscriptionsByTopicResponse'
     { _lsbtrsNextToken = Nothing
     , _lsbtrsSubscriptions = Nothing
-    , _lsbtrsStatus = pStatus
+    , _lsbtrsStatus = pStatus_
     }
 
 -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This

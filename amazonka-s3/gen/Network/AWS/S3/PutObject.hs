@@ -157,7 +157,7 @@ data PutObject = PutObject'
 
 -- | 'PutObject' smart constructor.
 putObject :: BucketName -> ObjectKey -> RqBody -> PutObject
-putObject pBucket pKey pBody =
+putObject pBucket_ pKey_ pBody_ =
     PutObject'
     { _porqContentLength = Nothing
     , _porqExpires = Nothing
@@ -181,9 +181,9 @@ putObject pBucket pKey pBody =
     , _porqContentDisposition = Nothing
     , _porqServerSideEncryption = Nothing
     , _porqContentType = Nothing
-    , _porqBucket = pBucket
-    , _porqKey = pKey
-    , _porqBody = pBody
+    , _porqBucket = pBucket_
+    , _porqKey = pKey_
+    , _porqBody = pBody_
     }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
@@ -404,7 +404,7 @@ data PutObjectResponse = PutObjectResponse'
 
 -- | 'PutObjectResponse' smart constructor.
 putObjectResponse :: Int -> PutObjectResponse
-putObjectResponse pStatus =
+putObjectResponse pStatus_ =
     PutObjectResponse'
     { _porsVersionId = Nothing
     , _porsETag = Nothing
@@ -414,7 +414,7 @@ putObjectResponse pStatus =
     , _porsSSEKMSKeyId = Nothing
     , _porsSSECustomerKeyMD5 = Nothing
     , _porsServerSideEncryption = Nothing
-    , _porsStatus = pStatus
+    , _porsStatus = pStatus_
     }
 
 -- | Version of the object.

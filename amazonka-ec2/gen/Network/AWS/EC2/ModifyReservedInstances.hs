@@ -133,10 +133,10 @@ data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
 
 -- | 'ModifyReservedInstancesResponse' smart constructor.
 modifyReservedInstancesResponse :: Int -> ModifyReservedInstancesResponse
-modifyReservedInstancesResponse pStatus =
+modifyReservedInstancesResponse pStatus_ =
     ModifyReservedInstancesResponse'
     { _mrirsReservedInstancesModificationId = Nothing
-    , _mrirsStatus = pStatus
+    , _mrirsStatus = pStatus_
     }
 
 -- | The ID for the modification.

@@ -59,9 +59,9 @@ newtype GetHealthCheckStatus = GetHealthCheckStatus'
 
 -- | 'GetHealthCheckStatus' smart constructor.
 getHealthCheckStatus :: Text -> GetHealthCheckStatus
-getHealthCheckStatus pHealthCheckId =
+getHealthCheckStatus pHealthCheckId_ =
     GetHealthCheckStatus'
-    { _ghcsrqHealthCheckId = pHealthCheckId
+    { _ghcsrqHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check for which you want to retrieve the most
@@ -111,9 +111,9 @@ data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
 
 -- | 'GetHealthCheckStatusResponse' smart constructor.
 getHealthCheckStatusResponse :: Int -> GetHealthCheckStatusResponse
-getHealthCheckStatusResponse pStatus =
+getHealthCheckStatusResponse pStatus_ =
     GetHealthCheckStatusResponse'
-    { _ghcsrsStatus = pStatus
+    { _ghcsrsStatus = pStatus_
     , _ghcsrsHealthCheckObservations = mempty
     }
 

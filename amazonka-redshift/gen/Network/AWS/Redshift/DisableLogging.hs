@@ -61,9 +61,9 @@ newtype DisableLogging = DisableLogging'
 
 -- | 'DisableLogging' smart constructor.
 disableLogging :: Text -> DisableLogging
-disableLogging pClusterIdentifier =
+disableLogging pClusterIdentifier_ =
     DisableLogging'
-    { _dlrqClusterIdentifier = pClusterIdentifier
+    { _dlrqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The identifier of the cluster on which logging is to be stopped.

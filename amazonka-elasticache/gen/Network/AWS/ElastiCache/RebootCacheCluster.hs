@@ -70,9 +70,9 @@ data RebootCacheCluster = RebootCacheCluster'
 
 -- | 'RebootCacheCluster' smart constructor.
 rebootCacheCluster :: Text -> RebootCacheCluster
-rebootCacheCluster pCacheClusterId =
+rebootCacheCluster pCacheClusterId_ =
     RebootCacheCluster'
-    { _rccrqCacheClusterId = pCacheClusterId
+    { _rccrqCacheClusterId = pCacheClusterId_
     , _rccrqCacheNodeIdsToReboot = mempty
     }
 
@@ -127,10 +127,10 @@ data RebootCacheClusterResponse = RebootCacheClusterResponse'
 
 -- | 'RebootCacheClusterResponse' smart constructor.
 rebootCacheClusterResponse :: Int -> RebootCacheClusterResponse
-rebootCacheClusterResponse pStatus =
+rebootCacheClusterResponse pStatus_ =
     RebootCacheClusterResponse'
     { _rccrsCacheCluster = Nothing
-    , _rccrsStatus = pStatus
+    , _rccrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

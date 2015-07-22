@@ -63,10 +63,10 @@ data CheckDomainAvailability = CheckDomainAvailability'
 
 -- | 'CheckDomainAvailability' smart constructor.
 checkDomainAvailability :: Text -> CheckDomainAvailability
-checkDomainAvailability pDomainName =
+checkDomainAvailability pDomainName_ =
     CheckDomainAvailability'
     { _cdarqIdNLangCode = Nothing
-    , _cdarqDomainName = pDomainName
+    , _cdarqDomainName = pDomainName_
     }
 
 -- | Reserved for future use.
@@ -136,10 +136,10 @@ data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
 
 -- | 'CheckDomainAvailabilityResponse' smart constructor.
 checkDomainAvailabilityResponse :: Int -> DomainAvailability -> CheckDomainAvailabilityResponse
-checkDomainAvailabilityResponse pStatus pAvailability =
+checkDomainAvailabilityResponse pStatus_ pAvailability_ =
     CheckDomainAvailabilityResponse'
-    { _cdarsStatus = pStatus
-    , _cdarsAvailability = pAvailability
+    { _cdarsStatus = pStatus_
+    , _cdarsAvailability = pAvailability_
     }
 
 -- | FIXME: Undocumented member.

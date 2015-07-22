@@ -63,11 +63,11 @@ data UpdateAssociationStatus = UpdateAssociationStatus'
 
 -- | 'UpdateAssociationStatus' smart constructor.
 updateAssociationStatus :: Text -> Text -> AssociationStatus -> UpdateAssociationStatus
-updateAssociationStatus pName pInstanceId pAssociationStatus =
+updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
     UpdateAssociationStatus'
-    { _uasrqName = pName
-    , _uasrqInstanceId = pInstanceId
-    , _uasrqAssociationStatus = pAssociationStatus
+    { _uasrqName = pName_
+    , _uasrqInstanceId = pInstanceId_
+    , _uasrqAssociationStatus = pAssociationStatus_
     }
 
 -- | The name of the configuration document.
@@ -130,10 +130,10 @@ data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
 
 -- | 'UpdateAssociationStatusResponse' smart constructor.
 updateAssociationStatusResponse :: Int -> UpdateAssociationStatusResponse
-updateAssociationStatusResponse pStatus =
+updateAssociationStatusResponse pStatus_ =
     UpdateAssociationStatusResponse'
     { _uasrsAssociationDescription = Nothing
-    , _uasrsStatus = pStatus
+    , _uasrsStatus = pStatus_
     }
 
 -- | Information about the association.

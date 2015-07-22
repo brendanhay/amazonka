@@ -81,15 +81,15 @@ data ReplaceRoute = ReplaceRoute'
 
 -- | 'ReplaceRoute' smart constructor.
 replaceRoute :: Text -> Text -> ReplaceRoute
-replaceRoute pRouteTableId pDestinationCIdRBlock =
+replaceRoute pRouteTableId_ pDestinationCIdRBlock_ =
     ReplaceRoute'
     { _rrrqInstanceId = Nothing
     , _rrrqVPCPeeringConnectionId = Nothing
     , _rrrqNetworkInterfaceId = Nothing
     , _rrrqGatewayId = Nothing
     , _rrrqDryRun = Nothing
-    , _rrrqRouteTableId = pRouteTableId
-    , _rrrqDestinationCIdRBlock = pDestinationCIdRBlock
+    , _rrrqRouteTableId = pRouteTableId_
+    , _rrrqDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
 -- | The ID of a NAT instance in your VPC.

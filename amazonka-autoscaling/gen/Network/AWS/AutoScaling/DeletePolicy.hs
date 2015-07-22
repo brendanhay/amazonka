@@ -57,10 +57,10 @@ data DeletePolicy = DeletePolicy'
 
 -- | 'DeletePolicy' smart constructor.
 deletePolicy :: Text -> DeletePolicy
-deletePolicy pPolicyName =
+deletePolicy pPolicyName_ =
     DeletePolicy'
     { _dprqAutoScalingGroupName = Nothing
-    , _dprqPolicyName = pPolicyName
+    , _dprqPolicyName = pPolicyName_
     }
 
 -- | The name of the Auto Scaling group.

@@ -69,11 +69,11 @@ data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'
 
 -- | 'RetrieveEnvironmentInfo' smart constructor.
 retrieveEnvironmentInfo :: EnvironmentInfoType -> RetrieveEnvironmentInfo
-retrieveEnvironmentInfo pInfoType =
+retrieveEnvironmentInfo pInfoType_ =
     RetrieveEnvironmentInfo'
     { _rrqEnvironmentName = Nothing
     , _rrqEnvironmentId = Nothing
-    , _rrqInfoType = pInfoType
+    , _rrqInfoType = pInfoType_
     }
 
 -- | The name of the data\'s environment.
@@ -148,10 +148,10 @@ data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
 
 -- | 'RetrieveEnvironmentInfoResponse' smart constructor.
 retrieveEnvironmentInfoResponse :: Int -> RetrieveEnvironmentInfoResponse
-retrieveEnvironmentInfoResponse pStatus =
+retrieveEnvironmentInfoResponse pStatus_ =
     RetrieveEnvironmentInfoResponse'
     { _reirsEnvironmentInfo = Nothing
-    , _reirsStatus = pStatus
+    , _reirsStatus = pStatus_
     }
 
 -- | The EnvironmentInfoDescription of the environment.

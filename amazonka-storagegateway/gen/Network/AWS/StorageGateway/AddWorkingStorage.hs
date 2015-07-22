@@ -73,9 +73,9 @@ data AddWorkingStorage = AddWorkingStorage'
 
 -- | 'AddWorkingStorage' smart constructor.
 addWorkingStorage :: Text -> AddWorkingStorage
-addWorkingStorage pGatewayARN =
+addWorkingStorage pGatewayARN_ =
     AddWorkingStorage'
-    { _awsrqGatewayARN = pGatewayARN
+    { _awsrqGatewayARN = pGatewayARN_
     , _awsrqDiskIds = mempty
     }
 
@@ -138,10 +138,10 @@ data AddWorkingStorageResponse = AddWorkingStorageResponse'
 
 -- | 'AddWorkingStorageResponse' smart constructor.
 addWorkingStorageResponse :: Int -> AddWorkingStorageResponse
-addWorkingStorageResponse pStatus =
+addWorkingStorageResponse pStatus_ =
     AddWorkingStorageResponse'
     { _awsrsGatewayARN = Nothing
-    , _awsrsStatus = pStatus
+    , _awsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

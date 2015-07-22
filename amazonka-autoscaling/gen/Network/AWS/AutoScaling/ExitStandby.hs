@@ -62,10 +62,10 @@ data ExitStandby = ExitStandby'
 
 -- | 'ExitStandby' smart constructor.
 exitStandby :: Text -> ExitStandby
-exitStandby pAutoScalingGroupName =
+exitStandby pAutoScalingGroupName_ =
     ExitStandby'
     { _erqInstanceIds = Nothing
-    , _erqAutoScalingGroupName = pAutoScalingGroupName
+    , _erqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | One or more instance IDs. You must specify at least one instance ID.
@@ -117,10 +117,10 @@ data ExitStandbyResponse = ExitStandbyResponse'
 
 -- | 'ExitStandbyResponse' smart constructor.
 exitStandbyResponse :: Int -> ExitStandbyResponse
-exitStandbyResponse pStatus =
+exitStandbyResponse pStatus_ =
     ExitStandbyResponse'
     { _ersActivities = Nothing
-    , _ersStatus = pStatus
+    , _ersStatus = pStatus_
     }
 
 -- | The activities related to moving instances out of @Standby@ mode.

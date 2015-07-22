@@ -92,10 +92,10 @@ data CreateStorageLocationResponse = CreateStorageLocationResponse'
 
 -- | 'CreateStorageLocationResponse' smart constructor.
 createStorageLocationResponse :: Int -> CreateStorageLocationResponse
-createStorageLocationResponse pStatus =
+createStorageLocationResponse pStatus_ =
     CreateStorageLocationResponse'
     { _cslrsS3Bucket = Nothing
-    , _cslrsStatus = pStatus
+    , _cslrsStatus = pStatus_
     }
 
 -- | The name of the Amazon S3 bucket created.

@@ -111,7 +111,7 @@ data CreateEnvironment = CreateEnvironment'
 
 -- | 'CreateEnvironment' smart constructor.
 createEnvironment :: Text -> Text -> CreateEnvironment
-createEnvironment pApplicationName pEnvironmentName =
+createEnvironment pApplicationName_ pEnvironmentName_ =
     CreateEnvironment'
     { _cerqCNAMEPrefix = Nothing
     , _cerqTemplateName = Nothing
@@ -122,8 +122,8 @@ createEnvironment pApplicationName pEnvironmentName =
     , _cerqSolutionStackName = Nothing
     , _cerqDescription = Nothing
     , _cerqTags = Nothing
-    , _cerqApplicationName = pApplicationName
-    , _cerqEnvironmentName = pEnvironmentName
+    , _cerqApplicationName = pApplicationName_
+    , _cerqEnvironmentName = pEnvironmentName_
     }
 
 -- | If specified, the environment attempts to use this value as the prefix

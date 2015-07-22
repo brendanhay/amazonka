@@ -62,10 +62,10 @@ data DeleteUserPolicy = DeleteUserPolicy'
 
 -- | 'DeleteUserPolicy' smart constructor.
 deleteUserPolicy :: Text -> Text -> DeleteUserPolicy
-deleteUserPolicy pUserName pPolicyName =
+deleteUserPolicy pUserName_ pPolicyName_ =
     DeleteUserPolicy'
-    { _duprqUserName = pUserName
-    , _duprqPolicyName = pPolicyName
+    { _duprqUserName = pUserName_
+    , _duprqPolicyName = pPolicyName_
     }
 
 -- | The name (friendly name, not ARN) identifying the user that the policy

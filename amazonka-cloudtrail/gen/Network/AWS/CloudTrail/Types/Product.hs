@@ -112,10 +112,10 @@ data LookupAttribute = LookupAttribute'
 
 -- | 'LookupAttribute' smart constructor.
 lookupAttribute :: LookupAttributeKey -> Text -> LookupAttribute
-lookupAttribute pAttributeKey pAttributeValue =
+lookupAttribute pAttributeKey_ pAttributeValue_ =
     LookupAttribute'
-    { _laAttributeKey = pAttributeKey
-    , _laAttributeValue = pAttributeValue
+    { _laAttributeKey = pAttributeKey_
+    , _laAttributeValue = pAttributeValue_
     }
 
 -- | Specifies an attribute on which to filter the events returned.

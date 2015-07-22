@@ -71,12 +71,12 @@ data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
 
 -- | 'UnlinkDeveloperIdentity' smart constructor.
 unlinkDeveloperIdentity :: Text -> Text -> Text -> Text -> UnlinkDeveloperIdentity
-unlinkDeveloperIdentity pIdentityId pIdentityPoolId pDeveloperProviderName pDeveloperUserIdentifier =
+unlinkDeveloperIdentity pIdentityId_ pIdentityPoolId_ pDeveloperProviderName_ pDeveloperUserIdentifier_ =
     UnlinkDeveloperIdentity'
-    { _udirqIdentityId = pIdentityId
-    , _udirqIdentityPoolId = pIdentityPoolId
-    , _udirqDeveloperProviderName = pDeveloperProviderName
-    , _udirqDeveloperUserIdentifier = pDeveloperUserIdentifier
+    { _udirqIdentityId = pIdentityId_
+    , _udirqIdentityPoolId = pIdentityPoolId_
+    , _udirqDeveloperProviderName = pDeveloperProviderName_
+    , _udirqDeveloperUserIdentifier = pDeveloperUserIdentifier_
     }
 
 -- | A unique identifier in the format REGION:GUID.

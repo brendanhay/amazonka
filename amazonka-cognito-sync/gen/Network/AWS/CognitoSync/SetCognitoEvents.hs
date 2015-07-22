@@ -66,9 +66,9 @@ data SetCognitoEvents = SetCognitoEvents'
 
 -- | 'SetCognitoEvents' smart constructor.
 setCognitoEvents :: Text -> SetCognitoEvents
-setCognitoEvents pIdentityPoolId =
+setCognitoEvents pIdentityPoolId_ =
     SetCognitoEvents'
-    { _scerqIdentityPoolId = pIdentityPoolId
+    { _scerqIdentityPoolId = pIdentityPoolId_
     , _scerqEvents = mempty
     }
 

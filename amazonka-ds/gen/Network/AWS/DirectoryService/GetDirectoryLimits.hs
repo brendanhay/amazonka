@@ -98,10 +98,10 @@ data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
 
 -- | 'GetDirectoryLimitsResponse' smart constructor.
 getDirectoryLimitsResponse :: Int -> GetDirectoryLimitsResponse
-getDirectoryLimitsResponse pStatus =
+getDirectoryLimitsResponse pStatus_ =
     GetDirectoryLimitsResponse'
     { _gdlrsDirectoryLimits = Nothing
-    , _gdlrsStatus = pStatus
+    , _gdlrsStatus = pStatus_
     }
 
 -- | A DirectoryLimits object that contains the directory limits for the

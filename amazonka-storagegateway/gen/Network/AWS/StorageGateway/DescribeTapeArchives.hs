@@ -154,11 +154,11 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
 
 -- | 'DescribeTapeArchivesResponse' smart constructor.
 describeTapeArchivesResponse :: Int -> DescribeTapeArchivesResponse
-describeTapeArchivesResponse pStatus =
+describeTapeArchivesResponse pStatus_ =
     DescribeTapeArchivesResponse'
     { _dtarsTapeArchives = Nothing
     , _dtarsMarker = Nothing
-    , _dtarsStatus = pStatus
+    , _dtarsStatus = pStatus_
     }
 
 -- | An array of virtual tape objects in the virtual tape shelf (VTS). The

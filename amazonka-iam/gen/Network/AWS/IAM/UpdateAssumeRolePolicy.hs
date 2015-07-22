@@ -57,10 +57,10 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
 
 -- | 'UpdateAssumeRolePolicy' smart constructor.
 updateAssumeRolePolicy :: Text -> Text -> UpdateAssumeRolePolicy
-updateAssumeRolePolicy pRoleName pPolicyDocument =
+updateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
     UpdateAssumeRolePolicy'
-    { _uarprqRoleName = pRoleName
-    , _uarprqPolicyDocument = pPolicyDocument
+    { _uarprqRoleName = pRoleName_
+    , _uarprqPolicyDocument = pPolicyDocument_
     }
 
 -- | The name of the role to update.

@@ -68,11 +68,11 @@ data ListGroupsForUser = ListGroupsForUser'
 
 -- | 'ListGroupsForUser' smart constructor.
 listGroupsForUser :: Text -> ListGroupsForUser
-listGroupsForUser pUserName =
+listGroupsForUser pUserName_ =
     ListGroupsForUser'
     { _lgfurqMaxItems = Nothing
     , _lgfurqMarker = Nothing
-    , _lgfurqUserName = pUserName
+    , _lgfurqUserName = pUserName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -152,11 +152,11 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse'
 
 -- | 'ListGroupsForUserResponse' smart constructor.
 listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
-listGroupsForUserResponse pStatus =
+listGroupsForUserResponse pStatus_ =
     ListGroupsForUserResponse'
     { _lgfursMarker = Nothing
     , _lgfursIsTruncated = Nothing
-    , _lgfursStatus = pStatus
+    , _lgfursStatus = pStatus_
     , _lgfursGroups = mempty
     }
 

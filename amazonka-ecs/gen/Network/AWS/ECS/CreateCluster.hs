@@ -112,10 +112,10 @@ data CreateClusterResponse = CreateClusterResponse'
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse
-createClusterResponse pStatus =
+createClusterResponse pStatus_ =
     CreateClusterResponse'
     { _ccrsCluster = Nothing
-    , _ccrsStatus = pStatus
+    , _ccrsStatus = pStatus_
     }
 
 -- | The full description of your new cluster.

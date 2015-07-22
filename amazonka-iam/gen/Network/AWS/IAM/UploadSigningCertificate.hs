@@ -77,10 +77,10 @@ data UploadSigningCertificate = UploadSigningCertificate'
 
 -- | 'UploadSigningCertificate' smart constructor.
 uploadSigningCertificate :: Text -> UploadSigningCertificate
-uploadSigningCertificate pCertificateBody =
+uploadSigningCertificate pCertificateBody_ =
     UploadSigningCertificate'
     { _urqUserName = Nothing
-    , _urqCertificateBody = pCertificateBody
+    , _urqCertificateBody = pCertificateBody_
     }
 
 -- | The name of the user the signing certificate is for.
@@ -133,10 +133,10 @@ data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
 uploadSigningCertificateResponse :: Int -> SigningCertificate -> UploadSigningCertificateResponse
-uploadSigningCertificateResponse pStatus pCertificate =
+uploadSigningCertificateResponse pStatus_ pCertificate_ =
     UploadSigningCertificateResponse'
-    { _uscrsStatus = pStatus
-    , _uscrsCertificate = pCertificate
+    { _uscrsStatus = pStatus_
+    , _uscrsCertificate = pCertificate_
     }
 
 -- | FIXME: Undocumented member.

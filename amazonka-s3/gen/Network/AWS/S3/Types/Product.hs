@@ -71,10 +71,10 @@ data Bucket = Bucket'
 
 -- | 'Bucket' smart constructor.
 bucket :: UTCTime -> BucketName -> Bucket
-bucket pCreationDate pName =
+bucket pCreationDate_ pName_ =
     Bucket'
-    { _bCreationDate = _Time # pCreationDate
-    , _bName = pName
+    { _bCreationDate = _Time # pCreationDate_
+    , _bName = pName_
     }
 
 -- | Date the bucket was created.
@@ -278,10 +278,10 @@ data CompletedPart = CompletedPart'
 
 -- | 'CompletedPart' smart constructor.
 completedPart :: Int -> ETag -> CompletedPart
-completedPart pPartNumber pETag =
+completedPart pPartNumber_ pETag_ =
     CompletedPart'
-    { _cpPartNumber = pPartNumber
-    , _cpETag = pETag
+    { _cpPartNumber = pPartNumber_
+    , _cpETag = pETag_
     }
 
 -- | Part number that identifies the part.
@@ -598,9 +598,9 @@ newtype Destination = Destination'
 
 -- | 'Destination' smart constructor.
 destination :: BucketName -> Destination
-destination pBucket =
+destination pBucket_ =
     Destination'
-    { _dBucket = pBucket
+    { _dBucket = pBucket_
     }
 
 -- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to
@@ -626,9 +626,9 @@ newtype ErrorDocument = ErrorDocument'
 
 -- | 'ErrorDocument' smart constructor.
 errorDocument :: ObjectKey -> ErrorDocument
-errorDocument pKey =
+errorDocument pKey_ =
     ErrorDocument'
-    { _edKey = pKey
+    { _edKey = pKey_
     }
 
 -- | The object key name to use when a 4XX class error occurs.
@@ -703,13 +703,13 @@ data Grantee = Grantee'
 
 -- | 'Grantee' smart constructor.
 grantee :: Type -> Grantee
-grantee pType =
+grantee pType_ =
     Grantee'
     { _gURI = Nothing
     , _gEmailAddress = Nothing
     , _gId = Nothing
     , _gDisplayName = Nothing
-    , _gType = pType
+    , _gType = pType_
     }
 
 -- | URI of the grantee group.
@@ -758,9 +758,9 @@ newtype IndexDocument = IndexDocument'
 
 -- | 'IndexDocument' smart constructor.
 indexDocument :: Text -> IndexDocument
-indexDocument pSuffix =
+indexDocument pSuffix_ =
     IndexDocument'
-    { _idSuffix = pSuffix
+    { _idSuffix = pSuffix_
     }
 
 -- | A suffix that is appended to a request that is for a directory on the
@@ -831,10 +831,10 @@ data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
 
 -- | 'LambdaFunctionConfiguration' smart constructor.
 lambdaFunctionConfiguration :: Text -> LambdaFunctionConfiguration
-lambdaFunctionConfiguration pLambdaFunctionARN =
+lambdaFunctionConfiguration pLambdaFunctionARN_ =
     LambdaFunctionConfiguration'
     { _lfcId = Nothing
-    , _lfcLambdaFunctionARN = pLambdaFunctionARN
+    , _lfcLambdaFunctionARN = pLambdaFunctionARN_
     , _lfcEvents = mempty
     }
 
@@ -1071,9 +1071,9 @@ newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
 
 -- | 'NoncurrentVersionExpiration' smart constructor.
 noncurrentVersionExpiration :: Int -> NoncurrentVersionExpiration
-noncurrentVersionExpiration pNoncurrentDays =
+noncurrentVersionExpiration pNoncurrentDays_ =
     NoncurrentVersionExpiration'
-    { _nveNoncurrentDays = pNoncurrentDays
+    { _nveNoncurrentDays = pNoncurrentDays_
     }
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3
@@ -1113,10 +1113,10 @@ data NoncurrentVersionTransition = NoncurrentVersionTransition'
 
 -- | 'NoncurrentVersionTransition' smart constructor.
 noncurrentVersionTransition :: Int -> TransitionStorageClass -> NoncurrentVersionTransition
-noncurrentVersionTransition pNoncurrentDays pStorageClass =
+noncurrentVersionTransition pNoncurrentDays_ pStorageClass_ =
     NoncurrentVersionTransition'
-    { _nvtNoncurrentDays = pNoncurrentDays
-    , _nvtStorageClass = pStorageClass
+    { _nvtNoncurrentDays = pNoncurrentDays_
+    , _nvtStorageClass = pStorageClass_
     }
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3
@@ -1228,14 +1228,14 @@ data Object = Object'
 
 -- | 'Object' smart constructor.
 object' :: ETag -> Int -> ObjectKey -> ObjectStorageClass -> UTCTime -> Object
-object' pETag pSize pKey pStorageClass pLastModified =
+object' pETag_ pSize_ pKey_ pStorageClass_ pLastModified_ =
     Object'
     { _oOwner = Nothing
-    , _oETag = pETag
-    , _oSize = pSize
-    , _oKey = pKey
-    , _oStorageClass = pStorageClass
-    , _oLastModified = _Time # pLastModified
+    , _oETag = pETag_
+    , _oSize = pSize_
+    , _oKey = pKey_
+    , _oStorageClass = pStorageClass_
+    , _oLastModified = _Time # pLastModified_
     }
 
 -- | FIXME: Undocumented member.
@@ -1284,10 +1284,10 @@ data ObjectIdentifier = ObjectIdentifier'
 
 -- | 'ObjectIdentifier' smart constructor.
 objectIdentifier :: ObjectKey -> ObjectIdentifier
-objectIdentifier pKey =
+objectIdentifier pKey_ =
     ObjectIdentifier'
     { _oiVersionId = Nothing
-    , _oiKey = pKey
+    , _oiKey = pKey_
     }
 
 -- | VersionId for the specific version of the object to delete.
@@ -1499,10 +1499,10 @@ data QueueConfiguration = QueueConfiguration'
 
 -- | 'QueueConfiguration' smart constructor.
 queueConfiguration :: Text -> QueueConfiguration
-queueConfiguration pQueueARN =
+queueConfiguration pQueueARN_ =
     QueueConfiguration'
     { _qcId = Nothing
-    , _qcQueueARN = pQueueARN
+    , _qcQueueARN = pQueueARN_
     , _qcEvents = mempty
     }
 
@@ -1622,10 +1622,10 @@ data RedirectAllRequestsTo = RedirectAllRequestsTo'
 
 -- | 'RedirectAllRequestsTo' smart constructor.
 redirectAllRequestsTo :: Text -> RedirectAllRequestsTo
-redirectAllRequestsTo pHostName =
+redirectAllRequestsTo pHostName_ =
     RedirectAllRequestsTo'
     { _rartProtocol = Nothing
-    , _rartHostName = pHostName
+    , _rartHostName = pHostName_
     }
 
 -- | Protocol to use (http, https) when redirecting requests. The default is
@@ -1665,9 +1665,9 @@ data ReplicationConfiguration = ReplicationConfiguration'
 
 -- | 'ReplicationConfiguration' smart constructor.
 replicationConfiguration :: Text -> ReplicationConfiguration
-replicationConfiguration pRole =
+replicationConfiguration pRole_ =
     ReplicationConfiguration'
-    { _rcRole = pRole
+    { _rcRole = pRole_
     , _rcRules = mempty
     }
 
@@ -1712,12 +1712,12 @@ data ReplicationRule = ReplicationRule'
 
 -- | 'ReplicationRule' smart constructor.
 replicationRule :: Text -> ReplicationRuleStatus -> Destination -> ReplicationRule
-replicationRule pPrefix pStatus pDestination =
+replicationRule pPrefix_ pStatus_ pDestination_ =
     ReplicationRule'
     { _rrId = Nothing
-    , _rrPrefix = pPrefix
-    , _rrStatus = pStatus
-    , _rrDestination = pDestination
+    , _rrPrefix = pPrefix_
+    , _rrStatus = pStatus_
+    , _rrDestination = pDestination_
     }
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
@@ -1763,9 +1763,9 @@ newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
 
 -- | 'RequestPaymentConfiguration' smart constructor.
 requestPaymentConfiguration :: Payer -> RequestPaymentConfiguration
-requestPaymentConfiguration pPayer =
+requestPaymentConfiguration pPayer_ =
     RequestPaymentConfiguration'
-    { _rpcPayer = pPayer
+    { _rpcPayer = pPayer_
     }
 
 -- | Specifies who pays for the download and request fees.
@@ -1787,9 +1787,9 @@ newtype RestoreRequest = RestoreRequest'
 
 -- | 'RestoreRequest' smart constructor.
 restoreRequest :: Int -> RestoreRequest
-restoreRequest pDays =
+restoreRequest pDays_ =
     RestoreRequest'
-    { _rrDays = pDays
+    { _rrDays = pDays_
     }
 
 -- | Lifetime of the active copy in days
@@ -1814,10 +1814,10 @@ data RoutingRule = RoutingRule'
 
 -- | 'RoutingRule' smart constructor.
 routingRule :: Redirect -> RoutingRule
-routingRule pRedirect =
+routingRule pRedirect_ =
     RoutingRule'
     { _rrCondition = Nothing
-    , _rrRedirect = pRedirect
+    , _rrRedirect = pRedirect_
     }
 
 -- | A container for describing a condition that must be met for the
@@ -1874,15 +1874,15 @@ data Rule = Rule'
 
 -- | 'Rule' smart constructor.
 rule :: Text -> ExpirationStatus -> Rule
-rule pPrefix pStatus =
+rule pPrefix_ pStatus_ =
     Rule'
     { _rNoncurrentVersionExpiration = Nothing
     , _rTransition = Nothing
     , _rExpiration = Nothing
     , _rNoncurrentVersionTransition = Nothing
     , _rId = Nothing
-    , _rPrefix = pPrefix
-    , _rStatus = pStatus
+    , _rPrefix = pPrefix_
+    , _rStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.
@@ -2003,10 +2003,10 @@ data Tag = Tag'
 
 -- | 'Tag' smart constructor.
 tag :: ObjectKey -> Text -> Tag
-tag pKey pValue =
+tag pKey_ pValue_ =
     Tag'
-    { _tagKey = pKey
-    , _tagValue = pValue
+    { _tagKey = pKey_
+    , _tagValue = pValue_
     }
 
 -- | Name of the tag.
@@ -2108,10 +2108,10 @@ data TopicConfiguration = TopicConfiguration'
 
 -- | 'TopicConfiguration' smart constructor.
 topicConfiguration :: Text -> TopicConfiguration
-topicConfiguration pTopicARN =
+topicConfiguration pTopicARN_ =
     TopicConfiguration'
     { _tcId = Nothing
-    , _tcTopicARN = pTopicARN
+    , _tcTopicARN = pTopicARN_
     , _tcEvents = mempty
     }
 

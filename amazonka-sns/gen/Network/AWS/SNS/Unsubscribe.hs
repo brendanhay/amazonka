@@ -59,9 +59,9 @@ newtype Unsubscribe = Unsubscribe'
 
 -- | 'Unsubscribe' smart constructor.
 unsubscribe :: Text -> Unsubscribe
-unsubscribe pSubscriptionARN =
+unsubscribe pSubscriptionARN_ =
     Unsubscribe'
-    { _urqSubscriptionARN = pSubscriptionARN
+    { _urqSubscriptionARN = pSubscriptionARN_
     }
 
 -- | The ARN of the subscription to be deleted.

@@ -56,9 +56,9 @@ newtype ReadPreset = ReadPreset'
 
 -- | 'ReadPreset' smart constructor.
 readPreset :: Text -> ReadPreset
-readPreset pId =
+readPreset pId_ =
     ReadPreset'
-    { _rprqId = pId
+    { _rprqId = pId_
     }
 
 -- | The identifier of the preset for which you want to get detailed
@@ -102,10 +102,10 @@ data ReadPresetResponse = ReadPresetResponse'
 
 -- | 'ReadPresetResponse' smart constructor.
 readPresetResponse :: Int -> ReadPresetResponse
-readPresetResponse pStatus =
+readPresetResponse pStatus_ =
     ReadPresetResponse'
     { _rprsPreset = Nothing
-    , _rprsStatus = pStatus
+    , _rprsStatus = pStatus_
     }
 
 -- | A section of the response body that provides information about the

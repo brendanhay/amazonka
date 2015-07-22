@@ -61,10 +61,10 @@ data ListSamples = ListSamples'
 
 -- | 'ListSamples' smart constructor.
 listSamples :: Text -> ListSamples
-listSamples pArn =
+listSamples pArn_ =
     ListSamples'
     { _lsrqNextToken = Nothing
-    , _lsrqArn = pArn
+    , _lsrqArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -127,11 +127,11 @@ data ListSamplesResponse = ListSamplesResponse'
 
 -- | 'ListSamplesResponse' smart constructor.
 listSamplesResponse :: Int -> ListSamplesResponse
-listSamplesResponse pStatus =
+listSamplesResponse pStatus_ =
     ListSamplesResponse'
     { _lsrsNextToken = Nothing
     , _lsrsSamples = Nothing
-    , _lsrsStatus = pStatus
+    , _lsrsStatus = pStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is

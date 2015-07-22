@@ -108,7 +108,7 @@ data DeleteItem = DeleteItem'
 
 -- | 'DeleteItem' smart constructor.
 deleteItem :: Text -> DeleteItem
-deleteItem pTableName =
+deleteItem pTableName_ =
     DeleteItem'
     { _dirqReturnValues = Nothing
     , _dirqExpressionAttributeNames = Nothing
@@ -118,7 +118,7 @@ deleteItem pTableName =
     , _dirqConditionExpression = Nothing
     , _dirqConditionalOperator = Nothing
     , _dirqExpected = Nothing
-    , _dirqTableName = pTableName
+    , _dirqTableName = pTableName_
     , _dirqKey = mempty
     }
 
@@ -559,12 +559,12 @@ data DeleteItemResponse = DeleteItemResponse'
 
 -- | 'DeleteItemResponse' smart constructor.
 deleteItemResponse :: Int -> DeleteItemResponse
-deleteItemResponse pStatus =
+deleteItemResponse pStatus_ =
     DeleteItemResponse'
     { _dirsConsumedCapacity = Nothing
     , _dirsItemCollectionMetrics = Nothing
     , _dirsAttributes = Nothing
-    , _dirsStatus = pStatus
+    , _dirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

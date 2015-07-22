@@ -81,11 +81,11 @@ data CreateConnection = CreateConnection'
 
 -- | 'CreateConnection' smart constructor.
 createConnection :: Text -> Text -> Text -> CreateConnection
-createConnection pLocation pBandwidth pConnectionName =
+createConnection pLocation_ pBandwidth_ pConnectionName_ =
     CreateConnection'
-    { _ccrqLocation = pLocation
-    , _ccrqBandwidth = pBandwidth
-    , _ccrqConnectionName = pConnectionName
+    { _ccrqLocation = pLocation_
+    , _ccrqBandwidth = pBandwidth_
+    , _ccrqConnectionName = pConnectionName_
     }
 
 -- | FIXME: Undocumented member.

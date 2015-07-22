@@ -60,11 +60,11 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
 
 -- | 'ResetNetworkInterfaceAttribute' smart constructor.
 resetNetworkInterfaceAttribute :: Text -> ResetNetworkInterfaceAttribute
-resetNetworkInterfaceAttribute pNetworkInterfaceId =
+resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
     ResetNetworkInterfaceAttribute'
     { _rniarqSourceDestCheck = Nothing
     , _rniarqDryRun = Nothing
-    , _rniarqNetworkInterfaceId = pNetworkInterfaceId
+    , _rniarqNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | The source\/destination checking attribute. Resets the value to @true@.

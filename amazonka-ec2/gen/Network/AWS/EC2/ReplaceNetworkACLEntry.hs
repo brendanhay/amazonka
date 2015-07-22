@@ -86,17 +86,17 @@ data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
 
 -- | 'ReplaceNetworkACLEntry' smart constructor.
 replaceNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> ReplaceNetworkACLEntry
-replaceNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIdRBlock =
+replaceNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ pCIdRBlock_ =
     ReplaceNetworkACLEntry'
     { _rnaerqICMPTypeCode = Nothing
     , _rnaerqPortRange = Nothing
     , _rnaerqDryRun = Nothing
-    , _rnaerqNetworkACLId = pNetworkACLId
-    , _rnaerqRuleNumber = pRuleNumber
-    , _rnaerqProtocol = pProtocol
-    , _rnaerqRuleAction = pRuleAction
-    , _rnaerqEgress = pEgress
-    , _rnaerqCIdRBlock = pCIdRBlock
+    , _rnaerqNetworkACLId = pNetworkACLId_
+    , _rnaerqRuleNumber = pRuleNumber_
+    , _rnaerqProtocol = pProtocol_
+    , _rnaerqRuleAction = pRuleAction_
+    , _rnaerqEgress = pEgress_
+    , _rnaerqCIdRBlock = pCIdRBlock_
     }
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP)

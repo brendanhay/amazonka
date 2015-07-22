@@ -92,11 +92,11 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
 
 -- | 'ChangeMessageVisibility' smart constructor.
 changeMessageVisibility :: Text -> Text -> Int -> ChangeMessageVisibility
-changeMessageVisibility pQueueURL pReceiptHandle pVisibilityTimeout =
+changeMessageVisibility pQueueURL_ pReceiptHandle_ pVisibilityTimeout_ =
     ChangeMessageVisibility'
-    { _cmvrqQueueURL = pQueueURL
-    , _cmvrqReceiptHandle = pReceiptHandle
-    , _cmvrqVisibilityTimeout = pVisibilityTimeout
+    { _cmvrqQueueURL = pQueueURL_
+    , _cmvrqReceiptHandle = pReceiptHandle_
+    , _cmvrqVisibilityTimeout = pVisibilityTimeout_
     }
 
 -- | The URL of the Amazon SQS queue to take action on.

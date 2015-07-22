@@ -65,9 +65,9 @@ data RemoveTags = RemoveTags'
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
-removeTags pResourceId =
+removeTags pResourceId_ =
     RemoveTags'
-    { _rtrqResourceId = pResourceId
+    { _rtrqResourceId = pResourceId_
     , _rtrqTagKeys = mempty
     }
 
@@ -123,9 +123,9 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
-removeTagsResponse pStatus =
+removeTagsResponse pStatus_ =
     RemoveTagsResponse'
-    { _rtrsStatus = pStatus
+    { _rtrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

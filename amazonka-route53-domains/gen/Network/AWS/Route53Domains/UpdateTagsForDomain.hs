@@ -62,10 +62,10 @@ data UpdateTagsForDomain = UpdateTagsForDomain'
 
 -- | 'UpdateTagsForDomain' smart constructor.
 updateTagsForDomain :: Text -> UpdateTagsForDomain
-updateTagsForDomain pDomainName =
+updateTagsForDomain pDomainName_ =
     UpdateTagsForDomain'
     { _utfdrqTagsToUpdate = Nothing
-    , _utfdrqDomainName = pDomainName
+    , _utfdrqDomainName = pDomainName_
     }
 
 -- | A list of the tag keys and values that you want to add or update. If you
@@ -176,9 +176,9 @@ newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
 
 -- | 'UpdateTagsForDomainResponse' smart constructor.
 updateTagsForDomainResponse :: Int -> UpdateTagsForDomainResponse
-updateTagsForDomainResponse pStatus =
+updateTagsForDomainResponse pStatus_ =
     UpdateTagsForDomainResponse'
-    { _utfdrsStatus = pStatus
+    { _utfdrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

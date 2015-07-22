@@ -65,9 +65,9 @@ data UnlinkIdentity = UnlinkIdentity'
 
 -- | 'UnlinkIdentity' smart constructor.
 unlinkIdentity :: Text -> UnlinkIdentity
-unlinkIdentity pIdentityId =
+unlinkIdentity pIdentityId_ =
     UnlinkIdentity'
-    { _uirqIdentityId = pIdentityId
+    { _uirqIdentityId = pIdentityId_
     , _uirqLogins = mempty
     , _uirqLoginsToRemove = mempty
     }

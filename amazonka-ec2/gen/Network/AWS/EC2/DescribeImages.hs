@@ -240,10 +240,10 @@ data DescribeImagesResponse = DescribeImagesResponse'
 
 -- | 'DescribeImagesResponse' smart constructor.
 describeImagesResponse :: Int -> DescribeImagesResponse
-describeImagesResponse pStatus =
+describeImagesResponse pStatus_ =
     DescribeImagesResponse'
     { _desrsImages = Nothing
-    , _desrsStatus = pStatus
+    , _desrsStatus = pStatus_
     }
 
 -- | Information about one or more images.

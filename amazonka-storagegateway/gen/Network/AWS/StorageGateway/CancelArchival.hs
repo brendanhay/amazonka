@@ -61,10 +61,10 @@ data CancelArchival = CancelArchival'
 
 -- | 'CancelArchival' smart constructor.
 cancelArchival :: Text -> Text -> CancelArchival
-cancelArchival pGatewayARN pTapeARN =
+cancelArchival pGatewayARN_ pTapeARN_ =
     CancelArchival'
-    { _carqGatewayARN = pGatewayARN
-    , _carqTapeARN = pTapeARN
+    { _carqGatewayARN = pGatewayARN_
+    , _carqTapeARN = pTapeARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -124,10 +124,10 @@ data CancelArchivalResponse = CancelArchivalResponse'
 
 -- | 'CancelArchivalResponse' smart constructor.
 cancelArchivalResponse :: Int -> CancelArchivalResponse
-cancelArchivalResponse pStatus =
+cancelArchivalResponse pStatus_ =
     CancelArchivalResponse'
     { _carsTapeARN = Nothing
-    , _carsStatus = pStatus
+    , _carsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving

@@ -61,9 +61,9 @@ newtype DeleteMLModel = DeleteMLModel'
 
 -- | 'DeleteMLModel' smart constructor.
 deleteMLModel :: Text -> DeleteMLModel
-deleteMLModel pMLModelId =
+deleteMLModel pMLModelId_ =
     DeleteMLModel'
-    { _dmlmrqMLModelId = pMLModelId
+    { _dmlmrqMLModelId = pMLModelId_
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
@@ -118,10 +118,10 @@ data DeleteMLModelResponse = DeleteMLModelResponse'
 
 -- | 'DeleteMLModelResponse' smart constructor.
 deleteMLModelResponse :: Int -> DeleteMLModelResponse
-deleteMLModelResponse pStatus =
+deleteMLModelResponse pStatus_ =
     DeleteMLModelResponse'
     { _dmlmrsMLModelId = Nothing
-    , _dmlmrsStatus = pStatus
+    , _dmlmrsStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value

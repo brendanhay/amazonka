@@ -70,11 +70,11 @@ data GetSSHPublicKey = GetSSHPublicKey'
 
 -- | 'GetSSHPublicKey' smart constructor.
 getSSHPublicKey :: Text -> Text -> EncodingType -> GetSSHPublicKey
-getSSHPublicKey pUserName pSSHPublicKeyId pEncoding =
+getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
     GetSSHPublicKey'
-    { _gspkrqUserName = pUserName
-    , _gspkrqSSHPublicKeyId = pSSHPublicKeyId
-    , _gspkrqEncoding = pEncoding
+    { _gspkrqUserName = pUserName_
+    , _gspkrqSSHPublicKeyId = pSSHPublicKeyId_
+    , _gspkrqEncoding = pEncoding_
     }
 
 -- | The name of the IAM user associated with the SSH public key.
@@ -132,10 +132,10 @@ data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
 
 -- | 'GetSSHPublicKeyResponse' smart constructor.
 getSSHPublicKeyResponse :: Int -> GetSSHPublicKeyResponse
-getSSHPublicKeyResponse pStatus =
+getSSHPublicKeyResponse pStatus_ =
     GetSSHPublicKeyResponse'
     { _gspkrsSSHPublicKey = Nothing
-    , _gspkrsStatus = pStatus
+    , _gspkrsStatus = pStatus_
     }
 
 -- | Information about the SSH public key.

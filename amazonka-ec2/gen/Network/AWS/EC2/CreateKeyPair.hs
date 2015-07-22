@@ -74,10 +74,10 @@ data CreateKeyPair = CreateKeyPair'
 
 -- | 'CreateKeyPair' smart constructor.
 createKeyPair :: Text -> CreateKeyPair
-createKeyPair pKeyName =
+createKeyPair pKeyName_ =
     CreateKeyPair'
     { _ckprqDryRun = Nothing
-    , _ckprqKeyName = pKeyName
+    , _ckprqKeyName = pKeyName_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -140,12 +140,12 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
 
 -- | 'CreateKeyPairResponse' smart constructor.
 createKeyPairResponse :: Int -> Text -> Text -> Text -> CreateKeyPairResponse
-createKeyPairResponse pStatus pKeyName pKeyFingerprint pKeyMaterial =
+createKeyPairResponse pStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
     CreateKeyPairResponse'
-    { _ckprsStatus = pStatus
-    , _ckprsKeyName = pKeyName
-    , _ckprsKeyFingerprint = pKeyFingerprint
-    , _ckprsKeyMaterial = pKeyMaterial
+    { _ckprsStatus = pStatus_
+    , _ckprsKeyName = pKeyName_
+    , _ckprsKeyFingerprint = pKeyFingerprint_
+    , _ckprsKeyMaterial = pKeyMaterial_
     }
 
 -- | FIXME: Undocumented member.

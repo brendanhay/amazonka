@@ -279,11 +279,11 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatus =
+describeSnapshotsResponse pStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsNextToken = Nothing
     , _dssrsSnapshots = Nothing
-    , _dssrsStatus = pStatus
+    , _dssrsStatus = pStatus_
     }
 
 -- | The @NextToken@ value to include in a future @DescribeSnapshots@

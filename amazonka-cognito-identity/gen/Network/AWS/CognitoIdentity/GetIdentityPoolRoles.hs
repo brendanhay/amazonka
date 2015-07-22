@@ -59,9 +59,9 @@ newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
 
 -- | 'GetIdentityPoolRoles' smart constructor.
 getIdentityPoolRoles :: Text -> GetIdentityPoolRoles
-getIdentityPoolRoles pIdentityPoolId =
+getIdentityPoolRoles pIdentityPoolId_ =
     GetIdentityPoolRoles'
-    { _giprrqIdentityPoolId = pIdentityPoolId
+    { _giprrqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
@@ -120,11 +120,11 @@ data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
 
 -- | 'GetIdentityPoolRolesResponse' smart constructor.
 getIdentityPoolRolesResponse :: Int -> GetIdentityPoolRolesResponse
-getIdentityPoolRolesResponse pStatus =
+getIdentityPoolRolesResponse pStatus_ =
     GetIdentityPoolRolesResponse'
     { _giprrsRoles = Nothing
     , _giprrsIdentityPoolId = Nothing
-    , _giprrsStatus = pStatus
+    , _giprrsStatus = pStatus_
     }
 
 -- | The map of roles associated with this pool. Currently only authenticated

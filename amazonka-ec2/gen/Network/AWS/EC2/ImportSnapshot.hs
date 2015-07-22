@@ -164,12 +164,12 @@ data ImportSnapshotResponse = ImportSnapshotResponse'
 
 -- | 'ImportSnapshotResponse' smart constructor.
 importSnapshotResponse :: Int -> ImportSnapshotResponse
-importSnapshotResponse pStatus =
+importSnapshotResponse pStatus_ =
     ImportSnapshotResponse'
     { _isrsSnapshotTaskDetail = Nothing
     , _isrsImportTaskId = Nothing
     , _isrsDescription = Nothing
-    , _isrsStatus = pStatus
+    , _isrsStatus = pStatus_
     }
 
 -- | Information about the import snapshot task.

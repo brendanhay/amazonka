@@ -75,13 +75,13 @@ data SetTaskStatus = SetTaskStatus'
 
 -- | 'SetTaskStatus' smart constructor.
 setTaskStatus :: Text -> TaskStatus -> SetTaskStatus
-setTaskStatus pTaskId pTaskStatus =
+setTaskStatus pTaskId_ pTaskStatus_ =
     SetTaskStatus'
     { _stsrqErrorStackTrace = Nothing
     , _stsrqErrorId = Nothing
     , _stsrqErrorMessage = Nothing
-    , _stsrqTaskId = pTaskId
-    , _stsrqTaskStatus = pTaskStatus
+    , _stsrqTaskId = pTaskId_
+    , _stsrqTaskStatus = pTaskStatus_
     }
 
 -- | If an error occurred during the task, this value specifies the stack
@@ -161,9 +161,9 @@ newtype SetTaskStatusResponse = SetTaskStatusResponse'
 
 -- | 'SetTaskStatusResponse' smart constructor.
 setTaskStatusResponse :: Int -> SetTaskStatusResponse
-setTaskStatusResponse pStatus =
+setTaskStatusResponse pStatus_ =
     SetTaskStatusResponse'
-    { _stsrsStatus = pStatus
+    { _stsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

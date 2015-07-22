@@ -52,9 +52,9 @@ newtype DeleteLogGroup = DeleteLogGroup'
 
 -- | 'DeleteLogGroup' smart constructor.
 deleteLogGroup :: Text -> DeleteLogGroup
-deleteLogGroup pLogGroupName =
+deleteLogGroup pLogGroupName_ =
     DeleteLogGroup'
-    { _dlgrqLogGroupName = pLogGroupName
+    { _dlgrqLogGroupName = pLogGroupName_
     }
 
 -- | The name of the log group to delete.

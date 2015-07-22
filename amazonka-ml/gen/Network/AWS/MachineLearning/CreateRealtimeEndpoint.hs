@@ -57,9 +57,9 @@ newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
 
 -- | 'CreateRealtimeEndpoint' smart constructor.
 createRealtimeEndpoint :: Text -> CreateRealtimeEndpoint
-createRealtimeEndpoint pMLModelId =
+createRealtimeEndpoint pMLModelId_ =
     CreateRealtimeEndpoint'
-    { _crerqMLModelId = pMLModelId
+    { _crerqMLModelId = pMLModelId_
     }
 
 -- | The ID assigned to the @MLModel@ during creation.
@@ -124,11 +124,11 @@ data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
 
 -- | 'CreateRealtimeEndpointResponse' smart constructor.
 createRealtimeEndpointResponse :: Int -> CreateRealtimeEndpointResponse
-createRealtimeEndpointResponse pStatus =
+createRealtimeEndpointResponse pStatus_ =
     CreateRealtimeEndpointResponse'
     { _crersRealtimeEndpointInfo = Nothing
     , _crersMLModelId = Nothing
-    , _crersStatus = pStatus
+    , _crersStatus = pStatus_
     }
 
 -- | The endpoint information of the @MLModel@

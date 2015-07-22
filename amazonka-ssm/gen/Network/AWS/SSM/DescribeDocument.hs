@@ -54,9 +54,9 @@ newtype DescribeDocument = DescribeDocument'
 
 -- | 'DescribeDocument' smart constructor.
 describeDocument :: Text -> DescribeDocument
-describeDocument pName =
+describeDocument pName_ =
     DescribeDocument'
-    { _ddrqName = pName
+    { _ddrqName = pName_
     }
 
 -- | The name of the configuration document.
@@ -106,10 +106,10 @@ data DescribeDocumentResponse = DescribeDocumentResponse'
 
 -- | 'DescribeDocumentResponse' smart constructor.
 describeDocumentResponse :: Int -> DescribeDocumentResponse
-describeDocumentResponse pStatus =
+describeDocumentResponse pStatus_ =
     DescribeDocumentResponse'
     { _drsDocument = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | Information about the configuration document.

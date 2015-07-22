@@ -133,11 +133,11 @@ data ListFunctionsResponse = ListFunctionsResponse'
 
 -- | 'ListFunctionsResponse' smart constructor.
 listFunctionsResponse :: Int -> ListFunctionsResponse
-listFunctionsResponse pStatus =
+listFunctionsResponse pStatus_ =
     ListFunctionsResponse'
     { _lfrsNextMarker = Nothing
     , _lfrsFunctions = Nothing
-    , _lfrsStatus = pStatus
+    , _lfrsStatus = pStatus_
     }
 
 -- | A string, present if there are more functions.

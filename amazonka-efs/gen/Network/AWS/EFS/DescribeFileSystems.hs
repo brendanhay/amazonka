@@ -174,12 +174,12 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
 
 -- | 'DescribeFileSystemsResponse' smart constructor.
 describeFileSystemsResponse :: Int -> DescribeFileSystemsResponse
-describeFileSystemsResponse pStatus =
+describeFileSystemsResponse pStatus_ =
     DescribeFileSystemsResponse'
     { _dfsrsFileSystems = Nothing
     , _dfsrsMarker = Nothing
     , _dfsrsNextMarker = Nothing
-    , _dfsrsStatus = pStatus
+    , _dfsrsStatus = pStatus_
     }
 
 -- | An array of file system descriptions.

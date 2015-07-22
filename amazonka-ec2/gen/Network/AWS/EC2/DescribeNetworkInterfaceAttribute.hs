@@ -67,11 +67,11 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
 
 -- | 'DescribeNetworkInterfaceAttribute' smart constructor.
 describeNetworkInterfaceAttribute :: Text -> DescribeNetworkInterfaceAttribute
-describeNetworkInterfaceAttribute pNetworkInterfaceId =
+describeNetworkInterfaceAttribute pNetworkInterfaceId_ =
     DescribeNetworkInterfaceAttribute'
     { _dniarqAttribute = Nothing
     , _dniarqDryRun = Nothing
-    , _dniarqNetworkInterfaceId = pNetworkInterfaceId
+    , _dniarqNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | The attribute of the network interface.
@@ -152,14 +152,14 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
 describeNetworkInterfaceAttributeResponse :: Int -> DescribeNetworkInterfaceAttributeResponse
-describeNetworkInterfaceAttributeResponse pStatus =
+describeNetworkInterfaceAttributeResponse pStatus_ =
     DescribeNetworkInterfaceAttributeResponse'
     { _dniarsGroups = Nothing
     , _dniarsSourceDestCheck = Nothing
     , _dniarsNetworkInterfaceId = Nothing
     , _dniarsAttachment = Nothing
     , _dniarsDescription = Nothing
-    , _dniarsStatus = pStatus
+    , _dniarsStatus = pStatus_
     }
 
 -- | The security groups associated with the network interface.

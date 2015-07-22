@@ -62,10 +62,10 @@ data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
 
 -- | 'TerminateInstanceInAutoScalingGroup' smart constructor.
 terminateInstanceInAutoScalingGroup :: Text -> Bool -> TerminateInstanceInAutoScalingGroup
-terminateInstanceInAutoScalingGroup pInstanceId pShouldDecrementDesiredCapacity =
+terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity_ =
     TerminateInstanceInAutoScalingGroup'
-    { _tiiasgrqInstanceId = pInstanceId
-    , _tiiasgrqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
+    { _tiiasgrqInstanceId = pInstanceId_
+    , _tiiasgrqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
 -- | The ID of the EC2 instance.
@@ -125,10 +125,10 @@ data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalin
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
 terminateInstanceInAutoScalingGroupResponse :: Int -> TerminateInstanceInAutoScalingGroupResponse
-terminateInstanceInAutoScalingGroupResponse pStatus =
+terminateInstanceInAutoScalingGroupResponse pStatus_ =
     TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrsActivity = Nothing
-    , _tiiasgrsStatus = pStatus
+    , _tiiasgrsStatus = pStatus_
     }
 
 -- | A scaling activity.

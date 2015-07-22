@@ -75,12 +75,12 @@ data StartTask = StartTask'
 
 -- | 'StartTask' smart constructor.
 startTask :: Text -> StartTask
-startTask pTaskDefinition =
+startTask pTaskDefinition_ =
     StartTask'
     { _srqOverrides = Nothing
     , _srqCluster = Nothing
     , _srqStartedBy = Nothing
-    , _srqTaskDefinition = pTaskDefinition
+    , _srqTaskDefinition = pTaskDefinition_
     , _srqContainerInstances = mempty
     }
 
@@ -181,11 +181,11 @@ data StartTaskResponse = StartTaskResponse'
 
 -- | 'StartTaskResponse' smart constructor.
 startTaskResponse :: Int -> StartTaskResponse
-startTaskResponse pStatus =
+startTaskResponse pStatus_ =
     StartTaskResponse'
     { _strsFailures = Nothing
     , _strsTasks = Nothing
-    , _strsStatus = pStatus
+    , _strsStatus = pStatus_
     }
 
 -- | Any failed tasks from your @StartTask@ action are listed here.

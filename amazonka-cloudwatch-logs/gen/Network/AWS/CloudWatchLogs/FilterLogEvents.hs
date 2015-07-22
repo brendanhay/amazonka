@@ -98,7 +98,7 @@ data FilterLogEvents = FilterLogEvents'
 
 -- | 'FilterLogEvents' smart constructor.
 filterLogEvents :: Text -> FilterLogEvents
-filterLogEvents pLogGroupName =
+filterLogEvents pLogGroupName_ =
     FilterLogEvents'
     { _flerqStartTime = Nothing
     , _flerqLogStreamNames = Nothing
@@ -107,7 +107,7 @@ filterLogEvents pLogGroupName =
     , _flerqLimit = Nothing
     , _flerqFilterPattern = Nothing
     , _flerqInterleaved = Nothing
-    , _flerqLogGroupName = pLogGroupName
+    , _flerqLogGroupName = pLogGroupName_
     }
 
 -- | A unix timestamp indicating the start time of the range for the request.
@@ -213,12 +213,12 @@ data FilterLogEventsResponse = FilterLogEventsResponse'
 
 -- | 'FilterLogEventsResponse' smart constructor.
 filterLogEventsResponse :: Int -> FilterLogEventsResponse
-filterLogEventsResponse pStatus =
+filterLogEventsResponse pStatus_ =
     FilterLogEventsResponse'
     { _flersSearchedLogStreams = Nothing
     , _flersNextToken = Nothing
     , _flersEvents = Nothing
-    , _flersStatus = pStatus
+    , _flersStatus = pStatus_
     }
 
 -- | A list of @SearchedLogStream@ objects indicating which log streams have

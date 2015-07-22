@@ -141,10 +141,10 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
 describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse
-describeAutoScalingGroupsResponse pStatus =
+describeAutoScalingGroupsResponse pStatus_ =
     DescribeAutoScalingGroupsResponse'
     { _dasgrsNextToken = Nothing
-    , _dasgrsStatus = pStatus
+    , _dasgrsStatus = pStatus_
     , _dasgrsAutoScalingGroups = mempty
     }
 

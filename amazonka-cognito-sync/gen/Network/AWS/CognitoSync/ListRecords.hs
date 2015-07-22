@@ -95,15 +95,15 @@ data ListRecords = ListRecords'
 
 -- | 'ListRecords' smart constructor.
 listRecords :: Text -> Text -> Text -> ListRecords
-listRecords pIdentityPoolId pIdentityId pDatasetName =
+listRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     ListRecords'
     { _lrrqLastSyncCount = Nothing
     , _lrrqNextToken = Nothing
     , _lrrqSyncSessionToken = Nothing
     , _lrrqMaxResults = Nothing
-    , _lrrqIdentityPoolId = pIdentityPoolId
-    , _lrrqIdentityId = pIdentityId
-    , _lrrqDatasetName = pDatasetName
+    , _lrrqIdentityPoolId = pIdentityPoolId_
+    , _lrrqIdentityId = pIdentityId_
+    , _lrrqDatasetName = pDatasetName_
     }
 
 -- | The last server sync count for this record.
@@ -220,7 +220,7 @@ data ListRecordsResponse = ListRecordsResponse'
 
 -- | 'ListRecordsResponse' smart constructor.
 listRecordsResponse :: Int -> ListRecordsResponse
-listRecordsResponse pStatus =
+listRecordsResponse pStatus_ =
     ListRecordsResponse'
     { _lrrsDatasetDeletedAfterRequestedSyncCount = Nothing
     , _lrrsDatasetExists = Nothing
@@ -231,7 +231,7 @@ listRecordsResponse pStatus =
     , _lrrsMergedDatasetNames = Nothing
     , _lrrsLastModifiedBy = Nothing
     , _lrrsDatasetSyncCount = Nothing
-    , _lrrsStatus = pStatus
+    , _lrrsStatus = pStatus_
     }
 
 -- | A boolean value specifying whether to delete the dataset locally.

@@ -88,11 +88,11 @@ data ListVaults = ListVaults'
 
 -- | 'ListVaults' smart constructor.
 listVaults :: Text -> ListVaults
-listVaults pAccountId =
+listVaults pAccountId_ =
     ListVaults'
     { _lvrqMarker = Nothing
     , _lvrqLimit = Nothing
-    , _lvrqAccountId = pAccountId
+    , _lvrqAccountId = pAccountId_
     }
 
 -- | A string used for pagination. The marker specifies the vault ARN after
@@ -157,11 +157,11 @@ data ListVaultsResponse = ListVaultsResponse'
 
 -- | 'ListVaultsResponse' smart constructor.
 listVaultsResponse :: Int -> ListVaultsResponse
-listVaultsResponse pStatus =
+listVaultsResponse pStatus_ =
     ListVaultsResponse'
     { _lvrsMarker = Nothing
     , _lvrsVaultList = Nothing
-    , _lvrsStatus = pStatus
+    , _lvrsStatus = pStatus_
     }
 
 -- | The vault ARN at which to continue pagination of the results. You use

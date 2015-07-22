@@ -68,11 +68,11 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
 
 -- | 'CreateSpotDatafeedSubscription' smart constructor.
 createSpotDatafeedSubscription :: Text -> CreateSpotDatafeedSubscription
-createSpotDatafeedSubscription pBucket =
+createSpotDatafeedSubscription pBucket_ =
     CreateSpotDatafeedSubscription'
     { _csdsrqPrefix = Nothing
     , _csdsrqDryRun = Nothing
-    , _csdsrqBucket = pBucket
+    , _csdsrqBucket = pBucket_
     }
 
 -- | A prefix for the data feed file names.
@@ -135,10 +135,10 @@ data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResp
 
 -- | 'CreateSpotDatafeedSubscriptionResponse' smart constructor.
 createSpotDatafeedSubscriptionResponse :: Int -> CreateSpotDatafeedSubscriptionResponse
-createSpotDatafeedSubscriptionResponse pStatus =
+createSpotDatafeedSubscriptionResponse pStatus_ =
     CreateSpotDatafeedSubscriptionResponse'
     { _csdsrsSpotDatafeedSubscription = Nothing
-    , _csdsrsStatus = pStatus
+    , _csdsrsStatus = pStatus_
     }
 
 -- | The Spot Instance data feed subscription.

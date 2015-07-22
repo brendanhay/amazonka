@@ -78,11 +78,11 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
 
 -- | 'UpdateBandwidthRateLimit' smart constructor.
 updateBandwidthRateLimit :: Text -> UpdateBandwidthRateLimit
-updateBandwidthRateLimit pGatewayARN =
+updateBandwidthRateLimit pGatewayARN_ =
     UpdateBandwidthRateLimit'
     { _ubrlrqAverageUploadRateLimitInBitsPerSec = Nothing
     , _ubrlrqAverageDownloadRateLimitInBitsPerSec = Nothing
-    , _ubrlrqGatewayARN = pGatewayARN
+    , _ubrlrqGatewayARN = pGatewayARN_
     }
 
 -- | The average upload bandwidth rate limit in bits per second.
@@ -150,10 +150,10 @@ data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
 
 -- | 'UpdateBandwidthRateLimitResponse' smart constructor.
 updateBandwidthRateLimitResponse :: Int -> UpdateBandwidthRateLimitResponse
-updateBandwidthRateLimitResponse pStatus =
+updateBandwidthRateLimitResponse pStatus_ =
     UpdateBandwidthRateLimitResponse'
     { _ubrlrsGatewayARN = Nothing
-    , _ubrlrsStatus = pStatus
+    , _ubrlrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

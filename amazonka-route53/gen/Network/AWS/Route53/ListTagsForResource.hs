@@ -61,10 +61,10 @@ data ListTagsForResource = ListTagsForResource'
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: TagResourceType -> Text -> ListTagsForResource
-listTagsForResource pResourceType pResourceId =
+listTagsForResource pResourceType_ pResourceId_ =
     ListTagsForResource'
-    { _ltfrrqResourceType = pResourceType
-    , _ltfrrqResourceId = pResourceId
+    { _ltfrrqResourceType = pResourceType_
+    , _ltfrrqResourceId = pResourceId_
     }
 
 -- | The type of the resource.
@@ -118,10 +118,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: Int -> ResourceTagSet -> ListTagsForResourceResponse
-listTagsForResourceResponse pStatus pResourceTagSet =
+listTagsForResourceResponse pStatus_ pResourceTagSet_ =
     ListTagsForResourceResponse'
-    { _ltfrrsStatus = pStatus
-    , _ltfrrsResourceTagSet = pResourceTagSet
+    { _ltfrrsStatus = pStatus_
+    , _ltfrrsResourceTagSet = pResourceTagSet_
     }
 
 -- | FIXME: Undocumented member.

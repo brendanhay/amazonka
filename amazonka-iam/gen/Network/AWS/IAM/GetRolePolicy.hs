@@ -73,10 +73,10 @@ data GetRolePolicy = GetRolePolicy'
 
 -- | 'GetRolePolicy' smart constructor.
 getRolePolicy :: Text -> Text -> GetRolePolicy
-getRolePolicy pRoleName pPolicyName =
+getRolePolicy pRoleName_ pPolicyName_ =
     GetRolePolicy'
-    { _grprqRoleName = pRoleName
-    , _grprqPolicyName = pPolicyName
+    { _grprqRoleName = pRoleName_
+    , _grprqPolicyName = pPolicyName_
     }
 
 -- | The name of the role associated with the policy.
@@ -135,12 +135,12 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
 
 -- | 'GetRolePolicyResponse' smart constructor.
 getRolePolicyResponse :: Int -> Text -> Text -> Text -> GetRolePolicyResponse
-getRolePolicyResponse pStatus pRoleName pPolicyName pPolicyDocument =
+getRolePolicyResponse pStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
     GetRolePolicyResponse'
-    { _grprsStatus = pStatus
-    , _grprsRoleName = pRoleName
-    , _grprsPolicyName = pPolicyName
-    , _grprsPolicyDocument = pPolicyDocument
+    { _grprsStatus = pStatus_
+    , _grprsRoleName = pRoleName_
+    , _grprsPolicyName = pPolicyName_
+    , _grprsPolicyDocument = pPolicyDocument_
     }
 
 -- | FIXME: Undocumented member.

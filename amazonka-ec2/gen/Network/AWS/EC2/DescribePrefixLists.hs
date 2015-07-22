@@ -166,11 +166,11 @@ data DescribePrefixListsResponse = DescribePrefixListsResponse'
 
 -- | 'DescribePrefixListsResponse' smart constructor.
 describePrefixListsResponse :: Int -> DescribePrefixListsResponse
-describePrefixListsResponse pStatus =
+describePrefixListsResponse pStatus_ =
     DescribePrefixListsResponse'
     { _dplrsNextToken = Nothing
     , _dplrsPrefixLists = Nothing
-    , _dplrsStatus = pStatus
+    , _dplrsStatus = pStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no

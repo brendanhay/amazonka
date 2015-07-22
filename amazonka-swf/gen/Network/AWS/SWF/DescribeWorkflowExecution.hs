@@ -84,10 +84,10 @@ data DescribeWorkflowExecution = DescribeWorkflowExecution'
 
 -- | 'DescribeWorkflowExecution' smart constructor.
 describeWorkflowExecution :: Text -> WorkflowExecution -> DescribeWorkflowExecution
-describeWorkflowExecution pDomain pExecution =
+describeWorkflowExecution pDomain_ pExecution_ =
     DescribeWorkflowExecution'
-    { _dwerqDomain = pDomain
-    , _dwerqExecution = pExecution
+    { _dwerqDomain = pDomain_
+    , _dwerqExecution = pExecution_
     }
 
 -- | The name of the domain containing the workflow execution.
@@ -164,14 +164,14 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
 
 -- | 'DescribeWorkflowExecutionResponse' smart constructor.
 describeWorkflowExecutionResponse :: Int -> WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> DescribeWorkflowExecutionResponse
-describeWorkflowExecutionResponse pStatus pExecutionInfo pExecutionConfiguration pOpenCounts =
+describeWorkflowExecutionResponse pStatus_ pExecutionInfo_ pExecutionConfiguration_ pOpenCounts_ =
     DescribeWorkflowExecutionResponse'
     { _dwersLatestActivityTaskTimestamp = Nothing
     , _dwersLatestExecutionContext = Nothing
-    , _dwersStatus = pStatus
-    , _dwersExecutionInfo = pExecutionInfo
-    , _dwersExecutionConfiguration = pExecutionConfiguration
-    , _dwersOpenCounts = pOpenCounts
+    , _dwersStatus = pStatus_
+    , _dwersExecutionInfo = pExecutionInfo_
+    , _dwersExecutionConfiguration = pExecutionConfiguration_
+    , _dwersOpenCounts = pOpenCounts_
     }
 
 -- | The time when the last activity task was scheduled for this workflow

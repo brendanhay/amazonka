@@ -108,10 +108,10 @@ data BootstrapActionConfig = BootstrapActionConfig'
 
 -- | 'BootstrapActionConfig' smart constructor.
 bootstrapActionConfig :: Text -> ScriptBootstrapActionConfig -> BootstrapActionConfig
-bootstrapActionConfig pName pScriptBootstrapAction =
+bootstrapActionConfig pName_ pScriptBootstrapAction_ =
     BootstrapActionConfig'
-    { _bacName = pName
-    , _bacScriptBootstrapAction = pScriptBootstrapAction
+    { _bacName = pName_
+    , _bacScriptBootstrapAction = pScriptBootstrapAction_
     }
 
 -- | The name of the bootstrap action.
@@ -183,7 +183,7 @@ data Cluster = Cluster'
 
 -- | 'Cluster' smart constructor.
 cluster :: Text -> Text -> ClusterStatus -> Cluster
-cluster pId pName pStatus =
+cluster pId_ pName_ pStatus_ =
     Cluster'
     { _cRequestedAMIVersion = Nothing
     , _cEC2InstanceAttributes = Nothing
@@ -197,9 +197,9 @@ cluster pId pName pStatus =
     , _cApplications = Nothing
     , _cTags = Nothing
     , _cServiceRole = Nothing
-    , _cId = pId
-    , _cName = pName
-    , _cStatus = pStatus
+    , _cId = pId_
+    , _cName = pName_
+    , _cStatus = pStatus_
     }
 
 -- | The AMI version requested for this cluster.
@@ -669,12 +669,12 @@ data HadoopJARStepConfig = HadoopJARStepConfig'
 
 -- | 'HadoopJARStepConfig' smart constructor.
 hadoopJARStepConfig :: Text -> HadoopJARStepConfig
-hadoopJARStepConfig pJAR =
+hadoopJARStepConfig pJAR_ =
     HadoopJARStepConfig'
     { _hjscArgs = Nothing
     , _hjscMainClass = Nothing
     , _hjscProperties = Nothing
-    , _hjscJAR = pJAR
+    , _hjscJAR = pJAR_
     }
 
 -- | A list of command line arguments passed to the JAR file\'s main function
@@ -976,14 +976,14 @@ data InstanceGroupConfig = InstanceGroupConfig'
 
 -- | 'InstanceGroupConfig' smart constructor.
 instanceGroupConfig :: InstanceRoleType -> Text -> Int -> InstanceGroupConfig
-instanceGroupConfig pInstanceRole pInstanceType pInstanceCount =
+instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
     InstanceGroupConfig'
     { _igcBidPrice = Nothing
     , _igcMarket = Nothing
     , _igcName = Nothing
-    , _igcInstanceRole = pInstanceRole
-    , _igcInstanceType = pInstanceType
-    , _igcInstanceCount = pInstanceCount
+    , _igcInstanceRole = pInstanceRole_
+    , _igcInstanceType = pInstanceType_
+    , _igcInstanceCount = pInstanceCount_
     }
 
 -- | Bid price for each Amazon EC2 instance in the instance group when
@@ -1039,11 +1039,11 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
 
 -- | 'InstanceGroupModifyConfig' smart constructor.
 instanceGroupModifyConfig :: Text -> InstanceGroupModifyConfig
-instanceGroupModifyConfig pInstanceGroupId =
+instanceGroupModifyConfig pInstanceGroupId_ =
     InstanceGroupModifyConfig'
     { _igmcInstanceCount = Nothing
     , _igmcEC2InstanceIdsToTerminate = Nothing
-    , _igmcInstanceGroupId = pInstanceGroupId
+    , _igmcInstanceGroupId = pInstanceGroupId_
     }
 
 -- | Target size for the instance group.
@@ -1547,9 +1547,9 @@ newtype PlacementType = PlacementType'
 
 -- | 'PlacementType' smart constructor.
 placementType :: Text -> PlacementType
-placementType pAvailabilityZone =
+placementType pAvailabilityZone_ =
     PlacementType'
-    { _ptAvailabilityZone = pAvailabilityZone
+    { _ptAvailabilityZone = pAvailabilityZone_
     }
 
 -- | The Amazon EC2 Availability Zone for the job flow.
@@ -1576,10 +1576,10 @@ data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
 
 -- | 'ScriptBootstrapActionConfig' smart constructor.
 scriptBootstrapActionConfig :: Text -> ScriptBootstrapActionConfig
-scriptBootstrapActionConfig pPath =
+scriptBootstrapActionConfig pPath_ =
     ScriptBootstrapActionConfig'
     { _sbacArgs = Nothing
-    , _sbacPath = pPath
+    , _sbacPath = pPath_
     }
 
 -- | A list of command line arguments to pass to the bootstrap action script.
@@ -1679,11 +1679,11 @@ data StepConfig = StepConfig'
 
 -- | 'StepConfig' smart constructor.
 stepConfig :: Text -> HadoopJARStepConfig -> StepConfig
-stepConfig pName pHadoopJARStep =
+stepConfig pName_ pHadoopJARStep_ =
     StepConfig'
     { _scActionOnFailure = Nothing
-    , _scName = pName
-    , _scHadoopJARStep = pHadoopJARStep
+    , _scName = pName_
+    , _scHadoopJARStep = pHadoopJARStep_
     }
 
 -- | The action to take if the job flow step fails.

@@ -84,11 +84,11 @@ data PutRolePolicy = PutRolePolicy'
 
 -- | 'PutRolePolicy' smart constructor.
 putRolePolicy :: Text -> Text -> Text -> PutRolePolicy
-putRolePolicy pRoleName pPolicyName pPolicyDocument =
+putRolePolicy pRoleName_ pPolicyName_ pPolicyDocument_ =
     PutRolePolicy'
-    { _prprqRoleName = pRoleName
-    , _prprqPolicyName = pPolicyName
-    , _prprqPolicyDocument = pPolicyDocument
+    { _prprqRoleName = pRoleName_
+    , _prprqPolicyName = pPolicyName_
+    , _prprqPolicyDocument = pPolicyDocument_
     }
 
 -- | The name of the role to associate the policy with.

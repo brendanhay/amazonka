@@ -221,11 +221,11 @@ data DescribeTagsResponse = DescribeTagsResponse'
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatus =
+describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
     , _dtrsTaggedResources = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response

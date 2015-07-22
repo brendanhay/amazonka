@@ -162,14 +162,14 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
 
 -- | 'ListHealthChecksResponse' smart constructor.
 listHealthChecksResponse :: Int -> Text -> Bool -> Text -> ListHealthChecksResponse
-listHealthChecksResponse pStatus pMarker pIsTruncated pMaxItems =
+listHealthChecksResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
     ListHealthChecksResponse'
     { _lhcrsNextMarker = Nothing
-    , _lhcrsStatus = pStatus
+    , _lhcrsStatus = pStatus_
     , _lhcrsHealthChecks = mempty
-    , _lhcrsMarker = pMarker
-    , _lhcrsIsTruncated = pIsTruncated
-    , _lhcrsMaxItems = pMaxItems
+    , _lhcrsMarker = pMarker_
+    , _lhcrsIsTruncated = pIsTruncated_
+    , _lhcrsMaxItems = pMaxItems_
     }
 
 -- | Indicates where to continue listing health checks. If

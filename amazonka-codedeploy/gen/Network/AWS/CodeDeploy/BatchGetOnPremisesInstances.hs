@@ -113,10 +113,10 @@ data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
 
 -- | 'BatchGetOnPremisesInstancesResponse' smart constructor.
 batchGetOnPremisesInstancesResponse :: Int -> BatchGetOnPremisesInstancesResponse
-batchGetOnPremisesInstancesResponse pStatus =
+batchGetOnPremisesInstancesResponse pStatus_ =
     BatchGetOnPremisesInstancesResponse'
     { _bgopirsInstanceInfos = Nothing
-    , _bgopirsStatus = pStatus
+    , _bgopirsStatus = pStatus_
     }
 
 -- | Information about the on-premises instances.

@@ -114,18 +114,18 @@ data RegisterDomain = RegisterDomain'
 
 -- | 'RegisterDomain' smart constructor.
 registerDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> RegisterDomain
-registerDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact =
+registerDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_ pTechContact_ =
     RegisterDomain'
     { _rdrqPrivacyProtectTechContact = Nothing
     , _rdrqPrivacyProtectRegistrantContact = Nothing
     , _rdrqAutoRenew = Nothing
     , _rdrqPrivacyProtectAdminContact = Nothing
     , _rdrqIdNLangCode = Nothing
-    , _rdrqDomainName = pDomainName
-    , _rdrqDurationInYears = _Nat # pDurationInYears
-    , _rdrqAdminContact = _Sensitive # pAdminContact
-    , _rdrqRegistrantContact = _Sensitive # pRegistrantContact
-    , _rdrqTechContact = _Sensitive # pTechContact
+    , _rdrqDomainName = pDomainName_
+    , _rdrqDurationInYears = _Nat # pDurationInYears_
+    , _rdrqAdminContact = _Sensitive # pAdminContact_
+    , _rdrqRegistrantContact = _Sensitive # pRegistrantContact_
+    , _rdrqTechContact = _Sensitive # pTechContact_
     }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -314,10 +314,10 @@ data RegisterDomainResponse = RegisterDomainResponse'
 
 -- | 'RegisterDomainResponse' smart constructor.
 registerDomainResponse :: Int -> Text -> RegisterDomainResponse
-registerDomainResponse pStatus pOperationId =
+registerDomainResponse pStatus_ pOperationId_ =
     RegisterDomainResponse'
-    { _rdrsStatus = pStatus
-    , _rdrsOperationId = pOperationId
+    { _rdrsStatus = pStatus_
+    , _rdrsOperationId = pOperationId_
     }
 
 -- | FIXME: Undocumented member.

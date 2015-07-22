@@ -61,11 +61,11 @@ data RegisterApplicationRevision = RegisterApplicationRevision'
 
 -- | 'RegisterApplicationRevision' smart constructor.
 registerApplicationRevision :: Text -> RevisionLocation -> RegisterApplicationRevision
-registerApplicationRevision pApplicationName pRevision =
+registerApplicationRevision pApplicationName_ pRevision_ =
     RegisterApplicationRevision'
     { _rarrqDescription = Nothing
-    , _rarrqApplicationName = pApplicationName
-    , _rarrqRevision = pRevision
+    , _rarrqApplicationName = pApplicationName_
+    , _rarrqRevision = pRevision_
     }
 
 -- | A comment about the revision.

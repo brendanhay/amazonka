@@ -57,9 +57,9 @@ newtype DeleteCluster = DeleteCluster'
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
-deleteCluster pCluster =
+deleteCluster pCluster_ =
     DeleteCluster'
-    { _dcrqCluster = pCluster
+    { _dcrqCluster = pCluster_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
@@ -111,10 +111,10 @@ data DeleteClusterResponse = DeleteClusterResponse'
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Int -> DeleteClusterResponse
-deleteClusterResponse pStatus =
+deleteClusterResponse pStatus_ =
     DeleteClusterResponse'
     { _drsCluster = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | The full description of the deleted cluster.

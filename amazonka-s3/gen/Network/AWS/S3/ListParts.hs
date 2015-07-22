@@ -86,14 +86,14 @@ data ListParts = ListParts'
 
 -- | 'ListParts' smart constructor.
 listParts :: BucketName -> ObjectKey -> Text -> ListParts
-listParts pBucket pKey pUploadId =
+listParts pBucket_ pKey_ pUploadId_ =
     ListParts'
     { _lprqMaxParts = Nothing
     , _lprqRequestPayer = Nothing
     , _lprqPartNumberMarker = Nothing
-    , _lprqBucket = pBucket
-    , _lprqKey = pKey
-    , _lprqUploadId = pUploadId
+    , _lprqBucket = pBucket_
+    , _lprqKey = pKey_
+    , _lprqUploadId = pUploadId_
     }
 
 -- | Sets the maximum number of parts to return.
@@ -217,7 +217,7 @@ data ListPartsResponse = ListPartsResponse'
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Int -> ListPartsResponse
-listPartsResponse pStatus =
+listPartsResponse pStatus_ =
     ListPartsResponse'
     { _lprsParts = Nothing
     , _lprsRequestCharged = Nothing
@@ -231,7 +231,7 @@ listPartsResponse pStatus =
     , _lprsIsTruncated = Nothing
     , _lprsPartNumberMarker = Nothing
     , _lprsUploadId = Nothing
-    , _lprsStatus = pStatus
+    , _lprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

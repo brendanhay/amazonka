@@ -99,13 +99,13 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
 
 -- | 'CountOpenWorkflowExecutions' smart constructor.
 countOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> CountOpenWorkflowExecutions
-countOpenWorkflowExecutions pDomain pStartTimeFilter =
+countOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
     CountOpenWorkflowExecutions'
     { _cowerqExecutionFilter = Nothing
     , _cowerqTypeFilter = Nothing
     , _cowerqTagFilter = Nothing
-    , _cowerqDomain = pDomain
-    , _cowerqStartTimeFilter = pStartTimeFilter
+    , _cowerqDomain = pDomain_
+    , _cowerqStartTimeFilter = pStartTimeFilter_
     }
 
 -- | If specified, only workflow executions matching the @WorkflowId@ in the

@@ -72,11 +72,11 @@ data DeleteReplicationGroup = DeleteReplicationGroup'
 
 -- | 'DeleteReplicationGroup' smart constructor.
 deleteReplicationGroup :: Text -> DeleteReplicationGroup
-deleteReplicationGroup pReplicationGroupId =
+deleteReplicationGroup pReplicationGroupId_ =
     DeleteReplicationGroup'
     { _drgrqFinalSnapshotIdentifier = Nothing
     , _drgrqRetainPrimaryCluster = Nothing
-    , _drgrqReplicationGroupId = pReplicationGroupId
+    , _drgrqReplicationGroupId = pReplicationGroupId_
     }
 
 -- | The name of a final node group snapshot. ElastiCache creates the
@@ -138,10 +138,10 @@ data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
 
 -- | 'DeleteReplicationGroupResponse' smart constructor.
 deleteReplicationGroupResponse :: Int -> DeleteReplicationGroupResponse
-deleteReplicationGroupResponse pStatus =
+deleteReplicationGroupResponse pStatus_ =
     DeleteReplicationGroupResponse'
     { _delrsReplicationGroup = Nothing
-    , _delrsStatus = pStatus
+    , _delrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

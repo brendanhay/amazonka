@@ -63,11 +63,11 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: Text -> DescribeLoadBalancers
-describeLoadBalancers pAutoScalingGroupName =
+describeLoadBalancers pAutoScalingGroupName_ =
     DescribeLoadBalancers'
     { _dlbrqNextToken = Nothing
     , _dlbrqMaxRecords = Nothing
-    , _dlbrqAutoScalingGroupName = pAutoScalingGroupName
+    , _dlbrqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The token for the next set of items to return. (You received this token
@@ -129,11 +129,11 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
-describeLoadBalancersResponse pStatus =
+describeLoadBalancersResponse pStatus_ =
     DescribeLoadBalancersResponse'
     { _dlbrsLoadBalancers = Nothing
     , _dlbrsNextToken = Nothing
-    , _dlbrsStatus = pStatus
+    , _dlbrsStatus = pStatus_
     }
 
 -- | The load balancers.

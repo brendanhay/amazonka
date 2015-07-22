@@ -132,11 +132,11 @@ data ListDomainsResponse = ListDomainsResponse'
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
-listDomainsResponse pStatus =
+listDomainsResponse pStatus_ =
     ListDomainsResponse'
     { _ldrsDomainNames = Nothing
     , _ldrsNextToken = Nothing
-    , _ldrsStatus = pStatus
+    , _ldrsStatus = pStatus_
     }
 
 -- | A list of domain names that match the expression.

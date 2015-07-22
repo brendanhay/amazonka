@@ -66,9 +66,9 @@ newtype ResetCache = ResetCache'
 
 -- | 'ResetCache' smart constructor.
 resetCache :: Text -> ResetCache
-resetCache pGatewayARN =
+resetCache pGatewayARN_ =
     ResetCache'
-    { _rcrqGatewayARN = pGatewayARN
+    { _rcrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -118,10 +118,10 @@ data ResetCacheResponse = ResetCacheResponse'
 
 -- | 'ResetCacheResponse' smart constructor.
 resetCacheResponse :: Int -> ResetCacheResponse
-resetCacheResponse pStatus =
+resetCacheResponse pStatus_ =
     ResetCacheResponse'
     { _rcrsGatewayARN = Nothing
-    , _rcrsStatus = pStatus
+    , _rcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

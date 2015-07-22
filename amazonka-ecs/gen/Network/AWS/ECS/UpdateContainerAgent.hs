@@ -69,10 +69,10 @@ data UpdateContainerAgent = UpdateContainerAgent'
 
 -- | 'UpdateContainerAgent' smart constructor.
 updateContainerAgent :: Text -> UpdateContainerAgent
-updateContainerAgent pContainerInstance =
+updateContainerAgent pContainerInstance_ =
     UpdateContainerAgent'
     { _ucarqCluster = Nothing
-    , _ucarqContainerInstance = pContainerInstance
+    , _ucarqContainerInstance = pContainerInstance_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
@@ -134,10 +134,10 @@ data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
 
 -- | 'UpdateContainerAgentResponse' smart constructor.
 updateContainerAgentResponse :: Int -> UpdateContainerAgentResponse
-updateContainerAgentResponse pStatus =
+updateContainerAgentResponse pStatus_ =
     UpdateContainerAgentResponse'
     { _ucarsContainerInstance = Nothing
-    , _ucarsStatus = pStatus
+    , _ucarsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

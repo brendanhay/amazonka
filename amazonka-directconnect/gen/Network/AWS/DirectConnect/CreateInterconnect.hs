@@ -84,11 +84,11 @@ data CreateInterconnect = CreateInterconnect'
 
 -- | 'CreateInterconnect' smart constructor.
 createInterconnect :: Text -> Text -> Text -> CreateInterconnect
-createInterconnect pInterconnectName pBandwidth pLocation =
+createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
     CreateInterconnect'
-    { _cirqInterconnectName = pInterconnectName
-    , _cirqBandwidth = pBandwidth
-    , _cirqLocation = pLocation
+    { _cirqInterconnectName = pInterconnectName_
+    , _cirqBandwidth = pBandwidth_
+    , _cirqLocation = pLocation_
     }
 
 -- | The name of the interconnect.

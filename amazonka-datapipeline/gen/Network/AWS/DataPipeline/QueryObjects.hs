@@ -76,13 +76,13 @@ data QueryObjects = QueryObjects'
 
 -- | 'QueryObjects' smart constructor.
 queryObjects :: Text -> Text -> QueryObjects
-queryObjects pPipelineId pSphere =
+queryObjects pPipelineId_ pSphere_ =
     QueryObjects'
     { _qorqQuery = Nothing
     , _qorqMarker = Nothing
     , _qorqLimit = Nothing
-    , _qorqPipelineId = pPipelineId
-    , _qorqSphere = pSphere
+    , _qorqPipelineId = pPipelineId_
+    , _qorqSphere = pSphere_
     }
 
 -- | The query that defines the objects to be returned. The @Query@ object
@@ -177,12 +177,12 @@ data QueryObjectsResponse = QueryObjectsResponse'
 
 -- | 'QueryObjectsResponse' smart constructor.
 queryObjectsResponse :: Int -> QueryObjectsResponse
-queryObjectsResponse pStatus =
+queryObjectsResponse pStatus_ =
     QueryObjectsResponse'
     { _qorsHasMoreResults = Nothing
     , _qorsIds = Nothing
     , _qorsMarker = Nothing
-    , _qorsStatus = pStatus
+    , _qorsStatus = pStatus_
     }
 
 -- | Indicates whether there are more results that can be obtained by a

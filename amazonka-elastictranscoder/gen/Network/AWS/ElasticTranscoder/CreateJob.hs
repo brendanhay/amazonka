@@ -87,15 +87,15 @@ data CreateJob = CreateJob'
 
 -- | 'CreateJob' smart constructor.
 createJob :: Text -> JobInput -> CreateJob
-createJob pPipelineId pInput =
+createJob pPipelineId_ pInput_ =
     CreateJob'
     { _cjrqOutputs = Nothing
     , _cjrqUserMetadata = Nothing
     , _cjrqOutput = Nothing
     , _cjrqPlaylists = Nothing
     , _cjrqOutputKeyPrefix = Nothing
-    , _cjrqPipelineId = pPipelineId
-    , _cjrqInput = pInput
+    , _cjrqPipelineId = pPipelineId_
+    , _cjrqInput = pInput_
     }
 
 -- | A section of the request body that provides information about the
@@ -189,10 +189,10 @@ data CreateJobResponse = CreateJobResponse'
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Int -> CreateJobResponse
-createJobResponse pStatus =
+createJobResponse pStatus_ =
     CreateJobResponse'
     { _cjrsJob = Nothing
-    , _cjrsStatus = pStatus
+    , _cjrsStatus = pStatus_
     }
 
 -- | A section of the response body that provides information about the job

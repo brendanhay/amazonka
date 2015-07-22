@@ -108,12 +108,12 @@ data GetShardIterator = GetShardIterator'
 
 -- | 'GetShardIterator' smart constructor.
 getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
-getShardIterator pStreamName pShardId pShardIteratorType =
+getShardIterator pStreamName_ pShardId_ pShardIteratorType_ =
     GetShardIterator'
     { _gsirqStartingSequenceNumber = Nothing
-    , _gsirqStreamName = pStreamName
-    , _gsirqShardId = pShardId
-    , _gsirqShardIteratorType = pShardIteratorType
+    , _gsirqStreamName = pStreamName_
+    , _gsirqShardId = pShardId_
+    , _gsirqShardIteratorType = pShardIteratorType_
     }
 
 -- | The sequence number of the data record in the shard from which to start
@@ -195,10 +195,10 @@ data GetShardIteratorResponse = GetShardIteratorResponse'
 
 -- | 'GetShardIteratorResponse' smart constructor.
 getShardIteratorResponse :: Int -> GetShardIteratorResponse
-getShardIteratorResponse pStatus =
+getShardIteratorResponse pStatus_ =
     GetShardIteratorResponse'
     { _gsirsShardIterator = Nothing
-    , _gsirsStatus = pStatus
+    , _gsirsStatus = pStatus_
     }
 
 -- | The position in the shard from which to start reading data records

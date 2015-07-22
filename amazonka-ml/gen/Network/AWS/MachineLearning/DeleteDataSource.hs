@@ -62,9 +62,9 @@ newtype DeleteDataSource = DeleteDataSource'
 
 -- | 'DeleteDataSource' smart constructor.
 deleteDataSource :: Text -> DeleteDataSource
-deleteDataSource pDataSourceId =
+deleteDataSource pDataSourceId_ =
     DeleteDataSource'
-    { _ddsrqDataSourceId = pDataSourceId
+    { _ddsrqDataSourceId = pDataSourceId_
     }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@.
@@ -116,10 +116,10 @@ data DeleteDataSourceResponse = DeleteDataSourceResponse'
 
 -- | 'DeleteDataSourceResponse' smart constructor.
 deleteDataSourceResponse :: Int -> DeleteDataSourceResponse
-deleteDataSourceResponse pStatus =
+deleteDataSourceResponse pStatus_ =
     DeleteDataSourceResponse'
     { _ddsrsDataSourceId = Nothing
-    , _ddsrsStatus = pStatus
+    , _ddsrsStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. This value

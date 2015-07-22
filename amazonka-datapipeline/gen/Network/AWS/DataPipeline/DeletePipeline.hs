@@ -60,9 +60,9 @@ newtype DeletePipeline = DeletePipeline'
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
-deletePipeline pPipelineId =
+deletePipeline pPipelineId_ =
     DeletePipeline'
-    { _dprqPipelineId = pPipelineId
+    { _dprqPipelineId = pPipelineId_
     }
 
 -- | The ID of the pipeline.

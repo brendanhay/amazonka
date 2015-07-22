@@ -65,10 +65,10 @@ data DeleteVPNConnection = DeleteVPNConnection'
 
 -- | 'DeleteVPNConnection' smart constructor.
 deleteVPNConnection :: Text -> DeleteVPNConnection
-deleteVPNConnection pVPNConnectionId =
+deleteVPNConnection pVPNConnectionId_ =
     DeleteVPNConnection'
     { _dvcrqDryRun = Nothing
-    , _dvcrqVPNConnectionId = pVPNConnectionId
+    , _dvcrqVPNConnectionId = pVPNConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

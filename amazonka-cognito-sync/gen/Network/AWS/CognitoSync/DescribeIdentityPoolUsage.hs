@@ -61,9 +61,9 @@ newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
 
 -- | 'DescribeIdentityPoolUsage' smart constructor.
 describeIdentityPoolUsage :: Text -> DescribeIdentityPoolUsage
-describeIdentityPoolUsage pIdentityPoolId =
+describeIdentityPoolUsage pIdentityPoolId_ =
     DescribeIdentityPoolUsage'
-    { _dipurqIdentityPoolId = pIdentityPoolId
+    { _dipurqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
@@ -114,10 +114,10 @@ data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
 
 -- | 'DescribeIdentityPoolUsageResponse' smart constructor.
 describeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse
-describeIdentityPoolUsageResponse pStatus =
+describeIdentityPoolUsageResponse pStatus_ =
     DescribeIdentityPoolUsageResponse'
     { _dipursIdentityPoolUsage = Nothing
-    , _dipursStatus = pStatus
+    , _dipursStatus = pStatus_
     }
 
 -- | Information about the usage of the identity pool.

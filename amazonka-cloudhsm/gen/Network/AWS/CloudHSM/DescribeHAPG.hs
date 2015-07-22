@@ -64,9 +64,9 @@ newtype DescribeHAPG = DescribeHAPG'
 
 -- | 'DescribeHAPG' smart constructor.
 describeHAPG :: Text -> DescribeHAPG
-describeHAPG pHAPGARN =
+describeHAPG pHAPGARN_ =
     DescribeHAPG'
-    { _dhapgrqHAPGARN = pHAPGARN
+    { _dhapgrqHAPGARN = pHAPGARN_
     }
 
 -- | The ARN of the high-availability partition group to describe.
@@ -151,7 +151,7 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
 
 -- | 'DescribeHAPGResponse' smart constructor.
 describeHAPGResponse :: Int -> DescribeHAPGResponse
-describeHAPGResponse pStatus =
+describeHAPGResponse pStatus_ =
     DescribeHAPGResponse'
     { _dhapgrsState = Nothing
     , _dhapgrsLastModifiedTimestamp = Nothing
@@ -162,7 +162,7 @@ describeHAPGResponse pStatus =
     , _dhapgrsPartitionSerialList = Nothing
     , _dhapgrsHAPGARN = Nothing
     , _dhapgrsLabel = Nothing
-    , _dhapgrsStatus = pStatus
+    , _dhapgrsStatus = pStatus_
     }
 
 -- | The state of the high-availability partition group.

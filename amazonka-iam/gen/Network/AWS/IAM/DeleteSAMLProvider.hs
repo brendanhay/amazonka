@@ -58,9 +58,9 @@ newtype DeleteSAMLProvider = DeleteSAMLProvider'
 
 -- | 'DeleteSAMLProvider' smart constructor.
 deleteSAMLProvider :: Text -> DeleteSAMLProvider
-deleteSAMLProvider pSAMLProviderARN =
+deleteSAMLProvider pSAMLProviderARN_ =
     DeleteSAMLProvider'
-    { _dsamlprqSAMLProviderARN = pSAMLProviderARN
+    { _dsamlprqSAMLProviderARN = pSAMLProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.

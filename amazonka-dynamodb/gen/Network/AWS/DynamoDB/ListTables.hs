@@ -143,11 +143,11 @@ data ListTablesResponse = ListTablesResponse'
 
 -- | 'ListTablesResponse' smart constructor.
 listTablesResponse :: Int -> ListTablesResponse
-listTablesResponse pStatus =
+listTablesResponse pStatus_ =
     ListTablesResponse'
     { _ltrsLastEvaluatedTableName = Nothing
     , _ltrsTableNames = Nothing
-    , _ltrsStatus = pStatus
+    , _ltrsStatus = pStatus_
     }
 
 -- | The name of the last table in the current page of results. Use this

@@ -85,12 +85,12 @@ data CompleteLifecycleAction = CompleteLifecycleAction'
 
 -- | 'CompleteLifecycleAction' smart constructor.
 completeLifecycleAction :: Text -> Text -> Text -> Text -> CompleteLifecycleAction
-completeLifecycleAction pLifecycleHookName pAutoScalingGroupName pLifecycleActionToken pLifecycleActionResult =
+completeLifecycleAction pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ pLifecycleActionResult_ =
     CompleteLifecycleAction'
-    { _clarqLifecycleHookName = pLifecycleHookName
-    , _clarqAutoScalingGroupName = pAutoScalingGroupName
-    , _clarqLifecycleActionToken = pLifecycleActionToken
-    , _clarqLifecycleActionResult = pLifecycleActionResult
+    { _clarqLifecycleHookName = pLifecycleHookName_
+    , _clarqAutoScalingGroupName = pAutoScalingGroupName_
+    , _clarqLifecycleActionToken = pLifecycleActionToken_
+    , _clarqLifecycleActionResult = pLifecycleActionResult_
     }
 
 -- | The name of the lifecycle hook.
@@ -153,9 +153,9 @@ newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
 
 -- | 'CompleteLifecycleActionResponse' smart constructor.
 completeLifecycleActionResponse :: Int -> CompleteLifecycleActionResponse
-completeLifecycleActionResponse pStatus =
+completeLifecycleActionResponse pStatus_ =
     CompleteLifecycleActionResponse'
-    { _clarsStatus = pStatus
+    { _clarsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

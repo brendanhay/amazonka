@@ -81,15 +81,15 @@ data CreateCustomActionType = CreateCustomActionType'
 
 -- | 'CreateCustomActionType' smart constructor.
 createCustomActionType :: ActionCategory -> Text -> Text -> ArtifactDetails -> ArtifactDetails -> CreateCustomActionType
-createCustomActionType pCategory pProvider pVersion pInputArtifactDetails pOutputArtifactDetails =
+createCustomActionType pCategory_ pProvider_ pVersion_ pInputArtifactDetails_ pOutputArtifactDetails_ =
     CreateCustomActionType'
     { _ccatrqSettings = Nothing
     , _ccatrqConfigurationProperties = Nothing
-    , _ccatrqCategory = pCategory
-    , _ccatrqProvider = pProvider
-    , _ccatrqVersion = pVersion
-    , _ccatrqInputArtifactDetails = pInputArtifactDetails
-    , _ccatrqOutputArtifactDetails = pOutputArtifactDetails
+    , _ccatrqCategory = pCategory_
+    , _ccatrqProvider = pProvider_
+    , _ccatrqVersion = pVersion_
+    , _ccatrqInputArtifactDetails = pInputArtifactDetails_
+    , _ccatrqOutputArtifactDetails = pOutputArtifactDetails_
     }
 
 -- | FIXME: Undocumented member.
@@ -182,10 +182,10 @@ data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
 
 -- | 'CreateCustomActionTypeResponse' smart constructor.
 createCustomActionTypeResponse :: Int -> ActionType -> CreateCustomActionTypeResponse
-createCustomActionTypeResponse pStatus pActionType =
+createCustomActionTypeResponse pStatus_ pActionType_ =
     CreateCustomActionTypeResponse'
-    { _ccatrsStatus = pStatus
-    , _ccatrsActionType = pActionType
+    { _ccatrsStatus = pStatus_
+    , _ccatrsActionType = pActionType_
     }
 
 -- | FIXME: Undocumented member.

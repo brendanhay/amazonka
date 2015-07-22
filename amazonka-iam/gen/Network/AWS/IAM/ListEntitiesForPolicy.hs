@@ -83,13 +83,13 @@ data ListEntitiesForPolicy = ListEntitiesForPolicy'
 
 -- | 'ListEntitiesForPolicy' smart constructor.
 listEntitiesForPolicy :: Text -> ListEntitiesForPolicy
-listEntitiesForPolicy pPolicyARN =
+listEntitiesForPolicy pPolicyARN_ =
     ListEntitiesForPolicy'
     { _lefprqPathPrefix = Nothing
     , _lefprqEntityFilter = Nothing
     , _lefprqMaxItems = Nothing
     , _lefprqMarker = Nothing
-    , _lefprqPolicyARN = pPolicyARN
+    , _lefprqPolicyARN = pPolicyARN_
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
@@ -192,14 +192,14 @@ data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
 
 -- | 'ListEntitiesForPolicyResponse' smart constructor.
 listEntitiesForPolicyResponse :: Int -> ListEntitiesForPolicyResponse
-listEntitiesForPolicyResponse pStatus =
+listEntitiesForPolicyResponse pStatus_ =
     ListEntitiesForPolicyResponse'
     { _lefprsPolicyGroups = Nothing
     , _lefprsPolicyRoles = Nothing
     , _lefprsPolicyUsers = Nothing
     , _lefprsMarker = Nothing
     , _lefprsIsTruncated = Nothing
-    , _lefprsStatus = pStatus
+    , _lefprsStatus = pStatus_
     }
 
 -- | A list of groups that the policy is attached to.

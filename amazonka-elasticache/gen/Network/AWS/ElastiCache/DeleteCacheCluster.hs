@@ -67,10 +67,10 @@ data DeleteCacheCluster = DeleteCacheCluster'
 
 -- | 'DeleteCacheCluster' smart constructor.
 deleteCacheCluster :: Text -> DeleteCacheCluster
-deleteCacheCluster pCacheClusterId =
+deleteCacheCluster pCacheClusterId_ =
     DeleteCacheCluster'
     { _dccrqFinalSnapshotIdentifier = Nothing
-    , _dccrqCacheClusterId = pCacheClusterId
+    , _dccrqCacheClusterId = pCacheClusterId_
     }
 
 -- | The user-supplied name of a final cache cluster snapshot. This is the
@@ -124,10 +124,10 @@ data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
 
 -- | 'DeleteCacheClusterResponse' smart constructor.
 deleteCacheClusterResponse :: Int -> DeleteCacheClusterResponse
-deleteCacheClusterResponse pStatus =
+deleteCacheClusterResponse pStatus_ =
     DeleteCacheClusterResponse'
     { _dccrsCacheCluster = Nothing
-    , _dccrsStatus = pStatus
+    , _dccrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -55,9 +55,9 @@ newtype DeleteEndpoint = DeleteEndpoint'
 
 -- | 'DeleteEndpoint' smart constructor.
 deleteEndpoint :: Text -> DeleteEndpoint
-deleteEndpoint pEndpointARN =
+deleteEndpoint pEndpointARN_ =
     DeleteEndpoint'
-    { _derqEndpointARN = pEndpointARN
+    { _derqEndpointARN = pEndpointARN_
     }
 
 -- | EndpointArn of endpoint to delete.

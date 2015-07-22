@@ -75,12 +75,12 @@ data UpdateDomainContact = UpdateDomainContact'
 
 -- | 'UpdateDomainContact' smart constructor.
 updateDomainContact :: Text -> UpdateDomainContact
-updateDomainContact pDomainName =
+updateDomainContact pDomainName_ =
     UpdateDomainContact'
     { _udcrqRegistrantContact = Nothing
     , _udcrqAdminContact = Nothing
     , _udcrqTechContact = Nothing
-    , _udcrqDomainName = pDomainName
+    , _udcrqDomainName = pDomainName_
     }
 
 -- | Provides detailed contact information.
@@ -184,10 +184,10 @@ data UpdateDomainContactResponse = UpdateDomainContactResponse'
 
 -- | 'UpdateDomainContactResponse' smart constructor.
 updateDomainContactResponse :: Int -> Text -> UpdateDomainContactResponse
-updateDomainContactResponse pStatus pOperationId =
+updateDomainContactResponse pStatus_ pOperationId_ =
     UpdateDomainContactResponse'
-    { _udcrsStatus = pStatus
-    , _udcrsOperationId = pOperationId
+    { _udcrsStatus = pStatus_
+    , _udcrsOperationId = pOperationId_
     }
 
 -- | FIXME: Undocumented member.

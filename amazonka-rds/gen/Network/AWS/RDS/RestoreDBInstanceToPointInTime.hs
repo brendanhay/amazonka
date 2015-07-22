@@ -137,7 +137,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
 
 -- | 'RestoreDBInstanceToPointInTime' smart constructor.
 restoreDBInstanceToPointInTime :: Text -> Text -> RestoreDBInstanceToPointInTime
-restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier pTargetDBInstanceIdentifier =
+restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIdentifier_ =
     RestoreDBInstanceToPointInTime'
     { _rditpitrqUseLatestRestorableTime = Nothing
     , _rditpitrqAutoMinorVersionUpgrade = Nothing
@@ -157,8 +157,8 @@ restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier pTargetDBInstanceIden
     , _rditpitrqTags = Nothing
     , _rditpitrqPort = Nothing
     , _rditpitrqStorageType = Nothing
-    , _rditpitrqSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier
-    , _rditpitrqTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier
+    , _rditpitrqSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
+    , _rditpitrqTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
     }
 
 -- | Specifies whether (@true@) or not (@false@) the DB instance is restored
@@ -410,10 +410,10 @@ data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResp
 
 -- | 'RestoreDBInstanceToPointInTimeResponse' smart constructor.
 restoreDBInstanceToPointInTimeResponse :: Int -> RestoreDBInstanceToPointInTimeResponse
-restoreDBInstanceToPointInTimeResponse pStatus =
+restoreDBInstanceToPointInTimeResponse pStatus_ =
     RestoreDBInstanceToPointInTimeResponse'
     { _rditpitrsDBInstance = Nothing
-    , _rditpitrsStatus = pStatus
+    , _rditpitrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -61,9 +61,9 @@ newtype PurgeQueue = PurgeQueue'
 
 -- | 'PurgeQueue' smart constructor.
 purgeQueue :: Text -> PurgeQueue
-purgeQueue pQueueURL =
+purgeQueue pQueueURL_ =
     PurgeQueue'
-    { _pqrqQueueURL = pQueueURL
+    { _pqrqQueueURL = pQueueURL_
     }
 
 -- | The queue URL of the queue to delete the messages from when using the

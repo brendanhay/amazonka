@@ -181,11 +181,11 @@ data LookupEventsResponse = LookupEventsResponse'
 
 -- | 'LookupEventsResponse' smart constructor.
 lookupEventsResponse :: Int -> LookupEventsResponse
-lookupEventsResponse pStatus =
+lookupEventsResponse pStatus_ =
     LookupEventsResponse'
     { _lersNextToken = Nothing
     , _lersEvents = Nothing
-    , _lersStatus = pStatus
+    , _lersStatus = pStatus_
     }
 
 -- | The token to use to get the next page of results after a previous API

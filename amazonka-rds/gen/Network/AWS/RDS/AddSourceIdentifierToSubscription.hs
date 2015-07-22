@@ -61,10 +61,10 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
 
 -- | 'AddSourceIdentifierToSubscription' smart constructor.
 addSourceIdentifierToSubscription :: Text -> Text -> AddSourceIdentifierToSubscription
-addSourceIdentifierToSubscription pSubscriptionName pSourceIdentifier =
+addSourceIdentifierToSubscription pSubscriptionName_ pSourceIdentifier_ =
     AddSourceIdentifierToSubscription'
-    { _asitsrqSubscriptionName = pSubscriptionName
-    , _asitsrqSourceIdentifier = pSourceIdentifier
+    { _asitsrqSubscriptionName = pSubscriptionName_
+    , _asitsrqSourceIdentifier = pSourceIdentifier_
     }
 
 -- | The name of the RDS event notification subscription you want to add a
@@ -134,10 +134,10 @@ data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscripti
 
 -- | 'AddSourceIdentifierToSubscriptionResponse' smart constructor.
 addSourceIdentifierToSubscriptionResponse :: Int -> AddSourceIdentifierToSubscriptionResponse
-addSourceIdentifierToSubscriptionResponse pStatus =
+addSourceIdentifierToSubscriptionResponse pStatus_ =
     AddSourceIdentifierToSubscriptionResponse'
     { _asitsrsEventSubscription = Nothing
-    , _asitsrsStatus = pStatus
+    , _asitsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

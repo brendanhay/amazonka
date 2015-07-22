@@ -125,7 +125,7 @@ data ModifyCluster = ModifyCluster'
 
 -- | 'ModifyCluster' smart constructor.
 modifyCluster :: Text -> ModifyCluster
-modifyCluster pClusterIdentifier =
+modifyCluster pClusterIdentifier_ =
     ModifyCluster'
     { _mcrqMasterUserPassword = Nothing
     , _mcrqHSMConfigurationIdentifier = Nothing
@@ -141,7 +141,7 @@ modifyCluster pClusterIdentifier =
     , _mcrqNodeType = Nothing
     , _mcrqAllowVersionUpgrade = Nothing
     , _mcrqClusterParameterGroupName = Nothing
-    , _mcrqClusterIdentifier = pClusterIdentifier
+    , _mcrqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The new password for the cluster master user. This change is
@@ -390,10 +390,10 @@ data ModifyClusterResponse = ModifyClusterResponse'
 
 -- | 'ModifyClusterResponse' smart constructor.
 modifyClusterResponse :: Int -> ModifyClusterResponse
-modifyClusterResponse pStatus =
+modifyClusterResponse pStatus_ =
     ModifyClusterResponse'
     { _mcrsCluster = Nothing
-    , _mcrsStatus = pStatus
+    , _mcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

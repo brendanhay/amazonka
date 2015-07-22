@@ -102,11 +102,11 @@ data CreateSnapshot = CreateSnapshot'
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
-createSnapshot pVolumeId =
+createSnapshot pVolumeId_ =
     CreateSnapshot'
     { _cssrqDryRun = Nothing
     , _cssrqDescription = Nothing
-    , _cssrqVolumeId = pVolumeId
+    , _cssrqVolumeId = pVolumeId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

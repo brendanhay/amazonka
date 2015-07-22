@@ -124,11 +124,11 @@ data DescribeServicesResponse = DescribeServicesResponse'
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse
-describeServicesResponse pStatus =
+describeServicesResponse pStatus_ =
     DescribeServicesResponse'
     { _dssrsFailures = Nothing
     , _dssrsServices = Nothing
-    , _dssrsStatus = pStatus
+    , _dssrsStatus = pStatus_
     }
 
 -- | Any failures associated with the call.

@@ -75,9 +75,9 @@ data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
 
 -- | 'ChangeMessageVisibilityBatch' smart constructor.
 changeMessageVisibilityBatch :: Text -> ChangeMessageVisibilityBatch
-changeMessageVisibilityBatch pQueueURL =
+changeMessageVisibilityBatch pQueueURL_ =
     ChangeMessageVisibilityBatch'
-    { _cmvbrqQueueURL = pQueueURL
+    { _cmvbrqQueueURL = pQueueURL_
     , _cmvbrqEntries = mempty
     }
 
@@ -145,9 +145,9 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
 
 -- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
 changeMessageVisibilityBatchResponse :: Int -> ChangeMessageVisibilityBatchResponse
-changeMessageVisibilityBatchResponse pStatus =
+changeMessageVisibilityBatchResponse pStatus_ =
     ChangeMessageVisibilityBatchResponse'
-    { _cmvbrsStatus = pStatus
+    { _cmvbrsStatus = pStatus_
     , _cmvbrsSuccessful = mempty
     , _cmvbrsFailed = mempty
     }

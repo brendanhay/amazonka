@@ -268,11 +268,11 @@ data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
 describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse
-describeEvaluationsResponse pStatus =
+describeEvaluationsResponse pStatus_ =
     DescribeEvaluationsResponse'
     { _desrsResults = Nothing
     , _desrsNextToken = Nothing
-    , _desrsStatus = pStatus
+    , _desrsStatus = pStatus_
     }
 
 -- | A list of Evaluation that meet the search criteria.

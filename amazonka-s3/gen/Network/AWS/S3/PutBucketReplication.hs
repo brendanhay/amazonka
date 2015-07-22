@@ -60,11 +60,11 @@ data PutBucketReplication = PutBucketReplication'
 
 -- | 'PutBucketReplication' smart constructor.
 putBucketReplication :: BucketName -> ReplicationConfiguration -> PutBucketReplication
-putBucketReplication pBucket pReplicationConfiguration =
+putBucketReplication pBucket_ pReplicationConfiguration_ =
     PutBucketReplication'
     { _pbrrqContentMD5 = Nothing
-    , _pbrrqBucket = pBucket
-    , _pbrrqReplicationConfiguration = pReplicationConfiguration
+    , _pbrrqBucket = pBucket_
+    , _pbrrqReplicationConfiguration = pReplicationConfiguration_
     }
 
 -- | FIXME: Undocumented member.

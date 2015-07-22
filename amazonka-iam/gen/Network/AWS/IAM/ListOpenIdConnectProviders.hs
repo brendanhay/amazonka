@@ -95,10 +95,10 @@ data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
 
 -- | 'ListOpenIdConnectProvidersResponse' smart constructor.
 listOpenIdConnectProvidersResponse :: Int -> ListOpenIdConnectProvidersResponse
-listOpenIdConnectProvidersResponse pStatus =
+listOpenIdConnectProvidersResponse pStatus_ =
     ListOpenIdConnectProvidersResponse'
     { _loicprsOpenIdConnectProviderList = Nothing
-    , _loicprsStatus = pStatus
+    , _loicprsStatus = pStatus_
     }
 
 -- | The list of IAM OpenID Connect providers in the AWS account.

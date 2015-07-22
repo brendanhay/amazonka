@@ -76,11 +76,11 @@ data ListRolePolicies = ListRolePolicies'
 
 -- | 'ListRolePolicies' smart constructor.
 listRolePolicies :: Text -> ListRolePolicies
-listRolePolicies pRoleName =
+listRolePolicies pRoleName_ =
     ListRolePolicies'
     { _lrprqMaxItems = Nothing
     , _lrprqMarker = Nothing
-    , _lrprqRoleName = pRoleName
+    , _lrprqRoleName = pRoleName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -160,11 +160,11 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse'
 
 -- | 'ListRolePoliciesResponse' smart constructor.
 listRolePoliciesResponse :: Int -> ListRolePoliciesResponse
-listRolePoliciesResponse pStatus =
+listRolePoliciesResponse pStatus_ =
     ListRolePoliciesResponse'
     { _lrprsMarker = Nothing
     , _lrprsIsTruncated = Nothing
-    , _lrprsStatus = pStatus
+    , _lrprsStatus = pStatus_
     , _lrprsPolicyNames = mempty
     }
 

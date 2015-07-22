@@ -29,7 +29,5 @@ module Network.AWS.CloudSearchDomains
 import           Network.AWS.CloudSearchDomains.Search          as Export
 import           Network.AWS.CloudSearchDomains.Suggest         as Export
 import           Network.AWS.CloudSearchDomains.Types           as Export
-import           Network.AWS.CloudSearchDomains.Types.Product   as Export
-import           Network.AWS.CloudSearchDomains.Types.Sum       as Export
 import           Network.AWS.CloudSearchDomains.UploadDocuments as Export
 import           Network.AWS.CloudSearchDomains.Waiters         as Export

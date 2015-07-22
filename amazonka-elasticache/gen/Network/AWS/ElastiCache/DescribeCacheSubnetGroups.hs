@@ -153,11 +153,11 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
 
 -- | 'DescribeCacheSubnetGroupsResponse' smart constructor.
 describeCacheSubnetGroupsResponse :: Int -> DescribeCacheSubnetGroupsResponse
-describeCacheSubnetGroupsResponse pStatus =
+describeCacheSubnetGroupsResponse pStatus_ =
     DescribeCacheSubnetGroupsResponse'
     { _dcsgrsMarker = Nothing
     , _dcsgrsCacheSubnetGroups = Nothing
-    , _dcsgrsStatus = pStatus
+    , _dcsgrsStatus = pStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.

@@ -79,12 +79,12 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
 
 -- | 'UpdateEventSourceMapping' smart constructor.
 updateEventSourceMapping :: Text -> UpdateEventSourceMapping
-updateEventSourceMapping pUUId =
+updateEventSourceMapping pUUId_ =
     UpdateEventSourceMapping'
     { _uesmrqEnabled = Nothing
     , _uesmrqBatchSize = Nothing
     , _uesmrqFunctionName = Nothing
-    , _uesmrqUUId = pUUId
+    , _uesmrqUUId = pUUId_
     }
 
 -- | Specifies whether AWS Lambda should actively poll the stream or not. If

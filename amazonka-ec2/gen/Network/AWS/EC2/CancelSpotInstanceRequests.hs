@@ -131,10 +131,10 @@ data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
 cancelSpotInstanceRequestsResponse :: Int -> CancelSpotInstanceRequestsResponse
-cancelSpotInstanceRequestsResponse pStatus =
+cancelSpotInstanceRequestsResponse pStatus_ =
     CancelSpotInstanceRequestsResponse'
     { _csirrsCancelledSpotInstanceRequests = Nothing
-    , _csirrsStatus = pStatus
+    , _csirrsStatus = pStatus_
     }
 
 -- | One or more Spot Instance requests.

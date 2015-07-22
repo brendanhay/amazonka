@@ -86,10 +86,10 @@ data CreateQueue = CreateQueue'
 
 -- | 'CreateQueue' smart constructor.
 createQueue :: Text -> CreateQueue
-createQueue pQueueName =
+createQueue pQueueName_ =
     CreateQueue'
     { _cqrqAttributes = Nothing
-    , _cqrqQueueName = pQueueName
+    , _cqrqQueueName = pQueueName_
     }
 
 -- | A map of attributes with their corresponding values.
@@ -169,10 +169,10 @@ data CreateQueueResponse = CreateQueueResponse'
 
 -- | 'CreateQueueResponse' smart constructor.
 createQueueResponse :: Int -> CreateQueueResponse
-createQueueResponse pStatus =
+createQueueResponse pStatus_ =
     CreateQueueResponse'
     { _cqrsQueueURL = Nothing
-    , _cqrsStatus = pStatus
+    , _cqrsStatus = pStatus_
     }
 
 -- | The URL for the created Amazon SQS queue.

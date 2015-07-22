@@ -84,13 +84,13 @@ data CreateBatchPrediction = CreateBatchPrediction'
 
 -- | 'CreateBatchPrediction' smart constructor.
 createBatchPrediction :: Text -> Text -> Text -> Text -> CreateBatchPrediction
-createBatchPrediction pBatchPredictionId pMLModelId pBatchPredictionDataSourceId pOutputURI =
+createBatchPrediction pBatchPredictionId_ pMLModelId_ pBatchPredictionDataSourceId_ pOutputURI_ =
     CreateBatchPrediction'
     { _cbprqBatchPredictionName = Nothing
-    , _cbprqBatchPredictionId = pBatchPredictionId
-    , _cbprqMLModelId = pMLModelId
-    , _cbprqBatchPredictionDataSourceId = pBatchPredictionDataSourceId
-    , _cbprqOutputURI = pOutputURI
+    , _cbprqBatchPredictionId = pBatchPredictionId_
+    , _cbprqMLModelId = pMLModelId_
+    , _cbprqBatchPredictionDataSourceId = pBatchPredictionDataSourceId_
+    , _cbprqOutputURI = pOutputURI_
     }
 
 -- | A user-supplied name or description of the @BatchPrediction@.
@@ -181,10 +181,10 @@ data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
 createBatchPredictionResponse :: Int -> CreateBatchPredictionResponse
-createBatchPredictionResponse pStatus =
+createBatchPredictionResponse pStatus_ =
     CreateBatchPredictionResponse'
     { _cbprsBatchPredictionId = Nothing
-    , _cbprsStatus = pStatus
+    , _cbprsStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This

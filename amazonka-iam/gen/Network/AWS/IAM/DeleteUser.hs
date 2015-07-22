@@ -52,9 +52,9 @@ newtype DeleteUser = DeleteUser'
 
 -- | 'DeleteUser' smart constructor.
 deleteUser :: Text -> DeleteUser
-deleteUser pUserName =
+deleteUser pUserName_ =
     DeleteUser'
-    { _durqUserName = pUserName
+    { _durqUserName = pUserName_
     }
 
 -- | The name of the user to delete.

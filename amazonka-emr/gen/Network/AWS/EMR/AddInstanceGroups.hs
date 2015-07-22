@@ -61,10 +61,10 @@ data AddInstanceGroups = AddInstanceGroups'
 
 -- | 'AddInstanceGroups' smart constructor.
 addInstanceGroups :: Text -> AddInstanceGroups
-addInstanceGroups pJobFlowId =
+addInstanceGroups pJobFlowId_ =
     AddInstanceGroups'
     { _aigrqInstanceGroups = mempty
-    , _aigrqJobFlowId = pJobFlowId
+    , _aigrqJobFlowId = pJobFlowId_
     }
 
 -- | Instance Groups to add.
@@ -127,11 +127,11 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
 
 -- | 'AddInstanceGroupsResponse' smart constructor.
 addInstanceGroupsResponse :: Int -> AddInstanceGroupsResponse
-addInstanceGroupsResponse pStatus =
+addInstanceGroupsResponse pStatus_ =
     AddInstanceGroupsResponse'
     { _aigrsJobFlowId = Nothing
     , _aigrsInstanceGroupIds = Nothing
-    , _aigrsStatus = pStatus
+    , _aigrsStatus = pStatus_
     }
 
 -- | The job flow ID in which the instance groups are added.

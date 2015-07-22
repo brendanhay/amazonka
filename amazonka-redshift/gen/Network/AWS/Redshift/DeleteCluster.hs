@@ -82,11 +82,11 @@ data DeleteCluster = DeleteCluster'
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
-deleteCluster pClusterIdentifier =
+deleteCluster pClusterIdentifier_ =
     DeleteCluster'
     { _drqSkipFinalClusterSnapshot = Nothing
     , _drqFinalClusterSnapshotIdentifier = Nothing
-    , _drqClusterIdentifier = pClusterIdentifier
+    , _drqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | Determines whether a final snapshot of the cluster is created before
@@ -165,10 +165,10 @@ data DeleteClusterResponse = DeleteClusterResponse'
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Int -> DeleteClusterResponse
-deleteClusterResponse pStatus =
+deleteClusterResponse pStatus_ =
     DeleteClusterResponse'
     { _drsCluster = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

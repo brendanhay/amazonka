@@ -85,14 +85,14 @@ data CreateImage = CreateImage'
 
 -- | 'CreateImage' smart constructor.
 createImage :: Text -> Text -> CreateImage
-createImage pInstanceId pName =
+createImage pInstanceId_ pName_ =
     CreateImage'
     { _ciirqNoReboot = Nothing
     , _ciirqBlockDeviceMappings = Nothing
     , _ciirqDryRun = Nothing
     , _ciirqDescription = Nothing
-    , _ciirqInstanceId = pInstanceId
-    , _ciirqName = pName
+    , _ciirqInstanceId = pInstanceId_
+    , _ciirqName = pName_
     }
 
 -- | By default, this parameter is set to @false@, which means Amazon EC2
@@ -175,10 +175,10 @@ data CreateImageResponse = CreateImageResponse'
 
 -- | 'CreateImageResponse' smart constructor.
 createImageResponse :: Int -> CreateImageResponse
-createImageResponse pStatus =
+createImageResponse pStatus_ =
     CreateImageResponse'
     { _cirsImageId = Nothing
-    , _cirsStatus = pStatus
+    , _cirsStatus = pStatus_
     }
 
 -- | The ID of the new AMI.

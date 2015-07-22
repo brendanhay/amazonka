@@ -62,9 +62,9 @@ newtype GetJobDetails = GetJobDetails'
 
 -- | 'GetJobDetails' smart constructor.
 getJobDetails :: Text -> GetJobDetails
-getJobDetails pJobId =
+getJobDetails pJobId_ =
     GetJobDetails'
-    { _gjdrqJobId = pJobId
+    { _gjdrqJobId = pJobId_
     }
 
 -- | The unique system-generated ID for the job.
@@ -117,10 +117,10 @@ data GetJobDetailsResponse = GetJobDetailsResponse'
 
 -- | 'GetJobDetailsResponse' smart constructor.
 getJobDetailsResponse :: Int -> GetJobDetailsResponse
-getJobDetailsResponse pStatus =
+getJobDetailsResponse pStatus_ =
     GetJobDetailsResponse'
     { _gjdrsJobDetails = Nothing
-    , _gjdrsStatus = pStatus
+    , _gjdrsStatus = pStatus_
     }
 
 -- | The details of the job.

@@ -75,14 +75,14 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
 
 -- | 'DescribeAlarmsForMetric' smart constructor.
 describeAlarmsForMetric :: Text -> Text -> DescribeAlarmsForMetric
-describeAlarmsForMetric pMetricName pNamespace =
+describeAlarmsForMetric pMetricName_ pNamespace_ =
     DescribeAlarmsForMetric'
     { _dafmrqPeriod = Nothing
     , _dafmrqDimensions = Nothing
     , _dafmrqStatistic = Nothing
     , _dafmrqUnit = Nothing
-    , _dafmrqMetricName = pMetricName
-    , _dafmrqNamespace = pNamespace
+    , _dafmrqMetricName = pMetricName_
+    , _dafmrqNamespace = pNamespace_
     }
 
 -- | The period in seconds over which the statistic is applied.
@@ -158,10 +158,10 @@ data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
 
 -- | 'DescribeAlarmsForMetricResponse' smart constructor.
 describeAlarmsForMetricResponse :: Int -> DescribeAlarmsForMetricResponse
-describeAlarmsForMetricResponse pStatus =
+describeAlarmsForMetricResponse pStatus_ =
     DescribeAlarmsForMetricResponse'
     { _dafmrsMetricAlarms = Nothing
-    , _dafmrsStatus = pStatus
+    , _dafmrsStatus = pStatus_
     }
 
 -- | A list of information for each alarm with the specified metric.

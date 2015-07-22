@@ -67,10 +67,10 @@ data GetOpenIdToken = GetOpenIdToken'
 
 -- | 'GetOpenIdToken' smart constructor.
 getOpenIdToken :: Text -> GetOpenIdToken
-getOpenIdToken pIdentityId =
+getOpenIdToken pIdentityId_ =
     GetOpenIdToken'
     { _goitrqLogins = Nothing
-    , _goitrqIdentityId = pIdentityId
+    , _goitrqIdentityId = pIdentityId_
     }
 
 -- | A set of optional name-value pairs that map provider names to provider
@@ -137,11 +137,11 @@ data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
 
 -- | 'GetOpenIdTokenResponse' smart constructor.
 getOpenIdTokenResponse :: Int -> GetOpenIdTokenResponse
-getOpenIdTokenResponse pStatus =
+getOpenIdTokenResponse pStatus_ =
     GetOpenIdTokenResponse'
     { _goitrsToken = Nothing
     , _goitrsIdentityId = Nothing
-    , _goitrsStatus = pStatus
+    , _goitrsStatus = pStatus_
     }
 
 -- | An OpenID token, valid for 15 minutes.

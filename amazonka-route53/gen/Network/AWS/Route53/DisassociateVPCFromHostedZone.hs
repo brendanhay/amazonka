@@ -74,11 +74,11 @@ data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
 
 -- | 'DisassociateVPCFromHostedZone' smart constructor.
 disassociateVPCFromHostedZone :: Text -> VPC -> DisassociateVPCFromHostedZone
-disassociateVPCFromHostedZone pHostedZoneId pVPC =
+disassociateVPCFromHostedZone pHostedZoneId_ pVPC_ =
     DisassociateVPCFromHostedZone'
     { _dvfhzrqComment = Nothing
-    , _dvfhzrqHostedZoneId = pHostedZoneId
-    , _dvfhzrqVPC = pVPC
+    , _dvfhzrqHostedZoneId = pHostedZoneId_
+    , _dvfhzrqVPC = pVPC_
     }
 
 -- | /Optional:/ Any comments you want to include about a
@@ -148,10 +148,10 @@ data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneRespon
 
 -- | 'DisassociateVPCFromHostedZoneResponse' smart constructor.
 disassociateVPCFromHostedZoneResponse :: Int -> ChangeInfo -> DisassociateVPCFromHostedZoneResponse
-disassociateVPCFromHostedZoneResponse pStatus pChangeInfo =
+disassociateVPCFromHostedZoneResponse pStatus_ pChangeInfo_ =
     DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrsStatus = pStatus
-    , _dvfhzrsChangeInfo = pChangeInfo
+    { _dvfhzrsStatus = pStatus_
+    , _dvfhzrsChangeInfo = pChangeInfo_
     }
 
 -- | FIXME: Undocumented member.

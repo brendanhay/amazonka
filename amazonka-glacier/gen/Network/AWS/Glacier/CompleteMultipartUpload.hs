@@ -123,13 +123,13 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: Text -> Text -> Text -> CompleteMultipartUpload
-completeMultipartUpload pAccountId pVaultName pUploadId =
+completeMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
     CompleteMultipartUpload'
     { _cmurqChecksum = Nothing
     , _cmurqArchiveSize = Nothing
-    , _cmurqAccountId = pAccountId
-    , _cmurqVaultName = pVaultName
-    , _cmurqUploadId = pUploadId
+    , _cmurqAccountId = pAccountId_
+    , _cmurqVaultName = pVaultName_
+    , _cmurqUploadId = pUploadId_
     }
 
 -- | The SHA256 tree hash of the entire archive. It is the tree hash of

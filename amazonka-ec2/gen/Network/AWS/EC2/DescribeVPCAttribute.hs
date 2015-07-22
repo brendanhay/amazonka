@@ -65,11 +65,11 @@ data DescribeVPCAttribute = DescribeVPCAttribute'
 
 -- | 'DescribeVPCAttribute' smart constructor.
 describeVPCAttribute :: Text -> DescribeVPCAttribute
-describeVPCAttribute pVPCId =
+describeVPCAttribute pVPCId_ =
     DescribeVPCAttribute'
     { _dvpcarqAttribute = Nothing
     , _dvpcarqDryRun = Nothing
-    , _dvpcarqVPCId = pVPCId
+    , _dvpcarqVPCId = pVPCId_
     }
 
 -- | The VPC attribute.
@@ -135,12 +135,12 @@ data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
 
 -- | 'DescribeVPCAttributeResponse' smart constructor.
 describeVPCAttributeResponse :: Int -> DescribeVPCAttributeResponse
-describeVPCAttributeResponse pStatus =
+describeVPCAttributeResponse pStatus_ =
     DescribeVPCAttributeResponse'
     { _dvpcarsEnableDNSHostnames = Nothing
     , _dvpcarsEnableDNSSupport = Nothing
     , _dvpcarsVPCId = Nothing
-    , _dvpcarsStatus = pStatus
+    , _dvpcarsStatus = pStatus_
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.

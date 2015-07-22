@@ -65,10 +65,10 @@ data DeleteExpression = DeleteExpression'
 
 -- | 'DeleteExpression' smart constructor.
 deleteExpression :: Text -> Text -> DeleteExpression
-deleteExpression pDomainName pExpressionName =
+deleteExpression pDomainName_ pExpressionName_ =
     DeleteExpression'
-    { _delrqDomainName = pDomainName
-    , _delrqExpressionName = pExpressionName
+    { _delrqDomainName = pDomainName_
+    , _delrqExpressionName = pExpressionName_
     }
 
 -- | FIXME: Undocumented member.
@@ -120,10 +120,10 @@ data DeleteExpressionResponse = DeleteExpressionResponse'
 
 -- | 'DeleteExpressionResponse' smart constructor.
 deleteExpressionResponse :: Int -> ExpressionStatus -> DeleteExpressionResponse
-deleteExpressionResponse pStatus pExpression =
+deleteExpressionResponse pStatus_ pExpression_ =
     DeleteExpressionResponse'
-    { _delrsStatus = pStatus
-    , _delrsExpression = pExpression
+    { _delrsStatus = pStatus_
+    , _delrsExpression = pExpression_
     }
 
 -- | FIXME: Undocumented member.

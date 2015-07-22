@@ -111,7 +111,7 @@ data PutLifecycleHook = PutLifecycleHook'
 
 -- | 'PutLifecycleHook' smart constructor.
 putLifecycleHook :: Text -> Text -> PutLifecycleHook
-putLifecycleHook pLifecycleHookName pAutoScalingGroupName =
+putLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
     PutLifecycleHook'
     { _plhrqDefaultResult = Nothing
     , _plhrqHeartbeatTimeout = Nothing
@@ -119,8 +119,8 @@ putLifecycleHook pLifecycleHookName pAutoScalingGroupName =
     , _plhrqRoleARN = Nothing
     , _plhrqLifecycleTransition = Nothing
     , _plhrqNotificationTargetARN = Nothing
-    , _plhrqLifecycleHookName = pLifecycleHookName
-    , _plhrqAutoScalingGroupName = pAutoScalingGroupName
+    , _plhrqLifecycleHookName = pLifecycleHookName_
+    , _plhrqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
@@ -237,9 +237,9 @@ newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
 
 -- | 'PutLifecycleHookResponse' smart constructor.
 putLifecycleHookResponse :: Int -> PutLifecycleHookResponse
-putLifecycleHookResponse pStatus =
+putLifecycleHookResponse pStatus_ =
     PutLifecycleHookResponse'
-    { _plhrsStatus = pStatus
+    { _plhrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

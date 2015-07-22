@@ -56,9 +56,9 @@ newtype GetRun = GetRun'
 
 -- | 'GetRun' smart constructor.
 getRun :: Text -> GetRun
-getRun pArn =
+getRun pArn_ =
     GetRun'
-    { _grrqArn = pArn
+    { _grrqArn = pArn_
     }
 
 -- | The run\'s ARN.
@@ -109,10 +109,10 @@ data GetRunResponse = GetRunResponse'
 
 -- | 'GetRunResponse' smart constructor.
 getRunResponse :: Int -> GetRunResponse
-getRunResponse pStatus =
+getRunResponse pStatus_ =
     GetRunResponse'
     { _grrsRun = Nothing
-    , _grrsStatus = pStatus
+    , _grrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

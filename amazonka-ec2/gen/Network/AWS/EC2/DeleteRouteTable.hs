@@ -57,10 +57,10 @@ data DeleteRouteTable = DeleteRouteTable'
 
 -- | 'DeleteRouteTable' smart constructor.
 deleteRouteTable :: Text -> DeleteRouteTable
-deleteRouteTable pRouteTableId =
+deleteRouteTable pRouteTableId_ =
     DeleteRouteTable'
     { _drttrqDryRun = Nothing
-    , _drttrqRouteTableId = pRouteTableId
+    , _drttrqRouteTableId = pRouteTableId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

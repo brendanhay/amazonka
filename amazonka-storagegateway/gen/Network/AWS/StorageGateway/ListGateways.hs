@@ -148,11 +148,11 @@ data ListGatewaysResponse = ListGatewaysResponse'
 
 -- | 'ListGatewaysResponse' smart constructor.
 listGatewaysResponse :: Int -> ListGatewaysResponse
-listGatewaysResponse pStatus =
+listGatewaysResponse pStatus_ =
     ListGatewaysResponse'
     { _lgrsMarker = Nothing
     , _lgrsGateways = Nothing
-    , _lgrsStatus = pStatus
+    , _lgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

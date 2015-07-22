@@ -57,10 +57,10 @@ data RemovePermission = RemovePermission'
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
-removePermission pTopicARN pLabel =
+removePermission pTopicARN_ pLabel_ =
     RemovePermission'
-    { _rprqTopicARN = pTopicARN
-    , _rprqLabel = pLabel
+    { _rprqTopicARN = pTopicARN_
+    , _rprqLabel = pLabel_
     }
 
 -- | The ARN of the topic whose access control policy you wish to modify.

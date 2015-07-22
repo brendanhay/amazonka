@@ -61,11 +61,11 @@ data EnableStageTransition = EnableStageTransition'
 
 -- | 'EnableStageTransition' smart constructor.
 enableStageTransition :: Text -> Text -> StageTransitionType -> EnableStageTransition
-enableStageTransition pPipelineName pStageName pTransitionType =
+enableStageTransition pPipelineName_ pStageName_ pTransitionType_ =
     EnableStageTransition'
-    { _estrqPipelineName = pPipelineName
-    , _estrqStageName = pStageName
-    , _estrqTransitionType = pTransitionType
+    { _estrqPipelineName = pPipelineName_
+    , _estrqStageName = pStageName_
+    , _estrqTransitionType = pTransitionType_
     }
 
 -- | The name of the pipeline in which you want to enable the flow of

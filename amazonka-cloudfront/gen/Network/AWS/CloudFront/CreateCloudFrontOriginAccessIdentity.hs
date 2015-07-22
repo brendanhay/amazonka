@@ -58,9 +58,9 @@ newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdent
 
 -- | 'CreateCloudFrontOriginAccessIdentity' smart constructor.
 createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> CreateCloudFrontOriginAccessIdentity
-createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig =
+createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ =
     CreateCloudFrontOriginAccessIdentity'
-    { _ccfoairqCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig
+    { _ccfoairqCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
     }
 
 -- | The origin access identity\'s configuration information.
@@ -126,12 +126,12 @@ data CreateCloudFrontOriginAccessIdentityResponse = CreateCloudFrontOriginAccess
 
 -- | 'CreateCloudFrontOriginAccessIdentityResponse' smart constructor.
 createCloudFrontOriginAccessIdentityResponse :: Int -> CreateCloudFrontOriginAccessIdentityResponse
-createCloudFrontOriginAccessIdentityResponse pStatus =
+createCloudFrontOriginAccessIdentityResponse pStatus_ =
     CreateCloudFrontOriginAccessIdentityResponse'
     { _ccfoairsETag = Nothing
     , _ccfoairsLocation = Nothing
     , _ccfoairsCloudFrontOriginAccessIdentity = Nothing
-    , _ccfoairsStatus = pStatus
+    , _ccfoairsStatus = pStatus_
     }
 
 -- | The current version of the origin access identity created.

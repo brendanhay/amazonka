@@ -72,10 +72,10 @@ data UpdateDomainNameservers = UpdateDomainNameservers'
 
 -- | 'UpdateDomainNameservers' smart constructor.
 updateDomainNameservers :: Text -> UpdateDomainNameservers
-updateDomainNameservers pDomainName =
+updateDomainNameservers pDomainName_ =
     UpdateDomainNameservers'
     { _udnrqFIAuthKey = Nothing
-    , _udnrqDomainName = pDomainName
+    , _udnrqDomainName = pDomainName_
     , _udnrqNameservers = mempty
     }
 
@@ -157,10 +157,10 @@ data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
 updateDomainNameserversResponse :: Int -> Text -> UpdateDomainNameserversResponse
-updateDomainNameserversResponse pStatus pOperationId =
+updateDomainNameserversResponse pStatus_ pOperationId_ =
     UpdateDomainNameserversResponse'
-    { _udnrsStatus = pStatus
-    , _udnrsOperationId = pOperationId
+    { _udnrsStatus = pStatus_
+    , _udnrsOperationId = pOperationId_
     }
 
 -- | FIXME: Undocumented member.

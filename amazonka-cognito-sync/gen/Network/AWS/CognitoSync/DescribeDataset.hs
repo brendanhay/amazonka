@@ -72,11 +72,11 @@ data DescribeDataset = DescribeDataset'
 
 -- | 'DescribeDataset' smart constructor.
 describeDataset :: Text -> Text -> Text -> DescribeDataset
-describeDataset pIdentityPoolId pIdentityId pDatasetName =
+describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     DescribeDataset'
-    { _ddrqIdentityPoolId = pIdentityPoolId
-    , _ddrqIdentityId = pIdentityId
-    , _ddrqDatasetName = pDatasetName
+    { _ddrqIdentityPoolId = pIdentityPoolId_
+    , _ddrqIdentityId = pIdentityId_
+    , _ddrqDatasetName = pDatasetName_
     }
 
 -- | A name-spaced GUID (for example,
@@ -139,10 +139,10 @@ data DescribeDatasetResponse = DescribeDatasetResponse'
 
 -- | 'DescribeDatasetResponse' smart constructor.
 describeDatasetResponse :: Int -> DescribeDatasetResponse
-describeDatasetResponse pStatus =
+describeDatasetResponse pStatus_ =
     DescribeDatasetResponse'
     { _ddrsDataset = Nothing
-    , _ddrsStatus = pStatus
+    , _ddrsStatus = pStatus_
     }
 
 -- | Meta data for a collection of data for an identity. An identity can have

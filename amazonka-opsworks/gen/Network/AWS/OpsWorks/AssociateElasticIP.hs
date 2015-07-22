@@ -64,10 +64,10 @@ data AssociateElasticIP = AssociateElasticIP'
 
 -- | 'AssociateElasticIP' smart constructor.
 associateElasticIP :: Text -> AssociateElasticIP
-associateElasticIP pElasticIP =
+associateElasticIP pElasticIP_ =
     AssociateElasticIP'
     { _aeirqInstanceId = Nothing
-    , _aeirqElasticIP = pElasticIP
+    , _aeirqElasticIP = pElasticIP_
     }
 
 -- | The instance ID.

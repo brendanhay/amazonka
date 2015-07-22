@@ -125,7 +125,7 @@ data UpdateStack = UpdateStack'
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
-updateStack pStackId =
+updateStack pStackId_ =
     UpdateStack'
     { _usrqDefaultInstanceProfileARN = Nothing
     , _usrqServiceRoleARN = Nothing
@@ -144,7 +144,7 @@ updateStack pStackId =
     , _usrqDefaultSubnetId = Nothing
     , _usrqConfigurationManager = Nothing
     , _usrqHostnameTheme = Nothing
-    , _usrqStackId = pStackId
+    , _usrqStackId = pStackId_
     }
 
 -- | The ARN of an IAM profile that is the default profile for all of the

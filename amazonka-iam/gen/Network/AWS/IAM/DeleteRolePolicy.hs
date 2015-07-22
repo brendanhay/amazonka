@@ -62,10 +62,10 @@ data DeleteRolePolicy = DeleteRolePolicy'
 
 -- | 'DeleteRolePolicy' smart constructor.
 deleteRolePolicy :: Text -> Text -> DeleteRolePolicy
-deleteRolePolicy pRoleName pPolicyName =
+deleteRolePolicy pRoleName_ pPolicyName_ =
     DeleteRolePolicy'
-    { _delrqRoleName = pRoleName
-    , _delrqPolicyName = pPolicyName
+    { _delrqRoleName = pRoleName_
+    , _delrqPolicyName = pPolicyName_
     }
 
 -- | The name (friendly name, not ARN) identifying the role that the policy

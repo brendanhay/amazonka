@@ -99,13 +99,13 @@ data CreateHostedZone = CreateHostedZone'
 
 -- | 'CreateHostedZone' smart constructor.
 createHostedZone :: Text -> Text -> CreateHostedZone
-createHostedZone pName pCallerReference =
+createHostedZone pName_ pCallerReference_ =
     CreateHostedZone'
     { _chzrqDelegationSetId = Nothing
     , _chzrqHostedZoneConfig = Nothing
     , _chzrqVPC = Nothing
-    , _chzrqName = pName
-    , _chzrqCallerReference = pCallerReference
+    , _chzrqName = pName_
+    , _chzrqCallerReference = pCallerReference_
     }
 
 -- | The delegation set id of the reusable delgation set whose NS records you
@@ -213,14 +213,14 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
 
 -- | 'CreateHostedZoneResponse' smart constructor.
 createHostedZoneResponse :: Int -> HostedZone -> ChangeInfo -> DelegationSet -> Text -> CreateHostedZoneResponse
-createHostedZoneResponse pStatus pHostedZone pChangeInfo pDelegationSet pLocation =
+createHostedZoneResponse pStatus_ pHostedZone_ pChangeInfo_ pDelegationSet_ pLocation_ =
     CreateHostedZoneResponse'
     { _chzrsVPC = Nothing
-    , _chzrsStatus = pStatus
-    , _chzrsHostedZone = pHostedZone
-    , _chzrsChangeInfo = pChangeInfo
-    , _chzrsDelegationSet = pDelegationSet
-    , _chzrsLocation = pLocation
+    , _chzrsStatus = pStatus_
+    , _chzrsHostedZone = pHostedZone_
+    , _chzrsChangeInfo = pChangeInfo_
+    , _chzrsDelegationSet = pDelegationSet_
+    , _chzrsLocation = pLocation_
     }
 
 -- | FIXME: Undocumented member.

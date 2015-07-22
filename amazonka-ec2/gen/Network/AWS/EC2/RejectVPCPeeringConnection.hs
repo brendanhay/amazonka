@@ -63,10 +63,10 @@ data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
 
 -- | 'RejectVPCPeeringConnection' smart constructor.
 rejectVPCPeeringConnection :: Text -> RejectVPCPeeringConnection
-rejectVPCPeeringConnection pVPCPeeringConnectionId =
+rejectVPCPeeringConnection pVPCPeeringConnectionId_ =
     RejectVPCPeeringConnection'
     { _rvpcrqDryRun = Nothing
-    , _rvpcrqVPCPeeringConnectionId = pVPCPeeringConnectionId
+    , _rvpcrqVPCPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -121,10 +121,10 @@ data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
 
 -- | 'RejectVPCPeeringConnectionResponse' smart constructor.
 rejectVPCPeeringConnectionResponse :: Int -> RejectVPCPeeringConnectionResponse
-rejectVPCPeeringConnectionResponse pStatus =
+rejectVPCPeeringConnectionResponse pStatus_ =
     RejectVPCPeeringConnectionResponse'
     { _rvpcrsReturn = Nothing
-    , _rvpcrsStatus = pStatus
+    , _rvpcrsStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.

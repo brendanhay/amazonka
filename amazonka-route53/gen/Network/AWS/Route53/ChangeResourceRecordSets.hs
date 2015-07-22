@@ -90,10 +90,10 @@ data ChangeResourceRecordSets = ChangeResourceRecordSets'
 
 -- | 'ChangeResourceRecordSets' smart constructor.
 changeResourceRecordSets :: Text -> ChangeBatch -> ChangeResourceRecordSets
-changeResourceRecordSets pHostedZoneId pChangeBatch =
+changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
     ChangeResourceRecordSets'
-    { _crrsrqHostedZoneId = pHostedZoneId
-    , _crrsrqChangeBatch = pChangeBatch
+    { _crrsrqHostedZoneId = pHostedZoneId_
+    , _crrsrqChangeBatch = pChangeBatch_
     }
 
 -- | The ID of the hosted zone that contains the resource record sets that
@@ -154,10 +154,10 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
 changeResourceRecordSetsResponse :: Int -> ChangeInfo -> ChangeResourceRecordSetsResponse
-changeResourceRecordSetsResponse pStatus pChangeInfo =
+changeResourceRecordSetsResponse pStatus_ pChangeInfo_ =
     ChangeResourceRecordSetsResponse'
-    { _crrsrsStatus = pStatus
-    , _crrsrsChangeInfo = pChangeInfo
+    { _crrsrsStatus = pStatus_
+    , _crrsrsChangeInfo = pChangeInfo_
     }
 
 -- | FIXME: Undocumented member.

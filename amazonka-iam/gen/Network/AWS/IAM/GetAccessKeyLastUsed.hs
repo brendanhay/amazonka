@@ -58,9 +58,9 @@ newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
 
 -- | 'GetAccessKeyLastUsed' smart constructor.
 getAccessKeyLastUsed :: Text -> GetAccessKeyLastUsed
-getAccessKeyLastUsed pAccessKeyId =
+getAccessKeyLastUsed pAccessKeyId_ =
     GetAccessKeyLastUsed'
-    { _gaklurqAccessKeyId = pAccessKeyId
+    { _gaklurqAccessKeyId = pAccessKeyId_
     }
 
 -- | The identifier of an access key.
@@ -113,11 +113,11 @@ data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
 getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse
-getAccessKeyLastUsedResponse pStatus =
+getAccessKeyLastUsedResponse pStatus_ =
     GetAccessKeyLastUsedResponse'
     { _gaklursUserName = Nothing
     , _gaklursAccessKeyLastUsed = Nothing
-    , _gaklursStatus = pStatus
+    , _gaklursStatus = pStatus_
     }
 
 -- | The name of the AWS IAM user that owns this access key.

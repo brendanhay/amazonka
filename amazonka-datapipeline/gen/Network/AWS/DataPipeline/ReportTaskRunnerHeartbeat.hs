@@ -68,11 +68,11 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
 
 -- | 'ReportTaskRunnerHeartbeat' smart constructor.
 reportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
-reportTaskRunnerHeartbeat pTaskrunnerId =
+reportTaskRunnerHeartbeat pTaskrunnerId_ =
     ReportTaskRunnerHeartbeat'
     { _rtrhrqHostname = Nothing
     , _rtrhrqWorkerGroup = Nothing
-    , _rtrhrqTaskrunnerId = pTaskrunnerId
+    , _rtrhrqTaskrunnerId = pTaskrunnerId_
     }
 
 -- | The public DNS name of the task runner.
@@ -146,10 +146,10 @@ data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
 reportTaskRunnerHeartbeatResponse :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
-reportTaskRunnerHeartbeatResponse pStatus pTerminate =
+reportTaskRunnerHeartbeatResponse pStatus_ pTerminate_ =
     ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrsStatus = pStatus
-    , _rtrhrsTerminate = pTerminate
+    { _rtrhrsStatus = pStatus_
+    , _rtrhrsTerminate = pTerminate_
     }
 
 -- | FIXME: Undocumented member.

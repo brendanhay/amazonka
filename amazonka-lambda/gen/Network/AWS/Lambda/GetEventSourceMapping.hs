@@ -64,9 +64,9 @@ newtype GetEventSourceMapping = GetEventSourceMapping'
 
 -- | 'GetEventSourceMapping' smart constructor.
 getEventSourceMapping :: Text -> GetEventSourceMapping
-getEventSourceMapping pUUId =
+getEventSourceMapping pUUId_ =
     GetEventSourceMapping'
-    { _gesmrqUUId = pUUId
+    { _gesmrqUUId = pUUId_
     }
 
 -- | The AWS Lambda assigned ID of the event source mapping.

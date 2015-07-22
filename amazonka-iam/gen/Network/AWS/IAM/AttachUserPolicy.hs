@@ -62,10 +62,10 @@ data AttachUserPolicy = AttachUserPolicy'
 
 -- | 'AttachUserPolicy' smart constructor.
 attachUserPolicy :: Text -> Text -> AttachUserPolicy
-attachUserPolicy pUserName pPolicyARN =
+attachUserPolicy pUserName_ pPolicyARN_ =
     AttachUserPolicy'
-    { _auprqUserName = pUserName
-    , _auprqPolicyARN = pPolicyARN
+    { _auprqUserName = pUserName_
+    , _auprqPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the user to attach the policy to.

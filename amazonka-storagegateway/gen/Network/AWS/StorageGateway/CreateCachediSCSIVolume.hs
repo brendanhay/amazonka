@@ -88,14 +88,14 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
 
 -- | 'CreateCachediSCSIVolume' smart constructor.
 createCachediSCSIVolume :: Text -> Integer -> Text -> Text -> Text -> CreateCachediSCSIVolume
-createCachediSCSIVolume pGatewayARN pVolumeSizeInBytes pTargetName pNetworkInterfaceId pClientToken =
+createCachediSCSIVolume pGatewayARN_ pVolumeSizeInBytes_ pTargetName_ pNetworkInterfaceId_ pClientToken_ =
     CreateCachediSCSIVolume'
     { _ccscsivrqSnapshotId = Nothing
-    , _ccscsivrqGatewayARN = pGatewayARN
-    , _ccscsivrqVolumeSizeInBytes = pVolumeSizeInBytes
-    , _ccscsivrqTargetName = pTargetName
-    , _ccscsivrqNetworkInterfaceId = pNetworkInterfaceId
-    , _ccscsivrqClientToken = pClientToken
+    , _ccscsivrqGatewayARN = pGatewayARN_
+    , _ccscsivrqVolumeSizeInBytes = pVolumeSizeInBytes_
+    , _ccscsivrqTargetName = pTargetName_
+    , _ccscsivrqNetworkInterfaceId = pNetworkInterfaceId_
+    , _ccscsivrqClientToken = pClientToken_
     }
 
 -- | FIXME: Undocumented member.
@@ -177,11 +177,11 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
 
 -- | 'CreateCachediSCSIVolumeResponse' smart constructor.
 createCachediSCSIVolumeResponse :: Int -> CreateCachediSCSIVolumeResponse
-createCachediSCSIVolumeResponse pStatus =
+createCachediSCSIVolumeResponse pStatus_ =
     CreateCachediSCSIVolumeResponse'
     { _ccscsivrsTargetARN = Nothing
     , _ccscsivrsVolumeARN = Nothing
-    , _ccscsivrsStatus = pStatus
+    , _ccscsivrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

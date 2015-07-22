@@ -116,9 +116,9 @@ newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
 
 -- | 'AttachLoadBalancersResponse' smart constructor.
 attachLoadBalancersResponse :: Int -> AttachLoadBalancersResponse
-attachLoadBalancersResponse pStatus =
+attachLoadBalancersResponse pStatus_ =
     AttachLoadBalancersResponse'
-    { _albrsStatus = pStatus
+    { _albrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

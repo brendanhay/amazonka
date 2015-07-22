@@ -67,11 +67,11 @@ data AddTagsToVault = AddTagsToVault'
 
 -- | 'AddTagsToVault' smart constructor.
 addTagsToVault :: Text -> Text -> AddTagsToVault
-addTagsToVault pAccountId pVaultName =
+addTagsToVault pAccountId_ pVaultName_ =
     AddTagsToVault'
     { _attvrqTags = Nothing
-    , _attvrqAccountId = pAccountId
-    , _attvrqVaultName = pVaultName
+    , _attvrqAccountId = pAccountId_
+    , _attvrqVaultName = pVaultName_
     }
 
 -- | The tags to add to the vault. Each tag is composed of a key and a value.

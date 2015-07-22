@@ -70,12 +70,12 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
-describeEngineDefaultParameters pDBParameterGroupFamily =
+describeEngineDefaultParameters pDBParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
     { _dedprqFilters = Nothing
     , _dedprqMaxRecords = Nothing
     , _dedprqMarker = Nothing
-    , _dedprqDBParameterGroupFamily = pDBParameterGroupFamily
+    , _dedprqDBParameterGroupFamily = pDBParameterGroupFamily_
     }
 
 -- | Not currently supported.
@@ -165,10 +165,10 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: Int -> EngineDefaults -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pStatus pEngineDefaults =
+describeEngineDefaultParametersResponse pStatus_ pEngineDefaults_ =
     DescribeEngineDefaultParametersResponse'
-    { _dedprsStatus = pStatus
-    , _dedprsEngineDefaults = pEngineDefaults
+    { _dedprsStatus = pStatus_
+    , _dedprsEngineDefaults = pEngineDefaults_
     }
 
 -- | FIXME: Undocumented member.

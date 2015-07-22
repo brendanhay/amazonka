@@ -146,11 +146,11 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
 
 -- | 'ListAccountAliasesResponse' smart constructor.
 listAccountAliasesResponse :: Int -> ListAccountAliasesResponse
-listAccountAliasesResponse pStatus =
+listAccountAliasesResponse pStatus_ =
     ListAccountAliasesResponse'
     { _laarsMarker = Nothing
     , _laarsIsTruncated = Nothing
-    , _laarsStatus = pStatus
+    , _laarsStatus = pStatus_
     , _laarsAccountAliases = mempty
     }
 

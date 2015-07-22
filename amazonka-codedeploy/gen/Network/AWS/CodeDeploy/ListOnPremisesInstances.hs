@@ -153,11 +153,11 @@ data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
 listOnPremisesInstancesResponse :: Int -> ListOnPremisesInstancesResponse
-listOnPremisesInstancesResponse pStatus =
+listOnPremisesInstancesResponse pStatus_ =
     ListOnPremisesInstancesResponse'
     { _lopirsNextToken = Nothing
     , _lopirsInstanceNames = Nothing
-    , _lopirsStatus = pStatus
+    , _lopirsStatus = pStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an

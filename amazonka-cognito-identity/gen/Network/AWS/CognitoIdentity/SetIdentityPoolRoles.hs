@@ -60,9 +60,9 @@ data SetIdentityPoolRoles = SetIdentityPoolRoles'
 
 -- | 'SetIdentityPoolRoles' smart constructor.
 setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
-setIdentityPoolRoles pIdentityPoolId =
+setIdentityPoolRoles pIdentityPoolId_ =
     SetIdentityPoolRoles'
-    { _siprrqIdentityPoolId = pIdentityPoolId
+    { _siprrqIdentityPoolId = pIdentityPoolId_
     , _siprrqRoles = mempty
     }
 

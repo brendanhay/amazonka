@@ -63,11 +63,11 @@ data SetDesiredCapacity = SetDesiredCapacity'
 
 -- | 'SetDesiredCapacity' smart constructor.
 setDesiredCapacity :: Text -> Int -> SetDesiredCapacity
-setDesiredCapacity pAutoScalingGroupName pDesiredCapacity =
+setDesiredCapacity pAutoScalingGroupName_ pDesiredCapacity_ =
     SetDesiredCapacity'
     { _sdcrqHonorCooldown = Nothing
-    , _sdcrqAutoScalingGroupName = pAutoScalingGroupName
-    , _sdcrqDesiredCapacity = pDesiredCapacity
+    , _sdcrqAutoScalingGroupName = pAutoScalingGroupName_
+    , _sdcrqDesiredCapacity = pDesiredCapacity_
     }
 
 -- | By default, @SetDesiredCapacity@ overrides any cooldown period

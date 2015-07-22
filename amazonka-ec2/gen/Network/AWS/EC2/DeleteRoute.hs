@@ -59,11 +59,11 @@ data DeleteRoute = DeleteRoute'
 
 -- | 'DeleteRoute' smart constructor.
 deleteRoute :: Text -> Text -> DeleteRoute
-deleteRoute pRouteTableId pDestinationCIdRBlock =
+deleteRoute pRouteTableId_ pDestinationCIdRBlock_ =
     DeleteRoute'
     { _drrqDryRun = Nothing
-    , _drrqRouteTableId = pRouteTableId
-    , _drrqDestinationCIdRBlock = pDestinationCIdRBlock
+    , _drrqRouteTableId = pRouteTableId_
+    , _drrqDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
 -- | Checks whether you have the required permissions for the action, without

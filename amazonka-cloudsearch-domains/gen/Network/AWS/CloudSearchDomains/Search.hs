@@ -129,7 +129,7 @@ data Search = Search'
 
 -- | 'Search' smart constructor.
 search :: Text -> Search
-search pQuery =
+search pQuery_ =
     Search'
     { _searqExpr = Nothing
     , _searqCursor = Nothing
@@ -143,7 +143,7 @@ search pQuery =
     , _searqSort = Nothing
     , _searqFacet = Nothing
     , _searqPartial = Nothing
-    , _searqQuery = pQuery
+    , _searqQuery = pQuery_
     }
 
 -- | Defines one or more numeric expressions that can be used to sort results
@@ -536,11 +536,11 @@ data SearchResponse = SearchResponse'
 
 -- | 'SearchResponse' smart constructor.
 searchResponse :: Int -> SearchResponse
-searchResponse pStatus =
+searchResponse pStatus_ =
     SearchResponse'
     { _searsFacets = Nothing
     , _searsHits = Nothing
-    , _searsStatus = pStatus
+    , _searsStatus = pStatus_
     }
 
 -- | The requested facet information.

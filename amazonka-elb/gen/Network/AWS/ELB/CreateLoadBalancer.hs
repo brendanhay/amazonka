@@ -91,14 +91,14 @@ data CreateLoadBalancer = CreateLoadBalancer'
 
 -- | 'CreateLoadBalancer' smart constructor.
 createLoadBalancer :: Text -> CreateLoadBalancer
-createLoadBalancer pLoadBalancerName =
+createLoadBalancer pLoadBalancerName_ =
     CreateLoadBalancer'
     { _clbrqSecurityGroups = Nothing
     , _clbrqSubnets = Nothing
     , _clbrqAvailabilityZones = Nothing
     , _clbrqScheme = Nothing
     , _clbrqTags = Nothing
-    , _clbrqLoadBalancerName = pLoadBalancerName
+    , _clbrqLoadBalancerName = pLoadBalancerName_
     , _clbrqListeners = mempty
     }
 
@@ -211,10 +211,10 @@ data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
 
 -- | 'CreateLoadBalancerResponse' smart constructor.
 createLoadBalancerResponse :: Int -> CreateLoadBalancerResponse
-createLoadBalancerResponse pStatus =
+createLoadBalancerResponse pStatus_ =
     CreateLoadBalancerResponse'
     { _clbrsDNSName = Nothing
-    , _clbrsStatus = pStatus
+    , _clbrsStatus = pStatus_
     }
 
 -- | The DNS name of the load balancer.

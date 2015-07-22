@@ -61,10 +61,10 @@ data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
 
 -- | 'DetachElasticLoadBalancer' smart constructor.
 detachElasticLoadBalancer :: Text -> Text -> DetachElasticLoadBalancer
-detachElasticLoadBalancer pElasticLoadBalancerName pLayerId =
+detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
     DetachElasticLoadBalancer'
-    { _delbrqElasticLoadBalancerName = pElasticLoadBalancerName
-    , _delbrqLayerId = pLayerId
+    { _delbrqElasticLoadBalancerName = pElasticLoadBalancerName_
+    , _delbrqLayerId = pLayerId_
     }
 
 -- | The Elastic Load Balancing instance\'s name.

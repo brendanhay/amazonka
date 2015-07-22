@@ -76,12 +76,12 @@ data CreatePolicy = CreatePolicy'
 
 -- | 'CreatePolicy' smart constructor.
 createPolicy :: Text -> Text -> CreatePolicy
-createPolicy pPolicyName pPolicyDocument =
+createPolicy pPolicyName_ pPolicyDocument_ =
     CreatePolicy'
     { _cprqPath = Nothing
     , _cprqDescription = Nothing
-    , _cprqPolicyName = pPolicyName
-    , _cprqPolicyDocument = pPolicyDocument
+    , _cprqPolicyName = pPolicyName_
+    , _cprqPolicyDocument = pPolicyDocument_
     }
 
 -- | The path for the policy.
@@ -155,10 +155,10 @@ data CreatePolicyResponse = CreatePolicyResponse'
 
 -- | 'CreatePolicyResponse' smart constructor.
 createPolicyResponse :: Int -> CreatePolicyResponse
-createPolicyResponse pStatus =
+createPolicyResponse pStatus_ =
     CreatePolicyResponse'
     { _cprsPolicy = Nothing
-    , _cprsStatus = pStatus
+    , _cprsStatus = pStatus_
     }
 
 -- | Information about the policy.

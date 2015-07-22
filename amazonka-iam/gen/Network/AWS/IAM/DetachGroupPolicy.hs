@@ -61,10 +61,10 @@ data DetachGroupPolicy = DetachGroupPolicy'
 
 -- | 'DetachGroupPolicy' smart constructor.
 detachGroupPolicy :: Text -> Text -> DetachGroupPolicy
-detachGroupPolicy pGroupName pPolicyARN =
+detachGroupPolicy pGroupName_ pPolicyARN_ =
     DetachGroupPolicy'
-    { _dgprqGroupName = pGroupName
-    , _dgprqPolicyARN = pPolicyARN
+    { _dgprqGroupName = pGroupName_
+    , _dgprqPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the group to detach the policy

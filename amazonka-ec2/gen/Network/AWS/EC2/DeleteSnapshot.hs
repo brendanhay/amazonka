@@ -71,10 +71,10 @@ data DeleteSnapshot = DeleteSnapshot'
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
-deleteSnapshot pSnapshotId =
+deleteSnapshot pSnapshotId_ =
     DeleteSnapshot'
     { _dellrqDryRun = Nothing
-    , _dellrqSnapshotId = pSnapshotId
+    , _dellrqSnapshotId = pSnapshotId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

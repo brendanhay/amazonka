@@ -62,10 +62,10 @@ data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
 
 -- | 'CreateVPNConnectionRoute' smart constructor.
 createVPNConnectionRoute :: Text -> Text -> CreateVPNConnectionRoute
-createVPNConnectionRoute pVPNConnectionId pDestinationCIdRBlock =
+createVPNConnectionRoute pVPNConnectionId_ pDestinationCIdRBlock_ =
     CreateVPNConnectionRoute'
-    { _cvcrrqVPNConnectionId = pVPNConnectionId
-    , _cvcrrqDestinationCIdRBlock = pDestinationCIdRBlock
+    { _cvcrrqVPNConnectionId = pVPNConnectionId_
+    , _cvcrrqDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
 -- | The ID of the VPN connection.

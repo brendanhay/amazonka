@@ -91,10 +91,10 @@ data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
 describeAdjustmentTypesResponse :: Int -> DescribeAdjustmentTypesResponse
-describeAdjustmentTypesResponse pStatus =
+describeAdjustmentTypesResponse pStatus_ =
     DescribeAdjustmentTypesResponse'
     { _datrsAdjustmentTypes = Nothing
-    , _datrsStatus = pStatus
+    , _datrsStatus = pStatus_
     }
 
 -- | The policy adjustment types.

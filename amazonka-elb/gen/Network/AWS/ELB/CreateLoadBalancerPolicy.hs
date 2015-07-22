@@ -70,12 +70,12 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
 
 -- | 'CreateLoadBalancerPolicy' smart constructor.
 createLoadBalancerPolicy :: Text -> Text -> Text -> CreateLoadBalancerPolicy
-createLoadBalancerPolicy pLoadBalancerName pPolicyName pPolicyTypeName =
+createLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ pPolicyTypeName_ =
     CreateLoadBalancerPolicy'
     { _clbprqPolicyAttributes = Nothing
-    , _clbprqLoadBalancerName = pLoadBalancerName
-    , _clbprqPolicyName = pPolicyName
-    , _clbprqPolicyTypeName = pPolicyTypeName
+    , _clbprqLoadBalancerName = pLoadBalancerName_
+    , _clbprqPolicyName = pPolicyName_
+    , _clbprqPolicyTypeName = pPolicyTypeName_
     }
 
 -- | The attributes for the policy.
@@ -137,9 +137,9 @@ newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
 
 -- | 'CreateLoadBalancerPolicyResponse' smart constructor.
 createLoadBalancerPolicyResponse :: Int -> CreateLoadBalancerPolicyResponse
-createLoadBalancerPolicyResponse pStatus =
+createLoadBalancerPolicyResponse pStatus_ =
     CreateLoadBalancerPolicyResponse'
-    { _clbprsStatus = pStatus
+    { _clbprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

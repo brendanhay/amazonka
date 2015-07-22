@@ -65,10 +65,10 @@ data CreateInstanceProfile = CreateInstanceProfile'
 
 -- | 'CreateInstanceProfile' smart constructor.
 createInstanceProfile :: Text -> CreateInstanceProfile
-createInstanceProfile pInstanceProfileName =
+createInstanceProfile pInstanceProfileName_ =
     CreateInstanceProfile'
     { _ciprqPath = Nothing
-    , _ciprqInstanceProfileName = pInstanceProfileName
+    , _ciprqInstanceProfileName = pInstanceProfileName_
     }
 
 -- | The path to the instance profile. For more information about paths, see
@@ -125,10 +125,10 @@ data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
 createInstanceProfileResponse :: Int -> InstanceProfile -> CreateInstanceProfileResponse
-createInstanceProfileResponse pStatus pInstanceProfile =
+createInstanceProfileResponse pStatus_ pInstanceProfile_ =
     CreateInstanceProfileResponse'
-    { _ciprsStatus = pStatus
-    , _ciprsInstanceProfile = pInstanceProfile
+    { _ciprsStatus = pStatus_
+    , _ciprsInstanceProfile = pInstanceProfile_
     }
 
 -- | FIXME: Undocumented member.

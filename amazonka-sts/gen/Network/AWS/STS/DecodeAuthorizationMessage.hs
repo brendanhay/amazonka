@@ -82,9 +82,9 @@ newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage'
 
 -- | 'DecodeAuthorizationMessage' smart constructor.
 decodeAuthorizationMessage :: Text -> DecodeAuthorizationMessage
-decodeAuthorizationMessage pEncodedMessage =
+decodeAuthorizationMessage pEncodedMessage_ =
     DecodeAuthorizationMessage'
-    { _damrqEncodedMessage = pEncodedMessage
+    { _damrqEncodedMessage = pEncodedMessage_
     }
 
 -- | The encoded message that was returned with the response.
@@ -135,10 +135,10 @@ data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
 
 -- | 'DecodeAuthorizationMessageResponse' smart constructor.
 decodeAuthorizationMessageResponse :: Int -> DecodeAuthorizationMessageResponse
-decodeAuthorizationMessageResponse pStatus =
+decodeAuthorizationMessageResponse pStatus_ =
     DecodeAuthorizationMessageResponse'
     { _damrsDecodedMessage = Nothing
-    , _damrsStatus = pStatus
+    , _damrsStatus = pStatus_
     }
 
 -- | An XML document that contains the decoded message. For more information,

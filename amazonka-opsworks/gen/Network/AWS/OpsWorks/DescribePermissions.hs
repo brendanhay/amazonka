@@ -129,10 +129,10 @@ data DescribePermissionsResponse = DescribePermissionsResponse'
 
 -- | 'DescribePermissionsResponse' smart constructor.
 describePermissionsResponse :: Int -> DescribePermissionsResponse
-describePermissionsResponse pStatus =
+describePermissionsResponse pStatus_ =
     DescribePermissionsResponse'
     { _dprsPermissions = Nothing
-    , _dprsStatus = pStatus
+    , _dprsStatus = pStatus_
     }
 
 -- | An array of @Permission@ objects that describe the stack permissions.

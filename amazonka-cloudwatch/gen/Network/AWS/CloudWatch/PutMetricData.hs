@@ -72,9 +72,9 @@ data PutMetricData = PutMetricData'
 
 -- | 'PutMetricData' smart constructor.
 putMetricData :: Text -> PutMetricData
-putMetricData pNamespace =
+putMetricData pNamespace_ =
     PutMetricData'
-    { _pmdrqNamespace = pNamespace
+    { _pmdrqNamespace = pNamespace_
     , _pmdrqMetricData = mempty
     }
 

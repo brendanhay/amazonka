@@ -98,11 +98,11 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
 
 -- | 'DescribeAccountLimitsResponse' smart constructor.
 describeAccountLimitsResponse :: Int -> DescribeAccountLimitsResponse
-describeAccountLimitsResponse pStatus =
+describeAccountLimitsResponse pStatus_ =
     DescribeAccountLimitsResponse'
     { _dalrsMaxNumberOfLaunchConfigurations = Nothing
     , _dalrsMaxNumberOfAutoScalingGroups = Nothing
-    , _dalrsStatus = pStatus
+    , _dalrsStatus = pStatus_
     }
 
 -- | The maximum number of launch configurations allowed for your AWS

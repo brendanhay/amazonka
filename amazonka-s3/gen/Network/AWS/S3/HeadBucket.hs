@@ -52,9 +52,9 @@ newtype HeadBucket = HeadBucket'
 
 -- | 'HeadBucket' smart constructor.
 headBucket :: BucketName -> HeadBucket
-headBucket pBucket =
+headBucket pBucket_ =
     HeadBucket'
-    { _hbrqBucket = pBucket
+    { _hbrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

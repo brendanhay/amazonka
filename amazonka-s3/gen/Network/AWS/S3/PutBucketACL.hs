@@ -83,7 +83,7 @@ data PutBucketACL = PutBucketACL'
 
 -- | 'PutBucketACL' smart constructor.
 putBucketACL :: BucketName -> PutBucketACL
-putBucketACL pBucket =
+putBucketACL pBucket_ =
     PutBucketACL'
     { _pbarqGrantReadACP = Nothing
     , _pbarqGrantWriteACP = Nothing
@@ -93,7 +93,7 @@ putBucketACL pBucket =
     , _pbarqAccessControlPolicy = Nothing
     , _pbarqGrantWrite = Nothing
     , _pbarqACL = Nothing
-    , _pbarqBucket = pBucket
+    , _pbarqBucket = pBucket_
     }
 
 -- | Allows grantee to read the bucket ACL.

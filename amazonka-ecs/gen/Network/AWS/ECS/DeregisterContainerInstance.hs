@@ -76,11 +76,11 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
 
 -- | 'DeregisterContainerInstance' smart constructor.
 deregisterContainerInstance :: Text -> DeregisterContainerInstance
-deregisterContainerInstance pContainerInstance =
+deregisterContainerInstance pContainerInstance_ =
     DeregisterContainerInstance'
     { _derrqCluster = Nothing
     , _derrqForce = Nothing
-    , _derrqContainerInstance = pContainerInstance
+    , _derrqContainerInstance = pContainerInstance_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
@@ -158,10 +158,10 @@ data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
 deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse
-deregisterContainerInstanceResponse pStatus =
+deregisterContainerInstanceResponse pStatus_ =
     DeregisterContainerInstanceResponse'
     { _dcirsContainerInstance = Nothing
-    , _dcirsStatus = pStatus
+    , _dcirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

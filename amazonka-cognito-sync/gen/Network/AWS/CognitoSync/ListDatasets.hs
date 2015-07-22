@@ -76,12 +76,12 @@ data ListDatasets = ListDatasets'
 
 -- | 'ListDatasets' smart constructor.
 listDatasets :: Text -> Text -> ListDatasets
-listDatasets pIdentityId pIdentityPoolId =
+listDatasets pIdentityId_ pIdentityPoolId_ =
     ListDatasets'
     { _ldrqNextToken = Nothing
     , _ldrqMaxResults = Nothing
-    , _ldrqIdentityId = pIdentityId
-    , _ldrqIdentityPoolId = pIdentityPoolId
+    , _ldrqIdentityId = pIdentityId_
+    , _ldrqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A pagination token for obtaining the next page of results.
@@ -157,12 +157,12 @@ data ListDatasetsResponse = ListDatasetsResponse'
 
 -- | 'ListDatasetsResponse' smart constructor.
 listDatasetsResponse :: Int -> ListDatasetsResponse
-listDatasetsResponse pStatus =
+listDatasetsResponse pStatus_ =
     ListDatasetsResponse'
     { _ldrsCount = Nothing
     , _ldrsNextToken = Nothing
     , _ldrsDatasets = Nothing
-    , _ldrsStatus = pStatus
+    , _ldrsStatus = pStatus_
     }
 
 -- | Number of datasets returned.

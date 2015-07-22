@@ -118,11 +118,11 @@ data ListPipelinesResponse = ListPipelinesResponse'
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
-listPipelinesResponse pStatus =
+listPipelinesResponse pStatus_ =
     ListPipelinesResponse'
     { _lprsPipelines = Nothing
     , _lprsNextToken = Nothing
-    , _lprsStatus = pStatus
+    , _lprsStatus = pStatus_
     }
 
 -- | The list of pipelines.

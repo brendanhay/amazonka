@@ -69,12 +69,12 @@ data DeleteObjects = DeleteObjects'
 
 -- | 'DeleteObjects' smart constructor.
 deleteObjects :: BucketName -> Delete -> DeleteObjects
-deleteObjects pBucket pDelete =
+deleteObjects pBucket_ pDelete_ =
     DeleteObjects'
     { _drqMFA = Nothing
     , _drqRequestPayer = Nothing
-    , _drqBucket = pBucket
-    , _drqDelete = pDelete
+    , _drqBucket = pBucket_
+    , _drqDelete = pDelete_
     }
 
 -- | The concatenation of the authentication device\'s serial number, a
@@ -147,12 +147,12 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
 
 -- | 'DeleteObjectsResponse' smart constructor.
 deleteObjectsResponse :: Int -> DeleteObjectsResponse
-deleteObjectsResponse pStatus =
+deleteObjectsResponse pStatus_ =
     DeleteObjectsResponse'
     { _drsRequestCharged = Nothing
     , _drsDeleted = Nothing
     , _drsErrors = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

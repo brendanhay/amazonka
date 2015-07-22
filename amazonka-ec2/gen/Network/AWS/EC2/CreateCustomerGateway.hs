@@ -92,12 +92,12 @@ data CreateCustomerGateway = CreateCustomerGateway'
 
 -- | 'CreateCustomerGateway' smart constructor.
 createCustomerGateway :: GatewayType -> Text -> Int -> CreateCustomerGateway
-createCustomerGateway pType pPublicIP pBGPASN =
+createCustomerGateway pType_ pPublicIP_ pBGPASN_ =
     CreateCustomerGateway'
     { _ccgrqDryRun = Nothing
-    , _ccgrqType = pType
-    , _ccgrqPublicIP = pPublicIP
-    , _ccgrqBGPASN = pBGPASN
+    , _ccgrqType = pType_
+    , _ccgrqPublicIP = pPublicIP_
+    , _ccgrqBGPASN = pBGPASN_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -163,10 +163,10 @@ data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
 
 -- | 'CreateCustomerGatewayResponse' smart constructor.
 createCustomerGatewayResponse :: Int -> CreateCustomerGatewayResponse
-createCustomerGatewayResponse pStatus =
+createCustomerGatewayResponse pStatus_ =
     CreateCustomerGatewayResponse'
     { _ccgrsCustomerGateway = Nothing
-    , _ccgrsStatus = pStatus
+    , _ccgrsStatus = pStatus_
     }
 
 -- | Information about the customer gateway.

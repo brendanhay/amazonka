@@ -64,9 +64,9 @@ newtype GetBulkPublishDetails = GetBulkPublishDetails'
 
 -- | 'GetBulkPublishDetails' smart constructor.
 getBulkPublishDetails :: Text -> GetBulkPublishDetails
-getBulkPublishDetails pIdentityPoolId =
+getBulkPublishDetails pIdentityPoolId_ =
     GetBulkPublishDetails'
-    { _gbpdrqIdentityPoolId = pIdentityPoolId
+    { _gbpdrqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
@@ -138,14 +138,14 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
 
 -- | 'GetBulkPublishDetailsResponse' smart constructor.
 getBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse
-getBulkPublishDetailsResponse pStatus =
+getBulkPublishDetailsResponse pStatus_ =
     GetBulkPublishDetailsResponse'
     { _gbpdrsBulkPublishStartTime = Nothing
     , _gbpdrsIdentityPoolId = Nothing
     , _gbpdrsBulkPublishCompleteTime = Nothing
     , _gbpdrsFailureMessage = Nothing
     , _gbpdrsBulkPublishStatus = Nothing
-    , _gbpdrsStatus = pStatus
+    , _gbpdrsStatus = pStatus_
     }
 
 -- | The date\/time at which the last bulk publish was initiated.

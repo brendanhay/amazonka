@@ -157,11 +157,11 @@ data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
 
 -- | 'DescribeWorkspaceBundlesResponse' smart constructor.
 describeWorkspaceBundlesResponse :: Int -> DescribeWorkspaceBundlesResponse
-describeWorkspaceBundlesResponse pStatus =
+describeWorkspaceBundlesResponse pStatus_ =
     DescribeWorkspaceBundlesResponse'
     { _dwbrsBundles = Nothing
     , _dwbrsNextToken = Nothing
-    , _dwbrsStatus = pStatus
+    , _dwbrsStatus = pStatus_
     }
 
 -- | An array of structures that contain information about the bundles.

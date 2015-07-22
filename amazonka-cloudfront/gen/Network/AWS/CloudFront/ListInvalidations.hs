@@ -64,11 +64,11 @@ data ListInvalidations = ListInvalidations'
 
 -- | 'ListInvalidations' smart constructor.
 listInvalidations :: Text -> ListInvalidations
-listInvalidations pDistributionId =
+listInvalidations pDistributionId_ =
     ListInvalidations'
     { _lirqMaxItems = Nothing
     , _lirqMarker = Nothing
-    , _lirqDistributionId = pDistributionId
+    , _lirqDistributionId = pDistributionId_
     }
 
 -- | The maximum number of invalidation batches you want in the response
@@ -131,10 +131,10 @@ data ListInvalidationsResponse = ListInvalidationsResponse'
 
 -- | 'ListInvalidationsResponse' smart constructor.
 listInvalidationsResponse :: Int -> InvalidationList -> ListInvalidationsResponse
-listInvalidationsResponse pStatus pInvalidationList =
+listInvalidationsResponse pStatus_ pInvalidationList_ =
     ListInvalidationsResponse'
-    { _lirsStatus = pStatus
-    , _lirsInvalidationList = pInvalidationList
+    { _lirsStatus = pStatus_
+    , _lirsInvalidationList = pInvalidationList_
     }
 
 -- | FIXME: Undocumented member.

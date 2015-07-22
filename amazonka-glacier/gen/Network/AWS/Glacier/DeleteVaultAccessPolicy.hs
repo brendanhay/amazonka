@@ -66,10 +66,10 @@ data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
 
 -- | 'DeleteVaultAccessPolicy' smart constructor.
 deleteVaultAccessPolicy :: Text -> Text -> DeleteVaultAccessPolicy
-deleteVaultAccessPolicy pAccountId pVaultName =
+deleteVaultAccessPolicy pAccountId_ pVaultName_ =
     DeleteVaultAccessPolicy'
-    { _dvaprqAccountId = pAccountId
-    , _dvaprqVaultName = pVaultName
+    { _dvaprqAccountId = pAccountId_
+    , _dvaprqVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the

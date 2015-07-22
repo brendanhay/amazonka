@@ -95,13 +95,13 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
 
 -- | 'GetWorkflowExecutionHistory' smart constructor.
 getWorkflowExecutionHistory :: Text -> WorkflowExecution -> GetWorkflowExecutionHistory
-getWorkflowExecutionHistory pDomain pExecution =
+getWorkflowExecutionHistory pDomain_ pExecution_ =
     GetWorkflowExecutionHistory'
     { _gwehrqNextPageToken = Nothing
     , _gwehrqReverseOrder = Nothing
     , _gwehrqMaximumPageSize = Nothing
-    , _gwehrqDomain = pDomain
-    , _gwehrqExecution = pExecution
+    , _gwehrqDomain = pDomain_
+    , _gwehrqExecution = pExecution_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -204,10 +204,10 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
 
 -- | 'GetWorkflowExecutionHistoryResponse' smart constructor.
 getWorkflowExecutionHistoryResponse :: Int -> GetWorkflowExecutionHistoryResponse
-getWorkflowExecutionHistoryResponse pStatus =
+getWorkflowExecutionHistoryResponse pStatus_ =
     GetWorkflowExecutionHistoryResponse'
     { _gwehrsNextPageToken = Nothing
-    , _gwehrsStatus = pStatus
+    , _gwehrsStatus = pStatus_
     , _gwehrsEvents = mempty
     }
 

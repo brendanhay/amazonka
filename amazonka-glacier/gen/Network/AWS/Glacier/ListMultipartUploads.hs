@@ -102,12 +102,12 @@ data ListMultipartUploads = ListMultipartUploads'
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: Text -> Text -> ListMultipartUploads
-listMultipartUploads pAccountId pVaultName =
+listMultipartUploads pAccountId_ pVaultName_ =
     ListMultipartUploads'
     { _lmurqMarker = Nothing
     , _lmurqLimit = Nothing
-    , _lmurqAccountId = pAccountId
-    , _lmurqVaultName = pVaultName
+    , _lmurqAccountId = pAccountId_
+    , _lmurqVaultName = pVaultName_
     }
 
 -- | An opaque string used for pagination. This value specifies the upload at
@@ -181,11 +181,11 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
-listMultipartUploadsResponse pStatus =
+listMultipartUploadsResponse pStatus_ =
     ListMultipartUploadsResponse'
     { _lmursUploadsList = Nothing
     , _lmursMarker = Nothing
-    , _lmursStatus = pStatus
+    , _lmursStatus = pStatus_
     }
 
 -- | A list of in-progress multipart uploads.

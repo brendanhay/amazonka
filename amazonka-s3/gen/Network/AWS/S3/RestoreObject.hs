@@ -70,13 +70,13 @@ data RestoreObject = RestoreObject'
 
 -- | 'RestoreObject' smart constructor.
 restoreObject :: BucketName -> ObjectKey -> RestoreObject
-restoreObject pBucket pKey =
+restoreObject pBucket_ pKey_ =
     RestoreObject'
     { _rorqVersionId = Nothing
     , _rorqRequestPayer = Nothing
     , _rorqRestoreRequest = Nothing
-    , _rorqBucket = pBucket
-    , _rorqKey = pKey
+    , _rorqBucket = pBucket_
+    , _rorqKey = pKey_
     }
 
 -- | FIXME: Undocumented member.
@@ -145,10 +145,10 @@ data RestoreObjectResponse = RestoreObjectResponse'
 
 -- | 'RestoreObjectResponse' smart constructor.
 restoreObjectResponse :: Int -> RestoreObjectResponse
-restoreObjectResponse pStatus =
+restoreObjectResponse pStatus_ =
     RestoreObjectResponse'
     { _rorsRequestCharged = Nothing
-    , _rorsStatus = pStatus
+    , _rorsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

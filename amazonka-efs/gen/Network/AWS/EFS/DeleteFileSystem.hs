@@ -67,9 +67,9 @@ newtype DeleteFileSystem = DeleteFileSystem'
 
 -- | 'DeleteFileSystem' smart constructor.
 deleteFileSystem :: Text -> DeleteFileSystem
-deleteFileSystem pFileSystemId =
+deleteFileSystem pFileSystemId_ =
     DeleteFileSystem'
-    { _delrqFileSystemId = pFileSystemId
+    { _delrqFileSystemId = pFileSystemId_
     }
 
 -- | The ID of the file system you want to delete.

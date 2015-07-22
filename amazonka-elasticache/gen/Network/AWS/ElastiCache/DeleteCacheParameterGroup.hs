@@ -55,9 +55,9 @@ newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
 
 -- | 'DeleteCacheParameterGroup' smart constructor.
 deleteCacheParameterGroup :: Text -> DeleteCacheParameterGroup
-deleteCacheParameterGroup pCacheParameterGroupName =
+deleteCacheParameterGroup pCacheParameterGroupName_ =
     DeleteCacheParameterGroup'
-    { _drqCacheParameterGroupName = pCacheParameterGroupName
+    { _drqCacheParameterGroupName = pCacheParameterGroupName_
     }
 
 -- | The name of the cache parameter group to delete.

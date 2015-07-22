@@ -121,10 +121,10 @@ data DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusRespon
 
 -- | 'DescribeDeliveryChannelStatusResponse' smart constructor.
 describeDeliveryChannelStatusResponse :: Int -> DescribeDeliveryChannelStatusResponse
-describeDeliveryChannelStatusResponse pStatus =
+describeDeliveryChannelStatusResponse pStatus_ =
     DescribeDeliveryChannelStatusResponse'
     { _ddcsrsDeliveryChannelsStatus = Nothing
-    , _ddcsrsStatus = pStatus
+    , _ddcsrsStatus = pStatus_
     }
 
 -- | A list that contains the status of a specified delivery channel.

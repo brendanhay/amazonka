@@ -61,11 +61,11 @@ data SetTopicAttributes = SetTopicAttributes'
 
 -- | 'SetTopicAttributes' smart constructor.
 setTopicAttributes :: Text -> Text -> SetTopicAttributes
-setTopicAttributes pTopicARN pAttributeName =
+setTopicAttributes pTopicARN_ pAttributeName_ =
     SetTopicAttributes'
     { _starqAttributeValue = Nothing
-    , _starqTopicARN = pTopicARN
-    , _starqAttributeName = pAttributeName
+    , _starqTopicARN = pTopicARN_
+    , _starqAttributeName = pAttributeName_
     }
 
 -- | The new value for the attribute.

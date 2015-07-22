@@ -117,8 +117,6 @@ import           Network.AWS.OpsWorks.StartStack                          as Exp
 import           Network.AWS.OpsWorks.StopInstance                        as Export
 import           Network.AWS.OpsWorks.StopStack                           as Export
 import           Network.AWS.OpsWorks.Types                               as Export
-import           Network.AWS.OpsWorks.Types.Product                       as Export
-import           Network.AWS.OpsWorks.Types.Sum                           as Export
 import           Network.AWS.OpsWorks.UnassignInstance                    as Export
 import           Network.AWS.OpsWorks.UnassignVolume                      as Export
 import           Network.AWS.OpsWorks.UpdateApp                           as Export

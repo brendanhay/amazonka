@@ -58,9 +58,9 @@ newtype CreateHAPG = CreateHAPG'
 
 -- | 'CreateHAPG' smart constructor.
 createHAPG :: Text -> CreateHAPG
-createHAPG pLabel =
+createHAPG pLabel_ =
     CreateHAPG'
-    { _chrqLabel = pLabel
+    { _chrqLabel = pLabel_
     }
 
 -- | The label of the new high-availability partition group.
@@ -112,10 +112,10 @@ data CreateHAPGResponse = CreateHAPGResponse'
 
 -- | 'CreateHAPGResponse' smart constructor.
 createHAPGResponse :: Int -> CreateHAPGResponse
-createHAPGResponse pStatus =
+createHAPGResponse pStatus_ =
     CreateHAPGResponse'
     { _chrsHAPGARN = Nothing
-    , _chrsStatus = pStatus
+    , _chrsStatus = pStatus_
     }
 
 -- | The ARN of the high-availability partition group.

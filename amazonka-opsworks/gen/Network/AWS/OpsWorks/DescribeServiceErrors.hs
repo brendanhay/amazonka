@@ -143,10 +143,10 @@ data DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'
 
 -- | 'DescribeServiceErrorsResponse' smart constructor.
 describeServiceErrorsResponse :: Int -> DescribeServiceErrorsResponse
-describeServiceErrorsResponse pStatus =
+describeServiceErrorsResponse pStatus_ =
     DescribeServiceErrorsResponse'
     { _dsersServiceErrors = Nothing
-    , _dsersStatus = pStatus
+    , _dsersStatus = pStatus_
     }
 
 -- | An array of @ServiceError@ objects that describe the specified service

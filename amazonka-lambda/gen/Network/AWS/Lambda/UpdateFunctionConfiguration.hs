@@ -89,14 +89,14 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
 
 -- | 'UpdateFunctionConfiguration' smart constructor.
 updateFunctionConfiguration :: Text -> UpdateFunctionConfiguration
-updateFunctionConfiguration pFunctionName =
+updateFunctionConfiguration pFunctionName_ =
     UpdateFunctionConfiguration'
     { _ufcrqMemorySize = Nothing
     , _ufcrqRole = Nothing
     , _ufcrqHandler = Nothing
     , _ufcrqTimeout = Nothing
     , _ufcrqDescription = Nothing
-    , _ufcrqFunctionName = pFunctionName
+    , _ufcrqFunctionName = pFunctionName_
     }
 
 -- | The amount of memory, in MB, your Lambda function is given. AWS Lambda

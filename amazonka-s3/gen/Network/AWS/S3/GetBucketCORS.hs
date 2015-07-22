@@ -54,9 +54,9 @@ newtype GetBucketCORS = GetBucketCORS'
 
 -- | 'GetBucketCORS' smart constructor.
 getBucketCORS :: BucketName -> GetBucketCORS
-getBucketCORS pBucket =
+getBucketCORS pBucket_ =
     GetBucketCORS'
-    { _gbcrqBucket = pBucket
+    { _gbcrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -98,10 +98,10 @@ data GetBucketCORSResponse = GetBucketCORSResponse'
 
 -- | 'GetBucketCORSResponse' smart constructor.
 getBucketCORSResponse :: Int -> GetBucketCORSResponse
-getBucketCORSResponse pStatus =
+getBucketCORSResponse pStatus_ =
     GetBucketCORSResponse'
     { _gbcrsCORSRules = Nothing
-    , _gbcrsStatus = pStatus
+    , _gbcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

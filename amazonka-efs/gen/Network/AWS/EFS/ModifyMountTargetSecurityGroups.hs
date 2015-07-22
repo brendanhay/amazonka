@@ -70,10 +70,10 @@ data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
 
 -- | 'ModifyMountTargetSecurityGroups' smart constructor.
 modifyMountTargetSecurityGroups :: Text -> ModifyMountTargetSecurityGroups
-modifyMountTargetSecurityGroups pMountTargetId =
+modifyMountTargetSecurityGroups pMountTargetId_ =
     ModifyMountTargetSecurityGroups'
     { _mmtsgrqSecurityGroups = Nothing
-    , _mmtsgrqMountTargetId = pMountTargetId
+    , _mmtsgrqMountTargetId = pMountTargetId_
     }
 
 -- | An array of up to five VPC security group IDs.

@@ -62,9 +62,9 @@ newtype DeleteEvaluation = DeleteEvaluation'
 
 -- | 'DeleteEvaluation' smart constructor.
 deleteEvaluation :: Text -> DeleteEvaluation
-deleteEvaluation pEvaluationId =
+deleteEvaluation pEvaluationId_ =
     DeleteEvaluation'
-    { _derqEvaluationId = pEvaluationId
+    { _derqEvaluationId = pEvaluationId_
     }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
@@ -121,10 +121,10 @@ data DeleteEvaluationResponse = DeleteEvaluationResponse'
 
 -- | 'DeleteEvaluationResponse' smart constructor.
 deleteEvaluationResponse :: Int -> DeleteEvaluationResponse
-deleteEvaluationResponse pStatus =
+deleteEvaluationResponse pStatus_ =
     DeleteEvaluationResponse'
     { _dersEvaluationId = Nothing
-    , _dersStatus = pStatus
+    , _dersStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@. This value

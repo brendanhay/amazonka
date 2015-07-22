@@ -77,12 +77,12 @@ data AddCommunicationToCase = AddCommunicationToCase'
 
 -- | 'AddCommunicationToCase' smart constructor.
 addCommunicationToCase :: Text -> AddCommunicationToCase
-addCommunicationToCase pCommunicationBody =
+addCommunicationToCase pCommunicationBody_ =
     AddCommunicationToCase'
     { _actcrqCaseId = Nothing
     , _actcrqCcEmailAddresses = Nothing
     , _actcrqAttachmentSetId = Nothing
-    , _actcrqCommunicationBody = pCommunicationBody
+    , _actcrqCommunicationBody = pCommunicationBody_
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
@@ -156,10 +156,10 @@ data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
 
 -- | 'AddCommunicationToCaseResponse' smart constructor.
 addCommunicationToCaseResponse :: Int -> AddCommunicationToCaseResponse
-addCommunicationToCaseResponse pStatus =
+addCommunicationToCaseResponse pStatus_ =
     AddCommunicationToCaseResponse'
     { _actcrsResult = Nothing
-    , _actcrsStatus = pStatus
+    , _actcrsStatus = pStatus_
     }
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.

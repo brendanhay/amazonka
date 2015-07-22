@@ -215,11 +215,11 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
 
 -- | 'DescribeClusterSecurityGroupsResponse' smart constructor.
 describeClusterSecurityGroupsResponse :: Int -> DescribeClusterSecurityGroupsResponse
-describeClusterSecurityGroupsResponse pStatus =
+describeClusterSecurityGroupsResponse pStatus_ =
     DescribeClusterSecurityGroupsResponse'
     { _dcsgsrsClusterSecurityGroups = Nothing
     , _dcsgsrsMarker = Nothing
-    , _dcsgsrsStatus = pStatus
+    , _dcsgsrsStatus = pStatus_
     }
 
 -- | A list of ClusterSecurityGroup instances.

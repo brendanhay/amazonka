@@ -74,10 +74,10 @@ data DeleteIdentityPolicy = DeleteIdentityPolicy'
 
 -- | 'DeleteIdentityPolicy' smart constructor.
 deleteIdentityPolicy :: Text -> Text -> DeleteIdentityPolicy
-deleteIdentityPolicy pIdentity pPolicyName =
+deleteIdentityPolicy pIdentity_ pPolicyName_ =
     DeleteIdentityPolicy'
-    { _diprqIdentity = pIdentity
-    , _diprqPolicyName = pPolicyName
+    { _diprqIdentity = pIdentity_
+    , _diprqPolicyName = pPolicyName_
     }
 
 -- | The identity that is associated with the policy that you want to delete.
@@ -132,9 +132,9 @@ newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
 
 -- | 'DeleteIdentityPolicyResponse' smart constructor.
 deleteIdentityPolicyResponse :: Int -> DeleteIdentityPolicyResponse
-deleteIdentityPolicyResponse pStatus =
+deleteIdentityPolicyResponse pStatus_ =
     DeleteIdentityPolicyResponse'
-    { _diprsStatus = pStatus
+    { _diprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -114,7 +114,7 @@ data RegisterWorkflowType = RegisterWorkflowType'
 
 -- | 'RegisterWorkflowType' smart constructor.
 registerWorkflowType :: Text -> Text -> Text -> RegisterWorkflowType
-registerWorkflowType pDomain pName pVersion =
+registerWorkflowType pDomain_ pName_ pVersion_ =
     RegisterWorkflowType'
     { _rwtrqDefaultChildPolicy = Nothing
     , _rwtrqDefaultTaskList = Nothing
@@ -122,9 +122,9 @@ registerWorkflowType pDomain pName pVersion =
     , _rwtrqDefaultExecutionStartToCloseTimeout = Nothing
     , _rwtrqDefaultTaskStartToCloseTimeout = Nothing
     , _rwtrqDescription = Nothing
-    , _rwtrqDomain = pDomain
-    , _rwtrqName = pName
-    , _rwtrqVersion = pVersion
+    , _rwtrqDomain = pDomain_
+    , _rwtrqName = pName_
+    , _rwtrqVersion = pVersion_
     }
 
 -- | If set, specifies the default policy to use for the child workflow

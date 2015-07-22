@@ -42,11 +42,11 @@ data Field = Field'
 
 -- | 'Field' smart constructor.
 field :: Text -> Field
-field pKey =
+field pKey_ =
     Field'
     { _fRefValue = Nothing
     , _fStringValue = Nothing
-    , _fKey = pKey
+    , _fKey = pKey_
     }
 
 -- | The field value, expressed as the identifier of another object.
@@ -204,10 +204,10 @@ data ParameterAttribute = ParameterAttribute'
 
 -- | 'ParameterAttribute' smart constructor.
 parameterAttribute :: Text -> Text -> ParameterAttribute
-parameterAttribute pKey pStringValue =
+parameterAttribute pKey_ pStringValue_ =
     ParameterAttribute'
-    { _paKey = pKey
-    , _paStringValue = pStringValue
+    { _paKey = pKey_
+    , _paStringValue = pStringValue_
     }
 
 -- | The field identifier.
@@ -246,9 +246,9 @@ data ParameterObject = ParameterObject'
 
 -- | 'ParameterObject' smart constructor.
 parameterObject :: Text -> ParameterObject
-parameterObject pId =
+parameterObject pId_ =
     ParameterObject'
-    { _poId = pId
+    { _poId = pId_
     , _poAttributes = mempty
     }
 
@@ -288,10 +288,10 @@ data ParameterValue = ParameterValue'
 
 -- | 'ParameterValue' smart constructor.
 parameterValue :: Text -> Text -> ParameterValue
-parameterValue pId pStringValue =
+parameterValue pId_ pStringValue_ =
     ParameterValue'
-    { _pvId = pId
-    , _pvStringValue = pStringValue
+    { _pvId = pId_
+    , _pvStringValue = pStringValue_
     }
 
 -- | The ID of the parameter value.
@@ -339,12 +339,12 @@ data PipelineDescription = PipelineDescription'
 
 -- | 'PipelineDescription' smart constructor.
 pipelineDescription :: Text -> Text -> PipelineDescription
-pipelineDescription pPipelineId pName =
+pipelineDescription pPipelineId_ pName_ =
     PipelineDescription'
     { _pdDescription = Nothing
     , _pdTags = Nothing
-    , _pdPipelineId = pPipelineId
-    , _pdName = pName
+    , _pdPipelineId = pPipelineId_
+    , _pdName = pName_
     , _pdFields = mempty
     }
 
@@ -441,10 +441,10 @@ data PipelineObject = PipelineObject'
 
 -- | 'PipelineObject' smart constructor.
 pipelineObject :: Text -> Text -> PipelineObject
-pipelineObject pId pName =
+pipelineObject pId_ pName_ =
     PipelineObject'
-    { _pId = pId
-    , _pName = pName
+    { _pId = pId_
+    , _pName = pName_
     , _pFields = mempty
     }
 
@@ -561,10 +561,10 @@ data Tag = Tag'
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
-tag pKey pValue =
+tag pKey_ pValue_ =
     Tag'
-    { _tagKey = pKey
-    , _tagValue = pValue
+    { _tagKey = pKey_
+    , _tagValue = pValue_
     }
 
 -- | The key name of a tag defined by a user. For more information, see

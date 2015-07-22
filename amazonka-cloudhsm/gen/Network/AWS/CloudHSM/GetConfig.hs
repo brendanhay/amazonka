@@ -65,10 +65,10 @@ data GetConfig = GetConfig'
 
 -- | 'GetConfig' smart constructor.
 getConfig :: Text -> ClientVersion -> GetConfig
-getConfig pClientARN pClientVersion =
+getConfig pClientARN_ pClientVersion_ =
     GetConfig'
-    { _gcrqClientARN = pClientARN
-    , _gcrqClientVersion = pClientVersion
+    { _gcrqClientARN = pClientARN_
+    , _gcrqClientVersion = pClientVersion_
     , _gcrqHAPGList = mempty
     }
 
@@ -139,12 +139,12 @@ data GetConfigResponse = GetConfigResponse'
 
 -- | 'GetConfigResponse' smart constructor.
 getConfigResponse :: Int -> GetConfigResponse
-getConfigResponse pStatus =
+getConfigResponse pStatus_ =
     GetConfigResponse'
     { _gcrsConfigFile = Nothing
     , _gcrsConfigCred = Nothing
     , _gcrsConfigType = Nothing
-    , _gcrsStatus = pStatus
+    , _gcrsStatus = pStatus_
     }
 
 -- | The chrystoki.conf configuration file.

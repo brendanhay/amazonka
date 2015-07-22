@@ -102,9 +102,9 @@ data BatchPutAttributes = BatchPutAttributes'
 
 -- | 'BatchPutAttributes' smart constructor.
 batchPutAttributes :: Text -> BatchPutAttributes
-batchPutAttributes pDomainName =
+batchPutAttributes pDomainName_ =
     BatchPutAttributes'
-    { _bparqDomainName = pDomainName
+    { _bparqDomainName = pDomainName_
     , _bparqItems = mempty
     }
 

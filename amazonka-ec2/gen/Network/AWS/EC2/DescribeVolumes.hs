@@ -224,11 +224,11 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
-describeVolumesResponse pStatus =
+describeVolumesResponse pStatus_ =
     DescribeVolumesResponse'
     { _dvvrsNextToken = Nothing
     , _dvvrsVolumes = Nothing
-    , _dvvrsStatus = pStatus
+    , _dvvrsStatus = pStatus_
     }
 
 -- | The @NextToken@ value to include in a future @DescribeVolumes@ request.

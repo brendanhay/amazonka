@@ -129,10 +129,10 @@ data DescribeAppsResponse = DescribeAppsResponse'
 
 -- | 'DescribeAppsResponse' smart constructor.
 describeAppsResponse :: Int -> DescribeAppsResponse
-describeAppsResponse pStatus =
+describeAppsResponse pStatus_ =
     DescribeAppsResponse'
     { _darsApps = Nothing
-    , _darsStatus = pStatus
+    , _darsStatus = pStatus_
     }
 
 -- | An array of @App@ objects that describe the specified apps.

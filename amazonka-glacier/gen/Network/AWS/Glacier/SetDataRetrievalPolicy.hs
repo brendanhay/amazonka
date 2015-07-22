@@ -65,10 +65,10 @@ data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
 
 -- | 'SetDataRetrievalPolicy' smart constructor.
 setDataRetrievalPolicy :: Text -> SetDataRetrievalPolicy
-setDataRetrievalPolicy pAccountId =
+setDataRetrievalPolicy pAccountId_ =
     SetDataRetrievalPolicy'
     { _sdrprqPolicy = Nothing
-    , _sdrprqAccountId = pAccountId
+    , _sdrprqAccountId = pAccountId_
     }
 
 -- | The data retrieval policy in JSON format.

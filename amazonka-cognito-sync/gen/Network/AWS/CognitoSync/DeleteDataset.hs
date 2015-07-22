@@ -70,11 +70,11 @@ data DeleteDataset = DeleteDataset'
 
 -- | 'DeleteDataset' smart constructor.
 deleteDataset :: Text -> Text -> Text -> DeleteDataset
-deleteDataset pIdentityPoolId pIdentityId pDatasetName =
+deleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     DeleteDataset'
-    { _drqIdentityPoolId = pIdentityPoolId
-    , _drqIdentityId = pIdentityId
-    , _drqDatasetName = pDatasetName
+    { _drqIdentityPoolId = pIdentityPoolId_
+    , _drqIdentityId = pIdentityId_
+    , _drqDatasetName = pDatasetName_
     }
 
 -- | A name-spaced GUID (for example,
@@ -137,10 +137,10 @@ data DeleteDatasetResponse = DeleteDatasetResponse'
 
 -- | 'DeleteDatasetResponse' smart constructor.
 deleteDatasetResponse :: Int -> DeleteDatasetResponse
-deleteDatasetResponse pStatus =
+deleteDatasetResponse pStatus_ =
     DeleteDatasetResponse'
     { _drsDataset = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | A collection of data for an identity pool. An identity pool can have

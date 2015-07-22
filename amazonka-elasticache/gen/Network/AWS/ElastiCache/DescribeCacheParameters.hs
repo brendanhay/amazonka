@@ -72,12 +72,12 @@ data DescribeCacheParameters = DescribeCacheParameters'
 
 -- | 'DescribeCacheParameters' smart constructor.
 describeCacheParameters :: Text -> DescribeCacheParameters
-describeCacheParameters pCacheParameterGroupName =
+describeCacheParameters pCacheParameterGroupName_ =
     DescribeCacheParameters'
     { _dcprqMaxRecords = Nothing
     , _dcprqMarker = Nothing
     , _dcprqSource = Nothing
-    , _dcprqCacheParameterGroupName = pCacheParameterGroupName
+    , _dcprqCacheParameterGroupName = pCacheParameterGroupName_
     }
 
 -- | The maximum number of records to include in the response. If more
@@ -171,12 +171,12 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
 
 -- | 'DescribeCacheParametersResponse' smart constructor.
 describeCacheParametersResponse :: Int -> DescribeCacheParametersResponse
-describeCacheParametersResponse pStatus =
+describeCacheParametersResponse pStatus_ =
     DescribeCacheParametersResponse'
     { _dcprsCacheNodeTypeSpecificParameters = Nothing
     , _dcprsParameters = Nothing
     , _dcprsMarker = Nothing
-    , _dcprsStatus = pStatus
+    , _dcprsStatus = pStatus_
     }
 
 -- | A list of parameters specific to a particular cache node type. Each

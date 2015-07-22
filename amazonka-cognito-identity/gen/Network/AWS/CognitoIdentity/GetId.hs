@@ -69,11 +69,11 @@ data GetId = GetId'
 
 -- | 'GetId' smart constructor.
 getId :: Text -> GetId
-getId pIdentityPoolId =
+getId pIdentityPoolId_ =
     GetId'
     { _girqAccountId = Nothing
     , _girqLogins = Nothing
-    , _girqIdentityPoolId = pIdentityPoolId
+    , _girqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A standard AWS account ID (9+ digits).
@@ -145,10 +145,10 @@ data GetIdResponse = GetIdResponse'
 
 -- | 'GetIdResponse' smart constructor.
 getIdResponse :: Int -> GetIdResponse
-getIdResponse pStatus =
+getIdResponse pStatus_ =
     GetIdResponse'
     { _girsIdentityId = Nothing
-    , _girsStatus = pStatus
+    , _girsStatus = pStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID.

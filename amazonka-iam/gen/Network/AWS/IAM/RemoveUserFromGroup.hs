@@ -55,10 +55,10 @@ data RemoveUserFromGroup = RemoveUserFromGroup'
 
 -- | 'RemoveUserFromGroup' smart constructor.
 removeUserFromGroup :: Text -> Text -> RemoveUserFromGroup
-removeUserFromGroup pGroupName pUserName =
+removeUserFromGroup pGroupName_ pUserName_ =
     RemoveUserFromGroup'
-    { _rufgrqGroupName = pGroupName
-    , _rufgrqUserName = pUserName
+    { _rufgrqGroupName = pGroupName_
+    , _rufgrqUserName = pUserName_
     }
 
 -- | The name of the group to update.

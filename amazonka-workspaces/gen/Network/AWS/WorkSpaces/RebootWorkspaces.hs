@@ -62,9 +62,9 @@ newtype RebootWorkspaces = RebootWorkspaces'
 
 -- | 'RebootWorkspaces' smart constructor.
 rebootWorkspaces :: NonEmpty RebootRequest -> RebootWorkspaces
-rebootWorkspaces pRebootWorkspaceRequests =
+rebootWorkspaces pRebootWorkspaceRequests_ =
     RebootWorkspaces'
-    { _rwrqRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests
+    { _rwrqRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests_
     }
 
 -- | An array of structures that specify the WorkSpaces to reboot.
@@ -119,10 +119,10 @@ data RebootWorkspacesResponse = RebootWorkspacesResponse'
 
 -- | 'RebootWorkspacesResponse' smart constructor.
 rebootWorkspacesResponse :: Int -> RebootWorkspacesResponse
-rebootWorkspacesResponse pStatus =
+rebootWorkspacesResponse pStatus_ =
     RebootWorkspacesResponse'
     { _rrsFailedRequests = Nothing
-    , _rrsStatus = pStatus
+    , _rrsStatus = pStatus_
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be

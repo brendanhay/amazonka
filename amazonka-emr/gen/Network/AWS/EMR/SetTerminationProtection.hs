@@ -76,10 +76,10 @@ data SetTerminationProtection = SetTerminationProtection'
 
 -- | 'SetTerminationProtection' smart constructor.
 setTerminationProtection :: Bool -> SetTerminationProtection
-setTerminationProtection pTerminationProtected =
+setTerminationProtection pTerminationProtected_ =
     SetTerminationProtection'
     { _stprqJobFlowIds = mempty
-    , _stprqTerminationProtected = pTerminationProtected
+    , _stprqTerminationProtected = pTerminationProtected_
     }
 
 -- | A list of strings that uniquely identify the job flows to protect. This

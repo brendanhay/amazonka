@@ -141,14 +141,14 @@ data DescribeLunaClientResponse = DescribeLunaClientResponse'
 
 -- | 'DescribeLunaClientResponse' smart constructor.
 describeLunaClientResponse :: Int -> DescribeLunaClientResponse
-describeLunaClientResponse pStatus =
+describeLunaClientResponse pStatus_ =
     DescribeLunaClientResponse'
     { _drsClientARN = Nothing
     , _drsCertificateFingerprint = Nothing
     , _drsLastModifiedTimestamp = Nothing
     , _drsCertificate = Nothing
     , _drsLabel = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | The ARN of the client.

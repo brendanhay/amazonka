@@ -131,14 +131,14 @@ data SendRawEmail = SendRawEmail'
 
 -- | 'SendRawEmail' smart constructor.
 sendRawEmail :: RawMessage -> SendRawEmail
-sendRawEmail pRawMessage =
+sendRawEmail pRawMessage_ =
     SendRawEmail'
     { _srerqSourceARN = Nothing
     , _srerqDestinations = Nothing
     , _srerqReturnPathARN = Nothing
     , _srerqSource = Nothing
     , _srerqFromARN = Nothing
-    , _srerqRawMessage = pRawMessage
+    , _srerqRawMessage = pRawMessage_
     }
 
 -- | This parameter is used only for sending authorization. It is the ARN of
@@ -284,10 +284,10 @@ data SendRawEmailResponse = SendRawEmailResponse'
 
 -- | 'SendRawEmailResponse' smart constructor.
 sendRawEmailResponse :: Int -> Text -> SendRawEmailResponse
-sendRawEmailResponse pStatus pMessageId =
+sendRawEmailResponse pStatus_ pMessageId_ =
     SendRawEmailResponse'
-    { _srersStatus = pStatus
-    , _srersMessageId = pMessageId
+    { _srersStatus = pStatus_
+    , _srersMessageId = pMessageId_
     }
 
 -- | FIXME: Undocumented member.

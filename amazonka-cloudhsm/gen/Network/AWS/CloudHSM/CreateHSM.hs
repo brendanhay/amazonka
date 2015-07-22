@@ -86,16 +86,16 @@ data CreateHSM = CreateHSM'
 
 -- | 'CreateHSM' smart constructor.
 createHSM :: Text -> Text -> Text -> SubscriptionType -> CreateHSM
-createHSM pSubnetId pSSHKey pIAMRoleARN pSubscriptionType =
+createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
     CreateHSM'
     { _chrqClientToken = Nothing
     , _chrqSyslogIP = Nothing
     , _chrqExternalId = Nothing
     , _chrqEniIP = Nothing
-    , _chrqSubnetId = pSubnetId
-    , _chrqSSHKey = pSSHKey
-    , _chrqIAMRoleARN = pIAMRoleARN
-    , _chrqSubscriptionType = pSubscriptionType
+    , _chrqSubnetId = pSubnetId_
+    , _chrqSSHKey = pSSHKey_
+    , _chrqIAMRoleARN = pIAMRoleARN_
+    , _chrqSubscriptionType = pSubscriptionType_
     }
 
 -- | A user-defined token to ensure idempotence. Subsequent calls to this
@@ -184,10 +184,10 @@ data CreateHSMResponse = CreateHSMResponse'
 
 -- | 'CreateHSMResponse' smart constructor.
 createHSMResponse :: Int -> CreateHSMResponse
-createHSMResponse pStatus =
+createHSMResponse pStatus_ =
     CreateHSMResponse'
     { _chsmrsHSMARN = Nothing
-    , _chsmrsStatus = pStatus
+    , _chsmrsStatus = pStatus_
     }
 
 -- | The ARN of the HSM.

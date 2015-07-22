@@ -61,10 +61,10 @@ data UpdateDefaultBranch = UpdateDefaultBranch'
 
 -- | 'UpdateDefaultBranch' smart constructor.
 updateDefaultBranch :: Text -> Text -> UpdateDefaultBranch
-updateDefaultBranch pRepositoryName pDefaultBranchName =
+updateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
     UpdateDefaultBranch'
-    { _udbrqRepositoryName = pRepositoryName
-    , _udbrqDefaultBranchName = pDefaultBranchName
+    { _udbrqRepositoryName = pRepositoryName_
+    , _udbrqDefaultBranchName = pDefaultBranchName_
     }
 
 -- | The name of the repository to set or change the default branch for.

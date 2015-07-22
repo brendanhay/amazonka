@@ -132,12 +132,12 @@ data DirectoryConnectSettings = DirectoryConnectSettings'
 
 -- | 'DirectoryConnectSettings' smart constructor.
 directoryConnectSettings :: Text -> Text -> DirectoryConnectSettings
-directoryConnectSettings pVPCId pCustomerUserName =
+directoryConnectSettings pVPCId_ pCustomerUserName_ =
     DirectoryConnectSettings'
-    { _dcsVPCId = pVPCId
+    { _dcsVPCId = pVPCId_
     , _dcsSubnetIds = mempty
     , _dcsCustomerDNSIPs = mempty
-    , _dcsCustomerUserName = pCustomerUserName
+    , _dcsCustomerUserName = pCustomerUserName_
     }
 
 -- | The identifier of the VPC that the AD Connector is created in.
@@ -529,9 +529,9 @@ data DirectoryVPCSettings = DirectoryVPCSettings'
 
 -- | 'DirectoryVPCSettings' smart constructor.
 directoryVPCSettings :: Text -> DirectoryVPCSettings
-directoryVPCSettings pVPCId =
+directoryVPCSettings pVPCId_ =
     DirectoryVPCSettings'
-    { _dvsVPCId = pVPCId
+    { _dvsVPCId = pVPCId_
     , _dvsSubnetIds = mempty
     }
 

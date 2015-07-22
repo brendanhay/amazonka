@@ -56,9 +56,9 @@ newtype GetJob = GetJob'
 
 -- | 'GetJob' smart constructor.
 getJob :: Text -> GetJob
-getJob pArn =
+getJob pArn_ =
     GetJob'
-    { _gjrqArn = pArn
+    { _gjrqArn = pArn_
     }
 
 -- | The job\'s ARN.
@@ -109,10 +109,10 @@ data GetJobResponse = GetJobResponse'
 
 -- | 'GetJobResponse' smart constructor.
 getJobResponse :: Int -> GetJobResponse
-getJobResponse pStatus =
+getJobResponse pStatus_ =
     GetJobResponse'
     { _gjrsJob = Nothing
-    , _gjrsStatus = pStatus
+    , _gjrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

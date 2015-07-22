@@ -73,10 +73,10 @@ data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
 
 -- | 'ModifyLoadBalancerAttributes' smart constructor.
 modifyLoadBalancerAttributes :: Text -> LoadBalancerAttributes -> ModifyLoadBalancerAttributes
-modifyLoadBalancerAttributes pLoadBalancerName pLoadBalancerAttributes =
+modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
     ModifyLoadBalancerAttributes'
-    { _mlbarqLoadBalancerName = pLoadBalancerName
-    , _mlbarqLoadBalancerAttributes = pLoadBalancerAttributes
+    { _mlbarqLoadBalancerName = pLoadBalancerName_
+    , _mlbarqLoadBalancerAttributes = pLoadBalancerAttributes_
     }
 
 -- | The name of the load balancer.
@@ -135,11 +135,11 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
 
 -- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
 modifyLoadBalancerAttributesResponse :: Int -> ModifyLoadBalancerAttributesResponse
-modifyLoadBalancerAttributesResponse pStatus =
+modifyLoadBalancerAttributesResponse pStatus_ =
     ModifyLoadBalancerAttributesResponse'
     { _mlbarsLoadBalancerAttributes = Nothing
     , _mlbarsLoadBalancerName = Nothing
-    , _mlbarsStatus = pStatus
+    , _mlbarsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -65,11 +65,11 @@ data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
 
 -- | 'ApplyPendingMaintenanceAction' smart constructor.
 applyPendingMaintenanceAction :: Text -> Text -> Text -> ApplyPendingMaintenanceAction
-applyPendingMaintenanceAction pResourceIdentifier pApplyAction pOptInType =
+applyPendingMaintenanceAction pResourceIdentifier_ pApplyAction_ pOptInType_ =
     ApplyPendingMaintenanceAction'
-    { _apmarqResourceIdentifier = pResourceIdentifier
-    , _apmarqApplyAction = pApplyAction
-    , _apmarqOptInType = pOptInType
+    { _apmarqResourceIdentifier = pResourceIdentifier_
+    , _apmarqApplyAction = pApplyAction_
+    , _apmarqOptInType = pOptInType_
     }
 
 -- | The ARN of the resource that the pending maintenance action applies to.
@@ -138,10 +138,10 @@ data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionRespon
 
 -- | 'ApplyPendingMaintenanceActionResponse' smart constructor.
 applyPendingMaintenanceActionResponse :: Int -> ApplyPendingMaintenanceActionResponse
-applyPendingMaintenanceActionResponse pStatus =
+applyPendingMaintenanceActionResponse pStatus_ =
     ApplyPendingMaintenanceActionResponse'
     { _apmarsResourcePendingMaintenanceActions = Nothing
-    , _apmarsStatus = pStatus
+    , _apmarsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

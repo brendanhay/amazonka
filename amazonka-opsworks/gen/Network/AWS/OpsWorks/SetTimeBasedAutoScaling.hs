@@ -63,10 +63,10 @@ data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
 
 -- | 'SetTimeBasedAutoScaling' smart constructor.
 setTimeBasedAutoScaling :: Text -> SetTimeBasedAutoScaling
-setTimeBasedAutoScaling pInstanceId =
+setTimeBasedAutoScaling pInstanceId_ =
     SetTimeBasedAutoScaling'
     { _stbasrqAutoScalingSchedule = Nothing
-    , _stbasrqInstanceId = pInstanceId
+    , _stbasrqInstanceId = pInstanceId_
     }
 
 -- | An @AutoScalingSchedule@ with the instance schedule.

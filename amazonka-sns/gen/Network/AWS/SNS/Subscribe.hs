@@ -67,11 +67,11 @@ data Subscribe = Subscribe'
 
 -- | 'Subscribe' smart constructor.
 subscribe :: Text -> Text -> Subscribe
-subscribe pTopicARN pProtocol =
+subscribe pTopicARN_ pProtocol_ =
     Subscribe'
     { _srqEndpoint = Nothing
-    , _srqTopicARN = pTopicARN
-    , _srqProtocol = pProtocol
+    , _srqTopicARN = pTopicARN_
+    , _srqProtocol = pProtocol_
     }
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
@@ -150,10 +150,10 @@ data SubscribeResponse = SubscribeResponse'
 
 -- | 'SubscribeResponse' smart constructor.
 subscribeResponse :: Int -> SubscribeResponse
-subscribeResponse pStatus =
+subscribeResponse pStatus_ =
     SubscribeResponse'
     { _srsSubscriptionARN = Nothing
-    , _srsStatus = pStatus
+    , _srsStatus = pStatus_
     }
 
 -- | The ARN of the subscription, if the service was able to create a

@@ -61,10 +61,10 @@ data ListBranches = ListBranches'
 
 -- | 'ListBranches' smart constructor.
 listBranches :: Text -> ListBranches
-listBranches pRepositoryName =
+listBranches pRepositoryName_ =
     ListBranches'
     { _lbrqNextToken = Nothing
-    , _lbrqRepositoryName = pRepositoryName
+    , _lbrqRepositoryName = pRepositoryName_
     }
 
 -- | An enumeration token that allows the operation to batch the results.
@@ -126,11 +126,11 @@ data ListBranchesResponse = ListBranchesResponse'
 
 -- | 'ListBranchesResponse' smart constructor.
 listBranchesResponse :: Int -> ListBranchesResponse
-listBranchesResponse pStatus =
+listBranchesResponse pStatus_ =
     ListBranchesResponse'
     { _lbrsBranches = Nothing
     , _lbrsNextToken = Nothing
-    , _lbrsStatus = pStatus
+    , _lbrsStatus = pStatus_
     }
 
 -- | The list of branch names.

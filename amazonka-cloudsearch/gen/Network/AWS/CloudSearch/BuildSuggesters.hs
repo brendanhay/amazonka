@@ -59,9 +59,9 @@ newtype BuildSuggesters = BuildSuggesters'
 
 -- | 'BuildSuggesters' smart constructor.
 buildSuggesters :: Text -> BuildSuggesters
-buildSuggesters pDomainName =
+buildSuggesters pDomainName_ =
     BuildSuggesters'
-    { _bsrqDomainName = pDomainName
+    { _bsrqDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
@@ -110,10 +110,10 @@ data BuildSuggestersResponse = BuildSuggestersResponse'
 
 -- | 'BuildSuggestersResponse' smart constructor.
 buildSuggestersResponse :: Int -> BuildSuggestersResponse
-buildSuggestersResponse pStatus =
+buildSuggestersResponse pStatus_ =
     BuildSuggestersResponse'
     { _bsrsFieldNames = Nothing
-    , _bsrsStatus = pStatus
+    , _bsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

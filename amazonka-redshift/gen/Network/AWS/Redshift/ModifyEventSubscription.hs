@@ -80,7 +80,7 @@ data ModifyEventSubscription = ModifyEventSubscription'
 
 -- | 'ModifyEventSubscription' smart constructor.
 modifyEventSubscription :: Text -> ModifyEventSubscription
-modifyEventSubscription pSubscriptionName =
+modifyEventSubscription pSubscriptionName_ =
     ModifyEventSubscription'
     { _mesrqSNSTopicARN = Nothing
     , _mesrqEnabled = Nothing
@@ -88,7 +88,7 @@ modifyEventSubscription pSubscriptionName =
     , _mesrqSeverity = Nothing
     , _mesrqEventCategories = Nothing
     , _mesrqSourceIds = Nothing
-    , _mesrqSubscriptionName = pSubscriptionName
+    , _mesrqSubscriptionName = pSubscriptionName_
     }
 
 -- | The Amazon Resource Name (ARN) of the SNS topic to be used by the event
@@ -192,10 +192,10 @@ data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
 
 -- | 'ModifyEventSubscriptionResponse' smart constructor.
 modifyEventSubscriptionResponse :: Int -> ModifyEventSubscriptionResponse
-modifyEventSubscriptionResponse pStatus =
+modifyEventSubscriptionResponse pStatus_ =
     ModifyEventSubscriptionResponse'
     { _mesrsEventSubscription = Nothing
-    , _mesrsStatus = pStatus
+    , _mesrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

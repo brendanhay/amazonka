@@ -76,13 +76,13 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
 
 -- | 'RevokeDBSecurityGroupIngress' smart constructor.
 revokeDBSecurityGroupIngress :: Text -> RevokeDBSecurityGroupIngress
-revokeDBSecurityGroupIngress pDBSecurityGroupName =
+revokeDBSecurityGroupIngress pDBSecurityGroupName_ =
     RevokeDBSecurityGroupIngress'
     { _rdsgirqEC2SecurityGroupOwnerId = Nothing
     , _rdsgirqEC2SecurityGroupName = Nothing
     , _rdsgirqCIdRIP = Nothing
     , _rdsgirqEC2SecurityGroupId = Nothing
-    , _rdsgirqDBSecurityGroupName = pDBSecurityGroupName
+    , _rdsgirqDBSecurityGroupName = pDBSecurityGroupName_
     }
 
 -- | The AWS Account Number of the owner of the EC2 security group specified
@@ -164,10 +164,10 @@ data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
 
 -- | 'RevokeDBSecurityGroupIngressResponse' smart constructor.
 revokeDBSecurityGroupIngressResponse :: Int -> RevokeDBSecurityGroupIngressResponse
-revokeDBSecurityGroupIngressResponse pStatus =
+revokeDBSecurityGroupIngressResponse pStatus_ =
     RevokeDBSecurityGroupIngressResponse'
     { _rdsgirsDBSecurityGroup = Nothing
-    , _rdsgirsStatus = pStatus
+    , _rdsgirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

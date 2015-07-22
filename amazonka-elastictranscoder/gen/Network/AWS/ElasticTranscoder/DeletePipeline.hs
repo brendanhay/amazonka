@@ -59,9 +59,9 @@ newtype DeletePipeline = DeletePipeline'
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
-deletePipeline pId =
+deletePipeline pId_ =
     DeletePipeline'
-    { _drqId = pId
+    { _drqId = pId_
     }
 
 -- | The identifier of the pipeline that you want to delete.
@@ -100,9 +100,9 @@ newtype DeletePipelineResponse = DeletePipelineResponse'
 
 -- | 'DeletePipelineResponse' smart constructor.
 deletePipelineResponse :: Int -> DeletePipelineResponse
-deletePipelineResponse pStatus =
+deletePipelineResponse pStatus_ =
     DeletePipelineResponse'
-    { _drsStatus = pStatus
+    { _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -63,9 +63,9 @@ newtype DeleteBatchPrediction = DeleteBatchPrediction'
 
 -- | 'DeleteBatchPrediction' smart constructor.
 deleteBatchPrediction :: Text -> DeleteBatchPrediction
-deleteBatchPrediction pBatchPredictionId =
+deleteBatchPrediction pBatchPredictionId_ =
     DeleteBatchPrediction'
-    { _dbprqBatchPredictionId = pBatchPredictionId
+    { _dbprqBatchPredictionId = pBatchPredictionId_
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
@@ -124,10 +124,10 @@ data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
 
 -- | 'DeleteBatchPredictionResponse' smart constructor.
 deleteBatchPredictionResponse :: Int -> DeleteBatchPredictionResponse
-deleteBatchPredictionResponse pStatus =
+deleteBatchPredictionResponse pStatus_ =
     DeleteBatchPredictionResponse'
     { _dbprsBatchPredictionId = Nothing
-    , _dbprsStatus = pStatus
+    , _dbprsStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This

@@ -269,11 +269,11 @@ data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
 describeBatchPredictionsResponse :: Int -> DescribeBatchPredictionsResponse
-describeBatchPredictionsResponse pStatus =
+describeBatchPredictionsResponse pStatus_ =
     DescribeBatchPredictionsResponse'
     { _drsResults = Nothing
     , _drsNextToken = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | A list of BatchPrediction objects that meet the search criteria.

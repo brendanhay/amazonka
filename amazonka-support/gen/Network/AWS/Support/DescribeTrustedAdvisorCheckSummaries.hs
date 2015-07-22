@@ -122,9 +122,9 @@ data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckS
 
 -- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
 describeTrustedAdvisorCheckSummariesResponse :: Int -> DescribeTrustedAdvisorCheckSummariesResponse
-describeTrustedAdvisorCheckSummariesResponse pStatus =
+describeTrustedAdvisorCheckSummariesResponse pStatus_ =
     DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrsStatus = pStatus
+    { _dtacsrsStatus = pStatus_
     , _dtacsrsSummaries = mempty
     }
 

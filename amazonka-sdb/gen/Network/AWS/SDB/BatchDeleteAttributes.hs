@@ -62,9 +62,9 @@ data BatchDeleteAttributes = BatchDeleteAttributes'
 
 -- | 'BatchDeleteAttributes' smart constructor.
 batchDeleteAttributes :: Text -> BatchDeleteAttributes
-batchDeleteAttributes pDomainName =
+batchDeleteAttributes pDomainName_ =
     BatchDeleteAttributes'
-    { _bdarqDomainName = pDomainName
+    { _bdarqDomainName = pDomainName_
     , _bdarqItems = mempty
     }
 

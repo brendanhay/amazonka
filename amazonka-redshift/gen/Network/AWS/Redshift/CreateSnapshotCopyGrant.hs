@@ -70,11 +70,11 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
 
 -- | 'CreateSnapshotCopyGrant' smart constructor.
 createSnapshotCopyGrant :: Text -> CreateSnapshotCopyGrant
-createSnapshotCopyGrant pSnapshotCopyGrantName =
+createSnapshotCopyGrant pSnapshotCopyGrantName_ =
     CreateSnapshotCopyGrant'
     { _cscgrqKMSKeyId = Nothing
     , _cscgrqTags = Nothing
-    , _cscgrqSnapshotCopyGrantName = pSnapshotCopyGrantName
+    , _cscgrqSnapshotCopyGrantName = pSnapshotCopyGrantName_
     }
 
 -- | The unique identifier of the customer master key (CMK) to which to grant
@@ -143,10 +143,10 @@ data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
 
 -- | 'CreateSnapshotCopyGrantResponse' smart constructor.
 createSnapshotCopyGrantResponse :: Int -> CreateSnapshotCopyGrantResponse
-createSnapshotCopyGrantResponse pStatus =
+createSnapshotCopyGrantResponse pStatus_ =
     CreateSnapshotCopyGrantResponse'
     { _cscgrsSnapshotCopyGrant = Nothing
-    , _cscgrsStatus = pStatus
+    , _cscgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

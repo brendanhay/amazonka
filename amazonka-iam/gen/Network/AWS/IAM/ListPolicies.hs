@@ -195,12 +195,12 @@ data ListPoliciesResponse = ListPoliciesResponse'
 
 -- | 'ListPoliciesResponse' smart constructor.
 listPoliciesResponse :: Int -> ListPoliciesResponse
-listPoliciesResponse pStatus =
+listPoliciesResponse pStatus_ =
     ListPoliciesResponse'
     { _lprsMarker = Nothing
     , _lprsIsTruncated = Nothing
     , _lprsPolicies = Nothing
-    , _lprsStatus = pStatus
+    , _lprsStatus = pStatus_
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the

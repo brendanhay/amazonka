@@ -114,10 +114,10 @@ data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
 batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse
-batchGetDeploymentsResponse pStatus =
+batchGetDeploymentsResponse pStatus_ =
     BatchGetDeploymentsResponse'
     { _bgdrsDeploymentsInfo = Nothing
-    , _bgdrsStatus = pStatus
+    , _bgdrsStatus = pStatus_
     }
 
 -- | Information about the deployments.

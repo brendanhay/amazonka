@@ -96,15 +96,15 @@ data CreateMLModel = CreateMLModel'
 
 -- | 'CreateMLModel' smart constructor.
 createMLModel :: Text -> MLModelType -> Text -> CreateMLModel
-createMLModel pMLModelId pMLModelType pTrainingDataSourceId =
+createMLModel pMLModelId_ pMLModelType_ pTrainingDataSourceId_ =
     CreateMLModel'
     { _cmlmrqRecipe = Nothing
     , _cmlmrqRecipeURI = Nothing
     , _cmlmrqMLModelName = Nothing
     , _cmlmrqParameters = Nothing
-    , _cmlmrqMLModelId = pMLModelId
-    , _cmlmrqMLModelType = pMLModelType
-    , _cmlmrqTrainingDataSourceId = pTrainingDataSourceId
+    , _cmlmrqMLModelId = pMLModelId_
+    , _cmlmrqMLModelType = pMLModelType_
+    , _cmlmrqTrainingDataSourceId = pTrainingDataSourceId_
     }
 
 -- | The data recipe for creating @MLModel@. You must specify either the
@@ -243,10 +243,10 @@ data CreateMLModelResponse = CreateMLModelResponse'
 
 -- | 'CreateMLModelResponse' smart constructor.
 createMLModelResponse :: Int -> CreateMLModelResponse
-createMLModelResponse pStatus =
+createMLModelResponse pStatus_ =
     CreateMLModelResponse'
     { _cmlmrsMLModelId = Nothing
-    , _cmlmrsStatus = pStatus
+    , _cmlmrsStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value

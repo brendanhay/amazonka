@@ -55,10 +55,10 @@ data DeleteMetricFilter = DeleteMetricFilter'
 
 -- | 'DeleteMetricFilter' smart constructor.
 deleteMetricFilter :: Text -> Text -> DeleteMetricFilter
-deleteMetricFilter pLogGroupName pFilterName =
+deleteMetricFilter pLogGroupName_ pFilterName_ =
     DeleteMetricFilter'
-    { _delrqLogGroupName = pLogGroupName
-    , _delrqFilterName = pFilterName
+    { _delrqLogGroupName = pLogGroupName_
+    , _delrqFilterName = pFilterName_
     }
 
 -- | The name of the log group that is associated with the metric filter to

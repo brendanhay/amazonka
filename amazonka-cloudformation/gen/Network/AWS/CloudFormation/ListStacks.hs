@@ -141,11 +141,11 @@ data ListStacksResponse = ListStacksResponse'
 
 -- | 'ListStacksResponse' smart constructor.
 listStacksResponse :: Int -> ListStacksResponse
-listStacksResponse pStatus =
+listStacksResponse pStatus_ =
     ListStacksResponse'
     { _lsrsStackSummaries = Nothing
     , _lsrsNextToken = Nothing
-    , _lsrsStatus = pStatus
+    , _lsrsStatus = pStatus_
     }
 
 -- | A list of @StackSummary@ structures containing information about the

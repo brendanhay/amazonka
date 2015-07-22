@@ -109,10 +109,10 @@ data GetUserResponse = GetUserResponse'
 
 -- | 'GetUserResponse' smart constructor.
 getUserResponse :: Int -> User -> GetUserResponse
-getUserResponse pStatus pUser =
+getUserResponse pStatus_ pUser_ =
     GetUserResponse'
-    { _gursStatus = pStatus
-    , _gursUser = pUser
+    { _gursStatus = pStatus_
+    , _gursUser = pUser_
     }
 
 -- | FIXME: Undocumented member.

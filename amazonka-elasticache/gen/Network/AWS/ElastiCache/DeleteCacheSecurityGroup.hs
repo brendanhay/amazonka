@@ -56,9 +56,9 @@ newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
 
 -- | 'DeleteCacheSecurityGroup' smart constructor.
 deleteCacheSecurityGroup :: Text -> DeleteCacheSecurityGroup
-deleteCacheSecurityGroup pCacheSecurityGroupName =
+deleteCacheSecurityGroup pCacheSecurityGroupName_ =
     DeleteCacheSecurityGroup'
-    { _dcsgrqCacheSecurityGroupName = pCacheSecurityGroupName
+    { _dcsgrqCacheSecurityGroupName = pCacheSecurityGroupName_
     }
 
 -- | The name of the cache security group to delete.

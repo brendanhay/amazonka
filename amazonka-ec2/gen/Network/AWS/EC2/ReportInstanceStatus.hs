@@ -82,14 +82,14 @@ data ReportInstanceStatus = ReportInstanceStatus'
 
 -- | 'ReportInstanceStatus' smart constructor.
 reportInstanceStatus :: ReportStatusType -> ReportInstanceStatus
-reportInstanceStatus pStatus =
+reportInstanceStatus pStatus_ =
     ReportInstanceStatus'
     { _risrqStartTime = Nothing
     , _risrqEndTime = Nothing
     , _risrqDryRun = Nothing
     , _risrqDescription = Nothing
     , _risrqInstances = mempty
-    , _risrqStatus = pStatus
+    , _risrqStatus = pStatus_
     , _risrqReasonCodes = mempty
     }
 

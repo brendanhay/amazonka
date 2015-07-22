@@ -65,9 +65,9 @@ data AddCache = AddCache'
 
 -- | 'AddCache' smart constructor.
 addCache :: Text -> AddCache
-addCache pGatewayARN =
+addCache pGatewayARN_ =
     AddCache'
-    { _acrqGatewayARN = pGatewayARN
+    { _acrqGatewayARN = pGatewayARN_
     , _acrqDiskIds = mempty
     }
 
@@ -124,10 +124,10 @@ data AddCacheResponse = AddCacheResponse'
 
 -- | 'AddCacheResponse' smart constructor.
 addCacheResponse :: Int -> AddCacheResponse
-addCacheResponse pStatus =
+addCacheResponse pStatus_ =
     AddCacheResponse'
     { _acrsGatewayARN = Nothing
-    , _acrsStatus = pStatus
+    , _acrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

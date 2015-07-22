@@ -149,10 +149,10 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
 describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse
-describeNotificationConfigurationsResponse pStatus =
+describeNotificationConfigurationsResponse pStatus_ =
     DescribeNotificationConfigurationsResponse'
     { _dncrsNextToken = Nothing
-    , _dncrsStatus = pStatus
+    , _dncrsStatus = pStatus_
     , _dncrsNotificationConfigurations = mempty
     }
 

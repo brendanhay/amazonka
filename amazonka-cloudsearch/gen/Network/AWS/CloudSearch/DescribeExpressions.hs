@@ -74,11 +74,11 @@ data DescribeExpressions = DescribeExpressions'
 
 -- | 'DescribeExpressions' smart constructor.
 describeExpressions :: Text -> DescribeExpressions
-describeExpressions pDomainName =
+describeExpressions pDomainName_ =
     DescribeExpressions'
     { _derqDeployed = Nothing
     , _derqExpressionNames = Nothing
-    , _derqDomainName = pDomainName
+    , _derqDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
@@ -142,9 +142,9 @@ data DescribeExpressionsResponse = DescribeExpressionsResponse'
 
 -- | 'DescribeExpressionsResponse' smart constructor.
 describeExpressionsResponse :: Int -> DescribeExpressionsResponse
-describeExpressionsResponse pStatus =
+describeExpressionsResponse pStatus_ =
     DescribeExpressionsResponse'
-    { _drsStatus = pStatus
+    { _drsStatus = pStatus_
     , _drsExpressions = mempty
     }
 

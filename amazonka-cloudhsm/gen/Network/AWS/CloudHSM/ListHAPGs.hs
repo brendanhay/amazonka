@@ -117,10 +117,10 @@ data ListHAPGsResponse = ListHAPGsResponse'
 
 -- | 'ListHAPGsResponse' smart constructor.
 listHAPGsResponse :: Int -> ListHAPGsResponse
-listHAPGsResponse pStatus =
+listHAPGsResponse pStatus_ =
     ListHAPGsResponse'
     { _lhrsNextToken = Nothing
-    , _lhrsStatus = pStatus
+    , _lhrsStatus = pStatus_
     , _lhrsHAPGList = mempty
     }
 

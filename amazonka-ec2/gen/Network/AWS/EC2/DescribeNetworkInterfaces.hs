@@ -237,10 +237,10 @@ data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
 describeNetworkInterfacesResponse :: Int -> DescribeNetworkInterfacesResponse
-describeNetworkInterfacesResponse pStatus =
+describeNetworkInterfacesResponse pStatus_ =
     DescribeNetworkInterfacesResponse'
     { _dnirsNetworkInterfaces = Nothing
-    , _dnirsStatus = pStatus
+    , _dnirsStatus = pStatus_
     }
 
 -- | Information about one or more network interfaces.

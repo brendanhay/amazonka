@@ -61,10 +61,10 @@ data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscrip
 
 -- | 'RemoveSourceIdentifierFromSubscription' smart constructor.
 removeSourceIdentifierFromSubscription :: Text -> Text -> RemoveSourceIdentifierFromSubscription
-removeSourceIdentifierFromSubscription pSubscriptionName pSourceIdentifier =
+removeSourceIdentifierFromSubscription pSubscriptionName_ pSourceIdentifier_ =
     RemoveSourceIdentifierFromSubscription'
-    { _rsifsrqSubscriptionName = pSubscriptionName
-    , _rsifsrqSourceIdentifier = pSourceIdentifier
+    { _rsifsrqSubscriptionName = pSubscriptionName_
+    , _rsifsrqSourceIdentifier = pSourceIdentifier_
     }
 
 -- | The name of the RDS event notification subscription you want to remove a
@@ -124,10 +124,10 @@ data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFrom
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
 removeSourceIdentifierFromSubscriptionResponse :: Int -> RemoveSourceIdentifierFromSubscriptionResponse
-removeSourceIdentifierFromSubscriptionResponse pStatus =
+removeSourceIdentifierFromSubscriptionResponse pStatus_ =
     RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrsEventSubscription = Nothing
-    , _rsifsrsStatus = pStatus
+    , _rsifsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

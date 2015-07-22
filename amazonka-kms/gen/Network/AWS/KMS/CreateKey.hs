@@ -135,10 +135,10 @@ data CreateKeyResponse = CreateKeyResponse'
 
 -- | 'CreateKeyResponse' smart constructor.
 createKeyResponse :: Int -> CreateKeyResponse
-createKeyResponse pStatus =
+createKeyResponse pStatus_ =
     CreateKeyResponse'
     { _ckrsKeyMetadata = Nothing
-    , _ckrsStatus = pStatus
+    , _ckrsStatus = pStatus_
     }
 
 -- | Metadata associated with the key.

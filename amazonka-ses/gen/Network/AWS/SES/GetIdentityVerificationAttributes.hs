@@ -120,9 +120,9 @@ data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttribut
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
 getIdentityVerificationAttributesResponse :: Int -> GetIdentityVerificationAttributesResponse
-getIdentityVerificationAttributesResponse pStatus =
+getIdentityVerificationAttributesResponse pStatus_ =
     GetIdentityVerificationAttributesResponse'
-    { _givarsStatus = pStatus
+    { _givarsStatus = pStatus_
     , _givarsVerificationAttributes = mempty
     }
 

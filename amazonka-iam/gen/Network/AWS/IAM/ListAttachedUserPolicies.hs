@@ -80,12 +80,12 @@ data ListAttachedUserPolicies = ListAttachedUserPolicies'
 
 -- | 'ListAttachedUserPolicies' smart constructor.
 listAttachedUserPolicies :: Text -> ListAttachedUserPolicies
-listAttachedUserPolicies pUserName =
+listAttachedUserPolicies pUserName_ =
     ListAttachedUserPolicies'
     { _lauprqPathPrefix = Nothing
     , _lauprqMaxItems = Nothing
     , _lauprqMarker = Nothing
-    , _lauprqUserName = pUserName
+    , _lauprqUserName = pUserName_
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
@@ -168,12 +168,12 @@ data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
 listAttachedUserPoliciesResponse :: Int -> ListAttachedUserPoliciesResponse
-listAttachedUserPoliciesResponse pStatus =
+listAttachedUserPoliciesResponse pStatus_ =
     ListAttachedUserPoliciesResponse'
     { _lauprsAttachedPolicies = Nothing
     , _lauprsMarker = Nothing
     , _lauprsIsTruncated = Nothing
-    , _lauprsStatus = pStatus
+    , _lauprsStatus = pStatus_
     }
 
 -- | A list of the attached policies.

@@ -68,10 +68,10 @@ data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
 
 -- | 'UpdateAvailabilityOptions' smart constructor.
 updateAvailabilityOptions :: Text -> Bool -> UpdateAvailabilityOptions
-updateAvailabilityOptions pDomainName pMultiAZ =
+updateAvailabilityOptions pDomainName_ pMultiAZ_ =
     UpdateAvailabilityOptions'
-    { _uaorqDomainName = pDomainName
-    , _uaorqMultiAZ = pMultiAZ
+    { _uaorqDomainName = pDomainName_
+    , _uaorqMultiAZ = pMultiAZ_
     }
 
 -- | FIXME: Undocumented member.
@@ -129,10 +129,10 @@ data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
 
 -- | 'UpdateAvailabilityOptionsResponse' smart constructor.
 updateAvailabilityOptionsResponse :: Int -> UpdateAvailabilityOptionsResponse
-updateAvailabilityOptionsResponse pStatus =
+updateAvailabilityOptionsResponse pStatus_ =
     UpdateAvailabilityOptionsResponse'
     { _uaorsAvailabilityOptions = Nothing
-    , _uaorsStatus = pStatus
+    , _uaorsStatus = pStatus_
     }
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is

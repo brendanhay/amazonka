@@ -98,7 +98,7 @@ data RequestSpotInstances = RequestSpotInstances'
 
 -- | 'RequestSpotInstances' smart constructor.
 requestSpotInstances :: Text -> RequestSpotInstances
-requestSpotInstances pSpotPrice =
+requestSpotInstances pSpotPrice_ =
     RequestSpotInstances'
     { _rsirqInstanceCount = Nothing
     , _rsirqClientToken = Nothing
@@ -109,7 +109,7 @@ requestSpotInstances pSpotPrice =
     , _rsirqType = Nothing
     , _rsirqValidFrom = Nothing
     , _rsirqDryRun = Nothing
-    , _rsirqSpotPrice = pSpotPrice
+    , _rsirqSpotPrice = pSpotPrice_
     }
 
 -- | The maximum number of Spot Instances to launch.
@@ -247,10 +247,10 @@ data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
 
 -- | 'RequestSpotInstancesResponse' smart constructor.
 requestSpotInstancesResponse :: Int -> RequestSpotInstancesResponse
-requestSpotInstancesResponse pStatus =
+requestSpotInstancesResponse pStatus_ =
     RequestSpotInstancesResponse'
     { _rsirsSpotInstanceRequests = Nothing
-    , _rsirsStatus = pStatus
+    , _rsirsStatus = pStatus_
     }
 
 -- | One or more Spot Instance requests.

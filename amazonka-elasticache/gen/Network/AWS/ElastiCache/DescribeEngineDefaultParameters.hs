@@ -66,11 +66,11 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
-describeEngineDefaultParameters pCacheParameterGroupFamily =
+describeEngineDefaultParameters pCacheParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
     { _dedprqMaxRecords = Nothing
     , _dedprqMarker = Nothing
-    , _dedprqCacheParameterGroupFamily = pCacheParameterGroupFamily
+    , _dedprqCacheParameterGroupFamily = pCacheParameterGroupFamily_
     }
 
 -- | The maximum number of records to include in the response. If more
@@ -154,10 +154,10 @@ data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRe
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: Int -> EngineDefaults -> DescribeEngineDefaultParametersResponse
-describeEngineDefaultParametersResponse pStatus pEngineDefaults =
+describeEngineDefaultParametersResponse pStatus_ pEngineDefaults_ =
     DescribeEngineDefaultParametersResponse'
-    { _dedprsStatus = pStatus
-    , _dedprsEngineDefaults = pEngineDefaults
+    { _dedprsStatus = pStatus_
+    , _dedprsEngineDefaults = pEngineDefaults_
     }
 
 -- | FIXME: Undocumented member.

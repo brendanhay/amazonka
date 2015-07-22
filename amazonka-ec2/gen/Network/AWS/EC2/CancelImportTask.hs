@@ -133,12 +133,12 @@ data CancelImportTaskResponse = CancelImportTaskResponse'
 
 -- | 'CancelImportTaskResponse' smart constructor.
 cancelImportTaskResponse :: Int -> CancelImportTaskResponse
-cancelImportTaskResponse pStatus =
+cancelImportTaskResponse pStatus_ =
     CancelImportTaskResponse'
     { _citrsState = Nothing
     , _citrsImportTaskId = Nothing
     , _citrsPreviousState = Nothing
-    , _citrsStatus = pStatus
+    , _citrsStatus = pStatus_
     }
 
 -- | The current state of the task being canceled.

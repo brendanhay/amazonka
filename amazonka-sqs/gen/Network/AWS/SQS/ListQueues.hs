@@ -107,10 +107,10 @@ data ListQueuesResponse = ListQueuesResponse'
 
 -- | 'ListQueuesResponse' smart constructor.
 listQueuesResponse :: Int -> ListQueuesResponse
-listQueuesResponse pStatus =
+listQueuesResponse pStatus_ =
     ListQueuesResponse'
     { _lqrsQueueURLs = Nothing
-    , _lqrsStatus = pStatus
+    , _lqrsStatus = pStatus_
     }
 
 -- | A list of queue URLs, up to 1000 entries.

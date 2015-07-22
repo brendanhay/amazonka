@@ -68,10 +68,10 @@ data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
 
 -- | 'RetrieveTapeRecoveryPoint' smart constructor.
 retrieveTapeRecoveryPoint :: Text -> Text -> RetrieveTapeRecoveryPoint
-retrieveTapeRecoveryPoint pTapeARN pGatewayARN =
+retrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
     RetrieveTapeRecoveryPoint'
-    { _rtrprqTapeARN = pTapeARN
-    , _rtrprqGatewayARN = pGatewayARN
+    { _rtrprqTapeARN = pTapeARN_
+    , _rtrprqGatewayARN = pGatewayARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
@@ -132,10 +132,10 @@ data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
 
 -- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
 retrieveTapeRecoveryPointResponse :: Int -> RetrieveTapeRecoveryPointResponse
-retrieveTapeRecoveryPointResponse pStatus =
+retrieveTapeRecoveryPointResponse pStatus_ =
     RetrieveTapeRecoveryPointResponse'
     { _rtrprsTapeARN = Nothing
-    , _rtrprsStatus = pStatus
+    , _rtrprsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the

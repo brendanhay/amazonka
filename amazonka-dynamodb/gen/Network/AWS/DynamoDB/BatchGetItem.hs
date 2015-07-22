@@ -279,12 +279,12 @@ data BatchGetItemResponse = BatchGetItemResponse'
 
 -- | 'BatchGetItemResponse' smart constructor.
 batchGetItemResponse :: Int -> BatchGetItemResponse
-batchGetItemResponse pStatus =
+batchGetItemResponse pStatus_ =
     BatchGetItemResponse'
     { _bgirsUnprocessedKeys = Nothing
     , _bgirsResponses = Nothing
     , _bgirsConsumedCapacity = Nothing
-    , _bgirsStatus = pStatus
+    , _bgirsStatus = pStatus_
     }
 
 -- | A map of tables and their respective keys that were not processed with

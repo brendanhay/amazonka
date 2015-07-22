@@ -72,12 +72,12 @@ data ListIdentities = ListIdentities'
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: Text -> Natural -> ListIdentities
-listIdentities pIdentityPoolId pMaxResults =
+listIdentities pIdentityPoolId_ pMaxResults_ =
     ListIdentities'
     { _lirqHideDisabled = Nothing
     , _lirqNextToken = Nothing
-    , _lirqIdentityPoolId = pIdentityPoolId
-    , _lirqMaxResults = _Nat # pMaxResults
+    , _lirqIdentityPoolId = pIdentityPoolId_
+    , _lirqMaxResults = _Nat # pMaxResults_
     }
 
 -- | An optional boolean parameter that allows you to hide disabled
@@ -156,12 +156,12 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Int -> ListIdentitiesResponse
-listIdentitiesResponse pStatus =
+listIdentitiesResponse pStatus_ =
     ListIdentitiesResponse'
     { _lirsIdentityPoolId = Nothing
     , _lirsNextToken = Nothing
     , _lirsIdentities = Nothing
-    , _lirsStatus = pStatus
+    , _lirsStatus = pStatus_
     }
 
 -- | An identity pool ID in the format REGION:GUID.

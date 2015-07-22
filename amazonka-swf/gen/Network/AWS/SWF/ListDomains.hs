@@ -93,12 +93,12 @@ data ListDomains = ListDomains'
 
 -- | 'ListDomains' smart constructor.
 listDomains :: RegistrationStatus -> ListDomains
-listDomains pRegistrationStatus =
+listDomains pRegistrationStatus_ =
     ListDomains'
     { _ldrqNextPageToken = Nothing
     , _ldrqReverseOrder = Nothing
     , _ldrqMaximumPageSize = Nothing
-    , _ldrqRegistrationStatus = pRegistrationStatus
+    , _ldrqRegistrationStatus = pRegistrationStatus_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -192,10 +192,10 @@ data ListDomainsResponse = ListDomainsResponse'
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
-listDomainsResponse pStatus =
+listDomainsResponse pStatus_ =
     ListDomainsResponse'
     { _ldrsNextPageToken = Nothing
-    , _ldrsStatus = pStatus
+    , _ldrsStatus = pStatus_
     , _ldrsDomainInfos = mempty
     }
 

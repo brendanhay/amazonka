@@ -78,10 +78,10 @@ data CreatePlatformApplication = CreatePlatformApplication'
 
 -- | 'CreatePlatformApplication' smart constructor.
 createPlatformApplication :: Text -> Text -> CreatePlatformApplication
-createPlatformApplication pName pPlatform =
+createPlatformApplication pName_ pPlatform_ =
     CreatePlatformApplication'
-    { _cparqName = pName
-    , _cparqPlatform = pPlatform
+    { _cparqName = pName_
+    , _cparqPlatform = pPlatform_
     , _cparqAttributes = mempty
     }
 
@@ -146,10 +146,10 @@ data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
 
 -- | 'CreatePlatformApplicationResponse' smart constructor.
 createPlatformApplicationResponse :: Int -> CreatePlatformApplicationResponse
-createPlatformApplicationResponse pStatus =
+createPlatformApplicationResponse pStatus_ =
     CreatePlatformApplicationResponse'
     { _cparsPlatformApplicationARN = Nothing
-    , _cparsStatus = pStatus
+    , _cparsStatus = pStatus_
     }
 
 -- | PlatformApplicationArn is returned.

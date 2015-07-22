@@ -105,7 +105,7 @@ data UploadPart = UploadPart'
 
 -- | 'UploadPart' smart constructor.
 uploadPart :: BucketName -> ObjectKey -> Int -> Text -> RqBody -> UploadPart
-uploadPart pBucket pKey pPartNumber pUploadId pBody =
+uploadPart pBucket_ pKey_ pPartNumber_ pUploadId_ pBody_ =
     UploadPart'
     { _uprqContentLength = Nothing
     , _uprqSSECustomerAlgorithm = Nothing
@@ -113,11 +113,11 @@ uploadPart pBucket pKey pPartNumber pUploadId pBody =
     , _uprqRequestPayer = Nothing
     , _uprqSSECustomerKeyMD5 = Nothing
     , _uprqContentMD5 = Nothing
-    , _uprqBucket = pBucket
-    , _uprqKey = pKey
-    , _uprqPartNumber = pPartNumber
-    , _uprqUploadId = pUploadId
-    , _uprqBody = pBody
+    , _uprqBucket = pBucket_
+    , _uprqKey = pKey_
+    , _uprqPartNumber = pPartNumber_
+    , _uprqUploadId = pUploadId_
+    , _uprqBody = pBody_
     }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
@@ -250,7 +250,7 @@ data UploadPartResponse = UploadPartResponse'
 
 -- | 'UploadPartResponse' smart constructor.
 uploadPartResponse :: Int -> UploadPartResponse
-uploadPartResponse pStatus =
+uploadPartResponse pStatus_ =
     UploadPartResponse'
     { _uprsETag = Nothing
     , _uprsRequestCharged = Nothing
@@ -258,7 +258,7 @@ uploadPartResponse pStatus =
     , _uprsSSEKMSKeyId = Nothing
     , _uprsSSECustomerKeyMD5 = Nothing
     , _uprsServerSideEncryption = Nothing
-    , _uprsStatus = pStatus
+    , _uprsStatus = pStatus_
     }
 
 -- | Entity tag for the uploaded object.

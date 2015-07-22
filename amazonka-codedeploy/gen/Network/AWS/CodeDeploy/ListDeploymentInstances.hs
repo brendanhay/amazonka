@@ -66,11 +66,11 @@ data ListDeploymentInstances = ListDeploymentInstances'
 
 -- | 'ListDeploymentInstances' smart constructor.
 listDeploymentInstances :: Text -> ListDeploymentInstances
-listDeploymentInstances pDeploymentId =
+listDeploymentInstances pDeploymentId_ =
     ListDeploymentInstances'
     { _ldirqInstanceStatusFilter = Nothing
     , _ldirqNextToken = Nothing
-    , _ldirqDeploymentId = pDeploymentId
+    , _ldirqDeploymentId = pDeploymentId_
     }
 
 -- | A subset of instances to list, by status:
@@ -156,11 +156,11 @@ data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
 listDeploymentInstancesResponse :: Int -> ListDeploymentInstancesResponse
-listDeploymentInstancesResponse pStatus =
+listDeploymentInstancesResponse pStatus_ =
     ListDeploymentInstancesResponse'
     { _ldirsNextToken = Nothing
     , _ldirsInstancesList = Nothing
-    , _ldirsStatus = pStatus
+    , _ldirsStatus = pStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an

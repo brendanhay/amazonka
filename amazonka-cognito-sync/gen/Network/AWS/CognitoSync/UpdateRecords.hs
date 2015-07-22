@@ -98,15 +98,15 @@ data UpdateRecords = UpdateRecords'
 
 -- | 'UpdateRecords' smart constructor.
 updateRecords :: Text -> Text -> Text -> Text -> UpdateRecords
-updateRecords pIdentityPoolId pIdentityId pDatasetName pSyncSessionToken =
+updateRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ pSyncSessionToken_ =
     UpdateRecords'
     { _urrqRecordPatches = Nothing
     , _urrqDeviceId = Nothing
     , _urrqClientContext = Nothing
-    , _urrqIdentityPoolId = pIdentityPoolId
-    , _urrqIdentityId = pIdentityId
-    , _urrqDatasetName = pDatasetName
-    , _urrqSyncSessionToken = pSyncSessionToken
+    , _urrqIdentityPoolId = pIdentityPoolId_
+    , _urrqIdentityId = pIdentityId_
+    , _urrqDatasetName = pDatasetName_
+    , _urrqSyncSessionToken = pSyncSessionToken_
     }
 
 -- | A list of patch operations.
@@ -195,10 +195,10 @@ data UpdateRecordsResponse = UpdateRecordsResponse'
 
 -- | 'UpdateRecordsResponse' smart constructor.
 updateRecordsResponse :: Int -> UpdateRecordsResponse
-updateRecordsResponse pStatus =
+updateRecordsResponse pStatus_ =
     UpdateRecordsResponse'
     { _urrsRecords = Nothing
-    , _urrsStatus = pStatus
+    , _urrsStatus = pStatus_
     }
 
 -- | A list of records that have been updated.

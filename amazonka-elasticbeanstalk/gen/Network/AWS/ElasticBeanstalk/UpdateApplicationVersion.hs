@@ -67,11 +67,11 @@ data UpdateApplicationVersion = UpdateApplicationVersion'
 
 -- | 'UpdateApplicationVersion' smart constructor.
 updateApplicationVersion :: Text -> Text -> UpdateApplicationVersion
-updateApplicationVersion pApplicationName pVersionLabel =
+updateApplicationVersion pApplicationName_ pVersionLabel_ =
     UpdateApplicationVersion'
     { _uavrqDescription = Nothing
-    , _uavrqApplicationName = pApplicationName
-    , _uavrqVersionLabel = pVersionLabel
+    , _uavrqApplicationName = pApplicationName_
+    , _uavrqVersionLabel = pVersionLabel_
     }
 
 -- | A new description for this release.

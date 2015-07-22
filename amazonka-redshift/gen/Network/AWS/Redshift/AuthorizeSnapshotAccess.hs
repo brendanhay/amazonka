@@ -69,11 +69,11 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
 
 -- | 'AuthorizeSnapshotAccess' smart constructor.
 authorizeSnapshotAccess :: Text -> Text -> AuthorizeSnapshotAccess
-authorizeSnapshotAccess pSnapshotIdentifier pAccountWithRestoreAccess =
+authorizeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
     AuthorizeSnapshotAccess'
     { _asarqSnapshotClusterIdentifier = Nothing
-    , _asarqSnapshotIdentifier = pSnapshotIdentifier
-    , _asarqAccountWithRestoreAccess = pAccountWithRestoreAccess
+    , _asarqSnapshotIdentifier = pSnapshotIdentifier_
+    , _asarqAccountWithRestoreAccess = pAccountWithRestoreAccess_
     }
 
 -- | The identifier of the cluster the snapshot was created from. This
@@ -135,10 +135,10 @@ data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
 
 -- | 'AuthorizeSnapshotAccessResponse' smart constructor.
 authorizeSnapshotAccessResponse :: Int -> AuthorizeSnapshotAccessResponse
-authorizeSnapshotAccessResponse pStatus =
+authorizeSnapshotAccessResponse pStatus_ =
     AuthorizeSnapshotAccessResponse'
     { _asarsSnapshot = Nothing
-    , _asarsStatus = pStatus
+    , _asarsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -124,10 +124,10 @@ data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
 describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse
-describeApplicationVersionsResponse pStatus =
+describeApplicationVersionsResponse pStatus_ =
     DescribeApplicationVersionsResponse'
     { _davrsApplicationVersions = Nothing
-    , _davrsStatus = pStatus
+    , _davrsStatus = pStatus_
     }
 
 -- | A list of ApplicationVersionDescription .

@@ -59,9 +59,9 @@ newtype UnassignVolume = UnassignVolume'
 
 -- | 'UnassignVolume' smart constructor.
 unassignVolume :: Text -> UnassignVolume
-unassignVolume pVolumeId =
+unassignVolume pVolumeId_ =
     UnassignVolume'
-    { _uvrqVolumeId = pVolumeId
+    { _uvrqVolumeId = pVolumeId_
     }
 
 -- | The volume ID.

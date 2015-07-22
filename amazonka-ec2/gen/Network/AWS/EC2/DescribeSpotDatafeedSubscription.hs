@@ -116,10 +116,10 @@ data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscription
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' smart constructor.
 describeSpotDatafeedSubscriptionResponse :: Int -> DescribeSpotDatafeedSubscriptionResponse
-describeSpotDatafeedSubscriptionResponse pStatus =
+describeSpotDatafeedSubscriptionResponse pStatus_ =
     DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrsSpotDatafeedSubscription = Nothing
-    , _dsdsrsStatus = pStatus
+    , _dsdsrsStatus = pStatus_
     }
 
 -- | The Spot Instance data feed subscription.

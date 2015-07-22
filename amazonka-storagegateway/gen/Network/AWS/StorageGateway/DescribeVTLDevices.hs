@@ -75,12 +75,12 @@ data DescribeVTLDevices = DescribeVTLDevices'
 
 -- | 'DescribeVTLDevices' smart constructor.
 describeVTLDevices :: Text -> DescribeVTLDevices
-describeVTLDevices pGatewayARN =
+describeVTLDevices pGatewayARN_ =
     DescribeVTLDevices'
     { _dvtldrqMarker = Nothing
     , _dvtldrqLimit = Nothing
     , _dvtldrqVTLDeviceARNs = Nothing
-    , _dvtldrqGatewayARN = pGatewayARN
+    , _dvtldrqGatewayARN = pGatewayARN_
     }
 
 -- | An opaque string that indicates the position at which to begin
@@ -173,12 +173,12 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
 
 -- | 'DescribeVTLDevicesResponse' smart constructor.
 describeVTLDevicesResponse :: Int -> DescribeVTLDevicesResponse
-describeVTLDevicesResponse pStatus =
+describeVTLDevicesResponse pStatus_ =
     DescribeVTLDevicesResponse'
     { _dvtldrsGatewayARN = Nothing
     , _dvtldrsVTLDevices = Nothing
     , _dvtldrsMarker = Nothing
-    , _dvtldrsStatus = pStatus
+    , _dvtldrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

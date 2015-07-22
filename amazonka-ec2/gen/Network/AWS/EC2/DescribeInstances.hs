@@ -420,11 +420,11 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse
-describeInstancesResponse pStatus =
+describeInstancesResponse pStatus_ =
     DescribeInstancesResponse'
     { _dirsNextToken = Nothing
     , _dirsReservations = Nothing
-    , _dirsStatus = pStatus
+    , _dirsStatus = pStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is

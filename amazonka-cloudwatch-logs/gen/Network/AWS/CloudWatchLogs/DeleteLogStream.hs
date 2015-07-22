@@ -56,10 +56,10 @@ data DeleteLogStream = DeleteLogStream'
 
 -- | 'DeleteLogStream' smart constructor.
 deleteLogStream :: Text -> Text -> DeleteLogStream
-deleteLogStream pLogGroupName pLogStreamName =
+deleteLogStream pLogGroupName_ pLogStreamName_ =
     DeleteLogStream'
-    { _dlsrqLogGroupName = pLogGroupName
-    , _dlsrqLogStreamName = pLogStreamName
+    { _dlsrqLogGroupName = pLogGroupName_
+    , _dlsrqLogStreamName = pLogStreamName_
     }
 
 -- | The name of the log group under which the log stream to delete belongs.

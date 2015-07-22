@@ -65,11 +65,11 @@ data DetachClassicLinkVPC = DetachClassicLinkVPC'
 
 -- | 'DetachClassicLinkVPC' smart constructor.
 detachClassicLinkVPC :: Text -> Text -> DetachClassicLinkVPC
-detachClassicLinkVPC pInstanceId pVPCId =
+detachClassicLinkVPC pInstanceId_ pVPCId_ =
     DetachClassicLinkVPC'
     { _dclvrqDryRun = Nothing
-    , _dclvrqInstanceId = pInstanceId
-    , _dclvrqVPCId = pVPCId
+    , _dclvrqInstanceId = pInstanceId_
+    , _dclvrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -127,10 +127,10 @@ data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
 
 -- | 'DetachClassicLinkVPCResponse' smart constructor.
 detachClassicLinkVPCResponse :: Int -> DetachClassicLinkVPCResponse
-detachClassicLinkVPCResponse pStatus =
+detachClassicLinkVPCResponse pStatus_ =
     DetachClassicLinkVPCResponse'
     { _dclvrsReturn = Nothing
-    , _dclvrsStatus = pStatus
+    , _dclvrsStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.

@@ -70,11 +70,11 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
 
 -- | 'DescribeDefaultClusterParameters' smart constructor.
 describeDefaultClusterParameters :: Text -> DescribeDefaultClusterParameters
-describeDefaultClusterParameters pParameterGroupFamily =
+describeDefaultClusterParameters pParameterGroupFamily_ =
     DescribeDefaultClusterParameters'
     { _ddcprqMaxRecords = Nothing
     , _ddcprqMarker = Nothing
-    , _ddcprqParameterGroupFamily = pParameterGroupFamily
+    , _ddcprqParameterGroupFamily = pParameterGroupFamily_
     }
 
 -- | The maximum number of response records to return in each call. If the
@@ -168,10 +168,10 @@ data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParameters
 
 -- | 'DescribeDefaultClusterParametersResponse' smart constructor.
 describeDefaultClusterParametersResponse :: Int -> DefaultClusterParameters -> DescribeDefaultClusterParametersResponse
-describeDefaultClusterParametersResponse pStatus pDefaultClusterParameters =
+describeDefaultClusterParametersResponse pStatus_ pDefaultClusterParameters_ =
     DescribeDefaultClusterParametersResponse'
-    { _ddcprsStatus = pStatus
-    , _ddcprsDefaultClusterParameters = pDefaultClusterParameters
+    { _ddcprsStatus = pStatus_
+    , _ddcprsDefaultClusterParameters = pDefaultClusterParameters_
     }
 
 -- | FIXME: Undocumented member.

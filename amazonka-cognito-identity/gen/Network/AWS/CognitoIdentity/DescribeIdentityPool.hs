@@ -63,9 +63,9 @@ newtype DescribeIdentityPool = DescribeIdentityPool'
 
 -- | 'DescribeIdentityPool' smart constructor.
 describeIdentityPool :: Text -> DescribeIdentityPool
-describeIdentityPool pIdentityPoolId =
+describeIdentityPool pIdentityPoolId_ =
     DescribeIdentityPool'
-    { _diprqIdentityPoolId = pIdentityPoolId
+    { _diprqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | An identity pool ID in the format REGION:GUID.

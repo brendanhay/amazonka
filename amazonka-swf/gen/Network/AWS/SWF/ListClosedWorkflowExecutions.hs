@@ -122,7 +122,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
 
 -- | 'ListClosedWorkflowExecutions' smart constructor.
 listClosedWorkflowExecutions :: Text -> ListClosedWorkflowExecutions
-listClosedWorkflowExecutions pDomain =
+listClosedWorkflowExecutions pDomain_ =
     ListClosedWorkflowExecutions'
     { _lcwerqNextPageToken = Nothing
     , _lcwerqCloseStatusFilter = Nothing
@@ -133,7 +133,7 @@ listClosedWorkflowExecutions pDomain =
     , _lcwerqTagFilter = Nothing
     , _lcwerqStartTimeFilter = Nothing
     , _lcwerqMaximumPageSize = Nothing
-    , _lcwerqDomain = pDomain
+    , _lcwerqDomain = pDomain_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more

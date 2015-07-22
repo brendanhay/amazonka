@@ -96,14 +96,14 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
 
 -- | 'CreateStorediSCSIVolume' smart constructor.
 createStorediSCSIVolume :: Text -> Text -> Bool -> Text -> Text -> CreateStorediSCSIVolume
-createStorediSCSIVolume pGatewayARN pDiskId pPreserveExistingData pTargetName pNetworkInterfaceId =
+createStorediSCSIVolume pGatewayARN_ pDiskId_ pPreserveExistingData_ pTargetName_ pNetworkInterfaceId_ =
     CreateStorediSCSIVolume'
     { _csscsivrqSnapshotId = Nothing
-    , _csscsivrqGatewayARN = pGatewayARN
-    , _csscsivrqDiskId = pDiskId
-    , _csscsivrqPreserveExistingData = pPreserveExistingData
-    , _csscsivrqTargetName = pTargetName
-    , _csscsivrqNetworkInterfaceId = pNetworkInterfaceId
+    , _csscsivrqGatewayARN = pGatewayARN_
+    , _csscsivrqDiskId = pDiskId_
+    , _csscsivrqPreserveExistingData = pPreserveExistingData_
+    , _csscsivrqTargetName = pTargetName_
+    , _csscsivrqNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
@@ -211,12 +211,12 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
 
 -- | 'CreateStorediSCSIVolumeResponse' smart constructor.
 createStorediSCSIVolumeResponse :: Int -> CreateStorediSCSIVolumeResponse
-createStorediSCSIVolumeResponse pStatus =
+createStorediSCSIVolumeResponse pStatus_ =
     CreateStorediSCSIVolumeResponse'
     { _csscsivrsTargetARN = Nothing
     , _csscsivrsVolumeARN = Nothing
     , _csscsivrsVolumeSizeInBytes = Nothing
-    , _csscsivrsStatus = pStatus
+    , _csscsivrsStatus = pStatus_
     }
 
 -- | he Amazon Resource Name (ARN) of the volume target that includes the

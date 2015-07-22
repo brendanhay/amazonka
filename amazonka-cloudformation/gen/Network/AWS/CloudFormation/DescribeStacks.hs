@@ -138,11 +138,11 @@ data DescribeStacksResponse = DescribeStacksResponse'
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse
-describeStacksResponse pStatus =
+describeStacksResponse pStatus_ =
     DescribeStacksResponse'
     { _dsrsNextToken = Nothing
     , _dsrsStacks = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | String that identifies the start of the next list of stacks, if there is

@@ -89,9 +89,9 @@ data SendMessageBatch = SendMessageBatch'
 
 -- | 'SendMessageBatch' smart constructor.
 sendMessageBatch :: Text -> SendMessageBatch
-sendMessageBatch pQueueURL =
+sendMessageBatch pQueueURL_ =
     SendMessageBatch'
-    { _smbrqQueueURL = pQueueURL
+    { _smbrqQueueURL = pQueueURL_
     , _smbrqEntries = mempty
     }
 
@@ -151,9 +151,9 @@ data SendMessageBatchResponse = SendMessageBatchResponse'
 
 -- | 'SendMessageBatchResponse' smart constructor.
 sendMessageBatchResponse :: Int -> SendMessageBatchResponse
-sendMessageBatchResponse pStatus =
+sendMessageBatchResponse pStatus_ =
     SendMessageBatchResponse'
-    { _smbrsStatus = pStatus
+    { _smbrsStatus = pStatus_
     , _smbrsSuccessful = mempty
     , _smbrsFailed = mempty
     }

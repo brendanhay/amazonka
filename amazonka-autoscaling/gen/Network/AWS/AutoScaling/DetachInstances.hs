@@ -68,11 +68,11 @@ data DetachInstances = DetachInstances'
 
 -- | 'DetachInstances' smart constructor.
 detachInstances :: Text -> Bool -> DetachInstances
-detachInstances pAutoScalingGroupName pShouldDecrementDesiredCapacity =
+detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
     DetachInstances'
     { _dirqInstanceIds = Nothing
-    , _dirqAutoScalingGroupName = pAutoScalingGroupName
-    , _dirqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
+    , _dirqAutoScalingGroupName = pAutoScalingGroupName_
+    , _dirqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
 -- | One or more instance IDs.
@@ -131,10 +131,10 @@ data DetachInstancesResponse = DetachInstancesResponse'
 
 -- | 'DetachInstancesResponse' smart constructor.
 detachInstancesResponse :: Int -> DetachInstancesResponse
-detachInstancesResponse pStatus =
+detachInstancesResponse pStatus_ =
     DetachInstancesResponse'
     { _dirsActivities = Nothing
-    , _dirsStatus = pStatus
+    , _dirsStatus = pStatus_
     }
 
 -- | The activities related to detaching the instances from the Auto Scaling

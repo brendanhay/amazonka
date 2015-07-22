@@ -101,7 +101,7 @@ data UpdateInstance = UpdateInstance'
 
 -- | 'UpdateInstance' smart constructor.
 updateInstance :: Text -> UpdateInstance
-updateInstance pInstanceId =
+updateInstance pInstanceId_ =
     UpdateInstance'
     { _uirqInstallUpdatesOnBoot = Nothing
     , _uirqHostname = Nothing
@@ -114,7 +114,7 @@ updateInstance pInstanceId =
     , _uirqLayerIds = Nothing
     , _uirqArchitecture = Nothing
     , _uirqAMIId = Nothing
-    , _uirqInstanceId = pInstanceId
+    , _uirqInstanceId = pInstanceId_
     }
 
 -- | Whether to install operating system and package updates when the

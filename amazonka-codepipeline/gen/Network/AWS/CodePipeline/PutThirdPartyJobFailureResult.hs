@@ -62,11 +62,11 @@ data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
 
 -- | 'PutThirdPartyJobFailureResult' smart constructor.
 putThirdPartyJobFailureResult :: Text -> Text -> FailureDetails -> PutThirdPartyJobFailureResult
-putThirdPartyJobFailureResult pJobId pClientToken pFailureDetails =
+putThirdPartyJobFailureResult pJobId_ pClientToken_ pFailureDetails_ =
     PutThirdPartyJobFailureResult'
-    { _ptpjfrrqJobId = pJobId
-    , _ptpjfrrqClientToken = pClientToken
-    , _ptpjfrrqFailureDetails = pFailureDetails
+    { _ptpjfrrqJobId = pJobId_
+    , _ptpjfrrqClientToken = pClientToken_
+    , _ptpjfrrqFailureDetails = pFailureDetails_
     }
 
 -- | The ID of the job that failed. This is the same ID returned from

@@ -61,10 +61,10 @@ data DeleteApplication = DeleteApplication'
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
-deleteApplication pApplicationName =
+deleteApplication pApplicationName_ =
     DeleteApplication'
     { _darqTerminateEnvByForce = Nothing
-    , _darqApplicationName = pApplicationName
+    , _darqApplicationName = pApplicationName_
     }
 
 -- | When set to true, running environments will be terminated before

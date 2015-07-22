@@ -117,10 +117,10 @@ data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
 
 -- | 'DescribeSeverityLevelsResponse' smart constructor.
 describeSeverityLevelsResponse :: Int -> DescribeSeverityLevelsResponse
-describeSeverityLevelsResponse pStatus =
+describeSeverityLevelsResponse pStatus_ =
     DescribeSeverityLevelsResponse'
     { _dslrsSeverityLevels = Nothing
-    , _dslrsStatus = pStatus
+    , _dslrsStatus = pStatus_
     }
 
 -- | The available severity levels for the support case. Available severity

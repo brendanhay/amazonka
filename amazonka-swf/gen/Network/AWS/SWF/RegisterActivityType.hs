@@ -115,7 +115,7 @@ data RegisterActivityType = RegisterActivityType'
 
 -- | 'RegisterActivityType' smart constructor.
 registerActivityType :: Text -> Text -> Text -> RegisterActivityType
-registerActivityType pDomain pName pVersion =
+registerActivityType pDomain_ pName_ pVersion_ =
     RegisterActivityType'
     { _ratrqDefaultTaskScheduleToStartTimeout = Nothing
     , _ratrqDefaultTaskList = Nothing
@@ -124,9 +124,9 @@ registerActivityType pDomain pName pVersion =
     , _ratrqDefaultTaskScheduleToCloseTimeout = Nothing
     , _ratrqDefaultTaskStartToCloseTimeout = Nothing
     , _ratrqDescription = Nothing
-    , _ratrqDomain = pDomain
-    , _ratrqName = pName
-    , _ratrqVersion = pVersion
+    , _ratrqDomain = pDomain_
+    , _ratrqName = pName_
+    , _ratrqVersion = pVersion_
     }
 
 -- | If set, specifies the default maximum duration that a task of this

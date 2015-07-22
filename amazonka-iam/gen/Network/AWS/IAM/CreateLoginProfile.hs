@@ -66,11 +66,11 @@ data CreateLoginProfile = CreateLoginProfile'
 
 -- | 'CreateLoginProfile' smart constructor.
 createLoginProfile :: Text -> Text -> CreateLoginProfile
-createLoginProfile pUserName pPassword =
+createLoginProfile pUserName_ pPassword_ =
     CreateLoginProfile'
     { _clprqPasswordResetRequired = Nothing
-    , _clprqUserName = pUserName
-    , _clprqPassword = _Sensitive # pPassword
+    , _clprqUserName = pUserName_
+    , _clprqPassword = _Sensitive # pPassword_
     }
 
 -- | Specifies whether the user is required to set a new password on next
@@ -129,10 +129,10 @@ data CreateLoginProfileResponse = CreateLoginProfileResponse'
 
 -- | 'CreateLoginProfileResponse' smart constructor.
 createLoginProfileResponse :: Int -> LoginProfile -> CreateLoginProfileResponse
-createLoginProfileResponse pStatus pLoginProfile =
+createLoginProfileResponse pStatus_ pLoginProfile_ =
     CreateLoginProfileResponse'
-    { _clprsStatus = pStatus
-    , _clprsLoginProfile = pLoginProfile
+    { _clprsStatus = pStatus_
+    , _clprsLoginProfile = pLoginProfile_
     }
 
 -- | FIXME: Undocumented member.

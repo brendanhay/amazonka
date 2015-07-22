@@ -67,11 +67,11 @@ data UpdateSigningCertificate = UpdateSigningCertificate'
 
 -- | 'UpdateSigningCertificate' smart constructor.
 updateSigningCertificate :: Text -> StatusType -> UpdateSigningCertificate
-updateSigningCertificate pCertificateId pStatus =
+updateSigningCertificate pCertificateId_ pStatus_ =
     UpdateSigningCertificate'
     { _uscrqUserName = Nothing
-    , _uscrqCertificateId = pCertificateId
-    , _uscrqStatus = pStatus
+    , _uscrqCertificateId = pCertificateId_
+    , _uscrqStatus = pStatus_
     }
 
 -- | The name of the user the signing certificate belongs to.

@@ -70,10 +70,10 @@ data GetGroupPolicy = GetGroupPolicy'
 
 -- | 'GetGroupPolicy' smart constructor.
 getGroupPolicy :: Text -> Text -> GetGroupPolicy
-getGroupPolicy pGroupName pPolicyName =
+getGroupPolicy pGroupName_ pPolicyName_ =
     GetGroupPolicy'
-    { _ggprqGroupName = pGroupName
-    , _ggprqPolicyName = pPolicyName
+    { _ggprqGroupName = pGroupName_
+    , _ggprqPolicyName = pPolicyName_
     }
 
 -- | The name of the group the policy is associated with.
@@ -132,12 +132,12 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse'
 
 -- | 'GetGroupPolicyResponse' smart constructor.
 getGroupPolicyResponse :: Int -> Text -> Text -> Text -> GetGroupPolicyResponse
-getGroupPolicyResponse pStatus pGroupName pPolicyName pPolicyDocument =
+getGroupPolicyResponse pStatus_ pGroupName_ pPolicyName_ pPolicyDocument_ =
     GetGroupPolicyResponse'
-    { _ggprsStatus = pStatus
-    , _ggprsGroupName = pGroupName
-    , _ggprsPolicyName = pPolicyName
-    , _ggprsPolicyDocument = pPolicyDocument
+    { _ggprsStatus = pStatus_
+    , _ggprsGroupName = pGroupName_
+    , _ggprsPolicyName = pPolicyName_
+    , _ggprsPolicyDocument = pPolicyDocument_
     }
 
 -- | FIXME: Undocumented member.

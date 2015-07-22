@@ -181,7 +181,7 @@ data CopyObject = CopyObject'
 
 -- | 'CopyObject' smart constructor.
 copyObject :: BucketName -> Text -> ObjectKey -> CopyObject
-copyObject pBucket pCopySource pKey =
+copyObject pBucket_ pCopySource_ pKey_ =
     CopyObject'
     { _corqCopySourceIfModifiedSince = Nothing
     , _corqCopySourceIfUnmodifiedSince = Nothing
@@ -211,9 +211,9 @@ copyObject pBucket pCopySource pKey =
     , _corqCopySourceSSECustomerAlgorithm = Nothing
     , _corqServerSideEncryption = Nothing
     , _corqContentType = Nothing
-    , _corqBucket = pBucket
-    , _corqCopySource = pCopySource
-    , _corqKey = pKey
+    , _corqBucket = pBucket_
+    , _corqCopySource = pCopySource_
+    , _corqKey = pKey_
     }
 
 -- | Copies the object if it has been modified since the specified time.
@@ -477,7 +477,7 @@ data CopyObjectResponse = CopyObjectResponse'
 
 -- | 'CopyObjectResponse' smart constructor.
 copyObjectResponse :: Int -> CopyObjectResponse
-copyObjectResponse pStatus =
+copyObjectResponse pStatus_ =
     CopyObjectResponse'
     { _corsRequestCharged = Nothing
     , _corsExpiration = Nothing
@@ -487,7 +487,7 @@ copyObjectResponse pStatus =
     , _corsSSECustomerKeyMD5 = Nothing
     , _corsServerSideEncryption = Nothing
     , _corsCopyObjectResult = Nothing
-    , _corsStatus = pStatus
+    , _corsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -80,11 +80,11 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute'
 
 -- | 'DescribeInstanceAttribute' smart constructor.
 describeInstanceAttribute :: Text -> InstanceAttributeName -> DescribeInstanceAttribute
-describeInstanceAttribute pInstanceId pAttribute =
+describeInstanceAttribute pInstanceId_ pAttribute_ =
     DescribeInstanceAttribute'
     { _diarqDryRun = Nothing
-    , _diarqInstanceId = pInstanceId
-    , _diarqAttribute = pAttribute
+    , _diarqInstanceId = pInstanceId_
+    , _diarqAttribute = pAttribute_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -203,7 +203,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
 
 -- | 'DescribeInstanceAttributeResponse' smart constructor.
 describeInstanceAttributeResponse :: Int -> DescribeInstanceAttributeResponse
-describeInstanceAttributeResponse pStatus =
+describeInstanceAttributeResponse pStatus_ =
     DescribeInstanceAttributeResponse'
     { _drsInstanceId = Nothing
     , _drsGroups = Nothing
@@ -219,7 +219,7 @@ describeInstanceAttributeResponse pStatus =
     , _drsInstanceInitiatedShutdownBehavior = Nothing
     , _drsProductCodes = Nothing
     , _drsBlockDeviceMappings = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | The ID of the instance.

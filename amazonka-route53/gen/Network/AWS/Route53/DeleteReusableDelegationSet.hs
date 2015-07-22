@@ -64,9 +64,9 @@ newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
 
 -- | 'DeleteReusableDelegationSet' smart constructor.
 deleteReusableDelegationSet :: Text -> DeleteReusableDelegationSet
-deleteReusableDelegationSet pId =
+deleteReusableDelegationSet pId_ =
     DeleteReusableDelegationSet'
-    { _drdsrqId = pId
+    { _drdsrqId = pId_
     }
 
 -- | The ID of the reusable delegation set you want to delete.
@@ -108,9 +108,9 @@ newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetRespons
 
 -- | 'DeleteReusableDelegationSetResponse' smart constructor.
 deleteReusableDelegationSetResponse :: Int -> DeleteReusableDelegationSetResponse
-deleteReusableDelegationSetResponse pStatus =
+deleteReusableDelegationSetResponse pStatus_ =
     DeleteReusableDelegationSetResponse'
-    { _drdsrsStatus = pStatus
+    { _drdsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

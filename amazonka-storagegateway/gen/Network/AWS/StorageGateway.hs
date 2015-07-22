@@ -85,8 +85,6 @@ import           Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint           
 import           Network.AWS.StorageGateway.ShutdownGateway                       as Export
 import           Network.AWS.StorageGateway.StartGateway                          as Export
 import           Network.AWS.StorageGateway.Types                                 as Export
-import           Network.AWS.StorageGateway.Types.Product                         as Export
-import           Network.AWS.StorageGateway.Types.Sum                             as Export
 import           Network.AWS.StorageGateway.UpdateBandwidthRateLimit              as Export
 import           Network.AWS.StorageGateway.UpdateChapCredentials                 as Export
 import           Network.AWS.StorageGateway.UpdateGatewayInformation              as Export

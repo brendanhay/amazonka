@@ -208,11 +208,11 @@ data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesRespon
 
 -- | 'DescribeHSMClientCertificatesResponse' smart constructor.
 describeHSMClientCertificatesResponse :: Int -> DescribeHSMClientCertificatesResponse
-describeHSMClientCertificatesResponse pStatus =
+describeHSMClientCertificatesResponse pStatus_ =
     DescribeHSMClientCertificatesResponse'
     { _dhccrsMarker = Nothing
     , _dhccrsHSMClientCertificates = Nothing
-    , _dhccrsStatus = pStatus
+    , _dhccrsStatus = pStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response

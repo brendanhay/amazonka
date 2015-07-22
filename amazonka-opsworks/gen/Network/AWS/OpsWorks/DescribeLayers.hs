@@ -129,10 +129,10 @@ data DescribeLayersResponse = DescribeLayersResponse'
 
 -- | 'DescribeLayersResponse' smart constructor.
 describeLayersResponse :: Int -> DescribeLayersResponse
-describeLayersResponse pStatus =
+describeLayersResponse pStatus_ =
     DescribeLayersResponse'
     { _dlrsLayers = Nothing
-    , _dlrsStatus = pStatus
+    , _dlrsStatus = pStatus_
     }
 
 -- | An array of @Layer@ objects that describe the layers.

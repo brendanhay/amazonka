@@ -170,11 +170,11 @@ data DescribeTagsResponse = DescribeTagsResponse'
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatus =
+describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsNextToken = Nothing
     , _dtrsTags = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is

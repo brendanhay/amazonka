@@ -99,12 +99,12 @@ data CreateDataSourceFromS = CreateDataSourceFromS'
 
 -- | 'CreateDataSourceFromS' smart constructor.
 createDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
-createDataSourceFromS pDataSourceId pDataSpec =
+createDataSourceFromS pDataSourceId_ pDataSpec_ =
     CreateDataSourceFromS'
     { _cdsfsrqDataSourceName = Nothing
     , _cdsfsrqComputeStatistics = Nothing
-    , _cdsfsrqDataSourceId = pDataSourceId
-    , _cdsfsrqDataSpec = pDataSpec
+    , _cdsfsrqDataSourceId = pDataSourceId_
+    , _cdsfsrqDataSpec = pDataSpec_
     }
 
 -- | A user-supplied name or description of the @DataSource@.
@@ -198,10 +198,10 @@ data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
 
 -- | 'CreateDataSourceFromSResponse' smart constructor.
 createDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse
-createDataSourceFromSResponse pStatus =
+createDataSourceFromSResponse pStatus_ =
     CreateDataSourceFromSResponse'
     { _cdsfsrsDataSourceId = Nothing
-    , _cdsfsrsStatus = pStatus
+    , _cdsfsrsStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value

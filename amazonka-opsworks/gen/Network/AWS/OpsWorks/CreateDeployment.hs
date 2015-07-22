@@ -83,14 +83,14 @@ data CreateDeployment = CreateDeployment'
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> DeploymentCommand -> CreateDeployment
-createDeployment pStackId pCommand =
+createDeployment pStackId_ pCommand_ =
     CreateDeployment'
     { _cdrqCustomJSON = Nothing
     , _cdrqAppId = Nothing
     , _cdrqInstanceIds = Nothing
     , _cdrqComment = Nothing
-    , _cdrqStackId = pStackId
-    , _cdrqCommand = pCommand
+    , _cdrqStackId = pStackId_
+    , _cdrqCommand = pCommand_
     }
 
 -- | A string that contains user-defined, custom JSON. It is used to override
@@ -177,10 +177,10 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 
 -- | 'CreateDeploymentResponse' smart constructor.
 createDeploymentResponse :: Int -> CreateDeploymentResponse
-createDeploymentResponse pStatus =
+createDeploymentResponse pStatus_ =
     CreateDeploymentResponse'
     { _cdrsDeploymentId = Nothing
-    , _cdrsStatus = pStatus
+    , _cdrsStatus = pStatus_
     }
 
 -- | The deployment ID, which can be used with other requests to identify the

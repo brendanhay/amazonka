@@ -560,12 +560,12 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
 
 -- | 'TrustedAdvisorCheckDescription' smart constructor.
 trustedAdvisorCheckDescription :: Text -> Text -> Text -> Text -> TrustedAdvisorCheckDescription
-trustedAdvisorCheckDescription pId pName pDescription pCategory =
+trustedAdvisorCheckDescription pId_ pName_ pDescription_ pCategory_ =
     TrustedAdvisorCheckDescription'
-    { _tacdId = pId
-    , _tacdName = pName
-    , _tacdDescription = pDescription
-    , _tacdCategory = pCategory
+    { _tacdId = pId_
+    , _tacdName = pName_
+    , _tacdDescription = pDescription_
+    , _tacdCategory = pCategory_
     , _tacdMetadata = mempty
     }
 
@@ -624,11 +624,11 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
 
 -- | 'TrustedAdvisorCheckRefreshStatus' smart constructor.
 trustedAdvisorCheckRefreshStatus :: Text -> Text -> Integer -> TrustedAdvisorCheckRefreshStatus
-trustedAdvisorCheckRefreshStatus pCheckId pStatus pMillisUntilNextRefreshable =
+trustedAdvisorCheckRefreshStatus pCheckId_ pStatus_ pMillisUntilNextRefreshable_ =
     TrustedAdvisorCheckRefreshStatus'
-    { _tacrsCheckId = pCheckId
-    , _tacrsStatus = pStatus
-    , _tacrsMillisUntilNextRefreshable = pMillisUntilNextRefreshable
+    { _tacrsCheckId = pCheckId_
+    , _tacrsStatus = pStatus_
+    , _tacrsMillisUntilNextRefreshable = pMillisUntilNextRefreshable_
     }
 
 -- | The unique identifier for the Trusted Advisor check.
@@ -684,13 +684,13 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
 
 -- | 'TrustedAdvisorCheckResult' smart constructor.
 trustedAdvisorCheckResult :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckResult
-trustedAdvisorCheckResult pCheckId pTimestamp pStatus pResourcesSummary pCategorySpecificSummary =
+trustedAdvisorCheckResult pCheckId_ pTimestamp_ pStatus_ pResourcesSummary_ pCategorySpecificSummary_ =
     TrustedAdvisorCheckResult'
-    { _tacrCheckId = pCheckId
-    , _tacrTimestamp = pTimestamp
-    , _tacrStatus = pStatus
-    , _tacrResourcesSummary = pResourcesSummary
-    , _tacrCategorySpecificSummary = pCategorySpecificSummary
+    { _tacrCheckId = pCheckId_
+    , _tacrTimestamp = pTimestamp_
+    , _tacrStatus = pStatus_
+    , _tacrResourcesSummary = pResourcesSummary_
+    , _tacrCategorySpecificSummary = pCategorySpecificSummary_
     , _tacrFlaggedResources = mempty
     }
 
@@ -760,14 +760,14 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
 
 -- | 'TrustedAdvisorCheckSummary' smart constructor.
 trustedAdvisorCheckSummary :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckSummary
-trustedAdvisorCheckSummary pCheckId pTimestamp pStatus pResourcesSummary pCategorySpecificSummary =
+trustedAdvisorCheckSummary pCheckId_ pTimestamp_ pStatus_ pResourcesSummary_ pCategorySpecificSummary_ =
     TrustedAdvisorCheckSummary'
     { _tacsHasFlaggedResources = Nothing
-    , _tacsCheckId = pCheckId
-    , _tacsTimestamp = pTimestamp
-    , _tacsStatus = pStatus
-    , _tacsResourcesSummary = pResourcesSummary
-    , _tacsCategorySpecificSummary = pCategorySpecificSummary
+    , _tacsCheckId = pCheckId_
+    , _tacsTimestamp = pTimestamp_
+    , _tacsStatus = pStatus_
+    , _tacsResourcesSummary = pResourcesSummary_
+    , _tacsCategorySpecificSummary = pCategorySpecificSummary_
     }
 
 -- | Specifies whether the Trusted Advisor check has flagged resources.
@@ -824,10 +824,10 @@ data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
 
 -- | 'TrustedAdvisorCostOptimizingSummary' smart constructor.
 trustedAdvisorCostOptimizingSummary :: Double -> Double -> TrustedAdvisorCostOptimizingSummary
-trustedAdvisorCostOptimizingSummary pEstimatedMonthlySavings pEstimatedPercentMonthlySavings =
+trustedAdvisorCostOptimizingSummary pEstimatedMonthlySavings_ pEstimatedPercentMonthlySavings_ =
     TrustedAdvisorCostOptimizingSummary'
-    { _tacosEstimatedMonthlySavings = pEstimatedMonthlySavings
-    , _tacosEstimatedPercentMonthlySavings = pEstimatedPercentMonthlySavings
+    { _tacosEstimatedMonthlySavings = pEstimatedMonthlySavings_
+    , _tacosEstimatedPercentMonthlySavings = pEstimatedPercentMonthlySavings_
     }
 
 -- | The estimated monthly savings that might be realized if the recommended
@@ -875,12 +875,12 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
 
 -- | 'TrustedAdvisorResourceDetail' smart constructor.
 trustedAdvisorResourceDetail :: Text -> Text -> Text -> TrustedAdvisorResourceDetail
-trustedAdvisorResourceDetail pStatus pRegion pResourceId =
+trustedAdvisorResourceDetail pStatus_ pRegion_ pResourceId_ =
     TrustedAdvisorResourceDetail'
     { _tardIsSuppressed = Nothing
-    , _tardStatus = pStatus
-    , _tardRegion = pRegion
-    , _tardResourceId = pResourceId
+    , _tardStatus = pStatus_
+    , _tardRegion = pRegion_
+    , _tardResourceId = pResourceId_
     , _tardMetadata = mempty
     }
 
@@ -944,12 +944,12 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
 
 -- | 'TrustedAdvisorResourcesSummary' smart constructor.
 trustedAdvisorResourcesSummary :: Integer -> Integer -> Integer -> Integer -> TrustedAdvisorResourcesSummary
-trustedAdvisorResourcesSummary pResourcesProcessed pResourcesFlagged pResourcesIgnored pResourcesSuppressed =
+trustedAdvisorResourcesSummary pResourcesProcessed_ pResourcesFlagged_ pResourcesIgnored_ pResourcesSuppressed_ =
     TrustedAdvisorResourcesSummary'
-    { _tarsResourcesProcessed = pResourcesProcessed
-    , _tarsResourcesFlagged = pResourcesFlagged
-    , _tarsResourcesIgnored = pResourcesIgnored
-    , _tarsResourcesSuppressed = pResourcesSuppressed
+    { _tarsResourcesProcessed = pResourcesProcessed_
+    , _tarsResourcesFlagged = pResourcesFlagged_
+    , _tarsResourcesIgnored = pResourcesIgnored_
+    , _tarsResourcesSuppressed = pResourcesSuppressed_
     }
 
 -- | The number of AWS resources that were analyzed by the Trusted Advisor

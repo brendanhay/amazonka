@@ -75,11 +75,11 @@ data CreatePolicyVersion = CreatePolicyVersion'
 
 -- | 'CreatePolicyVersion' smart constructor.
 createPolicyVersion :: Text -> Text -> CreatePolicyVersion
-createPolicyVersion pPolicyARN pPolicyDocument =
+createPolicyVersion pPolicyARN_ pPolicyDocument_ =
     CreatePolicyVersion'
     { _cpvrqSetAsDefault = Nothing
-    , _cpvrqPolicyARN = pPolicyARN
-    , _cpvrqPolicyDocument = pPolicyDocument
+    , _cpvrqPolicyARN = pPolicyARN_
+    , _cpvrqPolicyDocument = pPolicyDocument_
     }
 
 -- | Specifies whether to set this version as the policy\'s default version.
@@ -144,10 +144,10 @@ data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
 
 -- | 'CreatePolicyVersionResponse' smart constructor.
 createPolicyVersionResponse :: Int -> CreatePolicyVersionResponse
-createPolicyVersionResponse pStatus =
+createPolicyVersionResponse pStatus_ =
     CreatePolicyVersionResponse'
     { _cpvrsPolicyVersion = Nothing
-    , _cpvrsStatus = pStatus
+    , _cpvrsStatus = pStatus_
     }
 
 -- | Information about the policy version.

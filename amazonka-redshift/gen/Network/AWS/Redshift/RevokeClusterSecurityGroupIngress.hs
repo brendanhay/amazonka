@@ -73,12 +73,12 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
 
 -- | 'RevokeClusterSecurityGroupIngress' smart constructor.
 revokeClusterSecurityGroupIngress :: Text -> RevokeClusterSecurityGroupIngress
-revokeClusterSecurityGroupIngress pClusterSecurityGroupName =
+revokeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
     RevokeClusterSecurityGroupIngress'
     { _rcsgirqEC2SecurityGroupOwnerId = Nothing
     , _rcsgirqEC2SecurityGroupName = Nothing
     , _rcsgirqCIdRIP = Nothing
-    , _rcsgirqClusterSecurityGroupName = pClusterSecurityGroupName
+    , _rcsgirqClusterSecurityGroupName = pClusterSecurityGroupName_
     }
 
 -- | The AWS account number of the owner of the security group specified in
@@ -159,10 +159,10 @@ data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngre
 
 -- | 'RevokeClusterSecurityGroupIngressResponse' smart constructor.
 revokeClusterSecurityGroupIngressResponse :: Int -> RevokeClusterSecurityGroupIngressResponse
-revokeClusterSecurityGroupIngressResponse pStatus =
+revokeClusterSecurityGroupIngressResponse pStatus_ =
     RevokeClusterSecurityGroupIngressResponse'
     { _rcsgirsClusterSecurityGroup = Nothing
-    , _rcsgirsStatus = pStatus
+    , _rcsgirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

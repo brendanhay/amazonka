@@ -78,11 +78,11 @@ data PollForTask = PollForTask'
 
 -- | 'PollForTask' smart constructor.
 pollForTask :: Text -> PollForTask
-pollForTask pWorkerGroup =
+pollForTask pWorkerGroup_ =
     PollForTask'
     { _pftrqHostname = Nothing
     , _pftrqInstanceIdentity = Nothing
-    , _pftrqWorkerGroup = pWorkerGroup
+    , _pftrqWorkerGroup = pWorkerGroup_
     }
 
 -- | The public DNS name of the calling task runner.
@@ -157,10 +157,10 @@ data PollForTaskResponse = PollForTaskResponse'
 
 -- | 'PollForTaskResponse' smart constructor.
 pollForTaskResponse :: Int -> PollForTaskResponse
-pollForTaskResponse pStatus =
+pollForTaskResponse pStatus_ =
     PollForTaskResponse'
     { _pftrsTaskObject = Nothing
-    , _pftrsStatus = pStatus
+    , _pftrsStatus = pStatus_
     }
 
 -- | The information needed to complete the task that is being assigned to

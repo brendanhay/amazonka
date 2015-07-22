@@ -60,10 +60,10 @@ data DeleteVPC = DeleteVPC'
 
 -- | 'DeleteVPC' smart constructor.
 deleteVPC :: Text -> DeleteVPC
-deleteVPC pVPCId =
+deleteVPC pVPCId_ =
     DeleteVPC'
     { _delrqDryRun = Nothing
-    , _delrqVPCId = pVPCId
+    , _delrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

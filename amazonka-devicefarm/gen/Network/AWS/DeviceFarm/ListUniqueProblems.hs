@@ -61,10 +61,10 @@ data ListUniqueProblems = ListUniqueProblems'
 
 -- | 'ListUniqueProblems' smart constructor.
 listUniqueProblems :: Text -> ListUniqueProblems
-listUniqueProblems pArn =
+listUniqueProblems pArn_ =
     ListUniqueProblems'
     { _luprqNextToken = Nothing
-    , _luprqArn = pArn
+    , _luprqArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -130,11 +130,11 @@ data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
 
 -- | 'ListUniqueProblemsResponse' smart constructor.
 listUniqueProblemsResponse :: Int -> ListUniqueProblemsResponse
-listUniqueProblemsResponse pStatus =
+listUniqueProblemsResponse pStatus_ =
     ListUniqueProblemsResponse'
     { _luprsNextToken = Nothing
     , _luprsUniqueProblems = Nothing
-    , _luprsStatus = pStatus
+    , _luprsStatus = pStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is

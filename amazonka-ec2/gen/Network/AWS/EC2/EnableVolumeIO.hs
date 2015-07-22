@@ -56,10 +56,10 @@ data EnableVolumeIO = EnableVolumeIO'
 
 -- | 'EnableVolumeIO' smart constructor.
 enableVolumeIO :: Text -> EnableVolumeIO
-enableVolumeIO pVolumeId =
+enableVolumeIO pVolumeId_ =
     EnableVolumeIO'
     { _eviorqDryRun = Nothing
-    , _eviorqVolumeId = pVolumeId
+    , _eviorqVolumeId = pVolumeId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

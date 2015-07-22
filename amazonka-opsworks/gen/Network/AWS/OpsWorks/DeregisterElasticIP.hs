@@ -59,9 +59,9 @@ newtype DeregisterElasticIP = DeregisterElasticIP'
 
 -- | 'DeregisterElasticIP' smart constructor.
 deregisterElasticIP :: Text -> DeregisterElasticIP
-deregisterElasticIP pElasticIP =
+deregisterElasticIP pElasticIP_ =
     DeregisterElasticIP'
-    { _deiprqElasticIP = pElasticIP
+    { _deiprqElasticIP = pElasticIP_
     }
 
 -- | The Elastic IP address.

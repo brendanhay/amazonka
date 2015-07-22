@@ -59,10 +59,10 @@ data CancelBundleTask = CancelBundleTask'
 
 -- | 'CancelBundleTask' smart constructor.
 cancelBundleTask :: Text -> CancelBundleTask
-cancelBundleTask pBundleId =
+cancelBundleTask pBundleId_ =
     CancelBundleTask'
     { _cbtrqDryRun = Nothing
-    , _cbtrqBundleId = pBundleId
+    , _cbtrqBundleId = pBundleId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -114,10 +114,10 @@ data CancelBundleTaskResponse = CancelBundleTaskResponse'
 
 -- | 'CancelBundleTaskResponse' smart constructor.
 cancelBundleTaskResponse :: Int -> CancelBundleTaskResponse
-cancelBundleTaskResponse pStatus =
+cancelBundleTaskResponse pStatus_ =
     CancelBundleTaskResponse'
     { _cbtrsBundleTask = Nothing
-    , _cbtrsStatus = pStatus
+    , _cbtrsStatus = pStatus_
     }
 
 -- | Information about the bundle task.

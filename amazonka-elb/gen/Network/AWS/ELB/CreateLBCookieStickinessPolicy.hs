@@ -80,11 +80,11 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
 
 -- | 'CreateLBCookieStickinessPolicy' smart constructor.
 createLBCookieStickinessPolicy :: Text -> Text -> CreateLBCookieStickinessPolicy
-createLBCookieStickinessPolicy pLoadBalancerName pPolicyName =
+createLBCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ =
     CreateLBCookieStickinessPolicy'
     { _clbcsprqCookieExpirationPeriod = Nothing
-    , _clbcsprqLoadBalancerName = pLoadBalancerName
-    , _clbcsprqPolicyName = pPolicyName
+    , _clbcsprqLoadBalancerName = pLoadBalancerName_
+    , _clbcsprqPolicyName = pPolicyName_
     }
 
 -- | The time period, in seconds, after which the cookie should be considered
@@ -144,9 +144,9 @@ newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyR
 
 -- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
 createLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPolicyResponse
-createLBCookieStickinessPolicyResponse pStatus =
+createLBCookieStickinessPolicyResponse pStatus_ =
     CreateLBCookieStickinessPolicyResponse'
-    { _clbcsprsStatus = pStatus
+    { _clbcsprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

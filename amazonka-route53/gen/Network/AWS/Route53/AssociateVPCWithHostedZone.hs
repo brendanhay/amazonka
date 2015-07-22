@@ -74,11 +74,11 @@ data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
 
 -- | 'AssociateVPCWithHostedZone' smart constructor.
 associateVPCWithHostedZone :: Text -> VPC -> AssociateVPCWithHostedZone
-associateVPCWithHostedZone pHostedZoneId pVPC =
+associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
     AssociateVPCWithHostedZone'
     { _avwhzrqComment = Nothing
-    , _avwhzrqHostedZoneId = pHostedZoneId
-    , _avwhzrqVPC = pVPC
+    , _avwhzrqHostedZoneId = pHostedZoneId_
+    , _avwhzrqVPC = pVPC_
     }
 
 -- | /Optional:/ Any comments you want to include about a
@@ -146,10 +146,10 @@ data AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse'
 
 -- | 'AssociateVPCWithHostedZoneResponse' smart constructor.
 associateVPCWithHostedZoneResponse :: Int -> ChangeInfo -> AssociateVPCWithHostedZoneResponse
-associateVPCWithHostedZoneResponse pStatus pChangeInfo =
+associateVPCWithHostedZoneResponse pStatus_ pChangeInfo_ =
     AssociateVPCWithHostedZoneResponse'
-    { _avwhzrsStatus = pStatus
-    , _avwhzrsChangeInfo = pChangeInfo
+    { _avwhzrsStatus = pStatus_
+    , _avwhzrsChangeInfo = pChangeInfo_
     }
 
 -- | FIXME: Undocumented member.

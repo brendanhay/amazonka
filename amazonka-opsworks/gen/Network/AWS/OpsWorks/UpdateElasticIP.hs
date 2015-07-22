@@ -63,10 +63,10 @@ data UpdateElasticIP = UpdateElasticIP'
 
 -- | 'UpdateElasticIP' smart constructor.
 updateElasticIP :: Text -> UpdateElasticIP
-updateElasticIP pElasticIP =
+updateElasticIP pElasticIP_ =
     UpdateElasticIP'
     { _ueirqName = Nothing
-    , _ueirqElasticIP = pElasticIP
+    , _ueirqElasticIP = pElasticIP_
     }
 
 -- | The new name.

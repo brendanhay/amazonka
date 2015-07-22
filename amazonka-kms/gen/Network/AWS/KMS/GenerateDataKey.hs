@@ -105,13 +105,13 @@ data GenerateDataKey = GenerateDataKey'
 
 -- | 'GenerateDataKey' smart constructor.
 generateDataKey :: Text -> GenerateDataKey
-generateDataKey pKeyId =
+generateDataKey pKeyId_ =
     GenerateDataKey'
     { _gdkrqKeySpec = Nothing
     , _gdkrqEncryptionContext = Nothing
     , _gdkrqNumberOfBytes = Nothing
     , _gdkrqGrantTokens = Nothing
-    , _gdkrqKeyId = pKeyId
+    , _gdkrqKeyId = pKeyId_
     }
 
 -- | Value that identifies the encryption algorithm and key size to generate
@@ -207,12 +207,12 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
 
 -- | 'GenerateDataKeyResponse' smart constructor.
 generateDataKeyResponse :: Int -> GenerateDataKeyResponse
-generateDataKeyResponse pStatus =
+generateDataKeyResponse pStatus_ =
     GenerateDataKeyResponse'
     { _gdkrsKeyId = Nothing
     , _gdkrsPlaintext = Nothing
     , _gdkrsCiphertextBlob = Nothing
-    , _gdkrsStatus = pStatus
+    , _gdkrsStatus = pStatus_
     }
 
 -- | System generated unique identifier of the key to be used to decrypt the

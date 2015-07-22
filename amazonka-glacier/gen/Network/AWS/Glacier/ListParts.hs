@@ -105,13 +105,13 @@ data ListParts = ListParts'
 
 -- | 'ListParts' smart constructor.
 listParts :: Text -> Text -> Text -> ListParts
-listParts pAccountId pVaultName pUploadId =
+listParts pAccountId_ pVaultName_ pUploadId_ =
     ListParts'
     { _lprqMarker = Nothing
     , _lprqLimit = Nothing
-    , _lprqAccountId = pAccountId
-    , _lprqVaultName = pVaultName
-    , _lprqUploadId = pUploadId
+    , _lprqAccountId = pAccountId_
+    , _lprqVaultName = pVaultName_
+    , _lprqUploadId = pUploadId_
     }
 
 -- | An opaque string used for pagination. This value specifies the part at
@@ -210,7 +210,7 @@ data ListPartsResponse = ListPartsResponse'
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Int -> ListPartsResponse
-listPartsResponse pStatus =
+listPartsResponse pStatus_ =
     ListPartsResponse'
     { _lprsParts = Nothing
     , _lprsMultipartUploadId = Nothing
@@ -219,7 +219,7 @@ listPartsResponse pStatus =
     , _lprsVaultARN = Nothing
     , _lprsMarker = Nothing
     , _lprsCreationDate = Nothing
-    , _lprsStatus = pStatus
+    , _lprsStatus = pStatus_
     }
 
 -- | A list of the part sizes of the multipart upload.

@@ -81,15 +81,15 @@ data CreateDeploymentGroup = CreateDeploymentGroup'
 
 -- | 'CreateDeploymentGroup' smart constructor.
 createDeploymentGroup :: Text -> Text -> Text -> CreateDeploymentGroup
-createDeploymentGroup pApplicationName pDeploymentGroupName pServiceRoleARN =
+createDeploymentGroup pApplicationName_ pDeploymentGroupName_ pServiceRoleARN_ =
     CreateDeploymentGroup'
     { _cdgrqDeploymentConfigName = Nothing
     , _cdgrqEc2TagFilters = Nothing
     , _cdgrqOnPremisesInstanceTagFilters = Nothing
     , _cdgrqAutoScalingGroups = Nothing
-    , _cdgrqApplicationName = pApplicationName
-    , _cdgrqDeploymentGroupName = pDeploymentGroupName
-    , _cdgrqServiceRoleARN = pServiceRoleARN
+    , _cdgrqApplicationName = pApplicationName_
+    , _cdgrqDeploymentGroupName = pDeploymentGroupName_
+    , _cdgrqServiceRoleARN = pServiceRoleARN_
     }
 
 -- | If specified, the deployment configuration name must be one of the
@@ -212,10 +212,10 @@ data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
 
 -- | 'CreateDeploymentGroupResponse' smart constructor.
 createDeploymentGroupResponse :: Int -> CreateDeploymentGroupResponse
-createDeploymentGroupResponse pStatus =
+createDeploymentGroupResponse pStatus_ =
     CreateDeploymentGroupResponse'
     { _cdgrsDeploymentGroupId = Nothing
-    , _cdgrsStatus = pStatus
+    , _cdgrsStatus = pStatus_
     }
 
 -- | A unique deployment group ID.

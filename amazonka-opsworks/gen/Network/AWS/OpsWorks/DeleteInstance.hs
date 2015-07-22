@@ -69,11 +69,11 @@ data DeleteInstance = DeleteInstance'
 
 -- | 'DeleteInstance' smart constructor.
 deleteInstance :: Text -> DeleteInstance
-deleteInstance pInstanceId =
+deleteInstance pInstanceId_ =
     DeleteInstance'
     { _dirqDeleteVolumes = Nothing
     , _dirqDeleteElasticIP = Nothing
-    , _dirqInstanceId = pInstanceId
+    , _dirqInstanceId = pInstanceId_
     }
 
 -- | Whether to delete the instance\'s Amazon EBS volumes.

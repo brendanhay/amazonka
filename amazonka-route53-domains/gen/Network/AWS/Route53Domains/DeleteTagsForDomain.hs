@@ -62,9 +62,9 @@ data DeleteTagsForDomain = DeleteTagsForDomain'
 
 -- | 'DeleteTagsForDomain' smart constructor.
 deleteTagsForDomain :: Text -> DeleteTagsForDomain
-deleteTagsForDomain pDomainName =
+deleteTagsForDomain pDomainName_ =
     DeleteTagsForDomain'
-    { _dtfdrqDomainName = pDomainName
+    { _dtfdrqDomainName = pDomainName_
     , _dtfdrqTagsToDelete = mempty
     }
 
@@ -141,9 +141,9 @@ newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
 
 -- | 'DeleteTagsForDomainResponse' smart constructor.
 deleteTagsForDomainResponse :: Int -> DeleteTagsForDomainResponse
-deleteTagsForDomainResponse pStatus =
+deleteTagsForDomainResponse pStatus_ =
     DeleteTagsForDomainResponse'
-    { _dtfdrsStatus = pStatus
+    { _dtfdrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

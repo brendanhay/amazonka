@@ -59,9 +59,9 @@ newtype DeleteStack = DeleteStack'
 
 -- | 'DeleteStack' smart constructor.
 deleteStack :: Text -> DeleteStack
-deleteStack pStackId =
+deleteStack pStackId_ =
     DeleteStack'
-    { _dsrqStackId = pStackId
+    { _dsrqStackId = pStackId_
     }
 
 -- | The stack ID.

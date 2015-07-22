@@ -172,11 +172,11 @@ data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
 
 -- | 'DescribeDBParameterGroupsResponse' smart constructor.
 describeDBParameterGroupsResponse :: Int -> DescribeDBParameterGroupsResponse
-describeDBParameterGroupsResponse pStatus =
+describeDBParameterGroupsResponse pStatus_ =
     DescribeDBParameterGroupsResponse'
     { _ddpgrsMarker = Nothing
     , _ddpgrsDBParameterGroups = Nothing
-    , _ddpgrsStatus = pStatus
+    , _ddpgrsStatus = pStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this

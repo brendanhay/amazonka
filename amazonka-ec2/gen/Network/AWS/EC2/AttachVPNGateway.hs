@@ -64,11 +64,11 @@ data AttachVPNGateway = AttachVPNGateway'
 
 -- | 'AttachVPNGateway' smart constructor.
 attachVPNGateway :: Text -> Text -> AttachVPNGateway
-attachVPNGateway pVPNGatewayId pVPCId =
+attachVPNGateway pVPNGatewayId_ pVPCId_ =
     AttachVPNGateway'
     { _avgrqDryRun = Nothing
-    , _avgrqVPNGatewayId = pVPNGatewayId
-    , _avgrqVPCId = pVPCId
+    , _avgrqVPNGatewayId = pVPNGatewayId_
+    , _avgrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -125,10 +125,10 @@ data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
 
 -- | 'AttachVPNGatewayResponse' smart constructor.
 attachVPNGatewayResponse :: Int -> AttachVPNGatewayResponse
-attachVPNGatewayResponse pStatus =
+attachVPNGatewayResponse pStatus_ =
     AttachVPNGatewayResponse'
     { _avgrsVPCAttachment = Nothing
-    , _avgrsStatus = pStatus
+    , _avgrsStatus = pStatus_
     }
 
 -- | Information about the attachment.

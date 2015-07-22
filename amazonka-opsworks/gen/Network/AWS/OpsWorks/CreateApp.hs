@@ -105,7 +105,7 @@ data CreateApp = CreateApp'
 
 -- | 'CreateApp' smart constructor.
 createApp :: Text -> Text -> AppType -> CreateApp
-createApp pStackId pName pType =
+createApp pStackId_ pName_ pType_ =
     CreateApp'
     { _carqSSLConfiguration = Nothing
     , _carqShortname = Nothing
@@ -116,9 +116,9 @@ createApp pStackId pName pType =
     , _carqAttributes = Nothing
     , _carqDomains = Nothing
     , _carqDescription = Nothing
-    , _carqStackId = pStackId
-    , _carqName = pName
-    , _carqType = pType
+    , _carqStackId = pStackId_
+    , _carqName = pName_
+    , _carqType = pType_
     }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
@@ -246,10 +246,10 @@ data CreateAppResponse = CreateAppResponse'
 
 -- | 'CreateAppResponse' smart constructor.
 createAppResponse :: Int -> CreateAppResponse
-createAppResponse pStatus =
+createAppResponse pStatus_ =
     CreateAppResponse'
     { _carsAppId = Nothing
-    , _carsStatus = pStatus
+    , _carsStatus = pStatus_
     }
 
 -- | The app ID.

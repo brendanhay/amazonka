@@ -877,18 +877,18 @@ data RDSDataSpec = RDSDataSpec'
 
 -- | 'RDSDataSpec' smart constructor.
 rdsDataSpec :: RDSDatabase -> Text -> RDSDatabaseCredentials -> Text -> Text -> Text -> Text -> RDSDataSpec
-rdsDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation pResourceRole pServiceRole pSubnetId =
+rdsDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS3StagingLocation_ pResourceRole_ pServiceRole_ pSubnetId_ =
     RDSDataSpec'
     { _rdsdsDataSchemaURI = Nothing
     , _rdsdsDataSchema = Nothing
     , _rdsdsDataRearrangement = Nothing
-    , _rdsdsDatabaseInformation = pDatabaseInformation
-    , _rdsdsSelectSqlQuery = pSelectSqlQuery
-    , _rdsdsDatabaseCredentials = pDatabaseCredentials
-    , _rdsdsS3StagingLocation = pS3StagingLocation
-    , _rdsdsResourceRole = pResourceRole
-    , _rdsdsServiceRole = pServiceRole
-    , _rdsdsSubnetId = pSubnetId
+    , _rdsdsDatabaseInformation = pDatabaseInformation_
+    , _rdsdsSelectSqlQuery = pSelectSqlQuery_
+    , _rdsdsDatabaseCredentials = pDatabaseCredentials_
+    , _rdsdsS3StagingLocation = pS3StagingLocation_
+    , _rdsdsResourceRole = pResourceRole_
+    , _rdsdsServiceRole = pServiceRole_
+    , _rdsdsSubnetId = pSubnetId_
     , _rdsdsSecurityGroupIds = mempty
     }
 
@@ -989,10 +989,10 @@ data RDSDatabase = RDSDatabase'
 
 -- | 'RDSDatabase' smart constructor.
 rdsDatabase :: Text -> Text -> RDSDatabase
-rdsDatabase pInstanceIdentifier pDatabaseName =
+rdsDatabase pInstanceIdentifier_ pDatabaseName_ =
     RDSDatabase'
-    { _rdsdInstanceIdentifier = pInstanceIdentifier
-    , _rdsdDatabaseName = pDatabaseName
+    { _rdsdInstanceIdentifier = pInstanceIdentifier_
+    , _rdsdDatabaseName = pDatabaseName_
     }
 
 -- | The ID of an RDS DB instance.
@@ -1033,10 +1033,10 @@ data RDSDatabaseCredentials = RDSDatabaseCredentials'
 
 -- | 'RDSDatabaseCredentials' smart constructor.
 rdsDatabaseCredentials :: Text -> Text -> RDSDatabaseCredentials
-rdsDatabaseCredentials pUsername pPassword =
+rdsDatabaseCredentials pUsername_ pPassword_ =
     RDSDatabaseCredentials'
-    { _rdsdcUsername = pUsername
-    , _rdsdcPassword = pPassword
+    { _rdsdcUsername = pUsername_
+    , _rdsdcPassword = pPassword_
     }
 
 -- | FIXME: Undocumented member.
@@ -1236,15 +1236,15 @@ data RedshiftDataSpec = RedshiftDataSpec'
 
 -- | 'RedshiftDataSpec' smart constructor.
 redshiftDataSpec :: RedshiftDatabase -> Text -> RedshiftDatabaseCredentials -> Text -> RedshiftDataSpec
-redshiftDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation =
+redshiftDataSpec pDatabaseInformation_ pSelectSqlQuery_ pDatabaseCredentials_ pS3StagingLocation_ =
     RedshiftDataSpec'
     { _rDataSchemaURI = Nothing
     , _rDataSchema = Nothing
     , _rDataRearrangement = Nothing
-    , _rDatabaseInformation = pDatabaseInformation
-    , _rSelectSqlQuery = pSelectSqlQuery
-    , _rDatabaseCredentials = pDatabaseCredentials
-    , _rS3StagingLocation = pS3StagingLocation
+    , _rDatabaseInformation = pDatabaseInformation_
+    , _rSelectSqlQuery = pSelectSqlQuery_
+    , _rDatabaseCredentials = pDatabaseCredentials_
+    , _rS3StagingLocation = pS3StagingLocation_
     }
 
 -- | Describes the schema location for an Amazon Redshift @DataSource@.
@@ -1307,10 +1307,10 @@ data RedshiftDatabase = RedshiftDatabase'
 
 -- | 'RedshiftDatabase' smart constructor.
 redshiftDatabase :: Text -> Text -> RedshiftDatabase
-redshiftDatabase pDatabaseName pClusterIdentifier =
+redshiftDatabase pDatabaseName_ pClusterIdentifier_ =
     RedshiftDatabase'
-    { _rdDatabaseName = pDatabaseName
-    , _rdClusterIdentifier = pClusterIdentifier
+    { _rdDatabaseName = pDatabaseName_
+    , _rdClusterIdentifier = pClusterIdentifier_
     }
 
 -- | FIXME: Undocumented member.
@@ -1351,10 +1351,10 @@ data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
 
 -- | 'RedshiftDatabaseCredentials' smart constructor.
 redshiftDatabaseCredentials :: Text -> Text -> RedshiftDatabaseCredentials
-redshiftDatabaseCredentials pUsername pPassword =
+redshiftDatabaseCredentials pUsername_ pPassword_ =
     RedshiftDatabaseCredentials'
-    { _rdcUsername = pUsername
-    , _rdcPassword = pPassword
+    { _rdcUsername = pUsername_
+    , _rdcPassword = pPassword_
     }
 
 -- | FIXME: Undocumented member.
@@ -1441,12 +1441,12 @@ data S3DataSpec = S3DataSpec'
 
 -- | 'S3DataSpec' smart constructor.
 s3DataSpec :: Text -> S3DataSpec
-s3DataSpec pDataLocationS3 =
+s3DataSpec pDataLocationS3_ =
     S3DataSpec'
     { _sdsDataSchema = Nothing
     , _sdsDataSchemaLocationS3 = Nothing
     , _sdsDataRearrangement = Nothing
-    , _sdsDataLocationS3 = pDataLocationS3
+    , _sdsDataLocationS3 = pDataLocationS3_
     }
 
 -- | Describes the schema for an Amazon S3 @DataSource@.

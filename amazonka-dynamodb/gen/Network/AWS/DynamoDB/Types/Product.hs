@@ -38,10 +38,10 @@ data AttributeDefinition = AttributeDefinition'
 
 -- | 'AttributeDefinition' smart constructor.
 attributeDefinition :: Text -> ScalarAttributeType -> AttributeDefinition
-attributeDefinition pAttributeName pAttributeType =
+attributeDefinition pAttributeName_ pAttributeType_ =
     AttributeDefinition'
-    { _adAttributeName = pAttributeName
-    , _adAttributeType = pAttributeType
+    { _adAttributeName = pAttributeName_
+    , _adAttributeType = pAttributeType_
     }
 
 -- | A name for the attribute.
@@ -363,10 +363,10 @@ data Condition = Condition'
 
 -- | 'Condition' smart constructor.
 condition :: ComparisonOperator -> Condition
-condition pComparisonOperator =
+condition pComparisonOperator_ =
     Condition'
     { _cAttributeValueList = Nothing
-    , _cComparisonOperator = pComparisonOperator
+    , _cComparisonOperator = pComparisonOperator_
     }
 
 -- | One or more values to evaluate against the supplied attribute. The
@@ -641,12 +641,12 @@ data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
 
 -- | 'CreateGlobalSecondaryIndexAction' smart constructor.
 createGlobalSecondaryIndexAction :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> CreateGlobalSecondaryIndexAction
-createGlobalSecondaryIndexAction pIndexName pKeySchema pProjection pProvisionedThroughput =
+createGlobalSecondaryIndexAction pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput_ =
     CreateGlobalSecondaryIndexAction'
-    { _cgsiaIndexName = pIndexName
-    , _cgsiaKeySchema = _List1 # pKeySchema
-    , _cgsiaProjection = pProjection
-    , _cgsiaProvisionedThroughput = pProvisionedThroughput
+    { _cgsiaIndexName = pIndexName_
+    , _cgsiaKeySchema = _List1 # pKeySchema_
+    , _cgsiaProjection = pProjection_
+    , _cgsiaProvisionedThroughput = pProvisionedThroughput_
     }
 
 -- | The name of the global secondary index to be created.
@@ -689,9 +689,9 @@ newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
 
 -- | 'DeleteGlobalSecondaryIndexAction' smart constructor.
 deleteGlobalSecondaryIndexAction :: Text -> DeleteGlobalSecondaryIndexAction
-deleteGlobalSecondaryIndexAction pIndexName =
+deleteGlobalSecondaryIndexAction pIndexName_ =
     DeleteGlobalSecondaryIndexAction'
-    { _dgsiaIndexName = pIndexName
+    { _dgsiaIndexName = pIndexName_
     }
 
 -- | The name of the global secondary index to be deleted.
@@ -1021,12 +1021,12 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex'
 
 -- | 'GlobalSecondaryIndex' smart constructor.
 globalSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> GlobalSecondaryIndex
-globalSecondaryIndex pIndexName pKeySchema pProjection pProvisionedThroughput =
+globalSecondaryIndex pIndexName_ pKeySchema_ pProjection_ pProvisionedThroughput_ =
     GlobalSecondaryIndex'
-    { _gsiIndexName = pIndexName
-    , _gsiKeySchema = _List1 # pKeySchema
-    , _gsiProjection = pProjection
-    , _gsiProvisionedThroughput = pProvisionedThroughput
+    { _gsiIndexName = pIndexName_
+    , _gsiKeySchema = _List1 # pKeySchema_
+    , _gsiProjection = pProjection_
+    , _gsiProvisionedThroughput = pProvisionedThroughput_
     }
 
 -- | The name of the global secondary index. The name must be unique among
@@ -1319,10 +1319,10 @@ data KeySchemaElement = KeySchemaElement'
 
 -- | 'KeySchemaElement' smart constructor.
 keySchemaElement :: Text -> KeyType -> KeySchemaElement
-keySchemaElement pAttributeName pKeyType =
+keySchemaElement pAttributeName_ pKeyType_ =
     KeySchemaElement'
-    { _kseAttributeName = pAttributeName
-    , _kseKeyType = pKeyType
+    { _kseAttributeName = pAttributeName_
+    , _kseKeyType = pKeyType_
     }
 
 -- | The name of a key attribute.
@@ -1378,13 +1378,13 @@ data KeysAndAttributes = KeysAndAttributes'
 
 -- | 'KeysAndAttributes' smart constructor.
 keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -> KeysAndAttributes
-keysAndAttributes pKeys =
+keysAndAttributes pKeys_ =
     KeysAndAttributes'
     { _kaaProjectionExpression = Nothing
     , _kaaConsistentRead = Nothing
     , _kaaExpressionAttributeNames = Nothing
     , _kaaAttributesToGet = Nothing
-    , _kaaKeys = _List1 # pKeys
+    , _kaaKeys = _List1 # pKeys_
     }
 
 -- | A string that identifies one or more attributes to retrieve from the
@@ -1502,11 +1502,11 @@ data LocalSecondaryIndex = LocalSecondaryIndex'
 
 -- | 'LocalSecondaryIndex' smart constructor.
 localSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> LocalSecondaryIndex
-localSecondaryIndex pIndexName pKeySchema pProjection =
+localSecondaryIndex pIndexName_ pKeySchema_ pProjection_ =
     LocalSecondaryIndex'
-    { _lsiIndexName = pIndexName
-    , _lsiKeySchema = _List1 # pKeySchema
-    , _lsiProjection = pProjection
+    { _lsiIndexName = pIndexName_
+    , _lsiKeySchema = _List1 # pKeySchema_
+    , _lsiProjection = pProjection_
     }
 
 -- | The name of the local secondary index. The name must be unique among all
@@ -1692,10 +1692,10 @@ data ProvisionedThroughput = ProvisionedThroughput'
 
 -- | 'ProvisionedThroughput' smart constructor.
 provisionedThroughput :: Natural -> Natural -> ProvisionedThroughput
-provisionedThroughput pReadCapacityUnits pWriteCapacityUnits =
+provisionedThroughput pReadCapacityUnits_ pWriteCapacityUnits_ =
     ProvisionedThroughput'
-    { _ptReadCapacityUnits = _Nat # pReadCapacityUnits
-    , _ptWriteCapacityUnits = _Nat # pWriteCapacityUnits
+    { _ptReadCapacityUnits = _Nat # pReadCapacityUnits_
+    , _ptWriteCapacityUnits = _Nat # pWriteCapacityUnits_
     }
 
 -- | The maximum number of strongly consistent reads consumed per second
@@ -2216,10 +2216,10 @@ data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
 
 -- | 'UpdateGlobalSecondaryIndexAction' smart constructor.
 updateGlobalSecondaryIndexAction :: Text -> ProvisionedThroughput -> UpdateGlobalSecondaryIndexAction
-updateGlobalSecondaryIndexAction pIndexName pProvisionedThroughput =
+updateGlobalSecondaryIndexAction pIndexName_ pProvisionedThroughput_ =
     UpdateGlobalSecondaryIndexAction'
-    { _ugsiaIndexName = pIndexName
-    , _ugsiaProvisionedThroughput = pProvisionedThroughput
+    { _ugsiaIndexName = pIndexName_
+    , _ugsiaProvisionedThroughput = pProvisionedThroughput_
     }
 
 -- | The name of the global secondary index to be updated.

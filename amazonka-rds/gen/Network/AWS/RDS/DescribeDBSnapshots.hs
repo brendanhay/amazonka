@@ -202,11 +202,11 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
 
 -- | 'DescribeDBSnapshotsResponse' smart constructor.
 describeDBSnapshotsResponse :: Int -> DescribeDBSnapshotsResponse
-describeDBSnapshotsResponse pStatus =
+describeDBSnapshotsResponse pStatus_ =
     DescribeDBSnapshotsResponse'
     { _ddsrsMarker = Nothing
     , _ddsrsDBSnapshots = Nothing
-    , _ddsrsStatus = pStatus
+    , _ddsrsStatus = pStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this

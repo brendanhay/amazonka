@@ -162,11 +162,11 @@ data DescribePoliciesResponse = DescribePoliciesResponse'
 
 -- | 'DescribePoliciesResponse' smart constructor.
 describePoliciesResponse :: Int -> DescribePoliciesResponse
-describePoliciesResponse pStatus =
+describePoliciesResponse pStatus_ =
     DescribePoliciesResponse'
     { _dprsNextToken = Nothing
     , _dprsScalingPolicies = Nothing
-    , _dprsStatus = pStatus
+    , _dprsStatus = pStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no

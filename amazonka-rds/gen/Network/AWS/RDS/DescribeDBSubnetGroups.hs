@@ -168,11 +168,11 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
 
 -- | 'DescribeDBSubnetGroupsResponse' smart constructor.
 describeDBSubnetGroupsResponse :: Int -> DescribeDBSubnetGroupsResponse
-describeDBSubnetGroupsResponse pStatus =
+describeDBSubnetGroupsResponse pStatus_ =
     DescribeDBSubnetGroupsResponse'
     { _ddsgrsDBSubnetGroups = Nothing
     , _ddsgrsMarker = Nothing
-    , _ddsgrsStatus = pStatus
+    , _ddsgrsStatus = pStatus_
     }
 
 -- | A list of DBSubnetGroup instances.

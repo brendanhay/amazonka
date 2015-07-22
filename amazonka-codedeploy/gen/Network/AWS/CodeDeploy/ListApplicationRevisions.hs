@@ -81,7 +81,7 @@ data ListApplicationRevisions = ListApplicationRevisions'
 
 -- | 'ListApplicationRevisions' smart constructor.
 listApplicationRevisions :: Text -> ListApplicationRevisions
-listApplicationRevisions pApplicationName =
+listApplicationRevisions pApplicationName_ =
     ListApplicationRevisions'
     { _larrqS3KeyPrefix = Nothing
     , _larrqDeployed = Nothing
@@ -89,7 +89,7 @@ listApplicationRevisions pApplicationName =
     , _larrqSortOrder = Nothing
     , _larrqS3Bucket = Nothing
     , _larrqSortBy = Nothing
-    , _larrqApplicationName = pApplicationName
+    , _larrqApplicationName = pApplicationName_
     }
 
 -- | A specific key prefix for the set of Amazon S3 objects to limit the
@@ -210,11 +210,11 @@ data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
 listApplicationRevisionsResponse :: Int -> ListApplicationRevisionsResponse
-listApplicationRevisionsResponse pStatus =
+listApplicationRevisionsResponse pStatus_ =
     ListApplicationRevisionsResponse'
     { _larrsNextToken = Nothing
     , _larrsRevisions = Nothing
-    , _larrsStatus = pStatus
+    , _larrsStatus = pStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an

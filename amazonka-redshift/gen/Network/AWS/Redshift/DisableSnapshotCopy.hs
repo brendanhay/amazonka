@@ -62,9 +62,9 @@ newtype DisableSnapshotCopy = DisableSnapshotCopy'
 
 -- | 'DisableSnapshotCopy' smart constructor.
 disableSnapshotCopy :: Text -> DisableSnapshotCopy
-disableSnapshotCopy pClusterIdentifier =
+disableSnapshotCopy pClusterIdentifier_ =
     DisableSnapshotCopy'
-    { _dscrqClusterIdentifier = pClusterIdentifier
+    { _dscrqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The unique identifier of the source cluster that you want to disable
@@ -113,10 +113,10 @@ data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
 
 -- | 'DisableSnapshotCopyResponse' smart constructor.
 disableSnapshotCopyResponse :: Int -> DisableSnapshotCopyResponse
-disableSnapshotCopyResponse pStatus =
+disableSnapshotCopyResponse pStatus_ =
     DisableSnapshotCopyResponse'
     { _dscrsCluster = Nothing
-    , _dscrsStatus = pStatus
+    , _dscrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

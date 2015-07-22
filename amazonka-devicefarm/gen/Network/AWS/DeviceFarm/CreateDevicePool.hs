@@ -68,11 +68,11 @@ data CreateDevicePool = CreateDevicePool'
 
 -- | 'CreateDevicePool' smart constructor.
 createDevicePool :: Text -> Text -> CreateDevicePool
-createDevicePool pProjectARN pName =
+createDevicePool pProjectARN_ pName_ =
     CreateDevicePool'
     { _cdprqDescription = Nothing
-    , _cdprqProjectARN = pProjectARN
-    , _cdprqName = pName
+    , _cdprqProjectARN = pProjectARN_
+    , _cdprqName = pName_
     , _cdprqRules = mempty
     }
 
@@ -141,10 +141,10 @@ data CreateDevicePoolResponse = CreateDevicePoolResponse'
 
 -- | 'CreateDevicePoolResponse' smart constructor.
 createDevicePoolResponse :: Int -> CreateDevicePoolResponse
-createDevicePoolResponse pStatus =
+createDevicePoolResponse pStatus_ =
     CreateDevicePoolResponse'
     { _cdprsDevicePool = Nothing
-    , _cdprsStatus = pStatus
+    , _cdprsStatus = pStatus_
     }
 
 -- | The newly created device pool.

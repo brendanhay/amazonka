@@ -79,13 +79,13 @@ data CreateIdentityPool = CreateIdentityPool'
 
 -- | 'CreateIdentityPool' smart constructor.
 createIdentityPool :: Text -> Bool -> CreateIdentityPool
-createIdentityPool pIdentityPoolName pAllowUnauthenticatedIdentities =
+createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     CreateIdentityPool'
     { _ciprqSupportedLoginProviders = Nothing
     , _ciprqDeveloperProviderName = Nothing
     , _ciprqOpenIdConnectProviderARNs = Nothing
-    , _ciprqIdentityPoolName = pIdentityPoolName
-    , _ciprqAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities
+    , _ciprqIdentityPoolName = pIdentityPoolName_
+    , _ciprqAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
     }
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.

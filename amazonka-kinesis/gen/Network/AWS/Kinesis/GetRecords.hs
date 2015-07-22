@@ -109,10 +109,10 @@ data GetRecords = GetRecords'
 
 -- | 'GetRecords' smart constructor.
 getRecords :: Text -> GetRecords
-getRecords pShardIterator =
+getRecords pShardIterator_ =
     GetRecords'
     { _grrqLimit = Nothing
-    , _grrqShardIterator = pShardIterator
+    , _grrqShardIterator = pShardIterator_
     }
 
 -- | The maximum number of records to return. Specify a value of up to
@@ -183,11 +183,11 @@ data GetRecordsResponse = GetRecordsResponse'
 
 -- | 'GetRecordsResponse' smart constructor.
 getRecordsResponse :: Int -> GetRecordsResponse
-getRecordsResponse pStatus =
+getRecordsResponse pStatus_ =
     GetRecordsResponse'
     { _grrsMillisBehindLatest = Nothing
     , _grrsNextShardIterator = Nothing
-    , _grrsStatus = pStatus
+    , _grrsStatus = pStatus_
     , _grrsRecords = mempty
     }
 

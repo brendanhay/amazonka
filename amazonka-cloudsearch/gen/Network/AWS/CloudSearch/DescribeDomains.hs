@@ -118,9 +118,9 @@ data DescribeDomainsResponse = DescribeDomainsResponse'
 
 -- | 'DescribeDomainsResponse' smart constructor.
 describeDomainsResponse :: Int -> DescribeDomainsResponse
-describeDomainsResponse pStatus =
+describeDomainsResponse pStatus_ =
     DescribeDomainsResponse'
-    { _ddsrsStatus = pStatus
+    { _ddsrsStatus = pStatus_
     , _ddsrsDomainStatusList = mempty
     }
 

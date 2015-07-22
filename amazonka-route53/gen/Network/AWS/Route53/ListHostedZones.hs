@@ -175,14 +175,14 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
 
 -- | 'ListHostedZonesResponse' smart constructor.
 listHostedZonesResponse :: Int -> Text -> Bool -> Text -> ListHostedZonesResponse
-listHostedZonesResponse pStatus pMarker pIsTruncated pMaxItems =
+listHostedZonesResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
     ListHostedZonesResponse'
     { _lhzrsNextMarker = Nothing
-    , _lhzrsStatus = pStatus
+    , _lhzrsStatus = pStatus_
     , _lhzrsHostedZones = mempty
-    , _lhzrsMarker = pMarker
-    , _lhzrsIsTruncated = pIsTruncated
-    , _lhzrsMaxItems = pMaxItems
+    , _lhzrsMarker = pMarker_
+    , _lhzrsIsTruncated = pIsTruncated_
+    , _lhzrsMaxItems = pMaxItems_
     }
 
 -- | Indicates where to continue listing hosted zones. If

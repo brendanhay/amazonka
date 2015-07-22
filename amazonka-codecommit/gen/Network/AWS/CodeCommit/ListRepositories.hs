@@ -140,11 +140,11 @@ data ListRepositoriesResponse = ListRepositoriesResponse'
 
 -- | 'ListRepositoriesResponse' smart constructor.
 listRepositoriesResponse :: Int -> ListRepositoriesResponse
-listRepositoriesResponse pStatus =
+listRepositoriesResponse pStatus_ =
     ListRepositoriesResponse'
     { _lrrsNextToken = Nothing
     , _lrrsRepositories = Nothing
-    , _lrrsStatus = pStatus
+    , _lrrsStatus = pStatus_
     }
 
 -- | An enumeration token that allows the operation to batch the results of

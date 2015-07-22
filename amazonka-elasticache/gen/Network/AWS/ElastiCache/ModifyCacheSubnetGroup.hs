@@ -65,11 +65,11 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
 
 -- | 'ModifyCacheSubnetGroup' smart constructor.
 modifyCacheSubnetGroup :: Text -> ModifyCacheSubnetGroup
-modifyCacheSubnetGroup pCacheSubnetGroupName =
+modifyCacheSubnetGroup pCacheSubnetGroupName_ =
     ModifyCacheSubnetGroup'
     { _mcsgrqSubnetIds = Nothing
     , _mcsgrqCacheSubnetGroupDescription = Nothing
-    , _mcsgrqCacheSubnetGroupName = pCacheSubnetGroupName
+    , _mcsgrqCacheSubnetGroupName = pCacheSubnetGroupName_
     }
 
 -- | The EC2 subnet IDs for the cache subnet group.
@@ -136,10 +136,10 @@ data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
 
 -- | 'ModifyCacheSubnetGroupResponse' smart constructor.
 modifyCacheSubnetGroupResponse :: Int -> ModifyCacheSubnetGroupResponse
-modifyCacheSubnetGroupResponse pStatus =
+modifyCacheSubnetGroupResponse pStatus_ =
     ModifyCacheSubnetGroupResponse'
     { _mcsgrsCacheSubnetGroup = Nothing
-    , _mcsgrsStatus = pStatus
+    , _mcsgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

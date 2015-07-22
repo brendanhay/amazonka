@@ -64,9 +64,9 @@ newtype BulkPublish = BulkPublish'
 
 -- | 'BulkPublish' smart constructor.
 bulkPublish :: Text -> BulkPublish
-bulkPublish pIdentityPoolId =
+bulkPublish pIdentityPoolId_ =
     BulkPublish'
-    { _bprqIdentityPoolId = pIdentityPoolId
+    { _bprqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
@@ -120,10 +120,10 @@ data BulkPublishResponse = BulkPublishResponse'
 
 -- | 'BulkPublishResponse' smart constructor.
 bulkPublishResponse :: Int -> BulkPublishResponse
-bulkPublishResponse pStatus =
+bulkPublishResponse pStatus_ =
     BulkPublishResponse'
     { _bprsIdentityPoolId = Nothing
-    , _bprsStatus = pStatus
+    , _bprsStatus = pStatus_
     }
 
 -- | A name-spaced GUID (for example,

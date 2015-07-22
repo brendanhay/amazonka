@@ -56,9 +56,9 @@ newtype DeleteInterconnect = DeleteInterconnect'
 
 -- | 'DeleteInterconnect' smart constructor.
 deleteInterconnect :: Text -> DeleteInterconnect
-deleteInterconnect pInterconnectId =
+deleteInterconnect pInterconnectId_ =
     DeleteInterconnect'
-    { _drqInterconnectId = pInterconnectId
+    { _drqInterconnectId = pInterconnectId_
     }
 
 -- | FIXME: Undocumented member.
@@ -111,10 +111,10 @@ data DeleteInterconnectResponse = DeleteInterconnectResponse'
 
 -- | 'DeleteInterconnectResponse' smart constructor.
 deleteInterconnectResponse :: Int -> DeleteInterconnectResponse
-deleteInterconnectResponse pStatus =
+deleteInterconnectResponse pStatus_ =
     DeleteInterconnectResponse'
     { _drsInterconnectState = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

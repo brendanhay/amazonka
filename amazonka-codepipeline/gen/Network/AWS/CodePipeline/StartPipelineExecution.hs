@@ -57,9 +57,9 @@ newtype StartPipelineExecution = StartPipelineExecution'
 
 -- | 'StartPipelineExecution' smart constructor.
 startPipelineExecution :: Text -> StartPipelineExecution
-startPipelineExecution pName =
+startPipelineExecution pName_ =
     StartPipelineExecution'
-    { _sperqName = pName
+    { _sperqName = pName_
     }
 
 -- | The name of the pipeline to start.
@@ -114,10 +114,10 @@ data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
 
 -- | 'StartPipelineExecutionResponse' smart constructor.
 startPipelineExecutionResponse :: Int -> StartPipelineExecutionResponse
-startPipelineExecutionResponse pStatus =
+startPipelineExecutionResponse pStatus_ =
     StartPipelineExecutionResponse'
     { _spersPipelineExecutionId = Nothing
-    , _spersStatus = pStatus
+    , _spersStatus = pStatus_
     }
 
 -- | The unique system-generated ID of the pipeline that was started.

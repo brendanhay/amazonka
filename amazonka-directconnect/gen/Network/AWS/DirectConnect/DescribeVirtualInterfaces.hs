@@ -136,10 +136,10 @@ data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse
-describeVirtualInterfacesResponse pStatus =
+describeVirtualInterfacesResponse pStatus_ =
     DescribeVirtualInterfacesResponse'
     { _dvisrsVirtualInterfaces = Nothing
-    , _dvisrsStatus = pStatus
+    , _dvisrsStatus = pStatus_
     }
 
 -- | A list of virtual interfaces.

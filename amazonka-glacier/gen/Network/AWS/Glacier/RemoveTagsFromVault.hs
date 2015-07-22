@@ -65,11 +65,11 @@ data RemoveTagsFromVault = RemoveTagsFromVault'
 
 -- | 'RemoveTagsFromVault' smart constructor.
 removeTagsFromVault :: Text -> Text -> RemoveTagsFromVault
-removeTagsFromVault pAccountId pVaultName =
+removeTagsFromVault pAccountId_ pVaultName_ =
     RemoveTagsFromVault'
     { _rtfvrqTagKeys = Nothing
-    , _rtfvrqAccountId = pAccountId
-    , _rtfvrqVaultName = pVaultName
+    , _rtfvrqAccountId = pAccountId_
+    , _rtfvrqVaultName = pVaultName_
     }
 
 -- | A list of tag keys. Each corresponding tag is removed from the vault.

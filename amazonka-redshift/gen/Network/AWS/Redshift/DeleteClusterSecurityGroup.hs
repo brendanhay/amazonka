@@ -60,9 +60,9 @@ newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
 
 -- | 'DeleteClusterSecurityGroup' smart constructor.
 deleteClusterSecurityGroup :: Text -> DeleteClusterSecurityGroup
-deleteClusterSecurityGroup pClusterSecurityGroupName =
+deleteClusterSecurityGroup pClusterSecurityGroupName_ =
     DeleteClusterSecurityGroup'
-    { _drqClusterSecurityGroupName = pClusterSecurityGroupName
+    { _drqClusterSecurityGroupName = pClusterSecurityGroupName_
     }
 
 -- | The name of the cluster security group to be deleted.

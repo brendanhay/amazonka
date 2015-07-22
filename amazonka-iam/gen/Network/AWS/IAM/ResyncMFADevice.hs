@@ -68,12 +68,12 @@ data ResyncMFADevice = ResyncMFADevice'
 
 -- | 'ResyncMFADevice' smart constructor.
 resyncMFADevice :: Text -> Text -> Text -> Text -> ResyncMFADevice
-resyncMFADevice pUserName pSerialNumber pAuthenticationCode1 pAuthenticationCode2 =
+resyncMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
     ResyncMFADevice'
-    { _rmdrqUserName = pUserName
-    , _rmdrqSerialNumber = pSerialNumber
-    , _rmdrqAuthenticationCode1 = pAuthenticationCode1
-    , _rmdrqAuthenticationCode2 = pAuthenticationCode2
+    { _rmdrqUserName = pUserName_
+    , _rmdrqSerialNumber = pSerialNumber_
+    , _rmdrqAuthenticationCode1 = pAuthenticationCode1_
+    , _rmdrqAuthenticationCode2 = pAuthenticationCode2_
     }
 
 -- | The name of the user whose MFA device you want to resynchronize.

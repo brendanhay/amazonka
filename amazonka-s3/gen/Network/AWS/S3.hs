@@ -52,7 +52,6 @@ import           Network.AWS.S3.GetObjectACL                       as Export
 import           Network.AWS.S3.GetObjectTorrent                   as Export
 import           Network.AWS.S3.HeadBucket                         as Export
 import           Network.AWS.S3.HeadObject                         as Export
-import           Network.AWS.S3.Internal                           as Export
 import           Network.AWS.S3.ListBuckets                        as Export
 import           Network.AWS.S3.ListMultipartUploads               as Export
 import           Network.AWS.S3.ListObjects                        as Export
@@ -73,8 +72,6 @@ import           Network.AWS.S3.PutObject                          as Export
 import           Network.AWS.S3.PutObjectACL                       as Export
 import           Network.AWS.S3.RestoreObject                      as Export
 import           Network.AWS.S3.Types                              as Export
-import           Network.AWS.S3.Types.Product                      as Export
-import           Network.AWS.S3.Types.Sum                          as Export
 import           Network.AWS.S3.UploadPart                         as Export
 import           Network.AWS.S3.UploadPartCopy                     as Export
 import           Network.AWS.S3.Waiters                            as Export

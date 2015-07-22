@@ -51,9 +51,9 @@ newtype DeleteBucketPolicy = DeleteBucketPolicy'
 
 -- | 'DeleteBucketPolicy' smart constructor.
 deleteBucketPolicy :: BucketName -> DeleteBucketPolicy
-deleteBucketPolicy pBucket =
+deleteBucketPolicy pBucket_ =
     DeleteBucketPolicy'
-    { _dbprqBucket = pBucket
+    { _dbprqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

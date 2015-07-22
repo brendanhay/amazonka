@@ -159,11 +159,11 @@ data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
 describeDirectoriesResponse :: Int -> DescribeDirectoriesResponse
-describeDirectoriesResponse pStatus =
+describeDirectoriesResponse pStatus_ =
     DescribeDirectoriesResponse'
     { _ddrsDirectoryDescriptions = Nothing
     , _ddrsNextToken = Nothing
-    , _ddrsStatus = pStatus
+    , _ddrsStatus = pStatus_
     }
 
 -- | The list of DirectoryDescription objects that were retrieved.

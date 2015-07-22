@@ -76,14 +76,14 @@ data ModifyHSM = ModifyHSM'
 
 -- | 'ModifyHSM' smart constructor.
 modifyHSM :: Text -> ModifyHSM
-modifyHSM pHSMARN =
+modifyHSM pHSMARN_ =
     ModifyHSM'
     { _mhrqIAMRoleARN = Nothing
     , _mhrqSubnetId = Nothing
     , _mhrqSyslogIP = Nothing
     , _mhrqExternalId = Nothing
     , _mhrqEniIP = Nothing
-    , _mhrqHSMARN = pHSMARN
+    , _mhrqHSMARN = pHSMARN_
     }
 
 -- | The new IAM role ARN.
@@ -161,10 +161,10 @@ data ModifyHSMResponse = ModifyHSMResponse'
 
 -- | 'ModifyHSMResponse' smart constructor.
 modifyHSMResponse :: Int -> ModifyHSMResponse
-modifyHSMResponse pStatus =
+modifyHSMResponse pStatus_ =
     ModifyHSMResponse'
     { _mhsmrsHSMARN = Nothing
-    , _mhsmrsStatus = pStatus
+    , _mhsmrsStatus = pStatus_
     }
 
 -- | The ARN of the HSM.

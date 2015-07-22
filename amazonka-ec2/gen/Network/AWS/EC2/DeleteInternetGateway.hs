@@ -56,10 +56,10 @@ data DeleteInternetGateway = DeleteInternetGateway'
 
 -- | 'DeleteInternetGateway' smart constructor.
 deleteInternetGateway :: Text -> DeleteInternetGateway
-deleteInternetGateway pInternetGatewayId =
+deleteInternetGateway pInternetGatewayId_ =
     DeleteInternetGateway'
     { _diggrqDryRun = Nothing
-    , _diggrqInternetGatewayId = pInternetGatewayId
+    , _diggrqInternetGatewayId = pInternetGatewayId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

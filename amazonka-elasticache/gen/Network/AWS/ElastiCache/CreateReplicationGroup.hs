@@ -151,7 +151,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
 
 -- | 'CreateReplicationGroup' smart constructor.
 createReplicationGroup :: Text -> Text -> CreateReplicationGroup
-createReplicationGroup pReplicationGroupId pReplicationGroupDescription =
+createReplicationGroup pReplicationGroupId_ pReplicationGroupDescription_ =
     CreateReplicationGroup'
     { _crgrqAutomaticFailoverEnabled = Nothing
     , _crgrqCacheNodeType = Nothing
@@ -173,8 +173,8 @@ createReplicationGroup pReplicationGroupId pReplicationGroupDescription =
     , _crgrqTags = Nothing
     , _crgrqCacheSecurityGroupNames = Nothing
     , _crgrqPort = Nothing
-    , _crgrqReplicationGroupId = pReplicationGroupId
-    , _crgrqReplicationGroupDescription = pReplicationGroupDescription
+    , _crgrqReplicationGroupId = pReplicationGroupId_
+    , _crgrqReplicationGroupDescription = pReplicationGroupDescription_
     }
 
 -- | Specifies whether a read-only replica will be automatically promoted to
@@ -479,10 +479,10 @@ data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
 
 -- | 'CreateReplicationGroupResponse' smart constructor.
 createReplicationGroupResponse :: Int -> CreateReplicationGroupResponse
-createReplicationGroupResponse pStatus =
+createReplicationGroupResponse pStatus_ =
     CreateReplicationGroupResponse'
     { _crgrsReplicationGroup = Nothing
-    , _crgrsStatus = pStatus
+    , _crgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -65,11 +65,11 @@ data CreateDBSnapshot = CreateDBSnapshot'
 
 -- | 'CreateDBSnapshot' smart constructor.
 createDBSnapshot :: Text -> Text -> CreateDBSnapshot
-createDBSnapshot pDBSnapshotIdentifier pDBInstanceIdentifier =
+createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
     CreateDBSnapshot'
     { _cdbsrqTags = Nothing
-    , _cdbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier
-    , _cdbsrqDBInstanceIdentifier = pDBInstanceIdentifier
+    , _cdbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier_
+    , _cdbsrqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | FIXME: Undocumented member.
@@ -142,10 +142,10 @@ data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
 
 -- | 'CreateDBSnapshotResponse' smart constructor.
 createDBSnapshotResponse :: Int -> CreateDBSnapshotResponse
-createDBSnapshotResponse pStatus =
+createDBSnapshotResponse pStatus_ =
     CreateDBSnapshotResponse'
     { _cdbsrsDBSnapshot = Nothing
-    , _cdbsrsStatus = pStatus
+    , _cdbsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

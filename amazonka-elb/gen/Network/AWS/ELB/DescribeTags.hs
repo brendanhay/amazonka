@@ -54,9 +54,9 @@ newtype DescribeTags = DescribeTags'
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: NonEmpty Text -> DescribeTags
-describeTags pLoadBalancerNames =
+describeTags pLoadBalancerNames_ =
     DescribeTags'
-    { _dtrqLoadBalancerNames = _List1 # pLoadBalancerNames
+    { _dtrqLoadBalancerNames = _List1 # pLoadBalancerNames_
     }
 
 -- | The names of the load balancers.
@@ -103,10 +103,10 @@ data DescribeTagsResponse = DescribeTagsResponse'
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatus =
+describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsTagDescriptions = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     }
 
 -- | Information about the tags.

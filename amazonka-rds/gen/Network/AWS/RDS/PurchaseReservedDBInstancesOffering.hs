@@ -68,12 +68,12 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
 
 -- | 'PurchaseReservedDBInstancesOffering' smart constructor.
 purchaseReservedDBInstancesOffering :: Text -> PurchaseReservedDBInstancesOffering
-purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId =
+purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId_ =
     PurchaseReservedDBInstancesOffering'
     { _prdiorqDBInstanceCount = Nothing
     , _prdiorqReservedDBInstanceId = Nothing
     , _prdiorqTags = Nothing
-    , _prdiorqReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId
+    , _prdiorqReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
     }
 
 -- | The number of instances to reserve.
@@ -149,10 +149,10 @@ data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOf
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' smart constructor.
 purchaseReservedDBInstancesOfferingResponse :: Int -> PurchaseReservedDBInstancesOfferingResponse
-purchaseReservedDBInstancesOfferingResponse pStatus =
+purchaseReservedDBInstancesOfferingResponse pStatus_ =
     PurchaseReservedDBInstancesOfferingResponse'
     { _prdiorsReservedDBInstance = Nothing
-    , _prdiorsStatus = pStatus
+    , _prdiorsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

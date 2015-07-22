@@ -102,10 +102,10 @@ data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
 
 -- | 'ListVerifiedEmailAddressesResponse' smart constructor.
 listVerifiedEmailAddressesResponse :: Int -> ListVerifiedEmailAddressesResponse
-listVerifiedEmailAddressesResponse pStatus =
+listVerifiedEmailAddressesResponse pStatus_ =
     ListVerifiedEmailAddressesResponse'
     { _lvearsVerifiedEmailAddresses = Nothing
-    , _lvearsStatus = pStatus
+    , _lvearsStatus = pStatus_
     }
 
 -- | A list of email addresses that have been verified.

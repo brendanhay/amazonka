@@ -227,11 +227,11 @@ data DescribeCasesResponse = DescribeCasesResponse'
 
 -- | 'DescribeCasesResponse' smart constructor.
 describeCasesResponse :: Int -> DescribeCasesResponse
-describeCasesResponse pStatus =
+describeCasesResponse pStatus_ =
     DescribeCasesResponse'
     { _drsCases = Nothing
     , _drsNextToken = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | The details for the cases that match the request.

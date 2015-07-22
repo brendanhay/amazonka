@@ -143,10 +143,10 @@ data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
 
 -- | 'SubmitTaskStateChangeResponse' smart constructor.
 submitTaskStateChangeResponse :: Int -> SubmitTaskStateChangeResponse
-submitTaskStateChangeResponse pStatus =
+submitTaskStateChangeResponse pStatus_ =
     SubmitTaskStateChangeResponse'
     { _stscrsAcknowledgment = Nothing
-    , _stscrsStatus = pStatus
+    , _stscrsStatus = pStatus_
     }
 
 -- | Acknowledgement of the state change.

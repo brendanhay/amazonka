@@ -51,9 +51,9 @@ newtype DeleteBucketReplication = DeleteBucketReplication'
 
 -- | 'DeleteBucketReplication' smart constructor.
 deleteBucketReplication :: BucketName -> DeleteBucketReplication
-deleteBucketReplication pBucket =
+deleteBucketReplication pBucket_ =
     DeleteBucketReplication'
-    { _dbrrqBucket = pBucket
+    { _dbrrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

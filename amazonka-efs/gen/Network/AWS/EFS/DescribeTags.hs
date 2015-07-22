@@ -70,11 +70,11 @@ data DescribeTags = DescribeTags'
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: Text -> DescribeTags
-describeTags pFileSystemId =
+describeTags pFileSystemId_ =
     DescribeTags'
     { _dtrqMaxItems = Nothing
     , _dtrqMarker = Nothing
-    , _dtrqFileSystemId = pFileSystemId
+    , _dtrqFileSystemId = pFileSystemId_
     }
 
 -- | Optional. Maximum number of file system tags to return in the response.
@@ -138,11 +138,11 @@ data DescribeTagsResponse = DescribeTagsResponse'
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatus =
+describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsMarker = Nothing
     , _dtrsNextMarker = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     , _dtrsTags = mempty
     }
 

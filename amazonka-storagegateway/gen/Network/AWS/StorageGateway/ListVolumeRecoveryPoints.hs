@@ -62,9 +62,9 @@ newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
 
 -- | 'ListVolumeRecoveryPoints' smart constructor.
 listVolumeRecoveryPoints :: Text -> ListVolumeRecoveryPoints
-listVolumeRecoveryPoints pGatewayARN =
+listVolumeRecoveryPoints pGatewayARN_ =
     ListVolumeRecoveryPoints'
-    { _lvrprqGatewayARN = pGatewayARN
+    { _lvrprqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -121,11 +121,11 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
 
 -- | 'ListVolumeRecoveryPointsResponse' smart constructor.
 listVolumeRecoveryPointsResponse :: Int -> ListVolumeRecoveryPointsResponse
-listVolumeRecoveryPointsResponse pStatus =
+listVolumeRecoveryPointsResponse pStatus_ =
     ListVolumeRecoveryPointsResponse'
     { _lvrprsVolumeRecoveryPointInfos = Nothing
     , _lvrprsGatewayARN = Nothing
-    , _lvrprsStatus = pStatus
+    , _lvrprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

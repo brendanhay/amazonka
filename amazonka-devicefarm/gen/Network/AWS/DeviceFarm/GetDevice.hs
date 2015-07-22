@@ -56,9 +56,9 @@ newtype GetDevice = GetDevice'
 
 -- | 'GetDevice' smart constructor.
 getDevice :: Text -> GetDevice
-getDevice pArn =
+getDevice pArn_ =
     GetDevice'
-    { _gdrqArn = pArn
+    { _gdrqArn = pArn_
     }
 
 -- | The device type\'s ARN.
@@ -109,10 +109,10 @@ data GetDeviceResponse = GetDeviceResponse'
 
 -- | 'GetDeviceResponse' smart constructor.
 getDeviceResponse :: Int -> GetDeviceResponse
-getDeviceResponse pStatus =
+getDeviceResponse pStatus_ =
     GetDeviceResponse'
     { _gdrsDevice = Nothing
-    , _gdrsStatus = pStatus
+    , _gdrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

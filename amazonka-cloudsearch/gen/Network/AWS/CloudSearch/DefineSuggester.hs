@@ -68,10 +68,10 @@ data DefineSuggester = DefineSuggester'
 
 -- | 'DefineSuggester' smart constructor.
 defineSuggester :: Text -> Suggester -> DefineSuggester
-defineSuggester pDomainName pSuggester =
+defineSuggester pDomainName_ pSuggester_ =
     DefineSuggester'
-    { _defrqDomainName = pDomainName
-    , _defrqSuggester = pSuggester
+    { _defrqDomainName = pDomainName_
+    , _defrqSuggester = pSuggester_
     }
 
 -- | FIXME: Undocumented member.
@@ -123,10 +123,10 @@ data DefineSuggesterResponse = DefineSuggesterResponse'
 
 -- | 'DefineSuggesterResponse' smart constructor.
 defineSuggesterResponse :: Int -> SuggesterStatus -> DefineSuggesterResponse
-defineSuggesterResponse pStatus pSuggester =
+defineSuggesterResponse pStatus_ pSuggester_ =
     DefineSuggesterResponse'
-    { _dsrsStatus = pStatus
-    , _dsrsSuggester = pSuggester
+    { _dsrsStatus = pStatus_
+    , _dsrsSuggester = pSuggester_
     }
 
 -- | FIXME: Undocumented member.

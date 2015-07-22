@@ -59,9 +59,9 @@ newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
 
 -- | 'DeleteDeliveryChannel' smart constructor.
 deleteDeliveryChannel :: Text -> DeleteDeliveryChannel
-deleteDeliveryChannel pDeliveryChannelName =
+deleteDeliveryChannel pDeliveryChannelName_ =
     DeleteDeliveryChannel'
-    { _ddcrqDeliveryChannelName = pDeliveryChannelName
+    { _ddcrqDeliveryChannelName = pDeliveryChannelName_
     }
 
 -- | The name of the delivery channel to delete.

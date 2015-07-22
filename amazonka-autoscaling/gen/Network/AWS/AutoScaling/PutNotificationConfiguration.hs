@@ -67,10 +67,10 @@ data PutNotificationConfiguration = PutNotificationConfiguration'
 
 -- | 'PutNotificationConfiguration' smart constructor.
 putNotificationConfiguration :: Text -> Text -> PutNotificationConfiguration
-putNotificationConfiguration pAutoScalingGroupName pTopicARN =
+putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
     PutNotificationConfiguration'
-    { _pncrqAutoScalingGroupName = pAutoScalingGroupName
-    , _pncrqTopicARN = pTopicARN
+    { _pncrqAutoScalingGroupName = pAutoScalingGroupName_
+    , _pncrqTopicARN = pTopicARN_
     , _pncrqNotificationTypes = mempty
     }
 

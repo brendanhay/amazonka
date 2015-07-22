@@ -81,14 +81,14 @@ data CreateVPCEndpoint = CreateVPCEndpoint'
 
 -- | 'CreateVPCEndpoint' smart constructor.
 createVPCEndpoint :: Text -> Text -> CreateVPCEndpoint
-createVPCEndpoint pVPCId pServiceName =
+createVPCEndpoint pVPCId_ pServiceName_ =
     CreateVPCEndpoint'
     { _cverqPolicyDocument = Nothing
     , _cverqClientToken = Nothing
     , _cverqDryRun = Nothing
     , _cverqRouteTableIds = Nothing
-    , _cverqVPCId = pVPCId
-    , _cverqServiceName = pServiceName
+    , _cverqVPCId = pVPCId_
+    , _cverqServiceName = pServiceName_
     }
 
 -- | A policy to attach to the endpoint that controls access to the service.
@@ -171,11 +171,11 @@ data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
 
 -- | 'CreateVPCEndpointResponse' smart constructor.
 createVPCEndpointResponse :: Int -> CreateVPCEndpointResponse
-createVPCEndpointResponse pStatus =
+createVPCEndpointResponse pStatus_ =
     CreateVPCEndpointResponse'
     { _cversClientToken = Nothing
     , _cversVPCEndpoint = Nothing
-    , _cversStatus = pStatus
+    , _cversStatus = pStatus_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency

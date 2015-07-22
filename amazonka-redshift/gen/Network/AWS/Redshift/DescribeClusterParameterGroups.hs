@@ -214,11 +214,11 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
 
 -- | 'DescribeClusterParameterGroupsResponse' smart constructor.
 describeClusterParameterGroupsResponse :: Int -> DescribeClusterParameterGroupsResponse
-describeClusterParameterGroupsResponse pStatus =
+describeClusterParameterGroupsResponse pStatus_ =
     DescribeClusterParameterGroupsResponse'
     { _dcpgrsMarker = Nothing
     , _dcpgrsParameterGroups = Nothing
-    , _dcpgrsStatus = pStatus
+    , _dcpgrsStatus = pStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response

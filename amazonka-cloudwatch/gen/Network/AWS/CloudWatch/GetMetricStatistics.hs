@@ -111,16 +111,16 @@ data GetMetricStatistics = GetMetricStatistics'
 
 -- | 'GetMetricStatistics' smart constructor.
 getMetricStatistics :: Text -> Text -> UTCTime -> UTCTime -> Natural -> NonEmpty Statistic -> GetMetricStatistics
-getMetricStatistics pNamespace pMetricName pStartTime pEndTime pPeriod pStatistics =
+getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ pStatistics_ =
     GetMetricStatistics'
     { _gmsrqDimensions = Nothing
     , _gmsrqUnit = Nothing
-    , _gmsrqNamespace = pNamespace
-    , _gmsrqMetricName = pMetricName
-    , _gmsrqStartTime = _Time # pStartTime
-    , _gmsrqEndTime = _Time # pEndTime
-    , _gmsrqPeriod = _Nat # pPeriod
-    , _gmsrqStatistics = _List1 # pStatistics
+    , _gmsrqNamespace = pNamespace_
+    , _gmsrqMetricName = pMetricName_
+    , _gmsrqStartTime = _Time # pStartTime_
+    , _gmsrqEndTime = _Time # pEndTime_
+    , _gmsrqPeriod = _Nat # pPeriod_
+    , _gmsrqStatistics = _List1 # pStatistics_
     }
 
 -- | A list of dimensions describing qualities of the metric.
@@ -219,11 +219,11 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
 
 -- | 'GetMetricStatisticsResponse' smart constructor.
 getMetricStatisticsResponse :: Int -> GetMetricStatisticsResponse
-getMetricStatisticsResponse pStatus =
+getMetricStatisticsResponse pStatus_ =
     GetMetricStatisticsResponse'
     { _gmsrsDatapoints = Nothing
     , _gmsrsLabel = Nothing
-    , _gmsrsStatus = pStatus
+    , _gmsrsStatus = pStatus_
     }
 
 -- | The datapoints for the specified metric.

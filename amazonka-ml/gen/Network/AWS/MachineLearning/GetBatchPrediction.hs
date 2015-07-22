@@ -65,9 +65,9 @@ newtype GetBatchPrediction = GetBatchPrediction'
 
 -- | 'GetBatchPrediction' smart constructor.
 getBatchPrediction :: Text -> GetBatchPrediction
-getBatchPrediction pBatchPredictionId =
+getBatchPrediction pBatchPredictionId_ =
     GetBatchPrediction'
-    { _gbprqBatchPredictionId = pBatchPredictionId
+    { _gbprqBatchPredictionId = pBatchPredictionId_
     }
 
 -- | An ID assigned to the @BatchPrediction@ at creation.
@@ -163,7 +163,7 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
 
 -- | 'GetBatchPredictionResponse' smart constructor.
 getBatchPredictionResponse :: Int -> GetBatchPredictionResponse
-getBatchPredictionResponse pStatus =
+getBatchPredictionResponse pStatus_ =
     GetBatchPredictionResponse'
     { _gbprsLastUpdatedAt = Nothing
     , _gbprsCreatedAt = Nothing
@@ -176,7 +176,7 @@ getBatchPredictionResponse pStatus =
     , _gbprsLogURI = Nothing
     , _gbprsMessage = Nothing
     , _gbprsOutputURI = Nothing
-    , _gbprsStatus = pStatus
+    , _gbprsStatus = pStatus_
     }
 
 -- | The time of the most recent edit to @BatchPrediction@. The time is

@@ -59,9 +59,9 @@ newtype GetEndpointAttributes = GetEndpointAttributes'
 
 -- | 'GetEndpointAttributes' smart constructor.
 getEndpointAttributes :: Text -> GetEndpointAttributes
-getEndpointAttributes pEndpointARN =
+getEndpointAttributes pEndpointARN_ =
     GetEndpointAttributes'
-    { _gearqEndpointARN = pEndpointARN
+    { _gearqEndpointARN = pEndpointARN_
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
@@ -110,10 +110,10 @@ data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
 
 -- | 'GetEndpointAttributesResponse' smart constructor.
 getEndpointAttributesResponse :: Int -> GetEndpointAttributesResponse
-getEndpointAttributesResponse pStatus =
+getEndpointAttributesResponse pStatus_ =
     GetEndpointAttributesResponse'
     { _gearsAttributes = Nothing
-    , _gearsStatus = pStatus
+    , _gearsStatus = pStatus_
     }
 
 -- | Attributes include the following:

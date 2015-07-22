@@ -167,10 +167,10 @@ data DescribeSubnetsResponse = DescribeSubnetsResponse'
 
 -- | 'DescribeSubnetsResponse' smart constructor.
 describeSubnetsResponse :: Int -> DescribeSubnetsResponse
-describeSubnetsResponse pStatus =
+describeSubnetsResponse pStatus_ =
     DescribeSubnetsResponse'
     { _dsrsSubnets = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | Information about one or more subnets.

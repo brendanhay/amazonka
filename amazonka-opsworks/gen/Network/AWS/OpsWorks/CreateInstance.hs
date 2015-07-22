@@ -125,7 +125,7 @@ data CreateInstance = CreateInstance'
 
 -- | 'CreateInstance' smart constructor.
 createInstance :: Text -> Text -> CreateInstance
-createInstance pStackId pInstanceType =
+createInstance pStackId_ pInstanceType_ =
     CreateInstance'
     { _cirqInstallUpdatesOnBoot = Nothing
     , _cirqVirtualizationType = Nothing
@@ -141,9 +141,9 @@ createInstance pStackId pInstanceType =
     , _cirqAMIId = Nothing
     , _cirqBlockDeviceMappings = Nothing
     , _cirqRootDeviceType = Nothing
-    , _cirqStackId = pStackId
+    , _cirqStackId = pStackId_
     , _cirqLayerIds = mempty
-    , _cirqInstanceType = pInstanceType
+    , _cirqInstanceType = pInstanceType_
     }
 
 -- | Whether to install operating system and package updates when the
@@ -332,10 +332,10 @@ data CreateInstanceResponse = CreateInstanceResponse'
 
 -- | 'CreateInstanceResponse' smart constructor.
 createInstanceResponse :: Int -> CreateInstanceResponse
-createInstanceResponse pStatus =
+createInstanceResponse pStatus_ =
     CreateInstanceResponse'
     { _cirsInstanceId = Nothing
-    , _cirsStatus = pStatus
+    , _cirsStatus = pStatus_
     }
 
 -- | The instance ID.

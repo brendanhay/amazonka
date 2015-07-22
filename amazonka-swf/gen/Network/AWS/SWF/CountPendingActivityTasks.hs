@@ -81,10 +81,10 @@ data CountPendingActivityTasks = CountPendingActivityTasks'
 
 -- | 'CountPendingActivityTasks' smart constructor.
 countPendingActivityTasks :: Text -> TaskList -> CountPendingActivityTasks
-countPendingActivityTasks pDomain pTaskList =
+countPendingActivityTasks pDomain_ pTaskList_ =
     CountPendingActivityTasks'
-    { _cpatrqDomain = pDomain
-    , _cpatrqTaskList = pTaskList
+    { _cpatrqDomain = pDomain_
+    , _cpatrqTaskList = pTaskList_
     }
 
 -- | The name of the domain that contains the task list.

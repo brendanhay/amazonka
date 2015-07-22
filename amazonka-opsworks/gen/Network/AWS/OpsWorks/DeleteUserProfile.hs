@@ -56,9 +56,9 @@ newtype DeleteUserProfile = DeleteUserProfile'
 
 -- | 'DeleteUserProfile' smart constructor.
 deleteUserProfile :: Text -> DeleteUserProfile
-deleteUserProfile pIAMUserARN =
+deleteUserProfile pIAMUserARN_ =
     DeleteUserProfile'
-    { _duprqIAMUserARN = pIAMUserARN
+    { _duprqIAMUserARN = pIAMUserARN_
     }
 
 -- | The user\'s IAM ARN.

@@ -80,10 +80,10 @@ data GetVaultNotifications = GetVaultNotifications'
 
 -- | 'GetVaultNotifications' smart constructor.
 getVaultNotifications :: Text -> Text -> GetVaultNotifications
-getVaultNotifications pAccountId pVaultName =
+getVaultNotifications pAccountId_ pVaultName_ =
     GetVaultNotifications'
-    { _gvnrqAccountId = pAccountId
-    , _gvnrqVaultName = pVaultName
+    { _gvnrqAccountId = pAccountId_
+    , _gvnrqVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -139,10 +139,10 @@ data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
 
 -- | 'GetVaultNotificationsResponse' smart constructor.
 getVaultNotificationsResponse :: Int -> GetVaultNotificationsResponse
-getVaultNotificationsResponse pStatus =
+getVaultNotificationsResponse pStatus_ =
     GetVaultNotificationsResponse'
     { _gvnrsVaultNotificationConfig = Nothing
-    , _gvnrsStatus = pStatus
+    , _gvnrsStatus = pStatus_
     }
 
 -- | Returns the notification configuration set on the vault.

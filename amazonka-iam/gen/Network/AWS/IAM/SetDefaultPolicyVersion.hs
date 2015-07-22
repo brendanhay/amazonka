@@ -64,10 +64,10 @@ data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
 
 -- | 'SetDefaultPolicyVersion' smart constructor.
 setDefaultPolicyVersion :: Text -> Text -> SetDefaultPolicyVersion
-setDefaultPolicyVersion pPolicyARN pVersionId =
+setDefaultPolicyVersion pPolicyARN_ pVersionId_ =
     SetDefaultPolicyVersion'
-    { _sdpvrqPolicyARN = pPolicyARN
-    , _sdpvrqVersionId = pVersionId
+    { _sdpvrqPolicyARN = pPolicyARN_
+    , _sdpvrqVersionId = pVersionId_
     }
 
 -- | FIXME: Undocumented member.

@@ -94,9 +94,9 @@ data GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'
 
 -- | 'GetCheckerIPRangesResponse' smart constructor.
 getCheckerIPRangesResponse :: Int -> GetCheckerIPRangesResponse
-getCheckerIPRangesResponse pStatus =
+getCheckerIPRangesResponse pStatus_ =
     GetCheckerIPRangesResponse'
-    { _gcirrsStatus = pStatus
+    { _gcirrsStatus = pStatus_
     , _gcirrsCheckerIPRanges = mempty
     }
 

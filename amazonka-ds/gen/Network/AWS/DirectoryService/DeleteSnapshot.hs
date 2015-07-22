@@ -56,9 +56,9 @@ newtype DeleteSnapshot = DeleteSnapshot'
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
-deleteSnapshot pSnapshotId =
+deleteSnapshot pSnapshotId_ =
     DeleteSnapshot'
-    { _dsrqSnapshotId = pSnapshotId
+    { _dsrqSnapshotId = pSnapshotId_
     }
 
 -- | The identifier of the directory snapshot to be deleted.
@@ -111,10 +111,10 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse'
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
-deleteSnapshotResponse pStatus =
+deleteSnapshotResponse pStatus_ =
     DeleteSnapshotResponse'
     { _dsrsSnapshotId = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | The identifier of the directory snapshot that was deleted.

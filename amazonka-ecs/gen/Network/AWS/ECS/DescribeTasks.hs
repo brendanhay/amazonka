@@ -126,11 +126,11 @@ data DescribeTasksResponse = DescribeTasksResponse'
 
 -- | 'DescribeTasksResponse' smart constructor.
 describeTasksResponse :: Int -> DescribeTasksResponse
-describeTasksResponse pStatus =
+describeTasksResponse pStatus_ =
     DescribeTasksResponse'
     { _dtrsFailures = Nothing
     , _dtrsTasks = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

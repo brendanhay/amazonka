@@ -129,13 +129,13 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
 
 -- | 'AssumeRoleWithSAML' smart constructor.
 assumeRoleWithSAML :: Text -> Text -> Text -> AssumeRoleWithSAML
-assumeRoleWithSAML pRoleARN pPrincipalARN pSAMLAssertion =
+assumeRoleWithSAML pRoleARN_ pPrincipalARN_ pSAMLAssertion_ =
     AssumeRoleWithSAML'
     { _arwsamlrqDurationSeconds = Nothing
     , _arwsamlrqPolicy = Nothing
-    , _arwsamlrqRoleARN = pRoleARN
-    , _arwsamlrqPrincipalARN = pPrincipalARN
-    , _arwsamlrqSAMLAssertion = pSAMLAssertion
+    , _arwsamlrqRoleARN = pRoleARN_
+    , _arwsamlrqPrincipalARN = pPrincipalARN_
+    , _arwsamlrqSAMLAssertion = pSAMLAssertion_
     }
 
 -- | The duration, in seconds, of the role session. The value can range from
@@ -261,7 +261,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
 
 -- | 'AssumeRoleWithSAMLResponse' smart constructor.
 assumeRoleWithSAMLResponse :: Int -> AssumeRoleWithSAMLResponse
-assumeRoleWithSAMLResponse pStatus =
+assumeRoleWithSAMLResponse pStatus_ =
     AssumeRoleWithSAMLResponse'
     { _arwsamlrsAudience = Nothing
     , _arwsamlrsSubject = Nothing
@@ -271,7 +271,7 @@ assumeRoleWithSAMLResponse pStatus =
     , _arwsamlrsNameQualifier = Nothing
     , _arwsamlrsAssumedRoleUser = Nothing
     , _arwsamlrsIssuer = Nothing
-    , _arwsamlrsStatus = pStatus
+    , _arwsamlrsStatus = pStatus_
     }
 
 -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@

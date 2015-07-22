@@ -71,12 +71,12 @@ data CreateInstanceExportTask = CreateInstanceExportTask'
 
 -- | 'CreateInstanceExportTask' smart constructor.
 createInstanceExportTask :: Text -> CreateInstanceExportTask
-createInstanceExportTask pInstanceId =
+createInstanceExportTask pInstanceId_ =
     CreateInstanceExportTask'
     { _cietrqTargetEnvironment = Nothing
     , _cietrqExportToS3Task = Nothing
     , _cietrqDescription = Nothing
-    , _cietrqInstanceId = pInstanceId
+    , _cietrqInstanceId = pInstanceId_
     }
 
 -- | The target virtualization environment.
@@ -138,10 +138,10 @@ data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
 
 -- | 'CreateInstanceExportTaskResponse' smart constructor.
 createInstanceExportTaskResponse :: Int -> CreateInstanceExportTaskResponse
-createInstanceExportTaskResponse pStatus =
+createInstanceExportTaskResponse pStatus_ =
     CreateInstanceExportTaskResponse'
     { _cietrsExportTask = Nothing
-    , _cietrsStatus = pStatus
+    , _cietrsStatus = pStatus_
     }
 
 -- | Information about the instance export task.

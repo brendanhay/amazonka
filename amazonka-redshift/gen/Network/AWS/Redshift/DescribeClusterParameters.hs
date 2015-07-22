@@ -80,12 +80,12 @@ data DescribeClusterParameters = DescribeClusterParameters'
 
 -- | 'DescribeClusterParameters' smart constructor.
 describeClusterParameters :: Text -> DescribeClusterParameters
-describeClusterParameters pParameterGroupName =
+describeClusterParameters pParameterGroupName_ =
     DescribeClusterParameters'
     { _dcprqMaxRecords = Nothing
     , _dcprqMarker = Nothing
     , _dcprqSource = Nothing
-    , _dcprqParameterGroupName = pParameterGroupName
+    , _dcprqParameterGroupName = pParameterGroupName_
     }
 
 -- | The maximum number of response records to return in each call. If the
@@ -179,11 +179,11 @@ data DescribeClusterParametersResponse = DescribeClusterParametersResponse'
 
 -- | 'DescribeClusterParametersResponse' smart constructor.
 describeClusterParametersResponse :: Int -> DescribeClusterParametersResponse
-describeClusterParametersResponse pStatus =
+describeClusterParametersResponse pStatus_ =
     DescribeClusterParametersResponse'
     { _dcprsParameters = Nothing
     , _dcprsMarker = Nothing
-    , _dcprsStatus = pStatus
+    , _dcprsStatus = pStatus_
     }
 
 -- | A list of Parameter instances. Each instance lists the parameters of one

@@ -45,7 +45,5 @@ import           Network.AWS.CloudTrail.LookupEvents   as Export
 import           Network.AWS.CloudTrail.StartLogging   as Export
 import           Network.AWS.CloudTrail.StopLogging    as Export
 import           Network.AWS.CloudTrail.Types          as Export
-import           Network.AWS.CloudTrail.Types.Product  as Export
-import           Network.AWS.CloudTrail.Types.Sum      as Export
 import           Network.AWS.CloudTrail.UpdateTrail    as Export
 import           Network.AWS.CloudTrail.Waiters        as Export

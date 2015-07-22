@@ -93,7 +93,7 @@ data RegisterInstance = RegisterInstance'
 
 -- | 'RegisterInstance' smart constructor.
 registerInstance :: Text -> RegisterInstance
-registerInstance pStackId =
+registerInstance pStackId_ =
     RegisterInstance'
     { _rirqPrivateIP = Nothing
     , _rirqHostname = Nothing
@@ -101,7 +101,7 @@ registerInstance pStackId =
     , _rirqPublicIP = Nothing
     , _rirqRsaPublicKeyFingerprint = Nothing
     , _rirqRsaPublicKey = Nothing
-    , _rirqStackId = pStackId
+    , _rirqStackId = pStackId_
     }
 
 -- | The instance\'s private IP address.
@@ -186,10 +186,10 @@ data RegisterInstanceResponse = RegisterInstanceResponse'
 
 -- | 'RegisterInstanceResponse' smart constructor.
 registerInstanceResponse :: Int -> RegisterInstanceResponse
-registerInstanceResponse pStatus =
+registerInstanceResponse pStatus_ =
     RegisterInstanceResponse'
     { _rirsInstanceId = Nothing
-    , _rirsStatus = pStatus
+    , _rirsStatus = pStatus_
     }
 
 -- | The registered instance\'s AWS OpsWorks ID.

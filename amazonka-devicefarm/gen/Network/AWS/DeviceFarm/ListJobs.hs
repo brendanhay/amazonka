@@ -61,10 +61,10 @@ data ListJobs = ListJobs'
 
 -- | 'ListJobs' smart constructor.
 listJobs :: Text -> ListJobs
-listJobs pArn =
+listJobs pArn_ =
     ListJobs'
     { _ljrqNextToken = Nothing
-    , _ljrqArn = pArn
+    , _ljrqArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -127,11 +127,11 @@ data ListJobsResponse = ListJobsResponse'
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
-listJobsResponse pStatus =
+listJobsResponse pStatus_ =
     ListJobsResponse'
     { _ljrsJobs = Nothing
     , _ljrsNextToken = Nothing
-    , _ljrsStatus = pStatus
+    , _ljrsStatus = pStatus_
     }
 
 -- | Information about the jobs.

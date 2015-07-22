@@ -58,9 +58,9 @@ newtype StartInstance = StartInstance'
 
 -- | 'StartInstance' smart constructor.
 startInstance :: Text -> StartInstance
-startInstance pInstanceId =
+startInstance pInstanceId_ =
     StartInstance'
-    { _srqInstanceId = pInstanceId
+    { _srqInstanceId = pInstanceId_
     }
 
 -- | The instance ID.

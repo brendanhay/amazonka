@@ -61,10 +61,10 @@ data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
 
 -- | 'ModifySnapshotCopyRetentionPeriod' smart constructor.
 modifySnapshotCopyRetentionPeriod :: Text -> Int -> ModifySnapshotCopyRetentionPeriod
-modifySnapshotCopyRetentionPeriod pClusterIdentifier pRetentionPeriod =
+modifySnapshotCopyRetentionPeriod pClusterIdentifier_ pRetentionPeriod_ =
     ModifySnapshotCopyRetentionPeriod'
-    { _mscrprqClusterIdentifier = pClusterIdentifier
-    , _mscrprqRetentionPeriod = pRetentionPeriod
+    { _mscrprqClusterIdentifier = pClusterIdentifier_
+    , _mscrprqRetentionPeriod = pRetentionPeriod_
     }
 
 -- | The unique identifier of the cluster for which you want to change the
@@ -133,10 +133,10 @@ data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeri
 
 -- | 'ModifySnapshotCopyRetentionPeriodResponse' smart constructor.
 modifySnapshotCopyRetentionPeriodResponse :: Int -> ModifySnapshotCopyRetentionPeriodResponse
-modifySnapshotCopyRetentionPeriodResponse pStatus =
+modifySnapshotCopyRetentionPeriodResponse pStatus_ =
     ModifySnapshotCopyRetentionPeriodResponse'
     { _mscrprsCluster = Nothing
-    , _mscrprsStatus = pStatus
+    , _mscrprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

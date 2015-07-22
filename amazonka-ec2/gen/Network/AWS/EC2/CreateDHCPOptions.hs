@@ -151,10 +151,10 @@ data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
 
 -- | 'CreateDHCPOptionsResponse' smart constructor.
 createDHCPOptionsResponse :: Int -> CreateDHCPOptionsResponse
-createDHCPOptionsResponse pStatus =
+createDHCPOptionsResponse pStatus_ =
     CreateDHCPOptionsResponse'
     { _cdorsDHCPOptions = Nothing
-    , _cdorsStatus = pStatus
+    , _cdorsStatus = pStatus_
     }
 
 -- | A set of DHCP options.

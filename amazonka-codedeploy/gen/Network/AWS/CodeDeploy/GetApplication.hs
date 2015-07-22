@@ -56,9 +56,9 @@ newtype GetApplication = GetApplication'
 
 -- | 'GetApplication' smart constructor.
 getApplication :: Text -> GetApplication
-getApplication pApplicationName =
+getApplication pApplicationName_ =
     GetApplication'
-    { _garqApplicationName = pApplicationName
+    { _garqApplicationName = pApplicationName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
@@ -111,10 +111,10 @@ data GetApplicationResponse = GetApplicationResponse'
 
 -- | 'GetApplicationResponse' smart constructor.
 getApplicationResponse :: Int -> GetApplicationResponse
-getApplicationResponse pStatus =
+getApplicationResponse pStatus_ =
     GetApplicationResponse'
     { _garsApplication = Nothing
-    , _garsStatus = pStatus
+    , _garsStatus = pStatus_
     }
 
 -- | Information about the application.

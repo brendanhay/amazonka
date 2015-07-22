@@ -142,10 +142,10 @@ data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
 describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
-describePlacementGroupsResponse pStatus =
+describePlacementGroupsResponse pStatus_ =
     DescribePlacementGroupsResponse'
     { _dpgrsPlacementGroups = Nothing
-    , _dpgrsStatus = pStatus
+    , _dpgrsStatus = pStatus_
     }
 
 -- | One or more placement groups.

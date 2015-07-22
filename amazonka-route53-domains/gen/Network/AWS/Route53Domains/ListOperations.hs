@@ -155,10 +155,10 @@ data ListOperationsResponse = ListOperationsResponse'
 
 -- | 'ListOperationsResponse' smart constructor.
 listOperationsResponse :: Int -> ListOperationsResponse
-listOperationsResponse pStatus =
+listOperationsResponse pStatus_ =
     ListOperationsResponse'
     { _lorsNextPageMarker = Nothing
-    , _lorsStatus = pStatus
+    , _lorsStatus = pStatus_
     , _lorsOperations = mempty
     }
 

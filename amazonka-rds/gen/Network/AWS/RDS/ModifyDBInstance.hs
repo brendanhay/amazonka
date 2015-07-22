@@ -142,7 +142,7 @@ data ModifyDBInstance = ModifyDBInstance'
 
 -- | 'ModifyDBInstance' smart constructor.
 modifyDBInstance :: Text -> ModifyDBInstance
-modifyDBInstance pDBInstanceIdentifier =
+modifyDBInstance pDBInstanceIdentifier_ =
     ModifyDBInstance'
     { _mdirqDBSecurityGroups = Nothing
     , _mdirqEngineVersion = Nothing
@@ -165,7 +165,7 @@ modifyDBInstance pDBInstanceIdentifier =
     , _mdirqTDECredentialARN = Nothing
     , _mdirqOptionGroupName = Nothing
     , _mdirqStorageType = Nothing
-    , _mdirqDBInstanceIdentifier = pDBInstanceIdentifier
+    , _mdirqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | A list of DB security groups to authorize on this DB instance. Changing
@@ -602,10 +602,10 @@ data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
 
 -- | 'ModifyDBInstanceResponse' smart constructor.
 modifyDBInstanceResponse :: Int -> ModifyDBInstanceResponse
-modifyDBInstanceResponse pStatus =
+modifyDBInstanceResponse pStatus_ =
     ModifyDBInstanceResponse'
     { _mdirsDBInstance = Nothing
-    , _mdirsStatus = pStatus
+    , _mdirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

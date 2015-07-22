@@ -101,10 +101,10 @@ data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
 
 -- | 'DescribeMyUserProfileResponse' smart constructor.
 describeMyUserProfileResponse :: Int -> DescribeMyUserProfileResponse
-describeMyUserProfileResponse pStatus =
+describeMyUserProfileResponse pStatus_ =
     DescribeMyUserProfileResponse'
     { _dmuprsUserProfile = Nothing
-    , _dmuprsStatus = pStatus
+    , _dmuprsStatus = pStatus_
     }
 
 -- | A @UserProfile@ object that describes the user\'s SSH information.

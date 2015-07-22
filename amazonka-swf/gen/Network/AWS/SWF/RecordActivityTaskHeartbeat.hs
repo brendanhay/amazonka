@@ -105,10 +105,10 @@ data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'
 
 -- | 'RecordActivityTaskHeartbeat' smart constructor.
 recordActivityTaskHeartbeat :: Text -> RecordActivityTaskHeartbeat
-recordActivityTaskHeartbeat pTaskToken =
+recordActivityTaskHeartbeat pTaskToken_ =
     RecordActivityTaskHeartbeat'
     { _rathrqDetails = Nothing
-    , _rathrqTaskToken = pTaskToken
+    , _rathrqTaskToken = pTaskToken_
     }
 
 -- | If specified, contains details about the progress of the task.
@@ -173,10 +173,10 @@ data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
 
 -- | 'RecordActivityTaskHeartbeatResponse' smart constructor.
 recordActivityTaskHeartbeatResponse :: Int -> Bool -> RecordActivityTaskHeartbeatResponse
-recordActivityTaskHeartbeatResponse pStatus pCancelRequested =
+recordActivityTaskHeartbeatResponse pStatus_ pCancelRequested_ =
     RecordActivityTaskHeartbeatResponse'
-    { _rathrsStatus = pStatus
-    , _rathrsCancelRequested = pCancelRequested
+    { _rathrsStatus = pStatus_
+    , _rathrsCancelRequested = pCancelRequested_
     }
 
 -- | FIXME: Undocumented member.

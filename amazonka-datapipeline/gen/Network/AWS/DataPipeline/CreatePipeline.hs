@@ -69,12 +69,12 @@ data CreatePipeline = CreatePipeline'
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> CreatePipeline
-createPipeline pName pUniqueId =
+createPipeline pName_ pUniqueId_ =
     CreatePipeline'
     { _cprqDescription = Nothing
     , _cprqTags = Nothing
-    , _cprqName = pName
-    , _cprqUniqueId = pUniqueId
+    , _cprqName = pName_
+    , _cprqUniqueId = pUniqueId_
     }
 
 -- | The description for the pipeline.
@@ -157,10 +157,10 @@ data CreatePipelineResponse = CreatePipelineResponse'
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> Text -> CreatePipelineResponse
-createPipelineResponse pStatus pPipelineId =
+createPipelineResponse pStatus_ pPipelineId_ =
     CreatePipelineResponse'
-    { _cprsStatus = pStatus
-    , _cprsPipelineId = pPipelineId
+    { _cprsStatus = pStatus_
+    , _cprsPipelineId = pPipelineId_
     }
 
 -- | FIXME: Undocumented member.

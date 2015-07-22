@@ -66,11 +66,11 @@ data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
 
 -- | 'ReplaceNetworkACLAssociation' smart constructor.
 replaceNetworkACLAssociation :: Text -> Text -> ReplaceNetworkACLAssociation
-replaceNetworkACLAssociation pAssociationId pNetworkACLId =
+replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
     ReplaceNetworkACLAssociation'
     { _rnaarqDryRun = Nothing
-    , _rnaarqAssociationId = pAssociationId
-    , _rnaarqNetworkACLId = pNetworkACLId
+    , _rnaarqAssociationId = pAssociationId_
+    , _rnaarqNetworkACLId = pNetworkACLId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -131,10 +131,10 @@ data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse
 
 -- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
 replaceNetworkACLAssociationResponse :: Int -> ReplaceNetworkACLAssociationResponse
-replaceNetworkACLAssociationResponse pStatus =
+replaceNetworkACLAssociationResponse pStatus_ =
     ReplaceNetworkACLAssociationResponse'
     { _rnaarsNewAssociationId = Nothing
-    , _rnaarsStatus = pStatus
+    , _rnaarsStatus = pStatus_
     }
 
 -- | The ID of the new association.

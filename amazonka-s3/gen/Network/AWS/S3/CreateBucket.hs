@@ -82,7 +82,7 @@ data CreateBucket = CreateBucket'
 
 -- | 'CreateBucket' smart constructor.
 createBucket :: BucketName -> CreateBucket
-createBucket pBucket =
+createBucket pBucket_ =
     CreateBucket'
     { _cbrqGrantReadACP = Nothing
     , _cbrqGrantWriteACP = Nothing
@@ -91,7 +91,7 @@ createBucket pBucket =
     , _cbrqCreateBucketConfiguration = Nothing
     , _cbrqGrantWrite = Nothing
     , _cbrqACL = Nothing
-    , _cbrqBucket = pBucket
+    , _cbrqBucket = pBucket_
     }
 
 -- | Allows grantee to read the bucket ACL.
@@ -176,10 +176,10 @@ data CreateBucketResponse = CreateBucketResponse'
 
 -- | 'CreateBucketResponse' smart constructor.
 createBucketResponse :: Int -> CreateBucketResponse
-createBucketResponse pStatus =
+createBucketResponse pStatus_ =
     CreateBucketResponse'
     { _cbrsLocation = Nothing
-    , _cbrsStatus = pStatus
+    , _cbrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

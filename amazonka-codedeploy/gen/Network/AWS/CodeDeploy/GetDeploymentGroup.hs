@@ -60,10 +60,10 @@ data GetDeploymentGroup = GetDeploymentGroup'
 
 -- | 'GetDeploymentGroup' smart constructor.
 getDeploymentGroup :: Text -> Text -> GetDeploymentGroup
-getDeploymentGroup pApplicationName pDeploymentGroupName =
+getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     GetDeploymentGroup'
-    { _gdgrqApplicationName = pApplicationName
-    , _gdgrqDeploymentGroupName = pDeploymentGroupName
+    { _gdgrqApplicationName = pApplicationName_
+    , _gdgrqDeploymentGroupName = pDeploymentGroupName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
@@ -125,10 +125,10 @@ data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
 
 -- | 'GetDeploymentGroupResponse' smart constructor.
 getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse
-getDeploymentGroupResponse pStatus =
+getDeploymentGroupResponse pStatus_ =
     GetDeploymentGroupResponse'
     { _gdgrsDeploymentGroupInfo = Nothing
-    , _gdgrsStatus = pStatus
+    , _gdgrsStatus = pStatus_
     }
 
 -- | Information about the deployment group.

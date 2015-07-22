@@ -70,11 +70,11 @@ data ActivatePipeline = ActivatePipeline'
 
 -- | 'ActivatePipeline' smart constructor.
 activatePipeline :: Text -> ActivatePipeline
-activatePipeline pPipelineId =
+activatePipeline pPipelineId_ =
     ActivatePipeline'
     { _aprqStartTimestamp = Nothing
     , _aprqParameterValues = Nothing
-    , _aprqPipelineId = pPipelineId
+    , _aprqPipelineId = pPipelineId_
     }
 
 -- | The date and time to resume the pipeline. By default, the pipeline
@@ -134,9 +134,9 @@ newtype ActivatePipelineResponse = ActivatePipelineResponse'
 
 -- | 'ActivatePipelineResponse' smart constructor.
 activatePipelineResponse :: Int -> ActivatePipelineResponse
-activatePipelineResponse pStatus =
+activatePipelineResponse pStatus_ =
     ActivatePipelineResponse'
-    { _aprsStatus = pStatus
+    { _aprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

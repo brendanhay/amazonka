@@ -102,12 +102,12 @@ data GetSendQuotaResponse = GetSendQuotaResponse'
 
 -- | 'GetSendQuotaResponse' smart constructor.
 getSendQuotaResponse :: Int -> GetSendQuotaResponse
-getSendQuotaResponse pStatus =
+getSendQuotaResponse pStatus_ =
     GetSendQuotaResponse'
     { _gsqrsMaxSendRate = Nothing
     , _gsqrsSentLast24Hours = Nothing
     , _gsqrsMax24HourSend = Nothing
-    , _gsqrsStatus = pStatus
+    , _gsqrsStatus = pStatus_
     }
 
 -- | The maximum number of emails that Amazon SES can accept from the user\'s

@@ -64,10 +64,10 @@ data RequestSpotFleet = RequestSpotFleet'
 
 -- | 'RequestSpotFleet' smart constructor.
 requestSpotFleet :: SpotFleetRequestConfigData -> RequestSpotFleet
-requestSpotFleet pSpotFleetRequestConfig =
+requestSpotFleet pSpotFleetRequestConfig_ =
     RequestSpotFleet'
     { _rsfrqDryRun = Nothing
-    , _rsfrqSpotFleetRequestConfig = pSpotFleetRequestConfig
+    , _rsfrqSpotFleetRequestConfig = pSpotFleetRequestConfig_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -122,10 +122,10 @@ data RequestSpotFleetResponse = RequestSpotFleetResponse'
 
 -- | 'RequestSpotFleetResponse' smart constructor.
 requestSpotFleetResponse :: Int -> Text -> RequestSpotFleetResponse
-requestSpotFleetResponse pStatus pSpotFleetRequestId =
+requestSpotFleetResponse pStatus_ pSpotFleetRequestId_ =
     RequestSpotFleetResponse'
-    { _rsfrsStatus = pStatus
-    , _rsfrsSpotFleetRequestId = pSpotFleetRequestId
+    { _rsfrsStatus = pStatus_
+    , _rsfrsSpotFleetRequestId = pSpotFleetRequestId_
     }
 
 -- | FIXME: Undocumented member.

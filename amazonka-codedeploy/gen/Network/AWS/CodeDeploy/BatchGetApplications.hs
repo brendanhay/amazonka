@@ -115,10 +115,10 @@ data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
 batchGetApplicationsResponse :: Int -> BatchGetApplicationsResponse
-batchGetApplicationsResponse pStatus =
+batchGetApplicationsResponse pStatus_ =
     BatchGetApplicationsResponse'
     { _bgarsApplicationsInfo = Nothing
-    , _bgarsStatus = pStatus
+    , _bgarsStatus = pStatus_
     }
 
 -- | Information about the applications.

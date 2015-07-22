@@ -161,10 +161,10 @@ data KeySchemaElement = KeySchemaElement'
 
 -- | 'KeySchemaElement' smart constructor.
 keySchemaElement :: Text -> KeyType -> KeySchemaElement
-keySchemaElement pAttributeName pKeyType =
+keySchemaElement pAttributeName_ pKeyType_ =
     KeySchemaElement'
-    { _kseAttributeName = pAttributeName
-    , _kseKeyType = pKeyType
+    { _kseAttributeName = pAttributeName_
+    , _kseKeyType = pKeyType_
     }
 
 -- | The name of a key attribute.

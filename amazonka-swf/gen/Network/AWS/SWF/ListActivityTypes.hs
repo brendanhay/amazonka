@@ -99,14 +99,14 @@ data ListActivityTypes = ListActivityTypes'
 
 -- | 'ListActivityTypes' smart constructor.
 listActivityTypes :: Text -> RegistrationStatus -> ListActivityTypes
-listActivityTypes pDomain pRegistrationStatus =
+listActivityTypes pDomain_ pRegistrationStatus_ =
     ListActivityTypes'
     { _latrqNextPageToken = Nothing
     , _latrqReverseOrder = Nothing
     , _latrqName = Nothing
     , _latrqMaximumPageSize = Nothing
-    , _latrqDomain = pDomain
-    , _latrqRegistrationStatus = pRegistrationStatus
+    , _latrqDomain = pDomain_
+    , _latrqRegistrationStatus = pRegistrationStatus_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -211,10 +211,10 @@ data ListActivityTypesResponse = ListActivityTypesResponse'
 
 -- | 'ListActivityTypesResponse' smart constructor.
 listActivityTypesResponse :: Int -> ListActivityTypesResponse
-listActivityTypesResponse pStatus =
+listActivityTypesResponse pStatus_ =
     ListActivityTypesResponse'
     { _latrsNextPageToken = Nothing
-    , _latrsStatus = pStatus
+    , _latrsStatus = pStatus_
     , _latrsTypeInfos = mempty
     }
 

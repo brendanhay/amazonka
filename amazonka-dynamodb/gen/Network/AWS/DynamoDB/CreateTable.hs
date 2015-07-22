@@ -97,15 +97,15 @@ data CreateTable = CreateTable'
 
 -- | 'CreateTable' smart constructor.
 createTable :: Text -> NonEmpty KeySchemaElement -> ProvisionedThroughput -> CreateTable
-createTable pTableName pKeySchema pProvisionedThroughput =
+createTable pTableName_ pKeySchema_ pProvisionedThroughput_ =
     CreateTable'
     { _ctrqGlobalSecondaryIndexes = Nothing
     , _ctrqLocalSecondaryIndexes = Nothing
     , _ctrqStreamSpecification = Nothing
     , _ctrqAttributeDefinitions = mempty
-    , _ctrqTableName = pTableName
-    , _ctrqKeySchema = _List1 # pKeySchema
-    , _ctrqProvisionedThroughput = pProvisionedThroughput
+    , _ctrqTableName = pTableName_
+    , _ctrqKeySchema = _List1 # pKeySchema_
+    , _ctrqProvisionedThroughput = pProvisionedThroughput_
     }
 
 -- | One or more global secondary indexes (the maximum is five) to be created
@@ -310,10 +310,10 @@ data CreateTableResponse = CreateTableResponse'
 
 -- | 'CreateTableResponse' smart constructor.
 createTableResponse :: Int -> CreateTableResponse
-createTableResponse pStatus =
+createTableResponse pStatus_ =
     CreateTableResponse'
     { _ctrsTableDescription = Nothing
-    , _ctrsStatus = pStatus
+    , _ctrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

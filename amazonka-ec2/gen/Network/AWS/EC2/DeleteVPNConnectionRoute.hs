@@ -58,10 +58,10 @@ data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
 
 -- | 'DeleteVPNConnectionRoute' smart constructor.
 deleteVPNConnectionRoute :: Text -> Text -> DeleteVPNConnectionRoute
-deleteVPNConnectionRoute pVPNConnectionId pDestinationCIdRBlock =
+deleteVPNConnectionRoute pVPNConnectionId_ pDestinationCIdRBlock_ =
     DeleteVPNConnectionRoute'
-    { _dvcrrqVPNConnectionId = pVPNConnectionId
-    , _dvcrrqDestinationCIdRBlock = pDestinationCIdRBlock
+    { _dvcrrqVPNConnectionId = pVPNConnectionId_
+    , _dvcrrqDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
 -- | The ID of the VPN connection.

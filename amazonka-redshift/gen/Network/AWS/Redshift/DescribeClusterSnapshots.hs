@@ -271,11 +271,11 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
 
 -- | 'DescribeClusterSnapshotsResponse' smart constructor.
 describeClusterSnapshotsResponse :: Int -> DescribeClusterSnapshotsResponse
-describeClusterSnapshotsResponse pStatus =
+describeClusterSnapshotsResponse pStatus_ =
     DescribeClusterSnapshotsResponse'
     { _dcssrsSnapshots = Nothing
     , _dcssrsMarker = Nothing
-    , _dcssrsStatus = pStatus
+    , _dcssrsStatus = pStatus_
     }
 
 -- | A list of Snapshot instances.

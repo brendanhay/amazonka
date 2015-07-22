@@ -66,10 +66,10 @@ data EnableVPCClassicLink = EnableVPCClassicLink'
 
 -- | 'EnableVPCClassicLink' smart constructor.
 enableVPCClassicLink :: Text -> EnableVPCClassicLink
-enableVPCClassicLink pVPCId =
+enableVPCClassicLink pVPCId_ =
     EnableVPCClassicLink'
     { _evclrqDryRun = Nothing
-    , _evclrqVPCId = pVPCId
+    , _evclrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -121,10 +121,10 @@ data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
 
 -- | 'EnableVPCClassicLinkResponse' smart constructor.
 enableVPCClassicLinkResponse :: Int -> EnableVPCClassicLinkResponse
-enableVPCClassicLinkResponse pStatus =
+enableVPCClassicLinkResponse pStatus_ =
     EnableVPCClassicLinkResponse'
     { _evclrsReturn = Nothing
-    , _evclrsStatus = pStatus
+    , _evclrsStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.

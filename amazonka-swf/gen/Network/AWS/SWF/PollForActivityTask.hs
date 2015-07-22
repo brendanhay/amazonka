@@ -99,11 +99,11 @@ data PollForActivityTask = PollForActivityTask'
 
 -- | 'PollForActivityTask' smart constructor.
 pollForActivityTask :: Text -> TaskList -> PollForActivityTask
-pollForActivityTask pDomain pTaskList =
+pollForActivityTask pDomain_ pTaskList_ =
     PollForActivityTask'
     { _pfatrqIdentity = Nothing
-    , _pfatrqDomain = pDomain
-    , _pfatrqTaskList = pTaskList
+    , _pfatrqDomain = pDomain_
+    , _pfatrqTaskList = pTaskList_
     }
 
 -- | Identity of the worker making the request, recorded in the
@@ -196,15 +196,15 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse'
 
 -- | 'PollForActivityTaskResponse' smart constructor.
 pollForActivityTaskResponse :: Int -> Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> PollForActivityTaskResponse
-pollForActivityTaskResponse pStatus pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType =
+pollForActivityTaskResponse pStatus_ pTaskToken_ pActivityId_ pStartedEventId_ pWorkflowExecution_ pActivityType_ =
     PollForActivityTaskResponse'
     { _pfatrsInput = Nothing
-    , _pfatrsStatus = pStatus
-    , _pfatrsTaskToken = pTaskToken
-    , _pfatrsActivityId = pActivityId
-    , _pfatrsStartedEventId = pStartedEventId
-    , _pfatrsWorkflowExecution = pWorkflowExecution
-    , _pfatrsActivityType = pActivityType
+    , _pfatrsStatus = pStatus_
+    , _pfatrsTaskToken = pTaskToken_
+    , _pfatrsActivityId = pActivityId_
+    , _pfatrsStartedEventId = pStartedEventId_
+    , _pfatrsWorkflowExecution = pWorkflowExecution_
+    , _pfatrsActivityType = pActivityType_
     }
 
 -- | The inputs provided when the activity task was scheduled. The form of

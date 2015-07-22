@@ -99,9 +99,9 @@ newtype CreateFileSystem = CreateFileSystem'
 
 -- | 'CreateFileSystem' smart constructor.
 createFileSystem :: Text -> CreateFileSystem
-createFileSystem pCreationToken =
+createFileSystem pCreationToken_ =
     CreateFileSystem'
-    { _cfsrqCreationToken = pCreationToken
+    { _cfsrqCreationToken = pCreationToken_
     }
 
 -- | String of up to 64 ASCII characters. Amazon EFS uses this to ensure

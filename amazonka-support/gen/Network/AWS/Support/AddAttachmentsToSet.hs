@@ -141,11 +141,11 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
 
 -- | 'AddAttachmentsToSetResponse' smart constructor.
 addAttachmentsToSetResponse :: Int -> AddAttachmentsToSetResponse
-addAttachmentsToSetResponse pStatus =
+addAttachmentsToSetResponse pStatus_ =
     AddAttachmentsToSetResponse'
     { _aatsrsExpiryTime = Nothing
     , _aatsrsAttachmentSetId = Nothing
-    , _aatsrsStatus = pStatus
+    , _aatsrsStatus = pStatus_
     }
 
 -- | The time and date when the attachment set expires.

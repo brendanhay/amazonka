@@ -63,10 +63,10 @@ data ListIdentityPools = ListIdentityPools'
 
 -- | 'ListIdentityPools' smart constructor.
 listIdentityPools :: Natural -> ListIdentityPools
-listIdentityPools pMaxResults =
+listIdentityPools pMaxResults_ =
     ListIdentityPools'
     { _liprqNextToken = Nothing
-    , _liprqMaxResults = _Nat # pMaxResults
+    , _liprqMaxResults = _Nat # pMaxResults_
     }
 
 -- | A pagination token.
@@ -130,11 +130,11 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
 
 -- | 'ListIdentityPoolsResponse' smart constructor.
 listIdentityPoolsResponse :: Int -> ListIdentityPoolsResponse
-listIdentityPoolsResponse pStatus =
+listIdentityPoolsResponse pStatus_ =
     ListIdentityPoolsResponse'
     { _liprsIdentityPools = Nothing
     , _liprsNextToken = Nothing
-    , _liprsStatus = pStatus
+    , _liprsStatus = pStatus_
     }
 
 -- | The identity pools returned by the ListIdentityPools action.

@@ -60,10 +60,10 @@ data GetInvalidation = GetInvalidation'
 
 -- | 'GetInvalidation' smart constructor.
 getInvalidation :: Text -> Text -> GetInvalidation
-getInvalidation pDistributionId pId =
+getInvalidation pDistributionId_ pId_ =
     GetInvalidation'
-    { _girqDistributionId = pDistributionId
-    , _girqId = pId
+    { _girqDistributionId = pDistributionId_
+    , _girqId = pId_
     }
 
 -- | The distribution\'s id.
@@ -113,10 +113,10 @@ data GetInvalidationResponse = GetInvalidationResponse'
 
 -- | 'GetInvalidationResponse' smart constructor.
 getInvalidationResponse :: Int -> GetInvalidationResponse
-getInvalidationResponse pStatus =
+getInvalidationResponse pStatus_ =
     GetInvalidationResponse'
     { _girsInvalidation = Nothing
-    , _girsStatus = pStatus
+    , _girsStatus = pStatus_
     }
 
 -- | The invalidation\'s information.

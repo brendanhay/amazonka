@@ -67,10 +67,10 @@ data SuspendProcesses = SuspendProcesses'
 
 -- | 'SuspendProcesses' smart constructor.
 suspendProcesses :: Text -> SuspendProcesses
-suspendProcesses pAutoScalingGroupName =
+suspendProcesses pAutoScalingGroupName_ =
     SuspendProcesses'
     { _spScalingProcesses = Nothing
-    , _spAutoScalingGroupName = pAutoScalingGroupName
+    , _spAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | One or more of the following processes:

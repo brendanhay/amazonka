@@ -57,9 +57,9 @@ newtype StopStack = StopStack'
 
 -- | 'StopStack' smart constructor.
 stopStack :: Text -> StopStack
-stopStack pStackId =
+stopStack pStackId_ =
     StopStack'
-    { _ssrqStackId = pStackId
+    { _ssrqStackId = pStackId_
     }
 
 -- | The stack ID.

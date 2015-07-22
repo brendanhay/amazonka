@@ -55,9 +55,9 @@ newtype GetKeyRotationStatus = GetKeyRotationStatus'
 
 -- | 'GetKeyRotationStatus' smart constructor.
 getKeyRotationStatus :: Text -> GetKeyRotationStatus
-getKeyRotationStatus pKeyId =
+getKeyRotationStatus pKeyId_ =
     GetKeyRotationStatus'
-    { _gkrsrqKeyId = pKeyId
+    { _gkrsrqKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -114,10 +114,10 @@ data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
 
 -- | 'GetKeyRotationStatusResponse' smart constructor.
 getKeyRotationStatusResponse :: Int -> GetKeyRotationStatusResponse
-getKeyRotationStatusResponse pStatus =
+getKeyRotationStatusResponse pStatus_ =
     GetKeyRotationStatusResponse'
     { _gkrsrsKeyRotationEnabled = Nothing
-    , _gkrsrsStatus = pStatus
+    , _gkrsrsStatus = pStatus_
     }
 
 -- | A Boolean value that specifies whether key rotation is enabled.

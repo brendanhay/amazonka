@@ -83,13 +83,13 @@ data UpdateFunctionCode = UpdateFunctionCode'
 
 -- | 'UpdateFunctionCode' smart constructor.
 updateFunctionCode :: Text -> UpdateFunctionCode
-updateFunctionCode pFunctionName =
+updateFunctionCode pFunctionName_ =
     UpdateFunctionCode'
     { _urqS3ObjectVersion = Nothing
     , _urqS3Key = Nothing
     , _urqZipFile = Nothing
     , _urqS3Bucket = Nothing
-    , _urqFunctionName = pFunctionName
+    , _urqFunctionName = pFunctionName_
     }
 
 -- | The Amazon S3 object (the deployment package) version you want to

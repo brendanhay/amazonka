@@ -113,7 +113,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
 
 -- | 'ModifyInstanceAttribute' smart constructor.
 modifyInstanceAttribute :: Text -> ModifyInstanceAttribute
-modifyInstanceAttribute pInstanceId =
+modifyInstanceAttribute pInstanceId_ =
     ModifyInstanceAttribute'
     { _mrqAttribute = Nothing
     , _mrqGroups = Nothing
@@ -129,7 +129,7 @@ modifyInstanceAttribute pInstanceId =
     , _mrqInstanceInitiatedShutdownBehavior = Nothing
     , _mrqBlockDeviceMappings = Nothing
     , _mrqDryRun = Nothing
-    , _mrqInstanceId = pInstanceId
+    , _mrqInstanceId = pInstanceId_
     }
 
 -- | The name of the attribute.

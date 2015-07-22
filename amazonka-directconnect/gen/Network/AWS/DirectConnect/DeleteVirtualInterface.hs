@@ -56,9 +56,9 @@ newtype DeleteVirtualInterface = DeleteVirtualInterface'
 
 -- | 'DeleteVirtualInterface' smart constructor.
 deleteVirtualInterface :: Text -> DeleteVirtualInterface
-deleteVirtualInterface pVirtualInterfaceId =
+deleteVirtualInterface pVirtualInterfaceId_ =
     DeleteVirtualInterface'
-    { _drqVirtualInterfaceId = pVirtualInterfaceId
+    { _drqVirtualInterfaceId = pVirtualInterfaceId_
     }
 
 -- | FIXME: Undocumented member.
@@ -114,10 +114,10 @@ data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
 
 -- | 'DeleteVirtualInterfaceResponse' smart constructor.
 deleteVirtualInterfaceResponse :: Int -> DeleteVirtualInterfaceResponse
-deleteVirtualInterfaceResponse pStatus =
+deleteVirtualInterfaceResponse pStatus_ =
     DeleteVirtualInterfaceResponse'
     { _dvirsVirtualInterfaceState = Nothing
-    , _dvirsStatus = pStatus
+    , _dvirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

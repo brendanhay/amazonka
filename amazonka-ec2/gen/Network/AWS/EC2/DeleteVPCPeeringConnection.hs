@@ -61,10 +61,10 @@ data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
 
 -- | 'DeleteVPCPeeringConnection' smart constructor.
 deleteVPCPeeringConnection :: Text -> DeleteVPCPeeringConnection
-deleteVPCPeeringConnection pVPCPeeringConnectionId =
+deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
     DeleteVPCPeeringConnection'
     { _dvpcrqDryRun = Nothing
-    , _dvpcrqVPCPeeringConnectionId = pVPCPeeringConnectionId
+    , _dvpcrqVPCPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -119,10 +119,10 @@ data DeleteVPCPeeringConnectionResponse = DeleteVPCPeeringConnectionResponse'
 
 -- | 'DeleteVPCPeeringConnectionResponse' smart constructor.
 deleteVPCPeeringConnectionResponse :: Int -> DeleteVPCPeeringConnectionResponse
-deleteVPCPeeringConnectionResponse pStatus =
+deleteVPCPeeringConnectionResponse pStatus_ =
     DeleteVPCPeeringConnectionResponse'
     { _dvpcrsReturn = Nothing
-    , _dvpcrsStatus = pStatus
+    , _dvpcrsStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.

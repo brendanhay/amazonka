@@ -71,11 +71,11 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
 
 -- | 'ListInstanceProfilesForRole' smart constructor.
 listInstanceProfilesForRole :: Text -> ListInstanceProfilesForRole
-listInstanceProfilesForRole pRoleName =
+listInstanceProfilesForRole pRoleName_ =
     ListInstanceProfilesForRole'
     { _lipfrrqMaxItems = Nothing
     , _lipfrrqMarker = Nothing
-    , _lipfrrqRoleName = pRoleName
+    , _lipfrrqRoleName = pRoleName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -159,11 +159,11 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
 listInstanceProfilesForRoleResponse :: Int -> ListInstanceProfilesForRoleResponse
-listInstanceProfilesForRoleResponse pStatus =
+listInstanceProfilesForRoleResponse pStatus_ =
     ListInstanceProfilesForRoleResponse'
     { _lipfrrsMarker = Nothing
     , _lipfrrsIsTruncated = Nothing
-    , _lipfrrsStatus = pStatus
+    , _lipfrrsStatus = pStatus_
     , _lipfrrsInstanceProfiles = mempty
     }
 

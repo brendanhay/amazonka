@@ -101,17 +101,17 @@ data CreateNetworkACLEntry = CreateNetworkACLEntry'
 
 -- | 'CreateNetworkACLEntry' smart constructor.
 createNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> CreateNetworkACLEntry
-createNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIdRBlock =
+createNetworkACLEntry pNetworkACLId_ pRuleNumber_ pProtocol_ pRuleAction_ pEgress_ pCIdRBlock_ =
     CreateNetworkACLEntry'
     { _cnaerqICMPTypeCode = Nothing
     , _cnaerqPortRange = Nothing
     , _cnaerqDryRun = Nothing
-    , _cnaerqNetworkACLId = pNetworkACLId
-    , _cnaerqRuleNumber = pRuleNumber
-    , _cnaerqProtocol = pProtocol
-    , _cnaerqRuleAction = pRuleAction
-    , _cnaerqEgress = pEgress
-    , _cnaerqCIdRBlock = pCIdRBlock
+    , _cnaerqNetworkACLId = pNetworkACLId_
+    , _cnaerqRuleNumber = pRuleNumber_
+    , _cnaerqProtocol = pProtocol_
+    , _cnaerqRuleAction = pRuleAction_
+    , _cnaerqEgress = pEgress_
+    , _cnaerqCIdRBlock = pCIdRBlock_
     }
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying ICMP for

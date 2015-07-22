@@ -63,10 +63,10 @@ data CreateUser = CreateUser'
 
 -- | 'CreateUser' smart constructor.
 createUser :: Text -> CreateUser
-createUser pUserName =
+createUser pUserName_ =
     CreateUser'
     { _curqPath = Nothing
-    , _curqUserName = pUserName
+    , _curqUserName = pUserName_
     }
 
 -- | The path for the user name. For more information about paths, see
@@ -121,10 +121,10 @@ data CreateUserResponse = CreateUserResponse'
 
 -- | 'CreateUserResponse' smart constructor.
 createUserResponse :: Int -> CreateUserResponse
-createUserResponse pStatus =
+createUserResponse pStatus_ =
     CreateUserResponse'
     { _cursUser = Nothing
-    , _cursStatus = pStatus
+    , _cursStatus = pStatus_
     }
 
 -- | Information about the user.

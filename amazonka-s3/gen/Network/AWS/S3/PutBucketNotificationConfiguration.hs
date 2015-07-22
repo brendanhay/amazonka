@@ -55,10 +55,10 @@ data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
 
 -- | 'PutBucketNotificationConfiguration' smart constructor.
 putBucketNotificationConfiguration :: BucketName -> NotificationConfiguration -> PutBucketNotificationConfiguration
-putBucketNotificationConfiguration pBucket pNotificationConfiguration =
+putBucketNotificationConfiguration pBucket_ pNotificationConfiguration_ =
     PutBucketNotificationConfiguration'
-    { _pbncrqBucket = pBucket
-    , _pbncrqNotificationConfiguration = pNotificationConfiguration
+    { _pbncrqBucket = pBucket_
+    , _pbncrqNotificationConfiguration = pNotificationConfiguration_
     }
 
 -- | FIXME: Undocumented member.

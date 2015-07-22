@@ -171,8 +171,6 @@ import           Network.AWS.IAM.RemoveUserFromGroup                     as Expo
 import           Network.AWS.IAM.ResyncMFADevice                         as Export
 import           Network.AWS.IAM.SetDefaultPolicyVersion                 as Export
 import           Network.AWS.IAM.Types                                   as Export
-import           Network.AWS.IAM.Types.Product                           as Export
-import           Network.AWS.IAM.Types.Sum                               as Export
 import           Network.AWS.IAM.UpdateAccessKey                         as Export
 import           Network.AWS.IAM.UpdateAccountPasswordPolicy             as Export
 import           Network.AWS.IAM.UpdateAssumeRolePolicy                  as Export

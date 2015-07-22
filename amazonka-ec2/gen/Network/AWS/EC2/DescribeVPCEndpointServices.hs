@@ -139,11 +139,11 @@ data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
 describeVPCEndpointServicesResponse :: Int -> DescribeVPCEndpointServicesResponse
-describeVPCEndpointServicesResponse pStatus =
+describeVPCEndpointServicesResponse pStatus_ =
     DescribeVPCEndpointServicesResponse'
     { _dvesrsServiceNames = Nothing
     , _dvesrsNextToken = Nothing
-    , _dvesrsStatus = pStatus
+    , _dvesrsStatus = pStatus_
     }
 
 -- | A list of supported AWS services.

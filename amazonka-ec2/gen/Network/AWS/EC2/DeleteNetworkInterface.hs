@@ -56,10 +56,10 @@ data DeleteNetworkInterface = DeleteNetworkInterface'
 
 -- | 'DeleteNetworkInterface' smart constructor.
 deleteNetworkInterface :: Text -> DeleteNetworkInterface
-deleteNetworkInterface pNetworkInterfaceId =
+deleteNetworkInterface pNetworkInterfaceId_ =
     DeleteNetworkInterface'
     { _dniirqDryRun = Nothing
-    , _dniirqNetworkInterfaceId = pNetworkInterfaceId
+    , _dniirqNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

@@ -59,10 +59,10 @@ data DisableVPCClassicLink = DisableVPCClassicLink'
 
 -- | 'DisableVPCClassicLink' smart constructor.
 disableVPCClassicLink :: Text -> DisableVPCClassicLink
-disableVPCClassicLink pVPCId =
+disableVPCClassicLink pVPCId_ =
     DisableVPCClassicLink'
     { _dvpcclrqDryRun = Nothing
-    , _dvpcclrqVPCId = pVPCId
+    , _dvpcclrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -115,10 +115,10 @@ data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
 
 -- | 'DisableVPCClassicLinkResponse' smart constructor.
 disableVPCClassicLinkResponse :: Int -> DisableVPCClassicLinkResponse
-disableVPCClassicLinkResponse pStatus =
+disableVPCClassicLinkResponse pStatus_ =
     DisableVPCClassicLinkResponse'
     { _dvpcclrsReturn = Nothing
-    , _dvpcclrsStatus = pStatus
+    , _dvpcclrsStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.

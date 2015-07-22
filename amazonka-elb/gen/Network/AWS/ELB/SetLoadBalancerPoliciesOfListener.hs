@@ -63,10 +63,10 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
 
 -- | 'SetLoadBalancerPoliciesOfListener' smart constructor.
 setLoadBalancerPoliciesOfListener :: Text -> Int -> SetLoadBalancerPoliciesOfListener
-setLoadBalancerPoliciesOfListener pLoadBalancerName pLoadBalancerPort =
+setLoadBalancerPoliciesOfListener pLoadBalancerName_ pLoadBalancerPort_ =
     SetLoadBalancerPoliciesOfListener'
-    { _slbpolrqLoadBalancerName = pLoadBalancerName
-    , _slbpolrqLoadBalancerPort = pLoadBalancerPort
+    { _slbpolrqLoadBalancerName = pLoadBalancerName_
+    , _slbpolrqLoadBalancerPort = pLoadBalancerPort_
     , _slbpolrqPolicyNames = mempty
     }
 
@@ -127,9 +127,9 @@ newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfLis
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 setLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOfListenerResponse
-setLoadBalancerPoliciesOfListenerResponse pStatus =
+setLoadBalancerPoliciesOfListenerResponse pStatus_ =
     SetLoadBalancerPoliciesOfListenerResponse'
-    { _slbpolrsStatus = pStatus
+    { _slbpolrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

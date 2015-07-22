@@ -172,7 +172,7 @@ data CreateDBInstance = CreateDBInstance'
 
 -- | 'CreateDBInstance' smart constructor.
 createDBInstance :: Text -> Int -> Text -> Text -> Text -> Text -> CreateDBInstance
-createDBInstance pDBInstanceIdentifier pAllocatedStorage pDBInstanceClass pEngine pMasterUsername pMasterUserPassword =
+createDBInstance pDBInstanceIdentifier_ pAllocatedStorage_ pDBInstanceClass_ pEngine_ pMasterUsername_ pMasterUserPassword_ =
     CreateDBInstance'
     { _cdirqDBSecurityGroups = Nothing
     , _cdirqEngineVersion = Nothing
@@ -198,12 +198,12 @@ createDBInstance pDBInstanceIdentifier pAllocatedStorage pDBInstanceClass pEngin
     , _cdirqTags = Nothing
     , _cdirqPort = Nothing
     , _cdirqStorageType = Nothing
-    , _cdirqDBInstanceIdentifier = pDBInstanceIdentifier
-    , _cdirqAllocatedStorage = pAllocatedStorage
-    , _cdirqDBInstanceClass = pDBInstanceClass
-    , _cdirqEngine = pEngine
-    , _cdirqMasterUsername = pMasterUsername
-    , _cdirqMasterUserPassword = pMasterUserPassword
+    , _cdirqDBInstanceIdentifier = pDBInstanceIdentifier_
+    , _cdirqAllocatedStorage = pAllocatedStorage_
+    , _cdirqDBInstanceClass = pDBInstanceClass_
+    , _cdirqEngine = pEngine_
+    , _cdirqMasterUsername = pMasterUsername_
+    , _cdirqMasterUserPassword = pMasterUserPassword_
     }
 
 -- | A list of DB security groups to associate with this DB instance.
@@ -848,10 +848,10 @@ data CreateDBInstanceResponse = CreateDBInstanceResponse'
 
 -- | 'CreateDBInstanceResponse' smart constructor.
 createDBInstanceResponse :: Int -> CreateDBInstanceResponse
-createDBInstanceResponse pStatus =
+createDBInstanceResponse pStatus_ =
     CreateDBInstanceResponse'
     { _cdirsDBInstance = Nothing
-    , _cdirsStatus = pStatus
+    , _cdirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

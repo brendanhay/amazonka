@@ -61,10 +61,10 @@ data UpdateDataSource = UpdateDataSource'
 
 -- | 'UpdateDataSource' smart constructor.
 updateDataSource :: Text -> Text -> UpdateDataSource
-updateDataSource pDataSourceId pDataSourceName =
+updateDataSource pDataSourceId_ pDataSourceName_ =
     UpdateDataSource'
-    { _udsrqDataSourceId = pDataSourceId
-    , _udsrqDataSourceName = pDataSourceName
+    { _udsrqDataSourceId = pDataSourceId_
+    , _udsrqDataSourceName = pDataSourceName_
     }
 
 -- | The ID assigned to the @DataSource@ during creation.
@@ -126,10 +126,10 @@ data UpdateDataSourceResponse = UpdateDataSourceResponse'
 
 -- | 'UpdateDataSourceResponse' smart constructor.
 updateDataSourceResponse :: Int -> UpdateDataSourceResponse
-updateDataSourceResponse pStatus =
+updateDataSourceResponse pStatus_ =
     UpdateDataSourceResponse'
     { _udsrsDataSourceId = Nothing
-    , _udsrsStatus = pStatus
+    , _udsrsStatus = pStatus_
     }
 
 -- | The ID assigned to the @DataSource@ during creation. This value should

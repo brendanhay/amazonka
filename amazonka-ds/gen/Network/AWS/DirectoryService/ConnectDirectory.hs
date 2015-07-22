@@ -76,14 +76,14 @@ data ConnectDirectory = ConnectDirectory'
 
 -- | 'ConnectDirectory' smart constructor.
 connectDirectory :: Text -> Text -> DirectorySize -> DirectoryConnectSettings -> ConnectDirectory
-connectDirectory pName pPassword pSize pConnectSettings =
+connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
     ConnectDirectory'
     { _cdrqShortName = Nothing
     , _cdrqDescription = Nothing
-    , _cdrqName = pName
-    , _cdrqPassword = _Sensitive # pPassword
-    , _cdrqSize = pSize
-    , _cdrqConnectSettings = pConnectSettings
+    , _cdrqName = pName_
+    , _cdrqPassword = _Sensitive # pPassword_
+    , _cdrqSize = pSize_
+    , _cdrqConnectSettings = pConnectSettings_
     }
 
 -- | The NetBIOS name of the on-premises directory, such as @CORP@.
@@ -163,10 +163,10 @@ data ConnectDirectoryResponse = ConnectDirectoryResponse'
 
 -- | 'ConnectDirectoryResponse' smart constructor.
 connectDirectoryResponse :: Int -> ConnectDirectoryResponse
-connectDirectoryResponse pStatus =
+connectDirectoryResponse pStatus_ =
     ConnectDirectoryResponse'
     { _cdrsDirectoryId = Nothing
-    , _cdrsStatus = pStatus
+    , _cdrsStatus = pStatus_
     }
 
 -- | The identifier of the new directory.

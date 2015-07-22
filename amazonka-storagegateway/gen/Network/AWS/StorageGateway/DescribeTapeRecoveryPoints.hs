@@ -73,11 +73,11 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
 
 -- | 'DescribeTapeRecoveryPoints' smart constructor.
 describeTapeRecoveryPoints :: Text -> DescribeTapeRecoveryPoints
-describeTapeRecoveryPoints pGatewayARN =
+describeTapeRecoveryPoints pGatewayARN_ =
     DescribeTapeRecoveryPoints'
     { _dtrprqMarker = Nothing
     , _dtrprqLimit = Nothing
-    , _dtrprqGatewayARN = pGatewayARN
+    , _dtrprqGatewayARN = pGatewayARN_
     }
 
 -- | An opaque string that indicates the position at which to begin
@@ -159,12 +159,12 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
 
 -- | 'DescribeTapeRecoveryPointsResponse' smart constructor.
 describeTapeRecoveryPointsResponse :: Int -> DescribeTapeRecoveryPointsResponse
-describeTapeRecoveryPointsResponse pStatus =
+describeTapeRecoveryPointsResponse pStatus_ =
     DescribeTapeRecoveryPointsResponse'
     { _dtrprsTapeRecoveryPointInfos = Nothing
     , _dtrprsGatewayARN = Nothing
     , _dtrprsMarker = Nothing
-    , _dtrprsStatus = pStatus
+    , _dtrprsStatus = pStatus_
     }
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified

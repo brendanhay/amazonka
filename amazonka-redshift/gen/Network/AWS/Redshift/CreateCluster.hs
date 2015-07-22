@@ -155,7 +155,7 @@ data CreateCluster = CreateCluster'
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: Text -> Text -> Text -> Text -> CreateCluster
-createCluster pClusterIdentifier pNodeType pMasterUsername pMasterUserPassword =
+createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPassword_ =
     CreateCluster'
     { _ccrqPubliclyAccessible = Nothing
     , _ccrqHSMConfigurationIdentifier = Nothing
@@ -177,10 +177,10 @@ createCluster pClusterIdentifier pNodeType pMasterUsername pMasterUserPassword =
     , _ccrqDBName = Nothing
     , _ccrqTags = Nothing
     , _ccrqPort = Nothing
-    , _ccrqClusterIdentifier = pClusterIdentifier
-    , _ccrqNodeType = pNodeType
-    , _ccrqMasterUsername = pMasterUsername
-    , _ccrqMasterUserPassword = pMasterUserPassword
+    , _ccrqClusterIdentifier = pClusterIdentifier_
+    , _ccrqNodeType = pNodeType_
+    , _ccrqMasterUsername = pMasterUsername_
+    , _ccrqMasterUserPassword = pMasterUserPassword_
     }
 
 -- | If @true@, the cluster can be accessed from a public network.
@@ -510,10 +510,10 @@ data CreateClusterResponse = CreateClusterResponse'
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse
-createClusterResponse pStatus =
+createClusterResponse pStatus_ =
     CreateClusterResponse'
     { _ccrsCluster = Nothing
-    , _ccrsStatus = pStatus
+    , _ccrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

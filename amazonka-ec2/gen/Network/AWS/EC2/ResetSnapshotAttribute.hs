@@ -63,11 +63,11 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute'
 
 -- | 'ResetSnapshotAttribute' smart constructor.
 resetSnapshotAttribute :: Text -> ModifySnapshotAttributeName -> ResetSnapshotAttribute
-resetSnapshotAttribute pSnapshotId pAttribute =
+resetSnapshotAttribute pSnapshotId_ pAttribute_ =
     ResetSnapshotAttribute'
     { _rsarqDryRun = Nothing
-    , _rsarqSnapshotId = pSnapshotId
-    , _rsarqAttribute = pAttribute
+    , _rsarqSnapshotId = pSnapshotId_
+    , _rsarqAttribute = pAttribute_
     }
 
 -- | Checks whether you have the required permissions for the action, without

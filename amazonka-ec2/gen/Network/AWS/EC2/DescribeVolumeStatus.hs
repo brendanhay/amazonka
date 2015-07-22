@@ -244,11 +244,11 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
 describeVolumeStatusResponse :: Int -> DescribeVolumeStatusResponse
-describeVolumeStatusResponse pStatus =
+describeVolumeStatusResponse pStatus_ =
     DescribeVolumeStatusResponse'
     { _dvsrsNextToken = Nothing
     , _dvsrsVolumeStatuses = Nothing
-    , _dvsrsStatus = pStatus
+    , _dvsrsStatus = pStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is

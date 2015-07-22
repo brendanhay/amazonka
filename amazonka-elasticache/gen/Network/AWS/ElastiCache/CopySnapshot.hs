@@ -60,10 +60,10 @@ data CopySnapshot = CopySnapshot'
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
-copySnapshot pSourceSnapshotName pTargetSnapshotName =
+copySnapshot pSourceSnapshotName_ pTargetSnapshotName_ =
     CopySnapshot'
-    { _csrqSourceSnapshotName = pSourceSnapshotName
-    , _csrqTargetSnapshotName = pTargetSnapshotName
+    { _csrqSourceSnapshotName = pSourceSnapshotName_
+    , _csrqTargetSnapshotName = pTargetSnapshotName_
     }
 
 -- | The name of an existing snapshot from which to copy.
@@ -112,10 +112,10 @@ data CopySnapshotResponse = CopySnapshotResponse'
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse
-copySnapshotResponse pStatus =
+copySnapshotResponse pStatus_ =
     CopySnapshotResponse'
     { _csrsSnapshot = Nothing
-    , _csrsStatus = pStatus
+    , _csrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

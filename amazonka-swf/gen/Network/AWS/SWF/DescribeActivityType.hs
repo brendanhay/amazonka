@@ -84,10 +84,10 @@ data DescribeActivityType = DescribeActivityType'
 
 -- | 'DescribeActivityType' smart constructor.
 describeActivityType :: Text -> ActivityType -> DescribeActivityType
-describeActivityType pDomain pActivityType =
+describeActivityType pDomain_ pActivityType_ =
     DescribeActivityType'
-    { _datrqDomain = pDomain
-    , _datrqActivityType = pActivityType
+    { _datrqDomain = pDomain_
+    , _datrqActivityType = pActivityType_
     }
 
 -- | The name of the domain in which the activity type is registered.
@@ -153,11 +153,11 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
 
 -- | 'DescribeActivityTypeResponse' smart constructor.
 describeActivityTypeResponse :: Int -> ActivityTypeInfo -> ActivityTypeConfiguration -> DescribeActivityTypeResponse
-describeActivityTypeResponse pStatus pTypeInfo pConfiguration =
+describeActivityTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
     DescribeActivityTypeResponse'
-    { _datrsStatus = pStatus
-    , _datrsTypeInfo = pTypeInfo
-    , _datrsConfiguration = pConfiguration
+    { _datrsStatus = pStatus_
+    , _datrsTypeInfo = pTypeInfo_
+    , _datrsConfiguration = pConfiguration_
     }
 
 -- | FIXME: Undocumented member.

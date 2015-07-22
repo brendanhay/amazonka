@@ -98,10 +98,10 @@ data CreateStream = CreateStream'
 
 -- | 'CreateStream' smart constructor.
 createStream :: Text -> Natural -> CreateStream
-createStream pStreamName pShardCount =
+createStream pStreamName_ pShardCount_ =
     CreateStream'
-    { _csrqStreamName = pStreamName
-    , _csrqShardCount = _Nat # pShardCount
+    { _csrqStreamName = pStreamName_
+    , _csrqShardCount = _Nat # pShardCount_
     }
 
 -- | A name to identify the stream. The stream name is scoped to the AWS

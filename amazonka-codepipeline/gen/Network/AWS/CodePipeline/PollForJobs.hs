@@ -70,11 +70,11 @@ data PollForJobs = PollForJobs'
 
 -- | 'PollForJobs' smart constructor.
 pollForJobs :: ActionTypeId -> PollForJobs
-pollForJobs pActionTypeId =
+pollForJobs pActionTypeId_ =
     PollForJobs'
     { _pfjrqMaxBatchSize = Nothing
     , _pfjrqQueryParam = Nothing
-    , _pfjrqActionTypeId = pActionTypeId
+    , _pfjrqActionTypeId = pActionTypeId_
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
@@ -141,10 +141,10 @@ data PollForJobsResponse = PollForJobsResponse'
 
 -- | 'PollForJobsResponse' smart constructor.
 pollForJobsResponse :: Int -> PollForJobsResponse
-pollForJobsResponse pStatus =
+pollForJobsResponse pStatus_ =
     PollForJobsResponse'
     { _pfjrsJobs = Nothing
-    , _pfjrsStatus = pStatus
+    , _pfjrsStatus = pStatus_
     }
 
 -- | Information about the jobs to take action on.

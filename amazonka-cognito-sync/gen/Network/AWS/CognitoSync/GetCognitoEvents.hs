@@ -61,9 +61,9 @@ newtype GetCognitoEvents = GetCognitoEvents'
 
 -- | 'GetCognitoEvents' smart constructor.
 getCognitoEvents :: Text -> GetCognitoEvents
-getCognitoEvents pIdentityPoolId =
+getCognitoEvents pIdentityPoolId_ =
     GetCognitoEvents'
-    { _gcerqIdentityPoolId = pIdentityPoolId
+    { _gcerqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | The Cognito Identity Pool ID for the request
@@ -112,10 +112,10 @@ data GetCognitoEventsResponse = GetCognitoEventsResponse'
 
 -- | 'GetCognitoEventsResponse' smart constructor.
 getCognitoEventsResponse :: Int -> GetCognitoEventsResponse
-getCognitoEventsResponse pStatus =
+getCognitoEventsResponse pStatus_ =
     GetCognitoEventsResponse'
     { _gcersEvents = Nothing
-    , _gcersStatus = pStatus
+    , _gcersStatus = pStatus_
     }
 
 -- | The Cognito Events returned from the GetCognitoEvents request

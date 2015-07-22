@@ -66,9 +66,9 @@ newtype ListLocalDisks = ListLocalDisks'
 
 -- | 'ListLocalDisks' smart constructor.
 listLocalDisks :: Text -> ListLocalDisks
-listLocalDisks pGatewayARN =
+listLocalDisks pGatewayARN_ =
     ListLocalDisks'
-    { _lldrqGatewayARN = pGatewayARN
+    { _lldrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -123,11 +123,11 @@ data ListLocalDisksResponse = ListLocalDisksResponse'
 
 -- | 'ListLocalDisksResponse' smart constructor.
 listLocalDisksResponse :: Int -> ListLocalDisksResponse
-listLocalDisksResponse pStatus =
+listLocalDisksResponse pStatus_ =
     ListLocalDisksResponse'
     { _lldrsGatewayARN = Nothing
     , _lldrsDisks = Nothing
-    , _lldrsStatus = pStatus
+    , _lldrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

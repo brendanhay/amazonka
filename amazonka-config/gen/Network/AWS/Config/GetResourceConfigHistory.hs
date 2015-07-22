@@ -91,15 +91,15 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
 
 -- | 'GetResourceConfigHistory' smart constructor.
 getResourceConfigHistory :: ResourceType -> Text -> GetResourceConfigHistory
-getResourceConfigHistory pResourceType pResourceId =
+getResourceConfigHistory pResourceType_ pResourceId_ =
     GetResourceConfigHistory'
     { _grchrqChronologicalOrder = Nothing
     , _grchrqNextToken = Nothing
     , _grchrqLimit = Nothing
     , _grchrqLaterTime = Nothing
     , _grchrqEarlierTime = Nothing
-    , _grchrqResourceType = pResourceType
-    , _grchrqResourceId = pResourceId
+    , _grchrqResourceType = pResourceType_
+    , _grchrqResourceId = pResourceId_
     }
 
 -- | The chronological order for configuration items listed. By default the
@@ -194,11 +194,11 @@ data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
 
 -- | 'GetResourceConfigHistoryResponse' smart constructor.
 getResourceConfigHistoryResponse :: Int -> GetResourceConfigHistoryResponse
-getResourceConfigHistoryResponse pStatus =
+getResourceConfigHistoryResponse pStatus_ =
     GetResourceConfigHistoryResponse'
     { _grchrsNextToken = Nothing
     , _grchrsConfigurationItems = Nothing
-    , _grchrsStatus = pStatus
+    , _grchrsStatus = pStatus_
     }
 
 -- | A token used for pagination of results.

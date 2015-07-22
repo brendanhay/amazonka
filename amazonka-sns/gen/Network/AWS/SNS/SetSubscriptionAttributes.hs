@@ -62,11 +62,11 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes'
 
 -- | 'SetSubscriptionAttributes' smart constructor.
 setSubscriptionAttributes :: Text -> Text -> SetSubscriptionAttributes
-setSubscriptionAttributes pSubscriptionARN pAttributeName =
+setSubscriptionAttributes pSubscriptionARN_ pAttributeName_ =
     SetSubscriptionAttributes'
     { _ssarqAttributeValue = Nothing
-    , _ssarqSubscriptionARN = pSubscriptionARN
-    , _ssarqAttributeName = pAttributeName
+    , _ssarqSubscriptionARN = pSubscriptionARN_
+    , _ssarqAttributeName = pAttributeName_
     }
 
 -- | The new value for the attribute in JSON format.

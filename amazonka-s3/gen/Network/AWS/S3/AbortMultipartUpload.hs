@@ -70,12 +70,12 @@ data AbortMultipartUpload = AbortMultipartUpload'
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: BucketName -> ObjectKey -> Text -> AbortMultipartUpload
-abortMultipartUpload pBucket pKey pUploadId =
+abortMultipartUpload pBucket_ pKey_ pUploadId_ =
     AbortMultipartUpload'
     { _amurqRequestPayer = Nothing
-    , _amurqBucket = pBucket
-    , _amurqKey = pKey
-    , _amurqUploadId = pUploadId
+    , _amurqBucket = pBucket_
+    , _amurqKey = pKey_
+    , _amurqUploadId = pUploadId_
     }
 
 -- | FIXME: Undocumented member.
@@ -134,10 +134,10 @@ data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
 
 -- | 'AbortMultipartUploadResponse' smart constructor.
 abortMultipartUploadResponse :: Int -> AbortMultipartUploadResponse
-abortMultipartUploadResponse pStatus =
+abortMultipartUploadResponse pStatus_ =
     AbortMultipartUploadResponse'
     { _amursRequestCharged = Nothing
-    , _amursStatus = pStatus
+    , _amursStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

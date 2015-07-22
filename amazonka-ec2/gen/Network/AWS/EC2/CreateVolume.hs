@@ -110,7 +110,7 @@ data CreateVolume = CreateVolume'
 
 -- | 'CreateVolume' smart constructor.
 createVolume :: Text -> CreateVolume
-createVolume pAvailabilityZone =
+createVolume pAvailabilityZone_ =
     CreateVolume'
     { _crqSize = Nothing
     , _crqIOPS = Nothing
@@ -119,7 +119,7 @@ createVolume pAvailabilityZone =
     , _crqVolumeType = Nothing
     , _crqDryRun = Nothing
     , _crqSnapshotId = Nothing
-    , _crqAvailabilityZone = pAvailabilityZone
+    , _crqAvailabilityZone = pAvailabilityZone_
     }
 
 -- | The size of the volume, in GiBs.

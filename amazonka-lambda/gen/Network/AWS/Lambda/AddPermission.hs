@@ -85,14 +85,14 @@ data AddPermission = AddPermission'
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> Text -> Text -> AddPermission
-addPermission pFunctionName pStatementId pAction pPrincipal =
+addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     AddPermission'
     { _aprqSourceAccount = Nothing
     , _aprqSourceARN = Nothing
-    , _aprqFunctionName = pFunctionName
-    , _aprqStatementId = pStatementId
-    , _aprqAction = pAction
-    , _aprqPrincipal = pPrincipal
+    , _aprqFunctionName = pFunctionName_
+    , _aprqStatementId = pStatementId_
+    , _aprqAction = pAction_
+    , _aprqPrincipal = pPrincipal_
     }
 
 -- | The AWS account ID (without a hyphen) of the source owner. For example,
@@ -196,10 +196,10 @@ data AddPermissionResponse = AddPermissionResponse'
 
 -- | 'AddPermissionResponse' smart constructor.
 addPermissionResponse :: Int -> AddPermissionResponse
-addPermissionResponse pStatus =
+addPermissionResponse pStatus_ =
     AddPermissionResponse'
     { _aprsStatement = Nothing
-    , _aprsStatus = pStatus
+    , _aprsStatus = pStatus_
     }
 
 -- | The permission statement you specified in the request. The response

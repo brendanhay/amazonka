@@ -102,10 +102,10 @@ data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
 
 -- | 'DeleteFlowLogsResponse' smart constructor.
 deleteFlowLogsResponse :: Int -> DeleteFlowLogsResponse
-deleteFlowLogsResponse pStatus =
+deleteFlowLogsResponse pStatus_ =
     DeleteFlowLogsResponse'
     { _dflrsUnsuccessful = Nothing
-    , _dflrsStatus = pStatus
+    , _dflrsStatus = pStatus_
     }
 
 -- | Information about the flow logs that could not be deleted successfully.

@@ -55,10 +55,10 @@ data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
 
 -- | 'DeleteSubscriptionFilter' smart constructor.
 deleteSubscriptionFilter :: Text -> Text -> DeleteSubscriptionFilter
-deleteSubscriptionFilter pLogGroupName pFilterName =
+deleteSubscriptionFilter pLogGroupName_ pFilterName_ =
     DeleteSubscriptionFilter'
-    { _drqLogGroupName = pLogGroupName
-    , _drqFilterName = pFilterName
+    { _drqLogGroupName = pLogGroupName_
+    , _drqFilterName = pFilterName_
     }
 
 -- | The name of the log group that is associated with the subscription

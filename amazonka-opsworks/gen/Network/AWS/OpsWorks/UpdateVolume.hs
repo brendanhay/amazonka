@@ -67,11 +67,11 @@ data UpdateVolume = UpdateVolume'
 
 -- | 'UpdateVolume' smart constructor.
 updateVolume :: Text -> UpdateVolume
-updateVolume pVolumeId =
+updateVolume pVolumeId_ =
     UpdateVolume'
     { _urqName = Nothing
     , _urqMountPoint = Nothing
-    , _urqVolumeId = pVolumeId
+    , _urqVolumeId = pVolumeId_
     }
 
 -- | The new name.

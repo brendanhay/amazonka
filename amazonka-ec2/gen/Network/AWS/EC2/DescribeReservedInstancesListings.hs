@@ -163,10 +163,10 @@ data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListin
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
 describeReservedInstancesListingsResponse :: Int -> DescribeReservedInstancesListingsResponse
-describeReservedInstancesListingsResponse pStatus =
+describeReservedInstancesListingsResponse pStatus_ =
     DescribeReservedInstancesListingsResponse'
     { _drilrsReservedInstancesListings = Nothing
-    , _drilrsStatus = pStatus
+    , _drilrsStatus = pStatus_
     }
 
 -- | Information about the Reserved Instance listing.

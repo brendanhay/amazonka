@@ -87,11 +87,11 @@ data RespondActivityTaskFailed = RespondActivityTaskFailed'
 
 -- | 'RespondActivityTaskFailed' smart constructor.
 respondActivityTaskFailed :: Text -> RespondActivityTaskFailed
-respondActivityTaskFailed pTaskToken =
+respondActivityTaskFailed pTaskToken_ =
     RespondActivityTaskFailed'
     { _ratfrqReason = Nothing
     , _ratfrqDetails = Nothing
-    , _ratfrqTaskToken = pTaskToken
+    , _ratfrqTaskToken = pTaskToken_
     }
 
 -- | Description of the error that may assist in diagnostics.

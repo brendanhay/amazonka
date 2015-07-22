@@ -67,10 +67,10 @@ data AttachRolePolicy = AttachRolePolicy'
 
 -- | 'AttachRolePolicy' smart constructor.
 attachRolePolicy :: Text -> Text -> AttachRolePolicy
-attachRolePolicy pRoleName pPolicyARN =
+attachRolePolicy pRoleName_ pPolicyARN_ =
     AttachRolePolicy'
-    { _arprqRoleName = pRoleName
-    , _arprqPolicyARN = pPolicyARN
+    { _arprqRoleName = pRoleName_
+    , _arprqPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the role to attach the policy to.

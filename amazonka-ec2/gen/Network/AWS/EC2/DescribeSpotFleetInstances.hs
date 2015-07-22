@@ -70,12 +70,12 @@ data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
 
 -- | 'DescribeSpotFleetInstances' smart constructor.
 describeSpotFleetInstances :: Text -> DescribeSpotFleetInstances
-describeSpotFleetInstances pSpotFleetRequestId =
+describeSpotFleetInstances pSpotFleetRequestId_ =
     DescribeSpotFleetInstances'
     { _dsfirqNextToken = Nothing
     , _dsfirqDryRun = Nothing
     , _dsfirqMaxResults = Nothing
-    , _dsfirqSpotFleetRequestId = pSpotFleetRequestId
+    , _dsfirqSpotFleetRequestId = pSpotFleetRequestId_
     }
 
 -- | The token for the next set of results.
@@ -154,11 +154,11 @@ data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
 describeSpotFleetInstancesResponse :: Int -> Text -> DescribeSpotFleetInstancesResponse
-describeSpotFleetInstancesResponse pStatus pSpotFleetRequestId =
+describeSpotFleetInstancesResponse pStatus_ pSpotFleetRequestId_ =
     DescribeSpotFleetInstancesResponse'
     { _dsfirsNextToken = Nothing
-    , _dsfirsStatus = pStatus
-    , _dsfirsSpotFleetRequestId = pSpotFleetRequestId
+    , _dsfirsStatus = pStatus_
+    , _dsfirsSpotFleetRequestId = pSpotFleetRequestId_
     , _dsfirsActiveInstances = mempty
     }
 

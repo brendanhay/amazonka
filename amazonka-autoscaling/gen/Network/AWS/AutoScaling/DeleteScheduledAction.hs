@@ -55,10 +55,10 @@ data DeleteScheduledAction = DeleteScheduledAction'
 
 -- | 'DeleteScheduledAction' smart constructor.
 deleteScheduledAction :: Text -> DeleteScheduledAction
-deleteScheduledAction pScheduledActionName =
+deleteScheduledAction pScheduledActionName_ =
     DeleteScheduledAction'
     { _dsarqAutoScalingGroupName = Nothing
-    , _dsarqScheduledActionName = pScheduledActionName
+    , _dsarqScheduledActionName = pScheduledActionName_
     }
 
 -- | The name of the Auto Scaling group.

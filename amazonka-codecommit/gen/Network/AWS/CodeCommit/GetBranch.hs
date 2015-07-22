@@ -122,10 +122,10 @@ data GetBranchResponse = GetBranchResponse'
 
 -- | 'GetBranchResponse' smart constructor.
 getBranchResponse :: Int -> GetBranchResponse
-getBranchResponse pStatus =
+getBranchResponse pStatus_ =
     GetBranchResponse'
     { _gbrsBranch = Nothing
-    , _gbrsStatus = pStatus
+    , _gbrsStatus = pStatus_
     }
 
 -- | The name of the branch.

@@ -92,10 +92,10 @@ data ListDomainNamesResponse = ListDomainNamesResponse'
 
 -- | 'ListDomainNamesResponse' smart constructor.
 listDomainNamesResponse :: Int -> ListDomainNamesResponse
-listDomainNamesResponse pStatus =
+listDomainNamesResponse pStatus_ =
     ListDomainNamesResponse'
     { _ldnrsDomainNames = Nothing
-    , _ldnrsStatus = pStatus
+    , _ldnrsStatus = pStatus_
     }
 
 -- | The names of the search domains owned by an account.

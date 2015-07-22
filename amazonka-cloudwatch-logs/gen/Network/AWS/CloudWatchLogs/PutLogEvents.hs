@@ -84,12 +84,12 @@ data PutLogEvents = PutLogEvents'
 
 -- | 'PutLogEvents' smart constructor.
 putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> PutLogEvents
-putLogEvents pLogGroupName pLogStreamName pLogEvents =
+putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
     PutLogEvents'
     { _plerqSequenceToken = Nothing
-    , _plerqLogGroupName = pLogGroupName
-    , _plerqLogStreamName = pLogStreamName
-    , _plerqLogEvents = _List1 # pLogEvents
+    , _plerqLogGroupName = pLogGroupName_
+    , _plerqLogStreamName = pLogStreamName_
+    , _plerqLogEvents = _List1 # pLogEvents_
     }
 
 -- | A string token that must be obtained from the response of the previous
@@ -161,11 +161,11 @@ data PutLogEventsResponse = PutLogEventsResponse'
 
 -- | 'PutLogEventsResponse' smart constructor.
 putLogEventsResponse :: Int -> PutLogEventsResponse
-putLogEventsResponse pStatus =
+putLogEventsResponse pStatus_ =
     PutLogEventsResponse'
     { _plersRejectedLogEventsInfo = Nothing
     , _plersNextSequenceToken = Nothing
-    , _plersStatus = pStatus
+    , _plersStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -61,10 +61,10 @@ data ModifyLunaClient = ModifyLunaClient'
 
 -- | 'ModifyLunaClient' smart constructor.
 modifyLunaClient :: Text -> Text -> ModifyLunaClient
-modifyLunaClient pClientARN pCertificate =
+modifyLunaClient pClientARN_ pCertificate_ =
     ModifyLunaClient'
-    { _mlcrqClientARN = pClientARN
-    , _mlcrqCertificate = pCertificate
+    { _mlcrqClientARN = pClientARN_
+    , _mlcrqCertificate = pCertificate_
     }
 
 -- | The ARN of the client.
@@ -121,10 +121,10 @@ data ModifyLunaClientResponse = ModifyLunaClientResponse'
 
 -- | 'ModifyLunaClientResponse' smart constructor.
 modifyLunaClientResponse :: Int -> ModifyLunaClientResponse
-modifyLunaClientResponse pStatus =
+modifyLunaClientResponse pStatus_ =
     ModifyLunaClientResponse'
     { _mlcrsClientARN = Nothing
-    , _mlcrsStatus = pStatus
+    , _mlcrsStatus = pStatus_
     }
 
 -- | The ARN of the client.

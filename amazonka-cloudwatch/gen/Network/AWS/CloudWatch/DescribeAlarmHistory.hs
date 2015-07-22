@@ -171,11 +171,11 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
 
 -- | 'DescribeAlarmHistoryResponse' smart constructor.
 describeAlarmHistoryResponse :: Int -> DescribeAlarmHistoryResponse
-describeAlarmHistoryResponse pStatus =
+describeAlarmHistoryResponse pStatus_ =
     DescribeAlarmHistoryResponse'
     { _dahrsAlarmHistoryItems = Nothing
     , _dahrsNextToken = Nothing
-    , _dahrsStatus = pStatus
+    , _dahrsStatus = pStatus_
     }
 
 -- | A list of alarm histories in JSON format.

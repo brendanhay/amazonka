@@ -118,10 +118,10 @@ data ListLunaClientsResponse = ListLunaClientsResponse'
 
 -- | 'ListLunaClientsResponse' smart constructor.
 listLunaClientsResponse :: Int -> ListLunaClientsResponse
-listLunaClientsResponse pStatus =
+listLunaClientsResponse pStatus_ =
     ListLunaClientsResponse'
     { _llcrsNextToken = Nothing
-    , _llcrsStatus = pStatus
+    , _llcrsStatus = pStatus_
     , _llcrsClientList = mempty
     }
 

@@ -75,11 +75,11 @@ data PutIdentityPolicy = PutIdentityPolicy'
 
 -- | 'PutIdentityPolicy' smart constructor.
 putIdentityPolicy :: Text -> Text -> Text -> PutIdentityPolicy
-putIdentityPolicy pIdentity pPolicyName pPolicy =
+putIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
     PutIdentityPolicy'
-    { _piprqIdentity = pIdentity
-    , _piprqPolicyName = pPolicyName
-    , _piprqPolicy = pPolicy
+    { _piprqIdentity = pIdentity_
+    , _piprqPolicyName = pPolicyName_
+    , _piprqPolicy = pPolicy_
     }
 
 -- | The identity to which the policy will apply. You can specify an identity
@@ -144,9 +144,9 @@ newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
 
 -- | 'PutIdentityPolicyResponse' smart constructor.
 putIdentityPolicyResponse :: Int -> PutIdentityPolicyResponse
-putIdentityPolicyResponse pStatus =
+putIdentityPolicyResponse pStatus_ =
     PutIdentityPolicyResponse'
-    { _piprsStatus = pStatus
+    { _piprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -72,9 +72,9 @@ newtype DeleteStream = DeleteStream'
 
 -- | 'DeleteStream' smart constructor.
 deleteStream :: Text -> DeleteStream
-deleteStream pStreamName =
+deleteStream pStreamName_ =
     DeleteStream'
-    { _dsrqStreamName = pStreamName
+    { _dsrqStreamName = pStreamName_
     }
 
 -- | The name of the stream to delete.

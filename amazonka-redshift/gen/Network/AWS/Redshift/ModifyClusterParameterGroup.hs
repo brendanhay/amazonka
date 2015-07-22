@@ -64,9 +64,9 @@ data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
 
 -- | 'ModifyClusterParameterGroup' smart constructor.
 modifyClusterParameterGroup :: Text -> ModifyClusterParameterGroup
-modifyClusterParameterGroup pParameterGroupName =
+modifyClusterParameterGroup pParameterGroupName_ =
     ModifyClusterParameterGroup'
-    { _mcpgrqParameterGroupName = pParameterGroupName
+    { _mcpgrqParameterGroupName = pParameterGroupName_
     , _mcpgrqParameters = mempty
     }
 

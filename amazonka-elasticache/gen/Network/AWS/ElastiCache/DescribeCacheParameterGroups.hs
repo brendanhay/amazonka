@@ -155,11 +155,11 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
 
 -- | 'DescribeCacheParameterGroupsResponse' smart constructor.
 describeCacheParameterGroupsResponse :: Int -> DescribeCacheParameterGroupsResponse
-describeCacheParameterGroupsResponse pStatus =
+describeCacheParameterGroupsResponse pStatus_ =
     DescribeCacheParameterGroupsResponse'
     { _dcpgrsCacheParameterGroups = Nothing
     , _dcpgrsMarker = Nothing
-    , _dcpgrsStatus = pStatus
+    , _dcpgrsStatus = pStatus_
     }
 
 -- | A list of cache parameter groups. Each element in the list contains

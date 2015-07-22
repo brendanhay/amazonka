@@ -122,11 +122,11 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse'
 
 -- | 'ListSubscriptionsResponse' smart constructor.
 listSubscriptionsResponse :: Int -> ListSubscriptionsResponse
-listSubscriptionsResponse pStatus =
+listSubscriptionsResponse pStatus_ =
     ListSubscriptionsResponse'
     { _lsrsNextToken = Nothing
     , _lsrsSubscriptions = Nothing
-    , _lsrsStatus = pStatus
+    , _lsrsStatus = pStatus_
     }
 
 -- | Token to pass along to the next @ListSubscriptions@ request. This

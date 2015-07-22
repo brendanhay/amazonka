@@ -160,11 +160,11 @@ data ListClustersResponse = ListClustersResponse'
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse
-listClustersResponse pStatus =
+listClustersResponse pStatus_ =
     ListClustersResponse'
     { _lcrsMarker = Nothing
     , _lcrsClusters = Nothing
-    , _lcrsStatus = pStatus
+    , _lcrsStatus = pStatus_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.

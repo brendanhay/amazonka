@@ -188,11 +188,11 @@ data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse
 
 -- | 'DescribeClassicLinkInstancesResponse' smart constructor.
 describeClassicLinkInstancesResponse :: Int -> DescribeClassicLinkInstancesResponse
-describeClassicLinkInstancesResponse pStatus =
+describeClassicLinkInstancesResponse pStatus_ =
     DescribeClassicLinkInstancesResponse'
     { _dclirsNextToken = Nothing
     , _dclirsInstances = Nothing
-    , _dclirsStatus = pStatus
+    , _dclirsStatus = pStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is

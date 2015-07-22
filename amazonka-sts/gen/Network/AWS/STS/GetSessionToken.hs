@@ -173,10 +173,10 @@ data GetSessionTokenResponse = GetSessionTokenResponse'
 
 -- | 'GetSessionTokenResponse' smart constructor.
 getSessionTokenResponse :: Int -> GetSessionTokenResponse
-getSessionTokenResponse pStatus =
+getSessionTokenResponse pStatus_ =
     GetSessionTokenResponse'
     { _gstrsCredentials = Nothing
-    , _gstrsStatus = pStatus
+    , _gstrsStatus = pStatus_
     }
 
 -- | The session credentials for API authentication.

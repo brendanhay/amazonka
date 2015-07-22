@@ -67,10 +67,10 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
 
 -- | 'CreateCacheSubnetGroup' smart constructor.
 createCacheSubnetGroup :: Text -> Text -> CreateCacheSubnetGroup
-createCacheSubnetGroup pCacheSubnetGroupName pCacheSubnetGroupDescription =
+createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
     CreateCacheSubnetGroup'
-    { _ccsgrqCacheSubnetGroupName = pCacheSubnetGroupName
-    , _ccsgrqCacheSubnetGroupDescription = pCacheSubnetGroupDescription
+    { _ccsgrqCacheSubnetGroupName = pCacheSubnetGroupName_
+    , _ccsgrqCacheSubnetGroupDescription = pCacheSubnetGroupDescription_
     , _ccsgrqSubnetIds = mempty
     }
 
@@ -136,10 +136,10 @@ data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
 
 -- | 'CreateCacheSubnetGroupResponse' smart constructor.
 createCacheSubnetGroupResponse :: Int -> CreateCacheSubnetGroupResponse
-createCacheSubnetGroupResponse pStatus =
+createCacheSubnetGroupResponse pStatus_ =
     CreateCacheSubnetGroupResponse'
     { _crsCacheSubnetGroup = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

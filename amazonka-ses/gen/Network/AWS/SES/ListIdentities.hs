@@ -145,10 +145,10 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Int -> ListIdentitiesResponse
-listIdentitiesResponse pStatus =
+listIdentitiesResponse pStatus_ =
     ListIdentitiesResponse'
     { _lirsNextToken = Nothing
-    , _lirsStatus = pStatus
+    , _lirsStatus = pStatus_
     , _lirsIdentities = mempty
     }
 

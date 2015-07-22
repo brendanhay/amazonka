@@ -61,10 +61,10 @@ data CreateInvalidation = CreateInvalidation'
 
 -- | 'CreateInvalidation' smart constructor.
 createInvalidation :: Text -> InvalidationBatch -> CreateInvalidation
-createInvalidation pDistributionId pInvalidationBatch =
+createInvalidation pDistributionId_ pInvalidationBatch_ =
     CreateInvalidation'
-    { _cirqDistributionId = pDistributionId
-    , _cirqInvalidationBatch = pInvalidationBatch
+    { _cirqDistributionId = pDistributionId_
+    , _cirqInvalidationBatch = pInvalidationBatch_
     }
 
 -- | The distribution\'s id.
@@ -125,11 +125,11 @@ data CreateInvalidationResponse = CreateInvalidationResponse'
 
 -- | 'CreateInvalidationResponse' smart constructor.
 createInvalidationResponse :: Int -> CreateInvalidationResponse
-createInvalidationResponse pStatus =
+createInvalidationResponse pStatus_ =
     CreateInvalidationResponse'
     { _cirsInvalidation = Nothing
     , _cirsLocation = Nothing
-    , _cirsStatus = pStatus
+    , _cirsStatus = pStatus_
     }
 
 -- | The invalidation\'s information.

@@ -95,13 +95,13 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
 
 -- | 'CreateEventSourceMapping' smart constructor.
 createEventSourceMapping :: Text -> Text -> EventSourcePosition -> CreateEventSourceMapping
-createEventSourceMapping pEventSourceARN pFunctionName pStartingPosition =
+createEventSourceMapping pEventSourceARN_ pFunctionName_ pStartingPosition_ =
     CreateEventSourceMapping'
     { _cesmrqEnabled = Nothing
     , _cesmrqBatchSize = Nothing
-    , _cesmrqEventSourceARN = pEventSourceARN
-    , _cesmrqFunctionName = pFunctionName
-    , _cesmrqStartingPosition = pStartingPosition
+    , _cesmrqEventSourceARN = pEventSourceARN_
+    , _cesmrqFunctionName = pFunctionName_
+    , _cesmrqStartingPosition = pStartingPosition_
     }
 
 -- | Indicates whether AWS Lambda should begin polling the event source, the

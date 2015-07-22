@@ -114,7 +114,7 @@ data PutMetricAlarm = PutMetricAlarm'
 
 -- | 'PutMetricAlarm' smart constructor.
 putMetricAlarm :: Text -> Text -> Text -> Statistic -> Natural -> Natural -> Double -> ComparisonOperator -> PutMetricAlarm
-putMetricAlarm pAlarmName pMetricName pNamespace pStatistic pPeriod pEvaluationPeriods pThreshold pComparisonOperator =
+putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pStatistic_ pPeriod_ pEvaluationPeriods_ pThreshold_ pComparisonOperator_ =
     PutMetricAlarm'
     { _pmarqAlarmDescription = Nothing
     , _pmarqOKActions = Nothing
@@ -123,14 +123,14 @@ putMetricAlarm pAlarmName pMetricName pNamespace pStatistic pPeriod pEvaluationP
     , _pmarqDimensions = Nothing
     , _pmarqAlarmActions = Nothing
     , _pmarqUnit = Nothing
-    , _pmarqAlarmName = pAlarmName
-    , _pmarqMetricName = pMetricName
-    , _pmarqNamespace = pNamespace
-    , _pmarqStatistic = pStatistic
-    , _pmarqPeriod = _Nat # pPeriod
-    , _pmarqEvaluationPeriods = _Nat # pEvaluationPeriods
-    , _pmarqThreshold = pThreshold
-    , _pmarqComparisonOperator = pComparisonOperator
+    , _pmarqAlarmName = pAlarmName_
+    , _pmarqMetricName = pMetricName_
+    , _pmarqNamespace = pNamespace_
+    , _pmarqStatistic = pStatistic_
+    , _pmarqPeriod = _Nat # pPeriod_
+    , _pmarqEvaluationPeriods = _Nat # pEvaluationPeriods_
+    , _pmarqThreshold = pThreshold_
+    , _pmarqComparisonOperator = pComparisonOperator_
     }
 
 -- | The description for the alarm.

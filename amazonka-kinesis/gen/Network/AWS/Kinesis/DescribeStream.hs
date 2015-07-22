@@ -87,11 +87,11 @@ data DescribeStream = DescribeStream'
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
-describeStream pStreamName =
+describeStream pStreamName_ =
     DescribeStream'
     { _drqExclusiveStartShardId = Nothing
     , _drqLimit = Nothing
-    , _drqStreamName = pStreamName
+    , _drqStreamName = pStreamName_
     }
 
 -- | The shard ID of the shard to start with.
@@ -169,10 +169,10 @@ data DescribeStreamResponse = DescribeStreamResponse'
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: Int -> StreamDescription -> DescribeStreamResponse
-describeStreamResponse pStatus pStreamDescription =
+describeStreamResponse pStatus_ pStreamDescription_ =
     DescribeStreamResponse'
-    { _dsrsStatus = pStatus
-    , _dsrsStreamDescription = pStreamDescription
+    { _dsrsStatus = pStatus_
+    , _dsrsStreamDescription = pStreamDescription_
     }
 
 -- | FIXME: Undocumented member.

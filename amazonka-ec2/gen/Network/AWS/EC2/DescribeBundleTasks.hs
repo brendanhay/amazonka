@@ -157,10 +157,10 @@ data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
 
 -- | 'DescribeBundleTasksResponse' smart constructor.
 describeBundleTasksResponse :: Int -> DescribeBundleTasksResponse
-describeBundleTasksResponse pStatus =
+describeBundleTasksResponse pStatus_ =
     DescribeBundleTasksResponse'
     { _dbtrsBundleTasks = Nothing
-    , _dbtrsStatus = pStatus
+    , _dbtrsStatus = pStatus_
     }
 
 -- | Information about one or more bundle tasks.

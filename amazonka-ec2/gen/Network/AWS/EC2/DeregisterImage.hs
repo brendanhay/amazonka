@@ -58,10 +58,10 @@ data DeregisterImage = DeregisterImage'
 
 -- | 'DeregisterImage' smart constructor.
 deregisterImage :: Text -> DeregisterImage
-deregisterImage pImageId =
+deregisterImage pImageId_ =
     DeregisterImage'
     { _dirqDryRun = Nothing
-    , _dirqImageId = pImageId
+    , _dirqImageId = pImageId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

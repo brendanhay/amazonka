@@ -72,13 +72,13 @@ data CreateOptionGroup = CreateOptionGroup'
 
 -- | 'CreateOptionGroup' smart constructor.
 createOptionGroup :: Text -> Text -> Text -> Text -> CreateOptionGroup
-createOptionGroup pOptionGroupName pEngineName pMajorEngineVersion pOptionGroupDescription =
+createOptionGroup pOptionGroupName_ pEngineName_ pMajorEngineVersion_ pOptionGroupDescription_ =
     CreateOptionGroup'
     { _cogrqTags = Nothing
-    , _cogrqOptionGroupName = pOptionGroupName
-    , _cogrqEngineName = pEngineName
-    , _cogrqMajorEngineVersion = pMajorEngineVersion
-    , _cogrqOptionGroupDescription = pOptionGroupDescription
+    , _cogrqOptionGroupName = pOptionGroupName_
+    , _cogrqEngineName = pEngineName_
+    , _cogrqMajorEngineVersion = pMajorEngineVersion_
+    , _cogrqOptionGroupDescription = pOptionGroupDescription_
     }
 
 -- | FIXME: Undocumented member.
@@ -153,10 +153,10 @@ data CreateOptionGroupResponse = CreateOptionGroupResponse'
 
 -- | 'CreateOptionGroupResponse' smart constructor.
 createOptionGroupResponse :: Int -> CreateOptionGroupResponse
-createOptionGroupResponse pStatus =
+createOptionGroupResponse pStatus_ =
     CreateOptionGroupResponse'
     { _crsOptionGroup = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

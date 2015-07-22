@@ -61,9 +61,9 @@ newtype DeleteRepository = DeleteRepository'
 
 -- | 'DeleteRepository' smart constructor.
 deleteRepository :: Text -> DeleteRepository
-deleteRepository pRepositoryName =
+deleteRepository pRepositoryName_ =
     DeleteRepository'
-    { _drrqRepositoryName = pRepositoryName
+    { _drrqRepositoryName = pRepositoryName_
     }
 
 -- | The name of the repository to delete.
@@ -116,10 +116,10 @@ data DeleteRepositoryResponse = DeleteRepositoryResponse'
 
 -- | 'DeleteRepositoryResponse' smart constructor.
 deleteRepositoryResponse :: Int -> DeleteRepositoryResponse
-deleteRepositoryResponse pStatus =
+deleteRepositoryResponse pStatus_ =
     DeleteRepositoryResponse'
     { _drrsRepositoryId = Nothing
-    , _drrsStatus = pStatus
+    , _drrsStatus = pStatus_
     }
 
 -- | The ID of the repository that was deleted.

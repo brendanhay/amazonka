@@ -153,14 +153,14 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
 
 -- | 'AssumeRoleWithWebIdentity' smart constructor.
 assumeRoleWithWebIdentity :: Text -> Text -> Text -> AssumeRoleWithWebIdentity
-assumeRoleWithWebIdentity pRoleARN pRoleSessionName pWebIdentityToken =
+assumeRoleWithWebIdentity pRoleARN_ pRoleSessionName_ pWebIdentityToken_ =
     AssumeRoleWithWebIdentity'
     { _arwwirqProviderId = Nothing
     , _arwwirqDurationSeconds = Nothing
     , _arwwirqPolicy = Nothing
-    , _arwwirqRoleARN = pRoleARN
-    , _arwwirqRoleSessionName = pRoleSessionName
-    , _arwwirqWebIdentityToken = pWebIdentityToken
+    , _arwwirqRoleARN = pRoleARN_
+    , _arwwirqRoleSessionName = pRoleSessionName_
+    , _arwwirqWebIdentityToken = pWebIdentityToken_
     }
 
 -- | The fully qualified host component of the domain name of the identity
@@ -291,7 +291,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
 
 -- | 'AssumeRoleWithWebIdentityResponse' smart constructor.
 assumeRoleWithWebIdentityResponse :: Int -> AssumeRoleWithWebIdentityResponse
-assumeRoleWithWebIdentityResponse pStatus =
+assumeRoleWithWebIdentityResponse pStatus_ =
     AssumeRoleWithWebIdentityResponse'
     { _arwwirsAudience = Nothing
     , _arwwirsSubjectFromWebIdentityToken = Nothing
@@ -299,7 +299,7 @@ assumeRoleWithWebIdentityResponse pStatus =
     , _arwwirsCredentials = Nothing
     , _arwwirsAssumedRoleUser = Nothing
     , _arwwirsProvider = Nothing
-    , _arwwirsStatus = pStatus
+    , _arwwirsStatus = pStatus_
     }
 
 -- | The intended audience (also known as client ID) of the web identity

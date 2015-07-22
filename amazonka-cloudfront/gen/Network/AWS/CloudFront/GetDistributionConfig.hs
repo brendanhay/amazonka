@@ -57,9 +57,9 @@ newtype GetDistributionConfig = GetDistributionConfig'
 
 -- | 'GetDistributionConfig' smart constructor.
 getDistributionConfig :: Text -> GetDistributionConfig
-getDistributionConfig pId =
+getDistributionConfig pId_ =
     GetDistributionConfig'
-    { _gdcrqId = pId
+    { _gdcrqId = pId_
     }
 
 -- | The distribution\'s id.
@@ -109,11 +109,11 @@ data GetDistributionConfigResponse = GetDistributionConfigResponse'
 
 -- | 'GetDistributionConfigResponse' smart constructor.
 getDistributionConfigResponse :: Int -> GetDistributionConfigResponse
-getDistributionConfigResponse pStatus =
+getDistributionConfigResponse pStatus_ =
     GetDistributionConfigResponse'
     { _gdcrsETag = Nothing
     , _gdcrsDistributionConfig = Nothing
-    , _gdcrsStatus = pStatus
+    , _gdcrsStatus = pStatus_
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.

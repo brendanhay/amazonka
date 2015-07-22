@@ -67,10 +67,10 @@ data CreateAssociation = CreateAssociation'
 
 -- | 'CreateAssociation' smart constructor.
 createAssociation :: Text -> Text -> CreateAssociation
-createAssociation pName pInstanceId =
+createAssociation pName_ pInstanceId_ =
     CreateAssociation'
-    { _carqName = pName
-    , _carqInstanceId = pInstanceId
+    { _carqName = pName_
+    , _carqInstanceId = pInstanceId_
     }
 
 -- | The name of the configuration document.
@@ -127,10 +127,10 @@ data CreateAssociationResponse = CreateAssociationResponse'
 
 -- | 'CreateAssociationResponse' smart constructor.
 createAssociationResponse :: Int -> CreateAssociationResponse
-createAssociationResponse pStatus =
+createAssociationResponse pStatus_ =
     CreateAssociationResponse'
     { _carsAssociationDescription = Nothing
-    , _carsStatus = pStatus
+    , _carsStatus = pStatus_
     }
 
 -- | Information about the association.

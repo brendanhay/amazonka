@@ -57,9 +57,9 @@ newtype StartConfigurationRecorder = StartConfigurationRecorder'
 
 -- | 'StartConfigurationRecorder' smart constructor.
 startConfigurationRecorder :: Text -> StartConfigurationRecorder
-startConfigurationRecorder pConfigurationRecorderName =
+startConfigurationRecorder pConfigurationRecorderName_ =
     StartConfigurationRecorder'
-    { _srqConfigurationRecorderName = pConfigurationRecorderName
+    { _srqConfigurationRecorderName = pConfigurationRecorderName_
     }
 
 -- | The name of the recorder object that records each configuration change

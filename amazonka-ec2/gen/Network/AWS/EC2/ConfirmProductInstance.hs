@@ -66,11 +66,11 @@ data ConfirmProductInstance = ConfirmProductInstance'
 
 -- | 'ConfirmProductInstance' smart constructor.
 confirmProductInstance :: Text -> Text -> ConfirmProductInstance
-confirmProductInstance pProductCode pInstanceId =
+confirmProductInstance pProductCode_ pInstanceId_ =
     ConfirmProductInstance'
     { _cpirqDryRun = Nothing
-    , _cpirqProductCode = pProductCode
-    , _cpirqInstanceId = pInstanceId
+    , _cpirqProductCode = pProductCode_
+    , _cpirqInstanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -133,11 +133,11 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
 
 -- | 'ConfirmProductInstanceResponse' smart constructor.
 confirmProductInstanceResponse :: Int -> ConfirmProductInstanceResponse
-confirmProductInstanceResponse pStatus =
+confirmProductInstanceResponse pStatus_ =
     ConfirmProductInstanceResponse'
     { _cpirsReturn = Nothing
     , _cpirsOwnerId = Nothing
-    , _cpirsStatus = pStatus
+    , _cpirsStatus = pStatus_
     }
 
 -- | The return value of the request. Returns @true@ if the specified product

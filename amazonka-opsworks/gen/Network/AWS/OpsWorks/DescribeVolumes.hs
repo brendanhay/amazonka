@@ -152,10 +152,10 @@ data DescribeVolumesResponse = DescribeVolumesResponse'
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
-describeVolumesResponse pStatus =
+describeVolumesResponse pStatus_ =
     DescribeVolumesResponse'
     { _dvrsVolumes = Nothing
-    , _dvrsStatus = pStatus
+    , _dvrsStatus = pStatus_
     }
 
 -- | An array of volume IDs.

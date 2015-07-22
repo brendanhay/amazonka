@@ -59,9 +59,9 @@ newtype CreateDomain = CreateDomain'
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
-createDomain pDomainName =
+createDomain pDomainName_ =
     CreateDomain'
-    { _cdrqDomainName = pDomainName
+    { _cdrqDomainName = pDomainName_
     }
 
 -- | A name for the domain you are creating. Allowed characters are a-z
@@ -111,10 +111,10 @@ data CreateDomainResponse = CreateDomainResponse'
 
 -- | 'CreateDomainResponse' smart constructor.
 createDomainResponse :: Int -> CreateDomainResponse
-createDomainResponse pStatus =
+createDomainResponse pStatus_ =
     CreateDomainResponse'
     { _cdrsDomainStatus = Nothing
-    , _cdrsStatus = pStatus
+    , _cdrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

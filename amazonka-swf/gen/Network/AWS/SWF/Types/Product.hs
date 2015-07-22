@@ -37,10 +37,10 @@ data ActivityTaskCancelRequestedEventAttributes = ActivityTaskCancelRequestedEve
 
 -- | 'ActivityTaskCancelRequestedEventAttributes' smart constructor.
 activityTaskCancelRequestedEventAttributes :: Integer -> Text -> ActivityTaskCancelRequestedEventAttributes
-activityTaskCancelRequestedEventAttributes pDecisionTaskCompletedEventId pActivityId =
+activityTaskCancelRequestedEventAttributes pDecisionTaskCompletedEventId_ pActivityId_ =
     ActivityTaskCancelRequestedEventAttributes'
-    { _atcreaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
-    , _atcreaActivityId = pActivityId
+    { _atcreaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
+    , _atcreaActivityId = pActivityId_
     }
 
 -- | The id of the @DecisionTaskCompleted@ event corresponding to the
@@ -87,12 +87,12 @@ data ActivityTaskCanceledEventAttributes = ActivityTaskCanceledEventAttributes'
 
 -- | 'ActivityTaskCanceledEventAttributes' smart constructor.
 activityTaskCanceledEventAttributes :: Integer -> Integer -> ActivityTaskCanceledEventAttributes
-activityTaskCanceledEventAttributes pScheduledEventId pStartedEventId =
+activityTaskCanceledEventAttributes pScheduledEventId_ pStartedEventId_ =
     ActivityTaskCanceledEventAttributes'
     { _aLatestCancelRequestedEventId = Nothing
     , _aDetails = Nothing
-    , _aScheduledEventId = pScheduledEventId
-    , _aStartedEventId = pStartedEventId
+    , _aScheduledEventId = pScheduledEventId_
+    , _aStartedEventId = pStartedEventId_
     }
 
 -- | If set, contains the Id of the last @ActivityTaskCancelRequested@ event
@@ -149,11 +149,11 @@ data ActivityTaskCompletedEventAttributes = ActivityTaskCompletedEventAttributes
 
 -- | 'ActivityTaskCompletedEventAttributes' smart constructor.
 activityTaskCompletedEventAttributes :: Integer -> Integer -> ActivityTaskCompletedEventAttributes
-activityTaskCompletedEventAttributes pScheduledEventId pStartedEventId =
+activityTaskCompletedEventAttributes pScheduledEventId_ pStartedEventId_ =
     ActivityTaskCompletedEventAttributes'
     { _atceaResult = Nothing
-    , _atceaScheduledEventId = pScheduledEventId
-    , _atceaStartedEventId = pStartedEventId
+    , _atceaScheduledEventId = pScheduledEventId_
+    , _atceaStartedEventId = pStartedEventId_
     }
 
 -- | The results of the activity task (if any).
@@ -204,12 +204,12 @@ data ActivityTaskFailedEventAttributes = ActivityTaskFailedEventAttributes'
 
 -- | 'ActivityTaskFailedEventAttributes' smart constructor.
 activityTaskFailedEventAttributes :: Integer -> Integer -> ActivityTaskFailedEventAttributes
-activityTaskFailedEventAttributes pScheduledEventId pStartedEventId =
+activityTaskFailedEventAttributes pScheduledEventId_ pStartedEventId_ =
     ActivityTaskFailedEventAttributes'
     { _atfeaReason = Nothing
     , _atfeaDetails = Nothing
-    , _atfeaScheduledEventId = pScheduledEventId
-    , _atfeaStartedEventId = pStartedEventId
+    , _atfeaScheduledEventId = pScheduledEventId_
+    , _atfeaStartedEventId = pStartedEventId_
     }
 
 -- | The reason provided for the failure (if any).
@@ -286,7 +286,7 @@ data ActivityTaskScheduledEventAttributes = ActivityTaskScheduledEventAttributes
 
 -- | 'ActivityTaskScheduledEventAttributes' smart constructor.
 activityTaskScheduledEventAttributes :: ActivityType -> Text -> TaskList -> Integer -> ActivityTaskScheduledEventAttributes
-activityTaskScheduledEventAttributes pActivityType pActivityId pTaskList pDecisionTaskCompletedEventId =
+activityTaskScheduledEventAttributes pActivityType_ pActivityId_ pTaskList_ pDecisionTaskCompletedEventId_ =
     ActivityTaskScheduledEventAttributes'
     { _atseaControl = Nothing
     , _atseaScheduleToCloseTimeout = Nothing
@@ -295,10 +295,10 @@ activityTaskScheduledEventAttributes pActivityType pActivityId pTaskList pDecisi
     , _atseaTaskPriority = Nothing
     , _atseaScheduleToStartTimeout = Nothing
     , _atseaStartToCloseTimeout = Nothing
-    , _atseaActivityType = pActivityType
-    , _atseaActivityId = pActivityId
-    , _atseaTaskList = pTaskList
-    , _atseaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _atseaActivityType = pActivityType_
+    , _atseaActivityId = pActivityId_
+    , _atseaTaskList = pTaskList_
+    , _atseaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -400,10 +400,10 @@ data ActivityTaskStartedEventAttributes = ActivityTaskStartedEventAttributes'
 
 -- | 'ActivityTaskStartedEventAttributes' smart constructor.
 activityTaskStartedEventAttributes :: Integer -> ActivityTaskStartedEventAttributes
-activityTaskStartedEventAttributes pScheduledEventId =
+activityTaskStartedEventAttributes pScheduledEventId_ =
     ActivityTaskStartedEventAttributes'
     { _atseaIdentity = Nothing
-    , _atseaScheduledEventId = pScheduledEventId
+    , _atseaScheduledEventId = pScheduledEventId_
     }
 
 -- | Identity of the worker that was assigned this task. This aids
@@ -449,12 +449,12 @@ data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'
 
 -- | 'ActivityTaskTimedOutEventAttributes' smart constructor.
 activityTaskTimedOutEventAttributes :: ActivityTaskTimeoutType -> Integer -> Integer -> ActivityTaskTimedOutEventAttributes
-activityTaskTimedOutEventAttributes pTimeoutType pScheduledEventId pStartedEventId =
+activityTaskTimedOutEventAttributes pTimeoutType_ pScheduledEventId_ pStartedEventId_ =
     ActivityTaskTimedOutEventAttributes'
     { _attoeaDetails = Nothing
-    , _attoeaTimeoutType = pTimeoutType
-    , _attoeaScheduledEventId = pScheduledEventId
-    , _attoeaStartedEventId = pStartedEventId
+    , _attoeaTimeoutType = pTimeoutType_
+    , _attoeaScheduledEventId = pScheduledEventId_
+    , _attoeaStartedEventId = pStartedEventId_
     }
 
 -- | Contains the content of the @details@ parameter for the last call made
@@ -505,10 +505,10 @@ data ActivityType = ActivityType'
 
 -- | 'ActivityType' smart constructor.
 activityType :: Text -> Text -> ActivityType
-activityType pName pVersion =
+activityType pName_ pVersion_ =
     ActivityType'
-    { _atName = pName
-    , _atVersion = pVersion
+    { _atName = pName_
+    , _atVersion = pVersion_
     }
 
 -- | The name of this activity.
@@ -680,13 +680,13 @@ data ActivityTypeInfo = ActivityTypeInfo'
 
 -- | 'ActivityTypeInfo' smart constructor.
 activityTypeInfo :: ActivityType -> RegistrationStatus -> UTCTime -> ActivityTypeInfo
-activityTypeInfo pActivityType pStatus pCreationDate =
+activityTypeInfo pActivityType_ pStatus_ pCreationDate_ =
     ActivityTypeInfo'
     { _atiDeprecationDate = Nothing
     , _atiDescription = Nothing
-    , _atiActivityType = pActivityType
-    , _atiStatus = pStatus
-    , _atiCreationDate = _Time # pCreationDate
+    , _atiActivityType = pActivityType_
+    , _atiStatus = pStatus_
+    , _atiCreationDate = _Time # pCreationDate_
     }
 
 -- | If DEPRECATED, the date and time DeprecateActivityType was called.
@@ -751,9 +751,9 @@ newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
 
 -- | 'CancelTimerDecisionAttributes' smart constructor.
 cancelTimerDecisionAttributes :: Text -> CancelTimerDecisionAttributes
-cancelTimerDecisionAttributes pTimerId =
+cancelTimerDecisionAttributes pTimerId_ =
     CancelTimerDecisionAttributes'
-    { _ctdaTimerId = pTimerId
+    { _ctdaTimerId = pTimerId_
     }
 
 -- | __Required.__ The unique Id of the timer to cancel.
@@ -783,11 +783,11 @@ data CancelTimerFailedEventAttributes = CancelTimerFailedEventAttributes'
 
 -- | 'CancelTimerFailedEventAttributes' smart constructor.
 cancelTimerFailedEventAttributes :: Text -> CancelTimerFailedCause -> Integer -> CancelTimerFailedEventAttributes
-cancelTimerFailedEventAttributes pTimerId pCause pDecisionTaskCompletedEventId =
+cancelTimerFailedEventAttributes pTimerId_ pCause_ pDecisionTaskCompletedEventId_ =
     CancelTimerFailedEventAttributes'
-    { _ctfeaTimerId = pTimerId
-    , _ctfeaCause = pCause
-    , _ctfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _ctfeaTimerId = pTimerId_
+    , _ctfeaCause = pCause_
+    , _ctfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The timerId provided in the @CancelTimer@ decision that failed.
@@ -881,10 +881,10 @@ data CancelWorkflowExecutionFailedEventAttributes = CancelWorkflowExecutionFaile
 
 -- | 'CancelWorkflowExecutionFailedEventAttributes' smart constructor.
 cancelWorkflowExecutionFailedEventAttributes :: CancelWorkflowExecutionFailedCause -> Integer -> CancelWorkflowExecutionFailedEventAttributes
-cancelWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId =
+cancelWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEventId_ =
     CancelWorkflowExecutionFailedEventAttributes'
-    { _cCause = pCause
-    , _cDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _cCause = pCause_
+    , _cDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The cause of the failure. This information is generated by the system
@@ -940,13 +940,13 @@ data ChildWorkflowExecutionCanceledEventAttributes = ChildWorkflowExecutionCance
 
 -- | 'ChildWorkflowExecutionCanceledEventAttributes' smart constructor.
 childWorkflowExecutionCanceledEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionCanceledEventAttributes
-childWorkflowExecutionCanceledEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId =
+childWorkflowExecutionCanceledEventAttributes pWorkflowExecution_ pWorkflowType_ pInitiatedEventId_ pStartedEventId_ =
     ChildWorkflowExecutionCanceledEventAttributes'
     { _cDetails = Nothing
-    , _cWorkflowExecution = pWorkflowExecution
-    , _cWorkflowType = pWorkflowType
-    , _cInitiatedEventId = pInitiatedEventId
-    , _cStartedEventId = pStartedEventId
+    , _cWorkflowExecution = pWorkflowExecution_
+    , _cWorkflowType = pWorkflowType_
+    , _cInitiatedEventId = pInitiatedEventId_
+    , _cStartedEventId = pStartedEventId_
     }
 
 -- | Details of the cancellation (if provided).
@@ -1012,13 +1012,13 @@ data ChildWorkflowExecutionCompletedEventAttributes = ChildWorkflowExecutionComp
 
 -- | 'ChildWorkflowExecutionCompletedEventAttributes' smart constructor.
 childWorkflowExecutionCompletedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionCompletedEventAttributes
-childWorkflowExecutionCompletedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId =
+childWorkflowExecutionCompletedEventAttributes pWorkflowExecution_ pWorkflowType_ pInitiatedEventId_ pStartedEventId_ =
     ChildWorkflowExecutionCompletedEventAttributes'
     { _cweceaResult = Nothing
-    , _cweceaWorkflowExecution = pWorkflowExecution
-    , _cweceaWorkflowType = pWorkflowType
-    , _cweceaInitiatedEventId = pInitiatedEventId
-    , _cweceaStartedEventId = pStartedEventId
+    , _cweceaWorkflowExecution = pWorkflowExecution_
+    , _cweceaWorkflowType = pWorkflowType_
+    , _cweceaInitiatedEventId = pInitiatedEventId_
+    , _cweceaStartedEventId = pStartedEventId_
     }
 
 -- | The result of the child workflow execution (if any).
@@ -1087,14 +1087,14 @@ data ChildWorkflowExecutionFailedEventAttributes = ChildWorkflowExecutionFailedE
 
 -- | 'ChildWorkflowExecutionFailedEventAttributes' smart constructor.
 childWorkflowExecutionFailedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionFailedEventAttributes
-childWorkflowExecutionFailedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId =
+childWorkflowExecutionFailedEventAttributes pWorkflowExecution_ pWorkflowType_ pInitiatedEventId_ pStartedEventId_ =
     ChildWorkflowExecutionFailedEventAttributes'
     { _cwefeaReason = Nothing
     , _cwefeaDetails = Nothing
-    , _cwefeaWorkflowExecution = pWorkflowExecution
-    , _cwefeaWorkflowType = pWorkflowType
-    , _cwefeaInitiatedEventId = pInitiatedEventId
-    , _cwefeaStartedEventId = pStartedEventId
+    , _cwefeaWorkflowExecution = pWorkflowExecution_
+    , _cwefeaWorkflowType = pWorkflowType_
+    , _cwefeaInitiatedEventId = pInitiatedEventId_
+    , _cwefeaStartedEventId = pStartedEventId_
     }
 
 -- | The reason for the failure (if provided).
@@ -1159,11 +1159,11 @@ data ChildWorkflowExecutionStartedEventAttributes = ChildWorkflowExecutionStarte
 
 -- | 'ChildWorkflowExecutionStartedEventAttributes' smart constructor.
 childWorkflowExecutionStartedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> ChildWorkflowExecutionStartedEventAttributes
-childWorkflowExecutionStartedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId =
+childWorkflowExecutionStartedEventAttributes pWorkflowExecution_ pWorkflowType_ pInitiatedEventId_ =
     ChildWorkflowExecutionStartedEventAttributes'
-    { _cweseaWorkflowExecution = pWorkflowExecution
-    , _cweseaWorkflowType = pWorkflowType
-    , _cweseaInitiatedEventId = pInitiatedEventId
+    { _cweseaWorkflowExecution = pWorkflowExecution_
+    , _cweseaWorkflowType = pWorkflowType_
+    , _cweseaInitiatedEventId = pInitiatedEventId_
     }
 
 -- | The child workflow execution that was started.
@@ -1213,12 +1213,12 @@ data ChildWorkflowExecutionTerminatedEventAttributes = ChildWorkflowExecutionTer
 
 -- | 'ChildWorkflowExecutionTerminatedEventAttributes' smart constructor.
 childWorkflowExecutionTerminatedEventAttributes :: WorkflowExecution -> WorkflowType -> Integer -> Integer -> ChildWorkflowExecutionTerminatedEventAttributes
-childWorkflowExecutionTerminatedEventAttributes pWorkflowExecution pWorkflowType pInitiatedEventId pStartedEventId =
+childWorkflowExecutionTerminatedEventAttributes pWorkflowExecution_ pWorkflowType_ pInitiatedEventId_ pStartedEventId_ =
     ChildWorkflowExecutionTerminatedEventAttributes'
-    { _cweteaWorkflowExecution = pWorkflowExecution
-    , _cweteaWorkflowType = pWorkflowType
-    , _cweteaInitiatedEventId = pInitiatedEventId
-    , _cweteaStartedEventId = pStartedEventId
+    { _cweteaWorkflowExecution = pWorkflowExecution_
+    , _cweteaWorkflowType = pWorkflowType_
+    , _cweteaInitiatedEventId = pInitiatedEventId_
+    , _cweteaStartedEventId = pStartedEventId_
     }
 
 -- | The child workflow execution that was terminated.
@@ -1279,13 +1279,13 @@ data ChildWorkflowExecutionTimedOutEventAttributes = ChildWorkflowExecutionTimed
 
 -- | 'ChildWorkflowExecutionTimedOutEventAttributes' smart constructor.
 childWorkflowExecutionTimedOutEventAttributes :: WorkflowExecution -> WorkflowType -> WorkflowExecutionTimeoutType -> Integer -> Integer -> ChildWorkflowExecutionTimedOutEventAttributes
-childWorkflowExecutionTimedOutEventAttributes pWorkflowExecution pWorkflowType pTimeoutType pInitiatedEventId pStartedEventId =
+childWorkflowExecutionTimedOutEventAttributes pWorkflowExecution_ pWorkflowType_ pTimeoutType_ pInitiatedEventId_ pStartedEventId_ =
     ChildWorkflowExecutionTimedOutEventAttributes'
-    { _cwetoeaWorkflowExecution = pWorkflowExecution
-    , _cwetoeaWorkflowType = pWorkflowType
-    , _cwetoeaTimeoutType = pTimeoutType
-    , _cwetoeaInitiatedEventId = pInitiatedEventId
-    , _cwetoeaStartedEventId = pStartedEventId
+    { _cwetoeaWorkflowExecution = pWorkflowExecution_
+    , _cwetoeaWorkflowType = pWorkflowType_
+    , _cwetoeaTimeoutType = pTimeoutType_
+    , _cwetoeaInitiatedEventId = pInitiatedEventId_
+    , _cwetoeaStartedEventId = pStartedEventId_
     }
 
 -- | The child workflow execution that timed out.
@@ -1341,9 +1341,9 @@ newtype CloseStatusFilter = CloseStatusFilter'
 
 -- | 'CloseStatusFilter' smart constructor.
 closeStatusFilter :: CloseStatus -> CloseStatusFilter
-closeStatusFilter pStatus =
+closeStatusFilter pStatus_ =
     CloseStatusFilter'
-    { _csfStatus = pStatus
+    { _csfStatus = pStatus_
     }
 
 -- | __Required.__ The close status that must match the close status of an
@@ -1418,10 +1418,10 @@ data CompleteWorkflowExecutionFailedEventAttributes = CompleteWorkflowExecutionF
 
 -- | 'CompleteWorkflowExecutionFailedEventAttributes' smart constructor.
 completeWorkflowExecutionFailedEventAttributes :: CompleteWorkflowExecutionFailedCause -> Integer -> CompleteWorkflowExecutionFailedEventAttributes
-completeWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId =
+completeWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEventId_ =
     CompleteWorkflowExecutionFailedEventAttributes'
-    { _cwefeaCause = pCause
-    , _cwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _cwefeaCause = pCause_
+    , _cwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The cause of the failure. This information is generated by the system
@@ -1640,10 +1640,10 @@ data ContinueAsNewWorkflowExecutionFailedEventAttributes = ContinueAsNewWorkflow
 
 -- | 'ContinueAsNewWorkflowExecutionFailedEventAttributes' smart constructor.
 continueAsNewWorkflowExecutionFailedEventAttributes :: ContinueAsNewWorkflowExecutionFailedCause -> Integer -> ContinueAsNewWorkflowExecutionFailedEventAttributes
-continueAsNewWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId =
+continueAsNewWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEventId_ =
     ContinueAsNewWorkflowExecutionFailedEventAttributes'
-    { _canwefeaCause = pCause
-    , _canwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _canwefeaCause = pCause_
+    , _canwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The cause of the failure. This information is generated by the system
@@ -1865,7 +1865,7 @@ data Decision = Decision'
 
 -- | 'Decision' smart constructor.
 decision :: DecisionType -> Decision
-decision pDecisionType =
+decision pDecisionType_ =
     Decision'
     { _dRequestCancelExternalWorkflowExecutionDecisionAttributes = Nothing
     , _dScheduleActivityTaskDecisionAttributes = Nothing
@@ -1879,7 +1879,7 @@ decision pDecisionType =
     , _dCancelWorkflowExecutionDecisionAttributes = Nothing
     , _dCancelTimerDecisionAttributes = Nothing
     , _dContinueAsNewWorkflowExecutionDecisionAttributes = Nothing
-    , _dDecisionType = pDecisionType
+    , _dDecisionType = pDecisionType_
     }
 
 -- | Provides details of the @RequestCancelExternalWorkflowExecution@
@@ -1996,11 +1996,11 @@ data DecisionTaskCompletedEventAttributes = DecisionTaskCompletedEventAttributes
 
 -- | 'DecisionTaskCompletedEventAttributes' smart constructor.
 decisionTaskCompletedEventAttributes :: Integer -> Integer -> DecisionTaskCompletedEventAttributes
-decisionTaskCompletedEventAttributes pScheduledEventId pStartedEventId =
+decisionTaskCompletedEventAttributes pScheduledEventId_ pStartedEventId_ =
     DecisionTaskCompletedEventAttributes'
     { _dtceaExecutionContext = Nothing
-    , _dtceaScheduledEventId = pScheduledEventId
-    , _dtceaStartedEventId = pStartedEventId
+    , _dtceaScheduledEventId = pScheduledEventId_
+    , _dtceaStartedEventId = pStartedEventId_
     }
 
 -- | User defined context for the workflow execution.
@@ -2049,11 +2049,11 @@ data DecisionTaskScheduledEventAttributes = DecisionTaskScheduledEventAttributes
 
 -- | 'DecisionTaskScheduledEventAttributes' smart constructor.
 decisionTaskScheduledEventAttributes :: TaskList -> DecisionTaskScheduledEventAttributes
-decisionTaskScheduledEventAttributes pTaskList =
+decisionTaskScheduledEventAttributes pTaskList_ =
     DecisionTaskScheduledEventAttributes'
     { _dtseaTaskPriority = Nothing
     , _dtseaStartToCloseTimeout = Nothing
-    , _dtseaTaskList = pTaskList
+    , _dtseaTaskList = pTaskList_
     }
 
 -- | /Optional./ A task priority that, if set, specifies the priority for
@@ -2105,10 +2105,10 @@ data DecisionTaskStartedEventAttributes = DecisionTaskStartedEventAttributes'
 
 -- | 'DecisionTaskStartedEventAttributes' smart constructor.
 decisionTaskStartedEventAttributes :: Integer -> DecisionTaskStartedEventAttributes
-decisionTaskStartedEventAttributes pScheduledEventId =
+decisionTaskStartedEventAttributes pScheduledEventId_ =
     DecisionTaskStartedEventAttributes'
     { _dtseaIdentity = Nothing
-    , _dtseaScheduledEventId = pScheduledEventId
+    , _dtseaScheduledEventId = pScheduledEventId_
     }
 
 -- | Identity of the decider making the request. This enables diagnostic
@@ -2150,11 +2150,11 @@ data DecisionTaskTimedOutEventAttributes = DecisionTaskTimedOutEventAttributes'
 
 -- | 'DecisionTaskTimedOutEventAttributes' smart constructor.
 decisionTaskTimedOutEventAttributes :: DecisionTaskTimeoutType -> Integer -> Integer -> DecisionTaskTimedOutEventAttributes
-decisionTaskTimedOutEventAttributes pTimeoutType pScheduledEventId pStartedEventId =
+decisionTaskTimedOutEventAttributes pTimeoutType_ pScheduledEventId_ pStartedEventId_ =
     DecisionTaskTimedOutEventAttributes'
-    { _dttoeaTimeoutType = pTimeoutType
-    , _dttoeaScheduledEventId = pScheduledEventId
-    , _dttoeaStartedEventId = pStartedEventId
+    { _dttoeaTimeoutType = pTimeoutType_
+    , _dttoeaScheduledEventId = pScheduledEventId_
+    , _dttoeaStartedEventId = pStartedEventId_
     }
 
 -- | The type of timeout that expired before the decision task could be
@@ -2197,9 +2197,9 @@ newtype DomainConfiguration = DomainConfiguration'
 
 -- | 'DomainConfiguration' smart constructor.
 domainConfiguration :: Text -> DomainConfiguration
-domainConfiguration pWorkflowExecutionRetentionPeriodInDays =
+domainConfiguration pWorkflowExecutionRetentionPeriodInDays_ =
     DomainConfiguration'
-    { _dcWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays
+    { _dcWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays_
     }
 
 -- | The retention period for workflow executions in this domain.
@@ -2232,11 +2232,11 @@ data DomainInfo = DomainInfo'
 
 -- | 'DomainInfo' smart constructor.
 domainInfo :: Text -> RegistrationStatus -> DomainInfo
-domainInfo pName pStatus =
+domainInfo pName_ pStatus_ =
     DomainInfo'
     { _diDescription = Nothing
-    , _diName = pName
-    , _diStatus = pStatus
+    , _diName = pName_
+    , _diStatus = pStatus_
     }
 
 -- | The description of the domain provided through RegisterDomain.
@@ -2286,10 +2286,10 @@ data ExecutionTimeFilter = ExecutionTimeFilter'
 
 -- | 'ExecutionTimeFilter' smart constructor.
 executionTimeFilter :: UTCTime -> ExecutionTimeFilter
-executionTimeFilter pOldestDate =
+executionTimeFilter pOldestDate_ =
     ExecutionTimeFilter'
     { _etfLatestDate = Nothing
-    , _etfOldestDate = _Time # pOldestDate
+    , _etfOldestDate = _Time # pOldestDate_
     }
 
 -- | Specifies the latest start or close date and time to return.
@@ -2323,10 +2323,10 @@ data ExternalWorkflowExecutionCancelRequestedEventAttributes = ExternalWorkflowE
 
 -- | 'ExternalWorkflowExecutionCancelRequestedEventAttributes' smart constructor.
 externalWorkflowExecutionCancelRequestedEventAttributes :: WorkflowExecution -> Integer -> ExternalWorkflowExecutionCancelRequestedEventAttributes
-externalWorkflowExecutionCancelRequestedEventAttributes pWorkflowExecution pInitiatedEventId =
+externalWorkflowExecutionCancelRequestedEventAttributes pWorkflowExecution_ pInitiatedEventId_ =
     ExternalWorkflowExecutionCancelRequestedEventAttributes'
-    { _ewecreaWorkflowExecution = pWorkflowExecution
-    , _ewecreaInitiatedEventId = pInitiatedEventId
+    { _ewecreaWorkflowExecution = pWorkflowExecution_
+    , _ewecreaInitiatedEventId = pInitiatedEventId_
     }
 
 -- | The external workflow execution to which the cancellation request was
@@ -2370,10 +2370,10 @@ data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutio
 
 -- | 'ExternalWorkflowExecutionSignaledEventAttributes' smart constructor.
 externalWorkflowExecutionSignaledEventAttributes :: WorkflowExecution -> Integer -> ExternalWorkflowExecutionSignaledEventAttributes
-externalWorkflowExecutionSignaledEventAttributes pWorkflowExecution pInitiatedEventId =
+externalWorkflowExecutionSignaledEventAttributes pWorkflowExecution_ pInitiatedEventId_ =
     ExternalWorkflowExecutionSignaledEventAttributes'
-    { _eweseaWorkflowExecution = pWorkflowExecution
-    , _eweseaInitiatedEventId = pInitiatedEventId
+    { _eweseaWorkflowExecution = pWorkflowExecution_
+    , _eweseaInitiatedEventId = pInitiatedEventId_
     }
 
 -- | The external workflow execution that the signal was delivered to.
@@ -2469,10 +2469,10 @@ data FailWorkflowExecutionFailedEventAttributes = FailWorkflowExecutionFailedEve
 
 -- | 'FailWorkflowExecutionFailedEventAttributes' smart constructor.
 failWorkflowExecutionFailedEventAttributes :: FailWorkflowExecutionFailedCause -> Integer -> FailWorkflowExecutionFailedEventAttributes
-failWorkflowExecutionFailedEventAttributes pCause pDecisionTaskCompletedEventId =
+failWorkflowExecutionFailedEventAttributes pCause_ pDecisionTaskCompletedEventId_ =
     FailWorkflowExecutionFailedEventAttributes'
-    { _fwefeaCause = pCause
-    , _fwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _fwefeaCause = pCause_
+    , _fwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The cause of the failure. This information is generated by the system
@@ -2757,7 +2757,7 @@ data HistoryEvent = HistoryEvent'
 
 -- | 'HistoryEvent' smart constructor.
 historyEvent :: UTCTime -> EventType -> Integer -> HistoryEvent
-historyEvent pEventTimestamp pEventType pEventId =
+historyEvent pEventTimestamp_ pEventType_ pEventId_ =
     HistoryEvent'
     { _heWorkflowExecutionCancelRequestedEventAttributes = Nothing
     , _heDecisionTaskScheduledEventAttributes = Nothing
@@ -2806,9 +2806,9 @@ historyEvent pEventTimestamp pEventType pEventId =
     , _heWorkflowExecutionFailedEventAttributes = Nothing
     , _heWorkflowExecutionContinuedAsNewEventAttributes = Nothing
     , _heExternalWorkflowExecutionCancelRequestedEventAttributes = Nothing
-    , _heEventTimestamp = _Time # pEventTimestamp
-    , _heEventType = pEventType
-    , _heEventId = pEventId
+    , _heEventTimestamp = _Time # pEventTimestamp_
+    , _heEventType = pEventType_
+    , _heEventId = pEventId_
     }
 
 -- | If the event is of type @WorkflowExecutionCancelRequested@ then this
@@ -3228,11 +3228,11 @@ data MarkerRecordedEventAttributes = MarkerRecordedEventAttributes'
 
 -- | 'MarkerRecordedEventAttributes' smart constructor.
 markerRecordedEventAttributes :: Text -> Integer -> MarkerRecordedEventAttributes
-markerRecordedEventAttributes pMarkerName pDecisionTaskCompletedEventId =
+markerRecordedEventAttributes pMarkerName_ pDecisionTaskCompletedEventId_ =
     MarkerRecordedEventAttributes'
     { _mreaDetails = Nothing
-    , _mreaMarkerName = pMarkerName
-    , _mreaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _mreaMarkerName = pMarkerName_
+    , _mreaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | Details of the marker (if any).
@@ -3274,10 +3274,10 @@ data PendingTaskCount = PendingTaskCount'
 
 -- | 'PendingTaskCount' smart constructor.
 pendingTaskCount :: Natural -> PendingTaskCount
-pendingTaskCount pCount =
+pendingTaskCount pCount_ =
     PendingTaskCount'
     { _ptcTruncated = Nothing
-    , _ptcCount = _Nat # pCount
+    , _ptcCount = _Nat # pCount_
     }
 
 -- | If set to true, indicates that the actual count was more than the
@@ -3331,10 +3331,10 @@ data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
 
 -- | 'RecordMarkerDecisionAttributes' smart constructor.
 recordMarkerDecisionAttributes :: Text -> RecordMarkerDecisionAttributes
-recordMarkerDecisionAttributes pMarkerName =
+recordMarkerDecisionAttributes pMarkerName_ =
     RecordMarkerDecisionAttributes'
     { _rmdaDetails = Nothing
-    , _rmdaMarkerName = pMarkerName
+    , _rmdaMarkerName = pMarkerName_
     }
 
 -- | /Optional./ details of the marker.
@@ -3370,11 +3370,11 @@ data RecordMarkerFailedEventAttributes = RecordMarkerFailedEventAttributes'
 
 -- | 'RecordMarkerFailedEventAttributes' smart constructor.
 recordMarkerFailedEventAttributes :: Text -> RecordMarkerFailedCause -> Integer -> RecordMarkerFailedEventAttributes
-recordMarkerFailedEventAttributes pMarkerName pCause pDecisionTaskCompletedEventId =
+recordMarkerFailedEventAttributes pMarkerName_ pCause_ pDecisionTaskCompletedEventId_ =
     RecordMarkerFailedEventAttributes'
-    { _rmfeaMarkerName = pMarkerName
-    , _rmfeaCause = pCause
-    , _rmfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _rmfeaMarkerName = pMarkerName_
+    , _rmfeaCause = pCause_
+    , _rmfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The marker\'s name.
@@ -3438,9 +3438,9 @@ newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskD
 
 -- | 'RequestCancelActivityTaskDecisionAttributes' smart constructor.
 requestCancelActivityTaskDecisionAttributes :: Text -> RequestCancelActivityTaskDecisionAttributes
-requestCancelActivityTaskDecisionAttributes pActivityId =
+requestCancelActivityTaskDecisionAttributes pActivityId_ =
     RequestCancelActivityTaskDecisionAttributes'
-    { _rcatdaActivityId = pActivityId
+    { _rcatdaActivityId = pActivityId_
     }
 
 -- | The @activityId@ of the activity task to be canceled.
@@ -3472,11 +3472,11 @@ data RequestCancelActivityTaskFailedEventAttributes = RequestCancelActivityTaskF
 
 -- | 'RequestCancelActivityTaskFailedEventAttributes' smart constructor.
 requestCancelActivityTaskFailedEventAttributes :: Text -> RequestCancelActivityTaskFailedCause -> Integer -> RequestCancelActivityTaskFailedEventAttributes
-requestCancelActivityTaskFailedEventAttributes pActivityId pCause pDecisionTaskCompletedEventId =
+requestCancelActivityTaskFailedEventAttributes pActivityId_ pCause_ pDecisionTaskCompletedEventId_ =
     RequestCancelActivityTaskFailedEventAttributes'
-    { _rcatfeaActivityId = pActivityId
-    , _rcatfeaCause = pCause
-    , _rcatfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _rcatfeaActivityId = pActivityId_
+    , _rcatfeaCause = pCause_
+    , _rcatfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The activityId provided in the @RequestCancelActivityTask@ decision that
@@ -3550,11 +3550,11 @@ data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExt
 
 -- | 'RequestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
 requestCancelExternalWorkflowExecutionDecisionAttributes :: Text -> RequestCancelExternalWorkflowExecutionDecisionAttributes
-requestCancelExternalWorkflowExecutionDecisionAttributes pWorkflowId =
+requestCancelExternalWorkflowExecutionDecisionAttributes pWorkflowId_ =
     RequestCancelExternalWorkflowExecutionDecisionAttributes'
     { _rcewedaControl = Nothing
     , _rcewedaRunId = Nothing
-    , _rcewedaWorkflowId = pWorkflowId
+    , _rcewedaWorkflowId = pWorkflowId_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -3610,14 +3610,14 @@ data RequestCancelExternalWorkflowExecutionFailedEventAttributes = RequestCancel
 
 -- | 'RequestCancelExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 requestCancelExternalWorkflowExecutionFailedEventAttributes :: Text -> RequestCancelExternalWorkflowExecutionFailedCause -> Integer -> Integer -> RequestCancelExternalWorkflowExecutionFailedEventAttributes
-requestCancelExternalWorkflowExecutionFailedEventAttributes pWorkflowId pCause pInitiatedEventId pDecisionTaskCompletedEventId =
+requestCancelExternalWorkflowExecutionFailedEventAttributes pWorkflowId_ pCause_ pInitiatedEventId_ pDecisionTaskCompletedEventId_ =
     RequestCancelExternalWorkflowExecutionFailedEventAttributes'
     { _rcewefeaControl = Nothing
     , _rcewefeaRunId = Nothing
-    , _rcewefeaWorkflowId = pWorkflowId
-    , _rcewefeaCause = pCause
-    , _rcewefeaInitiatedEventId = pInitiatedEventId
-    , _rcewefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _rcewefeaWorkflowId = pWorkflowId_
+    , _rcewefeaCause = pCause_
+    , _rcewefeaInitiatedEventId = pInitiatedEventId_
+    , _rcewefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | FIXME: Undocumented member.
@@ -3697,12 +3697,12 @@ data RequestCancelExternalWorkflowExecutionInitiatedEventAttributes = RequestCan
 
 -- | 'RequestCancelExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 requestCancelExternalWorkflowExecutionInitiatedEventAttributes :: Text -> Integer -> RequestCancelExternalWorkflowExecutionInitiatedEventAttributes
-requestCancelExternalWorkflowExecutionInitiatedEventAttributes pWorkflowId pDecisionTaskCompletedEventId =
+requestCancelExternalWorkflowExecutionInitiatedEventAttributes pWorkflowId_ pDecisionTaskCompletedEventId_ =
     RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
     { _rceweieaControl = Nothing
     , _rceweieaRunId = Nothing
-    , _rceweieaWorkflowId = pWorkflowId
-    , _rceweieaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _rceweieaWorkflowId = pWorkflowId_
+    , _rceweieaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -3803,7 +3803,7 @@ data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttrib
 
 -- | 'ScheduleActivityTaskDecisionAttributes' smart constructor.
 scheduleActivityTaskDecisionAttributes :: ActivityType -> Text -> ScheduleActivityTaskDecisionAttributes
-scheduleActivityTaskDecisionAttributes pActivityType pActivityId =
+scheduleActivityTaskDecisionAttributes pActivityType_ pActivityId_ =
     ScheduleActivityTaskDecisionAttributes'
     { _satdaControl = Nothing
     , _satdaScheduleToCloseTimeout = Nothing
@@ -3813,8 +3813,8 @@ scheduleActivityTaskDecisionAttributes pActivityType pActivityId =
     , _satdaTaskPriority = Nothing
     , _satdaScheduleToStartTimeout = Nothing
     , _satdaStartToCloseTimeout = Nothing
-    , _satdaActivityType = pActivityType
-    , _satdaActivityId = pActivityId
+    , _satdaActivityType = pActivityType_
+    , _satdaActivityId = pActivityId_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -3960,12 +3960,12 @@ data ScheduleActivityTaskFailedEventAttributes = ScheduleActivityTaskFailedEvent
 
 -- | 'ScheduleActivityTaskFailedEventAttributes' smart constructor.
 scheduleActivityTaskFailedEventAttributes :: ActivityType -> Text -> ScheduleActivityTaskFailedCause -> Integer -> ScheduleActivityTaskFailedEventAttributes
-scheduleActivityTaskFailedEventAttributes pActivityType pActivityId pCause pDecisionTaskCompletedEventId =
+scheduleActivityTaskFailedEventAttributes pActivityType_ pActivityId_ pCause_ pDecisionTaskCompletedEventId_ =
     ScheduleActivityTaskFailedEventAttributes'
-    { _satfeaActivityType = pActivityType
-    , _satfeaActivityId = pActivityId
-    , _satfeaCause = pCause
-    , _satfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _satfeaActivityType = pActivityType_
+    , _satfeaActivityId = pActivityId_
+    , _satfeaCause = pCause_
+    , _satfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The activity type provided in the @ScheduleActivityTask@ decision that
@@ -4049,13 +4049,13 @@ data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowE
 
 -- | 'SignalExternalWorkflowExecutionDecisionAttributes' smart constructor.
 signalExternalWorkflowExecutionDecisionAttributes :: Text -> Text -> SignalExternalWorkflowExecutionDecisionAttributes
-signalExternalWorkflowExecutionDecisionAttributes pWorkflowId pSignalName =
+signalExternalWorkflowExecutionDecisionAttributes pWorkflowId_ pSignalName_ =
     SignalExternalWorkflowExecutionDecisionAttributes'
     { _sewedaControl = Nothing
     , _sewedaInput = Nothing
     , _sewedaRunId = Nothing
-    , _sewedaWorkflowId = pWorkflowId
-    , _sewedaSignalName = pSignalName
+    , _sewedaWorkflowId = pWorkflowId_
+    , _sewedaSignalName = pSignalName_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -4121,14 +4121,14 @@ data SignalExternalWorkflowExecutionFailedEventAttributes = SignalExternalWorkfl
 
 -- | 'SignalExternalWorkflowExecutionFailedEventAttributes' smart constructor.
 signalExternalWorkflowExecutionFailedEventAttributes :: Text -> SignalExternalWorkflowExecutionFailedCause -> Integer -> Integer -> SignalExternalWorkflowExecutionFailedEventAttributes
-signalExternalWorkflowExecutionFailedEventAttributes pWorkflowId pCause pInitiatedEventId pDecisionTaskCompletedEventId =
+signalExternalWorkflowExecutionFailedEventAttributes pWorkflowId_ pCause_ pInitiatedEventId_ pDecisionTaskCompletedEventId_ =
     SignalExternalWorkflowExecutionFailedEventAttributes'
     { _sewefeaControl = Nothing
     , _sewefeaRunId = Nothing
-    , _sewefeaWorkflowId = pWorkflowId
-    , _sewefeaCause = pCause
-    , _sewefeaInitiatedEventId = pInitiatedEventId
-    , _sewefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _sewefeaWorkflowId = pWorkflowId_
+    , _sewefeaCause = pCause_
+    , _sewefeaInitiatedEventId = pInitiatedEventId_
+    , _sewefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | FIXME: Undocumented member.
@@ -4213,14 +4213,14 @@ data SignalExternalWorkflowExecutionInitiatedEventAttributes = SignalExternalWor
 
 -- | 'SignalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 signalExternalWorkflowExecutionInitiatedEventAttributes :: Text -> Text -> Integer -> SignalExternalWorkflowExecutionInitiatedEventAttributes
-signalExternalWorkflowExecutionInitiatedEventAttributes pWorkflowId pSignalName pDecisionTaskCompletedEventId =
+signalExternalWorkflowExecutionInitiatedEventAttributes pWorkflowId_ pSignalName_ pDecisionTaskCompletedEventId_ =
     SignalExternalWorkflowExecutionInitiatedEventAttributes'
     { _seweieaControl = Nothing
     , _seweieaInput = Nothing
     , _seweieaRunId = Nothing
-    , _seweieaWorkflowId = pWorkflowId
-    , _seweieaSignalName = pSignalName
-    , _seweieaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _seweieaWorkflowId = pWorkflowId_
+    , _seweieaSignalName = pSignalName_
+    , _seweieaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | /Optional./ data attached to the event that can be used by the decider
@@ -4332,7 +4332,7 @@ data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecution
 
 -- | 'StartChildWorkflowExecutionDecisionAttributes' smart constructor.
 startChildWorkflowExecutionDecisionAttributes :: WorkflowType -> Text -> StartChildWorkflowExecutionDecisionAttributes
-startChildWorkflowExecutionDecisionAttributes pWorkflowType pWorkflowId =
+startChildWorkflowExecutionDecisionAttributes pWorkflowType_ pWorkflowId_ =
     StartChildWorkflowExecutionDecisionAttributes'
     { _scwedaControl = Nothing
     , _scwedaTagList = Nothing
@@ -4342,8 +4342,8 @@ startChildWorkflowExecutionDecisionAttributes pWorkflowType pWorkflowId =
     , _scwedaTaskList = Nothing
     , _scwedaTaskPriority = Nothing
     , _scwedaChildPolicy = Nothing
-    , _scwedaWorkflowType = pWorkflowType
-    , _scwedaWorkflowId = pWorkflowId
+    , _scwedaWorkflowType = pWorkflowType_
+    , _scwedaWorkflowId = pWorkflowId_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -4503,14 +4503,14 @@ data StartChildWorkflowExecutionFailedEventAttributes = StartChildWorkflowExecut
 
 -- | 'StartChildWorkflowExecutionFailedEventAttributes' smart constructor.
 startChildWorkflowExecutionFailedEventAttributes :: WorkflowType -> StartChildWorkflowExecutionFailedCause -> Text -> Integer -> Integer -> StartChildWorkflowExecutionFailedEventAttributes
-startChildWorkflowExecutionFailedEventAttributes pWorkflowType pCause pWorkflowId pInitiatedEventId pDecisionTaskCompletedEventId =
+startChildWorkflowExecutionFailedEventAttributes pWorkflowType_ pCause_ pWorkflowId_ pInitiatedEventId_ pDecisionTaskCompletedEventId_ =
     StartChildWorkflowExecutionFailedEventAttributes'
     { _scwefeaControl = Nothing
-    , _scwefeaWorkflowType = pWorkflowType
-    , _scwefeaCause = pCause
-    , _scwefeaWorkflowId = pWorkflowId
-    , _scwefeaInitiatedEventId = pInitiatedEventId
-    , _scwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _scwefeaWorkflowType = pWorkflowType_
+    , _scwefeaCause = pCause_
+    , _scwefeaWorkflowId = pWorkflowId_
+    , _scwefeaInitiatedEventId = pInitiatedEventId_
+    , _scwefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | FIXME: Undocumented member.
@@ -4607,7 +4607,7 @@ data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExe
 
 -- | 'StartChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
 startChildWorkflowExecutionInitiatedEventAttributes :: Text -> WorkflowType -> TaskList -> Integer -> ChildPolicy -> StartChildWorkflowExecutionInitiatedEventAttributes
-startChildWorkflowExecutionInitiatedEventAttributes pWorkflowId pWorkflowType pTaskList pDecisionTaskCompletedEventId pChildPolicy =
+startChildWorkflowExecutionInitiatedEventAttributes pWorkflowId_ pWorkflowType_ pTaskList_ pDecisionTaskCompletedEventId_ pChildPolicy_ =
     StartChildWorkflowExecutionInitiatedEventAttributes'
     { _scweieaControl = Nothing
     , _scweieaTagList = Nothing
@@ -4615,11 +4615,11 @@ startChildWorkflowExecutionInitiatedEventAttributes pWorkflowId pWorkflowType pT
     , _scweieaInput = Nothing
     , _scweieaExecutionStartToCloseTimeout = Nothing
     , _scweieaTaskPriority = Nothing
-    , _scweieaWorkflowId = pWorkflowId
-    , _scweieaWorkflowType = pWorkflowType
-    , _scweieaTaskList = pTaskList
-    , _scweieaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
-    , _scweieaChildPolicy = pChildPolicy
+    , _scweieaWorkflowId = pWorkflowId_
+    , _scweieaWorkflowType = pWorkflowType_
+    , _scweieaTaskList = pTaskList_
+    , _scweieaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
+    , _scweieaChildPolicy = pChildPolicy_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -4756,11 +4756,11 @@ data StartTimerDecisionAttributes = StartTimerDecisionAttributes'
 
 -- | 'StartTimerDecisionAttributes' smart constructor.
 startTimerDecisionAttributes :: Text -> Text -> StartTimerDecisionAttributes
-startTimerDecisionAttributes pTimerId pStartToFireTimeout =
+startTimerDecisionAttributes pTimerId_ pStartToFireTimeout_ =
     StartTimerDecisionAttributes'
     { _stdaControl = Nothing
-    , _stdaTimerId = pTimerId
-    , _stdaStartToFireTimeout = pStartToFireTimeout
+    , _stdaTimerId = pTimerId_
+    , _stdaStartToFireTimeout = pStartToFireTimeout_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -4810,11 +4810,11 @@ data StartTimerFailedEventAttributes = StartTimerFailedEventAttributes'
 
 -- | 'StartTimerFailedEventAttributes' smart constructor.
 startTimerFailedEventAttributes :: Text -> StartTimerFailedCause -> Integer -> StartTimerFailedEventAttributes
-startTimerFailedEventAttributes pTimerId pCause pDecisionTaskCompletedEventId =
+startTimerFailedEventAttributes pTimerId_ pCause_ pDecisionTaskCompletedEventId_ =
     StartTimerFailedEventAttributes'
-    { _stfeaTimerId = pTimerId
-    , _stfeaCause = pCause
-    , _stfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _stfeaTimerId = pTimerId_
+    , _stfeaCause = pCause_
+    , _stfeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The timerId provided in the @StartTimer@ decision that failed.
@@ -4861,9 +4861,9 @@ newtype TagFilter = TagFilter'
 
 -- | 'TagFilter' smart constructor.
 tagFilter :: Text -> TagFilter
-tagFilter pTag =
+tagFilter pTag_ =
     TagFilter'
-    { _tfTag = pTag
+    { _tfTag = pTag_
     }
 
 -- | __Required.__ Specifies the tag that must be associated with the
@@ -4887,9 +4887,9 @@ newtype TaskList = TaskList'
 
 -- | 'TaskList' smart constructor.
 taskList :: Text -> TaskList
-taskList pName =
+taskList pName_ =
     TaskList'
-    { _tlName = pName
+    { _tlName = pName_
     }
 
 -- | The name of the task list.
@@ -4923,11 +4923,11 @@ data TimerCanceledEventAttributes = TimerCanceledEventAttributes'
 
 -- | 'TimerCanceledEventAttributes' smart constructor.
 timerCanceledEventAttributes :: Text -> Integer -> Integer -> TimerCanceledEventAttributes
-timerCanceledEventAttributes pTimerId pStartedEventId pDecisionTaskCompletedEventId =
+timerCanceledEventAttributes pTimerId_ pStartedEventId_ pDecisionTaskCompletedEventId_ =
     TimerCanceledEventAttributes'
-    { _tceaTimerId = pTimerId
-    , _tceaStartedEventId = pStartedEventId
-    , _tceaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    { _tceaTimerId = pTimerId_
+    , _tceaStartedEventId = pStartedEventId_
+    , _tceaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The unique Id of the timer that was canceled.
@@ -4971,10 +4971,10 @@ data TimerFiredEventAttributes = TimerFiredEventAttributes'
 
 -- | 'TimerFiredEventAttributes' smart constructor.
 timerFiredEventAttributes :: Text -> Integer -> TimerFiredEventAttributes
-timerFiredEventAttributes pTimerId pStartedEventId =
+timerFiredEventAttributes pTimerId_ pStartedEventId_ =
     TimerFiredEventAttributes'
-    { _tfeaTimerId = pTimerId
-    , _tfeaStartedEventId = pStartedEventId
+    { _tfeaTimerId = pTimerId_
+    , _tfeaStartedEventId = pStartedEventId_
     }
 
 -- | The unique Id of the timer that fired.
@@ -5016,12 +5016,12 @@ data TimerStartedEventAttributes = TimerStartedEventAttributes'
 
 -- | 'TimerStartedEventAttributes' smart constructor.
 timerStartedEventAttributes :: Text -> Text -> Integer -> TimerStartedEventAttributes
-timerStartedEventAttributes pTimerId pStartToFireTimeout pDecisionTaskCompletedEventId =
+timerStartedEventAttributes pTimerId_ pStartToFireTimeout_ pDecisionTaskCompletedEventId_ =
     TimerStartedEventAttributes'
     { _tseaControl = Nothing
-    , _tseaTimerId = pTimerId
-    , _tseaStartToFireTimeout = pStartToFireTimeout
-    , _tseaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _tseaTimerId = pTimerId_
+    , _tseaStartToFireTimeout = pStartToFireTimeout_
+    , _tseaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | /Optional./ Data attached to the event that can be used by the decider
@@ -5072,10 +5072,10 @@ data WorkflowExecution = WorkflowExecution'
 
 -- | 'WorkflowExecution' smart constructor.
 workflowExecution :: Text -> Text -> WorkflowExecution
-workflowExecution pWorkflowId pRunId =
+workflowExecution pWorkflowId_ pRunId_ =
     WorkflowExecution'
-    { _weWorkflowId = pWorkflowId
-    , _weRunId = pRunId
+    { _weWorkflowId = pWorkflowId_
+    , _weRunId = pRunId_
     }
 
 -- | The user defined identifier associated with the workflow execution.
@@ -5172,10 +5172,10 @@ data WorkflowExecutionCanceledEventAttributes = WorkflowExecutionCanceledEventAt
 
 -- | 'WorkflowExecutionCanceledEventAttributes' smart constructor.
 workflowExecutionCanceledEventAttributes :: Integer -> WorkflowExecutionCanceledEventAttributes
-workflowExecutionCanceledEventAttributes pDecisionTaskCompletedEventId =
+workflowExecutionCanceledEventAttributes pDecisionTaskCompletedEventId_ =
     WorkflowExecutionCanceledEventAttributes'
     { _wDetails = Nothing
-    , _wDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _wDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | Details for the cancellation (if any).
@@ -5216,10 +5216,10 @@ data WorkflowExecutionCompletedEventAttributes = WorkflowExecutionCompletedEvent
 
 -- | 'WorkflowExecutionCompletedEventAttributes' smart constructor.
 workflowExecutionCompletedEventAttributes :: Integer -> WorkflowExecutionCompletedEventAttributes
-workflowExecutionCompletedEventAttributes pDecisionTaskCompletedEventId =
+workflowExecutionCompletedEventAttributes pDecisionTaskCompletedEventId_ =
     WorkflowExecutionCompletedEventAttributes'
     { _weceaResult = Nothing
-    , _weceaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _weceaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The result produced by the workflow execution upon successful
@@ -5273,13 +5273,13 @@ data WorkflowExecutionConfiguration = WorkflowExecutionConfiguration'
 
 -- | 'WorkflowExecutionConfiguration' smart constructor.
 workflowExecutionConfiguration :: Text -> Text -> TaskList -> ChildPolicy -> WorkflowExecutionConfiguration
-workflowExecutionConfiguration pTaskStartToCloseTimeout pExecutionStartToCloseTimeout pTaskList pChildPolicy =
+workflowExecutionConfiguration pTaskStartToCloseTimeout_ pExecutionStartToCloseTimeout_ pTaskList_ pChildPolicy_ =
     WorkflowExecutionConfiguration'
     { _wecTaskPriority = Nothing
-    , _wecTaskStartToCloseTimeout = pTaskStartToCloseTimeout
-    , _wecExecutionStartToCloseTimeout = pExecutionStartToCloseTimeout
-    , _wecTaskList = pTaskList
-    , _wecChildPolicy = pChildPolicy
+    , _wecTaskStartToCloseTimeout = pTaskStartToCloseTimeout_
+    , _wecExecutionStartToCloseTimeout = pExecutionStartToCloseTimeout_
+    , _wecTaskList = pTaskList_
+    , _wecChildPolicy = pChildPolicy_
     }
 
 -- | The priority assigned to decision tasks for this workflow execution.
@@ -5381,18 +5381,18 @@ data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinued
 
 -- | 'WorkflowExecutionContinuedAsNewEventAttributes' smart constructor.
 workflowExecutionContinuedAsNewEventAttributes :: Integer -> Text -> TaskList -> ChildPolicy -> WorkflowType -> WorkflowExecutionContinuedAsNewEventAttributes
-workflowExecutionContinuedAsNewEventAttributes pDecisionTaskCompletedEventId pNewExecutionRunId pTaskList pChildPolicy pWorkflowType =
+workflowExecutionContinuedAsNewEventAttributes pDecisionTaskCompletedEventId_ pNewExecutionRunId_ pTaskList_ pChildPolicy_ pWorkflowType_ =
     WorkflowExecutionContinuedAsNewEventAttributes'
     { _wecaneaTagList = Nothing
     , _wecaneaTaskStartToCloseTimeout = Nothing
     , _wecaneaInput = Nothing
     , _wecaneaExecutionStartToCloseTimeout = Nothing
     , _wecaneaTaskPriority = Nothing
-    , _wecaneaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
-    , _wecaneaNewExecutionRunId = pNewExecutionRunId
-    , _wecaneaTaskList = pTaskList
-    , _wecaneaChildPolicy = pChildPolicy
-    , _wecaneaWorkflowType = pWorkflowType
+    , _wecaneaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
+    , _wecaneaNewExecutionRunId = pNewExecutionRunId_
+    , _wecaneaTaskList = pTaskList_
+    , _wecaneaChildPolicy = pChildPolicy_
+    , _wecaneaWorkflowType = pWorkflowType_
     }
 
 -- | The list of tags associated with the new workflow execution.
@@ -5492,10 +5492,10 @@ data WorkflowExecutionCount = WorkflowExecutionCount'
 
 -- | 'WorkflowExecutionCount' smart constructor.
 workflowExecutionCount :: Natural -> WorkflowExecutionCount
-workflowExecutionCount pCount =
+workflowExecutionCount pCount_ =
     WorkflowExecutionCount'
     { _wecTruncated = Nothing
-    , _wecCount = _Nat # pCount
+    , _wecCount = _Nat # pCount_
     }
 
 -- | If set to true, indicates that the actual count was more than the
@@ -5534,11 +5534,11 @@ data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttrib
 
 -- | 'WorkflowExecutionFailedEventAttributes' smart constructor.
 workflowExecutionFailedEventAttributes :: Integer -> WorkflowExecutionFailedEventAttributes
-workflowExecutionFailedEventAttributes pDecisionTaskCompletedEventId =
+workflowExecutionFailedEventAttributes pDecisionTaskCompletedEventId_ =
     WorkflowExecutionFailedEventAttributes'
     { _wefeaReason = Nothing
     , _wefeaDetails = Nothing
-    , _wefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId
+    , _wefeaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId_
     }
 
 -- | The descriptive reason provided for the failure (if any).
@@ -5579,9 +5579,9 @@ newtype WorkflowExecutionFilter = WorkflowExecutionFilter'
 
 -- | 'WorkflowExecutionFilter' smart constructor.
 workflowExecutionFilter :: Text -> WorkflowExecutionFilter
-workflowExecutionFilter pWorkflowId =
+workflowExecutionFilter pWorkflowId_ =
     WorkflowExecutionFilter'
-    { _wefWorkflowId = pWorkflowId
+    { _wefWorkflowId = pWorkflowId_
     }
 
 -- | The workflowId to pass of match the criteria of this filter.
@@ -5629,17 +5629,17 @@ data WorkflowExecutionInfo = WorkflowExecutionInfo'
 
 -- | 'WorkflowExecutionInfo' smart constructor.
 workflowExecutionInfo :: WorkflowExecution -> WorkflowType -> UTCTime -> ExecutionStatus -> WorkflowExecutionInfo
-workflowExecutionInfo pExecution pWorkflowType pStartTimestamp pExecutionStatus =
+workflowExecutionInfo pExecution_ pWorkflowType_ pStartTimestamp_ pExecutionStatus_ =
     WorkflowExecutionInfo'
     { _weiParent = Nothing
     , _weiTagList = Nothing
     , _weiCloseStatus = Nothing
     , _weiCloseTimestamp = Nothing
     , _weiCancelRequested = Nothing
-    , _weiExecution = pExecution
-    , _weiWorkflowType = pWorkflowType
-    , _weiStartTimestamp = _Time # pStartTimestamp
-    , _weiExecutionStatus = pExecutionStatus
+    , _weiExecution = pExecution_
+    , _weiWorkflowType = pWorkflowType_
+    , _weiStartTimestamp = _Time # pStartTimestamp_
+    , _weiExecutionStatus = pExecutionStatus_
     }
 
 -- | If this workflow execution is a child of another execution then contains
@@ -5776,12 +5776,12 @@ data WorkflowExecutionOpenCounts = WorkflowExecutionOpenCounts'
 
 -- | 'WorkflowExecutionOpenCounts' smart constructor.
 workflowExecutionOpenCounts :: Natural -> Natural -> Natural -> Natural -> WorkflowExecutionOpenCounts
-workflowExecutionOpenCounts pOpenActivityTasks pOpenDecisionTasks pOpenTimers pOpenChildWorkflowExecutions =
+workflowExecutionOpenCounts pOpenActivityTasks_ pOpenDecisionTasks_ pOpenTimers_ pOpenChildWorkflowExecutions_ =
     WorkflowExecutionOpenCounts'
-    { _weocOpenActivityTasks = _Nat # pOpenActivityTasks
-    , _weocOpenDecisionTasks = _Nat # pOpenDecisionTasks
-    , _weocOpenTimers = _Nat # pOpenTimers
-    , _weocOpenChildWorkflowExecutions = _Nat # pOpenChildWorkflowExecutions
+    { _weocOpenActivityTasks = _Nat # pOpenActivityTasks_
+    , _weocOpenDecisionTasks = _Nat # pOpenDecisionTasks_
+    , _weocOpenTimers = _Nat # pOpenTimers_
+    , _weocOpenChildWorkflowExecutions = _Nat # pOpenChildWorkflowExecutions_
     }
 
 -- | The count of activity tasks whose status is OPEN.
@@ -5834,12 +5834,12 @@ data WorkflowExecutionSignaledEventAttributes = WorkflowExecutionSignaledEventAt
 
 -- | 'WorkflowExecutionSignaledEventAttributes' smart constructor.
 workflowExecutionSignaledEventAttributes :: Text -> WorkflowExecutionSignaledEventAttributes
-workflowExecutionSignaledEventAttributes pSignalName =
+workflowExecutionSignaledEventAttributes pSignalName_ =
     WorkflowExecutionSignaledEventAttributes'
     { _wExternalWorkflowExecution = Nothing
     , _wExternalInitiatedEventId = Nothing
     , _wInput = Nothing
-    , _wSignalName = pSignalName
+    , _wSignalName = pSignalName_
     }
 
 -- | The workflow execution that sent the signal. This is set only of the
@@ -5922,7 +5922,7 @@ data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttr
 
 -- | 'WorkflowExecutionStartedEventAttributes' smart constructor.
 workflowExecutionStartedEventAttributes :: ChildPolicy -> TaskList -> WorkflowType -> WorkflowExecutionStartedEventAttributes
-workflowExecutionStartedEventAttributes pChildPolicy pTaskList pWorkflowType =
+workflowExecutionStartedEventAttributes pChildPolicy_ pTaskList_ pWorkflowType_ =
     WorkflowExecutionStartedEventAttributes'
     { _weseaParentInitiatedEventId = Nothing
     , _weseaTagList = Nothing
@@ -5932,9 +5932,9 @@ workflowExecutionStartedEventAttributes pChildPolicy pTaskList pWorkflowType =
     , _weseaTaskPriority = Nothing
     , _weseaParentWorkflowExecution = Nothing
     , _weseaContinuedExecutionRunId = Nothing
-    , _weseaChildPolicy = pChildPolicy
-    , _weseaTaskList = pTaskList
-    , _weseaWorkflowType = pWorkflowType
+    , _weseaChildPolicy = pChildPolicy_
+    , _weseaTaskList = pTaskList_
+    , _weseaWorkflowType = pWorkflowType_
     }
 
 -- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
@@ -6052,12 +6052,12 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
 
 -- | 'WorkflowExecutionTerminatedEventAttributes' smart constructor.
 workflowExecutionTerminatedEventAttributes :: ChildPolicy -> WorkflowExecutionTerminatedEventAttributes
-workflowExecutionTerminatedEventAttributes pChildPolicy =
+workflowExecutionTerminatedEventAttributes pChildPolicy_ =
     WorkflowExecutionTerminatedEventAttributes'
     { _weteaCause = Nothing
     , _weteaReason = Nothing
     , _weteaDetails = Nothing
-    , _weteaChildPolicy = pChildPolicy
+    , _weteaChildPolicy = pChildPolicy_
     }
 
 -- | If set, indicates that the workflow execution was automatically
@@ -6117,10 +6117,10 @@ data WorkflowExecutionTimedOutEventAttributes = WorkflowExecutionTimedOutEventAt
 
 -- | 'WorkflowExecutionTimedOutEventAttributes' smart constructor.
 workflowExecutionTimedOutEventAttributes :: WorkflowExecutionTimeoutType -> ChildPolicy -> WorkflowExecutionTimedOutEventAttributes
-workflowExecutionTimedOutEventAttributes pTimeoutType pChildPolicy =
+workflowExecutionTimedOutEventAttributes pTimeoutType_ pChildPolicy_ =
     WorkflowExecutionTimedOutEventAttributes'
-    { _wetoeaTimeoutType = pTimeoutType
-    , _wetoeaChildPolicy = pChildPolicy
+    { _wetoeaTimeoutType = pTimeoutType_
+    , _wetoeaChildPolicy = pChildPolicy_
     }
 
 -- | The type of timeout that caused this event.
@@ -6167,10 +6167,10 @@ data WorkflowType = WorkflowType'
 
 -- | 'WorkflowType' smart constructor.
 workflowType :: Text -> Text -> WorkflowType
-workflowType pName pVersion =
+workflowType pName_ pVersion_ =
     WorkflowType'
-    { _wtName = pName
-    , _wtVersion = pVersion
+    { _wtName = pName_
+    , _wtVersion = pVersion_
     }
 
 -- | __Required.__ The name of the workflow type.
@@ -6328,10 +6328,10 @@ data WorkflowTypeFilter = WorkflowTypeFilter'
 
 -- | 'WorkflowTypeFilter' smart constructor.
 workflowTypeFilter :: Text -> WorkflowTypeFilter
-workflowTypeFilter pName =
+workflowTypeFilter pName_ =
     WorkflowTypeFilter'
     { _wtfVersion = Nothing
-    , _wtfName = pName
+    , _wtfName = pName_
     }
 
 -- | Version of the workflow type.
@@ -6372,13 +6372,13 @@ data WorkflowTypeInfo = WorkflowTypeInfo'
 
 -- | 'WorkflowTypeInfo' smart constructor.
 workflowTypeInfo :: WorkflowType -> RegistrationStatus -> UTCTime -> WorkflowTypeInfo
-workflowTypeInfo pWorkflowType pStatus pCreationDate =
+workflowTypeInfo pWorkflowType_ pStatus_ pCreationDate_ =
     WorkflowTypeInfo'
     { _wtiDeprecationDate = Nothing
     , _wtiDescription = Nothing
-    , _wtiWorkflowType = pWorkflowType
-    , _wtiStatus = pStatus
-    , _wtiCreationDate = _Time # pCreationDate
+    , _wtiWorkflowType = pWorkflowType_
+    , _wtiStatus = pStatus_
+    , _wtiCreationDate = _Time # pCreationDate_
     }
 
 -- | If the type is in deprecated state, then it is set to the date when the

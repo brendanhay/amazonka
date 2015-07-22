@@ -62,10 +62,10 @@ data CreateGroup = CreateGroup'
 
 -- | 'CreateGroup' smart constructor.
 createGroup :: Text -> CreateGroup
-createGroup pGroupName =
+createGroup pGroupName_ =
     CreateGroup'
     { _cgrqPath = Nothing
-    , _cgrqGroupName = pGroupName
+    , _cgrqGroupName = pGroupName_
     }
 
 -- | The path to the group. For more information about paths, see
@@ -120,10 +120,10 @@ data CreateGroupResponse = CreateGroupResponse'
 
 -- | 'CreateGroupResponse' smart constructor.
 createGroupResponse :: Int -> Group -> CreateGroupResponse
-createGroupResponse pStatus pGroup =
+createGroupResponse pStatus_ pGroup_ =
     CreateGroupResponse'
-    { _cgrsStatus = pStatus
-    , _cgrsGroup = pGroup
+    { _cgrsStatus = pStatus_
+    , _cgrsGroup = pGroup_
     }
 
 -- | FIXME: Undocumented member.

@@ -80,11 +80,11 @@ data ListVolumes = ListVolumes'
 
 -- | 'ListVolumes' smart constructor.
 listVolumes :: Text -> ListVolumes
-listVolumes pGatewayARN =
+listVolumes pGatewayARN_ =
     ListVolumes'
     { _lvrqMarker = Nothing
     , _lvrqLimit = Nothing
-    , _lvrqGatewayARN = pGatewayARN
+    , _lvrqGatewayARN = pGatewayARN_
     }
 
 -- | A string that indicates the position at which to begin the returned list
@@ -163,12 +163,12 @@ data ListVolumesResponse = ListVolumesResponse'
 
 -- | 'ListVolumesResponse' smart constructor.
 listVolumesResponse :: Int -> ListVolumesResponse
-listVolumesResponse pStatus =
+listVolumesResponse pStatus_ =
     ListVolumesResponse'
     { _lvrsGatewayARN = Nothing
     , _lvrsMarker = Nothing
     , _lvrsVolumeInfos = Nothing
-    , _lvrsStatus = pStatus
+    , _lvrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

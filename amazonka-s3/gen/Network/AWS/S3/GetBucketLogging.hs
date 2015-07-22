@@ -55,9 +55,9 @@ newtype GetBucketLogging = GetBucketLogging'
 
 -- | 'GetBucketLogging' smart constructor.
 getBucketLogging :: BucketName -> GetBucketLogging
-getBucketLogging pBucket =
+getBucketLogging pBucket_ =
     GetBucketLogging'
-    { _getrqBucket = pBucket
+    { _getrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -98,10 +98,10 @@ data GetBucketLoggingResponse = GetBucketLoggingResponse'
 
 -- | 'GetBucketLoggingResponse' smart constructor.
 getBucketLoggingResponse :: Int -> GetBucketLoggingResponse
-getBucketLoggingResponse pStatus =
+getBucketLoggingResponse pStatus_ =
     GetBucketLoggingResponse'
     { _grsLoggingEnabled = Nothing
-    , _grsStatus = pStatus
+    , _grsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -78,11 +78,11 @@ data RegisterDomain = RegisterDomain'
 
 -- | 'RegisterDomain' smart constructor.
 registerDomain :: Text -> Text -> RegisterDomain
-registerDomain pName pWorkflowExecutionRetentionPeriodInDays =
+registerDomain pName_ pWorkflowExecutionRetentionPeriodInDays_ =
     RegisterDomain'
     { _rdrqDescription = Nothing
-    , _rdrqName = pName
-    , _rdrqWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays
+    , _rdrqName = pName_
+    , _rdrqWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays_
     }
 
 -- | A text description of the domain.

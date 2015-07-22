@@ -68,10 +68,10 @@ data UpdateAlias = UpdateAlias'
 
 -- | 'UpdateAlias' smart constructor.
 updateAlias :: Text -> Text -> UpdateAlias
-updateAlias pAliasName pTargetKeyId =
+updateAlias pAliasName_ pTargetKeyId_ =
     UpdateAlias'
-    { _uarqAliasName = pAliasName
-    , _uarqTargetKeyId = pTargetKeyId
+    { _uarqAliasName = pAliasName_
+    , _uarqTargetKeyId = pTargetKeyId_
     }
 
 -- | String that contains the name of the alias to be modifed. The name must

@@ -127,10 +127,10 @@ data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorder
 
 -- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
 describeConfigurationRecorderStatusResponse :: Int -> DescribeConfigurationRecorderStatusResponse
-describeConfigurationRecorderStatusResponse pStatus =
+describeConfigurationRecorderStatusResponse pStatus_ =
     DescribeConfigurationRecorderStatusResponse'
     { _dcrsrsConfigurationRecordersStatus = Nothing
-    , _dcrsrsStatus = pStatus
+    , _dcrsrsStatus = pStatus_
     }
 
 -- | A list that contains status of the specified recorders.

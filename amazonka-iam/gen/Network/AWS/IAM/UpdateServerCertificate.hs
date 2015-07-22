@@ -72,11 +72,11 @@ data UpdateServerCertificate = UpdateServerCertificate'
 
 -- | 'UpdateServerCertificate' smart constructor.
 updateServerCertificate :: Text -> UpdateServerCertificate
-updateServerCertificate pServerCertificateName =
+updateServerCertificate pServerCertificateName_ =
     UpdateServerCertificate'
     { _urqNewServerCertificateName = Nothing
     , _urqNewPath = Nothing
-    , _urqServerCertificateName = pServerCertificateName
+    , _urqServerCertificateName = pServerCertificateName_
     }
 
 -- | The new name for the server certificate. Include this only if you are

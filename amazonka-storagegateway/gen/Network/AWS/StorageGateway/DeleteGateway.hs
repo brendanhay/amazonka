@@ -73,9 +73,9 @@ newtype DeleteGateway = DeleteGateway'
 
 -- | 'DeleteGateway' smart constructor.
 deleteGateway :: Text -> DeleteGateway
-deleteGateway pGatewayARN =
+deleteGateway pGatewayARN_ =
     DeleteGateway'
-    { _dgrqGatewayARN = pGatewayARN
+    { _dgrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -128,10 +128,10 @@ data DeleteGatewayResponse = DeleteGatewayResponse'
 
 -- | 'DeleteGatewayResponse' smart constructor.
 deleteGatewayResponse :: Int -> DeleteGatewayResponse
-deleteGatewayResponse pStatus =
+deleteGatewayResponse pStatus_ =
     DeleteGatewayResponse'
     { _dgrsGatewayARN = Nothing
-    , _dgrsStatus = pStatus
+    , _dgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

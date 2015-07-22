@@ -61,9 +61,9 @@ newtype StopInstance = StopInstance'
 
 -- | 'StopInstance' smart constructor.
 stopInstance :: Text -> StopInstance
-stopInstance pInstanceId =
+stopInstance pInstanceId_ =
     StopInstance'
-    { _sirqInstanceId = pInstanceId
+    { _sirqInstanceId = pInstanceId_
     }
 
 -- | The instance ID.

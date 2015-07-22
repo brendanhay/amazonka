@@ -68,12 +68,12 @@ data PutMetricFilter = PutMetricFilter'
 
 -- | 'PutMetricFilter' smart constructor.
 putMetricFilter :: Text -> Text -> Text -> NonEmpty MetricTransformation -> PutMetricFilter
-putMetricFilter pLogGroupName pFilterName pFilterPattern pMetricTransformations =
+putMetricFilter pLogGroupName_ pFilterName_ pFilterPattern_ pMetricTransformations_ =
     PutMetricFilter'
-    { _pmfrqLogGroupName = pLogGroupName
-    , _pmfrqFilterName = pFilterName
-    , _pmfrqFilterPattern = pFilterPattern
-    , _pmfrqMetricTransformations = _List1 # pMetricTransformations
+    { _pmfrqLogGroupName = pLogGroupName_
+    , _pmfrqFilterName = pFilterName_
+    , _pmfrqFilterPattern = pFilterPattern_
+    , _pmfrqMetricTransformations = _List1 # pMetricTransformations_
     }
 
 -- | The name of the log group to associate the metric filter with.

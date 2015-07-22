@@ -104,10 +104,10 @@ data InputLogEvent = InputLogEvent'
 
 -- | 'InputLogEvent' smart constructor.
 inputLogEvent :: Natural -> Text -> InputLogEvent
-inputLogEvent pTimestamp pMessage =
+inputLogEvent pTimestamp_ pMessage_ =
     InputLogEvent'
-    { _ileTimestamp = _Nat # pTimestamp
-    , _ileMessage = pMessage
+    { _ileTimestamp = _Nat # pTimestamp_
+    , _ileMessage = pMessage_
     }
 
 -- | FIXME: Undocumented member.
@@ -407,11 +407,11 @@ data MetricTransformation = MetricTransformation'
 
 -- | 'MetricTransformation' smart constructor.
 metricTransformation :: Text -> Text -> Text -> MetricTransformation
-metricTransformation pMetricName pMetricNamespace pMetricValue =
+metricTransformation pMetricName_ pMetricNamespace_ pMetricValue_ =
     MetricTransformation'
-    { _mtMetricName = pMetricName
-    , _mtMetricNamespace = pMetricNamespace
-    , _mtMetricValue = pMetricValue
+    { _mtMetricName = pMetricName_
+    , _mtMetricNamespace = pMetricNamespace_
+    , _mtMetricValue = pMetricValue_
     }
 
 -- | FIXME: Undocumented member.

@@ -76,11 +76,11 @@ data TestRole = TestRole'
 
 -- | 'TestRole' smart constructor.
 testRole :: Text -> Text -> Text -> TestRole
-testRole pRole pInputBucket pOutputBucket =
+testRole pRole_ pInputBucket_ pOutputBucket_ =
     TestRole'
-    { _trrqRole = pRole
-    , _trrqInputBucket = pInputBucket
-    , _trrqOutputBucket = pOutputBucket
+    { _trrqRole = pRole_
+    , _trrqInputBucket = pInputBucket_
+    , _trrqOutputBucket = pOutputBucket_
     , _trrqTopics = mempty
     }
 
@@ -151,11 +151,11 @@ data TestRoleResponse = TestRoleResponse'
 
 -- | 'TestRoleResponse' smart constructor.
 testRoleResponse :: Int -> TestRoleResponse
-testRoleResponse pStatus =
+testRoleResponse pStatus_ =
     TestRoleResponse'
     { _trrsSuccess = Nothing
     , _trrsMessages = Nothing
-    , _trrsStatus = pStatus
+    , _trrsStatus = pStatus_
     }
 
 -- | If the operation is successful, this value is @true@; otherwise, the

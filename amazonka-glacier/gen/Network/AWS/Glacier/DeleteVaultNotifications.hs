@@ -74,10 +74,10 @@ data DeleteVaultNotifications = DeleteVaultNotifications'
 
 -- | 'DeleteVaultNotifications' smart constructor.
 deleteVaultNotifications :: Text -> Text -> DeleteVaultNotifications
-deleteVaultNotifications pAccountId pVaultName =
+deleteVaultNotifications pAccountId_ pVaultName_ =
     DeleteVaultNotifications'
-    { _dvnrqAccountId = pAccountId
-    , _dvnrqVaultName = pVaultName
+    { _dvnrqAccountId = pAccountId_
+    , _dvnrqVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the

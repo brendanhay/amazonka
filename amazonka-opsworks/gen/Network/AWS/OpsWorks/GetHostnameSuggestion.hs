@@ -62,9 +62,9 @@ newtype GetHostnameSuggestion = GetHostnameSuggestion'
 
 -- | 'GetHostnameSuggestion' smart constructor.
 getHostnameSuggestion :: Text -> GetHostnameSuggestion
-getHostnameSuggestion pLayerId =
+getHostnameSuggestion pLayerId_ =
     GetHostnameSuggestion'
-    { _ghsrqLayerId = pLayerId
+    { _ghsrqLayerId = pLayerId_
     }
 
 -- | The layer ID.
@@ -122,11 +122,11 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
 
 -- | 'GetHostnameSuggestionResponse' smart constructor.
 getHostnameSuggestionResponse :: Int -> GetHostnameSuggestionResponse
-getHostnameSuggestionResponse pStatus =
+getHostnameSuggestionResponse pStatus_ =
     GetHostnameSuggestionResponse'
     { _ghsrsHostname = Nothing
     , _ghsrsLayerId = Nothing
-    , _ghsrsStatus = pStatus
+    , _ghsrsStatus = pStatus_
     }
 
 -- | The generated host name.

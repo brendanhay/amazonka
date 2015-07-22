@@ -76,13 +76,13 @@ data ImportInstance = ImportInstance'
 
 -- | 'ImportInstance' smart constructor.
 importInstance :: PlatformValues -> ImportInstance
-importInstance pPlatform =
+importInstance pPlatform_ =
     ImportInstance'
     { _iirqLaunchSpecification = Nothing
     , _iirqDiskImages = Nothing
     , _iirqDryRun = Nothing
     , _iirqDescription = Nothing
-    , _iirqPlatform = pPlatform
+    , _iirqPlatform = pPlatform_
     }
 
 -- | The launch specification.
@@ -150,10 +150,10 @@ data ImportInstanceResponse = ImportInstanceResponse'
 
 -- | 'ImportInstanceResponse' smart constructor.
 importInstanceResponse :: Int -> ImportInstanceResponse
-importInstanceResponse pStatus =
+importInstanceResponse pStatus_ =
     ImportInstanceResponse'
     { _iirsConversionTask = Nothing
-    , _iirsStatus = pStatus
+    , _iirsStatus = pStatus_
     }
 
 -- | Information about the conversion task.

@@ -139,10 +139,10 @@ data TerminateInstancesResponse = TerminateInstancesResponse'
 
 -- | 'TerminateInstancesResponse' smart constructor.
 terminateInstancesResponse :: Int -> TerminateInstancesResponse
-terminateInstancesResponse pStatus =
+terminateInstancesResponse pStatus_ =
     TerminateInstancesResponse'
     { _tirsTerminatingInstances = Nothing
-    , _tirsStatus = pStatus
+    , _tirsStatus = pStatus_
     }
 
 -- | Information about one or more terminated instances.

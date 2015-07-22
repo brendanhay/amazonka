@@ -95,7 +95,7 @@ data PutObjectACL = PutObjectACL'
 
 -- | 'PutObjectACL' smart constructor.
 putObjectACL :: BucketName -> ObjectKey -> PutObjectACL
-putObjectACL pBucket pKey =
+putObjectACL pBucket_ pKey_ =
     PutObjectACL'
     { _poarqGrantReadACP = Nothing
     , _poarqRequestPayer = Nothing
@@ -106,8 +106,8 @@ putObjectACL pBucket pKey =
     , _poarqAccessControlPolicy = Nothing
     , _poarqGrantWrite = Nothing
     , _poarqACL = Nothing
-    , _poarqBucket = pBucket
-    , _poarqKey = pKey
+    , _poarqBucket = pBucket_
+    , _poarqKey = pKey_
     }
 
 -- | Allows grantee to read the bucket ACL.
@@ -208,10 +208,10 @@ data PutObjectACLResponse = PutObjectACLResponse'
 
 -- | 'PutObjectACLResponse' smart constructor.
 putObjectACLResponse :: Int -> PutObjectACLResponse
-putObjectACLResponse pStatus =
+putObjectACLResponse pStatus_ =
     PutObjectACLResponse'
     { _poarsRequestCharged = Nothing
-    , _poarsStatus = pStatus
+    , _poarsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

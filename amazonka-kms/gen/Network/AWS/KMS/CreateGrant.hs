@@ -84,14 +84,14 @@ data CreateGrant = CreateGrant'
 
 -- | 'CreateGrant' smart constructor.
 createGrant :: Text -> Text -> CreateGrant
-createGrant pKeyId pGranteePrincipal =
+createGrant pKeyId_ pGranteePrincipal_ =
     CreateGrant'
     { _cgrqRetiringPrincipal = Nothing
     , _cgrqConstraints = Nothing
     , _cgrqGrantTokens = Nothing
     , _cgrqOperations = Nothing
-    , _cgrqKeyId = pKeyId
-    , _cgrqGranteePrincipal = pGranteePrincipal
+    , _cgrqKeyId = pKeyId_
+    , _cgrqGranteePrincipal = pGranteePrincipal_
     }
 
 -- | Principal given permission to retire the grant. For more information,
@@ -191,11 +191,11 @@ data CreateGrantResponse = CreateGrantResponse'
 
 -- | 'CreateGrantResponse' smart constructor.
 createGrantResponse :: Int -> CreateGrantResponse
-createGrantResponse pStatus =
+createGrantResponse pStatus_ =
     CreateGrantResponse'
     { _cgrsGrantId = Nothing
     , _cgrsGrantToken = Nothing
-    , _cgrsStatus = pStatus
+    , _cgrsStatus = pStatus_
     }
 
 -- | Unique grant identifier. You can use the /GrantId/ value to revoke a

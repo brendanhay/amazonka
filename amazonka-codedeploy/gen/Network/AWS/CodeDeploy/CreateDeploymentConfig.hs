@@ -60,10 +60,10 @@ data CreateDeploymentConfig = CreateDeploymentConfig'
 
 -- | 'CreateDeploymentConfig' smart constructor.
 createDeploymentConfig :: Text -> CreateDeploymentConfig
-createDeploymentConfig pDeploymentConfigName =
+createDeploymentConfig pDeploymentConfigName_ =
     CreateDeploymentConfig'
     { _cdcrqMinimumHealthyHosts = Nothing
-    , _cdcrqDeploymentConfigName = pDeploymentConfigName
+    , _cdcrqDeploymentConfigName = pDeploymentConfigName_
     }
 
 -- | The minimum number of healthy instances that should be available at any
@@ -140,10 +140,10 @@ data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
 
 -- | 'CreateDeploymentConfigResponse' smart constructor.
 createDeploymentConfigResponse :: Int -> CreateDeploymentConfigResponse
-createDeploymentConfigResponse pStatus =
+createDeploymentConfigResponse pStatus_ =
     CreateDeploymentConfigResponse'
     { _cdcrsDeploymentConfigId = Nothing
-    , _cdcrsStatus = pStatus
+    , _cdcrsStatus = pStatus_
     }
 
 -- | A unique deployment configuration ID.

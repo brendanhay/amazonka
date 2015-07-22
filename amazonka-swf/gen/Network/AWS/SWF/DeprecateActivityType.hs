@@ -84,10 +84,10 @@ data DeprecateActivityType = DeprecateActivityType'
 
 -- | 'DeprecateActivityType' smart constructor.
 deprecateActivityType :: Text -> ActivityType -> DeprecateActivityType
-deprecateActivityType pDomain pActivityType =
+deprecateActivityType pDomain_ pActivityType_ =
     DeprecateActivityType'
-    { _deprqDomain = pDomain
-    , _deprqActivityType = pActivityType
+    { _deprqDomain = pDomain_
+    , _deprqActivityType = pActivityType_
     }
 
 -- | The name of the domain in which the activity type is registered.

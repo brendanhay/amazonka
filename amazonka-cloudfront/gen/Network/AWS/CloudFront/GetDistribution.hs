@@ -57,9 +57,9 @@ newtype GetDistribution = GetDistribution'
 
 -- | 'GetDistribution' smart constructor.
 getDistribution :: Text -> GetDistribution
-getDistribution pId =
+getDistribution pId_ =
     GetDistribution'
-    { _gdrqId = pId
+    { _gdrqId = pId_
     }
 
 -- | The distribution\'s id.
@@ -107,11 +107,11 @@ data GetDistributionResponse = GetDistributionResponse'
 
 -- | 'GetDistributionResponse' smart constructor.
 getDistributionResponse :: Int -> GetDistributionResponse
-getDistributionResponse pStatus =
+getDistributionResponse pStatus_ =
     GetDistributionResponse'
     { _gdrsETag = Nothing
     , _gdrsDistribution = Nothing
-    , _gdrsStatus = pStatus
+    , _gdrsStatus = pStatus_
     }
 
 -- | The current version of the distribution\'s information. For example:

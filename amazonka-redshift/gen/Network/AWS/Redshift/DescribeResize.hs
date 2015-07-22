@@ -73,9 +73,9 @@ newtype DescribeResize = DescribeResize'
 
 -- | 'DescribeResize' smart constructor.
 describeResize :: Text -> DescribeResize
-describeResize pClusterIdentifier =
+describeResize pClusterIdentifier_ =
     DescribeResize'
-    { _drrqClusterIdentifier = pClusterIdentifier
+    { _drrqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The unique identifier of a cluster whose resize progress you are
@@ -171,7 +171,7 @@ data DescribeResizeResponse = DescribeResizeResponse'
 
 -- | 'DescribeResizeResponse' smart constructor.
 describeResizeResponse :: Int -> DescribeResizeResponse
-describeResizeResponse pStatus =
+describeResizeResponse pStatus_ =
     DescribeResizeResponse'
     { _drrsEstimatedTimeToCompletionInSeconds = Nothing
     , _drrsImportTablesNotStarted = Nothing
@@ -184,7 +184,7 @@ describeResizeResponse pStatus =
     , _drrsTotalResizeDataInMegaBytes = Nothing
     , _drrsElapsedTimeInSeconds = Nothing
     , _drrsTargetClusterType = Nothing
-    , _drrsStatus = pStatus
+    , _drrsStatus = pStatus_
     }
 
 -- | The estimated time remaining, in seconds, until the resize operation is

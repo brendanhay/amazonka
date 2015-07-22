@@ -59,10 +59,10 @@ data DescribeAssociation = DescribeAssociation'
 
 -- | 'DescribeAssociation' smart constructor.
 describeAssociation :: Text -> Text -> DescribeAssociation
-describeAssociation pName pInstanceId =
+describeAssociation pName_ pInstanceId_ =
     DescribeAssociation'
-    { _darqName = pName
-    , _darqInstanceId = pInstanceId
+    { _darqName = pName_
+    , _darqInstanceId = pInstanceId_
     }
 
 -- | The name of the configuration document.
@@ -120,10 +120,10 @@ data DescribeAssociationResponse = DescribeAssociationResponse'
 
 -- | 'DescribeAssociationResponse' smart constructor.
 describeAssociationResponse :: Int -> DescribeAssociationResponse
-describeAssociationResponse pStatus =
+describeAssociationResponse pStatus_ =
     DescribeAssociationResponse'
     { _darsAssociationDescription = Nothing
-    , _darsStatus = pStatus
+    , _darsStatus = pStatus_
     }
 
 -- | Information about the association.

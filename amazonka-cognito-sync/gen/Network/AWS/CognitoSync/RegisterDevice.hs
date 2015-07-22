@@ -71,12 +71,12 @@ data RegisterDevice = RegisterDevice'
 
 -- | 'RegisterDevice' smart constructor.
 registerDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
-registerDevice pIdentityPoolId pIdentityId pPlatform pToken =
+registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
     RegisterDevice'
-    { _rdrqIdentityPoolId = pIdentityPoolId
-    , _rdrqIdentityId = pIdentityId
-    , _rdrqPlatform = pPlatform
-    , _rdrqToken = pToken
+    { _rdrqIdentityPoolId = pIdentityPoolId_
+    , _rdrqIdentityId = pIdentityId_
+    , _rdrqPlatform = pPlatform_
+    , _rdrqToken = pToken_
     }
 
 -- | A name-spaced GUID (for example,
@@ -144,10 +144,10 @@ data RegisterDeviceResponse = RegisterDeviceResponse'
 
 -- | 'RegisterDeviceResponse' smart constructor.
 registerDeviceResponse :: Int -> RegisterDeviceResponse
-registerDeviceResponse pStatus =
+registerDeviceResponse pStatus_ =
     RegisterDeviceResponse'
     { _rdrsDeviceId = Nothing
-    , _rdrsStatus = pStatus
+    , _rdrsStatus = pStatus_
     }
 
 -- | The unique ID generated for this device by Cognito.

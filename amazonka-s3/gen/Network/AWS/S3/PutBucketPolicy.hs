@@ -60,11 +60,11 @@ data PutBucketPolicy = PutBucketPolicy'
 
 -- | 'PutBucketPolicy' smart constructor.
 putBucketPolicy :: BucketName -> Text -> PutBucketPolicy
-putBucketPolicy pBucket pPolicy =
+putBucketPolicy pBucket_ pPolicy_ =
     PutBucketPolicy'
     { _pbprqContentMD5 = Nothing
-    , _pbprqBucket = pBucket
-    , _pbprqPolicy = pPolicy
+    , _pbprqBucket = pBucket_
+    , _pbprqPolicy = pPolicy_
     }
 
 -- | FIXME: Undocumented member.

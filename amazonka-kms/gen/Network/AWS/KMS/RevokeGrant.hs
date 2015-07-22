@@ -56,10 +56,10 @@ data RevokeGrant = RevokeGrant'
 
 -- | 'RevokeGrant' smart constructor.
 revokeGrant :: Text -> Text -> RevokeGrant
-revokeGrant pKeyId pGrantId =
+revokeGrant pKeyId_ pGrantId_ =
     RevokeGrant'
-    { _rrqKeyId = pKeyId
-    , _rrqGrantId = pGrantId
+    { _rrqKeyId = pKeyId_
+    , _rrqGrantId = pGrantId_
     }
 
 -- | A unique identifier for the customer master key associated with the

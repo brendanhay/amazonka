@@ -129,7 +129,7 @@ data RunJobFlow = RunJobFlow'
 
 -- | 'RunJobFlow' smart constructor.
 runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow
-runJobFlow pName pInstances =
+runJobFlow pName_ pInstances_ =
     RunJobFlow'
     { _rjfrqAMIVersion = Nothing
     , _rjfrqAdditionalInfo = Nothing
@@ -142,8 +142,8 @@ runJobFlow pName pInstances =
     , _rjfrqVisibleToAllUsers = Nothing
     , _rjfrqTags = Nothing
     , _rjfrqServiceRole = Nothing
-    , _rjfrqName = pName
-    , _rjfrqInstances = pInstances
+    , _rjfrqName = pName_
+    , _rjfrqInstances = pInstances_
     }
 
 -- | The version of the Amazon Machine Image (AMI) to use when launching
@@ -297,10 +297,10 @@ data RunJobFlowResponse = RunJobFlowResponse'
 
 -- | 'RunJobFlowResponse' smart constructor.
 runJobFlowResponse :: Int -> RunJobFlowResponse
-runJobFlowResponse pStatus =
+runJobFlowResponse pStatus_ =
     RunJobFlowResponse'
     { _rjfrsJobFlowId = Nothing
-    , _rjfrsStatus = pStatus
+    , _rjfrsStatus = pStatus_
     }
 
 -- | An unique identifier for the job flow.

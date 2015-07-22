@@ -71,11 +71,11 @@ data ListJobsByPipeline = ListJobsByPipeline'
 
 -- | 'ListJobsByPipeline' smart constructor.
 listJobsByPipeline :: Text -> ListJobsByPipeline
-listJobsByPipeline pPipelineId =
+listJobsByPipeline pPipelineId_ =
     ListJobsByPipeline'
     { _ljbprqAscending = Nothing
     , _ljbprqPageToken = Nothing
-    , _ljbprqPipelineId = pPipelineId
+    , _ljbprqPipelineId = pPipelineId_
     }
 
 -- | To list jobs in chronological order by the date and time that they were
@@ -148,11 +148,11 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
 listJobsByPipelineResponse :: Int -> ListJobsByPipelineResponse
-listJobsByPipelineResponse pStatus =
+listJobsByPipelineResponse pStatus_ =
     ListJobsByPipelineResponse'
     { _ljbprsNextPageToken = Nothing
     , _ljbprsJobs = Nothing
-    , _ljbprsStatus = pStatus
+    , _ljbprsStatus = pStatus_
     }
 
 -- | A value that you use to access the second and subsequent pages of

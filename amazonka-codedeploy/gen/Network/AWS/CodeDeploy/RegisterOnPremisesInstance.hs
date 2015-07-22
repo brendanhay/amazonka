@@ -57,10 +57,10 @@ data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
 
 -- | 'RegisterOnPremisesInstance' smart constructor.
 registerOnPremisesInstance :: Text -> Text -> RegisterOnPremisesInstance
-registerOnPremisesInstance pInstanceName pIamUserARN =
+registerOnPremisesInstance pInstanceName_ pIamUserARN_ =
     RegisterOnPremisesInstance'
-    { _ropirqInstanceName = pInstanceName
-    , _ropirqIamUserARN = pIamUserARN
+    { _ropirqInstanceName = pInstanceName_
+    , _ropirqIamUserARN = pIamUserARN_
     }
 
 -- | The name of the on-premises instance to register.

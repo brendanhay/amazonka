@@ -78,10 +78,10 @@ data GetStatus = GetStatus'
 
 -- | 'GetStatus' smart constructor.
 getStatus :: Text -> GetStatus
-getStatus pJobId =
+getStatus pJobId_ =
     GetStatus'
     { _gsrqAPIVersion = Nothing
-    , _gsrqJobId = pJobId
+    , _gsrqJobId = pJobId_
     }
 
 -- | FIXME: Undocumented member.
@@ -195,7 +195,7 @@ data GetStatusResponse = GetStatusResponse'
 
 -- | 'GetStatusResponse' smart constructor.
 getStatusResponse :: Int -> GetStatusResponse
-getStatusResponse pStatus =
+getStatusResponse pStatus_ =
     GetStatusResponse'
     { _gsrsCarrier = Nothing
     , _gsrsSignature = Nothing
@@ -213,7 +213,7 @@ getStatusResponse pStatus =
     , _gsrsLogKey = Nothing
     , _gsrsProgressMessage = Nothing
     , _gsrsLocationMessage = Nothing
-    , _gsrsStatus = pStatus
+    , _gsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

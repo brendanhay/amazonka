@@ -86,11 +86,11 @@ data DeleteArchive = DeleteArchive'
 
 -- | 'DeleteArchive' smart constructor.
 deleteArchive :: Text -> Text -> Text -> DeleteArchive
-deleteArchive pAccountId pVaultName pArchiveId =
+deleteArchive pAccountId_ pVaultName_ pArchiveId_ =
     DeleteArchive'
-    { _darqAccountId = pAccountId
-    , _darqVaultName = pVaultName
-    , _darqArchiveId = pArchiveId
+    { _darqAccountId = pAccountId_
+    , _darqVaultName = pVaultName_
+    , _darqArchiveId = pArchiveId_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the

@@ -69,10 +69,10 @@ data DeleteClusterSnapshot = DeleteClusterSnapshot'
 
 -- | 'DeleteClusterSnapshot' smart constructor.
 deleteClusterSnapshot :: Text -> DeleteClusterSnapshot
-deleteClusterSnapshot pSnapshotIdentifier =
+deleteClusterSnapshot pSnapshotIdentifier_ =
     DeleteClusterSnapshot'
     { _dcsrqSnapshotClusterIdentifier = Nothing
-    , _dcsrqSnapshotIdentifier = pSnapshotIdentifier
+    , _dcsrqSnapshotIdentifier = pSnapshotIdentifier_
     }
 
 -- | The unique identifier of the cluster the snapshot was created from. This
@@ -131,10 +131,10 @@ data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
 
 -- | 'DeleteClusterSnapshotResponse' smart constructor.
 deleteClusterSnapshotResponse :: Int -> DeleteClusterSnapshotResponse
-deleteClusterSnapshotResponse pStatus =
+deleteClusterSnapshotResponse pStatus_ =
     DeleteClusterSnapshotResponse'
     { _dcsrsSnapshot = Nothing
-    , _dcsrsStatus = pStatus
+    , _dcsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

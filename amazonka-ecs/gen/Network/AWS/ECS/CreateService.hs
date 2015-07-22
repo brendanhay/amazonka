@@ -81,15 +81,15 @@ data CreateService = CreateService'
 
 -- | 'CreateService' smart constructor.
 createService :: Text -> Text -> Int -> CreateService
-createService pServiceName pTaskDefinition pDesiredCount =
+createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
     CreateService'
     { _csrqCluster = Nothing
     , _csrqClientToken = Nothing
     , _csrqLoadBalancers = Nothing
     , _csrqRole = Nothing
-    , _csrqServiceName = pServiceName
-    , _csrqTaskDefinition = pTaskDefinition
-    , _csrqDesiredCount = pDesiredCount
+    , _csrqServiceName = pServiceName_
+    , _csrqTaskDefinition = pTaskDefinition_
+    , _csrqDesiredCount = pDesiredCount_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
@@ -185,10 +185,10 @@ data CreateServiceResponse = CreateServiceResponse'
 
 -- | 'CreateServiceResponse' smart constructor.
 createServiceResponse :: Int -> CreateServiceResponse
-createServiceResponse pStatus =
+createServiceResponse pStatus_ =
     CreateServiceResponse'
     { _csrsService = Nothing
-    , _csrsStatus = pStatus
+    , _csrsStatus = pStatus_
     }
 
 -- | The full description of your service following the create call.

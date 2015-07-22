@@ -56,9 +56,9 @@ newtype GetSuite = GetSuite'
 
 -- | 'GetSuite' smart constructor.
 getSuite :: Text -> GetSuite
-getSuite pArn =
+getSuite pArn_ =
     GetSuite'
-    { _gsrqArn = pArn
+    { _gsrqArn = pArn_
     }
 
 -- | The suite\'s ARN.
@@ -109,10 +109,10 @@ data GetSuiteResponse = GetSuiteResponse'
 
 -- | 'GetSuiteResponse' smart constructor.
 getSuiteResponse :: Int -> GetSuiteResponse
-getSuiteResponse pStatus =
+getSuiteResponse pStatus_ =
     GetSuiteResponse'
     { _gsrsSuite = Nothing
-    , _gsrsStatus = pStatus
+    , _gsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

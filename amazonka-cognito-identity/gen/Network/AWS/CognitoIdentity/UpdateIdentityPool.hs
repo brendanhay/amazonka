@@ -82,14 +82,14 @@ data UpdateIdentityPool = UpdateIdentityPool'
 
 -- | 'UpdateIdentityPool' smart constructor.
 updateIdentityPool :: Text -> Text -> Bool -> UpdateIdentityPool
-updateIdentityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities =
+updateIdentityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     UpdateIdentityPool'
     { _uipSupportedLoginProviders = Nothing
     , _uipDeveloperProviderName = Nothing
     , _uipOpenIdConnectProviderARNs = Nothing
-    , _uipIdentityPoolId = pIdentityPoolId
-    , _uipIdentityPoolName = pIdentityPoolName
-    , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities
+    , _uipIdentityPoolId = pIdentityPoolId_
+    , _uipIdentityPoolName = pIdentityPoolName_
+    , _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
     }
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.

@@ -82,10 +82,10 @@ data Content = Content'
 
 -- | 'Content' smart constructor.
 content :: Text -> Content
-content pData =
+content pData_ =
     Content'
     { _cCharset = Nothing
-    , _cData = pData
+    , _cData = pData_
     }
 
 -- | The character set of the content.
@@ -174,11 +174,11 @@ data IdentityDkimAttributes = IdentityDkimAttributes'
 
 -- | 'IdentityDkimAttributes' smart constructor.
 identityDkimAttributes :: Bool -> VerificationStatus -> IdentityDkimAttributes
-identityDkimAttributes pDkimEnabled pDkimVerificationStatus =
+identityDkimAttributes pDkimEnabled_ pDkimVerificationStatus_ =
     IdentityDkimAttributes'
     { _idaDkimTokens = Nothing
-    , _idaDkimEnabled = pDkimEnabled
-    , _idaDkimVerificationStatus = pDkimVerificationStatus
+    , _idaDkimEnabled = pDkimEnabled_
+    , _idaDkimVerificationStatus = pDkimVerificationStatus_
     }
 
 -- | A set of character strings that represent the domain\'s identity. Using
@@ -239,12 +239,12 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes'
 
 -- | 'IdentityNotificationAttributes' smart constructor.
 identityNotificationAttributes :: Text -> Text -> Text -> Bool -> IdentityNotificationAttributes
-identityNotificationAttributes pBounceTopic pComplaintTopic pDeliveryTopic pForwardingEnabled =
+identityNotificationAttributes pBounceTopic_ pComplaintTopic_ pDeliveryTopic_ pForwardingEnabled_ =
     IdentityNotificationAttributes'
-    { _inaBounceTopic = pBounceTopic
-    , _inaComplaintTopic = pComplaintTopic
-    , _inaDeliveryTopic = pDeliveryTopic
-    , _inaForwardingEnabled = pForwardingEnabled
+    { _inaBounceTopic = pBounceTopic_
+    , _inaComplaintTopic = pComplaintTopic_
+    , _inaDeliveryTopic = pDeliveryTopic_
+    , _inaForwardingEnabled = pForwardingEnabled_
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES
@@ -293,10 +293,10 @@ data IdentityVerificationAttributes = IdentityVerificationAttributes'
 
 -- | 'IdentityVerificationAttributes' smart constructor.
 identityVerificationAttributes :: VerificationStatus -> IdentityVerificationAttributes
-identityVerificationAttributes pVerificationStatus =
+identityVerificationAttributes pVerificationStatus_ =
     IdentityVerificationAttributes'
     { _ivaVerificationToken = Nothing
-    , _ivaVerificationStatus = pVerificationStatus
+    , _ivaVerificationStatus = pVerificationStatus_
     }
 
 -- | The verification token for a domain identity. Null for email address
@@ -331,10 +331,10 @@ data Message = Message'
 
 -- | 'Message' smart constructor.
 message :: Content -> Body -> Message
-message pSubject pBody =
+message pSubject_ pBody_ =
     Message'
-    { _mSubject = pSubject
-    , _mBody = pBody
+    { _mSubject = pSubject_
+    , _mBody = pBody_
     }
 
 -- | The subject of the message: A short summary of the content, which will
@@ -363,9 +363,9 @@ newtype RawMessage = RawMessage'
 
 -- | 'RawMessage' smart constructor.
 rawMessage :: Base64 -> RawMessage
-rawMessage pData =
+rawMessage pData_ =
     RawMessage'
-    { _rmData = pData
+    { _rmData = pData_
     }
 
 -- | The raw data of the message. The client must ensure that the message

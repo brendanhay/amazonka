@@ -74,10 +74,10 @@ data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
 
 -- | 'DescribeTrustedAdvisorCheckResult' smart constructor.
 describeTrustedAdvisorCheckResult :: Text -> DescribeTrustedAdvisorCheckResult
-describeTrustedAdvisorCheckResult pCheckId =
+describeTrustedAdvisorCheckResult pCheckId_ =
     DescribeTrustedAdvisorCheckResult'
     { _dtacrrqLanguage = Nothing
-    , _dtacrrqCheckId = pCheckId
+    , _dtacrrqCheckId = pCheckId_
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
@@ -146,10 +146,10 @@ data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResu
 
 -- | 'DescribeTrustedAdvisorCheckResultResponse' smart constructor.
 describeTrustedAdvisorCheckResultResponse :: Int -> DescribeTrustedAdvisorCheckResultResponse
-describeTrustedAdvisorCheckResultResponse pStatus =
+describeTrustedAdvisorCheckResultResponse pStatus_ =
     DescribeTrustedAdvisorCheckResultResponse'
     { _dtacrrsResult = Nothing
-    , _dtacrrsStatus = pStatus
+    , _dtacrrsStatus = pStatus_
     }
 
 -- | The detailed results of the Trusted Advisor check.

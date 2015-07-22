@@ -67,11 +67,11 @@ data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertifica
 
 -- | 'SetLoadBalancerListenerSSLCertificate' smart constructor.
 setLoadBalancerListenerSSLCertificate :: Text -> Int -> Text -> SetLoadBalancerListenerSSLCertificate
-setLoadBalancerListenerSSLCertificate pLoadBalancerName pLoadBalancerPort pSSLCertificateId =
+setLoadBalancerListenerSSLCertificate pLoadBalancerName_ pLoadBalancerPort_ pSSLCertificateId_ =
     SetLoadBalancerListenerSSLCertificate'
-    { _slblscrqLoadBalancerName = pLoadBalancerName
-    , _slblscrqLoadBalancerPort = pLoadBalancerPort
-    , _slblscrqSSLCertificateId = pSSLCertificateId
+    { _slblscrqLoadBalancerName = pLoadBalancerName_
+    , _slblscrqLoadBalancerPort = pLoadBalancerPort_
+    , _slblscrqSSLCertificateId = pSSLCertificateId_
     }
 
 -- | The name of the load balancer.
@@ -130,9 +130,9 @@ newtype SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerS
 
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' smart constructor.
 setLoadBalancerListenerSSLCertificateResponse :: Int -> SetLoadBalancerListenerSSLCertificateResponse
-setLoadBalancerListenerSSLCertificateResponse pStatus =
+setLoadBalancerListenerSSLCertificateResponse pStatus_ =
     SetLoadBalancerListenerSSLCertificateResponse'
-    { _slblscrsStatus = pStatus
+    { _slblscrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -58,9 +58,9 @@ newtype CreateDistribution = CreateDistribution'
 
 -- | 'CreateDistribution' smart constructor.
 createDistribution :: DistributionConfig -> CreateDistribution
-createDistribution pDistributionConfig =
+createDistribution pDistributionConfig_ =
     CreateDistribution'
-    { _cdrqDistributionConfig = pDistributionConfig
+    { _cdrqDistributionConfig = pDistributionConfig_
     }
 
 -- | The distribution\'s configuration information.
@@ -118,12 +118,12 @@ data CreateDistributionResponse = CreateDistributionResponse'
 
 -- | 'CreateDistributionResponse' smart constructor.
 createDistributionResponse :: Int -> CreateDistributionResponse
-createDistributionResponse pStatus =
+createDistributionResponse pStatus_ =
     CreateDistributionResponse'
     { _cdrsETag = Nothing
     , _cdrsDistribution = Nothing
     , _cdrsLocation = Nothing
-    , _cdrsStatus = pStatus
+    , _cdrsStatus = pStatus_
     }
 
 -- | The current version of the distribution created.

@@ -66,10 +66,10 @@ data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
 
 -- | 'ConfirmPrivateVirtualInterface' smart constructor.
 confirmPrivateVirtualInterface :: Text -> Text -> ConfirmPrivateVirtualInterface
-confirmPrivateVirtualInterface pVirtualInterfaceId pVirtualGatewayId =
+confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
     ConfirmPrivateVirtualInterface'
-    { _cpvirqVirtualInterfaceId = pVirtualInterfaceId
-    , _cpvirqVirtualGatewayId = pVirtualGatewayId
+    { _cpvirqVirtualInterfaceId = pVirtualInterfaceId_
+    , _cpvirqVirtualGatewayId = pVirtualGatewayId_
     }
 
 -- | FIXME: Undocumented member.
@@ -141,10 +141,10 @@ data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResp
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' smart constructor.
 confirmPrivateVirtualInterfaceResponse :: Int -> ConfirmPrivateVirtualInterfaceResponse
-confirmPrivateVirtualInterfaceResponse pStatus =
+confirmPrivateVirtualInterfaceResponse pStatus_ =
     ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirsVirtualInterfaceState = Nothing
-    , _cpvirsStatus = pStatus
+    , _cpvirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

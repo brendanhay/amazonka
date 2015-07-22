@@ -104,10 +104,10 @@ data DescribeExportTasksResponse = DescribeExportTasksResponse'
 
 -- | 'DescribeExportTasksResponse' smart constructor.
 describeExportTasksResponse :: Int -> DescribeExportTasksResponse
-describeExportTasksResponse pStatus =
+describeExportTasksResponse pStatus_ =
     DescribeExportTasksResponse'
     { _detrsExportTasks = Nothing
-    , _detrsStatus = pStatus
+    , _detrsStatus = pStatus_
     }
 
 -- | Information about the export tasks.

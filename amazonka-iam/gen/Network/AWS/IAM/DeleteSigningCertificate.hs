@@ -62,10 +62,10 @@ data DeleteSigningCertificate = DeleteSigningCertificate'
 
 -- | 'DeleteSigningCertificate' smart constructor.
 deleteSigningCertificate :: Text -> DeleteSigningCertificate
-deleteSigningCertificate pCertificateId =
+deleteSigningCertificate pCertificateId_ =
     DeleteSigningCertificate'
     { _dscrqUserName = Nothing
-    , _dscrqCertificateId = pCertificateId
+    , _dscrqCertificateId = pCertificateId_
     }
 
 -- | The name of the user the signing certificate belongs to.

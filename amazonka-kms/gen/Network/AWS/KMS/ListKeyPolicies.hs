@@ -64,11 +64,11 @@ data ListKeyPolicies = ListKeyPolicies'
 
 -- | 'ListKeyPolicies' smart constructor.
 listKeyPolicies :: Text -> ListKeyPolicies
-listKeyPolicies pKeyId =
+listKeyPolicies pKeyId_ =
     ListKeyPolicies'
     { _lkprqMarker = Nothing
     , _lkprqLimit = Nothing
-    , _lkprqKeyId = pKeyId
+    , _lkprqKeyId = pKeyId_
     }
 
 -- | Use this parameter only when paginating results, and only in a
@@ -153,12 +153,12 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
 
 -- | 'ListKeyPoliciesResponse' smart constructor.
 listKeyPoliciesResponse :: Int -> ListKeyPoliciesResponse
-listKeyPoliciesResponse pStatus =
+listKeyPoliciesResponse pStatus_ =
     ListKeyPoliciesResponse'
     { _lkprsPolicyNames = Nothing
     , _lkprsTruncated = Nothing
     , _lkprsNextMarker = Nothing
-    , _lkprsStatus = pStatus
+    , _lkprsStatus = pStatus_
     }
 
 -- | A list of policy names. Currently, there is only one policy and it is

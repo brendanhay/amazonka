@@ -175,10 +175,10 @@ data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsRespon
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
 describeVPCPeeringConnectionsResponse :: Int -> DescribeVPCPeeringConnectionsResponse
-describeVPCPeeringConnectionsResponse pStatus =
+describeVPCPeeringConnectionsResponse pStatus_ =
     DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrsVPCPeeringConnections = Nothing
-    , _dvpcpcrsStatus = pStatus
+    , _dvpcpcrsStatus = pStatus_
     }
 
 -- | Information about the VPC peering connections.

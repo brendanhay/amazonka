@@ -89,15 +89,15 @@ data CreateHSMConfiguration = CreateHSMConfiguration'
 
 -- | 'CreateHSMConfiguration' smart constructor.
 createHSMConfiguration :: Text -> Text -> Text -> Text -> Text -> Text -> CreateHSMConfiguration
-createHSMConfiguration pHSMConfigurationIdentifier pDescription pHSMIPAddress pHSMPartitionName pHSMPartitionPassword pHSMServerPublicCertificate =
+createHSMConfiguration pHSMConfigurationIdentifier_ pDescription_ pHSMIPAddress_ pHSMPartitionName_ pHSMPartitionPassword_ pHSMServerPublicCertificate_ =
     CreateHSMConfiguration'
     { _chcrqTags = Nothing
-    , _chcrqHSMConfigurationIdentifier = pHSMConfigurationIdentifier
-    , _chcrqDescription = pDescription
-    , _chcrqHSMIPAddress = pHSMIPAddress
-    , _chcrqHSMPartitionName = pHSMPartitionName
-    , _chcrqHSMPartitionPassword = pHSMPartitionPassword
-    , _chcrqHSMServerPublicCertificate = pHSMServerPublicCertificate
+    , _chcrqHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
+    , _chcrqDescription = pDescription_
+    , _chcrqHSMIPAddress = pHSMIPAddress_
+    , _chcrqHSMPartitionName = pHSMPartitionName_
+    , _chcrqHSMPartitionPassword = pHSMPartitionPassword_
+    , _chcrqHSMServerPublicCertificate = pHSMServerPublicCertificate_
     }
 
 -- | A list of tag instances.
@@ -179,10 +179,10 @@ data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
 
 -- | 'CreateHSMConfigurationResponse' smart constructor.
 createHSMConfigurationResponse :: Int -> CreateHSMConfigurationResponse
-createHSMConfigurationResponse pStatus =
+createHSMConfigurationResponse pStatus_ =
     CreateHSMConfigurationResponse'
     { _chcrsHSMConfiguration = Nothing
-    , _chcrsStatus = pStatus
+    , _chcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

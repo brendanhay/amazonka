@@ -160,11 +160,11 @@ data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
 listTaskDefinitionFamiliesResponse :: Int -> ListTaskDefinitionFamiliesResponse
-listTaskDefinitionFamiliesResponse pStatus =
+listTaskDefinitionFamiliesResponse pStatus_ =
     ListTaskDefinitionFamiliesResponse'
     { _ltdfrsFamilies = Nothing
     , _ltdfrsNextToken = Nothing
-    , _ltdfrsStatus = pStatus
+    , _ltdfrsStatus = pStatus_
     }
 
 -- | The list of task definition family names that match the

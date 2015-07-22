@@ -30,8 +30,6 @@ import           Network.AWS.Route53Domains.RegisterDomain             as Export
 import           Network.AWS.Route53Domains.RetrieveDomainAuthCode     as Export
 import           Network.AWS.Route53Domains.TransferDomain             as Export
 import           Network.AWS.Route53Domains.Types                      as Export
-import           Network.AWS.Route53Domains.Types.Product              as Export
-import           Network.AWS.Route53Domains.Types.Sum                  as Export
 import           Network.AWS.Route53Domains.UpdateDomainContact        as Export
 import           Network.AWS.Route53Domains.UpdateDomainContactPrivacy as Export
 import           Network.AWS.Route53Domains.UpdateDomainNameservers    as Export

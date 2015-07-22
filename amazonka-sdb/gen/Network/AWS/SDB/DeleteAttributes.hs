@@ -72,12 +72,12 @@ data DeleteAttributes = DeleteAttributes'
 
 -- | 'DeleteAttributes' smart constructor.
 deleteAttributes :: Text -> Text -> DeleteAttributes
-deleteAttributes pDomainName pItemName =
+deleteAttributes pDomainName_ pItemName_ =
     DeleteAttributes'
     { _darqAttributes = Nothing
     , _darqExpected = Nothing
-    , _darqDomainName = pDomainName
-    , _darqItemName = pItemName
+    , _darqDomainName = pDomainName_
+    , _darqItemName = pItemName_
     }
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes

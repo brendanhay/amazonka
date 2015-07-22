@@ -266,7 +266,7 @@ data KeyMetadata = KeyMetadata'
 
 -- | 'KeyMetadata' smart constructor.
 keyMetadata :: Text -> KeyMetadata
-keyMetadata pKeyId =
+keyMetadata pKeyId_ =
     KeyMetadata'
     { _kmARN = Nothing
     , _kmEnabled = Nothing
@@ -274,7 +274,7 @@ keyMetadata pKeyId =
     , _kmKeyUsage = Nothing
     , _kmCreationDate = Nothing
     , _kmDescription = Nothing
-    , _kmKeyId = pKeyId
+    , _kmKeyId = pKeyId_
     }
 
 -- | Key ARN (Amazon Resource Name).

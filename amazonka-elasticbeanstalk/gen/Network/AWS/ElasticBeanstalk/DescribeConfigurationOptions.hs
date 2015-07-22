@@ -167,11 +167,11 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
 
 -- | 'DescribeConfigurationOptionsResponse' smart constructor.
 describeConfigurationOptionsResponse :: Int -> DescribeConfigurationOptionsResponse
-describeConfigurationOptionsResponse pStatus =
+describeConfigurationOptionsResponse pStatus_ =
     DescribeConfigurationOptionsResponse'
     { _dcorsOptions = Nothing
     , _dcorsSolutionStackName = Nothing
-    , _dcorsStatus = pStatus
+    , _dcorsStatus = pStatus_
     }
 
 -- | A list of ConfigurationOptionDescription.

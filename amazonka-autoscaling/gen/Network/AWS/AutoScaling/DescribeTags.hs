@@ -146,11 +146,11 @@ data DescribeTagsResponse = DescribeTagsResponse'
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
-describeTagsResponse pStatus =
+describeTagsResponse pStatus_ =
     DescribeTagsResponse'
     { _dtrsNextToken = Nothing
     , _dtrsTags = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no

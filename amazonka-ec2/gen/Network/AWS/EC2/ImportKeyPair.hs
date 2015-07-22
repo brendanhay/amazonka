@@ -71,11 +71,11 @@ data ImportKeyPair = ImportKeyPair'
 
 -- | 'ImportKeyPair' smart constructor.
 importKeyPair :: Text -> Base64 -> ImportKeyPair
-importKeyPair pKeyName pPublicKeyMaterial =
+importKeyPair pKeyName_ pPublicKeyMaterial_ =
     ImportKeyPair'
     { _ikprqDryRun = Nothing
-    , _ikprqKeyName = pKeyName
-    , _ikprqPublicKeyMaterial = pPublicKeyMaterial
+    , _ikprqKeyName = pKeyName_
+    , _ikprqPublicKeyMaterial = pPublicKeyMaterial_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -136,11 +136,11 @@ data ImportKeyPairResponse = ImportKeyPairResponse'
 
 -- | 'ImportKeyPairResponse' smart constructor.
 importKeyPairResponse :: Int -> ImportKeyPairResponse
-importKeyPairResponse pStatus =
+importKeyPairResponse pStatus_ =
     ImportKeyPairResponse'
     { _ikprsKeyFingerprint = Nothing
     , _ikprsKeyName = Nothing
-    , _ikprsStatus = pStatus
+    , _ikprsStatus = pStatus_
     }
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.

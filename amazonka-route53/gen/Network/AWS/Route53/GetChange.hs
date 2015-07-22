@@ -64,9 +64,9 @@ newtype GetChange = GetChange'
 
 -- | 'GetChange' smart constructor.
 getChange :: Text -> GetChange
-getChange pId =
+getChange pId_ =
     GetChange'
-    { _gcrqId = pId
+    { _gcrqId = pId_
     }
 
 -- | The ID of the change batch request. The value that you specify here is
@@ -111,10 +111,10 @@ data GetChangeResponse = GetChangeResponse'
 
 -- | 'GetChangeResponse' smart constructor.
 getChangeResponse :: Int -> ChangeInfo -> GetChangeResponse
-getChangeResponse pStatus pChangeInfo =
+getChangeResponse pStatus_ pChangeInfo_ =
     GetChangeResponse'
-    { _gcrsStatus = pStatus
-    , _gcrsChangeInfo = pChangeInfo
+    { _gcrsStatus = pStatus_
+    , _gcrsChangeInfo = pChangeInfo_
     }
 
 -- | FIXME: Undocumented member.

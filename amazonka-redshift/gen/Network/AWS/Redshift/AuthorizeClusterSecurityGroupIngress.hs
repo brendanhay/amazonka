@@ -86,12 +86,12 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
 
 -- | 'AuthorizeClusterSecurityGroupIngress' smart constructor.
 authorizeClusterSecurityGroupIngress :: Text -> AuthorizeClusterSecurityGroupIngress
-authorizeClusterSecurityGroupIngress pClusterSecurityGroupName =
+authorizeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
     AuthorizeClusterSecurityGroupIngress'
     { _acsgirqEC2SecurityGroupOwnerId = Nothing
     , _acsgirqEC2SecurityGroupName = Nothing
     , _acsgirqCIdRIP = Nothing
-    , _acsgirqClusterSecurityGroupName = pClusterSecurityGroupName
+    , _acsgirqClusterSecurityGroupName = pClusterSecurityGroupName_
     }
 
 -- | The AWS account number of the owner of the security group specified by
@@ -167,10 +167,10 @@ data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGrou
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' smart constructor.
 authorizeClusterSecurityGroupIngressResponse :: Int -> AuthorizeClusterSecurityGroupIngressResponse
-authorizeClusterSecurityGroupIngressResponse pStatus =
+authorizeClusterSecurityGroupIngressResponse pStatus_ =
     AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirsClusterSecurityGroup = Nothing
-    , _acsgirsStatus = pStatus
+    , _acsgirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -87,10 +87,10 @@ data UploadDocuments = UploadDocuments'
 
 -- | 'UploadDocuments' smart constructor.
 uploadDocuments :: ContentType -> RqBody -> UploadDocuments
-uploadDocuments pContentType pDocuments =
+uploadDocuments pContentType_ pDocuments_ =
     UploadDocuments'
-    { _udrqContentType = pContentType
-    , _udrqDocuments = pDocuments
+    { _udrqContentType = pContentType_
+    , _udrqDocuments = pDocuments_
     }
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports
@@ -155,12 +155,12 @@ data UploadDocumentsResponse = UploadDocumentsResponse'
 
 -- | 'UploadDocumentsResponse' smart constructor.
 uploadDocumentsResponse :: Int -> UploadDocumentsResponse
-uploadDocumentsResponse pStatus =
+uploadDocumentsResponse pStatus_ =
     UploadDocumentsResponse'
     { _udrsAdds = Nothing
     , _udrsWarnings = Nothing
     , _udrsDeletes = Nothing
-    , _udrsStatus = pStatus
+    , _udrsStatus = pStatus_
     }
 
 -- | The number of documents that were added to the search domain.

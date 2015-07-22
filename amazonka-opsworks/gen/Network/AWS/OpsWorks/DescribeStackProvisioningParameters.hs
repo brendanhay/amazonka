@@ -61,9 +61,9 @@ newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameter
 
 -- | 'DescribeStackProvisioningParameters' smart constructor.
 describeStackProvisioningParameters :: Text -> DescribeStackProvisioningParameters
-describeStackProvisioningParameters pStackId =
+describeStackProvisioningParameters pStackId_ =
     DescribeStackProvisioningParameters'
-    { _dspprqStackId = pStackId
+    { _dspprqStackId = pStackId_
     }
 
 -- | The stack ID
@@ -129,11 +129,11 @@ data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningPara
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
 describeStackProvisioningParametersResponse :: Int -> DescribeStackProvisioningParametersResponse
-describeStackProvisioningParametersResponse pStatus =
+describeStackProvisioningParametersResponse pStatus_ =
     DescribeStackProvisioningParametersResponse'
     { _dspprsAgentInstallerURL = Nothing
     , _dspprsParameters = Nothing
-    , _dspprsStatus = pStatus
+    , _dspprsStatus = pStatus_
     }
 
 -- | The AWS OpsWorks agent installer\'s URL.

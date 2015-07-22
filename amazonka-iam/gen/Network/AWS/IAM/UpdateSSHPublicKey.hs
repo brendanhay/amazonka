@@ -69,11 +69,11 @@ data UpdateSSHPublicKey = UpdateSSHPublicKey'
 
 -- | 'UpdateSSHPublicKey' smart constructor.
 updateSSHPublicKey :: Text -> Text -> StatusType -> UpdateSSHPublicKey
-updateSSHPublicKey pUserName pSSHPublicKeyId pStatus =
+updateSSHPublicKey pUserName_ pSSHPublicKeyId_ pStatus_ =
     UpdateSSHPublicKey'
-    { _uspkrqUserName = pUserName
-    , _uspkrqSSHPublicKeyId = pSSHPublicKeyId
-    , _uspkrqStatus = pStatus
+    { _uspkrqUserName = pUserName_
+    , _uspkrqSSHPublicKeyId = pSSHPublicKeyId_
+    , _uspkrqStatus = pStatus_
     }
 
 -- | The name of the IAM user associated with the SSH public key.

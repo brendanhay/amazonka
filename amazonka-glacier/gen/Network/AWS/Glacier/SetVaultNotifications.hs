@@ -96,11 +96,11 @@ data SetVaultNotifications = SetVaultNotifications'
 
 -- | 'SetVaultNotifications' smart constructor.
 setVaultNotifications :: Text -> Text -> SetVaultNotifications
-setVaultNotifications pAccountId pVaultName =
+setVaultNotifications pAccountId_ pVaultName_ =
     SetVaultNotifications'
     { _svnrqVaultNotificationConfig = Nothing
-    , _svnrqAccountId = pAccountId
-    , _svnrqVaultName = pVaultName
+    , _svnrqAccountId = pAccountId_
+    , _svnrqVaultName = pVaultName_
     }
 
 -- | Provides options for specifying notification configuration.

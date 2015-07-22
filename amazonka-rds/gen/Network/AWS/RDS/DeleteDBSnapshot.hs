@@ -59,9 +59,9 @@ newtype DeleteDBSnapshot = DeleteDBSnapshot'
 
 -- | 'DeleteDBSnapshot' smart constructor.
 deleteDBSnapshot :: Text -> DeleteDBSnapshot
-deleteDBSnapshot pDBSnapshotIdentifier =
+deleteDBSnapshot pDBSnapshotIdentifier_ =
     DeleteDBSnapshot'
-    { _ddbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier
+    { _ddbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier_
     }
 
 -- | The DBSnapshot identifier.
@@ -109,10 +109,10 @@ data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
 
 -- | 'DeleteDBSnapshotResponse' smart constructor.
 deleteDBSnapshotResponse :: Int -> DeleteDBSnapshotResponse
-deleteDBSnapshotResponse pStatus =
+deleteDBSnapshotResponse pStatus_ =
     DeleteDBSnapshotResponse'
     { _ddbsrsDBSnapshot = Nothing
-    , _ddbsrsStatus = pStatus
+    , _ddbsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

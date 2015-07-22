@@ -86,14 +86,14 @@ data Publish = Publish'
 
 -- | 'Publish' smart constructor.
 publish :: Text -> Publish
-publish pMessage =
+publish pMessage_ =
     Publish'
     { _prqMessageAttributes = Nothing
     , _prqTargetARN = Nothing
     , _prqSubject = Nothing
     , _prqTopicARN = Nothing
     , _prqMessageStructure = Nothing
-    , _prqMessage = pMessage
+    , _prqMessage = pMessage_
     }
 
 -- | Message attributes for Publish action.
@@ -220,10 +220,10 @@ data PublishResponse = PublishResponse'
 
 -- | 'PublishResponse' smart constructor.
 publishResponse :: Int -> PublishResponse
-publishResponse pStatus =
+publishResponse pStatus_ =
     PublishResponse'
     { _prsMessageId = Nothing
-    , _prsStatus = pStatus
+    , _prsStatus = pStatus_
     }
 
 -- | Unique identifier assigned to the published message.

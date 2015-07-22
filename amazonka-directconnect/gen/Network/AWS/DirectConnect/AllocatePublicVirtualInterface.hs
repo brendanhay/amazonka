@@ -87,11 +87,11 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
 
 -- | 'AllocatePublicVirtualInterface' smart constructor.
 allocatePublicVirtualInterface :: Text -> Text -> NewPublicVirtualInterfaceAllocation -> AllocatePublicVirtualInterface
-allocatePublicVirtualInterface pConnectionId pOwnerAccount pNewPublicVirtualInterfaceAllocation =
+allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualInterfaceAllocation_ =
     AllocatePublicVirtualInterface'
-    { _arqConnectionId = pConnectionId
-    , _arqOwnerAccount = pOwnerAccount
-    , _arqNewPublicVirtualInterfaceAllocation = pNewPublicVirtualInterfaceAllocation
+    { _arqConnectionId = pConnectionId_
+    , _arqOwnerAccount = pOwnerAccount_
+    , _arqNewPublicVirtualInterfaceAllocation = pNewPublicVirtualInterfaceAllocation_
     }
 
 -- | The connection ID on which the public virtual interface is provisioned.

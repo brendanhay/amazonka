@@ -66,9 +66,9 @@ newtype TerminateWorkspaces = TerminateWorkspaces'
 
 -- | 'TerminateWorkspaces' smart constructor.
 terminateWorkspaces :: NonEmpty TerminateRequest -> TerminateWorkspaces
-terminateWorkspaces pTerminateWorkspaceRequests =
+terminateWorkspaces pTerminateWorkspaceRequests_ =
     TerminateWorkspaces'
-    { _twrqTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests
+    { _twrqTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests_
     }
 
 -- | An array of structures that specify the WorkSpaces to terminate.
@@ -125,10 +125,10 @@ data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
 
 -- | 'TerminateWorkspacesResponse' smart constructor.
 terminateWorkspacesResponse :: Int -> TerminateWorkspacesResponse
-terminateWorkspacesResponse pStatus =
+terminateWorkspacesResponse pStatus_ =
     TerminateWorkspacesResponse'
     { _twrsFailedRequests = Nothing
-    , _twrsStatus = pStatus
+    , _twrsStatus = pStatus_
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be

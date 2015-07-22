@@ -81,12 +81,12 @@ data UpdateService = UpdateService'
 
 -- | 'UpdateService' smart constructor.
 updateService :: Text -> UpdateService
-updateService pService =
+updateService pService_ =
     UpdateService'
     { _usrqCluster = Nothing
     , _usrqDesiredCount = Nothing
     , _usrqTaskDefinition = Nothing
-    , _usrqService = pService
+    , _usrqService = pService_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
@@ -161,10 +161,10 @@ data UpdateServiceResponse = UpdateServiceResponse'
 
 -- | 'UpdateServiceResponse' smart constructor.
 updateServiceResponse :: Int -> UpdateServiceResponse
-updateServiceResponse pStatus =
+updateServiceResponse pStatus_ =
     UpdateServiceResponse'
     { _usrsService = Nothing
-    , _usrsStatus = pStatus
+    , _usrsStatus = pStatus_
     }
 
 -- | The full description of your service following the update call.

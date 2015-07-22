@@ -117,10 +117,10 @@ data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
 
 -- | 'DescribeStorediSCSIVolumesResponse' smart constructor.
 describeStorediSCSIVolumesResponse :: Int -> DescribeStorediSCSIVolumesResponse
-describeStorediSCSIVolumesResponse pStatus =
+describeStorediSCSIVolumesResponse pStatus_ =
     DescribeStorediSCSIVolumesResponse'
     { _dsscsivrsStorediSCSIVolumes = Nothing
-    , _dsscsivrsStatus = pStatus
+    , _dsscsivrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

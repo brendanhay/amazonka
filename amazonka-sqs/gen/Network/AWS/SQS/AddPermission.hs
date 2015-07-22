@@ -85,10 +85,10 @@ data AddPermission = AddPermission'
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> AddPermission
-addPermission pQueueURL pLabel =
+addPermission pQueueURL_ pLabel_ =
     AddPermission'
-    { _aprqQueueURL = pQueueURL
-    , _aprqLabel = pLabel
+    { _aprqQueueURL = pQueueURL_
+    , _aprqLabel = pLabel_
     , _aprqAWSAccountIds = mempty
     , _aprqActions = mempty
     }

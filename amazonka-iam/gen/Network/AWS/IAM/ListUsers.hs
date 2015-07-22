@@ -157,11 +157,11 @@ data ListUsersResponse = ListUsersResponse'
 
 -- | 'ListUsersResponse' smart constructor.
 listUsersResponse :: Int -> ListUsersResponse
-listUsersResponse pStatus =
+listUsersResponse pStatus_ =
     ListUsersResponse'
     { _lursMarker = Nothing
     , _lursIsTruncated = Nothing
-    , _lursStatus = pStatus
+    , _lursStatus = pStatus_
     , _lursUsers = mempty
     }
 

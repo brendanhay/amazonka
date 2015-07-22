@@ -76,11 +76,11 @@ data Select = Select'
 
 -- | 'Select' smart constructor.
 select :: Text -> Select
-select pSelectExpression =
+select pSelectExpression_ =
     Select'
     { _srqConsistentRead = Nothing
     , _srqNextToken = Nothing
-    , _srqSelectExpression = pSelectExpression
+    , _srqSelectExpression = pSelectExpression_
     }
 
 -- | Determines whether or not strong consistency should be enforced when
@@ -150,11 +150,11 @@ data SelectResponse = SelectResponse'
 
 -- | 'SelectResponse' smart constructor.
 selectResponse :: Int -> SelectResponse
-selectResponse pStatus =
+selectResponse pStatus_ =
     SelectResponse'
     { _srsItems = Nothing
     , _srsNextToken = Nothing
-    , _srsStatus = pStatus
+    , _srsStatus = pStatus_
     }
 
 -- | A list of items that match the select expression.

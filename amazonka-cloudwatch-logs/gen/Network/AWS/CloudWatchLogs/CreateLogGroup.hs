@@ -59,9 +59,9 @@ newtype CreateLogGroup = CreateLogGroup'
 
 -- | 'CreateLogGroup' smart constructor.
 createLogGroup :: Text -> CreateLogGroup
-createLogGroup pLogGroupName =
+createLogGroup pLogGroupName_ =
     CreateLogGroup'
-    { _clgrqLogGroupName = pLogGroupName
+    { _clgrqLogGroupName = pLogGroupName_
     }
 
 -- | The name of the log group to create.

@@ -88,9 +88,9 @@ data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
 
 -- | 'RegisterInstancesWithLoadBalancer' smart constructor.
 registerInstancesWithLoadBalancer :: Text -> RegisterInstancesWithLoadBalancer
-registerInstancesWithLoadBalancer pLoadBalancerName =
+registerInstancesWithLoadBalancer pLoadBalancerName_ =
     RegisterInstancesWithLoadBalancer'
-    { _riwlbrqLoadBalancerName = pLoadBalancerName
+    { _riwlbrqLoadBalancerName = pLoadBalancerName_
     , _riwlbrqInstances = mempty
     }
 
@@ -150,10 +150,10 @@ data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalanc
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
 registerInstancesWithLoadBalancerResponse :: Int -> RegisterInstancesWithLoadBalancerResponse
-registerInstancesWithLoadBalancerResponse pStatus =
+registerInstancesWithLoadBalancerResponse pStatus_ =
     RegisterInstancesWithLoadBalancerResponse'
     { _riwlbrsInstances = Nothing
-    , _riwlbrsStatus = pStatus
+    , _riwlbrsStatus = pStatus_
     }
 
 -- | The updated list of instances for the load balancer.

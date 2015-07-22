@@ -188,10 +188,10 @@ data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
 describeNetworkACLsResponse :: Int -> DescribeNetworkACLsResponse
-describeNetworkACLsResponse pStatus =
+describeNetworkACLsResponse pStatus_ =
     DescribeNetworkACLsResponse'
     { _dnarsNetworkACLs = Nothing
-    , _dnarsStatus = pStatus
+    , _dnarsStatus = pStatus_
     }
 
 -- | Information about one or more network ACLs.

@@ -1733,9 +1733,9 @@ data Filter = Filter'
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
-filter' pName =
+filter' pName_ =
     Filter'
-    { _fName = pName
+    { _fName = pName_
     , _fValues = mempty
     }
 
@@ -1911,13 +1911,13 @@ data OptionConfiguration = OptionConfiguration'
 
 -- | 'OptionConfiguration' smart constructor.
 optionConfiguration :: Text -> OptionConfiguration
-optionConfiguration pOptionName =
+optionConfiguration pOptionName_ =
     OptionConfiguration'
     { _ocOptionSettings = Nothing
     , _ocVPCSecurityGroupMemberships = Nothing
     , _ocDBSecurityGroupMemberships = Nothing
     , _ocPort = Nothing
-    , _ocOptionName = pOptionName
+    , _ocOptionName = pOptionName_
     }
 
 -- | The option settings to include in an option group.

@@ -56,9 +56,9 @@ newtype GetProject = GetProject'
 
 -- | 'GetProject' smart constructor.
 getProject :: Text -> GetProject
-getProject pArn =
+getProject pArn_ =
     GetProject'
-    { _gprqArn = pArn
+    { _gprqArn = pArn_
     }
 
 -- | The project\'s ARN.
@@ -109,10 +109,10 @@ data GetProjectResponse = GetProjectResponse'
 
 -- | 'GetProjectResponse' smart constructor.
 getProjectResponse :: Int -> GetProjectResponse
-getProjectResponse pStatus =
+getProjectResponse pStatus_ =
     GetProjectResponse'
     { _gprsProject = Nothing
-    , _gprsStatus = pStatus
+    , _gprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

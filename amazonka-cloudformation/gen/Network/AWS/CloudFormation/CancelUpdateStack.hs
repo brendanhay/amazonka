@@ -57,9 +57,9 @@ newtype CancelUpdateStack = CancelUpdateStack'
 
 -- | 'CancelUpdateStack' smart constructor.
 cancelUpdateStack :: Text -> CancelUpdateStack
-cancelUpdateStack pStackName =
+cancelUpdateStack pStackName_ =
     CancelUpdateStack'
-    { _cusrqStackName = pStackName
+    { _cusrqStackName = pStackName_
     }
 
 -- | The name or the unique stack ID that is associated with the stack.

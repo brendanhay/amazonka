@@ -60,10 +60,10 @@ data ResumeProcesses = ResumeProcesses'
 
 -- | 'ResumeProcesses' smart constructor.
 resumeProcesses :: Text -> ResumeProcesses
-resumeProcesses pAutoScalingGroupName =
+resumeProcesses pAutoScalingGroupName_ =
     ResumeProcesses'
     { _rpScalingProcesses = Nothing
-    , _rpAutoScalingGroupName = pAutoScalingGroupName
+    , _rpAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | One or more of the following processes:

@@ -71,9 +71,9 @@ newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
 
 -- | 'UpdateGatewaySoftwareNow' smart constructor.
 updateGatewaySoftwareNow :: Text -> UpdateGatewaySoftwareNow
-updateGatewaySoftwareNow pGatewayARN =
+updateGatewaySoftwareNow pGatewayARN_ =
     UpdateGatewaySoftwareNow'
-    { _ugsnrqGatewayARN = pGatewayARN
+    { _ugsnrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -127,10 +127,10 @@ data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
 
 -- | 'UpdateGatewaySoftwareNowResponse' smart constructor.
 updateGatewaySoftwareNowResponse :: Int -> UpdateGatewaySoftwareNowResponse
-updateGatewaySoftwareNowResponse pStatus =
+updateGatewaySoftwareNowResponse pStatus_ =
     UpdateGatewaySoftwareNowResponse'
     { _ugsnrsGatewayARN = Nothing
-    , _ugsnrsStatus = pStatus
+    , _ugsnrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

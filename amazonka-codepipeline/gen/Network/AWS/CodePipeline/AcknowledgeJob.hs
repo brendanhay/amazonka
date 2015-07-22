@@ -60,10 +60,10 @@ data AcknowledgeJob = AcknowledgeJob'
 
 -- | 'AcknowledgeJob' smart constructor.
 acknowledgeJob :: Text -> Text -> AcknowledgeJob
-acknowledgeJob pJobId pNonce =
+acknowledgeJob pJobId_ pNonce_ =
     AcknowledgeJob'
-    { _ajrqJobId = pJobId
-    , _ajrqNonce = pNonce
+    { _ajrqJobId = pJobId_
+    , _ajrqNonce = pNonce_
     }
 
 -- | The unique system-generated ID of the job for which you want to confirm
@@ -120,9 +120,9 @@ newtype AcknowledgeJobResponse = AcknowledgeJobResponse'
 
 -- | 'AcknowledgeJobResponse' smart constructor.
 acknowledgeJobResponse :: Int -> AcknowledgeJobResponse
-acknowledgeJobResponse pStatus =
+acknowledgeJobResponse pStatus_ =
     AcknowledgeJobResponse'
-    { _ajrsStatus = pStatus
+    { _ajrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

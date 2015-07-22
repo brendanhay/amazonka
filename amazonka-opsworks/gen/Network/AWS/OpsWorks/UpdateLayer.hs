@@ -113,7 +113,7 @@ data UpdateLayer = UpdateLayer'
 
 -- | 'UpdateLayer' smart constructor.
 updateLayer :: Text -> UpdateLayer
-updateLayer pLayerId =
+updateLayer pLayerId_ =
     UpdateLayer'
     { _ulrqCustomInstanceProfileARN = Nothing
     , _ulrqInstallUpdatesOnBoot = Nothing
@@ -129,7 +129,7 @@ updateLayer pLayerId =
     , _ulrqAutoAssignPublicIPs = Nothing
     , _ulrqUseEBSOptimizedInstances = Nothing
     , _ulrqAutoAssignElasticIPs = Nothing
-    , _ulrqLayerId = pLayerId
+    , _ulrqLayerId = pLayerId_
     }
 
 -- | The ARN of an IAM profile to be used for all of the layer\'s EC2

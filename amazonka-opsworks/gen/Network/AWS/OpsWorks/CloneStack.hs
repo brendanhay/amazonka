@@ -146,7 +146,7 @@ data CloneStack = CloneStack'
 
 -- | 'CloneStack' smart constructor.
 cloneStack :: Text -> Text -> CloneStack
-cloneStack pSourceStackId pServiceRoleARN =
+cloneStack pSourceStackId_ pServiceRoleARN_ =
     CloneStack'
     { _crqCloneAppIds = Nothing
     , _crqDefaultInstanceProfileARN = Nothing
@@ -168,8 +168,8 @@ cloneStack pSourceStackId pServiceRoleARN =
     , _crqRegion = Nothing
     , _crqConfigurationManager = Nothing
     , _crqHostnameTheme = Nothing
-    , _crqSourceStackId = pSourceStackId
-    , _crqServiceRoleARN = pServiceRoleARN
+    , _crqSourceStackId = pSourceStackId_
+    , _crqServiceRoleARN = pServiceRoleARN_
     }
 
 -- | A list of source stack app IDs to be included in the cloned stack.
@@ -476,10 +476,10 @@ data CloneStackResponse = CloneStackResponse'
 
 -- | 'CloneStackResponse' smart constructor.
 cloneStackResponse :: Int -> CloneStackResponse
-cloneStackResponse pStatus =
+cloneStackResponse pStatus_ =
     CloneStackResponse'
     { _csrsStackId = Nothing
-    , _csrsStatus = pStatus
+    , _csrsStatus = pStatus_
     }
 
 -- | The cloned stack ID.

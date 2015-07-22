@@ -59,10 +59,10 @@ data RemoveClientIdFromOpenIdConnectProvider = RemoveClientIdFromOpenIdConnectPr
 
 -- | 'RemoveClientIdFromOpenIdConnectProvider' smart constructor.
 removeClientIdFromOpenIdConnectProvider :: Text -> Text -> RemoveClientIdFromOpenIdConnectProvider
-removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN pClientId =
+removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
     RemoveClientIdFromOpenIdConnectProvider'
-    { _rcifoicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN
-    , _rcifoicprqClientId = pClientId
+    { _rcifoicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+    , _rcifoicprqClientId = pClientId_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider

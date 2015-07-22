@@ -63,10 +63,10 @@ data UpdateVTLDeviceType = UpdateVTLDeviceType'
 
 -- | 'UpdateVTLDeviceType' smart constructor.
 updateVTLDeviceType :: Text -> Text -> UpdateVTLDeviceType
-updateVTLDeviceType pVTLDeviceARN pDeviceType =
+updateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
     UpdateVTLDeviceType'
-    { _uvtldtrqVTLDeviceARN = pVTLDeviceARN
-    , _uvtldtrqDeviceType = pDeviceType
+    { _uvtldtrqVTLDeviceARN = pVTLDeviceARN_
+    , _uvtldtrqDeviceType = pDeviceType_
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
@@ -128,10 +128,10 @@ data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
 
 -- | 'UpdateVTLDeviceTypeResponse' smart constructor.
 updateVTLDeviceTypeResponse :: Int -> UpdateVTLDeviceTypeResponse
-updateVTLDeviceTypeResponse pStatus =
+updateVTLDeviceTypeResponse pStatus_ =
     UpdateVTLDeviceTypeResponse'
     { _uvtldtrsVTLDeviceARN = Nothing
-    , _uvtldtrsStatus = pStatus
+    , _uvtldtrsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.

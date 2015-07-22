@@ -98,11 +98,11 @@ data PutAttributes = PutAttributes'
 
 -- | 'PutAttributes' smart constructor.
 putAttributes :: Text -> Text -> PutAttributes
-putAttributes pDomainName pItemName =
+putAttributes pDomainName_ pItemName_ =
     PutAttributes'
     { _parqExpected = Nothing
-    , _parqDomainName = pDomainName
-    , _parqItemName = pItemName
+    , _parqDomainName = pDomainName_
+    , _parqItemName = pItemName_
     , _parqAttributes = mempty
     }
 

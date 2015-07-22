@@ -171,11 +171,11 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
 
 -- | 'DescribeDBInstancesResponse' smart constructor.
 describeDBInstancesResponse :: Int -> DescribeDBInstancesResponse
-describeDBInstancesResponse pStatus =
+describeDBInstancesResponse pStatus_ =
     DescribeDBInstancesResponse'
     { _ddbirsDBInstances = Nothing
     , _ddbirsMarker = Nothing
-    , _ddbirsStatus = pStatus
+    , _ddbirsStatus = pStatus_
     }
 
 -- | A list of DBInstance instances.

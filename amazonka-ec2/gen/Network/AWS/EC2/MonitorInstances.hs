@@ -118,10 +118,10 @@ data MonitorInstancesResponse = MonitorInstancesResponse'
 
 -- | 'MonitorInstancesResponse' smart constructor.
 monitorInstancesResponse :: Int -> MonitorInstancesResponse
-monitorInstancesResponse pStatus =
+monitorInstancesResponse pStatus_ =
     MonitorInstancesResponse'
     { _mirsInstanceMonitorings = Nothing
-    , _mirsStatus = pStatus
+    , _mirsStatus = pStatus_
     }
 
 -- | Monitoring information for one or more instances.

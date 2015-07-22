@@ -75,9 +75,9 @@ newtype DeleteTable = DeleteTable'
 
 -- | 'DeleteTable' smart constructor.
 deleteTable :: Text -> DeleteTable
-deleteTable pTableName =
+deleteTable pTableName_ =
     DeleteTable'
-    { _dtrqTableName = pTableName
+    { _dtrqTableName = pTableName_
     }
 
 -- | The name of the table to delete.
@@ -129,10 +129,10 @@ data DeleteTableResponse = DeleteTableResponse'
 
 -- | 'DeleteTableResponse' smart constructor.
 deleteTableResponse :: Int -> DeleteTableResponse
-deleteTableResponse pStatus =
+deleteTableResponse pStatus_ =
     DeleteTableResponse'
     { _dtrsTableDescription = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

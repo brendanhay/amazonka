@@ -76,14 +76,14 @@ data ScheduleRun = ScheduleRun'
 
 -- | 'ScheduleRun' smart constructor.
 scheduleRun :: Text -> Text -> Text -> ScheduleRunTest -> ScheduleRun
-scheduleRun pProjectARN pAppARN pDevicePoolARN pTest =
+scheduleRun pProjectARN_ pAppARN_ pDevicePoolARN_ pTest_ =
     ScheduleRun'
     { _srrqName = Nothing
     , _srrqConfiguration = Nothing
-    , _srrqProjectARN = pProjectARN
-    , _srrqAppARN = pAppARN
-    , _srrqDevicePoolARN = pDevicePoolARN
-    , _srrqTest = pTest
+    , _srrqProjectARN = pProjectARN_
+    , _srrqAppARN = pAppARN_
+    , _srrqDevicePoolARN = pDevicePoolARN_
+    , _srrqTest = pTest_
     }
 
 -- | The name for the run to be scheduled.
@@ -161,10 +161,10 @@ data ScheduleRunResponse = ScheduleRunResponse'
 
 -- | 'ScheduleRunResponse' smart constructor.
 scheduleRunResponse :: Int -> ScheduleRunResponse
-scheduleRunResponse pStatus =
+scheduleRunResponse pStatus_ =
     ScheduleRunResponse'
     { _srrsRun = Nothing
-    , _srrsStatus = pStatus
+    , _srrsStatus = pStatus_
     }
 
 -- | Information about the scheduled run.

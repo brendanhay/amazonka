@@ -56,9 +56,9 @@ newtype DeleteDocument = DeleteDocument'
 
 -- | 'DeleteDocument' smart constructor.
 deleteDocument :: Text -> DeleteDocument
-deleteDocument pName =
+deleteDocument pName_ =
     DeleteDocument'
-    { _delrqName = pName
+    { _delrqName = pName_
     }
 
 -- | The name of the configuration document.
@@ -104,9 +104,9 @@ newtype DeleteDocumentResponse = DeleteDocumentResponse'
 
 -- | 'DeleteDocumentResponse' smart constructor.
 deleteDocumentResponse :: Int -> DeleteDocumentResponse
-deleteDocumentResponse pStatus =
+deleteDocumentResponse pStatus_ =
     DeleteDocumentResponse'
-    { _ddrsStatus = pStatus
+    { _ddrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

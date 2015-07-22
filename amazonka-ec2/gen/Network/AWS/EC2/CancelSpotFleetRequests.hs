@@ -65,11 +65,11 @@ data CancelSpotFleetRequests = CancelSpotFleetRequests'
 
 -- | 'CancelSpotFleetRequests' smart constructor.
 cancelSpotFleetRequests :: Bool -> CancelSpotFleetRequests
-cancelSpotFleetRequests pTerminateInstances =
+cancelSpotFleetRequests pTerminateInstances_ =
     CancelSpotFleetRequests'
     { _csfrrqDryRun = Nothing
     , _csfrrqSpotFleetRequestIds = mempty
-    , _csfrrqTerminateInstances = pTerminateInstances
+    , _csfrrqTerminateInstances = pTerminateInstances_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -139,11 +139,11 @@ data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
 
 -- | 'CancelSpotFleetRequestsResponse' smart constructor.
 cancelSpotFleetRequestsResponse :: Int -> CancelSpotFleetRequestsResponse
-cancelSpotFleetRequestsResponse pStatus =
+cancelSpotFleetRequestsResponse pStatus_ =
     CancelSpotFleetRequestsResponse'
     { _csfrrsSuccessfulFleetRequests = Nothing
     , _csfrrsUnsuccessfulFleetRequests = Nothing
-    , _csfrrsStatus = pStatus
+    , _csfrrsStatus = pStatus_
     }
 
 -- | Information about the Spot fleet requests that are successfully

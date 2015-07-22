@@ -134,11 +134,11 @@ data GetFederationToken = GetFederationToken'
 
 -- | 'GetFederationToken' smart constructor.
 getFederationToken :: Text -> GetFederationToken
-getFederationToken pName =
+getFederationToken pName_ =
     GetFederationToken'
     { _gftrqDurationSeconds = Nothing
     , _gftrqPolicy = Nothing
-    , _gftrqName = pName
+    , _gftrqName = pName_
     }
 
 -- | The duration, in seconds, that the session should last. Acceptable
@@ -237,12 +237,12 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
 
 -- | 'GetFederationTokenResponse' smart constructor.
 getFederationTokenResponse :: Int -> GetFederationTokenResponse
-getFederationTokenResponse pStatus =
+getFederationTokenResponse pStatus_ =
     GetFederationTokenResponse'
     { _gftrsPackedPolicySize = Nothing
     , _gftrsCredentials = Nothing
     , _gftrsFederatedUser = Nothing
-    , _gftrsStatus = pStatus
+    , _gftrsStatus = pStatus_
     }
 
 -- | A percentage value indicating the size of the policy in packed form. The

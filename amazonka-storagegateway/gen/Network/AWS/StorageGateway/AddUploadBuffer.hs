@@ -64,9 +64,9 @@ data AddUploadBuffer = AddUploadBuffer'
 
 -- | 'AddUploadBuffer' smart constructor.
 addUploadBuffer :: Text -> AddUploadBuffer
-addUploadBuffer pGatewayARN =
+addUploadBuffer pGatewayARN_ =
     AddUploadBuffer'
-    { _aubrqGatewayARN = pGatewayARN
+    { _aubrqGatewayARN = pGatewayARN_
     , _aubrqDiskIds = mempty
     }
 
@@ -124,10 +124,10 @@ data AddUploadBufferResponse = AddUploadBufferResponse'
 
 -- | 'AddUploadBufferResponse' smart constructor.
 addUploadBufferResponse :: Int -> AddUploadBufferResponse
-addUploadBufferResponse pStatus =
+addUploadBufferResponse pStatus_ =
     AddUploadBufferResponse'
     { _aubrsGatewayARN = Nothing
-    , _aubrsStatus = pStatus
+    , _aubrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

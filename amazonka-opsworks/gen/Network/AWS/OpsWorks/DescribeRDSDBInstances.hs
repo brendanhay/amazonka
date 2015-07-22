@@ -64,10 +64,10 @@ data DescribeRDSDBInstances = DescribeRDSDBInstances'
 
 -- | 'DescribeRDSDBInstances' smart constructor.
 describeRDSDBInstances :: Text -> DescribeRDSDBInstances
-describeRDSDBInstances pStackId =
+describeRDSDBInstances pStackId_ =
     DescribeRDSDBInstances'
     { _drdirqRDSDBInstanceARNs = Nothing
-    , _drdirqStackId = pStackId
+    , _drdirqStackId = pStackId_
     }
 
 -- | An array containing the ARNs of the instances to be described.
@@ -129,10 +129,10 @@ data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
 
 -- | 'DescribeRDSDBInstancesResponse' smart constructor.
 describeRDSDBInstancesResponse :: Int -> DescribeRDSDBInstancesResponse
-describeRDSDBInstancesResponse pStatus =
+describeRDSDBInstancesResponse pStatus_ =
     DescribeRDSDBInstancesResponse'
     { _drdirsRDSDBInstances = Nothing
-    , _drdirsStatus = pStatus
+    , _drdirsStatus = pStatus_
     }
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.

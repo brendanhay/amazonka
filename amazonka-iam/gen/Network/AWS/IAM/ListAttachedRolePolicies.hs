@@ -80,12 +80,12 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
 
 -- | 'ListAttachedRolePolicies' smart constructor.
 listAttachedRolePolicies :: Text -> ListAttachedRolePolicies
-listAttachedRolePolicies pRoleName =
+listAttachedRolePolicies pRoleName_ =
     ListAttachedRolePolicies'
     { _larprqPathPrefix = Nothing
     , _larprqMaxItems = Nothing
     , _larprqMarker = Nothing
-    , _larprqRoleName = pRoleName
+    , _larprqRoleName = pRoleName_
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
@@ -168,12 +168,12 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
 
 -- | 'ListAttachedRolePoliciesResponse' smart constructor.
 listAttachedRolePoliciesResponse :: Int -> ListAttachedRolePoliciesResponse
-listAttachedRolePoliciesResponse pStatus =
+listAttachedRolePoliciesResponse pStatus_ =
     ListAttachedRolePoliciesResponse'
     { _larprsAttachedPolicies = Nothing
     , _larprsMarker = Nothing
     , _larprsIsTruncated = Nothing
-    , _larprsStatus = pStatus
+    , _larprsStatus = pStatus_
     }
 
 -- | A list of the attached policies.

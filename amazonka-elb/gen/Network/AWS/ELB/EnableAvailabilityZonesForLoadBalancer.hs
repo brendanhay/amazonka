@@ -66,9 +66,9 @@ data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBala
 
 -- | 'EnableAvailabilityZonesForLoadBalancer' smart constructor.
 enableAvailabilityZonesForLoadBalancer :: Text -> EnableAvailabilityZonesForLoadBalancer
-enableAvailabilityZonesForLoadBalancer pLoadBalancerName =
+enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
     EnableAvailabilityZonesForLoadBalancer'
-    { _eazflbrqLoadBalancerName = pLoadBalancerName
+    { _eazflbrqLoadBalancerName = pLoadBalancerName_
     , _eazflbrqAvailabilityZones = mempty
     }
 
@@ -130,10 +130,10 @@ data EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesFor
 
 -- | 'EnableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 enableAvailabilityZonesForLoadBalancerResponse :: Int -> EnableAvailabilityZonesForLoadBalancerResponse
-enableAvailabilityZonesForLoadBalancerResponse pStatus =
+enableAvailabilityZonesForLoadBalancerResponse pStatus_ =
     EnableAvailabilityZonesForLoadBalancerResponse'
     { _eazflbrsAvailabilityZones = Nothing
-    , _eazflbrsStatus = pStatus
+    , _eazflbrsStatus = pStatus_
     }
 
 -- | The updated list of Availability Zones for the load balancer.

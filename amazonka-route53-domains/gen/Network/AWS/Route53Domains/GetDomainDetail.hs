@@ -77,9 +77,9 @@ newtype GetDomainDetail = GetDomainDetail'
 
 -- | 'GetDomainDetail' smart constructor.
 getDomainDetail :: Text -> GetDomainDetail
-getDomainDetail pDomainName =
+getDomainDetail pDomainName_ =
     GetDomainDetail'
-    { _gddrqDomainName = pDomainName
+    { _gddrqDomainName = pDomainName_
     }
 
 -- | The name of a domain.
@@ -222,7 +222,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
 
 -- | 'GetDomainDetailResponse' smart constructor.
 getDomainDetailResponse :: Int -> Text -> ContactDetail -> ContactDetail -> ContactDetail -> GetDomainDetailResponse
-getDomainDetailResponse pStatus pDomainName pAdminContact pRegistrantContact pTechContact =
+getDomainDetailResponse pStatus_ pDomainName_ pAdminContact_ pRegistrantContact_ pTechContact_ =
     GetDomainDetailResponse'
     { _gddrsTechPrivacy = Nothing
     , _gddrsDNSSec = Nothing
@@ -240,12 +240,12 @@ getDomainDetailResponse pStatus pDomainName pAdminContact pRegistrantContact pTe
     , _gddrsRegistrarName = Nothing
     , _gddrsStatusList = Nothing
     , _gddrsReseller = Nothing
-    , _gddrsStatus = pStatus
-    , _gddrsDomainName = pDomainName
+    , _gddrsStatus = pStatus_
+    , _gddrsDomainName = pDomainName_
     , _gddrsNameservers = mempty
-    , _gddrsAdminContact = _Sensitive # pAdminContact
-    , _gddrsRegistrantContact = _Sensitive # pRegistrantContact
-    , _gddrsTechContact = _Sensitive # pTechContact
+    , _gddrsAdminContact = _Sensitive # pAdminContact_
+    , _gddrsRegistrantContact = _Sensitive # pRegistrantContact_
+    , _gddrsTechContact = _Sensitive # pTechContact_
     }
 
 -- | Specifies whether contact information for the tech contact is concealed

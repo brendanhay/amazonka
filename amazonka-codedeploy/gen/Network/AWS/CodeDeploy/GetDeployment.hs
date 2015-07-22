@@ -56,9 +56,9 @@ newtype GetDeployment = GetDeployment'
 
 -- | 'GetDeployment' smart constructor.
 getDeployment :: Text -> GetDeployment
-getDeployment pDeploymentId =
+getDeployment pDeploymentId_ =
     GetDeployment'
-    { _gdrqDeploymentId = pDeploymentId
+    { _gdrqDeploymentId = pDeploymentId_
     }
 
 -- | An existing deployment ID associated with the applicable IAM user or AWS
@@ -111,10 +111,10 @@ data GetDeploymentResponse = GetDeploymentResponse'
 
 -- | 'GetDeploymentResponse' smart constructor.
 getDeploymentResponse :: Int -> GetDeploymentResponse
-getDeploymentResponse pStatus =
+getDeploymentResponse pStatus_ =
     GetDeploymentResponse'
     { _gdrsDeploymentInfo = Nothing
-    , _gdrsStatus = pStatus
+    , _gdrsStatus = pStatus_
     }
 
 -- | Information about the deployment.

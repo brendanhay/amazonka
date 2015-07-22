@@ -62,9 +62,9 @@ newtype DisableDomainTransferLock = DisableDomainTransferLock'
 
 -- | 'DisableDomainTransferLock' smart constructor.
 disableDomainTransferLock :: Text -> DisableDomainTransferLock
-disableDomainTransferLock pDomainName =
+disableDomainTransferLock pDomainName_ =
     DisableDomainTransferLock'
-    { _ddtlrqDomainName = pDomainName
+    { _ddtlrqDomainName = pDomainName_
     }
 
 -- | The name of a domain.
@@ -128,10 +128,10 @@ data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
 
 -- | 'DisableDomainTransferLockResponse' smart constructor.
 disableDomainTransferLockResponse :: Int -> Text -> DisableDomainTransferLockResponse
-disableDomainTransferLockResponse pStatus pOperationId =
+disableDomainTransferLockResponse pStatus_ pOperationId_ =
     DisableDomainTransferLockResponse'
-    { _ddtlrsStatus = pStatus
-    , _ddtlrsOperationId = pOperationId
+    { _ddtlrsStatus = pStatus_
+    , _ddtlrsOperationId = pOperationId_
     }
 
 -- | FIXME: Undocumented member.

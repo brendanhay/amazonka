@@ -180,7 +180,7 @@ data RunInstances = RunInstances'
 
 -- | 'RunInstances' smart constructor.
 runInstances :: Text -> Int -> Int -> RunInstances
-runInstances pImageId pMinCount pMaxCount =
+runInstances pImageId_ pMinCount_ pMaxCount_ =
     RunInstances'
     { _rirqSecurityGroupIds = Nothing
     , _rirqAdditionalInfo = Nothing
@@ -202,9 +202,9 @@ runInstances pImageId pMinCount pMaxCount =
     , _rirqBlockDeviceMappings = Nothing
     , _rirqDryRun = Nothing
     , _rirqPlacement = Nothing
-    , _rirqImageId = pImageId
-    , _rirqMinCount = pMinCount
-    , _rirqMaxCount = pMaxCount
+    , _rirqImageId = pImageId_
+    , _rirqMinCount = pMinCount_
+    , _rirqMaxCount = pMaxCount_
     }
 
 -- | One or more security group IDs. You can create a security group using

@@ -68,9 +68,9 @@ newtype StartGateway = StartGateway'
 
 -- | 'StartGateway' smart constructor.
 startGateway :: Text -> StartGateway
-startGateway pGatewayARN =
+startGateway pGatewayARN_ =
     StartGateway'
-    { _sgrqGatewayARN = pGatewayARN
+    { _sgrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -123,10 +123,10 @@ data StartGatewayResponse = StartGatewayResponse'
 
 -- | 'StartGatewayResponse' smart constructor.
 startGatewayResponse :: Int -> StartGatewayResponse
-startGatewayResponse pStatus =
+startGatewayResponse pStatus_ =
     StartGatewayResponse'
     { _srsGatewayARN = Nothing
-    , _srsStatus = pStatus
+    , _srsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

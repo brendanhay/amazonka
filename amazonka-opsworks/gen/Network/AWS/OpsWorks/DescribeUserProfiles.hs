@@ -116,10 +116,10 @@ data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
 
 -- | 'DescribeUserProfilesResponse' smart constructor.
 describeUserProfilesResponse :: Int -> DescribeUserProfilesResponse
-describeUserProfilesResponse pStatus =
+describeUserProfilesResponse pStatus_ =
     DescribeUserProfilesResponse'
     { _duprsUserProfiles = Nothing
-    , _duprsStatus = pStatus
+    , _duprsStatus = pStatus_
     }
 
 -- | A @Users@ object that describes the specified users.

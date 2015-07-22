@@ -76,10 +76,10 @@ data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
 
 -- | 'SetIdentityDkimEnabled' smart constructor.
 setIdentityDkimEnabled :: Text -> Bool -> SetIdentityDkimEnabled
-setIdentityDkimEnabled pIdentity pDkimEnabled =
+setIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
     SetIdentityDkimEnabled'
-    { _siderqIdentity = pIdentity
-    , _siderqDkimEnabled = pDkimEnabled
+    { _siderqIdentity = pIdentity_
+    , _siderqDkimEnabled = pDkimEnabled_
     }
 
 -- | The identity for which DKIM signing should be enabled or disabled.
@@ -131,9 +131,9 @@ newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
 
 -- | 'SetIdentityDkimEnabledResponse' smart constructor.
 setIdentityDkimEnabledResponse :: Int -> SetIdentityDkimEnabledResponse
-setIdentityDkimEnabledResponse pStatus =
+setIdentityDkimEnabledResponse pStatus_ =
     SetIdentityDkimEnabledResponse'
-    { _sidersStatus = pStatus
+    { _sidersStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

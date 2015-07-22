@@ -72,12 +72,12 @@ data DescribeTapes = DescribeTapes'
 
 -- | 'DescribeTapes' smart constructor.
 describeTapes :: Text -> DescribeTapes
-describeTapes pGatewayARN =
+describeTapes pGatewayARN_ =
     DescribeTapes'
     { _dtrqMarker = Nothing
     , _dtrqLimit = Nothing
     , _dtrqTapeARNs = Nothing
-    , _dtrqGatewayARN = pGatewayARN
+    , _dtrqGatewayARN = pGatewayARN_
     }
 
 -- | A marker value, obtained in a previous call to @DescribeTapes@. This
@@ -165,11 +165,11 @@ data DescribeTapesResponse = DescribeTapesResponse'
 
 -- | 'DescribeTapesResponse' smart constructor.
 describeTapesResponse :: Int -> DescribeTapesResponse
-describeTapesResponse pStatus =
+describeTapesResponse pStatus_ =
     DescribeTapesResponse'
     { _dtsrsMarker = Nothing
     , _dtsrsTapes = Nothing
-    , _dtsrsStatus = pStatus
+    , _dtsrsStatus = pStatus_
     }
 
 -- | An opaque string which can be used as part of a subsequent DescribeTapes

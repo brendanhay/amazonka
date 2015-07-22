@@ -60,9 +60,9 @@ data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
 
 -- | 'SetPlatformApplicationAttributes' smart constructor.
 setPlatformApplicationAttributes :: Text -> SetPlatformApplicationAttributes
-setPlatformApplicationAttributes pPlatformApplicationARN =
+setPlatformApplicationAttributes pPlatformApplicationARN_ =
     SetPlatformApplicationAttributes'
-    { _spaarqPlatformApplicationARN = pPlatformApplicationARN
+    { _spaarqPlatformApplicationARN = pPlatformApplicationARN_
     , _spaarqAttributes = mempty
     }
 

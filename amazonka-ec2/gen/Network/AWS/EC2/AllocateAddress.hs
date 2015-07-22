@@ -129,12 +129,12 @@ data AllocateAddressResponse = AllocateAddressResponse'
 
 -- | 'AllocateAddressResponse' smart constructor.
 allocateAddressResponse :: Int -> AllocateAddressResponse
-allocateAddressResponse pStatus =
+allocateAddressResponse pStatus_ =
     AllocateAddressResponse'
     { _aarsAllocationId = Nothing
     , _aarsDomain = Nothing
     , _aarsPublicIP = Nothing
-    , _aarsStatus = pStatus
+    , _aarsStatus = pStatus_
     }
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the

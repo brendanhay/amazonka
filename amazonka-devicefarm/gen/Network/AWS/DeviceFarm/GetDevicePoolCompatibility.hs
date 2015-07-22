@@ -65,11 +65,11 @@ data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
 
 -- | 'GetDevicePoolCompatibility' smart constructor.
 getDevicePoolCompatibility :: Text -> Text -> GetDevicePoolCompatibility
-getDevicePoolCompatibility pDevicePoolARN pAppARN =
+getDevicePoolCompatibility pDevicePoolARN_ pAppARN_ =
     GetDevicePoolCompatibility'
     { _gdpcrqTestType = Nothing
-    , _gdpcrqDevicePoolARN = pDevicePoolARN
-    , _gdpcrqAppARN = pAppARN
+    , _gdpcrqDevicePoolARN = pDevicePoolARN_
+    , _gdpcrqAppARN = pAppARN_
     }
 
 -- | The test type for the specified device pool.
@@ -157,11 +157,11 @@ data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
 
 -- | 'GetDevicePoolCompatibilityResponse' smart constructor.
 getDevicePoolCompatibilityResponse :: Int -> GetDevicePoolCompatibilityResponse
-getDevicePoolCompatibilityResponse pStatus =
+getDevicePoolCompatibilityResponse pStatus_ =
     GetDevicePoolCompatibilityResponse'
     { _gdpcrsIncompatibleDevices = Nothing
     , _gdpcrsCompatibleDevices = Nothing
-    , _gdpcrsStatus = pStatus
+    , _gdpcrsStatus = pStatus_
     }
 
 -- | Information about incompatible devices.

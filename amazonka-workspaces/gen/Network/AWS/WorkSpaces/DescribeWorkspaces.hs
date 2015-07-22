@@ -190,11 +190,11 @@ data DescribeWorkspacesResponse = DescribeWorkspacesResponse'
 
 -- | 'DescribeWorkspacesResponse' smart constructor.
 describeWorkspacesResponse :: Int -> DescribeWorkspacesResponse
-describeWorkspacesResponse pStatus =
+describeWorkspacesResponse pStatus_ =
     DescribeWorkspacesResponse'
     { _dwrsNextToken = Nothing
     , _dwrsWorkspaces = Nothing
-    , _dwrsStatus = pStatus
+    , _dwrsStatus = pStatus_
     }
 
 -- | If not null, more results are available. Pass this value for the

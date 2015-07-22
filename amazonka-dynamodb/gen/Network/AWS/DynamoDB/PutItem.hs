@@ -121,7 +121,7 @@ data PutItem = PutItem'
 
 -- | 'PutItem' smart constructor.
 putItem :: Text -> PutItem
-putItem pTableName =
+putItem pTableName_ =
     PutItem'
     { _pirqReturnValues = Nothing
     , _pirqExpressionAttributeNames = Nothing
@@ -131,7 +131,7 @@ putItem pTableName =
     , _pirqConditionExpression = Nothing
     , _pirqConditionalOperator = Nothing
     , _pirqExpected = Nothing
-    , _pirqTableName = pTableName
+    , _pirqTableName = pTableName_
     , _pirqItem = mempty
     }
 
@@ -585,12 +585,12 @@ data PutItemResponse = PutItemResponse'
 
 -- | 'PutItemResponse' smart constructor.
 putItemResponse :: Int -> PutItemResponse
-putItemResponse pStatus =
+putItemResponse pStatus_ =
     PutItemResponse'
     { _pirsConsumedCapacity = Nothing
     , _pirsItemCollectionMetrics = Nothing
     , _pirsAttributes = Nothing
-    , _pirsStatus = pStatus
+    , _pirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

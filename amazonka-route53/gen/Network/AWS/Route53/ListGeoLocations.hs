@@ -191,15 +191,15 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
 
 -- | 'ListGeoLocationsResponse' smart constructor.
 listGeoLocationsResponse :: Int -> Bool -> Text -> ListGeoLocationsResponse
-listGeoLocationsResponse pStatus pIsTruncated pMaxItems =
+listGeoLocationsResponse pStatus_ pIsTruncated_ pMaxItems_ =
     ListGeoLocationsResponse'
     { _lglrsNextContinentCode = Nothing
     , _lglrsNextCountryCode = Nothing
     , _lglrsNextSubdivisionCode = Nothing
-    , _lglrsStatus = pStatus
+    , _lglrsStatus = pStatus_
     , _lglrsGeoLocationDetailsList = mempty
-    , _lglrsIsTruncated = pIsTruncated
-    , _lglrsMaxItems = pMaxItems
+    , _lglrsIsTruncated = pIsTruncated_
+    , _lglrsMaxItems = pMaxItems_
     }
 
 -- | If the results were truncated, the continent code of the next geo

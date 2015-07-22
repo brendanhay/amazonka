@@ -61,10 +61,10 @@ data UpdateEvaluation = UpdateEvaluation'
 
 -- | 'UpdateEvaluation' smart constructor.
 updateEvaluation :: Text -> Text -> UpdateEvaluation
-updateEvaluation pEvaluationId pEvaluationName =
+updateEvaluation pEvaluationId_ pEvaluationName_ =
     UpdateEvaluation'
-    { _uerqEvaluationId = pEvaluationId
-    , _uerqEvaluationName = pEvaluationName
+    { _uerqEvaluationId = pEvaluationId_
+    , _uerqEvaluationName = pEvaluationName_
     }
 
 -- | The ID assigned to the @Evaluation@ during creation.
@@ -125,10 +125,10 @@ data UpdateEvaluationResponse = UpdateEvaluationResponse'
 
 -- | 'UpdateEvaluationResponse' smart constructor.
 updateEvaluationResponse :: Int -> UpdateEvaluationResponse
-updateEvaluationResponse pStatus =
+updateEvaluationResponse pStatus_ =
     UpdateEvaluationResponse'
     { _uersEvaluationId = Nothing
-    , _uersStatus = pStatus
+    , _uersStatus = pStatus_
     }
 
 -- | The ID assigned to the @Evaluation@ during creation. This value should

@@ -226,9 +226,9 @@ newtype RebootRequest = RebootRequest'
 
 -- | 'RebootRequest' smart constructor.
 rebootRequest :: Text -> RebootRequest
-rebootRequest pWorkspaceId =
+rebootRequest pWorkspaceId_ =
     RebootRequest'
-    { _rWorkspaceId = pWorkspaceId
+    { _rWorkspaceId = pWorkspaceId_
     }
 
 -- | The identifier of the WorkSpace to reboot.
@@ -253,9 +253,9 @@ newtype RebuildRequest = RebuildRequest'
 
 -- | 'RebuildRequest' smart constructor.
 rebuildRequest :: Text -> RebuildRequest
-rebuildRequest pWorkspaceId =
+rebuildRequest pWorkspaceId_ =
     RebuildRequest'
-    { _rrWorkspaceId = pWorkspaceId
+    { _rrWorkspaceId = pWorkspaceId_
     }
 
 -- | The identifier of the WorkSpace to rebuild.
@@ -280,9 +280,9 @@ newtype TerminateRequest = TerminateRequest'
 
 -- | 'TerminateRequest' smart constructor.
 terminateRequest :: Text -> TerminateRequest
-terminateRequest pWorkspaceId =
+terminateRequest pWorkspaceId_ =
     TerminateRequest'
-    { _trWorkspaceId = pWorkspaceId
+    { _trWorkspaceId = pWorkspaceId_
     }
 
 -- | The identifier of the WorkSpace to terminate.
@@ -651,11 +651,11 @@ data WorkspaceRequest = WorkspaceRequest'
 
 -- | 'WorkspaceRequest' smart constructor.
 workspaceRequest :: Text -> Text -> Text -> WorkspaceRequest
-workspaceRequest pDirectoryId pUserName pBundleId =
+workspaceRequest pDirectoryId_ pUserName_ pBundleId_ =
     WorkspaceRequest'
-    { _wrDirectoryId = pDirectoryId
-    , _wrUserName = pUserName
-    , _wrBundleId = pBundleId
+    { _wrDirectoryId = pDirectoryId_
+    , _wrUserName = pUserName_
+    , _wrBundleId = pBundleId_
     }
 
 -- | The identifier of the AWS Directory Service directory to create the

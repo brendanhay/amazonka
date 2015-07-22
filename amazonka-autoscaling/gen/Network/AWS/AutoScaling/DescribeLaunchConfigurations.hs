@@ -144,10 +144,10 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
 describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse pStatus =
+describeLaunchConfigurationsResponse pStatus_ =
     DescribeLaunchConfigurationsResponse'
     { _dlcrsNextToken = Nothing
-    , _dlcrsStatus = pStatus
+    , _dlcrsStatus = pStatus_
     , _dlcrsLaunchConfigurations = mempty
     }
 

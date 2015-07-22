@@ -63,11 +63,11 @@ data EnableSso = EnableSso'
 
 -- | 'EnableSso' smart constructor.
 enableSso :: Text -> EnableSso
-enableSso pDirectoryId =
+enableSso pDirectoryId_ =
     EnableSso'
     { _esrqUserName = Nothing
     , _esrqPassword = Nothing
-    , _esrqDirectoryId = pDirectoryId
+    , _esrqDirectoryId = pDirectoryId_
     }
 
 -- | The username of an alternate account to use to enable single-sign on.
@@ -137,9 +137,9 @@ newtype EnableSsoResponse = EnableSsoResponse'
 
 -- | 'EnableSsoResponse' smart constructor.
 enableSsoResponse :: Int -> EnableSsoResponse
-enableSsoResponse pStatus =
+enableSsoResponse pStatus_ =
     EnableSsoResponse'
-    { _esrsStatus = pStatus
+    { _esrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

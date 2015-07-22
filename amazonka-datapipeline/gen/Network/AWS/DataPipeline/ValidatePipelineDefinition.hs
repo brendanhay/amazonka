@@ -71,11 +71,11 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition'
 
 -- | 'ValidatePipelineDefinition' smart constructor.
 validatePipelineDefinition :: Text -> ValidatePipelineDefinition
-validatePipelineDefinition pPipelineId =
+validatePipelineDefinition pPipelineId_ =
     ValidatePipelineDefinition'
     { _vpdrqParameterObjects = Nothing
     , _vpdrqParameterValues = Nothing
-    , _vpdrqPipelineId = pPipelineId
+    , _vpdrqPipelineId = pPipelineId_
     , _vpdrqPipelineObjects = mempty
     }
 
@@ -156,12 +156,12 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
 validatePipelineDefinitionResponse :: Int -> Bool -> ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse pStatus pErrored =
+validatePipelineDefinitionResponse pStatus_ pErrored_ =
     ValidatePipelineDefinitionResponse'
     { _vpdrsValidationErrors = Nothing
     , _vpdrsValidationWarnings = Nothing
-    , _vpdrsStatus = pStatus
-    , _vpdrsErrored = pErrored
+    , _vpdrsStatus = pStatus_
+    , _vpdrsErrored = pErrored_
     }
 
 -- | Any validation errors that were found.

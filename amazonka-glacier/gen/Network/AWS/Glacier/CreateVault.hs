@@ -84,10 +84,10 @@ data CreateVault = CreateVault'
 
 -- | 'CreateVault' smart constructor.
 createVault :: Text -> Text -> CreateVault
-createVault pAccountId pVaultName =
+createVault pAccountId_ pVaultName_ =
     CreateVault'
-    { _cvrqAccountId = pAccountId
-    , _cvrqVaultName = pVaultName
+    { _cvrqAccountId = pAccountId_
+    , _cvrqVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -145,10 +145,10 @@ data CreateVaultResponse = CreateVaultResponse'
 
 -- | 'CreateVaultResponse' smart constructor.
 createVaultResponse :: Int -> CreateVaultResponse
-createVaultResponse pStatus =
+createVaultResponse pStatus_ =
     CreateVaultResponse'
     { _cvrsLocation = Nothing
-    , _cvrsStatus = pStatus
+    , _cvrsStatus = pStatus_
     }
 
 -- | The URI of the vault that was created.

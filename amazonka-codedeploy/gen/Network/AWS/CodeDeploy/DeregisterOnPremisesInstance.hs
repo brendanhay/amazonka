@@ -53,9 +53,9 @@ newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
 
 -- | 'DeregisterOnPremisesInstance' smart constructor.
 deregisterOnPremisesInstance :: Text -> DeregisterOnPremisesInstance
-deregisterOnPremisesInstance pInstanceName =
+deregisterOnPremisesInstance pInstanceName_ =
     DeregisterOnPremisesInstance'
-    { _dopirqInstanceName = pInstanceName
+    { _dopirqInstanceName = pInstanceName_
     }
 
 -- | The name of the on-premises instance to deregister.

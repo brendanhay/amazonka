@@ -121,7 +121,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
 
 -- | 'UpdateAutoScalingGroup' smart constructor.
 updateAutoScalingGroup :: Text -> UpdateAutoScalingGroup
-updateAutoScalingGroup pAutoScalingGroupName =
+updateAutoScalingGroup pAutoScalingGroupName_ =
     UpdateAutoScalingGroup'
     { _uasgrqTerminationPolicies = Nothing
     , _uasgrqHealthCheckGracePeriod = Nothing
@@ -134,7 +134,7 @@ updateAutoScalingGroup pAutoScalingGroupName =
     , _uasgrqHealthCheckType = Nothing
     , _uasgrqLaunchConfigurationName = Nothing
     , _uasgrqPlacementGroup = Nothing
-    , _uasgrqAutoScalingGroupName = pAutoScalingGroupName
+    , _uasgrqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | A standalone termination policy or a list of termination policies used

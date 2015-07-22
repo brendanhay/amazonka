@@ -68,12 +68,12 @@ data CopyOptionGroup = CopyOptionGroup'
 
 -- | 'CopyOptionGroup' smart constructor.
 copyOptionGroup :: Text -> Text -> Text -> CopyOptionGroup
-copyOptionGroup pSourceOptionGroupIdentifier pTargetOptionGroupIdentifier pTargetOptionGroupDescription =
+copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTargetOptionGroupDescription_ =
     CopyOptionGroup'
     { _crqTags = Nothing
-    , _crqSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier
-    , _crqTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier
-    , _crqTargetOptionGroupDescription = pTargetOptionGroupDescription
+    , _crqSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier_
+    , _crqTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier_
+    , _crqTargetOptionGroupDescription = pTargetOptionGroupDescription_
     }
 
 -- | FIXME: Undocumented member.
@@ -154,10 +154,10 @@ data CopyOptionGroupResponse = CopyOptionGroupResponse'
 
 -- | 'CopyOptionGroupResponse' smart constructor.
 copyOptionGroupResponse :: Int -> CopyOptionGroupResponse
-copyOptionGroupResponse pStatus =
+copyOptionGroupResponse pStatus_ =
     CopyOptionGroupResponse'
     { _cogrsOptionGroup = Nothing
-    , _cogrsStatus = pStatus
+    , _cogrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

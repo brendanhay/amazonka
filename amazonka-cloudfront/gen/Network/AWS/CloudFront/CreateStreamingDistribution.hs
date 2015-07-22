@@ -58,9 +58,9 @@ newtype CreateStreamingDistribution = CreateStreamingDistribution'
 
 -- | 'CreateStreamingDistribution' smart constructor.
 createStreamingDistribution :: StreamingDistributionConfig -> CreateStreamingDistribution
-createStreamingDistribution pStreamingDistributionConfig =
+createStreamingDistribution pStreamingDistributionConfig_ =
     CreateStreamingDistribution'
-    { _csdrqStreamingDistributionConfig = pStreamingDistributionConfig
+    { _csdrqStreamingDistributionConfig = pStreamingDistributionConfig_
     }
 
 -- | The streaming distribution\'s configuration information.
@@ -118,12 +118,12 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
 
 -- | 'CreateStreamingDistributionResponse' smart constructor.
 createStreamingDistributionResponse :: Int -> CreateStreamingDistributionResponse
-createStreamingDistributionResponse pStatus =
+createStreamingDistributionResponse pStatus_ =
     CreateStreamingDistributionResponse'
     { _csdrsETag = Nothing
     , _csdrsLocation = Nothing
     , _csdrsStreamingDistribution = Nothing
-    , _csdrsStatus = pStatus
+    , _csdrsStatus = pStatus_
     }
 
 -- | The current version of the streaming distribution created.

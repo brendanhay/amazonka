@@ -191,10 +191,10 @@ data AssociateAddressResponse = AssociateAddressResponse'
 
 -- | 'AssociateAddressResponse' smart constructor.
 associateAddressResponse :: Int -> AssociateAddressResponse
-associateAddressResponse pStatus =
+associateAddressResponse pStatus_ =
     AssociateAddressResponse'
     { _arsAssociationId = Nothing
-    , _arsStatus = pStatus
+    , _arsStatus = pStatus_
     }
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP

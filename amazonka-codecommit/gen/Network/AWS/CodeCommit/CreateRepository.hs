@@ -60,10 +60,10 @@ data CreateRepository = CreateRepository'
 
 -- | 'CreateRepository' smart constructor.
 createRepository :: Text -> CreateRepository
-createRepository pRepositoryName =
+createRepository pRepositoryName_ =
     CreateRepository'
     { _crrqRepositoryDescription = Nothing
-    , _crrqRepositoryName = pRepositoryName
+    , _crrqRepositoryName = pRepositoryName_
     }
 
 -- | A comment or description about the new repository.
@@ -127,10 +127,10 @@ data CreateRepositoryResponse = CreateRepositoryResponse'
 
 -- | 'CreateRepositoryResponse' smart constructor.
 createRepositoryResponse :: Int -> CreateRepositoryResponse
-createRepositoryResponse pStatus =
+createRepositoryResponse pStatus_ =
     CreateRepositoryResponse'
     { _crrsRepositoryMetadata = Nothing
-    , _crrsStatus = pStatus
+    , _crrsStatus = pStatus_
     }
 
 -- | Information about the newly created repository.

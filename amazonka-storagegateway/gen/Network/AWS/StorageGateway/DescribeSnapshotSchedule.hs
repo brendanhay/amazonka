@@ -63,9 +63,9 @@ newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
 
 -- | 'DescribeSnapshotSchedule' smart constructor.
 describeSnapshotSchedule :: Text -> DescribeSnapshotSchedule
-describeSnapshotSchedule pVolumeARN =
+describeSnapshotSchedule pVolumeARN_ =
     DescribeSnapshotSchedule'
-    { _dssrqVolumeARN = pVolumeARN
+    { _dssrqVolumeARN = pVolumeARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
@@ -134,14 +134,14 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
 
 -- | 'DescribeSnapshotScheduleResponse' smart constructor.
 describeSnapshotScheduleResponse :: Int -> DescribeSnapshotScheduleResponse
-describeSnapshotScheduleResponse pStatus =
+describeSnapshotScheduleResponse pStatus_ =
     DescribeSnapshotScheduleResponse'
     { _dssrsVolumeARN = Nothing
     , _dssrsStartAt = Nothing
     , _dssrsRecurrenceInHours = Nothing
     , _dssrsTimezone = Nothing
     , _dssrsDescription = Nothing
-    , _dssrsStatus = pStatus
+    , _dssrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

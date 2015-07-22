@@ -54,9 +54,9 @@ newtype CancelExportTask = CancelExportTask'
 
 -- | 'CancelExportTask' smart constructor.
 cancelExportTask :: Text -> CancelExportTask
-cancelExportTask pExportTaskId =
+cancelExportTask pExportTaskId_ =
     CancelExportTask'
-    { _cetrqExportTaskId = pExportTaskId
+    { _cetrqExportTaskId = pExportTaskId_
     }
 
 -- | The ID of the export task. This is the ID returned by

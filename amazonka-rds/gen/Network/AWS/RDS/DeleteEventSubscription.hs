@@ -56,9 +56,9 @@ newtype DeleteEventSubscription = DeleteEventSubscription'
 
 -- | 'DeleteEventSubscription' smart constructor.
 deleteEventSubscription :: Text -> DeleteEventSubscription
-deleteEventSubscription pSubscriptionName =
+deleteEventSubscription pSubscriptionName_ =
     DeleteEventSubscription'
-    { _desrqSubscriptionName = pSubscriptionName
+    { _desrqSubscriptionName = pSubscriptionName_
     }
 
 -- | The name of the RDS event notification subscription you want to delete.
@@ -104,10 +104,10 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
 
 -- | 'DeleteEventSubscriptionResponse' smart constructor.
 deleteEventSubscriptionResponse :: Int -> DeleteEventSubscriptionResponse
-deleteEventSubscriptionResponse pStatus =
+deleteEventSubscriptionResponse pStatus_ =
     DeleteEventSubscriptionResponse'
     { _drsEventSubscription = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

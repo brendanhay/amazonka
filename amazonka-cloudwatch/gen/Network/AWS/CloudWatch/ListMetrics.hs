@@ -151,11 +151,11 @@ data ListMetricsResponse = ListMetricsResponse'
 
 -- | 'ListMetricsResponse' smart constructor.
 listMetricsResponse :: Int -> ListMetricsResponse
-listMetricsResponse pStatus =
+listMetricsResponse pStatus_ =
     ListMetricsResponse'
     { _lmrsMetrics = Nothing
     , _lmrsNextToken = Nothing
-    , _lmrsStatus = pStatus
+    , _lmrsStatus = pStatus_
     }
 
 -- | A list of metrics used to generate statistics for an AWS account.

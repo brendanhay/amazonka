@@ -56,9 +56,9 @@ newtype DeleteHSM = DeleteHSM'
 
 -- | 'DeleteHSM' smart constructor.
 deleteHSM :: Text -> DeleteHSM
-deleteHSM pHSMARN =
+deleteHSM pHSMARN_ =
     DeleteHSM'
-    { _dhrqHSMARN = pHSMARN
+    { _dhrqHSMARN = pHSMARN_
     }
 
 -- | The ARN of the HSM to delete.
@@ -106,9 +106,9 @@ newtype DeleteHSMResponse = DeleteHSMResponse'
 
 -- | 'DeleteHSMResponse' smart constructor.
 deleteHSMResponse :: Int -> DeleteHSMResponse
-deleteHSMResponse pStatus =
+deleteHSMResponse pStatus_ =
     DeleteHSMResponse'
-    { _dhsmrsStatus = pStatus
+    { _dhsmrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

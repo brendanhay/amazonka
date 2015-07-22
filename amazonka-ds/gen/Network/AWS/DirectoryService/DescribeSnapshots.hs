@@ -160,11 +160,11 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatus =
+describeSnapshotsResponse pStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsNextToken = Nothing
     , _dssrsSnapshots = Nothing
-    , _dssrsStatus = pStatus
+    , _dssrsStatus = pStatus_
     }
 
 -- | If not null, more results are available. Pass this value in the

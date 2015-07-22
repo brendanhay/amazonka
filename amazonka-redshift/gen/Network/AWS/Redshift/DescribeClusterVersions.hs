@@ -177,11 +177,11 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
 
 -- | 'DescribeClusterVersionsResponse' smart constructor.
 describeClusterVersionsResponse :: Int -> DescribeClusterVersionsResponse
-describeClusterVersionsResponse pStatus =
+describeClusterVersionsResponse pStatus_ =
     DescribeClusterVersionsResponse'
     { _dcvrsClusterVersions = Nothing
     , _dcvrsMarker = Nothing
-    , _dcvrsStatus = pStatus
+    , _dcvrsStatus = pStatus_
     }
 
 -- | A list of @Version@ elements.

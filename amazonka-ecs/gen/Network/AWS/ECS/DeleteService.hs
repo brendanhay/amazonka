@@ -58,10 +58,10 @@ data DeleteService = DeleteService'
 
 -- | 'DeleteService' smart constructor.
 deleteService :: Text -> DeleteService
-deleteService pService =
+deleteService pService_ =
     DeleteService'
     { _dsrqCluster = Nothing
-    , _dsrqService = pService
+    , _dsrqService = pService_
     }
 
 -- | The name of the cluster that hosts the service you want to delete.
@@ -118,10 +118,10 @@ data DeleteServiceResponse = DeleteServiceResponse'
 
 -- | 'DeleteServiceResponse' smart constructor.
 deleteServiceResponse :: Int -> DeleteServiceResponse
-deleteServiceResponse pStatus =
+deleteServiceResponse pStatus_ =
     DeleteServiceResponse'
     { _dsrsService = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

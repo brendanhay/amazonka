@@ -327,11 +327,11 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
 
 -- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
 describeReservedInstancesOfferingsResponse :: Int -> DescribeReservedInstancesOfferingsResponse
-describeReservedInstancesOfferingsResponse pStatus =
+describeReservedInstancesOfferingsResponse pStatus_ =
     DescribeReservedInstancesOfferingsResponse'
     { _driorsNextToken = Nothing
     , _driorsReservedInstancesOfferings = Nothing
-    , _driorsStatus = pStatus
+    , _driorsStatus = pStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is

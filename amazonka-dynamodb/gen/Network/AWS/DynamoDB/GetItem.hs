@@ -88,14 +88,14 @@ data GetItem = GetItem'
 
 -- | 'GetItem' smart constructor.
 getItem :: Text -> GetItem
-getItem pTableName =
+getItem pTableName_ =
     GetItem'
     { _girqProjectionExpression = Nothing
     , _girqConsistentRead = Nothing
     , _girqExpressionAttributeNames = Nothing
     , _girqAttributesToGet = Nothing
     , _girqReturnConsumedCapacity = Nothing
-    , _girqTableName = pTableName
+    , _girqTableName = pTableName_
     , _girqKey = mempty
     }
 
@@ -255,11 +255,11 @@ data GetItemResponse = GetItemResponse'
 
 -- | 'GetItemResponse' smart constructor.
 getItemResponse :: Int -> GetItemResponse
-getItemResponse pStatus =
+getItemResponse pStatus_ =
     GetItemResponse'
     { _girsConsumedCapacity = Nothing
     , _girsItem = Nothing
-    , _girsStatus = pStatus
+    , _girsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

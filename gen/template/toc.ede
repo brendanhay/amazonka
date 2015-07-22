@@ -12,6 +12,3 @@ module {{ moduleName }}
 {% for import in exposedModules %}
 import {{ import.value }} as Export
 {% endfor %}
-{% for module in otherModules %}
-import {{ module.value }} as Export
-{% endfor %}

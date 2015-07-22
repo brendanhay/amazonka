@@ -64,10 +64,10 @@ data DeleteAssociation = DeleteAssociation'
 
 -- | 'DeleteAssociation' smart constructor.
 deleteAssociation :: Text -> Text -> DeleteAssociation
-deleteAssociation pName pInstanceId =
+deleteAssociation pName_ pInstanceId_ =
     DeleteAssociation'
-    { _drqName = pName
-    , _drqInstanceId = pInstanceId
+    { _drqName = pName_
+    , _drqInstanceId = pInstanceId_
     }
 
 -- | The name of the configuration document.
@@ -118,9 +118,9 @@ newtype DeleteAssociationResponse = DeleteAssociationResponse'
 
 -- | 'DeleteAssociationResponse' smart constructor.
 deleteAssociationResponse :: Int -> DeleteAssociationResponse
-deleteAssociationResponse pStatus =
+deleteAssociationResponse pStatus_ =
     DeleteAssociationResponse'
-    { _delrsStatus = pStatus
+    { _delrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

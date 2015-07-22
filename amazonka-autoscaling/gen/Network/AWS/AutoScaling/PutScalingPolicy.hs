@@ -103,7 +103,7 @@ data PutScalingPolicy = PutScalingPolicy'
 
 -- | 'PutScalingPolicy' smart constructor.
 putScalingPolicy :: Text -> Text -> Text -> PutScalingPolicy
-putScalingPolicy pAutoScalingGroupName pPolicyName pAdjustmentType =
+putScalingPolicy pAutoScalingGroupName_ pPolicyName_ pAdjustmentType_ =
     PutScalingPolicy'
     { _psprqEstimatedInstanceWarmup = Nothing
     , _psprqMinAdjustmentStep = Nothing
@@ -113,9 +113,9 @@ putScalingPolicy pAutoScalingGroupName pPolicyName pAdjustmentType =
     , _psprqCooldown = Nothing
     , _psprqMetricAggregationType = Nothing
     , _psprqMinAdjustmentMagnitude = Nothing
-    , _psprqAutoScalingGroupName = pAutoScalingGroupName
-    , _psprqPolicyName = pPolicyName
-    , _psprqAdjustmentType = pAdjustmentType
+    , _psprqAutoScalingGroupName = pAutoScalingGroupName_
+    , _psprqPolicyName = pPolicyName_
+    , _psprqAdjustmentType = pAdjustmentType_
     }
 
 -- | The estimated time, in seconds, until a newly launched instance can
@@ -250,10 +250,10 @@ data PutScalingPolicyResponse = PutScalingPolicyResponse'
 
 -- | 'PutScalingPolicyResponse' smart constructor.
 putScalingPolicyResponse :: Int -> PutScalingPolicyResponse
-putScalingPolicyResponse pStatus =
+putScalingPolicyResponse pStatus_ =
     PutScalingPolicyResponse'
     { _psprsPolicyARN = Nothing
-    , _psprsStatus = pStatus
+    , _psprsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the policy.

@@ -83,12 +83,12 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint'
 
 -- | 'CreatePlatformEndpoint' smart constructor.
 createPlatformEndpoint :: Text -> Text -> CreatePlatformEndpoint
-createPlatformEndpoint pPlatformApplicationARN pToken =
+createPlatformEndpoint pPlatformApplicationARN_ pToken_ =
     CreatePlatformEndpoint'
     { _cperqCustomUserData = Nothing
     , _cperqAttributes = Nothing
-    , _cperqPlatformApplicationARN = pPlatformApplicationARN
-    , _cperqToken = pToken
+    , _cperqPlatformApplicationARN = pPlatformApplicationARN_
+    , _cperqToken = pToken_
     }
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
@@ -163,10 +163,10 @@ data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
 
 -- | 'CreatePlatformEndpointResponse' smart constructor.
 createPlatformEndpointResponse :: Int -> CreatePlatformEndpointResponse
-createPlatformEndpointResponse pStatus =
+createPlatformEndpointResponse pStatus_ =
     CreatePlatformEndpointResponse'
     { _cpersEndpointARN = Nothing
-    , _cpersStatus = pStatus
+    , _cpersStatus = pStatus_
     }
 
 -- | EndpointArn returned from CreateEndpoint action.

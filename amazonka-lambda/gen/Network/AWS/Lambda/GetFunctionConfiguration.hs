@@ -67,9 +67,9 @@ newtype GetFunctionConfiguration = GetFunctionConfiguration'
 
 -- | 'GetFunctionConfiguration' smart constructor.
 getFunctionConfiguration :: Text -> GetFunctionConfiguration
-getFunctionConfiguration pFunctionName =
+getFunctionConfiguration pFunctionName_ =
     GetFunctionConfiguration'
-    { _gfcrqFunctionName = pFunctionName
+    { _gfcrqFunctionName = pFunctionName_
     }
 
 -- | The name of the Lambda function for which you want to retrieve the

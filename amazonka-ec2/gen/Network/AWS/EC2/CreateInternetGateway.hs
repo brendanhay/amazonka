@@ -108,10 +108,10 @@ data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
 
 -- | 'CreateInternetGatewayResponse' smart constructor.
 createInternetGatewayResponse :: Int -> CreateInternetGatewayResponse
-createInternetGatewayResponse pStatus =
+createInternetGatewayResponse pStatus_ =
     CreateInternetGatewayResponse'
     { _cigrsInternetGateway = Nothing
-    , _cigrsStatus = pStatus
+    , _cigrsStatus = pStatus_
     }
 
 -- | Information about the Internet gateway.

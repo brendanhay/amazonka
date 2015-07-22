@@ -64,10 +64,10 @@ data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
 
 -- | 'UpdateServiceAccessPolicies' smart constructor.
 updateServiceAccessPolicies :: Text -> Text -> UpdateServiceAccessPolicies
-updateServiceAccessPolicies pDomainName pAccessPolicies =
+updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
     UpdateServiceAccessPolicies'
-    { _usaprqDomainName = pDomainName
-    , _usaprqAccessPolicies = pAccessPolicies
+    { _usaprqDomainName = pDomainName_
+    , _usaprqAccessPolicies = pAccessPolicies_
     }
 
 -- | FIXME: Undocumented member.
@@ -123,10 +123,10 @@ data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
 
 -- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
 updateServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> UpdateServiceAccessPoliciesResponse
-updateServiceAccessPoliciesResponse pStatus pAccessPolicies =
+updateServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
     UpdateServiceAccessPoliciesResponse'
-    { _usaprsStatus = pStatus
-    , _usaprsAccessPolicies = pAccessPolicies
+    { _usaprsStatus = pStatus_
+    , _usaprsAccessPolicies = pAccessPolicies_
     }
 
 -- | FIXME: Undocumented member.

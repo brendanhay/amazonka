@@ -54,9 +54,9 @@ newtype GetBucketPolicy = GetBucketPolicy'
 
 -- | 'GetBucketPolicy' smart constructor.
 getBucketPolicy :: BucketName -> GetBucketPolicy
-getBucketPolicy pBucket =
+getBucketPolicy pBucket_ =
     GetBucketPolicy'
-    { _gbprqBucket = pBucket
+    { _gbprqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -97,10 +97,10 @@ data GetBucketPolicyResponse = GetBucketPolicyResponse'
 
 -- | 'GetBucketPolicyResponse' smart constructor.
 getBucketPolicyResponse :: Int -> GetBucketPolicyResponse
-getBucketPolicyResponse pStatus =
+getBucketPolicyResponse pStatus_ =
     GetBucketPolicyResponse'
     { _gbprsPolicy = Nothing
-    , _gbprsStatus = pStatus
+    , _gbprsStatus = pStatus_
     }
 
 -- | The bucket policy as a JSON document.

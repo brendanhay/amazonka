@@ -274,7 +274,7 @@ data Stack = Stack'
 
 -- | 'Stack' smart constructor.
 stack :: Text -> UTCTime -> StackStatus -> Stack
-stack pStackName pCreationTime pStackStatus =
+stack pStackName_ pCreationTime_ pStackStatus_ =
     Stack'
     { _sDisableRollback = Nothing
     , _sLastUpdatedTime = Nothing
@@ -287,9 +287,9 @@ stack pStackName pCreationTime pStackStatus =
     , _sDescription = Nothing
     , _sTags = Nothing
     , _sTimeoutInMinutes = Nothing
-    , _sStackName = pStackName
-    , _sCreationTime = _Time # pCreationTime
-    , _sStackStatus = pStackStatus
+    , _sStackName = pStackName_
+    , _sCreationTime = _Time # pCreationTime_
+    , _sStackStatus = pStackStatus_
     }
 
 -- | Boolean to enable or disable rollback on stack creation failures:
@@ -420,7 +420,7 @@ data StackEvent = StackEvent'
 
 -- | 'StackEvent' smart constructor.
 stackEvent :: Text -> Text -> Text -> UTCTime -> StackEvent
-stackEvent pStackId pEventId pStackName pTimestamp =
+stackEvent pStackId_ pEventId_ pStackName_ pTimestamp_ =
     StackEvent'
     { _seLogicalResourceId = Nothing
     , _seResourceStatusReason = Nothing
@@ -428,10 +428,10 @@ stackEvent pStackId pEventId pStackName pTimestamp =
     , _sePhysicalResourceId = Nothing
     , _seResourceProperties = Nothing
     , _seResourceStatus = Nothing
-    , _seStackId = pStackId
-    , _seEventId = pEventId
-    , _seStackName = pStackName
-    , _seTimestamp = _Time # pTimestamp
+    , _seStackId = pStackId_
+    , _seEventId = pEventId_
+    , _seStackName = pStackName_
+    , _seTimestamp = _Time # pTimestamp_
     }
 
 -- | The logical name of the resource specified in the template.
@@ -528,17 +528,17 @@ data StackResource = StackResource'
 
 -- | 'StackResource' smart constructor.
 stackResource :: Text -> Text -> UTCTime -> ResourceStatus -> StackResource
-stackResource pLogicalResourceId pResourceType pTimestamp pResourceStatus =
+stackResource pLogicalResourceId_ pResourceType_ pTimestamp_ pResourceStatus_ =
     StackResource'
     { _srResourceStatusReason = Nothing
     , _srPhysicalResourceId = Nothing
     , _srStackId = Nothing
     , _srDescription = Nothing
     , _srStackName = Nothing
-    , _srLogicalResourceId = pLogicalResourceId
-    , _srResourceType = pResourceType
-    , _srTimestamp = _Time # pTimestamp
-    , _srResourceStatus = pResourceStatus
+    , _srLogicalResourceId = pLogicalResourceId_
+    , _srResourceType = pResourceType_
+    , _srTimestamp = _Time # pTimestamp_
+    , _srResourceStatus = pResourceStatus_
     }
 
 -- | Success\/failure message associated with the resource.
@@ -633,7 +633,7 @@ data StackResourceDetail = StackResourceDetail'
 
 -- | 'StackResourceDetail' smart constructor.
 stackResourceDetail :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceDetail
-stackResourceDetail pLogicalResourceId pResourceType pLastUpdatedTimestamp pResourceStatus =
+stackResourceDetail pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ =
     StackResourceDetail'
     { _srdResourceStatusReason = Nothing
     , _srdPhysicalResourceId = Nothing
@@ -641,10 +641,10 @@ stackResourceDetail pLogicalResourceId pResourceType pLastUpdatedTimestamp pReso
     , _srdStackId = Nothing
     , _srdDescription = Nothing
     , _srdStackName = Nothing
-    , _srdLogicalResourceId = pLogicalResourceId
-    , _srdResourceType = pResourceType
-    , _srdLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp
-    , _srdResourceStatus = pResourceStatus
+    , _srdLogicalResourceId = pLogicalResourceId_
+    , _srdResourceType = pResourceType_
+    , _srdLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp_
+    , _srdResourceStatus = pResourceStatus_
     }
 
 -- | Success\/failure message associated with the resource.
@@ -735,14 +735,14 @@ data StackResourceSummary = StackResourceSummary'
 
 -- | 'StackResourceSummary' smart constructor.
 stackResourceSummary :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceSummary
-stackResourceSummary pLogicalResourceId pResourceType pLastUpdatedTimestamp pResourceStatus =
+stackResourceSummary pLogicalResourceId_ pResourceType_ pLastUpdatedTimestamp_ pResourceStatus_ =
     StackResourceSummary'
     { _srsResourceStatusReason = Nothing
     , _srsPhysicalResourceId = Nothing
-    , _srsLogicalResourceId = pLogicalResourceId
-    , _srsResourceType = pResourceType
-    , _srsLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp
-    , _srsResourceStatus = pResourceStatus
+    , _srsLogicalResourceId = pLogicalResourceId_
+    , _srsResourceType = pResourceType_
+    , _srsLastUpdatedTimestamp = _Time # pLastUpdatedTimestamp_
+    , _srsResourceStatus = pResourceStatus_
     }
 
 -- | Success\/failure message associated with the resource.
@@ -816,16 +816,16 @@ data StackSummary = StackSummary'
 
 -- | 'StackSummary' smart constructor.
 stackSummary :: Text -> UTCTime -> StackStatus -> StackSummary
-stackSummary pStackName pCreationTime pStackStatus =
+stackSummary pStackName_ pCreationTime_ pStackStatus_ =
     StackSummary'
     { _ssLastUpdatedTime = Nothing
     , _ssTemplateDescription = Nothing
     , _ssStackStatusReason = Nothing
     , _ssDeletionTime = Nothing
     , _ssStackId = Nothing
-    , _ssStackName = pStackName
-    , _ssCreationTime = _Time # pCreationTime
-    , _ssStackStatus = pStackStatus
+    , _ssStackName = pStackName_
+    , _ssCreationTime = _Time # pCreationTime_
+    , _ssStackStatus = pStackStatus_
     }
 
 -- | The time the stack was last updated. This field will only be returned if

@@ -58,10 +58,10 @@ data StopTask = StopTask'
 
 -- | 'StopTask' smart constructor.
 stopTask :: Text -> StopTask
-stopTask pTask =
+stopTask pTask_ =
     StopTask'
     { _strqCluster = Nothing
-    , _strqTask = pTask
+    , _strqTask = pTask_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
@@ -120,10 +120,10 @@ data StopTaskResponse = StopTaskResponse'
 
 -- | 'StopTaskResponse' smart constructor.
 stopTaskResponse :: Int -> StopTaskResponse
-stopTaskResponse pStatus =
+stopTaskResponse pStatus_ =
     StopTaskResponse'
     { _srsTask = Nothing
-    , _srsStatus = pStatus
+    , _srsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

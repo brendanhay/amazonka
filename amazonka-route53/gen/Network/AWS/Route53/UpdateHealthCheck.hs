@@ -91,7 +91,7 @@ data UpdateHealthCheck = UpdateHealthCheck'
 
 -- | 'UpdateHealthCheck' smart constructor.
 updateHealthCheck :: Text -> UpdateHealthCheck
-updateHealthCheck pHealthCheckId =
+updateHealthCheck pHealthCheckId_ =
     UpdateHealthCheck'
     { _uhcrqIPAddress = Nothing
     , _uhcrqFailureThreshold = Nothing
@@ -100,7 +100,7 @@ updateHealthCheck pHealthCheckId =
     , _uhcrqHealthCheckVersion = Nothing
     , _uhcrqFullyQualifiedDomainName = Nothing
     , _uhcrqPort = Nothing
-    , _uhcrqHealthCheckId = pHealthCheckId
+    , _uhcrqHealthCheckId = pHealthCheckId_
     }
 
 -- | The IP address of the resource that you want to check.
@@ -217,10 +217,10 @@ data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
 
 -- | 'UpdateHealthCheckResponse' smart constructor.
 updateHealthCheckResponse :: Int -> HealthCheck -> UpdateHealthCheckResponse
-updateHealthCheckResponse pStatus pHealthCheck =
+updateHealthCheckResponse pStatus_ pHealthCheck_ =
     UpdateHealthCheckResponse'
-    { _uhcrsStatus = pStatus
-    , _uhcrsHealthCheck = pHealthCheck
+    { _uhcrsStatus = pStatus_
+    , _uhcrsHealthCheck = pHealthCheck_
     }
 
 -- | FIXME: Undocumented member.

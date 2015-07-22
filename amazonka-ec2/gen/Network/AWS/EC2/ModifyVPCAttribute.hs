@@ -59,11 +59,11 @@ data ModifyVPCAttribute = ModifyVPCAttribute'
 
 -- | 'ModifyVPCAttribute' smart constructor.
 modifyVPCAttribute :: Text -> ModifyVPCAttribute
-modifyVPCAttribute pVPCId =
+modifyVPCAttribute pVPCId_ =
     ModifyVPCAttribute'
     { _mvarqEnableDNSHostnames = Nothing
     , _mvarqEnableDNSSupport = Nothing
-    , _mvarqVPCId = pVPCId
+    , _mvarqVPCId = pVPCId_
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.

@@ -251,12 +251,12 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
 
 -- | 'BatchWriteItemResponse' smart constructor.
 batchWriteItemResponse :: Int -> BatchWriteItemResponse
-batchWriteItemResponse pStatus =
+batchWriteItemResponse pStatus_ =
     BatchWriteItemResponse'
     { _bwirsConsumedCapacity = Nothing
     , _bwirsItemCollectionMetrics = Nothing
     , _bwirsUnprocessedItems = Nothing
-    , _bwirsStatus = pStatus
+    , _bwirsStatus = pStatus_
     }
 
 -- | The capacity units consumed by the operation.

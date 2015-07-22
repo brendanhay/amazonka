@@ -64,10 +64,10 @@ data DeletePolicyVersion = DeletePolicyVersion'
 
 -- | 'DeletePolicyVersion' smart constructor.
 deletePolicyVersion :: Text -> Text -> DeletePolicyVersion
-deletePolicyVersion pPolicyARN pVersionId =
+deletePolicyVersion pPolicyARN_ pVersionId_ =
     DeletePolicyVersion'
-    { _dpvrqPolicyARN = pPolicyARN
-    , _dpvrqVersionId = pVersionId
+    { _dpvrqPolicyARN = pPolicyARN_
+    , _dpvrqVersionId = pVersionId_
     }
 
 -- | FIXME: Undocumented member.

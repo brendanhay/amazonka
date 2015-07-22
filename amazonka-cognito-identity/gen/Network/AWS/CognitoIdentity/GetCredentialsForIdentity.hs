@@ -66,10 +66,10 @@ data GetCredentialsForIdentity = GetCredentialsForIdentity'
 
 -- | 'GetCredentialsForIdentity' smart constructor.
 getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
-getCredentialsForIdentity pIdentityId =
+getCredentialsForIdentity pIdentityId_ =
     GetCredentialsForIdentity'
     { _gcfirqLogins = Nothing
-    , _gcfirqIdentityId = pIdentityId
+    , _gcfirqIdentityId = pIdentityId_
     }
 
 -- | A set of optional name-value pairs that map provider names to provider
@@ -135,11 +135,11 @@ data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
 getCredentialsForIdentityResponse :: Int -> GetCredentialsForIdentityResponse
-getCredentialsForIdentityResponse pStatus =
+getCredentialsForIdentityResponse pStatus_ =
     GetCredentialsForIdentityResponse'
     { _gcfirsCredentials = Nothing
     , _gcfirsIdentityId = Nothing
-    , _gcfirsStatus = pStatus
+    , _gcfirsStatus = pStatus_
     }
 
 -- | Credentials for the the provided identity ID.

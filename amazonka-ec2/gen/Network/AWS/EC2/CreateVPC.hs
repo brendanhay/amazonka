@@ -74,11 +74,11 @@ data CreateVPC = CreateVPC'
 
 -- | 'CreateVPC' smart constructor.
 createVPC :: Text -> CreateVPC
-createVPC pCIdRBlock =
+createVPC pCIdRBlock_ =
     CreateVPC'
     { _cvrqInstanceTenancy = Nothing
     , _cvrqDryRun = Nothing
-    , _cvrqCIdRBlock = pCIdRBlock
+    , _cvrqCIdRBlock = pCIdRBlock_
     }
 
 -- | The supported tenancy options for instances launched into the VPC. A
@@ -143,10 +143,10 @@ data CreateVPCResponse = CreateVPCResponse'
 
 -- | 'CreateVPCResponse' smart constructor.
 createVPCResponse :: Int -> CreateVPCResponse
-createVPCResponse pStatus =
+createVPCResponse pStatus_ =
     CreateVPCResponse'
     { _cvrsVPC = Nothing
-    , _cvrsStatus = pStatus
+    , _cvrsStatus = pStatus_
     }
 
 -- | Information about the VPC.

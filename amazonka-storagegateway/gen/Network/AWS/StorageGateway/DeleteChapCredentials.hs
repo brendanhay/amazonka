@@ -65,10 +65,10 @@ data DeleteChapCredentials = DeleteChapCredentials'
 
 -- | 'DeleteChapCredentials' smart constructor.
 deleteChapCredentials :: Text -> Text -> DeleteChapCredentials
-deleteChapCredentials pTargetARN pInitiatorName =
+deleteChapCredentials pTargetARN_ pInitiatorName_ =
     DeleteChapCredentials'
-    { _drqTargetARN = pTargetARN
-    , _drqInitiatorName = pInitiatorName
+    { _drqTargetARN = pTargetARN_
+    , _drqInitiatorName = pInitiatorName_
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
@@ -134,11 +134,11 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
 
 -- | 'DeleteChapCredentialsResponse' smart constructor.
 deleteChapCredentialsResponse :: Int -> DeleteChapCredentialsResponse
-deleteChapCredentialsResponse pStatus =
+deleteChapCredentialsResponse pStatus_ =
     DeleteChapCredentialsResponse'
     { _drsTargetARN = Nothing
     , _drsInitiatorName = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the target.

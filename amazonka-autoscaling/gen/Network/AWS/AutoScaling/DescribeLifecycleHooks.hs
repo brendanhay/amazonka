@@ -58,10 +58,10 @@ data DescribeLifecycleHooks = DescribeLifecycleHooks'
 
 -- | 'DescribeLifecycleHooks' smart constructor.
 describeLifecycleHooks :: Text -> DescribeLifecycleHooks
-describeLifecycleHooks pAutoScalingGroupName =
+describeLifecycleHooks pAutoScalingGroupName_ =
     DescribeLifecycleHooks'
     { _dlhrqLifecycleHookNames = Nothing
-    , _dlhrqAutoScalingGroupName = pAutoScalingGroupName
+    , _dlhrqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The names of one or more lifecycle hooks.
@@ -116,10 +116,10 @@ data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
 describeLifecycleHooksResponse :: Int -> DescribeLifecycleHooksResponse
-describeLifecycleHooksResponse pStatus =
+describeLifecycleHooksResponse pStatus_ =
     DescribeLifecycleHooksResponse'
     { _dlhrsLifecycleHooks = Nothing
-    , _dlhrsStatus = pStatus
+    , _dlhrsStatus = pStatus_
     }
 
 -- | The lifecycle hooks for the specified group.

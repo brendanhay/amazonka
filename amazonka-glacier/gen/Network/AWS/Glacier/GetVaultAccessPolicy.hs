@@ -66,10 +66,10 @@ data GetVaultAccessPolicy = GetVaultAccessPolicy'
 
 -- | 'GetVaultAccessPolicy' smart constructor.
 getVaultAccessPolicy :: Text -> Text -> GetVaultAccessPolicy
-getVaultAccessPolicy pAccountId pVaultName =
+getVaultAccessPolicy pAccountId_ pVaultName_ =
     GetVaultAccessPolicy'
-    { _gvaprqAccountId = pAccountId
-    , _gvaprqVaultName = pVaultName
+    { _gvaprqAccountId = pAccountId_
+    , _gvaprqVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -123,10 +123,10 @@ data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
 
 -- | 'GetVaultAccessPolicyResponse' smart constructor.
 getVaultAccessPolicyResponse :: Int -> GetVaultAccessPolicyResponse
-getVaultAccessPolicyResponse pStatus =
+getVaultAccessPolicyResponse pStatus_ =
     GetVaultAccessPolicyResponse'
     { _gvaprsPolicy = Nothing
-    , _gvaprsStatus = pStatus
+    , _gvaprsStatus = pStatus_
     }
 
 -- | Contains the returned vault access policy as a JSON string.

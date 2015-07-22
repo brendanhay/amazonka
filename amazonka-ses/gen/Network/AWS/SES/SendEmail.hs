@@ -109,15 +109,15 @@ data SendEmail = SendEmail'
 
 -- | 'SendEmail' smart constructor.
 sendEmail :: Text -> Destination -> Message -> SendEmail
-sendEmail pSource pDestination pMessage =
+sendEmail pSource_ pDestination_ pMessage_ =
     SendEmail'
     { _serqReturnPath = Nothing
     , _serqSourceARN = Nothing
     , _serqReturnPathARN = Nothing
     , _serqReplyToAddresses = Nothing
-    , _serqSource = pSource
-    , _serqDestination = pDestination
-    , _serqMessage = pMessage
+    , _serqSource = pSource_
+    , _serqDestination = pDestination_
+    , _serqMessage = pMessage_
     }
 
 -- | The email address to which bounces and complaints are to be forwarded
@@ -246,10 +246,10 @@ data SendEmailResponse = SendEmailResponse'
 
 -- | 'SendEmailResponse' smart constructor.
 sendEmailResponse :: Int -> Text -> SendEmailResponse
-sendEmailResponse pStatus pMessageId =
+sendEmailResponse pStatus_ pMessageId_ =
     SendEmailResponse'
-    { _sersStatus = pStatus
-    , _sersMessageId = pMessageId
+    { _sersStatus = pStatus_
+    , _sersMessageId = pMessageId_
     }
 
 -- | FIXME: Undocumented member.

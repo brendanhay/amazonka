@@ -78,13 +78,13 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: BucketName -> ObjectKey -> Text -> CompleteMultipartUpload
-completeMultipartUpload pBucket pKey pUploadId =
+completeMultipartUpload pBucket_ pKey_ pUploadId_ =
     CompleteMultipartUpload'
     { _crqRequestPayer = Nothing
     , _crqMultipartUpload = Nothing
-    , _crqBucket = pBucket
-    , _crqKey = pKey
-    , _crqUploadId = pUploadId
+    , _crqBucket = pBucket_
+    , _crqKey = pKey_
+    , _crqUploadId = pUploadId_
     }
 
 -- | FIXME: Undocumented member.
@@ -185,7 +185,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
 
 -- | 'CompleteMultipartUploadResponse' smart constructor.
 completeMultipartUploadResponse :: Int -> CompleteMultipartUploadResponse
-completeMultipartUploadResponse pStatus =
+completeMultipartUploadResponse pStatus_ =
     CompleteMultipartUploadResponse'
     { _crsVersionId = Nothing
     , _crsETag = Nothing
@@ -196,7 +196,7 @@ completeMultipartUploadResponse pStatus =
     , _crsKey = Nothing
     , _crsSSEKMSKeyId = Nothing
     , _crsServerSideEncryption = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | Version of the object.

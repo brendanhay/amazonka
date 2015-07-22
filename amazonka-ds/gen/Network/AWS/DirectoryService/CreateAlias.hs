@@ -66,10 +66,10 @@ data CreateAlias = CreateAlias'
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
-createAlias pDirectoryId pAlias =
+createAlias pDirectoryId_ pAlias_ =
     CreateAlias'
-    { _carqDirectoryId = pDirectoryId
-    , _carqAlias = pAlias
+    { _carqDirectoryId = pDirectoryId_
+    , _carqAlias = pAlias_
     }
 
 -- | The identifier of the directory to create the alias for.
@@ -135,11 +135,11 @@ data CreateAliasResponse = CreateAliasResponse'
 
 -- | 'CreateAliasResponse' smart constructor.
 createAliasResponse :: Int -> CreateAliasResponse
-createAliasResponse pStatus =
+createAliasResponse pStatus_ =
     CreateAliasResponse'
     { _carsDirectoryId = Nothing
     , _carsAlias = Nothing
-    , _carsStatus = pStatus
+    , _carsStatus = pStatus_
     }
 
 -- | The identifier of the directory.

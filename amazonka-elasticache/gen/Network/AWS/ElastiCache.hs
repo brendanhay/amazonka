@@ -66,6 +66,4 @@ import           Network.AWS.ElastiCache.RemoveTagsFromResource              as 
 import           Network.AWS.ElastiCache.ResetCacheParameterGroup            as Export
 import           Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress     as Export
 import           Network.AWS.ElastiCache.Types                               as Export
-import           Network.AWS.ElastiCache.Types.Product                       as Export
-import           Network.AWS.ElastiCache.Types.Sum                           as Export
 import           Network.AWS.ElastiCache.Waiters                             as Export

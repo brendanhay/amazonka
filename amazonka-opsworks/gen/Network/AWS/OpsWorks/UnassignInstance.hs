@@ -60,9 +60,9 @@ newtype UnassignInstance = UnassignInstance'
 
 -- | 'UnassignInstance' smart constructor.
 unassignInstance :: Text -> UnassignInstance
-unassignInstance pInstanceId =
+unassignInstance pInstanceId_ =
     UnassignInstance'
-    { _urqInstanceId = pInstanceId
+    { _urqInstanceId = pInstanceId_
     }
 
 -- | The instance ID.

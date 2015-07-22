@@ -137,13 +137,13 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
 listIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
-listIdentityPoolUsageResponse pStatus =
+listIdentityPoolUsageResponse pStatus_ =
     ListIdentityPoolUsageResponse'
     { _lipursIdentityPoolUsages = Nothing
     , _lipursCount = Nothing
     , _lipursNextToken = Nothing
     , _lipursMaxResults = Nothing
-    , _lipursStatus = pStatus
+    , _lipursStatus = pStatus_
     }
 
 -- | Usage information for the identity pools.

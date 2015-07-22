@@ -54,9 +54,9 @@ newtype GetBucketLifecycle = GetBucketLifecycle'
 
 -- | 'GetBucketLifecycle' smart constructor.
 getBucketLifecycle :: BucketName -> GetBucketLifecycle
-getBucketLifecycle pBucket =
+getBucketLifecycle pBucket_ =
     GetBucketLifecycle'
-    { _grqBucket = pBucket
+    { _grqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -99,10 +99,10 @@ data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
 getBucketLifecycleResponse :: Int -> GetBucketLifecycleResponse
-getBucketLifecycleResponse pStatus =
+getBucketLifecycleResponse pStatus_ =
     GetBucketLifecycleResponse'
     { _gblrsRules = Nothing
-    , _gblrsStatus = pStatus
+    , _gblrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -77,12 +77,12 @@ data MergeDeveloperIdentities = MergeDeveloperIdentities'
 
 -- | 'MergeDeveloperIdentities' smart constructor.
 mergeDeveloperIdentities :: Text -> Text -> Text -> Text -> MergeDeveloperIdentities
-mergeDeveloperIdentities pSourceUserIdentifier pDestinationUserIdentifier pDeveloperProviderName pIdentityPoolId =
+mergeDeveloperIdentities pSourceUserIdentifier_ pDestinationUserIdentifier_ pDeveloperProviderName_ pIdentityPoolId_ =
     MergeDeveloperIdentities'
-    { _mdirqSourceUserIdentifier = pSourceUserIdentifier
-    , _mdirqDestinationUserIdentifier = pDestinationUserIdentifier
-    , _mdirqDeveloperProviderName = pDeveloperProviderName
-    , _mdirqIdentityPoolId = pIdentityPoolId
+    { _mdirqSourceUserIdentifier = pSourceUserIdentifier_
+    , _mdirqDestinationUserIdentifier = pDestinationUserIdentifier_
+    , _mdirqDeveloperProviderName = pDeveloperProviderName_
+    , _mdirqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | User identifier for the source user. The value should be a
@@ -162,10 +162,10 @@ data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
 mergeDeveloperIdentitiesResponse :: Int -> MergeDeveloperIdentitiesResponse
-mergeDeveloperIdentitiesResponse pStatus =
+mergeDeveloperIdentitiesResponse pStatus_ =
     MergeDeveloperIdentitiesResponse'
     { _mdirsIdentityId = Nothing
-    , _mdirsStatus = pStatus
+    , _mdirsStatus = pStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID.

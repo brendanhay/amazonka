@@ -68,10 +68,10 @@ data RegisterVolume = RegisterVolume'
 
 -- | 'RegisterVolume' smart constructor.
 registerVolume :: Text -> RegisterVolume
-registerVolume pStackId =
+registerVolume pStackId_ =
     RegisterVolume'
     { _rvrqEC2VolumeId = Nothing
-    , _rvrqStackId = pStackId
+    , _rvrqStackId = pStackId_
     }
 
 -- | The Amazon EBS volume ID.
@@ -129,10 +129,10 @@ data RegisterVolumeResponse = RegisterVolumeResponse'
 
 -- | 'RegisterVolumeResponse' smart constructor.
 registerVolumeResponse :: Int -> RegisterVolumeResponse
-registerVolumeResponse pStatus =
+registerVolumeResponse pStatus_ =
     RegisterVolumeResponse'
     { _rvrsVolumeId = Nothing
-    , _rvrsStatus = pStatus
+    , _rvrsStatus = pStatus_
     }
 
 -- | The volume ID.

@@ -155,10 +155,10 @@ data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
 
 -- | 'DescribeDHCPOptionsResponse' smart constructor.
 describeDHCPOptionsResponse :: Int -> DescribeDHCPOptionsResponse
-describeDHCPOptionsResponse pStatus =
+describeDHCPOptionsResponse pStatus_ =
     DescribeDHCPOptionsResponse'
     { _ddorsDHCPOptions = Nothing
-    , _ddorsStatus = pStatus
+    , _ddorsStatus = pStatus_
     }
 
 -- | Information about one or more DHCP options sets.

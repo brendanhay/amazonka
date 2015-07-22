@@ -56,9 +56,9 @@ newtype ReadJob = ReadJob'
 
 -- | 'ReadJob' smart constructor.
 readJob :: Text -> ReadJob
-readJob pId =
+readJob pId_ =
     ReadJob'
-    { _rjrqId = pId
+    { _rjrqId = pId_
     }
 
 -- | The identifier of the job for which you want to get detailed
@@ -102,10 +102,10 @@ data ReadJobResponse = ReadJobResponse'
 
 -- | 'ReadJobResponse' smart constructor.
 readJobResponse :: Int -> Job' -> ReadJobResponse
-readJobResponse pStatus pJob =
+readJobResponse pStatus_ pJob_ =
     ReadJobResponse'
-    { _rjrsStatus = pStatus
-    , _rjrsJob = pJob
+    { _rjrsStatus = pStatus_
+    , _rjrsJob = pJob_
     }
 
 -- | FIXME: Undocumented member.

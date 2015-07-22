@@ -63,9 +63,9 @@ newtype GetRepository = GetRepository'
 
 -- | 'GetRepository' smart constructor.
 getRepository :: Text -> GetRepository
-getRepository pRepositoryName =
+getRepository pRepositoryName_ =
     GetRepository'
-    { _grrqRepositoryName = pRepositoryName
+    { _grrqRepositoryName = pRepositoryName_
     }
 
 -- | The name of the repository to get information about.
@@ -117,10 +117,10 @@ data GetRepositoryResponse = GetRepositoryResponse'
 
 -- | 'GetRepositoryResponse' smart constructor.
 getRepositoryResponse :: Int -> GetRepositoryResponse
-getRepositoryResponse pStatus =
+getRepositoryResponse pStatus_ =
     GetRepositoryResponse'
     { _grrsRepositoryMetadata = Nothing
-    , _grrsStatus = pStatus
+    , _grrsStatus = pStatus_
     }
 
 -- | Information about the repository.

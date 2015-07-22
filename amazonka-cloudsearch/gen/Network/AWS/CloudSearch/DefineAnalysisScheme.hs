@@ -66,10 +66,10 @@ data DefineAnalysisScheme = DefineAnalysisScheme'
 
 -- | 'DefineAnalysisScheme' smart constructor.
 defineAnalysisScheme :: Text -> AnalysisScheme -> DefineAnalysisScheme
-defineAnalysisScheme pDomainName pAnalysisScheme =
+defineAnalysisScheme pDomainName_ pAnalysisScheme_ =
     DefineAnalysisScheme'
-    { _ddrqDomainName = pDomainName
-    , _ddrqAnalysisScheme = pAnalysisScheme
+    { _ddrqDomainName = pDomainName_
+    , _ddrqAnalysisScheme = pAnalysisScheme_
     }
 
 -- | FIXME: Undocumented member.
@@ -122,10 +122,10 @@ data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
 defineAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
-defineAnalysisSchemeResponse pStatus pAnalysisScheme =
+defineAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
     DefineAnalysisSchemeResponse'
-    { _deffrsStatus = pStatus
-    , _deffrsAnalysisScheme = pAnalysisScheme
+    { _deffrsStatus = pStatus_
+    , _deffrsAnalysisScheme = pAnalysisScheme_
     }
 
 -- | FIXME: Undocumented member.

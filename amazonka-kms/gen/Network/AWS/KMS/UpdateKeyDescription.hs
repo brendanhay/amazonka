@@ -55,10 +55,10 @@ data UpdateKeyDescription = UpdateKeyDescription'
 
 -- | 'UpdateKeyDescription' smart constructor.
 updateKeyDescription :: Text -> Text -> UpdateKeyDescription
-updateKeyDescription pKeyId pDescription =
+updateKeyDescription pKeyId_ pDescription_ =
     UpdateKeyDescription'
-    { _ukdrqKeyId = pKeyId
-    , _ukdrqDescription = pDescription
+    { _ukdrqKeyId = pKeyId_
+    , _ukdrqDescription = pDescription_
     }
 
 -- | A unique identifier for the customer master key. This value can be a

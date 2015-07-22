@@ -76,11 +76,11 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
 
 -- | 'RespondDecisionTaskCompleted' smart constructor.
 respondDecisionTaskCompleted :: Text -> RespondDecisionTaskCompleted
-respondDecisionTaskCompleted pTaskToken =
+respondDecisionTaskCompleted pTaskToken_ =
     RespondDecisionTaskCompleted'
     { _rdtcrqDecisions = Nothing
     , _rdtcrqExecutionContext = Nothing
-    , _rdtcrqTaskToken = pTaskToken
+    , _rdtcrqTaskToken = pTaskToken_
     }
 
 -- | The list of decisions (possibly empty) made by the decider while

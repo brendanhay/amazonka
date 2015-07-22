@@ -71,11 +71,11 @@ data BundleInstance = BundleInstance'
 
 -- | 'BundleInstance' smart constructor.
 bundleInstance :: Text -> Storage -> BundleInstance
-bundleInstance pInstanceId pStorage =
+bundleInstance pInstanceId_ pStorage_ =
     BundleInstance'
     { _birqDryRun = Nothing
-    , _birqInstanceId = pInstanceId
-    , _birqStorage = pStorage
+    , _birqInstanceId = pInstanceId_
+    , _birqStorage = pStorage_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -141,10 +141,10 @@ data BundleInstanceResponse = BundleInstanceResponse'
 
 -- | 'BundleInstanceResponse' smart constructor.
 bundleInstanceResponse :: Int -> BundleInstanceResponse
-bundleInstanceResponse pStatus =
+bundleInstanceResponse pStatus_ =
     BundleInstanceResponse'
     { _birsBundleTask = Nothing
-    , _birsStatus = pStatus
+    , _birsStatus = pStatus_
     }
 
 -- | Information about the bundle task.

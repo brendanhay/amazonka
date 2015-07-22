@@ -68,7 +68,5 @@ import           Network.AWS.AutoScaling.SetInstanceHealth                    as
 import           Network.AWS.AutoScaling.SuspendProcesses                     as Export
 import           Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup  as Export
 import           Network.AWS.AutoScaling.Types                                as Export
-import           Network.AWS.AutoScaling.Types.Product                        as Export
-import           Network.AWS.AutoScaling.Types.Sum                            as Export
 import           Network.AWS.AutoScaling.UpdateAutoScalingGroup               as Export
 import           Network.AWS.AutoScaling.Waiters                              as Export

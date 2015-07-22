@@ -71,12 +71,12 @@ data SubscribeToDataset = SubscribeToDataset'
 
 -- | 'SubscribeToDataset' smart constructor.
 subscribeToDataset :: Text -> Text -> Text -> Text -> SubscribeToDataset
-subscribeToDataset pIdentityPoolId pIdentityId pDatasetName pDeviceId =
+subscribeToDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
     SubscribeToDataset'
-    { _stdrqIdentityPoolId = pIdentityPoolId
-    , _stdrqIdentityId = pIdentityId
-    , _stdrqDatasetName = pDatasetName
-    , _stdrqDeviceId = pDeviceId
+    { _stdrqIdentityPoolId = pIdentityPoolId_
+    , _stdrqIdentityId = pIdentityId_
+    , _stdrqDatasetName = pDatasetName_
+    , _stdrqDeviceId = pDeviceId_
     }
 
 -- | A name-spaced GUID (for example,
@@ -141,9 +141,9 @@ newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
 
 -- | 'SubscribeToDatasetResponse' smart constructor.
 subscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse
-subscribeToDatasetResponse pStatus =
+subscribeToDatasetResponse pStatus_ =
     SubscribeToDatasetResponse'
-    { _stdrsStatus = pStatus
+    { _stdrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

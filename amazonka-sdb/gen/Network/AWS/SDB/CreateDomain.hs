@@ -59,9 +59,9 @@ newtype CreateDomain = CreateDomain'
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
-createDomain pDomainName =
+createDomain pDomainName_ =
     CreateDomain'
-    { _cdrqDomainName = pDomainName
+    { _cdrqDomainName = pDomainName_
     }
 
 -- | The name of the domain to create. The name can range between 3 and 255

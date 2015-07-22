@@ -132,12 +132,12 @@ data ListAliasesResponse = ListAliasesResponse'
 
 -- | 'ListAliasesResponse' smart constructor.
 listAliasesResponse :: Int -> ListAliasesResponse
-listAliasesResponse pStatus =
+listAliasesResponse pStatus_ =
     ListAliasesResponse'
     { _larsTruncated = Nothing
     , _larsAliases = Nothing
     , _larsNextMarker = Nothing
-    , _larsStatus = pStatus
+    , _larsStatus = pStatus_
     }
 
 -- | A flag that indicates whether there are more items in the list. If your

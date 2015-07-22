@@ -65,11 +65,11 @@ data ListArtifacts = ListArtifacts'
 
 -- | 'ListArtifacts' smart constructor.
 listArtifacts :: Text -> ArtifactCategory -> ListArtifacts
-listArtifacts pArn pType =
+listArtifacts pArn_ pType_ =
     ListArtifacts'
     { _larqNextToken = Nothing
-    , _larqArn = pArn
-    , _larqType = pType
+    , _larqArn = pArn_
+    , _larqType = pType_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -144,11 +144,11 @@ data ListArtifactsResponse = ListArtifactsResponse'
 
 -- | 'ListArtifactsResponse' smart constructor.
 listArtifactsResponse :: Int -> ListArtifactsResponse
-listArtifactsResponse pStatus =
+listArtifactsResponse pStatus_ =
     ListArtifactsResponse'
     { _larsArtifacts = Nothing
     , _larsNextToken = Nothing
-    , _larsStatus = pStatus
+    , _larsStatus = pStatus_
     }
 
 -- | Information about the artifacts.

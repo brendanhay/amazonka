@@ -56,9 +56,9 @@ newtype CreateProject = CreateProject'
 
 -- | 'CreateProject' smart constructor.
 createProject :: Text -> CreateProject
-createProject pName =
+createProject pName_ =
     CreateProject'
-    { _cprqName = pName
+    { _cprqName = pName_
     }
 
 -- | The project\'s name.
@@ -110,10 +110,10 @@ data CreateProjectResponse = CreateProjectResponse'
 
 -- | 'CreateProjectResponse' smart constructor.
 createProjectResponse :: Int -> CreateProjectResponse
-createProjectResponse pStatus =
+createProjectResponse pStatus_ =
     CreateProjectResponse'
     { _cprsProject = Nothing
-    , _cprsStatus = pStatus
+    , _cprsStatus = pStatus_
     }
 
 -- | The newly created project.

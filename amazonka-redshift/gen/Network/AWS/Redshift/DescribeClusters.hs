@@ -205,11 +205,11 @@ data DescribeClustersResponse = DescribeClustersResponse'
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Int -> DescribeClustersResponse
-describeClustersResponse pStatus =
+describeClustersResponse pStatus_ =
     DescribeClustersResponse'
     { _dcrsMarker = Nothing
     , _dcrsClusters = Nothing
-    , _dcrsStatus = pStatus
+    , _dcrsStatus = pStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response

@@ -244,11 +244,11 @@ data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
 
 -- | 'DescribeSpotPriceHistoryResponse' smart constructor.
 describeSpotPriceHistoryResponse :: Int -> DescribeSpotPriceHistoryResponse
-describeSpotPriceHistoryResponse pStatus =
+describeSpotPriceHistoryResponse pStatus_ =
     DescribeSpotPriceHistoryResponse'
     { _dsphrsNextToken = Nothing
     , _dsphrsSpotPriceHistory = Nothing
-    , _dsphrsStatus = pStatus
+    , _dsphrsStatus = pStatus_
     }
 
 -- | The token required to retrieve the next set of results. This value is

@@ -185,11 +185,11 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
 
 -- | 'DescribeCacheClustersResponse' smart constructor.
 describeCacheClustersResponse :: Int -> DescribeCacheClustersResponse
-describeCacheClustersResponse pStatus =
+describeCacheClustersResponse pStatus_ =
     DescribeCacheClustersResponse'
     { _drsCacheClusters = Nothing
     , _drsMarker = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | A list of cache clusters. Each item in the list contains detailed

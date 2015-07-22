@@ -160,14 +160,14 @@ data IdentityPool = IdentityPool'
 
 -- | 'IdentityPool' smart constructor.
 identityPool :: Text -> Text -> Bool -> IdentityPool
-identityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities =
+identityPool pIdentityPoolId_ pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     IdentityPool'
     { _ipSupportedLoginProviders = Nothing
     , _ipDeveloperProviderName = Nothing
     , _ipOpenIdConnectProviderARNs = Nothing
-    , _ipIdentityPoolId = pIdentityPoolId
-    , _ipIdentityPoolName = pIdentityPoolName
-    , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities
+    , _ipIdentityPoolId = pIdentityPoolId_
+    , _ipIdentityPoolName = pIdentityPoolName_
+    , _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
     }
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.

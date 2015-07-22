@@ -70,10 +70,10 @@ data CreateHSMClientCertificate = CreateHSMClientCertificate'
 
 -- | 'CreateHSMClientCertificate' smart constructor.
 createHSMClientCertificate :: Text -> CreateHSMClientCertificate
-createHSMClientCertificate pHSMClientCertificateIdentifier =
+createHSMClientCertificate pHSMClientCertificateIdentifier_ =
     CreateHSMClientCertificate'
     { _chccrqTags = Nothing
-    , _chccrqHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier
+    , _chccrqHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
     }
 
 -- | A list of tag instances.
@@ -130,10 +130,10 @@ data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
 
 -- | 'CreateHSMClientCertificateResponse' smart constructor.
 createHSMClientCertificateResponse :: Int -> CreateHSMClientCertificateResponse
-createHSMClientCertificateResponse pStatus =
+createHSMClientCertificateResponse pStatus_ =
     CreateHSMClientCertificateResponse'
     { _chccrsHSMClientCertificate = Nothing
-    , _chccrsStatus = pStatus
+    , _chccrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -51,9 +51,9 @@ newtype DeleteBucketWebsite = DeleteBucketWebsite'
 
 -- | 'DeleteBucketWebsite' smart constructor.
 deleteBucketWebsite :: BucketName -> DeleteBucketWebsite
-deleteBucketWebsite pBucket =
+deleteBucketWebsite pBucket_ =
     DeleteBucketWebsite'
-    { _dbwrqBucket = pBucket
+    { _dbwrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

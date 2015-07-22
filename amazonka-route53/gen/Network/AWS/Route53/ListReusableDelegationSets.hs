@@ -157,14 +157,14 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
 listReusableDelegationSetsResponse :: Int -> Text -> Bool -> Text -> ListReusableDelegationSetsResponse
-listReusableDelegationSetsResponse pStatus pMarker pIsTruncated pMaxItems =
+listReusableDelegationSetsResponse pStatus_ pMarker_ pIsTruncated_ pMaxItems_ =
     ListReusableDelegationSetsResponse'
     { _lrdsrsNextMarker = Nothing
-    , _lrdsrsStatus = pStatus
+    , _lrdsrsStatus = pStatus_
     , _lrdsrsDelegationSets = mempty
-    , _lrdsrsMarker = pMarker
-    , _lrdsrsIsTruncated = pIsTruncated
-    , _lrdsrsMaxItems = pMaxItems
+    , _lrdsrsMarker = pMarker_
+    , _lrdsrsIsTruncated = pIsTruncated_
+    , _lrdsrsMaxItems = pMaxItems_
     }
 
 -- | Indicates where to continue listing reusable delegation sets. If

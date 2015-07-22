@@ -59,9 +59,9 @@ newtype DisassociateElasticIP = DisassociateElasticIP'
 
 -- | 'DisassociateElasticIP' smart constructor.
 disassociateElasticIP :: Text -> DisassociateElasticIP
-disassociateElasticIP pElasticIP =
+disassociateElasticIP pElasticIP_ =
     DisassociateElasticIP'
-    { _deirqElasticIP = pElasticIP
+    { _deirqElasticIP = pElasticIP_
     }
 
 -- | The Elastic IP address.

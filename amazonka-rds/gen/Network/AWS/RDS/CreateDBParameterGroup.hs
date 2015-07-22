@@ -90,12 +90,12 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
 
 -- | 'CreateDBParameterGroup' smart constructor.
 createDBParameterGroup :: Text -> Text -> Text -> CreateDBParameterGroup
-createDBParameterGroup pDBParameterGroupName pDBParameterGroupFamily pDescription =
+createDBParameterGroup pDBParameterGroupName_ pDBParameterGroupFamily_ pDescription_ =
     CreateDBParameterGroup'
     { _cdbpgrqTags = Nothing
-    , _cdbpgrqDBParameterGroupName = pDBParameterGroupName
-    , _cdbpgrqDBParameterGroupFamily = pDBParameterGroupFamily
-    , _cdbpgrqDescription = pDescription
+    , _cdbpgrqDBParameterGroupName = pDBParameterGroupName_
+    , _cdbpgrqDBParameterGroupFamily = pDBParameterGroupFamily_
+    , _cdbpgrqDescription = pDescription_
     }
 
 -- | FIXME: Undocumented member.
@@ -170,10 +170,10 @@ data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
 
 -- | 'CreateDBParameterGroupResponse' smart constructor.
 createDBParameterGroupResponse :: Int -> CreateDBParameterGroupResponse
-createDBParameterGroupResponse pStatus =
+createDBParameterGroupResponse pStatus_ =
     CreateDBParameterGroupResponse'
     { _cdpgrsDBParameterGroup = Nothing
-    , _cdpgrsStatus = pStatus
+    , _cdpgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -114,10 +114,10 @@ data DescribeTrailsResponse = DescribeTrailsResponse'
 
 -- | 'DescribeTrailsResponse' smart constructor.
 describeTrailsResponse :: Int -> DescribeTrailsResponse
-describeTrailsResponse pStatus =
+describeTrailsResponse pStatus_ =
     DescribeTrailsResponse'
     { _dtrsTrailList = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     }
 
 -- | The list of trails.

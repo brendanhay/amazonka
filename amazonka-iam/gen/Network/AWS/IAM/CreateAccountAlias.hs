@@ -54,9 +54,9 @@ newtype CreateAccountAlias = CreateAccountAlias'
 
 -- | 'CreateAccountAlias' smart constructor.
 createAccountAlias :: Text -> CreateAccountAlias
-createAccountAlias pAccountAlias =
+createAccountAlias pAccountAlias_ =
     CreateAccountAlias'
-    { _caarqAccountAlias = pAccountAlias
+    { _caarqAccountAlias = pAccountAlias_
     }
 
 -- | The account alias to create.

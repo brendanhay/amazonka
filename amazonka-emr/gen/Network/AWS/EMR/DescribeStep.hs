@@ -60,10 +60,10 @@ data DescribeStep = DescribeStep'
 
 -- | 'DescribeStep' smart constructor.
 describeStep :: Text -> Text -> DescribeStep
-describeStep pClusterId pStepId =
+describeStep pClusterId_ pStepId_ =
     DescribeStep'
-    { _dsrqClusterId = pClusterId
-    , _dsrqStepId = pStepId
+    { _dsrqClusterId = pClusterId_
+    , _dsrqStepId = pStepId_
     }
 
 -- | The identifier of the cluster with steps to describe.
@@ -121,10 +121,10 @@ data DescribeStepResponse = DescribeStepResponse'
 
 -- | 'DescribeStepResponse' smart constructor.
 describeStepResponse :: Int -> DescribeStepResponse
-describeStepResponse pStatus =
+describeStepResponse pStatus_ =
     DescribeStepResponse'
     { _dsrsStep = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | The step details for the requested step identifier.

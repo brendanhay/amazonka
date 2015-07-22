@@ -91,10 +91,10 @@ data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
 
 -- | 'GetHostedZoneCountResponse' smart constructor.
 getHostedZoneCountResponse :: Int -> Integer -> GetHostedZoneCountResponse
-getHostedZoneCountResponse pStatus pHostedZoneCount =
+getHostedZoneCountResponse pStatus_ pHostedZoneCount_ =
     GetHostedZoneCountResponse'
-    { _ghzcrsStatus = pStatus
-    , _ghzcrsHostedZoneCount = pHostedZoneCount
+    { _ghzcrsStatus = pStatus_
+    , _ghzcrsHostedZoneCount = pHostedZoneCount_
     }
 
 -- | FIXME: Undocumented member.

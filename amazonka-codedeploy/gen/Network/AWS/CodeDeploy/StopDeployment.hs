@@ -56,9 +56,9 @@ newtype StopDeployment = StopDeployment'
 
 -- | 'StopDeployment' smart constructor.
 stopDeployment :: Text -> StopDeployment
-stopDeployment pDeploymentId =
+stopDeployment pDeploymentId_ =
     StopDeployment'
-    { _sdrqDeploymentId = pDeploymentId
+    { _sdrqDeploymentId = pDeploymentId_
     }
 
 -- | The unique ID of a deployment.
@@ -110,10 +110,10 @@ data StopDeploymentResponse = StopDeploymentResponse'
 
 -- | 'StopDeploymentResponse' smart constructor.
 stopDeploymentResponse :: Int -> StopDeploymentResponse
-stopDeploymentResponse pStatus =
+stopDeploymentResponse pStatus_ =
     StopDeploymentResponse'
     { _sdrsStatusMessage = Nothing
-    , _sdrsStatus = pStatus
+    , _sdrsStatus = pStatus_
     }
 
 -- | An accompanying status message.

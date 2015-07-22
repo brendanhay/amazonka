@@ -65,10 +65,10 @@ data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
 
 -- | 'RemoveRoleFromInstanceProfile' smart constructor.
 removeRoleFromInstanceProfile :: Text -> Text -> RemoveRoleFromInstanceProfile
-removeRoleFromInstanceProfile pInstanceProfileName pRoleName =
+removeRoleFromInstanceProfile pInstanceProfileName_ pRoleName_ =
     RemoveRoleFromInstanceProfile'
-    { _rrfiprqInstanceProfileName = pInstanceProfileName
-    , _rrfiprqRoleName = pRoleName
+    { _rrfiprqInstanceProfileName = pInstanceProfileName_
+    , _rrfiprqRoleName = pRoleName_
     }
 
 -- | The name of the instance profile to update.

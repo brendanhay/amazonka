@@ -64,9 +64,9 @@ data CreateTags = CreateTags'
 
 -- | 'CreateTags' smart constructor.
 createTags :: Text -> CreateTags
-createTags pResourceName =
+createTags pResourceName_ =
     CreateTags'
-    { _ctrqResourceName = pResourceName
+    { _ctrqResourceName = pResourceName_
     , _ctrqTags = mempty
     }
 

@@ -153,10 +153,10 @@ data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
 describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse
-describeInternetGatewaysResponse pStatus =
+describeInternetGatewaysResponse pStatus_ =
     DescribeInternetGatewaysResponse'
     { _digrsInternetGateways = Nothing
-    , _digrsStatus = pStatus
+    , _digrsStatus = pStatus_
     }
 
 -- | Information about one or more Internet gateways.

@@ -61,9 +61,9 @@ newtype DescribeStackSummary = DescribeStackSummary'
 
 -- | 'DescribeStackSummary' smart constructor.
 describeStackSummary :: Text -> DescribeStackSummary
-describeStackSummary pStackId =
+describeStackSummary pStackId_ =
     DescribeStackSummary'
-    { _dssrqStackId = pStackId
+    { _dssrqStackId = pStackId_
     }
 
 -- | The stack ID.
@@ -117,10 +117,10 @@ data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
 
 -- | 'DescribeStackSummaryResponse' smart constructor.
 describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse
-describeStackSummaryResponse pStatus =
+describeStackSummaryResponse pStatus_ =
     DescribeStackSummaryResponse'
     { _dssrsStackSummary = Nothing
-    , _dssrsStatus = pStatus
+    , _dssrsStatus = pStatus_
     }
 
 -- | A @StackSummary@ object that contains the results.

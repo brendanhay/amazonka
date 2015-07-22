@@ -187,11 +187,11 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
 
 -- | 'DescribeOrderableClusterOptionsResponse' smart constructor.
 describeOrderableClusterOptionsResponse :: Int -> DescribeOrderableClusterOptionsResponse
-describeOrderableClusterOptionsResponse pStatus =
+describeOrderableClusterOptionsResponse pStatus_ =
     DescribeOrderableClusterOptionsResponse'
     { _docorsMarker = Nothing
     , _docorsOrderableClusterOptions = Nothing
-    , _docorsStatus = pStatus
+    , _docorsStatus = pStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response

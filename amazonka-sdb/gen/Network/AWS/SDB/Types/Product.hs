@@ -43,12 +43,12 @@ data Attribute = Attribute'
 
 -- | 'Attribute' smart constructor.
 attribute :: Text -> Text -> Attribute
-attribute pName pValue =
+attribute pName_ pValue_ =
     Attribute'
     { _aAlternateValueEncoding = Nothing
     , _aAlternateNameEncoding = Nothing
-    , _aName = pName
-    , _aValue = pValue
+    , _aName = pName_
+    , _aValue = pValue_
     }
 
 -- |
@@ -97,10 +97,10 @@ data DeletableItem = DeletableItem'
 
 -- | 'DeletableItem' smart constructor.
 deletableItem :: Text -> DeletableItem
-deletableItem pName =
+deletableItem pName_ =
     DeletableItem'
     { _diAttributes = Nothing
-    , _diName = pName
+    , _diName = pName_
     }
 
 -- | FIXME: Undocumented member.
@@ -136,10 +136,10 @@ data Item = Item'
 
 -- | 'Item' smart constructor.
 item :: Text -> Item
-item pName =
+item pName_ =
     Item'
     { _iAlternateNameEncoding = Nothing
-    , _iName = pName
+    , _iName = pName_
     , _iAttributes = mempty
     }
 
@@ -180,11 +180,11 @@ data ReplaceableAttribute = ReplaceableAttribute'
 
 -- | 'ReplaceableAttribute' smart constructor.
 replaceableAttribute :: Text -> Text -> ReplaceableAttribute
-replaceableAttribute pName pValue =
+replaceableAttribute pName_ pValue_ =
     ReplaceableAttribute'
     { _raReplace = Nothing
-    , _raName = pName
-    , _raValue = pValue
+    , _raName = pName_
+    , _raValue = pValue_
     }
 
 -- | A flag specifying whether or not to replace the attribute\/value pair or
@@ -222,9 +222,9 @@ data ReplaceableItem = ReplaceableItem'
 
 -- | 'ReplaceableItem' smart constructor.
 replaceableItem :: Text -> ReplaceableItem
-replaceableItem pName =
+replaceableItem pName_ =
     ReplaceableItem'
-    { _riName = pName
+    { _riName = pName_
     , _riAttributes = mempty
     }
 

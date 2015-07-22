@@ -57,9 +57,9 @@ newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdent
 
 -- | 'GetCloudFrontOriginAccessIdentityConfig' smart constructor.
 getCloudFrontOriginAccessIdentityConfig :: Text -> GetCloudFrontOriginAccessIdentityConfig
-getCloudFrontOriginAccessIdentityConfig pId =
+getCloudFrontOriginAccessIdentityConfig pId_ =
     GetCloudFrontOriginAccessIdentityConfig'
-    { _gcfoaicrqId = pId
+    { _gcfoaicrqId = pId_
     }
 
 -- | The identity\'s id.
@@ -114,11 +114,11 @@ data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccess
 
 -- | 'GetCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 getCloudFrontOriginAccessIdentityConfigResponse :: Int -> GetCloudFrontOriginAccessIdentityConfigResponse
-getCloudFrontOriginAccessIdentityConfigResponse pStatus =
+getCloudFrontOriginAccessIdentityConfigResponse pStatus_ =
     GetCloudFrontOriginAccessIdentityConfigResponse'
     { _gcfoaicrsCloudFrontOriginAccessIdentityConfig = Nothing
     , _gcfoaicrsETag = Nothing
-    , _gcfoaicrsStatus = pStatus
+    , _gcfoaicrsStatus = pStatus_
     }
 
 -- | The origin access identity\'s configuration information.

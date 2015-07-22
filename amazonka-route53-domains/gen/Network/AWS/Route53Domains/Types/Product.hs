@@ -351,12 +351,12 @@ data DomainSummary = DomainSummary'
 
 -- | 'DomainSummary' smart constructor.
 domainSummary :: Text -> DomainSummary
-domainSummary pDomainName =
+domainSummary pDomainName_ =
     DomainSummary'
     { _dsExpiry = Nothing
     , _dsTransferLock = Nothing
     , _dsAutoRenew = Nothing
-    , _dsDomainName = pDomainName
+    , _dsDomainName = pDomainName_
     }
 
 -- | Expiration date of the domain in Coordinated Universal Time (UTC).
@@ -413,10 +413,10 @@ data ExtraParam = ExtraParam'
 
 -- | 'ExtraParam' smart constructor.
 extraParam :: ExtraParamName -> Text -> ExtraParam
-extraParam pName pValue =
+extraParam pName_ pValue_ =
     ExtraParam'
-    { _epName = pName
-    , _epValue = pValue
+    { _epName = pName_
+    , _epValue = pValue_
     }
 
 -- | Name of the additional parameter required by the top-level domain.
@@ -479,10 +479,10 @@ data Nameserver = Nameserver'
 
 -- | 'Nameserver' smart constructor.
 nameserver :: Text -> Nameserver
-nameserver pName =
+nameserver pName_ =
     Nameserver'
     { _nGlueIPs = Nothing
-    , _nName = pName
+    , _nName = pName_
     }
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required
@@ -542,12 +542,12 @@ data OperationSummary = OperationSummary'
 
 -- | 'OperationSummary' smart constructor.
 operationSummary :: Text -> OperationStatus -> OperationType -> UTCTime -> OperationSummary
-operationSummary pOperationId pStatus pType pSubmittedDate =
+operationSummary pOperationId_ pStatus_ pType_ pSubmittedDate_ =
     OperationSummary'
-    { _osOperationId = pOperationId
-    , _osStatus = pStatus
-    , _osType = pType
-    , _osSubmittedDate = _Time # pSubmittedDate
+    { _osOperationId = pOperationId_
+    , _osStatus = pStatus_
+    , _osType = pType_
+    , _osSubmittedDate = _Time # pSubmittedDate_
     }
 
 -- | Identifier returned to track the requested action.

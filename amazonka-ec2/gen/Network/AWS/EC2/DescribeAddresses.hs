@@ -166,10 +166,10 @@ data DescribeAddressesResponse = DescribeAddressesResponse'
 
 -- | 'DescribeAddressesResponse' smart constructor.
 describeAddressesResponse :: Int -> DescribeAddressesResponse
-describeAddressesResponse pStatus =
+describeAddressesResponse pStatus_ =
     DescribeAddressesResponse'
     { _darsAddresses = Nothing
-    , _darsStatus = pStatus
+    , _darsStatus = pStatus_
     }
 
 -- | Information about one or more Elastic IP addresses.

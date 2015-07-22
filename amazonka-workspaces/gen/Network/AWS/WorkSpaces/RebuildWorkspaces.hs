@@ -76,9 +76,9 @@ newtype RebuildWorkspaces = RebuildWorkspaces'
 
 -- | 'RebuildWorkspaces' smart constructor.
 rebuildWorkspaces :: NonEmpty RebuildRequest -> RebuildWorkspaces
-rebuildWorkspaces pRebuildWorkspaceRequests =
+rebuildWorkspaces pRebuildWorkspaceRequests_ =
     RebuildWorkspaces'
-    { _rwrqRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests
+    { _rwrqRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests_
     }
 
 -- | An array of structures that specify the WorkSpaces to rebuild.
@@ -134,10 +134,10 @@ data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
 
 -- | 'RebuildWorkspacesResponse' smart constructor.
 rebuildWorkspacesResponse :: Int -> RebuildWorkspacesResponse
-rebuildWorkspacesResponse pStatus =
+rebuildWorkspacesResponse pStatus_ =
     RebuildWorkspacesResponse'
     { _rwrsFailedRequests = Nothing
-    , _rwrsStatus = pStatus
+    , _rwrsStatus = pStatus_
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be

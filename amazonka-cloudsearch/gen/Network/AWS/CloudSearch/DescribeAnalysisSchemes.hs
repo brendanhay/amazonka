@@ -75,11 +75,11 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
 
 -- | 'DescribeAnalysisSchemes' smart constructor.
 describeAnalysisSchemes :: Text -> DescribeAnalysisSchemes
-describeAnalysisSchemes pDomainName =
+describeAnalysisSchemes pDomainName_ =
     DescribeAnalysisSchemes'
     { _dassrqDeployed = Nothing
     , _dassrqAnalysisSchemeNames = Nothing
-    , _dassrqDomainName = pDomainName
+    , _dassrqDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
@@ -144,9 +144,9 @@ data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
 describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
-describeAnalysisSchemesResponse pStatus =
+describeAnalysisSchemesResponse pStatus_ =
     DescribeAnalysisSchemesResponse'
-    { _dasrsStatus = pStatus
+    { _dasrsStatus = pStatus_
     , _dasrsAnalysisSchemes = mempty
     }
 

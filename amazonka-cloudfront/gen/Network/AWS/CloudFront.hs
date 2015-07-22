@@ -44,8 +44,6 @@ import           Network.AWS.CloudFront.ListDistributions                       
 import           Network.AWS.CloudFront.ListInvalidations                       as Export
 import           Network.AWS.CloudFront.ListStreamingDistributions              as Export
 import           Network.AWS.CloudFront.Types                                   as Export
-import           Network.AWS.CloudFront.Types.Product                           as Export
-import           Network.AWS.CloudFront.Types.Sum                               as Export
 import           Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity    as Export
 import           Network.AWS.CloudFront.UpdateDistribution                      as Export
 import           Network.AWS.CloudFront.UpdateStreamingDistribution             as Export

@@ -76,13 +76,13 @@ data CreateApplicationVersion = CreateApplicationVersion'
 
 -- | 'CreateApplicationVersion' smart constructor.
 createApplicationVersion :: Text -> Text -> CreateApplicationVersion
-createApplicationVersion pApplicationName pVersionLabel =
+createApplicationVersion pApplicationName_ pVersionLabel_ =
     CreateApplicationVersion'
     { _cavrqSourceBundle = Nothing
     , _cavrqAutoCreateApplication = Nothing
     , _cavrqDescription = Nothing
-    , _cavrqApplicationName = pApplicationName
-    , _cavrqVersionLabel = pVersionLabel
+    , _cavrqApplicationName = pApplicationName_
+    , _cavrqVersionLabel = pVersionLabel_
     }
 
 -- | The Amazon S3 bucket and key that identify the location of the source

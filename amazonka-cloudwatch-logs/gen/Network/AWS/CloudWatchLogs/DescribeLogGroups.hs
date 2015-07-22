@@ -145,11 +145,11 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
 
 -- | 'DescribeLogGroupsResponse' smart constructor.
 describeLogGroupsResponse :: Int -> DescribeLogGroupsResponse
-describeLogGroupsResponse pStatus =
+describeLogGroupsResponse pStatus_ =
     DescribeLogGroupsResponse'
     { _dlgrsLogGroups = Nothing
     , _dlgrsNextToken = Nothing
-    , _dlgrsStatus = pStatus
+    , _dlgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

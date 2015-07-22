@@ -133,10 +133,10 @@ data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse
 
 -- | 'DescribeElasticLoadBalancersResponse' smart constructor.
 describeElasticLoadBalancersResponse :: Int -> DescribeElasticLoadBalancersResponse
-describeElasticLoadBalancersResponse pStatus =
+describeElasticLoadBalancersResponse pStatus_ =
     DescribeElasticLoadBalancersResponse'
     { _delbrsElasticLoadBalancers = Nothing
-    , _delbrsStatus = pStatus
+    , _delbrsStatus = pStatus_
     }
 
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified

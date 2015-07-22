@@ -61,10 +61,10 @@ data RemovePermission = RemovePermission'
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
-removePermission pFunctionName pStatementId =
+removePermission pFunctionName_ pStatementId_ =
     RemovePermission'
-    { _rprqFunctionName = pFunctionName
-    , _rprqStatementId = pStatementId
+    { _rprqFunctionName = pFunctionName_
+    , _rprqStatementId = pStatementId_
     }
 
 -- | Lambda function whose access policy you want to remove a permission

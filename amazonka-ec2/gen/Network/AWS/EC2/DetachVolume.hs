@@ -88,13 +88,13 @@ data DetachVolume = DetachVolume'
 
 -- | 'DetachVolume' smart constructor.
 detachVolume :: Text -> DetachVolume
-detachVolume pVolumeId =
+detachVolume pVolumeId_ =
     DetachVolume'
     { _dvrqInstanceId = Nothing
     , _dvrqForce = Nothing
     , _dvrqDevice = Nothing
     , _dvrqDryRun = Nothing
-    , _dvrqVolumeId = pVolumeId
+    , _dvrqVolumeId = pVolumeId_
     }
 
 -- | The ID of the instance.

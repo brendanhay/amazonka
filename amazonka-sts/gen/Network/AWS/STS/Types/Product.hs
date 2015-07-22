@@ -38,10 +38,10 @@ data AssumedRoleUser = AssumedRoleUser'
 
 -- | 'AssumedRoleUser' smart constructor.
 assumedRoleUser :: Text -> Text -> AssumedRoleUser
-assumedRoleUser pAssumedRoleId pARN =
+assumedRoleUser pAssumedRoleId_ pARN_ =
     AssumedRoleUser'
-    { _aruAssumedRoleId = pAssumedRoleId
-    , _aruARN = pARN
+    { _aruAssumedRoleId = pAssumedRoleId_
+    , _aruARN = pARN_
     }
 
 -- | A unique identifier that contains the role ID and the role session name
@@ -85,12 +85,12 @@ data Credentials = Credentials'
 
 -- | 'Credentials' smart constructor.
 credentials :: Text -> Text -> Text -> UTCTime -> Credentials
-credentials pAccessKeyId pSecretAccessKey pSessionToken pExpiration =
+credentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ pExpiration_ =
     Credentials'
-    { _cAccessKeyId = pAccessKeyId
-    , _cSecretAccessKey = pSecretAccessKey
-    , _cSessionToken = pSessionToken
-    , _cExpiration = _Time # pExpiration
+    { _cAccessKeyId = pAccessKeyId_
+    , _cSecretAccessKey = pSecretAccessKey_
+    , _cSessionToken = pSessionToken_
+    , _cExpiration = _Time # pExpiration_
     }
 
 -- | The access key ID that identifies the temporary security credentials.
@@ -134,10 +134,10 @@ data FederatedUser = FederatedUser'
 
 -- | 'FederatedUser' smart constructor.
 federatedUser :: Text -> Text -> FederatedUser
-federatedUser pFederatedUserId pARN =
+federatedUser pFederatedUserId_ pARN_ =
     FederatedUser'
-    { _fuFederatedUserId = pFederatedUserId
-    , _fuARN = pARN
+    { _fuFederatedUserId = pFederatedUserId_
+    , _fuARN = pARN_
     }
 
 -- | The string that identifies the federated user associated with the

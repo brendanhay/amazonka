@@ -76,11 +76,11 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo'
 
 -- | 'RequestEnvironmentInfo' smart constructor.
 requestEnvironmentInfo :: EnvironmentInfoType -> RequestEnvironmentInfo
-requestEnvironmentInfo pInfoType =
+requestEnvironmentInfo pInfoType_ =
     RequestEnvironmentInfo'
     { _reirqEnvironmentName = Nothing
     , _reirqEnvironmentId = Nothing
-    , _reirqInfoType = pInfoType
+    , _reirqInfoType = pInfoType_
     }
 
 -- | The name of the environment of the requested data.

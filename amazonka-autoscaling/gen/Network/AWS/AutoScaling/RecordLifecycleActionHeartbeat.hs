@@ -82,11 +82,11 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
 
 -- | 'RecordLifecycleActionHeartbeat' smart constructor.
 recordLifecycleActionHeartbeat :: Text -> Text -> Text -> RecordLifecycleActionHeartbeat
-recordLifecycleActionHeartbeat pLifecycleHookName pAutoScalingGroupName pLifecycleActionToken =
+recordLifecycleActionHeartbeat pLifecycleHookName_ pAutoScalingGroupName_ pLifecycleActionToken_ =
     RecordLifecycleActionHeartbeat'
-    { _rlahrqLifecycleHookName = pLifecycleHookName
-    , _rlahrqAutoScalingGroupName = pAutoScalingGroupName
-    , _rlahrqLifecycleActionToken = pLifecycleActionToken
+    { _rlahrqLifecycleHookName = pLifecycleHookName_
+    , _rlahrqAutoScalingGroupName = pAutoScalingGroupName_
+    , _rlahrqLifecycleActionToken = pLifecycleActionToken_
     }
 
 -- | The name of the lifecycle hook.
@@ -146,9 +146,9 @@ newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatR
 
 -- | 'RecordLifecycleActionHeartbeatResponse' smart constructor.
 recordLifecycleActionHeartbeatResponse :: Int -> RecordLifecycleActionHeartbeatResponse
-recordLifecycleActionHeartbeatResponse pStatus =
+recordLifecycleActionHeartbeatResponse pStatus_ =
     RecordLifecycleActionHeartbeatResponse'
-    { _rlahrsStatus = pStatus
+    { _rlahrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -79,12 +79,12 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup'
 
 -- | 'CreateClusterParameterGroup' smart constructor.
 createClusterParameterGroup :: Text -> Text -> Text -> CreateClusterParameterGroup
-createClusterParameterGroup pParameterGroupName pParameterGroupFamily pDescription =
+createClusterParameterGroup pParameterGroupName_ pParameterGroupFamily_ pDescription_ =
     CreateClusterParameterGroup'
     { _ccpgrqTags = Nothing
-    , _ccpgrqParameterGroupName = pParameterGroupName
-    , _ccpgrqParameterGroupFamily = pParameterGroupFamily
-    , _ccpgrqDescription = pDescription
+    , _ccpgrqParameterGroupName = pParameterGroupName_
+    , _ccpgrqParameterGroupFamily = pParameterGroupFamily_
+    , _ccpgrqDescription = pDescription_
     }
 
 -- | A list of tag instances.
@@ -167,10 +167,10 @@ data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
 
 -- | 'CreateClusterParameterGroupResponse' smart constructor.
 createClusterParameterGroupResponse :: Int -> CreateClusterParameterGroupResponse
-createClusterParameterGroupResponse pStatus =
+createClusterParameterGroupResponse pStatus_ =
     CreateClusterParameterGroupResponse'
     { _ccpgrsClusterParameterGroup = Nothing
-    , _ccpgrsStatus = pStatus
+    , _ccpgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -60,9 +60,9 @@ newtype GetSAMLProvider = GetSAMLProvider'
 
 -- | 'GetSAMLProvider' smart constructor.
 getSAMLProvider :: Text -> GetSAMLProvider
-getSAMLProvider pSAMLProviderARN =
+getSAMLProvider pSAMLProviderARN_ =
     GetSAMLProvider'
-    { _gsamlprqSAMLProviderARN = pSAMLProviderARN
+    { _gsamlprqSAMLProviderARN = pSAMLProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to get information
@@ -117,12 +117,12 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
 
 -- | 'GetSAMLProviderResponse' smart constructor.
 getSAMLProviderResponse :: Int -> GetSAMLProviderResponse
-getSAMLProviderResponse pStatus =
+getSAMLProviderResponse pStatus_ =
     GetSAMLProviderResponse'
     { _gsamlprsCreateDate = Nothing
     , _gsamlprsValidUntil = Nothing
     , _gsamlprsSAMLMetadataDocument = Nothing
-    , _gsamlprsStatus = pStatus
+    , _gsamlprsStatus = pStatus_
     }
 
 -- | The date and time when the SAML provider was created.

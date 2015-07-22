@@ -51,9 +51,9 @@ newtype DisableKey = DisableKey'
 
 -- | 'DisableKey' smart constructor.
 disableKey :: Text -> DisableKey
-disableKey pKeyId =
+disableKey pKeyId_ =
     DisableKey'
-    { _dkrqKeyId = pKeyId
+    { _dkrqKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a

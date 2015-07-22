@@ -68,10 +68,10 @@ data CreateHealthCheck = CreateHealthCheck'
 
 -- | 'CreateHealthCheck' smart constructor.
 createHealthCheck :: Text -> HealthCheckConfig -> CreateHealthCheck
-createHealthCheck pCallerReference pHealthCheckConfig =
+createHealthCheck pCallerReference_ pHealthCheckConfig_ =
     CreateHealthCheck'
-    { _chcrqCallerReference = pCallerReference
-    , _chcrqHealthCheckConfig = pHealthCheckConfig
+    { _chcrqCallerReference = pCallerReference_
+    , _chcrqHealthCheckConfig = pHealthCheckConfig_
     }
 
 -- | A unique string that identifies the request and that allows failed
@@ -142,11 +142,11 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse'
 
 -- | 'CreateHealthCheckResponse' smart constructor.
 createHealthCheckResponse :: Int -> HealthCheck -> Text -> CreateHealthCheckResponse
-createHealthCheckResponse pStatus pHealthCheck pLocation =
+createHealthCheckResponse pStatus_ pHealthCheck_ pLocation_ =
     CreateHealthCheckResponse'
-    { _chcrsStatus = pStatus
-    , _chcrsHealthCheck = pHealthCheck
-    , _chcrsLocation = pLocation
+    { _chcrsStatus = pStatus_
+    , _chcrsHealthCheck = pHealthCheck_
+    , _chcrsLocation = pLocation_
     }
 
 -- | FIXME: Undocumented member.

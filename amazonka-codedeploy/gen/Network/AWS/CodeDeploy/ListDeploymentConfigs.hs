@@ -121,11 +121,11 @@ data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
 listDeploymentConfigsResponse :: Int -> ListDeploymentConfigsResponse
-listDeploymentConfigsResponse pStatus =
+listDeploymentConfigsResponse pStatus_ =
     ListDeploymentConfigsResponse'
     { _ldcrsNextToken = Nothing
     , _ldcrsDeploymentConfigsList = Nothing
-    , _ldcrsStatus = pStatus
+    , _ldcrsStatus = pStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an

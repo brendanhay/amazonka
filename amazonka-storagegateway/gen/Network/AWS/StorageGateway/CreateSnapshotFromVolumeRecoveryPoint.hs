@@ -79,10 +79,10 @@ data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoi
 
 -- | 'CreateSnapshotFromVolumeRecoveryPoint' smart constructor.
 createSnapshotFromVolumeRecoveryPoint :: Text -> Text -> CreateSnapshotFromVolumeRecoveryPoint
-createSnapshotFromVolumeRecoveryPoint pVolumeARN pSnapshotDescription =
+createSnapshotFromVolumeRecoveryPoint pVolumeARN_ pSnapshotDescription_ =
     CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrprqVolumeARN = pVolumeARN
-    , _csfvrprqSnapshotDescription = pSnapshotDescription
+    { _csfvrprqVolumeARN = pVolumeARN_
+    , _csfvrprqSnapshotDescription = pSnapshotDescription_
     }
 
 -- | FIXME: Undocumented member.
@@ -156,12 +156,12 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
 
 -- | 'CreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 createSnapshotFromVolumeRecoveryPointResponse :: Int -> CreateSnapshotFromVolumeRecoveryPointResponse
-createSnapshotFromVolumeRecoveryPointResponse pStatus =
+createSnapshotFromVolumeRecoveryPointResponse pStatus_ =
     CreateSnapshotFromVolumeRecoveryPointResponse'
     { _csfvrprsVolumeRecoveryPointTime = Nothing
     , _csfvrprsVolumeARN = Nothing
     , _csfvrprsSnapshotId = Nothing
-    , _csfvrprsStatus = pStatus
+    , _csfvrprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

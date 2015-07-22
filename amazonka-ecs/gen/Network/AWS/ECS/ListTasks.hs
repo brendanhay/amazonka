@@ -219,11 +219,11 @@ data ListTasksResponse = ListTasksResponse'
 
 -- | 'ListTasksResponse' smart constructor.
 listTasksResponse :: Int -> ListTasksResponse
-listTasksResponse pStatus =
+listTasksResponse pStatus_ =
     ListTasksResponse'
     { _ltrsNextToken = Nothing
     , _ltrsTaskARNs = Nothing
-    , _ltrsStatus = pStatus
+    , _ltrsStatus = pStatus_
     }
 
 -- | The @nextToken@ value to include in a future @ListTasks@ request. When

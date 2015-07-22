@@ -114,9 +114,9 @@ newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
 detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse
-detachLoadBalancersResponse pStatus =
+detachLoadBalancersResponse pStatus_ =
     DetachLoadBalancersResponse'
-    { _dlbsrsStatus = pStatus
+    { _dlbsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

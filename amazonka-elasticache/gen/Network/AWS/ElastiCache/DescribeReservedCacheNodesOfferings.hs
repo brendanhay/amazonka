@@ -244,11 +244,11 @@ data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOff
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' smart constructor.
 describeReservedCacheNodesOfferingsResponse :: Int -> DescribeReservedCacheNodesOfferingsResponse
-describeReservedCacheNodesOfferingsResponse pStatus =
+describeReservedCacheNodesOfferingsResponse pStatus_ =
     DescribeReservedCacheNodesOfferingsResponse'
     { _drcnorsMarker = Nothing
     , _drcnorsReservedCacheNodesOfferings = Nothing
-    , _drcnorsStatus = pStatus
+    , _drcnorsStatus = pStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.

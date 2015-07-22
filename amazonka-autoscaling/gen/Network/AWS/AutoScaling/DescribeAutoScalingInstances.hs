@@ -145,11 +145,11 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
 
 -- | 'DescribeAutoScalingInstancesResponse' smart constructor.
 describeAutoScalingInstancesResponse :: Int -> DescribeAutoScalingInstancesResponse
-describeAutoScalingInstancesResponse pStatus =
+describeAutoScalingInstancesResponse pStatus_ =
     DescribeAutoScalingInstancesResponse'
     { _dasirsNextToken = Nothing
     , _dasirsAutoScalingInstances = Nothing
-    , _dasirsStatus = pStatus
+    , _dasirsStatus = pStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no

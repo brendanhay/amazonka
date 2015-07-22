@@ -82,13 +82,13 @@ data CreateJob = CreateJob'
 
 -- | 'CreateJob' smart constructor.
 createJob :: JobType -> Text -> Bool -> CreateJob
-createJob pJobType pManifest pValidateOnly =
+createJob pJobType_ pManifest_ pValidateOnly_ =
     CreateJob'
     { _cjrqAPIVersion = Nothing
     , _cjrqManifestAddendum = Nothing
-    , _cjrqJobType = pJobType
-    , _cjrqManifest = pManifest
-    , _cjrqValidateOnly = pValidateOnly
+    , _cjrqJobType = pJobType_
+    , _cjrqManifest = pManifest_
+    , _cjrqValidateOnly = pValidateOnly_
     }
 
 -- | FIXME: Undocumented member.
@@ -177,7 +177,7 @@ data CreateJobResponse = CreateJobResponse'
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Int -> CreateJobResponse
-createJobResponse pStatus =
+createJobResponse pStatus_ =
     CreateJobResponse'
     { _cjrsSignature = Nothing
     , _cjrsJobType = Nothing
@@ -185,7 +185,7 @@ createJobResponse pStatus =
     , _cjrsSignatureFileContents = Nothing
     , _cjrsWarningMessage = Nothing
     , _cjrsArtifactList = Nothing
-    , _cjrsStatus = pStatus
+    , _cjrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

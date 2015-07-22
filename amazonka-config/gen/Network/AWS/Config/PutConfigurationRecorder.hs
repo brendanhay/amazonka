@@ -64,9 +64,9 @@ newtype PutConfigurationRecorder = PutConfigurationRecorder'
 
 -- | 'PutConfigurationRecorder' smart constructor.
 putConfigurationRecorder :: ConfigurationRecorder -> PutConfigurationRecorder
-putConfigurationRecorder pConfigurationRecorder =
+putConfigurationRecorder pConfigurationRecorder_ =
     PutConfigurationRecorder'
-    { _pcrrqConfigurationRecorder = pConfigurationRecorder
+    { _pcrrqConfigurationRecorder = pConfigurationRecorder_
     }
 
 -- | The configuration recorder object that records each configuration change

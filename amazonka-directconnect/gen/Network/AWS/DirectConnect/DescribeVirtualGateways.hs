@@ -103,10 +103,10 @@ data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
 describeVirtualGatewaysResponse :: Int -> DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse pStatus =
+describeVirtualGatewaysResponse pStatus_ =
     DescribeVirtualGatewaysResponse'
     { _dvgrsVirtualGateways = Nothing
-    , _dvgrsStatus = pStatus
+    , _dvgrsStatus = pStatus_
     }
 
 -- | A list of virtual private gateways.

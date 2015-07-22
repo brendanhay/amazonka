@@ -68,12 +68,12 @@ data UpdateUserProfile = UpdateUserProfile'
 
 -- | 'UpdateUserProfile' smart constructor.
 updateUserProfile :: Text -> UpdateUserProfile
-updateUserProfile pIAMUserARN =
+updateUserProfile pIAMUserARN_ =
     UpdateUserProfile'
     { _uuprqSSHUsername = Nothing
     , _uuprqSSHPublicKey = Nothing
     , _uuprqAllowSelfManagement = Nothing
-    , _uuprqIAMUserARN = pIAMUserARN
+    , _uuprqIAMUserARN = pIAMUserARN_
     }
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],

@@ -106,10 +106,10 @@ data GetQueueAttributes = GetQueueAttributes'
 
 -- | 'GetQueueAttributes' smart constructor.
 getQueueAttributes :: Text -> GetQueueAttributes
-getQueueAttributes pQueueURL =
+getQueueAttributes pQueueURL_ =
     GetQueueAttributes'
     { _gqarqAttributeNames = Nothing
-    , _gqarqQueueURL = pQueueURL
+    , _gqarqQueueURL = pQueueURL_
     }
 
 -- | A list of attributes to retrieve information for.
@@ -164,10 +164,10 @@ data GetQueueAttributesResponse = GetQueueAttributesResponse'
 
 -- | 'GetQueueAttributesResponse' smart constructor.
 getQueueAttributesResponse :: Int -> GetQueueAttributesResponse
-getQueueAttributesResponse pStatus =
+getQueueAttributesResponse pStatus_ =
     GetQueueAttributesResponse'
     { _gqarsAttributes = Nothing
-    , _gqarsStatus = pStatus
+    , _gqarsStatus = pStatus_
     }
 
 -- | A map of attributes to the respective values.

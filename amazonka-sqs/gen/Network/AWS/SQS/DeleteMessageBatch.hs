@@ -73,9 +73,9 @@ data DeleteMessageBatch = DeleteMessageBatch'
 
 -- | 'DeleteMessageBatch' smart constructor.
 deleteMessageBatch :: Text -> DeleteMessageBatch
-deleteMessageBatch pQueueURL =
+deleteMessageBatch pQueueURL_ =
     DeleteMessageBatch'
-    { _dmbrqQueueURL = pQueueURL
+    { _dmbrqQueueURL = pQueueURL_
     , _dmbrqEntries = mempty
     }
 
@@ -136,9 +136,9 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
 
 -- | 'DeleteMessageBatchResponse' smart constructor.
 deleteMessageBatchResponse :: Int -> DeleteMessageBatchResponse
-deleteMessageBatchResponse pStatus =
+deleteMessageBatchResponse pStatus_ =
     DeleteMessageBatchResponse'
-    { _dmbrsStatus = pStatus
+    { _dmbrsStatus = pStatus_
     , _dmbrsSuccessful = mempty
     , _dmbrsFailed = mempty
     }

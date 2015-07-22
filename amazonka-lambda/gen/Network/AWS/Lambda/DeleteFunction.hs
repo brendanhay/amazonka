@@ -57,9 +57,9 @@ newtype DeleteFunction = DeleteFunction'
 
 -- | 'DeleteFunction' smart constructor.
 deleteFunction :: Text -> DeleteFunction
-deleteFunction pFunctionName =
+deleteFunction pFunctionName_ =
     DeleteFunction'
-    { _dfrqFunctionName = pFunctionName
+    { _dfrqFunctionName = pFunctionName_
     }
 
 -- | The Lambda function to delete.

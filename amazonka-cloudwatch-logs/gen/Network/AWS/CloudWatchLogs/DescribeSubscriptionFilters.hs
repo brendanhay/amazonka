@@ -74,12 +74,12 @@ data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
 
 -- | 'DescribeSubscriptionFilters' smart constructor.
 describeSubscriptionFilters :: Text -> DescribeSubscriptionFilters
-describeSubscriptionFilters pLogGroupName =
+describeSubscriptionFilters pLogGroupName_ =
     DescribeSubscriptionFilters'
     { _dsfrqFilterNamePrefix = Nothing
     , _dsfrqNextToken = Nothing
     , _dsfrqLimit = Nothing
-    , _dsfrqLogGroupName = pLogGroupName
+    , _dsfrqLogGroupName = pLogGroupName_
     }
 
 -- | Will only return subscription filters that match the provided
@@ -154,11 +154,11 @@ data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
 
 -- | 'DescribeSubscriptionFiltersResponse' smart constructor.
 describeSubscriptionFiltersResponse :: Int -> DescribeSubscriptionFiltersResponse
-describeSubscriptionFiltersResponse pStatus =
+describeSubscriptionFiltersResponse pStatus_ =
     DescribeSubscriptionFiltersResponse'
     { _dsfrsSubscriptionFilters = Nothing
     , _dsfrsNextToken = Nothing
-    , _dsfrsStatus = pStatus
+    , _dsfrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

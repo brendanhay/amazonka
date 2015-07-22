@@ -72,11 +72,11 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
 
 -- | 'ReplaceRouteTableAssociation' smart constructor.
 replaceRouteTableAssociation :: Text -> Text -> ReplaceRouteTableAssociation
-replaceRouteTableAssociation pAssociationId pRouteTableId =
+replaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
     ReplaceRouteTableAssociation'
     { _rrtarqDryRun = Nothing
-    , _rrtarqAssociationId = pAssociationId
-    , _rrtarqRouteTableId = pRouteTableId
+    , _rrtarqAssociationId = pAssociationId_
+    , _rrtarqRouteTableId = pRouteTableId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -136,10 +136,10 @@ data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
 
 -- | 'ReplaceRouteTableAssociationResponse' smart constructor.
 replaceRouteTableAssociationResponse :: Int -> ReplaceRouteTableAssociationResponse
-replaceRouteTableAssociationResponse pStatus =
+replaceRouteTableAssociationResponse pStatus_ =
     ReplaceRouteTableAssociationResponse'
     { _rrtarsNewAssociationId = Nothing
-    , _rrtarsStatus = pStatus
+    , _rrtarsStatus = pStatus_
     }
 
 -- | The ID of the new association.

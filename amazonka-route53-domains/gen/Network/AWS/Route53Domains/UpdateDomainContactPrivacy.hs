@@ -79,12 +79,12 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
 
 -- | 'UpdateDomainContactPrivacy' smart constructor.
 updateDomainContactPrivacy :: Text -> UpdateDomainContactPrivacy
-updateDomainContactPrivacy pDomainName =
+updateDomainContactPrivacy pDomainName_ =
     UpdateDomainContactPrivacy'
     { _udcprqTechPrivacy = Nothing
     , _udcprqRegistrantPrivacy = Nothing
     , _udcprqAdminPrivacy = Nothing
-    , _udcprqDomainName = pDomainName
+    , _udcprqDomainName = pDomainName_
     }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -197,10 +197,10 @@ data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
 
 -- | 'UpdateDomainContactPrivacyResponse' smart constructor.
 updateDomainContactPrivacyResponse :: Int -> Text -> UpdateDomainContactPrivacyResponse
-updateDomainContactPrivacyResponse pStatus pOperationId =
+updateDomainContactPrivacyResponse pStatus_ pOperationId_ =
     UpdateDomainContactPrivacyResponse'
-    { _udcprsStatus = pStatus
-    , _udcprsOperationId = pOperationId
+    { _udcprsStatus = pStatus_
+    , _udcprsOperationId = pOperationId_
     }
 
 -- | FIXME: Undocumented member.

@@ -66,9 +66,9 @@ newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
 
 -- | 'DescribeBandwidthRateLimit' smart constructor.
 describeBandwidthRateLimit :: Text -> DescribeBandwidthRateLimit
-describeBandwidthRateLimit pGatewayARN =
+describeBandwidthRateLimit pGatewayARN_ =
     DescribeBandwidthRateLimit'
-    { _dbrlrqGatewayARN = pGatewayARN
+    { _dbrlrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -131,12 +131,12 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
 
 -- | 'DescribeBandwidthRateLimitResponse' smart constructor.
 describeBandwidthRateLimitResponse :: Int -> DescribeBandwidthRateLimitResponse
-describeBandwidthRateLimitResponse pStatus =
+describeBandwidthRateLimitResponse pStatus_ =
     DescribeBandwidthRateLimitResponse'
     { _dbrlrsGatewayARN = Nothing
     , _dbrlrsAverageUploadRateLimitInBitsPerSec = Nothing
     , _dbrlrsAverageDownloadRateLimitInBitsPerSec = Nothing
-    , _dbrlrsStatus = pStatus
+    , _dbrlrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

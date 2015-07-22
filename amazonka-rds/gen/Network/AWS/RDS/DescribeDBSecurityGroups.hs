@@ -165,11 +165,11 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
 
 -- | 'DescribeDBSecurityGroupsResponse' smart constructor.
 describeDBSecurityGroupsResponse :: Int -> DescribeDBSecurityGroupsResponse
-describeDBSecurityGroupsResponse pStatus =
+describeDBSecurityGroupsResponse pStatus_ =
     DescribeDBSecurityGroupsResponse'
     { _ddbsgrsDBSecurityGroups = Nothing
     , _ddbsgrsMarker = Nothing
-    , _ddbsgrsStatus = pStatus
+    , _ddbsgrsStatus = pStatus_
     }
 
 -- | A list of DBSecurityGroup instances.

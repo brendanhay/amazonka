@@ -60,10 +60,10 @@ data UpdateRadius = UpdateRadius'
 
 -- | 'UpdateRadius' smart constructor.
 updateRadius :: Text -> RadiusSettings -> UpdateRadius
-updateRadius pDirectoryId pRadiusSettings =
+updateRadius pDirectoryId_ pRadiusSettings_ =
     UpdateRadius'
-    { _urrqDirectoryId = pDirectoryId
-    , _urrqRadiusSettings = pRadiusSettings
+    { _urrqDirectoryId = pDirectoryId_
+    , _urrqRadiusSettings = pRadiusSettings_
     }
 
 -- | The identifier of the directory to update the RADIUS server information
@@ -120,9 +120,9 @@ newtype UpdateRadiusResponse = UpdateRadiusResponse'
 
 -- | 'UpdateRadiusResponse' smart constructor.
 updateRadiusResponse :: Int -> UpdateRadiusResponse
-updateRadiusResponse pStatus =
+updateRadiusResponse pStatus_ =
     UpdateRadiusResponse'
-    { _urrsStatus = pStatus
+    { _urrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

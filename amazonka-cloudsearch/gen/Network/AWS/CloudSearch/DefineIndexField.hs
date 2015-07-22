@@ -70,10 +70,10 @@ data DefineIndexField = DefineIndexField'
 
 -- | 'DefineIndexField' smart constructor.
 defineIndexField :: Text -> IndexField -> DefineIndexField
-defineIndexField pDomainName pIndexField =
+defineIndexField pDomainName_ pIndexField_ =
     DefineIndexField'
-    { _deffrqDomainName = pDomainName
-    , _deffrqIndexField = pIndexField
+    { _deffrqDomainName = pDomainName_
+    , _deffrqIndexField = pIndexField_
     }
 
 -- | FIXME: Undocumented member.
@@ -125,10 +125,10 @@ data DefineIndexFieldResponse = DefineIndexFieldResponse'
 
 -- | 'DefineIndexFieldResponse' smart constructor.
 defineIndexFieldResponse :: Int -> IndexFieldStatus -> DefineIndexFieldResponse
-defineIndexFieldResponse pStatus pIndexField =
+defineIndexFieldResponse pStatus_ pIndexField_ =
     DefineIndexFieldResponse'
-    { _defrsStatus = pStatus
-    , _defrsIndexField = pIndexField
+    { _defrsStatus = pStatus_
+    , _defrsIndexField = pIndexField_
     }
 
 -- | FIXME: Undocumented member.

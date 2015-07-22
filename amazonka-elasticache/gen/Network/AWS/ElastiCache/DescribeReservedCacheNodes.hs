@@ -245,11 +245,11 @@ data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'
 
 -- | 'DescribeReservedCacheNodesResponse' smart constructor.
 describeReservedCacheNodesResponse :: Int -> DescribeReservedCacheNodesResponse
-describeReservedCacheNodesResponse pStatus =
+describeReservedCacheNodesResponse pStatus_ =
     DescribeReservedCacheNodesResponse'
     { _drcnrsMarker = Nothing
     , _drcnrsReservedCacheNodes = Nothing
-    , _drcnrsStatus = pStatus
+    , _drcnrsStatus = pStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.

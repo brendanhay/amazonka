@@ -52,9 +52,9 @@ newtype EnableKey = EnableKey'
 
 -- | 'EnableKey' smart constructor.
 enableKey :: Text -> EnableKey
-enableKey pKeyId =
+enableKey pKeyId_ =
     EnableKey'
-    { _ekrqKeyId = pKeyId
+    { _ekrqKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a

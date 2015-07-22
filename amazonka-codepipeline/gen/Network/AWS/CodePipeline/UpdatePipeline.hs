@@ -59,9 +59,9 @@ newtype UpdatePipeline = UpdatePipeline'
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: PipelineDeclaration -> UpdatePipeline
-updatePipeline pPipeline =
+updatePipeline pPipeline_ =
     UpdatePipeline'
-    { _uprqPipeline = pPipeline
+    { _uprqPipeline = pPipeline_
     }
 
 -- | The name of the pipeline to be updated.
@@ -114,10 +114,10 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: Int -> UpdatePipelineResponse
-updatePipelineResponse pStatus =
+updatePipelineResponse pStatus_ =
     UpdatePipelineResponse'
     { _uprsPipeline = Nothing
-    , _uprsStatus = pStatus
+    , _uprsStatus = pStatus_
     }
 
 -- | The structure of the updated pipeline.

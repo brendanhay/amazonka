@@ -78,11 +78,11 @@ data AttachClassicLinkVPC = AttachClassicLinkVPC'
 
 -- | 'AttachClassicLinkVPC' smart constructor.
 attachClassicLinkVPC :: Text -> Text -> AttachClassicLinkVPC
-attachClassicLinkVPC pInstanceId pVPCId =
+attachClassicLinkVPC pInstanceId_ pVPCId_ =
     AttachClassicLinkVPC'
     { _aclvrqDryRun = Nothing
-    , _aclvrqInstanceId = pInstanceId
-    , _aclvrqVPCId = pVPCId
+    , _aclvrqInstanceId = pInstanceId_
+    , _aclvrqVPCId = pVPCId_
     , _aclvrqGroups = mempty
     }
 
@@ -148,10 +148,10 @@ data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
 
 -- | 'AttachClassicLinkVPCResponse' smart constructor.
 attachClassicLinkVPCResponse :: Int -> AttachClassicLinkVPCResponse
-attachClassicLinkVPCResponse pStatus =
+attachClassicLinkVPCResponse pStatus_ =
     AttachClassicLinkVPCResponse'
     { _aclvrsReturn = Nothing
-    , _aclvrsStatus = pStatus
+    , _aclvrsStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.

@@ -54,9 +54,9 @@ newtype GetBucketReplication = GetBucketReplication'
 
 -- | 'GetBucketReplication' smart constructor.
 getBucketReplication :: BucketName -> GetBucketReplication
-getBucketReplication pBucket =
+getBucketReplication pBucket_ =
     GetBucketReplication'
-    { _gbrrqBucket = pBucket
+    { _gbrrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -98,10 +98,10 @@ data GetBucketReplicationResponse = GetBucketReplicationResponse'
 
 -- | 'GetBucketReplicationResponse' smart constructor.
 getBucketReplicationResponse :: Int -> GetBucketReplicationResponse
-getBucketReplicationResponse pStatus =
+getBucketReplicationResponse pStatus_ =
     GetBucketReplicationResponse'
     { _gbrrsReplicationConfiguration = Nothing
-    , _gbrrsStatus = pStatus
+    , _gbrrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

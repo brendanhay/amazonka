@@ -59,9 +59,9 @@ newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
 
 -- | 'DisableDomainAutoRenew' smart constructor.
 disableDomainAutoRenew :: Text -> DisableDomainAutoRenew
-disableDomainAutoRenew pDomainName =
+disableDomainAutoRenew pDomainName_ =
     DisableDomainAutoRenew'
-    { _ddarrqDomainName = pDomainName
+    { _ddarrqDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
@@ -110,9 +110,9 @@ newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
 
 -- | 'DisableDomainAutoRenewResponse' smart constructor.
 disableDomainAutoRenewResponse :: Int -> DisableDomainAutoRenewResponse
-disableDomainAutoRenewResponse pStatus =
+disableDomainAutoRenewResponse pStatus_ =
     DisableDomainAutoRenewResponse'
-    { _ddarrsStatus = pStatus
+    { _ddarrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -85,10 +85,10 @@ data DeprecateWorkflowType = DeprecateWorkflowType'
 
 -- | 'DeprecateWorkflowType' smart constructor.
 deprecateWorkflowType :: Text -> WorkflowType -> DeprecateWorkflowType
-deprecateWorkflowType pDomain pWorkflowType =
+deprecateWorkflowType pDomain_ pWorkflowType_ =
     DeprecateWorkflowType'
-    { _drqDomain = pDomain
-    , _drqWorkflowType = pWorkflowType
+    { _drqDomain = pDomain_
+    , _drqWorkflowType = pWorkflowType_
     }
 
 -- | The name of the domain in which the workflow type is registered.

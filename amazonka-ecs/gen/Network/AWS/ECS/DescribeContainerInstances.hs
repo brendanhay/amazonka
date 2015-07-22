@@ -130,11 +130,11 @@ data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
 describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse
-describeContainerInstancesResponse pStatus =
+describeContainerInstancesResponse pStatus_ =
     DescribeContainerInstancesResponse'
     { _dcisrsFailures = Nothing
     , _dcisrsContainerInstances = Nothing
-    , _dcisrsStatus = pStatus
+    , _dcisrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

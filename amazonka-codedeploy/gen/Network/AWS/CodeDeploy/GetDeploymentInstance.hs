@@ -60,10 +60,10 @@ data GetDeploymentInstance = GetDeploymentInstance'
 
 -- | 'GetDeploymentInstance' smart constructor.
 getDeploymentInstance :: Text -> Text -> GetDeploymentInstance
-getDeploymentInstance pDeploymentId pInstanceId =
+getDeploymentInstance pDeploymentId_ pInstanceId_ =
     GetDeploymentInstance'
-    { _gdirqDeploymentId = pDeploymentId
-    , _gdirqInstanceId = pInstanceId
+    { _gdirqDeploymentId = pDeploymentId_
+    , _gdirqInstanceId = pInstanceId_
     }
 
 -- | The unique ID of a deployment.
@@ -123,10 +123,10 @@ data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
 
 -- | 'GetDeploymentInstanceResponse' smart constructor.
 getDeploymentInstanceResponse :: Int -> GetDeploymentInstanceResponse
-getDeploymentInstanceResponse pStatus =
+getDeploymentInstanceResponse pStatus_ =
     GetDeploymentInstanceResponse'
     { _gdirsInstanceSummary = Nothing
-    , _gdirsStatus = pStatus
+    , _gdirsStatus = pStatus_
     }
 
 -- | Information about the instance.

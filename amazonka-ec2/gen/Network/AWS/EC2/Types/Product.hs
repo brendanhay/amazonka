@@ -406,12 +406,12 @@ data BlockDeviceMapping = BlockDeviceMapping'
 
 -- | 'BlockDeviceMapping' smart constructor.
 blockDeviceMapping :: Text -> BlockDeviceMapping
-blockDeviceMapping pDeviceName =
+blockDeviceMapping pDeviceName_ =
     BlockDeviceMapping'
     { _bdmVirtualName = Nothing
     , _bdmNoDevice = Nothing
     , _bdmEBS = Nothing
-    , _bdmDeviceName = pDeviceName
+    , _bdmDeviceName = pDeviceName_
     }
 
 -- | The virtual device name (@ephemeral@N). Instance store volumes are
@@ -490,16 +490,16 @@ data BundleTask = BundleTask'
 
 -- | 'BundleTask' smart constructor.
 bundleTask :: Text -> Text -> Text -> UTCTime -> BundleTaskState -> Storage -> UTCTime -> BundleTask
-bundleTask pBundleId pInstanceId pProgress pStartTime pState pStorage pUpdateTime =
+bundleTask pBundleId_ pInstanceId_ pProgress_ pStartTime_ pState_ pStorage_ pUpdateTime_ =
     BundleTask'
     { _btBundleTaskError = Nothing
-    , _btBundleId = pBundleId
-    , _btInstanceId = pInstanceId
-    , _btProgress = pProgress
-    , _btStartTime = _Time # pStartTime
-    , _btState = pState
-    , _btStorage = pStorage
-    , _btUpdateTime = _Time # pUpdateTime
+    , _btBundleId = pBundleId_
+    , _btInstanceId = pInstanceId_
+    , _btProgress = pProgress_
+    , _btStartTime = _Time # pStartTime_
+    , _btState = pState_
+    , _btStorage = pStorage_
+    , _btUpdateTime = _Time # pUpdateTime_
     }
 
 -- | If the task fails, a description of the error.
@@ -596,10 +596,10 @@ data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
 
 -- | 'CancelSpotFleetRequestsError' smart constructor.
 cancelSpotFleetRequestsError :: CancelBatchErrorCode -> Text -> CancelSpotFleetRequestsError
-cancelSpotFleetRequestsError pCode pMessage =
+cancelSpotFleetRequestsError pCode_ pMessage_ =
     CancelSpotFleetRequestsError'
-    { _csfreCode = pCode
-    , _csfreMessage = pMessage
+    { _csfreCode = pCode_
+    , _csfreMessage = pMessage_
     }
 
 -- | The error code.
@@ -631,10 +631,10 @@ data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
 
 -- | 'CancelSpotFleetRequestsErrorItem' smart constructor.
 cancelSpotFleetRequestsErrorItem :: Text -> CancelSpotFleetRequestsError -> CancelSpotFleetRequestsErrorItem
-cancelSpotFleetRequestsErrorItem pSpotFleetRequestId pError =
+cancelSpotFleetRequestsErrorItem pSpotFleetRequestId_ pError_ =
     CancelSpotFleetRequestsErrorItem'
-    { _csfreiSpotFleetRequestId = pSpotFleetRequestId
-    , _csfreiError = pError
+    { _csfreiSpotFleetRequestId = pSpotFleetRequestId_
+    , _csfreiError = pError_
     }
 
 -- | The ID of the Spot fleet request.
@@ -670,11 +670,11 @@ data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
 
 -- | 'CancelSpotFleetRequestsSuccessItem' smart constructor.
 cancelSpotFleetRequestsSuccessItem :: Text -> BatchState -> BatchState -> CancelSpotFleetRequestsSuccessItem
-cancelSpotFleetRequestsSuccessItem pSpotFleetRequestId pCurrentSpotFleetRequestState pPreviousSpotFleetRequestState =
+cancelSpotFleetRequestsSuccessItem pSpotFleetRequestId_ pCurrentSpotFleetRequestState_ pPreviousSpotFleetRequestState_ =
     CancelSpotFleetRequestsSuccessItem'
-    { _csfrsiSpotFleetRequestId = pSpotFleetRequestId
-    , _csfrsiCurrentSpotFleetRequestState = pCurrentSpotFleetRequestState
-    , _csfrsiPreviousSpotFleetRequestState = pPreviousSpotFleetRequestState
+    { _csfrsiSpotFleetRequestId = pSpotFleetRequestId_
+    , _csfrsiCurrentSpotFleetRequestState = pCurrentSpotFleetRequestState_
+    , _csfrsiPreviousSpotFleetRequestState = pPreviousSpotFleetRequestState_
     }
 
 -- | The ID of the Spot fleet request.
@@ -873,15 +873,15 @@ data ConversionTask = ConversionTask'
 
 -- | 'ConversionTask' smart constructor.
 conversionTask :: Text -> ConversionTaskState -> ConversionTask
-conversionTask pConversionTaskId pState =
+conversionTask pConversionTaskId_ pState_ =
     ConversionTask'
     { _ctImportInstance = Nothing
     , _ctStatusMessage = Nothing
     , _ctImportVolume = Nothing
     , _ctExpirationTime = Nothing
     , _ctTags = Nothing
-    , _ctConversionTaskId = pConversionTaskId
-    , _ctState = pState
+    , _ctConversionTaskId = pConversionTaskId_
+    , _ctState = pState_
     }
 
 -- | If the task is for importing an instance, this contains information
@@ -1037,14 +1037,14 @@ data CustomerGateway = CustomerGateway'
 
 -- | 'CustomerGateway' smart constructor.
 customerGateway :: Text -> Text -> Text -> Text -> Text -> CustomerGateway
-customerGateway pBGPASN pCustomerGatewayId pIPAddress pState pType =
+customerGateway pBGPASN_ pCustomerGatewayId_ pIPAddress_ pState_ pType_ =
     CustomerGateway'
     { _cgTags = Nothing
-    , _cgBGPASN = pBGPASN
-    , _cgCustomerGatewayId = pCustomerGatewayId
-    , _cgIPAddress = pIPAddress
-    , _cgState = pState
-    , _cgType = pType
+    , _cgBGPASN = pBGPASN_
+    , _cgCustomerGatewayId = pCustomerGatewayId_
+    , _cgIPAddress = pIPAddress_
+    , _cgState = pState_
+    , _cgType = pType_
     }
 
 -- | Any tags assigned to the customer gateway.
@@ -1236,12 +1236,12 @@ data DiskImageDescription = DiskImageDescription'
 
 -- | 'DiskImageDescription' smart constructor.
 diskImageDescription :: DiskImageFormat -> Integer -> Text -> DiskImageDescription
-diskImageDescription pFormat pSize pImportManifestURL =
+diskImageDescription pFormat_ pSize_ pImportManifestURL_ =
     DiskImageDescription'
     { _dChecksum = Nothing
-    , _dFormat = pFormat
-    , _dSize = pSize
-    , _dImportManifestURL = pImportManifestURL
+    , _dFormat = pFormat_
+    , _dSize = pSize_
+    , _dImportManifestURL = pImportManifestURL_
     }
 
 -- | The checksum computed for the disk image.
@@ -1290,11 +1290,11 @@ data DiskImageDetail = DiskImageDetail'
 
 -- | 'DiskImageDetail' smart constructor.
 diskImageDetail :: DiskImageFormat -> Integer -> Text -> DiskImageDetail
-diskImageDetail pFormat pBytes pImportManifestURL =
+diskImageDetail pFormat_ pBytes_ pImportManifestURL_ =
     DiskImageDetail'
-    { _didFormat = pFormat
-    , _didBytes = pBytes
-    , _didImportManifestURL = pImportManifestURL
+    { _didFormat = pFormat_
+    , _didBytes = pBytes_
+    , _didImportManifestURL = pImportManifestURL_
     }
 
 -- | The disk image format.
@@ -1336,10 +1336,10 @@ data DiskImageVolumeDescription = DiskImageVolumeDescription'
 
 -- | 'DiskImageVolumeDescription' smart constructor.
 diskImageVolumeDescription :: Text -> DiskImageVolumeDescription
-diskImageVolumeDescription pId =
+diskImageVolumeDescription pId_ =
     DiskImageVolumeDescription'
     { _divdSize = Nothing
-    , _divdId = pId
+    , _divdId = pId_
     }
 
 -- | The size of the volume, in GiB.
@@ -1668,14 +1668,14 @@ data ExportTask = ExportTask'
 
 -- | 'ExportTask' smart constructor.
 exportTask :: Text -> Text -> ExportToS3Task -> InstanceExportDetails -> ExportTaskState -> Text -> ExportTask
-exportTask pDescription pExportTaskId pExportToS3Task pInstanceExportDetails pState pStatusMessage =
+exportTask pDescription_ pExportTaskId_ pExportToS3Task_ pInstanceExportDetails_ pState_ pStatusMessage_ =
     ExportTask'
-    { _etDescription = pDescription
-    , _etExportTaskId = pExportTaskId
-    , _etExportToS3Task = pExportToS3Task
-    , _etInstanceExportDetails = pInstanceExportDetails
-    , _etState = pState
-    , _etStatusMessage = pStatusMessage
+    { _etDescription = pDescription_
+    , _etExportTaskId = pExportTaskId_
+    , _etExportToS3Task = pExportToS3Task_
+    , _etInstanceExportDetails = pInstanceExportDetails_
+    , _etState = pState_
+    , _etStatusMessage = pStatusMessage_
     }
 
 -- | A description of the resource being exported.
@@ -1843,10 +1843,10 @@ data Filter = Filter'
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
-filter' pName =
+filter' pName_ =
     Filter'
     { _fValues = Nothing
-    , _fName = pName
+    , _fName = pName_
     }
 
 -- | One or more filter values. Filter values are case-sensitive.
@@ -2025,11 +2025,11 @@ data HistoryRecord = HistoryRecord'
 
 -- | 'HistoryRecord' smart constructor.
 historyRecord :: UTCTime -> EventType -> EventInformation -> HistoryRecord
-historyRecord pTimestamp pEventType pEventInformation =
+historyRecord pTimestamp_ pEventType_ pEventInformation_ =
     HistoryRecord'
-    { _hrTimestamp = _Time # pTimestamp
-    , _hrEventType = pEventType
-    , _hrEventInformation = pEventInformation
+    { _hrTimestamp = _Time # pTimestamp_
+    , _hrEventType = pEventType_
+    , _hrEventInformation = pEventInformation_
     }
 
 -- | The date and time of the event, in UTC format (for example,
@@ -2203,14 +2203,14 @@ data IPPermission = IPPermission'
 
 -- | 'IPPermission' smart constructor.
 ipPermission :: Text -> IPPermission
-ipPermission pIPProtocol =
+ipPermission pIPProtocol_ =
     IPPermission'
     { _ipFromPort = Nothing
     , _ipUserIdGroupPairs = Nothing
     , _ipPrefixListIds = Nothing
     , _ipToPort = Nothing
     , _ipIPRanges = Nothing
-    , _ipIPProtocol = pIPProtocol
+    , _ipIPProtocol = pIPProtocol_
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
@@ -2289,9 +2289,9 @@ newtype IPRange = IPRange'
 
 -- | 'IPRange' smart constructor.
 ipRange :: Text -> IPRange
-ipRange pCIdRIP =
+ipRange pCIdRIP_ =
     IPRange'
-    { _irCIdRIP = pCIdRIP
+    { _irCIdRIP = pCIdRIP_
     }
 
 -- | The CIDR range. You can either specify a CIDR range or a source security
@@ -2385,7 +2385,7 @@ data Image = Image'
 
 -- | 'Image' smart constructor.
 image :: Text -> Text -> ImageState -> Text -> Bool -> ArchitectureValues -> ImageTypeValues -> DeviceType -> VirtualizationType -> HypervisorType -> Image
-image pImageId pImageLocation pState pOwnerId pPublic pArchitecture pImageType pRootDeviceType pVirtualizationType pHypervisor =
+image pImageId_ pImageLocation_ pState_ pOwnerId_ pPublic_ pArchitecture_ pImageType_ pRootDeviceType_ pVirtualizationType_ pHypervisor_ =
     Image'
     { _iPlatform = Nothing
     , _iImageOwnerAlias = Nothing
@@ -2400,16 +2400,16 @@ image pImageId pImageLocation pState pOwnerId pPublic pArchitecture pImageType p
     , _iBlockDeviceMappings = Nothing
     , _iDescription = Nothing
     , _iTags = Nothing
-    , _iImageId = pImageId
-    , _iImageLocation = pImageLocation
-    , _iState = pState
-    , _iOwnerId = pOwnerId
-    , _iPublic = pPublic
-    , _iArchitecture = pArchitecture
-    , _iImageType = pImageType
-    , _iRootDeviceType = pRootDeviceType
-    , _iVirtualizationType = pVirtualizationType
-    , _iHypervisor = pHypervisor
+    , _iImageId = pImageId_
+    , _iImageLocation = pImageLocation_
+    , _iState = pState_
+    , _iOwnerId = pOwnerId_
+    , _iPublic = pPublic_
+    , _iArchitecture = pArchitecture_
+    , _iImageType = pImageType_
+    , _iRootDeviceType = pRootDeviceType_
+    , _iVirtualizationType = pVirtualizationType_
+    , _iHypervisor = pHypervisor_
     }
 
 -- | The value is @Windows@ for Windows AMIs; otherwise blank.
@@ -2953,15 +2953,15 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
 
 -- | 'ImportInstanceVolumeDetailItem' smart constructor.
 importInstanceVolumeDetailItem :: Integer -> Text -> DiskImageDescription -> DiskImageVolumeDescription -> Text -> ImportInstanceVolumeDetailItem
-importInstanceVolumeDetailItem pBytesConverted pAvailabilityZone pImage pVolume pStatus =
+importInstanceVolumeDetailItem pBytesConverted_ pAvailabilityZone_ pImage_ pVolume_ pStatus_ =
     ImportInstanceVolumeDetailItem'
     { _iivdiStatusMessage = Nothing
     , _iivdiDescription = Nothing
-    , _iivdiBytesConverted = pBytesConverted
-    , _iivdiAvailabilityZone = pAvailabilityZone
-    , _iivdiImage = pImage
-    , _iivdiVolume = pVolume
-    , _iivdiStatus = pStatus
+    , _iivdiBytesConverted = pBytesConverted_
+    , _iivdiAvailabilityZone = pAvailabilityZone_
+    , _iivdiImage = pImage_
+    , _iivdiVolume = pVolume_
+    , _iivdiStatus = pStatus_
     }
 
 -- | The status information or errors related to the disk image.
@@ -3072,13 +3072,13 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
 
 -- | 'ImportVolumeTaskDetails' smart constructor.
 importVolumeTaskDetails :: Integer -> Text -> DiskImageDescription -> DiskImageVolumeDescription -> ImportVolumeTaskDetails
-importVolumeTaskDetails pBytesConverted pAvailabilityZone pImage pVolume =
+importVolumeTaskDetails pBytesConverted_ pAvailabilityZone_ pImage_ pVolume_ =
     ImportVolumeTaskDetails'
     { _ivtdDescription = Nothing
-    , _ivtdBytesConverted = pBytesConverted
-    , _ivtdAvailabilityZone = pAvailabilityZone
-    , _ivtdImage = pImage
-    , _ivtdVolume = pVolume
+    , _ivtdBytesConverted = pBytesConverted_
+    , _ivtdAvailabilityZone = pAvailabilityZone_
+    , _ivtdImage = pImage_
+    , _ivtdVolume = pVolume_
     }
 
 -- | The description you provided when starting the import volume task.
@@ -3230,7 +3230,7 @@ data Instance = Instance'
 
 -- | 'Instance' smart constructor.
 instance' :: Text -> Text -> Int -> InstanceType -> UTCTime -> Placement -> Monitoring -> ArchitectureValues -> DeviceType -> VirtualizationType -> HypervisorType -> InstanceState -> Instance
-instance' pInstanceId pImageId pAMILaunchIndex pInstanceType pLaunchTime pPlacement pMonitoring pArchitecture pRootDeviceType pVirtualizationType pHypervisor pState =
+instance' pInstanceId_ pImageId_ pAMILaunchIndex_ pInstanceType_ pLaunchTime_ pPlacement_ pMonitoring_ pArchitecture_ pRootDeviceType_ pVirtualizationType_ pHypervisor_ pState_ =
     Instance'
     { _insPublicDNSName = Nothing
     , _insPlatform = Nothing
@@ -3257,18 +3257,18 @@ instance' pInstanceId pImageId pAMILaunchIndex pInstanceType pLaunchTime pPlacem
     , _insBlockDeviceMappings = Nothing
     , _insPublicIPAddress = Nothing
     , _insTags = Nothing
-    , _insInstanceId = pInstanceId
-    , _insImageId = pImageId
-    , _insAMILaunchIndex = pAMILaunchIndex
-    , _insInstanceType = pInstanceType
-    , _insLaunchTime = _Time # pLaunchTime
-    , _insPlacement = pPlacement
-    , _insMonitoring = pMonitoring
-    , _insArchitecture = pArchitecture
-    , _insRootDeviceType = pRootDeviceType
-    , _insVirtualizationType = pVirtualizationType
-    , _insHypervisor = pHypervisor
-    , _insState = pState
+    , _insInstanceId = pInstanceId_
+    , _insImageId = pImageId_
+    , _insAMILaunchIndex = pAMILaunchIndex_
+    , _insInstanceType = pInstanceType_
+    , _insLaunchTime = _Time # pLaunchTime_
+    , _insPlacement = pPlacement_
+    , _insMonitoring = pMonitoring_
+    , _insArchitecture = pArchitecture_
+    , _insRootDeviceType = pRootDeviceType_
+    , _insVirtualizationType = pVirtualizationType_
+    , _insHypervisor = pHypervisor_
+    , _insState = pState_
     }
 
 -- | The public DNS name assigned to the instance. This name is not available
@@ -4162,10 +4162,10 @@ data InstanceState = InstanceState'
 
 -- | 'InstanceState' smart constructor.
 instanceState :: InstanceStateName -> Int -> InstanceState
-instanceState pName pCode =
+instanceState pName_ pCode_ =
     InstanceState'
-    { _isName = pName
-    , _isCode = pCode
+    { _isName = pName_
+    , _isCode = pCode_
     }
 
 -- | The current state of the instance.
@@ -4433,10 +4433,10 @@ data InstanceStatusSummary = InstanceStatusSummary'
 
 -- | 'InstanceStatusSummary' smart constructor.
 instanceStatusSummary :: SummaryStatus -> InstanceStatusSummary
-instanceStatusSummary pStatus =
+instanceStatusSummary pStatus_ =
     InstanceStatusSummary'
     { _issDetails = Nothing
-    , _issStatus = pStatus
+    , _issStatus = pStatus_
     }
 
 -- | The system instance health or application instance health.
@@ -4473,11 +4473,11 @@ data InternetGateway = InternetGateway'
 
 -- | 'InternetGateway' smart constructor.
 internetGateway :: Text -> InternetGateway
-internetGateway pInternetGatewayId =
+internetGateway pInternetGatewayId_ =
     InternetGateway'
     { _igAttachments = Nothing
     , _igTags = Nothing
-    , _igInternetGatewayId = pInternetGatewayId
+    , _igInternetGatewayId = pInternetGatewayId_
     }
 
 -- | Any VPCs attached to the Internet gateway.
@@ -4518,10 +4518,10 @@ data InternetGatewayAttachment = InternetGatewayAttachment'
 
 -- | 'InternetGatewayAttachment' smart constructor.
 internetGatewayAttachment :: AttachmentStatus -> Text -> InternetGatewayAttachment
-internetGatewayAttachment pState pVPCId =
+internetGatewayAttachment pState_ pVPCId_ =
     InternetGatewayAttachment'
-    { _igaState = pState
-    , _igaVPCId = pVPCId
+    { _igaState = pState_
+    , _igaVPCId = pVPCId_
     }
 
 -- | The current state of the attachment.
@@ -5931,10 +5931,10 @@ data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
 
 -- | 'PrivateIPAddressSpecification' smart constructor.
 privateIPAddressSpecification :: Text -> PrivateIPAddressSpecification
-privateIPAddressSpecification pPrivateIPAddress =
+privateIPAddressSpecification pPrivateIPAddress_ =
     PrivateIPAddressSpecification'
     { _piasPrimary = Nothing
-    , _piasPrivateIPAddress = pPrivateIPAddress
+    , _piasPrivateIPAddress = pPrivateIPAddress_
     }
 
 -- | Indicates whether the private IP address is the primary private IP
@@ -6283,13 +6283,13 @@ data Reservation = Reservation'
 
 -- | 'Reservation' smart constructor.
 reservation :: Text -> Text -> Reservation
-reservation pReservationId pOwnerId =
+reservation pReservationId_ pOwnerId_ =
     Reservation'
     { _rGroups = Nothing
     , _rInstances = Nothing
     , _rRequesterId = Nothing
-    , _rReservationId = pReservationId
-    , _rOwnerId = pOwnerId
+    , _rReservationId = pReservationId_
+    , _rOwnerId = pOwnerId_
     }
 
 -- | One or more security groups.
@@ -7276,9 +7276,9 @@ newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'
 
 -- | 'RunInstancesMonitoringEnabled' smart constructor.
 runInstancesMonitoringEnabled :: Bool -> RunInstancesMonitoringEnabled
-runInstancesMonitoringEnabled pEnabled =
+runInstancesMonitoringEnabled pEnabled_ =
     RunInstancesMonitoringEnabled'
-    { _rimeEnabled = pEnabled
+    { _rimeEnabled = pEnabled_
     }
 
 -- | Indicates whether monitoring is enabled for the instance.
@@ -7405,16 +7405,16 @@ data SecurityGroup = SecurityGroup'
 
 -- | 'SecurityGroup' smart constructor.
 securityGroup :: Text -> Text -> Text -> Text -> SecurityGroup
-securityGroup pOwnerId pGroupId pGroupName pDescription =
+securityGroup pOwnerId_ pGroupId_ pGroupName_ pDescription_ =
     SecurityGroup'
     { _sgVPCId = Nothing
     , _sgIPPermissions = Nothing
     , _sgIPPermissionsEgress = Nothing
     , _sgTags = Nothing
-    , _sgOwnerId = pOwnerId
-    , _sgGroupId = pGroupId
-    , _sgGroupName = pGroupName
-    , _sgDescription = pDescription
+    , _sgOwnerId = pOwnerId_
+    , _sgGroupId = pGroupId_
+    , _sgGroupName = pGroupName_
+    , _sgDescription = pDescription_
     }
 
 -- | [EC2-VPC] The ID of the VPC for the security group.
@@ -7512,20 +7512,20 @@ data Snapshot = Snapshot'
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Text -> Text -> Text -> Int -> Text -> UTCTime -> Text -> SnapshotState -> Bool -> Snapshot
-snapshot pSnapshotId pOwnerId pVolumeId pVolumeSize pDescription pStartTime pProgress pState pEncrypted =
+snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime_ pProgress_ pState_ pEncrypted_ =
     Snapshot'
     { _sOwnerAlias = Nothing
     , _sKMSKeyId = Nothing
     , _sTags = Nothing
-    , _sSnapshotId = pSnapshotId
-    , _sOwnerId = pOwnerId
-    , _sVolumeId = pVolumeId
-    , _sVolumeSize = pVolumeSize
-    , _sDescription = pDescription
-    , _sStartTime = _Time # pStartTime
-    , _sProgress = pProgress
-    , _sState = pState
-    , _sEncrypted = pEncrypted
+    , _sSnapshotId = pSnapshotId_
+    , _sOwnerId = pOwnerId_
+    , _sVolumeId = pVolumeId_
+    , _sVolumeSize = pVolumeSize_
+    , _sDescription = pDescription_
+    , _sStartTime = _Time # pStartTime_
+    , _sProgress = pProgress_
+    , _sState = pState_
+    , _sEncrypted = pEncrypted_
     }
 
 -- | The AWS account alias (for example, @amazon@, @self@) or AWS account ID
@@ -7937,11 +7937,11 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
 
 -- | 'SpotFleetRequestConfig' smart constructor.
 spotFleetRequestConfig :: Text -> BatchState -> SpotFleetRequestConfigData -> SpotFleetRequestConfig
-spotFleetRequestConfig pSpotFleetRequestId pSpotFleetRequestState pSpotFleetRequestConfig =
+spotFleetRequestConfig pSpotFleetRequestId_ pSpotFleetRequestState_ pSpotFleetRequestConfig_ =
     SpotFleetRequestConfig'
-    { _sfrcSpotFleetRequestId = pSpotFleetRequestId
-    , _sfrcSpotFleetRequestState = pSpotFleetRequestState
-    , _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig
+    { _sfrcSpotFleetRequestId = pSpotFleetRequestId_
+    , _sfrcSpotFleetRequestState = pSpotFleetRequestState_
+    , _sfrcSpotFleetRequestConfig = pSpotFleetRequestConfig_
     }
 
 -- | The ID of the Spot fleet request.
@@ -7997,16 +7997,16 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
 
 -- | 'SpotFleetRequestConfigData' smart constructor.
 spotFleetRequestConfigData :: Text -> Int -> Text -> NonEmpty LaunchSpecification -> SpotFleetRequestConfigData
-spotFleetRequestConfigData pSpotPrice pTargetCapacity pIAMFleetRole pLaunchSpecifications =
+spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSpecifications_ =
     SpotFleetRequestConfigData'
     { _sfrcdClientToken = Nothing
     , _sfrcdValidUntil = Nothing
     , _sfrcdTerminateInstancesWithExpiration = Nothing
     , _sfrcdValidFrom = Nothing
-    , _sfrcdSpotPrice = pSpotPrice
-    , _sfrcdTargetCapacity = pTargetCapacity
-    , _sfrcdIAMFleetRole = pIAMFleetRole
-    , _sfrcdLaunchSpecifications = _List1 # pLaunchSpecifications
+    , _sfrcdSpotPrice = pSpotPrice_
+    , _sfrcdTargetCapacity = pTargetCapacity_
+    , _sfrcdIAMFleetRole = pIAMFleetRole_
+    , _sfrcdLaunchSpecifications = _List1 # pLaunchSpecifications_
     }
 
 -- | A unique, case-sensitive identifier you provide to ensure idempotency of
@@ -8569,17 +8569,17 @@ data Subnet = Subnet'
 
 -- | 'Subnet' smart constructor.
 subnet :: Text -> Int -> Text -> Bool -> Bool -> SubnetState -> Text -> Text -> Subnet
-subnet pAvailabilityZone pAvailableIPAddressCount pCIdRBlock pDefaultForAz pMapPublicIPOnLaunch pState pSubnetId pVPCId =
+subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCIdRBlock_ pDefaultForAz_ pMapPublicIPOnLaunch_ pState_ pSubnetId_ pVPCId_ =
     Subnet'
     { _subTags = Nothing
-    , _subAvailabilityZone = pAvailabilityZone
-    , _subAvailableIPAddressCount = pAvailableIPAddressCount
-    , _subCIdRBlock = pCIdRBlock
-    , _subDefaultForAz = pDefaultForAz
-    , _subMapPublicIPOnLaunch = pMapPublicIPOnLaunch
-    , _subState = pState
-    , _subSubnetId = pSubnetId
-    , _subVPCId = pVPCId
+    , _subAvailabilityZone = pAvailabilityZone_
+    , _subAvailableIPAddressCount = pAvailableIPAddressCount_
+    , _subCIdRBlock = pCIdRBlock_
+    , _subDefaultForAz = pDefaultForAz_
+    , _subMapPublicIPOnLaunch = pMapPublicIPOnLaunch_
+    , _subState = pState_
+    , _subSubnetId = pSubnetId_
+    , _subVPCId = pVPCId_
     }
 
 -- | Any tags assigned to the subnet.
@@ -8650,10 +8650,10 @@ data Tag = Tag'
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
-tag pKey pValue =
+tag pKey_ pValue_ =
     Tag'
-    { _tagKey = pKey
-    , _tagValue = pValue
+    { _tagKey = pKey_
+    , _tagValue = pValue_
     }
 
 -- | The key of the tag.
@@ -8699,12 +8699,12 @@ data TagDescription = TagDescription'
 
 -- | 'TagDescription' smart constructor.
 tagDescription :: Text -> ResourceType -> Text -> Text -> TagDescription
-tagDescription pResourceId pResourceType pKey pValue =
+tagDescription pResourceId_ pResourceType_ pKey_ pValue_ =
     TagDescription'
-    { _tdResourceId = pResourceId
-    , _tdResourceType = pResourceType
-    , _tdKey = pKey
-    , _tdValue = pValue
+    { _tdResourceId = pResourceId_
+    , _tdResourceType = pResourceType_
+    , _tdKey = pKey_
+    , _tdValue = pValue_
     }
 
 -- | The ID of the resource. For example, @ami-1a2b3c4d@.
@@ -8747,10 +8747,10 @@ data UnsuccessfulItem = UnsuccessfulItem'
 
 -- | 'UnsuccessfulItem' smart constructor.
 unsuccessfulItem :: UnsuccessfulItemError -> UnsuccessfulItem
-unsuccessfulItem pError =
+unsuccessfulItem pError_ =
     UnsuccessfulItem'
     { _uiResourceId = Nothing
-    , _uiError = pError
+    , _uiError = pError_
     }
 
 -- | The ID of the resource.
@@ -8784,10 +8784,10 @@ data UnsuccessfulItemError = UnsuccessfulItemError'
 
 -- | 'UnsuccessfulItemError' smart constructor.
 unsuccessfulItemError :: Text -> Text -> UnsuccessfulItemError
-unsuccessfulItemError pCode pMessage =
+unsuccessfulItemError pCode_ pMessage_ =
     UnsuccessfulItemError'
-    { _uieCode = pCode
-    , _uieMessage = pMessage
+    { _uieCode = pCode_
+    , _uieMessage = pMessage_
     }
 
 -- | The error code.
@@ -9044,15 +9044,15 @@ data VPC = VPC'
 
 -- | 'VPC' smart constructor.
 vpc :: Text -> Text -> Tenancy -> Bool -> VPCState -> Text -> VPC
-vpc pCIdRBlock pDHCPOptionsId pInstanceTenancy pIsDefault pState pVPCId =
+vpc pCIdRBlock_ pDHCPOptionsId_ pInstanceTenancy_ pIsDefault_ pState_ pVPCId_ =
     VPC'
     { _vpcTags = Nothing
-    , _vpcCIdRBlock = pCIdRBlock
-    , _vpcDHCPOptionsId = pDHCPOptionsId
-    , _vpcInstanceTenancy = pInstanceTenancy
-    , _vpcIsDefault = pIsDefault
-    , _vpcState = pState
-    , _vpcVPCId = pVPCId
+    , _vpcCIdRBlock = pCIdRBlock_
+    , _vpcDHCPOptionsId = pDHCPOptionsId_
+    , _vpcInstanceTenancy = pInstanceTenancy_
+    , _vpcIsDefault = pIsDefault_
+    , _vpcState = pState_
+    , _vpcVPCId = pVPCId_
     }
 
 -- | Any tags assigned to the VPC.
@@ -9453,18 +9453,18 @@ data VPNConnection = VPNConnection'
 
 -- | 'VPNConnection' smart constructor.
 vpnConnection :: Text -> Text -> Text -> VPNState -> GatewayType -> VPNConnection
-vpnConnection pVPNConnectionId pCustomerGatewayId pCustomerGatewayConfiguration pState pType =
+vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pCustomerGatewayConfiguration_ pState_ pType_ =
     VPNConnection'
     { _vcRoutes = Nothing
     , _vcVPNGatewayId = Nothing
     , _vcOptions = Nothing
     , _vcVGWTelemetry = Nothing
     , _vcTags = Nothing
-    , _vcVPNConnectionId = pVPNConnectionId
-    , _vcCustomerGatewayId = pCustomerGatewayId
-    , _vcCustomerGatewayConfiguration = pCustomerGatewayConfiguration
-    , _vcState = pState
-    , _vcType = pType
+    , _vcVPNConnectionId = pVPNConnectionId_
+    , _vcCustomerGatewayId = pCustomerGatewayId_
+    , _vcCustomerGatewayConfiguration = pCustomerGatewayConfiguration_
+    , _vcState = pState_
+    , _vcType = pType_
     }
 
 -- | The static routes associated with the VPN connection.
@@ -9754,20 +9754,20 @@ data Volume = Volume'
 
 -- | 'Volume' smart constructor.
 volume :: Text -> UTCTime -> Bool -> Int -> Text -> VolumeState -> Text -> VolumeType -> Volume
-volume pAvailabilityZone pCreateTime pEncrypted pSize pSnapshotId pState pVolumeId pVolumeType =
+volume pAvailabilityZone_ pCreateTime_ pEncrypted_ pSize_ pSnapshotId_ pState_ pVolumeId_ pVolumeType_ =
     Volume'
     { _vAttachments = Nothing
     , _vIOPS = Nothing
     , _vKMSKeyId = Nothing
     , _vTags = Nothing
-    , _vAvailabilityZone = pAvailabilityZone
-    , _vCreateTime = _Time # pCreateTime
-    , _vEncrypted = pEncrypted
-    , _vSize = pSize
-    , _vSnapshotId = pSnapshotId
-    , _vState = pState
-    , _vVolumeId = pVolumeId
-    , _vVolumeType = pVolumeType
+    , _vAvailabilityZone = pAvailabilityZone_
+    , _vCreateTime = _Time # pCreateTime_
+    , _vEncrypted = pEncrypted_
+    , _vSize = pSize_
+    , _vSnapshotId = pSnapshotId_
+    , _vState = pState_
+    , _vVolumeId = pVolumeId_
+    , _vVolumeType = pVolumeType_
     }
 
 -- | Information about the volume attachments.
@@ -9940,9 +9940,9 @@ newtype VolumeDetail = VolumeDetail'
 
 -- | 'VolumeDetail' smart constructor.
 volumeDetail :: Integer -> VolumeDetail
-volumeDetail pSize =
+volumeDetail pSize_ =
     VolumeDetail'
-    { _vdSize = pSize
+    { _vdSize = pSize_
     }
 
 -- | The size of the volume, in GiB.

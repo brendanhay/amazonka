@@ -59,10 +59,10 @@ data DeletePlacementGroup = DeletePlacementGroup'
 
 -- | 'DeletePlacementGroup' smart constructor.
 deletePlacementGroup :: Text -> DeletePlacementGroup
-deletePlacementGroup pGroupName =
+deletePlacementGroup pGroupName_ =
     DeletePlacementGroup'
     { _dpgrqDryRun = Nothing
-    , _dpgrqGroupName = pGroupName
+    , _dpgrqGroupName = pGroupName_
     }
 
 -- | Checks whether you have the required permissions for the action, without

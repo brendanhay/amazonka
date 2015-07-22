@@ -70,11 +70,11 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
 
 -- | 'RevokeSnapshotAccess' smart constructor.
 revokeSnapshotAccess :: Text -> Text -> RevokeSnapshotAccess
-revokeSnapshotAccess pSnapshotIdentifier pAccountWithRestoreAccess =
+revokeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
     RevokeSnapshotAccess'
     { _rsarqSnapshotClusterIdentifier = Nothing
-    , _rsarqSnapshotIdentifier = pSnapshotIdentifier
-    , _rsarqAccountWithRestoreAccess = pAccountWithRestoreAccess
+    , _rsarqSnapshotIdentifier = pSnapshotIdentifier_
+    , _rsarqAccountWithRestoreAccess = pAccountWithRestoreAccess_
     }
 
 -- | The identifier of the cluster the snapshot was created from. This
@@ -135,10 +135,10 @@ data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
 
 -- | 'RevokeSnapshotAccessResponse' smart constructor.
 revokeSnapshotAccessResponse :: Int -> RevokeSnapshotAccessResponse
-revokeSnapshotAccessResponse pStatus =
+revokeSnapshotAccessResponse pStatus_ =
     RevokeSnapshotAccessResponse'
     { _rsarsSnapshot = Nothing
-    , _rsarsStatus = pStatus
+    , _rsarsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

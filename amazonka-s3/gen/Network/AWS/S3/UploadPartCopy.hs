@@ -124,7 +124,7 @@ data UploadPartCopy = UploadPartCopy'
 
 -- | 'UploadPartCopy' smart constructor.
 uploadPartCopy :: BucketName -> Text -> ObjectKey -> Int -> Text -> UploadPartCopy
-uploadPartCopy pBucket pCopySource pKey pPartNumber pUploadId =
+uploadPartCopy pBucket_ pCopySource_ pKey_ pPartNumber_ pUploadId_ =
     UploadPartCopy'
     { _upcrqCopySourceIfModifiedSince = Nothing
     , _upcrqCopySourceIfUnmodifiedSince = Nothing
@@ -138,11 +138,11 @@ uploadPartCopy pBucket pCopySource pKey pPartNumber pUploadId =
     , _upcrqSSECustomerKeyMD5 = Nothing
     , _upcrqCopySourceSSECustomerKey = Nothing
     , _upcrqCopySourceSSECustomerAlgorithm = Nothing
-    , _upcrqBucket = pBucket
-    , _upcrqCopySource = pCopySource
-    , _upcrqKey = pKey
-    , _upcrqPartNumber = pPartNumber
-    , _upcrqUploadId = pUploadId
+    , _upcrqBucket = pBucket_
+    , _upcrqCopySource = pCopySource_
+    , _upcrqKey = pKey_
+    , _upcrqPartNumber = pPartNumber_
+    , _upcrqUploadId = pUploadId_
     }
 
 -- | Copies the object if it has been modified since the specified time.
@@ -323,7 +323,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
 
 -- | 'UploadPartCopyResponse' smart constructor.
 uploadPartCopyResponse :: Int -> UploadPartCopyResponse
-uploadPartCopyResponse pStatus =
+uploadPartCopyResponse pStatus_ =
     UploadPartCopyResponse'
     { _upcrsRequestCharged = Nothing
     , _upcrsCopyPartResult = Nothing
@@ -332,7 +332,7 @@ uploadPartCopyResponse pStatus =
     , _upcrsSSEKMSKeyId = Nothing
     , _upcrsSSECustomerKeyMD5 = Nothing
     , _upcrsServerSideEncryption = Nothing
-    , _upcrsStatus = pStatus
+    , _upcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

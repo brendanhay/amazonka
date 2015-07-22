@@ -145,7 +145,7 @@ data GetObject = GetObject'
 
 -- | 'GetObject' smart constructor.
 getObject :: BucketName -> ObjectKey -> GetObject
-getObject pBucket pKey =
+getObject pBucket_ pKey_ =
     GetObject'
     { _gorqIfMatch = Nothing
     , _gorqVersionId = Nothing
@@ -163,8 +163,8 @@ getObject pBucket pKey =
     , _gorqResponseCacheControl = Nothing
     , _gorqResponseExpires = Nothing
     , _gorqIfNoneMatch = Nothing
-    , _gorqBucket = pBucket
-    , _gorqKey = pKey
+    , _gorqBucket = pBucket_
+    , _gorqKey = pKey_
     }
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
@@ -409,7 +409,7 @@ data GetObjectResponse = GetObjectResponse'
 
 -- | 'GetObjectResponse' smart constructor.
 getObjectResponse :: Int -> RsBody -> GetObjectResponse
-getObjectResponse pStatus pBody =
+getObjectResponse pStatus_ pBody_ =
     GetObjectResponse'
     { _gorsVersionId = Nothing
     , _gorsETag = Nothing
@@ -434,8 +434,8 @@ getObjectResponse pStatus pBody =
     , _gorsContentDisposition = Nothing
     , _gorsServerSideEncryption = Nothing
     , _gorsContentType = Nothing
-    , _gorsStatus = pStatus
-    , _gorsBody = pBody
+    , _gorsStatus = pStatus_
+    , _gorsBody = pBody_
     }
 
 -- | Version of the object.

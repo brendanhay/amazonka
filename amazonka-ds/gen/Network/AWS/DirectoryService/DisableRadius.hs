@@ -56,9 +56,9 @@ newtype DisableRadius = DisableRadius'
 
 -- | 'DisableRadius' smart constructor.
 disableRadius :: Text -> DisableRadius
-disableRadius pDirectoryId =
+disableRadius pDirectoryId_ =
     DisableRadius'
-    { _drrqDirectoryId = pDirectoryId
+    { _drrqDirectoryId = pDirectoryId_
     }
 
 -- | The identifier of the directory to disable MFA for.
@@ -107,9 +107,9 @@ newtype DisableRadiusResponse = DisableRadiusResponse'
 
 -- | 'DisableRadiusResponse' smart constructor.
 disableRadiusResponse :: Int -> DisableRadiusResponse
-disableRadiusResponse pStatus =
+disableRadiusResponse pStatus_ =
     DisableRadiusResponse'
-    { _drrsStatus = pStatus
+    { _drrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

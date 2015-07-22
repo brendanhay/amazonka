@@ -55,9 +55,9 @@ newtype DeleteStack = DeleteStack'
 
 -- | 'DeleteStack' smart constructor.
 deleteStack :: Text -> DeleteStack
-deleteStack pStackName =
+deleteStack pStackName_ =
     DeleteStack'
-    { _dsrqStackName = pStackName
+    { _dsrqStackName = pStackName_
     }
 
 -- | The name or the unique stack ID that is associated with the stack.

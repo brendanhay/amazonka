@@ -173,10 +173,10 @@ data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
 
 -- | 'SubmitContainerStateChangeResponse' smart constructor.
 submitContainerStateChangeResponse :: Int -> SubmitContainerStateChangeResponse
-submitContainerStateChangeResponse pStatus =
+submitContainerStateChangeResponse pStatus_ =
     SubmitContainerStateChangeResponse'
     { _scscrsAcknowledgment = Nothing
-    , _scscrsStatus = pStatus
+    , _scscrsStatus = pStatus_
     }
 
 -- | Acknowledgement of the state change.

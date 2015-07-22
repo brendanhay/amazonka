@@ -51,9 +51,9 @@ newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
 
 -- | 'DeleteClusterSubnetGroup' smart constructor.
 deleteClusterSubnetGroup :: Text -> DeleteClusterSubnetGroup
-deleteClusterSubnetGroup pClusterSubnetGroupName =
+deleteClusterSubnetGroup pClusterSubnetGroupName_ =
     DeleteClusterSubnetGroup'
-    { _dcsgrqClusterSubnetGroupName = pClusterSubnetGroupName
+    { _dcsgrqClusterSubnetGroupName = pClusterSubnetGroupName_
     }
 
 -- | The name of the cluster subnet group name to be deleted.

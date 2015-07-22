@@ -54,9 +54,9 @@ newtype GetBucketVersioning = GetBucketVersioning'
 
 -- | 'GetBucketVersioning' smart constructor.
 getBucketVersioning :: BucketName -> GetBucketVersioning
-getBucketVersioning pBucket =
+getBucketVersioning pBucket_ =
     GetBucketVersioning'
-    { _gbvrqBucket = pBucket
+    { _gbvrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -98,10 +98,10 @@ data GetBucketVersioningResponse = GetBucketVersioningResponse'
 
 -- | 'GetBucketVersioningResponse' smart constructor.
 getBucketVersioningResponse :: Int -> GetBucketVersioningResponse
-getBucketVersioningResponse pStatus =
+getBucketVersioningResponse pStatus_ =
     GetBucketVersioningResponse'
     { _gbvrsMFADelete = Nothing
-    , _gbvrsStatus = pStatus
+    , _gbvrsStatus = pStatus_
     }
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning

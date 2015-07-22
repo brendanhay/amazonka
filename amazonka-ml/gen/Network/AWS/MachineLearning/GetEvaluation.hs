@@ -65,9 +65,9 @@ newtype GetEvaluation = GetEvaluation'
 
 -- | 'GetEvaluation' smart constructor.
 getEvaluation :: Text -> GetEvaluation
-getEvaluation pEvaluationId =
+getEvaluation pEvaluationId_ =
     GetEvaluation'
-    { _gerqEvaluationId = pEvaluationId
+    { _gerqEvaluationId = pEvaluationId_
     }
 
 -- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@
@@ -163,7 +163,7 @@ data GetEvaluationResponse = GetEvaluationResponse'
 
 -- | 'GetEvaluationResponse' smart constructor.
 getEvaluationResponse :: Int -> GetEvaluationResponse
-getEvaluationResponse pStatus =
+getEvaluationResponse pStatus_ =
     GetEvaluationResponse'
     { _gersPerformanceMetrics = Nothing
     , _gersLastUpdatedAt = Nothing
@@ -176,7 +176,7 @@ getEvaluationResponse pStatus =
     , _gersMessage = Nothing
     , _gersEvaluationId = Nothing
     , _gersEvaluationDataSourceId = Nothing
-    , _gersStatus = pStatus
+    , _gersStatus = pStatus_
     }
 
 -- | Measurements of how well the @MLModel@ performed using observations

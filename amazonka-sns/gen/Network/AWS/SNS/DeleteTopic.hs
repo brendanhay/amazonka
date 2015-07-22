@@ -54,9 +54,9 @@ newtype DeleteTopic = DeleteTopic'
 
 -- | 'DeleteTopic' smart constructor.
 deleteTopic :: Text -> DeleteTopic
-deleteTopic pTopicARN =
+deleteTopic pTopicARN_ =
     DeleteTopic'
-    { _dtrqTopicARN = pTopicARN
+    { _dtrqTopicARN = pTopicARN_
     }
 
 -- | The ARN of the topic you want to delete.

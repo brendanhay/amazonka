@@ -85,14 +85,14 @@ data CreateFlowLogs = CreateFlowLogs'
 
 -- | 'CreateFlowLogs' smart constructor.
 createFlowLogs :: FlowLogsResourceType -> TrafficType -> Text -> Text -> CreateFlowLogs
-createFlowLogs pResourceType pTrafficType pLogGroupName pDeliverLogsPermissionARN =
+createFlowLogs pResourceType_ pTrafficType_ pLogGroupName_ pDeliverLogsPermissionARN_ =
     CreateFlowLogs'
     { _cflrqClientToken = Nothing
     , _cflrqResourceIds = mempty
-    , _cflrqResourceType = pResourceType
-    , _cflrqTrafficType = pTrafficType
-    , _cflrqLogGroupName = pLogGroupName
-    , _cflrqDeliverLogsPermissionARN = pDeliverLogsPermissionARN
+    , _cflrqResourceType = pResourceType_
+    , _cflrqTrafficType = pTrafficType_
+    , _cflrqLogGroupName = pLogGroupName_
+    , _cflrqDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -177,12 +177,12 @@ data CreateFlowLogsResponse = CreateFlowLogsResponse'
 
 -- | 'CreateFlowLogsResponse' smart constructor.
 createFlowLogsResponse :: Int -> CreateFlowLogsResponse
-createFlowLogsResponse pStatus =
+createFlowLogsResponse pStatus_ =
     CreateFlowLogsResponse'
     { _cflrsUnsuccessful = Nothing
     , _cflrsClientToken = Nothing
     , _cflrsFlowLogIds = Nothing
-    , _cflrsStatus = pStatus
+    , _cflrsStatus = pStatus_
     }
 
 -- | Information about the flow logs that could not be created successfully.

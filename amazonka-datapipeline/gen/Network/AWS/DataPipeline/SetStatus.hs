@@ -66,11 +66,11 @@ data SetStatus = SetStatus'
 
 -- | 'SetStatus' smart constructor.
 setStatus :: Text -> Text -> SetStatus
-setStatus pPipelineId pStatus =
+setStatus pPipelineId_ pStatus_ =
     SetStatus'
-    { _ssrqPipelineId = pPipelineId
+    { _ssrqPipelineId = pPipelineId_
     , _ssrqObjectIds = mempty
-    , _ssrqStatus = pStatus
+    , _ssrqStatus = pStatus_
     }
 
 -- | The ID of the pipeline that contains the objects.

@@ -177,10 +177,10 @@ data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
 describeVPNConnectionsResponse :: Int -> DescribeVPNConnectionsResponse
-describeVPNConnectionsResponse pStatus =
+describeVPNConnectionsResponse pStatus_ =
     DescribeVPNConnectionsResponse'
     { _dvcrsVPNConnections = Nothing
-    , _dvcrsStatus = pStatus
+    , _dvcrsStatus = pStatus_
     }
 
 -- | Information about one or more VPN connections.

@@ -60,10 +60,10 @@ data DeleteDeploymentGroup = DeleteDeploymentGroup'
 
 -- | 'DeleteDeploymentGroup' smart constructor.
 deleteDeploymentGroup :: Text -> Text -> DeleteDeploymentGroup
-deleteDeploymentGroup pApplicationName pDeploymentGroupName =
+deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     DeleteDeploymentGroup'
-    { _ddgrqApplicationName = pApplicationName
-    , _ddgrqDeploymentGroupName = pDeploymentGroupName
+    { _ddgrqApplicationName = pApplicationName_
+    , _ddgrqDeploymentGroupName = pDeploymentGroupName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
@@ -125,10 +125,10 @@ data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
 deleteDeploymentGroupResponse :: Int -> DeleteDeploymentGroupResponse
-deleteDeploymentGroupResponse pStatus =
+deleteDeploymentGroupResponse pStatus_ =
     DeleteDeploymentGroupResponse'
     { _ddgrsHooksNotCleanedUp = Nothing
-    , _ddgrsStatus = pStatus
+    , _ddgrsStatus = pStatus_
     }
 
 -- | If the output contains no data, and the corresponding deployment group

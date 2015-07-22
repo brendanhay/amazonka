@@ -58,9 +58,9 @@ newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
 
 -- | 'ListDeadLetterSourceQueues' smart constructor.
 listDeadLetterSourceQueues :: Text -> ListDeadLetterSourceQueues
-listDeadLetterSourceQueues pQueueURL =
+listDeadLetterSourceQueues pQueueURL_ =
     ListDeadLetterSourceQueues'
-    { _ldlsqrqQueueURL = pQueueURL
+    { _ldlsqrqQueueURL = pQueueURL_
     }
 
 -- | The queue URL of a dead letter queue.
@@ -109,9 +109,9 @@ data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
 
 -- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
 listDeadLetterSourceQueuesResponse :: Int -> ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueuesResponse pStatus =
+listDeadLetterSourceQueuesResponse pStatus_ =
     ListDeadLetterSourceQueuesResponse'
-    { _ldlsqrsStatus = pStatus
+    { _ldlsqrsStatus = pStatus_
     , _ldlsqrsQueueURLs = mempty
     }
 

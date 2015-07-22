@@ -203,11 +203,11 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
 
 -- | 'DescribeClusterSubnetGroupsResponse' smart constructor.
 describeClusterSubnetGroupsResponse :: Int -> DescribeClusterSubnetGroupsResponse
-describeClusterSubnetGroupsResponse pStatus =
+describeClusterSubnetGroupsResponse pStatus_ =
     DescribeClusterSubnetGroupsResponse'
     { _dcsgrsClusterSubnetGroups = Nothing
     , _dcsgrsMarker = Nothing
-    , _dcsgrsStatus = pStatus
+    , _dcsgrsStatus = pStatus_
     }
 
 -- | A list of ClusterSubnetGroup instances.

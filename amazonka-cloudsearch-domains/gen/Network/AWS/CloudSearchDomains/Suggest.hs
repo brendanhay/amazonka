@@ -82,11 +82,11 @@ data Suggest = Suggest'
 
 -- | 'Suggest' smart constructor.
 suggest :: Text -> Text -> Suggest
-suggest pQuery pSuggester =
+suggest pQuery_ pSuggester_ =
     Suggest'
     { _srqSize = Nothing
-    , _srqQuery = pQuery
-    , _srqSuggester = pSuggester
+    , _srqQuery = pQuery_
+    , _srqSuggester = pSuggester_
     }
 
 -- | Specifies the maximum number of suggestions to return.
@@ -144,10 +144,10 @@ data SuggestResponse = SuggestResponse'
 
 -- | 'SuggestResponse' smart constructor.
 suggestResponse :: Int -> SuggestResponse
-suggestResponse pStatus =
+suggestResponse pStatus_ =
     SuggestResponse'
     { _srsSuggest = Nothing
-    , _srsStatus = pStatus
+    , _srsStatus = pStatus_
     }
 
 -- | Container for the matching search suggestion information.

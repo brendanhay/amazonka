@@ -55,9 +55,9 @@ newtype GetBucketACL = GetBucketACL'
 
 -- | 'GetBucketACL' smart constructor.
 getBucketACL :: BucketName -> GetBucketACL
-getBucketACL pBucket =
+getBucketACL pBucket_ =
     GetBucketACL'
-    { _gbarqBucket = pBucket
+    { _gbarqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -104,11 +104,11 @@ data GetBucketACLResponse = GetBucketACLResponse'
 
 -- | 'GetBucketACLResponse' smart constructor.
 getBucketACLResponse :: Int -> GetBucketACLResponse
-getBucketACLResponse pStatus =
+getBucketACLResponse pStatus_ =
     GetBucketACLResponse'
     { _gbarsGrants = Nothing
     , _gbarsOwner = Nothing
-    , _gbarsStatus = pStatus
+    , _gbarsStatus = pStatus_
     }
 
 -- | A list of grants.

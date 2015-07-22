@@ -68,12 +68,12 @@ data CreateUpload = CreateUpload'
 
 -- | 'CreateUpload' smart constructor.
 createUpload :: Text -> Text -> UploadType -> CreateUpload
-createUpload pProjectARN pName pType =
+createUpload pProjectARN_ pName_ pType_ =
     CreateUpload'
     { _curqContentType = Nothing
-    , _curqProjectARN = pProjectARN
-    , _curqName = pName
-    , _curqType = pType
+    , _curqProjectARN = pProjectARN_
+    , _curqName = pName_
+    , _curqType = pType_
     }
 
 -- | The upload\'s content type (for example, \"application\/octet-stream\").
@@ -159,10 +159,10 @@ data CreateUploadResponse = CreateUploadResponse'
 
 -- | 'CreateUploadResponse' smart constructor.
 createUploadResponse :: Int -> CreateUploadResponse
-createUploadResponse pStatus =
+createUploadResponse pStatus_ =
     CreateUploadResponse'
     { _cursUpload = Nothing
-    , _cursStatus = pStatus
+    , _cursStatus = pStatus_
     }
 
 -- | The newly created upload.

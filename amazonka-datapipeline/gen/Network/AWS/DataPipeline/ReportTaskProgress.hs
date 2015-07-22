@@ -71,10 +71,10 @@ data ReportTaskProgress = ReportTaskProgress'
 
 -- | 'ReportTaskProgress' smart constructor.
 reportTaskProgress :: Text -> ReportTaskProgress
-reportTaskProgress pTaskId =
+reportTaskProgress pTaskId_ =
     ReportTaskProgress'
     { _rtprqFields = Nothing
-    , _rtprqTaskId = pTaskId
+    , _rtprqTaskId = pTaskId_
     }
 
 -- | Key-value pairs that define the properties of the
@@ -134,10 +134,10 @@ data ReportTaskProgressResponse = ReportTaskProgressResponse'
 
 -- | 'ReportTaskProgressResponse' smart constructor.
 reportTaskProgressResponse :: Int -> Bool -> ReportTaskProgressResponse
-reportTaskProgressResponse pStatus pCanceled =
+reportTaskProgressResponse pStatus_ pCanceled_ =
     ReportTaskProgressResponse'
-    { _rtprsStatus = pStatus
-    , _rtprsCanceled = pCanceled
+    { _rtprsStatus = pStatus_
+    , _rtprsCanceled = pCanceled_
     }
 
 -- | FIXME: Undocumented member.

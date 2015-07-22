@@ -142,10 +142,10 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse
-describeInstancesResponse pStatus =
+describeInstancesResponse pStatus_ =
     DescribeInstancesResponse'
     { _dirsInstances = Nothing
-    , _dirsStatus = pStatus
+    , _dirsStatus = pStatus_
     }
 
 -- | An array of @Instance@ objects that describe the instances.

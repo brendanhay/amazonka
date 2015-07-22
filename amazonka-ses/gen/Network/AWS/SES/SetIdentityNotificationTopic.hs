@@ -75,11 +75,11 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
 
 -- | 'SetIdentityNotificationTopic' smart constructor.
 setIdentityNotificationTopic :: Text -> NotificationType -> SetIdentityNotificationTopic
-setIdentityNotificationTopic pIdentity pNotificationType =
+setIdentityNotificationTopic pIdentity_ pNotificationType_ =
     SetIdentityNotificationTopic'
     { _sintrqSNSTopic = Nothing
-    , _sintrqIdentity = pIdentity
-    , _sintrqNotificationType = pNotificationType
+    , _sintrqIdentity = pIdentity_
+    , _sintrqNotificationType = pNotificationType_
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
@@ -143,9 +143,9 @@ newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicRespo
 
 -- | 'SetIdentityNotificationTopicResponse' smart constructor.
 setIdentityNotificationTopicResponse :: Int -> SetIdentityNotificationTopicResponse
-setIdentityNotificationTopicResponse pStatus =
+setIdentityNotificationTopicResponse pStatus_ =
     SetIdentityNotificationTopicResponse'
-    { _sintrsStatus = pStatus
+    { _sintrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

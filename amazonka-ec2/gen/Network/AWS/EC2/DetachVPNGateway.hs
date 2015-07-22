@@ -67,11 +67,11 @@ data DetachVPNGateway = DetachVPNGateway'
 
 -- | 'DetachVPNGateway' smart constructor.
 detachVPNGateway :: Text -> Text -> DetachVPNGateway
-detachVPNGateway pVPNGatewayId pVPCId =
+detachVPNGateway pVPNGatewayId_ pVPCId_ =
     DetachVPNGateway'
     { _dvpngrqDryRun = Nothing
-    , _dvpngrqVPNGatewayId = pVPNGatewayId
-    , _dvpngrqVPCId = pVPCId
+    , _dvpngrqVPNGatewayId = pVPNGatewayId_
+    , _dvpngrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

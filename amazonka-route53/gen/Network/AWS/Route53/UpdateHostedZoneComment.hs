@@ -66,10 +66,10 @@ data UpdateHostedZoneComment = UpdateHostedZoneComment'
 
 -- | 'UpdateHostedZoneComment' smart constructor.
 updateHostedZoneComment :: Text -> UpdateHostedZoneComment
-updateHostedZoneComment pId =
+updateHostedZoneComment pId_ =
     UpdateHostedZoneComment'
     { _uhzcrqComment = Nothing
-    , _uhzcrqId = pId
+    , _uhzcrqId = pId_
     }
 
 -- | A comment about your hosted zone.
@@ -128,10 +128,10 @@ data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
 
 -- | 'UpdateHostedZoneCommentResponse' smart constructor.
 updateHostedZoneCommentResponse :: Int -> HostedZone -> UpdateHostedZoneCommentResponse
-updateHostedZoneCommentResponse pStatus pHostedZone =
+updateHostedZoneCommentResponse pStatus_ pHostedZone_ =
     UpdateHostedZoneCommentResponse'
-    { _uhzcrsStatus = pStatus
-    , _uhzcrsHostedZone = pHostedZone
+    { _uhzcrsStatus = pStatus_
+    , _uhzcrsHostedZone = pHostedZone_
     }
 
 -- | FIXME: Undocumented member.

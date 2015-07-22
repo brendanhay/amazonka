@@ -62,9 +62,9 @@ newtype DomainMetadata = DomainMetadata'
 
 -- | 'DomainMetadata' smart constructor.
 domainMetadata :: Text -> DomainMetadata
-domainMetadata pDomainName =
+domainMetadata pDomainName_ =
     DomainMetadata'
-    { _dmrqDomainName = pDomainName
+    { _dmrqDomainName = pDomainName_
     }
 
 -- | The name of the domain for which to display the metadata of.
@@ -133,7 +133,7 @@ data DomainMetadataResponse = DomainMetadataResponse'
 
 -- | 'DomainMetadataResponse' smart constructor.
 domainMetadataResponse :: Int -> DomainMetadataResponse
-domainMetadataResponse pStatus =
+domainMetadataResponse pStatus_ =
     DomainMetadataResponse'
     { _dmrsItemNamesSizeBytes = Nothing
     , _dmrsAttributeNameCount = Nothing
@@ -142,7 +142,7 @@ domainMetadataResponse pStatus =
     , _dmrsAttributeNamesSizeBytes = Nothing
     , _dmrsTimestamp = Nothing
     , _dmrsItemCount = Nothing
-    , _dmrsStatus = pStatus
+    , _dmrsStatus = pStatus_
     }
 
 -- | The total size of all item names in the domain, in bytes.

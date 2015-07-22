@@ -62,9 +62,9 @@ newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
 
 -- | 'ConfirmPublicVirtualInterface' smart constructor.
 confirmPublicVirtualInterface :: Text -> ConfirmPublicVirtualInterface
-confirmPublicVirtualInterface pVirtualInterfaceId =
+confirmPublicVirtualInterface pVirtualInterfaceId_ =
     ConfirmPublicVirtualInterface'
-    { _crqVirtualInterfaceId = pVirtualInterfaceId
+    { _crqVirtualInterfaceId = pVirtualInterfaceId_
     }
 
 -- | FIXME: Undocumented member.
@@ -122,10 +122,10 @@ data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceRespon
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' smart constructor.
 confirmPublicVirtualInterfaceResponse :: Int -> ConfirmPublicVirtualInterfaceResponse
-confirmPublicVirtualInterfaceResponse pStatus =
+confirmPublicVirtualInterfaceResponse pStatus_ =
     ConfirmPublicVirtualInterfaceResponse'
     { _crsVirtualInterfaceState = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

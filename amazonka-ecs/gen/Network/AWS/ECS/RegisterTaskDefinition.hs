@@ -67,10 +67,10 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
 
 -- | 'RegisterTaskDefinition' smart constructor.
 registerTaskDefinition :: Text -> RegisterTaskDefinition
-registerTaskDefinition pFamily =
+registerTaskDefinition pFamily_ =
     RegisterTaskDefinition'
     { _rtdrqVolumes = Nothing
-    , _rtdrqFamily = pFamily
+    , _rtdrqFamily = pFamily_
     , _rtdrqContainerDefinitions = mempty
     }
 
@@ -140,10 +140,10 @@ data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
 
 -- | 'RegisterTaskDefinitionResponse' smart constructor.
 registerTaskDefinitionResponse :: Int -> RegisterTaskDefinitionResponse
-registerTaskDefinitionResponse pStatus =
+registerTaskDefinitionResponse pStatus_ =
     RegisterTaskDefinitionResponse'
     { _rtdrsTaskDefinition = Nothing
-    , _rtdrsStatus = pStatus
+    , _rtdrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

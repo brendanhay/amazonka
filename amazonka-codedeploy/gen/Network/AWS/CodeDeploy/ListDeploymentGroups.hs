@@ -63,10 +63,10 @@ data ListDeploymentGroups = ListDeploymentGroups'
 
 -- | 'ListDeploymentGroups' smart constructor.
 listDeploymentGroups :: Text -> ListDeploymentGroups
-listDeploymentGroups pApplicationName =
+listDeploymentGroups pApplicationName_ =
     ListDeploymentGroups'
     { _ldgrqNextToken = Nothing
-    , _ldgrqApplicationName = pApplicationName
+    , _ldgrqApplicationName = pApplicationName_
     }
 
 -- | An identifier that was returned from the previous list deployment groups
@@ -137,12 +137,12 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
 listDeploymentGroupsResponse :: Int -> ListDeploymentGroupsResponse
-listDeploymentGroupsResponse pStatus =
+listDeploymentGroupsResponse pStatus_ =
     ListDeploymentGroupsResponse'
     { _ldgrsNextToken = Nothing
     , _ldgrsApplicationName = Nothing
     , _ldgrsDeploymentGroups = Nothing
-    , _ldgrsStatus = pStatus
+    , _ldgrsStatus = pStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an

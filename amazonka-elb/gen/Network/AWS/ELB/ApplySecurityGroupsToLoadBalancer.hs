@@ -64,9 +64,9 @@ data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
 
 -- | 'ApplySecurityGroupsToLoadBalancer' smart constructor.
 applySecurityGroupsToLoadBalancer :: Text -> ApplySecurityGroupsToLoadBalancer
-applySecurityGroupsToLoadBalancer pLoadBalancerName =
+applySecurityGroupsToLoadBalancer pLoadBalancerName_ =
     ApplySecurityGroupsToLoadBalancer'
-    { _asgtlbrqLoadBalancerName = pLoadBalancerName
+    { _asgtlbrqLoadBalancerName = pLoadBalancerName_
     , _asgtlbrqSecurityGroups = mempty
     }
 
@@ -127,10 +127,10 @@ data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalanc
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 applySecurityGroupsToLoadBalancerResponse :: Int -> ApplySecurityGroupsToLoadBalancerResponse
-applySecurityGroupsToLoadBalancerResponse pStatus =
+applySecurityGroupsToLoadBalancerResponse pStatus_ =
     ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrsSecurityGroups = Nothing
-    , _asgtlbrsStatus = pStatus
+    , _asgtlbrsStatus = pStatus_
     }
 
 -- | The IDs of the security groups associated with the load balancer.

@@ -70,9 +70,9 @@ data AddTagsToResource = AddTagsToResource'
 
 -- | 'AddTagsToResource' smart constructor.
 addTagsToResource :: Text -> AddTagsToResource
-addTagsToResource pResourceName =
+addTagsToResource pResourceName_ =
     AddTagsToResource'
-    { _attrrqResourceName = pResourceName
+    { _attrrqResourceName = pResourceName_
     , _attrrqTags = mempty
     }
 

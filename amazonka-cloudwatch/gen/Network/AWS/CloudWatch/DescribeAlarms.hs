@@ -173,11 +173,11 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse'
 
 -- | 'DescribeAlarmsResponse' smart constructor.
 describeAlarmsResponse :: Int -> DescribeAlarmsResponse
-describeAlarmsResponse pStatus =
+describeAlarmsResponse pStatus_ =
     DescribeAlarmsResponse'
     { _darsMetricAlarms = Nothing
     , _darsNextToken = Nothing
-    , _darsStatus = pStatus
+    , _darsStatus = pStatus_
     }
 
 -- | A list of information for the specified alarms.

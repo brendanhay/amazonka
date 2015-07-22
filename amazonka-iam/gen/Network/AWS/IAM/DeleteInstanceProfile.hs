@@ -60,9 +60,9 @@ newtype DeleteInstanceProfile = DeleteInstanceProfile'
 
 -- | 'DeleteInstanceProfile' smart constructor.
 deleteInstanceProfile :: Text -> DeleteInstanceProfile
-deleteInstanceProfile pInstanceProfileName =
+deleteInstanceProfile pInstanceProfileName_ =
     DeleteInstanceProfile'
-    { _diprqInstanceProfileName = pInstanceProfileName
+    { _diprqInstanceProfileName = pInstanceProfileName_
     }
 
 -- | The name of the instance profile to delete.

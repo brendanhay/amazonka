@@ -154,11 +154,11 @@ data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
 describeImportSnapshotTasksResponse :: Int -> DescribeImportSnapshotTasksResponse
-describeImportSnapshotTasksResponse pStatus =
+describeImportSnapshotTasksResponse pStatus_ =
     DescribeImportSnapshotTasksResponse'
     { _distrsNextToken = Nothing
     , _distrsImportSnapshotTasks = Nothing
-    , _distrsStatus = pStatus
+    , _distrsStatus = pStatus_
     }
 
 -- | The token to use to get the next page of results. This value is @null@

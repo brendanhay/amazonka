@@ -62,10 +62,10 @@ data DeleteSSHPublicKey = DeleteSSHPublicKey'
 
 -- | 'DeleteSSHPublicKey' smart constructor.
 deleteSSHPublicKey :: Text -> Text -> DeleteSSHPublicKey
-deleteSSHPublicKey pUserName pSSHPublicKeyId =
+deleteSSHPublicKey pUserName_ pSSHPublicKeyId_ =
     DeleteSSHPublicKey'
-    { _dspkrqUserName = pUserName
-    , _dspkrqSSHPublicKeyId = pSSHPublicKeyId
+    { _dspkrqUserName = pUserName_
+    , _dspkrqSSHPublicKeyId = pSSHPublicKeyId_
     }
 
 -- | The name of the IAM user associated with the SSH public key.

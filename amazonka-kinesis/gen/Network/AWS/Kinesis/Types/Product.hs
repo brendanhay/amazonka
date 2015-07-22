@@ -38,10 +38,10 @@ data HashKeyRange = HashKeyRange'
 
 -- | 'HashKeyRange' smart constructor.
 hashKeyRange :: Text -> Text -> HashKeyRange
-hashKeyRange pStartingHashKey pEndingHashKey =
+hashKeyRange pStartingHashKey_ pEndingHashKey_ =
     HashKeyRange'
-    { _hkrStartingHashKey = pStartingHashKey
-    , _hkrEndingHashKey = pEndingHashKey
+    { _hkrStartingHashKey = pStartingHashKey_
+    , _hkrEndingHashKey = pEndingHashKey_
     }
 
 -- | The starting hash key of the hash key range.
@@ -78,11 +78,11 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry'
 
 -- | 'PutRecordsRequestEntry' smart constructor.
 putRecordsRequestEntry :: Base64 -> Text -> PutRecordsRequestEntry
-putRecordsRequestEntry pData pPartitionKey =
+putRecordsRequestEntry pData_ pPartitionKey_ =
     PutRecordsRequestEntry'
     { _prreExplicitHashKey = Nothing
-    , _prreData = pData
-    , _prrePartitionKey = pPartitionKey
+    , _prreData = pData_
+    , _prrePartitionKey = pPartitionKey_
     }
 
 -- | The hash value used to determine explicitly the shard that the data
@@ -199,11 +199,11 @@ data Record = Record'
 
 -- | 'Record' smart constructor.
 record :: Text -> Base64 -> Text -> Record
-record pSequenceNumber pData pPartitionKey =
+record pSequenceNumber_ pData_ pPartitionKey_ =
     Record'
-    { _rSequenceNumber = pSequenceNumber
-    , _rData = pData
-    , _rPartitionKey = pPartitionKey
+    { _rSequenceNumber = pSequenceNumber_
+    , _rData = pData_
+    , _rPartitionKey = pPartitionKey_
     }
 
 -- | The unique identifier for the record in the Amazon Kinesis stream.
@@ -245,10 +245,10 @@ data SequenceNumberRange = SequenceNumberRange'
 
 -- | 'SequenceNumberRange' smart constructor.
 sequenceNumberRange :: Text -> SequenceNumberRange
-sequenceNumberRange pStartingSequenceNumber =
+sequenceNumberRange pStartingSequenceNumber_ =
     SequenceNumberRange'
     { _snrEndingSequenceNumber = Nothing
-    , _snrStartingSequenceNumber = pStartingSequenceNumber
+    , _snrStartingSequenceNumber = pStartingSequenceNumber_
     }
 
 -- | The ending sequence number for the range. Shards that are in the OPEN
@@ -293,13 +293,13 @@ data Shard = Shard'
 
 -- | 'Shard' smart constructor.
 shard :: Text -> HashKeyRange -> SequenceNumberRange -> Shard
-shard pShardId pHashKeyRange pSequenceNumberRange =
+shard pShardId_ pHashKeyRange_ pSequenceNumberRange_ =
     Shard'
     { _sAdjacentParentShardId = Nothing
     , _sParentShardId = Nothing
-    , _sShardId = pShardId
-    , _sHashKeyRange = pHashKeyRange
-    , _sSequenceNumberRange = pSequenceNumberRange
+    , _sShardId = pShardId_
+    , _sHashKeyRange = pHashKeyRange_
+    , _sSequenceNumberRange = pSequenceNumberRange_
     }
 
 -- | The shard Id of the shard adjacent to the shard\'s parent.
@@ -359,13 +359,13 @@ data StreamDescription = StreamDescription'
 
 -- | 'StreamDescription' smart constructor.
 streamDescription :: Text -> Text -> StreamStatus -> Bool -> StreamDescription
-streamDescription pStreamName pStreamARN pStreamStatus pHasMoreShards =
+streamDescription pStreamName_ pStreamARN_ pStreamStatus_ pHasMoreShards_ =
     StreamDescription'
-    { _sdStreamName = pStreamName
-    , _sdStreamARN = pStreamARN
-    , _sdStreamStatus = pStreamStatus
+    { _sdStreamName = pStreamName_
+    , _sdStreamARN = pStreamARN_
+    , _sdStreamStatus = pStreamStatus_
     , _sdShards = mempty
-    , _sdHasMoreShards = pHasMoreShards
+    , _sdHasMoreShards = pHasMoreShards_
     }
 
 -- | The name of the stream being described.
@@ -427,10 +427,10 @@ data Tag = Tag'
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Tag
-tag pKey =
+tag pKey_ =
     Tag'
     { _tagValue = Nothing
-    , _tagKey = pKey
+    , _tagKey = pKey_
     }
 
 -- | An optional string, typically used to describe or define the tag.

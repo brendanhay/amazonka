@@ -62,9 +62,9 @@ newtype ListTagsForResource = ListTagsForResource'
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
-listTagsForResource pResourceName =
+listTagsForResource pResourceName_ =
     ListTagsForResource'
-    { _ltfrrqResourceName = pResourceName
+    { _ltfrrqResourceName = pResourceName_
     }
 
 -- | The name of the resource for which you want the list of tags, for

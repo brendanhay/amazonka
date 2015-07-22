@@ -52,9 +52,9 @@ newtype DeleteAlias = DeleteAlias'
 
 -- | 'DeleteAlias' smart constructor.
 deleteAlias :: Text -> DeleteAlias
-deleteAlias pAliasName =
+deleteAlias pAliasName_ =
     DeleteAlias'
-    { _darqAliasName = pAliasName
+    { _darqAliasName = pAliasName_
     }
 
 -- | The alias to be deleted. The name must start with the word \"alias\"

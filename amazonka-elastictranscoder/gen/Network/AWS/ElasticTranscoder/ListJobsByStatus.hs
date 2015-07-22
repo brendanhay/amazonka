@@ -68,11 +68,11 @@ data ListJobsByStatus = ListJobsByStatus'
 
 -- | 'ListJobsByStatus' smart constructor.
 listJobsByStatus :: Text -> ListJobsByStatus
-listJobsByStatus pStatus =
+listJobsByStatus pStatus_ =
     ListJobsByStatus'
     { _ljbsrqAscending = Nothing
     , _ljbsrqPageToken = Nothing
-    , _ljbsrqStatus = pStatus
+    , _ljbsrqStatus = pStatus_
     }
 
 -- | To list jobs in chronological order by the date and time that they were
@@ -145,11 +145,11 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse'
 
 -- | 'ListJobsByStatusResponse' smart constructor.
 listJobsByStatusResponse :: Int -> ListJobsByStatusResponse
-listJobsByStatusResponse pStatus =
+listJobsByStatusResponse pStatus_ =
     ListJobsByStatusResponse'
     { _ljbsrsNextPageToken = Nothing
     , _ljbsrsJobs = Nothing
-    , _ljbsrsStatus = pStatus
+    , _ljbsrsStatus = pStatus_
     }
 
 -- | A value that you use to access the second and subsequent pages of

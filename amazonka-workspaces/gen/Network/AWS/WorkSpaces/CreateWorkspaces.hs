@@ -60,9 +60,9 @@ newtype CreateWorkspaces = CreateWorkspaces'
 
 -- | 'CreateWorkspaces' smart constructor.
 createWorkspaces :: NonEmpty WorkspaceRequest -> CreateWorkspaces
-createWorkspaces pWorkspaces =
+createWorkspaces pWorkspaces_ =
     CreateWorkspaces'
-    { _cwrqWorkspaces = _List1 # pWorkspaces
+    { _cwrqWorkspaces = _List1 # pWorkspaces_
     }
 
 -- | An array of structures that specify the WorkSpaces to create.
@@ -119,11 +119,11 @@ data CreateWorkspacesResponse = CreateWorkspacesResponse'
 
 -- | 'CreateWorkspacesResponse' smart constructor.
 createWorkspacesResponse :: Int -> CreateWorkspacesResponse
-createWorkspacesResponse pStatus =
+createWorkspacesResponse pStatus_ =
     CreateWorkspacesResponse'
     { _cwrsFailedRequests = Nothing
     , _cwrsPendingRequests = Nothing
-    , _cwrsStatus = pStatus
+    , _cwrsStatus = pStatus_
     }
 
 -- | An array of structures that represent the WorkSpaces that could not be

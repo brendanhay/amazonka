@@ -74,10 +74,10 @@ data GetPasswordData = GetPasswordData'
 
 -- | 'GetPasswordData' smart constructor.
 getPasswordData :: Text -> GetPasswordData
-getPasswordData pInstanceId =
+getPasswordData pInstanceId_ =
     GetPasswordData'
     { _gpdrqDryRun = Nothing
-    , _gpdrqInstanceId = pInstanceId
+    , _gpdrqInstanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -137,12 +137,12 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
 
 -- | 'GetPasswordDataResponse' smart constructor.
 getPasswordDataResponse :: Int -> Text -> Text -> UTCTime -> GetPasswordDataResponse
-getPasswordDataResponse pStatus pInstanceId pPasswordData pTimestamp =
+getPasswordDataResponse pStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
     GetPasswordDataResponse'
-    { _gpdrsStatus = pStatus
-    , _gpdrsInstanceId = pInstanceId
-    , _gpdrsPasswordData = pPasswordData
-    , _gpdrsTimestamp = _Time # pTimestamp
+    { _gpdrsStatus = pStatus_
+    , _gpdrsInstanceId = pInstanceId_
+    , _gpdrsPasswordData = pPasswordData_
+    , _gpdrsTimestamp = _Time # pTimestamp_
     }
 
 -- | FIXME: Undocumented member.

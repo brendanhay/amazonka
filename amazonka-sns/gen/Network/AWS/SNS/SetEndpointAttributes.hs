@@ -60,9 +60,9 @@ data SetEndpointAttributes = SetEndpointAttributes'
 
 -- | 'SetEndpointAttributes' smart constructor.
 setEndpointAttributes :: Text -> SetEndpointAttributes
-setEndpointAttributes pEndpointARN =
+setEndpointAttributes pEndpointARN_ =
     SetEndpointAttributes'
-    { _searqEndpointARN = pEndpointARN
+    { _searqEndpointARN = pEndpointARN_
     , _searqAttributes = mempty
     }
 

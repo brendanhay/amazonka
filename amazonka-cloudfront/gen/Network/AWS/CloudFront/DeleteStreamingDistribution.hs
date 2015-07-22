@@ -57,10 +57,10 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution'
 
 -- | 'DeleteStreamingDistribution' smart constructor.
 deleteStreamingDistribution :: Text -> DeleteStreamingDistribution
-deleteStreamingDistribution pId =
+deleteStreamingDistribution pId_ =
     DeleteStreamingDistribution'
     { _dsdrqIfMatch = Nothing
-    , _dsdrqId = pId
+    , _dsdrqId = pId_
     }
 
 -- | The value of the ETag header you received when you disabled the

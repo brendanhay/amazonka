@@ -59,11 +59,11 @@ data PutBucketWebsite = PutBucketWebsite'
 
 -- | 'PutBucketWebsite' smart constructor.
 putBucketWebsite :: BucketName -> WebsiteConfiguration -> PutBucketWebsite
-putBucketWebsite pBucket pWebsiteConfiguration =
+putBucketWebsite pBucket_ pWebsiteConfiguration_ =
     PutBucketWebsite'
     { _pbwrqContentMD5 = Nothing
-    , _pbwrqBucket = pBucket
-    , _pbwrqWebsiteConfiguration = pWebsiteConfiguration
+    , _pbwrqBucket = pBucket_
+    , _pbwrqWebsiteConfiguration = pWebsiteConfiguration_
     }
 
 -- | FIXME: Undocumented member.

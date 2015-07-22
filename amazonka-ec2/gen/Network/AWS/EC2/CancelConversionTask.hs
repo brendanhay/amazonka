@@ -67,11 +67,11 @@ data CancelConversionTask = CancelConversionTask'
 
 -- | 'CancelConversionTask' smart constructor.
 cancelConversionTask :: Text -> CancelConversionTask
-cancelConversionTask pConversionTaskId =
+cancelConversionTask pConversionTaskId_ =
     CancelConversionTask'
     { _cctrqReasonMessage = Nothing
     , _cctrqDryRun = Nothing
-    , _cctrqConversionTaskId = pConversionTaskId
+    , _cctrqConversionTaskId = pConversionTaskId_
     }
 
 -- | The reason for canceling the conversion task.

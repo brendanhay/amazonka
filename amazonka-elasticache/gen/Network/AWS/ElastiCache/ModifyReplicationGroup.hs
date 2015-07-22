@@ -117,7 +117,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
 
 -- | 'ModifyReplicationGroup' smart constructor.
 modifyReplicationGroup :: Text -> ModifyReplicationGroup
-modifyReplicationGroup pReplicationGroupId =
+modifyReplicationGroup pReplicationGroupId_ =
     ModifyReplicationGroup'
     { _mrgrqAutomaticFailoverEnabled = Nothing
     , _mrgrqEngineVersion = Nothing
@@ -134,7 +134,7 @@ modifyReplicationGroup pReplicationGroupId =
     , _mrgrqApplyImmediately = Nothing
     , _mrgrqNotificationTopicARN = Nothing
     , _mrgrqCacheSecurityGroupNames = Nothing
-    , _mrgrqReplicationGroupId = pReplicationGroupId
+    , _mrgrqReplicationGroupId = pReplicationGroupId_
     }
 
 -- | Whether a read replica will be automatically promoted to read\/write
@@ -341,10 +341,10 @@ data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
 
 -- | 'ModifyReplicationGroupResponse' smart constructor.
 modifyReplicationGroupResponse :: Int -> ModifyReplicationGroupResponse
-modifyReplicationGroupResponse pStatus =
+modifyReplicationGroupResponse pStatus_ =
     ModifyReplicationGroupResponse'
     { _mrgrsReplicationGroup = Nothing
-    , _mrgrsStatus = pStatus
+    , _mrgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

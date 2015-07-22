@@ -263,11 +263,11 @@ data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
 describeDataSourcesResponse :: Int -> DescribeDataSourcesResponse
-describeDataSourcesResponse pStatus =
+describeDataSourcesResponse pStatus_ =
     DescribeDataSourcesResponse'
     { _ddssrsResults = Nothing
     , _ddssrsNextToken = Nothing
-    , _ddssrsStatus = pStatus
+    , _ddssrsStatus = pStatus_
     }
 
 -- | A list of @DataSource@ that meet the search criteria.

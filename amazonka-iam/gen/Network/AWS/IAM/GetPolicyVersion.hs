@@ -69,10 +69,10 @@ data GetPolicyVersion = GetPolicyVersion'
 
 -- | 'GetPolicyVersion' smart constructor.
 getPolicyVersion :: Text -> Text -> GetPolicyVersion
-getPolicyVersion pPolicyARN pVersionId =
+getPolicyVersion pPolicyARN_ pVersionId_ =
     GetPolicyVersion'
-    { _gpvrqPolicyARN = pPolicyARN
-    , _gpvrqVersionId = pVersionId
+    { _gpvrqPolicyARN = pPolicyARN_
+    , _gpvrqVersionId = pVersionId_
     }
 
 -- | FIXME: Undocumented member.
@@ -123,10 +123,10 @@ data GetPolicyVersionResponse = GetPolicyVersionResponse'
 
 -- | 'GetPolicyVersionResponse' smart constructor.
 getPolicyVersionResponse :: Int -> GetPolicyVersionResponse
-getPolicyVersionResponse pStatus =
+getPolicyVersionResponse pStatus_ =
     GetPolicyVersionResponse'
     { _gpvrsPolicyVersion = Nothing
-    , _gpvrsStatus = pStatus
+    , _gpvrsStatus = pStatus_
     }
 
 -- | Information about the policy version.

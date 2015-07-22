@@ -75,11 +75,11 @@ data DescribeStream = DescribeStream'
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
-describeStream pStreamARN =
+describeStream pStreamARN_ =
     DescribeStream'
     { _dsrqExclusiveStartShardId = Nothing
     , _dsrqLimit = Nothing
-    , _dsrqStreamARN = pStreamARN
+    , _dsrqStreamARN = pStreamARN_
     }
 
 -- | The shard ID of the first item that this operation will evaluate. Use
@@ -145,10 +145,10 @@ data DescribeStreamResponse = DescribeStreamResponse'
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: Int -> DescribeStreamResponse
-describeStreamResponse pStatus =
+describeStreamResponse pStatus_ =
     DescribeStreamResponse'
     { _dsrsStreamDescription = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | A complete description of the stream, including its creation date and

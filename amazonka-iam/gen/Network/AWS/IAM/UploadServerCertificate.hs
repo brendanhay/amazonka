@@ -87,13 +87,13 @@ data UploadServerCertificate = UploadServerCertificate'
 
 -- | 'UploadServerCertificate' smart constructor.
 uploadServerCertificate :: Text -> Text -> Text -> UploadServerCertificate
-uploadServerCertificate pServerCertificateName pCertificateBody pPrivateKey =
+uploadServerCertificate pServerCertificateName_ pCertificateBody_ pPrivateKey_ =
     UploadServerCertificate'
     { _uscrqPath = Nothing
     , _uscrqCertificateChain = Nothing
-    , _uscrqServerCertificateName = pServerCertificateName
-    , _uscrqCertificateBody = pCertificateBody
-    , _uscrqPrivateKey = _Sensitive # pPrivateKey
+    , _uscrqServerCertificateName = pServerCertificateName_
+    , _uscrqCertificateBody = pCertificateBody_
+    , _uscrqPrivateKey = _Sensitive # pPrivateKey_
     }
 
 -- | The path for the server certificate. For more information about paths,
@@ -176,10 +176,10 @@ data UploadServerCertificateResponse = UploadServerCertificateResponse'
 
 -- | 'UploadServerCertificateResponse' smart constructor.
 uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse
-uploadServerCertificateResponse pStatus =
+uploadServerCertificateResponse pStatus_ =
     UploadServerCertificateResponse'
     { _ursServerCertificateMetadata = Nothing
-    , _ursStatus = pStatus
+    , _ursStatus = pStatus_
     }
 
 -- | The meta information of the uploaded server certificate without its

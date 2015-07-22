@@ -67,10 +67,10 @@ data UpdatePipelineStatus = UpdatePipelineStatus'
 
 -- | 'UpdatePipelineStatus' smart constructor.
 updatePipelineStatus :: Text -> Text -> UpdatePipelineStatus
-updatePipelineStatus pId pStatus =
+updatePipelineStatus pId_ pStatus_ =
     UpdatePipelineStatus'
-    { _upsrqId = pId
-    , _upsrqStatus = pStatus
+    { _upsrqId = pId_
+    , _upsrqStatus = pStatus_
     }
 
 -- | The identifier of the pipeline to update.
@@ -128,10 +128,10 @@ data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
 
 -- | 'UpdatePipelineStatusResponse' smart constructor.
 updatePipelineStatusResponse :: Int -> UpdatePipelineStatusResponse
-updatePipelineStatusResponse pStatus =
+updatePipelineStatusResponse pStatus_ =
     UpdatePipelineStatusResponse'
     { _upsrsPipeline = Nothing
-    , _upsrsStatus = pStatus
+    , _upsrsStatus = pStatus_
     }
 
 -- | A section of the response body that provides information about the

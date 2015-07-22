@@ -140,10 +140,10 @@ data GetGeoLocationResponse = GetGeoLocationResponse'
 
 -- | 'GetGeoLocationResponse' smart constructor.
 getGeoLocationResponse :: Int -> GeoLocationDetails -> GetGeoLocationResponse
-getGeoLocationResponse pStatus pGeoLocationDetails =
+getGeoLocationResponse pStatus_ pGeoLocationDetails_ =
     GetGeoLocationResponse'
-    { _gglrsStatus = pStatus
-    , _gglrsGeoLocationDetails = pGeoLocationDetails
+    { _gglrsStatus = pStatus_
+    , _gglrsGeoLocationDetails = pGeoLocationDetails_
     }
 
 -- | FIXME: Undocumented member.

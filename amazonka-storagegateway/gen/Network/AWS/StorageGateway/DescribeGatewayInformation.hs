@@ -66,9 +66,9 @@ newtype DescribeGatewayInformation = DescribeGatewayInformation'
 
 -- | 'DescribeGatewayInformation' smart constructor.
 describeGatewayInformation :: Text -> DescribeGatewayInformation
-describeGatewayInformation pGatewayARN =
+describeGatewayInformation pGatewayARN_ =
     DescribeGatewayInformation'
-    { _dgirqGatewayARN = pGatewayARN
+    { _dgirqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -150,7 +150,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
 
 -- | 'DescribeGatewayInformationResponse' smart constructor.
 describeGatewayInformationResponse :: Int -> DescribeGatewayInformationResponse
-describeGatewayInformationResponse pStatus =
+describeGatewayInformationResponse pStatus_ =
     DescribeGatewayInformationResponse'
     { _dgirsGatewayState = Nothing
     , _dgirsGatewayARN = Nothing
@@ -160,7 +160,7 @@ describeGatewayInformationResponse pStatus =
     , _dgirsGatewayId = Nothing
     , _dgirsGatewayType = Nothing
     , _dgirsGatewayTimezone = Nothing
-    , _dgirsStatus = pStatus
+    , _dgirsStatus = pStatus_
     }
 
 -- | One of the values that indicates the operating state of the gateway.

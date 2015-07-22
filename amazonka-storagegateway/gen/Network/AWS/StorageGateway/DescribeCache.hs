@@ -64,9 +64,9 @@ newtype DescribeCache = DescribeCache'
 
 -- | 'DescribeCache' smart constructor.
 describeCache :: Text -> DescribeCache
-describeCache pGatewayARN =
+describeCache pGatewayARN_ =
     DescribeCache'
-    { _dcrqGatewayARN = pGatewayARN
+    { _dcrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -141,7 +141,7 @@ data DescribeCacheResponse = DescribeCacheResponse'
 
 -- | 'DescribeCacheResponse' smart constructor.
 describeCacheResponse :: Int -> DescribeCacheResponse
-describeCacheResponse pStatus =
+describeCacheResponse pStatus_ =
     DescribeCacheResponse'
     { _dcrsGatewayARN = Nothing
     , _dcrsDiskIds = Nothing
@@ -150,7 +150,7 @@ describeCacheResponse pStatus =
     , _dcrsCacheMissPercentage = Nothing
     , _dcrsCacheAllocatedInBytes = Nothing
     , _dcrsCacheDirtyPercentage = Nothing
-    , _dcrsStatus = pStatus
+    , _dcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

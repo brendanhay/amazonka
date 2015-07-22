@@ -57,10 +57,10 @@ data DeleteDistribution = DeleteDistribution'
 
 -- | 'DeleteDistribution' smart constructor.
 deleteDistribution :: Text -> DeleteDistribution
-deleteDistribution pId =
+deleteDistribution pId_ =
     DeleteDistribution'
     { _ddrqIfMatch = Nothing
-    , _ddrqId = pId
+    , _ddrqId = pId_
     }
 
 -- | The value of the ETag header you received when you disabled the

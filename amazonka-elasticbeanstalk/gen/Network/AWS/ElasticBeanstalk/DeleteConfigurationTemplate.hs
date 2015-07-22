@@ -62,10 +62,10 @@ data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
 
 -- | 'DeleteConfigurationTemplate' smart constructor.
 deleteConfigurationTemplate :: Text -> Text -> DeleteConfigurationTemplate
-deleteConfigurationTemplate pApplicationName pTemplateName =
+deleteConfigurationTemplate pApplicationName_ pTemplateName_ =
     DeleteConfigurationTemplate'
-    { _dctrqApplicationName = pApplicationName
-    , _dctrqTemplateName = pTemplateName
+    { _dctrqApplicationName = pApplicationName_
+    , _dctrqTemplateName = pTemplateName_
     }
 
 -- | The name of the application to delete the configuration template from.

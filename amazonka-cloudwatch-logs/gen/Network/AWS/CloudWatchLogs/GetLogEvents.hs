@@ -89,15 +89,15 @@ data GetLogEvents = GetLogEvents'
 
 -- | 'GetLogEvents' smart constructor.
 getLogEvents :: Text -> Text -> GetLogEvents
-getLogEvents pLogGroupName pLogStreamName =
+getLogEvents pLogGroupName_ pLogStreamName_ =
     GetLogEvents'
     { _glerqStartTime = Nothing
     , _glerqStartFromHead = Nothing
     , _glerqNextToken = Nothing
     , _glerqEndTime = Nothing
     , _glerqLimit = Nothing
-    , _glerqLogGroupName = pLogGroupName
-    , _glerqLogStreamName = pLogStreamName
+    , _glerqLogGroupName = pLogGroupName_
+    , _glerqLogStreamName = pLogStreamName_
     }
 
 -- | FIXME: Undocumented member.
@@ -192,12 +192,12 @@ data GetLogEventsResponse = GetLogEventsResponse'
 
 -- | 'GetLogEventsResponse' smart constructor.
 getLogEventsResponse :: Int -> GetLogEventsResponse
-getLogEventsResponse pStatus =
+getLogEventsResponse pStatus_ =
     GetLogEventsResponse'
     { _glersNextBackwardToken = Nothing
     , _glersNextForwardToken = Nothing
     , _glersEvents = Nothing
-    , _glersStatus = pStatus
+    , _glersStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -79,10 +79,10 @@ data GetConsoleOutput = GetConsoleOutput'
 
 -- | 'GetConsoleOutput' smart constructor.
 getConsoleOutput :: Text -> GetConsoleOutput
-getConsoleOutput pInstanceId =
+getConsoleOutput pInstanceId_ =
     GetConsoleOutput'
     { _gcorqDryRun = Nothing
-    , _gcorqInstanceId = pInstanceId
+    , _gcorqInstanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -142,12 +142,12 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse'
 
 -- | 'GetConsoleOutputResponse' smart constructor.
 getConsoleOutputResponse :: Int -> GetConsoleOutputResponse
-getConsoleOutputResponse pStatus =
+getConsoleOutputResponse pStatus_ =
     GetConsoleOutputResponse'
     { _gcorsInstanceId = Nothing
     , _gcorsOutput = Nothing
     , _gcorsTimestamp = Nothing
-    , _gcorsStatus = pStatus
+    , _gcorsStatus = pStatus_
     }
 
 -- | The ID of the instance.

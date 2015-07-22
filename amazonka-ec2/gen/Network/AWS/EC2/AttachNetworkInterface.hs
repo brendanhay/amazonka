@@ -66,12 +66,12 @@ data AttachNetworkInterface = AttachNetworkInterface'
 
 -- | 'AttachNetworkInterface' smart constructor.
 attachNetworkInterface :: Text -> Text -> Int -> AttachNetworkInterface
-attachNetworkInterface pNetworkInterfaceId pInstanceId pDeviceIndex =
+attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ =
     AttachNetworkInterface'
     { _anirqDryRun = Nothing
-    , _anirqNetworkInterfaceId = pNetworkInterfaceId
-    , _anirqInstanceId = pInstanceId
-    , _anirqDeviceIndex = pDeviceIndex
+    , _anirqNetworkInterfaceId = pNetworkInterfaceId_
+    , _anirqInstanceId = pInstanceId_
+    , _anirqDeviceIndex = pDeviceIndex_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -135,10 +135,10 @@ data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
 
 -- | 'AttachNetworkInterfaceResponse' smart constructor.
 attachNetworkInterfaceResponse :: Int -> AttachNetworkInterfaceResponse
-attachNetworkInterfaceResponse pStatus =
+attachNetworkInterfaceResponse pStatus_ =
     AttachNetworkInterfaceResponse'
     { _anirsAttachmentId = Nothing
-    , _anirsStatus = pStatus
+    , _anirsStatus = pStatus_
     }
 
 -- | The ID of the network interface attachment.

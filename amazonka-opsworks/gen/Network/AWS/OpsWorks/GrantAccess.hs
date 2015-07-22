@@ -60,10 +60,10 @@ data GrantAccess = GrantAccess'
 
 -- | 'GrantAccess' smart constructor.
 grantAccess :: Text -> GrantAccess
-grantAccess pInstanceId =
+grantAccess pInstanceId_ =
     GrantAccess'
     { _garqValidForInMinutes = Nothing
-    , _garqInstanceId = pInstanceId
+    , _garqInstanceId = pInstanceId_
     }
 
 -- | The length of time (in minutes) that the grant is valid. When the grant
@@ -125,10 +125,10 @@ data GrantAccessResponse = GrantAccessResponse'
 
 -- | 'GrantAccessResponse' smart constructor.
 grantAccessResponse :: Int -> GrantAccessResponse
-grantAccessResponse pStatus =
+grantAccessResponse pStatus_ =
     GrantAccessResponse'
     { _garsTemporaryCredential = Nothing
-    , _garsStatus = pStatus
+    , _garsStatus = pStatus_
     }
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in

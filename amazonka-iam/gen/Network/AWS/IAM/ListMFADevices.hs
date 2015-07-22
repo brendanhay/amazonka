@@ -155,11 +155,11 @@ data ListMFADevicesResponse = ListMFADevicesResponse'
 
 -- | 'ListMFADevicesResponse' smart constructor.
 listMFADevicesResponse :: Int -> ListMFADevicesResponse
-listMFADevicesResponse pStatus =
+listMFADevicesResponse pStatus_ =
     ListMFADevicesResponse'
     { _lmdrsMarker = Nothing
     , _lmdrsIsTruncated = Nothing
-    , _lmdrsStatus = pStatus
+    , _lmdrsStatus = pStatus_
     , _lmdrsMFADevices = mempty
     }
 

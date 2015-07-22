@@ -70,10 +70,10 @@ data UpdateScalingParameters = UpdateScalingParameters'
 
 -- | 'UpdateScalingParameters' smart constructor.
 updateScalingParameters :: Text -> ScalingParameters -> UpdateScalingParameters
-updateScalingParameters pDomainName pScalingParameters =
+updateScalingParameters pDomainName_ pScalingParameters_ =
     UpdateScalingParameters'
-    { _usprqDomainName = pDomainName
-    , _usprqScalingParameters = pScalingParameters
+    { _usprqDomainName = pDomainName_
+    , _usprqScalingParameters = pScalingParameters_
     }
 
 -- | FIXME: Undocumented member.
@@ -127,10 +127,10 @@ data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
 
 -- | 'UpdateScalingParametersResponse' smart constructor.
 updateScalingParametersResponse :: Int -> ScalingParametersStatus -> UpdateScalingParametersResponse
-updateScalingParametersResponse pStatus pScalingParameters =
+updateScalingParametersResponse pStatus_ pScalingParameters_ =
     UpdateScalingParametersResponse'
-    { _usprsStatus = pStatus
-    , _usprsScalingParameters = pScalingParameters
+    { _usprsStatus = pStatus_
+    , _usprsScalingParameters = pScalingParameters_
     }
 
 -- | FIXME: Undocumented member.

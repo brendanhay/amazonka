@@ -56,9 +56,9 @@ newtype CreateApplication = CreateApplication'
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
-createApplication pApplicationName =
+createApplication pApplicationName_ =
     CreateApplication'
-    { _carqApplicationName = pApplicationName
+    { _carqApplicationName = pApplicationName_
     }
 
 -- | The name of the application. This name must be unique with the
@@ -112,10 +112,10 @@ data CreateApplicationResponse = CreateApplicationResponse'
 
 -- | 'CreateApplicationResponse' smart constructor.
 createApplicationResponse :: Int -> CreateApplicationResponse
-createApplicationResponse pStatus =
+createApplicationResponse pStatus_ =
     CreateApplicationResponse'
     { _carsApplicationId = Nothing
-    , _carsStatus = pStatus
+    , _carsStatus = pStatus_
     }
 
 -- | A unique application ID.

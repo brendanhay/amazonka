@@ -117,11 +117,11 @@ data ResolveCaseResponse = ResolveCaseResponse'
 
 -- | 'ResolveCaseResponse' smart constructor.
 resolveCaseResponse :: Int -> ResolveCaseResponse
-resolveCaseResponse pStatus =
+resolveCaseResponse pStatus_ =
     ResolveCaseResponse'
     { _rcrsInitialCaseStatus = Nothing
     , _rcrsFinalCaseStatus = Nothing
-    , _rcrsStatus = pStatus
+    , _rcrsStatus = pStatus_
     }
 
 -- | The status of the case when the ResolveCase request was sent.

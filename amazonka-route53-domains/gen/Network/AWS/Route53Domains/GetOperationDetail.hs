@@ -61,9 +61,9 @@ newtype GetOperationDetail = GetOperationDetail'
 
 -- | 'GetOperationDetail' smart constructor.
 getOperationDetail :: Text -> GetOperationDetail
-getOperationDetail pOperationId =
+getOperationDetail pOperationId_ =
     GetOperationDetail'
-    { _godrqOperationId = pOperationId
+    { _godrqOperationId = pOperationId_
     }
 
 -- | The identifier for the operation for which you want to get the status.
@@ -141,14 +141,14 @@ data GetOperationDetailResponse = GetOperationDetailResponse'
 
 -- | 'GetOperationDetailResponse' smart constructor.
 getOperationDetailResponse :: Int -> GetOperationDetailResponse
-getOperationDetailResponse pStatus =
+getOperationDetailResponse pStatus_ =
     GetOperationDetailResponse'
     { _godrsSubmittedDate = Nothing
     , _godrsDomainName = Nothing
     , _godrsOperationId = Nothing
     , _godrsType = Nothing
     , _godrsMessage = Nothing
-    , _godrsStatus = pStatus
+    , _godrsStatus = pStatus_
     }
 
 -- | The date when the request was submitted.

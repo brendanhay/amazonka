@@ -68,11 +68,11 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup'
 
 -- | 'ResetClusterParameterGroup' smart constructor.
 resetClusterParameterGroup :: Text -> ResetClusterParameterGroup
-resetClusterParameterGroup pParameterGroupName =
+resetClusterParameterGroup pParameterGroupName_ =
     ResetClusterParameterGroup'
     { _rcpgrqResetAllParameters = Nothing
     , _rcpgrqParameters = Nothing
-    , _rcpgrqParameterGroupName = pParameterGroupName
+    , _rcpgrqParameterGroupName = pParameterGroupName_
     }
 
 -- | If @true@, all parameters in the specified parameter group will be reset

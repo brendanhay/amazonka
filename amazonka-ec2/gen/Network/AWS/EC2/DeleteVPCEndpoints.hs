@@ -118,10 +118,10 @@ data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
 deleteVPCEndpointsResponse :: Int -> DeleteVPCEndpointsResponse
-deleteVPCEndpointsResponse pStatus =
+deleteVPCEndpointsResponse pStatus_ =
     DeleteVPCEndpointsResponse'
     { _dversUnsuccessful = Nothing
-    , _dversStatus = pStatus
+    , _dversStatus = pStatus_
     }
 
 -- | Information about the endpoints that were not successfully deleted.

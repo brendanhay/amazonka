@@ -76,11 +76,11 @@ data ListGroupPolicies = ListGroupPolicies'
 
 -- | 'ListGroupPolicies' smart constructor.
 listGroupPolicies :: Text -> ListGroupPolicies
-listGroupPolicies pGroupName =
+listGroupPolicies pGroupName_ =
     ListGroupPolicies'
     { _lgprqMaxItems = Nothing
     , _lgprqMarker = Nothing
-    , _lgprqGroupName = pGroupName
+    , _lgprqGroupName = pGroupName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -160,11 +160,11 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
 
 -- | 'ListGroupPoliciesResponse' smart constructor.
 listGroupPoliciesResponse :: Int -> ListGroupPoliciesResponse
-listGroupPoliciesResponse pStatus =
+listGroupPoliciesResponse pStatus_ =
     ListGroupPoliciesResponse'
     { _lgprsMarker = Nothing
     , _lgprsIsTruncated = Nothing
-    , _lgprsStatus = pStatus
+    , _lgprsStatus = pStatus_
     , _lgprsPolicyNames = mempty
     }
 

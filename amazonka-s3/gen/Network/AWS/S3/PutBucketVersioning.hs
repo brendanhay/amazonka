@@ -64,12 +64,12 @@ data PutBucketVersioning = PutBucketVersioning'
 
 -- | 'PutBucketVersioning' smart constructor.
 putBucketVersioning :: BucketName -> VersioningConfiguration -> PutBucketVersioning
-putBucketVersioning pBucket pVersioningConfiguration =
+putBucketVersioning pBucket_ pVersioningConfiguration_ =
     PutBucketVersioning'
     { _pbvrqMFA = Nothing
     , _pbvrqContentMD5 = Nothing
-    , _pbvrqBucket = pBucket
-    , _pbvrqVersioningConfiguration = pVersioningConfiguration
+    , _pbvrqBucket = pBucket_
+    , _pbvrqVersioningConfiguration = pVersioningConfiguration_
     }
 
 -- | The concatenation of the authentication device\'s serial number, a

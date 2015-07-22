@@ -95,11 +95,11 @@ data MessageAttributeValue = MessageAttributeValue'
 
 -- | 'MessageAttributeValue' smart constructor.
 messageAttributeValue :: Text -> MessageAttributeValue
-messageAttributeValue pDataType =
+messageAttributeValue pDataType_ =
     MessageAttributeValue'
     { _mavBinaryValue = Nothing
     , _mavStringValue = Nothing
-    , _mavDataType = pDataType
+    , _mavDataType = pDataType_
     }
 
 -- | Binary type attributes can store any binary data, for example,

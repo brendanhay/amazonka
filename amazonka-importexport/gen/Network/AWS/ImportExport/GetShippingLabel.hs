@@ -215,11 +215,11 @@ data GetShippingLabelResponse = GetShippingLabelResponse'
 
 -- | 'GetShippingLabelResponse' smart constructor.
 getShippingLabelResponse :: Int -> GetShippingLabelResponse
-getShippingLabelResponse pStatus =
+getShippingLabelResponse pStatus_ =
     GetShippingLabelResponse'
     { _gslrsShippingLabelURL = Nothing
     , _gslrsWarning = Nothing
-    , _gslrsStatus = pStatus
+    , _gslrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -64,10 +64,10 @@ data AddPermission = AddPermission'
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> AddPermission
-addPermission pTopicARN pLabel =
+addPermission pTopicARN_ pLabel_ =
     AddPermission'
-    { _aprqTopicARN = pTopicARN
-    , _aprqLabel = pLabel
+    { _aprqTopicARN = pTopicARN_
+    , _aprqLabel = pLabel_
     , _aprqAWSAccountId = mempty
     , _aprqActionName = mempty
     }

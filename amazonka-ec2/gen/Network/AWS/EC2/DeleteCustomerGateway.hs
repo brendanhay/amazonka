@@ -56,10 +56,10 @@ data DeleteCustomerGateway = DeleteCustomerGateway'
 
 -- | 'DeleteCustomerGateway' smart constructor.
 deleteCustomerGateway :: Text -> DeleteCustomerGateway
-deleteCustomerGateway pCustomerGatewayId =
+deleteCustomerGateway pCustomerGatewayId_ =
     DeleteCustomerGateway'
     { _dcggrqDryRun = Nothing
-    , _dcggrqCustomerGatewayId = pCustomerGatewayId
+    , _dcggrqCustomerGatewayId = pCustomerGatewayId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

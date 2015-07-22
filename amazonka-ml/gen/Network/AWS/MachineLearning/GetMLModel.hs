@@ -77,10 +77,10 @@ data GetMLModel = GetMLModel'
 
 -- | 'GetMLModel' smart constructor.
 getMLModel :: Text -> GetMLModel
-getMLModel pMLModelId =
+getMLModel pMLModelId_ =
     GetMLModel'
     { _gmlmrqVerbose = Nothing
-    , _gmlmrqMLModelId = pMLModelId
+    , _gmlmrqMLModelId = pMLModelId_
     }
 
 -- | Specifies whether the @GetMLModel@ operation should return @Recipe@.
@@ -208,7 +208,7 @@ data GetMLModelResponse = GetMLModelResponse'
 
 -- | 'GetMLModelResponse' smart constructor.
 getMLModelResponse :: Int -> GetMLModelResponse
-getMLModelResponse pStatus =
+getMLModelResponse pStatus_ =
     GetMLModelResponse'
     { _gmlmrsTrainingParameters = Nothing
     , _gmlmrsLastUpdatedAt = Nothing
@@ -227,7 +227,7 @@ getMLModelResponse pStatus =
     , _gmlmrsTrainingDataSourceId = Nothing
     , _gmlmrsMessage = Nothing
     , _gmlmrsMLModelType = Nothing
-    , _gmlmrsStatus = pStatus
+    , _gmlmrsStatus = pStatus_
     }
 
 -- | A list of the training parameters in the @MLModel@. The list is

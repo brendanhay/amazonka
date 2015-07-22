@@ -114,10 +114,10 @@ data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesRe
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
 describeLoadBalancerPolicyTypesResponse :: Int -> DescribeLoadBalancerPolicyTypesResponse
-describeLoadBalancerPolicyTypesResponse pStatus =
+describeLoadBalancerPolicyTypesResponse pStatus_ =
     DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrsPolicyTypeDescriptions = Nothing
-    , _dlbptrsStatus = pStatus
+    , _dlbptrsStatus = pStatus_
     }
 
 -- | Information about the policy types.

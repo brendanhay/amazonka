@@ -63,10 +63,10 @@ data GetPipeline = GetPipeline'
 
 -- | 'GetPipeline' smart constructor.
 getPipeline :: Text -> GetPipeline
-getPipeline pName =
+getPipeline pName_ =
     GetPipeline'
     { _gprqVersion = Nothing
-    , _gprqName = pName
+    , _gprqName = pName_
     }
 
 -- | The version number of the pipeline. If you do not specify a version,
@@ -125,10 +125,10 @@ data GetPipelineResponse = GetPipelineResponse'
 
 -- | 'GetPipelineResponse' smart constructor.
 getPipelineResponse :: Int -> GetPipelineResponse
-getPipelineResponse pStatus =
+getPipelineResponse pStatus_ =
     GetPipelineResponse'
     { _gprsPipeline = Nothing
-    , _gprsStatus = pStatus
+    , _gprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

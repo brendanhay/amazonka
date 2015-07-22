@@ -84,10 +84,10 @@ data CreateSnapshot = CreateSnapshot'
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
-createSnapshot pVolumeARN pSnapshotDescription =
+createSnapshot pVolumeARN_ pSnapshotDescription_ =
     CreateSnapshot'
-    { _csrqVolumeARN = pVolumeARN
-    , _csrqSnapshotDescription = pSnapshotDescription
+    { _csrqVolumeARN = pVolumeARN_
+    , _csrqSnapshotDescription = pSnapshotDescription_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
@@ -154,11 +154,11 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
-createSnapshotResponse pStatus =
+createSnapshotResponse pStatus_ =
     CreateSnapshotResponse'
     { _csrsVolumeARN = Nothing
     , _csrsSnapshotId = Nothing
-    , _csrsStatus = pStatus
+    , _csrsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was

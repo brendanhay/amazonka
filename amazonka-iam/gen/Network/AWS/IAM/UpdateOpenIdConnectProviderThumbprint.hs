@@ -71,9 +71,9 @@ data UpdateOpenIdConnectProviderThumbprint = UpdateOpenIdConnectProviderThumbpri
 
 -- | 'UpdateOpenIdConnectProviderThumbprint' smart constructor.
 updateOpenIdConnectProviderThumbprint :: Text -> UpdateOpenIdConnectProviderThumbprint
-updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN =
+updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN_ =
     UpdateOpenIdConnectProviderThumbprint'
-    { _uoicptrqOpenIdConnectProviderARN = pOpenIdConnectProviderARN
+    { _uoicptrqOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     , _uoicptrqThumbprintList = mempty
     }
 

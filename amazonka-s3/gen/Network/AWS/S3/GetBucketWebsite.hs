@@ -57,9 +57,9 @@ newtype GetBucketWebsite = GetBucketWebsite'
 
 -- | 'GetBucketWebsite' smart constructor.
 getBucketWebsite :: BucketName -> GetBucketWebsite
-getBucketWebsite pBucket =
+getBucketWebsite pBucket_ =
     GetBucketWebsite'
-    { _gbwrqBucket = pBucket
+    { _gbwrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -115,13 +115,13 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
 
 -- | 'GetBucketWebsiteResponse' smart constructor.
 getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse
-getBucketWebsiteResponse pStatus =
+getBucketWebsiteResponse pStatus_ =
     GetBucketWebsiteResponse'
     { _gbwrsRedirectAllRequestsTo = Nothing
     , _gbwrsErrorDocument = Nothing
     , _gbwrsRoutingRules = Nothing
     , _gbwrsIndexDocument = Nothing
-    , _gbwrsStatus = pStatus
+    , _gbwrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

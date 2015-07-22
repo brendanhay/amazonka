@@ -235,11 +235,11 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' smart constructor.
 describeReservedDBInstancesOfferingsResponse :: Int -> DescribeReservedDBInstancesOfferingsResponse
-describeReservedDBInstancesOfferingsResponse pStatus =
+describeReservedDBInstancesOfferingsResponse pStatus_ =
     DescribeReservedDBInstancesOfferingsResponse'
     { _drdiorsMarker = Nothing
     , _drdiorsReservedDBInstancesOfferings = Nothing
-    , _drdiorsStatus = pStatus
+    , _drdiorsStatus = pStatus_
     }
 
 -- | An optional pagination token provided by a previous request. If this

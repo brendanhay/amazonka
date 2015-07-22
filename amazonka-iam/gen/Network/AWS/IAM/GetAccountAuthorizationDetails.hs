@@ -176,7 +176,7 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
 
 -- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
 getAccountAuthorizationDetailsResponse :: Int -> GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse pStatus =
+getAccountAuthorizationDetailsResponse pStatus_ =
     GetAccountAuthorizationDetailsResponse'
     { _gaadrsRoleDetailList = Nothing
     , _gaadrsGroupDetailList = Nothing
@@ -184,7 +184,7 @@ getAccountAuthorizationDetailsResponse pStatus =
     , _gaadrsMarker = Nothing
     , _gaadrsIsTruncated = Nothing
     , _gaadrsPolicies = Nothing
-    , _gaadrsStatus = pStatus
+    , _gaadrsStatus = pStatus_
     }
 
 -- | A list containing information about IAM roles.

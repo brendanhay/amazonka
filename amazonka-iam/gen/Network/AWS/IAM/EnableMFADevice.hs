@@ -65,12 +65,12 @@ data EnableMFADevice = EnableMFADevice'
 
 -- | 'EnableMFADevice' smart constructor.
 enableMFADevice :: Text -> Text -> Text -> Text -> EnableMFADevice
-enableMFADevice pUserName pSerialNumber pAuthenticationCode1 pAuthenticationCode2 =
+enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
     EnableMFADevice'
-    { _emdrqUserName = pUserName
-    , _emdrqSerialNumber = pSerialNumber
-    , _emdrqAuthenticationCode1 = pAuthenticationCode1
-    , _emdrqAuthenticationCode2 = pAuthenticationCode2
+    { _emdrqUserName = pUserName_
+    , _emdrqSerialNumber = pSerialNumber_
+    , _emdrqAuthenticationCode1 = pAuthenticationCode1_
+    , _emdrqAuthenticationCode2 = pAuthenticationCode2_
     }
 
 -- | The name of the user for whom you want to enable the MFA device.

@@ -61,9 +61,9 @@ newtype DescribeLoggingStatus = DescribeLoggingStatus'
 
 -- | 'DescribeLoggingStatus' smart constructor.
 describeLoggingStatus :: Text -> DescribeLoggingStatus
-describeLoggingStatus pClusterIdentifier =
+describeLoggingStatus pClusterIdentifier_ =
     DescribeLoggingStatus'
-    { _dlsrqClusterIdentifier = pClusterIdentifier
+    { _dlsrqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The identifier of the cluster to get the logging status from.

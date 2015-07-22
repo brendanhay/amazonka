@@ -65,11 +65,11 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup'
 
 -- | 'CreateDBSecurityGroup' smart constructor.
 createDBSecurityGroup :: Text -> Text -> CreateDBSecurityGroup
-createDBSecurityGroup pDBSecurityGroupName pDBSecurityGroupDescription =
+createDBSecurityGroup pDBSecurityGroupName_ pDBSecurityGroupDescription_ =
     CreateDBSecurityGroup'
     { _cdsgrqTags = Nothing
-    , _cdsgrqDBSecurityGroupName = pDBSecurityGroupName
-    , _cdsgrqDBSecurityGroupDescription = pDBSecurityGroupDescription
+    , _cdsgrqDBSecurityGroupName = pDBSecurityGroupName_
+    , _cdsgrqDBSecurityGroupDescription = pDBSecurityGroupDescription_
     }
 
 -- | FIXME: Undocumented member.
@@ -137,10 +137,10 @@ data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
 
 -- | 'CreateDBSecurityGroupResponse' smart constructor.
 createDBSecurityGroupResponse :: Int -> CreateDBSecurityGroupResponse
-createDBSecurityGroupResponse pStatus =
+createDBSecurityGroupResponse pStatus_ =
     CreateDBSecurityGroupResponse'
     { _cdbsgrsDBSecurityGroup = Nothing
-    , _cdbsgrsStatus = pStatus
+    , _cdbsgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

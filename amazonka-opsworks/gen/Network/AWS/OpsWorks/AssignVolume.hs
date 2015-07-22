@@ -66,10 +66,10 @@ data AssignVolume = AssignVolume'
 
 -- | 'AssignVolume' smart constructor.
 assignVolume :: Text -> AssignVolume
-assignVolume pVolumeId =
+assignVolume pVolumeId_ =
     AssignVolume'
     { _avrqInstanceId = Nothing
-    , _avrqVolumeId = pVolumeId
+    , _avrqVolumeId = pVolumeId_
     }
 
 -- | The instance ID.

@@ -152,7 +152,7 @@ data Query = Query'
 
 -- | 'Query' smart constructor.
 query :: Text -> Query
-query pTableName =
+query pTableName_ =
     Query'
     { _qrqProjectionExpression = Nothing
     , _qrqKeyConditions = Nothing
@@ -170,7 +170,7 @@ query pTableName =
     , _qrqKeyConditionExpression = Nothing
     , _qrqExclusiveStartKey = Nothing
     , _qrqIndexName = Nothing
-    , _qrqTableName = pTableName
+    , _qrqTableName = pTableName_
     }
 
 -- | A string that identifies one or more attributes to retrieve from the
@@ -784,14 +784,14 @@ data QueryResponse = QueryResponse'
 
 -- | 'QueryResponse' smart constructor.
 queryResponse :: Int -> QueryResponse
-queryResponse pStatus =
+queryResponse pStatus_ =
     QueryResponse'
     { _qrsLastEvaluatedKey = Nothing
     , _qrsCount = Nothing
     , _qrsScannedCount = Nothing
     , _qrsItems = Nothing
     , _qrsConsumedCapacity = Nothing
-    , _qrsStatus = pStatus
+    , _qrsStatus = pStatus_
     }
 
 -- | The primary key of the item where the operation stopped, inclusive of

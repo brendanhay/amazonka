@@ -65,9 +65,9 @@ newtype DeregisterTaskDefinition = DeregisterTaskDefinition'
 
 -- | 'DeregisterTaskDefinition' smart constructor.
 deregisterTaskDefinition :: Text -> DeregisterTaskDefinition
-deregisterTaskDefinition pTaskDefinition =
+deregisterTaskDefinition pTaskDefinition_ =
     DeregisterTaskDefinition'
-    { _drqTaskDefinition = pTaskDefinition
+    { _drqTaskDefinition = pTaskDefinition_
     }
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
@@ -121,10 +121,10 @@ data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
 
 -- | 'DeregisterTaskDefinitionResponse' smart constructor.
 deregisterTaskDefinitionResponse :: Int -> DeregisterTaskDefinitionResponse
-deregisterTaskDefinitionResponse pStatus =
+deregisterTaskDefinitionResponse pStatus_ =
     DeregisterTaskDefinitionResponse'
     { _dtdrsTaskDefinition = Nothing
-    , _dtdrsStatus = pStatus
+    , _dtdrsStatus = pStatus_
     }
 
 -- | The full description of the deregistered task.

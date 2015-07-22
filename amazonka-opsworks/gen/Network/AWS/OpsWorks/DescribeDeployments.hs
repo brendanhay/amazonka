@@ -145,10 +145,10 @@ data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
 
 -- | 'DescribeDeploymentsResponse' smart constructor.
 describeDeploymentsResponse :: Int -> DescribeDeploymentsResponse
-describeDeploymentsResponse pStatus =
+describeDeploymentsResponse pStatus_ =
     DescribeDeploymentsResponse'
     { _ddrsDeployments = Nothing
-    , _ddrsStatus = pStatus
+    , _ddrsStatus = pStatus_
     }
 
 -- | An array of @Deployment@ objects that describe the deployments.

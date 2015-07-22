@@ -64,11 +64,11 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
 
 -- | 'PutBucketRequestPayment' smart constructor.
 putBucketRequestPayment :: BucketName -> RequestPaymentConfiguration -> PutBucketRequestPayment
-putBucketRequestPayment pBucket pRequestPaymentConfiguration =
+putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
     PutBucketRequestPayment'
     { _pbrprqContentMD5 = Nothing
-    , _pbrprqBucket = pBucket
-    , _pbrprqRequestPaymentConfiguration = pRequestPaymentConfiguration
+    , _pbrprqBucket = pBucket_
+    , _pbrprqRequestPaymentConfiguration = pRequestPaymentConfiguration_
     }
 
 -- | FIXME: Undocumented member.

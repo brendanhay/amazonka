@@ -61,10 +61,10 @@ data DeleteLifecycleHook = DeleteLifecycleHook'
 
 -- | 'DeleteLifecycleHook' smart constructor.
 deleteLifecycleHook :: Text -> Text -> DeleteLifecycleHook
-deleteLifecycleHook pLifecycleHookName pAutoScalingGroupName =
+deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
     DeleteLifecycleHook'
-    { _delrqLifecycleHookName = pLifecycleHookName
-    , _delrqAutoScalingGroupName = pAutoScalingGroupName
+    { _delrqLifecycleHookName = pLifecycleHookName_
+    , _delrqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The name of the lifecycle hook.
@@ -110,9 +110,9 @@ newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
 
 -- | 'DeleteLifecycleHookResponse' smart constructor.
 deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse
-deleteLifecycleHookResponse pStatus =
+deleteLifecycleHookResponse pStatus_ =
     DeleteLifecycleHookResponse'
-    { _drsStatus = pStatus
+    { _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

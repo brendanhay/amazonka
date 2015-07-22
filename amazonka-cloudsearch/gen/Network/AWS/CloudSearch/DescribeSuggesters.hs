@@ -75,11 +75,11 @@ data DescribeSuggesters = DescribeSuggesters'
 
 -- | 'DescribeSuggesters' smart constructor.
 describeSuggesters :: Text -> DescribeSuggesters
-describeSuggesters pDomainName =
+describeSuggesters pDomainName_ =
     DescribeSuggesters'
     { _dsrqDeployed = Nothing
     , _dsrqSuggesterNames = Nothing
-    , _dsrqDomainName = pDomainName
+    , _dsrqDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
@@ -141,9 +141,9 @@ data DescribeSuggestersResponse = DescribeSuggestersResponse'
 
 -- | 'DescribeSuggestersResponse' smart constructor.
 describeSuggestersResponse :: Int -> DescribeSuggestersResponse
-describeSuggestersResponse pStatus =
+describeSuggestersResponse pStatus_ =
     DescribeSuggestersResponse'
-    { _dssrsStatus = pStatus
+    { _dssrsStatus = pStatus_
     , _dssrsSuggesters = mempty
     }
 

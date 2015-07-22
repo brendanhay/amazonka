@@ -63,9 +63,9 @@ newtype DescribeUploadBuffer = DescribeUploadBuffer'
 
 -- | 'DescribeUploadBuffer' smart constructor.
 describeUploadBuffer :: Text -> DescribeUploadBuffer
-describeUploadBuffer pGatewayARN =
+describeUploadBuffer pGatewayARN_ =
     DescribeUploadBuffer'
-    { _dubrqGatewayARN = pGatewayARN
+    { _dubrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -130,13 +130,13 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
 
 -- | 'DescribeUploadBufferResponse' smart constructor.
 describeUploadBufferResponse :: Int -> DescribeUploadBufferResponse
-describeUploadBufferResponse pStatus =
+describeUploadBufferResponse pStatus_ =
     DescribeUploadBufferResponse'
     { _dubrsUploadBufferAllocatedInBytes = Nothing
     , _dubrsGatewayARN = Nothing
     , _dubrsDiskIds = Nothing
     , _dubrsUploadBufferUsedInBytes = Nothing
-    , _dubrsStatus = pStatus
+    , _dubrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

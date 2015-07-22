@@ -65,10 +65,10 @@ data DeleteIndexField = DeleteIndexField'
 
 -- | 'DeleteIndexField' smart constructor.
 deleteIndexField :: Text -> Text -> DeleteIndexField
-deleteIndexField pDomainName pIndexFieldName =
+deleteIndexField pDomainName_ pIndexFieldName_ =
     DeleteIndexField'
-    { _diffrqDomainName = pDomainName
-    , _diffrqIndexFieldName = pIndexFieldName
+    { _diffrqDomainName = pDomainName_
+    , _diffrqIndexFieldName = pIndexFieldName_
     }
 
 -- | FIXME: Undocumented member.
@@ -120,10 +120,10 @@ data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
 deleteIndexFieldResponse :: Int -> IndexFieldStatus -> DeleteIndexFieldResponse
-deleteIndexFieldResponse pStatus pIndexField =
+deleteIndexFieldResponse pStatus_ pIndexField_ =
     DeleteIndexFieldResponse'
-    { _difrsStatus = pStatus
-    , _difrsIndexField = pIndexField
+    { _difrsStatus = pStatus_
+    , _difrsIndexField = pIndexField_
     }
 
 -- | FIXME: Undocumented member.

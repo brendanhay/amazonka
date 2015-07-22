@@ -74,13 +74,13 @@ data DeleteObject = DeleteObject'
 
 -- | 'DeleteObject' smart constructor.
 deleteObject :: BucketName -> ObjectKey -> DeleteObject
-deleteObject pBucket pKey =
+deleteObject pBucket_ pKey_ =
     DeleteObject'
     { _dorqVersionId = Nothing
     , _dorqMFA = Nothing
     , _dorqRequestPayer = Nothing
-    , _dorqBucket = pBucket
-    , _dorqKey = pKey
+    , _dorqBucket = pBucket_
+    , _dorqKey = pKey_
     }
 
 -- | VersionId used to reference a specific version of the object.
@@ -152,12 +152,12 @@ data DeleteObjectResponse = DeleteObjectResponse'
 
 -- | 'DeleteObjectResponse' smart constructor.
 deleteObjectResponse :: Int -> DeleteObjectResponse
-deleteObjectResponse pStatus =
+deleteObjectResponse pStatus_ =
     DeleteObjectResponse'
     { _dorsVersionId = Nothing
     , _dorsRequestCharged = Nothing
     , _dorsDeleteMarker = Nothing
-    , _dorsStatus = pStatus
+    , _dorsStatus = pStatus_
     }
 
 -- | Returns the version ID of the delete marker created as a result of the

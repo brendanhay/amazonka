@@ -158,11 +158,11 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse'
 
 -- | 'ListVirtualMFADevicesResponse' smart constructor.
 listVirtualMFADevicesResponse :: Int -> ListVirtualMFADevicesResponse
-listVirtualMFADevicesResponse pStatus =
+listVirtualMFADevicesResponse pStatus_ =
     ListVirtualMFADevicesResponse'
     { _lvmdrsMarker = Nothing
     , _lvmdrsIsTruncated = Nothing
-    , _lvmdrsStatus = pStatus
+    , _lvmdrsStatus = pStatus_
     , _lvmdrsVirtualMFADevices = mempty
     }
 

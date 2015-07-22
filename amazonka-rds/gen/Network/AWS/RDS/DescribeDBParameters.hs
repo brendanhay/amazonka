@@ -72,13 +72,13 @@ data DescribeDBParameters = DescribeDBParameters'
 
 -- | 'DescribeDBParameters' smart constructor.
 describeDBParameters :: Text -> DescribeDBParameters
-describeDBParameters pDBParameterGroupName =
+describeDBParameters pDBParameterGroupName_ =
     DescribeDBParameters'
     { _ddprqFilters = Nothing
     , _ddprqMaxRecords = Nothing
     , _ddprqMarker = Nothing
     , _ddprqSource = Nothing
-    , _ddprqDBParameterGroupName = pDBParameterGroupName
+    , _ddprqDBParameterGroupName = pDBParameterGroupName_
     }
 
 -- | This parameter is not currently supported.
@@ -179,11 +179,11 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse'
 
 -- | 'DescribeDBParametersResponse' smart constructor.
 describeDBParametersResponse :: Int -> DescribeDBParametersResponse
-describeDBParametersResponse pStatus =
+describeDBParametersResponse pStatus_ =
     DescribeDBParametersResponse'
     { _ddprsParameters = Nothing
     , _ddprsMarker = Nothing
-    , _ddprsStatus = pStatus
+    , _ddprsStatus = pStatus_
     }
 
 -- | A list of Parameter values.

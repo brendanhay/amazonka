@@ -155,10 +155,10 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
 describeScalingActivitiesResponse :: Int -> DescribeScalingActivitiesResponse
-describeScalingActivitiesResponse pStatus =
+describeScalingActivitiesResponse pStatus_ =
     DescribeScalingActivitiesResponse'
     { _dsasrsNextToken = Nothing
-    , _dsasrsStatus = pStatus
+    , _dsasrsStatus = pStatus_
     , _dsasrsActivities = mempty
     }
 

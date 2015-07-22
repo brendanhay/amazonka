@@ -145,10 +145,10 @@ data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
 
 -- | 'DescribeVPCClassicLinkResponse' smart constructor.
 describeVPCClassicLinkResponse :: Int -> DescribeVPCClassicLinkResponse
-describeVPCClassicLinkResponse pStatus =
+describeVPCClassicLinkResponse pStatus_ =
     DescribeVPCClassicLinkResponse'
     { _dvclrsVPCs = Nothing
-    , _dvclrsStatus = pStatus
+    , _dvclrsStatus = pStatus_
     }
 
 -- | The ClassicLink status of one or more VPCs.

@@ -74,11 +74,11 @@ data DescribeIndexFields = DescribeIndexFields'
 
 -- | 'DescribeIndexFields' smart constructor.
 describeIndexFields :: Text -> DescribeIndexFields
-describeIndexFields pDomainName =
+describeIndexFields pDomainName_ =
     DescribeIndexFields'
     { _difrqDeployed = Nothing
     , _difrqFieldNames = Nothing
-    , _difrqDomainName = pDomainName
+    , _difrqDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
@@ -141,9 +141,9 @@ data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
 describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
-describeIndexFieldsResponse pStatus =
+describeIndexFieldsResponse pStatus_ =
     DescribeIndexFieldsResponse'
-    { _difsrsStatus = pStatus
+    { _difsrsStatus = pStatus_
     , _difsrsIndexFields = mempty
     }
 

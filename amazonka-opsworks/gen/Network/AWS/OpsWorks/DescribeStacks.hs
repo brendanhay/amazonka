@@ -116,10 +116,10 @@ data DescribeStacksResponse = DescribeStacksResponse'
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse
-describeStacksResponse pStatus =
+describeStacksResponse pStatus_ =
     DescribeStacksResponse'
     { _dsrsStacks = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | An array of @Stack@ objects that describe the stacks.

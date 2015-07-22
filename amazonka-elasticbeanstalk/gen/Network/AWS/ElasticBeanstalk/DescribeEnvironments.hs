@@ -171,10 +171,10 @@ data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
 
 -- | 'DescribeEnvironmentsResponse' smart constructor.
 describeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse
-describeEnvironmentsResponse pStatus =
+describeEnvironmentsResponse pStatus_ =
     DescribeEnvironmentsResponse'
     { _drsEnvironments = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | Returns an EnvironmentDescription list.

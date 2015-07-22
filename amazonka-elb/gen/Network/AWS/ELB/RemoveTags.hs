@@ -57,10 +57,10 @@ data RemoveTags = RemoveTags'
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: NonEmpty TagKeyOnly -> RemoveTags
-removeTags pTags =
+removeTags pTags_ =
     RemoveTags'
     { _rtrqLoadBalancerNames = mempty
-    , _rtrqTags = _List1 # pTags
+    , _rtrqTags = _List1 # pTags_
     }
 
 -- | The name of the load balancer. You can specify a maximum of one load
@@ -107,9 +107,9 @@ newtype RemoveTagsResponse = RemoveTagsResponse'
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
-removeTagsResponse pStatus =
+removeTagsResponse pStatus_ =
     RemoveTagsResponse'
-    { _rtrsStatus = pStatus
+    { _rtrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

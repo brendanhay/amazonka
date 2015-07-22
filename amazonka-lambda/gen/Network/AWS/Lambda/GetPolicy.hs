@@ -57,9 +57,9 @@ newtype GetPolicy = GetPolicy'
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
-getPolicy pFunctionName =
+getPolicy pFunctionName_ =
     GetPolicy'
-    { _gprqFunctionName = pFunctionName
+    { _gprqFunctionName = pFunctionName_
     }
 
 -- | Function name whose access policy you want to retrieve.
@@ -111,10 +111,10 @@ data GetPolicyResponse = GetPolicyResponse'
 
 -- | 'GetPolicyResponse' smart constructor.
 getPolicyResponse :: Int -> GetPolicyResponse
-getPolicyResponse pStatus =
+getPolicyResponse pStatus_ =
     GetPolicyResponse'
     { _gprsPolicy = Nothing
-    , _gprsStatus = pStatus
+    , _gprsStatus = pStatus_
     }
 
 -- | The access policy associated with the specified function. The response

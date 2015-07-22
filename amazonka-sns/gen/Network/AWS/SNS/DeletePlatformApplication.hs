@@ -55,9 +55,9 @@ newtype DeletePlatformApplication = DeletePlatformApplication'
 
 -- | 'DeletePlatformApplication' smart constructor.
 deletePlatformApplication :: Text -> DeletePlatformApplication
-deletePlatformApplication pPlatformApplicationARN =
+deletePlatformApplication pPlatformApplicationARN_ =
     DeletePlatformApplication'
-    { _dparqPlatformApplicationARN = pPlatformApplicationARN
+    { _dparqPlatformApplicationARN = pPlatformApplicationARN_
     }
 
 -- | PlatformApplicationArn of platform application object to delete.

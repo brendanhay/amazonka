@@ -85,11 +85,11 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
 getOpenIdTokenForDeveloperIdentity :: Text -> GetOpenIdTokenForDeveloperIdentity
-getOpenIdTokenForDeveloperIdentity pIdentityPoolId =
+getOpenIdTokenForDeveloperIdentity pIdentityPoolId_ =
     GetOpenIdTokenForDeveloperIdentity'
     { _goitfdirqTokenDuration = Nothing
     , _goitfdirqIdentityId = Nothing
-    , _goitfdirqIdentityPoolId = pIdentityPoolId
+    , _goitfdirqIdentityPoolId = pIdentityPoolId_
     , _goitfdirqLogins = mempty
     }
 
@@ -188,11 +188,11 @@ data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIden
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 getOpenIdTokenForDeveloperIdentityResponse :: Int -> GetOpenIdTokenForDeveloperIdentityResponse
-getOpenIdTokenForDeveloperIdentityResponse pStatus =
+getOpenIdTokenForDeveloperIdentityResponse pStatus_ =
     GetOpenIdTokenForDeveloperIdentityResponse'
     { _goitfdirsToken = Nothing
     , _goitfdirsIdentityId = Nothing
-    , _goitfdirsStatus = pStatus
+    , _goitfdirsStatus = pStatus_
     }
 
 -- | An OpenID token.

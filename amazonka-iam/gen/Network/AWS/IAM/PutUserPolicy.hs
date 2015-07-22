@@ -77,11 +77,11 @@ data PutUserPolicy = PutUserPolicy'
 
 -- | 'PutUserPolicy' smart constructor.
 putUserPolicy :: Text -> Text -> Text -> PutUserPolicy
-putUserPolicy pUserName pPolicyName pPolicyDocument =
+putUserPolicy pUserName_ pPolicyName_ pPolicyDocument_ =
     PutUserPolicy'
-    { _puprqUserName = pUserName
-    , _puprqPolicyName = pPolicyName
-    , _puprqPolicyDocument = pPolicyDocument
+    { _puprqUserName = pUserName_
+    , _puprqPolicyName = pPolicyName_
+    , _puprqPolicyDocument = pPolicyDocument_
     }
 
 -- | The name of the user to associate the policy with.

@@ -63,11 +63,11 @@ data DisableSso = DisableSso'
 
 -- | 'DisableSso' smart constructor.
 disableSso :: Text -> DisableSso
-disableSso pDirectoryId =
+disableSso pDirectoryId_ =
     DisableSso'
     { _drqUserName = Nothing
     , _drqPassword = Nothing
-    , _drqDirectoryId = pDirectoryId
+    , _drqDirectoryId = pDirectoryId_
     }
 
 -- | The username of an alternate account to use to disable single-sign on.
@@ -137,9 +137,9 @@ newtype DisableSsoResponse = DisableSsoResponse'
 
 -- | 'DisableSsoResponse' smart constructor.
 disableSsoResponse :: Int -> DisableSsoResponse
-disableSsoResponse pStatus =
+disableSsoResponse pStatus_ =
     DisableSsoResponse'
-    { _drsStatus = pStatus
+    { _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

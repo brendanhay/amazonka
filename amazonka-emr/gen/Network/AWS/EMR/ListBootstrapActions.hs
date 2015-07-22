@@ -63,10 +63,10 @@ data ListBootstrapActions = ListBootstrapActions'
 
 -- | 'ListBootstrapActions' smart constructor.
 listBootstrapActions :: Text -> ListBootstrapActions
-listBootstrapActions pClusterId =
+listBootstrapActions pClusterId_ =
     ListBootstrapActions'
     { _lbarqMarker = Nothing
-    , _lbarqClusterId = pClusterId
+    , _lbarqClusterId = pClusterId_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve
@@ -139,11 +139,11 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
 listBootstrapActionsResponse :: Int -> ListBootstrapActionsResponse
-listBootstrapActionsResponse pStatus =
+listBootstrapActionsResponse pStatus_ =
     ListBootstrapActionsResponse'
     { _lbarsBootstrapActions = Nothing
     , _lbarsMarker = Nothing
-    , _lbarsStatus = pStatus
+    , _lbarsStatus = pStatus_
     }
 
 -- | The bootstrap actions associated with the cluster .

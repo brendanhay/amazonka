@@ -147,10 +147,10 @@ data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
 describeAvailabilityZonesResponse :: Int -> DescribeAvailabilityZonesResponse
-describeAvailabilityZonesResponse pStatus =
+describeAvailabilityZonesResponse pStatus_ =
     DescribeAvailabilityZonesResponse'
     { _dazrsAvailabilityZones = Nothing
-    , _dazrsStatus = pStatus
+    , _dazrsStatus = pStatus_
     }
 
 -- | Information about one or more Availability Zones.

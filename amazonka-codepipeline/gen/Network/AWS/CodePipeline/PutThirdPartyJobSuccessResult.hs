@@ -70,13 +70,13 @@ data PutThirdPartyJobSuccessResult = PutThirdPartyJobSuccessResult'
 
 -- | 'PutThirdPartyJobSuccessResult' smart constructor.
 putThirdPartyJobSuccessResult :: Text -> Text -> PutThirdPartyJobSuccessResult
-putThirdPartyJobSuccessResult pJobId pClientToken =
+putThirdPartyJobSuccessResult pJobId_ pClientToken_ =
     PutThirdPartyJobSuccessResult'
     { _ptpjsrrqContinuationToken = Nothing
     , _ptpjsrrqExecutionDetails = Nothing
     , _ptpjsrrqCurrentRevision = Nothing
-    , _ptpjsrrqJobId = pJobId
-    , _ptpjsrrqClientToken = pClientToken
+    , _ptpjsrrqJobId = pJobId_
+    , _ptpjsrrqClientToken = pClientToken_
     }
 
 -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a

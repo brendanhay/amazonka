@@ -85,14 +85,14 @@ data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
 
 -- | 'DescribeSpotFleetRequestHistory' smart constructor.
 describeSpotFleetRequestHistory :: Text -> UTCTime -> DescribeSpotFleetRequestHistory
-describeSpotFleetRequestHistory pSpotFleetRequestId pStartTime =
+describeSpotFleetRequestHistory pSpotFleetRequestId_ pStartTime_ =
     DescribeSpotFleetRequestHistory'
     { _dsfrhrqNextToken = Nothing
     , _dsfrhrqEventType = Nothing
     , _dsfrhrqDryRun = Nothing
     , _dsfrhrqMaxResults = Nothing
-    , _dsfrhrqSpotFleetRequestId = pSpotFleetRequestId
-    , _dsfrhrqStartTime = _Time # pStartTime
+    , _dsfrhrqSpotFleetRequestId = pSpotFleetRequestId_
+    , _dsfrhrqStartTime = _Time # pStartTime_
     }
 
 -- | The token for the next set of results.
@@ -193,13 +193,13 @@ data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryRe
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
 describeSpotFleetRequestHistoryResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse
-describeSpotFleetRequestHistoryResponse pStatus pSpotFleetRequestId pStartTime pLastEvaluatedTime =
+describeSpotFleetRequestHistoryResponse pStatus_ pSpotFleetRequestId_ pStartTime_ pLastEvaluatedTime_ =
     DescribeSpotFleetRequestHistoryResponse'
     { _dsfrhrsNextToken = Nothing
-    , _dsfrhrsStatus = pStatus
-    , _dsfrhrsSpotFleetRequestId = pSpotFleetRequestId
-    , _dsfrhrsStartTime = _Time # pStartTime
-    , _dsfrhrsLastEvaluatedTime = _Time # pLastEvaluatedTime
+    , _dsfrhrsStatus = pStatus_
+    , _dsfrhrsSpotFleetRequestId = pSpotFleetRequestId_
+    , _dsfrhrsStartTime = _Time # pStartTime_
+    , _dsfrhrsLastEvaluatedTime = _Time # pLastEvaluatedTime_
     , _dsfrhrsHistoryRecords = mempty
     }
 

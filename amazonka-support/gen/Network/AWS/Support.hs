@@ -82,6 +82,4 @@ import           Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries       
 import           Network.AWS.Support.RefreshTrustedAdvisorCheck                 as Export
 import           Network.AWS.Support.ResolveCase                                as Export
 import           Network.AWS.Support.Types                                      as Export
-import           Network.AWS.Support.Types.Product                              as Export
-import           Network.AWS.Support.Types.Sum                                  as Export
 import           Network.AWS.Support.Waiters                                    as Export

@@ -86,10 +86,10 @@ data DescribeVault = DescribeVault'
 
 -- | 'DescribeVault' smart constructor.
 describeVault :: Text -> Text -> DescribeVault
-describeVault pAccountId pVaultName =
+describeVault pAccountId_ pVaultName_ =
     DescribeVault'
-    { _dvrqAccountId = pAccountId
-    , _dvrqVaultName = pVaultName
+    { _dvrqAccountId = pAccountId_
+    , _dvrqVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the

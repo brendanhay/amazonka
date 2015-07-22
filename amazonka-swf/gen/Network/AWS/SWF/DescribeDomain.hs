@@ -74,9 +74,9 @@ newtype DescribeDomain = DescribeDomain'
 
 -- | 'DescribeDomain' smart constructor.
 describeDomain :: Text -> DescribeDomain
-describeDomain pName =
+describeDomain pName_ =
     DescribeDomain'
-    { _ddrqName = pName
+    { _ddrqName = pName_
     }
 
 -- | The name of the domain to describe.
@@ -133,11 +133,11 @@ data DescribeDomainResponse = DescribeDomainResponse'
 
 -- | 'DescribeDomainResponse' smart constructor.
 describeDomainResponse :: Int -> DomainInfo -> DomainConfiguration -> DescribeDomainResponse
-describeDomainResponse pStatus pDomainInfo pConfiguration =
+describeDomainResponse pStatus_ pDomainInfo_ pConfiguration_ =
     DescribeDomainResponse'
-    { _ddrsStatus = pStatus
-    , _ddrsDomainInfo = pDomainInfo
-    , _ddrsConfiguration = pConfiguration
+    { _ddrsStatus = pStatus_
+    , _ddrsDomainInfo = pDomainInfo_
+    , _ddrsConfiguration = pConfiguration_
     }
 
 -- | FIXME: Undocumented member.

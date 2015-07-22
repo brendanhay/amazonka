@@ -69,11 +69,11 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup'
 
 -- | 'CreateDBSubnetGroup' smart constructor.
 createDBSubnetGroup :: Text -> Text -> CreateDBSubnetGroup
-createDBSubnetGroup pDBSubnetGroupName pDBSubnetGroupDescription =
+createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
     CreateDBSubnetGroup'
     { _cdbsgrqTags = Nothing
-    , _cdbsgrqDBSubnetGroupName = pDBSubnetGroupName
-    , _cdbsgrqDBSubnetGroupDescription = pDBSubnetGroupDescription
+    , _cdbsgrqDBSubnetGroupName = pDBSubnetGroupName_
+    , _cdbsgrqDBSubnetGroupDescription = pDBSubnetGroupDescription_
     , _cdbsgrqSubnetIds = mempty
     }
 
@@ -143,10 +143,10 @@ data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
 
 -- | 'CreateDBSubnetGroupResponse' smart constructor.
 createDBSubnetGroupResponse :: Int -> CreateDBSubnetGroupResponse
-createDBSubnetGroupResponse pStatus =
+createDBSubnetGroupResponse pStatus_ =
     CreateDBSubnetGroupResponse'
     { _cdsgrsDBSubnetGroup = Nothing
-    , _cdsgrsStatus = pStatus
+    , _cdsgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

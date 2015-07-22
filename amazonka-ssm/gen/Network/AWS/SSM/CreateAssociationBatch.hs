@@ -122,11 +122,11 @@ data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
 
 -- | 'CreateAssociationBatchResponse' smart constructor.
 createAssociationBatchResponse :: Int -> CreateAssociationBatchResponse
-createAssociationBatchResponse pStatus =
+createAssociationBatchResponse pStatus_ =
     CreateAssociationBatchResponse'
     { _cabrsSuccessful = Nothing
     , _cabrsFailed = Nothing
-    , _cabrsStatus = pStatus
+    , _cabrsStatus = pStatus_
     }
 
 -- | Information about the associations that succeeded.

@@ -65,10 +65,10 @@ data ListStackResources = ListStackResources'
 
 -- | 'ListStackResources' smart constructor.
 listStackResources :: Text -> ListStackResources
-listStackResources pStackName =
+listStackResources pStackName_ =
     ListStackResources'
     { _lsrrqNextToken = Nothing
-    , _lsrrqStackName = pStackName
+    , _lsrrqStackName = pStackName_
     }
 
 -- | String that identifies the start of the next list of stack resource
@@ -143,11 +143,11 @@ data ListStackResourcesResponse = ListStackResourcesResponse'
 
 -- | 'ListStackResourcesResponse' smart constructor.
 listStackResourcesResponse :: Int -> ListStackResourcesResponse
-listStackResourcesResponse pStatus =
+listStackResourcesResponse pStatus_ =
     ListStackResourcesResponse'
     { _lsrrsNextToken = Nothing
     , _lsrrsStackResourceSummaries = Nothing
-    , _lsrrsStatus = pStatus
+    , _lsrrsStatus = pStatus_
     }
 
 -- | String that identifies the start of the next list of stack resources, if

@@ -83,12 +83,12 @@ data CreateEvaluation = CreateEvaluation'
 
 -- | 'CreateEvaluation' smart constructor.
 createEvaluation :: Text -> Text -> Text -> CreateEvaluation
-createEvaluation pEvaluationId pMLModelId pEvaluationDataSourceId =
+createEvaluation pEvaluationId_ pMLModelId_ pEvaluationDataSourceId_ =
     CreateEvaluation'
     { _cerqEvaluationName = Nothing
-    , _cerqEvaluationId = pEvaluationId
-    , _cerqMLModelId = pMLModelId
-    , _cerqEvaluationDataSourceId = pEvaluationDataSourceId
+    , _cerqEvaluationId = pEvaluationId_
+    , _cerqMLModelId = pMLModelId_
+    , _cerqEvaluationDataSourceId = pEvaluationDataSourceId_
     }
 
 -- | A user-supplied name or description of the @Evaluation@.
@@ -166,10 +166,10 @@ data CreateEvaluationResponse = CreateEvaluationResponse'
 
 -- | 'CreateEvaluationResponse' smart constructor.
 createEvaluationResponse :: Int -> CreateEvaluationResponse
-createEvaluationResponse pStatus =
+createEvaluationResponse pStatus_ =
     CreateEvaluationResponse'
     { _cersEvaluationId = Nothing
-    , _cersStatus = pStatus
+    , _cersStatus = pStatus_
     }
 
 -- | The user-supplied ID that uniquely identifies the @Evaluation@. This

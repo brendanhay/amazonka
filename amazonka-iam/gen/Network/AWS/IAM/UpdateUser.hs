@@ -71,11 +71,11 @@ data UpdateUser = UpdateUser'
 
 -- | 'UpdateUser' smart constructor.
 updateUser :: Text -> UpdateUser
-updateUser pUserName =
+updateUser pUserName_ =
     UpdateUser'
     { _uurqNewUserName = Nothing
     , _uurqNewPath = Nothing
-    , _uurqUserName = pUserName
+    , _uurqUserName = pUserName_
     }
 
 -- | New name for the user. Include this parameter only if you\'re changing

@@ -55,10 +55,10 @@ data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
 
 -- | 'DeleteNotificationConfiguration' smart constructor.
 deleteNotificationConfiguration :: Text -> Text -> DeleteNotificationConfiguration
-deleteNotificationConfiguration pAutoScalingGroupName pTopicARN =
+deleteNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
     DeleteNotificationConfiguration'
-    { _dncrqAutoScalingGroupName = pAutoScalingGroupName
-    , _dncrqTopicARN = pTopicARN
+    { _dncrqAutoScalingGroupName = pAutoScalingGroupName_
+    , _dncrqTopicARN = pTopicARN_
     }
 
 -- | The name of the Auto Scaling group.

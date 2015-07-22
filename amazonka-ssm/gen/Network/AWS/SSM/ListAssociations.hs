@@ -64,11 +64,11 @@ data ListAssociations = ListAssociations'
 
 -- | 'ListAssociations' smart constructor.
 listAssociations :: NonEmpty AssociationFilter -> ListAssociations
-listAssociations pAssociationFilterList =
+listAssociations pAssociationFilterList_ =
     ListAssociations'
     { _larqNextToken = Nothing
     , _larqMaxResults = Nothing
-    , _larqAssociationFilterList = _List1 # pAssociationFilterList
+    , _larqAssociationFilterList = _List1 # pAssociationFilterList_
     }
 
 -- | The token for the next set of items to return. (You received this token
@@ -139,11 +139,11 @@ data ListAssociationsResponse = ListAssociationsResponse'
 
 -- | 'ListAssociationsResponse' smart constructor.
 listAssociationsResponse :: Int -> ListAssociationsResponse
-listAssociationsResponse pStatus =
+listAssociationsResponse pStatus_ =
     ListAssociationsResponse'
     { _larsNextToken = Nothing
     , _larsAssociations = Nothing
-    , _larsStatus = pStatus
+    , _larsStatus = pStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no

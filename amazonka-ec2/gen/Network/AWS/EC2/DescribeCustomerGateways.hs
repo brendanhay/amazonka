@@ -164,10 +164,10 @@ data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
 describeCustomerGatewaysResponse :: Int -> DescribeCustomerGatewaysResponse
-describeCustomerGatewaysResponse pStatus =
+describeCustomerGatewaysResponse pStatus_ =
     DescribeCustomerGatewaysResponse'
     { _dcgrsCustomerGateways = Nothing
-    , _dcgrsStatus = pStatus
+    , _dcgrsStatus = pStatus_
     }
 
 -- | Information about one or more customer gateways.

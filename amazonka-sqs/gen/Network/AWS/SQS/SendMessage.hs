@@ -80,12 +80,12 @@ data SendMessage = SendMessage'
 
 -- | 'SendMessage' smart constructor.
 sendMessage :: Text -> Text -> SendMessage
-sendMessage pQueueURL pMessageBody =
+sendMessage pQueueURL_ pMessageBody_ =
     SendMessage'
     { _smrqMessageAttributes = Nothing
     , _smrqDelaySeconds = Nothing
-    , _smrqQueueURL = pQueueURL
-    , _smrqMessageBody = pMessageBody
+    , _smrqQueueURL = pQueueURL_
+    , _smrqMessageBody = pMessageBody_
     }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
@@ -162,12 +162,12 @@ data SendMessageResponse = SendMessageResponse'
 
 -- | 'SendMessageResponse' smart constructor.
 sendMessageResponse :: Int -> SendMessageResponse
-sendMessageResponse pStatus =
+sendMessageResponse pStatus_ =
     SendMessageResponse'
     { _smrsMessageId = Nothing
     , _smrsMD5OfMessageBody = Nothing
     , _smrsMD5OfMessageAttributes = Nothing
-    , _smrsStatus = pStatus
+    , _smrsStatus = pStatus_
     }
 
 -- | An element containing the message ID of the message sent to the queue.

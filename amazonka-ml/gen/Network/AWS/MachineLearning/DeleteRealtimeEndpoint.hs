@@ -55,9 +55,9 @@ newtype DeleteRealtimeEndpoint = DeleteRealtimeEndpoint'
 
 -- | 'DeleteRealtimeEndpoint' smart constructor.
 deleteRealtimeEndpoint :: Text -> DeleteRealtimeEndpoint
-deleteRealtimeEndpoint pMLModelId =
+deleteRealtimeEndpoint pMLModelId_ =
     DeleteRealtimeEndpoint'
-    { _drerqMLModelId = pMLModelId
+    { _drerqMLModelId = pMLModelId_
     }
 
 -- | The ID assigned to the @MLModel@ during creation.
@@ -119,11 +119,11 @@ data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
 
 -- | 'DeleteRealtimeEndpointResponse' smart constructor.
 deleteRealtimeEndpointResponse :: Int -> DeleteRealtimeEndpointResponse
-deleteRealtimeEndpointResponse pStatus =
+deleteRealtimeEndpointResponse pStatus_ =
     DeleteRealtimeEndpointResponse'
     { _drersRealtimeEndpointInfo = Nothing
     , _drersMLModelId = Nothing
-    , _drersStatus = pStatus
+    , _drersStatus = pStatus_
     }
 
 -- | The endpoint information of the @MLModel@

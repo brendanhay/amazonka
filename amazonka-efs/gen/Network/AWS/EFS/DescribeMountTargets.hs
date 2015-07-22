@@ -69,11 +69,11 @@ data DescribeMountTargets = DescribeMountTargets'
 
 -- | 'DescribeMountTargets' smart constructor.
 describeMountTargets :: Text -> DescribeMountTargets
-describeMountTargets pFileSystemId =
+describeMountTargets pFileSystemId_ =
     DescribeMountTargets'
     { _dmtrqMaxItems = Nothing
     , _dmtrqMarker = Nothing
-    , _dmtrqFileSystemId = pFileSystemId
+    , _dmtrqFileSystemId = pFileSystemId_
     }
 
 -- | Optional. Maximum number of mount targets to return in the response. It
@@ -138,12 +138,12 @@ data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
 
 -- | 'DescribeMountTargetsResponse' smart constructor.
 describeMountTargetsResponse :: Int -> DescribeMountTargetsResponse
-describeMountTargetsResponse pStatus =
+describeMountTargetsResponse pStatus_ =
     DescribeMountTargetsResponse'
     { _dmtrsMountTargets = Nothing
     , _dmtrsMarker = Nothing
     , _dmtrsNextMarker = Nothing
-    , _dmtrsStatus = pStatus
+    , _dmtrsStatus = pStatus_
     }
 
 -- | Returns the file system\'s mount targets as an array of

@@ -122,9 +122,9 @@ data DescribePipelinesResponse = DescribePipelinesResponse'
 
 -- | 'DescribePipelinesResponse' smart constructor.
 describePipelinesResponse :: Int -> DescribePipelinesResponse
-describePipelinesResponse pStatus =
+describePipelinesResponse pStatus_ =
     DescribePipelinesResponse'
-    { _dprsStatus = pStatus
+    { _dprsStatus = pStatus_
     , _dprsPipelineDescriptionList = mempty
     }
 

@@ -56,9 +56,9 @@ newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
 
 -- | 'DeleteDBSecurityGroup' smart constructor.
 deleteDBSecurityGroup :: Text -> DeleteDBSecurityGroup
-deleteDBSecurityGroup pDBSecurityGroupName =
+deleteDBSecurityGroup pDBSecurityGroupName_ =
     DeleteDBSecurityGroup'
-    { _ddsgrqDBSecurityGroupName = pDBSecurityGroupName
+    { _ddsgrqDBSecurityGroupName = pDBSecurityGroupName_
     }
 
 -- | The name of the DB security group to delete.

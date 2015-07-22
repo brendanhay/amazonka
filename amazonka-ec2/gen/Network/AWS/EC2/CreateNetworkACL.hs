@@ -64,10 +64,10 @@ data CreateNetworkACL = CreateNetworkACL'
 
 -- | 'CreateNetworkACL' smart constructor.
 createNetworkACL :: Text -> CreateNetworkACL
-createNetworkACL pVPCId =
+createNetworkACL pVPCId_ =
     CreateNetworkACL'
     { _cnarqDryRun = Nothing
-    , _cnarqVPCId = pVPCId
+    , _cnarqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -118,10 +118,10 @@ data CreateNetworkACLResponse = CreateNetworkACLResponse'
 
 -- | 'CreateNetworkACLResponse' smart constructor.
 createNetworkACLResponse :: Int -> CreateNetworkACLResponse
-createNetworkACLResponse pStatus =
+createNetworkACLResponse pStatus_ =
     CreateNetworkACLResponse'
     { _cnarsNetworkACL = Nothing
-    , _cnarsStatus = pStatus
+    , _cnarsStatus = pStatus_
     }
 
 -- | Information about the network ACL.

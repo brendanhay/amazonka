@@ -146,11 +146,11 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse'
 
 -- | 'DescribeStackEventsResponse' smart constructor.
 describeStackEventsResponse :: Int -> DescribeStackEventsResponse
-describeStackEventsResponse pStatus =
+describeStackEventsResponse pStatus_ =
     DescribeStackEventsResponse'
     { _dsersNextToken = Nothing
     , _dsersStackEvents = Nothing
-    , _dsersStatus = pStatus
+    , _dsersStatus = pStatus_
     }
 
 -- | String that identifies the start of the next list of events, if there is

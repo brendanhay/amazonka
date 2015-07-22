@@ -55,9 +55,9 @@ newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
 
 -- | 'DeleteLaunchConfiguration' smart constructor.
 deleteLaunchConfiguration :: Text -> DeleteLaunchConfiguration
-deleteLaunchConfiguration pLaunchConfigurationName =
+deleteLaunchConfiguration pLaunchConfigurationName_ =
     DeleteLaunchConfiguration'
-    { _dlcrqLaunchConfigurationName = pLaunchConfigurationName
+    { _dlcrqLaunchConfigurationName = pLaunchConfigurationName_
     }
 
 -- | The name of the launch configuration.

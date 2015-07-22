@@ -61,9 +61,9 @@ data AddTagsToStream = AddTagsToStream'
 
 -- | 'AddTagsToStream' smart constructor.
 addTagsToStream :: Text -> AddTagsToStream
-addTagsToStream pStreamName =
+addTagsToStream pStreamName_ =
     AddTagsToStream'
-    { _attsrqStreamName = pStreamName
+    { _attsrqStreamName = pStreamName_
     , _attsrqTags = mempty
     }
 

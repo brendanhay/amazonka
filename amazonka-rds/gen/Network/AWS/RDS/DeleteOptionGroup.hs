@@ -53,9 +53,9 @@ newtype DeleteOptionGroup = DeleteOptionGroup'
 
 -- | 'DeleteOptionGroup' smart constructor.
 deleteOptionGroup :: Text -> DeleteOptionGroup
-deleteOptionGroup pOptionGroupName =
+deleteOptionGroup pOptionGroupName_ =
     DeleteOptionGroup'
-    { _drqOptionGroupName = pOptionGroupName
+    { _drqOptionGroupName = pOptionGroupName_
     }
 
 -- | The name of the option group to be deleted.

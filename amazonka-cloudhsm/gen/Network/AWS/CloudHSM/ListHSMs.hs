@@ -120,11 +120,11 @@ data ListHSMsResponse = ListHSMsResponse'
 
 -- | 'ListHSMsResponse' smart constructor.
 listHSMsResponse :: Int -> ListHSMsResponse
-listHSMsResponse pStatus =
+listHSMsResponse pStatus_ =
     ListHSMsResponse'
     { _lhsmrsNextToken = Nothing
     , _lhsmrsHSMList = Nothing
-    , _lhsmrsStatus = pStatus
+    , _lhsmrsStatus = pStatus_
     }
 
 -- | If not null, more results are available. Pass this value to ListHsms to

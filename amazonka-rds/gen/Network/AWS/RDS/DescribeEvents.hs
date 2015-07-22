@@ -242,11 +242,11 @@ data DescribeEventsResponse = DescribeEventsResponse'
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Int -> DescribeEventsResponse
-describeEventsResponse pStatus =
+describeEventsResponse pStatus_ =
     DescribeEventsResponse'
     { _dersEvents = Nothing
     , _dersMarker = Nothing
-    , _dersStatus = pStatus
+    , _dersStatus = pStatus_
     }
 
 -- | A list of Event instances.

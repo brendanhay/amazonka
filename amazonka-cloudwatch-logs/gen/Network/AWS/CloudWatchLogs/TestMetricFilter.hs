@@ -60,10 +60,10 @@ data TestMetricFilter = TestMetricFilter'
 
 -- | 'TestMetricFilter' smart constructor.
 testMetricFilter :: Text -> NonEmpty Text -> TestMetricFilter
-testMetricFilter pFilterPattern pLogEventMessages =
+testMetricFilter pFilterPattern_ pLogEventMessages_ =
     TestMetricFilter'
-    { _tmfrqFilterPattern = pFilterPattern
-    , _tmfrqLogEventMessages = _List1 # pLogEventMessages
+    { _tmfrqFilterPattern = pFilterPattern_
+    , _tmfrqLogEventMessages = _List1 # pLogEventMessages_
     }
 
 -- | FIXME: Undocumented member.
@@ -119,10 +119,10 @@ data TestMetricFilterResponse = TestMetricFilterResponse'
 
 -- | 'TestMetricFilterResponse' smart constructor.
 testMetricFilterResponse :: Int -> TestMetricFilterResponse
-testMetricFilterResponse pStatus =
+testMetricFilterResponse pStatus_ =
     TestMetricFilterResponse'
     { _tmfrsMatches = Nothing
-    , _tmfrsStatus = pStatus
+    , _tmfrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

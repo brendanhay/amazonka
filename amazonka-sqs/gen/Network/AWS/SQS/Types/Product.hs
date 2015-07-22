@@ -44,12 +44,12 @@ data BatchResultErrorEntry = BatchResultErrorEntry'
 
 -- | 'BatchResultErrorEntry' smart constructor.
 batchResultErrorEntry :: Text -> Bool -> Text -> BatchResultErrorEntry
-batchResultErrorEntry pId pSenderFault pCode =
+batchResultErrorEntry pId_ pSenderFault_ pCode_ =
     BatchResultErrorEntry'
     { _breeMessage = Nothing
-    , _breeId = pId
-    , _breeSenderFault = pSenderFault
-    , _breeCode = pCode
+    , _breeId = pId_
+    , _breeSenderFault = pSenderFault_
+    , _breeCode = pCode_
     }
 
 -- | A message explaining why the action failed on this entry.
@@ -106,11 +106,11 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
 
 -- | 'ChangeMessageVisibilityBatchRequestEntry' smart constructor.
 changeMessageVisibilityBatchRequestEntry :: Text -> Text -> ChangeMessageVisibilityBatchRequestEntry
-changeMessageVisibilityBatchRequestEntry pId pReceiptHandle =
+changeMessageVisibilityBatchRequestEntry pId_ pReceiptHandle_ =
     ChangeMessageVisibilityBatchRequestEntry'
     { _cVisibilityTimeout = Nothing
-    , _cId = pId
-    , _cReceiptHandle = pReceiptHandle
+    , _cId = pId_
+    , _cReceiptHandle = pReceiptHandle_
     }
 
 -- | The new value (in seconds) for the message\'s visibility timeout.
@@ -147,9 +147,9 @@ newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchRe
 
 -- | 'ChangeMessageVisibilityBatchResultEntry' smart constructor.
 changeMessageVisibilityBatchResultEntry :: Text -> ChangeMessageVisibilityBatchResultEntry
-changeMessageVisibilityBatchResultEntry pId =
+changeMessageVisibilityBatchResultEntry pId_ =
     ChangeMessageVisibilityBatchResultEntry'
-    { _cmvbreId = pId
+    { _cmvbreId = pId_
     }
 
 -- | Represents a message whose visibility timeout has been changed
@@ -179,10 +179,10 @@ data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
 
 -- | 'DeleteMessageBatchRequestEntry' smart constructor.
 deleteMessageBatchRequestEntry :: Text -> Text -> DeleteMessageBatchRequestEntry
-deleteMessageBatchRequestEntry pId pReceiptHandle =
+deleteMessageBatchRequestEntry pId_ pReceiptHandle_ =
     DeleteMessageBatchRequestEntry'
-    { _dmbreId = pId
-    , _dmbreReceiptHandle = pReceiptHandle
+    { _dmbreId = pId_
+    , _dmbreReceiptHandle = pReceiptHandle_
     }
 
 -- | An identifier for this particular receipt handle. This is used to
@@ -214,9 +214,9 @@ newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
 
 -- | 'DeleteMessageBatchResultEntry' smart constructor.
 deleteMessageBatchResultEntry :: Text -> DeleteMessageBatchResultEntry
-deleteMessageBatchResultEntry pId =
+deleteMessageBatchResultEntry pId_ =
     DeleteMessageBatchResultEntry'
-    { _dId = pId
+    { _dId = pId_
     }
 
 -- | Represents a successfully deleted message.
@@ -355,13 +355,13 @@ data MessageAttributeValue = MessageAttributeValue'
 
 -- | 'MessageAttributeValue' smart constructor.
 messageAttributeValue :: Text -> MessageAttributeValue
-messageAttributeValue pDataType =
+messageAttributeValue pDataType_ =
     MessageAttributeValue'
     { _mavBinaryValue = Nothing
     , _mavStringListValues = Nothing
     , _mavStringValue = Nothing
     , _mavBinaryListValues = Nothing
-    , _mavDataType = pDataType
+    , _mavDataType = pDataType_
     }
 
 -- | Binary type attributes can store any binary data, for example,
@@ -439,12 +439,12 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
 
 -- | 'SendMessageBatchRequestEntry' smart constructor.
 sendMessageBatchRequestEntry :: Text -> Text -> SendMessageBatchRequestEntry
-sendMessageBatchRequestEntry pId pMessageBody =
+sendMessageBatchRequestEntry pId_ pMessageBody_ =
     SendMessageBatchRequestEntry'
     { _sMessageAttributes = Nothing
     , _sDelaySeconds = Nothing
-    , _sId = pId
-    , _sMessageBody = pMessageBody
+    , _sId = pId_
+    , _sMessageBody = pMessageBody_
     }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
@@ -499,12 +499,12 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
 
 -- | 'SendMessageBatchResultEntry' smart constructor.
 sendMessageBatchResultEntry :: Text -> Text -> Text -> SendMessageBatchResultEntry
-sendMessageBatchResultEntry pId pMessageId pMD5OfMessageBody =
+sendMessageBatchResultEntry pId_ pMessageId_ pMD5OfMessageBody_ =
     SendMessageBatchResultEntry'
     { _smbreMD5OfMessageAttributes = Nothing
-    , _smbreId = pId
-    , _smbreMessageId = pMessageId
-    , _smbreMD5OfMessageBody = pMD5OfMessageBody
+    , _smbreId = pId_
+    , _smbreMessageId = pMessageId_
+    , _smbreMD5OfMessageBody = pMD5OfMessageBody_
     }
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can

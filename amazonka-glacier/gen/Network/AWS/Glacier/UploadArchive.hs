@@ -113,13 +113,13 @@ data UploadArchive = UploadArchive'
 
 -- | 'UploadArchive' smart constructor.
 uploadArchive :: Text -> Text -> RqBody -> UploadArchive
-uploadArchive pVaultName pAccountId pBody =
+uploadArchive pVaultName_ pAccountId_ pBody_ =
     UploadArchive'
     { _uarqChecksum = Nothing
     , _uarqArchiveDescription = Nothing
-    , _uarqVaultName = pVaultName
-    , _uarqAccountId = pAccountId
-    , _uarqBody = pBody
+    , _uarqVaultName = pVaultName_
+    , _uarqAccountId = pAccountId_
+    , _uarqBody = pBody_
     }
 
 -- | The SHA256 tree hash of the data being uploaded.

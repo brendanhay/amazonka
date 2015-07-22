@@ -68,10 +68,10 @@ data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
 
 -- | 'DescribeAvailabilityOptions' smart constructor.
 describeAvailabilityOptions :: Text -> DescribeAvailabilityOptions
-describeAvailabilityOptions pDomainName =
+describeAvailabilityOptions pDomainName_ =
     DescribeAvailabilityOptions'
     { _daorqDeployed = Nothing
-    , _daorqDomainName = pDomainName
+    , _daorqDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
@@ -129,10 +129,10 @@ data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
 
 -- | 'DescribeAvailabilityOptionsResponse' smart constructor.
 describeAvailabilityOptionsResponse :: Int -> DescribeAvailabilityOptionsResponse
-describeAvailabilityOptionsResponse pStatus =
+describeAvailabilityOptionsResponse pStatus_ =
     DescribeAvailabilityOptionsResponse'
     { _daorsAvailabilityOptions = Nothing
-    , _daorsStatus = pStatus
+    , _daorsStatus = pStatus_
     }
 
 -- | The availability options configured for the domain. Indicates whether

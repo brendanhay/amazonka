@@ -67,10 +67,10 @@ data GetQueueURL = GetQueueURL'
 
 -- | 'GetQueueURL' smart constructor.
 getQueueURL :: Text -> GetQueueURL
-getQueueURL pQueueName =
+getQueueURL pQueueName_ =
     GetQueueURL'
     { _gqurqQueueOwnerAWSAccountId = Nothing
-    , _gqurqQueueName = pQueueName
+    , _gqurqQueueName = pQueueName_
     }
 
 -- | The AWS account ID of the account that created the queue.
@@ -125,10 +125,10 @@ data GetQueueURLResponse = GetQueueURLResponse'
 
 -- | 'GetQueueURLResponse' smart constructor.
 getQueueURLResponse :: Int -> Text -> GetQueueURLResponse
-getQueueURLResponse pStatus pQueueURL =
+getQueueURLResponse pStatus_ pQueueURL_ =
     GetQueueURLResponse'
-    { _gqursStatus = pStatus
-    , _gqursQueueURL = pQueueURL
+    { _gqursStatus = pStatus_
+    , _gqursQueueURL = pQueueURL_
     }
 
 -- | FIXME: Undocumented member.

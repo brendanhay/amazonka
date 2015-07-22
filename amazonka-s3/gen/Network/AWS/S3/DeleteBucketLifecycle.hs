@@ -51,9 +51,9 @@ newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
 
 -- | 'DeleteBucketLifecycle' smart constructor.
 deleteBucketLifecycle :: BucketName -> DeleteBucketLifecycle
-deleteBucketLifecycle pBucket =
+deleteBucketLifecycle pBucket_ =
     DeleteBucketLifecycle'
-    { _dblrqBucket = pBucket
+    { _dblrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

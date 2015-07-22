@@ -64,10 +64,10 @@ data UpdateRepositoryDescription = UpdateRepositoryDescription'
 
 -- | 'UpdateRepositoryDescription' smart constructor.
 updateRepositoryDescription :: Text -> UpdateRepositoryDescription
-updateRepositoryDescription pRepositoryName =
+updateRepositoryDescription pRepositoryName_ =
     UpdateRepositoryDescription'
     { _urdrqRepositoryDescription = Nothing
-    , _urdrqRepositoryName = pRepositoryName
+    , _urdrqRepositoryName = pRepositoryName_
     }
 
 -- | The new comment or description for the specified repository.

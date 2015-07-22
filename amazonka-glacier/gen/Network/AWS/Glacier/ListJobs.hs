@@ -120,14 +120,14 @@ data ListJobs = ListJobs'
 
 -- | 'ListJobs' smart constructor.
 listJobs :: Text -> Text -> ListJobs
-listJobs pAccountId pVaultName =
+listJobs pAccountId_ pVaultName_ =
     ListJobs'
     { _ljrqMarker = Nothing
     , _ljrqCompleted = Nothing
     , _ljrqLimit = Nothing
     , _ljrqStatuscode = Nothing
-    , _ljrqAccountId = pAccountId
-    , _ljrqVaultName = pVaultName
+    , _ljrqAccountId = pAccountId_
+    , _ljrqVaultName = pVaultName_
     }
 
 -- | An opaque string used for pagination. This value specifies the job at
@@ -212,11 +212,11 @@ data ListJobsResponse = ListJobsResponse'
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
-listJobsResponse pStatus =
+listJobsResponse pStatus_ =
     ListJobsResponse'
     { _ljrsMarker = Nothing
     , _ljrsJobList = Nothing
-    , _ljrsStatus = pStatus
+    , _ljrsStatus = pStatus_
     }
 
 -- | An opaque string that represents where to continue pagination of the

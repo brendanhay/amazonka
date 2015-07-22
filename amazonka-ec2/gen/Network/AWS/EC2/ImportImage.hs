@@ -257,7 +257,7 @@ data ImportImageResponse = ImportImageResponse'
 
 -- | 'ImportImageResponse' smart constructor.
 importImageResponse :: Int -> ImportImageResponse
-importImageResponse pStatus =
+importImageResponse pStatus_ =
     ImportImageResponse'
     { _irsHypervisor = Nothing
     , _irsPlatform = Nothing
@@ -269,7 +269,7 @@ importImageResponse pStatus =
     , _irsImportTaskId = Nothing
     , _irsArchitecture = Nothing
     , _irsDescription = Nothing
-    , _irsStatus = pStatus
+    , _irsStatus = pStatus_
     }
 
 -- | The target hypervisor of the import task.

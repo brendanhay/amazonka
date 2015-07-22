@@ -86,14 +86,14 @@ data ListObjects = ListObjects'
 
 -- | 'ListObjects' smart constructor.
 listObjects :: BucketName -> ListObjects
-listObjects pBucket =
+listObjects pBucket_ =
     ListObjects'
     { _lorqPrefix = Nothing
     , _lorqEncodingType = Nothing
     , _lorqMarker = Nothing
     , _lorqMaxKeys = Nothing
     , _lorqDelimiter = Nothing
-    , _lorqBucket = pBucket
+    , _lorqBucket = pBucket_
     }
 
 -- | Limits the response to keys that begin with the specified prefix.
@@ -212,7 +212,7 @@ data ListObjectsResponse = ListObjectsResponse'
 
 -- | 'ListObjectsResponse' smart constructor.
 listObjectsResponse :: Int -> ListObjectsResponse
-listObjectsResponse pStatus =
+listObjectsResponse pStatus_ =
     ListObjectsResponse'
     { _lorsContents = Nothing
     , _lorsPrefix = Nothing
@@ -224,7 +224,7 @@ listObjectsResponse pStatus =
     , _lorsMaxKeys = Nothing
     , _lorsIsTruncated = Nothing
     , _lorsDelimiter = Nothing
-    , _lorsStatus = pStatus
+    , _lorsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

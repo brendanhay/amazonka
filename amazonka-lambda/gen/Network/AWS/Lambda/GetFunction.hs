@@ -61,9 +61,9 @@ newtype GetFunction = GetFunction'
 
 -- | 'GetFunction' smart constructor.
 getFunction :: Text -> GetFunction
-getFunction pFunctionName =
+getFunction pFunctionName_ =
     GetFunction'
-    { _gfrqFunctionName = pFunctionName
+    { _gfrqFunctionName = pFunctionName_
     }
 
 -- | The Lambda function name.
@@ -122,11 +122,11 @@ data GetFunctionResponse = GetFunctionResponse'
 
 -- | 'GetFunctionResponse' smart constructor.
 getFunctionResponse :: Int -> GetFunctionResponse
-getFunctionResponse pStatus =
+getFunctionResponse pStatus_ =
     GetFunctionResponse'
     { _gfrsCode = Nothing
     , _gfrsConfiguration = Nothing
-    , _gfrsStatus = pStatus
+    , _gfrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

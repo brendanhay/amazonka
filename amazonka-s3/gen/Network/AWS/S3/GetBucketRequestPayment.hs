@@ -54,9 +54,9 @@ newtype GetBucketRequestPayment = GetBucketRequestPayment'
 
 -- | 'GetBucketRequestPayment' smart constructor.
 getBucketRequestPayment :: BucketName -> GetBucketRequestPayment
-getBucketRequestPayment pBucket =
+getBucketRequestPayment pBucket_ =
     GetBucketRequestPayment'
-    { _gbrprqBucket = pBucket
+    { _gbrprqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -98,10 +98,10 @@ data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
 
 -- | 'GetBucketRequestPaymentResponse' smart constructor.
 getBucketRequestPaymentResponse :: Int -> GetBucketRequestPaymentResponse
-getBucketRequestPaymentResponse pStatus =
+getBucketRequestPaymentResponse pStatus_ =
     GetBucketRequestPaymentResponse'
     { _gbrprsPayer = Nothing
-    , _gbrprsStatus = pStatus
+    , _gbrprsStatus = pStatus_
     }
 
 -- | Specifies who pays for the download and request fees.

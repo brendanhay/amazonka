@@ -115,7 +115,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
 
 -- | 'CreateAutoScalingGroup' smart constructor.
 createAutoScalingGroup :: Text -> Int -> Int -> CreateAutoScalingGroup
-createAutoScalingGroup pAutoScalingGroupName pMinSize pMaxSize =
+createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
     CreateAutoScalingGroup'
     { _casgrqInstanceId = Nothing
     , _casgrqTerminationPolicies = Nothing
@@ -129,9 +129,9 @@ createAutoScalingGroup pAutoScalingGroupName pMinSize pMaxSize =
     , _casgrqPlacementGroup = Nothing
     , _casgrqLoadBalancerNames = Nothing
     , _casgrqTags = Nothing
-    , _casgrqAutoScalingGroupName = pAutoScalingGroupName
-    , _casgrqMinSize = pMinSize
-    , _casgrqMaxSize = pMaxSize
+    , _casgrqAutoScalingGroupName = pAutoScalingGroupName_
+    , _casgrqMinSize = pMinSize_
+    , _casgrqMaxSize = pMaxSize_
     }
 
 -- | The ID of the EC2 instance used to create a launch configuration for the

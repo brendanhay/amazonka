@@ -68,11 +68,11 @@ data Predict = Predict'
 
 -- | 'Predict' smart constructor.
 predict :: Text -> Text -> Predict
-predict pMLModelId pPredictEndpoint =
+predict pMLModelId_ pPredictEndpoint_ =
     Predict'
-    { _prqMLModelId = pMLModelId
+    { _prqMLModelId = pMLModelId_
     , _prqRecord = mempty
-    , _prqPredictEndpoint = pPredictEndpoint
+    , _prqPredictEndpoint = pPredictEndpoint_
     }
 
 -- | A unique identifier of the @MLModel@.
@@ -133,10 +133,10 @@ data PredictResponse = PredictResponse'
 
 -- | 'PredictResponse' smart constructor.
 predictResponse :: Int -> PredictResponse
-predictResponse pStatus =
+predictResponse pStatus_ =
     PredictResponse'
     { _prsPrediction = Nothing
-    , _prsStatus = pStatus
+    , _prsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

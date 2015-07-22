@@ -60,10 +60,10 @@ data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
 
 -- | 'DeleteLoadBalancerPolicy' smart constructor.
 deleteLoadBalancerPolicy :: Text -> Text -> DeleteLoadBalancerPolicy
-deleteLoadBalancerPolicy pLoadBalancerName pPolicyName =
+deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
     DeleteLoadBalancerPolicy'
-    { _drqLoadBalancerName = pLoadBalancerName
-    , _drqPolicyName = pPolicyName
+    { _drqLoadBalancerName = pLoadBalancerName_
+    , _drqPolicyName = pPolicyName_
     }
 
 -- | The name of the load balancer.
@@ -111,9 +111,9 @@ newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
 
 -- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
 deleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
-deleteLoadBalancerPolicyResponse pStatus =
+deleteLoadBalancerPolicyResponse pStatus_ =
     DeleteLoadBalancerPolicyResponse'
-    { _delrsStatus = pStatus
+    { _delrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

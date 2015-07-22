@@ -62,10 +62,10 @@ data ListInstanceGroups = ListInstanceGroups'
 
 -- | 'ListInstanceGroups' smart constructor.
 listInstanceGroups :: Text -> ListInstanceGroups
-listInstanceGroups pClusterId =
+listInstanceGroups pClusterId_ =
     ListInstanceGroups'
     { _ligrqMarker = Nothing
-    , _ligrqClusterId = pClusterId
+    , _ligrqClusterId = pClusterId_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
@@ -137,11 +137,11 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
 
 -- | 'ListInstanceGroupsResponse' smart constructor.
 listInstanceGroupsResponse :: Int -> ListInstanceGroupsResponse
-listInstanceGroupsResponse pStatus =
+listInstanceGroupsResponse pStatus_ =
     ListInstanceGroupsResponse'
     { _ligrsMarker = Nothing
     , _ligrsInstanceGroups = Nothing
-    , _ligrsStatus = pStatus
+    , _ligrsStatus = pStatus_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.

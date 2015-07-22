@@ -65,11 +65,11 @@ data CreatePlacementGroup = CreatePlacementGroup'
 
 -- | 'CreatePlacementGroup' smart constructor.
 createPlacementGroup :: Text -> PlacementStrategy -> CreatePlacementGroup
-createPlacementGroup pGroupName pStrategy =
+createPlacementGroup pGroupName_ pStrategy_ =
     CreatePlacementGroup'
     { _cpgrqDryRun = Nothing
-    , _cpgrqGroupName = pGroupName
-    , _cpgrqStrategy = pStrategy
+    , _cpgrqGroupName = pGroupName_
+    , _cpgrqStrategy = pStrategy_
     }
 
 -- | Checks whether you have the required permissions for the action, without

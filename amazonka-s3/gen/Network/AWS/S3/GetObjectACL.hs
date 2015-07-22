@@ -68,12 +68,12 @@ data GetObjectACL = GetObjectACL'
 
 -- | 'GetObjectACL' smart constructor.
 getObjectACL :: BucketName -> ObjectKey -> GetObjectACL
-getObjectACL pBucket pKey =
+getObjectACL pBucket_ pKey_ =
     GetObjectACL'
     { _goarqVersionId = Nothing
     , _goarqRequestPayer = Nothing
-    , _goarqBucket = pBucket
-    , _goarqKey = pKey
+    , _goarqBucket = pBucket_
+    , _goarqKey = pKey_
     }
 
 -- | VersionId used to reference a specific version of the object.
@@ -140,12 +140,12 @@ data GetObjectACLResponse = GetObjectACLResponse'
 
 -- | 'GetObjectACLResponse' smart constructor.
 getObjectACLResponse :: Int -> GetObjectACLResponse
-getObjectACLResponse pStatus =
+getObjectACLResponse pStatus_ =
     GetObjectACLResponse'
     { _goarsRequestCharged = Nothing
     , _goarsGrants = Nothing
     , _goarsOwner = Nothing
-    , _goarsStatus = pStatus
+    , _goarsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

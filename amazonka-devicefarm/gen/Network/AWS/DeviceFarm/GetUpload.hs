@@ -56,9 +56,9 @@ newtype GetUpload = GetUpload'
 
 -- | 'GetUpload' smart constructor.
 getUpload :: Text -> GetUpload
-getUpload pArn =
+getUpload pArn_ =
     GetUpload'
-    { _gurqArn = pArn
+    { _gurqArn = pArn_
     }
 
 -- | The upload\'s ARN.
@@ -109,10 +109,10 @@ data GetUploadResponse = GetUploadResponse'
 
 -- | 'GetUploadResponse' smart constructor.
 getUploadResponse :: Int -> GetUploadResponse
-getUploadResponse pStatus =
+getUploadResponse pStatus_ =
     GetUploadResponse'
     { _gursUpload = Nothing
-    , _gursStatus = pStatus
+    , _gursStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

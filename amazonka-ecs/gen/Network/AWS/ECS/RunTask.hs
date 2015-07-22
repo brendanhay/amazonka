@@ -75,13 +75,13 @@ data RunTask = RunTask'
 
 -- | 'RunTask' smart constructor.
 runTask :: Text -> RunTask
-runTask pTaskDefinition =
+runTask pTaskDefinition_ =
     RunTask'
     { _rtrqOverrides = Nothing
     , _rtrqCluster = Nothing
     , _rtrqCount = Nothing
     , _rtrqStartedBy = Nothing
-    , _rtrqTaskDefinition = pTaskDefinition
+    , _rtrqTaskDefinition = pTaskDefinition_
     }
 
 -- | A list of container overrides in JSON format that specify the name of a
@@ -180,11 +180,11 @@ data RunTaskResponse = RunTaskResponse'
 
 -- | 'RunTaskResponse' smart constructor.
 runTaskResponse :: Int -> RunTaskResponse
-runTaskResponse pStatus =
+runTaskResponse pStatus_ =
     RunTaskResponse'
     { _rtrsFailures = Nothing
     , _rtrsTasks = Nothing
-    , _rtrsStatus = pStatus
+    , _rtrsStatus = pStatus_
     }
 
 -- | Any failed tasks from your @RunTask@ action are listed here.

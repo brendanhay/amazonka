@@ -59,9 +59,9 @@ newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
 
 -- | 'GetDataRetrievalPolicy' smart constructor.
 getDataRetrievalPolicy :: Text -> GetDataRetrievalPolicy
-getDataRetrievalPolicy pAccountId =
+getDataRetrievalPolicy pAccountId_ =
     GetDataRetrievalPolicy'
-    { _gdrprqAccountId = pAccountId
+    { _gdrprqAccountId = pAccountId_
     }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -114,10 +114,10 @@ data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
 
 -- | 'GetDataRetrievalPolicyResponse' smart constructor.
 getDataRetrievalPolicyResponse :: Int -> GetDataRetrievalPolicyResponse
-getDataRetrievalPolicyResponse pStatus =
+getDataRetrievalPolicyResponse pStatus_ =
     GetDataRetrievalPolicyResponse'
     { _gdrprsPolicy = Nothing
-    , _gdrprsStatus = pStatus
+    , _gdrprsStatus = pStatus_
     }
 
 -- | Contains the returned data retrieval policy in JSON format.

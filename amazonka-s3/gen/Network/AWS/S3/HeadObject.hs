@@ -123,7 +123,7 @@ data HeadObject = HeadObject'
 
 -- | 'HeadObject' smart constructor.
 headObject :: BucketName -> ObjectKey -> HeadObject
-headObject pBucket pKey =
+headObject pBucket_ pKey_ =
     HeadObject'
     { _horqIfMatch = Nothing
     , _horqVersionId = Nothing
@@ -135,8 +135,8 @@ headObject pBucket pKey =
     , _horqIfUnmodifiedSince = Nothing
     , _horqSSECustomerKeyMD5 = Nothing
     , _horqIfNoneMatch = Nothing
-    , _horqBucket = pBucket
-    , _horqKey = pKey
+    , _horqBucket = pBucket_
+    , _horqKey = pKey_
     }
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
@@ -342,7 +342,7 @@ data HeadObjectResponse = HeadObjectResponse'
 
 -- | 'HeadObjectResponse' smart constructor.
 headObjectResponse :: Int -> HeadObjectResponse
-headObjectResponse pStatus =
+headObjectResponse pStatus_ =
     HeadObjectResponse'
     { _horsVersionId = Nothing
     , _horsETag = Nothing
@@ -367,7 +367,7 @@ headObjectResponse pStatus =
     , _horsContentDisposition = Nothing
     , _horsServerSideEncryption = Nothing
     , _horsContentType = Nothing
-    , _horsStatus = pStatus
+    , _horsStatus = pStatus_
     }
 
 -- | Version of the object.

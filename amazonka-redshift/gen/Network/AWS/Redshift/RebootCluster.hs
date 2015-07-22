@@ -63,9 +63,9 @@ newtype RebootCluster = RebootCluster'
 
 -- | 'RebootCluster' smart constructor.
 rebootCluster :: Text -> RebootCluster
-rebootCluster pClusterIdentifier =
+rebootCluster pClusterIdentifier_ =
     RebootCluster'
-    { _rcrqClusterIdentifier = pClusterIdentifier
+    { _rcrqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The cluster identifier.
@@ -109,10 +109,10 @@ data RebootClusterResponse = RebootClusterResponse'
 
 -- | 'RebootClusterResponse' smart constructor.
 rebootClusterResponse :: Int -> RebootClusterResponse
-rebootClusterResponse pStatus =
+rebootClusterResponse pStatus_ =
     RebootClusterResponse'
     { _rcrsCluster = Nothing
-    , _rcrsStatus = pStatus
+    , _rcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

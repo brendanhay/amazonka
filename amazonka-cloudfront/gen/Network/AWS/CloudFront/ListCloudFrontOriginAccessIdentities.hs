@@ -125,10 +125,10 @@ data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessId
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 listCloudFrontOriginAccessIdentitiesResponse :: Int -> CloudFrontOriginAccessIdentityList -> ListCloudFrontOriginAccessIdentitiesResponse
-listCloudFrontOriginAccessIdentitiesResponse pStatus pCloudFrontOriginAccessIdentityList =
+listCloudFrontOriginAccessIdentitiesResponse pStatus_ pCloudFrontOriginAccessIdentityList_ =
     ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairsStatus = pStatus
-    , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList
+    { _lcfoairsStatus = pStatus_
+    , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList_
     }
 
 -- | FIXME: Undocumented member.

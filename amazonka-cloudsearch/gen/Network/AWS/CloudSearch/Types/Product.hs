@@ -38,10 +38,10 @@ data AccessPoliciesStatus = AccessPoliciesStatus'
 
 -- | 'AccessPoliciesStatus' smart constructor.
 accessPoliciesStatus :: Text -> OptionStatus -> AccessPoliciesStatus
-accessPoliciesStatus pOptions pStatus =
+accessPoliciesStatus pOptions_ pStatus_ =
     AccessPoliciesStatus'
-    { _apsOptions = pOptions
-    , _apsStatus = pStatus
+    { _apsOptions = pOptions_
+    , _apsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.
@@ -179,11 +179,11 @@ data AnalysisScheme = AnalysisScheme'
 
 -- | 'AnalysisScheme' smart constructor.
 analysisScheme :: Text -> AnalysisSchemeLanguage -> AnalysisScheme
-analysisScheme pAnalysisSchemeName pAnalysisSchemeLanguage =
+analysisScheme pAnalysisSchemeName_ pAnalysisSchemeLanguage_ =
     AnalysisScheme'
     { _asAnalysisOptions = Nothing
-    , _asAnalysisSchemeName = pAnalysisSchemeName
-    , _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage
+    , _asAnalysisSchemeName = pAnalysisSchemeName_
+    , _asAnalysisSchemeLanguage = pAnalysisSchemeLanguage_
     }
 
 -- | FIXME: Undocumented member.
@@ -229,10 +229,10 @@ data AnalysisSchemeStatus = AnalysisSchemeStatus'
 
 -- | 'AnalysisSchemeStatus' smart constructor.
 analysisSchemeStatus :: AnalysisScheme -> OptionStatus -> AnalysisSchemeStatus
-analysisSchemeStatus pOptions pStatus =
+analysisSchemeStatus pOptions_ pStatus_ =
     AnalysisSchemeStatus'
-    { _assOptions = pOptions
-    , _assStatus = pStatus
+    { _assOptions = pOptions_
+    , _assStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.
@@ -264,10 +264,10 @@ data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
 
 -- | 'AvailabilityOptionsStatus' smart constructor.
 availabilityOptionsStatus :: Bool -> OptionStatus -> AvailabilityOptionsStatus
-availabilityOptionsStatus pOptions pStatus =
+availabilityOptionsStatus pOptions_ pStatus_ =
     AvailabilityOptionsStatus'
-    { _aosOptions = pOptions
-    , _aosStatus = pStatus
+    { _aosOptions = pOptions_
+    , _aosStatus = pStatus_
     }
 
 -- | The availability options configured for the domain.
@@ -461,11 +461,11 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions'
 
 -- | 'DocumentSuggesterOptions' smart constructor.
 documentSuggesterOptions :: Text -> DocumentSuggesterOptions
-documentSuggesterOptions pSourceField =
+documentSuggesterOptions pSourceField_ =
     DocumentSuggesterOptions'
     { _dsoSortExpression = Nothing
     , _dsoFuzzyMatching = Nothing
-    , _dsoSourceField = pSourceField
+    , _dsoSourceField = pSourceField_
     }
 
 -- | An expression that computes a score for each suggestion to control how
@@ -553,7 +553,7 @@ data DomainStatus = DomainStatus'
 
 -- | 'DomainStatus' smart constructor.
 domainStatus :: Text -> Text -> Bool -> DomainStatus
-domainStatus pDomainId pDomainName pRequiresIndexDocuments =
+domainStatus pDomainId_ pDomainName_ pRequiresIndexDocuments_ =
     DomainStatus'
     { _dsSearchInstanceCount = Nothing
     , _dsSearchInstanceType = Nothing
@@ -565,9 +565,9 @@ domainStatus pDomainId pDomainName pRequiresIndexDocuments =
     , _dsSearchPartitionCount = Nothing
     , _dsDeleted = Nothing
     , _dsProcessing = Nothing
-    , _dsDomainId = pDomainId
-    , _dsDomainName = pDomainName
-    , _dsRequiresIndexDocuments = pRequiresIndexDocuments
+    , _dsDomainId = pDomainId_
+    , _dsDomainName = pDomainName_
+    , _dsRequiresIndexDocuments = pRequiresIndexDocuments_
     }
 
 -- | The number of search instances that are available to process search
@@ -826,10 +826,10 @@ data Expression = Expression'
 
 -- | 'Expression' smart constructor.
 expression :: Text -> Text -> Expression
-expression pExpressionName pExpressionValue =
+expression pExpressionName_ pExpressionValue_ =
     Expression'
-    { _eExpressionName = pExpressionName
-    , _eExpressionValue = pExpressionValue
+    { _eExpressionName = pExpressionName_
+    , _eExpressionValue = pExpressionValue_
     }
 
 -- | FIXME: Undocumented member.
@@ -867,10 +867,10 @@ data ExpressionStatus = ExpressionStatus'
 
 -- | 'ExpressionStatus' smart constructor.
 expressionStatus :: Expression -> OptionStatus -> ExpressionStatus
-expressionStatus pOptions pStatus =
+expressionStatus pOptions_ pStatus_ =
     ExpressionStatus'
-    { _esOptions = pOptions
-    , _esStatus = pStatus
+    { _esOptions = pOptions_
+    , _esStatus = pStatus_
     }
 
 -- | The expression that is evaluated for sorting while processing a search
@@ -937,7 +937,7 @@ data IndexField = IndexField'
 
 -- | 'IndexField' smart constructor.
 indexField :: Text -> IndexFieldType -> IndexField
-indexField pIndexFieldName pIndexFieldType =
+indexField pIndexFieldName_ pIndexFieldType_ =
     IndexField'
     { _ifDateOptions = Nothing
     , _ifTextArrayOptions = Nothing
@@ -950,8 +950,8 @@ indexField pIndexFieldName pIndexFieldType =
     , _ifDateArrayOptions = Nothing
     , _ifLiteralOptions = Nothing
     , _ifIntOptions = Nothing
-    , _ifIndexFieldName = pIndexFieldName
-    , _ifIndexFieldType = pIndexFieldType
+    , _ifIndexFieldName = pIndexFieldName_
+    , _ifIndexFieldType = pIndexFieldType_
     }
 
 -- | FIXME: Undocumented member.
@@ -1069,10 +1069,10 @@ data IndexFieldStatus = IndexFieldStatus'
 
 -- | 'IndexFieldStatus' smart constructor.
 indexFieldStatus :: IndexField -> OptionStatus -> IndexFieldStatus
-indexFieldStatus pOptions pStatus =
+indexFieldStatus pOptions_ pStatus_ =
     IndexFieldStatus'
-    { _ifsOptions = pOptions
-    , _ifsStatus = pStatus
+    { _ifsOptions = pOptions_
+    , _ifsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.
@@ -1346,10 +1346,10 @@ data Limits = Limits'
 
 -- | 'Limits' smart constructor.
 limits :: Natural -> Natural -> Limits
-limits pMaximumReplicationCount pMaximumPartitionCount =
+limits pMaximumReplicationCount_ pMaximumPartitionCount_ =
     Limits'
-    { _lMaximumReplicationCount = _Nat # pMaximumReplicationCount
-    , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount
+    { _lMaximumReplicationCount = _Nat # pMaximumReplicationCount_
+    , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount_
     }
 
 -- | FIXME: Undocumented member.
@@ -1548,13 +1548,13 @@ data OptionStatus = OptionStatus'
 
 -- | 'OptionStatus' smart constructor.
 optionStatus :: UTCTime -> UTCTime -> OptionState -> OptionStatus
-optionStatus pCreationDate pUpdateDate pState =
+optionStatus pCreationDate_ pUpdateDate_ pState_ =
     OptionStatus'
     { _osPendingDeletion = Nothing
     , _osUpdateVersion = Nothing
-    , _osCreationDate = _Time # pCreationDate
-    , _osUpdateDate = _Time # pUpdateDate
-    , _osState = pState
+    , _osCreationDate = _Time # pCreationDate_
+    , _osUpdateDate = _Time # pUpdateDate_
+    , _osState = pState_
     }
 
 -- | Indicates that the option will be deleted once processing is complete.
@@ -1669,10 +1669,10 @@ data ScalingParametersStatus = ScalingParametersStatus'
 
 -- | 'ScalingParametersStatus' smart constructor.
 scalingParametersStatus :: ScalingParameters -> OptionStatus -> ScalingParametersStatus
-scalingParametersStatus pOptions pStatus =
+scalingParametersStatus pOptions_ pStatus_ =
     ScalingParametersStatus'
-    { _spsOptions = pOptions
-    , _spsStatus = pStatus
+    { _spsOptions = pOptions_
+    , _spsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.
@@ -1732,10 +1732,10 @@ data Suggester = Suggester'
 
 -- | 'Suggester' smart constructor.
 suggester :: Text -> DocumentSuggesterOptions -> Suggester
-suggester pSuggesterName pDocumentSuggesterOptions =
+suggester pSuggesterName_ pDocumentSuggesterOptions_ =
     Suggester'
-    { _sSuggesterName = pSuggesterName
-    , _sDocumentSuggesterOptions = pDocumentSuggesterOptions
+    { _sSuggesterName = pSuggesterName_
+    , _sDocumentSuggesterOptions = pDocumentSuggesterOptions_
     }
 
 -- | FIXME: Undocumented member.
@@ -1775,10 +1775,10 @@ data SuggesterStatus = SuggesterStatus'
 
 -- | 'SuggesterStatus' smart constructor.
 suggesterStatus :: Suggester -> OptionStatus -> SuggesterStatus
-suggesterStatus pOptions pStatus =
+suggesterStatus pOptions_ pStatus_ =
     SuggesterStatus'
-    { _ssOptions = pOptions
-    , _ssStatus = pStatus
+    { _ssOptions = pOptions_
+    , _ssStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

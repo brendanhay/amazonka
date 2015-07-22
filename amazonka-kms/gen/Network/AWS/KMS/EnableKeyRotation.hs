@@ -51,9 +51,9 @@ newtype EnableKeyRotation = EnableKeyRotation'
 
 -- | 'EnableKeyRotation' smart constructor.
 enableKeyRotation :: Text -> EnableKeyRotation
-enableKeyRotation pKeyId =
+enableKeyRotation pKeyId_ =
     EnableKeyRotation'
-    { _ekrrqKeyId = pKeyId
+    { _ekrrqKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a

@@ -59,9 +59,9 @@ newtype StopLogging = StopLogging'
 
 -- | 'StopLogging' smart constructor.
 stopLogging :: Text -> StopLogging
-stopLogging pName =
+stopLogging pName_ =
     StopLogging'
-    { _slrqName = pName
+    { _slrqName = pName_
     }
 
 -- | Communicates to CloudTrail the name of the trail for which to stop
@@ -112,9 +112,9 @@ newtype StopLoggingResponse = StopLoggingResponse'
 
 -- | 'StopLoggingResponse' smart constructor.
 stopLoggingResponse :: Int -> StopLoggingResponse
-stopLoggingResponse pStatus =
+stopLoggingResponse pStatus_ =
     StopLoggingResponse'
-    { _slrsStatus = pStatus
+    { _slrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

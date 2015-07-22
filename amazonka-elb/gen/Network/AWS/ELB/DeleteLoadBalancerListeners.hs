@@ -57,9 +57,9 @@ data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
 
 -- | 'DeleteLoadBalancerListeners' smart constructor.
 deleteLoadBalancerListeners :: Text -> DeleteLoadBalancerListeners
-deleteLoadBalancerListeners pLoadBalancerName =
+deleteLoadBalancerListeners pLoadBalancerName_ =
     DeleteLoadBalancerListeners'
-    { _dlblrqLoadBalancerName = pLoadBalancerName
+    { _dlblrqLoadBalancerName = pLoadBalancerName_
     , _dlblrqLoadBalancerPorts = mempty
     }
 
@@ -110,9 +110,9 @@ newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersRespons
 
 -- | 'DeleteLoadBalancerListenersResponse' smart constructor.
 deleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResponse
-deleteLoadBalancerListenersResponse pStatus =
+deleteLoadBalancerListenersResponse pStatus_ =
     DeleteLoadBalancerListenersResponse'
-    { _dlblrsStatus = pStatus
+    { _dlblrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

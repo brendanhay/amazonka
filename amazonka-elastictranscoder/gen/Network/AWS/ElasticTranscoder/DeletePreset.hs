@@ -59,9 +59,9 @@ newtype DeletePreset = DeletePreset'
 
 -- | 'DeletePreset' smart constructor.
 deletePreset :: Text -> DeletePreset
-deletePreset pId =
+deletePreset pId_ =
     DeletePreset'
-    { _dprqId = pId
+    { _dprqId = pId_
     }
 
 -- | The identifier of the preset for which you want to get detailed
@@ -101,9 +101,9 @@ newtype DeletePresetResponse = DeletePresetResponse'
 
 -- | 'DeletePresetResponse' smart constructor.
 deletePresetResponse :: Int -> DeletePresetResponse
-deletePresetResponse pStatus =
+deletePresetResponse pStatus_ =
     DeletePresetResponse'
-    { _dprsStatus = pStatus
+    { _dprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

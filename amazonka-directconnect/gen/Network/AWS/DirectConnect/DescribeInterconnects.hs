@@ -116,10 +116,10 @@ data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
 describeInterconnectsResponse :: Int -> DescribeInterconnectsResponse
-describeInterconnectsResponse pStatus =
+describeInterconnectsResponse pStatus_ =
     DescribeInterconnectsResponse'
     { _dirsInterconnects = Nothing
-    , _dirsStatus = pStatus
+    , _dirsStatus = pStatus_
     }
 
 -- | A list of interconnects.

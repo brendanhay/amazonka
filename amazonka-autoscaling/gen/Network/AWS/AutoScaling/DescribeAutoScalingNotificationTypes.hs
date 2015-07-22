@@ -98,10 +98,10 @@ data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificat
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
 describeAutoScalingNotificationTypesResponse :: Int -> DescribeAutoScalingNotificationTypesResponse
-describeAutoScalingNotificationTypesResponse pStatus =
+describeAutoScalingNotificationTypesResponse pStatus_ =
     DescribeAutoScalingNotificationTypesResponse'
     { _dasntrsAutoScalingNotificationTypes = Nothing
-    , _dasntrsStatus = pStatus
+    , _dasntrsStatus = pStatus_
     }
 
 -- | One or more of the following notification types:

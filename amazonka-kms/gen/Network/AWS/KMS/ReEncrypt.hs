@@ -84,13 +84,13 @@ data ReEncrypt = ReEncrypt'
 
 -- | 'ReEncrypt' smart constructor.
 reEncrypt :: Base64 -> Text -> ReEncrypt
-reEncrypt pCiphertextBlob pDestinationKeyId =
+reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
     ReEncrypt'
     { _rerqDestinationEncryptionContext = Nothing
     , _rerqSourceEncryptionContext = Nothing
     , _rerqGrantTokens = Nothing
-    , _rerqCiphertextBlob = pCiphertextBlob
-    , _rerqDestinationKeyId = pDestinationKeyId
+    , _rerqCiphertextBlob = pCiphertextBlob_
+    , _rerqDestinationKeyId = pDestinationKeyId_
     }
 
 -- | Encryption context to be used when the data is re-encrypted.
@@ -184,12 +184,12 @@ data ReEncryptResponse = ReEncryptResponse'
 
 -- | 'ReEncryptResponse' smart constructor.
 reEncryptResponse :: Int -> ReEncryptResponse
-reEncryptResponse pStatus =
+reEncryptResponse pStatus_ =
     ReEncryptResponse'
     { _rersSourceKeyId = Nothing
     , _rersKeyId = Nothing
     , _rersCiphertextBlob = Nothing
-    , _rersStatus = pStatus
+    , _rersStatus = pStatus_
     }
 
 -- | Unique identifier of the key used to originally encrypt the data.

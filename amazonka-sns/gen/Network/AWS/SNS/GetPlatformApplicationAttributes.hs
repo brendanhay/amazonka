@@ -59,9 +59,9 @@ newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
 
 -- | 'GetPlatformApplicationAttributes' smart constructor.
 getPlatformApplicationAttributes :: Text -> GetPlatformApplicationAttributes
-getPlatformApplicationAttributes pPlatformApplicationARN =
+getPlatformApplicationAttributes pPlatformApplicationARN_ =
     GetPlatformApplicationAttributes'
-    { _gpaarqPlatformApplicationARN = pPlatformApplicationARN
+    { _gpaarqPlatformApplicationARN = pPlatformApplicationARN_
     }
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
@@ -117,10 +117,10 @@ data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributes
 
 -- | 'GetPlatformApplicationAttributesResponse' smart constructor.
 getPlatformApplicationAttributesResponse :: Int -> GetPlatformApplicationAttributesResponse
-getPlatformApplicationAttributesResponse pStatus =
+getPlatformApplicationAttributesResponse pStatus_ =
     GetPlatformApplicationAttributesResponse'
     { _gpaarsAttributes = Nothing
-    , _gpaarsStatus = pStatus
+    , _gpaarsStatus = pStatus_
     }
 
 -- | Attributes include the following:

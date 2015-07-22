@@ -56,9 +56,9 @@ newtype GetDevicePool = GetDevicePool'
 
 -- | 'GetDevicePool' smart constructor.
 getDevicePool :: Text -> GetDevicePool
-getDevicePool pArn =
+getDevicePool pArn_ =
     GetDevicePool'
-    { _gdprqArn = pArn
+    { _gdprqArn = pArn_
     }
 
 -- | The device pool\'s ARN.
@@ -110,10 +110,10 @@ data GetDevicePoolResponse = GetDevicePoolResponse'
 
 -- | 'GetDevicePoolResponse' smart constructor.
 getDevicePoolResponse :: Int -> GetDevicePoolResponse
-getDevicePoolResponse pStatus =
+getDevicePoolResponse pStatus_ =
     GetDevicePoolResponse'
     { _gdprsDevicePool = Nothing
-    , _gdprsStatus = pStatus
+    , _gdprsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

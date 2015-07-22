@@ -70,11 +70,11 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
 
 -- | 'AuthorizeCacheSecurityGroupIngress' smart constructor.
 authorizeCacheSecurityGroupIngress :: Text -> Text -> Text -> AuthorizeCacheSecurityGroupIngress
-authorizeCacheSecurityGroupIngress pCacheSecurityGroupName pEC2SecurityGroupName pEC2SecurityGroupOwnerId =
+authorizeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
     AuthorizeCacheSecurityGroupIngress'
-    { _acsgirqCacheSecurityGroupName = pCacheSecurityGroupName
-    , _acsgirqEC2SecurityGroupName = pEC2SecurityGroupName
-    , _acsgirqEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId
+    { _acsgirqCacheSecurityGroupName = pCacheSecurityGroupName_
+    , _acsgirqEC2SecurityGroupName = pEC2SecurityGroupName_
+    , _acsgirqEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
     }
 
 -- | The cache security group which will allow network ingress.
@@ -142,10 +142,10 @@ data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIng
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
 authorizeCacheSecurityGroupIngressResponse :: Int -> AuthorizeCacheSecurityGroupIngressResponse
-authorizeCacheSecurityGroupIngressResponse pStatus =
+authorizeCacheSecurityGroupIngressResponse pStatus_ =
     AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirsCacheSecurityGroup = Nothing
-    , _acsgirsStatus = pStatus
+    , _acsgirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

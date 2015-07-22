@@ -72,10 +72,10 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' smart constructor.
 setLoadBalancerPoliciesForBackendServer :: Text -> Int -> SetLoadBalancerPoliciesForBackendServer
-setLoadBalancerPoliciesForBackendServer pLoadBalancerName pInstancePort =
+setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ =
     SetLoadBalancerPoliciesForBackendServer'
-    { _slbpfbsrqLoadBalancerName = pLoadBalancerName
-    , _slbpfbsrqInstancePort = pInstancePort
+    { _slbpfbsrqLoadBalancerName = pLoadBalancerName_
+    , _slbpfbsrqInstancePort = pInstancePort_
     , _slbpfbsrqPolicyNames = mempty
     }
 
@@ -137,9 +137,9 @@ newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPolicie
 
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 setLoadBalancerPoliciesForBackendServerResponse :: Int -> SetLoadBalancerPoliciesForBackendServerResponse
-setLoadBalancerPoliciesForBackendServerResponse pStatus =
+setLoadBalancerPoliciesForBackendServerResponse pStatus_ =
     SetLoadBalancerPoliciesForBackendServerResponse'
-    { _slbpfbsrsStatus = pStatus
+    { _slbpfbsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

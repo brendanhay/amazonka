@@ -155,11 +155,11 @@ data ListServicesResponse = ListServicesResponse'
 
 -- | 'ListServicesResponse' smart constructor.
 listServicesResponse :: Int -> ListServicesResponse
-listServicesResponse pStatus =
+listServicesResponse pStatus_ =
     ListServicesResponse'
     { _lsrsServiceARNs = Nothing
     , _lsrsNextToken = Nothing
-    , _lsrsStatus = pStatus
+    , _lsrsStatus = pStatus_
     }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each service

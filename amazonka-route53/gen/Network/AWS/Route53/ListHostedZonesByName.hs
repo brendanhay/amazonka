@@ -186,16 +186,16 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
 listHostedZonesByNameResponse :: Int -> Bool -> Text -> ListHostedZonesByNameResponse
-listHostedZonesByNameResponse pStatus pIsTruncated pMaxItems =
+listHostedZonesByNameResponse pStatus_ pIsTruncated_ pMaxItems_ =
     ListHostedZonesByNameResponse'
     { _lhzbnrsHostedZoneId = Nothing
     , _lhzbnrsNextHostedZoneId = Nothing
     , _lhzbnrsDNSName = Nothing
     , _lhzbnrsNextDNSName = Nothing
-    , _lhzbnrsStatus = pStatus
+    , _lhzbnrsStatus = pStatus_
     , _lhzbnrsHostedZones = mempty
-    , _lhzbnrsIsTruncated = pIsTruncated
-    , _lhzbnrsMaxItems = pMaxItems
+    , _lhzbnrsIsTruncated = pIsTruncated_
+    , _lhzbnrsMaxItems = pMaxItems_
     }
 
 -- | The @HostedZoneId@ value sent in the request.

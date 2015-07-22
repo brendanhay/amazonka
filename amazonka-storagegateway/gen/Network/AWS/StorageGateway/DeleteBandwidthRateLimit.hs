@@ -62,10 +62,10 @@ data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
 
 -- | 'DeleteBandwidthRateLimit' smart constructor.
 deleteBandwidthRateLimit :: Text -> Text -> DeleteBandwidthRateLimit
-deleteBandwidthRateLimit pGatewayARN pBandwidthType =
+deleteBandwidthRateLimit pGatewayARN_ pBandwidthType_ =
     DeleteBandwidthRateLimit'
-    { _delrqGatewayARN = pGatewayARN
-    , _delrqBandwidthType = pBandwidthType
+    { _delrqGatewayARN = pGatewayARN_
+    , _delrqBandwidthType = pBandwidthType_
     }
 
 -- | FIXME: Undocumented member.
@@ -126,10 +126,10 @@ data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
 
 -- | 'DeleteBandwidthRateLimitResponse' smart constructor.
 deleteBandwidthRateLimitResponse :: Int -> DeleteBandwidthRateLimitResponse
-deleteBandwidthRateLimitResponse pStatus =
+deleteBandwidthRateLimitResponse pStatus_ =
     DeleteBandwidthRateLimitResponse'
     { _delrsGatewayARN = Nothing
-    , _delrsStatus = pStatus
+    , _delrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

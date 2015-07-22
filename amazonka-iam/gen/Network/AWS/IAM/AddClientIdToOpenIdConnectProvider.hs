@@ -59,10 +59,10 @@ data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
 
 -- | 'AddClientIdToOpenIdConnectProvider' smart constructor.
 addClientIdToOpenIdConnectProvider :: Text -> Text -> AddClientIdToOpenIdConnectProvider
-addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN pClientId =
+addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
     AddClientIdToOpenIdConnectProvider'
-    { _acitoicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN
-    , _acitoicprqClientId = pClientId
+    { _acitoicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+    , _acitoicprqClientId = pClientId_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider

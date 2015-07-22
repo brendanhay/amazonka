@@ -79,10 +79,10 @@ data CreateOpenIdConnectProvider = CreateOpenIdConnectProvider'
 
 -- | 'CreateOpenIdConnectProvider' smart constructor.
 createOpenIdConnectProvider :: Text -> CreateOpenIdConnectProvider
-createOpenIdConnectProvider pURL =
+createOpenIdConnectProvider pURL_ =
     CreateOpenIdConnectProvider'
     { _coicprqClientIdList = Nothing
-    , _coicprqURL = pURL
+    , _coicprqURL = pURL_
     , _coicprqThumbprintList = mempty
     }
 
@@ -188,10 +188,10 @@ data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
 
 -- | 'CreateOpenIdConnectProviderResponse' smart constructor.
 createOpenIdConnectProviderResponse :: Int -> CreateOpenIdConnectProviderResponse
-createOpenIdConnectProviderResponse pStatus =
+createOpenIdConnectProviderResponse pStatus_ =
     CreateOpenIdConnectProviderResponse'
     { _coicprsOpenIdConnectProviderARN = Nothing
-    , _coicprsStatus = pStatus
+    , _coicprsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that

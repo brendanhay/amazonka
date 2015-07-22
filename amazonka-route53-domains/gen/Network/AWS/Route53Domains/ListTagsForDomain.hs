@@ -60,9 +60,9 @@ newtype ListTagsForDomain = ListTagsForDomain'
 
 -- | 'ListTagsForDomain' smart constructor.
 listTagsForDomain :: Text -> ListTagsForDomain
-listTagsForDomain pDomainName =
+listTagsForDomain pDomainName_ =
     ListTagsForDomain'
-    { _ltfdrqDomainName = pDomainName
+    { _ltfdrqDomainName = pDomainName_
     }
 
 -- | The domain for which you want to get a list of tags.
@@ -115,9 +115,9 @@ data ListTagsForDomainResponse = ListTagsForDomainResponse'
 
 -- | 'ListTagsForDomainResponse' smart constructor.
 listTagsForDomainResponse :: Int -> ListTagsForDomainResponse
-listTagsForDomainResponse pStatus =
+listTagsForDomainResponse pStatus_ =
     ListTagsForDomainResponse'
-    { _ltfdrsStatus = pStatus
+    { _ltfdrsStatus = pStatus_
     , _ltfdrsTagList = mempty
     }
 

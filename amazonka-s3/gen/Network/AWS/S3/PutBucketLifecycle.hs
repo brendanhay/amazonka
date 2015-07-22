@@ -60,11 +60,11 @@ data PutBucketLifecycle = PutBucketLifecycle'
 
 -- | 'PutBucketLifecycle' smart constructor.
 putBucketLifecycle :: BucketName -> PutBucketLifecycle
-putBucketLifecycle pBucket =
+putBucketLifecycle pBucket_ =
     PutBucketLifecycle'
     { _prqContentMD5 = Nothing
     , _prqLifecycleConfiguration = Nothing
-    , _prqBucket = pBucket
+    , _prqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

@@ -106,12 +106,12 @@ data InitiateMultipartUpload = InitiateMultipartUpload'
 
 -- | 'InitiateMultipartUpload' smart constructor.
 initiateMultipartUpload :: Text -> Text -> InitiateMultipartUpload
-initiateMultipartUpload pAccountId pVaultName =
+initiateMultipartUpload pAccountId_ pVaultName_ =
     InitiateMultipartUpload'
     { _imurqPartSize = Nothing
     , _imurqArchiveDescription = Nothing
-    , _imurqAccountId = pAccountId
-    , _imurqVaultName = pVaultName
+    , _imurqAccountId = pAccountId_
+    , _imurqVaultName = pVaultName_
     }
 
 -- | The size of each part except the last, in bytes. The last part can be
@@ -191,11 +191,11 @@ data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
 
 -- | 'InitiateMultipartUploadResponse' smart constructor.
 initiateMultipartUploadResponse :: Int -> InitiateMultipartUploadResponse
-initiateMultipartUploadResponse pStatus =
+initiateMultipartUploadResponse pStatus_ =
     InitiateMultipartUploadResponse'
     { _imursLocation = Nothing
     , _imursUploadId = Nothing
-    , _imursStatus = pStatus
+    , _imursStatus = pStatus_
     }
 
 -- | The relative URI path of the multipart upload ID Amazon Glacier created.

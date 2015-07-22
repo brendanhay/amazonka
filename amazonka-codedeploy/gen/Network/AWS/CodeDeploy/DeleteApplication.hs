@@ -53,9 +53,9 @@ newtype DeleteApplication = DeleteApplication'
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
-deleteApplication pApplicationName =
+deleteApplication pApplicationName_ =
     DeleteApplication'
-    { _darqApplicationName = pApplicationName
+    { _darqApplicationName = pApplicationName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the

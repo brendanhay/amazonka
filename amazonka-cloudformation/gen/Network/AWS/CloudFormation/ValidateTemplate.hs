@@ -146,13 +146,13 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
 
 -- | 'ValidateTemplateResponse' smart constructor.
 validateTemplateResponse :: Int -> ValidateTemplateResponse
-validateTemplateResponse pStatus =
+validateTemplateResponse pStatus_ =
     ValidateTemplateResponse'
     { _vtrsParameters = Nothing
     , _vtrsCapabilitiesReason = Nothing
     , _vtrsCapabilities = Nothing
     , _vtrsDescription = Nothing
-    , _vtrsStatus = pStatus
+    , _vtrsStatus = pStatus_
     }
 
 -- | A list of @TemplateParameter@ structures.

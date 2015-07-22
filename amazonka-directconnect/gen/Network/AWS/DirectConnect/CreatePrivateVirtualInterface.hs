@@ -76,10 +76,10 @@ data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
 
 -- | 'CreatePrivateVirtualInterface' smart constructor.
 createPrivateVirtualInterface :: Text -> NewPrivateVirtualInterface -> CreatePrivateVirtualInterface
-createPrivateVirtualInterface pConnectionId pNewPrivateVirtualInterface =
+createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ =
     CreatePrivateVirtualInterface'
-    { _crqConnectionId = pConnectionId
-    , _crqNewPrivateVirtualInterface = pNewPrivateVirtualInterface
+    { _crqConnectionId = pConnectionId_
+    , _crqNewPrivateVirtualInterface = pNewPrivateVirtualInterface_
     }
 
 -- | FIXME: Undocumented member.

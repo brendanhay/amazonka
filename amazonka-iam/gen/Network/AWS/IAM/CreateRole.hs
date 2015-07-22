@@ -71,11 +71,11 @@ data CreateRole = CreateRole'
 
 -- | 'CreateRole' smart constructor.
 createRole :: Text -> Text -> CreateRole
-createRole pRoleName pAssumeRolePolicyDocument =
+createRole pRoleName_ pAssumeRolePolicyDocument_ =
     CreateRole'
     { _crrqPath = Nothing
-    , _crrqRoleName = pRoleName
-    , _crrqAssumeRolePolicyDocument = pAssumeRolePolicyDocument
+    , _crrqRoleName = pRoleName_
+    , _crrqAssumeRolePolicyDocument = pAssumeRolePolicyDocument_
     }
 
 -- | The path to the role. For more information about paths, see
@@ -136,10 +136,10 @@ data CreateRoleResponse = CreateRoleResponse'
 
 -- | 'CreateRoleResponse' smart constructor.
 createRoleResponse :: Int -> Role -> CreateRoleResponse
-createRoleResponse pStatus pRole =
+createRoleResponse pStatus_ pRole_ =
     CreateRoleResponse'
-    { _crrsStatus = pStatus
-    , _crrsRole = pRole
+    { _crrsStatus = pStatus_
+    , _crrsRole = pRole_
     }
 
 -- | FIXME: Undocumented member.

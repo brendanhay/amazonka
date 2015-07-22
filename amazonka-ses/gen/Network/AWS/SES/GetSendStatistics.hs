@@ -99,10 +99,10 @@ data GetSendStatisticsResponse = GetSendStatisticsResponse'
 
 -- | 'GetSendStatisticsResponse' smart constructor.
 getSendStatisticsResponse :: Int -> GetSendStatisticsResponse
-getSendStatisticsResponse pStatus =
+getSendStatisticsResponse pStatus_ =
     GetSendStatisticsResponse'
     { _gssrsSendDataPoints = Nothing
-    , _gssrsStatus = pStatus
+    , _gssrsStatus = pStatus_
     }
 
 -- | A list of data points, each of which represents 15 minutes of activity.

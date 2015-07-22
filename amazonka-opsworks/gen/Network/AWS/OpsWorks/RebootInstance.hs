@@ -58,9 +58,9 @@ newtype RebootInstance = RebootInstance'
 
 -- | 'RebootInstance' smart constructor.
 rebootInstance :: Text -> RebootInstance
-rebootInstance pInstanceId =
+rebootInstance pInstanceId_ =
     RebootInstance'
-    { _rirqInstanceId = pInstanceId
+    { _rirqInstanceId = pInstanceId_
     }
 
 -- | The instance ID.

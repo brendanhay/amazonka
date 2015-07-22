@@ -74,13 +74,13 @@ data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
 
 -- | 'DescribeOptionGroupOptions' smart constructor.
 describeOptionGroupOptions :: Text -> DescribeOptionGroupOptions
-describeOptionGroupOptions pEngineName =
+describeOptionGroupOptions pEngineName_ =
     DescribeOptionGroupOptions'
     { _dogorqFilters = Nothing
     , _dogorqMajorEngineVersion = Nothing
     , _dogorqMaxRecords = Nothing
     , _dogorqMarker = Nothing
-    , _dogorqEngineName = pEngineName
+    , _dogorqEngineName = pEngineName_
     }
 
 -- | This parameter is not currently supported.
@@ -174,11 +174,11 @@ data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
 
 -- | 'DescribeOptionGroupOptionsResponse' smart constructor.
 describeOptionGroupOptionsResponse :: Int -> DescribeOptionGroupOptionsResponse
-describeOptionGroupOptionsResponse pStatus =
+describeOptionGroupOptionsResponse pStatus_ =
     DescribeOptionGroupOptionsResponse'
     { _dogorsOptionGroupOptions = Nothing
     , _dogorsMarker = Nothing
-    , _dogorsStatus = pStatus
+    , _dogorsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -61,11 +61,11 @@ data ResetImageAttribute = ResetImageAttribute'
 
 -- | 'ResetImageAttribute' smart constructor.
 resetImageAttribute :: Text -> ResetImageAttributeName -> ResetImageAttribute
-resetImageAttribute pImageId pAttribute =
+resetImageAttribute pImageId_ pAttribute_ =
     ResetImageAttribute'
     { _resrqDryRun = Nothing
-    , _resrqImageId = pImageId
-    , _resrqAttribute = pAttribute
+    , _resrqImageId = pImageId_
+    , _resrqAttribute = pAttribute_
     }
 
 -- | Checks whether you have the required permissions for the action, without

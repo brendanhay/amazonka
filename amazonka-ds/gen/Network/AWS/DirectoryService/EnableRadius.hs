@@ -60,10 +60,10 @@ data EnableRadius = EnableRadius'
 
 -- | 'EnableRadius' smart constructor.
 enableRadius :: Text -> RadiusSettings -> EnableRadius
-enableRadius pDirectoryId pRadiusSettings =
+enableRadius pDirectoryId_ pRadiusSettings_ =
     EnableRadius'
-    { _errqDirectoryId = pDirectoryId
-    , _errqRadiusSettings = pRadiusSettings
+    { _errqDirectoryId = pDirectoryId_
+    , _errqRadiusSettings = pRadiusSettings_
     }
 
 -- | The identifier of the directory to enable MFA for.
@@ -119,9 +119,9 @@ newtype EnableRadiusResponse = EnableRadiusResponse'
 
 -- | 'EnableRadiusResponse' smart constructor.
 enableRadiusResponse :: Int -> EnableRadiusResponse
-enableRadiusResponse pStatus =
+enableRadiusResponse pStatus_ =
     EnableRadiusResponse'
-    { _errsStatus = pStatus
+    { _errsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

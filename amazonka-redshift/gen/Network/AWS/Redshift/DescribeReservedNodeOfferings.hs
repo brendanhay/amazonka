@@ -168,11 +168,11 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
 
 -- | 'DescribeReservedNodeOfferingsResponse' smart constructor.
 describeReservedNodeOfferingsResponse :: Int -> DescribeReservedNodeOfferingsResponse
-describeReservedNodeOfferingsResponse pStatus =
+describeReservedNodeOfferingsResponse pStatus_ =
     DescribeReservedNodeOfferingsResponse'
     { _drnorsReservedNodeOfferings = Nothing
     , _drnorsMarker = Nothing
-    , _drnorsStatus = pStatus
+    , _drnorsStatus = pStatus_
     }
 
 -- | A list of reserved node offerings.

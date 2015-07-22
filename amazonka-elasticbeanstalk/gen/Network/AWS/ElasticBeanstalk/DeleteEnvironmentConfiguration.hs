@@ -64,10 +64,10 @@ data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
 
 -- | 'DeleteEnvironmentConfiguration' smart constructor.
 deleteEnvironmentConfiguration :: Text -> Text -> DeleteEnvironmentConfiguration
-deleteEnvironmentConfiguration pApplicationName pEnvironmentName =
+deleteEnvironmentConfiguration pApplicationName_ pEnvironmentName_ =
     DeleteEnvironmentConfiguration'
-    { _decrqApplicationName = pApplicationName
-    , _decrqEnvironmentName = pEnvironmentName
+    { _decrqApplicationName = pApplicationName_
+    , _decrqEnvironmentName = pEnvironmentName_
     }
 
 -- | The name of the application the environment is associated with.

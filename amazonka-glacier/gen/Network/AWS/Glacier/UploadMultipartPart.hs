@@ -124,14 +124,14 @@ data UploadMultipartPart = UploadMultipartPart'
 
 -- | 'UploadMultipartPart' smart constructor.
 uploadMultipartPart :: Text -> Text -> Text -> RqBody -> UploadMultipartPart
-uploadMultipartPart pAccountId pVaultName pUploadId pBody =
+uploadMultipartPart pAccountId_ pVaultName_ pUploadId_ pBody_ =
     UploadMultipartPart'
     { _umprqChecksum = Nothing
     , _umprqRange = Nothing
-    , _umprqAccountId = pAccountId
-    , _umprqVaultName = pVaultName
-    , _umprqUploadId = pUploadId
-    , _umprqBody = pBody
+    , _umprqAccountId = pAccountId_
+    , _umprqVaultName = pVaultName_
+    , _umprqUploadId = pUploadId_
+    , _umprqBody = pBody_
     }
 
 -- | The SHA256 tree hash of the data being uploaded.
@@ -212,10 +212,10 @@ data UploadMultipartPartResponse = UploadMultipartPartResponse'
 
 -- | 'UploadMultipartPartResponse' smart constructor.
 uploadMultipartPartResponse :: Int -> UploadMultipartPartResponse
-uploadMultipartPartResponse pStatus =
+uploadMultipartPartResponse pStatus_ =
     UploadMultipartPartResponse'
     { _umprsChecksum = Nothing
-    , _umprsStatus = pStatus
+    , _umprsStatus = pStatus_
     }
 
 -- | The SHA256 tree hash that Amazon Glacier computed for the uploaded part.

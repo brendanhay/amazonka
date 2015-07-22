@@ -69,11 +69,11 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
 
 -- | 'CreateClusterSecurityGroup' smart constructor.
 createClusterSecurityGroup :: Text -> Text -> CreateClusterSecurityGroup
-createClusterSecurityGroup pClusterSecurityGroupName pDescription =
+createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
     CreateClusterSecurityGroup'
     { _crqTags = Nothing
-    , _crqClusterSecurityGroupName = pClusterSecurityGroupName
-    , _crqDescription = pDescription
+    , _crqClusterSecurityGroupName = pClusterSecurityGroupName_
+    , _crqDescription = pDescription_
     }
 
 -- | A list of tag instances.
@@ -142,10 +142,10 @@ data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
 
 -- | 'CreateClusterSecurityGroupResponse' smart constructor.
 createClusterSecurityGroupResponse :: Int -> CreateClusterSecurityGroupResponse
-createClusterSecurityGroupResponse pStatus =
+createClusterSecurityGroupResponse pStatus_ =
     CreateClusterSecurityGroupResponse'
     { _crsClusterSecurityGroup = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

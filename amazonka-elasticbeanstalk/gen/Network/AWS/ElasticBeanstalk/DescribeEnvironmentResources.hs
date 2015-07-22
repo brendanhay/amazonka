@@ -128,10 +128,10 @@ data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
 
 -- | 'DescribeEnvironmentResourcesResponse' smart constructor.
 describeEnvironmentResourcesResponse :: Int -> DescribeEnvironmentResourcesResponse
-describeEnvironmentResourcesResponse pStatus =
+describeEnvironmentResourcesResponse pStatus_ =
     DescribeEnvironmentResourcesResponse'
     { _derrsEnvironmentResources = Nothing
-    , _derrsStatus = pStatus
+    , _derrsStatus = pStatus_
     }
 
 -- | A list of EnvironmentResourceDescription.

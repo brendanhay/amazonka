@@ -71,9 +71,9 @@ newtype DeleteHostedZone = DeleteHostedZone'
 
 -- | 'DeleteHostedZone' smart constructor.
 deleteHostedZone :: Text -> DeleteHostedZone
-deleteHostedZone pId =
+deleteHostedZone pId_ =
     DeleteHostedZone'
-    { _dhzrqId = pId
+    { _dhzrqId = pId_
     }
 
 -- | The ID of the hosted zone you want to delete.
@@ -117,10 +117,10 @@ data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
 
 -- | 'DeleteHostedZoneResponse' smart constructor.
 deleteHostedZoneResponse :: Int -> ChangeInfo -> DeleteHostedZoneResponse
-deleteHostedZoneResponse pStatus pChangeInfo =
+deleteHostedZoneResponse pStatus_ pChangeInfo_ =
     DeleteHostedZoneResponse'
-    { _dhzrsStatus = pStatus
-    , _dhzrsChangeInfo = pChangeInfo
+    { _dhzrsStatus = pStatus_
+    , _dhzrsChangeInfo = pChangeInfo_
     }
 
 -- | FIXME: Undocumented member.

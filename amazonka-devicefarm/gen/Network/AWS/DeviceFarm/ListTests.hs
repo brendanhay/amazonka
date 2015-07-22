@@ -61,10 +61,10 @@ data ListTests = ListTests'
 
 -- | 'ListTests' smart constructor.
 listTests :: Text -> ListTests
-listTests pArn =
+listTests pArn_ =
     ListTests'
     { _ltrqNextToken = Nothing
-    , _ltrqArn = pArn
+    , _ltrqArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -127,11 +127,11 @@ data ListTestsResponse = ListTestsResponse'
 
 -- | 'ListTestsResponse' smart constructor.
 listTestsResponse :: Int -> ListTestsResponse
-listTestsResponse pStatus =
+listTestsResponse pStatus_ =
     ListTestsResponse'
     { _ltrsTests = Nothing
     , _ltrsNextToken = Nothing
-    , _ltrsStatus = pStatus
+    , _ltrsStatus = pStatus_
     }
 
 -- | Information about the tests.

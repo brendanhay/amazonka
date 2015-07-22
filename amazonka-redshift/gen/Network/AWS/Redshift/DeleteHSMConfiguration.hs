@@ -53,9 +53,9 @@ newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
 
 -- | 'DeleteHSMConfiguration' smart constructor.
 deleteHSMConfiguration :: Text -> DeleteHSMConfiguration
-deleteHSMConfiguration pHSMConfigurationIdentifier =
+deleteHSMConfiguration pHSMConfigurationIdentifier_ =
     DeleteHSMConfiguration'
-    { _dhcrqHSMConfigurationIdentifier = pHSMConfigurationIdentifier
+    { _dhcrqHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
     }
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.

@@ -54,9 +54,9 @@ newtype GetBucketLocation = GetBucketLocation'
 
 -- | 'GetBucketLocation' smart constructor.
 getBucketLocation :: BucketName -> GetBucketLocation
-getBucketLocation pBucket =
+getBucketLocation pBucket_ =
     GetBucketLocation'
-    { _gblrqBucket = pBucket
+    { _gblrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -97,10 +97,10 @@ data GetBucketLocationResponse = GetBucketLocationResponse'
 
 -- | 'GetBucketLocationResponse' smart constructor.
 getBucketLocationResponse :: Int -> GetBucketLocationResponse
-getBucketLocationResponse pStatus =
+getBucketLocationResponse pStatus_ =
     GetBucketLocationResponse'
     { _getrsLocationConstraint = Nothing
-    , _getrsStatus = pStatus
+    , _getrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

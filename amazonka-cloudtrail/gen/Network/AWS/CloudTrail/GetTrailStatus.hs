@@ -66,9 +66,9 @@ newtype GetTrailStatus = GetTrailStatus'
 
 -- | 'GetTrailStatus' smart constructor.
 getTrailStatus :: Text -> GetTrailStatus
-getTrailStatus pName =
+getTrailStatus pName_ =
     GetTrailStatus'
-    { _gtsrqName = pName
+    { _gtsrqName = pName_
     }
 
 -- | The name of the trail for which you are requesting the current status.
@@ -155,7 +155,7 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
 
 -- | 'GetTrailStatusResponse' smart constructor.
 getTrailStatusResponse :: Int -> GetTrailStatusResponse
-getTrailStatusResponse pStatus =
+getTrailStatusResponse pStatus_ =
     GetTrailStatusResponse'
     { _gtsrsLatestDeliveryError = Nothing
     , _gtsrsStartLoggingTime = Nothing
@@ -166,7 +166,7 @@ getTrailStatusResponse pStatus =
     , _gtsrsLatestCloudWatchLogsDeliveryError = Nothing
     , _gtsrsLatestNotificationTime = Nothing
     , _gtsrsStopLoggingTime = Nothing
-    , _gtsrsStatus = pStatus
+    , _gtsrsStatus = pStatus_
     }
 
 -- | Displays any Amazon S3 error that CloudTrail encountered when attempting

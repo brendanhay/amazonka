@@ -61,10 +61,10 @@ data ListSuites = ListSuites'
 
 -- | 'ListSuites' smart constructor.
 listSuites :: Text -> ListSuites
-listSuites pArn =
+listSuites pArn_ =
     ListSuites'
     { _lrqNextToken = Nothing
-    , _lrqArn = pArn
+    , _lrqArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -127,11 +127,11 @@ data ListSuitesResponse = ListSuitesResponse'
 
 -- | 'ListSuitesResponse' smart constructor.
 listSuitesResponse :: Int -> ListSuitesResponse
-listSuitesResponse pStatus =
+listSuitesResponse pStatus_ =
     ListSuitesResponse'
     { _lrsNextToken = Nothing
     , _lrsSuites = Nothing
-    , _lrsStatus = pStatus
+    , _lrsStatus = pStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is

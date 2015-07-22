@@ -69,10 +69,10 @@ data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
 
 -- | 'PurchaseReservedNodeOffering' smart constructor.
 purchaseReservedNodeOffering :: Text -> PurchaseReservedNodeOffering
-purchaseReservedNodeOffering pReservedNodeOfferingId =
+purchaseReservedNodeOffering pReservedNodeOfferingId_ =
     PurchaseReservedNodeOffering'
     { _prnorqNodeCount = Nothing
-    , _prnorqReservedNodeOfferingId = pReservedNodeOfferingId
+    , _prnorqReservedNodeOfferingId = pReservedNodeOfferingId_
     }
 
 -- | The number of reserved nodes you want to purchase.
@@ -129,10 +129,10 @@ data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
 
 -- | 'PurchaseReservedNodeOfferingResponse' smart constructor.
 purchaseReservedNodeOfferingResponse :: Int -> PurchaseReservedNodeOfferingResponse
-purchaseReservedNodeOfferingResponse pStatus =
+purchaseReservedNodeOfferingResponse pStatus_ =
     PurchaseReservedNodeOfferingResponse'
     { _prnorsReservedNode = Nothing
-    , _prnorsStatus = pStatus
+    , _prnorsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

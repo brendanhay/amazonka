@@ -61,10 +61,10 @@ data ListTagsForResources = ListTagsForResources'
 
 -- | 'ListTagsForResources' smart constructor.
 listTagsForResources :: TagResourceType -> NonEmpty Text -> ListTagsForResources
-listTagsForResources pResourceType pResourceIds =
+listTagsForResources pResourceType_ pResourceIds_ =
     ListTagsForResources'
-    { _lrqResourceType = pResourceType
-    , _lrqResourceIds = _List1 # pResourceIds
+    { _lrqResourceType = pResourceType_
+    , _lrqResourceIds = _List1 # pResourceIds_
     }
 
 -- | The type of the resources.
@@ -131,9 +131,9 @@ data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
 
 -- | 'ListTagsForResourcesResponse' smart constructor.
 listTagsForResourcesResponse :: Int -> ListTagsForResourcesResponse
-listTagsForResourcesResponse pStatus =
+listTagsForResourcesResponse pStatus_ =
     ListTagsForResourcesResponse'
-    { _lrsStatus = pStatus
+    { _lrsStatus = pStatus_
     , _lrsResourceTagSets = mempty
     }
 

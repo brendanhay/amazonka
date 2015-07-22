@@ -71,11 +71,11 @@ data UpdateAccessKey = UpdateAccessKey'
 
 -- | 'UpdateAccessKey' smart constructor.
 updateAccessKey :: Text -> StatusType -> UpdateAccessKey
-updateAccessKey pAccessKeyId pStatus =
+updateAccessKey pAccessKeyId_ pStatus_ =
     UpdateAccessKey'
     { _uakrqUserName = Nothing
-    , _uakrqAccessKeyId = pAccessKeyId
-    , _uakrqStatus = pStatus
+    , _uakrqAccessKeyId = pAccessKeyId_
+    , _uakrqStatus = pStatus_
     }
 
 -- | The name of the user whose key you want to update.

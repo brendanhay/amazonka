@@ -66,10 +66,10 @@ data DefineExpression = DefineExpression'
 
 -- | 'DefineExpression' smart constructor.
 defineExpression :: Text -> Expression -> DefineExpression
-defineExpression pDomainName pExpression =
+defineExpression pDomainName_ pExpression_ =
     DefineExpression'
-    { _drqDomainName = pDomainName
-    , _drqExpression = pExpression
+    { _drqDomainName = pDomainName_
+    , _drqExpression = pExpression_
     }
 
 -- | FIXME: Undocumented member.
@@ -121,10 +121,10 @@ data DefineExpressionResponse = DefineExpressionResponse'
 
 -- | 'DefineExpressionResponse' smart constructor.
 defineExpressionResponse :: Int -> ExpressionStatus -> DefineExpressionResponse
-defineExpressionResponse pStatus pExpression =
+defineExpressionResponse pStatus_ pExpression_ =
     DefineExpressionResponse'
-    { _dersStatus = pStatus
-    , _dersExpression = pExpression
+    { _dersStatus = pStatus_
+    , _dersExpression = pExpression_
     }
 
 -- | FIXME: Undocumented member.

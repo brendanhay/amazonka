@@ -54,9 +54,9 @@ newtype DeleteAccountAlias = DeleteAccountAlias'
 
 -- | 'DeleteAccountAlias' smart constructor.
 deleteAccountAlias :: Text -> DeleteAccountAlias
-deleteAccountAlias pAccountAlias =
+deleteAccountAlias pAccountAlias_ =
     DeleteAccountAlias'
-    { _daarqAccountAlias = pAccountAlias
+    { _daarqAccountAlias = pAccountAlias_
     }
 
 -- | The name of the account alias to delete.

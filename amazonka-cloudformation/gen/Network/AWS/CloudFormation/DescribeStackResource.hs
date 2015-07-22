@@ -63,10 +63,10 @@ data DescribeStackResource = DescribeStackResource'
 
 -- | 'DescribeStackResource' smart constructor.
 describeStackResource :: Text -> Text -> DescribeStackResource
-describeStackResource pStackName pLogicalResourceId =
+describeStackResource pStackName_ pLogicalResourceId_ =
     DescribeStackResource'
-    { _desrqStackName = pStackName
-    , _desrqLogicalResourceId = pLogicalResourceId
+    { _desrqStackName = pStackName_
+    , _desrqLogicalResourceId = pLogicalResourceId_
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -128,10 +128,10 @@ data DescribeStackResourceResponse = DescribeStackResourceResponse'
 
 -- | 'DescribeStackResourceResponse' smart constructor.
 describeStackResourceResponse :: Int -> DescribeStackResourceResponse
-describeStackResourceResponse pStatus =
+describeStackResourceResponse pStatus_ =
     DescribeStackResourceResponse'
     { _dsrrsStackResourceDetail = Nothing
-    , _dsrrsStatus = pStatus
+    , _dsrrsStatus = pStatus_
     }
 
 -- | A @StackResourceDetail@ structure containing the description of the

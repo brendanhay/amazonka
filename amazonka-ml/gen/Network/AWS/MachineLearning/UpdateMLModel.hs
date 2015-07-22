@@ -65,11 +65,11 @@ data UpdateMLModel = UpdateMLModel'
 
 -- | 'UpdateMLModel' smart constructor.
 updateMLModel :: Text -> UpdateMLModel
-updateMLModel pMLModelId =
+updateMLModel pMLModelId_ =
     UpdateMLModel'
     { _umlmrqMLModelName = Nothing
     , _umlmrqScoreThreshold = Nothing
-    , _umlmrqMLModelId = pMLModelId
+    , _umlmrqMLModelId = pMLModelId_
     }
 
 -- | A user-supplied name or description of the @MLModel@.
@@ -140,10 +140,10 @@ data UpdateMLModelResponse = UpdateMLModelResponse'
 
 -- | 'UpdateMLModelResponse' smart constructor.
 updateMLModelResponse :: Int -> UpdateMLModelResponse
-updateMLModelResponse pStatus =
+updateMLModelResponse pStatus_ =
     UpdateMLModelResponse'
     { _umlmrsMLModelId = Nothing
-    , _umlmrsStatus = pStatus
+    , _umlmrsStatus = pStatus_
     }
 
 -- | The ID assigned to the @MLModel@ during creation. This value should be

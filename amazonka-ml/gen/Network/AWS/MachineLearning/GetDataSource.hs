@@ -78,10 +78,10 @@ data GetDataSource = GetDataSource'
 
 -- | 'GetDataSource' smart constructor.
 getDataSource :: Text -> GetDataSource
-getDataSource pDataSourceId =
+getDataSource pDataSourceId_ =
     GetDataSource'
     { _gdsrqVerbose = Nothing
-    , _gdsrqDataSourceId = pDataSourceId
+    , _gdsrqDataSourceId = pDataSourceId_
     }
 
 -- | Specifies whether the @GetDataSource@ operation should return
@@ -205,7 +205,7 @@ data GetDataSourceResponse = GetDataSourceResponse'
 
 -- | 'GetDataSourceResponse' smart constructor.
 getDataSourceResponse :: Int -> GetDataSourceResponse
-getDataSourceResponse pStatus =
+getDataSourceResponse pStatus_ =
     GetDataSourceResponse'
     { _gdsrsNumberOfFiles = Nothing
     , _gdsrsLastUpdatedAt = Nothing
@@ -223,7 +223,7 @@ getDataSourceResponse pStatus =
     , _gdsrsRedshiftMetadata = Nothing
     , _gdsrsRoleARN = Nothing
     , _gdsrsDataRearrangement = Nothing
-    , _gdsrsStatus = pStatus
+    , _gdsrsStatus = pStatus_
     }
 
 -- | The number of data files referenced by the @DataSource@.

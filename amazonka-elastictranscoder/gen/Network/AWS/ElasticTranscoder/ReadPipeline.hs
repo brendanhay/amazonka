@@ -57,9 +57,9 @@ newtype ReadPipeline = ReadPipeline'
 
 -- | 'ReadPipeline' smart constructor.
 readPipeline :: Text -> ReadPipeline
-readPipeline pId =
+readPipeline pId_ =
     ReadPipeline'
-    { _rrqId = pId
+    { _rrqId = pId_
     }
 
 -- | The identifier of the pipeline to read.
@@ -106,11 +106,11 @@ data ReadPipelineResponse = ReadPipelineResponse'
 
 -- | 'ReadPipelineResponse' smart constructor.
 readPipelineResponse :: Int -> ReadPipelineResponse
-readPipelineResponse pStatus =
+readPipelineResponse pStatus_ =
     ReadPipelineResponse'
     { _rrsWarnings = Nothing
     , _rrsPipeline = Nothing
-    , _rrsStatus = pStatus
+    , _rrsStatus = pStatus_
     }
 
 -- | Elastic Transcoder returns a warning if the resources used by your

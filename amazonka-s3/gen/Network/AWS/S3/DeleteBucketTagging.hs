@@ -51,9 +51,9 @@ newtype DeleteBucketTagging = DeleteBucketTagging'
 
 -- | 'DeleteBucketTagging' smart constructor.
 deleteBucketTagging :: BucketName -> DeleteBucketTagging
-deleteBucketTagging pBucket =
+deleteBucketTagging pBucket_ =
     DeleteBucketTagging'
-    { _dbtrqBucket = pBucket
+    { _dbtrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

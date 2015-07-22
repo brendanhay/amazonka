@@ -59,11 +59,11 @@ data PutBucketCORS = PutBucketCORS'
 
 -- | 'PutBucketCORS' smart constructor.
 putBucketCORS :: BucketName -> PutBucketCORS
-putBucketCORS pBucket =
+putBucketCORS pBucket_ =
     PutBucketCORS'
     { _pbcrqContentMD5 = Nothing
     , _pbcrqCORSConfiguration = Nothing
-    , _pbcrqBucket = pBucket
+    , _pbcrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.

@@ -56,9 +56,9 @@ newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
 
 -- | 'DeleteCacheSubnetGroup' smart constructor.
 deleteCacheSubnetGroup :: Text -> DeleteCacheSubnetGroup
-deleteCacheSubnetGroup pCacheSubnetGroupName =
+deleteCacheSubnetGroup pCacheSubnetGroupName_ =
     DeleteCacheSubnetGroup'
-    { _drqCacheSubnetGroupName = pCacheSubnetGroupName
+    { _drqCacheSubnetGroupName = pCacheSubnetGroupName_
     }
 
 -- | The name of the cache subnet group to delete.

@@ -234,11 +234,11 @@ data DescribeEventsResponse = DescribeEventsResponse'
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Int -> DescribeEventsResponse
-describeEventsResponse pStatus =
+describeEventsResponse pStatus_ =
     DescribeEventsResponse'
     { _dersNextToken = Nothing
     , _dersEvents = Nothing
-    , _dersStatus = pStatus
+    , _dersStatus = pStatus_
     }
 
 -- | If returned, this indicates that there are more results to obtain. Use

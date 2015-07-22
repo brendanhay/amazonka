@@ -75,13 +75,13 @@ data Invoke = Invoke'
 
 -- | 'Invoke' smart constructor.
 invoke :: Text -> Invoke
-invoke pFunctionName =
+invoke pFunctionName_ =
     Invoke'
     { _irqInvocationType = Nothing
     , _irqPayload = Nothing
     , _irqLogType = Nothing
     , _irqClientContext = Nothing
-    , _irqFunctionName = pFunctionName
+    , _irqFunctionName = pFunctionName_
     }
 
 -- | By default, the @Invoke@ API assumes \"RequestResponse\" invocation
@@ -186,12 +186,12 @@ data InvokeResponse = InvokeResponse'
 
 -- | 'InvokeResponse' smart constructor.
 invokeResponse :: Int -> InvokeResponse
-invokeResponse pStatusCode =
+invokeResponse pStatusCode_ =
     InvokeResponse'
     { _irsFunctionError = Nothing
     , _irsLogResult = Nothing
     , _irsPayload = Nothing
-    , _irsStatusCode = pStatusCode
+    , _irsStatusCode = pStatusCode_
     }
 
 -- | Indicates whether an error occurred while executing the Lambda function.

@@ -66,10 +66,10 @@ data PollForThirdPartyJobs = PollForThirdPartyJobs'
 
 -- | 'PollForThirdPartyJobs' smart constructor.
 pollForThirdPartyJobs :: ActionTypeId -> PollForThirdPartyJobs
-pollForThirdPartyJobs pActionTypeId =
+pollForThirdPartyJobs pActionTypeId_ =
     PollForThirdPartyJobs'
     { _pftpjrqMaxBatchSize = Nothing
-    , _pftpjrqActionTypeId = pActionTypeId
+    , _pftpjrqActionTypeId = pActionTypeId_
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
@@ -129,10 +129,10 @@ data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
 
 -- | 'PollForThirdPartyJobsResponse' smart constructor.
 pollForThirdPartyJobsResponse :: Int -> PollForThirdPartyJobsResponse
-pollForThirdPartyJobsResponse pStatus =
+pollForThirdPartyJobsResponse pStatus_ =
     PollForThirdPartyJobsResponse'
     { _pftpjrsJobs = Nothing
-    , _pftpjrsStatus = pStatus
+    , _pftpjrsStatus = pStatus_
     }
 
 -- | Information about the jobs to take action on.

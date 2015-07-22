@@ -69,9 +69,9 @@ newtype DescribeWorkingStorage = DescribeWorkingStorage'
 
 -- | 'DescribeWorkingStorage' smart constructor.
 describeWorkingStorage :: Text -> DescribeWorkingStorage
-describeWorkingStorage pGatewayARN =
+describeWorkingStorage pGatewayARN_ =
     DescribeWorkingStorage'
-    { _dwsrqGatewayARN = pGatewayARN
+    { _dwsrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -137,13 +137,13 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
 
 -- | 'DescribeWorkingStorageResponse' smart constructor.
 describeWorkingStorageResponse :: Int -> DescribeWorkingStorageResponse
-describeWorkingStorageResponse pStatus =
+describeWorkingStorageResponse pStatus_ =
     DescribeWorkingStorageResponse'
     { _dwsrsGatewayARN = Nothing
     , _dwsrsDiskIds = Nothing
     , _dwsrsWorkingStorageAllocatedInBytes = Nothing
     , _dwsrsWorkingStorageUsedInBytes = Nothing
-    , _dwsrsStatus = pStatus
+    , _dwsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

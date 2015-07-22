@@ -56,9 +56,9 @@ newtype GetOnPremisesInstance = GetOnPremisesInstance'
 
 -- | 'GetOnPremisesInstance' smart constructor.
 getOnPremisesInstance :: Text -> GetOnPremisesInstance
-getOnPremisesInstance pInstanceName =
+getOnPremisesInstance pInstanceName_ =
     GetOnPremisesInstance'
-    { _gopirqInstanceName = pInstanceName
+    { _gopirqInstanceName = pInstanceName_
     }
 
 -- | The name of the on-premises instance to get information about
@@ -112,10 +112,10 @@ data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
 
 -- | 'GetOnPremisesInstanceResponse' smart constructor.
 getOnPremisesInstanceResponse :: Int -> GetOnPremisesInstanceResponse
-getOnPremisesInstanceResponse pStatus =
+getOnPremisesInstanceResponse pStatus_ =
     GetOnPremisesInstanceResponse'
     { _gopirsInstanceInfo = Nothing
-    , _gopirsStatus = pStatus
+    , _gopirsStatus = pStatus_
     }
 
 -- | Information about the on-premises instance.

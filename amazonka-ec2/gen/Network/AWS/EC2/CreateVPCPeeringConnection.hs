@@ -150,10 +150,10 @@ data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
 
 -- | 'CreateVPCPeeringConnectionResponse' smart constructor.
 createVPCPeeringConnectionResponse :: Int -> CreateVPCPeeringConnectionResponse
-createVPCPeeringConnectionResponse pStatus =
+createVPCPeeringConnectionResponse pStatus_ =
     CreateVPCPeeringConnectionResponse'
     { _cvpcrsVPCPeeringConnection = Nothing
-    , _cvpcrsStatus = pStatus
+    , _cvpcrsStatus = pStatus_
     }
 
 -- | Information about the VPC peering connection.

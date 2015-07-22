@@ -98,15 +98,15 @@ data ActivateGateway = ActivateGateway'
 
 -- | 'ActivateGateway' smart constructor.
 activateGateway :: Text -> Text -> Text -> Text -> ActivateGateway
-activateGateway pActivationKey pGatewayName pGatewayTimezone pGatewayRegion =
+activateGateway pActivationKey_ pGatewayName_ pGatewayTimezone_ pGatewayRegion_ =
     ActivateGateway'
     { _agrqMediumChangerType = Nothing
     , _agrqTapeDriveType = Nothing
     , _agrqGatewayType = Nothing
-    , _agrqActivationKey = pActivationKey
-    , _agrqGatewayName = pGatewayName
-    , _agrqGatewayTimezone = pGatewayTimezone
-    , _agrqGatewayRegion = pGatewayRegion
+    , _agrqActivationKey = pActivationKey_
+    , _agrqGatewayName = pGatewayName_
+    , _agrqGatewayTimezone = pGatewayTimezone_
+    , _agrqGatewayRegion = pGatewayRegion_
     }
 
 -- | The value that indicates the type of medium changer to use for
@@ -219,10 +219,10 @@ data ActivateGatewayResponse = ActivateGatewayResponse'
 
 -- | 'ActivateGatewayResponse' smart constructor.
 activateGatewayResponse :: Int -> ActivateGatewayResponse
-activateGatewayResponse pStatus =
+activateGatewayResponse pStatus_ =
     ActivateGatewayResponse'
     { _agrsGatewayARN = Nothing
-    , _agrsStatus = pStatus
+    , _agrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

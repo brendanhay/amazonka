@@ -64,9 +64,9 @@ newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
 
 -- | 'DescribeMountTargetSecurityGroups' smart constructor.
 describeMountTargetSecurityGroups :: Text -> DescribeMountTargetSecurityGroups
-describeMountTargetSecurityGroups pMountTargetId =
+describeMountTargetSecurityGroups pMountTargetId_ =
     DescribeMountTargetSecurityGroups'
-    { _dmtsgrqMountTargetId = pMountTargetId
+    { _dmtsgrqMountTargetId = pMountTargetId_
     }
 
 -- | The ID of the mount target whose security groups you want to retrieve.
@@ -115,9 +115,9 @@ data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGrou
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
 describeMountTargetSecurityGroupsResponse :: Int -> DescribeMountTargetSecurityGroupsResponse
-describeMountTargetSecurityGroupsResponse pStatus =
+describeMountTargetSecurityGroupsResponse pStatus_ =
     DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrsStatus = pStatus
+    { _dmtsgrsStatus = pStatus_
     , _dmtsgrsSecurityGroups = mempty
     }
 

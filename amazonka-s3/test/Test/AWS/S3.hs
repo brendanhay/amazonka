@@ -29,7 +29,7 @@ fixtures =
     [ testGroup "response"
         [ testGetBucketReplicationResponse $
             getBucketReplicationResponse 200
-                & gbrrReplicationConfiguration ?~
+                & gbrrsReplicationConfiguration ?~
                    (replicationConfiguration "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
                        & rcRules .~
                            [ replicationRule "" Enabled (destination "arn:aws:s3:::exampletargetbucket")
@@ -43,7 +43,7 @@ fixtures =
 
         , testCopyObjectResponse $
             copyObjectResponse 200
-                & corCopyObjectResult ?~
+                & corsCopyObjectResult ?~
                     (copyObjectResult
                         & corETag         ?~ ETag "\"9b2cf535f27731c974343645a3985328\""
                         & corLastModified ?~ $(mkTime "2009-10-28T22:32:00Z"))

@@ -63,11 +63,11 @@ data EnableMetricsCollection = EnableMetricsCollection'
 
 -- | 'EnableMetricsCollection' smart constructor.
 enableMetricsCollection :: Text -> Text -> EnableMetricsCollection
-enableMetricsCollection pAutoScalingGroupName pGranularity =
+enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
     EnableMetricsCollection'
     { _emcrqMetrics = Nothing
-    , _emcrqAutoScalingGroupName = pAutoScalingGroupName
-    , _emcrqGranularity = pGranularity
+    , _emcrqAutoScalingGroupName = pAutoScalingGroupName_
+    , _emcrqGranularity = pGranularity_
     }
 
 -- | One or more metrics. If you omit this parameter, all metrics are

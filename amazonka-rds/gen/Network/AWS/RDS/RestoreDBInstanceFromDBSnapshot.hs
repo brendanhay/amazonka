@@ -137,7 +137,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
 
 -- | 'RestoreDBInstanceFromDBSnapshot' smart constructor.
 restoreDBInstanceFromDBSnapshot :: Text -> Text -> RestoreDBInstanceFromDBSnapshot
-restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier pDBSnapshotIdentifier =
+restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier_ pDBSnapshotIdentifier_ =
     RestoreDBInstanceFromDBSnapshot'
     { _rdifdsrqAutoMinorVersionUpgrade = Nothing
     , _rdifdsrqPubliclyAccessible = Nothing
@@ -155,8 +155,8 @@ restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier pDBSnapshotIdentifier =
     , _rdifdsrqTags = Nothing
     , _rdifdsrqPort = Nothing
     , _rdifdsrqStorageType = Nothing
-    , _rdifdsrqDBInstanceIdentifier = pDBInstanceIdentifier
-    , _rdifdsrqDBSnapshotIdentifier = pDBSnapshotIdentifier
+    , _rdifdsrqDBInstanceIdentifier = pDBInstanceIdentifier_
+    , _rdifdsrqDBSnapshotIdentifier = pDBSnapshotIdentifier_
     }
 
 -- | Indicates that minor version upgrades will be applied automatically to
@@ -387,10 +387,10 @@ data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotRe
 
 -- | 'RestoreDBInstanceFromDBSnapshotResponse' smart constructor.
 restoreDBInstanceFromDBSnapshotResponse :: Int -> RestoreDBInstanceFromDBSnapshotResponse
-restoreDBInstanceFromDBSnapshotResponse pStatus =
+restoreDBInstanceFromDBSnapshotResponse pStatus_ =
     RestoreDBInstanceFromDBSnapshotResponse'
     { _rdifdsrsDBInstance = Nothing
-    , _rdifdsrsStatus = pStatus
+    , _rdifdsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

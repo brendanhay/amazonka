@@ -247,11 +247,11 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
 describeInstanceStatusResponse :: Int -> DescribeInstanceStatusResponse
-describeInstanceStatusResponse pStatus =
+describeInstanceStatusResponse pStatus_ =
     DescribeInstanceStatusResponse'
     { _disrsInstanceStatuses = Nothing
     , _disrsNextToken = Nothing
-    , _disrsStatus = pStatus
+    , _disrsStatus = pStatus_
     }
 
 -- | One or more instance status descriptions.

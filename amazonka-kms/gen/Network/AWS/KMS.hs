@@ -112,8 +112,6 @@ import           Network.AWS.KMS.ReEncrypt                       as Export
 import           Network.AWS.KMS.RetireGrant                     as Export
 import           Network.AWS.KMS.RevokeGrant                     as Export
 import           Network.AWS.KMS.Types                           as Export
-import           Network.AWS.KMS.Types.Product                   as Export
-import           Network.AWS.KMS.Types.Sum                       as Export
 import           Network.AWS.KMS.UpdateAlias                     as Export
 import           Network.AWS.KMS.UpdateKeyDescription            as Export
 import           Network.AWS.KMS.Waiters                         as Export

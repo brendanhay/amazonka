@@ -57,9 +57,9 @@ newtype GetStackPolicy = GetStackPolicy'
 
 -- | 'GetStackPolicy' smart constructor.
 getStackPolicy :: Text -> GetStackPolicy
-getStackPolicy pStackName =
+getStackPolicy pStackName_ =
     GetStackPolicy'
-    { _gsprqStackName = pStackName
+    { _gsprqStackName = pStackName_
     }
 
 -- | The name or unique stack ID that is associated with the stack whose
@@ -106,10 +106,10 @@ data GetStackPolicyResponse = GetStackPolicyResponse'
 
 -- | 'GetStackPolicyResponse' smart constructor.
 getStackPolicyResponse :: Int -> GetStackPolicyResponse
-getStackPolicyResponse pStatus =
+getStackPolicyResponse pStatus_ =
     GetStackPolicyResponse'
     { _gsprsStackPolicyBody = Nothing
-    , _gsprsStatus = pStatus
+    , _gsprsStatus = pStatus_
     }
 
 -- | Structure containing the stack policy body. (For more information, go to

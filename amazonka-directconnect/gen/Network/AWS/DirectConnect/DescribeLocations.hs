@@ -95,10 +95,10 @@ data DescribeLocationsResponse = DescribeLocationsResponse'
 
 -- | 'DescribeLocationsResponse' smart constructor.
 describeLocationsResponse :: Int -> DescribeLocationsResponse
-describeLocationsResponse pStatus =
+describeLocationsResponse pStatus_ =
     DescribeLocationsResponse'
     { _dlrsLocations = Nothing
-    , _dlrsStatus = pStatus
+    , _dlrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

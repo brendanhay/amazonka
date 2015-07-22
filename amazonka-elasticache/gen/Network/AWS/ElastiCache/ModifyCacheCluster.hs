@@ -119,7 +119,7 @@ data ModifyCacheCluster = ModifyCacheCluster'
 
 -- | 'ModifyCacheCluster' smart constructor.
 modifyCacheCluster :: Text -> ModifyCacheCluster
-modifyCacheCluster pCacheClusterId =
+modifyCacheCluster pCacheClusterId_ =
     ModifyCacheCluster'
     { _mccrqEngineVersion = Nothing
     , _mccrqSecurityGroupIds = Nothing
@@ -136,7 +136,7 @@ modifyCacheCluster pCacheClusterId =
     , _mccrqNotificationTopicARN = Nothing
     , _mccrqNumCacheNodes = Nothing
     , _mccrqCacheSecurityGroupNames = Nothing
-    , _mccrqCacheClusterId = pCacheClusterId
+    , _mccrqCacheClusterId = pCacheClusterId_
     }
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
@@ -437,10 +437,10 @@ data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
 
 -- | 'ModifyCacheClusterResponse' smart constructor.
 modifyCacheClusterResponse :: Int -> ModifyCacheClusterResponse
-modifyCacheClusterResponse pStatus =
+modifyCacheClusterResponse pStatus_ =
     ModifyCacheClusterResponse'
     { _mccrsCacheCluster = Nothing
-    , _mccrsStatus = pStatus
+    , _mccrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

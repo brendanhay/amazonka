@@ -54,9 +54,9 @@ newtype GetBucketTagging = GetBucketTagging'
 
 -- | 'GetBucketTagging' smart constructor.
 getBucketTagging :: BucketName -> GetBucketTagging
-getBucketTagging pBucket =
+getBucketTagging pBucket_ =
     GetBucketTagging'
-    { _gbtrqBucket = pBucket
+    { _gbtrqBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
@@ -98,9 +98,9 @@ data GetBucketTaggingResponse = GetBucketTaggingResponse'
 
 -- | 'GetBucketTaggingResponse' smart constructor.
 getBucketTaggingResponse :: Int -> GetBucketTaggingResponse
-getBucketTaggingResponse pStatus =
+getBucketTaggingResponse pStatus_ =
     GetBucketTaggingResponse'
-    { _gbtrsStatus = pStatus
+    { _gbtrsStatus = pStatus_
     , _gbtrsTagSet = mempty
     }
 

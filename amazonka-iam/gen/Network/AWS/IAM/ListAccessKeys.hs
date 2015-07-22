@@ -162,11 +162,11 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
 
 -- | 'ListAccessKeysResponse' smart constructor.
 listAccessKeysResponse :: Int -> ListAccessKeysResponse
-listAccessKeysResponse pStatus =
+listAccessKeysResponse pStatus_ =
     ListAccessKeysResponse'
     { _lakrsMarker = Nothing
     , _lakrsIsTruncated = Nothing
-    , _lakrsStatus = pStatus
+    , _lakrsStatus = pStatus_
     , _lakrsAccessKeyMetadata = mempty
     }
 

@@ -61,9 +61,9 @@ newtype GetPipelineState = GetPipelineState'
 
 -- | 'GetPipelineState' smart constructor.
 getPipelineState :: Text -> GetPipelineState
-getPipelineState pName =
+getPipelineState pName_ =
     GetPipelineState'
-    { _gpsrqName = pName
+    { _gpsrqName = pName_
     }
 
 -- | The name of the pipeline about which you want to get information.
@@ -132,14 +132,14 @@ data GetPipelineStateResponse = GetPipelineStateResponse'
 
 -- | 'GetPipelineStateResponse' smart constructor.
 getPipelineStateResponse :: Int -> GetPipelineStateResponse
-getPipelineStateResponse pStatus =
+getPipelineStateResponse pStatus_ =
     GetPipelineStateResponse'
     { _gpsrsPipelineName = Nothing
     , _gpsrsPipelineVersion = Nothing
     , _gpsrsCreated = Nothing
     , _gpsrsStageStates = Nothing
     , _gpsrsUpdated = Nothing
-    , _gpsrsStatus = pStatus
+    , _gpsrsStatus = pStatus_
     }
 
 -- | The name of the pipeline for which you want to get the state.

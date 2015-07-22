@@ -56,10 +56,10 @@ data RemovePermission = RemovePermission'
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
-removePermission pQueueURL pLabel =
+removePermission pQueueURL_ pLabel_ =
     RemovePermission'
-    { _rprqQueueURL = pQueueURL
-    , _rprqLabel = pLabel
+    { _rprqQueueURL = pQueueURL_
+    , _rprqLabel = pLabel_
     }
 
 -- | The URL of the Amazon SQS queue to take action on.

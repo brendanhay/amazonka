@@ -36,7 +36,5 @@ import           Network.AWS.DirectoryService.GetDirectoryLimits  as Export
 import           Network.AWS.DirectoryService.GetSnapshotLimits   as Export
 import           Network.AWS.DirectoryService.RestoreFromSnapshot as Export
 import           Network.AWS.DirectoryService.Types               as Export
-import           Network.AWS.DirectoryService.Types.Product       as Export
-import           Network.AWS.DirectoryService.Types.Sum           as Export
 import           Network.AWS.DirectoryService.UpdateRadius        as Export
 import           Network.AWS.DirectoryService.Waiters             as Export

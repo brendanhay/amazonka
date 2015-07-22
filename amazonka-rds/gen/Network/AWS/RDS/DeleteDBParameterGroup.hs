@@ -54,9 +54,9 @@ newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
 
 -- | 'DeleteDBParameterGroup' smart constructor.
 deleteDBParameterGroup :: Text -> DeleteDBParameterGroup
-deleteDBParameterGroup pDBParameterGroupName =
+deleteDBParameterGroup pDBParameterGroupName_ =
     DeleteDBParameterGroup'
-    { _ddbpgrqDBParameterGroupName = pDBParameterGroupName
+    { _ddbpgrqDBParameterGroupName = pDBParameterGroupName_
     }
 
 -- | The name of the DB parameter group.

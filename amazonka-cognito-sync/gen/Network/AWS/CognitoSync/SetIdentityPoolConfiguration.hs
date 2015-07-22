@@ -70,11 +70,11 @@ data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
 
 -- | 'SetIdentityPoolConfiguration' smart constructor.
 setIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
-setIdentityPoolConfiguration pIdentityPoolId =
+setIdentityPoolConfiguration pIdentityPoolId_ =
     SetIdentityPoolConfiguration'
     { _sipcrqCognitoStreams = Nothing
     , _sipcrqPushSync = Nothing
-    , _sipcrqIdentityPoolId = pIdentityPoolId
+    , _sipcrqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
@@ -149,12 +149,12 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
 
 -- | 'SetIdentityPoolConfigurationResponse' smart constructor.
 setIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
-setIdentityPoolConfigurationResponse pStatus =
+setIdentityPoolConfigurationResponse pStatus_ =
     SetIdentityPoolConfigurationResponse'
     { _sipcrsIdentityPoolId = Nothing
     , _sipcrsCognitoStreams = Nothing
     , _sipcrsPushSync = Nothing
-    , _sipcrsStatus = pStatus
+    , _sipcrsStatus = pStatus_
     }
 
 -- | A name-spaced GUID (for example,

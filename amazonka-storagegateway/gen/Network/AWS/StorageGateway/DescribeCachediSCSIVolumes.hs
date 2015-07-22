@@ -117,10 +117,10 @@ data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
 
 -- | 'DescribeCachediSCSIVolumesResponse' smart constructor.
 describeCachediSCSIVolumesResponse :: Int -> DescribeCachediSCSIVolumesResponse
-describeCachediSCSIVolumesResponse pStatus =
+describeCachediSCSIVolumesResponse pStatus_ =
     DescribeCachediSCSIVolumesResponse'
     { _dcscsivrsCachediSCSIVolumes = Nothing
-    , _dcscsivrsStatus = pStatus
+    , _dcscsivrsStatus = pStatus_
     }
 
 -- | An array of objects where each object contains metadata about one cached

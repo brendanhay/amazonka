@@ -59,9 +59,9 @@ newtype DeleteLoginProfile = DeleteLoginProfile'
 
 -- | 'DeleteLoginProfile' smart constructor.
 deleteLoginProfile :: Text -> DeleteLoginProfile
-deleteLoginProfile pUserName =
+deleteLoginProfile pUserName_ =
     DeleteLoginProfile'
-    { _dlprqUserName = pUserName
+    { _dlprqUserName = pUserName_
     }
 
 -- | The name of the user whose password you want to delete.

@@ -71,10 +71,10 @@ data GetRecords = GetRecords'
 
 -- | 'GetRecords' smart constructor.
 getRecords :: Text -> GetRecords
-getRecords pShardIterator =
+getRecords pShardIterator_ =
     GetRecords'
     { _grrqLimit = Nothing
-    , _grrqShardIterator = pShardIterator
+    , _grrqShardIterator = pShardIterator_
     }
 
 -- | The maximum number of records to return from the shard. The upper limit
@@ -141,11 +141,11 @@ data GetRecordsResponse = GetRecordsResponse'
 
 -- | 'GetRecordsResponse' smart constructor.
 getRecordsResponse :: Int -> GetRecordsResponse
-getRecordsResponse pStatus =
+getRecordsResponse pStatus_ =
     GetRecordsResponse'
     { _grrsRecords = Nothing
     , _grrsNextShardIterator = Nothing
-    , _grrsStatus = pStatus
+    , _grrsStatus = pStatus_
     }
 
 -- | The stream records from the shard, which were retrieved using the shard

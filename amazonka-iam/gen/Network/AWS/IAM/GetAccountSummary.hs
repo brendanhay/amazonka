@@ -96,10 +96,10 @@ data GetAccountSummaryResponse = GetAccountSummaryResponse'
 
 -- | 'GetAccountSummaryResponse' smart constructor.
 getAccountSummaryResponse :: Int -> GetAccountSummaryResponse
-getAccountSummaryResponse pStatus =
+getAccountSummaryResponse pStatus_ =
     GetAccountSummaryResponse'
     { _gasrsSummaryMap = Nothing
-    , _gasrsStatus = pStatus
+    , _gasrsStatus = pStatus_
     }
 
 -- | A set of key value pairs containing information about IAM entity usage

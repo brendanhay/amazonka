@@ -55,10 +55,10 @@ data ModifySubnetAttribute = ModifySubnetAttribute'
 
 -- | 'ModifySubnetAttribute' smart constructor.
 modifySubnetAttribute :: Text -> ModifySubnetAttribute
-modifySubnetAttribute pSubnetId =
+modifySubnetAttribute pSubnetId_ =
     ModifySubnetAttribute'
     { _msarqMapPublicIPOnLaunch = Nothing
-    , _msarqSubnetId = pSubnetId
+    , _msarqSubnetId = pSubnetId_
     }
 
 -- | Specify @true@ to indicate that instances launched into the specified

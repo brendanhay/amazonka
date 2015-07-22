@@ -108,7 +108,7 @@ data UpdateStack = UpdateStack'
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
-updateStack pStackName =
+updateStack pStackName_ =
     UpdateStack'
     { _usrqUsePreviousTemplate = Nothing
     , _usrqNotificationARNs = Nothing
@@ -120,7 +120,7 @@ updateStack pStackName =
     , _usrqTemplateBody = Nothing
     , _usrqTemplateURL = Nothing
     , _usrqCapabilities = Nothing
-    , _usrqStackName = pStackName
+    , _usrqStackName = pStackName_
     }
 
 -- | Reuse the existing template that is associated with the stack that you
@@ -286,10 +286,10 @@ data UpdateStackResponse = UpdateStackResponse'
 
 -- | 'UpdateStackResponse' smart constructor.
 updateStackResponse :: Int -> UpdateStackResponse
-updateStackResponse pStatus =
+updateStackResponse pStatus_ =
     UpdateStackResponse'
     { _usrsStackId = Nothing
-    , _usrsStatus = pStatus
+    , _usrsStatus = pStatus_
     }
 
 -- | Unique identifier of the stack.

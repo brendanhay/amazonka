@@ -73,13 +73,13 @@ data CreateComputer = CreateComputer'
 
 -- | 'CreateComputer' smart constructor.
 createComputer :: Text -> Text -> Text -> CreateComputer
-createComputer pDirectoryId pComputerName pPassword =
+createComputer pDirectoryId_ pComputerName_ pPassword_ =
     CreateComputer'
     { _ccrqComputerAttributes = Nothing
     , _ccrqOrganizationalUnitDistinguishedName = Nothing
-    , _ccrqDirectoryId = pDirectoryId
-    , _ccrqComputerName = pComputerName
-    , _ccrqPassword = _Sensitive # pPassword
+    , _ccrqDirectoryId = pDirectoryId_
+    , _ccrqComputerName = pComputerName_
+    , _ccrqPassword = _Sensitive # pPassword_
     }
 
 -- | An array of Attribute objects that contain any LDAP attributes to apply
@@ -157,10 +157,10 @@ data CreateComputerResponse = CreateComputerResponse'
 
 -- | 'CreateComputerResponse' smart constructor.
 createComputerResponse :: Int -> CreateComputerResponse
-createComputerResponse pStatus =
+createComputerResponse pStatus_ =
     CreateComputerResponse'
     { _ccrsComputer = Nothing
-    , _ccrsStatus = pStatus
+    , _ccrsStatus = pStatus_
     }
 
 -- | A Computer object the represents the computer account.

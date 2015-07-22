@@ -64,11 +64,11 @@ data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
 
 -- | 'AcknowledgeThirdPartyJob' smart constructor.
 acknowledgeThirdPartyJob :: Text -> Text -> Text -> AcknowledgeThirdPartyJob
-acknowledgeThirdPartyJob pJobId pNonce pClientToken =
+acknowledgeThirdPartyJob pJobId_ pNonce_ pClientToken_ =
     AcknowledgeThirdPartyJob'
-    { _atpjrqJobId = pJobId
-    , _atpjrqNonce = pNonce
-    , _atpjrqClientToken = pClientToken
+    { _atpjrqJobId = pJobId_
+    , _atpjrqNonce = pNonce_
+    , _atpjrqClientToken = pClientToken_
     }
 
 -- | The unique system-generated ID of the job.
@@ -133,9 +133,9 @@ newtype AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
 
 -- | 'AcknowledgeThirdPartyJobResponse' smart constructor.
 acknowledgeThirdPartyJobResponse :: Int -> AcknowledgeThirdPartyJobResponse
-acknowledgeThirdPartyJobResponse pStatus =
+acknowledgeThirdPartyJobResponse pStatus_ =
     AcknowledgeThirdPartyJobResponse'
-    { _atpjrsStatus = pStatus
+    { _atpjrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

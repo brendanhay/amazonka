@@ -89,10 +89,10 @@ data RespondActivityTaskCompleted = RespondActivityTaskCompleted'
 
 -- | 'RespondActivityTaskCompleted' smart constructor.
 respondActivityTaskCompleted :: Text -> RespondActivityTaskCompleted
-respondActivityTaskCompleted pTaskToken =
+respondActivityTaskCompleted pTaskToken_ =
     RespondActivityTaskCompleted'
     { _ratcrqResult = Nothing
-    , _ratcrqTaskToken = pTaskToken
+    , _ratcrqTaskToken = pTaskToken_
     }
 
 -- | The result of the activity task. It is a free form string that is

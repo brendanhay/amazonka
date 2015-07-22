@@ -139,11 +139,11 @@ data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse
 
 -- | 'DescribeWorkspaceDirectoriesResponse' smart constructor.
 describeWorkspaceDirectoriesResponse :: Int -> DescribeWorkspaceDirectoriesResponse
-describeWorkspaceDirectoriesResponse pStatus =
+describeWorkspaceDirectoriesResponse pStatus_ =
     DescribeWorkspaceDirectoriesResponse'
     { _dwdrsDirectories = Nothing
     , _dwdrsNextToken = Nothing
-    , _dwdrsStatus = pStatus
+    , _dwdrsStatus = pStatus_
     }
 
 -- | An array of structures that contain information about the directories.

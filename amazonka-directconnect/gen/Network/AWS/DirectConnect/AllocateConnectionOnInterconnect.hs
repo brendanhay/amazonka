@@ -83,13 +83,13 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
 
 -- | 'AllocateConnectionOnInterconnect' smart constructor.
 allocateConnectionOnInterconnect :: Text -> Text -> Text -> Text -> Int -> AllocateConnectionOnInterconnect
-allocateConnectionOnInterconnect pBandwidth pConnectionName pOwnerAccount pInterconnectId pVlan =
+allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pInterconnectId_ pVlan_ =
     AllocateConnectionOnInterconnect'
-    { _acoirqBandwidth = pBandwidth
-    , _acoirqConnectionName = pConnectionName
-    , _acoirqOwnerAccount = pOwnerAccount
-    , _acoirqInterconnectId = pInterconnectId
-    , _acoirqVlan = pVlan
+    { _acoirqBandwidth = pBandwidth_
+    , _acoirqConnectionName = pConnectionName_
+    , _acoirqOwnerAccount = pOwnerAccount_
+    , _acoirqInterconnectId = pInterconnectId_
+    , _acoirqVlan = pVlan_
     }
 
 -- | Bandwidth of the connection.

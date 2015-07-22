@@ -75,13 +75,13 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
 
 -- | 'GenerateDataKeyWithoutPlaintext' smart constructor.
 generateDataKeyWithoutPlaintext :: Text -> GenerateDataKeyWithoutPlaintext
-generateDataKeyWithoutPlaintext pKeyId =
+generateDataKeyWithoutPlaintext pKeyId_ =
     GenerateDataKeyWithoutPlaintext'
     { _gdkwprqKeySpec = Nothing
     , _gdkwprqEncryptionContext = Nothing
     , _gdkwprqNumberOfBytes = Nothing
     , _gdkwprqGrantTokens = Nothing
-    , _gdkwprqKeyId = pKeyId
+    , _gdkwprqKeyId = pKeyId_
     }
 
 -- | Value that identifies the encryption algorithm and key size. Currently
@@ -176,11 +176,11 @@ data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRe
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
 generateDataKeyWithoutPlaintextResponse :: Int -> GenerateDataKeyWithoutPlaintextResponse
-generateDataKeyWithoutPlaintextResponse pStatus =
+generateDataKeyWithoutPlaintextResponse pStatus_ =
     GenerateDataKeyWithoutPlaintextResponse'
     { _gdkwprsKeyId = Nothing
     , _gdkwprsCiphertextBlob = Nothing
-    , _gdkwprsStatus = pStatus
+    , _gdkwprsStatus = pStatus_
     }
 
 -- | System generated unique identifier of the key to be used to decrypt the

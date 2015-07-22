@@ -60,9 +60,9 @@ newtype DeleteLayer = DeleteLayer'
 
 -- | 'DeleteLayer' smart constructor.
 deleteLayer :: Text -> DeleteLayer
-deleteLayer pLayerId =
+deleteLayer pLayerId_ =
     DeleteLayer'
-    { _dlrqLayerId = pLayerId
+    { _dlrqLayerId = pLayerId_
     }
 
 -- | The layer ID.

@@ -63,10 +63,10 @@ data CreateRouteTable = CreateRouteTable'
 
 -- | 'CreateRouteTable' smart constructor.
 createRouteTable :: Text -> CreateRouteTable
-createRouteTable pVPCId =
+createRouteTable pVPCId_ =
     CreateRouteTable'
     { _crtrqDryRun = Nothing
-    , _crtrqVPCId = pVPCId
+    , _crtrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -117,10 +117,10 @@ data CreateRouteTableResponse = CreateRouteTableResponse'
 
 -- | 'CreateRouteTableResponse' smart constructor.
 createRouteTableResponse :: Int -> CreateRouteTableResponse
-createRouteTableResponse pStatus =
+createRouteTableResponse pStatus_ =
     CreateRouteTableResponse'
     { _crtrsRouteTable = Nothing
-    , _crtrsStatus = pStatus
+    , _crtrsStatus = pStatus_
     }
 
 -- | Information about the route table.

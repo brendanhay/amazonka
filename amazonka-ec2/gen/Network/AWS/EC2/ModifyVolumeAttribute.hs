@@ -69,11 +69,11 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute'
 
 -- | 'ModifyVolumeAttribute' smart constructor.
 modifyVolumeAttribute :: Text -> ModifyVolumeAttribute
-modifyVolumeAttribute pVolumeId =
+modifyVolumeAttribute pVolumeId_ =
     ModifyVolumeAttribute'
     { _mvarqAutoEnableIO = Nothing
     , _mvarqDryRun = Nothing
-    , _mvarqVolumeId = pVolumeId
+    , _mvarqVolumeId = pVolumeId_
     }
 
 -- | Indicates whether the volume should be auto-enabled for I\/O operations.

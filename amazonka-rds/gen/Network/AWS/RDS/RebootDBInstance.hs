@@ -77,10 +77,10 @@ data RebootDBInstance = RebootDBInstance'
 
 -- | 'RebootDBInstance' smart constructor.
 rebootDBInstance :: Text -> RebootDBInstance
-rebootDBInstance pDBInstanceIdentifier =
+rebootDBInstance pDBInstanceIdentifier_ =
     RebootDBInstance'
     { _rdirqForceFailover = Nothing
-    , _rdirqDBInstanceIdentifier = pDBInstanceIdentifier
+    , _rdirqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | When @true@, the reboot will be conducted through a MultiAZ failover.
@@ -139,10 +139,10 @@ data RebootDBInstanceResponse = RebootDBInstanceResponse'
 
 -- | 'RebootDBInstanceResponse' smart constructor.
 rebootDBInstanceResponse :: Int -> RebootDBInstanceResponse
-rebootDBInstanceResponse pStatus =
+rebootDBInstanceResponse pStatus_ =
     RebootDBInstanceResponse'
     { _rdirsDBInstance = Nothing
-    , _rdirsStatus = pStatus
+    , _rdirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

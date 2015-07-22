@@ -91,7 +91,7 @@ data ModifyImageAttribute = ModifyImageAttribute'
 
 -- | 'ModifyImageAttribute' smart constructor.
 modifyImageAttribute :: Text -> ModifyImageAttribute
-modifyImageAttribute pImageId =
+modifyImageAttribute pImageId_ =
     ModifyImageAttribute'
     { _miarqAttribute = Nothing
     , _miarqUserIds = Nothing
@@ -102,7 +102,7 @@ modifyImageAttribute pImageId =
     , _miarqProductCodes = Nothing
     , _miarqDryRun = Nothing
     , _miarqDescription = Nothing
-    , _miarqImageId = pImageId
+    , _miarqImageId = pImageId_
     }
 
 -- | The name of the attribute to modify.

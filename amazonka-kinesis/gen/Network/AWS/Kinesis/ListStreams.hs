@@ -154,11 +154,11 @@ data ListStreamsResponse = ListStreamsResponse'
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Int -> Bool -> ListStreamsResponse
-listStreamsResponse pStatus pHasMoreStreams =
+listStreamsResponse pStatus_ pHasMoreStreams_ =
     ListStreamsResponse'
-    { _lsrsStatus = pStatus
+    { _lsrsStatus = pStatus_
     , _lsrsStreamNames = mempty
-    , _lsrsHasMoreStreams = pHasMoreStreams
+    , _lsrsHasMoreStreams = pHasMoreStreams_
     }
 
 -- | FIXME: Undocumented member.

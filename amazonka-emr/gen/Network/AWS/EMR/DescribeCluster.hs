@@ -58,9 +58,9 @@ newtype DescribeCluster = DescribeCluster'
 
 -- | 'DescribeCluster' smart constructor.
 describeCluster :: Text -> DescribeCluster
-describeCluster pClusterId =
+describeCluster pClusterId_ =
     DescribeCluster'
-    { _dcrqClusterId = pClusterId
+    { _dcrqClusterId = pClusterId_
     }
 
 -- | The identifier of the cluster to describe.
@@ -112,10 +112,10 @@ data DescribeClusterResponse = DescribeClusterResponse'
 
 -- | 'DescribeClusterResponse' smart constructor.
 describeClusterResponse :: Int -> Cluster -> DescribeClusterResponse
-describeClusterResponse pStatus pCluster =
+describeClusterResponse pStatus_ pCluster_ =
     DescribeClusterResponse'
-    { _dcrsStatus = pStatus
-    , _dcrsCluster = pCluster
+    { _dcrsStatus = pStatus_
+    , _dcrsCluster = pCluster_
     }
 
 -- | FIXME: Undocumented member.

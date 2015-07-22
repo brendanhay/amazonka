@@ -55,9 +55,9 @@ newtype DeleteTrail = DeleteTrail'
 
 -- | 'DeleteTrail' smart constructor.
 deleteTrail :: Text -> DeleteTrail
-deleteTrail pName =
+deleteTrail pName_ =
     DeleteTrail'
-    { _dtrqName = pName
+    { _dtrqName = pName_
     }
 
 -- | The name of a trail to be deleted.
@@ -107,9 +107,9 @@ newtype DeleteTrailResponse = DeleteTrailResponse'
 
 -- | 'DeleteTrailResponse' smart constructor.
 deleteTrailResponse :: Int -> DeleteTrailResponse
-deleteTrailResponse pStatus =
+deleteTrailResponse pStatus_ =
     DeleteTrailResponse'
-    { _drsStatus = pStatus
+    { _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

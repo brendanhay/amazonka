@@ -76,14 +76,14 @@ data CreateDirectory = CreateDirectory'
 
 -- | 'CreateDirectory' smart constructor.
 createDirectory :: Text -> Text -> DirectorySize -> CreateDirectory
-createDirectory pName pPassword pSize =
+createDirectory pName_ pPassword_ pSize_ =
     CreateDirectory'
     { _crqShortName = Nothing
     , _crqVPCSettings = Nothing
     , _crqDescription = Nothing
-    , _crqName = pName
-    , _crqPassword = _Sensitive # pPassword
-    , _crqSize = pSize
+    , _crqName = pName_
+    , _crqPassword = _Sensitive # pPassword_
+    , _crqSize = pSize_
     }
 
 -- | The short name of the directory, such as @CORP@.
@@ -163,10 +163,10 @@ data CreateDirectoryResponse = CreateDirectoryResponse'
 
 -- | 'CreateDirectoryResponse' smart constructor.
 createDirectoryResponse :: Int -> CreateDirectoryResponse
-createDirectoryResponse pStatus =
+createDirectoryResponse pStatus_ =
     CreateDirectoryResponse'
     { _crsDirectoryId = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | The identifier of the directory that was created.

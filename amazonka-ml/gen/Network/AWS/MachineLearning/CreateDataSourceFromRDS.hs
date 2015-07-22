@@ -85,13 +85,13 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
 
 -- | 'CreateDataSourceFromRDS' smart constructor.
 createDataSourceFromRDS :: Text -> RDSDataSpec -> Text -> CreateDataSourceFromRDS
-createDataSourceFromRDS pDataSourceId pRDSData pRoleARN =
+createDataSourceFromRDS pDataSourceId_ pRDSData_ pRoleARN_ =
     CreateDataSourceFromRDS'
     { _cdsfrdsrqDataSourceName = Nothing
     , _cdsfrdsrqComputeStatistics = Nothing
-    , _cdsfrdsrqDataSourceId = pDataSourceId
-    , _cdsfrdsrqRDSData = pRDSData
-    , _cdsfrdsrqRoleARN = pRoleARN
+    , _cdsfrdsrqDataSourceId = pDataSourceId_
+    , _cdsfrdsrqRDSData = pRDSData_
+    , _cdsfrdsrqRoleARN = pRoleARN_
     }
 
 -- | A user-supplied name or description of the @DataSource@.
@@ -228,10 +228,10 @@ data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
 createDataSourceFromRDSResponse :: Int -> CreateDataSourceFromRDSResponse
-createDataSourceFromRDSResponse pStatus =
+createDataSourceFromRDSResponse pStatus_ =
     CreateDataSourceFromRDSResponse'
     { _cdsfrdsrsDataSourceId = Nothing
-    , _cdsfrdsrsStatus = pStatus
+    , _cdsfrdsrsStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value

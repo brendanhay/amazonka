@@ -103,12 +103,12 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
 
 -- | 'GetCredentialReportResponse' smart constructor.
 getCredentialReportResponse :: Int -> GetCredentialReportResponse
-getCredentialReportResponse pStatus =
+getCredentialReportResponse pStatus_ =
     GetCredentialReportResponse'
     { _grsContent = Nothing
     , _grsGeneratedTime = Nothing
     , _grsReportFormat = Nothing
-    , _grsStatus = pStatus
+    , _grsStatus = pStatus_
     }
 
 -- | Contains the credential report. The report is Base64-encoded.

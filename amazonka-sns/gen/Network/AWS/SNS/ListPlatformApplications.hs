@@ -131,11 +131,11 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
 
 -- | 'ListPlatformApplicationsResponse' smart constructor.
 listPlatformApplicationsResponse :: Int -> ListPlatformApplicationsResponse
-listPlatformApplicationsResponse pStatus =
+listPlatformApplicationsResponse pStatus_ =
     ListPlatformApplicationsResponse'
     { _lparsPlatformApplications = Nothing
     , _lparsNextToken = Nothing
-    , _lparsStatus = pStatus
+    , _lparsStatus = pStatus_
     }
 
 -- | Platform applications returned when calling ListPlatformApplications

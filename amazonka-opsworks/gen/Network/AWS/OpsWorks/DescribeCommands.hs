@@ -144,10 +144,10 @@ data DescribeCommandsResponse = DescribeCommandsResponse'
 
 -- | 'DescribeCommandsResponse' smart constructor.
 describeCommandsResponse :: Int -> DescribeCommandsResponse
-describeCommandsResponse pStatus =
+describeCommandsResponse pStatus_ =
     DescribeCommandsResponse'
     { _dcrsCommands = Nothing
-    , _dcrsStatus = pStatus
+    , _dcrsStatus = pStatus_
     }
 
 -- | An array of @Command@ objects that describe each of the specified

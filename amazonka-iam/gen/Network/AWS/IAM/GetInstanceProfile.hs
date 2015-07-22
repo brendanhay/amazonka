@@ -59,9 +59,9 @@ newtype GetInstanceProfile = GetInstanceProfile'
 
 -- | 'GetInstanceProfile' smart constructor.
 getInstanceProfile :: Text -> GetInstanceProfile
-getInstanceProfile pInstanceProfileName =
+getInstanceProfile pInstanceProfileName_ =
     GetInstanceProfile'
-    { _giprqInstanceProfileName = pInstanceProfileName
+    { _giprqInstanceProfileName = pInstanceProfileName_
     }
 
 -- | The name of the instance profile to get information about.
@@ -108,10 +108,10 @@ data GetInstanceProfileResponse = GetInstanceProfileResponse'
 
 -- | 'GetInstanceProfileResponse' smart constructor.
 getInstanceProfileResponse :: Int -> InstanceProfile -> GetInstanceProfileResponse
-getInstanceProfileResponse pStatus pInstanceProfile =
+getInstanceProfileResponse pStatus_ pInstanceProfile_ =
     GetInstanceProfileResponse'
-    { _giprsStatus = pStatus
-    , _giprsInstanceProfile = pInstanceProfile
+    { _giprsStatus = pStatus_
+    , _giprsInstanceProfile = pInstanceProfile_
     }
 
 -- | FIXME: Undocumented member.

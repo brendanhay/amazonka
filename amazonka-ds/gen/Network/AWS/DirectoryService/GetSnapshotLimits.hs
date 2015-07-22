@@ -56,9 +56,9 @@ newtype GetSnapshotLimits = GetSnapshotLimits'
 
 -- | 'GetSnapshotLimits' smart constructor.
 getSnapshotLimits :: Text -> GetSnapshotLimits
-getSnapshotLimits pDirectoryId =
+getSnapshotLimits pDirectoryId_ =
     GetSnapshotLimits'
-    { _gslrqDirectoryId = pDirectoryId
+    { _gslrqDirectoryId = pDirectoryId_
     }
 
 -- | Contains the identifier of the directory to obtain the limits for.
@@ -111,10 +111,10 @@ data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
 
 -- | 'GetSnapshotLimitsResponse' smart constructor.
 getSnapshotLimitsResponse :: Int -> GetSnapshotLimitsResponse
-getSnapshotLimitsResponse pStatus =
+getSnapshotLimitsResponse pStatus_ =
     GetSnapshotLimitsResponse'
     { _gslrsSnapshotLimits = Nothing
-    , _gslrsStatus = pStatus
+    , _gslrsStatus = pStatus_
     }
 
 -- | A SnapshotLimits object that contains the manual snapshot limits for the

@@ -131,11 +131,11 @@ data ListPipelinesResponse = ListPipelinesResponse'
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
-listPipelinesResponse pStatus =
+listPipelinesResponse pStatus_ =
     ListPipelinesResponse'
     { _lprsNextPageToken = Nothing
     , _lprsPipelines = Nothing
-    , _lprsStatus = pStatus
+    , _lprsStatus = pStatus_
     }
 
 -- | A value that you use to access the second and subsequent pages of

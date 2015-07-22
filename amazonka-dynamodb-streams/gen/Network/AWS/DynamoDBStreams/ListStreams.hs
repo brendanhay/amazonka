@@ -145,11 +145,11 @@ data ListStreamsResponse = ListStreamsResponse'
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Int -> ListStreamsResponse
-listStreamsResponse pStatus =
+listStreamsResponse pStatus_ =
     ListStreamsResponse'
     { _lsrsLastEvaluatedStreamARN = Nothing
     , _lsrsStreams = Nothing
-    , _lsrsStatus = pStatus
+    , _lsrsStatus = pStatus_
     }
 
 -- | The stream ARN of the item where the operation stopped, inclusive of the

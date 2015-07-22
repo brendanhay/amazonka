@@ -89,15 +89,15 @@ data CreateTrail = CreateTrail'
 
 -- | 'CreateTrail' smart constructor.
 createTrail :: Text -> Text -> CreateTrail
-createTrail pName pS3BucketName =
+createTrail pName_ pS3BucketName_ =
     CreateTrail'
     { _ctrqS3KeyPrefix = Nothing
     , _ctrqSNSTopicName = Nothing
     , _ctrqCloudWatchLogsLogGroupARN = Nothing
     , _ctrqIncludeGlobalServiceEvents = Nothing
     , _ctrqCloudWatchLogsRoleARN = Nothing
-    , _ctrqName = pName
-    , _ctrqS3BucketName = pS3BucketName
+    , _ctrqName = pName_
+    , _ctrqS3BucketName = pS3BucketName_
     }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
@@ -216,7 +216,7 @@ data CreateTrailResponse = CreateTrailResponse'
 
 -- | 'CreateTrailResponse' smart constructor.
 createTrailResponse :: Int -> CreateTrailResponse
-createTrailResponse pStatus =
+createTrailResponse pStatus_ =
     CreateTrailResponse'
     { _ctrsS3KeyPrefix = Nothing
     , _ctrsSNSTopicName = Nothing
@@ -225,7 +225,7 @@ createTrailResponse pStatus =
     , _ctrsIncludeGlobalServiceEvents = Nothing
     , _ctrsCloudWatchLogsRoleARN = Nothing
     , _ctrsS3BucketName = Nothing
-    , _ctrsStatus = pStatus
+    , _ctrsStatus = pStatus_
     }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket

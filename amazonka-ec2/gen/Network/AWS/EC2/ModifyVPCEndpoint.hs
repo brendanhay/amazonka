@@ -76,14 +76,14 @@ data ModifyVPCEndpoint = ModifyVPCEndpoint'
 
 -- | 'ModifyVPCEndpoint' smart constructor.
 modifyVPCEndpoint :: Text -> ModifyVPCEndpoint
-modifyVPCEndpoint pVPCEndpointId =
+modifyVPCEndpoint pVPCEndpointId_ =
     ModifyVPCEndpoint'
     { _mverqPolicyDocument = Nothing
     , _mverqRemoveRouteTableIds = Nothing
     , _mverqResetPolicy = Nothing
     , _mverqAddRouteTableIds = Nothing
     , _mverqDryRun = Nothing
-    , _mverqVPCEndpointId = pVPCEndpointId
+    , _mverqVPCEndpointId = pVPCEndpointId_
     }
 
 -- | A policy document to attach to the endpoint. The policy must be in valid
@@ -159,10 +159,10 @@ data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
 
 -- | 'ModifyVPCEndpointResponse' smart constructor.
 modifyVPCEndpointResponse :: Int -> ModifyVPCEndpointResponse
-modifyVPCEndpointResponse pStatus =
+modifyVPCEndpointResponse pStatus_ =
     ModifyVPCEndpointResponse'
     { _mversReturn = Nothing
-    , _mversStatus = pStatus
+    , _mversStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.

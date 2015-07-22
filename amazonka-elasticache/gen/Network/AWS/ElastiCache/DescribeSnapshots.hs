@@ -176,11 +176,11 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
-describeSnapshotsResponse pStatus =
+describeSnapshotsResponse pStatus_ =
     DescribeSnapshotsResponse'
     { _dssrsSnapshots = Nothing
     , _dssrsMarker = Nothing
-    , _dssrsStatus = pStatus
+    , _dssrsStatus = pStatus_
     }
 
 -- | A list of snapshots. Each item in the list contains detailed information

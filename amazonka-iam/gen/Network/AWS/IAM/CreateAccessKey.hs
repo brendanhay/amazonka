@@ -119,10 +119,10 @@ data CreateAccessKeyResponse = CreateAccessKeyResponse'
 
 -- | 'CreateAccessKeyResponse' smart constructor.
 createAccessKeyResponse :: Int -> AccessKey -> CreateAccessKeyResponse
-createAccessKeyResponse pStatus pAccessKey =
+createAccessKeyResponse pStatus_ pAccessKey_ =
     CreateAccessKeyResponse'
-    { _cakrsStatus = pStatus
-    , _cakrsAccessKey = pAccessKey
+    { _cakrsStatus = pStatus_
+    , _cakrsAccessKey = pAccessKey_
     }
 
 -- | FIXME: Undocumented member.

@@ -107,10 +107,10 @@ data GenerateRandomResponse = GenerateRandomResponse'
 
 -- | 'GenerateRandomResponse' smart constructor.
 generateRandomResponse :: Int -> GenerateRandomResponse
-generateRandomResponse pStatus =
+generateRandomResponse pStatus_ =
     GenerateRandomResponse'
     { _grrsPlaintext = Nothing
-    , _grrsStatus = pStatus
+    , _grrsStatus = pStatus_
     }
 
 -- | Plaintext that contains the unpredictable byte string.

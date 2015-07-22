@@ -68,9 +68,9 @@ newtype DeleteConnection = DeleteConnection'
 
 -- | 'DeleteConnection' smart constructor.
 deleteConnection :: Text -> DeleteConnection
-deleteConnection pConnectionId =
+deleteConnection pConnectionId_ =
     DeleteConnection'
-    { _dcrqConnectionId = pConnectionId
+    { _dcrqConnectionId = pConnectionId_
     }
 
 -- | FIXME: Undocumented member.

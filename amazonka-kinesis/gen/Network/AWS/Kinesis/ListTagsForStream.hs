@@ -65,11 +65,11 @@ data ListTagsForStream = ListTagsForStream'
 
 -- | 'ListTagsForStream' smart constructor.
 listTagsForStream :: Text -> ListTagsForStream
-listTagsForStream pStreamName =
+listTagsForStream pStreamName_ =
     ListTagsForStream'
     { _ltfsrqLimit = Nothing
     , _ltfsrqExclusiveStartTagKey = Nothing
-    , _ltfsrqStreamName = pStreamName
+    , _ltfsrqStreamName = pStreamName_
     }
 
 -- | The number of tags to return. If this number is less than the total
@@ -142,11 +142,11 @@ data ListTagsForStreamResponse = ListTagsForStreamResponse'
 
 -- | 'ListTagsForStreamResponse' smart constructor.
 listTagsForStreamResponse :: Int -> Bool -> ListTagsForStreamResponse
-listTagsForStreamResponse pStatus pHasMoreTags =
+listTagsForStreamResponse pStatus_ pHasMoreTags_ =
     ListTagsForStreamResponse'
-    { _ltfsrsStatus = pStatus
+    { _ltfsrsStatus = pStatus_
     , _ltfsrsTags = mempty
-    , _ltfsrsHasMoreTags = pHasMoreTags
+    , _ltfsrsHasMoreTags = pHasMoreTags_
     }
 
 -- | FIXME: Undocumented member.

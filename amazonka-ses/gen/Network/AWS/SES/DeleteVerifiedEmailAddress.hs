@@ -60,9 +60,9 @@ newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
 
 -- | 'DeleteVerifiedEmailAddress' smart constructor.
 deleteVerifiedEmailAddress :: Text -> DeleteVerifiedEmailAddress
-deleteVerifiedEmailAddress pEmailAddress =
+deleteVerifiedEmailAddress pEmailAddress_ =
     DeleteVerifiedEmailAddress'
-    { _dvearqEmailAddress = pEmailAddress
+    { _dvearqEmailAddress = pEmailAddress_
     }
 
 -- | An email address to be removed from the list of verified addresses.

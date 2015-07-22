@@ -53,9 +53,9 @@ newtype DeleteEventSubscription = DeleteEventSubscription'
 
 -- | 'DeleteEventSubscription' smart constructor.
 deleteEventSubscription :: Text -> DeleteEventSubscription
-deleteEventSubscription pSubscriptionName =
+deleteEventSubscription pSubscriptionName_ =
     DeleteEventSubscription'
-    { _desrqSubscriptionName = pSubscriptionName
+    { _desrqSubscriptionName = pSubscriptionName_
     }
 
 -- | The name of the Amazon Redshift event notification subscription to be

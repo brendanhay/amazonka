@@ -100,11 +100,11 @@ data MergeShards = MergeShards'
 
 -- | 'MergeShards' smart constructor.
 mergeShards :: Text -> Text -> Text -> MergeShards
-mergeShards pStreamName pShardToMerge pAdjacentShardToMerge =
+mergeShards pStreamName_ pShardToMerge_ pAdjacentShardToMerge_ =
     MergeShards'
-    { _msrqStreamName = pStreamName
-    , _msrqShardToMerge = pShardToMerge
-    , _msrqAdjacentShardToMerge = pAdjacentShardToMerge
+    { _msrqStreamName = pStreamName_
+    , _msrqShardToMerge = pShardToMerge_
+    , _msrqAdjacentShardToMerge = pAdjacentShardToMerge_
     }
 
 -- | The name of the stream for the merge.

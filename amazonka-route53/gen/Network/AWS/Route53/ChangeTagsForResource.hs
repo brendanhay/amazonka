@@ -68,12 +68,12 @@ data ChangeTagsForResource = ChangeTagsForResource'
 
 -- | 'ChangeTagsForResource' smart constructor.
 changeTagsForResource :: TagResourceType -> Text -> ChangeTagsForResource
-changeTagsForResource pResourceType pResourceId =
+changeTagsForResource pResourceType_ pResourceId_ =
     ChangeTagsForResource'
     { _ctfrrqRemoveTagKeys = Nothing
     , _ctfrrqAddTags = Nothing
-    , _ctfrrqResourceType = pResourceType
-    , _ctfrrqResourceId = pResourceId
+    , _ctfrrqResourceType = pResourceType_
+    , _ctfrrqResourceId = pResourceId_
     }
 
 -- | A list of @Tag@ keys that you want to remove from the specified
@@ -149,9 +149,9 @@ newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
 
 -- | 'ChangeTagsForResourceResponse' smart constructor.
 changeTagsForResourceResponse :: Int -> ChangeTagsForResourceResponse
-changeTagsForResourceResponse pStatus =
+changeTagsForResourceResponse pStatus_ =
     ChangeTagsForResourceResponse'
-    { _ctfrrsStatus = pStatus
+    { _ctfrrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -87,12 +87,12 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing'
 
 -- | 'CreateReservedInstancesListing' smart constructor.
 createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
-createReservedInstancesListing pReservedInstancesId pInstanceCount pClientToken =
+createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToken_ =
     CreateReservedInstancesListing'
-    { _crilrqReservedInstancesId = pReservedInstancesId
-    , _crilrqInstanceCount = pInstanceCount
+    { _crilrqReservedInstancesId = pReservedInstancesId_
+    , _crilrqInstanceCount = pInstanceCount_
     , _crilrqPriceSchedules = mempty
-    , _crilrqClientToken = pClientToken
+    , _crilrqClientToken = pClientToken_
     }
 
 -- | The ID of the active Reserved Instance.
@@ -164,10 +164,10 @@ data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResp
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
 createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
-createReservedInstancesListingResponse pStatus =
+createReservedInstancesListingResponse pStatus_ =
     CreateReservedInstancesListingResponse'
     { _crersReservedInstancesListings = Nothing
-    , _crersStatus = pStatus
+    , _crersStatus = pStatus_
     }
 
 -- | Information about the Reserved Instances listing.

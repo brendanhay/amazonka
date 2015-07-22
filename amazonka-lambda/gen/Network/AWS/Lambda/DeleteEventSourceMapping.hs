@@ -64,9 +64,9 @@ newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
 
 -- | 'DeleteEventSourceMapping' smart constructor.
 deleteEventSourceMapping :: Text -> DeleteEventSourceMapping
-deleteEventSourceMapping pUUId =
+deleteEventSourceMapping pUUId_ =
     DeleteEventSourceMapping'
-    { _desmrqUUId = pUUId
+    { _desmrqUUId = pUUId_
     }
 
 -- | The event source mapping ID.

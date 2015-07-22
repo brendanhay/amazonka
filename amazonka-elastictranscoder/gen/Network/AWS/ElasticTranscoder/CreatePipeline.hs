@@ -86,16 +86,16 @@ data CreatePipeline = CreatePipeline'
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> Text -> CreatePipeline
-createPipeline pName pInputBucket pRole =
+createPipeline pName_ pInputBucket_ pRole_ =
     CreatePipeline'
     { _crqContentConfig = Nothing
     , _crqOutputBucket = Nothing
     , _crqAWSKMSKeyARN = Nothing
     , _crqThumbnailConfig = Nothing
     , _crqNotifications = Nothing
-    , _crqName = pName
-    , _crqInputBucket = pInputBucket
-    , _crqRole = pRole
+    , _crqName = pName_
+    , _crqInputBucket = pInputBucket_
+    , _crqRole = pRole_
     }
 
 -- | The optional @ContentConfig@ object specifies information about the
@@ -345,11 +345,11 @@ data CreatePipelineResponse = CreatePipelineResponse'
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> CreatePipelineResponse
-createPipelineResponse pStatus =
+createPipelineResponse pStatus_ =
     CreatePipelineResponse'
     { _crsWarnings = Nothing
     , _crsPipeline = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | Elastic Transcoder returns a warning if the resources used by your

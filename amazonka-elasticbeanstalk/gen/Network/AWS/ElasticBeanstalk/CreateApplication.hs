@@ -60,10 +60,10 @@ data CreateApplication = CreateApplication'
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
-createApplication pApplicationName =
+createApplication pApplicationName_ =
     CreateApplication'
     { _carqDescription = Nothing
-    , _carqApplicationName = pApplicationName
+    , _carqApplicationName = pApplicationName_
     }
 
 -- | Describes the application.

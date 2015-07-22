@@ -110,10 +110,10 @@ data DescribeApplicationsResponse = DescribeApplicationsResponse'
 
 -- | 'DescribeApplicationsResponse' smart constructor.
 describeApplicationsResponse :: Int -> DescribeApplicationsResponse
-describeApplicationsResponse pStatus =
+describeApplicationsResponse pStatus_ =
     DescribeApplicationsResponse'
     { _darsApplications = Nothing
-    , _darsStatus = pStatus
+    , _darsStatus = pStatus_
     }
 
 -- | This parameter contains a list of ApplicationDescription.

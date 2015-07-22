@@ -93,7 +93,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
 
 -- | 'RevokeSecurityGroupEgress' smart constructor.
 revokeSecurityGroupEgress :: Text -> RevokeSecurityGroupEgress
-revokeSecurityGroupEgress pGroupId =
+revokeSecurityGroupEgress pGroupId_ =
     RevokeSecurityGroupEgress'
     { _rsgerqFromPort = Nothing
     , _rsgerqIPPermissions = Nothing
@@ -103,7 +103,7 @@ revokeSecurityGroupEgress pGroupId =
     , _rsgerqSourceSecurityGroupOwnerId = Nothing
     , _rsgerqSourceSecurityGroupName = Nothing
     , _rsgerqDryRun = Nothing
-    , _rsgerqGroupId = pGroupId
+    , _rsgerqGroupId = pGroupId_
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type

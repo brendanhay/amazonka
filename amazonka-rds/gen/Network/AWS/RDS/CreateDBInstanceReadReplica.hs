@@ -106,7 +106,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
 
 -- | 'CreateDBInstanceReadReplica' smart constructor.
 createDBInstanceReadReplica :: Text -> Text -> CreateDBInstanceReadReplica
-createDBInstanceReadReplica pDBInstanceIdentifier pSourceDBInstanceIdentifier =
+createDBInstanceReadReplica pDBInstanceIdentifier_ pSourceDBInstanceIdentifier_ =
     CreateDBInstanceReadReplica'
     { _cdirrrqAutoMinorVersionUpgrade = Nothing
     , _cdirrrqPubliclyAccessible = Nothing
@@ -118,8 +118,8 @@ createDBInstanceReadReplica pDBInstanceIdentifier pSourceDBInstanceIdentifier =
     , _cdirrrqTags = Nothing
     , _cdirrrqPort = Nothing
     , _cdirrrqStorageType = Nothing
-    , _cdirrrqDBInstanceIdentifier = pDBInstanceIdentifier
-    , _cdirrrqSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier
+    , _cdirrrqDBInstanceIdentifier = pDBInstanceIdentifier_
+    , _cdirrrqSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
     }
 
 -- | Indicates that minor engine upgrades will be applied automatically to
@@ -305,10 +305,10 @@ data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
 
 -- | 'CreateDBInstanceReadReplicaResponse' smart constructor.
 createDBInstanceReadReplicaResponse :: Int -> CreateDBInstanceReadReplicaResponse
-createDBInstanceReadReplicaResponse pStatus =
+createDBInstanceReadReplicaResponse pStatus_ =
     CreateDBInstanceReadReplicaResponse'
     { _cdirrrsDBInstance = Nothing
-    , _cdirrrsStatus = pStatus
+    , _cdirrrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

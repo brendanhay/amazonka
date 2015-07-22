@@ -104,7 +104,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
 
 -- | 'AuthorizeSecurityGroupEgress' smart constructor.
 authorizeSecurityGroupEgress :: Text -> AuthorizeSecurityGroupEgress
-authorizeSecurityGroupEgress pGroupId =
+authorizeSecurityGroupEgress pGroupId_ =
     AuthorizeSecurityGroupEgress'
     { _asgerqFromPort = Nothing
     , _asgerqIPPermissions = Nothing
@@ -114,7 +114,7 @@ authorizeSecurityGroupEgress pGroupId =
     , _asgerqSourceSecurityGroupOwnerId = Nothing
     , _asgerqSourceSecurityGroupName = Nothing
     , _asgerqDryRun = Nothing
-    , _asgerqGroupId = pGroupId
+    , _asgerqGroupId = pGroupId_
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type

@@ -74,12 +74,12 @@ data ListInstances = ListInstances'
 
 -- | 'ListInstances' smart constructor.
 listInstances :: Text -> ListInstances
-listInstances pClusterId =
+listInstances pClusterId_ =
     ListInstances'
     { _lirqInstanceGroupTypes = Nothing
     , _lirqMarker = Nothing
     , _lirqInstanceGroupId = Nothing
-    , _lirqClusterId = pClusterId
+    , _lirqClusterId = pClusterId_
     }
 
 -- | The type of instance group for which to list the instances.
@@ -158,11 +158,11 @@ data ListInstancesResponse = ListInstancesResponse'
 
 -- | 'ListInstancesResponse' smart constructor.
 listInstancesResponse :: Int -> ListInstancesResponse
-listInstancesResponse pStatus =
+listInstancesResponse pStatus_ =
     ListInstancesResponse'
     { _lirsInstances = Nothing
     , _lirsMarker = Nothing
-    , _lirsStatus = pStatus
+    , _lirsStatus = pStatus_
     }
 
 -- | The list of instances for the cluster and given filters.

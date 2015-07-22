@@ -86,13 +86,13 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
 
 -- | 'AuthorizeDBSecurityGroupIngress' smart constructor.
 authorizeDBSecurityGroupIngress :: Text -> AuthorizeDBSecurityGroupIngress
-authorizeDBSecurityGroupIngress pDBSecurityGroupName =
+authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
     AuthorizeDBSecurityGroupIngress'
     { _adsgirqEC2SecurityGroupOwnerId = Nothing
     , _adsgirqEC2SecurityGroupName = Nothing
     , _adsgirqCIdRIP = Nothing
     , _adsgirqEC2SecurityGroupId = Nothing
-    , _adsgirqDBSecurityGroupName = pDBSecurityGroupName
+    , _adsgirqDBSecurityGroupName = pDBSecurityGroupName_
     }
 
 -- | AWS Account Number of the owner of the EC2 security group specified in
@@ -174,10 +174,10 @@ data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressRe
 
 -- | 'AuthorizeDBSecurityGroupIngressResponse' smart constructor.
 authorizeDBSecurityGroupIngressResponse :: Int -> AuthorizeDBSecurityGroupIngressResponse
-authorizeDBSecurityGroupIngressResponse pStatus =
+authorizeDBSecurityGroupIngressResponse pStatus_ =
     AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirsDBSecurityGroup = Nothing
-    , _adsgirsStatus = pStatus
+    , _adsgirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

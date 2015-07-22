@@ -132,7 +132,7 @@ data CreateStack = CreateStack'
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> Text -> Text -> Text -> CreateStack
-createStack pName pRegion pServiceRoleARN pDefaultInstanceProfileARN =
+createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
     CreateStack'
     { _csrqDefaultRootDeviceType = Nothing
     , _csrqChefConfiguration = Nothing
@@ -149,10 +149,10 @@ createStack pName pRegion pServiceRoleARN pDefaultInstanceProfileARN =
     , _csrqDefaultSubnetId = Nothing
     , _csrqConfigurationManager = Nothing
     , _csrqHostnameTheme = Nothing
-    , _csrqName = pName
-    , _csrqRegion = pRegion
-    , _csrqServiceRoleARN = pServiceRoleARN
-    , _csrqDefaultInstanceProfileARN = pDefaultInstanceProfileARN
+    , _csrqName = pName_
+    , _csrqRegion = pRegion_
+    , _csrqServiceRoleARN = pServiceRoleARN_
+    , _csrqDefaultInstanceProfileARN = pDefaultInstanceProfileARN_
     }
 
 -- | The default root device type. This value is the default for all
@@ -437,10 +437,10 @@ data CreateStackResponse = CreateStackResponse'
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse
-createStackResponse pStatus =
+createStackResponse pStatus_ =
     CreateStackResponse'
     { _crsStackId = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | The stack ID, which is an opaque string that you use to identify the

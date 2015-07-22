@@ -59,9 +59,9 @@ newtype VerifyDomainIdentity = VerifyDomainIdentity'
 
 -- | 'VerifyDomainIdentity' smart constructor.
 verifyDomainIdentity :: Text -> VerifyDomainIdentity
-verifyDomainIdentity pDomain =
+verifyDomainIdentity pDomain_ =
     VerifyDomainIdentity'
-    { _vdirqDomain = pDomain
+    { _vdirqDomain = pDomain_
     }
 
 -- | The domain to be verified.
@@ -108,10 +108,10 @@ data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
 
 -- | 'VerifyDomainIdentityResponse' smart constructor.
 verifyDomainIdentityResponse :: Int -> Text -> VerifyDomainIdentityResponse
-verifyDomainIdentityResponse pStatus pVerificationToken =
+verifyDomainIdentityResponse pStatus_ pVerificationToken_ =
     VerifyDomainIdentityResponse'
-    { _vdirsStatus = pStatus
-    , _vdirsVerificationToken = pVerificationToken
+    { _vdirsStatus = pStatus_
+    , _vdirsVerificationToken = pVerificationToken_
     }
 
 -- | FIXME: Undocumented member.

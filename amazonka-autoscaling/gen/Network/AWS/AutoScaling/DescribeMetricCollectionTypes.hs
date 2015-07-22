@@ -105,11 +105,11 @@ data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesRespon
 
 -- | 'DescribeMetricCollectionTypesResponse' smart constructor.
 describeMetricCollectionTypesResponse :: Int -> DescribeMetricCollectionTypesResponse
-describeMetricCollectionTypesResponse pStatus =
+describeMetricCollectionTypesResponse pStatus_ =
     DescribeMetricCollectionTypesResponse'
     { _dmctrsMetrics = Nothing
     , _dmctrsGranularities = Nothing
-    , _dmctrsStatus = pStatus
+    , _dmctrsStatus = pStatus_
     }
 
 -- | One or more metrics.

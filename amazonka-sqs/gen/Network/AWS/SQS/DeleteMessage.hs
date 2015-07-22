@@ -76,10 +76,10 @@ data DeleteMessage = DeleteMessage'
 
 -- | 'DeleteMessage' smart constructor.
 deleteMessage :: Text -> Text -> DeleteMessage
-deleteMessage pQueueURL pReceiptHandle =
+deleteMessage pQueueURL_ pReceiptHandle_ =
     DeleteMessage'
-    { _dmrqQueueURL = pQueueURL
-    , _dmrqReceiptHandle = pReceiptHandle
+    { _dmrqQueueURL = pQueueURL_
+    , _dmrqReceiptHandle = pReceiptHandle_
     }
 
 -- | The URL of the Amazon SQS queue to take action on.

@@ -67,10 +67,10 @@ data RetrieveTapeArchive = RetrieveTapeArchive'
 
 -- | 'RetrieveTapeArchive' smart constructor.
 retrieveTapeArchive :: Text -> Text -> RetrieveTapeArchive
-retrieveTapeArchive pTapeARN pGatewayARN =
+retrieveTapeArchive pTapeARN_ pGatewayARN_ =
     RetrieveTapeArchive'
-    { _rtarqTapeARN = pTapeARN
-    , _rtarqGatewayARN = pGatewayARN
+    { _rtarqTapeARN = pTapeARN_
+    , _rtarqGatewayARN = pGatewayARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve
@@ -136,10 +136,10 @@ data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
 
 -- | 'RetrieveTapeArchiveResponse' smart constructor.
 retrieveTapeArchiveResponse :: Int -> RetrieveTapeArchiveResponse
-retrieveTapeArchiveResponse pStatus =
+retrieveTapeArchiveResponse pStatus_ =
     RetrieveTapeArchiveResponse'
     { _rtarsTapeARN = Nothing
-    , _rtarsStatus = pStatus
+    , _rtarsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.

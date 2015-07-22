@@ -169,11 +169,11 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse pStatus =
+describeEventSubscriptionsResponse pStatus_ =
     DescribeEventSubscriptionsResponse'
     { _desrsEventSubscriptionsList = Nothing
     , _desrsMarker = Nothing
-    , _desrsStatus = pStatus
+    , _desrsStatus = pStatus_
     }
 
 -- | A list of EventSubscriptions data types.

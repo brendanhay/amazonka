@@ -72,11 +72,11 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings'
 
 -- | 'ValidateConfigurationSettings' smart constructor.
 validateConfigurationSettings :: Text -> ValidateConfigurationSettings
-validateConfigurationSettings pApplicationName =
+validateConfigurationSettings pApplicationName_ =
     ValidateConfigurationSettings'
     { _vcsrqTemplateName = Nothing
     , _vcsrqEnvironmentName = Nothing
-    , _vcsrqApplicationName = pApplicationName
+    , _vcsrqApplicationName = pApplicationName_
     , _vcsrqOptionSettings = mempty
     }
 
@@ -153,10 +153,10 @@ data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRespon
 
 -- | 'ValidateConfigurationSettingsResponse' smart constructor.
 validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse
-validateConfigurationSettingsResponse pStatus =
+validateConfigurationSettingsResponse pStatus_ =
     ValidateConfigurationSettingsResponse'
     { _vcsrsMessages = Nothing
-    , _vcsrsStatus = pStatus
+    , _vcsrsStatus = pStatus_
     }
 
 -- | A list of ValidationMessage.

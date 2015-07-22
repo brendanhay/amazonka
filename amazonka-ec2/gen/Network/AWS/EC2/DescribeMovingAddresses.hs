@@ -165,11 +165,11 @@ data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
 
 -- | 'DescribeMovingAddressesResponse' smart constructor.
 describeMovingAddressesResponse :: Int -> DescribeMovingAddressesResponse
-describeMovingAddressesResponse pStatus =
+describeMovingAddressesResponse pStatus_ =
     DescribeMovingAddressesResponse'
     { _dmarsMovingAddressStatuses = Nothing
     , _dmarsNextToken = Nothing
-    , _dmarsStatus = pStatus
+    , _dmarsStatus = pStatus_
     }
 
 -- | The status for each Elastic IP address.

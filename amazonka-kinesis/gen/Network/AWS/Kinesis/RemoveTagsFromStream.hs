@@ -59,10 +59,10 @@ data RemoveTagsFromStream = RemoveTagsFromStream'
 
 -- | 'RemoveTagsFromStream' smart constructor.
 removeTagsFromStream :: Text -> NonEmpty Text -> RemoveTagsFromStream
-removeTagsFromStream pStreamName pTagKeys =
+removeTagsFromStream pStreamName_ pTagKeys_ =
     RemoveTagsFromStream'
-    { _rtfsrqStreamName = pStreamName
-    , _rtfsrqTagKeys = _List1 # pTagKeys
+    { _rtfsrqStreamName = pStreamName_
+    , _rtfsrqTagKeys = _List1 # pTagKeys_
     }
 
 -- | The name of the stream.

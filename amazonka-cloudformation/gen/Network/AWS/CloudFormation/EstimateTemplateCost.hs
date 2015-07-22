@@ -139,10 +139,10 @@ data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
 
 -- | 'EstimateTemplateCostResponse' smart constructor.
 estimateTemplateCostResponse :: Int -> EstimateTemplateCostResponse
-estimateTemplateCostResponse pStatus =
+estimateTemplateCostResponse pStatus_ =
     EstimateTemplateCostResponse'
     { _etcrsURL = Nothing
-    , _etcrsStatus = pStatus
+    , _etcrsStatus = pStatus_
     }
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes

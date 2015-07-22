@@ -66,11 +66,11 @@ data EvaluateExpression = EvaluateExpression'
 
 -- | 'EvaluateExpression' smart constructor.
 evaluateExpression :: Text -> Text -> Text -> EvaluateExpression
-evaluateExpression pPipelineId pObjectId pExpression =
+evaluateExpression pPipelineId_ pObjectId_ pExpression_ =
     EvaluateExpression'
-    { _eerqPipelineId = pPipelineId
-    , _eerqObjectId = pObjectId
-    , _eerqExpression = pExpression
+    { _eerqPipelineId = pPipelineId_
+    , _eerqObjectId = pObjectId_
+    , _eerqExpression = pExpression_
     }
 
 -- | The ID of the pipeline.
@@ -135,10 +135,10 @@ data EvaluateExpressionResponse = EvaluateExpressionResponse'
 
 -- | 'EvaluateExpressionResponse' smart constructor.
 evaluateExpressionResponse :: Int -> Text -> EvaluateExpressionResponse
-evaluateExpressionResponse pStatus pEvaluatedExpression =
+evaluateExpressionResponse pStatus_ pEvaluatedExpression_ =
     EvaluateExpressionResponse'
-    { _eersStatus = pStatus
-    , _eersEvaluatedExpression = pEvaluatedExpression
+    { _eersStatus = pStatus_
+    , _eersEvaluatedExpression = pEvaluatedExpression_
     }
 
 -- | FIXME: Undocumented member.

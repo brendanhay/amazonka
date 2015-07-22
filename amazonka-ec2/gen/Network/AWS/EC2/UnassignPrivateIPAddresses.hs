@@ -56,9 +56,9 @@ data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
 
 -- | 'UnassignPrivateIPAddresses' smart constructor.
 unassignPrivateIPAddresses :: Text -> UnassignPrivateIPAddresses
-unassignPrivateIPAddresses pNetworkInterfaceId =
+unassignPrivateIPAddresses pNetworkInterfaceId_ =
     UnassignPrivateIPAddresses'
-    { _upiarqNetworkInterfaceId = pNetworkInterfaceId
+    { _upiarqNetworkInterfaceId = pNetworkInterfaceId_
     , _upiarqPrivateIPAddresses = mempty
     }
 

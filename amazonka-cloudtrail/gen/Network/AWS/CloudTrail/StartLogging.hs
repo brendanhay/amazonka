@@ -55,9 +55,9 @@ newtype StartLogging = StartLogging'
 
 -- | 'StartLogging' smart constructor.
 startLogging :: Text -> StartLogging
-startLogging pName =
+startLogging pName_ =
     StartLogging'
-    { _srqName = pName
+    { _srqName = pName_
     }
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
@@ -107,9 +107,9 @@ newtype StartLoggingResponse = StartLoggingResponse'
 
 -- | 'StartLoggingResponse' smart constructor.
 startLoggingResponse :: Int -> StartLoggingResponse
-startLoggingResponse pStatus =
+startLoggingResponse pStatus_ =
     StartLoggingResponse'
-    { _srsStatus = pStatus
+    { _srsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

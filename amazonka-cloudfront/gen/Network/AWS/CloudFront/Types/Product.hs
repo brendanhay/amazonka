@@ -44,11 +44,11 @@ data ActiveTrustedSigners = ActiveTrustedSigners'
 
 -- | 'ActiveTrustedSigners' smart constructor.
 activeTrustedSigners :: Bool -> Int -> ActiveTrustedSigners
-activeTrustedSigners pEnabled pQuantity =
+activeTrustedSigners pEnabled_ pQuantity_ =
     ActiveTrustedSigners'
     { _atsItems = Nothing
-    , _atsEnabled = pEnabled
-    , _atsQuantity = pQuantity
+    , _atsEnabled = pEnabled_
+    , _atsQuantity = pQuantity_
     }
 
 -- | A complex type that contains one Signer complex type for each unique
@@ -93,10 +93,10 @@ data Aliases = Aliases'
 
 -- | 'Aliases' smart constructor.
 aliases :: Int -> Aliases
-aliases pQuantity =
+aliases pQuantity_ =
     Aliases'
     { _aItems = Nothing
-    , _aQuantity = pQuantity
+    , _aQuantity = pQuantity_
     }
 
 -- | Optional: A complex type that contains CNAME elements, if any, for this
@@ -148,10 +148,10 @@ data AllowedMethods = AllowedMethods'
 
 -- | 'AllowedMethods' smart constructor.
 allowedMethods :: Int -> AllowedMethods
-allowedMethods pQuantity =
+allowedMethods pQuantity_ =
     AllowedMethods'
     { _amCachedMethods = Nothing
-    , _amQuantity = pQuantity
+    , _amQuantity = pQuantity_
     , _amItems = mempty
     }
 
@@ -239,18 +239,18 @@ data CacheBehavior = CacheBehavior'
 
 -- | 'CacheBehavior' smart constructor.
 cacheBehavior :: Text -> Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> CacheBehavior
-cacheBehavior pPathPattern pTargetOriginId pForwardedValues pTrustedSigners pViewerProtocolPolicy pMinTTL =
+cacheBehavior pPathPattern_ pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
     CacheBehavior'
     { _cbAllowedMethods = Nothing
     , _cbMaxTTL = Nothing
     , _cbSmoothStreaming = Nothing
     , _cbDefaultTTL = Nothing
-    , _cbPathPattern = pPathPattern
-    , _cbTargetOriginId = pTargetOriginId
-    , _cbForwardedValues = pForwardedValues
-    , _cbTrustedSigners = pTrustedSigners
-    , _cbViewerProtocolPolicy = pViewerProtocolPolicy
-    , _cbMinTTL = pMinTTL
+    , _cbPathPattern = pPathPattern_
+    , _cbTargetOriginId = pTargetOriginId_
+    , _cbForwardedValues = pForwardedValues_
+    , _cbTrustedSigners = pTrustedSigners_
+    , _cbViewerProtocolPolicy = pViewerProtocolPolicy_
+    , _cbMinTTL = pMinTTL_
     }
 
 -- | FIXME: Undocumented member.
@@ -381,10 +381,10 @@ data CacheBehaviors = CacheBehaviors'
 
 -- | 'CacheBehaviors' smart constructor.
 cacheBehaviors :: Int -> CacheBehaviors
-cacheBehaviors pQuantity =
+cacheBehaviors pQuantity_ =
     CacheBehaviors'
     { _cbItems = Nothing
-    , _cbQuantity = pQuantity
+    , _cbQuantity = pQuantity_
     }
 
 -- | Optional: A complex type that contains cache behaviors for this
@@ -432,9 +432,9 @@ data CachedMethods = CachedMethods'
 
 -- | 'CachedMethods' smart constructor.
 cachedMethods :: Int -> CachedMethods
-cachedMethods pQuantity =
+cachedMethods pQuantity_ =
     CachedMethods'
-    { _cmQuantity = pQuantity
+    { _cmQuantity = pQuantity_
     , _cmItems = mempty
     }
 
@@ -481,11 +481,11 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
 
 -- | 'CloudFrontOriginAccessIdentity' smart constructor.
 cloudFrontOriginAccessIdentity :: Text -> Text -> CloudFrontOriginAccessIdentity
-cloudFrontOriginAccessIdentity pId pS3CanonicalUserId =
+cloudFrontOriginAccessIdentity pId_ pS3CanonicalUserId_ =
     CloudFrontOriginAccessIdentity'
     { _cfoaiCloudFrontOriginAccessIdentityConfig = Nothing
-    , _cfoaiId = pId
-    , _cfoaiS3CanonicalUserId = pS3CanonicalUserId
+    , _cfoaiId = pId_
+    , _cfoaiS3CanonicalUserId = pS3CanonicalUserId_
     }
 
 -- | The current configuration information for the identity.
@@ -525,10 +525,10 @@ data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
 
 -- | 'CloudFrontOriginAccessIdentityConfig' smart constructor.
 cloudFrontOriginAccessIdentityConfig :: Text -> Text -> CloudFrontOriginAccessIdentityConfig
-cloudFrontOriginAccessIdentityConfig pCallerReference pComment =
+cloudFrontOriginAccessIdentityConfig pCallerReference_ pComment_ =
     CloudFrontOriginAccessIdentityConfig'
-    { _cfoaicCallerReference = pCallerReference
-    , _cfoaicComment = pComment
+    { _cfoaicCallerReference = pCallerReference_
+    , _cfoaicComment = pComment_
     }
 
 -- | A unique number that ensures the request can\'t be replayed. If the
@@ -591,14 +591,14 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
 
 -- | 'CloudFrontOriginAccessIdentityList' smart constructor.
 cloudFrontOriginAccessIdentityList :: Text -> Int -> Bool -> Int -> CloudFrontOriginAccessIdentityList
-cloudFrontOriginAccessIdentityList pMarker pMaxItems pIsTruncated pQuantity =
+cloudFrontOriginAccessIdentityList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     CloudFrontOriginAccessIdentityList'
     { _cfoailItems = Nothing
     , _cfoailNextMarker = Nothing
-    , _cfoailMarker = pMarker
-    , _cfoailMaxItems = pMaxItems
-    , _cfoailIsTruncated = pIsTruncated
-    , _cfoailQuantity = pQuantity
+    , _cfoailMarker = pMarker_
+    , _cfoailMaxItems = pMaxItems_
+    , _cfoailIsTruncated = pIsTruncated_
+    , _cfoailQuantity = pQuantity_
     }
 
 -- | A complex type that contains one CloudFrontOriginAccessIdentitySummary
@@ -666,11 +666,11 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
 
 -- | 'CloudFrontOriginAccessIdentitySummary' smart constructor.
 cloudFrontOriginAccessIdentitySummary :: Text -> Text -> Text -> CloudFrontOriginAccessIdentitySummary
-cloudFrontOriginAccessIdentitySummary pId pS3CanonicalUserId pComment =
+cloudFrontOriginAccessIdentitySummary pId_ pS3CanonicalUserId_ pComment_ =
     CloudFrontOriginAccessIdentitySummary'
-    { _cfoaisId = pId
-    , _cfoaisS3CanonicalUserId = pS3CanonicalUserId
-    , _cfoaisComment = pComment
+    { _cfoaisId = pId_
+    , _cfoaisS3CanonicalUserId = pS3CanonicalUserId_
+    , _cfoaisComment = pComment_
     }
 
 -- | The ID for the origin access identity. For example: E74FTE3AJFJ256A.
@@ -713,10 +713,10 @@ data CookieNames = CookieNames'
 
 -- | 'CookieNames' smart constructor.
 cookieNames :: Int -> CookieNames
-cookieNames pQuantity =
+cookieNames pQuantity_ =
     CookieNames'
     { _cnItems = Nothing
-    , _cnQuantity = pQuantity
+    , _cnQuantity = pQuantity_
     }
 
 -- | Optional: A complex type that contains whitelisted cookies for this
@@ -758,10 +758,10 @@ data CookiePreference = CookiePreference'
 
 -- | 'CookiePreference' smart constructor.
 cookiePreference :: ItemSelection -> CookiePreference
-cookiePreference pForward =
+cookiePreference pForward_ =
     CookiePreference'
     { _cpWhitelistedNames = Nothing
-    , _cpForward = pForward
+    , _cpForward = pForward_
     }
 
 -- | A complex type that specifies the whitelisted cookies, if any, that you
@@ -821,12 +821,12 @@ data CustomErrorResponse = CustomErrorResponse'
 
 -- | 'CustomErrorResponse' smart constructor.
 customErrorResponse :: Int -> CustomErrorResponse
-customErrorResponse pErrorCode =
+customErrorResponse pErrorCode_ =
     CustomErrorResponse'
     { _ceResponsePagePath = Nothing
     , _ceResponseCode = Nothing
     , _ceErrorCachingMinTTL = Nothing
-    , _ceErrorCode = pErrorCode
+    , _ceErrorCode = pErrorCode_
     }
 
 -- | The path of the custom error page (for example, \/custom_404.html). The
@@ -888,10 +888,10 @@ data CustomErrorResponses = CustomErrorResponses'
 
 -- | 'CustomErrorResponses' smart constructor.
 customErrorResponses :: Int -> CustomErrorResponses
-customErrorResponses pQuantity =
+customErrorResponses pQuantity_ =
     CustomErrorResponses'
     { _cerItems = Nothing
-    , _cerQuantity = pQuantity
+    , _cerQuantity = pQuantity_
     }
 
 -- | Optional: A complex type that contains custom error responses for this
@@ -937,11 +937,11 @@ data CustomOriginConfig = CustomOriginConfig'
 
 -- | 'CustomOriginConfig' smart constructor.
 customOriginConfig :: Int -> Int -> OriginProtocolPolicy -> CustomOriginConfig
-customOriginConfig pHTTPPort pHTTPSPort pOriginProtocolPolicy =
+customOriginConfig pHTTPPort_ pHTTPSPort_ pOriginProtocolPolicy_ =
     CustomOriginConfig'
-    { _cocHTTPPort = pHTTPPort
-    , _cocHTTPSPort = pHTTPSPort
-    , _cocOriginProtocolPolicy = pOriginProtocolPolicy
+    { _cocHTTPPort = pHTTPPort_
+    , _cocHTTPSPort = pHTTPSPort_
+    , _cocOriginProtocolPolicy = pOriginProtocolPolicy_
     }
 
 -- | The HTTP port the custom origin listens on.
@@ -1009,17 +1009,17 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
 
 -- | 'DefaultCacheBehavior' smart constructor.
 defaultCacheBehavior :: Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> DefaultCacheBehavior
-defaultCacheBehavior pTargetOriginId pForwardedValues pTrustedSigners pViewerProtocolPolicy pMinTTL =
+defaultCacheBehavior pTargetOriginId_ pForwardedValues_ pTrustedSigners_ pViewerProtocolPolicy_ pMinTTL_ =
     DefaultCacheBehavior'
     { _dcbAllowedMethods = Nothing
     , _dcbMaxTTL = Nothing
     , _dcbSmoothStreaming = Nothing
     , _dcbDefaultTTL = Nothing
-    , _dcbTargetOriginId = pTargetOriginId
-    , _dcbForwardedValues = pForwardedValues
-    , _dcbTrustedSigners = pTrustedSigners
-    , _dcbViewerProtocolPolicy = pViewerProtocolPolicy
-    , _dcbMinTTL = pMinTTL
+    , _dcbTargetOriginId = pTargetOriginId_
+    , _dcbForwardedValues = pForwardedValues_
+    , _dcbTrustedSigners = pTrustedSigners_
+    , _dcbViewerProtocolPolicy = pViewerProtocolPolicy_
+    , _dcbMinTTL = pMinTTL_
     }
 
 -- | FIXME: Undocumented member.
@@ -1152,15 +1152,15 @@ data Distribution = Distribution'
 
 -- | 'Distribution' smart constructor.
 distribution :: Text -> Text -> UTCTime -> Int -> Text -> ActiveTrustedSigners -> DistributionConfig -> Distribution
-distribution pId pStatus pLastModifiedTime pInProgressInvalidationBatches pDomainName pActiveTrustedSigners pDistributionConfig =
+distribution pId_ pStatus_ pLastModifiedTime_ pInProgressInvalidationBatches_ pDomainName_ pActiveTrustedSigners_ pDistributionConfig_ =
     Distribution'
-    { _dId = pId
-    , _dStatus = pStatus
-    , _dLastModifiedTime = _Time # pLastModifiedTime
-    , _dInProgressInvalidationBatches = pInProgressInvalidationBatches
-    , _dDomainName = pDomainName
-    , _dActiveTrustedSigners = pActiveTrustedSigners
-    , _dDistributionConfig = pDistributionConfig
+    { _dId = pId_
+    , _dStatus = pStatus_
+    , _dLastModifiedTime = _Time # pLastModifiedTime_
+    , _dInProgressInvalidationBatches = pInProgressInvalidationBatches_
+    , _dDomainName = pDomainName_
+    , _dActiveTrustedSigners = pActiveTrustedSigners_
+    , _dDistributionConfig = pDistributionConfig_
     }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
@@ -1261,7 +1261,7 @@ data DistributionConfig = DistributionConfig'
 
 -- | 'DistributionConfig' smart constructor.
 distributionConfig :: Text -> Origins -> DefaultCacheBehavior -> Text -> Bool -> DistributionConfig
-distributionConfig pCallerReference pOrigins pDefaultCacheBehavior pComment pEnabled =
+distributionConfig pCallerReference_ pOrigins_ pDefaultCacheBehavior_ pComment_ pEnabled_ =
     DistributionConfig'
     { _dcDefaultRootObject = Nothing
     , _dcAliases = Nothing
@@ -1271,11 +1271,11 @@ distributionConfig pCallerReference pOrigins pDefaultCacheBehavior pComment pEna
     , _dcRestrictions = Nothing
     , _dcCacheBehaviors = Nothing
     , _dcLogging = Nothing
-    , _dcCallerReference = pCallerReference
-    , _dcOrigins = pOrigins
-    , _dcDefaultCacheBehavior = pDefaultCacheBehavior
-    , _dcComment = pComment
-    , _dcEnabled = pEnabled
+    , _dcCallerReference = pCallerReference_
+    , _dcOrigins = pOrigins_
+    , _dcDefaultCacheBehavior = pDefaultCacheBehavior_
+    , _dcComment = pComment_
+    , _dcEnabled = pEnabled_
     }
 
 -- | The object that you want CloudFront to return (for example, index.html)
@@ -1417,14 +1417,14 @@ data DistributionList = DistributionList'
 
 -- | 'DistributionList' smart constructor.
 distributionList :: Text -> Int -> Bool -> Int -> DistributionList
-distributionList pMarker pMaxItems pIsTruncated pQuantity =
+distributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     DistributionList'
     { _dlItems = Nothing
     , _dlNextMarker = Nothing
-    , _dlMarker = pMarker
-    , _dlMaxItems = pMaxItems
-    , _dlIsTruncated = pIsTruncated
-    , _dlQuantity = pQuantity
+    , _dlMarker = pMarker_
+    , _dlMaxItems = pMaxItems_
+    , _dlIsTruncated = pIsTruncated_
+    , _dlQuantity = pQuantity_
     }
 
 -- | A complex type that contains one DistributionSummary element for each
@@ -1521,22 +1521,22 @@ data DistributionSummary = DistributionSummary'
 
 -- | 'DistributionSummary' smart constructor.
 distributionSummary :: Text -> Text -> UTCTime -> Text -> Aliases -> Origins -> DefaultCacheBehavior -> CacheBehaviors -> CustomErrorResponses -> Text -> PriceClass -> Bool -> ViewerCertificate -> Restrictions -> DistributionSummary
-distributionSummary pId pStatus pLastModifiedTime pDomainName pAliases pOrigins pDefaultCacheBehavior pCacheBehaviors pCustomErrorResponses pComment pPriceClass pEnabled pViewerCertificate pRestrictions =
+distributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pAliases_ pOrigins_ pDefaultCacheBehavior_ pCacheBehaviors_ pCustomErrorResponses_ pComment_ pPriceClass_ pEnabled_ pViewerCertificate_ pRestrictions_ =
     DistributionSummary'
-    { _dsId = pId
-    , _dsStatus = pStatus
-    , _dsLastModifiedTime = _Time # pLastModifiedTime
-    , _dsDomainName = pDomainName
-    , _dsAliases = pAliases
-    , _dsOrigins = pOrigins
-    , _dsDefaultCacheBehavior = pDefaultCacheBehavior
-    , _dsCacheBehaviors = pCacheBehaviors
-    , _dsCustomErrorResponses = pCustomErrorResponses
-    , _dsComment = pComment
-    , _dsPriceClass = pPriceClass
-    , _dsEnabled = pEnabled
-    , _dsViewerCertificate = pViewerCertificate
-    , _dsRestrictions = pRestrictions
+    { _dsId = pId_
+    , _dsStatus = pStatus_
+    , _dsLastModifiedTime = _Time # pLastModifiedTime_
+    , _dsDomainName = pDomainName_
+    , _dsAliases = pAliases_
+    , _dsOrigins = pOrigins_
+    , _dsDefaultCacheBehavior = pDefaultCacheBehavior_
+    , _dsCacheBehaviors = pCacheBehaviors_
+    , _dsCustomErrorResponses = pCustomErrorResponses_
+    , _dsComment = pComment_
+    , _dsPriceClass = pPriceClass_
+    , _dsEnabled = pEnabled_
+    , _dsViewerCertificate = pViewerCertificate_
+    , _dsRestrictions = pRestrictions_
     }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
@@ -1641,11 +1641,11 @@ data ForwardedValues = ForwardedValues'
 
 -- | 'ForwardedValues' smart constructor.
 forwardedValues :: Bool -> CookiePreference -> ForwardedValues
-forwardedValues pQueryString pCookies =
+forwardedValues pQueryString_ pCookies_ =
     ForwardedValues'
     { _fvHeaders = Nothing
-    , _fvQueryString = pQueryString
-    , _fvCookies = pCookies
+    , _fvQueryString = pQueryString_
+    , _fvCookies = pCookies_
     }
 
 -- | A complex type that specifies the Headers, if any, that you want
@@ -1700,11 +1700,11 @@ data GeoRestriction = GeoRestriction'
 
 -- | 'GeoRestriction' smart constructor.
 geoRestriction :: GeoRestrictionType -> Int -> GeoRestriction
-geoRestriction pRestrictionType pQuantity =
+geoRestriction pRestrictionType_ pQuantity_ =
     GeoRestriction'
     { _grItems = Nothing
-    , _grRestrictionType = pRestrictionType
-    , _grQuantity = pQuantity
+    , _grRestrictionType = pRestrictionType_
+    , _grQuantity = pQuantity_
     }
 
 -- | A complex type that contains a Location element for each country in
@@ -1776,10 +1776,10 @@ data Headers = Headers'
 
 -- | 'Headers' smart constructor.
 headers :: Int -> Headers
-headers pQuantity =
+headers pQuantity_ =
     Headers'
     { _hItems = Nothing
-    , _hQuantity = pQuantity
+    , _hQuantity = pQuantity_
     }
 
 -- | Optional: A complex type that contains a Name element for each header
@@ -1833,12 +1833,12 @@ data Invalidation = Invalidation'
 
 -- | 'Invalidation' smart constructor.
 invalidation :: Text -> Text -> UTCTime -> InvalidationBatch -> Invalidation
-invalidation pId pStatus pCreateTime pInvalidationBatch =
+invalidation pId_ pStatus_ pCreateTime_ pInvalidationBatch_ =
     Invalidation'
-    { _iId = pId
-    , _iStatus = pStatus
-    , _iCreateTime = _Time # pCreateTime
-    , _iInvalidationBatch = pInvalidationBatch
+    { _iId = pId_
+    , _iStatus = pStatus_
+    , _iCreateTime = _Time # pCreateTime_
+    , _iInvalidationBatch = pInvalidationBatch_
     }
 
 -- | The identifier for the invalidation request. For example:
@@ -1882,10 +1882,10 @@ data InvalidationBatch = InvalidationBatch'
 
 -- | 'InvalidationBatch' smart constructor.
 invalidationBatch :: Paths -> Text -> InvalidationBatch
-invalidationBatch pPaths pCallerReference =
+invalidationBatch pPaths_ pCallerReference_ =
     InvalidationBatch'
-    { _ibPaths = pPaths
-    , _ibCallerReference = pCallerReference
+    { _ibPaths = pPaths_
+    , _ibCallerReference = pCallerReference_
     }
 
 -- | The path of the object to invalidate. The path is relative to the
@@ -1950,14 +1950,14 @@ data InvalidationList = InvalidationList'
 
 -- | 'InvalidationList' smart constructor.
 invalidationList :: Text -> Int -> Bool -> Int -> InvalidationList
-invalidationList pMarker pMaxItems pIsTruncated pQuantity =
+invalidationList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     InvalidationList'
     { _ilItems = Nothing
     , _ilNextMarker = Nothing
-    , _ilMarker = pMarker
-    , _ilMaxItems = pMaxItems
-    , _ilIsTruncated = pIsTruncated
-    , _ilQuantity = pQuantity
+    , _ilMarker = pMarker_
+    , _ilMaxItems = pMaxItems_
+    , _ilIsTruncated = pIsTruncated_
+    , _ilQuantity = pQuantity_
     }
 
 -- | A complex type that contains one InvalidationSummary element for each
@@ -2021,11 +2021,11 @@ data InvalidationSummary = InvalidationSummary'
 
 -- | 'InvalidationSummary' smart constructor.
 invalidationSummary :: Text -> UTCTime -> Text -> InvalidationSummary
-invalidationSummary pId pCreateTime pStatus =
+invalidationSummary pId_ pCreateTime_ pStatus_ =
     InvalidationSummary'
-    { _isId = pId
-    , _isCreateTime = _Time # pCreateTime
-    , _isStatus = pStatus
+    { _isId = pId_
+    , _isCreateTime = _Time # pCreateTime_
+    , _isStatus = pStatus_
     }
 
 -- | The unique ID for an invalidation request.
@@ -2063,10 +2063,10 @@ data KeyPairIds = KeyPairIds'
 
 -- | 'KeyPairIds' smart constructor.
 keyPairIds :: Int -> KeyPairIds
-keyPairIds pQuantity =
+keyPairIds pQuantity_ =
     KeyPairIds'
     { _kpiItems = Nothing
-    , _kpiQuantity = pQuantity
+    , _kpiQuantity = pQuantity_
     }
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that
@@ -2108,12 +2108,12 @@ data LoggingConfig = LoggingConfig'
 
 -- | 'LoggingConfig' smart constructor.
 loggingConfig :: Bool -> Bool -> Text -> Text -> LoggingConfig
-loggingConfig pEnabled pIncludeCookies pBucket pPrefix =
+loggingConfig pEnabled_ pIncludeCookies_ pBucket_ pPrefix_ =
     LoggingConfig'
-    { _lcEnabled = pEnabled
-    , _lcIncludeCookies = pIncludeCookies
-    , _lcBucket = pBucket
-    , _lcPrefix = pPrefix
+    { _lcEnabled = pEnabled_
+    , _lcIncludeCookies = pIncludeCookies_
+    , _lcBucket = pBucket_
+    , _lcPrefix = pPrefix_
     }
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon
@@ -2188,13 +2188,13 @@ data Origin = Origin'
 
 -- | 'Origin' smart constructor.
 origin :: Text -> Text -> Origin
-origin pId pDomainName =
+origin pId_ pDomainName_ =
     Origin'
     { _oCustomOriginConfig = Nothing
     , _oS3OriginConfig = Nothing
     , _oOriginPath = Nothing
-    , _oId = pId
-    , _oDomainName = pDomainName
+    , _oId = pId_
+    , _oDomainName = pDomainName_
     }
 
 -- | A complex type that contains information about a custom origin. If the
@@ -2265,10 +2265,10 @@ data Origins = Origins'
 
 -- | 'Origins' smart constructor.
 origins :: Int -> Origins
-origins pQuantity =
+origins pQuantity_ =
     Origins'
     { _oItems = Nothing
-    , _oQuantity = pQuantity
+    , _oQuantity = pQuantity_
     }
 
 -- | A complex type that contains origins for this distribution.
@@ -2309,10 +2309,10 @@ data Paths = Paths'
 
 -- | 'Paths' smart constructor.
 paths :: Int -> Paths
-paths pQuantity =
+paths pQuantity_ =
     Paths'
     { _pItems = Nothing
-    , _pQuantity = pQuantity
+    , _pQuantity = pQuantity_
     }
 
 -- | A complex type that contains a list of the objects that you want to
@@ -2351,9 +2351,9 @@ newtype Restrictions = Restrictions'
 
 -- | 'Restrictions' smart constructor.
 restrictions :: GeoRestriction -> Restrictions
-restrictions pGeoRestriction =
+restrictions pGeoRestriction_ =
     Restrictions'
-    { _rGeoRestriction = pGeoRestriction
+    { _rGeoRestriction = pGeoRestriction_
     }
 
 -- | FIXME: Undocumented member.
@@ -2385,10 +2385,10 @@ data S3Origin = S3Origin'
 
 -- | 'S3Origin' smart constructor.
 s3Origin :: Text -> Text -> S3Origin
-s3Origin pDomainName pOriginAccessIdentity =
+s3Origin pDomainName_ pOriginAccessIdentity_ =
     S3Origin'
-    { _soDomainName = pDomainName
-    , _soOriginAccessIdentity = pOriginAccessIdentity
+    { _soDomainName = pDomainName_
+    , _soOriginAccessIdentity = pOriginAccessIdentity_
     }
 
 -- | The DNS name of the S3 origin.
@@ -2425,9 +2425,9 @@ newtype S3OriginConfig = S3OriginConfig'
 
 -- | 'S3OriginConfig' smart constructor.
 s3OriginConfig :: Text -> S3OriginConfig
-s3OriginConfig pOriginAccessIdentity =
+s3OriginConfig pOriginAccessIdentity_ =
     S3OriginConfig'
-    { _socOriginAccessIdentity = pOriginAccessIdentity
+    { _socOriginAccessIdentity = pOriginAccessIdentity_
     }
 
 -- | The CloudFront origin access identity to associate with the origin. Use
@@ -2523,14 +2523,14 @@ data StreamingDistribution = StreamingDistribution'
 
 -- | 'StreamingDistribution' smart constructor.
 streamingDistribution :: Text -> Text -> Text -> ActiveTrustedSigners -> StreamingDistributionConfig -> StreamingDistribution
-streamingDistribution pId pStatus pDomainName pActiveTrustedSigners pStreamingDistributionConfig =
+streamingDistribution pId_ pStatus_ pDomainName_ pActiveTrustedSigners_ pStreamingDistributionConfig_ =
     StreamingDistribution'
     { _sdLastModifiedTime = Nothing
-    , _sdId = pId
-    , _sdStatus = pStatus
-    , _sdDomainName = pDomainName
-    , _sdActiveTrustedSigners = pActiveTrustedSigners
-    , _sdStreamingDistributionConfig = pStreamingDistributionConfig
+    , _sdId = pId_
+    , _sdStatus = pStatus_
+    , _sdDomainName = pDomainName_
+    , _sdActiveTrustedSigners = pActiveTrustedSigners_
+    , _sdStreamingDistributionConfig = pStreamingDistributionConfig_
     }
 
 -- | The date and time the distribution was last modified.
@@ -2612,16 +2612,16 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
 
 -- | 'StreamingDistributionConfig' smart constructor.
 streamingDistributionConfig :: Text -> S3Origin -> Text -> TrustedSigners -> Bool -> StreamingDistributionConfig
-streamingDistributionConfig pCallerReference pS3Origin pComment pTrustedSigners pEnabled =
+streamingDistributionConfig pCallerReference_ pS3Origin_ pComment_ pTrustedSigners_ pEnabled_ =
     StreamingDistributionConfig'
     { _sdcAliases = Nothing
     , _sdcPriceClass = Nothing
     , _sdcLogging = Nothing
-    , _sdcCallerReference = pCallerReference
-    , _sdcS3Origin = pS3Origin
-    , _sdcComment = pComment
-    , _sdcTrustedSigners = pTrustedSigners
-    , _sdcEnabled = pEnabled
+    , _sdcCallerReference = pCallerReference_
+    , _sdcS3Origin = pS3Origin_
+    , _sdcComment = pComment_
+    , _sdcTrustedSigners = pTrustedSigners_
+    , _sdcEnabled = pEnabled_
     }
 
 -- | A complex type that contains information about CNAMEs (alternate domain
@@ -2732,14 +2732,14 @@ data StreamingDistributionList = StreamingDistributionList'
 
 -- | 'StreamingDistributionList' smart constructor.
 streamingDistributionList :: Text -> Int -> Bool -> Int -> StreamingDistributionList
-streamingDistributionList pMarker pMaxItems pIsTruncated pQuantity =
+streamingDistributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
     StreamingDistributionList'
     { _sdlItems = Nothing
     , _sdlNextMarker = Nothing
-    , _sdlMarker = pMarker
-    , _sdlMaxItems = pMaxItems
-    , _sdlIsTruncated = pIsTruncated
-    , _sdlQuantity = pQuantity
+    , _sdlMarker = pMarker_
+    , _sdlMaxItems = pMaxItems_
+    , _sdlIsTruncated = pIsTruncated_
+    , _sdlQuantity = pQuantity_
     }
 
 -- | A complex type that contains one StreamingDistributionSummary element
@@ -2825,18 +2825,18 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
 
 -- | 'StreamingDistributionSummary' smart constructor.
 streamingDistributionSummary :: Text -> Text -> UTCTime -> Text -> S3Origin -> Aliases -> TrustedSigners -> Text -> PriceClass -> Bool -> StreamingDistributionSummary
-streamingDistributionSummary pId pStatus pLastModifiedTime pDomainName pS3Origin pAliases pTrustedSigners pComment pPriceClass pEnabled =
+streamingDistributionSummary pId_ pStatus_ pLastModifiedTime_ pDomainName_ pS3Origin_ pAliases_ pTrustedSigners_ pComment_ pPriceClass_ pEnabled_ =
     StreamingDistributionSummary'
-    { _sdsId = pId
-    , _sdsStatus = pStatus
-    , _sdsLastModifiedTime = _Time # pLastModifiedTime
-    , _sdsDomainName = pDomainName
-    , _sdsS3Origin = pS3Origin
-    , _sdsAliases = pAliases
-    , _sdsTrustedSigners = pTrustedSigners
-    , _sdsComment = pComment
-    , _sdsPriceClass = pPriceClass
-    , _sdsEnabled = pEnabled
+    { _sdsId = pId_
+    , _sdsStatus = pStatus_
+    , _sdsLastModifiedTime = _Time # pLastModifiedTime_
+    , _sdsDomainName = pDomainName_
+    , _sdsS3Origin = pS3Origin_
+    , _sdsAliases = pAliases_
+    , _sdsTrustedSigners = pTrustedSigners_
+    , _sdsComment = pComment_
+    , _sdsPriceClass = pPriceClass_
+    , _sdsEnabled = pEnabled_
     }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
@@ -2929,11 +2929,11 @@ data StreamingLoggingConfig = StreamingLoggingConfig'
 
 -- | 'StreamingLoggingConfig' smart constructor.
 streamingLoggingConfig :: Bool -> Text -> Text -> StreamingLoggingConfig
-streamingLoggingConfig pEnabled pBucket pPrefix =
+streamingLoggingConfig pEnabled_ pBucket_ pPrefix_ =
     StreamingLoggingConfig'
-    { _slcEnabled = pEnabled
-    , _slcBucket = pBucket
-    , _slcPrefix = pPrefix
+    { _slcEnabled = pEnabled_
+    , _slcBucket = pBucket_
+    , _slcPrefix = pPrefix_
     }
 
 -- | Specifies whether you want CloudFront to save access logs to an Amazon
@@ -3000,11 +3000,11 @@ data TrustedSigners = TrustedSigners'
 
 -- | 'TrustedSigners' smart constructor.
 trustedSigners :: Bool -> Int -> TrustedSigners
-trustedSigners pEnabled pQuantity =
+trustedSigners pEnabled_ pQuantity_ =
     TrustedSigners'
     { _tsItems = Nothing
-    , _tsEnabled = pEnabled
-    , _tsQuantity = pQuantity
+    , _tsEnabled = pEnabled_
+    , _tsQuantity = pQuantity_
     }
 
 -- | Optional: A complex type that contains trusted signers for this cache

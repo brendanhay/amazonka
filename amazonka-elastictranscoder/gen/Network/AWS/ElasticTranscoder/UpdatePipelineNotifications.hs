@@ -64,10 +64,10 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications'
 
 -- | 'UpdatePipelineNotifications' smart constructor.
 updatePipelineNotifications :: Text -> Notifications -> UpdatePipelineNotifications
-updatePipelineNotifications pId pNotifications =
+updatePipelineNotifications pId_ pNotifications_ =
     UpdatePipelineNotifications'
-    { _upnrqId = pId
-    , _upnrqNotifications = pNotifications
+    { _upnrqId = pId_
+    , _upnrqNotifications = pNotifications_
     }
 
 -- | The identifier of the pipeline for which you want to change notification
@@ -142,10 +142,10 @@ data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
 
 -- | 'UpdatePipelineNotificationsResponse' smart constructor.
 updatePipelineNotificationsResponse :: Int -> UpdatePipelineNotificationsResponse
-updatePipelineNotificationsResponse pStatus =
+updatePipelineNotificationsResponse pStatus_ =
     UpdatePipelineNotificationsResponse'
     { _upnrsPipeline = Nothing
-    , _upnrsStatus = pStatus
+    , _upnrsStatus = pStatus_
     }
 
 -- | A section of the response body that provides information about the

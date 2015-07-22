@@ -130,10 +130,10 @@ data ListActionTypesResponse = ListActionTypesResponse'
 
 -- | 'ListActionTypesResponse' smart constructor.
 listActionTypesResponse :: Int -> ListActionTypesResponse
-listActionTypesResponse pStatus =
+listActionTypesResponse pStatus_ =
     ListActionTypesResponse'
     { _latrsNextToken = Nothing
-    , _latrsStatus = pStatus
+    , _latrsStatus = pStatus_
     , _latrsActionTypes = mempty
     }
 

@@ -118,14 +118,14 @@ data ReceiveMessage = ReceiveMessage'
 
 -- | 'ReceiveMessage' smart constructor.
 receiveMessage :: Text -> ReceiveMessage
-receiveMessage pQueueURL =
+receiveMessage pQueueURL_ =
     ReceiveMessage'
     { _rmrqVisibilityTimeout = Nothing
     , _rmrqMessageAttributeNames = Nothing
     , _rmrqWaitTimeSeconds = Nothing
     , _rmrqAttributeNames = Nothing
     , _rmrqMaxNumberOfMessages = Nothing
-    , _rmrqQueueURL = pQueueURL
+    , _rmrqQueueURL = pQueueURL_
     }
 
 -- | The duration (in seconds) that the received messages are hidden from
@@ -235,10 +235,10 @@ data ReceiveMessageResponse = ReceiveMessageResponse'
 
 -- | 'ReceiveMessageResponse' smart constructor.
 receiveMessageResponse :: Int -> ReceiveMessageResponse
-receiveMessageResponse pStatus =
+receiveMessageResponse pStatus_ =
     ReceiveMessageResponse'
     { _rmrsMessages = Nothing
-    , _rmrsStatus = pStatus
+    , _rmrsStatus = pStatus_
     }
 
 -- | A list of messages.

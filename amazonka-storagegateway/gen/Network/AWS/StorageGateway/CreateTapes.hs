@@ -77,13 +77,13 @@ data CreateTapes = CreateTapes'
 
 -- | 'CreateTapes' smart constructor.
 createTapes :: Text -> Integer -> Text -> Natural -> Text -> CreateTapes
-createTapes pGatewayARN pTapeSizeInBytes pClientToken pNumTapesToCreate pTapeBarcodePrefix =
+createTapes pGatewayARN_ pTapeSizeInBytes_ pClientToken_ pNumTapesToCreate_ pTapeBarcodePrefix_ =
     CreateTapes'
-    { _ctrqGatewayARN = pGatewayARN
-    , _ctrqTapeSizeInBytes = pTapeSizeInBytes
-    , _ctrqClientToken = pClientToken
-    , _ctrqNumTapesToCreate = _Nat # pNumTapesToCreate
-    , _ctrqTapeBarcodePrefix = pTapeBarcodePrefix
+    { _ctrqGatewayARN = pGatewayARN_
+    , _ctrqTapeSizeInBytes = pTapeSizeInBytes_
+    , _ctrqClientToken = pClientToken_
+    , _ctrqNumTapesToCreate = _Nat # pNumTapesToCreate_
+    , _ctrqTapeBarcodePrefix = pTapeBarcodePrefix_
     }
 
 -- | The unique Amazon Resource Name(ARN) that represents the gateway to
@@ -170,10 +170,10 @@ data CreateTapesResponse = CreateTapesResponse'
 
 -- | 'CreateTapesResponse' smart constructor.
 createTapesResponse :: Int -> CreateTapesResponse
-createTapesResponse pStatus =
+createTapesResponse pStatus_ =
     CreateTapesResponse'
     { _ctrsTapeARNs = Nothing
-    , _ctrsStatus = pStatus
+    , _ctrsStatus = pStatus_
     }
 
 -- | A list of unique Amazon Resource Named (ARN) the represents the virtual

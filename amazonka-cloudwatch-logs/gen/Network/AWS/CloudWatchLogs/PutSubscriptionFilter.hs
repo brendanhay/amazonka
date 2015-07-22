@@ -75,13 +75,13 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
 
 -- | 'PutSubscriptionFilter' smart constructor.
 putSubscriptionFilter :: Text -> Text -> Text -> Text -> Text -> PutSubscriptionFilter
-putSubscriptionFilter pLogGroupName pFilterName pFilterPattern pDestinationARN pRoleARN =
+putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ pRoleARN_ =
     PutSubscriptionFilter'
-    { _psfrqLogGroupName = pLogGroupName
-    , _psfrqFilterName = pFilterName
-    , _psfrqFilterPattern = pFilterPattern
-    , _psfrqDestinationARN = pDestinationARN
-    , _psfrqRoleARN = pRoleARN
+    { _psfrqLogGroupName = pLogGroupName_
+    , _psfrqFilterName = pFilterName_
+    , _psfrqFilterPattern = pFilterPattern_
+    , _psfrqDestinationARN = pDestinationARN_
+    , _psfrqRoleARN = pRoleARN_
     }
 
 -- | The name of the log group to associate the subscription filter with.

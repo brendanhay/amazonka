@@ -184,7 +184,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
 getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse
-getTemplateSummaryResponse pStatus =
+getTemplateSummaryResponse pStatus_ =
     GetTemplateSummaryResponse'
     { _gtsrsVersion = Nothing
     , _gtsrsParameters = Nothing
@@ -192,7 +192,7 @@ getTemplateSummaryResponse pStatus =
     , _gtsrsMetadata = Nothing
     , _gtsrsCapabilities = Nothing
     , _gtsrsDescription = Nothing
-    , _gtsrsStatus = pStatus
+    , _gtsrsStatus = pStatus_
     }
 
 -- | The AWS template format version, which identifies the capabilities of

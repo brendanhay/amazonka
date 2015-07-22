@@ -62,9 +62,9 @@ newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
 
 -- | 'GetIdentityPoolConfiguration' smart constructor.
 getIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
-getIdentityPoolConfiguration pIdentityPoolId =
+getIdentityPoolConfiguration pIdentityPoolId_ =
     GetIdentityPoolConfiguration'
-    { _gipcrqIdentityPoolId = pIdentityPoolId
+    { _gipcrqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
@@ -125,12 +125,12 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
 
 -- | 'GetIdentityPoolConfigurationResponse' smart constructor.
 getIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
-getIdentityPoolConfigurationResponse pStatus =
+getIdentityPoolConfigurationResponse pStatus_ =
     GetIdentityPoolConfigurationResponse'
     { _gipcrsIdentityPoolId = Nothing
     , _gipcrsCognitoStreams = Nothing
     , _gipcrsPushSync = Nothing
-    , _gipcrsStatus = pStatus
+    , _gipcrsStatus = pStatus_
     }
 
 -- | A name-spaced GUID (for example,

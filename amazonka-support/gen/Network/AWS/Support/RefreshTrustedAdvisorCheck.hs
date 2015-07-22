@@ -64,9 +64,9 @@ newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
 
 -- | 'RefreshTrustedAdvisorCheck' smart constructor.
 refreshTrustedAdvisorCheck :: Text -> RefreshTrustedAdvisorCheck
-refreshTrustedAdvisorCheck pCheckId =
+refreshTrustedAdvisorCheck pCheckId_ =
     RefreshTrustedAdvisorCheck'
-    { _rtacrqCheckId = pCheckId
+    { _rtacrqCheckId = pCheckId_
     }
 
 -- | The unique identifier for the Trusted Advisor check.
@@ -117,9 +117,9 @@ newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
 
 -- | 'RefreshTrustedAdvisorCheckResponse' smart constructor.
 refreshTrustedAdvisorCheckResponse :: Int -> RefreshTrustedAdvisorCheckResponse
-refreshTrustedAdvisorCheckResponse pStatus =
+refreshTrustedAdvisorCheckResponse pStatus_ =
     RefreshTrustedAdvisorCheckResponse'
-    { _rtacrsStatus = pStatus
+    { _rtacrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

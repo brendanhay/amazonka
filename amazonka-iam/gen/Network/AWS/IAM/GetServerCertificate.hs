@@ -54,9 +54,9 @@ newtype GetServerCertificate = GetServerCertificate'
 
 -- | 'GetServerCertificate' smart constructor.
 getServerCertificate :: Text -> GetServerCertificate
-getServerCertificate pServerCertificateName =
+getServerCertificate pServerCertificateName_ =
     GetServerCertificate'
-    { _gscrqServerCertificateName = pServerCertificateName
+    { _gscrqServerCertificateName = pServerCertificateName_
     }
 
 -- | The name of the server certificate you want to retrieve information
@@ -105,10 +105,10 @@ data GetServerCertificateResponse = GetServerCertificateResponse'
 
 -- | 'GetServerCertificateResponse' smart constructor.
 getServerCertificateResponse :: Int -> ServerCertificate -> GetServerCertificateResponse
-getServerCertificateResponse pStatus pServerCertificate =
+getServerCertificateResponse pStatus_ pServerCertificate_ =
     GetServerCertificateResponse'
-    { _gscrsStatus = pStatus
-    , _gscrsServerCertificate = pServerCertificate
+    { _gscrsStatus = pStatus_
+    , _gscrsServerCertificate = pServerCertificate_
     }
 
 -- | FIXME: Undocumented member.

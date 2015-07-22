@@ -68,10 +68,10 @@ data CreateReusableDelegationSet = CreateReusableDelegationSet'
 
 -- | 'CreateReusableDelegationSet' smart constructor.
 createReusableDelegationSet :: Text -> CreateReusableDelegationSet
-createReusableDelegationSet pCallerReference =
+createReusableDelegationSet pCallerReference_ =
     CreateReusableDelegationSet'
     { _crdsrqHostedZoneId = Nothing
-    , _crdsrqCallerReference = pCallerReference
+    , _crdsrqCallerReference = pCallerReference_
     }
 
 -- | The ID of the hosted zone whose delegation set you want to mark as
@@ -141,11 +141,11 @@ data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
 
 -- | 'CreateReusableDelegationSetResponse' smart constructor.
 createReusableDelegationSetResponse :: Int -> DelegationSet -> Text -> CreateReusableDelegationSetResponse
-createReusableDelegationSetResponse pStatus pDelegationSet pLocation =
+createReusableDelegationSetResponse pStatus_ pDelegationSet_ pLocation_ =
     CreateReusableDelegationSetResponse'
-    { _crdsrsStatus = pStatus
-    , _crdsrsDelegationSet = pDelegationSet
-    , _crdsrsLocation = pLocation
+    { _crdsrsStatus = pStatus_
+    , _crdsrsDelegationSet = pDelegationSet_
+    , _crdsrsLocation = pLocation_
     }
 
 -- | FIXME: Undocumented member.

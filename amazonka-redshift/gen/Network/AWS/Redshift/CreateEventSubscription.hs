@@ -107,7 +107,7 @@ data CreateEventSubscription = CreateEventSubscription'
 
 -- | 'CreateEventSubscription' smart constructor.
 createEventSubscription :: Text -> Text -> CreateEventSubscription
-createEventSubscription pSubscriptionName pSNSTopicARN =
+createEventSubscription pSubscriptionName_ pSNSTopicARN_ =
     CreateEventSubscription'
     { _cesrqEnabled = Nothing
     , _cesrqSourceType = Nothing
@@ -115,8 +115,8 @@ createEventSubscription pSubscriptionName pSNSTopicARN =
     , _cesrqEventCategories = Nothing
     , _cesrqSourceIds = Nothing
     , _cesrqTags = Nothing
-    , _cesrqSubscriptionName = pSubscriptionName
-    , _cesrqSNSTopicARN = pSNSTopicARN
+    , _cesrqSubscriptionName = pSubscriptionName_
+    , _cesrqSNSTopicARN = pSNSTopicARN_
     }
 
 -- | A Boolean value; set to @true@ to activate the subscription, set to
@@ -232,10 +232,10 @@ data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
 
 -- | 'CreateEventSubscriptionResponse' smart constructor.
 createEventSubscriptionResponse :: Int -> CreateEventSubscriptionResponse
-createEventSubscriptionResponse pStatus =
+createEventSubscriptionResponse pStatus_ =
     CreateEventSubscriptionResponse'
     { _cesrsEventSubscription = Nothing
-    , _cesrsStatus = pStatus
+    , _cesrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -125,9 +125,9 @@ data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttribut
 
 -- | 'GetIdentityNotificationAttributesResponse' smart constructor.
 getIdentityNotificationAttributesResponse :: Int -> GetIdentityNotificationAttributesResponse
-getIdentityNotificationAttributesResponse pStatus =
+getIdentityNotificationAttributesResponse pStatus_ =
     GetIdentityNotificationAttributesResponse'
-    { _ginarsStatus = pStatus
+    { _ginarsStatus = pStatus_
     , _ginarsNotificationAttributes = mempty
     }
 

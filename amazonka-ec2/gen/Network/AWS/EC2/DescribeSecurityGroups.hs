@@ -193,10 +193,10 @@ data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
 describeSecurityGroupsResponse :: Int -> DescribeSecurityGroupsResponse
-describeSecurityGroupsResponse pStatus =
+describeSecurityGroupsResponse pStatus_ =
     DescribeSecurityGroupsResponse'
     { _dsgrsSecurityGroups = Nothing
-    , _dsgrsStatus = pStatus
+    , _dsgrsStatus = pStatus_
     }
 
 -- | Information about one or more security groups.

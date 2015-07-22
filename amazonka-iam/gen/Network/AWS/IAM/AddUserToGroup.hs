@@ -55,10 +55,10 @@ data AddUserToGroup = AddUserToGroup'
 
 -- | 'AddUserToGroup' smart constructor.
 addUserToGroup :: Text -> Text -> AddUserToGroup
-addUserToGroup pGroupName pUserName =
+addUserToGroup pGroupName_ pUserName_ =
     AddUserToGroup'
-    { _autgrqGroupName = pGroupName
-    , _autgrqUserName = pUserName
+    { _autgrqGroupName = pGroupName_
+    , _autgrqUserName = pUserName_
     }
 
 -- | The name of the group to update.

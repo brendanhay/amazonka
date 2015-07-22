@@ -69,10 +69,10 @@ data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
 
 -- | 'DescribeServiceAccessPolicies' smart constructor.
 describeServiceAccessPolicies :: Text -> DescribeServiceAccessPolicies
-describeServiceAccessPolicies pDomainName =
+describeServiceAccessPolicies pDomainName_ =
     DescribeServiceAccessPolicies'
     { _dsaprqDeployed = Nothing
-    , _dsaprqDomainName = pDomainName
+    , _dsaprqDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
@@ -129,10 +129,10 @@ data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesRespon
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
 describeServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> DescribeServiceAccessPoliciesResponse
-describeServiceAccessPoliciesResponse pStatus pAccessPolicies =
+describeServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
     DescribeServiceAccessPoliciesResponse'
-    { _dsaprsStatus = pStatus
-    , _dsaprsAccessPolicies = pAccessPolicies
+    { _dsaprsStatus = pStatus_
+    , _dsaprsAccessPolicies = pAccessPolicies_
     }
 
 -- | FIXME: Undocumented member.

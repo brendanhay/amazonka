@@ -57,9 +57,9 @@ newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
 
 -- | 'DeregisterRDSDBInstance' smart constructor.
 deregisterRDSDBInstance :: Text -> DeregisterRDSDBInstance
-deregisterRDSDBInstance pRDSDBInstanceARN =
+deregisterRDSDBInstance pRDSDBInstanceARN_ =
     DeregisterRDSDBInstance'
-    { _drdirqRDSDBInstanceARN = pRDSDBInstanceARN
+    { _drdirqRDSDBInstanceARN = pRDSDBInstanceARN_
     }
 
 -- | The Amazon RDS instance\'s ARN.

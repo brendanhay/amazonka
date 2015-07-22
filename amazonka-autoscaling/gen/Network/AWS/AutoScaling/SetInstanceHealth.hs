@@ -63,11 +63,11 @@ data SetInstanceHealth = SetInstanceHealth'
 
 -- | 'SetInstanceHealth' smart constructor.
 setInstanceHealth :: Text -> Text -> SetInstanceHealth
-setInstanceHealth pInstanceId pHealthStatus =
+setInstanceHealth pInstanceId_ pHealthStatus_ =
     SetInstanceHealth'
     { _sihrqShouldRespectGracePeriod = Nothing
-    , _sihrqInstanceId = pInstanceId
-    , _sihrqHealthStatus = pHealthStatus
+    , _sihrqInstanceId = pInstanceId_
+    , _sihrqHealthStatus = pHealthStatus_
     }
 
 -- | If the Auto Scaling group of the specified instance has a

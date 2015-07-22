@@ -62,9 +62,9 @@ newtype GetTemplate = GetTemplate'
 
 -- | 'GetTemplate' smart constructor.
 getTemplate :: Text -> GetTemplate
-getTemplate pStackName =
+getTemplate pStackName_ =
     GetTemplate'
-    { _gtrqStackName = pStackName
+    { _gtrqStackName = pStackName_
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -117,10 +117,10 @@ data GetTemplateResponse = GetTemplateResponse'
 
 -- | 'GetTemplateResponse' smart constructor.
 getTemplateResponse :: Int -> GetTemplateResponse
-getTemplateResponse pStatus =
+getTemplateResponse pStatus_ =
     GetTemplateResponse'
     { _gtrsTemplateBody = Nothing
-    , _gtrsStatus = pStatus
+    , _gtrsStatus = pStatus_
     }
 
 -- | Structure containing the template body. (For more information, go to

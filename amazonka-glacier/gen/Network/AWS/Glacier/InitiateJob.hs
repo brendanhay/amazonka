@@ -192,11 +192,11 @@ data InitiateJob = InitiateJob'
 
 -- | 'InitiateJob' smart constructor.
 initiateJob :: Text -> Text -> InitiateJob
-initiateJob pAccountId pVaultName =
+initiateJob pAccountId_ pVaultName_ =
     InitiateJob'
     { _ijrqJobParameters = Nothing
-    , _ijrqAccountId = pAccountId
-    , _ijrqVaultName = pVaultName
+    , _ijrqAccountId = pAccountId_
+    , _ijrqVaultName = pVaultName_
     }
 
 -- | Provides options for specifying job information.
@@ -261,11 +261,11 @@ data InitiateJobResponse = InitiateJobResponse'
 
 -- | 'InitiateJobResponse' smart constructor.
 initiateJobResponse :: Int -> InitiateJobResponse
-initiateJobResponse pStatus =
+initiateJobResponse pStatus_ =
     InitiateJobResponse'
     { _ijrsJobId = Nothing
     , _ijrsLocation = Nothing
-    , _ijrsStatus = pStatus
+    , _ijrsStatus = pStatus_
     }
 
 -- | The ID of the job.

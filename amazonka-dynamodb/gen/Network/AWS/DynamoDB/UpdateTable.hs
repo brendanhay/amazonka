@@ -91,13 +91,13 @@ data UpdateTable = UpdateTable'
 
 -- | 'UpdateTable' smart constructor.
 updateTable :: Text -> UpdateTable
-updateTable pTableName =
+updateTable pTableName_ =
     UpdateTable'
     { _utrqProvisionedThroughput = Nothing
     , _utrqAttributeDefinitions = Nothing
     , _utrqGlobalSecondaryIndexUpdates = Nothing
     , _utrqStreamSpecification = Nothing
-    , _utrqTableName = pTableName
+    , _utrqTableName = pTableName_
     }
 
 -- | FIXME: Undocumented member.
@@ -190,10 +190,10 @@ data UpdateTableResponse = UpdateTableResponse'
 
 -- | 'UpdateTableResponse' smart constructor.
 updateTableResponse :: Int -> UpdateTableResponse
-updateTableResponse pStatus =
+updateTableResponse pStatus_ =
     UpdateTableResponse'
     { _utrsTableDescription = Nothing
-    , _utrsStatus = pStatus
+    , _utrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

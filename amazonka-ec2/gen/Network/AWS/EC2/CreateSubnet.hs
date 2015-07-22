@@ -92,12 +92,12 @@ data CreateSubnet = CreateSubnet'
 
 -- | 'CreateSubnet' smart constructor.
 createSubnet :: Text -> Text -> CreateSubnet
-createSubnet pVPCId pCIdRBlock =
+createSubnet pVPCId_ pCIdRBlock_ =
     CreateSubnet'
     { _crerqAvailabilityZone = Nothing
     , _crerqDryRun = Nothing
-    , _crerqVPCId = pVPCId
-    , _crerqCIdRBlock = pCIdRBlock
+    , _crerqVPCId = pVPCId_
+    , _crerqCIdRBlock = pCIdRBlock_
     }
 
 -- | The Availability Zone for the subnet.
@@ -161,10 +161,10 @@ data CreateSubnetResponse = CreateSubnetResponse'
 
 -- | 'CreateSubnetResponse' smart constructor.
 createSubnetResponse :: Int -> CreateSubnetResponse
-createSubnetResponse pStatus =
+createSubnetResponse pStatus_ =
     CreateSubnetResponse'
     { _crsSubnet = Nothing
-    , _crsStatus = pStatus
+    , _crsStatus = pStatus_
     }
 
 -- | Information about the subnet.

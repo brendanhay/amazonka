@@ -64,9 +64,9 @@ newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
 
 -- | 'DeleteSnapshotSchedule' smart constructor.
 deleteSnapshotSchedule :: Text -> DeleteSnapshotSchedule
-deleteSnapshotSchedule pVolumeARN =
+deleteSnapshotSchedule pVolumeARN_ =
     DeleteSnapshotSchedule'
-    { _drqVolumeARN = pVolumeARN
+    { _drqVolumeARN = pVolumeARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -118,10 +118,10 @@ data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
 
 -- | 'DeleteSnapshotScheduleResponse' smart constructor.
 deleteSnapshotScheduleResponse :: Int -> DeleteSnapshotScheduleResponse
-deleteSnapshotScheduleResponse pStatus =
+deleteSnapshotScheduleResponse pStatus_ =
     DeleteSnapshotScheduleResponse'
     { _dsssrsVolumeARN = Nothing
-    , _dsssrsStatus = pStatus
+    , _dsssrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -60,9 +60,9 @@ newtype DeregisterInstance = DeregisterInstance'
 
 -- | 'DeregisterInstance' smart constructor.
 deregisterInstance :: Text -> DeregisterInstance
-deregisterInstance pInstanceId =
+deregisterInstance pInstanceId_ =
     DeregisterInstance'
-    { _drqInstanceId = pInstanceId
+    { _drqInstanceId = pInstanceId_
     }
 
 -- | The instance ID.

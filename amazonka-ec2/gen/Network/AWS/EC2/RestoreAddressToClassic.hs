@@ -61,10 +61,10 @@ data RestoreAddressToClassic = RestoreAddressToClassic'
 
 -- | 'RestoreAddressToClassic' smart constructor.
 restoreAddressToClassic :: Text -> RestoreAddressToClassic
-restoreAddressToClassic pPublicIP =
+restoreAddressToClassic pPublicIP_ =
     RestoreAddressToClassic'
     { _ratcrqDryRun = Nothing
-    , _ratcrqPublicIP = pPublicIP
+    , _ratcrqPublicIP = pPublicIP_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -118,10 +118,10 @@ data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
 restoreAddressToClassicResponse :: Int -> RestoreAddressToClassicResponse
-restoreAddressToClassicResponse pStatus =
+restoreAddressToClassicResponse pStatus_ =
     RestoreAddressToClassicResponse'
     { _ratcrsPublicIP = Nothing
-    , _ratcrsStatus = pStatus
+    , _ratcrsStatus = pStatus_
     }
 
 -- | The Elastic IP address.

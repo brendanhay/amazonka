@@ -84,14 +84,14 @@ data DescribeLogStreams = DescribeLogStreams'
 
 -- | 'DescribeLogStreams' smart constructor.
 describeLogStreams :: Text -> DescribeLogStreams
-describeLogStreams pLogGroupName =
+describeLogStreams pLogGroupName_ =
     DescribeLogStreams'
     { _dlssrqOrderBy = Nothing
     , _dlssrqDescending = Nothing
     , _dlssrqNextToken = Nothing
     , _dlssrqLogStreamNamePrefix = Nothing
     , _dlssrqLimit = Nothing
-    , _dlssrqLogGroupName = pLogGroupName
+    , _dlssrqLogGroupName = pLogGroupName_
     }
 
 -- | Specifies what to order the returned log streams by. Valid arguments are
@@ -183,11 +183,11 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
 describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse
-describeLogStreamsResponse pStatus =
+describeLogStreamsResponse pStatus_ =
     DescribeLogStreamsResponse'
     { _dlsrsNextToken = Nothing
     , _dlsrsLogStreams = Nothing
-    , _dlsrsStatus = pStatus
+    , _dlsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

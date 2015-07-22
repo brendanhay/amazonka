@@ -104,14 +104,14 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
 
 -- | 'TerminateWorkflowExecution' smart constructor.
 terminateWorkflowExecution :: Text -> Text -> TerminateWorkflowExecution
-terminateWorkflowExecution pDomain pWorkflowId =
+terminateWorkflowExecution pDomain_ pWorkflowId_ =
     TerminateWorkflowExecution'
     { _twerqRunId = Nothing
     , _twerqReason = Nothing
     , _twerqDetails = Nothing
     , _twerqChildPolicy = Nothing
-    , _twerqDomain = pDomain
-    , _twerqWorkflowId = pWorkflowId
+    , _twerqDomain = pDomain_
+    , _twerqWorkflowId = pWorkflowId_
     }
 
 -- | The runId of the workflow execution to terminate.

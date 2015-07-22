@@ -102,11 +102,11 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
 listAvailableSolutionStacksResponse :: Int -> ListAvailableSolutionStacksResponse
-listAvailableSolutionStacksResponse pStatus =
+listAvailableSolutionStacksResponse pStatus_ =
     ListAvailableSolutionStacksResponse'
     { _lassrsSolutionStacks = Nothing
     , _lassrsSolutionStackDetails = Nothing
-    , _lassrsStatus = pStatus
+    , _lassrsStatus = pStatus_
     }
 
 -- | A list of available solution stacks.

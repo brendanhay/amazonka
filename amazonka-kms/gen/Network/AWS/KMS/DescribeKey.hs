@@ -54,9 +54,9 @@ newtype DescribeKey = DescribeKey'
 
 -- | 'DescribeKey' smart constructor.
 describeKey :: Text -> DescribeKey
-describeKey pKeyId =
+describeKey pKeyId_ =
     DescribeKey'
-    { _drqKeyId = pKeyId
+    { _drqKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -116,10 +116,10 @@ data DescribeKeyResponse = DescribeKeyResponse'
 
 -- | 'DescribeKeyResponse' smart constructor.
 describeKeyResponse :: Int -> DescribeKeyResponse
-describeKeyResponse pStatus =
+describeKeyResponse pStatus_ =
     DescribeKeyResponse'
     { _dkrsKeyMetadata = Nothing
-    , _dkrsStatus = pStatus
+    , _dkrsStatus = pStatus_
     }
 
 -- | Metadata associated with the key.

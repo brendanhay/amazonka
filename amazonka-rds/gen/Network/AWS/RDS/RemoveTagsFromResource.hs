@@ -60,9 +60,9 @@ data RemoveTagsFromResource = RemoveTagsFromResource'
 
 -- | 'RemoveTagsFromResource' smart constructor.
 removeTagsFromResource :: Text -> RemoveTagsFromResource
-removeTagsFromResource pResourceName =
+removeTagsFromResource pResourceName_ =
     RemoveTagsFromResource'
-    { _rtfrrqResourceName = pResourceName
+    { _rtfrrqResourceName = pResourceName_
     , _rtfrrqTagKeys = mempty
     }
 

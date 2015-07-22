@@ -162,10 +162,10 @@ data StopInstancesResponse = StopInstancesResponse'
 
 -- | 'StopInstancesResponse' smart constructor.
 stopInstancesResponse :: Int -> StopInstancesResponse
-stopInstancesResponse pStatus =
+stopInstancesResponse pStatus_ =
     StopInstancesResponse'
     { _sirsStoppingInstances = Nothing
-    , _sirsStatus = pStatus
+    , _sirsStatus = pStatus_
     }
 
 -- | Information about one or more stopped instances.

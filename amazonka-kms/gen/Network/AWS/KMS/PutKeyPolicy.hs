@@ -59,11 +59,11 @@ data PutKeyPolicy = PutKeyPolicy'
 
 -- | 'PutKeyPolicy' smart constructor.
 putKeyPolicy :: Text -> Text -> Text -> PutKeyPolicy
-putKeyPolicy pKeyId pPolicyName pPolicy =
+putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
     PutKeyPolicy'
-    { _pkprqKeyId = pKeyId
-    , _pkprqPolicyName = pPolicyName
-    , _pkprqPolicy = pPolicy
+    { _pkprqKeyId = pKeyId_
+    , _pkprqPolicyName = pPolicyName_
+    , _pkprqPolicy = pPolicy_
     }
 
 -- | A unique identifier for the customer master key. This value can be a

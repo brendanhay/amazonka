@@ -69,11 +69,11 @@ data EnableLogging = EnableLogging'
 
 -- | 'EnableLogging' smart constructor.
 enableLogging :: Text -> Text -> EnableLogging
-enableLogging pClusterIdentifier pBucketName =
+enableLogging pClusterIdentifier_ pBucketName_ =
     EnableLogging'
     { _elrqS3KeyPrefix = Nothing
-    , _elrqClusterIdentifier = pClusterIdentifier
-    , _elrqBucketName = pBucketName
+    , _elrqClusterIdentifier = pClusterIdentifier_
+    , _elrqBucketName = pBucketName_
     }
 
 -- | The prefix applied to the log file names.

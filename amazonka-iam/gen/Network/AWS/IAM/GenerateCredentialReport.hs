@@ -99,11 +99,11 @@ data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
 
 -- | 'GenerateCredentialReportResponse' smart constructor.
 generateCredentialReportResponse :: Int -> GenerateCredentialReportResponse
-generateCredentialReportResponse pStatus =
+generateCredentialReportResponse pStatus_ =
     GenerateCredentialReportResponse'
     { _gcrrsState = Nothing
     , _gcrrsDescription = Nothing
-    , _gcrrsStatus = pStatus
+    , _gcrrsStatus = pStatus_
     }
 
 -- | Information about the state of the credential report.

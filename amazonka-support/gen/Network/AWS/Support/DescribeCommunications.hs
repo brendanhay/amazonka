@@ -84,13 +84,13 @@ data DescribeCommunications = DescribeCommunications'
 
 -- | 'DescribeCommunications' smart constructor.
 describeCommunications :: Text -> DescribeCommunications
-describeCommunications pCaseId =
+describeCommunications pCaseId_ =
     DescribeCommunications'
     { _drqAfterTime = Nothing
     , _drqNextToken = Nothing
     , _drqBeforeTime = Nothing
     , _drqMaxResults = Nothing
-    , _drqCaseId = pCaseId
+    , _drqCaseId = pCaseId_
     }
 
 -- | The start date for a filtered date search on support case
@@ -182,11 +182,11 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
 describeCommunicationsResponse :: Int -> DescribeCommunicationsResponse
-describeCommunicationsResponse pStatus =
+describeCommunicationsResponse pStatus_ =
     DescribeCommunicationsResponse'
     { _dcrsNextToken = Nothing
     , _dcrsCommunications = Nothing
-    , _dcrsStatus = pStatus
+    , _dcrsStatus = pStatus_
     }
 
 -- | A resumption point for pagination.

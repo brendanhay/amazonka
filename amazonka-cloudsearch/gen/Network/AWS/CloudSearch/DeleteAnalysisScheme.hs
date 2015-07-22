@@ -64,10 +64,10 @@ data DeleteAnalysisScheme = DeleteAnalysisScheme'
 
 -- | 'DeleteAnalysisScheme' smart constructor.
 deleteAnalysisScheme :: Text -> Text -> DeleteAnalysisScheme
-deleteAnalysisScheme pDomainName pAnalysisSchemeName =
+deleteAnalysisScheme pDomainName_ pAnalysisSchemeName_ =
     DeleteAnalysisScheme'
-    { _dasrqDomainName = pDomainName
-    , _dasrqAnalysisSchemeName = pAnalysisSchemeName
+    { _dasrqDomainName = pDomainName_
+    , _dasrqAnalysisSchemeName = pAnalysisSchemeName_
     }
 
 -- | FIXME: Undocumented member.
@@ -120,10 +120,10 @@ data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
 deleteAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DeleteAnalysisSchemeResponse
-deleteAnalysisSchemeResponse pStatus pAnalysisScheme =
+deleteAnalysisSchemeResponse pStatus_ pAnalysisScheme_ =
     DeleteAnalysisSchemeResponse'
-    { _dassrsStatus = pStatus
-    , _dassrsAnalysisScheme = pAnalysisScheme
+    { _dassrsStatus = pStatus_
+    , _dassrsAnalysisScheme = pAnalysisScheme_
     }
 
 -- | FIXME: Undocumented member.

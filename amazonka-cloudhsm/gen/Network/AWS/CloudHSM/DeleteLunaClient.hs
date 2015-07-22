@@ -53,9 +53,9 @@ newtype DeleteLunaClient = DeleteLunaClient'
 
 -- | 'DeleteLunaClient' smart constructor.
 deleteLunaClient :: Text -> DeleteLunaClient
-deleteLunaClient pClientARN =
+deleteLunaClient pClientARN_ =
     DeleteLunaClient'
-    { _drqClientARN = pClientARN
+    { _drqClientARN = pClientARN_
     }
 
 -- | The ARN of the client to delete.
@@ -102,9 +102,9 @@ newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
 
 -- | 'DeleteLunaClientResponse' smart constructor.
 deleteLunaClientResponse :: Int -> DeleteLunaClientResponse
-deleteLunaClientResponse pStatus =
+deleteLunaClientResponse pStatus_ =
     DeleteLunaClientResponse'
-    { _dlcrsStatus = pStatus
+    { _dlcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

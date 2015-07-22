@@ -83,12 +83,12 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
 
 -- | 'UpdateSnapshotSchedule' smart constructor.
 updateSnapshotSchedule :: Text -> Natural -> Natural -> UpdateSnapshotSchedule
-updateSnapshotSchedule pVolumeARN pStartAt pRecurrenceInHours =
+updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
     UpdateSnapshotSchedule'
     { _ussrqDescription = Nothing
-    , _ussrqVolumeARN = pVolumeARN
-    , _ussrqStartAt = _Nat # pStartAt
-    , _ussrqRecurrenceInHours = _Nat # pRecurrenceInHours
+    , _ussrqVolumeARN = pVolumeARN_
+    , _ussrqStartAt = _Nat # pStartAt_
+    , _ussrqRecurrenceInHours = _Nat # pRecurrenceInHours_
     }
 
 -- | Optional description of the snapshot that overwrites the existing
@@ -162,10 +162,10 @@ data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
 
 -- | 'UpdateSnapshotScheduleResponse' smart constructor.
 updateSnapshotScheduleResponse :: Int -> UpdateSnapshotScheduleResponse
-updateSnapshotScheduleResponse pStatus =
+updateSnapshotScheduleResponse pStatus_ =
     UpdateSnapshotScheduleResponse'
     { _ussrsVolumeARN = Nothing
-    , _ussrsStatus = pStatus
+    , _ussrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

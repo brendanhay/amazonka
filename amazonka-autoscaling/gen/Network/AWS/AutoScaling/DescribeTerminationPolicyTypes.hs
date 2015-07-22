@@ -94,10 +94,10 @@ data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResp
 
 -- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
 describeTerminationPolicyTypesResponse :: Int -> DescribeTerminationPolicyTypesResponse
-describeTerminationPolicyTypesResponse pStatus =
+describeTerminationPolicyTypesResponse pStatus_ =
     DescribeTerminationPolicyTypesResponse'
     { _dtptrsTerminationPolicyTypes = Nothing
-    , _dtptrsStatus = pStatus
+    , _dtptrsStatus = pStatus_
     }
 
 -- | The termination policies supported by Auto Scaling (@OldestInstance@,

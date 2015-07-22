@@ -56,9 +56,9 @@ newtype GetDeploymentConfig = GetDeploymentConfig'
 
 -- | 'GetDeploymentConfig' smart constructor.
 getDeploymentConfig :: Text -> GetDeploymentConfig
-getDeploymentConfig pDeploymentConfigName =
+getDeploymentConfig pDeploymentConfigName_ =
     GetDeploymentConfig'
-    { _gdcrqDeploymentConfigName = pDeploymentConfigName
+    { _gdcrqDeploymentConfigName = pDeploymentConfigName_
     }
 
 -- | The name of an existing deployment configuration associated with the
@@ -116,10 +116,10 @@ data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
 
 -- | 'GetDeploymentConfigResponse' smart constructor.
 getDeploymentConfigResponse :: Int -> GetDeploymentConfigResponse
-getDeploymentConfigResponse pStatus =
+getDeploymentConfigResponse pStatus_ =
     GetDeploymentConfigResponse'
     { _gdcrsDeploymentConfigInfo = Nothing
-    , _gdcrsStatus = pStatus
+    , _gdcrsStatus = pStatus_
     }
 
 -- | Information about the deployment configuration.

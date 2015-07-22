@@ -68,11 +68,11 @@ data ResetInstanceAttribute = ResetInstanceAttribute'
 
 -- | 'ResetInstanceAttribute' smart constructor.
 resetInstanceAttribute :: Text -> InstanceAttributeName -> ResetInstanceAttribute
-resetInstanceAttribute pInstanceId pAttribute =
+resetInstanceAttribute pInstanceId_ pAttribute_ =
     ResetInstanceAttribute'
     { _riarqDryRun = Nothing
-    , _riarqInstanceId = pInstanceId
-    , _riarqAttribute = pAttribute
+    , _riarqInstanceId = pInstanceId_
+    , _riarqAttribute = pAttribute_
     }
 
 -- | Checks whether you have the required permissions for the action, without

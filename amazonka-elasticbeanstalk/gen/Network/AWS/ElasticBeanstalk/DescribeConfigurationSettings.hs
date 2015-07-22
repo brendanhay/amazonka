@@ -77,11 +77,11 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings'
 
 -- | 'DescribeConfigurationSettings' smart constructor.
 describeConfigurationSettings :: Text -> DescribeConfigurationSettings
-describeConfigurationSettings pApplicationName =
+describeConfigurationSettings pApplicationName_ =
     DescribeConfigurationSettings'
     { _dcsrqTemplateName = Nothing
     , _dcsrqEnvironmentName = Nothing
-    , _dcsrqApplicationName = pApplicationName
+    , _dcsrqApplicationName = pApplicationName_
     }
 
 -- | The name of the configuration template to describe.
@@ -157,10 +157,10 @@ data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsRespon
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
 describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse
-describeConfigurationSettingsResponse pStatus =
+describeConfigurationSettingsResponse pStatus_ =
     DescribeConfigurationSettingsResponse'
     { _dcsrsConfigurationSettings = Nothing
-    , _dcsrsStatus = pStatus
+    , _dcsrsStatus = pStatus_
     }
 
 -- | A list of ConfigurationSettingsDescription.

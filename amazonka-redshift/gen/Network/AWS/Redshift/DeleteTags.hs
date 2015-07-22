@@ -58,9 +58,9 @@ data DeleteTags = DeleteTags'
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
-deleteTags pResourceName =
+deleteTags pResourceName_ =
     DeleteTags'
-    { _drqResourceName = pResourceName
+    { _drqResourceName = pResourceName_
     , _drqTagKeys = mempty
     }
 

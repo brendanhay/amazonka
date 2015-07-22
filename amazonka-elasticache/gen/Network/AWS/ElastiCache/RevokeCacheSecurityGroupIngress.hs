@@ -66,11 +66,11 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
 
 -- | 'RevokeCacheSecurityGroupIngress' smart constructor.
 revokeCacheSecurityGroupIngress :: Text -> Text -> Text -> RevokeCacheSecurityGroupIngress
-revokeCacheSecurityGroupIngress pCacheSecurityGroupName pEC2SecurityGroupName pEC2SecurityGroupOwnerId =
+revokeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
     RevokeCacheSecurityGroupIngress'
-    { _rcsgirqCacheSecurityGroupName = pCacheSecurityGroupName
-    , _rcsgirqEC2SecurityGroupName = pEC2SecurityGroupName
-    , _rcsgirqEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId
+    { _rcsgirqCacheSecurityGroupName = pCacheSecurityGroupName_
+    , _rcsgirqEC2SecurityGroupName = pEC2SecurityGroupName_
+    , _rcsgirqEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
     }
 
 -- | The name of the cache security group to revoke ingress from.
@@ -135,10 +135,10 @@ data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressRe
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' smart constructor.
 revokeCacheSecurityGroupIngressResponse :: Int -> RevokeCacheSecurityGroupIngressResponse
-revokeCacheSecurityGroupIngressResponse pStatus =
+revokeCacheSecurityGroupIngressResponse pStatus_ =
     RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirsCacheSecurityGroup = Nothing
-    , _rcsgirsStatus = pStatus
+    , _rcsgirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

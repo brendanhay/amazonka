@@ -69,11 +69,11 @@ data ListPolicyVersions = ListPolicyVersions'
 
 -- | 'ListPolicyVersions' smart constructor.
 listPolicyVersions :: Text -> ListPolicyVersions
-listPolicyVersions pPolicyARN =
+listPolicyVersions pPolicyARN_ =
     ListPolicyVersions'
     { _lpvrqMaxItems = Nothing
     , _lpvrqMarker = Nothing
-    , _lpvrqPolicyARN = pPolicyARN
+    , _lpvrqPolicyARN = pPolicyARN_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -147,12 +147,12 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
 
 -- | 'ListPolicyVersionsResponse' smart constructor.
 listPolicyVersionsResponse :: Int -> ListPolicyVersionsResponse
-listPolicyVersionsResponse pStatus =
+listPolicyVersionsResponse pStatus_ =
     ListPolicyVersionsResponse'
     { _lpvrsVersions = Nothing
     , _lpvrsMarker = Nothing
     , _lpvrsIsTruncated = Nothing
-    , _lpvrsStatus = pStatus
+    , _lpvrsStatus = pStatus_
     }
 
 -- | A list of policy versions.

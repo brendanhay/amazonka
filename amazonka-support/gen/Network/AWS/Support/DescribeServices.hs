@@ -137,10 +137,10 @@ data DescribeServicesResponse = DescribeServicesResponse'
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse
-describeServicesResponse pStatus =
+describeServicesResponse pStatus_ =
     DescribeServicesResponse'
     { _dsrsServices = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | A JSON-formatted list of AWS services.

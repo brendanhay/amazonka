@@ -69,12 +69,12 @@ data RegisterRDSDBInstance = RegisterRDSDBInstance'
 
 -- | 'RegisterRDSDBInstance' smart constructor.
 registerRDSDBInstance :: Text -> Text -> Text -> Text -> RegisterRDSDBInstance
-registerRDSDBInstance pStackId pRDSDBInstanceARN pDBUser pDBPassword =
+registerRDSDBInstance pStackId_ pRDSDBInstanceARN_ pDBUser_ pDBPassword_ =
     RegisterRDSDBInstance'
-    { _rrdirqStackId = pStackId
-    , _rrdirqRDSDBInstanceARN = pRDSDBInstanceARN
-    , _rrdirqDBUser = pDBUser
-    , _rrdirqDBPassword = pDBPassword
+    { _rrdirqStackId = pStackId_
+    , _rrdirqRDSDBInstanceARN = pRDSDBInstanceARN_
+    , _rrdirqDBUser = pDBUser_
+    , _rrdirqDBPassword = pDBPassword_
     }
 
 -- | The stack ID.

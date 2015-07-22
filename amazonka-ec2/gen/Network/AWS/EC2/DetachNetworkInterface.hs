@@ -59,11 +59,11 @@ data DetachNetworkInterface = DetachNetworkInterface'
 
 -- | 'DetachNetworkInterface' smart constructor.
 detachNetworkInterface :: Text -> DetachNetworkInterface
-detachNetworkInterface pAttachmentId =
+detachNetworkInterface pAttachmentId_ =
     DetachNetworkInterface'
     { _dnirqForce = Nothing
     , _dnirqDryRun = Nothing
-    , _dnirqAttachmentId = pAttachmentId
+    , _dnirqAttachmentId = pAttachmentId_
     }
 
 -- | Specifies whether to force a detachment.

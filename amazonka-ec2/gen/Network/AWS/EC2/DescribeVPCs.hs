@@ -155,10 +155,10 @@ data DescribeVPCsResponse = DescribeVPCsResponse'
 
 -- | 'DescribeVPCsResponse' smart constructor.
 describeVPCsResponse :: Int -> DescribeVPCsResponse
-describeVPCsResponse pStatus =
+describeVPCsResponse pStatus_ =
     DescribeVPCsResponse'
     { _dvrsVPCs = Nothing
-    , _dvrsStatus = pStatus
+    , _dvrsStatus = pStatus_
     }
 
 -- | Information about one or more VPCs.

@@ -64,9 +64,9 @@ newtype DescribeTable = DescribeTable'
 
 -- | 'DescribeTable' smart constructor.
 describeTable :: Text -> DescribeTable
-describeTable pTableName =
+describeTable pTableName_ =
     DescribeTable'
-    { _drqTableName = pTableName
+    { _drqTableName = pTableName_
     }
 
 -- | The name of the table to describe.
@@ -118,10 +118,10 @@ data DescribeTableResponse = DescribeTableResponse'
 
 -- | 'DescribeTableResponse' smart constructor.
 describeTableResponse :: Int -> DescribeTableResponse
-describeTableResponse pStatus =
+describeTableResponse pStatus_ =
     DescribeTableResponse'
     { _drsTable = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

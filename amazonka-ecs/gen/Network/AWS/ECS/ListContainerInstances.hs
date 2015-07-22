@@ -157,11 +157,11 @@ data ListContainerInstancesResponse = ListContainerInstancesResponse'
 
 -- | 'ListContainerInstancesResponse' smart constructor.
 listContainerInstancesResponse :: Int -> ListContainerInstancesResponse
-listContainerInstancesResponse pStatus =
+listContainerInstancesResponse pStatus_ =
     ListContainerInstancesResponse'
     { _lcirsContainerInstanceARNs = Nothing
     , _lcirsNextToken = Nothing
-    , _lcirsStatus = pStatus
+    , _lcirsStatus = pStatus_
     }
 
 -- | The list of container instance full Amazon Resource Name (ARN) entries

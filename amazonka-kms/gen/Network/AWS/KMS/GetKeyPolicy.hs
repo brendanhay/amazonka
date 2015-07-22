@@ -58,10 +58,10 @@ data GetKeyPolicy = GetKeyPolicy'
 
 -- | 'GetKeyPolicy' smart constructor.
 getKeyPolicy :: Text -> Text -> GetKeyPolicy
-getKeyPolicy pKeyId pPolicyName =
+getKeyPolicy pKeyId_ pPolicyName_ =
     GetKeyPolicy'
-    { _gkprqKeyId = pKeyId
-    , _gkprqPolicyName = pPolicyName
+    { _gkprqKeyId = pKeyId_
+    , _gkprqPolicyName = pPolicyName_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -124,10 +124,10 @@ data GetKeyPolicyResponse = GetKeyPolicyResponse'
 
 -- | 'GetKeyPolicyResponse' smart constructor.
 getKeyPolicyResponse :: Int -> GetKeyPolicyResponse
-getKeyPolicyResponse pStatus =
+getKeyPolicyResponse pStatus_ =
     GetKeyPolicyResponse'
     { _gkprsPolicy = Nothing
-    , _gkprsStatus = pStatus
+    , _gkprsStatus = pStatus_
     }
 
 -- | A policy document in JSON format.

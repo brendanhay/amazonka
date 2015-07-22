@@ -127,11 +127,11 @@ data ListProjectsResponse = ListProjectsResponse'
 
 -- | 'ListProjectsResponse' smart constructor.
 listProjectsResponse :: Int -> ListProjectsResponse
-listProjectsResponse pStatus =
+listProjectsResponse pStatus_ =
     ListProjectsResponse'
     { _lprsNextToken = Nothing
     , _lprsProjects = Nothing
-    , _lprsStatus = pStatus
+    , _lprsStatus = pStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is

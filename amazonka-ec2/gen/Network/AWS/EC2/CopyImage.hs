@@ -81,14 +81,14 @@ data CopyImage = CopyImage'
 
 -- | 'CopyImage' smart constructor.
 copyImage :: Text -> Text -> Text -> CopyImage
-copyImage pSourceRegion pSourceImageId pName =
+copyImage pSourceRegion_ pSourceImageId_ pName_ =
     CopyImage'
     { _cirqClientToken = Nothing
     , _cirqDryRun = Nothing
     , _cirqDescription = Nothing
-    , _cirqSourceRegion = pSourceRegion
-    , _cirqSourceImageId = pSourceImageId
-    , _cirqName = pName
+    , _cirqSourceRegion = pSourceRegion_
+    , _cirqSourceImageId = pSourceImageId_
+    , _cirqName = pName_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
@@ -163,10 +163,10 @@ data CopyImageResponse = CopyImageResponse'
 
 -- | 'CopyImageResponse' smart constructor.
 copyImageResponse :: Int -> CopyImageResponse
-copyImageResponse pStatus =
+copyImageResponse pStatus_ =
     CopyImageResponse'
     { _coprsImageId = Nothing
-    , _coprsStatus = pStatus
+    , _coprsStatus = pStatus_
     }
 
 -- | The ID of the new AMI.

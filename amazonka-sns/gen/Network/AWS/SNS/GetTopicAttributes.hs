@@ -57,9 +57,9 @@ newtype GetTopicAttributes = GetTopicAttributes'
 
 -- | 'GetTopicAttributes' smart constructor.
 getTopicAttributes :: Text -> GetTopicAttributes
-getTopicAttributes pTopicARN =
+getTopicAttributes pTopicARN_ =
     GetTopicAttributes'
-    { _gtarqTopicARN = pTopicARN
+    { _gtarqTopicARN = pTopicARN_
     }
 
 -- | The ARN of the topic whose properties you want to get.
@@ -108,10 +108,10 @@ data GetTopicAttributesResponse = GetTopicAttributesResponse'
 
 -- | 'GetTopicAttributesResponse' smart constructor.
 getTopicAttributesResponse :: Int -> GetTopicAttributesResponse
-getTopicAttributesResponse pStatus =
+getTopicAttributesResponse pStatus_ =
     GetTopicAttributesResponse'
     { _gtarsAttributes = Nothing
-    , _gtarsStatus = pStatus
+    , _gtarsStatus = pStatus_
     }
 
 -- | A map of the topic\'s attributes. Attributes in this map include the

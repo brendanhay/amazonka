@@ -158,11 +158,11 @@ data ListRolesResponse = ListRolesResponse'
 
 -- | 'ListRolesResponse' smart constructor.
 listRolesResponse :: Int -> ListRolesResponse
-listRolesResponse pStatus =
+listRolesResponse pStatus_ =
     ListRolesResponse'
     { _lrrsMarker = Nothing
     , _lrrsIsTruncated = Nothing
-    , _lrrsStatus = pStatus
+    , _lrrsStatus = pStatus_
     , _lrrsRoles = mempty
     }
 

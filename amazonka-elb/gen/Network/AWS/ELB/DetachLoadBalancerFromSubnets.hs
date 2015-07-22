@@ -64,9 +64,9 @@ data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
 
 -- | 'DetachLoadBalancerFromSubnets' smart constructor.
 detachLoadBalancerFromSubnets :: Text -> DetachLoadBalancerFromSubnets
-detachLoadBalancerFromSubnets pLoadBalancerName =
+detachLoadBalancerFromSubnets pLoadBalancerName_ =
     DetachLoadBalancerFromSubnets'
-    { _dlbfsrqLoadBalancerName = pLoadBalancerName
+    { _dlbfsrqLoadBalancerName = pLoadBalancerName_
     , _dlbfsrqSubnets = mempty
     }
 
@@ -123,10 +123,10 @@ data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsRespon
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
 detachLoadBalancerFromSubnetsResponse :: Int -> DetachLoadBalancerFromSubnetsResponse
-detachLoadBalancerFromSubnetsResponse pStatus =
+detachLoadBalancerFromSubnetsResponse pStatus_ =
     DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrsSubnets = Nothing
-    , _dlbfsrsStatus = pStatus
+    , _dlbfsrsStatus = pStatus_
     }
 
 -- | The IDs of the remaining subnets for the load balancer.

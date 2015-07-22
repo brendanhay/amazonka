@@ -97,7 +97,7 @@ data UpdateApp = UpdateApp'
 
 -- | 'UpdateApp' smart constructor.
 updateApp :: Text -> UpdateApp
-updateApp pAppId =
+updateApp pAppId_ =
     UpdateApp'
     { _uarqSSLConfiguration = Nothing
     , _uarqEnableSSL = Nothing
@@ -109,7 +109,7 @@ updateApp pAppId =
     , _uarqType = Nothing
     , _uarqDomains = Nothing
     , _uarqDescription = Nothing
-    , _uarqAppId = pAppId
+    , _uarqAppId = pAppId_
     }
 
 -- | An @SslConfiguration@ object with the SSL configuration.

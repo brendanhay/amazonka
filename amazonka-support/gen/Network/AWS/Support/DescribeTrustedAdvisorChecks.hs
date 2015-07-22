@@ -58,9 +58,9 @@ newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
 
 -- | 'DescribeTrustedAdvisorChecks' smart constructor.
 describeTrustedAdvisorChecks :: Text -> DescribeTrustedAdvisorChecks
-describeTrustedAdvisorChecks pLanguage =
+describeTrustedAdvisorChecks pLanguage_ =
     DescribeTrustedAdvisorChecks'
-    { _dtacrqLanguage = pLanguage
+    { _dtacrqLanguage = pLanguage_
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
@@ -119,9 +119,9 @@ data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse
 
 -- | 'DescribeTrustedAdvisorChecksResponse' smart constructor.
 describeTrustedAdvisorChecksResponse :: Int -> DescribeTrustedAdvisorChecksResponse
-describeTrustedAdvisorChecksResponse pStatus =
+describeTrustedAdvisorChecksResponse pStatus_ =
     DescribeTrustedAdvisorChecksResponse'
-    { _dtacrsStatus = pStatus
+    { _dtacrsStatus = pStatus_
     , _dtacrsChecks = mempty
     }
 

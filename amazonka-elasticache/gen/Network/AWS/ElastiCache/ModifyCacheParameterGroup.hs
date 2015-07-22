@@ -61,9 +61,9 @@ data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
 
 -- | 'ModifyCacheParameterGroup' smart constructor.
 modifyCacheParameterGroup :: Text -> ModifyCacheParameterGroup
-modifyCacheParameterGroup pCacheParameterGroupName =
+modifyCacheParameterGroup pCacheParameterGroupName_ =
     ModifyCacheParameterGroup'
-    { _mcpgrqCacheParameterGroupName = pCacheParameterGroupName
+    { _mcpgrqCacheParameterGroupName = pCacheParameterGroupName_
     , _mcpgrqParameterNameValues = mempty
     }
 

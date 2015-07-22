@@ -267,11 +267,11 @@ data DescribeMLModelsResponse = DescribeMLModelsResponse'
 
 -- | 'DescribeMLModelsResponse' smart constructor.
 describeMLModelsResponse :: Int -> DescribeMLModelsResponse
-describeMLModelsResponse pStatus =
+describeMLModelsResponse pStatus_ =
     DescribeMLModelsResponse'
     { _dmlmsrsResults = Nothing
     , _dmlmsrsNextToken = Nothing
-    , _dmlmsrsStatus = pStatus
+    , _dmlmsrsStatus = pStatus_
     }
 
 -- | A list of MLModel that meet the search criteria.

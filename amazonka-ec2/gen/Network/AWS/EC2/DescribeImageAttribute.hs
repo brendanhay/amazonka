@@ -70,11 +70,11 @@ data DescribeImageAttribute = DescribeImageAttribute'
 
 -- | 'DescribeImageAttribute' smart constructor.
 describeImageAttribute :: Text -> ImageAttributeName -> DescribeImageAttribute
-describeImageAttribute pImageId pAttribute =
+describeImageAttribute pImageId_ pAttribute_ =
     DescribeImageAttribute'
     { _diaarqDryRun = Nothing
-    , _diaarqImageId = pImageId
-    , _diaarqAttribute = pAttribute
+    , _diaarqImageId = pImageId_
+    , _diaarqAttribute = pAttribute_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -174,7 +174,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
 describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse
-describeImageAttributeResponse pStatus =
+describeImageAttributeResponse pStatus_ =
     DescribeImageAttributeResponse'
     { _diarsLaunchPermissions = Nothing
     , _diarsRAMDiskId = Nothing
@@ -184,7 +184,7 @@ describeImageAttributeResponse pStatus =
     , _diarsProductCodes = Nothing
     , _diarsBlockDeviceMappings = Nothing
     , _diarsDescription = Nothing
-    , _diarsStatus = pStatus
+    , _diarsStatus = pStatus_
     }
 
 -- | One or more launch permissions.

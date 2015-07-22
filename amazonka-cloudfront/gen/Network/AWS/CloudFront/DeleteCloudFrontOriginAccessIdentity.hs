@@ -57,10 +57,10 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 
 -- | 'DeleteCloudFrontOriginAccessIdentity' smart constructor.
 deleteCloudFrontOriginAccessIdentity :: Text -> DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity pId =
+deleteCloudFrontOriginAccessIdentity pId_ =
     DeleteCloudFrontOriginAccessIdentity'
     { _dcfoairqIfMatch = Nothing
-    , _dcfoairqId = pId
+    , _dcfoairqId = pId_
     }
 
 -- | The value of the ETag header you received from a previous GET or PUT

@@ -129,10 +129,10 @@ data AssociationFilter = AssociationFilter'
 
 -- | 'AssociationFilter' smart constructor.
 associationFilter :: AssociationFilterKey -> Text -> AssociationFilter
-associationFilter pKey pValue =
+associationFilter pKey_ pValue_ =
     AssociationFilter'
-    { _afKey = pKey
-    , _afValue = pValue
+    { _afKey = pKey_
+    , _afValue = pValue_
     }
 
 -- | The name of the filter.
@@ -169,12 +169,12 @@ data AssociationStatus = AssociationStatus'
 
 -- | 'AssociationStatus' smart constructor.
 associationStatus :: UTCTime -> AssociationStatusName -> Text -> AssociationStatus
-associationStatus pDate pName pMessage =
+associationStatus pDate_ pName_ pMessage_ =
     AssociationStatus'
     { _asAdditionalInfo = Nothing
-    , _asDate = _Time # pDate
-    , _asName = pName
-    , _asMessage = pMessage
+    , _asDate = _Time # pDate_
+    , _asName = pName_
+    , _asMessage = pMessage_
     }
 
 -- | A user-defined string.
@@ -326,10 +326,10 @@ data DocumentFilter = DocumentFilter'
 
 -- | 'DocumentFilter' smart constructor.
 documentFilter :: DocumentFilterKey -> Text -> DocumentFilter
-documentFilter pKey pValue =
+documentFilter pKey_ pValue_ =
     DocumentFilter'
-    { _dfKey = pKey
-    , _dfValue = pValue
+    { _dfKey = pKey_
+    , _dfValue = pValue_
     }
 
 -- | The name of the filter.

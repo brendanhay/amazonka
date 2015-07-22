@@ -188,11 +188,11 @@ data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
 
 -- | 'ListTaskDefinitionsResponse' smart constructor.
 listTaskDefinitionsResponse :: Int -> ListTaskDefinitionsResponse
-listTaskDefinitionsResponse pStatus =
+listTaskDefinitionsResponse pStatus_ =
     ListTaskDefinitionsResponse'
     { _ltdrsTaskDefinitionARNs = Nothing
     , _ltdrsNextToken = Nothing
-    , _ltdrsStatus = pStatus
+    , _ltdrsStatus = pStatus_
     }
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the

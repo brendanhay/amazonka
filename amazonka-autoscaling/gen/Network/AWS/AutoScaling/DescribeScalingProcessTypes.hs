@@ -93,10 +93,10 @@ data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
 
 -- | 'DescribeScalingProcessTypesResponse' smart constructor.
 describeScalingProcessTypesResponse :: Int -> DescribeScalingProcessTypesResponse
-describeScalingProcessTypesResponse pStatus =
+describeScalingProcessTypesResponse pStatus_ =
     DescribeScalingProcessTypesResponse'
     { _dsptrsProcesses = Nothing
-    , _dsptrsStatus = pStatus
+    , _dsptrsStatus = pStatus_
     }
 
 -- | The names of the process types.

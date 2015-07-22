@@ -63,9 +63,9 @@ data DeleteTags = DeleteTags'
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
-deleteTags pFileSystemId =
+deleteTags pFileSystemId_ =
     DeleteTags'
-    { _drqFileSystemId = pFileSystemId
+    { _drqFileSystemId = pFileSystemId_
     , _drqTagKeys = mempty
     }
 

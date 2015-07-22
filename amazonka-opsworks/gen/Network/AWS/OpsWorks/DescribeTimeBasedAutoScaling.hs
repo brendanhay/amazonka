@@ -122,10 +122,10 @@ data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
 describeTimeBasedAutoScalingResponse :: Int -> DescribeTimeBasedAutoScalingResponse
-describeTimeBasedAutoScalingResponse pStatus =
+describeTimeBasedAutoScalingResponse pStatus_ =
     DescribeTimeBasedAutoScalingResponse'
     { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
-    , _dtbasrsStatus = pStatus
+    , _dtbasrsStatus = pStatus_
     }
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe

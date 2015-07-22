@@ -161,11 +161,11 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
 listSigningCertificatesResponse :: Int -> ListSigningCertificatesResponse
-listSigningCertificatesResponse pStatus =
+listSigningCertificatesResponse pStatus_ =
     ListSigningCertificatesResponse'
     { _lrsMarker = Nothing
     , _lrsIsTruncated = Nothing
-    , _lrsStatus = pStatus
+    , _lrsStatus = pStatus_
     , _lrsCertificates = mempty
     }
 

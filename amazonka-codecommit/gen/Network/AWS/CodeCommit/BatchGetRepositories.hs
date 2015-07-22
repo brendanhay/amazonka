@@ -125,11 +125,11 @@ data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
 
 -- | 'BatchGetRepositoriesResponse' smart constructor.
 batchGetRepositoriesResponse :: Int -> BatchGetRepositoriesResponse
-batchGetRepositoriesResponse pStatus =
+batchGetRepositoriesResponse pStatus_ =
     BatchGetRepositoriesResponse'
     { _bgrrsRepositories = Nothing
     , _bgrrsRepositoriesNotFound = Nothing
-    , _bgrrsStatus = pStatus
+    , _bgrrsStatus = pStatus_
     }
 
 -- | A list of repositories returned by the batch get repositories operation.

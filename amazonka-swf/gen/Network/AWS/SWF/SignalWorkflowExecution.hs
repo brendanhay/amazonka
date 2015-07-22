@@ -96,13 +96,13 @@ data SignalWorkflowExecution = SignalWorkflowExecution'
 
 -- | 'SignalWorkflowExecution' smart constructor.
 signalWorkflowExecution :: Text -> Text -> Text -> SignalWorkflowExecution
-signalWorkflowExecution pDomain pWorkflowId pSignalName =
+signalWorkflowExecution pDomain_ pWorkflowId_ pSignalName_ =
     SignalWorkflowExecution'
     { _swerqInput = Nothing
     , _swerqRunId = Nothing
-    , _swerqDomain = pDomain
-    , _swerqWorkflowId = pWorkflowId
-    , _swerqSignalName = pSignalName
+    , _swerqDomain = pDomain_
+    , _swerqWorkflowId = pWorkflowId_
+    , _swerqSignalName = pSignalName_
     }
 
 -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target

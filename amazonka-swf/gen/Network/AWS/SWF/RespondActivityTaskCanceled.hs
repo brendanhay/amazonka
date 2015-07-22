@@ -89,10 +89,10 @@ data RespondActivityTaskCanceled = RespondActivityTaskCanceled'
 
 -- | 'RespondActivityTaskCanceled' smart constructor.
 respondActivityTaskCanceled :: Text -> RespondActivityTaskCanceled
-respondActivityTaskCanceled pTaskToken =
+respondActivityTaskCanceled pTaskToken_ =
     RespondActivityTaskCanceled'
     { _rrqDetails = Nothing
-    , _rrqTaskToken = pTaskToken
+    , _rrqTaskToken = pTaskToken_
     }
 
 -- | /Optional./ Information about the cancellation.

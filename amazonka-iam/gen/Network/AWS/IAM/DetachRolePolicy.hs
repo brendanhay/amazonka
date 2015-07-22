@@ -61,10 +61,10 @@ data DetachRolePolicy = DetachRolePolicy'
 
 -- | 'DetachRolePolicy' smart constructor.
 detachRolePolicy :: Text -> Text -> DetachRolePolicy
-detachRolePolicy pRoleName pPolicyARN =
+detachRolePolicy pRoleName_ pPolicyARN_ =
     DetachRolePolicy'
-    { _drprqRoleName = pRoleName
-    , _drprqPolicyARN = pPolicyARN
+    { _drprqRoleName = pRoleName_
+    , _drprqPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the role to detach the policy from.

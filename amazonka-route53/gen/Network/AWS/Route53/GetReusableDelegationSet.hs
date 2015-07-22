@@ -57,9 +57,9 @@ newtype GetReusableDelegationSet = GetReusableDelegationSet'
 
 -- | 'GetReusableDelegationSet' smart constructor.
 getReusableDelegationSet :: Text -> GetReusableDelegationSet
-getReusableDelegationSet pId =
+getReusableDelegationSet pId_ =
     GetReusableDelegationSet'
-    { _grdsrqId = pId
+    { _grdsrqId = pId_
     }
 
 -- | The ID of the reusable delegation set for which you want to get a list
@@ -106,10 +106,10 @@ data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
 
 -- | 'GetReusableDelegationSetResponse' smart constructor.
 getReusableDelegationSetResponse :: Int -> DelegationSet -> GetReusableDelegationSetResponse
-getReusableDelegationSetResponse pStatus pDelegationSet =
+getReusableDelegationSetResponse pStatus_ pDelegationSet_ =
     GetReusableDelegationSetResponse'
-    { _grdsrsStatus = pStatus
-    , _grdsrsDelegationSet = pDelegationSet
+    { _grdsrsStatus = pStatus_
+    , _grdsrsDelegationSet = pDelegationSet_
     }
 
 -- | FIXME: Undocumented member.

@@ -43,11 +43,11 @@ data AWSSessionCredentials = AWSSessionCredentials'
 
 -- | 'AWSSessionCredentials' smart constructor.
 awsSessionCredentials :: Text -> Text -> Text -> AWSSessionCredentials
-awsSessionCredentials pAccessKeyId pSecretAccessKey pSessionToken =
+awsSessionCredentials pAccessKeyId_ pSecretAccessKey_ pSessionToken_ =
     AWSSessionCredentials'
-    { _ascAccessKeyId = pAccessKeyId
-    , _ascSecretAccessKey = pSecretAccessKey
-    , _ascSessionToken = pSessionToken
+    { _ascAccessKeyId = pAccessKeyId_
+    , _ascSecretAccessKey = pSecretAccessKey_
+    , _ascSessionToken = pSessionToken_
     }
 
 -- | The access key for the session.
@@ -130,15 +130,15 @@ data ActionConfigurationProperty = ActionConfigurationProperty'
 
 -- | 'ActionConfigurationProperty' smart constructor.
 actionConfigurationProperty :: Text -> Bool -> Bool -> Bool -> ActionConfigurationProperty
-actionConfigurationProperty pName pRequired pKey pSecret =
+actionConfigurationProperty pName_ pRequired_ pKey_ pSecret_ =
     ActionConfigurationProperty'
     { _acpQueryable = Nothing
     , _acpType = Nothing
     , _acpDescription = Nothing
-    , _acpName = pName
-    , _acpRequired = pRequired
-    , _acpKey = pKey
-    , _acpSecret = pSecret
+    , _acpName = pName_
+    , _acpRequired = pRequired_
+    , _acpKey = pKey_
+    , _acpSecret = pSecret_
     }
 
 -- | Indicates that the proprety will be used in conjunction with
@@ -263,15 +263,15 @@ data ActionDeclaration = ActionDeclaration'
 
 -- | 'ActionDeclaration' smart constructor.
 actionDeclaration :: Text -> ActionTypeId -> ActionDeclaration
-actionDeclaration pName pActionTypeId =
+actionDeclaration pName_ pActionTypeId_ =
     ActionDeclaration'
     { _adOutputArtifacts = Nothing
     , _adRunOrder = Nothing
     , _adConfiguration = Nothing
     , _adInputArtifacts = Nothing
     , _adRoleARN = Nothing
-    , _adName = pName
-    , _adActionTypeId = pActionTypeId
+    , _adName = pName_
+    , _adActionTypeId = pActionTypeId_
     }
 
 -- | The name or ID of the result of the action declaration, such as a test
@@ -431,11 +431,11 @@ data ActionRevision = ActionRevision'
 
 -- | 'ActionRevision' smart constructor.
 actionRevision :: Text -> UTCTime -> ActionRevision
-actionRevision pRevisionId pCreated =
+actionRevision pRevisionId_ pCreated_ =
     ActionRevision'
     { _arRevisionChangeId = Nothing
-    , _arRevisionId = pRevisionId
-    , _arCreated = _Time # pCreated
+    , _arRevisionId = pRevisionId_
+    , _arCreated = _Time # pCreated_
     }
 
 -- | The unique identifier of the change that set the state to this revision,
@@ -559,13 +559,13 @@ data ActionType = ActionType'
 
 -- | 'ActionType' smart constructor.
 actionType :: ActionTypeId -> ArtifactDetails -> ArtifactDetails -> ActionType
-actionType pId pInputArtifactDetails pOutputArtifactDetails =
+actionType pId_ pInputArtifactDetails_ pOutputArtifactDetails_ =
     ActionType'
     { _atSettings = Nothing
     , _atActionConfigurationProperties = Nothing
-    , _atId = pId
-    , _atInputArtifactDetails = pInputArtifactDetails
-    , _atOutputArtifactDetails = pOutputArtifactDetails
+    , _atId = pId_
+    , _atInputArtifactDetails = pInputArtifactDetails_
+    , _atOutputArtifactDetails = pOutputArtifactDetails_
     }
 
 -- | The settings for the action type.
@@ -621,12 +621,12 @@ data ActionTypeId = ActionTypeId'
 
 -- | 'ActionTypeId' smart constructor.
 actionTypeId :: ActionCategory -> ActionOwner -> Text -> Text -> ActionTypeId
-actionTypeId pCategory pOwner pProvider pVersion =
+actionTypeId pCategory_ pOwner_ pProvider_ pVersion_ =
     ActionTypeId'
-    { _atiCategory = pCategory
-    , _atiOwner = pOwner
-    , _atiProvider = pProvider
-    , _atiVersion = pVersion
+    { _atiCategory = pCategory_
+    , _atiOwner = pOwner_
+    , _atiProvider = pProvider_
+    , _atiVersion = pVersion_
     }
 
 -- | A category defines what kind of action can be taken in the stage, and
@@ -805,10 +805,10 @@ data ArtifactDetails = ArtifactDetails'
 
 -- | 'ArtifactDetails' smart constructor.
 artifactDetails :: Natural -> Natural -> ArtifactDetails
-artifactDetails pMinimumCount pMaximumCount =
+artifactDetails pMinimumCount_ pMaximumCount_ =
     ArtifactDetails'
-    { _adMinimumCount = _Nat # pMinimumCount
-    , _adMaximumCount = _Nat # pMaximumCount
+    { _adMinimumCount = _Nat # pMinimumCount_
+    , _adMaximumCount = _Nat # pMaximumCount_
     }
 
 -- | The minimum number of artifacts allowed for the action type.
@@ -887,10 +887,10 @@ data ArtifactStore = ArtifactStore'
 
 -- | 'ArtifactStore' smart constructor.
 artifactStore :: ArtifactStoreType -> Text -> ArtifactStore
-artifactStore pType pLocation =
+artifactStore pType_ pLocation_ =
     ArtifactStore'
-    { _asType = pType
-    , _asLocation = pLocation
+    { _asType = pType_
+    , _asLocation = pLocation_
     }
 
 -- | The type of the artifact store, such as S3.
@@ -930,10 +930,10 @@ data BlockerDeclaration = BlockerDeclaration'
 
 -- | 'BlockerDeclaration' smart constructor.
 blockerDeclaration :: Text -> BlockerType -> BlockerDeclaration
-blockerDeclaration pName pType =
+blockerDeclaration pName_ pType_ =
     BlockerDeclaration'
-    { _bdName = pName
-    , _bdType = pType
+    { _bdName = pName_
+    , _bdType = pType_
     }
 
 -- | The name of the gate declaration.
@@ -971,10 +971,10 @@ data CurrentRevision = CurrentRevision'
 
 -- | 'CurrentRevision' smart constructor.
 currentRevision :: Text -> Text -> CurrentRevision
-currentRevision pRevision pChangeIdentifier =
+currentRevision pRevision_ pChangeIdentifier_ =
     CurrentRevision'
-    { _crRevision = pRevision
-    , _crChangeIdentifier = pChangeIdentifier
+    { _crRevision = pRevision_
+    , _crChangeIdentifier = pChangeIdentifier_
     }
 
 -- | The revision ID of the current version of an artifact.
@@ -1095,11 +1095,11 @@ data FailureDetails = FailureDetails'
 
 -- | 'FailureDetails' smart constructor.
 failureDetails :: FailureType -> FailureDetails
-failureDetails pType =
+failureDetails pType_ =
     FailureDetails'
     { _fdExternalExecutionId = Nothing
     , _fdMessage = Nothing
-    , _fdType = pType
+    , _fdType = pType_
     }
 
 -- | The external ID of the run of the action that failed.
@@ -1134,9 +1134,9 @@ newtype InputArtifact = InputArtifact'
 
 -- | 'InputArtifact' smart constructor.
 inputArtifact :: Text -> InputArtifact
-inputArtifact pName =
+inputArtifact pName_ =
     InputArtifact'
-    { _iaName = pName
+    { _iaName = pName_
     }
 
 -- | The name of the artifact to be worked on, for example, \"My App\".
@@ -1359,9 +1359,9 @@ newtype OutputArtifact = OutputArtifact'
 
 -- | 'OutputArtifact' smart constructor.
 outputArtifact :: Text -> OutputArtifact
-outputArtifact pName =
+outputArtifact pName_ =
     OutputArtifact'
-    { _oaName = pName
+    { _oaName = pName_
     }
 
 -- | The name of the output of an artifact, such as \"My App\".
@@ -1459,12 +1459,12 @@ data PipelineDeclaration = PipelineDeclaration'
 
 -- | 'PipelineDeclaration' smart constructor.
 pipelineDeclaration :: Text -> Text -> ArtifactStore -> PipelineDeclaration
-pipelineDeclaration pName pRoleARN pArtifactStore =
+pipelineDeclaration pName_ pRoleARN_ pArtifactStore_ =
     PipelineDeclaration'
     { _pdVersion = Nothing
-    , _pdName = pName
-    , _pdRoleARN = pRoleARN
-    , _pdArtifactStore = pArtifactStore
+    , _pdName = pName_
+    , _pdRoleARN = pRoleARN_
+    , _pdArtifactStore = pArtifactStore_
     , _pdStages = mempty
     }
 
@@ -1582,10 +1582,10 @@ data S3ArtifactLocation = S3ArtifactLocation'
 
 -- | 'S3ArtifactLocation' smart constructor.
 s3ArtifactLocation :: Text -> Text -> S3ArtifactLocation
-s3ArtifactLocation pBucketName pObjectKey =
+s3ArtifactLocation pBucketName_ pObjectKey_ =
     S3ArtifactLocation'
-    { _salBucketName = pBucketName
-    , _salObjectKey = pObjectKey
+    { _salBucketName = pBucketName_
+    , _salObjectKey = pObjectKey_
     }
 
 -- | The name of the Amazon S3 bucket.
@@ -1650,10 +1650,10 @@ data StageDeclaration = StageDeclaration'
 
 -- | 'StageDeclaration' smart constructor.
 stageDeclaration :: Text -> StageDeclaration
-stageDeclaration pName =
+stageDeclaration pName_ =
     StageDeclaration'
     { _sdBlockers = Nothing
-    , _sdName = pName
+    , _sdName = pName_
     , _sdActions = mempty
     }
 

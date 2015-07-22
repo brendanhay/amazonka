@@ -169,11 +169,11 @@ data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActio
 
 -- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
 describePendingMaintenanceActionsResponse :: Int -> DescribePendingMaintenanceActionsResponse
-describePendingMaintenanceActionsResponse pStatus =
+describePendingMaintenanceActionsResponse pStatus_ =
     DescribePendingMaintenanceActionsResponse'
     { _dpmarsPendingMaintenanceActions = Nothing
     , _dpmarsMarker = Nothing
-    , _dpmarsStatus = pStatus
+    , _dpmarsStatus = pStatus_
     }
 
 -- | A list of the pending maintenance actions for the resource.

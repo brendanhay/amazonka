@@ -154,12 +154,12 @@ data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'
 
 -- | 'ListSSHPublicKeysResponse' smart constructor.
 listSSHPublicKeysResponse :: Int -> ListSSHPublicKeysResponse
-listSSHPublicKeysResponse pStatus =
+listSSHPublicKeysResponse pStatus_ =
     ListSSHPublicKeysResponse'
     { _lspkrsSSHPublicKeys = Nothing
     , _lspkrsMarker = Nothing
     , _lspkrsIsTruncated = Nothing
-    , _lspkrsStatus = pStatus
+    , _lspkrsStatus = pStatus_
     }
 
 -- | A list of SSH public keys.

@@ -139,10 +139,10 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
-describeAccountAttributesResponse pStatus =
+describeAccountAttributesResponse pStatus_ =
     DescribeAccountAttributesResponse'
     { _daarsAccountAttributes = Nothing
-    , _daarsStatus = pStatus
+    , _daarsStatus = pStatus_
     }
 
 -- | Information about one or more account attributes.

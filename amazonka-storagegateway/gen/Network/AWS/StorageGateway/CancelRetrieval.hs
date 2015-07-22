@@ -62,10 +62,10 @@ data CancelRetrieval = CancelRetrieval'
 
 -- | 'CancelRetrieval' smart constructor.
 cancelRetrieval :: Text -> Text -> CancelRetrieval
-cancelRetrieval pGatewayARN pTapeARN =
+cancelRetrieval pGatewayARN_ pTapeARN_ =
     CancelRetrieval'
-    { _crrqGatewayARN = pGatewayARN
-    , _crrqTapeARN = pTapeARN
+    { _crrqGatewayARN = pGatewayARN_
+    , _crrqTapeARN = pTapeARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -125,10 +125,10 @@ data CancelRetrievalResponse = CancelRetrievalResponse'
 
 -- | 'CancelRetrievalResponse' smart constructor.
 cancelRetrievalResponse :: Int -> CancelRetrievalResponse
-cancelRetrievalResponse pStatus =
+cancelRetrievalResponse pStatus_ =
     CancelRetrievalResponse'
     { _crrsTapeARN = Nothing
-    , _crrsStatus = pStatus
+    , _crrsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval

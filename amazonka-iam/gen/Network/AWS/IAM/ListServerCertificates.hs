@@ -160,11 +160,11 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse'
 
 -- | 'ListServerCertificatesResponse' smart constructor.
 listServerCertificatesResponse :: Int -> ListServerCertificatesResponse
-listServerCertificatesResponse pStatus =
+listServerCertificatesResponse pStatus_ =
     ListServerCertificatesResponse'
     { _lscrsMarker = Nothing
     , _lscrsIsTruncated = Nothing
-    , _lscrsStatus = pStatus
+    , _lscrsStatus = pStatus_
     , _lscrsServerCertificateMetadataList = mempty
     }
 

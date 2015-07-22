@@ -64,10 +64,10 @@ data GetPipelineDefinition = GetPipelineDefinition'
 
 -- | 'GetPipelineDefinition' smart constructor.
 getPipelineDefinition :: Text -> GetPipelineDefinition
-getPipelineDefinition pPipelineId =
+getPipelineDefinition pPipelineId_ =
     GetPipelineDefinition'
     { _gpdrqVersion = Nothing
-    , _gpdrqPipelineId = pPipelineId
+    , _gpdrqPipelineId = pPipelineId_
     }
 
 -- | The version of the pipeline definition to retrieve. Set this parameter
@@ -137,12 +137,12 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
 
 -- | 'GetPipelineDefinitionResponse' smart constructor.
 getPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse
-getPipelineDefinitionResponse pStatus =
+getPipelineDefinitionResponse pStatus_ =
     GetPipelineDefinitionResponse'
     { _gpdrsPipelineObjects = Nothing
     , _gpdrsParameterObjects = Nothing
     , _gpdrsParameterValues = Nothing
-    , _gpdrsStatus = pStatus
+    , _gpdrsStatus = pStatus_
     }
 
 -- | The objects defined in the pipeline.

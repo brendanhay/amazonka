@@ -114,13 +114,13 @@ data PutRecord = PutRecord'
 
 -- | 'PutRecord' smart constructor.
 putRecord :: Text -> Base64 -> Text -> PutRecord
-putRecord pStreamName pData pPartitionKey =
+putRecord pStreamName_ pData_ pPartitionKey_ =
     PutRecord'
     { _prrqExplicitHashKey = Nothing
     , _prrqSequenceNumberForOrdering = Nothing
-    , _prrqStreamName = pStreamName
-    , _prrqData = pData
-    , _prrqPartitionKey = pPartitionKey
+    , _prrqStreamName = pStreamName_
+    , _prrqData = pData_
+    , _prrqPartitionKey = pPartitionKey_
     }
 
 -- | The hash value used to explicitly determine the shard the data record is
@@ -213,11 +213,11 @@ data PutRecordResponse = PutRecordResponse'
 
 -- | 'PutRecordResponse' smart constructor.
 putRecordResponse :: Int -> Text -> Text -> PutRecordResponse
-putRecordResponse pStatus pShardId pSequenceNumber =
+putRecordResponse pStatus_ pShardId_ pSequenceNumber_ =
     PutRecordResponse'
-    { _prrsStatus = pStatus
-    , _prrsShardId = pShardId
-    , _prrsSequenceNumber = pSequenceNumber
+    { _prrsStatus = pStatus_
+    , _prrsShardId = pShardId_
+    , _prrsSequenceNumber = pSequenceNumber_
     }
 
 -- | FIXME: Undocumented member.

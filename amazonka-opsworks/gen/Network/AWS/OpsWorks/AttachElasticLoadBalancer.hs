@@ -68,10 +68,10 @@ data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
 
 -- | 'AttachElasticLoadBalancer' smart constructor.
 attachElasticLoadBalancer :: Text -> Text -> AttachElasticLoadBalancer
-attachElasticLoadBalancer pElasticLoadBalancerName pLayerId =
+attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
     AttachElasticLoadBalancer'
-    { _aelbrqElasticLoadBalancerName = pElasticLoadBalancerName
-    , _aelbrqLayerId = pLayerId
+    { _aelbrqElasticLoadBalancerName = pElasticLoadBalancerName_
+    , _aelbrqLayerId = pLayerId_
     }
 
 -- | The Elastic Load Balancing instance\'s name.

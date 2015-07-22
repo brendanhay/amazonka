@@ -94,14 +94,14 @@ data CreatePreset = CreatePreset'
 
 -- | 'CreatePreset' smart constructor.
 createPreset :: Text -> Text -> CreatePreset
-createPreset pName pContainer =
+createPreset pName_ pContainer_ =
     CreatePreset'
     { _cprqVideo = Nothing
     , _cprqThumbnails = Nothing
     , _cprqAudio = Nothing
     , _cprqDescription = Nothing
-    , _cprqName = pName
-    , _cprqContainer = pContainer
+    , _cprqName = pName_
+    , _cprqContainer = pContainer_
     }
 
 -- | A section of the request body that specifies the video parameters.
@@ -180,11 +180,11 @@ data CreatePresetResponse = CreatePresetResponse'
 
 -- | 'CreatePresetResponse' smart constructor.
 createPresetResponse :: Int -> CreatePresetResponse
-createPresetResponse pStatus =
+createPresetResponse pStatus_ =
     CreatePresetResponse'
     { _cprsWarning = Nothing
     , _cprsPreset = Nothing
-    , _cprsStatus = pStatus
+    , _cprsStatus = pStatus_
     }
 
 -- | If the preset settings don\'t comply with the standards for the video

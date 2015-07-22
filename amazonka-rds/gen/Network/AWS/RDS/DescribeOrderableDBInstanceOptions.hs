@@ -87,7 +87,7 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
 
 -- | 'DescribeOrderableDBInstanceOptions' smart constructor.
 describeOrderableDBInstanceOptions :: Text -> DescribeOrderableDBInstanceOptions
-describeOrderableDBInstanceOptions pEngine =
+describeOrderableDBInstanceOptions pEngine_ =
     DescribeOrderableDBInstanceOptions'
     { _dodiorqEngineVersion = Nothing
     , _dodiorqFilters = Nothing
@@ -96,7 +96,7 @@ describeOrderableDBInstanceOptions pEngine =
     , _dodiorqMaxRecords = Nothing
     , _dodiorqMarker = Nothing
     , _dodiorqVPC = Nothing
-    , _dodiorqEngine = pEngine
+    , _dodiorqEngine = pEngine_
     }
 
 -- | The engine version filter value. Specify this parameter to show only the
@@ -214,11 +214,11 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' smart constructor.
 describeOrderableDBInstanceOptionsResponse :: Int -> DescribeOrderableDBInstanceOptionsResponse
-describeOrderableDBInstanceOptionsResponse pStatus =
+describeOrderableDBInstanceOptionsResponse pStatus_ =
     DescribeOrderableDBInstanceOptionsResponse'
     { _dodiorsOrderableDBInstanceOptions = Nothing
     , _dodiorsMarker = Nothing
-    , _dodiorsStatus = pStatus
+    , _dodiorsStatus = pStatus_
     }
 
 -- | An OrderableDBInstanceOption structure containing information about

@@ -91,10 +91,10 @@ data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
 
 -- | 'GetHealthCheckCountResponse' smart constructor.
 getHealthCheckCountResponse :: Int -> Integer -> GetHealthCheckCountResponse
-getHealthCheckCountResponse pStatus pHealthCheckCount =
+getHealthCheckCountResponse pStatus_ pHealthCheckCount_ =
     GetHealthCheckCountResponse'
-    { _ghccrsStatus = pStatus
-    , _ghccrsHealthCheckCount = pHealthCheckCount
+    { _ghccrsStatus = pStatus_
+    , _ghccrsHealthCheckCount = pHealthCheckCount_
     }
 
 -- | FIXME: Undocumented member.

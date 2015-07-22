@@ -62,9 +62,9 @@ newtype DeleteLoadBalancer = DeleteLoadBalancer'
 
 -- | 'DeleteLoadBalancer' smart constructor.
 deleteLoadBalancer :: Text -> DeleteLoadBalancer
-deleteLoadBalancer pLoadBalancerName =
+deleteLoadBalancer pLoadBalancerName_ =
     DeleteLoadBalancer'
-    { _dlbrqLoadBalancerName = pLoadBalancerName
+    { _dlbrqLoadBalancerName = pLoadBalancerName_
     }
 
 -- | The name of the load balancer.
@@ -105,9 +105,9 @@ newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
 
 -- | 'DeleteLoadBalancerResponse' smart constructor.
 deleteLoadBalancerResponse :: Int -> DeleteLoadBalancerResponse
-deleteLoadBalancerResponse pStatus =
+deleteLoadBalancerResponse pStatus_ =
     DeleteLoadBalancerResponse'
-    { _drsStatus = pStatus
+    { _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

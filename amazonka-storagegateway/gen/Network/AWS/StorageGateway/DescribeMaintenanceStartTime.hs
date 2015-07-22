@@ -62,9 +62,9 @@ newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
 
 -- | 'DescribeMaintenanceStartTime' smart constructor.
 describeMaintenanceStartTime :: Text -> DescribeMaintenanceStartTime
-describeMaintenanceStartTime pGatewayARN =
+describeMaintenanceStartTime pGatewayARN_ =
     DescribeMaintenanceStartTime'
-    { _dmstrqGatewayARN = pGatewayARN
+    { _dmstrqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -133,14 +133,14 @@ data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse
 
 -- | 'DescribeMaintenanceStartTimeResponse' smart constructor.
 describeMaintenanceStartTimeResponse :: Int -> DescribeMaintenanceStartTimeResponse
-describeMaintenanceStartTimeResponse pStatus =
+describeMaintenanceStartTimeResponse pStatus_ =
     DescribeMaintenanceStartTimeResponse'
     { _dmstrsGatewayARN = Nothing
     , _dmstrsMinuteOfHour = Nothing
     , _dmstrsHourOfDay = Nothing
     , _dmstrsTimezone = Nothing
     , _dmstrsDayOfWeek = Nothing
-    , _dmstrsStatus = pStatus
+    , _dmstrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -62,10 +62,10 @@ data DeleteGroupPolicy = DeleteGroupPolicy'
 
 -- | 'DeleteGroupPolicy' smart constructor.
 deleteGroupPolicy :: Text -> Text -> DeleteGroupPolicy
-deleteGroupPolicy pGroupName pPolicyName =
+deleteGroupPolicy pGroupName_ pPolicyName_ =
     DeleteGroupPolicy'
-    { _drqGroupName = pGroupName
-    , _drqPolicyName = pPolicyName
+    { _drqGroupName = pGroupName_
+    , _drqPolicyName = pPolicyName_
     }
 
 -- | The name (friendly name, not ARN) identifying the group that the policy

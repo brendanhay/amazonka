@@ -763,10 +763,10 @@ data Location = Location'
 
 -- | 'Location' smart constructor.
 location :: Double -> Double -> Location
-location pLatitude pLongitude =
+location pLatitude_ pLongitude_ =
     Location'
-    { _lLatitude = pLatitude
-    , _lLongitude = pLongitude
+    { _lLatitude = pLatitude_
+    , _lLongitude = pLongitude_
     }
 
 -- | The latitude.
@@ -1504,12 +1504,12 @@ data ScheduleRunTest = ScheduleRunTest'
 
 -- | 'ScheduleRunTest' smart constructor.
 scheduleRunTest :: TestType -> ScheduleRunTest
-scheduleRunTest pType =
+scheduleRunTest pType_ =
     ScheduleRunTest'
     { _srtTestPackageARN = Nothing
     , _srtParameters = Nothing
     , _srtFilter = Nothing
-    , _srtType = pType
+    , _srtType = pType_
     }
 
 -- | The ARN of the uploaded test that will be run.

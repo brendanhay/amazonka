@@ -62,9 +62,9 @@ data SetQueueAttributes = SetQueueAttributes'
 
 -- | 'SetQueueAttributes' smart constructor.
 setQueueAttributes :: Text -> SetQueueAttributes
-setQueueAttributes pQueueURL =
+setQueueAttributes pQueueURL_ =
     SetQueueAttributes'
-    { _sqarqQueueURL = pQueueURL
+    { _sqarqQueueURL = pQueueURL_
     , _sqarqAttributes = mempty
     }
 

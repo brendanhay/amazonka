@@ -65,11 +65,11 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 
 -- | 'UpdateCloudFrontOriginAccessIdentity' smart constructor.
 updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> Text -> UpdateCloudFrontOriginAccessIdentity
-updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig pId =
+updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_ =
     UpdateCloudFrontOriginAccessIdentity'
     { _ucfoairqIfMatch = Nothing
-    , _ucfoairqCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig
-    , _ucfoairqId = pId
+    , _ucfoairqCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
+    , _ucfoairqId = pId_
     }
 
 -- | The value of the ETag header you received when retrieving the
@@ -142,11 +142,11 @@ data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccess
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 updateCloudFrontOriginAccessIdentityResponse :: Int -> UpdateCloudFrontOriginAccessIdentityResponse
-updateCloudFrontOriginAccessIdentityResponse pStatus =
+updateCloudFrontOriginAccessIdentityResponse pStatus_ =
     UpdateCloudFrontOriginAccessIdentityResponse'
     { _ucfoairsETag = Nothing
     , _ucfoairsCloudFrontOriginAccessIdentity = Nothing
-    , _ucfoairsStatus = pStatus
+    , _ucfoairsStatus = pStatus_
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.

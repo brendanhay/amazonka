@@ -53,9 +53,9 @@ newtype DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
 
 -- | 'DeleteSnapshotCopyGrant' smart constructor.
 deleteSnapshotCopyGrant :: Text -> DeleteSnapshotCopyGrant
-deleteSnapshotCopyGrant pSnapshotCopyGrantName =
+deleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
     DeleteSnapshotCopyGrant'
-    { _dscgrqSnapshotCopyGrantName = pSnapshotCopyGrantName
+    { _dscgrqSnapshotCopyGrantName = pSnapshotCopyGrantName_
     }
 
 -- | The name of the snapshot copy grant to delete.

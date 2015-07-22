@@ -100,12 +100,12 @@ data AttachVolume = AttachVolume'
 
 -- | 'AttachVolume' smart constructor.
 attachVolume :: Text -> Text -> Text -> AttachVolume
-attachVolume pVolumeId pInstanceId pDevice =
+attachVolume pVolumeId_ pInstanceId_ pDevice_ =
     AttachVolume'
     { _avrqDryRun = Nothing
-    , _avrqVolumeId = pVolumeId
-    , _avrqInstanceId = pInstanceId
-    , _avrqDevice = pDevice
+    , _avrqVolumeId = pVolumeId_
+    , _avrqInstanceId = pInstanceId_
+    , _avrqDevice = pDevice_
     }
 
 -- | Checks whether you have the required permissions for the action, without

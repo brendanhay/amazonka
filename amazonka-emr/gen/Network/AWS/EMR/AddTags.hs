@@ -62,9 +62,9 @@ data AddTags = AddTags'
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
-addTags pResourceId =
+addTags pResourceId_ =
     AddTags'
-    { _atrqResourceId = pResourceId
+    { _atrqResourceId = pResourceId_
     , _atrqTags = mempty
     }
 
@@ -122,9 +122,9 @@ newtype AddTagsResponse = AddTagsResponse'
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
-addTagsResponse pStatus =
+addTagsResponse pStatus_ =
     AddTagsResponse'
-    { _atrsStatus = pStatus
+    { _atrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

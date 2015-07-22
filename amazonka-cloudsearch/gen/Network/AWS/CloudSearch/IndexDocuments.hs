@@ -59,9 +59,9 @@ newtype IndexDocuments = IndexDocuments'
 
 -- | 'IndexDocuments' smart constructor.
 indexDocuments :: Text -> IndexDocuments
-indexDocuments pDomainName =
+indexDocuments pDomainName_ =
     IndexDocuments'
-    { _idrqDomainName = pDomainName
+    { _idrqDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
@@ -110,10 +110,10 @@ data IndexDocumentsResponse = IndexDocumentsResponse'
 
 -- | 'IndexDocumentsResponse' smart constructor.
 indexDocumentsResponse :: Int -> IndexDocumentsResponse
-indexDocumentsResponse pStatus =
+indexDocumentsResponse pStatus_ =
     IndexDocumentsResponse'
     { _idrsFieldNames = Nothing
-    , _idrsStatus = pStatus
+    , _idrsStatus = pStatus_
     }
 
 -- | The names of the fields that are currently being indexed.

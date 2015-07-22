@@ -38,8 +38,6 @@ import           Network.AWS.Lambda.ListEventSourceMappings     as Export
 import           Network.AWS.Lambda.ListFunctions               as Export
 import           Network.AWS.Lambda.RemovePermission            as Export
 import           Network.AWS.Lambda.Types                       as Export
-import           Network.AWS.Lambda.Types.Product               as Export
-import           Network.AWS.Lambda.Types.Sum                   as Export
 import           Network.AWS.Lambda.UpdateEventSourceMapping    as Export
 import           Network.AWS.Lambda.UpdateFunctionCode          as Export
 import           Network.AWS.Lambda.UpdateFunctionConfiguration as Export

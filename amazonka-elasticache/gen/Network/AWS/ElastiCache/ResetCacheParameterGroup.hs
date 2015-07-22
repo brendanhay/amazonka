@@ -67,10 +67,10 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup'
 
 -- | 'ResetCacheParameterGroup' smart constructor.
 resetCacheParameterGroup :: Text -> ResetCacheParameterGroup
-resetCacheParameterGroup pCacheParameterGroupName =
+resetCacheParameterGroup pCacheParameterGroupName_ =
     ResetCacheParameterGroup'
     { _rcpgrqResetAllParameters = Nothing
-    , _rcpgrqCacheParameterGroupName = pCacheParameterGroupName
+    , _rcpgrqCacheParameterGroupName = pCacheParameterGroupName_
     , _rcpgrqParameterNameValues = mempty
     }
 

@@ -311,15 +311,15 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
 
 -- | 'NewPrivateVirtualInterface' smart constructor.
 newPrivateVirtualInterface :: Text -> Int -> Int -> Text -> NewPrivateVirtualInterface
-newPrivateVirtualInterface pVirtualInterfaceName pVlan pAsn pVirtualGatewayId =
+newPrivateVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pVirtualGatewayId_ =
     NewPrivateVirtualInterface'
     { _nCustomerAddress = Nothing
     , _nAmazonAddress = Nothing
     , _nAuthKey = Nothing
-    , _nVirtualInterfaceName = pVirtualInterfaceName
-    , _nVlan = pVlan
-    , _nAsn = pAsn
-    , _nVirtualGatewayId = pVirtualGatewayId
+    , _nVirtualInterfaceName = pVirtualInterfaceName_
+    , _nVlan = pVlan_
+    , _nAsn = pAsn_
+    , _nVirtualGatewayId = pVirtualGatewayId_
     }
 
 -- | FIXME: Undocumented member.
@@ -389,14 +389,14 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
 
 -- | 'NewPrivateVirtualInterfaceAllocation' smart constructor.
 newPrivateVirtualInterfaceAllocation :: Text -> Int -> Int -> NewPrivateVirtualInterfaceAllocation
-newPrivateVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn =
+newPrivateVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ =
     NewPrivateVirtualInterfaceAllocation'
     { _npviaCustomerAddress = Nothing
     , _npviaAmazonAddress = Nothing
     , _npviaAuthKey = Nothing
-    , _npviaVirtualInterfaceName = pVirtualInterfaceName
-    , _npviaVlan = pVlan
-    , _npviaAsn = pAsn
+    , _npviaVirtualInterfaceName = pVirtualInterfaceName_
+    , _npviaVlan = pVlan_
+    , _npviaAsn = pAsn_
     }
 
 -- | FIXME: Undocumented member.
@@ -464,14 +464,14 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface'
 
 -- | 'NewPublicVirtualInterface' smart constructor.
 newPublicVirtualInterface :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterface
-newPublicVirtualInterface pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress =
+newPublicVirtualInterface pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ =
     NewPublicVirtualInterface'
     { _npviAuthKey = Nothing
-    , _npviVirtualInterfaceName = pVirtualInterfaceName
-    , _npviVlan = pVlan
-    , _npviAsn = pAsn
-    , _npviAmazonAddress = pAmazonAddress
-    , _npviCustomerAddress = pCustomerAddress
+    , _npviVirtualInterfaceName = pVirtualInterfaceName_
+    , _npviVlan = pVlan_
+    , _npviAsn = pAsn_
+    , _npviAmazonAddress = pAmazonAddress_
+    , _npviCustomerAddress = pCustomerAddress_
     , _npviRouteFilterPrefixes = mempty
     }
 
@@ -545,14 +545,14 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
 
 -- | 'NewPublicVirtualInterfaceAllocation' smart constructor.
 newPublicVirtualInterfaceAllocation :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterfaceAllocation
-newPublicVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress =
+newPublicVirtualInterfaceAllocation pVirtualInterfaceName_ pVlan_ pAsn_ pAmazonAddress_ pCustomerAddress_ =
     NewPublicVirtualInterfaceAllocation'
     { _newAuthKey = Nothing
-    , _newVirtualInterfaceName = pVirtualInterfaceName
-    , _newVlan = pVlan
-    , _newAsn = pAsn
-    , _newAmazonAddress = pAmazonAddress
-    , _newCustomerAddress = pCustomerAddress
+    , _newVirtualInterfaceName = pVirtualInterfaceName_
+    , _newVlan = pVlan_
+    , _newAsn = pAsn_
+    , _newAmazonAddress = pAmazonAddress_
+    , _newCustomerAddress = pCustomerAddress_
     , _newRouteFilterPrefixes = mempty
     }
 

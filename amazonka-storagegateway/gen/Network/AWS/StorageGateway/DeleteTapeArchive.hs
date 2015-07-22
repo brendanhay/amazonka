@@ -56,9 +56,9 @@ newtype DeleteTapeArchive = DeleteTapeArchive'
 
 -- | 'DeleteTapeArchive' smart constructor.
 deleteTapeArchive :: Text -> DeleteTapeArchive
-deleteTapeArchive pTapeARN =
+deleteTapeArchive pTapeARN_ =
     DeleteTapeArchive'
-    { _dtarqTapeARN = pTapeARN
+    { _dtarqTapeARN = pTapeARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete from the
@@ -112,10 +112,10 @@ data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
 
 -- | 'DeleteTapeArchiveResponse' smart constructor.
 deleteTapeArchiveResponse :: Int -> DeleteTapeArchiveResponse
-deleteTapeArchiveResponse pStatus =
+deleteTapeArchiveResponse pStatus_ =
     DeleteTapeArchiveResponse'
     { _dtaarsTapeARN = Nothing
-    , _dtaarsStatus = pStatus
+    , _dtaarsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from

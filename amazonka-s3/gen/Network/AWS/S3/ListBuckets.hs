@@ -91,11 +91,11 @@ data ListBucketsResponse = ListBucketsResponse'
 
 -- | 'ListBucketsResponse' smart constructor.
 listBucketsResponse :: Int -> ListBucketsResponse
-listBucketsResponse pStatus =
+listBucketsResponse pStatus_ =
     ListBucketsResponse'
     { _lbrsBuckets = Nothing
     , _lbrsOwner = Nothing
-    , _lbrsStatus = pStatus
+    , _lbrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

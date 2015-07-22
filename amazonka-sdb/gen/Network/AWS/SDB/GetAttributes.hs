@@ -72,12 +72,12 @@ data GetAttributes = GetAttributes'
 
 -- | 'GetAttributes' smart constructor.
 getAttributes :: Text -> Text -> GetAttributes
-getAttributes pDomainName pItemName =
+getAttributes pDomainName_ pItemName_ =
     GetAttributes'
     { _garqConsistentRead = Nothing
     , _garqAttributeNames = Nothing
-    , _garqDomainName = pDomainName
-    , _garqItemName = pItemName
+    , _garqDomainName = pDomainName_
+    , _garqItemName = pItemName_
     }
 
 -- | Determines whether or not strong consistency should be enforced when
@@ -143,10 +143,10 @@ data GetAttributesResponse = GetAttributesResponse'
 
 -- | 'GetAttributesResponse' smart constructor.
 getAttributesResponse :: Int -> GetAttributesResponse
-getAttributesResponse pStatus =
+getAttributesResponse pStatus_ =
     GetAttributesResponse'
     { _garsAttributes = Nothing
-    , _garsStatus = pStatus
+    , _garsStatus = pStatus_
     }
 
 -- | The list of attributes returned by the operation.

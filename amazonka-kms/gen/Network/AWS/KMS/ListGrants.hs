@@ -64,11 +64,11 @@ data ListGrants = ListGrants'
 
 -- | 'ListGrants' smart constructor.
 listGrants :: Text -> ListGrants
-listGrants pKeyId =
+listGrants pKeyId_ =
     ListGrants'
     { _lgrqMarker = Nothing
     , _lgrqLimit = Nothing
-    , _lgrqKeyId = pKeyId
+    , _lgrqKeyId = pKeyId_
     }
 
 -- | Use this parameter only when paginating results, and only in a
@@ -148,12 +148,12 @@ data ListGrantsResponse = ListGrantsResponse'
 
 -- | 'ListGrantsResponse' smart constructor.
 listGrantsResponse :: Int -> ListGrantsResponse
-listGrantsResponse pStatus =
+listGrantsResponse pStatus_ =
     ListGrantsResponse'
     { _lgrsTruncated = Nothing
     , _lgrsGrants = Nothing
     , _lgrsNextMarker = Nothing
-    , _lgrsStatus = pStatus
+    , _lgrsStatus = pStatus_
     }
 
 -- | A flag that indicates whether there are more items in the list. If your

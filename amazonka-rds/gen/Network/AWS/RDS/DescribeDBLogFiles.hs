@@ -82,7 +82,7 @@ data DescribeDBLogFiles = DescribeDBLogFiles'
 
 -- | 'DescribeDBLogFiles' smart constructor.
 describeDBLogFiles :: Text -> DescribeDBLogFiles
-describeDBLogFiles pDBInstanceIdentifier =
+describeDBLogFiles pDBInstanceIdentifier_ =
     DescribeDBLogFiles'
     { _ddlfrqFilenameContains = Nothing
     , _ddlfrqFileSize = Nothing
@@ -90,7 +90,7 @@ describeDBLogFiles pDBInstanceIdentifier =
     , _ddlfrqFilters = Nothing
     , _ddlfrqMaxRecords = Nothing
     , _ddlfrqMarker = Nothing
-    , _ddlfrqDBInstanceIdentifier = pDBInstanceIdentifier
+    , _ddlfrqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | Filters the available log files for log file names that contain the
@@ -197,11 +197,11 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
 
 -- | 'DescribeDBLogFilesResponse' smart constructor.
 describeDBLogFilesResponse :: Int -> DescribeDBLogFilesResponse
-describeDBLogFilesResponse pStatus =
+describeDBLogFilesResponse pStatus_ =
     DescribeDBLogFilesResponse'
     { _ddlfrsDescribeDBLogFiles = Nothing
     , _ddlfrsMarker = Nothing
-    , _ddlfrsStatus = pStatus
+    , _ddlfrsStatus = pStatus_
     }
 
 -- | The DB log files returned.

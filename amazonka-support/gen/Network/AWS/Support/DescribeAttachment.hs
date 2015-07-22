@@ -58,9 +58,9 @@ newtype DescribeAttachment = DescribeAttachment'
 
 -- | 'DescribeAttachment' smart constructor.
 describeAttachment :: Text -> DescribeAttachment
-describeAttachment pAttachmentId =
+describeAttachment pAttachmentId_ =
     DescribeAttachment'
-    { _darqAttachmentId = pAttachmentId
+    { _darqAttachmentId = pAttachmentId_
     }
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the
@@ -116,10 +116,10 @@ data DescribeAttachmentResponse = DescribeAttachmentResponse'
 
 -- | 'DescribeAttachmentResponse' smart constructor.
 describeAttachmentResponse :: Int -> DescribeAttachmentResponse
-describeAttachmentResponse pStatus =
+describeAttachmentResponse pStatus_ =
     DescribeAttachmentResponse'
     { _darsAttachment = Nothing
-    , _darsStatus = pStatus
+    , _darsStatus = pStatus_
     }
 
 -- | The attachment content and file name.

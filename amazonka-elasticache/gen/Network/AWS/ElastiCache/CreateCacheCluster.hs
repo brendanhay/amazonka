@@ -142,7 +142,7 @@ data CreateCacheCluster = CreateCacheCluster'
 
 -- | 'CreateCacheCluster' smart constructor.
 createCacheCluster :: Text -> CreateCacheCluster
-createCacheCluster pCacheClusterId =
+createCacheCluster pCacheClusterId_ =
     CreateCacheCluster'
     { _cccrqCacheNodeType = Nothing
     , _cccrqEngineVersion = Nothing
@@ -165,7 +165,7 @@ createCacheCluster pCacheClusterId =
     , _cccrqNumCacheNodes = Nothing
     , _cccrqCacheSecurityGroupNames = Nothing
     , _cccrqPort = Nothing
-    , _cccrqCacheClusterId = pCacheClusterId
+    , _cccrqCacheClusterId = pCacheClusterId_
     }
 
 -- | The compute and memory capacity of the nodes in the node group.
@@ -489,10 +489,10 @@ data CreateCacheClusterResponse = CreateCacheClusterResponse'
 
 -- | 'CreateCacheClusterResponse' smart constructor.
 createCacheClusterResponse :: Int -> CreateCacheClusterResponse
-createCacheClusterResponse pStatus =
+createCacheClusterResponse pStatus_ =
     CreateCacheClusterResponse'
     { _cccrsCacheCluster = Nothing
-    , _cccrsStatus = pStatus
+    , _cccrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

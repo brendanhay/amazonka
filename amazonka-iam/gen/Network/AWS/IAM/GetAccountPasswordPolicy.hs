@@ -93,10 +93,10 @@ data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
 
 -- | 'GetAccountPasswordPolicyResponse' smart constructor.
 getAccountPasswordPolicyResponse :: Int -> PasswordPolicy -> GetAccountPasswordPolicyResponse
-getAccountPasswordPolicyResponse pStatus pPasswordPolicy =
+getAccountPasswordPolicyResponse pStatus_ pPasswordPolicy_ =
     GetAccountPasswordPolicyResponse'
-    { _gapprsStatus = pStatus
-    , _gapprsPasswordPolicy = pPasswordPolicy
+    { _gapprsStatus = pStatus_
+    , _gapprsPasswordPolicy = pPasswordPolicy_
     }
 
 -- | FIXME: Undocumented member.

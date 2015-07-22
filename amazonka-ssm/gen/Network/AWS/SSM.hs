@@ -41,7 +41,5 @@ import           Network.AWS.SSM.GetDocument             as Export
 import           Network.AWS.SSM.ListAssociations        as Export
 import           Network.AWS.SSM.ListDocuments           as Export
 import           Network.AWS.SSM.Types                   as Export
-import           Network.AWS.SSM.Types.Product           as Export
-import           Network.AWS.SSM.Types.Sum               as Export
 import           Network.AWS.SSM.UpdateAssociationStatus as Export
 import           Network.AWS.SSM.Waiters                 as Export

@@ -54,9 +54,9 @@ newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
 
 -- | 'DescribeLoadBalancerAttributes' smart constructor.
 describeLoadBalancerAttributes :: Text -> DescribeLoadBalancerAttributes
-describeLoadBalancerAttributes pLoadBalancerName =
+describeLoadBalancerAttributes pLoadBalancerName_ =
     DescribeLoadBalancerAttributes'
-    { _dlbarqLoadBalancerName = pLoadBalancerName
+    { _dlbarqLoadBalancerName = pLoadBalancerName_
     }
 
 -- | The name of the load balancer.
@@ -106,10 +106,10 @@ data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResp
 
 -- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
 describeLoadBalancerAttributesResponse :: Int -> DescribeLoadBalancerAttributesResponse
-describeLoadBalancerAttributesResponse pStatus =
+describeLoadBalancerAttributesResponse pStatus_ =
     DescribeLoadBalancerAttributesResponse'
     { _dlbarsLoadBalancerAttributes = Nothing
-    , _dlbarsStatus = pStatus
+    , _dlbarsStatus = pStatus_
     }
 
 -- | Information about the load balancer attributes.

@@ -61,9 +61,9 @@ newtype CreateTopic = CreateTopic'
 
 -- | 'CreateTopic' smart constructor.
 createTopic :: Text -> CreateTopic
-createTopic pName =
+createTopic pName_ =
     CreateTopic'
-    { _ctrqName = pName
+    { _ctrqName = pName_
     }
 
 -- | The name of the topic you want to create.
@@ -113,10 +113,10 @@ data CreateTopicResponse = CreateTopicResponse'
 
 -- | 'CreateTopicResponse' smart constructor.
 createTopicResponse :: Int -> CreateTopicResponse
-createTopicResponse pStatus =
+createTopicResponse pStatus_ =
     CreateTopicResponse'
     { _ctrsTopicARN = Nothing
-    , _ctrsStatus = pStatus
+    , _ctrsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.

@@ -128,7 +128,7 @@ data CreateCase = CreateCase'
 
 -- | 'CreateCase' smart constructor.
 createCase :: Text -> Text -> CreateCase
-createCase pSubject pCommunicationBody =
+createCase pSubject_ pCommunicationBody_ =
     CreateCase'
     { _ccrqSeverityCode = Nothing
     , _ccrqIssueType = Nothing
@@ -137,8 +137,8 @@ createCase pSubject pCommunicationBody =
     , _ccrqCategoryCode = Nothing
     , _ccrqServiceCode = Nothing
     , _ccrqAttachmentSetId = Nothing
-    , _ccrqSubject = pSubject
-    , _ccrqCommunicationBody = pCommunicationBody
+    , _ccrqSubject = pSubject_
+    , _ccrqCommunicationBody = pCommunicationBody_
     }
 
 -- | The code for the severity level returned by the call to
@@ -245,10 +245,10 @@ data CreateCaseResponse = CreateCaseResponse'
 
 -- | 'CreateCaseResponse' smart constructor.
 createCaseResponse :: Int -> CreateCaseResponse
-createCaseResponse pStatus =
+createCaseResponse pStatus_ =
     CreateCaseResponse'
     { _ccrsCaseId = Nothing
-    , _ccrsStatus = pStatus
+    , _ccrsStatus = pStatus_
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID

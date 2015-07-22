@@ -102,7 +102,7 @@ data CreateStack = CreateStack'
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> CreateStack
-createStack pStackName =
+createStack pStackName_ =
     CreateStack'
     { _csrqDisableRollback = Nothing
     , _csrqNotificationARNs = Nothing
@@ -115,7 +115,7 @@ createStack pStackName =
     , _csrqOnFailure = Nothing
     , _csrqTags = Nothing
     , _csrqTimeoutInMinutes = Nothing
-    , _csrqStackName = pStackName
+    , _csrqStackName = pStackName_
     }
 
 -- | Set to @true@ to disable rollback of the stack if stack creation failed.
@@ -279,10 +279,10 @@ data CreateStackResponse = CreateStackResponse'
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse
-createStackResponse pStatus =
+createStackResponse pStatus_ =
     CreateStackResponse'
     { _csrsStackId = Nothing
-    , _csrsStatus = pStatus
+    , _csrsStatus = pStatus_
     }
 
 -- | Unique identifier of the stack.

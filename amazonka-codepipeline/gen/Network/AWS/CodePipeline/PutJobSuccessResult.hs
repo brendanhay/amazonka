@@ -66,12 +66,12 @@ data PutJobSuccessResult = PutJobSuccessResult'
 
 -- | 'PutJobSuccessResult' smart constructor.
 putJobSuccessResult :: Text -> PutJobSuccessResult
-putJobSuccessResult pJobId =
+putJobSuccessResult pJobId_ =
     PutJobSuccessResult'
     { _pjsrrqContinuationToken = Nothing
     , _pjsrrqExecutionDetails = Nothing
     , _pjsrrqCurrentRevision = Nothing
-    , _pjsrrqJobId = pJobId
+    , _pjsrrqJobId = pJobId_
     }
 
 -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that

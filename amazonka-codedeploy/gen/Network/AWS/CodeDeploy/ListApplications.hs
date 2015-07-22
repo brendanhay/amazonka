@@ -120,11 +120,11 @@ data ListApplicationsResponse = ListApplicationsResponse'
 
 -- | 'ListApplicationsResponse' smart constructor.
 listApplicationsResponse :: Int -> ListApplicationsResponse
-listApplicationsResponse pStatus =
+listApplicationsResponse pStatus_ =
     ListApplicationsResponse'
     { _larsNextToken = Nothing
     , _larsApplications = Nothing
-    , _larsStatus = pStatus
+    , _larsStatus = pStatus_
     }
 
 -- | If the amount of information that is returned is significantly large, an

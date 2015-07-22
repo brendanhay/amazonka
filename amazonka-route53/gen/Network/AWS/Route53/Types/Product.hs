@@ -48,11 +48,11 @@ data AliasTarget = AliasTarget'
 
 -- | 'AliasTarget' smart constructor.
 aliasTarget :: Text -> Text -> Bool -> AliasTarget
-aliasTarget pHostedZoneId pDNSName pEvaluateTargetHealth =
+aliasTarget pHostedZoneId_ pDNSName_ pEvaluateTargetHealth_ =
     AliasTarget'
-    { _atHostedZoneId = pHostedZoneId
-    , _atDNSName = pDNSName
-    , _atEvaluateTargetHealth = pEvaluateTargetHealth
+    { _atHostedZoneId = pHostedZoneId_
+    , _atDNSName = pDNSName_
+    , _atEvaluateTargetHealth = pEvaluateTargetHealth_
     }
 
 -- | /Alias resource record sets only:/ The value of the hosted zone ID for
@@ -120,10 +120,10 @@ data Change = Change'
 
 -- | 'Change' smart constructor.
 change :: ChangeAction -> ResourceRecordSet -> Change
-change pAction pResourceRecordSet =
+change pAction_ pResourceRecordSet_ =
     Change'
-    { _cAction = pAction
-    , _cResourceRecordSet = pResourceRecordSet
+    { _cAction = pAction_
+    , _cResourceRecordSet = pResourceRecordSet_
     }
 
 -- | The action to perform.
@@ -159,10 +159,10 @@ data ChangeBatch = ChangeBatch'
 
 -- | 'ChangeBatch' smart constructor.
 changeBatch :: NonEmpty Change -> ChangeBatch
-changeBatch pChanges =
+changeBatch pChanges_ =
     ChangeBatch'
     { _cbComment = Nothing
-    , _cbChanges = _List1 # pChanges
+    , _cbChanges = _List1 # pChanges_
     }
 
 -- | /Optional:/ Any comments you want to include about a change batch
@@ -207,12 +207,12 @@ data ChangeInfo = ChangeInfo'
 
 -- | 'ChangeInfo' smart constructor.
 changeInfo :: Text -> ChangeStatus -> UTCTime -> ChangeInfo
-changeInfo pId pStatus pSubmittedAt =
+changeInfo pId_ pStatus_ pSubmittedAt_ =
     ChangeInfo'
     { _ciComment = Nothing
-    , _ciId = pId
-    , _ciStatus = pStatus
-    , _ciSubmittedAt = _Time # pSubmittedAt
+    , _ciId = pId_
+    , _ciStatus = pStatus_
+    , _ciSubmittedAt = _Time # pSubmittedAt_
     }
 
 -- | A complex type that describes change information about changes made to
@@ -268,11 +268,11 @@ data DelegationSet = DelegationSet'
 
 -- | 'DelegationSet' smart constructor.
 delegationSet :: NonEmpty Text -> DelegationSet
-delegationSet pNameServers =
+delegationSet pNameServers_ =
     DelegationSet'
     { _dsId = Nothing
     , _dsCallerReference = Nothing
-    , _dsNameServers = _List1 # pNameServers
+    , _dsNameServers = _List1 # pNameServers_
     }
 
 -- | FIXME: Undocumented member.
@@ -468,12 +468,12 @@ data HealthCheck = HealthCheck'
 
 -- | 'HealthCheck' smart constructor.
 healthCheck :: Text -> Text -> HealthCheckConfig -> Natural -> HealthCheck
-healthCheck pId pCallerReference pHealthCheckConfig pHealthCheckVersion =
+healthCheck pId_ pCallerReference_ pHealthCheckConfig_ pHealthCheckVersion_ =
     HealthCheck'
-    { _hcId = pId
-    , _hcCallerReference = pCallerReference
-    , _hcHealthCheckConfig = pHealthCheckConfig
-    , _hcHealthCheckVersion = _Nat # pHealthCheckVersion
+    { _hcId = pId_
+    , _hcCallerReference = pCallerReference_
+    , _hcHealthCheckConfig = pHealthCheckConfig_
+    , _hcHealthCheckVersion = _Nat # pHealthCheckVersion_
     }
 
 -- | The ID of the specified health check.
@@ -535,7 +535,7 @@ data HealthCheckConfig = HealthCheckConfig'
 
 -- | 'HealthCheckConfig' smart constructor.
 healthCheckConfig :: HealthCheckType -> HealthCheckConfig
-healthCheckConfig pType =
+healthCheckConfig pType_ =
     HealthCheckConfig'
     { _hccIPAddress = Nothing
     , _hccFailureThreshold = Nothing
@@ -544,7 +544,7 @@ healthCheckConfig pType =
     , _hccFullyQualifiedDomainName = Nothing
     , _hccRequestInterval = Nothing
     , _hccPort = Nothing
-    , _hccType = pType
+    , _hccType = pType_
     }
 
 -- | IP Address of the instance being checked.
@@ -683,13 +683,13 @@ data HostedZone = HostedZone'
 
 -- | 'HostedZone' smart constructor.
 hostedZone :: Text -> Text -> Text -> HostedZone
-hostedZone pId pName pCallerReference =
+hostedZone pId_ pName_ pCallerReference_ =
     HostedZone'
     { _hzConfig = Nothing
     , _hzResourceRecordSetCount = Nothing
-    , _hzId = pId
-    , _hzName = pName
-    , _hzCallerReference = pCallerReference
+    , _hzId = pId_
+    , _hzName = pName_
+    , _hzCallerReference = pCallerReference_
     }
 
 -- | A complex type that contains the @Comment@ element.
@@ -788,9 +788,9 @@ newtype ResourceRecord = ResourceRecord'
 
 -- | 'ResourceRecord' smart constructor.
 resourceRecord :: Text -> ResourceRecord
-resourceRecord pValue =
+resourceRecord pValue_ =
     ResourceRecord'
-    { _rrValue = pValue
+    { _rrValue = pValue_
     }
 
 -- | The value of the @Value@ element for the current resource record set.
@@ -848,7 +848,7 @@ data ResourceRecordSet = ResourceRecordSet'
 
 -- | 'ResourceRecordSet' smart constructor.
 resourceRecordSet :: Text -> RecordType -> NonEmpty ResourceRecord -> ResourceRecordSet
-resourceRecordSet pName pType pResourceRecords =
+resourceRecordSet pName_ pType_ pResourceRecords_ =
     ResourceRecordSet'
     { _rrsTTL = Nothing
     , _rrsAliasTarget = Nothing
@@ -858,9 +858,9 @@ resourceRecordSet pName pType pResourceRecords =
     , _rrsHealthCheckId = Nothing
     , _rrsRegion = Nothing
     , _rrsGeoLocation = Nothing
-    , _rrsName = pName
-    , _rrsType = pType
-    , _rrsResourceRecords = _List1 # pResourceRecords
+    , _rrsName = pName_
+    , _rrsType = pType_
+    , _rrsResourceRecords = _List1 # pResourceRecords_
     }
 
 -- | The cache time to live for the current resource record set.

@@ -168,11 +168,11 @@ data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'
 
 -- | 'DescribeVPCEndpointsResponse' smart constructor.
 describeVPCEndpointsResponse :: Int -> DescribeVPCEndpointsResponse
-describeVPCEndpointsResponse pStatus =
+describeVPCEndpointsResponse pStatus_ =
     DescribeVPCEndpointsResponse'
     { _dvpcersNextToken = Nothing
     , _dvpcersVPCEndpoints = Nothing
-    , _dvpcersStatus = pStatus
+    , _dvpcersStatus = pStatus_
     }
 
 -- | The token to use when requesting the next set of items. If there are no

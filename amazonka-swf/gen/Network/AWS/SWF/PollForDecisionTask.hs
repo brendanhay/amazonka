@@ -124,14 +124,14 @@ data PollForDecisionTask = PollForDecisionTask'
 
 -- | 'PollForDecisionTask' smart constructor.
 pollForDecisionTask :: Text -> TaskList -> PollForDecisionTask
-pollForDecisionTask pDomain pTaskList =
+pollForDecisionTask pDomain_ pTaskList_ =
     PollForDecisionTask'
     { _pfdtrqNextPageToken = Nothing
     , _pfdtrqReverseOrder = Nothing
     , _pfdtrqIdentity = Nothing
     , _pfdtrqMaximumPageSize = Nothing
-    , _pfdtrqDomain = pDomain
-    , _pfdtrqTaskList = pTaskList
+    , _pfdtrqDomain = pDomain_
+    , _pfdtrqTaskList = pTaskList_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -275,15 +275,15 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
 pollForDecisionTaskResponse :: Int -> Text -> Integer -> WorkflowExecution -> WorkflowType -> PollForDecisionTaskResponse
-pollForDecisionTaskResponse pStatus pTaskToken pStartedEventId pWorkflowExecution pWorkflowType =
+pollForDecisionTaskResponse pStatus_ pTaskToken_ pStartedEventId_ pWorkflowExecution_ pWorkflowType_ =
     PollForDecisionTaskResponse'
     { _pfdtrsNextPageToken = Nothing
     , _pfdtrsPreviousStartedEventId = Nothing
-    , _pfdtrsStatus = pStatus
-    , _pfdtrsTaskToken = pTaskToken
-    , _pfdtrsStartedEventId = pStartedEventId
-    , _pfdtrsWorkflowExecution = pWorkflowExecution
-    , _pfdtrsWorkflowType = pWorkflowType
+    , _pfdtrsStatus = pStatus_
+    , _pfdtrsTaskToken = pTaskToken_
+    , _pfdtrsStartedEventId = pStartedEventId_
+    , _pfdtrsWorkflowExecution = pWorkflowExecution_
+    , _pfdtrsWorkflowType = pWorkflowType_
     , _pfdtrsEvents = mempty
     }
 

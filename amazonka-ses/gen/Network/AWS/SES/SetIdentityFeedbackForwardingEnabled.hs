@@ -69,10 +69,10 @@ data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
 
 -- | 'SetIdentityFeedbackForwardingEnabled' smart constructor.
 setIdentityFeedbackForwardingEnabled :: Text -> Bool -> SetIdentityFeedbackForwardingEnabled
-setIdentityFeedbackForwardingEnabled pIdentity pForwardingEnabled =
+setIdentityFeedbackForwardingEnabled pIdentity_ pForwardingEnabled_ =
     SetIdentityFeedbackForwardingEnabled'
-    { _sifferqIdentity = pIdentity
-    , _sifferqForwardingEnabled = pForwardingEnabled
+    { _sifferqIdentity = pIdentity_
+    , _sifferqForwardingEnabled = pForwardingEnabled_
     }
 
 -- | The identity for which to set bounce and complaint notification
@@ -136,9 +136,9 @@ newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwar
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 setIdentityFeedbackForwardingEnabledResponse :: Int -> SetIdentityFeedbackForwardingEnabledResponse
-setIdentityFeedbackForwardingEnabledResponse pStatus =
+setIdentityFeedbackForwardingEnabledResponse pStatus_ =
     SetIdentityFeedbackForwardingEnabledResponse'
-    { _siffersStatus = pStatus
+    { _siffersStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

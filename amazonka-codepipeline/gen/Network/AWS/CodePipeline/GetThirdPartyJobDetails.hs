@@ -67,10 +67,10 @@ data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
 
 -- | 'GetThirdPartyJobDetails' smart constructor.
 getThirdPartyJobDetails :: Text -> Text -> GetThirdPartyJobDetails
-getThirdPartyJobDetails pJobId pClientToken =
+getThirdPartyJobDetails pJobId_ pClientToken_ =
     GetThirdPartyJobDetails'
-    { _gtpjdrqJobId = pJobId
-    , _gtpjdrqClientToken = pClientToken
+    { _gtpjdrqJobId = pJobId_
+    , _gtpjdrqClientToken = pClientToken_
     }
 
 -- | The unique system-generated ID used for identifying the job.
@@ -132,10 +132,10 @@ data GetThirdPartyJobDetailsResponse = GetThirdPartyJobDetailsResponse'
 
 -- | 'GetThirdPartyJobDetailsResponse' smart constructor.
 getThirdPartyJobDetailsResponse :: Int -> GetThirdPartyJobDetailsResponse
-getThirdPartyJobDetailsResponse pStatus =
+getThirdPartyJobDetailsResponse pStatus_ =
     GetThirdPartyJobDetailsResponse'
     { _gtpjdrsJobDetails = Nothing
-    , _gtpjdrsStatus = pStatus
+    , _gtpjdrsStatus = pStatus_
     }
 
 -- | The details of the job, including any protected values defined for the

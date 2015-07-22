@@ -82,7 +82,7 @@ data CreateNetworkInterface = CreateNetworkInterface'
 
 -- | 'CreateNetworkInterface' smart constructor.
 createNetworkInterface :: Text -> CreateNetworkInterface
-createNetworkInterface pSubnetId =
+createNetworkInterface pSubnetId_ =
     CreateNetworkInterface'
     { _cnirqPrivateIPAddresses = Nothing
     , _cnirqGroups = Nothing
@@ -90,7 +90,7 @@ createNetworkInterface pSubnetId =
     , _cnirqSecondaryPrivateIPAddressCount = Nothing
     , _cnirqDryRun = Nothing
     , _cnirqDescription = Nothing
-    , _cnirqSubnetId = pSubnetId
+    , _cnirqSubnetId = pSubnetId_
     }
 
 -- | One or more private IP addresses.
@@ -185,10 +185,10 @@ data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
 
 -- | 'CreateNetworkInterfaceResponse' smart constructor.
 createNetworkInterfaceResponse :: Int -> CreateNetworkInterfaceResponse
-createNetworkInterfaceResponse pStatus =
+createNetworkInterfaceResponse pStatus_ =
     CreateNetworkInterfaceResponse'
     { _cnirsNetworkInterface = Nothing
-    , _cnirsStatus = pStatus
+    , _cnirsStatus = pStatus_
     }
 
 -- | Information about the network interface.

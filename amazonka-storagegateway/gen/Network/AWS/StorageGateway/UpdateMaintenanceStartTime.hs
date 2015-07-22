@@ -74,12 +74,12 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
 
 -- | 'UpdateMaintenanceStartTime' smart constructor.
 updateMaintenanceStartTime :: Text -> Natural -> Natural -> Natural -> UpdateMaintenanceStartTime
-updateMaintenanceStartTime pGatewayARN pHourOfDay pMinuteOfHour pDayOfWeek =
+updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
     UpdateMaintenanceStartTime'
-    { _umstrqGatewayARN = pGatewayARN
-    , _umstrqHourOfDay = _Nat # pHourOfDay
-    , _umstrqMinuteOfHour = _Nat # pMinuteOfHour
-    , _umstrqDayOfWeek = _Nat # pDayOfWeek
+    { _umstrqGatewayARN = pGatewayARN_
+    , _umstrqHourOfDay = _Nat # pHourOfDay_
+    , _umstrqMinuteOfHour = _Nat # pMinuteOfHour_
+    , _umstrqDayOfWeek = _Nat # pDayOfWeek_
     }
 
 -- | FIXME: Undocumented member.
@@ -154,10 +154,10 @@ data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
 
 -- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
 updateMaintenanceStartTimeResponse :: Int -> UpdateMaintenanceStartTimeResponse
-updateMaintenanceStartTimeResponse pStatus =
+updateMaintenanceStartTimeResponse pStatus_ =
     UpdateMaintenanceStartTimeResponse'
     { _umstrsGatewayARN = Nothing
-    , _umstrsStatus = pStatus
+    , _umstrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

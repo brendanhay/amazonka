@@ -67,9 +67,9 @@ data AssignInstance = AssignInstance'
 
 -- | 'AssignInstance' smart constructor.
 assignInstance :: Text -> AssignInstance
-assignInstance pInstanceId =
+assignInstance pInstanceId_ =
     AssignInstance'
-    { _airqInstanceId = pInstanceId
+    { _airqInstanceId = pInstanceId_
     , _airqLayerIds = mempty
     }
 

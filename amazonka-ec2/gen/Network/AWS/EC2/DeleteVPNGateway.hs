@@ -59,10 +59,10 @@ data DeleteVPNGateway = DeleteVPNGateway'
 
 -- | 'DeleteVPNGateway' smart constructor.
 deleteVPNGateway :: Text -> DeleteVPNGateway
-deleteVPNGateway pVPNGatewayId =
+deleteVPNGateway pVPNGatewayId_ =
     DeleteVPNGateway'
     { _dvgrqDryRun = Nothing
-    , _dvgrqVPNGatewayId = pVPNGatewayId
+    , _dvgrqVPNGatewayId = pVPNGatewayId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

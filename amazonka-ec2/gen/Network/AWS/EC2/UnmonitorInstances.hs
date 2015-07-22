@@ -119,10 +119,10 @@ data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
 unmonitorInstancesResponse :: Int -> UnmonitorInstancesResponse
-unmonitorInstancesResponse pStatus =
+unmonitorInstancesResponse pStatus_ =
     UnmonitorInstancesResponse'
     { _uirsInstanceMonitorings = Nothing
-    , _uirsStatus = pStatus
+    , _uirsStatus = pStatus_
     }
 
 -- | Monitoring information for one or more instances.

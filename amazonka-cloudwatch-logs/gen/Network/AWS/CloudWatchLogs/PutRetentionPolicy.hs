@@ -57,10 +57,10 @@ data PutRetentionPolicy = PutRetentionPolicy'
 
 -- | 'PutRetentionPolicy' smart constructor.
 putRetentionPolicy :: Text -> Int -> PutRetentionPolicy
-putRetentionPolicy pLogGroupName pRetentionInDays =
+putRetentionPolicy pLogGroupName_ pRetentionInDays_ =
     PutRetentionPolicy'
-    { _prprqLogGroupName = pLogGroupName
-    , _prprqRetentionInDays = pRetentionInDays
+    { _prprqLogGroupName = pLogGroupName_
+    , _prprqRetentionInDays = pRetentionInDays_
     }
 
 -- | The name of the log group to associate the retention policy with.

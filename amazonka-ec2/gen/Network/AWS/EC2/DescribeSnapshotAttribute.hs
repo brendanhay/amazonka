@@ -69,11 +69,11 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
 
 -- | 'DescribeSnapshotAttribute' smart constructor.
 describeSnapshotAttribute :: Text -> SnapshotAttributeName -> DescribeSnapshotAttribute
-describeSnapshotAttribute pSnapshotId pAttribute =
+describeSnapshotAttribute pSnapshotId_ pAttribute_ =
     DescribeSnapshotAttribute'
     { _dsarqDryRun = Nothing
-    , _dsarqSnapshotId = pSnapshotId
-    , _dsarqAttribute = pAttribute
+    , _dsarqSnapshotId = pSnapshotId_
+    , _dsarqAttribute = pAttribute_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -144,12 +144,12 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
 describeSnapshotAttributeResponse :: Int -> DescribeSnapshotAttributeResponse
-describeSnapshotAttributeResponse pStatus =
+describeSnapshotAttributeResponse pStatus_ =
     DescribeSnapshotAttributeResponse'
     { _dsarsCreateVolumePermissions = Nothing
     , _dsarsProductCodes = Nothing
     , _dsarsSnapshotId = Nothing
-    , _dsarsStatus = pStatus
+    , _dsarsStatus = pStatus_
     }
 
 -- | A list of permissions for creating volumes from the snapshot.

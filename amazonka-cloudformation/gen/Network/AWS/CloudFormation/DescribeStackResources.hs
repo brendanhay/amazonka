@@ -170,10 +170,10 @@ data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
 
 -- | 'DescribeStackResourcesResponse' smart constructor.
 describeStackResourcesResponse :: Int -> DescribeStackResourcesResponse
-describeStackResourcesResponse pStatus =
+describeStackResourcesResponse pStatus_ =
     DescribeStackResourcesResponse'
     { _drsStackResources = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | A list of @StackResource@ structures.

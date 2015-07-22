@@ -69,11 +69,11 @@ data PromoteReadReplica = PromoteReadReplica'
 
 -- | 'PromoteReadReplica' smart constructor.
 promoteReadReplica :: Text -> PromoteReadReplica
-promoteReadReplica pDBInstanceIdentifier =
+promoteReadReplica pDBInstanceIdentifier_ =
     PromoteReadReplica'
     { _prrrqPreferredBackupWindow = Nothing
     , _prrrqBackupRetentionPeriod = Nothing
-    , _prrrqDBInstanceIdentifier = pDBInstanceIdentifier
+    , _prrrqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | The daily time range during which automated backups are created if
@@ -157,10 +157,10 @@ data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
 
 -- | 'PromoteReadReplicaResponse' smart constructor.
 promoteReadReplicaResponse :: Int -> PromoteReadReplicaResponse
-promoteReadReplicaResponse pStatus =
+promoteReadReplicaResponse pStatus_ =
     PromoteReadReplicaResponse'
     { _prrrsDBInstance = Nothing
-    , _prrrsStatus = pStatus
+    , _prrrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

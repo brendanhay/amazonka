@@ -777,10 +777,10 @@ data DeploymentCommand = DeploymentCommand'
 
 -- | 'DeploymentCommand' smart constructor.
 deploymentCommand :: DeploymentCommandName -> DeploymentCommand
-deploymentCommand pName =
+deploymentCommand pName_ =
     DeploymentCommand'
     { _dcArgs = Nothing
-    , _dcName = pName
+    , _dcName = pName_
     }
 
 -- | The arguments of those commands that take arguments. It should be set to
@@ -1115,11 +1115,11 @@ data EnvironmentVariable = EnvironmentVariable'
 
 -- | 'EnvironmentVariable' smart constructor.
 environmentVariable :: Text -> Text -> EnvironmentVariable
-environmentVariable pKey pValue =
+environmentVariable pKey_ pValue_ =
     EnvironmentVariable'
     { _evSecure = Nothing
-    , _evKey = pKey
-    , _evValue = pValue
+    , _evKey = pKey_
+    , _evValue = pValue_
     }
 
 -- | (Optional) Whether the variable\'s value will be returned by the
@@ -2552,11 +2552,11 @@ data SSLConfiguration = SSLConfiguration'
 
 -- | 'SSLConfiguration' smart constructor.
 sslConfiguration :: Text -> Text -> SSLConfiguration
-sslConfiguration pCertificate pPrivateKey =
+sslConfiguration pCertificate_ pPrivateKey_ =
     SSLConfiguration'
     { _scChain = Nothing
-    , _scCertificate = pCertificate
-    , _scPrivateKey = pPrivateKey
+    , _scCertificate = pCertificate_
+    , _scPrivateKey = pPrivateKey_
     }
 
 -- | Optional. Can be used to specify an intermediate certificate authority
@@ -3557,14 +3557,14 @@ data VolumeConfiguration = VolumeConfiguration'
 
 -- | 'VolumeConfiguration' smart constructor.
 volumeConfiguration :: Text -> Int -> Int -> VolumeConfiguration
-volumeConfiguration pMountPoint pNumberOfDisks pSize =
+volumeConfiguration pMountPoint_ pNumberOfDisks_ pSize_ =
     VolumeConfiguration'
     { _vcIOPS = Nothing
     , _vcRAIdLevel = Nothing
     , _vcVolumeType = Nothing
-    , _vcMountPoint = pMountPoint
-    , _vcNumberOfDisks = pNumberOfDisks
-    , _vcSize = pSize
+    , _vcMountPoint = pMountPoint_
+    , _vcNumberOfDisks = pNumberOfDisks_
+    , _vcSize = pSize_
     }
 
 -- | For PIOPS volumes, the IOPS per disk.

@@ -103,13 +103,13 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
 
 -- | 'CreateDataSourceFromRedshift' smart constructor.
 createDataSourceFromRedshift :: Text -> RedshiftDataSpec -> Text -> CreateDataSourceFromRedshift
-createDataSourceFromRedshift pDataSourceId pDataSpec pRoleARN =
+createDataSourceFromRedshift pDataSourceId_ pDataSpec_ pRoleARN_ =
     CreateDataSourceFromRedshift'
     { _cdsfrrqDataSourceName = Nothing
     , _cdsfrrqComputeStatistics = Nothing
-    , _cdsfrrqDataSourceId = pDataSourceId
-    , _cdsfrrqDataSpec = pDataSpec
-    , _cdsfrrqRoleARN = pRoleARN
+    , _cdsfrrqDataSourceId = pDataSourceId_
+    , _cdsfrrqDataSpec = pDataSpec_
+    , _cdsfrrqRoleARN = pRoleARN_
     }
 
 -- | A user-supplied name or description of the @DataSource@.
@@ -232,10 +232,10 @@ data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse
 
 -- | 'CreateDataSourceFromRedshiftResponse' smart constructor.
 createDataSourceFromRedshiftResponse :: Int -> CreateDataSourceFromRedshiftResponse
-createDataSourceFromRedshiftResponse pStatus =
+createDataSourceFromRedshiftResponse pStatus_ =
     CreateDataSourceFromRedshiftResponse'
     { _cdsfrrsDataSourceId = Nothing
-    , _cdsfrrsStatus = pStatus
+    , _cdsfrrsStatus = pStatus_
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value

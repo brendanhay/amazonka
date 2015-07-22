@@ -69,11 +69,11 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute'
 
 -- | 'DescribeVolumeAttribute' smart constructor.
 describeVolumeAttribute :: Text -> DescribeVolumeAttribute
-describeVolumeAttribute pVolumeId =
+describeVolumeAttribute pVolumeId_ =
     DescribeVolumeAttribute'
     { _dvarqAttribute = Nothing
     , _dvarqDryRun = Nothing
-    , _dvarqVolumeId = pVolumeId
+    , _dvarqVolumeId = pVolumeId_
     }
 
 -- | The instance attribute.
@@ -142,12 +142,12 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
 describeVolumeAttributeResponse :: Int -> DescribeVolumeAttributeResponse
-describeVolumeAttributeResponse pStatus =
+describeVolumeAttributeResponse pStatus_ =
     DescribeVolumeAttributeResponse'
     { _dvarsProductCodes = Nothing
     , _dvarsVolumeId = Nothing
     , _dvarsAutoEnableIO = Nothing
-    , _dvarsStatus = pStatus
+    , _dvarsStatus = pStatus_
     }
 
 -- | A list of product codes.

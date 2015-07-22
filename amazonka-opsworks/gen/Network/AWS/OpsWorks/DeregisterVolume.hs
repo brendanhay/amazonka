@@ -59,9 +59,9 @@ newtype DeregisterVolume = DeregisterVolume'
 
 -- | 'DeregisterVolume' smart constructor.
 deregisterVolume :: Text -> DeregisterVolume
-deregisterVolume pVolumeId =
+deregisterVolume pVolumeId_ =
     DeregisterVolume'
-    { _dvrqVolumeId = pVolumeId
+    { _dvrqVolumeId = pVolumeId_
     }
 
 -- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned

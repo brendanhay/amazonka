@@ -65,11 +65,11 @@ data CopyDBSnapshot = CopyDBSnapshot'
 
 -- | 'CopyDBSnapshot' smart constructor.
 copyDBSnapshot :: Text -> Text -> CopyDBSnapshot
-copyDBSnapshot pSourceDBSnapshotIdentifier pTargetDBSnapshotIdentifier =
+copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
     { _cdsrqTags = Nothing
-    , _cdsrqSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier
-    , _cdsrqTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier
+    , _cdsrqSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier_
+    , _cdsrqTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier_
     }
 
 -- | FIXME: Undocumented member.
@@ -148,10 +148,10 @@ data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
 
 -- | 'CopyDBSnapshotResponse' smart constructor.
 copyDBSnapshotResponse :: Int -> CopyDBSnapshotResponse
-copyDBSnapshotResponse pStatus =
+copyDBSnapshotResponse pStatus_ =
     CopyDBSnapshotResponse'
     { _cdsrsDBSnapshot = Nothing
-    , _cdsrsStatus = pStatus
+    , _cdsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

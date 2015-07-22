@@ -73,11 +73,11 @@ data DescribeObjects = DescribeObjects'
 
 -- | 'DescribeObjects' smart constructor.
 describeObjects :: Text -> DescribeObjects
-describeObjects pPipelineId =
+describeObjects pPipelineId_ =
     DescribeObjects'
     { _dorqEvaluateExpressions = Nothing
     , _dorqMarker = Nothing
-    , _dorqPipelineId = pPipelineId
+    , _dorqPipelineId = pPipelineId_
     , _dorqObjectIds = mempty
     }
 
@@ -167,11 +167,11 @@ data DescribeObjectsResponse = DescribeObjectsResponse'
 
 -- | 'DescribeObjectsResponse' smart constructor.
 describeObjectsResponse :: Int -> DescribeObjectsResponse
-describeObjectsResponse pStatus =
+describeObjectsResponse pStatus_ =
     DescribeObjectsResponse'
     { _dorsHasMoreResults = Nothing
     , _dorsMarker = Nothing
-    , _dorsStatus = pStatus
+    , _dorsStatus = pStatus_
     , _dorsPipelineObjects = mempty
     }
 

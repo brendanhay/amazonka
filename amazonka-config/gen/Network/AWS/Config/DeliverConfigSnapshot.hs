@@ -65,9 +65,9 @@ newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
 
 -- | 'DeliverConfigSnapshot' smart constructor.
 deliverConfigSnapshot :: Text -> DeliverConfigSnapshot
-deliverConfigSnapshot pDeliveryChannelName =
+deliverConfigSnapshot pDeliveryChannelName_ =
     DeliverConfigSnapshot'
-    { _dcsrqDeliveryChannelName = pDeliveryChannelName
+    { _dcsrqDeliveryChannelName = pDeliveryChannelName_
     }
 
 -- | The name of the delivery channel through which the snapshot is
@@ -123,10 +123,10 @@ data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
 
 -- | 'DeliverConfigSnapshotResponse' smart constructor.
 deliverConfigSnapshotResponse :: Int -> DeliverConfigSnapshotResponse
-deliverConfigSnapshotResponse pStatus =
+deliverConfigSnapshotResponse pStatus_ =
     DeliverConfigSnapshotResponse'
     { _dcsrsConfigSnapshotId = Nothing
-    , _dcsrsStatus = pStatus
+    , _dcsrsStatus = pStatus_
     }
 
 -- | The ID of the snapshot that is being created.

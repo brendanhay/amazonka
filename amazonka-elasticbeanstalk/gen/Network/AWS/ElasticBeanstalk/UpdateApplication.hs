@@ -62,10 +62,10 @@ data UpdateApplication = UpdateApplication'
 
 -- | 'UpdateApplication' smart constructor.
 updateApplication :: Text -> UpdateApplication
-updateApplication pApplicationName =
+updateApplication pApplicationName_ =
     UpdateApplication'
     { _uarqDescription = Nothing
-    , _uarqApplicationName = pApplicationName
+    , _uarqApplicationName = pApplicationName_
     }
 
 -- | A new description for the application.

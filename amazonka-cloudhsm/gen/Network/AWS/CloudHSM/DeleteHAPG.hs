@@ -55,9 +55,9 @@ newtype DeleteHAPG = DeleteHAPG'
 
 -- | 'DeleteHAPG' smart constructor.
 deleteHAPG :: Text -> DeleteHAPG
-deleteHAPG pHAPGARN =
+deleteHAPG pHAPGARN_ =
     DeleteHAPG'
-    { _dhrqHAPGARN = pHAPGARN
+    { _dhrqHAPGARN = pHAPGARN_
     }
 
 -- | The ARN of the high-availability partition group to delete.
@@ -105,9 +105,9 @@ newtype DeleteHAPGResponse = DeleteHAPGResponse'
 
 -- | 'DeleteHAPGResponse' smart constructor.
 deleteHAPGResponse :: Int -> DeleteHAPGResponse
-deleteHAPGResponse pStatus =
+deleteHAPGResponse pStatus_ =
     DeleteHAPGResponse'
-    { _dhrsStatus = pStatus
+    { _dhrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

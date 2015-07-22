@@ -66,10 +66,10 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
 
 -- | 'ModifyClusterSubnetGroup' smart constructor.
 modifyClusterSubnetGroup :: Text -> ModifyClusterSubnetGroup
-modifyClusterSubnetGroup pClusterSubnetGroupName =
+modifyClusterSubnetGroup pClusterSubnetGroupName_ =
     ModifyClusterSubnetGroup'
     { _mcsgrqDescription = Nothing
-    , _mcsgrqClusterSubnetGroupName = pClusterSubnetGroupName
+    , _mcsgrqClusterSubnetGroupName = pClusterSubnetGroupName_
     , _mcsgrqSubnetIds = mempty
     }
 
@@ -129,10 +129,10 @@ data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
 
 -- | 'ModifyClusterSubnetGroupResponse' smart constructor.
 modifyClusterSubnetGroupResponse :: Int -> ModifyClusterSubnetGroupResponse
-modifyClusterSubnetGroupResponse pStatus =
+modifyClusterSubnetGroupResponse pStatus_ =
     ModifyClusterSubnetGroupResponse'
     { _mcsgrsClusterSubnetGroup = Nothing
-    , _mcsgrsStatus = pStatus
+    , _mcsgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

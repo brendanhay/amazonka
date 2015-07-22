@@ -136,10 +136,10 @@ data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
 describeKeyPairsResponse :: Int -> DescribeKeyPairsResponse
-describeKeyPairsResponse pStatus =
+describeKeyPairsResponse pStatus_ =
     DescribeKeyPairsResponse'
     { _dkprsKeyPairs = Nothing
-    , _dkprsStatus = pStatus
+    , _dkprsStatus = pStatus_
     }
 
 -- | Information about one or more key pairs.

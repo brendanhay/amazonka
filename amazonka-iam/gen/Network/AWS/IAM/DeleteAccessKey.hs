@@ -61,10 +61,10 @@ data DeleteAccessKey = DeleteAccessKey'
 
 -- | 'DeleteAccessKey' smart constructor.
 deleteAccessKey :: Text -> DeleteAccessKey
-deleteAccessKey pAccessKeyId =
+deleteAccessKey pAccessKeyId_ =
     DeleteAccessKey'
     { _dakrqUserName = Nothing
-    , _dakrqAccessKeyId = pAccessKeyId
+    , _dakrqAccessKeyId = pAccessKeyId_
     }
 
 -- | The name of the user whose key you want to delete.

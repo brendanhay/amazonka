@@ -85,13 +85,13 @@ data LookupDeveloperIdentity = LookupDeveloperIdentity'
 
 -- | 'LookupDeveloperIdentity' smart constructor.
 lookupDeveloperIdentity :: Text -> LookupDeveloperIdentity
-lookupDeveloperIdentity pIdentityPoolId =
+lookupDeveloperIdentity pIdentityPoolId_ =
     LookupDeveloperIdentity'
     { _ldirqDeveloperUserIdentifier = Nothing
     , _ldirqNextToken = Nothing
     , _ldirqIdentityId = Nothing
     , _ldirqMaxResults = Nothing
-    , _ldirqIdentityPoolId = pIdentityPoolId
+    , _ldirqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A unique ID used by your backend authentication process to identify a
@@ -182,12 +182,12 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
 
 -- | 'LookupDeveloperIdentityResponse' smart constructor.
 lookupDeveloperIdentityResponse :: Int -> LookupDeveloperIdentityResponse
-lookupDeveloperIdentityResponse pStatus =
+lookupDeveloperIdentityResponse pStatus_ =
     LookupDeveloperIdentityResponse'
     { _ldirsNextToken = Nothing
     , _ldirsIdentityId = Nothing
     , _ldirsDeveloperUserIdentifierList = Nothing
-    , _ldirsStatus = pStatus
+    , _ldirsStatus = pStatus_
     }
 
 -- | A pagination token. The first call you make will have @NextToken@ set to

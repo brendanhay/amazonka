@@ -67,11 +67,11 @@ data SetVaultAccessPolicy = SetVaultAccessPolicy'
 
 -- | 'SetVaultAccessPolicy' smart constructor.
 setVaultAccessPolicy :: Text -> Text -> SetVaultAccessPolicy
-setVaultAccessPolicy pAccountId pVaultName =
+setVaultAccessPolicy pAccountId_ pVaultName_ =
     SetVaultAccessPolicy'
     { _svaprqPolicy = Nothing
-    , _svaprqAccountId = pAccountId
-    , _svaprqVaultName = pVaultName
+    , _svaprqAccountId = pAccountId_
+    , _svaprqVaultName = pVaultName_
     }
 
 -- | The vault access policy as a JSON string.

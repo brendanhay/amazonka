@@ -70,9 +70,9 @@ newtype DeleteVolume = DeleteVolume'
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
-deleteVolume pVolumeARN =
+deleteVolume pVolumeARN_ =
     DeleteVolume'
-    { _dvrqVolumeARN = pVolumeARN
+    { _dvrqVolumeARN = pVolumeARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
@@ -126,10 +126,10 @@ data DeleteVolumeResponse = DeleteVolumeResponse'
 
 -- | 'DeleteVolumeResponse' smart constructor.
 deleteVolumeResponse :: Int -> DeleteVolumeResponse
-deleteVolumeResponse pStatus =
+deleteVolumeResponse pStatus_ =
     DeleteVolumeResponse'
     { _dvrsVolumeARN = Nothing
-    , _dvrsStatus = pStatus
+    , _dvrsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted.

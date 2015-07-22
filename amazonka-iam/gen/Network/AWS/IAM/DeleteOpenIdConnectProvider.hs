@@ -58,9 +58,9 @@ newtype DeleteOpenIdConnectProvider = DeleteOpenIdConnectProvider'
 
 -- | 'DeleteOpenIdConnectProvider' smart constructor.
 deleteOpenIdConnectProvider :: Text -> DeleteOpenIdConnectProvider
-deleteOpenIdConnectProvider pOpenIdConnectProviderARN =
+deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
     DeleteOpenIdConnectProvider'
-    { _doicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN
+    { _doicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider to

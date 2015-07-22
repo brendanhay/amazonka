@@ -109,11 +109,11 @@ data SplitShard = SplitShard'
 
 -- | 'SplitShard' smart constructor.
 splitShard :: Text -> Text -> Text -> SplitShard
-splitShard pStreamName pShardToSplit pNewStartingHashKey =
+splitShard pStreamName_ pShardToSplit_ pNewStartingHashKey_ =
     SplitShard'
-    { _ssrqStreamName = pStreamName
-    , _ssrqShardToSplit = pShardToSplit
-    , _ssrqNewStartingHashKey = pNewStartingHashKey
+    { _ssrqStreamName = pStreamName_
+    , _ssrqShardToSplit = pShardToSplit_
+    , _ssrqNewStartingHashKey = pNewStartingHashKey_
     }
 
 -- | The name of the stream for the shard split.

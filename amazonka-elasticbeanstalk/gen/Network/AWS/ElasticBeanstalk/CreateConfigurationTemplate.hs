@@ -95,15 +95,15 @@ data CreateConfigurationTemplate = CreateConfigurationTemplate'
 
 -- | 'CreateConfigurationTemplate' smart constructor.
 createConfigurationTemplate :: Text -> Text -> CreateConfigurationTemplate
-createConfigurationTemplate pApplicationName pTemplateName =
+createConfigurationTemplate pApplicationName_ pTemplateName_ =
     CreateConfigurationTemplate'
     { _cctrqOptionSettings = Nothing
     , _cctrqSourceConfiguration = Nothing
     , _cctrqEnvironmentId = Nothing
     , _cctrqSolutionStackName = Nothing
     , _cctrqDescription = Nothing
-    , _cctrqApplicationName = pApplicationName
-    , _cctrqTemplateName = pTemplateName
+    , _cctrqApplicationName = pApplicationName_
+    , _cctrqTemplateName = pTemplateName_
     }
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration

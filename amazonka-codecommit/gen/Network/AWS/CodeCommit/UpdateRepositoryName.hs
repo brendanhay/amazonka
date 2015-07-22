@@ -57,10 +57,10 @@ data UpdateRepositoryName = UpdateRepositoryName'
 
 -- | 'UpdateRepositoryName' smart constructor.
 updateRepositoryName :: Text -> Text -> UpdateRepositoryName
-updateRepositoryName pOldName pNewName =
+updateRepositoryName pOldName_ pNewName_ =
     UpdateRepositoryName'
-    { _urnrqOldName = pOldName
-    , _urnrqNewName = pNewName
+    { _urnrqOldName = pOldName_
+    , _urnrqNewName = pNewName_
     }
 
 -- | FIXME: Undocumented member.

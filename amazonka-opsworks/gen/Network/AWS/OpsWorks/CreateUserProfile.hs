@@ -71,12 +71,12 @@ data CreateUserProfile = CreateUserProfile'
 
 -- | 'CreateUserProfile' smart constructor.
 createUserProfile :: Text -> CreateUserProfile
-createUserProfile pIAMUserARN =
+createUserProfile pIAMUserARN_ =
     CreateUserProfile'
     { _cuprqSSHUsername = Nothing
     , _cuprqSSHPublicKey = Nothing
     , _cuprqAllowSelfManagement = Nothing
-    , _cuprqIAMUserARN = pIAMUserARN
+    , _cuprqIAMUserARN = pIAMUserARN_
     }
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
@@ -151,10 +151,10 @@ data CreateUserProfileResponse = CreateUserProfileResponse'
 
 -- | 'CreateUserProfileResponse' smart constructor.
 createUserProfileResponse :: Int -> CreateUserProfileResponse
-createUserProfileResponse pStatus =
+createUserProfileResponse pStatus_ =
     CreateUserProfileResponse'
     { _cuprsIAMUserARN = Nothing
-    , _cuprsStatus = pStatus
+    , _cuprsStatus = pStatus_
     }
 
 -- | The user\'s IAM ARN.

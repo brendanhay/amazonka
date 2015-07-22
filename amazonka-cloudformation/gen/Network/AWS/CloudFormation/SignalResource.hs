@@ -71,12 +71,12 @@ data SignalResource = SignalResource'
 
 -- | 'SignalResource' smart constructor.
 signalResource :: Text -> Text -> Text -> ResourceSignalStatus -> SignalResource
-signalResource pStackName pLogicalResourceId pUniqueId pStatus =
+signalResource pStackName_ pLogicalResourceId_ pUniqueId_ pStatus_ =
     SignalResource'
-    { _srrqStackName = pStackName
-    , _srrqLogicalResourceId = pLogicalResourceId
-    , _srrqUniqueId = pUniqueId
-    , _srrqStatus = pStatus
+    { _srrqStackName = pStackName_
+    , _srrqLogicalResourceId = pLogicalResourceId_
+    , _srrqUniqueId = pUniqueId_
+    , _srrqStatus = pStatus_
     }
 
 -- | The stack name or unique stack ID that includes the resource that you

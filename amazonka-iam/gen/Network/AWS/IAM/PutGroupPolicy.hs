@@ -78,11 +78,11 @@ data PutGroupPolicy = PutGroupPolicy'
 
 -- | 'PutGroupPolicy' smart constructor.
 putGroupPolicy :: Text -> Text -> Text -> PutGroupPolicy
-putGroupPolicy pGroupName pPolicyName pPolicyDocument =
+putGroupPolicy pGroupName_ pPolicyName_ pPolicyDocument_ =
     PutGroupPolicy'
-    { _pgprqGroupName = pGroupName
-    , _pgprqPolicyName = pPolicyName
-    , _pgprqPolicyDocument = pPolicyDocument
+    { _pgprqGroupName = pGroupName_
+    , _pgprqPolicyName = pPolicyName_
+    , _pgprqPolicyDocument = pPolicyDocument_
     }
 
 -- | The name of the group to associate the policy with.

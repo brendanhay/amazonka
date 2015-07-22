@@ -61,10 +61,10 @@ data DetachUserPolicy = DetachUserPolicy'
 
 -- | 'DetachUserPolicy' smart constructor.
 detachUserPolicy :: Text -> Text -> DetachUserPolicy
-detachUserPolicy pUserName pPolicyARN =
+detachUserPolicy pUserName_ pPolicyARN_ =
     DetachUserPolicy'
-    { _drqUserName = pUserName
-    , _drqPolicyARN = pPolicyARN
+    { _drqUserName = pUserName_
+    , _drqPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the user to detach the policy from.

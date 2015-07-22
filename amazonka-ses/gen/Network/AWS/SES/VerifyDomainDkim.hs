@@ -72,9 +72,9 @@ newtype VerifyDomainDkim = VerifyDomainDkim'
 
 -- | 'VerifyDomainDkim' smart constructor.
 verifyDomainDkim :: Text -> VerifyDomainDkim
-verifyDomainDkim pDomain =
+verifyDomainDkim pDomain_ =
     VerifyDomainDkim'
-    { _vddrqDomain = pDomain
+    { _vddrqDomain = pDomain_
     }
 
 -- | The name of the domain to be verified for Easy DKIM signing.
@@ -123,9 +123,9 @@ data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
 verifyDomainDkimResponse :: Int -> VerifyDomainDkimResponse
-verifyDomainDkimResponse pStatus =
+verifyDomainDkimResponse pStatus_ =
     VerifyDomainDkimResponse'
-    { _vddrsStatus = pStatus
+    { _vddrsStatus = pStatus_
     , _vddrsDkimTokens = mempty
     }
 

@@ -143,10 +143,10 @@ data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
 
 -- | 'DescribeRAIdArraysResponse' smart constructor.
 describeRAIdArraysResponse :: Int -> DescribeRAIdArraysResponse
-describeRAIdArraysResponse pStatus =
+describeRAIdArraysResponse pStatus_ =
     DescribeRAIdArraysResponse'
     { _draiarsRAIdArrays = Nothing
-    , _draiarsStatus = pStatus
+    , _draiarsStatus = pStatus_
     }
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.

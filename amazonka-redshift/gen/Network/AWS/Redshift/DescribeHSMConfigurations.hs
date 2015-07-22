@@ -204,11 +204,11 @@ data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
 describeHSMConfigurationsResponse :: Int -> DescribeHSMConfigurationsResponse
-describeHSMConfigurationsResponse pStatus =
+describeHSMConfigurationsResponse pStatus_ =
     DescribeHSMConfigurationsResponse'
     { _dhcrsMarker = Nothing
     , _dhcrsHSMConfigurations = Nothing
-    , _dhcrsStatus = pStatus
+    , _dhcrsStatus = pStatus_
     }
 
 -- | A value that indicates the starting point for the next set of response

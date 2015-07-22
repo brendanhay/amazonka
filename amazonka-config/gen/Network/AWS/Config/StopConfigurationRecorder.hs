@@ -54,9 +54,9 @@ newtype StopConfigurationRecorder = StopConfigurationRecorder'
 
 -- | 'StopConfigurationRecorder' smart constructor.
 stopConfigurationRecorder :: Text -> StopConfigurationRecorder
-stopConfigurationRecorder pConfigurationRecorderName =
+stopConfigurationRecorder pConfigurationRecorderName_ =
     StopConfigurationRecorder'
-    { _scrrqConfigurationRecorderName = pConfigurationRecorderName
+    { _scrrqConfigurationRecorderName = pConfigurationRecorderName_
     }
 
 -- | The name of the recorder object that records each configuration change

@@ -97,7 +97,7 @@ data CopySnapshot = CopySnapshot'
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
-copySnapshot pSourceRegion pSourceSnapshotId =
+copySnapshot pSourceRegion_ pSourceSnapshotId_ =
     CopySnapshot'
     { _csrqEncrypted = Nothing
     , _csrqPresignedURL = Nothing
@@ -105,8 +105,8 @@ copySnapshot pSourceRegion pSourceSnapshotId =
     , _csrqKMSKeyId = Nothing
     , _csrqDryRun = Nothing
     , _csrqDescription = Nothing
-    , _csrqSourceRegion = pSourceRegion
-    , _csrqSourceSnapshotId = pSourceSnapshotId
+    , _csrqSourceRegion = pSourceRegion_
+    , _csrqSourceSnapshotId = pSourceSnapshotId_
     }
 
 -- | Specifies whether the destination snapshot should be encrypted. There is
@@ -222,10 +222,10 @@ data CopySnapshotResponse = CopySnapshotResponse'
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse
-copySnapshotResponse pStatus =
+copySnapshotResponse pStatus_ =
     CopySnapshotResponse'
     { _csrsSnapshotId = Nothing
-    , _csrsStatus = pStatus
+    , _csrsStatus = pStatus_
     }
 
 -- | The ID of the new snapshot.

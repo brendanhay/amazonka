@@ -68,10 +68,10 @@ data RegisterElasticIP = RegisterElasticIP'
 
 -- | 'RegisterElasticIP' smart constructor.
 registerElasticIP :: Text -> Text -> RegisterElasticIP
-registerElasticIP pElasticIP pStackId =
+registerElasticIP pElasticIP_ pStackId_ =
     RegisterElasticIP'
-    { _reirqElasticIP = pElasticIP
-    , _reirqStackId = pStackId
+    { _reirqElasticIP = pElasticIP_
+    , _reirqStackId = pStackId_
     }
 
 -- | The Elastic IP address.
@@ -130,10 +130,10 @@ data RegisterElasticIPResponse = RegisterElasticIPResponse'
 
 -- | 'RegisterElasticIPResponse' smart constructor.
 registerElasticIPResponse :: Int -> RegisterElasticIPResponse
-registerElasticIPResponse pStatus =
+registerElasticIPResponse pStatus_ =
     RegisterElasticIPResponse'
     { _reirsElasticIP = Nothing
-    , _reirsStatus = pStatus
+    , _reirsStatus = pStatus_
     }
 
 -- | The Elastic IP address.

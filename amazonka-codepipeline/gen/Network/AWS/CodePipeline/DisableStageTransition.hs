@@ -66,12 +66,12 @@ data DisableStageTransition = DisableStageTransition'
 
 -- | 'DisableStageTransition' smart constructor.
 disableStageTransition :: Text -> Text -> StageTransitionType -> Text -> DisableStageTransition
-disableStageTransition pPipelineName pStageName pTransitionType pReason =
+disableStageTransition pPipelineName_ pStageName_ pTransitionType_ pReason_ =
     DisableStageTransition'
-    { _dstrqPipelineName = pPipelineName
-    , _dstrqStageName = pStageName
-    , _dstrqTransitionType = pTransitionType
-    , _dstrqReason = pReason
+    { _dstrqPipelineName = pPipelineName_
+    , _dstrqStageName = pStageName_
+    , _dstrqTransitionType = pTransitionType_
+    , _dstrqReason = pReason_
     }
 
 -- | The name of the pipeline in which you want to disable the flow of

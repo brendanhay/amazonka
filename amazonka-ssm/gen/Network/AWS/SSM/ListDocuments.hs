@@ -137,11 +137,11 @@ data ListDocumentsResponse = ListDocumentsResponse'
 
 -- | 'ListDocumentsResponse' smart constructor.
 listDocumentsResponse :: Int -> ListDocumentsResponse
-listDocumentsResponse pStatus =
+listDocumentsResponse pStatus_ =
     ListDocumentsResponse'
     { _ldrsDocumentIdentifiers = Nothing
     , _ldrsNextToken = Nothing
-    , _ldrsStatus = pStatus
+    , _ldrsStatus = pStatus_
     }
 
 -- | The names of the configuration documents.

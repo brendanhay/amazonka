@@ -57,9 +57,9 @@ newtype CheckDNSAvailability = CheckDNSAvailability'
 
 -- | 'CheckDNSAvailability' smart constructor.
 checkDNSAvailability :: Text -> CheckDNSAvailability
-checkDNSAvailability pCNAMEPrefix =
+checkDNSAvailability pCNAMEPrefix_ =
     CheckDNSAvailability'
-    { _cdarqCNAMEPrefix = pCNAMEPrefix
+    { _cdarqCNAMEPrefix = pCNAMEPrefix_
     }
 
 -- | The prefix used when this CNAME is reserved.
@@ -110,11 +110,11 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
 
 -- | 'CheckDNSAvailabilityResponse' smart constructor.
 checkDNSAvailabilityResponse :: Int -> CheckDNSAvailabilityResponse
-checkDNSAvailabilityResponse pStatus =
+checkDNSAvailabilityResponse pStatus_ =
     CheckDNSAvailabilityResponse'
     { _cdarsFullyQualifiedCNAME = Nothing
     , _cdarsAvailable = Nothing
-    , _cdarsStatus = pStatus
+    , _cdarsStatus = pStatus_
     }
 
 -- | The fully qualified CNAME to reserve when CreateEnvironment is called

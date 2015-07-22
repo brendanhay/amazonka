@@ -84,10 +84,10 @@ data DescribeWorkflowType = DescribeWorkflowType'
 
 -- | 'DescribeWorkflowType' smart constructor.
 describeWorkflowType :: Text -> WorkflowType -> DescribeWorkflowType
-describeWorkflowType pDomain pWorkflowType =
+describeWorkflowType pDomain_ pWorkflowType_ =
     DescribeWorkflowType'
-    { _dwtrqDomain = pDomain
-    , _dwtrqWorkflowType = pWorkflowType
+    { _dwtrqDomain = pDomain_
+    , _dwtrqWorkflowType = pWorkflowType_
     }
 
 -- | The name of the domain in which this workflow type is registered.
@@ -151,11 +151,11 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
 
 -- | 'DescribeWorkflowTypeResponse' smart constructor.
 describeWorkflowTypeResponse :: Int -> WorkflowTypeInfo -> WorkflowTypeConfiguration -> DescribeWorkflowTypeResponse
-describeWorkflowTypeResponse pStatus pTypeInfo pConfiguration =
+describeWorkflowTypeResponse pStatus_ pTypeInfo_ pConfiguration_ =
     DescribeWorkflowTypeResponse'
-    { _dwtrsStatus = pStatus
-    , _dwtrsTypeInfo = pTypeInfo
-    , _dwtrsConfiguration = pConfiguration
+    { _dwtrsStatus = pStatus_
+    , _dwtrsTypeInfo = pTypeInfo_
+    , _dwtrsConfiguration = pConfiguration_
     }
 
 -- | FIXME: Undocumented member.

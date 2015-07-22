@@ -70,12 +70,12 @@ data PutActionRevision = PutActionRevision'
 
 -- | 'PutActionRevision' smart constructor.
 putActionRevision :: Text -> Text -> Text -> ActionRevision -> PutActionRevision
-putActionRevision pPipelineName pStageName pActionName pActionRevision =
+putActionRevision pPipelineName_ pStageName_ pActionName_ pActionRevision_ =
     PutActionRevision'
-    { _parrqPipelineName = pPipelineName
-    , _parrqStageName = pStageName
-    , _parrqActionName = pActionName
-    , _parrqActionRevision = pActionRevision
+    { _parrqPipelineName = pPipelineName_
+    , _parrqStageName = pStageName_
+    , _parrqActionName = pActionName_
+    , _parrqActionRevision = pActionRevision_
     }
 
 -- | The name of the pipeline that will start processing the revision to the
@@ -151,11 +151,11 @@ data PutActionRevisionResponse = PutActionRevisionResponse'
 
 -- | 'PutActionRevisionResponse' smart constructor.
 putActionRevisionResponse :: Int -> PutActionRevisionResponse
-putActionRevisionResponse pStatus =
+putActionRevisionResponse pStatus_ =
     PutActionRevisionResponse'
     { _parrsNewRevision = Nothing
     , _parrsPipelineExecutionId = Nothing
-    , _parrsStatus = pStatus
+    , _parrsStatus = pStatus_
     }
 
 -- | The new revision number or ID for the revision after the action

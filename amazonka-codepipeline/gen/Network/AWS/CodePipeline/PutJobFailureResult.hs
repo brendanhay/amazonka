@@ -58,10 +58,10 @@ data PutJobFailureResult = PutJobFailureResult'
 
 -- | 'PutJobFailureResult' smart constructor.
 putJobFailureResult :: Text -> FailureDetails -> PutJobFailureResult
-putJobFailureResult pJobId pFailureDetails =
+putJobFailureResult pJobId_ pFailureDetails_ =
     PutJobFailureResult'
-    { _pjfrrqJobId = pJobId
-    , _pjfrrqFailureDetails = pFailureDetails
+    { _pjfrrqJobId = pJobId_
+    , _pjfrrqFailureDetails = pFailureDetails_
     }
 
 -- | The unique system-generated ID of the job that failed. This is the same

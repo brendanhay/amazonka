@@ -63,9 +63,9 @@ newtype PutDeliveryChannel = PutDeliveryChannel'
 
 -- | 'PutDeliveryChannel' smart constructor.
 putDeliveryChannel :: DeliveryChannel -> PutDeliveryChannel
-putDeliveryChannel pDeliveryChannel =
+putDeliveryChannel pDeliveryChannel_ =
     PutDeliveryChannel'
-    { _pdcrqDeliveryChannel = pDeliveryChannel
+    { _pdcrqDeliveryChannel = pDeliveryChannel_
     }
 
 -- | The configuration delivery channel object that delivers the

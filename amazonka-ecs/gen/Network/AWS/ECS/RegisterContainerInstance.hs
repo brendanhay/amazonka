@@ -175,10 +175,10 @@ data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
 
 -- | 'RegisterContainerInstanceResponse' smart constructor.
 registerContainerInstanceResponse :: Int -> RegisterContainerInstanceResponse
-registerContainerInstanceResponse pStatus =
+registerContainerInstanceResponse pStatus_ =
     RegisterContainerInstanceResponse'
     { _rcirsContainerInstance = Nothing
-    , _rcirsStatus = pStatus
+    , _rcirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

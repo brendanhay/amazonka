@@ -96,10 +96,10 @@ data ListAvailableZonesResponse = ListAvailableZonesResponse'
 
 -- | 'ListAvailableZonesResponse' smart constructor.
 listAvailableZonesResponse :: Int -> ListAvailableZonesResponse
-listAvailableZonesResponse pStatus =
+listAvailableZonesResponse pStatus_ =
     ListAvailableZonesResponse'
     { _lazrsAZList = Nothing
-    , _lazrsStatus = pStatus
+    , _lazrsStatus = pStatus_
     }
 
 -- | The list of Availability Zones that have available AWS CloudHSM

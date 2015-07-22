@@ -55,6 +55,4 @@ import           Network.AWS.Config.PutDeliveryChannel                  as Expor
 import           Network.AWS.Config.StartConfigurationRecorder          as Export
 import           Network.AWS.Config.StopConfigurationRecorder           as Export
 import           Network.AWS.Config.Types                               as Export
-import           Network.AWS.Config.Types.Product                       as Export
-import           Network.AWS.Config.Types.Sum                           as Export
 import           Network.AWS.Config.Waiters                             as Export

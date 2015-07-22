@@ -63,10 +63,10 @@ data ConfigureHealthCheck = ConfigureHealthCheck'
 
 -- | 'ConfigureHealthCheck' smart constructor.
 configureHealthCheck :: Text -> HealthCheck -> ConfigureHealthCheck
-configureHealthCheck pLoadBalancerName pHealthCheck =
+configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
     ConfigureHealthCheck'
-    { _chcrqLoadBalancerName = pLoadBalancerName
-    , _chcrqHealthCheck = pHealthCheck
+    { _chcrqLoadBalancerName = pLoadBalancerName_
+    , _chcrqHealthCheck = pHealthCheck_
     }
 
 -- | The name of the load balancer.
@@ -116,10 +116,10 @@ data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
 
 -- | 'ConfigureHealthCheckResponse' smart constructor.
 configureHealthCheckResponse :: Int -> ConfigureHealthCheckResponse
-configureHealthCheckResponse pStatus =
+configureHealthCheckResponse pStatus_ =
     ConfigureHealthCheckResponse'
     { _chcrsHealthCheck = Nothing
-    , _chcrsStatus = pStatus
+    , _chcrsStatus = pStatus_
     }
 
 -- | The updated health check.

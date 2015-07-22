@@ -79,9 +79,9 @@ newtype ShutdownGateway = ShutdownGateway'
 
 -- | 'ShutdownGateway' smart constructor.
 shutdownGateway :: Text -> ShutdownGateway
-shutdownGateway pGatewayARN =
+shutdownGateway pGatewayARN_ =
     ShutdownGateway'
-    { _srqGatewayARN = pGatewayARN
+    { _srqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -134,10 +134,10 @@ data ShutdownGatewayResponse = ShutdownGatewayResponse'
 
 -- | 'ShutdownGatewayResponse' smart constructor.
 shutdownGatewayResponse :: Int -> ShutdownGatewayResponse
-shutdownGatewayResponse pStatus =
+shutdownGatewayResponse pStatus_ =
     ShutdownGatewayResponse'
     { _sgrsGatewayARN = Nothing
-    , _sgrsStatus = pStatus
+    , _sgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

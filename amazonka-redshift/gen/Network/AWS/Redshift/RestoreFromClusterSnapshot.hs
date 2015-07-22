@@ -143,7 +143,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
 
 -- | 'RestoreFromClusterSnapshot' smart constructor.
 restoreFromClusterSnapshot :: Text -> Text -> RestoreFromClusterSnapshot
-restoreFromClusterSnapshot pClusterIdentifier pSnapshotIdentifier =
+restoreFromClusterSnapshot pClusterIdentifier_ pSnapshotIdentifier_ =
     RestoreFromClusterSnapshot'
     { _rfcsrqPubliclyAccessible = Nothing
     , _rfcsrqHSMConfigurationIdentifier = Nothing
@@ -162,8 +162,8 @@ restoreFromClusterSnapshot pClusterIdentifier pSnapshotIdentifier =
     , _rfcsrqAllowVersionUpgrade = Nothing
     , _rfcsrqClusterParameterGroupName = Nothing
     , _rfcsrqPort = Nothing
-    , _rfcsrqClusterIdentifier = pClusterIdentifier
-    , _rfcsrqSnapshotIdentifier = pSnapshotIdentifier
+    , _rfcsrqClusterIdentifier = pClusterIdentifier_
+    , _rfcsrqSnapshotIdentifier = pSnapshotIdentifier_
     }
 
 -- | If @true@, the cluster can be accessed from a public network.
@@ -399,10 +399,10 @@ data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
 
 -- | 'RestoreFromClusterSnapshotResponse' smart constructor.
 restoreFromClusterSnapshotResponse :: Int -> RestoreFromClusterSnapshotResponse
-restoreFromClusterSnapshotResponse pStatus =
+restoreFromClusterSnapshotResponse pStatus_ =
     RestoreFromClusterSnapshotResponse'
     { _rfcsrsCluster = Nothing
-    , _rfcsrsStatus = pStatus
+    , _rfcsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

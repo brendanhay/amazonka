@@ -128,7 +128,7 @@ data CreateLayer = CreateLayer'
 
 -- | 'CreateLayer' smart constructor.
 createLayer :: Text -> LayerType -> Text -> Text -> CreateLayer
-createLayer pStackId pType pName pShortname =
+createLayer pStackId_ pType_ pName_ pShortname_ =
     CreateLayer'
     { _clrqCustomInstanceProfileARN = Nothing
     , _clrqInstallUpdatesOnBoot = Nothing
@@ -142,10 +142,10 @@ createLayer pStackId pType pName pShortname =
     , _clrqAutoAssignPublicIPs = Nothing
     , _clrqUseEBSOptimizedInstances = Nothing
     , _clrqAutoAssignElasticIPs = Nothing
-    , _clrqStackId = pStackId
-    , _clrqType = pType
-    , _clrqName = pName
-    , _clrqShortname = pShortname
+    , _clrqStackId = pStackId_
+    , _clrqType = pType_
+    , _clrqName = pName_
+    , _clrqShortname = pShortname_
     }
 
 -- | The ARN of an IAM profile that to be used for the layer\'s EC2
@@ -303,10 +303,10 @@ data CreateLayerResponse = CreateLayerResponse'
 
 -- | 'CreateLayerResponse' smart constructor.
 createLayerResponse :: Int -> CreateLayerResponse
-createLayerResponse pStatus =
+createLayerResponse pStatus_ =
     CreateLayerResponse'
     { _clrsLayerId = Nothing
-    , _clrsStatus = pStatus
+    , _clrsStatus = pStatus_
     }
 
 -- | The layer ID.

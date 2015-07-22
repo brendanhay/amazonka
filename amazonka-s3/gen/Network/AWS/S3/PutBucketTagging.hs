@@ -59,11 +59,11 @@ data PutBucketTagging = PutBucketTagging'
 
 -- | 'PutBucketTagging' smart constructor.
 putBucketTagging :: BucketName -> Tagging -> PutBucketTagging
-putBucketTagging pBucket pTagging =
+putBucketTagging pBucket_ pTagging_ =
     PutBucketTagging'
     { _pbtrqContentMD5 = Nothing
-    , _pbtrqBucket = pBucket
-    , _pbtrqTagging = pTagging
+    , _pbtrqBucket = pBucket_
+    , _pbtrqTagging = pTagging_
     }
 
 -- | FIXME: Undocumented member.

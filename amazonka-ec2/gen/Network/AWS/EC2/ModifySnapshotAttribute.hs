@@ -85,7 +85,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
 
 -- | 'ModifySnapshotAttribute' smart constructor.
 modifySnapshotAttribute :: Text -> ModifySnapshotAttribute
-modifySnapshotAttribute pSnapshotId =
+modifySnapshotAttribute pSnapshotId_ =
     ModifySnapshotAttribute'
     { _msarqAttribute = Nothing
     , _msarqUserIds = Nothing
@@ -93,7 +93,7 @@ modifySnapshotAttribute pSnapshotId =
     , _msarqGroupNames = Nothing
     , _msarqOperationType = Nothing
     , _msarqDryRun = Nothing
-    , _msarqSnapshotId = pSnapshotId
+    , _msarqSnapshotId = pSnapshotId_
     }
 
 -- | The snapshot attribute to modify.

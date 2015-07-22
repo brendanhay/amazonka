@@ -65,11 +65,11 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution'
 
 -- | 'UpdateStreamingDistribution' smart constructor.
 updateStreamingDistribution :: StreamingDistributionConfig -> Text -> UpdateStreamingDistribution
-updateStreamingDistribution pStreamingDistributionConfig pId =
+updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
     UpdateStreamingDistribution'
     { _usdrqIfMatch = Nothing
-    , _usdrqStreamingDistributionConfig = pStreamingDistributionConfig
-    , _usdrqId = pId
+    , _usdrqStreamingDistributionConfig = pStreamingDistributionConfig_
+    , _usdrqId = pId_
     }
 
 -- | The value of the ETag header you received when retrieving the streaming
@@ -136,11 +136,11 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
 
 -- | 'UpdateStreamingDistributionResponse' smart constructor.
 updateStreamingDistributionResponse :: Int -> UpdateStreamingDistributionResponse
-updateStreamingDistributionResponse pStatus =
+updateStreamingDistributionResponse pStatus_ =
     UpdateStreamingDistributionResponse'
     { _usdrsETag = Nothing
     , _usdrsStreamingDistribution = Nothing
-    , _usdrsStatus = pStatus
+    , _usdrsStatus = pStatus_
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.

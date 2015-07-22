@@ -74,12 +74,12 @@ data DescribeMetricFilters = DescribeMetricFilters'
 
 -- | 'DescribeMetricFilters' smart constructor.
 describeMetricFilters :: Text -> DescribeMetricFilters
-describeMetricFilters pLogGroupName =
+describeMetricFilters pLogGroupName_ =
     DescribeMetricFilters'
     { _dmfrqFilterNamePrefix = Nothing
     , _dmfrqNextToken = Nothing
     , _dmfrqLimit = Nothing
-    , _dmfrqLogGroupName = pLogGroupName
+    , _dmfrqLogGroupName = pLogGroupName_
     }
 
 -- | Will only return metric filters that match the provided
@@ -157,11 +157,11 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
 
 -- | 'DescribeMetricFiltersResponse' smart constructor.
 describeMetricFiltersResponse :: Int -> DescribeMetricFiltersResponse
-describeMetricFiltersResponse pStatus =
+describeMetricFiltersResponse pStatus_ =
     DescribeMetricFiltersResponse'
     { _dmfrsNextToken = Nothing
     , _dmfrsMetricFilters = Nothing
-    , _dmfrsStatus = pStatus
+    , _dmfrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

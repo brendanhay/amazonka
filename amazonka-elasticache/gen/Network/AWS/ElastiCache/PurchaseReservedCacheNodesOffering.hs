@@ -65,11 +65,11 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
 
 -- | 'PurchaseReservedCacheNodesOffering' smart constructor.
 purchaseReservedCacheNodesOffering :: Text -> PurchaseReservedCacheNodesOffering
-purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId =
+purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ =
     PurchaseReservedCacheNodesOffering'
     { _prcnorqCacheNodeCount = Nothing
     , _prcnorqReservedCacheNodeId = Nothing
-    , _prcnorqReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId
+    , _prcnorqReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId_
     }
 
 -- | The number of cache node instances to reserve.
@@ -138,10 +138,10 @@ data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOffe
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
 purchaseReservedCacheNodesOfferingResponse :: Int -> PurchaseReservedCacheNodesOfferingResponse
-purchaseReservedCacheNodesOfferingResponse pStatus =
+purchaseReservedCacheNodesOfferingResponse pStatus_ =
     PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorsReservedCacheNode = Nothing
-    , _prcnorsStatus = pStatus
+    , _prcnorsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -64,9 +64,9 @@ newtype RestoreFromSnapshot = RestoreFromSnapshot'
 
 -- | 'RestoreFromSnapshot' smart constructor.
 restoreFromSnapshot :: Text -> RestoreFromSnapshot
-restoreFromSnapshot pSnapshotId =
+restoreFromSnapshot pSnapshotId_ =
     RestoreFromSnapshot'
-    { _rfsrqSnapshotId = pSnapshotId
+    { _rfsrqSnapshotId = pSnapshotId_
     }
 
 -- | The identifier of the snapshot to restore from.
@@ -116,9 +116,9 @@ newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
 
 -- | 'RestoreFromSnapshotResponse' smart constructor.
 restoreFromSnapshotResponse :: Int -> RestoreFromSnapshotResponse
-restoreFromSnapshotResponse pStatus =
+restoreFromSnapshotResponse pStatus_ =
     RestoreFromSnapshotResponse'
-    { _rfsrsStatus = pStatus
+    { _rfsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

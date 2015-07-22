@@ -118,10 +118,10 @@ data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
 
 -- | 'ListStreamingDistributionsResponse' smart constructor.
 listStreamingDistributionsResponse :: Int -> StreamingDistributionList -> ListStreamingDistributionsResponse
-listStreamingDistributionsResponse pStatus pStreamingDistributionList =
+listStreamingDistributionsResponse pStatus_ pStreamingDistributionList_ =
     ListStreamingDistributionsResponse'
-    { _lsdrsStatus = pStatus
-    , _lsdrsStreamingDistributionList = pStreamingDistributionList
+    { _lsdrsStatus = pStatus_
+    , _lsdrsStreamingDistributionList = pStreamingDistributionList_
     }
 
 -- | FIXME: Undocumented member.

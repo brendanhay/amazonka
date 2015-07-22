@@ -64,9 +64,9 @@ data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
 
 -- | 'CreateLoadBalancerListeners' smart constructor.
 createLoadBalancerListeners :: Text -> CreateLoadBalancerListeners
-createLoadBalancerListeners pLoadBalancerName =
+createLoadBalancerListeners pLoadBalancerName_ =
     CreateLoadBalancerListeners'
-    { _clblrqLoadBalancerName = pLoadBalancerName
+    { _clblrqLoadBalancerName = pLoadBalancerName_
     , _clblrqListeners = mempty
     }
 
@@ -116,9 +116,9 @@ newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersRespons
 
 -- | 'CreateLoadBalancerListenersResponse' smart constructor.
 createLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResponse
-createLoadBalancerListenersResponse pStatus =
+createLoadBalancerListenersResponse pStatus_ =
     CreateLoadBalancerListenersResponse'
-    { _clblrsStatus = pStatus
+    { _clblrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

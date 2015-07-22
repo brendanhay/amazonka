@@ -53,9 +53,9 @@ newtype DeleteRetentionPolicy = DeleteRetentionPolicy'
 
 -- | 'DeleteRetentionPolicy' smart constructor.
 deleteRetentionPolicy :: Text -> DeleteRetentionPolicy
-deleteRetentionPolicy pLogGroupName =
+deleteRetentionPolicy pLogGroupName_ =
     DeleteRetentionPolicy'
-    { _drprqLogGroupName = pLogGroupName
+    { _drprqLogGroupName = pLogGroupName_
     }
 
 -- | The name of the log group that is associated with the retention policy

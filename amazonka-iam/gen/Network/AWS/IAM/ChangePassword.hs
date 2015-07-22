@@ -61,10 +61,10 @@ data ChangePassword = ChangePassword'
 
 -- | 'ChangePassword' smart constructor.
 changePassword :: Text -> Text -> ChangePassword
-changePassword pOldPassword pNewPassword =
+changePassword pOldPassword_ pNewPassword_ =
     ChangePassword'
-    { _cprqOldPassword = _Sensitive # pOldPassword
-    , _cprqNewPassword = _Sensitive # pNewPassword
+    { _cprqOldPassword = _Sensitive # pOldPassword_
+    , _cprqNewPassword = _Sensitive # pNewPassword_
     }
 
 -- | The IAM user\'s current password.

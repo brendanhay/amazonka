@@ -441,13 +441,13 @@ data RecordPatch = RecordPatch'
 
 -- | 'RecordPatch' smart constructor.
 recordPatch :: Operation -> Text -> Integer -> RecordPatch
-recordPatch pOp pKey pSyncCount =
+recordPatch pOp_ pKey_ pSyncCount_ =
     RecordPatch'
     { _rpDeviceLastModifiedDate = Nothing
     , _rpValue = Nothing
-    , _rpOp = pOp
-    , _rpKey = pKey
-    , _rpSyncCount = pSyncCount
+    , _rpOp = pOp_
+    , _rpKey = pKey_
+    , _rpSyncCount = pSyncCount_
     }
 
 -- | The last modified date of the client device.

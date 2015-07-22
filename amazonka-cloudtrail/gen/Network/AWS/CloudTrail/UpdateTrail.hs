@@ -92,7 +92,7 @@ data UpdateTrail = UpdateTrail'
 
 -- | 'UpdateTrail' smart constructor.
 updateTrail :: Text -> UpdateTrail
-updateTrail pName =
+updateTrail pName_ =
     UpdateTrail'
     { _utrqS3KeyPrefix = Nothing
     , _utrqSNSTopicName = Nothing
@@ -100,7 +100,7 @@ updateTrail pName =
     , _utrqIncludeGlobalServiceEvents = Nothing
     , _utrqCloudWatchLogsRoleARN = Nothing
     , _utrqS3BucketName = Nothing
-    , _utrqName = pName
+    , _utrqName = pName_
     }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
@@ -219,7 +219,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
 
 -- | 'UpdateTrailResponse' smart constructor.
 updateTrailResponse :: Int -> UpdateTrailResponse
-updateTrailResponse pStatus =
+updateTrailResponse pStatus_ =
     UpdateTrailResponse'
     { _utrsS3KeyPrefix = Nothing
     , _utrsSNSTopicName = Nothing
@@ -228,7 +228,7 @@ updateTrailResponse pStatus =
     , _utrsIncludeGlobalServiceEvents = Nothing
     , _utrsCloudWatchLogsRoleARN = Nothing
     , _utrsS3BucketName = Nothing
-    , _utrsStatus = pStatus
+    , _utrsStatus = pStatus_
     }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket

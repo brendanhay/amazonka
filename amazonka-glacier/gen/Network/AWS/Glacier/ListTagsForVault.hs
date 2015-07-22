@@ -63,10 +63,10 @@ data ListTagsForVault = ListTagsForVault'
 
 -- | 'ListTagsForVault' smart constructor.
 listTagsForVault :: Text -> Text -> ListTagsForVault
-listTagsForVault pAccountId pVaultName =
+listTagsForVault pAccountId_ pVaultName_ =
     ListTagsForVault'
-    { _ltfvrqAccountId = pAccountId
-    , _ltfvrqVaultName = pVaultName
+    { _ltfvrqAccountId = pAccountId_
+    , _ltfvrqVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -119,10 +119,10 @@ data ListTagsForVaultResponse = ListTagsForVaultResponse'
 
 -- | 'ListTagsForVaultResponse' smart constructor.
 listTagsForVaultResponse :: Int -> ListTagsForVaultResponse
-listTagsForVaultResponse pStatus =
+listTagsForVaultResponse pStatus_ =
     ListTagsForVaultResponse'
     { _ltfvrsTags = Nothing
-    , _ltfvrsStatus = pStatus
+    , _ltfvrsStatus = pStatus_
     }
 
 -- | The tags attached to the vault. Each tag is composed of a key and a

@@ -84,9 +84,9 @@ data AddJobFlowSteps = AddJobFlowSteps'
 
 -- | 'AddJobFlowSteps' smart constructor.
 addJobFlowSteps :: Text -> AddJobFlowSteps
-addJobFlowSteps pJobFlowId =
+addJobFlowSteps pJobFlowId_ =
     AddJobFlowSteps'
-    { _ajfsrqJobFlowId = pJobFlowId
+    { _ajfsrqJobFlowId = pJobFlowId_
     , _ajfsrqSteps = mempty
     }
 
@@ -146,10 +146,10 @@ data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
 addJobFlowStepsResponse :: Int -> AddJobFlowStepsResponse
-addJobFlowStepsResponse pStatus =
+addJobFlowStepsResponse pStatus_ =
     AddJobFlowStepsResponse'
     { _ajfsrsStepIds = Nothing
-    , _ajfsrsStatus = pStatus
+    , _ajfsrsStatus = pStatus_
     }
 
 -- | The identifiers of the list of steps added to the job flow.

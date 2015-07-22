@@ -54,13 +54,13 @@ data AccessKey = AccessKey'
 
 -- | 'AccessKey' smart constructor.
 accessKey :: Text -> Text -> StatusType -> Text -> AccessKey
-accessKey pUserName pAccessKeyId pStatus pSecretAccessKey =
+accessKey pUserName_ pAccessKeyId_ pStatus_ pSecretAccessKey_ =
     AccessKey'
     { _akCreateDate = Nothing
-    , _akUserName = pUserName
-    , _akAccessKeyId = pAccessKeyId
-    , _akStatus = pStatus
-    , _akSecretAccessKey = _Sensitive # pSecretAccessKey
+    , _akUserName = pUserName_
+    , _akAccessKeyId = pAccessKeyId_
+    , _akStatus = pStatus_
+    , _akSecretAccessKey = _Sensitive # pSecretAccessKey_
     }
 
 -- | The date when the access key was created.
@@ -114,11 +114,11 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
 
 -- | 'AccessKeyLastUsed' smart constructor.
 accessKeyLastUsed :: UTCTime -> Text -> Text -> AccessKeyLastUsed
-accessKeyLastUsed pLastUsedDate pServiceName pRegion =
+accessKeyLastUsed pLastUsedDate_ pServiceName_ pRegion_ =
     AccessKeyLastUsed'
-    { _akluLastUsedDate = _Time # pLastUsedDate
-    , _akluServiceName = pServiceName
-    , _akluRegion = pRegion
+    { _akluLastUsedDate = _Time # pLastUsedDate_
+    , _akluServiceName = pServiceName_
+    , _akluRegion = pRegion_
     }
 
 -- | The date and time, in
@@ -302,13 +302,13 @@ data Group = Group'
 
 -- | 'Group' smart constructor.
 group' :: Text -> Text -> Text -> Text -> UTCTime -> Group
-group' pPath pGroupName pGroupId pARN pCreateDate =
+group' pPath_ pGroupName_ pGroupId_ pARN_ pCreateDate_ =
     Group'
-    { _gPath = pPath
-    , _gGroupName = pGroupName
-    , _gGroupId = pGroupId
-    , _gARN = pARN
-    , _gCreateDate = _Time # pCreateDate
+    { _gPath = pPath_
+    , _gGroupName = pGroupName_
+    , _gGroupId = pGroupId_
+    , _gARN = pARN_
+    , _gCreateDate = _Time # pCreateDate_
     }
 
 -- | The path to the group. For more information about paths, see
@@ -483,13 +483,13 @@ data InstanceProfile = InstanceProfile'
 
 -- | 'InstanceProfile' smart constructor.
 instanceProfile :: Text -> Text -> Text -> Text -> UTCTime -> InstanceProfile
-instanceProfile pPath pInstanceProfileName pInstanceProfileId pARN pCreateDate =
+instanceProfile pPath_ pInstanceProfileName_ pInstanceProfileId_ pARN_ pCreateDate_ =
     InstanceProfile'
-    { _ipPath = pPath
-    , _ipInstanceProfileName = pInstanceProfileName
-    , _ipInstanceProfileId = pInstanceProfileId
-    , _ipARN = pARN
-    , _ipCreateDate = _Time # pCreateDate
+    { _ipPath = pPath_
+    , _ipInstanceProfileName = pInstanceProfileName_
+    , _ipInstanceProfileId = pInstanceProfileId_
+    , _ipARN = pARN_
+    , _ipCreateDate = _Time # pCreateDate_
     , _ipRoles = mempty
     }
 
@@ -557,11 +557,11 @@ data LoginProfile = LoginProfile'
 
 -- | 'LoginProfile' smart constructor.
 loginProfile :: Text -> UTCTime -> LoginProfile
-loginProfile pUserName pCreateDate =
+loginProfile pUserName_ pCreateDate_ =
     LoginProfile'
     { _lpPasswordResetRequired = Nothing
-    , _lpUserName = pUserName
-    , _lpCreateDate = _Time # pCreateDate
+    , _lpUserName = pUserName_
+    , _lpCreateDate = _Time # pCreateDate_
     }
 
 -- | Specifies whether the user is required to set a new password on next
@@ -606,11 +606,11 @@ data MFADevice = MFADevice'
 
 -- | 'MFADevice' smart constructor.
 mfaDevice :: Text -> Text -> UTCTime -> MFADevice
-mfaDevice pUserName pSerialNumber pEnableDate =
+mfaDevice pUserName_ pSerialNumber_ pEnableDate_ =
     MFADevice'
-    { _mdUserName = pUserName
-    , _mdSerialNumber = pSerialNumber
-    , _mdEnableDate = _Time # pEnableDate
+    { _mdUserName = pUserName_
+    , _mdSerialNumber = pSerialNumber_
+    , _mdEnableDate = _Time # pEnableDate_
     }
 
 -- | The user with whom the MFA device is associated.
@@ -1305,14 +1305,14 @@ data Role = Role'
 
 -- | 'Role' smart constructor.
 role :: Text -> Text -> Text -> Text -> UTCTime -> Role
-role pPath pRoleName pRoleId pARN pCreateDate =
+role pPath_ pRoleName_ pRoleId_ pARN_ pCreateDate_ =
     Role'
     { _rAssumeRolePolicyDocument = Nothing
-    , _rPath = pPath
-    , _rRoleName = pRoleName
-    , _rRoleId = pRoleId
-    , _rARN = pARN
-    , _rCreateDate = _Time # pCreateDate
+    , _rPath = pPath_
+    , _rRoleName = pRoleName_
+    , _rRoleId = pRoleId_
+    , _rARN = pARN_
+    , _rCreateDate = _Time # pCreateDate_
     }
 
 -- | The policy that grants an entity permission to assume the role.
@@ -1550,14 +1550,14 @@ data SSHPublicKey = SSHPublicKey'
 
 -- | 'SSHPublicKey' smart constructor.
 sshPublicKey :: Text -> Text -> Text -> Text -> StatusType -> SSHPublicKey
-sshPublicKey pUserName pSSHPublicKeyId pFingerprint pSSHPublicKeyBody pStatus =
+sshPublicKey pUserName_ pSSHPublicKeyId_ pFingerprint_ pSSHPublicKeyBody_ pStatus_ =
     SSHPublicKey'
     { _spkUploadDate = Nothing
-    , _spkUserName = pUserName
-    , _spkSSHPublicKeyId = pSSHPublicKeyId
-    , _spkFingerprint = pFingerprint
-    , _spkSSHPublicKeyBody = pSSHPublicKeyBody
-    , _spkStatus = pStatus
+    , _spkUserName = pUserName_
+    , _spkSSHPublicKeyId = pSSHPublicKeyId_
+    , _spkFingerprint = pFingerprint_
+    , _spkSSHPublicKeyBody = pSSHPublicKeyBody_
+    , _spkStatus = pStatus_
     }
 
 -- | The date and time, in
@@ -1623,12 +1623,12 @@ data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
 
 -- | 'SSHPublicKeyMetadata' smart constructor.
 sshPublicKeyMetadata :: Text -> Text -> StatusType -> UTCTime -> SSHPublicKeyMetadata
-sshPublicKeyMetadata pUserName pSSHPublicKeyId pStatus pUploadDate =
+sshPublicKeyMetadata pUserName_ pSSHPublicKeyId_ pStatus_ pUploadDate_ =
     SSHPublicKeyMetadata'
-    { _spkmUserName = pUserName
-    , _spkmSSHPublicKeyId = pSSHPublicKeyId
-    , _spkmStatus = pStatus
-    , _spkmUploadDate = _Time # pUploadDate
+    { _spkmUserName = pUserName_
+    , _spkmSSHPublicKeyId = pSSHPublicKeyId_
+    , _spkmStatus = pStatus_
+    , _spkmUploadDate = _Time # pUploadDate_
     }
 
 -- | The name of the IAM user associated with the SSH public key.
@@ -1680,11 +1680,11 @@ data ServerCertificate = ServerCertificate'
 
 -- | 'ServerCertificate' smart constructor.
 serverCertificate :: ServerCertificateMetadata -> Text -> ServerCertificate
-serverCertificate pServerCertificateMetadata pCertificateBody =
+serverCertificate pServerCertificateMetadata_ pCertificateBody_ =
     ServerCertificate'
     { _sCertificateChain = Nothing
-    , _sServerCertificateMetadata = pServerCertificateMetadata
-    , _sCertificateBody = pCertificateBody
+    , _sServerCertificateMetadata = pServerCertificateMetadata_
+    , _sCertificateBody = pCertificateBody_
     }
 
 -- | The contents of the public key certificate chain.
@@ -1739,14 +1739,14 @@ data ServerCertificateMetadata = ServerCertificateMetadata'
 
 -- | 'ServerCertificateMetadata' smart constructor.
 serverCertificateMetadata :: Text -> Text -> Text -> Text -> ServerCertificateMetadata
-serverCertificateMetadata pPath pServerCertificateName pServerCertificateId pARN =
+serverCertificateMetadata pPath_ pServerCertificateName_ pServerCertificateId_ pARN_ =
     ServerCertificateMetadata'
     { _scmUploadDate = Nothing
     , _scmExpiration = Nothing
-    , _scmPath = pPath
-    , _scmServerCertificateName = pServerCertificateName
-    , _scmServerCertificateId = pServerCertificateId
-    , _scmARN = pARN
+    , _scmPath = pPath_
+    , _scmServerCertificateName = pServerCertificateName_
+    , _scmServerCertificateId = pServerCertificateId_
+    , _scmARN = pARN_
     }
 
 -- | The date when the server certificate was uploaded.
@@ -1819,13 +1819,13 @@ data SigningCertificate = SigningCertificate'
 
 -- | 'SigningCertificate' smart constructor.
 signingCertificate :: Text -> Text -> Text -> StatusType -> SigningCertificate
-signingCertificate pUserName pCertificateId pCertificateBody pStatus =
+signingCertificate pUserName_ pCertificateId_ pCertificateBody_ pStatus_ =
     SigningCertificate'
     { _scUploadDate = Nothing
-    , _scUserName = pUserName
-    , _scCertificateId = pCertificateId
-    , _scCertificateBody = pCertificateBody
-    , _scStatus = pStatus
+    , _scUserName = pUserName_
+    , _scCertificateId = pCertificateId_
+    , _scCertificateBody = pCertificateBody_
+    , _scStatus = pStatus_
     }
 
 -- | The date when the signing certificate was uploaded.
@@ -1894,14 +1894,14 @@ data User = User'
 
 -- | 'User' smart constructor.
 user :: Text -> Text -> Text -> Text -> UTCTime -> User
-user pPath pUserName pUserId pARN pCreateDate =
+user pPath_ pUserName_ pUserId_ pARN_ pCreateDate_ =
     User'
     { _uPasswordLastUsed = Nothing
-    , _uPath = pPath
-    , _uUserName = pUserName
-    , _uUserId = pUserId
-    , _uARN = pARN
-    , _uCreateDate = _Time # pCreateDate
+    , _uPath = pPath_
+    , _uUserName = pUserName_
+    , _uUserId = pUserId_
+    , _uARN = pARN_
+    , _uCreateDate = _Time # pCreateDate_
     }
 
 -- | The date and time, in
@@ -2093,13 +2093,13 @@ data VirtualMFADevice = VirtualMFADevice'
 
 -- | 'VirtualMFADevice' smart constructor.
 virtualMFADevice :: Text -> VirtualMFADevice
-virtualMFADevice pSerialNumber =
+virtualMFADevice pSerialNumber_ =
     VirtualMFADevice'
     { _vmdQRCodePNG = Nothing
     , _vmdBase32StringSeed = Nothing
     , _vmdUser = Nothing
     , _vmdEnableDate = Nothing
-    , _vmdSerialNumber = pSerialNumber
+    , _vmdSerialNumber = pSerialNumber_
     }
 
 -- | A QR code PNG image that encodes

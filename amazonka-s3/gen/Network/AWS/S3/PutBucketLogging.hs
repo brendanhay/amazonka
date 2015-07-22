@@ -61,11 +61,11 @@ data PutBucketLogging = PutBucketLogging'
 
 -- | 'PutBucketLogging' smart constructor.
 putBucketLogging :: BucketName -> BucketLoggingStatus -> PutBucketLogging
-putBucketLogging pBucket pBucketLoggingStatus =
+putBucketLogging pBucket_ pBucketLoggingStatus_ =
     PutBucketLogging'
     { _pblrqContentMD5 = Nothing
-    , _pblrqBucket = pBucket
-    , _pblrqBucketLoggingStatus = pBucketLoggingStatus
+    , _pblrqBucket = pBucket_
+    , _pblrqBucketLoggingStatus = pBucketLoggingStatus_
     }
 
 -- | FIXME: Undocumented member.

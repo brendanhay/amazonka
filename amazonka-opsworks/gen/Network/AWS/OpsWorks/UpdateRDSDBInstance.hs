@@ -65,11 +65,11 @@ data UpdateRDSDBInstance = UpdateRDSDBInstance'
 
 -- | 'UpdateRDSDBInstance' smart constructor.
 updateRDSDBInstance :: Text -> UpdateRDSDBInstance
-updateRDSDBInstance pRDSDBInstanceARN =
+updateRDSDBInstance pRDSDBInstanceARN_ =
     UpdateRDSDBInstance'
     { _urdirqDBUser = Nothing
     , _urdirqDBPassword = Nothing
-    , _urdirqRDSDBInstanceARN = pRDSDBInstanceARN
+    , _urdirqRDSDBInstanceARN = pRDSDBInstanceARN_
     }
 
 -- | The master user name.

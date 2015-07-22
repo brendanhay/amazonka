@@ -62,11 +62,11 @@ data AttachInternetGateway = AttachInternetGateway'
 
 -- | 'AttachInternetGateway' smart constructor.
 attachInternetGateway :: Text -> Text -> AttachInternetGateway
-attachInternetGateway pInternetGatewayId pVPCId =
+attachInternetGateway pInternetGatewayId_ pVPCId_ =
     AttachInternetGateway'
     { _aigrqDryRun = Nothing
-    , _aigrqInternetGatewayId = pInternetGatewayId
-    , _aigrqVPCId = pVPCId
+    , _aigrqInternetGatewayId = pInternetGatewayId_
+    , _aigrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

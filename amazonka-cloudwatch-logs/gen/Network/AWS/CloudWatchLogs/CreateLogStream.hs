@@ -62,10 +62,10 @@ data CreateLogStream = CreateLogStream'
 
 -- | 'CreateLogStream' smart constructor.
 createLogStream :: Text -> Text -> CreateLogStream
-createLogStream pLogGroupName pLogStreamName =
+createLogStream pLogGroupName_ pLogStreamName_ =
     CreateLogStream'
-    { _clsrqLogGroupName = pLogGroupName
-    , _clsrqLogStreamName = pLogStreamName
+    { _clsrqLogGroupName = pLogGroupName_
+    , _clsrqLogStreamName = pLogStreamName_
     }
 
 -- | The name of the log group under which the log stream is to be created.

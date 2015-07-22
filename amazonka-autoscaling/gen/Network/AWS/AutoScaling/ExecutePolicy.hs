@@ -67,13 +67,13 @@ data ExecutePolicy = ExecutePolicy'
 
 -- | 'ExecutePolicy' smart constructor.
 executePolicy :: Text -> ExecutePolicy
-executePolicy pPolicyName =
+executePolicy pPolicyName_ =
     ExecutePolicy'
     { _eprqHonorCooldown = Nothing
     , _eprqMetricValue = Nothing
     , _eprqAutoScalingGroupName = Nothing
     , _eprqBreachThreshold = Nothing
-    , _eprqPolicyName = pPolicyName
+    , _eprqPolicyName = pPolicyName_
     }
 
 -- | If this parameter is true, Auto Scaling waits for the cooldown period to

@@ -61,11 +61,11 @@ data DetachInternetGateway = DetachInternetGateway'
 
 -- | 'DetachInternetGateway' smart constructor.
 detachInternetGateway :: Text -> Text -> DetachInternetGateway
-detachInternetGateway pInternetGatewayId pVPCId =
+detachInternetGateway pInternetGatewayId_ pVPCId_ =
     DetachInternetGateway'
     { _digrqDryRun = Nothing
-    , _digrqInternetGatewayId = pInternetGatewayId
-    , _digrqVPCId = pVPCId
+    , _digrqInternetGatewayId = pInternetGatewayId_
+    , _digrqVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

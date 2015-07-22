@@ -64,10 +64,10 @@ data DeleteSuggester = DeleteSuggester'
 
 -- | 'DeleteSuggester' smart constructor.
 deleteSuggester :: Text -> Text -> DeleteSuggester
-deleteSuggester pDomainName pSuggesterName =
+deleteSuggester pDomainName_ pSuggesterName_ =
     DeleteSuggester'
-    { _dssrqDomainName = pDomainName
-    , _dssrqSuggesterName = pSuggesterName
+    { _dssrqDomainName = pDomainName_
+    , _dssrqSuggesterName = pSuggesterName_
     }
 
 -- | FIXME: Undocumented member.
@@ -119,10 +119,10 @@ data DeleteSuggesterResponse = DeleteSuggesterResponse'
 
 -- | 'DeleteSuggesterResponse' smart constructor.
 deleteSuggesterResponse :: Int -> SuggesterStatus -> DeleteSuggesterResponse
-deleteSuggesterResponse pStatus pSuggester =
+deleteSuggesterResponse pStatus_ pSuggester_ =
     DeleteSuggesterResponse'
-    { _dellrsStatus = pStatus
-    , _dellrsSuggester = pSuggester
+    { _dellrsStatus = pStatus_
+    , _dellrsSuggester = pSuggester_
     }
 
 -- | FIXME: Undocumented member.

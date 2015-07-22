@@ -63,10 +63,10 @@ data ListTagsForResource = ListTagsForResource'
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
-listTagsForResource pResourceName =
+listTagsForResource pResourceName_ =
     ListTagsForResource'
     { _ltfrrqFilters = Nothing
-    , _ltfrrqResourceName = pResourceName
+    , _ltfrrqResourceName = pResourceName_
     }
 
 -- | This parameter is not currently supported.
@@ -123,10 +123,10 @@ data ListTagsForResourceResponse = ListTagsForResourceResponse'
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: Int -> ListTagsForResourceResponse
-listTagsForResourceResponse pStatus =
+listTagsForResourceResponse pStatus_ =
     ListTagsForResourceResponse'
     { _ltfrrsTagList = Nothing
-    , _ltfrrsStatus = pStatus
+    , _ltfrrsStatus = pStatus_
     }
 
 -- | List of tags returned by the ListTagsForResource operation.

@@ -149,10 +149,10 @@ data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
 describeSpotFleetRequestsResponse :: Int -> DescribeSpotFleetRequestsResponse
-describeSpotFleetRequestsResponse pStatus =
+describeSpotFleetRequestsResponse pStatus_ =
     DescribeSpotFleetRequestsResponse'
     { _dsfrrsNextToken = Nothing
-    , _dsfrrsStatus = pStatus
+    , _dsfrrsStatus = pStatus_
     , _dsfrrsSpotFleetRequestConfigs = mempty
     }
 

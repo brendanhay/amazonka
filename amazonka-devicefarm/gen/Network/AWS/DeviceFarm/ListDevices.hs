@@ -127,11 +127,11 @@ data ListDevicesResponse = ListDevicesResponse'
 
 -- | 'ListDevicesResponse' smart constructor.
 listDevicesResponse :: Int -> ListDevicesResponse
-listDevicesResponse pStatus =
+listDevicesResponse pStatus_ =
     ListDevicesResponse'
     { _ldrsNextToken = Nothing
     , _ldrsDevices = Nothing
-    , _ldrsStatus = pStatus
+    , _ldrsStatus = pStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is

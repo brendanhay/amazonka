@@ -62,9 +62,9 @@ newtype DeleteServerCertificate = DeleteServerCertificate'
 
 -- | 'DeleteServerCertificate' smart constructor.
 deleteServerCertificate :: Text -> DeleteServerCertificate
-deleteServerCertificate pServerCertificateName =
+deleteServerCertificate pServerCertificateName_ =
     DeleteServerCertificate'
-    { _dscrqServerCertificateName = pServerCertificateName
+    { _dscrqServerCertificateName = pServerCertificateName_
     }
 
 -- | The name of the server certificate you want to delete.

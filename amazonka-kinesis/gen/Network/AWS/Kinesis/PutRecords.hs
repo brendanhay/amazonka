@@ -119,10 +119,10 @@ data PutRecords = PutRecords'
 
 -- | 'PutRecords' smart constructor.
 putRecords :: NonEmpty PutRecordsRequestEntry -> Text -> PutRecords
-putRecords pRecordEntries pStreamName =
+putRecords pRecordEntries_ pStreamName_ =
     PutRecords'
-    { _prqRecordEntries = _List1 # pRecordEntries
-    , _prqStreamName = pStreamName
+    { _prqRecordEntries = _List1 # pRecordEntries_
+    , _prqStreamName = pStreamName_
     }
 
 -- | The records associated with the request.
@@ -184,11 +184,11 @@ data PutRecordsResponse = PutRecordsResponse'
 
 -- | 'PutRecordsResponse' smart constructor.
 putRecordsResponse :: Int -> NonEmpty PutRecordsResultEntry -> PutRecordsResponse
-putRecordsResponse pStatus pRecords =
+putRecordsResponse pStatus_ pRecords_ =
     PutRecordsResponse'
     { _prsFailedRecordCount = Nothing
-    , _prsStatus = pStatus
-    , _prsRecords = _List1 # pRecords
+    , _prsStatus = pStatus_
+    , _prsRecords = _List1 # pRecords_
     }
 
 -- | The number of unsuccessfully processed records in a @PutRecords@

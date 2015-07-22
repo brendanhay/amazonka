@@ -59,9 +59,9 @@ newtype GetRole = GetRole'
 
 -- | 'GetRole' smart constructor.
 getRole :: Text -> GetRole
-getRole pRoleName =
+getRole pRoleName_ =
     GetRole'
-    { _grrqRoleName = pRoleName
+    { _grrqRoleName = pRoleName_
     }
 
 -- | The name of the role to get information about.
@@ -107,10 +107,10 @@ data GetRoleResponse = GetRoleResponse'
 
 -- | 'GetRoleResponse' smart constructor.
 getRoleResponse :: Int -> Role -> GetRoleResponse
-getRoleResponse pStatus pRole =
+getRoleResponse pStatus_ pRole_ =
     GetRoleResponse'
-    { _grrsStatus = pStatus
-    , _grrsRole = pRole
+    { _grrsStatus = pStatus_
+    , _grrsRole = pRole_
     }
 
 -- | FIXME: Undocumented member.

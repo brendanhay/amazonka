@@ -61,10 +61,10 @@ data CreateSnapshot = CreateSnapshot'
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
-createSnapshot pCacheClusterId pSnapshotName =
+createSnapshot pCacheClusterId_ pSnapshotName_ =
     CreateSnapshot'
-    { _csrqCacheClusterId = pCacheClusterId
-    , _csrqSnapshotName = pSnapshotName
+    { _csrqCacheClusterId = pCacheClusterId_
+    , _csrqSnapshotName = pSnapshotName_
     }
 
 -- | The identifier of an existing cache cluster. The snapshot will be
@@ -114,10 +114,10 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
-createSnapshotResponse pStatus =
+createSnapshotResponse pStatus_ =
     CreateSnapshotResponse'
     { _crersSnapshot = Nothing
-    , _crersStatus = pStatus
+    , _crersStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

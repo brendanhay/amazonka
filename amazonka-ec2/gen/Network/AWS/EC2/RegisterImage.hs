@@ -115,7 +115,7 @@ data RegisterImage = RegisterImage'
 
 -- | 'RegisterImage' smart constructor.
 registerImage :: Text -> RegisterImage
-registerImage pName =
+registerImage pName_ =
     RegisterImage'
     { _rrqVirtualizationType = Nothing
     , _rrqImageLocation = Nothing
@@ -127,7 +127,7 @@ registerImage pName =
     , _rrqBlockDeviceMappings = Nothing
     , _rrqDryRun = Nothing
     , _rrqDescription = Nothing
-    , _rrqName = pName
+    , _rrqName = pName_
     }
 
 -- | The type of virtualization.
@@ -241,10 +241,10 @@ data RegisterImageResponse = RegisterImageResponse'
 
 -- | 'RegisterImageResponse' smart constructor.
 registerImageResponse :: Int -> RegisterImageResponse
-registerImageResponse pStatus =
+registerImageResponse pStatus_ =
     RegisterImageResponse'
     { _rirsImageId = Nothing
-    , _rirsStatus = pStatus
+    , _rirsStatus = pStatus_
     }
 
 -- | The ID of the newly registered AMI.

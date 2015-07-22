@@ -56,9 +56,9 @@ newtype DeleteDirectory = DeleteDirectory'
 
 -- | 'DeleteDirectory' smart constructor.
 deleteDirectory :: Text -> DeleteDirectory
-deleteDirectory pDirectoryId =
+deleteDirectory pDirectoryId_ =
     DeleteDirectory'
-    { _ddrqDirectoryId = pDirectoryId
+    { _ddrqDirectoryId = pDirectoryId_
     }
 
 -- | The identifier of the directory to delete.
@@ -111,10 +111,10 @@ data DeleteDirectoryResponse = DeleteDirectoryResponse'
 
 -- | 'DeleteDirectoryResponse' smart constructor.
 deleteDirectoryResponse :: Int -> DeleteDirectoryResponse
-deleteDirectoryResponse pStatus =
+deleteDirectoryResponse pStatus_ =
     DeleteDirectoryResponse'
     { _delrsDirectoryId = Nothing
-    , _delrsStatus = pStatus
+    , _delrsStatus = pStatus_
     }
 
 -- | The directory identifier.

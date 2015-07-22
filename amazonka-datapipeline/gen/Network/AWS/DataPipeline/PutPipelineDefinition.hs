@@ -84,11 +84,11 @@ data PutPipelineDefinition = PutPipelineDefinition'
 
 -- | 'PutPipelineDefinition' smart constructor.
 putPipelineDefinition :: Text -> PutPipelineDefinition
-putPipelineDefinition pPipelineId =
+putPipelineDefinition pPipelineId_ =
     PutPipelineDefinition'
     { _ppdrqParameterObjects = Nothing
     , _ppdrqParameterValues = Nothing
-    , _ppdrqPipelineId = pPipelineId
+    , _ppdrqPipelineId = pPipelineId_
     , _ppdrqPipelineObjects = mempty
     }
 
@@ -168,12 +168,12 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
 putPipelineDefinitionResponse :: Int -> Bool -> PutPipelineDefinitionResponse
-putPipelineDefinitionResponse pStatus pErrored =
+putPipelineDefinitionResponse pStatus_ pErrored_ =
     PutPipelineDefinitionResponse'
     { _ppdrsValidationErrors = Nothing
     , _ppdrsValidationWarnings = Nothing
-    , _ppdrsStatus = pStatus
-    , _ppdrsErrored = pErrored
+    , _ppdrsStatus = pStatus_
+    , _ppdrsErrored = pErrored_
     }
 
 -- | The validation errors that are associated with the objects defined in

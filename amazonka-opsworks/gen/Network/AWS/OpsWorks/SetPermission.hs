@@ -74,13 +74,13 @@ data SetPermission = SetPermission'
 
 -- | 'SetPermission' smart constructor.
 setPermission :: Text -> Text -> SetPermission
-setPermission pStackId pIAMUserARN =
+setPermission pStackId_ pIAMUserARN_ =
     SetPermission'
     { _sprqAllowSudo = Nothing
     , _sprqLevel = Nothing
     , _sprqAllowSSH = Nothing
-    , _sprqStackId = pStackId
-    , _sprqIAMUserARN = pIAMUserARN
+    , _sprqStackId = pStackId_
+    , _sprqIAMUserARN = pIAMUserARN_
     }
 
 -- | The user is allowed to use __sudo__ to elevate privileges.

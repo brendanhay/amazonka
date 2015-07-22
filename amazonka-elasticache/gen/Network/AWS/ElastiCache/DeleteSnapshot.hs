@@ -58,9 +58,9 @@ newtype DeleteSnapshot = DeleteSnapshot'
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
-deleteSnapshot pSnapshotName =
+deleteSnapshot pSnapshotName_ =
     DeleteSnapshot'
-    { _drqSnapshotName = pSnapshotName
+    { _drqSnapshotName = pSnapshotName_
     }
 
 -- | The name of the snapshot to be deleted.
@@ -104,10 +104,10 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse'
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
-deleteSnapshotResponse pStatus =
+deleteSnapshotResponse pStatus_ =
     DeleteSnapshotResponse'
     { _dsrsSnapshot = Nothing
-    , _dsrsStatus = pStatus
+    , _dsrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

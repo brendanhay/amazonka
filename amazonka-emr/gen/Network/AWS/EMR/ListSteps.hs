@@ -70,12 +70,12 @@ data ListSteps = ListSteps'
 
 -- | 'ListSteps' smart constructor.
 listSteps :: Text -> ListSteps
-listSteps pClusterId =
+listSteps pClusterId_ =
     ListSteps'
     { _lsrqStepIds = Nothing
     , _lsrqStepStates = Nothing
     , _lsrqMarker = Nothing
-    , _lsrqClusterId = pClusterId
+    , _lsrqClusterId = pClusterId_
     }
 
 -- | The filter to limit the step list based on the identifier of the steps.
@@ -154,11 +154,11 @@ data ListStepsResponse = ListStepsResponse'
 
 -- | 'ListStepsResponse' smart constructor.
 listStepsResponse :: Int -> ListStepsResponse
-listStepsResponse pStatus =
+listStepsResponse pStatus_ =
     ListStepsResponse'
     { _lsrsSteps = Nothing
     , _lsrsMarker = Nothing
-    , _lsrsStatus = pStatus
+    , _lsrsStatus = pStatus_
     }
 
 -- | The filtered list of steps for the cluster.

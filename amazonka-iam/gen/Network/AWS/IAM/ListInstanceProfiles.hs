@@ -161,11 +161,11 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
 
 -- | 'ListInstanceProfilesResponse' smart constructor.
 listInstanceProfilesResponse :: Int -> ListInstanceProfilesResponse
-listInstanceProfilesResponse pStatus =
+listInstanceProfilesResponse pStatus_ =
     ListInstanceProfilesResponse'
     { _liprsMarker = Nothing
     , _liprsIsTruncated = Nothing
-    , _liprsStatus = pStatus
+    , _liprsStatus = pStatus_
     , _liprsInstanceProfiles = mempty
     }
 

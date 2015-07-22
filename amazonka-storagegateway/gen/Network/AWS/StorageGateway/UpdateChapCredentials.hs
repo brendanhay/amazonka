@@ -80,12 +80,12 @@ data UpdateChapCredentials = UpdateChapCredentials'
 
 -- | 'UpdateChapCredentials' smart constructor.
 updateChapCredentials :: Text -> Text -> Text -> UpdateChapCredentials
-updateChapCredentials pTargetARN pSecretToAuthenticateInitiator pInitiatorName =
+updateChapCredentials pTargetARN_ pSecretToAuthenticateInitiator_ pInitiatorName_ =
     UpdateChapCredentials'
     { _uccrqSecretToAuthenticateTarget = Nothing
-    , _uccrqTargetARN = pTargetARN
-    , _uccrqSecretToAuthenticateInitiator = pSecretToAuthenticateInitiator
-    , _uccrqInitiatorName = pInitiatorName
+    , _uccrqTargetARN = pTargetARN_
+    , _uccrqSecretToAuthenticateInitiator = pSecretToAuthenticateInitiator_
+    , _uccrqInitiatorName = pInitiatorName_
     }
 
 -- | The secret key that the target must provide to participate in mutual
@@ -171,11 +171,11 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
 
 -- | 'UpdateChapCredentialsResponse' smart constructor.
 updateChapCredentialsResponse :: Int -> UpdateChapCredentialsResponse
-updateChapCredentialsResponse pStatus =
+updateChapCredentialsResponse pStatus_ =
     UpdateChapCredentialsResponse'
     { _uccrsTargetARN = Nothing
     , _uccrsInitiatorName = Nothing
-    , _uccrsStatus = pStatus
+    , _uccrsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the target. This is the same target

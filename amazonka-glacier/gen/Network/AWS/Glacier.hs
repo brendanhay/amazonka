@@ -75,8 +75,6 @@ import           Network.AWS.Glacier.SetDataRetrievalPolicy   as Export
 import           Network.AWS.Glacier.SetVaultAccessPolicy     as Export
 import           Network.AWS.Glacier.SetVaultNotifications    as Export
 import           Network.AWS.Glacier.Types                    as Export
-import           Network.AWS.Glacier.Types.Product            as Export
-import           Network.AWS.Glacier.Types.Sum                as Export
 import           Network.AWS.Glacier.UploadArchive            as Export
 import           Network.AWS.Glacier.UploadMultipartPart      as Export
 import           Network.AWS.Glacier.Waiters                  as Export

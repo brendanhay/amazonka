@@ -57,9 +57,9 @@ newtype GetStreamingDistribution = GetStreamingDistribution'
 
 -- | 'GetStreamingDistribution' smart constructor.
 getStreamingDistribution :: Text -> GetStreamingDistribution
-getStreamingDistribution pId =
+getStreamingDistribution pId_ =
     GetStreamingDistribution'
-    { _gsdrqId = pId
+    { _gsdrqId = pId_
     }
 
 -- | The streaming distribution\'s id.
@@ -109,11 +109,11 @@ data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
 
 -- | 'GetStreamingDistributionResponse' smart constructor.
 getStreamingDistributionResponse :: Int -> GetStreamingDistributionResponse
-getStreamingDistributionResponse pStatus =
+getStreamingDistributionResponse pStatus_ =
     GetStreamingDistributionResponse'
     { _gsdrsETag = Nothing
     , _gsdrsStreamingDistribution = Nothing
-    , _gsdrsStatus = pStatus
+    , _gsdrsStatus = pStatus_
     }
 
 -- | The current version of the streaming distribution\'s information. For

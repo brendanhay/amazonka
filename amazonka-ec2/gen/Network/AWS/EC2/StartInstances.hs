@@ -145,10 +145,10 @@ data StartInstancesResponse = StartInstancesResponse'
 
 -- | 'StartInstancesResponse' smart constructor.
 startInstancesResponse :: Int -> StartInstancesResponse
-startInstancesResponse pStatus =
+startInstancesResponse pStatus_ =
     StartInstancesResponse'
     { _srsStartingInstances = Nothing
-    , _srsStatus = pStatus
+    , _srsStatus = pStatus_
     }
 
 -- | Information about one or more started instances.

@@ -79,12 +79,12 @@ data Job = Job'
 
 -- | 'Job' smart constructor.
 job :: JobType -> Text -> Bool -> UTCTime -> Job
-job pJobType pJobId pIsCanceled pCreationDate =
+job pJobType_ pJobId_ pIsCanceled_ pCreationDate_ =
     Job'
-    { _jobJobType = pJobType
-    , _jobJobId = pJobId
-    , _jobIsCanceled = pIsCanceled
-    , _jobCreationDate = _Time # pCreationDate
+    { _jobJobType = pJobType_
+    , _jobJobId = pJobId_
+    , _jobIsCanceled = pIsCanceled_
+    , _jobCreationDate = _Time # pCreationDate_
     }
 
 -- | FIXME: Undocumented member.

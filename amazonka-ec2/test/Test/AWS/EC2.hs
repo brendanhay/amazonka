@@ -28,20 +28,20 @@ fixtures :: [TestTree]
 fixtures =
     [ testGroup "response"
         [ testDescribeInstancesResponse $ describeInstancesResponse 200
-            & dirReservations .~
+            & dirsReservations .~
                 [ reservation "r-1a2b3c4d" "123456789012"
-                    & resGroups .~
+                    & rGroups .~
                         [ groupIdentifier
                             & giGroupId   ?~ "sg-1a2b3c4d"
                             & giGroupName ?~ "my-security-group"
                         ]
 
-                    & resInstances .~
+                    & rInstances .~
                         [ instance' "i-1a2b3c4d" "ami-1a2b3c4d" 0 C1_Medium
                             $(mkTime "2014-03-18T21:47:02+0000")
-                            (placement & plaAvailabilityZone ?~ "us-west-2a"
-                                       & plaTenancy          ?~ Default)
-                            (monitoring & monState ?~ MSDisabled)
+                            (placement & pAvailabilityZone ?~ "us-west-2a"
+                                       & pTenancy          ?~ Default)
+                            (monitoring & mState ?~ MSDisabled)
                             X86_64 EBS HVM Xen
                             (instanceState ISNRunning 16)
                                 & insPlatform            ?~ PVWindows

@@ -27,6 +27,4 @@ import           Network.AWS.EFS.DescribeMountTargetSecurityGroups as Export
 import           Network.AWS.EFS.DescribeTags                      as Export
 import           Network.AWS.EFS.ModifyMountTargetSecurityGroups   as Export
 import           Network.AWS.EFS.Types                             as Export
-import           Network.AWS.EFS.Types.Product                     as Export
-import           Network.AWS.EFS.Types.Sum                         as Export
 import           Network.AWS.EFS.Waiters                           as Export

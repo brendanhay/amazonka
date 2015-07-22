@@ -114,7 +114,7 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
 
 -- | 'ListOpenWorkflowExecutions' smart constructor.
 listOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> ListOpenWorkflowExecutions
-listOpenWorkflowExecutions pDomain pStartTimeFilter =
+listOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
     ListOpenWorkflowExecutions'
     { _lowerqNextPageToken = Nothing
     , _lowerqExecutionFilter = Nothing
@@ -122,8 +122,8 @@ listOpenWorkflowExecutions pDomain pStartTimeFilter =
     , _lowerqReverseOrder = Nothing
     , _lowerqTagFilter = Nothing
     , _lowerqMaximumPageSize = Nothing
-    , _lowerqDomain = pDomain
-    , _lowerqStartTimeFilter = pStartTimeFilter
+    , _lowerqDomain = pDomain_
+    , _lowerqStartTimeFilter = pStartTimeFilter_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more

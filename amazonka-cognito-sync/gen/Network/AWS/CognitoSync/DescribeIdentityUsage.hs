@@ -64,10 +64,10 @@ data DescribeIdentityUsage = DescribeIdentityUsage'
 
 -- | 'DescribeIdentityUsage' smart constructor.
 describeIdentityUsage :: Text -> Text -> DescribeIdentityUsage
-describeIdentityUsage pIdentityPoolId pIdentityId =
+describeIdentityUsage pIdentityPoolId_ pIdentityId_ =
     DescribeIdentityUsage'
-    { _diurqIdentityPoolId = pIdentityPoolId
-    , _diurqIdentityId = pIdentityId
+    { _diurqIdentityPoolId = pIdentityPoolId_
+    , _diurqIdentityId = pIdentityId_
     }
 
 -- | A name-spaced GUID (for example,
@@ -125,10 +125,10 @@ data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
 
 -- | 'DescribeIdentityUsageResponse' smart constructor.
 describeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse
-describeIdentityUsageResponse pStatus =
+describeIdentityUsageResponse pStatus_ =
     DescribeIdentityUsageResponse'
     { _diursIdentityUsage = Nothing
-    , _diursStatus = pStatus
+    , _diursStatus = pStatus_
     }
 
 -- | Usage information for the identity.

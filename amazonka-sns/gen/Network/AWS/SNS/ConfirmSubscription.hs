@@ -68,11 +68,11 @@ data ConfirmSubscription = ConfirmSubscription'
 
 -- | 'ConfirmSubscription' smart constructor.
 confirmSubscription :: Text -> Text -> ConfirmSubscription
-confirmSubscription pTopicARN pToken =
+confirmSubscription pTopicARN_ pToken_ =
     ConfirmSubscription'
     { _csrqAuthenticateOnUnsubscribe = Nothing
-    , _csrqTopicARN = pTopicARN
-    , _csrqToken = pToken
+    , _csrqTopicARN = pTopicARN_
+    , _csrqToken = pToken_
     }
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value
@@ -132,10 +132,10 @@ data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
 
 -- | 'ConfirmSubscriptionResponse' smart constructor.
 confirmSubscriptionResponse :: Int -> ConfirmSubscriptionResponse
-confirmSubscriptionResponse pStatus =
+confirmSubscriptionResponse pStatus_ =
     ConfirmSubscriptionResponse'
     { _csrsSubscriptionARN = Nothing
-    , _csrsStatus = pStatus
+    , _csrsStatus = pStatus_
     }
 
 -- | The ARN of the created subscription.

@@ -66,11 +66,11 @@ data EnterStandby = EnterStandby'
 
 -- | 'EnterStandby' smart constructor.
 enterStandby :: Text -> Bool -> EnterStandby
-enterStandby pAutoScalingGroupName pShouldDecrementDesiredCapacity =
+enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
     EnterStandby'
     { _esrqInstanceIds = Nothing
-    , _esrqAutoScalingGroupName = pAutoScalingGroupName
-    , _esrqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
+    , _esrqAutoScalingGroupName = pAutoScalingGroupName_
+    , _esrqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
 -- | One or more instances to move into @Standby@ mode. You must specify at
@@ -132,10 +132,10 @@ data EnterStandbyResponse = EnterStandbyResponse'
 
 -- | 'EnterStandbyResponse' smart constructor.
 enterStandbyResponse :: Int -> EnterStandbyResponse
-enterStandbyResponse pStatus =
+enterStandbyResponse pStatus_ =
     EnterStandbyResponse'
     { _esrsActivities = Nothing
-    , _esrsStatus = pStatus
+    , _esrsStatus = pStatus_
     }
 
 -- | The activities related to moving instances into @Standby@ mode.

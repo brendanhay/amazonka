@@ -77,11 +77,11 @@ data Decrypt = Decrypt'
 
 -- | 'Decrypt' smart constructor.
 decrypt :: Base64 -> Decrypt
-decrypt pCiphertextBlob =
+decrypt pCiphertextBlob_ =
     Decrypt'
     { _drqEncryptionContext = Nothing
     , _drqGrantTokens = Nothing
-    , _drqCiphertextBlob = pCiphertextBlob
+    , _drqCiphertextBlob = pCiphertextBlob_
     }
 
 -- | The encryption context. If this was specified in the Encrypt function,
@@ -150,11 +150,11 @@ data DecryptResponse = DecryptResponse'
 
 -- | 'DecryptResponse' smart constructor.
 decryptResponse :: Int -> DecryptResponse
-decryptResponse pStatus =
+decryptResponse pStatus_ =
     DecryptResponse'
     { _drsKeyId = Nothing
     , _drsPlaintext = Nothing
-    , _drsStatus = pStatus
+    , _drsStatus = pStatus_
     }
 
 -- | ARN of the key used to perform the decryption. This value is returned if

@@ -57,9 +57,9 @@ newtype DeleteApp = DeleteApp'
 
 -- | 'DeleteApp' smart constructor.
 deleteApp :: Text -> DeleteApp
-deleteApp pAppId =
+deleteApp pAppId_ =
     DeleteApp'
-    { _darqAppId = pAppId
+    { _darqAppId = pAppId_
     }
 
 -- | The app ID.

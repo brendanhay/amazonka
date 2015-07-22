@@ -66,11 +66,11 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
 
 -- | 'CreateCacheParameterGroup' smart constructor.
 createCacheParameterGroup :: Text -> Text -> Text -> CreateCacheParameterGroup
-createCacheParameterGroup pCacheParameterGroupName pCacheParameterGroupFamily pDescription =
+createCacheParameterGroup pCacheParameterGroupName_ pCacheParameterGroupFamily_ pDescription_ =
     CreateCacheParameterGroup'
-    { _ccpgrqCacheParameterGroupName = pCacheParameterGroupName
-    , _ccpgrqCacheParameterGroupFamily = pCacheParameterGroupFamily
-    , _ccpgrqDescription = pDescription
+    { _ccpgrqCacheParameterGroupName = pCacheParameterGroupName_
+    , _ccpgrqCacheParameterGroupFamily = pCacheParameterGroupFamily_
+    , _ccpgrqDescription = pDescription_
     }
 
 -- | A user-specified name for the cache parameter group.
@@ -132,10 +132,10 @@ data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
 
 -- | 'CreateCacheParameterGroupResponse' smart constructor.
 createCacheParameterGroupResponse :: Int -> CreateCacheParameterGroupResponse
-createCacheParameterGroupResponse pStatus =
+createCacheParameterGroupResponse pStatus_ =
     CreateCacheParameterGroupResponse'
     { _ccpgrsCacheParameterGroup = Nothing
-    , _ccpgrsStatus = pStatus
+    , _ccpgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

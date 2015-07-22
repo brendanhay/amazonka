@@ -184,11 +184,11 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
 describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse
-describeScheduledActionsResponse pStatus =
+describeScheduledActionsResponse pStatus_ =
     DescribeScheduledActionsResponse'
     { _dsarsScheduledUpdateGroupActions = Nothing
     , _dsarsNextToken = Nothing
-    , _dsarsStatus = pStatus
+    , _dsarsStatus = pStatus_
     }
 
 -- | The scheduled actions.

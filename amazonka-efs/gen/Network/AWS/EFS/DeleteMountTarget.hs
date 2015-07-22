@@ -76,9 +76,9 @@ newtype DeleteMountTarget = DeleteMountTarget'
 
 -- | 'DeleteMountTarget' smart constructor.
 deleteMountTarget :: Text -> DeleteMountTarget
-deleteMountTarget pMountTargetId =
+deleteMountTarget pMountTargetId_ =
     DeleteMountTarget'
-    { _dmtrqMountTargetId = pMountTargetId
+    { _dmtrqMountTargetId = pMountTargetId_
     }
 
 -- | String. The ID of the mount target to delete.

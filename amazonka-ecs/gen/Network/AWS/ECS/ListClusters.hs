@@ -143,11 +143,11 @@ data ListClustersResponse = ListClustersResponse'
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse
-listClustersResponse pStatus =
+listClustersResponse pStatus_ =
     ListClustersResponse'
     { _lcrsClusterARNs = Nothing
     , _lcrsNextToken = Nothing
-    , _lcrsStatus = pStatus
+    , _lcrsStatus = pStatus_
     }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster

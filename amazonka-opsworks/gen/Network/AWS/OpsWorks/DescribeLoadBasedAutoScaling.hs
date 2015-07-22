@@ -121,10 +121,10 @@ data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
 
 -- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
 describeLoadBasedAutoScalingResponse :: Int -> DescribeLoadBasedAutoScalingResponse
-describeLoadBasedAutoScalingResponse pStatus =
+describeLoadBasedAutoScalingResponse pStatus_ =
     DescribeLoadBasedAutoScalingResponse'
     { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
-    , _dlbasrsStatus = pStatus
+    , _dlbasrsStatus = pStatus_
     }
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe

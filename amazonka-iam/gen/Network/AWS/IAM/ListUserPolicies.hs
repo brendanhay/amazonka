@@ -75,11 +75,11 @@ data ListUserPolicies = ListUserPolicies'
 
 -- | 'ListUserPolicies' smart constructor.
 listUserPolicies :: Text -> ListUserPolicies
-listUserPolicies pUserName =
+listUserPolicies pUserName_ =
     ListUserPolicies'
     { _luprqMaxItems = Nothing
     , _luprqMarker = Nothing
-    , _luprqUserName = pUserName
+    , _luprqUserName = pUserName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -159,11 +159,11 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse'
 
 -- | 'ListUserPoliciesResponse' smart constructor.
 listUserPoliciesResponse :: Int -> ListUserPoliciesResponse
-listUserPoliciesResponse pStatus =
+listUserPoliciesResponse pStatus_ =
     ListUserPoliciesResponse'
     { _luprsMarker = Nothing
     , _luprsIsTruncated = Nothing
-    , _luprsStatus = pStatus
+    , _luprsStatus = pStatus_
     , _luprsPolicyNames = mempty
     }
 

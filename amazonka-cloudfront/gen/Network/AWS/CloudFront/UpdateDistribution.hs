@@ -65,11 +65,11 @@ data UpdateDistribution = UpdateDistribution'
 
 -- | 'UpdateDistribution' smart constructor.
 updateDistribution :: DistributionConfig -> Text -> UpdateDistribution
-updateDistribution pDistributionConfig pId =
+updateDistribution pDistributionConfig_ pId_ =
     UpdateDistribution'
     { _udrqIfMatch = Nothing
-    , _udrqDistributionConfig = pDistributionConfig
-    , _udrqId = pId
+    , _udrqDistributionConfig = pDistributionConfig_
+    , _udrqId = pId_
     }
 
 -- | The value of the ETag header you received when retrieving the
@@ -136,11 +136,11 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
 
 -- | 'UpdateDistributionResponse' smart constructor.
 updateDistributionResponse :: Int -> UpdateDistributionResponse
-updateDistributionResponse pStatus =
+updateDistributionResponse pStatus_ =
     UpdateDistributionResponse'
     { _udrsETag = Nothing
     , _udrsDistribution = Nothing
-    , _udrsStatus = pStatus
+    , _udrsStatus = pStatus_
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.

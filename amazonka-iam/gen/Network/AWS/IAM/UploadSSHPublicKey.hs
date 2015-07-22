@@ -65,10 +65,10 @@ data UploadSSHPublicKey = UploadSSHPublicKey'
 
 -- | 'UploadSSHPublicKey' smart constructor.
 uploadSSHPublicKey :: Text -> Text -> UploadSSHPublicKey
-uploadSSHPublicKey pUserName pSSHPublicKeyBody =
+uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
     UploadSSHPublicKey'
-    { _usshpkrqUserName = pUserName
-    , _usshpkrqSSHPublicKeyBody = pSSHPublicKeyBody
+    { _usshpkrqUserName = pUserName_
+    , _usshpkrqSSHPublicKeyBody = pSSHPublicKeyBody_
     }
 
 -- | The name of the IAM user to associate the SSH public key with.
@@ -121,10 +121,10 @@ data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
 
 -- | 'UploadSSHPublicKeyResponse' smart constructor.
 uploadSSHPublicKeyResponse :: Int -> UploadSSHPublicKeyResponse
-uploadSSHPublicKeyResponse pStatus =
+uploadSSHPublicKeyResponse pStatus_ =
     UploadSSHPublicKeyResponse'
     { _uspkrsSSHPublicKey = Nothing
-    , _uspkrsStatus = pStatus
+    , _uspkrsStatus = pStatus_
     }
 
 -- | Contains information about the SSH public key.

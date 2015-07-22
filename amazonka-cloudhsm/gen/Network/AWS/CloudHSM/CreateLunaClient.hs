@@ -60,10 +60,10 @@ data CreateLunaClient = CreateLunaClient'
 
 -- | 'CreateLunaClient' smart constructor.
 createLunaClient :: Text -> CreateLunaClient
-createLunaClient pCertificate =
+createLunaClient pCertificate_ =
     CreateLunaClient'
     { _clcrqLabel = Nothing
-    , _clcrqCertificate = pCertificate
+    , _clcrqCertificate = pCertificate_
     }
 
 -- | The label for the client.
@@ -123,10 +123,10 @@ data CreateLunaClientResponse = CreateLunaClientResponse'
 
 -- | 'CreateLunaClientResponse' smart constructor.
 createLunaClientResponse :: Int -> CreateLunaClientResponse
-createLunaClientResponse pStatus =
+createLunaClientResponse pStatus_ =
     CreateLunaClientResponse'
     { _clcrsClientARN = Nothing
-    , _clcrsStatus = pStatus
+    , _clcrsStatus = pStatus_
     }
 
 -- | The ARN of the client.

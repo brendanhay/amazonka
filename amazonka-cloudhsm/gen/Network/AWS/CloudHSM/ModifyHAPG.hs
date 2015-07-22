@@ -62,11 +62,11 @@ data ModifyHAPG = ModifyHAPG'
 
 -- | 'ModifyHAPG' smart constructor.
 modifyHAPG :: Text -> ModifyHAPG
-modifyHAPG pHAPGARN =
+modifyHAPG pHAPGARN_ =
     ModifyHAPG'
     { _mhrqPartitionSerialList = Nothing
     , _mhrqLabel = Nothing
-    , _mhrqHAPGARN = pHAPGARN
+    , _mhrqHAPGARN = pHAPGARN_
     }
 
 -- | The list of partition serial numbers to make members of the
@@ -127,10 +127,10 @@ data ModifyHAPGResponse = ModifyHAPGResponse'
 
 -- | 'ModifyHAPGResponse' smart constructor.
 modifyHAPGResponse :: Int -> ModifyHAPGResponse
-modifyHAPGResponse pStatus =
+modifyHAPGResponse pStatus_ =
     ModifyHAPGResponse'
     { _mhrsHAPGARN = Nothing
-    , _mhrsStatus = pStatus
+    , _mhrsStatus = pStatus_
     }
 
 -- | The ARN of the high-availability partition group.

@@ -68,12 +68,12 @@ data ModifyOptionGroup = ModifyOptionGroup'
 
 -- | 'ModifyOptionGroup' smart constructor.
 modifyOptionGroup :: Text -> ModifyOptionGroup
-modifyOptionGroup pOptionGroupName =
+modifyOptionGroup pOptionGroupName_ =
     ModifyOptionGroup'
     { _mogrqOptionsToInclude = Nothing
     , _mogrqOptionsToRemove = Nothing
     , _mogrqApplyImmediately = Nothing
-    , _mogrqOptionGroupName = pOptionGroupName
+    , _mogrqOptionGroupName = pOptionGroupName_
     }
 
 -- | Options in this list are added to the option group or, if already
@@ -146,10 +146,10 @@ data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
 
 -- | 'ModifyOptionGroupResponse' smart constructor.
 modifyOptionGroupResponse :: Int -> ModifyOptionGroupResponse
-modifyOptionGroupResponse pStatus =
+modifyOptionGroupResponse pStatus_ =
     ModifyOptionGroupResponse'
     { _mogrsOptionGroup = Nothing
-    , _mogrsStatus = pStatus
+    , _mogrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

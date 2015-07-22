@@ -156,11 +156,11 @@ data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
 describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse
-describeFlowLogsResponse pStatus =
+describeFlowLogsResponse pStatus_ =
     DescribeFlowLogsResponse'
     { _dflsrsNextToken = Nothing
     , _dflsrsFlowLogs = Nothing
-    , _dflsrsStatus = pStatus
+    , _dflsrsStatus = pStatus_
     }
 
 -- | The token to use to retrieve the next page of results. This value is

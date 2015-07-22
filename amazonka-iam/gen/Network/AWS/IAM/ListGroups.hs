@@ -156,11 +156,11 @@ data ListGroupsResponse = ListGroupsResponse'
 
 -- | 'ListGroupsResponse' smart constructor.
 listGroupsResponse :: Int -> ListGroupsResponse
-listGroupsResponse pStatus =
+listGroupsResponse pStatus_ =
     ListGroupsResponse'
     { _lgrsMarker = Nothing
     , _lgrsIsTruncated = Nothing
-    , _lgrsStatus = pStatus
+    , _lgrsStatus = pStatus_
     , _lgrsGroups = mempty
     }
 

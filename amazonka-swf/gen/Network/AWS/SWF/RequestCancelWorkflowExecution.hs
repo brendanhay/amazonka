@@ -89,11 +89,11 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
 
 -- | 'RequestCancelWorkflowExecution' smart constructor.
 requestCancelWorkflowExecution :: Text -> Text -> RequestCancelWorkflowExecution
-requestCancelWorkflowExecution pDomain pWorkflowId =
+requestCancelWorkflowExecution pDomain_ pWorkflowId_ =
     RequestCancelWorkflowExecution'
     { _rcwerqRunId = Nothing
-    , _rcwerqDomain = pDomain
-    , _rcwerqWorkflowId = pWorkflowId
+    , _rcwerqDomain = pDomain_
+    , _rcwerqWorkflowId = pWorkflowId_
     }
 
 -- | The runId of the workflow execution to cancel.

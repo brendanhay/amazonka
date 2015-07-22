@@ -59,9 +59,9 @@ newtype VerifyEmailIdentity = VerifyEmailIdentity'
 
 -- | 'VerifyEmailIdentity' smart constructor.
 verifyEmailIdentity :: Text -> VerifyEmailIdentity
-verifyEmailIdentity pEmailAddress =
+verifyEmailIdentity pEmailAddress_ =
     VerifyEmailIdentity'
-    { _veirqEmailAddress = pEmailAddress
+    { _veirqEmailAddress = pEmailAddress_
     }
 
 -- | The email address to be verified.
@@ -105,9 +105,9 @@ newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
 
 -- | 'VerifyEmailIdentityResponse' smart constructor.
 verifyEmailIdentityResponse :: Int -> VerifyEmailIdentityResponse
-verifyEmailIdentityResponse pStatus =
+verifyEmailIdentityResponse pStatus_ =
     VerifyEmailIdentityResponse'
-    { _veirsStatus = pStatus
+    { _veirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -70,9 +70,9 @@ data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBa
 
 -- | 'DisableAvailabilityZonesForLoadBalancer' smart constructor.
 disableAvailabilityZonesForLoadBalancer :: Text -> DisableAvailabilityZonesForLoadBalancer
-disableAvailabilityZonesForLoadBalancer pLoadBalancerName =
+disableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
     DisableAvailabilityZonesForLoadBalancer'
-    { _dazflbrqLoadBalancerName = pLoadBalancerName
+    { _dazflbrqLoadBalancerName = pLoadBalancerName_
     , _dazflbrqAvailabilityZones = mempty
     }
 
@@ -133,10 +133,10 @@ data DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesF
 
 -- | 'DisableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 disableAvailabilityZonesForLoadBalancerResponse :: Int -> DisableAvailabilityZonesForLoadBalancerResponse
-disableAvailabilityZonesForLoadBalancerResponse pStatus =
+disableAvailabilityZonesForLoadBalancerResponse pStatus_ =
     DisableAvailabilityZonesForLoadBalancerResponse'
     { _dazflbrsAvailabilityZones = Nothing
-    , _dazflbrsStatus = pStatus
+    , _dazflbrsStatus = pStatus_
     }
 
 -- | The remaining Availability Zones for the load balancer.

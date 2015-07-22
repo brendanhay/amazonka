@@ -68,12 +68,12 @@ data CopyDBParameterGroup = CopyDBParameterGroup'
 
 -- | 'CopyDBParameterGroup' smart constructor.
 copyDBParameterGroup :: Text -> Text -> Text -> CopyDBParameterGroup
-copyDBParameterGroup pSourceDBParameterGroupIdentifier pTargetDBParameterGroupIdentifier pTargetDBParameterGroupDescription =
+copyDBParameterGroup pSourceDBParameterGroupIdentifier_ pTargetDBParameterGroupIdentifier_ pTargetDBParameterGroupDescription_ =
     CopyDBParameterGroup'
     { _cdpgrqTags = Nothing
-    , _cdpgrqSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier
-    , _cdpgrqTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier
-    , _cdpgrqTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription
+    , _cdpgrqSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier_
+    , _cdpgrqTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier_
+    , _cdpgrqTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription_
     }
 
 -- | FIXME: Undocumented member.
@@ -156,10 +156,10 @@ data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
 
 -- | 'CopyDBParameterGroupResponse' smart constructor.
 copyDBParameterGroupResponse :: Int -> CopyDBParameterGroupResponse
-copyDBParameterGroupResponse pStatus =
+copyDBParameterGroupResponse pStatus_ =
     CopyDBParameterGroupResponse'
     { _cdbpgrsDBParameterGroup = Nothing
-    , _cdbpgrsStatus = pStatus
+    , _cdbpgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

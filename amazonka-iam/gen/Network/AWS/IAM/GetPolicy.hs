@@ -68,9 +68,9 @@ newtype GetPolicy = GetPolicy'
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
-getPolicy pPolicyARN =
+getPolicy pPolicyARN_ =
     GetPolicy'
-    { _gprqPolicyARN = pPolicyARN
+    { _gprqPolicyARN = pPolicyARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -116,10 +116,10 @@ data GetPolicyResponse = GetPolicyResponse'
 
 -- | 'GetPolicyResponse' smart constructor.
 getPolicyResponse :: Int -> GetPolicyResponse
-getPolicyResponse pStatus =
+getPolicyResponse pStatus_ =
     GetPolicyResponse'
     { _gprsPolicy = Nothing
-    , _gprsStatus = pStatus
+    , _gprsStatus = pStatus_
     }
 
 -- | Information about the policy.

@@ -58,10 +58,10 @@ data DeleteDHCPOptions = DeleteDHCPOptions'
 
 -- | 'DeleteDHCPOptions' smart constructor.
 deleteDHCPOptions :: Text -> DeleteDHCPOptions
-deleteDHCPOptions pDHCPOptionsId =
+deleteDHCPOptions pDHCPOptionsId_ =
     DeleteDHCPOptions'
     { _ddhcporqDryRun = Nothing
-    , _ddhcporqDHCPOptionsId = pDHCPOptionsId
+    , _ddhcporqDHCPOptionsId = pDHCPOptionsId_
     }
 
 -- | Checks whether you have the required permissions for the action, without

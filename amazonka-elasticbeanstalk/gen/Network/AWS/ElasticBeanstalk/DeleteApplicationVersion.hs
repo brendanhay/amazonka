@@ -64,11 +64,11 @@ data DeleteApplicationVersion = DeleteApplicationVersion'
 
 -- | 'DeleteApplicationVersion' smart constructor.
 deleteApplicationVersion :: Text -> Text -> DeleteApplicationVersion
-deleteApplicationVersion pApplicationName pVersionLabel =
+deleteApplicationVersion pApplicationName_ pVersionLabel_ =
     DeleteApplicationVersion'
     { _davrqDeleteSourceBundle = Nothing
-    , _davrqApplicationName = pApplicationName
-    , _davrqVersionLabel = pVersionLabel
+    , _davrqApplicationName = pApplicationName_
+    , _davrqVersionLabel = pVersionLabel_
     }
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:

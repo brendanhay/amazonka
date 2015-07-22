@@ -64,11 +64,11 @@ data UpdateGatewayInformation = UpdateGatewayInformation'
 
 -- | 'UpdateGatewayInformation' smart constructor.
 updateGatewayInformation :: Text -> UpdateGatewayInformation
-updateGatewayInformation pGatewayARN =
+updateGatewayInformation pGatewayARN_ =
     UpdateGatewayInformation'
     { _ugirqGatewayName = Nothing
     , _ugirqGatewayTimezone = Nothing
-    , _ugirqGatewayARN = pGatewayARN
+    , _ugirqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -133,10 +133,10 @@ data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
 
 -- | 'UpdateGatewayInformationResponse' smart constructor.
 updateGatewayInformationResponse :: Int -> UpdateGatewayInformationResponse
-updateGatewayInformationResponse pStatus =
+updateGatewayInformationResponse pStatus_ =
     UpdateGatewayInformationResponse'
     { _ugirsGatewayARN = Nothing
-    , _ugirsStatus = pStatus
+    , _ugirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

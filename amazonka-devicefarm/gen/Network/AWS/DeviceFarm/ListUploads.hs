@@ -61,10 +61,10 @@ data ListUploads = ListUploads'
 
 -- | 'ListUploads' smart constructor.
 listUploads :: Text -> ListUploads
-listUploads pArn =
+listUploads pArn_ =
     ListUploads'
     { _lurqNextToken = Nothing
-    , _lurqArn = pArn
+    , _lurqArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
@@ -127,11 +127,11 @@ data ListUploadsResponse = ListUploadsResponse'
 
 -- | 'ListUploadsResponse' smart constructor.
 listUploadsResponse :: Int -> ListUploadsResponse
-listUploadsResponse pStatus =
+listUploadsResponse pStatus_ =
     ListUploadsResponse'
     { _lursNextToken = Nothing
     , _lursUploads = Nothing
-    , _lursStatus = pStatus
+    , _lursStatus = pStatus_
     }
 
 -- | If the number of items that are returned is significantly large, this is

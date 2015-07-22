@@ -96,16 +96,16 @@ data CreateFunction = CreateFunction'
 
 -- | 'CreateFunction' smart constructor.
 createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> CreateFunction
-createFunction pFunctionName pRuntime pRole pHandler pCode =
+createFunction pFunctionName_ pRuntime_ pRole_ pHandler_ pCode_ =
     CreateFunction'
     { _cfrqMemorySize = Nothing
     , _cfrqTimeout = Nothing
     , _cfrqDescription = Nothing
-    , _cfrqFunctionName = pFunctionName
-    , _cfrqRuntime = pRuntime
-    , _cfrqRole = pRole
-    , _cfrqHandler = pHandler
-    , _cfrqCode = pCode
+    , _cfrqFunctionName = pFunctionName_
+    , _cfrqRuntime = pRuntime_
+    , _cfrqRole = pRole_
+    , _cfrqHandler = pHandler_
+    , _cfrqCode = pCode_
     }
 
 -- | The amount of memory, in MB, your Lambda function is given. Lambda uses

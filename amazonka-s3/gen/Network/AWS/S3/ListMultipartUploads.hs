@@ -90,7 +90,7 @@ data ListMultipartUploads = ListMultipartUploads'
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: BucketName -> ListMultipartUploads
-listMultipartUploads pBucket =
+listMultipartUploads pBucket_ =
     ListMultipartUploads'
     { _lmurqKeyMarker = Nothing
     , _lmurqPrefix = Nothing
@@ -98,7 +98,7 @@ listMultipartUploads pBucket =
     , _lmurqMaxUploads = Nothing
     , _lmurqUploadIdMarker = Nothing
     , _lmurqDelimiter = Nothing
-    , _lmurqBucket = pBucket
+    , _lmurqBucket = pBucket_
     }
 
 -- | Together with upload-id-marker, this parameter specifies the multipart
@@ -233,7 +233,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
-listMultipartUploadsResponse pStatus =
+listMultipartUploadsResponse pStatus_ =
     ListMultipartUploadsResponse'
     { _lmursKeyMarker = Nothing
     , _lmursPrefix = Nothing
@@ -247,7 +247,7 @@ listMultipartUploadsResponse pStatus =
     , _lmursIsTruncated = Nothing
     , _lmursNextUploadIdMarker = Nothing
     , _lmursDelimiter = Nothing
-    , _lmursStatus = pStatus
+    , _lmursStatus = pStatus_
     }
 
 -- | The key at or after which the listing began.

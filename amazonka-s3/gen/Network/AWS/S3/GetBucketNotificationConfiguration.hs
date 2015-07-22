@@ -55,9 +55,9 @@ newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
 
 -- | 'GetBucketNotificationConfiguration' smart constructor.
 getBucketNotificationConfiguration :: BucketName -> GetBucketNotificationConfiguration
-getBucketNotificationConfiguration pBucket =
+getBucketNotificationConfiguration pBucket_ =
     GetBucketNotificationConfiguration'
-    { _gbncrqBucket = pBucket
+    { _gbncrqBucket = pBucket_
     }
 
 -- | Name of the buket to get the notification configuration for.

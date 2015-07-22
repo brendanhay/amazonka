@@ -100,10 +100,10 @@ data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
-describeAccountAttributesResponse pStatus =
+describeAccountAttributesResponse pStatus_ =
     DescribeAccountAttributesResponse'
     { _daarsAccountQuotas = Nothing
-    , _daarsStatus = pStatus
+    , _daarsStatus = pStatus_
     }
 
 -- | A list of AccountQuota objects. Within this list, each quota has a name,

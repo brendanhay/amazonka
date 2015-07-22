@@ -162,11 +162,11 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
 
 -- | 'DescribeCertificatesResponse' smart constructor.
 describeCertificatesResponse :: Int -> DescribeCertificatesResponse
-describeCertificatesResponse pStatus =
+describeCertificatesResponse pStatus_ =
     DescribeCertificatesResponse'
     { _dcrsCertificates = Nothing
     , _dcrsMarker = Nothing
-    , _dcrsStatus = pStatus
+    , _dcrsStatus = pStatus_
     }
 
 -- | The list of Certificate objects for the AWS account.

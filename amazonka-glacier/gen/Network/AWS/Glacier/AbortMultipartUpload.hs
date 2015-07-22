@@ -88,11 +88,11 @@ data AbortMultipartUpload = AbortMultipartUpload'
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: Text -> Text -> Text -> AbortMultipartUpload
-abortMultipartUpload pAccountId pVaultName pUploadId =
+abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
     AbortMultipartUpload'
-    { _amurqAccountId = pAccountId
-    , _amurqVaultName = pVaultName
-    , _amurqUploadId = pUploadId
+    { _amurqAccountId = pAccountId_
+    , _amurqVaultName = pVaultName_
+    , _amurqUploadId = pUploadId_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the

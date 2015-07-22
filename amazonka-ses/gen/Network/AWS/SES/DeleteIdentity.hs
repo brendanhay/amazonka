@@ -59,9 +59,9 @@ newtype DeleteIdentity = DeleteIdentity'
 
 -- | 'DeleteIdentity' smart constructor.
 deleteIdentity :: Text -> DeleteIdentity
-deleteIdentity pIdentity =
+deleteIdentity pIdentity_ =
     DeleteIdentity'
-    { _dirqIdentity = pIdentity
+    { _dirqIdentity = pIdentity_
     }
 
 -- | The identity to be removed from the list of identities for the AWS
@@ -105,9 +105,9 @@ newtype DeleteIdentityResponse = DeleteIdentityResponse'
 
 -- | 'DeleteIdentityResponse' smart constructor.
 deleteIdentityResponse :: Int -> DeleteIdentityResponse
-deleteIdentityResponse pStatus =
+deleteIdentityResponse pStatus_ =
     DeleteIdentityResponse'
-    { _dirsStatus = pStatus
+    { _dirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

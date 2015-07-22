@@ -265,10 +265,10 @@ data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
 describeSpotInstanceRequestsResponse :: Int -> DescribeSpotInstanceRequestsResponse
-describeSpotInstanceRequestsResponse pStatus =
+describeSpotInstanceRequestsResponse pStatus_ =
     DescribeSpotInstanceRequestsResponse'
     { _dsirrsSpotInstanceRequests = Nothing
-    , _dsirrsStatus = pStatus
+    , _dsirrsStatus = pStatus_
     }
 
 -- | One or more Spot Instance requests.

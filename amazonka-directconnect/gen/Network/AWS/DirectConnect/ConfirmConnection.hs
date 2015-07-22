@@ -60,9 +60,9 @@ newtype ConfirmConnection = ConfirmConnection'
 
 -- | 'ConfirmConnection' smart constructor.
 confirmConnection :: Text -> ConfirmConnection
-confirmConnection pConnectionId =
+confirmConnection pConnectionId_ =
     ConfirmConnection'
-    { _ccrqConnectionId = pConnectionId
+    { _ccrqConnectionId = pConnectionId_
     }
 
 -- | FIXME: Undocumented member.
@@ -114,10 +114,10 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse'
 
 -- | 'ConfirmConnectionResponse' smart constructor.
 confirmConnectionResponse :: Int -> ConfirmConnectionResponse
-confirmConnectionResponse pStatus =
+confirmConnectionResponse pStatus_ =
     ConfirmConnectionResponse'
     { _ccrsConnectionState = Nothing
-    , _ccrsStatus = pStatus
+    , _ccrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

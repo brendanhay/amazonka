@@ -62,10 +62,10 @@ data AttachGroupPolicy = AttachGroupPolicy'
 
 -- | 'AttachGroupPolicy' smart constructor.
 attachGroupPolicy :: Text -> Text -> AttachGroupPolicy
-attachGroupPolicy pGroupName pPolicyARN =
+attachGroupPolicy pGroupName_ pPolicyARN_ =
     AttachGroupPolicy'
-    { _agprqGroupName = pGroupName
-    , _agprqPolicyARN = pPolicyARN
+    { _agprqGroupName = pGroupName_
+    , _agprqPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the group to attach the policy to.

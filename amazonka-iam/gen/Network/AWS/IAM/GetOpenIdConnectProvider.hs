@@ -57,9 +57,9 @@ newtype GetOpenIdConnectProvider = GetOpenIdConnectProvider'
 
 -- | 'GetOpenIdConnectProvider' smart constructor.
 getOpenIdConnectProvider :: Text -> GetOpenIdConnectProvider
-getOpenIdConnectProvider pOpenIdConnectProviderARN =
+getOpenIdConnectProvider pOpenIdConnectProviderARN_ =
     GetOpenIdConnectProvider'
-    { _goicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN
+    { _goicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
@@ -125,13 +125,13 @@ data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
 
 -- | 'GetOpenIdConnectProviderResponse' smart constructor.
 getOpenIdConnectProviderResponse :: Int -> GetOpenIdConnectProviderResponse
-getOpenIdConnectProviderResponse pStatus =
+getOpenIdConnectProviderResponse pStatus_ =
     GetOpenIdConnectProviderResponse'
     { _goicprsCreateDate = Nothing
     , _goicprsURL = Nothing
     , _goicprsThumbprintList = Nothing
     , _goicprsClientIdList = Nothing
-    , _goicprsStatus = pStatus
+    , _goicprsStatus = pStatus_
     }
 
 -- | The date and time when the IAM OpenID Connect provider entity was

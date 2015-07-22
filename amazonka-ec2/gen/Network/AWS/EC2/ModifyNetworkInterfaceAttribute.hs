@@ -72,14 +72,14 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
 
 -- | 'ModifyNetworkInterfaceAttribute' smart constructor.
 modifyNetworkInterfaceAttribute :: Text -> ModifyNetworkInterfaceAttribute
-modifyNetworkInterfaceAttribute pNetworkInterfaceId =
+modifyNetworkInterfaceAttribute pNetworkInterfaceId_ =
     ModifyNetworkInterfaceAttribute'
     { _mniarqGroups = Nothing
     , _mniarqSourceDestCheck = Nothing
     , _mniarqAttachment = Nothing
     , _mniarqDryRun = Nothing
     , _mniarqDescription = Nothing
-    , _mniarqNetworkInterfaceId = pNetworkInterfaceId
+    , _mniarqNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | Changes the security groups for the network interface. The new set of

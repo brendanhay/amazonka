@@ -74,9 +74,9 @@ data GetIdentityPolicies = GetIdentityPolicies'
 
 -- | 'GetIdentityPolicies' smart constructor.
 getIdentityPolicies :: Text -> GetIdentityPolicies
-getIdentityPolicies pIdentity =
+getIdentityPolicies pIdentity_ =
     GetIdentityPolicies'
-    { _giprqIdentity = pIdentity
+    { _giprqIdentity = pIdentity_
     , _giprqPolicyNames = mempty
     }
 
@@ -141,9 +141,9 @@ data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
 
 -- | 'GetIdentityPoliciesResponse' smart constructor.
 getIdentityPoliciesResponse :: Int -> GetIdentityPoliciesResponse
-getIdentityPoliciesResponse pStatus =
+getIdentityPoliciesResponse pStatus_ =
     GetIdentityPoliciesResponse'
-    { _giprsStatus = pStatus
+    { _giprsStatus = pStatus_
     , _giprsPolicies = mempty
     }
 

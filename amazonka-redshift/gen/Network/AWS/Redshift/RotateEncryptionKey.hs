@@ -56,9 +56,9 @@ newtype RotateEncryptionKey = RotateEncryptionKey'
 
 -- | 'RotateEncryptionKey' smart constructor.
 rotateEncryptionKey :: Text -> RotateEncryptionKey
-rotateEncryptionKey pClusterIdentifier =
+rotateEncryptionKey pClusterIdentifier_ =
     RotateEncryptionKey'
-    { _rekrqClusterIdentifier = pClusterIdentifier
+    { _rekrqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The unique identifier of the cluster that you want to rotate the
@@ -107,10 +107,10 @@ data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
 
 -- | 'RotateEncryptionKeyResponse' smart constructor.
 rotateEncryptionKeyResponse :: Int -> RotateEncryptionKeyResponse
-rotateEncryptionKeyResponse pStatus =
+rotateEncryptionKeyResponse pStatus_ =
     RotateEncryptionKeyResponse'
     { _rekrsCluster = Nothing
-    , _rekrsStatus = pStatus
+    , _rekrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

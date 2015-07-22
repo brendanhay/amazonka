@@ -66,9 +66,9 @@ newtype DeleteHealthCheck = DeleteHealthCheck'
 
 -- | 'DeleteHealthCheck' smart constructor.
 deleteHealthCheck :: Text -> DeleteHealthCheck
-deleteHealthCheck pHealthCheckId =
+deleteHealthCheck pHealthCheckId_ =
     DeleteHealthCheck'
-    { _dhcrqHealthCheckId = pHealthCheckId
+    { _dhcrqHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check to delete.
@@ -109,9 +109,9 @@ newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
 
 -- | 'DeleteHealthCheckResponse' smart constructor.
 deleteHealthCheckResponse :: Int -> DeleteHealthCheckResponse
-deleteHealthCheckResponse pStatus =
+deleteHealthCheckResponse pStatus_ =
     DeleteHealthCheckResponse'
-    { _dhcrsStatus = pStatus
+    { _dhcrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

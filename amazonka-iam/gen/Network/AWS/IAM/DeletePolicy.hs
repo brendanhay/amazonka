@@ -72,9 +72,9 @@ newtype DeletePolicy = DeletePolicy'
 
 -- | 'DeletePolicy' smart constructor.
 deletePolicy :: Text -> DeletePolicy
-deletePolicy pPolicyARN =
+deletePolicy pPolicyARN_ =
     DeletePolicy'
-    { _dprqPolicyARN = pPolicyARN
+    { _dprqPolicyARN = pPolicyARN_
     }
 
 -- | FIXME: Undocumented member.

@@ -91,7 +91,7 @@ data ListObjectVersions = ListObjectVersions'
 
 -- | 'ListObjectVersions' smart constructor.
 listObjectVersions :: BucketName -> ListObjectVersions
-listObjectVersions pBucket =
+listObjectVersions pBucket_ =
     ListObjectVersions'
     { _lovrqKeyMarker = Nothing
     , _lovrqPrefix = Nothing
@@ -99,7 +99,7 @@ listObjectVersions pBucket =
     , _lovrqVersionIdMarker = Nothing
     , _lovrqMaxKeys = Nothing
     , _lovrqDelimiter = Nothing
-    , _lovrqBucket = pBucket
+    , _lovrqBucket = pBucket_
     }
 
 -- | Specifies the key to start with when listing objects in a bucket.
@@ -234,7 +234,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
 
 -- | 'ListObjectVersionsResponse' smart constructor.
 listObjectVersionsResponse :: Int -> ListObjectVersionsResponse
-listObjectVersionsResponse pStatus =
+listObjectVersionsResponse pStatus_ =
     ListObjectVersionsResponse'
     { _lovrsNextVersionIdMarker = Nothing
     , _lovrsKeyMarker = Nothing
@@ -249,7 +249,7 @@ listObjectVersionsResponse pStatus =
     , _lovrsMaxKeys = Nothing
     , _lovrsIsTruncated = Nothing
     , _lovrsDelimiter = Nothing
-    , _lovrsStatus = pStatus
+    , _lovrsStatus = pStatus_
     }
 
 -- | Use this value for the next version id marker parameter in a subsequent

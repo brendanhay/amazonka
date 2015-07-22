@@ -64,10 +64,10 @@ data MoveAddressToVPC = MoveAddressToVPC'
 
 -- | 'MoveAddressToVPC' smart constructor.
 moveAddressToVPC :: Text -> MoveAddressToVPC
-moveAddressToVPC pPublicIP =
+moveAddressToVPC pPublicIP_ =
     MoveAddressToVPC'
     { _matvrqDryRun = Nothing
-    , _matvrqPublicIP = pPublicIP
+    , _matvrqPublicIP = pPublicIP_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -119,10 +119,10 @@ data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
 
 -- | 'MoveAddressToVPCResponse' smart constructor.
 moveAddressToVPCResponse :: Int -> MoveAddressToVPCResponse
-moveAddressToVPCResponse pStatus =
+moveAddressToVPCResponse pStatus_ =
     MoveAddressToVPCResponse'
     { _matvrsAllocationId = Nothing
-    , _matvrsStatus = pStatus
+    , _matvrsStatus = pStatus_
     }
 
 -- | The allocation ID for the Elastic IP address.

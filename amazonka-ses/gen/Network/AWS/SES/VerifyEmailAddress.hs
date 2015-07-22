@@ -61,9 +61,9 @@ newtype VerifyEmailAddress = VerifyEmailAddress'
 
 -- | 'VerifyEmailAddress' smart constructor.
 verifyEmailAddress :: Text -> VerifyEmailAddress
-verifyEmailAddress pEmailAddress =
+verifyEmailAddress pEmailAddress_ =
     VerifyEmailAddress'
-    { _vearqEmailAddress = pEmailAddress
+    { _vearqEmailAddress = pEmailAddress_
     }
 
 -- | The email address to be verified.

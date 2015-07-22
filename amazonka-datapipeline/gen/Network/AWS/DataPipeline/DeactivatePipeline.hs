@@ -64,10 +64,10 @@ data DeactivatePipeline = DeactivatePipeline'
 
 -- | 'DeactivatePipeline' smart constructor.
 deactivatePipeline :: Text -> DeactivatePipeline
-deactivatePipeline pPipelineId =
+deactivatePipeline pPipelineId_ =
     DeactivatePipeline'
     { _drqCancelActive = Nothing
-    , _drqPipelineId = pPipelineId
+    , _drqPipelineId = pPipelineId_
     }
 
 -- | Indicates whether to cancel any running objects. The default is true,
@@ -124,9 +124,9 @@ newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
 
 -- | 'DeactivatePipelineResponse' smart constructor.
 deactivatePipelineResponse :: Int -> DeactivatePipelineResponse
-deactivatePipelineResponse pStatus =
+deactivatePipelineResponse pStatus_ =
     DeactivatePipelineResponse'
-    { _drsStatus = pStatus
+    { _drsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

@@ -70,11 +70,11 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
 
 -- | 'ResetDBParameterGroup' smart constructor.
 resetDBParameterGroup :: Text -> ResetDBParameterGroup
-resetDBParameterGroup pDBParameterGroupName =
+resetDBParameterGroup pDBParameterGroupName_ =
     ResetDBParameterGroup'
     { _rdpgrqResetAllParameters = Nothing
     , _rdpgrqParameters = Nothing
-    , _rdpgrqDBParameterGroupName = pDBParameterGroupName
+    , _rdpgrqDBParameterGroupName = pDBParameterGroupName_
     }
 
 -- | Specifies whether (@true@) or not (@false@) to reset all parameters in

@@ -71,11 +71,11 @@ data UpdateGroup = UpdateGroup'
 
 -- | 'UpdateGroup' smart constructor.
 updateGroup :: Text -> UpdateGroup
-updateGroup pGroupName =
+updateGroup pGroupName_ =
     UpdateGroup'
     { _ugrqNewGroupName = Nothing
     , _ugrqNewPath = Nothing
-    , _ugrqGroupName = pGroupName
+    , _ugrqGroupName = pGroupName_
     }
 
 -- | New name for the group. Only include this if changing the group\'s name.

@@ -127,7 +127,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
 
 -- | 'CreateLaunchConfiguration' smart constructor.
 createLaunchConfiguration :: Text -> CreateLaunchConfiguration
-createLaunchConfiguration pLaunchConfigurationName =
+createLaunchConfiguration pLaunchConfigurationName_ =
     CreateLaunchConfiguration'
     { _clcrqInstanceId = Nothing
     , _clcrqSecurityGroups = Nothing
@@ -146,7 +146,7 @@ createLaunchConfiguration pLaunchConfigurationName =
     , _clcrqImageId = Nothing
     , _clcrqPlacementTenancy = Nothing
     , _clcrqBlockDeviceMappings = Nothing
-    , _clcrqLaunchConfigurationName = pLaunchConfigurationName
+    , _clcrqLaunchConfigurationName = pLaunchConfigurationName_
     }
 
 -- | The ID of the EC2 instance to use to create the launch configuration.

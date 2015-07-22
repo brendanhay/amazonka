@@ -61,9 +61,9 @@ newtype DescribeScalingParameters = DescribeScalingParameters'
 
 -- | 'DescribeScalingParameters' smart constructor.
 describeScalingParameters :: Text -> DescribeScalingParameters
-describeScalingParameters pDomainName =
+describeScalingParameters pDomainName_ =
     DescribeScalingParameters'
-    { _dsprqDomainName = pDomainName
+    { _dsprqDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
@@ -112,10 +112,10 @@ data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
 
 -- | 'DescribeScalingParametersResponse' smart constructor.
 describeScalingParametersResponse :: Int -> ScalingParametersStatus -> DescribeScalingParametersResponse
-describeScalingParametersResponse pStatus pScalingParameters =
+describeScalingParametersResponse pStatus_ pScalingParameters_ =
     DescribeScalingParametersResponse'
-    { _dsprsStatus = pStatus
-    , _dsprsScalingParameters = pScalingParameters
+    { _dsprsStatus = pStatus_
+    , _dsprsScalingParameters = pScalingParameters_
     }
 
 -- | FIXME: Undocumented member.

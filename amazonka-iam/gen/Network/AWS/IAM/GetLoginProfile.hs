@@ -56,9 +56,9 @@ newtype GetLoginProfile = GetLoginProfile'
 
 -- | 'GetLoginProfile' smart constructor.
 getLoginProfile :: Text -> GetLoginProfile
-getLoginProfile pUserName =
+getLoginProfile pUserName_ =
     GetLoginProfile'
-    { _glprqUserName = pUserName
+    { _glprqUserName = pUserName_
     }
 
 -- | The name of the user whose login profile you want to retrieve.
@@ -104,10 +104,10 @@ data GetLoginProfileResponse = GetLoginProfileResponse'
 
 -- | 'GetLoginProfileResponse' smart constructor.
 getLoginProfileResponse :: Int -> LoginProfile -> GetLoginProfileResponse
-getLoginProfileResponse pStatus pLoginProfile =
+getLoginProfileResponse pStatus_ pLoginProfile_ =
     GetLoginProfileResponse'
-    { _glprsStatus = pStatus
-    , _glprsLoginProfile = pLoginProfile
+    { _glprsStatus = pStatus_
+    , _glprsLoginProfile = pLoginProfile_
     }
 
 -- | FIXME: Undocumented member.

@@ -75,12 +75,12 @@ data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
 
 -- | 'AssignPrivateIPAddresses' smart constructor.
 assignPrivateIPAddresses :: Text -> AssignPrivateIPAddresses
-assignPrivateIPAddresses pNetworkInterfaceId =
+assignPrivateIPAddresses pNetworkInterfaceId_ =
     AssignPrivateIPAddresses'
     { _apiarqPrivateIPAddresses = Nothing
     , _apiarqAllowReassignment = Nothing
     , _apiarqSecondaryPrivateIPAddressCount = Nothing
-    , _apiarqNetworkInterfaceId = pNetworkInterfaceId
+    , _apiarqNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | One or more IP addresses to be assigned as a secondary private IP

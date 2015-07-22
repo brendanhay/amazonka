@@ -94,10 +94,10 @@ data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
 listSAMLProvidersResponse :: Int -> ListSAMLProvidersResponse
-listSAMLProvidersResponse pStatus =
+listSAMLProvidersResponse pStatus_ =
     ListSAMLProvidersResponse'
     { _lsamlprsSAMLProviderList = Nothing
-    , _lsamlprsStatus = pStatus
+    , _lsamlprsStatus = pStatus_
     }
 
 -- | The list of SAML providers for this account.

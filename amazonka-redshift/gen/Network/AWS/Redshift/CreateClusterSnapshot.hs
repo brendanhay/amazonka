@@ -69,11 +69,11 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
 
 -- | 'CreateClusterSnapshot' smart constructor.
 createClusterSnapshot :: Text -> Text -> CreateClusterSnapshot
-createClusterSnapshot pSnapshotIdentifier pClusterIdentifier =
+createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
     CreateClusterSnapshot'
     { _ccsrqTags = Nothing
-    , _ccsrqSnapshotIdentifier = pSnapshotIdentifier
-    , _ccsrqClusterIdentifier = pClusterIdentifier
+    , _ccsrqSnapshotIdentifier = pSnapshotIdentifier_
+    , _ccsrqClusterIdentifier = pClusterIdentifier_
     }
 
 -- | A list of tag instances.
@@ -138,10 +138,10 @@ data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
 
 -- | 'CreateClusterSnapshotResponse' smart constructor.
 createClusterSnapshotResponse :: Int -> CreateClusterSnapshotResponse
-createClusterSnapshotResponse pStatus =
+createClusterSnapshotResponse pStatus_ =
     CreateClusterSnapshotResponse'
     { _crersSnapshot = Nothing
-    , _crersStatus = pStatus
+    , _crersStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

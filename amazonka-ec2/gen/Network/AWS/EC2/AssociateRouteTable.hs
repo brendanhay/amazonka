@@ -71,11 +71,11 @@ data AssociateRouteTable = AssociateRouteTable'
 
 -- | 'AssociateRouteTable' smart constructor.
 associateRouteTable :: Text -> Text -> AssociateRouteTable
-associateRouteTable pSubnetId pRouteTableId =
+associateRouteTable pSubnetId_ pRouteTableId_ =
     AssociateRouteTable'
     { _artrqDryRun = Nothing
-    , _artrqSubnetId = pSubnetId
-    , _artrqRouteTableId = pRouteTableId
+    , _artrqSubnetId = pSubnetId_
+    , _artrqRouteTableId = pRouteTableId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -133,10 +133,10 @@ data AssociateRouteTableResponse = AssociateRouteTableResponse'
 
 -- | 'AssociateRouteTableResponse' smart constructor.
 associateRouteTableResponse :: Int -> AssociateRouteTableResponse
-associateRouteTableResponse pStatus =
+associateRouteTableResponse pStatus_ =
     AssociateRouteTableResponse'
     { _artrsAssociationId = Nothing
-    , _artrsStatus = pStatus
+    , _artrsStatus = pStatus_
     }
 
 -- | The route table association ID (needed to disassociate the route table).

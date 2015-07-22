@@ -55,9 +55,9 @@ newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
 
 -- | 'DeleteVirtualMFADevice' smart constructor.
 deleteVirtualMFADevice :: Text -> DeleteVirtualMFADevice
-deleteVirtualMFADevice pSerialNumber =
+deleteVirtualMFADevice pSerialNumber_ =
     DeleteVirtualMFADevice'
-    { _dvmdrqSerialNumber = pSerialNumber
+    { _dvmdrqSerialNumber = pSerialNumber_
     }
 
 -- | The serial number that uniquely identifies the MFA device. For virtual

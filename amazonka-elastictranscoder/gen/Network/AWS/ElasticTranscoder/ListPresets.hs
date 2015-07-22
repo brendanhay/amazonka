@@ -132,11 +132,11 @@ data ListPresetsResponse = ListPresetsResponse'
 
 -- | 'ListPresetsResponse' smart constructor.
 listPresetsResponse :: Int -> ListPresetsResponse
-listPresetsResponse pStatus =
+listPresetsResponse pStatus_ =
     ListPresetsResponse'
     { _lrsNextPageToken = Nothing
     , _lrsPresets = Nothing
-    , _lrsStatus = pStatus
+    , _lrsStatus = pStatus_
     }
 
 -- | A value that you use to access the second and subsequent pages of

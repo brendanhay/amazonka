@@ -189,11 +189,11 @@ data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
 
 -- | 'DescribeSnapshotCopyGrantsResponse' smart constructor.
 describeSnapshotCopyGrantsResponse :: Int -> DescribeSnapshotCopyGrantsResponse
-describeSnapshotCopyGrantsResponse pStatus =
+describeSnapshotCopyGrantsResponse pStatus_ =
     DescribeSnapshotCopyGrantsResponse'
     { _dscgrsSnapshotCopyGrants = Nothing
     , _dscgrsMarker = Nothing
-    , _dscgrsStatus = pStatus
+    , _dscgrsStatus = pStatus_
     }
 
 -- | The list of snapshot copy grants.

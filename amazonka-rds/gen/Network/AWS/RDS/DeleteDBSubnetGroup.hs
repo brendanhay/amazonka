@@ -56,9 +56,9 @@ newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
 
 -- | 'DeleteDBSubnetGroup' smart constructor.
 deleteDBSubnetGroup :: Text -> DeleteDBSubnetGroup
-deleteDBSubnetGroup pDBSubnetGroupName =
+deleteDBSubnetGroup pDBSubnetGroupName_ =
     DeleteDBSubnetGroup'
-    { _ddbsgrqDBSubnetGroupName = pDBSubnetGroupName
+    { _ddbsgrqDBSubnetGroupName = pDBSubnetGroupName_
     }
 
 -- | The name of the database subnet group to delete.

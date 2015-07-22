@@ -132,12 +132,12 @@ data ListKeysResponse = ListKeysResponse'
 
 -- | 'ListKeysResponse' smart constructor.
 listKeysResponse :: Int -> ListKeysResponse
-listKeysResponse pStatus =
+listKeysResponse pStatus_ =
     ListKeysResponse'
     { _lkrsTruncated = Nothing
     , _lkrsKeys = Nothing
     , _lkrsNextMarker = Nothing
-    , _lkrsStatus = pStatus
+    , _lkrsStatus = pStatus_
     }
 
 -- | A flag that indicates whether there are more items in the list. If your

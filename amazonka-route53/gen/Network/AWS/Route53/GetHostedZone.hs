@@ -61,9 +61,9 @@ newtype GetHostedZone = GetHostedZone'
 
 -- | 'GetHostedZone' smart constructor.
 getHostedZone :: Text -> GetHostedZone
-getHostedZone pId =
+getHostedZone pId_ =
     GetHostedZone'
-    { _ghzrqId = pId
+    { _ghzrqId = pId_
     }
 
 -- | The ID of the hosted zone for which you want to get a list of the name
@@ -118,12 +118,12 @@ data GetHostedZoneResponse = GetHostedZoneResponse'
 
 -- | 'GetHostedZoneResponse' smart constructor.
 getHostedZoneResponse :: Int -> HostedZone -> GetHostedZoneResponse
-getHostedZoneResponse pStatus pHostedZone =
+getHostedZoneResponse pStatus_ pHostedZone_ =
     GetHostedZoneResponse'
     { _ghzrsVPCs = Nothing
     , _ghzrsDelegationSet = Nothing
-    , _ghzrsStatus = pStatus
-    , _ghzrsHostedZone = pHostedZone
+    , _ghzrsStatus = pStatus_
+    , _ghzrsHostedZone = pHostedZone_
     }
 
 -- | A complex type that contains information about VPCs associated with the

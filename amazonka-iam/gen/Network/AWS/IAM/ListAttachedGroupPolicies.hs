@@ -80,12 +80,12 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
 
 -- | 'ListAttachedGroupPolicies' smart constructor.
 listAttachedGroupPolicies :: Text -> ListAttachedGroupPolicies
-listAttachedGroupPolicies pGroupName =
+listAttachedGroupPolicies pGroupName_ =
     ListAttachedGroupPolicies'
     { _lagprqPathPrefix = Nothing
     , _lagprqMaxItems = Nothing
     , _lagprqMarker = Nothing
-    , _lagprqGroupName = pGroupName
+    , _lagprqGroupName = pGroupName_
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
@@ -168,12 +168,12 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
 
 -- | 'ListAttachedGroupPoliciesResponse' smart constructor.
 listAttachedGroupPoliciesResponse :: Int -> ListAttachedGroupPoliciesResponse
-listAttachedGroupPoliciesResponse pStatus =
+listAttachedGroupPoliciesResponse pStatus_ =
     ListAttachedGroupPoliciesResponse'
     { _lagprsAttachedPolicies = Nothing
     , _lagprsMarker = Nothing
     , _lagprsIsTruncated = Nothing
-    , _lagprsStatus = pStatus
+    , _lagprsStatus = pStatus_
     }
 
 -- | A list of the attached policies.

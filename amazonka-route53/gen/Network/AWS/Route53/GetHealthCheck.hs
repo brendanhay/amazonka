@@ -58,9 +58,9 @@ newtype GetHealthCheck = GetHealthCheck'
 
 -- | 'GetHealthCheck' smart constructor.
 getHealthCheck :: Text -> GetHealthCheck
-getHealthCheck pHealthCheckId =
+getHealthCheck pHealthCheckId_ =
     GetHealthCheck'
-    { _ghcrqHealthCheckId = pHealthCheckId
+    { _ghcrqHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check to retrieve.
@@ -105,10 +105,10 @@ data GetHealthCheckResponse = GetHealthCheckResponse'
 
 -- | 'GetHealthCheckResponse' smart constructor.
 getHealthCheckResponse :: Int -> HealthCheck -> GetHealthCheckResponse
-getHealthCheckResponse pStatus pHealthCheck =
+getHealthCheckResponse pStatus_ pHealthCheck_ =
     GetHealthCheckResponse'
-    { _ghcrsStatus = pStatus
-    , _ghcrsHealthCheck = pHealthCheck
+    { _ghcrsStatus = pStatus_
+    , _ghcrsHealthCheck = pHealthCheck_
     }
 
 -- | FIXME: Undocumented member.

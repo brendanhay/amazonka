@@ -89,13 +89,13 @@ data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
 
 -- | 'UpdateConfigurationTemplate' smart constructor.
 updateConfigurationTemplate :: Text -> Text -> UpdateConfigurationTemplate
-updateConfigurationTemplate pApplicationName pTemplateName =
+updateConfigurationTemplate pApplicationName_ pTemplateName_ =
     UpdateConfigurationTemplate'
     { _uctrqOptionsToRemove = Nothing
     , _uctrqOptionSettings = Nothing
     , _uctrqDescription = Nothing
-    , _uctrqApplicationName = pApplicationName
-    , _uctrqTemplateName = pTemplateName
+    , _uctrqApplicationName = pApplicationName_
+    , _uctrqTemplateName = pTemplateName_
     }
 
 -- | A list of configuration options to remove from the configuration set.

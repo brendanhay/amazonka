@@ -57,9 +57,9 @@ newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
 
 -- | 'RetrieveDomainAuthCode' smart constructor.
 retrieveDomainAuthCode :: Text -> RetrieveDomainAuthCode
-retrieveDomainAuthCode pDomainName =
+retrieveDomainAuthCode pDomainName_ =
     RetrieveDomainAuthCode'
-    { _rdacrqDomainName = pDomainName
+    { _rdacrqDomainName = pDomainName_
     }
 
 -- | The name of a domain.
@@ -123,10 +123,10 @@ data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
 
 -- | 'RetrieveDomainAuthCodeResponse' smart constructor.
 retrieveDomainAuthCodeResponse :: Int -> Text -> RetrieveDomainAuthCodeResponse
-retrieveDomainAuthCodeResponse pStatus pAuthCode =
+retrieveDomainAuthCodeResponse pStatus_ pAuthCode_ =
     RetrieveDomainAuthCodeResponse'
-    { _rdacrsStatus = pStatus
-    , _rdacrsAuthCode = _Sensitive # pAuthCode
+    { _rdacrsStatus = pStatus_
+    , _rdacrsAuthCode = _Sensitive # pAuthCode_
     }
 
 -- | FIXME: Undocumented member.

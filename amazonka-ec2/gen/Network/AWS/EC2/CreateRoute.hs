@@ -104,7 +104,7 @@ data CreateRoute = CreateRoute'
 
 -- | 'CreateRoute' smart constructor.
 createRoute :: Text -> Text -> CreateRoute
-createRoute pRouteTableId pDestinationCIdRBlock =
+createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     CreateRoute'
     { _crrqInstanceId = Nothing
     , _crrqVPCPeeringConnectionId = Nothing
@@ -112,8 +112,8 @@ createRoute pRouteTableId pDestinationCIdRBlock =
     , _crrqNetworkInterfaceId = Nothing
     , _crrqGatewayId = Nothing
     , _crrqDryRun = Nothing
-    , _crrqRouteTableId = pRouteTableId
-    , _crrqDestinationCIdRBlock = pDestinationCIdRBlock
+    , _crrqRouteTableId = pRouteTableId_
+    , _crrqDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify
@@ -205,11 +205,11 @@ data CreateRouteResponse = CreateRouteResponse'
 
 -- | 'CreateRouteResponse' smart constructor.
 createRouteResponse :: Int -> CreateRouteResponse
-createRouteResponse pStatus =
+createRouteResponse pStatus_ =
     CreateRouteResponse'
     { _crrsReturn = Nothing
     , _crrsClientToken = Nothing
-    , _crrsStatus = pStatus
+    , _crrsStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.

@@ -76,12 +76,12 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
 
 -- | 'SetLoadBasedAutoScaling' smart constructor.
 setLoadBasedAutoScaling :: Text -> SetLoadBasedAutoScaling
-setLoadBasedAutoScaling pLayerId =
+setLoadBasedAutoScaling pLayerId_ =
     SetLoadBasedAutoScaling'
     { _slbasrqUpScaling = Nothing
     , _slbasrqEnable = Nothing
     , _slbasrqDownScaling = Nothing
-    , _slbasrqLayerId = pLayerId
+    , _slbasrqLayerId = pLayerId_
     }
 
 -- | An @AutoScalingThresholds@ object with the upscaling threshold

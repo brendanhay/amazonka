@@ -54,9 +54,9 @@ newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
 
 -- | 'DeleteClusterParameterGroup' smart constructor.
 deleteClusterParameterGroup :: Text -> DeleteClusterParameterGroup
-deleteClusterParameterGroup pParameterGroupName =
+deleteClusterParameterGroup pParameterGroupName_ =
     DeleteClusterParameterGroup'
-    { _drqParameterGroupName = pParameterGroupName
+    { _drqParameterGroupName = pParameterGroupName_
     }
 
 -- | The name of the parameter group to be deleted.

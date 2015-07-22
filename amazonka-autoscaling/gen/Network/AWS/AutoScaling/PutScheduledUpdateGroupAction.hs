@@ -90,7 +90,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
 
 -- | 'PutScheduledUpdateGroupAction' smart constructor.
 putScheduledUpdateGroupAction :: Text -> Text -> PutScheduledUpdateGroupAction
-putScheduledUpdateGroupAction pAutoScalingGroupName pScheduledActionName =
+putScheduledUpdateGroupAction pAutoScalingGroupName_ pScheduledActionName_ =
     PutScheduledUpdateGroupAction'
     { _psugarqTime = Nothing
     , _psugarqStartTime = Nothing
@@ -99,8 +99,8 @@ putScheduledUpdateGroupAction pAutoScalingGroupName pScheduledActionName =
     , _psugarqRecurrence = Nothing
     , _psugarqMinSize = Nothing
     , _psugarqEndTime = Nothing
-    , _psugarqAutoScalingGroupName = pAutoScalingGroupName
-    , _psugarqScheduledActionName = pScheduledActionName
+    , _psugarqAutoScalingGroupName = pAutoScalingGroupName_
+    , _psugarqScheduledActionName = pScheduledActionName_
     }
 
 -- | This parameter is deprecated; use @StartTime@ instead.

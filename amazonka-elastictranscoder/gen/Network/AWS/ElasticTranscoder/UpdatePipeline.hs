@@ -89,7 +89,7 @@ data UpdatePipeline = UpdatePipeline'
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: Text -> UpdatePipeline
-updatePipeline pId =
+updatePipeline pId_ =
     UpdatePipeline'
     { _uprqInputBucket = Nothing
     , _uprqContentConfig = Nothing
@@ -98,7 +98,7 @@ updatePipeline pId =
     , _uprqAWSKMSKeyARN = Nothing
     , _uprqThumbnailConfig = Nothing
     , _uprqNotifications = Nothing
-    , _uprqId = pId
+    , _uprqId = pId_
     }
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
@@ -303,11 +303,11 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: Int -> UpdatePipelineResponse
-updatePipelineResponse pStatus =
+updatePipelineResponse pStatus_ =
     UpdatePipelineResponse'
     { _uprsWarnings = Nothing
     , _uprsPipeline = Nothing
-    , _uprsStatus = pStatus
+    , _uprsStatus = pStatus_
     }
 
 -- | Elastic Transcoder returns a warning if the resources used by your

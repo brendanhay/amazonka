@@ -56,10 +56,10 @@ data DeleteKeyPair = DeleteKeyPair'
 
 -- | 'DeleteKeyPair' smart constructor.
 deleteKeyPair :: Text -> DeleteKeyPair
-deleteKeyPair pKeyName =
+deleteKeyPair pKeyName_ =
     DeleteKeyPair'
     { _dkprqDryRun = Nothing
-    , _dkprqKeyName = pKeyName
+    , _dkprqKeyName = pKeyName_
     }
 
 -- | Checks whether you have the required permissions for the action, without

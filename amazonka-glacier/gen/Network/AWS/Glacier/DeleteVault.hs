@@ -81,10 +81,10 @@ data DeleteVault = DeleteVault'
 
 -- | 'DeleteVault' smart constructor.
 deleteVault :: Text -> Text -> DeleteVault
-deleteVault pAccountId pVaultName =
+deleteVault pAccountId_ pVaultName_ =
     DeleteVault'
-    { _drqAccountId = pAccountId
-    , _drqVaultName = pVaultName
+    { _drqAccountId = pAccountId_
+    , _drqVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the

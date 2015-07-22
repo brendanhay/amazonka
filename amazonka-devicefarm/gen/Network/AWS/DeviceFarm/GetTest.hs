@@ -56,9 +56,9 @@ newtype GetTest = GetTest'
 
 -- | 'GetTest' smart constructor.
 getTest :: Text -> GetTest
-getTest pArn =
+getTest pArn_ =
     GetTest'
-    { _gtrqArn = pArn
+    { _gtrqArn = pArn_
     }
 
 -- | The test\'s ARN.
@@ -109,10 +109,10 @@ data GetTestResponse = GetTestResponse'
 
 -- | 'GetTestResponse' smart constructor.
 getTestResponse :: Int -> GetTestResponse
-getTestResponse pStatus =
+getTestResponse pStatus_ =
     GetTestResponse'
     { _gtrsTest = Nothing
-    , _gtrsStatus = pStatus
+    , _gtrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

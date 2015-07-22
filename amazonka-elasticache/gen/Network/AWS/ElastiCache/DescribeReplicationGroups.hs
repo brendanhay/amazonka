@@ -157,11 +157,11 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
 
 -- | 'DescribeReplicationGroupsResponse' smart constructor.
 describeReplicationGroupsResponse :: Int -> DescribeReplicationGroupsResponse
-describeReplicationGroupsResponse pStatus =
+describeReplicationGroupsResponse pStatus_ =
     DescribeReplicationGroupsResponse'
     { _drgrsMarker = Nothing
     , _drgrsReplicationGroups = Nothing
-    , _drgrsStatus = pStatus
+    , _drgrsStatus = pStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.

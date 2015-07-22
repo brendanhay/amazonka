@@ -220,7 +220,7 @@ data DescribeHSMResponse = DescribeHSMResponse'
 
 -- | 'DescribeHSMResponse' smart constructor.
 describeHSMResponse :: Int -> DescribeHSMResponse
-describeHSMResponse pStatus =
+describeHSMResponse pStatus_ =
     DescribeHSMResponse'
     { _desrsIAMRoleARN = Nothing
     , _desrsEniId = Nothing
@@ -242,7 +242,7 @@ describeHSMResponse pStatus =
     , _desrsHSMARN = Nothing
     , _desrsEniIP = Nothing
     , _desrsHSMType = Nothing
-    , _desrsStatus = pStatus
+    , _desrsStatus = pStatus_
     }
 
 -- | The ARN of the IAM role assigned to the HSM.

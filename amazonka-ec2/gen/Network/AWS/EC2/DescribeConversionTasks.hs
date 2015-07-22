@@ -131,10 +131,10 @@ data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
 describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse
-describeConversionTasksResponse pStatus =
+describeConversionTasksResponse pStatus_ =
     DescribeConversionTasksResponse'
     { _dctrsConversionTasks = Nothing
-    , _dctrsStatus = pStatus
+    , _dctrsStatus = pStatus_
     }
 
 -- | Information about the conversion tasks.

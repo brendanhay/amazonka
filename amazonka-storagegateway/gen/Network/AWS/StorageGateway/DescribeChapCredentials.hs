@@ -59,9 +59,9 @@ newtype DescribeChapCredentials = DescribeChapCredentials'
 
 -- | 'DescribeChapCredentials' smart constructor.
 describeChapCredentials :: Text -> DescribeChapCredentials
-describeChapCredentials pTargetARN =
+describeChapCredentials pTargetARN_ =
     DescribeChapCredentials'
-    { _dccrqTargetARN = pTargetARN
+    { _dccrqTargetARN = pTargetARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
@@ -118,10 +118,10 @@ data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
 
 -- | 'DescribeChapCredentialsResponse' smart constructor.
 describeChapCredentialsResponse :: Int -> DescribeChapCredentialsResponse
-describeChapCredentialsResponse pStatus =
+describeChapCredentialsResponse pStatus_ =
     DescribeChapCredentialsResponse'
     { _dccrsChapCredentials = Nothing
-    , _dccrsStatus = pStatus
+    , _dccrsStatus = pStatus_
     }
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each

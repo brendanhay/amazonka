@@ -238,11 +238,11 @@ data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
 
 -- | 'DescribeReservedDBInstancesResponse' smart constructor.
 describeReservedDBInstancesResponse :: Int -> DescribeReservedDBInstancesResponse
-describeReservedDBInstancesResponse pStatus =
+describeReservedDBInstancesResponse pStatus_ =
     DescribeReservedDBInstancesResponse'
     { _drdirsReservedDBInstances = Nothing
     , _drdirsMarker = Nothing
-    , _drdirsStatus = pStatus
+    , _drdirsStatus = pStatus_
     }
 
 -- | A list of reserved DB instances.

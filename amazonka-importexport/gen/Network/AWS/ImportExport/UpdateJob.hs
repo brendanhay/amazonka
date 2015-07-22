@@ -78,13 +78,13 @@ data UpdateJob = UpdateJob'
 
 -- | 'UpdateJob' smart constructor.
 updateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
-updateJob pJobId pManifest pJobType pValidateOnly =
+updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
     UpdateJob'
     { _ujrqAPIVersion = Nothing
-    , _ujrqJobId = pJobId
-    , _ujrqManifest = pManifest
-    , _ujrqJobType = pJobType
-    , _ujrqValidateOnly = pValidateOnly
+    , _ujrqJobId = pJobId_
+    , _ujrqManifest = pManifest_
+    , _ujrqJobType = pJobType_
+    , _ujrqValidateOnly = pValidateOnly_
     }
 
 -- | FIXME: Undocumented member.
@@ -159,12 +159,12 @@ data UpdateJobResponse = UpdateJobResponse'
 
 -- | 'UpdateJobResponse' smart constructor.
 updateJobResponse :: Int -> UpdateJobResponse
-updateJobResponse pStatus =
+updateJobResponse pStatus_ =
     UpdateJobResponse'
     { _ujrsSuccess = Nothing
     , _ujrsWarningMessage = Nothing
     , _ujrsArtifactList = Nothing
-    , _ujrsStatus = pStatus
+    , _ujrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

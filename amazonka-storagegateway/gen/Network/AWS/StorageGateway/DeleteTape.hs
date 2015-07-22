@@ -60,10 +60,10 @@ data DeleteTape = DeleteTape'
 
 -- | 'DeleteTape' smart constructor.
 deleteTape :: Text -> Text -> DeleteTape
-deleteTape pGatewayARN pTapeARN =
+deleteTape pGatewayARN_ pTapeARN_ =
     DeleteTape'
-    { _dttrqGatewayARN = pGatewayARN
-    , _dttrqTapeARN = pTapeARN
+    { _dttrqGatewayARN = pGatewayARN_
+    , _dttrqTapeARN = pTapeARN_
     }
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
@@ -123,10 +123,10 @@ data DeleteTapeResponse = DeleteTapeResponse'
 
 -- | 'DeleteTapeResponse' smart constructor.
 deleteTapeResponse :: Int -> DeleteTapeResponse
-deleteTapeResponse pStatus =
+deleteTapeResponse pStatus_ =
     DeleteTapeResponse'
     { _dtrsTapeARN = Nothing
-    , _dtrsStatus = pStatus
+    , _dtrsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.

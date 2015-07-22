@@ -111,7 +111,7 @@ data UpdateItem = UpdateItem'
 
 -- | 'UpdateItem' smart constructor.
 updateItem :: Text -> UpdateItem
-updateItem pTableName =
+updateItem pTableName_ =
     UpdateItem'
     { _uirqReturnValues = Nothing
     , _uirqExpressionAttributeNames = Nothing
@@ -123,7 +123,7 @@ updateItem pTableName =
     , _uirqConditionExpression = Nothing
     , _uirqConditionalOperator = Nothing
     , _uirqExpected = Nothing
-    , _uirqTableName = pTableName
+    , _uirqTableName = pTableName_
     , _uirqKey = mempty
     }
 
@@ -764,12 +764,12 @@ data UpdateItemResponse = UpdateItemResponse'
 
 -- | 'UpdateItemResponse' smart constructor.
 updateItemResponse :: Int -> UpdateItemResponse
-updateItemResponse pStatus =
+updateItemResponse pStatus_ =
     UpdateItemResponse'
     { _uirsConsumedCapacity = Nothing
     , _uirsItemCollectionMetrics = Nothing
     , _uirsAttributes = Nothing
-    , _uirsStatus = pStatus
+    , _uirsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

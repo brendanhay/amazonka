@@ -68,10 +68,10 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
 
 -- | 'CreateCacheSecurityGroup' smart constructor.
 createCacheSecurityGroup :: Text -> Text -> CreateCacheSecurityGroup
-createCacheSecurityGroup pCacheSecurityGroupName pDescription =
+createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
     CreateCacheSecurityGroup'
-    { _ccsgrqCacheSecurityGroupName = pCacheSecurityGroupName
-    , _ccsgrqDescription = pDescription
+    { _ccsgrqCacheSecurityGroupName = pCacheSecurityGroupName_
+    , _ccsgrqDescription = pDescription_
     }
 
 -- | A name for the cache security group. This value is stored as a lowercase
@@ -129,10 +129,10 @@ data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
 
 -- | 'CreateCacheSecurityGroupResponse' smart constructor.
 createCacheSecurityGroupResponse :: Int -> CreateCacheSecurityGroupResponse
-createCacheSecurityGroupResponse pStatus =
+createCacheSecurityGroupResponse pStatus_ =
     CreateCacheSecurityGroupResponse'
     { _ccsgrsCacheSecurityGroup = Nothing
-    , _ccsgrsStatus = pStatus
+    , _ccsgrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

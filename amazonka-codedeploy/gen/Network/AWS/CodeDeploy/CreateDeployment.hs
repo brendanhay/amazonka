@@ -76,14 +76,14 @@ data CreateDeployment = CreateDeployment'
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> CreateDeployment
-createDeployment pApplicationName =
+createDeployment pApplicationName_ =
     CreateDeployment'
     { _cdrqDeploymentConfigName = Nothing
     , _cdrqRevision = Nothing
     , _cdrqDescription = Nothing
     , _cdrqIgnoreApplicationStopFailures = Nothing
     , _cdrqDeploymentGroupName = Nothing
-    , _cdrqApplicationName = pApplicationName
+    , _cdrqApplicationName = pApplicationName_
     }
 
 -- | The name of an existing deployment configuration associated with the
@@ -180,10 +180,10 @@ data CreateDeploymentResponse = CreateDeploymentResponse'
 
 -- | 'CreateDeploymentResponse' smart constructor.
 createDeploymentResponse :: Int -> CreateDeploymentResponse
-createDeploymentResponse pStatus =
+createDeploymentResponse pStatus_ =
     CreateDeploymentResponse'
     { _cdrsDeploymentId = Nothing
-    , _cdrsStatus = pStatus
+    , _cdrsStatus = pStatus_
     }
 
 -- | A unique deployment ID.

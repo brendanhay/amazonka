@@ -66,10 +66,10 @@ data AddTags = AddTags'
 
 -- | 'AddTags' smart constructor.
 addTags :: NonEmpty Tag -> AddTags
-addTags pTags =
+addTags pTags_ =
     AddTags'
     { _atrqLoadBalancerNames = mempty
-    , _atrqTags = _List1 # pTags
+    , _atrqTags = _List1 # pTags_
     }
 
 -- | The name of the load balancer. You can specify one load balancer only.
@@ -114,9 +114,9 @@ newtype AddTagsResponse = AddTagsResponse'
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
-addTagsResponse pStatus =
+addTagsResponse pStatus_ =
     AddTagsResponse'
-    { _atrsStatus = pStatus
+    { _atrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

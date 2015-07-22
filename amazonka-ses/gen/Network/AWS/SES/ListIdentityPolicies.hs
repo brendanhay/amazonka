@@ -70,9 +70,9 @@ newtype ListIdentityPolicies = ListIdentityPolicies'
 
 -- | 'ListIdentityPolicies' smart constructor.
 listIdentityPolicies :: Text -> ListIdentityPolicies
-listIdentityPolicies pIdentity =
+listIdentityPolicies pIdentity_ =
     ListIdentityPolicies'
-    { _liprqIdentity = pIdentity
+    { _liprqIdentity = pIdentity_
     }
 
 -- | The identity that is associated with the policy for which the policies
@@ -128,9 +128,9 @@ data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
 
 -- | 'ListIdentityPoliciesResponse' smart constructor.
 listIdentityPoliciesResponse :: Int -> ListIdentityPoliciesResponse
-listIdentityPoliciesResponse pStatus =
+listIdentityPoliciesResponse pStatus_ =
     ListIdentityPoliciesResponse'
-    { _liprsStatus = pStatus
+    { _liprsStatus = pStatus_
     , _liprsPolicyNames = mempty
     }
 

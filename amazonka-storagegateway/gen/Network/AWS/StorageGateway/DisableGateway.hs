@@ -63,9 +63,9 @@ newtype DisableGateway = DisableGateway'
 
 -- | 'DisableGateway' smart constructor.
 disableGateway :: Text -> DisableGateway
-disableGateway pGatewayARN =
+disableGateway pGatewayARN_ =
     DisableGateway'
-    { _drqGatewayARN = pGatewayARN
+    { _drqGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
@@ -118,10 +118,10 @@ data DisableGatewayResponse = DisableGatewayResponse'
 
 -- | 'DisableGatewayResponse' smart constructor.
 disableGatewayResponse :: Int -> DisableGatewayResponse
-disableGatewayResponse pStatus =
+disableGatewayResponse pStatus_ =
     DisableGatewayResponse'
     { _disrsGatewayARN = Nothing
-    , _disrsStatus = pStatus
+    , _disrsStatus = pStatus_
     }
 
 -- | The unique Amazon Resource Name of the disabled gateway.

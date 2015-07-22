@@ -133,11 +133,11 @@ data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
 discoverPollEndpointResponse :: Int -> DiscoverPollEndpointResponse
-discoverPollEndpointResponse pStatus =
+discoverPollEndpointResponse pStatus_ =
     DiscoverPollEndpointResponse'
     { _dpersTelemetryEndpoint = Nothing
     , _dpersEndpoint = Nothing
-    , _dpersStatus = pStatus
+    , _dpersStatus = pStatus_
     }
 
 -- | The telemetry endpoint for the Amazon ECS agent.

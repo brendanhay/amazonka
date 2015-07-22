@@ -145,11 +145,11 @@ data ListJobsResponse = ListJobsResponse'
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
-listJobsResponse pStatus =
+listJobsResponse pStatus_ =
     ListJobsResponse'
     { _ljrsJobs = Nothing
     , _ljrsIsTruncated = Nothing
-    , _ljrsStatus = pStatus
+    , _ljrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

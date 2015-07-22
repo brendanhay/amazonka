@@ -197,10 +197,10 @@ data Dimension = Dimension'
 
 -- | 'Dimension' smart constructor.
 dimension :: Text -> Text -> Dimension
-dimension pName pValue =
+dimension pName_ pValue_ =
     Dimension'
-    { _dName = pName
-    , _dValue = pValue
+    { _dName = pName_
+    , _dValue = pValue_
     }
 
 -- | The name of the dimension.
@@ -235,10 +235,10 @@ data DimensionFilter = DimensionFilter'
 
 -- | 'DimensionFilter' smart constructor.
 dimensionFilter :: Text -> DimensionFilter
-dimensionFilter pName =
+dimensionFilter pName_ =
     DimensionFilter'
     { _dfValue = Nothing
-    , _dfName = pName
+    , _dfName = pName_
     }
 
 -- | The value of the dimension to be matched.
@@ -576,14 +576,14 @@ data MetricDatum = MetricDatum'
 
 -- | 'MetricDatum' smart constructor.
 metricDatum :: Text -> MetricDatum
-metricDatum pMetricName =
+metricDatum pMetricName_ =
     MetricDatum'
     { _mdValue = Nothing
     , _mdDimensions = Nothing
     , _mdTimestamp = Nothing
     , _mdStatisticValues = Nothing
     , _mdUnit = Nothing
-    , _mdMetricName = pMetricName
+    , _mdMetricName = pMetricName_
     }
 
 -- | The value for the metric.
@@ -658,12 +658,12 @@ data StatisticSet = StatisticSet'
 
 -- | 'StatisticSet' smart constructor.
 statisticSet :: Double -> Double -> Double -> Double -> StatisticSet
-statisticSet pSampleCount pSum pMinimum pMaximum =
+statisticSet pSampleCount_ pSum_ pMinimum_ pMaximum_ =
     StatisticSet'
-    { _ssSampleCount = pSampleCount
-    , _ssSum = pSum
-    , _ssMinimum = pMinimum
-    , _ssMaximum = pMaximum
+    { _ssSampleCount = pSampleCount_
+    , _ssSum = pSum_
+    , _ssMinimum = pMinimum_
+    , _ssMaximum = pMaximum_
     }
 
 -- | The number of samples used for the statistic set.

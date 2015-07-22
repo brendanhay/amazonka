@@ -60,9 +60,9 @@ newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
 
 -- | 'GetHealthCheckLastFailureReason' smart constructor.
 getHealthCheckLastFailureReason :: Text -> GetHealthCheckLastFailureReason
-getHealthCheckLastFailureReason pHealthCheckId =
+getHealthCheckLastFailureReason pHealthCheckId_ =
     GetHealthCheckLastFailureReason'
-    { _ghclfrrqHealthCheckId = pHealthCheckId
+    { _ghclfrrqHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check for which you want to retrieve the reason for
@@ -115,9 +115,9 @@ data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonRe
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
 getHealthCheckLastFailureReasonResponse :: Int -> GetHealthCheckLastFailureReasonResponse
-getHealthCheckLastFailureReasonResponse pStatus =
+getHealthCheckLastFailureReasonResponse pStatus_ =
     GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrsStatus = pStatus
+    { _ghclfrrsStatus = pStatus_
     , _ghclfrrsHealthCheckObservations = mempty
     }
 

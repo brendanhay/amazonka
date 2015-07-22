@@ -74,10 +74,10 @@ data CreateVirtualMFADevice = CreateVirtualMFADevice'
 
 -- | 'CreateVirtualMFADevice' smart constructor.
 createVirtualMFADevice :: Text -> CreateVirtualMFADevice
-createVirtualMFADevice pVirtualMFADeviceName =
+createVirtualMFADevice pVirtualMFADeviceName_ =
     CreateVirtualMFADevice'
     { _cvmdrqPath = Nothing
-    , _cvmdrqVirtualMFADeviceName = pVirtualMFADeviceName
+    , _cvmdrqVirtualMFADeviceName = pVirtualMFADeviceName_
     }
 
 -- | The path for the virtual MFA device. For more information about paths,
@@ -138,10 +138,10 @@ data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
 createVirtualMFADeviceResponse :: Int -> VirtualMFADevice -> CreateVirtualMFADeviceResponse
-createVirtualMFADeviceResponse pStatus pVirtualMFADevice =
+createVirtualMFADeviceResponse pStatus_ pVirtualMFADevice_ =
     CreateVirtualMFADeviceResponse'
-    { _cvmdrsStatus = pStatus
-    , _cvmdrsVirtualMFADevice = pVirtualMFADevice
+    { _cvmdrsStatus = pStatus_
+    , _cvmdrsVirtualMFADevice = pVirtualMFADevice_
     }
 
 -- | FIXME: Undocumented member.

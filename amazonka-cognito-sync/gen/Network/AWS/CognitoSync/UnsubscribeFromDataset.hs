@@ -71,12 +71,12 @@ data UnsubscribeFromDataset = UnsubscribeFromDataset'
 
 -- | 'UnsubscribeFromDataset' smart constructor.
 unsubscribeFromDataset :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
-unsubscribeFromDataset pIdentityPoolId pIdentityId pDatasetName pDeviceId =
+unsubscribeFromDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
     UnsubscribeFromDataset'
-    { _ufdrqIdentityPoolId = pIdentityPoolId
-    , _ufdrqIdentityId = pIdentityId
-    , _ufdrqDatasetName = pDatasetName
-    , _ufdrqDeviceId = pDeviceId
+    { _ufdrqIdentityPoolId = pIdentityPoolId_
+    , _ufdrqIdentityId = pIdentityId_
+    , _ufdrqDatasetName = pDatasetName_
+    , _ufdrqDeviceId = pDeviceId_
     }
 
 -- | A name-spaced GUID (for example,
@@ -139,9 +139,9 @@ newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
 
 -- | 'UnsubscribeFromDatasetResponse' smart constructor.
 unsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
-unsubscribeFromDatasetResponse pStatus =
+unsubscribeFromDatasetResponse pStatus_ =
     UnsubscribeFromDatasetResponse'
-    { _ufdrsStatus = pStatus
+    { _ufdrsStatus = pStatus_
     }
 
 -- | FIXME: Undocumented member.

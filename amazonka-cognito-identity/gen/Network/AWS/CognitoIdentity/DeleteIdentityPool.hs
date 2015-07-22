@@ -56,9 +56,9 @@ newtype DeleteIdentityPool = DeleteIdentityPool'
 
 -- | 'DeleteIdentityPool' smart constructor.
 deleteIdentityPool :: Text -> DeleteIdentityPool
-deleteIdentityPool pIdentityPoolId =
+deleteIdentityPool pIdentityPoolId_ =
     DeleteIdentityPool'
-    { _drqIdentityPoolId = pIdentityPoolId
+    { _drqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | An identity pool ID in the format REGION:GUID.

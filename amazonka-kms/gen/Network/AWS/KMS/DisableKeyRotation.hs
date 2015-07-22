@@ -51,9 +51,9 @@ newtype DisableKeyRotation = DisableKeyRotation'
 
 -- | 'DisableKeyRotation' smart constructor.
 disableKeyRotation :: Text -> DisableKeyRotation
-disableKeyRotation pKeyId =
+disableKeyRotation pKeyId_ =
     DisableKeyRotation'
-    { _dkrrqKeyId = pKeyId
+    { _dkrrqKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a

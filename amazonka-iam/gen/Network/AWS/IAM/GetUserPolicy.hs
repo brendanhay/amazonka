@@ -70,10 +70,10 @@ data GetUserPolicy = GetUserPolicy'
 
 -- | 'GetUserPolicy' smart constructor.
 getUserPolicy :: Text -> Text -> GetUserPolicy
-getUserPolicy pUserName pPolicyName =
+getUserPolicy pUserName_ pPolicyName_ =
     GetUserPolicy'
-    { _guprqUserName = pUserName
-    , _guprqPolicyName = pPolicyName
+    { _guprqUserName = pUserName_
+    , _guprqPolicyName = pPolicyName_
     }
 
 -- | The name of the user who the policy is associated with.
@@ -132,12 +132,12 @@ data GetUserPolicyResponse = GetUserPolicyResponse'
 
 -- | 'GetUserPolicyResponse' smart constructor.
 getUserPolicyResponse :: Int -> Text -> Text -> Text -> GetUserPolicyResponse
-getUserPolicyResponse pStatus pUserName pPolicyName pPolicyDocument =
+getUserPolicyResponse pStatus_ pUserName_ pPolicyName_ pPolicyDocument_ =
     GetUserPolicyResponse'
-    { _guprsStatus = pStatus
-    , _guprsUserName = pUserName
-    , _guprsPolicyName = pPolicyName
-    , _guprsPolicyDocument = pPolicyDocument
+    { _guprsStatus = pStatus_
+    , _guprsUserName = pUserName_
+    , _guprsPolicyName = pPolicyName_
+    , _guprsPolicyDocument = pPolicyDocument_
     }
 
 -- | FIXME: Undocumented member.

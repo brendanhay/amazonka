@@ -147,10 +147,10 @@ data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
 describeElasticIPsResponse :: Int -> DescribeElasticIPsResponse
-describeElasticIPsResponse pStatus =
+describeElasticIPsResponse pStatus_ =
     DescribeElasticIPsResponse'
     { _deirsElasticIPs = Nothing
-    , _deirsStatus = pStatus
+    , _deirsStatus = pStatus_
     }
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP

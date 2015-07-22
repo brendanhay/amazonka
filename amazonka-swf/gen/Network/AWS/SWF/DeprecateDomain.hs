@@ -77,9 +77,9 @@ newtype DeprecateDomain = DeprecateDomain'
 
 -- | 'DeprecateDomain' smart constructor.
 deprecateDomain :: Text -> DeprecateDomain
-deprecateDomain pName =
+deprecateDomain pName_ =
     DeprecateDomain'
-    { _drqName = pName
+    { _drqName = pName_
     }
 
 -- | The name of the domain to deprecate.

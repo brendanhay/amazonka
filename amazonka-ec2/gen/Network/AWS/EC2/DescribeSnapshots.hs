@@ -86,9 +86,9 @@ module Network.AWS.EC2.DescribeSnapshots
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsr1NextToken
-    , dsr1Snapshots
-    , dsr1Status
+    , dsrrNextToken
+    , dsrrSnapshots
+    , dsrrStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -222,10 +222,10 @@ dssMaxResults = lens _dssMaxResults (\ s a -> s{_dssMaxResults = a});
 
 instance AWSPager DescribeSnapshots where
         page rq rs
-          | stop (rs ^. dsr1NextToken) = Nothing
-          | stop (rs ^. dsr1Snapshots) = Nothing
+          | stop (rs ^. dsrrNextToken) = Nothing
+          | stop (rs ^. dsrrSnapshots) = Nothing
           | otherwise =
-            Just $ rq & dssNextToken .~ rs ^. dsr1NextToken
+            Just $ rq & dssNextToken .~ rs ^. dsrrNextToken
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = EC2
@@ -266,37 +266,37 @@ instance ToQuery DescribeSnapshots where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsr1NextToken'
+-- * 'dsrrNextToken'
 --
--- * 'dsr1Snapshots'
+-- * 'dsrrSnapshots'
 --
--- * 'dsr1Status'
+-- * 'dsrrStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dsr1NextToken :: !(Maybe Text)
-    , _dsr1Snapshots :: !(Maybe [Snapshot])
-    , _dsr1Status    :: !Int
+    { _dsrrNextToken :: !(Maybe Text)
+    , _dsrrSnapshots :: !(Maybe [Snapshot])
+    , _dsrrStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus =
     DescribeSnapshotsResponse'
-    { _dsr1NextToken = Nothing
-    , _dsr1Snapshots = Nothing
-    , _dsr1Status = pStatus
+    { _dsrrNextToken = Nothing
+    , _dsrrSnapshots = Nothing
+    , _dsrrStatus = pStatus
     }
 
 -- | The @NextToken@ value to include in a future @DescribeSnapshots@
 -- request. When the results of a @DescribeSnapshots@ request exceed
 -- @MaxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
-dsr1NextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsr1NextToken = lens _dsr1NextToken (\ s a -> s{_dsr1NextToken = a});
+dsrrNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsrrNextToken = lens _dsrrNextToken (\ s a -> s{_dsrrNextToken = a});
 
 -- | Information about the snapshots.
-dsr1Snapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsr1Snapshots = lens _dsr1Snapshots (\ s a -> s{_dsr1Snapshots = a}) . _Default;
+dsrrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrrSnapshots = lens _dsrrSnapshots (\ s a -> s{_dsrrSnapshots = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsr1Status :: Lens' DescribeSnapshotsResponse Int
-dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});
+dsrrStatus :: Lens' DescribeSnapshotsResponse Int
+dsrrStatus = lens _dsrrStatus (\ s a -> s{_dsrrStatus = a});

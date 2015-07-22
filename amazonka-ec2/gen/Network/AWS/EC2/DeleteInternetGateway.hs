@@ -28,8 +28,8 @@ module Network.AWS.EC2.DeleteInternetGateway
     -- ** Request constructor
     , deleteInternetGateway
     -- ** Request lenses
-    , dig1DryRun
-    , dig1InternetGatewayId
+    , diggDryRun
+    , diggInternetGatewayId
 
     -- * Response
     , DeleteInternetGatewayResponse
@@ -46,32 +46,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dig1DryRun'
+-- * 'diggDryRun'
 --
--- * 'dig1InternetGatewayId'
+-- * 'diggInternetGatewayId'
 data DeleteInternetGateway = DeleteInternetGateway'
-    { _dig1DryRun            :: !(Maybe Bool)
-    , _dig1InternetGatewayId :: !Text
+    { _diggDryRun            :: !(Maybe Bool)
+    , _diggInternetGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInternetGateway' smart constructor.
 deleteInternetGateway :: Text -> DeleteInternetGateway
 deleteInternetGateway pInternetGatewayId =
     DeleteInternetGateway'
-    { _dig1DryRun = Nothing
-    , _dig1InternetGatewayId = pInternetGatewayId
+    { _diggDryRun = Nothing
+    , _diggInternetGatewayId = pInternetGatewayId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dig1DryRun :: Lens' DeleteInternetGateway (Maybe Bool)
-dig1DryRun = lens _dig1DryRun (\ s a -> s{_dig1DryRun = a});
+diggDryRun :: Lens' DeleteInternetGateway (Maybe Bool)
+diggDryRun = lens _diggDryRun (\ s a -> s{_diggDryRun = a});
 
 -- | The ID of the Internet gateway.
-dig1InternetGatewayId :: Lens' DeleteInternetGateway Text
-dig1InternetGatewayId = lens _dig1InternetGatewayId (\ s a -> s{_dig1InternetGatewayId = a});
+diggInternetGatewayId :: Lens' DeleteInternetGateway Text
+diggInternetGatewayId = lens _diggInternetGatewayId (\ s a -> s{_diggInternetGatewayId = a});
 
 instance AWSRequest DeleteInternetGateway where
         type Sv DeleteInternetGateway = EC2
@@ -91,8 +91,8 @@ instance ToQuery DeleteInternetGateway where
           = mconcat
               ["Action" =: ("DeleteInternetGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dig1DryRun,
-               "InternetGatewayId" =: _dig1InternetGatewayId]
+               "DryRun" =: _diggDryRun,
+               "InternetGatewayId" =: _diggInternetGatewayId]
 
 -- | /See:/ 'deleteInternetGatewayResponse' smart constructor.
 data DeleteInternetGatewayResponse =

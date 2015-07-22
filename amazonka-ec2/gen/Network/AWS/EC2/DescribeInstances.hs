@@ -37,11 +37,11 @@ module Network.AWS.EC2.DescribeInstances
     -- ** Request constructor
     , describeInstances
     -- ** Request lenses
-    , di1Filters
-    , di1NextToken
-    , di1InstanceIds
-    , di1DryRun
-    , di1MaxResults
+    , diiFilters
+    , diiNextToken
+    , diiInstanceIds
+    , diiDryRun
+    , diiMaxResults
 
     -- * Response
     , DescribeInstancesResponse
@@ -63,32 +63,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'di1Filters'
+-- * 'diiFilters'
 --
--- * 'di1NextToken'
+-- * 'diiNextToken'
 --
--- * 'di1InstanceIds'
+-- * 'diiInstanceIds'
 --
--- * 'di1DryRun'
+-- * 'diiDryRun'
 --
--- * 'di1MaxResults'
+-- * 'diiMaxResults'
 data DescribeInstances = DescribeInstances'
-    { _di1Filters     :: !(Maybe [Filter])
-    , _di1NextToken   :: !(Maybe Text)
-    , _di1InstanceIds :: !(Maybe [Text])
-    , _di1DryRun      :: !(Maybe Bool)
-    , _di1MaxResults  :: !(Maybe Int)
+    { _diiFilters     :: !(Maybe [Filter])
+    , _diiNextToken   :: !(Maybe Text)
+    , _diiInstanceIds :: !(Maybe [Text])
+    , _diiDryRun      :: !(Maybe Bool)
+    , _diiMaxResults  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
 describeInstances =
     DescribeInstances'
-    { _di1Filters = Nothing
-    , _di1NextToken = Nothing
-    , _di1InstanceIds = Nothing
-    , _di1DryRun = Nothing
-    , _di1MaxResults = Nothing
+    { _diiFilters = Nothing
+    , _diiNextToken = Nothing
+    , _diiInstanceIds = Nothing
+    , _diiDryRun = Nothing
+    , _diiMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -336,25 +336,25 @@ describeInstances =
 -- -   @association.association-id@ - The association ID returned when the
 --     network interface was associated with an IP address.
 --
-di1Filters :: Lens' DescribeInstances [Filter]
-di1Filters = lens _di1Filters (\ s a -> s{_di1Filters = a}) . _Default;
+diiFilters :: Lens' DescribeInstances [Filter]
+diiFilters = lens _diiFilters (\ s a -> s{_diiFilters = a}) . _Default;
 
 -- | The token to request the next page of results.
-di1NextToken :: Lens' DescribeInstances (Maybe Text)
-di1NextToken = lens _di1NextToken (\ s a -> s{_di1NextToken = a});
+diiNextToken :: Lens' DescribeInstances (Maybe Text)
+diiNextToken = lens _diiNextToken (\ s a -> s{_diiNextToken = a});
 
 -- | One or more instance IDs.
 --
 -- Default: Describes all your instances.
-di1InstanceIds :: Lens' DescribeInstances [Text]
-di1InstanceIds = lens _di1InstanceIds (\ s a -> s{_di1InstanceIds = a}) . _Default;
+diiInstanceIds :: Lens' DescribeInstances [Text]
+diiInstanceIds = lens _diiInstanceIds (\ s a -> s{_diiInstanceIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-di1DryRun :: Lens' DescribeInstances (Maybe Bool)
-di1DryRun = lens _di1DryRun (\ s a -> s{_di1DryRun = a});
+diiDryRun :: Lens' DescribeInstances (Maybe Bool)
+diiDryRun = lens _diiDryRun (\ s a -> s{_diiDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
@@ -362,15 +362,15 @@ di1DryRun = lens _di1DryRun (\ s a -> s{_di1DryRun = a});
 -- can be between 5 and 1000; if @MaxResults@ is given a value larger than
 -- 1000, only 1000 results are returned. You cannot specify this parameter
 -- and the instance IDs parameter in the same request.
-di1MaxResults :: Lens' DescribeInstances (Maybe Int)
-di1MaxResults = lens _di1MaxResults (\ s a -> s{_di1MaxResults = a});
+diiMaxResults :: Lens' DescribeInstances (Maybe Int)
+diiMaxResults = lens _diiMaxResults (\ s a -> s{_diiMaxResults = a});
 
 instance AWSPager DescribeInstances where
         page rq rs
           | stop (rs ^. dirNextToken) = Nothing
           | stop (rs ^. dirReservations) = Nothing
           | otherwise =
-            Just $ rq & di1NextToken .~ rs ^. dirNextToken
+            Just $ rq & diiNextToken .~ rs ^. dirNextToken
 
 instance AWSRequest DescribeInstances where
         type Sv DescribeInstances = EC2
@@ -396,12 +396,12 @@ instance ToQuery DescribeInstances where
           = mconcat
               ["Action" =: ("DescribeInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _di1Filters),
-               "NextToken" =: _di1NextToken,
+               toQuery (toQueryList "Filter" <$> _diiFilters),
+               "NextToken" =: _diiNextToken,
                toQuery
-                 (toQueryList "InstanceId" <$> _di1InstanceIds),
-               "DryRun" =: _di1DryRun,
-               "MaxResults" =: _di1MaxResults]
+                 (toQueryList "InstanceId" <$> _diiInstanceIds),
+               "DryRun" =: _diiDryRun,
+               "MaxResults" =: _diiMaxResults]
 
 -- | /See:/ 'describeInstancesResponse' smart constructor.
 --

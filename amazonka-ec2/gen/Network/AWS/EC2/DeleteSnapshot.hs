@@ -43,8 +43,8 @@ module Network.AWS.EC2.DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , del1DryRun
-    , del1SnapshotId
+    , ddDryRun
+    , ddSnapshotId
 
     -- * Response
     , DeleteSnapshotResponse
@@ -61,32 +61,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'del1DryRun'
+-- * 'ddDryRun'
 --
--- * 'del1SnapshotId'
+-- * 'ddSnapshotId'
 data DeleteSnapshot = DeleteSnapshot'
-    { _del1DryRun     :: !(Maybe Bool)
-    , _del1SnapshotId :: !Text
+    { _ddDryRun     :: !(Maybe Bool)
+    , _ddSnapshotId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
 deleteSnapshot pSnapshotId =
     DeleteSnapshot'
-    { _del1DryRun = Nothing
-    , _del1SnapshotId = pSnapshotId
+    { _ddDryRun = Nothing
+    , _ddSnapshotId = pSnapshotId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-del1DryRun :: Lens' DeleteSnapshot (Maybe Bool)
-del1DryRun = lens _del1DryRun (\ s a -> s{_del1DryRun = a});
+ddDryRun :: Lens' DeleteSnapshot (Maybe Bool)
+ddDryRun = lens _ddDryRun (\ s a -> s{_ddDryRun = a});
 
 -- | The ID of the EBS snapshot.
-del1SnapshotId :: Lens' DeleteSnapshot Text
-del1SnapshotId = lens _del1SnapshotId (\ s a -> s{_del1SnapshotId = a});
+ddSnapshotId :: Lens' DeleteSnapshot Text
+ddSnapshotId = lens _ddSnapshotId (\ s a -> s{_ddSnapshotId = a});
 
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = EC2
@@ -105,8 +105,7 @@ instance ToQuery DeleteSnapshot where
           = mconcat
               ["Action" =: ("DeleteSnapshot" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _del1DryRun,
-               "SnapshotId" =: _del1SnapshotId]
+               "DryRun" =: _ddDryRun, "SnapshotId" =: _ddSnapshotId]
 
 -- | /See:/ 'deleteSnapshotResponse' smart constructor.
 data DeleteSnapshotResponse =

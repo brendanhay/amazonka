@@ -57,9 +57,9 @@ module Network.AWS.EC2.CreateSnapshot
     -- ** Request constructor
     , createSnapshot
     -- ** Request lenses
-    , cs1DryRun
-    , cs1Description
-    , cs1VolumeId
+    , cssDryRun
+    , cssDescription
+    , cssVolumeId
 
     -- * Response
     , Snapshot
@@ -89,40 +89,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cs1DryRun'
+-- * 'cssDryRun'
 --
--- * 'cs1Description'
+-- * 'cssDescription'
 --
--- * 'cs1VolumeId'
+-- * 'cssVolumeId'
 data CreateSnapshot = CreateSnapshot'
-    { _cs1DryRun      :: !(Maybe Bool)
-    , _cs1Description :: !(Maybe Text)
-    , _cs1VolumeId    :: !Text
+    { _cssDryRun      :: !(Maybe Bool)
+    , _cssDescription :: !(Maybe Text)
+    , _cssVolumeId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
 createSnapshot pVolumeId =
     CreateSnapshot'
-    { _cs1DryRun = Nothing
-    , _cs1Description = Nothing
-    , _cs1VolumeId = pVolumeId
+    { _cssDryRun = Nothing
+    , _cssDescription = Nothing
+    , _cssVolumeId = pVolumeId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cs1DryRun :: Lens' CreateSnapshot (Maybe Bool)
-cs1DryRun = lens _cs1DryRun (\ s a -> s{_cs1DryRun = a});
+cssDryRun :: Lens' CreateSnapshot (Maybe Bool)
+cssDryRun = lens _cssDryRun (\ s a -> s{_cssDryRun = a});
 
 -- | A description for the snapshot.
-cs1Description :: Lens' CreateSnapshot (Maybe Text)
-cs1Description = lens _cs1Description (\ s a -> s{_cs1Description = a});
+cssDescription :: Lens' CreateSnapshot (Maybe Text)
+cssDescription = lens _cssDescription (\ s a -> s{_cssDescription = a});
 
 -- | The ID of the EBS volume.
-cs1VolumeId :: Lens' CreateSnapshot Text
-cs1VolumeId = lens _cs1VolumeId (\ s a -> s{_cs1VolumeId = a});
+cssVolumeId :: Lens' CreateSnapshot Text
+cssVolumeId = lens _cssVolumeId (\ s a -> s{_cssVolumeId = a});
 
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = EC2
@@ -141,6 +141,6 @@ instance ToQuery CreateSnapshot where
           = mconcat
               ["Action" =: ("CreateSnapshot" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cs1DryRun,
-               "Description" =: _cs1Description,
-               "VolumeId" =: _cs1VolumeId]
+               "DryRun" =: _cssDryRun,
+               "Description" =: _cssDescription,
+               "VolumeId" =: _cssVolumeId]

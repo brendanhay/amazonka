@@ -78,12 +78,12 @@ volumeInUse =
     , _waitAcceptors = [ matchAll
                              "in-use"
                              AcceptSuccess
-                             (folding (concatOf dvr1Volumes) .
+                             (folding (concatOf dvrrVolumes) .
                               volState . to toText)
                        , matchAny
                              "deleted"
                              AcceptFailure
-                             (folding (concatOf dvr1Volumes) .
+                             (folding (concatOf dvrrVolumes) .
                               volState . to toText)]
     }
 
@@ -342,7 +342,7 @@ volumeDeleted =
     , _waitAcceptors = [ matchAll
                              "deleted"
                              AcceptSuccess
-                             (folding (concatOf dvr1Volumes) .
+                             (folding (concatOf dvrrVolumes) .
                               volState . to toText)
                        , matchError "InvalidVolumeNotFound" AcceptSuccess]
     }
@@ -392,12 +392,12 @@ imageAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf dir1Images) .
+                             (folding (concatOf dirrImages) .
                               imaState . to toText)
                        , matchAny
                              "deregistered"
                              AcceptFailure
-                             (folding (concatOf dir1Images) .
+                             (folding (concatOf dirrImages) .
                               imaState . to toText)]
     }
 
@@ -433,12 +433,12 @@ volumeAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf dvr1Volumes) .
+                             (folding (concatOf dvrrVolumes) .
                               volState . to toText)
                        , matchAny
                              "deleted"
                              AcceptFailure
-                             (folding (concatOf dvr1Volumes) .
+                             (folding (concatOf dvrrVolumes) .
                               volState . to toText)]
     }
 
@@ -451,7 +451,7 @@ snapshotCompleted =
     , _waitAcceptors = [ matchAll
                              "completed"
                              AcceptSuccess
-                             (folding (concatOf dsr1Snapshots) .
+                             (folding (concatOf dsrrSnapshots) .
                               snaState . to toText)]
     }
 

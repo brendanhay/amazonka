@@ -54,9 +54,9 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- ** Response constructor
     , describeClusterSecurityGroupsResponse
     -- ** Response lenses
-    , dcsgr1ClusterSecurityGroups
-    , dcsgr1Marker
-    , dcsgr1Status
+    , dcsgrrClusterSecurityGroups
+    , dcsgrrMarker
+    , dcsgrrStatus
     ) where
 
 import           Network.AWS.Pager
@@ -152,10 +152,10 @@ dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
 instance AWSPager DescribeClusterSecurityGroups where
         page rq rs
-          | stop (rs ^. dcsgr1Marker) = Nothing
-          | stop (rs ^. dcsgr1ClusterSecurityGroups) = Nothing
+          | stop (rs ^. dcsgrrMarker) = Nothing
+          | stop (rs ^. dcsgrrClusterSecurityGroups) = Nothing
           | otherwise =
-            Just $ rq & dcsgMarker .~ rs ^. dcsgr1Marker
+            Just $ rq & dcsgMarker .~ rs ^. dcsgrrMarker
 
 instance AWSRequest DescribeClusterSecurityGroups
          where
@@ -201,29 +201,29 @@ instance ToQuery DescribeClusterSecurityGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgr1ClusterSecurityGroups'
+-- * 'dcsgrrClusterSecurityGroups'
 --
--- * 'dcsgr1Marker'
+-- * 'dcsgrrMarker'
 --
--- * 'dcsgr1Status'
+-- * 'dcsgrrStatus'
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
-    { _dcsgr1ClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
-    , _dcsgr1Marker                :: !(Maybe Text)
-    , _dcsgr1Status                :: !Int
+    { _dcsgrrClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
+    , _dcsgrrMarker                :: !(Maybe Text)
+    , _dcsgrrStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSecurityGroupsResponse' smart constructor.
 describeClusterSecurityGroupsResponse :: Int -> DescribeClusterSecurityGroupsResponse
 describeClusterSecurityGroupsResponse pStatus =
     DescribeClusterSecurityGroupsResponse'
-    { _dcsgr1ClusterSecurityGroups = Nothing
-    , _dcsgr1Marker = Nothing
-    , _dcsgr1Status = pStatus
+    { _dcsgrrClusterSecurityGroups = Nothing
+    , _dcsgrrMarker = Nothing
+    , _dcsgrrStatus = pStatus
     }
 
 -- | A list of ClusterSecurityGroup instances.
-dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
-dcsgr1ClusterSecurityGroups = lens _dcsgr1ClusterSecurityGroups (\ s a -> s{_dcsgr1ClusterSecurityGroups = a}) . _Default;
+dcsgrrClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
+dcsgrrClusterSecurityGroups = lens _dcsgrrClusterSecurityGroups (\ s a -> s{_dcsgrrClusterSecurityGroups = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -231,9 +231,9 @@ dcsgr1ClusterSecurityGroups = lens _dcsgr1ClusterSecurityGroups (\ s a -> s{_dcs
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
-dcsgr1Marker = lens _dcsgr1Marker (\ s a -> s{_dcsgr1Marker = a});
+dcsgrrMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
+dcsgrrMarker = lens _dcsgrrMarker (\ s a -> s{_dcsgrrMarker = a});
 
 -- | FIXME: Undocumented member.
-dcsgr1Status :: Lens' DescribeClusterSecurityGroupsResponse Int
-dcsgr1Status = lens _dcsgr1Status (\ s a -> s{_dcsgr1Status = a});
+dcsgrrStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
+dcsgrrStatus = lens _dcsgrrStatus (\ s a -> s{_dcsgrrStatus = a});

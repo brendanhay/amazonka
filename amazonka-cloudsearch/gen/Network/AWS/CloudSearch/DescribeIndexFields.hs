@@ -42,8 +42,8 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     -- ** Response constructor
     , describeIndexFieldsResponse
     -- ** Response lenses
-    , difr1Status
-    , difr1IndexFields
+    , difrrStatus
+    , difrrIndexFields
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -131,26 +131,26 @@ instance ToQuery DescribeIndexFields where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'difr1Status'
+-- * 'difrrStatus'
 --
--- * 'difr1IndexFields'
+-- * 'difrrIndexFields'
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-    { _difr1Status      :: !Int
-    , _difr1IndexFields :: ![IndexFieldStatus]
+    { _difrrStatus      :: !Int
+    , _difrrIndexFields :: ![IndexFieldStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
 describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
 describeIndexFieldsResponse pStatus =
     DescribeIndexFieldsResponse'
-    { _difr1Status = pStatus
-    , _difr1IndexFields = mempty
+    { _difrrStatus = pStatus
+    , _difrrIndexFields = mempty
     }
 
 -- | FIXME: Undocumented member.
-difr1Status :: Lens' DescribeIndexFieldsResponse Int
-difr1Status = lens _difr1Status (\ s a -> s{_difr1Status = a});
+difrrStatus :: Lens' DescribeIndexFieldsResponse Int
+difrrStatus = lens _difrrStatus (\ s a -> s{_difrrStatus = a});
 
 -- | The index fields configured for the domain.
-difr1IndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difr1IndexFields = lens _difr1IndexFields (\ s a -> s{_difr1IndexFields = a});
+difrrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
+difrrIndexFields = lens _difrrIndexFields (\ s a -> s{_difrrIndexFields = a});

@@ -27,8 +27,8 @@ module Network.AWS.StorageGateway.DeleteTape
     -- ** Request constructor
     , deleteTape
     -- ** Request lenses
-    , dt1GatewayARN
-    , dt1TapeARN
+    , dttGatewayARN
+    , dttTapeARN
 
     -- * Response
     , DeleteTapeResponse
@@ -50,31 +50,31 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dt1GatewayARN'
+-- * 'dttGatewayARN'
 --
--- * 'dt1TapeARN'
+-- * 'dttTapeARN'
 data DeleteTape = DeleteTape'
-    { _dt1GatewayARN :: !Text
-    , _dt1TapeARN    :: !Text
+    { _dttGatewayARN :: !Text
+    , _dttTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTape' smart constructor.
 deleteTape :: Text -> Text -> DeleteTape
 deleteTape pGatewayARN pTapeARN =
     DeleteTape'
-    { _dt1GatewayARN = pGatewayARN
-    , _dt1TapeARN = pTapeARN
+    { _dttGatewayARN = pGatewayARN
+    , _dttTapeARN = pTapeARN
     }
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 -- tape to delete is associated with. Use the ListGateways operation to
 -- return a list of gateways for your account and region.
-dt1GatewayARN :: Lens' DeleteTape Text
-dt1GatewayARN = lens _dt1GatewayARN (\ s a -> s{_dt1GatewayARN = a});
+dttGatewayARN :: Lens' DeleteTape Text
+dttGatewayARN = lens _dttGatewayARN (\ s a -> s{_dttGatewayARN = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
-dt1TapeARN :: Lens' DeleteTape Text
-dt1TapeARN = lens _dt1TapeARN (\ s a -> s{_dt1TapeARN = a});
+dttTapeARN :: Lens' DeleteTape Text
+dttTapeARN = lens _dttTapeARN (\ s a -> s{_dttTapeARN = a});
 
 instance AWSRequest DeleteTape where
         type Sv DeleteTape = StorageGateway
@@ -98,8 +98,8 @@ instance ToHeaders DeleteTape where
 instance ToJSON DeleteTape where
         toJSON DeleteTape'{..}
           = object
-              ["GatewayARN" .= _dt1GatewayARN,
-               "TapeARN" .= _dt1TapeARN]
+              ["GatewayARN" .= _dttGatewayARN,
+               "TapeARN" .= _dttTapeARN]
 
 instance ToPath DeleteTape where
         toPath = const "/"

@@ -33,19 +33,19 @@ module Network.AWS.EC2.DescribeImages
     -- ** Request constructor
     , describeImages
     -- ** Request lenses
-    , des1Owners
-    , des1ExecutableUsers
-    , des1Filters
-    , des1ImageIds
-    , des1DryRun
+    , dessOwners
+    , dessExecutableUsers
+    , dessFilters
+    , dessImageIds
+    , dessDryRun
 
     -- * Response
     , DescribeImagesResponse
     -- ** Response constructor
     , describeImagesResponse
     -- ** Response lenses
-    , dir1Images
-    , dir1Status
+    , dirrImages
+    , dirrStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -57,46 +57,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'des1Owners'
+-- * 'dessOwners'
 --
--- * 'des1ExecutableUsers'
+-- * 'dessExecutableUsers'
 --
--- * 'des1Filters'
+-- * 'dessFilters'
 --
--- * 'des1ImageIds'
+-- * 'dessImageIds'
 --
--- * 'des1DryRun'
+-- * 'dessDryRun'
 data DescribeImages = DescribeImages'
-    { _des1Owners          :: !(Maybe [Text])
-    , _des1ExecutableUsers :: !(Maybe [Text])
-    , _des1Filters         :: !(Maybe [Filter])
-    , _des1ImageIds        :: !(Maybe [Text])
-    , _des1DryRun          :: !(Maybe Bool)
+    { _dessOwners          :: !(Maybe [Text])
+    , _dessExecutableUsers :: !(Maybe [Text])
+    , _dessFilters         :: !(Maybe [Filter])
+    , _dessImageIds        :: !(Maybe [Text])
+    , _dessDryRun          :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImages' smart constructor.
 describeImages :: DescribeImages
 describeImages =
     DescribeImages'
-    { _des1Owners = Nothing
-    , _des1ExecutableUsers = Nothing
-    , _des1Filters = Nothing
-    , _des1ImageIds = Nothing
-    , _des1DryRun = Nothing
+    { _dessOwners = Nothing
+    , _dessExecutableUsers = Nothing
+    , _dessFilters = Nothing
+    , _dessImageIds = Nothing
+    , _dessDryRun = Nothing
     }
 
 -- | Filters the images by the owner. Specify an AWS account ID, @amazon@
 -- (owner is Amazon), @aws-marketplace@ (owner is AWS Marketplace), @self@
 -- (owner is the sender of the request). Omitting this option returns all
 -- images for which you have launch permissions, regardless of ownership.
-des1Owners :: Lens' DescribeImages [Text]
-des1Owners = lens _des1Owners (\ s a -> s{_des1Owners = a}) . _Default;
+dessOwners :: Lens' DescribeImages [Text]
+dessOwners = lens _dessOwners (\ s a -> s{_dessOwners = a}) . _Default;
 
 -- | Scopes the images by users with explicit launch permissions. Specify an
 -- AWS account ID, @self@ (the sender of the request), or @all@ (public
 -- AMIs).
-des1ExecutableUsers :: Lens' DescribeImages [Text]
-des1ExecutableUsers = lens _des1ExecutableUsers (\ s a -> s{_des1ExecutableUsers = a}) . _Default;
+dessExecutableUsers :: Lens' DescribeImages [Text]
+dessExecutableUsers = lens _dessExecutableUsers (\ s a -> s{_dessExecutableUsers = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -179,21 +179,21 @@ des1ExecutableUsers = lens _des1ExecutableUsers (\ s a -> s{_des1ExecutableUsers
 -- -   @virtualization-type@ - The virtualization type (@paravirtual@ |
 --     @hvm@).
 --
-des1Filters :: Lens' DescribeImages [Filter]
-des1Filters = lens _des1Filters (\ s a -> s{_des1Filters = a}) . _Default;
+dessFilters :: Lens' DescribeImages [Filter]
+dessFilters = lens _dessFilters (\ s a -> s{_dessFilters = a}) . _Default;
 
 -- | One or more image IDs.
 --
 -- Default: Describes all images available to you.
-des1ImageIds :: Lens' DescribeImages [Text]
-des1ImageIds = lens _des1ImageIds (\ s a -> s{_des1ImageIds = a}) . _Default;
+dessImageIds :: Lens' DescribeImages [Text]
+dessImageIds = lens _dessImageIds (\ s a -> s{_dessImageIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-des1DryRun :: Lens' DescribeImages (Maybe Bool)
-des1DryRun = lens _des1DryRun (\ s a -> s{_des1DryRun = a});
+dessDryRun :: Lens' DescribeImages (Maybe Bool)
+dessDryRun = lens _dessDryRun (\ s a -> s{_dessDryRun = a});
 
 instance AWSRequest DescribeImages where
         type Sv DescribeImages = EC2
@@ -218,38 +218,38 @@ instance ToQuery DescribeImages where
           = mconcat
               ["Action" =: ("DescribeImages" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Owner" <$> _des1Owners),
+               toQuery (toQueryList "Owner" <$> _dessOwners),
                toQuery
                  (toQueryList "ExecutableBy" <$>
-                    _des1ExecutableUsers),
-               toQuery (toQueryList "Filter" <$> _des1Filters),
-               toQuery (toQueryList "ImageId" <$> _des1ImageIds),
-               "DryRun" =: _des1DryRun]
+                    _dessExecutableUsers),
+               toQuery (toQueryList "Filter" <$> _dessFilters),
+               toQuery (toQueryList "ImageId" <$> _dessImageIds),
+               "DryRun" =: _dessDryRun]
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dir1Images'
+-- * 'dirrImages'
 --
--- * 'dir1Status'
+-- * 'dirrStatus'
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _dir1Images :: !(Maybe [Image])
-    , _dir1Status :: !Int
+    { _dirrImages :: !(Maybe [Image])
+    , _dirrStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImagesResponse' smart constructor.
 describeImagesResponse :: Int -> DescribeImagesResponse
 describeImagesResponse pStatus =
     DescribeImagesResponse'
-    { _dir1Images = Nothing
-    , _dir1Status = pStatus
+    { _dirrImages = Nothing
+    , _dirrStatus = pStatus
     }
 
 -- | Information about one or more images.
-dir1Images :: Lens' DescribeImagesResponse [Image]
-dir1Images = lens _dir1Images (\ s a -> s{_dir1Images = a}) . _Default;
+dirrImages :: Lens' DescribeImagesResponse [Image]
+dirrImages = lens _dirrImages (\ s a -> s{_dirrImages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dir1Status :: Lens' DescribeImagesResponse Int
-dir1Status = lens _dir1Status (\ s a -> s{_dir1Status = a});
+dirrStatus :: Lens' DescribeImagesResponse Int
+dirrStatus = lens _dirrStatus (\ s a -> s{_dirrStatus = a});

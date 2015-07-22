@@ -41,9 +41,9 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsr1Snapshots
-    , dsr1Marker
-    , dsr1Status
+    , dsrrSnapshots
+    , dsrrMarker
+    , dsrrStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -122,10 +122,10 @@ dsSnapshotSource = lens _dsSnapshotSource (\ s a -> s{_dsSnapshotSource = a});
 
 instance AWSPager DescribeSnapshots where
         page rq rs
-          | stop (rs ^. dsr1Marker) = Nothing
-          | stop (rs ^. dsr1Snapshots) = Nothing
+          | stop (rs ^. dsrrMarker) = Nothing
+          | stop (rs ^. dsrrSnapshots) = Nothing
           | otherwise =
-            Just $ rq & dsMarker .~ rs ^. dsr1Marker
+            Just $ rq & dsMarker .~ rs ^. dsrrMarker
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache
@@ -162,38 +162,38 @@ instance ToQuery DescribeSnapshots where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsr1Snapshots'
+-- * 'dsrrSnapshots'
 --
--- * 'dsr1Marker'
+-- * 'dsrrMarker'
 --
--- * 'dsr1Status'
+-- * 'dsrrStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dsr1Snapshots :: !(Maybe [Snapshot])
-    , _dsr1Marker    :: !(Maybe Text)
-    , _dsr1Status    :: !Int
+    { _dsrrSnapshots :: !(Maybe [Snapshot])
+    , _dsrrMarker    :: !(Maybe Text)
+    , _dsrrStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus =
     DescribeSnapshotsResponse'
-    { _dsr1Snapshots = Nothing
-    , _dsr1Marker = Nothing
-    , _dsr1Status = pStatus
+    { _dsrrSnapshots = Nothing
+    , _dsrrMarker = Nothing
+    , _dsrrStatus = pStatus
     }
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dsr1Snapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsr1Snapshots = lens _dsr1Snapshots (\ s a -> s{_dsr1Snapshots = a}) . _Default;
+dsrrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrrSnapshots = lens _dsrrSnapshots (\ s a -> s{_dsrrSnapshots = a}) . _Default;
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dsr1Marker :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsr1Marker = lens _dsr1Marker (\ s a -> s{_dsr1Marker = a});
+dsrrMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsrrMarker = lens _dsrrMarker (\ s a -> s{_dsrrMarker = a});
 
 -- | FIXME: Undocumented member.
-dsr1Status :: Lens' DescribeSnapshotsResponse Int
-dsr1Status = lens _dsr1Status (\ s a -> s{_dsr1Status = a});
+dsrrStatus :: Lens' DescribeSnapshotsResponse Int
+dsrrStatus = lens _dsrrStatus (\ s a -> s{_dsrrStatus = a});

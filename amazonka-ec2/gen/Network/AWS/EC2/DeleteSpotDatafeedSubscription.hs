@@ -29,7 +29,7 @@ module Network.AWS.EC2.DeleteSpotDatafeedSubscription
     -- ** Request constructor
     , deleteSpotDatafeedSubscription
     -- ** Request lenses
-    , dsds1DryRun
+    , dsdssDryRun
 
     -- * Response
     , DeleteSpotDatafeedSubscriptionResponse
@@ -48,24 +48,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsds1DryRun'
+-- * 'dsdssDryRun'
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
-    { _dsds1DryRun :: Maybe Bool
+    { _dsdssDryRun :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSpotDatafeedSubscription' smart constructor.
 deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
 deleteSpotDatafeedSubscription =
     DeleteSpotDatafeedSubscription'
-    { _dsds1DryRun = Nothing
+    { _dsdssDryRun = Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsds1DryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
-dsds1DryRun = lens _dsds1DryRun (\ s a -> s{_dsds1DryRun = a});
+dsdssDryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
+dsdssDryRun = lens _dsdssDryRun (\ s a -> s{_dsdssDryRun = a});
 
 instance AWSRequest DeleteSpotDatafeedSubscription
          where
@@ -89,7 +89,7 @@ instance ToQuery DeleteSpotDatafeedSubscription where
               ["Action" =:
                  ("DeleteSpotDatafeedSubscription" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dsds1DryRun]
+               "DryRun" =: _dsdssDryRun]
 
 -- | /See:/ 'deleteSpotDatafeedSubscriptionResponse' smart constructor.
 data DeleteSpotDatafeedSubscriptionResponse =

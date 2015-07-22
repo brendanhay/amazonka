@@ -86,11 +86,11 @@ evaluationAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf der1Results) .
+                             (folding (concatOf derrResults) .
                               evaStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf der1Results) .
+                             (folding (concatOf derrResults) .
                               evaStatus . _Just . to toText)]
     }

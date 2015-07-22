@@ -34,8 +34,8 @@ module Network.AWS.StorageGateway.DeleteTapeArchive
     -- ** Response constructor
     , deleteTapeArchiveResponse
     -- ** Response lenses
-    , dtar1TapeARN
-    , dtar1Status
+    , dtarrTapeARN
+    , dtarrStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -102,27 +102,27 @@ instance ToQuery DeleteTapeArchive where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtar1TapeARN'
+-- * 'dtarrTapeARN'
 --
--- * 'dtar1Status'
+-- * 'dtarrStatus'
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
-    { _dtar1TapeARN :: !(Maybe Text)
-    , _dtar1Status  :: !Int
+    { _dtarrTapeARN :: !(Maybe Text)
+    , _dtarrStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTapeArchiveResponse' smart constructor.
 deleteTapeArchiveResponse :: Int -> DeleteTapeArchiveResponse
 deleteTapeArchiveResponse pStatus =
     DeleteTapeArchiveResponse'
-    { _dtar1TapeARN = Nothing
-    , _dtar1Status = pStatus
+    { _dtarrTapeARN = Nothing
+    , _dtarrStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape that was deleted from
 -- the virtual tape shelf (VTS).
-dtar1TapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
-dtar1TapeARN = lens _dtar1TapeARN (\ s a -> s{_dtar1TapeARN = a});
+dtarrTapeARN :: Lens' DeleteTapeArchiveResponse (Maybe Text)
+dtarrTapeARN = lens _dtarrTapeARN (\ s a -> s{_dtarrTapeARN = a});
 
 -- | FIXME: Undocumented member.
-dtar1Status :: Lens' DeleteTapeArchiveResponse Int
-dtar1Status = lens _dtar1Status (\ s a -> s{_dtar1Status = a});
+dtarrStatus :: Lens' DeleteTapeArchiveResponse Int
+dtarrStatus = lens _dtarrStatus (\ s a -> s{_dtarrStatus = a});

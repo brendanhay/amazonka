@@ -30,8 +30,8 @@ module Network.AWS.CloudSearch.DeleteIndexField
     -- ** Request constructor
     , deleteIndexField
     -- ** Request lenses
-    , dif1DomainName
-    , dif1IndexFieldName
+    , diffDomainName
+    , diffIndexFieldName
 
     -- * Response
     , DeleteIndexFieldResponse
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dif1DomainName'
+-- * 'diffDomainName'
 --
--- * 'dif1IndexFieldName'
+-- * 'diffIndexFieldName'
 data DeleteIndexField = DeleteIndexField'
-    { _dif1DomainName     :: !Text
-    , _dif1IndexFieldName :: !Text
+    { _diffDomainName     :: !Text
+    , _diffIndexFieldName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexField' smart constructor.
 deleteIndexField :: Text -> Text -> DeleteIndexField
 deleteIndexField pDomainName pIndexFieldName =
     DeleteIndexField'
-    { _dif1DomainName = pDomainName
-    , _dif1IndexFieldName = pIndexFieldName
+    { _diffDomainName = pDomainName
+    , _diffIndexFieldName = pIndexFieldName
     }
 
 -- | FIXME: Undocumented member.
-dif1DomainName :: Lens' DeleteIndexField Text
-dif1DomainName = lens _dif1DomainName (\ s a -> s{_dif1DomainName = a});
+diffDomainName :: Lens' DeleteIndexField Text
+diffDomainName = lens _diffDomainName (\ s a -> s{_diffDomainName = a});
 
 -- | The name of the index field your want to remove from the domain\'s
 -- indexing options.
-dif1IndexFieldName :: Lens' DeleteIndexField Text
-dif1IndexFieldName = lens _dif1IndexFieldName (\ s a -> s{_dif1IndexFieldName = a});
+diffIndexFieldName :: Lens' DeleteIndexField Text
+diffIndexFieldName = lens _diffIndexFieldName (\ s a -> s{_diffIndexFieldName = a});
 
 instance AWSRequest DeleteIndexField where
         type Sv DeleteIndexField = CloudSearch
@@ -101,8 +101,8 @@ instance ToQuery DeleteIndexField where
           = mconcat
               ["Action" =: ("DeleteIndexField" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _dif1DomainName,
-               "IndexFieldName" =: _dif1IndexFieldName]
+               "DomainName" =: _diffDomainName,
+               "IndexFieldName" =: _diffIndexFieldName]
 
 -- | The result of a @DeleteIndexField@ request.
 --

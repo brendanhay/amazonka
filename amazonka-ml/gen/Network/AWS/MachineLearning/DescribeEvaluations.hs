@@ -45,9 +45,9 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     -- ** Response constructor
     , describeEvaluationsResponse
     -- ** Response lenses
-    , der1Results
-    , der1NextToken
-    , der1Status
+    , derrResults
+    , derrNextToken
+    , derrStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -204,10 +204,10 @@ deLE = lens _deLE (\ s a -> s{_deLE = a});
 
 instance AWSPager DescribeEvaluations where
         page rq rs
-          | stop (rs ^. der1NextToken) = Nothing
-          | stop (rs ^. der1Results) = Nothing
+          | stop (rs ^. derrNextToken) = Nothing
+          | stop (rs ^. derrResults) = Nothing
           | otherwise =
-            Just $ rq & deNextToken .~ rs ^. der1NextToken
+            Just $ rq & deNextToken .~ rs ^. derrNextToken
 
 instance AWSRequest DescribeEvaluations where
         type Sv DescribeEvaluations = MachineLearning
@@ -254,35 +254,35 @@ instance ToQuery DescribeEvaluations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'der1Results'
+-- * 'derrResults'
 --
--- * 'der1NextToken'
+-- * 'derrNextToken'
 --
--- * 'der1Status'
+-- * 'derrStatus'
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
-    { _der1Results   :: !(Maybe [Evaluation])
-    , _der1NextToken :: !(Maybe Text)
-    , _der1Status    :: !Int
+    { _derrResults   :: !(Maybe [Evaluation])
+    , _derrNextToken :: !(Maybe Text)
+    , _derrStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
 describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse
 describeEvaluationsResponse pStatus =
     DescribeEvaluationsResponse'
-    { _der1Results = Nothing
-    , _der1NextToken = Nothing
-    , _der1Status = pStatus
+    { _derrResults = Nothing
+    , _derrNextToken = Nothing
+    , _derrStatus = pStatus
     }
 
 -- | A list of Evaluation that meet the search criteria.
-der1Results :: Lens' DescribeEvaluationsResponse [Evaluation]
-der1Results = lens _der1Results (\ s a -> s{_der1Results = a}) . _Default;
+derrResults :: Lens' DescribeEvaluationsResponse [Evaluation]
+derrResults = lens _derrResults (\ s a -> s{_derrResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-der1NextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
-der1NextToken = lens _der1NextToken (\ s a -> s{_der1NextToken = a});
+derrNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
+derrNextToken = lens _derrNextToken (\ s a -> s{_derrNextToken = a});
 
 -- | FIXME: Undocumented member.
-der1Status :: Lens' DescribeEvaluationsResponse Int
-der1Status = lens _der1Status (\ s a -> s{_der1Status = a});
+derrStatus :: Lens' DescribeEvaluationsResponse Int
+derrStatus = lens _derrStatus (\ s a -> s{_derrStatus = a});

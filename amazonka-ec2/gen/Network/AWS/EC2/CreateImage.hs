@@ -38,12 +38,12 @@ module Network.AWS.EC2.CreateImage
     -- ** Request constructor
     , createImage
     -- ** Request lenses
-    , ci1NoReboot
-    , ci1BlockDeviceMappings
-    , ci1DryRun
-    , ci1Description
-    , ci1InstanceId
-    , ci1Name
+    , ciiNoReboot
+    , ciiBlockDeviceMappings
+    , ciiDryRun
+    , ciiDescription
+    , ciiInstanceId
+    , ciiName
 
     -- * Response
     , CreateImageResponse
@@ -63,36 +63,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ci1NoReboot'
+-- * 'ciiNoReboot'
 --
--- * 'ci1BlockDeviceMappings'
+-- * 'ciiBlockDeviceMappings'
 --
--- * 'ci1DryRun'
+-- * 'ciiDryRun'
 --
--- * 'ci1Description'
+-- * 'ciiDescription'
 --
--- * 'ci1InstanceId'
+-- * 'ciiInstanceId'
 --
--- * 'ci1Name'
+-- * 'ciiName'
 data CreateImage = CreateImage'
-    { _ci1NoReboot            :: !(Maybe Bool)
-    , _ci1BlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _ci1DryRun              :: !(Maybe Bool)
-    , _ci1Description         :: !(Maybe Text)
-    , _ci1InstanceId          :: !Text
-    , _ci1Name                :: !Text
+    { _ciiNoReboot            :: !(Maybe Bool)
+    , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _ciiDryRun              :: !(Maybe Bool)
+    , _ciiDescription         :: !(Maybe Text)
+    , _ciiInstanceId          :: !Text
+    , _ciiName                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateImage' smart constructor.
 createImage :: Text -> Text -> CreateImage
 createImage pInstanceId pName =
     CreateImage'
-    { _ci1NoReboot = Nothing
-    , _ci1BlockDeviceMappings = Nothing
-    , _ci1DryRun = Nothing
-    , _ci1Description = Nothing
-    , _ci1InstanceId = pInstanceId
-    , _ci1Name = pName
+    { _ciiNoReboot = Nothing
+    , _ciiBlockDeviceMappings = Nothing
+    , _ciiDryRun = Nothing
+    , _ciiDescription = Nothing
+    , _ciiInstanceId = pInstanceId
+    , _ciiName = pName
     }
 
 -- | By default, this parameter is set to @false@, which means Amazon EC2
@@ -101,35 +101,35 @@ createImage pInstanceId pName =
 -- EC2 doesn\'t shut down the instance before creating the image. When this
 -- option is used, file system integrity on the created image can\'t be
 -- guaranteed.
-ci1NoReboot :: Lens' CreateImage (Maybe Bool)
-ci1NoReboot = lens _ci1NoReboot (\ s a -> s{_ci1NoReboot = a});
+ciiNoReboot :: Lens' CreateImage (Maybe Bool)
+ciiNoReboot = lens _ciiNoReboot (\ s a -> s{_ciiNoReboot = a});
 
 -- | Information about one or more block device mappings.
-ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
-ci1BlockDeviceMappings = lens _ci1BlockDeviceMappings (\ s a -> s{_ci1BlockDeviceMappings = a}) . _Default;
+ciiBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
+ciiBlockDeviceMappings = lens _ciiBlockDeviceMappings (\ s a -> s{_ciiBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ci1DryRun :: Lens' CreateImage (Maybe Bool)
-ci1DryRun = lens _ci1DryRun (\ s a -> s{_ci1DryRun = a});
+ciiDryRun :: Lens' CreateImage (Maybe Bool)
+ciiDryRun = lens _ciiDryRun (\ s a -> s{_ciiDryRun = a});
 
 -- | A description for the new image.
-ci1Description :: Lens' CreateImage (Maybe Text)
-ci1Description = lens _ci1Description (\ s a -> s{_ci1Description = a});
+ciiDescription :: Lens' CreateImage (Maybe Text)
+ciiDescription = lens _ciiDescription (\ s a -> s{_ciiDescription = a});
 
 -- | The ID of the instance.
-ci1InstanceId :: Lens' CreateImage Text
-ci1InstanceId = lens _ci1InstanceId (\ s a -> s{_ci1InstanceId = a});
+ciiInstanceId :: Lens' CreateImage Text
+ciiInstanceId = lens _ciiInstanceId (\ s a -> s{_ciiInstanceId = a});
 
 -- | A name for the new image.
 --
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
 -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
 -- quotes (\'), at-signs (\@), or underscores(_)
-ci1Name :: Lens' CreateImage Text
-ci1Name = lens _ci1Name (\ s a -> s{_ci1Name = a});
+ciiName :: Lens' CreateImage Text
+ciiName = lens _ciiName (\ s a -> s{_ciiName = a});
 
 instance AWSRequest CreateImage where
         type Sv CreateImage = EC2
@@ -152,13 +152,13 @@ instance ToQuery CreateImage where
           = mconcat
               ["Action" =: ("CreateImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NoReboot" =: _ci1NoReboot,
+               "NoReboot" =: _ciiNoReboot,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
-                    _ci1BlockDeviceMappings),
-               "DryRun" =: _ci1DryRun,
-               "Description" =: _ci1Description,
-               "InstanceId" =: _ci1InstanceId, "Name" =: _ci1Name]
+                    _ciiBlockDeviceMappings),
+               "DryRun" =: _ciiDryRun,
+               "Description" =: _ciiDescription,
+               "InstanceId" =: _ciiInstanceId, "Name" =: _ciiName]
 
 -- | /See:/ 'createImageResponse' smart constructor.
 --

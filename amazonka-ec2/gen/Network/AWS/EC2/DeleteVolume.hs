@@ -34,8 +34,8 @@ module Network.AWS.EC2.DeleteVolume
     -- ** Request constructor
     , deleteVolume
     -- ** Request lenses
-    , d1DryRun
-    , d1VolumeId
+    , deleeDryRun
+    , deleeVolumeId
 
     -- * Response
     , DeleteVolumeResponse
@@ -52,32 +52,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'd1DryRun'
+-- * 'deleeDryRun'
 --
--- * 'd1VolumeId'
+-- * 'deleeVolumeId'
 data DeleteVolume = DeleteVolume'
-    { _d1DryRun   :: !(Maybe Bool)
-    , _d1VolumeId :: !Text
+    { _deleeDryRun   :: !(Maybe Bool)
+    , _deleeVolumeId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
 deleteVolume pVolumeId =
     DeleteVolume'
-    { _d1DryRun = Nothing
-    , _d1VolumeId = pVolumeId
+    { _deleeDryRun = Nothing
+    , _deleeVolumeId = pVolumeId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-d1DryRun :: Lens' DeleteVolume (Maybe Bool)
-d1DryRun = lens _d1DryRun (\ s a -> s{_d1DryRun = a});
+deleeDryRun :: Lens' DeleteVolume (Maybe Bool)
+deleeDryRun = lens _deleeDryRun (\ s a -> s{_deleeDryRun = a});
 
 -- | The ID of the volume.
-d1VolumeId :: Lens' DeleteVolume Text
-d1VolumeId = lens _d1VolumeId (\ s a -> s{_d1VolumeId = a});
+deleeVolumeId :: Lens' DeleteVolume Text
+deleeVolumeId = lens _deleeVolumeId (\ s a -> s{_deleeVolumeId = a});
 
 instance AWSRequest DeleteVolume where
         type Sv DeleteVolume = EC2
@@ -96,7 +96,8 @@ instance ToQuery DeleteVolume where
           = mconcat
               ["Action" =: ("DeleteVolume" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _d1DryRun, "VolumeId" =: _d1VolumeId]
+               "DryRun" =: _deleeDryRun,
+               "VolumeId" =: _deleeVolumeId]
 
 -- | /See:/ 'deleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse =

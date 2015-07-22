@@ -4,6 +4,7 @@
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TypeOperators     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.AST.Prefix
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -19,6 +20,7 @@ module Gen.AST.Prefix
     ( prefixes
     ) where
 
+import           Control.Applicative
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Control.Monad.Except
@@ -33,6 +35,7 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
+import           Data.Text.Manipulate
 import           Gen.AST.Cofree
 import           Gen.Formatting
 import           Gen.Text
@@ -70,30 +73,32 @@ smartCtors = Map.fromListWith (<>) . mapMaybe go . Map.toList
 assignPrefix :: Shape Related -> MemoP (Shape Prefixed)
 assignPrefix = annotate Prefixed memo go
   where
-    go :: HasId a => Shape a -> MemoP (Maybe Text)
+    go :: (HasId a, HasRelation a) => Shape a -> MemoP (Maybe Text)
     go (x :< s) =
         let n = typeId (identifier x)
+            r = x ^. relation
          in case s of
             Enum _ vs -> Just <$> do
-                let hs = mempty : acronymPrefixes n
+                let hs = mempty : acronymPrefixes r n
                     ks = keys vs
-                unique branches n hs ks
+                unique r branches n hs ks
 
             Struct st -> Just <$> do
-                let hs = acronymPrefixes n
+                let hs = acronymPrefixes r n
                     ks = keys (st ^. members)
-                unique fields n hs ks
+                unique r fields n hs ks
 
             _         -> return Nothing
 
-    unique :: Lens' Env Seen
+    unique :: Relation
+           -> Lens' Env Seen
            -> Text
            -> [CI Text]
            -> Set (CI Text)
            -> MemoP Text
-    unique seen n [] ks = do
+    unique r seen n [] ks = do
         s <- use seen
-        let hs  = acronymPrefixes n
+        let hs  = acronymPrefixes r n
             f x = sformat ("\n" % soriginal % " => " % shown) x (Map.lookup x s)
         throwError $
             format ("Error prefixing: " % stext %
@@ -101,13 +106,13 @@ assignPrefix = annotate Prefixed memo go
                     scomma)
                    n (Set.toList ks) (map f hs)
 
-    unique seen n (h:hs) ks = do
+    unique r seen n (h:hs) ks = do
         m <- uses seen (Map.lookup h)
         -- Find if this particular naming heuristic is used already, and if
         -- it is, then is there overlap with this set of ks?
         case m of
             Just ys | overlap ys ks
-                -> unique seen n hs ks
+                -> unique r seen n hs ks
             _   -> do
                 seen %= Map.insertWith (<>) h ks
                 return (CI.original h)
@@ -117,3 +122,56 @@ overlap xs ys = not . Set.null $ Set.intersection xs ys
 
 keys :: Map Id a -> Set (CI Text)
 keys = Set.fromList . map (CI.mk . typeId) . Map.keys
+
+-- | Acronym preference list.
+acronymPrefixes :: Relation -> Text -> [CI Text]
+acronymPrefixes r (stripSuffix "Response" -> n)
+    | isOrphan r
+    , Uni d <- _relMode r =
+        case d of
+            Input  -> ci requests
+            Output -> ci responses
+    | otherwise     = ci types
+  where
+    requests  = map (<> "rq") types
+    responses = [Text.pack (x : show y) | x <- alpha, y <- numeric]
+    types     = xs ++ map suffix ys
+
+    alpha   = "abcdefghijklmnopqrstuvwxyz"
+    numeric = [1..] :: [Int]
+
+    ci = map CI.mk
+
+    -- Replicate the last char
+    suffix x = Text.snoc x (Text.last x)
+
+    xs = catMaybes [r1, r2, r3, r4, r5, r6]
+    ys = catMaybes [r1, r2, r3, r4, r6]
+
+    a  = camelAcronym n
+    a' = upperAcronym n
+
+    limit = 3
+
+    -- Full name if leq limit
+    r1 | Text.length n <= limit = Just n
+       | otherwise              = Nothing
+
+    -- VpcPeeringInfo -> VPI
+    r2 = toAcronym a
+
+    -- VpcPeeringInfo -> VPCPI
+    r3 | x /= r2   = x
+       | otherwise = Nothing
+      where
+        x = toAcronym a'
+
+    -- SomeTestTType -> S
+    r4 = Text.toUpper <$> safeHead n
+
+    -- SomeTypes -> STS (retain pural)
+    r5 | Text.isSuffixOf "s" n = flip Text.snoc 's' <$> (r2 <|> r3)
+       | otherwise             = Nothing
+
+    -- SomeTestTType -> Som
+    r6 = Text.take limit <$> listToMaybe (splitWords a)

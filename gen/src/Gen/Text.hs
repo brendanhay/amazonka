@@ -16,8 +16,6 @@ module Gen.Text where
 import           Control.Error
 import           Control.Monad
 import           Data.Bifunctor
-import           Data.CaseInsensitive  (CI)
-import qualified Data.CaseInsensitive  as CI
 import           Data.Char
 import qualified Data.Foldable         as Fold
 import qualified Data.HashSet          as Set
@@ -50,7 +48,7 @@ stripPrefix :: Text -> Text -> Text
 stripPrefix p t = Text.strip . fromMaybe t $ p `Text.stripPrefix` t
 
 stripSuffix :: Text -> Text -> Text
-stripSuffix p t = Text.strip . fromMaybe t $ p `Text.stripSuffix` t
+stripSuffix s t = Text.strip . fromMaybe t $ s `Text.stripSuffix` t
 
 renameOperation :: Text -> Text
 renameOperation = Text.dropWhileEnd f . Text.strip
@@ -121,36 +119,8 @@ renameReserved x
         , "Error"
         ] ++ map Text.pack (reservedNames haskellDef)
 
--- | Acronym preference list.
-acronymPrefixes :: Text -> [CI Text]
-acronymPrefixes n = map CI.mk (rules ++ map suffix rules)
-  where
-    a = camelAcronym n
-
-    suffix x = Text.snoc x (Text.last x)
-
-    -- Acronym preference list.
-    rules = catMaybes [r1, r2, r3, r4, r5, r6]
-
-    -- SomeTestTType -> STT
-    r1 = toAcronym a
-
-    -- SomeTestTType -> S
-    r2 | Text.length n <= 3 = Just a
-       | otherwise          = Just (Text.take 3 a)
-
-    -- SomeTestTType -> Som
-    r3 = Text.toUpper <$> safeHead a
-
-    -- VpcPeeringInfo -> VPCPI
-    r4 = toAcronym (upperAcronym a)
-
-    -- SomeTypes -> sts - retains plural.
-    r5 | Text.isSuffixOf "s" n = flip Text.snoc 's' <$> r1
-       | otherwise             = Nothing
-
-    -- Some -> Some || SomeTestTType -> Some
-    r6 = Text.take 4 <$> listToMaybe (splitWords n)
+-- Pass in Relation, check if Uni directional + not shared and then add
+-- rq + rs to a simplified acronym prefix algo?
 
 camelAcronym :: Text -> Text
 camelAcronym x = replaceAll x xs

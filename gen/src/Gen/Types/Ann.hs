@@ -52,7 +52,7 @@ instance Monoid Mode where
     mappend _       _       = Bi
 
 data Relation = Relation
-    { _relShared :: !Int
+    { _relShared :: !Int -- FIXME: get around to using something more sensible.
     , _relMode   :: !Mode
     } deriving (Eq, Show)
 

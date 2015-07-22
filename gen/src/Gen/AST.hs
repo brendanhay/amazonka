@@ -31,6 +31,7 @@ import           Gen.AST.Prefix
 import           Gen.AST.Subst
 import           Gen.AST.TypeOf
 import           Gen.Formatting
+import           Gen.Text
 import           Gen.Types
 
 -- FIXME: Relations need to be updated by the solving step.
@@ -171,7 +172,8 @@ type MemoS a = StateT (Map Id a) (Either Error)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
 -- and attach the associated shape to the appropriate operation.
-separate :: (Show a, HasRelation a) => Map Id (Operation Identity (RefF b) c)
+separate :: (Show a, HasPrefixed a, HasRelation a)
+         => Map Id (Operation Identity (RefF b) c)
          -> Map Id a
          -> Either Error
                 ( Map Id (Operation Identity (RefF a) c) -- ^ Operations
@@ -179,15 +181,16 @@ separate :: (Show a, HasRelation a) => Map Id (Operation Identity (RefF b) c)
                 )
 separate os = runStateT (traverse go os)
   where
-    go :: HasRelation b
-       => Operation Identity (RefF a) c
-       -> MemoS b (Operation Identity (RefF b) c)
+    -- go :: (HasRelation b)
+    --    => Operation Identity (RefF a) c
+    --    -> MemoS b (Operation Identity (RefF b) c)
     go o = do
         x <- remove Input  (inputName  o)
         y <- remove Output (outputName o)
+
         return $! o
             { _opInput  = Identity (o ^. opInput  . _Identity & refAnn .~ x)
-            , _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ y)
+            , _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ duplicate x y)
             }
 
     remove :: HasRelation a => Direction -> Id -> MemoS a a
@@ -201,3 +204,7 @@ separate os = runStateT (traverse go os)
                 when (d == Input || not (isShared x)) $
                     modify (Map.delete n)
                 return x
+
+    -- FIXME: this is a hack to ensure the prefixes are consistent between
+    -- the request + response types, despite being generated separately.
+    duplicate x = annPrefix .~ ((<> "rs") . stripSuffix "rq" <$> x ^. annPrefix)

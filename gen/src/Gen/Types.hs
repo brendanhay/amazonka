@@ -35,7 +35,6 @@ module Gen.Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson
-import qualified Data.HashMap.Strict       as Map
 import           Data.List                 (nub, sort, sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord

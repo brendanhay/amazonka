@@ -16,6 +16,8 @@ module Gen.Text where
 import           Control.Error
 import           Control.Monad
 import           Data.Bifunctor
+import           Data.CaseInsensitive  (CI)
+import qualified Data.CaseInsensitive  as CI
 import           Data.Char
 import qualified Data.Foldable         as Fold
 import qualified Data.HashSet          as Set
@@ -119,6 +121,59 @@ renameReserved x
         , "Error"
         ] ++ map Text.pack (reservedNames haskellDef)
 
+-- | Acronym preference list.
+acronymPrefixes :: Text -> [CI Text]
+acronymPrefixes n = map CI.mk (rules ++ ordinals)
+  where
+    a = camelAcronym n
+
+    -- Append an ordinal to the generated acronyms.
+    ordinals = concatMap ((\i -> map (<> i) rs) . num) [1..3]
+      where
+        rs = catMaybes [r1, r2, r3]
+
+    -- Acronym preference list.
+    rules = catMaybes [r1, r2, r3, r4, r5, r6]
+
+    -- SomeTestTType -> STT
+    r1 = toAcronym a
+
+    -- SomeTestTType -> S
+    r2 | Text.length n <= 3 = Just a
+       | otherwise          = Just (Text.take 3 a)
+
+    -- SomeTestTType -> Som
+    r3 = Text.toUpper <$> safeHead a
+
+    -- VpcPeeringInfo -> VPCPI
+    r4 = toAcronym (upperAcronym a)
+
+    -- SomeTypes -> sts - retains plural.
+    r5 | Text.isSuffixOf "s" n = flip Text.snoc 's' <$> r1
+       | otherwise             = Nothing
+
+    -- Some -> Some || SomeTestTType -> Some
+    r6 = Text.take 4 <$> listToMaybe (splitWords n)
+
+    num :: Int -> Text
+    num = Text.pack . show
+
+camelAcronym :: Text -> Text
+camelAcronym x = replaceAll x xs
+  where
+    xs = map (bimap fromString fromString) acronyms
+
+lowerFirstAcronym :: Text -> Text
+lowerFirstAcronym x = replaceAll x xs
+  where
+    xs = map (bimap (fromString . ('^':)) (fromString . f)) acronyms
+
+    f (c:cs) = toLower c : cs
+    f []     = []
+
+replaceAll :: Text -> [(Regex, Replace)] -> Text
+replaceAll = Fold.foldl' (flip (uncurry RE.replaceAll))
+
 upperAcronym :: Text -> Text
 upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
   where
@@ -202,22 +257,6 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Gt$",           "GT")
          , ("X8664",         "X86_64")
          ]
-
-camelAcronym :: Text -> Text
-camelAcronym x = replaceAll x xs
-  where
-    xs = map (bimap fromString fromString) acronyms
-
-lowerFirstAcronym :: Text -> Text
-lowerFirstAcronym x = replaceAll x xs
-  where
-    xs = map (bimap (fromString . ('^':)) (fromString . f)) acronyms
-
-    f (c:cs) = toLower c : cs
-    f []     = []
-
-replaceAll :: Text -> [(Regex, Replace)] -> Text
-replaceAll = Fold.foldl' (flip (uncurry RE.replaceAll))
 
 acronyms :: [(String, String)]
 acronyms =

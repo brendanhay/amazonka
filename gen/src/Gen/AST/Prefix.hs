@@ -4,7 +4,6 @@
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TypeOperators     #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.AST.Prefix
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -34,7 +33,6 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
-import           Data.Text.Manipulate
 import           Gen.AST.Cofree
 import           Gen.Formatting
 import           Gen.Text
@@ -77,12 +75,12 @@ assignPrefix = annotate Prefixed memo go
         let n = typeId (identifier x)
          in case s of
             Enum _ vs -> Just <$> do
-                let hs = mempty : heuristics n
+                let hs = mempty : acronymPrefixes n
                     ks = keys vs
                 unique branches n hs ks
 
             Struct st -> Just <$> do
-                let hs = heuristics n
+                let hs = acronymPrefixes n
                     ks = keys (st ^. members)
                 unique fields n hs ks
 
@@ -95,7 +93,7 @@ assignPrefix = annotate Prefixed memo go
            -> MemoP Text
     unique seen n [] ks = do
         s <- use seen
-        let hs  = heuristics n
+        let hs  = acronymPrefixes n
             f x = sformat ("\n" % soriginal % " => " % shown) x (Map.lookup x s)
         throwError $
             format ("Error prefixing: " % stext %
@@ -119,36 +117,3 @@ overlap xs ys = not . Set.null $ Set.intersection xs ys
 
 keys :: Map Id a -> Set (CI Text)
 keys = Set.fromList . map (CI.mk . typeId) . Map.keys
-
--- | Acronym preference list.
-heuristics :: Text -> [CI Text]
-heuristics (camelAcronym -> n) = map CI.mk (rules ++ ordinals)
-  where
-    -- Append an ordinal to the generated acronyms.
-    ordinals = concatMap ((\i -> map (<> i) rs) . num) [1..3]
-      where
-        rs = catMaybes [r1, r2, r3]
-
-    -- Acronym preference list.
-    rules = catMaybes [r1, r2, r3, r4, r5]
-
-    -- SomeTestTType -> STT
-    r1 = toAcronym n
-
-    -- SomeTestTType -> S
-    r2 | Text.length n <= 3 = Just n
-       | otherwise          = Just (Text.take 3 n)
-
-    -- SomeTestTType -> Som
-    r3 = Text.toUpper <$> safeHead n
-
-    -- VpcPeeringInfo -> VPCPI
-    r4 = toAcronym (upperAcronym n)
-
-    r5 = Text.take 4 <$> r6
-
-    -- Some -> Some || SomeTestTType -> Some
-    r6 = listToMaybe (splitWords n)
-
-    num :: Int -> Text
-    num = Text.pack . show

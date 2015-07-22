@@ -28,7 +28,7 @@ fixtures =
         [ testSendMessage $
             sendMessage "http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/"
                         "This+is+a+test+message"
-                & smMessageAttributes .~ Map.fromList
+                & smrqMessageAttributes .~ Map.fromList
                     [ ("test_attribute_name_1", messageAttributeValue "String"
                         & mavStringValue ?~ "test_attribute_value_1")
                     , ("test_attribute_name_2", messageAttributeValue "String"
@@ -45,9 +45,9 @@ fixtures =
 
         , testSendMessageResponse $
             sendMessageResponse 200
-                & smrMessageId              ?~ "5fea7756-0ea4-451a-a703-a558b933e274"
-                & smrMD5OfMessageBody       ?~ "fafb00f5732ab283681e124bf8747ed1"
-                & smrMD5OfMessageAttributes ?~ "3ae8f24a165a8cedc005670c81a27295"
+                & smrsMessageId              ?~ "5fea7756-0ea4-451a-a703-a558b933e274"
+                & smrsMD5OfMessageBody       ?~ "fafb00f5732ab283681e124bf8747ed1"
+                & smrsMD5OfMessageAttributes ?~ "3ae8f24a165a8cedc005670c81a27295"
 
         -- FIXME: waiting on response to https://github.com/boto/botocore/issues/602
         -- , testReceiveMessageResponse $

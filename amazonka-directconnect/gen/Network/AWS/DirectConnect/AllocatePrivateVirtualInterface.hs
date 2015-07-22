@@ -45,21 +45,21 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     -- ** Response constructor
     , virtualInterface
     -- ** Response lenses
-    , apvirsVirtualGatewayId
-    , apvirsRouteFilterPrefixes
-    , apvirsCustomerAddress
-    , apvirsVlan
-    , apvirsLocation
-    , apvirsAmazonAddress
-    , apvirsVirtualInterfaceState
-    , apvirsConnectionId
-    , apvirsAsn
-    , apvirsVirtualInterfaceType
-    , apvirsAuthKey
-    , apvirsCustomerRouterConfig
-    , apvirsOwnerAccount
-    , apvirsVirtualInterfaceName
-    , apvirsVirtualInterfaceId
+    , viVirtualGatewayId
+    , viRouteFilterPrefixes
+    , viCustomerAddress
+    , viVlan
+    , viLocation
+    , viAmazonAddress
+    , viVirtualInterfaceState
+    , viConnectionId
+    , viAsn
+    , viVirtualInterfaceType
+    , viAuthKey
+    , viCustomerRouterConfig
+    , viOwnerAccount
+    , viVirtualInterfaceName
+    , viVirtualInterfaceId
     ) where
 
 import           Network.AWS.DirectConnect.Types

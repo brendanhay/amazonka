@@ -38,7 +38,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- ** Response constructor
     , applicationDescriptionMessage
     -- ** Response lenses
-    , uarsApplication
+    , admApplication
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

@@ -36,22 +36,22 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- ** Response constructor
     , environmentDescription
     -- ** Response lenses
-    , tersCNAME
-    , tersStatus
-    , tersTemplateName
-    , tersAbortableOperationInProgress
-    , tersEndpointURL
-    , tersDateUpdated
-    , tersResources
-    , tersHealth
-    , tersVersionLabel
-    , tersDateCreated
-    , tersTier
-    , tersEnvironmentName
-    , tersApplicationName
-    , tersEnvironmentId
-    , tersSolutionStackName
-    , tersDescription
+    , eCNAME
+    , eStatus
+    , eTemplateName
+    , eAbortableOperationInProgress
+    , eEndpointURL
+    , eDateUpdated
+    , eResources
+    , eHealth
+    , eVersionLabel
+    , eDateCreated
+    , eTier
+    , eEnvironmentName
+    , eApplicationName
+    , eEnvironmentId
+    , eSolutionStackName
+    , eDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

@@ -72,8 +72,8 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     -- ** Response constructor
     , workflowExecutionInfos
     -- ** Response lenses
-    , lowersNextPageToken
-    , lowersExecutionInfos
+    , weiNextPageToken
+    , weiExecutionInfos
     ) where
 
 import           Network.AWS.Pager
@@ -186,11 +186,11 @@ lowerqStartTimeFilter = lens _lowerqStartTimeFilter (\ s a -> s{_lowerqStartTime
 
 instance AWSPager ListOpenWorkflowExecutions where
         page rq rs
-          | stop (rs ^. lowersNextPageToken) = Nothing
-          | stop (rs ^. lowersExecutionInfos) = Nothing
+          | stop (rs ^. weiNextPageToken) = Nothing
+          | stop (rs ^. weiExecutionInfos) = Nothing
           | otherwise =
             Just $ rq &
-              lowerqNextPageToken .~ rs ^. lowersNextPageToken
+              lowerqNextPageToken .~ rs ^. weiNextPageToken
 
 instance AWSRequest ListOpenWorkflowExecutions where
         type Sv ListOpenWorkflowExecutions = SWF

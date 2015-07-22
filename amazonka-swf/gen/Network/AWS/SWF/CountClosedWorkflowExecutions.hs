@@ -69,8 +69,8 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     -- ** Response constructor
     , workflowExecutionCount
     -- ** Response lenses
-    , ccwersTruncated
-    , ccwersCount
+    , wecTruncated
+    , wecCount
     ) where
 
 import           Network.AWS.Prelude

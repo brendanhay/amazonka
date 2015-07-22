@@ -74,8 +74,8 @@ module Network.AWS.SWF.ListClosedWorkflowExecutions
     -- ** Response constructor
     , workflowExecutionInfos
     -- ** Response lenses
-    , lcwersNextPageToken
-    , lcwersExecutionInfos
+    , weiNextPageToken
+    , weiExecutionInfos
     ) where
 
 import           Network.AWS.Pager
@@ -220,11 +220,11 @@ lcwerqDomain = lens _lcwerqDomain (\ s a -> s{_lcwerqDomain = a});
 
 instance AWSPager ListClosedWorkflowExecutions where
         page rq rs
-          | stop (rs ^. lcwersNextPageToken) = Nothing
-          | stop (rs ^. lcwersExecutionInfos) = Nothing
+          | stop (rs ^. weiNextPageToken) = Nothing
+          | stop (rs ^. weiExecutionInfos) = Nothing
           | otherwise =
             Just $ rq &
-              lcwerqNextPageToken .~ rs ^. lcwersNextPageToken
+              lcwerqNextPageToken .~ rs ^. weiNextPageToken
 
 instance AWSRequest ListClosedWorkflowExecutions
          where

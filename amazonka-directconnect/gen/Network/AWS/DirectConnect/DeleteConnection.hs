@@ -39,15 +39,15 @@ module Network.AWS.DirectConnect.DeleteConnection
     -- ** Response constructor
     , connection
     -- ** Response lenses
-    , dcrsVlan
-    , dcrsLocation
-    , dcrsConnectionId
-    , dcrsConnectionName
-    , dcrsPartnerName
-    , dcrsBandwidth
-    , dcrsRegion
-    , dcrsOwnerAccount
-    , dcrsConnectionState
+    , cVlan
+    , cLocation
+    , cConnectionId
+    , cConnectionName
+    , cPartnerName
+    , cBandwidth
+    , cRegion
+    , cOwnerAccount
+    , cConnectionState
     ) where
 
 import           Network.AWS.DirectConnect.Types

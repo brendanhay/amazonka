@@ -35,12 +35,12 @@ module Network.AWS.Redshift.DescribeLoggingStatus
     -- ** Response constructor
     , loggingStatus
     -- ** Response lenses
-    , dlsrsLastSuccessfulDeliveryTime
-    , dlsrsLastFailureTime
-    , dlsrsS3KeyPrefix
-    , dlsrsBucketName
-    , dlsrsLoggingEnabled
-    , dlsrsLastFailureMessage
+    , lsLastSuccessfulDeliveryTime
+    , lsLastFailureTime
+    , lsS3KeyPrefix
+    , lsBucketName
+    , lsLoggingEnabled
+    , lsLastFailureMessage
     ) where
 
 import           Network.AWS.Prelude

@@ -56,12 +56,12 @@ module Network.AWS.Glacier.DescribeVault
     -- ** Response constructor
     , describeVaultOutput
     -- ** Response lenses
-    , dvrsVaultName
-    , dvrsSizeInBytes
-    , dvrsLastInventoryDate
-    , dvrsVaultARN
-    , dvrsCreationDate
-    , dvrsNumberOfArchives
+    , dvoVaultName
+    , dvoSizeInBytes
+    , dvoLastInventoryDate
+    , dvoVaultARN
+    , dvoCreationDate
+    , dvoNumberOfArchives
     ) where
 
 import           Network.AWS.Glacier.Types

@@ -36,7 +36,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- ** Response constructor
     , applicationDescriptionMessage
     -- ** Response lenses
-    , carsApplication
+    , admApplication
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

@@ -45,21 +45,21 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     -- ** Response constructor
     , virtualInterface
     -- ** Response lenses
-    , arsVirtualGatewayId
-    , arsRouteFilterPrefixes
-    , arsCustomerAddress
-    , arsVlan
-    , arsLocation
-    , arsAmazonAddress
-    , arsVirtualInterfaceState
-    , arsConnectionId
-    , arsAsn
-    , arsVirtualInterfaceType
-    , arsAuthKey
-    , arsCustomerRouterConfig
-    , arsOwnerAccount
-    , arsVirtualInterfaceName
-    , arsVirtualInterfaceId
+    , viVirtualGatewayId
+    , viRouteFilterPrefixes
+    , viCustomerAddress
+    , viVlan
+    , viLocation
+    , viAmazonAddress
+    , viVirtualInterfaceState
+    , viConnectionId
+    , viAsn
+    , viVirtualInterfaceType
+    , viAuthKey
+    , viCustomerRouterConfig
+    , viOwnerAccount
+    , viVirtualInterfaceName
+    , viVirtualInterfaceId
     ) where
 
 import           Network.AWS.DirectConnect.Types

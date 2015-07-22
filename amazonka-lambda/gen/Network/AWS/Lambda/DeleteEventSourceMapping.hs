@@ -38,14 +38,14 @@ module Network.AWS.Lambda.DeleteEventSourceMapping
     -- ** Response constructor
     , eventSourceMappingConfiguration
     -- ** Response lenses
-    , desmrsEventSourceARN
-    , desmrsFunctionARN
-    , desmrsState
-    , desmrsUUId
-    , desmrsLastProcessingResult
-    , desmrsBatchSize
-    , desmrsStateTransitionReason
-    , desmrsLastModified
+    , esmcEventSourceARN
+    , esmcFunctionARN
+    , esmcState
+    , esmcUUId
+    , esmcLastProcessingResult
+    , esmcBatchSize
+    , esmcStateTransitionReason
+    , esmcLastModified
     ) where
 
 import           Network.AWS.Lambda.Types

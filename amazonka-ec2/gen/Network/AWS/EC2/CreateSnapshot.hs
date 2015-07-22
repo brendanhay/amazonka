@@ -66,18 +66,18 @@ module Network.AWS.EC2.CreateSnapshot
     -- ** Response constructor
     , snapshot
     -- ** Response lenses
-    , cssrsOwnerAlias
-    , cssrsKMSKeyId
-    , cssrsTags
-    , cssrsSnapshotId
-    , cssrsOwnerId
-    , cssrsVolumeId
-    , cssrsVolumeSize
-    , cssrsDescription
-    , cssrsStartTime
-    , cssrsProgress
-    , cssrsState
-    , cssrsEncrypted
+    , sOwnerAlias
+    , sKMSKeyId
+    , sTags
+    , sSnapshotId
+    , sOwnerId
+    , sVolumeId
+    , sVolumeSize
+    , sDescription
+    , sStartTime
+    , sProgress
+    , sState
+    , sEncrypted
     ) where
 
 import           Network.AWS.EC2.Types

@@ -40,7 +40,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- ** Response constructor
     , cacheParameterGroupNameMessage
     -- ** Response lenses
-    , rcpgrsCacheParameterGroupName
+    , cpgnmCacheParameterGroupName
     ) where
 
 import           Network.AWS.ElastiCache.Types

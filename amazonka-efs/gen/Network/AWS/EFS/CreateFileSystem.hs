@@ -73,14 +73,14 @@ module Network.AWS.EFS.CreateFileSystem
     -- ** Response constructor
     , fileSystemDescription
     -- ** Response lenses
-    , cfsrsName
-    , cfsrsOwnerId
-    , cfsrsCreationToken
-    , cfsrsFileSystemId
-    , cfsrsCreationTime
-    , cfsrsLifeCycleState
-    , cfsrsNumberOfMountTargets
-    , cfsrsSizeInBytes
+    , fsdName
+    , fsdOwnerId
+    , fsdCreationToken
+    , fsdFileSystemId
+    , fsdCreationTime
+    , fsdLifeCycleState
+    , fsdNumberOfMountTargets
+    , fsdSizeInBytes
     ) where
 
 import           Network.AWS.EFS.Types

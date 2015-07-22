@@ -46,15 +46,15 @@ module Network.AWS.DirectConnect.CreateConnection
     -- ** Response constructor
     , connection
     -- ** Response lenses
-    , ccrsVlan
-    , ccrsLocation
-    , ccrsConnectionId
-    , ccrsConnectionName
-    , ccrsPartnerName
-    , ccrsBandwidth
-    , ccrsRegion
-    , ccrsOwnerAccount
-    , ccrsConnectionState
+    , cVlan
+    , cLocation
+    , cConnectionId
+    , cConnectionName
+    , cPartnerName
+    , cBandwidth
+    , cRegion
+    , cOwnerAccount
+    , cConnectionState
     ) where
 
 import           Network.AWS.DirectConnect.Types

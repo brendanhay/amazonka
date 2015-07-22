@@ -58,8 +58,8 @@ module Network.AWS.SWF.CountPendingActivityTasks
     -- ** Response constructor
     , pendingTaskCount
     -- ** Response lenses
-    , cpatrsTruncated
-    , cpatrsCount
+    , ptcTruncated
+    , ptcCount
     ) where
 
 import           Network.AWS.Prelude

@@ -52,12 +52,12 @@ module Network.AWS.DirectConnect.CreateInterconnect
     -- ** Response constructor
     , interconnect
     -- ** Response lenses
-    , cirsInterconnectId
-    , cirsInterconnectName
-    , cirsLocation
-    , cirsBandwidth
-    , cirsInterconnectState
-    , cirsRegion
+    , iInterconnectId
+    , iInterconnectName
+    , iLocation
+    , iBandwidth
+    , iInterconnectState
+    , iRegion
     ) where
 
 import           Network.AWS.DirectConnect.Types

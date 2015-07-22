@@ -37,12 +37,12 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     -- ** Response constructor
     , identityPool
     -- ** Response lenses
-    , diprsSupportedLoginProviders
-    , diprsDeveloperProviderName
-    , diprsOpenIdConnectProviderARNs
-    , diprsIdentityPoolId
-    , diprsIdentityPoolName
-    , diprsAllowUnauthenticatedIdentities
+    , ipSupportedLoginProviders
+    , ipDeveloperProviderName
+    , ipOpenIdConnectProviderARNs
+    , ipIdentityPoolId
+    , ipIdentityPoolName
+    , ipAllowUnauthenticatedIdentities
     ) where
 
 import           Network.AWS.CognitoIdentity.Types

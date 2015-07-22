@@ -35,7 +35,7 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     -- ** Response constructor
     , connections
     -- ** Response lenses
-    , dcoirsConnections
+    , cConnections
     ) where
 
 import           Network.AWS.DirectConnect.Types

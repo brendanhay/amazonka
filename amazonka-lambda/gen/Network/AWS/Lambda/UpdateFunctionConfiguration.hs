@@ -46,16 +46,16 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     -- ** Response constructor
     , functionConfiguration
     -- ** Response lenses
-    , ufcrsRuntime
-    , ufcrsMemorySize
-    , ufcrsFunctionARN
-    , ufcrsRole
-    , ufcrsFunctionName
-    , ufcrsCodeSize
-    , ufcrsHandler
-    , ufcrsTimeout
-    , ufcrsLastModified
-    , ufcrsDescription
+    , fcRuntime
+    , fcMemorySize
+    , fcFunctionARN
+    , fcRole
+    , fcFunctionName
+    , fcCodeSize
+    , fcHandler
+    , fcTimeout
+    , fcLastModified
+    , fcDescription
     ) where
 
 import           Network.AWS.Lambda.Types

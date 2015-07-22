@@ -43,7 +43,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     -- ** Response constructor
     , applicationVersionDescriptionMessage
     -- ** Response lenses
-    , cavrsApplicationVersion
+    , avdmApplicationVersion
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

@@ -47,15 +47,15 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     -- ** Response constructor
     , configurationSettingsDescription
     -- ** Response lenses
-    , uctrsTemplateName
-    , uctrsOptionSettings
-    , uctrsDateUpdated
-    , uctrsDateCreated
-    , uctrsEnvironmentName
-    , uctrsApplicationName
-    , uctrsDeploymentStatus
-    , uctrsSolutionStackName
-    , uctrsDescription
+    , csdTemplateName
+    , csdOptionSettings
+    , csdDateUpdated
+    , csdDateCreated
+    , csdEnvironmentName
+    , csdApplicationName
+    , csdDeploymentStatus
+    , csdSolutionStackName
+    , csdDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

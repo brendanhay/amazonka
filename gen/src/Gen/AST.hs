@@ -207,4 +207,6 @@ separate os = runStateT (traverse go os)
 
     -- FIXME: this is a hack to ensure the prefixes are consistent between
     -- the request + response types, despite being generated separately.
-    duplicate x = annPrefix .~ ((<> "rs") . stripSuffix "rq" <$> x ^. annPrefix)
+    duplicate x y
+        | isOrphan y = y & annPrefix .~ ((<> "rs") . stripSuffix "rq" <$> x ^. annPrefix)
+        | otherwise  = y

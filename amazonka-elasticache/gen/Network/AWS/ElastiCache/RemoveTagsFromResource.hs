@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.RemoveTagsFromResource
     -- ** Response constructor
     , tagListMessage
     -- ** Response lenses
-    , rtfrrsTagList
+    , tlmTagList
     ) where
 
 import           Network.AWS.ElastiCache.Types

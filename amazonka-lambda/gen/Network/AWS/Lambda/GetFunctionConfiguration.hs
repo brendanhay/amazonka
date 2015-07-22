@@ -39,16 +39,16 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     -- ** Response constructor
     , functionConfiguration
     -- ** Response lenses
-    , gfcrsRuntime
-    , gfcrsMemorySize
-    , gfcrsFunctionARN
-    , gfcrsRole
-    , gfcrsFunctionName
-    , gfcrsCodeSize
-    , gfcrsHandler
-    , gfcrsTimeout
-    , gfcrsLastModified
-    , gfcrsDescription
+    , fcRuntime
+    , fcMemorySize
+    , fcFunctionARN
+    , fcRole
+    , fcFunctionName
+    , fcCodeSize
+    , fcHandler
+    , fcTimeout
+    , fcLastModified
+    , fcDescription
     ) where
 
 import           Network.AWS.Lambda.Types

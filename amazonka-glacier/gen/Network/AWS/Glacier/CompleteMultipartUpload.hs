@@ -84,9 +84,9 @@ module Network.AWS.Glacier.CompleteMultipartUpload
     -- ** Response constructor
     , archiveCreationOutput
     -- ** Response lenses
-    , cmursArchiveId
-    , cmursChecksum
-    , cmursLocation
+    , acoArchiveId
+    , acoChecksum
+    , acoLocation
     ) where
 
 import           Network.AWS.Glacier.Types

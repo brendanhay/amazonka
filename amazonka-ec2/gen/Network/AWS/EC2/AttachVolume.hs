@@ -67,12 +67,12 @@ module Network.AWS.EC2.AttachVolume
     -- ** Response constructor
     , volumeAttachment
     -- ** Response lenses
-    , avrsInstanceId
-    , avrsDeleteOnTermination
-    , avrsState
-    , avrsDevice
-    , avrsVolumeId
-    , avrsAttachTime
+    , volInstanceId
+    , volDeleteOnTermination
+    , volState
+    , volDevice
+    , volVolumeId
+    , volAttachTime
     ) where
 
 import           Network.AWS.EC2.Types

@@ -48,15 +48,15 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- ** Response constructor
     , configurationSettingsDescription
     -- ** Response lenses
-    , cctrsTemplateName
-    , cctrsOptionSettings
-    , cctrsDateUpdated
-    , cctrsDateCreated
-    , cctrsEnvironmentName
-    , cctrsApplicationName
-    , cctrsDeploymentStatus
-    , cctrsSolutionStackName
-    , cctrsDescription
+    , csdTemplateName
+    , csdOptionSettings
+    , csdDateUpdated
+    , csdDateCreated
+    , csdEnvironmentName
+    , csdApplicationName
+    , csdDeploymentStatus
+    , csdSolutionStackName
+    , csdDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

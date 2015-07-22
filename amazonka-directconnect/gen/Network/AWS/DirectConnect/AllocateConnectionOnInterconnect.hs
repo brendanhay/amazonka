@@ -41,15 +41,15 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     -- ** Response constructor
     , connection
     -- ** Response lenses
-    , acoirsVlan
-    , acoirsLocation
-    , acoirsConnectionId
-    , acoirsConnectionName
-    , acoirsPartnerName
-    , acoirsBandwidth
-    , acoirsRegion
-    , acoirsOwnerAccount
-    , acoirsConnectionState
+    , cVlan
+    , cLocation
+    , cConnectionId
+    , cConnectionName
+    , cPartnerName
+    , cBandwidth
+    , cRegion
+    , cOwnerAccount
+    , cConnectionState
     ) where
 
 import           Network.AWS.DirectConnect.Types

@@ -59,18 +59,18 @@ module Network.AWS.EC2.CreateVolume
     -- ** Response constructor
     , volume
     -- ** Response lenses
-    , crsAttachments
-    , crsIOPS
-    , crsKMSKeyId
-    , crsTags
-    , crsAvailabilityZone
-    , crsCreateTime
-    , crsEncrypted
-    , crsSize
-    , crsSnapshotId
-    , crsState
-    , crsVolumeId
-    , crsVolumeType
+    , vAttachments
+    , vIOPS
+    , vKMSKeyId
+    , vTags
+    , vAvailabilityZone
+    , vCreateTime
+    , vEncrypted
+    , vSize
+    , vSnapshotId
+    , vState
+    , vVolumeId
+    , vVolumeType
     ) where
 
 import           Network.AWS.EC2.Types

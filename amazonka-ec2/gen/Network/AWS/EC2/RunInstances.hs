@@ -91,11 +91,11 @@ module Network.AWS.EC2.RunInstances
     -- ** Response constructor
     , reservation
     -- ** Response lenses
-    , rirsGroups
-    , rirsInstances
-    , rirsRequesterId
-    , rirsReservationId
-    , rirsOwnerId
+    , rGroups
+    , rInstances
+    , rRequesterId
+    , rReservationId
+    , rOwnerId
     ) where
 
 import           Network.AWS.EC2.Types

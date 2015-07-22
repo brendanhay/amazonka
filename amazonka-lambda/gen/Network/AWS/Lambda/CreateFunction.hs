@@ -47,16 +47,16 @@ module Network.AWS.Lambda.CreateFunction
     -- ** Response constructor
     , functionConfiguration
     -- ** Response lenses
-    , cfrsRuntime
-    , cfrsMemorySize
-    , cfrsFunctionARN
-    , cfrsRole
-    , cfrsFunctionName
-    , cfrsCodeSize
-    , cfrsHandler
-    , cfrsTimeout
-    , cfrsLastModified
-    , cfrsDescription
+    , fcRuntime
+    , fcMemorySize
+    , fcFunctionARN
+    , fcRole
+    , fcFunctionName
+    , fcCodeSize
+    , fcHandler
+    , fcTimeout
+    , fcLastModified
+    , fcDescription
     ) where
 
 import           Network.AWS.Lambda.Types

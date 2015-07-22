@@ -78,9 +78,9 @@ module Network.AWS.Glacier.UploadArchive
     -- ** Response constructor
     , archiveCreationOutput
     -- ** Response lenses
-    , uarsArchiveId
-    , uarsChecksum
-    , uarsLocation
+    , acoArchiveId
+    , acoChecksum
+    , acoLocation
     ) where
 
 import           Network.AWS.Glacier.Types

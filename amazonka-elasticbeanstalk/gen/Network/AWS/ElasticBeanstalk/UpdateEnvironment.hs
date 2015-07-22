@@ -54,22 +54,22 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- ** Response constructor
     , environmentDescription
     -- ** Response lenses
-    , uersCNAME
-    , uersStatus
-    , uersTemplateName
-    , uersAbortableOperationInProgress
-    , uersEndpointURL
-    , uersDateUpdated
-    , uersResources
-    , uersHealth
-    , uersVersionLabel
-    , uersDateCreated
-    , uersTier
-    , uersEnvironmentName
-    , uersApplicationName
-    , uersEnvironmentId
-    , uersSolutionStackName
-    , uersDescription
+    , eCNAME
+    , eStatus
+    , eTemplateName
+    , eAbortableOperationInProgress
+    , eEndpointURL
+    , eDateUpdated
+    , eResources
+    , eHealth
+    , eVersionLabel
+    , eDateCreated
+    , eTier
+    , eEnvironmentName
+    , eApplicationName
+    , eEnvironmentId
+    , eSolutionStackName
+    , eDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

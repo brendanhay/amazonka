@@ -34,9 +34,9 @@ module Network.AWS.S3.GetBucketNotificationConfiguration
     -- ** Response constructor
     , notificationConfiguration
     -- ** Response lenses
-    , gbncrsQueueConfigurations
-    , gbncrsTopicConfigurations
-    , gbncrsLambdaFunctionConfigurations
+    , ncQueueConfigurations
+    , ncTopicConfigurations
+    , ncLambdaFunctionConfigurations
     ) where
 
 import           Network.AWS.Prelude

@@ -45,22 +45,22 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     -- ** Response constructor
     , environmentDescription
     -- ** Response lenses
-    , cersCNAME
-    , cersStatus
-    , cersTemplateName
-    , cersAbortableOperationInProgress
-    , cersEndpointURL
-    , cersDateUpdated
-    , cersResources
-    , cersHealth
-    , cersVersionLabel
-    , cersDateCreated
-    , cersTier
-    , cersEnvironmentName
-    , cersApplicationName
-    , cersEnvironmentId
-    , cersSolutionStackName
-    , cersDescription
+    , eCNAME
+    , eStatus
+    , eTemplateName
+    , eAbortableOperationInProgress
+    , eEndpointURL
+    , eDateUpdated
+    , eResources
+    , eHealth
+    , eVersionLabel
+    , eDateCreated
+    , eTier
+    , eEnvironmentName
+    , eApplicationName
+    , eEnvironmentId
+    , eSolutionStackName
+    , eDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

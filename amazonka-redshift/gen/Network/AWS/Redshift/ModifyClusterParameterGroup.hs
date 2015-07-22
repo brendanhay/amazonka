@@ -39,8 +39,8 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- ** Response constructor
     , clusterParameterGroupNameMessage
     -- ** Response lenses
-    , mcpgrsParameterGroupStatus
-    , mcpgrsParameterGroupName
+    , cpgnmParameterGroupStatus
+    , cpgnmParameterGroupName
     ) where
 
 import           Network.AWS.Prelude

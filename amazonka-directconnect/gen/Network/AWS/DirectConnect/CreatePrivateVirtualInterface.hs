@@ -37,21 +37,21 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     -- ** Response constructor
     , virtualInterface
     -- ** Response lenses
-    , crsVirtualGatewayId
-    , crsRouteFilterPrefixes
-    , crsCustomerAddress
-    , crsVlan
-    , crsLocation
-    , crsAmazonAddress
-    , crsVirtualInterfaceState
-    , crsConnectionId
-    , crsAsn
-    , crsVirtualInterfaceType
-    , crsAuthKey
-    , crsCustomerRouterConfig
-    , crsOwnerAccount
-    , crsVirtualInterfaceName
-    , crsVirtualInterfaceId
+    , viVirtualGatewayId
+    , viRouteFilterPrefixes
+    , viCustomerAddress
+    , viVlan
+    , viLocation
+    , viAmazonAddress
+    , viVirtualInterfaceState
+    , viConnectionId
+    , viAsn
+    , viVirtualInterfaceType
+    , viAuthKey
+    , viCustomerRouterConfig
+    , viOwnerAccount
+    , viVirtualInterfaceName
+    , viVirtualInterfaceId
     ) where
 
 import           Network.AWS.DirectConnect.Types

@@ -55,7 +55,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     -- ** Response constructor
     , dbParameterGroupNameMessage
     -- ** Response lenses
-    , mdpgrsDBParameterGroupName
+    , dpgnmDBParameterGroupName
     ) where
 
 import           Network.AWS.Prelude

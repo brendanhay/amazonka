@@ -40,8 +40,8 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     -- ** Response constructor
     , clusterParameterGroupNameMessage
     -- ** Response lenses
-    , rcpgrsParameterGroupStatus
-    , rcpgrsParameterGroupName
+    , cpgnmParameterGroupStatus
+    , cpgnmParameterGroupName
     ) where
 
 import           Network.AWS.Prelude

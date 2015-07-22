@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- ** Response constructor
     , cacheParameterGroupNameMessage
     -- ** Response lenses
-    , mcpgrsCacheParameterGroupName
+    , cpgnmCacheParameterGroupName
     ) where
 
 import           Network.AWS.ElastiCache.Types

@@ -44,14 +44,14 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     -- ** Response constructor
     , eventSourceMappingConfiguration
     -- ** Response lenses
-    , uesmrsEventSourceARN
-    , uesmrsFunctionARN
-    , uesmrsState
-    , uesmrsUUId
-    , uesmrsLastProcessingResult
-    , uesmrsBatchSize
-    , uesmrsStateTransitionReason
-    , uesmrsLastModified
+    , esmcEventSourceARN
+    , esmcFunctionARN
+    , esmcState
+    , esmcUUId
+    , esmcLastProcessingResult
+    , esmcBatchSize
+    , esmcStateTransitionReason
+    , esmcLastModified
     ) where
 
 import           Network.AWS.Lambda.Types

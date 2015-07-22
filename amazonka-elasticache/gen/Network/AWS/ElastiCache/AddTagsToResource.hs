@@ -46,7 +46,7 @@ module Network.AWS.ElastiCache.AddTagsToResource
     -- ** Response constructor
     , tagListMessage
     -- ** Response lenses
-    , attrrsTagList
+    , tlmTagList
     ) where
 
 import           Network.AWS.ElastiCache.Types

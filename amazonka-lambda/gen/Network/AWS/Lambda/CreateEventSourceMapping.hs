@@ -57,14 +57,14 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     -- ** Response constructor
     , eventSourceMappingConfiguration
     -- ** Response lenses
-    , cesmrsEventSourceARN
-    , cesmrsFunctionARN
-    , cesmrsState
-    , cesmrsUUId
-    , cesmrsLastProcessingResult
-    , cesmrsBatchSize
-    , cesmrsStateTransitionReason
-    , cesmrsLastModified
+    , esmcEventSourceARN
+    , esmcFunctionARN
+    , esmcState
+    , esmcUUId
+    , esmcLastProcessingResult
+    , esmcBatchSize
+    , esmcStateTransitionReason
+    , esmcLastModified
     ) where
 
 import           Network.AWS.Lambda.Types

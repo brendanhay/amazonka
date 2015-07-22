@@ -43,7 +43,7 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- ** Response constructor
     , dbParameterGroupNameMessage
     -- ** Response lenses
-    , rdpgrsDBParameterGroupName
+    , dpgnmDBParameterGroupName
     ) where
 
 import           Network.AWS.Prelude

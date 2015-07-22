@@ -43,16 +43,16 @@ module Network.AWS.Lambda.UpdateFunctionCode
     -- ** Response constructor
     , functionConfiguration
     -- ** Response lenses
-    , ursRuntime
-    , ursMemorySize
-    , ursFunctionARN
-    , ursRole
-    , ursFunctionName
-    , ursCodeSize
-    , ursHandler
-    , ursTimeout
-    , ursLastModified
-    , ursDescription
+    , fcRuntime
+    , fcMemorySize
+    , fcFunctionARN
+    , fcRole
+    , fcFunctionName
+    , fcCodeSize
+    , fcHandler
+    , fcTimeout
+    , fcLastModified
+    , fcDescription
     ) where
 
 import           Network.AWS.Lambda.Types

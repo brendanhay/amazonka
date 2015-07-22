@@ -136,13 +136,13 @@ module Network.AWS.EFS.CreateMountTarget
     -- ** Response constructor
     , mountTargetDescription
     -- ** Response lenses
-    , cmtrsIPAddress
-    , cmtrsNetworkInterfaceId
-    , cmtrsOwnerId
-    , cmtrsMountTargetId
-    , cmtrsFileSystemId
-    , cmtrsSubnetId
-    , cmtrsLifeCycleState
+    , mtdIPAddress
+    , mtdNetworkInterfaceId
+    , mtdOwnerId
+    , mtdMountTargetId
+    , mtdFileSystemId
+    , mtdSubnetId
+    , mtdLifeCycleState
     ) where
 
 import           Network.AWS.EFS.Types

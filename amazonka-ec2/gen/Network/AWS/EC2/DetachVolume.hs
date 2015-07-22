@@ -52,12 +52,12 @@ module Network.AWS.EC2.DetachVolume
     -- ** Response constructor
     , volumeAttachment
     -- ** Response lenses
-    , dvrsInstanceId
-    , dvrsDeleteOnTermination
-    , dvrsState
-    , dvrsDevice
-    , dvrsVolumeId
-    , dvrsAttachTime
+    , volInstanceId
+    , volDeleteOnTermination
+    , volState
+    , volDevice
+    , volVolumeId
+    , volAttachTime
     ) where
 
 import           Network.AWS.EC2.Types

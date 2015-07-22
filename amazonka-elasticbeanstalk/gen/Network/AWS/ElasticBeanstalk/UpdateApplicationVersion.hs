@@ -40,7 +40,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     -- ** Response constructor
     , applicationVersionDescriptionMessage
     -- ** Response lenses
-    , uavrsApplicationVersion
+    , avdmApplicationVersion
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types

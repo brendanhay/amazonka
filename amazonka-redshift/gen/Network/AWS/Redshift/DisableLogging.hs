@@ -35,12 +35,12 @@ module Network.AWS.Redshift.DisableLogging
     -- ** Response constructor
     , loggingStatus
     -- ** Response lenses
-    , dlrsLastSuccessfulDeliveryTime
-    , dlrsLastFailureTime
-    , dlrsS3KeyPrefix
-    , dlrsBucketName
-    , dlrsLoggingEnabled
-    , dlrsLastFailureMessage
+    , lsLastSuccessfulDeliveryTime
+    , lsLastFailureTime
+    , lsS3KeyPrefix
+    , lsBucketName
+    , lsLoggingEnabled
+    , lsLastFailureMessage
     ) where
 
 import           Network.AWS.Prelude

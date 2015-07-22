@@ -37,10 +37,10 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
     -- ** Response constructor
     , identityDescription
     -- ** Response lenses
-    , dirsLastModifiedDate
-    , dirsCreationDate
-    , dirsLogins
-    , dirsIdentityId
+    , idLastModifiedDate
+    , idCreationDate
+    , idLogins
+    , idIdentityId
     ) where
 
 import           Network.AWS.CognitoIdentity.Types

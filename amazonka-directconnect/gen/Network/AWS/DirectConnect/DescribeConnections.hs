@@ -37,7 +37,7 @@ module Network.AWS.DirectConnect.DescribeConnections
     -- ** Response constructor
     , connections
     -- ** Response lenses
-    , drsConnections
+    , cConnections
     ) where
 
 import           Network.AWS.DirectConnect.Types

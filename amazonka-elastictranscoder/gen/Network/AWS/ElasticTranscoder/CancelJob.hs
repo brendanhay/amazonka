@@ -38,7 +38,7 @@ module Network.AWS.ElasticTranscoder.CancelJob
     -- ** Response constructor
     , cancelJobResponse
     -- ** Response lenses
-    , cjrsStatus
+    , canrsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -97,18 +97,18 @@ instance ToQuery CancelJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjrsStatus'
+-- * 'canrsStatus'
 newtype CancelJobResponse = CancelJobResponse'
-    { _cjrsStatus :: Int
+    { _canrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
 cancelJobResponse pStatus =
     CancelJobResponse'
-    { _cjrsStatus = pStatus
+    { _canrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cjrsStatus :: Lens' CancelJobResponse Int
-cjrsStatus = lens _cjrsStatus (\ s a -> s{_cjrsStatus = a});
+canrsStatus :: Lens' CancelJobResponse Int
+canrsStatus = lens _canrsStatus (\ s a -> s{_canrsStatus = a});

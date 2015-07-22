@@ -36,8 +36,8 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- ** Response constructor
     , describeNetworkInterfacesResponse
     -- ** Response lenses
-    , dnisrsNetworkInterfaces
-    , dnisrsStatus
+    , dnirsNetworkInterfaces
+    , dnirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -227,26 +227,26 @@ instance ToQuery DescribeNetworkInterfaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnisrsNetworkInterfaces'
+-- * 'dnirsNetworkInterfaces'
 --
--- * 'dnisrsStatus'
+-- * 'dnirsStatus'
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
-    { _dnisrsNetworkInterfaces :: !(Maybe [NetworkInterface])
-    , _dnisrsStatus            :: !Int
+    { _dnirsNetworkInterfaces :: !(Maybe [NetworkInterface])
+    , _dnirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
 describeNetworkInterfacesResponse :: Int -> DescribeNetworkInterfacesResponse
 describeNetworkInterfacesResponse pStatus =
     DescribeNetworkInterfacesResponse'
-    { _dnisrsNetworkInterfaces = Nothing
-    , _dnisrsStatus = pStatus
+    { _dnirsNetworkInterfaces = Nothing
+    , _dnirsStatus = pStatus
     }
 
 -- | Information about one or more network interfaces.
-dnisrsNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
-dnisrsNetworkInterfaces = lens _dnisrsNetworkInterfaces (\ s a -> s{_dnisrsNetworkInterfaces = a}) . _Default;
+dnirsNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
+dnirsNetworkInterfaces = lens _dnirsNetworkInterfaces (\ s a -> s{_dnirsNetworkInterfaces = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dnisrsStatus :: Lens' DescribeNetworkInterfacesResponse Int
-dnisrsStatus = lens _dnisrsStatus (\ s a -> s{_dnisrsStatus = a});
+dnirsStatus :: Lens' DescribeNetworkInterfacesResponse Int
+dnirsStatus = lens _dnirsStatus (\ s a -> s{_dnirsStatus = a});

@@ -39,8 +39,8 @@ module Network.AWS.EC2.DescribeRegions
     -- ** Response constructor
     , describeRegionsResponse
     -- ** Response lenses
-    , drsrsRegions
-    , drsrsStatus
+    , drrsRegions
+    , drrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -125,26 +125,26 @@ instance ToQuery DescribeRegions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsrsRegions'
+-- * 'drrsRegions'
 --
--- * 'drsrsStatus'
+-- * 'drrsStatus'
 data DescribeRegionsResponse = DescribeRegionsResponse'
-    { _drsrsRegions :: !(Maybe [RegionInfo])
-    , _drsrsStatus  :: !Int
+    { _drrsRegions :: !(Maybe [RegionInfo])
+    , _drrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRegionsResponse' smart constructor.
 describeRegionsResponse :: Int -> DescribeRegionsResponse
 describeRegionsResponse pStatus =
     DescribeRegionsResponse'
-    { _drsrsRegions = Nothing
-    , _drsrsStatus = pStatus
+    { _drrsRegions = Nothing
+    , _drrsStatus = pStatus
     }
 
 -- | Information about one or more regions.
-drsrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
-drsrsRegions = lens _drsrsRegions (\ s a -> s{_drsrsRegions = a}) . _Default;
+drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
+drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drsrsStatus :: Lens' DescribeRegionsResponse Int
-drsrsStatus = lens _drsrsStatus (\ s a -> s{_drsrsStatus = a});
+drrsStatus :: Lens' DescribeRegionsResponse Int
+drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

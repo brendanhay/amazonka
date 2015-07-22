@@ -34,8 +34,8 @@ module Network.AWS.DirectoryService.DeleteDirectory
     -- ** Response constructor
     , deleteDirectoryResponse
     -- ** Response lenses
-    , ddrsDirectoryId
-    , ddrsStatus
+    , delrsDirectoryId
+    , delrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -101,26 +101,26 @@ instance ToQuery DeleteDirectory where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrsDirectoryId'
+-- * 'delrsDirectoryId'
 --
--- * 'ddrsStatus'
+-- * 'delrsStatus'
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-    { _ddrsDirectoryId :: !(Maybe Text)
-    , _ddrsStatus      :: !Int
+    { _delrsDirectoryId :: !(Maybe Text)
+    , _delrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDirectoryResponse' smart constructor.
 deleteDirectoryResponse :: Int -> DeleteDirectoryResponse
 deleteDirectoryResponse pStatus =
     DeleteDirectoryResponse'
-    { _ddrsDirectoryId = Nothing
-    , _ddrsStatus = pStatus
+    { _delrsDirectoryId = Nothing
+    , _delrsStatus = pStatus
     }
 
 -- | The directory identifier.
-ddrsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
-ddrsDirectoryId = lens _ddrsDirectoryId (\ s a -> s{_ddrsDirectoryId = a});
+delrsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
+delrsDirectoryId = lens _delrsDirectoryId (\ s a -> s{_delrsDirectoryId = a});
 
 -- | FIXME: Undocumented member.
-ddrsStatus :: Lens' DeleteDirectoryResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+delrsStatus :: Lens' DeleteDirectoryResponse Int
+delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

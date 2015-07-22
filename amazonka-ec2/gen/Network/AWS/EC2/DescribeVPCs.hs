@@ -36,8 +36,8 @@ module Network.AWS.EC2.DescribeVPCs
     -- ** Response constructor
     , describeVPCsResponse
     -- ** Response lenses
-    , dvsrsVPCs
-    , dvsrsStatus
+    , dvrsVPCs
+    , dvrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -145,26 +145,26 @@ instance ToQuery DescribeVPCs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvsrsVPCs'
+-- * 'dvrsVPCs'
 --
--- * 'dvsrsStatus'
+-- * 'dvrsStatus'
 data DescribeVPCsResponse = DescribeVPCsResponse'
-    { _dvsrsVPCs   :: !(Maybe [VPC])
-    , _dvsrsStatus :: !Int
+    { _dvrsVPCs   :: !(Maybe [VPC])
+    , _dvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCsResponse' smart constructor.
 describeVPCsResponse :: Int -> DescribeVPCsResponse
 describeVPCsResponse pStatus =
     DescribeVPCsResponse'
-    { _dvsrsVPCs = Nothing
-    , _dvsrsStatus = pStatus
+    { _dvrsVPCs = Nothing
+    , _dvrsStatus = pStatus
     }
 
 -- | Information about one or more VPCs.
-dvsrsVPCs :: Lens' DescribeVPCsResponse [VPC]
-dvsrsVPCs = lens _dvsrsVPCs (\ s a -> s{_dvsrsVPCs = a}) . _Default;
+dvrsVPCs :: Lens' DescribeVPCsResponse [VPC]
+dvrsVPCs = lens _dvrsVPCs (\ s a -> s{_dvrsVPCs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvsrsStatus :: Lens' DescribeVPCsResponse Int
-dvsrsStatus = lens _dvsrsStatus (\ s a -> s{_dvsrsStatus = a});
+dvrsStatus :: Lens' DescribeVPCsResponse Int
+dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});

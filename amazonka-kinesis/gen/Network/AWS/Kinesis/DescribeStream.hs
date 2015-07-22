@@ -58,8 +58,8 @@ module Network.AWS.Kinesis.DescribeStream
     -- ** Response constructor
     , describeStreamResponse
     -- ** Response lenses
-    , drsStatus
-    , drsStreamDescription
+    , dsrsStatus
+    , dsrsStreamDescription
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -108,17 +108,18 @@ drqStreamName = lens _drqStreamName (\ s a -> s{_drqStreamName = a});
 
 instance AWSPager DescribeStream where
         page rq rs
-          | stop (rs ^. drsStreamDescription . sdHasMoreShards)
+          | stop
+              (rs ^. dsrsStreamDescription . sdHasMoreShards)
             = Nothing
           | isNothing
               (rs ^?
-                 drsStreamDescription . sdShards . _last . sShardId)
+                 dsrsStreamDescription . sdShards . _last . sShardId)
             = Nothing
           | otherwise =
             Just $ rq &
               drqExclusiveStartShardId .~
                 rs ^?
-                  drsStreamDescription . sdShards . _last . sShardId
+                  dsrsStreamDescription . sdShards . _last . sShardId
 
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = Kinesis
@@ -158,28 +159,28 @@ instance ToQuery DescribeStream where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsStatus'
+-- * 'dsrsStatus'
 --
--- * 'drsStreamDescription'
+-- * 'dsrsStreamDescription'
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _drsStatus            :: !Int
-    , _drsStreamDescription :: !StreamDescription
+    { _dsrsStatus            :: !Int
+    , _dsrsStreamDescription :: !StreamDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: Int -> StreamDescription -> DescribeStreamResponse
 describeStreamResponse pStatus pStreamDescription =
     DescribeStreamResponse'
-    { _drsStatus = pStatus
-    , _drsStreamDescription = pStreamDescription
+    { _dsrsStatus = pStatus
+    , _dsrsStreamDescription = pStreamDescription
     }
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DescribeStreamResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dsrsStatus :: Lens' DescribeStreamResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
 
 -- | The current status of the stream, the stream ARN, an array of shard
 -- objects that comprise the stream, and states whether there are more
 -- shards available.
-drsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
-drsStreamDescription = lens _drsStreamDescription (\ s a -> s{_drsStreamDescription = a});
+dsrsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
+dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});

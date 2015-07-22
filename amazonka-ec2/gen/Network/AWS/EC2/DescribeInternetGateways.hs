@@ -36,8 +36,8 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- ** Response constructor
     , describeInternetGatewaysResponse
     -- ** Response lenses
-    , drsInternetGateways
-    , drsStatus
+    , digrsInternetGateways
+    , digrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -143,26 +143,26 @@ instance ToQuery DescribeInternetGateways where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsInternetGateways'
+-- * 'digrsInternetGateways'
 --
--- * 'drsStatus'
+-- * 'digrsStatus'
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
-    { _drsInternetGateways :: !(Maybe [InternetGateway])
-    , _drsStatus           :: !Int
+    { _digrsInternetGateways :: !(Maybe [InternetGateway])
+    , _digrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
 describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse
 describeInternetGatewaysResponse pStatus =
     DescribeInternetGatewaysResponse'
-    { _drsInternetGateways = Nothing
-    , _drsStatus = pStatus
+    { _digrsInternetGateways = Nothing
+    , _digrsStatus = pStatus
     }
 
 -- | Information about one or more Internet gateways.
-drsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
-drsInternetGateways = lens _drsInternetGateways (\ s a -> s{_drsInternetGateways = a}) . _Default;
+digrsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+digrsInternetGateways = lens _digrsInternetGateways (\ s a -> s{_digrsInternetGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DescribeInternetGatewaysResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+digrsStatus :: Lens' DescribeInternetGatewaysResponse Int
+digrsStatus = lens _digrsStatus (\ s a -> s{_digrsStatus = a});

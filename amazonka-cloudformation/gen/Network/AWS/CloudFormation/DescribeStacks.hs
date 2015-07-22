@@ -36,9 +36,9 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- ** Response constructor
     , describeStacksResponse
     -- ** Response lenses
-    , drsNextToken
-    , drsStacks
-    , drsStatus
+    , dsrsNextToken
+    , dsrsStacks
+    , dsrsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -87,10 +87,10 @@ drqStackName = lens _drqStackName (\ s a -> s{_drqStackName = a});
 
 instance AWSPager DescribeStacks where
         page rq rs
-          | stop (rs ^. drsNextToken) = Nothing
-          | stop (rs ^. drsStacks) = Nothing
+          | stop (rs ^. dsrsNextToken) = Nothing
+          | stop (rs ^. dsrsStacks) = Nothing
           | otherwise =
-            Just $ rq & drqNextToken .~ rs ^. drsNextToken
+            Just $ rq & drqNextToken .~ rs ^. dsrsNextToken
 
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = CloudFormation
@@ -125,35 +125,35 @@ instance ToQuery DescribeStacks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsNextToken'
+-- * 'dsrsNextToken'
 --
--- * 'drsStacks'
+-- * 'dsrsStacks'
 --
--- * 'drsStatus'
+-- * 'dsrsStatus'
 data DescribeStacksResponse = DescribeStacksResponse'
-    { _drsNextToken :: !(Maybe Text)
-    , _drsStacks    :: !(Maybe [Stack])
-    , _drsStatus    :: !Int
+    { _dsrsNextToken :: !(Maybe Text)
+    , _dsrsStacks    :: !(Maybe [Stack])
+    , _dsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse
 describeStacksResponse pStatus =
     DescribeStacksResponse'
-    { _drsNextToken = Nothing
-    , _drsStacks = Nothing
-    , _drsStatus = pStatus
+    { _dsrsNextToken = Nothing
+    , _dsrsStacks = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-drsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+dsrsNextToken :: Lens' DescribeStacksResponse (Maybe Text)
+dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 
 -- | A list of stack structures.
-drsStacks :: Lens' DescribeStacksResponse [Stack]
-drsStacks = lens _drsStacks (\ s a -> s{_drsStacks = a}) . _Default;
+dsrsStacks :: Lens' DescribeStacksResponse [Stack]
+dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DescribeStacksResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dsrsStatus :: Lens' DescribeStacksResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

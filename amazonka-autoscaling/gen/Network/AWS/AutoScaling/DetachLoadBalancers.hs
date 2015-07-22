@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     -- ** Response constructor
     , detachLoadBalancersResponse
     -- ** Response lenses
-    , drsStatus
+    , dlbsrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -107,18 +107,18 @@ instance ToQuery DetachLoadBalancers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsStatus'
+-- * 'dlbsrsStatus'
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
-    { _drsStatus :: Int
+    { _dlbsrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
 detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse
 detachLoadBalancersResponse pStatus =
     DetachLoadBalancersResponse'
-    { _drsStatus = pStatus
+    { _dlbsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DetachLoadBalancersResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dlbsrsStatus :: Lens' DetachLoadBalancersResponse Int
+dlbsrsStatus = lens _dlbsrsStatus (\ s a -> s{_dlbsrsStatus = a});

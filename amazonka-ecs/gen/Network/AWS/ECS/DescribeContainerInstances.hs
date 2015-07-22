@@ -37,9 +37,9 @@ module Network.AWS.ECS.DescribeContainerInstances
     -- ** Response constructor
     , describeContainerInstancesResponse
     -- ** Response lenses
-    , dcirsFailures
-    , dcirsContainerInstances
-    , dcirsStatus
+    , dcisrsFailures
+    , dcisrsContainerInstances
+    , dcisrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -117,34 +117,34 @@ instance ToQuery DescribeContainerInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcirsFailures'
+-- * 'dcisrsFailures'
 --
--- * 'dcirsContainerInstances'
+-- * 'dcisrsContainerInstances'
 --
--- * 'dcirsStatus'
+-- * 'dcisrsStatus'
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
-    { _dcirsFailures           :: !(Maybe [Failure])
-    , _dcirsContainerInstances :: !(Maybe [ContainerInstance])
-    , _dcirsStatus             :: !Int
+    { _dcisrsFailures           :: !(Maybe [Failure])
+    , _dcisrsContainerInstances :: !(Maybe [ContainerInstance])
+    , _dcisrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
 describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse
 describeContainerInstancesResponse pStatus =
     DescribeContainerInstancesResponse'
-    { _dcirsFailures = Nothing
-    , _dcirsContainerInstances = Nothing
-    , _dcirsStatus = pStatus
+    { _dcisrsFailures = Nothing
+    , _dcisrsContainerInstances = Nothing
+    , _dcisrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dcirsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
-dcirsFailures = lens _dcirsFailures (\ s a -> s{_dcirsFailures = a}) . _Default;
+dcisrsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
+dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Default;
 
 -- | The list of container instances.
-dcirsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
-dcirsContainerInstances = lens _dcirsContainerInstances (\ s a -> s{_dcirsContainerInstances = a}) . _Default;
+dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
+dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcirsStatus :: Lens' DescribeContainerInstancesResponse Int
-dcirsStatus = lens _dcirsStatus (\ s a -> s{_dcirsStatus = a});
+dcisrsStatus :: Lens' DescribeContainerInstancesResponse Int
+dcisrsStatus = lens _dcisrsStatus (\ s a -> s{_dcisrsStatus = a});

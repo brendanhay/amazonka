@@ -38,9 +38,9 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- ** Response constructor
     , describePoliciesResponse
     -- ** Response lenses
-    , dpsrsNextToken
-    , dpsrsScalingPolicies
-    , dpsrsStatus
+    , dprsNextToken
+    , dprsScalingPolicies
+    , dprsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -108,10 +108,10 @@ dpsrqPolicyTypes = lens _dpsrqPolicyTypes (\ s a -> s{_dpsrqPolicyTypes = a}) . 
 
 instance AWSPager DescribePolicies where
         page rq rs
-          | stop (rs ^. dpsrsNextToken) = Nothing
-          | stop (rs ^. dpsrsScalingPolicies) = Nothing
+          | stop (rs ^. dprsNextToken) = Nothing
+          | stop (rs ^. dprsScalingPolicies) = Nothing
           | otherwise =
-            Just $ rq & dpsrqNextToken .~ rs ^. dpsrsNextToken
+            Just $ rq & dpsrqNextToken .~ rs ^. dprsNextToken
 
 instance AWSRequest DescribePolicies where
         type Sv DescribePolicies = AutoScaling
@@ -149,35 +149,35 @@ instance ToQuery DescribePolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpsrsNextToken'
+-- * 'dprsNextToken'
 --
--- * 'dpsrsScalingPolicies'
+-- * 'dprsScalingPolicies'
 --
--- * 'dpsrsStatus'
+-- * 'dprsStatus'
 data DescribePoliciesResponse = DescribePoliciesResponse'
-    { _dpsrsNextToken       :: !(Maybe Text)
-    , _dpsrsScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _dpsrsStatus          :: !Int
+    { _dprsNextToken       :: !(Maybe Text)
+    , _dprsScalingPolicies :: !(Maybe [ScalingPolicy])
+    , _dprsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePoliciesResponse' smart constructor.
 describePoliciesResponse :: Int -> DescribePoliciesResponse
 describePoliciesResponse pStatus =
     DescribePoliciesResponse'
-    { _dpsrsNextToken = Nothing
-    , _dpsrsScalingPolicies = Nothing
-    , _dpsrsStatus = pStatus
+    { _dprsNextToken = Nothing
+    , _dprsScalingPolicies = Nothing
+    , _dprsStatus = pStatus
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dpsrsNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
-dpsrsNextToken = lens _dpsrsNextToken (\ s a -> s{_dpsrsNextToken = a});
+dprsNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
+dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a});
 
 -- | The scaling policies.
-dpsrsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
-dpsrsScalingPolicies = lens _dpsrsScalingPolicies (\ s a -> s{_dpsrsScalingPolicies = a}) . _Default;
+dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
+dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dpsrsStatus :: Lens' DescribePoliciesResponse Int
-dpsrsStatus = lens _dpsrsStatus (\ s a -> s{_dpsrsStatus = a});
+dprsStatus :: Lens' DescribePoliciesResponse Int
+dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

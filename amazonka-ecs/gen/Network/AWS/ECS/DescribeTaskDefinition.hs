@@ -39,8 +39,8 @@ module Network.AWS.ECS.DescribeTaskDefinition
     -- ** Response constructor
     , describeTaskDefinitionResponse
     -- ** Response lenses
-    , dtdrsTaskDefinition
-    , dtdrsStatus
+    , desrsTaskDefinition
+    , desrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -106,26 +106,26 @@ instance ToQuery DescribeTaskDefinition where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtdrsTaskDefinition'
+-- * 'desrsTaskDefinition'
 --
--- * 'dtdrsStatus'
+-- * 'desrsStatus'
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
-    { _dtdrsTaskDefinition :: !(Maybe TaskDefinition)
-    , _dtdrsStatus         :: !Int
+    { _desrsTaskDefinition :: !(Maybe TaskDefinition)
+    , _desrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
 describeTaskDefinitionResponse :: Int -> DescribeTaskDefinitionResponse
 describeTaskDefinitionResponse pStatus =
     DescribeTaskDefinitionResponse'
-    { _dtdrsTaskDefinition = Nothing
-    , _dtdrsStatus = pStatus
+    { _desrsTaskDefinition = Nothing
+    , _desrsStatus = pStatus
     }
 
 -- | The full task definition description.
-dtdrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
-dtdrsTaskDefinition = lens _dtdrsTaskDefinition (\ s a -> s{_dtdrsTaskDefinition = a});
+desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
+desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-dtdrsStatus :: Lens' DescribeTaskDefinitionResponse Int
-dtdrsStatus = lens _dtdrsStatus (\ s a -> s{_dtdrsStatus = a});
+desrsStatus :: Lens' DescribeTaskDefinitionResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

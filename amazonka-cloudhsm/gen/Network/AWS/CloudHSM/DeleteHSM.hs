@@ -35,7 +35,7 @@ module Network.AWS.CloudHSM.DeleteHSM
     -- ** Response constructor
     , deleteHSMResponse
     -- ** Response lenses
-    , dhrsStatus
+    , dhsmrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -99,18 +99,18 @@ instance ToQuery DeleteHSM where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhrsStatus'
+-- * 'dhsmrsStatus'
 newtype DeleteHSMResponse = DeleteHSMResponse'
-    { _dhrsStatus :: Int
+    { _dhsmrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSMResponse' smart constructor.
 deleteHSMResponse :: Int -> DeleteHSMResponse
 deleteHSMResponse pStatus =
     DeleteHSMResponse'
-    { _dhrsStatus = pStatus
+    { _dhsmrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dhrsStatus :: Lens' DeleteHSMResponse Int
-dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});
+dhsmrsStatus :: Lens' DeleteHSMResponse Int
+dhsmrsStatus = lens _dhsmrsStatus (\ s a -> s{_dhsmrsStatus = a});

@@ -63,8 +63,8 @@ module Network.AWS.EC2.CreateSubnet
     -- ** Response constructor
     , createSubnetResponse
     -- ** Response lenses
-    , crersSubnet
-    , crersStatus
+    , crsSubnet
+    , crsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -151,26 +151,26 @@ instance ToQuery CreateSubnet where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crersSubnet'
+-- * 'crsSubnet'
 --
--- * 'crersStatus'
+-- * 'crsStatus'
 data CreateSubnetResponse = CreateSubnetResponse'
-    { _crersSubnet :: !(Maybe Subnet)
-    , _crersStatus :: !Int
+    { _crsSubnet :: !(Maybe Subnet)
+    , _crsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSubnetResponse' smart constructor.
 createSubnetResponse :: Int -> CreateSubnetResponse
 createSubnetResponse pStatus =
     CreateSubnetResponse'
-    { _crersSubnet = Nothing
-    , _crersStatus = pStatus
+    { _crsSubnet = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | Information about the subnet.
-crersSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-crersSubnet = lens _crersSubnet (\ s a -> s{_crersSubnet = a});
+crsSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
+crsSubnet = lens _crsSubnet (\ s a -> s{_crsSubnet = a});
 
 -- | FIXME: Undocumented member.
-crersStatus :: Lens' CreateSubnetResponse Int
-crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});
+crsStatus :: Lens' CreateSubnetResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

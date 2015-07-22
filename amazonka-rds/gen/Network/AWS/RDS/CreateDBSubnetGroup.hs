@@ -38,8 +38,8 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- ** Response constructor
     , createDBSubnetGroupResponse
     -- ** Response lenses
-    , cdbsgrsDBSubnetGroup
-    , cdbsgrsStatus
+    , cdsgrsDBSubnetGroup
+    , cdsgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -133,26 +133,26 @@ instance ToQuery CreateDBSubnetGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsgrsDBSubnetGroup'
+-- * 'cdsgrsDBSubnetGroup'
 --
--- * 'cdbsgrsStatus'
+-- * 'cdsgrsStatus'
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
-    { _cdbsgrsDBSubnetGroup :: !(Maybe DBSubnetGroup)
-    , _cdbsgrsStatus        :: !Int
+    { _cdsgrsDBSubnetGroup :: !(Maybe DBSubnetGroup)
+    , _cdsgrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSubnetGroupResponse' smart constructor.
 createDBSubnetGroupResponse :: Int -> CreateDBSubnetGroupResponse
 createDBSubnetGroupResponse pStatus =
     CreateDBSubnetGroupResponse'
-    { _cdbsgrsDBSubnetGroup = Nothing
-    , _cdbsgrsStatus = pStatus
+    { _cdsgrsDBSubnetGroup = Nothing
+    , _cdsgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cdbsgrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
-cdbsgrsDBSubnetGroup = lens _cdbsgrsDBSubnetGroup (\ s a -> s{_cdbsgrsDBSubnetGroup = a});
+cdsgrsDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
+cdsgrsDBSubnetGroup = lens _cdsgrsDBSubnetGroup (\ s a -> s{_cdsgrsDBSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-cdbsgrsStatus :: Lens' CreateDBSubnetGroupResponse Int
-cdbsgrsStatus = lens _cdbsgrsStatus (\ s a -> s{_cdbsgrsStatus = a});
+cdsgrsStatus :: Lens' CreateDBSubnetGroupResponse Int
+cdsgrsStatus = lens _cdsgrsStatus (\ s a -> s{_cdsgrsStatus = a});

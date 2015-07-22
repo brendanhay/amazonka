@@ -31,12 +31,12 @@ servicesInactive =
     , _waitAcceptors = [ matchAny
                              "MISSING"
                              AcceptFailure
-                             (folding (concatOf drsFailures) .
+                             (folding (concatOf dssrsFailures) .
                               fReason . _Just . to toText)
                        , matchAny
                              "INACTIVE"
                              AcceptSuccess
-                             (folding (concatOf drsServices) .
+                             (folding (concatOf dssrsServices) .
                               csStatus . _Just . to toText)]
     }
 

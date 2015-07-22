@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     -- ** Response constructor
     , deleteLifecycleHookResponse
     -- ** Response lenses
-    , delrsStatus
+    , drsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -103,18 +103,18 @@ instance ToQuery DeleteLifecycleHook where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrsStatus'
+-- * 'drsStatus'
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
-    { _delrsStatus :: Int
+    { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLifecycleHookResponse' smart constructor.
 deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse
 deleteLifecycleHookResponse pStatus =
     DeleteLifecycleHookResponse'
-    { _delrsStatus = pStatus
+    { _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delrsStatus :: Lens' DeleteLifecycleHookResponse Int
-delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
+drsStatus :: Lens' DeleteLifecycleHookResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

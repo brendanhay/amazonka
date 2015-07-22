@@ -42,9 +42,9 @@ module Network.AWS.ECS.StartTask
     -- ** Response constructor
     , startTaskResponse
     -- ** Response lenses
-    , srsFailures
-    , srsTasks
-    , srsStatus
+    , strsFailures
+    , strsTasks
+    , strsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -168,35 +168,35 @@ instance ToQuery StartTask where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srsFailures'
+-- * 'strsFailures'
 --
--- * 'srsTasks'
+-- * 'strsTasks'
 --
--- * 'srsStatus'
+-- * 'strsStatus'
 data StartTaskResponse = StartTaskResponse'
-    { _srsFailures :: !(Maybe [Failure])
-    , _srsTasks    :: !(Maybe [Task])
-    , _srsStatus   :: !Int
+    { _strsFailures :: !(Maybe [Failure])
+    , _strsTasks    :: !(Maybe [Task])
+    , _strsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartTaskResponse' smart constructor.
 startTaskResponse :: Int -> StartTaskResponse
 startTaskResponse pStatus =
     StartTaskResponse'
-    { _srsFailures = Nothing
-    , _srsTasks = Nothing
-    , _srsStatus = pStatus
+    { _strsFailures = Nothing
+    , _strsTasks = Nothing
+    , _strsStatus = pStatus
     }
 
 -- | Any failed tasks from your @StartTask@ action are listed here.
-srsFailures :: Lens' StartTaskResponse [Failure]
-srsFailures = lens _srsFailures (\ s a -> s{_srsFailures = a}) . _Default;
+strsFailures :: Lens' StartTaskResponse [Failure]
+strsFailures = lens _strsFailures (\ s a -> s{_strsFailures = a}) . _Default;
 
 -- | A full description of the tasks that were started. Each task that was
 -- successfully placed on your container instances will be described here.
-srsTasks :: Lens' StartTaskResponse [Task]
-srsTasks = lens _srsTasks (\ s a -> s{_srsTasks = a}) . _Default;
+strsTasks :: Lens' StartTaskResponse [Task]
+strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-srsStatus :: Lens' StartTaskResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+strsStatus :: Lens' StartTaskResponse Int
+strsStatus = lens _strsStatus (\ s a -> s{_strsStatus = a});

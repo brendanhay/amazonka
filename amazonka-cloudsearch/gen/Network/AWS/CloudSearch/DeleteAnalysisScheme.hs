@@ -37,8 +37,8 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     -- ** Response constructor
     , deleteAnalysisSchemeResponse
     -- ** Response lenses
-    , dasrsStatus
-    , dasrsAnalysisScheme
+    , dassrsStatus
+    , dassrsAnalysisScheme
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -110,26 +110,26 @@ instance ToQuery DeleteAnalysisScheme where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasrsStatus'
+-- * 'dassrsStatus'
 --
--- * 'dasrsAnalysisScheme'
+-- * 'dassrsAnalysisScheme'
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-    { _dasrsStatus         :: !Int
-    , _dasrsAnalysisScheme :: !AnalysisSchemeStatus
+    { _dassrsStatus         :: !Int
+    , _dassrsAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
 deleteAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DeleteAnalysisSchemeResponse
 deleteAnalysisSchemeResponse pStatus pAnalysisScheme =
     DeleteAnalysisSchemeResponse'
-    { _dasrsStatus = pStatus
-    , _dasrsAnalysisScheme = pAnalysisScheme
+    { _dassrsStatus = pStatus
+    , _dassrsAnalysisScheme = pAnalysisScheme
     }
 
 -- | FIXME: Undocumented member.
-dasrsStatus :: Lens' DeleteAnalysisSchemeResponse Int
-dasrsStatus = lens _dasrsStatus (\ s a -> s{_dasrsStatus = a});
+dassrsStatus :: Lens' DeleteAnalysisSchemeResponse Int
+dassrsStatus = lens _dassrsStatus (\ s a -> s{_dassrsStatus = a});
 
 -- | The status of the analysis scheme being deleted.
-dasrsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
-dasrsAnalysisScheme = lens _dasrsAnalysisScheme (\ s a -> s{_dasrsAnalysisScheme = a});
+dassrsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
+dassrsAnalysisScheme = lens _dassrsAnalysisScheme (\ s a -> s{_dassrsAnalysisScheme = a});

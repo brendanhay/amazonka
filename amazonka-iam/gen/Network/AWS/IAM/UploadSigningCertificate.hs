@@ -54,8 +54,8 @@ module Network.AWS.IAM.UploadSigningCertificate
     -- ** Response constructor
     , uploadSigningCertificateResponse
     -- ** Response lenses
-    , ursStatus
-    , ursCertificate
+    , uscrsStatus
+    , uscrsCertificate
     ) where
 
 import           Network.AWS.IAM.Types
@@ -123,26 +123,26 @@ instance ToQuery UploadSigningCertificate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ursStatus'
+-- * 'uscrsStatus'
 --
--- * 'ursCertificate'
+-- * 'uscrsCertificate'
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
-    { _ursStatus      :: !Int
-    , _ursCertificate :: !SigningCertificate
+    { _uscrsStatus      :: !Int
+    , _uscrsCertificate :: !SigningCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
 uploadSigningCertificateResponse :: Int -> SigningCertificate -> UploadSigningCertificateResponse
 uploadSigningCertificateResponse pStatus pCertificate =
     UploadSigningCertificateResponse'
-    { _ursStatus = pStatus
-    , _ursCertificate = pCertificate
+    { _uscrsStatus = pStatus
+    , _uscrsCertificate = pCertificate
     }
 
 -- | FIXME: Undocumented member.
-ursStatus :: Lens' UploadSigningCertificateResponse Int
-ursStatus = lens _ursStatus (\ s a -> s{_ursStatus = a});
+uscrsStatus :: Lens' UploadSigningCertificateResponse Int
+uscrsStatus = lens _uscrsStatus (\ s a -> s{_uscrsStatus = a});
 
 -- | Information about the certificate.
-ursCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
-ursCertificate = lens _ursCertificate (\ s a -> s{_ursCertificate = a});
+uscrsCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
+uscrsCertificate = lens _uscrsCertificate (\ s a -> s{_uscrsCertificate = a});

@@ -29,5 +29,6 @@ streamExists =
     , _waitAcceptors = [ matchAll
                              "ACTIVE"
                              AcceptSuccess
-                             (drsStreamDescription . sdStreamStatus . to toText)]
+                             (dsrsStreamDescription .
+                              sdStreamStatus . to toText)]
     }

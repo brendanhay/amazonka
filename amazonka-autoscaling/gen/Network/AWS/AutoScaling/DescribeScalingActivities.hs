@@ -40,9 +40,9 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- ** Response constructor
     , describeScalingActivitiesResponse
     -- ** Response lenses
-    , desrsNextToken
-    , desrsStatus
-    , desrsActivities
+    , dsasrsNextToken
+    , dsasrsStatus
+    , dsasrsActivities
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -102,10 +102,10 @@ desrqActivityIds = lens _desrqActivityIds (\ s a -> s{_desrqActivityIds = a}) . 
 
 instance AWSPager DescribeScalingActivities where
         page rq rs
-          | stop (rs ^. desrsNextToken) = Nothing
-          | stop (rs ^. desrsActivities) = Nothing
+          | stop (rs ^. dsasrsNextToken) = Nothing
+          | stop (rs ^. dsasrsActivities) = Nothing
           | otherwise =
-            Just $ rq & desrqNextToken .~ rs ^. desrsNextToken
+            Just $ rq & desrqNextToken .~ rs ^. dsasrsNextToken
 
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling
@@ -142,35 +142,35 @@ instance ToQuery DescribeScalingActivities where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrsNextToken'
+-- * 'dsasrsNextToken'
 --
--- * 'desrsStatus'
+-- * 'dsasrsStatus'
 --
--- * 'desrsActivities'
+-- * 'dsasrsActivities'
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-    { _desrsNextToken  :: !(Maybe Text)
-    , _desrsStatus     :: !Int
-    , _desrsActivities :: ![Activity]
+    { _dsasrsNextToken  :: !(Maybe Text)
+    , _dsasrsStatus     :: !Int
+    , _dsasrsActivities :: ![Activity]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
 describeScalingActivitiesResponse :: Int -> DescribeScalingActivitiesResponse
 describeScalingActivitiesResponse pStatus =
     DescribeScalingActivitiesResponse'
-    { _desrsNextToken = Nothing
-    , _desrsStatus = pStatus
-    , _desrsActivities = mempty
+    { _dsasrsNextToken = Nothing
+    , _dsasrsStatus = pStatus
+    , _dsasrsActivities = mempty
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-desrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
-desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
+dsasrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
+dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-desrsStatus :: Lens' DescribeScalingActivitiesResponse Int
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+dsasrsStatus :: Lens' DescribeScalingActivitiesResponse Int
+dsasrsStatus = lens _dsasrsStatus (\ s a -> s{_dsasrsStatus = a});
 
 -- | The scaling activities.
-desrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
-desrsActivities = lens _desrsActivities (\ s a -> s{_desrsActivities = a});
+dsasrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
+dsasrsActivities = lens _dsasrsActivities (\ s a -> s{_dsasrsActivities = a});

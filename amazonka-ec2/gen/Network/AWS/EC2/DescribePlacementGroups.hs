@@ -39,8 +39,8 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- ** Response constructor
     , describePlacementGroupsResponse
     -- ** Response lenses
-    , dpgsrsPlacementGroups
-    , dpgsrsStatus
+    , dpgrsPlacementGroups
+    , dpgrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -132,26 +132,26 @@ instance ToQuery DescribePlacementGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpgsrsPlacementGroups'
+-- * 'dpgrsPlacementGroups'
 --
--- * 'dpgsrsStatus'
+-- * 'dpgrsStatus'
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
-    { _dpgsrsPlacementGroups :: !(Maybe [PlacementGroup])
-    , _dpgsrsStatus          :: !Int
+    { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
+    , _dpgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
 describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
 describePlacementGroupsResponse pStatus =
     DescribePlacementGroupsResponse'
-    { _dpgsrsPlacementGroups = Nothing
-    , _dpgsrsStatus = pStatus
+    { _dpgrsPlacementGroups = Nothing
+    , _dpgrsStatus = pStatus
     }
 
 -- | One or more placement groups.
-dpgsrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
-dpgsrsPlacementGroups = lens _dpgsrsPlacementGroups (\ s a -> s{_dpgsrsPlacementGroups = a}) . _Default;
+dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dpgsrsStatus :: Lens' DescribePlacementGroupsResponse Int
-dpgsrsStatus = lens _dpgsrsStatus (\ s a -> s{_dpgsrsStatus = a});
+dpgrsStatus :: Lens' DescribePlacementGroupsResponse Int
+dpgrsStatus = lens _dpgrsStatus (\ s a -> s{_dpgrsStatus = a});

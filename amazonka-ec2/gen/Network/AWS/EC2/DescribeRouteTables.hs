@@ -45,8 +45,8 @@ module Network.AWS.EC2.DescribeRouteTables
     -- ** Response constructor
     , describeRouteTablesResponse
     -- ** Response lenses
-    , drtsrsRouteTables
-    , drtsrsStatus
+    , drtrsRouteTables
+    , drtrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -187,26 +187,26 @@ instance ToQuery DescribeRouteTables where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drtsrsRouteTables'
+-- * 'drtrsRouteTables'
 --
--- * 'drtsrsStatus'
+-- * 'drtrsStatus'
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
-    { _drtsrsRouteTables :: !(Maybe [RouteTable])
-    , _drtsrsStatus      :: !Int
+    { _drtrsRouteTables :: !(Maybe [RouteTable])
+    , _drtrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
 describeRouteTablesResponse :: Int -> DescribeRouteTablesResponse
 describeRouteTablesResponse pStatus =
     DescribeRouteTablesResponse'
-    { _drtsrsRouteTables = Nothing
-    , _drtsrsStatus = pStatus
+    { _drtrsRouteTables = Nothing
+    , _drtrsStatus = pStatus
     }
 
 -- | Information about one or more route tables.
-drtsrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
-drtsrsRouteTables = lens _drtsrsRouteTables (\ s a -> s{_drtsrsRouteTables = a}) . _Default;
+drtrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
+drtrsRouteTables = lens _drtrsRouteTables (\ s a -> s{_drtrsRouteTables = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drtsrsStatus :: Lens' DescribeRouteTablesResponse Int
-drtsrsStatus = lens _drtsrsStatus (\ s a -> s{_drtsrsStatus = a});
+drtrsStatus :: Lens' DescribeRouteTablesResponse Int
+drtrsStatus = lens _drtrsStatus (\ s a -> s{_drtrsStatus = a});

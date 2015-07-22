@@ -37,8 +37,8 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- ** Response constructor
     , createDBSecurityGroupResponse
     -- ** Response lenses
-    , cdsgrsDBSecurityGroup
-    , cdsgrsStatus
+    , cdbsgrsDBSecurityGroup
+    , cdbsgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -127,26 +127,26 @@ instance ToQuery CreateDBSecurityGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdsgrsDBSecurityGroup'
+-- * 'cdbsgrsDBSecurityGroup'
 --
--- * 'cdsgrsStatus'
+-- * 'cdbsgrsStatus'
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
-    { _cdsgrsDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _cdsgrsStatus          :: !Int
+    { _cdbsgrsDBSecurityGroup :: !(Maybe DBSecurityGroup)
+    , _cdbsgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSecurityGroupResponse' smart constructor.
 createDBSecurityGroupResponse :: Int -> CreateDBSecurityGroupResponse
 createDBSecurityGroupResponse pStatus =
     CreateDBSecurityGroupResponse'
-    { _cdsgrsDBSecurityGroup = Nothing
-    , _cdsgrsStatus = pStatus
+    { _cdbsgrsDBSecurityGroup = Nothing
+    , _cdbsgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cdsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
-cdsgrsDBSecurityGroup = lens _cdsgrsDBSecurityGroup (\ s a -> s{_cdsgrsDBSecurityGroup = a});
+cdbsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
+cdbsgrsDBSecurityGroup = lens _cdbsgrsDBSecurityGroup (\ s a -> s{_cdbsgrsDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-cdsgrsStatus :: Lens' CreateDBSecurityGroupResponse Int
-cdsgrsStatus = lens _cdsgrsStatus (\ s a -> s{_cdsgrsStatus = a});
+cdbsgrsStatus :: Lens' CreateDBSecurityGroupResponse Int
+cdbsgrsStatus = lens _cdbsgrsStatus (\ s a -> s{_cdbsgrsStatus = a});

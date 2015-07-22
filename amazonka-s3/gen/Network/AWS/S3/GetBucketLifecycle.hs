@@ -34,8 +34,8 @@ module Network.AWS.S3.GetBucketLifecycle
     -- ** Response constructor
     , getBucketLifecycleResponse
     -- ** Response lenses
-    , grsRules
-    , grsStatus
+    , gblrsRules
+    , gblrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -89,26 +89,26 @@ instance ToQuery GetBucketLifecycle where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grsRules'
+-- * 'gblrsRules'
 --
--- * 'grsStatus'
+-- * 'gblrsStatus'
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
-    { _grsRules  :: !(Maybe [Rule])
-    , _grsStatus :: !Int
+    { _gblrsRules  :: !(Maybe [Rule])
+    , _gblrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
 getBucketLifecycleResponse :: Int -> GetBucketLifecycleResponse
 getBucketLifecycleResponse pStatus =
     GetBucketLifecycleResponse'
-    { _grsRules = Nothing
-    , _grsStatus = pStatus
+    { _gblrsRules = Nothing
+    , _gblrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-grsRules :: Lens' GetBucketLifecycleResponse [Rule]
-grsRules = lens _grsRules (\ s a -> s{_grsRules = a}) . _Default;
+gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
+gblrsRules = lens _gblrsRules (\ s a -> s{_gblrsRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-grsStatus :: Lens' GetBucketLifecycleResponse Int
-grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});
+gblrsStatus :: Lens' GetBucketLifecycleResponse Int
+gblrsStatus = lens _gblrsStatus (\ s a -> s{_gblrsStatus = a});

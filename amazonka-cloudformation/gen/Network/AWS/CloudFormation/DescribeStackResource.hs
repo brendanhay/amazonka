@@ -38,8 +38,8 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- ** Response constructor
     , describeStackResourceResponse
     -- ** Response lenses
-    , desrsStackResourceDetail
-    , desrsStatus
+    , dsrrsStackResourceDetail
+    , dsrrsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -118,27 +118,27 @@ instance ToQuery DescribeStackResource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrsStackResourceDetail'
+-- * 'dsrrsStackResourceDetail'
 --
--- * 'desrsStatus'
+-- * 'dsrrsStatus'
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
-    { _desrsStackResourceDetail :: !(Maybe StackResourceDetail)
-    , _desrsStatus              :: !Int
+    { _dsrrsStackResourceDetail :: !(Maybe StackResourceDetail)
+    , _dsrrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResourceResponse' smart constructor.
 describeStackResourceResponse :: Int -> DescribeStackResourceResponse
 describeStackResourceResponse pStatus =
     DescribeStackResourceResponse'
-    { _desrsStackResourceDetail = Nothing
-    , _desrsStatus = pStatus
+    { _dsrrsStackResourceDetail = Nothing
+    , _dsrrsStatus = pStatus
     }
 
 -- | A @StackResourceDetail@ structure containing the description of the
 -- specified resource in the specified stack.
-desrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
-desrsStackResourceDetail = lens _desrsStackResourceDetail (\ s a -> s{_desrsStackResourceDetail = a});
+dsrrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
+dsrrsStackResourceDetail = lens _dsrrsStackResourceDetail (\ s a -> s{_dsrrsStackResourceDetail = a});
 
 -- | FIXME: Undocumented member.
-desrsStatus :: Lens' DescribeStackResourceResponse Int
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+dsrrsStatus :: Lens' DescribeStackResourceResponse Int
+dsrrsStatus = lens _dsrrsStatus (\ s a -> s{_dsrrsStatus = a});

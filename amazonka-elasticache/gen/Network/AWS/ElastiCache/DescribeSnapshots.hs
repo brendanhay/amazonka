@@ -41,9 +41,9 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsrsSnapshots
-    , dsrsMarker
-    , dsrsStatus
+    , dssrsSnapshots
+    , dssrsMarker
+    , dssrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -122,10 +122,10 @@ dsrqSnapshotSource = lens _dsrqSnapshotSource (\ s a -> s{_dsrqSnapshotSource = 
 
 instance AWSPager DescribeSnapshots where
         page rq rs
-          | stop (rs ^. dsrsMarker) = Nothing
-          | stop (rs ^. dsrsSnapshots) = Nothing
+          | stop (rs ^. dssrsMarker) = Nothing
+          | stop (rs ^. dssrsSnapshots) = Nothing
           | otherwise =
-            Just $ rq & dsrqMarker .~ rs ^. dsrsMarker
+            Just $ rq & dsrqMarker .~ rs ^. dssrsMarker
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache
@@ -163,38 +163,38 @@ instance ToQuery DescribeSnapshots where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrsSnapshots'
+-- * 'dssrsSnapshots'
 --
--- * 'dsrsMarker'
+-- * 'dssrsMarker'
 --
--- * 'dsrsStatus'
+-- * 'dssrsStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dsrsSnapshots :: !(Maybe [Snapshot])
-    , _dsrsMarker    :: !(Maybe Text)
-    , _dsrsStatus    :: !Int
+    { _dssrsSnapshots :: !(Maybe [Snapshot])
+    , _dssrsMarker    :: !(Maybe Text)
+    , _dssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus =
     DescribeSnapshotsResponse'
-    { _dsrsSnapshots = Nothing
-    , _dsrsMarker = Nothing
-    , _dsrsStatus = pStatus
+    { _dssrsSnapshots = Nothing
+    , _dssrsMarker = Nothing
+    , _dssrsStatus = pStatus
     }
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrsSnapshots = lens _dsrsSnapshots (\ s a -> s{_dsrsSnapshots = a}) . _Default;
+dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default;
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dsrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsrsMarker = lens _dsrsMarker (\ s a -> s{_dsrsMarker = a});
+dssrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dssrsMarker = lens _dssrsMarker (\ s a -> s{_dssrsMarker = a});
 
 -- | FIXME: Undocumented member.
-dsrsStatus :: Lens' DescribeSnapshotsResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dssrsStatus :: Lens' DescribeSnapshotsResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

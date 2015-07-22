@@ -65,8 +65,8 @@ module Network.AWS.EC2.RegisterImage
     -- ** Response constructor
     , registerImageResponse
     -- ** Response lenses
-    , rrsImageId
-    , rrsStatus
+    , rirsImageId
+    , rirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -231,26 +231,26 @@ instance ToQuery RegisterImage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrsImageId'
+-- * 'rirsImageId'
 --
--- * 'rrsStatus'
+-- * 'rirsStatus'
 data RegisterImageResponse = RegisterImageResponse'
-    { _rrsImageId :: !(Maybe Text)
-    , _rrsStatus  :: !Int
+    { _rirsImageId :: !(Maybe Text)
+    , _rirsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterImageResponse' smart constructor.
 registerImageResponse :: Int -> RegisterImageResponse
 registerImageResponse pStatus =
     RegisterImageResponse'
-    { _rrsImageId = Nothing
-    , _rrsStatus = pStatus
+    { _rirsImageId = Nothing
+    , _rirsStatus = pStatus
     }
 
 -- | The ID of the newly registered AMI.
-rrsImageId :: Lens' RegisterImageResponse (Maybe Text)
-rrsImageId = lens _rrsImageId (\ s a -> s{_rrsImageId = a});
+rirsImageId :: Lens' RegisterImageResponse (Maybe Text)
+rirsImageId = lens _rirsImageId (\ s a -> s{_rirsImageId = a});
 
 -- | FIXME: Undocumented member.
-rrsStatus :: Lens' RegisterImageResponse Int
-rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});
+rirsStatus :: Lens' RegisterImageResponse Int
+rirsStatus = lens _rirsStatus (\ s a -> s{_rirsStatus = a});

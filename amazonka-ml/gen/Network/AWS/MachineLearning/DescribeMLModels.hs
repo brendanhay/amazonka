@@ -45,9 +45,9 @@ module Network.AWS.MachineLearning.DescribeMLModels
     -- ** Response constructor
     , describeMLModelsResponse
     -- ** Response lenses
-    , dmlmrsResults
-    , dmlmrsNextToken
-    , dmlmrsStatus
+    , dmlmsrsResults
+    , dmlmsrsNextToken
+    , dmlmsrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -205,10 +205,10 @@ dmlmrqLE = lens _dmlmrqLE (\ s a -> s{_dmlmrqLE = a});
 
 instance AWSPager DescribeMLModels where
         page rq rs
-          | stop (rs ^. dmlmrsNextToken) = Nothing
-          | stop (rs ^. dmlmrsResults) = Nothing
+          | stop (rs ^. dmlmsrsNextToken) = Nothing
+          | stop (rs ^. dmlmsrsResults) = Nothing
           | otherwise =
-            Just $ rq & dmlmrqNextToken .~ rs ^. dmlmrsNextToken
+            Just $ rq & dmlmrqNextToken .~ rs ^. dmlmsrsNextToken
 
 instance AWSRequest DescribeMLModels where
         type Sv DescribeMLModels = MachineLearning
@@ -254,35 +254,35 @@ instance ToQuery DescribeMLModels where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmlmrsResults'
+-- * 'dmlmsrsResults'
 --
--- * 'dmlmrsNextToken'
+-- * 'dmlmsrsNextToken'
 --
--- * 'dmlmrsStatus'
+-- * 'dmlmsrsStatus'
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
-    { _dmlmrsResults   :: !(Maybe [MLModel])
-    , _dmlmrsNextToken :: !(Maybe Text)
-    , _dmlmrsStatus    :: !Int
+    { _dmlmsrsResults   :: !(Maybe [MLModel])
+    , _dmlmsrsNextToken :: !(Maybe Text)
+    , _dmlmsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMLModelsResponse' smart constructor.
 describeMLModelsResponse :: Int -> DescribeMLModelsResponse
 describeMLModelsResponse pStatus =
     DescribeMLModelsResponse'
-    { _dmlmrsResults = Nothing
-    , _dmlmrsNextToken = Nothing
-    , _dmlmrsStatus = pStatus
+    { _dmlmsrsResults = Nothing
+    , _dmlmsrsNextToken = Nothing
+    , _dmlmsrsStatus = pStatus
     }
 
 -- | A list of MLModel that meet the search criteria.
-dmlmrsResults :: Lens' DescribeMLModelsResponse [MLModel]
-dmlmrsResults = lens _dmlmrsResults (\ s a -> s{_dmlmrsResults = a}) . _Default;
+dmlmsrsResults :: Lens' DescribeMLModelsResponse [MLModel]
+dmlmsrsResults = lens _dmlmsrsResults (\ s a -> s{_dmlmsrsResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-dmlmrsNextToken :: Lens' DescribeMLModelsResponse (Maybe Text)
-dmlmrsNextToken = lens _dmlmrsNextToken (\ s a -> s{_dmlmrsNextToken = a});
+dmlmsrsNextToken :: Lens' DescribeMLModelsResponse (Maybe Text)
+dmlmsrsNextToken = lens _dmlmsrsNextToken (\ s a -> s{_dmlmsrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dmlmrsStatus :: Lens' DescribeMLModelsResponse Int
-dmlmrsStatus = lens _dmlmrsStatus (\ s a -> s{_dmlmrsStatus = a});
+dmlmsrsStatus :: Lens' DescribeMLModelsResponse Int
+dmlmsrsStatus = lens _dmlmsrsStatus (\ s a -> s{_dmlmsrsStatus = a});

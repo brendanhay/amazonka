@@ -34,8 +34,8 @@ module Network.AWS.S3.GetBucketLocation
     -- ** Response constructor
     , getBucketLocationResponse
     -- ** Response lenses
-    , gblrsLocationConstraint
-    , gblrsStatus
+    , getrsLocationConstraint
+    , getrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -87,26 +87,26 @@ instance ToQuery GetBucketLocation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblrsLocationConstraint'
+-- * 'getrsLocationConstraint'
 --
--- * 'gblrsStatus'
+-- * 'getrsStatus'
 data GetBucketLocationResponse = GetBucketLocationResponse'
-    { _gblrsLocationConstraint :: !(Maybe Region)
-    , _gblrsStatus             :: !Int
+    { _getrsLocationConstraint :: !(Maybe Region)
+    , _getrsStatus             :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLocationResponse' smart constructor.
 getBucketLocationResponse :: Int -> GetBucketLocationResponse
 getBucketLocationResponse pStatus =
     GetBucketLocationResponse'
-    { _gblrsLocationConstraint = Nothing
-    , _gblrsStatus = pStatus
+    { _getrsLocationConstraint = Nothing
+    , _getrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gblrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
-gblrsLocationConstraint = lens _gblrsLocationConstraint (\ s a -> s{_gblrsLocationConstraint = a});
+getrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
+getrsLocationConstraint = lens _getrsLocationConstraint (\ s a -> s{_getrsLocationConstraint = a});
 
 -- | FIXME: Undocumented member.
-gblrsStatus :: Lens' GetBucketLocationResponse Int
-gblrsStatus = lens _gblrsStatus (\ s a -> s{_gblrsStatus = a});
+getrsStatus :: Lens' GetBucketLocationResponse Int
+getrsStatus = lens _getrsStatus (\ s a -> s{_getrsStatus = a});

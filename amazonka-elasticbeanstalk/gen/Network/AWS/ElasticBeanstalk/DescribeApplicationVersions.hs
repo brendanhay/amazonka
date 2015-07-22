@@ -35,8 +35,8 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- ** Response constructor
     , describeApplicationVersionsResponse
     -- ** Response lenses
-    , davsrsApplicationVersions
-    , davsrsStatus
+    , davrsApplicationVersions
+    , davrsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -114,26 +114,26 @@ instance ToQuery DescribeApplicationVersions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davsrsApplicationVersions'
+-- * 'davrsApplicationVersions'
 --
--- * 'davsrsStatus'
+-- * 'davrsStatus'
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
-    { _davsrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
-    , _davsrsStatus              :: !Int
+    { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
+    , _davrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
 describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse
 describeApplicationVersionsResponse pStatus =
     DescribeApplicationVersionsResponse'
-    { _davsrsApplicationVersions = Nothing
-    , _davsrsStatus = pStatus
+    { _davrsApplicationVersions = Nothing
+    , _davrsStatus = pStatus
     }
 
 -- | A list of ApplicationVersionDescription .
-davsrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
-davsrsApplicationVersions = lens _davsrsApplicationVersions (\ s a -> s{_davsrsApplicationVersions = a}) . _Default;
+davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
+davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-davsrsStatus :: Lens' DescribeApplicationVersionsResponse Int
-davsrsStatus = lens _davsrsStatus (\ s a -> s{_davsrsStatus = a});
+davrsStatus :: Lens' DescribeApplicationVersionsResponse Int
+davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});

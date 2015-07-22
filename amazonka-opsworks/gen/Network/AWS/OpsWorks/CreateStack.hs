@@ -58,8 +58,8 @@ module Network.AWS.OpsWorks.CreateStack
     -- ** Response constructor
     , createStackResponse
     -- ** Response lenses
-    , csrsStackId
-    , csrsStatus
+    , crsStackId
+    , crsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -427,27 +427,27 @@ instance ToQuery CreateStack where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrsStackId'
+-- * 'crsStackId'
 --
--- * 'csrsStatus'
+-- * 'crsStatus'
 data CreateStackResponse = CreateStackResponse'
-    { _csrsStackId :: !(Maybe Text)
-    , _csrsStatus  :: !Int
+    { _crsStackId :: !(Maybe Text)
+    , _crsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse
 createStackResponse pStatus =
     CreateStackResponse'
-    { _csrsStackId = Nothing
-    , _csrsStatus = pStatus
+    { _crsStackId = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | The stack ID, which is an opaque string that you use to identify the
 -- stack when performing actions such as @DescribeStacks@.
-csrsStackId :: Lens' CreateStackResponse (Maybe Text)
-csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
+crsStackId :: Lens' CreateStackResponse (Maybe Text)
+crsStackId = lens _crsStackId (\ s a -> s{_crsStackId = a});
 
 -- | FIXME: Undocumented member.
-csrsStatus :: Lens' CreateStackResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+crsStatus :: Lens' CreateStackResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

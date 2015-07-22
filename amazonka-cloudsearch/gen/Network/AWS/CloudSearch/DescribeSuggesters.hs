@@ -43,8 +43,8 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     -- ** Response constructor
     , describeSuggestersResponse
     -- ** Response lenses
-    , dsrsStatus
-    , dsrsSuggesters
+    , dssrsStatus
+    , dssrsSuggesters
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -131,26 +131,26 @@ instance ToQuery DescribeSuggesters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrsStatus'
+-- * 'dssrsStatus'
 --
--- * 'dsrsSuggesters'
+-- * 'dssrsSuggesters'
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
-    { _dsrsStatus     :: !Int
-    , _dsrsSuggesters :: ![SuggesterStatus]
+    { _dssrsStatus     :: !Int
+    , _dssrsSuggesters :: ![SuggesterStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
 describeSuggestersResponse :: Int -> DescribeSuggestersResponse
 describeSuggestersResponse pStatus =
     DescribeSuggestersResponse'
-    { _dsrsStatus = pStatus
-    , _dsrsSuggesters = mempty
+    { _dssrsStatus = pStatus
+    , _dssrsSuggesters = mempty
     }
 
 -- | FIXME: Undocumented member.
-dsrsStatus :: Lens' DescribeSuggestersResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dssrsStatus :: Lens' DescribeSuggestersResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
 
 -- | The suggesters configured for the domain specified in the request.
-dsrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dsrsSuggesters = lens _dsrsSuggesters (\ s a -> s{_dsrsSuggesters = a});
+dssrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
+dssrsSuggesters = lens _dssrsSuggesters (\ s a -> s{_dssrsSuggesters = a});

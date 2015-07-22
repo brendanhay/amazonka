@@ -49,9 +49,9 @@ module Network.AWS.EC2.DescribeVolumes
     -- ** Response constructor
     , describeVolumesResponse
     -- ** Response lenses
-    , desrsNextToken
-    , desrsVolumes
-    , desrsStatus
+    , dvvrsNextToken
+    , dvvrsVolumes
+    , dvvrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -211,37 +211,37 @@ instance ToQuery DescribeVolumes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrsNextToken'
+-- * 'dvvrsNextToken'
 --
--- * 'desrsVolumes'
+-- * 'dvvrsVolumes'
 --
--- * 'desrsStatus'
+-- * 'dvvrsStatus'
 data DescribeVolumesResponse = DescribeVolumesResponse'
-    { _desrsNextToken :: !(Maybe Text)
-    , _desrsVolumes   :: !(Maybe [Volume])
-    , _desrsStatus    :: !Int
+    { _dvvrsNextToken :: !(Maybe Text)
+    , _dvvrsVolumes   :: !(Maybe [Volume])
+    , _dvvrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
 describeVolumesResponse pStatus =
     DescribeVolumesResponse'
-    { _desrsNextToken = Nothing
-    , _desrsVolumes = Nothing
-    , _desrsStatus = pStatus
+    { _dvvrsNextToken = Nothing
+    , _dvvrsVolumes = Nothing
+    , _dvvrsStatus = pStatus
     }
 
 -- | The @NextToken@ value to include in a future @DescribeVolumes@ request.
 -- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
 -- this value can be used to retrieve the next page of results. This value
 -- is @null@ when there are no more results to return.
-desrsNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
-desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
+dvvrsNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
+dvvrsNextToken = lens _dvvrsNextToken (\ s a -> s{_dvvrsNextToken = a});
 
 -- | Information about the volumes.
-desrsVolumes :: Lens' DescribeVolumesResponse [Volume]
-desrsVolumes = lens _desrsVolumes (\ s a -> s{_desrsVolumes = a}) . _Default;
+dvvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvvrsVolumes = lens _dvvrsVolumes (\ s a -> s{_dvvrsVolumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desrsStatus :: Lens' DescribeVolumesResponse Int
-desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
+dvvrsStatus :: Lens' DescribeVolumesResponse Int
+dvvrsStatus = lens _dvvrsStatus (\ s a -> s{_dvvrsStatus = a});

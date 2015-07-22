@@ -41,8 +41,8 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- ** Response constructor
     , retrieveEnvironmentInfoResponse
     -- ** Response lenses
-    , rrsEnvironmentInfo
-    , rrsStatus
+    , reirsEnvironmentInfo
+    , reirsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -138,26 +138,26 @@ instance ToQuery RetrieveEnvironmentInfo where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrsEnvironmentInfo'
+-- * 'reirsEnvironmentInfo'
 --
--- * 'rrsStatus'
+-- * 'reirsStatus'
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
-    { _rrsEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
-    , _rrsStatus          :: !Int
+    { _reirsEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
+    , _reirsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveEnvironmentInfoResponse' smart constructor.
 retrieveEnvironmentInfoResponse :: Int -> RetrieveEnvironmentInfoResponse
 retrieveEnvironmentInfoResponse pStatus =
     RetrieveEnvironmentInfoResponse'
-    { _rrsEnvironmentInfo = Nothing
-    , _rrsStatus = pStatus
+    { _reirsEnvironmentInfo = Nothing
+    , _reirsStatus = pStatus
     }
 
 -- | The EnvironmentInfoDescription of the environment.
-rrsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
-rrsEnvironmentInfo = lens _rrsEnvironmentInfo (\ s a -> s{_rrsEnvironmentInfo = a}) . _Default;
+reirsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
+reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rrsStatus :: Lens' RetrieveEnvironmentInfoResponse Int
-rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});
+reirsStatus :: Lens' RetrieveEnvironmentInfoResponse Int
+reirsStatus = lens _reirsStatus (\ s a -> s{_reirsStatus = a});

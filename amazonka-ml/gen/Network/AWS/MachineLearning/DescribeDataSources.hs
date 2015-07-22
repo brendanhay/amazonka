@@ -45,9 +45,9 @@ module Network.AWS.MachineLearning.DescribeDataSources
     -- ** Response constructor
     , describeDataSourcesResponse
     -- ** Response lenses
-    , ddsrsResults
-    , ddsrsNextToken
-    , ddsrsStatus
+    , ddssrsResults
+    , ddssrsNextToken
+    , ddssrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -199,10 +199,10 @@ ddsrqLE = lens _ddsrqLE (\ s a -> s{_ddsrqLE = a});
 
 instance AWSPager DescribeDataSources where
         page rq rs
-          | stop (rs ^. ddsrsNextToken) = Nothing
-          | stop (rs ^. ddsrsResults) = Nothing
+          | stop (rs ^. ddssrsNextToken) = Nothing
+          | stop (rs ^. ddssrsResults) = Nothing
           | otherwise =
-            Just $ rq & ddsrqNextToken .~ rs ^. ddsrsNextToken
+            Just $ rq & ddsrqNextToken .~ rs ^. ddssrsNextToken
 
 instance AWSRequest DescribeDataSources where
         type Sv DescribeDataSources = MachineLearning
@@ -250,35 +250,35 @@ instance ToQuery DescribeDataSources where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsrsResults'
+-- * 'ddssrsResults'
 --
--- * 'ddsrsNextToken'
+-- * 'ddssrsNextToken'
 --
--- * 'ddsrsStatus'
+-- * 'ddssrsStatus'
 data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
-    { _ddsrsResults   :: !(Maybe [DataSource])
-    , _ddsrsNextToken :: !(Maybe Text)
-    , _ddsrsStatus    :: !Int
+    { _ddssrsResults   :: !(Maybe [DataSource])
+    , _ddssrsNextToken :: !(Maybe Text)
+    , _ddssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
 describeDataSourcesResponse :: Int -> DescribeDataSourcesResponse
 describeDataSourcesResponse pStatus =
     DescribeDataSourcesResponse'
-    { _ddsrsResults = Nothing
-    , _ddsrsNextToken = Nothing
-    , _ddsrsStatus = pStatus
+    { _ddssrsResults = Nothing
+    , _ddssrsNextToken = Nothing
+    , _ddssrsStatus = pStatus
     }
 
 -- | A list of @DataSource@ that meet the search criteria.
-ddsrsResults :: Lens' DescribeDataSourcesResponse [DataSource]
-ddsrsResults = lens _ddsrsResults (\ s a -> s{_ddsrsResults = a}) . _Default;
+ddssrsResults :: Lens' DescribeDataSourcesResponse [DataSource]
+ddssrsResults = lens _ddssrsResults (\ s a -> s{_ddssrsResults = a}) . _Default;
 
 -- | An ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-ddsrsNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
-ddsrsNextToken = lens _ddsrsNextToken (\ s a -> s{_ddsrsNextToken = a});
+ddssrsNextToken :: Lens' DescribeDataSourcesResponse (Maybe Text)
+ddssrsNextToken = lens _ddssrsNextToken (\ s a -> s{_ddssrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ddsrsStatus :: Lens' DescribeDataSourcesResponse Int
-ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
+ddssrsStatus :: Lens' DescribeDataSourcesResponse Int
+ddssrsStatus = lens _ddssrsStatus (\ s a -> s{_ddssrsStatus = a});

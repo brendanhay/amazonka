@@ -34,8 +34,8 @@ module Network.AWS.KMS.DescribeKey
     -- ** Response constructor
     , describeKeyResponse
     -- ** Response lenses
-    , drsKeyMetadata
-    , drsStatus
+    , dkrsKeyMetadata
+    , dkrsStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -106,26 +106,26 @@ instance ToQuery DescribeKey where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsKeyMetadata'
+-- * 'dkrsKeyMetadata'
 --
--- * 'drsStatus'
+-- * 'dkrsStatus'
 data DescribeKeyResponse = DescribeKeyResponse'
-    { _drsKeyMetadata :: !(Maybe KeyMetadata)
-    , _drsStatus      :: !Int
+    { _dkrsKeyMetadata :: !(Maybe KeyMetadata)
+    , _dkrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyResponse' smart constructor.
 describeKeyResponse :: Int -> DescribeKeyResponse
 describeKeyResponse pStatus =
     DescribeKeyResponse'
-    { _drsKeyMetadata = Nothing
-    , _drsStatus = pStatus
+    { _dkrsKeyMetadata = Nothing
+    , _dkrsStatus = pStatus
     }
 
 -- | Metadata associated with the key.
-drsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
-drsKeyMetadata = lens _drsKeyMetadata (\ s a -> s{_drsKeyMetadata = a});
+dkrsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
+dkrsKeyMetadata = lens _dkrsKeyMetadata (\ s a -> s{_dkrsKeyMetadata = a});
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DescribeKeyResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dkrsStatus :: Lens' DescribeKeyResponse Int
+dkrsStatus = lens _dkrsStatus (\ s a -> s{_dkrsStatus = a});

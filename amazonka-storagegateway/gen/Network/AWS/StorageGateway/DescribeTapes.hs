@@ -39,9 +39,9 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- ** Response constructor
     , describeTapesResponse
     -- ** Response lenses
-    , dtrsMarker
-    , dtrsTapes
-    , dtrsStatus
+    , dtsrsMarker
+    , dtsrsTapes
+    , dtsrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -107,10 +107,10 @@ dtrqGatewayARN = lens _dtrqGatewayARN (\ s a -> s{_dtrqGatewayARN = a});
 
 instance AWSPager DescribeTapes where
         page rq rs
-          | stop (rs ^. dtrsMarker) = Nothing
-          | stop (rs ^. dtrsTapes) = Nothing
+          | stop (rs ^. dtsrsMarker) = Nothing
+          | stop (rs ^. dtsrsTapes) = Nothing
           | otherwise =
-            Just $ rq & dtrqMarker .~ rs ^. dtrsMarker
+            Just $ rq & dtrqMarker .~ rs ^. dtsrsMarker
 
 instance AWSRequest DescribeTapes where
         type Sv DescribeTapes = StorageGateway
@@ -152,24 +152,24 @@ instance ToQuery DescribeTapes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrsMarker'
+-- * 'dtsrsMarker'
 --
--- * 'dtrsTapes'
+-- * 'dtsrsTapes'
 --
--- * 'dtrsStatus'
+-- * 'dtsrsStatus'
 data DescribeTapesResponse = DescribeTapesResponse'
-    { _dtrsMarker :: !(Maybe Text)
-    , _dtrsTapes  :: !(Maybe [Tape])
-    , _dtrsStatus :: !Int
+    { _dtsrsMarker :: !(Maybe Text)
+    , _dtsrsTapes  :: !(Maybe [Tape])
+    , _dtsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapesResponse' smart constructor.
 describeTapesResponse :: Int -> DescribeTapesResponse
 describeTapesResponse pStatus =
     DescribeTapesResponse'
-    { _dtrsMarker = Nothing
-    , _dtrsTapes = Nothing
-    , _dtrsStatus = pStatus
+    { _dtsrsMarker = Nothing
+    , _dtsrsTapes = Nothing
+    , _dtsrsStatus = pStatus
     }
 
 -- | An opaque string which can be used as part of a subsequent DescribeTapes
@@ -177,13 +177,13 @@ describeTapesResponse pStatus =
 --
 -- If a response does not contain a marker, then there are no more results
 -- to be retrieved.
-dtrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
+dtsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
+dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 
 -- | An array of virtual tape descriptions.
-dtrsTapes :: Lens' DescribeTapesResponse [Tape]
-dtrsTapes = lens _dtrsTapes (\ s a -> s{_dtrsTapes = a}) . _Default;
+dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
+dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrsStatus :: Lens' DescribeTapesResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+dtsrsStatus :: Lens' DescribeTapesResponse Int
+dtsrsStatus = lens _dtsrsStatus (\ s a -> s{_dtsrsStatus = a});

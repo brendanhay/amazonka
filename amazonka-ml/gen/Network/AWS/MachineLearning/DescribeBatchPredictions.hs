@@ -45,9 +45,9 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     -- ** Response constructor
     , describeBatchPredictionsResponse
     -- ** Response lenses
-    , dbprsResults
-    , dbprsNextToken
-    , dbprsStatus
+    , drsResults
+    , drsNextToken
+    , drsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -205,10 +205,10 @@ dbprqLE = lens _dbprqLE (\ s a -> s{_dbprqLE = a});
 
 instance AWSPager DescribeBatchPredictions where
         page rq rs
-          | stop (rs ^. dbprsNextToken) = Nothing
-          | stop (rs ^. dbprsResults) = Nothing
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsResults) = Nothing
           | otherwise =
-            Just $ rq & dbprqNextToken .~ rs ^. dbprsNextToken
+            Just $ rq & dbprqNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeBatchPredictions where
         type Sv DescribeBatchPredictions = MachineLearning
@@ -256,35 +256,35 @@ instance ToQuery DescribeBatchPredictions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbprsResults'
+-- * 'drsResults'
 --
--- * 'dbprsNextToken'
+-- * 'drsNextToken'
 --
--- * 'dbprsStatus'
+-- * 'drsStatus'
 data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
-    { _dbprsResults   :: !(Maybe [BatchPrediction])
-    , _dbprsNextToken :: !(Maybe Text)
-    , _dbprsStatus    :: !Int
+    { _drsResults   :: !(Maybe [BatchPrediction])
+    , _drsNextToken :: !(Maybe Text)
+    , _drsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
 describeBatchPredictionsResponse :: Int -> DescribeBatchPredictionsResponse
 describeBatchPredictionsResponse pStatus =
     DescribeBatchPredictionsResponse'
-    { _dbprsResults = Nothing
-    , _dbprsNextToken = Nothing
-    , _dbprsStatus = pStatus
+    { _drsResults = Nothing
+    , _drsNextToken = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | A list of BatchPrediction objects that meet the search criteria.
-dbprsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
-dbprsResults = lens _dbprsResults (\ s a -> s{_dbprsResults = a}) . _Default;
+drsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
+drsResults = lens _drsResults (\ s a -> s{_drsResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-dbprsNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
-dbprsNextToken = lens _dbprsNextToken (\ s a -> s{_dbprsNextToken = a});
+drsNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dbprsStatus :: Lens' DescribeBatchPredictionsResponse Int
-dbprsStatus = lens _dbprsStatus (\ s a -> s{_dbprsStatus = a});
+drsStatus :: Lens' DescribeBatchPredictionsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

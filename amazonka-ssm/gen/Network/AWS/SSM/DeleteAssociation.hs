@@ -42,7 +42,7 @@ module Network.AWS.SSM.DeleteAssociation
     -- ** Response constructor
     , deleteAssociationResponse
     -- ** Response lenses
-    , drsStatus
+    , delrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -111,18 +111,18 @@ instance ToQuery DeleteAssociation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsStatus'
+-- * 'delrsStatus'
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
-    { _drsStatus :: Int
+    { _delrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAssociationResponse' smart constructor.
 deleteAssociationResponse :: Int -> DeleteAssociationResponse
 deleteAssociationResponse pStatus =
     DeleteAssociationResponse'
-    { _drsStatus = pStatus
+    { _delrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DeleteAssociationResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+delrsStatus :: Lens' DeleteAssociationResponse Int
+delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

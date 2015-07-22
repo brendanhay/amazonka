@@ -42,8 +42,8 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- ** Response constructor
     , describeExpressionsResponse
     -- ** Response lenses
-    , dersStatus
-    , dersExpressions
+    , drsStatus
+    , drsExpressions
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -132,26 +132,26 @@ instance ToQuery DescribeExpressions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dersStatus'
+-- * 'drsStatus'
 --
--- * 'dersExpressions'
+-- * 'drsExpressions'
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-    { _dersStatus      :: !Int
-    , _dersExpressions :: ![ExpressionStatus]
+    { _drsStatus      :: !Int
+    , _drsExpressions :: ![ExpressionStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
 describeExpressionsResponse :: Int -> DescribeExpressionsResponse
 describeExpressionsResponse pStatus =
     DescribeExpressionsResponse'
-    { _dersStatus = pStatus
-    , _dersExpressions = mempty
+    { _drsStatus = pStatus
+    , _drsExpressions = mempty
     }
 
 -- | FIXME: Undocumented member.
-dersStatus :: Lens' DescribeExpressionsResponse Int
-dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
+drsStatus :: Lens' DescribeExpressionsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
 -- | The expressions configured for the domain.
-dersExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-dersExpressions = lens _dersExpressions (\ s a -> s{_dersExpressions = a});
+drsExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
+drsExpressions = lens _drsExpressions (\ s a -> s{_drsExpressions = a});

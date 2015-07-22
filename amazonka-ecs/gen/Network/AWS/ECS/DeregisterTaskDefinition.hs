@@ -45,8 +45,8 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     -- ** Response constructor
     , deregisterTaskDefinitionResponse
     -- ** Response lenses
-    , drsTaskDefinition
-    , drsStatus
+    , dtdrsTaskDefinition
+    , dtdrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -111,26 +111,26 @@ instance ToQuery DeregisterTaskDefinition where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsTaskDefinition'
+-- * 'dtdrsTaskDefinition'
 --
--- * 'drsStatus'
+-- * 'dtdrsStatus'
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
-    { _drsTaskDefinition :: !(Maybe TaskDefinition)
-    , _drsStatus         :: !Int
+    { _dtdrsTaskDefinition :: !(Maybe TaskDefinition)
+    , _dtdrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterTaskDefinitionResponse' smart constructor.
 deregisterTaskDefinitionResponse :: Int -> DeregisterTaskDefinitionResponse
 deregisterTaskDefinitionResponse pStatus =
     DeregisterTaskDefinitionResponse'
-    { _drsTaskDefinition = Nothing
-    , _drsStatus = pStatus
+    { _dtdrsTaskDefinition = Nothing
+    , _dtdrsStatus = pStatus
     }
 
 -- | The full description of the deregistered task.
-drsTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
-drsTaskDefinition = lens _drsTaskDefinition (\ s a -> s{_drsTaskDefinition = a});
+dtdrsTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
+dtdrsTaskDefinition = lens _dtdrsTaskDefinition (\ s a -> s{_dtdrsTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DeregisterTaskDefinitionResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dtdrsStatus :: Lens' DeregisterTaskDefinitionResponse Int
+dtdrsStatus = lens _dtdrsStatus (\ s a -> s{_dtdrsStatus = a});

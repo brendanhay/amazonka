@@ -35,9 +35,9 @@ module Network.AWS.ECS.DescribeServices
     -- ** Response constructor
     , describeServicesResponse
     -- ** Response lenses
-    , drsFailures
-    , drsServices
-    , drsStatus
+    , dssrsFailures
+    , dssrsServices
+    , dssrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -111,34 +111,34 @@ instance ToQuery DescribeServices where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsFailures'
+-- * 'dssrsFailures'
 --
--- * 'drsServices'
+-- * 'dssrsServices'
 --
--- * 'drsStatus'
+-- * 'dssrsStatus'
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _drsFailures :: !(Maybe [Failure])
-    , _drsServices :: !(Maybe [ContainerService])
-    , _drsStatus   :: !Int
+    { _dssrsFailures :: !(Maybe [Failure])
+    , _dssrsServices :: !(Maybe [ContainerService])
+    , _dssrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse
 describeServicesResponse pStatus =
     DescribeServicesResponse'
-    { _drsFailures = Nothing
-    , _drsServices = Nothing
-    , _drsStatus = pStatus
+    { _dssrsFailures = Nothing
+    , _dssrsServices = Nothing
+    , _dssrsStatus = pStatus
     }
 
 -- | Any failures associated with the call.
-drsFailures :: Lens' DescribeServicesResponse [Failure]
-drsFailures = lens _drsFailures (\ s a -> s{_drsFailures = a}) . _Default;
+dssrsFailures :: Lens' DescribeServicesResponse [Failure]
+dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default;
 
 -- | The list of services described.
-drsServices :: Lens' DescribeServicesResponse [ContainerService]
-drsServices = lens _drsServices (\ s a -> s{_drsServices = a}) . _Default;
+dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
+dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DescribeServicesResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dssrsStatus :: Lens' DescribeServicesResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

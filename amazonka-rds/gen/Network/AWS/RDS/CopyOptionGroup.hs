@@ -37,8 +37,8 @@ module Network.AWS.RDS.CopyOptionGroup
     -- ** Response constructor
     , copyOptionGroupResponse
     -- ** Response lenses
-    , crsOptionGroup
-    , crsStatus
+    , cogrsOptionGroup
+    , cogrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -144,26 +144,26 @@ instance ToQuery CopyOptionGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crsOptionGroup'
+-- * 'cogrsOptionGroup'
 --
--- * 'crsStatus'
+-- * 'cogrsStatus'
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
-    { _crsOptionGroup :: !(Maybe OptionGroup)
-    , _crsStatus      :: !Int
+    { _cogrsOptionGroup :: !(Maybe OptionGroup)
+    , _cogrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyOptionGroupResponse' smart constructor.
 copyOptionGroupResponse :: Int -> CopyOptionGroupResponse
 copyOptionGroupResponse pStatus =
     CopyOptionGroupResponse'
-    { _crsOptionGroup = Nothing
-    , _crsStatus = pStatus
+    { _cogrsOptionGroup = Nothing
+    , _cogrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-crsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
-crsOptionGroup = lens _crsOptionGroup (\ s a -> s{_crsOptionGroup = a});
+cogrsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
+cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-crsStatus :: Lens' CopyOptionGroupResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+cogrsStatus :: Lens' CopyOptionGroupResponse Int
+cogrsStatus = lens _cogrsStatus (\ s a -> s{_cogrsStatus = a});

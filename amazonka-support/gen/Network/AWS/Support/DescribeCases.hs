@@ -56,9 +56,9 @@ module Network.AWS.Support.DescribeCases
     -- ** Response constructor
     , describeCasesResponse
     -- ** Response lenses
-    , dcrsCases
-    , dcrsNextToken
-    , dcrsStatus
+    , drsCases
+    , drsNextToken
+    , drsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -162,10 +162,10 @@ dcrqMaxResults = lens _dcrqMaxResults (\ s a -> s{_dcrqMaxResults = a}) . mappin
 
 instance AWSPager DescribeCases where
         page rq rs
-          | stop (rs ^. dcrsNextToken) = Nothing
-          | stop (rs ^. dcrsCases) = Nothing
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsCases) = Nothing
           | otherwise =
-            Just $ rq & dcrqNextToken .~ rs ^. dcrsNextToken
+            Just $ rq & dcrqNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeCases where
         type Sv DescribeCases = Support
@@ -214,34 +214,34 @@ instance ToQuery DescribeCases where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrsCases'
+-- * 'drsCases'
 --
--- * 'dcrsNextToken'
+-- * 'drsNextToken'
 --
--- * 'dcrsStatus'
+-- * 'drsStatus'
 data DescribeCasesResponse = DescribeCasesResponse'
-    { _dcrsCases     :: !(Maybe [CaseDetails])
-    , _dcrsNextToken :: !(Maybe Text)
-    , _dcrsStatus    :: !Int
+    { _drsCases     :: !(Maybe [CaseDetails])
+    , _drsNextToken :: !(Maybe Text)
+    , _drsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCasesResponse' smart constructor.
 describeCasesResponse :: Int -> DescribeCasesResponse
 describeCasesResponse pStatus =
     DescribeCasesResponse'
-    { _dcrsCases = Nothing
-    , _dcrsNextToken = Nothing
-    , _dcrsStatus = pStatus
+    { _drsCases = Nothing
+    , _drsNextToken = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | The details for the cases that match the request.
-dcrsCases :: Lens' DescribeCasesResponse [CaseDetails]
-dcrsCases = lens _dcrsCases (\ s a -> s{_dcrsCases = a}) . _Default;
+drsCases :: Lens' DescribeCasesResponse [CaseDetails]
+drsCases = lens _drsCases (\ s a -> s{_drsCases = a}) . _Default;
 
 -- | A resumption point for pagination.
-dcrsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
-dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a});
+drsNextToken :: Lens' DescribeCasesResponse (Maybe Text)
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dcrsStatus :: Lens' DescribeCasesResponse Int
-dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+drsStatus :: Lens' DescribeCasesResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

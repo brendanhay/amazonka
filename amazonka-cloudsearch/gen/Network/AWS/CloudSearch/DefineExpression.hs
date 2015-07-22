@@ -39,8 +39,8 @@ module Network.AWS.CloudSearch.DefineExpression
     -- ** Response constructor
     , defineExpressionResponse
     -- ** Response lenses
-    , drsStatus
-    , drsExpression
+    , dersStatus
+    , dersExpression
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -111,26 +111,26 @@ instance ToQuery DefineExpression where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsStatus'
+-- * 'dersStatus'
 --
--- * 'drsExpression'
+-- * 'dersExpression'
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _drsStatus     :: !Int
-    , _drsExpression :: !ExpressionStatus
+    { _dersStatus     :: !Int
+    , _dersExpression :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineExpressionResponse' smart constructor.
 defineExpressionResponse :: Int -> ExpressionStatus -> DefineExpressionResponse
 defineExpressionResponse pStatus pExpression =
     DefineExpressionResponse'
-    { _drsStatus = pStatus
-    , _drsExpression = pExpression
+    { _dersStatus = pStatus
+    , _dersExpression = pExpression
     }
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DefineExpressionResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dersStatus :: Lens' DefineExpressionResponse Int
+dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
 
 -- | FIXME: Undocumented member.
-drsExpression :: Lens' DefineExpressionResponse ExpressionStatus
-drsExpression = lens _drsExpression (\ s a -> s{_drsExpression = a});
+dersExpression :: Lens' DefineExpressionResponse ExpressionStatus
+dersExpression = lens _dersExpression (\ s a -> s{_dersExpression = a});

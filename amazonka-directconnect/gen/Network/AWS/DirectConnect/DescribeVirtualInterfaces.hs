@@ -47,8 +47,8 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     -- ** Response constructor
     , describeVirtualInterfacesResponse
     -- ** Response lenses
-    , dvirsVirtualInterfaces
-    , dvirsStatus
+    , dvisrsVirtualInterfaces
+    , dvisrsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -126,26 +126,26 @@ instance ToQuery DescribeVirtualInterfaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvirsVirtualInterfaces'
+-- * 'dvisrsVirtualInterfaces'
 --
--- * 'dvirsStatus'
+-- * 'dvisrsStatus'
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
-    { _dvirsVirtualInterfaces :: !(Maybe [VirtualInterface])
-    , _dvirsStatus            :: !Int
+    { _dvisrsVirtualInterfaces :: !(Maybe [VirtualInterface])
+    , _dvisrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse pStatus =
     DescribeVirtualInterfacesResponse'
-    { _dvirsVirtualInterfaces = Nothing
-    , _dvirsStatus = pStatus
+    { _dvisrsVirtualInterfaces = Nothing
+    , _dvisrsStatus = pStatus
     }
 
 -- | A list of virtual interfaces.
-dvirsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
-dvirsVirtualInterfaces = lens _dvirsVirtualInterfaces (\ s a -> s{_dvirsVirtualInterfaces = a}) . _Default;
+dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvirsStatus :: Lens' DescribeVirtualInterfacesResponse Int
-dvirsStatus = lens _dvirsStatus (\ s a -> s{_dvirsStatus = a});
+dvisrsStatus :: Lens' DescribeVirtualInterfacesResponse Int
+dvisrsStatus = lens _dvisrsStatus (\ s a -> s{_dvisrsStatus = a});

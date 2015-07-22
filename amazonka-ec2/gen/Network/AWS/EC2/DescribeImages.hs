@@ -44,8 +44,8 @@ module Network.AWS.EC2.DescribeImages
     -- ** Response constructor
     , describeImagesResponse
     -- ** Response lenses
-    , dessrsImages
-    , dessrsStatus
+    , desrsImages
+    , desrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -230,26 +230,26 @@ instance ToQuery DescribeImages where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dessrsImages'
+-- * 'desrsImages'
 --
--- * 'dessrsStatus'
+-- * 'desrsStatus'
 data DescribeImagesResponse = DescribeImagesResponse'
-    { _dessrsImages :: !(Maybe [Image])
-    , _dessrsStatus :: !Int
+    { _desrsImages :: !(Maybe [Image])
+    , _desrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImagesResponse' smart constructor.
 describeImagesResponse :: Int -> DescribeImagesResponse
 describeImagesResponse pStatus =
     DescribeImagesResponse'
-    { _dessrsImages = Nothing
-    , _dessrsStatus = pStatus
+    { _desrsImages = Nothing
+    , _desrsStatus = pStatus
     }
 
 -- | Information about one or more images.
-dessrsImages :: Lens' DescribeImagesResponse [Image]
-dessrsImages = lens _dessrsImages (\ s a -> s{_dessrsImages = a}) . _Default;
+desrsImages :: Lens' DescribeImagesResponse [Image]
+desrsImages = lens _desrsImages (\ s a -> s{_desrsImages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dessrsStatus :: Lens' DescribeImagesResponse Int
-dessrsStatus = lens _dessrsStatus (\ s a -> s{_dessrsStatus = a});
+desrsStatus :: Lens' DescribeImagesResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

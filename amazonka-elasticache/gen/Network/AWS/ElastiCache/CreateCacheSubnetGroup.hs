@@ -39,8 +39,8 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- ** Response constructor
     , createCacheSubnetGroupResponse
     -- ** Response lenses
-    , ccsgrsCacheSubnetGroup
-    , ccsgrsStatus
+    , crsCacheSubnetGroup
+    , crsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -126,26 +126,26 @@ instance ToQuery CreateCacheSubnetGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgrsCacheSubnetGroup'
+-- * 'crsCacheSubnetGroup'
 --
--- * 'ccsgrsStatus'
+-- * 'crsStatus'
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
-    { _ccsgrsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
-    , _ccsgrsStatus           :: !Int
+    { _crsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
+    , _crsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSubnetGroupResponse' smart constructor.
 createCacheSubnetGroupResponse :: Int -> CreateCacheSubnetGroupResponse
 createCacheSubnetGroupResponse pStatus =
     CreateCacheSubnetGroupResponse'
-    { _ccsgrsCacheSubnetGroup = Nothing
-    , _ccsgrsStatus = pStatus
+    { _crsCacheSubnetGroup = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ccsgrsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-ccsgrsCacheSubnetGroup = lens _ccsgrsCacheSubnetGroup (\ s a -> s{_ccsgrsCacheSubnetGroup = a});
+crsCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
+crsCacheSubnetGroup = lens _crsCacheSubnetGroup (\ s a -> s{_crsCacheSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-ccsgrsStatus :: Lens' CreateCacheSubnetGroupResponse Int
-ccsgrsStatus = lens _ccsgrsStatus (\ s a -> s{_ccsgrsStatus = a});
+crsStatus :: Lens' CreateCacheSubnetGroupResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

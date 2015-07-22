@@ -50,9 +50,9 @@ module Network.AWS.Support.DescribeCommunications
     -- ** Response constructor
     , describeCommunicationsResponse
     -- ** Response lenses
-    , drsNextToken
-    , drsCommunications
-    , drsStatus
+    , dcrsNextToken
+    , dcrsCommunications
+    , dcrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -120,10 +120,10 @@ drqCaseId = lens _drqCaseId (\ s a -> s{_drqCaseId = a});
 
 instance AWSPager DescribeCommunications where
         page rq rs
-          | stop (rs ^. drsNextToken) = Nothing
-          | stop (rs ^. drsCommunications) = Nothing
+          | stop (rs ^. dcrsNextToken) = Nothing
+          | stop (rs ^. dcrsCommunications) = Nothing
           | otherwise =
-            Just $ rq & drqNextToken .~ rs ^. drsNextToken
+            Just $ rq & drqNextToken .~ rs ^. dcrsNextToken
 
 instance AWSRequest DescribeCommunications where
         type Sv DescribeCommunications = Support
@@ -169,34 +169,34 @@ instance ToQuery DescribeCommunications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsNextToken'
+-- * 'dcrsNextToken'
 --
--- * 'drsCommunications'
+-- * 'dcrsCommunications'
 --
--- * 'drsStatus'
+-- * 'dcrsStatus'
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
-    { _drsNextToken      :: !(Maybe Text)
-    , _drsCommunications :: !(Maybe [Communication])
-    , _drsStatus         :: !Int
+    { _dcrsNextToken      :: !(Maybe Text)
+    , _dcrsCommunications :: !(Maybe [Communication])
+    , _dcrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
 describeCommunicationsResponse :: Int -> DescribeCommunicationsResponse
 describeCommunicationsResponse pStatus =
     DescribeCommunicationsResponse'
-    { _drsNextToken = Nothing
-    , _drsCommunications = Nothing
-    , _drsStatus = pStatus
+    { _dcrsNextToken = Nothing
+    , _dcrsCommunications = Nothing
+    , _dcrsStatus = pStatus
     }
 
 -- | A resumption point for pagination.
-drsNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
-drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
+dcrsNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
+dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a});
 
 -- | The communications for the case.
-drsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
-drsCommunications = lens _drsCommunications (\ s a -> s{_drsCommunications = a}) . _Default;
+dcrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
+dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DescribeCommunicationsResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dcrsStatus :: Lens' DescribeCommunicationsResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

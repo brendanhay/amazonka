@@ -50,9 +50,9 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     -- ** Response constructor
     , describeHSMConfigurationsResponse
     -- ** Response lenses
-    , dhsmcrsMarker
-    , dhsmcrsHSMConfigurations
-    , dhsmcrsStatus
+    , dhcrsMarker
+    , dhcrsHSMConfigurations
+    , dhcrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -144,10 +144,10 @@ dhsmcrqMarker = lens _dhsmcrqMarker (\ s a -> s{_dhsmcrqMarker = a});
 
 instance AWSPager DescribeHSMConfigurations where
         page rq rs
-          | stop (rs ^. dhsmcrsMarker) = Nothing
-          | stop (rs ^. dhsmcrsHSMConfigurations) = Nothing
+          | stop (rs ^. dhcrsMarker) = Nothing
+          | stop (rs ^. dhcrsHSMConfigurations) = Nothing
           | otherwise =
-            Just $ rq & dhsmcrqMarker .~ rs ^. dhsmcrsMarker
+            Just $ rq & dhsmcrqMarker .~ rs ^. dhcrsMarker
 
 instance AWSRequest DescribeHSMConfigurations where
         type Sv DescribeHSMConfigurations = Redshift
@@ -191,24 +191,24 @@ instance ToQuery DescribeHSMConfigurations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhsmcrsMarker'
+-- * 'dhcrsMarker'
 --
--- * 'dhsmcrsHSMConfigurations'
+-- * 'dhcrsHSMConfigurations'
 --
--- * 'dhsmcrsStatus'
+-- * 'dhcrsStatus'
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
-    { _dhsmcrsMarker            :: !(Maybe Text)
-    , _dhsmcrsHSMConfigurations :: !(Maybe [HSMConfiguration])
-    , _dhsmcrsStatus            :: !Int
+    { _dhcrsMarker            :: !(Maybe Text)
+    , _dhcrsHSMConfigurations :: !(Maybe [HSMConfiguration])
+    , _dhcrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
 describeHSMConfigurationsResponse :: Int -> DescribeHSMConfigurationsResponse
 describeHSMConfigurationsResponse pStatus =
     DescribeHSMConfigurationsResponse'
-    { _dhsmcrsMarker = Nothing
-    , _dhsmcrsHSMConfigurations = Nothing
-    , _dhsmcrsStatus = pStatus
+    { _dhcrsMarker = Nothing
+    , _dhcrsHSMConfigurations = Nothing
+    , _dhcrsStatus = pStatus
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -217,13 +217,13 @@ describeHSMConfigurationsResponse pStatus =
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dhsmcrsMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
-dhsmcrsMarker = lens _dhsmcrsMarker (\ s a -> s{_dhsmcrsMarker = a});
+dhcrsMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
+dhcrsMarker = lens _dhcrsMarker (\ s a -> s{_dhcrsMarker = a});
 
 -- | A list of Amazon Redshift HSM configurations.
-dhsmcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
-dhsmcrsHSMConfigurations = lens _dhsmcrsHSMConfigurations (\ s a -> s{_dhsmcrsHSMConfigurations = a}) . _Default;
+dhcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
+dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dhsmcrsStatus :: Lens' DescribeHSMConfigurationsResponse Int
-dhsmcrsStatus = lens _dhsmcrsStatus (\ s a -> s{_dhsmcrsStatus = a});
+dhcrsStatus :: Lens' DescribeHSMConfigurationsResponse Int
+dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});

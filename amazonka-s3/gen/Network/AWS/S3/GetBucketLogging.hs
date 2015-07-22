@@ -35,8 +35,8 @@ module Network.AWS.S3.GetBucketLogging
     -- ** Response constructor
     , getBucketLoggingResponse
     -- ** Response lenses
-    , getrsLoggingEnabled
-    , getrsStatus
+    , grsLoggingEnabled
+    , grsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -88,26 +88,26 @@ instance ToQuery GetBucketLogging where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'getrsLoggingEnabled'
+-- * 'grsLoggingEnabled'
 --
--- * 'getrsStatus'
+-- * 'grsStatus'
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-    { _getrsLoggingEnabled :: !(Maybe LoggingEnabled)
-    , _getrsStatus         :: !Int
+    { _grsLoggingEnabled :: !(Maybe LoggingEnabled)
+    , _grsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLoggingResponse' smart constructor.
 getBucketLoggingResponse :: Int -> GetBucketLoggingResponse
 getBucketLoggingResponse pStatus =
     GetBucketLoggingResponse'
-    { _getrsLoggingEnabled = Nothing
-    , _getrsStatus = pStatus
+    { _grsLoggingEnabled = Nothing
+    , _grsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-getrsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-getrsLoggingEnabled = lens _getrsLoggingEnabled (\ s a -> s{_getrsLoggingEnabled = a});
+grsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+grsLoggingEnabled = lens _grsLoggingEnabled (\ s a -> s{_grsLoggingEnabled = a});
 
 -- | FIXME: Undocumented member.
-getrsStatus :: Lens' GetBucketLoggingResponse Int
-getrsStatus = lens _getrsStatus (\ s a -> s{_getrsStatus = a});
+grsStatus :: Lens' GetBucketLoggingResponse Int
+grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});

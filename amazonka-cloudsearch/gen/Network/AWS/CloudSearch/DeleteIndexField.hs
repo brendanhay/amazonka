@@ -38,8 +38,8 @@ module Network.AWS.CloudSearch.DeleteIndexField
     -- ** Response constructor
     , deleteIndexFieldResponse
     -- ** Response lenses
-    , diffrsStatus
-    , diffrsIndexField
+    , difrsStatus
+    , difrsIndexField
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -110,26 +110,26 @@ instance ToQuery DeleteIndexField where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diffrsStatus'
+-- * 'difrsStatus'
 --
--- * 'diffrsIndexField'
+-- * 'difrsIndexField'
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
-    { _diffrsStatus     :: !Int
-    , _diffrsIndexField :: !IndexFieldStatus
+    { _difrsStatus     :: !Int
+    , _difrsIndexField :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
 deleteIndexFieldResponse :: Int -> IndexFieldStatus -> DeleteIndexFieldResponse
 deleteIndexFieldResponse pStatus pIndexField =
     DeleteIndexFieldResponse'
-    { _diffrsStatus = pStatus
-    , _diffrsIndexField = pIndexField
+    { _difrsStatus = pStatus
+    , _difrsIndexField = pIndexField
     }
 
 -- | FIXME: Undocumented member.
-diffrsStatus :: Lens' DeleteIndexFieldResponse Int
-diffrsStatus = lens _diffrsStatus (\ s a -> s{_diffrsStatus = a});
+difrsStatus :: Lens' DeleteIndexFieldResponse Int
+difrsStatus = lens _difrsStatus (\ s a -> s{_difrsStatus = a});
 
 -- | The status of the index field being deleted.
-diffrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
-diffrsIndexField = lens _diffrsIndexField (\ s a -> s{_diffrsIndexField = a});
+difrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
+difrsIndexField = lens _difrsIndexField (\ s a -> s{_difrsIndexField = a});

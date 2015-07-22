@@ -40,8 +40,8 @@ module Network.AWS.EC2.DescribeVPNGateways
     -- ** Response constructor
     , describeVPNGatewaysResponse
     -- ** Response lenses
-    , dvgsrsVPNGateways
-    , dvgsrsStatus
+    , dvgrsVPNGateways
+    , dvgrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -156,26 +156,26 @@ instance ToQuery DescribeVPNGateways where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvgsrsVPNGateways'
+-- * 'dvgrsVPNGateways'
 --
--- * 'dvgsrsStatus'
+-- * 'dvgrsStatus'
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
-    { _dvgsrsVPNGateways :: !(Maybe [VPNGateway])
-    , _dvgsrsStatus      :: !Int
+    { _dvgrsVPNGateways :: !(Maybe [VPNGateway])
+    , _dvgrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
 describeVPNGatewaysResponse :: Int -> DescribeVPNGatewaysResponse
 describeVPNGatewaysResponse pStatus =
     DescribeVPNGatewaysResponse'
-    { _dvgsrsVPNGateways = Nothing
-    , _dvgsrsStatus = pStatus
+    { _dvgrsVPNGateways = Nothing
+    , _dvgrsStatus = pStatus
     }
 
 -- | Information about one or more virtual private gateways.
-dvgsrsVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
-dvgsrsVPNGateways = lens _dvgsrsVPNGateways (\ s a -> s{_dvgsrsVPNGateways = a}) . _Default;
+dvgrsVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
+dvgrsVPNGateways = lens _dvgrsVPNGateways (\ s a -> s{_dvgrsVPNGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvgsrsStatus :: Lens' DescribeVPNGatewaysResponse Int
-dvgsrsStatus = lens _dvgsrsStatus (\ s a -> s{_dvgsrsStatus = a});
+dvgrsStatus :: Lens' DescribeVPNGatewaysResponse Int
+dvgrsStatus = lens _dvgrsStatus (\ s a -> s{_dvgrsStatus = a});

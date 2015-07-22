@@ -36,8 +36,8 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- ** Response constructor
     , createSnapshotResponse
     -- ** Response lenses
-    , csrsSnapshot
-    , csrsStatus
+    , crersSnapshot
+    , crersStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -104,26 +104,26 @@ instance ToQuery CreateSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrsSnapshot'
+-- * 'crersSnapshot'
 --
--- * 'csrsStatus'
+-- * 'crersStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _csrsSnapshot :: !(Maybe Snapshot)
-    , _csrsStatus   :: !Int
+    { _crersSnapshot :: !(Maybe Snapshot)
+    , _crersStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
 createSnapshotResponse pStatus =
     CreateSnapshotResponse'
-    { _csrsSnapshot = Nothing
-    , _csrsStatus = pStatus
+    { _crersSnapshot = Nothing
+    , _crersStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-csrsSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
-csrsSnapshot = lens _csrsSnapshot (\ s a -> s{_csrsSnapshot = a});
+crersSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
+crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
 -- | FIXME: Undocumented member.
-csrsStatus :: Lens' CreateSnapshotResponse Int
-csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});
+crersStatus :: Lens' CreateSnapshotResponse Int
+crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

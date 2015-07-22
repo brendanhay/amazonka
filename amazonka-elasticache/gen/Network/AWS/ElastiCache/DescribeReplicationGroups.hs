@@ -39,9 +39,9 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- ** Response constructor
     , describeReplicationGroupsResponse
     -- ** Response lenses
-    , drgsrsMarker
-    , drgsrsReplicationGroups
-    , drgsrsStatus
+    , drgrsMarker
+    , drgrsReplicationGroups
+    , drgrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -103,10 +103,10 @@ drgsrqReplicationGroupId = lens _drgsrqReplicationGroupId (\ s a -> s{_drgsrqRep
 
 instance AWSPager DescribeReplicationGroups where
         page rq rs
-          | stop (rs ^. drgsrsMarker) = Nothing
-          | stop (rs ^. drgsrsReplicationGroups) = Nothing
+          | stop (rs ^. drgrsMarker) = Nothing
+          | stop (rs ^. drgrsReplicationGroups) = Nothing
           | otherwise =
-            Just $ rq & drgsrqMarker .~ rs ^. drgsrsMarker
+            Just $ rq & drgsrqMarker .~ rs ^. drgrsMarker
 
 instance AWSRequest DescribeReplicationGroups where
         type Sv DescribeReplicationGroups = ElastiCache
@@ -144,35 +144,35 @@ instance ToQuery DescribeReplicationGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drgsrsMarker'
+-- * 'drgrsMarker'
 --
--- * 'drgsrsReplicationGroups'
+-- * 'drgrsReplicationGroups'
 --
--- * 'drgsrsStatus'
+-- * 'drgrsStatus'
 data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
-    { _drgsrsMarker            :: !(Maybe Text)
-    , _drgsrsReplicationGroups :: !(Maybe [ReplicationGroup])
-    , _drgsrsStatus            :: !Int
+    { _drgrsMarker            :: !(Maybe Text)
+    , _drgrsReplicationGroups :: !(Maybe [ReplicationGroup])
+    , _drgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReplicationGroupsResponse' smart constructor.
 describeReplicationGroupsResponse :: Int -> DescribeReplicationGroupsResponse
 describeReplicationGroupsResponse pStatus =
     DescribeReplicationGroupsResponse'
-    { _drgsrsMarker = Nothing
-    , _drgsrsReplicationGroups = Nothing
-    , _drgsrsStatus = pStatus
+    { _drgrsMarker = Nothing
+    , _drgrsReplicationGroups = Nothing
+    , _drgrsStatus = pStatus
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-drgsrsMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
-drgsrsMarker = lens _drgsrsMarker (\ s a -> s{_drgsrsMarker = a});
+drgrsMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
+drgrsMarker = lens _drgrsMarker (\ s a -> s{_drgrsMarker = a});
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-drgsrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
-drgsrsReplicationGroups = lens _drgsrsReplicationGroups (\ s a -> s{_drgsrsReplicationGroups = a}) . _Default;
+drgrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
+drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drgsrsStatus :: Lens' DescribeReplicationGroupsResponse Int
-drgsrsStatus = lens _drgsrsStatus (\ s a -> s{_drgsrsStatus = a});
+drgrsStatus :: Lens' DescribeReplicationGroupsResponse Int
+drgrsStatus = lens _drgrsStatus (\ s a -> s{_drgrsStatus = a});

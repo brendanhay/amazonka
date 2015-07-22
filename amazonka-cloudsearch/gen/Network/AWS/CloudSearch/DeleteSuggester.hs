@@ -37,8 +37,8 @@ module Network.AWS.CloudSearch.DeleteSuggester
     -- ** Response constructor
     , deleteSuggesterResponse
     -- ** Response lenses
-    , dssrsStatus
-    , dssrsSuggester
+    , dellrsStatus
+    , dellrsSuggester
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -109,26 +109,26 @@ instance ToQuery DeleteSuggester where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssrsStatus'
+-- * 'dellrsStatus'
 --
--- * 'dssrsSuggester'
+-- * 'dellrsSuggester'
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
-    { _dssrsStatus    :: !Int
-    , _dssrsSuggester :: !SuggesterStatus
+    { _dellrsStatus    :: !Int
+    , _dellrsSuggester :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
 deleteSuggesterResponse :: Int -> SuggesterStatus -> DeleteSuggesterResponse
 deleteSuggesterResponse pStatus pSuggester =
     DeleteSuggesterResponse'
-    { _dssrsStatus = pStatus
-    , _dssrsSuggester = pSuggester
+    { _dellrsStatus = pStatus
+    , _dellrsSuggester = pSuggester
     }
 
 -- | FIXME: Undocumented member.
-dssrsStatus :: Lens' DeleteSuggesterResponse Int
-dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
+dellrsStatus :: Lens' DeleteSuggesterResponse Int
+dellrsStatus = lens _dellrsStatus (\ s a -> s{_dellrsStatus = a});
 
 -- | The status of the suggester being deleted.
-dssrsSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-dssrsSuggester = lens _dssrsSuggester (\ s a -> s{_dssrsSuggester = a});
+dellrsSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
+dellrsSuggester = lens _dellrsSuggester (\ s a -> s{_dellrsSuggester = a});

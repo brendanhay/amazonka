@@ -55,8 +55,8 @@ module Network.AWS.IAM.UploadServerCertificate
     -- ** Response constructor
     , uploadServerCertificateResponse
     -- ** Response lenses
-    , uscrsServerCertificateMetadata
-    , uscrsStatus
+    , ursServerCertificateMetadata
+    , ursStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -166,27 +166,27 @@ instance ToQuery UploadServerCertificate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uscrsServerCertificateMetadata'
+-- * 'ursServerCertificateMetadata'
 --
--- * 'uscrsStatus'
+-- * 'ursStatus'
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
-    { _uscrsServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
-    , _uscrsStatus                    :: !Int
+    { _ursServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
+    , _ursStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadServerCertificateResponse' smart constructor.
 uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse
 uploadServerCertificateResponse pStatus =
     UploadServerCertificateResponse'
-    { _uscrsServerCertificateMetadata = Nothing
-    , _uscrsStatus = pStatus
+    { _ursServerCertificateMetadata = Nothing
+    , _ursStatus = pStatus
     }
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
-uscrsServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
-uscrsServerCertificateMetadata = lens _uscrsServerCertificateMetadata (\ s a -> s{_uscrsServerCertificateMetadata = a});
+ursServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
+ursServerCertificateMetadata = lens _ursServerCertificateMetadata (\ s a -> s{_ursServerCertificateMetadata = a});
 
 -- | FIXME: Undocumented member.
-uscrsStatus :: Lens' UploadServerCertificateResponse Int
-uscrsStatus = lens _uscrsStatus (\ s a -> s{_uscrsStatus = a});
+ursStatus :: Lens' UploadServerCertificateResponse Int
+ursStatus = lens _ursStatus (\ s a -> s{_ursStatus = a});

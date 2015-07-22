@@ -43,9 +43,9 @@ module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     -- ** Response constructor
     , describeSnapshotCopyGrantsResponse
     -- ** Response lenses
-    , dscgsrsSnapshotCopyGrants
-    , dscgsrsMarker
-    , dscgsrsStatus
+    , dscgrsSnapshotCopyGrants
+    , dscgrsMarker
+    , dscgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -176,29 +176,29 @@ instance ToQuery DescribeSnapshotCopyGrants where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscgsrsSnapshotCopyGrants'
+-- * 'dscgrsSnapshotCopyGrants'
 --
--- * 'dscgsrsMarker'
+-- * 'dscgrsMarker'
 --
--- * 'dscgsrsStatus'
+-- * 'dscgrsStatus'
 data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
-    { _dscgsrsSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
-    , _dscgsrsMarker             :: !(Maybe Text)
-    , _dscgsrsStatus             :: !Int
+    { _dscgrsSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
+    , _dscgrsMarker             :: !(Maybe Text)
+    , _dscgrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotCopyGrantsResponse' smart constructor.
 describeSnapshotCopyGrantsResponse :: Int -> DescribeSnapshotCopyGrantsResponse
 describeSnapshotCopyGrantsResponse pStatus =
     DescribeSnapshotCopyGrantsResponse'
-    { _dscgsrsSnapshotCopyGrants = Nothing
-    , _dscgsrsMarker = Nothing
-    , _dscgsrsStatus = pStatus
+    { _dscgrsSnapshotCopyGrants = Nothing
+    , _dscgrsMarker = Nothing
+    , _dscgrsStatus = pStatus
     }
 
 -- | The list of snapshot copy grants.
-dscgsrsSnapshotCopyGrants :: Lens' DescribeSnapshotCopyGrantsResponse [SnapshotCopyGrant]
-dscgsrsSnapshotCopyGrants = lens _dscgsrsSnapshotCopyGrants (\ s a -> s{_dscgsrsSnapshotCopyGrants = a}) . _Default;
+dscgrsSnapshotCopyGrants :: Lens' DescribeSnapshotCopyGrantsResponse [SnapshotCopyGrant]
+dscgrsSnapshotCopyGrants = lens _dscgrsSnapshotCopyGrants (\ s a -> s{_dscgrsSnapshotCopyGrants = a}) . _Default;
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a @DescribeSnapshotCopyGrant@
@@ -209,9 +209,9 @@ dscgsrsSnapshotCopyGrants = lens _dscgsrsSnapshotCopyGrants (\ s a -> s{_dscgsrs
 --
 -- Constraints: You can specify either the __SnapshotCopyGrantName__
 -- parameter or the __Marker__ parameter, but not both.
-dscgsrsMarker :: Lens' DescribeSnapshotCopyGrantsResponse (Maybe Text)
-dscgsrsMarker = lens _dscgsrsMarker (\ s a -> s{_dscgsrsMarker = a});
+dscgrsMarker :: Lens' DescribeSnapshotCopyGrantsResponse (Maybe Text)
+dscgrsMarker = lens _dscgrsMarker (\ s a -> s{_dscgrsMarker = a});
 
 -- | FIXME: Undocumented member.
-dscgsrsStatus :: Lens' DescribeSnapshotCopyGrantsResponse Int
-dscgsrsStatus = lens _dscgsrsStatus (\ s a -> s{_dscgsrsStatus = a});
+dscgrsStatus :: Lens' DescribeSnapshotCopyGrantsResponse Int
+dscgrsStatus = lens _dscgrsStatus (\ s a -> s{_dscgrsStatus = a});

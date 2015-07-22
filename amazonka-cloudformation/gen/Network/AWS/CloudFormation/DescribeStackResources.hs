@@ -55,8 +55,8 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- ** Response constructor
     , describeStackResourcesResponse
     -- ** Response lenses
-    , dsrrsStackResources
-    , dsrrsStatus
+    , drsStackResources
+    , drsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -160,26 +160,26 @@ instance ToQuery DescribeStackResources where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrrsStackResources'
+-- * 'drsStackResources'
 --
--- * 'dsrrsStatus'
+-- * 'drsStatus'
 data DescribeStackResourcesResponse = DescribeStackResourcesResponse'
-    { _dsrrsStackResources :: !(Maybe [StackResource])
-    , _dsrrsStatus         :: !Int
+    { _drsStackResources :: !(Maybe [StackResource])
+    , _drsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResourcesResponse' smart constructor.
 describeStackResourcesResponse :: Int -> DescribeStackResourcesResponse
 describeStackResourcesResponse pStatus =
     DescribeStackResourcesResponse'
-    { _dsrrsStackResources = Nothing
-    , _dsrrsStatus = pStatus
+    { _drsStackResources = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | A list of @StackResource@ structures.
-dsrrsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
-dsrrsStackResources = lens _dsrrsStackResources (\ s a -> s{_dsrrsStackResources = a}) . _Default;
+drsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
+drsStackResources = lens _drsStackResources (\ s a -> s{_drsStackResources = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrrsStatus :: Lens' DescribeStackResourcesResponse Int
-dsrrsStatus = lens _dsrrsStatus (\ s a -> s{_dsrrsStatus = a});
+drsStatus :: Lens' DescribeStackResourcesResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

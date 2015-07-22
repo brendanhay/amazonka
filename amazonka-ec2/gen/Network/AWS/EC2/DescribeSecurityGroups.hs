@@ -44,8 +44,8 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- ** Response constructor
     , describeSecurityGroupsResponse
     -- ** Response lenses
-    , dsgsrsSecurityGroups
-    , dsgsrsStatus
+    , dsgrsSecurityGroups
+    , dsgrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -183,26 +183,26 @@ instance ToQuery DescribeSecurityGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsgsrsSecurityGroups'
+-- * 'dsgrsSecurityGroups'
 --
--- * 'dsgsrsStatus'
+-- * 'dsgrsStatus'
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
-    { _dsgsrsSecurityGroups :: !(Maybe [SecurityGroup])
-    , _dsgsrsStatus         :: !Int
+    { _dsgrsSecurityGroups :: !(Maybe [SecurityGroup])
+    , _dsgrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
 describeSecurityGroupsResponse :: Int -> DescribeSecurityGroupsResponse
 describeSecurityGroupsResponse pStatus =
     DescribeSecurityGroupsResponse'
-    { _dsgsrsSecurityGroups = Nothing
-    , _dsgsrsStatus = pStatus
+    { _dsgrsSecurityGroups = Nothing
+    , _dsgrsStatus = pStatus
     }
 
 -- | Information about one or more security groups.
-dsgsrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
-dsgsrsSecurityGroups = lens _dsgsrsSecurityGroups (\ s a -> s{_dsgsrsSecurityGroups = a}) . _Default;
+dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
+dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsgsrsStatus :: Lens' DescribeSecurityGroupsResponse Int
-dsgsrsStatus = lens _dsgsrsStatus (\ s a -> s{_dsgsrsStatus = a});
+dsgrsStatus :: Lens' DescribeSecurityGroupsResponse Int
+dsgrsStatus = lens _dsgrsStatus (\ s a -> s{_dsgrsStatus = a});

@@ -92,17 +92,17 @@ replicationGroupDeleted =
                        , matchAny
                              "creating"
                              AcceptFailure
-                             (folding (concatOf drgsrsReplicationGroups) .
+                             (folding (concatOf drgrsReplicationGroups) .
                               rgStatus . _Just . to toText)
                        , matchAny
                              "modifying"
                              AcceptFailure
-                             (folding (concatOf drgsrsReplicationGroups) .
+                             (folding (concatOf drgrsReplicationGroups) .
                               rgStatus . _Just . to toText)
                        , matchAny
                              "rebooting"
                              AcceptFailure
-                             (folding (concatOf drgsrsReplicationGroups) .
+                             (folding (concatOf drgrsReplicationGroups) .
                               rgStatus . _Just . to toText)]
     }
 
@@ -115,26 +115,26 @@ replicationGroupAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf drgsrsReplicationGroups) .
+                             (folding (concatOf drgrsReplicationGroups) .
                               rgStatus . _Just . to toText)
                        , matchAny
                              "deleted"
                              AcceptFailure
-                             (folding (concatOf drgsrsReplicationGroups) .
+                             (folding (concatOf drgrsReplicationGroups) .
                               rgStatus . _Just . to toText)
                        , matchAny
                              "deleting"
                              AcceptFailure
-                             (folding (concatOf drgsrsReplicationGroups) .
+                             (folding (concatOf drgrsReplicationGroups) .
                               rgStatus . _Just . to toText)
                        , matchAny
                              "incompatible-network"
                              AcceptFailure
-                             (folding (concatOf drgsrsReplicationGroups) .
+                             (folding (concatOf drgrsReplicationGroups) .
                               rgStatus . _Just . to toText)
                        , matchAny
                              "restore-failed"
                              AcceptFailure
-                             (folding (concatOf drgsrsReplicationGroups) .
+                             (folding (concatOf drgrsReplicationGroups) .
                               rgStatus . _Just . to toText)]
     }

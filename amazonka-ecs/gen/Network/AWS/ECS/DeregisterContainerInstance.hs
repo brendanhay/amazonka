@@ -50,8 +50,8 @@ module Network.AWS.ECS.DeregisterContainerInstance
     -- ** Response constructor
     , deregisterContainerInstanceResponse
     -- ** Response lenses
-    , derrsContainerInstance
-    , derrsStatus
+    , dcirsContainerInstance
+    , dcirsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -148,26 +148,26 @@ instance ToQuery DeregisterContainerInstance where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derrsContainerInstance'
+-- * 'dcirsContainerInstance'
 --
--- * 'derrsStatus'
+-- * 'dcirsStatus'
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
-    { _derrsContainerInstance :: !(Maybe ContainerInstance)
-    , _derrsStatus            :: !Int
+    { _dcirsContainerInstance :: !(Maybe ContainerInstance)
+    , _dcirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
 deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse
 deregisterContainerInstanceResponse pStatus =
     DeregisterContainerInstanceResponse'
-    { _derrsContainerInstance = Nothing
-    , _derrsStatus = pStatus
+    { _dcirsContainerInstance = Nothing
+    , _dcirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-derrsContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
-derrsContainerInstance = lens _derrsContainerInstance (\ s a -> s{_derrsContainerInstance = a});
+dcirsContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
+dcirsContainerInstance = lens _dcirsContainerInstance (\ s a -> s{_dcirsContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-derrsStatus :: Lens' DeregisterContainerInstanceResponse Int
-derrsStatus = lens _derrsStatus (\ s a -> s{_derrsStatus = a});
+dcirsStatus :: Lens' DeregisterContainerInstanceResponse Int
+dcirsStatus = lens _dcirsStatus (\ s a -> s{_dcirsStatus = a});

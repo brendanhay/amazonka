@@ -43,8 +43,8 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     -- ** Response constructor
     , describeAnalysisSchemesResponse
     -- ** Response lenses
-    , dassrsStatus
-    , dassrsAnalysisSchemes
+    , dasrsStatus
+    , dasrsAnalysisSchemes
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -134,26 +134,26 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dassrsStatus'
+-- * 'dasrsStatus'
 --
--- * 'dassrsAnalysisSchemes'
+-- * 'dasrsAnalysisSchemes'
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-    { _dassrsStatus          :: !Int
-    , _dassrsAnalysisSchemes :: ![AnalysisSchemeStatus]
+    { _dasrsStatus          :: !Int
+    , _dasrsAnalysisSchemes :: ![AnalysisSchemeStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
 describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
 describeAnalysisSchemesResponse pStatus =
     DescribeAnalysisSchemesResponse'
-    { _dassrsStatus = pStatus
-    , _dassrsAnalysisSchemes = mempty
+    { _dasrsStatus = pStatus
+    , _dasrsAnalysisSchemes = mempty
     }
 
 -- | FIXME: Undocumented member.
-dassrsStatus :: Lens' DescribeAnalysisSchemesResponse Int
-dassrsStatus = lens _dassrsStatus (\ s a -> s{_dassrsStatus = a});
+dasrsStatus :: Lens' DescribeAnalysisSchemesResponse Int
+dasrsStatus = lens _dasrsStatus (\ s a -> s{_dasrsStatus = a});
 
 -- | The analysis scheme descriptions.
-dassrsAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-dassrsAnalysisSchemes = lens _dassrsAnalysisSchemes (\ s a -> s{_dassrsAnalysisSchemes = a});
+dasrsAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
+dasrsAnalysisSchemes = lens _dasrsAnalysisSchemes (\ s a -> s{_dasrsAnalysisSchemes = a});

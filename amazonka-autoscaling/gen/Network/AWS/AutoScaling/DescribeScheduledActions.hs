@@ -41,9 +41,9 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- ** Response constructor
     , describeScheduledActionsResponse
     -- ** Response lenses
-    , dsasrsScheduledUpdateGroupActions
-    , dsasrsNextToken
-    , dsasrsStatus
+    , dsarsScheduledUpdateGroupActions
+    , dsarsNextToken
+    , dsarsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -124,11 +124,11 @@ dsasrqScheduledActionNames = lens _dsasrqScheduledActionNames (\ s a -> s{_dsasr
 
 instance AWSPager DescribeScheduledActions where
         page rq rs
-          | stop (rs ^. dsasrsNextToken) = Nothing
-          | stop (rs ^. dsasrsScheduledUpdateGroupActions) =
+          | stop (rs ^. dsarsNextToken) = Nothing
+          | stop (rs ^. dsarsScheduledUpdateGroupActions) =
             Nothing
           | otherwise =
-            Just $ rq & dsasrqNextToken .~ rs ^. dsasrsNextToken
+            Just $ rq & dsasrqNextToken .~ rs ^. dsarsNextToken
 
 instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling
@@ -171,35 +171,35 @@ instance ToQuery DescribeScheduledActions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsasrsScheduledUpdateGroupActions'
+-- * 'dsarsScheduledUpdateGroupActions'
 --
--- * 'dsasrsNextToken'
+-- * 'dsarsNextToken'
 --
--- * 'dsasrsStatus'
+-- * 'dsarsStatus'
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
-    { _dsasrsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
-    , _dsasrsNextToken                   :: !(Maybe Text)
-    , _dsasrsStatus                      :: !Int
+    { _dsarsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
+    , _dsarsNextToken                   :: !(Maybe Text)
+    , _dsarsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
 describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse
 describeScheduledActionsResponse pStatus =
     DescribeScheduledActionsResponse'
-    { _dsasrsScheduledUpdateGroupActions = Nothing
-    , _dsasrsNextToken = Nothing
-    , _dsasrsStatus = pStatus
+    { _dsarsScheduledUpdateGroupActions = Nothing
+    , _dsarsNextToken = Nothing
+    , _dsarsStatus = pStatus
     }
 
 -- | The scheduled actions.
-dsasrsScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
-dsasrsScheduledUpdateGroupActions = lens _dsasrsScheduledUpdateGroupActions (\ s a -> s{_dsasrsScheduledUpdateGroupActions = a}) . _Default;
+dsarsScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
+dsarsScheduledUpdateGroupActions = lens _dsarsScheduledUpdateGroupActions (\ s a -> s{_dsarsScheduledUpdateGroupActions = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dsasrsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
-dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
+dsarsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
+dsarsNextToken = lens _dsarsNextToken (\ s a -> s{_dsarsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsasrsStatus :: Lens' DescribeScheduledActionsResponse Int
-dsasrsStatus = lens _dsasrsStatus (\ s a -> s{_dsasrsStatus = a});
+dsarsStatus :: Lens' DescribeScheduledActionsResponse Int
+dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});

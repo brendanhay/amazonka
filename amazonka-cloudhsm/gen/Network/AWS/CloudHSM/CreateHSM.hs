@@ -43,8 +43,8 @@ module Network.AWS.CloudHSM.CreateHSM
     -- ** Response constructor
     , createHSMResponse
     -- ** Response lenses
-    , chrsHSMARN
-    , chrsStatus
+    , chsmrsHSMARN
+    , chsmrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -174,26 +174,26 @@ instance ToQuery CreateHSM where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chrsHSMARN'
+-- * 'chsmrsHSMARN'
 --
--- * 'chrsStatus'
+-- * 'chsmrsStatus'
 data CreateHSMResponse = CreateHSMResponse'
-    { _chrsHSMARN :: !(Maybe Text)
-    , _chrsStatus :: !Int
+    { _chsmrsHSMARN :: !(Maybe Text)
+    , _chsmrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMResponse' smart constructor.
 createHSMResponse :: Int -> CreateHSMResponse
 createHSMResponse pStatus =
     CreateHSMResponse'
-    { _chrsHSMARN = Nothing
-    , _chrsStatus = pStatus
+    { _chsmrsHSMARN = Nothing
+    , _chsmrsStatus = pStatus
     }
 
 -- | The ARN of the HSM.
-chrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
-chrsHSMARN = lens _chrsHSMARN (\ s a -> s{_chrsHSMARN = a});
+chsmrsHSMARN :: Lens' CreateHSMResponse (Maybe Text)
+chsmrsHSMARN = lens _chsmrsHSMARN (\ s a -> s{_chsmrsHSMARN = a});
 
 -- | FIXME: Undocumented member.
-chrsStatus :: Lens' CreateHSMResponse Int
-chrsStatus = lens _chrsStatus (\ s a -> s{_chrsStatus = a});
+chsmrsStatus :: Lens' CreateHSMResponse Int
+chsmrsStatus = lens _chsmrsStatus (\ s a -> s{_chsmrsStatus = a});

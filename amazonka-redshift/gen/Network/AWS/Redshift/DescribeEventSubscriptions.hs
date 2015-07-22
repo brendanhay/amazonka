@@ -38,9 +38,9 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- ** Response constructor
     , describeEventSubscriptionsResponse
     -- ** Response lenses
-    , drsEventSubscriptionsList
-    , drsMarker
-    , drsStatus
+    , desrsEventSubscriptionsList
+    , desrsMarker
+    , desrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -103,10 +103,10 @@ drqMarker = lens _drqMarker (\ s a -> s{_drqMarker = a});
 
 instance AWSPager DescribeEventSubscriptions where
         page rq rs
-          | stop (rs ^. drsMarker) = Nothing
-          | stop (rs ^. drsEventSubscriptionsList) = Nothing
+          | stop (rs ^. desrsMarker) = Nothing
+          | stop (rs ^. desrsEventSubscriptionsList) = Nothing
           | otherwise =
-            Just $ rq & drqMarker .~ rs ^. drsMarker
+            Just $ rq & drqMarker .~ rs ^. desrsMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = Redshift
@@ -145,29 +145,29 @@ instance ToQuery DescribeEventSubscriptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsEventSubscriptionsList'
+-- * 'desrsEventSubscriptionsList'
 --
--- * 'drsMarker'
+-- * 'desrsMarker'
 --
--- * 'drsStatus'
+-- * 'desrsStatus'
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-    { _drsEventSubscriptionsList :: !(Maybe [EventSubscription])
-    , _drsMarker                 :: !(Maybe Text)
-    , _drsStatus                 :: !Int
+    { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
+    , _desrsMarker                 :: !(Maybe Text)
+    , _desrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pStatus =
     DescribeEventSubscriptionsResponse'
-    { _drsEventSubscriptionsList = Nothing
-    , _drsMarker = Nothing
-    , _drsStatus = pStatus
+    { _desrsEventSubscriptionsList = Nothing
+    , _desrsMarker = Nothing
+    , _desrsStatus = pStatus
     }
 
 -- | A list of event subscriptions.
-drsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-drsEventSubscriptionsList = lens _drsEventSubscriptionsList (\ s a -> s{_drsEventSubscriptionsList = a}) . _Default;
+desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -175,9 +175,9 @@ drsEventSubscriptionsList = lens _drsEventSubscriptionsList (\ s a -> s{_drsEven
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-drsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
+desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DescribeEventSubscriptionsResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+desrsStatus :: Lens' DescribeEventSubscriptionsResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

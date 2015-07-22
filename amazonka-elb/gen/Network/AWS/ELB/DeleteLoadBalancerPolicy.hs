@@ -36,7 +36,7 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- ** Response constructor
     , deleteLoadBalancerPolicyResponse
     -- ** Response lenses
-    , drsStatus
+    , delrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -104,18 +104,18 @@ instance ToQuery DeleteLoadBalancerPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsStatus'
+-- * 'delrsStatus'
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
-    { _drsStatus :: Int
+    { _delrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
 deleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicyResponse pStatus =
     DeleteLoadBalancerPolicyResponse'
-    { _drsStatus = pStatus
+    { _delrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+delrsStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
+delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

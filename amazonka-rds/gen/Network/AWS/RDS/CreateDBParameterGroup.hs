@@ -59,8 +59,8 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- ** Response constructor
     , createDBParameterGroupResponse
     -- ** Response lenses
-    , cdbpgrsDBParameterGroup
-    , cdbpgrsStatus
+    , cdpgrsDBParameterGroup
+    , cdpgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -160,26 +160,26 @@ instance ToQuery CreateDBParameterGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbpgrsDBParameterGroup'
+-- * 'cdpgrsDBParameterGroup'
 --
--- * 'cdbpgrsStatus'
+-- * 'cdpgrsStatus'
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
-    { _cdbpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _cdbpgrsStatus           :: !Int
+    { _cdpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
+    , _cdpgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBParameterGroupResponse' smart constructor.
 createDBParameterGroupResponse :: Int -> CreateDBParameterGroupResponse
 createDBParameterGroupResponse pStatus =
     CreateDBParameterGroupResponse'
-    { _cdbpgrsDBParameterGroup = Nothing
-    , _cdbpgrsStatus = pStatus
+    { _cdpgrsDBParameterGroup = Nothing
+    , _cdpgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cdbpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
-cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\ s a -> s{_cdbpgrsDBParameterGroup = a});
+cdpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
+cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-cdbpgrsStatus :: Lens' CreateDBParameterGroupResponse Int
-cdbpgrsStatus = lens _cdbpgrsStatus (\ s a -> s{_cdbpgrsStatus = a});
+cdpgrsStatus :: Lens' CreateDBParameterGroupResponse Int
+cdpgrsStatus = lens _cdpgrsStatus (\ s a -> s{_cdpgrsStatus = a});

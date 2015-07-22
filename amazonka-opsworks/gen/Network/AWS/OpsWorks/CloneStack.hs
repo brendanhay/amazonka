@@ -63,8 +63,8 @@ module Network.AWS.OpsWorks.CloneStack
     -- ** Response constructor
     , cloneStackResponse
     -- ** Response lenses
-    , crsStackId
-    , crsStatus
+    , csrsStackId
+    , csrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -466,26 +466,26 @@ instance ToQuery CloneStack where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crsStackId'
+-- * 'csrsStackId'
 --
--- * 'crsStatus'
+-- * 'csrsStatus'
 data CloneStackResponse = CloneStackResponse'
-    { _crsStackId :: !(Maybe Text)
-    , _crsStatus  :: !Int
+    { _csrsStackId :: !(Maybe Text)
+    , _csrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloneStackResponse' smart constructor.
 cloneStackResponse :: Int -> CloneStackResponse
 cloneStackResponse pStatus =
     CloneStackResponse'
-    { _crsStackId = Nothing
-    , _crsStatus = pStatus
+    { _csrsStackId = Nothing
+    , _csrsStatus = pStatus
     }
 
 -- | The cloned stack ID.
-crsStackId :: Lens' CloneStackResponse (Maybe Text)
-crsStackId = lens _crsStackId (\ s a -> s{_crsStackId = a});
+csrsStackId :: Lens' CloneStackResponse (Maybe Text)
+csrsStackId = lens _csrsStackId (\ s a -> s{_csrsStackId = a});
 
 -- | FIXME: Undocumented member.
-crsStatus :: Lens' CloneStackResponse Int
-crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});
+csrsStatus :: Lens' CloneStackResponse Int
+csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

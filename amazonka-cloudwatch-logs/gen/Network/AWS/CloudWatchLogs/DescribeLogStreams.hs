@@ -48,9 +48,9 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- ** Response constructor
     , describeLogStreamsResponse
     -- ** Response lenses
-    , dlssrsNextToken
-    , dlssrsLogStreams
-    , dlssrsStatus
+    , dlsrsNextToken
+    , dlsrsLogStreams
+    , dlsrsStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -170,34 +170,34 @@ instance ToQuery DescribeLogStreams where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlssrsNextToken'
+-- * 'dlsrsNextToken'
 --
--- * 'dlssrsLogStreams'
+-- * 'dlsrsLogStreams'
 --
--- * 'dlssrsStatus'
+-- * 'dlsrsStatus'
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
-    { _dlssrsNextToken  :: !(Maybe Text)
-    , _dlssrsLogStreams :: !(Maybe [LogStream])
-    , _dlssrsStatus     :: !Int
+    { _dlsrsNextToken  :: !(Maybe Text)
+    , _dlsrsLogStreams :: !(Maybe [LogStream])
+    , _dlsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
 describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse
 describeLogStreamsResponse pStatus =
     DescribeLogStreamsResponse'
-    { _dlssrsNextToken = Nothing
-    , _dlssrsLogStreams = Nothing
-    , _dlssrsStatus = pStatus
+    { _dlsrsNextToken = Nothing
+    , _dlsrsLogStreams = Nothing
+    , _dlsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dlssrsNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
-dlssrsNextToken = lens _dlssrsNextToken (\ s a -> s{_dlssrsNextToken = a});
+dlsrsNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
+dlsrsNextToken = lens _dlsrsNextToken (\ s a -> s{_dlsrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dlssrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
-dlssrsLogStreams = lens _dlssrsLogStreams (\ s a -> s{_dlssrsLogStreams = a}) . _Default;
+dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
+dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlssrsStatus :: Lens' DescribeLogStreamsResponse Int
-dlssrsStatus = lens _dlssrsStatus (\ s a -> s{_dlssrsStatus = a});
+dlsrsStatus :: Lens' DescribeLogStreamsResponse Int
+dlsrsStatus = lens _dlsrsStatus (\ s a -> s{_dlsrsStatus = a});

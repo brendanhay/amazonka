@@ -40,8 +40,8 @@ module Network.AWS.WorkSpaces.RebootWorkspaces
     -- ** Response constructor
     , rebootWorkspacesResponse
     -- ** Response lenses
-    , rwrsFailedRequests
-    , rwrsStatus
+    , rrsFailedRequests
+    , rrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -109,27 +109,27 @@ instance ToQuery RebootWorkspaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rwrsFailedRequests'
+-- * 'rrsFailedRequests'
 --
--- * 'rwrsStatus'
+-- * 'rrsStatus'
 data RebootWorkspacesResponse = RebootWorkspacesResponse'
-    { _rwrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _rwrsStatus         :: !Int
+    { _rrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+    , _rrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootWorkspacesResponse' smart constructor.
 rebootWorkspacesResponse :: Int -> RebootWorkspacesResponse
 rebootWorkspacesResponse pStatus =
     RebootWorkspacesResponse'
-    { _rwrsFailedRequests = Nothing
-    , _rwrsStatus = pStatus
+    { _rrsFailedRequests = Nothing
+    , _rrsStatus = pStatus
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebooted.
-rwrsFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
-rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default;
+rrsFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
+rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rwrsStatus :: Lens' RebootWorkspacesResponse Int
-rwrsStatus = lens _rwrsStatus (\ s a -> s{_rwrsStatus = a});
+rrsStatus :: Lens' RebootWorkspacesResponse Int
+rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});

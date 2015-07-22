@@ -34,7 +34,7 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     -- ** Response constructor
     , deleteLunaClientResponse
     -- ** Response lenses
-    , drsStatus
+    , dlcrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -95,18 +95,18 @@ instance ToQuery DeleteLunaClient where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsStatus'
+-- * 'dlcrsStatus'
 newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
-    { _drsStatus :: Int
+    { _dlcrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLunaClientResponse' smart constructor.
 deleteLunaClientResponse :: Int -> DeleteLunaClientResponse
 deleteLunaClientResponse pStatus =
     DeleteLunaClientResponse'
-    { _drsStatus = pStatus
+    { _dlcrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DeleteLunaClientResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dlcrsStatus :: Lens' DeleteLunaClientResponse Int
+dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});

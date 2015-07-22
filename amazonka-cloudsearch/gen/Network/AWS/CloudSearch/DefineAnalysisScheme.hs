@@ -39,8 +39,8 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     -- ** Response constructor
     , defineAnalysisSchemeResponse
     -- ** Response lenses
-    , ddrsStatus
-    , ddrsAnalysisScheme
+    , deffrsStatus
+    , deffrsAnalysisScheme
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -112,26 +112,26 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrsStatus'
+-- * 'deffrsStatus'
 --
--- * 'ddrsAnalysisScheme'
+-- * 'deffrsAnalysisScheme'
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-    { _ddrsStatus         :: !Int
-    , _ddrsAnalysisScheme :: !AnalysisSchemeStatus
+    { _deffrsStatus         :: !Int
+    , _deffrsAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
 defineAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
 defineAnalysisSchemeResponse pStatus pAnalysisScheme =
     DefineAnalysisSchemeResponse'
-    { _ddrsStatus = pStatus
-    , _ddrsAnalysisScheme = pAnalysisScheme
+    { _deffrsStatus = pStatus
+    , _deffrsAnalysisScheme = pAnalysisScheme
     }
 
 -- | FIXME: Undocumented member.
-ddrsStatus :: Lens' DefineAnalysisSchemeResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+deffrsStatus :: Lens' DefineAnalysisSchemeResponse Int
+deffrsStatus = lens _deffrsStatus (\ s a -> s{_deffrsStatus = a});
 
 -- | FIXME: Undocumented member.
-ddrsAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-ddrsAnalysisScheme = lens _ddrsAnalysisScheme (\ s a -> s{_ddrsAnalysisScheme = a});
+deffrsAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
+deffrsAnalysisScheme = lens _deffrsAnalysisScheme (\ s a -> s{_deffrsAnalysisScheme = a});

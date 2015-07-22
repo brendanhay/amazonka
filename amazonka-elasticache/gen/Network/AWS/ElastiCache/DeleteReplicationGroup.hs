@@ -44,8 +44,8 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     -- ** Response constructor
     , deleteReplicationGroupResponse
     -- ** Response lenses
-    , drgrsReplicationGroup
-    , drgrsStatus
+    , delrsReplicationGroup
+    , delrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -128,26 +128,26 @@ instance ToQuery DeleteReplicationGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drgrsReplicationGroup'
+-- * 'delrsReplicationGroup'
 --
--- * 'drgrsStatus'
+-- * 'delrsStatus'
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
-    { _drgrsReplicationGroup :: !(Maybe ReplicationGroup)
-    , _drgrsStatus           :: !Int
+    { _delrsReplicationGroup :: !(Maybe ReplicationGroup)
+    , _delrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReplicationGroupResponse' smart constructor.
 deleteReplicationGroupResponse :: Int -> DeleteReplicationGroupResponse
 deleteReplicationGroupResponse pStatus =
     DeleteReplicationGroupResponse'
-    { _drgrsReplicationGroup = Nothing
-    , _drgrsStatus = pStatus
+    { _delrsReplicationGroup = Nothing
+    , _delrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drgrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
-drgrsReplicationGroup = lens _drgrsReplicationGroup (\ s a -> s{_drgrsReplicationGroup = a});
+delrsReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
+delrsReplicationGroup = lens _delrsReplicationGroup (\ s a -> s{_delrsReplicationGroup = a});
 
 -- | FIXME: Undocumented member.
-drgrsStatus :: Lens' DeleteReplicationGroupResponse Int
-drgrsStatus = lens _drgrsStatus (\ s a -> s{_drgrsStatus = a});
+delrsStatus :: Lens' DeleteReplicationGroupResponse Int
+delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

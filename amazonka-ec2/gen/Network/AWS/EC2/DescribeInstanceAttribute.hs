@@ -41,21 +41,21 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- ** Response constructor
     , describeInstanceAttributeResponse
     -- ** Response lenses
-    , diarsInstanceId
-    , diarsGroups
-    , diarsSourceDestCheck
-    , diarsDisableAPITermination
-    , diarsRAMDiskId
-    , diarsKernelId
-    , diarsInstanceType
-    , diarsRootDeviceName
-    , diarsEBSOptimized
-    , diarsUserData
-    , diarsSRIOVNetSupport
-    , diarsInstanceInitiatedShutdownBehavior
-    , diarsProductCodes
-    , diarsBlockDeviceMappings
-    , diarsStatus
+    , drsInstanceId
+    , drsGroups
+    , drsSourceDestCheck
+    , drsDisableAPITermination
+    , drsRAMDiskId
+    , drsKernelId
+    , drsInstanceType
+    , drsRootDeviceName
+    , drsEBSOptimized
+    , drsUserData
+    , drsSRIOVNetSupport
+    , drsInstanceInitiatedShutdownBehavior
+    , drsProductCodes
+    , drsBlockDeviceMappings
+    , drsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -154,136 +154,136 @@ instance ToQuery DescribeInstanceAttribute where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diarsInstanceId'
+-- * 'drsInstanceId'
 --
--- * 'diarsGroups'
+-- * 'drsGroups'
 --
--- * 'diarsSourceDestCheck'
+-- * 'drsSourceDestCheck'
 --
--- * 'diarsDisableAPITermination'
+-- * 'drsDisableAPITermination'
 --
--- * 'diarsRAMDiskId'
+-- * 'drsRAMDiskId'
 --
--- * 'diarsKernelId'
+-- * 'drsKernelId'
 --
--- * 'diarsInstanceType'
+-- * 'drsInstanceType'
 --
--- * 'diarsRootDeviceName'
+-- * 'drsRootDeviceName'
 --
--- * 'diarsEBSOptimized'
+-- * 'drsEBSOptimized'
 --
--- * 'diarsUserData'
+-- * 'drsUserData'
 --
--- * 'diarsSRIOVNetSupport'
+-- * 'drsSRIOVNetSupport'
 --
--- * 'diarsInstanceInitiatedShutdownBehavior'
+-- * 'drsInstanceInitiatedShutdownBehavior'
 --
--- * 'diarsProductCodes'
+-- * 'drsProductCodes'
 --
--- * 'diarsBlockDeviceMappings'
+-- * 'drsBlockDeviceMappings'
 --
--- * 'diarsStatus'
+-- * 'drsStatus'
 data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
-    { _diarsInstanceId                        :: !(Maybe Text)
-    , _diarsGroups                            :: !(Maybe [GroupIdentifier])
-    , _diarsSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
-    , _diarsDisableAPITermination             :: !(Maybe AttributeBooleanValue)
-    , _diarsRAMDiskId                         :: !(Maybe AttributeValue)
-    , _diarsKernelId                          :: !(Maybe AttributeValue)
-    , _diarsInstanceType                      :: !(Maybe AttributeValue)
-    , _diarsRootDeviceName                    :: !(Maybe AttributeValue)
-    , _diarsEBSOptimized                      :: !(Maybe AttributeBooleanValue)
-    , _diarsUserData                          :: !(Maybe AttributeValue)
-    , _diarsSRIOVNetSupport                   :: !(Maybe AttributeValue)
-    , _diarsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
-    , _diarsProductCodes                      :: !(Maybe [ProductCode])
-    , _diarsBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
-    , _diarsStatus                            :: !Int
+    { _drsInstanceId                        :: !(Maybe Text)
+    , _drsGroups                            :: !(Maybe [GroupIdentifier])
+    , _drsSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
+    , _drsDisableAPITermination             :: !(Maybe AttributeBooleanValue)
+    , _drsRAMDiskId                         :: !(Maybe AttributeValue)
+    , _drsKernelId                          :: !(Maybe AttributeValue)
+    , _drsInstanceType                      :: !(Maybe AttributeValue)
+    , _drsRootDeviceName                    :: !(Maybe AttributeValue)
+    , _drsEBSOptimized                      :: !(Maybe AttributeBooleanValue)
+    , _drsUserData                          :: !(Maybe AttributeValue)
+    , _drsSRIOVNetSupport                   :: !(Maybe AttributeValue)
+    , _drsInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+    , _drsProductCodes                      :: !(Maybe [ProductCode])
+    , _drsBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
+    , _drsStatus                            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceAttributeResponse' smart constructor.
 describeInstanceAttributeResponse :: Int -> DescribeInstanceAttributeResponse
 describeInstanceAttributeResponse pStatus =
     DescribeInstanceAttributeResponse'
-    { _diarsInstanceId = Nothing
-    , _diarsGroups = Nothing
-    , _diarsSourceDestCheck = Nothing
-    , _diarsDisableAPITermination = Nothing
-    , _diarsRAMDiskId = Nothing
-    , _diarsKernelId = Nothing
-    , _diarsInstanceType = Nothing
-    , _diarsRootDeviceName = Nothing
-    , _diarsEBSOptimized = Nothing
-    , _diarsUserData = Nothing
-    , _diarsSRIOVNetSupport = Nothing
-    , _diarsInstanceInitiatedShutdownBehavior = Nothing
-    , _diarsProductCodes = Nothing
-    , _diarsBlockDeviceMappings = Nothing
-    , _diarsStatus = pStatus
+    { _drsInstanceId = Nothing
+    , _drsGroups = Nothing
+    , _drsSourceDestCheck = Nothing
+    , _drsDisableAPITermination = Nothing
+    , _drsRAMDiskId = Nothing
+    , _drsKernelId = Nothing
+    , _drsInstanceType = Nothing
+    , _drsRootDeviceName = Nothing
+    , _drsEBSOptimized = Nothing
+    , _drsUserData = Nothing
+    , _drsSRIOVNetSupport = Nothing
+    , _drsInstanceInitiatedShutdownBehavior = Nothing
+    , _drsProductCodes = Nothing
+    , _drsBlockDeviceMappings = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | The ID of the instance.
-diarsInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
-diarsInstanceId = lens _diarsInstanceId (\ s a -> s{_diarsInstanceId = a});
+drsInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
+drsInstanceId = lens _drsInstanceId (\ s a -> s{_drsInstanceId = a});
 
 -- | The security groups associated with the instance.
-diarsGroups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
-diarsGroups = lens _diarsGroups (\ s a -> s{_diarsGroups = a}) . _Default;
+drsGroups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
+drsGroups = lens _drsGroups (\ s a -> s{_drsGroups = a}) . _Default;
 
 -- | Indicates whether source\/destination checking is enabled. A value of
 -- @true@ means checking is enabled, and @false@ means checking is
 -- disabled. This value must be @false@ for a NAT instance to perform NAT.
-diarsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-diarsSourceDestCheck = lens _diarsSourceDestCheck (\ s a -> s{_diarsSourceDestCheck = a});
+drsSourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+drsSourceDestCheck = lens _drsSourceDestCheck (\ s a -> s{_drsSourceDestCheck = a});
 
 -- | If the value is @true@, you can\'t terminate the instance through the
 -- Amazon EC2 console, CLI, or API; otherwise, you can.
-diarsDisableAPITermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-diarsDisableAPITermination = lens _diarsDisableAPITermination (\ s a -> s{_diarsDisableAPITermination = a});
+drsDisableAPITermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+drsDisableAPITermination = lens _drsDisableAPITermination (\ s a -> s{_drsDisableAPITermination = a});
 
 -- | The RAM disk ID.
-diarsRAMDiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsRAMDiskId = lens _diarsRAMDiskId (\ s a -> s{_diarsRAMDiskId = a});
+drsRAMDiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsRAMDiskId = lens _drsRAMDiskId (\ s a -> s{_drsRAMDiskId = a});
 
 -- | The kernel ID.
-diarsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsKernelId = lens _diarsKernelId (\ s a -> s{_diarsKernelId = a});
+drsKernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsKernelId = lens _drsKernelId (\ s a -> s{_drsKernelId = a});
 
 -- | The instance type.
-diarsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsInstanceType = lens _diarsInstanceType (\ s a -> s{_diarsInstanceType = a});
+drsInstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsInstanceType = lens _drsInstanceType (\ s a -> s{_drsInstanceType = a});
 
 -- | The name of the root device (for example, @\/dev\/sda1@ or
 -- @\/dev\/xvda@).
-diarsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsRootDeviceName = lens _diarsRootDeviceName (\ s a -> s{_diarsRootDeviceName = a});
+drsRootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsRootDeviceName = lens _drsRootDeviceName (\ s a -> s{_drsRootDeviceName = a});
 
 -- | Indicates whether the instance is optimized for EBS I\/O.
-diarsEBSOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
-diarsEBSOptimized = lens _diarsEBSOptimized (\ s a -> s{_diarsEBSOptimized = a});
+drsEBSOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+drsEBSOptimized = lens _drsEBSOptimized (\ s a -> s{_drsEBSOptimized = a});
 
 -- | The Base64-encoded MIME user data.
-diarsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsUserData = lens _diarsUserData (\ s a -> s{_diarsUserData = a});
+drsUserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsUserData = lens _drsUserData (\ s a -> s{_drsUserData = a});
 
 -- | FIXME: Undocumented member.
-diarsSRIOVNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\ s a -> s{_diarsSRIOVNetSupport = a});
+drsSRIOVNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsSRIOVNetSupport = lens _drsSRIOVNetSupport (\ s a -> s{_drsSRIOVNetSupport = a});
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
-diarsInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
-diarsInstanceInitiatedShutdownBehavior = lens _diarsInstanceInitiatedShutdownBehavior (\ s a -> s{_diarsInstanceInitiatedShutdownBehavior = a});
+drsInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+drsInstanceInitiatedShutdownBehavior = lens _drsInstanceInitiatedShutdownBehavior (\ s a -> s{_drsInstanceInitiatedShutdownBehavior = a});
 
 -- | A list of product codes.
-diarsProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
-diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default;
+drsProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
+drsProductCodes = lens _drsProductCodes (\ s a -> s{_drsProductCodes = a}) . _Default;
 
 -- | The block device mapping of the instance.
-diarsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
-diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default;
+drsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
+drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDeviceMappings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-diarsStatus :: Lens' DescribeInstanceAttributeResponse Int
-diarsStatus = lens _diarsStatus (\ s a -> s{_diarsStatus = a});
+drsStatus :: Lens' DescribeInstanceAttributeResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

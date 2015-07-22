@@ -37,15 +37,15 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- ** Response constructor
     , describeImageAttributeResponse
     -- ** Response lenses
-    , diaarsLaunchPermissions
-    , diaarsRAMDiskId
-    , diaarsKernelId
-    , diaarsSRIOVNetSupport
-    , diaarsImageId
-    , diaarsProductCodes
-    , diaarsBlockDeviceMappings
-    , diaarsDescription
-    , diaarsStatus
+    , diarsLaunchPermissions
+    , diarsRAMDiskId
+    , diarsKernelId
+    , diarsSRIOVNetSupport
+    , diarsImageId
+    , diarsProductCodes
+    , diarsBlockDeviceMappings
+    , diarsDescription
+    , diarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -143,82 +143,82 @@ instance ToQuery DescribeImageAttribute where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diaarsLaunchPermissions'
+-- * 'diarsLaunchPermissions'
 --
--- * 'diaarsRAMDiskId'
+-- * 'diarsRAMDiskId'
 --
--- * 'diaarsKernelId'
+-- * 'diarsKernelId'
 --
--- * 'diaarsSRIOVNetSupport'
+-- * 'diarsSRIOVNetSupport'
 --
--- * 'diaarsImageId'
+-- * 'diarsImageId'
 --
--- * 'diaarsProductCodes'
+-- * 'diarsProductCodes'
 --
--- * 'diaarsBlockDeviceMappings'
+-- * 'diarsBlockDeviceMappings'
 --
--- * 'diaarsDescription'
+-- * 'diarsDescription'
 --
--- * 'diaarsStatus'
+-- * 'diarsStatus'
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
-    { _diaarsLaunchPermissions   :: !(Maybe [LaunchPermission])
-    , _diaarsRAMDiskId           :: !(Maybe AttributeValue)
-    , _diaarsKernelId            :: !(Maybe AttributeValue)
-    , _diaarsSRIOVNetSupport     :: !(Maybe AttributeValue)
-    , _diaarsImageId             :: !(Maybe Text)
-    , _diaarsProductCodes        :: !(Maybe [ProductCode])
-    , _diaarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _diaarsDescription         :: !(Maybe AttributeValue)
-    , _diaarsStatus              :: !Int
+    { _diarsLaunchPermissions   :: !(Maybe [LaunchPermission])
+    , _diarsRAMDiskId           :: !(Maybe AttributeValue)
+    , _diarsKernelId            :: !(Maybe AttributeValue)
+    , _diarsSRIOVNetSupport     :: !(Maybe AttributeValue)
+    , _diarsImageId             :: !(Maybe Text)
+    , _diarsProductCodes        :: !(Maybe [ProductCode])
+    , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _diarsDescription         :: !(Maybe AttributeValue)
+    , _diarsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
 describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse
 describeImageAttributeResponse pStatus =
     DescribeImageAttributeResponse'
-    { _diaarsLaunchPermissions = Nothing
-    , _diaarsRAMDiskId = Nothing
-    , _diaarsKernelId = Nothing
-    , _diaarsSRIOVNetSupport = Nothing
-    , _diaarsImageId = Nothing
-    , _diaarsProductCodes = Nothing
-    , _diaarsBlockDeviceMappings = Nothing
-    , _diaarsDescription = Nothing
-    , _diaarsStatus = pStatus
+    { _diarsLaunchPermissions = Nothing
+    , _diarsRAMDiskId = Nothing
+    , _diarsKernelId = Nothing
+    , _diarsSRIOVNetSupport = Nothing
+    , _diarsImageId = Nothing
+    , _diarsProductCodes = Nothing
+    , _diarsBlockDeviceMappings = Nothing
+    , _diarsDescription = Nothing
+    , _diarsStatus = pStatus
     }
 
 -- | One or more launch permissions.
-diaarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
-diaarsLaunchPermissions = lens _diaarsLaunchPermissions (\ s a -> s{_diaarsLaunchPermissions = a}) . _Default;
+diarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
+diarsLaunchPermissions = lens _diarsLaunchPermissions (\ s a -> s{_diarsLaunchPermissions = a}) . _Default;
 
 -- | The RAM disk ID.
-diaarsRAMDiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diaarsRAMDiskId = lens _diaarsRAMDiskId (\ s a -> s{_diaarsRAMDiskId = a});
+diarsRAMDiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsRAMDiskId = lens _diarsRAMDiskId (\ s a -> s{_diarsRAMDiskId = a});
 
 -- | The kernel ID.
-diaarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diaarsKernelId = lens _diaarsKernelId (\ s a -> s{_diaarsKernelId = a});
+diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsKernelId = lens _diarsKernelId (\ s a -> s{_diarsKernelId = a});
 
 -- | FIXME: Undocumented member.
-diaarsSRIOVNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diaarsSRIOVNetSupport = lens _diaarsSRIOVNetSupport (\ s a -> s{_diaarsSRIOVNetSupport = a});
+diarsSRIOVNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\ s a -> s{_diarsSRIOVNetSupport = a});
 
 -- | The ID of the AMI.
-diaarsImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
-diaarsImageId = lens _diaarsImageId (\ s a -> s{_diaarsImageId = a});
+diarsImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
+diarsImageId = lens _diarsImageId (\ s a -> s{_diarsImageId = a});
 
 -- | One or more product codes.
-diaarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
-diaarsProductCodes = lens _diaarsProductCodes (\ s a -> s{_diaarsProductCodes = a}) . _Default;
+diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
+diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default;
 
 -- | One or more block device mapping entries.
-diaarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diaarsBlockDeviceMappings = lens _diaarsBlockDeviceMappings (\ s a -> s{_diaarsBlockDeviceMappings = a}) . _Default;
+diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default;
 
 -- | A description for the AMI.
-diaarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diaarsDescription = lens _diaarsDescription (\ s a -> s{_diaarsDescription = a});
+diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a});
 
 -- | FIXME: Undocumented member.
-diaarsStatus :: Lens' DescribeImageAttributeResponse Int
-diaarsStatus = lens _diaarsStatus (\ s a -> s{_diaarsStatus = a});
+diarsStatus :: Lens' DescribeImageAttributeResponse Int
+diarsStatus = lens _diarsStatus (\ s a -> s{_diarsStatus = a});

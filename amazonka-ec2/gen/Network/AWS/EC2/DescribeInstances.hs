@@ -48,9 +48,9 @@ module Network.AWS.EC2.DescribeInstances
     -- ** Response constructor
     , describeInstancesResponse
     -- ** Response lenses
-    , diirsNextToken
-    , diirsReservations
-    , diirsStatus
+    , dirsNextToken
+    , dirsReservations
+    , dirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -367,10 +367,10 @@ diirqMaxResults = lens _diirqMaxResults (\ s a -> s{_diirqMaxResults = a});
 
 instance AWSPager DescribeInstances where
         page rq rs
-          | stop (rs ^. diirsNextToken) = Nothing
-          | stop (rs ^. diirsReservations) = Nothing
+          | stop (rs ^. dirsNextToken) = Nothing
+          | stop (rs ^. dirsReservations) = Nothing
           | otherwise =
-            Just $ rq & diirqNextToken .~ rs ^. diirsNextToken
+            Just $ rq & diirqNextToken .~ rs ^. dirsNextToken
 
 instance AWSRequest DescribeInstances where
         type Sv DescribeInstances = EC2
@@ -407,35 +407,35 @@ instance ToQuery DescribeInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diirsNextToken'
+-- * 'dirsNextToken'
 --
--- * 'diirsReservations'
+-- * 'dirsReservations'
 --
--- * 'diirsStatus'
+-- * 'dirsStatus'
 data DescribeInstancesResponse = DescribeInstancesResponse'
-    { _diirsNextToken    :: !(Maybe Text)
-    , _diirsReservations :: !(Maybe [Reservation])
-    , _diirsStatus       :: !Int
+    { _dirsNextToken    :: !(Maybe Text)
+    , _dirsReservations :: !(Maybe [Reservation])
+    , _dirsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse
 describeInstancesResponse pStatus =
     DescribeInstancesResponse'
-    { _diirsNextToken = Nothing
-    , _diirsReservations = Nothing
-    , _diirsStatus = pStatus
+    { _dirsNextToken = Nothing
+    , _dirsReservations = Nothing
+    , _dirsStatus = pStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-diirsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
-diirsNextToken = lens _diirsNextToken (\ s a -> s{_diirsNextToken = a});
+dirsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
+dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
 
 -- | One or more reservations.
-diirsReservations :: Lens' DescribeInstancesResponse [Reservation]
-diirsReservations = lens _diirsReservations (\ s a -> s{_diirsReservations = a}) . _Default;
+dirsReservations :: Lens' DescribeInstancesResponse [Reservation]
+dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-diirsStatus :: Lens' DescribeInstancesResponse Int
-diirsStatus = lens _diirsStatus (\ s a -> s{_diirsStatus = a});
+dirsStatus :: Lens' DescribeInstancesResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

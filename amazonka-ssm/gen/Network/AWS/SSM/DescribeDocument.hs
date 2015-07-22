@@ -34,8 +34,8 @@ module Network.AWS.SSM.DescribeDocument
     -- ** Response constructor
     , describeDocumentResponse
     -- ** Response lenses
-    , ddrsDocument
-    , ddrsStatus
+    , drsDocument
+    , drsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -96,26 +96,26 @@ instance ToQuery DescribeDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrsDocument'
+-- * 'drsDocument'
 --
--- * 'ddrsStatus'
+-- * 'drsStatus'
 data DescribeDocumentResponse = DescribeDocumentResponse'
-    { _ddrsDocument :: !(Maybe DocumentDescription)
-    , _ddrsStatus   :: !Int
+    { _drsDocument :: !(Maybe DocumentDescription)
+    , _drsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDocumentResponse' smart constructor.
 describeDocumentResponse :: Int -> DescribeDocumentResponse
 describeDocumentResponse pStatus =
     DescribeDocumentResponse'
-    { _ddrsDocument = Nothing
-    , _ddrsStatus = pStatus
+    { _drsDocument = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | Information about the configuration document.
-ddrsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
-ddrsDocument = lens _ddrsDocument (\ s a -> s{_ddrsDocument = a});
+drsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
+drsDocument = lens _drsDocument (\ s a -> s{_drsDocument = a});
 
 -- | FIXME: Undocumented member.
-ddrsStatus :: Lens' DescribeDocumentResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+drsStatus :: Lens' DescribeDocumentResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

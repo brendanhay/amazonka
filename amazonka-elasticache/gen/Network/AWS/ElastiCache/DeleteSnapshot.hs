@@ -36,8 +36,8 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     -- ** Response constructor
     , deleteSnapshotResponse
     -- ** Response lenses
-    , drsSnapshot
-    , drsStatus
+    , dsrsSnapshot
+    , dsrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -94,26 +94,26 @@ instance ToQuery DeleteSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drsSnapshot'
+-- * 'dsrsSnapshot'
 --
--- * 'drsStatus'
+-- * 'dsrsStatus'
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-    { _drsSnapshot :: !(Maybe Snapshot)
-    , _drsStatus   :: !Int
+    { _dsrsSnapshot :: !(Maybe Snapshot)
+    , _dsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
 deleteSnapshotResponse pStatus =
     DeleteSnapshotResponse'
-    { _drsSnapshot = Nothing
-    , _drsStatus = pStatus
+    { _dsrsSnapshot = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
-drsSnapshot = lens _drsSnapshot (\ s a -> s{_drsSnapshot = a});
+dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
+dsrsSnapshot = lens _dsrsSnapshot (\ s a -> s{_dsrsSnapshot = a});
 
 -- | FIXME: Undocumented member.
-drsStatus :: Lens' DeleteSnapshotResponse Int
-drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+dsrsStatus :: Lens' DeleteSnapshotResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

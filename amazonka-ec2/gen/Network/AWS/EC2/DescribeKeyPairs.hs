@@ -40,8 +40,8 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- ** Response constructor
     , describeKeyPairsResponse
     -- ** Response lenses
-    , dkpsrsKeyPairs
-    , dkpsrsStatus
+    , dkprsKeyPairs
+    , dkprsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -126,26 +126,26 @@ instance ToQuery DescribeKeyPairs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkpsrsKeyPairs'
+-- * 'dkprsKeyPairs'
 --
--- * 'dkpsrsStatus'
+-- * 'dkprsStatus'
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
-    { _dkpsrsKeyPairs :: !(Maybe [KeyPairInfo])
-    , _dkpsrsStatus   :: !Int
+    { _dkprsKeyPairs :: !(Maybe [KeyPairInfo])
+    , _dkprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
 describeKeyPairsResponse :: Int -> DescribeKeyPairsResponse
 describeKeyPairsResponse pStatus =
     DescribeKeyPairsResponse'
-    { _dkpsrsKeyPairs = Nothing
-    , _dkpsrsStatus = pStatus
+    { _dkprsKeyPairs = Nothing
+    , _dkprsStatus = pStatus
     }
 
 -- | Information about one or more key pairs.
-dkpsrsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
-dkpsrsKeyPairs = lens _dkpsrsKeyPairs (\ s a -> s{_dkpsrsKeyPairs = a}) . _Default;
+dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dkpsrsStatus :: Lens' DescribeKeyPairsResponse Int
-dkpsrsStatus = lens _dkpsrsStatus (\ s a -> s{_dkpsrsStatus = a});
+dkprsStatus :: Lens' DescribeKeyPairsResponse Int
+dkprsStatus = lens _dkprsStatus (\ s a -> s{_dkprsStatus = a});

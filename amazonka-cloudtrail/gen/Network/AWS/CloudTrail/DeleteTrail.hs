@@ -34,7 +34,7 @@ module Network.AWS.CloudTrail.DeleteTrail
     -- ** Response constructor
     , deleteTrailResponse
     -- ** Response lenses
-    , dtrsStatus
+    , drsStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -100,18 +100,18 @@ instance ToQuery DeleteTrail where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrsStatus'
+-- * 'drsStatus'
 newtype DeleteTrailResponse = DeleteTrailResponse'
-    { _dtrsStatus :: Int
+    { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTrailResponse' smart constructor.
 deleteTrailResponse :: Int -> DeleteTrailResponse
 deleteTrailResponse pStatus =
     DeleteTrailResponse'
-    { _dtrsStatus = pStatus
+    { _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dtrsStatus :: Lens' DeleteTrailResponse Int
-dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
+drsStatus :: Lens' DeleteTrailResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

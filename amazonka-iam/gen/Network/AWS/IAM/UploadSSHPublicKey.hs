@@ -42,8 +42,8 @@ module Network.AWS.IAM.UploadSSHPublicKey
     -- ** Response constructor
     , uploadSSHPublicKeyResponse
     -- ** Response lenses
-    , usshpkrsSSHPublicKey
-    , usshpkrsStatus
+    , uspkrsSSHPublicKey
+    , uspkrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -111,26 +111,26 @@ instance ToQuery UploadSSHPublicKey where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usshpkrsSSHPublicKey'
+-- * 'uspkrsSSHPublicKey'
 --
--- * 'usshpkrsStatus'
+-- * 'uspkrsStatus'
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
-    { _usshpkrsSSHPublicKey :: !(Maybe SSHPublicKey)
-    , _usshpkrsStatus       :: !Int
+    { _uspkrsSSHPublicKey :: !(Maybe SSHPublicKey)
+    , _uspkrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSSHPublicKeyResponse' smart constructor.
 uploadSSHPublicKeyResponse :: Int -> UploadSSHPublicKeyResponse
 uploadSSHPublicKeyResponse pStatus =
     UploadSSHPublicKeyResponse'
-    { _usshpkrsSSHPublicKey = Nothing
-    , _usshpkrsStatus = pStatus
+    { _uspkrsSSHPublicKey = Nothing
+    , _uspkrsStatus = pStatus
     }
 
 -- | Contains information about the SSH public key.
-usshpkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
-usshpkrsSSHPublicKey = lens _usshpkrsSSHPublicKey (\ s a -> s{_usshpkrsSSHPublicKey = a});
+uspkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
+uspkrsSSHPublicKey = lens _uspkrsSSHPublicKey (\ s a -> s{_uspkrsSSHPublicKey = a});
 
 -- | FIXME: Undocumented member.
-usshpkrsStatus :: Lens' UploadSSHPublicKeyResponse Int
-usshpkrsStatus = lens _usshpkrsStatus (\ s a -> s{_usshpkrsStatus = a});
+uspkrsStatus :: Lens' UploadSSHPublicKeyResponse Int
+uspkrsStatus = lens _uspkrsStatus (\ s a -> s{_uspkrsStatus = a});

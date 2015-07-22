@@ -40,8 +40,8 @@ module Network.AWS.EC2.DescribeVPNConnections
     -- ** Response constructor
     , describeVPNConnectionsResponse
     -- ** Response lenses
-    , dvpncrsVPNConnections
-    , dvpncrsStatus
+    , dvcrsVPNConnections
+    , dvcrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -167,26 +167,26 @@ instance ToQuery DescribeVPNConnections where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpncrsVPNConnections'
+-- * 'dvcrsVPNConnections'
 --
--- * 'dvpncrsStatus'
+-- * 'dvcrsStatus'
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
-    { _dvpncrsVPNConnections :: !(Maybe [VPNConnection])
-    , _dvpncrsStatus         :: !Int
+    { _dvcrsVPNConnections :: !(Maybe [VPNConnection])
+    , _dvcrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
 describeVPNConnectionsResponse :: Int -> DescribeVPNConnectionsResponse
 describeVPNConnectionsResponse pStatus =
     DescribeVPNConnectionsResponse'
-    { _dvpncrsVPNConnections = Nothing
-    , _dvpncrsStatus = pStatus
+    { _dvcrsVPNConnections = Nothing
+    , _dvcrsStatus = pStatus
     }
 
 -- | Information about one or more VPN connections.
-dvpncrsVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
-dvpncrsVPNConnections = lens _dvpncrsVPNConnections (\ s a -> s{_dvpncrsVPNConnections = a}) . _Default;
+dvcrsVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
+dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvpncrsStatus :: Lens' DescribeVPNConnectionsResponse Int
-dvpncrsStatus = lens _dvpncrsStatus (\ s a -> s{_dvpncrsStatus = a});
+dvcrsStatus :: Lens' DescribeVPNConnectionsResponse Int
+dvcrsStatus = lens _dvcrsStatus (\ s a -> s{_dvcrsStatus = a});

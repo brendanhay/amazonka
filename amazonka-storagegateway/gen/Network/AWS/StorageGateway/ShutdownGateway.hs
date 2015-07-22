@@ -57,8 +57,8 @@ module Network.AWS.StorageGateway.ShutdownGateway
     -- ** Response constructor
     , shutdownGatewayResponse
     -- ** Response lenses
-    , srsGatewayARN
-    , srsStatus
+    , sgrsGatewayARN
+    , sgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -124,26 +124,26 @@ instance ToQuery ShutdownGateway where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srsGatewayARN'
+-- * 'sgrsGatewayARN'
 --
--- * 'srsStatus'
+-- * 'sgrsStatus'
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-    { _srsGatewayARN :: !(Maybe Text)
-    , _srsStatus     :: !Int
+    { _sgrsGatewayARN :: !(Maybe Text)
+    , _sgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ShutdownGatewayResponse' smart constructor.
 shutdownGatewayResponse :: Int -> ShutdownGatewayResponse
 shutdownGatewayResponse pStatus =
     ShutdownGatewayResponse'
-    { _srsGatewayARN = Nothing
-    , _srsStatus = pStatus
+    { _sgrsGatewayARN = Nothing
+    , _sgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-srsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
+sgrsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
+sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-srsStatus :: Lens' ShutdownGatewayResponse Int
-srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});
+sgrsStatus :: Lens' ShutdownGatewayResponse Int
+sgrsStatus = lens _sgrsStatus (\ s a -> s{_sgrsStatus = a});

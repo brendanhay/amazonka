@@ -41,8 +41,8 @@ module Network.AWS.CloudSearch.DefineSuggester
     -- ** Response constructor
     , defineSuggesterResponse
     -- ** Response lenses
-    , defrsStatus
-    , defrsSuggester
+    , dsrsStatus
+    , dsrsSuggester
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -113,26 +113,26 @@ instance ToQuery DefineSuggester where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'defrsStatus'
+-- * 'dsrsStatus'
 --
--- * 'defrsSuggester'
+-- * 'dsrsSuggester'
 data DefineSuggesterResponse = DefineSuggesterResponse'
-    { _defrsStatus    :: !Int
-    , _defrsSuggester :: !SuggesterStatus
+    { _dsrsStatus    :: !Int
+    , _dsrsSuggester :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineSuggesterResponse' smart constructor.
 defineSuggesterResponse :: Int -> SuggesterStatus -> DefineSuggesterResponse
 defineSuggesterResponse pStatus pSuggester =
     DefineSuggesterResponse'
-    { _defrsStatus = pStatus
-    , _defrsSuggester = pSuggester
+    { _dsrsStatus = pStatus
+    , _dsrsSuggester = pSuggester
     }
 
 -- | FIXME: Undocumented member.
-defrsStatus :: Lens' DefineSuggesterResponse Int
-defrsStatus = lens _defrsStatus (\ s a -> s{_defrsStatus = a});
+dsrsStatus :: Lens' DefineSuggesterResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
 
 -- | FIXME: Undocumented member.
-defrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
-defrsSuggester = lens _defrsSuggester (\ s a -> s{_defrsSuggester = a});
+dsrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
+dsrsSuggester = lens _dsrsSuggester (\ s a -> s{_dsrsSuggester = a});

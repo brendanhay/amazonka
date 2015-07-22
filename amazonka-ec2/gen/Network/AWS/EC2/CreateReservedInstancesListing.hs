@@ -58,8 +58,8 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- ** Response constructor
     , createReservedInstancesListingResponse
     -- ** Response lenses
-    , crilrsReservedInstancesListings
-    , crilrsStatus
+    , crersReservedInstancesListings
+    , crersStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -154,26 +154,26 @@ instance ToQuery CreateReservedInstancesListing where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crilrsReservedInstancesListings'
+-- * 'crersReservedInstancesListings'
 --
--- * 'crilrsStatus'
+-- * 'crersStatus'
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
-    { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _crilrsStatus                    :: !Int
+    { _crersReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
+    , _crersStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
 createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
 createReservedInstancesListingResponse pStatus =
     CreateReservedInstancesListingResponse'
-    { _crilrsReservedInstancesListings = Nothing
-    , _crilrsStatus = pStatus
+    { _crersReservedInstancesListings = Nothing
+    , _crersStatus = pStatus
     }
 
 -- | Information about the Reserved Instances listing.
-crilrsReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
-crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default;
+crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-crilrsStatus :: Lens' CreateReservedInstancesListingResponse Int
-crilrsStatus = lens _crilrsStatus (\ s a -> s{_crilrsStatus = a});
+crersStatus :: Lens' CreateReservedInstancesListingResponse Int
+crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

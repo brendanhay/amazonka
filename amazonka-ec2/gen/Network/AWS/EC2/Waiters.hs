@@ -52,19 +52,19 @@ instanceTerminated =
     , _waitAcceptors = [ matchAll
                              "terminated"
                              AcceptSuccess
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)
                        , matchAny
                              "pending"
                              AcceptFailure
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)
                        , matchAny
                              "stopping"
                              AcceptFailure
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)]
     }
@@ -78,12 +78,12 @@ volumeInUse =
     , _waitAcceptors = [ matchAll
                              "in-use"
                              AcceptSuccess
-                             (folding (concatOf desrsVolumes) .
+                             (folding (concatOf dvvrsVolumes) .
                               vState . to toText)
                        , matchAny
                              "deleted"
                              AcceptFailure
-                             (folding (concatOf desrsVolumes) .
+                             (folding (concatOf dvvrsVolumes) .
                               vState . to toText)]
     }
 
@@ -181,19 +181,19 @@ instanceStopped =
     , _waitAcceptors = [ matchAll
                              "stopped"
                              AcceptSuccess
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)
                        , matchAny
                              "pending"
                              AcceptFailure
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)
                        , matchAny
                              "terminated"
                              AcceptFailure
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)]
     }
@@ -219,25 +219,25 @@ instanceRunning =
     , _waitAcceptors = [ matchAll
                              "running"
                              AcceptSuccess
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)
                        , matchAny
                              "shutting-down"
                              AcceptFailure
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)
                        , matchAny
                              "terminated"
                              AcceptFailure
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)
                        , matchAny
                              "stopping"
                              AcceptFailure
-                             (folding (concatOf diirsReservations) .
+                             (folding (concatOf dirsReservations) .
                               folding (concatOf rInstances) .
                               insState . isName . to toText)]
     }
@@ -297,7 +297,7 @@ vpcAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf dvsrsVPCs) .
+                             (folding (concatOf dvrsVPCs) .
                               vpcState . to toText)]
     }
 
@@ -310,17 +310,17 @@ vpnConnectionAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf dvpncrsVPNConnections) .
+                             (folding (concatOf dvcrsVPNConnections) .
                               vcState . to toText)
                        , matchAny
                              "deleting"
                              AcceptFailure
-                             (folding (concatOf dvpncrsVPNConnections) .
+                             (folding (concatOf dvcrsVPNConnections) .
                               vcState . to toText)
                        , matchAny
                              "deleted"
                              AcceptFailure
-                             (folding (concatOf dvpncrsVPNConnections) .
+                             (folding (concatOf dvcrsVPNConnections) .
                               vcState . to toText)]
     }
 
@@ -346,7 +346,7 @@ volumeDeleted =
     , _waitAcceptors = [ matchAll
                              "deleted"
                              AcceptSuccess
-                             (folding (concatOf desrsVolumes) .
+                             (folding (concatOf dvvrsVolumes) .
                               vState . to toText)
                        , matchError "InvalidVolumeNotFound" AcceptSuccess]
     }
@@ -378,12 +378,12 @@ vpnConnectionDeleted =
     , _waitAcceptors = [ matchAll
                              "deleted"
                              AcceptSuccess
-                             (folding (concatOf dvpncrsVPNConnections) .
+                             (folding (concatOf dvcrsVPNConnections) .
                               vcState . to toText)
                        , matchAny
                              "pending"
                              AcceptFailure
-                             (folding (concatOf dvpncrsVPNConnections) .
+                             (folding (concatOf dvcrsVPNConnections) .
                               vcState . to toText)]
     }
 
@@ -396,12 +396,12 @@ imageAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf dessrsImages) .
+                             (folding (concatOf desrsImages) .
                               iState . to toText)
                        , matchAny
                              "deregistered"
                              AcceptFailure
-                             (folding (concatOf dessrsImages) .
+                             (folding (concatOf desrsImages) .
                               iState . to toText)]
     }
 
@@ -437,12 +437,12 @@ volumeAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf desrsVolumes) .
+                             (folding (concatOf dvvrsVolumes) .
                               vState . to toText)
                        , matchAny
                              "deleted"
                              AcceptFailure
-                             (folding (concatOf desrsVolumes) .
+                             (folding (concatOf dvvrsVolumes) .
                               vState . to toText)]
     }
 

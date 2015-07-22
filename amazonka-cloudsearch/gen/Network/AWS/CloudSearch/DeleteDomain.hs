@@ -37,8 +37,8 @@ module Network.AWS.CloudSearch.DeleteDomain
     -- ** Response constructor
     , deleteDomainResponse
     -- ** Response lenses
-    , dddrsDomainStatus
-    , dddrsStatus
+    , ddrsDomainStatus
+    , ddrsStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -100,26 +100,26 @@ instance ToQuery DeleteDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dddrsDomainStatus'
+-- * 'ddrsDomainStatus'
 --
--- * 'dddrsStatus'
+-- * 'ddrsStatus'
 data DeleteDomainResponse = DeleteDomainResponse'
-    { _dddrsDomainStatus :: !(Maybe DomainStatus)
-    , _dddrsStatus       :: !Int
+    { _ddrsDomainStatus :: !(Maybe DomainStatus)
+    , _ddrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDomainResponse' smart constructor.
 deleteDomainResponse :: Int -> DeleteDomainResponse
 deleteDomainResponse pStatus =
     DeleteDomainResponse'
-    { _dddrsDomainStatus = Nothing
-    , _dddrsStatus = pStatus
+    { _ddrsDomainStatus = Nothing
+    , _ddrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
-dddrsDomainStatus = lens _dddrsDomainStatus (\ s a -> s{_dddrsDomainStatus = a});
+ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
+ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a});
 
 -- | FIXME: Undocumented member.
-dddrsStatus :: Lens' DeleteDomainResponse Int
-dddrsStatus = lens _dddrsStatus (\ s a -> s{_dddrsStatus = a});
+ddrsStatus :: Lens' DeleteDomainResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

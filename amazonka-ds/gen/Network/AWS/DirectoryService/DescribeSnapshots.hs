@@ -46,9 +46,9 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsrsNextToken
-    , dsrsSnapshots
-    , dsrsStatus
+    , dssrsNextToken
+    , dssrsSnapshots
+    , dssrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -147,30 +147,30 @@ instance ToQuery DescribeSnapshots where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrsNextToken'
+-- * 'dssrsNextToken'
 --
--- * 'dsrsSnapshots'
+-- * 'dssrsSnapshots'
 --
--- * 'dsrsStatus'
+-- * 'dssrsStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dsrsNextToken :: !(Maybe Text)
-    , _dsrsSnapshots :: !(Maybe [Snapshot])
-    , _dsrsStatus    :: !Int
+    { _dssrsNextToken :: !(Maybe Text)
+    , _dssrsSnapshots :: !(Maybe [Snapshot])
+    , _dssrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus =
     DescribeSnapshotsResponse'
-    { _dsrsNextToken = Nothing
-    , _dsrsSnapshots = Nothing
-    , _dsrsStatus = pStatus
+    { _dssrsNextToken = Nothing
+    , _dssrsSnapshots = Nothing
+    , _dssrsStatus = pStatus
     }
 
 -- | If not null, more results are available. Pass this value in the
 -- /NextToken/ member of a subsequent call to DescribeSnapshots.
-dsrsNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
+dssrsNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 
 -- | The list of Snapshot objects that were retrieved.
 --
@@ -178,9 +178,9 @@ dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 -- specified in the /Limit/ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
-dsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrsSnapshots = lens _dsrsSnapshots (\ s a -> s{_dsrsSnapshots = a}) . _Default;
+dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrsStatus :: Lens' DescribeSnapshotsResponse Int
-dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
+dssrsStatus :: Lens' DescribeSnapshotsResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

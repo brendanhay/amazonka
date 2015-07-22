@@ -51,9 +51,9 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- ** Response constructor
     , describeClusterSubnetGroupsResponse
     -- ** Response lenses
-    , dcsgsrsClusterSubnetGroups
-    , dcsgsrsMarker
-    , dcsgsrsStatus
+    , dcsgrsClusterSubnetGroups
+    , dcsgrsMarker
+    , dcsgrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -142,10 +142,10 @@ dcsgsrqMarker = lens _dcsgsrqMarker (\ s a -> s{_dcsgsrqMarker = a});
 
 instance AWSPager DescribeClusterSubnetGroups where
         page rq rs
-          | stop (rs ^. dcsgsrsMarker) = Nothing
-          | stop (rs ^. dcsgsrsClusterSubnetGroups) = Nothing
+          | stop (rs ^. dcsgrsMarker) = Nothing
+          | stop (rs ^. dcsgrsClusterSubnetGroups) = Nothing
           | otherwise =
-            Just $ rq & dcsgsrqMarker .~ rs ^. dcsgsrsMarker
+            Just $ rq & dcsgsrqMarker .~ rs ^. dcsgrsMarker
 
 instance AWSRequest DescribeClusterSubnetGroups where
         type Sv DescribeClusterSubnetGroups = Redshift
@@ -190,29 +190,29 @@ instance ToQuery DescribeClusterSubnetGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgsrsClusterSubnetGroups'
+-- * 'dcsgrsClusterSubnetGroups'
 --
--- * 'dcsgsrsMarker'
+-- * 'dcsgrsMarker'
 --
--- * 'dcsgsrsStatus'
+-- * 'dcsgrsStatus'
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
-    { _dcsgsrsClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
-    , _dcsgsrsMarker              :: !(Maybe Text)
-    , _dcsgsrsStatus              :: !Int
+    { _dcsgrsClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
+    , _dcsgrsMarker              :: !(Maybe Text)
+    , _dcsgrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSubnetGroupsResponse' smart constructor.
 describeClusterSubnetGroupsResponse :: Int -> DescribeClusterSubnetGroupsResponse
 describeClusterSubnetGroupsResponse pStatus =
     DescribeClusterSubnetGroupsResponse'
-    { _dcsgsrsClusterSubnetGroups = Nothing
-    , _dcsgsrsMarker = Nothing
-    , _dcsgsrsStatus = pStatus
+    { _dcsgrsClusterSubnetGroups = Nothing
+    , _dcsgrsMarker = Nothing
+    , _dcsgrsStatus = pStatus
     }
 
 -- | A list of ClusterSubnetGroup instances.
-dcsgsrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
-dcsgsrsClusterSubnetGroups = lens _dcsgsrsClusterSubnetGroups (\ s a -> s{_dcsgsrsClusterSubnetGroups = a}) . _Default;
+dcsgrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
+dcsgrsClusterSubnetGroups = lens _dcsgrsClusterSubnetGroups (\ s a -> s{_dcsgrsClusterSubnetGroups = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -220,9 +220,9 @@ dcsgsrsClusterSubnetGroups = lens _dcsgsrsClusterSubnetGroups (\ s a -> s{_dcsgs
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dcsgsrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
-dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
+dcsgrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
+dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
 
 -- | FIXME: Undocumented member.
-dcsgsrsStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
-dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});
+dcsgrsStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
+dcsgrsStatus = lens _dcsgrsStatus (\ s a -> s{_dcsgrsStatus = a});

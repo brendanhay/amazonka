@@ -46,8 +46,8 @@ module Network.AWS.EC2.CopyImage
     -- ** Response constructor
     , copyImageResponse
     -- ** Response lenses
-    , cirsImageId
-    , cirsStatus
+    , coprsImageId
+    , coprsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -153,26 +153,26 @@ instance ToQuery CopyImage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cirsImageId'
+-- * 'coprsImageId'
 --
--- * 'cirsStatus'
+-- * 'coprsStatus'
 data CopyImageResponse = CopyImageResponse'
-    { _cirsImageId :: !(Maybe Text)
-    , _cirsStatus  :: !Int
+    { _coprsImageId :: !(Maybe Text)
+    , _coprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyImageResponse' smart constructor.
 copyImageResponse :: Int -> CopyImageResponse
 copyImageResponse pStatus =
     CopyImageResponse'
-    { _cirsImageId = Nothing
-    , _cirsStatus = pStatus
+    { _coprsImageId = Nothing
+    , _coprsStatus = pStatus
     }
 
 -- | The ID of the new AMI.
-cirsImageId :: Lens' CopyImageResponse (Maybe Text)
-cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
+coprsImageId :: Lens' CopyImageResponse (Maybe Text)
+coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 
 -- | FIXME: Undocumented member.
-cirsStatus :: Lens' CopyImageResponse Int
-cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});
+coprsStatus :: Lens' CopyImageResponse Int
+coprsStatus = lens _coprsStatus (\ s a -> s{_coprsStatus = a});

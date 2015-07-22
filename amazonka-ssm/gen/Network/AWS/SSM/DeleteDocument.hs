@@ -37,7 +37,7 @@ module Network.AWS.SSM.DeleteDocument
     -- ** Response constructor
     , deleteDocumentResponse
     -- ** Response lenses
-    , delrsStatus
+    , ddrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,18 +97,18 @@ instance ToQuery DeleteDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrsStatus'
+-- * 'ddrsStatus'
 newtype DeleteDocumentResponse = DeleteDocumentResponse'
-    { _delrsStatus :: Int
+    { _ddrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDocumentResponse' smart constructor.
 deleteDocumentResponse :: Int -> DeleteDocumentResponse
 deleteDocumentResponse pStatus =
     DeleteDocumentResponse'
-    { _delrsStatus = pStatus
+    { _ddrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delrsStatus :: Lens' DeleteDocumentResponse Int
-delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
+ddrsStatus :: Lens' DeleteDocumentResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

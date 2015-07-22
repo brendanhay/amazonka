@@ -41,8 +41,8 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- ** Response constructor
     , createClusterSnapshotResponse
     -- ** Response lenses
-    , ccsrsSnapshot
-    , ccsrsStatus
+    , crersSnapshot
+    , crersStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -128,26 +128,26 @@ instance ToQuery CreateClusterSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsrsSnapshot'
+-- * 'crersSnapshot'
 --
--- * 'ccsrsStatus'
+-- * 'crersStatus'
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
-    { _ccsrsSnapshot :: !(Maybe Snapshot)
-    , _ccsrsStatus   :: !Int
+    { _crersSnapshot :: !(Maybe Snapshot)
+    , _crersStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSnapshotResponse' smart constructor.
 createClusterSnapshotResponse :: Int -> CreateClusterSnapshotResponse
 createClusterSnapshotResponse pStatus =
     CreateClusterSnapshotResponse'
-    { _ccsrsSnapshot = Nothing
-    , _ccsrsStatus = pStatus
+    { _crersSnapshot = Nothing
+    , _crersStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ccsrsSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
-ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
+crersSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
+crersSnapshot = lens _crersSnapshot (\ s a -> s{_crersSnapshot = a});
 
 -- | FIXME: Undocumented member.
-ccsrsStatus :: Lens' CreateClusterSnapshotResponse Int
-ccsrsStatus = lens _ccsrsStatus (\ s a -> s{_ccsrsStatus = a});
+crersStatus :: Lens' CreateClusterSnapshotResponse Int
+crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

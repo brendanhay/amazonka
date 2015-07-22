@@ -41,8 +41,8 @@ module Network.AWS.CloudSearch.DescribeDomains
     -- ** Response constructor
     , describeDomainsResponse
     -- ** Response lenses
-    , ddrsStatus
-    , ddrsDomainStatusList
+    , ddsrsStatus
+    , ddsrsDomainStatusList
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -108,26 +108,26 @@ instance ToQuery DescribeDomains where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrsStatus'
+-- * 'ddsrsStatus'
 --
--- * 'ddrsDomainStatusList'
+-- * 'ddsrsDomainStatusList'
 data DescribeDomainsResponse = DescribeDomainsResponse'
-    { _ddrsStatus           :: !Int
-    , _ddrsDomainStatusList :: ![DomainStatus]
+    { _ddsrsStatus           :: !Int
+    , _ddsrsDomainStatusList :: ![DomainStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomainsResponse' smart constructor.
 describeDomainsResponse :: Int -> DescribeDomainsResponse
 describeDomainsResponse pStatus =
     DescribeDomainsResponse'
-    { _ddrsStatus = pStatus
-    , _ddrsDomainStatusList = mempty
+    { _ddsrsStatus = pStatus
+    , _ddsrsDomainStatusList = mempty
     }
 
 -- | FIXME: Undocumented member.
-ddrsStatus :: Lens' DescribeDomainsResponse Int
-ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
+ddsrsStatus :: Lens' DescribeDomainsResponse Int
+ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
 
 -- | FIXME: Undocumented member.
-ddrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddrsDomainStatusList = lens _ddrsDomainStatusList (\ s a -> s{_ddrsDomainStatusList = a});
+ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
+ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a});

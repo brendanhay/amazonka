@@ -37,8 +37,8 @@ module Network.AWS.RDS.CopyDBParameterGroup
     -- ** Response constructor
     , copyDBParameterGroupResponse
     -- ** Response lenses
-    , cdpgrsDBParameterGroup
-    , cdpgrsStatus
+    , cdbpgrsDBParameterGroup
+    , cdbpgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -146,26 +146,26 @@ instance ToQuery CopyDBParameterGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdpgrsDBParameterGroup'
+-- * 'cdbpgrsDBParameterGroup'
 --
--- * 'cdpgrsStatus'
+-- * 'cdbpgrsStatus'
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
-    { _cdpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _cdpgrsStatus           :: !Int
+    { _cdbpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
+    , _cdbpgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyDBParameterGroupResponse' smart constructor.
 copyDBParameterGroupResponse :: Int -> CopyDBParameterGroupResponse
 copyDBParameterGroupResponse pStatus =
     CopyDBParameterGroupResponse'
-    { _cdpgrsDBParameterGroup = Nothing
-    , _cdpgrsStatus = pStatus
+    { _cdbpgrsDBParameterGroup = Nothing
+    , _cdbpgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cdpgrsDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
-cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a});
+cdbpgrsDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
+cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\ s a -> s{_cdbpgrsDBParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-cdpgrsStatus :: Lens' CopyDBParameterGroupResponse Int
-cdpgrsStatus = lens _cdpgrsStatus (\ s a -> s{_cdpgrsStatus = a});
+cdbpgrsStatus :: Lens' CopyDBParameterGroupResponse Int
+cdbpgrsStatus = lens _cdbpgrsStatus (\ s a -> s{_cdbpgrsStatus = a});

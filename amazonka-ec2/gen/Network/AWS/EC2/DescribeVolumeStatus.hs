@@ -76,9 +76,9 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- ** Response constructor
     , describeVolumeStatusResponse
     -- ** Response lenses
-    , dvssrsNextToken
-    , dvssrsVolumeStatuses
-    , dvssrsStatus
+    , dvsrsNextToken
+    , dvsrsVolumeStatuses
+    , dvsrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -190,10 +190,10 @@ dvssrqMaxResults = lens _dvssrqMaxResults (\ s a -> s{_dvssrqMaxResults = a});
 
 instance AWSPager DescribeVolumeStatus where
         page rq rs
-          | stop (rs ^. dvssrsNextToken) = Nothing
-          | stop (rs ^. dvssrsVolumeStatuses) = Nothing
+          | stop (rs ^. dvsrsNextToken) = Nothing
+          | stop (rs ^. dvsrsVolumeStatuses) = Nothing
           | otherwise =
-            Just $ rq & dvssrqNextToken .~ rs ^. dvssrsNextToken
+            Just $ rq & dvssrqNextToken .~ rs ^. dvsrsNextToken
 
 instance AWSRequest DescribeVolumeStatus where
         type Sv DescribeVolumeStatus = EC2
@@ -231,35 +231,35 @@ instance ToQuery DescribeVolumeStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvssrsNextToken'
+-- * 'dvsrsNextToken'
 --
--- * 'dvssrsVolumeStatuses'
+-- * 'dvsrsVolumeStatuses'
 --
--- * 'dvssrsStatus'
+-- * 'dvsrsStatus'
 data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
-    { _dvssrsNextToken      :: !(Maybe Text)
-    , _dvssrsVolumeStatuses :: !(Maybe [VolumeStatusItem])
-    , _dvssrsStatus         :: !Int
+    { _dvsrsNextToken      :: !(Maybe Text)
+    , _dvsrsVolumeStatuses :: !(Maybe [VolumeStatusItem])
+    , _dvsrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
 describeVolumeStatusResponse :: Int -> DescribeVolumeStatusResponse
 describeVolumeStatusResponse pStatus =
     DescribeVolumeStatusResponse'
-    { _dvssrsNextToken = Nothing
-    , _dvssrsVolumeStatuses = Nothing
-    , _dvssrsStatus = pStatus
+    { _dvsrsNextToken = Nothing
+    , _dvsrsVolumeStatuses = Nothing
+    , _dvsrsStatus = pStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-dvssrsNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
-dvssrsNextToken = lens _dvssrsNextToken (\ s a -> s{_dvssrsNextToken = a});
+dvsrsNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
+dvsrsNextToken = lens _dvsrsNextToken (\ s a -> s{_dvsrsNextToken = a});
 
 -- | A list of volumes.
-dvssrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
-dvssrsVolumeStatuses = lens _dvssrsVolumeStatuses (\ s a -> s{_dvssrsVolumeStatuses = a}) . _Default;
+dvsrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
+dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvssrsStatus :: Lens' DescribeVolumeStatusResponse Int
-dvssrsStatus = lens _dvssrsStatus (\ s a -> s{_dvssrsStatus = a});
+dvsrsStatus :: Lens' DescribeVolumeStatusResponse Int
+dvsrsStatus = lens _dvsrsStatus (\ s a -> s{_dvsrsStatus = a});

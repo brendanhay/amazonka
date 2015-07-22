@@ -32,12 +32,12 @@ mLModelAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf dmlmrsResults) .
+                             (folding (concatOf dmlmsrsResults) .
                               mlmStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf dmlmrsResults) .
+                             (folding (concatOf dmlmsrsResults) .
                               mlmStatus . _Just . to toText)]
     }
 
@@ -50,12 +50,12 @@ batchPredictionAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf dbprsResults) .
+                             (folding (concatOf drsResults) .
                               bpStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf dbprsResults) .
+                             (folding (concatOf drsResults) .
                               bpStatus . _Just . to toText)]
     }
 
@@ -68,12 +68,12 @@ dataSourceAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf ddsrsResults) .
+                             (folding (concatOf ddssrsResults) .
                               dsStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf ddsrsResults) .
+                             (folding (concatOf ddssrsResults) .
                               dsStatus . _Just . to toText)]
     }
 
@@ -86,11 +86,11 @@ evaluationAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf dersResults) .
+                             (folding (concatOf desrsResults) .
                               eStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf dersResults) .
+                             (folding (concatOf desrsResults) .
                               eStatus . _Just . to toText)]
     }

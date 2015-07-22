@@ -125,6 +125,7 @@ fieldParamName :: Field -> Name
 fieldParamName = Ident
     . Text.unpack
     . Text.cons 'p'
+    . Text.snoc '_'
     . upperHead
     . typeId
     . _fieldId

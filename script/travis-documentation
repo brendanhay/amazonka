@@ -2,7 +2,12 @@
 
 set -e
 
-# FIXME: add a branch check.
+branch=$(git symbolic-ref --short -q HEAD)
+
+if [ "$branch" != "develop" ]; then
+    echo "Ignoring documentation build for branch '$branch'."
+    exit 0
+fi
 
 GHCVER=${GHCVER?"GHCVER needs to be set."}
 DOC_TOKEN=${DOC_TOKEN?"DOC_TOKEN needs to be set."}

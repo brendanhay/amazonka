@@ -36,7 +36,7 @@ can be found [here](http://brendanhay.nz/amazonka-doc).
 This repository is organised into the following directory structure:
 
 * [`amazonka`](amazonka): Actual operational logic, you'll need to import this to send requests etc.
-* `amazonka-*`: Data types for each of the individually supported Amazon Web Service libraries.
+* `amazonka-*`: Data types for each of the individual Amazon Web Service libraries.
 * `amazonka-*/test`: Tests and fixtures for each respective library.
 * [`core`](core): The `amazonka-core` library upon which each of the services depends.
 * [`test`](test): The `amazonka-test` library containing common test functionality.

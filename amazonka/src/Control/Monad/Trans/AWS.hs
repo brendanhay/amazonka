@@ -115,9 +115,6 @@ import           Network.AWS.Waiter
 -- Blob
 -- ObjectKey
 -- Truncate READMEs (or rewrite)
--- Consider mocking of EC2 Metadata
--- Typed Metadata?
--- Updated available metadata + expose escape hatch
 
 newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
     deriving

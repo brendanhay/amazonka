@@ -50,6 +50,8 @@ module Network.AWS
     -- ** Asynchronous
     -- $async
 
+    , module Network.AWS.Presign
+
     , module Network.AWS.Internal.Body
 
     -- * Logging
@@ -85,6 +87,7 @@ import           Network.AWS.Env              (AWSEnv (..), Env, newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
+import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 

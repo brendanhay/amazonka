@@ -11,7 +11,16 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- The core module for making requests to the various AWS services.
-module Network.AWS.Presign where
+module Network.AWS.Presign
+    (
+    -- * Presigning
+    -- ** URLs
+      presignURL
+    -- ** HTTP Requests
+    , presign
+    -- ** Overriding Defaults
+    , presignWith
+    ) where
 
 import           Control.Applicative
 import           Control.Lens

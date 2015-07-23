@@ -56,6 +56,8 @@ module Control.Monad.Trans.AWS
     -- ** Asynchronous
     -- $async
 
+    , module Network.AWS.Presign
+
     , module Network.AWS.Internal.Body
 
     -- * Logging
@@ -89,11 +91,10 @@ import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Prelude
+import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 
--- FIXME: Add explanation about the use of constraints and
---   how to build a monad transformer stack, embed it, etc.
 -- FIXME: Add notes about specialising the constraints.
 -- FIXME: Add note about *With variants.
 -- FIXME: Add note about using Control.Monad.Error.Lens.catching* + error prisms
@@ -104,6 +105,14 @@ import           Network.AWS.Waiter
 -- FIXME: Correct haddock module headings.
 -- FIXME: Remove personal email address.
 -- FIXME: Note/example about mocking.
+
+-- Base64
+-- Blob
+-- ObjectKey
+-- Truncate READMEs (or rewrite)
+-- Consider mocking of EC2 Metadata
+-- Typed Metadata?
+-- Updated available metadata + expose escape hatch
 
 newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
     deriving

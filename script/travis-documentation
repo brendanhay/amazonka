@@ -20,7 +20,7 @@ path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 output=doc
 platform=x86_64-linux
 resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack-$GHCVER.yaml)
-targets=( core amazonka amazonka-ec2 amazonka-s3 amazonka-iam )
+targets=( core amazonka amazonka-* )
 
 databases=( $(stack path | sed -n 's/^.*-pkg-db: *\(.*\)$/\1/p') )
 databases=( "${databases[@]/#/--package-db }" )

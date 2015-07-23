@@ -24,6 +24,11 @@ module Control.Monad.Error.AWS
       AWST
     , runAWST
 
+    -- * Lifted EC2 Metadata
+    , metadata
+    , dynamic
+    , userdata
+
     -- * Lifted Requests
     , send
     , await
@@ -42,8 +47,10 @@ import           Control.Monad.Except
 import qualified Control.Monad.Trans.AWS      as AWST
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
+import           Data.Bifunctor
 import           Data.Conduit                 (Source, (=$=))
 import qualified Data.Conduit.List            as Conduit
+import           Network.AWS.EC2.Metadata     (Dynamic, Metadata)
 import           Network.AWS.Env
 import           Network.AWS.Free             (Command)
 import           Network.AWS.Pager
@@ -64,6 +71,32 @@ runAWST e = runExceptT . AWST.runAWST e
 
 hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
 hoistError = either (throwing _Error) pure
+
+-- | /See:/ 'AWST.metadata'
+metadata :: ( MonadFree Command m
+            , MonadError e m
+            , AWSError e
+            )
+         => Metadata
+         -> m (ByteString)
+metadata = AWST.metadata >=> hoistError . first HTTPError
+
+-- | /See:/ 'AWST.dynamic'
+dynamic :: ( MonadFree Command m
+           , MonadError e m
+           , AWSError e
+           )
+        => Dynamic
+        -> m ByteString
+dynamic = AWST.dynamic >=> hoistError . first HTTPError
+
+-- | /See:/ 'AWST.userdata'
+userdata :: ( MonadFree Command m
+            , MonadError e m
+            , AWSError e
+            )
+         => m (Maybe ByteString)
+userdata = AWST.userdata >>= hoistError . first HTTPError
 
 -- | /See:/ 'AWST.send'
 send :: ( MonadFree Command m

@@ -44,6 +44,11 @@ module Control.Monad.Trans.AWS
     , once
     , timeout
 
+    -- * EC2 Metadata
+    , metadata
+    , dynamic
+    , userdata
+
     -- * Sending Requests
     -- ** Synchronous
     , send

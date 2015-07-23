@@ -39,10 +39,10 @@ This repository is organised into the following directory structure:
 * `amazonka-*`: Data types for each of the individual Amazon Web Service libraries.
 * `amazonka-*/test`: Tests and fixtures for each respective library.
 * [`core`](core): The `amazonka-core` library upon which each of the services depends.
-* [`test`](test): The `amazonka-test` library containing common test functionality.
 * [`gen`](gen): Code, templates, and assets for the `amazonka-gen` executable.
 * [`script`](script): CI scripts to manage the release lifecycle of the service libraries.
 * [`share`](share): Makefile plumbing common to all service libraries
+* [`test`](test): The `amazonka-test` library containing common test functionality.
 
 
 ## Contribute

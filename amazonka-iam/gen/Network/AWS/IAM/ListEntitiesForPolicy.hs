@@ -1,35 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.ListEntitiesForPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists all users, groups, and roles that the specified managed policy is
+-- Lists all users, groups, and roles that the specified managed policy is
 -- attached to.
 --
--- You can use the optional 'EntityFilter' parameter to limit the results to a
--- particular type of entity (users, groups, or roles). For example, to list
--- only the roles that are attached to the specified policy, set 'EntityFilter' to 'Role'.
+-- You can use the optional @EntityFilter@ parameter to limit the results
+-- to a particular type of entity (users, groups, or roles). For example,
+-- to list only the roles that are attached to the specified policy, set
+-- @EntityFilter@ to @Role@.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+-- You can paginate the results using the @MaxItems@ and @Marker@
+-- parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListEntitiesForPolicy.html>
 module Network.AWS.IAM.ListEntitiesForPolicy
@@ -39,171 +36,196 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     -- ** Request constructor
     , listEntitiesForPolicy
     -- ** Request lenses
-    , lefpEntityFilter
-    , lefpMarker
-    , lefpMaxItems
-    , lefpPathPrefix
-    , lefpPolicyArn
+    , lefprqPathPrefix
+    , lefprqEntityFilter
+    , lefprqMaxItems
+    , lefprqMarker
+    , lefprqPolicyARN
 
     -- * Response
     , ListEntitiesForPolicyResponse
     -- ** Response constructor
     , listEntitiesForPolicyResponse
     -- ** Response lenses
-    , lefprIsTruncated
-    , lefprMarker
-    , lefprPolicyGroups
-    , lefprPolicyRoles
-    , lefprPolicyUsers
+    , lefprsPolicyGroups
+    , lefprsPolicyRoles
+    , lefprsPolicyUsers
+    , lefprsMarker
+    , lefprsIsTruncated
+    , lefprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListEntitiesForPolicy = ListEntitiesForPolicy
-    { _lefpEntityFilter :: Maybe EntityType
-    , _lefpMarker       :: Maybe Text
-    , _lefpMaxItems     :: Maybe Nat
-    , _lefpPathPrefix   :: Maybe Text
-    , _lefpPolicyArn    :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'ListEntitiesForPolicy' constructor.
+-- | /See:/ 'listEntitiesForPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lefpEntityFilter' @::@ 'Maybe' 'EntityType'
+-- * 'lefprqPathPrefix'
 --
--- * 'lefpMarker' @::@ 'Maybe' 'Text'
+-- * 'lefprqEntityFilter'
 --
--- * 'lefpMaxItems' @::@ 'Maybe' 'Natural'
+-- * 'lefprqMaxItems'
 --
--- * 'lefpPathPrefix' @::@ 'Maybe' 'Text'
+-- * 'lefprqMarker'
 --
--- * 'lefpPolicyArn' @::@ 'Text'
---
-listEntitiesForPolicy :: Text -- ^ 'lefpPolicyArn'
-                      -> ListEntitiesForPolicy
-listEntitiesForPolicy p1 = ListEntitiesForPolicy
-    { _lefpPolicyArn    = p1
-    , _lefpEntityFilter = Nothing
-    , _lefpPathPrefix   = Nothing
-    , _lefpMarker       = Nothing
-    , _lefpMaxItems     = Nothing
+-- * 'lefprqPolicyARN'
+data ListEntitiesForPolicy = ListEntitiesForPolicy'
+    { _lefprqPathPrefix   :: !(Maybe Text)
+    , _lefprqEntityFilter :: !(Maybe EntityType)
+    , _lefprqMaxItems     :: !(Maybe Nat)
+    , _lefprqMarker       :: !(Maybe Text)
+    , _lefprqPolicyARN    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListEntitiesForPolicy' smart constructor.
+listEntitiesForPolicy :: Text -> ListEntitiesForPolicy
+listEntitiesForPolicy pPolicyARN_ =
+    ListEntitiesForPolicy'
+    { _lefprqPathPrefix = Nothing
+    , _lefprqEntityFilter = Nothing
+    , _lefprqMaxItems = Nothing
+    , _lefprqMarker = Nothing
+    , _lefprqPolicyARN = pPolicyARN_
     }
+
+-- | The path prefix for filtering the results. This parameter is optional.
+-- If it is not included, it defaults to a slash (\/), listing all
+-- entities.
+lefprqPathPrefix :: Lens' ListEntitiesForPolicy (Maybe Text)
+lefprqPathPrefix = lens _lefprqPathPrefix (\ s a -> s{_lefprqPathPrefix = a});
 
 -- | The entity type to use for filtering the results.
 --
--- For example, when 'EntityFilter' is 'Role', only the roles that are attached to
--- the specified policy are returned. This parameter is optional. If it is not
--- included, all attached entities (users, groups, and roles) are returned.
-lefpEntityFilter :: Lens' ListEntitiesForPolicy (Maybe EntityType)
-lefpEntityFilter = lens _lefpEntityFilter (\s a -> s { _lefpEntityFilter = a })
-
--- | Use this only when paginating results, and only in a subsequent request after
--- you've received a response where the results are truncated. Set it to the
--- value of the 'Marker' element in the response you just received.
-lefpMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
-lefpMarker = lens _lefpMarker (\s a -> s { _lefpMarker = a })
+-- For example, when @EntityFilter@ is @Role@, only the roles that are
+-- attached to the specified policy are returned. This parameter is
+-- optional. If it is not included, all attached entities (users, groups,
+-- and roles) are returned.
+lefprqEntityFilter :: Lens' ListEntitiesForPolicy (Maybe EntityType)
+lefprqEntityFilter = lens _lefprqEntityFilter (\ s a -> s{_lefprqEntityFilter = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- entities you want in the response. If there are additional entities beyond
--- the maximum you specify, the 'IsTruncated' response element is 'true'. This
--- parameter is optional. If you do not include it, it defaults to 100.
-lefpMaxItems :: Lens' ListEntitiesForPolicy (Maybe Natural)
-lefpMaxItems = lens _lefpMaxItems (\s a -> s { _lefpMaxItems = a }) . mapping _Nat
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
+lefprqMaxItems :: Lens' ListEntitiesForPolicy (Maybe Natural)
+lefprqMaxItems = lens _lefprqMaxItems (\ s a -> s{_lefprqMaxItems = a}) . mapping _Nat;
 
--- | The path prefix for filtering the results. This parameter is optional. If it
--- is not included, it defaults to a slash (/), listing all entities.
-lefpPathPrefix :: Lens' ListEntitiesForPolicy (Maybe Text)
-lefpPathPrefix = lens _lefpPathPrefix (\s a -> s { _lefpPathPrefix = a })
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
+lefprqMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
+lefprqMarker = lens _lefprqMarker (\ s a -> s{_lefprqMarker = a});
 
-lefpPolicyArn :: Lens' ListEntitiesForPolicy Text
-lefpPolicyArn = lens _lefpPolicyArn (\s a -> s { _lefpPolicyArn = a })
+-- | FIXME: Undocumented member.
+lefprqPolicyARN :: Lens' ListEntitiesForPolicy Text
+lefprqPolicyARN = lens _lefprqPolicyARN (\ s a -> s{_lefprqPolicyARN = a});
 
-data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse
-    { _lefprIsTruncated  :: Maybe Bool
-    , _lefprMarker       :: Maybe Text
-    , _lefprPolicyGroups :: List "member" PolicyGroup
-    , _lefprPolicyRoles  :: List "member" PolicyRole
-    , _lefprPolicyUsers  :: List "member" PolicyUser
-    } deriving (Eq, Read, Show)
+instance AWSRequest ListEntitiesForPolicy where
+        type Sv ListEntitiesForPolicy = IAM
+        type Rs ListEntitiesForPolicy =
+             ListEntitiesForPolicyResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListEntitiesForPolicyResult"
+              (\ s h x ->
+                 ListEntitiesForPolicyResponse' <$>
+                   (x .@? "PolicyGroups" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*>
+                     (x .@? "PolicyRoles" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*>
+                     (x .@? "PolicyUsers" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "IsTruncated")
+                     <*> (pure (fromEnum s)))
 
--- | 'ListEntitiesForPolicyResponse' constructor.
+instance ToHeaders ListEntitiesForPolicy where
+        toHeaders = const mempty
+
+instance ToPath ListEntitiesForPolicy where
+        toPath = const "/"
+
+instance ToQuery ListEntitiesForPolicy where
+        toQuery ListEntitiesForPolicy'{..}
+          = mconcat
+              ["Action" =: ("ListEntitiesForPolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "PathPrefix" =: _lefprqPathPrefix,
+               "EntityFilter" =: _lefprqEntityFilter,
+               "MaxItems" =: _lefprqMaxItems,
+               "Marker" =: _lefprqMarker,
+               "PolicyArn" =: _lefprqPolicyARN]
+
+-- | Contains the response to a successful ListEntitiesForPolicy request.
+--
+-- /See:/ 'listEntitiesForPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lefprIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'lefprsPolicyGroups'
 --
--- * 'lefprMarker' @::@ 'Maybe' 'Text'
+-- * 'lefprsPolicyRoles'
 --
--- * 'lefprPolicyGroups' @::@ ['PolicyGroup']
+-- * 'lefprsPolicyUsers'
 --
--- * 'lefprPolicyRoles' @::@ ['PolicyRole']
+-- * 'lefprsMarker'
 --
--- * 'lefprPolicyUsers' @::@ ['PolicyUser']
+-- * 'lefprsIsTruncated'
 --
-listEntitiesForPolicyResponse :: ListEntitiesForPolicyResponse
-listEntitiesForPolicyResponse = ListEntitiesForPolicyResponse
-    { _lefprPolicyGroups = mempty
-    , _lefprPolicyUsers  = mempty
-    , _lefprPolicyRoles  = mempty
-    , _lefprIsTruncated  = Nothing
-    , _lefprMarker       = Nothing
+-- * 'lefprsStatus'
+data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
+    { _lefprsPolicyGroups :: !(Maybe [PolicyGroup])
+    , _lefprsPolicyRoles  :: !(Maybe [PolicyRole])
+    , _lefprsPolicyUsers  :: !(Maybe [PolicyUser])
+    , _lefprsMarker       :: !(Maybe Text)
+    , _lefprsIsTruncated  :: !(Maybe Bool)
+    , _lefprsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListEntitiesForPolicyResponse' smart constructor.
+listEntitiesForPolicyResponse :: Int -> ListEntitiesForPolicyResponse
+listEntitiesForPolicyResponse pStatus_ =
+    ListEntitiesForPolicyResponse'
+    { _lefprsPolicyGroups = Nothing
+    , _lefprsPolicyRoles = Nothing
+    , _lefprsPolicyUsers = Nothing
+    , _lefprsMarker = Nothing
+    , _lefprsIsTruncated = Nothing
+    , _lefprsStatus = pStatus_
     }
 
--- | A flag that indicates whether there are more entities to list. If your
--- results were truncated, you can make a subsequent pagination request using
--- the 'Marker' request parameter to retrieve more entities in the list.
-lefprIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
-lefprIsTruncated = lens _lefprIsTruncated (\s a -> s { _lefprIsTruncated = a })
-
--- | If 'IsTruncated' is 'true', this element is present and contains the value to use
--- for the 'Marker' parameter in a subsequent pagination request.
-lefprMarker :: Lens' ListEntitiesForPolicyResponse (Maybe Text)
-lefprMarker = lens _lefprMarker (\s a -> s { _lefprMarker = a })
-
 -- | A list of groups that the policy is attached to.
-lefprPolicyGroups :: Lens' ListEntitiesForPolicyResponse [PolicyGroup]
-lefprPolicyGroups =
-    lens _lefprPolicyGroups (\s a -> s { _lefprPolicyGroups = a })
-        . _List
+lefprsPolicyGroups :: Lens' ListEntitiesForPolicyResponse [PolicyGroup]
+lefprsPolicyGroups = lens _lefprsPolicyGroups (\ s a -> s{_lefprsPolicyGroups = a}) . _Default;
 
 -- | A list of roles that the policy is attached to.
-lefprPolicyRoles :: Lens' ListEntitiesForPolicyResponse [PolicyRole]
-lefprPolicyRoles = lens _lefprPolicyRoles (\s a -> s { _lefprPolicyRoles = a }) . _List
+lefprsPolicyRoles :: Lens' ListEntitiesForPolicyResponse [PolicyRole]
+lefprsPolicyRoles = lens _lefprsPolicyRoles (\ s a -> s{_lefprsPolicyRoles = a}) . _Default;
 
 -- | A list of users that the policy is attached to.
-lefprPolicyUsers :: Lens' ListEntitiesForPolicyResponse [PolicyUser]
-lefprPolicyUsers = lens _lefprPolicyUsers (\s a -> s { _lefprPolicyUsers = a }) . _List
+lefprsPolicyUsers :: Lens' ListEntitiesForPolicyResponse [PolicyUser]
+lefprsPolicyUsers = lens _lefprsPolicyUsers (\ s a -> s{_lefprsPolicyUsers = a}) . _Default;
 
-instance ToPath ListEntitiesForPolicy where
-    toPath = const "/"
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lefprsMarker :: Lens' ListEntitiesForPolicyResponse (Maybe Text)
+lefprsMarker = lens _lefprsMarker (\ s a -> s{_lefprsMarker = a});
 
-instance ToQuery ListEntitiesForPolicy where
-    toQuery ListEntitiesForPolicy{..} = mconcat
-        [ "EntityFilter" =? _lefpEntityFilter
-        , "Marker"       =? _lefpMarker
-        , "MaxItems"     =? _lefpMaxItems
-        , "PathPrefix"   =? _lefpPathPrefix
-        , "PolicyArn"    =? _lefpPolicyArn
-        ]
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
+lefprsIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
+lefprsIsTruncated = lens _lefprsIsTruncated (\ s a -> s{_lefprsIsTruncated = a});
 
-instance ToHeaders ListEntitiesForPolicy
-
-instance AWSRequest ListEntitiesForPolicy where
-    type Sv ListEntitiesForPolicy = IAM
-    type Rs ListEntitiesForPolicy = ListEntitiesForPolicyResponse
-
-    request  = post "ListEntitiesForPolicy"
-    response = xmlResponse
-
-instance FromXML ListEntitiesForPolicyResponse where
-    parseXML = withElement "ListEntitiesForPolicyResult" $ \x -> ListEntitiesForPolicyResponse
-        <$> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@? "PolicyGroups" .!@ mempty
-        <*> x .@? "PolicyRoles" .!@ mempty
-        <*> x .@? "PolicyUsers" .!@ mempty
+-- | FIXME: Undocumented member.
+lefprsStatus :: Lens' ListEntitiesForPolicyResponse Int
+lefprsStatus = lens _lefprsStatus (\ s a -> s{_lefprsStatus = a});

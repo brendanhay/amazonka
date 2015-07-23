@@ -1,32 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | With the UpdatePipelineNotifications operation, you can update Amazon Simple
--- Notification Service (Amazon SNS) notifications for a pipeline.
+-- With the UpdatePipelineNotifications operation, you can update Amazon
+-- Simple Notification Service (Amazon SNS) notifications for a pipeline.
 --
--- When you update notifications for a pipeline, Elastic Transcoder returns the
--- values that you specified in the request.
+-- When you update notifications for a pipeline, Elastic Transcoder returns
+-- the values that you specified in the request.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/UpdatePipelineNotifications.html>
 module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
@@ -36,111 +31,128 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     -- ** Request constructor
     , updatePipelineNotifications
     -- ** Request lenses
-    , upnId
-    , upnNotifications
+    , upnrqId
+    , upnrqNotifications
 
     -- * Response
     , UpdatePipelineNotificationsResponse
     -- ** Response constructor
     , updatePipelineNotificationsResponse
     -- ** Response lenses
-    , upnrPipeline
+    , upnrsPipeline
+    , upnrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.ElasticTranscoder.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdatePipelineNotifications = UpdatePipelineNotifications
-    { _upnId            :: Text
-    , _upnNotifications :: Notifications
-    } deriving (Eq, Read, Show)
-
--- | 'UpdatePipelineNotifications' constructor.
+-- | The @UpdatePipelineNotificationsRequest@ structure.
+--
+-- /See:/ 'updatePipelineNotifications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upnId' @::@ 'Text'
+-- * 'upnrqId'
 --
--- * 'upnNotifications' @::@ 'Notifications'
---
-updatePipelineNotifications :: Text -- ^ 'upnId'
-                            -> Notifications -- ^ 'upnNotifications'
-                            -> UpdatePipelineNotifications
-updatePipelineNotifications p1 p2 = UpdatePipelineNotifications
-    { _upnId            = p1
-    , _upnNotifications = p2
+-- * 'upnrqNotifications'
+data UpdatePipelineNotifications = UpdatePipelineNotifications'
+    { _upnrqId            :: !Text
+    , _upnrqNotifications :: !Notifications
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdatePipelineNotifications' smart constructor.
+updatePipelineNotifications :: Text -> Notifications -> UpdatePipelineNotifications
+updatePipelineNotifications pId_ pNotifications_ =
+    UpdatePipelineNotifications'
+    { _upnrqId = pId_
+    , _upnrqNotifications = pNotifications_
     }
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
-upnId :: Lens' UpdatePipelineNotifications Text
-upnId = lens _upnId (\s a -> s { _upnId = a })
+upnrqId :: Lens' UpdatePipelineNotifications Text
+upnrqId = lens _upnrqId (\ s a -> s{_upnrqId = a});
 
--- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic
--- that you want to notify to report job status.
+-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
+-- topic that you want to notify to report job status.
 --
--- To receive notifications, you must also subscribe to the new topic in the
--- Amazon SNS console.   Progressing: The topic ARN for the Amazon Simple
--- Notification Service (Amazon SNS) topic that you want to notify when Elastic
--- Transcoder has started to process jobs that are added to this pipeline. This
--- is the ARN that Amazon SNS returned when you created the topic.  Completed:
--- The topic ARN for the Amazon SNS topic that you want to notify when Elastic
--- Transcoder has finished processing a job. This is the ARN that Amazon SNS
--- returned when you created the topic.  Warning: The topic ARN for the Amazon
--- SNS topic that you want to notify when Elastic Transcoder encounters a
--- warning condition. This is the ARN that Amazon SNS returned when you created
--- the topic.  Error: The topic ARN for the Amazon SNS topic that you want to
--- notify when Elastic Transcoder encounters an error condition. This is the ARN
--- that Amazon SNS returned when you created the topic.
-upnNotifications :: Lens' UpdatePipelineNotifications Notifications
-upnNotifications = lens _upnNotifications (\s a -> s { _upnNotifications = a })
+-- To receive notifications, you must also subscribe to the new topic in
+-- the Amazon SNS console.
+--
+-- -   __Progressing__: The topic ARN for the Amazon Simple Notification
+--     Service (Amazon SNS) topic that you want to notify when Elastic
+--     Transcoder has started to process jobs that are added to this
+--     pipeline. This is the ARN that Amazon SNS returned when you created
+--     the topic.
+-- -   __Completed__: The topic ARN for the Amazon SNS topic that you want
+--     to notify when Elastic Transcoder has finished processing a job.
+--     This is the ARN that Amazon SNS returned when you created the topic.
+-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters a warning condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
+--     notify when Elastic Transcoder encounters an error condition. This
+--     is the ARN that Amazon SNS returned when you created the topic.
+upnrqNotifications :: Lens' UpdatePipelineNotifications Notifications
+upnrqNotifications = lens _upnrqNotifications (\ s a -> s{_upnrqNotifications = a});
 
-newtype UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
-    { _upnrPipeline :: Maybe Pipeline
-    } deriving (Eq, Read, Show)
+instance AWSRequest UpdatePipelineNotifications where
+        type Sv UpdatePipelineNotifications =
+             ElasticTranscoder
+        type Rs UpdatePipelineNotifications =
+             UpdatePipelineNotificationsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdatePipelineNotificationsResponse' <$>
+                   (x .?> "Pipeline") <*> (pure (fromEnum s)))
 
--- | 'UpdatePipelineNotificationsResponse' constructor.
+instance ToHeaders UpdatePipelineNotifications where
+        toHeaders = const mempty
+
+instance ToJSON UpdatePipelineNotifications where
+        toJSON UpdatePipelineNotifications'{..}
+          = object ["Notifications" .= _upnrqNotifications]
+
+instance ToPath UpdatePipelineNotifications where
+        toPath UpdatePipelineNotifications'{..}
+          = mconcat
+              ["/2012-09-25/pipelines/", toText _upnrqId,
+               "/notifications"]
+
+instance ToQuery UpdatePipelineNotifications where
+        toQuery = const mempty
+
+-- | The @UpdatePipelineNotificationsResponse@ structure.
+--
+-- /See:/ 'updatePipelineNotificationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upnrPipeline' @::@ 'Maybe' 'Pipeline'
+-- * 'upnrsPipeline'
 --
-updatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse
-updatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse
-    { _upnrPipeline = Nothing
+-- * 'upnrsStatus'
+data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
+    { _upnrsPipeline :: !(Maybe Pipeline)
+    , _upnrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdatePipelineNotificationsResponse' smart constructor.
+updatePipelineNotificationsResponse :: Int -> UpdatePipelineNotificationsResponse
+updatePipelineNotificationsResponse pStatus_ =
+    UpdatePipelineNotificationsResponse'
+    { _upnrsPipeline = Nothing
+    , _upnrsStatus = pStatus_
     }
 
--- | A section of the response body that provides information about the pipeline.
-upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
-upnrPipeline = lens _upnrPipeline (\s a -> s { _upnrPipeline = a })
+-- | A section of the response body that provides information about the
+-- pipeline.
+upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
+upnrsPipeline = lens _upnrsPipeline (\ s a -> s{_upnrsPipeline = a});
 
-instance ToPath UpdatePipelineNotifications where
-    toPath UpdatePipelineNotifications{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _upnId
-        , "/notifications"
-        ]
-
-instance ToQuery UpdatePipelineNotifications where
-    toQuery = const mempty
-
-instance ToHeaders UpdatePipelineNotifications
-
-instance ToJSON UpdatePipelineNotifications where
-    toJSON UpdatePipelineNotifications{..} = object
-        [ "Notifications" .= _upnNotifications
-        ]
-
-instance AWSRequest UpdatePipelineNotifications where
-    type Sv UpdatePipelineNotifications = ElasticTranscoder
-    type Rs UpdatePipelineNotifications = UpdatePipelineNotificationsResponse
-
-    request  = post
-    response = jsonResponse
-
-instance FromJSON UpdatePipelineNotificationsResponse where
-    parseJSON = withObject "UpdatePipelineNotificationsResponse" $ \o -> UpdatePipelineNotificationsResponse
-        <$> o .:? "Pipeline"
+-- | FIXME: Undocumented member.
+upnrsStatus :: Lens' UpdatePipelineNotificationsResponse Int
+upnrsStatus = lens _upnrsStatus (\ s a -> s{_upnrsStatus = a});

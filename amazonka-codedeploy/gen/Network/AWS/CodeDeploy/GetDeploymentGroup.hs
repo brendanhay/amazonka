@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets information about a deployment group.
+-- Gets information about a deployment group.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentGroup.html>
 module Network.AWS.CodeDeploy.GetDeploymentGroup
@@ -32,96 +27,114 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
     -- ** Request constructor
     , getDeploymentGroup
     -- ** Request lenses
-    , gdgApplicationName
-    , gdgDeploymentGroupName
+    , gdgrqApplicationName
+    , gdgrqDeploymentGroupName
 
     -- * Response
     , GetDeploymentGroupResponse
     -- ** Response constructor
     , getDeploymentGroupResponse
     -- ** Response lenses
-    , gdgrDeploymentGroupInfo
+    , gdgrsDeploymentGroupInfo
+    , gdgrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetDeploymentGroup = GetDeploymentGroup
-    { _gdgApplicationName     :: Text
-    , _gdgDeploymentGroupName :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'GetDeploymentGroup' constructor.
+-- | Represents the input of a get deployment group operation.
+--
+-- /See:/ 'getDeploymentGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdgApplicationName' @::@ 'Text'
+-- * 'gdgrqApplicationName'
 --
--- * 'gdgDeploymentGroupName' @::@ 'Text'
---
-getDeploymentGroup :: Text -- ^ 'gdgApplicationName'
-                   -> Text -- ^ 'gdgDeploymentGroupName'
-                   -> GetDeploymentGroup
-getDeploymentGroup p1 p2 = GetDeploymentGroup
-    { _gdgApplicationName     = p1
-    , _gdgDeploymentGroupName = p2
+-- * 'gdgrqDeploymentGroupName'
+data GetDeploymentGroup = GetDeploymentGroup'
+    { _gdgrqApplicationName     :: !Text
+    , _gdgrqDeploymentGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetDeploymentGroup' smart constructor.
+getDeploymentGroup :: Text -> Text -> GetDeploymentGroup
+getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
+    GetDeploymentGroup'
+    { _gdgrqApplicationName = pApplicationName_
+    , _gdgrqDeploymentGroupName = pDeploymentGroupName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-gdgApplicationName :: Lens' GetDeploymentGroup Text
-gdgApplicationName =
-    lens _gdgApplicationName (\s a -> s { _gdgApplicationName = a })
+gdgrqApplicationName :: Lens' GetDeploymentGroup Text
+gdgrqApplicationName = lens _gdgrqApplicationName (\ s a -> s{_gdgrqApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-gdgDeploymentGroupName :: Lens' GetDeploymentGroup Text
-gdgDeploymentGroupName =
-    lens _gdgDeploymentGroupName (\s a -> s { _gdgDeploymentGroupName = a })
+gdgrqDeploymentGroupName :: Lens' GetDeploymentGroup Text
+gdgrqDeploymentGroupName = lens _gdgrqDeploymentGroupName (\ s a -> s{_gdgrqDeploymentGroupName = a});
 
-newtype GetDeploymentGroupResponse = GetDeploymentGroupResponse
-    { _gdgrDeploymentGroupInfo :: Maybe DeploymentGroupInfo
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetDeploymentGroup where
+        type Sv GetDeploymentGroup = CodeDeploy
+        type Rs GetDeploymentGroup =
+             GetDeploymentGroupResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetDeploymentGroupResponse' <$>
+                   (x .?> "deploymentGroupInfo") <*>
+                     (pure (fromEnum s)))
 
--- | 'GetDeploymentGroupResponse' constructor.
+instance ToHeaders GetDeploymentGroup where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.GetDeploymentGroup" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetDeploymentGroup where
+        toJSON GetDeploymentGroup'{..}
+          = object
+              ["applicationName" .= _gdgrqApplicationName,
+               "deploymentGroupName" .= _gdgrqDeploymentGroupName]
+
+instance ToPath GetDeploymentGroup where
+        toPath = const "/"
+
+instance ToQuery GetDeploymentGroup where
+        toQuery = const mempty
+
+-- | Represents the output of a get deployment group operation.
+--
+-- /See:/ 'getDeploymentGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdgrDeploymentGroupInfo' @::@ 'Maybe' 'DeploymentGroupInfo'
+-- * 'gdgrsDeploymentGroupInfo'
 --
-getDeploymentGroupResponse :: GetDeploymentGroupResponse
-getDeploymentGroupResponse = GetDeploymentGroupResponse
-    { _gdgrDeploymentGroupInfo = Nothing
+-- * 'gdgrsStatus'
+data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
+    { _gdgrsDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
+    , _gdgrsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetDeploymentGroupResponse' smart constructor.
+getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse
+getDeploymentGroupResponse pStatus_ =
+    GetDeploymentGroupResponse'
+    { _gdgrsDeploymentGroupInfo = Nothing
+    , _gdgrsStatus = pStatus_
     }
 
 -- | Information about the deployment group.
-gdgrDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
-gdgrDeploymentGroupInfo =
-    lens _gdgrDeploymentGroupInfo (\s a -> s { _gdgrDeploymentGroupInfo = a })
+gdgrsDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
+gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDeploymentGroupInfo = a});
 
-instance ToPath GetDeploymentGroup where
-    toPath = const "/"
-
-instance ToQuery GetDeploymentGroup where
-    toQuery = const mempty
-
-instance ToHeaders GetDeploymentGroup
-
-instance ToJSON GetDeploymentGroup where
-    toJSON GetDeploymentGroup{..} = object
-        [ "applicationName"     .= _gdgApplicationName
-        , "deploymentGroupName" .= _gdgDeploymentGroupName
-        ]
-
-instance AWSRequest GetDeploymentGroup where
-    type Sv GetDeploymentGroup = CodeDeploy
-    type Rs GetDeploymentGroup = GetDeploymentGroupResponse
-
-    request  = post "GetDeploymentGroup"
-    response = jsonResponse
-
-instance FromJSON GetDeploymentGroupResponse where
-    parseJSON = withObject "GetDeploymentGroupResponse" $ \o -> GetDeploymentGroupResponse
-        <$> o .:? "deploymentGroupInfo"
+-- | FIXME: Undocumented member.
+gdgrsStatus :: Lens' GetDeploymentGroupResponse Int
+gdgrsStatus = lens _gdgrsStatus (\ s a -> s{_gdgrsStatus = a});

@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.ListGroups
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists the groups that have the specified path prefix.
+-- Lists the groups that have the specified path prefix.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+-- You can paginate the results using the @MaxItems@ and @Marker@
+-- parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroups.html>
 module Network.AWS.IAM.ListGroups
@@ -34,133 +30,156 @@ module Network.AWS.IAM.ListGroups
     -- ** Request constructor
     , listGroups
     -- ** Request lenses
-    , lgMarker
-    , lgMaxItems
-    , lgPathPrefix
+    , lgrqPathPrefix
+    , lgrqMaxItems
+    , lgrqMarker
 
     -- * Response
     , ListGroupsResponse
     -- ** Response constructor
     , listGroupsResponse
     -- ** Response lenses
-    , lgrGroups
-    , lgrIsTruncated
-    , lgrMarker
+    , lgrsMarker
+    , lgrsIsTruncated
+    , lgrsStatus
+    , lgrsGroups
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListGroups = ListGroups
-    { _lgMarker     :: Maybe Text
-    , _lgMaxItems   :: Maybe Nat
-    , _lgPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListGroups' constructor.
+-- | /See:/ 'listGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgMarker' @::@ 'Maybe' 'Text'
+-- * 'lgrqPathPrefix'
 --
--- * 'lgMaxItems' @::@ 'Maybe' 'Natural'
+-- * 'lgrqMaxItems'
 --
--- * 'lgPathPrefix' @::@ 'Maybe' 'Text'
---
+-- * 'lgrqMarker'
+data ListGroups = ListGroups'
+    { _lgrqPathPrefix :: !(Maybe Text)
+    , _lgrqMaxItems   :: !(Maybe Nat)
+    , _lgrqMarker     :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListGroups' smart constructor.
 listGroups :: ListGroups
-listGroups = ListGroups
-    { _lgPathPrefix = Nothing
-    , _lgMarker     = Nothing
-    , _lgMaxItems   = Nothing
+listGroups =
+    ListGroups'
+    { _lgrqPathPrefix = Nothing
+    , _lgrqMaxItems = Nothing
+    , _lgrqMarker = Nothing
     }
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you've received a response where the results are truncated. Set it to
--- the value of the 'Marker' element in the response you just received.
-lgMarker :: Lens' ListGroups (Maybe Text)
-lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
+-- | The path prefix for filtering the results. For example, the prefix
+-- @\/division_abc\/subdivision_xyz\/@ gets all groups whose path starts
+-- with @\/division_abc\/subdivision_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all groups.
+lgrqPathPrefix :: Lens' ListGroups (Maybe Text)
+lgrqPathPrefix = lens _lgrqPathPrefix (\ s a -> s{_lgrqPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- groups you want in the response. If there are additional groups beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'. This parameter
--- is optional. If you do not include it, it defaults to 100.
-lgMaxItems :: Lens' ListGroups (Maybe Natural)
-lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a }) . mapping _Nat
-
--- | The path prefix for filtering the results. For example, the prefix '/division_abc/subdivision_xyz/' gets all groups whose path starts with '/division_abc/subdivision_xyz/'.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
 --
--- This parameter is optional. If it is not included, it defaults to a slash
--- (/), listing all groups.
-lgPathPrefix :: Lens' ListGroups (Maybe Text)
-lgPathPrefix = lens _lgPathPrefix (\s a -> s { _lgPathPrefix = a })
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
+lgrqMaxItems :: Lens' ListGroups (Maybe Natural)
+lgrqMaxItems = lens _lgrqMaxItems (\ s a -> s{_lgrqMaxItems = a}) . mapping _Nat;
 
-data ListGroupsResponse = ListGroupsResponse
-    { _lgrGroups      :: List "member" Group
-    , _lgrIsTruncated :: Maybe Bool
-    , _lgrMarker      :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
+lgrqMarker :: Lens' ListGroups (Maybe Text)
+lgrqMarker = lens _lgrqMarker (\ s a -> s{_lgrqMarker = a});
 
--- | 'ListGroupsResponse' constructor.
+instance AWSPager ListGroups where
+        page rq rs
+          | stop (rs ^. lgrsIsTruncated) = Nothing
+          | isNothing (rs ^. lgrsMarker) = Nothing
+          | otherwise =
+            Just $ rq & lgrqMarker .~ rs ^. lgrsMarker
+
+instance AWSRequest ListGroups where
+        type Sv ListGroups = IAM
+        type Rs ListGroups = ListGroupsResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListGroupsResult"
+              (\ s h x ->
+                 ListGroupsResponse' <$>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure (fromEnum s))
+                     <*>
+                     (x .@? "Groups" .!@ mempty >>=
+                        parseXMLList "member"))
+
+instance ToHeaders ListGroups where
+        toHeaders = const mempty
+
+instance ToPath ListGroups where
+        toPath = const "/"
+
+instance ToQuery ListGroups where
+        toQuery ListGroups'{..}
+          = mconcat
+              ["Action" =: ("ListGroups" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "PathPrefix" =: _lgrqPathPrefix,
+               "MaxItems" =: _lgrqMaxItems, "Marker" =: _lgrqMarker]
+
+-- | Contains the response to a successful ListGroups request.
+--
+-- /See:/ 'listGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgrGroups' @::@ ['Group']
+-- * 'lgrsMarker'
 --
--- * 'lgrIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'lgrsIsTruncated'
 --
--- * 'lgrMarker' @::@ 'Maybe' 'Text'
+-- * 'lgrsStatus'
 --
-listGroupsResponse :: ListGroupsResponse
-listGroupsResponse = ListGroupsResponse
-    { _lgrGroups      = mempty
-    , _lgrIsTruncated = Nothing
-    , _lgrMarker      = Nothing
+-- * 'lgrsGroups'
+data ListGroupsResponse = ListGroupsResponse'
+    { _lgrsMarker      :: !(Maybe Text)
+    , _lgrsIsTruncated :: !(Maybe Bool)
+    , _lgrsStatus      :: !Int
+    , _lgrsGroups      :: ![Group]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListGroupsResponse' smart constructor.
+listGroupsResponse :: Int -> ListGroupsResponse
+listGroupsResponse pStatus_ =
+    ListGroupsResponse'
+    { _lgrsMarker = Nothing
+    , _lgrsIsTruncated = Nothing
+    , _lgrsStatus = pStatus_
+    , _lgrsGroups = mempty
     }
 
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lgrsMarker :: Lens' ListGroupsResponse (Maybe Text)
+lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a});
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
+lgrsIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
+lgrsIsTruncated = lens _lgrsIsTruncated (\ s a -> s{_lgrsIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+lgrsStatus :: Lens' ListGroupsResponse Int
+lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});
+
 -- | A list of groups.
-lgrGroups :: Lens' ListGroupsResponse [Group]
-lgrGroups = lens _lgrGroups (\s a -> s { _lgrGroups = a }) . _List
-
--- | A flag that indicates whether there are more groups to list. If your results
--- were truncated, you can make a subsequent pagination request using the 'Marker'
--- request parameter to retrieve more groups in the list.
-lgrIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
-lgrIsTruncated = lens _lgrIsTruncated (\s a -> s { _lgrIsTruncated = a })
-
--- | If 'IsTruncated' is 'true', this element is present and contains the value to
--- use for the 'Marker' parameter in a subsequent pagination request.
-lgrMarker :: Lens' ListGroupsResponse (Maybe Text)
-lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
-
-instance ToPath ListGroups where
-    toPath = const "/"
-
-instance ToQuery ListGroups where
-    toQuery ListGroups{..} = mconcat
-        [ "Marker"     =? _lgMarker
-        , "MaxItems"   =? _lgMaxItems
-        , "PathPrefix" =? _lgPathPrefix
-        ]
-
-instance ToHeaders ListGroups
-
-instance AWSRequest ListGroups where
-    type Sv ListGroups = IAM
-    type Rs ListGroups = ListGroupsResponse
-
-    request  = post "ListGroups"
-    response = xmlResponse
-
-instance FromXML ListGroupsResponse where
-    parseXML = withElement "ListGroupsResult" $ \x -> ListGroupsResponse
-        <$> x .@? "Groups" .!@ mempty
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-
-instance AWSPager ListGroups where
-    page rq rs
-        | stop (rs ^. lgrIsTruncated) = Nothing
-        | otherwise = Just $ rq
-            & lgMarker .~ rs ^. lgrMarker
+lgrsGroups :: Lens' ListGroupsResponse [Group]
+lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a});

@@ -1,35 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.PromoteReadReplica
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Promotes a Read Replica DB instance to a standalone DB instance.
+-- Promotes a Read Replica DB instance to a standalone DB instance.
 --
--- We recommend that you enable automated backups on your Read Replica before
--- promoting the Read Replica. This ensures that no backup is taken during the
--- promotion process. Once the instance is promoted to a primary instance,
--- backups are taken based on your backup settings.
---
---
+-- We recommend that you enable automated backups on your Read Replica
+-- before promoting the Read Replica. This ensures that no backup is taken
+-- during the promotion process. Once the instance is promoted to a primary
+-- instance, backups are taken based on your backup settings.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html>
 module Network.AWS.RDS.PromoteReadReplica
@@ -39,125 +32,141 @@ module Network.AWS.RDS.PromoteReadReplica
     -- ** Request constructor
     , promoteReadReplica
     -- ** Request lenses
-    , prrBackupRetentionPeriod
-    , prrDBInstanceIdentifier
-    , prrPreferredBackupWindow
+    , prrrqPreferredBackupWindow
+    , prrrqBackupRetentionPeriod
+    , prrrqDBInstanceIdentifier
 
     -- * Response
     , PromoteReadReplicaResponse
     -- ** Response constructor
     , promoteReadReplicaResponse
     -- ** Response lenses
-    , prrrDBInstance
+    , prrrsDBInstance
+    , prrrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data PromoteReadReplica = PromoteReadReplica
-    { _prrBackupRetentionPeriod :: Maybe Int
-    , _prrDBInstanceIdentifier  :: Text
-    , _prrPreferredBackupWindow :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'PromoteReadReplica' constructor.
+-- |
+--
+-- /See:/ 'promoteReadReplica' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prrBackupRetentionPeriod' @::@ 'Maybe' 'Int'
+-- * 'prrrqPreferredBackupWindow'
 --
--- * 'prrDBInstanceIdentifier' @::@ 'Text'
+-- * 'prrrqBackupRetentionPeriod'
 --
--- * 'prrPreferredBackupWindow' @::@ 'Maybe' 'Text'
---
-promoteReadReplica :: Text -- ^ 'prrDBInstanceIdentifier'
-                   -> PromoteReadReplica
-promoteReadReplica p1 = PromoteReadReplica
-    { _prrDBInstanceIdentifier  = p1
-    , _prrBackupRetentionPeriod = Nothing
-    , _prrPreferredBackupWindow = Nothing
+-- * 'prrrqDBInstanceIdentifier'
+data PromoteReadReplica = PromoteReadReplica'
+    { _prrrqPreferredBackupWindow :: !(Maybe Text)
+    , _prrrqBackupRetentionPeriod :: !(Maybe Int)
+    , _prrrqDBInstanceIdentifier  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PromoteReadReplica' smart constructor.
+promoteReadReplica :: Text -> PromoteReadReplica
+promoteReadReplica pDBInstanceIdentifier_ =
+    PromoteReadReplica'
+    { _prrrqPreferredBackupWindow = Nothing
+    , _prrrqBackupRetentionPeriod = Nothing
+    , _prrrqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | The number of days to retain automated backups. Setting this parameter to a
--- positive number enables backups. Setting this parameter to 0 disables
--- automated backups.
+-- | The daily time range during which automated backups are created if
+-- automated backups are enabled, using the @BackupRetentionPeriod@
+-- parameter.
+--
+-- Default: A 30-minute window selected at random from an 8-hour block of
+-- time per region. See the Amazon RDS User Guide for the time blocks for
+-- each region from which the default backup windows are assigned.
+--
+-- Constraints: Must be in the format @hh24:mi-hh24:mi@. Times should be
+-- Universal Time Coordinated (UTC). Must not conflict with the preferred
+-- maintenance window. Must be at least 30 minutes.
+prrrqPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
+prrrqPreferredBackupWindow = lens _prrrqPreferredBackupWindow (\ s a -> s{_prrrqPreferredBackupWindow = a});
+
+-- | The number of days to retain automated backups. Setting this parameter
+-- to a positive number enables backups. Setting this parameter to 0
+-- disables automated backups.
 --
 -- Default: 1
 --
 -- Constraints:
 --
--- Must be a value from 0 to 8
-prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
-prrBackupRetentionPeriod =
-    lens _prrBackupRetentionPeriod
-        (\s a -> s { _prrBackupRetentionPeriod = a })
+-- -   Must be a value from 0 to 8
+prrrqBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
+prrrqBackupRetentionPeriod = lens _prrrqBackupRetentionPeriod (\ s a -> s{_prrrqBackupRetentionPeriod = a});
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 --
 -- Constraints:
 --
--- Must be the identifier for an existing Read Replica DB instance Must
--- contain from 1 to 63 alphanumeric characters or hyphens First character must
--- be a letter Cannot end with a hyphen or contain two consecutive hyphens  Example:
--- mydbinstance
-prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
-prrDBInstanceIdentifier =
-    lens _prrDBInstanceIdentifier (\s a -> s { _prrDBInstanceIdentifier = a })
-
--- | The daily time range during which automated backups are created if automated
--- backups are enabled, using the 'BackupRetentionPeriod' parameter.
+-- -   Must be the identifier for an existing Read Replica DB instance
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
--- Default: A 30-minute window selected at random from an 8-hour block of time
--- per region. See the Amazon RDS User Guide for the time blocks for each region
--- from which the default backup windows are assigned.
---
--- Constraints: Must be in the format 'hh24:mi-hh24:mi'. Times should be
--- Universal Time Coordinated (UTC). Must not conflict with the preferred
--- maintenance window. Must be at least 30 minutes.
-prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
-prrPreferredBackupWindow =
-    lens _prrPreferredBackupWindow
-        (\s a -> s { _prrPreferredBackupWindow = a })
+-- Example: mydbinstance
+prrrqDBInstanceIdentifier :: Lens' PromoteReadReplica Text
+prrrqDBInstanceIdentifier = lens _prrrqDBInstanceIdentifier (\ s a -> s{_prrrqDBInstanceIdentifier = a});
 
-newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
-    { _prrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Read, Show)
+instance AWSRequest PromoteReadReplica where
+        type Sv PromoteReadReplica = RDS
+        type Rs PromoteReadReplica =
+             PromoteReadReplicaResponse
+        request = post
+        response
+          = receiveXMLWrapper "PromoteReadReplicaResult"
+              (\ s h x ->
+                 PromoteReadReplicaResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
--- | 'PromoteReadReplicaResponse' constructor.
+instance ToHeaders PromoteReadReplica where
+        toHeaders = const mempty
+
+instance ToPath PromoteReadReplica where
+        toPath = const "/"
+
+instance ToQuery PromoteReadReplica where
+        toQuery PromoteReadReplica'{..}
+          = mconcat
+              ["Action" =: ("PromoteReadReplica" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "PreferredBackupWindow" =:
+                 _prrrqPreferredBackupWindow,
+               "BackupRetentionPeriod" =:
+                 _prrrqBackupRetentionPeriod,
+               "DBInstanceIdentifier" =: _prrrqDBInstanceIdentifier]
+
+-- | /See:/ 'promoteReadReplicaResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prrrDBInstance' @::@ 'Maybe' 'DBInstance'
+-- * 'prrrsDBInstance'
 --
-promoteReadReplicaResponse :: PromoteReadReplicaResponse
-promoteReadReplicaResponse = PromoteReadReplicaResponse
-    { _prrrDBInstance = Nothing
+-- * 'prrrsStatus'
+data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
+    { _prrrsDBInstance :: !(Maybe DBInstance)
+    , _prrrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PromoteReadReplicaResponse' smart constructor.
+promoteReadReplicaResponse :: Int -> PromoteReadReplicaResponse
+promoteReadReplicaResponse pStatus_ =
+    PromoteReadReplicaResponse'
+    { _prrrsDBInstance = Nothing
+    , _prrrsStatus = pStatus_
     }
 
-prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
-prrrDBInstance = lens _prrrDBInstance (\s a -> s { _prrrDBInstance = a })
+-- | FIXME: Undocumented member.
+prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
+prrrsDBInstance = lens _prrrsDBInstance (\ s a -> s{_prrrsDBInstance = a});
 
-instance ToPath PromoteReadReplica where
-    toPath = const "/"
-
-instance ToQuery PromoteReadReplica where
-    toQuery PromoteReadReplica{..} = mconcat
-        [ "BackupRetentionPeriod" =? _prrBackupRetentionPeriod
-        , "DBInstanceIdentifier"  =? _prrDBInstanceIdentifier
-        , "PreferredBackupWindow" =? _prrPreferredBackupWindow
-        ]
-
-instance ToHeaders PromoteReadReplica
-
-instance AWSRequest PromoteReadReplica where
-    type Sv PromoteReadReplica = RDS
-    type Rs PromoteReadReplica = PromoteReadReplicaResponse
-
-    request  = post "PromoteReadReplica"
-    response = xmlResponse
-
-instance FromXML PromoteReadReplicaResponse where
-    parseXML = withElement "PromoteReadReplicaResult" $ \x -> PromoteReadReplicaResponse
-        <$> x .@? "DBInstance"
+-- | FIXME: Undocumented member.
+prrrsStatus :: Lens' PromoteReadReplicaResponse Int
+prrrsStatus = lens _prrrsStatus (\ s a -> s{_prrrsStatus = a});

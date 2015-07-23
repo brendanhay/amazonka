@@ -1,24 +1,28 @@
 # Amazon Lambda SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-AWS Lambda is a compute service that runs your code in response to events and
-automatically manages the compute resources for you, making it easy to build
-applications that respond quickly to new information. AWS Lambda starts
-running your code within milliseconds of an event such as an image upload,
-in-app activity, website click, or output from a connected device. You can
-also use AWS Lambda to create new back-end services where compute resources
-are automatically triggered based on custom requests. With AWS Lambda you pay
-only for the requests served and the compute time required to run your code.
-Billing is metered in increments of 100 milliseconds, making it
-cost-effective and easy to scale automatically from a few requests per day to
-thousands per second.
+AWS Lambda
+
+__Overview__
+
+This is the /AWS Lambda API Reference/. The AWS Lambda Developer Guide
+provides additional information. For the service overview, go to
+<http://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda>,
+and for information about how the service works, go to
+<http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
+in the /AWS Lambda Developer Guide/.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-lambda)
 and the [AWS API Reference](http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html).

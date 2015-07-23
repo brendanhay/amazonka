@@ -1,32 +1,26 @@
 name:                  amazonka-autoscaling
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Auto Scaling SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Auto Scaling allows you to scale your Amazon EC2 capacity up or down
-    automatically according to conditions you define. With Auto Scaling, you can
-    ensure that the number of Amazon EC2 instances you’re using increases
-    seamlessly during demand spikes to maintain performance, and decreases
-    automatically during demand lulls to minimize costs. Auto Scaling is
-    particularly well suited for applications that experience hourly, daily, or
-    weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch and
-    available at no additional charge beyond Amazon CloudWatch fees.
+    Auto Scaling
 
+    Auto Scaling is designed to automatically launch or terminate EC2
+    instances based on user-defined policies, schedules, and health checks.
+    Use this service in conjunction with the Amazon CloudWatch and Elastic
+    Load Balancing services.
     .
     /See:/ <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -41,6 +35,7 @@ library
     exposed-modules:
           Network.AWS.AutoScaling
         , Network.AWS.AutoScaling.AttachInstances
+        , Network.AWS.AutoScaling.AttachLoadBalancers
         , Network.AWS.AutoScaling.CompleteLifecycleAction
         , Network.AWS.AutoScaling.CreateAutoScalingGroup
         , Network.AWS.AutoScaling.CreateLaunchConfiguration
@@ -60,6 +55,7 @@ library
         , Network.AWS.AutoScaling.DescribeLaunchConfigurations
         , Network.AWS.AutoScaling.DescribeLifecycleHookTypes
         , Network.AWS.AutoScaling.DescribeLifecycleHooks
+        , Network.AWS.AutoScaling.DescribeLoadBalancers
         , Network.AWS.AutoScaling.DescribeMetricCollectionTypes
         , Network.AWS.AutoScaling.DescribeNotificationConfigurations
         , Network.AWS.AutoScaling.DescribePolicies
@@ -69,6 +65,7 @@ library
         , Network.AWS.AutoScaling.DescribeTags
         , Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
         , Network.AWS.AutoScaling.DetachInstances
+        , Network.AWS.AutoScaling.DetachLoadBalancers
         , Network.AWS.AutoScaling.DisableMetricsCollection
         , Network.AWS.AutoScaling.EnableMetricsCollection
         , Network.AWS.AutoScaling.EnterStandby
@@ -86,9 +83,40 @@ library
         , Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
         , Network.AWS.AutoScaling.Types
         , Network.AWS.AutoScaling.UpdateAutoScalingGroup
+        , Network.AWS.AutoScaling.Waiters
 
     other-modules:
+          Network.AWS.AutoScaling.Types.Product
+        , Network.AWS.AutoScaling.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-autoscaling-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.AutoScaling
+        , Test.AWS.Gen.AutoScaling
+        , Test.AWS.AutoScaling.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-autoscaling == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

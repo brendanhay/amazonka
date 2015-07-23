@@ -1,35 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSnapshot
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified manual snapshot. The snapshot must be in the 'available'
--- state, with no other users authorized to access the snapshot.
+-- Deletes the specified manual snapshot. The snapshot must be in the
+-- @available@ state, with no other users authorized to access the
+-- snapshot.
 --
 -- Unlike automated snapshots, manual snapshots are retained even after you
--- delete your cluster. Amazon Redshift does not delete your manual snapshots.
--- You must delete manual snapshot explicitly to avoid getting charged. If other
--- accounts are authorized to access the snapshot, you must revoke all of the
--- authorizations before you can delete the snapshot.
+-- delete your cluster. Amazon Redshift does not delete your manual
+-- snapshots. You must delete manual snapshot explicitly to avoid getting
+-- charged. If other accounts are authorized to access the snapshot, you
+-- must revoke all of the authorizations before you can delete the
+-- snapshot.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteClusterSnapshot.html>
 module Network.AWS.Redshift.DeleteClusterSnapshot
@@ -39,95 +36,111 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     -- ** Request constructor
     , deleteClusterSnapshot
     -- ** Request lenses
-    , dcsSnapshotClusterIdentifier
-    , dcsSnapshotIdentifier
+    , dcsrqSnapshotClusterIdentifier
+    , dcsrqSnapshotIdentifier
 
     -- * Response
     , DeleteClusterSnapshotResponse
     -- ** Response constructor
     , deleteClusterSnapshotResponse
     -- ** Response lenses
-    , dcsrSnapshot
+    , dcsrsSnapshot
+    , dcsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteClusterSnapshot = DeleteClusterSnapshot
-    { _dcsSnapshotClusterIdentifier :: Maybe Text
-    , _dcsSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteClusterSnapshot' constructor.
+-- |
+--
+-- /See:/ 'deleteClusterSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'dcsrqSnapshotClusterIdentifier'
 --
--- * 'dcsSnapshotIdentifier' @::@ 'Text'
---
-deleteClusterSnapshot :: Text -- ^ 'dcsSnapshotIdentifier'
-                      -> DeleteClusterSnapshot
-deleteClusterSnapshot p1 = DeleteClusterSnapshot
-    { _dcsSnapshotIdentifier        = p1
-    , _dcsSnapshotClusterIdentifier = Nothing
+-- * 'dcsrqSnapshotIdentifier'
+data DeleteClusterSnapshot = DeleteClusterSnapshot'
+    { _dcsrqSnapshotClusterIdentifier :: !(Maybe Text)
+    , _dcsrqSnapshotIdentifier        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteClusterSnapshot' smart constructor.
+deleteClusterSnapshot :: Text -> DeleteClusterSnapshot
+deleteClusterSnapshot pSnapshotIdentifier_ =
+    DeleteClusterSnapshot'
+    { _dcsrqSnapshotClusterIdentifier = Nothing
+    , _dcsrqSnapshotIdentifier = pSnapshotIdentifier_
     }
 
 -- | The unique identifier of the cluster the snapshot was created from. This
--- parameter is required if your IAM user has a policy containing a snapshot
--- resource element that specifies anything other than * for the cluster name.
+-- parameter is required if your IAM user has a policy containing a
+-- snapshot resource element that specifies anything other than * for the
+-- cluster name.
 --
 -- Constraints: Must be the name of valid cluster.
-dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
-dcsSnapshotClusterIdentifier =
-    lens _dcsSnapshotClusterIdentifier
-        (\s a -> s { _dcsSnapshotClusterIdentifier = a })
+dcsrqSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
+dcsrqSnapshotClusterIdentifier = lens _dcsrqSnapshotClusterIdentifier (\ s a -> s{_dcsrqSnapshotClusterIdentifier = a});
 
 -- | The unique identifier of the manual snapshot to be deleted.
 --
--- Constraints: Must be the name of an existing snapshot that is in the 'available' state.
-dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
-dcsSnapshotIdentifier =
-    lens _dcsSnapshotIdentifier (\s a -> s { _dcsSnapshotIdentifier = a })
+-- Constraints: Must be the name of an existing snapshot that is in the
+-- @available@ state.
+dcsrqSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
+dcsrqSnapshotIdentifier = lens _dcsrqSnapshotIdentifier (\ s a -> s{_dcsrqSnapshotIdentifier = a});
 
-newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
-    { _dcsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Read, Show)
+instance AWSRequest DeleteClusterSnapshot where
+        type Sv DeleteClusterSnapshot = Redshift
+        type Rs DeleteClusterSnapshot =
+             DeleteClusterSnapshotResponse
+        request = post
+        response
+          = receiveXMLWrapper "DeleteClusterSnapshotResult"
+              (\ s h x ->
+                 DeleteClusterSnapshotResponse' <$>
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
--- | 'DeleteClusterSnapshotResponse' constructor.
+instance ToHeaders DeleteClusterSnapshot where
+        toHeaders = const mempty
+
+instance ToPath DeleteClusterSnapshot where
+        toPath = const "/"
+
+instance ToQuery DeleteClusterSnapshot where
+        toQuery DeleteClusterSnapshot'{..}
+          = mconcat
+              ["Action" =: ("DeleteClusterSnapshot" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "SnapshotClusterIdentifier" =:
+                 _dcsrqSnapshotClusterIdentifier,
+               "SnapshotIdentifier" =: _dcsrqSnapshotIdentifier]
+
+-- | /See:/ 'deleteClusterSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrSnapshot' @::@ 'Maybe' 'Snapshot'
+-- * 'dcsrsSnapshot'
 --
-deleteClusterSnapshotResponse :: DeleteClusterSnapshotResponse
-deleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
-    { _dcsrSnapshot = Nothing
+-- * 'dcsrsStatus'
+data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
+    { _dcsrsSnapshot :: !(Maybe Snapshot)
+    , _dcsrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteClusterSnapshotResponse' smart constructor.
+deleteClusterSnapshotResponse :: Int -> DeleteClusterSnapshotResponse
+deleteClusterSnapshotResponse pStatus_ =
+    DeleteClusterSnapshotResponse'
+    { _dcsrsSnapshot = Nothing
+    , _dcsrsStatus = pStatus_
     }
 
-dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
-dcsrSnapshot = lens _dcsrSnapshot (\s a -> s { _dcsrSnapshot = a })
+-- | FIXME: Undocumented member.
+dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
+dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
 
-instance ToPath DeleteClusterSnapshot where
-    toPath = const "/"
-
-instance ToQuery DeleteClusterSnapshot where
-    toQuery DeleteClusterSnapshot{..} = mconcat
-        [ "SnapshotClusterIdentifier" =? _dcsSnapshotClusterIdentifier
-        , "SnapshotIdentifier"        =? _dcsSnapshotIdentifier
-        ]
-
-instance ToHeaders DeleteClusterSnapshot
-
-instance AWSRequest DeleteClusterSnapshot where
-    type Sv DeleteClusterSnapshot = Redshift
-    type Rs DeleteClusterSnapshot = DeleteClusterSnapshotResponse
-
-    request  = post "DeleteClusterSnapshot"
-    response = xmlResponse
-
-instance FromXML DeleteClusterSnapshotResponse where
-    parseXML = withElement "DeleteClusterSnapshotResult" $ \x -> DeleteClusterSnapshotResponse
-        <$> x .@? "Snapshot"
+-- | FIXME: Undocumented member.
+dcsrsStatus :: Lens' DeleteClusterSnapshotResponse Int
+dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

@@ -1,43 +1,36 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ELB.CreateLoadBalancer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a load balancer.
+-- Creates a load balancer.
 --
--- If the call completes successfully, a new load balancer is created with a
--- unique Domain Name Service (DNS) name. The DNS name includes the name of the
--- AWS region in which the load balancer was created. For example, the DNS name
--- might end with either of the following:
---
--- 'us-east-1.elb.amazonaws.com'   'us-west-2.elb.amazonaws.com'   For
--- information about the AWS regions supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints> in the /Amazon Web Services General Reference/.
+-- If the call completes successfully, a new load balancer is created with
+-- a unique Domain Name Service (DNS) name. The load balancer receives
+-- incoming traffic and routes it to the registered instances. For more
+-- information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/how-elb-works.html How Elastic Load Balancing Works>
+-- in the /Elastic Load Balancing Developer Guide/.
 --
 -- You can create up to 20 load balancers per region per account. You can
--- request an increase for the number of load balancers for your account. For
--- more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits> in the /Elastic LoadBalancing Developer Guide/.
---
--- Elastic Load Balancing supports load balancing your EC2 instances launched
--- in either the EC2-Classic or EC2-VPC platform. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html Elastic Load Balancing in EC2-Classic> or <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in a VPC> in the /Elastic Load Balancing DeveloperGuide/.
+-- request an increase for the number of load balancers for your account.
+-- For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits>
+-- in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html>
 module Network.AWS.ELB.CreateLoadBalancer
@@ -47,165 +40,187 @@ module Network.AWS.ELB.CreateLoadBalancer
     -- ** Request constructor
     , createLoadBalancer
     -- ** Request lenses
-    , clbAvailabilityZones
-    , clbListeners
-    , clbLoadBalancerName
-    , clbScheme
-    , clbSecurityGroups
-    , clbSubnets
-    , clbTags
+    , clbrqSecurityGroups
+    , clbrqSubnets
+    , clbrqAvailabilityZones
+    , clbrqScheme
+    , clbrqTags
+    , clbrqLoadBalancerName
+    , clbrqListeners
 
     -- * Response
     , CreateLoadBalancerResponse
     -- ** Response constructor
     , createLoadBalancerResponse
     -- ** Response lenses
-    , clbrDNSName
+    , clbrsDNSName
+    , clbrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateLoadBalancer = CreateLoadBalancer
-    { _clbAvailabilityZones :: List "member" Text
-    , _clbListeners         :: List "member" Listener
-    , _clbLoadBalancerName  :: Text
-    , _clbScheme            :: Maybe Text
-    , _clbSecurityGroups    :: List "member" Text
-    , _clbSubnets           :: List "member" Text
-    , _clbTags              :: List1 "member" Tag
-    } deriving (Eq, Read, Show)
-
--- | 'CreateLoadBalancer' constructor.
+-- | /See:/ 'createLoadBalancer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbAvailabilityZones' @::@ ['Text']
+-- * 'clbrqSecurityGroups'
 --
--- * 'clbListeners' @::@ ['Listener']
+-- * 'clbrqSubnets'
 --
--- * 'clbLoadBalancerName' @::@ 'Text'
+-- * 'clbrqAvailabilityZones'
 --
--- * 'clbScheme' @::@ 'Maybe' 'Text'
+-- * 'clbrqScheme'
 --
--- * 'clbSecurityGroups' @::@ ['Text']
+-- * 'clbrqTags'
 --
--- * 'clbSubnets' @::@ ['Text']
+-- * 'clbrqLoadBalancerName'
 --
--- * 'clbTags' @::@ 'NonEmpty' 'Tag'
---
-createLoadBalancer :: Text -- ^ 'clbLoadBalancerName'
-                   -> NonEmpty Tag -- ^ 'clbTags'
-                   -> CreateLoadBalancer
-createLoadBalancer p1 p2 = CreateLoadBalancer
-    { _clbLoadBalancerName  = p1
-    , _clbTags              = withIso _List1 (const id) p2
-    , _clbListeners         = mempty
-    , _clbAvailabilityZones = mempty
-    , _clbSubnets           = mempty
-    , _clbSecurityGroups    = mempty
-    , _clbScheme            = Nothing
+-- * 'clbrqListeners'
+data CreateLoadBalancer = CreateLoadBalancer'
+    { _clbrqSecurityGroups    :: !(Maybe [Text])
+    , _clbrqSubnets           :: !(Maybe [Text])
+    , _clbrqAvailabilityZones :: !(Maybe [Text])
+    , _clbrqScheme            :: !(Maybe Text)
+    , _clbrqTags              :: !(Maybe (List1 Tag))
+    , _clbrqLoadBalancerName  :: !Text
+    , _clbrqListeners         :: ![Listener]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateLoadBalancer' smart constructor.
+createLoadBalancer :: Text -> CreateLoadBalancer
+createLoadBalancer pLoadBalancerName_ =
+    CreateLoadBalancer'
+    { _clbrqSecurityGroups = Nothing
+    , _clbrqSubnets = Nothing
+    , _clbrqAvailabilityZones = Nothing
+    , _clbrqScheme = Nothing
+    , _clbrqTags = Nothing
+    , _clbrqLoadBalancerName = pLoadBalancerName_
+    , _clbrqListeners = mempty
     }
 
--- | One or more Availability Zones from the same region as the load balancer.
--- Traffic is equally distributed across all specified Availability Zones.
+-- | The IDs of the security groups to assign to the load balancer.
+clbrqSecurityGroups :: Lens' CreateLoadBalancer [Text]
+clbrqSecurityGroups = lens _clbrqSecurityGroups (\ s a -> s{_clbrqSecurityGroups = a}) . _Default;
+
+-- | The IDs of the subnets in your VPC to attach to the load balancer.
+-- Specify one subnet per Availability Zone specified in
+-- @AvailabilityZones@.
+clbrqSubnets :: Lens' CreateLoadBalancer [Text]
+clbrqSubnets = lens _clbrqSubnets (\ s a -> s{_clbrqSubnets = a}) . _Default;
+
+-- | One or more Availability Zones from the same region as the load
+-- balancer. Traffic is equally distributed across all specified
+-- Availability Zones.
 --
 -- You must specify at least one Availability Zone.
 --
--- You can add more Availability Zones after you create the load balancer using 'EnableAvailabilityZonesForLoadBalancer'.
-clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
-clbAvailabilityZones =
-    lens _clbAvailabilityZones (\s a -> s { _clbAvailabilityZones = a })
-        . _List
-
--- | The listeners.
---
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing>
--- in the /Elastic Load Balancing Developer Guide/.
-clbListeners :: Lens' CreateLoadBalancer [Listener]
-clbListeners = lens _clbListeners (\s a -> s { _clbListeners = a }) . _List
-
--- | The name of the load balancer.
---
--- This name must be unique within your AWS account, must have a maximum of 32
--- characters, must contain only alphanumeric characters or hyphens, and cannot
--- begin or end with a hyphen.
-clbLoadBalancerName :: Lens' CreateLoadBalancer Text
-clbLoadBalancerName =
-    lens _clbLoadBalancerName (\s a -> s { _clbLoadBalancerName = a })
+-- You can add more Availability Zones after you create the load balancer
+-- using EnableAvailabilityZonesForLoadBalancer.
+clbrqAvailabilityZones :: Lens' CreateLoadBalancer [Text]
+clbrqAvailabilityZones = lens _clbrqAvailabilityZones (\ s a -> s{_clbrqAvailabilityZones = a}) . _Default;
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
--- By default, Elastic Load Balancing creates an Internet-facing load balancer
--- with a publicly resolvable DNS name, which resolves to public IP addresses.
--- For more information about Internet-facing and Internal load balancers, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers> in the /Elastic Load Balancing Developer Guide/.
+-- By default, Elastic Load Balancing creates an Internet-facing load
+-- balancer with a publicly resolvable DNS name, which resolves to public
+-- IP addresses. For more information about Internet-facing and Internal
+-- load balancers, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers>
+-- in the /Elastic Load Balancing Developer Guide/.
 --
--- Specify 'internal' to create an internal load balancer with a DNS name that
--- resolves to private IP addresses.
-clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
-clbScheme = lens _clbScheme (\s a -> s { _clbScheme = a })
-
--- | The IDs of the security groups to assign to the load balancer.
-clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
-clbSecurityGroups =
-    lens _clbSecurityGroups (\s a -> s { _clbSecurityGroups = a })
-        . _List
-
--- | The IDs of the subnets in your VPC to attach to the load balancer. Specify
--- one subnet per Availability Zone specified in 'AvailabilityZones'.
-clbSubnets :: Lens' CreateLoadBalancer [Text]
-clbSubnets = lens _clbSubnets (\s a -> s { _clbSubnets = a }) . _List
+-- Specify @internal@ to create an internal load balancer with a DNS name
+-- that resolves to private IP addresses.
+clbrqScheme :: Lens' CreateLoadBalancer (Maybe Text)
+clbrqScheme = lens _clbrqScheme (\ s a -> s{_clbrqScheme = a});
 
 -- | A list of tags to assign to the load balancer.
 --
--- For more information about tagging your load balancer, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing Developer Guide/.
-clbTags :: Lens' CreateLoadBalancer (NonEmpty Tag)
-clbTags = lens _clbTags (\s a -> s { _clbTags = a }) . _List1
+-- For more information about tagging your load balancer, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging>
+-- in the /Elastic Load Balancing Developer Guide/.
+clbrqTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
+clbrqTags = lens _clbrqTags (\ s a -> s{_clbrqTags = a}) . mapping _List1;
 
-newtype CreateLoadBalancerResponse = CreateLoadBalancerResponse
-    { _clbrDNSName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The name of the load balancer.
+--
+-- This name must be unique within your AWS account, must have a maximum of
+-- 32 characters, must contain only alphanumeric characters or hyphens, and
+-- cannot begin or end with a hyphen.
+clbrqLoadBalancerName :: Lens' CreateLoadBalancer Text
+clbrqLoadBalancerName = lens _clbrqLoadBalancerName (\ s a -> s{_clbrqLoadBalancerName = a});
 
--- | 'CreateLoadBalancerResponse' constructor.
+-- | The listeners.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listeners for Your Load Balancer>
+-- in the /Elastic Load Balancing Developer Guide/.
+clbrqListeners :: Lens' CreateLoadBalancer [Listener]
+clbrqListeners = lens _clbrqListeners (\ s a -> s{_clbrqListeners = a});
+
+instance AWSRequest CreateLoadBalancer where
+        type Sv CreateLoadBalancer = ELB
+        type Rs CreateLoadBalancer =
+             CreateLoadBalancerResponse
+        request = post
+        response
+          = receiveXMLWrapper "CreateLoadBalancerResult"
+              (\ s h x ->
+                 CreateLoadBalancerResponse' <$>
+                   (x .@? "DNSName") <*> (pure (fromEnum s)))
+
+instance ToHeaders CreateLoadBalancer where
+        toHeaders = const mempty
+
+instance ToPath CreateLoadBalancer where
+        toPath = const "/"
+
+instance ToQuery CreateLoadBalancer where
+        toQuery CreateLoadBalancer'{..}
+          = mconcat
+              ["Action" =: ("CreateLoadBalancer" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "SecurityGroups" =:
+                 toQuery
+                   (toQueryList "member" <$> _clbrqSecurityGroups),
+               "Subnets" =:
+                 toQuery (toQueryList "member" <$> _clbrqSubnets),
+               "AvailabilityZones" =:
+                 toQuery
+                   (toQueryList "member" <$> _clbrqAvailabilityZones),
+               "Scheme" =: _clbrqScheme,
+               "Tags" =:
+                 toQuery (toQueryList "member" <$> _clbrqTags),
+               "LoadBalancerName" =: _clbrqLoadBalancerName,
+               "Listeners" =: toQueryList "member" _clbrqListeners]
+
+-- | /See:/ 'createLoadBalancerResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbrDNSName' @::@ 'Maybe' 'Text'
+-- * 'clbrsDNSName'
 --
-createLoadBalancerResponse :: CreateLoadBalancerResponse
-createLoadBalancerResponse = CreateLoadBalancerResponse
-    { _clbrDNSName = Nothing
+-- * 'clbrsStatus'
+data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
+    { _clbrsDNSName :: !(Maybe Text)
+    , _clbrsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateLoadBalancerResponse' smart constructor.
+createLoadBalancerResponse :: Int -> CreateLoadBalancerResponse
+createLoadBalancerResponse pStatus_ =
+    CreateLoadBalancerResponse'
+    { _clbrsDNSName = Nothing
+    , _clbrsStatus = pStatus_
     }
 
 -- | The DNS name of the load balancer.
-clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
-clbrDNSName = lens _clbrDNSName (\s a -> s { _clbrDNSName = a })
+clbrsDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
+clbrsDNSName = lens _clbrsDNSName (\ s a -> s{_clbrsDNSName = a});
 
-instance ToPath CreateLoadBalancer where
-    toPath = const "/"
-
-instance ToQuery CreateLoadBalancer where
-    toQuery CreateLoadBalancer{..} = mconcat
-        [ "AvailabilityZones" =? _clbAvailabilityZones
-        , "Listeners"         =? _clbListeners
-        , "LoadBalancerName"  =? _clbLoadBalancerName
-        , "Scheme"            =? _clbScheme
-        , "SecurityGroups"    =? _clbSecurityGroups
-        , "Subnets"           =? _clbSubnets
-        , "Tags"              =? _clbTags
-        ]
-
-instance ToHeaders CreateLoadBalancer
-
-instance AWSRequest CreateLoadBalancer where
-    type Sv CreateLoadBalancer = ELB
-    type Rs CreateLoadBalancer = CreateLoadBalancerResponse
-
-    request  = post "CreateLoadBalancer"
-    response = xmlResponse
-
-instance FromXML CreateLoadBalancerResponse where
-    parseXML = withElement "CreateLoadBalancerResult" $ \x -> CreateLoadBalancerResponse
-        <$> x .@? "DNSName"
+-- | FIXME: Undocumented member.
+clbrsStatus :: Lens' CreateLoadBalancerResponse Int
+clbrsStatus = lens _clbrsStatus (\ s a -> s{_clbrsStatus = a});

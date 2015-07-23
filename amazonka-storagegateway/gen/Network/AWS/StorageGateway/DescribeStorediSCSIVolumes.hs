@@ -1,31 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation returns description of the gateway volumes specified in the
--- request. The list of gateway volumes in the request must be from one gateway.
--- In the response Amazon Storage Gateway returns volume information sorted by
--- volume ARNs.
+-- This operation returns the description of the gateway volumes specified
+-- in the request. The list of gateway volumes in the request must be from
+-- one gateway. In the response Amazon Storage Gateway returns volume
+-- information sorted by volume ARNs.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeStorediSCSIVolumes.html>
 module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
@@ -35,98 +30,103 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     -- ** Request constructor
     , describeStorediSCSIVolumes
     -- ** Request lenses
-    , dsscsivVolumeARNs
+    , dsscsivrqVolumeARNs
 
     -- * Response
     , DescribeStorediSCSIVolumesResponse
     -- ** Response constructor
     , describeStorediSCSIVolumesResponse
     -- ** Response lenses
-    , dsscsivrStorediSCSIVolumes
+    , dsscsivrsStorediSCSIVolumes
+    , dsscsivrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes
-    { _dsscsivVolumeARNs :: List "VolumeARNs" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeStorediSCSIVolumes where
-    type Item DescribeStorediSCSIVolumes = Text
-
-    fromList = DescribeStorediSCSIVolumes . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsscsivVolumeARNs
-
--- | 'DescribeStorediSCSIVolumes' constructor.
+-- | A JSON Object containing a list of
+-- DescribeStorediSCSIVolumesInput$VolumeARNs.
+--
+-- /See:/ 'describeStorediSCSIVolumes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsscsivVolumeARNs' @::@ ['Text']
---
+-- * 'dsscsivrqVolumeARNs'
+newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
+    { _dsscsivrqVolumeARNs :: [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeStorediSCSIVolumes' smart constructor.
 describeStorediSCSIVolumes :: DescribeStorediSCSIVolumes
-describeStorediSCSIVolumes = DescribeStorediSCSIVolumes
-    { _dsscsivVolumeARNs = mempty
+describeStorediSCSIVolumes =
+    DescribeStorediSCSIVolumes'
+    { _dsscsivrqVolumeARNs = mempty
     }
 
--- | An array of strings where each string represents the Amazon Resource Name
--- (ARN) of a stored volume. All of the specified stored volumes must from the
--- same gateway. Use 'ListVolumes' to get volume ARNs for a gateway.
-dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
-dsscsivVolumeARNs =
-    lens _dsscsivVolumeARNs (\s a -> s { _dsscsivVolumeARNs = a })
-        . _List
-
-newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
-    { _dsscsivrStorediSCSIVolumes :: List "StorediSCSIVolumes" StorediSCSIVolume
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeStorediSCSIVolumesResponse where
-    type Item DescribeStorediSCSIVolumesResponse = StorediSCSIVolume
-
-    fromList = DescribeStorediSCSIVolumesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dsscsivrStorediSCSIVolumes
-
--- | 'DescribeStorediSCSIVolumesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsscsivrStorediSCSIVolumes' @::@ ['StorediSCSIVolume']
---
-describeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse
-describeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse
-    { _dsscsivrStorediSCSIVolumes = mempty
-    }
-
-dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
-dsscsivrStorediSCSIVolumes =
-    lens _dsscsivrStorediSCSIVolumes
-        (\s a -> s { _dsscsivrStorediSCSIVolumes = a })
-            . _List
-
-instance ToPath DescribeStorediSCSIVolumes where
-    toPath = const "/"
-
-instance ToQuery DescribeStorediSCSIVolumes where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStorediSCSIVolumes
-
-instance ToJSON DescribeStorediSCSIVolumes where
-    toJSON DescribeStorediSCSIVolumes{..} = object
-        [ "VolumeARNs" .= _dsscsivVolumeARNs
-        ]
+-- | An array of strings where each string represents the Amazon Resource
+-- Name (ARN) of a stored volume. All of the specified stored volumes must
+-- from the same gateway. Use ListVolumes to get volume ARNs for a gateway.
+dsscsivrqVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
+dsscsivrqVolumeARNs = lens _dsscsivrqVolumeARNs (\ s a -> s{_dsscsivrqVolumeARNs = a});
 
 instance AWSRequest DescribeStorediSCSIVolumes where
-    type Sv DescribeStorediSCSIVolumes = StorageGateway
-    type Rs DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumesResponse
+        type Sv DescribeStorediSCSIVolumes = StorageGateway
+        type Rs DescribeStorediSCSIVolumes =
+             DescribeStorediSCSIVolumesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeStorediSCSIVolumesResponse' <$>
+                   (x .?> "StorediSCSIVolumes" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-    request  = post "DescribeStorediSCSIVolumes"
-    response = jsonResponse
+instance ToHeaders DescribeStorediSCSIVolumes where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DescribeStorediSCSIVolumes"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DescribeStorediSCSIVolumesResponse where
-    parseJSON = withObject "DescribeStorediSCSIVolumesResponse" $ \o -> DescribeStorediSCSIVolumesResponse
-        <$> o .:? "StorediSCSIVolumes" .!= mempty
+instance ToJSON DescribeStorediSCSIVolumes where
+        toJSON DescribeStorediSCSIVolumes'{..}
+          = object ["VolumeARNs" .= _dsscsivrqVolumeARNs]
+
+instance ToPath DescribeStorediSCSIVolumes where
+        toPath = const "/"
+
+instance ToQuery DescribeStorediSCSIVolumes where
+        toQuery = const mempty
+
+-- | /See:/ 'describeStorediSCSIVolumesResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dsscsivrsStorediSCSIVolumes'
+--
+-- * 'dsscsivrsStatus'
+data DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'
+    { _dsscsivrsStorediSCSIVolumes :: !(Maybe [StorediSCSIVolume])
+    , _dsscsivrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeStorediSCSIVolumesResponse' smart constructor.
+describeStorediSCSIVolumesResponse :: Int -> DescribeStorediSCSIVolumesResponse
+describeStorediSCSIVolumesResponse pStatus_ =
+    DescribeStorediSCSIVolumesResponse'
+    { _dsscsivrsStorediSCSIVolumes = Nothing
+    , _dsscsivrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
+dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dsscsivrsStatus :: Lens' DescribeStorediSCSIVolumesResponse Int
+dsscsivrsStatus = lens _dsscsivrsStatus (\ s a -> s{_dsscsivrsStatus = a});

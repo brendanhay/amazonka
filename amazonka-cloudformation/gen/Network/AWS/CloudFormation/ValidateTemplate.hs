@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFormation.ValidateTemplate
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Validates a specified template.
+-- Validates a specified template.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ValidateTemplate.html>
 module Network.AWS.CloudFormation.ValidateTemplate
@@ -32,133 +27,156 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- ** Request constructor
     , validateTemplate
     -- ** Request lenses
-    , vtTemplateBody
-    , vtTemplateURL
+    , vtrqTemplateBody
+    , vtrqTemplateURL
 
     -- * Response
     , ValidateTemplateResponse
     -- ** Response constructor
     , validateTemplateResponse
     -- ** Response lenses
-    , vtrCapabilities
-    , vtrCapabilitiesReason
-    , vtrDescription
-    , vtrParameters
+    , vtrsParameters
+    , vtrsCapabilitiesReason
+    , vtrsCapabilities
+    , vtrsDescription
+    , vtrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ValidateTemplate = ValidateTemplate
-    { _vtTemplateBody :: Maybe Text
-    , _vtTemplateURL  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ValidateTemplate' constructor.
+-- | The input for ValidateTemplate action.
+--
+-- /See:/ 'validateTemplate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vtTemplateBody' @::@ 'Maybe' 'Text'
+-- * 'vtrqTemplateBody'
 --
--- * 'vtTemplateURL' @::@ 'Maybe' 'Text'
---
+-- * 'vtrqTemplateURL'
+data ValidateTemplate = ValidateTemplate'
+    { _vtrqTemplateBody :: !(Maybe Text)
+    , _vtrqTemplateURL  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ValidateTemplate' smart constructor.
 validateTemplate :: ValidateTemplate
-validateTemplate = ValidateTemplate
-    { _vtTemplateBody = Nothing
-    , _vtTemplateURL  = Nothing
+validateTemplate =
+    ValidateTemplate'
+    { _vtrqTemplateBody = Nothing
+    , _vtrqTemplateURL = Nothing
     }
 
--- | Structure containing the template body with a minimum length of 1 byte and a
--- maximum length of 51,200 bytes. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- | Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.
 --
--- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,
--- only 'TemplateBody' is used.
-vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
-vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
+-- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
+-- passed, only @TemplateBody@ is used.
+vtrqTemplateBody :: Lens' ValidateTemplate (Maybe Text)
+vtrqTemplateBody = lens _vtrqTemplateBody (\ s a -> s{_vtrqTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 460,800 bytes) located in an S3 bucket in the same region
--- as the stack. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS
--- CloudFormation User Guide.
+-- template (max size: 460,800 bytes) located in an S3 bucket in the same
+-- region as the stack. For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.
 --
--- Conditional: You must pass 'TemplateURL' or 'TemplateBody'. If both are passed,
--- only 'TemplateBody' is used.
-vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
-vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
+-- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
+-- passed, only @TemplateBody@ is used.
+vtrqTemplateURL :: Lens' ValidateTemplate (Maybe Text)
+vtrqTemplateURL = lens _vtrqTemplateURL (\ s a -> s{_vtrqTemplateURL = a});
 
-data ValidateTemplateResponse = ValidateTemplateResponse
-    { _vtrCapabilities       :: List "member" Capability
-    , _vtrCapabilitiesReason :: Maybe Text
-    , _vtrDescription        :: Maybe Text
-    , _vtrParameters         :: List "member" TemplateParameter
-    } deriving (Eq, Read, Show)
+instance AWSRequest ValidateTemplate where
+        type Sv ValidateTemplate = CloudFormation
+        type Rs ValidateTemplate = ValidateTemplateResponse
+        request = post
+        response
+          = receiveXMLWrapper "ValidateTemplateResult"
+              (\ s h x ->
+                 ValidateTemplateResponse' <$>
+                   (x .@? "Parameters" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "CapabilitiesReason")
+                     <*>
+                     (x .@? "Capabilities" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Description")
+                     <*> (pure (fromEnum s)))
 
--- | 'ValidateTemplateResponse' constructor.
+instance ToHeaders ValidateTemplate where
+        toHeaders = const mempty
+
+instance ToPath ValidateTemplate where
+        toPath = const "/"
+
+instance ToQuery ValidateTemplate where
+        toQuery ValidateTemplate'{..}
+          = mconcat
+              ["Action" =: ("ValidateTemplate" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "TemplateBody" =: _vtrqTemplateBody,
+               "TemplateURL" =: _vtrqTemplateURL]
+
+-- | The output for ValidateTemplate action.
+--
+-- /See:/ 'validateTemplateResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vtrCapabilities' @::@ ['Capability']
+-- * 'vtrsParameters'
 --
--- * 'vtrCapabilitiesReason' @::@ 'Maybe' 'Text'
+-- * 'vtrsCapabilitiesReason'
 --
--- * 'vtrDescription' @::@ 'Maybe' 'Text'
+-- * 'vtrsCapabilities'
 --
--- * 'vtrParameters' @::@ ['TemplateParameter']
+-- * 'vtrsDescription'
 --
-validateTemplateResponse :: ValidateTemplateResponse
-validateTemplateResponse = ValidateTemplateResponse
-    { _vtrParameters         = mempty
-    , _vtrDescription        = Nothing
-    , _vtrCapabilities       = mempty
-    , _vtrCapabilitiesReason = Nothing
+-- * 'vtrsStatus'
+data ValidateTemplateResponse = ValidateTemplateResponse'
+    { _vtrsParameters         :: !(Maybe [TemplateParameter])
+    , _vtrsCapabilitiesReason :: !(Maybe Text)
+    , _vtrsCapabilities       :: !(Maybe [Capability])
+    , _vtrsDescription        :: !(Maybe Text)
+    , _vtrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ValidateTemplateResponse' smart constructor.
+validateTemplateResponse :: Int -> ValidateTemplateResponse
+validateTemplateResponse pStatus_ =
+    ValidateTemplateResponse'
+    { _vtrsParameters = Nothing
+    , _vtrsCapabilitiesReason = Nothing
+    , _vtrsCapabilities = Nothing
+    , _vtrsDescription = Nothing
+    , _vtrsStatus = pStatus_
     }
 
--- | The capabilities found within the template. Currently, AWS CloudFormation
--- supports only the CAPABILITY_IAM capability. If your template contains IAM
--- resources, you must specify the CAPABILITY_IAM value for this parameter when
--- you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise,
--- those actions return an InsufficientCapabilities error.
-vtrCapabilities :: Lens' ValidateTemplateResponse [Capability]
-vtrCapabilities = lens _vtrCapabilities (\s a -> s { _vtrCapabilities = a }) . _List
+-- | A list of @TemplateParameter@ structures.
+vtrsParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
+vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Default;
 
--- | The list of resources that generated the values in the 'Capabilities' response
--- element.
-vtrCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
-vtrCapabilitiesReason =
-    lens _vtrCapabilitiesReason (\s a -> s { _vtrCapabilitiesReason = a })
+-- | The list of resources that generated the values in the @Capabilities@
+-- response element.
+vtrsCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrsCapabilitiesReason = lens _vtrsCapabilitiesReason (\ s a -> s{_vtrsCapabilitiesReason = a});
+
+-- | The capabilities found within the template. Currently, AWS
+-- CloudFormation supports only the CAPABILITY_IAM capability. If your
+-- template contains IAM resources, you must specify the CAPABILITY_IAM
+-- value for this parameter when you use the CreateStack or UpdateStack
+-- actions with your template; otherwise, those actions return an
+-- InsufficientCapabilities error.
+vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
+vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default;
 
 -- | The description found within the template.
-vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
-vtrDescription = lens _vtrDescription (\s a -> s { _vtrDescription = a })
+vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrsDescription = lens _vtrsDescription (\ s a -> s{_vtrsDescription = a});
 
--- | A list of 'TemplateParameter' structures.
-vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
-vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a }) . _List
-
-instance ToPath ValidateTemplate where
-    toPath = const "/"
-
-instance ToQuery ValidateTemplate where
-    toQuery ValidateTemplate{..} = mconcat
-        [ "TemplateBody" =? _vtTemplateBody
-        , "TemplateURL"  =? _vtTemplateURL
-        ]
-
-instance ToHeaders ValidateTemplate
-
-instance AWSRequest ValidateTemplate where
-    type Sv ValidateTemplate = CloudFormation
-    type Rs ValidateTemplate = ValidateTemplateResponse
-
-    request  = post "ValidateTemplate"
-    response = xmlResponse
-
-instance FromXML ValidateTemplateResponse where
-    parseXML = withElement "ValidateTemplateResult" $ \x -> ValidateTemplateResponse
-        <$> x .@? "Capabilities" .!@ mempty
-        <*> x .@? "CapabilitiesReason"
-        <*> x .@? "Description"
-        <*> x .@? "Parameters" .!@ mempty
+-- | FIXME: Undocumented member.
+vtrsStatus :: Lens' ValidateTemplateResponse Int
+vtrsStatus = lens _vtrsStatus (\ s a -> s{_vtrsStatus = a});

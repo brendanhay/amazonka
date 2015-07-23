@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.ModifyOptionGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Modifies an existing option group.
+-- Modifies an existing option group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyOptionGroup.html>
 module Network.AWS.RDS.ModifyOptionGroup
@@ -32,118 +27,135 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- ** Request constructor
     , modifyOptionGroup
     -- ** Request lenses
-    , mogApplyImmediately
-    , mogOptionGroupName
-    , mogOptionsToInclude
-    , mogOptionsToRemove
+    , mogrqOptionsToInclude
+    , mogrqOptionsToRemove
+    , mogrqApplyImmediately
+    , mogrqOptionGroupName
 
     -- * Response
     , ModifyOptionGroupResponse
     -- ** Response constructor
     , modifyOptionGroupResponse
     -- ** Response lenses
-    , mogrOptionGroup
+    , mogrsOptionGroup
+    , mogrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ModifyOptionGroup = ModifyOptionGroup
-    { _mogApplyImmediately :: Maybe Bool
-    , _mogOptionGroupName  :: Text
-    , _mogOptionsToInclude :: List "member" OptionConfiguration
-    , _mogOptionsToRemove  :: List "member" Text
-    } deriving (Eq, Read, Show)
-
--- | 'ModifyOptionGroup' constructor.
+-- |
+--
+-- /See:/ 'modifyOptionGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mogApplyImmediately' @::@ 'Maybe' 'Bool'
+-- * 'mogrqOptionsToInclude'
 --
--- * 'mogOptionGroupName' @::@ 'Text'
+-- * 'mogrqOptionsToRemove'
 --
--- * 'mogOptionsToInclude' @::@ ['OptionConfiguration']
+-- * 'mogrqApplyImmediately'
 --
--- * 'mogOptionsToRemove' @::@ ['Text']
---
-modifyOptionGroup :: Text -- ^ 'mogOptionGroupName'
-                  -> ModifyOptionGroup
-modifyOptionGroup p1 = ModifyOptionGroup
-    { _mogOptionGroupName  = p1
-    , _mogOptionsToInclude = mempty
-    , _mogOptionsToRemove  = mempty
-    , _mogApplyImmediately = Nothing
+-- * 'mogrqOptionGroupName'
+data ModifyOptionGroup = ModifyOptionGroup'
+    { _mogrqOptionsToInclude :: !(Maybe [OptionConfiguration])
+    , _mogrqOptionsToRemove  :: !(Maybe [Text])
+    , _mogrqApplyImmediately :: !(Maybe Bool)
+    , _mogrqOptionGroupName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifyOptionGroup' smart constructor.
+modifyOptionGroup :: Text -> ModifyOptionGroup
+modifyOptionGroup pOptionGroupName_ =
+    ModifyOptionGroup'
+    { _mogrqOptionsToInclude = Nothing
+    , _mogrqOptionsToRemove = Nothing
+    , _mogrqApplyImmediately = Nothing
+    , _mogrqOptionGroupName = pOptionGroupName_
     }
 
--- | Indicates whether the changes should be applied immediately, or during the
--- next maintenance window for each instance associated with the option group.
-mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
-mogApplyImmediately =
-    lens _mogApplyImmediately (\s a -> s { _mogApplyImmediately = a })
+-- | Options in this list are added to the option group or, if already
+-- present, the specified configuration is used to update the existing
+-- configuration.
+mogrqOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
+mogrqOptionsToInclude = lens _mogrqOptionsToInclude (\ s a -> s{_mogrqOptionsToInclude = a}) . _Default;
+
+-- | Options in this list are removed from the option group.
+mogrqOptionsToRemove :: Lens' ModifyOptionGroup [Text]
+mogrqOptionsToRemove = lens _mogrqOptionsToRemove (\ s a -> s{_mogrqOptionsToRemove = a}) . _Default;
+
+-- | Indicates whether the changes should be applied immediately, or during
+-- the next maintenance window for each instance associated with the option
+-- group.
+mogrqApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
+mogrqApplyImmediately = lens _mogrqApplyImmediately (\ s a -> s{_mogrqApplyImmediately = a});
 
 -- | The name of the option group to be modified.
 --
--- Permanent options, such as the TDE option for Oracle Advanced Security TDE,
--- cannot be removed from an option group, and that option group cannot be
--- removed from a DB instance once it is associated with a DB instance
-mogOptionGroupName :: Lens' ModifyOptionGroup Text
-mogOptionGroupName =
-    lens _mogOptionGroupName (\s a -> s { _mogOptionGroupName = a })
+-- Permanent options, such as the TDE option for Oracle Advanced Security
+-- TDE, cannot be removed from an option group, and that option group
+-- cannot be removed from a DB instance once it is associated with a DB
+-- instance
+mogrqOptionGroupName :: Lens' ModifyOptionGroup Text
+mogrqOptionGroupName = lens _mogrqOptionGroupName (\ s a -> s{_mogrqOptionGroupName = a});
 
--- | Options in this list are added to the option group or, if already present,
--- the specified configuration is used to update the existing configuration.
-mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
-mogOptionsToInclude =
-    lens _mogOptionsToInclude (\s a -> s { _mogOptionsToInclude = a })
-        . _List
+instance AWSRequest ModifyOptionGroup where
+        type Sv ModifyOptionGroup = RDS
+        type Rs ModifyOptionGroup = ModifyOptionGroupResponse
+        request = post
+        response
+          = receiveXMLWrapper "ModifyOptionGroupResult"
+              (\ s h x ->
+                 ModifyOptionGroupResponse' <$>
+                   (x .@? "OptionGroup") <*> (pure (fromEnum s)))
 
--- | Options in this list are removed from the option group.
-mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
-mogOptionsToRemove =
-    lens _mogOptionsToRemove (\s a -> s { _mogOptionsToRemove = a })
-        . _List
+instance ToHeaders ModifyOptionGroup where
+        toHeaders = const mempty
 
-newtype ModifyOptionGroupResponse = ModifyOptionGroupResponse
-    { _mogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Read, Show)
+instance ToPath ModifyOptionGroup where
+        toPath = const "/"
 
--- | 'ModifyOptionGroupResponse' constructor.
+instance ToQuery ModifyOptionGroup where
+        toQuery ModifyOptionGroup'{..}
+          = mconcat
+              ["Action" =: ("ModifyOptionGroup" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "OptionsToInclude" =:
+                 toQuery
+                   (toQueryList "OptionConfiguration" <$>
+                      _mogrqOptionsToInclude),
+               "OptionsToRemove" =:
+                 toQuery
+                   (toQueryList "member" <$> _mogrqOptionsToRemove),
+               "ApplyImmediately" =: _mogrqApplyImmediately,
+               "OptionGroupName" =: _mogrqOptionGroupName]
+
+-- | /See:/ 'modifyOptionGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mogrOptionGroup' @::@ 'Maybe' 'OptionGroup'
+-- * 'mogrsOptionGroup'
 --
-modifyOptionGroupResponse :: ModifyOptionGroupResponse
-modifyOptionGroupResponse = ModifyOptionGroupResponse
-    { _mogrOptionGroup = Nothing
+-- * 'mogrsStatus'
+data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
+    { _mogrsOptionGroup :: !(Maybe OptionGroup)
+    , _mogrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifyOptionGroupResponse' smart constructor.
+modifyOptionGroupResponse :: Int -> ModifyOptionGroupResponse
+modifyOptionGroupResponse pStatus_ =
+    ModifyOptionGroupResponse'
+    { _mogrsOptionGroup = Nothing
+    , _mogrsStatus = pStatus_
     }
 
-mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
-mogrOptionGroup = lens _mogrOptionGroup (\s a -> s { _mogrOptionGroup = a })
+-- | FIXME: Undocumented member.
+mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
+mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a});
 
-instance ToPath ModifyOptionGroup where
-    toPath = const "/"
-
-instance ToQuery ModifyOptionGroup where
-    toQuery ModifyOptionGroup{..} = mconcat
-        [ "ApplyImmediately" =? _mogApplyImmediately
-        , "OptionGroupName"  =? _mogOptionGroupName
-        , "OptionsToInclude" =? _mogOptionsToInclude
-        , "OptionsToRemove"  =? _mogOptionsToRemove
-        ]
-
-instance ToHeaders ModifyOptionGroup
-
-instance AWSRequest ModifyOptionGroup where
-    type Sv ModifyOptionGroup = RDS
-    type Rs ModifyOptionGroup = ModifyOptionGroupResponse
-
-    request  = post "ModifyOptionGroup"
-    response = xmlResponse
-
-instance FromXML ModifyOptionGroupResponse where
-    parseXML = withElement "ModifyOptionGroupResult" $ \x -> ModifyOptionGroupResponse
-        <$> x .@? "OptionGroup"
+-- | FIXME: Undocumented member.
+mogrsStatus :: Lens' ModifyOptionGroupResponse Int
+mogrsStatus = lens _mogrsStatus (\ s a -> s{_mogrsStatus = a});

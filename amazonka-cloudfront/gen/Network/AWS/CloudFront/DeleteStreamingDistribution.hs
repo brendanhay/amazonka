@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFront.DeleteStreamingDistribution
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Delete a streaming distribution.
+-- Delete a streaming distribution.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteStreamingDistribution.html>
 module Network.AWS.CloudFront.DeleteStreamingDistribution
@@ -32,8 +27,8 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     -- ** Request constructor
     , deleteStreamingDistribution
     -- ** Request lenses
-    , dsdId
-    , dsdIfMatch
+    , dsdrqIfMatch
+    , dsdrqId
 
     -- * Response
     , DeleteStreamingDistributionResponse
@@ -41,69 +36,68 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     , deleteStreamingDistributionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteStreamingDistribution = DeleteStreamingDistribution
-    { _dsdId      :: Text
-    , _dsdIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteStreamingDistribution' constructor.
+-- | The request to delete a streaming distribution.
+--
+-- /See:/ 'deleteStreamingDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsdId' @::@ 'Text'
+-- * 'dsdrqIfMatch'
 --
--- * 'dsdIfMatch' @::@ 'Maybe' 'Text'
---
-deleteStreamingDistribution :: Text -- ^ 'dsdId'
-                            -> DeleteStreamingDistribution
-deleteStreamingDistribution p1 = DeleteStreamingDistribution
-    { _dsdId      = p1
-    , _dsdIfMatch = Nothing
+-- * 'dsdrqId'
+data DeleteStreamingDistribution = DeleteStreamingDistribution'
+    { _dsdrqIfMatch :: !(Maybe Text)
+    , _dsdrqId      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteStreamingDistribution' smart constructor.
+deleteStreamingDistribution :: Text -> DeleteStreamingDistribution
+deleteStreamingDistribution pId_ =
+    DeleteStreamingDistribution'
+    { _dsdrqIfMatch = Nothing
+    , _dsdrqId = pId_
     }
 
+-- | The value of the ETag header you received when you disabled the
+-- streaming distribution. For example: E2QWRUHAPOMQZL.
+dsdrqIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
+dsdrqIfMatch = lens _dsdrqIfMatch (\ s a -> s{_dsdrqIfMatch = a});
+
 -- | The distribution id.
-dsdId :: Lens' DeleteStreamingDistribution Text
-dsdId = lens _dsdId (\s a -> s { _dsdId = a })
-
--- | The value of the ETag header you received when you disabled the streaming
--- distribution. For example: E2QWRUHAPOMQZL.
-dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
-dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
-
-data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteStreamingDistributionResponse' constructor.
-deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
-deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
-
-instance ToPath DeleteStreamingDistribution where
-    toPath DeleteStreamingDistribution{..} = mconcat
-        [ "/2014-11-06/streaming-distribution/"
-        , toText _dsdId
-        ]
-
-instance ToQuery DeleteStreamingDistribution where
-    toQuery = const mempty
-
-instance ToHeaders DeleteStreamingDistribution where
-    toHeaders DeleteStreamingDistribution{..} = mconcat
-        [ "If-Match" =: _dsdIfMatch
-        ]
-
-instance ToXMLRoot DeleteStreamingDistribution where
-    toXMLRoot = const (namespaced ns "DeleteStreamingDistribution" [])
-
-instance ToXML DeleteStreamingDistribution
+dsdrqId :: Lens' DeleteStreamingDistribution Text
+dsdrqId = lens _dsdrqId (\ s a -> s{_dsdrqId = a});
 
 instance AWSRequest DeleteStreamingDistribution where
-    type Sv DeleteStreamingDistribution = CloudFront
-    type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
+        type Sv DeleteStreamingDistribution = CloudFront
+        type Rs DeleteStreamingDistribution =
+             DeleteStreamingDistributionResponse
+        request = delete
+        response
+          = receiveNull DeleteStreamingDistributionResponse'
 
-    request  = delete
-    response = nullResponse DeleteStreamingDistributionResponse
+instance ToHeaders DeleteStreamingDistribution where
+        toHeaders DeleteStreamingDistribution'{..}
+          = mconcat ["If-Match" =# _dsdrqIfMatch]
+
+instance ToPath DeleteStreamingDistribution where
+        toPath DeleteStreamingDistribution'{..}
+          = mconcat
+              ["/2015-04-17/streaming-distribution/",
+               toText _dsdrqId]
+
+instance ToQuery DeleteStreamingDistribution where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteStreamingDistributionResponse' smart constructor.
+data DeleteStreamingDistributionResponse =
+    DeleteStreamingDistributionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteStreamingDistributionResponse' smart constructor.
+deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
+deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse'

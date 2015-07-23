@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk.RebuildEnvironment
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes and recreates all of the AWS resources (for example: the Auto
--- Scaling group, load balancer, etc.) for a specified environment and forces a
--- restart.
+-- Deletes and recreates all of the AWS resources (for example: the Auto
+-- Scaling group, load balancer, etc.) for a specified environment and
+-- forces a restart.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RebuildEnvironment.html>
 module Network.AWS.ElasticBeanstalk.RebuildEnvironment
@@ -34,8 +29,8 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     -- ** Request constructor
     , rebuildEnvironment
     -- ** Request lenses
-    , reEnvironmentId
-    , reEnvironmentName
+    , rerqEnvironmentName
+    , rerqEnvironmentId
 
     -- * Response
     , RebuildEnvironmentResponse
@@ -43,66 +38,75 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     , rebuildEnvironmentResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RebuildEnvironment = RebuildEnvironment
-    { _reEnvironmentId   :: Maybe Text
-    , _reEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'RebuildEnvironment' constructor.
+-- |
+--
+-- /See:/ 'rebuildEnvironment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reEnvironmentId' @::@ 'Maybe' 'Text'
+-- * 'rerqEnvironmentName'
 --
--- * 'reEnvironmentName' @::@ 'Maybe' 'Text'
---
-rebuildEnvironment :: RebuildEnvironment
-rebuildEnvironment = RebuildEnvironment
-    { _reEnvironmentId   = Nothing
-    , _reEnvironmentName = Nothing
-    }
+-- * 'rerqEnvironmentId'
+data RebuildEnvironment = RebuildEnvironment'
+    { _rerqEnvironmentName :: !(Maybe Text)
+    , _rerqEnvironmentId   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | The ID of the environment to rebuild.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
-reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
-reEnvironmentId = lens _reEnvironmentId (\s a -> s { _reEnvironmentId = a })
+-- | 'RebuildEnvironment' smart constructor.
+rebuildEnvironment :: RebuildEnvironment
+rebuildEnvironment =
+    RebuildEnvironment'
+    { _rerqEnvironmentName = Nothing
+    , _rerqEnvironmentId = Nothing
+    }
 
 -- | The name of the environment to rebuild.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
-reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
-reEnvironmentName =
-    lens _reEnvironmentName (\s a -> s { _reEnvironmentName = a })
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+rerqEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
+rerqEnvironmentName = lens _rerqEnvironmentName (\ s a -> s{_rerqEnvironmentName = a});
 
-data RebuildEnvironmentResponse = RebuildEnvironmentResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RebuildEnvironmentResponse' constructor.
-rebuildEnvironmentResponse :: RebuildEnvironmentResponse
-rebuildEnvironmentResponse = RebuildEnvironmentResponse
-
-instance ToPath RebuildEnvironment where
-    toPath = const "/"
-
-instance ToQuery RebuildEnvironment where
-    toQuery RebuildEnvironment{..} = mconcat
-        [ "EnvironmentId"   =? _reEnvironmentId
-        , "EnvironmentName" =? _reEnvironmentName
-        ]
-
-instance ToHeaders RebuildEnvironment
+-- | The ID of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+rerqEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
+rerqEnvironmentId = lens _rerqEnvironmentId (\ s a -> s{_rerqEnvironmentId = a});
 
 instance AWSRequest RebuildEnvironment where
-    type Sv RebuildEnvironment = ElasticBeanstalk
-    type Rs RebuildEnvironment = RebuildEnvironmentResponse
+        type Sv RebuildEnvironment = ElasticBeanstalk
+        type Rs RebuildEnvironment =
+             RebuildEnvironmentResponse
+        request = post
+        response = receiveNull RebuildEnvironmentResponse'
 
-    request  = post "RebuildEnvironment"
-    response = nullResponse RebuildEnvironmentResponse
+instance ToHeaders RebuildEnvironment where
+        toHeaders = const mempty
+
+instance ToPath RebuildEnvironment where
+        toPath = const "/"
+
+instance ToQuery RebuildEnvironment where
+        toQuery RebuildEnvironment'{..}
+          = mconcat
+              ["Action" =: ("RebuildEnvironment" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "EnvironmentName" =: _rerqEnvironmentName,
+               "EnvironmentId" =: _rerqEnvironmentId]
+
+-- | /See:/ 'rebuildEnvironmentResponse' smart constructor.
+data RebuildEnvironmentResponse =
+    RebuildEnvironmentResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RebuildEnvironmentResponse' smart constructor.
+rebuildEnvironmentResponse :: RebuildEnvironmentResponse
+rebuildEnvironmentResponse = RebuildEnvironmentResponse'

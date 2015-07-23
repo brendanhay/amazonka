@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns the request payment configuration of a bucket.
+-- Returns the request payment configuration of a bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketRequestPayment.html>
 module Network.AWS.S3.GetBucketRequestPayment
@@ -32,82 +27,87 @@ module Network.AWS.S3.GetBucketRequestPayment
     -- ** Request constructor
     , getBucketRequestPayment
     -- ** Request lenses
-    , gbrpBucket
+    , gbrprqBucket
 
     -- * Response
     , GetBucketRequestPaymentResponse
     -- ** Response constructor
     , getBucketRequestPaymentResponse
     -- ** Response lenses
-    , gbrprPayer
+    , gbrprsPayer
+    , gbrprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-newtype GetBucketRequestPayment = GetBucketRequestPayment
-    { _gbrpBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetBucketRequestPayment' constructor.
+-- | /See:/ 'getBucketRequestPayment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrpBucket' @::@ 'Text'
---
-getBucketRequestPayment :: Text -- ^ 'gbrpBucket'
-                        -> GetBucketRequestPayment
-getBucketRequestPayment p1 = GetBucketRequestPayment
-    { _gbrpBucket = p1
+-- * 'gbrprqBucket'
+newtype GetBucketRequestPayment = GetBucketRequestPayment'
+    { _gbrprqBucket :: BucketName
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'GetBucketRequestPayment' smart constructor.
+getBucketRequestPayment :: BucketName -> GetBucketRequestPayment
+getBucketRequestPayment pBucket_ =
+    GetBucketRequestPayment'
+    { _gbrprqBucket = pBucket_
     }
 
-gbrpBucket :: Lens' GetBucketRequestPayment Text
-gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
+-- | FIXME: Undocumented member.
+gbrprqBucket :: Lens' GetBucketRequestPayment BucketName
+gbrprqBucket = lens _gbrprqBucket (\ s a -> s{_gbrprqBucket = a});
 
-newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
-    { _gbrprPayer :: Maybe Payer
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetBucketRequestPayment where
+        type Sv GetBucketRequestPayment = S3
+        type Rs GetBucketRequestPayment =
+             GetBucketRequestPaymentResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetBucketRequestPaymentResponse' <$>
+                   (x .@? "Payer") <*> (pure (fromEnum s)))
 
--- | 'GetBucketRequestPaymentResponse' constructor.
+instance ToHeaders GetBucketRequestPayment where
+        toHeaders = const mempty
+
+instance ToPath GetBucketRequestPayment where
+        toPath GetBucketRequestPayment'{..}
+          = mconcat ["/", toText _gbrprqBucket]
+
+instance ToQuery GetBucketRequestPayment where
+        toQuery = const (mconcat ["requestPayment"])
+
+-- | /See:/ 'getBucketRequestPaymentResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrprPayer' @::@ 'Maybe' 'Payer'
+-- * 'gbrprsPayer'
 --
-getBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
-getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
-    { _gbrprPayer = Nothing
+-- * 'gbrprsStatus'
+data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
+    { _gbrprsPayer  :: !(Maybe Payer)
+    , _gbrprsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetBucketRequestPaymentResponse' smart constructor.
+getBucketRequestPaymentResponse :: Int -> GetBucketRequestPaymentResponse
+getBucketRequestPaymentResponse pStatus_ =
+    GetBucketRequestPaymentResponse'
+    { _gbrprsPayer = Nothing
+    , _gbrprsStatus = pStatus_
     }
 
 -- | Specifies who pays for the download and request fees.
-gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
-gbrprPayer = lens _gbrprPayer (\s a -> s { _gbrprPayer = a })
+gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
+gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
 
-instance ToPath GetBucketRequestPayment where
-    toPath GetBucketRequestPayment{..} = mconcat
-        [ "/"
-        , toText _gbrpBucket
-        ]
-
-instance ToQuery GetBucketRequestPayment where
-    toQuery = const "requestPayment"
-
-instance ToHeaders GetBucketRequestPayment
-
-instance ToXMLRoot GetBucketRequestPayment where
-    toXMLRoot = const (namespaced ns "GetBucketRequestPayment" [])
-
-instance ToXML GetBucketRequestPayment
-
-instance AWSRequest GetBucketRequestPayment where
-    type Sv GetBucketRequestPayment = S3
-    type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
-
-    request  = get
-    response = xmlResponse
-
-instance FromXML GetBucketRequestPaymentResponse where
-    parseXML x = GetBucketRequestPaymentResponse
-        <$> x .@? "Payer"
+-- | FIXME: Undocumented member.
+gbrprsStatus :: Lens' GetBucketRequestPaymentResponse Int
+gbrprsStatus = lens _gbrprsStatus (\ s a -> s{_gbrprsStatus = a});

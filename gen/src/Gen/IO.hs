@@ -1,11 +1,11 @@
-{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ViewPatterns      #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.IO
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
+--               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
 --               you can obtain it at http://mozilla.org/MPL/2.0/.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,86 +14,89 @@
 
 module Gen.IO where
 
-import           Control.Applicative
 import           Control.Error
-import           Control.Monad.IO.Class
-import qualified Data.Aeson               as A
-import           Data.Aeson.Encode.Pretty
-import qualified Data.ByteString.Lazy     as LBS
-import           Data.Jason               (eitherDecode')
-import           Data.Jason.Types
-import           Data.Monoid
-import           Data.Text                (Text)
-import qualified Data.Text                as Text
-import qualified Data.Text.IO             as Text
-import qualified Data.Text.Lazy.IO        as LText
-import           Gen.Filters
+import           Control.Monad.Except
+import           Control.Monad.State
+import           Data.ByteString           (ByteString)
+import           Data.Text                 (Text)
+import qualified Data.Text                 as Text
+import qualified Data.Text.Lazy            as LText
+import           Data.Text.Lazy.Builder    (toLazyText)
+import qualified Data.Text.Lazy.IO         as LText
+import qualified Filesystem                as FS
+import           Filesystem.Path.CurrentOS
+import           Gen.Formatting
 import           Gen.Types
-import           System.Directory
-import           System.FilePath
-import           Text.EDE                 (Template)
-import qualified Text.EDE                 as EDE
+import           System.IO
+import qualified Text.EDE                  as EDE
 
-dots :: FilePath -> Bool
-dots "."  = False
-dots ".." = False
-dots _    = True
+run :: ExceptT Error IO a -> IO a
+run = runScript . fmapLT LText.unpack
 
-createDir :: MonadIO m => FilePath -> ExceptT String m ()
-createDir = scriptIO . createDirectoryIfMissing True
+io :: MonadIO m => IO a -> ExceptT Error m a
+io = fmapLT (LText.pack . show) . syncIO
 
-copyContents :: FilePath -> FilePath -> Script ()
-copyContents s d = do
-    fs <- map (combine s) . filter dots <$> scriptIO (getDirectoryContents s)
-    scriptIO (mapM_ copy fs)
+title :: MonadIO m => Format (ExceptT Error m ()) a -> a
+title m = runFormat m (io . LText.putStrLn . toLazyText)
+
+say :: MonadIO m => Format (ExceptT Error m ()) a -> a
+say = title . (" -> " %)
+
+done :: MonadIO m => ExceptT Error m ()
+done = title ""
+
+isFile :: MonadIO m => Path -> ExceptT Error m Bool
+isFile = io . FS.isFile
+
+listDir :: MonadIO m => Path -> ExceptT Error m [Path]
+listDir = io . FS.listDirectory
+
+readBSFile :: MonadIO m => Path -> ExceptT Error m ByteString
+readBSFile f = do
+    p <- isFile f
+    if p
+        then say ("Reading "  % path) f >> io (FS.readFile f)
+        else failure ("Missing " % path) f
+
+writeLTFile :: MonadIO m => Path -> LText.Text -> ExceptT Error m ()
+writeLTFile f t = do
+    say ("Writing " % path) f
+    io . FS.withFile f FS.WriteMode $ \h -> do
+        hSetEncoding  h utf8
+        LText.hPutStr h t
+
+touchFile :: MonadIO m => Path -> ExceptT Error m ()
+touchFile f = do
+    p <- isFile f
+    unless p $
+        writeLTFile f mempty
+
+createDir :: MonadIO m => Path -> ExceptT Error m ()
+createDir d = do
+    p <- io (FS.isDirectory d)
+    unless p $ do
+        say ("Creating " % path) d
+        io (FS.createTree d)
+
+copyDir :: MonadIO m => Path -> Path -> ExceptT Error m ()
+copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
   where
-    copy f@(dest -> p) = say "Copy" p >> copyFile f p
+    copy f = do
+        let p = dst </> filename f
+        fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
+        FS.copyFile f p
 
-    dest f = d </> takeFileName f
-
-renderFile :: ToFilePath a
-           => Text
-           -> Template
-           -> FilePath
-           -> a
-           -> A.Object
-           -> Script ()
-renderFile lbl t d p env = do
-    createDir (dropFileName f)
-    say lbl f
-    txt <- hoistEither (EDE.eitherRenderWith genFilters t env)
-    scriptIO (LText.writeFile f txt)
+readTemplate :: MonadIO m
+             => Path
+             -> Path
+             -> StateT (Map Text (EDE.Result EDE.Template)) (ExceptT Error m) EDE.Template
+readTemplate d f = do
+    let tmpl = d </> f
+    lift (readBSFile tmpl)
+        >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore tmpl)
+        >>= EDE.result (throwError . LText.pack . show) return
   where
-    f = d </> toFilePath p
-
-readFromFile :: (LBS.ByteString -> Either String a)
-             -> FilePath
-             -> Script (Either String a)
-readFromFile f p = do
-    b <- scriptIO (doesFileExist p)
-    if not b
-        then return . Left $ "Failed to find " ++ p
-        else f <$> scriptIO (LBS.readFile p)
-
-writeJSON :: A.ToJSON a => FilePath -> a -> Script ()
-writeJSON p x = do
-    say "Write JSON" p
-    scriptIO (LBS.writeFile p (encodePretty x))
-
-requireObject :: FromJSON a => FilePath -> Script a
-requireObject f = loadObject f >>= hoistEither
-
-optionalObject :: Text -> FilePath -> Script Object
-optionalObject k = fmap (fromMaybe (mkObject [(k, Object mempty)]) . hush)
-    . loadObject
-
-loadObject :: FromJSON a => FilePath -> Script (Either String a)
-loadObject = readFromFile eitherDecode'
-
-say :: MonadIO m => Text -> String -> m ()
-say x msg = liftIO . Text.putStrLn $ "[ " <> y <> "] " <> Text.pack msg
-  where
-    y | n > 0     = x <> Text.replicate n " "
-      | otherwise = x
-
-    n = 17 - Text.length x
+    load p o k _ = lift (readBSFile x) >>= EDE.parseWith o (load (directory x)) k
+      where
+        x | Text.null k = fromText k
+          | otherwise   = p </> fromText k

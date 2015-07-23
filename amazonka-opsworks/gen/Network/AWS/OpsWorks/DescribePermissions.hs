@@ -1,32 +1,29 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.DescribePermissions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes the permissions for a specified stack.
+-- Describes the permissions for a specified stack.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribePermissions.html>
 module Network.AWS.OpsWorks.DescribePermissions
@@ -36,103 +33,121 @@ module Network.AWS.OpsWorks.DescribePermissions
     -- ** Request constructor
     , describePermissions
     -- ** Request lenses
-    , dpIamUserArn
-    , dpStackId
+    , dprqIAMUserARN
+    , dprqStackId
 
     -- * Response
     , DescribePermissionsResponse
     -- ** Response constructor
     , describePermissionsResponse
     -- ** Response lenses
-    , dprPermissions
+    , dprsPermissions
+    , dprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribePermissions = DescribePermissions
-    { _dpIamUserArn :: Maybe Text
-    , _dpStackId    :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribePermissions' constructor.
+-- | /See:/ 'describePermissions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpIamUserArn' @::@ 'Maybe' 'Text'
+-- * 'dprqIAMUserARN'
 --
--- * 'dpStackId' @::@ 'Maybe' 'Text'
---
+-- * 'dprqStackId'
+data DescribePermissions = DescribePermissions'
+    { _dprqIAMUserARN :: !(Maybe Text)
+    , _dprqStackId    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribePermissions' smart constructor.
 describePermissions :: DescribePermissions
-describePermissions = DescribePermissions
-    { _dpIamUserArn = Nothing
-    , _dpStackId    = Nothing
+describePermissions =
+    DescribePermissions'
+    { _dprqIAMUserARN = Nothing
+    , _dprqStackId = Nothing
     }
 
--- | The user's IAM ARN. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>
--- .
-dpIamUserArn :: Lens' DescribePermissions (Maybe Text)
-dpIamUserArn = lens _dpIamUserArn (\s a -> s { _dpIamUserArn = a })
+-- | The user\'s IAM ARN. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+dprqIAMUserARN :: Lens' DescribePermissions (Maybe Text)
+dprqIAMUserARN = lens _dprqIAMUserARN (\ s a -> s{_dprqIAMUserARN = a});
 
 -- | The stack ID.
-dpStackId :: Lens' DescribePermissions (Maybe Text)
-dpStackId = lens _dpStackId (\s a -> s { _dpStackId = a })
+dprqStackId :: Lens' DescribePermissions (Maybe Text)
+dprqStackId = lens _dprqStackId (\ s a -> s{_dprqStackId = a});
 
-newtype DescribePermissionsResponse = DescribePermissionsResponse
-    { _dprPermissions :: List "Permissions" Permission
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribePermissions where
+        type Sv DescribePermissions = OpsWorks
+        type Rs DescribePermissions =
+             DescribePermissionsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribePermissionsResponse' <$>
+                   (x .?> "Permissions" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribePermissionsResponse where
-    type Item DescribePermissionsResponse = Permission
+instance ToHeaders DescribePermissions where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DescribePermissions" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribePermissionsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dprPermissions
+instance ToJSON DescribePermissions where
+        toJSON DescribePermissions'{..}
+          = object
+              ["IamUserArn" .= _dprqIAMUserARN,
+               "StackId" .= _dprqStackId]
 
--- | 'DescribePermissionsResponse' constructor.
+instance ToPath DescribePermissions where
+        toPath = const "/"
+
+instance ToQuery DescribePermissions where
+        toQuery = const mempty
+
+-- | Contains the response to a @DescribePermissions@ request.
+--
+-- /See:/ 'describePermissionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprPermissions' @::@ ['Permission']
+-- * 'dprsPermissions'
 --
-describePermissionsResponse :: DescribePermissionsResponse
-describePermissionsResponse = DescribePermissionsResponse
-    { _dprPermissions = mempty
+-- * 'dprsStatus'
+data DescribePermissionsResponse = DescribePermissionsResponse'
+    { _dprsPermissions :: !(Maybe [Permission])
+    , _dprsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribePermissionsResponse' smart constructor.
+describePermissionsResponse :: Int -> DescribePermissionsResponse
+describePermissionsResponse pStatus_ =
+    DescribePermissionsResponse'
+    { _dprsPermissions = Nothing
+    , _dprsStatus = pStatus_
     }
 
--- | An array of 'Permission' objects that describe the stack permissions.
+-- | An array of @Permission@ objects that describe the stack permissions.
 --
--- If the request object contains only a stack ID, the array contains a 'Permission' object with permissions for each of the stack IAM ARNs. If the request
--- object contains only an IAM ARN, the array contains a 'Permission' object with
--- permissions for each of the user's stack IDs. If the request contains a stack
--- ID and an IAM ARN, the array contains a single 'Permission' object with
--- permissions for the specified stack and IAM ARN.
-dprPermissions :: Lens' DescribePermissionsResponse [Permission]
-dprPermissions = lens _dprPermissions (\s a -> s { _dprPermissions = a }) . _List
+-- -   If the request object contains only a stack ID, the array contains a
+--     @Permission@ object with permissions for each of the stack IAM ARNs.
+-- -   If the request object contains only an IAM ARN, the array contains a
+--     @Permission@ object with permissions for each of the user\'s stack
+--     IDs.
+-- -   If the request contains a stack ID and an IAM ARN, the array
+--     contains a single @Permission@ object with permissions for the
+--     specified stack and IAM ARN.
+dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
+dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default;
 
-instance ToPath DescribePermissions where
-    toPath = const "/"
-
-instance ToQuery DescribePermissions where
-    toQuery = const mempty
-
-instance ToHeaders DescribePermissions
-
-instance ToJSON DescribePermissions where
-    toJSON DescribePermissions{..} = object
-        [ "IamUserArn" .= _dpIamUserArn
-        , "StackId"    .= _dpStackId
-        ]
-
-instance AWSRequest DescribePermissions where
-    type Sv DescribePermissions = OpsWorks
-    type Rs DescribePermissions = DescribePermissionsResponse
-
-    request  = post "DescribePermissions"
-    response = jsonResponse
-
-instance FromJSON DescribePermissionsResponse where
-    parseJSON = withObject "DescribePermissionsResponse" $ \o -> DescribePermissionsResponse
-        <$> o .:? "Permissions" .!= mempty
+-- | FIXME: Undocumented member.
+dprsStatus :: Lens' DescribePermissionsResponse Int
+dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ECS.DeleteCluster
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified cluster. You must deregister all container instances
--- from this cluster before you may delete it. You can list the container
--- instances in a cluster with 'ListContainerInstances' and deregister them with 'DeregisterContainerInstance'.
+-- Deletes the specified cluster. You must deregister all container
+-- instances from this cluster before you may delete it. You can list the
+-- container instances in a cluster with ListContainerInstances and
+-- deregister them with DeregisterContainerInstance.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteCluster.html>
 module Network.AWS.ECS.DeleteCluster
@@ -34,82 +30,97 @@ module Network.AWS.ECS.DeleteCluster
     -- ** Request constructor
     , deleteCluster
     -- ** Request lenses
-    , dcCluster
+    , dcrqCluster
 
     -- * Response
     , DeleteClusterResponse
     -- ** Response constructor
     , deleteClusterResponse
     -- ** Response lenses
-    , dcrCluster
+    , drsCluster
+    , drsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteCluster = DeleteCluster
-    { _dcCluster :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteCluster' constructor.
+-- | /See:/ 'deleteCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcCluster' @::@ 'Text'
---
-deleteCluster :: Text -- ^ 'dcCluster'
-              -> DeleteCluster
-deleteCluster p1 = DeleteCluster
-    { _dcCluster = p1
+-- * 'dcrqCluster'
+newtype DeleteCluster = DeleteCluster'
+    { _dcrqCluster :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteCluster' smart constructor.
+deleteCluster :: Text -> DeleteCluster
+deleteCluster pCluster_ =
+    DeleteCluster'
+    { _dcrqCluster = pCluster_
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that you
--- want to delete.
-dcCluster :: Lens' DeleteCluster Text
-dcCluster = lens _dcCluster (\s a -> s { _dcCluster = a })
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- you want to delete.
+dcrqCluster :: Lens' DeleteCluster Text
+dcrqCluster = lens _dcrqCluster (\ s a -> s{_dcrqCluster = a});
 
-newtype DeleteClusterResponse = DeleteClusterResponse
-    { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Read, Show)
+instance AWSRequest DeleteCluster where
+        type Sv DeleteCluster = ECS
+        type Rs DeleteCluster = DeleteClusterResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteClusterResponse' <$>
+                   (x .?> "cluster") <*> (pure (fromEnum s)))
 
--- | 'DeleteClusterResponse' constructor.
+instance ToHeaders DeleteCluster where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.DeleteCluster"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteCluster where
+        toJSON DeleteCluster'{..}
+          = object ["cluster" .= _dcrqCluster]
+
+instance ToPath DeleteCluster where
+        toPath = const "/"
+
+instance ToQuery DeleteCluster where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteClusterResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrCluster' @::@ 'Maybe' 'Cluster'
+-- * 'drsCluster'
 --
-deleteClusterResponse :: DeleteClusterResponse
-deleteClusterResponse = DeleteClusterResponse
-    { _dcrCluster = Nothing
+-- * 'drsStatus'
+data DeleteClusterResponse = DeleteClusterResponse'
+    { _drsCluster :: !(Maybe Cluster)
+    , _drsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteClusterResponse' smart constructor.
+deleteClusterResponse :: Int -> DeleteClusterResponse
+deleteClusterResponse pStatus_ =
+    DeleteClusterResponse'
+    { _drsCluster = Nothing
+    , _drsStatus = pStatus_
     }
 
 -- | The full description of the deleted cluster.
-dcrCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
+drsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
+drsCluster = lens _drsCluster (\ s a -> s{_drsCluster = a});
 
-instance ToPath DeleteCluster where
-    toPath = const "/"
-
-instance ToQuery DeleteCluster where
-    toQuery = const mempty
-
-instance ToHeaders DeleteCluster
-
-instance ToJSON DeleteCluster where
-    toJSON DeleteCluster{..} = object
-        [ "cluster" .= _dcCluster
-        ]
-
-instance AWSRequest DeleteCluster where
-    type Sv DeleteCluster = ECS
-    type Rs DeleteCluster = DeleteClusterResponse
-
-    request  = post "DeleteCluster"
-    response = jsonResponse
-
-instance FromJSON DeleteClusterResponse where
-    parseJSON = withObject "DeleteClusterResponse" $ \o -> DeleteClusterResponse
-        <$> o .:? "cluster"
+-- | FIXME: Undocumented member.
+drsStatus :: Lens' DeleteClusterResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

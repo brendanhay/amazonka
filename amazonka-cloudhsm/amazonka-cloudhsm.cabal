@@ -1,28 +1,21 @@
 name:                  amazonka-cloudhsm
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon CloudHSM SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    The AWS CloudHSM service helps you meet corporate, contractual and regulatory
-    compliance requirements for data security by using dedicated Hardware
-    Security Module (HSM) appliances within the AWS cloud. With CloudHSM, you
-    control the encryption keys and cryptographic operations performed by the HSM.
-
+    AWS CloudHSM Service
     .
     /See:/ <http://docs.aws.amazon.com/cloudhsm/latest/dg/welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -36,27 +29,58 @@ library
 
     exposed-modules:
           Network.AWS.CloudHSM
-        , Network.AWS.CloudHSM.CreateHapg
-        , Network.AWS.CloudHSM.CreateHsm
+        , Network.AWS.CloudHSM.CreateHAPG
+        , Network.AWS.CloudHSM.CreateHSM
         , Network.AWS.CloudHSM.CreateLunaClient
-        , Network.AWS.CloudHSM.DeleteHapg
-        , Network.AWS.CloudHSM.DeleteHsm
+        , Network.AWS.CloudHSM.DeleteHAPG
+        , Network.AWS.CloudHSM.DeleteHSM
         , Network.AWS.CloudHSM.DeleteLunaClient
-        , Network.AWS.CloudHSM.DescribeHapg
-        , Network.AWS.CloudHSM.DescribeHsm
+        , Network.AWS.CloudHSM.DescribeHAPG
+        , Network.AWS.CloudHSM.DescribeHSM
         , Network.AWS.CloudHSM.DescribeLunaClient
         , Network.AWS.CloudHSM.GetConfig
         , Network.AWS.CloudHSM.ListAvailableZones
-        , Network.AWS.CloudHSM.ListHapgs
-        , Network.AWS.CloudHSM.ListHsms
+        , Network.AWS.CloudHSM.ListHAPGs
+        , Network.AWS.CloudHSM.ListHSMs
         , Network.AWS.CloudHSM.ListLunaClients
-        , Network.AWS.CloudHSM.ModifyHapg
-        , Network.AWS.CloudHSM.ModifyHsm
+        , Network.AWS.CloudHSM.ModifyHAPG
+        , Network.AWS.CloudHSM.ModifyHSM
         , Network.AWS.CloudHSM.ModifyLunaClient
         , Network.AWS.CloudHSM.Types
+        , Network.AWS.CloudHSM.Waiters
 
     other-modules:
+          Network.AWS.CloudHSM.Types.Product
+        , Network.AWS.CloudHSM.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-cloudhsm-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.CloudHSM
+        , Test.AWS.Gen.CloudHSM
+        , Test.AWS.CloudHSM.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-cloudhsm == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

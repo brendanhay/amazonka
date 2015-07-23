@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk.CreateEnvironment
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Launches an environment for the specified application using the specified
--- configuration.
+-- Launches an environment for the specified application using the
+-- specified configuration.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateEnvironment.html>
 module Network.AWS.ElasticBeanstalk.CreateEnvironment
@@ -33,401 +28,222 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     -- ** Request constructor
     , createEnvironment
     -- ** Request lenses
-    , ceApplicationName
-    , ceCNAMEPrefix
-    , ceDescription
-    , ceEnvironmentName
-    , ceOptionSettings
-    , ceOptionsToRemove
-    , ceSolutionStackName
-    , ceTags
-    , ceTemplateName
-    , ceTier
-    , ceVersionLabel
+    , cerqCNAMEPrefix
+    , cerqTemplateName
+    , cerqOptionsToRemove
+    , cerqOptionSettings
+    , cerqVersionLabel
+    , cerqTier
+    , cerqSolutionStackName
+    , cerqDescription
+    , cerqTags
+    , cerqApplicationName
+    , cerqEnvironmentName
 
     -- * Response
-    , CreateEnvironmentResponse
+    , EnvironmentDescription
     -- ** Response constructor
-    , createEnvironmentResponse
+    , environmentDescription
     -- ** Response lenses
-    , cerAbortableOperationInProgress
-    , cerApplicationName
-    , cerCNAME
-    , cerDateCreated
-    , cerDateUpdated
-    , cerDescription
-    , cerEndpointURL
-    , cerEnvironmentId
-    , cerEnvironmentName
-    , cerHealth
-    , cerResources
-    , cerSolutionStackName
-    , cerStatus
-    , cerTemplateName
-    , cerTier
-    , cerVersionLabel
+    , eCNAME
+    , eStatus
+    , eTemplateName
+    , eAbortableOperationInProgress
+    , eEndpointURL
+    , eDateUpdated
+    , eResources
+    , eHealth
+    , eVersionLabel
+    , eDateCreated
+    , eTier
+    , eEnvironmentName
+    , eApplicationName
+    , eEnvironmentId
+    , eSolutionStackName
+    , eDescription
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateEnvironment = CreateEnvironment
-    { _ceApplicationName   :: Text
-    , _ceCNAMEPrefix       :: Maybe Text
-    , _ceDescription       :: Maybe Text
-    , _ceEnvironmentName   :: Text
-    , _ceOptionSettings    :: List "member" ConfigurationOptionSetting
-    , _ceOptionsToRemove   :: List "member" OptionSpecification
-    , _ceSolutionStackName :: Maybe Text
-    , _ceTags              :: List "member" Tag
-    , _ceTemplateName      :: Maybe Text
-    , _ceTier              :: Maybe EnvironmentTier
-    , _ceVersionLabel      :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'CreateEnvironment' constructor.
+-- |
+--
+-- /See:/ 'createEnvironment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ceApplicationName' @::@ 'Text'
+-- * 'cerqCNAMEPrefix'
 --
--- * 'ceCNAMEPrefix' @::@ 'Maybe' 'Text'
+-- * 'cerqTemplateName'
 --
--- * 'ceDescription' @::@ 'Maybe' 'Text'
+-- * 'cerqOptionsToRemove'
 --
--- * 'ceEnvironmentName' @::@ 'Text'
+-- * 'cerqOptionSettings'
 --
--- * 'ceOptionSettings' @::@ ['ConfigurationOptionSetting']
+-- * 'cerqVersionLabel'
 --
--- * 'ceOptionsToRemove' @::@ ['OptionSpecification']
+-- * 'cerqTier'
 --
--- * 'ceSolutionStackName' @::@ 'Maybe' 'Text'
+-- * 'cerqSolutionStackName'
 --
--- * 'ceTags' @::@ ['Tag']
+-- * 'cerqDescription'
 --
--- * 'ceTemplateName' @::@ 'Maybe' 'Text'
+-- * 'cerqTags'
 --
--- * 'ceTier' @::@ 'Maybe' 'EnvironmentTier'
+-- * 'cerqApplicationName'
 --
--- * 'ceVersionLabel' @::@ 'Maybe' 'Text'
---
-createEnvironment :: Text -- ^ 'ceApplicationName'
-                  -> Text -- ^ 'ceEnvironmentName'
-                  -> CreateEnvironment
-createEnvironment p1 p2 = CreateEnvironment
-    { _ceApplicationName   = p1
-    , _ceEnvironmentName   = p2
-    , _ceDescription       = Nothing
-    , _ceCNAMEPrefix       = Nothing
-    , _ceTier              = Nothing
-    , _ceTags              = mempty
-    , _ceVersionLabel      = Nothing
-    , _ceTemplateName      = Nothing
-    , _ceSolutionStackName = Nothing
-    , _ceOptionSettings    = mempty
-    , _ceOptionsToRemove   = mempty
+-- * 'cerqEnvironmentName'
+data CreateEnvironment = CreateEnvironment'
+    { _cerqCNAMEPrefix       :: !(Maybe Text)
+    , _cerqTemplateName      :: !(Maybe Text)
+    , _cerqOptionsToRemove   :: !(Maybe [OptionSpecification])
+    , _cerqOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _cerqVersionLabel      :: !(Maybe Text)
+    , _cerqTier              :: !(Maybe EnvironmentTier)
+    , _cerqSolutionStackName :: !(Maybe Text)
+    , _cerqDescription       :: !(Maybe Text)
+    , _cerqTags              :: !(Maybe [Tag])
+    , _cerqApplicationName   :: !Text
+    , _cerqEnvironmentName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateEnvironment' smart constructor.
+createEnvironment :: Text -> Text -> CreateEnvironment
+createEnvironment pApplicationName_ pEnvironmentName_ =
+    CreateEnvironment'
+    { _cerqCNAMEPrefix = Nothing
+    , _cerqTemplateName = Nothing
+    , _cerqOptionsToRemove = Nothing
+    , _cerqOptionSettings = Nothing
+    , _cerqVersionLabel = Nothing
+    , _cerqTier = Nothing
+    , _cerqSolutionStackName = Nothing
+    , _cerqDescription = Nothing
+    , _cerqTags = Nothing
+    , _cerqApplicationName = pApplicationName_
+    , _cerqEnvironmentName = pEnvironmentName_
     }
 
--- | The name of the application that contains the version to be deployed.
---
--- If no application is found with this name, 'CreateEnvironment' returns an 'InvalidParameterValue' error.
-ceApplicationName :: Lens' CreateEnvironment Text
-ceApplicationName =
-    lens _ceApplicationName (\s a -> s { _ceApplicationName = a })
-
--- | If specified, the environment attempts to use this value as the prefix for
--- the CNAME. If not specified, the CNAME is generated automatically by
+-- | If specified, the environment attempts to use this value as the prefix
+-- for the CNAME. If not specified, the CNAME is generated automatically by
 -- appending a random alphanumeric string to the environment name.
-ceCNAMEPrefix :: Lens' CreateEnvironment (Maybe Text)
-ceCNAMEPrefix = lens _ceCNAMEPrefix (\s a -> s { _ceCNAMEPrefix = a })
+cerqCNAMEPrefix :: Lens' CreateEnvironment (Maybe Text)
+cerqCNAMEPrefix = lens _cerqCNAMEPrefix (\ s a -> s{_cerqCNAMEPrefix = a});
 
--- | Describes this environment.
-ceDescription :: Lens' CreateEnvironment (Maybe Text)
-ceDescription = lens _ceDescription (\s a -> s { _ceDescription = a })
-
--- | A unique name for the deployment environment. Used in the application URL.
+-- | The name of the configuration template to use in deployment. If no
+-- configuration template is found with this name, AWS Elastic Beanstalk
+-- returns an @InvalidParameterValue@ error.
 --
--- Constraint: Must be from 4 to 23 characters in length. The name can contain
--- only letters, numbers, and hyphens. It cannot start or end with a hyphen.
--- This name must be unique in your account. If the specified name already
--- exists, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
---
--- Default: If the CNAME parameter is not specified, the environment name
--- becomes part of the CNAME, and therefore part of the visible URL for your
--- application.
-ceEnvironmentName :: Lens' CreateEnvironment Text
-ceEnvironmentName =
-    lens _ceEnvironmentName (\s a -> s { _ceEnvironmentName = a })
-
--- | If specified, AWS Elastic Beanstalk sets the specified configuration options
--- to the requested value in the configuration set for the new environment.
--- These override the values obtained from the solution stack or the
--- configuration template.
-ceOptionSettings :: Lens' CreateEnvironment [ConfigurationOptionSetting]
-ceOptionSettings = lens _ceOptionSettings (\s a -> s { _ceOptionSettings = a }) . _List
+-- Condition: You must specify either this parameter or a
+-- @SolutionStackName@, but not both. If you specify both, AWS Elastic
+-- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
+-- specify either, AWS Elastic Beanstalk returns a
+-- @MissingRequiredParameter@ error.
+cerqTemplateName :: Lens' CreateEnvironment (Maybe Text)
+cerqTemplateName = lens _cerqTemplateName (\ s a -> s{_cerqTemplateName = a});
 
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this new environment.
-ceOptionsToRemove :: Lens' CreateEnvironment [OptionSpecification]
-ceOptionsToRemove =
-    lens _ceOptionsToRemove (\s a -> s { _ceOptionsToRemove = a })
-        . _List
+cerqOptionsToRemove :: Lens' CreateEnvironment [OptionSpecification]
+cerqOptionsToRemove = lens _cerqOptionsToRemove (\ s a -> s{_cerqOptionsToRemove = a}) . _Default;
 
--- | This is an alternative to specifying a configuration name. If specified, AWS
--- Elastic Beanstalk sets the configuration values to the default values
--- associated with the specified solution stack.
---
--- Condition: You must specify either this or a 'TemplateName', but not both. If
--- you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination'
--- error. If you do not specify either, AWS Elastic Beanstalk returns a 'MissingRequiredParameter' error.
-ceSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
-ceSolutionStackName =
-    lens _ceSolutionStackName (\s a -> s { _ceSolutionStackName = a })
-
--- | This specifies the tags applied to resources in the environment.
-ceTags :: Lens' CreateEnvironment [Tag]
-ceTags = lens _ceTags (\s a -> s { _ceTags = a }) . _List
-
--- | The name of the configuration template to use in deployment. If no
--- configuration template is found with this name, AWS Elastic Beanstalk returns
--- an 'InvalidParameterValue' error.
---
--- Condition: You must specify either this parameter or a 'SolutionStackName',
--- but not both. If you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error. If you do not specify either, AWS Elastic Beanstalk returns a 'MissingRequiredParameter' error.
-ceTemplateName :: Lens' CreateEnvironment (Maybe Text)
-ceTemplateName = lens _ceTemplateName (\s a -> s { _ceTemplateName = a })
-
--- | This specifies the tier to use for creating this environment.
-ceTier :: Lens' CreateEnvironment (Maybe EnvironmentTier)
-ceTier = lens _ceTier (\s a -> s { _ceTier = a })
+-- | If specified, AWS Elastic Beanstalk sets the specified configuration
+-- options to the requested value in the configuration set for the new
+-- environment. These override the values obtained from the solution stack
+-- or the configuration template.
+cerqOptionSettings :: Lens' CreateEnvironment [ConfigurationOptionSetting]
+cerqOptionSettings = lens _cerqOptionSettings (\ s a -> s{_cerqOptionSettings = a}) . _Default;
 
 -- | The name of the application version to deploy.
 --
 -- If the specified application has no associated application versions, AWS
--- Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue' error.
+-- Elastic Beanstalk @UpdateEnvironment@ returns an @InvalidParameterValue@
+-- error.
 --
 -- Default: If not specified, AWS Elastic Beanstalk attempts to launch the
 -- sample application in the container.
-ceVersionLabel :: Lens' CreateEnvironment (Maybe Text)
-ceVersionLabel = lens _ceVersionLabel (\s a -> s { _ceVersionLabel = a })
+cerqVersionLabel :: Lens' CreateEnvironment (Maybe Text)
+cerqVersionLabel = lens _cerqVersionLabel (\ s a -> s{_cerqVersionLabel = a});
 
-data CreateEnvironmentResponse = CreateEnvironmentResponse
-    { _cerAbortableOperationInProgress :: Maybe Bool
-    , _cerApplicationName              :: Maybe Text
-    , _cerCNAME                        :: Maybe Text
-    , _cerDateCreated                  :: Maybe ISO8601
-    , _cerDateUpdated                  :: Maybe ISO8601
-    , _cerDescription                  :: Maybe Text
-    , _cerEndpointURL                  :: Maybe Text
-    , _cerEnvironmentId                :: Maybe Text
-    , _cerEnvironmentName              :: Maybe Text
-    , _cerHealth                       :: Maybe EnvironmentHealth
-    , _cerResources                    :: Maybe EnvironmentResourcesDescription
-    , _cerSolutionStackName            :: Maybe Text
-    , _cerStatus                       :: Maybe EnvironmentStatus
-    , _cerTemplateName                 :: Maybe Text
-    , _cerTier                         :: Maybe EnvironmentTier
-    , _cerVersionLabel                 :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | This specifies the tier to use for creating this environment.
+cerqTier :: Lens' CreateEnvironment (Maybe EnvironmentTier)
+cerqTier = lens _cerqTier (\ s a -> s{_cerqTier = a});
 
--- | 'CreateEnvironmentResponse' constructor.
+-- | This is an alternative to specifying a configuration name. If specified,
+-- AWS Elastic Beanstalk sets the configuration values to the default
+-- values associated with the specified solution stack.
 --
--- The fields accessible through corresponding lenses are:
---
--- * 'cerAbortableOperationInProgress' @::@ 'Maybe' 'Bool'
---
--- * 'cerApplicationName' @::@ 'Maybe' 'Text'
---
--- * 'cerCNAME' @::@ 'Maybe' 'Text'
---
--- * 'cerDateCreated' @::@ 'Maybe' 'UTCTime'
---
--- * 'cerDateUpdated' @::@ 'Maybe' 'UTCTime'
---
--- * 'cerDescription' @::@ 'Maybe' 'Text'
---
--- * 'cerEndpointURL' @::@ 'Maybe' 'Text'
---
--- * 'cerEnvironmentId' @::@ 'Maybe' 'Text'
---
--- * 'cerEnvironmentName' @::@ 'Maybe' 'Text'
---
--- * 'cerHealth' @::@ 'Maybe' 'EnvironmentHealth'
---
--- * 'cerResources' @::@ 'Maybe' 'EnvironmentResourcesDescription'
---
--- * 'cerSolutionStackName' @::@ 'Maybe' 'Text'
---
--- * 'cerStatus' @::@ 'Maybe' 'EnvironmentStatus'
---
--- * 'cerTemplateName' @::@ 'Maybe' 'Text'
---
--- * 'cerTier' @::@ 'Maybe' 'EnvironmentTier'
---
--- * 'cerVersionLabel' @::@ 'Maybe' 'Text'
---
-createEnvironmentResponse :: CreateEnvironmentResponse
-createEnvironmentResponse = CreateEnvironmentResponse
-    { _cerEnvironmentName              = Nothing
-    , _cerEnvironmentId                = Nothing
-    , _cerApplicationName              = Nothing
-    , _cerVersionLabel                 = Nothing
-    , _cerSolutionStackName            = Nothing
-    , _cerTemplateName                 = Nothing
-    , _cerDescription                  = Nothing
-    , _cerEndpointURL                  = Nothing
-    , _cerCNAME                        = Nothing
-    , _cerDateCreated                  = Nothing
-    , _cerDateUpdated                  = Nothing
-    , _cerStatus                       = Nothing
-    , _cerAbortableOperationInProgress = Nothing
-    , _cerHealth                       = Nothing
-    , _cerResources                    = Nothing
-    , _cerTier                         = Nothing
-    }
-
--- | Indicates if there is an in-progress environment configuration update or
--- application version deployment that you can cancel.
---
--- 'true:' There is an update in progress.
---
--- 'false:' There are no updates currently in progress.
-cerAbortableOperationInProgress :: Lens' CreateEnvironmentResponse (Maybe Bool)
-cerAbortableOperationInProgress =
-    lens _cerAbortableOperationInProgress
-        (\s a -> s { _cerAbortableOperationInProgress = a })
-
--- | The name of the application associated with this environment.
-cerApplicationName :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerApplicationName =
-    lens _cerApplicationName (\s a -> s { _cerApplicationName = a })
-
--- | The URL to the CNAME for this environment.
-cerCNAME :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerCNAME = lens _cerCNAME (\s a -> s { _cerCNAME = a })
-
--- | The creation date for this environment.
-cerDateCreated :: Lens' CreateEnvironmentResponse (Maybe UTCTime)
-cerDateCreated = lens _cerDateCreated (\s a -> s { _cerDateCreated = a }) . mapping _Time
-
--- | The last modified date for this environment.
-cerDateUpdated :: Lens' CreateEnvironmentResponse (Maybe UTCTime)
-cerDateUpdated = lens _cerDateUpdated (\s a -> s { _cerDateUpdated = a }) . mapping _Time
+-- Condition: You must specify either this or a @TemplateName@, but not
+-- both. If you specify both, AWS Elastic Beanstalk returns an
+-- @InvalidParameterCombination@ error. If you do not specify either, AWS
+-- Elastic Beanstalk returns a @MissingRequiredParameter@ error.
+cerqSolutionStackName :: Lens' CreateEnvironment (Maybe Text)
+cerqSolutionStackName = lens _cerqSolutionStackName (\ s a -> s{_cerqSolutionStackName = a});
 
 -- | Describes this environment.
-cerDescription :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerDescription = lens _cerDescription (\s a -> s { _cerDescription = a })
+cerqDescription :: Lens' CreateEnvironment (Maybe Text)
+cerqDescription = lens _cerqDescription (\ s a -> s{_cerqDescription = a});
 
--- | For load-balanced, autoscaling environments, the URL to the LoadBalancer. For
--- single-instance environments, the IP address of the instance.
-cerEndpointURL :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerEndpointURL = lens _cerEndpointURL (\s a -> s { _cerEndpointURL = a })
+-- | This specifies the tags applied to resources in the environment.
+cerqTags :: Lens' CreateEnvironment [Tag]
+cerqTags = lens _cerqTags (\ s a -> s{_cerqTags = a}) . _Default;
 
--- | The ID of this environment.
-cerEnvironmentId :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerEnvironmentId = lens _cerEnvironmentId (\s a -> s { _cerEnvironmentId = a })
-
--- | The name of this environment.
-cerEnvironmentName :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerEnvironmentName =
-    lens _cerEnvironmentName (\s a -> s { _cerEnvironmentName = a })
-
--- | Describes the health status of the environment. AWS Elastic Beanstalk
--- indicates the failure levels for a running environment:
+-- | The name of the application that contains the version to be deployed.
 --
--- 'Red' : Indicates the environment is not working.
+-- If no application is found with this name, @CreateEnvironment@ returns
+-- an @InvalidParameterValue@ error.
+cerqApplicationName :: Lens' CreateEnvironment Text
+cerqApplicationName = lens _cerqApplicationName (\ s a -> s{_cerqApplicationName = a});
+
+-- | A unique name for the deployment environment. Used in the application
+-- URL.
 --
--- 'Yellow': Indicates that something is wrong, the application might not be
--- available, but the instances appear running.
+-- Constraint: Must be from 4 to 23 characters in length. The name can
+-- contain only letters, numbers, and hyphens. It cannot start or end with
+-- a hyphen. This name must be unique in your account. If the specified
+-- name already exists, AWS Elastic Beanstalk returns an
+-- @InvalidParameterValue@ error.
 --
--- 'Green': Indicates the environment is healthy and fully functional.
---
--- 'Red': Indicates the environment is not responsive. Occurs when three or
--- more consecutive failures occur for an environment.   'Yellow': Indicates that
--- something is wrong. Occurs when two consecutive failures occur for an
--- environment.   'Green': Indicates the environment is healthy and fully
--- functional.   'Grey': Default health for a new environment. The environment is
--- not fully launched and health checks have not started or health checks are
--- suspended during an 'UpdateEnvironment' or 'RestartEnvironement' request.
--- Default: 'Grey'
-cerHealth :: Lens' CreateEnvironmentResponse (Maybe EnvironmentHealth)
-cerHealth = lens _cerHealth (\s a -> s { _cerHealth = a })
-
--- | The description of the AWS resources used by this environment.
-cerResources :: Lens' CreateEnvironmentResponse (Maybe EnvironmentResourcesDescription)
-cerResources = lens _cerResources (\s a -> s { _cerResources = a })
-
--- | The name of the 'SolutionStack' deployed with this environment.
-cerSolutionStackName :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerSolutionStackName =
-    lens _cerSolutionStackName (\s a -> s { _cerSolutionStackName = a })
-
--- | The current operational status of the environment:
---
--- 'Launching': Environment is in the process of initial deployment.   'Updating': Environment is in the process of updating its configuration settings or application version.
--- 'Ready': Environment is available to have an action performed on it, such as
--- update or terminate.   'Terminating': Environment is in the shut-down process.
--- 'Terminated': Environment is not running.
-cerStatus :: Lens' CreateEnvironmentResponse (Maybe EnvironmentStatus)
-cerStatus = lens _cerStatus (\s a -> s { _cerStatus = a })
-
--- | The name of the configuration template used to originally launch this
--- environment.
-cerTemplateName :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerTemplateName = lens _cerTemplateName (\s a -> s { _cerTemplateName = a })
-
--- | Describes the current tier of this environment.
-cerTier :: Lens' CreateEnvironmentResponse (Maybe EnvironmentTier)
-cerTier = lens _cerTier (\s a -> s { _cerTier = a })
-
--- | The application version deployed in this environment.
-cerVersionLabel :: Lens' CreateEnvironmentResponse (Maybe Text)
-cerVersionLabel = lens _cerVersionLabel (\s a -> s { _cerVersionLabel = a })
-
-instance ToPath CreateEnvironment where
-    toPath = const "/"
-
-instance ToQuery CreateEnvironment where
-    toQuery CreateEnvironment{..} = mconcat
-        [ "ApplicationName"   =? _ceApplicationName
-        , "CNAMEPrefix"       =? _ceCNAMEPrefix
-        , "Description"       =? _ceDescription
-        , "EnvironmentName"   =? _ceEnvironmentName
-        , "OptionSettings"    =? _ceOptionSettings
-        , "OptionsToRemove"   =? _ceOptionsToRemove
-        , "SolutionStackName" =? _ceSolutionStackName
-        , "Tags"              =? _ceTags
-        , "TemplateName"      =? _ceTemplateName
-        , "Tier"              =? _ceTier
-        , "VersionLabel"      =? _ceVersionLabel
-        ]
-
-instance ToHeaders CreateEnvironment
+-- Default: If the CNAME parameter is not specified, the environment name
+-- becomes part of the CNAME, and therefore part of the visible URL for
+-- your application.
+cerqEnvironmentName :: Lens' CreateEnvironment Text
+cerqEnvironmentName = lens _cerqEnvironmentName (\ s a -> s{_cerqEnvironmentName = a});
 
 instance AWSRequest CreateEnvironment where
-    type Sv CreateEnvironment = ElasticBeanstalk
-    type Rs CreateEnvironment = CreateEnvironmentResponse
+        type Sv CreateEnvironment = ElasticBeanstalk
+        type Rs CreateEnvironment = EnvironmentDescription
+        request = post
+        response
+          = receiveXMLWrapper "CreateEnvironmentResult"
+              (\ s h x -> parseXML x)
 
-    request  = post "CreateEnvironment"
-    response = xmlResponse
+instance ToHeaders CreateEnvironment where
+        toHeaders = const mempty
 
-instance FromXML CreateEnvironmentResponse where
-    parseXML = withElement "CreateEnvironmentResult" $ \x -> CreateEnvironmentResponse
-        <$> x .@? "AbortableOperationInProgress"
-        <*> x .@? "ApplicationName"
-        <*> x .@? "CNAME"
-        <*> x .@? "DateCreated"
-        <*> x .@? "DateUpdated"
-        <*> x .@? "Description"
-        <*> x .@? "EndpointURL"
-        <*> x .@? "EnvironmentId"
-        <*> x .@? "EnvironmentName"
-        <*> x .@? "Health"
-        <*> x .@? "Resources"
-        <*> x .@? "SolutionStackName"
-        <*> x .@? "Status"
-        <*> x .@? "TemplateName"
-        <*> x .@? "Tier"
-        <*> x .@? "VersionLabel"
+instance ToPath CreateEnvironment where
+        toPath = const "/"
+
+instance ToQuery CreateEnvironment where
+        toQuery CreateEnvironment'{..}
+          = mconcat
+              ["Action" =: ("CreateEnvironment" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "CNAMEPrefix" =: _cerqCNAMEPrefix,
+               "TemplateName" =: _cerqTemplateName,
+               "OptionsToRemove" =:
+                 toQuery
+                   (toQueryList "member" <$> _cerqOptionsToRemove),
+               "OptionSettings" =:
+                 toQuery
+                   (toQueryList "member" <$> _cerqOptionSettings),
+               "VersionLabel" =: _cerqVersionLabel,
+               "Tier" =: _cerqTier,
+               "SolutionStackName" =: _cerqSolutionStackName,
+               "Description" =: _cerqDescription,
+               "Tags" =:
+                 toQuery (toQueryList "member" <$> _cerqTags),
+               "ApplicationName" =: _cerqApplicationName,
+               "EnvironmentName" =: _cerqEnvironmentName]

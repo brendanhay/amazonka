@@ -1,31 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.ResyncMFADevice
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Synchronizes the specified MFA device with AWS servers.
+-- Synchronizes the specified MFA device with AWS servers.
 --
--- For more information about creating and working with virtual MFA devices, go
--- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /Using IAM/ guide.
+-- For more information about creating and working with virtual MFA
+-- devices, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ResyncMFADevice.html>
 module Network.AWS.IAM.ResyncMFADevice
@@ -35,10 +32,10 @@ module Network.AWS.IAM.ResyncMFADevice
     -- ** Request constructor
     , resyncMFADevice
     -- ** Request lenses
-    , rmfadAuthenticationCode1
-    , rmfadAuthenticationCode2
-    , rmfadSerialNumber
-    , rmfadUserName
+    , rmdrqUserName
+    , rmdrqSerialNumber
+    , rmdrqAuthenticationCode1
+    , rmdrqAuthenticationCode2
 
     -- * Response
     , ResyncMFADeviceResponse
@@ -46,86 +43,82 @@ module Network.AWS.IAM.ResyncMFADevice
     , resyncMFADeviceResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ResyncMFADevice = ResyncMFADevice
-    { _rmfadAuthenticationCode1 :: Text
-    , _rmfadAuthenticationCode2 :: Text
-    , _rmfadSerialNumber        :: Text
-    , _rmfadUserName            :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ResyncMFADevice' constructor.
+-- | /See:/ 'resyncMFADevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rmfadAuthenticationCode1' @::@ 'Text'
+-- * 'rmdrqUserName'
 --
--- * 'rmfadAuthenticationCode2' @::@ 'Text'
+-- * 'rmdrqSerialNumber'
 --
--- * 'rmfadSerialNumber' @::@ 'Text'
+-- * 'rmdrqAuthenticationCode1'
 --
--- * 'rmfadUserName' @::@ 'Text'
---
-resyncMFADevice :: Text -- ^ 'rmfadUserName'
-                -> Text -- ^ 'rmfadSerialNumber'
-                -> Text -- ^ 'rmfadAuthenticationCode1'
-                -> Text -- ^ 'rmfadAuthenticationCode2'
-                -> ResyncMFADevice
-resyncMFADevice p1 p2 p3 p4 = ResyncMFADevice
-    { _rmfadUserName            = p1
-    , _rmfadSerialNumber        = p2
-    , _rmfadAuthenticationCode1 = p3
-    , _rmfadAuthenticationCode2 = p4
+-- * 'rmdrqAuthenticationCode2'
+data ResyncMFADevice = ResyncMFADevice'
+    { _rmdrqUserName            :: !Text
+    , _rmdrqSerialNumber        :: !Text
+    , _rmdrqAuthenticationCode1 :: !Text
+    , _rmdrqAuthenticationCode2 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ResyncMFADevice' smart constructor.
+resyncMFADevice :: Text -> Text -> Text -> Text -> ResyncMFADevice
+resyncMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
+    ResyncMFADevice'
+    { _rmdrqUserName = pUserName_
+    , _rmdrqSerialNumber = pSerialNumber_
+    , _rmdrqAuthenticationCode1 = pAuthenticationCode1_
+    , _rmdrqAuthenticationCode2 = pAuthenticationCode2_
     }
 
--- | An authentication code emitted by the device.
-rmfadAuthenticationCode1 :: Lens' ResyncMFADevice Text
-rmfadAuthenticationCode1 =
-    lens _rmfadAuthenticationCode1
-        (\s a -> s { _rmfadAuthenticationCode1 = a })
-
--- | A subsequent authentication code emitted by the device.
-rmfadAuthenticationCode2 :: Lens' ResyncMFADevice Text
-rmfadAuthenticationCode2 =
-    lens _rmfadAuthenticationCode2
-        (\s a -> s { _rmfadAuthenticationCode2 = a })
+-- | The name of the user whose MFA device you want to resynchronize.
+rmdrqUserName :: Lens' ResyncMFADevice Text
+rmdrqUserName = lens _rmdrqUserName (\ s a -> s{_rmdrqUserName = a});
 
 -- | Serial number that uniquely identifies the MFA device.
-rmfadSerialNumber :: Lens' ResyncMFADevice Text
-rmfadSerialNumber =
-    lens _rmfadSerialNumber (\s a -> s { _rmfadSerialNumber = a })
+rmdrqSerialNumber :: Lens' ResyncMFADevice Text
+rmdrqSerialNumber = lens _rmdrqSerialNumber (\ s a -> s{_rmdrqSerialNumber = a});
 
--- | The name of the user whose MFA device you want to resynchronize.
-rmfadUserName :: Lens' ResyncMFADevice Text
-rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
+-- | An authentication code emitted by the device.
+rmdrqAuthenticationCode1 :: Lens' ResyncMFADevice Text
+rmdrqAuthenticationCode1 = lens _rmdrqAuthenticationCode1 (\ s a -> s{_rmdrqAuthenticationCode1 = a});
 
-data ResyncMFADeviceResponse = ResyncMFADeviceResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ResyncMFADeviceResponse' constructor.
-resyncMFADeviceResponse :: ResyncMFADeviceResponse
-resyncMFADeviceResponse = ResyncMFADeviceResponse
-
-instance ToPath ResyncMFADevice where
-    toPath = const "/"
-
-instance ToQuery ResyncMFADevice where
-    toQuery ResyncMFADevice{..} = mconcat
-        [ "AuthenticationCode1" =? _rmfadAuthenticationCode1
-        , "AuthenticationCode2" =? _rmfadAuthenticationCode2
-        , "SerialNumber"        =? _rmfadSerialNumber
-        , "UserName"            =? _rmfadUserName
-        ]
-
-instance ToHeaders ResyncMFADevice
+-- | A subsequent authentication code emitted by the device.
+rmdrqAuthenticationCode2 :: Lens' ResyncMFADevice Text
+rmdrqAuthenticationCode2 = lens _rmdrqAuthenticationCode2 (\ s a -> s{_rmdrqAuthenticationCode2 = a});
 
 instance AWSRequest ResyncMFADevice where
-    type Sv ResyncMFADevice = IAM
-    type Rs ResyncMFADevice = ResyncMFADeviceResponse
+        type Sv ResyncMFADevice = IAM
+        type Rs ResyncMFADevice = ResyncMFADeviceResponse
+        request = post
+        response = receiveNull ResyncMFADeviceResponse'
 
-    request  = post "ResyncMFADevice"
-    response = nullResponse ResyncMFADeviceResponse
+instance ToHeaders ResyncMFADevice where
+        toHeaders = const mempty
+
+instance ToPath ResyncMFADevice where
+        toPath = const "/"
+
+instance ToQuery ResyncMFADevice where
+        toQuery ResyncMFADevice'{..}
+          = mconcat
+              ["Action" =: ("ResyncMFADevice" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _rmdrqUserName,
+               "SerialNumber" =: _rmdrqSerialNumber,
+               "AuthenticationCode1" =: _rmdrqAuthenticationCode1,
+               "AuthenticationCode2" =: _rmdrqAuthenticationCode2]
+
+-- | /See:/ 'resyncMFADeviceResponse' smart constructor.
+data ResyncMFADeviceResponse =
+    ResyncMFADeviceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ResyncMFADeviceResponse' smart constructor.
+resyncMFADeviceResponse :: ResyncMFADeviceResponse
+resyncMFADeviceResponse = ResyncMFADeviceResponse'

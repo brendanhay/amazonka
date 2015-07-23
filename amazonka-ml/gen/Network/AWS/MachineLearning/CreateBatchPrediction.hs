@@ -1,39 +1,37 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.MachineLearning.CreateBatchPrediction
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Generates predictions for a group of observations. The observations to
--- process exist in one or more data files referenced by a 'DataSource'. This
--- operation creates a new 'BatchPrediction', and uses an 'MLModel' and the data
--- files referenced by the 'DataSource' as information sources.
+-- Generates predictions for a group of observations. The observations to
+-- process exist in one or more data files referenced by a @DataSource@.
+-- This operation creates a new @BatchPrediction@, and uses an @MLModel@
+-- and the data files referenced by the @DataSource@ as information
+-- sources.
 --
--- 'CreateBatchPrediction' is an asynchronous operation. In response to 'CreateBatchPrediction', Amazon Machine Learning (Amazon ML) immediately returns and sets the 'BatchPrediction' status to 'PENDING'. After the 'BatchPrediction' completes, Amazon ML sets the
--- status to 'COMPLETED'.
+-- @CreateBatchPrediction@ is an asynchronous operation. In response to
+-- @CreateBatchPrediction@, Amazon Machine Learning (Amazon ML) immediately
+-- returns and sets the @BatchPrediction@ status to @PENDING@. After the
+-- @BatchPrediction@ completes, Amazon ML sets the status to @COMPLETED@.
 --
--- You can poll for status updates by using the 'GetBatchPrediction' operation
--- and checking the 'Status' parameter of the result. After the 'COMPLETED' status
--- appears, the results are available in the location specified by the 'OutputUri'
--- parameter.
+-- You can poll for status updates by using the GetBatchPrediction
+-- operation and checking the @Status@ parameter of the result. After the
+-- @COMPLETED@ status appears, the results are available in the location
+-- specified by the @OutputUri@ parameter.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_CreateBatchPrediction.html>
 module Network.AWS.MachineLearning.CreateBatchPrediction
@@ -43,137 +41,158 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     -- ** Request constructor
     , createBatchPrediction
     -- ** Request lenses
-    , cbpBatchPredictionDataSourceId
-    , cbpBatchPredictionId
-    , cbpBatchPredictionName
-    , cbpMLModelId
-    , cbpOutputUri
+    , cbprqBatchPredictionName
+    , cbprqBatchPredictionId
+    , cbprqMLModelId
+    , cbprqBatchPredictionDataSourceId
+    , cbprqOutputURI
 
     -- * Response
     , CreateBatchPredictionResponse
     -- ** Response constructor
     , createBatchPredictionResponse
     -- ** Response lenses
-    , cbprBatchPredictionId
+    , cbprsBatchPredictionId
+    , cbprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.MachineLearning.Types
-import qualified GHC.Exts
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateBatchPrediction = CreateBatchPrediction
-    { _cbpBatchPredictionDataSourceId :: Text
-    , _cbpBatchPredictionId           :: Text
-    , _cbpBatchPredictionName         :: Maybe Text
-    , _cbpMLModelId                   :: Text
-    , _cbpOutputUri                   :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateBatchPrediction' constructor.
+-- | /See:/ 'createBatchPrediction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbpBatchPredictionDataSourceId' @::@ 'Text'
+-- * 'cbprqBatchPredictionName'
 --
--- * 'cbpBatchPredictionId' @::@ 'Text'
+-- * 'cbprqBatchPredictionId'
 --
--- * 'cbpBatchPredictionName' @::@ 'Maybe' 'Text'
+-- * 'cbprqMLModelId'
 --
--- * 'cbpMLModelId' @::@ 'Text'
+-- * 'cbprqBatchPredictionDataSourceId'
 --
--- * 'cbpOutputUri' @::@ 'Text'
---
-createBatchPrediction :: Text -- ^ 'cbpBatchPredictionId'
-                      -> Text -- ^ 'cbpMLModelId'
-                      -> Text -- ^ 'cbpBatchPredictionDataSourceId'
-                      -> Text -- ^ 'cbpOutputUri'
-                      -> CreateBatchPrediction
-createBatchPrediction p1 p2 p3 p4 = CreateBatchPrediction
-    { _cbpBatchPredictionId           = p1
-    , _cbpMLModelId                   = p2
-    , _cbpBatchPredictionDataSourceId = p3
-    , _cbpOutputUri                   = p4
-    , _cbpBatchPredictionName         = Nothing
+-- * 'cbprqOutputURI'
+data CreateBatchPrediction = CreateBatchPrediction'
+    { _cbprqBatchPredictionName         :: !(Maybe Text)
+    , _cbprqBatchPredictionId           :: !Text
+    , _cbprqMLModelId                   :: !Text
+    , _cbprqBatchPredictionDataSourceId :: !Text
+    , _cbprqOutputURI                   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateBatchPrediction' smart constructor.
+createBatchPrediction :: Text -> Text -> Text -> Text -> CreateBatchPrediction
+createBatchPrediction pBatchPredictionId_ pMLModelId_ pBatchPredictionDataSourceId_ pOutputURI_ =
+    CreateBatchPrediction'
+    { _cbprqBatchPredictionName = Nothing
+    , _cbprqBatchPredictionId = pBatchPredictionId_
+    , _cbprqMLModelId = pMLModelId_
+    , _cbprqBatchPredictionDataSourceId = pBatchPredictionDataSourceId_
+    , _cbprqOutputURI = pOutputURI_
     }
 
--- | The ID of the 'DataSource' that points to the group of observations to predict.
-cbpBatchPredictionDataSourceId :: Lens' CreateBatchPrediction Text
-cbpBatchPredictionDataSourceId =
-    lens _cbpBatchPredictionDataSourceId
-        (\s a -> s { _cbpBatchPredictionDataSourceId = a })
+-- | A user-supplied name or description of the @BatchPrediction@.
+-- @BatchPredictionName@ can only use the UTF-8 character set.
+cbprqBatchPredictionName :: Lens' CreateBatchPrediction (Maybe Text)
+cbprqBatchPredictionName = lens _cbprqBatchPredictionName (\ s a -> s{_cbprqBatchPredictionName = a});
 
--- | A user-supplied ID that uniquely identifies the 'BatchPrediction'.
-cbpBatchPredictionId :: Lens' CreateBatchPrediction Text
-cbpBatchPredictionId =
-    lens _cbpBatchPredictionId (\s a -> s { _cbpBatchPredictionId = a })
+-- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
+cbprqBatchPredictionId :: Lens' CreateBatchPrediction Text
+cbprqBatchPredictionId = lens _cbprqBatchPredictionId (\ s a -> s{_cbprqBatchPredictionId = a});
 
--- | A user-supplied name or description of the 'BatchPrediction'. 'BatchPredictionName' can only use the UTF-8 character set.
-cbpBatchPredictionName :: Lens' CreateBatchPrediction (Maybe Text)
-cbpBatchPredictionName =
-    lens _cbpBatchPredictionName (\s a -> s { _cbpBatchPredictionName = a })
-
--- | The ID of the 'MLModel' that will generate predictions for the group of
+-- | The ID of the @MLModel@ that will generate predictions for the group of
 -- observations.
-cbpMLModelId :: Lens' CreateBatchPrediction Text
-cbpMLModelId = lens _cbpMLModelId (\s a -> s { _cbpMLModelId = a })
+cbprqMLModelId :: Lens' CreateBatchPrediction Text
+cbprqMLModelId = lens _cbprqMLModelId (\ s a -> s{_cbprqMLModelId = a});
+
+-- | The ID of the @DataSource@ that points to the group of observations to
+-- predict.
+cbprqBatchPredictionDataSourceId :: Lens' CreateBatchPrediction Text
+cbprqBatchPredictionDataSourceId = lens _cbprqBatchPredictionDataSourceId (\ s a -> s{_cbprqBatchPredictionDataSourceId = a});
 
 -- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or
--- directory to store the batch prediction results. The following substrings are
--- not allowed in the s3 key portion of the "outputURI" field: ':', '//', '/./',
--- '/../'.
+-- directory to store the batch prediction results. The following
+-- substrings are not allowed in the s3 key portion of the \"outputURI\"
+-- field: \':\', \'\/\/\', \'\/.\/\', \'\/..\/\'.
 --
--- Amazon ML needs permissions to store and retrieve the logs on your behalf.
--- For information about how to set permissions, see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine LearningDeveloper Guide>.
-cbpOutputUri :: Lens' CreateBatchPrediction Text
-cbpOutputUri = lens _cbpOutputUri (\s a -> s { _cbpOutputUri = a })
+-- Amazon ML needs permissions to store and retrieve the logs on your
+-- behalf. For information about how to set permissions, see the
+-- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+cbprqOutputURI :: Lens' CreateBatchPrediction Text
+cbprqOutputURI = lens _cbprqOutputURI (\ s a -> s{_cbprqOutputURI = a});
 
-newtype CreateBatchPredictionResponse = CreateBatchPredictionResponse
-    { _cbprBatchPredictionId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance AWSRequest CreateBatchPrediction where
+        type Sv CreateBatchPrediction = MachineLearning
+        type Rs CreateBatchPrediction =
+             CreateBatchPredictionResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateBatchPredictionResponse' <$>
+                   (x .?> "BatchPredictionId") <*> (pure (fromEnum s)))
 
--- | 'CreateBatchPredictionResponse' constructor.
+instance ToHeaders CreateBatchPrediction where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonML_20141212.CreateBatchPrediction" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateBatchPrediction where
+        toJSON CreateBatchPrediction'{..}
+          = object
+              ["BatchPredictionName" .= _cbprqBatchPredictionName,
+               "BatchPredictionId" .= _cbprqBatchPredictionId,
+               "MLModelId" .= _cbprqMLModelId,
+               "BatchPredictionDataSourceId" .=
+                 _cbprqBatchPredictionDataSourceId,
+               "OutputUri" .= _cbprqOutputURI]
+
+instance ToPath CreateBatchPrediction where
+        toPath = const "/"
+
+instance ToQuery CreateBatchPrediction where
+        toQuery = const mempty
+
+-- | Represents the output of a CreateBatchPrediction operation, and is an
+-- acknowledgement that Amazon ML received the request.
+--
+-- The CreateBatchPrediction operation is asynchronous. You can poll for
+-- status updates by using the GetBatchPrediction operation and checking
+-- the @Status@ parameter of the result.
+--
+-- /See:/ 'createBatchPredictionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbprBatchPredictionId' @::@ 'Maybe' 'Text'
+-- * 'cbprsBatchPredictionId'
 --
-createBatchPredictionResponse :: CreateBatchPredictionResponse
-createBatchPredictionResponse = CreateBatchPredictionResponse
-    { _cbprBatchPredictionId = Nothing
+-- * 'cbprsStatus'
+data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
+    { _cbprsBatchPredictionId :: !(Maybe Text)
+    , _cbprsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateBatchPredictionResponse' smart constructor.
+createBatchPredictionResponse :: Int -> CreateBatchPredictionResponse
+createBatchPredictionResponse pStatus_ =
+    CreateBatchPredictionResponse'
+    { _cbprsBatchPredictionId = Nothing
+    , _cbprsStatus = pStatus_
     }
 
--- | A user-supplied ID that uniquely identifies the 'BatchPrediction'. This value
--- is identical to the value of the 'BatchPredictionId' in the request.
-cbprBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
-cbprBatchPredictionId =
-    lens _cbprBatchPredictionId (\s a -> s { _cbprBatchPredictionId = a })
+-- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
+-- value is identical to the value of the @BatchPredictionId@ in the
+-- request.
+cbprsBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
+cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\ s a -> s{_cbprsBatchPredictionId = a});
 
-instance ToPath CreateBatchPrediction where
-    toPath = const "/"
-
-instance ToQuery CreateBatchPrediction where
-    toQuery = const mempty
-
-instance ToHeaders CreateBatchPrediction
-
-instance ToJSON CreateBatchPrediction where
-    toJSON CreateBatchPrediction{..} = object
-        [ "BatchPredictionId"           .= _cbpBatchPredictionId
-        , "BatchPredictionName"         .= _cbpBatchPredictionName
-        , "MLModelId"                   .= _cbpMLModelId
-        , "BatchPredictionDataSourceId" .= _cbpBatchPredictionDataSourceId
-        , "OutputUri"                   .= _cbpOutputUri
-        ]
-
-instance AWSRequest CreateBatchPrediction where
-    type Sv CreateBatchPrediction = MachineLearning
-    type Rs CreateBatchPrediction = CreateBatchPredictionResponse
-
-    request  = post "CreateBatchPrediction"
-    response = jsonResponse
-
-instance FromJSON CreateBatchPredictionResponse where
-    parseJSON = withObject "CreateBatchPredictionResponse" $ \o -> CreateBatchPredictionResponse
-        <$> o .:? "BatchPredictionId"
+-- | FIXME: Undocumented member.
+cbprsStatus :: Lens' CreateBatchPredictionResponse Int
+cbprsStatus = lens _cbprsStatus (\ s a -> s{_cbprsStatus = a});

@@ -1,0 +1,106 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.EC2.UnassignPrivateIPAddresses
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Unassigns one or more secondary private IP addresses from a network
+-- interface.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnassignPrivateIPAddresses.html>
+module Network.AWS.EC2.UnassignPrivateIPAddresses
+    (
+    -- * Request
+      UnassignPrivateIPAddresses
+    -- ** Request constructor
+    , unassignPrivateIPAddresses
+    -- ** Request lenses
+    , upiarqNetworkInterfaceId
+    , upiarqPrivateIPAddresses
+
+    -- * Response
+    , UnassignPrivateIPAddressesResponse
+    -- ** Response constructor
+    , unassignPrivateIPAddressesResponse
+    ) where
+
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | /See:/ 'unassignPrivateIPAddresses' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'upiarqNetworkInterfaceId'
+--
+-- * 'upiarqPrivateIPAddresses'
+data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
+    { _upiarqNetworkInterfaceId :: !Text
+    , _upiarqPrivateIPAddresses :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UnassignPrivateIPAddresses' smart constructor.
+unassignPrivateIPAddresses :: Text -> UnassignPrivateIPAddresses
+unassignPrivateIPAddresses pNetworkInterfaceId_ =
+    UnassignPrivateIPAddresses'
+    { _upiarqNetworkInterfaceId = pNetworkInterfaceId_
+    , _upiarqPrivateIPAddresses = mempty
+    }
+
+-- | The ID of the network interface.
+upiarqNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text
+upiarqNetworkInterfaceId = lens _upiarqNetworkInterfaceId (\ s a -> s{_upiarqNetworkInterfaceId = a});
+
+-- | The secondary private IP addresses to unassign from the network
+-- interface. You can specify this option multiple times to unassign more
+-- than one IP address.
+upiarqPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
+upiarqPrivateIPAddresses = lens _upiarqPrivateIPAddresses (\ s a -> s{_upiarqPrivateIPAddresses = a});
+
+instance AWSRequest UnassignPrivateIPAddresses where
+        type Sv UnassignPrivateIPAddresses = EC2
+        type Rs UnassignPrivateIPAddresses =
+             UnassignPrivateIPAddressesResponse
+        request = post
+        response
+          = receiveNull UnassignPrivateIPAddressesResponse'
+
+instance ToHeaders UnassignPrivateIPAddresses where
+        toHeaders = const mempty
+
+instance ToPath UnassignPrivateIPAddresses where
+        toPath = const "/"
+
+instance ToQuery UnassignPrivateIPAddresses where
+        toQuery UnassignPrivateIPAddresses'{..}
+          = mconcat
+              ["Action" =:
+                 ("UnassignPrivateIPAddresses" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "NetworkInterfaceId" =: _upiarqNetworkInterfaceId,
+               toQueryList "PrivateIpAddress"
+                 _upiarqPrivateIPAddresses]
+
+-- | /See:/ 'unassignPrivateIPAddressesResponse' smart constructor.
+data UnassignPrivateIPAddressesResponse =
+    UnassignPrivateIPAddressesResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UnassignPrivateIPAddressesResponse' smart constructor.
+unassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse
+unassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse'

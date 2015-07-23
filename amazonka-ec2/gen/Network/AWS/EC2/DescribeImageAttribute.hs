@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DescribeImageAttribute
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes the specified attribute of the specified AMI. You can specify only
--- one attribute at a time.
+-- Describes the specified attribute of the specified AMI. You can specify
+-- only one attribute at a time.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImageAttribute.html>
 module Network.AWS.EC2.DescribeImageAttribute
@@ -33,178 +28,197 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- ** Request constructor
     , describeImageAttribute
     -- ** Request lenses
-    , dia1Attribute
-    , dia1DryRun
-    , dia1ImageId
+    , diaarqDryRun
+    , diaarqImageId
+    , diaarqAttribute
 
     -- * Response
     , DescribeImageAttributeResponse
     -- ** Response constructor
     , describeImageAttributeResponse
     -- ** Response lenses
-    , diarBlockDeviceMappings
-    , diarDescription
-    , diarImageId
-    , diarKernelId
-    , diarLaunchPermissions
-    , diarProductCodes
-    , diarRamdiskId
-    , diarSriovNetSupport
+    , diarsLaunchPermissions
+    , diarsRAMDiskId
+    , diarsKernelId
+    , diarsSRIOVNetSupport
+    , diarsImageId
+    , diarsProductCodes
+    , diarsBlockDeviceMappings
+    , diarsDescription
+    , diarsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeImageAttribute = DescribeImageAttribute
-    { _dia1Attribute :: ImageAttributeName
-    , _dia1DryRun    :: Maybe Bool
-    , _dia1ImageId   :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeImageAttribute' constructor.
+-- | /See:/ 'describeImageAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dia1Attribute' @::@ 'ImageAttributeName'
+-- * 'diaarqDryRun'
 --
--- * 'dia1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'diaarqImageId'
 --
--- * 'dia1ImageId' @::@ 'Text'
---
-describeImageAttribute :: Text -- ^ 'dia1ImageId'
-                       -> ImageAttributeName -- ^ 'dia1Attribute'
-                       -> DescribeImageAttribute
-describeImageAttribute p1 p2 = DescribeImageAttribute
-    { _dia1ImageId   = p1
-    , _dia1Attribute = p2
-    , _dia1DryRun    = Nothing
+-- * 'diaarqAttribute'
+data DescribeImageAttribute = DescribeImageAttribute'
+    { _diaarqDryRun    :: !(Maybe Bool)
+    , _diaarqImageId   :: !Text
+    , _diaarqAttribute :: !ImageAttributeName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeImageAttribute' smart constructor.
+describeImageAttribute :: Text -> ImageAttributeName -> DescribeImageAttribute
+describeImageAttribute pImageId_ pAttribute_ =
+    DescribeImageAttribute'
+    { _diaarqDryRun = Nothing
+    , _diaarqImageId = pImageId_
+    , _diaarqAttribute = pAttribute_
     }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+diaarqDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
+diaarqDryRun = lens _diaarqDryRun (\ s a -> s{_diaarqDryRun = a});
+
+-- | The ID of the AMI.
+diaarqImageId :: Lens' DescribeImageAttribute Text
+diaarqImageId = lens _diaarqImageId (\ s a -> s{_diaarqImageId = a});
 
 -- | The AMI attribute.
 --
--- Note: Depending on your account privileges, the 'blockDeviceMapping' attribute
--- may return a 'Client.AuthFailure' error. If this happens, use 'DescribeImages' to
--- get information about the block device mapping for the AMI.
-dia1Attribute :: Lens' DescribeImageAttribute ImageAttributeName
-dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
+-- __Note__: Depending on your account privileges, the @blockDeviceMapping@
+-- attribute may return a @Client.AuthFailure@ error. If this happens, use
+-- DescribeImages to get information about the block device mapping for the
+-- AMI.
+diaarqAttribute :: Lens' DescribeImageAttribute ImageAttributeName
+diaarqAttribute = lens _diaarqAttribute (\ s a -> s{_diaarqAttribute = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dia1DryRun :: Lens' DescribeImageAttribute (Maybe Bool)
-dia1DryRun = lens _dia1DryRun (\s a -> s { _dia1DryRun = a })
+instance AWSRequest DescribeImageAttribute where
+        type Sv DescribeImageAttribute = EC2
+        type Rs DescribeImageAttribute =
+             DescribeImageAttributeResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeImageAttributeResponse' <$>
+                   (x .@? "launchPermission" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (x .@? "ramdisk")
+                     <*> (x .@? "kernel")
+                     <*> (x .@? "sriovNetSupport")
+                     <*> (x .@? "imageId")
+                     <*>
+                     (x .@? "productCodes" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*>
+                     (x .@? "blockDeviceMapping" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*> (x .@? "description")
+                     <*> (pure (fromEnum s)))
 
--- | The ID of the AMI.
-dia1ImageId :: Lens' DescribeImageAttribute Text
-dia1ImageId = lens _dia1ImageId (\s a -> s { _dia1ImageId = a })
+instance ToHeaders DescribeImageAttribute where
+        toHeaders = const mempty
 
-data DescribeImageAttributeResponse = DescribeImageAttributeResponse
-    { _diarBlockDeviceMappings :: List "item" BlockDeviceMapping
-    , _diarDescription         :: Maybe AttributeValue
-    , _diarImageId             :: Maybe Text
-    , _diarKernelId            :: Maybe AttributeValue
-    , _diarLaunchPermissions   :: List "item" LaunchPermission
-    , _diarProductCodes        :: List "item" ProductCode
-    , _diarRamdiskId           :: Maybe AttributeValue
-    , _diarSriovNetSupport     :: Maybe AttributeValue
-    } deriving (Eq, Read, Show)
+instance ToPath DescribeImageAttribute where
+        toPath = const "/"
 
--- | 'DescribeImageAttributeResponse' constructor.
+instance ToQuery DescribeImageAttribute where
+        toQuery DescribeImageAttribute'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeImageAttribute" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _diaarqDryRun,
+               "ImageId" =: _diaarqImageId,
+               "Attribute" =: _diaarqAttribute]
+
+-- | Describes an image attribute.
+--
+-- /See:/ 'describeImageAttributeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diarBlockDeviceMappings' @::@ ['BlockDeviceMapping']
+-- * 'diarsLaunchPermissions'
 --
--- * 'diarDescription' @::@ 'Maybe' 'AttributeValue'
+-- * 'diarsRAMDiskId'
 --
--- * 'diarImageId' @::@ 'Maybe' 'Text'
+-- * 'diarsKernelId'
 --
--- * 'diarKernelId' @::@ 'Maybe' 'AttributeValue'
+-- * 'diarsSRIOVNetSupport'
 --
--- * 'diarLaunchPermissions' @::@ ['LaunchPermission']
+-- * 'diarsImageId'
 --
--- * 'diarProductCodes' @::@ ['ProductCode']
+-- * 'diarsProductCodes'
 --
--- * 'diarRamdiskId' @::@ 'Maybe' 'AttributeValue'
+-- * 'diarsBlockDeviceMappings'
 --
--- * 'diarSriovNetSupport' @::@ 'Maybe' 'AttributeValue'
+-- * 'diarsDescription'
 --
-describeImageAttributeResponse :: DescribeImageAttributeResponse
-describeImageAttributeResponse = DescribeImageAttributeResponse
-    { _diarImageId             = Nothing
-    , _diarLaunchPermissions   = mempty
-    , _diarProductCodes        = mempty
-    , _diarKernelId            = Nothing
-    , _diarRamdiskId           = Nothing
-    , _diarDescription         = Nothing
-    , _diarSriovNetSupport     = Nothing
-    , _diarBlockDeviceMappings = mempty
+-- * 'diarsStatus'
+data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
+    { _diarsLaunchPermissions   :: !(Maybe [LaunchPermission])
+    , _diarsRAMDiskId           :: !(Maybe AttributeValue)
+    , _diarsKernelId            :: !(Maybe AttributeValue)
+    , _diarsSRIOVNetSupport     :: !(Maybe AttributeValue)
+    , _diarsImageId             :: !(Maybe Text)
+    , _diarsProductCodes        :: !(Maybe [ProductCode])
+    , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _diarsDescription         :: !(Maybe AttributeValue)
+    , _diarsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeImageAttributeResponse' smart constructor.
+describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse
+describeImageAttributeResponse pStatus_ =
+    DescribeImageAttributeResponse'
+    { _diarsLaunchPermissions = Nothing
+    , _diarsRAMDiskId = Nothing
+    , _diarsKernelId = Nothing
+    , _diarsSRIOVNetSupport = Nothing
+    , _diarsImageId = Nothing
+    , _diarsProductCodes = Nothing
+    , _diarsBlockDeviceMappings = Nothing
+    , _diarsDescription = Nothing
+    , _diarsStatus = pStatus_
     }
 
--- | One or more block device mapping entries.
-diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diarBlockDeviceMappings =
-    lens _diarBlockDeviceMappings (\s a -> s { _diarBlockDeviceMappings = a })
-        . _List
-
--- | A description for the AMI.
-diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarDescription = lens _diarDescription (\s a -> s { _diarDescription = a })
-
--- | The ID of the AMI.
-diarImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
-diarImageId = lens _diarImageId (\s a -> s { _diarImageId = a })
-
--- | The kernel ID.
-diarKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarKernelId = lens _diarKernelId (\s a -> s { _diarKernelId = a })
-
 -- | One or more launch permissions.
-diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
-diarLaunchPermissions =
-    lens _diarLaunchPermissions (\s a -> s { _diarLaunchPermissions = a })
-        . _List
-
--- | One or more product codes.
-diarProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
-diarProductCodes = lens _diarProductCodes (\s a -> s { _diarProductCodes = a }) . _List
+diarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
+diarsLaunchPermissions = lens _diarsLaunchPermissions (\ s a -> s{_diarsLaunchPermissions = a}) . _Default;
 
 -- | The RAM disk ID.
-diarRamdiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarRamdiskId = lens _diarRamdiskId (\s a -> s { _diarRamdiskId = a })
+diarsRAMDiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsRAMDiskId = lens _diarsRAMDiskId (\ s a -> s{_diarsRAMDiskId = a});
 
-diarSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarSriovNetSupport =
-    lens _diarSriovNetSupport (\s a -> s { _diarSriovNetSupport = a })
+-- | The kernel ID.
+diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsKernelId = lens _diarsKernelId (\ s a -> s{_diarsKernelId = a});
 
-instance ToPath DescribeImageAttribute where
-    toPath = const "/"
+-- | FIXME: Undocumented member.
+diarsSRIOVNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\ s a -> s{_diarsSRIOVNetSupport = a});
 
-instance ToQuery DescribeImageAttribute where
-    toQuery DescribeImageAttribute{..} = mconcat
-        [ "Attribute" =? _dia1Attribute
-        , "DryRun"    =? _dia1DryRun
-        , "ImageId"   =? _dia1ImageId
-        ]
+-- | The ID of the AMI.
+diarsImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
+diarsImageId = lens _diarsImageId (\ s a -> s{_diarsImageId = a});
 
-instance ToHeaders DescribeImageAttribute
+-- | One or more product codes.
+diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
+diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default;
 
-instance AWSRequest DescribeImageAttribute where
-    type Sv DescribeImageAttribute = EC2
-    type Rs DescribeImageAttribute = DescribeImageAttributeResponse
+-- | One or more block device mapping entries.
+diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default;
 
-    request  = post "DescribeImageAttribute"
-    response = xmlResponse
+-- | A description for the AMI.
+diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
+diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a});
 
-instance FromXML DescribeImageAttributeResponse where
-    parseXML x = DescribeImageAttributeResponse
-        <$> x .@? "blockDeviceMapping" .!@ mempty
-        <*> x .@? "description"
-        <*> x .@? "imageId"
-        <*> x .@? "kernel"
-        <*> x .@? "launchPermission" .!@ mempty
-        <*> x .@? "productCodes" .!@ mempty
-        <*> x .@? "ramdisk"
-        <*> x .@? "sriovNetSupport"
+-- | FIXME: Undocumented member.
+diarsStatus :: Lens' DescribeImageAttributeResponse Int
+diarsStatus = lens _diarsStatus (\ s a -> s{_diarsStatus = a});

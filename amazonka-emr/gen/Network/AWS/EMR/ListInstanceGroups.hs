@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EMR.ListInstanceGroups
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Provides all available details about the instance groups in a cluster.
+-- Provides all available details about the instance groups in a cluster.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstanceGroups.html>
 module Network.AWS.EMR.ListInstanceGroups
@@ -32,109 +27,131 @@ module Network.AWS.EMR.ListInstanceGroups
     -- ** Request constructor
     , listInstanceGroups
     -- ** Request lenses
-    , ligClusterId
-    , ligMarker
+    , ligrqMarker
+    , ligrqClusterId
 
     -- * Response
     , ListInstanceGroupsResponse
     -- ** Response constructor
     , listInstanceGroupsResponse
     -- ** Response lenses
-    , ligrInstanceGroups
-    , ligrMarker
+    , ligrsMarker
+    , ligrsInstanceGroups
+    , ligrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.Types
-import qualified GHC.Exts
+import           Network.AWS.EMR.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListInstanceGroups = ListInstanceGroups
-    { _ligClusterId :: Text
-    , _ligMarker    :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListInstanceGroups' constructor.
+-- | This input determines which instance groups to retrieve.
+--
+-- /See:/ 'listInstanceGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ligClusterId' @::@ 'Text'
+-- * 'ligrqMarker'
 --
--- * 'ligMarker' @::@ 'Maybe' 'Text'
---
-listInstanceGroups :: Text -- ^ 'ligClusterId'
-                   -> ListInstanceGroups
-listInstanceGroups p1 = ListInstanceGroups
-    { _ligClusterId = p1
-    , _ligMarker    = Nothing
+-- * 'ligrqClusterId'
+data ListInstanceGroups = ListInstanceGroups'
+    { _ligrqMarker    :: !(Maybe Text)
+    , _ligrqClusterId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListInstanceGroups' smart constructor.
+listInstanceGroups :: Text -> ListInstanceGroups
+listInstanceGroups pClusterId_ =
+    ListInstanceGroups'
+    { _ligrqMarker = Nothing
+    , _ligrqClusterId = pClusterId_
     }
+
+-- | The pagination token that indicates the next set of results to retrieve.
+ligrqMarker :: Lens' ListInstanceGroups (Maybe Text)
+ligrqMarker = lens _ligrqMarker (\ s a -> s{_ligrqMarker = a});
 
 -- | The identifier of the cluster for which to list the instance groups.
-ligClusterId :: Lens' ListInstanceGroups Text
-ligClusterId = lens _ligClusterId (\s a -> s { _ligClusterId = a })
+ligrqClusterId :: Lens' ListInstanceGroups Text
+ligrqClusterId = lens _ligrqClusterId (\ s a -> s{_ligrqClusterId = a});
 
--- | The pagination token that indicates the next set of results to retrieve.
-ligMarker :: Lens' ListInstanceGroups (Maybe Text)
-ligMarker = lens _ligMarker (\s a -> s { _ligMarker = a })
+instance AWSPager ListInstanceGroups where
+        page rq rs
+          | stop (rs ^. ligrsMarker) = Nothing
+          | stop (rs ^. ligrsInstanceGroups) = Nothing
+          | otherwise =
+            Just $ rq & ligrqMarker .~ rs ^. ligrsMarker
 
-data ListInstanceGroupsResponse = ListInstanceGroupsResponse
-    { _ligrInstanceGroups :: List "InstanceGroups" InstanceGroup
-    , _ligrMarker         :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSRequest ListInstanceGroups where
+        type Sv ListInstanceGroups = EMR
+        type Rs ListInstanceGroups =
+             ListInstanceGroupsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListInstanceGroupsResponse' <$>
+                   (x .?> "Marker") <*>
+                     (x .?> "InstanceGroups" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
--- | 'ListInstanceGroupsResponse' constructor.
+instance ToHeaders ListInstanceGroups where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.ListInstanceGroups" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListInstanceGroups where
+        toJSON ListInstanceGroups'{..}
+          = object
+              ["Marker" .= _ligrqMarker,
+               "ClusterId" .= _ligrqClusterId]
+
+instance ToPath ListInstanceGroups where
+        toPath = const "/"
+
+instance ToQuery ListInstanceGroups where
+        toQuery = const mempty
+
+-- | This input determines which instance groups to retrieve.
+--
+-- /See:/ 'listInstanceGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ligrInstanceGroups' @::@ ['InstanceGroup']
+-- * 'ligrsMarker'
 --
--- * 'ligrMarker' @::@ 'Maybe' 'Text'
+-- * 'ligrsInstanceGroups'
 --
-listInstanceGroupsResponse :: ListInstanceGroupsResponse
-listInstanceGroupsResponse = ListInstanceGroupsResponse
-    { _ligrInstanceGroups = mempty
-    , _ligrMarker         = Nothing
+-- * 'ligrsStatus'
+data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
+    { _ligrsMarker         :: !(Maybe Text)
+    , _ligrsInstanceGroups :: !(Maybe [InstanceGroup])
+    , _ligrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListInstanceGroupsResponse' smart constructor.
+listInstanceGroupsResponse :: Int -> ListInstanceGroupsResponse
+listInstanceGroupsResponse pStatus_ =
+    ListInstanceGroupsResponse'
+    { _ligrsMarker = Nothing
+    , _ligrsInstanceGroups = Nothing
+    , _ligrsStatus = pStatus_
     }
 
--- | The list of instance groups for the cluster and given filters.
-ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
-ligrInstanceGroups =
-    lens _ligrInstanceGroups (\s a -> s { _ligrInstanceGroups = a })
-        . _List
-
 -- | The pagination token that indicates the next set of results to retrieve.
-ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
-ligrMarker = lens _ligrMarker (\s a -> s { _ligrMarker = a })
+ligrsMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
+ligrsMarker = lens _ligrsMarker (\ s a -> s{_ligrsMarker = a});
 
-instance ToPath ListInstanceGroups where
-    toPath = const "/"
+-- | The list of instance groups for the cluster and given filters.
+ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
+ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default;
 
-instance ToQuery ListInstanceGroups where
-    toQuery = const mempty
-
-instance ToHeaders ListInstanceGroups
-
-instance ToJSON ListInstanceGroups where
-    toJSON ListInstanceGroups{..} = object
-        [ "ClusterId" .= _ligClusterId
-        , "Marker"    .= _ligMarker
-        ]
-
-instance AWSRequest ListInstanceGroups where
-    type Sv ListInstanceGroups = EMR
-    type Rs ListInstanceGroups = ListInstanceGroupsResponse
-
-    request  = post "ListInstanceGroups"
-    response = jsonResponse
-
-instance FromJSON ListInstanceGroupsResponse where
-    parseJSON = withObject "ListInstanceGroupsResponse" $ \o -> ListInstanceGroupsResponse
-        <$> o .:? "InstanceGroups" .!= mempty
-        <*> o .:? "Marker"
-
-instance AWSPager ListInstanceGroups where
-    page rq rs
-        | stop (rs ^. ligrMarker) = Nothing
-        | otherwise = (\x -> rq & ligMarker ?~ x)
-            <$> (rs ^. ligrMarker)
+-- | FIXME: Undocumented member.
+ligrsStatus :: Lens' ListInstanceGroupsResponse Int
+ligrsStatus = lens _ligrsStatus (\ s a -> s{_ligrsStatus = a});

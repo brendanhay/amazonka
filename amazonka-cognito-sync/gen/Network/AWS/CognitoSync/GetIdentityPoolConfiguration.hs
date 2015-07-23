@@ -1,28 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CognitoSync.GetIdentityPoolConfiguration
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets the configuration settings of an identity pool.
+-- Gets the configuration settings of an identity pool.
+--
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetIdentityPoolConfiguration.html>
 module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
@@ -32,109 +31,122 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     -- ** Request constructor
     , getIdentityPoolConfiguration
     -- ** Request lenses
-    , gipcIdentityPoolId
+    , gipcrqIdentityPoolId
 
     -- * Response
     , GetIdentityPoolConfigurationResponse
     -- ** Response constructor
     , getIdentityPoolConfigurationResponse
     -- ** Response lenses
-    , gipcrCognitoStreams
-    , gipcrIdentityPoolId
-    , gipcrPushSync
+    , gipcrsIdentityPoolId
+    , gipcrsCognitoStreams
+    , gipcrsPushSync
+    , gipcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.CognitoSync.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoSync.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration
-    { _gipcIdentityPoolId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetIdentityPoolConfiguration' constructor.
+-- | The input for the GetIdentityPoolConfiguration operation.
+--
+-- /See:/ 'getIdentityPoolConfiguration' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gipcIdentityPoolId' @::@ 'Text'
---
-getIdentityPoolConfiguration :: Text -- ^ 'gipcIdentityPoolId'
-                             -> GetIdentityPoolConfiguration
-getIdentityPoolConfiguration p1 = GetIdentityPoolConfiguration
-    { _gipcIdentityPoolId = p1
+-- * 'gipcrqIdentityPoolId'
+newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
+    { _gipcrqIdentityPoolId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetIdentityPoolConfiguration' smart constructor.
+getIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
+getIdentityPoolConfiguration pIdentityPoolId_ =
+    GetIdentityPoolConfiguration'
+    { _gipcrqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
--- This is the ID of the pool for which to return a configuration.
-gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
-gipcIdentityPoolId =
-    lens _gipcIdentityPoolId (\s a -> s { _gipcIdentityPoolId = a })
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. This is the ID of the pool for which to return a configuration.
+gipcrqIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
+gipcrqIdentityPoolId = lens _gipcrqIdentityPoolId (\ s a -> s{_gipcrqIdentityPoolId = a});
 
-data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
-    { _gipcrCognitoStreams :: Maybe CognitoStreams
-    , _gipcrIdentityPoolId :: Maybe Text
-    , _gipcrPushSync       :: Maybe PushSync
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetIdentityPoolConfiguration
+         where
+        type Sv GetIdentityPoolConfiguration = CognitoSync
+        type Rs GetIdentityPoolConfiguration =
+             GetIdentityPoolConfigurationResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetIdentityPoolConfigurationResponse' <$>
+                   (x .?> "IdentityPoolId") <*> (x .?> "CognitoStreams")
+                     <*> (x .?> "PushSync")
+                     <*> (pure (fromEnum s)))
 
--- | 'GetIdentityPoolConfigurationResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gipcrCognitoStreams' @::@ 'Maybe' 'CognitoStreams'
---
--- * 'gipcrIdentityPoolId' @::@ 'Maybe' 'Text'
---
--- * 'gipcrPushSync' @::@ 'Maybe' 'PushSync'
---
-getIdentityPoolConfigurationResponse :: GetIdentityPoolConfigurationResponse
-getIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
-    { _gipcrIdentityPoolId = Nothing
-    , _gipcrPushSync       = Nothing
-    , _gipcrCognitoStreams = Nothing
-    }
-
--- | Options to apply to this identity pool for Amazon Cognito streams.
-gipcrCognitoStreams :: Lens' GetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
-gipcrCognitoStreams =
-    lens _gipcrCognitoStreams (\s a -> s { _gipcrCognitoStreams = a })
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
-gipcrIdentityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
-gipcrIdentityPoolId =
-    lens _gipcrIdentityPoolId (\s a -> s { _gipcrIdentityPoolId = a })
-
--- | Options to apply to this identity pool for push synchronization.
-gipcrPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
-gipcrPushSync = lens _gipcrPushSync (\s a -> s { _gipcrPushSync = a })
+instance ToHeaders GetIdentityPoolConfiguration where
+        toHeaders
+          = const
+              (mconcat
+                 ["Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToPath GetIdentityPoolConfiguration where
-    toPath GetIdentityPoolConfiguration{..} = mconcat
-        [ "/identitypools/"
-        , toText _gipcIdentityPoolId
-        , "/configuration"
-        ]
+        toPath GetIdentityPoolConfiguration'{..}
+          = mconcat
+              ["/identitypools/", toText _gipcrqIdentityPoolId,
+               "/configuration"]
 
 instance ToQuery GetIdentityPoolConfiguration where
-    toQuery = const mempty
+        toQuery = const mempty
 
-instance ToHeaders GetIdentityPoolConfiguration
+-- | The output for the GetIdentityPoolConfiguration operation.
+--
+-- /See:/ 'getIdentityPoolConfigurationResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gipcrsIdentityPoolId'
+--
+-- * 'gipcrsCognitoStreams'
+--
+-- * 'gipcrsPushSync'
+--
+-- * 'gipcrsStatus'
+data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse'
+    { _gipcrsIdentityPoolId :: !(Maybe Text)
+    , _gipcrsCognitoStreams :: !(Maybe CognitoStreams)
+    , _gipcrsPushSync       :: !(Maybe PushSync)
+    , _gipcrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance ToJSON GetIdentityPoolConfiguration where
-    toJSON = const (toJSON Empty)
+-- | 'GetIdentityPoolConfigurationResponse' smart constructor.
+getIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse
+getIdentityPoolConfigurationResponse pStatus_ =
+    GetIdentityPoolConfigurationResponse'
+    { _gipcrsIdentityPoolId = Nothing
+    , _gipcrsCognitoStreams = Nothing
+    , _gipcrsPushSync = Nothing
+    , _gipcrsStatus = pStatus_
+    }
 
-instance AWSRequest GetIdentityPoolConfiguration where
-    type Sv GetIdentityPoolConfiguration = CognitoSync
-    type Rs GetIdentityPoolConfiguration = GetIdentityPoolConfigurationResponse
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito.
+gipcrsIdentityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
+gipcrsIdentityPoolId = lens _gipcrsIdentityPoolId (\ s a -> s{_gipcrsIdentityPoolId = a});
 
-    request  = get
-    response = jsonResponse
+-- | Options to apply to this identity pool for Amazon Cognito streams.
+gipcrsCognitoStreams :: Lens' GetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
+gipcrsCognitoStreams = lens _gipcrsCognitoStreams (\ s a -> s{_gipcrsCognitoStreams = a});
 
-instance FromJSON GetIdentityPoolConfigurationResponse where
-    parseJSON = withObject "GetIdentityPoolConfigurationResponse" $ \o -> GetIdentityPoolConfigurationResponse
-        <$> o .:? "CognitoStreams"
-        <*> o .:? "IdentityPoolId"
-        <*> o .:? "PushSync"
+-- | Options to apply to this identity pool for push synchronization.
+gipcrsPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
+gipcrsPushSync = lens _gipcrsPushSync (\ s a -> s{_gipcrsPushSync = a});
+
+-- | FIXME: Undocumented member.
+gipcrsStatus :: Lens' GetIdentityPoolConfigurationResponse Int
+gipcrsStatus = lens _gipcrsStatus (\ s a -> s{_gipcrsStatus = a});

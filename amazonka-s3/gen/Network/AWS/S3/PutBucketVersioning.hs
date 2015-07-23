@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.PutBucketVersioning
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Sets the versioning state of an existing bucket. To set the versioning state,
--- you must be the bucket owner.
+-- Sets the versioning state of an existing bucket. To set the versioning
+-- state, you must be the bucket owner.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketVersioning.html>
 module Network.AWS.S3.PutBucketVersioning
@@ -33,10 +28,10 @@ module Network.AWS.S3.PutBucketVersioning
     -- ** Request constructor
     , putBucketVersioning
     -- ** Request lenses
-    , pbvBucket
-    , pbvContentMD5
-    , pbvMFA
-    , pbvVersioningConfiguration
+    , pbvrqMFA
+    , pbvrqContentMD5
+    , pbvrqBucket
+    , pbvrqVersioningConfiguration
 
     -- * Response
     , PutBucketVersioningResponse
@@ -44,86 +39,88 @@ module Network.AWS.S3.PutBucketVersioning
     , putBucketVersioningResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-data PutBucketVersioning = PutBucketVersioning
-    { _pbvBucket                  :: Text
-    , _pbvContentMD5              :: Maybe Text
-    , _pbvMFA                     :: Maybe Text
-    , _pbvVersioningConfiguration :: VersioningConfiguration
-    } deriving (Eq, Read, Show)
-
--- | 'PutBucketVersioning' constructor.
+-- | /See:/ 'putBucketVersioning' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbvBucket' @::@ 'Text'
+-- * 'pbvrqMFA'
 --
--- * 'pbvContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbvrqContentMD5'
 --
--- * 'pbvMFA' @::@ 'Maybe' 'Text'
+-- * 'pbvrqBucket'
 --
--- * 'pbvVersioningConfiguration' @::@ 'VersioningConfiguration'
---
-putBucketVersioning :: Text -- ^ 'pbvBucket'
-                    -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
-                    -> PutBucketVersioning
-putBucketVersioning p1 p2 = PutBucketVersioning
-    { _pbvBucket                  = p1
-    , _pbvVersioningConfiguration = p2
-    , _pbvContentMD5              = Nothing
-    , _pbvMFA                     = Nothing
+-- * 'pbvrqVersioningConfiguration'
+data PutBucketVersioning = PutBucketVersioning'
+    { _pbvrqMFA                     :: !(Maybe Text)
+    , _pbvrqContentMD5              :: !(Maybe Text)
+    , _pbvrqBucket                  :: !BucketName
+    , _pbvrqVersioningConfiguration :: !VersioningConfiguration
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'PutBucketVersioning' smart constructor.
+putBucketVersioning :: BucketName -> VersioningConfiguration -> PutBucketVersioning
+putBucketVersioning pBucket_ pVersioningConfiguration_ =
+    PutBucketVersioning'
+    { _pbvrqMFA = Nothing
+    , _pbvrqContentMD5 = Nothing
+    , _pbvrqBucket = pBucket_
+    , _pbvrqVersioningConfiguration = pVersioningConfiguration_
     }
 
-pbvBucket :: Lens' PutBucketVersioning Text
-pbvBucket = lens _pbvBucket (\s a -> s { _pbvBucket = a })
+-- | The concatenation of the authentication device\'s serial number, a
+-- space, and the value that is displayed on your authentication device.
+pbvrqMFA :: Lens' PutBucketVersioning (Maybe Text)
+pbvrqMFA = lens _pbvrqMFA (\ s a -> s{_pbvrqMFA = a});
 
-pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
-pbvContentMD5 = lens _pbvContentMD5 (\s a -> s { _pbvContentMD5 = a })
+-- | FIXME: Undocumented member.
+pbvrqContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
+pbvrqContentMD5 = lens _pbvrqContentMD5 (\ s a -> s{_pbvrqContentMD5 = a});
 
--- | The concatenation of the authentication device's serial number, a space, and
--- the value that is displayed on your authentication device.
-pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
-pbvMFA = lens _pbvMFA (\s a -> s { _pbvMFA = a })
+-- | FIXME: Undocumented member.
+pbvrqBucket :: Lens' PutBucketVersioning BucketName
+pbvrqBucket = lens _pbvrqBucket (\ s a -> s{_pbvrqBucket = a});
 
-pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
-pbvVersioningConfiguration =
-    lens _pbvVersioningConfiguration
-        (\s a -> s { _pbvVersioningConfiguration = a })
-
-data PutBucketVersioningResponse = PutBucketVersioningResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutBucketVersioningResponse' constructor.
-putBucketVersioningResponse :: PutBucketVersioningResponse
-putBucketVersioningResponse = PutBucketVersioningResponse
-
-instance ToPath PutBucketVersioning where
-    toPath PutBucketVersioning{..} = mconcat
-        [ "/"
-        , toText _pbvBucket
-        ]
-
-instance ToQuery PutBucketVersioning where
-    toQuery = const "versioning"
-
-instance ToHeaders PutBucketVersioning where
-    toHeaders PutBucketVersioning{..} = mconcat
-        [ "Content-MD5" =: _pbvContentMD5
-        , "x-amz-mfa"   =: _pbvMFA
-        ]
-
-instance ToXMLRoot PutBucketVersioning where
-    toXMLRoot = extractRoot ns . toXML . _pbvVersioningConfiguration
-
-instance ToXML PutBucketVersioning
+-- | FIXME: Undocumented member.
+pbvrqVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
+pbvrqVersioningConfiguration = lens _pbvrqVersioningConfiguration (\ s a -> s{_pbvrqVersioningConfiguration = a});
 
 instance AWSRequest PutBucketVersioning where
-    type Sv PutBucketVersioning = S3
-    type Rs PutBucketVersioning = PutBucketVersioningResponse
+        type Sv PutBucketVersioning = S3
+        type Rs PutBucketVersioning =
+             PutBucketVersioningResponse
+        request = putXML
+        response = receiveNull PutBucketVersioningResponse'
 
-    request  = put
-    response = nullResponse PutBucketVersioningResponse
+instance ToElement PutBucketVersioning where
+        toElement
+          = mkElement
+              "{http://s3.amazonaws.com/doc/2006-03-01/}VersioningConfiguration"
+              .
+              _pbvrqVersioningConfiguration
+
+instance ToHeaders PutBucketVersioning where
+        toHeaders PutBucketVersioning'{..}
+          = mconcat
+              ["x-amz-mfa" =# _pbvrqMFA,
+               "Content-MD5" =# _pbvrqContentMD5]
+
+instance ToPath PutBucketVersioning where
+        toPath PutBucketVersioning'{..}
+          = mconcat ["/", toText _pbvrqBucket]
+
+instance ToQuery PutBucketVersioning where
+        toQuery = const (mconcat ["versioning"])
+
+-- | /See:/ 'putBucketVersioningResponse' smart constructor.
+data PutBucketVersioningResponse =
+    PutBucketVersioningResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutBucketVersioningResponse' smart constructor.
+putBucketVersioningResponse :: PutBucketVersioningResponse
+putBucketVersioningResponse = PutBucketVersioningResponse'

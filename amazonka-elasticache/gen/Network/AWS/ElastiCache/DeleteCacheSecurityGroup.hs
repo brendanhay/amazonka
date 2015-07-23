@@ -1,31 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSecurityGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The /DeleteCacheSecurityGroup/ action deletes a cache security group.
+-- The /DeleteCacheSecurityGroup/ action deletes a cache security group.
 --
--- You cannot delete a cache security group if it is associated with any cache
--- clusters.
+-- You cannot delete a cache security group if it is associated with any
+-- cache clusters.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSecurityGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
@@ -35,7 +30,7 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     -- ** Request constructor
     , deleteCacheSecurityGroup
     -- ** Request lenses
-    , dcsgCacheSecurityGroupName
+    , dcsgrqCacheSecurityGroupName
 
     -- * Response
     , DeleteCacheSecurityGroupResponse
@@ -43,55 +38,63 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     , deleteCacheSecurityGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
-    { _dcsgCacheSecurityGroupName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteCacheSecurityGroup' constructor.
+-- | Represents the input of a /DeleteCacheSecurityGroup/ action.
+--
+-- /See:/ 'deleteCacheSecurityGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgCacheSecurityGroupName' @::@ 'Text'
---
-deleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
-                         -> DeleteCacheSecurityGroup
-deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
-    { _dcsgCacheSecurityGroupName = p1
+-- * 'dcsgrqCacheSecurityGroupName'
+newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
+    { _dcsgrqCacheSecurityGroupName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteCacheSecurityGroup' smart constructor.
+deleteCacheSecurityGroup :: Text -> DeleteCacheSecurityGroup
+deleteCacheSecurityGroup pCacheSecurityGroupName_ =
+    DeleteCacheSecurityGroup'
+    { _dcsgrqCacheSecurityGroupName = pCacheSecurityGroupName_
     }
 
 -- | The name of the cache security group to delete.
 --
 -- You cannot delete the default security group.
-dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
-dcsgCacheSecurityGroupName =
-    lens _dcsgCacheSecurityGroupName
-        (\s a -> s { _dcsgCacheSecurityGroupName = a })
-
-data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteCacheSecurityGroupResponse' constructor.
-deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
-deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
-
-instance ToPath DeleteCacheSecurityGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteCacheSecurityGroup where
-    toQuery DeleteCacheSecurityGroup{..} = mconcat
-        [ "CacheSecurityGroupName" =? _dcsgCacheSecurityGroupName
-        ]
-
-instance ToHeaders DeleteCacheSecurityGroup
+dcsgrqCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
+dcsgrqCacheSecurityGroupName = lens _dcsgrqCacheSecurityGroupName (\ s a -> s{_dcsgrqCacheSecurityGroupName = a});
 
 instance AWSRequest DeleteCacheSecurityGroup where
-    type Sv DeleteCacheSecurityGroup = ElastiCache
-    type Rs DeleteCacheSecurityGroup = DeleteCacheSecurityGroupResponse
+        type Sv DeleteCacheSecurityGroup = ElastiCache
+        type Rs DeleteCacheSecurityGroup =
+             DeleteCacheSecurityGroupResponse
+        request = post
+        response
+          = receiveNull DeleteCacheSecurityGroupResponse'
 
-    request  = post "DeleteCacheSecurityGroup"
-    response = nullResponse DeleteCacheSecurityGroupResponse
+instance ToHeaders DeleteCacheSecurityGroup where
+        toHeaders = const mempty
+
+instance ToPath DeleteCacheSecurityGroup where
+        toPath = const "/"
+
+instance ToQuery DeleteCacheSecurityGroup where
+        toQuery DeleteCacheSecurityGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteCacheSecurityGroup" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "CacheSecurityGroupName" =:
+                 _dcsgrqCacheSecurityGroupName]
+
+-- | /See:/ 'deleteCacheSecurityGroupResponse' smart constructor.
+data DeleteCacheSecurityGroupResponse =
+    DeleteCacheSecurityGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteCacheSecurityGroupResponse' smart constructor.
+deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
+deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse'

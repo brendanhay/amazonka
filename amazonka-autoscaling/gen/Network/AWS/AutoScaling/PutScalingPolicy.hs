@@ -1,31 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.AutoScaling.PutScalingPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates or updates a policy for an Auto Scaling group. To update an existing
--- policy, use the existing policy name and set the parameters you want to
--- change. Any existing parameter not changed in an update to an existing policy
--- is not changed in this update request.
+-- Creates or updates a policy for an Auto Scaling group. To update an
+-- existing policy, use the existing policy name and set the parameters you
+-- want to change. Any existing parameter not changed in an update to an
+-- existing policy is not changed in this update request.
+--
+-- If you exceed your maximum limit of step adjustments, which by default
+-- is 20 per region, the call fails. For information about updating this
+-- limit, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
+-- in the /Amazon Web Services General Reference/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutScalingPolicy.html>
 module Network.AWS.AutoScaling.PutScalingPolicy
@@ -35,150 +36,230 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     -- ** Request constructor
     , putScalingPolicy
     -- ** Request lenses
-    , pspAdjustmentType
-    , pspAutoScalingGroupName
-    , pspCooldown
-    , pspMinAdjustmentStep
-    , pspPolicyName
-    , pspScalingAdjustment
+    , psprqEstimatedInstanceWarmup
+    , psprqMinAdjustmentStep
+    , psprqPolicyType
+    , psprqStepAdjustments
+    , psprqScalingAdjustment
+    , psprqCooldown
+    , psprqMetricAggregationType
+    , psprqMinAdjustmentMagnitude
+    , psprqAutoScalingGroupName
+    , psprqPolicyName
+    , psprqAdjustmentType
 
     -- * Response
     , PutScalingPolicyResponse
     -- ** Response constructor
     , putScalingPolicyResponse
     -- ** Response lenses
-    , psprPolicyARN
+    , psprsPolicyARN
+    , psprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data PutScalingPolicy = PutScalingPolicy
-    { _pspAdjustmentType       :: Text
-    , _pspAutoScalingGroupName :: Text
-    , _pspCooldown             :: Maybe Int
-    , _pspMinAdjustmentStep    :: Maybe Int
-    , _pspPolicyName           :: Text
-    , _pspScalingAdjustment    :: Int
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'PutScalingPolicy' constructor.
+-- | /See:/ 'putScalingPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pspAdjustmentType' @::@ 'Text'
+-- * 'psprqEstimatedInstanceWarmup'
 --
--- * 'pspAutoScalingGroupName' @::@ 'Text'
+-- * 'psprqMinAdjustmentStep'
 --
--- * 'pspCooldown' @::@ 'Maybe' 'Int'
+-- * 'psprqPolicyType'
 --
--- * 'pspMinAdjustmentStep' @::@ 'Maybe' 'Int'
+-- * 'psprqStepAdjustments'
 --
--- * 'pspPolicyName' @::@ 'Text'
+-- * 'psprqScalingAdjustment'
 --
--- * 'pspScalingAdjustment' @::@ 'Int'
+-- * 'psprqCooldown'
 --
-putScalingPolicy :: Text -- ^ 'pspAutoScalingGroupName'
-                 -> Text -- ^ 'pspPolicyName'
-                 -> Int -- ^ 'pspScalingAdjustment'
-                 -> Text -- ^ 'pspAdjustmentType'
-                 -> PutScalingPolicy
-putScalingPolicy p1 p2 p3 p4 = PutScalingPolicy
-    { _pspAutoScalingGroupName = p1
-    , _pspPolicyName           = p2
-    , _pspScalingAdjustment    = p3
-    , _pspAdjustmentType       = p4
-    , _pspCooldown             = Nothing
-    , _pspMinAdjustmentStep    = Nothing
+-- * 'psprqMetricAggregationType'
+--
+-- * 'psprqMinAdjustmentMagnitude'
+--
+-- * 'psprqAutoScalingGroupName'
+--
+-- * 'psprqPolicyName'
+--
+-- * 'psprqAdjustmentType'
+data PutScalingPolicy = PutScalingPolicy'
+    { _psprqEstimatedInstanceWarmup :: !(Maybe Int)
+    , _psprqMinAdjustmentStep       :: !(Maybe Int)
+    , _psprqPolicyType              :: !(Maybe Text)
+    , _psprqStepAdjustments         :: !(Maybe [StepAdjustment])
+    , _psprqScalingAdjustment       :: !(Maybe Int)
+    , _psprqCooldown                :: !(Maybe Int)
+    , _psprqMetricAggregationType   :: !(Maybe Text)
+    , _psprqMinAdjustmentMagnitude  :: !(Maybe Int)
+    , _psprqAutoScalingGroupName    :: !Text
+    , _psprqPolicyName              :: !Text
+    , _psprqAdjustmentType          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutScalingPolicy' smart constructor.
+putScalingPolicy :: Text -> Text -> Text -> PutScalingPolicy
+putScalingPolicy pAutoScalingGroupName_ pPolicyName_ pAdjustmentType_ =
+    PutScalingPolicy'
+    { _psprqEstimatedInstanceWarmup = Nothing
+    , _psprqMinAdjustmentStep = Nothing
+    , _psprqPolicyType = Nothing
+    , _psprqStepAdjustments = Nothing
+    , _psprqScalingAdjustment = Nothing
+    , _psprqCooldown = Nothing
+    , _psprqMetricAggregationType = Nothing
+    , _psprqMinAdjustmentMagnitude = Nothing
+    , _psprqAutoScalingGroupName = pAutoScalingGroupName_
+    , _psprqPolicyName = pPolicyName_
+    , _psprqAdjustmentType = pAdjustmentType_
     }
 
--- | Specifies whether the 'ScalingAdjustment' is an absolute number or a percentage
--- of the current capacity. Valid values are 'ChangeInCapacity', 'ExactCapacity',
--- and 'PercentChangeInCapacity'.
+-- | The estimated time, in seconds, until a newly launched instance can
+-- contribute to the CloudWatch metrics. The default is to use the value
+-- specified for the default cooldown period for the group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling Developer Guide/
--- .
-pspAdjustmentType :: Lens' PutScalingPolicy Text
-pspAdjustmentType =
-    lens _pspAdjustmentType (\s a -> s { _pspAdjustmentType = a })
+-- This parameter is not supported if the policy type is @SimpleScaling@.
+psprqEstimatedInstanceWarmup :: Lens' PutScalingPolicy (Maybe Int)
+psprqEstimatedInstanceWarmup = lens _psprqEstimatedInstanceWarmup (\ s a -> s{_psprqEstimatedInstanceWarmup = a});
+
+-- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
+-- instead.
+psprqMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Int)
+psprqMinAdjustmentStep = lens _psprqMinAdjustmentStep (\ s a -> s{_psprqMinAdjustmentStep = a});
+
+-- | The policy type. Valid values are @SimpleScaling@ and @StepScaling@. If
+-- the policy type is null, the value is treated as @SimpleScaling@.
+psprqPolicyType :: Lens' PutScalingPolicy (Maybe Text)
+psprqPolicyType = lens _psprqPolicyType (\ s a -> s{_psprqPolicyType = a});
+
+-- | A set of adjustments that enable you to scale based on the size of the
+-- alarm breach.
+--
+-- This parameter is required if the policy type is @StepScaling@ and not
+-- supported otherwise.
+psprqStepAdjustments :: Lens' PutScalingPolicy [StepAdjustment]
+psprqStepAdjustments = lens _psprqStepAdjustments (\ s a -> s{_psprqStepAdjustments = a}) . _Default;
+
+-- | The amount by which to scale, based on the specified adjustment type. A
+-- positive value adds to the current capacity while a negative number
+-- removes from the current capacity.
+--
+-- This parameter is required if the policy type is @SimpleScaling@ and not
+-- supported otherwise.
+psprqScalingAdjustment :: Lens' PutScalingPolicy (Maybe Int)
+psprqScalingAdjustment = lens _psprqScalingAdjustment (\ s a -> s{_psprqScalingAdjustment = a});
+
+-- | The amount of time, in seconds, after a scaling activity completes and
+-- before the next scaling activity can start. If this parameter is not
+-- specified, the default cooldown period for the group applies.
+--
+-- This parameter is not supported unless the policy type is
+-- @SimpleScaling@.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
+-- in the /Auto Scaling Developer Guide/.
+psprqCooldown :: Lens' PutScalingPolicy (Maybe Int)
+psprqCooldown = lens _psprqCooldown (\ s a -> s{_psprqCooldown = a});
+
+-- | The aggregation type for the CloudWatch metrics. Valid values are
+-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,
+-- the value is treated as @Average@.
+--
+-- This parameter is not supported if the policy type is @SimpleScaling@.
+psprqMetricAggregationType :: Lens' PutScalingPolicy (Maybe Text)
+psprqMetricAggregationType = lens _psprqMetricAggregationType (\ s a -> s{_psprqMetricAggregationType = a});
+
+-- | The minimum number of instances to scale. If the value of
+-- @AdjustmentType@ is @PercentChangeInCapacity@, the scaling policy
+-- changes the @DesiredCapacity@ of the Auto Scaling group by at least this
+-- many instances. Otherwise, the error is @ValidationError@.
+psprqMinAdjustmentMagnitude :: Lens' PutScalingPolicy (Maybe Int)
+psprqMinAdjustmentMagnitude = lens _psprqMinAdjustmentMagnitude (\ s a -> s{_psprqMinAdjustmentMagnitude = a});
 
 -- | The name or ARN of the group.
-pspAutoScalingGroupName :: Lens' PutScalingPolicy Text
-pspAutoScalingGroupName =
-    lens _pspAutoScalingGroupName (\s a -> s { _pspAutoScalingGroupName = a })
-
--- | The amount of time, in seconds, after a scaling activity completes and before
--- the next scaling activity can start.
---
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns> in the /AutoScaling Developer Guide/.
-pspCooldown :: Lens' PutScalingPolicy (Maybe Int)
-pspCooldown = lens _pspCooldown (\s a -> s { _pspCooldown = a })
-
--- | Used with 'AdjustmentType' with the value 'PercentChangeInCapacity', the scaling
--- policy changes the 'DesiredCapacity' of the Auto Scaling group by at least the
--- number of instances specified in the value.
---
--- You will get a 'ValidationError' if you use 'MinAdjustmentStep' on a policy with
--- an 'AdjustmentType' other than 'PercentChangeInCapacity'.
-pspMinAdjustmentStep :: Lens' PutScalingPolicy (Maybe Int)
-pspMinAdjustmentStep =
-    lens _pspMinAdjustmentStep (\s a -> s { _pspMinAdjustmentStep = a })
+psprqAutoScalingGroupName :: Lens' PutScalingPolicy Text
+psprqAutoScalingGroupName = lens _psprqAutoScalingGroupName (\ s a -> s{_psprqAutoScalingGroupName = a});
 
 -- | The name of the policy.
-pspPolicyName :: Lens' PutScalingPolicy Text
-pspPolicyName = lens _pspPolicyName (\s a -> s { _pspPolicyName = a })
+psprqPolicyName :: Lens' PutScalingPolicy Text
+psprqPolicyName = lens _psprqPolicyName (\ s a -> s{_psprqPolicyName = a});
 
--- | The number of instances by which to scale. 'AdjustmentType' determines the
--- interpretation of this number (e.g., as an absolute number or as a percentage
--- of the existing Auto Scaling group size). A positive increment adds to the
--- current capacity and a negative value removes from the current capacity.
-pspScalingAdjustment :: Lens' PutScalingPolicy Int
-pspScalingAdjustment =
-    lens _pspScalingAdjustment (\s a -> s { _pspScalingAdjustment = a })
+-- | The adjustment type. Valid values are @ChangeInCapacity@,
+-- @ExactCapacity@, and @PercentChangeInCapacity@.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling>
+-- in the /Auto Scaling Developer Guide/.
+psprqAdjustmentType :: Lens' PutScalingPolicy Text
+psprqAdjustmentType = lens _psprqAdjustmentType (\ s a -> s{_psprqAdjustmentType = a});
 
-newtype PutScalingPolicyResponse = PutScalingPolicyResponse
-    { _psprPolicyARN :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance AWSRequest PutScalingPolicy where
+        type Sv PutScalingPolicy = AutoScaling
+        type Rs PutScalingPolicy = PutScalingPolicyResponse
+        request = post
+        response
+          = receiveXMLWrapper "PutScalingPolicyResult"
+              (\ s h x ->
+                 PutScalingPolicyResponse' <$>
+                   (x .@? "PolicyARN") <*> (pure (fromEnum s)))
 
--- | 'PutScalingPolicyResponse' constructor.
+instance ToHeaders PutScalingPolicy where
+        toHeaders = const mempty
+
+instance ToPath PutScalingPolicy where
+        toPath = const "/"
+
+instance ToQuery PutScalingPolicy where
+        toQuery PutScalingPolicy'{..}
+          = mconcat
+              ["Action" =: ("PutScalingPolicy" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "EstimatedInstanceWarmup" =:
+                 _psprqEstimatedInstanceWarmup,
+               "MinAdjustmentStep" =: _psprqMinAdjustmentStep,
+               "PolicyType" =: _psprqPolicyType,
+               "StepAdjustments" =:
+                 toQuery
+                   (toQueryList "member" <$> _psprqStepAdjustments),
+               "ScalingAdjustment" =: _psprqScalingAdjustment,
+               "Cooldown" =: _psprqCooldown,
+               "MetricAggregationType" =:
+                 _psprqMetricAggregationType,
+               "MinAdjustmentMagnitude" =:
+                 _psprqMinAdjustmentMagnitude,
+               "AutoScalingGroupName" =: _psprqAutoScalingGroupName,
+               "PolicyName" =: _psprqPolicyName,
+               "AdjustmentType" =: _psprqAdjustmentType]
+
+-- | /See:/ 'putScalingPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'psprPolicyARN' @::@ 'Maybe' 'Text'
+-- * 'psprsPolicyARN'
 --
-putScalingPolicyResponse :: PutScalingPolicyResponse
-putScalingPolicyResponse = PutScalingPolicyResponse
-    { _psprPolicyARN = Nothing
+-- * 'psprsStatus'
+data PutScalingPolicyResponse = PutScalingPolicyResponse'
+    { _psprsPolicyARN :: !(Maybe Text)
+    , _psprsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutScalingPolicyResponse' smart constructor.
+putScalingPolicyResponse :: Int -> PutScalingPolicyResponse
+putScalingPolicyResponse pStatus_ =
+    PutScalingPolicyResponse'
+    { _psprsPolicyARN = Nothing
+    , _psprsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the policy.
-psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
-psprPolicyARN = lens _psprPolicyARN (\s a -> s { _psprPolicyARN = a })
+psprsPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
+psprsPolicyARN = lens _psprsPolicyARN (\ s a -> s{_psprsPolicyARN = a});
 
-instance ToPath PutScalingPolicy where
-    toPath = const "/"
-
-instance ToQuery PutScalingPolicy where
-    toQuery PutScalingPolicy{..} = mconcat
-        [ "AdjustmentType"       =? _pspAdjustmentType
-        , "AutoScalingGroupName" =? _pspAutoScalingGroupName
-        , "Cooldown"             =? _pspCooldown
-        , "MinAdjustmentStep"    =? _pspMinAdjustmentStep
-        , "PolicyName"           =? _pspPolicyName
-        , "ScalingAdjustment"    =? _pspScalingAdjustment
-        ]
-
-instance ToHeaders PutScalingPolicy
-
-instance AWSRequest PutScalingPolicy where
-    type Sv PutScalingPolicy = AutoScaling
-    type Rs PutScalingPolicy = PutScalingPolicyResponse
-
-    request  = post "PutScalingPolicy"
-    response = xmlResponse
-
-instance FromXML PutScalingPolicyResponse where
-    parseXML = withElement "PutScalingPolicyResult" $ \x -> PutScalingPolicyResponse
-        <$> x .@? "PolicyARN"
+-- | FIXME: Undocumented member.
+psprsStatus :: Lens' PutScalingPolicyResponse Int
+psprsStatus = lens _psprsStatus (\ s a -> s{_psprsStatus = a});

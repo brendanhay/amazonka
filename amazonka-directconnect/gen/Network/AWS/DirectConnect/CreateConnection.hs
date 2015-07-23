@@ -1,37 +1,33 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.DirectConnect.CreateConnection
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a new connection between the customer network and a specific AWS
+-- Creates a new connection between the customer network and a specific AWS
 -- Direct Connect location.
 --
--- A connection links your internal network to an AWS Direct Connect location
--- over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end
--- of the cable is connected to your router, the other to an AWS Direct Connect
--- router. An AWS Direct Connect location provides access to Amazon Web Services
--- in the region it is associated with. You can establish connections with AWS
--- Direct Connect locations in multiple regions, but a connection in one region
--- does not provide connectivity to other regions.
+-- A connection links your internal network to an AWS Direct Connect
+-- location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic
+-- cable. One end of the cable is connected to your router, the other to an
+-- AWS Direct Connect router. An AWS Direct Connect location provides
+-- access to Amazon Web Services in the region it is associated with. You
+-- can establish connections with AWS Direct Connect locations in multiple
+-- regions, but a connection in one region does not provide connectivity to
+-- other regions.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_CreateConnection.html>
 module Network.AWS.DirectConnect.CreateConnection
@@ -41,178 +37,93 @@ module Network.AWS.DirectConnect.CreateConnection
     -- ** Request constructor
     , createConnection
     -- ** Request lenses
-    , ccBandwidth
-    , ccConnectionName
-    , ccLocation
+    , ccrqLocation
+    , ccrqBandwidth
+    , ccrqConnectionName
 
     -- * Response
-    , CreateConnectionResponse
+    , Connection
     -- ** Response constructor
-    , createConnectionResponse
+    , connection
     -- ** Response lenses
-    , ccrBandwidth
-    , ccrConnectionId
-    , ccrConnectionName
-    , ccrConnectionState
-    , ccrLocation
-    , ccrOwnerAccount
-    , ccrPartnerName
-    , ccrRegion
-    , ccrVlan
+    , cVlan
+    , cLocation
+    , cConnectionId
+    , cConnectionName
+    , cPartnerName
+    , cBandwidth
+    , cRegion
+    , cOwnerAccount
+    , cConnectionState
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateConnection = CreateConnection
-    { _ccBandwidth      :: Text
-    , _ccConnectionName :: Text
-    , _ccLocation       :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateConnection' constructor.
+-- | Container for the parameters to the CreateConnection operation.
+--
+-- /See:/ 'createConnection' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccBandwidth' @::@ 'Text'
+-- * 'ccrqLocation'
 --
--- * 'ccConnectionName' @::@ 'Text'
+-- * 'ccrqBandwidth'
 --
--- * 'ccLocation' @::@ 'Text'
---
-createConnection :: Text -- ^ 'ccLocation'
-                 -> Text -- ^ 'ccBandwidth'
-                 -> Text -- ^ 'ccConnectionName'
-                 -> CreateConnection
-createConnection p1 p2 p3 = CreateConnection
-    { _ccLocation       = p1
-    , _ccBandwidth      = p2
-    , _ccConnectionName = p3
+-- * 'ccrqConnectionName'
+data CreateConnection = CreateConnection'
+    { _ccrqLocation       :: !Text
+    , _ccrqBandwidth      :: !Text
+    , _ccrqConnectionName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateConnection' smart constructor.
+createConnection :: Text -> Text -> Text -> CreateConnection
+createConnection pLocation_ pBandwidth_ pConnectionName_ =
+    CreateConnection'
+    { _ccrqLocation = pLocation_
+    , _ccrqBandwidth = pBandwidth_
+    , _ccrqConnectionName = pConnectionName_
     }
 
-ccBandwidth :: Lens' CreateConnection Text
-ccBandwidth = lens _ccBandwidth (\s a -> s { _ccBandwidth = a })
+-- | FIXME: Undocumented member.
+ccrqLocation :: Lens' CreateConnection Text
+ccrqLocation = lens _ccrqLocation (\ s a -> s{_ccrqLocation = a});
 
-ccConnectionName :: Lens' CreateConnection Text
-ccConnectionName = lens _ccConnectionName (\s a -> s { _ccConnectionName = a })
+-- | FIXME: Undocumented member.
+ccrqBandwidth :: Lens' CreateConnection Text
+ccrqBandwidth = lens _ccrqBandwidth (\ s a -> s{_ccrqBandwidth = a});
 
-ccLocation :: Lens' CreateConnection Text
-ccLocation = lens _ccLocation (\s a -> s { _ccLocation = a })
-
-data CreateConnectionResponse = CreateConnectionResponse
-    { _ccrBandwidth       :: Maybe Text
-    , _ccrConnectionId    :: Maybe Text
-    , _ccrConnectionName  :: Maybe Text
-    , _ccrConnectionState :: Maybe ConnectionState
-    , _ccrLocation        :: Maybe Text
-    , _ccrOwnerAccount    :: Maybe Text
-    , _ccrPartnerName     :: Maybe Text
-    , _ccrRegion          :: Maybe Text
-    , _ccrVlan            :: Maybe Int
-    } deriving (Eq, Read, Show)
-
--- | 'CreateConnectionResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ccrBandwidth' @::@ 'Maybe' 'Text'
---
--- * 'ccrConnectionId' @::@ 'Maybe' 'Text'
---
--- * 'ccrConnectionName' @::@ 'Maybe' 'Text'
---
--- * 'ccrConnectionState' @::@ 'Maybe' 'ConnectionState'
---
--- * 'ccrLocation' @::@ 'Maybe' 'Text'
---
--- * 'ccrOwnerAccount' @::@ 'Maybe' 'Text'
---
--- * 'ccrPartnerName' @::@ 'Maybe' 'Text'
---
--- * 'ccrRegion' @::@ 'Maybe' 'Text'
---
--- * 'ccrVlan' @::@ 'Maybe' 'Int'
---
-createConnectionResponse :: CreateConnectionResponse
-createConnectionResponse = CreateConnectionResponse
-    { _ccrOwnerAccount    = Nothing
-    , _ccrConnectionId    = Nothing
-    , _ccrConnectionName  = Nothing
-    , _ccrConnectionState = Nothing
-    , _ccrRegion          = Nothing
-    , _ccrLocation        = Nothing
-    , _ccrBandwidth       = Nothing
-    , _ccrVlan            = Nothing
-    , _ccrPartnerName     = Nothing
-    }
-
--- | Bandwidth of the connection.
---
--- Example: 1Gbps (for regular connections), or 500Mbps (for hosted connections)
---
--- Default: None
-ccrBandwidth :: Lens' CreateConnectionResponse (Maybe Text)
-ccrBandwidth = lens _ccrBandwidth (\s a -> s { _ccrBandwidth = a })
-
-ccrConnectionId :: Lens' CreateConnectionResponse (Maybe Text)
-ccrConnectionId = lens _ccrConnectionId (\s a -> s { _ccrConnectionId = a })
-
-ccrConnectionName :: Lens' CreateConnectionResponse (Maybe Text)
-ccrConnectionName =
-    lens _ccrConnectionName (\s a -> s { _ccrConnectionName = a })
-
-ccrConnectionState :: Lens' CreateConnectionResponse (Maybe ConnectionState)
-ccrConnectionState =
-    lens _ccrConnectionState (\s a -> s { _ccrConnectionState = a })
-
-ccrLocation :: Lens' CreateConnectionResponse (Maybe Text)
-ccrLocation = lens _ccrLocation (\s a -> s { _ccrLocation = a })
-
-ccrOwnerAccount :: Lens' CreateConnectionResponse (Maybe Text)
-ccrOwnerAccount = lens _ccrOwnerAccount (\s a -> s { _ccrOwnerAccount = a })
-
-ccrPartnerName :: Lens' CreateConnectionResponse (Maybe Text)
-ccrPartnerName = lens _ccrPartnerName (\s a -> s { _ccrPartnerName = a })
-
-ccrRegion :: Lens' CreateConnectionResponse (Maybe Text)
-ccrRegion = lens _ccrRegion (\s a -> s { _ccrRegion = a })
-
-ccrVlan :: Lens' CreateConnectionResponse (Maybe Int)
-ccrVlan = lens _ccrVlan (\s a -> s { _ccrVlan = a })
-
-instance ToPath CreateConnection where
-    toPath = const "/"
-
-instance ToQuery CreateConnection where
-    toQuery = const mempty
-
-instance ToHeaders CreateConnection
-
-instance ToJSON CreateConnection where
-    toJSON CreateConnection{..} = object
-        [ "location"       .= _ccLocation
-        , "bandwidth"      .= _ccBandwidth
-        , "connectionName" .= _ccConnectionName
-        ]
+-- | FIXME: Undocumented member.
+ccrqConnectionName :: Lens' CreateConnection Text
+ccrqConnectionName = lens _ccrqConnectionName (\ s a -> s{_ccrqConnectionName = a});
 
 instance AWSRequest CreateConnection where
-    type Sv CreateConnection = DirectConnect
-    type Rs CreateConnection = CreateConnectionResponse
+        type Sv CreateConnection = DirectConnect
+        type Rs CreateConnection = Connection
+        request = postJSON
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-    request  = post "CreateConnection"
-    response = jsonResponse
+instance ToHeaders CreateConnection where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.CreateConnection" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON CreateConnectionResponse where
-    parseJSON = withObject "CreateConnectionResponse" $ \o -> CreateConnectionResponse
-        <$> o .:? "bandwidth"
-        <*> o .:? "connectionId"
-        <*> o .:? "connectionName"
-        <*> o .:? "connectionState"
-        <*> o .:? "location"
-        <*> o .:? "ownerAccount"
-        <*> o .:? "partnerName"
-        <*> o .:? "region"
-        <*> o .:? "vlan"
+instance ToJSON CreateConnection where
+        toJSON CreateConnection'{..}
+          = object
+              ["location" .= _ccrqLocation,
+               "bandwidth" .= _ccrqBandwidth,
+               "connectionName" .= _ccrqConnectionName]
+
+instance ToPath CreateConnection where
+        toPath = const "/"
+
+instance ToQuery CreateConnection where
+        toQuery = const mempty

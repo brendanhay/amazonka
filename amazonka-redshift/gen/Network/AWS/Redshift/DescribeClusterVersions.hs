@@ -1,32 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Redshift.DescribeClusterVersions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns descriptions of the available Amazon Redshift cluster versions. You
--- can call this operation even before creating any clusters to learn more about
--- the Amazon Redshift versions. For more information about managing clusters,
--- go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/
---
+-- Returns descriptions of the available Amazon Redshift cluster versions.
+-- You can call this operation even before creating any clusters to learn
+-- more about the Amazon Redshift versions. For more information about
+-- managing clusters, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
+-- in the /Amazon Redshift Cluster Management Guide/
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeClusterVersions.html>
 module Network.AWS.Redshift.DescribeClusterVersions
@@ -36,150 +32,171 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- ** Request constructor
     , describeClusterVersions
     -- ** Request lenses
-    , dcvClusterParameterGroupFamily
-    , dcvClusterVersion
-    , dcvMarker
-    , dcvMaxRecords
+    , dcvrqMaxRecords
+    , dcvrqMarker
+    , dcvrqClusterParameterGroupFamily
+    , dcvrqClusterVersion
 
     -- * Response
     , DescribeClusterVersionsResponse
     -- ** Response constructor
     , describeClusterVersionsResponse
     -- ** Response lenses
-    , dcvrClusterVersions
-    , dcvrMarker
+    , dcvrsClusterVersions
+    , dcvrsMarker
+    , dcvrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeClusterVersions = DescribeClusterVersions
-    { _dcvClusterParameterGroupFamily :: Maybe Text
-    , _dcvClusterVersion              :: Maybe Text
-    , _dcvMarker                      :: Maybe Text
-    , _dcvMaxRecords                  :: Maybe Int
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeClusterVersions' constructor.
+-- | /See:/ 'describeClusterVersions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcvClusterParameterGroupFamily' @::@ 'Maybe' 'Text'
+-- * 'dcvrqMaxRecords'
 --
--- * 'dcvClusterVersion' @::@ 'Maybe' 'Text'
+-- * 'dcvrqMarker'
 --
--- * 'dcvMarker' @::@ 'Maybe' 'Text'
+-- * 'dcvrqClusterParameterGroupFamily'
 --
--- * 'dcvMaxRecords' @::@ 'Maybe' 'Int'
---
+-- * 'dcvrqClusterVersion'
+data DescribeClusterVersions = DescribeClusterVersions'
+    { _dcvrqMaxRecords                  :: !(Maybe Int)
+    , _dcvrqMarker                      :: !(Maybe Text)
+    , _dcvrqClusterParameterGroupFamily :: !(Maybe Text)
+    , _dcvrqClusterVersion              :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeClusterVersions' smart constructor.
 describeClusterVersions :: DescribeClusterVersions
-describeClusterVersions = DescribeClusterVersions
-    { _dcvClusterVersion              = Nothing
-    , _dcvClusterParameterGroupFamily = Nothing
-    , _dcvMaxRecords                  = Nothing
-    , _dcvMarker                      = Nothing
+describeClusterVersions =
+    DescribeClusterVersions'
+    { _dcvrqMaxRecords = Nothing
+    , _dcvrqMarker = Nothing
+    , _dcvrqClusterParameterGroupFamily = Nothing
+    , _dcvrqClusterVersion = Nothing
     }
 
--- | The name of a specific cluster parameter group family to return details for.
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
+--
+-- Default: @100@
+--
+-- Constraints: minimum 20, maximum 100.
+dcvrqMaxRecords :: Lens' DescribeClusterVersions (Maybe Int)
+dcvrqMaxRecords = lens _dcvrqMaxRecords (\ s a -> s{_dcvrqMaxRecords = a});
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a DescribeClusterVersions
+-- request exceed the value specified in @MaxRecords@, AWS returns a value
+-- in the @Marker@ field of the response. You can retrieve the next set of
+-- response records by providing the returned marker value in the @Marker@
+-- parameter and retrying the request.
+dcvrqMarker :: Lens' DescribeClusterVersions (Maybe Text)
+dcvrqMarker = lens _dcvrqMarker (\ s a -> s{_dcvrqMarker = a});
+
+-- | The name of a specific cluster parameter group family to return details
+-- for.
 --
 -- Constraints:
 --
--- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
---
-dcvClusterParameterGroupFamily :: Lens' DescribeClusterVersions (Maybe Text)
-dcvClusterParameterGroupFamily =
-    lens _dcvClusterParameterGroupFamily
-        (\s a -> s { _dcvClusterParameterGroupFamily = a })
+-- -   Must be 1 to 255 alphanumeric characters
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+dcvrqClusterParameterGroupFamily :: Lens' DescribeClusterVersions (Maybe Text)
+dcvrqClusterParameterGroupFamily = lens _dcvrqClusterParameterGroupFamily (\ s a -> s{_dcvrqClusterParameterGroupFamily = a});
 
 -- | The specific cluster version to return.
 --
--- Example: '1.0'
-dcvClusterVersion :: Lens' DescribeClusterVersions (Maybe Text)
-dcvClusterVersion =
-    lens _dcvClusterVersion (\s a -> s { _dcvClusterVersion = a })
+-- Example: @1.0@
+dcvrqClusterVersion :: Lens' DescribeClusterVersions (Maybe Text)
+dcvrqClusterVersion = lens _dcvrqClusterVersion (\ s a -> s{_dcvrqClusterVersion = a});
 
--- | An optional parameter that specifies the starting point to return a set of
--- response records. When the results of a 'DescribeClusterVersions' request
--- exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker'
--- field of the response. You can retrieve the next set of response records by
--- providing the returned marker value in the 'Marker' parameter and retrying the
--- request.
-dcvMarker :: Lens' DescribeClusterVersions (Maybe Text)
-dcvMarker = lens _dcvMarker (\s a -> s { _dcvMarker = a })
+instance AWSPager DescribeClusterVersions where
+        page rq rs
+          | stop (rs ^. dcvrsMarker) = Nothing
+          | stop (rs ^. dcvrsClusterVersions) = Nothing
+          | otherwise =
+            Just $ rq & dcvrqMarker .~ rs ^. dcvrsMarker
 
--- | The maximum number of response records to return in each call. If the number
--- of remaining response records exceeds the specified 'MaxRecords' value, a value
--- is returned in a 'marker' field of the response. You can retrieve the next set
--- of records by retrying the command with the returned marker value.
+instance AWSRequest DescribeClusterVersions where
+        type Sv DescribeClusterVersions = Redshift
+        type Rs DescribeClusterVersions =
+             DescribeClusterVersionsResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeClusterVersionsResult"
+              (\ s h x ->
+                 DescribeClusterVersionsResponse' <$>
+                   (x .@? "ClusterVersions" .!@ mempty >>=
+                      may (parseXMLList "ClusterVersion"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeClusterVersions where
+        toHeaders = const mempty
+
+instance ToPath DescribeClusterVersions where
+        toPath = const "/"
+
+instance ToQuery DescribeClusterVersions where
+        toQuery DescribeClusterVersions'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeClusterVersions" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "MaxRecords" =: _dcvrqMaxRecords,
+               "Marker" =: _dcvrqMarker,
+               "ClusterParameterGroupFamily" =:
+                 _dcvrqClusterParameterGroupFamily,
+               "ClusterVersion" =: _dcvrqClusterVersion]
+
+-- | Contains the output from the DescribeClusterVersions action.
 --
--- Default: '100'
---
--- Constraints: minimum 20, maximum 100.
-dcvMaxRecords :: Lens' DescribeClusterVersions (Maybe Int)
-dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
-
-data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
-    { _dcvrClusterVersions :: List "member" ClusterVersion
-    , _dcvrMarker          :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeClusterVersionsResponse' constructor.
+-- /See:/ 'describeClusterVersionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcvrClusterVersions' @::@ ['ClusterVersion']
+-- * 'dcvrsClusterVersions'
 --
--- * 'dcvrMarker' @::@ 'Maybe' 'Text'
+-- * 'dcvrsMarker'
 --
-describeClusterVersionsResponse :: DescribeClusterVersionsResponse
-describeClusterVersionsResponse = DescribeClusterVersionsResponse
-    { _dcvrMarker          = Nothing
-    , _dcvrClusterVersions = mempty
+-- * 'dcvrsStatus'
+data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
+    { _dcvrsClusterVersions :: !(Maybe [ClusterVersion])
+    , _dcvrsMarker          :: !(Maybe Text)
+    , _dcvrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeClusterVersionsResponse' smart constructor.
+describeClusterVersionsResponse :: Int -> DescribeClusterVersionsResponse
+describeClusterVersionsResponse pStatus_ =
+    DescribeClusterVersionsResponse'
+    { _dcvrsClusterVersions = Nothing
+    , _dcvrsMarker = Nothing
+    , _dcvrsStatus = pStatus_
     }
 
--- | A list of 'Version' elements.
-dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
-dcvrClusterVersions =
-    lens _dcvrClusterVersions (\s a -> s { _dcvrClusterVersions = a })
-        . _List
+-- | A list of @Version@ elements.
+dcvrsClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
+dcvrsClusterVersions = lens _dcvrsClusterVersions (\ s a -> s{_dcvrsClusterVersions = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
--- records in a subsequent request. If a value is returned in a response, you
--- can retrieve the next set of records by providing this returned marker value
--- in the 'Marker' parameter and retrying the command. If the 'Marker' field is
--- empty, all response records have been retrieved for the request.
-dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
-dcvrMarker = lens _dcvrMarker (\s a -> s { _dcvrMarker = a })
+-- records in a subsequent request. If a value is returned in a response,
+-- you can retrieve the next set of records by providing this returned
+-- marker value in the @Marker@ parameter and retrying the command. If the
+-- @Marker@ field is empty, all response records have been retrieved for
+-- the request.
+dcvrsMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
+dcvrsMarker = lens _dcvrsMarker (\ s a -> s{_dcvrsMarker = a});
 
-instance ToPath DescribeClusterVersions where
-    toPath = const "/"
-
-instance ToQuery DescribeClusterVersions where
-    toQuery DescribeClusterVersions{..} = mconcat
-        [ "ClusterParameterGroupFamily" =? _dcvClusterParameterGroupFamily
-        , "ClusterVersion"              =? _dcvClusterVersion
-        , "Marker"                      =? _dcvMarker
-        , "MaxRecords"                  =? _dcvMaxRecords
-        ]
-
-instance ToHeaders DescribeClusterVersions
-
-instance AWSRequest DescribeClusterVersions where
-    type Sv DescribeClusterVersions = Redshift
-    type Rs DescribeClusterVersions = DescribeClusterVersionsResponse
-
-    request  = post "DescribeClusterVersions"
-    response = xmlResponse
-
-instance FromXML DescribeClusterVersionsResponse where
-    parseXML = withElement "DescribeClusterVersionsResult" $ \x -> DescribeClusterVersionsResponse
-        <$> x .@? "ClusterVersions" .!@ mempty
-        <*> x .@? "Marker"
-
-instance AWSPager DescribeClusterVersions where
-    page rq rs
-        | stop (rs ^. dcvrMarker) = Nothing
-        | otherwise = (\x -> rq & dcvMarker ?~ x)
-            <$> (rs ^. dcvrMarker)
+-- | FIXME: Undocumented member.
+dcvrsStatus :: Lens' DescribeClusterVersionsResponse Int
+dcvrsStatus = lens _dcvrsStatus (\ s a -> s{_dcvrsStatus = a});

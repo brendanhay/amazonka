@@ -1,446 +1,262 @@
-{-# LANGUAGE ConstraintKinds            #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE RankNTypes                 #-}
-{-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
-
--- This is required due to the MonadBaseControl instance.
 {-# LANGUAGE UndecidableInstances       #-}
 
+{-# OPTIONS_HADDOCK show-extensions #-}
+
+-- |
 -- Module      : Control.Monad.Trans.AWS
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
--- | A monad transformer built on top of functions from "Network.AWS" which
--- encapsulates various common parameters, errors, and usage patterns.
+--
+-- This module offers the 'AWST' transformer which is used as the core for
+-- other modules such as "Network.AWS" and "Control.Monad.Error.AWS".
+-- The function signatures use the minimum satisfiable constraints in order to
+-- stay as general as possible, at the possible cost of readability.
+--
+-- For a simpler interface see "Network.AWS", or, for the pre-@1.0@
+-- behaviour of implicitly lifting errors, see "Control.Monad.Error.AWS".
 module Control.Monad.Trans.AWS
     (
-    -- * Requests
-    -- ** Synchronous
-      send
-    , send_
-    , sendCatch
-    -- ** Paginated
-    , paginate
-    , paginateCatch
-    -- ** Eventual consistency
-    , await
-    , awaitCatch
-    -- ** Pre-signing URLs
-    , presign
-    , presignURL
+    -- * Monad constraints
+    -- $constraints
 
-    -- * Transformer
-    , AWS
-    , AWST
-    , MonadAWS
-
-    -- * Running
+    -- * Running AWS Actions
+      AWST
     , runAWST
+    , pureAWST
 
-    -- * Regionalisation
-    , Region      (..)
-    , within
-
-    -- * Retries
-    , once
-
-    -- * Environment
-    , Env
-    -- ** Lenses
-    , envRegion
-    , envLogger
-    , envRetryCheck
-    , envRetryPolicy
-    , envManager
-    , envAuth
-    -- ** Creating the environment
-    , AWS.newEnv
-    , AWS.getEnv
-    -- ** Specifying credentials
+    -- * Environment Setup
     , Credentials (..)
-    , fromKeys
-    , fromSession
-    , getAuth
-    , accessKey
-    , secretKey
+    , AWSEnv      (..)
+    , Env
+    , newEnv
+
+    -- * Runtime Configuration
+    , within
+    , once
+    , timeout
+
+    -- * EC2 Metadata
+    , metadata
+    , dynamic
+    , userdata
+
+    -- * Sending Requests
+    -- ** Synchronous
+    , send
+    , await
+    , paginate
+    -- ** Overriding Defaults
+    , sendWith
+    , awaitWith
+    , paginateWith
+    -- ** Asynchronous
+    -- $async
+
+    , module Network.AWS.Presign
+
+    , module Network.AWS.Internal.Body
 
     -- * Logging
+    , Logger
     , newLogger
-    , info
-    , debug
-    , trace
-
-    -- * Errors
-    , Error
-    , hoistEither
-    , throwAWSError
-    , verify
-    , verifyWith
-
-    -- ** Streaming body helpers
-    , sourceBody
-    , sourceHandle
-    , sourceFile
-    , sourceFileIO
+    -- ** Levels
+    , LogLevel    (..)
+    , logError
+    , logInfo
+    , logDebug
+    , logTrace
 
     -- * Types
-    , ToBuilder   (..)
     , module Network.AWS.Types
-    , module Network.AWS.Error
     ) where
 
 import           Control.Applicative
-import           Control.Arrow                (first)
-import           Control.Lens
 import           Control.Monad.Base
-import           Control.Monad.Catch
-import           Control.Monad.Error          (MonadError, throwError)
+import           Control.Monad.Catch          (MonadCatch)
+import           Control.Monad.Except
 import           Control.Monad.Morph
 import           Control.Monad.Reader
+import           Control.Monad.State.Class
 import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Except
+import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
-import           Control.Retry                (limitRetries)
-import           Data.ByteString              (ByteString)
-import           Data.Conduit                 hiding (await)
-import           Data.Time                    (UTCTime)
-import qualified Network.AWS                  as AWS
-import           Network.AWS.Data             (ToBuilder (..))
-import           Network.AWS.Error
-import           Network.AWS.Internal.Auth
+import           Control.Monad.Writer.Class
+import           Network.AWS.Auth
+import           Network.AWS.Env
+import           Network.AWS.Free
 import           Network.AWS.Internal.Body
-import           Network.AWS.Internal.Env
-import           Network.AWS.Internal.Log     hiding (debug, info, trace)
-import qualified Network.AWS.Internal.Log     as Log
+import           Network.AWS.Logger
+import           Network.AWS.Prelude
+import           Network.AWS.Presign
 import           Network.AWS.Types
-import           Network.AWS.Waiters
-import qualified Network.HTTP.Conduit         as Client
+import           Network.AWS.Waiter
 
--- | The top-level error type.
-type Error = ServiceError String
+-- FIXME: Add notes about specialising the constraints.
+-- FIXME: Add note about *With variants.
+-- FIXME: Add note about using Control.Monad.Error.Lens.catching* + error prisms
+-- FIXME: Maybe a .Tutorial module?
+-- FIXME: Philosophical notes on the use of lenses, and notes about template-haskell usage.
+-- FIXME: Notes about associated response types, signers, service configuration.
+-- FIXME: {-# OPTIONS_HADDOCK show-extensions #-} everywhere?
+-- FIXME: Correct haddock module headings.
+-- FIXME: Remove personal email address.
+-- FIXME: Note/example about mocking.
 
--- | A convenient alias for 'AWST' 'IO'.
-type AWS = AWST IO
+-- Base64
+-- Blob
+-- ObjectKey
+-- Truncate READMEs (or rewrite)
 
--- | Provides an alias for shortening type signatures if preferred.
---
--- /Note:/ requires the @ConstraintKinds@ extension.
-type MonadAWS m =
-    ( MonadBaseControl IO m
-    , MonadCatch m
-    , MonadResource m
-    , MonadError Error m
-    , MonadReader Env m
-    )
-
--- | The transformer. This satisfies all of the constraints that the functions
--- in this module require, such as providing 'MonadResource' instances,
--- and keeping track of the 'Env' environment.
---
--- The 'MonadError' instance for this transformer internally uses 'ExceptT'
--- to handle actions that result in an 'Error'. For more information see
--- 'sendCatch' and 'paginateCatch'.
-newtype AWST m a = AWST
-    { unAWST :: ReaderT (Env, InternalState) (ExceptT Error m) a
-    } deriving
+newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
+    deriving
         ( Functor
         , Applicative
         , Alternative
         , Monad
-        , MonadIO
         , MonadPlus
-        , MonadThrow
-        , MonadCatch
-        , MonadError Error
+        , MonadIO
+        , MonadFree Command
+        , MonadReader Env
         )
 
-instance Monad m => MonadReader Env (AWST m) where
-    ask = AWST (fst `liftM` ask)
-    {-# INLINE ask #-}
-
-    local f = AWST . local (first f) . unAWST
-    {-# INLINE local #-}
-
-instance MonadTrans AWST where
-    lift = AWST . lift . lift
-    {-# INLINE lift #-}
+instance MonadThrow m => MonadThrow (AWST m) where
+    throwM = lift . throwM
 
 instance MonadBase b m => MonadBase b (AWST m) where
     liftBase = liftBaseDefault
-    {-# INLINE liftBase #-}
-
-instance MonadTransControl AWST where
-    type StT AWST a =
-        StT (ExceptT Error) (StT (ReaderT (Env, InternalState)) a)
-
-    liftWith f = AWST $
-        liftWith $ \g ->
-            liftWith $ \h ->
-                f (h . g . unAWST)
-    {-# INLINE liftWith #-}
-
-    restoreT = AWST . restoreT . restoreT
-    {-# INLINE restoreT #-}
-
-instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
-    type StM (AWST m) a = ComposeSt AWST m a
-
-    liftBaseWith = defaultLiftBaseWith
-    {-# INLINE liftBaseWith #-}
-
-    restoreM = defaultRestoreM
-    {-# INLINE restoreM #-}
 
 instance MFunctor AWST where
-    hoist nat m = AWST (ReaderT (ExceptT . nat . runAWST' m))
-    {-# INLINE hoist #-}
+    hoist nat = AWST . hoistFreeT (hoist nat) . unAWST
 
-instance MMonad AWST where
-    embed f m = liftM2 (,) ask resources
-            >>= f . runAWST' m
-            >>= either throwError return
-    {-# INLINE embed #-}
+instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
+    type StM (AWST m) a =
+         StM m (FreeF Command a (FreeT Command (ReaderT Env m) a))
 
-instance (Applicative m, MonadIO m, MonadBase IO m, MonadThrow m)
-    => MonadResource (AWST m) where
-        liftResourceT f = resources >>= liftIO . runInternalState f
-        {-# INLINE liftResourceT #-}
+    liftBaseWith f = AWST . FreeT . liftM Pure $
+        liftBaseWith $ \runInBase ->
+            f $ \k ->
+                runInBase (runFreeT (unAWST k))
 
--- | Unwrap an 'AWST' transformer, calling all of the registered 'ResourceT'
--- release actions.
-runAWST :: MonadBaseControl IO m => Env -> AWST m a -> m (Either Error a)
-runAWST e m = runResourceT . withInternalState $ runAWST' f . (e,)
-  where
-    f = liftBase (_envLogger e Debug (build e)) >> m
+    restoreM = AWST . FreeT . restoreM
 
-runAWST' :: AWST m a -> (Env, InternalState) -> m (Either Error a)
-runAWST' (AWST k) = runExceptT . runReaderT k
+instance MonadTrans AWST where
+    lift = AWST . lift . lift
 
-resources :: Monad m => AWST m InternalState
-resources = AWST (ReaderT (return . snd))
+instance MonadResource m => MonadResource (AWST m) where
+    liftResourceT = lift . liftResourceT
 
--- | Hoist an 'Either' throwing the 'Left' case, and returning the 'Right'.
-hoistEither :: (MonadError Error m, AWSError e) => Either e a -> m a
-hoistEither = either throwAWSError return
+instance MonadError e m => MonadError e (AWST m) where
+    throwError     = lift . throwError
+    catchError m f = AWST (unAWST m `catchError` (unAWST . f))
 
--- | Throw any 'AWSError' using 'throwError'.
-throwAWSError :: (MonadError Error m, AWSError e) => e -> m a
-throwAWSError = throwError . awsError
+instance MonadState s m => MonadState s (AWST m) where
+    get = lift get
+    put = lift . put
 
--- | Verify that an 'AWSError' matches the given 'Prism', otherwise throw the
--- error using 'throwAWSError'.
-verify :: (AWSError e, MonadError Error m)
-       => Prism' e a
-       -> e
-       -> m ()
-verify p e
-    | isn't p e = throwAWSError e
-    | otherwise = return ()
+instance MonadWriter w m => MonadWriter w (AWST m) where
+    writer = lift . writer
+    tell   = lift . tell
+    listen = AWST . listen . unAWST
+    pass   = AWST . pass   . unAWST
 
--- | Verify that an 'AWSError' matches the given 'Prism', with an additional
--- guard on the result of the 'Prism'.
---
--- /See:/ 'verify'
-verifyWith :: (AWSError e, MonadError Error m)
-           => Prism' e a
-           -> (a -> Bool)
-           -> e
-           -> m ()
-verifyWith p f e = either (const err) g (matching p e)
-  where
-    g x | f x       = return ()
-        | otherwise = err
+runAWST :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWST m a -> m a
+runAWST e (AWST m) = runReaderT (evalProgramT m) (e ^. env)
 
-    err = throwAWSError e
+pureAWST :: (Monad m, AWSEnv r)
+         => (forall s a. Service s ->           a -> Either Error (Rs a))
+         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+         -> r
+         -> AWST m b
+         -> m b
+pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) (e ^. env)
 
--- | Pass the current environment to a function.
-scoped :: MonadReader Env m => (Env -> m a) -> m a
-scoped f = ask >>= f
+{- $embedding
+The following is a more advanced example, of how you might embed Amazonka actions
+within an application specific Monad transformer stack. This demonstrates using
+a custom application environment and application specific error type.
 
--- | Use the supplied logger from 'envLogger' to log info messages.
---
--- /Note:/ By default, the library does not output 'Info' level messages.
--- Exclusive output is guaranteed via use of this function.
-info :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-info x = view envLogger >>= (`Log.info` x)
+The base application Monad could be defined as:
 
--- | Use the supplied logger from 'envLogger' to log debug messages.
-debug :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-debug x = view envLogger >>= (`Log.debug` x)
+> newtype MyApp a = MyApp (ExceptT MyErr (ReaderT MyEnv (ResourceT IO)) a)
+>     deriving ( Functor
+>              , Applicative
+>              , Monad
+>              , MonadIO
+>              , MonadThrow
+>              , MonadCatch
+>              , MonadError  MyErr
+>              , MonadReader MyEnv
+>              , MonadResource
+>              )
 
--- | Use the supplied logger from 'envLogger' to log trace messages.
-trace :: (MonadIO m, MonadReader Env m, ToBuilder a) => a -> m ()
-trace x = view envLogger >>= (`Log.trace` x)
+The environment contains whatever environment the application might need, as
+well as a field for the AWS 'Env':
 
--- | Scope a monadic action within the specific 'Region'.
-within :: MonadReader Env m => Region -> m a -> m a
-within r = local (envRegion .~ r)
+> data MyEnv = MyEnv
+>     { _config :: Config
+>     , _env    :: Env -- ^ Here the AWS environment is embedded.
+>     }
 
--- | Scope a monadic action such that any retry logic for the 'Service' is
--- ignored and any requests will at most be sent once.
-once :: MonadReader Env m => m a -> m a
-once = local $ \e ->
-    e & envRetryPolicy ?~ limitRetries 0
-      & envRetryCheck  .~ (\_ _ -> return False)
+Adding a class instance for 'AWSEnv' to the above environment requires defining
+a lens pointing to where the AWS 'Env' is located:
 
--- | Send a data type which is an instance of 'AWSRequest', returning it's
--- associated 'Rs' response type.
---
--- This will throw any 'HTTPException' or 'AWSServiceError' returned by the
--- service using the 'MonadError' instance. In the case of 'AWST' this will
--- cause the internal 'ExceptT' to short-circuit and return an 'Error' in
--- the 'Left' case as the result of the computation.
---
--- /See:/ 'sendCatch'
-send :: ( MonadCatch m
-        , MonadResource m
-        , MonadReader Env m
-        , MonadError Error m
-        , AWSRequest a
-        )
-     => a
-     -> m (Rs a)
-send = sendCatch >=> hoistEither
+> instance AWSEnv MyEnv where
+>     env = lens _env (\s a -> s { _env = a })
 
--- | A variant of 'send' which discards any successful response.
---
--- /See:/ 'send'
-send_ :: ( MonadCatch m
-         , MonadResource m
-         , MonadReader Env m
-         , MonadError Error m
-         , AWSRequest a
-         )
-      => a
-      -> m ()
-send_ = void . send
+The custom error for the application, contains whatever errors the application
+might return, as well a single constructor that wraps any AWS errors:
 
--- | Send a data type which is an instance of 'AWSRequest', returning either the
--- associated 'Rs' response type in the success case, or the related service's
--- 'Er' type in the error case.
---
--- This includes 'HTTPExceptions', serialisation errors, and any service
--- errors returned as part of the 'Response'.
---
--- /Note:/ Requests will be retried depending upon each service's respective
--- strategy. This can be overriden using 'once' or 'envRetry'.
--- Requests which contain streaming request bodies (such as S3's 'PutObject') are
--- never considered for retries.
-sendCatch :: ( MonadCatch m
-             , MonadResource m
-             , MonadReader Env m
-             , AWSRequest a
-             )
-          => a
-          -> m (Response a)
-sendCatch x = scoped (`AWS.send` x)
+> data MyErr
+>     = GeneralError
+>     | SpecificError  Text
+>     | ElaborateError Text String
+>     | AmazonError    Error -- ^ Here the AWS error is embedded.
 
--- | Send a data type which is an instance of 'AWSPager' and paginate while
--- there are more results as defined by the related service operation.
---
--- Errors will be handle identically to 'send'.
---
--- /Note:/ The 'ResumableSource' will close when there are no more results or the
--- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
---
--- /See:/ 'paginateCatch'
-paginate :: ( MonadCatch m
-            , MonadResource m
-            , MonadReader Env m
-            , MonadError Error m
-            , AWSPager a
-            )
-         => a
-         -> Source m (Rs a)
-paginate x = paginateCatch x $= awaitForever (hoistEither >=> yield)
+Adding a class instances requires defining a prism to wrap/unwrap AWS 'Error'
+in the application's custom @MyErr@ type:
 
--- | Send a data type which is an instance of 'AWSPager' and paginate over
--- the associated 'Rs' response type in the success case, or the related service's
--- 'Er' type in the error case.
---
--- /Note:/ The 'ResumableSource' will close when there are no more results or the
--- 'ResourceT' computation is unwrapped. See: 'runResourceT' for more information.
-paginateCatch :: ( MonadCatch m
-                 , MonadResource m
-                 , MonadReader Env m
-                 , AWSPager a
-                 )
-              => a
-              -> Source m (Response a)
-paginateCatch x = scoped (`AWS.paginate` x)
+> instance AWSError MyErr where
+>     _Error = prism AmazonError $
+>         case e of
+>             AmazonError x -> Right x
+>             _             -> Left  e
 
--- | Poll the API until a predfined condition is fulfilled using the
--- supplied 'Wait' specification from the respective service.
---
--- Any errors which are unhandled by the 'Wait' specification during retries
--- will be thrown in the same manner as 'send'.
---
--- /See:/ 'awaitCatch'
-await :: ( MonadCatch m
-         , MonadResource m
-         , MonadReader Env m
-         , MonadError Error m
-         , AWSRequest a
-         )
-      => Wait a
-      -> a
-      -> m (Rs a)
-await w = awaitCatch w >=> hoistEither
+Running the application can return the application's @MyErr@ in the error case:
 
--- | Poll the API until a predfined condition is fulfilled using the
--- supplied 'Wait' specification from the respective service.
---
--- The response will be either the first error returned that is not handled
--- by the specification, or the successful response from the await request.
---
--- /Note:/ You can find any available 'Wait' specifications under the
--- namespace @Network.AWS.<ServiceName>.Waiters@ for supported services.
-awaitCatch :: ( MonadCatch m
-              , MonadResource m
-              , MonadReader Env m
-              , AWSRequest a
-              )
-           => Wait a
-           -> a
-           -> m (Response a)
-awaitCatch w x = scoped (\e -> AWS.await e w x)
+> runApp :: MyEnv -> MyApp a -> IO (Either MyErr a)
+> runApp e (MyApp k) = runResourceT $ runReaderT (runExceptT k) e
 
--- | Presign an HTTP request that expires at the specified amount of time
--- in the future.
---
--- /Note:/ Requires the service's signer to be an instance of 'AWSPresigner'.
--- Not all signing process support this.
-presign :: ( MonadIO m
-           , MonadReader Env m
-           , AWSRequest a
-           , AWSPresigner (Sg (Sv a))
-           )
-        => a       -- ^ Request to presign.
-        -> UTCTime -- ^ Signing time.
-        -> Integer -- ^ Expiry time in seconds.
-        -> m Client.Request
-presign x t ex = scoped (\e -> AWS.presign e x t ex)
+Functions from "Control.Monad.Error.Lens" such as 'catching' can be used to
+handle AWS specific errors:
 
--- | Presign a URL that expires at the specified amount of time in the future.
---
--- /See:/ 'presign'
-presignURL :: ( MonadIO m
-             , MonadReader Env m
-             , AWSRequest a
-             , AWSPresigner (Sg (Sv a))
-             )
-           => a       -- ^ Request to presign.
-           -> UTCTime -- ^ Signing time.
-           -> Integer -- ^ Expiry time in seconds.
-           -> m ByteString
-presignURL x t ex = scoped (\e -> AWS.presignURL e x t ex)
+> catching _ServiceError $ MyApp (send Bar) :: (ServiceError -> MyApp Bar) -> MyApp Bar
+-}
+
+{- $async
+Requests can be sent asynchronously, but due to guarantees about resource closure
+require the use of <http://hackage.haskell.org/package/lifted-async lifted-async>.
+
+The following example demonstrates retrieving two objects from S3 concurrently:
+
+> import Control.Concurrent.Async.Lifted
+> import Control.Lens
+> import Control.Monad.Trans.AWS
+> import Network.AWS.S3
+>
+> do x   <- async . send $ getObject "bucket" "prefix/object-foo"
+>    y   <- async . send $ getObject "bucket" "prefix/object-bar"
+>    foo <- wait x
+>    bar <- wait y
+>    ...
+
+/See:/ <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
+-}

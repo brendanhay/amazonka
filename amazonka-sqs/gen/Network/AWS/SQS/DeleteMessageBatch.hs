@@ -1,40 +1,37 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SQS.DeleteMessageBatch
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes up to ten messages from the specified queue. This is a batch version
--- of 'DeleteMessage'. The result of the delete action on each message is reported
--- individually in the response.
+-- Deletes up to ten messages from the specified queue. This is a batch
+-- version of DeleteMessage. The result of the delete action on each
+-- message is reported individually in the response.
 --
 -- Because the batch request can result in a combination of successful and
--- unsuccessful actions, you should check for batch errors even when the call
--- returns an HTTP status code of 200.
+-- unsuccessful actions, you should check for batch errors even when the
+-- call returns an HTTP status code of 200.
 --
--- Some API actions take lists of parameters. These lists are specified using
--- the 'param.n' notation. Values of 'n' are integers starting from 1. For example,
--- a parameter list with two elements looks like this:  '&Attribute.1=this'
+-- Some API actions take lists of parameters. These lists are specified
+-- using the @param.n@ notation. Values of @n@ are integers starting from
+-- 1. For example, a parameter list with two elements looks like this:
 --
--- '&Attribute.2=that'
+-- @&Attribute.1=this@
+--
+-- @&Attribute.2=that@
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html>
 module Network.AWS.SQS.DeleteMessageBatch
@@ -44,97 +41,116 @@ module Network.AWS.SQS.DeleteMessageBatch
     -- ** Request constructor
     , deleteMessageBatch
     -- ** Request lenses
-    , dmbEntries
-    , dmbQueueUrl
+    , dmbrqQueueURL
+    , dmbrqEntries
 
     -- * Response
     , DeleteMessageBatchResponse
     -- ** Response constructor
     , deleteMessageBatchResponse
     -- ** Response lenses
-    , dmbrFailed
-    , dmbrSuccessful
+    , dmbrsStatus
+    , dmbrsSuccessful
+    , dmbrsFailed
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SQS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
-data DeleteMessageBatch = DeleteMessageBatch
-    { _dmbEntries  :: List "member" DeleteMessageBatchRequestEntry
-    , _dmbQueueUrl :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'DeleteMessageBatch' constructor.
+-- | /See:/ 'deleteMessageBatch' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmbEntries' @::@ ['DeleteMessageBatchRequestEntry']
+-- * 'dmbrqQueueURL'
 --
--- * 'dmbQueueUrl' @::@ 'Text'
---
-deleteMessageBatch :: Text -- ^ 'dmbQueueUrl'
-                   -> DeleteMessageBatch
-deleteMessageBatch p1 = DeleteMessageBatch
-    { _dmbQueueUrl = p1
-    , _dmbEntries  = mempty
-    }
+-- * 'dmbrqEntries'
+data DeleteMessageBatch = DeleteMessageBatch'
+    { _dmbrqQueueURL :: !Text
+    , _dmbrqEntries  :: ![DeleteMessageBatchRequestEntry]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | A list of receipt handles for the messages to be deleted.
-dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
-dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a }) . _List
+-- | 'DeleteMessageBatch' smart constructor.
+deleteMessageBatch :: Text -> DeleteMessageBatch
+deleteMessageBatch pQueueURL_ =
+    DeleteMessageBatch'
+    { _dmbrqQueueURL = pQueueURL_
+    , _dmbrqEntries = mempty
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
-dmbQueueUrl :: Lens' DeleteMessageBatch Text
-dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
+dmbrqQueueURL :: Lens' DeleteMessageBatch Text
+dmbrqQueueURL = lens _dmbrqQueueURL (\ s a -> s{_dmbrqQueueURL = a});
 
-data DeleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbrFailed     :: List "member" BatchResultErrorEntry
-    , _dmbrSuccessful :: List "member" DeleteMessageBatchResultEntry
-    } deriving (Eq, Read, Show)
+-- | A list of receipt handles for the messages to be deleted.
+dmbrqEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
+dmbrqEntries = lens _dmbrqEntries (\ s a -> s{_dmbrqEntries = a});
 
--- | 'DeleteMessageBatchResponse' constructor.
+instance AWSRequest DeleteMessageBatch where
+        type Sv DeleteMessageBatch = SQS
+        type Rs DeleteMessageBatch =
+             DeleteMessageBatchResponse
+        request = post
+        response
+          = receiveXMLWrapper "DeleteMessageBatchResult"
+              (\ s h x ->
+                 DeleteMessageBatchResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (parseXMLList "DeleteMessageBatchResultEntry" x)
+                     <*> (parseXMLList "BatchResultErrorEntry" x))
+
+instance ToHeaders DeleteMessageBatch where
+        toHeaders = const mempty
+
+instance ToPath DeleteMessageBatch where
+        toPath = const "/"
+
+instance ToQuery DeleteMessageBatch where
+        toQuery DeleteMessageBatch'{..}
+          = mconcat
+              ["Action" =: ("DeleteMessageBatch" :: ByteString),
+               "Version" =: ("2012-11-05" :: ByteString),
+               "QueueUrl" =: _dmbrqQueueURL,
+               toQueryList "DeleteMessageBatchRequestEntry"
+                 _dmbrqEntries]
+
+-- | For each message in the batch, the response contains a
+-- DeleteMessageBatchResultEntry tag if the message is deleted or a
+-- BatchResultErrorEntry tag if the message cannot be deleted.
+--
+-- /See:/ 'deleteMessageBatchResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmbrFailed' @::@ ['BatchResultErrorEntry']
+-- * 'dmbrsStatus'
 --
--- * 'dmbrSuccessful' @::@ ['DeleteMessageBatchResultEntry']
+-- * 'dmbrsSuccessful'
 --
-deleteMessageBatchResponse :: DeleteMessageBatchResponse
-deleteMessageBatchResponse = DeleteMessageBatchResponse
-    { _dmbrSuccessful = mempty
-    , _dmbrFailed     = mempty
+-- * 'dmbrsFailed'
+data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
+    { _dmbrsStatus     :: !Int
+    , _dmbrsSuccessful :: ![DeleteMessageBatchResultEntry]
+    , _dmbrsFailed     :: ![BatchResultErrorEntry]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteMessageBatchResponse' smart constructor.
+deleteMessageBatchResponse :: Int -> DeleteMessageBatchResponse
+deleteMessageBatchResponse pStatus_ =
+    DeleteMessageBatchResponse'
+    { _dmbrsStatus = pStatus_
+    , _dmbrsSuccessful = mempty
+    , _dmbrsFailed = mempty
     }
 
--- | A list of 'BatchResultErrorEntry' items.
-dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
-dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a }) . _List
+-- | FIXME: Undocumented member.
+dmbrsStatus :: Lens' DeleteMessageBatchResponse Int
+dmbrsStatus = lens _dmbrsStatus (\ s a -> s{_dmbrsStatus = a});
 
--- | A list of 'DeleteMessageBatchResultEntry' items.
-dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
-dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a }) . _List
+-- | A list of DeleteMessageBatchResultEntry items.
+dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
+dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a});
 
-instance ToPath DeleteMessageBatch where
-    toPath = const "/"
-
-instance ToQuery DeleteMessageBatch where
-    toQuery DeleteMessageBatch{..} = mconcat
-        [ toQuery   _dmbEntries
-        , "QueueUrl" =? _dmbQueueUrl
-        ]
-
-instance ToHeaders DeleteMessageBatch
-
-instance AWSRequest DeleteMessageBatch where
-    type Sv DeleteMessageBatch = SQS
-    type Rs DeleteMessageBatch = DeleteMessageBatchResponse
-
-    request  = post "DeleteMessageBatch"
-    response = xmlResponse
-
-instance FromXML DeleteMessageBatchResponse where
-    parseXML = withElement "DeleteMessageBatchResult" $ \x -> DeleteMessageBatchResponse
-        <$> parseXML x
-        <*> parseXML x
+-- | A list of BatchResultErrorEntry items.
+dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
+dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a});

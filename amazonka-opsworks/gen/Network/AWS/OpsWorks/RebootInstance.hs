@@ -1,32 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.RebootInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Reboots a specified instance. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping,and Rebooting Instances>.
+-- Reboots a specified instance. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-starting.html Starting, Stopping, and Rebooting Instances>.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RebootInstance.html>
 module Network.AWS.OpsWorks.RebootInstance
@@ -36,7 +34,7 @@ module Network.AWS.OpsWorks.RebootInstance
     -- ** Request constructor
     , rebootInstance
     -- ** Request lenses
-    , riInstanceId
+    , rirqInstanceId
 
     -- * Response
     , RebootInstanceResponse
@@ -44,55 +42,61 @@ module Network.AWS.OpsWorks.RebootInstance
     , rebootInstanceResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype RebootInstance = RebootInstance
-    { _riInstanceId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'RebootInstance' constructor.
+-- | /See:/ 'rebootInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riInstanceId' @::@ 'Text'
---
-rebootInstance :: Text -- ^ 'riInstanceId'
-               -> RebootInstance
-rebootInstance p1 = RebootInstance
-    { _riInstanceId = p1
+-- * 'rirqInstanceId'
+newtype RebootInstance = RebootInstance'
+    { _rirqInstanceId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RebootInstance' smart constructor.
+rebootInstance :: Text -> RebootInstance
+rebootInstance pInstanceId_ =
+    RebootInstance'
+    { _rirqInstanceId = pInstanceId_
     }
 
 -- | The instance ID.
-riInstanceId :: Lens' RebootInstance Text
-riInstanceId = lens _riInstanceId (\s a -> s { _riInstanceId = a })
-
-data RebootInstanceResponse = RebootInstanceResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RebootInstanceResponse' constructor.
-rebootInstanceResponse :: RebootInstanceResponse
-rebootInstanceResponse = RebootInstanceResponse
-
-instance ToPath RebootInstance where
-    toPath = const "/"
-
-instance ToQuery RebootInstance where
-    toQuery = const mempty
-
-instance ToHeaders RebootInstance
-
-instance ToJSON RebootInstance where
-    toJSON RebootInstance{..} = object
-        [ "InstanceId" .= _riInstanceId
-        ]
+rirqInstanceId :: Lens' RebootInstance Text
+rirqInstanceId = lens _rirqInstanceId (\ s a -> s{_rirqInstanceId = a});
 
 instance AWSRequest RebootInstance where
-    type Sv RebootInstance = OpsWorks
-    type Rs RebootInstance = RebootInstanceResponse
+        type Sv RebootInstance = OpsWorks
+        type Rs RebootInstance = RebootInstanceResponse
+        request = postJSON
+        response = receiveNull RebootInstanceResponse'
 
-    request  = post "RebootInstance"
-    response = nullResponse RebootInstanceResponse
+instance ToHeaders RebootInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.RebootInstance" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON RebootInstance where
+        toJSON RebootInstance'{..}
+          = object ["InstanceId" .= _rirqInstanceId]
+
+instance ToPath RebootInstance where
+        toPath = const "/"
+
+instance ToQuery RebootInstance where
+        toQuery = const mempty
+
+-- | /See:/ 'rebootInstanceResponse' smart constructor.
+data RebootInstanceResponse =
+    RebootInstanceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RebootInstanceResponse' smart constructor.
+rebootInstanceResponse :: RebootInstanceResponse
+rebootInstanceResponse = RebootInstanceResponse'

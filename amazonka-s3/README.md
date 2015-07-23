@@ -1,20 +1,25 @@
 # Amazon Simple Storage Service SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a
-simple web services interface that you can use to store and retrieve any
-amount of data, at any time, from anywhere on the web. It gives any developer
-access to the same highly scalable, reliable, fast, inexpensive data storage
-infrastructure that Amazon uses to run its own global network of web sites.
-The service aims to maximize benefits of scale and to pass those benefits on
-to developers.
+Amazon Simple Storage Service is storage for the Internet. Amazon S3 has
+a simple web services interface that you can use to store and retrieve
+any amount of data, at any time, from anywhere on the web. It gives any
+developer access to the same highly scalable, reliable, fast,
+inexpensive data storage infrastructure that Amazon uses to run its own
+global network of web sites. The service aims to maximize benefits of
+scale and to pass those benefits on to developers.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-s3)
 and the [AWS API Reference](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html).

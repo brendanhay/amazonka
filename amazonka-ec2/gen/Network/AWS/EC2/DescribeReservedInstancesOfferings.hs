@@ -1,34 +1,31 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesOfferings
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes Reserved Instance offerings that are available for purchase. With
--- Reserved Instances, you purchase the right to launch instances for a period
--- of time. During that time period, you do not receive insufficient capacity
--- errors, and you pay a lower usage rate than the rate charged for On-Demand
--- instances for the actual time used.
+-- Describes Reserved Instance offerings that are available for purchase.
+-- With Reserved Instances, you purchase the right to launch instances for
+-- a period of time. During that time period, you do not receive
+-- insufficient capacity errors, and you pay a lower usage rate than the
+-- rate charged for On-Demand instances for the actual time used.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html>
 module Network.AWS.EC2.DescribeReservedInstancesOfferings
@@ -38,279 +35,314 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- ** Request constructor
     , describeReservedInstancesOfferings
     -- ** Request lenses
-    , drioAvailabilityZone
-    , drioDryRun
-    , drioFilters
-    , drioIncludeMarketplace
-    , drioInstanceTenancy
-    , drioInstanceType
-    , drioMaxDuration
-    , drioMaxInstanceCount
-    , drioMaxResults
-    , drioMinDuration
-    , drioNextToken
-    , drioOfferingType
-    , drioProductDescription
-    , drioReservedInstancesOfferingIds
+    , driorqMaxDuration
+    , driorqProductDescription
+    , driorqIncludeMarketplace
+    , driorqFilters
+    , driorqInstanceType
+    , driorqNextToken
+    , driorqMinDuration
+    , driorqAvailabilityZone
+    , driorqOfferingType
+    , driorqReservedInstancesOfferingIds
+    , driorqInstanceTenancy
+    , driorqDryRun
+    , driorqMaxResults
+    , driorqMaxInstanceCount
 
     -- * Response
     , DescribeReservedInstancesOfferingsResponse
     -- ** Response constructor
     , describeReservedInstancesOfferingsResponse
     -- ** Response lenses
-    , driorNextToken
-    , driorReservedInstancesOfferings
+    , driorsNextToken
+    , driorsReservedInstancesOfferings
+    , driorsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _drioAvailabilityZone             :: Maybe Text
-    , _drioDryRun                       :: Maybe Bool
-    , _drioFilters                      :: List "Filter" Filter
-    , _drioIncludeMarketplace           :: Maybe Bool
-    , _drioInstanceTenancy              :: Maybe Tenancy
-    , _drioInstanceType                 :: Maybe InstanceType
-    , _drioMaxDuration                  :: Maybe Integer
-    , _drioMaxInstanceCount             :: Maybe Int
-    , _drioMaxResults                   :: Maybe Int
-    , _drioMinDuration                  :: Maybe Integer
-    , _drioNextToken                    :: Maybe Text
-    , _drioOfferingType                 :: Maybe OfferingTypeValues
-    , _drioProductDescription           :: Maybe RIProductDescription
-    , _drioReservedInstancesOfferingIds :: List "ReservedInstancesOfferingId" Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeReservedInstancesOfferings' constructor.
+-- | /See:/ 'describeReservedInstancesOfferings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drioAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'driorqMaxDuration'
 --
--- * 'drioDryRun' @::@ 'Maybe' 'Bool'
+-- * 'driorqProductDescription'
 --
--- * 'drioFilters' @::@ ['Filter']
+-- * 'driorqIncludeMarketplace'
 --
--- * 'drioIncludeMarketplace' @::@ 'Maybe' 'Bool'
+-- * 'driorqFilters'
 --
--- * 'drioInstanceTenancy' @::@ 'Maybe' 'Tenancy'
+-- * 'driorqInstanceType'
 --
--- * 'drioInstanceType' @::@ 'Maybe' 'InstanceType'
+-- * 'driorqNextToken'
 --
--- * 'drioMaxDuration' @::@ 'Maybe' 'Integer'
+-- * 'driorqMinDuration'
 --
--- * 'drioMaxInstanceCount' @::@ 'Maybe' 'Int'
+-- * 'driorqAvailabilityZone'
 --
--- * 'drioMaxResults' @::@ 'Maybe' 'Int'
+-- * 'driorqOfferingType'
 --
--- * 'drioMinDuration' @::@ 'Maybe' 'Integer'
+-- * 'driorqReservedInstancesOfferingIds'
 --
--- * 'drioNextToken' @::@ 'Maybe' 'Text'
+-- * 'driorqInstanceTenancy'
 --
--- * 'drioOfferingType' @::@ 'Maybe' 'OfferingTypeValues'
+-- * 'driorqDryRun'
 --
--- * 'drioProductDescription' @::@ 'Maybe' 'RIProductDescription'
+-- * 'driorqMaxResults'
 --
--- * 'drioReservedInstancesOfferingIds' @::@ ['Text']
---
+-- * 'driorqMaxInstanceCount'
+data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
+    { _driorqMaxDuration                  :: !(Maybe Integer)
+    , _driorqProductDescription           :: !(Maybe RIProductDescription)
+    , _driorqIncludeMarketplace           :: !(Maybe Bool)
+    , _driorqFilters                      :: !(Maybe [Filter])
+    , _driorqInstanceType                 :: !(Maybe InstanceType)
+    , _driorqNextToken                    :: !(Maybe Text)
+    , _driorqMinDuration                  :: !(Maybe Integer)
+    , _driorqAvailabilityZone             :: !(Maybe Text)
+    , _driorqOfferingType                 :: !(Maybe OfferingTypeValues)
+    , _driorqReservedInstancesOfferingIds :: !(Maybe [Text])
+    , _driorqInstanceTenancy              :: !(Maybe Tenancy)
+    , _driorqDryRun                       :: !(Maybe Bool)
+    , _driorqMaxResults                   :: !(Maybe Int)
+    , _driorqMaxInstanceCount             :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeReservedInstancesOfferings' smart constructor.
 describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
-describeReservedInstancesOfferings = DescribeReservedInstancesOfferings
-    { _drioDryRun                       = Nothing
-    , _drioReservedInstancesOfferingIds = mempty
-    , _drioInstanceType                 = Nothing
-    , _drioAvailabilityZone             = Nothing
-    , _drioProductDescription           = Nothing
-    , _drioFilters                      = mempty
-    , _drioInstanceTenancy              = Nothing
-    , _drioOfferingType                 = Nothing
-    , _drioNextToken                    = Nothing
-    , _drioMaxResults                   = Nothing
-    , _drioIncludeMarketplace           = Nothing
-    , _drioMinDuration                  = Nothing
-    , _drioMaxDuration                  = Nothing
-    , _drioMaxInstanceCount             = Nothing
+describeReservedInstancesOfferings =
+    DescribeReservedInstancesOfferings'
+    { _driorqMaxDuration = Nothing
+    , _driorqProductDescription = Nothing
+    , _driorqIncludeMarketplace = Nothing
+    , _driorqFilters = Nothing
+    , _driorqInstanceType = Nothing
+    , _driorqNextToken = Nothing
+    , _driorqMinDuration = Nothing
+    , _driorqAvailabilityZone = Nothing
+    , _driorqOfferingType = Nothing
+    , _driorqReservedInstancesOfferingIds = Nothing
+    , _driorqInstanceTenancy = Nothing
+    , _driorqDryRun = Nothing
+    , _driorqMaxResults = Nothing
+    , _driorqMaxInstanceCount = Nothing
     }
 
--- | The Availability Zone in which the Reserved Instance can be used.
-drioAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
-drioAvailabilityZone =
-    lens _drioAvailabilityZone (\s a -> s { _drioAvailabilityZone = a })
+-- | The maximum duration (in seconds) to filter when searching for
+-- offerings.
+--
+-- Default: 94608000 (3 years)
+driorqMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+driorqMaxDuration = lens _driorqMaxDuration (\ s a -> s{_driorqMaxDuration = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-drioDryRun :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
-drioDryRun = lens _drioDryRun (\s a -> s { _drioDryRun = a })
+-- | The Reserved Instance product platform description. Instances that
+-- include @(Amazon VPC)@ in the description are for use with Amazon VPC.
+driorqProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
+driorqProductDescription = lens _driorqProductDescription (\ s a -> s{_driorqProductDescription = a});
+
+-- | Include Marketplace offerings in the response.
+driorqIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
+driorqIncludeMarketplace = lens _driorqIncludeMarketplace (\ s a -> s{_driorqIncludeMarketplace = a});
 
 -- | One or more filters.
 --
--- 'availability-zone' - The Availability Zone where the Reserved Instance can
--- be used.
+-- -   @availability-zone@ - The Availability Zone where the Reserved
+--     Instance can be used.
 --
--- 'duration' - The duration of the Reserved Instance (for example, one year or
--- three years), in seconds ('31536000' | '94608000').
+-- -   @duration@ - The duration of the Reserved Instance (for example, one
+--     year or three years), in seconds (@31536000@ | @94608000@).
 --
--- 'fixed-price' - The purchase price of the Reserved Instance (for example,
--- 9800.0).
+-- -   @fixed-price@ - The purchase price of the Reserved Instance (for
+--     example, 9800.0).
 --
--- 'instance-type' - The instance type on which the Reserved Instance can be
--- used.
+-- -   @instance-type@ - The instance type on which the Reserved Instance
+--     can be used.
 --
--- 'marketplace' - Set to 'true' to show only Reserved Instance Marketplace
--- offerings. When this filter is not used, which is the default behavior, all
--- offerings from AWS and Reserved Instance Marketplace are listed.
+-- -   @marketplace@ - Set to @true@ to show only Reserved Instance
+--     Marketplace offerings. When this filter is not used, which is the
+--     default behavior, all offerings from AWS and Reserved Instance
+--     Marketplace are listed.
 --
--- 'product-description' - The description of the Reserved Instance ('Linux/UNIX'
--- | 'Linux/UNIX (Amazon VPC)' | 'Windows' | 'Windows (Amazon VPC)').
+-- -   @product-description@ - The Reserved Instance product platform
+--     description. Instances that include @(Amazon VPC)@ in the product
+--     platform description will only be displayed to EC2-Classic account
+--     holders and are for use with Amazon VPC. (@Linux\/UNIX@ |
+--     @Linux\/UNIX (Amazon VPC)@ | @SUSE Linux@ |
+--     @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ |
+--     @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ |
+--     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
+--     @Windows with SQL Server Standard (Amazon VPC)@ |
+--     @Windows with SQL Server Web@ |
+--     @ Windows with SQL Server Web (Amazon VPC)@ |
+--     @Windows with SQL Server Enterprise@ |
+--     @Windows with SQL Server Enterprise (Amazon VPC)@)
 --
--- 'reserved-instances-offering-id' - The Reserved Instances offering ID.
+-- -   @reserved-instances-offering-id@ - The Reserved Instances offering
+--     ID.
 --
--- 'usage-price' - The usage price of the Reserved Instance, per hour (for
--- example, 0.84).
+-- -   @usage-price@ - The usage price of the Reserved Instance, per hour
+--     (for example, 0.84).
 --
---
-drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
-drioFilters = lens _drioFilters (\s a -> s { _drioFilters = a }) . _List
-
--- | Include Marketplace offerings in the response.
-drioIncludeMarketplace :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
-drioIncludeMarketplace =
-    lens _drioIncludeMarketplace (\s a -> s { _drioIncludeMarketplace = a })
-
--- | The tenancy of the Reserved Instance offering. A Reserved Instance with 'dedicated' tenancy runs on single-tenant hardware and can only be launched within a VPC.
---
--- Default: 'default'
-drioInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
-drioInstanceTenancy =
-    lens _drioInstanceTenancy (\s a -> s { _drioInstanceTenancy = a })
+driorqFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
+driorqFilters = lens _driorqFilters (\ s a -> s{_driorqFilters = a}) . _Default;
 
 -- | The instance type on which the Reserved Instance can be used. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/
--- .
-drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
-drioInstanceType = lens _drioInstanceType (\s a -> s { _drioInstanceType = a })
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+driorqInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
+driorqInstanceType = lens _driorqInstanceType (\ s a -> s{_driorqInstanceType = a});
 
--- | The maximum duration (in seconds) to filter when searching for offerings.
+-- | The token to retrieve the next page of results.
+driorqNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+driorqNextToken = lens _driorqNextToken (\ s a -> s{_driorqNextToken = a});
+
+-- | The minimum duration (in seconds) to filter when searching for
+-- offerings.
 --
--- Default: 94608000 (3 years)
-drioMaxDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
-drioMaxDuration = lens _drioMaxDuration (\s a -> s { _drioMaxDuration = a })
+-- Default: 2592000 (1 month)
+driorqMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
+driorqMinDuration = lens _driorqMinDuration (\ s a -> s{_driorqMinDuration = a});
+
+-- | The Availability Zone in which the Reserved Instance can be used.
+driorqAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
+driorqAvailabilityZone = lens _driorqAvailabilityZone (\ s a -> s{_driorqAvailabilityZone = a});
+
+-- | The Reserved Instance offering type. If you are using tools that predate
+-- the 2011-11-01 API version, you only have access to the
+-- @Medium Utilization@ Reserved Instance offering type.
+driorqOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
+driorqOfferingType = lens _driorqOfferingType (\ s a -> s{_driorqOfferingType = a});
+
+-- | One or more Reserved Instances offering IDs.
+driorqReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
+driorqReservedInstancesOfferingIds = lens _driorqReservedInstancesOfferingIds (\ s a -> s{_driorqReservedInstancesOfferingIds = a}) . _Default;
+
+-- | The tenancy of the Reserved Instance offering. A Reserved Instance with
+-- @dedicated@ tenancy runs on single-tenant hardware and can only be
+-- launched within a VPC.
+--
+-- Default: @default@
+driorqInstanceTenancy :: Lens' DescribeReservedInstancesOfferings (Maybe Tenancy)
+driorqInstanceTenancy = lens _driorqInstanceTenancy (\ s a -> s{_driorqInstanceTenancy = a});
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+driorqDryRun :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
+driorqDryRun = lens _driorqDryRun (\ s a -> s{_driorqDryRun = a});
+
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results of the initial request can be seen by
+-- sending another request with the returned @NextToken@ value. The maximum
+-- is 100.
+--
+-- Default: 100
+driorqMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
+driorqMaxResults = lens _driorqMaxResults (\ s a -> s{_driorqMaxResults = a});
 
 -- | The maximum number of instances to filter when searching for offerings.
 --
 -- Default: 20
-drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
-drioMaxInstanceCount =
-    lens _drioMaxInstanceCount (\s a -> s { _drioMaxInstanceCount = a })
+driorqMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
+driorqMaxInstanceCount = lens _driorqMaxInstanceCount (\ s a -> s{_driorqMaxInstanceCount = a});
 
--- | The maximum number of results to return for the request in a single page. The
--- remaining results of the initial request can be seen by sending another
--- request with the returned 'NextToken' value. The maximum is 100.
---
--- Default: 100
-drioMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
-drioMaxResults = lens _drioMaxResults (\s a -> s { _drioMaxResults = a })
+instance AWSPager DescribeReservedInstancesOfferings
+         where
+        page rq rs
+          | stop (rs ^. driorsNextToken) = Nothing
+          | stop (rs ^. driorsReservedInstancesOfferings) =
+            Nothing
+          | otherwise =
+            Just $ rq & driorqNextToken .~ rs ^. driorsNextToken
 
--- | The minimum duration (in seconds) to filter when searching for offerings.
---
--- Default: 2592000 (1 month)
-drioMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
-drioMinDuration = lens _drioMinDuration (\s a -> s { _drioMinDuration = a })
+instance AWSRequest
+         DescribeReservedInstancesOfferings where
+        type Sv DescribeReservedInstancesOfferings = EC2
+        type Rs DescribeReservedInstancesOfferings =
+             DescribeReservedInstancesOfferingsResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeReservedInstancesOfferingsResponse' <$>
+                   (x .@? "nextToken") <*>
+                     (x .@? "reservedInstancesOfferingsSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
--- | The token to retrieve the next page of results.
-drioNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
-drioNextToken = lens _drioNextToken (\s a -> s { _drioNextToken = a })
+instance ToHeaders DescribeReservedInstancesOfferings
+         where
+        toHeaders = const mempty
 
--- | The Reserved Instance offering type. If you are using tools that predate the
--- 2011-11-01 API version, you only have access to the 'Medium Utilization'
--- Reserved Instance offering type.
-drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingTypeValues)
-drioOfferingType = lens _drioOfferingType (\s a -> s { _drioOfferingType = a })
+instance ToPath DescribeReservedInstancesOfferings
+         where
+        toPath = const "/"
 
--- | The Reserved Instance description. Instances that include '(Amazon VPC)' in the
--- description are for use with Amazon VPC.
-drioProductDescription :: Lens' DescribeReservedInstancesOfferings (Maybe RIProductDescription)
-drioProductDescription =
-    lens _drioProductDescription (\s a -> s { _drioProductDescription = a })
+instance ToQuery DescribeReservedInstancesOfferings
+         where
+        toQuery DescribeReservedInstancesOfferings'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeReservedInstancesOfferings" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "MaxDuration" =: _driorqMaxDuration,
+               "ProductDescription" =: _driorqProductDescription,
+               "IncludeMarketplace" =: _driorqIncludeMarketplace,
+               toQuery (toQueryList "Filter" <$> _driorqFilters),
+               "InstanceType" =: _driorqInstanceType,
+               "NextToken" =: _driorqNextToken,
+               "MinDuration" =: _driorqMinDuration,
+               "AvailabilityZone" =: _driorqAvailabilityZone,
+               "OfferingType" =: _driorqOfferingType,
+               toQuery
+                 (toQueryList "ReservedInstancesOfferingId" <$>
+                    _driorqReservedInstancesOfferingIds),
+               "InstanceTenancy" =: _driorqInstanceTenancy,
+               "DryRun" =: _driorqDryRun,
+               "MaxResults" =: _driorqMaxResults,
+               "MaxInstanceCount" =: _driorqMaxInstanceCount]
 
--- | One or more Reserved Instances offering IDs.
-drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
-drioReservedInstancesOfferingIds =
-    lens _drioReservedInstancesOfferingIds
-        (\s a -> s { _drioReservedInstancesOfferingIds = a })
-            . _List
-
-data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
-    { _driorNextToken                  :: Maybe Text
-    , _driorReservedInstancesOfferings :: List "item" ReservedInstancesOffering
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeReservedInstancesOfferingsResponse' constructor.
+-- | /See:/ 'describeReservedInstancesOfferingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'driorNextToken' @::@ 'Maybe' 'Text'
+-- * 'driorsNextToken'
 --
--- * 'driorReservedInstancesOfferings' @::@ ['ReservedInstancesOffering']
+-- * 'driorsReservedInstancesOfferings'
 --
-describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
-describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
-    { _driorReservedInstancesOfferings = mempty
-    , _driorNextToken                  = Nothing
+-- * 'driorsStatus'
+data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
+    { _driorsNextToken                  :: !(Maybe Text)
+    , _driorsReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
+    , _driorsStatus                     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
+describeReservedInstancesOfferingsResponse :: Int -> DescribeReservedInstancesOfferingsResponse
+describeReservedInstancesOfferingsResponse pStatus_ =
+    DescribeReservedInstancesOfferingsResponse'
+    { _driorsNextToken = Nothing
+    , _driorsReservedInstancesOfferings = Nothing
+    , _driorsStatus = pStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is 'null'
--- when there are no more results to return.
-driorNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
-driorNextToken = lens _driorNextToken (\s a -> s { _driorNextToken = a })
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+driorsNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
+driorsNextToken = lens _driorsNextToken (\ s a -> s{_driorsNextToken = a});
 
 -- | A list of Reserved Instances offerings.
-driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
-driorReservedInstancesOfferings =
-    lens _driorReservedInstancesOfferings
-        (\s a -> s { _driorReservedInstancesOfferings = a })
-            . _List
+driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
+driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default;
 
-instance ToPath DescribeReservedInstancesOfferings where
-    toPath = const "/"
-
-instance ToQuery DescribeReservedInstancesOfferings where
-    toQuery DescribeReservedInstancesOfferings{..} = mconcat
-        [ "AvailabilityZone"            =? _drioAvailabilityZone
-        , "DryRun"                      =? _drioDryRun
-        , "Filter"                      `toQueryList` _drioFilters
-        , "IncludeMarketplace"          =? _drioIncludeMarketplace
-        , "InstanceTenancy"             =? _drioInstanceTenancy
-        , "InstanceType"                =? _drioInstanceType
-        , "MaxDuration"                 =? _drioMaxDuration
-        , "MaxInstanceCount"            =? _drioMaxInstanceCount
-        , "MaxResults"                  =? _drioMaxResults
-        , "MinDuration"                 =? _drioMinDuration
-        , "NextToken"                   =? _drioNextToken
-        , "OfferingType"                =? _drioOfferingType
-        , "ProductDescription"          =? _drioProductDescription
-        , "ReservedInstancesOfferingId" `toQueryList` _drioReservedInstancesOfferingIds
-        ]
-
-instance ToHeaders DescribeReservedInstancesOfferings
-
-instance AWSRequest DescribeReservedInstancesOfferings where
-    type Sv DescribeReservedInstancesOfferings = EC2
-    type Rs DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferingsResponse
-
-    request  = post "DescribeReservedInstancesOfferings"
-    response = xmlResponse
-
-instance FromXML DescribeReservedInstancesOfferingsResponse where
-    parseXML x = DescribeReservedInstancesOfferingsResponse
-        <$> x .@? "nextToken"
-        <*> x .@? "reservedInstancesOfferingsSet" .!@ mempty
-
-instance AWSPager DescribeReservedInstancesOfferings where
-    page rq rs
-        | stop (rs ^. driorNextToken) = Nothing
-        | otherwise = (\x -> rq & drioNextToken ?~ x)
-            <$> (rs ^. driorNextToken)
+-- | FIXME: Undocumented member.
+driorsStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int
+driorsStatus = lens _driorsStatus (\ s a -> s{_driorsStatus = a});

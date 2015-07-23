@@ -1,32 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.AbortMultipartUpload
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Aborts a multipart upload.
+-- Aborts a multipart upload.
 --
--- To verify that all parts have been removed, so you don't get charged for the
--- part storage, you should call the List Parts operation and ensure the parts
--- list is empty.
+-- To verify that all parts have been removed, so you don\'t get charged
+-- for the part storage, you should call the List Parts operation and
+-- ensure the parts list is empty.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/AbortMultipartUpload.html>
 module Network.AWS.S3.AbortMultipartUpload
@@ -36,110 +31,119 @@ module Network.AWS.S3.AbortMultipartUpload
     -- ** Request constructor
     , abortMultipartUpload
     -- ** Request lenses
-    , amuBucket
-    , amuKey
-    , amuRequestPayer
-    , amuUploadId
+    , amurqRequestPayer
+    , amurqBucket
+    , amurqKey
+    , amurqUploadId
 
     -- * Response
     , AbortMultipartUploadResponse
     -- ** Response constructor
     , abortMultipartUploadResponse
     -- ** Response lenses
-    , amurRequestCharged
+    , amursRequestCharged
+    , amursStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-data AbortMultipartUpload = AbortMultipartUpload
-    { _amuBucket       :: Text
-    , _amuKey          :: Text
-    , _amuRequestPayer :: Maybe RequestPayer
-    , _amuUploadId     :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'AbortMultipartUpload' constructor.
+-- | /See:/ 'abortMultipartUpload' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'amuBucket' @::@ 'Text'
+-- * 'amurqRequestPayer'
 --
--- * 'amuKey' @::@ 'Text'
+-- * 'amurqBucket'
 --
--- * 'amuRequestPayer' @::@ 'Maybe' 'RequestPayer'
+-- * 'amurqKey'
 --
--- * 'amuUploadId' @::@ 'Text'
---
-abortMultipartUpload :: Text -- ^ 'amuBucket'
-                     -> Text -- ^ 'amuKey'
-                     -> Text -- ^ 'amuUploadId'
-                     -> AbortMultipartUpload
-abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
-    { _amuBucket       = p1
-    , _amuKey          = p2
-    , _amuUploadId     = p3
-    , _amuRequestPayer = Nothing
+-- * 'amurqUploadId'
+data AbortMultipartUpload = AbortMultipartUpload'
+    { _amurqRequestPayer :: !(Maybe RequestPayer)
+    , _amurqBucket       :: !BucketName
+    , _amurqKey          :: !ObjectKey
+    , _amurqUploadId     :: !Text
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'AbortMultipartUpload' smart constructor.
+abortMultipartUpload :: BucketName -> ObjectKey -> Text -> AbortMultipartUpload
+abortMultipartUpload pBucket_ pKey_ pUploadId_ =
+    AbortMultipartUpload'
+    { _amurqRequestPayer = Nothing
+    , _amurqBucket = pBucket_
+    , _amurqKey = pKey_
+    , _amurqUploadId = pUploadId_
     }
 
-amuBucket :: Lens' AbortMultipartUpload Text
-amuBucket = lens _amuBucket (\s a -> s { _amuBucket = a })
+-- | FIXME: Undocumented member.
+amurqRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
+amurqRequestPayer = lens _amurqRequestPayer (\ s a -> s{_amurqRequestPayer = a});
 
-amuKey :: Lens' AbortMultipartUpload Text
-amuKey = lens _amuKey (\s a -> s { _amuKey = a })
+-- | FIXME: Undocumented member.
+amurqBucket :: Lens' AbortMultipartUpload BucketName
+amurqBucket = lens _amurqBucket (\ s a -> s{_amurqBucket = a});
 
-amuRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
-amuRequestPayer = lens _amuRequestPayer (\s a -> s { _amuRequestPayer = a })
+-- | FIXME: Undocumented member.
+amurqKey :: Lens' AbortMultipartUpload ObjectKey
+amurqKey = lens _amurqKey (\ s a -> s{_amurqKey = a});
 
-amuUploadId :: Lens' AbortMultipartUpload Text
-amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
-
-newtype AbortMultipartUploadResponse = AbortMultipartUploadResponse
-    { _amurRequestCharged :: Maybe RequestCharged
-    } deriving (Eq, Read, Show)
-
--- | 'AbortMultipartUploadResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'amurRequestCharged' @::@ 'Maybe' 'RequestCharged'
---
-abortMultipartUploadResponse :: AbortMultipartUploadResponse
-abortMultipartUploadResponse = AbortMultipartUploadResponse
-    { _amurRequestCharged = Nothing
-    }
-
-amurRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
-amurRequestCharged =
-    lens _amurRequestCharged (\s a -> s { _amurRequestCharged = a })
-
-instance ToPath AbortMultipartUpload where
-    toPath AbortMultipartUpload{..} = mconcat
-        [ "/"
-        , toText _amuBucket
-        , "/"
-        , toText _amuKey
-        ]
-
-instance ToQuery AbortMultipartUpload where
-    toQuery rq = "uploadId" =? _amuUploadId rq
-
-instance ToHeaders AbortMultipartUpload where
-    toHeaders AbortMultipartUpload{..} = mconcat
-        [ "x-amz-request-payer" =: _amuRequestPayer
-        ]
-
-instance ToXMLRoot AbortMultipartUpload where
-    toXMLRoot = const (namespaced ns "AbortMultipartUpload" [])
-
-instance ToXML AbortMultipartUpload
+-- | FIXME: Undocumented member.
+amurqUploadId :: Lens' AbortMultipartUpload Text
+amurqUploadId = lens _amurqUploadId (\ s a -> s{_amurqUploadId = a});
 
 instance AWSRequest AbortMultipartUpload where
-    type Sv AbortMultipartUpload = S3
-    type Rs AbortMultipartUpload = AbortMultipartUploadResponse
+        type Sv AbortMultipartUpload = S3
+        type Rs AbortMultipartUpload =
+             AbortMultipartUploadResponse
+        request = delete
+        response
+          = receiveXML
+              (\ s h x ->
+                 AbortMultipartUploadResponse' <$>
+                   (h .#? "x-amz-request-charged") <*>
+                     (pure (fromEnum s)))
 
-    request  = delete
-    response = headerResponse $ \h -> AbortMultipartUploadResponse
-        <$> h ~:? "x-amz-request-charged"
+instance ToHeaders AbortMultipartUpload where
+        toHeaders AbortMultipartUpload'{..}
+          = mconcat
+              ["x-amz-request-payer" =# _amurqRequestPayer]
+
+instance ToPath AbortMultipartUpload where
+        toPath AbortMultipartUpload'{..}
+          = mconcat
+              ["/", toText _amurqBucket, "/", toText _amurqKey]
+
+instance ToQuery AbortMultipartUpload where
+        toQuery AbortMultipartUpload'{..}
+          = mconcat ["uploadId" =: _amurqUploadId]
+
+-- | /See:/ 'abortMultipartUploadResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'amursRequestCharged'
+--
+-- * 'amursStatus'
+data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
+    { _amursRequestCharged :: !(Maybe RequestCharged)
+    , _amursStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AbortMultipartUploadResponse' smart constructor.
+abortMultipartUploadResponse :: Int -> AbortMultipartUploadResponse
+abortMultipartUploadResponse pStatus_ =
+    AbortMultipartUploadResponse'
+    { _amursRequestCharged = Nothing
+    , _amursStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+amursRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
+amursRequestCharged = lens _amursRequestCharged (\ s a -> s{_amursRequestCharged = a});
+
+-- | FIXME: Undocumented member.
+amursStatus :: Lens' AbortMultipartUploadResponse Int
+amursStatus = lens _amursStatus (\ s a -> s{_amursStatus = a});

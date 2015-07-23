@@ -1,34 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DescribeInstances
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes one or more of your instances.
+-- Describes one or more of your instances.
 --
--- If you specify one or more instance IDs, Amazon EC2 returns information for
--- those instances. If you do not specify instance IDs, Amazon EC2 returns
--- information for all relevant instances. If you specify an instance ID that is
--- not valid, an error is returned. If you specify an instance that you do not
--- own, it is not included in the returned results.
+-- If you specify one or more instance IDs, Amazon EC2 returns information
+-- for those instances. If you do not specify instance IDs, Amazon EC2
+-- returns information for all relevant instances. If you specify an
+-- instance ID that is not valid, an error is returned. If you specify an
+-- instance that you do not own, it is not included in the returned
+-- results.
 --
 -- Recently terminated instances might appear in the returned results. This
 -- interval is usually less than one hour.
@@ -41,365 +37,405 @@ module Network.AWS.EC2.DescribeInstances
     -- ** Request constructor
     , describeInstances
     -- ** Request lenses
-    , di1DryRun
-    , di1Filters
-    , di1InstanceIds
-    , di1MaxResults
-    , di1NextToken
+    , diirqFilters
+    , diirqNextToken
+    , diirqInstanceIds
+    , diirqDryRun
+    , diirqMaxResults
 
     -- * Response
     , DescribeInstancesResponse
     -- ** Response constructor
     , describeInstancesResponse
     -- ** Response lenses
-    , dirNextToken
-    , dirReservations
+    , dirsNextToken
+    , dirsReservations
+    , dirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeInstances = DescribeInstances
-    { _di1DryRun      :: Maybe Bool
-    , _di1Filters     :: List "Filter" Filter
-    , _di1InstanceIds :: List "InstanceId" Text
-    , _di1MaxResults  :: Maybe Int
-    , _di1NextToken   :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeInstances' constructor.
+-- | /See:/ 'describeInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'di1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'diirqFilters'
 --
--- * 'di1Filters' @::@ ['Filter']
+-- * 'diirqNextToken'
 --
--- * 'di1InstanceIds' @::@ ['Text']
+-- * 'diirqInstanceIds'
 --
--- * 'di1MaxResults' @::@ 'Maybe' 'Int'
+-- * 'diirqDryRun'
 --
--- * 'di1NextToken' @::@ 'Maybe' 'Text'
---
-describeInstances :: DescribeInstances
-describeInstances = DescribeInstances
-    { _di1DryRun      = Nothing
-    , _di1InstanceIds = mempty
-    , _di1Filters     = mempty
-    , _di1NextToken   = Nothing
-    , _di1MaxResults  = Nothing
-    }
+-- * 'diirqMaxResults'
+data DescribeInstances = DescribeInstances'
+    { _diirqFilters     :: !(Maybe [Filter])
+    , _diirqNextToken   :: !(Maybe Text)
+    , _diirqInstanceIds :: !(Maybe [Text])
+    , _diirqDryRun      :: !(Maybe Bool)
+    , _diirqMaxResults  :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-di1DryRun :: Lens' DescribeInstances (Maybe Bool)
-di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
+-- | 'DescribeInstances' smart constructor.
+describeInstances :: DescribeInstances
+describeInstances =
+    DescribeInstances'
+    { _diirqFilters = Nothing
+    , _diirqNextToken = Nothing
+    , _diirqInstanceIds = Nothing
+    , _diirqDryRun = Nothing
+    , _diirqMaxResults = Nothing
+    }
 
 -- | One or more filters.
 --
--- 'architecture' - The instance architecture ('i386' | 'x86_64').
+-- -   @architecture@ - The instance architecture (@i386@ | @x86_64@).
 --
--- 'availability-zone' - The Availability Zone of the instance.
+-- -   @availability-zone@ - The Availability Zone of the instance.
 --
--- 'block-device-mapping.attach-time' - The attach time for an EBS volume
--- mapped to the instance, for example, '2010-09-15T17:15:20.000Z'.
+-- -   @block-device-mapping.attach-time@ - The attach time for an EBS
+--     volume mapped to the instance, for example,
+--     @2010-09-15T17:15:20.000Z@.
 --
--- 'block-device-mapping.delete-on-termination' - A Boolean that indicates
--- whether the EBS volume is deleted on instance termination.
+-- -   @block-device-mapping.delete-on-termination@ - A Boolean that
+--     indicates whether the EBS volume is deleted on instance termination.
 --
--- 'block-device-mapping.device-name' - The device name for the EBS volume (for
--- example, '/dev/sdh' or 'xvdh').
+-- -   @block-device-mapping.device-name@ - The device name for the EBS
+--     volume (for example, @\/dev\/sdh@ or @xvdh@).
 --
--- 'block-device-mapping.status' - The status for the EBS volume ('attaching' | 'attached' | 'detaching' | 'detached').
+-- -   @block-device-mapping.status@ - The status for the EBS volume
+--     (@attaching@ | @attached@ | @detaching@ | @detached@).
 --
--- 'block-device-mapping.volume-id' - The volume ID of the EBS volume.
+-- -   @block-device-mapping.volume-id@ - The volume ID of the EBS volume.
 --
--- 'client-token' - The idempotency token you provided when you launched the
--- instance.
+-- -   @client-token@ - The idempotency token you provided when you
+--     launched the instance.
 --
--- 'dns-name' - The public DNS name of the instance.
+-- -   @dns-name@ - The public DNS name of the instance.
 --
--- 'group-id' - The ID of the security group for the instance. EC2-Classic only.
+-- -   @group-id@ - The ID of the security group for the instance.
+--     EC2-Classic only.
 --
--- 'group-name' - The name of the security group for the instance. EC2-Classic
--- only.
+-- -   @group-name@ - The name of the security group for the instance.
+--     EC2-Classic only.
 --
--- 'hypervisor' - The hypervisor type of the instance ('ovm' | 'xen').
+-- -   @hypervisor@ - The hypervisor type of the instance (@ovm@ | @xen@).
 --
--- 'iam-instance-profile.arn' - The instance profile associated with the
--- instance. Specified as an ARN.
+-- -   @iam-instance-profile.arn@ - The instance profile associated with
+--     the instance. Specified as an ARN.
 --
--- 'image-id' - The ID of the image used to launch the instance.
+-- -   @image-id@ - The ID of the image used to launch the instance.
 --
--- 'instance-id' - The ID of the instance.
+-- -   @instance-id@ - The ID of the instance.
 --
--- 'instance-lifecycle' - Indicates whether this is a Spot Instance ('spot').
+-- -   @instance-lifecycle@ - Indicates whether this is a Spot Instance
+--     (@spot@).
 --
--- 'instance-state-code' - The state of the instance, as a 16-bit unsigned
--- integer. The high byte is an opaque internal value and should be ignored. The
--- low byte is set based on the state represented. The valid values are: 0
--- (pending), 16 (running), 32 (shutting-down), 48 (terminated), 64 (stopping),
--- and 80 (stopped).
+-- -   @instance-state-code@ - The state of the instance, as a 16-bit
+--     unsigned integer. The high byte is an opaque internal value and
+--     should be ignored. The low byte is set based on the state
+--     represented. The valid values are: 0 (pending), 16 (running), 32
+--     (shutting-down), 48 (terminated), 64 (stopping), and 80 (stopped).
 --
--- 'instance-state-name' - The state of the instance ('pending' | 'running' | 'shutting-down' | 'terminated' | 'stopping' | 'stopped').
+-- -   @instance-state-name@ - The state of the instance (@pending@ |
+--     @running@ | @shutting-down@ | @terminated@ | @stopping@ |
+--     @stopped@).
 --
--- 'instance-type' - The type of instance (for example, 't2.micro').
+-- -   @instance-type@ - The type of instance (for example, @t2.micro@).
 --
--- 'instance.group-id' - The ID of the security group for the instance.
+-- -   @instance.group-id@ - The ID of the security group for the instance.
 --
--- 'instance.group-name' - The name of the security group for the instance.
+-- -   @instance.group-name@ - The name of the security group for the
+--     instance.
 --
--- 'ip-address' - The public IP address of the instance.
+-- -   @ip-address@ - The public IP address of the instance.
 --
--- 'kernel-id' - The kernel ID.
+-- -   @kernel-id@ - The kernel ID.
 --
--- 'key-name' - The name of the key pair used when the instance was launched.
+-- -   @key-name@ - The name of the key pair used when the instance was
+--     launched.
 --
--- 'launch-index' - When launching multiple instances, this is the index for
--- the instance in the launch group (for example, 0, 1, 2, and so on).
+-- -   @launch-index@ - When launching multiple instances, this is the
+--     index for the instance in the launch group (for example, 0, 1, 2,
+--     and so on).
 --
--- 'launch-time' - The time when the instance was launched.
+-- -   @launch-time@ - The time when the instance was launched.
 --
--- 'monitoring-state' - Indicates whether monitoring is enabled for the
--- instance ('disabled' | 'enabled').
+-- -   @monitoring-state@ - Indicates whether monitoring is enabled for the
+--     instance (@disabled@ | @enabled@).
 --
--- 'owner-id' - The AWS account ID of the instance owner.
+-- -   @owner-id@ - The AWS account ID of the instance owner.
 --
--- 'placement-group-name' - The name of the placement group for the instance.
+-- -   @placement-group-name@ - The name of the placement group for the
+--     instance.
 --
--- 'platform' - The platform. Use 'windows' if you have Windows instances;
--- otherwise, leave blank.
+-- -   @platform@ - The platform. Use @windows@ if you have Windows
+--     instances; otherwise, leave blank.
 --
--- 'private-dns-name' - The private DNS name of the instance.
+-- -   @private-dns-name@ - The private DNS name of the instance.
 --
--- 'private-ip-address' - The private IP address of the instance.
+-- -   @private-ip-address@ - The private IP address of the instance.
 --
--- 'product-code' - The product code associated with the AMI used to launch the
--- instance.
+-- -   @product-code@ - The product code associated with the AMI used to
+--     launch the instance.
 --
--- 'product-code.type' - The type of product code ('devpay' | 'marketplace').
+-- -   @product-code.type@ - The type of product code (@devpay@ |
+--     @marketplace@).
 --
--- 'ramdisk-id' - The RAM disk ID.
+-- -   @ramdisk-id@ - The RAM disk ID.
 --
--- 'reason' - The reason for the current state of the instance (for example,
--- shows "User Initiated [date]" when you stop or terminate the instance).
--- Similar to the state-reason-code filter.
+-- -   @reason@ - The reason for the current state of the instance (for
+--     example, shows \"User Initiated [date]\" when you stop or terminate
+--     the instance). Similar to the state-reason-code filter.
 --
--- 'requester-id' - The ID of the entity that launched the instance on your
--- behalf (for example, AWS Management Console, Auto Scaling, and so on).
+-- -   @requester-id@ - The ID of the entity that launched the instance on
+--     your behalf (for example, AWS Management Console, Auto Scaling, and
+--     so on).
 --
--- 'reservation-id' - The ID of the instance's reservation. A reservation ID is
--- created any time you launch an instance. A reservation ID has a one-to-one
--- relationship with an instance launch request, but can be associated with more
--- than one instance if you launch multiple instances using the same launch
--- request. For example, if you launch one instance, you'll get one reservation
--- ID. If you launch ten instances using the same launch request, you'll also
--- get one reservation ID.
+-- -   @reservation-id@ - The ID of the instance\'s reservation. A
+--     reservation ID is created any time you launch an instance. A
+--     reservation ID has a one-to-one relationship with an instance launch
+--     request, but can be associated with more than one instance if you
+--     launch multiple instances using the same launch request. For
+--     example, if you launch one instance, you\'ll get one reservation ID.
+--     If you launch ten instances using the same launch request, you\'ll
+--     also get one reservation ID.
 --
--- 'root-device-name' - The name of the root device for the instance (for
--- example, '/dev/sda1' or '/dev/xvda').
+-- -   @root-device-name@ - The name of the root device for the instance
+--     (for example, @\/dev\/sda1@ or @\/dev\/xvda@).
 --
--- 'root-device-type' - The type of root device that the instance uses ('ebs' | 'instance-store').
+-- -   @root-device-type@ - The type of root device that the instance uses
+--     (@ebs@ | @instance-store@).
 --
--- 'source-dest-check' - Indicates whether the instance performs
--- source/destination checking. A value of 'true' means that checking is enabled,
--- and 'false' means checking is disabled. The value must be 'false' for the
--- instance to perform network address translation (NAT) in your VPC.
+-- -   @source-dest-check@ - Indicates whether the instance performs
+--     source\/destination checking. A value of @true@ means that checking
+--     is enabled, and @false@ means checking is disabled. The value must
+--     be @false@ for the instance to perform network address translation
+--     (NAT) in your VPC.
 --
--- 'spot-instance-request-id' - The ID of the Spot Instance request.
+-- -   @spot-instance-request-id@ - The ID of the Spot Instance request.
 --
--- 'state-reason-code' - The reason code for the state change.
+-- -   @state-reason-code@ - The reason code for the state change.
 --
--- 'state-reason-message' - A message that describes the state change.
+-- -   @state-reason-message@ - A message that describes the state change.
 --
--- 'subnet-id' - The ID of the subnet for the instance.
+-- -   @subnet-id@ - The ID of the subnet for the instance.
 --
--- 'tag':/key/=/value/ - The key/value combination of a tag assigned to the
--- resource, where 'tag':/key/ is the tag's key.
+-- -   @tag@:/key/=/value/ - The key\/value combination of a tag assigned
+--     to the resource, where @tag@:/key/ is the tag\'s key.
 --
--- 'tag-key' - The key of a tag assigned to the resource. This filter is
--- independent of the 'tag-value' filter. For example, if you use both the filter
--- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
--- assigned both the tag key Purpose (regardless of what the tag's value is),
--- and the tag value X (regardless of what the tag's key is). If you want to
--- list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
+-- -   @tag-key@ - The key of a tag assigned to the resource. This filter
+--     is independent of the @tag-value@ filter. For example, if you use
+--     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
+--     you get any resources assigned both the tag key Purpose (regardless
+--     of what the tag\'s value is), and the tag value X (regardless of
+--     what the tag\'s key is). If you want to list only resources where
+--     Purpose is X, see the @tag@:/key/=/value/ filter.
 --
--- 'tag-value' - The value of a tag assigned to the resource. This filter is
--- independent of the 'tag-key' filter.
+-- -   @tag-value@ - The value of a tag assigned to the resource. This
+--     filter is independent of the @tag-key@ filter.
 --
--- 'tenancy' - The tenancy of an instance ('dedicated' | 'default').
+-- -   @tenancy@ - The tenancy of an instance (@dedicated@ | @default@).
 --
--- 'virtualization-type' - The virtualization type of the instance ('paravirtual'
--- | 'hvm').
+-- -   @virtualization-type@ - The virtualization type of the instance
+--     (@paravirtual@ | @hvm@).
 --
--- 'vpc-id' - The ID of the VPC that the instance is running in.
+-- -   @vpc-id@ - The ID of the VPC that the instance is running in.
 --
--- 'network-interface.description' - The description of the network interface.
+-- -   @network-interface.description@ - The description of the network
+--     interface.
 --
--- 'network-interface.subnet-id' - The ID of the subnet for the network
--- interface.
+-- -   @network-interface.subnet-id@ - The ID of the subnet for the network
+--     interface.
 --
--- 'network-interface.vpc-id' - The ID of the VPC for the network interface.
+-- -   @network-interface.vpc-id@ - The ID of the VPC for the network
+--     interface.
 --
--- 'network-interface.network-interface.id' - The ID of the network interface.
+-- -   @network-interface.network-interface.id@ - The ID of the network
+--     interface.
 --
--- 'network-interface.owner-id' - The ID of the owner of the network interface.
+-- -   @network-interface.owner-id@ - The ID of the owner of the network
+--     interface.
 --
--- 'network-interface.availability-zone' - The Availability Zone for the
--- network interface.
+-- -   @network-interface.availability-zone@ - The Availability Zone for
+--     the network interface.
 --
--- 'network-interface.requester-id' - The requester ID for the network
--- interface.
+-- -   @network-interface.requester-id@ - The requester ID for the network
+--     interface.
 --
--- 'network-interface.requester-managed' - Indicates whether the network
--- interface is being managed by AWS.
+-- -   @network-interface.requester-managed@ - Indicates whether the
+--     network interface is being managed by AWS.
 --
--- 'network-interface.status' - The status of the network interface ('available')
--- | 'in-use').
+-- -   @network-interface.status@ - The status of the network interface
+--     (@available@) | @in-use@).
 --
--- 'network-interface.mac-address' - The MAC address of the network interface.
+-- -   @network-interface.mac-address@ - The MAC address of the network
+--     interface.
 --
--- 'network-interface-private-dns-name' - The private DNS name of the network
--- interface.
+-- -   @network-interface-private-dns-name@ - The private DNS name of the
+--     network interface.
 --
--- 'network-interface.source-dest-check' - Whether the network interface
--- performs source/destination checking. A value of 'true' means checking is
--- enabled, and 'false' means checking is disabled. The value must be 'false' for
--- the network interface to perform network address translation (NAT) in your
--- VPC.
+-- -   @network-interface.source-dest-check@ - Whether the network
+--     interface performs source\/destination checking. A value of @true@
+--     means checking is enabled, and @false@ means checking is disabled.
+--     The value must be @false@ for the network interface to perform
+--     network address translation (NAT) in your VPC.
 --
--- 'network-interface.group-id' - The ID of a security group associated with
--- the network interface.
+-- -   @network-interface.group-id@ - The ID of a security group associated
+--     with the network interface.
 --
--- 'network-interface.group-name' - The name of a security group associated
--- with the network interface.
+-- -   @network-interface.group-name@ - The name of a security group
+--     associated with the network interface.
 --
--- 'network-interface.attachment.attachment-id' - The ID of the interface
--- attachment.
+-- -   @network-interface.attachment.attachment-id@ - The ID of the
+--     interface attachment.
 --
--- 'network-interface.attachment.instance-id' - The ID of the instance to which
--- the network interface is attached.
+-- -   @network-interface.attachment.instance-id@ - The ID of the instance
+--     to which the network interface is attached.
 --
--- 'network-interface.attachment.instance-owner-id' - The owner ID of the
--- instance to which the network interface is attached.
+-- -   @network-interface.attachment.instance-owner-id@ - The owner ID of
+--     the instance to which the network interface is attached.
 --
--- 'network-interface.addresses.private-ip-address' - The private IP address
--- associated with the network interface.
+-- -   @network-interface.addresses.private-ip-address@ - The private IP
+--     address associated with the network interface.
 --
--- 'network-interface.attachment.device-index' - The device index to which the
--- network interface is attached.
+-- -   @network-interface.attachment.device-index@ - The device index to
+--     which the network interface is attached.
 --
--- 'network-interface.attachment.status' - The status of the attachment ('attaching' | 'attached' | 'detaching' | 'detached').
+-- -   @network-interface.attachment.status@ - The status of the attachment
+--     (@attaching@ | @attached@ | @detaching@ | @detached@).
 --
--- 'network-interface.attachment.attach-time' - The time that the network
--- interface was attached to an instance.
+-- -   @network-interface.attachment.attach-time@ - The time that the
+--     network interface was attached to an instance.
 --
--- 'network-interface.attachment.delete-on-termination' - Specifies whether the
--- attachment is deleted when an instance is terminated.
+-- -   @network-interface.attachment.delete-on-termination@ - Specifies
+--     whether the attachment is deleted when an instance is terminated.
 --
--- 'network-interface.addresses.primary' - Specifies whether the IP address of
--- the network interface is the primary private IP address.
+-- -   @network-interface.addresses.primary@ - Specifies whether the IP
+--     address of the network interface is the primary private IP address.
 --
--- 'network-interface.addresses.association.public-ip' - The ID of the
--- association of an Elastic IP address with a network interface.
+-- -   @network-interface.addresses.association.public-ip@ - The ID of the
+--     association of an Elastic IP address with a network interface.
 --
--- 'network-interface.addresses.association.ip-owner-id' - The owner ID of the
--- private IP address associated with the network interface.
+-- -   @network-interface.addresses.association.ip-owner-id@ - The owner ID
+--     of the private IP address associated with the network interface.
 --
--- 'association.public-ip' - The address of the Elastic IP address bound to the
--- network interface.
+-- -   @association.public-ip@ - The address of the Elastic IP address
+--     bound to the network interface.
 --
--- 'association.ip-owner-id' - The owner of the Elastic IP address associated
--- with the network interface.
+-- -   @association.ip-owner-id@ - The owner of the Elastic IP address
+--     associated with the network interface.
 --
--- 'association.allocation-id' - The allocation ID returned when you allocated
--- the Elastic IP address for your network interface.
+-- -   @association.allocation-id@ - The allocation ID returned when you
+--     allocated the Elastic IP address for your network interface.
 --
--- 'association.association-id' - The association ID returned when the network
--- interface was associated with an IP address.
+-- -   @association.association-id@ - The association ID returned when the
+--     network interface was associated with an IP address.
 --
---
-di1Filters :: Lens' DescribeInstances [Filter]
-di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a }) . _List
+diirqFilters :: Lens' DescribeInstances [Filter]
+diirqFilters = lens _diirqFilters (\ s a -> s{_diirqFilters = a}) . _Default;
+
+-- | The token to request the next page of results.
+diirqNextToken :: Lens' DescribeInstances (Maybe Text)
+diirqNextToken = lens _diirqNextToken (\ s a -> s{_diirqNextToken = a});
 
 -- | One or more instance IDs.
 --
 -- Default: Describes all your instances.
-di1InstanceIds :: Lens' DescribeInstances [Text]
-di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a }) . _List
+diirqInstanceIds :: Lens' DescribeInstances [Text]
+diirqInstanceIds = lens _diirqInstanceIds (\ s a -> s{_diirqInstanceIds = a}) . _Default;
 
--- | The maximum number of results to return for the request in a single page. The
--- remaining results of the initial request can be seen by sending another
--- request with the returned 'NextToken' value. This value can be between 5 and
--- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
--- returned. You cannot specify this parameter and the instance IDs parameter in
--- the same request.
-di1MaxResults :: Lens' DescribeInstances (Maybe Int)
-di1MaxResults = lens _di1MaxResults (\s a -> s { _di1MaxResults = a })
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+diirqDryRun :: Lens' DescribeInstances (Maybe Bool)
+diirqDryRun = lens _diirqDryRun (\ s a -> s{_diirqDryRun = a});
 
--- | The token to request the next page of results.
-di1NextToken :: Lens' DescribeInstances (Maybe Text)
-di1NextToken = lens _di1NextToken (\s a -> s { _di1NextToken = a })
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results of the initial request can be seen by
+-- sending another request with the returned @NextToken@ value. This value
+-- can be between 5 and 1000; if @MaxResults@ is given a value larger than
+-- 1000, only 1000 results are returned. You cannot specify this parameter
+-- and the instance IDs parameter in the same request.
+diirqMaxResults :: Lens' DescribeInstances (Maybe Int)
+diirqMaxResults = lens _diirqMaxResults (\ s a -> s{_diirqMaxResults = a});
 
-data DescribeInstancesResponse = DescribeInstancesResponse
-    { _dirNextToken    :: Maybe Text
-    , _dirReservations :: List "item" Reservation
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeInstances where
+        page rq rs
+          | stop (rs ^. dirsNextToken) = Nothing
+          | stop (rs ^. dirsReservations) = Nothing
+          | otherwise =
+            Just $ rq & diirqNextToken .~ rs ^. dirsNextToken
 
--- | 'DescribeInstancesResponse' constructor.
+instance AWSRequest DescribeInstances where
+        type Sv DescribeInstances = EC2
+        type Rs DescribeInstances = DescribeInstancesResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeInstancesResponse' <$>
+                   (x .@? "nextToken") <*>
+                     (x .@? "reservationSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeInstances where
+        toHeaders = const mempty
+
+instance ToPath DescribeInstances where
+        toPath = const "/"
+
+instance ToQuery DescribeInstances where
+        toQuery DescribeInstances'{..}
+          = mconcat
+              ["Action" =: ("DescribeInstances" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _diirqFilters),
+               "NextToken" =: _diirqNextToken,
+               toQuery
+                 (toQueryList "InstanceId" <$> _diirqInstanceIds),
+               "DryRun" =: _diirqDryRun,
+               "MaxResults" =: _diirqMaxResults]
+
+-- | /See:/ 'describeInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirNextToken' @::@ 'Maybe' 'Text'
+-- * 'dirsNextToken'
 --
--- * 'dirReservations' @::@ ['Reservation']
+-- * 'dirsReservations'
 --
-describeInstancesResponse :: DescribeInstancesResponse
-describeInstancesResponse = DescribeInstancesResponse
-    { _dirReservations = mempty
-    , _dirNextToken    = Nothing
+-- * 'dirsStatus'
+data DescribeInstancesResponse = DescribeInstancesResponse'
+    { _dirsNextToken    :: !(Maybe Text)
+    , _dirsReservations :: !(Maybe [Reservation])
+    , _dirsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeInstancesResponse' smart constructor.
+describeInstancesResponse :: Int -> DescribeInstancesResponse
+describeInstancesResponse pStatus_ =
+    DescribeInstancesResponse'
+    { _dirsNextToken = Nothing
+    , _dirsReservations = Nothing
+    , _dirsStatus = pStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is 'null'
--- when there are no more results to return.
-dirNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
-dirNextToken = lens _dirNextToken (\s a -> s { _dirNextToken = a })
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return.
+dirsNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
+dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
 
 -- | One or more reservations.
-dirReservations :: Lens' DescribeInstancesResponse [Reservation]
-dirReservations = lens _dirReservations (\s a -> s { _dirReservations = a }) . _List
+dirsReservations :: Lens' DescribeInstancesResponse [Reservation]
+dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . _Default;
 
-instance ToPath DescribeInstances where
-    toPath = const "/"
-
-instance ToQuery DescribeInstances where
-    toQuery DescribeInstances{..} = mconcat
-        [ "DryRun"     =? _di1DryRun
-        , "Filter"     `toQueryList` _di1Filters
-        , "InstanceId" `toQueryList` _di1InstanceIds
-        , "MaxResults" =? _di1MaxResults
-        , "NextToken"  =? _di1NextToken
-        ]
-
-instance ToHeaders DescribeInstances
-
-instance AWSRequest DescribeInstances where
-    type Sv DescribeInstances = EC2
-    type Rs DescribeInstances = DescribeInstancesResponse
-
-    request  = post "DescribeInstances"
-    response = xmlResponse
-
-instance FromXML DescribeInstancesResponse where
-    parseXML x = DescribeInstancesResponse
-        <$> x .@? "nextToken"
-        <*> x .@? "reservationSet" .!@ mempty
-
-instance AWSPager DescribeInstances where
-    page rq rs
-        | stop (rs ^. dirNextToken) = Nothing
-        | otherwise = (\x -> rq & di1NextToken ?~ x)
-            <$> (rs ^. dirNextToken)
+-- | FIXME: Undocumented member.
+dirsStatus :: Lens' DescribeInstancesResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

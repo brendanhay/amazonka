@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DescribeExportTasks
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes one or more of your export tasks.
+-- Describes one or more of your export tasks.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeExportTasks.html>
 module Network.AWS.EC2.DescribeExportTasks
@@ -32,76 +27,93 @@ module Network.AWS.EC2.DescribeExportTasks
     -- ** Request constructor
     , describeExportTasks
     -- ** Request lenses
-    , detExportTaskIds
+    , detrqExportTaskIds
 
     -- * Response
     , DescribeExportTasksResponse
     -- ** Response constructor
     , describeExportTasksResponse
     -- ** Response lenses
-    , detrExportTasks
+    , detrsExportTasks
+    , detrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeExportTasks = DescribeExportTasks
-    { _detExportTaskIds :: List "ExportTaskId" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
--- | 'DescribeExportTasks' constructor.
+-- | /See:/ 'describeExportTasks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detExportTaskIds' @::@ ['Text']
---
+-- * 'detrqExportTaskIds'
+newtype DescribeExportTasks = DescribeExportTasks'
+    { _detrqExportTaskIds :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeExportTasks' smart constructor.
 describeExportTasks :: DescribeExportTasks
-describeExportTasks = DescribeExportTasks
-    { _detExportTaskIds = mempty
+describeExportTasks =
+    DescribeExportTasks'
+    { _detrqExportTaskIds = Nothing
     }
 
 -- | One or more export task IDs.
-detExportTaskIds :: Lens' DescribeExportTasks [Text]
-detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a }) . _List
+detrqExportTaskIds :: Lens' DescribeExportTasks [Text]
+detrqExportTaskIds = lens _detrqExportTaskIds (\ s a -> s{_detrqExportTaskIds = a}) . _Default;
 
-newtype DescribeExportTasksResponse = DescribeExportTasksResponse
-    { _detrExportTasks :: List "item" ExportTask
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeExportTasks where
+        type Sv DescribeExportTasks = EC2
+        type Rs DescribeExportTasks =
+             DescribeExportTasksResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeExportTasksResponse' <$>
+                   (x .@? "exportTaskSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
 
--- | 'DescribeExportTasksResponse' constructor.
+instance ToHeaders DescribeExportTasks where
+        toHeaders = const mempty
+
+instance ToPath DescribeExportTasks where
+        toPath = const "/"
+
+instance ToQuery DescribeExportTasks where
+        toQuery DescribeExportTasks'{..}
+          = mconcat
+              ["Action" =: ("DescribeExportTasks" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery
+                 (toQueryList "ExportTaskId" <$> _detrqExportTaskIds)]
+
+-- | /See:/ 'describeExportTasksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detrExportTasks' @::@ ['ExportTask']
+-- * 'detrsExportTasks'
 --
-describeExportTasksResponse :: DescribeExportTasksResponse
-describeExportTasksResponse = DescribeExportTasksResponse
-    { _detrExportTasks = mempty
+-- * 'detrsStatus'
+data DescribeExportTasksResponse = DescribeExportTasksResponse'
+    { _detrsExportTasks :: !(Maybe [ExportTask])
+    , _detrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeExportTasksResponse' smart constructor.
+describeExportTasksResponse :: Int -> DescribeExportTasksResponse
+describeExportTasksResponse pStatus_ =
+    DescribeExportTasksResponse'
+    { _detrsExportTasks = Nothing
+    , _detrsStatus = pStatus_
     }
 
 -- | Information about the export tasks.
-detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a }) . _List
+detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
+detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default;
 
-instance ToPath DescribeExportTasks where
-    toPath = const "/"
-
-instance ToQuery DescribeExportTasks where
-    toQuery DescribeExportTasks{..} = mconcat
-        [ "ExportTaskId" `toQueryList` _detExportTaskIds
-        ]
-
-instance ToHeaders DescribeExportTasks
-
-instance AWSRequest DescribeExportTasks where
-    type Sv DescribeExportTasks = EC2
-    type Rs DescribeExportTasks = DescribeExportTasksResponse
-
-    request  = post "DescribeExportTasks"
-    response = xmlResponse
-
-instance FromXML DescribeExportTasksResponse where
-    parseXML x = DescribeExportTasksResponse
-        <$> x .@? "exportTaskSet" .!@ mempty
+-- | FIXME: Undocumented member.
+detrsStatus :: Lens' DescribeExportTasksResponse Int
+detrsStatus = lens _detrsStatus (\ s a -> s{_detrsStatus = a});

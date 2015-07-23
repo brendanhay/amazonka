@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.DescribeEventSubscriptions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists all the subscription descriptions for a customer account. The
+-- Lists all the subscription descriptions for a customer account. The
 -- description for a subscription includes SubscriptionName, SNSTopicARN,
 -- CustomerID, SourceType, SourceID, CreationTime, and Status.
 --
@@ -37,138 +32,161 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     -- ** Request constructor
     , describeEventSubscriptions
     -- ** Request lenses
-    , des1Filters
-    , des1Marker
-    , des1MaxRecords
-    , des1SubscriptionName
+    , drqSubscriptionName
+    , drqFilters
+    , drqMaxRecords
+    , drqMarker
 
     -- * Response
     , DescribeEventSubscriptionsResponse
     -- ** Response constructor
     , describeEventSubscriptionsResponse
     -- ** Response lenses
-    , desrEventSubscriptionsList
-    , desrMarker
+    , desrsEventSubscriptionsList
+    , desrsMarker
+    , desrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeEventSubscriptions = DescribeEventSubscriptions
-    { _des1Filters          :: List "member" Filter
-    , _des1Marker           :: Maybe Text
-    , _des1MaxRecords       :: Maybe Int
-    , _des1SubscriptionName :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeEventSubscriptions' constructor.
+-- |
+--
+-- /See:/ 'describeEventSubscriptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'des1Filters' @::@ ['Filter']
+-- * 'drqSubscriptionName'
 --
--- * 'des1Marker' @::@ 'Maybe' 'Text'
+-- * 'drqFilters'
 --
--- * 'des1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'drqMaxRecords'
 --
--- * 'des1SubscriptionName' @::@ 'Maybe' 'Text'
---
+-- * 'drqMarker'
+data DescribeEventSubscriptions = DescribeEventSubscriptions'
+    { _drqSubscriptionName :: !(Maybe Text)
+    , _drqFilters          :: !(Maybe [Filter])
+    , _drqMaxRecords       :: !(Maybe Int)
+    , _drqMarker           :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeEventSubscriptions' smart constructor.
 describeEventSubscriptions :: DescribeEventSubscriptions
-describeEventSubscriptions = DescribeEventSubscriptions
-    { _des1SubscriptionName = Nothing
-    , _des1Filters          = mempty
-    , _des1MaxRecords       = Nothing
-    , _des1Marker           = Nothing
+describeEventSubscriptions =
+    DescribeEventSubscriptions'
+    { _drqSubscriptionName = Nothing
+    , _drqFilters = Nothing
+    , _drqMaxRecords = Nothing
+    , _drqMarker = Nothing
     }
 
+-- | The name of the RDS event notification subscription you want to
+-- describe.
+drqSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+drqSubscriptionName = lens _drqSubscriptionName (\ s a -> s{_drqSubscriptionName = a});
+
 -- | This parameter is not currently supported.
-des1Filters :: Lens' DescribeEventSubscriptions [Filter]
-des1Filters = lens _des1Filters (\s a -> s { _des1Filters = a }) . _List
+drqFilters :: Lens' DescribeEventSubscriptions [Filter]
+drqFilters = lens _drqFilters (\ s a -> s{_drqFilters = a}) . _Default;
 
--- | An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords' .
-des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
-des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
-
--- | The maximum number of records to include in the response. If more records
--- exist than the specified 'MaxRecords' value, a pagination token called a marker
--- is included in the response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results can be retrieved.
 --
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
+drqMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
+drqMaxRecords = lens _drqMaxRecords (\ s a -> s{_drqMaxRecords = a});
 
--- | The name of the RDS event notification subscription you want to describe.
-des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-des1SubscriptionName =
-    lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
+-- | An optional pagination token provided by a previous
+-- DescribeOrderableDBInstanceOptions request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@ .
+drqMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
+drqMarker = lens _drqMarker (\ s a -> s{_drqMarker = a});
 
-data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrEventSubscriptionsList :: List "member" EventSubscription
-    , _desrMarker                 :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeEventSubscriptions where
+        page rq rs
+          | stop (rs ^. desrsMarker) = Nothing
+          | stop (rs ^. desrsEventSubscriptionsList) = Nothing
+          | otherwise =
+            Just $ rq & drqMarker .~ rs ^. desrsMarker
 
--- | 'DescribeEventSubscriptionsResponse' constructor.
+instance AWSRequest DescribeEventSubscriptions where
+        type Sv DescribeEventSubscriptions = RDS
+        type Rs DescribeEventSubscriptions =
+             DescribeEventSubscriptionsResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "DescribeEventSubscriptionsResult"
+              (\ s h x ->
+                 DescribeEventSubscriptionsResponse' <$>
+                   (x .@? "EventSubscriptionsList" .!@ mempty >>=
+                      may (parseXMLList "EventSubscription"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeEventSubscriptions where
+        toHeaders = const mempty
+
+instance ToPath DescribeEventSubscriptions where
+        toPath = const "/"
+
+instance ToQuery DescribeEventSubscriptions where
+        toQuery DescribeEventSubscriptions'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeEventSubscriptions" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "SubscriptionName" =: _drqSubscriptionName,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _drqFilters),
+               "MaxRecords" =: _drqMaxRecords,
+               "Marker" =: _drqMarker]
+
+-- | Data returned by the __DescribeEventSubscriptions__ action.
+--
+-- /See:/ 'describeEventSubscriptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrEventSubscriptionsList' @::@ ['EventSubscription']
+-- * 'desrsEventSubscriptionsList'
 --
--- * 'desrMarker' @::@ 'Maybe' 'Text'
+-- * 'desrsMarker'
 --
-describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
-    { _desrMarker                 = Nothing
-    , _desrEventSubscriptionsList = mempty
+-- * 'desrsStatus'
+data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
+    { _desrsEventSubscriptionsList :: !(Maybe [EventSubscription])
+    , _desrsMarker                 :: !(Maybe Text)
+    , _desrsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeEventSubscriptionsResponse' smart constructor.
+describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
+describeEventSubscriptionsResponse pStatus_ =
+    DescribeEventSubscriptionsResponse'
+    { _desrsEventSubscriptionsList = Nothing
+    , _desrsMarker = Nothing
+    , _desrsStatus = pStatus_
     }
 
 -- | A list of EventSubscriptions data types.
-desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrEventSubscriptionsList =
-    lens _desrEventSubscriptionsList
-        (\s a -> s { _desrEventSubscriptionsList = a })
-            . _List
+desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default;
 
 -- | An optional pagination token provided by a previous
--- DescribeOrderableDBInstanceOptions request. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by 'MaxRecords'.
-desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
+-- DescribeOrderableDBInstanceOptions request. If this parameter is
+-- specified, the response includes only records beyond the marker, up to
+-- the value specified by @MaxRecords@.
+desrsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+desrsMarker = lens _desrsMarker (\ s a -> s{_desrsMarker = a});
 
-instance ToPath DescribeEventSubscriptions where
-    toPath = const "/"
-
-instance ToQuery DescribeEventSubscriptions where
-    toQuery DescribeEventSubscriptions{..} = mconcat
-        [ "Filters"          =? _des1Filters
-        , "Marker"           =? _des1Marker
-        , "MaxRecords"       =? _des1MaxRecords
-        , "SubscriptionName" =? _des1SubscriptionName
-        ]
-
-instance ToHeaders DescribeEventSubscriptions
-
-instance AWSRequest DescribeEventSubscriptions where
-    type Sv DescribeEventSubscriptions = RDS
-    type Rs DescribeEventSubscriptions = DescribeEventSubscriptionsResponse
-
-    request  = post "DescribeEventSubscriptions"
-    response = xmlResponse
-
-instance FromXML DescribeEventSubscriptionsResponse where
-    parseXML = withElement "DescribeEventSubscriptionsResult" $ \x -> DescribeEventSubscriptionsResponse
-        <$> x .@? "EventSubscriptionsList" .!@ mempty
-        <*> x .@? "Marker"
-
-instance AWSPager DescribeEventSubscriptions where
-    page rq rs
-        | stop (rs ^. desrMarker) = Nothing
-        | otherwise = (\x -> rq & des1Marker ?~ x)
-            <$> (rs ^. desrMarker)
+-- | FIXME: Undocumented member.
+desrsStatus :: Lens' DescribeEventSubscriptionsResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

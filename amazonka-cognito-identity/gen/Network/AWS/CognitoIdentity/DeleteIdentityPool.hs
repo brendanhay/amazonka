@@ -1,29 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentityPool
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes a user pool. Once a pool is deleted, users will not be able to
+-- Deletes a user pool. Once a pool is deleted, users will not be able to
 -- authenticate with the pool.
+--
+-- You must use AWS Developer credentials to call this API.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DeleteIdentityPool.html>
 module Network.AWS.CognitoIdentity.DeleteIdentityPool
@@ -33,7 +30,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     -- ** Request constructor
     , deleteIdentityPool
     -- ** Request lenses
-    , dip1IdentityPoolId
+    , drqIdentityPoolId
 
     -- * Response
     , DeleteIdentityPoolResponse
@@ -41,56 +38,65 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     , deleteIdentityPoolResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteIdentityPool = DeleteIdentityPool
-    { _dip1IdentityPoolId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteIdentityPool' constructor.
+-- | Input to the DeleteIdentityPool action.
+--
+-- /See:/ 'deleteIdentityPool' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dip1IdentityPoolId' @::@ 'Text'
---
-deleteIdentityPool :: Text -- ^ 'dip1IdentityPoolId'
-                   -> DeleteIdentityPool
-deleteIdentityPool p1 = DeleteIdentityPool
-    { _dip1IdentityPoolId = p1
+-- * 'drqIdentityPoolId'
+newtype DeleteIdentityPool = DeleteIdentityPool'
+    { _drqIdentityPoolId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteIdentityPool' smart constructor.
+deleteIdentityPool :: Text -> DeleteIdentityPool
+deleteIdentityPool pIdentityPoolId_ =
+    DeleteIdentityPool'
+    { _drqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-dip1IdentityPoolId :: Lens' DeleteIdentityPool Text
-dip1IdentityPoolId =
-    lens _dip1IdentityPoolId (\s a -> s { _dip1IdentityPoolId = a })
-
-data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteIdentityPoolResponse' constructor.
-deleteIdentityPoolResponse :: DeleteIdentityPoolResponse
-deleteIdentityPoolResponse = DeleteIdentityPoolResponse
-
-instance ToPath DeleteIdentityPool where
-    toPath = const "/"
-
-instance ToQuery DeleteIdentityPool where
-    toQuery = const mempty
-
-instance ToHeaders DeleteIdentityPool
-
-instance ToJSON DeleteIdentityPool where
-    toJSON DeleteIdentityPool{..} = object
-        [ "IdentityPoolId" .= _dip1IdentityPoolId
-        ]
+drqIdentityPoolId :: Lens' DeleteIdentityPool Text
+drqIdentityPoolId = lens _drqIdentityPoolId (\ s a -> s{_drqIdentityPoolId = a});
 
 instance AWSRequest DeleteIdentityPool where
-    type Sv DeleteIdentityPool = CognitoIdentity
-    type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
+        type Sv DeleteIdentityPool = CognitoIdentity
+        type Rs DeleteIdentityPool =
+             DeleteIdentityPoolResponse
+        request = postJSON
+        response = receiveNull DeleteIdentityPoolResponse'
 
-    request  = post "DeleteIdentityPool"
-    response = nullResponse DeleteIdentityPoolResponse
+instance ToHeaders DeleteIdentityPool where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityService.DeleteIdentityPool" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteIdentityPool where
+        toJSON DeleteIdentityPool'{..}
+          = object ["IdentityPoolId" .= _drqIdentityPoolId]
+
+instance ToPath DeleteIdentityPool where
+        toPath = const "/"
+
+instance ToQuery DeleteIdentityPool where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteIdentityPoolResponse' smart constructor.
+data DeleteIdentityPoolResponse =
+    DeleteIdentityPoolResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteIdentityPoolResponse' smart constructor.
+deleteIdentityPoolResponse :: DeleteIdentityPoolResponse
+deleteIdentityPoolResponse = DeleteIdentityPoolResponse'

@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudSearch.DeleteDomain
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Permanently deletes a search domain and all of its data. Once a domain has
--- been deleted, it cannot be recovered. For more information, see Deleting a
--- Search Domain in the /Amazon CloudSearch Developer Guide/.
+-- Permanently deletes a search domain and all of its data. Once a domain
+-- has been deleted, it cannot be recovered. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html Deleting a Search Domain>
+-- in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DeleteDomain.html>
 module Network.AWS.CloudSearch.DeleteDomain
@@ -34,76 +30,96 @@ module Network.AWS.CloudSearch.DeleteDomain
     -- ** Request constructor
     , deleteDomain
     -- ** Request lenses
-    , ddDomainName
+    , dddrqDomainName
 
     -- * Response
     , DeleteDomainResponse
     -- ** Response constructor
     , deleteDomainResponse
     -- ** Response lenses
-    , ddrDomainStatus
+    , ddrsDomainStatus
+    , ddrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteDomain = DeleteDomain
-    { _ddDomainName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteDomain' constructor.
+-- | Container for the parameters to the @DeleteDomain@ operation. Specifies
+-- the name of the domain you want to delete.
+--
+-- /See:/ 'deleteDomain' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddDomainName' @::@ 'Text'
---
-deleteDomain :: Text -- ^ 'ddDomainName'
-             -> DeleteDomain
-deleteDomain p1 = DeleteDomain
-    { _ddDomainName = p1
+-- * 'dddrqDomainName'
+newtype DeleteDomain = DeleteDomain'
+    { _dddrqDomainName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteDomain' smart constructor.
+deleteDomain :: Text -> DeleteDomain
+deleteDomain pDomainName_ =
+    DeleteDomain'
+    { _dddrqDomainName = pDomainName_
     }
 
 -- | The name of the domain you want to permanently delete.
-ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
+dddrqDomainName :: Lens' DeleteDomain Text
+dddrqDomainName = lens _dddrqDomainName (\ s a -> s{_dddrqDomainName = a});
 
-newtype DeleteDomainResponse = DeleteDomainResponse
-    { _ddrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Read, Show)
+instance AWSRequest DeleteDomain where
+        type Sv DeleteDomain = CloudSearch
+        type Rs DeleteDomain = DeleteDomainResponse
+        request = post
+        response
+          = receiveXMLWrapper "DeleteDomainResult"
+              (\ s h x ->
+                 DeleteDomainResponse' <$>
+                   (x .@? "DomainStatus") <*> (pure (fromEnum s)))
 
--- | 'DeleteDomainResponse' constructor.
+instance ToHeaders DeleteDomain where
+        toHeaders = const mempty
+
+instance ToPath DeleteDomain where
+        toPath = const "/"
+
+instance ToQuery DeleteDomain where
+        toQuery DeleteDomain'{..}
+          = mconcat
+              ["Action" =: ("DeleteDomain" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "DomainName" =: _dddrqDomainName]
+
+-- | The result of a @DeleteDomain@ request. Contains the status of a newly
+-- deleted domain, or no status if the domain has already been completely
+-- deleted.
+--
+-- /See:/ 'deleteDomainResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDomainStatus' @::@ 'Maybe' 'DomainStatus'
+-- * 'ddrsDomainStatus'
 --
-deleteDomainResponse :: DeleteDomainResponse
-deleteDomainResponse = DeleteDomainResponse
-    { _ddrDomainStatus = Nothing
+-- * 'ddrsStatus'
+data DeleteDomainResponse = DeleteDomainResponse'
+    { _ddrsDomainStatus :: !(Maybe DomainStatus)
+    , _ddrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteDomainResponse' smart constructor.
+deleteDomainResponse :: Int -> DeleteDomainResponse
+deleteDomainResponse pStatus_ =
+    DeleteDomainResponse'
+    { _ddrsDomainStatus = Nothing
+    , _ddrsStatus = pStatus_
     }
 
-ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
-ddrDomainStatus = lens _ddrDomainStatus (\s a -> s { _ddrDomainStatus = a })
+-- | FIXME: Undocumented member.
+ddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
+ddrsDomainStatus = lens _ddrsDomainStatus (\ s a -> s{_ddrsDomainStatus = a});
 
-instance ToPath DeleteDomain where
-    toPath = const "/"
-
-instance ToQuery DeleteDomain where
-    toQuery DeleteDomain{..} = mconcat
-        [ "DomainName" =? _ddDomainName
-        ]
-
-instance ToHeaders DeleteDomain
-
-instance AWSRequest DeleteDomain where
-    type Sv DeleteDomain = CloudSearch
-    type Rs DeleteDomain = DeleteDomainResponse
-
-    request  = post "DeleteDomain"
-    response = xmlResponse
-
-instance FromXML DeleteDomainResponse where
-    parseXML = withElement "DeleteDomainResult" $ \x -> DeleteDomainResponse
-        <$> x .@? "DomainStatus"
+-- | FIXME: Undocumented member.
+ddrsStatus :: Lens' DeleteDomainResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

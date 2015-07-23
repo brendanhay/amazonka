@@ -1,34 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SES.GetIdentityNotificationAttributes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Given a list of verified identities (email addresses and/or domains), returns
--- a structure describing identity notification attributes.
+-- Given a list of verified identities (email addresses and\/or domains),
+-- returns a structure describing identity notification attributes.
 --
 -- This action is throttled at one request per second and can only get
 -- notification attributes for up to 100 identities at a time.
 --
--- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
+-- For more information about using notifications with Amazon SES, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityNotificationAttributes.html>
 module Network.AWS.SES.GetIdentityNotificationAttributes
@@ -38,85 +34,107 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
     -- ** Request constructor
     , getIdentityNotificationAttributes
     -- ** Request lenses
-    , ginaIdentities
+    , ginarqIdentities
 
     -- * Response
     , GetIdentityNotificationAttributesResponse
     -- ** Response constructor
     , getIdentityNotificationAttributesResponse
     -- ** Response lenses
-    , ginarNotificationAttributes
+    , ginarsStatus
+    , ginarsNotificationAttributes
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
-newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
-    { _ginaIdentities :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList GetIdentityNotificationAttributes where
-    type Item GetIdentityNotificationAttributes = Text
-
-    fromList = GetIdentityNotificationAttributes . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ginaIdentities
-
--- | 'GetIdentityNotificationAttributes' constructor.
+-- | /See:/ 'getIdentityNotificationAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ginaIdentities' @::@ ['Text']
---
+-- * 'ginarqIdentities'
+newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
+    { _ginarqIdentities :: [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetIdentityNotificationAttributes' smart constructor.
 getIdentityNotificationAttributes :: GetIdentityNotificationAttributes
-getIdentityNotificationAttributes = GetIdentityNotificationAttributes
-    { _ginaIdentities = mempty
+getIdentityNotificationAttributes =
+    GetIdentityNotificationAttributes'
+    { _ginarqIdentities = mempty
     }
 
--- | A list of one or more identities.
-ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
-ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a }) . _List
+-- | A list of one or more identities. You can specify an identity by using
+-- its name or by using its Amazon Resource Name (ARN). Examples:
+-- @user\@example.com@, @example.com@,
+-- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
+ginarqIdentities :: Lens' GetIdentityNotificationAttributes [Text]
+ginarqIdentities = lens _ginarqIdentities (\ s a -> s{_ginarqIdentities = a});
 
-newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
-    { _ginarNotificationAttributes :: EMap "entry" "key" "value" Text IdentityNotificationAttributes
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
--- | 'GetIdentityNotificationAttributesResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ginarNotificationAttributes' @::@ 'HashMap' 'Text' 'IdentityNotificationAttributes'
---
-getIdentityNotificationAttributesResponse :: GetIdentityNotificationAttributesResponse
-getIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
-    { _ginarNotificationAttributes = mempty
-    }
-
--- | A map of Identity to IdentityNotificationAttributes.
-ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
-ginarNotificationAttributes =
-    lens _ginarNotificationAttributes
-        (\s a -> s { _ginarNotificationAttributes = a })
-            . _EMap
-
-instance ToPath GetIdentityNotificationAttributes where
-    toPath = const "/"
-
-instance ToQuery GetIdentityNotificationAttributes where
-    toQuery GetIdentityNotificationAttributes{..} = mconcat
-        [ "Identities" =? _ginaIdentities
-        ]
+instance AWSRequest GetIdentityNotificationAttributes
+         where
+        type Sv GetIdentityNotificationAttributes = SES
+        type Rs GetIdentityNotificationAttributes =
+             GetIdentityNotificationAttributesResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "GetIdentityNotificationAttributesResult"
+              (\ s h x ->
+                 GetIdentityNotificationAttributesResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .@? "NotificationAttributes" .!@ mempty >>=
+                        parseXMLMap "entry" "key" "value"))
 
 instance ToHeaders GetIdentityNotificationAttributes
+         where
+        toHeaders = const mempty
 
-instance AWSRequest GetIdentityNotificationAttributes where
-    type Sv GetIdentityNotificationAttributes = SES
-    type Rs GetIdentityNotificationAttributes = GetIdentityNotificationAttributesResponse
+instance ToPath GetIdentityNotificationAttributes
+         where
+        toPath = const "/"
 
-    request  = post "GetIdentityNotificationAttributes"
-    response = xmlResponse
+instance ToQuery GetIdentityNotificationAttributes
+         where
+        toQuery GetIdentityNotificationAttributes'{..}
+          = mconcat
+              ["Action" =:
+                 ("GetIdentityNotificationAttributes" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "Identities" =:
+                 toQueryList "member" _ginarqIdentities]
 
-instance FromXML GetIdentityNotificationAttributesResponse where
-    parseXML = withElement "GetIdentityNotificationAttributesResult" $ \x -> GetIdentityNotificationAttributesResponse
-        <$> x .@? "NotificationAttributes" .!@ mempty
+-- | Describes whether an identity has Amazon Simple Notification Service
+-- (Amazon SNS) topics set for bounce, complaint, and\/or delivery
+-- notifications, and specifies whether feedback forwarding is enabled for
+-- bounce and complaint notifications.
+--
+-- /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ginarsStatus'
+--
+-- * 'ginarsNotificationAttributes'
+data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
+    { _ginarsStatus                 :: !Int
+    , _ginarsNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetIdentityNotificationAttributesResponse' smart constructor.
+getIdentityNotificationAttributesResponse :: Int -> GetIdentityNotificationAttributesResponse
+getIdentityNotificationAttributesResponse pStatus_ =
+    GetIdentityNotificationAttributesResponse'
+    { _ginarsStatus = pStatus_
+    , _ginarsNotificationAttributes = mempty
+    }
+
+-- | FIXME: Undocumented member.
+ginarsStatus :: Lens' GetIdentityNotificationAttributesResponse Int
+ginarsStatus = lens _ginarsStatus (\ s a -> s{_ginarsStatus = a});
+
+-- | A map of Identity to IdentityNotificationAttributes.
+ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
+ginarsNotificationAttributes = lens _ginarsNotificationAttributes (\ s a -> s{_ginarsNotificationAttributes = a}) . _Map;

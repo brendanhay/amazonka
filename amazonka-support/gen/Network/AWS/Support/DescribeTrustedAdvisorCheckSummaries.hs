@@ -1,31 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns the summaries of the results of the Trusted Advisor checks that have
--- the specified check IDs. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.
+-- Returns the summaries of the results of the Trusted Advisor checks that
+-- have the specified check IDs. Check IDs can be obtained by calling
+-- DescribeTrustedAdvisorChecks.
 --
--- The response contains an array of 'TrustedAdvisorCheckSummary' objects.
+-- The response contains an array of TrustedAdvisorCheckSummary objects.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_DescribeTrustedAdvisorCheckSummaries.html>
 module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
@@ -35,92 +31,107 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     -- ** Request constructor
     , describeTrustedAdvisorCheckSummaries
     -- ** Request lenses
-    , dtacsCheckIds
+    , dtacsrqCheckIds
 
     -- * Response
     , DescribeTrustedAdvisorCheckSummariesResponse
     -- ** Response constructor
     , describeTrustedAdvisorCheckSummariesResponse
     -- ** Response lenses
-    , dtacsrSummaries
+    , dtacsrsStatus
+    , dtacsrsSummaries
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Support.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
-newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
-    { _dtacsCheckIds :: List "checkIds" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeTrustedAdvisorCheckSummaries where
-    type Item DescribeTrustedAdvisorCheckSummaries = Text
-
-    fromList = DescribeTrustedAdvisorCheckSummaries . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dtacsCheckIds
-
--- | 'DescribeTrustedAdvisorCheckSummaries' constructor.
+-- | /See:/ 'describeTrustedAdvisorCheckSummaries' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacsCheckIds' @::@ ['Text']
---
+-- * 'dtacsrqCheckIds'
+newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'
+    { _dtacsrqCheckIds :: [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeTrustedAdvisorCheckSummaries' smart constructor.
 describeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries
-describeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries
-    { _dtacsCheckIds = mempty
+describeTrustedAdvisorCheckSummaries =
+    DescribeTrustedAdvisorCheckSummaries'
+    { _dtacsrqCheckIds = mempty
     }
 
 -- | The IDs of the Trusted Advisor checks.
-dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
-dtacsCheckIds = lens _dtacsCheckIds (\s a -> s { _dtacsCheckIds = a }) . _List
+dtacsrqCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
+dtacsrqCheckIds = lens _dtacsrqCheckIds (\ s a -> s{_dtacsrqCheckIds = a});
 
-newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
-    { _dtacsrSummaries :: List "summaries" TrustedAdvisorCheckSummary
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest
+         DescribeTrustedAdvisorCheckSummaries where
+        type Sv DescribeTrustedAdvisorCheckSummaries =
+             Support
+        type Rs DescribeTrustedAdvisorCheckSummaries =
+             DescribeTrustedAdvisorCheckSummariesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeTrustedAdvisorCheckSummariesResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .?> "summaries" .!@ mempty))
 
-instance GHC.Exts.IsList DescribeTrustedAdvisorCheckSummariesResponse where
-    type Item DescribeTrustedAdvisorCheckSummariesResponse = TrustedAdvisorCheckSummary
+instance ToHeaders
+         DescribeTrustedAdvisorCheckSummaries where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSSupport_20130415.DescribeTrustedAdvisorCheckSummaries"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeTrustedAdvisorCheckSummariesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dtacsrSummaries
+instance ToJSON DescribeTrustedAdvisorCheckSummaries
+         where
+        toJSON DescribeTrustedAdvisorCheckSummaries'{..}
+          = object ["checkIds" .= _dtacsrqCheckIds]
 
--- | 'DescribeTrustedAdvisorCheckSummariesResponse' constructor.
+instance ToPath DescribeTrustedAdvisorCheckSummaries
+         where
+        toPath = const "/"
+
+instance ToQuery DescribeTrustedAdvisorCheckSummaries
+         where
+        toQuery = const mempty
+
+-- | The summaries of the Trusted Advisor checks returned by the
+-- DescribeTrustedAdvisorCheckSummaries operation.
+--
+-- /See:/ 'describeTrustedAdvisorCheckSummariesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacsrSummaries' @::@ ['TrustedAdvisorCheckSummary']
+-- * 'dtacsrsStatus'
 --
-describeTrustedAdvisorCheckSummariesResponse :: DescribeTrustedAdvisorCheckSummariesResponse
-describeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse
-    { _dtacsrSummaries = mempty
+-- * 'dtacsrsSummaries'
+data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
+    { _dtacsrsStatus    :: !Int
+    , _dtacsrsSummaries :: ![TrustedAdvisorCheckSummary]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
+describeTrustedAdvisorCheckSummariesResponse :: Int -> DescribeTrustedAdvisorCheckSummariesResponse
+describeTrustedAdvisorCheckSummariesResponse pStatus_ =
+    DescribeTrustedAdvisorCheckSummariesResponse'
+    { _dtacsrsStatus = pStatus_
+    , _dtacsrsSummaries = mempty
     }
 
+-- | FIXME: Undocumented member.
+dtacsrsStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
+dtacsrsStatus = lens _dtacsrsStatus (\ s a -> s{_dtacsrsStatus = a});
+
 -- | The summary information for the requested Trusted Advisor checks.
-dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-dtacsrSummaries = lens _dtacsrSummaries (\s a -> s { _dtacsrSummaries = a }) . _List
-
-instance ToPath DescribeTrustedAdvisorCheckSummaries where
-    toPath = const "/"
-
-instance ToQuery DescribeTrustedAdvisorCheckSummaries where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTrustedAdvisorCheckSummaries
-
-instance ToJSON DescribeTrustedAdvisorCheckSummaries where
-    toJSON DescribeTrustedAdvisorCheckSummaries{..} = object
-        [ "checkIds" .= _dtacsCheckIds
-        ]
-
-instance AWSRequest DescribeTrustedAdvisorCheckSummaries where
-    type Sv DescribeTrustedAdvisorCheckSummaries = Support
-    type Rs DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummariesResponse
-
-    request  = post "DescribeTrustedAdvisorCheckSummaries"
-    response = jsonResponse
-
-instance FromJSON DescribeTrustedAdvisorCheckSummariesResponse where
-    parseJSON = withObject "DescribeTrustedAdvisorCheckSummariesResponse" $ \o -> DescribeTrustedAdvisorCheckSummariesResponse
-        <$> o .:? "summaries" .!= mempty
+dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
+dtacsrsSummaries = lens _dtacsrsSummaries (\ s a -> s{_dtacsrsSummaries = a});

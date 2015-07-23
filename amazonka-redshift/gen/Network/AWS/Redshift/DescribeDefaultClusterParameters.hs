@@ -1,31 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Redshift.DescribeDefaultClusterParameters
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of parameter settings for the specified parameter group
+-- Returns a list of parameter settings for the specified parameter group
 -- family.
 --
--- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups> in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about parameters and parameter groups, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
+-- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeDefaultClusterParameters.html>
 module Network.AWS.Redshift.DescribeDefaultClusterParameters
@@ -35,118 +32,152 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     -- ** Request constructor
     , describeDefaultClusterParameters
     -- ** Request lenses
-    , ddcpMarker
-    , ddcpMaxRecords
-    , ddcpParameterGroupFamily
+    , ddcprqMaxRecords
+    , ddcprqMarker
+    , ddcprqParameterGroupFamily
 
     -- * Response
     , DescribeDefaultClusterParametersResponse
     -- ** Response constructor
     , describeDefaultClusterParametersResponse
     -- ** Response lenses
-    , ddcprDefaultClusterParameters
+    , ddcprsStatus
+    , ddcprsDefaultClusterParameters
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
-    { _ddcpMarker               :: Maybe Text
-    , _ddcpMaxRecords           :: Maybe Int
-    , _ddcpParameterGroupFamily :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeDefaultClusterParameters' constructor.
+-- |
+--
+-- /See:/ 'describeDefaultClusterParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcpMarker' @::@ 'Maybe' 'Text'
+-- * 'ddcprqMaxRecords'
 --
--- * 'ddcpMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'ddcprqMarker'
 --
--- * 'ddcpParameterGroupFamily' @::@ 'Text'
---
-describeDefaultClusterParameters :: Text -- ^ 'ddcpParameterGroupFamily'
-                                 -> DescribeDefaultClusterParameters
-describeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
-    { _ddcpParameterGroupFamily = p1
-    , _ddcpMaxRecords           = Nothing
-    , _ddcpMarker               = Nothing
+-- * 'ddcprqParameterGroupFamily'
+data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
+    { _ddcprqMaxRecords           :: !(Maybe Int)
+    , _ddcprqMarker               :: !(Maybe Text)
+    , _ddcprqParameterGroupFamily :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeDefaultClusterParameters' smart constructor.
+describeDefaultClusterParameters :: Text -> DescribeDefaultClusterParameters
+describeDefaultClusterParameters pParameterGroupFamily_ =
+    DescribeDefaultClusterParameters'
+    { _ddcprqMaxRecords = Nothing
+    , _ddcprqMarker = Nothing
+    , _ddcprqParameterGroupFamily = pParameterGroupFamily_
     }
 
--- | An optional parameter that specifies the starting point to return a set of
--- response records. When the results of a 'DescribeDefaultClusterParameters'
--- request exceed the value specified in 'MaxRecords', AWS returns a value in the 'Marker' field of the response. You can retrieve the next set of response records by
--- providing the returned marker value in the 'Marker' parameter and retrying the
--- request.
-ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
-ddcpMarker = lens _ddcpMarker (\s a -> s { _ddcpMarker = a })
-
--- | The maximum number of response records to return in each call. If the number
--- of remaining response records exceeds the specified 'MaxRecords' value, a value
--- is returned in a 'marker' field of the response. You can retrieve the next set
--- of records by retrying the command with the returned marker value.
+-- | The maximum number of response records to return in each call. If the
+-- number of remaining response records exceeds the specified @MaxRecords@
+-- value, a value is returned in a @marker@ field of the response. You can
+-- retrieve the next set of records by retrying the command with the
+-- returned marker value.
 --
--- Default: '100'
+-- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-ddcpMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
-ddcpMaxRecords = lens _ddcpMaxRecords (\s a -> s { _ddcpMaxRecords = a })
+ddcprqMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
+ddcprqMaxRecords = lens _ddcprqMaxRecords (\ s a -> s{_ddcprqMaxRecords = a});
+
+-- | An optional parameter that specifies the starting point to return a set
+-- of response records. When the results of a
+-- DescribeDefaultClusterParameters request exceed the value specified in
+-- @MaxRecords@, AWS returns a value in the @Marker@ field of the response.
+-- You can retrieve the next set of response records by providing the
+-- returned marker value in the @Marker@ parameter and retrying the
+-- request.
+ddcprqMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
+ddcprqMarker = lens _ddcprqMarker (\ s a -> s{_ddcprqMarker = a});
 
 -- | The name of the cluster parameter group family.
-ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
-ddcpParameterGroupFamily =
-    lens _ddcpParameterGroupFamily
-        (\s a -> s { _ddcpParameterGroupFamily = a })
+ddcprqParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
+ddcprqParameterGroupFamily = lens _ddcprqParameterGroupFamily (\ s a -> s{_ddcprqParameterGroupFamily = a});
 
-newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
-    { _ddcprDefaultClusterParameters :: DefaultClusterParameters
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeDefaultClusterParameters
+         where
+        page rq rs
+          | stop
+              (rs ^?
+                 ddcprsDefaultClusterParameters . dcpMarker . _Just)
+            = Nothing
+          | stop
+              (rs ^.
+                 ddcprsDefaultClusterParameters . dcpParameters)
+            = Nothing
+          | otherwise =
+            Just $ rq &
+              ddcprqMarker .~
+                rs ^?
+                  ddcprsDefaultClusterParameters . dcpMarker . _Just
 
--- | 'DescribeDefaultClusterParametersResponse' constructor.
+instance AWSRequest DescribeDefaultClusterParameters
+         where
+        type Sv DescribeDefaultClusterParameters = Redshift
+        type Rs DescribeDefaultClusterParameters =
+             DescribeDefaultClusterParametersResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "DescribeDefaultClusterParametersResult"
+              (\ s h x ->
+                 DescribeDefaultClusterParametersResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .@ "DefaultClusterParameters"))
+
+instance ToHeaders DescribeDefaultClusterParameters
+         where
+        toHeaders = const mempty
+
+instance ToPath DescribeDefaultClusterParameters
+         where
+        toPath = const "/"
+
+instance ToQuery DescribeDefaultClusterParameters
+         where
+        toQuery DescribeDefaultClusterParameters'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeDefaultClusterParameters" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "MaxRecords" =: _ddcprqMaxRecords,
+               "Marker" =: _ddcprqMarker,
+               "ParameterGroupFamily" =:
+                 _ddcprqParameterGroupFamily]
+
+-- | /See:/ 'describeDefaultClusterParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcprDefaultClusterParameters' @::@ 'DefaultClusterParameters'
+-- * 'ddcprsStatus'
 --
-describeDefaultClusterParametersResponse :: DefaultClusterParameters -- ^ 'ddcprDefaultClusterParameters'
-                                         -> DescribeDefaultClusterParametersResponse
-describeDefaultClusterParametersResponse p1 = DescribeDefaultClusterParametersResponse
-    { _ddcprDefaultClusterParameters = p1
+-- * 'ddcprsDefaultClusterParameters'
+data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
+    { _ddcprsStatus                   :: !Int
+    , _ddcprsDefaultClusterParameters :: !DefaultClusterParameters
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeDefaultClusterParametersResponse' smart constructor.
+describeDefaultClusterParametersResponse :: Int -> DefaultClusterParameters -> DescribeDefaultClusterParametersResponse
+describeDefaultClusterParametersResponse pStatus_ pDefaultClusterParameters_ =
+    DescribeDefaultClusterParametersResponse'
+    { _ddcprsStatus = pStatus_
+    , _ddcprsDefaultClusterParameters = pDefaultClusterParameters_
     }
 
-ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
-ddcprDefaultClusterParameters =
-    lens _ddcprDefaultClusterParameters
-        (\s a -> s { _ddcprDefaultClusterParameters = a })
+-- | FIXME: Undocumented member.
+ddcprsStatus :: Lens' DescribeDefaultClusterParametersResponse Int
+ddcprsStatus = lens _ddcprsStatus (\ s a -> s{_ddcprsStatus = a});
 
-instance ToPath DescribeDefaultClusterParameters where
-    toPath = const "/"
-
-instance ToQuery DescribeDefaultClusterParameters where
-    toQuery DescribeDefaultClusterParameters{..} = mconcat
-        [ "Marker"               =? _ddcpMarker
-        , "MaxRecords"           =? _ddcpMaxRecords
-        , "ParameterGroupFamily" =? _ddcpParameterGroupFamily
-        ]
-
-instance ToHeaders DescribeDefaultClusterParameters
-
-instance AWSRequest DescribeDefaultClusterParameters where
-    type Sv DescribeDefaultClusterParameters = Redshift
-    type Rs DescribeDefaultClusterParameters = DescribeDefaultClusterParametersResponse
-
-    request  = post "DescribeDefaultClusterParameters"
-    response = xmlResponse
-
-instance FromXML DescribeDefaultClusterParametersResponse where
-    parseXML = withElement "DescribeDefaultClusterParametersResult" $ \x -> DescribeDefaultClusterParametersResponse
-        <$> x .@  "DefaultClusterParameters"
-
-instance AWSPager DescribeDefaultClusterParameters where
-    page rq rs
-        | stop (rs ^. ddcprDefaultClusterParameters . dcpMarker) = Nothing
-        | otherwise = (\x -> rq & ddcpMarker ?~ x)
-            <$> (rs ^. ddcprDefaultClusterParameters . dcpMarker)
+-- | FIXME: Undocumented member.
+ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
+ddcprsDefaultClusterParameters = lens _ddcprsDefaultClusterParameters (\ s a -> s{_ddcprsDefaultClusterParameters = a});

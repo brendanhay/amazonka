@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.KMS.PutKeyPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Attaches a policy to the specified key.
+-- Attaches a policy to the specified key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html>
 module Network.AWS.KMS.PutKeyPolicy
@@ -32,9 +27,9 @@ module Network.AWS.KMS.PutKeyPolicy
     -- ** Request constructor
     , putKeyPolicy
     -- ** Request lenses
-    , pkpKeyId
-    , pkpPolicy
-    , pkpPolicyName
+    , pkprqKeyId
+    , pkprqPolicyName
+    , pkprqPolicy
 
     -- * Response
     , PutKeyPolicyResponse
@@ -42,79 +37,87 @@ module Network.AWS.KMS.PutKeyPolicy
     , putKeyPolicyResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.KMS.Types
-import qualified GHC.Exts
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data PutKeyPolicy = PutKeyPolicy
-    { _pkpKeyId      :: Text
-    , _pkpPolicy     :: Text
-    , _pkpPolicyName :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'PutKeyPolicy' constructor.
+-- | /See:/ 'putKeyPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pkpKeyId' @::@ 'Text'
+-- * 'pkprqKeyId'
 --
--- * 'pkpPolicy' @::@ 'Text'
+-- * 'pkprqPolicyName'
 --
--- * 'pkpPolicyName' @::@ 'Text'
---
-putKeyPolicy :: Text -- ^ 'pkpKeyId'
-             -> Text -- ^ 'pkpPolicyName'
-             -> Text -- ^ 'pkpPolicy'
-             -> PutKeyPolicy
-putKeyPolicy p1 p2 p3 = PutKeyPolicy
-    { _pkpKeyId      = p1
-    , _pkpPolicyName = p2
-    , _pkpPolicy     = p3
+-- * 'pkprqPolicy'
+data PutKeyPolicy = PutKeyPolicy'
+    { _pkprqKeyId      :: !Text
+    , _pkprqPolicyName :: !Text
+    , _pkprqPolicy     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutKeyPolicy' smart constructor.
+putKeyPolicy :: Text -> Text -> Text -> PutKeyPolicy
+putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
+    PutKeyPolicy'
+    { _pkprqKeyId = pKeyId_
+    , _pkprqPolicyName = pPolicyName_
+    , _pkprqPolicy = pPolicy_
     }
 
--- | A unique identifier for the customer master key. This value can be a globally
--- unique identifier or the fully specified ARN to a key.  Key ARN Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key. This value can be a
+-- globally unique identifier or the fully specified ARN to a key.
 --
-pkpKeyId :: Lens' PutKeyPolicy Text
-pkpKeyId = lens _pkpKeyId (\s a -> s { _pkpKeyId = a })
-
--- | The policy, in JSON format, to be attached to the key.
-pkpPolicy :: Lens' PutKeyPolicy Text
-pkpPolicy = lens _pkpPolicy (\s a -> s { _pkpPolicy = a })
+-- -   Key ARN Example -
+--     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Globally Unique Key ID Example -
+--     12345678-1234-1234-1234-123456789012
+pkprqKeyId :: Lens' PutKeyPolicy Text
+pkprqKeyId = lens _pkprqKeyId (\ s a -> s{_pkprqKeyId = a});
 
 -- | Name of the policy to be attached. Currently, the only supported name is
--- "default".
-pkpPolicyName :: Lens' PutKeyPolicy Text
-pkpPolicyName = lens _pkpPolicyName (\s a -> s { _pkpPolicyName = a })
+-- \"default\".
+pkprqPolicyName :: Lens' PutKeyPolicy Text
+pkprqPolicyName = lens _pkprqPolicyName (\ s a -> s{_pkprqPolicyName = a});
 
-data PutKeyPolicyResponse = PutKeyPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutKeyPolicyResponse' constructor.
-putKeyPolicyResponse :: PutKeyPolicyResponse
-putKeyPolicyResponse = PutKeyPolicyResponse
-
-instance ToPath PutKeyPolicy where
-    toPath = const "/"
-
-instance ToQuery PutKeyPolicy where
-    toQuery = const mempty
-
-instance ToHeaders PutKeyPolicy
-
-instance ToJSON PutKeyPolicy where
-    toJSON PutKeyPolicy{..} = object
-        [ "KeyId"      .= _pkpKeyId
-        , "PolicyName" .= _pkpPolicyName
-        , "Policy"     .= _pkpPolicy
-        ]
+-- | The policy, in JSON format, to be attached to the key.
+pkprqPolicy :: Lens' PutKeyPolicy Text
+pkprqPolicy = lens _pkprqPolicy (\ s a -> s{_pkprqPolicy = a});
 
 instance AWSRequest PutKeyPolicy where
-    type Sv PutKeyPolicy = KMS
-    type Rs PutKeyPolicy = PutKeyPolicyResponse
+        type Sv PutKeyPolicy = KMS
+        type Rs PutKeyPolicy = PutKeyPolicyResponse
+        request = postJSON
+        response = receiveNull PutKeyPolicyResponse'
 
-    request  = post "PutKeyPolicy"
-    response = nullResponse PutKeyPolicyResponse
+instance ToHeaders PutKeyPolicy where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("TrentService.PutKeyPolicy" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON PutKeyPolicy where
+        toJSON PutKeyPolicy'{..}
+          = object
+              ["KeyId" .= _pkprqKeyId,
+               "PolicyName" .= _pkprqPolicyName,
+               "Policy" .= _pkprqPolicy]
+
+instance ToPath PutKeyPolicy where
+        toPath = const "/"
+
+instance ToQuery PutKeyPolicy where
+        toQuery = const mempty
+
+-- | /See:/ 'putKeyPolicyResponse' smart constructor.
+data PutKeyPolicyResponse =
+    PutKeyPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutKeyPolicyResponse' smart constructor.
+putKeyPolicyResponse :: PutKeyPolicyResponse
+putKeyPolicyResponse = PutKeyPolicyResponse'

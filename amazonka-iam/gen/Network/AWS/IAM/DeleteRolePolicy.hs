@@ -1,33 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.DeleteRolePolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified inline policy that is embedded in the specified role.
+-- Deletes the specified inline policy that is embedded in the specified
+-- role.
 --
--- A role can also have managed policies attached to it. To detach a managed
--- policy from a role, use 'DetachRolePolicy'. For more information about
--- policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/
--- guide.
+-- A role can also have managed policies attached to it. To detach a
+-- managed policy from a role, use DetachRolePolicy. For more information
+-- about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteRolePolicy.html>
 module Network.AWS.IAM.DeleteRolePolicy
@@ -37,8 +34,8 @@ module Network.AWS.IAM.DeleteRolePolicy
     -- ** Request constructor
     , deleteRolePolicy
     -- ** Request lenses
-    , drp1PolicyName
-    , drp1RoleName
+    , delrqRoleName
+    , delrqPolicyName
 
     -- * Response
     , DeleteRolePolicyResponse
@@ -46,62 +43,65 @@ module Network.AWS.IAM.DeleteRolePolicy
     , deleteRolePolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteRolePolicy = DeleteRolePolicy
-    { _drp1PolicyName :: Text
-    , _drp1RoleName   :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteRolePolicy' constructor.
+-- | /See:/ 'deleteRolePolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drp1PolicyName' @::@ 'Text'
+-- * 'delrqRoleName'
 --
--- * 'drp1RoleName' @::@ 'Text'
---
-deleteRolePolicy :: Text -- ^ 'drp1RoleName'
-                 -> Text -- ^ 'drp1PolicyName'
-                 -> DeleteRolePolicy
-deleteRolePolicy p1 p2 = DeleteRolePolicy
-    { _drp1RoleName   = p1
-    , _drp1PolicyName = p2
+-- * 'delrqPolicyName'
+data DeleteRolePolicy = DeleteRolePolicy'
+    { _delrqRoleName   :: !Text
+    , _delrqPolicyName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteRolePolicy' smart constructor.
+deleteRolePolicy :: Text -> Text -> DeleteRolePolicy
+deleteRolePolicy pRoleName_ pPolicyName_ =
+    DeleteRolePolicy'
+    { _delrqRoleName = pRoleName_
+    , _delrqPolicyName = pPolicyName_
     }
 
+-- | The name (friendly name, not ARN) identifying the role that the policy
+-- is embedded in.
+delrqRoleName :: Lens' DeleteRolePolicy Text
+delrqRoleName = lens _delrqRoleName (\ s a -> s{_delrqRoleName = a});
+
 -- | The name identifying the policy document to delete.
-drp1PolicyName :: Lens' DeleteRolePolicy Text
-drp1PolicyName = lens _drp1PolicyName (\s a -> s { _drp1PolicyName = a })
-
--- | The name (friendly name, not ARN) identifying the role that the policy is
--- embedded in.
-drp1RoleName :: Lens' DeleteRolePolicy Text
-drp1RoleName = lens _drp1RoleName (\s a -> s { _drp1RoleName = a })
-
-data DeleteRolePolicyResponse = DeleteRolePolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteRolePolicyResponse' constructor.
-deleteRolePolicyResponse :: DeleteRolePolicyResponse
-deleteRolePolicyResponse = DeleteRolePolicyResponse
-
-instance ToPath DeleteRolePolicy where
-    toPath = const "/"
-
-instance ToQuery DeleteRolePolicy where
-    toQuery DeleteRolePolicy{..} = mconcat
-        [ "PolicyName" =? _drp1PolicyName
-        , "RoleName"   =? _drp1RoleName
-        ]
-
-instance ToHeaders DeleteRolePolicy
+delrqPolicyName :: Lens' DeleteRolePolicy Text
+delrqPolicyName = lens _delrqPolicyName (\ s a -> s{_delrqPolicyName = a});
 
 instance AWSRequest DeleteRolePolicy where
-    type Sv DeleteRolePolicy = IAM
-    type Rs DeleteRolePolicy = DeleteRolePolicyResponse
+        type Sv DeleteRolePolicy = IAM
+        type Rs DeleteRolePolicy = DeleteRolePolicyResponse
+        request = post
+        response = receiveNull DeleteRolePolicyResponse'
 
-    request  = post "DeleteRolePolicy"
-    response = nullResponse DeleteRolePolicyResponse
+instance ToHeaders DeleteRolePolicy where
+        toHeaders = const mempty
+
+instance ToPath DeleteRolePolicy where
+        toPath = const "/"
+
+instance ToQuery DeleteRolePolicy where
+        toQuery DeleteRolePolicy'{..}
+          = mconcat
+              ["Action" =: ("DeleteRolePolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "RoleName" =: _delrqRoleName,
+               "PolicyName" =: _delrqPolicyName]
+
+-- | /See:/ 'deleteRolePolicyResponse' smart constructor.
+data DeleteRolePolicyResponse =
+    DeleteRolePolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteRolePolicyResponse' smart constructor.
+deleteRolePolicyResponse :: DeleteRolePolicyResponse
+deleteRolePolicyResponse = DeleteRolePolicyResponse'

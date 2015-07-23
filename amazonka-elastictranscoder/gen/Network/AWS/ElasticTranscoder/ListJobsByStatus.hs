@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByStatus
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The ListJobsByStatus operation gets a list of jobs that have a specified
--- status. The response body contains one element for each job that satisfies
--- the search criteria.
+-- The ListJobsByStatus operation gets a list of jobs that have a specified
+-- status. The response body contains one element for each job that
+-- satisfies the search criteria.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListJobsByStatus.html>
 module Network.AWS.ElasticTranscoder.ListJobsByStatus
@@ -34,125 +29,140 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     -- ** Request constructor
     , listJobsByStatus
     -- ** Request lenses
-    , ljbsAscending
-    , ljbsPageToken
-    , ljbsStatus
+    , ljbsrqAscending
+    , ljbsrqPageToken
+    , ljbsrqStatus
 
     -- * Response
     , ListJobsByStatusResponse
     -- ** Response constructor
     , listJobsByStatusResponse
     -- ** Response lenses
-    , ljbsrJobs
-    , ljbsrNextPageToken
+    , ljbsrsNextPageToken
+    , ljbsrsJobs
+    , ljbsrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.ElasticTranscoder.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListJobsByStatus = ListJobsByStatus
-    { _ljbsAscending :: Maybe Text
-    , _ljbsPageToken :: Maybe Text
-    , _ljbsStatus    :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListJobsByStatus' constructor.
+-- | The @ListJobsByStatusRequest@ structure.
+--
+-- /See:/ 'listJobsByStatus' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljbsAscending' @::@ 'Maybe' 'Text'
+-- * 'ljbsrqAscending'
 --
--- * 'ljbsPageToken' @::@ 'Maybe' 'Text'
+-- * 'ljbsrqPageToken'
 --
--- * 'ljbsStatus' @::@ 'Text'
---
-listJobsByStatus :: Text -- ^ 'ljbsStatus'
-                 -> ListJobsByStatus
-listJobsByStatus p1 = ListJobsByStatus
-    { _ljbsStatus    = p1
-    , _ljbsAscending = Nothing
-    , _ljbsPageToken = Nothing
+-- * 'ljbsrqStatus'
+data ListJobsByStatus = ListJobsByStatus'
+    { _ljbsrqAscending :: !(Maybe Text)
+    , _ljbsrqPageToken :: !(Maybe Text)
+    , _ljbsrqStatus    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListJobsByStatus' smart constructor.
+listJobsByStatus :: Text -> ListJobsByStatus
+listJobsByStatus pStatus_ =
+    ListJobsByStatus'
+    { _ljbsrqAscending = Nothing
+    , _ljbsrqPageToken = Nothing
+    , _ljbsrqStatus = pStatus_
     }
 
 -- | To list jobs in chronological order by the date and time that they were
--- submitted, enter 'true'. To list jobs in reverse chronological order, enter 'false'.
-ljbsAscending :: Lens' ListJobsByStatus (Maybe Text)
-ljbsAscending = lens _ljbsAscending (\s a -> s { _ljbsAscending = a })
+-- submitted, enter @true@. To list jobs in reverse chronological order,
+-- enter @false@.
+ljbsrqAscending :: Lens' ListJobsByStatus (Maybe Text)
+ljbsrqAscending = lens _ljbsrqAscending (\ s a -> s{_ljbsrqAscending = a});
 
--- | When Elastic Transcoder returns more than one page of results, use 'pageToken'
--- in subsequent 'GET' requests to get each successive page of results.
-ljbsPageToken :: Lens' ListJobsByStatus (Maybe Text)
-ljbsPageToken = lens _ljbsPageToken (\s a -> s { _ljbsPageToken = a })
+-- | When Elastic Transcoder returns more than one page of results, use
+-- @pageToken@ in subsequent @GET@ requests to get each successive page of
+-- results.
+ljbsrqPageToken :: Lens' ListJobsByStatus (Maybe Text)
+ljbsrqPageToken = lens _ljbsrqPageToken (\ s a -> s{_ljbsrqPageToken = a});
 
 -- | To get information about all of the jobs associated with the current AWS
--- account that have a given status, specify the following status: 'Submitted', 'Progressing', 'Complete', 'Canceled', or 'Error'.
-ljbsStatus :: Lens' ListJobsByStatus Text
-ljbsStatus = lens _ljbsStatus (\s a -> s { _ljbsStatus = a })
+-- account that have a given status, specify the following status:
+-- @Submitted@, @Progressing@, @Complete@, @Canceled@, or @Error@.
+ljbsrqStatus :: Lens' ListJobsByStatus Text
+ljbsrqStatus = lens _ljbsrqStatus (\ s a -> s{_ljbsrqStatus = a});
 
-data ListJobsByStatusResponse = ListJobsByStatusResponse
-    { _ljbsrJobs          :: List "Jobs" Job'
-    , _ljbsrNextPageToken :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSPager ListJobsByStatus where
+        page rq rs
+          | stop (rs ^. ljbsrsNextPageToken) = Nothing
+          | stop (rs ^. ljbsrsJobs) = Nothing
+          | otherwise =
+            Just $ rq &
+              ljbsrqPageToken .~ rs ^. ljbsrsNextPageToken
 
--- | 'ListJobsByStatusResponse' constructor.
+instance AWSRequest ListJobsByStatus where
+        type Sv ListJobsByStatus = ElasticTranscoder
+        type Rs ListJobsByStatus = ListJobsByStatusResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListJobsByStatusResponse' <$>
+                   (x .?> "NextPageToken") <*> (x .?> "Jobs" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListJobsByStatus where
+        toHeaders = const mempty
+
+instance ToPath ListJobsByStatus where
+        toPath ListJobsByStatus'{..}
+          = mconcat
+              ["/2012-09-25/jobsByStatus/", toText _ljbsrqStatus]
+
+instance ToQuery ListJobsByStatus where
+        toQuery ListJobsByStatus'{..}
+          = mconcat
+              ["Ascending" =: _ljbsrqAscending,
+               "PageToken" =: _ljbsrqPageToken]
+
+-- | The @ListJobsByStatusResponse@ structure.
+--
+-- /See:/ 'listJobsByStatusResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljbsrJobs' @::@ ['Job'']
+-- * 'ljbsrsNextPageToken'
 --
--- * 'ljbsrNextPageToken' @::@ 'Maybe' 'Text'
+-- * 'ljbsrsJobs'
 --
-listJobsByStatusResponse :: ListJobsByStatusResponse
-listJobsByStatusResponse = ListJobsByStatusResponse
-    { _ljbsrJobs          = mempty
-    , _ljbsrNextPageToken = Nothing
+-- * 'ljbsrsStatus'
+data ListJobsByStatusResponse = ListJobsByStatusResponse'
+    { _ljbsrsNextPageToken :: !(Maybe Text)
+    , _ljbsrsJobs          :: !(Maybe [Job'])
+    , _ljbsrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListJobsByStatusResponse' smart constructor.
+listJobsByStatusResponse :: Int -> ListJobsByStatusResponse
+listJobsByStatusResponse pStatus_ =
+    ListJobsByStatusResponse'
+    { _ljbsrsNextPageToken = Nothing
+    , _ljbsrsJobs = Nothing
+    , _ljbsrsStatus = pStatus_
     }
 
--- | An array of 'Job' objects that have the specified status.
-ljbsrJobs :: Lens' ListJobsByStatusResponse [Job']
-ljbsrJobs = lens _ljbsrJobs (\s a -> s { _ljbsrJobs = a }) . _List
+-- | A value that you use to access the second and subsequent pages of
+-- results, if any. When the jobs in the specified pipeline fit on one page
+-- or when you\'ve reached the last page of results, the value of
+-- @NextPageToken@ is @null@.
+ljbsrsNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
+ljbsrsNextPageToken = lens _ljbsrsNextPageToken (\ s a -> s{_ljbsrsNextPageToken = a});
 
--- | A value that you use to access the second and subsequent pages of results,
--- if any. When the jobs in the specified pipeline fit on one page or when
--- you've reached the last page of results, the value of 'NextPageToken' is 'null'.
-ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
-ljbsrNextPageToken =
-    lens _ljbsrNextPageToken (\s a -> s { _ljbsrNextPageToken = a })
+-- | An array of @Job@ objects that have the specified status.
+ljbsrsJobs :: Lens' ListJobsByStatusResponse [Job']
+ljbsrsJobs = lens _ljbsrsJobs (\ s a -> s{_ljbsrsJobs = a}) . _Default;
 
-instance ToPath ListJobsByStatus where
-    toPath ListJobsByStatus{..} = mconcat
-        [ "/2012-09-25/jobsByStatus/"
-        , toText _ljbsStatus
-        ]
-
-instance ToQuery ListJobsByStatus where
-    toQuery ListJobsByStatus{..} = mconcat
-        [ "Ascending" =? _ljbsAscending
-        , "PageToken" =? _ljbsPageToken
-        ]
-
-instance ToHeaders ListJobsByStatus
-
-instance ToJSON ListJobsByStatus where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest ListJobsByStatus where
-    type Sv ListJobsByStatus = ElasticTranscoder
-    type Rs ListJobsByStatus = ListJobsByStatusResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON ListJobsByStatusResponse where
-    parseJSON = withObject "ListJobsByStatusResponse" $ \o -> ListJobsByStatusResponse
-        <$> o .:? "Jobs" .!= mempty
-        <*> o .:? "NextPageToken"
-
-instance AWSPager ListJobsByStatus where
-    page rq rs
-        | stop (rs ^. ljbsrNextPageToken) = Nothing
-        | otherwise = (\x -> rq & ljbsPageToken ?~ x)
-            <$> (rs ^. ljbsrNextPageToken)
+-- | FIXME: Undocumented member.
+ljbsrsStatus :: Lens' ListJobsByStatusResponse Int
+ljbsrsStatus = lens _ljbsrsStatus (\ s a -> s{_ljbsrsStatus = a});

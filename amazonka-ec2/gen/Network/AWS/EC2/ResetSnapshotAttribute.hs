@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.ResetSnapshotAttribute
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Resets permission settings for the specified snapshot.
+-- Resets permission settings for the specified snapshot.
 --
--- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
+-- For more information on modifying snapshot permissions, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetSnapshotAttribute.html>
@@ -35,9 +31,9 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     -- ** Request constructor
     , resetSnapshotAttribute
     -- ** Request lenses
-    , rsaAttribute
-    , rsaDryRun
-    , rsaSnapshotId
+    , rsarqDryRun
+    , rsarqSnapshotId
+    , rsarqAttribute
 
     -- * Response
     , ResetSnapshotAttributeResponse
@@ -45,73 +41,80 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     , resetSnapshotAttributeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ResetSnapshotAttribute = ResetSnapshotAttribute
-    { _rsaAttribute  :: SnapshotAttributeName
-    , _rsaDryRun     :: Maybe Bool
-    , _rsaSnapshotId :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'ResetSnapshotAttribute' constructor.
+-- | /See:/ 'resetSnapshotAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsaAttribute' @::@ 'SnapshotAttributeName'
+-- * 'rsarqDryRun'
 --
--- * 'rsaDryRun' @::@ 'Maybe' 'Bool'
+-- * 'rsarqSnapshotId'
 --
--- * 'rsaSnapshotId' @::@ 'Text'
---
-resetSnapshotAttribute :: Text -- ^ 'rsaSnapshotId'
-                       -> SnapshotAttributeName -- ^ 'rsaAttribute'
-                       -> ResetSnapshotAttribute
-resetSnapshotAttribute p1 p2 = ResetSnapshotAttribute
-    { _rsaSnapshotId = p1
-    , _rsaAttribute  = p2
-    , _rsaDryRun     = Nothing
+-- * 'rsarqAttribute'
+data ResetSnapshotAttribute = ResetSnapshotAttribute'
+    { _rsarqDryRun     :: !(Maybe Bool)
+    , _rsarqSnapshotId :: !Text
+    , _rsarqAttribute  :: !ModifySnapshotAttributeName
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ResetSnapshotAttribute' smart constructor.
+resetSnapshotAttribute :: Text -> ModifySnapshotAttributeName -> ResetSnapshotAttribute
+resetSnapshotAttribute pSnapshotId_ pAttribute_ =
+    ResetSnapshotAttribute'
+    { _rsarqDryRun = Nothing
+    , _rsarqSnapshotId = pSnapshotId_
+    , _rsarqAttribute = pAttribute_
     }
 
--- | The attribute to reset (currently only the attribute for permission to create
--- volumes can be reset).
-rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
-rsaAttribute = lens _rsaAttribute (\s a -> s { _rsaAttribute = a })
-
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
-rsaDryRun = lens _rsaDryRun (\s a -> s { _rsaDryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+rsarqDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
+rsarqDryRun = lens _rsarqDryRun (\ s a -> s{_rsarqDryRun = a});
 
 -- | The ID of the snapshot.
-rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
-rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
+rsarqSnapshotId :: Lens' ResetSnapshotAttribute Text
+rsarqSnapshotId = lens _rsarqSnapshotId (\ s a -> s{_rsarqSnapshotId = a});
 
-data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ResetSnapshotAttributeResponse' constructor.
-resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
-resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
-
-instance ToPath ResetSnapshotAttribute where
-    toPath = const "/"
-
-instance ToQuery ResetSnapshotAttribute where
-    toQuery ResetSnapshotAttribute{..} = mconcat
-        [ "Attribute"  =? _rsaAttribute
-        , "DryRun"     =? _rsaDryRun
-        , "SnapshotId" =? _rsaSnapshotId
-        ]
-
-instance ToHeaders ResetSnapshotAttribute
+-- | The attribute to reset. Currently, only the attribute for permission to
+-- create volumes can be reset.
+rsarqAttribute :: Lens' ResetSnapshotAttribute ModifySnapshotAttributeName
+rsarqAttribute = lens _rsarqAttribute (\ s a -> s{_rsarqAttribute = a});
 
 instance AWSRequest ResetSnapshotAttribute where
-    type Sv ResetSnapshotAttribute = EC2
-    type Rs ResetSnapshotAttribute = ResetSnapshotAttributeResponse
+        type Sv ResetSnapshotAttribute = EC2
+        type Rs ResetSnapshotAttribute =
+             ResetSnapshotAttributeResponse
+        request = post
+        response
+          = receiveNull ResetSnapshotAttributeResponse'
 
-    request  = post "ResetSnapshotAttribute"
-    response = nullResponse ResetSnapshotAttributeResponse
+instance ToHeaders ResetSnapshotAttribute where
+        toHeaders = const mempty
+
+instance ToPath ResetSnapshotAttribute where
+        toPath = const "/"
+
+instance ToQuery ResetSnapshotAttribute where
+        toQuery ResetSnapshotAttribute'{..}
+          = mconcat
+              ["Action" =:
+                 ("ResetSnapshotAttribute" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _rsarqDryRun,
+               "SnapshotId" =: _rsarqSnapshotId,
+               "Attribute" =: _rsarqAttribute]
+
+-- | /See:/ 'resetSnapshotAttributeResponse' smart constructor.
+data ResetSnapshotAttributeResponse =
+    ResetSnapshotAttributeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ResetSnapshotAttributeResponse' smart constructor.
+resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
+resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse'

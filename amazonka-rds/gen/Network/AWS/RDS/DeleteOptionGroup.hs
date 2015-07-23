@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.DeleteOptionGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes an existing option group.
+-- Deletes an existing option group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteOptionGroup.html>
 module Network.AWS.RDS.DeleteOptionGroup
@@ -32,7 +27,7 @@ module Network.AWS.RDS.DeleteOptionGroup
     -- ** Request constructor
     , deleteOptionGroup
     -- ** Request lenses
-    , dog1OptionGroupName
+    , drqOptionGroupName
 
     -- * Response
     , DeleteOptionGroupResponse
@@ -40,54 +35,59 @@ module Network.AWS.RDS.DeleteOptionGroup
     , deleteOptionGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteOptionGroup = DeleteOptionGroup
-    { _dog1OptionGroupName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteOptionGroup' constructor.
+-- |
+--
+-- /See:/ 'deleteOptionGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dog1OptionGroupName' @::@ 'Text'
---
-deleteOptionGroup :: Text -- ^ 'dog1OptionGroupName'
-                  -> DeleteOptionGroup
-deleteOptionGroup p1 = DeleteOptionGroup
-    { _dog1OptionGroupName = p1
+-- * 'drqOptionGroupName'
+newtype DeleteOptionGroup = DeleteOptionGroup'
+    { _drqOptionGroupName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteOptionGroup' smart constructor.
+deleteOptionGroup :: Text -> DeleteOptionGroup
+deleteOptionGroup pOptionGroupName_ =
+    DeleteOptionGroup'
+    { _drqOptionGroupName = pOptionGroupName_
     }
 
 -- | The name of the option group to be deleted.
 --
 -- You cannot delete default option groups.
-dog1OptionGroupName :: Lens' DeleteOptionGroup Text
-dog1OptionGroupName =
-    lens _dog1OptionGroupName (\s a -> s { _dog1OptionGroupName = a })
-
-data DeleteOptionGroupResponse = DeleteOptionGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteOptionGroupResponse' constructor.
-deleteOptionGroupResponse :: DeleteOptionGroupResponse
-deleteOptionGroupResponse = DeleteOptionGroupResponse
-
-instance ToPath DeleteOptionGroup where
-    toPath = const "/"
-
-instance ToQuery DeleteOptionGroup where
-    toQuery DeleteOptionGroup{..} = mconcat
-        [ "OptionGroupName" =? _dog1OptionGroupName
-        ]
-
-instance ToHeaders DeleteOptionGroup
+drqOptionGroupName :: Lens' DeleteOptionGroup Text
+drqOptionGroupName = lens _drqOptionGroupName (\ s a -> s{_drqOptionGroupName = a});
 
 instance AWSRequest DeleteOptionGroup where
-    type Sv DeleteOptionGroup = RDS
-    type Rs DeleteOptionGroup = DeleteOptionGroupResponse
+        type Sv DeleteOptionGroup = RDS
+        type Rs DeleteOptionGroup = DeleteOptionGroupResponse
+        request = post
+        response = receiveNull DeleteOptionGroupResponse'
 
-    request  = post "DeleteOptionGroup"
-    response = nullResponse DeleteOptionGroupResponse
+instance ToHeaders DeleteOptionGroup where
+        toHeaders = const mempty
+
+instance ToPath DeleteOptionGroup where
+        toPath = const "/"
+
+instance ToQuery DeleteOptionGroup where
+        toQuery DeleteOptionGroup'{..}
+          = mconcat
+              ["Action" =: ("DeleteOptionGroup" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "OptionGroupName" =: _drqOptionGroupName]
+
+-- | /See:/ 'deleteOptionGroupResponse' smart constructor.
+data DeleteOptionGroupResponse =
+    DeleteOptionGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteOptionGroupResponse' smart constructor.
+deleteOptionGroupResponse :: DeleteOptionGroupResponse
+deleteOptionGroupResponse = DeleteOptionGroupResponse'

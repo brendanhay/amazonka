@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.DeleteBucketLifecycle
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the lifecycle configuration from the bucket.
+-- Deletes the lifecycle configuration from the bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketLifecycle.html>
 module Network.AWS.S3.DeleteBucketLifecycle
@@ -32,7 +27,7 @@ module Network.AWS.S3.DeleteBucketLifecycle
     -- ** Request constructor
     , deleteBucketLifecycle
     -- ** Request lenses
-    , dblBucket
+    , dblrqBucket
 
     -- * Response
     , DeleteBucketLifecycleResponse
@@ -40,56 +35,53 @@ module Network.AWS.S3.DeleteBucketLifecycle
     , deleteBucketLifecycleResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-newtype DeleteBucketLifecycle = DeleteBucketLifecycle
-    { _dblBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteBucketLifecycle' constructor.
+-- | /See:/ 'deleteBucketLifecycle' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dblBucket' @::@ 'Text'
---
-deleteBucketLifecycle :: Text -- ^ 'dblBucket'
-                      -> DeleteBucketLifecycle
-deleteBucketLifecycle p1 = DeleteBucketLifecycle
-    { _dblBucket = p1
+-- * 'dblrqBucket'
+newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
+    { _dblrqBucket :: BucketName
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'DeleteBucketLifecycle' smart constructor.
+deleteBucketLifecycle :: BucketName -> DeleteBucketLifecycle
+deleteBucketLifecycle pBucket_ =
+    DeleteBucketLifecycle'
+    { _dblrqBucket = pBucket_
     }
 
-dblBucket :: Lens' DeleteBucketLifecycle Text
-dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
-
-data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteBucketLifecycleResponse' constructor.
-deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
-deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
-
-instance ToPath DeleteBucketLifecycle where
-    toPath DeleteBucketLifecycle{..} = mconcat
-        [ "/"
-        , toText _dblBucket
-        ]
-
-instance ToQuery DeleteBucketLifecycle where
-    toQuery = const "lifecycle"
-
-instance ToHeaders DeleteBucketLifecycle
-
-instance ToXMLRoot DeleteBucketLifecycle where
-    toXMLRoot = const (namespaced ns "DeleteBucketLifecycle" [])
-
-instance ToXML DeleteBucketLifecycle
+-- | FIXME: Undocumented member.
+dblrqBucket :: Lens' DeleteBucketLifecycle BucketName
+dblrqBucket = lens _dblrqBucket (\ s a -> s{_dblrqBucket = a});
 
 instance AWSRequest DeleteBucketLifecycle where
-    type Sv DeleteBucketLifecycle = S3
-    type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
+        type Sv DeleteBucketLifecycle = S3
+        type Rs DeleteBucketLifecycle =
+             DeleteBucketLifecycleResponse
+        request = delete
+        response = receiveNull DeleteBucketLifecycleResponse'
 
-    request  = delete
-    response = nullResponse DeleteBucketLifecycleResponse
+instance ToHeaders DeleteBucketLifecycle where
+        toHeaders = const mempty
+
+instance ToPath DeleteBucketLifecycle where
+        toPath DeleteBucketLifecycle'{..}
+          = mconcat ["/", toText _dblrqBucket]
+
+instance ToQuery DeleteBucketLifecycle where
+        toQuery = const (mconcat ["lifecycle"])
+
+-- | /See:/ 'deleteBucketLifecycleResponse' smart constructor.
+data DeleteBucketLifecycleResponse =
+    DeleteBucketLifecycleResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteBucketLifecycleResponse' smart constructor.
+deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
+deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse'

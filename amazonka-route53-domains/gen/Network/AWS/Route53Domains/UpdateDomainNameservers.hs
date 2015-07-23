@@ -1,35 +1,31 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainNameservers
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation replaces the current set of name servers for the domain with
--- the specified set of name servers. If you use Amazon Route 53 as your DNS
--- service, specify the four name servers in the delegation set for the hosted
--- zone for the domain.
+-- This operation replaces the current set of name servers for the domain
+-- with the specified set of name servers. If you use Amazon Route 53 as
+-- your DNS service, specify the four name servers in the delegation set
+-- for the hosted zone for the domain.
 --
--- If successful, this operation returns an operation ID that you can use to
--- track the progress and completion of the action. If the request is not
--- completed successfully, the domain registrant will be notified by email.
+-- If successful, this operation returns an operation ID that you can use
+-- to track the progress and completion of the action. If the request is
+-- not completed successfully, the domain registrant will be notified by
+-- email.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateDomainNameservers.html>
 module Network.AWS.Route53Domains.UpdateDomainNameservers
@@ -39,47 +35,53 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     -- ** Request constructor
     , updateDomainNameservers
     -- ** Request lenses
-    , udnDomainName
-    , udnFIAuthKey
-    , udnNameservers
+    , udnrqFIAuthKey
+    , udnrqDomainName
+    , udnrqNameservers
 
     -- * Response
     , UpdateDomainNameserversResponse
     -- ** Response constructor
     , updateDomainNameserversResponse
     -- ** Response lenses
-    , udnrOperationId
+    , udnrsStatus
+    , udnrsOperationId
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Route53Domains.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
-data UpdateDomainNameservers = UpdateDomainNameservers
-    { _udnDomainName  :: Text
-    , _udnFIAuthKey   :: Maybe Text
-    , _udnNameservers :: List "Nameservers" Nameserver
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateDomainNameservers' constructor.
+-- | The UpdateDomainNameserver request includes the following elements.
+--
+-- /See:/ 'updateDomainNameservers' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udnDomainName' @::@ 'Text'
+-- * 'udnrqFIAuthKey'
 --
--- * 'udnFIAuthKey' @::@ 'Maybe' 'Text'
+-- * 'udnrqDomainName'
 --
--- * 'udnNameservers' @::@ ['Nameserver']
---
-updateDomainNameservers :: Text -- ^ 'udnDomainName'
-                        -> UpdateDomainNameservers
-updateDomainNameservers p1 = UpdateDomainNameservers
-    { _udnDomainName  = p1
-    , _udnFIAuthKey   = Nothing
-    , _udnNameservers = mempty
+-- * 'udnrqNameservers'
+data UpdateDomainNameservers = UpdateDomainNameservers'
+    { _udnrqFIAuthKey   :: !(Maybe Text)
+    , _udnrqDomainName  :: !Text
+    , _udnrqNameservers :: ![Nameserver]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateDomainNameservers' smart constructor.
+updateDomainNameservers :: Text -> UpdateDomainNameservers
+updateDomainNameservers pDomainName_ =
+    UpdateDomainNameservers'
+    { _udnrqFIAuthKey = Nothing
+    , _udnrqDomainName = pDomainName_
+    , _udnrqNameservers = mempty
     }
+
+-- | The authorization key for .fi domains
+udnrqFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
+udnrqFIAuthKey = lens _udnrqFIAuthKey (\ s a -> s{_udnrqFIAuthKey = a});
 
 -- | The name of a domain.
 --
@@ -87,77 +89,91 @@ updateDomainNameservers p1 = UpdateDomainNameservers
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z, the
--- numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
--- supported.
+-- Constraints: The domain name can contain only the letters a through z,
+-- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
+-- are not supported.
 --
 -- Required: Yes
-udnDomainName :: Lens' UpdateDomainNameservers Text
-udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
-
--- | The authorization key for .fi domains
-udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
-udnFIAuthKey = lens _udnFIAuthKey (\s a -> s { _udnFIAuthKey = a })
+udnrqDomainName :: Lens' UpdateDomainNameservers Text
+udnrqDomainName = lens _udnrqDomainName (\ s a -> s{_udnrqDomainName = a});
 
 -- | A list of new name servers for the domain.
 --
 -- Type: Complex
 --
--- Children: 'Name', 'GlueIps'
+-- Children: @Name@, @GlueIps@
 --
 -- Required: Yes
-udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
-udnNameservers = lens _udnNameservers (\s a -> s { _udnNameservers = a }) . _List
+udnrqNameservers :: Lens' UpdateDomainNameservers [Nameserver]
+udnrqNameservers = lens _udnrqNameservers (\ s a -> s{_udnrqNameservers = a});
 
-newtype UpdateDomainNameserversResponse = UpdateDomainNameserversResponse
-    { _udnrOperationId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+instance AWSRequest UpdateDomainNameservers where
+        type Sv UpdateDomainNameservers = Route53Domains
+        type Rs UpdateDomainNameservers =
+             UpdateDomainNameserversResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateDomainNameserversResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
 
--- | 'UpdateDomainNameserversResponse' constructor.
+instance ToHeaders UpdateDomainNameservers where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Route53Domains_v20140515.UpdateDomainNameservers"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateDomainNameservers where
+        toJSON UpdateDomainNameservers'{..}
+          = object
+              ["FIAuthKey" .= _udnrqFIAuthKey,
+               "DomainName" .= _udnrqDomainName,
+               "Nameservers" .= _udnrqNameservers]
+
+instance ToPath UpdateDomainNameservers where
+        toPath = const "/"
+
+instance ToQuery UpdateDomainNameservers where
+        toQuery = const mempty
+
+-- | The UpdateDomainNameservers response includes the following element.
+--
+-- /See:/ 'updateDomainNameserversResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udnrOperationId' @::@ 'Text'
+-- * 'udnrsStatus'
 --
-updateDomainNameserversResponse :: Text -- ^ 'udnrOperationId'
-                                -> UpdateDomainNameserversResponse
-updateDomainNameserversResponse p1 = UpdateDomainNameserversResponse
-    { _udnrOperationId = p1
+-- * 'udnrsOperationId'
+data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
+    { _udnrsStatus      :: !Int
+    , _udnrsOperationId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateDomainNameserversResponse' smart constructor.
+updateDomainNameserversResponse :: Int -> Text -> UpdateDomainNameserversResponse
+updateDomainNameserversResponse pStatus_ pOperationId_ =
+    UpdateDomainNameserversResponse'
+    { _udnrsStatus = pStatus_
+    , _udnrsOperationId = pOperationId_
     }
 
--- | Identifier for tracking the progress of the request. To use this ID to query
--- the operation status, use GetOperationDetail.
+-- | FIXME: Undocumented member.
+udnrsStatus :: Lens' UpdateDomainNameserversResponse Int
+udnrsStatus = lens _udnrsStatus (\ s a -> s{_udnrsStatus = a});
+
+-- | Identifier for tracking the progress of the request. To use this ID to
+-- query the operation status, use GetOperationDetail.
 --
 -- Type: String
 --
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
-udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
-udnrOperationId = lens _udnrOperationId (\s a -> s { _udnrOperationId = a })
-
-instance ToPath UpdateDomainNameservers where
-    toPath = const "/"
-
-instance ToQuery UpdateDomainNameservers where
-    toQuery = const mempty
-
-instance ToHeaders UpdateDomainNameservers
-
-instance ToJSON UpdateDomainNameservers where
-    toJSON UpdateDomainNameservers{..} = object
-        [ "DomainName"  .= _udnDomainName
-        , "FIAuthKey"   .= _udnFIAuthKey
-        , "Nameservers" .= _udnNameservers
-        ]
-
-instance AWSRequest UpdateDomainNameservers where
-    type Sv UpdateDomainNameservers = Route53Domains
-    type Rs UpdateDomainNameservers = UpdateDomainNameserversResponse
-
-    request  = post "UpdateDomainNameservers"
-    response = jsonResponse
-
-instance FromJSON UpdateDomainNameserversResponse where
-    parseJSON = withObject "UpdateDomainNameserversResponse" $ \o -> UpdateDomainNameserversResponse
-        <$> o .:  "OperationId"
+udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
+udnrsOperationId = lens _udnrsOperationId (\ s a -> s{_udnrsOperationId = a});

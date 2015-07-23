@@ -1,31 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ELB.DescribeInstanceHealth
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes the state of the specified instances registered with the specified
--- load balancer. If no instances are specified, the call describes the state of
--- all instances registered with the load balancer, not including any terminated
--- instances.
+-- Describes the state of the specified instances registered with the
+-- specified load balancer. If no instances are specified, the call
+-- describes the state of all instances registered with the load balancer,
+-- not including any terminated instances.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeInstanceHealth.html>
 module Network.AWS.ELB.DescribeInstanceHealth
@@ -35,96 +30,104 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- ** Request constructor
     , describeInstanceHealth
     -- ** Request lenses
-    , dihInstances
-    , dihLoadBalancerName
+    , dihrqInstances
+    , dihrqLoadBalancerName
 
     -- * Response
     , DescribeInstanceHealthResponse
     -- ** Response constructor
     , describeInstanceHealthResponse
     -- ** Response lenses
-    , dihrInstanceStates
+    , dihrsInstanceStates
+    , dihrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeInstanceHealth = DescribeInstanceHealth
-    { _dihInstances        :: List "member" Instance
-    , _dihLoadBalancerName :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeInstanceHealth' constructor.
+-- | /See:/ 'describeInstanceHealth' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dihInstances' @::@ ['Instance']
+-- * 'dihrqInstances'
 --
--- * 'dihLoadBalancerName' @::@ 'Text'
---
-describeInstanceHealth :: Text -- ^ 'dihLoadBalancerName'
-                       -> DescribeInstanceHealth
-describeInstanceHealth p1 = DescribeInstanceHealth
-    { _dihLoadBalancerName = p1
-    , _dihInstances        = mempty
+-- * 'dihrqLoadBalancerName'
+data DescribeInstanceHealth = DescribeInstanceHealth'
+    { _dihrqInstances        :: !(Maybe [Instance])
+    , _dihrqLoadBalancerName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeInstanceHealth' smart constructor.
+describeInstanceHealth :: Text -> DescribeInstanceHealth
+describeInstanceHealth pLoadBalancerName_ =
+    DescribeInstanceHealth'
+    { _dihrqInstances = Nothing
+    , _dihrqLoadBalancerName = pLoadBalancerName_
     }
 
 -- | The IDs of the instances.
-dihInstances :: Lens' DescribeInstanceHealth [Instance]
-dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a }) . _List
+dihrqInstances :: Lens' DescribeInstanceHealth [Instance]
+dihrqInstances = lens _dihrqInstances (\ s a -> s{_dihrqInstances = a}) . _Default;
 
 -- | The name of the load balancer.
-dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
-dihLoadBalancerName =
-    lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
+dihrqLoadBalancerName :: Lens' DescribeInstanceHealth Text
+dihrqLoadBalancerName = lens _dihrqLoadBalancerName (\ s a -> s{_dihrqLoadBalancerName = a});
 
-newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
-    { _dihrInstanceStates :: List "member" InstanceState
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeInstanceHealth where
+        type Sv DescribeInstanceHealth = ELB
+        type Rs DescribeInstanceHealth =
+             DescribeInstanceHealthResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeInstanceHealthResult"
+              (\ s h x ->
+                 DescribeInstanceHealthResponse' <$>
+                   (x .@? "InstanceStates" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeInstanceHealthResponse where
-    type Item DescribeInstanceHealthResponse = InstanceState
+instance ToHeaders DescribeInstanceHealth where
+        toHeaders = const mempty
 
-    fromList = DescribeInstanceHealthResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dihrInstanceStates
+instance ToPath DescribeInstanceHealth where
+        toPath = const "/"
 
--- | 'DescribeInstanceHealthResponse' constructor.
+instance ToQuery DescribeInstanceHealth where
+        toQuery DescribeInstanceHealth'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeInstanceHealth" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "Instances" =:
+                 toQuery (toQueryList "member" <$> _dihrqInstances),
+               "LoadBalancerName" =: _dihrqLoadBalancerName]
+
+-- | /See:/ 'describeInstanceHealthResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dihrInstanceStates' @::@ ['InstanceState']
+-- * 'dihrsInstanceStates'
 --
-describeInstanceHealthResponse :: DescribeInstanceHealthResponse
-describeInstanceHealthResponse = DescribeInstanceHealthResponse
-    { _dihrInstanceStates = mempty
+-- * 'dihrsStatus'
+data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
+    { _dihrsInstanceStates :: !(Maybe [InstanceState])
+    , _dihrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeInstanceHealthResponse' smart constructor.
+describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse
+describeInstanceHealthResponse pStatus_ =
+    DescribeInstanceHealthResponse'
+    { _dihrsInstanceStates = Nothing
+    , _dihrsStatus = pStatus_
     }
 
 -- | Information about the health of the instances.
-dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
-dihrInstanceStates =
-    lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })
-        . _List
+dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
+dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default;
 
-instance ToPath DescribeInstanceHealth where
-    toPath = const "/"
-
-instance ToQuery DescribeInstanceHealth where
-    toQuery DescribeInstanceHealth{..} = mconcat
-        [ "Instances"        =? _dihInstances
-        , "LoadBalancerName" =? _dihLoadBalancerName
-        ]
-
-instance ToHeaders DescribeInstanceHealth
-
-instance AWSRequest DescribeInstanceHealth where
-    type Sv DescribeInstanceHealth = ELB
-    type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
-
-    request  = post "DescribeInstanceHealth"
-    response = xmlResponse
-
-instance FromXML DescribeInstanceHealthResponse where
-    parseXML = withElement "DescribeInstanceHealthResult" $ \x -> DescribeInstanceHealthResponse
-        <$> x .@? "InstanceStates" .!@ mempty
+-- | FIXME: Undocumented member.
+dihrsStatus :: Lens' DescribeInstanceHealthResponse Int
+dihrsStatus = lens _dihrsStatus (\ s a -> s{_dihrsStatus = a});

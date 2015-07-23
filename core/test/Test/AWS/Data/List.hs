@@ -1,9 +1,7 @@
-{-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE QuasiQuotes       #-}
 
 -- Module      : Test.AWS.Data.List
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -14,86 +12,75 @@
 
 module Test.AWS.Data.List (tests) where
 
-import Network.AWS.Prelude
-import Test.AWS.TH
-import Test.AWS.Types
-import Test.Tasty
-import Test.Tasty.HUnit
+import           Network.AWS.Prelude
+import           Test.AWS.Util
+import           Test.Tasty
+import           Test.Tasty.HUnit
 
 tests :: TestTree
 tests = testGroup "list"
-    [ testGroup "deserialise xml"
-        [ testCase "entries" $
-            assertXML unflattened (Entries items)
-        , testCase "flattened" $
-            assertXML flattened items
+    [ testGroup "deserialise non-flattened xml"
+        [ testCase "absent" $
+            assertXML "<root><name>absent</name></root>" $
+                Root (NonFlat "absent" absent)
+        , testCase "empty" $
+            assertXML "<root><name>empty</name><itemSet/></root>" $
+                Root (NonFlat "empty" absent)
+        , testCase "primitive" $
+            assertXML "<root><name>primitive</name><itemSet><item>1</item><item>2</item><item>3</item></itemSet></root>" $
+                Root (NonFlat "primitive" (Just ([1, 2, 3] :: [Int])))
+        , testCase "complex" $
+            assertXML "<root><name>complex</name><itemSet><item><value>1</value></item><item><value>2</value></item></itemSet></root>" $
+                Root (NonFlat "complex" (Just [Item 1, Item 2]))
+        ]
+
+    , testGroup "deserialise flattened xml"
+        [ testCase "absent/empty" $
+            assertXML "<root><name>empty</name></root>" $
+                Root (Flat "empty" empty)
+        , testCase "primitive" $
+            assertXML "<root><name>primitive</name><item>4</item><item>5</item><item>6</item></root>" $
+                Root (Flat "primitive" (Just ([4, 5, 6] :: [Int])))
+        , testCase "complex" $
+            assertXML "<root><name>complex</name><item><value>9</value></item><item><value>10</value></item></root>" $
+                Root (Flat "complex" (Just [Item 9, Item 10]))
+        ]
+
+    , testGroup "serialise non-flattened xml"
+        [
+        ]
+
+    , testGroup "serialise flattened xml"
+        [
         ]
     ]
 
-data Item = Item
-    { itemText :: Text
-    , itemDate :: Text
-    , itemInt  :: Int
-    } deriving (Eq, Show)
+empty :: Maybe [Int]
+empty = Just []
+
+absent :: Maybe [Int]
+absent = Nothing
+
+data NonFlat a = NonFlat Text (Maybe [a])
+    deriving (Eq, Show)
+
+instance FromXML a => FromXML (NonFlat a) where
+    parseXML x = NonFlat
+         <$>  x .@  "name"
+         <*> (x .@? "itemSet"
+                .!@ mempty
+                >>= may (parseXMLList "item"))
+
+data Flat a = Flat Text (Maybe [a])
+    deriving (Eq, Show)
+
+instance FromXML a => FromXML (Flat a) where
+    parseXML x = Flat
+         <$> x .@  "name"
+         <*> may (parseXMLList "item") x
+
+newtype Item = Item Int
+    deriving (Eq, Show)
 
 instance FromXML Item where
-    parseXML x = Item
-        <$> x .@ "Text"
-        <*> x .@ "Date"
-        <*> x .@ "Int"
-
-items :: List "Item" Item
-items = List
-    [ Item
-        { itemText = "828ef3fdfa96f00ad9f27c383fc9ac7"
-        , itemDate = "2006-01-01T12:00:00.000Z"
-        , itemInt  = 5
-        }
-    , Item
-        { itemText = "fe3f123jfa96f00ad9f27c383fc9sd1"
-        , itemDate = "2014-11-02T01:20:12"
-        , itemInt  = 123
-        }
-    ]
-
-unflattened :: LazyByteString
-unflattened = [doc|
-    <?xml version="1.0" encoding="UTF-8"?>
-    <Wrapper>
-      <Foo>foo</Foo>
-      <Bar>N</Bar>
-      <Baz>Ned</Baz>
-      <Entries>
-        <Item>
-          <Date>2006-01-01T12:00:00.000Z</Date>
-          <Text>828ef3fdfa96f00ad9f27c383fc9ac7</Text>
-          <Int>5</Int>
-        </Item>
-        <Item>
-          <Date>2014-11-02T01:20:12</Date>
-          <Text>fe3f123jfa96f00ad9f27c383fc9sd1</Text>
-          <Int>123</Int>
-        </Item>
-      </Entries>
-    </Wrapper>
-    |]
-
-flattened :: LazyByteString
-flattened = [doc|
-    <?xml version="1.0" encoding="UTF-8"?>
-    <Wrapper>
-      <Foo>foo</Foo>
-      <Bar>N</Bar>
-      <Baz>Ned</Baz>
-      <Item>
-        <Date>2006-01-01T12:00:00.000Z</Date>
-        <Text>828ef3fdfa96f00ad9f27c383fc9ac7</Text>
-        <Int>5</Int>
-      </Item>
-      <Item>
-        <Date>2014-11-02T01:20:12</Date>
-        <Text>fe3f123jfa96f00ad9f27c383fc9sd1</Text>
-        <Int>123</Int>
-      </Item>
-    </Wrapper>
-    |]
+    parseXML x = Item <$> x .@ "value"

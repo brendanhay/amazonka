@@ -1,33 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudWatch.PutMetricAlarm
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates or updates an alarm and associates it with the specified Amazon
+-- Creates or updates an alarm and associates it with the specified Amazon
 -- CloudWatch metric. Optionally, this operation can associate one or more
 -- Amazon Simple Notification Service resources with the alarm.
 --
--- When this operation creates an alarm, the alarm state is immediately set to 'INSUFFICIENT_DATA'. The alarm is evaluated and its 'StateValue' is set
--- appropriately. Any actions associated with the 'StateValue' is then executed.
+-- When this operation creates an alarm, the alarm state is immediately set
+-- to @INSUFFICIENT_DATA@. The alarm is evaluated and its @StateValue@ is
+-- set appropriately. Any actions associated with the @StateValue@ is then
+-- executed.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html>
 module Network.AWS.CloudWatch.PutMetricAlarm
@@ -37,21 +34,21 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     -- ** Request constructor
     , putMetricAlarm
     -- ** Request lenses
-    , pmaActionsEnabled
-    , pmaAlarmActions
-    , pmaAlarmDescription
-    , pmaAlarmName
-    , pmaComparisonOperator
-    , pmaDimensions
-    , pmaEvaluationPeriods
-    , pmaInsufficientDataActions
-    , pmaMetricName
-    , pmaNamespace
-    , pmaOKActions
-    , pmaPeriod
-    , pmaStatistic
-    , pmaThreshold
-    , pmaUnit
+    , pmarqAlarmDescription
+    , pmarqOKActions
+    , pmarqActionsEnabled
+    , pmarqInsufficientDataActions
+    , pmarqDimensions
+    , pmarqAlarmActions
+    , pmarqUnit
+    , pmarqAlarmName
+    , pmarqMetricName
+    , pmarqNamespace
+    , pmarqStatistic
+    , pmarqPeriod
+    , pmarqEvaluationPeriods
+    , pmarqThreshold
+    , pmarqComparisonOperator
 
     -- * Response
     , PutMetricAlarmResponse
@@ -59,203 +56,201 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     , putMetricAlarmResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudWatch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data PutMetricAlarm = PutMetricAlarm
-    { _pmaActionsEnabled          :: Maybe Bool
-    , _pmaAlarmActions            :: List "member" Text
-    , _pmaAlarmDescription        :: Maybe Text
-    , _pmaAlarmName               :: Text
-    , _pmaComparisonOperator      :: ComparisonOperator
-    , _pmaDimensions              :: List "member" Dimension
-    , _pmaEvaluationPeriods       :: Nat
-    , _pmaInsufficientDataActions :: List "member" Text
-    , _pmaMetricName              :: Text
-    , _pmaNamespace               :: Text
-    , _pmaOKActions               :: List "member" Text
-    , _pmaPeriod                  :: Nat
-    , _pmaStatistic               :: Statistic
-    , _pmaThreshold               :: Double
-    , _pmaUnit                    :: Maybe StandardUnit
-    } deriving (Eq, Read, Show)
-
--- | 'PutMetricAlarm' constructor.
+-- | /See:/ 'putMetricAlarm' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pmaActionsEnabled' @::@ 'Maybe' 'Bool'
+-- * 'pmarqAlarmDescription'
 --
--- * 'pmaAlarmActions' @::@ ['Text']
+-- * 'pmarqOKActions'
 --
--- * 'pmaAlarmDescription' @::@ 'Maybe' 'Text'
+-- * 'pmarqActionsEnabled'
 --
--- * 'pmaAlarmName' @::@ 'Text'
+-- * 'pmarqInsufficientDataActions'
 --
--- * 'pmaComparisonOperator' @::@ 'ComparisonOperator'
+-- * 'pmarqDimensions'
 --
--- * 'pmaDimensions' @::@ ['Dimension']
+-- * 'pmarqAlarmActions'
 --
--- * 'pmaEvaluationPeriods' @::@ 'Natural'
+-- * 'pmarqUnit'
 --
--- * 'pmaInsufficientDataActions' @::@ ['Text']
+-- * 'pmarqAlarmName'
 --
--- * 'pmaMetricName' @::@ 'Text'
+-- * 'pmarqMetricName'
 --
--- * 'pmaNamespace' @::@ 'Text'
+-- * 'pmarqNamespace'
 --
--- * 'pmaOKActions' @::@ ['Text']
+-- * 'pmarqStatistic'
 --
--- * 'pmaPeriod' @::@ 'Natural'
+-- * 'pmarqPeriod'
 --
--- * 'pmaStatistic' @::@ 'Statistic'
+-- * 'pmarqEvaluationPeriods'
 --
--- * 'pmaThreshold' @::@ 'Double'
+-- * 'pmarqThreshold'
 --
--- * 'pmaUnit' @::@ 'Maybe' 'StandardUnit'
---
-putMetricAlarm :: Text -- ^ 'pmaAlarmName'
-               -> Text -- ^ 'pmaMetricName'
-               -> Text -- ^ 'pmaNamespace'
-               -> Statistic -- ^ 'pmaStatistic'
-               -> Natural -- ^ 'pmaPeriod'
-               -> Natural -- ^ 'pmaEvaluationPeriods'
-               -> Double -- ^ 'pmaThreshold'
-               -> ComparisonOperator -- ^ 'pmaComparisonOperator'
-               -> PutMetricAlarm
-putMetricAlarm p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarm
-    { _pmaAlarmName               = p1
-    , _pmaMetricName              = p2
-    , _pmaNamespace               = p3
-    , _pmaStatistic               = p4
-    , _pmaPeriod                  = withIso _Nat (const id) p5
-    , _pmaEvaluationPeriods       = withIso _Nat (const id) p6
-    , _pmaThreshold               = p7
-    , _pmaComparisonOperator      = p8
-    , _pmaAlarmDescription        = Nothing
-    , _pmaActionsEnabled          = Nothing
-    , _pmaOKActions               = mempty
-    , _pmaAlarmActions            = mempty
-    , _pmaInsufficientDataActions = mempty
-    , _pmaDimensions              = mempty
-    , _pmaUnit                    = Nothing
+-- * 'pmarqComparisonOperator'
+data PutMetricAlarm = PutMetricAlarm'
+    { _pmarqAlarmDescription        :: !(Maybe Text)
+    , _pmarqOKActions               :: !(Maybe [Text])
+    , _pmarqActionsEnabled          :: !(Maybe Bool)
+    , _pmarqInsufficientDataActions :: !(Maybe [Text])
+    , _pmarqDimensions              :: !(Maybe [Dimension])
+    , _pmarqAlarmActions            :: !(Maybe [Text])
+    , _pmarqUnit                    :: !(Maybe StandardUnit)
+    , _pmarqAlarmName               :: !Text
+    , _pmarqMetricName              :: !Text
+    , _pmarqNamespace               :: !Text
+    , _pmarqStatistic               :: !Statistic
+    , _pmarqPeriod                  :: !Nat
+    , _pmarqEvaluationPeriods       :: !Nat
+    , _pmarqThreshold               :: !Double
+    , _pmarqComparisonOperator      :: !ComparisonOperator
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutMetricAlarm' smart constructor.
+putMetricAlarm :: Text -> Text -> Text -> Statistic -> Natural -> Natural -> Double -> ComparisonOperator -> PutMetricAlarm
+putMetricAlarm pAlarmName_ pMetricName_ pNamespace_ pStatistic_ pPeriod_ pEvaluationPeriods_ pThreshold_ pComparisonOperator_ =
+    PutMetricAlarm'
+    { _pmarqAlarmDescription = Nothing
+    , _pmarqOKActions = Nothing
+    , _pmarqActionsEnabled = Nothing
+    , _pmarqInsufficientDataActions = Nothing
+    , _pmarqDimensions = Nothing
+    , _pmarqAlarmActions = Nothing
+    , _pmarqUnit = Nothing
+    , _pmarqAlarmName = pAlarmName_
+    , _pmarqMetricName = pMetricName_
+    , _pmarqNamespace = pNamespace_
+    , _pmarqStatistic = pStatistic_
+    , _pmarqPeriod = _Nat # pPeriod_
+    , _pmarqEvaluationPeriods = _Nat # pEvaluationPeriods_
+    , _pmarqThreshold = pThreshold_
+    , _pmarqComparisonOperator = pComparisonOperator_
     }
 
--- | Indicates whether or not actions should be executed during any changes to
--- the alarm's state.
-pmaActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
-pmaActionsEnabled =
-    lens _pmaActionsEnabled (\s a -> s { _pmaActionsEnabled = a })
-
--- | The list of actions to execute when this alarm transitions into an 'ALARM'
--- state from any other state. Each action is specified as an Amazon Resource
--- Number (ARN). Currently the only action supported is publishing to an Amazon
--- SNS topic or an Amazon Auto Scaling policy.
-pmaAlarmActions :: Lens' PutMetricAlarm [Text]
-pmaAlarmActions = lens _pmaAlarmActions (\s a -> s { _pmaAlarmActions = a }) . _List
-
 -- | The description for the alarm.
-pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
-pmaAlarmDescription =
-    lens _pmaAlarmDescription (\s a -> s { _pmaAlarmDescription = a })
+pmarqAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
+pmarqAlarmDescription = lens _pmarqAlarmDescription (\ s a -> s{_pmarqAlarmDescription = a});
+
+-- | The list of actions to execute when this alarm transitions into an @OK@
+-- state from any other state. Each action is specified as an Amazon
+-- Resource Number (ARN). Currently the only action supported is publishing
+-- to an Amazon SNS topic or an Amazon Auto Scaling policy.
+pmarqOKActions :: Lens' PutMetricAlarm [Text]
+pmarqOKActions = lens _pmarqOKActions (\ s a -> s{_pmarqOKActions = a}) . _Default;
+
+-- | Indicates whether or not actions should be executed during any changes
+-- to the alarm\'s state.
+pmarqActionsEnabled :: Lens' PutMetricAlarm (Maybe Bool)
+pmarqActionsEnabled = lens _pmarqActionsEnabled (\ s a -> s{_pmarqActionsEnabled = a});
+
+-- | The list of actions to execute when this alarm transitions into an
+-- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
+-- as an Amazon Resource Number (ARN). Currently the only action supported
+-- is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
+pmarqInsufficientDataActions :: Lens' PutMetricAlarm [Text]
+pmarqInsufficientDataActions = lens _pmarqInsufficientDataActions (\ s a -> s{_pmarqInsufficientDataActions = a}) . _Default;
+
+-- | The dimensions for the alarm\'s associated metric.
+pmarqDimensions :: Lens' PutMetricAlarm [Dimension]
+pmarqDimensions = lens _pmarqDimensions (\ s a -> s{_pmarqDimensions = a}) . _Default;
+
+-- | The list of actions to execute when this alarm transitions into an
+-- @ALARM@ state from any other state. Each action is specified as an
+-- Amazon Resource Number (ARN). Currently the only action supported is
+-- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
+pmarqAlarmActions :: Lens' PutMetricAlarm [Text]
+pmarqAlarmActions = lens _pmarqAlarmActions (\ s a -> s{_pmarqAlarmActions = a}) . _Default;
+
+-- | The unit for the alarm\'s associated metric.
+pmarqUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
+pmarqUnit = lens _pmarqUnit (\ s a -> s{_pmarqUnit = a});
 
 -- | The descriptive name for the alarm. This name must be unique within the
--- user's AWS account
-pmaAlarmName :: Lens' PutMetricAlarm Text
-pmaAlarmName = lens _pmaAlarmName (\s a -> s { _pmaAlarmName = a })
+-- user\'s AWS account
+pmarqAlarmName :: Lens' PutMetricAlarm Text
+pmarqAlarmName = lens _pmarqAlarmName (\ s a -> s{_pmarqAlarmName = a});
 
--- | The arithmetic operation to use when comparing the specified 'Statistic' and 'Threshold'. The specified 'Statistic' value is used as the first operand.
-pmaComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
-pmaComparisonOperator =
-    lens _pmaComparisonOperator (\s a -> s { _pmaComparisonOperator = a })
+-- | The name for the alarm\'s associated metric.
+pmarqMetricName :: Lens' PutMetricAlarm Text
+pmarqMetricName = lens _pmarqMetricName (\ s a -> s{_pmarqMetricName = a});
 
--- | The dimensions for the alarm's associated metric.
-pmaDimensions :: Lens' PutMetricAlarm [Dimension]
-pmaDimensions = lens _pmaDimensions (\s a -> s { _pmaDimensions = a }) . _List
+-- | The namespace for the alarm\'s associated metric.
+pmarqNamespace :: Lens' PutMetricAlarm Text
+pmarqNamespace = lens _pmarqNamespace (\ s a -> s{_pmarqNamespace = a});
+
+-- | The statistic to apply to the alarm\'s associated metric.
+pmarqStatistic :: Lens' PutMetricAlarm Statistic
+pmarqStatistic = lens _pmarqStatistic (\ s a -> s{_pmarqStatistic = a});
+
+-- | The period in seconds over which the specified statistic is applied.
+pmarqPeriod :: Lens' PutMetricAlarm Natural
+pmarqPeriod = lens _pmarqPeriod (\ s a -> s{_pmarqPeriod = a}) . _Nat;
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
-pmaEvaluationPeriods :: Lens' PutMetricAlarm Natural
-pmaEvaluationPeriods =
-    lens _pmaEvaluationPeriods (\s a -> s { _pmaEvaluationPeriods = a })
-        . _Nat
-
--- | The list of actions to execute when this alarm transitions into an 'INSUFFICIENT_DATA' state from any other state. Each action is specified as an Amazon Resource
--- Number (ARN). Currently the only action supported is publishing to an Amazon
--- SNS topic or an Amazon Auto Scaling policy.
-pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
-pmaInsufficientDataActions =
-    lens _pmaInsufficientDataActions
-        (\s a -> s { _pmaInsufficientDataActions = a })
-            . _List
-
--- | The name for the alarm's associated metric.
-pmaMetricName :: Lens' PutMetricAlarm Text
-pmaMetricName = lens _pmaMetricName (\s a -> s { _pmaMetricName = a })
-
--- | The namespace for the alarm's associated metric.
-pmaNamespace :: Lens' PutMetricAlarm Text
-pmaNamespace = lens _pmaNamespace (\s a -> s { _pmaNamespace = a })
-
--- | The list of actions to execute when this alarm transitions into an 'OK' state
--- from any other state. Each action is specified as an Amazon Resource Number
--- (ARN). Currently the only action supported is publishing to an Amazon SNS
--- topic or an Amazon Auto Scaling policy.
-pmaOKActions :: Lens' PutMetricAlarm [Text]
-pmaOKActions = lens _pmaOKActions (\s a -> s { _pmaOKActions = a }) . _List
-
--- | The period in seconds over which the specified statistic is applied.
-pmaPeriod :: Lens' PutMetricAlarm Natural
-pmaPeriod = lens _pmaPeriod (\s a -> s { _pmaPeriod = a }) . _Nat
-
--- | The statistic to apply to the alarm's associated metric.
-pmaStatistic :: Lens' PutMetricAlarm Statistic
-pmaStatistic = lens _pmaStatistic (\s a -> s { _pmaStatistic = a })
+pmarqEvaluationPeriods :: Lens' PutMetricAlarm Natural
+pmarqEvaluationPeriods = lens _pmarqEvaluationPeriods (\ s a -> s{_pmarqEvaluationPeriods = a}) . _Nat;
 
 -- | The value against which the specified statistic is compared.
-pmaThreshold :: Lens' PutMetricAlarm Double
-pmaThreshold = lens _pmaThreshold (\s a -> s { _pmaThreshold = a })
+pmarqThreshold :: Lens' PutMetricAlarm Double
+pmarqThreshold = lens _pmarqThreshold (\ s a -> s{_pmarqThreshold = a});
 
--- | The unit for the alarm's associated metric.
-pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
-pmaUnit = lens _pmaUnit (\s a -> s { _pmaUnit = a })
-
-data PutMetricAlarmResponse = PutMetricAlarmResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutMetricAlarmResponse' constructor.
-putMetricAlarmResponse :: PutMetricAlarmResponse
-putMetricAlarmResponse = PutMetricAlarmResponse
-
-instance ToPath PutMetricAlarm where
-    toPath = const "/"
-
-instance ToQuery PutMetricAlarm where
-    toQuery PutMetricAlarm{..} = mconcat
-        [ "ActionsEnabled"          =? _pmaActionsEnabled
-        , "AlarmActions"            =? _pmaAlarmActions
-        , "AlarmDescription"        =? _pmaAlarmDescription
-        , "AlarmName"               =? _pmaAlarmName
-        , "ComparisonOperator"      =? _pmaComparisonOperator
-        , "Dimensions"              =? _pmaDimensions
-        , "EvaluationPeriods"       =? _pmaEvaluationPeriods
-        , "InsufficientDataActions" =? _pmaInsufficientDataActions
-        , "MetricName"              =? _pmaMetricName
-        , "Namespace"               =? _pmaNamespace
-        , "OKActions"               =? _pmaOKActions
-        , "Period"                  =? _pmaPeriod
-        , "Statistic"               =? _pmaStatistic
-        , "Threshold"               =? _pmaThreshold
-        , "Unit"                    =? _pmaUnit
-        ]
-
-instance ToHeaders PutMetricAlarm
+-- | The arithmetic operation to use when comparing the specified @Statistic@
+-- and @Threshold@. The specified @Statistic@ value is used as the first
+-- operand.
+pmarqComparisonOperator :: Lens' PutMetricAlarm ComparisonOperator
+pmarqComparisonOperator = lens _pmarqComparisonOperator (\ s a -> s{_pmarqComparisonOperator = a});
 
 instance AWSRequest PutMetricAlarm where
-    type Sv PutMetricAlarm = CloudWatch
-    type Rs PutMetricAlarm = PutMetricAlarmResponse
+        type Sv PutMetricAlarm = CloudWatch
+        type Rs PutMetricAlarm = PutMetricAlarmResponse
+        request = post
+        response = receiveNull PutMetricAlarmResponse'
 
-    request  = post "PutMetricAlarm"
-    response = nullResponse PutMetricAlarmResponse
+instance ToHeaders PutMetricAlarm where
+        toHeaders = const mempty
+
+instance ToPath PutMetricAlarm where
+        toPath = const "/"
+
+instance ToQuery PutMetricAlarm where
+        toQuery PutMetricAlarm'{..}
+          = mconcat
+              ["Action" =: ("PutMetricAlarm" :: ByteString),
+               "Version" =: ("2010-08-01" :: ByteString),
+               "AlarmDescription" =: _pmarqAlarmDescription,
+               "OKActions" =:
+                 toQuery (toQueryList "member" <$> _pmarqOKActions),
+               "ActionsEnabled" =: _pmarqActionsEnabled,
+               "InsufficientDataActions" =:
+                 toQuery
+                   (toQueryList "member" <$>
+                      _pmarqInsufficientDataActions),
+               "Dimensions" =:
+                 toQuery (toQueryList "member" <$> _pmarqDimensions),
+               "AlarmActions" =:
+                 toQuery
+                   (toQueryList "member" <$> _pmarqAlarmActions),
+               "Unit" =: _pmarqUnit, "AlarmName" =: _pmarqAlarmName,
+               "MetricName" =: _pmarqMetricName,
+               "Namespace" =: _pmarqNamespace,
+               "Statistic" =: _pmarqStatistic,
+               "Period" =: _pmarqPeriod,
+               "EvaluationPeriods" =: _pmarqEvaluationPeriods,
+               "Threshold" =: _pmarqThreshold,
+               "ComparisonOperator" =: _pmarqComparisonOperator]
+
+-- | /See:/ 'putMetricAlarmResponse' smart constructor.
+data PutMetricAlarmResponse =
+    PutMetricAlarmResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutMetricAlarmResponse' smart constructor.
+putMetricAlarmResponse :: PutMetricAlarmResponse
+putMetricAlarmResponse = PutMetricAlarmResponse'

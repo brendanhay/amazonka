@@ -1,30 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.AutoScaling.DeleteLifecycleHook
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified lifecycle hook.
+-- Deletes the specified lifecycle hook.
 --
--- If there are any outstanding lifecycle actions, they are completed first ('ABANDON' for launching instances, 'CONTINUE' for terminating instances).
+-- If there are any outstanding lifecycle actions, they are completed first
+-- (@ABANDON@ for launching instances, @CONTINUE@ for terminating
+-- instances).
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteLifecycleHook.html>
 module Network.AWS.AutoScaling.DeleteLifecycleHook
@@ -34,73 +31,90 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     -- ** Request constructor
     , deleteLifecycleHook
     -- ** Request lenses
-    , dlh1AutoScalingGroupName
-    , dlh1LifecycleHookName
+    , delrqLifecycleHookName
+    , delrqAutoScalingGroupName
 
     -- * Response
     , DeleteLifecycleHookResponse
     -- ** Response constructor
     , deleteLifecycleHookResponse
+    -- ** Response lenses
+    , drsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteLifecycleHook = DeleteLifecycleHook
-    { _dlh1AutoScalingGroupName :: Text
-    , _dlh1LifecycleHookName    :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteLifecycleHook' constructor.
+-- | /See:/ 'deleteLifecycleHook' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlh1AutoScalingGroupName' @::@ 'Text'
+-- * 'delrqLifecycleHookName'
 --
--- * 'dlh1LifecycleHookName' @::@ 'Text'
---
-deleteLifecycleHook :: Text -- ^ 'dlh1LifecycleHookName'
-                    -> Text -- ^ 'dlh1AutoScalingGroupName'
-                    -> DeleteLifecycleHook
-deleteLifecycleHook p1 p2 = DeleteLifecycleHook
-    { _dlh1LifecycleHookName    = p1
-    , _dlh1AutoScalingGroupName = p2
+-- * 'delrqAutoScalingGroupName'
+data DeleteLifecycleHook = DeleteLifecycleHook'
+    { _delrqLifecycleHookName    :: !Text
+    , _delrqAutoScalingGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteLifecycleHook' smart constructor.
+deleteLifecycleHook :: Text -> Text -> DeleteLifecycleHook
+deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
+    DeleteLifecycleHook'
+    { _delrqLifecycleHookName = pLifecycleHookName_
+    , _delrqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
--- | The name of the Auto Scaling group for the lifecycle hook.
-dlh1AutoScalingGroupName :: Lens' DeleteLifecycleHook Text
-dlh1AutoScalingGroupName =
-    lens _dlh1AutoScalingGroupName
-        (\s a -> s { _dlh1AutoScalingGroupName = a })
-
 -- | The name of the lifecycle hook.
-dlh1LifecycleHookName :: Lens' DeleteLifecycleHook Text
-dlh1LifecycleHookName =
-    lens _dlh1LifecycleHookName (\s a -> s { _dlh1LifecycleHookName = a })
+delrqLifecycleHookName :: Lens' DeleteLifecycleHook Text
+delrqLifecycleHookName = lens _delrqLifecycleHookName (\ s a -> s{_delrqLifecycleHookName = a});
 
-data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteLifecycleHookResponse' constructor.
-deleteLifecycleHookResponse :: DeleteLifecycleHookResponse
-deleteLifecycleHookResponse = DeleteLifecycleHookResponse
-
-instance ToPath DeleteLifecycleHook where
-    toPath = const "/"
-
-instance ToQuery DeleteLifecycleHook where
-    toQuery DeleteLifecycleHook{..} = mconcat
-        [ "AutoScalingGroupName" =? _dlh1AutoScalingGroupName
-        , "LifecycleHookName"    =? _dlh1LifecycleHookName
-        ]
-
-instance ToHeaders DeleteLifecycleHook
+-- | The name of the Auto Scaling group for the lifecycle hook.
+delrqAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
+delrqAutoScalingGroupName = lens _delrqAutoScalingGroupName (\ s a -> s{_delrqAutoScalingGroupName = a});
 
 instance AWSRequest DeleteLifecycleHook where
-    type Sv DeleteLifecycleHook = AutoScaling
-    type Rs DeleteLifecycleHook = DeleteLifecycleHookResponse
+        type Sv DeleteLifecycleHook = AutoScaling
+        type Rs DeleteLifecycleHook =
+             DeleteLifecycleHookResponse
+        request = post
+        response
+          = receiveXMLWrapper "DeleteLifecycleHookResult"
+              (\ s h x ->
+                 DeleteLifecycleHookResponse' <$> (pure (fromEnum s)))
 
-    request  = post "DeleteLifecycleHook"
-    response = nullResponse DeleteLifecycleHookResponse
+instance ToHeaders DeleteLifecycleHook where
+        toHeaders = const mempty
+
+instance ToPath DeleteLifecycleHook where
+        toPath = const "/"
+
+instance ToQuery DeleteLifecycleHook where
+        toQuery DeleteLifecycleHook'{..}
+          = mconcat
+              ["Action" =: ("DeleteLifecycleHook" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "LifecycleHookName" =: _delrqLifecycleHookName,
+               "AutoScalingGroupName" =: _delrqAutoScalingGroupName]
+
+-- | /See:/ 'deleteLifecycleHookResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drsStatus'
+newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
+    { _drsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteLifecycleHookResponse' smart constructor.
+deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse
+deleteLifecycleHookResponse pStatus_ =
+    DeleteLifecycleHookResponse'
+    { _drsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+drsStatus :: Lens' DeleteLifecycleHookResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

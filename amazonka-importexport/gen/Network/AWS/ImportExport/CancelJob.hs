@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ImportExport.CancelJob
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation cancels a specified job. Only the job owner can cancel it. The
--- operation fails if the job has already started or is complete.
+-- This operation cancels a specified job. Only the job owner can cancel
+-- it. The operation fails if the job has already started or is complete.
 --
 -- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCancelJob.html>
 module Network.AWS.ImportExport.CancelJob
@@ -33,84 +28,103 @@ module Network.AWS.ImportExport.CancelJob
     -- ** Request constructor
     , cancelJob
     -- ** Request lenses
-    , cj1APIVersion
-    , cj1JobId
+    , crqAPIVersion
+    , crqJobId
 
     -- * Response
     , CancelJobResponse
     -- ** Response constructor
     , cancelJobResponse
     -- ** Response lenses
-    , cjrSuccess
+    , crsSuccess
+    , crsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ImportExport.Types
-import qualified GHC.Exts
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CancelJob = CancelJob
-    { _cj1APIVersion :: Maybe Text
-    , _cj1JobId      :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CancelJob' constructor.
+-- | Input structure for the CancelJob operation.
+--
+-- /See:/ 'cancelJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cj1APIVersion' @::@ 'Maybe' 'Text'
+-- * 'crqAPIVersion'
 --
--- * 'cj1JobId' @::@ 'Text'
---
-cancelJob :: Text -- ^ 'cj1JobId'
-          -> CancelJob
-cancelJob p1 = CancelJob
-    { _cj1JobId      = p1
-    , _cj1APIVersion = Nothing
+-- * 'crqJobId'
+data CancelJob = CancelJob'
+    { _crqAPIVersion :: !(Maybe Text)
+    , _crqJobId      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CancelJob' smart constructor.
+cancelJob :: Text -> CancelJob
+cancelJob pJobId_ =
+    CancelJob'
+    { _crqAPIVersion = Nothing
+    , _crqJobId = pJobId_
     }
 
-cj1APIVersion :: Lens' CancelJob (Maybe Text)
-cj1APIVersion = lens _cj1APIVersion (\s a -> s { _cj1APIVersion = a })
+-- | FIXME: Undocumented member.
+crqAPIVersion :: Lens' CancelJob (Maybe Text)
+crqAPIVersion = lens _crqAPIVersion (\ s a -> s{_crqAPIVersion = a});
 
-cj1JobId :: Lens' CancelJob Text
-cj1JobId = lens _cj1JobId (\s a -> s { _cj1JobId = a })
-
-newtype CancelJobResponse = CancelJobResponse
-    { _cjrSuccess :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CancelJobResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cjrSuccess' @::@ 'Maybe' 'Bool'
---
-cancelJobResponse :: CancelJobResponse
-cancelJobResponse = CancelJobResponse
-    { _cjrSuccess = Nothing
-    }
-
-cjrSuccess :: Lens' CancelJobResponse (Maybe Bool)
-cjrSuccess = lens _cjrSuccess (\s a -> s { _cjrSuccess = a })
-
-instance ToPath CancelJob where
-    toPath = const "/"
-
-instance ToQuery CancelJob where
-    toQuery CancelJob{..} = mconcat
-        [ "APIVersion" =? _cj1APIVersion
-        , "JobId"      =? _cj1JobId
-        ]
-
-instance ToHeaders CancelJob
+-- | FIXME: Undocumented member.
+crqJobId :: Lens' CancelJob Text
+crqJobId = lens _crqJobId (\ s a -> s{_crqJobId = a});
 
 instance AWSRequest CancelJob where
-    type Sv CancelJob = ImportExport
-    type Rs CancelJob = CancelJobResponse
+        type Sv CancelJob = ImportExport
+        type Rs CancelJob = CancelJobResponse
+        request = post
+        response
+          = receiveXMLWrapper "CancelJobResult"
+              (\ s h x ->
+                 CancelJobResponse' <$>
+                   (x .@? "Success") <*> (pure (fromEnum s)))
 
-    request  = post "CancelJob"
-    response = xmlResponse
+instance ToHeaders CancelJob where
+        toHeaders = const mempty
 
-instance FromXML CancelJobResponse where
-    parseXML = withElement "CancelJobResult" $ \x -> CancelJobResponse
-        <$> x .@? "Success"
+instance ToPath CancelJob where
+        toPath = const "/"
+
+instance ToQuery CancelJob where
+        toQuery CancelJob'{..}
+          = mconcat
+              ["Operation=CancelJob",
+               "Action" =: ("CancelJob" :: ByteString),
+               "Version" =: ("2010-06-01" :: ByteString),
+               "APIVersion" =: _crqAPIVersion, "JobId" =: _crqJobId]
+
+-- | Output structure for the CancelJob operation.
+--
+-- /See:/ 'cancelJobResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'crsSuccess'
+--
+-- * 'crsStatus'
+data CancelJobResponse = CancelJobResponse'
+    { _crsSuccess :: !(Maybe Bool)
+    , _crsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CancelJobResponse' smart constructor.
+cancelJobResponse :: Int -> CancelJobResponse
+cancelJobResponse pStatus_ =
+    CancelJobResponse'
+    { _crsSuccess = Nothing
+    , _crsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+crsSuccess :: Lens' CancelJobResponse (Maybe Bool)
+crsSuccess = lens _crsSuccess (\ s a -> s{_crsSuccess = a});
+
+-- | FIXME: Undocumented member.
+crsStatus :: Lens' CancelJobResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

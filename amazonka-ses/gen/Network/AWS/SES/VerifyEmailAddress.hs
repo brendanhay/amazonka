@@ -1,33 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SES.VerifyEmailAddress
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Verifies an email address. This action causes a confirmation email message to
--- be sent to the specified address.
+-- Verifies an email address. This action causes a confirmation email
+-- message to be sent to the specified address.
 --
--- The VerifyEmailAddress action is deprecated as of the May 15, 2012 release
--- of Domain Verification. The VerifyEmailIdentity action is now preferred. This
--- action is throttled at one request per second.
+-- The VerifyEmailAddress action is deprecated as of the May 15, 2012
+-- release of Domain Verification. The VerifyEmailIdentity action is now
+-- preferred.
+--
+-- This action is throttled at one request per second.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_VerifyEmailAddress.html>
 module Network.AWS.SES.VerifyEmailAddress
@@ -37,7 +34,7 @@ module Network.AWS.SES.VerifyEmailAddress
     -- ** Request constructor
     , verifyEmailAddress
     -- ** Request lenses
-    , veaEmailAddress
+    , vearqEmailAddress
 
     -- * Response
     , VerifyEmailAddressResponse
@@ -45,51 +42,59 @@ module Network.AWS.SES.VerifyEmailAddress
     , verifyEmailAddressResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
-newtype VerifyEmailAddress = VerifyEmailAddress
-    { _veaEmailAddress :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'VerifyEmailAddress' constructor.
+-- | Represents a request instructing the service to begin email address
+-- verification.
+--
+-- /See:/ 'verifyEmailAddress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'veaEmailAddress' @::@ 'Text'
---
-verifyEmailAddress :: Text -- ^ 'veaEmailAddress'
-                   -> VerifyEmailAddress
-verifyEmailAddress p1 = VerifyEmailAddress
-    { _veaEmailAddress = p1
+-- * 'vearqEmailAddress'
+newtype VerifyEmailAddress = VerifyEmailAddress'
+    { _vearqEmailAddress :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'VerifyEmailAddress' smart constructor.
+verifyEmailAddress :: Text -> VerifyEmailAddress
+verifyEmailAddress pEmailAddress_ =
+    VerifyEmailAddress'
+    { _vearqEmailAddress = pEmailAddress_
     }
 
 -- | The email address to be verified.
-veaEmailAddress :: Lens' VerifyEmailAddress Text
-veaEmailAddress = lens _veaEmailAddress (\s a -> s { _veaEmailAddress = a })
-
-data VerifyEmailAddressResponse = VerifyEmailAddressResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'VerifyEmailAddressResponse' constructor.
-verifyEmailAddressResponse :: VerifyEmailAddressResponse
-verifyEmailAddressResponse = VerifyEmailAddressResponse
-
-instance ToPath VerifyEmailAddress where
-    toPath = const "/"
-
-instance ToQuery VerifyEmailAddress where
-    toQuery VerifyEmailAddress{..} = mconcat
-        [ "EmailAddress" =? _veaEmailAddress
-        ]
-
-instance ToHeaders VerifyEmailAddress
+vearqEmailAddress :: Lens' VerifyEmailAddress Text
+vearqEmailAddress = lens _vearqEmailAddress (\ s a -> s{_vearqEmailAddress = a});
 
 instance AWSRequest VerifyEmailAddress where
-    type Sv VerifyEmailAddress = SES
-    type Rs VerifyEmailAddress = VerifyEmailAddressResponse
+        type Sv VerifyEmailAddress = SES
+        type Rs VerifyEmailAddress =
+             VerifyEmailAddressResponse
+        request = post
+        response = receiveNull VerifyEmailAddressResponse'
 
-    request  = post "VerifyEmailAddress"
-    response = nullResponse VerifyEmailAddressResponse
+instance ToHeaders VerifyEmailAddress where
+        toHeaders = const mempty
+
+instance ToPath VerifyEmailAddress where
+        toPath = const "/"
+
+instance ToQuery VerifyEmailAddress where
+        toQuery VerifyEmailAddress'{..}
+          = mconcat
+              ["Action" =: ("VerifyEmailAddress" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "EmailAddress" =: _vearqEmailAddress]
+
+-- | /See:/ 'verifyEmailAddressResponse' smart constructor.
+data VerifyEmailAddressResponse =
+    VerifyEmailAddressResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'VerifyEmailAddressResponse' smart constructor.
+verifyEmailAddressResponse :: VerifyEmailAddressResponse
+verifyEmailAddressResponse = VerifyEmailAddressResponse'

@@ -1,32 +1,29 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.UpdateLayer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Updates a specified layer.
+-- Updates a specified layer.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateLayer.html>
 module Network.AWS.OpsWorks.UpdateLayer
@@ -36,21 +33,21 @@ module Network.AWS.OpsWorks.UpdateLayer
     -- ** Request constructor
     , updateLayer
     -- ** Request lenses
-    , ulAttributes
-    , ulAutoAssignElasticIps
-    , ulAutoAssignPublicIps
-    , ulCustomInstanceProfileArn
-    , ulCustomRecipes
-    , ulCustomSecurityGroupIds
-    , ulEnableAutoHealing
-    , ulInstallUpdatesOnBoot
-    , ulLayerId
-    , ulLifecycleEventConfiguration
-    , ulName
-    , ulPackages
-    , ulShortname
-    , ulUseEbsOptimizedInstances
-    , ulVolumeConfigurations
+    , ulrqCustomInstanceProfileARN
+    , ulrqInstallUpdatesOnBoot
+    , ulrqCustomSecurityGroupIds
+    , ulrqLifecycleEventConfiguration
+    , ulrqShortname
+    , ulrqCustomRecipes
+    , ulrqVolumeConfigurations
+    , ulrqEnableAutoHealing
+    , ulrqPackages
+    , ulrqName
+    , ulrqAttributes
+    , ulrqAutoAssignPublicIPs
+    , ulrqUseEBSOptimizedInstances
+    , ulrqAutoAssignElasticIPs
+    , ulrqLayerId
 
     -- * Response
     , UpdateLayerResponse
@@ -58,214 +55,217 @@ module Network.AWS.OpsWorks.UpdateLayer
     , updateLayerResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateLayer = UpdateLayer
-    { _ulAttributes                  :: Map LayerAttributesKeys Text
-    , _ulAutoAssignElasticIps        :: Maybe Bool
-    , _ulAutoAssignPublicIps         :: Maybe Bool
-    , _ulCustomInstanceProfileArn    :: Maybe Text
-    , _ulCustomRecipes               :: Maybe Recipes
-    , _ulCustomSecurityGroupIds      :: List "CustomSecurityGroupIds" Text
-    , _ulEnableAutoHealing           :: Maybe Bool
-    , _ulInstallUpdatesOnBoot        :: Maybe Bool
-    , _ulLayerId                     :: Text
-    , _ulLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
-    , _ulName                        :: Maybe Text
-    , _ulPackages                    :: List "Packages" Text
-    , _ulShortname                   :: Maybe Text
-    , _ulUseEbsOptimizedInstances    :: Maybe Bool
-    , _ulVolumeConfigurations        :: List "VolumeConfigurations" VolumeConfiguration
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateLayer' constructor.
+-- | /See:/ 'updateLayer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ulAttributes' @::@ 'HashMap' 'LayerAttributesKeys' 'Text'
+-- * 'ulrqCustomInstanceProfileARN'
 --
--- * 'ulAutoAssignElasticIps' @::@ 'Maybe' 'Bool'
+-- * 'ulrqInstallUpdatesOnBoot'
 --
--- * 'ulAutoAssignPublicIps' @::@ 'Maybe' 'Bool'
+-- * 'ulrqCustomSecurityGroupIds'
 --
--- * 'ulCustomInstanceProfileArn' @::@ 'Maybe' 'Text'
+-- * 'ulrqLifecycleEventConfiguration'
 --
--- * 'ulCustomRecipes' @::@ 'Maybe' 'Recipes'
+-- * 'ulrqShortname'
 --
--- * 'ulCustomSecurityGroupIds' @::@ ['Text']
+-- * 'ulrqCustomRecipes'
 --
--- * 'ulEnableAutoHealing' @::@ 'Maybe' 'Bool'
+-- * 'ulrqVolumeConfigurations'
 --
--- * 'ulInstallUpdatesOnBoot' @::@ 'Maybe' 'Bool'
+-- * 'ulrqEnableAutoHealing'
 --
--- * 'ulLayerId' @::@ 'Text'
+-- * 'ulrqPackages'
 --
--- * 'ulLifecycleEventConfiguration' @::@ 'Maybe' 'LifecycleEventConfiguration'
+-- * 'ulrqName'
 --
--- * 'ulName' @::@ 'Maybe' 'Text'
+-- * 'ulrqAttributes'
 --
--- * 'ulPackages' @::@ ['Text']
+-- * 'ulrqAutoAssignPublicIPs'
 --
--- * 'ulShortname' @::@ 'Maybe' 'Text'
+-- * 'ulrqUseEBSOptimizedInstances'
 --
--- * 'ulUseEbsOptimizedInstances' @::@ 'Maybe' 'Bool'
+-- * 'ulrqAutoAssignElasticIPs'
 --
--- * 'ulVolumeConfigurations' @::@ ['VolumeConfiguration']
---
-updateLayer :: Text -- ^ 'ulLayerId'
-            -> UpdateLayer
-updateLayer p1 = UpdateLayer
-    { _ulLayerId                     = p1
-    , _ulName                        = Nothing
-    , _ulShortname                   = Nothing
-    , _ulAttributes                  = mempty
-    , _ulCustomInstanceProfileArn    = Nothing
-    , _ulCustomSecurityGroupIds      = mempty
-    , _ulPackages                    = mempty
-    , _ulVolumeConfigurations        = mempty
-    , _ulEnableAutoHealing           = Nothing
-    , _ulAutoAssignElasticIps        = Nothing
-    , _ulAutoAssignPublicIps         = Nothing
-    , _ulCustomRecipes               = Nothing
-    , _ulInstallUpdatesOnBoot        = Nothing
-    , _ulUseEbsOptimizedInstances    = Nothing
-    , _ulLifecycleEventConfiguration = Nothing
+-- * 'ulrqLayerId'
+data UpdateLayer = UpdateLayer'
+    { _ulrqCustomInstanceProfileARN    :: !(Maybe Text)
+    , _ulrqInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _ulrqCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _ulrqLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _ulrqShortname                   :: !(Maybe Text)
+    , _ulrqCustomRecipes               :: !(Maybe Recipes)
+    , _ulrqVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _ulrqEnableAutoHealing           :: !(Maybe Bool)
+    , _ulrqPackages                    :: !(Maybe [Text])
+    , _ulrqName                        :: !(Maybe Text)
+    , _ulrqAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _ulrqAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _ulrqUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _ulrqAutoAssignElasticIPs        :: !(Maybe Bool)
+    , _ulrqLayerId                     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateLayer' smart constructor.
+updateLayer :: Text -> UpdateLayer
+updateLayer pLayerId_ =
+    UpdateLayer'
+    { _ulrqCustomInstanceProfileARN = Nothing
+    , _ulrqInstallUpdatesOnBoot = Nothing
+    , _ulrqCustomSecurityGroupIds = Nothing
+    , _ulrqLifecycleEventConfiguration = Nothing
+    , _ulrqShortname = Nothing
+    , _ulrqCustomRecipes = Nothing
+    , _ulrqVolumeConfigurations = Nothing
+    , _ulrqEnableAutoHealing = Nothing
+    , _ulrqPackages = Nothing
+    , _ulrqName = Nothing
+    , _ulrqAttributes = Nothing
+    , _ulrqAutoAssignPublicIPs = Nothing
+    , _ulrqUseEBSOptimizedInstances = Nothing
+    , _ulrqAutoAssignElasticIPs = Nothing
+    , _ulrqLayerId = pLayerId_
     }
 
--- | One or more user-defined key/value pairs to be added to the stack attributes.
-ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
-ulAttributes = lens _ulAttributes (\s a -> s { _ulAttributes = a }) . _Map
+-- | The ARN of an IAM profile to be used for all of the layer\'s EC2
+-- instances. For more information about IAM ARNs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+ulrqCustomInstanceProfileARN :: Lens' UpdateLayer (Maybe Text)
+ulrqCustomInstanceProfileARN = lens _ulrqCustomInstanceProfileARN (\ s a -> s{_ulrqCustomInstanceProfileARN = a});
 
--- | Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's
--- instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-ulAutoAssignElasticIps :: Lens' UpdateLayer (Maybe Bool)
-ulAutoAssignElasticIps =
-    lens _ulAutoAssignElasticIps (\s a -> s { _ulAutoAssignElasticIps = a })
+-- | Whether to install operating system and package updates when the
+-- instance boots. The default value is @true@. To control when updates are
+-- installed, set this value to @false@. You must then update your
+-- instances manually by using CreateDeployment to run the
+-- @update_dependencies@ stack command or manually running @yum@ (Amazon
+-- Linux) or @apt-get@ (Ubuntu) on the instances.
+--
+-- We strongly recommend using the default value of @true@, to ensure that
+-- your instances have the latest security updates.
+ulrqInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
+ulrqInstallUpdatesOnBoot = lens _ulrqInstallUpdatesOnBoot (\ s a -> s{_ulrqInstallUpdatesOnBoot = a});
 
--- | For stacks that are running in a VPC, whether to automatically assign a
--- public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How toEdit a Layer>.
-ulAutoAssignPublicIps :: Lens' UpdateLayer (Maybe Bool)
-ulAutoAssignPublicIps =
-    lens _ulAutoAssignPublicIps (\s a -> s { _ulAutoAssignPublicIps = a })
+-- | An array containing the layer\'s custom security group IDs.
+ulrqCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
+ulrqCustomSecurityGroupIds = lens _ulrqCustomSecurityGroupIds (\ s a -> s{_ulrqCustomSecurityGroupIds = a}) . _Default;
 
--- | The ARN of an IAM profile to be used for all of the layer's EC2 instances.
--- For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-ulCustomInstanceProfileArn :: Lens' UpdateLayer (Maybe Text)
-ulCustomInstanceProfileArn =
-    lens _ulCustomInstanceProfileArn
-        (\s a -> s { _ulCustomInstanceProfileArn = a })
+-- |
+ulrqLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
+ulrqLifecycleEventConfiguration = lens _ulrqLifecycleEventConfiguration (\ s a -> s{_ulrqLifecycleEventConfiguration = a});
 
--- | A 'LayerCustomRecipes' object that specifies the layer's custom recipes.
-ulCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
-ulCustomRecipes = lens _ulCustomRecipes (\s a -> s { _ulCustomRecipes = a })
+-- | For custom layers only, use this parameter to specify the layer\'s short
+-- name, which is used internally by AWS OpsWorksand by Chef. The short
+-- name is also used as the name for the directory where your app files are
+-- installed. It can have a maximum of 200 characters and must be in the
+-- following format: \/\\A[a-z0-9\\-\\_\\.]+\\Z\/.
+--
+-- The built-in layers\' short names are defined by AWS OpsWorks. For more
+-- information, see the
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
+ulrqShortname :: Lens' UpdateLayer (Maybe Text)
+ulrqShortname = lens _ulrqShortname (\ s a -> s{_ulrqShortname = a});
 
--- | An array containing the layer's custom security group IDs.
-ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
-ulCustomSecurityGroupIds =
-    lens _ulCustomSecurityGroupIds
-        (\s a -> s { _ulCustomSecurityGroupIds = a })
-            . _List
+-- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
+-- recipes.
+ulrqCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
+ulrqCustomRecipes = lens _ulrqCustomRecipes (\ s a -> s{_ulrqCustomRecipes = a});
+
+-- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
+ulrqVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
+ulrqVolumeConfigurations = lens _ulrqVolumeConfigurations (\ s a -> s{_ulrqVolumeConfigurations = a}) . _Default;
 
 -- | Whether to disable auto healing for the layer.
-ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
-ulEnableAutoHealing =
-    lens _ulEnableAutoHealing (\s a -> s { _ulEnableAutoHealing = a })
+ulrqEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
+ulrqEnableAutoHealing = lens _ulrqEnableAutoHealing (\ s a -> s{_ulrqEnableAutoHealing = a});
 
--- | Whether to install operating system and package updates when the instance
--- boots. The default value is 'true'. To control when updates are installed, set
--- this value to 'false'. You must then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon
--- Linux) or 'apt-get' (Ubuntu) on the instances.
---
--- We strongly recommend using the default value of 'true', to ensure that your
--- instances have the latest security updates.
---
---
-ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
-ulInstallUpdatesOnBoot =
-    lens _ulInstallUpdatesOnBoot (\s a -> s { _ulInstallUpdatesOnBoot = a })
-
--- | The layer ID.
-ulLayerId :: Lens' UpdateLayer Text
-ulLayerId = lens _ulLayerId (\s a -> s { _ulLayerId = a })
-
-
-ulLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
-ulLifecycleEventConfiguration =
-    lens _ulLifecycleEventConfiguration
-        (\s a -> s { _ulLifecycleEventConfiguration = a })
+-- | An array of @Package@ objects that describe the layer\'s packages.
+ulrqPackages :: Lens' UpdateLayer [Text]
+ulrqPackages = lens _ulrqPackages (\ s a -> s{_ulrqPackages = a}) . _Default;
 
 -- | The layer name, which is used by the console.
-ulName :: Lens' UpdateLayer (Maybe Text)
-ulName = lens _ulName (\s a -> s { _ulName = a })
+ulrqName :: Lens' UpdateLayer (Maybe Text)
+ulrqName = lens _ulrqName (\ s a -> s{_ulrqName = a});
 
--- | An array of 'Package' objects that describe the layer's packages.
-ulPackages :: Lens' UpdateLayer [Text]
-ulPackages = lens _ulPackages (\s a -> s { _ulPackages = a }) . _List
+-- | One or more user-defined key\/value pairs to be added to the stack
+-- attributes.
+ulrqAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
+ulrqAttributes = lens _ulrqAttributes (\ s a -> s{_ulrqAttributes = a}) . _Default . _Map;
 
--- | For custom layers only, use this parameter to specify the layer's short name,
--- which is used internally by AWS OpsWorksand by Chef. The short name is also
--- used as the name for the directory where your app files are installed. It can
--- have a maximum of 200 characters and must be in the following format:
--- /\A[a-z0-9\-\_\.]+\Z/.
---
--- The built-in layers' short names are defined by AWS OpsWorks. For more
--- information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
-ulShortname :: Lens' UpdateLayer (Maybe Text)
-ulShortname = lens _ulShortname (\s a -> s { _ulShortname = a })
+-- | For stacks that are running in a VPC, whether to automatically assign a
+-- public IP address to the layer\'s instances. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+ulrqAutoAssignPublicIPs :: Lens' UpdateLayer (Maybe Bool)
+ulrqAutoAssignPublicIPs = lens _ulrqAutoAssignPublicIPs (\ s a -> s{_ulrqAutoAssignPublicIPs = a});
 
 -- | Whether to use Amazon EBS-optimized instances.
-ulUseEbsOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
-ulUseEbsOptimizedInstances =
-    lens _ulUseEbsOptimizedInstances
-        (\s a -> s { _ulUseEbsOptimizedInstances = a })
+ulrqUseEBSOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
+ulrqUseEBSOptimizedInstances = lens _ulrqUseEBSOptimizedInstances (\ s a -> s{_ulrqUseEBSOptimizedInstances = a});
 
--- | A 'VolumeConfigurations' object that describes the layer's Amazon EBS volumes.
-ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
-ulVolumeConfigurations =
-    lens _ulVolumeConfigurations (\s a -> s { _ulVolumeConfigurations = a })
-        . _List
+-- | Whether to automatically assign an
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
+-- to the layer\'s instances. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+ulrqAutoAssignElasticIPs :: Lens' UpdateLayer (Maybe Bool)
+ulrqAutoAssignElasticIPs = lens _ulrqAutoAssignElasticIPs (\ s a -> s{_ulrqAutoAssignElasticIPs = a});
 
-data UpdateLayerResponse = UpdateLayerResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateLayerResponse' constructor.
-updateLayerResponse :: UpdateLayerResponse
-updateLayerResponse = UpdateLayerResponse
-
-instance ToPath UpdateLayer where
-    toPath = const "/"
-
-instance ToQuery UpdateLayer where
-    toQuery = const mempty
-
-instance ToHeaders UpdateLayer
-
-instance ToJSON UpdateLayer where
-    toJSON UpdateLayer{..} = object
-        [ "LayerId"                     .= _ulLayerId
-        , "Name"                        .= _ulName
-        , "Shortname"                   .= _ulShortname
-        , "Attributes"                  .= _ulAttributes
-        , "CustomInstanceProfileArn"    .= _ulCustomInstanceProfileArn
-        , "CustomSecurityGroupIds"      .= _ulCustomSecurityGroupIds
-        , "Packages"                    .= _ulPackages
-        , "VolumeConfigurations"        .= _ulVolumeConfigurations
-        , "EnableAutoHealing"           .= _ulEnableAutoHealing
-        , "AutoAssignElasticIps"        .= _ulAutoAssignElasticIps
-        , "AutoAssignPublicIps"         .= _ulAutoAssignPublicIps
-        , "CustomRecipes"               .= _ulCustomRecipes
-        , "InstallUpdatesOnBoot"        .= _ulInstallUpdatesOnBoot
-        , "UseEbsOptimizedInstances"    .= _ulUseEbsOptimizedInstances
-        , "LifecycleEventConfiguration" .= _ulLifecycleEventConfiguration
-        ]
+-- | The layer ID.
+ulrqLayerId :: Lens' UpdateLayer Text
+ulrqLayerId = lens _ulrqLayerId (\ s a -> s{_ulrqLayerId = a});
 
 instance AWSRequest UpdateLayer where
-    type Sv UpdateLayer = OpsWorks
-    type Rs UpdateLayer = UpdateLayerResponse
+        type Sv UpdateLayer = OpsWorks
+        type Rs UpdateLayer = UpdateLayerResponse
+        request = postJSON
+        response = receiveNull UpdateLayerResponse'
 
-    request  = post "UpdateLayer"
-    response = nullResponse UpdateLayerResponse
+instance ToHeaders UpdateLayer where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.UpdateLayer" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateLayer where
+        toJSON UpdateLayer'{..}
+          = object
+              ["CustomInstanceProfileArn" .=
+                 _ulrqCustomInstanceProfileARN,
+               "InstallUpdatesOnBoot" .= _ulrqInstallUpdatesOnBoot,
+               "CustomSecurityGroupIds" .=
+                 _ulrqCustomSecurityGroupIds,
+               "LifecycleEventConfiguration" .=
+                 _ulrqLifecycleEventConfiguration,
+               "Shortname" .= _ulrqShortname,
+               "CustomRecipes" .= _ulrqCustomRecipes,
+               "VolumeConfigurations" .= _ulrqVolumeConfigurations,
+               "EnableAutoHealing" .= _ulrqEnableAutoHealing,
+               "Packages" .= _ulrqPackages, "Name" .= _ulrqName,
+               "Attributes" .= _ulrqAttributes,
+               "AutoAssignPublicIps" .= _ulrqAutoAssignPublicIPs,
+               "UseEbsOptimizedInstances" .=
+                 _ulrqUseEBSOptimizedInstances,
+               "AutoAssignElasticIps" .= _ulrqAutoAssignElasticIPs,
+               "LayerId" .= _ulrqLayerId]
+
+instance ToPath UpdateLayer where
+        toPath = const "/"
+
+instance ToQuery UpdateLayer where
+        toQuery = const mempty
+
+-- | /See:/ 'updateLayerResponse' smart constructor.
+data UpdateLayerResponse =
+    UpdateLayerResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateLayerResponse' smart constructor.
+updateLayerResponse :: UpdateLayerResponse
+updateLayerResponse = UpdateLayerResponse'

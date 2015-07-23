@@ -1,0 +1,112 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.S3.PutBucketCORS
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Sets the cors configuration for a bucket.
+--
+-- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketCORS.html>
+module Network.AWS.S3.PutBucketCORS
+    (
+    -- * Request
+      PutBucketCORS
+    -- ** Request constructor
+    , putBucketCORS
+    -- ** Request lenses
+    , pbcrqContentMD5
+    , pbcrqCORSConfiguration
+    , pbcrqBucket
+
+    -- * Response
+    , PutBucketCORSResponse
+    -- ** Response constructor
+    , putBucketCORSResponse
+    ) where
+
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
+
+-- | /See:/ 'putBucketCORS' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pbcrqContentMD5'
+--
+-- * 'pbcrqCORSConfiguration'
+--
+-- * 'pbcrqBucket'
+data PutBucketCORS = PutBucketCORS'
+    { _pbcrqContentMD5        :: !(Maybe Text)
+    , _pbcrqCORSConfiguration :: !(Maybe CORSConfiguration)
+    , _pbcrqBucket            :: !BucketName
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'PutBucketCORS' smart constructor.
+putBucketCORS :: BucketName -> PutBucketCORS
+putBucketCORS pBucket_ =
+    PutBucketCORS'
+    { _pbcrqContentMD5 = Nothing
+    , _pbcrqCORSConfiguration = Nothing
+    , _pbcrqBucket = pBucket_
+    }
+
+-- | FIXME: Undocumented member.
+pbcrqContentMD5 :: Lens' PutBucketCORS (Maybe Text)
+pbcrqContentMD5 = lens _pbcrqContentMD5 (\ s a -> s{_pbcrqContentMD5 = a});
+
+-- | FIXME: Undocumented member.
+pbcrqCORSConfiguration :: Lens' PutBucketCORS (Maybe CORSConfiguration)
+pbcrqCORSConfiguration = lens _pbcrqCORSConfiguration (\ s a -> s{_pbcrqCORSConfiguration = a});
+
+-- | FIXME: Undocumented member.
+pbcrqBucket :: Lens' PutBucketCORS BucketName
+pbcrqBucket = lens _pbcrqBucket (\ s a -> s{_pbcrqBucket = a});
+
+instance AWSRequest PutBucketCORS where
+        type Sv PutBucketCORS = S3
+        type Rs PutBucketCORS = PutBucketCORSResponse
+        request = putXML
+        response = receiveNull PutBucketCORSResponse'
+
+instance ToElement PutBucketCORS where
+        toElement
+          = mkElement
+              "{http://s3.amazonaws.com/doc/2006-03-01/}CORSConfiguration"
+              .
+              _pbcrqCORSConfiguration
+
+instance ToHeaders PutBucketCORS where
+        toHeaders PutBucketCORS'{..}
+          = mconcat ["Content-MD5" =# _pbcrqContentMD5]
+
+instance ToPath PutBucketCORS where
+        toPath PutBucketCORS'{..}
+          = mconcat ["/", toText _pbcrqBucket]
+
+instance ToQuery PutBucketCORS where
+        toQuery = const (mconcat ["cors"])
+
+-- | /See:/ 'putBucketCORSResponse' smart constructor.
+data PutBucketCORSResponse =
+    PutBucketCORSResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutBucketCORSResponse' smart constructor.
+putBucketCORSResponse :: PutBucketCORSResponse
+putBucketCORSResponse = PutBucketCORSResponse'

@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CodeDeploy.GetDeployment
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets information about a deployment.
+-- Gets information about a deployment.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeployment.html>
 module Network.AWS.CodeDeploy.GetDeployment
@@ -32,83 +27,100 @@ module Network.AWS.CodeDeploy.GetDeployment
     -- ** Request constructor
     , getDeployment
     -- ** Request lenses
-    , gdDeploymentId
+    , gdrqDeploymentId
 
     -- * Response
     , GetDeploymentResponse
     -- ** Response constructor
     , getDeploymentResponse
     -- ** Response lenses
-    , gdrDeploymentInfo
+    , gdrsDeploymentInfo
+    , gdrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetDeployment = GetDeployment
-    { _gdDeploymentId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetDeployment' constructor.
+-- | Represents the input of a get deployment operation.
+--
+-- /See:/ 'getDeployment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdDeploymentId' @::@ 'Text'
---
-getDeployment :: Text -- ^ 'gdDeploymentId'
-              -> GetDeployment
-getDeployment p1 = GetDeployment
-    { _gdDeploymentId = p1
+-- * 'gdrqDeploymentId'
+newtype GetDeployment = GetDeployment'
+    { _gdrqDeploymentId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetDeployment' smart constructor.
+getDeployment :: Text -> GetDeployment
+getDeployment pDeploymentId_ =
+    GetDeployment'
+    { _gdrqDeploymentId = pDeploymentId_
     }
 
 -- | An existing deployment ID associated with the applicable IAM user or AWS
 -- account.
-gdDeploymentId :: Lens' GetDeployment Text
-gdDeploymentId = lens _gdDeploymentId (\s a -> s { _gdDeploymentId = a })
+gdrqDeploymentId :: Lens' GetDeployment Text
+gdrqDeploymentId = lens _gdrqDeploymentId (\ s a -> s{_gdrqDeploymentId = a});
 
-newtype GetDeploymentResponse = GetDeploymentResponse
-    { _gdrDeploymentInfo :: Maybe DeploymentInfo
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetDeployment where
+        type Sv GetDeployment = CodeDeploy
+        type Rs GetDeployment = GetDeploymentResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetDeploymentResponse' <$>
+                   (x .?> "deploymentInfo") <*> (pure (fromEnum s)))
 
--- | 'GetDeploymentResponse' constructor.
+instance ToHeaders GetDeployment where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.GetDeployment" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetDeployment where
+        toJSON GetDeployment'{..}
+          = object ["deploymentId" .= _gdrqDeploymentId]
+
+instance ToPath GetDeployment where
+        toPath = const "/"
+
+instance ToQuery GetDeployment where
+        toQuery = const mempty
+
+-- | Represents the output of a get deployment operation.
+--
+-- /See:/ 'getDeploymentResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrDeploymentInfo' @::@ 'Maybe' 'DeploymentInfo'
+-- * 'gdrsDeploymentInfo'
 --
-getDeploymentResponse :: GetDeploymentResponse
-getDeploymentResponse = GetDeploymentResponse
-    { _gdrDeploymentInfo = Nothing
+-- * 'gdrsStatus'
+data GetDeploymentResponse = GetDeploymentResponse'
+    { _gdrsDeploymentInfo :: !(Maybe DeploymentInfo)
+    , _gdrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetDeploymentResponse' smart constructor.
+getDeploymentResponse :: Int -> GetDeploymentResponse
+getDeploymentResponse pStatus_ =
+    GetDeploymentResponse'
+    { _gdrsDeploymentInfo = Nothing
+    , _gdrsStatus = pStatus_
     }
 
 -- | Information about the deployment.
-gdrDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
-gdrDeploymentInfo =
-    lens _gdrDeploymentInfo (\s a -> s { _gdrDeploymentInfo = a })
+gdrsDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
+gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = a});
 
-instance ToPath GetDeployment where
-    toPath = const "/"
-
-instance ToQuery GetDeployment where
-    toQuery = const mempty
-
-instance ToHeaders GetDeployment
-
-instance ToJSON GetDeployment where
-    toJSON GetDeployment{..} = object
-        [ "deploymentId" .= _gdDeploymentId
-        ]
-
-instance AWSRequest GetDeployment where
-    type Sv GetDeployment = CodeDeploy
-    type Rs GetDeployment = GetDeploymentResponse
-
-    request  = post "GetDeployment"
-    response = jsonResponse
-
-instance FromJSON GetDeploymentResponse where
-    parseJSON = withObject "GetDeploymentResponse" $ \o -> GetDeploymentResponse
-        <$> o .:? "deploymentInfo"
+-- | FIXME: Undocumented member.
+gdrsStatus :: Lens' GetDeploymentResponse Int
+gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

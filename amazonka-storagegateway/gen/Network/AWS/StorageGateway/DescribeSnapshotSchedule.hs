@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.DescribeSnapshotSchedule
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation describes the snapshot schedule for the specified gateway
+-- This operation describes the snapshot schedule for the specified gateway
 -- volume. The snapshot schedule information includes intervals at which
 -- snapshots are automatically initiated on the volume.
 --
@@ -34,119 +29,141 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     -- ** Request constructor
     , describeSnapshotSchedule
     -- ** Request lenses
-    , dssVolumeARN
+    , dssrqVolumeARN
 
     -- * Response
     , DescribeSnapshotScheduleResponse
     -- ** Response constructor
     , describeSnapshotScheduleResponse
     -- ** Response lenses
-    , dssrDescription
-    , dssrRecurrenceInHours
-    , dssrStartAt
-    , dssrTimezone
-    , dssrVolumeARN
+    , dssrsVolumeARN
+    , dssrsStartAt
+    , dssrsRecurrenceInHours
+    , dssrsTimezone
+    , dssrsDescription
+    , dssrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule
-    { _dssVolumeARN :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DescribeSnapshotSchedule' constructor.
+-- | A JSON object containing the DescribeSnapshotScheduleInput$VolumeARN of
+-- the volume.
+--
+-- /See:/ 'describeSnapshotSchedule' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssVolumeARN' @::@ 'Text'
---
-describeSnapshotSchedule :: Text -- ^ 'dssVolumeARN'
-                         -> DescribeSnapshotSchedule
-describeSnapshotSchedule p1 = DescribeSnapshotSchedule
-    { _dssVolumeARN = p1
+-- * 'dssrqVolumeARN'
+newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
+    { _dssrqVolumeARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeSnapshotSchedule' smart constructor.
+describeSnapshotSchedule :: Text -> DescribeSnapshotSchedule
+describeSnapshotSchedule pVolumeARN_ =
+    DescribeSnapshotSchedule'
+    { _dssrqVolumeARN = pVolumeARN_
     }
 
--- | The Amazon Resource Name (ARN) of the volume. Use the 'ListVolumes' operation
--- to return a list of gateway volumes.
-dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
-dssVolumeARN = lens _dssVolumeARN (\s a -> s { _dssVolumeARN = a })
-
-data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
-    { _dssrDescription       :: Maybe Text
-    , _dssrRecurrenceInHours :: Maybe Nat
-    , _dssrStartAt           :: Maybe Nat
-    , _dssrTimezone          :: Maybe Text
-    , _dssrVolumeARN         :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeSnapshotScheduleResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dssrDescription' @::@ 'Maybe' 'Text'
---
--- * 'dssrRecurrenceInHours' @::@ 'Maybe' 'Natural'
---
--- * 'dssrStartAt' @::@ 'Maybe' 'Natural'
---
--- * 'dssrTimezone' @::@ 'Maybe' 'Text'
---
--- * 'dssrVolumeARN' @::@ 'Maybe' 'Text'
---
-describeSnapshotScheduleResponse :: DescribeSnapshotScheduleResponse
-describeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse
-    { _dssrVolumeARN         = Nothing
-    , _dssrStartAt           = Nothing
-    , _dssrRecurrenceInHours = Nothing
-    , _dssrDescription       = Nothing
-    , _dssrTimezone          = Nothing
-    }
-
-dssrDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrDescription = lens _dssrDescription (\s a -> s { _dssrDescription = a })
-
-dssrRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
-dssrRecurrenceInHours =
-    lens _dssrRecurrenceInHours (\s a -> s { _dssrRecurrenceInHours = a })
-        . mapping _Nat
-
-dssrStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
-dssrStartAt = lens _dssrStartAt (\s a -> s { _dssrStartAt = a }) . mapping _Nat
-
-dssrTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrTimezone = lens _dssrTimezone (\s a -> s { _dssrTimezone = a })
-
-dssrVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
-dssrVolumeARN = lens _dssrVolumeARN (\s a -> s { _dssrVolumeARN = a })
-
-instance ToPath DescribeSnapshotSchedule where
-    toPath = const "/"
-
-instance ToQuery DescribeSnapshotSchedule where
-    toQuery = const mempty
-
-instance ToHeaders DescribeSnapshotSchedule
-
-instance ToJSON DescribeSnapshotSchedule where
-    toJSON DescribeSnapshotSchedule{..} = object
-        [ "VolumeARN" .= _dssVolumeARN
-        ]
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- operation to return a list of gateway volumes.
+dssrqVolumeARN :: Lens' DescribeSnapshotSchedule Text
+dssrqVolumeARN = lens _dssrqVolumeARN (\ s a -> s{_dssrqVolumeARN = a});
 
 instance AWSRequest DescribeSnapshotSchedule where
-    type Sv DescribeSnapshotSchedule = StorageGateway
-    type Rs DescribeSnapshotSchedule = DescribeSnapshotScheduleResponse
+        type Sv DescribeSnapshotSchedule = StorageGateway
+        type Rs DescribeSnapshotSchedule =
+             DescribeSnapshotScheduleResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeSnapshotScheduleResponse' <$>
+                   (x .?> "VolumeARN") <*> (x .?> "StartAt") <*>
+                     (x .?> "RecurrenceInHours")
+                     <*> (x .?> "Timezone")
+                     <*> (x .?> "Description")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "DescribeSnapshotSchedule"
-    response = jsonResponse
+instance ToHeaders DescribeSnapshotSchedule where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DescribeSnapshotSchedule"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DescribeSnapshotScheduleResponse where
-    parseJSON = withObject "DescribeSnapshotScheduleResponse" $ \o -> DescribeSnapshotScheduleResponse
-        <$> o .:? "Description"
-        <*> o .:? "RecurrenceInHours"
-        <*> o .:? "StartAt"
-        <*> o .:? "Timezone"
-        <*> o .:? "VolumeARN"
+instance ToJSON DescribeSnapshotSchedule where
+        toJSON DescribeSnapshotSchedule'{..}
+          = object ["VolumeARN" .= _dssrqVolumeARN]
+
+instance ToPath DescribeSnapshotSchedule where
+        toPath = const "/"
+
+instance ToQuery DescribeSnapshotSchedule where
+        toQuery = const mempty
+
+-- | /See:/ 'describeSnapshotScheduleResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dssrsVolumeARN'
+--
+-- * 'dssrsStartAt'
+--
+-- * 'dssrsRecurrenceInHours'
+--
+-- * 'dssrsTimezone'
+--
+-- * 'dssrsDescription'
+--
+-- * 'dssrsStatus'
+data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
+    { _dssrsVolumeARN         :: !(Maybe Text)
+    , _dssrsStartAt           :: !(Maybe Nat)
+    , _dssrsRecurrenceInHours :: !(Maybe Nat)
+    , _dssrsTimezone          :: !(Maybe Text)
+    , _dssrsDescription       :: !(Maybe Text)
+    , _dssrsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeSnapshotScheduleResponse' smart constructor.
+describeSnapshotScheduleResponse :: Int -> DescribeSnapshotScheduleResponse
+describeSnapshotScheduleResponse pStatus_ =
+    DescribeSnapshotScheduleResponse'
+    { _dssrsVolumeARN = Nothing
+    , _dssrsStartAt = Nothing
+    , _dssrsRecurrenceInHours = Nothing
+    , _dssrsTimezone = Nothing
+    , _dssrsDescription = Nothing
+    , _dssrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+dssrsVolumeARN :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrsVolumeARN = lens _dssrsVolumeARN (\ s a -> s{_dssrsVolumeARN = a});
+
+-- | FIXME: Undocumented member.
+dssrsStartAt :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
+dssrsStartAt = lens _dssrsStartAt (\ s a -> s{_dssrsStartAt = a}) . mapping _Nat;
+
+-- | FIXME: Undocumented member.
+dssrsRecurrenceInHours :: Lens' DescribeSnapshotScheduleResponse (Maybe Natural)
+dssrsRecurrenceInHours = lens _dssrsRecurrenceInHours (\ s a -> s{_dssrsRecurrenceInHours = a}) . mapping _Nat;
+
+-- | FIXME: Undocumented member.
+dssrsTimezone :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrsTimezone = lens _dssrsTimezone (\ s a -> s{_dssrsTimezone = a});
+
+-- | FIXME: Undocumented member.
+dssrsDescription :: Lens' DescribeSnapshotScheduleResponse (Maybe Text)
+dssrsDescription = lens _dssrsDescription (\ s a -> s{_dssrsDescription = a});
+
+-- | FIXME: Undocumented member.
+dssrsStatus :: Lens' DescribeSnapshotScheduleResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

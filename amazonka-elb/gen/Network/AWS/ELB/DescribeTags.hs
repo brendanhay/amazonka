@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ELB.DescribeTags
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes the tags associated with the specified load balancers.
+-- Describes the tags associated with the specified load balancers.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeTags.html>
 module Network.AWS.ELB.DescribeTags
@@ -32,87 +27,92 @@ module Network.AWS.ELB.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtLoadBalancerNames
+    , dtrqLoadBalancerNames
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrTagDescriptions
+    , dtrsTagDescriptions
+    , dtrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeTags = DescribeTags
-    { _dtLoadBalancerNames :: List1 "member" Text
-    } deriving (Eq, Ord, Read, Show, Semigroup)
-
--- | 'DescribeTags' constructor.
+-- | /See:/ 'describeTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtLoadBalancerNames' @::@ 'NonEmpty' 'Text'
---
-describeTags :: NonEmpty Text -- ^ 'dtLoadBalancerNames'
-             -> DescribeTags
-describeTags p1 = DescribeTags
-    { _dtLoadBalancerNames = withIso _List1 (const id) p1
+-- * 'dtrqLoadBalancerNames'
+newtype DescribeTags = DescribeTags'
+    { _dtrqLoadBalancerNames :: List1 Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeTags' smart constructor.
+describeTags :: NonEmpty Text -> DescribeTags
+describeTags pLoadBalancerNames_ =
+    DescribeTags'
+    { _dtrqLoadBalancerNames = _List1 # pLoadBalancerNames_
     }
 
 -- | The names of the load balancers.
-dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
-dtLoadBalancerNames =
-    lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
-        . _List1
+dtrqLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
+dtrqLoadBalancerNames = lens _dtrqLoadBalancerNames (\ s a -> s{_dtrqLoadBalancerNames = a}) . _List1;
 
-newtype DescribeTagsResponse = DescribeTagsResponse
-    { _dtrTagDescriptions :: List "member" TagDescription
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeTags where
+        type Sv DescribeTags = ELB
+        type Rs DescribeTags = DescribeTagsResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeTagsResult"
+              (\ s h x ->
+                 DescribeTagsResponse' <$>
+                   (x .@? "TagDescriptions" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeTagsResponse where
-    type Item DescribeTagsResponse = TagDescription
+instance ToHeaders DescribeTags where
+        toHeaders = const mempty
 
-    fromList = DescribeTagsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dtrTagDescriptions
+instance ToPath DescribeTags where
+        toPath = const "/"
 
--- | 'DescribeTagsResponse' constructor.
+instance ToQuery DescribeTags where
+        toQuery DescribeTags'{..}
+          = mconcat
+              ["Action" =: ("DescribeTags" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "LoadBalancerNames" =:
+                 toQueryList "member" _dtrqLoadBalancerNames]
+
+-- | /See:/ 'describeTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrTagDescriptions' @::@ ['TagDescription']
+-- * 'dtrsTagDescriptions'
 --
-describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse
-    { _dtrTagDescriptions = mempty
+-- * 'dtrsStatus'
+data DescribeTagsResponse = DescribeTagsResponse'
+    { _dtrsTagDescriptions :: !(Maybe [TagDescription])
+    , _dtrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeTagsResponse' smart constructor.
+describeTagsResponse :: Int -> DescribeTagsResponse
+describeTagsResponse pStatus_ =
+    DescribeTagsResponse'
+    { _dtrsTagDescriptions = Nothing
+    , _dtrsStatus = pStatus_
     }
 
 -- | Information about the tags.
-dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
-dtrTagDescriptions =
-    lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })
-        . _List
+dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
+dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default;
 
-instance ToPath DescribeTags where
-    toPath = const "/"
-
-instance ToQuery DescribeTags where
-    toQuery DescribeTags{..} = mconcat
-        [ "LoadBalancerNames" =? _dtLoadBalancerNames
-        ]
-
-instance ToHeaders DescribeTags
-
-instance AWSRequest DescribeTags where
-    type Sv DescribeTags = ELB
-    type Rs DescribeTags = DescribeTagsResponse
-
-    request  = post "DescribeTags"
-    response = xmlResponse
-
-instance FromXML DescribeTagsResponse where
-    parseXML = withElement "DescribeTagsResult" $ \x -> DescribeTagsResponse
-        <$> x .@? "TagDescriptions" .!@ mempty
+-- | FIXME: Undocumented member.
+dtrsStatus :: Lens' DescribeTagsResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

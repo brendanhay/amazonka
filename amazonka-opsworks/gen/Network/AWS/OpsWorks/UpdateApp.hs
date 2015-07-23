@@ -1,32 +1,29 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.UpdateApp
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Updates a specified app.
+-- Updates a specified app.
 --
--- Required Permissions: To use this action, an IAM user must have a Deploy or
--- Manage permissions level for the stack, or an attached policy that explicitly
--- grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html ManagingUser Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Deploy or Manage permissions level for the stack, or an attached policy
+-- that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateApp.html>
 module Network.AWS.OpsWorks.UpdateApp
@@ -36,17 +33,17 @@ module Network.AWS.OpsWorks.UpdateApp
     -- ** Request constructor
     , updateApp
     -- ** Request lenses
-    , uaAppId
-    , uaAppSource
-    , uaAttributes
-    , uaDataSources
-    , uaDescription
-    , uaDomains
-    , uaEnableSsl
-    , uaEnvironment
-    , uaName
-    , uaSslConfiguration
-    , uaType
+    , uarqSSLConfiguration
+    , uarqEnableSSL
+    , uarqEnvironment
+    , uarqDataSources
+    , uarqAppSource
+    , uarqName
+    , uarqAttributes
+    , uarqType
+    , uarqDomains
+    , uarqDescription
+    , uarqAppId
 
     -- * Response
     , UpdateAppResponse
@@ -54,160 +51,167 @@ module Network.AWS.OpsWorks.UpdateApp
     , updateAppResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateApp = UpdateApp
-    { _uaAppId            :: Text
-    , _uaAppSource        :: Maybe Source
-    , _uaAttributes       :: Map AppAttributesKeys Text
-    , _uaDataSources      :: List "DataSources" DataSource
-    , _uaDescription      :: Maybe Text
-    , _uaDomains          :: List "Domains" Text
-    , _uaEnableSsl        :: Maybe Bool
-    , _uaEnvironment      :: List "Environment" EnvironmentVariable
-    , _uaName             :: Maybe Text
-    , _uaSslConfiguration :: Maybe SslConfiguration
-    , _uaType             :: Maybe AppType
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateApp' constructor.
+-- | /See:/ 'updateApp' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaAppId' @::@ 'Text'
+-- * 'uarqSSLConfiguration'
 --
--- * 'uaAppSource' @::@ 'Maybe' 'Source'
+-- * 'uarqEnableSSL'
 --
--- * 'uaAttributes' @::@ 'HashMap' 'AppAttributesKeys' 'Text'
+-- * 'uarqEnvironment'
 --
--- * 'uaDataSources' @::@ ['DataSource']
+-- * 'uarqDataSources'
 --
--- * 'uaDescription' @::@ 'Maybe' 'Text'
+-- * 'uarqAppSource'
 --
--- * 'uaDomains' @::@ ['Text']
+-- * 'uarqName'
 --
--- * 'uaEnableSsl' @::@ 'Maybe' 'Bool'
+-- * 'uarqAttributes'
 --
--- * 'uaEnvironment' @::@ ['EnvironmentVariable']
+-- * 'uarqType'
 --
--- * 'uaName' @::@ 'Maybe' 'Text'
+-- * 'uarqDomains'
 --
--- * 'uaSslConfiguration' @::@ 'Maybe' 'SslConfiguration'
+-- * 'uarqDescription'
 --
--- * 'uaType' @::@ 'Maybe' 'AppType'
---
-updateApp :: Text -- ^ 'uaAppId'
-          -> UpdateApp
-updateApp p1 = UpdateApp
-    { _uaAppId            = p1
-    , _uaName             = Nothing
-    , _uaDescription      = Nothing
-    , _uaDataSources      = mempty
-    , _uaType             = Nothing
-    , _uaAppSource        = Nothing
-    , _uaDomains          = mempty
-    , _uaEnableSsl        = Nothing
-    , _uaSslConfiguration = Nothing
-    , _uaAttributes       = mempty
-    , _uaEnvironment      = mempty
+-- * 'uarqAppId'
+data UpdateApp = UpdateApp'
+    { _uarqSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _uarqEnableSSL        :: !(Maybe Bool)
+    , _uarqEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _uarqDataSources      :: !(Maybe [DataSource])
+    , _uarqAppSource        :: !(Maybe Source)
+    , _uarqName             :: !(Maybe Text)
+    , _uarqAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _uarqType             :: !(Maybe AppType)
+    , _uarqDomains          :: !(Maybe [Text])
+    , _uarqDescription      :: !(Maybe Text)
+    , _uarqAppId            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateApp' smart constructor.
+updateApp :: Text -> UpdateApp
+updateApp pAppId_ =
+    UpdateApp'
+    { _uarqSSLConfiguration = Nothing
+    , _uarqEnableSSL = Nothing
+    , _uarqEnvironment = Nothing
+    , _uarqDataSources = Nothing
+    , _uarqAppSource = Nothing
+    , _uarqName = Nothing
+    , _uarqAttributes = Nothing
+    , _uarqType = Nothing
+    , _uarqDomains = Nothing
+    , _uarqDescription = Nothing
+    , _uarqAppId = pAppId_
     }
 
--- | The app ID.
-uaAppId :: Lens' UpdateApp Text
-uaAppId = lens _uaAppId (\s a -> s { _uaAppId = a })
-
--- | A 'Source' object that specifies the app repository.
-uaAppSource :: Lens' UpdateApp (Maybe Source)
-uaAppSource = lens _uaAppSource (\s a -> s { _uaAppSource = a })
-
--- | One or more user-defined key/value pairs to be added to the stack attributes.
-uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
-uaAttributes = lens _uaAttributes (\s a -> s { _uaAttributes = a }) . _Map
-
--- | The app's data sources.
-uaDataSources :: Lens' UpdateApp [DataSource]
-uaDataSources = lens _uaDataSources (\s a -> s { _uaDataSources = a }) . _List
-
--- | A description of the app.
-uaDescription :: Lens' UpdateApp (Maybe Text)
-uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
-
--- | The app's virtual host settings, with multiple domains separated by commas.
--- For example: ''www.example.com, example.com''
-uaDomains :: Lens' UpdateApp [Text]
-uaDomains = lens _uaDomains (\s a -> s { _uaDomains = a }) . _List
+-- | An @SslConfiguration@ object with the SSL configuration.
+uarqSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
+uarqSSLConfiguration = lens _uarqSSLConfiguration (\ s a -> s{_uarqSSLConfiguration = a});
 
 -- | Whether SSL is enabled for the app.
-uaEnableSsl :: Lens' UpdateApp (Maybe Bool)
-uaEnableSsl = lens _uaEnableSsl (\s a -> s { _uaEnableSsl = a })
+uarqEnableSSL :: Lens' UpdateApp (Maybe Bool)
+uarqEnableSSL = lens _uarqEnableSSL (\ s a -> s{_uarqEnableSSL = a});
 
--- | An array of 'EnvironmentVariable' objects that specify environment variables to
--- be associated with the app. After you deploy the app, these variables are
--- defined on the associated app server instances.For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
+-- | An array of @EnvironmentVariable@ objects that specify environment
+-- variables to be associated with the app. After you deploy the app, these
+-- variables are defined on the associated app server instances.For more
+-- information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
 --
--- There is no specific limit on the number of environment variables. However,
--- the size of the associated data structure - which includes the variables'
--- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).
--- This limit should accommodate most if not all use cases. Exceeding it will
--- cause an exception with the message, "Environment: is too large (maximum is
--- 10KB)."
+-- There is no specific limit on the number of environment variables.
+-- However, the size of the associated data structure - which includes the
+-- variables\' names, values, and protected flag values - cannot exceed 10
+-- KB (10240 Bytes). This limit should accommodate most if not all use
+-- cases. Exceeding it will cause an exception with the message,
+-- \"Environment: is too large (maximum is 10KB).\"
 --
--- This parameter is supported only by Chef 11.10 stacks. If you have specified
--- one or more environment variables, you cannot modify the stack's Chef
--- version.
-uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
-uaEnvironment = lens _uaEnvironment (\s a -> s { _uaEnvironment = a }) . _List
+-- This parameter is supported only by Chef 11.10 stacks. If you have
+-- specified one or more environment variables, you cannot modify the
+-- stack\'s Chef version.
+uarqEnvironment :: Lens' UpdateApp [EnvironmentVariable]
+uarqEnvironment = lens _uarqEnvironment (\ s a -> s{_uarqEnvironment = a}) . _Default;
+
+-- | The app\'s data sources.
+uarqDataSources :: Lens' UpdateApp [DataSource]
+uarqDataSources = lens _uarqDataSources (\ s a -> s{_uarqDataSources = a}) . _Default;
+
+-- | A @Source@ object that specifies the app repository.
+uarqAppSource :: Lens' UpdateApp (Maybe Source)
+uarqAppSource = lens _uarqAppSource (\ s a -> s{_uarqAppSource = a});
 
 -- | The app name.
-uaName :: Lens' UpdateApp (Maybe Text)
-uaName = lens _uaName (\s a -> s { _uaName = a })
+uarqName :: Lens' UpdateApp (Maybe Text)
+uarqName = lens _uarqName (\ s a -> s{_uarqName = a});
 
--- | An 'SslConfiguration' object with the SSL configuration.
-uaSslConfiguration :: Lens' UpdateApp (Maybe SslConfiguration)
-uaSslConfiguration =
-    lens _uaSslConfiguration (\s a -> s { _uaSslConfiguration = a })
+-- | One or more user-defined key\/value pairs to be added to the stack
+-- attributes.
+uarqAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
+uarqAttributes = lens _uarqAttributes (\ s a -> s{_uarqAttributes = a}) . _Default . _Map;
 
 -- | The app type.
-uaType :: Lens' UpdateApp (Maybe AppType)
-uaType = lens _uaType (\s a -> s { _uaType = a })
+uarqType :: Lens' UpdateApp (Maybe AppType)
+uarqType = lens _uarqType (\ s a -> s{_uarqType = a});
 
-data UpdateAppResponse = UpdateAppResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | The app\'s virtual host settings, with multiple domains separated by
+-- commas. For example: @\'www.example.com, example.com\'@
+uarqDomains :: Lens' UpdateApp [Text]
+uarqDomains = lens _uarqDomains (\ s a -> s{_uarqDomains = a}) . _Default;
 
--- | 'UpdateAppResponse' constructor.
-updateAppResponse :: UpdateAppResponse
-updateAppResponse = UpdateAppResponse
+-- | A description of the app.
+uarqDescription :: Lens' UpdateApp (Maybe Text)
+uarqDescription = lens _uarqDescription (\ s a -> s{_uarqDescription = a});
 
-instance ToPath UpdateApp where
-    toPath = const "/"
-
-instance ToQuery UpdateApp where
-    toQuery = const mempty
-
-instance ToHeaders UpdateApp
-
-instance ToJSON UpdateApp where
-    toJSON UpdateApp{..} = object
-        [ "AppId"            .= _uaAppId
-        , "Name"             .= _uaName
-        , "Description"      .= _uaDescription
-        , "DataSources"      .= _uaDataSources
-        , "Type"             .= _uaType
-        , "AppSource"        .= _uaAppSource
-        , "Domains"          .= _uaDomains
-        , "EnableSsl"        .= _uaEnableSsl
-        , "SslConfiguration" .= _uaSslConfiguration
-        , "Attributes"       .= _uaAttributes
-        , "Environment"      .= _uaEnvironment
-        ]
+-- | The app ID.
+uarqAppId :: Lens' UpdateApp Text
+uarqAppId = lens _uarqAppId (\ s a -> s{_uarqAppId = a});
 
 instance AWSRequest UpdateApp where
-    type Sv UpdateApp = OpsWorks
-    type Rs UpdateApp = UpdateAppResponse
+        type Sv UpdateApp = OpsWorks
+        type Rs UpdateApp = UpdateAppResponse
+        request = postJSON
+        response = receiveNull UpdateAppResponse'
 
-    request  = post "UpdateApp"
-    response = nullResponse UpdateAppResponse
+instance ToHeaders UpdateApp where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.UpdateApp" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateApp where
+        toJSON UpdateApp'{..}
+          = object
+              ["SslConfiguration" .= _uarqSSLConfiguration,
+               "EnableSsl" .= _uarqEnableSSL,
+               "Environment" .= _uarqEnvironment,
+               "DataSources" .= _uarqDataSources,
+               "AppSource" .= _uarqAppSource, "Name" .= _uarqName,
+               "Attributes" .= _uarqAttributes, "Type" .= _uarqType,
+               "Domains" .= _uarqDomains,
+               "Description" .= _uarqDescription,
+               "AppId" .= _uarqAppId]
+
+instance ToPath UpdateApp where
+        toPath = const "/"
+
+instance ToQuery UpdateApp where
+        toQuery = const mempty
+
+-- | /See:/ 'updateAppResponse' smart constructor.
+data UpdateAppResponse =
+    UpdateAppResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateAppResponse' smart constructor.
+updateAppResponse :: UpdateAppResponse
+updateAppResponse = UpdateAppResponse'

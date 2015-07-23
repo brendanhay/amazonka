@@ -1,32 +1,29 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.DetachElasticLoadBalancer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Detaches a specified Elastic Load Balancing instance from its layer.
+-- Detaches a specified Elastic Load Balancing instance from its layer.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DetachElasticLoadBalancer.html>
 module Network.AWS.OpsWorks.DetachElasticLoadBalancer
@@ -36,8 +33,8 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     -- ** Request constructor
     , detachElasticLoadBalancer
     -- ** Request lenses
-    , delbElasticLoadBalancerName
-    , delbLayerId
+    , delbrqElasticLoadBalancerName
+    , delbrqLayerId
 
     -- * Response
     , DetachElasticLoadBalancerResponse
@@ -45,67 +42,76 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     , detachElasticLoadBalancerResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DetachElasticLoadBalancer = DetachElasticLoadBalancer
-    { _delbElasticLoadBalancerName :: Text
-    , _delbLayerId                 :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DetachElasticLoadBalancer' constructor.
+-- | /See:/ 'detachElasticLoadBalancer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delbElasticLoadBalancerName' @::@ 'Text'
+-- * 'delbrqElasticLoadBalancerName'
 --
--- * 'delbLayerId' @::@ 'Text'
---
-detachElasticLoadBalancer :: Text -- ^ 'delbElasticLoadBalancerName'
-                          -> Text -- ^ 'delbLayerId'
-                          -> DetachElasticLoadBalancer
-detachElasticLoadBalancer p1 p2 = DetachElasticLoadBalancer
-    { _delbElasticLoadBalancerName = p1
-    , _delbLayerId                 = p2
+-- * 'delbrqLayerId'
+data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
+    { _delbrqElasticLoadBalancerName :: !Text
+    , _delbrqLayerId                 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DetachElasticLoadBalancer' smart constructor.
+detachElasticLoadBalancer :: Text -> Text -> DetachElasticLoadBalancer
+detachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
+    DetachElasticLoadBalancer'
+    { _delbrqElasticLoadBalancerName = pElasticLoadBalancerName_
+    , _delbrqLayerId = pLayerId_
     }
 
--- | The Elastic Load Balancing instance's name.
-delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
-delbElasticLoadBalancerName =
-    lens _delbElasticLoadBalancerName
-        (\s a -> s { _delbElasticLoadBalancerName = a })
+-- | The Elastic Load Balancing instance\'s name.
+delbrqElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
+delbrqElasticLoadBalancerName = lens _delbrqElasticLoadBalancerName (\ s a -> s{_delbrqElasticLoadBalancerName = a});
 
--- | The ID of the layer that the Elastic Load Balancing instance is attached to.
-delbLayerId :: Lens' DetachElasticLoadBalancer Text
-delbLayerId = lens _delbLayerId (\s a -> s { _delbLayerId = a })
-
-data DetachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DetachElasticLoadBalancerResponse' constructor.
-detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
-detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse
-
-instance ToPath DetachElasticLoadBalancer where
-    toPath = const "/"
-
-instance ToQuery DetachElasticLoadBalancer where
-    toQuery = const mempty
-
-instance ToHeaders DetachElasticLoadBalancer
-
-instance ToJSON DetachElasticLoadBalancer where
-    toJSON DetachElasticLoadBalancer{..} = object
-        [ "ElasticLoadBalancerName" .= _delbElasticLoadBalancerName
-        , "LayerId"                 .= _delbLayerId
-        ]
+-- | The ID of the layer that the Elastic Load Balancing instance is attached
+-- to.
+delbrqLayerId :: Lens' DetachElasticLoadBalancer Text
+delbrqLayerId = lens _delbrqLayerId (\ s a -> s{_delbrqLayerId = a});
 
 instance AWSRequest DetachElasticLoadBalancer where
-    type Sv DetachElasticLoadBalancer = OpsWorks
-    type Rs DetachElasticLoadBalancer = DetachElasticLoadBalancerResponse
+        type Sv DetachElasticLoadBalancer = OpsWorks
+        type Rs DetachElasticLoadBalancer =
+             DetachElasticLoadBalancerResponse
+        request = postJSON
+        response
+          = receiveNull DetachElasticLoadBalancerResponse'
 
-    request  = post "DetachElasticLoadBalancer"
-    response = nullResponse DetachElasticLoadBalancerResponse
+instance ToHeaders DetachElasticLoadBalancer where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DetachElasticLoadBalancer" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DetachElasticLoadBalancer where
+        toJSON DetachElasticLoadBalancer'{..}
+          = object
+              ["ElasticLoadBalancerName" .=
+                 _delbrqElasticLoadBalancerName,
+               "LayerId" .= _delbrqLayerId]
+
+instance ToPath DetachElasticLoadBalancer where
+        toPath = const "/"
+
+instance ToQuery DetachElasticLoadBalancer where
+        toQuery = const mempty
+
+-- | /See:/ 'detachElasticLoadBalancerResponse' smart constructor.
+data DetachElasticLoadBalancerResponse =
+    DetachElasticLoadBalancerResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DetachElasticLoadBalancerResponse' smart constructor.
+detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse
+detachElasticLoadBalancerResponse = DetachElasticLoadBalancerResponse'

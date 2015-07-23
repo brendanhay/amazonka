@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudHSM.DeleteLunaClient
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes a client.
+-- Deletes a client.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteLunaClient.html>
 module Network.AWS.CloudHSM.DeleteLunaClient
@@ -32,82 +27,86 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     -- ** Request constructor
     , deleteLunaClient
     -- ** Request lenses
-    , dlc1ClientArn
+    , drqClientARN
 
     -- * Response
     , DeleteLunaClientResponse
     -- ** Response constructor
     , deleteLunaClientResponse
     -- ** Response lenses
-    , dlcrStatus
+    , dlcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudHSM.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteLunaClient = DeleteLunaClient
-    { _dlc1ClientArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteLunaClient' constructor.
+-- | /See:/ 'deleteLunaClient' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlc1ClientArn' @::@ 'Text'
---
-deleteLunaClient :: Text -- ^ 'dlc1ClientArn'
-                 -> DeleteLunaClient
-deleteLunaClient p1 = DeleteLunaClient
-    { _dlc1ClientArn = p1
+-- * 'drqClientARN'
+newtype DeleteLunaClient = DeleteLunaClient'
+    { _drqClientARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteLunaClient' smart constructor.
+deleteLunaClient :: Text -> DeleteLunaClient
+deleteLunaClient pClientARN_ =
+    DeleteLunaClient'
+    { _drqClientARN = pClientARN_
     }
 
 -- | The ARN of the client to delete.
-dlc1ClientArn :: Lens' DeleteLunaClient Text
-dlc1ClientArn = lens _dlc1ClientArn (\s a -> s { _dlc1ClientArn = a })
+drqClientARN :: Lens' DeleteLunaClient Text
+drqClientARN = lens _drqClientARN (\ s a -> s{_drqClientARN = a});
 
-newtype DeleteLunaClientResponse = DeleteLunaClientResponse
-    { _dlcrStatus :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+instance AWSRequest DeleteLunaClient where
+        type Sv DeleteLunaClient = CloudHSM
+        type Rs DeleteLunaClient = DeleteLunaClientResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteLunaClientResponse' <$> (pure (fromEnum s)))
 
--- | 'DeleteLunaClientResponse' constructor.
+instance ToHeaders DeleteLunaClient where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CloudHsmFrontendService.DeleteLunaClient" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteLunaClient where
+        toJSON DeleteLunaClient'{..}
+          = object ["ClientArn" .= _drqClientARN]
+
+instance ToPath DeleteLunaClient where
+        toPath = const "/"
+
+instance ToQuery DeleteLunaClient where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteLunaClientResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcrStatus' @::@ 'Text'
---
-deleteLunaClientResponse :: Text -- ^ 'dlcrStatus'
-                         -> DeleteLunaClientResponse
-deleteLunaClientResponse p1 = DeleteLunaClientResponse
-    { _dlcrStatus = p1
+-- * 'dlcrsStatus'
+newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
+    { _dlcrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteLunaClientResponse' smart constructor.
+deleteLunaClientResponse :: Int -> DeleteLunaClientResponse
+deleteLunaClientResponse pStatus_ =
+    DeleteLunaClientResponse'
+    { _dlcrsStatus = pStatus_
     }
 
--- | The status of the action.
-dlcrStatus :: Lens' DeleteLunaClientResponse Text
-dlcrStatus = lens _dlcrStatus (\s a -> s { _dlcrStatus = a })
-
-instance ToPath DeleteLunaClient where
-    toPath = const "/"
-
-instance ToQuery DeleteLunaClient where
-    toQuery = const mempty
-
-instance ToHeaders DeleteLunaClient
-
-instance ToJSON DeleteLunaClient where
-    toJSON DeleteLunaClient{..} = object
-        [ "ClientArn" .= _dlc1ClientArn
-        ]
-
-instance AWSRequest DeleteLunaClient where
-    type Sv DeleteLunaClient = CloudHSM
-    type Rs DeleteLunaClient = DeleteLunaClientResponse
-
-    request  = post "DeleteLunaClient"
-    response = jsonResponse
-
-instance FromJSON DeleteLunaClientResponse where
-    parseJSON = withObject "DeleteLunaClientResponse" $ \o -> DeleteLunaClientResponse
-        <$> o .:  "Status"
+-- | FIXME: Undocumented member.
+dlcrsStatus :: Lens' DeleteLunaClientResponse Int
+dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});

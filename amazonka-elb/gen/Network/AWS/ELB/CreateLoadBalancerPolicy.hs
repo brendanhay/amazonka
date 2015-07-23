@@ -1,32 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ELB.CreateLoadBalancerPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a policy with the specified attributes for the specified load
+-- Creates a policy with the specified attributes for the specified load
 -- balancer.
 --
--- Policies are settings that are saved for your load balancer and that can be
--- applied to the front-end listener or the back-end application server,
+-- Policies are settings that are saved for your load balancer and that can
+-- be applied to the front-end listener or the back-end application server,
 -- depending on the policy type.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancerPolicy.html>
@@ -37,96 +32,116 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     -- ** Request constructor
     , createLoadBalancerPolicy
     -- ** Request lenses
-    , clbpLoadBalancerName
-    , clbpPolicyAttributes
-    , clbpPolicyName
-    , clbpPolicyTypeName
+    , clbprqPolicyAttributes
+    , clbprqLoadBalancerName
+    , clbprqPolicyName
+    , clbprqPolicyTypeName
 
     -- * Response
     , CreateLoadBalancerPolicyResponse
     -- ** Response constructor
     , createLoadBalancerPolicyResponse
+    -- ** Response lenses
+    , clbprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
-    { _clbpLoadBalancerName :: Text
-    , _clbpPolicyAttributes :: List "member" PolicyAttribute
-    , _clbpPolicyName       :: Text
-    , _clbpPolicyTypeName   :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'CreateLoadBalancerPolicy' constructor.
+-- | /See:/ 'createLoadBalancerPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbpLoadBalancerName' @::@ 'Text'
+-- * 'clbprqPolicyAttributes'
 --
--- * 'clbpPolicyAttributes' @::@ ['PolicyAttribute']
+-- * 'clbprqLoadBalancerName'
 --
--- * 'clbpPolicyName' @::@ 'Text'
+-- * 'clbprqPolicyName'
 --
--- * 'clbpPolicyTypeName' @::@ 'Text'
---
-createLoadBalancerPolicy :: Text -- ^ 'clbpLoadBalancerName'
-                         -> Text -- ^ 'clbpPolicyName'
-                         -> Text -- ^ 'clbpPolicyTypeName'
-                         -> CreateLoadBalancerPolicy
-createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
-    { _clbpLoadBalancerName = p1
-    , _clbpPolicyName       = p2
-    , _clbpPolicyTypeName   = p3
-    , _clbpPolicyAttributes = mempty
+-- * 'clbprqPolicyTypeName'
+data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
+    { _clbprqPolicyAttributes :: !(Maybe [PolicyAttribute])
+    , _clbprqLoadBalancerName :: !Text
+    , _clbprqPolicyName       :: !Text
+    , _clbprqPolicyTypeName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateLoadBalancerPolicy' smart constructor.
+createLoadBalancerPolicy :: Text -> Text -> Text -> CreateLoadBalancerPolicy
+createLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ pPolicyTypeName_ =
+    CreateLoadBalancerPolicy'
+    { _clbprqPolicyAttributes = Nothing
+    , _clbprqLoadBalancerName = pLoadBalancerName_
+    , _clbprqPolicyName = pPolicyName_
+    , _clbprqPolicyTypeName = pPolicyTypeName_
     }
 
--- | The name of the load balancer.
-clbpLoadBalancerName :: Lens' CreateLoadBalancerPolicy Text
-clbpLoadBalancerName =
-    lens _clbpLoadBalancerName (\s a -> s { _clbpLoadBalancerName = a })
-
 -- | The attributes for the policy.
-clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
-clbpPolicyAttributes =
-    lens _clbpPolicyAttributes (\s a -> s { _clbpPolicyAttributes = a })
-        . _List
+clbprqPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
+clbprqPolicyAttributes = lens _clbprqPolicyAttributes (\ s a -> s{_clbprqPolicyAttributes = a}) . _Default;
 
--- | The name of the load balancer policy to be created. This name must be unique
--- within the set of policies for this load balancer.
-clbpPolicyName :: Lens' CreateLoadBalancerPolicy Text
-clbpPolicyName = lens _clbpPolicyName (\s a -> s { _clbpPolicyName = a })
+-- | The name of the load balancer.
+clbprqLoadBalancerName :: Lens' CreateLoadBalancerPolicy Text
+clbprqLoadBalancerName = lens _clbprqLoadBalancerName (\ s a -> s{_clbprqLoadBalancerName = a});
 
--- | The name of the base policy type. To get the list of policy types, use 'DescribeLoadBalancerPolicyTypes'.
-clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
-clbpPolicyTypeName =
-    lens _clbpPolicyTypeName (\s a -> s { _clbpPolicyTypeName = a })
+-- | The name of the load balancer policy to be created. This name must be
+-- unique within the set of policies for this load balancer.
+clbprqPolicyName :: Lens' CreateLoadBalancerPolicy Text
+clbprqPolicyName = lens _clbprqPolicyName (\ s a -> s{_clbprqPolicyName = a});
 
-data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'CreateLoadBalancerPolicyResponse' constructor.
-createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
-createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
-
-instance ToPath CreateLoadBalancerPolicy where
-    toPath = const "/"
-
-instance ToQuery CreateLoadBalancerPolicy where
-    toQuery CreateLoadBalancerPolicy{..} = mconcat
-        [ "LoadBalancerName" =? _clbpLoadBalancerName
-        , "PolicyAttributes" =? _clbpPolicyAttributes
-        , "PolicyName"       =? _clbpPolicyName
-        , "PolicyTypeName"   =? _clbpPolicyTypeName
-        ]
-
-instance ToHeaders CreateLoadBalancerPolicy
+-- | The name of the base policy type. To get the list of policy types, use
+-- DescribeLoadBalancerPolicyTypes.
+clbprqPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
+clbprqPolicyTypeName = lens _clbprqPolicyTypeName (\ s a -> s{_clbprqPolicyTypeName = a});
 
 instance AWSRequest CreateLoadBalancerPolicy where
-    type Sv CreateLoadBalancerPolicy = ELB
-    type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
+        type Sv CreateLoadBalancerPolicy = ELB
+        type Rs CreateLoadBalancerPolicy =
+             CreateLoadBalancerPolicyResponse
+        request = post
+        response
+          = receiveXMLWrapper "CreateLoadBalancerPolicyResult"
+              (\ s h x ->
+                 CreateLoadBalancerPolicyResponse' <$>
+                   (pure (fromEnum s)))
 
-    request  = post "CreateLoadBalancerPolicy"
-    response = nullResponse CreateLoadBalancerPolicyResponse
+instance ToHeaders CreateLoadBalancerPolicy where
+        toHeaders = const mempty
+
+instance ToPath CreateLoadBalancerPolicy where
+        toPath = const "/"
+
+instance ToQuery CreateLoadBalancerPolicy where
+        toQuery CreateLoadBalancerPolicy'{..}
+          = mconcat
+              ["Action" =:
+                 ("CreateLoadBalancerPolicy" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "PolicyAttributes" =:
+                 toQuery
+                   (toQueryList "member" <$> _clbprqPolicyAttributes),
+               "LoadBalancerName" =: _clbprqLoadBalancerName,
+               "PolicyName" =: _clbprqPolicyName,
+               "PolicyTypeName" =: _clbprqPolicyTypeName]
+
+-- | /See:/ 'createLoadBalancerPolicyResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'clbprsStatus'
+newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
+    { _clbprsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateLoadBalancerPolicyResponse' smart constructor.
+createLoadBalancerPolicyResponse :: Int -> CreateLoadBalancerPolicyResponse
+createLoadBalancerPolicyResponse pStatus_ =
+    CreateLoadBalancerPolicyResponse'
+    { _clbprsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+clbprsStatus :: Lens' CreateLoadBalancerPolicyResponse Int
+clbprsStatus = lens _clbprsStatus (\ s a -> s{_clbprsStatus = a});

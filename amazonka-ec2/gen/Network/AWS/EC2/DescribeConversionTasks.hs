@@ -1,28 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DescribeConversionTasks
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes one or more of your conversion tasks. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Describes one or more of your conversion tasks. For more information,
+-- see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeConversionTasks.html>
 module Network.AWS.EC2.DescribeConversionTasks
@@ -32,102 +30,117 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- ** Request constructor
     , describeConversionTasks
     -- ** Request lenses
-    , dctConversionTaskIds
-    , dctDryRun
-    , dctFilters
+    , dctrqConversionTaskIds
+    , dctrqFilters
+    , dctrqDryRun
 
     -- * Response
     , DescribeConversionTasksResponse
     -- ** Response constructor
     , describeConversionTasksResponse
     -- ** Response lenses
-    , dctrConversionTasks
+    , dctrsConversionTasks
+    , dctrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeConversionTasks = DescribeConversionTasks
-    { _dctConversionTaskIds :: List "item" Text
-    , _dctDryRun            :: Maybe Bool
-    , _dctFilters           :: List "Filter" Filter
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeConversionTasks' constructor.
+-- | /See:/ 'describeConversionTasks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dctConversionTaskIds' @::@ ['Text']
+-- * 'dctrqConversionTaskIds'
 --
--- * 'dctDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dctrqFilters'
 --
--- * 'dctFilters' @::@ ['Filter']
---
+-- * 'dctrqDryRun'
+data DescribeConversionTasks = DescribeConversionTasks'
+    { _dctrqConversionTaskIds :: !(Maybe [Text])
+    , _dctrqFilters           :: !(Maybe [Filter])
+    , _dctrqDryRun            :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeConversionTasks' smart constructor.
 describeConversionTasks :: DescribeConversionTasks
-describeConversionTasks = DescribeConversionTasks
-    { _dctDryRun            = Nothing
-    , _dctFilters           = mempty
-    , _dctConversionTaskIds = mempty
+describeConversionTasks =
+    DescribeConversionTasks'
+    { _dctrqConversionTaskIds = Nothing
+    , _dctrqFilters = Nothing
+    , _dctrqDryRun = Nothing
     }
 
 -- | One or more conversion task IDs.
-dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskIds =
-    lens _dctConversionTaskIds (\s a -> s { _dctConversionTaskIds = a })
-        . _List
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
-dctDryRun = lens _dctDryRun (\s a -> s { _dctDryRun = a })
+dctrqConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctrqConversionTaskIds = lens _dctrqConversionTaskIds (\ s a -> s{_dctrqConversionTaskIds = a}) . _Default;
 
 -- | One or more filters.
-dctFilters :: Lens' DescribeConversionTasks [Filter]
-dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a }) . _List
+dctrqFilters :: Lens' DescribeConversionTasks [Filter]
+dctrqFilters = lens _dctrqFilters (\ s a -> s{_dctrqFilters = a}) . _Default;
 
-newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
-    { _dctrConversionTasks :: List "item" ConversionTask
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+dctrqDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
+dctrqDryRun = lens _dctrqDryRun (\ s a -> s{_dctrqDryRun = a});
 
--- | 'DescribeConversionTasksResponse' constructor.
+instance AWSRequest DescribeConversionTasks where
+        type Sv DescribeConversionTasks = EC2
+        type Rs DescribeConversionTasks =
+             DescribeConversionTasksResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeConversionTasksResponse' <$>
+                   (x .@? "conversionTasks" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeConversionTasks where
+        toHeaders = const mempty
+
+instance ToPath DescribeConversionTasks where
+        toPath = const "/"
+
+instance ToQuery DescribeConversionTasks where
+        toQuery DescribeConversionTasks'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeConversionTasks" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery
+                 (toQueryList "item" <$> _dctrqConversionTaskIds),
+               toQuery (toQueryList "Filter" <$> _dctrqFilters),
+               "DryRun" =: _dctrqDryRun]
+
+-- | /See:/ 'describeConversionTasksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dctrConversionTasks' @::@ ['ConversionTask']
+-- * 'dctrsConversionTasks'
 --
-describeConversionTasksResponse :: DescribeConversionTasksResponse
-describeConversionTasksResponse = DescribeConversionTasksResponse
-    { _dctrConversionTasks = mempty
+-- * 'dctrsStatus'
+data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
+    { _dctrsConversionTasks :: !(Maybe [ConversionTask])
+    , _dctrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeConversionTasksResponse' smart constructor.
+describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse
+describeConversionTasksResponse pStatus_ =
+    DescribeConversionTasksResponse'
+    { _dctrsConversionTasks = Nothing
+    , _dctrsStatus = pStatus_
     }
 
 -- | Information about the conversion tasks.
-dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
-dctrConversionTasks =
-    lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
-        . _List
+dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
+dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default;
 
-instance ToPath DescribeConversionTasks where
-    toPath = const "/"
-
-instance ToQuery DescribeConversionTasks where
-    toQuery DescribeConversionTasks{..} = mconcat
-        [ "ConversionTaskId" `toQueryList` _dctConversionTaskIds
-        , "DryRun"           =? _dctDryRun
-        , "Filter"           `toQueryList` _dctFilters
-        ]
-
-instance ToHeaders DescribeConversionTasks
-
-instance AWSRequest DescribeConversionTasks where
-    type Sv DescribeConversionTasks = EC2
-    type Rs DescribeConversionTasks = DescribeConversionTasksResponse
-
-    request  = post "DescribeConversionTasks"
-    response = xmlResponse
-
-instance FromXML DescribeConversionTasksResponse where
-    parseXML x = DescribeConversionTasksResponse
-        <$> x .@? "conversionTasks" .!@ mempty
+-- | FIXME: Undocumented member.
+dctrsStatus :: Lens' DescribeConversionTasksResponse Int
+dctrsStatus = lens _dctrsStatus (\ s a -> s{_dctrsStatus = a});

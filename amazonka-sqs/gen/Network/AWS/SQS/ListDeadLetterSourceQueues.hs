@@ -1,31 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SQS.ListDeadLetterSourceQueues
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of your queues that have the RedrivePolicy queue attribute
--- configured with a dead letter queue.
+-- Returns a list of your queues that have the RedrivePolicy queue
+-- attribute configured with a dead letter queue.
 --
--- For more information about using dead letter queues, see <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQSDead Letter Queues>.
+-- For more information about using dead letter queues, see
+-- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListDeadLetterSourceQueues.html>
 module Network.AWS.SQS.ListDeadLetterSourceQueues
@@ -35,78 +31,95 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     -- ** Request constructor
     , listDeadLetterSourceQueues
     -- ** Request lenses
-    , ldlsqQueueUrl
+    , ldlsqrqQueueURL
 
     -- * Response
     , ListDeadLetterSourceQueuesResponse
     -- ** Response constructor
     , listDeadLetterSourceQueuesResponse
     -- ** Response lenses
-    , ldlsqrQueueUrls
+    , ldlsqrsStatus
+    , ldlsqrsQueueURLs
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SQS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
-newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
-    { _ldlsqQueueUrl :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'ListDeadLetterSourceQueues' constructor.
+-- | /See:/ 'listDeadLetterSourceQueues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldlsqQueueUrl' @::@ 'Text'
---
-listDeadLetterSourceQueues :: Text -- ^ 'ldlsqQueueUrl'
-                           -> ListDeadLetterSourceQueues
-listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
-    { _ldlsqQueueUrl = p1
+-- * 'ldlsqrqQueueURL'
+newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
+    { _ldlsqrqQueueURL :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListDeadLetterSourceQueues' smart constructor.
+listDeadLetterSourceQueues :: Text -> ListDeadLetterSourceQueues
+listDeadLetterSourceQueues pQueueURL_ =
+    ListDeadLetterSourceQueues'
+    { _ldlsqrqQueueURL = pQueueURL_
     }
 
 -- | The queue URL of a dead letter queue.
-ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
-ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
+ldlsqrqQueueURL :: Lens' ListDeadLetterSourceQueues Text
+ldlsqrqQueueURL = lens _ldlsqrqQueueURL (\ s a -> s{_ldlsqrqQueueURL = a});
 
-newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+instance AWSRequest ListDeadLetterSourceQueues where
+        type Sv ListDeadLetterSourceQueues = SQS
+        type Rs ListDeadLetterSourceQueues =
+             ListDeadLetterSourceQueuesResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "ListDeadLetterSourceQueuesResult"
+              (\ s h x ->
+                 ListDeadLetterSourceQueuesResponse' <$>
+                   (pure (fromEnum s)) <*> (parseXMLList "QueueUrl" x))
 
--- | 'ListDeadLetterSourceQueuesResponse' constructor.
+instance ToHeaders ListDeadLetterSourceQueues where
+        toHeaders = const mempty
+
+instance ToPath ListDeadLetterSourceQueues where
+        toPath = const "/"
+
+instance ToQuery ListDeadLetterSourceQueues where
+        toQuery ListDeadLetterSourceQueues'{..}
+          = mconcat
+              ["Action" =:
+                 ("ListDeadLetterSourceQueues" :: ByteString),
+               "Version" =: ("2012-11-05" :: ByteString),
+               "QueueUrl" =: _ldlsqrqQueueURL]
+
+-- | A list of your dead letter source queues.
+--
+-- /See:/ 'listDeadLetterSourceQueuesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldlsqrQueueUrls' @::@ ['Text']
+-- * 'ldlsqrsStatus'
 --
-listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
-    { _ldlsqrQueueUrls = mempty
+-- * 'ldlsqrsQueueURLs'
+data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
+    { _ldlsqrsStatus    :: !Int
+    , _ldlsqrsQueueURLs :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
+listDeadLetterSourceQueuesResponse :: Int -> ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse pStatus_ =
+    ListDeadLetterSourceQueuesResponse'
+    { _ldlsqrsStatus = pStatus_
+    , _ldlsqrsQueueURLs = mempty
     }
+
+-- | FIXME: Undocumented member.
+ldlsqrsStatus :: Lens' ListDeadLetterSourceQueuesResponse Int
+ldlsqrsStatus = lens _ldlsqrsStatus (\ s a -> s{_ldlsqrsStatus = a});
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
-ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
-ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a }) . _List
-
-instance ToPath ListDeadLetterSourceQueues where
-    toPath = const "/"
-
-instance ToQuery ListDeadLetterSourceQueues where
-    toQuery ListDeadLetterSourceQueues{..} = mconcat
-        [ "QueueUrl" =? _ldlsqQueueUrl
-        ]
-
-instance ToHeaders ListDeadLetterSourceQueues
-
-instance AWSRequest ListDeadLetterSourceQueues where
-    type Sv ListDeadLetterSourceQueues = SQS
-    type Rs ListDeadLetterSourceQueues = ListDeadLetterSourceQueuesResponse
-
-    request  = post "ListDeadLetterSourceQueues"
-    response = xmlResponse
-
-instance FromXML ListDeadLetterSourceQueuesResponse where
-    parseXML = withElement "ListDeadLetterSourceQueuesResult" $ \x -> ListDeadLetterSourceQueuesResponse
-        <$> parseXML x
+ldlsqrsQueueURLs :: Lens' ListDeadLetterSourceQueuesResponse [Text]
+ldlsqrsQueueURLs = lens _ldlsqrsQueueURLs (\ s a -> s{_ldlsqrsQueueURLs = a});

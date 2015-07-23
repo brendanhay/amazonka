@@ -1,29 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CognitoIdentity.SetIdentityPoolRoles
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Sets the roles for an identity pool. These roles are used when making calls
--- to 'GetCredentialsForIdentity' action.
+-- Sets the roles for an identity pool. These roles are used when making
+-- calls to @GetCredentialsForIdentity@ action.
+--
+-- You must use AWS Developer credentials to call this API.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_SetIdentityPoolRoles.html>
 module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
@@ -33,8 +30,8 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     -- ** Request constructor
     , setIdentityPoolRoles
     -- ** Request lenses
-    , siprIdentityPoolId
-    , siprRoles
+    , siprrqIdentityPoolId
+    , siprrqRoles
 
     -- * Response
     , SetIdentityPoolRolesResponse
@@ -42,66 +39,77 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     , setIdentityPoolRolesResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetIdentityPoolRoles = SetIdentityPoolRoles
-    { _siprIdentityPoolId :: Text
-    , _siprRoles          :: Map Text Text
-    } deriving (Eq, Read, Show)
-
--- | 'SetIdentityPoolRoles' constructor.
+-- | Input to the @SetIdentityPoolRoles@ action.
+--
+-- /See:/ 'setIdentityPoolRoles' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siprIdentityPoolId' @::@ 'Text'
+-- * 'siprrqIdentityPoolId'
 --
--- * 'siprRoles' @::@ 'HashMap' 'Text' 'Text'
---
-setIdentityPoolRoles :: Text -- ^ 'siprIdentityPoolId'
-                     -> SetIdentityPoolRoles
-setIdentityPoolRoles p1 = SetIdentityPoolRoles
-    { _siprIdentityPoolId = p1
-    , _siprRoles          = mempty
+-- * 'siprrqRoles'
+data SetIdentityPoolRoles = SetIdentityPoolRoles'
+    { _siprrqIdentityPoolId :: !Text
+    , _siprrqRoles          :: !(Map Text Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetIdentityPoolRoles' smart constructor.
+setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
+setIdentityPoolRoles pIdentityPoolId_ =
+    SetIdentityPoolRoles'
+    { _siprrqIdentityPoolId = pIdentityPoolId_
+    , _siprrqRoles = mempty
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-siprIdentityPoolId :: Lens' SetIdentityPoolRoles Text
-siprIdentityPoolId =
-    lens _siprIdentityPoolId (\s a -> s { _siprIdentityPoolId = a })
+siprrqIdentityPoolId :: Lens' SetIdentityPoolRoles Text
+siprrqIdentityPoolId = lens _siprrqIdentityPoolId (\ s a -> s{_siprrqIdentityPoolId = a});
 
--- | The map of roles associated with this pool. Currently only authenticated and
--- unauthenticated roles are supported.
-siprRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
-siprRoles = lens _siprRoles (\s a -> s { _siprRoles = a }) . _Map
-
-data SetIdentityPoolRolesResponse = SetIdentityPoolRolesResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetIdentityPoolRolesResponse' constructor.
-setIdentityPoolRolesResponse :: SetIdentityPoolRolesResponse
-setIdentityPoolRolesResponse = SetIdentityPoolRolesResponse
-
-instance ToPath SetIdentityPoolRoles where
-    toPath = const "/"
-
-instance ToQuery SetIdentityPoolRoles where
-    toQuery = const mempty
-
-instance ToHeaders SetIdentityPoolRoles
-
-instance ToJSON SetIdentityPoolRoles where
-    toJSON SetIdentityPoolRoles{..} = object
-        [ "IdentityPoolId" .= _siprIdentityPoolId
-        , "Roles"          .= _siprRoles
-        ]
+-- | The map of roles associated with this pool. For a given role, the key
+-- will be either \"authenticated\" or \"unauthenticated\" and the value
+-- will be the Role ARN.
+siprrqRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
+siprrqRoles = lens _siprrqRoles (\ s a -> s{_siprrqRoles = a}) . _Map;
 
 instance AWSRequest SetIdentityPoolRoles where
-    type Sv SetIdentityPoolRoles = CognitoIdentity
-    type Rs SetIdentityPoolRoles = SetIdentityPoolRolesResponse
+        type Sv SetIdentityPoolRoles = CognitoIdentity
+        type Rs SetIdentityPoolRoles =
+             SetIdentityPoolRolesResponse
+        request = postJSON
+        response = receiveNull SetIdentityPoolRolesResponse'
 
-    request  = post "SetIdentityPoolRoles"
-    response = nullResponse SetIdentityPoolRolesResponse
+instance ToHeaders SetIdentityPoolRoles where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityService.SetIdentityPoolRoles" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON SetIdentityPoolRoles where
+        toJSON SetIdentityPoolRoles'{..}
+          = object
+              ["IdentityPoolId" .= _siprrqIdentityPoolId,
+               "Roles" .= _siprrqRoles]
+
+instance ToPath SetIdentityPoolRoles where
+        toPath = const "/"
+
+instance ToQuery SetIdentityPoolRoles where
+        toQuery = const mempty
+
+-- | /See:/ 'setIdentityPoolRolesResponse' smart constructor.
+data SetIdentityPoolRolesResponse =
+    SetIdentityPoolRolesResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetIdentityPoolRolesResponse' smart constructor.
+setIdentityPoolRolesResponse :: SetIdentityPoolRolesResponse
+setIdentityPoolRolesResponse = SetIdentityPoolRolesResponse'

@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.DeleteBucketWebsite
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation removes the website configuration from the bucket.
+-- This operation removes the website configuration from the bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketWebsite.html>
 module Network.AWS.S3.DeleteBucketWebsite
@@ -32,7 +27,7 @@ module Network.AWS.S3.DeleteBucketWebsite
     -- ** Request constructor
     , deleteBucketWebsite
     -- ** Request lenses
-    , dbwBucket
+    , dbwrqBucket
 
     -- * Response
     , DeleteBucketWebsiteResponse
@@ -40,56 +35,53 @@ module Network.AWS.S3.DeleteBucketWebsite
     , deleteBucketWebsiteResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-newtype DeleteBucketWebsite = DeleteBucketWebsite
-    { _dbwBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteBucketWebsite' constructor.
+-- | /See:/ 'deleteBucketWebsite' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbwBucket' @::@ 'Text'
---
-deleteBucketWebsite :: Text -- ^ 'dbwBucket'
-                    -> DeleteBucketWebsite
-deleteBucketWebsite p1 = DeleteBucketWebsite
-    { _dbwBucket = p1
+-- * 'dbwrqBucket'
+newtype DeleteBucketWebsite = DeleteBucketWebsite'
+    { _dbwrqBucket :: BucketName
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'DeleteBucketWebsite' smart constructor.
+deleteBucketWebsite :: BucketName -> DeleteBucketWebsite
+deleteBucketWebsite pBucket_ =
+    DeleteBucketWebsite'
+    { _dbwrqBucket = pBucket_
     }
 
-dbwBucket :: Lens' DeleteBucketWebsite Text
-dbwBucket = lens _dbwBucket (\s a -> s { _dbwBucket = a })
-
-data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteBucketWebsiteResponse' constructor.
-deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
-deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
-
-instance ToPath DeleteBucketWebsite where
-    toPath DeleteBucketWebsite{..} = mconcat
-        [ "/"
-        , toText _dbwBucket
-        ]
-
-instance ToQuery DeleteBucketWebsite where
-    toQuery = const "website"
-
-instance ToHeaders DeleteBucketWebsite
-
-instance ToXMLRoot DeleteBucketWebsite where
-    toXMLRoot = const (namespaced ns "DeleteBucketWebsite" [])
-
-instance ToXML DeleteBucketWebsite
+-- | FIXME: Undocumented member.
+dbwrqBucket :: Lens' DeleteBucketWebsite BucketName
+dbwrqBucket = lens _dbwrqBucket (\ s a -> s{_dbwrqBucket = a});
 
 instance AWSRequest DeleteBucketWebsite where
-    type Sv DeleteBucketWebsite = S3
-    type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
+        type Sv DeleteBucketWebsite = S3
+        type Rs DeleteBucketWebsite =
+             DeleteBucketWebsiteResponse
+        request = delete
+        response = receiveNull DeleteBucketWebsiteResponse'
 
-    request  = delete
-    response = nullResponse DeleteBucketWebsiteResponse
+instance ToHeaders DeleteBucketWebsite where
+        toHeaders = const mempty
+
+instance ToPath DeleteBucketWebsite where
+        toPath DeleteBucketWebsite'{..}
+          = mconcat ["/", toText _dbwrqBucket]
+
+instance ToQuery DeleteBucketWebsite where
+        toQuery = const (mconcat ["website"])
+
+-- | /See:/ 'deleteBucketWebsiteResponse' smart constructor.
+data DeleteBucketWebsiteResponse =
+    DeleteBucketWebsiteResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteBucketWebsiteResponse' smart constructor.
+deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
+deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse'

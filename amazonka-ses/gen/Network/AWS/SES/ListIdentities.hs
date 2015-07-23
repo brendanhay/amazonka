@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SES.ListIdentities
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list containing all of the identities (email addresses and domains)
--- for a specific AWS Account, regardless of verification status.
+-- Returns a list containing all of the identities (email addresses and
+-- domains) for a specific AWS Account, regardless of verification status.
 --
 -- This action is throttled at one request per second.
 --
@@ -35,114 +30,136 @@ module Network.AWS.SES.ListIdentities
     -- ** Request constructor
     , listIdentities
     -- ** Request lenses
-    , liIdentityType
-    , liMaxItems
-    , liNextToken
+    , lirqIdentityType
+    , lirqNextToken
+    , lirqMaxItems
 
     -- * Response
     , ListIdentitiesResponse
     -- ** Response constructor
     , listIdentitiesResponse
     -- ** Response lenses
-    , lirIdentities
-    , lirNextToken
+    , lirsNextToken
+    , lirsStatus
+    , lirsIdentities
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
-data ListIdentities = ListIdentities
-    { _liIdentityType :: Maybe IdentityType
-    , _liMaxItems     :: Maybe Int
-    , _liNextToken    :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'ListIdentities' constructor.
+-- | Represents a request instructing the service to list all identities for
+-- the AWS Account.
+--
+-- /See:/ 'listIdentities' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liIdentityType' @::@ 'Maybe' 'IdentityType'
+-- * 'lirqIdentityType'
 --
--- * 'liMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lirqNextToken'
 --
--- * 'liNextToken' @::@ 'Maybe' 'Text'
---
+-- * 'lirqMaxItems'
+data ListIdentities = ListIdentities'
+    { _lirqIdentityType :: !(Maybe IdentityType)
+    , _lirqNextToken    :: !(Maybe Text)
+    , _lirqMaxItems     :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListIdentities' smart constructor.
 listIdentities :: ListIdentities
-listIdentities = ListIdentities
-    { _liIdentityType = Nothing
-    , _liNextToken    = Nothing
-    , _liMaxItems     = Nothing
+listIdentities =
+    ListIdentities'
+    { _lirqIdentityType = Nothing
+    , _lirqNextToken = Nothing
+    , _lirqMaxItems = Nothing
     }
 
--- | The type of the identities to list. Possible values are "EmailAddress" and
--- "Domain". If this parameter is omitted, then all identities will be listed.
-liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
-liIdentityType = lens _liIdentityType (\s a -> s { _liIdentityType = a })
+-- | The type of the identities to list. Possible values are \"EmailAddress\"
+-- and \"Domain\". If this parameter is omitted, then all identities will
+-- be listed.
+lirqIdentityType :: Lens' ListIdentities (Maybe IdentityType)
+lirqIdentityType = lens _lirqIdentityType (\ s a -> s{_lirqIdentityType = a});
+
+-- | The token to use for pagination.
+lirqNextToken :: Lens' ListIdentities (Maybe Text)
+lirqNextToken = lens _lirqNextToken (\ s a -> s{_lirqNextToken = a});
 
 -- | The maximum number of identities per page. Possible values are 1-1000
 -- inclusive.
-liMaxItems :: Lens' ListIdentities (Maybe Int)
-liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
+lirqMaxItems :: Lens' ListIdentities (Maybe Int)
+lirqMaxItems = lens _lirqMaxItems (\ s a -> s{_lirqMaxItems = a});
 
--- | The token to use for pagination.
-liNextToken :: Lens' ListIdentities (Maybe Text)
-liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
+instance AWSPager ListIdentities where
+        page rq rs
+          | stop (rs ^. lirsNextToken) = Nothing
+          | stop (rs ^. lirsIdentities) = Nothing
+          | otherwise =
+            Just $ rq & lirqNextToken .~ rs ^. lirsNextToken
 
-data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentities :: List "member" Text
-    , _lirNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest ListIdentities where
+        type Sv ListIdentities = SES
+        type Rs ListIdentities = ListIdentitiesResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListIdentitiesResult"
+              (\ s h x ->
+                 ListIdentitiesResponse' <$>
+                   (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
+                     (x .@? "Identities" .!@ mempty >>=
+                        parseXMLList "member"))
 
--- | 'ListIdentitiesResponse' constructor.
+instance ToHeaders ListIdentities where
+        toHeaders = const mempty
+
+instance ToPath ListIdentities where
+        toPath = const "/"
+
+instance ToQuery ListIdentities where
+        toQuery ListIdentities'{..}
+          = mconcat
+              ["Action" =: ("ListIdentities" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "IdentityType" =: _lirqIdentityType,
+               "NextToken" =: _lirqNextToken,
+               "MaxItems" =: _lirqMaxItems]
+
+-- | Represents a list of all verified identities for the AWS Account.
+--
+-- /See:/ 'listIdentitiesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirIdentities' @::@ ['Text']
+-- * 'lirsNextToken'
 --
--- * 'lirNextToken' @::@ 'Maybe' 'Text'
+-- * 'lirsStatus'
 --
-listIdentitiesResponse :: ListIdentitiesResponse
-listIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentities = mempty
-    , _lirNextToken  = Nothing
+-- * 'lirsIdentities'
+data ListIdentitiesResponse = ListIdentitiesResponse'
+    { _lirsNextToken  :: !(Maybe Text)
+    , _lirsStatus     :: !Int
+    , _lirsIdentities :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListIdentitiesResponse' smart constructor.
+listIdentitiesResponse :: Int -> ListIdentitiesResponse
+listIdentitiesResponse pStatus_ =
+    ListIdentitiesResponse'
+    { _lirsNextToken = Nothing
+    , _lirsStatus = pStatus_
+    , _lirsIdentities = mempty
     }
 
--- | A list of identities.
-lirIdentities :: Lens' ListIdentitiesResponse [Text]
-lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a }) . _List
-
 -- | The token used for pagination.
-lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
+lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
+lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 
-instance ToPath ListIdentities where
-    toPath = const "/"
+-- | FIXME: Undocumented member.
+lirsStatus :: Lens' ListIdentitiesResponse Int
+lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
 
-instance ToQuery ListIdentities where
-    toQuery ListIdentities{..} = mconcat
-        [ "IdentityType" =? _liIdentityType
-        , "MaxItems"     =? _liMaxItems
-        , "NextToken"    =? _liNextToken
-        ]
-
-instance ToHeaders ListIdentities
-
-instance AWSRequest ListIdentities where
-    type Sv ListIdentities = SES
-    type Rs ListIdentities = ListIdentitiesResponse
-
-    request  = post "ListIdentities"
-    response = xmlResponse
-
-instance FromXML ListIdentitiesResponse where
-    parseXML = withElement "ListIdentitiesResult" $ \x -> ListIdentitiesResponse
-        <$> x .@? "Identities" .!@ mempty
-        <*> x .@? "NextToken"
-
-instance AWSPager ListIdentities where
-    page rq rs
-        | stop (rs ^. lirNextToken) = Nothing
-        | otherwise = (\x -> rq & liNextToken ?~ x)
-            <$> (rs ^. lirNextToken)
+-- | A list of identities.
+lirsIdentities :: Lens' ListIdentitiesResponse [Text]
+lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a});

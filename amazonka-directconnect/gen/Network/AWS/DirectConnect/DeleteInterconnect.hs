@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.DirectConnect.DeleteInterconnect
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified interconnect.
+-- Deletes the specified interconnect.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html>
 module Network.AWS.DirectConnect.DeleteInterconnect
@@ -32,81 +27,100 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     -- ** Request constructor
     , deleteInterconnect
     -- ** Request lenses
-    , di1InterconnectId
+    , drqInterconnectId
 
     -- * Response
     , DeleteInterconnectResponse
     -- ** Response constructor
     , deleteInterconnectResponse
     -- ** Response lenses
-    , dirInterconnectState
+    , drsInterconnectState
+    , drsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteInterconnect = DeleteInterconnect
-    { _di1InterconnectId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteInterconnect' constructor.
+-- | Container for the parameters to the DeleteInterconnect operation.
+--
+-- /See:/ 'deleteInterconnect' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'di1InterconnectId' @::@ 'Text'
---
-deleteInterconnect :: Text -- ^ 'di1InterconnectId'
-                   -> DeleteInterconnect
-deleteInterconnect p1 = DeleteInterconnect
-    { _di1InterconnectId = p1
+-- * 'drqInterconnectId'
+newtype DeleteInterconnect = DeleteInterconnect'
+    { _drqInterconnectId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteInterconnect' smart constructor.
+deleteInterconnect :: Text -> DeleteInterconnect
+deleteInterconnect pInterconnectId_ =
+    DeleteInterconnect'
+    { _drqInterconnectId = pInterconnectId_
     }
 
-di1InterconnectId :: Lens' DeleteInterconnect Text
-di1InterconnectId =
-    lens _di1InterconnectId (\s a -> s { _di1InterconnectId = a })
-
-newtype DeleteInterconnectResponse = DeleteInterconnectResponse
-    { _dirInterconnectState :: Maybe InterconnectState
-    } deriving (Eq, Read, Show)
-
--- | 'DeleteInterconnectResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dirInterconnectState' @::@ 'Maybe' 'InterconnectState'
---
-deleteInterconnectResponse :: DeleteInterconnectResponse
-deleteInterconnectResponse = DeleteInterconnectResponse
-    { _dirInterconnectState = Nothing
-    }
-
-dirInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
-dirInterconnectState =
-    lens _dirInterconnectState (\s a -> s { _dirInterconnectState = a })
-
-instance ToPath DeleteInterconnect where
-    toPath = const "/"
-
-instance ToQuery DeleteInterconnect where
-    toQuery = const mempty
-
-instance ToHeaders DeleteInterconnect
-
-instance ToJSON DeleteInterconnect where
-    toJSON DeleteInterconnect{..} = object
-        [ "interconnectId" .= _di1InterconnectId
-        ]
+-- | FIXME: Undocumented member.
+drqInterconnectId :: Lens' DeleteInterconnect Text
+drqInterconnectId = lens _drqInterconnectId (\ s a -> s{_drqInterconnectId = a});
 
 instance AWSRequest DeleteInterconnect where
-    type Sv DeleteInterconnect = DirectConnect
-    type Rs DeleteInterconnect = DeleteInterconnectResponse
+        type Sv DeleteInterconnect = DirectConnect
+        type Rs DeleteInterconnect =
+             DeleteInterconnectResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteInterconnectResponse' <$>
+                   (x .?> "interconnectState") <*> (pure (fromEnum s)))
 
-    request  = post "DeleteInterconnect"
-    response = jsonResponse
+instance ToHeaders DeleteInterconnect where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.DeleteInterconnect" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DeleteInterconnectResponse where
-    parseJSON = withObject "DeleteInterconnectResponse" $ \o -> DeleteInterconnectResponse
-        <$> o .:? "interconnectState"
+instance ToJSON DeleteInterconnect where
+        toJSON DeleteInterconnect'{..}
+          = object ["interconnectId" .= _drqInterconnectId]
+
+instance ToPath DeleteInterconnect where
+        toPath = const "/"
+
+instance ToQuery DeleteInterconnect where
+        toQuery = const mempty
+
+-- | The response received when DeleteInterconnect is called.
+--
+-- /See:/ 'deleteInterconnectResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drsInterconnectState'
+--
+-- * 'drsStatus'
+data DeleteInterconnectResponse = DeleteInterconnectResponse'
+    { _drsInterconnectState :: !(Maybe InterconnectState)
+    , _drsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteInterconnectResponse' smart constructor.
+deleteInterconnectResponse :: Int -> DeleteInterconnectResponse
+deleteInterconnectResponse pStatus_ =
+    DeleteInterconnectResponse'
+    { _drsInterconnectState = Nothing
+    , _drsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
+drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectState = a});
+
+-- | FIXME: Undocumented member.
+drsStatus :: Lens' DeleteInterconnectResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

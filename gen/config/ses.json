@@ -1,0 +1,8 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/ses/latest/APIReference/API_",
+    "libraryName": "amazonka-ses",
+    "ignoredWaiters": [
+        "IdentityExists"
+    ]
+}

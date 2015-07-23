@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CodeDeploy.GetApplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets information about an application.
+-- Gets information about an application.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html>
 module Network.AWS.CodeDeploy.GetApplication
@@ -32,83 +27,100 @@ module Network.AWS.CodeDeploy.GetApplication
     -- ** Request constructor
     , getApplication
     -- ** Request lenses
-    , gaApplicationName
+    , garqApplicationName
 
     -- * Response
     , GetApplicationResponse
     -- ** Response constructor
     , getApplicationResponse
     -- ** Response lenses
-    , garApplication
+    , garsApplication
+    , garsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetApplication = GetApplication
-    { _gaApplicationName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetApplication' constructor.
+-- | Represents the input of a get application operation.
+--
+-- /See:/ 'getApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaApplicationName' @::@ 'Text'
---
-getApplication :: Text -- ^ 'gaApplicationName'
-               -> GetApplication
-getApplication p1 = GetApplication
-    { _gaApplicationName = p1
+-- * 'garqApplicationName'
+newtype GetApplication = GetApplication'
+    { _garqApplicationName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetApplication' smart constructor.
+getApplication :: Text -> GetApplication
+getApplication pApplicationName_ =
+    GetApplication'
+    { _garqApplicationName = pApplicationName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-gaApplicationName :: Lens' GetApplication Text
-gaApplicationName =
-    lens _gaApplicationName (\s a -> s { _gaApplicationName = a })
+garqApplicationName :: Lens' GetApplication Text
+garqApplicationName = lens _garqApplicationName (\ s a -> s{_garqApplicationName = a});
 
-newtype GetApplicationResponse = GetApplicationResponse
-    { _garApplication :: Maybe ApplicationInfo
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetApplication where
+        type Sv GetApplication = CodeDeploy
+        type Rs GetApplication = GetApplicationResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetApplicationResponse' <$>
+                   (x .?> "application") <*> (pure (fromEnum s)))
 
--- | 'GetApplicationResponse' constructor.
+instance ToHeaders GetApplication where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.GetApplication" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetApplication where
+        toJSON GetApplication'{..}
+          = object ["applicationName" .= _garqApplicationName]
+
+instance ToPath GetApplication where
+        toPath = const "/"
+
+instance ToQuery GetApplication where
+        toQuery = const mempty
+
+-- | Represents the output of a get application operation.
+--
+-- /See:/ 'getApplicationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'garApplication' @::@ 'Maybe' 'ApplicationInfo'
+-- * 'garsApplication'
 --
-getApplicationResponse :: GetApplicationResponse
-getApplicationResponse = GetApplicationResponse
-    { _garApplication = Nothing
+-- * 'garsStatus'
+data GetApplicationResponse = GetApplicationResponse'
+    { _garsApplication :: !(Maybe ApplicationInfo)
+    , _garsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetApplicationResponse' smart constructor.
+getApplicationResponse :: Int -> GetApplicationResponse
+getApplicationResponse pStatus_ =
+    GetApplicationResponse'
+    { _garsApplication = Nothing
+    , _garsStatus = pStatus_
     }
 
 -- | Information about the application.
-garApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
-garApplication = lens _garApplication (\s a -> s { _garApplication = a })
+garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
+garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
 
-instance ToPath GetApplication where
-    toPath = const "/"
-
-instance ToQuery GetApplication where
-    toQuery = const mempty
-
-instance ToHeaders GetApplication
-
-instance ToJSON GetApplication where
-    toJSON GetApplication{..} = object
-        [ "applicationName" .= _gaApplicationName
-        ]
-
-instance AWSRequest GetApplication where
-    type Sv GetApplication = CodeDeploy
-    type Rs GetApplication = GetApplicationResponse
-
-    request  = post "GetApplication"
-    response = jsonResponse
-
-instance FromJSON GetApplicationResponse where
-    parseJSON = withObject "GetApplicationResponse" $ \o -> GetApplicationResponse
-        <$> o .:? "application"
+-- | FIXME: Undocumented member.
+garsStatus :: Lens' GetApplicationResponse Int
+garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

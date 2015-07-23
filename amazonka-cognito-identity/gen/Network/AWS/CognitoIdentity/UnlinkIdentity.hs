@@ -1,30 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CognitoIdentity.UnlinkIdentity
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Unlinks a federated identity from an existing account. Unlinked logins will
--- be considered new identities next time they are seen. Removing the last
--- linked login will make this identity inaccessible.
+-- Unlinks a federated identity from an existing account. Unlinked logins
+-- will be considered new identities next time they are seen. Removing the
+-- last linked login will make this identity inaccessible.
+--
+-- This is a public API. You do not need any credentials to call this API.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_UnlinkIdentity.html>
 module Network.AWS.CognitoIdentity.UnlinkIdentity
@@ -34,9 +31,9 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     -- ** Request constructor
     , unlinkIdentity
     -- ** Request lenses
-    , uiIdentityId
-    , uiLogins
-    , uiLoginsToRemove
+    , uirqIdentityId
+    , uirqLogins
+    , uirqLoginsToRemove
 
     -- * Response
     , UnlinkIdentityResponse
@@ -44,73 +41,84 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     , unlinkIdentityResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UnlinkIdentity = UnlinkIdentity
-    { _uiIdentityId     :: Text
-    , _uiLogins         :: Map Text Text
-    , _uiLoginsToRemove :: List "LoginsToRemove" Text
-    } deriving (Eq, Read, Show)
-
--- | 'UnlinkIdentity' constructor.
+-- | Input to the UnlinkIdentity action.
+--
+-- /See:/ 'unlinkIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uiIdentityId' @::@ 'Text'
+-- * 'uirqIdentityId'
 --
--- * 'uiLogins' @::@ 'HashMap' 'Text' 'Text'
+-- * 'uirqLogins'
 --
--- * 'uiLoginsToRemove' @::@ ['Text']
---
-unlinkIdentity :: Text -- ^ 'uiIdentityId'
-               -> UnlinkIdentity
-unlinkIdentity p1 = UnlinkIdentity
-    { _uiIdentityId     = p1
-    , _uiLogins         = mempty
-    , _uiLoginsToRemove = mempty
+-- * 'uirqLoginsToRemove'
+data UnlinkIdentity = UnlinkIdentity'
+    { _uirqIdentityId     :: !Text
+    , _uirqLogins         :: !(Map Text Text)
+    , _uirqLoginsToRemove :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UnlinkIdentity' smart constructor.
+unlinkIdentity :: Text -> UnlinkIdentity
+unlinkIdentity pIdentityId_ =
+    UnlinkIdentity'
+    { _uirqIdentityId = pIdentityId_
+    , _uirqLogins = mempty
+    , _uirqLoginsToRemove = mempty
     }
 
 -- | A unique identifier in the format REGION:GUID.
-uiIdentityId :: Lens' UnlinkIdentity Text
-uiIdentityId = lens _uiIdentityId (\s a -> s { _uiIdentityId = a })
+uirqIdentityId :: Lens' UnlinkIdentity Text
+uirqIdentityId = lens _uirqIdentityId (\ s a -> s{_uirqIdentityId = a});
 
--- | A set of optional name-value pairs that map provider names to provider tokens.
-uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
-uiLogins = lens _uiLogins (\s a -> s { _uiLogins = a }) . _Map
+-- | A set of optional name-value pairs that map provider names to provider
+-- tokens.
+uirqLogins :: Lens' UnlinkIdentity (HashMap Text Text)
+uirqLogins = lens _uirqLogins (\ s a -> s{_uirqLogins = a}) . _Map;
 
 -- | Provider names to unlink from this identity.
-uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
-uiLoginsToRemove = lens _uiLoginsToRemove (\s a -> s { _uiLoginsToRemove = a }) . _List
-
-data UnlinkIdentityResponse = UnlinkIdentityResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UnlinkIdentityResponse' constructor.
-unlinkIdentityResponse :: UnlinkIdentityResponse
-unlinkIdentityResponse = UnlinkIdentityResponse
-
-instance ToPath UnlinkIdentity where
-    toPath = const "/"
-
-instance ToQuery UnlinkIdentity where
-    toQuery = const mempty
-
-instance ToHeaders UnlinkIdentity
-
-instance ToJSON UnlinkIdentity where
-    toJSON UnlinkIdentity{..} = object
-        [ "IdentityId"     .= _uiIdentityId
-        , "Logins"         .= _uiLogins
-        , "LoginsToRemove" .= _uiLoginsToRemove
-        ]
+uirqLoginsToRemove :: Lens' UnlinkIdentity [Text]
+uirqLoginsToRemove = lens _uirqLoginsToRemove (\ s a -> s{_uirqLoginsToRemove = a});
 
 instance AWSRequest UnlinkIdentity where
-    type Sv UnlinkIdentity = CognitoIdentity
-    type Rs UnlinkIdentity = UnlinkIdentityResponse
+        type Sv UnlinkIdentity = CognitoIdentity
+        type Rs UnlinkIdentity = UnlinkIdentityResponse
+        request = postJSON
+        response = receiveNull UnlinkIdentityResponse'
 
-    request  = post "UnlinkIdentity"
-    response = nullResponse UnlinkIdentityResponse
+instance ToHeaders UnlinkIdentity where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityService.UnlinkIdentity" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UnlinkIdentity where
+        toJSON UnlinkIdentity'{..}
+          = object
+              ["IdentityId" .= _uirqIdentityId,
+               "Logins" .= _uirqLogins,
+               "LoginsToRemove" .= _uirqLoginsToRemove]
+
+instance ToPath UnlinkIdentity where
+        toPath = const "/"
+
+instance ToQuery UnlinkIdentity where
+        toQuery = const mempty
+
+-- | /See:/ 'unlinkIdentityResponse' smart constructor.
+data UnlinkIdentityResponse =
+    UnlinkIdentityResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UnlinkIdentityResponse' smart constructor.
+unlinkIdentityResponse :: UnlinkIdentityResponse
+unlinkIdentityResponse = UnlinkIdentityResponse'

@@ -1,48 +1,42 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation initiates a snapshot of a gateway from a volume recovery
+-- This operation initiates a snapshot of a gateway from a volume recovery
 -- point. This operation is supported only for the gateway-cached volume
 -- architecture (see ).
 --
--- A volume recovery point is a point in time at which all data of the volume
--- is consistent and from which you can create a snapshot. To get a list of
--- volume recovery point for gateway-cached volumes, use 'ListVolumeRecoveryPoints'
--- .
+-- A volume recovery point is a point in time at which all data of the
+-- volume is consistent and from which you can create a snapshot. To get a
+-- list of volume recovery point for gateway-cached volumes, use
+-- ListVolumeRecoveryPoints.
 --
--- In the 'CreateSnapshotFromVolumeRecoveryPoint' request, you identify the
--- volume by providing its Amazon Resource Name (ARN). You must also provide a
--- description for the snapshot. When AWS Storage Gateway takes a snapshot of
--- the specified volume, the snapshot and its description appear in the AWS
--- Storage Gateway console. In response, AWS Storage Gateway returns you a
--- snapshot ID. You can use this snapshot ID to check the snapshot progress or
--- later use it when you want to create a volume from a snapshot.
+-- In the @CreateSnapshotFromVolumeRecoveryPoint@ request, you identify the
+-- volume by providing its Amazon Resource Name (ARN). You must also
+-- provide a description for the snapshot. When AWS Storage Gateway takes a
+-- snapshot of the specified volume, the snapshot and its description
+-- appear in the AWS Storage Gateway console. In response, AWS Storage
+-- Gateway returns you a snapshot ID. You can use this snapshot ID to check
+-- the snapshot progress or later use it when you want to create a volume
+-- from a snapshot.
 --
 -- To list or delete a snapshot, you must use the Amazon EC2 API. For more
 -- information, in /Amazon Elastic Compute Cloud API Reference/.
---
---
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateSnapshotFromVolumeRecoveryPoint.html>
 module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
@@ -52,112 +46,136 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     -- ** Request constructor
     , createSnapshotFromVolumeRecoveryPoint
     -- ** Request lenses
-    , csfvrpSnapshotDescription
-    , csfvrpVolumeARN
+    , csfvrprqVolumeARN
+    , csfvrprqSnapshotDescription
 
     -- * Response
     , CreateSnapshotFromVolumeRecoveryPointResponse
     -- ** Response constructor
     , createSnapshotFromVolumeRecoveryPointResponse
     -- ** Response lenses
-    , csfvrprSnapshotId
-    , csfvrprVolumeARN
-    , csfvrprVolumeRecoveryPointTime
+    , csfvrprsVolumeRecoveryPointTime
+    , csfvrprsVolumeARN
+    , csfvrprsSnapshotId
+    , csfvrprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint
-    { _csfvrpSnapshotDescription :: Text
-    , _csfvrpVolumeARN           :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateSnapshotFromVolumeRecoveryPoint' constructor.
+-- | /See:/ 'createSnapshotFromVolumeRecoveryPoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csfvrpSnapshotDescription' @::@ 'Text'
+-- * 'csfvrprqVolumeARN'
 --
--- * 'csfvrpVolumeARN' @::@ 'Text'
---
-createSnapshotFromVolumeRecoveryPoint :: Text -- ^ 'csfvrpVolumeARN'
-                                      -> Text -- ^ 'csfvrpSnapshotDescription'
-                                      -> CreateSnapshotFromVolumeRecoveryPoint
-createSnapshotFromVolumeRecoveryPoint p1 p2 = CreateSnapshotFromVolumeRecoveryPoint
-    { _csfvrpVolumeARN           = p1
-    , _csfvrpSnapshotDescription = p2
+-- * 'csfvrprqSnapshotDescription'
+data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
+    { _csfvrprqVolumeARN           :: !Text
+    , _csfvrprqSnapshotDescription :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateSnapshotFromVolumeRecoveryPoint' smart constructor.
+createSnapshotFromVolumeRecoveryPoint :: Text -> Text -> CreateSnapshotFromVolumeRecoveryPoint
+createSnapshotFromVolumeRecoveryPoint pVolumeARN_ pSnapshotDescription_ =
+    CreateSnapshotFromVolumeRecoveryPoint'
+    { _csfvrprqVolumeARN = pVolumeARN_
+    , _csfvrprqSnapshotDescription = pSnapshotDescription_
     }
 
-csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrpSnapshotDescription =
-    lens _csfvrpSnapshotDescription
-        (\s a -> s { _csfvrpSnapshotDescription = a })
+-- | FIXME: Undocumented member.
+csfvrprqVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
+csfvrprqVolumeARN = lens _csfvrprqVolumeARN (\ s a -> s{_csfvrprqVolumeARN = a});
 
-csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrpVolumeARN = lens _csfvrpVolumeARN (\s a -> s { _csfvrpVolumeARN = a })
+-- | FIXME: Undocumented member.
+csfvrprqSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
+csfvrprqSnapshotDescription = lens _csfvrprqSnapshotDescription (\ s a -> s{_csfvrprqSnapshotDescription = a});
 
-data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
-    { _csfvrprSnapshotId              :: Maybe Text
-    , _csfvrprVolumeARN               :: Maybe Text
-    , _csfvrprVolumeRecoveryPointTime :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest
+         CreateSnapshotFromVolumeRecoveryPoint where
+        type Sv CreateSnapshotFromVolumeRecoveryPoint =
+             StorageGateway
+        type Rs CreateSnapshotFromVolumeRecoveryPoint =
+             CreateSnapshotFromVolumeRecoveryPointResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateSnapshotFromVolumeRecoveryPointResponse' <$>
+                   (x .?> "VolumeRecoveryPointTime") <*>
+                     (x .?> "VolumeARN")
+                     <*> (x .?> "SnapshotId")
+                     <*> (pure (fromEnum s)))
 
--- | 'CreateSnapshotFromVolumeRecoveryPointResponse' constructor.
+instance ToHeaders
+         CreateSnapshotFromVolumeRecoveryPoint where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateSnapshotFromVolumeRecoveryPoint
+         where
+        toJSON CreateSnapshotFromVolumeRecoveryPoint'{..}
+          = object
+              ["VolumeARN" .= _csfvrprqVolumeARN,
+               "SnapshotDescription" .=
+                 _csfvrprqSnapshotDescription]
+
+instance ToPath CreateSnapshotFromVolumeRecoveryPoint
+         where
+        toPath = const "/"
+
+instance ToQuery
+         CreateSnapshotFromVolumeRecoveryPoint where
+        toQuery = const mempty
+
+-- | /See:/ 'createSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csfvrprSnapshotId' @::@ 'Maybe' 'Text'
+-- * 'csfvrprsVolumeRecoveryPointTime'
 --
--- * 'csfvrprVolumeARN' @::@ 'Maybe' 'Text'
+-- * 'csfvrprsVolumeARN'
 --
--- * 'csfvrprVolumeRecoveryPointTime' @::@ 'Maybe' 'Text'
+-- * 'csfvrprsSnapshotId'
 --
-createSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse
-createSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse
-    { _csfvrprSnapshotId              = Nothing
-    , _csfvrprVolumeARN               = Nothing
-    , _csfvrprVolumeRecoveryPointTime = Nothing
+-- * 'csfvrprsStatus'
+data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'
+    { _csfvrprsVolumeRecoveryPointTime :: !(Maybe Text)
+    , _csfvrprsVolumeARN               :: !(Maybe Text)
+    , _csfvrprsSnapshotId              :: !(Maybe Text)
+    , _csfvrprsStatus                  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
+createSnapshotFromVolumeRecoveryPointResponse :: Int -> CreateSnapshotFromVolumeRecoveryPointResponse
+createSnapshotFromVolumeRecoveryPointResponse pStatus_ =
+    CreateSnapshotFromVolumeRecoveryPointResponse'
+    { _csfvrprsVolumeRecoveryPointTime = Nothing
+    , _csfvrprsVolumeARN = Nothing
+    , _csfvrprsSnapshotId = Nothing
+    , _csfvrprsStatus = pStatus_
     }
 
-csfvrprSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprSnapshotId =
-    lens _csfvrprSnapshotId (\s a -> s { _csfvrprSnapshotId = a })
+-- | FIXME: Undocumented member.
+csfvrprsVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprsVolumeRecoveryPointTime = lens _csfvrprsVolumeRecoveryPointTime (\ s a -> s{_csfvrprsVolumeRecoveryPointTime = a});
 
-csfvrprVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprVolumeARN = lens _csfvrprVolumeARN (\s a -> s { _csfvrprVolumeARN = a })
+-- | FIXME: Undocumented member.
+csfvrprsVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprsVolumeARN = lens _csfvrprsVolumeARN (\ s a -> s{_csfvrprsVolumeARN = a});
 
-csfvrprVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprVolumeRecoveryPointTime =
-    lens _csfvrprVolumeRecoveryPointTime
-        (\s a -> s { _csfvrprVolumeRecoveryPointTime = a })
+-- | FIXME: Undocumented member.
+csfvrprsSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = a});
 
-instance ToPath CreateSnapshotFromVolumeRecoveryPoint where
-    toPath = const "/"
-
-instance ToQuery CreateSnapshotFromVolumeRecoveryPoint where
-    toQuery = const mempty
-
-instance ToHeaders CreateSnapshotFromVolumeRecoveryPoint
-
-instance ToJSON CreateSnapshotFromVolumeRecoveryPoint where
-    toJSON CreateSnapshotFromVolumeRecoveryPoint{..} = object
-        [ "VolumeARN"           .= _csfvrpVolumeARN
-        , "SnapshotDescription" .= _csfvrpSnapshotDescription
-        ]
-
-instance AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
-    type Sv CreateSnapshotFromVolumeRecoveryPoint = StorageGateway
-    type Rs CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPointResponse
-
-    request  = post "CreateSnapshotFromVolumeRecoveryPoint"
-    response = jsonResponse
-
-instance FromJSON CreateSnapshotFromVolumeRecoveryPointResponse where
-    parseJSON = withObject "CreateSnapshotFromVolumeRecoveryPointResponse" $ \o -> CreateSnapshotFromVolumeRecoveryPointResponse
-        <$> o .:? "SnapshotId"
-        <*> o .:? "VolumeARN"
-        <*> o .:? "VolumeRecoveryPointTime"
+-- | FIXME: Undocumented member.
+csfvrprsStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
+csfvrprsStatus = lens _csfvrprsStatus (\ s a -> s{_csfvrprsStatus = a});

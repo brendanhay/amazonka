@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackEvents
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns all stack related events for a specified stack. For more information
--- about a stack's event history, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks> in the AWS CloudFormation User
--- Guide.
+-- Returns all stack related events for a specified stack. For more
+-- information about a stack\'s event history, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks>
+-- in the AWS CloudFormation User Guide.
 --
 -- You can list events for stacks that have failed to create or have been
 -- deleted by specifying the unique stack identifier (stack ID).
@@ -37,109 +33,135 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- ** Request constructor
     , describeStackEvents
     -- ** Request lenses
-    , dseNextToken
-    , dseStackName
+    , dserqNextToken
+    , dserqStackName
 
     -- * Response
     , DescribeStackEventsResponse
     -- ** Response constructor
     , describeStackEventsResponse
     -- ** Response lenses
-    , dserNextToken
-    , dserStackEvents
+    , dsersNextToken
+    , dsersStackEvents
+    , dsersStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeStackEvents = DescribeStackEvents
-    { _dseNextToken :: Maybe Text
-    , _dseStackName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeStackEvents' constructor.
+-- | The input for DescribeStackEvents action.
+--
+-- /See:/ 'describeStackEvents' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dseNextToken' @::@ 'Maybe' 'Text'
+-- * 'dserqNextToken'
 --
--- * 'dseStackName' @::@ 'Maybe' 'Text'
---
+-- * 'dserqStackName'
+data DescribeStackEvents = DescribeStackEvents'
+    { _dserqNextToken :: !(Maybe Text)
+    , _dserqStackName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeStackEvents' smart constructor.
 describeStackEvents :: DescribeStackEvents
-describeStackEvents = DescribeStackEvents
-    { _dseStackName = Nothing
-    , _dseNextToken = Nothing
+describeStackEvents =
+    DescribeStackEvents'
+    { _dserqNextToken = Nothing
+    , _dserqStackName = Nothing
     }
 
--- | String that identifies the start of the next list of events, if there is one.
+-- | String that identifies the start of the next list of events, if there is
+-- one.
 --
 -- Default: There is no default value.
-dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
-dseNextToken = lens _dseNextToken (\s a -> s { _dseNextToken = a })
+dserqNextToken :: Lens' DescribeStackEvents (Maybe Text)
+dserqNextToken = lens _dserqNextToken (\ s a -> s{_dserqNextToken = a});
 
--- | The name or the unique stack ID that is associated with the stack, which are
--- not always interchangeable:
+-- | The name or the unique stack ID that is associated with the stack, which
+-- are not always interchangeable:
 --
--- Running stacks: You can specify either the stack's name or its unique stack
--- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is
--- no default value.
-dseStackName :: Lens' DescribeStackEvents (Maybe Text)
-dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
+-- -   Running stacks: You can specify either the stack\'s name or its
+--     unique stack ID.
+-- -   Deleted stacks: You must specify the unique stack ID.
+--
+-- Default: There is no default value.
+dserqStackName :: Lens' DescribeStackEvents (Maybe Text)
+dserqStackName = lens _dserqStackName (\ s a -> s{_dserqStackName = a});
 
-data DescribeStackEventsResponse = DescribeStackEventsResponse
-    { _dserNextToken   :: Maybe Text
-    , _dserStackEvents :: List "member" StackEvent
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeStackEvents where
+        page rq rs
+          | stop (rs ^. dsersNextToken) = Nothing
+          | stop (rs ^. dsersStackEvents) = Nothing
+          | otherwise =
+            Just $ rq & dserqNextToken .~ rs ^. dsersNextToken
 
--- | 'DescribeStackEventsResponse' constructor.
+instance AWSRequest DescribeStackEvents where
+        type Sv DescribeStackEvents = CloudFormation
+        type Rs DescribeStackEvents =
+             DescribeStackEventsResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeStackEventsResult"
+              (\ s h x ->
+                 DescribeStackEventsResponse' <$>
+                   (x .@? "NextToken") <*>
+                     (x .@? "StackEvents" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeStackEvents where
+        toHeaders = const mempty
+
+instance ToPath DescribeStackEvents where
+        toPath = const "/"
+
+instance ToQuery DescribeStackEvents where
+        toQuery DescribeStackEvents'{..}
+          = mconcat
+              ["Action" =: ("DescribeStackEvents" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "NextToken" =: _dserqNextToken,
+               "StackName" =: _dserqStackName]
+
+-- | The output for a DescribeStackEvents action.
+--
+-- /See:/ 'describeStackEventsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dserNextToken' @::@ 'Maybe' 'Text'
+-- * 'dsersNextToken'
 --
--- * 'dserStackEvents' @::@ ['StackEvent']
+-- * 'dsersStackEvents'
 --
-describeStackEventsResponse :: DescribeStackEventsResponse
-describeStackEventsResponse = DescribeStackEventsResponse
-    { _dserStackEvents = mempty
-    , _dserNextToken   = Nothing
+-- * 'dsersStatus'
+data DescribeStackEventsResponse = DescribeStackEventsResponse'
+    { _dsersNextToken   :: !(Maybe Text)
+    , _dsersStackEvents :: !(Maybe [StackEvent])
+    , _dsersStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeStackEventsResponse' smart constructor.
+describeStackEventsResponse :: Int -> DescribeStackEventsResponse
+describeStackEventsResponse pStatus_ =
+    DescribeStackEventsResponse'
+    { _dsersNextToken = Nothing
+    , _dsersStackEvents = Nothing
+    , _dsersStatus = pStatus_
     }
 
--- | String that identifies the start of the next list of events, if there is one.
-dserNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
-dserNextToken = lens _dserNextToken (\s a -> s { _dserNextToken = a })
+-- | String that identifies the start of the next list of events, if there is
+-- one.
+dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
+dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a});
 
--- | A list of 'StackEvents' structures.
-dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
-dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a }) . _List
+-- | A list of @StackEvents@ structures.
+dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
+dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default;
 
-instance ToPath DescribeStackEvents where
-    toPath = const "/"
-
-instance ToQuery DescribeStackEvents where
-    toQuery DescribeStackEvents{..} = mconcat
-        [ "NextToken" =? _dseNextToken
-        , "StackName" =? _dseStackName
-        ]
-
-instance ToHeaders DescribeStackEvents
-
-instance AWSRequest DescribeStackEvents where
-    type Sv DescribeStackEvents = CloudFormation
-    type Rs DescribeStackEvents = DescribeStackEventsResponse
-
-    request  = post "DescribeStackEvents"
-    response = xmlResponse
-
-instance FromXML DescribeStackEventsResponse where
-    parseXML = withElement "DescribeStackEventsResult" $ \x -> DescribeStackEventsResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "StackEvents" .!@ mempty
-
-instance AWSPager DescribeStackEvents where
-    page rq rs
-        | stop (rs ^. dserNextToken) = Nothing
-        | otherwise = (\x -> rq & dseNextToken ?~ x)
-            <$> (rs ^. dserNextToken)
+-- | FIXME: Undocumented member.
+dsersStatus :: Lens' DescribeStackEventsResponse Int
+dsersStatus = lens _dsersStatus (\ s a -> s{_dsersStatus = a});

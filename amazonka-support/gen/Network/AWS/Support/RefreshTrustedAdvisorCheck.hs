@@ -1,37 +1,34 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Support.RefreshTrustedAdvisorCheck
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Requests a refresh of the Trusted Advisor check that has the specified check
--- ID. Check IDs can be obtained by calling 'DescribeTrustedAdvisorChecks'.
+-- Requests a refresh of the Trusted Advisor check that has the specified
+-- check ID. Check IDs can be obtained by calling
+-- DescribeTrustedAdvisorChecks.
 --
--- The response contains a 'TrustedAdvisorCheckRefreshStatus' object, which
+-- The response contains a TrustedAdvisorCheckRefreshStatus object, which
 -- contains these fields:
 --
--- Status. The refresh status of the check: "none", "enqueued", "processing",
--- "success", or "abandoned".  MillisUntilNextRefreshable. The amount of time,
--- in milliseconds, until the check is eligible for refresh.  CheckId. The
--- unique identifier for the check.
+-- -   __Status.__ The refresh status of the check: \"none\", \"enqueued\",
+--     \"processing\", \"success\", or \"abandoned\".
+-- -   __MillisUntilNextRefreshable.__ The amount of time, in milliseconds,
+--     until the check is eligible for refresh.
+-- -   __CheckId.__ The unique identifier for the check.
 --
 -- <http://docs.aws.amazon.com/awssupport/latest/APIReference/API_RefreshTrustedAdvisorCheck.html>
 module Network.AWS.Support.RefreshTrustedAdvisorCheck
@@ -41,83 +38,90 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     -- ** Request constructor
     , refreshTrustedAdvisorCheck
     -- ** Request lenses
-    , rtacCheckId
+    , rtacrqCheckId
 
     -- * Response
     , RefreshTrustedAdvisorCheckResponse
     -- ** Response constructor
     , refreshTrustedAdvisorCheckResponse
     -- ** Response lenses
-    , rtacrStatus
+    , rtacrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Support.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Support.Types
 
-newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck
-    { _rtacCheckId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'RefreshTrustedAdvisorCheck' constructor.
+-- | /See:/ 'refreshTrustedAdvisorCheck' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtacCheckId' @::@ 'Text'
---
-refreshTrustedAdvisorCheck :: Text -- ^ 'rtacCheckId'
-                           -> RefreshTrustedAdvisorCheck
-refreshTrustedAdvisorCheck p1 = RefreshTrustedAdvisorCheck
-    { _rtacCheckId = p1
+-- * 'rtacrqCheckId'
+newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
+    { _rtacrqCheckId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RefreshTrustedAdvisorCheck' smart constructor.
+refreshTrustedAdvisorCheck :: Text -> RefreshTrustedAdvisorCheck
+refreshTrustedAdvisorCheck pCheckId_ =
+    RefreshTrustedAdvisorCheck'
+    { _rtacrqCheckId = pCheckId_
     }
 
 -- | The unique identifier for the Trusted Advisor check.
-rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
-rtacCheckId = lens _rtacCheckId (\s a -> s { _rtacCheckId = a })
+rtacrqCheckId :: Lens' RefreshTrustedAdvisorCheck Text
+rtacrqCheckId = lens _rtacrqCheckId (\ s a -> s{_rtacrqCheckId = a});
 
-newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse
-    { _rtacrStatus :: TrustedAdvisorCheckRefreshStatus
-    } deriving (Eq, Read, Show)
+instance AWSRequest RefreshTrustedAdvisorCheck where
+        type Sv RefreshTrustedAdvisorCheck = Support
+        type Rs RefreshTrustedAdvisorCheck =
+             RefreshTrustedAdvisorCheckResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RefreshTrustedAdvisorCheckResponse' <$>
+                   (pure (fromEnum s)))
 
--- | 'RefreshTrustedAdvisorCheckResponse' constructor.
+instance ToHeaders RefreshTrustedAdvisorCheck where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSSupport_20130415.RefreshTrustedAdvisorCheck" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON RefreshTrustedAdvisorCheck where
+        toJSON RefreshTrustedAdvisorCheck'{..}
+          = object ["checkId" .= _rtacrqCheckId]
+
+instance ToPath RefreshTrustedAdvisorCheck where
+        toPath = const "/"
+
+instance ToQuery RefreshTrustedAdvisorCheck where
+        toQuery = const mempty
+
+-- | The current refresh status of a Trusted Advisor check.
+--
+-- /See:/ 'refreshTrustedAdvisorCheckResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtacrStatus' @::@ 'TrustedAdvisorCheckRefreshStatus'
---
-refreshTrustedAdvisorCheckResponse :: TrustedAdvisorCheckRefreshStatus -- ^ 'rtacrStatus'
-                                   -> RefreshTrustedAdvisorCheckResponse
-refreshTrustedAdvisorCheckResponse p1 = RefreshTrustedAdvisorCheckResponse
-    { _rtacrStatus = p1
+-- * 'rtacrsStatus'
+newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
+    { _rtacrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RefreshTrustedAdvisorCheckResponse' smart constructor.
+refreshTrustedAdvisorCheckResponse :: Int -> RefreshTrustedAdvisorCheckResponse
+refreshTrustedAdvisorCheckResponse pStatus_ =
+    RefreshTrustedAdvisorCheckResponse'
+    { _rtacrsStatus = pStatus_
     }
 
--- | The current refresh status for a check, including the amount of time until
--- the check is eligible for refresh.
-rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse TrustedAdvisorCheckRefreshStatus
-rtacrStatus = lens _rtacrStatus (\s a -> s { _rtacrStatus = a })
-
-instance ToPath RefreshTrustedAdvisorCheck where
-    toPath = const "/"
-
-instance ToQuery RefreshTrustedAdvisorCheck where
-    toQuery = const mempty
-
-instance ToHeaders RefreshTrustedAdvisorCheck
-
-instance ToJSON RefreshTrustedAdvisorCheck where
-    toJSON RefreshTrustedAdvisorCheck{..} = object
-        [ "checkId" .= _rtacCheckId
-        ]
-
-instance AWSRequest RefreshTrustedAdvisorCheck where
-    type Sv RefreshTrustedAdvisorCheck = Support
-    type Rs RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheckResponse
-
-    request  = post "RefreshTrustedAdvisorCheck"
-    response = jsonResponse
-
-instance FromJSON RefreshTrustedAdvisorCheckResponse where
-    parseJSON = withObject "RefreshTrustedAdvisorCheckResponse" $ \o -> RefreshTrustedAdvisorCheckResponse
-        <$> o .:  "status"
+-- | FIXME: Undocumented member.
+rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
+rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});

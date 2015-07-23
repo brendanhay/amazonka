@@ -1,35 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeArchive
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Retrieves an archived virtual tape from the virtual tape shelf (VTS) to a
--- gateway-VTL. Virtual tapes archived in the VTS are not associated with any
--- gateway. However after a tape is retrieved, it is associated with a gateway,
--- even though it is also listed in the VTS.
+-- Retrieves an archived virtual tape from the virtual tape shelf (VTS) to
+-- a gateway-VTL. Virtual tapes archived in the VTS are not associated with
+-- any gateway. However after a tape is retrieved, it is associated with a
+-- gateway, even though it is also listed in the VTS.
 --
--- Once a tape is successfully retrieved to a gateway, it cannot be retrieved
--- again to another gateway. You must archive the tape again before you can
--- retrieve it to another gateway.
+-- Once a tape is successfully retrieved to a gateway, it cannot be
+-- retrieved again to another gateway. You must archive the tape again
+-- before you can retrieve it to another gateway.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_RetrieveTapeArchive.html>
 module Network.AWS.StorageGateway.RetrieveTapeArchive
@@ -39,98 +34,118 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     -- ** Request constructor
     , retrieveTapeArchive
     -- ** Request lenses
-    , rtaGatewayARN
-    , rtaTapeARN
+    , rtarqTapeARN
+    , rtarqGatewayARN
 
     -- * Response
     , RetrieveTapeArchiveResponse
     -- ** Response constructor
     , retrieveTapeArchiveResponse
     -- ** Response lenses
-    , rtarTapeARN
+    , rtarsTapeARN
+    , rtarsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-data RetrieveTapeArchive = RetrieveTapeArchive
-    { _rtaGatewayARN :: Text
-    , _rtaTapeARN    :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'RetrieveTapeArchive' constructor.
+-- | RetrieveTapeArchiveInput
+--
+-- /See:/ 'retrieveTapeArchive' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtaGatewayARN' @::@ 'Text'
+-- * 'rtarqTapeARN'
 --
--- * 'rtaTapeARN' @::@ 'Text'
---
-retrieveTapeArchive :: Text -- ^ 'rtaTapeARN'
-                    -> Text -- ^ 'rtaGatewayARN'
-                    -> RetrieveTapeArchive
-retrieveTapeArchive p1 p2 = RetrieveTapeArchive
-    { _rtaTapeARN    = p1
-    , _rtaGatewayARN = p2
+-- * 'rtarqGatewayARN'
+data RetrieveTapeArchive = RetrieveTapeArchive'
+    { _rtarqTapeARN    :: !Text
+    , _rtarqGatewayARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RetrieveTapeArchive' smart constructor.
+retrieveTapeArchive :: Text -> Text -> RetrieveTapeArchive
+retrieveTapeArchive pTapeARN_ pGatewayARN_ =
+    RetrieveTapeArchive'
+    { _rtarqTapeARN = pTapeARN_
+    , _rtarqGatewayARN = pGatewayARN_
     }
 
+-- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve
+-- from the virtual tape shelf (VTS).
+rtarqTapeARN :: Lens' RetrieveTapeArchive Text
+rtarqTapeARN = lens _rtarqTapeARN (\ s a -> s{_rtarqTapeARN = a});
+
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
--- virtual tape to. Use the 'ListGateways' operation to return a list of gateways
--- for your account and region.
+-- virtual tape to. Use the ListGateways operation to return a list of
+-- gateways for your account and region.
 --
--- You retrieve archived virtual tapes to only one gateway and the gateway must
--- be a gateway-VTL.
-rtaGatewayARN :: Lens' RetrieveTapeArchive Text
-rtaGatewayARN = lens _rtaGatewayARN (\s a -> s { _rtaGatewayARN = a })
+-- You retrieve archived virtual tapes to only one gateway and the gateway
+-- must be a gateway-VTL.
+rtarqGatewayARN :: Lens' RetrieveTapeArchive Text
+rtarqGatewayARN = lens _rtarqGatewayARN (\ s a -> s{_rtarqGatewayARN = a});
 
--- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from
--- the virtual tape shelf (VTS).
-rtaTapeARN :: Lens' RetrieveTapeArchive Text
-rtaTapeARN = lens _rtaTapeARN (\s a -> s { _rtaTapeARN = a })
+instance AWSRequest RetrieveTapeArchive where
+        type Sv RetrieveTapeArchive = StorageGateway
+        type Rs RetrieveTapeArchive =
+             RetrieveTapeArchiveResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RetrieveTapeArchiveResponse' <$>
+                   (x .?> "TapeARN") <*> (pure (fromEnum s)))
 
-newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
-    { _rtarTapeARN :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance ToHeaders RetrieveTapeArchive where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.RetrieveTapeArchive" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
--- | 'RetrieveTapeArchiveResponse' constructor.
+instance ToJSON RetrieveTapeArchive where
+        toJSON RetrieveTapeArchive'{..}
+          = object
+              ["TapeARN" .= _rtarqTapeARN,
+               "GatewayARN" .= _rtarqGatewayARN]
+
+instance ToPath RetrieveTapeArchive where
+        toPath = const "/"
+
+instance ToQuery RetrieveTapeArchive where
+        toQuery = const mempty
+
+-- | RetrieveTapeArchiveOutput
+--
+-- /See:/ 'retrieveTapeArchiveResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtarTapeARN' @::@ 'Maybe' 'Text'
+-- * 'rtarsTapeARN'
 --
-retrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse
-retrieveTapeArchiveResponse = RetrieveTapeArchiveResponse
-    { _rtarTapeARN = Nothing
+-- * 'rtarsStatus'
+data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
+    { _rtarsTapeARN :: !(Maybe Text)
+    , _rtarsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RetrieveTapeArchiveResponse' smart constructor.
+retrieveTapeArchiveResponse :: Int -> RetrieveTapeArchiveResponse
+retrieveTapeArchiveResponse pStatus_ =
+    RetrieveTapeArchiveResponse'
+    { _rtarsTapeARN = Nothing
+    , _rtarsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
-rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
-rtarTapeARN = lens _rtarTapeARN (\s a -> s { _rtarTapeARN = a })
+rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
+rtarsTapeARN = lens _rtarsTapeARN (\ s a -> s{_rtarsTapeARN = a});
 
-instance ToPath RetrieveTapeArchive where
-    toPath = const "/"
-
-instance ToQuery RetrieveTapeArchive where
-    toQuery = const mempty
-
-instance ToHeaders RetrieveTapeArchive
-
-instance ToJSON RetrieveTapeArchive where
-    toJSON RetrieveTapeArchive{..} = object
-        [ "TapeARN"    .= _rtaTapeARN
-        , "GatewayARN" .= _rtaGatewayARN
-        ]
-
-instance AWSRequest RetrieveTapeArchive where
-    type Sv RetrieveTapeArchive = StorageGateway
-    type Rs RetrieveTapeArchive = RetrieveTapeArchiveResponse
-
-    request  = post "RetrieveTapeArchive"
-    response = jsonResponse
-
-instance FromJSON RetrieveTapeArchiveResponse where
-    parseJSON = withObject "RetrieveTapeArchiveResponse" $ \o -> RetrieveTapeArchiveResponse
-        <$> o .:? "TapeARN"
+-- | FIXME: Undocumented member.
+rtarsStatus :: Lens' RetrieveTapeArchiveResponse Int
+rtarsStatus = lens _rtarsStatus (\ s a -> s{_rtarsStatus = a});

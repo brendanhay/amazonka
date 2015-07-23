@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.HeadObject
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The HEAD operation retrieves metadata from an object without returning the
--- object itself. This operation is useful if you're only interested in an
--- object's metadata. To use HEAD, you must have READ access to the object.
+-- The HEAD operation retrieves metadata from an object without returning
+-- the object itself. This operation is useful if you\'re only interested
+-- in an object\'s metadata. To use HEAD, you must have READ access to the
+-- object.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadObject.html>
 module Network.AWS.S3.HeadObject
@@ -34,455 +30,459 @@ module Network.AWS.S3.HeadObject
     -- ** Request constructor
     , headObject
     -- ** Request lenses
-    , hoBucket
-    , hoIfMatch
-    , hoIfModifiedSince
-    , hoIfNoneMatch
-    , hoIfUnmodifiedSince
-    , hoKey
-    , hoRange
-    , hoRequestPayer
-    , hoSSECustomerAlgorithm
-    , hoSSECustomerKey
-    , hoSSECustomerKeyMD5
-    , hoVersionId
+    , horqIfMatch
+    , horqVersionId
+    , horqSSECustomerAlgorithm
+    , horqSSECustomerKey
+    , horqRequestPayer
+    , horqIfModifiedSince
+    , horqRange
+    , horqIfUnmodifiedSince
+    , horqSSECustomerKeyMD5
+    , horqIfNoneMatch
+    , horqBucket
+    , horqKey
 
     -- * Response
     , HeadObjectResponse
     -- ** Response constructor
     , headObjectResponse
     -- ** Response lenses
-    , horAcceptRanges
-    , horCacheControl
-    , horContentDisposition
-    , horContentEncoding
-    , horContentLanguage
-    , horContentLength
-    , horContentType
-    , horDeleteMarker
-    , horETag
-    , horExpiration
-    , horExpires
-    , horLastModified
-    , horMetadata
-    , horMissingMeta
-    , horReplicationStatus
-    , horRequestCharged
-    , horRestore
-    , horSSECustomerAlgorithm
-    , horSSECustomerKeyMD5
-    , horSSEKMSKeyId
-    , horServerSideEncryption
-    , horVersionId
-    , horWebsiteRedirectLocation
+    , horsVersionId
+    , horsETag
+    , horsRequestCharged
+    , horsContentLength
+    , horsRestore
+    , horsExpires
+    , horsDeleteMarker
+    , horsExpiration
+    , horsSSECustomerAlgorithm
+    , horsMissingMeta
+    , horsWebsiteRedirectLocation
+    , horsAcceptRanges
+    , horsContentEncoding
+    , horsSSEKMSKeyId
+    , horsSSECustomerKeyMD5
+    , horsMetadata
+    , horsReplicationStatus
+    , horsCacheControl
+    , horsContentLanguage
+    , horsLastModified
+    , horsContentDisposition
+    , horsServerSideEncryption
+    , horsContentType
+    , horsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-data HeadObject = HeadObject
-    { _hoBucket               :: Text
-    , _hoIfMatch              :: Maybe Text
-    , _hoIfModifiedSince      :: Maybe RFC822
-    , _hoIfNoneMatch          :: Maybe Text
-    , _hoIfUnmodifiedSince    :: Maybe RFC822
-    , _hoKey                  :: Text
-    , _hoRange                :: Maybe Text
-    , _hoRequestPayer         :: Maybe RequestPayer
-    , _hoSSECustomerAlgorithm :: Maybe Text
-    , _hoSSECustomerKey       :: Maybe (Sensitive Text)
-    , _hoSSECustomerKeyMD5    :: Maybe Text
-    , _hoVersionId            :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'HeadObject' constructor.
+-- | /See:/ 'headObject' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'hoBucket' @::@ 'Text'
+-- * 'horqIfMatch'
 --
--- * 'hoIfMatch' @::@ 'Maybe' 'Text'
+-- * 'horqVersionId'
 --
--- * 'hoIfModifiedSince' @::@ 'Maybe' 'UTCTime'
+-- * 'horqSSECustomerAlgorithm'
 --
--- * 'hoIfNoneMatch' @::@ 'Maybe' 'Text'
+-- * 'horqSSECustomerKey'
 --
--- * 'hoIfUnmodifiedSince' @::@ 'Maybe' 'UTCTime'
+-- * 'horqRequestPayer'
 --
--- * 'hoKey' @::@ 'Text'
+-- * 'horqIfModifiedSince'
 --
--- * 'hoRange' @::@ 'Maybe' 'Text'
+-- * 'horqRange'
 --
--- * 'hoRequestPayer' @::@ 'Maybe' 'RequestPayer'
+-- * 'horqIfUnmodifiedSince'
 --
--- * 'hoSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'horqSSECustomerKeyMD5'
 --
--- * 'hoSSECustomerKey' @::@ 'Maybe' 'Text'
+-- * 'horqIfNoneMatch'
 --
--- * 'hoSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'horqBucket'
 --
--- * 'hoVersionId' @::@ 'Maybe' 'Text'
---
-headObject :: Text -- ^ 'hoBucket'
-           -> Text -- ^ 'hoKey'
-           -> HeadObject
-headObject p1 p2 = HeadObject
-    { _hoBucket               = p1
-    , _hoKey                  = p2
-    , _hoIfMatch              = Nothing
-    , _hoIfModifiedSince      = Nothing
-    , _hoIfNoneMatch          = Nothing
-    , _hoIfUnmodifiedSince    = Nothing
-    , _hoRange                = Nothing
-    , _hoVersionId            = Nothing
-    , _hoSSECustomerAlgorithm = Nothing
-    , _hoSSECustomerKey       = Nothing
-    , _hoSSECustomerKeyMD5    = Nothing
-    , _hoRequestPayer         = Nothing
-    }
+-- * 'horqKey'
+data HeadObject = HeadObject'
+    { _horqIfMatch              :: !(Maybe Text)
+    , _horqVersionId            :: !(Maybe ObjectVersionId)
+    , _horqSSECustomerAlgorithm :: !(Maybe Text)
+    , _horqSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _horqRequestPayer         :: !(Maybe RequestPayer)
+    , _horqIfModifiedSince      :: !(Maybe RFC822)
+    , _horqRange                :: !(Maybe Text)
+    , _horqIfUnmodifiedSince    :: !(Maybe RFC822)
+    , _horqSSECustomerKeyMD5    :: !(Maybe Text)
+    , _horqIfNoneMatch          :: !(Maybe Text)
+    , _horqBucket               :: !BucketName
+    , _horqKey                  :: !ObjectKey
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
-hoBucket :: Lens' HeadObject Text
-hoBucket = lens _hoBucket (\s a -> s { _hoBucket = a })
+-- | 'HeadObject' smart constructor.
+headObject :: BucketName -> ObjectKey -> HeadObject
+headObject pBucket_ pKey_ =
+    HeadObject'
+    { _horqIfMatch = Nothing
+    , _horqVersionId = Nothing
+    , _horqSSECustomerAlgorithm = Nothing
+    , _horqSSECustomerKey = Nothing
+    , _horqRequestPayer = Nothing
+    , _horqIfModifiedSince = Nothing
+    , _horqRange = Nothing
+    , _horqIfUnmodifiedSince = Nothing
+    , _horqSSECustomerKeyMD5 = Nothing
+    , _horqIfNoneMatch = Nothing
+    , _horqBucket = pBucket_
+    , _horqKey = pKey_
+    }
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
-hoIfMatch :: Lens' HeadObject (Maybe Text)
-hoIfMatch = lens _hoIfMatch (\s a -> s { _hoIfMatch = a })
+horqIfMatch :: Lens' HeadObject (Maybe Text)
+horqIfMatch = lens _horqIfMatch (\ s a -> s{_horqIfMatch = a});
 
--- | Return the object only if it has been modified since the specified time,
--- otherwise return a 304 (not modified).
-hoIfModifiedSince :: Lens' HeadObject (Maybe UTCTime)
-hoIfModifiedSince =
-    lens _hoIfModifiedSince (\s a -> s { _hoIfModifiedSince = a })
-        . mapping _Time
+-- | VersionId used to reference a specific version of the object.
+horqVersionId :: Lens' HeadObject (Maybe ObjectVersionId)
+horqVersionId = lens _horqVersionId (\ s a -> s{_horqVersionId = a});
 
--- | Return the object only if its entity tag (ETag) is different from the one
--- specified, otherwise return a 304 (not modified).
-hoIfNoneMatch :: Lens' HeadObject (Maybe Text)
-hoIfNoneMatch = lens _hoIfNoneMatch (\s a -> s { _hoIfNoneMatch = a })
-
--- | Return the object only if it has not been modified since the specified time,
--- otherwise return a 412 (precondition failed).
-hoIfUnmodifiedSince :: Lens' HeadObject (Maybe UTCTime)
-hoIfUnmodifiedSince =
-    lens _hoIfUnmodifiedSince (\s a -> s { _hoIfUnmodifiedSince = a })
-        . mapping _Time
-
-hoKey :: Lens' HeadObject Text
-hoKey = lens _hoKey (\s a -> s { _hoKey = a })
-
--- | Downloads the specified range bytes of an object. For more information about
--- the HTTP Range header, go to
--- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
-hoRange :: Lens' HeadObject (Maybe Text)
-hoRange = lens _hoRange (\s a -> s { _hoRange = a })
-
-hoRequestPayer :: Lens' HeadObject (Maybe RequestPayer)
-hoRequestPayer = lens _hoRequestPayer (\s a -> s { _hoRequestPayer = a })
-
--- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
--- aws:kms).
-hoSSECustomerAlgorithm :: Lens' HeadObject (Maybe Text)
-hoSSECustomerAlgorithm =
-    lens _hoSSECustomerAlgorithm (\s a -> s { _hoSSECustomerAlgorithm = a })
+-- | Specifies the algorithm to use to when encrypting the object (e.g.,
+-- AES256, aws:kms).
+horqSSECustomerAlgorithm :: Lens' HeadObject (Maybe Text)
+horqSSECustomerAlgorithm = lens _horqSSECustomerAlgorithm (\ s a -> s{_horqSSECustomerAlgorithm = a});
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side​-encryption​-customer-algorithm header.
-hoSSECustomerKey :: Lens' HeadObject (Maybe Text)
-hoSSECustomerKey = lens _hoSSECustomerKey (\s a -> s { _hoSSECustomerKey = a }) . mapping _Sensitive
+horqSSECustomerKey :: Lens' HeadObject (Maybe Text)
+horqSSECustomerKey = lens _horqSSECustomerKey (\ s a -> s{_horqSSECustomerKey = a}) . mapping _Sensitive;
 
--- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321.
--- Amazon S3 uses this header for a message integrity check to ensure the
--- encryption key was transmitted without error.
-hoSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
-hoSSECustomerKeyMD5 =
-    lens _hoSSECustomerKeyMD5 (\s a -> s { _hoSSECustomerKeyMD5 = a })
+-- | FIXME: Undocumented member.
+horqRequestPayer :: Lens' HeadObject (Maybe RequestPayer)
+horqRequestPayer = lens _horqRequestPayer (\ s a -> s{_horqRequestPayer = a});
 
--- | VersionId used to reference a specific version of the object.
-hoVersionId :: Lens' HeadObject (Maybe Text)
-hoVersionId = lens _hoVersionId (\s a -> s { _hoVersionId = a })
+-- | Return the object only if it has been modified since the specified time,
+-- otherwise return a 304 (not modified).
+horqIfModifiedSince :: Lens' HeadObject (Maybe UTCTime)
+horqIfModifiedSince = lens _horqIfModifiedSince (\ s a -> s{_horqIfModifiedSince = a}) . mapping _Time;
 
-data HeadObjectResponse = HeadObjectResponse
-    { _horAcceptRanges            :: Maybe Text
-    , _horCacheControl            :: Maybe Text
-    , _horContentDisposition      :: Maybe Text
-    , _horContentEncoding         :: Maybe Text
-    , _horContentLanguage         :: Maybe Text
-    , _horContentLength           :: Maybe Int
-    , _horContentType             :: Maybe Text
-    , _horDeleteMarker            :: Maybe Bool
-    , _horETag                    :: Maybe Text
-    , _horExpiration              :: Maybe Text
-    , _horExpires                 :: Maybe RFC822
-    , _horLastModified            :: Maybe RFC822
-    , _horMetadata                :: Map (CI Text) Text
-    , _horMissingMeta             :: Maybe Int
-    , _horReplicationStatus       :: Maybe ReplicationStatus
-    , _horRequestCharged          :: Maybe RequestCharged
-    , _horRestore                 :: Maybe Text
-    , _horSSECustomerAlgorithm    :: Maybe Text
-    , _horSSECustomerKeyMD5       :: Maybe Text
-    , _horSSEKMSKeyId             :: Maybe (Sensitive Text)
-    , _horServerSideEncryption    :: Maybe ServerSideEncryption
-    , _horVersionId               :: Maybe Text
-    , _horWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | Downloads the specified range bytes of an object. For more information
+-- about the HTTP Range header, go to
+-- http:\/\/www.w3.org\/Protocols\/rfc2616\/rfc2616-sec14.html#sec14.35.
+horqRange :: Lens' HeadObject (Maybe Text)
+horqRange = lens _horqRange (\ s a -> s{_horqRange = a});
 
--- | 'HeadObjectResponse' constructor.
+-- | Return the object only if it has not been modified since the specified
+-- time, otherwise return a 412 (precondition failed).
+horqIfUnmodifiedSince :: Lens' HeadObject (Maybe UTCTime)
+horqIfUnmodifiedSince = lens _horqIfUnmodifiedSince (\ s a -> s{_horqIfUnmodifiedSince = a}) . mapping _Time;
+
+-- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
+-- 1321. Amazon S3 uses this header for a message integrity check to ensure
+-- the encryption key was transmitted without error.
+horqSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
+horqSSECustomerKeyMD5 = lens _horqSSECustomerKeyMD5 (\ s a -> s{_horqSSECustomerKeyMD5 = a});
+
+-- | Return the object only if its entity tag (ETag) is different from the
+-- one specified, otherwise return a 304 (not modified).
+horqIfNoneMatch :: Lens' HeadObject (Maybe Text)
+horqIfNoneMatch = lens _horqIfNoneMatch (\ s a -> s{_horqIfNoneMatch = a});
+
+-- | FIXME: Undocumented member.
+horqBucket :: Lens' HeadObject BucketName
+horqBucket = lens _horqBucket (\ s a -> s{_horqBucket = a});
+
+-- | FIXME: Undocumented member.
+horqKey :: Lens' HeadObject ObjectKey
+horqKey = lens _horqKey (\ s a -> s{_horqKey = a});
+
+instance AWSRequest HeadObject where
+        type Sv HeadObject = S3
+        type Rs HeadObject = HeadObjectResponse
+        request = head'
+        response
+          = receiveXML
+              (\ s h x ->
+                 HeadObjectResponse' <$>
+                   (h .#? "x-amz-version-id") <*> (h .#? "ETag") <*>
+                     (h .#? "x-amz-request-charged")
+                     <*> (h .#? "Content-Length")
+                     <*> (h .#? "x-amz-restore")
+                     <*> (h .#? "Expires")
+                     <*> (h .#? "x-amz-delete-marker")
+                     <*> (h .#? "x-amz-expiration")
+                     <*>
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-algorithm")
+                     <*> (h .#? "x-amz-missing-meta")
+                     <*> (h .#? "x-amz-website-redirect-location")
+                     <*> (h .#? "accept-ranges")
+                     <*> (h .#? "Content-Encoding")
+                     <*>
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
+                     <*>
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-key-MD5")
+                     <*> (parseHeadersMap "x-amz-meta-" h)
+                     <*> (h .#? "x-amz-replication-status")
+                     <*> (h .#? "Cache-Control")
+                     <*> (h .#? "Content-Language")
+                     <*> (h .#? "Last-Modified")
+                     <*> (h .#? "Content-Disposition")
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (h .#? "Content-Type")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders HeadObject where
+        toHeaders HeadObject'{..}
+          = mconcat
+              ["If-Match" =# _horqIfMatch,
+               "x-amz-server-side-encryption-customer-algorithm" =#
+                 _horqSSECustomerAlgorithm,
+               "x-amz-server-side-encryption-customer-key" =#
+                 _horqSSECustomerKey,
+               "x-amz-request-payer" =# _horqRequestPayer,
+               "If-Modified-Since" =# _horqIfModifiedSince,
+               "Range" =# _horqRange,
+               "If-Unmodified-Since" =# _horqIfUnmodifiedSince,
+               "x-amz-server-side-encryption-customer-key-MD5" =#
+                 _horqSSECustomerKeyMD5,
+               "If-None-Match" =# _horqIfNoneMatch]
+
+instance ToPath HeadObject where
+        toPath HeadObject'{..}
+          = mconcat
+              ["/", toText _horqBucket, "/", toText _horqKey]
+
+instance ToQuery HeadObject where
+        toQuery HeadObject'{..}
+          = mconcat ["versionId" =: _horqVersionId]
+
+-- | /See:/ 'headObjectResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'horAcceptRanges' @::@ 'Maybe' 'Text'
+-- * 'horsVersionId'
 --
--- * 'horCacheControl' @::@ 'Maybe' 'Text'
+-- * 'horsETag'
 --
--- * 'horContentDisposition' @::@ 'Maybe' 'Text'
+-- * 'horsRequestCharged'
 --
--- * 'horContentEncoding' @::@ 'Maybe' 'Text'
+-- * 'horsContentLength'
 --
--- * 'horContentLanguage' @::@ 'Maybe' 'Text'
+-- * 'horsRestore'
 --
--- * 'horContentLength' @::@ 'Maybe' 'Int'
+-- * 'horsExpires'
 --
--- * 'horContentType' @::@ 'Maybe' 'Text'
+-- * 'horsDeleteMarker'
 --
--- * 'horDeleteMarker' @::@ 'Maybe' 'Bool'
+-- * 'horsExpiration'
 --
--- * 'horETag' @::@ 'Maybe' 'Text'
+-- * 'horsSSECustomerAlgorithm'
 --
--- * 'horExpiration' @::@ 'Maybe' 'Text'
+-- * 'horsMissingMeta'
 --
--- * 'horExpires' @::@ 'Maybe' 'UTCTime'
+-- * 'horsWebsiteRedirectLocation'
 --
--- * 'horLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'horsAcceptRanges'
 --
--- * 'horMetadata' @::@ 'HashMap' ('CI' 'Text') 'Text'
+-- * 'horsContentEncoding'
 --
--- * 'horMissingMeta' @::@ 'Maybe' 'Int'
+-- * 'horsSSEKMSKeyId'
 --
--- * 'horReplicationStatus' @::@ 'Maybe' 'ReplicationStatus'
+-- * 'horsSSECustomerKeyMD5'
 --
--- * 'horRequestCharged' @::@ 'Maybe' 'RequestCharged'
+-- * 'horsMetadata'
 --
--- * 'horRestore' @::@ 'Maybe' 'Text'
+-- * 'horsReplicationStatus'
 --
--- * 'horSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'horsCacheControl'
 --
--- * 'horSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'horsContentLanguage'
 --
--- * 'horSSEKMSKeyId' @::@ 'Maybe' 'Text'
+-- * 'horsLastModified'
 --
--- * 'horServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
+-- * 'horsContentDisposition'
 --
--- * 'horVersionId' @::@ 'Maybe' 'Text'
+-- * 'horsServerSideEncryption'
 --
--- * 'horWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
+-- * 'horsContentType'
 --
-headObjectResponse :: HeadObjectResponse
-headObjectResponse = HeadObjectResponse
-    { _horDeleteMarker            = Nothing
-    , _horAcceptRanges            = Nothing
-    , _horExpiration              = Nothing
-    , _horRestore                 = Nothing
-    , _horLastModified            = Nothing
-    , _horContentLength           = Nothing
-    , _horETag                    = Nothing
-    , _horMissingMeta             = Nothing
-    , _horVersionId               = Nothing
-    , _horCacheControl            = Nothing
-    , _horContentDisposition      = Nothing
-    , _horContentEncoding         = Nothing
-    , _horContentLanguage         = Nothing
-    , _horContentType             = Nothing
-    , _horExpires                 = Nothing
-    , _horWebsiteRedirectLocation = Nothing
-    , _horServerSideEncryption    = Nothing
-    , _horMetadata                = mempty
-    , _horSSECustomerAlgorithm    = Nothing
-    , _horSSECustomerKeyMD5       = Nothing
-    , _horSSEKMSKeyId             = Nothing
-    , _horRequestCharged          = Nothing
-    , _horReplicationStatus       = Nothing
+-- * 'horsStatus'
+data HeadObjectResponse = HeadObjectResponse'
+    { _horsVersionId               :: !(Maybe ObjectVersionId)
+    , _horsETag                    :: !(Maybe ETag)
+    , _horsRequestCharged          :: !(Maybe RequestCharged)
+    , _horsContentLength           :: !(Maybe Int)
+    , _horsRestore                 :: !(Maybe Text)
+    , _horsExpires                 :: !(Maybe RFC822)
+    , _horsDeleteMarker            :: !(Maybe Bool)
+    , _horsExpiration              :: !(Maybe Text)
+    , _horsSSECustomerAlgorithm    :: !(Maybe Text)
+    , _horsMissingMeta             :: !(Maybe Int)
+    , _horsWebsiteRedirectLocation :: !(Maybe Text)
+    , _horsAcceptRanges            :: !(Maybe Text)
+    , _horsContentEncoding         :: !(Maybe Text)
+    , _horsSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _horsSSECustomerKeyMD5       :: !(Maybe Text)
+    , _horsMetadata                :: !(Map Text Text)
+    , _horsReplicationStatus       :: !(Maybe ReplicationStatus)
+    , _horsCacheControl            :: !(Maybe Text)
+    , _horsContentLanguage         :: !(Maybe Text)
+    , _horsLastModified            :: !(Maybe RFC822)
+    , _horsContentDisposition      :: !(Maybe Text)
+    , _horsServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _horsContentType             :: !(Maybe Text)
+    , _horsStatus                  :: !Int
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'HeadObjectResponse' smart constructor.
+headObjectResponse :: Int -> HeadObjectResponse
+headObjectResponse pStatus_ =
+    HeadObjectResponse'
+    { _horsVersionId = Nothing
+    , _horsETag = Nothing
+    , _horsRequestCharged = Nothing
+    , _horsContentLength = Nothing
+    , _horsRestore = Nothing
+    , _horsExpires = Nothing
+    , _horsDeleteMarker = Nothing
+    , _horsExpiration = Nothing
+    , _horsSSECustomerAlgorithm = Nothing
+    , _horsMissingMeta = Nothing
+    , _horsWebsiteRedirectLocation = Nothing
+    , _horsAcceptRanges = Nothing
+    , _horsContentEncoding = Nothing
+    , _horsSSEKMSKeyId = Nothing
+    , _horsSSECustomerKeyMD5 = Nothing
+    , _horsMetadata = mempty
+    , _horsReplicationStatus = Nothing
+    , _horsCacheControl = Nothing
+    , _horsContentLanguage = Nothing
+    , _horsLastModified = Nothing
+    , _horsContentDisposition = Nothing
+    , _horsServerSideEncryption = Nothing
+    , _horsContentType = Nothing
+    , _horsStatus = pStatus_
     }
 
-horAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
-horAcceptRanges = lens _horAcceptRanges (\s a -> s { _horAcceptRanges = a })
-
--- | Specifies caching behavior along the request/reply chain.
-horCacheControl :: Lens' HeadObjectResponse (Maybe Text)
-horCacheControl = lens _horCacheControl (\s a -> s { _horCacheControl = a })
-
--- | Specifies presentational information for the object.
-horContentDisposition :: Lens' HeadObjectResponse (Maybe Text)
-horContentDisposition =
-    lens _horContentDisposition (\s a -> s { _horContentDisposition = a })
-
--- | Specifies what content encodings have been applied to the object and thus
--- what decoding mechanisms must be applied to obtain the media-type referenced
--- by the Content-Type header field.
-horContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
-horContentEncoding =
-    lens _horContentEncoding (\s a -> s { _horContentEncoding = a })
-
--- | The language the content is in.
-horContentLanguage :: Lens' HeadObjectResponse (Maybe Text)
-horContentLanguage =
-    lens _horContentLanguage (\s a -> s { _horContentLanguage = a })
-
--- | Size of the body in bytes.
-horContentLength :: Lens' HeadObjectResponse (Maybe Int)
-horContentLength = lens _horContentLength (\s a -> s { _horContentLength = a })
-
--- | A standard MIME type describing the format of the object data.
-horContentType :: Lens' HeadObjectResponse (Maybe Text)
-horContentType = lens _horContentType (\s a -> s { _horContentType = a })
-
--- | Specifies whether the object retrieved was (true) or was not (false) a Delete
--- Marker. If false, this response header does not appear in the response.
-horDeleteMarker :: Lens' HeadObjectResponse (Maybe Bool)
-horDeleteMarker = lens _horDeleteMarker (\s a -> s { _horDeleteMarker = a })
+-- | Version of the object.
+horsVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
+horsVersionId = lens _horsVersionId (\ s a -> s{_horsVersionId = a});
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL
-horETag :: Lens' HeadObjectResponse (Maybe Text)
-horETag = lens _horETag (\s a -> s { _horETag = a })
+horsETag :: Lens' HeadObjectResponse (Maybe ETag)
+horsETag = lens _horsETag (\ s a -> s{_horsETag = a});
 
--- | If the object expiration is configured (see PUT Bucket lifecycle), the
--- response includes this header. It includes the expiry-date and rule-id key
--- value pairs providing object expiration information. The value of the rule-id
--- is URL encoded.
-horExpiration :: Lens' HeadObjectResponse (Maybe Text)
-horExpiration = lens _horExpiration (\s a -> s { _horExpiration = a })
+-- | FIXME: Undocumented member.
+horsRequestCharged :: Lens' HeadObjectResponse (Maybe RequestCharged)
+horsRequestCharged = lens _horsRequestCharged (\ s a -> s{_horsRequestCharged = a});
+
+-- | Size of the body in bytes.
+horsContentLength :: Lens' HeadObjectResponse (Maybe Int)
+horsContentLength = lens _horsContentLength (\ s a -> s{_horsContentLength = a});
+
+-- | Provides information about object restoration operation and expiration
+-- time of the restored object copy.
+horsRestore :: Lens' HeadObjectResponse (Maybe Text)
+horsRestore = lens _horsRestore (\ s a -> s{_horsRestore = a});
 
 -- | The date and time at which the object is no longer cacheable.
-horExpires :: Lens' HeadObjectResponse (Maybe UTCTime)
-horExpires = lens _horExpires (\s a -> s { _horExpires = a }) . mapping _Time
+horsExpires :: Lens' HeadObjectResponse (Maybe UTCTime)
+horsExpires = lens _horsExpires (\ s a -> s{_horsExpires = a}) . mapping _Time;
 
--- | Last modified date of the object
-horLastModified :: Lens' HeadObjectResponse (Maybe UTCTime)
-horLastModified = lens _horLastModified (\s a -> s { _horLastModified = a }) . mapping _Time
+-- | Specifies whether the object retrieved was (true) or was not (false) a
+-- Delete Marker. If false, this response header does not appear in the
+-- response.
+horsDeleteMarker :: Lens' HeadObjectResponse (Maybe Bool)
+horsDeleteMarker = lens _horsDeleteMarker (\ s a -> s{_horsDeleteMarker = a});
 
--- | A map of metadata to store with the object in S3.
-horMetadata :: Lens' HeadObjectResponse (HashMap (CI Text) Text)
-horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a }) . _Map
-
--- | This is set to the number of metadata entries not returned in x-amz-meta
--- headers. This can happen if you create metadata using an API like SOAP that
--- supports more flexible metadata than the REST API. For example, using SOAP,
--- you can create metadata whose values are not legal HTTP headers.
-horMissingMeta :: Lens' HeadObjectResponse (Maybe Int)
-horMissingMeta = lens _horMissingMeta (\s a -> s { _horMissingMeta = a })
-
-horReplicationStatus :: Lens' HeadObjectResponse (Maybe ReplicationStatus)
-horReplicationStatus =
-    lens _horReplicationStatus (\s a -> s { _horReplicationStatus = a })
-
-horRequestCharged :: Lens' HeadObjectResponse (Maybe RequestCharged)
-horRequestCharged =
-    lens _horRequestCharged (\s a -> s { _horRequestCharged = a })
-
--- | Provides information about object restoration operation and expiration time
--- of the restored object copy.
-horRestore :: Lens' HeadObjectResponse (Maybe Text)
-horRestore = lens _horRestore (\s a -> s { _horRestore = a })
+-- | If the object expiration is configured (see PUT Bucket lifecycle), the
+-- response includes this header. It includes the expiry-date and rule-id
+-- key value pairs providing object expiration information. The value of
+-- the rule-id is URL encoded.
+horsExpiration :: Lens' HeadObjectResponse (Maybe Text)
+horsExpiration = lens _horsExpiration (\ s a -> s{_horsExpiration = a});
 
 -- | If server-side encryption with a customer-provided encryption key was
--- requested, the response will include this header confirming the encryption
--- algorithm used.
-horSSECustomerAlgorithm :: Lens' HeadObjectResponse (Maybe Text)
-horSSECustomerAlgorithm =
-    lens _horSSECustomerAlgorithm (\s a -> s { _horSSECustomerAlgorithm = a })
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+horsSSECustomerAlgorithm :: Lens' HeadObjectResponse (Maybe Text)
+horsSSECustomerAlgorithm = lens _horsSSECustomerAlgorithm (\ s a -> s{_horsSSECustomerAlgorithm = a});
+
+-- | This is set to the number of metadata entries not returned in x-amz-meta
+-- headers. This can happen if you create metadata using an API like SOAP
+-- that supports more flexible metadata than the REST API. For example,
+-- using SOAP, you can create metadata whose values are not legal HTTP
+-- headers.
+horsMissingMeta :: Lens' HeadObjectResponse (Maybe Int)
+horsMissingMeta = lens _horsMissingMeta (\ s a -> s{_horsMissingMeta = a});
+
+-- | If the bucket is configured as a website, redirects requests for this
+-- object to another object in the same bucket or to an external URL.
+-- Amazon S3 stores the value of this header in the object metadata.
+horsWebsiteRedirectLocation :: Lens' HeadObjectResponse (Maybe Text)
+horsWebsiteRedirectLocation = lens _horsWebsiteRedirectLocation (\ s a -> s{_horsWebsiteRedirectLocation = a});
+
+-- | FIXME: Undocumented member.
+horsAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
+horsAcceptRanges = lens _horsAcceptRanges (\ s a -> s{_horsAcceptRanges = a});
+
+-- | Specifies what content encodings have been applied to the object and
+-- thus what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+horsContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
+horsContentEncoding = lens _horsContentEncoding (\ s a -> s{_horsContentEncoding = a});
+
+-- | If present, specifies the ID of the AWS Key Management Service (KMS)
+-- master encryption key that was used for the object.
+horsSSEKMSKeyId :: Lens' HeadObjectResponse (Maybe Text)
+horsSSEKMSKeyId = lens _horsSSEKMSKeyId (\ s a -> s{_horsSSEKMSKeyId = a}) . mapping _Sensitive;
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-horSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
-horSSECustomerKeyMD5 =
-    lens _horSSECustomerKeyMD5 (\s a -> s { _horSSECustomerKeyMD5 = a })
+horsSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
+horsSSECustomerKeyMD5 = lens _horsSSECustomerKeyMD5 (\ s a -> s{_horsSSECustomerKeyMD5 = a});
 
--- | If present, specifies the ID of the AWS Key Management Service (KMS) master
--- encryption key that was used for the object.
-horSSEKMSKeyId :: Lens' HeadObjectResponse (Maybe Text)
-horSSEKMSKeyId = lens _horSSEKMSKeyId (\s a -> s { _horSSEKMSKeyId = a }) . mapping _Sensitive
+-- | A map of metadata to store with the object in S3.
+horsMetadata :: Lens' HeadObjectResponse (HashMap Text Text)
+horsMetadata = lens _horsMetadata (\ s a -> s{_horsMetadata = a}) . _Map;
+
+-- | FIXME: Undocumented member.
+horsReplicationStatus :: Lens' HeadObjectResponse (Maybe ReplicationStatus)
+horsReplicationStatus = lens _horsReplicationStatus (\ s a -> s{_horsReplicationStatus = a});
+
+-- | Specifies caching behavior along the request\/reply chain.
+horsCacheControl :: Lens' HeadObjectResponse (Maybe Text)
+horsCacheControl = lens _horsCacheControl (\ s a -> s{_horsCacheControl = a});
+
+-- | The language the content is in.
+horsContentLanguage :: Lens' HeadObjectResponse (Maybe Text)
+horsContentLanguage = lens _horsContentLanguage (\ s a -> s{_horsContentLanguage = a});
+
+-- | Last modified date of the object
+horsLastModified :: Lens' HeadObjectResponse (Maybe UTCTime)
+horsLastModified = lens _horsLastModified (\ s a -> s{_horsLastModified = a}) . mapping _Time;
+
+-- | Specifies presentational information for the object.
+horsContentDisposition :: Lens' HeadObjectResponse (Maybe Text)
+horsContentDisposition = lens _horsContentDisposition (\ s a -> s{_horsContentDisposition = a});
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-horServerSideEncryption :: Lens' HeadObjectResponse (Maybe ServerSideEncryption)
-horServerSideEncryption =
-    lens _horServerSideEncryption (\s a -> s { _horServerSideEncryption = a })
+horsServerSideEncryption :: Lens' HeadObjectResponse (Maybe ServerSideEncryption)
+horsServerSideEncryption = lens _horsServerSideEncryption (\ s a -> s{_horsServerSideEncryption = a});
 
--- | Version of the object.
-horVersionId :: Lens' HeadObjectResponse (Maybe Text)
-horVersionId = lens _horVersionId (\s a -> s { _horVersionId = a })
+-- | A standard MIME type describing the format of the object data.
+horsContentType :: Lens' HeadObjectResponse (Maybe Text)
+horsContentType = lens _horsContentType (\ s a -> s{_horsContentType = a});
 
--- | If the bucket is configured as a website, redirects requests for this object
--- to another object in the same bucket or to an external URL. Amazon S3 stores
--- the value of this header in the object metadata.
-horWebsiteRedirectLocation :: Lens' HeadObjectResponse (Maybe Text)
-horWebsiteRedirectLocation =
-    lens _horWebsiteRedirectLocation
-        (\s a -> s { _horWebsiteRedirectLocation = a })
-
-instance ToPath HeadObject where
-    toPath HeadObject{..} = mconcat
-        [ "/"
-        , toText _hoBucket
-        , "/"
-        , toText _hoKey
-        ]
-
-instance ToQuery HeadObject where
-    toQuery rq = "versionId" =? _hoVersionId rq
-
-instance ToHeaders HeadObject where
-    toHeaders HeadObject{..} = mconcat
-        [ "If-Match"                                        =: _hoIfMatch
-        , "If-Modified-Since"                               =: _hoIfModifiedSince
-        , "If-None-Match"                                   =: _hoIfNoneMatch
-        , "If-Unmodified-Since"                             =: _hoIfUnmodifiedSince
-        , "Range"                                           =: _hoRange
-        , "x-amz-server-side-encryption-customer-algorithm" =: _hoSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _hoSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
-        , "x-amz-request-payer"                             =: _hoRequestPayer
-        ]
-
-instance ToXMLRoot HeadObject where
-    toXMLRoot = const (namespaced ns "HeadObject" [])
-
-instance ToXML HeadObject
-
-instance AWSRequest HeadObject where
-    type Sv HeadObject = S3
-    type Rs HeadObject = HeadObjectResponse
-
-    request  = head
-    response = headerResponse $ \h -> HeadObjectResponse
-        <$> h ~:? "accept-ranges"
-        <*> h ~:? "Cache-Control"
-        <*> h ~:? "Content-Disposition"
-        <*> h ~:? "Content-Encoding"
-        <*> h ~:? "Content-Language"
-        <*> h ~:? "Content-Length"
-        <*> h ~:? "Content-Type"
-        <*> h ~:? "x-amz-delete-marker"
-        <*> h ~:? "ETag"
-        <*> h ~:? "x-amz-expiration"
-        <*> h ~:? "Expires"
-        <*> h ~:? "Last-Modified"
-        <*> h ~:: "x-amz-meta-"
-        <*> h ~:? "x-amz-missing-meta"
-        <*> h ~:? "x-amz-replication-status"
-        <*> h ~:? "x-amz-request-charged"
-        <*> h ~:? "x-amz-restore"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
-        <*> h ~:? "x-amz-server-side-encryption"
-        <*> h ~:? "x-amz-version-id"
-        <*> h ~:? "x-amz-website-redirect-location"
+-- | FIXME: Undocumented member.
+horsStatus :: Lens' HeadObjectResponse Int
+horsStatus = lens _horsStatus (\ s a -> s{_horsStatus = a});

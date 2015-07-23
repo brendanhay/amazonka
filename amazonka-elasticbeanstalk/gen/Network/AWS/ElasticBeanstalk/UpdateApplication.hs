@@ -1,31 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateApplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Updates the specified application to have the specified properties.
+-- Updates the specified application to have the specified properties.
 --
--- If a property (for example, 'description') is not provided, the value remains
--- unchanged. To clear these properties, specify an empty string.
+-- If a property (for example, @description@) is not provided, the value
+-- remains unchanged. To clear these properties, specify an empty string.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html>
 module Network.AWS.ElasticBeanstalk.UpdateApplication
@@ -35,91 +30,75 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- ** Request constructor
     , updateApplication
     -- ** Request lenses
-    , uaApplicationName
-    , uaDescription
+    , uarqDescription
+    , uarqApplicationName
 
     -- * Response
-    , UpdateApplicationResponse
+    , ApplicationDescriptionMessage
     -- ** Response constructor
-    , updateApplicationResponse
+    , applicationDescriptionMessage
     -- ** Response lenses
-    , uarApplication
+    , admApplication
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateApplication = UpdateApplication
-    { _uaApplicationName :: Text
-    , _uaDescription     :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateApplication' constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'updateApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaApplicationName' @::@ 'Text'
+-- * 'uarqDescription'
 --
--- * 'uaDescription' @::@ 'Maybe' 'Text'
---
-updateApplication :: Text -- ^ 'uaApplicationName'
-                  -> UpdateApplication
-updateApplication p1 = UpdateApplication
-    { _uaApplicationName = p1
-    , _uaDescription     = Nothing
-    }
+-- * 'uarqApplicationName'
+data UpdateApplication = UpdateApplication'
+    { _uarqDescription     :: !(Maybe Text)
+    , _uarqApplicationName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | The name of the application to update. If no such application is found, 'UpdateApplication' returns an 'InvalidParameterValue' error.
-uaApplicationName :: Lens' UpdateApplication Text
-uaApplicationName =
-    lens _uaApplicationName (\s a -> s { _uaApplicationName = a })
+-- | 'UpdateApplication' smart constructor.
+updateApplication :: Text -> UpdateApplication
+updateApplication pApplicationName_ =
+    UpdateApplication'
+    { _uarqDescription = Nothing
+    , _uarqApplicationName = pApplicationName_
+    }
 
 -- | A new description for the application.
 --
 -- Default: If not specified, AWS Elastic Beanstalk does not update the
 -- description.
-uaDescription :: Lens' UpdateApplication (Maybe Text)
-uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
+uarqDescription :: Lens' UpdateApplication (Maybe Text)
+uarqDescription = lens _uarqDescription (\ s a -> s{_uarqDescription = a});
 
-newtype UpdateApplicationResponse = UpdateApplicationResponse
-    { _uarApplication :: Maybe ApplicationDescription
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateApplicationResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uarApplication' @::@ 'Maybe' 'ApplicationDescription'
---
-updateApplicationResponse :: UpdateApplicationResponse
-updateApplicationResponse = UpdateApplicationResponse
-    { _uarApplication = Nothing
-    }
-
--- | The 'ApplicationDescription' of the application.
-uarApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
-uarApplication = lens _uarApplication (\s a -> s { _uarApplication = a })
-
-instance ToPath UpdateApplication where
-    toPath = const "/"
-
-instance ToQuery UpdateApplication where
-    toQuery UpdateApplication{..} = mconcat
-        [ "ApplicationName" =? _uaApplicationName
-        , "Description"     =? _uaDescription
-        ]
-
-instance ToHeaders UpdateApplication
+-- | The name of the application to update. If no such application is found,
+-- @UpdateApplication@ returns an @InvalidParameterValue@ error.
+uarqApplicationName :: Lens' UpdateApplication Text
+uarqApplicationName = lens _uarqApplicationName (\ s a -> s{_uarqApplicationName = a});
 
 instance AWSRequest UpdateApplication where
-    type Sv UpdateApplication = ElasticBeanstalk
-    type Rs UpdateApplication = UpdateApplicationResponse
+        type Sv UpdateApplication = ElasticBeanstalk
+        type Rs UpdateApplication =
+             ApplicationDescriptionMessage
+        request = post
+        response
+          = receiveXMLWrapper "UpdateApplicationResult"
+              (\ s h x -> parseXML x)
 
-    request  = post "UpdateApplication"
-    response = xmlResponse
+instance ToHeaders UpdateApplication where
+        toHeaders = const mempty
 
-instance FromXML UpdateApplicationResponse where
-    parseXML = withElement "UpdateApplicationResult" $ \x -> UpdateApplicationResponse
-        <$> x .@? "Application"
+instance ToPath UpdateApplication where
+        toPath = const "/"
+
+instance ToQuery UpdateApplication where
+        toQuery UpdateApplication'{..}
+          = mconcat
+              ["Action" =: ("UpdateApplication" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "Description" =: _uarqDescription,
+               "ApplicationName" =: _uarqApplicationName]

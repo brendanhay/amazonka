@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.MachineLearning.DescribeBatchPredictions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of 'BatchPrediction' operations that match the search criteria
--- in the request.
+-- Returns a list of @BatchPrediction@ operations that match the search
+-- criteria in the request.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeBatchPredictions.html>
 module Network.AWS.MachineLearning.DescribeBatchPredictions
@@ -33,220 +28,263 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     -- ** Request constructor
     , describeBatchPredictions
     -- ** Request lenses
-    , dbpEQ
-    , dbpFilterVariable
-    , dbpGE
-    , dbpGT
-    , dbpLE
-    , dbpLT
-    , dbpLimit
-    , dbpNE
-    , dbpNextToken
-    , dbpPrefix
-    , dbpSortOrder
+    , dbprqEQ
+    , dbprqGE
+    , dbprqPrefix
+    , dbprqGT
+    , dbprqNE
+    , dbprqNextToken
+    , dbprqSortOrder
+    , dbprqLimit
+    , dbprqLT
+    , dbprqFilterVariable
+    , dbprqLE
 
     -- * Response
     , DescribeBatchPredictionsResponse
     -- ** Response constructor
     , describeBatchPredictionsResponse
     -- ** Response lenses
-    , dbprNextToken
-    , dbprResults
+    , drsResults
+    , drsNextToken
+    , drsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.MachineLearning.Types
-import qualified GHC.Exts
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeBatchPredictions = DescribeBatchPredictions
-    { _dbpEQ             :: Maybe Text
-    , _dbpFilterVariable :: Maybe BatchPredictionFilterVariable
-    , _dbpGE             :: Maybe Text
-    , _dbpGT             :: Maybe Text
-    , _dbpLE             :: Maybe Text
-    , _dbpLT             :: Maybe Text
-    , _dbpLimit          :: Maybe Nat
-    , _dbpNE             :: Maybe Text
-    , _dbpNextToken      :: Maybe Text
-    , _dbpPrefix         :: Maybe Text
-    , _dbpSortOrder      :: Maybe SortOrder
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeBatchPredictions' constructor.
+-- | /See:/ 'describeBatchPredictions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbpEQ' @::@ 'Maybe' 'Text'
+-- * 'dbprqEQ'
 --
--- * 'dbpFilterVariable' @::@ 'Maybe' 'BatchPredictionFilterVariable'
+-- * 'dbprqGE'
 --
--- * 'dbpGE' @::@ 'Maybe' 'Text'
+-- * 'dbprqPrefix'
 --
--- * 'dbpGT' @::@ 'Maybe' 'Text'
+-- * 'dbprqGT'
 --
--- * 'dbpLE' @::@ 'Maybe' 'Text'
+-- * 'dbprqNE'
 --
--- * 'dbpLT' @::@ 'Maybe' 'Text'
+-- * 'dbprqNextToken'
 --
--- * 'dbpLimit' @::@ 'Maybe' 'Natural'
+-- * 'dbprqSortOrder'
 --
--- * 'dbpNE' @::@ 'Maybe' 'Text'
+-- * 'dbprqLimit'
 --
--- * 'dbpNextToken' @::@ 'Maybe' 'Text'
+-- * 'dbprqLT'
 --
--- * 'dbpPrefix' @::@ 'Maybe' 'Text'
+-- * 'dbprqFilterVariable'
 --
--- * 'dbpSortOrder' @::@ 'Maybe' 'SortOrder'
---
+-- * 'dbprqLE'
+data DescribeBatchPredictions = DescribeBatchPredictions'
+    { _dbprqEQ             :: !(Maybe Text)
+    , _dbprqGE             :: !(Maybe Text)
+    , _dbprqPrefix         :: !(Maybe Text)
+    , _dbprqGT             :: !(Maybe Text)
+    , _dbprqNE             :: !(Maybe Text)
+    , _dbprqNextToken      :: !(Maybe Text)
+    , _dbprqSortOrder      :: !(Maybe SortOrder)
+    , _dbprqLimit          :: !(Maybe Nat)
+    , _dbprqLT             :: !(Maybe Text)
+    , _dbprqFilterVariable :: !(Maybe BatchPredictionFilterVariable)
+    , _dbprqLE             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeBatchPredictions' smart constructor.
 describeBatchPredictions :: DescribeBatchPredictions
-describeBatchPredictions = DescribeBatchPredictions
-    { _dbpFilterVariable = Nothing
-    , _dbpEQ             = Nothing
-    , _dbpGT             = Nothing
-    , _dbpLT             = Nothing
-    , _dbpGE             = Nothing
-    , _dbpLE             = Nothing
-    , _dbpNE             = Nothing
-    , _dbpPrefix         = Nothing
-    , _dbpSortOrder      = Nothing
-    , _dbpNextToken      = Nothing
-    , _dbpLimit          = Nothing
+describeBatchPredictions =
+    DescribeBatchPredictions'
+    { _dbprqEQ = Nothing
+    , _dbprqGE = Nothing
+    , _dbprqPrefix = Nothing
+    , _dbprqGT = Nothing
+    , _dbprqNE = Nothing
+    , _dbprqNextToken = Nothing
+    , _dbprqSortOrder = Nothing
+    , _dbprqLimit = Nothing
+    , _dbprqLT = Nothing
+    , _dbprqFilterVariable = Nothing
+    , _dbprqLE = Nothing
     }
 
--- | The equal to operator. The 'BatchPrediction' results will have 'FilterVariable'
--- values that exactly match the value specified with 'EQ'.
-dbpEQ :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpEQ = lens _dbpEQ (\s a -> s { _dbpEQ = a })
+-- | The equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
+dbprqEQ :: Lens' DescribeBatchPredictions (Maybe Text)
+dbprqEQ = lens _dbprqEQ (\ s a -> s{_dbprqEQ = a});
 
--- | Use one of the following variables to filter a list of 'BatchPrediction':
+-- | The greater than or equal to operator. The @BatchPrediction@ results
+-- will have @FilterVariable@ values that are greater than or equal to the
+-- value specified with @GE@.
+dbprqGE :: Lens' DescribeBatchPredictions (Maybe Text)
+dbprqGE = lens _dbprqGE (\ s a -> s{_dbprqGE = a});
+
+-- | A string that is found at the beginning of a variable, such as @Name@ or
+-- @Id@.
 --
--- 'CreatedAt' - Sets the search criteria to the 'BatchPrediction' creation date.
--- 'Status' - Sets the search criteria to the 'BatchPrediction' status.  'Name' -
--- Sets the search criteria to the contents of the 'BatchPrediction'  'Name'.  'IAMUser' - Sets the search criteria to the user account that invoked the 'BatchPrediction' creation.  'MLModelId' - Sets the search criteria to the 'MLModel' used in the 'BatchPrediction'.  'DataSourceId' - Sets the search criteria to the 'DataSource' used in the 'BatchPrediction'.  'DataURI' - Sets the search criteria to the data file(s) used in the 'BatchPrediction'. The URL can identify either a file or an Amazon Simple Storage Solution
--- (Amazon S3) bucket or directory.
-dbpFilterVariable :: Lens' DescribeBatchPredictions (Maybe BatchPredictionFilterVariable)
-dbpFilterVariable =
-    lens _dbpFilterVariable (\s a -> s { _dbpFilterVariable = a })
+-- For example, a @Batch Prediction@ operation could have the @Name@
+-- @2014-09-09-HolidayGiftMailer@. To search for this @BatchPrediction@,
+-- select @Name@ for the @FilterVariable@ and any of the following strings
+-- for the @Prefix@:
+--
+-- -   2014-09
+--
+-- -   2014-09-09
+--
+-- -   2014-09-09-Holiday
+--
+dbprqPrefix :: Lens' DescribeBatchPredictions (Maybe Text)
+dbprqPrefix = lens _dbprqPrefix (\ s a -> s{_dbprqPrefix = a});
 
--- | The greater than or equal to operator. The 'BatchPrediction' results will have 'FilterVariable' values that are greater than or equal to the value specified with 'GE'.
-dbpGE :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpGE = lens _dbpGE (\s a -> s { _dbpGE = a })
+-- | The greater than operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
+dbprqGT :: Lens' DescribeBatchPredictions (Maybe Text)
+dbprqGT = lens _dbprqGT (\ s a -> s{_dbprqGT = a});
 
--- | The greater than operator. The 'BatchPrediction' results will have 'FilterVariable' values that are greater than the value specified with 'GT'.
-dbpGT :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpGT = lens _dbpGT (\s a -> s { _dbpGT = a })
-
--- | The less than or equal to operator. The 'BatchPrediction' results will have 'FilterVariable' values that are less than or equal to the value specified with 'LE'.
-dbpLE :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpLE = lens _dbpLE (\s a -> s { _dbpLE = a })
-
--- | The less than operator. The 'BatchPrediction' results will have 'FilterVariable'
--- values that are less than the value specified with 'LT'.
-dbpLT :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpLT = lens _dbpLT (\s a -> s { _dbpLT = a })
-
--- | The number of pages of information to include in the result. The range of
--- acceptable values is 1 through 100. The default value is 100.
-dbpLimit :: Lens' DescribeBatchPredictions (Maybe Natural)
-dbpLimit = lens _dbpLimit (\s a -> s { _dbpLimit = a }) . mapping _Nat
-
--- | The not equal to operator. The 'BatchPrediction' results will have 'FilterVariable' values not equal to the value specified with 'NE'.
-dbpNE :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpNE = lens _dbpNE (\s a -> s { _dbpNE = a })
+-- | The not equal to operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+dbprqNE :: Lens' DescribeBatchPredictions (Maybe Text)
+dbprqNE = lens _dbprqNE (\ s a -> s{_dbprqNE = a});
 
 -- | An ID of the page in the paginated results.
-dbpNextToken :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpNextToken = lens _dbpNextToken (\s a -> s { _dbpNextToken = a })
+dbprqNextToken :: Lens' DescribeBatchPredictions (Maybe Text)
+dbprqNextToken = lens _dbprqNextToken (\ s a -> s{_dbprqNextToken = a});
 
--- | A string that is found at the beginning of a variable, such as 'Name' or 'Id'.
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @MLModel@s.
 --
--- For example, a 'Batch Prediction' operation could have the 'Name' '2014-09-09-HolidayGiftMailer'. To search for this 'BatchPrediction', select 'Name' for the 'FilterVariable' and
--- any of the following strings for the 'Prefix':
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
--- 2014-09
---
--- 2014-09-09
---
--- 2014-09-09-Holiday
---
---
-dbpPrefix :: Lens' DescribeBatchPredictions (Maybe Text)
-dbpPrefix = lens _dbpPrefix (\s a -> s { _dbpPrefix = a })
+-- Results are sorted by @FilterVariable@.
+dbprqSortOrder :: Lens' DescribeBatchPredictions (Maybe SortOrder)
+dbprqSortOrder = lens _dbprqSortOrder (\ s a -> s{_dbprqSortOrder = a});
 
--- | A two-value parameter that determines the sequence of the resulting list of 'MLModel's.
+-- | The number of pages of information to include in the result. The range
+-- of acceptable values is 1 through 100. The default value is 100.
+dbprqLimit :: Lens' DescribeBatchPredictions (Maybe Natural)
+dbprqLimit = lens _dbprqLimit (\ s a -> s{_dbprqLimit = a}) . mapping _Nat;
+
+-- | The less than operator. The @BatchPrediction@ results will have
+-- @FilterVariable@ values that are less than the value specified with
+-- @LT@.
+dbprqLT :: Lens' DescribeBatchPredictions (Maybe Text)
+dbprqLT = lens _dbprqLT (\ s a -> s{_dbprqLT = a});
+
+-- | Use one of the following variables to filter a list of
+-- @BatchPrediction@:
 --
--- 'asc' - Arranges the list in ascending order (A-Z, 0-9).  'dsc' - Arranges the
--- list in descending order (Z-A, 9-0).  Results are sorted by 'FilterVariable'.
-dbpSortOrder :: Lens' DescribeBatchPredictions (Maybe SortOrder)
-dbpSortOrder = lens _dbpSortOrder (\s a -> s { _dbpSortOrder = a })
+-- -   @CreatedAt@ - Sets the search criteria to the @BatchPrediction@
+--     creation date.
+-- -   @Status@ - Sets the search criteria to the @BatchPrediction@ status.
+-- -   @Name@ - Sets the search criteria to the contents of the
+--     @BatchPrediction@ ____ @Name@.
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked the @BatchPrediction@ creation.
+-- -   @MLModelId@ - Sets the search criteria to the @MLModel@ used in the
+--     @BatchPrediction@.
+-- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
+--     in the @BatchPrediction@.
+-- -   @DataURI@ - Sets the search criteria to the data file(s) used in the
+--     @BatchPrediction@. The URL can identify either a file or an Amazon
+--     Simple Storage Solution (Amazon S3) bucket or directory.
+dbprqFilterVariable :: Lens' DescribeBatchPredictions (Maybe BatchPredictionFilterVariable)
+dbprqFilterVariable = lens _dbprqFilterVariable (\ s a -> s{_dbprqFilterVariable = a});
 
-data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse
-    { _dbprNextToken :: Maybe Text
-    , _dbprResults   :: List "Results" BatchPrediction
-    } deriving (Eq, Read, Show)
+-- | The less than or equal to operator. The @BatchPrediction@ results will
+-- have @FilterVariable@ values that are less than or equal to the value
+-- specified with @LE@.
+dbprqLE :: Lens' DescribeBatchPredictions (Maybe Text)
+dbprqLE = lens _dbprqLE (\ s a -> s{_dbprqLE = a});
 
--- | 'DescribeBatchPredictionsResponse' constructor.
+instance AWSPager DescribeBatchPredictions where
+        page rq rs
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsResults) = Nothing
+          | otherwise =
+            Just $ rq & dbprqNextToken .~ rs ^. drsNextToken
+
+instance AWSRequest DescribeBatchPredictions where
+        type Sv DescribeBatchPredictions = MachineLearning
+        type Rs DescribeBatchPredictions =
+             DescribeBatchPredictionsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeBatchPredictionsResponse' <$>
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeBatchPredictions where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonML_20141212.DescribeBatchPredictions" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeBatchPredictions where
+        toJSON DescribeBatchPredictions'{..}
+          = object
+              ["EQ" .= _dbprqEQ, "GE" .= _dbprqGE,
+               "Prefix" .= _dbprqPrefix, "GT" .= _dbprqGT,
+               "NE" .= _dbprqNE, "NextToken" .= _dbprqNextToken,
+               "SortOrder" .= _dbprqSortOrder,
+               "Limit" .= _dbprqLimit, "LT" .= _dbprqLT,
+               "FilterVariable" .= _dbprqFilterVariable,
+               "LE" .= _dbprqLE]
+
+instance ToPath DescribeBatchPredictions where
+        toPath = const "/"
+
+instance ToQuery DescribeBatchPredictions where
+        toQuery = const mempty
+
+-- | Represents the output of a DescribeBatchPredictions operation. The
+-- content is essentially a list of @BatchPrediction@s.
+--
+-- /See:/ 'describeBatchPredictionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbprNextToken' @::@ 'Maybe' 'Text'
+-- * 'drsResults'
 --
--- * 'dbprResults' @::@ ['BatchPrediction']
+-- * 'drsNextToken'
 --
-describeBatchPredictionsResponse :: DescribeBatchPredictionsResponse
-describeBatchPredictionsResponse = DescribeBatchPredictionsResponse
-    { _dbprResults   = mempty
-    , _dbprNextToken = Nothing
+-- * 'drsStatus'
+data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
+    { _drsResults   :: !(Maybe [BatchPrediction])
+    , _drsNextToken :: !(Maybe Text)
+    , _drsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeBatchPredictionsResponse' smart constructor.
+describeBatchPredictionsResponse :: Int -> DescribeBatchPredictionsResponse
+describeBatchPredictionsResponse pStatus_ =
+    DescribeBatchPredictionsResponse'
+    { _drsResults = Nothing
+    , _drsNextToken = Nothing
+    , _drsStatus = pStatus_
     }
 
--- | The ID of the next page in the paginated results that indicates at least one
--- more page follows.
-dbprNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
-dbprNextToken = lens _dbprNextToken (\s a -> s { _dbprNextToken = a })
+-- | A list of BatchPrediction objects that meet the search criteria.
+drsResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
+drsResults = lens _drsResults (\ s a -> s{_drsResults = a}) . _Default;
 
--- | A list of 'BatchPrediction' objects that meet the search criteria.
-dbprResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
-dbprResults = lens _dbprResults (\s a -> s { _dbprResults = a }) . _List
+-- | The ID of the next page in the paginated results that indicates at least
+-- one more page follows.
+drsNextToken :: Lens' DescribeBatchPredictionsResponse (Maybe Text)
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
-instance ToPath DescribeBatchPredictions where
-    toPath = const "/"
-
-instance ToQuery DescribeBatchPredictions where
-    toQuery = const mempty
-
-instance ToHeaders DescribeBatchPredictions
-
-instance ToJSON DescribeBatchPredictions where
-    toJSON DescribeBatchPredictions{..} = object
-        [ "FilterVariable" .= _dbpFilterVariable
-        , "EQ"             .= _dbpEQ
-        , "GT"             .= _dbpGT
-        , "LT"             .= _dbpLT
-        , "GE"             .= _dbpGE
-        , "LE"             .= _dbpLE
-        , "NE"             .= _dbpNE
-        , "Prefix"         .= _dbpPrefix
-        , "SortOrder"      .= _dbpSortOrder
-        , "NextToken"      .= _dbpNextToken
-        , "Limit"          .= _dbpLimit
-        ]
-
-instance AWSRequest DescribeBatchPredictions where
-    type Sv DescribeBatchPredictions = MachineLearning
-    type Rs DescribeBatchPredictions = DescribeBatchPredictionsResponse
-
-    request  = post "DescribeBatchPredictions"
-    response = jsonResponse
-
-instance FromJSON DescribeBatchPredictionsResponse where
-    parseJSON = withObject "DescribeBatchPredictionsResponse" $ \o -> DescribeBatchPredictionsResponse
-        <$> o .:? "NextToken"
-        <*> o .:? "Results" .!= mempty
-
-instance AWSPager DescribeBatchPredictions where
-    page rq rs
-        | stop (rs ^. dbprNextToken) = Nothing
-        | otherwise = (\x -> rq & dbpNextToken ?~ x)
-            <$> (rs ^. dbprNextToken)
+-- | FIXME: Undocumented member.
+drsStatus :: Lens' DescribeBatchPredictionsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

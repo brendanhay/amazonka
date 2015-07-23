@@ -1,37 +1,35 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Given an identity (email address or domain), enables or disables whether
--- Amazon SES forwards bounce and complaint notifications as email. Feedback
--- forwarding can only be disabled when Amazon Simple Notification Service
--- (Amazon SNS) topics are specified for both bounces and complaints.
+-- Given an identity (email address or domain), enables or disables whether
+-- Amazon SES forwards bounce and complaint notifications as email.
+-- Feedback forwarding can only be disabled when Amazon Simple Notification
+-- Service (Amazon SNS) topics are specified for both bounces and
+-- complaints.
 --
 -- Feedback forwarding does not apply to delivery notifications. Delivery
--- notifications are only available through Amazon SNS. This action is throttled
--- at one request per second.
+-- notifications are only available through Amazon SNS.
 --
--- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
+-- This action is throttled at one request per second.
+--
+-- For more information about using notifications with Amazon SES, see the
+-- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_SetIdentityFeedbackForwardingEnabled.html>
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
@@ -41,78 +39,108 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     -- ** Request constructor
     , setIdentityFeedbackForwardingEnabled
     -- ** Request lenses
-    , siffeForwardingEnabled
-    , siffeIdentity
+    , sifferqIdentity
+    , sifferqForwardingEnabled
 
     -- * Response
     , SetIdentityFeedbackForwardingEnabledResponse
     -- ** Response constructor
     , setIdentityFeedbackForwardingEnabledResponse
+    -- ** Response lenses
+    , siffersStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
-data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
-    { _siffeForwardingEnabled :: Bool
-    , _siffeIdentity          :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'SetIdentityFeedbackForwardingEnabled' constructor.
+-- | /See:/ 'setIdentityFeedbackForwardingEnabled' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siffeForwardingEnabled' @::@ 'Bool'
+-- * 'sifferqIdentity'
 --
--- * 'siffeIdentity' @::@ 'Text'
---
-setIdentityFeedbackForwardingEnabled :: Text -- ^ 'siffeIdentity'
-                                     -> Bool -- ^ 'siffeForwardingEnabled'
-                                     -> SetIdentityFeedbackForwardingEnabled
-setIdentityFeedbackForwardingEnabled p1 p2 = SetIdentityFeedbackForwardingEnabled
-    { _siffeIdentity          = p1
-    , _siffeForwardingEnabled = p2
+-- * 'sifferqForwardingEnabled'
+data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
+    { _sifferqIdentity          :: !Text
+    , _sifferqForwardingEnabled :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetIdentityFeedbackForwardingEnabled' smart constructor.
+setIdentityFeedbackForwardingEnabled :: Text -> Bool -> SetIdentityFeedbackForwardingEnabled
+setIdentityFeedbackForwardingEnabled pIdentity_ pForwardingEnabled_ =
+    SetIdentityFeedbackForwardingEnabled'
+    { _sifferqIdentity = pIdentity_
+    , _sifferqForwardingEnabled = pForwardingEnabled_
     }
 
--- | Sets whether Amazon SES will forward bounce and complaint notifications as
--- email. 'true' specifies that Amazon SES will forward bounce and complaint
--- notifications as email, in addition to any Amazon SNS topic publishing
--- otherwise specified. 'false' specifies that Amazon SES will publish bounce and
--- complaint notifications only through Amazon SNS. This value can only be set
--- to 'false' when Amazon SNS topics are set for both 'Bounce' and 'Complaint'
--- notification types.
-siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
-siffeForwardingEnabled =
-    lens _siffeForwardingEnabled (\s a -> s { _siffeForwardingEnabled = a })
+-- | The identity for which to set bounce and complaint notification
+-- forwarding. Examples: @user\@example.com@, @example.com@.
+sifferqIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
+sifferqIdentity = lens _sifferqIdentity (\ s a -> s{_sifferqIdentity = a});
 
--- | The identity for which to set bounce and complaint notification forwarding.
--- Examples: 'user@example.com', 'example.com'.
-siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
-siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
+-- | Sets whether Amazon SES will forward bounce and complaint notifications
+-- as email. @true@ specifies that Amazon SES will forward bounce and
+-- complaint notifications as email, in addition to any Amazon SNS topic
+-- publishing otherwise specified. @false@ specifies that Amazon SES will
+-- publish bounce and complaint notifications only through Amazon SNS. This
+-- value can only be set to @false@ when Amazon SNS topics are set for both
+-- @Bounce@ and @Complaint@ notification types.
+sifferqForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
+sifferqForwardingEnabled = lens _sifferqForwardingEnabled (\ s a -> s{_sifferqForwardingEnabled = a});
 
-data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+instance AWSRequest
+         SetIdentityFeedbackForwardingEnabled where
+        type Sv SetIdentityFeedbackForwardingEnabled = SES
+        type Rs SetIdentityFeedbackForwardingEnabled =
+             SetIdentityFeedbackForwardingEnabledResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "SetIdentityFeedbackForwardingEnabledResult"
+              (\ s h x ->
+                 SetIdentityFeedbackForwardingEnabledResponse' <$>
+                   (pure (fromEnum s)))
 
--- | 'SetIdentityFeedbackForwardingEnabledResponse' constructor.
-setIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
-setIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
+instance ToHeaders
+         SetIdentityFeedbackForwardingEnabled where
+        toHeaders = const mempty
 
-instance ToPath SetIdentityFeedbackForwardingEnabled where
-    toPath = const "/"
+instance ToPath SetIdentityFeedbackForwardingEnabled
+         where
+        toPath = const "/"
 
-instance ToQuery SetIdentityFeedbackForwardingEnabled where
-    toQuery SetIdentityFeedbackForwardingEnabled{..} = mconcat
-        [ "ForwardingEnabled" =? _siffeForwardingEnabled
-        , "Identity"          =? _siffeIdentity
-        ]
+instance ToQuery SetIdentityFeedbackForwardingEnabled
+         where
+        toQuery SetIdentityFeedbackForwardingEnabled'{..}
+          = mconcat
+              ["Action" =:
+                 ("SetIdentityFeedbackForwardingEnabled" ::
+                    ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "Identity" =: _sifferqIdentity,
+               "ForwardingEnabled" =: _sifferqForwardingEnabled]
 
-instance ToHeaders SetIdentityFeedbackForwardingEnabled
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
+--
+-- /See:/ 'setIdentityFeedbackForwardingEnabledResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'siffersStatus'
+newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
+    { _siffersStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
-instance AWSRequest SetIdentityFeedbackForwardingEnabled where
-    type Sv SetIdentityFeedbackForwardingEnabled = SES
-    type Rs SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabledResponse
+-- | 'SetIdentityFeedbackForwardingEnabledResponse' smart constructor.
+setIdentityFeedbackForwardingEnabledResponse :: Int -> SetIdentityFeedbackForwardingEnabledResponse
+setIdentityFeedbackForwardingEnabledResponse pStatus_ =
+    SetIdentityFeedbackForwardingEnabledResponse'
+    { _siffersStatus = pStatus_
+    }
 
-    request  = post "SetIdentityFeedbackForwardingEnabled"
-    response = nullResponse SetIdentityFeedbackForwardingEnabledResponse
+-- | FIXME: Undocumented member.
+siffersStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
+siffersStatus = lens _siffersStatus (\ s a -> s{_siffersStatus = a});

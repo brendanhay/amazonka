@@ -1,28 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Route53.GetHostedZoneCount
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | To retrieve a count of all your hosted zones, send a 'GET' request to the '2013-04-01/hostedzonecount' resource.
+-- To retrieve a count of all your hosted zones, send a @GET@ request to
+-- the @2013-04-01\/hostedzonecount@ resource.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html>
 module Network.AWS.Route53.GetHostedZoneCount
@@ -37,62 +33,74 @@ module Network.AWS.Route53.GetHostedZoneCount
     -- ** Response constructor
     , getHostedZoneCountResponse
     -- ** Response lenses
-    , ghzcrHostedZoneCount
+    , ghzcrsStatus
+    , ghzcrsHostedZoneCount
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
-data GetHostedZoneCount = GetHostedZoneCount
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | To retrieve a count of all your hosted zones, send a @GET@ request to
+-- the @2013-04-01\/hostedzonecount@ resource.
+--
+-- /See:/ 'getHostedZoneCount' smart constructor.
+data GetHostedZoneCount =
+    GetHostedZoneCount'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GetHostedZoneCount' constructor.
+-- | 'GetHostedZoneCount' smart constructor.
 getHostedZoneCount :: GetHostedZoneCount
-getHostedZoneCount = GetHostedZoneCount
+getHostedZoneCount = GetHostedZoneCount'
 
-newtype GetHostedZoneCountResponse = GetHostedZoneCountResponse
-    { _ghzcrHostedZoneCount :: Integer
-    } deriving (Eq, Ord, Read, Show, Enum, Num, Integral, Real)
+instance AWSRequest GetHostedZoneCount where
+        type Sv GetHostedZoneCount = Route53
+        type Rs GetHostedZoneCount =
+             GetHostedZoneCountResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetHostedZoneCountResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "HostedZoneCount"))
 
--- | 'GetHostedZoneCountResponse' constructor.
+instance ToHeaders GetHostedZoneCount where
+        toHeaders = const mempty
+
+instance ToPath GetHostedZoneCount where
+        toPath = const "/2013-04-01/hostedzonecount"
+
+instance ToQuery GetHostedZoneCount where
+        toQuery = const mempty
+
+-- | A complex type that contains the count of hosted zones associated with
+-- the current AWS account.
+--
+-- /See:/ 'getHostedZoneCountResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghzcrHostedZoneCount' @::@ 'Integer'
+-- * 'ghzcrsStatus'
 --
-getHostedZoneCountResponse :: Integer -- ^ 'ghzcrHostedZoneCount'
-                           -> GetHostedZoneCountResponse
-getHostedZoneCountResponse p1 = GetHostedZoneCountResponse
-    { _ghzcrHostedZoneCount = p1
+-- * 'ghzcrsHostedZoneCount'
+data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
+    { _ghzcrsStatus          :: !Int
+    , _ghzcrsHostedZoneCount :: !Integer
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetHostedZoneCountResponse' smart constructor.
+getHostedZoneCountResponse :: Int -> Integer -> GetHostedZoneCountResponse
+getHostedZoneCountResponse pStatus_ pHostedZoneCount_ =
+    GetHostedZoneCountResponse'
+    { _ghzcrsStatus = pStatus_
+    , _ghzcrsHostedZoneCount = pHostedZoneCount_
     }
 
+-- | FIXME: Undocumented member.
+ghzcrsStatus :: Lens' GetHostedZoneCountResponse Int
+ghzcrsStatus = lens _ghzcrsStatus (\ s a -> s{_ghzcrsStatus = a});
+
 -- | The number of hosted zones associated with the current AWS account.
-ghzcrHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
-ghzcrHostedZoneCount =
-    lens _ghzcrHostedZoneCount (\s a -> s { _ghzcrHostedZoneCount = a })
-
-instance ToPath GetHostedZoneCount where
-    toPath = const "/2013-04-01/hostedzonecount"
-
-instance ToQuery GetHostedZoneCount where
-    toQuery = const mempty
-
-instance ToHeaders GetHostedZoneCount
-
-instance ToXMLRoot GetHostedZoneCount where
-    toXMLRoot = const (namespaced ns "GetHostedZoneCount" [])
-
-instance ToXML GetHostedZoneCount
-
-instance AWSRequest GetHostedZoneCount where
-    type Sv GetHostedZoneCount = Route53
-    type Rs GetHostedZoneCount = GetHostedZoneCountResponse
-
-    request  = get
-    response = xmlResponse
-
-instance FromXML GetHostedZoneCountResponse where
-    parseXML x = GetHostedZoneCountResponse
-        <$> x .@  "HostedZoneCount"
+ghzcrsHostedZoneCount :: Lens' GetHostedZoneCountResponse Integer
+ghzcrsHostedZoneCount = lens _ghzcrsHostedZoneCount (\ s a -> s{_ghzcrsHostedZoneCount = a});

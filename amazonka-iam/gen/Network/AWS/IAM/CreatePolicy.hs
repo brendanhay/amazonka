@@ -1,34 +1,33 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.CreatePolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a new managed policy for your AWS account.
+-- Creates a new managed policy for your AWS account.
 --
--- This operation creates a policy version with a version identifier of 'v1' and
--- sets v1 as the policy's default version. For more information about policy
--- versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /Using IAM/ guide.
+-- This operation creates a policy version with a version identifier of
+-- @v1@ and sets v1 as the policy\'s default version. For more information
+-- about policy versions, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
+-- in the /Using IAM/ guide.
 --
--- For more information about managed policies in general, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html ManagedPolicies and Inline Policies> in the /Using IAM/ guide.
+-- For more information about managed policies in general, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicy.html>
 module Network.AWS.IAM.CreatePolicy
@@ -38,120 +37,134 @@ module Network.AWS.IAM.CreatePolicy
     -- ** Request constructor
     , createPolicy
     -- ** Request lenses
-    , cpDescription
-    , cpPath
-    , cpPolicyDocument
-    , cpPolicyName
+    , cprqPath
+    , cprqDescription
+    , cprqPolicyName
+    , cprqPolicyDocument
 
     -- * Response
     , CreatePolicyResponse
     -- ** Response constructor
     , createPolicyResponse
     -- ** Response lenses
-    , cprPolicy
+    , cprsPolicy
+    , cprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreatePolicy = CreatePolicy
-    { _cpDescription    :: Maybe Text
-    , _cpPath           :: Maybe Text
-    , _cpPolicyDocument :: Text
-    , _cpPolicyName     :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreatePolicy' constructor.
+-- | /See:/ 'createPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpDescription' @::@ 'Maybe' 'Text'
+-- * 'cprqPath'
 --
--- * 'cpPath' @::@ 'Maybe' 'Text'
+-- * 'cprqDescription'
 --
--- * 'cpPolicyDocument' @::@ 'Text'
+-- * 'cprqPolicyName'
 --
--- * 'cpPolicyName' @::@ 'Text'
---
-createPolicy :: Text -- ^ 'cpPolicyName'
-             -> Text -- ^ 'cpPolicyDocument'
-             -> CreatePolicy
-createPolicy p1 p2 = CreatePolicy
-    { _cpPolicyName     = p1
-    , _cpPolicyDocument = p2
-    , _cpPath           = Nothing
-    , _cpDescription    = Nothing
+-- * 'cprqPolicyDocument'
+data CreatePolicy = CreatePolicy'
+    { _cprqPath           :: !(Maybe Text)
+    , _cprqDescription    :: !(Maybe Text)
+    , _cprqPolicyName     :: !Text
+    , _cprqPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreatePolicy' smart constructor.
+createPolicy :: Text -> Text -> CreatePolicy
+createPolicy pPolicyName_ pPolicyDocument_ =
+    CreatePolicy'
+    { _cprqPath = Nothing
+    , _cprqDescription = Nothing
+    , _cprqPolicyName = pPolicyName_
+    , _cprqPolicyDocument = pPolicyDocument_
     }
+
+-- | The path for the policy.
+--
+-- For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+cprqPath :: Lens' CreatePolicy (Maybe Text)
+cprqPath = lens _cprqPath (\ s a -> s{_cprqPath = a});
 
 -- | A friendly description of the policy.
 --
 -- Typically used to store information about the permissions defined in the
--- policy. For example, "Grants access to production DynamoDB tables."
+-- policy. For example, \"Grants access to production DynamoDB tables.\"
 --
--- The policy description is immutable. After a value is assigned, it cannot be
--- changed.
-cpDescription :: Lens' CreatePolicy (Maybe Text)
-cpDescription = lens _cpDescription (\s a -> s { _cpDescription = a })
-
--- | The path for the policy.
---
--- For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/
--- guide.
---
--- This parameter is optional. If it is not included, it defaults to a slash
--- (/).
-cpPath :: Lens' CreatePolicy (Maybe Text)
-cpPath = lens _cpPath (\s a -> s { _cpPath = a })
-
--- | The policy document.
-cpPolicyDocument :: Lens' CreatePolicy Text
-cpPolicyDocument = lens _cpPolicyDocument (\s a -> s { _cpPolicyDocument = a })
+-- The policy description is immutable. After a value is assigned, it
+-- cannot be changed.
+cprqDescription :: Lens' CreatePolicy (Maybe Text)
+cprqDescription = lens _cprqDescription (\ s a -> s{_cprqDescription = a});
 
 -- | The name of the policy document.
-cpPolicyName :: Lens' CreatePolicy Text
-cpPolicyName = lens _cpPolicyName (\s a -> s { _cpPolicyName = a })
+cprqPolicyName :: Lens' CreatePolicy Text
+cprqPolicyName = lens _cprqPolicyName (\ s a -> s{_cprqPolicyName = a});
 
-newtype CreatePolicyResponse = CreatePolicyResponse
-    { _cprPolicy :: Maybe Policy
-    } deriving (Eq, Read, Show)
+-- | The policy document.
+cprqPolicyDocument :: Lens' CreatePolicy Text
+cprqPolicyDocument = lens _cprqPolicyDocument (\ s a -> s{_cprqPolicyDocument = a});
 
--- | 'CreatePolicyResponse' constructor.
+instance AWSRequest CreatePolicy where
+        type Sv CreatePolicy = IAM
+        type Rs CreatePolicy = CreatePolicyResponse
+        request = post
+        response
+          = receiveXMLWrapper "CreatePolicyResult"
+              (\ s h x ->
+                 CreatePolicyResponse' <$>
+                   (x .@? "Policy") <*> (pure (fromEnum s)))
+
+instance ToHeaders CreatePolicy where
+        toHeaders = const mempty
+
+instance ToPath CreatePolicy where
+        toPath = const "/"
+
+instance ToQuery CreatePolicy where
+        toQuery CreatePolicy'{..}
+          = mconcat
+              ["Action" =: ("CreatePolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "Path" =: _cprqPath,
+               "Description" =: _cprqDescription,
+               "PolicyName" =: _cprqPolicyName,
+               "PolicyDocument" =: _cprqPolicyDocument]
+
+-- | Contains the response to a successful CreatePolicy request.
+--
+-- /See:/ 'createPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprPolicy' @::@ 'Maybe' 'Policy'
+-- * 'cprsPolicy'
 --
-createPolicyResponse :: CreatePolicyResponse
-createPolicyResponse = CreatePolicyResponse
-    { _cprPolicy = Nothing
+-- * 'cprsStatus'
+data CreatePolicyResponse = CreatePolicyResponse'
+    { _cprsPolicy :: !(Maybe Policy)
+    , _cprsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreatePolicyResponse' smart constructor.
+createPolicyResponse :: Int -> CreatePolicyResponse
+createPolicyResponse pStatus_ =
+    CreatePolicyResponse'
+    { _cprsPolicy = Nothing
+    , _cprsStatus = pStatus_
     }
 
 -- | Information about the policy.
-cprPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
-cprPolicy = lens _cprPolicy (\s a -> s { _cprPolicy = a })
+cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
+cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 
-instance ToPath CreatePolicy where
-    toPath = const "/"
-
-instance ToQuery CreatePolicy where
-    toQuery CreatePolicy{..} = mconcat
-        [ "Description"    =? _cpDescription
-        , "Path"           =? _cpPath
-        , "PolicyDocument" =? _cpPolicyDocument
-        , "PolicyName"     =? _cpPolicyName
-        ]
-
-instance ToHeaders CreatePolicy
-
-instance AWSRequest CreatePolicy where
-    type Sv CreatePolicy = IAM
-    type Rs CreatePolicy = CreatePolicyResponse
-
-    request  = post "CreatePolicy"
-    response = xmlResponse
-
-instance FromXML CreatePolicyResponse where
-    parseXML = withElement "CreatePolicyResult" $ \x -> CreatePolicyResponse
-        <$> x .@? "Policy"
+-- | FIXME: Undocumented member.
+cprsStatus :: Lens' CreatePolicyResponse Int
+cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

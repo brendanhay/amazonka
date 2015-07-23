@@ -1,37 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.DeleteDBInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The DeleteDBInstance action deletes a previously provisioned DB instance. A
--- successful response from the web service indicates the request was received
--- correctly. When you delete a DB instance, all automated backups for that
--- instance are deleted and cannot be recovered. Manual DB snapshots of the DB
--- instance to be deleted are not deleted.
+-- The DeleteDBInstance action deletes a previously provisioned DB
+-- instance. A successful response from the web service indicates the
+-- request was received correctly. When you delete a DB instance, all
+-- automated backups for that instance are deleted and cannot be recovered.
+-- Manual DB snapshots of the DB instance to be deleted are not deleted.
 --
--- If a final DB snapshot is requested the status of the RDS instance will be
--- "deleting" until the DB snapshot is created. The API action 'DescribeDBInstance'
--- is used to monitor the status of this operation. The action cannot be
--- canceled or reverted once submitted.
+-- If a final DB snapshot is requested the status of the RDS instance will
+-- be \"deleting\" until the DB snapshot is created. The API action
+-- @DescribeDBInstance@ is used to monitor the status of this operation.
+-- The action cannot be canceled or reverted once submitted.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBInstance.html>
 module Network.AWS.RDS.DeleteDBInstance
@@ -41,122 +36,140 @@ module Network.AWS.RDS.DeleteDBInstance
     -- ** Request constructor
     , deleteDBInstance
     -- ** Request lenses
-    , ddbiDBInstanceIdentifier
-    , ddbiFinalDBSnapshotIdentifier
-    , ddbiSkipFinalSnapshot
+    , ddirqFinalDBSnapshotIdentifier
+    , ddirqSkipFinalSnapshot
+    , ddirqDBInstanceIdentifier
 
     -- * Response
     , DeleteDBInstanceResponse
     -- ** Response constructor
     , deleteDBInstanceResponse
     -- ** Response lenses
-    , ddbirDBInstance
+    , ddirsDBInstance
+    , ddirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteDBInstance = DeleteDBInstance
-    { _ddbiDBInstanceIdentifier      :: Text
-    , _ddbiFinalDBSnapshotIdentifier :: Maybe Text
-    , _ddbiSkipFinalSnapshot         :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteDBInstance' constructor.
+-- |
+--
+-- /See:/ 'deleteDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbiDBInstanceIdentifier' @::@ 'Text'
+-- * 'ddirqFinalDBSnapshotIdentifier'
 --
--- * 'ddbiFinalDBSnapshotIdentifier' @::@ 'Maybe' 'Text'
+-- * 'ddirqSkipFinalSnapshot'
 --
--- * 'ddbiSkipFinalSnapshot' @::@ 'Maybe' 'Bool'
---
-deleteDBInstance :: Text -- ^ 'ddbiDBInstanceIdentifier'
-                 -> DeleteDBInstance
-deleteDBInstance p1 = DeleteDBInstance
-    { _ddbiDBInstanceIdentifier      = p1
-    , _ddbiSkipFinalSnapshot         = Nothing
-    , _ddbiFinalDBSnapshotIdentifier = Nothing
+-- * 'ddirqDBInstanceIdentifier'
+data DeleteDBInstance = DeleteDBInstance'
+    { _ddirqFinalDBSnapshotIdentifier :: !(Maybe Text)
+    , _ddirqSkipFinalSnapshot         :: !(Maybe Bool)
+    , _ddirqDBInstanceIdentifier      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteDBInstance' smart constructor.
+deleteDBInstance :: Text -> DeleteDBInstance
+deleteDBInstance pDBInstanceIdentifier_ =
+    DeleteDBInstance'
+    { _ddirqFinalDBSnapshotIdentifier = Nothing
+    , _ddirqSkipFinalSnapshot = Nothing
+    , _ddirqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | The DB instance identifier for the DB instance to be deleted. This parameter
--- isn't case sensitive.
+-- | The DBSnapshotIdentifier of the new DBSnapshot created when
+-- SkipFinalSnapshot is set to @false@.
+--
+-- Specifying this parameter and also setting the SkipFinalShapshot
+-- parameter to true results in an error.
 --
 -- Constraints:
 --
--- Must contain from 1 to 63 alphanumeric characters or hyphens First
--- character must be a letter Cannot end with a hyphen or contain two
--- consecutive hyphens
-ddbiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
-ddbiDBInstanceIdentifier =
-    lens _ddbiDBInstanceIdentifier
-        (\s a -> s { _ddbiDBInstanceIdentifier = a })
+-- -   Must be 1 to 255 alphanumeric characters
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+-- -   Cannot be specified when deleting a Read Replica.
+ddirqFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
+ddirqFinalDBSnapshotIdentifier = lens _ddirqFinalDBSnapshotIdentifier (\ s a -> s{_ddirqFinalDBSnapshotIdentifier = a});
 
--- | The DBSnapshotIdentifier of the new DBSnapshot created when
--- SkipFinalSnapshot is set to 'false'.
+-- | Determines whether a final DB snapshot is created before the DB instance
+-- is deleted. If @true@ is specified, no DBSnapshot is created. If @false@
+-- is specified, a DB snapshot is created before the DB instance is
+-- deleted.
 --
--- Specifying this parameter and also setting the SkipFinalShapshot parameter
--- to true results in an error.  Constraints:
---
--- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
--- Cannot be specified when deleting a Read Replica.
-ddbiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
-ddbiFinalDBSnapshotIdentifier =
-    lens _ddbiFinalDBSnapshotIdentifier
-        (\s a -> s { _ddbiFinalDBSnapshotIdentifier = a })
-
--- | Determines whether a final DB snapshot is created before the DB instance is
--- deleted. If 'true' is specified, no DBSnapshot is created. If 'false' is
--- specified, a DB snapshot is created before the DB instance is deleted.
---
--- Specify 'true' when deleting a Read Replica.
+-- Specify @true@ when deleting a Read Replica.
 --
 -- The FinalDBSnapshotIdentifier parameter must be specified if
--- SkipFinalSnapshot is 'false'. Default: 'false'
-ddbiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
-ddbiSkipFinalSnapshot =
-    lens _ddbiSkipFinalSnapshot (\s a -> s { _ddbiSkipFinalSnapshot = a })
+-- SkipFinalSnapshot is @false@.
+--
+-- Default: @false@
+ddirqSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
+ddirqSkipFinalSnapshot = lens _ddirqSkipFinalSnapshot (\ s a -> s{_ddirqSkipFinalSnapshot = a});
 
-newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
-    { _ddbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Read, Show)
+-- | The DB instance identifier for the DB instance to be deleted. This
+-- parameter isn\'t case sensitive.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+ddirqDBInstanceIdentifier :: Lens' DeleteDBInstance Text
+ddirqDBInstanceIdentifier = lens _ddirqDBInstanceIdentifier (\ s a -> s{_ddirqDBInstanceIdentifier = a});
 
--- | 'DeleteDBInstanceResponse' constructor.
+instance AWSRequest DeleteDBInstance where
+        type Sv DeleteDBInstance = RDS
+        type Rs DeleteDBInstance = DeleteDBInstanceResponse
+        request = post
+        response
+          = receiveXMLWrapper "DeleteDBInstanceResult"
+              (\ s h x ->
+                 DeleteDBInstanceResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
+
+instance ToHeaders DeleteDBInstance where
+        toHeaders = const mempty
+
+instance ToPath DeleteDBInstance where
+        toPath = const "/"
+
+instance ToQuery DeleteDBInstance where
+        toQuery DeleteDBInstance'{..}
+          = mconcat
+              ["Action" =: ("DeleteDBInstance" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "FinalDBSnapshotIdentifier" =:
+                 _ddirqFinalDBSnapshotIdentifier,
+               "SkipFinalSnapshot" =: _ddirqSkipFinalSnapshot,
+               "DBInstanceIdentifier" =: _ddirqDBInstanceIdentifier]
+
+-- | /See:/ 'deleteDBInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbirDBInstance' @::@ 'Maybe' 'DBInstance'
+-- * 'ddirsDBInstance'
 --
-deleteDBInstanceResponse :: DeleteDBInstanceResponse
-deleteDBInstanceResponse = DeleteDBInstanceResponse
-    { _ddbirDBInstance = Nothing
+-- * 'ddirsStatus'
+data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
+    { _ddirsDBInstance :: !(Maybe DBInstance)
+    , _ddirsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteDBInstanceResponse' smart constructor.
+deleteDBInstanceResponse :: Int -> DeleteDBInstanceResponse
+deleteDBInstanceResponse pStatus_ =
+    DeleteDBInstanceResponse'
+    { _ddirsDBInstance = Nothing
+    , _ddirsStatus = pStatus_
     }
 
-ddbirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
-ddbirDBInstance = lens _ddbirDBInstance (\s a -> s { _ddbirDBInstance = a })
+-- | FIXME: Undocumented member.
+ddirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
+ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
 
-instance ToPath DeleteDBInstance where
-    toPath = const "/"
-
-instance ToQuery DeleteDBInstance where
-    toQuery DeleteDBInstance{..} = mconcat
-        [ "DBInstanceIdentifier"      =? _ddbiDBInstanceIdentifier
-        , "FinalDBSnapshotIdentifier" =? _ddbiFinalDBSnapshotIdentifier
-        , "SkipFinalSnapshot"         =? _ddbiSkipFinalSnapshot
-        ]
-
-instance ToHeaders DeleteDBInstance
-
-instance AWSRequest DeleteDBInstance where
-    type Sv DeleteDBInstance = RDS
-    type Rs DeleteDBInstance = DeleteDBInstanceResponse
-
-    request  = post "DeleteDBInstance"
-    response = xmlResponse
-
-instance FromXML DeleteDBInstanceResponse where
-    parseXML = withElement "DeleteDBInstanceResult" $ \x -> DeleteDBInstanceResponse
-        <$> x .@? "DBInstance"
+-- | FIXME: Undocumented member.
+ddirsStatus :: Lens' DeleteDBInstanceResponse Int
+ddirsStatus = lens _ddirsStatus (\ s a -> s{_ddirsStatus = a});

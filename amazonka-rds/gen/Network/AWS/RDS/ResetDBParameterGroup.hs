@@ -1,30 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.ResetDBParameterGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Modifies the parameters of a DB parameter group to the engine/system default
--- value. To reset specific parameters submit a list of the following: 'ParameterName' and 'ApplyMethod'. To reset the entire DB parameter group, specify the 'DBParameterGroup' name and 'ResetAllParameters' parameters. When resetting the entire group,
--- dynamic parameters are updated immediately and static parameters are set to 'pending-reboot' to take effect on the next DB instance restart or 'RebootDBInstance' request.
+-- Modifies the parameters of a DB parameter group to the engine\/system
+-- default value. To reset specific parameters submit a list of the
+-- following: @ParameterName@ and @ApplyMethod@. To reset the entire DB
+-- parameter group, specify the @DBParameterGroup@ name and
+-- @ResetAllParameters@ parameters. When resetting the entire group,
+-- dynamic parameters are updated immediately and static parameters are set
+-- to @pending-reboot@ to take effect on the next DB instance restart or
+-- @RebootDBInstance@ request.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ResetDBParameterGroup.html>
 module Network.AWS.RDS.ResetDBParameterGroup
@@ -34,125 +34,108 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- ** Request constructor
     , resetDBParameterGroup
     -- ** Request lenses
-    , rdbpgDBParameterGroupName
-    , rdbpgParameters
-    , rdbpgResetAllParameters
+    , rdpgrqResetAllParameters
+    , rdpgrqParameters
+    , rdpgrqDBParameterGroupName
 
     -- * Response
-    , ResetDBParameterGroupResponse
+    , DBParameterGroupNameMessage
     -- ** Response constructor
-    , resetDBParameterGroupResponse
+    , dbParameterGroupNameMessage
     -- ** Response lenses
-    , rdbpgrDBParameterGroupName
+    , dpgnmDBParameterGroupName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ResetDBParameterGroup = ResetDBParameterGroup
-    { _rdbpgDBParameterGroupName :: Text
-    , _rdbpgParameters           :: List "member" Parameter
-    , _rdbpgResetAllParameters   :: Maybe Bool
-    } deriving (Eq, Read, Show)
-
--- | 'ResetDBParameterGroup' constructor.
+-- |
+--
+-- /See:/ 'resetDBParameterGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdbpgDBParameterGroupName' @::@ 'Text'
+-- * 'rdpgrqResetAllParameters'
 --
--- * 'rdbpgParameters' @::@ ['Parameter']
+-- * 'rdpgrqParameters'
 --
--- * 'rdbpgResetAllParameters' @::@ 'Maybe' 'Bool'
---
-resetDBParameterGroup :: Text -- ^ 'rdbpgDBParameterGroupName'
-                      -> ResetDBParameterGroup
-resetDBParameterGroup p1 = ResetDBParameterGroup
-    { _rdbpgDBParameterGroupName = p1
-    , _rdbpgResetAllParameters   = Nothing
-    , _rdbpgParameters           = mempty
+-- * 'rdpgrqDBParameterGroupName'
+data ResetDBParameterGroup = ResetDBParameterGroup'
+    { _rdpgrqResetAllParameters   :: !(Maybe Bool)
+    , _rdpgrqParameters           :: !(Maybe [Parameter])
+    , _rdpgrqDBParameterGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ResetDBParameterGroup' smart constructor.
+resetDBParameterGroup :: Text -> ResetDBParameterGroup
+resetDBParameterGroup pDBParameterGroupName_ =
+    ResetDBParameterGroup'
+    { _rdpgrqResetAllParameters = Nothing
+    , _rdpgrqParameters = Nothing
+    , _rdpgrqDBParameterGroupName = pDBParameterGroupName_
     }
+
+-- | Specifies whether (@true@) or not (@false@) to reset all parameters in
+-- the DB parameter group to default values.
+--
+-- Default: @true@
+rdpgrqResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
+rdpgrqResetAllParameters = lens _rdpgrqResetAllParameters (\ s a -> s{_rdpgrqResetAllParameters = a});
+
+-- | An array of parameter names, values, and the apply method for the
+-- parameter update. At least one parameter name, value, and apply method
+-- must be supplied; subsequent arguments are optional. A maximum of 20
+-- parameters may be modified in a single request.
+--
+-- __MySQL__
+--
+-- Valid Values (for Apply method): @immediate@ | @pending-reboot@
+--
+-- You can use the immediate value with dynamic parameters only. You can
+-- use the @pending-reboot@ value for both dynamic and static parameters,
+-- and changes are applied when DB instance reboots.
+--
+-- __Oracle__
+--
+-- Valid Values (for Apply method): @pending-reboot@
+rdpgrqParameters :: Lens' ResetDBParameterGroup [Parameter]
+rdpgrqParameters = lens _rdpgrqParameters (\ s a -> s{_rdpgrqParameters = a}) . _Default;
 
 -- | The name of the DB parameter group.
 --
 -- Constraints:
 --
--- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
---
-rdbpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
-rdbpgDBParameterGroupName =
-    lens _rdbpgDBParameterGroupName
-        (\s a -> s { _rdbpgDBParameterGroupName = a })
-
--- | An array of parameter names, values, and the apply method for the parameter
--- update. At least one parameter name, value, and apply method must be
--- supplied; subsequent arguments are optional. A maximum of 20 parameters may
--- be modified in a single request.
---
--- MySQL
---
--- Valid Values (for Apply method): 'immediate' | 'pending-reboot'
---
--- You can use the immediate value with dynamic parameters only. You can use
--- the 'pending-reboot' value for both dynamic and static parameters, and changes
--- are applied when DB instance reboots.
---
--- Oracle
---
--- Valid Values (for Apply method): 'pending-reboot'
-rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
-rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a }) . _List
-
--- | Specifies whether ('true') or not ('false') to reset all parameters in the DB
--- parameter group to default values.
---
--- Default: 'true'
-rdbpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
-rdbpgResetAllParameters =
-    lens _rdbpgResetAllParameters (\s a -> s { _rdbpgResetAllParameters = a })
-
-newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
-    { _rdbpgrDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'ResetDBParameterGroupResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rdbpgrDBParameterGroupName' @::@ 'Maybe' 'Text'
---
-resetDBParameterGroupResponse :: ResetDBParameterGroupResponse
-resetDBParameterGroupResponse = ResetDBParameterGroupResponse
-    { _rdbpgrDBParameterGroupName = Nothing
-    }
-
--- | The name of the DB parameter group.
-rdbpgrDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
-rdbpgrDBParameterGroupName =
-    lens _rdbpgrDBParameterGroupName
-        (\s a -> s { _rdbpgrDBParameterGroupName = a })
-
-instance ToPath ResetDBParameterGroup where
-    toPath = const "/"
-
-instance ToQuery ResetDBParameterGroup where
-    toQuery ResetDBParameterGroup{..} = mconcat
-        [ "DBParameterGroupName" =? _rdbpgDBParameterGroupName
-        , "Parameters"           =? _rdbpgParameters
-        , "ResetAllParameters"   =? _rdbpgResetAllParameters
-        ]
-
-instance ToHeaders ResetDBParameterGroup
+-- -   Must be 1 to 255 alphanumeric characters
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+rdpgrqDBParameterGroupName :: Lens' ResetDBParameterGroup Text
+rdpgrqDBParameterGroupName = lens _rdpgrqDBParameterGroupName (\ s a -> s{_rdpgrqDBParameterGroupName = a});
 
 instance AWSRequest ResetDBParameterGroup where
-    type Sv ResetDBParameterGroup = RDS
-    type Rs ResetDBParameterGroup = ResetDBParameterGroupResponse
+        type Sv ResetDBParameterGroup = RDS
+        type Rs ResetDBParameterGroup =
+             DBParameterGroupNameMessage
+        request = post
+        response
+          = receiveXMLWrapper "ResetDBParameterGroupResult"
+              (\ s h x -> parseXML x)
 
-    request  = post "ResetDBParameterGroup"
-    response = xmlResponse
+instance ToHeaders ResetDBParameterGroup where
+        toHeaders = const mempty
 
-instance FromXML ResetDBParameterGroupResponse where
-    parseXML = withElement "ResetDBParameterGroupResult" $ \x -> ResetDBParameterGroupResponse
-        <$> x .@? "DBParameterGroupName"
+instance ToPath ResetDBParameterGroup where
+        toPath = const "/"
+
+instance ToQuery ResetDBParameterGroup where
+        toQuery ResetDBParameterGroup'{..}
+          = mconcat
+              ["Action" =: ("ResetDBParameterGroup" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "ResetAllParameters" =: _rdpgrqResetAllParameters,
+               "Parameters" =:
+                 toQuery
+                   (toQueryList "Parameter" <$> _rdpgrqParameters),
+               "DBParameterGroupName" =:
+                 _rdpgrqDBParameterGroupName]

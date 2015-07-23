@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CodeDeploy.ListDeployments
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists the deployments within a deployment group for an application registered
--- with the applicable IAM user or AWS account.
+-- Lists the deployments within a deployment group for an application
+-- registered with the applicable IAM user or AWS account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeployments.html>
 module Network.AWS.CodeDeploy.ListDeployments
@@ -33,146 +28,164 @@ module Network.AWS.CodeDeploy.ListDeployments
     -- ** Request constructor
     , listDeployments
     -- ** Request lenses
-    , ldApplicationName
-    , ldCreateTimeRange
-    , ldDeploymentGroupName
-    , ldIncludeOnlyStatuses
-    , ldNextToken
+    , ldrqCreateTimeRange
+    , ldrqNextToken
+    , ldrqIncludeOnlyStatuses
+    , ldrqApplicationName
+    , ldrqDeploymentGroupName
 
     -- * Response
     , ListDeploymentsResponse
     -- ** Response constructor
     , listDeploymentsResponse
     -- ** Response lenses
-    , ldrDeployments
-    , ldrNextToken
+    , ldrsNextToken
+    , ldrsDeployments
+    , ldrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListDeployments = ListDeployments
-    { _ldApplicationName     :: Maybe Text
-    , _ldCreateTimeRange     :: Maybe TimeRange
-    , _ldDeploymentGroupName :: Maybe Text
-    , _ldIncludeOnlyStatuses :: List "includeOnlyStatuses" DeploymentStatus
-    , _ldNextToken           :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'ListDeployments' constructor.
+-- | Represents the input of a list deployments operation.
+--
+-- /See:/ 'listDeployments' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldApplicationName' @::@ 'Maybe' 'Text'
+-- * 'ldrqCreateTimeRange'
 --
--- * 'ldCreateTimeRange' @::@ 'Maybe' 'TimeRange'
+-- * 'ldrqNextToken'
 --
--- * 'ldDeploymentGroupName' @::@ 'Maybe' 'Text'
+-- * 'ldrqIncludeOnlyStatuses'
 --
--- * 'ldIncludeOnlyStatuses' @::@ ['DeploymentStatus']
+-- * 'ldrqApplicationName'
 --
--- * 'ldNextToken' @::@ 'Maybe' 'Text'
---
+-- * 'ldrqDeploymentGroupName'
+data ListDeployments = ListDeployments'
+    { _ldrqCreateTimeRange     :: !(Maybe TimeRange)
+    , _ldrqNextToken           :: !(Maybe Text)
+    , _ldrqIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
+    , _ldrqApplicationName     :: !(Maybe Text)
+    , _ldrqDeploymentGroupName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListDeployments' smart constructor.
 listDeployments :: ListDeployments
-listDeployments = ListDeployments
-    { _ldApplicationName     = Nothing
-    , _ldDeploymentGroupName = Nothing
-    , _ldIncludeOnlyStatuses = mempty
-    , _ldCreateTimeRange     = Nothing
-    , _ldNextToken           = Nothing
+listDeployments =
+    ListDeployments'
+    { _ldrqCreateTimeRange = Nothing
+    , _ldrqNextToken = Nothing
+    , _ldrqIncludeOnlyStatuses = Nothing
+    , _ldrqApplicationName = Nothing
+    , _ldrqDeploymentGroupName = Nothing
     }
 
--- | The name of an existing AWS CodeDeploy application associated with the
--- applicable IAM user or AWS account.
-ldApplicationName :: Lens' ListDeployments (Maybe Text)
-ldApplicationName =
-    lens _ldApplicationName (\s a -> s { _ldApplicationName = a })
-
--- | A deployment creation start- and end-time range for returning a subset of the
--- list of deployments.
-ldCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
-ldCreateTimeRange =
-    lens _ldCreateTimeRange (\s a -> s { _ldCreateTimeRange = a })
-
--- | The name of an existing deployment group for the specified application.
-ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
-ldDeploymentGroupName =
-    lens _ldDeploymentGroupName (\s a -> s { _ldDeploymentGroupName = a })
-
--- | A subset of deployments to list, by status:
---
--- Created: Include in the resulting list created deployments. Queued: Include
--- in the resulting list queued deployments. In Progress: Include in the
--- resulting list in-progress deployments. Succeeded: Include in the resulting
--- list succeeded deployments. Failed: Include in the resulting list failed
--- deployments. Aborted: Include in the resulting list aborted deployments.
-ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
-ldIncludeOnlyStatuses =
-    lens _ldIncludeOnlyStatuses (\s a -> s { _ldIncludeOnlyStatuses = a })
-        . _List
+-- | A deployment creation start- and end-time range for returning a subset
+-- of the list of deployments.
+ldrqCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
+ldrqCreateTimeRange = lens _ldrqCreateTimeRange (\ s a -> s{_ldrqCreateTimeRange = a});
 
 -- | An identifier that was returned from the previous list deployments call,
 -- which can be used to return the next set of deployments in the list.
-ldNextToken :: Lens' ListDeployments (Maybe Text)
-ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
+ldrqNextToken :: Lens' ListDeployments (Maybe Text)
+ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
 
-data ListDeploymentsResponse = ListDeploymentsResponse
-    { _ldrDeployments :: List "deployments" Text
-    , _ldrNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+-- | A subset of deployments to list, by status:
+--
+-- -   Created: Include in the resulting list created deployments.
+-- -   Queued: Include in the resulting list queued deployments.
+-- -   In Progress: Include in the resulting list in-progress deployments.
+-- -   Succeeded: Include in the resulting list succeeded deployments.
+-- -   Failed: Include in the resulting list failed deployments.
+-- -   Aborted: Include in the resulting list aborted deployments.
+ldrqIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
+ldrqIncludeOnlyStatuses = lens _ldrqIncludeOnlyStatuses (\ s a -> s{_ldrqIncludeOnlyStatuses = a}) . _Default;
 
--- | 'ListDeploymentsResponse' constructor.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
+ldrqApplicationName :: Lens' ListDeployments (Maybe Text)
+ldrqApplicationName = lens _ldrqApplicationName (\ s a -> s{_ldrqApplicationName = a});
+
+-- | The name of an existing deployment group for the specified application.
+ldrqDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
+ldrqDeploymentGroupName = lens _ldrqDeploymentGroupName (\ s a -> s{_ldrqDeploymentGroupName = a});
+
+instance AWSRequest ListDeployments where
+        type Sv ListDeployments = CodeDeploy
+        type Rs ListDeployments = ListDeploymentsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListDeploymentsResponse' <$>
+                   (x .?> "nextToken") <*>
+                     (x .?> "deployments" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListDeployments where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.ListDeployments" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListDeployments where
+        toJSON ListDeployments'{..}
+          = object
+              ["createTimeRange" .= _ldrqCreateTimeRange,
+               "nextToken" .= _ldrqNextToken,
+               "includeOnlyStatuses" .= _ldrqIncludeOnlyStatuses,
+               "applicationName" .= _ldrqApplicationName,
+               "deploymentGroupName" .= _ldrqDeploymentGroupName]
+
+instance ToPath ListDeployments where
+        toPath = const "/"
+
+instance ToQuery ListDeployments where
+        toQuery = const mempty
+
+-- | Represents the output of a list deployments operation.
+--
+-- /See:/ 'listDeploymentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrDeployments' @::@ ['Text']
+-- * 'ldrsNextToken'
 --
--- * 'ldrNextToken' @::@ 'Maybe' 'Text'
+-- * 'ldrsDeployments'
 --
-listDeploymentsResponse :: ListDeploymentsResponse
-listDeploymentsResponse = ListDeploymentsResponse
-    { _ldrDeployments = mempty
-    , _ldrNextToken   = Nothing
-    }
+-- * 'ldrsStatus'
+data ListDeploymentsResponse = ListDeploymentsResponse'
+    { _ldrsNextToken   :: !(Maybe Text)
+    , _ldrsDeployments :: !(Maybe [Text])
+    , _ldrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | A list of deployment IDs.
-ldrDeployments :: Lens' ListDeploymentsResponse [Text]
-ldrDeployments = lens _ldrDeployments (\s a -> s { _ldrDeployments = a }) . _List
+-- | 'ListDeploymentsResponse' smart constructor.
+listDeploymentsResponse :: Int -> ListDeploymentsResponse
+listDeploymentsResponse pStatus_ =
+    ListDeploymentsResponse'
+    { _ldrsNextToken = Nothing
+    , _ldrsDeployments = Nothing
+    , _ldrsStatus = pStatus_
+    }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployments call to return the next set of deployments in the list.
-ldrNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
+ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
-instance ToPath ListDeployments where
-    toPath = const "/"
+-- | A list of deployment IDs.
+ldrsDeployments :: Lens' ListDeploymentsResponse [Text]
+ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default;
 
-instance ToQuery ListDeployments where
-    toQuery = const mempty
-
-instance ToHeaders ListDeployments
-
-instance ToJSON ListDeployments where
-    toJSON ListDeployments{..} = object
-        [ "applicationName"     .= _ldApplicationName
-        , "deploymentGroupName" .= _ldDeploymentGroupName
-        , "includeOnlyStatuses" .= _ldIncludeOnlyStatuses
-        , "createTimeRange"     .= _ldCreateTimeRange
-        , "nextToken"           .= _ldNextToken
-        ]
-
-instance AWSRequest ListDeployments where
-    type Sv ListDeployments = CodeDeploy
-    type Rs ListDeployments = ListDeploymentsResponse
-
-    request  = post "ListDeployments"
-    response = jsonResponse
-
-instance FromJSON ListDeploymentsResponse where
-    parseJSON = withObject "ListDeploymentsResponse" $ \o -> ListDeploymentsResponse
-        <$> o .:? "deployments" .!= mempty
-        <*> o .:? "nextToken"
+-- | FIXME: Undocumented member.
+ldrsStatus :: Lens' ListDeploymentsResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

@@ -1,31 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.MachineLearning.UpdateEvaluation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Updates the 'EvaluationName' of an 'Evaluation'.
+-- Updates the @EvaluationName@ of an @Evaluation@.
 --
--- You can use the 'GetEvaluation' operation to view the contents of the updated
--- data element.
+-- You can use the GetEvaluation operation to view the contents of the
+-- updated data element.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_UpdateEvaluation.html>
 module Network.AWS.MachineLearning.UpdateEvaluation
@@ -35,94 +30,112 @@ module Network.AWS.MachineLearning.UpdateEvaluation
     -- ** Request constructor
     , updateEvaluation
     -- ** Request lenses
-    , ueEvaluationId
-    , ueEvaluationName
+    , uerqEvaluationId
+    , uerqEvaluationName
 
     -- * Response
     , UpdateEvaluationResponse
     -- ** Response constructor
     , updateEvaluationResponse
     -- ** Response lenses
-    , uerEvaluationId
+    , uersEvaluationId
+    , uersStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.MachineLearning.Types
-import qualified GHC.Exts
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateEvaluation = UpdateEvaluation
-    { _ueEvaluationId   :: Text
-    , _ueEvaluationName :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateEvaluation' constructor.
+-- | /See:/ 'updateEvaluation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ueEvaluationId' @::@ 'Text'
+-- * 'uerqEvaluationId'
 --
--- * 'ueEvaluationName' @::@ 'Text'
---
-updateEvaluation :: Text -- ^ 'ueEvaluationId'
-                 -> Text -- ^ 'ueEvaluationName'
-                 -> UpdateEvaluation
-updateEvaluation p1 p2 = UpdateEvaluation
-    { _ueEvaluationId   = p1
-    , _ueEvaluationName = p2
+-- * 'uerqEvaluationName'
+data UpdateEvaluation = UpdateEvaluation'
+    { _uerqEvaluationId   :: !Text
+    , _uerqEvaluationName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateEvaluation' smart constructor.
+updateEvaluation :: Text -> Text -> UpdateEvaluation
+updateEvaluation pEvaluationId_ pEvaluationName_ =
+    UpdateEvaluation'
+    { _uerqEvaluationId = pEvaluationId_
+    , _uerqEvaluationName = pEvaluationName_
     }
 
--- | The ID assigned to the 'Evaluation' during creation.
-ueEvaluationId :: Lens' UpdateEvaluation Text
-ueEvaluationId = lens _ueEvaluationId (\s a -> s { _ueEvaluationId = a })
+-- | The ID assigned to the @Evaluation@ during creation.
+uerqEvaluationId :: Lens' UpdateEvaluation Text
+uerqEvaluationId = lens _uerqEvaluationId (\ s a -> s{_uerqEvaluationId = a});
 
--- | A new user-supplied name or description of the 'Evaluation' that will replace
--- the current content.
-ueEvaluationName :: Lens' UpdateEvaluation Text
-ueEvaluationName = lens _ueEvaluationName (\s a -> s { _ueEvaluationName = a })
-
-newtype UpdateEvaluationResponse = UpdateEvaluationResponse
-    { _uerEvaluationId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'UpdateEvaluationResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'uerEvaluationId' @::@ 'Maybe' 'Text'
---
-updateEvaluationResponse :: UpdateEvaluationResponse
-updateEvaluationResponse = UpdateEvaluationResponse
-    { _uerEvaluationId = Nothing
-    }
-
--- | The ID assigned to the 'Evaluation' during creation. This value should be
--- identical to the value of the 'Evaluation' in the request.
-uerEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
-uerEvaluationId = lens _uerEvaluationId (\s a -> s { _uerEvaluationId = a })
-
-instance ToPath UpdateEvaluation where
-    toPath = const "/"
-
-instance ToQuery UpdateEvaluation where
-    toQuery = const mempty
-
-instance ToHeaders UpdateEvaluation
-
-instance ToJSON UpdateEvaluation where
-    toJSON UpdateEvaluation{..} = object
-        [ "EvaluationId"   .= _ueEvaluationId
-        , "EvaluationName" .= _ueEvaluationName
-        ]
+-- | A new user-supplied name or description of the @Evaluation@ that will
+-- replace the current content.
+uerqEvaluationName :: Lens' UpdateEvaluation Text
+uerqEvaluationName = lens _uerqEvaluationName (\ s a -> s{_uerqEvaluationName = a});
 
 instance AWSRequest UpdateEvaluation where
-    type Sv UpdateEvaluation = MachineLearning
-    type Rs UpdateEvaluation = UpdateEvaluationResponse
+        type Sv UpdateEvaluation = MachineLearning
+        type Rs UpdateEvaluation = UpdateEvaluationResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateEvaluationResponse' <$>
+                   (x .?> "EvaluationId") <*> (pure (fromEnum s)))
 
-    request  = post "UpdateEvaluation"
-    response = jsonResponse
+instance ToHeaders UpdateEvaluation where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonML_20141212.UpdateEvaluation" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON UpdateEvaluationResponse where
-    parseJSON = withObject "UpdateEvaluationResponse" $ \o -> UpdateEvaluationResponse
-        <$> o .:? "EvaluationId"
+instance ToJSON UpdateEvaluation where
+        toJSON UpdateEvaluation'{..}
+          = object
+              ["EvaluationId" .= _uerqEvaluationId,
+               "EvaluationName" .= _uerqEvaluationName]
+
+instance ToPath UpdateEvaluation where
+        toPath = const "/"
+
+instance ToQuery UpdateEvaluation where
+        toQuery = const mempty
+
+-- | Represents the output of an UpdateEvaluation operation.
+--
+-- You can see the updated content by using the GetEvaluation operation.
+--
+-- /See:/ 'updateEvaluationResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'uersEvaluationId'
+--
+-- * 'uersStatus'
+data UpdateEvaluationResponse = UpdateEvaluationResponse'
+    { _uersEvaluationId :: !(Maybe Text)
+    , _uersStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateEvaluationResponse' smart constructor.
+updateEvaluationResponse :: Int -> UpdateEvaluationResponse
+updateEvaluationResponse pStatus_ =
+    UpdateEvaluationResponse'
+    { _uersEvaluationId = Nothing
+    , _uersStatus = pStatus_
+    }
+
+-- | The ID assigned to the @Evaluation@ during creation. This value should
+-- be identical to the value of the @Evaluation@ in the request.
+uersEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
+uersEvaluationId = lens _uersEvaluationId (\ s a -> s{_uersEvaluationId = a});
+
+-- | FIXME: Undocumented member.
+uersStatus :: Lens' UpdateEvaluationResponse Int
+uersStatus = lens _uersStatus (\ s a -> s{_uersStatus = a});

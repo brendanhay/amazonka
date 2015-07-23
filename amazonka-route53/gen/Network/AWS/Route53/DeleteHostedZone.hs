@@ -1,38 +1,37 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Route53.DeleteHostedZone
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This action deletes a hosted zone. To delete a hosted zone, send a 'DELETE'
--- request to the '2013-04-01/hostedzone//hosted zone ID/ resource.
+-- This action deletes a hosted zone. To delete a hosted zone, send a
+-- @DELETE@ request to the @2013-04-01\/hostedzone\/hosted zone ID@
+-- resource.
 --
--- For more information about deleting a hosted zone, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html Deleting a Hosted Zone>
+-- For more information about deleting a hosted zone, see
+-- <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DeleteHostedZone.html Deleting a Hosted Zone>
 -- in the /Amazon Route 53 Developer Guide/.
 --
 -- You can delete a hosted zone only if there are no resource record sets
--- other than the default SOA record and NS resource record sets. If your hosted
--- zone contains other resource record sets, you must delete them before you can
--- delete your hosted zone. If you try to delete a hosted zone that contains
--- other resource record sets, Route 53 will deny your request with a 'HostedZoneNotEmpty' error. For information about deleting records from your hosted zone, see 'ChangeResourceRecordSets'.
+-- other than the default SOA record and NS resource record sets. If your
+-- hosted zone contains other resource record sets, you must delete them
+-- before you can delete your hosted zone. If you try to delete a hosted
+-- zone that contains other resource record sets, Route 53 will deny your
+-- request with a @HostedZoneNotEmpty@ error. For information about
+-- deleting records from your hosted zone, see ChangeResourceRecordSets.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHostedZone.html>
 module Network.AWS.Route53.DeleteHostedZone
@@ -42,85 +41,93 @@ module Network.AWS.Route53.DeleteHostedZone
     -- ** Request constructor
     , deleteHostedZone
     -- ** Request lenses
-    , dhzId
+    , dhzrqId
 
     -- * Response
     , DeleteHostedZoneResponse
     -- ** Response constructor
     , deleteHostedZoneResponse
     -- ** Response lenses
-    , dhzrChangeInfo
+    , dhzrsStatus
+    , dhzrsChangeInfo
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
-newtype DeleteHostedZone = DeleteHostedZone
-    { _dhzId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteHostedZone' constructor.
+-- | A complex type that contains information about the hosted zone that you
+-- want to delete.
+--
+-- /See:/ 'deleteHostedZone' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhzId' @::@ 'Text'
---
-deleteHostedZone :: Text -- ^ 'dhzId'
-                 -> DeleteHostedZone
-deleteHostedZone p1 = DeleteHostedZone
-    { _dhzId = p1
+-- * 'dhzrqId'
+newtype DeleteHostedZone = DeleteHostedZone'
+    { _dhzrqId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteHostedZone' smart constructor.
+deleteHostedZone :: Text -> DeleteHostedZone
+deleteHostedZone pId_ =
+    DeleteHostedZone'
+    { _dhzrqId = pId_
     }
 
 -- | The ID of the hosted zone you want to delete.
-dhzId :: Lens' DeleteHostedZone Text
-dhzId = lens _dhzId (\s a -> s { _dhzId = a })
+dhzrqId :: Lens' DeleteHostedZone Text
+dhzrqId = lens _dhzrqId (\ s a -> s{_dhzrqId = a});
 
-newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
-    { _dhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Read, Show)
+instance AWSRequest DeleteHostedZone where
+        type Sv DeleteHostedZone = Route53
+        type Rs DeleteHostedZone = DeleteHostedZoneResponse
+        request = delete
+        response
+          = receiveXML
+              (\ s h x ->
+                 DeleteHostedZoneResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
 
--- | 'DeleteHostedZoneResponse' constructor.
+instance ToHeaders DeleteHostedZone where
+        toHeaders = const mempty
+
+instance ToPath DeleteHostedZone where
+        toPath DeleteHostedZone'{..}
+          = mconcat
+              ["/2013-04-01/hostedzone/", toText _dhzrqId]
+
+instance ToQuery DeleteHostedZone where
+        toQuery = const mempty
+
+-- | A complex type containing the response information for the request.
+--
+-- /See:/ 'deleteHostedZoneResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhzrChangeInfo' @::@ 'ChangeInfo'
+-- * 'dhzrsStatus'
 --
-deleteHostedZoneResponse :: ChangeInfo -- ^ 'dhzrChangeInfo'
-                         -> DeleteHostedZoneResponse
-deleteHostedZoneResponse p1 = DeleteHostedZoneResponse
-    { _dhzrChangeInfo = p1
+-- * 'dhzrsChangeInfo'
+data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
+    { _dhzrsStatus     :: !Int
+    , _dhzrsChangeInfo :: !ChangeInfo
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteHostedZoneResponse' smart constructor.
+deleteHostedZoneResponse :: Int -> ChangeInfo -> DeleteHostedZoneResponse
+deleteHostedZoneResponse pStatus_ pChangeInfo_ =
+    DeleteHostedZoneResponse'
+    { _dhzrsStatus = pStatus_
+    , _dhzrsChangeInfo = pChangeInfo_
     }
 
--- | A complex type that contains the ID, the status, and the date and time of
--- your delete request.
-dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
-dhzrChangeInfo = lens _dhzrChangeInfo (\s a -> s { _dhzrChangeInfo = a })
+-- | FIXME: Undocumented member.
+dhzrsStatus :: Lens' DeleteHostedZoneResponse Int
+dhzrsStatus = lens _dhzrsStatus (\ s a -> s{_dhzrsStatus = a});
 
-instance ToPath DeleteHostedZone where
-    toPath DeleteHostedZone{..} = mconcat
-        [ "/2013-04-01/hostedzone/"
-        , toText _dhzId
-        ]
-
-instance ToQuery DeleteHostedZone where
-    toQuery = const mempty
-
-instance ToHeaders DeleteHostedZone
-
-instance ToXMLRoot DeleteHostedZone where
-    toXMLRoot = const (namespaced ns "DeleteHostedZone" [])
-
-instance ToXML DeleteHostedZone
-
-instance AWSRequest DeleteHostedZone where
-    type Sv DeleteHostedZone = Route53
-    type Rs DeleteHostedZone = DeleteHostedZoneResponse
-
-    request  = delete
-    response = xmlResponse
-
-instance FromXML DeleteHostedZoneResponse where
-    parseXML x = DeleteHostedZoneResponse
-        <$> x .@  "ChangeInfo"
+-- | A complex type that contains the ID, the status, and the date and time
+-- of your delete request.
+dhzrsChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
+dhzrsChangeInfo = lens _dhzrsChangeInfo (\ s a -> s{_dhzrsChangeInfo = a});

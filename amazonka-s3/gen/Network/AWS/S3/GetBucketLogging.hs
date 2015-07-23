@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.GetBucketLogging
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns the logging status of a bucket and the permissions users have to view
--- and modify that status. To use GET, you must be the bucket owner.
+-- Returns the logging status of a bucket and the permissions users have to
+-- view and modify that status. To use GET, you must be the bucket owner.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLogging.html>
 module Network.AWS.S3.GetBucketLogging
@@ -33,82 +28,86 @@ module Network.AWS.S3.GetBucketLogging
     -- ** Request constructor
     , getBucketLogging
     -- ** Request lenses
-    , gbl2Bucket
+    , getrqBucket
 
     -- * Response
     , GetBucketLoggingResponse
     -- ** Response constructor
     , getBucketLoggingResponse
     -- ** Response lenses
-    , gblrLoggingEnabled
+    , grsLoggingEnabled
+    , grsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-newtype GetBucketLogging = GetBucketLogging
-    { _gbl2Bucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetBucketLogging' constructor.
+-- | /See:/ 'getBucketLogging' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbl2Bucket' @::@ 'Text'
---
-getBucketLogging :: Text -- ^ 'gbl2Bucket'
-                 -> GetBucketLogging
-getBucketLogging p1 = GetBucketLogging
-    { _gbl2Bucket = p1
+-- * 'getrqBucket'
+newtype GetBucketLogging = GetBucketLogging'
+    { _getrqBucket :: BucketName
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'GetBucketLogging' smart constructor.
+getBucketLogging :: BucketName -> GetBucketLogging
+getBucketLogging pBucket_ =
+    GetBucketLogging'
+    { _getrqBucket = pBucket_
     }
 
-gbl2Bucket :: Lens' GetBucketLogging Text
-gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
-
-newtype GetBucketLoggingResponse = GetBucketLoggingResponse
-    { _gblrLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq, Read, Show)
-
--- | 'GetBucketLoggingResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gblrLoggingEnabled' @::@ 'Maybe' 'LoggingEnabled'
---
-getBucketLoggingResponse :: GetBucketLoggingResponse
-getBucketLoggingResponse = GetBucketLoggingResponse
-    { _gblrLoggingEnabled = Nothing
-    }
-
-gblrLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-gblrLoggingEnabled =
-    lens _gblrLoggingEnabled (\s a -> s { _gblrLoggingEnabled = a })
-
-instance ToPath GetBucketLogging where
-    toPath GetBucketLogging{..} = mconcat
-        [ "/"
-        , toText _gbl2Bucket
-        ]
-
-instance ToQuery GetBucketLogging where
-    toQuery = const "logging"
-
-instance ToHeaders GetBucketLogging
-
-instance ToXMLRoot GetBucketLogging where
-    toXMLRoot = const (namespaced ns "GetBucketLogging" [])
-
-instance ToXML GetBucketLogging
+-- | FIXME: Undocumented member.
+getrqBucket :: Lens' GetBucketLogging BucketName
+getrqBucket = lens _getrqBucket (\ s a -> s{_getrqBucket = a});
 
 instance AWSRequest GetBucketLogging where
-    type Sv GetBucketLogging = S3
-    type Rs GetBucketLogging = GetBucketLoggingResponse
+        type Sv GetBucketLogging = S3
+        type Rs GetBucketLogging = GetBucketLoggingResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetBucketLoggingResponse' <$>
+                   (x .@? "LoggingEnabled") <*> (pure (fromEnum s)))
 
-    request  = get
-    response = xmlResponse
+instance ToHeaders GetBucketLogging where
+        toHeaders = const mempty
 
-instance FromXML GetBucketLoggingResponse where
-    parseXML x = GetBucketLoggingResponse
-        <$> x .@? "LoggingEnabled"
+instance ToPath GetBucketLogging where
+        toPath GetBucketLogging'{..}
+          = mconcat ["/", toText _getrqBucket]
+
+instance ToQuery GetBucketLogging where
+        toQuery = const (mconcat ["logging"])
+
+-- | /See:/ 'getBucketLoggingResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'grsLoggingEnabled'
+--
+-- * 'grsStatus'
+data GetBucketLoggingResponse = GetBucketLoggingResponse'
+    { _grsLoggingEnabled :: !(Maybe LoggingEnabled)
+    , _grsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetBucketLoggingResponse' smart constructor.
+getBucketLoggingResponse :: Int -> GetBucketLoggingResponse
+getBucketLoggingResponse pStatus_ =
+    GetBucketLoggingResponse'
+    { _grsLoggingEnabled = Nothing
+    , _grsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+grsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+grsLoggingEnabled = lens _grsLoggingEnabled (\ s a -> s{_grsLoggingEnabled = a});
+
+-- | FIXME: Undocumented member.
+grsStatus :: Lens' GetBucketLoggingResponse Int
+grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});

@@ -1,28 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SNS.SetSubscriptionAttributes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Allows a subscription owner to set an attribute of the topic to a new value.
+-- Allows a subscription owner to set an attribute of the topic to a new
+-- value.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html>
 module Network.AWS.SNS.SetSubscriptionAttributes
@@ -32,9 +28,9 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     -- ** Request constructor
     , setSubscriptionAttributes
     -- ** Request lenses
-    , ssaAttributeName
-    , ssaAttributeValue
-    , ssaSubscriptionArn
+    , ssarqAttributeValue
+    , ssarqSubscriptionARN
+    , ssarqAttributeName
 
     -- * Response
     , SetSubscriptionAttributesResponse
@@ -42,75 +38,81 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     , setSubscriptionAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
-data SetSubscriptionAttributes = SetSubscriptionAttributes
-    { _ssaAttributeName   :: Text
-    , _ssaAttributeValue  :: Maybe Text
-    , _ssaSubscriptionArn :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'SetSubscriptionAttributes' constructor.
+-- | Input for SetSubscriptionAttributes action.
+--
+-- /See:/ 'setSubscriptionAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ssaAttributeName' @::@ 'Text'
+-- * 'ssarqAttributeValue'
 --
--- * 'ssaAttributeValue' @::@ 'Maybe' 'Text'
+-- * 'ssarqSubscriptionARN'
 --
--- * 'ssaSubscriptionArn' @::@ 'Text'
---
-setSubscriptionAttributes :: Text -- ^ 'ssaSubscriptionArn'
-                          -> Text -- ^ 'ssaAttributeName'
-                          -> SetSubscriptionAttributes
-setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
-    { _ssaSubscriptionArn = p1
-    , _ssaAttributeName   = p2
-    , _ssaAttributeValue  = Nothing
+-- * 'ssarqAttributeName'
+data SetSubscriptionAttributes = SetSubscriptionAttributes'
+    { _ssarqAttributeValue  :: !(Maybe Text)
+    , _ssarqSubscriptionARN :: !Text
+    , _ssarqAttributeName   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetSubscriptionAttributes' smart constructor.
+setSubscriptionAttributes :: Text -> Text -> SetSubscriptionAttributes
+setSubscriptionAttributes pSubscriptionARN_ pAttributeName_ =
+    SetSubscriptionAttributes'
+    { _ssarqAttributeValue = Nothing
+    , _ssarqSubscriptionARN = pSubscriptionARN_
+    , _ssarqAttributeName = pAttributeName_
     }
 
--- | The name of the attribute you want to set. Only a subset of the subscriptions
--- attributes are mutable.
---
--- Valid values: 'DeliveryPolicy' | 'RawMessageDelivery'
-ssaAttributeName :: Lens' SetSubscriptionAttributes Text
-ssaAttributeName = lens _ssaAttributeName (\s a -> s { _ssaAttributeName = a })
-
 -- | The new value for the attribute in JSON format.
-ssaAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
-ssaAttributeValue =
-    lens _ssaAttributeValue (\s a -> s { _ssaAttributeValue = a })
+ssarqAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
+ssarqAttributeValue = lens _ssarqAttributeValue (\ s a -> s{_ssarqAttributeValue = a});
 
 -- | The ARN of the subscription to modify.
-ssaSubscriptionArn :: Lens' SetSubscriptionAttributes Text
-ssaSubscriptionArn =
-    lens _ssaSubscriptionArn (\s a -> s { _ssaSubscriptionArn = a })
+ssarqSubscriptionARN :: Lens' SetSubscriptionAttributes Text
+ssarqSubscriptionARN = lens _ssarqSubscriptionARN (\ s a -> s{_ssarqSubscriptionARN = a});
 
-data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetSubscriptionAttributesResponse' constructor.
-setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
-setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
-
-instance ToPath SetSubscriptionAttributes where
-    toPath = const "/"
-
-instance ToQuery SetSubscriptionAttributes where
-    toQuery SetSubscriptionAttributes{..} = mconcat
-        [ "AttributeName"   =? _ssaAttributeName
-        , "AttributeValue"  =? _ssaAttributeValue
-        , "SubscriptionArn" =? _ssaSubscriptionArn
-        ]
-
-instance ToHeaders SetSubscriptionAttributes
+-- | The name of the attribute you want to set. Only a subset of the
+-- subscriptions attributes are mutable.
+--
+-- Valid values: @DeliveryPolicy@ | @RawMessageDelivery@
+ssarqAttributeName :: Lens' SetSubscriptionAttributes Text
+ssarqAttributeName = lens _ssarqAttributeName (\ s a -> s{_ssarqAttributeName = a});
 
 instance AWSRequest SetSubscriptionAttributes where
-    type Sv SetSubscriptionAttributes = SNS
-    type Rs SetSubscriptionAttributes = SetSubscriptionAttributesResponse
+        type Sv SetSubscriptionAttributes = SNS
+        type Rs SetSubscriptionAttributes =
+             SetSubscriptionAttributesResponse
+        request = post
+        response
+          = receiveNull SetSubscriptionAttributesResponse'
 
-    request  = post "SetSubscriptionAttributes"
-    response = nullResponse SetSubscriptionAttributesResponse
+instance ToHeaders SetSubscriptionAttributes where
+        toHeaders = const mempty
+
+instance ToPath SetSubscriptionAttributes where
+        toPath = const "/"
+
+instance ToQuery SetSubscriptionAttributes where
+        toQuery SetSubscriptionAttributes'{..}
+          = mconcat
+              ["Action" =:
+                 ("SetSubscriptionAttributes" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "AttributeValue" =: _ssarqAttributeValue,
+               "SubscriptionArn" =: _ssarqSubscriptionARN,
+               "AttributeName" =: _ssarqAttributeName]
+
+-- | /See:/ 'setSubscriptionAttributesResponse' smart constructor.
+data SetSubscriptionAttributesResponse =
+    SetSubscriptionAttributesResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetSubscriptionAttributesResponse' smart constructor.
+setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
+setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse'

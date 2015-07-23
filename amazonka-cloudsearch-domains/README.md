@@ -1,14 +1,30 @@
 # Amazon CloudSearch Domain SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Pending
+You use the AmazonCloudSearch2013 API to upload documents to a search
+domain and search those documents.
+
+The endpoints for submitting @UploadDocuments@, @Search@, and @Suggest@
+requests are domain-specific. To get the endpoints for your domain, use
+the Amazon CloudSearch configuration service @DescribeDomains@ action.
+The domain endpoints are also displayed on the domain dashboard in the
+Amazon CloudSearch console. You submit suggest requests to the search
+endpoint.
+
+For more information, see the
+<http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudsearch-domains)
 and the [AWS API Reference](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html).

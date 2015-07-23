@@ -1,30 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.AddRoleToInstanceProfile
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Adds the specified role to the specified instance profile. For more
--- information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>. For more information about
--- instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+-- Adds the specified role to the specified instance profile. For more
+-- information about roles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
+-- For more information about instance profiles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddRoleToInstanceProfile.html>
 module Network.AWS.IAM.AddRoleToInstanceProfile
@@ -34,8 +31,8 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     -- ** Request constructor
     , addRoleToInstanceProfile
     -- ** Request lenses
-    , artipInstanceProfileName
-    , artipRoleName
+    , artiprqInstanceProfileName
+    , artiprqRoleName
 
     -- * Response
     , AddRoleToInstanceProfileResponse
@@ -43,63 +40,67 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     , addRoleToInstanceProfileResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AddRoleToInstanceProfile = AddRoleToInstanceProfile
-    { _artipInstanceProfileName :: Text
-    , _artipRoleName            :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'AddRoleToInstanceProfile' constructor.
+-- | /See:/ 'addRoleToInstanceProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'artipInstanceProfileName' @::@ 'Text'
+-- * 'artiprqInstanceProfileName'
 --
--- * 'artipRoleName' @::@ 'Text'
---
-addRoleToInstanceProfile :: Text -- ^ 'artipInstanceProfileName'
-                         -> Text -- ^ 'artipRoleName'
-                         -> AddRoleToInstanceProfile
-addRoleToInstanceProfile p1 p2 = AddRoleToInstanceProfile
-    { _artipInstanceProfileName = p1
-    , _artipRoleName            = p2
+-- * 'artiprqRoleName'
+data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
+    { _artiprqInstanceProfileName :: !Text
+    , _artiprqRoleName            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AddRoleToInstanceProfile' smart constructor.
+addRoleToInstanceProfile :: Text -> Text -> AddRoleToInstanceProfile
+addRoleToInstanceProfile pInstanceProfileName_ pRoleName_ =
+    AddRoleToInstanceProfile'
+    { _artiprqInstanceProfileName = pInstanceProfileName_
+    , _artiprqRoleName = pRoleName_
     }
 
 -- | The name of the instance profile to update.
-artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
-artipInstanceProfileName =
-    lens _artipInstanceProfileName
-        (\s a -> s { _artipInstanceProfileName = a })
+artiprqInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
+artiprqInstanceProfileName = lens _artiprqInstanceProfileName (\ s a -> s{_artiprqInstanceProfileName = a});
 
 -- | The name of the role to add.
-artipRoleName :: Lens' AddRoleToInstanceProfile Text
-artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
-
-data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'AddRoleToInstanceProfileResponse' constructor.
-addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
-addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
-
-instance ToPath AddRoleToInstanceProfile where
-    toPath = const "/"
-
-instance ToQuery AddRoleToInstanceProfile where
-    toQuery AddRoleToInstanceProfile{..} = mconcat
-        [ "InstanceProfileName" =? _artipInstanceProfileName
-        , "RoleName"            =? _artipRoleName
-        ]
-
-instance ToHeaders AddRoleToInstanceProfile
+artiprqRoleName :: Lens' AddRoleToInstanceProfile Text
+artiprqRoleName = lens _artiprqRoleName (\ s a -> s{_artiprqRoleName = a});
 
 instance AWSRequest AddRoleToInstanceProfile where
-    type Sv AddRoleToInstanceProfile = IAM
-    type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
+        type Sv AddRoleToInstanceProfile = IAM
+        type Rs AddRoleToInstanceProfile =
+             AddRoleToInstanceProfileResponse
+        request = post
+        response
+          = receiveNull AddRoleToInstanceProfileResponse'
 
-    request  = post "AddRoleToInstanceProfile"
-    response = nullResponse AddRoleToInstanceProfileResponse
+instance ToHeaders AddRoleToInstanceProfile where
+        toHeaders = const mempty
+
+instance ToPath AddRoleToInstanceProfile where
+        toPath = const "/"
+
+instance ToQuery AddRoleToInstanceProfile where
+        toQuery AddRoleToInstanceProfile'{..}
+          = mconcat
+              ["Action" =:
+                 ("AddRoleToInstanceProfile" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "InstanceProfileName" =: _artiprqInstanceProfileName,
+               "RoleName" =: _artiprqRoleName]
+
+-- | /See:/ 'addRoleToInstanceProfileResponse' smart constructor.
+data AddRoleToInstanceProfileResponse =
+    AddRoleToInstanceProfileResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AddRoleToInstanceProfileResponse' smart constructor.
+addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
+addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse'

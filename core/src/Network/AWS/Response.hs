@@ -1,144 +1,116 @@
-{-# LANGUAGE FlexibleContexts    #-}
-{-# LANGUAGE OverloadedStrings   #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE TupleSections       #-}
-{-# LANGUAGE TypeFamilies        #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE TypeFamilies      #-}
 
+-- |
 -- Module      : Network.AWS.Response
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
-module Network.AWS.Response
-    (
-    -- * Responses
-      nullResponse
-    , headerResponse
-    , xmlResponse
-    , xmlHeaderResponse
-    , jsonResponse
-    , jsonHeaderResponse
-    , bodyResponse
-    ) where
+--
+module Network.AWS.Response where
 
 import           Control.Applicative
-import           Control.Monad
-import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
-import           Data.Bifunctor
-import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Monoid
-import           Network.AWS.Data             (FromXML (..), LazyByteString,
-                                               build, decodeXML)
+import           Data.Text                    (Text)
+import           Network.AWS.Data.Body
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.XML
+import           Network.AWS.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types
 import           Text.XML                     (Node)
 
-nullResponse :: (MonadResource m, AWSService (Sv a))
-             => Rs a
-             -> Logger
-             -> Request a
-             -> Either HttpException ClientResponse
-             -> m (Response' a)
-nullResponse rs l = receive l $ \_ _ _ bdy ->
-    liftResourceT (bdy $$+- return (Right rs))
-
-headerResponse :: (MonadResource m, AWSService (Sv a))
-               => (ResponseHeaders -> Either String (Rs a))
-               -> Logger
-               -> Request a
-               -> Either HttpException ClientResponse
-               -> m (Response' a)
-headerResponse f = deserialise (const (Right ())) (\hs _ _ -> f hs)
-
-xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
-            => Logger
+receiveNull :: MonadResource m
+            => Rs a
+            -> Logger
+            -> Service s
             -> Request a
             -> Either HttpException ClientResponse
-            -> m (Response' a)
-xmlResponse = deserialise (decodeXML >=> parseXML) (\_ _ -> Right)
+            -> m (Response a)
+receiveNull rs _ = receive $ \_ _ x ->
+    liftResourceT (x $$+- return (Right rs))
 
-xmlHeaderResponse :: (MonadResource m, AWSService (Sv a))
-                  => (ResponseHeaders -> [Node] -> Either String (Rs a))
+receiveXMLWrapper :: MonadResource m
+                  => Text
+                  -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
                   -> Logger
+                  -> Service s
                   -> Request a
                   -> Either HttpException ClientResponse
-                  -> m (Response' a)
-xmlHeaderResponse f = deserialise decodeXML (\hs _ -> f hs)
+                  -> m (Response a)
+receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 
-jsonResponse :: (MonadResource m, AWSService (Sv a), FromJSON (Rs a))
-             => Logger
-             -> Request a
-             -> Either HttpException ClientResponse
-             -> m (Response' a)
-jsonResponse = deserialise eitherDecode' (\_ _ -> Right)
+receiveXML :: MonadResource m
+           => (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
+           -> Logger
+           -> Service s
+           -> Request a
+           -> Either HttpException ClientResponse
+           -> m (Response a)
+receiveXML = deserialise decodeXML
 
-jsonHeaderResponse :: (MonadResource m, AWSService (Sv a))
-                   => (ResponseHeaders -> Int -> Object -> Either String (Rs a))
-                   -> Logger
-                   -> Request a
-                   -> Either HttpException ClientResponse
-                   -> m (Response' a)
-jsonHeaderResponse = deserialise eitherDecode'
-
-bodyResponse :: (MonadResource m, AWSService (Sv a))
-             => (ResponseHeaders -> Int -> ResponseBody -> Either String (Rs a))
-             -> Logger
-             -> Request a
-             -> Either HttpException ClientResponse
-             -> m (Response' a)
-bodyResponse f l = receive l $ \a hs s bdy ->
-    return (SerializerError a `first` f hs s bdy)
-
-deserialise :: (AWSService (Sv a), MonadResource m)
-            => (LazyByteString  -> Either String b)
-            -> (ResponseHeaders -> Int -> b -> Either String (Rs a))
+receiveJSON :: MonadResource m
+            => (Int -> ResponseHeaders -> Object -> Either String (Rs a))
             -> Logger
+            -> Service s
             -> Request a
             -> Either HttpException ClientResponse
-            -> m (Response' a)
-deserialise g f l = receive l $ \a hs s bdy -> do
-    lbs <- sinkLbs l bdy
-    return $! case g lbs of
-        Left  e -> Left (SerializerError a e)
-        Right o ->
-            case f hs s o of
-                Left  e -> Left (SerializerError a e)
-                Right x -> Right x
+            -> m (Response a)
+receiveJSON = deserialise eitherDecode'
 
-receive :: forall m a. (MonadResource m, AWSService (Sv a))
-        => Logger
-        -> (Abbrev -> ResponseHeaders -> Int -> ResponseBody -> m (Response a))
+receiveBody :: MonadResource m
+            => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
+            -> Logger
+            -> Service s
+            -> Request a
+            -> Either HttpException ClientResponse
+            -> m (Response a)
+receiveBody f _ = receive $ \s h x -> return (f s h (RsBody x))
+
+deserialise :: MonadResource m
+            => (LazyByteString -> Either String b)
+            -> (Int -> ResponseHeaders -> b -> Either String (Rs a))
+            -> Logger
+            -> Service s
+            -> Request a
+            -> Either HttpException ClientResponse
+            -> m (Response a)
+deserialise g f l = receive $ \s h x -> do
+    lbs <- sinkLBS x
+    logDebug l $ "[Raw Response Body] {\n" <> lbs <> "\n}"
+    return $! g lbs >>= f s h
+
+receive :: MonadResource m
+        => (Int -> ResponseHeaders -> ResponseBody -> m (Either String (Rs a)))
+        -> Service s
         -> Request a
         -> Either HttpException ClientResponse
-        -> m (Response' a)
-receive l f = const (either (return . Left . HttpError) success)
+        -> m (Response a)
+receive f Service{..} _ = either (return . Left . HTTPError) go
   where
-    success rs = do
-        let s   = responseStatus  rs
-            bdy = responseBody    rs
-            hs  = responseHeaders rs
-        case _svcHandle svc s of
-            Just g  -> Left . g <$> sinkLbs l bdy
-            Nothing -> do
-                x <- f (_svcAbbrev svc) hs (fromEnum s) bdy
-                case x of
-                    Left  e -> return (Left e)
-                    Right y -> return (Right (s, y))
+    go rs = do
+        let s = responseStatus  rs
+            h = responseHeaders rs
+            x = responseBody    rs
+        if not (_svcStatus s)
+            then Left . _svcError _svcAbbrev s h <$> sinkLBS x
+            else do
+                y <- f (fromEnum s) h x
+                return $! case y of
+                    Left  e -> serialiserError s e
+                    Right z -> Right (s, z)
 
-    svc = service :: Service (Sv a)
+    serialiserError s e = Left (SerializerError _svcAbbrev s e)
 
-sinkLbs :: MonadResource m => Logger -> ResponseBody -> m LBS.ByteString
-sinkLbs l bdy = do
-    lbs <- liftResourceT (bdy $$+- Conduit.sinkLbs)
-    liftIO $ l Trace ("[Client Response Body] {\n" <> build lbs <> "\n}")
-    return lbs
+sinkLBS :: MonadResource m => ResponseBody -> m LazyByteString
+sinkLBS bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)

@@ -1,41 +1,39 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.ReleaseAddress
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Releases the specified Elastic IP address.
+-- Releases the specified Elastic IP address.
 --
--- After releasing an Elastic IP address, it is released to the IP address pool
--- and might be unavailable to you. Be sure to update your DNS records and any
--- servers or devices that communicate with the address. If you attempt to
--- release an Elastic IP address that you already released, you'll get an 'AuthFailure' error if the address is already allocated to another AWS account.
+-- After releasing an Elastic IP address, it is released to the IP address
+-- pool and might be unavailable to you. Be sure to update your DNS records
+-- and any servers or devices that communicate with the address. If you
+-- attempt to release an Elastic IP address that you already released,
+-- you\'ll get an @AuthFailure@ error if the address is already allocated
+-- to another AWS account.
 --
 -- [EC2-Classic, default VPC] Releasing an Elastic IP address automatically
--- disassociates it from any instance that it's associated with. To disassociate
--- an Elastic IP address without releasing it, use 'DisassociateAddress'.
+-- disassociates it from any instance that it\'s associated with. To
+-- disassociate an Elastic IP address without releasing it, use
+-- DisassociateAddress.
 --
--- [Nondefault VPC] You must use 'DisassociateAddress' to disassociate the
+-- [Nondefault VPC] You must use DisassociateAddress to disassociate the
 -- Elastic IP address before you try to release it. Otherwise, Amazon EC2
--- returns an error ('InvalidIPAddress.InUse').
+-- returns an error (@InvalidIPAddress.InUse@).
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ReleaseAddress.html>
 module Network.AWS.EC2.ReleaseAddress
@@ -45,9 +43,9 @@ module Network.AWS.EC2.ReleaseAddress
     -- ** Request constructor
     , releaseAddress
     -- ** Request lenses
-    , raAllocationId
-    , raDryRun
-    , raPublicIp
+    , rarqAllocationId
+    , rarqPublicIP
+    , rarqDryRun
 
     -- * Response
     , ReleaseAddressResponse
@@ -55,70 +53,75 @@ module Network.AWS.EC2.ReleaseAddress
     , releaseAddressResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ReleaseAddress = ReleaseAddress
-    { _raAllocationId :: Maybe Text
-    , _raDryRun       :: Maybe Bool
-    , _raPublicIp     :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ReleaseAddress' constructor.
+-- | /See:/ 'releaseAddress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'raAllocationId' @::@ 'Maybe' 'Text'
+-- * 'rarqAllocationId'
 --
--- * 'raDryRun' @::@ 'Maybe' 'Bool'
+-- * 'rarqPublicIP'
 --
--- * 'raPublicIp' @::@ 'Maybe' 'Text'
---
+-- * 'rarqDryRun'
+data ReleaseAddress = ReleaseAddress'
+    { _rarqAllocationId :: !(Maybe Text)
+    , _rarqPublicIP     :: !(Maybe Text)
+    , _rarqDryRun       :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ReleaseAddress' smart constructor.
 releaseAddress :: ReleaseAddress
-releaseAddress = ReleaseAddress
-    { _raDryRun       = Nothing
-    , _raPublicIp     = Nothing
-    , _raAllocationId = Nothing
+releaseAddress =
+    ReleaseAddress'
+    { _rarqAllocationId = Nothing
+    , _rarqPublicIP = Nothing
+    , _rarqDryRun = Nothing
     }
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
-raAllocationId :: Lens' ReleaseAddress (Maybe Text)
-raAllocationId = lens _raAllocationId (\s a -> s { _raAllocationId = a })
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-raDryRun :: Lens' ReleaseAddress (Maybe Bool)
-raDryRun = lens _raDryRun (\s a -> s { _raDryRun = a })
+rarqAllocationId :: Lens' ReleaseAddress (Maybe Text)
+rarqAllocationId = lens _rarqAllocationId (\ s a -> s{_rarqAllocationId = a});
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-raPublicIp :: Lens' ReleaseAddress (Maybe Text)
-raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
+rarqPublicIP :: Lens' ReleaseAddress (Maybe Text)
+rarqPublicIP = lens _rarqPublicIP (\ s a -> s{_rarqPublicIP = a});
 
-data ReleaseAddressResponse = ReleaseAddressResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ReleaseAddressResponse' constructor.
-releaseAddressResponse :: ReleaseAddressResponse
-releaseAddressResponse = ReleaseAddressResponse
-
-instance ToPath ReleaseAddress where
-    toPath = const "/"
-
-instance ToQuery ReleaseAddress where
-    toQuery ReleaseAddress{..} = mconcat
-        [ "AllocationId" =? _raAllocationId
-        , "DryRun"       =? _raDryRun
-        , "PublicIp"     =? _raPublicIp
-        ]
-
-instance ToHeaders ReleaseAddress
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+rarqDryRun :: Lens' ReleaseAddress (Maybe Bool)
+rarqDryRun = lens _rarqDryRun (\ s a -> s{_rarqDryRun = a});
 
 instance AWSRequest ReleaseAddress where
-    type Sv ReleaseAddress = EC2
-    type Rs ReleaseAddress = ReleaseAddressResponse
+        type Sv ReleaseAddress = EC2
+        type Rs ReleaseAddress = ReleaseAddressResponse
+        request = post
+        response = receiveNull ReleaseAddressResponse'
 
-    request  = post "ReleaseAddress"
-    response = nullResponse ReleaseAddressResponse
+instance ToHeaders ReleaseAddress where
+        toHeaders = const mempty
+
+instance ToPath ReleaseAddress where
+        toPath = const "/"
+
+instance ToQuery ReleaseAddress where
+        toQuery ReleaseAddress'{..}
+          = mconcat
+              ["Action" =: ("ReleaseAddress" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "AllocationId" =: _rarqAllocationId,
+               "PublicIp" =: _rarqPublicIP, "DryRun" =: _rarqDryRun]
+
+-- | /See:/ 'releaseAddressResponse' smart constructor.
+data ReleaseAddressResponse =
+    ReleaseAddressResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ReleaseAddressResponse' smart constructor.
+releaseAddressResponse :: ReleaseAddressResponse
+releaseAddressResponse = ReleaseAddressResponse'

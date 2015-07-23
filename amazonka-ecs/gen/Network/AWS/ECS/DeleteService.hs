@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ECS.DeleteService
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes a specified service within a cluster.
+-- Deletes a specified service within a cluster.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteService.html>
 module Network.AWS.ECS.DeleteService
@@ -32,90 +27,107 @@ module Network.AWS.ECS.DeleteService
     -- ** Request constructor
     , deleteService
     -- ** Request lenses
-    , dsCluster
-    , dsService
+    , dsrqCluster
+    , dsrqService
 
     -- * Response
     , DeleteServiceResponse
     -- ** Response constructor
     , deleteServiceResponse
     -- ** Response lenses
-    , dsrService
+    , dsrsService
+    , dsrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteService = DeleteService
-    { _dsCluster :: Maybe Text
-    , _dsService :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteService' constructor.
+-- | /See:/ 'deleteService' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsCluster' @::@ 'Maybe' 'Text'
+-- * 'dsrqCluster'
 --
--- * 'dsService' @::@ 'Text'
---
-deleteService :: Text -- ^ 'dsService'
-              -> DeleteService
-deleteService p1 = DeleteService
-    { _dsService = p1
-    , _dsCluster = Nothing
+-- * 'dsrqService'
+data DeleteService = DeleteService'
+    { _dsrqCluster :: !(Maybe Text)
+    , _dsrqService :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteService' smart constructor.
+deleteService :: Text -> DeleteService
+deleteService pService_ =
+    DeleteService'
+    { _dsrqCluster = Nothing
+    , _dsrqService = pService_
     }
 
 -- | The name of the cluster that hosts the service you want to delete.
-dsCluster :: Lens' DeleteService (Maybe Text)
-dsCluster = lens _dsCluster (\s a -> s { _dsCluster = a })
+dsrqCluster :: Lens' DeleteService (Maybe Text)
+dsrqCluster = lens _dsrqCluster (\ s a -> s{_dsrqCluster = a});
 
 -- | The name of the service you want to delete.
-dsService :: Lens' DeleteService Text
-dsService = lens _dsService (\s a -> s { _dsService = a })
+dsrqService :: Lens' DeleteService Text
+dsrqService = lens _dsrqService (\ s a -> s{_dsrqService = a});
 
-newtype DeleteServiceResponse = DeleteServiceResponse
-    { _dsrService :: Maybe ContainerService
-    } deriving (Eq, Read, Show)
+instance AWSRequest DeleteService where
+        type Sv DeleteService = ECS
+        type Rs DeleteService = DeleteServiceResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteServiceResponse' <$>
+                   (x .?> "service") <*> (pure (fromEnum s)))
 
--- | 'DeleteServiceResponse' constructor.
+instance ToHeaders DeleteService where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.DeleteService"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteService where
+        toJSON DeleteService'{..}
+          = object
+              ["cluster" .= _dsrqCluster,
+               "service" .= _dsrqService]
+
+instance ToPath DeleteService where
+        toPath = const "/"
+
+instance ToQuery DeleteService where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteServiceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrService' @::@ 'Maybe' 'ContainerService'
+-- * 'dsrsService'
 --
-deleteServiceResponse :: DeleteServiceResponse
-deleteServiceResponse = DeleteServiceResponse
-    { _dsrService = Nothing
+-- * 'dsrsStatus'
+data DeleteServiceResponse = DeleteServiceResponse'
+    { _dsrsService :: !(Maybe ContainerService)
+    , _dsrsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteServiceResponse' smart constructor.
+deleteServiceResponse :: Int -> DeleteServiceResponse
+deleteServiceResponse pStatus_ =
+    DeleteServiceResponse'
+    { _dsrsService = Nothing
+    , _dsrsStatus = pStatus_
     }
 
-dsrService :: Lens' DeleteServiceResponse (Maybe ContainerService)
-dsrService = lens _dsrService (\s a -> s { _dsrService = a })
+-- | FIXME: Undocumented member.
+dsrsService :: Lens' DeleteServiceResponse (Maybe ContainerService)
+dsrsService = lens _dsrsService (\ s a -> s{_dsrsService = a});
 
-instance ToPath DeleteService where
-    toPath = const "/"
-
-instance ToQuery DeleteService where
-    toQuery = const mempty
-
-instance ToHeaders DeleteService
-
-instance ToJSON DeleteService where
-    toJSON DeleteService{..} = object
-        [ "cluster" .= _dsCluster
-        , "service" .= _dsService
-        ]
-
-instance AWSRequest DeleteService where
-    type Sv DeleteService = ECS
-    type Rs DeleteService = DeleteServiceResponse
-
-    request  = post "DeleteService"
-    response = jsonResponse
-
-instance FromJSON DeleteServiceResponse where
-    parseJSON = withObject "DeleteServiceResponse" $ \o -> DeleteServiceResponse
-        <$> o .:? "service"
+-- | FIXME: Undocumented member.
+dsrsStatus :: Lens' DeleteServiceResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

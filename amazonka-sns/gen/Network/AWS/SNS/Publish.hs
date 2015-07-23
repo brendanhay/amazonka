@@ -1,36 +1,33 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SNS.Publish
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Sends a message to all of a topic's subscribed endpoints. When a 'messageId' is
--- returned, the message has been saved and Amazon SNS will attempt to deliver
--- it to the topic's subscribers shortly. The format of the outgoing message to
--- each subscribed endpoint depends on the notification protocol selected.
+-- Sends a message to all of a topic\'s subscribed endpoints. When a
+-- @messageId@ is returned, the message has been saved and Amazon SNS will
+-- attempt to deliver it to the topic\'s subscribers shortly. The format of
+-- the outgoing message to each subscribed endpoint depends on the
+-- notification protocol selected.
 --
--- To use the 'Publish' action for sending a message to a mobile endpoint, such
--- as an app on a Kindle device or mobile phone, you must specify the
--- EndpointArn. The EndpointArn is returned when making a call with the 'CreatePlatformEndpoint' action. The second example below shows a request and response for publishing
--- to a mobile endpoint.
+-- To use the @Publish@ action for sending a message to a mobile endpoint,
+-- such as an app on a Kindle device or mobile phone, you must specify the
+-- EndpointArn. The EndpointArn is returned when making a call with the
+-- @CreatePlatformEndpoint@ action. The second example below shows a
+-- request and response for publishing to a mobile endpoint.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_Publish.html>
 module Network.AWS.SNS.Publish
@@ -40,173 +37,201 @@ module Network.AWS.SNS.Publish
     -- ** Request constructor
     , publish
     -- ** Request lenses
-    , pMessage
-    , pMessageAttributes
-    , pMessageStructure
-    , pSubject
-    , pTargetArn
-    , pTopicArn
+    , prqMessageAttributes
+    , prqTargetARN
+    , prqSubject
+    , prqTopicARN
+    , prqMessageStructure
+    , prqMessage
 
     -- * Response
     , PublishResponse
     -- ** Response constructor
     , publishResponse
     -- ** Response lenses
-    , prMessageId
+    , prsMessageId
+    , prsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
-data Publish = Publish
-    { _pMessage           :: Text
-    , _pMessageAttributes :: EMap "entry" "Name" "Value" Text MessageAttributeValue
-    , _pMessageStructure  :: Maybe Text
-    , _pSubject           :: Maybe Text
-    , _pTargetArn         :: Maybe Text
-    , _pTopicArn          :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'Publish' constructor.
+-- | Input for Publish action.
+--
+-- /See:/ 'publish' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pMessage' @::@ 'Text'
+-- * 'prqMessageAttributes'
 --
--- * 'pMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
+-- * 'prqTargetARN'
 --
--- * 'pMessageStructure' @::@ 'Maybe' 'Text'
+-- * 'prqSubject'
 --
--- * 'pSubject' @::@ 'Maybe' 'Text'
+-- * 'prqTopicARN'
 --
--- * 'pTargetArn' @::@ 'Maybe' 'Text'
+-- * 'prqMessageStructure'
 --
--- * 'pTopicArn' @::@ 'Maybe' 'Text'
---
-publish :: Text -- ^ 'pMessage'
-        -> Publish
-publish p1 = Publish
-    { _pMessage           = p1
-    , _pTopicArn          = Nothing
-    , _pTargetArn         = Nothing
-    , _pSubject           = Nothing
-    , _pMessageStructure  = Nothing
-    , _pMessageAttributes = mempty
+-- * 'prqMessage'
+data Publish = Publish'
+    { _prqMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _prqTargetARN         :: !(Maybe Text)
+    , _prqSubject           :: !(Maybe Text)
+    , _prqTopicARN          :: !(Maybe Text)
+    , _prqMessageStructure  :: !(Maybe Text)
+    , _prqMessage           :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'Publish' smart constructor.
+publish :: Text -> Publish
+publish pMessage_ =
+    Publish'
+    { _prqMessageAttributes = Nothing
+    , _prqTargetARN = Nothing
+    , _prqSubject = Nothing
+    , _prqTopicARN = Nothing
+    , _prqMessageStructure = Nothing
+    , _prqMessage = pMessage_
     }
+
+-- | Message attributes for Publish action.
+prqMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
+prqMessageAttributes = lens _prqMessageAttributes (\ s a -> s{_prqMessageAttributes = a}) . _Default . _Map;
+
+-- | Either TopicArn or EndpointArn, but not both.
+prqTargetARN :: Lens' Publish (Maybe Text)
+prqTargetARN = lens _prqTargetARN (\ s a -> s{_prqTargetARN = a});
+
+-- | Optional parameter to be used as the \"Subject\" line when the message
+-- is delivered to email endpoints. This field will also be included, if
+-- present, in the standard JSON messages delivered to other endpoints.
+--
+-- Constraints: Subjects must be ASCII text that begins with a letter,
+-- number, or punctuation mark; must not include line breaks or control
+-- characters; and must be less than 100 characters long.
+prqSubject :: Lens' Publish (Maybe Text)
+prqSubject = lens _prqSubject (\ s a -> s{_prqSubject = a});
+
+-- | The topic you want to publish to.
+prqTopicARN :: Lens' Publish (Maybe Text)
+prqTopicARN = lens _prqTopicARN (\ s a -> s{_prqTopicARN = a});
+
+-- | Set @MessageStructure@ to @json@ if you want to send a different message
+-- for each protocol. For example, using one publish action, you can send a
+-- short message to your SMS subscribers and a longer message to your email
+-- subscribers. If you set @MessageStructure@ to @json@, the value of the
+-- @Message@ parameter must:
+--
+-- -   be a syntactically valid JSON object; and
+-- -   contain at least a top-level JSON key of \"default\" with a value
+--     that is a string.
+--
+-- You can define other top-level keys that define the message you want to
+-- send to a specific transport protocol (e.g., \"http\").
+--
+-- For information about sending different messages for each protocol using
+-- the AWS Management Console, go to
+-- <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol>
+-- in the /Amazon Simple Notification Service Getting Started Guide/.
+--
+-- Valid value: @json@
+prqMessageStructure :: Lens' Publish (Maybe Text)
+prqMessageStructure = lens _prqMessageStructure (\ s a -> s{_prqMessageStructure = a});
 
 -- | The message you want to send to the topic.
 --
--- If you want to send the same message to all transport protocols, include the
--- text of the message as a String value.
+-- If you want to send the same message to all transport protocols, include
+-- the text of the message as a String value.
 --
--- If you want to send different messages for each transport protocol, set the
--- value of the 'MessageStructure' parameter to 'json' and use a JSON object for the 'Message' parameter. See the Examples section for the format of the JSON
--- object.
+-- If you want to send different messages for each transport protocol, set
+-- the value of the @MessageStructure@ parameter to @json@ and use a JSON
+-- object for the @Message@ parameter. See the Examples section for the
+-- format of the JSON object.
 --
--- Constraints: Messages must be UTF-8 encoded strings at most 256 KB in size
--- (262144 bytes, not 262144 characters).
+-- Constraints: Messages must be UTF-8 encoded strings at most 256 KB in
+-- size (262144 bytes, not 262144 characters).
 --
--- JSON-specific constraints:  Keys in the JSON object that correspond to
--- supported transport protocols must have simple JSON string values.  The
--- values will be parsed (unescaped) before they are used in outgoing messages. Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).
--- Values have a minimum length of 0 (the empty string, "", is allowed). Values
--- have a maximum length bounded by the overall message size (so, including
--- multiple protocols may limit message sizes). Non-string values will cause the
--- key to be ignored. Keys that do not correspond to supported transport
--- protocols are ignored. Duplicate keys are not allowed. Failure to parse or
--- validate any key or value in the message will cause the 'Publish' call to
--- return an error (no partial delivery).
-pMessage :: Lens' Publish Text
-pMessage = lens _pMessage (\s a -> s { _pMessage = a })
-
--- | Message attributes for Publish action.
-pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
-pMessageAttributes =
-    lens _pMessageAttributes (\s a -> s { _pMessageAttributes = a })
-        . _EMap
-
--- | Set 'MessageStructure' to 'json' if you want to send a different message for each
--- protocol. For example, using one publish action, you can send a short message
--- to your SMS subscribers and a longer message to your email subscribers. If
--- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:
+-- JSON-specific constraints:
 --
--- be a syntactically valid JSON object; and contain at least a top-level JSON
--- key of "default" with a value that is a string.   You can define other
--- top-level keys that define the message you want to send to a specific
--- transport protocol (e.g., "http").
+-- -   Keys in the JSON object that correspond to supported transport
+--     protocols must have simple JSON string values.
+-- -   The values will be parsed (unescaped) before they are used in
+--     outgoing messages.
+-- -   Outbound notifications are JSON encoded (meaning that the characters
+--     will be reescaped for sending).
+-- -   Values have a minimum length of 0 (the empty string, \"\", is
+--     allowed).
+-- -   Values have a maximum length bounded by the overall message size
+--     (so, including multiple protocols may limit message sizes).
+-- -   Non-string values will cause the key to be ignored.
+-- -   Keys that do not correspond to supported transport protocols are
+--     ignored.
+-- -   Duplicate keys are not allowed.
+-- -   Failure to parse or validate any key or value in the message will
+--     cause the @Publish@ call to return an error (no partial delivery).
+prqMessage :: Lens' Publish Text
+prqMessage = lens _prqMessage (\ s a -> s{_prqMessage = a});
+
+instance AWSRequest Publish where
+        type Sv Publish = SNS
+        type Rs Publish = PublishResponse
+        request = post
+        response
+          = receiveXMLWrapper "PublishResult"
+              (\ s h x ->
+                 PublishResponse' <$>
+                   (x .@? "MessageId") <*> (pure (fromEnum s)))
+
+instance ToHeaders Publish where
+        toHeaders = const mempty
+
+instance ToPath Publish where
+        toPath = const "/"
+
+instance ToQuery Publish where
+        toQuery Publish'{..}
+          = mconcat
+              ["Action" =: ("Publish" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "MessageAttributes" =:
+                 toQuery
+                   (toQueryMap "entry" "Name" "Value" <$>
+                      _prqMessageAttributes),
+               "TargetArn" =: _prqTargetARN,
+               "Subject" =: _prqSubject, "TopicArn" =: _prqTopicARN,
+               "MessageStructure" =: _prqMessageStructure,
+               "Message" =: _prqMessage]
+
+-- | Response for Publish action.
 --
--- For information about sending different messages for each protocol using the
--- AWS Management Console, go to <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol> in
--- the /Amazon Simple Notification Service Getting Started Guide/.
---
--- Valid value: 'json'
-pMessageStructure :: Lens' Publish (Maybe Text)
-pMessageStructure =
-    lens _pMessageStructure (\s a -> s { _pMessageStructure = a })
-
--- | Optional parameter to be used as the "Subject" line when the message is
--- delivered to email endpoints. This field will also be included, if present,
--- in the standard JSON messages delivered to other endpoints.
---
--- Constraints: Subjects must be ASCII text that begins with a letter, number,
--- or punctuation mark; must not include line breaks or control characters; and
--- must be less than 100 characters long.
-pSubject :: Lens' Publish (Maybe Text)
-pSubject = lens _pSubject (\s a -> s { _pSubject = a })
-
--- | Either TopicArn or EndpointArn, but not both.
-pTargetArn :: Lens' Publish (Maybe Text)
-pTargetArn = lens _pTargetArn (\s a -> s { _pTargetArn = a })
-
--- | The topic you want to publish to.
-pTopicArn :: Lens' Publish (Maybe Text)
-pTopicArn = lens _pTopicArn (\s a -> s { _pTopicArn = a })
-
-newtype PublishResponse = PublishResponse
-    { _prMessageId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'PublishResponse' constructor.
+-- /See:/ 'publishResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prMessageId' @::@ 'Maybe' 'Text'
+-- * 'prsMessageId'
 --
-publishResponse :: PublishResponse
-publishResponse = PublishResponse
-    { _prMessageId = Nothing
+-- * 'prsStatus'
+data PublishResponse = PublishResponse'
+    { _prsMessageId :: !(Maybe Text)
+    , _prsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PublishResponse' smart constructor.
+publishResponse :: Int -> PublishResponse
+publishResponse pStatus_ =
+    PublishResponse'
+    { _prsMessageId = Nothing
+    , _prsStatus = pStatus_
     }
 
 -- | Unique identifier assigned to the published message.
 --
 -- Length Constraint: Maximum 100 characters
-prMessageId :: Lens' PublishResponse (Maybe Text)
-prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
+prsMessageId :: Lens' PublishResponse (Maybe Text)
+prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 
-instance ToPath Publish where
-    toPath = const "/"
-
-instance ToQuery Publish where
-    toQuery Publish{..} = mconcat
-        [ "Message"           =? _pMessage
-        , "MessageAttributes" =? _pMessageAttributes
-        , "MessageStructure"  =? _pMessageStructure
-        , "Subject"           =? _pSubject
-        , "TargetArn"         =? _pTargetArn
-        , "TopicArn"          =? _pTopicArn
-        ]
-
-instance ToHeaders Publish
-
-instance AWSRequest Publish where
-    type Sv Publish = SNS
-    type Rs Publish = PublishResponse
-
-    request  = post "Publish"
-    response = xmlResponse
-
-instance FromXML PublishResponse where
-    parseXML = withElement "PublishResult" $ \x -> PublishResponse
-        <$> x .@? "MessageId"
+-- | FIXME: Undocumented member.
+prsStatus :: Lens' PublishResponse Int
+prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});

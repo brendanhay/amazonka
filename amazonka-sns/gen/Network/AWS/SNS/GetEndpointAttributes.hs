@@ -1,29 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SNS.GetEndpointAttributes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Retrieves the endpoint attributes for a device on one of the supported push
--- notification services, such as GCM and APNS. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.
+-- Retrieves the endpoint attributes for a device on one of the supported
+-- push notification services, such as GCM and APNS. For more information,
+-- see
+-- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_GetEndpointAttributes.html>
 module Network.AWS.SNS.GetEndpointAttributes
@@ -33,87 +30,108 @@ module Network.AWS.SNS.GetEndpointAttributes
     -- ** Request constructor
     , getEndpointAttributes
     -- ** Request lenses
-    , geaEndpointArn
+    , gearqEndpointARN
 
     -- * Response
     , GetEndpointAttributesResponse
     -- ** Response constructor
     , getEndpointAttributesResponse
     -- ** Response lenses
-    , gearAttributes
+    , gearsAttributes
+    , gearsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
-newtype GetEndpointAttributes = GetEndpointAttributes
-    { _geaEndpointArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetEndpointAttributes' constructor.
+-- | Input for GetEndpointAttributes action.
+--
+-- /See:/ 'getEndpointAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'geaEndpointArn' @::@ 'Text'
---
-getEndpointAttributes :: Text -- ^ 'geaEndpointArn'
-                      -> GetEndpointAttributes
-getEndpointAttributes p1 = GetEndpointAttributes
-    { _geaEndpointArn = p1
+-- * 'gearqEndpointARN'
+newtype GetEndpointAttributes = GetEndpointAttributes'
+    { _gearqEndpointARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetEndpointAttributes' smart constructor.
+getEndpointAttributes :: Text -> GetEndpointAttributes
+getEndpointAttributes pEndpointARN_ =
+    GetEndpointAttributes'
+    { _gearqEndpointARN = pEndpointARN_
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
-geaEndpointArn :: Lens' GetEndpointAttributes Text
-geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
+gearqEndpointARN :: Lens' GetEndpointAttributes Text
+gearqEndpointARN = lens _gearqEndpointARN (\ s a -> s{_gearqEndpointARN = a});
 
-newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearAttributes :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest GetEndpointAttributes where
+        type Sv GetEndpointAttributes = SNS
+        type Rs GetEndpointAttributes =
+             GetEndpointAttributesResponse
+        request = post
+        response
+          = receiveXMLWrapper "GetEndpointAttributesResult"
+              (\ s h x ->
+                 GetEndpointAttributesResponse' <$>
+                   (x .@? "Attributes" .!@ mempty >>=
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
--- | 'GetEndpointAttributesResponse' constructor.
+instance ToHeaders GetEndpointAttributes where
+        toHeaders = const mempty
+
+instance ToPath GetEndpointAttributes where
+        toPath = const "/"
+
+instance ToQuery GetEndpointAttributes where
+        toQuery GetEndpointAttributes'{..}
+          = mconcat
+              ["Action" =: ("GetEndpointAttributes" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "EndpointArn" =: _gearqEndpointARN]
+
+-- | Response from GetEndpointAttributes of the EndpointArn.
+--
+-- /See:/ 'getEndpointAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gearAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'gearsAttributes'
 --
-getEndpointAttributesResponse :: GetEndpointAttributesResponse
-getEndpointAttributesResponse = GetEndpointAttributesResponse
-    { _gearAttributes = mempty
+-- * 'gearsStatus'
+data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
+    { _gearsAttributes :: !(Maybe (Map Text Text))
+    , _gearsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetEndpointAttributesResponse' smart constructor.
+getEndpointAttributesResponse :: Int -> GetEndpointAttributesResponse
+getEndpointAttributesResponse pStatus_ =
+    GetEndpointAttributesResponse'
+    { _gearsAttributes = Nothing
+    , _gearsStatus = pStatus_
     }
 
 -- | Attributes include the following:
 --
--- 'CustomUserData' -- arbitrary user data to associate with the endpoint.
--- Amazon SNS does not use this data. The data must be in UTF-8 format and less
--- than 2KB.  'Enabled' -- flag that enables/disables delivery to the endpoint.
--- Amazon SNS will set this to false when a notification service indicates to
--- Amazon SNS that the endpoint is invalid. Users can set it back to true,
--- typically after updating Token.  'Token' -- device token, also referred to as a
--- registration id, for an app and mobile device. This is returned from the
--- notification service when an app and mobile device are registered with the
--- notification service.
-gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
-gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a }) . _EMap
+-- -   @CustomUserData@ -- arbitrary user data to associate with the
+--     endpoint. Amazon SNS does not use this data. The data must be in
+--     UTF-8 format and less than 2KB.
+-- -   @Enabled@ -- flag that enables\/disables delivery to the endpoint.
+--     Amazon SNS will set this to false when a notification service
+--     indicates to Amazon SNS that the endpoint is invalid. Users can set
+--     it back to true, typically after updating Token.
+-- -   @Token@ -- device token, also referred to as a registration id, for
+--     an app and mobile device. This is returned from the notification
+--     service when an app and mobile device are registered with the
+--     notification service.
+gearsAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
+gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _Default . _Map;
 
-instance ToPath GetEndpointAttributes where
-    toPath = const "/"
-
-instance ToQuery GetEndpointAttributes where
-    toQuery GetEndpointAttributes{..} = mconcat
-        [ "EndpointArn" =? _geaEndpointArn
-        ]
-
-instance ToHeaders GetEndpointAttributes
-
-instance AWSRequest GetEndpointAttributes where
-    type Sv GetEndpointAttributes = SNS
-    type Rs GetEndpointAttributes = GetEndpointAttributesResponse
-
-    request  = post "GetEndpointAttributes"
-    response = xmlResponse
-
-instance FromXML GetEndpointAttributesResponse where
-    parseXML = withElement "GetEndpointAttributesResult" $ \x -> GetEndpointAttributesResponse
-        <$> x .@? "Attributes" .!@ mempty
+-- | FIXME: Undocumented member.
+gearsStatus :: Lens' GetEndpointAttributesResponse Int
+gearsStatus = lens _gearsStatus (\ s a -> s{_gearsStatus = a});

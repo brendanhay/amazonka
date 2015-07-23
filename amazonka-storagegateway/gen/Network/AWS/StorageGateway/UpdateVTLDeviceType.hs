@@ -1,31 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.UpdateVTLDeviceType
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation updates the type of medium changer in a gateway-VTL. When you
--- activate a gateway-VTL, you select a medium changer type for the gateway-VTL.
--- This operation enables you to select a different type of medium changer after
--- a gateway-VTL is activated.
+-- This operation updates the type of medium changer in a gateway-VTL. When
+-- you activate a gateway-VTL, you select a medium changer type for the
+-- gateway-VTL. This operation enables you to select a different type of
+-- medium changer after a gateway-VTL is activated.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateVTLDeviceType.html>
 module Network.AWS.StorageGateway.UpdateVTLDeviceType
@@ -35,96 +30,114 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     -- ** Request constructor
     , updateVTLDeviceType
     -- ** Request lenses
-    , uvtldtDeviceType
-    , uvtldtVTLDeviceARN
+    , uvtldtrqVTLDeviceARN
+    , uvtldtrqDeviceType
 
     -- * Response
     , UpdateVTLDeviceTypeResponse
     -- ** Response constructor
     , updateVTLDeviceTypeResponse
     -- ** Response lenses
-    , uvtldtrVTLDeviceARN
+    , uvtldtrsVTLDeviceARN
+    , uvtldtrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-data UpdateVTLDeviceType = UpdateVTLDeviceType
-    { _uvtldtDeviceType   :: Text
-    , _uvtldtVTLDeviceARN :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateVTLDeviceType' constructor.
+-- | UpdateVTLDeviceTypeInput
+--
+-- /See:/ 'updateVTLDeviceType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uvtldtDeviceType' @::@ 'Text'
+-- * 'uvtldtrqVTLDeviceARN'
 --
--- * 'uvtldtVTLDeviceARN' @::@ 'Text'
---
-updateVTLDeviceType :: Text -- ^ 'uvtldtVTLDeviceARN'
-                    -> Text -- ^ 'uvtldtDeviceType'
-                    -> UpdateVTLDeviceType
-updateVTLDeviceType p1 p2 = UpdateVTLDeviceType
-    { _uvtldtVTLDeviceARN = p1
-    , _uvtldtDeviceType   = p2
+-- * 'uvtldtrqDeviceType'
+data UpdateVTLDeviceType = UpdateVTLDeviceType'
+    { _uvtldtrqVTLDeviceARN :: !Text
+    , _uvtldtrqDeviceType   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateVTLDeviceType' smart constructor.
+updateVTLDeviceType :: Text -> Text -> UpdateVTLDeviceType
+updateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
+    UpdateVTLDeviceType'
+    { _uvtldtrqVTLDeviceARN = pVTLDeviceARN_
+    , _uvtldtrqDeviceType = pDeviceType_
     }
+
+-- | The Amazon Resource Name (ARN) of the medium changer you want to select.
+uvtldtrqVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
+uvtldtrqVTLDeviceARN = lens _uvtldtrqVTLDeviceARN (\ s a -> s{_uvtldtrqVTLDeviceARN = a});
 
 -- | The type of medium changer you want to select.
 --
--- /Valid Values/: "STK-L700", "AWS-Gateway-VTL"
-uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
-uvtldtDeviceType = lens _uvtldtDeviceType (\s a -> s { _uvtldtDeviceType = a })
+-- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"
+uvtldtrqDeviceType :: Lens' UpdateVTLDeviceType Text
+uvtldtrqDeviceType = lens _uvtldtrqDeviceType (\ s a -> s{_uvtldtrqDeviceType = a});
 
--- | The Amazon Resource Name (ARN) of the medium changer you want to select.
-uvtldtVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
-uvtldtVTLDeviceARN =
-    lens _uvtldtVTLDeviceARN (\s a -> s { _uvtldtVTLDeviceARN = a })
+instance AWSRequest UpdateVTLDeviceType where
+        type Sv UpdateVTLDeviceType = StorageGateway
+        type Rs UpdateVTLDeviceType =
+             UpdateVTLDeviceTypeResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateVTLDeviceTypeResponse' <$>
+                   (x .?> "VTLDeviceARN") <*> (pure (fromEnum s)))
 
-newtype UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse
-    { _uvtldtrVTLDeviceARN :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance ToHeaders UpdateVTLDeviceType where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.UpdateVTLDeviceType" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
--- | 'UpdateVTLDeviceTypeResponse' constructor.
+instance ToJSON UpdateVTLDeviceType where
+        toJSON UpdateVTLDeviceType'{..}
+          = object
+              ["VTLDeviceARN" .= _uvtldtrqVTLDeviceARN,
+               "DeviceType" .= _uvtldtrqDeviceType]
+
+instance ToPath UpdateVTLDeviceType where
+        toPath = const "/"
+
+instance ToQuery UpdateVTLDeviceType where
+        toQuery = const mempty
+
+-- | UpdateVTLDeviceTypeOutput
+--
+-- /See:/ 'updateVTLDeviceTypeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uvtldtrVTLDeviceARN' @::@ 'Maybe' 'Text'
+-- * 'uvtldtrsVTLDeviceARN'
 --
-updateVTLDeviceTypeResponse :: UpdateVTLDeviceTypeResponse
-updateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse
-    { _uvtldtrVTLDeviceARN = Nothing
+-- * 'uvtldtrsStatus'
+data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
+    { _uvtldtrsVTLDeviceARN :: !(Maybe Text)
+    , _uvtldtrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateVTLDeviceTypeResponse' smart constructor.
+updateVTLDeviceTypeResponse :: Int -> UpdateVTLDeviceTypeResponse
+updateVTLDeviceTypeResponse pStatus_ =
+    UpdateVTLDeviceTypeResponse'
+    { _uvtldtrsVTLDeviceARN = Nothing
+    , _uvtldtrsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
-uvtldtrVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
-uvtldtrVTLDeviceARN =
-    lens _uvtldtrVTLDeviceARN (\s a -> s { _uvtldtrVTLDeviceARN = a })
+uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
+uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a});
 
-instance ToPath UpdateVTLDeviceType where
-    toPath = const "/"
-
-instance ToQuery UpdateVTLDeviceType where
-    toQuery = const mempty
-
-instance ToHeaders UpdateVTLDeviceType
-
-instance ToJSON UpdateVTLDeviceType where
-    toJSON UpdateVTLDeviceType{..} = object
-        [ "VTLDeviceARN" .= _uvtldtVTLDeviceARN
-        , "DeviceType"   .= _uvtldtDeviceType
-        ]
-
-instance AWSRequest UpdateVTLDeviceType where
-    type Sv UpdateVTLDeviceType = StorageGateway
-    type Rs UpdateVTLDeviceType = UpdateVTLDeviceTypeResponse
-
-    request  = post "UpdateVTLDeviceType"
-    response = jsonResponse
-
-instance FromJSON UpdateVTLDeviceTypeResponse where
-    parseJSON = withObject "UpdateVTLDeviceTypeResponse" $ \o -> UpdateVTLDeviceTypeResponse
-        <$> o .:? "VTLDeviceARN"
+-- | FIXME: Undocumented member.
+uvtldtrsStatus :: Lens' UpdateVTLDeviceTypeResponse Int
+uvtldtrsStatus = lens _uvtldtrsStatus (\ s a -> s{_uvtldtrsStatus = a});

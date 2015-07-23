@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameterGroups
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The /DescribeCacheParameterGroups/ action returns a list of cache parameter
--- group descriptions. If a cache parameter group name is specified, the list
--- will contain only the descriptions for that group.
+-- The /DescribeCacheParameterGroups/ action returns a list of cache
+-- parameter group descriptions. If a cache parameter group name is
+-- specified, the list will contain only the descriptions for that group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameterGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
@@ -34,127 +29,148 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- ** Request constructor
     , describeCacheParameterGroups
     -- ** Request lenses
-    , dcpgCacheParameterGroupName
-    , dcpgMarker
-    , dcpgMaxRecords
+    , dcpgrqCacheParameterGroupName
+    , dcpgrqMaxRecords
+    , dcpgrqMarker
 
     -- * Response
     , DescribeCacheParameterGroupsResponse
     -- ** Response constructor
     , describeCacheParameterGroupsResponse
     -- ** Response lenses
-    , dcpgrCacheParameterGroups
-    , dcpgrMarker
+    , dcpgrsCacheParameterGroups
+    , dcpgrsMarker
+    , dcpgrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeCacheParameterGroups = DescribeCacheParameterGroups
-    { _dcpgCacheParameterGroupName :: Maybe Text
-    , _dcpgMarker                  :: Maybe Text
-    , _dcpgMaxRecords              :: Maybe Int
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeCacheParameterGroups' constructor.
+-- | Represents the input of a /DescribeCacheParameterGroups/ action.
+--
+-- /See:/ 'describeCacheParameterGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcpgCacheParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'dcpgrqCacheParameterGroupName'
 --
--- * 'dcpgMarker' @::@ 'Maybe' 'Text'
+-- * 'dcpgrqMaxRecords'
 --
--- * 'dcpgMaxRecords' @::@ 'Maybe' 'Int'
---
+-- * 'dcpgrqMarker'
+data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
+    { _dcpgrqCacheParameterGroupName :: !(Maybe Text)
+    , _dcpgrqMaxRecords              :: !(Maybe Int)
+    , _dcpgrqMarker                  :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeCacheParameterGroups' smart constructor.
 describeCacheParameterGroups :: DescribeCacheParameterGroups
-describeCacheParameterGroups = DescribeCacheParameterGroups
-    { _dcpgCacheParameterGroupName = Nothing
-    , _dcpgMaxRecords              = Nothing
-    , _dcpgMarker                  = Nothing
+describeCacheParameterGroups =
+    DescribeCacheParameterGroups'
+    { _dcpgrqCacheParameterGroupName = Nothing
+    , _dcpgrqMaxRecords = Nothing
+    , _dcpgrqMarker = Nothing
     }
 
 -- | The name of a specific cache parameter group to return details for.
-dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
-dcpgCacheParameterGroupName =
-    lens _dcpgCacheParameterGroupName
-        (\s a -> s { _dcpgCacheParameterGroupName = a })
+dcpgrqCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
+dcpgrqCacheParameterGroupName = lens _dcpgrqCacheParameterGroupName (\ s a -> s{_dcpgrqCacheParameterGroupName = a});
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value specified
--- by /MaxRecords/.
-dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
-dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
-
--- | The maximum number of records to include in the response. If more records
--- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
-dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
+dcpgrqMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
+dcpgrqMaxRecords = lens _dcpgrqMaxRecords (\ s a -> s{_dcpgrqMaxRecords = a});
 
-data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
-    { _dcpgrCacheParameterGroups :: List "member" CacheParameterGroup
-    , _dcpgrMarker               :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+dcpgrqMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
+dcpgrqMarker = lens _dcpgrqMarker (\ s a -> s{_dcpgrqMarker = a});
 
--- | 'DescribeCacheParameterGroupsResponse' constructor.
+instance AWSPager DescribeCacheParameterGroups where
+        page rq rs
+          | stop (rs ^. dcpgrsMarker) = Nothing
+          | stop (rs ^. dcpgrsCacheParameterGroups) = Nothing
+          | otherwise =
+            Just $ rq & dcpgrqMarker .~ rs ^. dcpgrsMarker
+
+instance AWSRequest DescribeCacheParameterGroups
+         where
+        type Sv DescribeCacheParameterGroups = ElastiCache
+        type Rs DescribeCacheParameterGroups =
+             DescribeCacheParameterGroupsResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "DescribeCacheParameterGroupsResult"
+              (\ s h x ->
+                 DescribeCacheParameterGroupsResponse' <$>
+                   (x .@? "CacheParameterGroups" .!@ mempty >>=
+                      may (parseXMLList "CacheParameterGroup"))
+                     <*> (x .@? "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeCacheParameterGroups where
+        toHeaders = const mempty
+
+instance ToPath DescribeCacheParameterGroups where
+        toPath = const "/"
+
+instance ToQuery DescribeCacheParameterGroups where
+        toQuery DescribeCacheParameterGroups'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeCacheParameterGroups" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "CacheParameterGroupName" =:
+                 _dcpgrqCacheParameterGroupName,
+               "MaxRecords" =: _dcpgrqMaxRecords,
+               "Marker" =: _dcpgrqMarker]
+
+-- | Represents the output of a /DescribeCacheParameterGroups/ action.
+--
+-- /See:/ 'describeCacheParameterGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcpgrCacheParameterGroups' @::@ ['CacheParameterGroup']
+-- * 'dcpgrsCacheParameterGroups'
 --
--- * 'dcpgrMarker' @::@ 'Maybe' 'Text'
+-- * 'dcpgrsMarker'
 --
-describeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse
-describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
-    { _dcpgrMarker               = Nothing
-    , _dcpgrCacheParameterGroups = mempty
+-- * 'dcpgrsStatus'
+data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'
+    { _dcpgrsCacheParameterGroups :: !(Maybe [CacheParameterGroup])
+    , _dcpgrsMarker               :: !(Maybe Text)
+    , _dcpgrsStatus               :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeCacheParameterGroupsResponse' smart constructor.
+describeCacheParameterGroupsResponse :: Int -> DescribeCacheParameterGroupsResponse
+describeCacheParameterGroupsResponse pStatus_ =
+    DescribeCacheParameterGroupsResponse'
+    { _dcpgrsCacheParameterGroups = Nothing
+    , _dcpgrsMarker = Nothing
+    , _dcpgrsStatus = pStatus_
     }
 
--- | A list of cache parameter groups. Each element in the list contains detailed
--- information about one cache parameter group.
-dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
-dcpgrCacheParameterGroups =
-    lens _dcpgrCacheParameterGroups
-        (\s a -> s { _dcpgrCacheParameterGroups = a })
-            . _List
+-- | A list of cache parameter groups. Each element in the list contains
+-- detailed information about one cache parameter group.
+dcpgrsCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
+dcpgrsCacheParameterGroups = lens _dcpgrsCacheParameterGroups (\ s a -> s{_dcpgrsCacheParameterGroups = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
-dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
+dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
+dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 
-instance ToPath DescribeCacheParameterGroups where
-    toPath = const "/"
-
-instance ToQuery DescribeCacheParameterGroups where
-    toQuery DescribeCacheParameterGroups{..} = mconcat
-        [ "CacheParameterGroupName" =? _dcpgCacheParameterGroupName
-        , "Marker"                  =? _dcpgMarker
-        , "MaxRecords"              =? _dcpgMaxRecords
-        ]
-
-instance ToHeaders DescribeCacheParameterGroups
-
-instance AWSRequest DescribeCacheParameterGroups where
-    type Sv DescribeCacheParameterGroups = ElastiCache
-    type Rs DescribeCacheParameterGroups = DescribeCacheParameterGroupsResponse
-
-    request  = post "DescribeCacheParameterGroups"
-    response = xmlResponse
-
-instance FromXML DescribeCacheParameterGroupsResponse where
-    parseXML = withElement "DescribeCacheParameterGroupsResult" $ \x -> DescribeCacheParameterGroupsResponse
-        <$> x .@? "CacheParameterGroups" .!@ mempty
-        <*> x .@? "Marker"
-
-instance AWSPager DescribeCacheParameterGroups where
-    page rq rs
-        | stop (rs ^. dcpgrMarker) = Nothing
-        | otherwise = (\x -> rq & dcpgMarker ?~ x)
-            <$> (rs ^. dcpgrMarker)
+-- | FIXME: Undocumented member.
+dcpgrsStatus :: Lens' DescribeCacheParameterGroupsResponse Int
+dcpgrsStatus = lens _dcpgrsStatus (\ s a -> s{_dcpgrsStatus = a});

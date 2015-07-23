@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.ListGroupsForUser
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists the groups the specified user belongs to.
+-- Lists the groups the specified user belongs to.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+-- You can paginate the results using the @MaxItems@ and @Marker@
+-- parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupsForUser.html>
 module Network.AWS.IAM.ListGroupsForUser
@@ -34,131 +30,152 @@ module Network.AWS.IAM.ListGroupsForUser
     -- ** Request constructor
     , listGroupsForUser
     -- ** Request lenses
-    , lgfuMarker
-    , lgfuMaxItems
-    , lgfuUserName
+    , lgfurqMaxItems
+    , lgfurqMarker
+    , lgfurqUserName
 
     -- * Response
     , ListGroupsForUserResponse
     -- ** Response constructor
     , listGroupsForUserResponse
     -- ** Response lenses
-    , lgfurGroups
-    , lgfurIsTruncated
-    , lgfurMarker
+    , lgfursMarker
+    , lgfursIsTruncated
+    , lgfursStatus
+    , lgfursGroups
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListGroupsForUser = ListGroupsForUser
-    { _lgfuMarker   :: Maybe Text
-    , _lgfuMaxItems :: Maybe Nat
-    , _lgfuUserName :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListGroupsForUser' constructor.
+-- | /See:/ 'listGroupsForUser' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgfuMarker' @::@ 'Maybe' 'Text'
+-- * 'lgfurqMaxItems'
 --
--- * 'lgfuMaxItems' @::@ 'Maybe' 'Natural'
+-- * 'lgfurqMarker'
 --
--- * 'lgfuUserName' @::@ 'Text'
---
-listGroupsForUser :: Text -- ^ 'lgfuUserName'
-                  -> ListGroupsForUser
-listGroupsForUser p1 = ListGroupsForUser
-    { _lgfuUserName = p1
-    , _lgfuMarker   = Nothing
-    , _lgfuMaxItems = Nothing
-    }
+-- * 'lgfurqUserName'
+data ListGroupsForUser = ListGroupsForUser'
+    { _lgfurqMaxItems :: !(Maybe Nat)
+    , _lgfurqMarker   :: !(Maybe Text)
+    , _lgfurqUserName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you've received a response where the results are truncated. Set it to
--- the value of the 'Marker' element in the response you just received.
-lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
-lgfuMarker = lens _lgfuMarker (\s a -> s { _lgfuMarker = a })
+-- | 'ListGroupsForUser' smart constructor.
+listGroupsForUser :: Text -> ListGroupsForUser
+listGroupsForUser pUserName_ =
+    ListGroupsForUser'
+    { _lgfurqMaxItems = Nothing
+    , _lgfurqMarker = Nothing
+    , _lgfurqUserName = pUserName_
+    }
 
 -- | Use this only when paginating results to indicate the maximum number of
--- groups you want in the response. If there are additional groups beyond the
--- maximum you specify, the 'IsTruncated' response element is 'true'. This parameter
--- is optional. If you do not include it, it defaults to 100.
-lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
-lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a }) . mapping _Nat
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
+lgfurqMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
+lgfurqMaxItems = lens _lgfurqMaxItems (\ s a -> s{_lgfurqMaxItems = a}) . mapping _Nat;
+
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
+lgfurqMarker :: Lens' ListGroupsForUser (Maybe Text)
+lgfurqMarker = lens _lgfurqMarker (\ s a -> s{_lgfurqMarker = a});
 
 -- | The name of the user to list groups for.
-lgfuUserName :: Lens' ListGroupsForUser Text
-lgfuUserName = lens _lgfuUserName (\s a -> s { _lgfuUserName = a })
+lgfurqUserName :: Lens' ListGroupsForUser Text
+lgfurqUserName = lens _lgfurqUserName (\ s a -> s{_lgfurqUserName = a});
 
-data ListGroupsForUserResponse = ListGroupsForUserResponse
-    { _lgfurGroups      :: List "member" Group
-    , _lgfurIsTruncated :: Maybe Bool
-    , _lgfurMarker      :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSPager ListGroupsForUser where
+        page rq rs
+          | stop (rs ^. lgfursIsTruncated) = Nothing
+          | isNothing (rs ^. lgfursMarker) = Nothing
+          | otherwise =
+            Just $ rq & lgfurqMarker .~ rs ^. lgfursMarker
 
--- | 'ListGroupsForUserResponse' constructor.
+instance AWSRequest ListGroupsForUser where
+        type Sv ListGroupsForUser = IAM
+        type Rs ListGroupsForUser = ListGroupsForUserResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListGroupsForUserResult"
+              (\ s h x ->
+                 ListGroupsForUserResponse' <$>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure (fromEnum s))
+                     <*>
+                     (x .@? "Groups" .!@ mempty >>=
+                        parseXMLList "member"))
+
+instance ToHeaders ListGroupsForUser where
+        toHeaders = const mempty
+
+instance ToPath ListGroupsForUser where
+        toPath = const "/"
+
+instance ToQuery ListGroupsForUser where
+        toQuery ListGroupsForUser'{..}
+          = mconcat
+              ["Action" =: ("ListGroupsForUser" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "MaxItems" =: _lgfurqMaxItems,
+               "Marker" =: _lgfurqMarker,
+               "UserName" =: _lgfurqUserName]
+
+-- | Contains the response to a successful ListGroupsForUser request.
+--
+-- /See:/ 'listGroupsForUserResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgfurGroups' @::@ ['Group']
+-- * 'lgfursMarker'
 --
--- * 'lgfurIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'lgfursIsTruncated'
 --
--- * 'lgfurMarker' @::@ 'Maybe' 'Text'
+-- * 'lgfursStatus'
 --
-listGroupsForUserResponse :: ListGroupsForUserResponse
-listGroupsForUserResponse = ListGroupsForUserResponse
-    { _lgfurGroups      = mempty
-    , _lgfurIsTruncated = Nothing
-    , _lgfurMarker      = Nothing
+-- * 'lgfursGroups'
+data ListGroupsForUserResponse = ListGroupsForUserResponse'
+    { _lgfursMarker      :: !(Maybe Text)
+    , _lgfursIsTruncated :: !(Maybe Bool)
+    , _lgfursStatus      :: !Int
+    , _lgfursGroups      :: ![Group]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListGroupsForUserResponse' smart constructor.
+listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
+listGroupsForUserResponse pStatus_ =
+    ListGroupsForUserResponse'
+    { _lgfursMarker = Nothing
+    , _lgfursIsTruncated = Nothing
+    , _lgfursStatus = pStatus_
+    , _lgfursGroups = mempty
     }
 
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lgfursMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
+lgfursMarker = lens _lgfursMarker (\ s a -> s{_lgfursMarker = a});
+
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
+lgfursIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
+lgfursIsTruncated = lens _lgfursIsTruncated (\ s a -> s{_lgfursIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+lgfursStatus :: Lens' ListGroupsForUserResponse Int
+lgfursStatus = lens _lgfursStatus (\ s a -> s{_lgfursStatus = a});
+
 -- | A list of groups.
-lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
-lgfurGroups = lens _lgfurGroups (\s a -> s { _lgfurGroups = a }) . _List
-
--- | A flag that indicates whether there are more groups to list. If your results
--- were truncated, you can make a subsequent pagination request using the 'Marker'
--- request parameter to retrieve more groups in the list.
-lgfurIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
-lgfurIsTruncated = lens _lgfurIsTruncated (\s a -> s { _lgfurIsTruncated = a })
-
--- | If 'IsTruncated' is 'true', this element is present and contains the value to
--- use for the 'Marker' parameter in a subsequent pagination request.
-lgfurMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
-lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
-
-instance ToPath ListGroupsForUser where
-    toPath = const "/"
-
-instance ToQuery ListGroupsForUser where
-    toQuery ListGroupsForUser{..} = mconcat
-        [ "Marker"   =? _lgfuMarker
-        , "MaxItems" =? _lgfuMaxItems
-        , "UserName" =? _lgfuUserName
-        ]
-
-instance ToHeaders ListGroupsForUser
-
-instance AWSRequest ListGroupsForUser where
-    type Sv ListGroupsForUser = IAM
-    type Rs ListGroupsForUser = ListGroupsForUserResponse
-
-    request  = post "ListGroupsForUser"
-    response = xmlResponse
-
-instance FromXML ListGroupsForUserResponse where
-    parseXML = withElement "ListGroupsForUserResult" $ \x -> ListGroupsForUserResponse
-        <$> x .@? "Groups" .!@ mempty
-        <*> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-
-instance AWSPager ListGroupsForUser where
-    page rq rs
-        | stop (rs ^. lgfurIsTruncated) = Nothing
-        | otherwise = Just $ rq
-            & lgfuMarker .~ rs ^. lgfurMarker
+lgfursGroups :: Lens' ListGroupsForUserResponse [Group]
+lgfursGroups = lens _lgfursGroups (\ s a -> s{_lgfursGroups = a});

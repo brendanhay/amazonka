@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadPipeline
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The ReadPipeline operation gets detailed information about a pipeline.
+-- The ReadPipeline operation gets detailed information about a pipeline.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPipeline.html>
 module Network.AWS.ElasticTranscoder.ReadPipeline
@@ -32,97 +27,106 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     -- ** Request constructor
     , readPipeline
     -- ** Request lenses
-    , rp1Id
+    , rrqId
 
     -- * Response
     , ReadPipelineResponse
     -- ** Response constructor
     , readPipelineResponse
     -- ** Response lenses
-    , rprPipeline
-    , rprWarnings
+    , rrsWarnings
+    , rrsPipeline
+    , rrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.ElasticTranscoder.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype ReadPipeline = ReadPipeline
-    { _rp1Id :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'ReadPipeline' constructor.
+-- | The @ReadPipelineRequest@ structure.
+--
+-- /See:/ 'readPipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rp1Id' @::@ 'Text'
---
-readPipeline :: Text -- ^ 'rp1Id'
-             -> ReadPipeline
-readPipeline p1 = ReadPipeline
-    { _rp1Id = p1
+-- * 'rrqId'
+newtype ReadPipeline = ReadPipeline'
+    { _rrqId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ReadPipeline' smart constructor.
+readPipeline :: Text -> ReadPipeline
+readPipeline pId_ =
+    ReadPipeline'
+    { _rrqId = pId_
     }
 
 -- | The identifier of the pipeline to read.
-rp1Id :: Lens' ReadPipeline Text
-rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
+rrqId :: Lens' ReadPipeline Text
+rrqId = lens _rrqId (\ s a -> s{_rrqId = a});
 
-data ReadPipelineResponse = ReadPipelineResponse
-    { _rprPipeline :: Maybe Pipeline
-    , _rprWarnings :: List "Warnings" Warning
-    } deriving (Eq, Read, Show)
+instance AWSRequest ReadPipeline where
+        type Sv ReadPipeline = ElasticTranscoder
+        type Rs ReadPipeline = ReadPipelineResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ReadPipelineResponse' <$>
+                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline")
+                     <*> (pure (fromEnum s)))
 
--- | 'ReadPipelineResponse' constructor.
+instance ToHeaders ReadPipeline where
+        toHeaders = const mempty
+
+instance ToPath ReadPipeline where
+        toPath ReadPipeline'{..}
+          = mconcat ["/2012-09-25/pipelines/", toText _rrqId]
+
+instance ToQuery ReadPipeline where
+        toQuery = const mempty
+
+-- | The @ReadPipelineResponse@ structure.
+--
+-- /See:/ 'readPipelineResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rprPipeline' @::@ 'Maybe' 'Pipeline'
+-- * 'rrsWarnings'
 --
--- * 'rprWarnings' @::@ ['Warning']
+-- * 'rrsPipeline'
 --
-readPipelineResponse :: ReadPipelineResponse
-readPipelineResponse = ReadPipelineResponse
-    { _rprPipeline = Nothing
-    , _rprWarnings = mempty
+-- * 'rrsStatus'
+data ReadPipelineResponse = ReadPipelineResponse'
+    { _rrsWarnings :: !(Maybe [Warning])
+    , _rrsPipeline :: !(Maybe Pipeline)
+    , _rrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ReadPipelineResponse' smart constructor.
+readPipelineResponse :: Int -> ReadPipelineResponse
+readPipelineResponse pStatus_ =
+    ReadPipelineResponse'
+    { _rrsWarnings = Nothing
+    , _rrsPipeline = Nothing
+    , _rrsStatus = pStatus_
     }
 
--- | A section of the response body that provides information about the pipeline.
-rprPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
-rprPipeline = lens _rprPipeline (\s a -> s { _rprPipeline = a })
-
--- | Elastic Transcoder returns a warning if the resources used by your pipeline
--- are not in the same region as the pipeline.
+-- | Elastic Transcoder returns a warning if the resources used by your
+-- pipeline are not in the same region as the pipeline.
 --
--- Using resources in the same region, such as your Amazon S3 buckets, Amazon
--- SNS notification topics, and AWS KMS key, reduces processing time and
--- prevents cross-regional charges.
-rprWarnings :: Lens' ReadPipelineResponse [Warning]
-rprWarnings = lens _rprWarnings (\s a -> s { _rprWarnings = a }) . _List
+-- Using resources in the same region, such as your Amazon S3 buckets,
+-- Amazon SNS notification topics, and AWS KMS key, reduces processing time
+-- and prevents cross-regional charges.
+rrsWarnings :: Lens' ReadPipelineResponse [Warning]
+rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default;
 
-instance ToPath ReadPipeline where
-    toPath ReadPipeline{..} = mconcat
-        [ "/2012-09-25/pipelines/"
-        , toText _rp1Id
-        ]
+-- | A section of the response body that provides information about the
+-- pipeline.
+rrsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
+rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a});
 
-instance ToQuery ReadPipeline where
-    toQuery = const mempty
-
-instance ToHeaders ReadPipeline
-
-instance ToJSON ReadPipeline where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest ReadPipeline where
-    type Sv ReadPipeline = ElasticTranscoder
-    type Rs ReadPipeline = ReadPipelineResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON ReadPipelineResponse where
-    parseJSON = withObject "ReadPipelineResponse" $ \o -> ReadPipelineResponse
-        <$> o .:? "Pipeline"
-        <*> o .:? "Warnings" .!= mempty
+-- | FIXME: Undocumented member.
+rrsStatus :: Lens' ReadPipelineResponse Int
+rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});

@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadPreset
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The ReadPreset operation gets detailed information about a preset.
+-- The ReadPreset operation gets detailed information about a preset.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPreset.html>
 module Network.AWS.ElasticTranscoder.ReadPreset
@@ -32,82 +27,92 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     -- ** Request constructor
     , readPreset
     -- ** Request lenses
-    , rpId
+    , rprqId
 
     -- * Response
     , ReadPresetResponse
     -- ** Response constructor
     , readPresetResponse
     -- ** Response lenses
-    , rprPreset
+    , rprsPreset
+    , rprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.ElasticTranscoder.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype ReadPreset = ReadPreset
-    { _rpId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'ReadPreset' constructor.
+-- | The @ReadPresetRequest@ structure.
+--
+-- /See:/ 'readPreset' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpId' @::@ 'Text'
---
-readPreset :: Text -- ^ 'rpId'
-           -> ReadPreset
-readPreset p1 = ReadPreset
-    { _rpId = p1
+-- * 'rprqId'
+newtype ReadPreset = ReadPreset'
+    { _rprqId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ReadPreset' smart constructor.
+readPreset :: Text -> ReadPreset
+readPreset pId_ =
+    ReadPreset'
+    { _rprqId = pId_
     }
 
--- | The identifier of the preset for which you want to get detailed information.
-rpId :: Lens' ReadPreset Text
-rpId = lens _rpId (\s a -> s { _rpId = a })
-
-newtype ReadPresetResponse = ReadPresetResponse
-    { _rprPreset :: Maybe Preset
-    } deriving (Eq, Read, Show)
-
--- | 'ReadPresetResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rprPreset' @::@ 'Maybe' 'Preset'
---
-readPresetResponse :: ReadPresetResponse
-readPresetResponse = ReadPresetResponse
-    { _rprPreset = Nothing
-    }
-
--- | A section of the response body that provides information about the preset.
-rprPreset :: Lens' ReadPresetResponse (Maybe Preset)
-rprPreset = lens _rprPreset (\s a -> s { _rprPreset = a })
-
-instance ToPath ReadPreset where
-    toPath ReadPreset{..} = mconcat
-        [ "/2012-09-25/presets/"
-        , toText _rpId
-        ]
-
-instance ToQuery ReadPreset where
-    toQuery = const mempty
-
-instance ToHeaders ReadPreset
-
-instance ToJSON ReadPreset where
-    toJSON = const (toJSON Empty)
+-- | The identifier of the preset for which you want to get detailed
+-- information.
+rprqId :: Lens' ReadPreset Text
+rprqId = lens _rprqId (\ s a -> s{_rprqId = a});
 
 instance AWSRequest ReadPreset where
-    type Sv ReadPreset = ElasticTranscoder
-    type Rs ReadPreset = ReadPresetResponse
+        type Sv ReadPreset = ElasticTranscoder
+        type Rs ReadPreset = ReadPresetResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ReadPresetResponse' <$>
+                   (x .?> "Preset") <*> (pure (fromEnum s)))
 
-    request  = get
-    response = jsonResponse
+instance ToHeaders ReadPreset where
+        toHeaders = const mempty
 
-instance FromJSON ReadPresetResponse where
-    parseJSON = withObject "ReadPresetResponse" $ \o -> ReadPresetResponse
-        <$> o .:? "Preset"
+instance ToPath ReadPreset where
+        toPath ReadPreset'{..}
+          = mconcat ["/2012-09-25/presets/", toText _rprqId]
+
+instance ToQuery ReadPreset where
+        toQuery = const mempty
+
+-- | The @ReadPresetResponse@ structure.
+--
+-- /See:/ 'readPresetResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rprsPreset'
+--
+-- * 'rprsStatus'
+data ReadPresetResponse = ReadPresetResponse'
+    { _rprsPreset :: !(Maybe Preset)
+    , _rprsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ReadPresetResponse' smart constructor.
+readPresetResponse :: Int -> ReadPresetResponse
+readPresetResponse pStatus_ =
+    ReadPresetResponse'
+    { _rprsPreset = Nothing
+    , _rprsStatus = pStatus_
+    }
+
+-- | A section of the response body that provides information about the
+-- preset.
+rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
+rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
+
+-- | FIXME: Undocumented member.
+rprsStatus :: Lens' ReadPresetResponse Int
+rprsStatus = lens _rprsStatus (\ s a -> s{_rprsStatus = a});

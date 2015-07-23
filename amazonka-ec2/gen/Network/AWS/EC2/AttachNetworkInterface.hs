@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.AttachNetworkInterface
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Attaches a network interface to an instance.
+-- Attaches a network interface to an instance.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachNetworkInterface.html>
 module Network.AWS.EC2.AttachNetworkInterface
@@ -32,112 +27,124 @@ module Network.AWS.EC2.AttachNetworkInterface
     -- ** Request constructor
     , attachNetworkInterface
     -- ** Request lenses
-    , aniDeviceIndex
-    , aniDryRun
-    , aniInstanceId
-    , aniNetworkInterfaceId
+    , anirqDryRun
+    , anirqNetworkInterfaceId
+    , anirqInstanceId
+    , anirqDeviceIndex
 
     -- * Response
     , AttachNetworkInterfaceResponse
     -- ** Response constructor
     , attachNetworkInterfaceResponse
     -- ** Response lenses
-    , anirAttachmentId
+    , anirsAttachmentId
+    , anirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AttachNetworkInterface = AttachNetworkInterface
-    { _aniDeviceIndex        :: Int
-    , _aniDryRun             :: Maybe Bool
-    , _aniInstanceId         :: Text
-    , _aniNetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'AttachNetworkInterface' constructor.
+-- | /See:/ 'attachNetworkInterface' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aniDeviceIndex' @::@ 'Int'
+-- * 'anirqDryRun'
 --
--- * 'aniDryRun' @::@ 'Maybe' 'Bool'
+-- * 'anirqNetworkInterfaceId'
 --
--- * 'aniInstanceId' @::@ 'Text'
+-- * 'anirqInstanceId'
 --
--- * 'aniNetworkInterfaceId' @::@ 'Text'
---
-attachNetworkInterface :: Text -- ^ 'aniNetworkInterfaceId'
-                       -> Text -- ^ 'aniInstanceId'
-                       -> Int -- ^ 'aniDeviceIndex'
-                       -> AttachNetworkInterface
-attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
-    { _aniNetworkInterfaceId = p1
-    , _aniInstanceId         = p2
-    , _aniDeviceIndex        = p3
-    , _aniDryRun             = Nothing
+-- * 'anirqDeviceIndex'
+data AttachNetworkInterface = AttachNetworkInterface'
+    { _anirqDryRun             :: !(Maybe Bool)
+    , _anirqNetworkInterfaceId :: !Text
+    , _anirqInstanceId         :: !Text
+    , _anirqDeviceIndex        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AttachNetworkInterface' smart constructor.
+attachNetworkInterface :: Text -> Text -> Int -> AttachNetworkInterface
+attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ =
+    AttachNetworkInterface'
+    { _anirqDryRun = Nothing
+    , _anirqNetworkInterfaceId = pNetworkInterfaceId_
+    , _anirqInstanceId = pInstanceId_
+    , _anirqDeviceIndex = pDeviceIndex_
     }
 
--- | The index of the device for the network interface attachment.
-aniDeviceIndex :: Lens' AttachNetworkInterface Int
-aniDeviceIndex = lens _aniDeviceIndex (\s a -> s { _aniDeviceIndex = a })
-
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-aniDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
-aniDryRun = lens _aniDryRun (\s a -> s { _aniDryRun = a })
-
--- | The ID of the instance.
-aniInstanceId :: Lens' AttachNetworkInterface Text
-aniInstanceId = lens _aniInstanceId (\s a -> s { _aniInstanceId = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+anirqDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
+anirqDryRun = lens _anirqDryRun (\ s a -> s{_anirqDryRun = a});
 
 -- | The ID of the network interface.
-aniNetworkInterfaceId :: Lens' AttachNetworkInterface Text
-aniNetworkInterfaceId =
-    lens _aniNetworkInterfaceId (\s a -> s { _aniNetworkInterfaceId = a })
+anirqNetworkInterfaceId :: Lens' AttachNetworkInterface Text
+anirqNetworkInterfaceId = lens _anirqNetworkInterfaceId (\ s a -> s{_anirqNetworkInterfaceId = a});
 
-newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
-    { _anirAttachmentId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The ID of the instance.
+anirqInstanceId :: Lens' AttachNetworkInterface Text
+anirqInstanceId = lens _anirqInstanceId (\ s a -> s{_anirqInstanceId = a});
 
--- | 'AttachNetworkInterfaceResponse' constructor.
+-- | The index of the device for the network interface attachment.
+anirqDeviceIndex :: Lens' AttachNetworkInterface Int
+anirqDeviceIndex = lens _anirqDeviceIndex (\ s a -> s{_anirqDeviceIndex = a});
+
+instance AWSRequest AttachNetworkInterface where
+        type Sv AttachNetworkInterface = EC2
+        type Rs AttachNetworkInterface =
+             AttachNetworkInterfaceResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 AttachNetworkInterfaceResponse' <$>
+                   (x .@? "attachmentId") <*> (pure (fromEnum s)))
+
+instance ToHeaders AttachNetworkInterface where
+        toHeaders = const mempty
+
+instance ToPath AttachNetworkInterface where
+        toPath = const "/"
+
+instance ToQuery AttachNetworkInterface where
+        toQuery AttachNetworkInterface'{..}
+          = mconcat
+              ["Action" =:
+                 ("AttachNetworkInterface" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _anirqDryRun,
+               "NetworkInterfaceId" =: _anirqNetworkInterfaceId,
+               "InstanceId" =: _anirqInstanceId,
+               "DeviceIndex" =: _anirqDeviceIndex]
+
+-- | /See:/ 'attachNetworkInterfaceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'anirAttachmentId' @::@ 'Maybe' 'Text'
+-- * 'anirsAttachmentId'
 --
-attachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse
-attachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
-    { _anirAttachmentId = Nothing
+-- * 'anirsStatus'
+data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
+    { _anirsAttachmentId :: !(Maybe Text)
+    , _anirsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AttachNetworkInterfaceResponse' smart constructor.
+attachNetworkInterfaceResponse :: Int -> AttachNetworkInterfaceResponse
+attachNetworkInterfaceResponse pStatus_ =
+    AttachNetworkInterfaceResponse'
+    { _anirsAttachmentId = Nothing
+    , _anirsStatus = pStatus_
     }
 
 -- | The ID of the network interface attachment.
-anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
-anirAttachmentId = lens _anirAttachmentId (\s a -> s { _anirAttachmentId = a })
+anirsAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
+anirsAttachmentId = lens _anirsAttachmentId (\ s a -> s{_anirsAttachmentId = a});
 
-instance ToPath AttachNetworkInterface where
-    toPath = const "/"
-
-instance ToQuery AttachNetworkInterface where
-    toQuery AttachNetworkInterface{..} = mconcat
-        [ "DeviceIndex"        =? _aniDeviceIndex
-        , "DryRun"             =? _aniDryRun
-        , "InstanceId"         =? _aniInstanceId
-        , "NetworkInterfaceId" =? _aniNetworkInterfaceId
-        ]
-
-instance ToHeaders AttachNetworkInterface
-
-instance AWSRequest AttachNetworkInterface where
-    type Sv AttachNetworkInterface = EC2
-    type Rs AttachNetworkInterface = AttachNetworkInterfaceResponse
-
-    request  = post "AttachNetworkInterface"
-    response = xmlResponse
-
-instance FromXML AttachNetworkInterfaceResponse where
-    parseXML x = AttachNetworkInterfaceResponse
-        <$> x .@? "attachmentId"
+-- | FIXME: Undocumented member.
+anirsStatus :: Lens' AttachNetworkInterfaceResponse Int
+anirsStatus = lens _anirsStatus (\ s a -> s{_anirsStatus = a});

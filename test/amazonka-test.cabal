@@ -1,0 +1,51 @@
+name:                  amazonka-test
+version:               1.0.0
+synopsis:              Test framework for Amazonka libraries.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Test.AWS.Assert
+        , Test.AWS.Diff
+        , Test.AWS.Fixture
+        , Test.AWS.Orphans
+        , Test.AWS.Prelude
+        , Test.AWS.TH
+
+    build-depends:
+          aeson
+        , amazonka-core
+        , base
+        , bifunctors
+        , bytestring
+        , case-insensitive
+        , conduit
+        , conduit-extra
+        , groom
+        , http-client
+        , http-types
+        , nats
+        , process
+        , resourcet
+        , tasty
+        , tasty-hunit
+        , template-haskell
+        , temporary
+        , text
+        , time
+        , unordered-containers
+        , yaml

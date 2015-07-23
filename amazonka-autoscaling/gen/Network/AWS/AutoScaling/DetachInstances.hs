@@ -1,32 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.AutoScaling.DetachInstances
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Removes one or more instances from the specified Auto Scaling group. After
--- the instances are detached, you can manage them independently from the rest
--- of the Auto Scaling group.
+-- Removes one or more instances from the specified Auto Scaling group.
+-- After the instances are detached, you can manage them independently from
+-- the rest of the Auto Scaling group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DetachInstances.html>
@@ -37,108 +33,115 @@ module Network.AWS.AutoScaling.DetachInstances
     -- ** Request constructor
     , detachInstances
     -- ** Request lenses
-    , diAutoScalingGroupName
-    , diInstanceIds
-    , diShouldDecrementDesiredCapacity
+    , dirqInstanceIds
+    , dirqAutoScalingGroupName
+    , dirqShouldDecrementDesiredCapacity
 
     -- * Response
     , DetachInstancesResponse
     -- ** Response constructor
     , detachInstancesResponse
     -- ** Response lenses
-    , dirActivities
+    , dirsActivities
+    , dirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DetachInstances = DetachInstances
-    { _diAutoScalingGroupName           :: Text
-    , _diInstanceIds                    :: List "member" Text
-    , _diShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DetachInstances' constructor.
+-- | /See:/ 'detachInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diAutoScalingGroupName' @::@ 'Text'
+-- * 'dirqInstanceIds'
 --
--- * 'diInstanceIds' @::@ ['Text']
+-- * 'dirqAutoScalingGroupName'
 --
--- * 'diShouldDecrementDesiredCapacity' @::@ 'Bool'
---
-detachInstances :: Text -- ^ 'diAutoScalingGroupName'
-                -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
-                -> DetachInstances
-detachInstances p1 p2 = DetachInstances
-    { _diAutoScalingGroupName           = p1
-    , _diShouldDecrementDesiredCapacity = p2
-    , _diInstanceIds                    = mempty
-    }
+-- * 'dirqShouldDecrementDesiredCapacity'
+data DetachInstances = DetachInstances'
+    { _dirqInstanceIds                    :: !(Maybe [Text])
+    , _dirqAutoScalingGroupName           :: !Text
+    , _dirqShouldDecrementDesiredCapacity :: !Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | The name of the group.
-diAutoScalingGroupName :: Lens' DetachInstances Text
-diAutoScalingGroupName =
-    lens _diAutoScalingGroupName (\s a -> s { _diAutoScalingGroupName = a })
+-- | 'DetachInstances' smart constructor.
+detachInstances :: Text -> Bool -> DetachInstances
+detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
+    DetachInstances'
+    { _dirqInstanceIds = Nothing
+    , _dirqAutoScalingGroupName = pAutoScalingGroupName_
+    , _dirqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+    }
 
 -- | One or more instance IDs.
-diInstanceIds :: Lens' DetachInstances [Text]
-diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a }) . _List
+dirqInstanceIds :: Lens' DetachInstances [Text]
+dirqInstanceIds = lens _dirqInstanceIds (\ s a -> s{_dirqInstanceIds = a}) . _Default;
 
--- | If 'True', the Auto Scaling group decrements the desired capacity value by the
--- number of instances detached.
-diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
-diShouldDecrementDesiredCapacity =
-    lens _diShouldDecrementDesiredCapacity
-        (\s a -> s { _diShouldDecrementDesiredCapacity = a })
+-- | The name of the group.
+dirqAutoScalingGroupName :: Lens' DetachInstances Text
+dirqAutoScalingGroupName = lens _dirqAutoScalingGroupName (\ s a -> s{_dirqAutoScalingGroupName = a});
 
-newtype DetachInstancesResponse = DetachInstancesResponse
-    { _dirActivities :: List "member" Activity
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | If @True@, the Auto Scaling group decrements the desired capacity value
+-- by the number of instances detached.
+dirqShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
+dirqShouldDecrementDesiredCapacity = lens _dirqShouldDecrementDesiredCapacity (\ s a -> s{_dirqShouldDecrementDesiredCapacity = a});
 
-instance GHC.Exts.IsList DetachInstancesResponse where
-    type Item DetachInstancesResponse = Activity
+instance AWSRequest DetachInstances where
+        type Sv DetachInstances = AutoScaling
+        type Rs DetachInstances = DetachInstancesResponse
+        request = post
+        response
+          = receiveXMLWrapper "DetachInstancesResult"
+              (\ s h x ->
+                 DetachInstancesResponse' <$>
+                   (x .@? "Activities" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    fromList = DetachInstancesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dirActivities
+instance ToHeaders DetachInstances where
+        toHeaders = const mempty
 
--- | 'DetachInstancesResponse' constructor.
+instance ToPath DetachInstances where
+        toPath = const "/"
+
+instance ToQuery DetachInstances where
+        toQuery DetachInstances'{..}
+          = mconcat
+              ["Action" =: ("DetachInstances" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _dirqInstanceIds),
+               "AutoScalingGroupName" =: _dirqAutoScalingGroupName,
+               "ShouldDecrementDesiredCapacity" =:
+                 _dirqShouldDecrementDesiredCapacity]
+
+-- | /See:/ 'detachInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirActivities' @::@ ['Activity']
+-- * 'dirsActivities'
 --
-detachInstancesResponse :: DetachInstancesResponse
-detachInstancesResponse = DetachInstancesResponse
-    { _dirActivities = mempty
+-- * 'dirsStatus'
+data DetachInstancesResponse = DetachInstancesResponse'
+    { _dirsActivities :: !(Maybe [Activity])
+    , _dirsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DetachInstancesResponse' smart constructor.
+detachInstancesResponse :: Int -> DetachInstancesResponse
+detachInstancesResponse pStatus_ =
+    DetachInstancesResponse'
+    { _dirsActivities = Nothing
+    , _dirsStatus = pStatus_
     }
 
--- | The activities related to detaching the instances from the Auto Scaling group.
-dirActivities :: Lens' DetachInstancesResponse [Activity]
-dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a }) . _List
+-- | The activities related to detaching the instances from the Auto Scaling
+-- group.
+dirsActivities :: Lens' DetachInstancesResponse [Activity]
+dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default;
 
-instance ToPath DetachInstances where
-    toPath = const "/"
-
-instance ToQuery DetachInstances where
-    toQuery DetachInstances{..} = mconcat
-        [ "AutoScalingGroupName"           =? _diAutoScalingGroupName
-        , "InstanceIds"                    =? _diInstanceIds
-        , "ShouldDecrementDesiredCapacity" =? _diShouldDecrementDesiredCapacity
-        ]
-
-instance ToHeaders DetachInstances
-
-instance AWSRequest DetachInstances where
-    type Sv DetachInstances = AutoScaling
-    type Rs DetachInstances = DetachInstancesResponse
-
-    request  = post "DetachInstances"
-    response = xmlResponse
-
-instance FromXML DetachInstancesResponse where
-    parseXML = withElement "DetachInstancesResult" $ \x -> DetachInstancesResponse
-        <$> x .@? "Activities" .!@ mempty
+-- | FIXME: Undocumented member.
+dirsStatus :: Lens' DetachInstancesResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

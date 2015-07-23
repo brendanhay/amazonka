@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.DescribeDBSnapshots
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns information about DB snapshots. This API supports pagination.
+-- Returns information about DB snapshots. This API supports pagination.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html>
 module Network.AWS.RDS.DescribeDBSnapshots
@@ -32,173 +27,198 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- ** Request constructor
     , describeDBSnapshots
     -- ** Request lenses
-    , ddbsDBInstanceIdentifier
-    , ddbsDBSnapshotIdentifier
-    , ddbsFilters
-    , ddbsMarker
-    , ddbsMaxRecords
-    , ddbsSnapshotType
+    , ddsrqFilters
+    , ddsrqDBSnapshotIdentifier
+    , ddsrqSnapshotType
+    , ddsrqDBInstanceIdentifier
+    , ddsrqMaxRecords
+    , ddsrqMarker
 
     -- * Response
     , DescribeDBSnapshotsResponse
     -- ** Response constructor
     , describeDBSnapshotsResponse
     -- ** Response lenses
-    , ddbsrDBSnapshots
-    , ddbsrMarker
+    , ddsrsMarker
+    , ddsrsDBSnapshots
+    , ddsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeDBSnapshots = DescribeDBSnapshots
-    { _ddbsDBInstanceIdentifier :: Maybe Text
-    , _ddbsDBSnapshotIdentifier :: Maybe Text
-    , _ddbsFilters              :: List "member" Filter
-    , _ddbsMarker               :: Maybe Text
-    , _ddbsMaxRecords           :: Maybe Int
-    , _ddbsSnapshotType         :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeDBSnapshots' constructor.
+-- |
+--
+-- /See:/ 'describeDBSnapshots' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbsDBInstanceIdentifier' @::@ 'Maybe' 'Text'
+-- * 'ddsrqFilters'
 --
--- * 'ddbsDBSnapshotIdentifier' @::@ 'Maybe' 'Text'
+-- * 'ddsrqDBSnapshotIdentifier'
 --
--- * 'ddbsFilters' @::@ ['Filter']
+-- * 'ddsrqSnapshotType'
 --
--- * 'ddbsMarker' @::@ 'Maybe' 'Text'
+-- * 'ddsrqDBInstanceIdentifier'
 --
--- * 'ddbsMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'ddsrqMaxRecords'
 --
--- * 'ddbsSnapshotType' @::@ 'Maybe' 'Text'
---
+-- * 'ddsrqMarker'
+data DescribeDBSnapshots = DescribeDBSnapshots'
+    { _ddsrqFilters              :: !(Maybe [Filter])
+    , _ddsrqDBSnapshotIdentifier :: !(Maybe Text)
+    , _ddsrqSnapshotType         :: !(Maybe Text)
+    , _ddsrqDBInstanceIdentifier :: !(Maybe Text)
+    , _ddsrqMaxRecords           :: !(Maybe Int)
+    , _ddsrqMarker               :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeDBSnapshots' smart constructor.
 describeDBSnapshots :: DescribeDBSnapshots
-describeDBSnapshots = DescribeDBSnapshots
-    { _ddbsDBInstanceIdentifier = Nothing
-    , _ddbsDBSnapshotIdentifier = Nothing
-    , _ddbsSnapshotType         = Nothing
-    , _ddbsFilters              = mempty
-    , _ddbsMaxRecords           = Nothing
-    , _ddbsMarker               = Nothing
+describeDBSnapshots =
+    DescribeDBSnapshots'
+    { _ddsrqFilters = Nothing
+    , _ddsrqDBSnapshotIdentifier = Nothing
+    , _ddsrqSnapshotType = Nothing
+    , _ddsrqDBInstanceIdentifier = Nothing
+    , _ddsrqMaxRecords = Nothing
+    , _ddsrqMarker = Nothing
     }
 
--- | A DB instance identifier to retrieve the list of DB snapshots for. Cannot be
--- used in conjunction with 'DBSnapshotIdentifier'. This parameter is not case
--- sensitive.
---
--- Constraints:
---
--- Must contain from 1 to 63 alphanumeric characters or hyphens First
--- character must be a letter Cannot end with a hyphen or contain two
--- consecutive hyphens
-ddbsDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
-ddbsDBInstanceIdentifier =
-    lens _ddbsDBInstanceIdentifier
-        (\s a -> s { _ddbsDBInstanceIdentifier = a })
-
--- | A specific DB snapshot identifier to describe. Cannot be used in conjunction
--- with 'DBInstanceIdentifier'. This value is stored as a lowercase string.
---
--- Constraints:
---
--- Must be 1 to 255 alphanumeric characters First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
--- If this is the identifier of an automated snapshot, the 'SnapshotType'
--- parameter must also be specified.
-ddbsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
-ddbsDBSnapshotIdentifier =
-    lens _ddbsDBSnapshotIdentifier
-        (\s a -> s { _ddbsDBSnapshotIdentifier = a })
-
 -- | This parameter is not currently supported.
-ddbsFilters :: Lens' DescribeDBSnapshots [Filter]
-ddbsFilters = lens _ddbsFilters (\s a -> s { _ddbsFilters = a }) . _List
+ddsrqFilters :: Lens' DescribeDBSnapshots [Filter]
+ddsrqFilters = lens _ddsrqFilters (\ s a -> s{_ddsrqFilters = a}) . _Default;
 
--- | An optional pagination token provided by a previous 'DescribeDBSnapshots'
--- request. If this parameter is specified, the response includes only records
--- beyond the marker, up to the value specified by 'MaxRecords'.
-ddbsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
-ddbsMarker = lens _ddbsMarker (\s a -> s { _ddbsMarker = a })
+-- | A specific DB snapshot identifier to describe. Cannot be used in
+-- conjunction with @DBInstanceIdentifier@. This value is stored as a
+-- lowercase string.
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+-- -   If this is the identifier of an automated snapshot, the
+--     @SnapshotType@ parameter must also be specified.
+ddsrqDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsrqDBSnapshotIdentifier = lens _ddsrqDBSnapshotIdentifier (\ s a -> s{_ddsrqDBSnapshotIdentifier = a});
 
--- | The maximum number of records to include in the response. If more records
--- exist than the specified 'MaxRecords' value, a pagination token called a marker
--- is included in the response so that the remaining results may be retrieved.
+-- | The type of snapshots that will be returned. Values can be \"automated\"
+-- or \"manual.\" If not specified, the returned results will include all
+-- snapshots types.
+ddsrqSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsrqSnapshotType = lens _ddsrqSnapshotType (\ s a -> s{_ddsrqSnapshotType = a});
+
+-- | A DB instance identifier to retrieve the list of DB snapshots for.
+-- Cannot be used in conjunction with @DBSnapshotIdentifier@. This
+-- parameter is not case sensitive.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+ddsrqDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsrqDBInstanceIdentifier = lens _ddsrqDBInstanceIdentifier (\ s a -> s{_ddsrqDBInstanceIdentifier = a});
+
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a pagination token
+-- called a marker is included in the response so that the remaining
+-- results may be retrieved.
 --
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddbsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
-ddbsMaxRecords = lens _ddbsMaxRecords (\s a -> s { _ddbsMaxRecords = a })
+ddsrqMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
+ddsrqMaxRecords = lens _ddsrqMaxRecords (\ s a -> s{_ddsrqMaxRecords = a});
 
--- | The type of snapshots that will be returned. Values can be "automated" or
--- "manual." If not specified, the returned results will include all snapshots
--- types.
-ddbsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
-ddbsSnapshotType = lens _ddbsSnapshotType (\s a -> s { _ddbsSnapshotType = a })
+-- | An optional pagination token provided by a previous
+-- @DescribeDBSnapshots@ request. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value
+-- specified by @MaxRecords@.
+ddsrqMarker :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsrqMarker = lens _ddsrqMarker (\ s a -> s{_ddsrqMarker = a});
 
-data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse
-    { _ddbsrDBSnapshots :: List "member" DBSnapshot
-    , _ddbsrMarker      :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeDBSnapshots where
+        page rq rs
+          | stop (rs ^. ddsrsMarker) = Nothing
+          | stop (rs ^. ddsrsDBSnapshots) = Nothing
+          | otherwise =
+            Just $ rq & ddsrqMarker .~ rs ^. ddsrsMarker
 
--- | 'DescribeDBSnapshotsResponse' constructor.
+instance AWSRequest DescribeDBSnapshots where
+        type Sv DescribeDBSnapshots = RDS
+        type Rs DescribeDBSnapshots =
+             DescribeDBSnapshotsResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeDBSnapshotsResult"
+              (\ s h x ->
+                 DescribeDBSnapshotsResponse' <$>
+                   (x .@? "Marker") <*>
+                     (x .@? "DBSnapshots" .!@ mempty >>=
+                        may (parseXMLList "DBSnapshot"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeDBSnapshots where
+        toHeaders = const mempty
+
+instance ToPath DescribeDBSnapshots where
+        toPath = const "/"
+
+instance ToQuery DescribeDBSnapshots where
+        toQuery DescribeDBSnapshots'{..}
+          = mconcat
+              ["Action" =: ("DescribeDBSnapshots" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ddsrqFilters),
+               "DBSnapshotIdentifier" =: _ddsrqDBSnapshotIdentifier,
+               "SnapshotType" =: _ddsrqSnapshotType,
+               "DBInstanceIdentifier" =: _ddsrqDBInstanceIdentifier,
+               "MaxRecords" =: _ddsrqMaxRecords,
+               "Marker" =: _ddsrqMarker]
+
+-- | Contains the result of a successful invocation of the
+-- DescribeDBSnapshots action.
+--
+-- /See:/ 'describeDBSnapshotsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbsrDBSnapshots' @::@ ['DBSnapshot']
+-- * 'ddsrsMarker'
 --
--- * 'ddbsrMarker' @::@ 'Maybe' 'Text'
+-- * 'ddsrsDBSnapshots'
 --
-describeDBSnapshotsResponse :: DescribeDBSnapshotsResponse
-describeDBSnapshotsResponse = DescribeDBSnapshotsResponse
-    { _ddbsrMarker      = Nothing
-    , _ddbsrDBSnapshots = mempty
+-- * 'ddsrsStatus'
+data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
+    { _ddsrsMarker      :: !(Maybe Text)
+    , _ddsrsDBSnapshots :: !(Maybe [DBSnapshot])
+    , _ddsrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeDBSnapshotsResponse' smart constructor.
+describeDBSnapshotsResponse :: Int -> DescribeDBSnapshotsResponse
+describeDBSnapshotsResponse pStatus_ =
+    DescribeDBSnapshotsResponse'
+    { _ddsrsMarker = Nothing
+    , _ddsrsDBSnapshots = Nothing
+    , _ddsrsStatus = pStatus_
     }
 
--- | A list of 'DBSnapshot' instances.
-ddbsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
-ddbsrDBSnapshots = lens _ddbsrDBSnapshots (\s a -> s { _ddbsrDBSnapshots = a }) . _List
-
 -- | An optional pagination token provided by a previous request. If this
--- parameter is specified, the response includes only records beyond the marker,
--- up to the value specified by 'MaxRecords'.
-ddbsrMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
-ddbsrMarker = lens _ddbsrMarker (\s a -> s { _ddbsrMarker = a })
+-- parameter is specified, the response includes only records beyond the
+-- marker, up to the value specified by @MaxRecords@.
+ddsrsMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
+ddsrsMarker = lens _ddsrsMarker (\ s a -> s{_ddsrsMarker = a});
 
-instance ToPath DescribeDBSnapshots where
-    toPath = const "/"
+-- | A list of DBSnapshot instances.
+ddsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
+ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . _Default;
 
-instance ToQuery DescribeDBSnapshots where
-    toQuery DescribeDBSnapshots{..} = mconcat
-        [ "DBInstanceIdentifier" =? _ddbsDBInstanceIdentifier
-        , "DBSnapshotIdentifier" =? _ddbsDBSnapshotIdentifier
-        , "Filters"              =? _ddbsFilters
-        , "Marker"               =? _ddbsMarker
-        , "MaxRecords"           =? _ddbsMaxRecords
-        , "SnapshotType"         =? _ddbsSnapshotType
-        ]
-
-instance ToHeaders DescribeDBSnapshots
-
-instance AWSRequest DescribeDBSnapshots where
-    type Sv DescribeDBSnapshots = RDS
-    type Rs DescribeDBSnapshots = DescribeDBSnapshotsResponse
-
-    request  = post "DescribeDBSnapshots"
-    response = xmlResponse
-
-instance FromXML DescribeDBSnapshotsResponse where
-    parseXML = withElement "DescribeDBSnapshotsResult" $ \x -> DescribeDBSnapshotsResponse
-        <$> x .@? "DBSnapshots" .!@ mempty
-        <*> x .@? "Marker"
-
-instance AWSPager DescribeDBSnapshots where
-    page rq rs
-        | stop (rs ^. ddbsrMarker) = Nothing
-        | otherwise = (\x -> rq & ddbsMarker ?~ x)
-            <$> (rs ^. ddbsrMarker)
+-- | FIXME: Undocumented member.
+ddsrsStatus :: Lens' DescribeDBSnapshotsResponse Int
+ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});

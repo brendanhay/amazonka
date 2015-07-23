@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmHistory
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Retrieves history for the specified alarm. Filter alarms by date range or
--- item type. If an alarm name is not specified, Amazon CloudWatch returns
--- histories for all of the owner's alarms.
+-- Retrieves history for the specified alarm. Filter alarms by date range
+-- or item type. If an alarm name is not specified, Amazon CloudWatch
+-- returns histories for all of the owner\'s alarms.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmHistory.html>
 module Network.AWS.CloudWatch.DescribeAlarmHistory
@@ -34,146 +29,163 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- ** Request constructor
     , describeAlarmHistory
     -- ** Request lenses
-    , dahAlarmName
-    , dahEndDate
-    , dahHistoryItemType
-    , dahMaxRecords
-    , dahNextToken
-    , dahStartDate
+    , dahrqAlarmName
+    , dahrqHistoryItemType
+    , dahrqEndDate
+    , dahrqStartDate
+    , dahrqNextToken
+    , dahrqMaxRecords
 
     -- * Response
     , DescribeAlarmHistoryResponse
     -- ** Response constructor
     , describeAlarmHistoryResponse
     -- ** Response lenses
-    , dahrAlarmHistoryItems
-    , dahrNextToken
+    , dahrsAlarmHistoryItems
+    , dahrsNextToken
+    , dahrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudWatch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeAlarmHistory = DescribeAlarmHistory
-    { _dahAlarmName       :: Maybe Text
-    , _dahEndDate         :: Maybe ISO8601
-    , _dahHistoryItemType :: Maybe HistoryItemType
-    , _dahMaxRecords      :: Maybe Nat
-    , _dahNextToken       :: Maybe Text
-    , _dahStartDate       :: Maybe ISO8601
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeAlarmHistory' constructor.
+-- | /See:/ 'describeAlarmHistory' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dahAlarmName' @::@ 'Maybe' 'Text'
+-- * 'dahrqAlarmName'
 --
--- * 'dahEndDate' @::@ 'Maybe' 'UTCTime'
+-- * 'dahrqHistoryItemType'
 --
--- * 'dahHistoryItemType' @::@ 'Maybe' 'HistoryItemType'
+-- * 'dahrqEndDate'
 --
--- * 'dahMaxRecords' @::@ 'Maybe' 'Natural'
+-- * 'dahrqStartDate'
 --
--- * 'dahNextToken' @::@ 'Maybe' 'Text'
+-- * 'dahrqNextToken'
 --
--- * 'dahStartDate' @::@ 'Maybe' 'UTCTime'
---
+-- * 'dahrqMaxRecords'
+data DescribeAlarmHistory = DescribeAlarmHistory'
+    { _dahrqAlarmName       :: !(Maybe Text)
+    , _dahrqHistoryItemType :: !(Maybe HistoryItemType)
+    , _dahrqEndDate         :: !(Maybe ISO8601)
+    , _dahrqStartDate       :: !(Maybe ISO8601)
+    , _dahrqNextToken       :: !(Maybe Text)
+    , _dahrqMaxRecords      :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeAlarmHistory' smart constructor.
 describeAlarmHistory :: DescribeAlarmHistory
-describeAlarmHistory = DescribeAlarmHistory
-    { _dahAlarmName       = Nothing
-    , _dahHistoryItemType = Nothing
-    , _dahStartDate       = Nothing
-    , _dahEndDate         = Nothing
-    , _dahMaxRecords      = Nothing
-    , _dahNextToken       = Nothing
+describeAlarmHistory =
+    DescribeAlarmHistory'
+    { _dahrqAlarmName = Nothing
+    , _dahrqHistoryItemType = Nothing
+    , _dahrqEndDate = Nothing
+    , _dahrqStartDate = Nothing
+    , _dahrqNextToken = Nothing
+    , _dahrqMaxRecords = Nothing
     }
 
 -- | The name of the alarm.
-dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
-dahAlarmName = lens _dahAlarmName (\s a -> s { _dahAlarmName = a })
-
--- | The ending date to retrieve alarm history.
-dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a }) . mapping _Time
+dahrqAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
+dahrqAlarmName = lens _dahrqAlarmName (\ s a -> s{_dahrqAlarmName = a});
 
 -- | The type of alarm histories to retrieve.
-dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
-dahHistoryItemType =
-    lens _dahHistoryItemType (\s a -> s { _dahHistoryItemType = a })
+dahrqHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
+dahrqHistoryItemType = lens _dahrqHistoryItemType (\ s a -> s{_dahrqHistoryItemType = a});
 
--- | The maximum number of alarm history records to retrieve.
-dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
-dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a }) . mapping _Nat
-
--- | The token returned by a previous call to indicate that there is more data
--- available.
-dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
-dahNextToken = lens _dahNextToken (\s a -> s { _dahNextToken = a })
+-- | The ending date to retrieve alarm history.
+dahrqEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
+dahrqEndDate = lens _dahrqEndDate (\ s a -> s{_dahrqEndDate = a}) . mapping _Time;
 
 -- | The starting date to retrieve alarm history.
-dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a }) . mapping _Time
+dahrqStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
+dahrqStartDate = lens _dahrqStartDate (\ s a -> s{_dahrqStartDate = a}) . mapping _Time;
 
-data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
-    { _dahrAlarmHistoryItems :: List "member" AlarmHistoryItem
-    , _dahrNextToken         :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The token returned by a previous call to indicate that there is more
+-- data available.
+dahrqNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
+dahrqNextToken = lens _dahrqNextToken (\ s a -> s{_dahrqNextToken = a});
 
--- | 'DescribeAlarmHistoryResponse' constructor.
+-- | The maximum number of alarm history records to retrieve.
+dahrqMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
+dahrqMaxRecords = lens _dahrqMaxRecords (\ s a -> s{_dahrqMaxRecords = a}) . mapping _Nat;
+
+instance AWSPager DescribeAlarmHistory where
+        page rq rs
+          | stop (rs ^. dahrsNextToken) = Nothing
+          | stop (rs ^. dahrsAlarmHistoryItems) = Nothing
+          | otherwise =
+            Just $ rq & dahrqNextToken .~ rs ^. dahrsNextToken
+
+instance AWSRequest DescribeAlarmHistory where
+        type Sv DescribeAlarmHistory = CloudWatch
+        type Rs DescribeAlarmHistory =
+             DescribeAlarmHistoryResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeAlarmHistoryResult"
+              (\ s h x ->
+                 DescribeAlarmHistoryResponse' <$>
+                   (x .@? "AlarmHistoryItems" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeAlarmHistory where
+        toHeaders = const mempty
+
+instance ToPath DescribeAlarmHistory where
+        toPath = const "/"
+
+instance ToQuery DescribeAlarmHistory where
+        toQuery DescribeAlarmHistory'{..}
+          = mconcat
+              ["Action" =: ("DescribeAlarmHistory" :: ByteString),
+               "Version" =: ("2010-08-01" :: ByteString),
+               "AlarmName" =: _dahrqAlarmName,
+               "HistoryItemType" =: _dahrqHistoryItemType,
+               "EndDate" =: _dahrqEndDate,
+               "StartDate" =: _dahrqStartDate,
+               "NextToken" =: _dahrqNextToken,
+               "MaxRecords" =: _dahrqMaxRecords]
+
+-- | The output for the DescribeAlarmHistory action.
+--
+-- /See:/ 'describeAlarmHistoryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dahrAlarmHistoryItems' @::@ ['AlarmHistoryItem']
+-- * 'dahrsAlarmHistoryItems'
 --
--- * 'dahrNextToken' @::@ 'Maybe' 'Text'
+-- * 'dahrsNextToken'
 --
-describeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
-describeAlarmHistoryResponse = DescribeAlarmHistoryResponse
-    { _dahrAlarmHistoryItems = mempty
-    , _dahrNextToken         = Nothing
+-- * 'dahrsStatus'
+data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
+    { _dahrsAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
+    , _dahrsNextToken         :: !(Maybe Text)
+    , _dahrsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeAlarmHistoryResponse' smart constructor.
+describeAlarmHistoryResponse :: Int -> DescribeAlarmHistoryResponse
+describeAlarmHistoryResponse pStatus_ =
+    DescribeAlarmHistoryResponse'
+    { _dahrsAlarmHistoryItems = Nothing
+    , _dahrsNextToken = Nothing
+    , _dahrsStatus = pStatus_
     }
 
 -- | A list of alarm histories in JSON format.
-dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
-dahrAlarmHistoryItems =
-    lens _dahrAlarmHistoryItems (\s a -> s { _dahrAlarmHistoryItems = a })
-        . _List
+dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
+dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHistoryItems = a}) . _Default;
 
 -- | A string that marks the start of the next batch of returned results.
-dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
-dahrNextToken = lens _dahrNextToken (\s a -> s { _dahrNextToken = a })
+dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
+dahrsNextToken = lens _dahrsNextToken (\ s a -> s{_dahrsNextToken = a});
 
-instance ToPath DescribeAlarmHistory where
-    toPath = const "/"
-
-instance ToQuery DescribeAlarmHistory where
-    toQuery DescribeAlarmHistory{..} = mconcat
-        [ "AlarmName"       =? _dahAlarmName
-        , "EndDate"         =? _dahEndDate
-        , "HistoryItemType" =? _dahHistoryItemType
-        , "MaxRecords"      =? _dahMaxRecords
-        , "NextToken"       =? _dahNextToken
-        , "StartDate"       =? _dahStartDate
-        ]
-
-instance ToHeaders DescribeAlarmHistory
-
-instance AWSRequest DescribeAlarmHistory where
-    type Sv DescribeAlarmHistory = CloudWatch
-    type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
-
-    request  = post "DescribeAlarmHistory"
-    response = xmlResponse
-
-instance FromXML DescribeAlarmHistoryResponse where
-    parseXML = withElement "DescribeAlarmHistoryResult" $ \x -> DescribeAlarmHistoryResponse
-        <$> x .@? "AlarmHistoryItems" .!@ mempty
-        <*> x .@? "NextToken"
-
-instance AWSPager DescribeAlarmHistory where
-    page rq rs
-        | stop (rs ^. dahrNextToken) = Nothing
-        | otherwise = (\x -> rq & dahNextToken ?~ x)
-            <$> (rs ^. dahrNextToken)
+-- | FIXME: Undocumented member.
+dahrsStatus :: Lens' DescribeAlarmHistoryResponse Int
+dahrsStatus = lens _dahrsStatus (\ s a -> s{_dahrsStatus = a});

@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Cancels an update on the specified stack. If the call completes successfully,
--- the stack will roll back the update and revert to the previous stack
--- configuration.
+-- Cancels an update on the specified stack. If the call completes
+-- successfully, the stack will roll back the update and revert to the
+-- previous stack configuration.
 --
 -- Only stacks that are in the UPDATE_IN_PROGRESS state can be canceled.
 --
@@ -36,7 +31,7 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     -- ** Request constructor
     , cancelUpdateStack
     -- ** Request lenses
-    , cusStackName
+    , cusrqStackName
 
     -- * Response
     , CancelUpdateStackResponse
@@ -44,51 +39,57 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     , cancelUpdateStackResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype CancelUpdateStack = CancelUpdateStack
-    { _cusStackName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'CancelUpdateStack' constructor.
+-- | The input for CancelUpdateStack action.
+--
+-- /See:/ 'cancelUpdateStack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cusStackName' @::@ 'Text'
---
-cancelUpdateStack :: Text -- ^ 'cusStackName'
-                  -> CancelUpdateStack
-cancelUpdateStack p1 = CancelUpdateStack
-    { _cusStackName = p1
+-- * 'cusrqStackName'
+newtype CancelUpdateStack = CancelUpdateStack'
+    { _cusrqStackName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CancelUpdateStack' smart constructor.
+cancelUpdateStack :: Text -> CancelUpdateStack
+cancelUpdateStack pStackName_ =
+    CancelUpdateStack'
+    { _cusrqStackName = pStackName_
     }
 
 -- | The name or the unique stack ID that is associated with the stack.
-cusStackName :: Lens' CancelUpdateStack Text
-cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
-
-data CancelUpdateStackResponse = CancelUpdateStackResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'CancelUpdateStackResponse' constructor.
-cancelUpdateStackResponse :: CancelUpdateStackResponse
-cancelUpdateStackResponse = CancelUpdateStackResponse
-
-instance ToPath CancelUpdateStack where
-    toPath = const "/"
-
-instance ToQuery CancelUpdateStack where
-    toQuery CancelUpdateStack{..} = mconcat
-        [ "StackName" =? _cusStackName
-        ]
-
-instance ToHeaders CancelUpdateStack
+cusrqStackName :: Lens' CancelUpdateStack Text
+cusrqStackName = lens _cusrqStackName (\ s a -> s{_cusrqStackName = a});
 
 instance AWSRequest CancelUpdateStack where
-    type Sv CancelUpdateStack = CloudFormation
-    type Rs CancelUpdateStack = CancelUpdateStackResponse
+        type Sv CancelUpdateStack = CloudFormation
+        type Rs CancelUpdateStack = CancelUpdateStackResponse
+        request = post
+        response = receiveNull CancelUpdateStackResponse'
 
-    request  = post "CancelUpdateStack"
-    response = nullResponse CancelUpdateStackResponse
+instance ToHeaders CancelUpdateStack where
+        toHeaders = const mempty
+
+instance ToPath CancelUpdateStack where
+        toPath = const "/"
+
+instance ToQuery CancelUpdateStack where
+        toQuery CancelUpdateStack'{..}
+          = mconcat
+              ["Action" =: ("CancelUpdateStack" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "StackName" =: _cusrqStackName]
+
+-- | /See:/ 'cancelUpdateStackResponse' smart constructor.
+data CancelUpdateStackResponse =
+    CancelUpdateStackResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CancelUpdateStackResponse' smart constructor.
+cancelUpdateStackResponse :: CancelUpdateStackResponse
+cancelUpdateStackResponse = CancelUpdateStackResponse'

@@ -1,71 +1,80 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Glacier
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Amazon Glacier is a secure, durable, and extremely low-cost storage service
--- for data archiving and online backup. Customers can reliably store large or
--- small amounts of data for as little as $0.01 per gigabyte per month, a
--- significant savings compared to on-premises solutions. To keep costs low,
--- Amazon Glacier is optimized for infrequently accessed data where a retrieval
--- time of several hours is suitable.
+-- Amazon Glacier is a storage solution for \"cold data.\"
+--
+-- Amazon Glacier is an extremely low-cost storage service that provides
+-- secure, durable, and easy-to-use storage for data backup and archival.
+-- With Amazon Glacier, customers can store their data cost effectively for
+-- months, years, or decades. Amazon Glacier also enables customers to
+-- offload the administrative burdens of operating and scaling storage to
+-- AWS, so they don\'t have to worry about capacity planning, hardware
+-- provisioning, data replication, hardware failure and recovery, or
+-- time-consuming hardware migrations.
+--
+-- Amazon Glacier is a great storage choice when low storage cost is
+-- paramount, your data is rarely retrieved, and retrieval latency of
+-- several hours is acceptable. If your application requires fast or
+-- frequent access to your data, consider using Amazon S3. For more
+-- information, go to
+-- <http://aws.amazon.com/s3/ Amazon Simple Storage Service (Amazon S3)>.
+--
+-- You can store any kind of data in any format. There is no maximum limit
+-- on the total amount of data you can store in Amazon Glacier.
+--
+-- If you are a first-time user of Amazon Glacier, we recommend that you
+-- begin by reading the following sections in the /Amazon Glacier Developer
+-- Guide/:
+--
+-- -   <http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html What is Amazon Glacier>
+--     - This section of the Developer Guide describes the underlying data
+--     model, the operations it supports, and the AWS SDKs that you can use
+--     to interact with the service.
+--
+-- -   <http://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html Getting Started with Amazon Glacier>
+--     - The Getting Started section walks you through the process of
+--     creating a vault, uploading archives, creating jobs to download
+--     archives, retrieving the job output, and deleting archives.
+--
 module Network.AWS.Glacier
-    ( module Network.AWS.Glacier.AbortMultipartUpload
-    , module Network.AWS.Glacier.CompleteMultipartUpload
-    , module Network.AWS.Glacier.CreateVault
-    , module Network.AWS.Glacier.DeleteArchive
-    , module Network.AWS.Glacier.DeleteVault
-    , module Network.AWS.Glacier.DeleteVaultAccessPolicy
-    , module Network.AWS.Glacier.DeleteVaultNotifications
-    , module Network.AWS.Glacier.DescribeJob
-    , module Network.AWS.Glacier.DescribeVault
-    , module Network.AWS.Glacier.GetDataRetrievalPolicy
-    , module Network.AWS.Glacier.GetJobOutput
-    , module Network.AWS.Glacier.GetVaultAccessPolicy
-    , module Network.AWS.Glacier.GetVaultNotifications
-    , module Network.AWS.Glacier.InitiateJob
-    , module Network.AWS.Glacier.InitiateMultipartUpload
-    , module Network.AWS.Glacier.ListJobs
-    , module Network.AWS.Glacier.ListMultipartUploads
-    , module Network.AWS.Glacier.ListParts
-    , module Network.AWS.Glacier.ListVaults
-    , module Network.AWS.Glacier.SetDataRetrievalPolicy
-    , module Network.AWS.Glacier.SetVaultAccessPolicy
-    , module Network.AWS.Glacier.SetVaultNotifications
-    , module Network.AWS.Glacier.Types
-    , module Network.AWS.Glacier.UploadArchive
-    , module Network.AWS.Glacier.UploadMultipartPart
+    ( module Export
     ) where
 
-import Network.AWS.Glacier.AbortMultipartUpload
-import Network.AWS.Glacier.CompleteMultipartUpload
-import Network.AWS.Glacier.CreateVault
-import Network.AWS.Glacier.DeleteArchive
-import Network.AWS.Glacier.DeleteVault
-import Network.AWS.Glacier.DeleteVaultAccessPolicy
-import Network.AWS.Glacier.DeleteVaultNotifications
-import Network.AWS.Glacier.DescribeJob
-import Network.AWS.Glacier.DescribeVault
-import Network.AWS.Glacier.GetDataRetrievalPolicy
-import Network.AWS.Glacier.GetJobOutput
-import Network.AWS.Glacier.GetVaultAccessPolicy
-import Network.AWS.Glacier.GetVaultNotifications
-import Network.AWS.Glacier.InitiateJob
-import Network.AWS.Glacier.InitiateMultipartUpload
-import Network.AWS.Glacier.ListJobs
-import Network.AWS.Glacier.ListMultipartUploads
-import Network.AWS.Glacier.ListParts
-import Network.AWS.Glacier.ListVaults
-import Network.AWS.Glacier.SetDataRetrievalPolicy
-import Network.AWS.Glacier.SetVaultAccessPolicy
-import Network.AWS.Glacier.SetVaultNotifications
-import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.UploadArchive
-import Network.AWS.Glacier.UploadMultipartPart
+import           Network.AWS.Glacier.AbortMultipartUpload     as Export
+import           Network.AWS.Glacier.AddTagsToVault           as Export
+import           Network.AWS.Glacier.CompleteMultipartUpload  as Export
+import           Network.AWS.Glacier.CreateVault              as Export
+import           Network.AWS.Glacier.DeleteArchive            as Export
+import           Network.AWS.Glacier.DeleteVault              as Export
+import           Network.AWS.Glacier.DeleteVaultAccessPolicy  as Export
+import           Network.AWS.Glacier.DeleteVaultNotifications as Export
+import           Network.AWS.Glacier.DescribeJob              as Export
+import           Network.AWS.Glacier.DescribeVault            as Export
+import           Network.AWS.Glacier.GetDataRetrievalPolicy   as Export
+import           Network.AWS.Glacier.GetJobOutput             as Export
+import           Network.AWS.Glacier.GetVaultAccessPolicy     as Export
+import           Network.AWS.Glacier.GetVaultNotifications    as Export
+import           Network.AWS.Glacier.InitiateJob              as Export
+import           Network.AWS.Glacier.InitiateMultipartUpload  as Export
+import           Network.AWS.Glacier.ListJobs                 as Export
+import           Network.AWS.Glacier.ListMultipartUploads     as Export
+import           Network.AWS.Glacier.ListParts                as Export
+import           Network.AWS.Glacier.ListTagsForVault         as Export
+import           Network.AWS.Glacier.ListVaults               as Export
+import           Network.AWS.Glacier.RemoveTagsFromVault      as Export
+import           Network.AWS.Glacier.SetDataRetrievalPolicy   as Export
+import           Network.AWS.Glacier.SetVaultAccessPolicy     as Export
+import           Network.AWS.Glacier.SetVaultNotifications    as Export
+import           Network.AWS.Glacier.Types                    as Export
+import           Network.AWS.Glacier.UploadArchive            as Export
+import           Network.AWS.Glacier.UploadMultipartPart      as Export
+import           Network.AWS.Glacier.Waiters                  as Export

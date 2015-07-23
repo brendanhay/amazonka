@@ -1,28 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a DBSnapshot. The source DBInstance must be in "available" state.
+-- Creates a DBSnapshot. The source DBInstance must be in \"available\"
+-- state.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html>
 module Network.AWS.RDS.CreateDBSnapshot
@@ -32,113 +28,130 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- ** Request constructor
     , createDBSnapshot
     -- ** Request lenses
-    , cdbs1DBInstanceIdentifier
-    , cdbs1DBSnapshotIdentifier
-    , cdbs1Tags
+    , cdbsrqTags
+    , cdbsrqDBSnapshotIdentifier
+    , cdbsrqDBInstanceIdentifier
 
     -- * Response
     , CreateDBSnapshotResponse
     -- ** Response constructor
     , createDBSnapshotResponse
     -- ** Response lenses
-    , cdbsr1DBSnapshot
+    , cdbsrsDBSnapshot
+    , cdbsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateDBSnapshot = CreateDBSnapshot
-    { _cdbs1DBInstanceIdentifier :: Text
-    , _cdbs1DBSnapshotIdentifier :: Text
-    , _cdbs1Tags                 :: List "member" Tag
-    } deriving (Eq, Read, Show)
-
--- | 'CreateDBSnapshot' constructor.
+-- |
+--
+-- /See:/ 'createDBSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbs1DBInstanceIdentifier' @::@ 'Text'
+-- * 'cdbsrqTags'
 --
--- * 'cdbs1DBSnapshotIdentifier' @::@ 'Text'
+-- * 'cdbsrqDBSnapshotIdentifier'
 --
--- * 'cdbs1Tags' @::@ ['Tag']
---
-createDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
-                 -> Text -- ^ 'cdbs1DBInstanceIdentifier'
-                 -> CreateDBSnapshot
-createDBSnapshot p1 p2 = CreateDBSnapshot
-    { _cdbs1DBSnapshotIdentifier = p1
-    , _cdbs1DBInstanceIdentifier = p2
-    , _cdbs1Tags                 = mempty
+-- * 'cdbsrqDBInstanceIdentifier'
+data CreateDBSnapshot = CreateDBSnapshot'
+    { _cdbsrqTags                 :: !(Maybe [Tag])
+    , _cdbsrqDBSnapshotIdentifier :: !Text
+    , _cdbsrqDBInstanceIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateDBSnapshot' smart constructor.
+createDBSnapshot :: Text -> Text -> CreateDBSnapshot
+createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
+    CreateDBSnapshot'
+    { _cdbsrqTags = Nothing
+    , _cdbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier_
+    , _cdbsrqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
+
+-- | FIXME: Undocumented member.
+cdbsrqTags :: Lens' CreateDBSnapshot [Tag]
+cdbsrqTags = lens _cdbsrqTags (\ s a -> s{_cdbsrqTags = a}) . _Default;
+
+-- | The identifier for the DB snapshot.
+--
+-- Constraints:
+--
+-- -   Cannot be null, empty, or blank
+-- -   Must contain from 1 to 255 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+--
+-- Example: @my-snapshot-id@
+cdbsrqDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
+cdbsrqDBSnapshotIdentifier = lens _cdbsrqDBSnapshotIdentifier (\ s a -> s{_cdbsrqDBSnapshotIdentifier = a});
 
 -- | The DB instance identifier. This is the unique key that identifies a DB
 -- instance.
 --
 -- Constraints:
 --
--- Must contain from 1 to 63 alphanumeric characters or hyphens First
--- character must be a letter Cannot end with a hyphen or contain two
--- consecutive hyphens
-cdbs1DBInstanceIdentifier :: Lens' CreateDBSnapshot Text
-cdbs1DBInstanceIdentifier =
-    lens _cdbs1DBInstanceIdentifier
-        (\s a -> s { _cdbs1DBInstanceIdentifier = a })
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+cdbsrqDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
+cdbsrqDBInstanceIdentifier = lens _cdbsrqDBInstanceIdentifier (\ s a -> s{_cdbsrqDBInstanceIdentifier = a});
 
--- | The identifier for the DB snapshot.
---
--- Constraints:
---
--- Cannot be null, empty, or blank Must contain from 1 to 255 alphanumeric
--- characters or hyphens First character must be a letter Cannot end with a
--- hyphen or contain two consecutive hyphens  Example: 'my-snapshot-id'
-cdbs1DBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
-cdbs1DBSnapshotIdentifier =
-    lens _cdbs1DBSnapshotIdentifier
-        (\s a -> s { _cdbs1DBSnapshotIdentifier = a })
+instance AWSRequest CreateDBSnapshot where
+        type Sv CreateDBSnapshot = RDS
+        type Rs CreateDBSnapshot = CreateDBSnapshotResponse
+        request = post
+        response
+          = receiveXMLWrapper "CreateDBSnapshotResult"
+              (\ s h x ->
+                 CreateDBSnapshotResponse' <$>
+                   (x .@? "DBSnapshot") <*> (pure (fromEnum s)))
 
-cdbs1Tags :: Lens' CreateDBSnapshot [Tag]
-cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a }) . _List
+instance ToHeaders CreateDBSnapshot where
+        toHeaders = const mempty
 
-newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
-    { _cdbsr1DBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Read, Show)
+instance ToPath CreateDBSnapshot where
+        toPath = const "/"
 
--- | 'CreateDBSnapshotResponse' constructor.
+instance ToQuery CreateDBSnapshot where
+        toQuery CreateDBSnapshot'{..}
+          = mconcat
+              ["Action" =: ("CreateDBSnapshot" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _cdbsrqTags),
+               "DBSnapshotIdentifier" =:
+                 _cdbsrqDBSnapshotIdentifier,
+               "DBInstanceIdentifier" =:
+                 _cdbsrqDBInstanceIdentifier]
+
+-- | /See:/ 'createDBSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsr1DBSnapshot' @::@ 'Maybe' 'DBSnapshot'
+-- * 'cdbsrsDBSnapshot'
 --
-createDBSnapshotResponse :: CreateDBSnapshotResponse
-createDBSnapshotResponse = CreateDBSnapshotResponse
-    { _cdbsr1DBSnapshot = Nothing
+-- * 'cdbsrsStatus'
+data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
+    { _cdbsrsDBSnapshot :: !(Maybe DBSnapshot)
+    , _cdbsrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateDBSnapshotResponse' smart constructor.
+createDBSnapshotResponse :: Int -> CreateDBSnapshotResponse
+createDBSnapshotResponse pStatus_ =
+    CreateDBSnapshotResponse'
+    { _cdbsrsDBSnapshot = Nothing
+    , _cdbsrsStatus = pStatus_
     }
 
-cdbsr1DBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
-cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
+-- | FIXME: Undocumented member.
+cdbsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
+cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
 
-instance ToPath CreateDBSnapshot where
-    toPath = const "/"
-
-instance ToQuery CreateDBSnapshot where
-    toQuery CreateDBSnapshot{..} = mconcat
-        [ "DBInstanceIdentifier" =? _cdbs1DBInstanceIdentifier
-        , "DBSnapshotIdentifier" =? _cdbs1DBSnapshotIdentifier
-        , "Tags"                 =? _cdbs1Tags
-        ]
-
-instance ToHeaders CreateDBSnapshot
-
-instance AWSRequest CreateDBSnapshot where
-    type Sv CreateDBSnapshot = RDS
-    type Rs CreateDBSnapshot = CreateDBSnapshotResponse
-
-    request  = post "CreateDBSnapshot"
-    response = xmlResponse
-
-instance FromXML CreateDBSnapshotResponse where
-    parseXML = withElement "CreateDBSnapshotResult" $ \x -> CreateDBSnapshotResponse
-        <$> x .@? "DBSnapshot"
+-- | FIXME: Undocumented member.
+cdbsrsStatus :: Lens' CreateDBSnapshotResponse Int
+cdbsrsStatus = lens _cdbsrsStatus (\ s a -> s{_cdbsrsStatus = a});

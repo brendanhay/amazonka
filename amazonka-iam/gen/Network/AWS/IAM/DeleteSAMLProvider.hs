@@ -1,34 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.DeleteSAMLProvider
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes a SAML provider.
+-- Deletes a SAML provider.
 --
 -- Deleting the provider does not update any roles that reference the SAML
--- provider as a principal in their trust policies. Any attempt to assume a role
--- that references a SAML provider that has been deleted will fail.
+-- provider as a principal in their trust policies. Any attempt to assume a
+-- role that references a SAML provider that has been deleted will fail.
 --
--- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+-- This operation requires
+-- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteSAMLProvider.html>
 module Network.AWS.IAM.DeleteSAMLProvider
@@ -38,7 +34,7 @@ module Network.AWS.IAM.DeleteSAMLProvider
     -- ** Request constructor
     , deleteSAMLProvider
     -- ** Request lenses
-    , dsamlpSAMLProviderArn
+    , dsamlprqSAMLProviderARN
 
     -- * Response
     , DeleteSAMLProviderResponse
@@ -46,52 +42,56 @@ module Network.AWS.IAM.DeleteSAMLProvider
     , deleteSAMLProviderResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteSAMLProvider = DeleteSAMLProvider
-    { _dsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteSAMLProvider' constructor.
+-- | /See:/ 'deleteSAMLProvider' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsamlpSAMLProviderArn' @::@ 'Text'
---
-deleteSAMLProvider :: Text -- ^ 'dsamlpSAMLProviderArn'
-                   -> DeleteSAMLProvider
-deleteSAMLProvider p1 = DeleteSAMLProvider
-    { _dsamlpSAMLProviderArn = p1
+-- * 'dsamlprqSAMLProviderARN'
+newtype DeleteSAMLProvider = DeleteSAMLProvider'
+    { _dsamlprqSAMLProviderARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteSAMLProvider' smart constructor.
+deleteSAMLProvider :: Text -> DeleteSAMLProvider
+deleteSAMLProvider pSAMLProviderARN_ =
+    DeleteSAMLProvider'
+    { _dsamlprqSAMLProviderARN = pSAMLProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
-dsamlpSAMLProviderArn :: Lens' DeleteSAMLProvider Text
-dsamlpSAMLProviderArn =
-    lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })
-
-data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteSAMLProviderResponse' constructor.
-deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
-deleteSAMLProviderResponse = DeleteSAMLProviderResponse
-
-instance ToPath DeleteSAMLProvider where
-    toPath = const "/"
-
-instance ToQuery DeleteSAMLProvider where
-    toQuery DeleteSAMLProvider{..} = mconcat
-        [ "SAMLProviderArn" =? _dsamlpSAMLProviderArn
-        ]
-
-instance ToHeaders DeleteSAMLProvider
+dsamlprqSAMLProviderARN :: Lens' DeleteSAMLProvider Text
+dsamlprqSAMLProviderARN = lens _dsamlprqSAMLProviderARN (\ s a -> s{_dsamlprqSAMLProviderARN = a});
 
 instance AWSRequest DeleteSAMLProvider where
-    type Sv DeleteSAMLProvider = IAM
-    type Rs DeleteSAMLProvider = DeleteSAMLProviderResponse
+        type Sv DeleteSAMLProvider = IAM
+        type Rs DeleteSAMLProvider =
+             DeleteSAMLProviderResponse
+        request = post
+        response = receiveNull DeleteSAMLProviderResponse'
 
-    request  = post "DeleteSAMLProvider"
-    response = nullResponse DeleteSAMLProviderResponse
+instance ToHeaders DeleteSAMLProvider where
+        toHeaders = const mempty
+
+instance ToPath DeleteSAMLProvider where
+        toPath = const "/"
+
+instance ToQuery DeleteSAMLProvider where
+        toQuery DeleteSAMLProvider'{..}
+          = mconcat
+              ["Action" =: ("DeleteSAMLProvider" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "SAMLProviderArn" =: _dsamlprqSAMLProviderARN]
+
+-- | /See:/ 'deleteSAMLProviderResponse' smart constructor.
+data DeleteSAMLProviderResponse =
+    DeleteSAMLProviderResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteSAMLProviderResponse' smart constructor.
+deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
+deleteSAMLProviderResponse = DeleteSAMLProviderResponse'

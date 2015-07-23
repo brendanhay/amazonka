@@ -1,31 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.CreateUser
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a new user for your AWS account.
+-- Creates a new user for your AWS account.
 --
 -- For information about limitations on the number of users you can create,
--- see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
+-- see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateUser.html>
 module Network.AWS.IAM.CreateUser
@@ -35,90 +32,105 @@ module Network.AWS.IAM.CreateUser
     -- ** Request constructor
     , createUser
     -- ** Request lenses
-    , cuPath
-    , cuUserName
+    , curqPath
+    , curqUserName
 
     -- * Response
     , CreateUserResponse
     -- ** Response constructor
     , createUserResponse
     -- ** Response lenses
-    , curUser
+    , cursUser
+    , cursStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateUser = CreateUser
-    { _cuPath     :: Maybe Text
-    , _cuUserName :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateUser' constructor.
+-- | /See:/ 'createUser' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cuPath' @::@ 'Maybe' 'Text'
+-- * 'curqPath'
 --
--- * 'cuUserName' @::@ 'Text'
---
-createUser :: Text -- ^ 'cuUserName'
-           -> CreateUser
-createUser p1 = CreateUser
-    { _cuUserName = p1
-    , _cuPath     = Nothing
+-- * 'curqUserName'
+data CreateUser = CreateUser'
+    { _curqPath     :: !(Maybe Text)
+    , _curqUserName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateUser' smart constructor.
+createUser :: Text -> CreateUser
+createUser pUserName_ =
+    CreateUser'
+    { _curqPath = Nothing
+    , _curqUserName = pUserName_
     }
 
--- | The path for the user name. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAMIdentifiers> in the /Using IAM/ guide.
+-- | The path for the user name. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
 --
--- This parameter is optional. If it is not included, it defaults to a slash
--- (/).
-cuPath :: Lens' CreateUser (Maybe Text)
-cuPath = lens _cuPath (\s a -> s { _cuPath = a })
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+curqPath :: Lens' CreateUser (Maybe Text)
+curqPath = lens _curqPath (\ s a -> s{_curqPath = a});
 
 -- | The name of the user to create.
-cuUserName :: Lens' CreateUser Text
-cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
+curqUserName :: Lens' CreateUser Text
+curqUserName = lens _curqUserName (\ s a -> s{_curqUserName = a});
 
-newtype CreateUserResponse = CreateUserResponse
-    { _curUser :: Maybe User
-    } deriving (Eq, Read, Show)
+instance AWSRequest CreateUser where
+        type Sv CreateUser = IAM
+        type Rs CreateUser = CreateUserResponse
+        request = post
+        response
+          = receiveXMLWrapper "CreateUserResult"
+              (\ s h x ->
+                 CreateUserResponse' <$>
+                   (x .@? "User") <*> (pure (fromEnum s)))
 
--- | 'CreateUserResponse' constructor.
+instance ToHeaders CreateUser where
+        toHeaders = const mempty
+
+instance ToPath CreateUser where
+        toPath = const "/"
+
+instance ToQuery CreateUser where
+        toQuery CreateUser'{..}
+          = mconcat
+              ["Action" =: ("CreateUser" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "Path" =: _curqPath, "UserName" =: _curqUserName]
+
+-- | Contains the response to a successful CreateUser request.
+--
+-- /See:/ 'createUserResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'curUser' @::@ 'Maybe' 'User'
+-- * 'cursUser'
 --
-createUserResponse :: CreateUserResponse
-createUserResponse = CreateUserResponse
-    { _curUser = Nothing
+-- * 'cursStatus'
+data CreateUserResponse = CreateUserResponse'
+    { _cursUser   :: !(Maybe User)
+    , _cursStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateUserResponse' smart constructor.
+createUserResponse :: Int -> CreateUserResponse
+createUserResponse pStatus_ =
+    CreateUserResponse'
+    { _cursUser = Nothing
+    , _cursStatus = pStatus_
     }
 
 -- | Information about the user.
-curUser :: Lens' CreateUserResponse (Maybe User)
-curUser = lens _curUser (\s a -> s { _curUser = a })
+cursUser :: Lens' CreateUserResponse (Maybe User)
+cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 
-instance ToPath CreateUser where
-    toPath = const "/"
-
-instance ToQuery CreateUser where
-    toQuery CreateUser{..} = mconcat
-        [ "Path"     =? _cuPath
-        , "UserName" =? _cuUserName
-        ]
-
-instance ToHeaders CreateUser
-
-instance AWSRequest CreateUser where
-    type Sv CreateUser = IAM
-    type Rs CreateUser = CreateUserResponse
-
-    request  = post "CreateUser"
-    response = xmlResponse
-
-instance FromXML CreateUserResponse where
-    parseXML = withElement "CreateUserResult" $ \x -> CreateUserResponse
-        <$> x .@? "User"
+-- | FIXME: Undocumented member.
+cursStatus :: Lens' CreateUserResponse Int
+cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});

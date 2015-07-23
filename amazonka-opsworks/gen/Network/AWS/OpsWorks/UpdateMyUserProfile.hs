@@ -1,32 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Updates a user's SSH public key.
+-- Updates a user\'s SSH public key.
 --
--- Required Permissions: To use this action, an IAM user must have
+-- __Required Permissions__: To use this action, an IAM user must have
 -- self-management enabled or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- permissions. For more information on user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateMyUserProfile.html>
 module Network.AWS.OpsWorks.UpdateMyUserProfile
@@ -36,7 +32,7 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     -- ** Request constructor
     , updateMyUserProfile
     -- ** Request lenses
-    , umupSshPublicKey
+    , umuprqSSHPublicKey
 
     -- * Response
     , UpdateMyUserProfileResponse
@@ -44,54 +40,63 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     , updateMyUserProfileResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype UpdateMyUserProfile = UpdateMyUserProfile
-    { _umupSshPublicKey :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'UpdateMyUserProfile' constructor.
+-- | /See:/ 'updateMyUserProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'umupSshPublicKey' @::@ 'Maybe' 'Text'
---
+-- * 'umuprqSSHPublicKey'
+newtype UpdateMyUserProfile = UpdateMyUserProfile'
+    { _umuprqSSHPublicKey :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateMyUserProfile' smart constructor.
 updateMyUserProfile :: UpdateMyUserProfile
-updateMyUserProfile = UpdateMyUserProfile
-    { _umupSshPublicKey = Nothing
+updateMyUserProfile =
+    UpdateMyUserProfile'
+    { _umuprqSSHPublicKey = Nothing
     }
 
--- | The user's SSH public key.
-umupSshPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
-umupSshPublicKey = lens _umupSshPublicKey (\s a -> s { _umupSshPublicKey = a })
-
-data UpdateMyUserProfileResponse = UpdateMyUserProfileResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateMyUserProfileResponse' constructor.
-updateMyUserProfileResponse :: UpdateMyUserProfileResponse
-updateMyUserProfileResponse = UpdateMyUserProfileResponse
-
-instance ToPath UpdateMyUserProfile where
-    toPath = const "/"
-
-instance ToQuery UpdateMyUserProfile where
-    toQuery = const mempty
-
-instance ToHeaders UpdateMyUserProfile
-
-instance ToJSON UpdateMyUserProfile where
-    toJSON UpdateMyUserProfile{..} = object
-        [ "SshPublicKey" .= _umupSshPublicKey
-        ]
+-- | The user\'s SSH public key.
+umuprqSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
+umuprqSSHPublicKey = lens _umuprqSSHPublicKey (\ s a -> s{_umuprqSSHPublicKey = a});
 
 instance AWSRequest UpdateMyUserProfile where
-    type Sv UpdateMyUserProfile = OpsWorks
-    type Rs UpdateMyUserProfile = UpdateMyUserProfileResponse
+        type Sv UpdateMyUserProfile = OpsWorks
+        type Rs UpdateMyUserProfile =
+             UpdateMyUserProfileResponse
+        request = postJSON
+        response = receiveNull UpdateMyUserProfileResponse'
 
-    request  = post "UpdateMyUserProfile"
-    response = nullResponse UpdateMyUserProfileResponse
+instance ToHeaders UpdateMyUserProfile where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.UpdateMyUserProfile" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateMyUserProfile where
+        toJSON UpdateMyUserProfile'{..}
+          = object ["SshPublicKey" .= _umuprqSSHPublicKey]
+
+instance ToPath UpdateMyUserProfile where
+        toPath = const "/"
+
+instance ToQuery UpdateMyUserProfile where
+        toQuery = const mempty
+
+-- | /See:/ 'updateMyUserProfileResponse' smart constructor.
+data UpdateMyUserProfileResponse =
+    UpdateMyUserProfileResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateMyUserProfileResponse' smart constructor.
+updateMyUserProfileResponse :: UpdateMyUserProfileResponse
+updateMyUserProfileResponse = UpdateMyUserProfileResponse'

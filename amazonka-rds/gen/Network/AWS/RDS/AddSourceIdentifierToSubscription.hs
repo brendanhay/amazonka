@@ -1,28 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.AddSourceIdentifierToSubscription
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Adds a source identifier to an existing RDS event notification subscription.
+-- Adds a source identifier to an existing RDS event notification
+-- subscription.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddSourceIdentifierToSubscription.html>
 module Network.AWS.RDS.AddSourceIdentifierToSubscription
@@ -32,100 +28,122 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- ** Request constructor
     , addSourceIdentifierToSubscription
     -- ** Request lenses
-    , asitsSourceIdentifier
-    , asitsSubscriptionName
+    , asitsrqSubscriptionName
+    , asitsrqSourceIdentifier
 
     -- * Response
     , AddSourceIdentifierToSubscriptionResponse
     -- ** Response constructor
     , addSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
-    , asitsrEventSubscription
+    , asitsrsEventSubscription
+    , asitsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
-    { _asitsSourceIdentifier :: Text
-    , _asitsSubscriptionName :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'AddSourceIdentifierToSubscription' constructor.
+-- |
+--
+-- /See:/ 'addSourceIdentifierToSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asitsSourceIdentifier' @::@ 'Text'
+-- * 'asitsrqSubscriptionName'
 --
--- * 'asitsSubscriptionName' @::@ 'Text'
---
-addSourceIdentifierToSubscription :: Text -- ^ 'asitsSubscriptionName'
-                                  -> Text -- ^ 'asitsSourceIdentifier'
-                                  -> AddSourceIdentifierToSubscription
-addSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscription
-    { _asitsSubscriptionName = p1
-    , _asitsSourceIdentifier = p2
+-- * 'asitsrqSourceIdentifier'
+data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
+    { _asitsrqSubscriptionName :: !Text
+    , _asitsrqSourceIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AddSourceIdentifierToSubscription' smart constructor.
+addSourceIdentifierToSubscription :: Text -> Text -> AddSourceIdentifierToSubscription
+addSourceIdentifierToSubscription pSubscriptionName_ pSourceIdentifier_ =
+    AddSourceIdentifierToSubscription'
+    { _asitsrqSubscriptionName = pSubscriptionName_
+    , _asitsrqSourceIdentifier = pSourceIdentifier_
     }
 
+-- | The name of the RDS event notification subscription you want to add a
+-- source identifier to.
+asitsrqSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
+asitsrqSubscriptionName = lens _asitsrqSubscriptionName (\ s a -> s{_asitsrqSubscriptionName = a});
+
 -- | The identifier of the event source to be added. An identifier must begin
--- with a letter and must contain only ASCII letters, digits, and hyphens; it
--- cannot end with a hyphen or contain two consecutive hyphens.
+-- with a letter and must contain only ASCII letters, digits, and hyphens;
+-- it cannot end with a hyphen or contain two consecutive hyphens.
 --
 -- Constraints:
 --
--- If the source type is a DB instance, then a 'DBInstanceIdentifier' must be
--- supplied. If the source type is a DB security group, a 'DBSecurityGroupName'
--- must be supplied. If the source type is a DB parameter group, a 'DBParameterGroupName' must be supplied. If the source type is a DB snapshot, a 'DBSnapshotIdentifier'
--- must be supplied.
-asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
-asitsSourceIdentifier =
-    lens _asitsSourceIdentifier (\s a -> s { _asitsSourceIdentifier = a })
+-- -   If the source type is a DB instance, then a @DBInstanceIdentifier@
+--     must be supplied.
+-- -   If the source type is a DB security group, a @DBSecurityGroupName@
+--     must be supplied.
+-- -   If the source type is a DB parameter group, a @DBParameterGroupName@
+--     must be supplied.
+-- -   If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must
+--     be supplied.
+asitsrqSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
+asitsrqSourceIdentifier = lens _asitsrqSourceIdentifier (\ s a -> s{_asitsrqSourceIdentifier = a});
 
--- | The name of the RDS event notification subscription you want to add a source
--- identifier to.
-asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
-asitsSubscriptionName =
-    lens _asitsSubscriptionName (\s a -> s { _asitsSubscriptionName = a })
+instance AWSRequest AddSourceIdentifierToSubscription
+         where
+        type Sv AddSourceIdentifierToSubscription = RDS
+        type Rs AddSourceIdentifierToSubscription =
+             AddSourceIdentifierToSubscriptionResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "AddSourceIdentifierToSubscriptionResult"
+              (\ s h x ->
+                 AddSourceIdentifierToSubscriptionResponse' <$>
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
-newtype AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
-    { _asitsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Read, Show)
+instance ToHeaders AddSourceIdentifierToSubscription
+         where
+        toHeaders = const mempty
 
--- | 'AddSourceIdentifierToSubscriptionResponse' constructor.
+instance ToPath AddSourceIdentifierToSubscription
+         where
+        toPath = const "/"
+
+instance ToQuery AddSourceIdentifierToSubscription
+         where
+        toQuery AddSourceIdentifierToSubscription'{..}
+          = mconcat
+              ["Action" =:
+                 ("AddSourceIdentifierToSubscription" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "SubscriptionName" =: _asitsrqSubscriptionName,
+               "SourceIdentifier" =: _asitsrqSourceIdentifier]
+
+-- | /See:/ 'addSourceIdentifierToSubscriptionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asitsrEventSubscription' @::@ 'Maybe' 'EventSubscription'
+-- * 'asitsrsEventSubscription'
 --
-addSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResponse
-addSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse
-    { _asitsrEventSubscription = Nothing
+-- * 'asitsrsStatus'
+data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
+    { _asitsrsEventSubscription :: !(Maybe EventSubscription)
+    , _asitsrsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AddSourceIdentifierToSubscriptionResponse' smart constructor.
+addSourceIdentifierToSubscriptionResponse :: Int -> AddSourceIdentifierToSubscriptionResponse
+addSourceIdentifierToSubscriptionResponse pStatus_ =
+    AddSourceIdentifierToSubscriptionResponse'
+    { _asitsrsEventSubscription = Nothing
+    , _asitsrsStatus = pStatus_
     }
 
-asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
-asitsrEventSubscription =
-    lens _asitsrEventSubscription (\s a -> s { _asitsrEventSubscription = a })
+-- | FIXME: Undocumented member.
+asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
+asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEventSubscription = a});
 
-instance ToPath AddSourceIdentifierToSubscription where
-    toPath = const "/"
-
-instance ToQuery AddSourceIdentifierToSubscription where
-    toQuery AddSourceIdentifierToSubscription{..} = mconcat
-        [ "SourceIdentifier" =? _asitsSourceIdentifier
-        , "SubscriptionName" =? _asitsSubscriptionName
-        ]
-
-instance ToHeaders AddSourceIdentifierToSubscription
-
-instance AWSRequest AddSourceIdentifierToSubscription where
-    type Sv AddSourceIdentifierToSubscription = RDS
-    type Rs AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscriptionResponse
-
-    request  = post "AddSourceIdentifierToSubscription"
-    response = xmlResponse
-
-instance FromXML AddSourceIdentifierToSubscriptionResponse where
-    parseXML = withElement "AddSourceIdentifierToSubscriptionResult" $ \x -> AddSourceIdentifierToSubscriptionResponse
-        <$> x .@? "EventSubscription"
+-- | FIXME: Undocumented member.
+asitsrsStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
+asitsrsStatus = lens _asitsrsStatus (\ s a -> s{_asitsrsStatus = a});

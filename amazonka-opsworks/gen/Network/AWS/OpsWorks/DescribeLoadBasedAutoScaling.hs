@@ -1,34 +1,31 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes load-based auto scaling configurations for specified layers.
+-- Describes load-based auto scaling configurations for specified layers.
 --
 -- You must specify at least one of the parameters.
 --
--- Required Permissions: To use this action, an IAM user must have a Show,
--- Deploy, or Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeLoadBasedAutoScaling.html>
 module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
@@ -38,96 +35,103 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     -- ** Request constructor
     , describeLoadBasedAutoScaling
     -- ** Request lenses
-    , dlbasLayerIds
+    , dlbasrqLayerIds
 
     -- * Response
     , DescribeLoadBasedAutoScalingResponse
     -- ** Response constructor
     , describeLoadBasedAutoScalingResponse
     -- ** Response lenses
-    , dlbasrLoadBasedAutoScalingConfigurations
+    , dlbasrsLoadBasedAutoScalingConfigurations
+    , dlbasrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
-    { _dlbasLayerIds :: List "LayerIds" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeLoadBasedAutoScaling where
-    type Item DescribeLoadBasedAutoScaling = Text
-
-    fromList = DescribeLoadBasedAutoScaling . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dlbasLayerIds
-
--- | 'DescribeLoadBasedAutoScaling' constructor.
+-- | /See:/ 'describeLoadBasedAutoScaling' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbasLayerIds' @::@ ['Text']
---
+-- * 'dlbasrqLayerIds'
+newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
+    { _dlbasrqLayerIds :: [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeLoadBasedAutoScaling' smart constructor.
 describeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling
-describeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling
-    { _dlbasLayerIds = mempty
+describeLoadBasedAutoScaling =
+    DescribeLoadBasedAutoScaling'
+    { _dlbasrqLayerIds = mempty
     }
 
 -- | An array of layer IDs.
-dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
-dlbasLayerIds = lens _dlbasLayerIds (\s a -> s { _dlbasLayerIds = a }) . _List
+dlbasrqLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
+dlbasrqLayerIds = lens _dlbasrqLayerIds (\ s a -> s{_dlbasrqLayerIds = a});
 
-newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
-    { _dlbasrLoadBasedAutoScalingConfigurations :: List "LoadBasedAutoScalingConfigurations" LoadBasedAutoScalingConfiguration
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeLoadBasedAutoScaling
+         where
+        type Sv DescribeLoadBasedAutoScaling = OpsWorks
+        type Rs DescribeLoadBasedAutoScaling =
+             DescribeLoadBasedAutoScalingResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeLoadBasedAutoScalingResponse' <$>
+                   (x .?> "LoadBasedAutoScalingConfigurations" .!@
+                      mempty)
+                     <*> (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeLoadBasedAutoScalingResponse where
-    type Item DescribeLoadBasedAutoScalingResponse = LoadBasedAutoScalingConfiguration
+instance ToHeaders DescribeLoadBasedAutoScaling where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DescribeLoadBasedAutoScaling" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeLoadBasedAutoScalingResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dlbasrLoadBasedAutoScalingConfigurations
+instance ToJSON DescribeLoadBasedAutoScaling where
+        toJSON DescribeLoadBasedAutoScaling'{..}
+          = object ["LayerIds" .= _dlbasrqLayerIds]
 
--- | 'DescribeLoadBasedAutoScalingResponse' constructor.
+instance ToPath DescribeLoadBasedAutoScaling where
+        toPath = const "/"
+
+instance ToQuery DescribeLoadBasedAutoScaling where
+        toQuery = const mempty
+
+-- | Contains the response to a @DescribeLoadBasedAutoScaling@ request.
+--
+-- /See:/ 'describeLoadBasedAutoScalingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbasrLoadBasedAutoScalingConfigurations' @::@ ['LoadBasedAutoScalingConfiguration']
+-- * 'dlbasrsLoadBasedAutoScalingConfigurations'
 --
-describeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse
-describeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse
-    { _dlbasrLoadBasedAutoScalingConfigurations = mempty
+-- * 'dlbasrsStatus'
+data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
+    { _dlbasrsLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
+    , _dlbasrsStatus                             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
+describeLoadBasedAutoScalingResponse :: Int -> DescribeLoadBasedAutoScalingResponse
+describeLoadBasedAutoScalingResponse pStatus_ =
+    DescribeLoadBasedAutoScalingResponse'
+    { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
+    , _dlbasrsStatus = pStatus_
     }
 
--- | An array of 'LoadBasedAutoScalingConfiguration' objects that describe each
--- layer's configuration.
-dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
-dlbasrLoadBasedAutoScalingConfigurations =
-    lens _dlbasrLoadBasedAutoScalingConfigurations
-        (\s a -> s { _dlbasrLoadBasedAutoScalingConfigurations = a })
-            . _List
+-- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
+-- each layer\'s configuration.
+dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
+dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default;
 
-instance ToPath DescribeLoadBasedAutoScaling where
-    toPath = const "/"
-
-instance ToQuery DescribeLoadBasedAutoScaling where
-    toQuery = const mempty
-
-instance ToHeaders DescribeLoadBasedAutoScaling
-
-instance ToJSON DescribeLoadBasedAutoScaling where
-    toJSON DescribeLoadBasedAutoScaling{..} = object
-        [ "LayerIds" .= _dlbasLayerIds
-        ]
-
-instance AWSRequest DescribeLoadBasedAutoScaling where
-    type Sv DescribeLoadBasedAutoScaling = OpsWorks
-    type Rs DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScalingResponse
-
-    request  = post "DescribeLoadBasedAutoScaling"
-    response = jsonResponse
-
-instance FromJSON DescribeLoadBasedAutoScalingResponse where
-    parseJSON = withObject "DescribeLoadBasedAutoScalingResponse" $ \o -> DescribeLoadBasedAutoScalingResponse
-        <$> o .:? "LoadBasedAutoScalingConfigurations" .!= mempty
+-- | FIXME: Undocumented member.
+dlbasrsStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
+dlbasrsStatus = lens _dlbasrsStatus (\ s a -> s{_dlbasrsStatus = a});

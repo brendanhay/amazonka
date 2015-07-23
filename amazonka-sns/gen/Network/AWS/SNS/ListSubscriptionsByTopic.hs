@@ -1,29 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SNS.ListSubscriptionsByTopic
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of the subscriptions to a specific topic. Each call returns a
--- limited list of subscriptions, up to 100. If there are more subscriptions, a 'NextToken' is also returned. Use the 'NextToken' parameter in a new 'ListSubscriptionsByTopic' call to get further results.
+-- Returns a list of the subscriptions to a specific topic. Each call
+-- returns a limited list of subscriptions, up to 100. If there are more
+-- subscriptions, a @NextToken@ is also returned. Use the @NextToken@
+-- parameter in a new @ListSubscriptionsByTopic@ call to get further
+-- results.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_ListSubscriptionsByTopic.html>
 module Network.AWS.SNS.ListSubscriptionsByTopic
@@ -33,106 +31,126 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- ** Request constructor
     , listSubscriptionsByTopic
     -- ** Request lenses
-    , lsbtNextToken
-    , lsbtTopicArn
+    , lsbtrqNextToken
+    , lsbtrqTopicARN
 
     -- * Response
     , ListSubscriptionsByTopicResponse
     -- ** Response constructor
     , listSubscriptionsByTopicResponse
     -- ** Response lenses
-    , lsbtrNextToken
-    , lsbtrSubscriptions
+    , lsbtrsNextToken
+    , lsbtrsSubscriptions
+    , lsbtrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
-data ListSubscriptionsByTopic = ListSubscriptionsByTopic
-    { _lsbtNextToken :: Maybe Text
-    , _lsbtTopicArn  :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListSubscriptionsByTopic' constructor.
+-- | Input for ListSubscriptionsByTopic action.
+--
+-- /See:/ 'listSubscriptionsByTopic' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsbtNextToken' @::@ 'Maybe' 'Text'
+-- * 'lsbtrqNextToken'
 --
--- * 'lsbtTopicArn' @::@ 'Text'
---
-listSubscriptionsByTopic :: Text -- ^ 'lsbtTopicArn'
-                         -> ListSubscriptionsByTopic
-listSubscriptionsByTopic p1 = ListSubscriptionsByTopic
-    { _lsbtTopicArn  = p1
-    , _lsbtNextToken = Nothing
+-- * 'lsbtrqTopicARN'
+data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
+    { _lsbtrqNextToken :: !(Maybe Text)
+    , _lsbtrqTopicARN  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListSubscriptionsByTopic' smart constructor.
+listSubscriptionsByTopic :: Text -> ListSubscriptionsByTopic
+listSubscriptionsByTopic pTopicARN_ =
+    ListSubscriptionsByTopic'
+    { _lsbtrqNextToken = Nothing
+    , _lsbtrqTopicARN = pTopicARN_
     }
 
--- | Token returned by the previous 'ListSubscriptionsByTopic' request.
-lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
-lsbtNextToken = lens _lsbtNextToken (\s a -> s { _lsbtNextToken = a })
+-- | Token returned by the previous @ListSubscriptionsByTopic@ request.
+lsbtrqNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
+lsbtrqNextToken = lens _lsbtrqNextToken (\ s a -> s{_lsbtrqNextToken = a});
 
 -- | The ARN of the topic for which you wish to find subscriptions.
-lsbtTopicArn :: Lens' ListSubscriptionsByTopic Text
-lsbtTopicArn = lens _lsbtTopicArn (\s a -> s { _lsbtTopicArn = a })
+lsbtrqTopicARN :: Lens' ListSubscriptionsByTopic Text
+lsbtrqTopicARN = lens _lsbtrqTopicARN (\ s a -> s{_lsbtrqTopicARN = a});
 
-data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
-    { _lsbtrNextToken     :: Maybe Text
-    , _lsbtrSubscriptions :: List "member" Subscription
-    } deriving (Eq, Read, Show)
+instance AWSPager ListSubscriptionsByTopic where
+        page rq rs
+          | stop (rs ^. lsbtrsNextToken) = Nothing
+          | stop (rs ^. lsbtrsSubscriptions) = Nothing
+          | otherwise =
+            Just $ rq & lsbtrqNextToken .~ rs ^. lsbtrsNextToken
 
--- | 'ListSubscriptionsByTopicResponse' constructor.
+instance AWSRequest ListSubscriptionsByTopic where
+        type Sv ListSubscriptionsByTopic = SNS
+        type Rs ListSubscriptionsByTopic =
+             ListSubscriptionsByTopicResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListSubscriptionsByTopicResult"
+              (\ s h x ->
+                 ListSubscriptionsByTopicResponse' <$>
+                   (x .@? "NextToken") <*>
+                     (x .@? "Subscriptions" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListSubscriptionsByTopic where
+        toHeaders = const mempty
+
+instance ToPath ListSubscriptionsByTopic where
+        toPath = const "/"
+
+instance ToQuery ListSubscriptionsByTopic where
+        toQuery ListSubscriptionsByTopic'{..}
+          = mconcat
+              ["Action" =:
+                 ("ListSubscriptionsByTopic" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "NextToken" =: _lsbtrqNextToken,
+               "TopicArn" =: _lsbtrqTopicARN]
+
+-- | Response for ListSubscriptionsByTopic action.
+--
+-- /See:/ 'listSubscriptionsByTopicResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsbtrNextToken' @::@ 'Maybe' 'Text'
+-- * 'lsbtrsNextToken'
 --
--- * 'lsbtrSubscriptions' @::@ ['Subscription']
+-- * 'lsbtrsSubscriptions'
 --
-listSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse
-listSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
-    { _lsbtrSubscriptions = mempty
-    , _lsbtrNextToken     = Nothing
+-- * 'lsbtrsStatus'
+data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
+    { _lsbtrsNextToken     :: !(Maybe Text)
+    , _lsbtrsSubscriptions :: !(Maybe [Subscription])
+    , _lsbtrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListSubscriptionsByTopicResponse' smart constructor.
+listSubscriptionsByTopicResponse :: Int -> ListSubscriptionsByTopicResponse
+listSubscriptionsByTopicResponse pStatus_ =
+    ListSubscriptionsByTopicResponse'
+    { _lsbtrsNextToken = Nothing
+    , _lsbtrsSubscriptions = Nothing
+    , _lsbtrsStatus = pStatus_
     }
 
--- | Token to pass along to the next 'ListSubscriptionsByTopic' request. This
+-- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This
 -- element is returned if there are more subscriptions to retrieve.
-lsbtrNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
-lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })
+lsbtrsNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
+lsbtrsNextToken = lens _lsbtrsNextToken (\ s a -> s{_lsbtrsNextToken = a});
 
 -- | A list of subscriptions.
-lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
-lsbtrSubscriptions =
-    lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })
-        . _List
+lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
+lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions = a}) . _Default;
 
-instance ToPath ListSubscriptionsByTopic where
-    toPath = const "/"
-
-instance ToQuery ListSubscriptionsByTopic where
-    toQuery ListSubscriptionsByTopic{..} = mconcat
-        [ "NextToken" =? _lsbtNextToken
-        , "TopicArn"  =? _lsbtTopicArn
-        ]
-
-instance ToHeaders ListSubscriptionsByTopic
-
-instance AWSRequest ListSubscriptionsByTopic where
-    type Sv ListSubscriptionsByTopic = SNS
-    type Rs ListSubscriptionsByTopic = ListSubscriptionsByTopicResponse
-
-    request  = post "ListSubscriptionsByTopic"
-    response = xmlResponse
-
-instance FromXML ListSubscriptionsByTopicResponse where
-    parseXML = withElement "ListSubscriptionsByTopicResult" $ \x -> ListSubscriptionsByTopicResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "Subscriptions" .!@ mempty
-
-instance AWSPager ListSubscriptionsByTopic where
-    page rq rs
-        | stop (rs ^. lsbtrNextToken) = Nothing
-        | otherwise = (\x -> rq & lsbtNextToken ?~ x)
-            <$> (rs ^. lsbtrNextToken)
+-- | FIXME: Undocumented member.
+lsbtrsStatus :: Lens' ListSubscriptionsByTopicResponse Int
+lsbtrsStatus = lens _lsbtrsStatus (\ s a -> s{_lsbtrsStatus = a});

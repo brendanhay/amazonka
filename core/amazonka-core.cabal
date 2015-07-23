@@ -1,6 +1,6 @@
 name:                  amazonka-core
-version:               0.3.6
-synopsis:              Core functionality and data types for Amazonka libraries.
+version:               1.0.0
+synopsis:              Core data types and functionality for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -13,15 +13,12 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Core functionality, serialisation primitives, and data types for
+    Core data types, functionality and serialisation primitives for
     Amazonka related Amazon Web Services SDKs.
     .
     The external interface of this library is stable with respect to the
-    downstream Amazonka libraries, only, and as such is probably not suitable
+    downstream Amazonka libraries, only, and as such is not suitable
     for use in non-Amazonka projects.
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:              git
@@ -38,61 +35,51 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.Data
+          Network.AWS.Compat.Locale
+        , Network.AWS.Compat.Time
+        , Network.AWS.Data.Base64
+        , Network.AWS.Data.Body
+        , Network.AWS.Data.ByteString
+        , Network.AWS.Data.Crypto
+        , Network.AWS.Data.Headers
+        , Network.AWS.Data.JSON
+        , Network.AWS.Data.List1
+        , Network.AWS.Data.Map
+        , Network.AWS.Data.Numeric
+        , Network.AWS.Data.Path
+        , Network.AWS.Data.Query
+        , Network.AWS.Data.Sensitive
+        , Network.AWS.Data.Text
+        , Network.AWS.Data.Time
+        , Network.AWS.Data.XML
+        , Network.AWS.Endpoint
         , Network.AWS.Error
-        , Network.AWS.Pagination
+        , Network.AWS.Logger
+        , Network.AWS.Pager
         , Network.AWS.Prelude
-        , Network.AWS.Request.JSON
-        , Network.AWS.Request.Query
-        , Network.AWS.Request.RestJSON
-        , Network.AWS.Request.RestXML
-        , Network.AWS.Request.S3
+        , Network.AWS.Request
         , Network.AWS.Response
-        , Network.AWS.Signing
+        , Network.AWS.Sign.V2
+        , Network.AWS.Sign.V4
         , Network.AWS.Types
-        , Network.AWS.Waiters
-
-    other-modules:
-          Network.AWS.Compat.Internal.Locale
-        , Network.AWS.Compat.Internal.Time
-        , Network.AWS.Data.Internal.Base64
-        , Network.AWS.Data.Internal.Body
-        , Network.AWS.Data.Internal.ByteString
-        , Network.AWS.Data.Internal.Header
-        , Network.AWS.Data.Internal.JSON
-        , Network.AWS.Data.Internal.List
-        , Network.AWS.Data.Internal.Map
-        , Network.AWS.Data.Internal.Numeric
-        , Network.AWS.Data.Internal.Path
-        , Network.AWS.Data.Internal.Query
-        , Network.AWS.Data.Internal.Sensitive
-        , Network.AWS.Data.Internal.Text
-        , Network.AWS.Data.Internal.Time
-        , Network.AWS.Data.Internal.URI
-        , Network.AWS.Data.Internal.XML
-        , Network.AWS.Request.Internal
-        , Network.AWS.Signing.Internal
-        , Network.AWS.Signing.Internal.V2
-        , Network.AWS.Signing.Internal.V4
+        , Network.AWS.Waiter
 
     build-depends:
-          aeson                >  0.7.0.6
-        , attoparsec           >= 0.12
+          aeson                >= 0.8
+        , attoparsec           >= 0.11.3
         , base                 >= 4.7     && < 5
-        , base16-bytestring    >= 0.1
-        , base64-bytestring    >= 1
         , bifunctors           >= 4.1
         , bytestring           >= 0.9
-        , case-insensitive     >= 1.2     && < 2
+        , case-insensitive     >= 1.2
         , conduit              >= 1.1
         , conduit-extra        >= 1.1
-        , cryptohash           >= 0.11
-        , data-default-class   >= 0.0.1
+        , cryptonite           >= 0.4
+        , double-conversion    >= 0.2
         , hashable             >= 1.2
-        , http-client          >= 0.4.3   && < 0.5
+        , http-client          >= 0.4.9
         , http-types           >= 0.8
         , lens                 >= 4.4
-        , mmorph               >= 1       && < 2
+        , memory               >= 0.6
         , mtl                  >= 2.1.3.1
         , resourcet            >= 1.1
         , scientific           >= 0.3
@@ -102,7 +89,6 @@ library
         , transformers         >= 0.2
         , transformers-compat  >= 0.3
         , unordered-containers >= 0.2.5
-        , vector               >= 0.10.9
         , xml-conduit          >= 1.2
 
     if !impl(ghc>=7.9)
@@ -123,20 +109,17 @@ test-suite tests
     hs-source-dirs:    test
     main-is:           Main.hs
 
-    ghc-options:       -Wall -threaded -with-rtsopts=-N
+    ghc-options:       -Wall -threaded
 
     other-modules:
-          Test.AWS.Data
+          Test.AWS.Data.Numeric
         , Test.AWS.Data.List
-        , Test.AWS.Data.Map
-        , Test.AWS.Data.Numeric
         , Test.AWS.Data.Time
-        , Test.AWS.TH
-        , Test.AWS.Types
+        , Test.AWS.Util
 
     build-depends:
-          amazonka-core
-        , aeson
+          aeson
+        , amazonka-core
         , base
         , tasty
         , tasty-hunit

@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.MachineLearning.DescribeEvaluations
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of 'DescribeEvaluations' that match the search criteria in the
--- request.
+-- Returns a list of @DescribeEvaluations@ that match the search criteria
+-- in the request.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeEvaluations.html>
 module Network.AWS.MachineLearning.DescribeEvaluations
@@ -33,225 +28,262 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     -- ** Request constructor
     , describeEvaluations
     -- ** Request lenses
-    , deEQ
-    , deFilterVariable
-    , deGE
-    , deGT
-    , deLE
-    , deLT
-    , deLimit
-    , deNE
-    , deNextToken
-    , dePrefix
-    , deSortOrder
+    , derqEQ
+    , derqGE
+    , derqPrefix
+    , derqGT
+    , derqNE
+    , derqNextToken
+    , derqSortOrder
+    , derqLimit
+    , derqLT
+    , derqFilterVariable
+    , derqLE
 
     -- * Response
     , DescribeEvaluationsResponse
     -- ** Response constructor
     , describeEvaluationsResponse
     -- ** Response lenses
-    , derNextToken
-    , derResults
+    , desrsResults
+    , desrsNextToken
+    , desrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.MachineLearning.Types
-import qualified GHC.Exts
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeEvaluations = DescribeEvaluations
-    { _deEQ             :: Maybe Text
-    , _deFilterVariable :: Maybe EvaluationFilterVariable
-    , _deGE             :: Maybe Text
-    , _deGT             :: Maybe Text
-    , _deLE             :: Maybe Text
-    , _deLT             :: Maybe Text
-    , _deLimit          :: Maybe Nat
-    , _deNE             :: Maybe Text
-    , _deNextToken      :: Maybe Text
-    , _dePrefix         :: Maybe Text
-    , _deSortOrder      :: Maybe SortOrder
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeEvaluations' constructor.
+-- | /See:/ 'describeEvaluations' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deEQ' @::@ 'Maybe' 'Text'
+-- * 'derqEQ'
 --
--- * 'deFilterVariable' @::@ 'Maybe' 'EvaluationFilterVariable'
+-- * 'derqGE'
 --
--- * 'deGE' @::@ 'Maybe' 'Text'
+-- * 'derqPrefix'
 --
--- * 'deGT' @::@ 'Maybe' 'Text'
+-- * 'derqGT'
 --
--- * 'deLE' @::@ 'Maybe' 'Text'
+-- * 'derqNE'
 --
--- * 'deLT' @::@ 'Maybe' 'Text'
+-- * 'derqNextToken'
 --
--- * 'deLimit' @::@ 'Maybe' 'Natural'
+-- * 'derqSortOrder'
 --
--- * 'deNE' @::@ 'Maybe' 'Text'
+-- * 'derqLimit'
 --
--- * 'deNextToken' @::@ 'Maybe' 'Text'
+-- * 'derqLT'
 --
--- * 'dePrefix' @::@ 'Maybe' 'Text'
+-- * 'derqFilterVariable'
 --
--- * 'deSortOrder' @::@ 'Maybe' 'SortOrder'
---
+-- * 'derqLE'
+data DescribeEvaluations = DescribeEvaluations'
+    { _derqEQ             :: !(Maybe Text)
+    , _derqGE             :: !(Maybe Text)
+    , _derqPrefix         :: !(Maybe Text)
+    , _derqGT             :: !(Maybe Text)
+    , _derqNE             :: !(Maybe Text)
+    , _derqNextToken      :: !(Maybe Text)
+    , _derqSortOrder      :: !(Maybe SortOrder)
+    , _derqLimit          :: !(Maybe Nat)
+    , _derqLT             :: !(Maybe Text)
+    , _derqFilterVariable :: !(Maybe EvaluationFilterVariable)
+    , _derqLE             :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeEvaluations' smart constructor.
 describeEvaluations :: DescribeEvaluations
-describeEvaluations = DescribeEvaluations
-    { _deFilterVariable = Nothing
-    , _deEQ             = Nothing
-    , _deGT             = Nothing
-    , _deLT             = Nothing
-    , _deGE             = Nothing
-    , _deLE             = Nothing
-    , _deNE             = Nothing
-    , _dePrefix         = Nothing
-    , _deSortOrder      = Nothing
-    , _deNextToken      = Nothing
-    , _deLimit          = Nothing
+describeEvaluations =
+    DescribeEvaluations'
+    { _derqEQ = Nothing
+    , _derqGE = Nothing
+    , _derqPrefix = Nothing
+    , _derqGT = Nothing
+    , _derqNE = Nothing
+    , _derqNextToken = Nothing
+    , _derqSortOrder = Nothing
+    , _derqLimit = Nothing
+    , _derqLT = Nothing
+    , _derqFilterVariable = Nothing
+    , _derqLE = Nothing
     }
 
--- | The equal to operator. The 'Evaluation' results will have 'FilterVariable' values
--- that exactly match the value specified with 'EQ'.
-deEQ :: Lens' DescribeEvaluations (Maybe Text)
-deEQ = lens _deEQ (\s a -> s { _deEQ = a })
+-- | The equal to operator. The @Evaluation@ results will have
+-- @FilterVariable@ values that exactly match the value specified with
+-- @EQ@.
+derqEQ :: Lens' DescribeEvaluations (Maybe Text)
+derqEQ = lens _derqEQ (\ s a -> s{_derqEQ = a});
 
--- | Use one of the following variable to filter a list of 'Evaluation' objects:
+-- | The greater than or equal to operator. The @Evaluation@ results will
+-- have @FilterVariable@ values that are greater than or equal to the value
+-- specified with @GE@.
+derqGE :: Lens' DescribeEvaluations (Maybe Text)
+derqGE = lens _derqGE (\ s a -> s{_derqGE = a});
+
+-- | A string that is found at the beginning of a variable, such as @Name@ or
+-- @Id@.
 --
--- 'CreatedAt' - Sets the search criteria to the 'Evaluation' creation date.  'Status' - Sets the search criteria to the 'Evaluation' status.  'Name' - Sets the search
--- criteria to the contents of 'Evaluation'   'Name'.  'IAMUser' - Sets the search
--- criteria to the user account that invoked an 'Evaluation'.  'MLModelId' - Sets
--- the search criteria to the 'MLModel' that was evaluated.  'DataSourceId' - Sets
--- the search criteria to the 'DataSource' used in 'Evaluation'.  'DataUri' - Sets the
--- search criteria to the data file(s) used in 'Evaluation'. The URL can identify
--- either a file or an Amazon Simple Storage Solution (Amazon S3) bucket or
--- directory.
-deFilterVariable :: Lens' DescribeEvaluations (Maybe EvaluationFilterVariable)
-deFilterVariable = lens _deFilterVariable (\s a -> s { _deFilterVariable = a })
+-- For example, an @Evaluation@ could have the @Name@
+-- @2014-09-09-HolidayGiftMailer@. To search for this @Evaluation@, select
+-- @Name@ for the @FilterVariable@ and any of the following strings for the
+-- @Prefix@:
+--
+-- -   2014-09
+--
+-- -   2014-09-09
+--
+-- -   2014-09-09-Holiday
+--
+derqPrefix :: Lens' DescribeEvaluations (Maybe Text)
+derqPrefix = lens _derqPrefix (\ s a -> s{_derqPrefix = a});
 
--- | The greater than or equal to operator. The 'Evaluation' results will have 'FilterVariable' values that are greater than or equal to the value specified with 'GE'.
-deGE :: Lens' DescribeEvaluations (Maybe Text)
-deGE = lens _deGE (\s a -> s { _deGE = a })
+-- | The greater than operator. The @Evaluation@ results will have
+-- @FilterVariable@ values that are greater than the value specified with
+-- @GT@.
+derqGT :: Lens' DescribeEvaluations (Maybe Text)
+derqGT = lens _derqGT (\ s a -> s{_derqGT = a});
 
--- | The greater than operator. The 'Evaluation' results will have 'FilterVariable'
--- values that are greater than the value specified with 'GT'.
-deGT :: Lens' DescribeEvaluations (Maybe Text)
-deGT = lens _deGT (\s a -> s { _deGT = a })
-
--- | The less than or equal to operator. The 'Evaluation' results will have 'FilterVariable' values that are less than or equal to the value specified with 'LE'.
-deLE :: Lens' DescribeEvaluations (Maybe Text)
-deLE = lens _deLE (\s a -> s { _deLE = a })
-
--- | The less than operator. The 'Evaluation' results will have 'FilterVariable'
--- values that are less than the value specified with 'LT'.
-deLT :: Lens' DescribeEvaluations (Maybe Text)
-deLT = lens _deLT (\s a -> s { _deLT = a })
-
--- | The maximum number of 'Evaluation' to include in the result.
-deLimit :: Lens' DescribeEvaluations (Maybe Natural)
-deLimit = lens _deLimit (\s a -> s { _deLimit = a }) . mapping _Nat
-
--- | The not equal to operator. The 'Evaluation' results will have 'FilterVariable'
--- values not equal to the value specified with 'NE'.
-deNE :: Lens' DescribeEvaluations (Maybe Text)
-deNE = lens _deNE (\s a -> s { _deNE = a })
+-- | The not equal to operator. The @Evaluation@ results will have
+-- @FilterVariable@ values not equal to the value specified with @NE@.
+derqNE :: Lens' DescribeEvaluations (Maybe Text)
+derqNE = lens _derqNE (\ s a -> s{_derqNE = a});
 
 -- | The ID of the page in the paginated results.
-deNextToken :: Lens' DescribeEvaluations (Maybe Text)
-deNextToken = lens _deNextToken (\s a -> s { _deNextToken = a })
+derqNextToken :: Lens' DescribeEvaluations (Maybe Text)
+derqNextToken = lens _derqNextToken (\ s a -> s{_derqNextToken = a});
 
--- | A string that is found at the beginning of a variable, such as 'Name' or 'Id'.
+-- | A two-value parameter that determines the sequence of the resulting list
+-- of @Evaluation@.
 --
--- For example, an 'Evaluation' could have the 'Name' '2014-09-09-HolidayGiftMailer'.
--- To search for this 'Evaluation', select 'Name' for the 'FilterVariable' and any of
--- the following strings for the 'Prefix':
+-- -   @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+-- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
--- 2014-09
---
--- 2014-09-09
---
--- 2014-09-09-Holiday
---
---
-dePrefix :: Lens' DescribeEvaluations (Maybe Text)
-dePrefix = lens _dePrefix (\s a -> s { _dePrefix = a })
+-- Results are sorted by @FilterVariable@.
+derqSortOrder :: Lens' DescribeEvaluations (Maybe SortOrder)
+derqSortOrder = lens _derqSortOrder (\ s a -> s{_derqSortOrder = a});
 
--- | A two-value parameter that determines the sequence of the resulting list of 'Evaluation'.
+-- | The maximum number of @Evaluation@ to include in the result.
+derqLimit :: Lens' DescribeEvaluations (Maybe Natural)
+derqLimit = lens _derqLimit (\ s a -> s{_derqLimit = a}) . mapping _Nat;
+
+-- | The less than operator. The @Evaluation@ results will have
+-- @FilterVariable@ values that are less than the value specified with
+-- @LT@.
+derqLT :: Lens' DescribeEvaluations (Maybe Text)
+derqLT = lens _derqLT (\ s a -> s{_derqLT = a});
+
+-- | Use one of the following variable to filter a list of @Evaluation@
+-- objects:
 --
--- 'asc' - Arranges the list in ascending order (A-Z, 0-9).  'dsc' - Arranges the
--- list in descending order (Z-A, 9-0).  Results are sorted by 'FilterVariable'.
-deSortOrder :: Lens' DescribeEvaluations (Maybe SortOrder)
-deSortOrder = lens _deSortOrder (\s a -> s { _deSortOrder = a })
+-- -   @CreatedAt@ - Sets the search criteria to the @Evaluation@ creation
+--     date.
+-- -   @Status@ - Sets the search criteria to the @Evaluation@ status.
+-- -   @Name@ - Sets the search criteria to the contents of @Evaluation@
+--     ____ @Name@.
+-- -   @IAMUser@ - Sets the search criteria to the user account that
+--     invoked an @Evaluation@.
+-- -   @MLModelId@ - Sets the search criteria to the @MLModel@ that was
+--     evaluated.
+-- -   @DataSourceId@ - Sets the search criteria to the @DataSource@ used
+--     in @Evaluation@.
+-- -   @DataUri@ - Sets the search criteria to the data file(s) used in
+--     @Evaluation@. The URL can identify either a file or an Amazon Simple
+--     Storage Solution (Amazon S3) bucket or directory.
+derqFilterVariable :: Lens' DescribeEvaluations (Maybe EvaluationFilterVariable)
+derqFilterVariable = lens _derqFilterVariable (\ s a -> s{_derqFilterVariable = a});
 
-data DescribeEvaluationsResponse = DescribeEvaluationsResponse
-    { _derNextToken :: Maybe Text
-    , _derResults   :: List "Results" Evaluation
-    } deriving (Eq, Read, Show)
+-- | The less than or equal to operator. The @Evaluation@ results will have
+-- @FilterVariable@ values that are less than or equal to the value
+-- specified with @LE@.
+derqLE :: Lens' DescribeEvaluations (Maybe Text)
+derqLE = lens _derqLE (\ s a -> s{_derqLE = a});
 
--- | 'DescribeEvaluationsResponse' constructor.
+instance AWSPager DescribeEvaluations where
+        page rq rs
+          | stop (rs ^. desrsNextToken) = Nothing
+          | stop (rs ^. desrsResults) = Nothing
+          | otherwise =
+            Just $ rq & derqNextToken .~ rs ^. desrsNextToken
+
+instance AWSRequest DescribeEvaluations where
+        type Sv DescribeEvaluations = MachineLearning
+        type Rs DescribeEvaluations =
+             DescribeEvaluationsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeEvaluationsResponse' <$>
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeEvaluations where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonML_20141212.DescribeEvaluations" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeEvaluations where
+        toJSON DescribeEvaluations'{..}
+          = object
+              ["EQ" .= _derqEQ, "GE" .= _derqGE,
+               "Prefix" .= _derqPrefix, "GT" .= _derqGT,
+               "NE" .= _derqNE, "NextToken" .= _derqNextToken,
+               "SortOrder" .= _derqSortOrder, "Limit" .= _derqLimit,
+               "LT" .= _derqLT,
+               "FilterVariable" .= _derqFilterVariable,
+               "LE" .= _derqLE]
+
+instance ToPath DescribeEvaluations where
+        toPath = const "/"
+
+instance ToQuery DescribeEvaluations where
+        toQuery = const mempty
+
+-- | Represents the query results from a DescribeEvaluations operation. The
+-- content is essentially a list of @Evaluation@.
+--
+-- /See:/ 'describeEvaluationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derNextToken' @::@ 'Maybe' 'Text'
+-- * 'desrsResults'
 --
--- * 'derResults' @::@ ['Evaluation']
+-- * 'desrsNextToken'
 --
-describeEvaluationsResponse :: DescribeEvaluationsResponse
-describeEvaluationsResponse = DescribeEvaluationsResponse
-    { _derResults   = mempty
-    , _derNextToken = Nothing
+-- * 'desrsStatus'
+data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
+    { _desrsResults   :: !(Maybe [Evaluation])
+    , _desrsNextToken :: !(Maybe Text)
+    , _desrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeEvaluationsResponse' smart constructor.
+describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse
+describeEvaluationsResponse pStatus_ =
+    DescribeEvaluationsResponse'
+    { _desrsResults = Nothing
+    , _desrsNextToken = Nothing
+    , _desrsStatus = pStatus_
     }
 
--- | The ID of the next page in the paginated results that indicates at least one
--- more page follows.
-derNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
-derNextToken = lens _derNextToken (\s a -> s { _derNextToken = a })
+-- | A list of Evaluation that meet the search criteria.
+desrsResults :: Lens' DescribeEvaluationsResponse [Evaluation]
+desrsResults = lens _desrsResults (\ s a -> s{_desrsResults = a}) . _Default;
 
--- | A list of 'Evaluation' that meet the search criteria.
-derResults :: Lens' DescribeEvaluationsResponse [Evaluation]
-derResults = lens _derResults (\s a -> s { _derResults = a }) . _List
+-- | The ID of the next page in the paginated results that indicates at least
+-- one more page follows.
+desrsNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
+desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 
-instance ToPath DescribeEvaluations where
-    toPath = const "/"
-
-instance ToQuery DescribeEvaluations where
-    toQuery = const mempty
-
-instance ToHeaders DescribeEvaluations
-
-instance ToJSON DescribeEvaluations where
-    toJSON DescribeEvaluations{..} = object
-        [ "FilterVariable" .= _deFilterVariable
-        , "EQ"             .= _deEQ
-        , "GT"             .= _deGT
-        , "LT"             .= _deLT
-        , "GE"             .= _deGE
-        , "LE"             .= _deLE
-        , "NE"             .= _deNE
-        , "Prefix"         .= _dePrefix
-        , "SortOrder"      .= _deSortOrder
-        , "NextToken"      .= _deNextToken
-        , "Limit"          .= _deLimit
-        ]
-
-instance AWSRequest DescribeEvaluations where
-    type Sv DescribeEvaluations = MachineLearning
-    type Rs DescribeEvaluations = DescribeEvaluationsResponse
-
-    request  = post "DescribeEvaluations"
-    response = jsonResponse
-
-instance FromJSON DescribeEvaluationsResponse where
-    parseJSON = withObject "DescribeEvaluationsResponse" $ \o -> DescribeEvaluationsResponse
-        <$> o .:? "NextToken"
-        <*> o .:? "Results" .!= mempty
-
-instance AWSPager DescribeEvaluations where
-    page rq rs
-        | stop (rs ^. derNextToken) = Nothing
-        | otherwise = (\x -> rq & deNextToken ?~ x)
-            <$> (rs ^. derNextToken)
+-- | FIXME: Undocumented member.
+desrsStatus :: Lens' DescribeEvaluationsResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

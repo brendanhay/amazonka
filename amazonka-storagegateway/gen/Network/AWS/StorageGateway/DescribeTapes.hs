@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.DescribeTapes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a description of the specified Amazon Resource Name (ARN) of virtual
--- tapes. If a 'TapeARN' is not specified, returns a description of all virtual
--- tapes associated with the specified gateway.
+-- Returns a description of the specified Amazon Resource Name (ARN) of
+-- virtual tapes. If a @TapeARN@ is not specified, returns a description of
+-- all virtual tapes associated with the specified gateway.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DescribeTapes.html>
 module Network.AWS.StorageGateway.DescribeTapes
@@ -34,139 +29,161 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- ** Request constructor
     , describeTapes
     -- ** Request lenses
-    , dtGatewayARN
-    , dtLimit
-    , dtMarker
-    , dtTapeARNs
+    , dtrqMarker
+    , dtrqLimit
+    , dtrqTapeARNs
+    , dtrqGatewayARN
 
     -- * Response
     , DescribeTapesResponse
     -- ** Response constructor
     , describeTapesResponse
     -- ** Response lenses
-    , dtrMarker
-    , dtrTapes
+    , dtsrsMarker
+    , dtsrsTapes
+    , dtsrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-data DescribeTapes = DescribeTapes
-    { _dtGatewayARN :: Text
-    , _dtLimit      :: Maybe Nat
-    , _dtMarker     :: Maybe Text
-    , _dtTapeARNs   :: List "TapeARNs" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeTapes' constructor.
+-- | DescribeTapesInput
+--
+-- /See:/ 'describeTapes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtGatewayARN' @::@ 'Text'
+-- * 'dtrqMarker'
 --
--- * 'dtLimit' @::@ 'Maybe' 'Natural'
+-- * 'dtrqLimit'
 --
--- * 'dtMarker' @::@ 'Maybe' 'Text'
+-- * 'dtrqTapeARNs'
 --
--- * 'dtTapeARNs' @::@ ['Text']
---
-describeTapes :: Text -- ^ 'dtGatewayARN'
-              -> DescribeTapes
-describeTapes p1 = DescribeTapes
-    { _dtGatewayARN = p1
-    , _dtTapeARNs   = mempty
-    , _dtMarker     = Nothing
-    , _dtLimit      = Nothing
+-- * 'dtrqGatewayARN'
+data DescribeTapes = DescribeTapes'
+    { _dtrqMarker     :: !(Maybe Text)
+    , _dtrqLimit      :: !(Maybe Nat)
+    , _dtrqTapeARNs   :: !(Maybe [Text])
+    , _dtrqGatewayARN :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeTapes' smart constructor.
+describeTapes :: Text -> DescribeTapes
+describeTapes pGatewayARN_ =
+    DescribeTapes'
+    { _dtrqMarker = Nothing
+    , _dtrqLimit = Nothing
+    , _dtrqTapeARNs = Nothing
+    , _dtrqGatewayARN = pGatewayARN_
     }
 
-dtGatewayARN :: Lens' DescribeTapes Text
-dtGatewayARN = lens _dtGatewayARN (\s a -> s { _dtGatewayARN = a })
+-- | A marker value, obtained in a previous call to @DescribeTapes@. This
+-- marker indicates which page of results to retrieve.
+--
+-- If not specified, the first page of results is retrieved.
+dtrqMarker :: Lens' DescribeTapes (Maybe Text)
+dtrqMarker = lens _dtrqMarker (\ s a -> s{_dtrqMarker = a});
 
 -- | Specifies that the number of virtual tapes described be limited to the
 -- specified number.
 --
 -- Amazon Web Services may impose its own limit, if this field is not set.
-dtLimit :: Lens' DescribeTapes (Maybe Natural)
-dtLimit = lens _dtLimit (\s a -> s { _dtLimit = a }) . mapping _Nat
+dtrqLimit :: Lens' DescribeTapes (Maybe Natural)
+dtrqLimit = lens _dtrqLimit (\ s a -> s{_dtrqLimit = a}) . mapping _Nat;
 
--- | A marker value, obtained in a previous call to 'DescribeTapes'. This marker
--- indicates which page of results to retrieve.
+-- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
+-- the virtual tapes you want to describe. If this parameter is not
+-- specified, AWS Storage Gateway returns a description of all virtual
+-- tapes associated with the specified gateway.
+dtrqTapeARNs :: Lens' DescribeTapes [Text]
+dtrqTapeARNs = lens _dtrqTapeARNs (\ s a -> s{_dtrqTapeARNs = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dtrqGatewayARN :: Lens' DescribeTapes Text
+dtrqGatewayARN = lens _dtrqGatewayARN (\ s a -> s{_dtrqGatewayARN = a});
+
+instance AWSPager DescribeTapes where
+        page rq rs
+          | stop (rs ^. dtsrsMarker) = Nothing
+          | stop (rs ^. dtsrsTapes) = Nothing
+          | otherwise =
+            Just $ rq & dtrqMarker .~ rs ^. dtsrsMarker
+
+instance AWSRequest DescribeTapes where
+        type Sv DescribeTapes = StorageGateway
+        type Rs DescribeTapes = DescribeTapesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeTapesResponse' <$>
+                   (x .?> "Marker") <*> (x .?> "Tapes" .!@ mempty) <*>
+                     (pure (fromEnum s)))
+
+instance ToHeaders DescribeTapes where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DescribeTapes" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeTapes where
+        toJSON DescribeTapes'{..}
+          = object
+              ["Marker" .= _dtrqMarker, "Limit" .= _dtrqLimit,
+               "TapeARNs" .= _dtrqTapeARNs,
+               "GatewayARN" .= _dtrqGatewayARN]
+
+instance ToPath DescribeTapes where
+        toPath = const "/"
+
+instance ToQuery DescribeTapes where
+        toQuery = const mempty
+
+-- | DescribeTapesOutput
 --
--- If not specified, the first page of results is retrieved.
-dtMarker :: Lens' DescribeTapes (Maybe Text)
-dtMarker = lens _dtMarker (\s a -> s { _dtMarker = a })
-
--- | Specifies one or more unique Amazon Resource Names (ARNs) that represent the
--- virtual tapes you want to describe. If this parameter is not specified, AWS
--- Storage Gateway returns a description of all virtual tapes associated with
--- the specified gateway.
-dtTapeARNs :: Lens' DescribeTapes [Text]
-dtTapeARNs = lens _dtTapeARNs (\s a -> s { _dtTapeARNs = a }) . _List
-
-data DescribeTapesResponse = DescribeTapesResponse
-    { _dtrMarker :: Maybe Text
-    , _dtrTapes  :: List "Tapes" Tape
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeTapesResponse' constructor.
+-- /See:/ 'describeTapesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrMarker' @::@ 'Maybe' 'Text'
+-- * 'dtsrsMarker'
 --
--- * 'dtrTapes' @::@ ['Tape']
+-- * 'dtsrsTapes'
 --
-describeTapesResponse :: DescribeTapesResponse
-describeTapesResponse = DescribeTapesResponse
-    { _dtrTapes  = mempty
-    , _dtrMarker = Nothing
+-- * 'dtsrsStatus'
+data DescribeTapesResponse = DescribeTapesResponse'
+    { _dtsrsMarker :: !(Maybe Text)
+    , _dtsrsTapes  :: !(Maybe [Tape])
+    , _dtsrsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeTapesResponse' smart constructor.
+describeTapesResponse :: Int -> DescribeTapesResponse
+describeTapesResponse pStatus_ =
+    DescribeTapesResponse'
+    { _dtsrsMarker = Nothing
+    , _dtsrsTapes = Nothing
+    , _dtsrsStatus = pStatus_
     }
 
--- | An opaque string which can be used as part of a subsequent DescribeTapes call
--- to retrieve the next page of results.
+-- | An opaque string which can be used as part of a subsequent DescribeTapes
+-- call to retrieve the next page of results.
 --
--- If a response does not contain a marker, then there are no more results to
--- be retrieved.
-dtrMarker :: Lens' DescribeTapesResponse (Maybe Text)
-dtrMarker = lens _dtrMarker (\s a -> s { _dtrMarker = a })
+-- If a response does not contain a marker, then there are no more results
+-- to be retrieved.
+dtsrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
+dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 
 -- | An array of virtual tape descriptions.
-dtrTapes :: Lens' DescribeTapesResponse [Tape]
-dtrTapes = lens _dtrTapes (\s a -> s { _dtrTapes = a }) . _List
+dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
+dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default;
 
-instance ToPath DescribeTapes where
-    toPath = const "/"
-
-instance ToQuery DescribeTapes where
-    toQuery = const mempty
-
-instance ToHeaders DescribeTapes
-
-instance ToJSON DescribeTapes where
-    toJSON DescribeTapes{..} = object
-        [ "GatewayARN" .= _dtGatewayARN
-        , "TapeARNs"   .= _dtTapeARNs
-        , "Marker"     .= _dtMarker
-        , "Limit"      .= _dtLimit
-        ]
-
-instance AWSRequest DescribeTapes where
-    type Sv DescribeTapes = StorageGateway
-    type Rs DescribeTapes = DescribeTapesResponse
-
-    request  = post "DescribeTapes"
-    response = jsonResponse
-
-instance FromJSON DescribeTapesResponse where
-    parseJSON = withObject "DescribeTapesResponse" $ \o -> DescribeTapesResponse
-        <$> o .:? "Marker"
-        <*> o .:? "Tapes" .!= mempty
-
-instance AWSPager DescribeTapes where
-    page rq rs
-        | stop (rs ^. dtrMarker) = Nothing
-        | otherwise = (\x -> rq & dtMarker ?~ x)
-            <$> (rs ^. dtrMarker)
+-- | FIXME: Undocumented member.
+dtsrsStatus :: Lens' DescribeTapesResponse Int
+dtsrsStatus = lens _dtsrsStatus (\ s a -> s{_dtsrsStatus = a});

@@ -1,42 +1,45 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
-{-# LANGUAGE ViewPatterns                #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+-- |
 -- Module      : Network.AWS.SDB.Types
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 module Network.AWS.SDB.Types
     (
     -- * Service
       SDB
-    -- ** Error
-    , RESTError
-    -- ** XML
-    , ns
+
+    -- * Errors
+    , _InvalidNumberValueTests
+    , _NoSuchDomain
+    , _NumberDomainAttributesExceeded
+    , _NumberSubmittedItemsExceeded
+    , _AttributeDoesNotExist
+    , _InvalidNextToken
+    , _MissingParameter
+    , _DuplicateItemName
+    , _InvalidParameterValue
+    , _NumberItemAttributesExceeded
+    , _RequestTimeout
+    , _TooManyRequestedAttributes
+    , _InvalidNumberPredicates
+    , _NumberDomainsExceeded
+    , _NumberSubmittedAttributesExceeded
+    , _InvalidQueryExpression
+    , _NumberDomainBytesExceeded
 
     -- * Attribute
     , Attribute
     , attribute
-    , aAlternateNameEncoding
     , aAlternateValueEncoding
+    , aAlternateNameEncoding
     , aName
     , aValue
 
@@ -46,370 +49,151 @@ module Network.AWS.SDB.Types
     , diAttributes
     , diName
 
+    -- * Item
+    , Item
+    , item
+    , iAlternateNameEncoding
+    , iName
+    , iAttributes
+
+    -- * ReplaceableAttribute
+    , ReplaceableAttribute
+    , replaceableAttribute
+    , raReplace
+    , raName
+    , raValue
+
     -- * ReplaceableItem
     , ReplaceableItem
     , replaceableItem
-    , riAttributes
     , riName
+    , riAttributes
 
     -- * UpdateCondition
     , UpdateCondition
     , updateCondition
     , ucExists
-    , ucName
     , ucValue
-
-    -- * ReplaceableAttribute
-    , ReplaceableAttribute
-    , replaceableAttribute
-    , raName
-    , raReplace
-    , raValue
-
-    -- * Item
-    , Item
-    , item
-    , iAlternateNameEncoding
-    , iAttributes
-    , iName
+    , ucName
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Signing
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.SDB.Types.Product
+import           Network.AWS.SDB.Types.Sum
+import           Network.AWS.Sign.V2
 
--- | Version @2009-04-15@ of the Amazon SimpleDB service.
+-- | Version @2009-04-15@ of the Amazon SimpleDB SDK.
 data SDB
 
 instance AWSService SDB where
     type Sg SDB = V2
-    type Er SDB = RESTError
-
-    service = service'
+    service = const svc
       where
-        service' :: Service SDB
-        service' = Service
-            { _svcAbbrev       = "SDB"
-            , _svcPrefix       = "sdb"
-            , _svcVersion      = "2009-04-15"
-            , _svcTargetPrefix = Nothing
-            , _svcJSONVersion  = Nothing
-            , _svcHandle       = handle
-            , _svcRetry        = retry
+        svc =
+            Service
+            { _svcAbbrev = "SDB"
+            , _svcPrefix = "sdb"
+            , _svcVersion = "2009-04-15"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout = Just 70000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseXMLError
+            , _svcRetry = retry
             }
-
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
-
-        retry :: Retry SDB
-        retry = Exponential
-            { _retryBase     = 0.05
-            , _retryGrowth   = 2
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
             , _retryAttempts = 5
-            , _retryCheck    = check
+            , _retryCheck = check
             }
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
-        check :: Status
-              -> RESTError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e)
-            | s == 500  = True -- General Server Error
-            | s == 509  = True -- Limit Exceeded
-            | s == 503  = True -- Service Unavailable
-            | otherwise = False
+-- | Too many predicates exist in the query expression.
+_InvalidNumberValueTests :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNumberValueTests =
+    _ServiceError . hasStatus 400 . hasCode "InvalidNumberValueTests"
 
-ns :: Text
-ns = "http://sdb.amazonaws.com/doc/2009-04-15/"
-{-# INLINE ns #-}
+-- | The specified domain does not exist.
+_NoSuchDomain :: AWSError a => Getting (First ServiceError) a ServiceError
+_NoSuchDomain = _ServiceError . hasStatus 400 . hasCode "NoSuchDomain"
 
-data Attribute = Attribute
-    { _aAlternateNameEncoding  :: Maybe Text
-    , _aAlternateValueEncoding :: Maybe Text
-    , _aName                   :: Text
-    , _aValue                  :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Too many attributes in this domain.
+_NumberDomainAttributesExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberDomainAttributesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberDomainAttributesExceeded"
 
--- | 'Attribute' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aAlternateNameEncoding' @::@ 'Maybe' 'Text'
---
--- * 'aAlternateValueEncoding' @::@ 'Maybe' 'Text'
---
--- * 'aName' @::@ 'Text'
---
--- * 'aValue' @::@ 'Text'
---
-attribute :: Text -- ^ 'aName'
-          -> Text -- ^ 'aValue'
-          -> Attribute
-attribute p1 p2 = Attribute
-    { _aName                   = p1
-    , _aValue                  = p2
-    , _aAlternateNameEncoding  = Nothing
-    , _aAlternateValueEncoding = Nothing
-    }
+-- | Too many items exist in a single call.
+_NumberSubmittedItemsExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberSubmittedItemsExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberSubmittedItemsExceeded"
 
+-- | The specified attribute does not exist.
+_AttributeDoesNotExist :: AWSError a => Getting (First ServiceError) a ServiceError
+_AttributeDoesNotExist =
+    _ServiceError . hasStatus 404 . hasCode "AttributeDoesNotExist"
 
-aAlternateNameEncoding :: Lens' Attribute (Maybe Text)
-aAlternateNameEncoding =
-    lens _aAlternateNameEncoding (\s a -> s { _aAlternateNameEncoding = a })
+-- | The specified NextToken is not valid.
+_InvalidNextToken :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNextToken = _ServiceError . hasStatus 400 . hasCode "InvalidNextToken"
 
+-- | The request must contain the specified missing parameter.
+_MissingParameter :: AWSError a => Getting (First ServiceError) a ServiceError
+_MissingParameter = _ServiceError . hasStatus 400 . hasCode "MissingParameter"
 
-aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
-aAlternateValueEncoding =
-    lens _aAlternateValueEncoding (\s a -> s { _aAlternateValueEncoding = a })
+-- | The item name was specified more than once.
+_DuplicateItemName :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateItemName =
+    _ServiceError . hasStatus 400 . hasCode "DuplicateItemName"
 
--- | The name of the attribute.
-aName :: Lens' Attribute Text
-aName = lens _aName (\s a -> s { _aName = a })
+-- | The value for a parameter is invalid.
+_InvalidParameterValue :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidParameterValue =
+    _ServiceError . hasStatus 400 . hasCode "InvalidParameterValue"
 
--- | The value of the attribute.
-aValue :: Lens' Attribute Text
-aValue = lens _aValue (\s a -> s { _aValue = a })
+-- | Too many attributes in this item.
+_NumberItemAttributesExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberItemAttributesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberItemAttributesExceeded"
 
-instance FromXML Attribute where
-    parseXML x = Attribute
-        <$> x .@? "AlternateNameEncoding"
-        <*> x .@? "AlternateValueEncoding"
-        <*> x .@  "Name"
-        <*> x .@  "Value"
+-- | A timeout occurred when attempting to query the specified domain with
+-- specified query expression.
+_RequestTimeout :: AWSError a => Getting (First ServiceError) a ServiceError
+_RequestTimeout = _ServiceError . hasStatus 408 . hasCode "RequestTimeout"
 
-instance ToQuery Attribute where
-    toQuery Attribute{..} = mconcat
-        [ "AlternateNameEncoding"  =? _aAlternateNameEncoding
-        , "AlternateValueEncoding" =? _aAlternateValueEncoding
-        , "Name"                   =? _aName
-        , "Value"                  =? _aValue
-        ]
+-- | Too many attributes requested.
+_TooManyRequestedAttributes :: AWSError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestedAttributes =
+    _ServiceError . hasStatus 400 . hasCode "TooManyRequestedAttributes"
 
-data DeletableItem = DeletableItem
-    { _diAttributes :: List "member" Attribute
-    , _diName       :: Text
-    } deriving (Eq, Read, Show)
+-- | Too many predicates exist in the query expression.
+_InvalidNumberPredicates :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidNumberPredicates =
+    _ServiceError . hasStatus 400 . hasCode "InvalidNumberPredicates"
 
--- | 'DeletableItem' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diAttributes' @::@ ['Attribute']
---
--- * 'diName' @::@ 'Text'
---
-deletableItem :: Text -- ^ 'diName'
-              -> DeletableItem
-deletableItem p1 = DeletableItem
-    { _diName       = p1
-    , _diAttributes = mempty
-    }
+-- | Too many domains exist per this account.
+_NumberDomainsExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberDomainsExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberDomainsExceeded"
 
-diAttributes :: Lens' DeletableItem [Attribute]
-diAttributes = lens _diAttributes (\s a -> s { _diAttributes = a }) . _List
+-- | Too many attributes exist in a single call.
+_NumberSubmittedAttributesExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberSubmittedAttributesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberSubmittedAttributesExceeded"
 
-diName :: Lens' DeletableItem Text
-diName = lens _diName (\s a -> s { _diName = a })
+-- | The specified query expression syntax is not valid.
+_InvalidQueryExpression :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidQueryExpression =
+    _ServiceError . hasStatus 400 . hasCode "InvalidQueryExpression"
 
-instance FromXML DeletableItem where
-    parseXML x = DeletableItem
-        <$> parseXML x
-        <*> x .@  "ItemName"
-
-instance ToQuery DeletableItem where
-    toQuery DeletableItem{..} = mconcat
-        [ toQuery     _diAttributes
-        , "ItemName"   =? _diName
-        ]
-
-data ReplaceableItem = ReplaceableItem
-    { _riAttributes :: List "member" ReplaceableAttribute
-    , _riName       :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'ReplaceableItem' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'riAttributes' @::@ ['ReplaceableAttribute']
---
--- * 'riName' @::@ 'Text'
---
-replaceableItem :: Text -- ^ 'riName'
-                -> ReplaceableItem
-replaceableItem p1 = ReplaceableItem
-    { _riName       = p1
-    , _riAttributes = mempty
-    }
-
--- | The list of attributes for a replaceable item.
-riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
-riAttributes = lens _riAttributes (\s a -> s { _riAttributes = a }) . _List
-
--- | The name of the replaceable item.
-riName :: Lens' ReplaceableItem Text
-riName = lens _riName (\s a -> s { _riName = a })
-
-instance FromXML ReplaceableItem where
-    parseXML x = ReplaceableItem
-        <$> parseXML x
-        <*> x .@  "ItemName"
-
-instance ToQuery ReplaceableItem where
-    toQuery ReplaceableItem{..} = mconcat
-        [ toQuery     _riAttributes
-        , "ItemName"   =? _riName
-        ]
-
-data UpdateCondition = UpdateCondition
-    { _ucExists :: Maybe Bool
-    , _ucName   :: Maybe Text
-    , _ucValue  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateCondition' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ucExists' @::@ 'Maybe' 'Bool'
---
--- * 'ucName' @::@ 'Maybe' 'Text'
---
--- * 'ucValue' @::@ 'Maybe' 'Text'
---
-updateCondition :: UpdateCondition
-updateCondition = UpdateCondition
-    { _ucName   = Nothing
-    , _ucValue  = Nothing
-    , _ucExists = Nothing
-    }
-
--- | A value specifying whether or not the specified attribute must exist with the
--- specified value in order for the update condition to be satisfied. Specify 'true' if the attribute must exist for the update condition to be satisfied.
--- Specify 'false' if the attribute should not exist in order for the update
--- condition to be satisfied.
-ucExists :: Lens' UpdateCondition (Maybe Bool)
-ucExists = lens _ucExists (\s a -> s { _ucExists = a })
-
--- | The name of the attribute involved in the condition.
-ucName :: Lens' UpdateCondition (Maybe Text)
-ucName = lens _ucName (\s a -> s { _ucName = a })
-
--- | The value of an attribute. This value can only be specified when the 'Exists'
--- parameter is equal to 'true'.
-ucValue :: Lens' UpdateCondition (Maybe Text)
-ucValue = lens _ucValue (\s a -> s { _ucValue = a })
-
-instance FromXML UpdateCondition where
-    parseXML x = UpdateCondition
-        <$> x .@? "Exists"
-        <*> x .@? "Name"
-        <*> x .@? "Value"
-
-instance ToQuery UpdateCondition where
-    toQuery UpdateCondition{..} = mconcat
-        [ "Exists" =? _ucExists
-        , "Name"   =? _ucName
-        , "Value"  =? _ucValue
-        ]
-
-data ReplaceableAttribute = ReplaceableAttribute
-    { _raName    :: Text
-    , _raReplace :: Maybe Bool
-    , _raValue   :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ReplaceableAttribute' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'raName' @::@ 'Text'
---
--- * 'raReplace' @::@ 'Maybe' 'Bool'
---
--- * 'raValue' @::@ 'Text'
---
-replaceableAttribute :: Text -- ^ 'raName'
-                     -> Text -- ^ 'raValue'
-                     -> ReplaceableAttribute
-replaceableAttribute p1 p2 = ReplaceableAttribute
-    { _raName    = p1
-    , _raValue   = p2
-    , _raReplace = Nothing
-    }
-
--- | The name of the replaceable attribute.
-raName :: Lens' ReplaceableAttribute Text
-raName = lens _raName (\s a -> s { _raName = a })
-
--- | A flag specifying whether or not to replace the attribute/value pair or to
--- add a new attribute/value pair. The default setting is 'false'.
-raReplace :: Lens' ReplaceableAttribute (Maybe Bool)
-raReplace = lens _raReplace (\s a -> s { _raReplace = a })
-
--- | The value of the replaceable attribute.
-raValue :: Lens' ReplaceableAttribute Text
-raValue = lens _raValue (\s a -> s { _raValue = a })
-
-instance FromXML ReplaceableAttribute where
-    parseXML x = ReplaceableAttribute
-        <$> x .@  "Name"
-        <*> x .@? "Replace"
-        <*> x .@  "Value"
-
-instance ToQuery ReplaceableAttribute where
-    toQuery ReplaceableAttribute{..} = mconcat
-        [ "Name"    =? _raName
-        , "Replace" =? _raReplace
-        , "Value"   =? _raValue
-        ]
-
-data Item = Item
-    { _iAlternateNameEncoding :: Maybe Text
-    , _iAttributes            :: List "member" Attribute
-    , _iName                  :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'Item' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iAlternateNameEncoding' @::@ 'Maybe' 'Text'
---
--- * 'iAttributes' @::@ ['Attribute']
---
--- * 'iName' @::@ 'Text'
---
-item :: Text -- ^ 'iName'
-     -> Item
-item p1 = Item
-    { _iName                  = p1
-    , _iAlternateNameEncoding = Nothing
-    , _iAttributes            = mempty
-    }
-
-
-iAlternateNameEncoding :: Lens' Item (Maybe Text)
-iAlternateNameEncoding =
-    lens _iAlternateNameEncoding (\s a -> s { _iAlternateNameEncoding = a })
-
--- | A list of attributes.
-iAttributes :: Lens' Item [Attribute]
-iAttributes = lens _iAttributes (\s a -> s { _iAttributes = a }) . _List
-
--- | The name of the item.
-iName :: Lens' Item Text
-iName = lens _iName (\s a -> s { _iName = a })
-
-instance FromXML Item where
-    parseXML x = Item
-        <$> x .@? "AlternateNameEncoding"
-        <*> parseXML x
-        <*> x .@  "Name"
-
-instance ToQuery Item where
-    toQuery Item{..} = mconcat
-        [ "AlternateNameEncoding" =? _iAlternateNameEncoding
-        , toQuery                _iAttributes
-        , "Name"                  =? _iName
-        ]
+-- | Too many bytes in this domain.
+_NumberDomainBytesExceeded :: AWSError a => Getting (First ServiceError) a ServiceError
+_NumberDomainBytesExceeded =
+    _ServiceError . hasStatus 409 . hasCode "NumberDomainBytesExceeded"

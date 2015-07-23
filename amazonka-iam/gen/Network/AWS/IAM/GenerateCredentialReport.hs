@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.GenerateCredentialReport
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Generates a credential report for the AWS account. For more information
--- about the credential report, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports> in the /Using IAM/
--- guide.
+-- Generates a credential report for the AWS account. For more information
+-- about the credential report, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html Getting Credential Reports>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GenerateCredentialReport.html>
 module Network.AWS.IAM.GenerateCredentialReport
@@ -39,65 +35,85 @@ module Network.AWS.IAM.GenerateCredentialReport
     -- ** Response constructor
     , generateCredentialReportResponse
     -- ** Response lenses
-    , gcrrDescription
-    , gcrrState
+    , gcrrsState
+    , gcrrsDescription
+    , gcrrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GenerateCredentialReport = GenerateCredentialReport
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'generateCredentialReport' smart constructor.
+data GenerateCredentialReport =
+    GenerateCredentialReport'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'GenerateCredentialReport' constructor.
+-- | 'GenerateCredentialReport' smart constructor.
 generateCredentialReport :: GenerateCredentialReport
-generateCredentialReport = GenerateCredentialReport
+generateCredentialReport = GenerateCredentialReport'
 
-data GenerateCredentialReportResponse = GenerateCredentialReportResponse
-    { _gcrrDescription :: Maybe Text
-    , _gcrrState       :: Maybe ReportStateType
-    } deriving (Eq, Read, Show)
+instance AWSRequest GenerateCredentialReport where
+        type Sv GenerateCredentialReport = IAM
+        type Rs GenerateCredentialReport =
+             GenerateCredentialReportResponse
+        request = post
+        response
+          = receiveXMLWrapper "GenerateCredentialReportResult"
+              (\ s h x ->
+                 GenerateCredentialReportResponse' <$>
+                   (x .@? "State") <*> (x .@? "Description") <*>
+                     (pure (fromEnum s)))
 
--- | 'GenerateCredentialReportResponse' constructor.
+instance ToHeaders GenerateCredentialReport where
+        toHeaders = const mempty
+
+instance ToPath GenerateCredentialReport where
+        toPath = const "/"
+
+instance ToQuery GenerateCredentialReport where
+        toQuery
+          = const
+              (mconcat
+                 ["Action" =:
+                    ("GenerateCredentialReport" :: ByteString),
+                  "Version" =: ("2010-05-08" :: ByteString)])
+
+-- | Contains the response to a successful GenerateCredentialReport request.
+--
+-- /See:/ 'generateCredentialReportResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcrrDescription' @::@ 'Maybe' 'Text'
+-- * 'gcrrsState'
 --
--- * 'gcrrState' @::@ 'Maybe' 'ReportStateType'
+-- * 'gcrrsDescription'
 --
-generateCredentialReportResponse :: GenerateCredentialReportResponse
-generateCredentialReportResponse = GenerateCredentialReportResponse
-    { _gcrrState       = Nothing
-    , _gcrrDescription = Nothing
+-- * 'gcrrsStatus'
+data GenerateCredentialReportResponse = GenerateCredentialReportResponse'
+    { _gcrrsState       :: !(Maybe ReportStateType)
+    , _gcrrsDescription :: !(Maybe Text)
+    , _gcrrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GenerateCredentialReportResponse' smart constructor.
+generateCredentialReportResponse :: Int -> GenerateCredentialReportResponse
+generateCredentialReportResponse pStatus_ =
+    GenerateCredentialReportResponse'
+    { _gcrrsState = Nothing
+    , _gcrrsDescription = Nothing
+    , _gcrrsStatus = pStatus_
     }
 
--- | Information about the credential report.
-gcrrDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
-gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
-
 -- | Information about the state of the credential report.
-gcrrState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
-gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
+gcrrsState :: Lens' GenerateCredentialReportResponse (Maybe ReportStateType)
+gcrrsState = lens _gcrrsState (\ s a -> s{_gcrrsState = a});
 
-instance ToPath GenerateCredentialReport where
-    toPath = const "/"
+-- | Information about the credential report.
+gcrrsDescription :: Lens' GenerateCredentialReportResponse (Maybe Text)
+gcrrsDescription = lens _gcrrsDescription (\ s a -> s{_gcrrsDescription = a});
 
-instance ToQuery GenerateCredentialReport where
-    toQuery = const mempty
-
-instance ToHeaders GenerateCredentialReport
-
-instance AWSRequest GenerateCredentialReport where
-    type Sv GenerateCredentialReport = IAM
-    type Rs GenerateCredentialReport = GenerateCredentialReportResponse
-
-    request  = post "GenerateCredentialReport"
-    response = xmlResponse
-
-instance FromXML GenerateCredentialReportResponse where
-    parseXML = withElement "GenerateCredentialReportResult" $ \x -> GenerateCredentialReportResponse
-        <$> x .@? "Description"
-        <*> x .@? "State"
+-- | FIXME: Undocumented member.
+gcrrsStatus :: Lens' GenerateCredentialReportResponse Int
+gcrrsStatus = lens _gcrrsStatus (\ s a -> s{_gcrrsStatus = a});

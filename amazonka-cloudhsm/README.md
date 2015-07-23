@@ -1,17 +1,19 @@
 # Amazon CloudHSM SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-The AWS CloudHSM service helps you meet corporate, contractual and regulatory
-compliance requirements for data security by using dedicated Hardware
-Security Module (HSM) appliances within the AWS cloud. With CloudHSM, you
-control the encryption keys and cryptographic operations performed by the HSM.
+AWS CloudHSM Service
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudhsm)
 and the [AWS API Reference](http://docs.aws.amazon.com/cloudhsm/latest/dg/welcome.html).

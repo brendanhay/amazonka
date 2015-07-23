@@ -1,44 +1,40 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.RebootDBInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Rebooting a DB instance restarts the database engine service. A reboot also
--- applies to the DB instance any modifications to the associated DB parameter
--- group that were pending. Rebooting a DB instance results in a momentary
--- outage of the instance, during which the DB instance status is set to
--- rebooting. If the RDS instance is configured for MultiAZ, it is possible that
--- the reboot will be conducted through a failover. An Amazon RDS event is
--- created when the reboot is completed.
+-- Rebooting a DB instance restarts the database engine service. A reboot
+-- also applies to the DB instance any modifications to the associated DB
+-- parameter group that were pending. Rebooting a DB instance results in a
+-- momentary outage of the instance, during which the DB instance status is
+-- set to rebooting. If the RDS instance is configured for MultiAZ, it is
+-- possible that the reboot will be conducted through a failover. An Amazon
+-- RDS event is created when the reboot is completed.
 --
 -- If your DB instance is deployed in multiple Availability Zones, you can
--- force a failover from one AZ to the other during the reboot. You might force
--- a failover to test the availability of your DB instance deployment or to
--- restore operations to the original AZ after a failover occurs.
+-- force a failover from one AZ to the other during the reboot. You might
+-- force a failover to test the availability of your DB instance deployment
+-- or to restore operations to the original AZ after a failover occurs.
 --
--- The time required to reboot is a function of the specific database engine's
--- crash recovery process. To improve the reboot time, we recommend that you
--- reduce database activities as much as possible during the reboot process to
--- reduce rollback activity for in-transit transactions.
+-- The time required to reboot is a function of the specific database
+-- engine\'s crash recovery process. To improve the reboot time, we
+-- recommend that you reduce database activities as much as possible during
+-- the reboot process to reduce rollback activity for in-transit
+-- transactions.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RebootDBInstance.html>
 module Network.AWS.RDS.RebootDBInstance
@@ -48,98 +44,111 @@ module Network.AWS.RDS.RebootDBInstance
     -- ** Request constructor
     , rebootDBInstance
     -- ** Request lenses
-    , rdbiDBInstanceIdentifier
-    , rdbiForceFailover
+    , rdirqForceFailover
+    , rdirqDBInstanceIdentifier
 
     -- * Response
     , RebootDBInstanceResponse
     -- ** Response constructor
     , rebootDBInstanceResponse
     -- ** Response lenses
-    , rdbirDBInstance
+    , rdirsDBInstance
+    , rdirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RebootDBInstance = RebootDBInstance
-    { _rdbiDBInstanceIdentifier :: Text
-    , _rdbiForceFailover        :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'RebootDBInstance' constructor.
+-- |
+--
+-- /See:/ 'rebootDBInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdbiDBInstanceIdentifier' @::@ 'Text'
+-- * 'rdirqForceFailover'
 --
--- * 'rdbiForceFailover' @::@ 'Maybe' 'Bool'
---
-rebootDBInstance :: Text -- ^ 'rdbiDBInstanceIdentifier'
-                 -> RebootDBInstance
-rebootDBInstance p1 = RebootDBInstance
-    { _rdbiDBInstanceIdentifier = p1
-    , _rdbiForceFailover        = Nothing
+-- * 'rdirqDBInstanceIdentifier'
+data RebootDBInstance = RebootDBInstance'
+    { _rdirqForceFailover        :: !(Maybe Bool)
+    , _rdirqDBInstanceIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RebootDBInstance' smart constructor.
+rebootDBInstance :: Text -> RebootDBInstance
+rebootDBInstance pDBInstanceIdentifier_ =
+    RebootDBInstance'
+    { _rdirqForceFailover = Nothing
+    , _rdirqDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
--- | The DB instance identifier. This parameter is stored as a lowercase string.
+-- | When @true@, the reboot will be conducted through a MultiAZ failover.
+--
+-- Constraint: You cannot specify @true@ if the instance is not configured
+-- for MultiAZ.
+rdirqForceFailover :: Lens' RebootDBInstance (Maybe Bool)
+rdirqForceFailover = lens _rdirqForceFailover (\ s a -> s{_rdirqForceFailover = a});
+
+-- | The DB instance identifier. This parameter is stored as a lowercase
+-- string.
 --
 -- Constraints:
 --
--- Must contain from 1 to 63 alphanumeric characters or hyphens First
--- character must be a letter Cannot end with a hyphen or contain two
--- consecutive hyphens
-rdbiDBInstanceIdentifier :: Lens' RebootDBInstance Text
-rdbiDBInstanceIdentifier =
-    lens _rdbiDBInstanceIdentifier
-        (\s a -> s { _rdbiDBInstanceIdentifier = a })
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+rdirqDBInstanceIdentifier :: Lens' RebootDBInstance Text
+rdirqDBInstanceIdentifier = lens _rdirqDBInstanceIdentifier (\ s a -> s{_rdirqDBInstanceIdentifier = a});
 
--- | When 'true', the reboot will be conducted through a MultiAZ failover.
---
--- Constraint: You cannot specify 'true' if the instance is not configured for
--- MultiAZ.
-rdbiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
-rdbiForceFailover =
-    lens _rdbiForceFailover (\s a -> s { _rdbiForceFailover = a })
+instance AWSRequest RebootDBInstance where
+        type Sv RebootDBInstance = RDS
+        type Rs RebootDBInstance = RebootDBInstanceResponse
+        request = post
+        response
+          = receiveXMLWrapper "RebootDBInstanceResult"
+              (\ s h x ->
+                 RebootDBInstanceResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
-newtype RebootDBInstanceResponse = RebootDBInstanceResponse
-    { _rdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Read, Show)
+instance ToHeaders RebootDBInstance where
+        toHeaders = const mempty
 
--- | 'RebootDBInstanceResponse' constructor.
+instance ToPath RebootDBInstance where
+        toPath = const "/"
+
+instance ToQuery RebootDBInstance where
+        toQuery RebootDBInstance'{..}
+          = mconcat
+              ["Action" =: ("RebootDBInstance" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "ForceFailover" =: _rdirqForceFailover,
+               "DBInstanceIdentifier" =: _rdirqDBInstanceIdentifier]
+
+-- | /See:/ 'rebootDBInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdbirDBInstance' @::@ 'Maybe' 'DBInstance'
+-- * 'rdirsDBInstance'
 --
-rebootDBInstanceResponse :: RebootDBInstanceResponse
-rebootDBInstanceResponse = RebootDBInstanceResponse
-    { _rdbirDBInstance = Nothing
+-- * 'rdirsStatus'
+data RebootDBInstanceResponse = RebootDBInstanceResponse'
+    { _rdirsDBInstance :: !(Maybe DBInstance)
+    , _rdirsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RebootDBInstanceResponse' smart constructor.
+rebootDBInstanceResponse :: Int -> RebootDBInstanceResponse
+rebootDBInstanceResponse pStatus_ =
+    RebootDBInstanceResponse'
+    { _rdirsDBInstance = Nothing
+    , _rdirsStatus = pStatus_
     }
 
-rdbirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
-rdbirDBInstance = lens _rdbirDBInstance (\s a -> s { _rdbirDBInstance = a })
+-- | FIXME: Undocumented member.
+rdirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
+rdirsDBInstance = lens _rdirsDBInstance (\ s a -> s{_rdirsDBInstance = a});
 
-instance ToPath RebootDBInstance where
-    toPath = const "/"
-
-instance ToQuery RebootDBInstance where
-    toQuery RebootDBInstance{..} = mconcat
-        [ "DBInstanceIdentifier" =? _rdbiDBInstanceIdentifier
-        , "ForceFailover"        =? _rdbiForceFailover
-        ]
-
-instance ToHeaders RebootDBInstance
-
-instance AWSRequest RebootDBInstance where
-    type Sv RebootDBInstance = RDS
-    type Rs RebootDBInstance = RebootDBInstanceResponse
-
-    request  = post "RebootDBInstance"
-    response = xmlResponse
-
-instance FromXML RebootDBInstanceResponse where
-    parseXML = withElement "RebootDBInstanceResult" $ \x -> RebootDBInstanceResponse
-        <$> x .@? "DBInstance"
+-- | FIXME: Undocumented member.
+rdirsStatus :: Lens' RebootDBInstanceResponse Int
+rdirsStatus = lens _rdirsStatus (\ s a -> s{_rdirsStatus = a});

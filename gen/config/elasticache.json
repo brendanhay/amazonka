@@ -1,0 +1,12 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_",
+    "libraryName": "amazonka-elasticache",
+    "typeOverrides": {
+        "DescribeEngineDefaultParametersResult": {
+            "requiredFields": [
+                "EngineDefaults"
+            ]
+        }
+    }
+}

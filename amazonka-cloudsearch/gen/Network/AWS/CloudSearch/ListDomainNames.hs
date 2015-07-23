@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudSearch.ListDomainNames
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists all search domains owned by an account.
+-- Lists all search domains owned by an account.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ListDomainNames.html>
 module Network.AWS.CloudSearch.ListDomainNames
@@ -37,55 +32,76 @@ module Network.AWS.CloudSearch.ListDomainNames
     -- ** Response constructor
     , listDomainNamesResponse
     -- ** Response lenses
-    , ldnrDomainNames
+    , ldnrsDomainNames
+    , ldnrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListDomainNames = ListDomainNames
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'listDomainNames' smart constructor.
+data ListDomainNames =
+    ListDomainNames'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListDomainNames' constructor.
+-- | 'ListDomainNames' smart constructor.
 listDomainNames :: ListDomainNames
-listDomainNames = ListDomainNames
+listDomainNames = ListDomainNames'
 
-newtype ListDomainNamesResponse = ListDomainNamesResponse
-    { _ldnrDomainNames :: EMap "entry" "key" "value" Text Text
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest ListDomainNames where
+        type Sv ListDomainNames = CloudSearch
+        type Rs ListDomainNames = ListDomainNamesResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListDomainNamesResult"
+              (\ s h x ->
+                 ListDomainNamesResponse' <$>
+                   (x .@? "DomainNames" .!@ mempty >>=
+                      may (parseXMLMap "entry" "key" "value"))
+                     <*> (pure (fromEnum s)))
 
--- | 'ListDomainNamesResponse' constructor.
+instance ToHeaders ListDomainNames where
+        toHeaders = const mempty
+
+instance ToPath ListDomainNames where
+        toPath = const "/"
+
+instance ToQuery ListDomainNames where
+        toQuery
+          = const
+              (mconcat
+                 ["Action" =: ("ListDomainNames" :: ByteString),
+                  "Version" =: ("2013-01-01" :: ByteString)])
+
+-- | The result of a @ListDomainNames@ request. Contains a list of the
+-- domains owned by an account.
+--
+-- /See:/ 'listDomainNamesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldnrDomainNames' @::@ 'HashMap' 'Text' 'Text'
+-- * 'ldnrsDomainNames'
 --
-listDomainNamesResponse :: ListDomainNamesResponse
-listDomainNamesResponse = ListDomainNamesResponse
-    { _ldnrDomainNames = mempty
+-- * 'ldnrsStatus'
+data ListDomainNamesResponse = ListDomainNamesResponse'
+    { _ldnrsDomainNames :: !(Maybe (Map Text Text))
+    , _ldnrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListDomainNamesResponse' smart constructor.
+listDomainNamesResponse :: Int -> ListDomainNamesResponse
+listDomainNamesResponse pStatus_ =
+    ListDomainNamesResponse'
+    { _ldnrsDomainNames = Nothing
+    , _ldnrsStatus = pStatus_
     }
 
 -- | The names of the search domains owned by an account.
-ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
-ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a }) . _EMap
+ldnrsDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
+ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map;
 
-instance ToPath ListDomainNames where
-    toPath = const "/"
-
-instance ToQuery ListDomainNames where
-    toQuery = const mempty
-
-instance ToHeaders ListDomainNames
-
-instance AWSRequest ListDomainNames where
-    type Sv ListDomainNames = CloudSearch
-    type Rs ListDomainNames = ListDomainNamesResponse
-
-    request  = post "ListDomainNames"
-    response = xmlResponse
-
-instance FromXML ListDomainNamesResponse where
-    parseXML = withElement "ListDomainNamesResult" $ \x -> ListDomainNamesResponse
-        <$> x .@? "DomainNames" .!@ mempty
+-- | FIXME: Undocumented member.
+ldnrsStatus :: Lens' ListDomainNamesResponse Int
+ldnrsStatus = lens _ldnrsStatus (\ s a -> s{_ldnrsStatus = a});

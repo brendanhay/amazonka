@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DeleteRoute
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified route from the specified route table.
+-- Deletes the specified route from the specified route table.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteRoute.html>
 module Network.AWS.EC2.DeleteRoute
@@ -32,9 +27,9 @@ module Network.AWS.EC2.DeleteRoute
     -- ** Request constructor
     , deleteRoute
     -- ** Request lenses
-    , drDestinationCidrBlock
-    , drDryRun
-    , drRouteTableId
+    , drrqDryRun
+    , drrqRouteTableId
+    , drrqDestinationCIdRBlock
 
     -- * Response
     , DeleteRouteResponse
@@ -42,74 +37,77 @@ module Network.AWS.EC2.DeleteRoute
     , deleteRouteResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteRoute = DeleteRoute
-    { _drDestinationCidrBlock :: Text
-    , _drDryRun               :: Maybe Bool
-    , _drRouteTableId         :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteRoute' constructor.
+-- | /See:/ 'deleteRoute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drDestinationCidrBlock' @::@ 'Text'
+-- * 'drrqDryRun'
 --
--- * 'drDryRun' @::@ 'Maybe' 'Bool'
+-- * 'drrqRouteTableId'
 --
--- * 'drRouteTableId' @::@ 'Text'
---
-deleteRoute :: Text -- ^ 'drRouteTableId'
-            -> Text -- ^ 'drDestinationCidrBlock'
-            -> DeleteRoute
-deleteRoute p1 p2 = DeleteRoute
-    { _drRouteTableId         = p1
-    , _drDestinationCidrBlock = p2
-    , _drDryRun               = Nothing
+-- * 'drrqDestinationCIdRBlock'
+data DeleteRoute = DeleteRoute'
+    { _drrqDryRun               :: !(Maybe Bool)
+    , _drrqRouteTableId         :: !Text
+    , _drrqDestinationCIdRBlock :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteRoute' smart constructor.
+deleteRoute :: Text -> Text -> DeleteRoute
+deleteRoute pRouteTableId_ pDestinationCIdRBlock_ =
+    DeleteRoute'
+    { _drrqDryRun = Nothing
+    , _drrqRouteTableId = pRouteTableId_
+    , _drrqDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
--- | The CIDR range for the route. The value you specify must match the CIDR for
--- the route exactly.
-drDestinationCidrBlock :: Lens' DeleteRoute Text
-drDestinationCidrBlock =
-    lens _drDestinationCidrBlock (\s a -> s { _drDestinationCidrBlock = a })
-
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-drDryRun :: Lens' DeleteRoute (Maybe Bool)
-drDryRun = lens _drDryRun (\s a -> s { _drDryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+drrqDryRun :: Lens' DeleteRoute (Maybe Bool)
+drrqDryRun = lens _drrqDryRun (\ s a -> s{_drrqDryRun = a});
 
 -- | The ID of the route table.
-drRouteTableId :: Lens' DeleteRoute Text
-drRouteTableId = lens _drRouteTableId (\s a -> s { _drRouteTableId = a })
+drrqRouteTableId :: Lens' DeleteRoute Text
+drrqRouteTableId = lens _drrqRouteTableId (\ s a -> s{_drrqRouteTableId = a});
 
-data DeleteRouteResponse = DeleteRouteResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteRouteResponse' constructor.
-deleteRouteResponse :: DeleteRouteResponse
-deleteRouteResponse = DeleteRouteResponse
-
-instance ToPath DeleteRoute where
-    toPath = const "/"
-
-instance ToQuery DeleteRoute where
-    toQuery DeleteRoute{..} = mconcat
-        [ "DestinationCidrBlock" =? _drDestinationCidrBlock
-        , "DryRun"               =? _drDryRun
-        , "RouteTableId"         =? _drRouteTableId
-        ]
-
-instance ToHeaders DeleteRoute
+-- | The CIDR range for the route. The value you specify must match the CIDR
+-- for the route exactly.
+drrqDestinationCIdRBlock :: Lens' DeleteRoute Text
+drrqDestinationCIdRBlock = lens _drrqDestinationCIdRBlock (\ s a -> s{_drrqDestinationCIdRBlock = a});
 
 instance AWSRequest DeleteRoute where
-    type Sv DeleteRoute = EC2
-    type Rs DeleteRoute = DeleteRouteResponse
+        type Sv DeleteRoute = EC2
+        type Rs DeleteRoute = DeleteRouteResponse
+        request = post
+        response = receiveNull DeleteRouteResponse'
 
-    request  = post "DeleteRoute"
-    response = nullResponse DeleteRouteResponse
+instance ToHeaders DeleteRoute where
+        toHeaders = const mempty
+
+instance ToPath DeleteRoute where
+        toPath = const "/"
+
+instance ToQuery DeleteRoute where
+        toQuery DeleteRoute'{..}
+          = mconcat
+              ["Action" =: ("DeleteRoute" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _drrqDryRun,
+               "RouteTableId" =: _drrqRouteTableId,
+               "DestinationCidrBlock" =: _drrqDestinationCIdRBlock]
+
+-- | /See:/ 'deleteRouteResponse' smart constructor.
+data DeleteRouteResponse =
+    DeleteRouteResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteRouteResponse' smart constructor.
+deleteRouteResponse :: DeleteRouteResponse
+deleteRouteResponse = DeleteRouteResponse'

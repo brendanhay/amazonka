@@ -1,30 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.AutoScaling.AttachInstances
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Attaches one or more EC2 instances to the specified Auto Scaling group.
+-- Attaches one or more EC2 instances to the specified Auto Scaling group.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach Amazon EC2 Instances to Your Existing AutoScaling Group> in the /Auto Scaling Developer Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach EC2 Instances to Your Auto Scaling Group>
+-- in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_AttachInstances.html>
 module Network.AWS.AutoScaling.AttachInstances
@@ -34,8 +31,8 @@ module Network.AWS.AutoScaling.AttachInstances
     -- ** Request constructor
     , attachInstances
     -- ** Request lenses
-    , aiAutoScalingGroupName
-    , aiInstanceIds
+    , airqInstanceIds
+    , airqAutoScalingGroupName
 
     -- * Response
     , AttachInstancesResponse
@@ -43,61 +40,65 @@ module Network.AWS.AutoScaling.AttachInstances
     , attachInstancesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AttachInstances = AttachInstances
-    { _aiAutoScalingGroupName :: Text
-    , _aiInstanceIds          :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'AttachInstances' constructor.
+-- | /See:/ 'attachInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aiAutoScalingGroupName' @::@ 'Text'
+-- * 'airqInstanceIds'
 --
--- * 'aiInstanceIds' @::@ ['Text']
---
-attachInstances :: Text -- ^ 'aiAutoScalingGroupName'
-                -> AttachInstances
-attachInstances p1 = AttachInstances
-    { _aiAutoScalingGroupName = p1
-    , _aiInstanceIds          = mempty
+-- * 'airqAutoScalingGroupName'
+data AttachInstances = AttachInstances'
+    { _airqInstanceIds          :: !(Maybe [Text])
+    , _airqAutoScalingGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AttachInstances' smart constructor.
+attachInstances :: Text -> AttachInstances
+attachInstances pAutoScalingGroupName_ =
+    AttachInstances'
+    { _airqInstanceIds = Nothing
+    , _airqAutoScalingGroupName = pAutoScalingGroupName_
     }
 
+-- | One or more EC2 instance IDs.
+airqInstanceIds :: Lens' AttachInstances [Text]
+airqInstanceIds = lens _airqInstanceIds (\ s a -> s{_airqInstanceIds = a}) . _Default;
+
 -- | The name of the group.
-aiAutoScalingGroupName :: Lens' AttachInstances Text
-aiAutoScalingGroupName =
-    lens _aiAutoScalingGroupName (\s a -> s { _aiAutoScalingGroupName = a })
-
--- | One or more EC2 instance IDs. You must specify at least one ID.
-aiInstanceIds :: Lens' AttachInstances [Text]
-aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a }) . _List
-
-data AttachInstancesResponse = AttachInstancesResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'AttachInstancesResponse' constructor.
-attachInstancesResponse :: AttachInstancesResponse
-attachInstancesResponse = AttachInstancesResponse
-
-instance ToPath AttachInstances where
-    toPath = const "/"
-
-instance ToQuery AttachInstances where
-    toQuery AttachInstances{..} = mconcat
-        [ "AutoScalingGroupName" =? _aiAutoScalingGroupName
-        , "InstanceIds"          =? _aiInstanceIds
-        ]
-
-instance ToHeaders AttachInstances
+airqAutoScalingGroupName :: Lens' AttachInstances Text
+airqAutoScalingGroupName = lens _airqAutoScalingGroupName (\ s a -> s{_airqAutoScalingGroupName = a});
 
 instance AWSRequest AttachInstances where
-    type Sv AttachInstances = AutoScaling
-    type Rs AttachInstances = AttachInstancesResponse
+        type Sv AttachInstances = AutoScaling
+        type Rs AttachInstances = AttachInstancesResponse
+        request = post
+        response = receiveNull AttachInstancesResponse'
 
-    request  = post "AttachInstances"
-    response = nullResponse AttachInstancesResponse
+instance ToHeaders AttachInstances where
+        toHeaders = const mempty
+
+instance ToPath AttachInstances where
+        toPath = const "/"
+
+instance ToQuery AttachInstances where
+        toQuery AttachInstances'{..}
+          = mconcat
+              ["Action" =: ("AttachInstances" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _airqInstanceIds),
+               "AutoScalingGroupName" =: _airqAutoScalingGroupName]
+
+-- | /See:/ 'attachInstancesResponse' smart constructor.
+data AttachInstancesResponse =
+    AttachInstancesResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AttachInstancesResponse' smart constructor.
+attachInstancesResponse :: AttachInstancesResponse
+attachInstancesResponse = AttachInstancesResponse'

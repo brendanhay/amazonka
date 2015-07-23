@@ -1,32 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EMR.ListInstances
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Provides information about the cluster instances that Amazon EMR provisions
--- on behalf of a user when it creates the cluster. For example, this operation
--- indicates when the EC2 instances reach the Ready state, when instances become
--- available to Amazon EMR to use for jobs, and the IP addresses for cluster
--- instances, etc.
+-- Provides information about the cluster instances that Amazon EMR
+-- provisions on behalf of a user when it creates the cluster. For example,
+-- this operation indicates when the EC2 instances reach the Ready state,
+-- when instances become available to Amazon EMR to use for jobs, and the
+-- IP addresses for cluster instances, etc.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstances.html>
 module Network.AWS.EMR.ListInstances
@@ -36,130 +31,148 @@ module Network.AWS.EMR.ListInstances
     -- ** Request constructor
     , listInstances
     -- ** Request lenses
-    , liClusterId
-    , liInstanceGroupId
-    , liInstanceGroupTypes
-    , liMarker
+    , lirqInstanceGroupTypes
+    , lirqMarker
+    , lirqInstanceGroupId
+    , lirqClusterId
 
     -- * Response
     , ListInstancesResponse
     -- ** Response constructor
     , listInstancesResponse
     -- ** Response lenses
-    , lirInstances
-    , lirMarker
+    , lirsInstances
+    , lirsMarker
+    , lirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.Types
-import qualified GHC.Exts
+import           Network.AWS.EMR.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListInstances = ListInstances
-    { _liClusterId          :: Text
-    , _liInstanceGroupId    :: Maybe Text
-    , _liInstanceGroupTypes :: List "InstanceGroupTypes" InstanceGroupType
-    , _liMarker             :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'ListInstances' constructor.
+-- | This input determines which instances to list.
+--
+-- /See:/ 'listInstances' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liClusterId' @::@ 'Text'
+-- * 'lirqInstanceGroupTypes'
 --
--- * 'liInstanceGroupId' @::@ 'Maybe' 'Text'
+-- * 'lirqMarker'
 --
--- * 'liInstanceGroupTypes' @::@ ['InstanceGroupType']
+-- * 'lirqInstanceGroupId'
 --
--- * 'liMarker' @::@ 'Maybe' 'Text'
---
-listInstances :: Text -- ^ 'liClusterId'
-              -> ListInstances
-listInstances p1 = ListInstances
-    { _liClusterId          = p1
-    , _liInstanceGroupId    = Nothing
-    , _liInstanceGroupTypes = mempty
-    , _liMarker             = Nothing
+-- * 'lirqClusterId'
+data ListInstances = ListInstances'
+    { _lirqInstanceGroupTypes :: !(Maybe [InstanceGroupType])
+    , _lirqMarker             :: !(Maybe Text)
+    , _lirqInstanceGroupId    :: !(Maybe Text)
+    , _lirqClusterId          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListInstances' smart constructor.
+listInstances :: Text -> ListInstances
+listInstances pClusterId_ =
+    ListInstances'
+    { _lirqInstanceGroupTypes = Nothing
+    , _lirqMarker = Nothing
+    , _lirqInstanceGroupId = Nothing
+    , _lirqClusterId = pClusterId_
     }
 
--- | The identifier of the cluster for which to list the instances.
-liClusterId :: Lens' ListInstances Text
-liClusterId = lens _liClusterId (\s a -> s { _liClusterId = a })
-
--- | The identifier of the instance group for which to list the instances.
-liInstanceGroupId :: Lens' ListInstances (Maybe Text)
-liInstanceGroupId =
-    lens _liInstanceGroupId (\s a -> s { _liInstanceGroupId = a })
-
 -- | The type of instance group for which to list the instances.
-liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
-liInstanceGroupTypes =
-    lens _liInstanceGroupTypes (\s a -> s { _liInstanceGroupTypes = a })
-        . _List
+lirqInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
+lirqInstanceGroupTypes = lens _lirqInstanceGroupTypes (\ s a -> s{_lirqInstanceGroupTypes = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
-liMarker :: Lens' ListInstances (Maybe Text)
-liMarker = lens _liMarker (\s a -> s { _liMarker = a })
+lirqMarker :: Lens' ListInstances (Maybe Text)
+lirqMarker = lens _lirqMarker (\ s a -> s{_lirqMarker = a});
 
-data ListInstancesResponse = ListInstancesResponse
-    { _lirInstances :: List "Instances" Instance
-    , _lirMarker    :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The identifier of the instance group for which to list the instances.
+lirqInstanceGroupId :: Lens' ListInstances (Maybe Text)
+lirqInstanceGroupId = lens _lirqInstanceGroupId (\ s a -> s{_lirqInstanceGroupId = a});
 
--- | 'ListInstancesResponse' constructor.
+-- | The identifier of the cluster for which to list the instances.
+lirqClusterId :: Lens' ListInstances Text
+lirqClusterId = lens _lirqClusterId (\ s a -> s{_lirqClusterId = a});
+
+instance AWSPager ListInstances where
+        page rq rs
+          | stop (rs ^. lirsMarker) = Nothing
+          | stop (rs ^. lirsInstances) = Nothing
+          | otherwise =
+            Just $ rq & lirqMarker .~ rs ^. lirsMarker
+
+instance AWSRequest ListInstances where
+        type Sv ListInstances = EMR
+        type Rs ListInstances = ListInstancesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListInstancesResponse' <$>
+                   (x .?> "Instances" .!@ mempty) <*> (x .?> "Marker")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListInstances where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.ListInstances" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListInstances where
+        toJSON ListInstances'{..}
+          = object
+              ["InstanceGroupTypes" .= _lirqInstanceGroupTypes,
+               "Marker" .= _lirqMarker,
+               "InstanceGroupId" .= _lirqInstanceGroupId,
+               "ClusterId" .= _lirqClusterId]
+
+instance ToPath ListInstances where
+        toPath = const "/"
+
+instance ToQuery ListInstances where
+        toQuery = const mempty
+
+-- | This output contains the list of instances.
+--
+-- /See:/ 'listInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirInstances' @::@ ['Instance']
+-- * 'lirsInstances'
 --
--- * 'lirMarker' @::@ 'Maybe' 'Text'
+-- * 'lirsMarker'
 --
-listInstancesResponse :: ListInstancesResponse
-listInstancesResponse = ListInstancesResponse
-    { _lirInstances = mempty
-    , _lirMarker    = Nothing
+-- * 'lirsStatus'
+data ListInstancesResponse = ListInstancesResponse'
+    { _lirsInstances :: !(Maybe [Instance])
+    , _lirsMarker    :: !(Maybe Text)
+    , _lirsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListInstancesResponse' smart constructor.
+listInstancesResponse :: Int -> ListInstancesResponse
+listInstancesResponse pStatus_ =
+    ListInstancesResponse'
+    { _lirsInstances = Nothing
+    , _lirsMarker = Nothing
+    , _lirsStatus = pStatus_
     }
 
 -- | The list of instances for the cluster and given filters.
-lirInstances :: Lens' ListInstancesResponse [Instance]
-lirInstances = lens _lirInstances (\s a -> s { _lirInstances = a }) . _List
+lirsInstances :: Lens' ListInstancesResponse [Instance]
+lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lirMarker :: Lens' ListInstancesResponse (Maybe Text)
-lirMarker = lens _lirMarker (\s a -> s { _lirMarker = a })
+lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
+lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a});
 
-instance ToPath ListInstances where
-    toPath = const "/"
-
-instance ToQuery ListInstances where
-    toQuery = const mempty
-
-instance ToHeaders ListInstances
-
-instance ToJSON ListInstances where
-    toJSON ListInstances{..} = object
-        [ "ClusterId"          .= _liClusterId
-        , "InstanceGroupId"    .= _liInstanceGroupId
-        , "InstanceGroupTypes" .= _liInstanceGroupTypes
-        , "Marker"             .= _liMarker
-        ]
-
-instance AWSRequest ListInstances where
-    type Sv ListInstances = EMR
-    type Rs ListInstances = ListInstancesResponse
-
-    request  = post "ListInstances"
-    response = jsonResponse
-
-instance FromJSON ListInstancesResponse where
-    parseJSON = withObject "ListInstancesResponse" $ \o -> ListInstancesResponse
-        <$> o .:? "Instances" .!= mempty
-        <*> o .:? "Marker"
-
-instance AWSPager ListInstances where
-    page rq rs
-        | stop (rs ^. lirMarker) = Nothing
-        | otherwise = (\x -> rq & liMarker ?~ x)
-            <$> (rs ^. lirMarker)
+-- | FIXME: Undocumented member.
+lirsStatus :: Lens' ListInstancesResponse Int
+lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});

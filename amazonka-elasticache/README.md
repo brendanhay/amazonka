@@ -1,23 +1,32 @@
 # Amazon ElastiCache SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-ElastiCache is a web service that makes it easy to deploy, operate, and scale
-an in-memory cache in the cloud. The service improves the performance of web
-applications by allowing you to retrieve information from fast, managed,
-in-memory caches, instead of relying entirely on slower disk-based databases.
-Amazon ElastiCache automatically detects and replaces failed nodes, reducing
-the overhead associated with self-managed infrastructures and provides a
-resilient system that mitigates the risk of overloaded databases, which slow
-website and application load times. Through integration with Amazon
-CloudWatch, Amazon ElastiCache provides enhanced visibility into key
-performance metrics associated with your Memcached or Redis nodes.
+Amazon ElastiCache
+
+Amazon ElastiCache is a web service that makes it easier to set up,
+operate, and scale a distributed cache in the cloud.
+
+With ElastiCache, customers gain all of the benefits of a
+high-performance, in-memory cache with far less of the administrative
+burden of launching and managing a distributed cache. The service makes
+setup, scaling, and cluster failure handling much simpler than in a
+self-managed cache deployment.
+
+In addition, through integration with Amazon CloudWatch, customers get
+enhanced visibility into the key performance statistics associated with
+their cache and can receive alarms if a part of their cache runs hot.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elasticache)
 and the [AWS API Reference](http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html).

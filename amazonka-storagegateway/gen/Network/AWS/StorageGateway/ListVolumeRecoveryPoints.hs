@@ -1,34 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.ListVolumeRecoveryPoints
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation lists the recovery points for a specified gateway. This
+-- This operation lists the recovery points for a specified gateway. This
 -- operation is supported only for the gateway-cached volume architecture.
 --
--- Each gateway-cached volume has one recovery point. A volume recovery point
--- is a point in time at which all data of the volume is consistent and from
--- which you can create a snapshot. To create a snapshot from a volume recovery
--- point use the 'CreateSnapshotFromVolumeRecoveryPoint' operation.
+-- Each gateway-cached volume has one recovery point. A volume recovery
+-- point is a point in time at which all data of the volume is consistent
+-- and from which you can create a snapshot. To create a snapshot from a
+-- volume recovery point use the CreateSnapshotFromVolumeRecoveryPoint
+-- operation.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_ListVolumeRecoveryPoints.html>
 module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
@@ -38,91 +34,108 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     -- ** Request constructor
     , listVolumeRecoveryPoints
     -- ** Request lenses
-    , lvrpGatewayARN
+    , lvrprqGatewayARN
 
     -- * Response
     , ListVolumeRecoveryPointsResponse
     -- ** Response constructor
     , listVolumeRecoveryPointsResponse
     -- ** Response lenses
-    , lvrprGatewayARN
-    , lvrprVolumeRecoveryPointInfos
+    , lvrprsVolumeRecoveryPointInfos
+    , lvrprsGatewayARN
+    , lvrprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints
-    { _lvrpGatewayARN :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'ListVolumeRecoveryPoints' constructor.
+-- | /See:/ 'listVolumeRecoveryPoints' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrpGatewayARN' @::@ 'Text'
---
-listVolumeRecoveryPoints :: Text -- ^ 'lvrpGatewayARN'
-                         -> ListVolumeRecoveryPoints
-listVolumeRecoveryPoints p1 = ListVolumeRecoveryPoints
-    { _lvrpGatewayARN = p1
+-- * 'lvrprqGatewayARN'
+newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
+    { _lvrprqGatewayARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListVolumeRecoveryPoints' smart constructor.
+listVolumeRecoveryPoints :: Text -> ListVolumeRecoveryPoints
+listVolumeRecoveryPoints pGatewayARN_ =
+    ListVolumeRecoveryPoints'
+    { _lvrprqGatewayARN = pGatewayARN_
     }
 
-lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
-lvrpGatewayARN = lens _lvrpGatewayARN (\s a -> s { _lvrpGatewayARN = a })
-
-data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
-    { _lvrprGatewayARN               :: Maybe Text
-    , _lvrprVolumeRecoveryPointInfos :: List "VolumeRecoveryPointInfos" VolumeRecoveryPointInfo
-    } deriving (Eq, Read, Show)
-
--- | 'ListVolumeRecoveryPointsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lvrprGatewayARN' @::@ 'Maybe' 'Text'
---
--- * 'lvrprVolumeRecoveryPointInfos' @::@ ['VolumeRecoveryPointInfo']
---
-listVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
-listVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse
-    { _lvrprGatewayARN               = Nothing
-    , _lvrprVolumeRecoveryPointInfos = mempty
-    }
-
-lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
-lvrprGatewayARN = lens _lvrprGatewayARN (\s a -> s { _lvrprGatewayARN = a })
-
-lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
-lvrprVolumeRecoveryPointInfos =
-    lens _lvrprVolumeRecoveryPointInfos
-        (\s a -> s { _lvrprVolumeRecoveryPointInfos = a })
-            . _List
-
-instance ToPath ListVolumeRecoveryPoints where
-    toPath = const "/"
-
-instance ToQuery ListVolumeRecoveryPoints where
-    toQuery = const mempty
-
-instance ToHeaders ListVolumeRecoveryPoints
-
-instance ToJSON ListVolumeRecoveryPoints where
-    toJSON ListVolumeRecoveryPoints{..} = object
-        [ "GatewayARN" .= _lvrpGatewayARN
-        ]
+-- | FIXME: Undocumented member.
+lvrprqGatewayARN :: Lens' ListVolumeRecoveryPoints Text
+lvrprqGatewayARN = lens _lvrprqGatewayARN (\ s a -> s{_lvrprqGatewayARN = a});
 
 instance AWSRequest ListVolumeRecoveryPoints where
-    type Sv ListVolumeRecoveryPoints = StorageGateway
-    type Rs ListVolumeRecoveryPoints = ListVolumeRecoveryPointsResponse
+        type Sv ListVolumeRecoveryPoints = StorageGateway
+        type Rs ListVolumeRecoveryPoints =
+             ListVolumeRecoveryPointsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListVolumeRecoveryPointsResponse' <$>
+                   (x .?> "VolumeRecoveryPointInfos" .!@ mempty) <*>
+                     (x .?> "GatewayARN")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "ListVolumeRecoveryPoints"
-    response = jsonResponse
+instance ToHeaders ListVolumeRecoveryPoints where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.ListVolumeRecoveryPoints"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ListVolumeRecoveryPointsResponse where
-    parseJSON = withObject "ListVolumeRecoveryPointsResponse" $ \o -> ListVolumeRecoveryPointsResponse
-        <$> o .:? "GatewayARN"
-        <*> o .:? "VolumeRecoveryPointInfos" .!= mempty
+instance ToJSON ListVolumeRecoveryPoints where
+        toJSON ListVolumeRecoveryPoints'{..}
+          = object ["GatewayARN" .= _lvrprqGatewayARN]
+
+instance ToPath ListVolumeRecoveryPoints where
+        toPath = const "/"
+
+instance ToQuery ListVolumeRecoveryPoints where
+        toQuery = const mempty
+
+-- | /See:/ 'listVolumeRecoveryPointsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lvrprsVolumeRecoveryPointInfos'
+--
+-- * 'lvrprsGatewayARN'
+--
+-- * 'lvrprsStatus'
+data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
+    { _lvrprsVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
+    , _lvrprsGatewayARN               :: !(Maybe Text)
+    , _lvrprsStatus                   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListVolumeRecoveryPointsResponse' smart constructor.
+listVolumeRecoveryPointsResponse :: Int -> ListVolumeRecoveryPointsResponse
+listVolumeRecoveryPointsResponse pStatus_ =
+    ListVolumeRecoveryPointsResponse'
+    { _lvrprsVolumeRecoveryPointInfos = Nothing
+    , _lvrprsGatewayARN = Nothing
+    , _lvrprsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
+lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> s{_lvrprsVolumeRecoveryPointInfos = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
+lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+lvrprsStatus :: Lens' ListVolumeRecoveryPointsResponse Int
+lvrprsStatus = lens _lvrprsStatus (\ s a -> s{_lvrprsStatus = a});

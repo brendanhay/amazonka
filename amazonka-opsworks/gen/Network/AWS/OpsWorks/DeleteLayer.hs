@@ -1,33 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.DeleteLayer
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes a specified layer. You must first stop and then delete all associated
--- instances or unassign registered instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html How toDelete a Layer>.
+-- Deletes a specified layer. You must first stop and then delete all
+-- associated instances or unassign registered instances. For more
+-- information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html How to Delete a Layer>.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DeleteLayer.html>
 module Network.AWS.OpsWorks.DeleteLayer
@@ -37,7 +36,7 @@ module Network.AWS.OpsWorks.DeleteLayer
     -- ** Request constructor
     , deleteLayer
     -- ** Request lenses
-    , dlLayerId
+    , dlrqLayerId
 
     -- * Response
     , DeleteLayerResponse
@@ -45,55 +44,61 @@ module Network.AWS.OpsWorks.DeleteLayer
     , deleteLayerResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteLayer = DeleteLayer
-    { _dlLayerId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteLayer' constructor.
+-- | /See:/ 'deleteLayer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlLayerId' @::@ 'Text'
---
-deleteLayer :: Text -- ^ 'dlLayerId'
-            -> DeleteLayer
-deleteLayer p1 = DeleteLayer
-    { _dlLayerId = p1
+-- * 'dlrqLayerId'
+newtype DeleteLayer = DeleteLayer'
+    { _dlrqLayerId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteLayer' smart constructor.
+deleteLayer :: Text -> DeleteLayer
+deleteLayer pLayerId_ =
+    DeleteLayer'
+    { _dlrqLayerId = pLayerId_
     }
 
 -- | The layer ID.
-dlLayerId :: Lens' DeleteLayer Text
-dlLayerId = lens _dlLayerId (\s a -> s { _dlLayerId = a })
-
-data DeleteLayerResponse = DeleteLayerResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteLayerResponse' constructor.
-deleteLayerResponse :: DeleteLayerResponse
-deleteLayerResponse = DeleteLayerResponse
-
-instance ToPath DeleteLayer where
-    toPath = const "/"
-
-instance ToQuery DeleteLayer where
-    toQuery = const mempty
-
-instance ToHeaders DeleteLayer
-
-instance ToJSON DeleteLayer where
-    toJSON DeleteLayer{..} = object
-        [ "LayerId" .= _dlLayerId
-        ]
+dlrqLayerId :: Lens' DeleteLayer Text
+dlrqLayerId = lens _dlrqLayerId (\ s a -> s{_dlrqLayerId = a});
 
 instance AWSRequest DeleteLayer where
-    type Sv DeleteLayer = OpsWorks
-    type Rs DeleteLayer = DeleteLayerResponse
+        type Sv DeleteLayer = OpsWorks
+        type Rs DeleteLayer = DeleteLayerResponse
+        request = postJSON
+        response = receiveNull DeleteLayerResponse'
 
-    request  = post "DeleteLayer"
-    response = nullResponse DeleteLayerResponse
+instance ToHeaders DeleteLayer where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DeleteLayer" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteLayer where
+        toJSON DeleteLayer'{..}
+          = object ["LayerId" .= _dlrqLayerId]
+
+instance ToPath DeleteLayer where
+        toPath = const "/"
+
+instance ToQuery DeleteLayer where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteLayerResponse' smart constructor.
+data DeleteLayerResponse =
+    DeleteLayerResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteLayerResponse' smart constructor.
+deleteLayerResponse :: DeleteLayerResponse
+deleteLayerResponse = DeleteLayerResponse'

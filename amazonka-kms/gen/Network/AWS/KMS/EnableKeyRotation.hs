@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.KMS.EnableKeyRotation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Enables rotation of the specified customer master key.
+-- Enables rotation of the specified customer master key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html>
 module Network.AWS.KMS.EnableKeyRotation
@@ -32,7 +27,7 @@ module Network.AWS.KMS.EnableKeyRotation
     -- ** Request constructor
     , enableKeyRotation
     -- ** Request lenses
-    , ekrKeyId
+    , ekrrqKeyId
 
     -- * Response
     , EnableKeyRotationResponse
@@ -40,58 +35,67 @@ module Network.AWS.KMS.EnableKeyRotation
     , enableKeyRotationResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.KMS.Types
-import qualified GHC.Exts
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype EnableKeyRotation = EnableKeyRotation
-    { _ekrKeyId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'EnableKeyRotation' constructor.
+-- | /See:/ 'enableKeyRotation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ekrKeyId' @::@ 'Text'
---
-enableKeyRotation :: Text -- ^ 'ekrKeyId'
-                  -> EnableKeyRotation
-enableKeyRotation p1 = EnableKeyRotation
-    { _ekrKeyId = p1
+-- * 'ekrrqKeyId'
+newtype EnableKeyRotation = EnableKeyRotation'
+    { _ekrrqKeyId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'EnableKeyRotation' smart constructor.
+enableKeyRotation :: Text -> EnableKeyRotation
+enableKeyRotation pKeyId_ =
+    EnableKeyRotation'
+    { _ekrrqKeyId = pKeyId_
     }
 
--- | A unique identifier for the customer master key. This value can be a globally
--- unique identifier or the fully specified ARN to a key.  Key ARN Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key. This value can be a
+-- globally unique identifier or the fully specified ARN to a key.
 --
-ekrKeyId :: Lens' EnableKeyRotation Text
-ekrKeyId = lens _ekrKeyId (\s a -> s { _ekrKeyId = a })
-
-data EnableKeyRotationResponse = EnableKeyRotationResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'EnableKeyRotationResponse' constructor.
-enableKeyRotationResponse :: EnableKeyRotationResponse
-enableKeyRotationResponse = EnableKeyRotationResponse
-
-instance ToPath EnableKeyRotation where
-    toPath = const "/"
-
-instance ToQuery EnableKeyRotation where
-    toQuery = const mempty
-
-instance ToHeaders EnableKeyRotation
-
-instance ToJSON EnableKeyRotation where
-    toJSON EnableKeyRotation{..} = object
-        [ "KeyId" .= _ekrKeyId
-        ]
+-- -   Key ARN Example -
+--     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Globally Unique Key ID Example -
+--     12345678-1234-1234-1234-123456789012
+ekrrqKeyId :: Lens' EnableKeyRotation Text
+ekrrqKeyId = lens _ekrrqKeyId (\ s a -> s{_ekrrqKeyId = a});
 
 instance AWSRequest EnableKeyRotation where
-    type Sv EnableKeyRotation = KMS
-    type Rs EnableKeyRotation = EnableKeyRotationResponse
+        type Sv EnableKeyRotation = KMS
+        type Rs EnableKeyRotation = EnableKeyRotationResponse
+        request = postJSON
+        response = receiveNull EnableKeyRotationResponse'
 
-    request  = post "EnableKeyRotation"
-    response = nullResponse EnableKeyRotationResponse
+instance ToHeaders EnableKeyRotation where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("TrentService.EnableKeyRotation" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON EnableKeyRotation where
+        toJSON EnableKeyRotation'{..}
+          = object ["KeyId" .= _ekrrqKeyId]
+
+instance ToPath EnableKeyRotation where
+        toPath = const "/"
+
+instance ToQuery EnableKeyRotation where
+        toQuery = const mempty
+
+-- | /See:/ 'enableKeyRotationResponse' smart constructor.
+data EnableKeyRotationResponse =
+    EnableKeyRotationResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'EnableKeyRotationResponse' smart constructor.
+enableKeyRotationResponse :: EnableKeyRotationResponse
+enableKeyRotationResponse = EnableKeyRotationResponse'

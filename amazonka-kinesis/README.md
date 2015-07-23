@@ -1,17 +1,22 @@
 # Amazon Kinesis SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Amazon Kinesis is a managed service that scales elastically for real-time
-processing of streaming big data. The service takes in large streams of data
-records that can then be consumed in real time by multiple data-processing
-applications that can be run on Amazon EC2 instances.
+Amazon Kinesis Service API Reference
+
+Amazon Kinesis is a managed service that scales elastically for real
+time processing of streaming big data.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-kinesis)
 and the [AWS API Reference](http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html).

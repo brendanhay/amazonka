@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns the descriptions of existing applications.
+-- Returns the descriptions of existing applications.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html>
 module Network.AWS.ElasticBeanstalk.DescribeApplications
@@ -32,91 +27,99 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     -- ** Request constructor
     , describeApplications
     -- ** Request lenses
-    , daApplicationNames
+    , darqApplicationNames
 
     -- * Response
     , DescribeApplicationsResponse
     -- ** Response constructor
     , describeApplicationsResponse
     -- ** Response lenses
-    , darApplications
+    , darsApplications
+    , darsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeApplications = DescribeApplications
-    { _daApplicationNames :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeApplications where
-    type Item DescribeApplications = Text
-
-    fromList = DescribeApplications . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _daApplicationNames
-
--- | 'DescribeApplications' constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'describeApplications' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daApplicationNames' @::@ ['Text']
---
+-- * 'darqApplicationNames'
+newtype DescribeApplications = DescribeApplications'
+    { _darqApplicationNames :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeApplications' smart constructor.
 describeApplications :: DescribeApplications
-describeApplications = DescribeApplications
-    { _daApplicationNames = mempty
+describeApplications =
+    DescribeApplications'
+    { _darqApplicationNames = Nothing
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- only include those with the specified names.
-daApplicationNames :: Lens' DescribeApplications [Text]
-daApplicationNames =
-    lens _daApplicationNames (\s a -> s { _daApplicationNames = a })
-        . _List
-
-newtype DescribeApplicationsResponse = DescribeApplicationsResponse
-    { _darApplications :: List "member" ApplicationDescription
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeApplicationsResponse where
-    type Item DescribeApplicationsResponse = ApplicationDescription
-
-    fromList = DescribeApplicationsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _darApplications
-
--- | 'DescribeApplicationsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'darApplications' @::@ ['ApplicationDescription']
---
-describeApplicationsResponse :: DescribeApplicationsResponse
-describeApplicationsResponse = DescribeApplicationsResponse
-    { _darApplications = mempty
-    }
-
--- | This parameter contains a list of 'ApplicationDescription'.
-darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
-darApplications = lens _darApplications (\s a -> s { _darApplications = a }) . _List
-
-instance ToPath DescribeApplications where
-    toPath = const "/"
-
-instance ToQuery DescribeApplications where
-    toQuery DescribeApplications{..} = mconcat
-        [ "ApplicationNames" =? _daApplicationNames
-        ]
-
-instance ToHeaders DescribeApplications
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to only include those with the specified names.
+darqApplicationNames :: Lens' DescribeApplications [Text]
+darqApplicationNames = lens _darqApplicationNames (\ s a -> s{_darqApplicationNames = a}) . _Default;
 
 instance AWSRequest DescribeApplications where
-    type Sv DescribeApplications = ElasticBeanstalk
-    type Rs DescribeApplications = DescribeApplicationsResponse
+        type Sv DescribeApplications = ElasticBeanstalk
+        type Rs DescribeApplications =
+             DescribeApplicationsResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeApplicationsResult"
+              (\ s h x ->
+                 DescribeApplicationsResponse' <$>
+                   (x .@? "Applications" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    request  = post "DescribeApplications"
-    response = xmlResponse
+instance ToHeaders DescribeApplications where
+        toHeaders = const mempty
 
-instance FromXML DescribeApplicationsResponse where
-    parseXML = withElement "DescribeApplicationsResult" $ \x -> DescribeApplicationsResponse
-        <$> x .@? "Applications" .!@ mempty
+instance ToPath DescribeApplications where
+        toPath = const "/"
+
+instance ToQuery DescribeApplications where
+        toQuery DescribeApplications'{..}
+          = mconcat
+              ["Action" =: ("DescribeApplications" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "ApplicationNames" =:
+                 toQuery
+                   (toQueryList "member" <$> _darqApplicationNames)]
+
+-- | Result message containing a list of application descriptions.
+--
+-- /See:/ 'describeApplicationsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'darsApplications'
+--
+-- * 'darsStatus'
+data DescribeApplicationsResponse = DescribeApplicationsResponse'
+    { _darsApplications :: !(Maybe [ApplicationDescription])
+    , _darsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeApplicationsResponse' smart constructor.
+describeApplicationsResponse :: Int -> DescribeApplicationsResponse
+describeApplicationsResponse pStatus_ =
+    DescribeApplicationsResponse'
+    { _darsApplications = Nothing
+    , _darsStatus = pStatus_
+    }
+
+-- | This parameter contains a list of ApplicationDescription.
+darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
+darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+darsStatus :: Lens' DescribeApplicationsResponse Int
+darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

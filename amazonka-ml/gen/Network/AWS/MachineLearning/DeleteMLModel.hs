@@ -1,34 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.MachineLearning.DeleteMLModel
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Assigns the DELETED status to an 'MLModel', rendering it unusable.
+-- Assigns the DELETED status to an @MLModel@, rendering it unusable.
 --
--- After using the 'DeleteMLModel' operation, you can use the 'GetMLModel'
--- operation to verify that the status of the 'MLModel' changed to DELETED.
+-- After using the @DeleteMLModel@ operation, you can use the GetMLModel
+-- operation to verify that the status of the @MLModel@ changed to DELETED.
 --
--- Caution The result of the 'DeleteMLModel' operation is irreversible.
+-- Caution
 --
+-- The result of the @DeleteMLModel@ operation is irreversible.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteMLModel.html>
 module Network.AWS.MachineLearning.DeleteMLModel
@@ -38,82 +34,101 @@ module Network.AWS.MachineLearning.DeleteMLModel
     -- ** Request constructor
     , deleteMLModel
     -- ** Request lenses
-    , dmlmMLModelId
+    , dmlmrqMLModelId
 
     -- * Response
     , DeleteMLModelResponse
     -- ** Response constructor
     , deleteMLModelResponse
     -- ** Response lenses
-    , dmlmrMLModelId
+    , dmlmrsMLModelId
+    , dmlmrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.MachineLearning.Types
-import qualified GHC.Exts
+import           Network.AWS.MachineLearning.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteMLModel = DeleteMLModel
-    { _dmlmMLModelId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteMLModel' constructor.
+-- | /See:/ 'deleteMLModel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmlmMLModelId' @::@ 'Text'
---
-deleteMLModel :: Text -- ^ 'dmlmMLModelId'
-              -> DeleteMLModel
-deleteMLModel p1 = DeleteMLModel
-    { _dmlmMLModelId = p1
+-- * 'dmlmrqMLModelId'
+newtype DeleteMLModel = DeleteMLModel'
+    { _dmlmrqMLModelId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteMLModel' smart constructor.
+deleteMLModel :: Text -> DeleteMLModel
+deleteMLModel pMLModelId_ =
+    DeleteMLModel'
+    { _dmlmrqMLModelId = pMLModelId_
     }
 
--- | A user-supplied ID that uniquely identifies the 'MLModel'.
-dmlmMLModelId :: Lens' DeleteMLModel Text
-dmlmMLModelId = lens _dmlmMLModelId (\s a -> s { _dmlmMLModelId = a })
-
-newtype DeleteMLModelResponse = DeleteMLModelResponse
-    { _dmlmrMLModelId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'DeleteMLModelResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dmlmrMLModelId' @::@ 'Maybe' 'Text'
---
-deleteMLModelResponse :: DeleteMLModelResponse
-deleteMLModelResponse = DeleteMLModelResponse
-    { _dmlmrMLModelId = Nothing
-    }
-
--- | A user-supplied ID that uniquely identifies the 'MLModel'. This value should be
--- identical to the value of the 'MLModelID' in the request.
-dmlmrMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
-dmlmrMLModelId = lens _dmlmrMLModelId (\s a -> s { _dmlmrMLModelId = a })
-
-instance ToPath DeleteMLModel where
-    toPath = const "/"
-
-instance ToQuery DeleteMLModel where
-    toQuery = const mempty
-
-instance ToHeaders DeleteMLModel
-
-instance ToJSON DeleteMLModel where
-    toJSON DeleteMLModel{..} = object
-        [ "MLModelId" .= _dmlmMLModelId
-        ]
+-- | A user-supplied ID that uniquely identifies the @MLModel@.
+dmlmrqMLModelId :: Lens' DeleteMLModel Text
+dmlmrqMLModelId = lens _dmlmrqMLModelId (\ s a -> s{_dmlmrqMLModelId = a});
 
 instance AWSRequest DeleteMLModel where
-    type Sv DeleteMLModel = MachineLearning
-    type Rs DeleteMLModel = DeleteMLModelResponse
+        type Sv DeleteMLModel = MachineLearning
+        type Rs DeleteMLModel = DeleteMLModelResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteMLModelResponse' <$>
+                   (x .?> "MLModelId") <*> (pure (fromEnum s)))
 
-    request  = post "DeleteMLModel"
-    response = jsonResponse
+instance ToHeaders DeleteMLModel where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonML_20141212.DeleteMLModel" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DeleteMLModelResponse where
-    parseJSON = withObject "DeleteMLModelResponse" $ \o -> DeleteMLModelResponse
-        <$> o .:? "MLModelId"
+instance ToJSON DeleteMLModel where
+        toJSON DeleteMLModel'{..}
+          = object ["MLModelId" .= _dmlmrqMLModelId]
+
+instance ToPath DeleteMLModel where
+        toPath = const "/"
+
+instance ToQuery DeleteMLModel where
+        toQuery = const mempty
+
+-- | Represents the output of a DeleteMLModel operation.
+--
+-- You can use the GetMLModel operation and check the value of the @Status@
+-- parameter to see whether an @MLModel@ is marked as @DELETED@.
+--
+-- /See:/ 'deleteMLModelResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dmlmrsMLModelId'
+--
+-- * 'dmlmrsStatus'
+data DeleteMLModelResponse = DeleteMLModelResponse'
+    { _dmlmrsMLModelId :: !(Maybe Text)
+    , _dmlmrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteMLModelResponse' smart constructor.
+deleteMLModelResponse :: Int -> DeleteMLModelResponse
+deleteMLModelResponse pStatus_ =
+    DeleteMLModelResponse'
+    { _dmlmrsMLModelId = Nothing
+    , _dmlmrsStatus = pStatus_
+    }
+
+-- | A user-supplied ID that uniquely identifies the @MLModel@. This value
+-- should be identical to the value of the @MLModelID@ in the request.
+dmlmrsMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
+dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
+
+-- | FIXME: Undocumented member.
+dmlmrsStatus :: Lens' DeleteMLModelResponse Int
+dmlmrsStatus = lens _dmlmrsStatus (\ s a -> s{_dmlmrsStatus = a});

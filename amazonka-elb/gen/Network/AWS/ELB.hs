@@ -1,78 +1,63 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ELB
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Elastic Load Balancing automatically distributes incoming application traffic
--- across multiple Amazon EC2 instances. It enables you to achieve greater
--- levels of fault tolerance in your applications, seamlessly providing the
--- required amount of load balancing capacity needed to distribute application
--- traffic.
+-- Elastic Load Balancing
+--
+-- Elastic Load Balancing distributes incoming traffic across your EC2
+-- instances.
+--
+-- For information about the features of Elastic Load Balancing, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elastic-load-balancing.html What Is Elastic Load Balancing?>
+-- in the /Elastic Load Balancing Developer Guide/.
+--
+-- For information about the AWS regions supported by Elastic Load
+-- Balancing, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints - Elastic Load Balancing>
+-- in the /Amazon Web Services General Reference/.
+--
+-- All Elastic Load Balancing operations are /idempotent/, which means that
+-- they complete at most one time. If you repeat an operation, it succeeds
+-- with a 200 OK response code.
 module Network.AWS.ELB
-    ( module Network.AWS.ELB.AddTags
-    , module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-    , module Network.AWS.ELB.AttachLoadBalancerToSubnets
-    , module Network.AWS.ELB.ConfigureHealthCheck
-    , module Network.AWS.ELB.CreateAppCookieStickinessPolicy
-    , module Network.AWS.ELB.CreateLBCookieStickinessPolicy
-    , module Network.AWS.ELB.CreateLoadBalancer
-    , module Network.AWS.ELB.CreateLoadBalancerListeners
-    , module Network.AWS.ELB.CreateLoadBalancerPolicy
-    , module Network.AWS.ELB.DeleteLoadBalancer
-    , module Network.AWS.ELB.DeleteLoadBalancerListeners
-    , module Network.AWS.ELB.DeleteLoadBalancerPolicy
-    , module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-    , module Network.AWS.ELB.DescribeInstanceHealth
-    , module Network.AWS.ELB.DescribeLoadBalancerAttributes
-    , module Network.AWS.ELB.DescribeLoadBalancerPolicies
-    , module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-    , module Network.AWS.ELB.DescribeLoadBalancers
-    , module Network.AWS.ELB.DescribeTags
-    , module Network.AWS.ELB.DetachLoadBalancerFromSubnets
-    , module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-    , module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-    , module Network.AWS.ELB.ModifyLoadBalancerAttributes
-    , module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-    , module Network.AWS.ELB.RemoveTags
-    , module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-    , module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-    , module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-    , module Network.AWS.ELB.Types
+    ( module Export
     ) where
 
-import Network.AWS.ELB.AddTags
-import Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-import Network.AWS.ELB.AttachLoadBalancerToSubnets
-import Network.AWS.ELB.ConfigureHealthCheck
-import Network.AWS.ELB.CreateAppCookieStickinessPolicy
-import Network.AWS.ELB.CreateLBCookieStickinessPolicy
-import Network.AWS.ELB.CreateLoadBalancer
-import Network.AWS.ELB.CreateLoadBalancerListeners
-import Network.AWS.ELB.CreateLoadBalancerPolicy
-import Network.AWS.ELB.DeleteLoadBalancer
-import Network.AWS.ELB.DeleteLoadBalancerListeners
-import Network.AWS.ELB.DeleteLoadBalancerPolicy
-import Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-import Network.AWS.ELB.DescribeInstanceHealth
-import Network.AWS.ELB.DescribeLoadBalancerAttributes
-import Network.AWS.ELB.DescribeLoadBalancerPolicies
-import Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-import Network.AWS.ELB.DescribeLoadBalancers
-import Network.AWS.ELB.DescribeTags
-import Network.AWS.ELB.DetachLoadBalancerFromSubnets
-import Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-import Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-import Network.AWS.ELB.ModifyLoadBalancerAttributes
-import Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-import Network.AWS.ELB.RemoveTags
-import Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-import Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-import Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-import Network.AWS.ELB.Types
+import           Network.AWS.ELB.AddTags                                 as Export
+import           Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer       as Export
+import           Network.AWS.ELB.AttachLoadBalancerToSubnets             as Export
+import           Network.AWS.ELB.ConfigureHealthCheck                    as Export
+import           Network.AWS.ELB.CreateAppCookieStickinessPolicy         as Export
+import           Network.AWS.ELB.CreateLBCookieStickinessPolicy          as Export
+import           Network.AWS.ELB.CreateLoadBalancer                      as Export
+import           Network.AWS.ELB.CreateLoadBalancerListeners             as Export
+import           Network.AWS.ELB.CreateLoadBalancerPolicy                as Export
+import           Network.AWS.ELB.DeleteLoadBalancer                      as Export
+import           Network.AWS.ELB.DeleteLoadBalancerListeners             as Export
+import           Network.AWS.ELB.DeleteLoadBalancerPolicy                as Export
+import           Network.AWS.ELB.DeregisterInstancesFromLoadBalancer     as Export
+import           Network.AWS.ELB.DescribeInstanceHealth                  as Export
+import           Network.AWS.ELB.DescribeLoadBalancerAttributes          as Export
+import           Network.AWS.ELB.DescribeLoadBalancerPolicies            as Export
+import           Network.AWS.ELB.DescribeLoadBalancerPolicyTypes         as Export
+import           Network.AWS.ELB.DescribeLoadBalancers                   as Export
+import           Network.AWS.ELB.DescribeTags                            as Export
+import           Network.AWS.ELB.DetachLoadBalancerFromSubnets           as Export
+import           Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer as Export
+import           Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer  as Export
+import           Network.AWS.ELB.ModifyLoadBalancerAttributes            as Export
+import           Network.AWS.ELB.RegisterInstancesWithLoadBalancer       as Export
+import           Network.AWS.ELB.RemoveTags                              as Export
+import           Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate   as Export
+import           Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer as Export
+import           Network.AWS.ELB.SetLoadBalancerPoliciesOfListener       as Export
+import           Network.AWS.ELB.Types                                   as Export
+import           Network.AWS.ELB.Waiters                                 as Export

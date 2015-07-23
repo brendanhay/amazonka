@@ -1,28 +1,43 @@
 name:                  amazonka-datapipeline
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Data Pipeline SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Data Pipeline is a web service that you can use to automate the movement
-    and transformation of data. With AWS Data Pipeline, you can define
-    data-driven workflows, so that tasks can be dependent on the successful
-    completion of previous tasks.
+    AWS Data Pipeline configures and manages a data-driven workflow called a
+    pipeline. AWS Data Pipeline handles the details of scheduling and
+    ensuring that data dependencies are met so that your application can
+    focus on processing the data.
 
+    AWS Data Pipeline provides a JAR implementation of a task runner called
+    AWS Data Pipeline Task Runner. AWS Data Pipeline Task Runner provides
+    logic for common data management scenarios, such as performing database
+    queries and running data analysis using Amazon Elastic MapReduce (Amazon
+    EMR). You can use AWS Data Pipeline Task Runner as your task runner, or
+    you can write your own task runner to provide custom data management.
+
+    AWS Data Pipeline implements two main sets of functionality. Use the
+    first set to create a pipeline and define data sources, schedules,
+    dependencies, and the transforms to be performed on the data. Use the
+    second set in your task runner application to receive the next task
+    ready for processing. The logic for performing the task, such as
+    querying the data, running data analysis, or converting the data from
+    one format to another, is contained within the task runner. The task
+    runner performs the task assigned to it by the web service, reporting
+    progress to the web service as it does so. When the task is done, the
+    task runner reports the final success or failure of the task to the web
+    service.
     .
     /See:/ <http://docs.aws.amazon.com/datapipeline/latest/APIReference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -56,9 +71,40 @@ library
         , Network.AWS.DataPipeline.SetTaskStatus
         , Network.AWS.DataPipeline.Types
         , Network.AWS.DataPipeline.ValidatePipelineDefinition
+        , Network.AWS.DataPipeline.Waiters
 
     other-modules:
+          Network.AWS.DataPipeline.Types.Product
+        , Network.AWS.DataPipeline.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-datapipeline-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.DataPipeline
+        , Test.AWS.Gen.DataPipeline
+        , Test.AWS.DataPipeline.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-datapipeline == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

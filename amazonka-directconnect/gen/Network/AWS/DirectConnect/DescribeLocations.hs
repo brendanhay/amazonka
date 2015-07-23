@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.DirectConnect.DescribeLocations
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns the list of AWS Direct Connect locations in the current AWS region.
--- These are the locations that may be selected when calling CreateConnection or
--- CreateInterconnect.
+-- Returns the list of AWS Direct Connect locations in the current AWS
+-- region. These are the locations that may be selected when calling
+-- CreateConnection or CreateInterconnect.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html>
 module Network.AWS.DirectConnect.DescribeLocations
@@ -39,64 +34,77 @@ module Network.AWS.DirectConnect.DescribeLocations
     -- ** Response constructor
     , describeLocationsResponse
     -- ** Response lenses
-    , dlrLocations
+    , dlrsLocations
+    , dlrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DirectConnect.Types
-import qualified GHC.Exts
+import           Network.AWS.DirectConnect.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeLocations = DescribeLocations
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'describeLocations' smart constructor.
+data DescribeLocations =
+    DescribeLocations'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeLocations' constructor.
+-- | 'DescribeLocations' smart constructor.
 describeLocations :: DescribeLocations
-describeLocations = DescribeLocations
+describeLocations = DescribeLocations'
 
-newtype DescribeLocationsResponse = DescribeLocationsResponse
-    { _dlrLocations :: List "locations" Location
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeLocations where
+        type Sv DescribeLocations = DirectConnect
+        type Rs DescribeLocations = DescribeLocationsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeLocationsResponse' <$>
+                   (x .?> "locations" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeLocationsResponse where
-    type Item DescribeLocationsResponse = Location
+instance ToHeaders DescribeLocations where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.DescribeLocations" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeLocationsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dlrLocations
+instance ToJSON DescribeLocations where
+        toJSON = const (Object mempty)
 
--- | 'DescribeLocationsResponse' constructor.
+instance ToPath DescribeLocations where
+        toPath = const "/"
+
+instance ToQuery DescribeLocations where
+        toQuery = const mempty
+
+-- | /See:/ 'describeLocationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlrLocations' @::@ ['Location']
+-- * 'dlrsLocations'
 --
-describeLocationsResponse :: DescribeLocationsResponse
-describeLocationsResponse = DescribeLocationsResponse
-    { _dlrLocations = mempty
+-- * 'dlrsStatus'
+data DescribeLocationsResponse = DescribeLocationsResponse'
+    { _dlrsLocations :: !(Maybe [Location])
+    , _dlrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeLocationsResponse' smart constructor.
+describeLocationsResponse :: Int -> DescribeLocationsResponse
+describeLocationsResponse pStatus_ =
+    DescribeLocationsResponse'
+    { _dlrsLocations = Nothing
+    , _dlrsStatus = pStatus_
     }
 
-dlrLocations :: Lens' DescribeLocationsResponse [Location]
-dlrLocations = lens _dlrLocations (\s a -> s { _dlrLocations = a }) . _List
+-- | FIXME: Undocumented member.
+dlrsLocations :: Lens' DescribeLocationsResponse [Location]
+dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default;
 
-instance ToPath DescribeLocations where
-    toPath = const "/"
-
-instance ToQuery DescribeLocations where
-    toQuery = const mempty
-
-instance ToHeaders DescribeLocations
-
-instance ToJSON DescribeLocations where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest DescribeLocations where
-    type Sv DescribeLocations = DirectConnect
-    type Rs DescribeLocations = DescribeLocationsResponse
-
-    request  = post "DescribeLocations"
-    response = jsonResponse
-
-instance FromJSON DescribeLocationsResponse where
-    parseJSON = withObject "DescribeLocationsResponse" $ \o -> DescribeLocationsResponse
-        <$> o .:? "locations" .!= mempty
+-- | FIXME: Undocumented member.
+dlrsStatus :: Lens' DescribeLocationsResponse Int
+dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});

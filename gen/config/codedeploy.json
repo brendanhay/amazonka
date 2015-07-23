@@ -1,0 +1,10 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_",
+    "libraryName": "amazonka-codedeploy",
+    "typeOverrides": {
+        "ErrorCode": {
+            "renamedTo": "DeployErrorCode"
+        }
+    }
+}

@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes the specified load balancer policy types.
+-- Describes the specified load balancer policy types.
 --
--- You can use these policy types with 'CreateLoadBalancerPolicy' to create
+-- You can use these policy types with CreateLoadBalancerPolicy to create
 -- policy configurations for a load balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html>
@@ -35,94 +30,100 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     -- ** Request constructor
     , describeLoadBalancerPolicyTypes
     -- ** Request lenses
-    , dlbptPolicyTypeNames
+    , dlbptrqPolicyTypeNames
 
     -- * Response
     , DescribeLoadBalancerPolicyTypesResponse
     -- ** Response constructor
     , describeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
-    , dlbptrPolicyTypeDescriptions
+    , dlbptrsPolicyTypeDescriptions
+    , dlbptrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ELB.Types
-import qualified GHC.Exts
+import           Network.AWS.ELB.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
-    { _dlbptPolicyTypeNames :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypes where
-    type Item DescribeLoadBalancerPolicyTypes = Text
-
-    fromList = DescribeLoadBalancerPolicyTypes . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dlbptPolicyTypeNames
-
--- | 'DescribeLoadBalancerPolicyTypes' constructor.
+-- | /See:/ 'describeLoadBalancerPolicyTypes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbptPolicyTypeNames' @::@ ['Text']
---
+-- * 'dlbptrqPolicyTypeNames'
+newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
+    { _dlbptrqPolicyTypeNames :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeLoadBalancerPolicyTypes' smart constructor.
 describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
-describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
-    { _dlbptPolicyTypeNames = mempty
+describeLoadBalancerPolicyTypes =
+    DescribeLoadBalancerPolicyTypes'
+    { _dlbptrqPolicyTypeNames = Nothing
     }
 
 -- | The names of the policy types. If no names are specified, describes all
 -- policy types defined by Elastic Load Balancing.
-dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
-dlbptPolicyTypeNames =
-    lens _dlbptPolicyTypeNames (\s a -> s { _dlbptPolicyTypeNames = a })
-        . _List
+dlbptrqPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
+dlbptrqPolicyTypeNames = lens _dlbptrqPolicyTypeNames (\ s a -> s{_dlbptrqPolicyTypeNames = a}) . _Default;
 
-newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
-    { _dlbptrPolicyTypeDescriptions :: List "member" PolicyTypeDescription
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeLoadBalancerPolicyTypes
+         where
+        type Sv DescribeLoadBalancerPolicyTypes = ELB
+        type Rs DescribeLoadBalancerPolicyTypes =
+             DescribeLoadBalancerPolicyTypesResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "DescribeLoadBalancerPolicyTypesResult"
+              (\ s h x ->
+                 DescribeLoadBalancerPolicyTypesResponse' <$>
+                   (x .@? "PolicyTypeDescriptions" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypesResponse where
-    type Item DescribeLoadBalancerPolicyTypesResponse = PolicyTypeDescription
+instance ToHeaders DescribeLoadBalancerPolicyTypes
+         where
+        toHeaders = const mempty
 
-    fromList = DescribeLoadBalancerPolicyTypesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dlbptrPolicyTypeDescriptions
+instance ToPath DescribeLoadBalancerPolicyTypes where
+        toPath = const "/"
 
--- | 'DescribeLoadBalancerPolicyTypesResponse' constructor.
+instance ToQuery DescribeLoadBalancerPolicyTypes
+         where
+        toQuery DescribeLoadBalancerPolicyTypes'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeLoadBalancerPolicyTypes" :: ByteString),
+               "Version" =: ("2012-06-01" :: ByteString),
+               "PolicyTypeNames" =:
+                 toQuery
+                   (toQueryList "member" <$> _dlbptrqPolicyTypeNames)]
+
+-- | /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbptrPolicyTypeDescriptions' @::@ ['PolicyTypeDescription']
+-- * 'dlbptrsPolicyTypeDescriptions'
 --
-describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse
-describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
-    { _dlbptrPolicyTypeDescriptions = mempty
+-- * 'dlbptrsStatus'
+data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
+    { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
+    , _dlbptrsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
+describeLoadBalancerPolicyTypesResponse :: Int -> DescribeLoadBalancerPolicyTypesResponse
+describeLoadBalancerPolicyTypesResponse pStatus_ =
+    DescribeLoadBalancerPolicyTypesResponse'
+    { _dlbptrsPolicyTypeDescriptions = Nothing
+    , _dlbptrsStatus = pStatus_
     }
 
 -- | Information about the policy types.
-dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
-dlbptrPolicyTypeDescriptions =
-    lens _dlbptrPolicyTypeDescriptions
-        (\s a -> s { _dlbptrPolicyTypeDescriptions = a })
-            . _List
+dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
+dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default;
 
-instance ToPath DescribeLoadBalancerPolicyTypes where
-    toPath = const "/"
-
-instance ToQuery DescribeLoadBalancerPolicyTypes where
-    toQuery DescribeLoadBalancerPolicyTypes{..} = mconcat
-        [ "PolicyTypeNames" =? _dlbptPolicyTypeNames
-        ]
-
-instance ToHeaders DescribeLoadBalancerPolicyTypes
-
-instance AWSRequest DescribeLoadBalancerPolicyTypes where
-    type Sv DescribeLoadBalancerPolicyTypes = ELB
-    type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
-
-    request  = post "DescribeLoadBalancerPolicyTypes"
-    response = xmlResponse
-
-instance FromXML DescribeLoadBalancerPolicyTypesResponse where
-    parseXML = withElement "DescribeLoadBalancerPolicyTypesResult" $ \x -> DescribeLoadBalancerPolicyTypesResponse
-        <$> x .@? "PolicyTypeDescriptions" .!@ mempty
+-- | FIXME: Undocumented member.
+dlbptrsStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
+dlbptrsStatus = lens _dlbptrsStatus (\ s a -> s{_dlbptrsStatus = a});

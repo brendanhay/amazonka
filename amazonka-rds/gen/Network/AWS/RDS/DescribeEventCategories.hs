@@ -1,30 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.DescribeEventCategories
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Displays a list of categories for all event source types, or, if specified,
--- for a specified source type. You can see a list of the event categories and
--- source types in the <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html  Events> topic in the Amazon RDS User Guide.
+-- Displays a list of categories for all event source types, or, if
+-- specified, for a specified source type. You can see a list of the event
+-- categories and source types in the
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
+-- topic in the Amazon RDS User Guide.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEventCategories.html>
 module Network.AWS.RDS.DescribeEventCategories
@@ -34,98 +31,111 @@ module Network.AWS.RDS.DescribeEventCategories
     -- ** Request constructor
     , describeEventCategories
     -- ** Request lenses
-    , decFilters
-    , decSourceType
+    , decrqSourceType
+    , decrqFilters
 
     -- * Response
     , DescribeEventCategoriesResponse
     -- ** Response constructor
     , describeEventCategoriesResponse
     -- ** Response lenses
-    , decrEventCategoriesMapList
+    , decrsEventCategoriesMapList
+    , decrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeEventCategories = DescribeEventCategories
-    { _decFilters    :: List "member" Filter
-    , _decSourceType :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeEventCategories' constructor.
+-- |
+--
+-- /See:/ 'describeEventCategories' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decFilters' @::@ ['Filter']
+-- * 'decrqSourceType'
 --
--- * 'decSourceType' @::@ 'Maybe' 'Text'
---
-describeEventCategories :: DescribeEventCategories
-describeEventCategories = DescribeEventCategories
-    { _decSourceType = Nothing
-    , _decFilters    = mempty
-    }
+-- * 'decrqFilters'
+data DescribeEventCategories = DescribeEventCategories'
+    { _decrqSourceType :: !(Maybe Text)
+    , _decrqFilters    :: !(Maybe [Filter])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | This parameter is not currently supported.
-decFilters :: Lens' DescribeEventCategories [Filter]
-decFilters = lens _decFilters (\s a -> s { _decFilters = a }) . _List
+-- | 'DescribeEventCategories' smart constructor.
+describeEventCategories :: DescribeEventCategories
+describeEventCategories =
+    DescribeEventCategories'
+    { _decrqSourceType = Nothing
+    , _decrqFilters = Nothing
+    }
 
 -- | The type of source that will be generating the events.
 --
 -- Valid values: db-instance | db-parameter-group | db-security-group |
 -- db-snapshot
-decSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
+decrqSourceType :: Lens' DescribeEventCategories (Maybe Text)
+decrqSourceType = lens _decrqSourceType (\ s a -> s{_decrqSourceType = a});
 
-newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _decrEventCategoriesMapList :: List "member" EventCategoriesMap
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | This parameter is not currently supported.
+decrqFilters :: Lens' DescribeEventCategories [Filter]
+decrqFilters = lens _decrqFilters (\ s a -> s{_decrqFilters = a}) . _Default;
 
-instance GHC.Exts.IsList DescribeEventCategoriesResponse where
-    type Item DescribeEventCategoriesResponse = EventCategoriesMap
+instance AWSRequest DescribeEventCategories where
+        type Sv DescribeEventCategories = RDS
+        type Rs DescribeEventCategories =
+             DescribeEventCategoriesResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeEventCategoriesResult"
+              (\ s h x ->
+                 DescribeEventCategoriesResponse' <$>
+                   (x .@? "EventCategoriesMapList" .!@ mempty >>=
+                      may (parseXMLList "EventCategoriesMap"))
+                     <*> (pure (fromEnum s)))
 
-    fromList = DescribeEventCategoriesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _decrEventCategoriesMapList
+instance ToHeaders DescribeEventCategories where
+        toHeaders = const mempty
 
--- | 'DescribeEventCategoriesResponse' constructor.
+instance ToPath DescribeEventCategories where
+        toPath = const "/"
+
+instance ToQuery DescribeEventCategories where
+        toQuery DescribeEventCategories'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeEventCategories" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "SourceType" =: _decrqSourceType,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _decrqFilters)]
+
+-- | Data returned from the __DescribeEventCategories__ action.
+--
+-- /See:/ 'describeEventCategoriesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decrEventCategoriesMapList' @::@ ['EventCategoriesMap']
+-- * 'decrsEventCategoriesMapList'
 --
-describeEventCategoriesResponse :: DescribeEventCategoriesResponse
-describeEventCategoriesResponse = DescribeEventCategoriesResponse
-    { _decrEventCategoriesMapList = mempty
+-- * 'decrsStatus'
+data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
+    { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
+    , _decrsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeEventCategoriesResponse' smart constructor.
+describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse
+describeEventCategoriesResponse pStatus_ =
+    DescribeEventCategoriesResponse'
+    { _decrsEventCategoriesMapList = Nothing
+    , _decrsStatus = pStatus_
     }
 
 -- | A list of EventCategoriesMap data types.
-decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
-decrEventCategoriesMapList =
-    lens _decrEventCategoriesMapList
-        (\s a -> s { _decrEventCategoriesMapList = a })
-            . _List
+decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default;
 
-instance ToPath DescribeEventCategories where
-    toPath = const "/"
-
-instance ToQuery DescribeEventCategories where
-    toQuery DescribeEventCategories{..} = mconcat
-        [ "Filters"    =? _decFilters
-        , "SourceType" =? _decSourceType
-        ]
-
-instance ToHeaders DescribeEventCategories
-
-instance AWSRequest DescribeEventCategories where
-    type Sv DescribeEventCategories = RDS
-    type Rs DescribeEventCategories = DescribeEventCategoriesResponse
-
-    request  = post "DescribeEventCategories"
-    response = xmlResponse
-
-instance FromXML DescribeEventCategoriesResponse where
-    parseXML = withElement "DescribeEventCategoriesResult" $ \x -> DescribeEventCategoriesResponse
-        <$> x .@? "EventCategoriesMapList" .!@ mempty
+-- | FIXME: Undocumented member.
+decrsStatus :: Lens' DescribeEventCategoriesResponse Int
+decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});

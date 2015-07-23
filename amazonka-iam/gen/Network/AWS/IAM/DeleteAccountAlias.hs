@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.DeleteAccountAlias
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified AWS account alias. For information about using an AWS
--- account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /Using IAM/
--- guide.
+-- Deletes the specified AWS account alias. For information about using an
+-- AWS account alias, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteAccountAlias.html>
 module Network.AWS.IAM.DeleteAccountAlias
@@ -34,7 +30,7 @@ module Network.AWS.IAM.DeleteAccountAlias
     -- ** Request constructor
     , deleteAccountAlias
     -- ** Request lenses
-    , daaAccountAlias
+    , daarqAccountAlias
 
     -- * Response
     , DeleteAccountAliasResponse
@@ -42,51 +38,56 @@ module Network.AWS.IAM.DeleteAccountAlias
     , deleteAccountAliasResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteAccountAlias = DeleteAccountAlias
-    { _daaAccountAlias :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteAccountAlias' constructor.
+-- | /See:/ 'deleteAccountAlias' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daaAccountAlias' @::@ 'Text'
---
-deleteAccountAlias :: Text -- ^ 'daaAccountAlias'
-                   -> DeleteAccountAlias
-deleteAccountAlias p1 = DeleteAccountAlias
-    { _daaAccountAlias = p1
+-- * 'daarqAccountAlias'
+newtype DeleteAccountAlias = DeleteAccountAlias'
+    { _daarqAccountAlias :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteAccountAlias' smart constructor.
+deleteAccountAlias :: Text -> DeleteAccountAlias
+deleteAccountAlias pAccountAlias_ =
+    DeleteAccountAlias'
+    { _daarqAccountAlias = pAccountAlias_
     }
 
 -- | The name of the account alias to delete.
-daaAccountAlias :: Lens' DeleteAccountAlias Text
-daaAccountAlias = lens _daaAccountAlias (\s a -> s { _daaAccountAlias = a })
-
-data DeleteAccountAliasResponse = DeleteAccountAliasResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteAccountAliasResponse' constructor.
-deleteAccountAliasResponse :: DeleteAccountAliasResponse
-deleteAccountAliasResponse = DeleteAccountAliasResponse
-
-instance ToPath DeleteAccountAlias where
-    toPath = const "/"
-
-instance ToQuery DeleteAccountAlias where
-    toQuery DeleteAccountAlias{..} = mconcat
-        [ "AccountAlias" =? _daaAccountAlias
-        ]
-
-instance ToHeaders DeleteAccountAlias
+daarqAccountAlias :: Lens' DeleteAccountAlias Text
+daarqAccountAlias = lens _daarqAccountAlias (\ s a -> s{_daarqAccountAlias = a});
 
 instance AWSRequest DeleteAccountAlias where
-    type Sv DeleteAccountAlias = IAM
-    type Rs DeleteAccountAlias = DeleteAccountAliasResponse
+        type Sv DeleteAccountAlias = IAM
+        type Rs DeleteAccountAlias =
+             DeleteAccountAliasResponse
+        request = post
+        response = receiveNull DeleteAccountAliasResponse'
 
-    request  = post "DeleteAccountAlias"
-    response = nullResponse DeleteAccountAliasResponse
+instance ToHeaders DeleteAccountAlias where
+        toHeaders = const mempty
+
+instance ToPath DeleteAccountAlias where
+        toPath = const "/"
+
+instance ToQuery DeleteAccountAlias where
+        toQuery DeleteAccountAlias'{..}
+          = mconcat
+              ["Action" =: ("DeleteAccountAlias" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "AccountAlias" =: _daarqAccountAlias]
+
+-- | /See:/ 'deleteAccountAliasResponse' smart constructor.
+data DeleteAccountAliasResponse =
+    DeleteAccountAliasResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteAccountAliasResponse' smart constructor.
+deleteAccountAliasResponse :: DeleteAccountAliasResponse
+deleteAccountAliasResponse = DeleteAccountAliasResponse'

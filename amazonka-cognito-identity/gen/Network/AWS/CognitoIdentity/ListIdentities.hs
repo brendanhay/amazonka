@@ -1,28 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists the identities in a pool.
+-- Lists the identities in a pool.
+--
+-- You must use AWS Developer credentials to call this API.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_ListIdentities.html>
 module Network.AWS.CognitoIdentity.ListIdentities
@@ -32,123 +29,153 @@ module Network.AWS.CognitoIdentity.ListIdentities
     -- ** Request constructor
     , listIdentities
     -- ** Request lenses
-    , liIdentityPoolId
-    , liMaxResults
-    , liNextToken
+    , lirqHideDisabled
+    , lirqNextToken
+    , lirqIdentityPoolId
+    , lirqMaxResults
 
     -- * Response
     , ListIdentitiesResponse
     -- ** Response constructor
     , listIdentitiesResponse
     -- ** Response lenses
-    , lirIdentities
-    , lirIdentityPoolId
-    , lirNextToken
+    , lirsIdentityPoolId
+    , lirsNextToken
+    , lirsIdentities
+    , lirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListIdentities = ListIdentities
-    { _liIdentityPoolId :: Text
-    , _liMaxResults     :: Nat
-    , _liNextToken      :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListIdentities' constructor.
+-- | Input to the ListIdentities action.
+--
+-- /See:/ 'listIdentities' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liIdentityPoolId' @::@ 'Text'
+-- * 'lirqHideDisabled'
 --
--- * 'liMaxResults' @::@ 'Natural'
+-- * 'lirqNextToken'
 --
--- * 'liNextToken' @::@ 'Maybe' 'Text'
+-- * 'lirqIdentityPoolId'
 --
-listIdentities :: Text -- ^ 'liIdentityPoolId'
-               -> Natural -- ^ 'liMaxResults'
-               -> ListIdentities
-listIdentities p1 p2 = ListIdentities
-    { _liIdentityPoolId = p1
-    , _liMaxResults     = withIso _Nat (const id) p2
-    , _liNextToken      = Nothing
+-- * 'lirqMaxResults'
+data ListIdentities = ListIdentities'
+    { _lirqHideDisabled   :: !(Maybe Bool)
+    , _lirqNextToken      :: !(Maybe Text)
+    , _lirqIdentityPoolId :: !Text
+    , _lirqMaxResults     :: !Nat
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListIdentities' smart constructor.
+listIdentities :: Text -> Natural -> ListIdentities
+listIdentities pIdentityPoolId_ pMaxResults_ =
+    ListIdentities'
+    { _lirqHideDisabled = Nothing
+    , _lirqNextToken = Nothing
+    , _lirqIdentityPoolId = pIdentityPoolId_
+    , _lirqMaxResults = _Nat # pMaxResults_
     }
 
+-- | An optional boolean parameter that allows you to hide disabled
+-- identities. If omitted, the ListIdentities API will include disabled
+-- identities in the response.
+lirqHideDisabled :: Lens' ListIdentities (Maybe Bool)
+lirqHideDisabled = lens _lirqHideDisabled (\ s a -> s{_lirqHideDisabled = a});
+
+-- | A pagination token.
+lirqNextToken :: Lens' ListIdentities (Maybe Text)
+lirqNextToken = lens _lirqNextToken (\ s a -> s{_lirqNextToken = a});
+
 -- | An identity pool ID in the format REGION:GUID.
-liIdentityPoolId :: Lens' ListIdentities Text
-liIdentityPoolId = lens _liIdentityPoolId (\s a -> s { _liIdentityPoolId = a })
+lirqIdentityPoolId :: Lens' ListIdentities Text
+lirqIdentityPoolId = lens _lirqIdentityPoolId (\ s a -> s{_lirqIdentityPoolId = a});
 
 -- | The maximum number of identities to return.
-liMaxResults :: Lens' ListIdentities Natural
-liMaxResults = lens _liMaxResults (\s a -> s { _liMaxResults = a }) . _Nat
+lirqMaxResults :: Lens' ListIdentities Natural
+lirqMaxResults = lens _lirqMaxResults (\ s a -> s{_lirqMaxResults = a}) . _Nat;
 
--- | A pagination token.
-liNextToken :: Lens' ListIdentities (Maybe Text)
-liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
+instance AWSRequest ListIdentities where
+        type Sv ListIdentities = CognitoIdentity
+        type Rs ListIdentities = ListIdentitiesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListIdentitiesResponse' <$>
+                   (x .?> "IdentityPoolId") <*> (x .?> "NextToken") <*>
+                     (x .?> "Identities" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
-data ListIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentities     :: List "Identities" IdentityDescription
-    , _lirIdentityPoolId :: Maybe Text
-    , _lirNextToken      :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance ToHeaders ListIdentities where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityService.ListIdentities" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
--- | 'ListIdentitiesResponse' constructor.
+instance ToJSON ListIdentities where
+        toJSON ListIdentities'{..}
+          = object
+              ["HideDisabled" .= _lirqHideDisabled,
+               "NextToken" .= _lirqNextToken,
+               "IdentityPoolId" .= _lirqIdentityPoolId,
+               "MaxResults" .= _lirqMaxResults]
+
+instance ToPath ListIdentities where
+        toPath = const "/"
+
+instance ToQuery ListIdentities where
+        toQuery = const mempty
+
+-- | The response to a ListIdentities request.
+--
+-- /See:/ 'listIdentitiesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirIdentities' @::@ ['IdentityDescription']
+-- * 'lirsIdentityPoolId'
 --
--- * 'lirIdentityPoolId' @::@ 'Maybe' 'Text'
+-- * 'lirsNextToken'
 --
--- * 'lirNextToken' @::@ 'Maybe' 'Text'
+-- * 'lirsIdentities'
 --
-listIdentitiesResponse :: ListIdentitiesResponse
-listIdentitiesResponse = ListIdentitiesResponse
-    { _lirIdentityPoolId = Nothing
-    , _lirIdentities     = mempty
-    , _lirNextToken      = Nothing
+-- * 'lirsStatus'
+data ListIdentitiesResponse = ListIdentitiesResponse'
+    { _lirsIdentityPoolId :: !(Maybe Text)
+    , _lirsNextToken      :: !(Maybe Text)
+    , _lirsIdentities     :: !(Maybe [IdentityDescription])
+    , _lirsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListIdentitiesResponse' smart constructor.
+listIdentitiesResponse :: Int -> ListIdentitiesResponse
+listIdentitiesResponse pStatus_ =
+    ListIdentitiesResponse'
+    { _lirsIdentityPoolId = Nothing
+    , _lirsNextToken = Nothing
+    , _lirsIdentities = Nothing
+    , _lirsStatus = pStatus_
     }
 
--- | An object containing a set of identities and associated mappings.
-lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a }) . _List
-
 -- | An identity pool ID in the format REGION:GUID.
-lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
-lirIdentityPoolId =
-    lens _lirIdentityPoolId (\s a -> s { _lirIdentityPoolId = a })
+lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
+lirsIdentityPoolId = lens _lirsIdentityPoolId (\ s a -> s{_lirsIdentityPoolId = a});
 
 -- | A pagination token.
-lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
+lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
+lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 
-instance ToPath ListIdentities where
-    toPath = const "/"
+-- | An object containing a set of identities and associated mappings.
+lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
+lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default;
 
-instance ToQuery ListIdentities where
-    toQuery = const mempty
-
-instance ToHeaders ListIdentities
-
-instance ToJSON ListIdentities where
-    toJSON ListIdentities{..} = object
-        [ "IdentityPoolId" .= _liIdentityPoolId
-        , "MaxResults"     .= _liMaxResults
-        , "NextToken"      .= _liNextToken
-        ]
-
-instance AWSRequest ListIdentities where
-    type Sv ListIdentities = CognitoIdentity
-    type Rs ListIdentities = ListIdentitiesResponse
-
-    request  = post "ListIdentities"
-    response = jsonResponse
-
-instance FromJSON ListIdentitiesResponse where
-    parseJSON = withObject "ListIdentitiesResponse" $ \o -> ListIdentitiesResponse
-        <$> o .:? "Identities" .!= mempty
-        <*> o .:? "IdentityPoolId"
-        <*> o .:? "NextToken"
+-- | FIXME: Undocumented member.
+lirsStatus :: Lens' ListIdentitiesResponse Int
+lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});

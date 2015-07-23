@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DescribeInternetGateways
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes one or more of your Internet gateways.
+-- Describes one or more of your Internet gateways.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInternetGateways.html>
 module Network.AWS.EC2.DescribeInternetGateways
@@ -32,126 +27,142 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- ** Request constructor
     , describeInternetGateways
     -- ** Request lenses
-    , dig1DryRun
-    , dig1Filters
-    , dig1InternetGatewayIds
+    , drqFilters
+    , drqInternetGatewayIds
+    , drqDryRun
 
     -- * Response
     , DescribeInternetGatewaysResponse
     -- ** Response constructor
     , describeInternetGatewaysResponse
     -- ** Response lenses
-    , digrInternetGateways
+    , digrsInternetGateways
+    , digrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeInternetGateways = DescribeInternetGateways
-    { _dig1DryRun             :: Maybe Bool
-    , _dig1Filters            :: List "Filter" Filter
-    , _dig1InternetGatewayIds :: List "item" Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeInternetGateways' constructor.
+-- | /See:/ 'describeInternetGateways' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dig1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'drqFilters'
 --
--- * 'dig1Filters' @::@ ['Filter']
+-- * 'drqInternetGatewayIds'
 --
--- * 'dig1InternetGatewayIds' @::@ ['Text']
---
-describeInternetGateways :: DescribeInternetGateways
-describeInternetGateways = DescribeInternetGateways
-    { _dig1DryRun             = Nothing
-    , _dig1InternetGatewayIds = mempty
-    , _dig1Filters            = mempty
-    }
+-- * 'drqDryRun'
+data DescribeInternetGateways = DescribeInternetGateways'
+    { _drqFilters            :: !(Maybe [Filter])
+    , _drqInternetGatewayIds :: !(Maybe [Text])
+    , _drqDryRun             :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dig1DryRun :: Lens' DescribeInternetGateways (Maybe Bool)
-dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
+-- | 'DescribeInternetGateways' smart constructor.
+describeInternetGateways :: DescribeInternetGateways
+describeInternetGateways =
+    DescribeInternetGateways'
+    { _drqFilters = Nothing
+    , _drqInternetGatewayIds = Nothing
+    , _drqDryRun = Nothing
+    }
 
 -- | One or more filters.
 --
--- 'attachment.state' - The current state of the attachment between the gateway
--- and the VPC ('available'). Present only if a VPC is attached.
+-- -   @attachment.state@ - The current state of the attachment between the
+--     gateway and the VPC (@available@). Present only if a VPC is
+--     attached.
 --
--- 'attachment.vpc-id' - The ID of an attached VPC.
+-- -   @attachment.vpc-id@ - The ID of an attached VPC.
 --
--- 'internet-gateway-id' - The ID of the Internet gateway.
+-- -   @internet-gateway-id@ - The ID of the Internet gateway.
 --
--- 'tag':/key/=/value/ - The key/value combination of a tag assigned to the
--- resource.
+-- -   @tag@:/key/=/value/ - The key\/value combination of a tag assigned
+--     to the resource.
 --
--- 'tag-key' - The key of a tag assigned to the resource. This filter is
--- independent of the 'tag-value' filter. For example, if you use both the filter
--- "tag-key=Purpose" and the filter "tag-value=X", you get any resources
--- assigned both the tag key Purpose (regardless of what the tag's value is),
--- and the tag value X (regardless of what the tag's key is). If you want to
--- list only resources where Purpose is X, see the 'tag':/key/=/value/ filter.
+-- -   @tag-key@ - The key of a tag assigned to the resource. This filter
+--     is independent of the @tag-value@ filter. For example, if you use
+--     both the filter \"tag-key=Purpose\" and the filter \"tag-value=X\",
+--     you get any resources assigned both the tag key Purpose (regardless
+--     of what the tag\'s value is), and the tag value X (regardless of
+--     what the tag\'s key is). If you want to list only resources where
+--     Purpose is X, see the @tag@:/key/=/value/ filter.
 --
--- 'tag-value' - The value of a tag assigned to the resource. This filter is
--- independent of the 'tag-key' filter.
+-- -   @tag-value@ - The value of a tag assigned to the resource. This
+--     filter is independent of the @tag-key@ filter.
 --
---
-dig1Filters :: Lens' DescribeInternetGateways [Filter]
-dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a }) . _List
+drqFilters :: Lens' DescribeInternetGateways [Filter]
+drqFilters = lens _drqFilters (\ s a -> s{_drqFilters = a}) . _Default;
 
 -- | One or more Internet gateway IDs.
 --
 -- Default: Describes all your Internet gateways.
-dig1InternetGatewayIds :: Lens' DescribeInternetGateways [Text]
-dig1InternetGatewayIds =
-    lens _dig1InternetGatewayIds (\s a -> s { _dig1InternetGatewayIds = a })
-        . _List
+drqInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+drqInternetGatewayIds = lens _drqInternetGatewayIds (\ s a -> s{_drqInternetGatewayIds = a}) . _Default;
 
-newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
-    { _digrInternetGateways :: List "item" InternetGateway
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+drqDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
+drqDryRun = lens _drqDryRun (\ s a -> s{_drqDryRun = a});
 
--- | 'DescribeInternetGatewaysResponse' constructor.
+instance AWSRequest DescribeInternetGateways where
+        type Sv DescribeInternetGateways = EC2
+        type Rs DescribeInternetGateways =
+             DescribeInternetGatewaysResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeInternetGatewaysResponse' <$>
+                   (x .@? "internetGatewaySet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeInternetGateways where
+        toHeaders = const mempty
+
+instance ToPath DescribeInternetGateways where
+        toPath = const "/"
+
+instance ToQuery DescribeInternetGateways where
+        toQuery DescribeInternetGateways'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeInternetGateways" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _drqFilters),
+               toQuery
+                 (toQueryList "item" <$> _drqInternetGatewayIds),
+               "DryRun" =: _drqDryRun]
+
+-- | /See:/ 'describeInternetGatewaysResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'digrInternetGateways' @::@ ['InternetGateway']
+-- * 'digrsInternetGateways'
 --
-describeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
-describeInternetGatewaysResponse = DescribeInternetGatewaysResponse
-    { _digrInternetGateways = mempty
+-- * 'digrsStatus'
+data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
+    { _digrsInternetGateways :: !(Maybe [InternetGateway])
+    , _digrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeInternetGatewaysResponse' smart constructor.
+describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse
+describeInternetGatewaysResponse pStatus_ =
+    DescribeInternetGatewaysResponse'
+    { _digrsInternetGateways = Nothing
+    , _digrsStatus = pStatus_
     }
 
 -- | Information about one or more Internet gateways.
-digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
-digrInternetGateways =
-    lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
-        . _List
+digrsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+digrsInternetGateways = lens _digrsInternetGateways (\ s a -> s{_digrsInternetGateways = a}) . _Default;
 
-instance ToPath DescribeInternetGateways where
-    toPath = const "/"
-
-instance ToQuery DescribeInternetGateways where
-    toQuery DescribeInternetGateways{..} = mconcat
-        [ "DryRun"            =? _dig1DryRun
-        , "Filter"            `toQueryList` _dig1Filters
-        , "InternetGatewayId" `toQueryList` _dig1InternetGatewayIds
-        ]
-
-instance ToHeaders DescribeInternetGateways
-
-instance AWSRequest DescribeInternetGateways where
-    type Sv DescribeInternetGateways = EC2
-    type Rs DescribeInternetGateways = DescribeInternetGatewaysResponse
-
-    request  = post "DescribeInternetGateways"
-    response = xmlResponse
-
-instance FromXML DescribeInternetGatewaysResponse where
-    parseXML x = DescribeInternetGatewaysResponse
-        <$> x .@? "internetGatewaySet" .!@ mempty
+-- | FIXME: Undocumented member.
+digrsStatus :: Lens' DescribeInternetGatewaysResponse Int
+digrsStatus = lens _digrsStatus (\ s a -> s{_digrsStatus = a});

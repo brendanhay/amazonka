@@ -1,6 +1,6 @@
 name:                  amazonka-gen
-version:               0.3.6
-synopsis:              Amazonka Generator
+version:               1.0.0
+synopsis:              Amazonka Code Generator
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -13,39 +13,81 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Generator for Amazonka related AWS SDKs
+    Compiler and generator for Amazonka related AWS SDKs
 
 executable amazonka-gen
     default-language:  Haskell2010
     hs-source-dirs:    src
     main-is:           Main.hs
 
+    other-modules:
+          Gen.AST
+        , Gen.AST.Cofree
+        , Gen.AST.Data
+        , Gen.AST.Data.Field
+        , Gen.AST.Data.Instance
+        , Gen.AST.Data.Syntax
+        , Gen.AST.Override
+        , Gen.AST.Prefix
+        , Gen.AST.Subst
+        , Gen.AST.TypeOf
+        , Gen.Formatting
+        , Gen.IO
+        , Gen.Import
+        , Gen.JSON
+        , Gen.Protocol
+        , Gen.TH
+        , Gen.Text
+        , Gen.Tree
+        , Gen.Types
+        , Gen.Types.Ann
+        , Gen.Types.Data
+        , Gen.Types.Help
+        , Gen.Types.Id
+        , Gen.Types.Map
+        , Gen.Types.NS
+        , Gen.Types.Notation
+        , Gen.Types.Orphans
+        , Gen.Types.Pager
+        , Gen.Types.Retry
+        , Gen.Types.Pager
+        , Gen.Types.Service
+        , Gen.Types.URI
+        , Gen.Types.Waiter
+
     ghc-options:       -Wall -threaded
 
     build-depends:
           aeson
-        , aeson-pretty
         , attoparsec
-        , base                 >= 4.7
-        , bifunctors
+        , base                 == 4.8.*
         , bytestring
         , case-insensitive
-        , directory
-        , ede                  >= 0.2.8.2
-        , errors
-        , filepath
+        , comonad
+        , data-default-class
+        , directory-tree
+        , ede
+        , errors               == 2.*
+        , formatting
+        , free
         , hashable
-        , jason
-        , lens                 >= 4.5
+        , haskell-src-exts
+        , hindent
+        , lens
         , mtl
-        , optparse-applicative == 0.11.*
+        , optparse-applicative
+        , pandoc
         , parsec
         , scientific
+        , semigroups
         , semver
-        , tagsoup
+        , system-fileio
+        , system-filepath
         , template-haskell
         , text
+        , text-icu
         , text-manipulate
+        , text-regex-replace
+        , time                 >= 1.5
         , transformers
         , unordered-containers
-        , vector

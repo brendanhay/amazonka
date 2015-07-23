@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.GetBucketWebsite
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns the website configuration for a bucket.
+-- Returns the website configuration for a bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketWebsite.html>
 module Network.AWS.S3.GetBucketWebsite
@@ -32,112 +27,119 @@ module Network.AWS.S3.GetBucketWebsite
     -- ** Request constructor
     , getBucketWebsite
     -- ** Request lenses
-    , gbwBucket
+    , gbwrqBucket
 
     -- * Response
     , GetBucketWebsiteResponse
     -- ** Response constructor
     , getBucketWebsiteResponse
     -- ** Response lenses
-    , gbwrErrorDocument
-    , gbwrIndexDocument
-    , gbwrRedirectAllRequestsTo
-    , gbwrRoutingRules
+    , gbwrsRedirectAllRequestsTo
+    , gbwrsErrorDocument
+    , gbwrsRoutingRules
+    , gbwrsIndexDocument
+    , gbwrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-newtype GetBucketWebsite = GetBucketWebsite
-    { _gbwBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetBucketWebsite' constructor.
+-- | /See:/ 'getBucketWebsite' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbwBucket' @::@ 'Text'
---
-getBucketWebsite :: Text -- ^ 'gbwBucket'
-                 -> GetBucketWebsite
-getBucketWebsite p1 = GetBucketWebsite
-    { _gbwBucket = p1
+-- * 'gbwrqBucket'
+newtype GetBucketWebsite = GetBucketWebsite'
+    { _gbwrqBucket :: BucketName
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'GetBucketWebsite' smart constructor.
+getBucketWebsite :: BucketName -> GetBucketWebsite
+getBucketWebsite pBucket_ =
+    GetBucketWebsite'
+    { _gbwrqBucket = pBucket_
     }
 
-gbwBucket :: Lens' GetBucketWebsite Text
-gbwBucket = lens _gbwBucket (\s a -> s { _gbwBucket = a })
-
-data GetBucketWebsiteResponse = GetBucketWebsiteResponse
-    { _gbwrErrorDocument         :: Maybe ErrorDocument
-    , _gbwrIndexDocument         :: Maybe IndexDocument
-    , _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _gbwrRoutingRules          :: List "RoutingRule" RoutingRule
-    } deriving (Eq, Read, Show)
-
--- | 'GetBucketWebsiteResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gbwrErrorDocument' @::@ 'Maybe' 'ErrorDocument'
---
--- * 'gbwrIndexDocument' @::@ 'Maybe' 'IndexDocument'
---
--- * 'gbwrRedirectAllRequestsTo' @::@ 'Maybe' 'RedirectAllRequestsTo'
---
--- * 'gbwrRoutingRules' @::@ ['RoutingRule']
---
-getBucketWebsiteResponse :: GetBucketWebsiteResponse
-getBucketWebsiteResponse = GetBucketWebsiteResponse
-    { _gbwrRedirectAllRequestsTo = Nothing
-    , _gbwrIndexDocument         = Nothing
-    , _gbwrErrorDocument         = Nothing
-    , _gbwrRoutingRules          = mempty
-    }
-
-gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
-gbwrErrorDocument =
-    lens _gbwrErrorDocument (\s a -> s { _gbwrErrorDocument = a })
-
-gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
-gbwrIndexDocument =
-    lens _gbwrIndexDocument (\s a -> s { _gbwrIndexDocument = a })
-
-gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
-gbwrRedirectAllRequestsTo =
-    lens _gbwrRedirectAllRequestsTo
-        (\s a -> s { _gbwrRedirectAllRequestsTo = a })
-
-gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrRoutingRules = lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a }) . _List
-
-instance ToPath GetBucketWebsite where
-    toPath GetBucketWebsite{..} = mconcat
-        [ "/"
-        , toText _gbwBucket
-        ]
-
-instance ToQuery GetBucketWebsite where
-    toQuery = const "website"
-
-instance ToHeaders GetBucketWebsite
-
-instance ToXMLRoot GetBucketWebsite where
-    toXMLRoot = const (namespaced ns "GetBucketWebsite" [])
-
-instance ToXML GetBucketWebsite
+-- | FIXME: Undocumented member.
+gbwrqBucket :: Lens' GetBucketWebsite BucketName
+gbwrqBucket = lens _gbwrqBucket (\ s a -> s{_gbwrqBucket = a});
 
 instance AWSRequest GetBucketWebsite where
-    type Sv GetBucketWebsite = S3
-    type Rs GetBucketWebsite = GetBucketWebsiteResponse
+        type Sv GetBucketWebsite = S3
+        type Rs GetBucketWebsite = GetBucketWebsiteResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetBucketWebsiteResponse' <$>
+                   (x .@? "RedirectAllRequestsTo") <*>
+                     (x .@? "ErrorDocument")
+                     <*>
+                     (x .@? "RoutingRules" .!@ mempty >>=
+                        may (parseXMLList "RoutingRule"))
+                     <*> (x .@? "IndexDocument")
+                     <*> (pure (fromEnum s)))
 
-    request  = get
-    response = xmlResponse
+instance ToHeaders GetBucketWebsite where
+        toHeaders = const mempty
 
-instance FromXML GetBucketWebsiteResponse where
-    parseXML x = GetBucketWebsiteResponse
-        <$> x .@? "ErrorDocument"
-        <*> x .@? "IndexDocument"
-        <*> x .@? "RedirectAllRequestsTo"
-        <*> x .@? "RoutingRules" .!@ mempty
+instance ToPath GetBucketWebsite where
+        toPath GetBucketWebsite'{..}
+          = mconcat ["/", toText _gbwrqBucket]
+
+instance ToQuery GetBucketWebsite where
+        toQuery = const (mconcat ["website"])
+
+-- | /See:/ 'getBucketWebsiteResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbwrsRedirectAllRequestsTo'
+--
+-- * 'gbwrsErrorDocument'
+--
+-- * 'gbwrsRoutingRules'
+--
+-- * 'gbwrsIndexDocument'
+--
+-- * 'gbwrsStatus'
+data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
+    { _gbwrsRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
+    , _gbwrsErrorDocument         :: !(Maybe ErrorDocument)
+    , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
+    , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
+    , _gbwrsStatus                :: !Int
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'GetBucketWebsiteResponse' smart constructor.
+getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse
+getBucketWebsiteResponse pStatus_ =
+    GetBucketWebsiteResponse'
+    { _gbwrsRedirectAllRequestsTo = Nothing
+    , _gbwrsErrorDocument = Nothing
+    , _gbwrsRoutingRules = Nothing
+    , _gbwrsIndexDocument = Nothing
+    , _gbwrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+gbwrsRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
+gbwrsRedirectAllRequestsTo = lens _gbwrsRedirectAllRequestsTo (\ s a -> s{_gbwrsRedirectAllRequestsTo = a});
+
+-- | FIXME: Undocumented member.
+gbwrsErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
+gbwrsErrorDocument = lens _gbwrsErrorDocument (\ s a -> s{_gbwrsErrorDocument = a});
+
+-- | FIXME: Undocumented member.
+gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
+gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = a});
+
+-- | FIXME: Undocumented member.
+gbwrsStatus :: Lens' GetBucketWebsiteResponse Int
+gbwrsStatus = lens _gbwrsStatus (\ s a -> s{_gbwrsStatus = a});

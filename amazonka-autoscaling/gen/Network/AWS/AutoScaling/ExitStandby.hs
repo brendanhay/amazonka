@@ -1,30 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.AutoScaling.ExitStandby
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Moves the specified instances out of 'Standby' mode.
+-- Moves the specified instances out of @Standby@ mode.
 --
--- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State> in the /Auto ScalingDeveloper Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State>
+-- in the /Auto Scaling Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_ExitStandby.html>
 module Network.AWS.AutoScaling.ExitStandby
@@ -34,94 +31,102 @@ module Network.AWS.AutoScaling.ExitStandby
     -- ** Request constructor
     , exitStandby
     -- ** Request lenses
-    , es1AutoScalingGroupName
-    , es1InstanceIds
+    , erqInstanceIds
+    , erqAutoScalingGroupName
 
     -- * Response
     , ExitStandbyResponse
     -- ** Response constructor
     , exitStandbyResponse
     -- ** Response lenses
-    , esrActivities
+    , ersActivities
+    , ersStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ExitStandby = ExitStandby
-    { _es1AutoScalingGroupName :: Text
-    , _es1InstanceIds          :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ExitStandby' constructor.
+-- | /See:/ 'exitStandby' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'es1AutoScalingGroupName' @::@ 'Text'
+-- * 'erqInstanceIds'
 --
--- * 'es1InstanceIds' @::@ ['Text']
---
-exitStandby :: Text -- ^ 'es1AutoScalingGroupName'
-            -> ExitStandby
-exitStandby p1 = ExitStandby
-    { _es1AutoScalingGroupName = p1
-    , _es1InstanceIds          = mempty
-    }
+-- * 'erqAutoScalingGroupName'
+data ExitStandby = ExitStandby'
+    { _erqInstanceIds          :: !(Maybe [Text])
+    , _erqAutoScalingGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | The name of the Auto Scaling group.
-es1AutoScalingGroupName :: Lens' ExitStandby Text
-es1AutoScalingGroupName =
-    lens _es1AutoScalingGroupName (\s a -> s { _es1AutoScalingGroupName = a })
+-- | 'ExitStandby' smart constructor.
+exitStandby :: Text -> ExitStandby
+exitStandby pAutoScalingGroupName_ =
+    ExitStandby'
+    { _erqInstanceIds = Nothing
+    , _erqAutoScalingGroupName = pAutoScalingGroupName_
+    }
 
 -- | One or more instance IDs. You must specify at least one instance ID.
-es1InstanceIds :: Lens' ExitStandby [Text]
-es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a }) . _List
+erqInstanceIds :: Lens' ExitStandby [Text]
+erqInstanceIds = lens _erqInstanceIds (\ s a -> s{_erqInstanceIds = a}) . _Default;
 
-newtype ExitStandbyResponse = ExitStandbyResponse
-    { _esrActivities :: List "member" Activity
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | The name of the Auto Scaling group.
+erqAutoScalingGroupName :: Lens' ExitStandby Text
+erqAutoScalingGroupName = lens _erqAutoScalingGroupName (\ s a -> s{_erqAutoScalingGroupName = a});
 
-instance GHC.Exts.IsList ExitStandbyResponse where
-    type Item ExitStandbyResponse = Activity
+instance AWSRequest ExitStandby where
+        type Sv ExitStandby = AutoScaling
+        type Rs ExitStandby = ExitStandbyResponse
+        request = post
+        response
+          = receiveXMLWrapper "ExitStandbyResult"
+              (\ s h x ->
+                 ExitStandbyResponse' <$>
+                   (x .@? "Activities" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    fromList = ExitStandbyResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _esrActivities
+instance ToHeaders ExitStandby where
+        toHeaders = const mempty
 
--- | 'ExitStandbyResponse' constructor.
+instance ToPath ExitStandby where
+        toPath = const "/"
+
+instance ToQuery ExitStandby where
+        toQuery ExitStandby'{..}
+          = mconcat
+              ["Action" =: ("ExitStandby" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _erqInstanceIds),
+               "AutoScalingGroupName" =: _erqAutoScalingGroupName]
+
+-- | /See:/ 'exitStandbyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esrActivities' @::@ ['Activity']
+-- * 'ersActivities'
 --
-exitStandbyResponse :: ExitStandbyResponse
-exitStandbyResponse = ExitStandbyResponse
-    { _esrActivities = mempty
+-- * 'ersStatus'
+data ExitStandbyResponse = ExitStandbyResponse'
+    { _ersActivities :: !(Maybe [Activity])
+    , _ersStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ExitStandbyResponse' smart constructor.
+exitStandbyResponse :: Int -> ExitStandbyResponse
+exitStandbyResponse pStatus_ =
+    ExitStandbyResponse'
+    { _ersActivities = Nothing
+    , _ersStatus = pStatus_
     }
 
--- | The activities related to moving instances out of 'Standby' mode.
-esrActivities :: Lens' ExitStandbyResponse [Activity]
-esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a }) . _List
+-- | The activities related to moving instances out of @Standby@ mode.
+ersActivities :: Lens' ExitStandbyResponse [Activity]
+ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default;
 
-instance ToPath ExitStandby where
-    toPath = const "/"
-
-instance ToQuery ExitStandby where
-    toQuery ExitStandby{..} = mconcat
-        [ "AutoScalingGroupName" =? _es1AutoScalingGroupName
-        , "InstanceIds"          =? _es1InstanceIds
-        ]
-
-instance ToHeaders ExitStandby
-
-instance AWSRequest ExitStandby where
-    type Sv ExitStandby = AutoScaling
-    type Rs ExitStandby = ExitStandbyResponse
-
-    request  = post "ExitStandby"
-    response = xmlResponse
-
-instance FromXML ExitStandbyResponse where
-    parseXML = withElement "ExitStandbyResult" $ \x -> ExitStandbyResponse
-        <$> x .@? "Activities" .!@ mempty
+-- | FIXME: Undocumented member.
+ersStatus :: Lens' ExitStandbyResponse Int
+ersStatus = lens _ersStatus (\ s a -> s{_ersStatus = a});

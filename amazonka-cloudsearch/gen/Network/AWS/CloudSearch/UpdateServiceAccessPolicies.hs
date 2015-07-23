@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudSearch.UpdateServiceAccessPolicies
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Configures the access rules that control access to the domain's document and
--- search endpoints. For more information, see  Configuring Access for an Amazon
--- CloudSearch Domain.
+-- Configures the access rules that control access to the domain\'s
+-- document and search endpoints. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html Configuring Access for an Amazon CloudSearch Domain>.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateServiceAccessPolicies.html>
 module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
@@ -34,91 +29,110 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     -- ** Request constructor
     , updateServiceAccessPolicies
     -- ** Request lenses
-    , usapAccessPolicies
-    , usapDomainName
+    , usaprqDomainName
+    , usaprqAccessPolicies
 
     -- * Response
     , UpdateServiceAccessPoliciesResponse
     -- ** Response constructor
     , updateServiceAccessPoliciesResponse
     -- ** Response lenses
-    , usaprAccessPolicies
+    , usaprsStatus
+    , usaprsAccessPolicies
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
-    { _usapAccessPolicies :: Text
-    , _usapDomainName     :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateServiceAccessPolicies' constructor.
+-- | Container for the parameters to the @UpdateServiceAccessPolicies@
+-- operation. Specifies the name of the domain you want to update and the
+-- access rules you want to configure.
+--
+-- /See:/ 'updateServiceAccessPolicies' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usapAccessPolicies' @::@ 'Text'
+-- * 'usaprqDomainName'
 --
--- * 'usapDomainName' @::@ 'Text'
---
-updateServiceAccessPolicies :: Text -- ^ 'usapDomainName'
-                            -> Text -- ^ 'usapAccessPolicies'
-                            -> UpdateServiceAccessPolicies
-updateServiceAccessPolicies p1 p2 = UpdateServiceAccessPolicies
-    { _usapDomainName     = p1
-    , _usapAccessPolicies = p2
+-- * 'usaprqAccessPolicies'
+data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
+    { _usaprqDomainName     :: !Text
+    , _usaprqAccessPolicies :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateServiceAccessPolicies' smart constructor.
+updateServiceAccessPolicies :: Text -> Text -> UpdateServiceAccessPolicies
+updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
+    UpdateServiceAccessPolicies'
+    { _usaprqDomainName = pDomainName_
+    , _usaprqAccessPolicies = pAccessPolicies_
     }
+
+-- | FIXME: Undocumented member.
+usaprqDomainName :: Lens' UpdateServiceAccessPolicies Text
+usaprqDomainName = lens _usaprqDomainName (\ s a -> s{_usaprqDomainName = a});
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
-usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
-usapAccessPolicies =
-    lens _usapAccessPolicies (\s a -> s { _usapAccessPolicies = a })
+usaprqAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
+usaprqAccessPolicies = lens _usaprqAccessPolicies (\ s a -> s{_usaprqAccessPolicies = a});
 
-usapDomainName :: Lens' UpdateServiceAccessPolicies Text
-usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
+instance AWSRequest UpdateServiceAccessPolicies where
+        type Sv UpdateServiceAccessPolicies = CloudSearch
+        type Rs UpdateServiceAccessPolicies =
+             UpdateServiceAccessPoliciesResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "UpdateServiceAccessPoliciesResult"
+              (\ s h x ->
+                 UpdateServiceAccessPoliciesResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "AccessPolicies"))
 
-newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
-    { _usaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Read, Show)
+instance ToHeaders UpdateServiceAccessPolicies where
+        toHeaders = const mempty
 
--- | 'UpdateServiceAccessPoliciesResponse' constructor.
+instance ToPath UpdateServiceAccessPolicies where
+        toPath = const "/"
+
+instance ToQuery UpdateServiceAccessPolicies where
+        toQuery UpdateServiceAccessPolicies'{..}
+          = mconcat
+              ["Action" =:
+                 ("UpdateServiceAccessPolicies" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "DomainName" =: _usaprqDomainName,
+               "AccessPolicies" =: _usaprqAccessPolicies]
+
+-- | The result of an @UpdateServiceAccessPolicies@ request. Contains the new
+-- access policies.
+--
+-- /See:/ 'updateServiceAccessPoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usaprAccessPolicies' @::@ 'AccessPoliciesStatus'
+-- * 'usaprsStatus'
 --
-updateServiceAccessPoliciesResponse :: AccessPoliciesStatus -- ^ 'usaprAccessPolicies'
-                                    -> UpdateServiceAccessPoliciesResponse
-updateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
-    { _usaprAccessPolicies = p1
+-- * 'usaprsAccessPolicies'
+data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
+    { _usaprsStatus         :: !Int
+    , _usaprsAccessPolicies :: !AccessPoliciesStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
+updateServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> UpdateServiceAccessPoliciesResponse
+updateServiceAccessPoliciesResponse pStatus_ pAccessPolicies_ =
+    UpdateServiceAccessPoliciesResponse'
+    { _usaprsStatus = pStatus_
+    , _usaprsAccessPolicies = pAccessPolicies_
     }
 
+-- | FIXME: Undocumented member.
+usaprsStatus :: Lens' UpdateServiceAccessPoliciesResponse Int
+usaprsStatus = lens _usaprsStatus (\ s a -> s{_usaprsStatus = a});
+
 -- | The access rules configured for the domain.
-usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
-usaprAccessPolicies =
-    lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
-
-instance ToPath UpdateServiceAccessPolicies where
-    toPath = const "/"
-
-instance ToQuery UpdateServiceAccessPolicies where
-    toQuery UpdateServiceAccessPolicies{..} = mconcat
-        [ "AccessPolicies" =? _usapAccessPolicies
-        , "DomainName"     =? _usapDomainName
-        ]
-
-instance ToHeaders UpdateServiceAccessPolicies
-
-instance AWSRequest UpdateServiceAccessPolicies where
-    type Sv UpdateServiceAccessPolicies = CloudSearch
-    type Rs UpdateServiceAccessPolicies = UpdateServiceAccessPoliciesResponse
-
-    request  = post "UpdateServiceAccessPolicies"
-    response = xmlResponse
-
-instance FromXML UpdateServiceAccessPoliciesResponse where
-    parseXML = withElement "UpdateServiceAccessPoliciesResult" $ \x -> UpdateServiceAccessPoliciesResponse
-        <$> x .@  "AccessPolicies"
+usaprsAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
+usaprsAccessPolicies = lens _usaprsAccessPolicies (\ s a -> s{_usaprsAccessPolicies = a});

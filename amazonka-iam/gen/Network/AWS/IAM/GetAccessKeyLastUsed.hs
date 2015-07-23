@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.GetAccessKeyLastUsed
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Retrieves information about when the specified access key was last used. The
--- information includes the date and time of last use, along with the AWS
--- service and region that were specified in the last request made with that key.
+-- Retrieves information about when the specified access key was last used.
+-- The information includes the date and time of last use, along with the
+-- AWS service and region that were specified in the last request made with
+-- that key.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html>
 module Network.AWS.IAM.GetAccessKeyLastUsed
@@ -34,88 +30,104 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     -- ** Request constructor
     , getAccessKeyLastUsed
     -- ** Request lenses
-    , gakluAccessKeyId
+    , gaklurqAccessKeyId
 
     -- * Response
     , GetAccessKeyLastUsedResponse
     -- ** Response constructor
     , getAccessKeyLastUsedResponse
     -- ** Response lenses
-    , gaklurAccessKeyLastUsed
-    , gaklurUserName
+    , gaklursUserName
+    , gaklursAccessKeyLastUsed
+    , gaklursStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed
-    { _gakluAccessKeyId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetAccessKeyLastUsed' constructor.
+-- | /See:/ 'getAccessKeyLastUsed' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gakluAccessKeyId' @::@ 'Text'
---
-getAccessKeyLastUsed :: Text -- ^ 'gakluAccessKeyId'
-                     -> GetAccessKeyLastUsed
-getAccessKeyLastUsed p1 = GetAccessKeyLastUsed
-    { _gakluAccessKeyId = p1
+-- * 'gaklurqAccessKeyId'
+newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
+    { _gaklurqAccessKeyId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetAccessKeyLastUsed' smart constructor.
+getAccessKeyLastUsed :: Text -> GetAccessKeyLastUsed
+getAccessKeyLastUsed pAccessKeyId_ =
+    GetAccessKeyLastUsed'
+    { _gaklurqAccessKeyId = pAccessKeyId_
     }
 
 -- | The identifier of an access key.
-gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
-gakluAccessKeyId = lens _gakluAccessKeyId (\s a -> s { _gakluAccessKeyId = a })
+gaklurqAccessKeyId :: Lens' GetAccessKeyLastUsed Text
+gaklurqAccessKeyId = lens _gaklurqAccessKeyId (\ s a -> s{_gaklurqAccessKeyId = a});
 
-data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse
-    { _gaklurAccessKeyLastUsed :: Maybe AccessKeyLastUsed
-    , _gaklurUserName          :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetAccessKeyLastUsed where
+        type Sv GetAccessKeyLastUsed = IAM
+        type Rs GetAccessKeyLastUsed =
+             GetAccessKeyLastUsedResponse
+        request = post
+        response
+          = receiveXMLWrapper "GetAccessKeyLastUsedResult"
+              (\ s h x ->
+                 GetAccessKeyLastUsedResponse' <$>
+                   (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed")
+                     <*> (pure (fromEnum s)))
 
--- | 'GetAccessKeyLastUsedResponse' constructor.
+instance ToHeaders GetAccessKeyLastUsed where
+        toHeaders = const mempty
+
+instance ToPath GetAccessKeyLastUsed where
+        toPath = const "/"
+
+instance ToQuery GetAccessKeyLastUsed where
+        toQuery GetAccessKeyLastUsed'{..}
+          = mconcat
+              ["Action" =: ("GetAccessKeyLastUsed" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "AccessKeyId" =: _gaklurqAccessKeyId]
+
+-- | Contains the response to a successful GetAccessKeyLastUsed request. It
+-- is also returned as a member of the AccessKeyMetaData structure returned
+-- by the ListAccessKeys action.
+--
+-- /See:/ 'getAccessKeyLastUsedResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaklurAccessKeyLastUsed' @::@ 'Maybe' 'AccessKeyLastUsed'
+-- * 'gaklursUserName'
 --
--- * 'gaklurUserName' @::@ 'Maybe' 'Text'
+-- * 'gaklursAccessKeyLastUsed'
 --
-getAccessKeyLastUsedResponse :: GetAccessKeyLastUsedResponse
-getAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse
-    { _gaklurUserName          = Nothing
-    , _gaklurAccessKeyLastUsed = Nothing
+-- * 'gaklursStatus'
+data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
+    { _gaklursUserName          :: !(Maybe Text)
+    , _gaklursAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
+    , _gaklursStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetAccessKeyLastUsedResponse' smart constructor.
+getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse
+getAccessKeyLastUsedResponse pStatus_ =
+    GetAccessKeyLastUsedResponse'
+    { _gaklursUserName = Nothing
+    , _gaklursAccessKeyLastUsed = Nothing
+    , _gaklursStatus = pStatus_
     }
 
--- | Contains information about the last time the access key was used.
-gaklurAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
-gaklurAccessKeyLastUsed =
-    lens _gaklurAccessKeyLastUsed (\s a -> s { _gaklurAccessKeyLastUsed = a })
-
 -- | The name of the AWS IAM user that owns this access key.
-gaklurUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
-gaklurUserName = lens _gaklurUserName (\s a -> s { _gaklurUserName = a })
+gaklursUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
+gaklursUserName = lens _gaklursUserName (\ s a -> s{_gaklursUserName = a});
 
-instance ToPath GetAccessKeyLastUsed where
-    toPath = const "/"
+-- | Contains information about the last time the access key was used.
+gaklursAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
+gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAccessKeyLastUsed = a});
 
-instance ToQuery GetAccessKeyLastUsed where
-    toQuery GetAccessKeyLastUsed{..} = mconcat
-        [ "AccessKeyId" =? _gakluAccessKeyId
-        ]
-
-instance ToHeaders GetAccessKeyLastUsed
-
-instance AWSRequest GetAccessKeyLastUsed where
-    type Sv GetAccessKeyLastUsed = IAM
-    type Rs GetAccessKeyLastUsed = GetAccessKeyLastUsedResponse
-
-    request  = post "GetAccessKeyLastUsed"
-    response = xmlResponse
-
-instance FromXML GetAccessKeyLastUsedResponse where
-    parseXML = withElement "GetAccessKeyLastUsedResult" $ \x -> GetAccessKeyLastUsedResponse
-        <$> x .@? "AccessKeyLastUsed"
-        <*> x .@? "UserName"
+-- | FIXME: Undocumented member.
+gaklursStatus :: Lens' GetAccessKeyLastUsedResponse Int
+gaklursStatus = lens _gaklursStatus (\ s a -> s{_gaklursStatus = a});

@@ -1,38 +1,37 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.CreateKeyPair
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores
--- the public key and displays the private key for you to save to a file. The
--- private key is returned as an unencrypted PEM encoded PKCS#8 private key. If
--- a key with the specified name already exists, Amazon EC2 returns an error.
+-- Creates a 2048-bit RSA key pair with the specified name. Amazon EC2
+-- stores the public key and displays the private key for you to save to a
+-- file. The private key is returned as an unencrypted PEM encoded PKCS#8
+-- private key. If a key with the specified name already exists, Amazon EC2
+-- returns an error.
 --
 -- You can have up to five thousand key pairs per region.
 --
--- The key pair returned to you is available only in the region in which you
--- create it. To create a key pair that is available in all regions, use 'ImportKeyPair'.
+-- The key pair returned to you is available only in the region in which
+-- you create it. To create a key pair that is available in all regions,
+-- use ImportKeyPair.
 --
--- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon ElasticCompute Cloud User Guide/.
+-- For more information about key pairs, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateKeyPair.html>
 module Network.AWS.EC2.CreateKeyPair
@@ -42,115 +41,125 @@ module Network.AWS.EC2.CreateKeyPair
     -- ** Request constructor
     , createKeyPair
     -- ** Request lenses
-    , ckpDryRun
-    , ckpKeyName
+    , ckprqDryRun
+    , ckprqKeyName
 
     -- * Response
     , CreateKeyPairResponse
     -- ** Response constructor
     , createKeyPairResponse
     -- ** Response lenses
-    , ckprKeyFingerprint
-    , ckprKeyMaterial
-    , ckprKeyName
+    , ckprsStatus
+    , ckprsKeyName
+    , ckprsKeyFingerprint
+    , ckprsKeyMaterial
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateKeyPair = CreateKeyPair
-    { _ckpDryRun  :: Maybe Bool
-    , _ckpKeyName :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateKeyPair' constructor.
+-- | /See:/ 'createKeyPair' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ckpDryRun' @::@ 'Maybe' 'Bool'
+-- * 'ckprqDryRun'
 --
--- * 'ckpKeyName' @::@ 'Text'
---
-createKeyPair :: Text -- ^ 'ckpKeyName'
-              -> CreateKeyPair
-createKeyPair p1 = CreateKeyPair
-    { _ckpKeyName = p1
-    , _ckpDryRun  = Nothing
+-- * 'ckprqKeyName'
+data CreateKeyPair = CreateKeyPair'
+    { _ckprqDryRun  :: !(Maybe Bool)
+    , _ckprqKeyName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateKeyPair' smart constructor.
+createKeyPair :: Text -> CreateKeyPair
+createKeyPair pKeyName_ =
+    CreateKeyPair'
+    { _ckprqDryRun = Nothing
+    , _ckprqKeyName = pKeyName_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
-ckpDryRun = lens _ckpDryRun (\s a -> s { _ckpDryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+ckprqDryRun :: Lens' CreateKeyPair (Maybe Bool)
+ckprqDryRun = lens _ckprqDryRun (\ s a -> s{_ckprqDryRun = a});
 
 -- | A unique name for the key pair.
 --
 -- Constraints: Up to 255 ASCII characters
-ckpKeyName :: Lens' CreateKeyPair Text
-ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
+ckprqKeyName :: Lens' CreateKeyPair Text
+ckprqKeyName = lens _ckprqKeyName (\ s a -> s{_ckprqKeyName = a});
 
-data CreateKeyPairResponse = CreateKeyPairResponse
-    { _ckprKeyFingerprint :: Text
-    , _ckprKeyMaterial    :: Text
-    , _ckprKeyName        :: Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest CreateKeyPair where
+        type Sv CreateKeyPair = EC2
+        type Rs CreateKeyPair = CreateKeyPairResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 CreateKeyPairResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "keyName") <*>
+                     (x .@ "keyFingerprint")
+                     <*> (x .@ "keyMaterial"))
 
--- | 'CreateKeyPairResponse' constructor.
+instance ToHeaders CreateKeyPair where
+        toHeaders = const mempty
+
+instance ToPath CreateKeyPair where
+        toPath = const "/"
+
+instance ToQuery CreateKeyPair where
+        toQuery CreateKeyPair'{..}
+          = mconcat
+              ["Action" =: ("CreateKeyPair" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _ckprqDryRun, "KeyName" =: _ckprqKeyName]
+
+-- | Describes a key pair.
+--
+-- /See:/ 'createKeyPairResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ckprKeyFingerprint' @::@ 'Text'
+-- * 'ckprsStatus'
 --
--- * 'ckprKeyMaterial' @::@ 'Text'
+-- * 'ckprsKeyName'
 --
--- * 'ckprKeyName' @::@ 'Text'
+-- * 'ckprsKeyFingerprint'
 --
-createKeyPairResponse :: Text -- ^ 'ckprKeyName'
-                      -> Text -- ^ 'ckprKeyFingerprint'
-                      -> Text -- ^ 'ckprKeyMaterial'
-                      -> CreateKeyPairResponse
-createKeyPairResponse p1 p2 p3 = CreateKeyPairResponse
-    { _ckprKeyName        = p1
-    , _ckprKeyFingerprint = p2
-    , _ckprKeyMaterial    = p3
+-- * 'ckprsKeyMaterial'
+data CreateKeyPairResponse = CreateKeyPairResponse'
+    { _ckprsStatus         :: !Int
+    , _ckprsKeyName        :: !Text
+    , _ckprsKeyFingerprint :: !Text
+    , _ckprsKeyMaterial    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateKeyPairResponse' smart constructor.
+createKeyPairResponse :: Int -> Text -> Text -> Text -> CreateKeyPairResponse
+createKeyPairResponse pStatus_ pKeyName_ pKeyFingerprint_ pKeyMaterial_ =
+    CreateKeyPairResponse'
+    { _ckprsStatus = pStatus_
+    , _ckprsKeyName = pKeyName_
+    , _ckprsKeyFingerprint = pKeyFingerprint_
+    , _ckprsKeyMaterial = pKeyMaterial_
     }
 
--- | The SHA-1 digest of the DER encoded private key.
-ckprKeyFingerprint :: Lens' CreateKeyPairResponse Text
-ckprKeyFingerprint =
-    lens _ckprKeyFingerprint (\s a -> s { _ckprKeyFingerprint = a })
-
--- | An unencrypted PEM encoded RSA private key.
-ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
-ckprKeyMaterial = lens _ckprKeyMaterial (\s a -> s { _ckprKeyMaterial = a })
+-- | FIXME: Undocumented member.
+ckprsStatus :: Lens' CreateKeyPairResponse Int
+ckprsStatus = lens _ckprsStatus (\ s a -> s{_ckprsStatus = a});
 
 -- | The name of the key pair.
-ckprKeyName :: Lens' CreateKeyPairResponse Text
-ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
+ckprsKeyName :: Lens' CreateKeyPairResponse Text
+ckprsKeyName = lens _ckprsKeyName (\ s a -> s{_ckprsKeyName = a});
 
-instance ToPath CreateKeyPair where
-    toPath = const "/"
+-- | The SHA-1 digest of the DER encoded private key.
+ckprsKeyFingerprint :: Lens' CreateKeyPairResponse Text
+ckprsKeyFingerprint = lens _ckprsKeyFingerprint (\ s a -> s{_ckprsKeyFingerprint = a});
 
-instance ToQuery CreateKeyPair where
-    toQuery CreateKeyPair{..} = mconcat
-        [ "DryRun"  =? _ckpDryRun
-        , "KeyName" =? _ckpKeyName
-        ]
-
-instance ToHeaders CreateKeyPair
-
-instance AWSRequest CreateKeyPair where
-    type Sv CreateKeyPair = EC2
-    type Rs CreateKeyPair = CreateKeyPairResponse
-
-    request  = post "CreateKeyPair"
-    response = xmlResponse
-
-instance FromXML CreateKeyPairResponse where
-    parseXML x = CreateKeyPairResponse
-        <$> x .@  "keyFingerprint"
-        <*> x .@  "keyMaterial"
-        <*> x .@  "keyName"
+-- | An unencrypted PEM encoded RSA private key.
+ckprsKeyMaterial :: Lens' CreateKeyPairResponse Text
+ckprsKeyMaterial = lens _ckprsKeyMaterial (\ s a -> s{_ckprsKeyMaterial = a});

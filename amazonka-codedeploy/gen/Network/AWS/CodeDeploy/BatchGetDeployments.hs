@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeployments
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets information about one or more deployments.
+-- Gets information about one or more deployments.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html>
 module Network.AWS.CodeDeploy.BatchGetDeployments
@@ -32,94 +27,103 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     -- ** Request constructor
     , batchGetDeployments
     -- ** Request lenses
-    , bgdDeploymentIds
+    , bgdrqDeploymentIds
 
     -- * Response
     , BatchGetDeploymentsResponse
     -- ** Response constructor
     , batchGetDeploymentsResponse
     -- ** Response lenses
-    , bgdrDeploymentsInfo
+    , bgdrsDeploymentsInfo
+    , bgdrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype BatchGetDeployments = BatchGetDeployments
-    { _bgdDeploymentIds :: List "deploymentIds" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList BatchGetDeployments where
-    type Item BatchGetDeployments = Text
-
-    fromList = BatchGetDeployments . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _bgdDeploymentIds
-
--- | 'BatchGetDeployments' constructor.
+-- | Represents the input of a batch get deployments operation.
+--
+-- /See:/ 'batchGetDeployments' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgdDeploymentIds' @::@ ['Text']
---
+-- * 'bgdrqDeploymentIds'
+newtype BatchGetDeployments = BatchGetDeployments'
+    { _bgdrqDeploymentIds :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'BatchGetDeployments' smart constructor.
 batchGetDeployments :: BatchGetDeployments
-batchGetDeployments = BatchGetDeployments
-    { _bgdDeploymentIds = mempty
+batchGetDeployments =
+    BatchGetDeployments'
+    { _bgdrqDeploymentIds = Nothing
     }
 
--- | A list of deployment IDs, with multiple deployment IDs separated by spaces.
-bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
-bgdDeploymentIds = lens _bgdDeploymentIds (\s a -> s { _bgdDeploymentIds = a }) . _List
+-- | A list of deployment IDs, with multiple deployment IDs separated by
+-- spaces.
+bgdrqDeploymentIds :: Lens' BatchGetDeployments [Text]
+bgdrqDeploymentIds = lens _bgdrqDeploymentIds (\ s a -> s{_bgdrqDeploymentIds = a}) . _Default;
 
-newtype BatchGetDeploymentsResponse = BatchGetDeploymentsResponse
-    { _bgdrDeploymentsInfo :: List "deploymentsInfo" DeploymentInfo
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest BatchGetDeployments where
+        type Sv BatchGetDeployments = CodeDeploy
+        type Rs BatchGetDeployments =
+             BatchGetDeploymentsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 BatchGetDeploymentsResponse' <$>
+                   (x .?> "deploymentsInfo" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList BatchGetDeploymentsResponse where
-    type Item BatchGetDeploymentsResponse = DeploymentInfo
+instance ToHeaders BatchGetDeployments where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.BatchGetDeployments" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = BatchGetDeploymentsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _bgdrDeploymentsInfo
+instance ToJSON BatchGetDeployments where
+        toJSON BatchGetDeployments'{..}
+          = object ["deploymentIds" .= _bgdrqDeploymentIds]
 
--- | 'BatchGetDeploymentsResponse' constructor.
+instance ToPath BatchGetDeployments where
+        toPath = const "/"
+
+instance ToQuery BatchGetDeployments where
+        toQuery = const mempty
+
+-- | Represents the output of a batch get deployments operation.
+--
+-- /See:/ 'batchGetDeploymentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgdrDeploymentsInfo' @::@ ['DeploymentInfo']
+-- * 'bgdrsDeploymentsInfo'
 --
-batchGetDeploymentsResponse :: BatchGetDeploymentsResponse
-batchGetDeploymentsResponse = BatchGetDeploymentsResponse
-    { _bgdrDeploymentsInfo = mempty
+-- * 'bgdrsStatus'
+data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
+    { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
+    , _bgdrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'BatchGetDeploymentsResponse' smart constructor.
+batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse
+batchGetDeploymentsResponse pStatus_ =
+    BatchGetDeploymentsResponse'
+    { _bgdrsDeploymentsInfo = Nothing
+    , _bgdrsStatus = pStatus_
     }
 
 -- | Information about the deployments.
-bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
-bgdrDeploymentsInfo =
-    lens _bgdrDeploymentsInfo (\s a -> s { _bgdrDeploymentsInfo = a })
-        . _List
+bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
+bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default;
 
-instance ToPath BatchGetDeployments where
-    toPath = const "/"
-
-instance ToQuery BatchGetDeployments where
-    toQuery = const mempty
-
-instance ToHeaders BatchGetDeployments
-
-instance ToJSON BatchGetDeployments where
-    toJSON BatchGetDeployments{..} = object
-        [ "deploymentIds" .= _bgdDeploymentIds
-        ]
-
-instance AWSRequest BatchGetDeployments where
-    type Sv BatchGetDeployments = CodeDeploy
-    type Rs BatchGetDeployments = BatchGetDeploymentsResponse
-
-    request  = post "BatchGetDeployments"
-    response = jsonResponse
-
-instance FromJSON BatchGetDeploymentsResponse where
-    parseJSON = withObject "BatchGetDeploymentsResponse" $ \o -> BatchGetDeploymentsResponse
-        <$> o .:? "deploymentsInfo" .!= mempty
+-- | FIXME: Undocumented member.
+bgdrsStatus :: Lens' BatchGetDeploymentsResponse Int
+bgdrsStatus = lens _bgdrsStatus (\ s a -> s{_bgdrsStatus = a});

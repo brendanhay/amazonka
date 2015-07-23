@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.DeleteBucketPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the policy from the bucket.
+-- Deletes the policy from the bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketPolicy.html>
 module Network.AWS.S3.DeleteBucketPolicy
@@ -32,7 +27,7 @@ module Network.AWS.S3.DeleteBucketPolicy
     -- ** Request constructor
     , deleteBucketPolicy
     -- ** Request lenses
-    , dbpBucket
+    , dbprqBucket
 
     -- * Response
     , DeleteBucketPolicyResponse
@@ -40,56 +35,53 @@ module Network.AWS.S3.DeleteBucketPolicy
     , deleteBucketPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-newtype DeleteBucketPolicy = DeleteBucketPolicy
-    { _dbpBucket :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteBucketPolicy' constructor.
+-- | /See:/ 'deleteBucketPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbpBucket' @::@ 'Text'
---
-deleteBucketPolicy :: Text -- ^ 'dbpBucket'
-                   -> DeleteBucketPolicy
-deleteBucketPolicy p1 = DeleteBucketPolicy
-    { _dbpBucket = p1
+-- * 'dbprqBucket'
+newtype DeleteBucketPolicy = DeleteBucketPolicy'
+    { _dbprqBucket :: BucketName
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'DeleteBucketPolicy' smart constructor.
+deleteBucketPolicy :: BucketName -> DeleteBucketPolicy
+deleteBucketPolicy pBucket_ =
+    DeleteBucketPolicy'
+    { _dbprqBucket = pBucket_
     }
 
-dbpBucket :: Lens' DeleteBucketPolicy Text
-dbpBucket = lens _dbpBucket (\s a -> s { _dbpBucket = a })
-
-data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteBucketPolicyResponse' constructor.
-deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
-deleteBucketPolicyResponse = DeleteBucketPolicyResponse
-
-instance ToPath DeleteBucketPolicy where
-    toPath DeleteBucketPolicy{..} = mconcat
-        [ "/"
-        , toText _dbpBucket
-        ]
-
-instance ToQuery DeleteBucketPolicy where
-    toQuery = const "policy"
-
-instance ToHeaders DeleteBucketPolicy
-
-instance ToXMLRoot DeleteBucketPolicy where
-    toXMLRoot = const (namespaced ns "DeleteBucketPolicy" [])
-
-instance ToXML DeleteBucketPolicy
+-- | FIXME: Undocumented member.
+dbprqBucket :: Lens' DeleteBucketPolicy BucketName
+dbprqBucket = lens _dbprqBucket (\ s a -> s{_dbprqBucket = a});
 
 instance AWSRequest DeleteBucketPolicy where
-    type Sv DeleteBucketPolicy = S3
-    type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
+        type Sv DeleteBucketPolicy = S3
+        type Rs DeleteBucketPolicy =
+             DeleteBucketPolicyResponse
+        request = delete
+        response = receiveNull DeleteBucketPolicyResponse'
 
-    request  = delete
-    response = nullResponse DeleteBucketPolicyResponse
+instance ToHeaders DeleteBucketPolicy where
+        toHeaders = const mempty
+
+instance ToPath DeleteBucketPolicy where
+        toPath DeleteBucketPolicy'{..}
+          = mconcat ["/", toText _dbprqBucket]
+
+instance ToQuery DeleteBucketPolicy where
+        toQuery = const (mconcat ["policy"])
+
+-- | /See:/ 'deleteBucketPolicyResponse' smart constructor.
+data DeleteBucketPolicyResponse =
+    DeleteBucketPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteBucketPolicyResponse' smart constructor.
+deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
+deleteBucketPolicyResponse = DeleteBucketPolicyResponse'

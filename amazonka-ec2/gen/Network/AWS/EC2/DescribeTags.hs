@@ -1,30 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DescribeTags
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes one or more of the tags for your EC2 resources.
+-- Describes one or more of the tags for your EC2 resources.
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information about tags, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html>
 module Network.AWS.EC2.DescribeTags
@@ -34,141 +31,161 @@ module Network.AWS.EC2.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtDryRun
-    , dtFilters
-    , dtMaxResults
-    , dtNextToken
+    , dtrqFilters
+    , dtrqNextToken
+    , dtrqDryRun
+    , dtrqMaxResults
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrNextToken
-    , dtrTags
+    , dtrsNextToken
+    , dtrsTags
+    , dtrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeTags = DescribeTags
-    { _dtDryRun     :: Maybe Bool
-    , _dtFilters    :: List "Filter" Filter
-    , _dtMaxResults :: Maybe Int
-    , _dtNextToken  :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeTags' constructor.
+-- | /See:/ 'describeTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dtrqFilters'
 --
--- * 'dtFilters' @::@ ['Filter']
+-- * 'dtrqNextToken'
 --
--- * 'dtMaxResults' @::@ 'Maybe' 'Int'
+-- * 'dtrqDryRun'
 --
--- * 'dtNextToken' @::@ 'Maybe' 'Text'
---
-describeTags :: DescribeTags
-describeTags = DescribeTags
-    { _dtDryRun     = Nothing
-    , _dtFilters    = mempty
-    , _dtMaxResults = Nothing
-    , _dtNextToken  = Nothing
-    }
+-- * 'dtrqMaxResults'
+data DescribeTags = DescribeTags'
+    { _dtrqFilters    :: !(Maybe [Filter])
+    , _dtrqNextToken  :: !(Maybe Text)
+    , _dtrqDryRun     :: !(Maybe Bool)
+    , _dtrqMaxResults :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dtDryRun :: Lens' DescribeTags (Maybe Bool)
-dtDryRun = lens _dtDryRun (\s a -> s { _dtDryRun = a })
+-- | 'DescribeTags' smart constructor.
+describeTags :: DescribeTags
+describeTags =
+    DescribeTags'
+    { _dtrqFilters = Nothing
+    , _dtrqNextToken = Nothing
+    , _dtrqDryRun = Nothing
+    , _dtrqMaxResults = Nothing
+    }
 
 -- | One or more filters.
 --
--- 'key' - The tag key.
+-- -   @key@ - The tag key.
 --
--- 'resource-id' - The resource ID.
+-- -   @resource-id@ - The resource ID.
 --
--- 'resource-type' - The resource type ('customer-gateway' | 'dhcp-options' | 'image'
--- | 'instance' | 'internet-gateway' | 'network-acl' | 'network-interface' | 'reserved-instances' | 'route-table' | 'security-group' | 'snapshot' | 'spot-instances-request' | 'subnet'
--- | 'volume' | 'vpc' | 'vpn-connection' | 'vpn-gateway').
+-- -   @resource-type@ - The resource type (@customer-gateway@ |
+--     @dhcp-options@ | @image@ | @instance@ | @internet-gateway@ |
+--     @network-acl@ | @network-interface@ | @reserved-instances@ |
+--     @route-table@ | @security-group@ | @snapshot@ |
+--     @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ |
+--     @vpn-connection@ | @vpn-gateway@).
 --
--- 'value' - The tag value.
+-- -   @value@ - The tag value.
 --
---
-dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a }) . _List
-
--- | The maximum number of results to return for the request in a single page. The
--- remaining results of the initial request can be seen by sending another
--- request with the returned 'NextToken' value. This value can be between 5 and
--- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
--- returned.
-dtMaxResults :: Lens' DescribeTags (Maybe Int)
-dtMaxResults = lens _dtMaxResults (\s a -> s { _dtMaxResults = a })
+dtrqFilters :: Lens' DescribeTags [Filter]
+dtrqFilters = lens _dtrqFilters (\ s a -> s{_dtrqFilters = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
-dtNextToken :: Lens' DescribeTags (Maybe Text)
-dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
+dtrqNextToken :: Lens' DescribeTags (Maybe Text)
+dtrqNextToken = lens _dtrqNextToken (\ s a -> s{_dtrqNextToken = a});
 
-data DescribeTagsResponse = DescribeTagsResponse
-    { _dtrNextToken :: Maybe Text
-    , _dtrTags      :: List "item" TagDescription
-    } deriving (Eq, Read, Show)
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+dtrqDryRun :: Lens' DescribeTags (Maybe Bool)
+dtrqDryRun = lens _dtrqDryRun (\ s a -> s{_dtrqDryRun = a});
 
--- | 'DescribeTagsResponse' constructor.
+-- | The maximum number of results to return for the request in a single
+-- page. The remaining results of the initial request can be seen by
+-- sending another request with the returned @NextToken@ value. This value
+-- can be between 5 and 1000; if @MaxResults@ is given a value larger than
+-- 1000, only 1000 results are returned.
+dtrqMaxResults :: Lens' DescribeTags (Maybe Int)
+dtrqMaxResults = lens _dtrqMaxResults (\ s a -> s{_dtrqMaxResults = a});
+
+instance AWSPager DescribeTags where
+        page rq rs
+          | stop (rs ^. dtrsNextToken) = Nothing
+          | stop (rs ^. dtrsTags) = Nothing
+          | otherwise =
+            Just $ rq & dtrqNextToken .~ rs ^. dtrsNextToken
+
+instance AWSRequest DescribeTags where
+        type Sv DescribeTags = EC2
+        type Rs DescribeTags = DescribeTagsResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribeTagsResponse' <$>
+                   (x .@? "nextToken") <*>
+                     (x .@? "tagSet" .!@ mempty >>=
+                        may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeTags where
+        toHeaders = const mempty
+
+instance ToPath DescribeTags where
+        toPath = const "/"
+
+instance ToQuery DescribeTags where
+        toQuery DescribeTags'{..}
+          = mconcat
+              ["Action" =: ("DescribeTags" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery (toQueryList "Filter" <$> _dtrqFilters),
+               "NextToken" =: _dtrqNextToken,
+               "DryRun" =: _dtrqDryRun,
+               "MaxResults" =: _dtrqMaxResults]
+
+-- | /See:/ 'describeTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrNextToken' @::@ 'Maybe' 'Text'
+-- * 'dtrsNextToken'
 --
--- * 'dtrTags' @::@ ['TagDescription']
+-- * 'dtrsTags'
 --
-describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse
-    { _dtrTags      = mempty
-    , _dtrNextToken = Nothing
+-- * 'dtrsStatus'
+data DescribeTagsResponse = DescribeTagsResponse'
+    { _dtrsNextToken :: !(Maybe Text)
+    , _dtrsTags      :: !(Maybe [TagDescription])
+    , _dtrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeTagsResponse' smart constructor.
+describeTagsResponse :: Int -> DescribeTagsResponse
+describeTagsResponse pStatus_ =
+    DescribeTagsResponse'
+    { _dtrsNextToken = Nothing
+    , _dtrsTags = Nothing
+    , _dtrsStatus = pStatus_
     }
 
--- | The token to use to retrieve the next page of results. This value is 'null'
--- when there are no more results to return..
-dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
+-- | The token to use to retrieve the next page of results. This value is
+-- @null@ when there are no more results to return..
+dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
+dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 
 -- | A list of tags.
-dtrTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a }) . _List
+dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default;
 
-instance ToPath DescribeTags where
-    toPath = const "/"
-
-instance ToQuery DescribeTags where
-    toQuery DescribeTags{..} = mconcat
-        [ "DryRun"     =? _dtDryRun
-        , "Filter"     `toQueryList` _dtFilters
-        , "MaxResults" =? _dtMaxResults
-        , "NextToken"  =? _dtNextToken
-        ]
-
-instance ToHeaders DescribeTags
-
-instance AWSRequest DescribeTags where
-    type Sv DescribeTags = EC2
-    type Rs DescribeTags = DescribeTagsResponse
-
-    request  = post "DescribeTags"
-    response = xmlResponse
-
-instance FromXML DescribeTagsResponse where
-    parseXML x = DescribeTagsResponse
-        <$> x .@? "nextToken"
-        <*> x .@? "tagSet" .!@ mempty
-
-instance AWSPager DescribeTags where
-    page rq rs
-        | stop (rs ^. dtrNextToken) = Nothing
-        | otherwise = (\x -> rq & dtNextToken ?~ x)
-            <$> (rs ^. dtrNextToken)
+-- | FIXME: Undocumented member.
+dtrsStatus :: Lens' DescribeTagsResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

@@ -1,35 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Route53.DeleteReusableDelegationSet
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This action deletes a reusable delegation set. To delete a reusable
--- delegation set, send a 'DELETE' request to the '2013-04-01/delegationset//delegation set ID/ resource.
+-- This action deletes a reusable delegation set. To delete a reusable
+-- delegation set, send a @DELETE@ request to the
+-- @2013-04-01\/delegationset\/delegation set ID@ resource.
 --
 -- You can delete a reusable delegation set only if there are no associated
 -- hosted zones. If your reusable delegation set contains associated hosted
--- zones, you must delete them before you can delete your reusable delegation
--- set. If you try to delete a reusable delegation set that contains associated
--- hosted zones, Route 53 will deny your request with a 'DelegationSetInUse' error.
+-- zones, you must delete them before you can delete your reusable
+-- delegation set. If you try to delete a reusable delegation set that
+-- contains associated hosted zones, Route 53 will deny your request with a
+-- @DelegationSetInUse@ error.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteReusableDelegationSet.html>
 module Network.AWS.Route53.DeleteReusableDelegationSet
@@ -39,65 +36,83 @@ module Network.AWS.Route53.DeleteReusableDelegationSet
     -- ** Request constructor
     , deleteReusableDelegationSet
     -- ** Request lenses
-    , drdsId
+    , drdsrqId
 
     -- * Response
     , DeleteReusableDelegationSetResponse
     -- ** Response constructor
     , deleteReusableDelegationSetResponse
+    -- ** Response lenses
+    , drdsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
-newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet
-    { _drdsId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteReusableDelegationSet' constructor.
+-- | A complex type containing the information for the delete request.
+--
+-- /See:/ 'deleteReusableDelegationSet' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drdsId' @::@ 'Text'
---
-deleteReusableDelegationSet :: Text -- ^ 'drdsId'
-                            -> DeleteReusableDelegationSet
-deleteReusableDelegationSet p1 = DeleteReusableDelegationSet
-    { _drdsId = p1
+-- * 'drdsrqId'
+newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
+    { _drdsrqId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteReusableDelegationSet' smart constructor.
+deleteReusableDelegationSet :: Text -> DeleteReusableDelegationSet
+deleteReusableDelegationSet pId_ =
+    DeleteReusableDelegationSet'
+    { _drdsrqId = pId_
     }
 
 -- | The ID of the reusable delegation set you want to delete.
-drdsId :: Lens' DeleteReusableDelegationSet Text
-drdsId = lens _drdsId (\s a -> s { _drdsId = a })
-
-data DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteReusableDelegationSetResponse' constructor.
-deleteReusableDelegationSetResponse :: DeleteReusableDelegationSetResponse
-deleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
-
-instance ToPath DeleteReusableDelegationSet where
-    toPath DeleteReusableDelegationSet{..} = mconcat
-        [ "/2013-04-01/delegationset/"
-        , toText _drdsId
-        ]
-
-instance ToQuery DeleteReusableDelegationSet where
-    toQuery = const mempty
-
-instance ToHeaders DeleteReusableDelegationSet
-
-instance ToXMLRoot DeleteReusableDelegationSet where
-    toXMLRoot = const (namespaced ns "DeleteReusableDelegationSet" [])
-
-instance ToXML DeleteReusableDelegationSet
+drdsrqId :: Lens' DeleteReusableDelegationSet Text
+drdsrqId = lens _drdsrqId (\ s a -> s{_drdsrqId = a});
 
 instance AWSRequest DeleteReusableDelegationSet where
-    type Sv DeleteReusableDelegationSet = Route53
-    type Rs DeleteReusableDelegationSet = DeleteReusableDelegationSetResponse
+        type Sv DeleteReusableDelegationSet = Route53
+        type Rs DeleteReusableDelegationSet =
+             DeleteReusableDelegationSetResponse
+        request = delete
+        response
+          = receiveXML
+              (\ s h x ->
+                 DeleteReusableDelegationSetResponse' <$>
+                   (pure (fromEnum s)))
 
-    request  = delete
-    response = nullResponse DeleteReusableDelegationSetResponse
+instance ToHeaders DeleteReusableDelegationSet where
+        toHeaders = const mempty
+
+instance ToPath DeleteReusableDelegationSet where
+        toPath DeleteReusableDelegationSet'{..}
+          = mconcat
+              ["/2013-04-01/delegationset/", toText _drdsrqId]
+
+instance ToQuery DeleteReusableDelegationSet where
+        toQuery = const mempty
+
+-- | Empty response for the request.
+--
+-- /See:/ 'deleteReusableDelegationSetResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drdsrsStatus'
+newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
+    { _drdsrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteReusableDelegationSetResponse' smart constructor.
+deleteReusableDelegationSetResponse :: Int -> DeleteReusableDelegationSetResponse
+deleteReusableDelegationSetResponse pStatus_ =
+    DeleteReusableDelegationSetResponse'
+    { _drdsrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+drdsrsStatus :: Lens' DeleteReusableDelegationSetResponse Int
+drdsrsStatus = lens _drdsrsStatus (\ s a -> s{_drdsrsStatus = a});

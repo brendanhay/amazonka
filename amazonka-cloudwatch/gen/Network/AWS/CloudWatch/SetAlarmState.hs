@@ -1,31 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Temporarily sets the state of an alarm. When the updated 'StateValue' differs
--- from the previous value, the action configured for the appropriate state is
--- invoked. This is not a permanent change. The next periodic alarm check (in
--- about a minute) will set the alarm to its actual state.
+-- Temporarily sets the state of an alarm. When the updated @StateValue@
+-- differs from the previous value, the action configured for the
+-- appropriate state is invoked. This is not a permanent change. The next
+-- periodic alarm check (in about a minute) will set the alarm to its
+-- actual state.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_SetAlarmState.html>
 module Network.AWS.CloudWatch.SetAlarmState
@@ -35,10 +31,10 @@ module Network.AWS.CloudWatch.SetAlarmState
     -- ** Request constructor
     , setAlarmState
     -- ** Request lenses
-    , sasAlarmName
-    , sasStateReason
-    , sasStateReasonData
-    , sasStateValue
+    , sasrqStateReasonData
+    , sasrqAlarmName
+    , sasrqStateValue
+    , sasrqStateReason
 
     -- * Response
     , SetAlarmStateResponse
@@ -46,84 +42,85 @@ module Network.AWS.CloudWatch.SetAlarmState
     , setAlarmStateResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudWatch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudWatch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetAlarmState = SetAlarmState
-    { _sasAlarmName       :: Text
-    , _sasStateReason     :: Text
-    , _sasStateReasonData :: Maybe Text
-    , _sasStateValue      :: StateValue
-    } deriving (Eq, Read, Show)
-
--- | 'SetAlarmState' constructor.
+-- | /See:/ 'setAlarmState' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sasAlarmName' @::@ 'Text'
+-- * 'sasrqStateReasonData'
 --
--- * 'sasStateReason' @::@ 'Text'
+-- * 'sasrqAlarmName'
 --
--- * 'sasStateReasonData' @::@ 'Maybe' 'Text'
+-- * 'sasrqStateValue'
 --
--- * 'sasStateValue' @::@ 'StateValue'
---
-setAlarmState :: Text -- ^ 'sasAlarmName'
-              -> StateValue -- ^ 'sasStateValue'
-              -> Text -- ^ 'sasStateReason'
-              -> SetAlarmState
-setAlarmState p1 p2 p3 = SetAlarmState
-    { _sasAlarmName       = p1
-    , _sasStateValue      = p2
-    , _sasStateReason     = p3
-    , _sasStateReasonData = Nothing
+-- * 'sasrqStateReason'
+data SetAlarmState = SetAlarmState'
+    { _sasrqStateReasonData :: !(Maybe Text)
+    , _sasrqAlarmName       :: !Text
+    , _sasrqStateValue      :: !StateValue
+    , _sasrqStateReason     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetAlarmState' smart constructor.
+setAlarmState :: Text -> StateValue -> Text -> SetAlarmState
+setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
+    SetAlarmState'
+    { _sasrqStateReasonData = Nothing
+    , _sasrqAlarmName = pAlarmName_
+    , _sasrqStateValue = pStateValue_
+    , _sasrqStateReason = pStateReason_
     }
-
--- | The descriptive name for the alarm. This name must be unique within the
--- user's AWS account. The maximum length is 255 characters.
-sasAlarmName :: Lens' SetAlarmState Text
-sasAlarmName = lens _sasAlarmName (\s a -> s { _sasAlarmName = a })
-
--- | The reason that this alarm is set to this specific state (in human-readable
--- text format)
-sasStateReason :: Lens' SetAlarmState Text
-sasStateReason = lens _sasStateReason (\s a -> s { _sasStateReason = a })
 
 -- | The reason that this alarm is set to this specific state (in
 -- machine-readable JSON format)
-sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
-sasStateReasonData =
-    lens _sasStateReasonData (\s a -> s { _sasStateReasonData = a })
+sasrqStateReasonData :: Lens' SetAlarmState (Maybe Text)
+sasrqStateReasonData = lens _sasrqStateReasonData (\ s a -> s{_sasrqStateReasonData = a});
+
+-- | The descriptive name for the alarm. This name must be unique within the
+-- user\'s AWS account. The maximum length is 255 characters.
+sasrqAlarmName :: Lens' SetAlarmState Text
+sasrqAlarmName = lens _sasrqAlarmName (\ s a -> s{_sasrqAlarmName = a});
 
 -- | The value of the state.
-sasStateValue :: Lens' SetAlarmState StateValue
-sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
+sasrqStateValue :: Lens' SetAlarmState StateValue
+sasrqStateValue = lens _sasrqStateValue (\ s a -> s{_sasrqStateValue = a});
 
-data SetAlarmStateResponse = SetAlarmStateResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetAlarmStateResponse' constructor.
-setAlarmStateResponse :: SetAlarmStateResponse
-setAlarmStateResponse = SetAlarmStateResponse
-
-instance ToPath SetAlarmState where
-    toPath = const "/"
-
-instance ToQuery SetAlarmState where
-    toQuery SetAlarmState{..} = mconcat
-        [ "AlarmName"       =? _sasAlarmName
-        , "StateReason"     =? _sasStateReason
-        , "StateReasonData" =? _sasStateReasonData
-        , "StateValue"      =? _sasStateValue
-        ]
-
-instance ToHeaders SetAlarmState
+-- | The reason that this alarm is set to this specific state (in
+-- human-readable text format)
+sasrqStateReason :: Lens' SetAlarmState Text
+sasrqStateReason = lens _sasrqStateReason (\ s a -> s{_sasrqStateReason = a});
 
 instance AWSRequest SetAlarmState where
-    type Sv SetAlarmState = CloudWatch
-    type Rs SetAlarmState = SetAlarmStateResponse
+        type Sv SetAlarmState = CloudWatch
+        type Rs SetAlarmState = SetAlarmStateResponse
+        request = post
+        response = receiveNull SetAlarmStateResponse'
 
-    request  = post "SetAlarmState"
-    response = nullResponse SetAlarmStateResponse
+instance ToHeaders SetAlarmState where
+        toHeaders = const mempty
+
+instance ToPath SetAlarmState where
+        toPath = const "/"
+
+instance ToQuery SetAlarmState where
+        toQuery SetAlarmState'{..}
+          = mconcat
+              ["Action" =: ("SetAlarmState" :: ByteString),
+               "Version" =: ("2010-08-01" :: ByteString),
+               "StateReasonData" =: _sasrqStateReasonData,
+               "AlarmName" =: _sasrqAlarmName,
+               "StateValue" =: _sasrqStateValue,
+               "StateReason" =: _sasrqStateReason]
+
+-- | /See:/ 'setAlarmStateResponse' smart constructor.
+data SetAlarmStateResponse =
+    SetAlarmStateResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetAlarmStateResponse' smart constructor.
+setAlarmStateResponse :: SetAlarmStateResponse
+setAlarmStateResponse = SetAlarmStateResponse'

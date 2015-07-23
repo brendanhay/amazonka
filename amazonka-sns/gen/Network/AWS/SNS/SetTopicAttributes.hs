@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SNS.SetTopicAttributes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Allows a topic owner to set an attribute of the topic to a new value.
+-- Allows a topic owner to set an attribute of the topic to a new value.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetTopicAttributes.html>
 module Network.AWS.SNS.SetTopicAttributes
@@ -32,9 +27,9 @@ module Network.AWS.SNS.SetTopicAttributes
     -- ** Request constructor
     , setTopicAttributes
     -- ** Request lenses
-    , staAttributeName
-    , staAttributeValue
-    , staTopicArn
+    , starqAttributeValue
+    , starqTopicARN
+    , starqAttributeName
 
     -- * Response
     , SetTopicAttributesResponse
@@ -42,74 +37,79 @@ module Network.AWS.SNS.SetTopicAttributes
     , setTopicAttributesResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
-data SetTopicAttributes = SetTopicAttributes
-    { _staAttributeName  :: Text
-    , _staAttributeValue :: Maybe Text
-    , _staTopicArn       :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'SetTopicAttributes' constructor.
+-- | Input for SetTopicAttributes action.
+--
+-- /See:/ 'setTopicAttributes' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staAttributeName' @::@ 'Text'
+-- * 'starqAttributeValue'
 --
--- * 'staAttributeValue' @::@ 'Maybe' 'Text'
+-- * 'starqTopicARN'
 --
--- * 'staTopicArn' @::@ 'Text'
---
-setTopicAttributes :: Text -- ^ 'staTopicArn'
-                   -> Text -- ^ 'staAttributeName'
-                   -> SetTopicAttributes
-setTopicAttributes p1 p2 = SetTopicAttributes
-    { _staTopicArn       = p1
-    , _staAttributeName  = p2
-    , _staAttributeValue = Nothing
+-- * 'starqAttributeName'
+data SetTopicAttributes = SetTopicAttributes'
+    { _starqAttributeValue :: !(Maybe Text)
+    , _starqTopicARN       :: !Text
+    , _starqAttributeName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetTopicAttributes' smart constructor.
+setTopicAttributes :: Text -> Text -> SetTopicAttributes
+setTopicAttributes pTopicARN_ pAttributeName_ =
+    SetTopicAttributes'
+    { _starqAttributeValue = Nothing
+    , _starqTopicARN = pTopicARN_
+    , _starqAttributeName = pAttributeName_
     }
 
--- | The name of the attribute you want to set. Only a subset of the topic's
--- attributes are mutable.
---
--- Valid values: 'Policy' | 'DisplayName' | 'DeliveryPolicy'
-staAttributeName :: Lens' SetTopicAttributes Text
-staAttributeName = lens _staAttributeName (\s a -> s { _staAttributeName = a })
-
 -- | The new value for the attribute.
-staAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
-staAttributeValue =
-    lens _staAttributeValue (\s a -> s { _staAttributeValue = a })
+starqAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
+starqAttributeValue = lens _starqAttributeValue (\ s a -> s{_starqAttributeValue = a});
 
 -- | The ARN of the topic to modify.
-staTopicArn :: Lens' SetTopicAttributes Text
-staTopicArn = lens _staTopicArn (\s a -> s { _staTopicArn = a })
+starqTopicARN :: Lens' SetTopicAttributes Text
+starqTopicARN = lens _starqTopicARN (\ s a -> s{_starqTopicARN = a});
 
-data SetTopicAttributesResponse = SetTopicAttributesResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetTopicAttributesResponse' constructor.
-setTopicAttributesResponse :: SetTopicAttributesResponse
-setTopicAttributesResponse = SetTopicAttributesResponse
-
-instance ToPath SetTopicAttributes where
-    toPath = const "/"
-
-instance ToQuery SetTopicAttributes where
-    toQuery SetTopicAttributes{..} = mconcat
-        [ "AttributeName"  =? _staAttributeName
-        , "AttributeValue" =? _staAttributeValue
-        , "TopicArn"       =? _staTopicArn
-        ]
-
-instance ToHeaders SetTopicAttributes
+-- | The name of the attribute you want to set. Only a subset of the topic\'s
+-- attributes are mutable.
+--
+-- Valid values: @Policy@ | @DisplayName@ | @DeliveryPolicy@
+starqAttributeName :: Lens' SetTopicAttributes Text
+starqAttributeName = lens _starqAttributeName (\ s a -> s{_starqAttributeName = a});
 
 instance AWSRequest SetTopicAttributes where
-    type Sv SetTopicAttributes = SNS
-    type Rs SetTopicAttributes = SetTopicAttributesResponse
+        type Sv SetTopicAttributes = SNS
+        type Rs SetTopicAttributes =
+             SetTopicAttributesResponse
+        request = post
+        response = receiveNull SetTopicAttributesResponse'
 
-    request  = post "SetTopicAttributes"
-    response = nullResponse SetTopicAttributesResponse
+instance ToHeaders SetTopicAttributes where
+        toHeaders = const mempty
+
+instance ToPath SetTopicAttributes where
+        toPath = const "/"
+
+instance ToQuery SetTopicAttributes where
+        toQuery SetTopicAttributes'{..}
+          = mconcat
+              ["Action" =: ("SetTopicAttributes" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "AttributeValue" =: _starqAttributeValue,
+               "TopicArn" =: _starqTopicARN,
+               "AttributeName" =: _starqAttributeName]
+
+-- | /See:/ 'setTopicAttributesResponse' smart constructor.
+data SetTopicAttributesResponse =
+    SetTopicAttributesResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetTopicAttributesResponse' smart constructor.
+setTopicAttributesResponse :: SetTopicAttributesResponse
+setTopicAttributesResponse = SetTopicAttributesResponse'

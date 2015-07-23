@@ -1,118 +1,95 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | AWS Storage Gateway is a service that connects an on-premises software
--- appliance with cloud-based storage to provide seamless and secure integration
--- between your on-premises IT environment and AWS's storage infrastructure.
+-- AWS Storage Gateway Service
+--
+-- AWS Storage Gateway is the service that connects an on-premises software
+-- appliance with cloud-based storage to provide seamless and secure
+-- integration between an organization\'s on-premises IT environment and
+-- AWS\'s storage infrastructure. The service enables you to securely
+-- upload data to the AWS cloud for cost effective backup and rapid
+-- disaster recovery.
+--
+-- Use the following links to get started using the /AWS Storage Gateway
+-- Service API Reference/:
+--
+-- -   <http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayHTTPRequestsHeaders.html AWS Storage Gateway Required Request Headers>:
+--     Describes the required headers that you must send with every POST
+--     request to AWS Storage Gateway.
+-- -   <http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewaySigningRequests.html Signing Requests>:
+--     AWS Storage Gateway requires that you authenticate every request you
+--     send; this topic describes how sign such a request.
+-- -   <http://docs.aws.amazon.com/storagegateway/latest/userguide/APIErrorResponses.html Error Responses>:
+--     Provides reference information about AWS Storage Gateway errors.
+-- -   <http://docs.aws.amazon.com/storagegateway/latest/userguide/AWSStorageGatewayAPIOperations.html Operations in AWS Storage Gateway>:
+--     Contains detailed descriptions of all AWS Storage Gateway
+--     operations, their request parameters, response elements, possible
+--     errors, and examples of requests and responses.
+-- -   <http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html AWS Storage Gateway Regions and Endpoints>:
+--     Provides a list of each of the regions and endpoints available for
+--     use with AWS Storage Gateway.
 module Network.AWS.StorageGateway
-    ( module Network.AWS.StorageGateway.ActivateGateway
-    , module Network.AWS.StorageGateway.AddCache
-    , module Network.AWS.StorageGateway.AddUploadBuffer
-    , module Network.AWS.StorageGateway.AddWorkingStorage
-    , module Network.AWS.StorageGateway.CancelArchival
-    , module Network.AWS.StorageGateway.CancelRetrieval
-    , module Network.AWS.StorageGateway.CreateCachediSCSIVolume
-    , module Network.AWS.StorageGateway.CreateSnapshot
-    , module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
-    , module Network.AWS.StorageGateway.CreateStorediSCSIVolume
-    , module Network.AWS.StorageGateway.CreateTapes
-    , module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
-    , module Network.AWS.StorageGateway.DeleteChapCredentials
-    , module Network.AWS.StorageGateway.DeleteGateway
-    , module Network.AWS.StorageGateway.DeleteSnapshotSchedule
-    , module Network.AWS.StorageGateway.DeleteTape
-    , module Network.AWS.StorageGateway.DeleteTapeArchive
-    , module Network.AWS.StorageGateway.DeleteVolume
-    , module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
-    , module Network.AWS.StorageGateway.DescribeCache
-    , module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
-    , module Network.AWS.StorageGateway.DescribeChapCredentials
-    , module Network.AWS.StorageGateway.DescribeGatewayInformation
-    , module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
-    , module Network.AWS.StorageGateway.DescribeSnapshotSchedule
-    , module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
-    , module Network.AWS.StorageGateway.DescribeTapeArchives
-    , module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
-    , module Network.AWS.StorageGateway.DescribeTapes
-    , module Network.AWS.StorageGateway.DescribeUploadBuffer
-    , module Network.AWS.StorageGateway.DescribeVTLDevices
-    , module Network.AWS.StorageGateway.DescribeWorkingStorage
-    , module Network.AWS.StorageGateway.DisableGateway
-    , module Network.AWS.StorageGateway.ListGateways
-    , module Network.AWS.StorageGateway.ListLocalDisks
-    , module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
-    , module Network.AWS.StorageGateway.ListVolumes
-    , module Network.AWS.StorageGateway.ResetCache
-    , module Network.AWS.StorageGateway.RetrieveTapeArchive
-    , module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
-    , module Network.AWS.StorageGateway.ShutdownGateway
-    , module Network.AWS.StorageGateway.StartGateway
-    , module Network.AWS.StorageGateway.Types
-    , module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
-    , module Network.AWS.StorageGateway.UpdateChapCredentials
-    , module Network.AWS.StorageGateway.UpdateGatewayInformation
-    , module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
-    , module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
-    , module Network.AWS.StorageGateway.UpdateSnapshotSchedule
-    , module Network.AWS.StorageGateway.UpdateVTLDeviceType
+    ( module Export
     ) where
 
-import Network.AWS.StorageGateway.ActivateGateway
-import Network.AWS.StorageGateway.AddCache
-import Network.AWS.StorageGateway.AddUploadBuffer
-import Network.AWS.StorageGateway.AddWorkingStorage
-import Network.AWS.StorageGateway.CancelArchival
-import Network.AWS.StorageGateway.CancelRetrieval
-import Network.AWS.StorageGateway.CreateCachediSCSIVolume
-import Network.AWS.StorageGateway.CreateSnapshot
-import Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
-import Network.AWS.StorageGateway.CreateStorediSCSIVolume
-import Network.AWS.StorageGateway.CreateTapes
-import Network.AWS.StorageGateway.DeleteBandwidthRateLimit
-import Network.AWS.StorageGateway.DeleteChapCredentials
-import Network.AWS.StorageGateway.DeleteGateway
-import Network.AWS.StorageGateway.DeleteSnapshotSchedule
-import Network.AWS.StorageGateway.DeleteTape
-import Network.AWS.StorageGateway.DeleteTapeArchive
-import Network.AWS.StorageGateway.DeleteVolume
-import Network.AWS.StorageGateway.DescribeBandwidthRateLimit
-import Network.AWS.StorageGateway.DescribeCache
-import Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
-import Network.AWS.StorageGateway.DescribeChapCredentials
-import Network.AWS.StorageGateway.DescribeGatewayInformation
-import Network.AWS.StorageGateway.DescribeMaintenanceStartTime
-import Network.AWS.StorageGateway.DescribeSnapshotSchedule
-import Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
-import Network.AWS.StorageGateway.DescribeTapeArchives
-import Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
-import Network.AWS.StorageGateway.DescribeTapes
-import Network.AWS.StorageGateway.DescribeUploadBuffer
-import Network.AWS.StorageGateway.DescribeVTLDevices
-import Network.AWS.StorageGateway.DescribeWorkingStorage
-import Network.AWS.StorageGateway.DisableGateway
-import Network.AWS.StorageGateway.ListGateways
-import Network.AWS.StorageGateway.ListLocalDisks
-import Network.AWS.StorageGateway.ListVolumeRecoveryPoints
-import Network.AWS.StorageGateway.ListVolumes
-import Network.AWS.StorageGateway.ResetCache
-import Network.AWS.StorageGateway.RetrieveTapeArchive
-import Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
-import Network.AWS.StorageGateway.ShutdownGateway
-import Network.AWS.StorageGateway.StartGateway
-import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.UpdateBandwidthRateLimit
-import Network.AWS.StorageGateway.UpdateChapCredentials
-import Network.AWS.StorageGateway.UpdateGatewayInformation
-import Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
-import Network.AWS.StorageGateway.UpdateMaintenanceStartTime
-import Network.AWS.StorageGateway.UpdateSnapshotSchedule
-import Network.AWS.StorageGateway.UpdateVTLDeviceType
+import           Network.AWS.StorageGateway.ActivateGateway                       as Export
+import           Network.AWS.StorageGateway.AddCache                              as Export
+import           Network.AWS.StorageGateway.AddUploadBuffer                       as Export
+import           Network.AWS.StorageGateway.AddWorkingStorage                     as Export
+import           Network.AWS.StorageGateway.CancelArchival                        as Export
+import           Network.AWS.StorageGateway.CancelRetrieval                       as Export
+import           Network.AWS.StorageGateway.CreateCachediSCSIVolume               as Export
+import           Network.AWS.StorageGateway.CreateSnapshot                        as Export
+import           Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint as Export
+import           Network.AWS.StorageGateway.CreateStorediSCSIVolume               as Export
+import           Network.AWS.StorageGateway.CreateTapes                           as Export
+import           Network.AWS.StorageGateway.DeleteBandwidthRateLimit              as Export
+import           Network.AWS.StorageGateway.DeleteChapCredentials                 as Export
+import           Network.AWS.StorageGateway.DeleteGateway                         as Export
+import           Network.AWS.StorageGateway.DeleteSnapshotSchedule                as Export
+import           Network.AWS.StorageGateway.DeleteTape                            as Export
+import           Network.AWS.StorageGateway.DeleteTapeArchive                     as Export
+import           Network.AWS.StorageGateway.DeleteVolume                          as Export
+import           Network.AWS.StorageGateway.DescribeBandwidthRateLimit            as Export
+import           Network.AWS.StorageGateway.DescribeCache                         as Export
+import           Network.AWS.StorageGateway.DescribeCachediSCSIVolumes            as Export
+import           Network.AWS.StorageGateway.DescribeChapCredentials               as Export
+import           Network.AWS.StorageGateway.DescribeGatewayInformation            as Export
+import           Network.AWS.StorageGateway.DescribeMaintenanceStartTime          as Export
+import           Network.AWS.StorageGateway.DescribeSnapshotSchedule              as Export
+import           Network.AWS.StorageGateway.DescribeStorediSCSIVolumes            as Export
+import           Network.AWS.StorageGateway.DescribeTapeArchives                  as Export
+import           Network.AWS.StorageGateway.DescribeTapeRecoveryPoints            as Export
+import           Network.AWS.StorageGateway.DescribeTapes                         as Export
+import           Network.AWS.StorageGateway.DescribeUploadBuffer                  as Export
+import           Network.AWS.StorageGateway.DescribeVTLDevices                    as Export
+import           Network.AWS.StorageGateway.DescribeWorkingStorage                as Export
+import           Network.AWS.StorageGateway.DisableGateway                        as Export
+import           Network.AWS.StorageGateway.ListGateways                          as Export
+import           Network.AWS.StorageGateway.ListLocalDisks                        as Export
+import           Network.AWS.StorageGateway.ListVolumeInitiators                  as Export
+import           Network.AWS.StorageGateway.ListVolumeRecoveryPoints              as Export
+import           Network.AWS.StorageGateway.ListVolumes                           as Export
+import           Network.AWS.StorageGateway.ResetCache                            as Export
+import           Network.AWS.StorageGateway.RetrieveTapeArchive                   as Export
+import           Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint             as Export
+import           Network.AWS.StorageGateway.ShutdownGateway                       as Export
+import           Network.AWS.StorageGateway.StartGateway                          as Export
+import           Network.AWS.StorageGateway.Types                                 as Export
+import           Network.AWS.StorageGateway.UpdateBandwidthRateLimit              as Export
+import           Network.AWS.StorageGateway.UpdateChapCredentials                 as Export
+import           Network.AWS.StorageGateway.UpdateGatewayInformation              as Export
+import           Network.AWS.StorageGateway.UpdateGatewaySoftwareNow              as Export
+import           Network.AWS.StorageGateway.UpdateMaintenanceStartTime            as Export
+import           Network.AWS.StorageGateway.UpdateSnapshotSchedule                as Export
+import           Network.AWS.StorageGateway.UpdateVTLDeviceType                   as Export
+import           Network.AWS.StorageGateway.Waiters                               as Export

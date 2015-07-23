@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Route53Domains.ListOperations
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation returns the operation IDs of operations that are not yet
+-- This operation returns the operation IDs of operations that are not yet
 -- complete.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListOperations.html>
@@ -33,57 +28,46 @@ module Network.AWS.Route53Domains.ListOperations
     -- ** Request constructor
     , listOperations
     -- ** Request lenses
-    , loMarker
-    , loMaxItems
+    , lorqMaxItems
+    , lorqMarker
 
     -- * Response
     , ListOperationsResponse
     -- ** Response constructor
     , listOperationsResponse
     -- ** Response lenses
-    , lorNextPageMarker
-    , lorOperations
+    , lorsNextPageMarker
+    , lorsStatus
+    , lorsOperations
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Route53Domains.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
-data ListOperations = ListOperations
-    { _loMarker   :: Maybe Text
-    , _loMaxItems :: Maybe Int
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListOperations' constructor.
+-- | The ListOperations request includes the following elements.
+--
+-- /See:/ 'listOperations' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'loMarker' @::@ 'Maybe' 'Text'
+-- * 'lorqMaxItems'
 --
--- * 'loMaxItems' @::@ 'Maybe' 'Int'
---
-listOperations :: ListOperations
-listOperations = ListOperations
-    { _loMarker   = Nothing
-    , _loMaxItems = Nothing
-    }
+-- * 'lorqMarker'
+data ListOperations = ListOperations'
+    { _lorqMaxItems :: !(Maybe Int)
+    , _lorqMarker   :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | For an initial request for a list of operations, omit this element. If the
--- number of operations that are not yet complete is greater than the value that
--- you specified for 'MaxItems', you can use 'Marker' to return additional
--- operations. Get the value of 'NextPageMarker' from the previous response, and
--- submit another request that includes the value of 'NextPageMarker' in the 'Marker'
--- element.
---
--- Type: String
---
--- Default: None
---
--- Required: No
-loMarker :: Lens' ListOperations (Maybe Text)
-loMarker = lens _loMarker (\s a -> s { _loMarker = a })
+-- | 'ListOperations' smart constructor.
+listOperations :: ListOperations
+listOperations =
+    ListOperations'
+    { _lorqMaxItems = Nothing
+    , _lorqMarker = Nothing
+    }
 
 -- | Number of domains to be returned.
 --
@@ -94,75 +78,108 @@ loMarker = lens _loMarker (\s a -> s { _loMarker = a })
 -- Constraints: A value between 1 and 100.
 --
 -- Required: No
-loMaxItems :: Lens' ListOperations (Maybe Int)
-loMaxItems = lens _loMaxItems (\s a -> s { _loMaxItems = a })
+lorqMaxItems :: Lens' ListOperations (Maybe Int)
+lorqMaxItems = lens _lorqMaxItems (\ s a -> s{_lorqMaxItems = a});
 
-data ListOperationsResponse = ListOperationsResponse
-    { _lorNextPageMarker :: Maybe Text
-    , _lorOperations     :: List "Operations" OperationSummary
-    } deriving (Eq, Read, Show)
-
--- | 'ListOperationsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lorNextPageMarker' @::@ 'Maybe' 'Text'
---
--- * 'lorOperations' @::@ ['OperationSummary']
---
-listOperationsResponse :: ListOperationsResponse
-listOperationsResponse = ListOperationsResponse
-    { _lorOperations     = mempty
-    , _lorNextPageMarker = Nothing
-    }
-
--- | If there are more operations than you specified for 'MaxItems' in the request,
--- submit another request and include the value of 'NextPageMarker' in the value
--- of 'Marker'.
+-- | For an initial request for a list of operations, omit this element. If
+-- the number of operations that are not yet complete is greater than the
+-- value that you specified for @MaxItems@, you can use @Marker@ to return
+-- additional operations. Get the value of @NextPageMarker@ from the
+-- previous response, and submit another request that includes the value of
+-- @NextPageMarker@ in the @Marker@ element.
 --
 -- Type: String
 --
--- Parent: 'Operations'
-lorNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
-lorNextPageMarker =
-    lens _lorNextPageMarker (\s a -> s { _lorNextPageMarker = a })
+-- Default: None
+--
+-- Required: No
+lorqMarker :: Lens' ListOperations (Maybe Text)
+lorqMarker = lens _lorqMarker (\ s a -> s{_lorqMarker = a});
+
+instance AWSPager ListOperations where
+        page rq rs
+          | stop (rs ^. lorsNextPageMarker) = Nothing
+          | stop (rs ^. lorsOperations) = Nothing
+          | otherwise =
+            Just $ rq & lorqMarker .~ rs ^. lorsNextPageMarker
+
+instance AWSRequest ListOperations where
+        type Sv ListOperations = Route53Domains
+        type Rs ListOperations = ListOperationsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListOperationsResponse' <$>
+                   (x .?> "NextPageMarker") <*> (pure (fromEnum s)) <*>
+                     (x .?> "Operations" .!@ mempty))
+
+instance ToHeaders ListOperations where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Route53Domains_v20140515.ListOperations" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListOperations where
+        toJSON ListOperations'{..}
+          = object
+              ["MaxItems" .= _lorqMaxItems,
+               "Marker" .= _lorqMarker]
+
+instance ToPath ListOperations where
+        toPath = const "/"
+
+instance ToQuery ListOperations where
+        toQuery = const mempty
+
+-- | The ListOperations response includes the following elements.
+--
+-- /See:/ 'listOperationsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lorsNextPageMarker'
+--
+-- * 'lorsStatus'
+--
+-- * 'lorsOperations'
+data ListOperationsResponse = ListOperationsResponse'
+    { _lorsNextPageMarker :: !(Maybe Text)
+    , _lorsStatus         :: !Int
+    , _lorsOperations     :: ![OperationSummary]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListOperationsResponse' smart constructor.
+listOperationsResponse :: Int -> ListOperationsResponse
+listOperationsResponse pStatus_ =
+    ListOperationsResponse'
+    { _lorsNextPageMarker = Nothing
+    , _lorsStatus = pStatus_
+    , _lorsOperations = mempty
+    }
+
+-- | If there are more operations than you specified for @MaxItems@ in the
+-- request, submit another request and include the value of
+-- @NextPageMarker@ in the value of @Marker@.
+--
+-- Type: String
+--
+-- Parent: @Operations@
+lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
+lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
+
+-- | FIXME: Undocumented member.
+lorsStatus :: Lens' ListOperationsResponse Int
+lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
 
 -- | Lists summaries of the operations.
 --
 -- Type: Complex type containing a list of operation summaries
 --
--- Children: 'OperationId', 'Status', 'SubmittedDate', 'Type'
-lorOperations :: Lens' ListOperationsResponse [OperationSummary]
-lorOperations = lens _lorOperations (\s a -> s { _lorOperations = a }) . _List
-
-instance ToPath ListOperations where
-    toPath = const "/"
-
-instance ToQuery ListOperations where
-    toQuery = const mempty
-
-instance ToHeaders ListOperations
-
-instance ToJSON ListOperations where
-    toJSON ListOperations{..} = object
-        [ "Marker"   .= _loMarker
-        , "MaxItems" .= _loMaxItems
-        ]
-
-instance AWSRequest ListOperations where
-    type Sv ListOperations = Route53Domains
-    type Rs ListOperations = ListOperationsResponse
-
-    request  = post "ListOperations"
-    response = jsonResponse
-
-instance FromJSON ListOperationsResponse where
-    parseJSON = withObject "ListOperationsResponse" $ \o -> ListOperationsResponse
-        <$> o .:? "NextPageMarker"
-        <*> o .:? "Operations" .!= mempty
-
-instance AWSPager ListOperations where
-    page rq rs
-        | stop (rs ^. lorNextPageMarker) = Nothing
-        | otherwise = (\x -> rq & loMarker ?~ x)
-            <$> (rs ^. lorNextPageMarker)
+-- Children: @OperationId@, @Status@, @SubmittedDate@, @Type@
+lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
+lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a});

@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ECS.DescribeServices
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes the specified services running in your cluster.
+-- Describes the specified services running in your cluster.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html>
 module Network.AWS.ECS.DescribeServices
@@ -32,100 +27,118 @@ module Network.AWS.ECS.DescribeServices
     -- ** Request constructor
     , describeServices
     -- ** Request lenses
-    , ds1Cluster
-    , ds1Services
+    , drqCluster
+    , drqServices
 
     -- * Response
     , DescribeServicesResponse
     -- ** Response constructor
     , describeServicesResponse
     -- ** Response lenses
-    , dsrFailures
-    , dsrServices
+    , dssrsFailures
+    , dssrsServices
+    , dssrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeServices = DescribeServices
-    { _ds1Cluster  :: Maybe Text
-    , _ds1Services :: List "services" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeServices' constructor.
+-- | /See:/ 'describeServices' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ds1Cluster' @::@ 'Maybe' 'Text'
+-- * 'drqCluster'
 --
--- * 'ds1Services' @::@ ['Text']
---
+-- * 'drqServices'
+data DescribeServices = DescribeServices'
+    { _drqCluster  :: !(Maybe Text)
+    , _drqServices :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
-describeServices = DescribeServices
-    { _ds1Cluster  = Nothing
-    , _ds1Services = mempty
+describeServices =
+    DescribeServices'
+    { _drqCluster = Nothing
+    , _drqServices = mempty
     }
 
 -- | The name of the cluster that hosts the service you want to describe.
-ds1Cluster :: Lens' DescribeServices (Maybe Text)
-ds1Cluster = lens _ds1Cluster (\s a -> s { _ds1Cluster = a })
+drqCluster :: Lens' DescribeServices (Maybe Text)
+drqCluster = lens _drqCluster (\ s a -> s{_drqCluster = a});
 
 -- | A list of services you want to describe.
-ds1Services :: Lens' DescribeServices [Text]
-ds1Services = lens _ds1Services (\s a -> s { _ds1Services = a }) . _List
+drqServices :: Lens' DescribeServices [Text]
+drqServices = lens _drqServices (\ s a -> s{_drqServices = a});
 
-data DescribeServicesResponse = DescribeServicesResponse
-    { _dsrFailures :: List "failures" Failure
-    , _dsrServices :: List "services" ContainerService
-    } deriving (Eq, Read, Show)
+instance AWSRequest DescribeServices where
+        type Sv DescribeServices = ECS
+        type Rs DescribeServices = DescribeServicesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeServicesResponse' <$>
+                   (x .?> "failures" .!@ mempty) <*>
+                     (x .?> "services" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
--- | 'DescribeServicesResponse' constructor.
+instance ToHeaders DescribeServices where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.DescribeServices"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeServices where
+        toJSON DescribeServices'{..}
+          = object
+              ["cluster" .= _drqCluster,
+               "services" .= _drqServices]
+
+instance ToPath DescribeServices where
+        toPath = const "/"
+
+instance ToQuery DescribeServices where
+        toQuery = const mempty
+
+-- | /See:/ 'describeServicesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrFailures' @::@ ['Failure']
+-- * 'dssrsFailures'
 --
--- * 'dsrServices' @::@ ['ContainerService']
+-- * 'dssrsServices'
 --
-describeServicesResponse :: DescribeServicesResponse
-describeServicesResponse = DescribeServicesResponse
-    { _dsrServices = mempty
-    , _dsrFailures = mempty
+-- * 'dssrsStatus'
+data DescribeServicesResponse = DescribeServicesResponse'
+    { _dssrsFailures :: !(Maybe [Failure])
+    , _dssrsServices :: !(Maybe [ContainerService])
+    , _dssrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeServicesResponse' smart constructor.
+describeServicesResponse :: Int -> DescribeServicesResponse
+describeServicesResponse pStatus_ =
+    DescribeServicesResponse'
+    { _dssrsFailures = Nothing
+    , _dssrsServices = Nothing
+    , _dssrsStatus = pStatus_
     }
 
 -- | Any failures associated with the call.
-dsrFailures :: Lens' DescribeServicesResponse [Failure]
-dsrFailures = lens _dsrFailures (\s a -> s { _dsrFailures = a }) . _List
+dssrsFailures :: Lens' DescribeServicesResponse [Failure]
+dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default;
 
 -- | The list of services described.
-dsrServices :: Lens' DescribeServicesResponse [ContainerService]
-dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a }) . _List
+dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
+dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default;
 
-instance ToPath DescribeServices where
-    toPath = const "/"
-
-instance ToQuery DescribeServices where
-    toQuery = const mempty
-
-instance ToHeaders DescribeServices
-
-instance ToJSON DescribeServices where
-    toJSON DescribeServices{..} = object
-        [ "cluster"  .= _ds1Cluster
-        , "services" .= _ds1Services
-        ]
-
-instance AWSRequest DescribeServices where
-    type Sv DescribeServices = ECS
-    type Rs DescribeServices = DescribeServicesResponse
-
-    request  = post "DescribeServices"
-    response = jsonResponse
-
-instance FromJSON DescribeServicesResponse where
-    parseJSON = withObject "DescribeServicesResponse" $ \o -> DescribeServicesResponse
-        <$> o .:? "failures" .!= mempty
-        <*> o .:? "services" .!= mempty
+-- | FIXME: Undocumented member.
+dssrsStatus :: Lens' DescribeServicesResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

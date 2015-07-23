@@ -1,21 +1,24 @@
 # Amazon Auto Scaling SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Auto Scaling allows you to scale your Amazon EC2 capacity up or down
-automatically according to conditions you define. With Auto Scaling, you can
-ensure that the number of Amazon EC2 instances you’re using increases
-seamlessly during demand spikes to maintain performance, and decreases
-automatically during demand lulls to minimize costs. Auto Scaling is
-particularly well suited for applications that experience hourly, daily, or
-weekly variability in usage. Auto Scaling is enabled by Amazon CloudWatch and
-available at no additional charge beyond Amazon CloudWatch fees.
+Auto Scaling
+
+Auto Scaling is designed to automatically launch or terminate EC2
+instances based on user-defined policies, schedules, and health checks.
+Use this service in conjunction with the Amazon CloudWatch and Elastic
+Load Balancing services.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-autoscaling)
 and the [AWS API Reference](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/Welcome.html).

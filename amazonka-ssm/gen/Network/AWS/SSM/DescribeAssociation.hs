@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SSM.DescribeAssociation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes the associations for the specified configuration document or
+-- Describes the associations for the specified configuration document or
 -- instance.
 --
 -- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_DescribeAssociation.html>
@@ -33,94 +28,108 @@ module Network.AWS.SSM.DescribeAssociation
     -- ** Request constructor
     , describeAssociation
     -- ** Request lenses
-    , daInstanceId
-    , daName
+    , darqName
+    , darqInstanceId
 
     -- * Response
     , DescribeAssociationResponse
     -- ** Response constructor
     , describeAssociationResponse
     -- ** Response lenses
-    , darAssociationDescription
+    , darsAssociationDescription
+    , darsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SSM.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
-data DescribeAssociation = DescribeAssociation
-    { _daInstanceId :: Text
-    , _daName       :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeAssociation' constructor.
+-- | /See:/ 'describeAssociation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daInstanceId' @::@ 'Text'
+-- * 'darqName'
 --
--- * 'daName' @::@ 'Text'
---
-describeAssociation :: Text -- ^ 'daName'
-                    -> Text -- ^ 'daInstanceId'
-                    -> DescribeAssociation
-describeAssociation p1 p2 = DescribeAssociation
-    { _daName       = p1
-    , _daInstanceId = p2
+-- * 'darqInstanceId'
+data DescribeAssociation = DescribeAssociation'
+    { _darqName       :: !Text
+    , _darqInstanceId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeAssociation' smart constructor.
+describeAssociation :: Text -> Text -> DescribeAssociation
+describeAssociation pName_ pInstanceId_ =
+    DescribeAssociation'
+    { _darqName = pName_
+    , _darqInstanceId = pInstanceId_
     }
 
--- | The ID of the instance.
-daInstanceId :: Lens' DescribeAssociation Text
-daInstanceId = lens _daInstanceId (\s a -> s { _daInstanceId = a })
-
 -- | The name of the configuration document.
-daName :: Lens' DescribeAssociation Text
-daName = lens _daName (\s a -> s { _daName = a })
+darqName :: Lens' DescribeAssociation Text
+darqName = lens _darqName (\ s a -> s{_darqName = a});
 
-newtype DescribeAssociationResponse = DescribeAssociationResponse
-    { _darAssociationDescription :: Maybe AssociationDescription
-    } deriving (Eq, Read, Show)
+-- | The ID of the instance.
+darqInstanceId :: Lens' DescribeAssociation Text
+darqInstanceId = lens _darqInstanceId (\ s a -> s{_darqInstanceId = a});
 
--- | 'DescribeAssociationResponse' constructor.
+instance AWSRequest DescribeAssociation where
+        type Sv DescribeAssociation = SSM
+        type Rs DescribeAssociation =
+             DescribeAssociationResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeAssociationResponse' <$>
+                   (x .?> "AssociationDescription") <*>
+                     (pure (fromEnum s)))
+
+instance ToHeaders DescribeAssociation where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonSSM.DescribeAssociation" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeAssociation where
+        toJSON DescribeAssociation'{..}
+          = object
+              ["Name" .= _darqName,
+               "InstanceId" .= _darqInstanceId]
+
+instance ToPath DescribeAssociation where
+        toPath = const "/"
+
+instance ToQuery DescribeAssociation where
+        toQuery = const mempty
+
+-- | /See:/ 'describeAssociationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darAssociationDescription' @::@ 'Maybe' 'AssociationDescription'
+-- * 'darsAssociationDescription'
 --
-describeAssociationResponse :: DescribeAssociationResponse
-describeAssociationResponse = DescribeAssociationResponse
-    { _darAssociationDescription = Nothing
+-- * 'darsStatus'
+data DescribeAssociationResponse = DescribeAssociationResponse'
+    { _darsAssociationDescription :: !(Maybe AssociationDescription)
+    , _darsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeAssociationResponse' smart constructor.
+describeAssociationResponse :: Int -> DescribeAssociationResponse
+describeAssociationResponse pStatus_ =
+    DescribeAssociationResponse'
+    { _darsAssociationDescription = Nothing
+    , _darsStatus = pStatus_
     }
 
 -- | Information about the association.
-darAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
-darAssociationDescription =
-    lens _darAssociationDescription
-        (\s a -> s { _darAssociationDescription = a })
+darsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
+darsAssociationDescription = lens _darsAssociationDescription (\ s a -> s{_darsAssociationDescription = a});
 
-instance ToPath DescribeAssociation where
-    toPath = const "/"
-
-instance ToQuery DescribeAssociation where
-    toQuery = const mempty
-
-instance ToHeaders DescribeAssociation
-
-instance ToJSON DescribeAssociation where
-    toJSON DescribeAssociation{..} = object
-        [ "Name"       .= _daName
-        , "InstanceId" .= _daInstanceId
-        ]
-
-instance AWSRequest DescribeAssociation where
-    type Sv DescribeAssociation = SSM
-    type Rs DescribeAssociation = DescribeAssociationResponse
-
-    request  = post "DescribeAssociation"
-    response = jsonResponse
-
-instance FromJSON DescribeAssociationResponse where
-    parseJSON = withObject "DescribeAssociationResponse" $ \o -> DescribeAssociationResponse
-        <$> o .:? "AssociationDescription"
+-- | FIXME: Undocumented member.
+darsStatus :: Lens' DescribeAssociationResponse Int
+darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

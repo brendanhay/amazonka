@@ -1,32 +1,29 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.AddTagsToResource
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Adds metadata tags to an Amazon RDS resource. These tags can also be used
--- with cost allocation reporting to track cost associated with Amazon RDS
--- resources, or used in Condition statement in IAM policy for Amazon RDS.
+-- Adds metadata tags to an Amazon RDS resource. These tags can also be
+-- used with cost allocation reporting to track cost associated with Amazon
+-- RDS resources, or used in Condition statement in IAM policy for Amazon
+-- RDS.
 --
--- For an overview on tagging Amazon RDS resources, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDSResources>.
+-- For an overview on tagging Amazon RDS resources, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html>
 module Network.AWS.RDS.AddTagsToResource
@@ -36,8 +33,8 @@ module Network.AWS.RDS.AddTagsToResource
     -- ** Request constructor
     , addTagsToResource
     -- ** Request lenses
-    , attrResourceName
-    , attrTags
+    , attrrqResourceName
+    , attrrqTags
 
     -- * Response
     , AddTagsToResourceResponse
@@ -45,61 +42,68 @@ module Network.AWS.RDS.AddTagsToResource
     , addTagsToResourceResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AddTagsToResource = AddTagsToResource
-    { _attrResourceName :: Text
-    , _attrTags         :: List "member" Tag
-    } deriving (Eq, Read, Show)
-
--- | 'AddTagsToResource' constructor.
+-- |
+--
+-- /See:/ 'addTagsToResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attrResourceName' @::@ 'Text'
+-- * 'attrrqResourceName'
 --
--- * 'attrTags' @::@ ['Tag']
---
-addTagsToResource :: Text -- ^ 'attrResourceName'
-                  -> AddTagsToResource
-addTagsToResource p1 = AddTagsToResource
-    { _attrResourceName = p1
-    , _attrTags         = mempty
+-- * 'attrrqTags'
+data AddTagsToResource = AddTagsToResource'
+    { _attrrqResourceName :: !Text
+    , _attrrqTags         :: ![Tag]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AddTagsToResource' smart constructor.
+addTagsToResource :: Text -> AddTagsToResource
+addTagsToResource pResourceName_ =
+    AddTagsToResource'
+    { _attrrqResourceName = pResourceName_
+    , _attrrqTags = mempty
     }
 
--- | The Amazon RDS resource the tags will be added to. This value is an Amazon
--- Resource Name (ARN). For information about creating an ARN, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN  Constructingan RDS Amazon Resource Name (ARN)>.
-attrResourceName :: Lens' AddTagsToResource Text
-attrResourceName = lens _attrResourceName (\s a -> s { _attrResourceName = a })
+-- | The Amazon RDS resource the tags will be added to. This value is an
+-- Amazon Resource Name (ARN). For information about creating an ARN, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
+attrrqResourceName :: Lens' AddTagsToResource Text
+attrrqResourceName = lens _attrrqResourceName (\ s a -> s{_attrrqResourceName = a});
 
 -- | The tags to be assigned to the Amazon RDS resource.
-attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\s a -> s { _attrTags = a }) . _List
-
-data AddTagsToResourceResponse = AddTagsToResourceResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'AddTagsToResourceResponse' constructor.
-addTagsToResourceResponse :: AddTagsToResourceResponse
-addTagsToResourceResponse = AddTagsToResourceResponse
-
-instance ToPath AddTagsToResource where
-    toPath = const "/"
-
-instance ToQuery AddTagsToResource where
-    toQuery AddTagsToResource{..} = mconcat
-        [ "ResourceName" =? _attrResourceName
-        , "Tags"         =? _attrTags
-        ]
-
-instance ToHeaders AddTagsToResource
+attrrqTags :: Lens' AddTagsToResource [Tag]
+attrrqTags = lens _attrrqTags (\ s a -> s{_attrrqTags = a});
 
 instance AWSRequest AddTagsToResource where
-    type Sv AddTagsToResource = RDS
-    type Rs AddTagsToResource = AddTagsToResourceResponse
+        type Sv AddTagsToResource = RDS
+        type Rs AddTagsToResource = AddTagsToResourceResponse
+        request = post
+        response = receiveNull AddTagsToResourceResponse'
 
-    request  = post "AddTagsToResource"
-    response = nullResponse AddTagsToResourceResponse
+instance ToHeaders AddTagsToResource where
+        toHeaders = const mempty
+
+instance ToPath AddTagsToResource where
+        toPath = const "/"
+
+instance ToQuery AddTagsToResource where
+        toQuery AddTagsToResource'{..}
+          = mconcat
+              ["Action" =: ("AddTagsToResource" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "ResourceName" =: _attrrqResourceName,
+               "Tags" =: toQueryList "Tag" _attrrqTags]
+
+-- | /See:/ 'addTagsToResourceResponse' smart constructor.
+data AddTagsToResourceResponse =
+    AddTagsToResourceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AddTagsToResourceResponse' smart constructor.
+addTagsToResourceResponse :: AddTagsToResourceResponse
+addTagsToResourceResponse = AddTagsToResourceResponse'

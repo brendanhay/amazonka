@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified application along with all associated versions and
--- configurations. The application versions will not be deleted from your Amazon
--- S3 bucket.
+-- Deletes the specified application along with all associated versions and
+-- configurations. The application versions will not be deleted from your
+-- Amazon S3 bucket.
 --
 -- You cannot delete an application that has a running environment.
 --
@@ -36,8 +31,8 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     -- ** Request constructor
     , deleteApplication
     -- ** Request lenses
-    , daApplicationName
-    , daTerminateEnvByForce
+    , darqTerminateEnvByForce
+    , darqApplicationName
 
     -- * Response
     , DeleteApplicationResponse
@@ -45,63 +40,67 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     , deleteApplicationResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteApplication = DeleteApplication
-    { _daApplicationName     :: Text
-    , _daTerminateEnvByForce :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteApplication' constructor.
+-- | This documentation target is not reported in the API reference.
+--
+-- /See:/ 'deleteApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daApplicationName' @::@ 'Text'
+-- * 'darqTerminateEnvByForce'
 --
--- * 'daTerminateEnvByForce' @::@ 'Maybe' 'Bool'
---
-deleteApplication :: Text -- ^ 'daApplicationName'
-                  -> DeleteApplication
-deleteApplication p1 = DeleteApplication
-    { _daApplicationName     = p1
-    , _daTerminateEnvByForce = Nothing
+-- * 'darqApplicationName'
+data DeleteApplication = DeleteApplication'
+    { _darqTerminateEnvByForce :: !(Maybe Bool)
+    , _darqApplicationName     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteApplication' smart constructor.
+deleteApplication :: Text -> DeleteApplication
+deleteApplication pApplicationName_ =
+    DeleteApplication'
+    { _darqTerminateEnvByForce = Nothing
+    , _darqApplicationName = pApplicationName_
     }
 
+-- | When set to true, running environments will be terminated before
+-- deleting the application.
+darqTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
+darqTerminateEnvByForce = lens _darqTerminateEnvByForce (\ s a -> s{_darqTerminateEnvByForce = a});
+
 -- | The name of the application to delete.
-daApplicationName :: Lens' DeleteApplication Text
-daApplicationName =
-    lens _daApplicationName (\s a -> s { _daApplicationName = a })
-
--- | When set to true, running environments will be terminated before deleting the
--- application.
-daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
-daTerminateEnvByForce =
-    lens _daTerminateEnvByForce (\s a -> s { _daTerminateEnvByForce = a })
-
-data DeleteApplicationResponse = DeleteApplicationResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteApplicationResponse' constructor.
-deleteApplicationResponse :: DeleteApplicationResponse
-deleteApplicationResponse = DeleteApplicationResponse
-
-instance ToPath DeleteApplication where
-    toPath = const "/"
-
-instance ToQuery DeleteApplication where
-    toQuery DeleteApplication{..} = mconcat
-        [ "ApplicationName"     =? _daApplicationName
-        , "TerminateEnvByForce" =? _daTerminateEnvByForce
-        ]
-
-instance ToHeaders DeleteApplication
+darqApplicationName :: Lens' DeleteApplication Text
+darqApplicationName = lens _darqApplicationName (\ s a -> s{_darqApplicationName = a});
 
 instance AWSRequest DeleteApplication where
-    type Sv DeleteApplication = ElasticBeanstalk
-    type Rs DeleteApplication = DeleteApplicationResponse
+        type Sv DeleteApplication = ElasticBeanstalk
+        type Rs DeleteApplication = DeleteApplicationResponse
+        request = post
+        response = receiveNull DeleteApplicationResponse'
 
-    request  = post "DeleteApplication"
-    response = nullResponse DeleteApplicationResponse
+instance ToHeaders DeleteApplication where
+        toHeaders = const mempty
+
+instance ToPath DeleteApplication where
+        toPath = const "/"
+
+instance ToQuery DeleteApplication where
+        toQuery DeleteApplication'{..}
+          = mconcat
+              ["Action" =: ("DeleteApplication" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "TerminateEnvByForce" =: _darqTerminateEnvByForce,
+               "ApplicationName" =: _darqApplicationName]
+
+-- | /See:/ 'deleteApplicationResponse' smart constructor.
+data DeleteApplicationResponse =
+    DeleteApplicationResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteApplicationResponse' smart constructor.
+deleteApplicationResponse :: DeleteApplicationResponse
+deleteApplicationResponse = DeleteApplicationResponse'

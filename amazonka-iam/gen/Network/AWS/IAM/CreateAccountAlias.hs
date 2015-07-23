@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.CreateAccountAlias
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates an alias for your AWS account. For information about using an AWS
--- account alias, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID> in the /Using IAM/
--- guide.
+-- Creates an alias for your AWS account. For information about using an
+-- AWS account alias, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateAccountAlias.html>
 module Network.AWS.IAM.CreateAccountAlias
@@ -34,7 +30,7 @@ module Network.AWS.IAM.CreateAccountAlias
     -- ** Request constructor
     , createAccountAlias
     -- ** Request lenses
-    , caaAccountAlias
+    , caarqAccountAlias
 
     -- * Response
     , CreateAccountAliasResponse
@@ -42,51 +38,56 @@ module Network.AWS.IAM.CreateAccountAlias
     , createAccountAliasResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype CreateAccountAlias = CreateAccountAlias
-    { _caaAccountAlias :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'CreateAccountAlias' constructor.
+-- | /See:/ 'createAccountAlias' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caaAccountAlias' @::@ 'Text'
---
-createAccountAlias :: Text -- ^ 'caaAccountAlias'
-                   -> CreateAccountAlias
-createAccountAlias p1 = CreateAccountAlias
-    { _caaAccountAlias = p1
+-- * 'caarqAccountAlias'
+newtype CreateAccountAlias = CreateAccountAlias'
+    { _caarqAccountAlias :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateAccountAlias' smart constructor.
+createAccountAlias :: Text -> CreateAccountAlias
+createAccountAlias pAccountAlias_ =
+    CreateAccountAlias'
+    { _caarqAccountAlias = pAccountAlias_
     }
 
 -- | The account alias to create.
-caaAccountAlias :: Lens' CreateAccountAlias Text
-caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
-
-data CreateAccountAliasResponse = CreateAccountAliasResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'CreateAccountAliasResponse' constructor.
-createAccountAliasResponse :: CreateAccountAliasResponse
-createAccountAliasResponse = CreateAccountAliasResponse
-
-instance ToPath CreateAccountAlias where
-    toPath = const "/"
-
-instance ToQuery CreateAccountAlias where
-    toQuery CreateAccountAlias{..} = mconcat
-        [ "AccountAlias" =? _caaAccountAlias
-        ]
-
-instance ToHeaders CreateAccountAlias
+caarqAccountAlias :: Lens' CreateAccountAlias Text
+caarqAccountAlias = lens _caarqAccountAlias (\ s a -> s{_caarqAccountAlias = a});
 
 instance AWSRequest CreateAccountAlias where
-    type Sv CreateAccountAlias = IAM
-    type Rs CreateAccountAlias = CreateAccountAliasResponse
+        type Sv CreateAccountAlias = IAM
+        type Rs CreateAccountAlias =
+             CreateAccountAliasResponse
+        request = post
+        response = receiveNull CreateAccountAliasResponse'
 
-    request  = post "CreateAccountAlias"
-    response = nullResponse CreateAccountAliasResponse
+instance ToHeaders CreateAccountAlias where
+        toHeaders = const mempty
+
+instance ToPath CreateAccountAlias where
+        toPath = const "/"
+
+instance ToQuery CreateAccountAlias where
+        toQuery CreateAccountAlias'{..}
+          = mconcat
+              ["Action" =: ("CreateAccountAlias" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "AccountAlias" =: _caarqAccountAlias]
+
+-- | /See:/ 'createAccountAliasResponse' smart constructor.
+data CreateAccountAliasResponse =
+    CreateAccountAliasResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateAccountAliasResponse' smart constructor.
+createAccountAliasResponse :: CreateAccountAliasResponse
+createAccountAliasResponse = CreateAccountAliasResponse'

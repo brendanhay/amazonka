@@ -1,39 +1,37 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.GetPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Retrieves information about the specified managed policy, including the
--- policy's default version and the total number of users, groups, and roles
--- that the policy is attached to. For a list of the specific users, groups, and
--- roles that the policy is attached to, use the 'ListEntitiesForPolicy' API. This
--- API returns metadata about the policy. To retrieve the policy document for a
--- specific version of the policy, use 'GetPolicyVersion'.
+-- Retrieves information about the specified managed policy, including the
+-- policy\'s default version and the total number of users, groups, and
+-- roles that the policy is attached to. For a list of the specific users,
+-- groups, and roles that the policy is attached to, use the
+-- ListEntitiesForPolicy API. This API returns metadata about the policy.
+-- To retrieve the policy document for a specific version of the policy,
+-- use GetPolicyVersion.
 --
 -- This API retrieves information about managed policies. To retrieve
--- information about an inline policy that is embedded with a user, group, or
--- role, use the 'GetUserPolicy', 'GetGroupPolicy', or 'GetRolePolicy' API.
+-- information about an inline policy that is embedded with a user, group,
+-- or role, use the GetUserPolicy, GetGroupPolicy, or GetRolePolicy API.
 --
--- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and InlinePolicies> in the /Using IAM/ guide.
+-- For more information about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicy.html>
 module Network.AWS.IAM.GetPolicy
@@ -43,76 +41,91 @@ module Network.AWS.IAM.GetPolicy
     -- ** Request constructor
     , getPolicy
     -- ** Request lenses
-    , gpPolicyArn
+    , gprqPolicyARN
 
     -- * Response
     , GetPolicyResponse
     -- ** Response constructor
     , getPolicyResponse
     -- ** Response lenses
-    , gprPolicy
+    , gprsPolicy
+    , gprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetPolicy = GetPolicy
-    { _gpPolicyArn :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetPolicy' constructor.
+-- | /See:/ 'getPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpPolicyArn' @::@ 'Text'
---
-getPolicy :: Text -- ^ 'gpPolicyArn'
-          -> GetPolicy
-getPolicy p1 = GetPolicy
-    { _gpPolicyArn = p1
+-- * 'gprqPolicyARN'
+newtype GetPolicy = GetPolicy'
+    { _gprqPolicyARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetPolicy' smart constructor.
+getPolicy :: Text -> GetPolicy
+getPolicy pPolicyARN_ =
+    GetPolicy'
+    { _gprqPolicyARN = pPolicyARN_
     }
 
-gpPolicyArn :: Lens' GetPolicy Text
-gpPolicyArn = lens _gpPolicyArn (\s a -> s { _gpPolicyArn = a })
+-- | FIXME: Undocumented member.
+gprqPolicyARN :: Lens' GetPolicy Text
+gprqPolicyARN = lens _gprqPolicyARN (\ s a -> s{_gprqPolicyARN = a});
 
-newtype GetPolicyResponse = GetPolicyResponse
-    { _gprPolicy :: Maybe Policy
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetPolicy where
+        type Sv GetPolicy = IAM
+        type Rs GetPolicy = GetPolicyResponse
+        request = post
+        response
+          = receiveXMLWrapper "GetPolicyResult"
+              (\ s h x ->
+                 GetPolicyResponse' <$>
+                   (x .@? "Policy") <*> (pure (fromEnum s)))
 
--- | 'GetPolicyResponse' constructor.
+instance ToHeaders GetPolicy where
+        toHeaders = const mempty
+
+instance ToPath GetPolicy where
+        toPath = const "/"
+
+instance ToQuery GetPolicy where
+        toQuery GetPolicy'{..}
+          = mconcat
+              ["Action" =: ("GetPolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "PolicyArn" =: _gprqPolicyARN]
+
+-- | Contains the response to a successful GetPolicy request.
+--
+-- /See:/ 'getPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprPolicy' @::@ 'Maybe' 'Policy'
+-- * 'gprsPolicy'
 --
-getPolicyResponse :: GetPolicyResponse
-getPolicyResponse = GetPolicyResponse
-    { _gprPolicy = Nothing
+-- * 'gprsStatus'
+data GetPolicyResponse = GetPolicyResponse'
+    { _gprsPolicy :: !(Maybe Policy)
+    , _gprsStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetPolicyResponse' smart constructor.
+getPolicyResponse :: Int -> GetPolicyResponse
+getPolicyResponse pStatus_ =
+    GetPolicyResponse'
+    { _gprsPolicy = Nothing
+    , _gprsStatus = pStatus_
     }
 
 -- | Information about the policy.
-gprPolicy :: Lens' GetPolicyResponse (Maybe Policy)
-gprPolicy = lens _gprPolicy (\s a -> s { _gprPolicy = a })
+gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
+gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
-instance ToPath GetPolicy where
-    toPath = const "/"
-
-instance ToQuery GetPolicy where
-    toQuery GetPolicy{..} = mconcat
-        [ "PolicyArn" =? _gpPolicyArn
-        ]
-
-instance ToHeaders GetPolicy
-
-instance AWSRequest GetPolicy where
-    type Sv GetPolicy = IAM
-    type Rs GetPolicy = GetPolicyResponse
-
-    request  = post "GetPolicy"
-    response = xmlResponse
-
-instance FromXML GetPolicyResponse where
-    parseXML = withElement "GetPolicyResult" $ \x -> GetPolicyResponse
-        <$> x .@? "Policy"
+-- | FIXME: Undocumented member.
+gprsStatus :: Lens' GetPolicyResponse Int
+gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

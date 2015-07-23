@@ -1,28 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElastiCache.ModifyCacheSubnetGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet group.
+-- The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet
+-- group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
@@ -32,52 +28,57 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     -- ** Request constructor
     , modifyCacheSubnetGroup
     -- ** Request lenses
-    , mcsgCacheSubnetGroupDescription
-    , mcsgCacheSubnetGroupName
-    , mcsgSubnetIds
+    , mcsgrqSubnetIds
+    , mcsgrqCacheSubnetGroupDescription
+    , mcsgrqCacheSubnetGroupName
 
     -- * Response
     , ModifyCacheSubnetGroupResponse
     -- ** Response constructor
     , modifyCacheSubnetGroupResponse
     -- ** Response lenses
-    , mcsgrCacheSubnetGroup
+    , mcsgrsCacheSubnetGroup
+    , mcsgrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
-    { _mcsgCacheSubnetGroupDescription :: Maybe Text
-    , _mcsgCacheSubnetGroupName        :: Text
-    , _mcsgSubnetIds                   :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ModifyCacheSubnetGroup' constructor.
+-- | Represents the input of a /ModifyCacheSubnetGroup/ action.
+--
+-- /See:/ 'modifyCacheSubnetGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mcsgCacheSubnetGroupDescription' @::@ 'Maybe' 'Text'
+-- * 'mcsgrqSubnetIds'
 --
--- * 'mcsgCacheSubnetGroupName' @::@ 'Text'
+-- * 'mcsgrqCacheSubnetGroupDescription'
 --
--- * 'mcsgSubnetIds' @::@ ['Text']
---
-modifyCacheSubnetGroup :: Text -- ^ 'mcsgCacheSubnetGroupName'
-                       -> ModifyCacheSubnetGroup
-modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroup
-    { _mcsgCacheSubnetGroupName        = p1
-    , _mcsgCacheSubnetGroupDescription = Nothing
-    , _mcsgSubnetIds                   = mempty
+-- * 'mcsgrqCacheSubnetGroupName'
+data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
+    { _mcsgrqSubnetIds                   :: !(Maybe [Text])
+    , _mcsgrqCacheSubnetGroupDescription :: !(Maybe Text)
+    , _mcsgrqCacheSubnetGroupName        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifyCacheSubnetGroup' smart constructor.
+modifyCacheSubnetGroup :: Text -> ModifyCacheSubnetGroup
+modifyCacheSubnetGroup pCacheSubnetGroupName_ =
+    ModifyCacheSubnetGroup'
+    { _mcsgrqSubnetIds = Nothing
+    , _mcsgrqCacheSubnetGroupDescription = Nothing
+    , _mcsgrqCacheSubnetGroupName = pCacheSubnetGroupName_
     }
 
+-- | The EC2 subnet IDs for the cache subnet group.
+mcsgrqSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
+mcsgrqSubnetIds = lens _mcsgrqSubnetIds (\ s a -> s{_mcsgrqSubnetIds = a}) . _Default;
+
 -- | A description for the cache subnet group.
-mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
-mcsgCacheSubnetGroupDescription =
-    lens _mcsgCacheSubnetGroupDescription
-        (\s a -> s { _mcsgCacheSubnetGroupDescription = a })
+mcsgrqCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
+mcsgrqCacheSubnetGroupDescription = lens _mcsgrqCacheSubnetGroupDescription (\ s a -> s{_mcsgrqCacheSubnetGroupDescription = a});
 
 -- | The name for the cache subnet group. This value is stored as a lowercase
 -- string.
@@ -85,54 +86,66 @@ mcsgCacheSubnetGroupDescription =
 -- Constraints: Must contain no more than 255 alphanumeric characters or
 -- hyphens.
 --
--- Example: 'mysubnetgroup'
-mcsgCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
-mcsgCacheSubnetGroupName =
-    lens _mcsgCacheSubnetGroupName
-        (\s a -> s { _mcsgCacheSubnetGroupName = a })
+-- Example: @mysubnetgroup@
+mcsgrqCacheSubnetGroupName :: Lens' ModifyCacheSubnetGroup Text
+mcsgrqCacheSubnetGroupName = lens _mcsgrqCacheSubnetGroupName (\ s a -> s{_mcsgrqCacheSubnetGroupName = a});
 
--- | The EC2 subnet IDs for the cache subnet group.
-mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
-mcsgSubnetIds = lens _mcsgSubnetIds (\s a -> s { _mcsgSubnetIds = a }) . _List
+instance AWSRequest ModifyCacheSubnetGroup where
+        type Sv ModifyCacheSubnetGroup = ElastiCache
+        type Rs ModifyCacheSubnetGroup =
+             ModifyCacheSubnetGroupResponse
+        request = post
+        response
+          = receiveXMLWrapper "ModifyCacheSubnetGroupResult"
+              (\ s h x ->
+                 ModifyCacheSubnetGroupResponse' <$>
+                   (x .@? "CacheSubnetGroup") <*> (pure (fromEnum s)))
 
-newtype ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
-    { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Eq, Read, Show)
+instance ToHeaders ModifyCacheSubnetGroup where
+        toHeaders = const mempty
 
--- | 'ModifyCacheSubnetGroupResponse' constructor.
+instance ToPath ModifyCacheSubnetGroup where
+        toPath = const "/"
+
+instance ToQuery ModifyCacheSubnetGroup where
+        toQuery ModifyCacheSubnetGroup'{..}
+          = mconcat
+              ["Action" =:
+                 ("ModifyCacheSubnetGroup" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "SubnetIds" =:
+                 toQuery
+                   (toQueryList "SubnetIdentifier" <$>
+                      _mcsgrqSubnetIds),
+               "CacheSubnetGroupDescription" =:
+                 _mcsgrqCacheSubnetGroupDescription,
+               "CacheSubnetGroupName" =:
+                 _mcsgrqCacheSubnetGroupName]
+
+-- | /See:/ 'modifyCacheSubnetGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mcsgrCacheSubnetGroup' @::@ 'Maybe' 'CacheSubnetGroup'
+-- * 'mcsgrsCacheSubnetGroup'
 --
-modifyCacheSubnetGroupResponse :: ModifyCacheSubnetGroupResponse
-modifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
-    { _mcsgrCacheSubnetGroup = Nothing
+-- * 'mcsgrsStatus'
+data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
+    { _mcsgrsCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
+    , _mcsgrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifyCacheSubnetGroupResponse' smart constructor.
+modifyCacheSubnetGroupResponse :: Int -> ModifyCacheSubnetGroupResponse
+modifyCacheSubnetGroupResponse pStatus_ =
+    ModifyCacheSubnetGroupResponse'
+    { _mcsgrsCacheSubnetGroup = Nothing
+    , _mcsgrsStatus = pStatus_
     }
 
-mcsgrCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
-mcsgrCacheSubnetGroup =
-    lens _mcsgrCacheSubnetGroup (\s a -> s { _mcsgrCacheSubnetGroup = a })
+-- | FIXME: Undocumented member.
+mcsgrsCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
+mcsgrsCacheSubnetGroup = lens _mcsgrsCacheSubnetGroup (\ s a -> s{_mcsgrsCacheSubnetGroup = a});
 
-instance ToPath ModifyCacheSubnetGroup where
-    toPath = const "/"
-
-instance ToQuery ModifyCacheSubnetGroup where
-    toQuery ModifyCacheSubnetGroup{..} = mconcat
-        [ "CacheSubnetGroupDescription" =? _mcsgCacheSubnetGroupDescription
-        , "CacheSubnetGroupName"        =? _mcsgCacheSubnetGroupName
-        , "SubnetIds"                   =? _mcsgSubnetIds
-        ]
-
-instance ToHeaders ModifyCacheSubnetGroup
-
-instance AWSRequest ModifyCacheSubnetGroup where
-    type Sv ModifyCacheSubnetGroup = ElastiCache
-    type Rs ModifyCacheSubnetGroup = ModifyCacheSubnetGroupResponse
-
-    request  = post "ModifyCacheSubnetGroup"
-    response = xmlResponse
-
-instance FromXML ModifyCacheSubnetGroupResponse where
-    parseXML = withElement "ModifyCacheSubnetGroupResult" $ \x -> ModifyCacheSubnetGroupResponse
-        <$> x .@? "CacheSubnetGroup"
+-- | FIXME: Undocumented member.
+mcsgrsStatus :: Lens' ModifyCacheSubnetGroupResponse Int
+mcsgrsStatus = lens _mcsgrsStatus (\ s a -> s{_mcsgrsStatus = a});

@@ -1,36 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SSM.CreateAssociation
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Associates the specified configuration document with the specified instance.
+-- Associates the specified configuration document with the specified
+-- instance.
 --
 -- When you associate a configuration document with an instance, the
--- configuration agent on the instance processes the configuration document and
--- configures the instance as specified.
+-- configuration agent on the instance processes the configuration document
+-- and configures the instance as specified.
 --
--- If you associate a configuration document with an instance that already has
--- an associated configuration document, we replace the current configuration
--- document with the new configuration document.
+-- If you associate a configuration document with an instance that already
+-- has an associated configuration document, we replace the current
+-- configuration document with the new configuration document.
 --
 -- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_CreateAssociation.html>
 module Network.AWS.SSM.CreateAssociation
@@ -40,94 +36,107 @@ module Network.AWS.SSM.CreateAssociation
     -- ** Request constructor
     , createAssociation
     -- ** Request lenses
-    , caInstanceId
-    , caName
+    , carqName
+    , carqInstanceId
 
     -- * Response
     , CreateAssociationResponse
     -- ** Response constructor
     , createAssociationResponse
     -- ** Response lenses
-    , carAssociationDescription
+    , carsAssociationDescription
+    , carsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.SSM.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SSM.Types
 
-data CreateAssociation = CreateAssociation
-    { _caInstanceId :: Text
-    , _caName       :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateAssociation' constructor.
+-- | /See:/ 'createAssociation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caInstanceId' @::@ 'Text'
+-- * 'carqName'
 --
--- * 'caName' @::@ 'Text'
---
-createAssociation :: Text -- ^ 'caName'
-                  -> Text -- ^ 'caInstanceId'
-                  -> CreateAssociation
-createAssociation p1 p2 = CreateAssociation
-    { _caName       = p1
-    , _caInstanceId = p2
+-- * 'carqInstanceId'
+data CreateAssociation = CreateAssociation'
+    { _carqName       :: !Text
+    , _carqInstanceId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateAssociation' smart constructor.
+createAssociation :: Text -> Text -> CreateAssociation
+createAssociation pName_ pInstanceId_ =
+    CreateAssociation'
+    { _carqName = pName_
+    , _carqInstanceId = pInstanceId_
     }
 
--- | The ID of the instance.
-caInstanceId :: Lens' CreateAssociation Text
-caInstanceId = lens _caInstanceId (\s a -> s { _caInstanceId = a })
-
 -- | The name of the configuration document.
-caName :: Lens' CreateAssociation Text
-caName = lens _caName (\s a -> s { _caName = a })
+carqName :: Lens' CreateAssociation Text
+carqName = lens _carqName (\ s a -> s{_carqName = a});
 
-newtype CreateAssociationResponse = CreateAssociationResponse
-    { _carAssociationDescription :: Maybe AssociationDescription
-    } deriving (Eq, Read, Show)
+-- | The ID of the instance.
+carqInstanceId :: Lens' CreateAssociation Text
+carqInstanceId = lens _carqInstanceId (\ s a -> s{_carqInstanceId = a});
 
--- | 'CreateAssociationResponse' constructor.
+instance AWSRequest CreateAssociation where
+        type Sv CreateAssociation = SSM
+        type Rs CreateAssociation = CreateAssociationResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateAssociationResponse' <$>
+                   (x .?> "AssociationDescription") <*>
+                     (pure (fromEnum s)))
+
+instance ToHeaders CreateAssociation where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonSSM.CreateAssociation" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateAssociation where
+        toJSON CreateAssociation'{..}
+          = object
+              ["Name" .= _carqName,
+               "InstanceId" .= _carqInstanceId]
+
+instance ToPath CreateAssociation where
+        toPath = const "/"
+
+instance ToQuery CreateAssociation where
+        toQuery = const mempty
+
+-- | /See:/ 'createAssociationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carAssociationDescription' @::@ 'Maybe' 'AssociationDescription'
+-- * 'carsAssociationDescription'
 --
-createAssociationResponse :: CreateAssociationResponse
-createAssociationResponse = CreateAssociationResponse
-    { _carAssociationDescription = Nothing
+-- * 'carsStatus'
+data CreateAssociationResponse = CreateAssociationResponse'
+    { _carsAssociationDescription :: !(Maybe AssociationDescription)
+    , _carsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateAssociationResponse' smart constructor.
+createAssociationResponse :: Int -> CreateAssociationResponse
+createAssociationResponse pStatus_ =
+    CreateAssociationResponse'
+    { _carsAssociationDescription = Nothing
+    , _carsStatus = pStatus_
     }
 
 -- | Information about the association.
-carAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
-carAssociationDescription =
-    lens _carAssociationDescription
-        (\s a -> s { _carAssociationDescription = a })
+carsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
+carsAssociationDescription = lens _carsAssociationDescription (\ s a -> s{_carsAssociationDescription = a});
 
-instance ToPath CreateAssociation where
-    toPath = const "/"
-
-instance ToQuery CreateAssociation where
-    toQuery = const mempty
-
-instance ToHeaders CreateAssociation
-
-instance ToJSON CreateAssociation where
-    toJSON CreateAssociation{..} = object
-        [ "Name"       .= _caName
-        , "InstanceId" .= _caInstanceId
-        ]
-
-instance AWSRequest CreateAssociation where
-    type Sv CreateAssociation = SSM
-    type Rs CreateAssociation = CreateAssociationResponse
-
-    request  = post "CreateAssociation"
-    response = jsonResponse
-
-instance FromJSON CreateAssociationResponse where
-    parseJSON = withObject "CreateAssociationResponse" $ \o -> CreateAssociationResponse
-        <$> o .:? "AssociationDescription"
+-- | FIXME: Undocumented member.
+carsStatus :: Lens' CreateAssociationResponse Int
+carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

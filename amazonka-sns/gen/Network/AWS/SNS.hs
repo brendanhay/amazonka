@@ -1,77 +1,61 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SNS
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Amazon Simple Notification Service (Amazon SNS) is a fast, flexible, fully
--- managed push messaging service. Amazon SNS makes it simple and cost-effective
--- to push notifications to Apple, Google, Fire OS, and Windows devices, as well
--- as Android devices in China with Baidu Cloud Push. You can also use SNS to
--- push notifications to internet connected smart devices, as well as other
--- distributed services. Besides pushing cloud notifications directly to mobile
--- devices, Amazon SNS can also deliver notifications by SMS text message or
--- email, to Amazon Simple Queue Service (SQS) queues, or to any HTTP endpoint.
--- To prevent messages from being lost, all messages published to Amazon SNS are
--- stored redundantly across multiple availability zones.
+-- Amazon Simple Notification Service
+--
+-- Amazon Simple Notification Service (Amazon SNS) is a web service that
+-- enables you to build distributed web-enabled applications. Applications
+-- can use Amazon SNS to easily push real-time notification messages to
+-- interested subscribers over multiple delivery protocols. For more
+-- information about this product see
+-- <http://aws.amazon.com/sns/ http:\/\/aws.amazon.com\/sns>. For detailed
+-- information about Amazon SNS features and their associated API calls,
+-- see the
+-- <http://docs.aws.amazon.com/sns/latest/dg/ Amazon SNS Developer Guide>.
+--
+-- We also provide SDKs that enable you to access Amazon SNS from your
+-- preferred programming language. The SDKs contain functionality that
+-- automatically takes care of tasks such as: cryptographically signing
+-- your service requests, retrying requests, and handling error responses.
+-- For a list of available SDKs, go to
+-- <http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 module Network.AWS.SNS
-    ( module Network.AWS.SNS.AddPermission
-    , module Network.AWS.SNS.ConfirmSubscription
-    , module Network.AWS.SNS.CreatePlatformApplication
-    , module Network.AWS.SNS.CreatePlatformEndpoint
-    , module Network.AWS.SNS.CreateTopic
-    , module Network.AWS.SNS.DeleteEndpoint
-    , module Network.AWS.SNS.DeletePlatformApplication
-    , module Network.AWS.SNS.DeleteTopic
-    , module Network.AWS.SNS.GetEndpointAttributes
-    , module Network.AWS.SNS.GetPlatformApplicationAttributes
-    , module Network.AWS.SNS.GetSubscriptionAttributes
-    , module Network.AWS.SNS.GetTopicAttributes
-    , module Network.AWS.SNS.ListEndpointsByPlatformApplication
-    , module Network.AWS.SNS.ListPlatformApplications
-    , module Network.AWS.SNS.ListSubscriptions
-    , module Network.AWS.SNS.ListSubscriptionsByTopic
-    , module Network.AWS.SNS.ListTopics
-    , module Network.AWS.SNS.Publish
-    , module Network.AWS.SNS.RemovePermission
-    , module Network.AWS.SNS.SetEndpointAttributes
-    , module Network.AWS.SNS.SetPlatformApplicationAttributes
-    , module Network.AWS.SNS.SetSubscriptionAttributes
-    , module Network.AWS.SNS.SetTopicAttributes
-    , module Network.AWS.SNS.Subscribe
-    , module Network.AWS.SNS.Types
-    , module Network.AWS.SNS.Unsubscribe
+    ( module Export
     ) where
 
-import Network.AWS.SNS.AddPermission
-import Network.AWS.SNS.ConfirmSubscription
-import Network.AWS.SNS.CreatePlatformApplication
-import Network.AWS.SNS.CreatePlatformEndpoint
-import Network.AWS.SNS.CreateTopic
-import Network.AWS.SNS.DeleteEndpoint
-import Network.AWS.SNS.DeletePlatformApplication
-import Network.AWS.SNS.DeleteTopic
-import Network.AWS.SNS.GetEndpointAttributes
-import Network.AWS.SNS.GetPlatformApplicationAttributes
-import Network.AWS.SNS.GetSubscriptionAttributes
-import Network.AWS.SNS.GetTopicAttributes
-import Network.AWS.SNS.ListEndpointsByPlatformApplication
-import Network.AWS.SNS.ListPlatformApplications
-import Network.AWS.SNS.ListSubscriptions
-import Network.AWS.SNS.ListSubscriptionsByTopic
-import Network.AWS.SNS.ListTopics
-import Network.AWS.SNS.Publish
-import Network.AWS.SNS.RemovePermission
-import Network.AWS.SNS.SetEndpointAttributes
-import Network.AWS.SNS.SetPlatformApplicationAttributes
-import Network.AWS.SNS.SetSubscriptionAttributes
-import Network.AWS.SNS.SetTopicAttributes
-import Network.AWS.SNS.Subscribe
-import Network.AWS.SNS.Types
-import Network.AWS.SNS.Unsubscribe
+import           Network.AWS.SNS.AddPermission                      as Export
+import           Network.AWS.SNS.ConfirmSubscription                as Export
+import           Network.AWS.SNS.CreatePlatformApplication          as Export
+import           Network.AWS.SNS.CreatePlatformEndpoint             as Export
+import           Network.AWS.SNS.CreateTopic                        as Export
+import           Network.AWS.SNS.DeleteEndpoint                     as Export
+import           Network.AWS.SNS.DeletePlatformApplication          as Export
+import           Network.AWS.SNS.DeleteTopic                        as Export
+import           Network.AWS.SNS.GetEndpointAttributes              as Export
+import           Network.AWS.SNS.GetPlatformApplicationAttributes   as Export
+import           Network.AWS.SNS.GetSubscriptionAttributes          as Export
+import           Network.AWS.SNS.GetTopicAttributes                 as Export
+import           Network.AWS.SNS.ListEndpointsByPlatformApplication as Export
+import           Network.AWS.SNS.ListPlatformApplications           as Export
+import           Network.AWS.SNS.ListSubscriptions                  as Export
+import           Network.AWS.SNS.ListSubscriptionsByTopic           as Export
+import           Network.AWS.SNS.ListTopics                         as Export
+import           Network.AWS.SNS.Publish                            as Export
+import           Network.AWS.SNS.RemovePermission                   as Export
+import           Network.AWS.SNS.SetEndpointAttributes              as Export
+import           Network.AWS.SNS.SetPlatformApplicationAttributes   as Export
+import           Network.AWS.SNS.SetSubscriptionAttributes          as Export
+import           Network.AWS.SNS.SetTopicAttributes                 as Export
+import           Network.AWS.SNS.Subscribe                          as Export
+import           Network.AWS.SNS.Types                              as Export
+import           Network.AWS.SNS.Unsubscribe                        as Export
+import           Network.AWS.SNS.Waiters                            as Export

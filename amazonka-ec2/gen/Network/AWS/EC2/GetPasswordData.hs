@@ -1,40 +1,37 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.GetPasswordData
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Retrieves the encrypted administrator password for an instance running
+-- Retrieves the encrypted administrator password for an instance running
 -- Windows.
 --
--- The Windows password is generated at boot if the 'EC2Config' service plugin, 'Ec2SetPassword', is enabled. This usually only happens the first time an AMI is launched,
--- and then 'Ec2SetPassword' is automatically disabled. The password is not
--- generated for rebundled AMIs unless 'Ec2SetPassword' is enabled before bundling.
+-- The Windows password is generated at boot if the @EC2Config@ service
+-- plugin, @Ec2SetPassword@, is enabled. This usually only happens the
+-- first time an AMI is launched, and then @Ec2SetPassword@ is
+-- automatically disabled. The password is not generated for rebundled AMIs
+-- unless @Ec2SetPassword@ is enabled before bundling.
 --
 -- The password is encrypted using the key pair that you specified when you
 -- launched the instance. You must provide the corresponding key pair file.
 --
--- Password generation and encryption takes a few moments. We recommend that
--- you wait up to 15 minutes after launching an instance before trying to
--- retrieve the generated password.
+-- Password generation and encryption takes a few moments. We recommend
+-- that you wait up to 15 minutes after launching an instance before trying
+-- to retrieve the generated password.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-GetPasswordData.html>
 module Network.AWS.EC2.GetPasswordData
@@ -44,112 +41,122 @@ module Network.AWS.EC2.GetPasswordData
     -- ** Request constructor
     , getPasswordData
     -- ** Request lenses
-    , gpdDryRun
-    , gpdInstanceId
+    , gpdrqDryRun
+    , gpdrqInstanceId
 
     -- * Response
     , GetPasswordDataResponse
     -- ** Response constructor
     , getPasswordDataResponse
     -- ** Response lenses
-    , gpdrInstanceId
-    , gpdrPasswordData
-    , gpdrTimestamp
+    , gpdrsStatus
+    , gpdrsInstanceId
+    , gpdrsPasswordData
+    , gpdrsTimestamp
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetPasswordData = GetPasswordData
-    { _gpdDryRun     :: Maybe Bool
-    , _gpdInstanceId :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'GetPasswordData' constructor.
+-- | /See:/ 'getPasswordData' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpdDryRun' @::@ 'Maybe' 'Bool'
+-- * 'gpdrqDryRun'
 --
--- * 'gpdInstanceId' @::@ 'Text'
---
-getPasswordData :: Text -- ^ 'gpdInstanceId'
-                -> GetPasswordData
-getPasswordData p1 = GetPasswordData
-    { _gpdInstanceId = p1
-    , _gpdDryRun     = Nothing
+-- * 'gpdrqInstanceId'
+data GetPasswordData = GetPasswordData'
+    { _gpdrqDryRun     :: !(Maybe Bool)
+    , _gpdrqInstanceId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetPasswordData' smart constructor.
+getPasswordData :: Text -> GetPasswordData
+getPasswordData pInstanceId_ =
+    GetPasswordData'
+    { _gpdrqDryRun = Nothing
+    , _gpdrqInstanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
-gpdDryRun = lens _gpdDryRun (\s a -> s { _gpdDryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+gpdrqDryRun :: Lens' GetPasswordData (Maybe Bool)
+gpdrqDryRun = lens _gpdrqDryRun (\ s a -> s{_gpdrqDryRun = a});
 
 -- | The ID of the Windows instance.
-gpdInstanceId :: Lens' GetPasswordData Text
-gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
+gpdrqInstanceId :: Lens' GetPasswordData Text
+gpdrqInstanceId = lens _gpdrqInstanceId (\ s a -> s{_gpdrqInstanceId = a});
 
-data GetPasswordDataResponse = GetPasswordDataResponse
-    { _gpdrInstanceId   :: Text
-    , _gpdrPasswordData :: Text
-    , _gpdrTimestamp    :: ISO8601
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest GetPasswordData where
+        type Sv GetPasswordData = EC2
+        type Rs GetPasswordData = GetPasswordDataResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 GetPasswordDataResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "instanceId") <*>
+                     (x .@ "passwordData")
+                     <*> (x .@ "timestamp"))
 
--- | 'GetPasswordDataResponse' constructor.
+instance ToHeaders GetPasswordData where
+        toHeaders = const mempty
+
+instance ToPath GetPasswordData where
+        toPath = const "/"
+
+instance ToQuery GetPasswordData where
+        toQuery GetPasswordData'{..}
+          = mconcat
+              ["Action" =: ("GetPasswordData" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _gpdrqDryRun,
+               "InstanceId" =: _gpdrqInstanceId]
+
+-- | /See:/ 'getPasswordDataResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpdrInstanceId' @::@ 'Text'
+-- * 'gpdrsStatus'
 --
--- * 'gpdrPasswordData' @::@ 'Text'
+-- * 'gpdrsInstanceId'
 --
--- * 'gpdrTimestamp' @::@ 'UTCTime'
+-- * 'gpdrsPasswordData'
 --
-getPasswordDataResponse :: Text -- ^ 'gpdrInstanceId'
-                        -> UTCTime -- ^ 'gpdrTimestamp'
-                        -> Text -- ^ 'gpdrPasswordData'
-                        -> GetPasswordDataResponse
-getPasswordDataResponse p1 p2 p3 = GetPasswordDataResponse
-    { _gpdrInstanceId   = p1
-    , _gpdrTimestamp    = withIso _Time (const id) p2
-    , _gpdrPasswordData = p3
+-- * 'gpdrsTimestamp'
+data GetPasswordDataResponse = GetPasswordDataResponse'
+    { _gpdrsStatus       :: !Int
+    , _gpdrsInstanceId   :: !Text
+    , _gpdrsPasswordData :: !Text
+    , _gpdrsTimestamp    :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetPasswordDataResponse' smart constructor.
+getPasswordDataResponse :: Int -> Text -> Text -> UTCTime -> GetPasswordDataResponse
+getPasswordDataResponse pStatus_ pInstanceId_ pPasswordData_ pTimestamp_ =
+    GetPasswordDataResponse'
+    { _gpdrsStatus = pStatus_
+    , _gpdrsInstanceId = pInstanceId_
+    , _gpdrsPasswordData = pPasswordData_
+    , _gpdrsTimestamp = _Time # pTimestamp_
     }
 
+-- | FIXME: Undocumented member.
+gpdrsStatus :: Lens' GetPasswordDataResponse Int
+gpdrsStatus = lens _gpdrsStatus (\ s a -> s{_gpdrsStatus = a});
+
 -- | The ID of the Windows instance.
-gpdrInstanceId :: Lens' GetPasswordDataResponse Text
-gpdrInstanceId = lens _gpdrInstanceId (\s a -> s { _gpdrInstanceId = a })
+gpdrsInstanceId :: Lens' GetPasswordDataResponse Text
+gpdrsInstanceId = lens _gpdrsInstanceId (\ s a -> s{_gpdrsInstanceId = a});
 
 -- | The password of the instance.
-gpdrPasswordData :: Lens' GetPasswordDataResponse Text
-gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
+gpdrsPasswordData :: Lens' GetPasswordDataResponse Text
+gpdrsPasswordData = lens _gpdrsPasswordData (\ s a -> s{_gpdrsPasswordData = a});
 
 -- | The time the data was last updated.
-gpdrTimestamp :: Lens' GetPasswordDataResponse UTCTime
-gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a }) . _Time
-
-instance ToPath GetPasswordData where
-    toPath = const "/"
-
-instance ToQuery GetPasswordData where
-    toQuery GetPasswordData{..} = mconcat
-        [ "DryRun"     =? _gpdDryRun
-        , "InstanceId" =? _gpdInstanceId
-        ]
-
-instance ToHeaders GetPasswordData
-
-instance AWSRequest GetPasswordData where
-    type Sv GetPasswordData = EC2
-    type Rs GetPasswordData = GetPasswordDataResponse
-
-    request  = post "GetPasswordData"
-    response = xmlResponse
-
-instance FromXML GetPasswordDataResponse where
-    parseXML x = GetPasswordDataResponse
-        <$> x .@  "instanceId"
-        <*> x .@  "passwordData"
-        <*> x .@  "timestamp"
+gpdrsTimestamp :: Lens' GetPasswordDataResponse UTCTime
+gpdrsTimestamp = lens _gpdrsTimestamp (\ s a -> s{_gpdrsTimestamp = a}) . _Time;

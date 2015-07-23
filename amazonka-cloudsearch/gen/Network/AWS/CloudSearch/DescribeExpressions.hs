@@ -1,32 +1,29 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudSearch.DescribeExpressions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets the expressions configured for the search domain. Can be limited to
--- specific expressions by name. By default, shows all expressions and includes
--- any pending changes to the configuration. Set the 'Deployed' option to 'true' to
--- show the active configuration and exclude pending changes. For more
--- information, see Configuring Expressions in the /Amazon CloudSearch DeveloperGuide/.
+-- Gets the expressions configured for the search domain. Can be limited to
+-- specific expressions by name. By default, shows all expressions and
+-- includes any pending changes to the configuration. Set the @Deployed@
+-- option to @true@ to show the active configuration and exclude pending
+-- changes. For more information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>
+-- in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeExpressions.html>
 module Network.AWS.CloudSearch.DescribeExpressions
@@ -36,107 +33,125 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- ** Request constructor
     , describeExpressions
     -- ** Request lenses
-    , deDeployed
-    , deDomainName
-    , deExpressionNames
+    , derqDeployed
+    , derqExpressionNames
+    , derqDomainName
 
     -- * Response
     , DescribeExpressionsResponse
     -- ** Response constructor
     , describeExpressionsResponse
     -- ** Response lenses
-    , derExpressions
+    , drsStatus
+    , drsExpressions
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeExpressions = DescribeExpressions
-    { _deDeployed        :: Maybe Bool
-    , _deDomainName      :: Text
-    , _deExpressionNames :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeExpressions' constructor.
+-- | Container for the parameters to the @DescribeDomains@ operation.
+-- Specifies the name of the domain you want to describe. To restrict the
+-- response to particular expressions, specify the names of the expressions
+-- you want to describe. To show the active configuration and exclude any
+-- pending changes, set the @Deployed@ option to @true@.
+--
+-- /See:/ 'describeExpressions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deDeployed' @::@ 'Maybe' 'Bool'
+-- * 'derqDeployed'
 --
--- * 'deDomainName' @::@ 'Text'
+-- * 'derqExpressionNames'
 --
--- * 'deExpressionNames' @::@ ['Text']
---
-describeExpressions :: Text -- ^ 'deDomainName'
-                    -> DescribeExpressions
-describeExpressions p1 = DescribeExpressions
-    { _deDomainName      = p1
-    , _deExpressionNames = mempty
-    , _deDeployed        = Nothing
+-- * 'derqDomainName'
+data DescribeExpressions = DescribeExpressions'
+    { _derqDeployed        :: !(Maybe Bool)
+    , _derqExpressionNames :: !(Maybe [Text])
+    , _derqDomainName      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeExpressions' smart constructor.
+describeExpressions :: Text -> DescribeExpressions
+describeExpressions pDomainName_ =
+    DescribeExpressions'
+    { _derqDeployed = Nothing
+    , _derqExpressionNames = Nothing
+    , _derqDomainName = pDomainName_
     }
 
--- | Whether to display the deployed configuration ('true') or include any pending
--- changes ('false'). Defaults to 'false'.
-deDeployed :: Lens' DescribeExpressions (Maybe Bool)
-deDeployed = lens _deDeployed (\s a -> s { _deDeployed = a })
+-- | Whether to display the deployed configuration (@true@) or include any
+-- pending changes (@false@). Defaults to @false@.
+derqDeployed :: Lens' DescribeExpressions (Maybe Bool)
+derqDeployed = lens _derqDeployed (\ s a -> s{_derqDeployed = a});
+
+-- | Limits the @DescribeExpressions@ response to the specified expressions.
+-- If not specified, all expressions are shown.
+derqExpressionNames :: Lens' DescribeExpressions [Text]
+derqExpressionNames = lens _derqExpressionNames (\ s a -> s{_derqExpressionNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-deDomainName :: Lens' DescribeExpressions Text
-deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
+derqDomainName :: Lens' DescribeExpressions Text
+derqDomainName = lens _derqDomainName (\ s a -> s{_derqDomainName = a});
 
--- | Limits the ''DescribeExpressions' response to the specified expressions. If not
--- specified, all expressions are shown.
-deExpressionNames :: Lens' DescribeExpressions [Text]
-deExpressionNames =
-    lens _deExpressionNames (\s a -> s { _deExpressionNames = a })
-        . _List
+instance AWSRequest DescribeExpressions where
+        type Sv DescribeExpressions = CloudSearch
+        type Rs DescribeExpressions =
+             DescribeExpressionsResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeExpressionsResult"
+              (\ s h x ->
+                 DescribeExpressionsResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .@? "Expressions" .!@ mempty >>=
+                        parseXMLList "member"))
 
-newtype DescribeExpressionsResponse = DescribeExpressionsResponse
-    { _derExpressions :: List "member" ExpressionStatus
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance ToHeaders DescribeExpressions where
+        toHeaders = const mempty
 
-instance GHC.Exts.IsList DescribeExpressionsResponse where
-    type Item DescribeExpressionsResponse = ExpressionStatus
+instance ToPath DescribeExpressions where
+        toPath = const "/"
 
-    fromList = DescribeExpressionsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _derExpressions
+instance ToQuery DescribeExpressions where
+        toQuery DescribeExpressions'{..}
+          = mconcat
+              ["Action" =: ("DescribeExpressions" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "Deployed" =: _derqDeployed,
+               "ExpressionNames" =:
+                 toQuery
+                   (toQueryList "member" <$> _derqExpressionNames),
+               "DomainName" =: _derqDomainName]
 
--- | 'DescribeExpressionsResponse' constructor.
+-- | The result of a @DescribeExpressions@ request. Contains the expressions
+-- configured for the domain specified in the request.
+--
+-- /See:/ 'describeExpressionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derExpressions' @::@ ['ExpressionStatus']
+-- * 'drsStatus'
 --
-describeExpressionsResponse :: DescribeExpressionsResponse
-describeExpressionsResponse = DescribeExpressionsResponse
-    { _derExpressions = mempty
+-- * 'drsExpressions'
+data DescribeExpressionsResponse = DescribeExpressionsResponse'
+    { _drsStatus      :: !Int
+    , _drsExpressions :: ![ExpressionStatus]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeExpressionsResponse' smart constructor.
+describeExpressionsResponse :: Int -> DescribeExpressionsResponse
+describeExpressionsResponse pStatus_ =
+    DescribeExpressionsResponse'
+    { _drsStatus = pStatus_
+    , _drsExpressions = mempty
     }
 
+-- | FIXME: Undocumented member.
+drsStatus :: Lens' DescribeExpressionsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
+
 -- | The expressions configured for the domain.
-derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-derExpressions = lens _derExpressions (\s a -> s { _derExpressions = a }) . _List
-
-instance ToPath DescribeExpressions where
-    toPath = const "/"
-
-instance ToQuery DescribeExpressions where
-    toQuery DescribeExpressions{..} = mconcat
-        [ "Deployed"        =? _deDeployed
-        , "DomainName"      =? _deDomainName
-        , "ExpressionNames" =? _deExpressionNames
-        ]
-
-instance ToHeaders DescribeExpressions
-
-instance AWSRequest DescribeExpressions where
-    type Sv DescribeExpressions = CloudSearch
-    type Rs DescribeExpressions = DescribeExpressionsResponse
-
-    request  = post "DescribeExpressions"
-    response = xmlResponse
-
-instance FromXML DescribeExpressionsResponse where
-    parseXML = withElement "DescribeExpressionsResult" $ \x -> DescribeExpressionsResponse
-        <$> x .@? "Expressions" .!@ mempty
+drsExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
+drsExpressions = lens _drsExpressions (\ s a -> s{_drsExpressions = a});

@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudHSM.GetConfig
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets the configuration files necessary to connect to all high availability
--- partition groups the client is associated with.
+-- Gets the configuration files necessary to connect to all high
+-- availability partition groups the client is associated with.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_GetConfig.html>
 module Network.AWS.CloudHSM.GetConfig
@@ -33,123 +28,137 @@ module Network.AWS.CloudHSM.GetConfig
     -- ** Request constructor
     , getConfig
     -- ** Request lenses
-    , gcClientArn
-    , gcClientVersion
-    , gcHapgList
+    , gcrqClientARN
+    , gcrqClientVersion
+    , gcrqHAPGList
 
     -- * Response
     , GetConfigResponse
     -- ** Response constructor
     , getConfigResponse
     -- ** Response lenses
-    , gcrConfigCred
-    , gcrConfigFile
-    , gcrConfigType
+    , gcrsConfigFile
+    , gcrsConfigCred
+    , gcrsConfigType
+    , gcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudHSM.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetConfig = GetConfig
-    { _gcClientArn     :: Text
-    , _gcClientVersion :: ClientVersion
-    , _gcHapgList      :: List "HapgList" Text
-    } deriving (Eq, Read, Show)
-
--- | 'GetConfig' constructor.
+-- | /See:/ 'getConfig' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcClientArn' @::@ 'Text'
+-- * 'gcrqClientARN'
 --
--- * 'gcClientVersion' @::@ 'ClientVersion'
+-- * 'gcrqClientVersion'
 --
--- * 'gcHapgList' @::@ ['Text']
---
-getConfig :: Text -- ^ 'gcClientArn'
-          -> ClientVersion -- ^ 'gcClientVersion'
-          -> GetConfig
-getConfig p1 p2 = GetConfig
-    { _gcClientArn     = p1
-    , _gcClientVersion = p2
-    , _gcHapgList      = mempty
+-- * 'gcrqHAPGList'
+data GetConfig = GetConfig'
+    { _gcrqClientARN     :: !Text
+    , _gcrqClientVersion :: !ClientVersion
+    , _gcrqHAPGList      :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetConfig' smart constructor.
+getConfig :: Text -> ClientVersion -> GetConfig
+getConfig pClientARN_ pClientVersion_ =
+    GetConfig'
+    { _gcrqClientARN = pClientARN_
+    , _gcrqClientVersion = pClientVersion_
+    , _gcrqHAPGList = mempty
     }
 
 -- | The ARN of the client.
-gcClientArn :: Lens' GetConfig Text
-gcClientArn = lens _gcClientArn (\s a -> s { _gcClientArn = a })
+gcrqClientARN :: Lens' GetConfig Text
+gcrqClientARN = lens _gcrqClientARN (\ s a -> s{_gcrqClientARN = a});
 
 -- | The client version.
-gcClientVersion :: Lens' GetConfig ClientVersion
-gcClientVersion = lens _gcClientVersion (\s a -> s { _gcClientVersion = a })
+gcrqClientVersion :: Lens' GetConfig ClientVersion
+gcrqClientVersion = lens _gcrqClientVersion (\ s a -> s{_gcrqClientVersion = a});
 
--- | A list of ARNs that identify the high-availability partition groups that are
--- associated with the client.
-gcHapgList :: Lens' GetConfig [Text]
-gcHapgList = lens _gcHapgList (\s a -> s { _gcHapgList = a }) . _List
+-- | A list of ARNs that identify the high-availability partition groups that
+-- are associated with the client.
+gcrqHAPGList :: Lens' GetConfig [Text]
+gcrqHAPGList = lens _gcrqHAPGList (\ s a -> s{_gcrqHAPGList = a});
 
-data GetConfigResponse = GetConfigResponse
-    { _gcrConfigCred :: Maybe Text
-    , _gcrConfigFile :: Maybe Text
-    , _gcrConfigType :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSRequest GetConfig where
+        type Sv GetConfig = CloudHSM
+        type Rs GetConfig = GetConfigResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetConfigResponse' <$>
+                   (x .?> "ConfigFile") <*> (x .?> "ConfigCred") <*>
+                     (x .?> "ConfigType")
+                     <*> (pure (fromEnum s)))
 
--- | 'GetConfigResponse' constructor.
+instance ToHeaders GetConfig where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CloudHsmFrontendService.GetConfig" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetConfig where
+        toJSON GetConfig'{..}
+          = object
+              ["ClientArn" .= _gcrqClientARN,
+               "ClientVersion" .= _gcrqClientVersion,
+               "HapgList" .= _gcrqHAPGList]
+
+instance ToPath GetConfig where
+        toPath = const "/"
+
+instance ToQuery GetConfig where
+        toQuery = const mempty
+
+-- | /See:/ 'getConfigResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcrConfigCred' @::@ 'Maybe' 'Text'
+-- * 'gcrsConfigFile'
 --
--- * 'gcrConfigFile' @::@ 'Maybe' 'Text'
+-- * 'gcrsConfigCred'
 --
--- * 'gcrConfigType' @::@ 'Maybe' 'Text'
+-- * 'gcrsConfigType'
 --
-getConfigResponse :: GetConfigResponse
-getConfigResponse = GetConfigResponse
-    { _gcrConfigType = Nothing
-    , _gcrConfigFile = Nothing
-    , _gcrConfigCred = Nothing
+-- * 'gcrsStatus'
+data GetConfigResponse = GetConfigResponse'
+    { _gcrsConfigFile :: !(Maybe Text)
+    , _gcrsConfigCred :: !(Maybe Text)
+    , _gcrsConfigType :: !(Maybe Text)
+    , _gcrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetConfigResponse' smart constructor.
+getConfigResponse :: Int -> GetConfigResponse
+getConfigResponse pStatus_ =
+    GetConfigResponse'
+    { _gcrsConfigFile = Nothing
+    , _gcrsConfigCred = Nothing
+    , _gcrsConfigType = Nothing
+    , _gcrsStatus = pStatus_
     }
 
--- | The certificate file containing the server.pem files of the HSMs.
-gcrConfigCred :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigCred = lens _gcrConfigCred (\s a -> s { _gcrConfigCred = a })
-
 -- | The chrystoki.conf configuration file.
-gcrConfigFile :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigFile = lens _gcrConfigFile (\s a -> s { _gcrConfigFile = a })
+gcrsConfigFile :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigFile = lens _gcrsConfigFile (\ s a -> s{_gcrsConfigFile = a});
+
+-- | The certificate file containing the server.pem files of the HSMs.
+gcrsConfigCred :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigCred = lens _gcrsConfigCred (\ s a -> s{_gcrsConfigCred = a});
 
 -- | The type of credentials.
-gcrConfigType :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigType = lens _gcrConfigType (\s a -> s { _gcrConfigType = a })
+gcrsConfigType :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
 
-instance ToPath GetConfig where
-    toPath = const "/"
-
-instance ToQuery GetConfig where
-    toQuery = const mempty
-
-instance ToHeaders GetConfig
-
-instance ToJSON GetConfig where
-    toJSON GetConfig{..} = object
-        [ "ClientArn"     .= _gcClientArn
-        , "ClientVersion" .= _gcClientVersion
-        , "HapgList"      .= _gcHapgList
-        ]
-
-instance AWSRequest GetConfig where
-    type Sv GetConfig = CloudHSM
-    type Rs GetConfig = GetConfigResponse
-
-    request  = post "GetConfig"
-    response = jsonResponse
-
-instance FromJSON GetConfigResponse where
-    parseJSON = withObject "GetConfigResponse" $ \o -> GetConfigResponse
-        <$> o .:? "ConfigCred"
-        <*> o .:? "ConfigFile"
-        <*> o .:? "ConfigType"
+-- | FIXME: Undocumented member.
+gcrsStatus :: Lens' GetConfigResponse Int
+gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});

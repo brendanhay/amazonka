@@ -1,31 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SQS.ListQueues
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of your queues. The maximum number of queues that can be
--- returned is 1000. If you specify a value for the optional 'QueueNamePrefix'
--- parameter, only queues with a name beginning with the specified value are
--- returned.
+-- Returns a list of your queues. The maximum number of queues that can be
+-- returned is 1000. If you specify a value for the optional
+-- @QueueNamePrefix@ parameter, only queues with a name beginning with the
+-- specified value are returned.
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ListQueues.html>
 module Network.AWS.SQS.ListQueues
@@ -35,78 +30,93 @@ module Network.AWS.SQS.ListQueues
     -- ** Request constructor
     , listQueues
     -- ** Request lenses
-    , lqQueueNamePrefix
+    , lqrqQueueNamePrefix
 
     -- * Response
     , ListQueuesResponse
     -- ** Response constructor
     , listQueuesResponse
     -- ** Response lenses
-    , lqrQueueUrls
+    , lqrsQueueURLs
+    , lqrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SQS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
-newtype ListQueues = ListQueues
-    { _lqQueueNamePrefix :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'ListQueues' constructor.
+-- | /See:/ 'listQueues' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lqQueueNamePrefix' @::@ 'Maybe' 'Text'
---
+-- * 'lqrqQueueNamePrefix'
+newtype ListQueues = ListQueues'
+    { _lqrqQueueNamePrefix :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListQueues' smart constructor.
 listQueues :: ListQueues
-listQueues = ListQueues
-    { _lqQueueNamePrefix = Nothing
+listQueues =
+    ListQueues'
+    { _lqrqQueueNamePrefix = Nothing
     }
 
--- | A string to use for filtering the list results. Only those queues whose name
--- begins with the specified string are returned.
-lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
-lqQueueNamePrefix =
-    lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
+-- | A string to use for filtering the list results. Only those queues whose
+-- name begins with the specified string are returned.
+lqrqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
+lqrqQueueNamePrefix = lens _lqrqQueueNamePrefix (\ s a -> s{_lqrqQueueNamePrefix = a});
 
-newtype ListQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrls :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+instance AWSRequest ListQueues where
+        type Sv ListQueues = SQS
+        type Rs ListQueues = ListQueuesResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListQueuesResult"
+              (\ s h x ->
+                 ListQueuesResponse' <$>
+                   (may (parseXMLList "QueueUrl") x) <*>
+                     (pure (fromEnum s)))
 
--- | 'ListQueuesResponse' constructor.
+instance ToHeaders ListQueues where
+        toHeaders = const mempty
+
+instance ToPath ListQueues where
+        toPath = const "/"
+
+instance ToQuery ListQueues where
+        toQuery ListQueues'{..}
+          = mconcat
+              ["Action" =: ("ListQueues" :: ByteString),
+               "Version" =: ("2012-11-05" :: ByteString),
+               "QueueNamePrefix" =: _lqrqQueueNamePrefix]
+
+-- | A list of your queues.
+--
+-- /See:/ 'listQueuesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lqrQueueUrls' @::@ ['Text']
+-- * 'lqrsQueueURLs'
 --
-listQueuesResponse :: ListQueuesResponse
-listQueuesResponse = ListQueuesResponse
-    { _lqrQueueUrls = mempty
+-- * 'lqrsStatus'
+data ListQueuesResponse = ListQueuesResponse'
+    { _lqrsQueueURLs :: !(Maybe [Text])
+    , _lqrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListQueuesResponse' smart constructor.
+listQueuesResponse :: Int -> ListQueuesResponse
+listQueuesResponse pStatus_ =
+    ListQueuesResponse'
+    { _lqrsQueueURLs = Nothing
+    , _lqrsStatus = pStatus_
     }
 
 -- | A list of queue URLs, up to 1000 entries.
-lqrQueueUrls :: Lens' ListQueuesResponse [Text]
-lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a }) . _List
+lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
+lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default;
 
-instance ToPath ListQueues where
-    toPath = const "/"
-
-instance ToQuery ListQueues where
-    toQuery ListQueues{..} = mconcat
-        [ "QueueNamePrefix" =? _lqQueueNamePrefix
-        ]
-
-instance ToHeaders ListQueues
-
-instance AWSRequest ListQueues where
-    type Sv ListQueues = SQS
-    type Rs ListQueues = ListQueuesResponse
-
-    request  = post "ListQueues"
-    response = xmlResponse
-
-instance FromXML ListQueuesResponse where
-    parseXML = withElement "ListQueuesResult" $ \x -> ListQueuesResponse
-        <$> parseXML x
+-- | FIXME: Undocumented member.
+lqrsStatus :: Lens' ListQueuesResponse Int
+lqrsStatus = lens _lqrsStatus (\ s a -> s{_lqrsStatus = a});

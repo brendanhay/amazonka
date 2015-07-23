@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ImportExport.GetShippingLabel
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation generates a pre-paid UPS shipping label that you will use to
--- ship your device to AWS for processing.
+-- This operation generates a pre-paid UPS shipping label that you will use
+-- to ship your device to AWS for processing.
 --
 -- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetShippingLabel.html>
 module Network.AWS.ImportExport.GetShippingLabel
@@ -33,184 +28,208 @@ module Network.AWS.ImportExport.GetShippingLabel
     -- ** Request constructor
     , getShippingLabel
     -- ** Request lenses
-    , gslAPIVersion
-    , gslCity
-    , gslCompany
-    , gslCountry
-    , gslJobIds
-    , gslName
-    , gslPhoneNumber
-    , gslPostalCode
-    , gslStateOrProvince
-    , gslStreet1
-    , gslStreet2
-    , gslStreet3
+    , gslrqStreet3
+    , gslrqAPIVersion
+    , gslrqPostalCode
+    , gslrqCountry
+    , gslrqStateOrProvince
+    , gslrqStreet2
+    , gslrqName
+    , gslrqCompany
+    , gslrqCity
+    , gslrqPhoneNumber
+    , gslrqStreet1
+    , gslrqJobIds
 
     -- * Response
     , GetShippingLabelResponse
     -- ** Response constructor
     , getShippingLabelResponse
     -- ** Response lenses
-    , gslrShippingLabelURL
-    , gslrWarning
+    , gslrsShippingLabelURL
+    , gslrsWarning
+    , gslrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ImportExport.Types
-import qualified GHC.Exts
+import           Network.AWS.ImportExport.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetShippingLabel = GetShippingLabel
-    { _gslAPIVersion      :: Maybe Text
-    , _gslCity            :: Maybe Text
-    , _gslCompany         :: Maybe Text
-    , _gslCountry         :: Maybe Text
-    , _gslJobIds          :: List "member" Text
-    , _gslName            :: Maybe Text
-    , _gslPhoneNumber     :: Maybe Text
-    , _gslPostalCode      :: Maybe Text
-    , _gslStateOrProvince :: Maybe Text
-    , _gslStreet1         :: Maybe Text
-    , _gslStreet2         :: Maybe Text
-    , _gslStreet3         :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'GetShippingLabel' constructor.
+-- | /See:/ 'getShippingLabel' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gslAPIVersion' @::@ 'Maybe' 'Text'
+-- * 'gslrqStreet3'
 --
--- * 'gslCity' @::@ 'Maybe' 'Text'
+-- * 'gslrqAPIVersion'
 --
--- * 'gslCompany' @::@ 'Maybe' 'Text'
+-- * 'gslrqPostalCode'
 --
--- * 'gslCountry' @::@ 'Maybe' 'Text'
+-- * 'gslrqCountry'
 --
--- * 'gslJobIds' @::@ ['Text']
+-- * 'gslrqStateOrProvince'
 --
--- * 'gslName' @::@ 'Maybe' 'Text'
+-- * 'gslrqStreet2'
 --
--- * 'gslPhoneNumber' @::@ 'Maybe' 'Text'
+-- * 'gslrqName'
 --
--- * 'gslPostalCode' @::@ 'Maybe' 'Text'
+-- * 'gslrqCompany'
 --
--- * 'gslStateOrProvince' @::@ 'Maybe' 'Text'
+-- * 'gslrqCity'
 --
--- * 'gslStreet1' @::@ 'Maybe' 'Text'
+-- * 'gslrqPhoneNumber'
 --
--- * 'gslStreet2' @::@ 'Maybe' 'Text'
+-- * 'gslrqStreet1'
 --
--- * 'gslStreet3' @::@ 'Maybe' 'Text'
---
+-- * 'gslrqJobIds'
+data GetShippingLabel = GetShippingLabel'
+    { _gslrqStreet3         :: !(Maybe Text)
+    , _gslrqAPIVersion      :: !(Maybe Text)
+    , _gslrqPostalCode      :: !(Maybe Text)
+    , _gslrqCountry         :: !(Maybe Text)
+    , _gslrqStateOrProvince :: !(Maybe Text)
+    , _gslrqStreet2         :: !(Maybe Text)
+    , _gslrqName            :: !(Maybe Text)
+    , _gslrqCompany         :: !(Maybe Text)
+    , _gslrqCity            :: !(Maybe Text)
+    , _gslrqPhoneNumber     :: !(Maybe Text)
+    , _gslrqStreet1         :: !(Maybe Text)
+    , _gslrqJobIds          :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetShippingLabel' smart constructor.
 getShippingLabel :: GetShippingLabel
-getShippingLabel = GetShippingLabel
-    { _gslJobIds          = mempty
-    , _gslName            = Nothing
-    , _gslCompany         = Nothing
-    , _gslPhoneNumber     = Nothing
-    , _gslCountry         = Nothing
-    , _gslStateOrProvince = Nothing
-    , _gslCity            = Nothing
-    , _gslPostalCode      = Nothing
-    , _gslStreet1         = Nothing
-    , _gslStreet2         = Nothing
-    , _gslStreet3         = Nothing
-    , _gslAPIVersion      = Nothing
+getShippingLabel =
+    GetShippingLabel'
+    { _gslrqStreet3 = Nothing
+    , _gslrqAPIVersion = Nothing
+    , _gslrqPostalCode = Nothing
+    , _gslrqCountry = Nothing
+    , _gslrqStateOrProvince = Nothing
+    , _gslrqStreet2 = Nothing
+    , _gslrqName = Nothing
+    , _gslrqCompany = Nothing
+    , _gslrqCity = Nothing
+    , _gslrqPhoneNumber = Nothing
+    , _gslrqStreet1 = Nothing
+    , _gslrqJobIds = mempty
     }
 
-gslAPIVersion :: Lens' GetShippingLabel (Maybe Text)
-gslAPIVersion = lens _gslAPIVersion (\s a -> s { _gslAPIVersion = a })
+-- | FIXME: Undocumented member.
+gslrqStreet3 :: Lens' GetShippingLabel (Maybe Text)
+gslrqStreet3 = lens _gslrqStreet3 (\ s a -> s{_gslrqStreet3 = a});
 
-gslCity :: Lens' GetShippingLabel (Maybe Text)
-gslCity = lens _gslCity (\s a -> s { _gslCity = a })
+-- | FIXME: Undocumented member.
+gslrqAPIVersion :: Lens' GetShippingLabel (Maybe Text)
+gslrqAPIVersion = lens _gslrqAPIVersion (\ s a -> s{_gslrqAPIVersion = a});
 
-gslCompany :: Lens' GetShippingLabel (Maybe Text)
-gslCompany = lens _gslCompany (\s a -> s { _gslCompany = a })
+-- | FIXME: Undocumented member.
+gslrqPostalCode :: Lens' GetShippingLabel (Maybe Text)
+gslrqPostalCode = lens _gslrqPostalCode (\ s a -> s{_gslrqPostalCode = a});
 
-gslCountry :: Lens' GetShippingLabel (Maybe Text)
-gslCountry = lens _gslCountry (\s a -> s { _gslCountry = a })
+-- | FIXME: Undocumented member.
+gslrqCountry :: Lens' GetShippingLabel (Maybe Text)
+gslrqCountry = lens _gslrqCountry (\ s a -> s{_gslrqCountry = a});
 
-gslJobIds :: Lens' GetShippingLabel [Text]
-gslJobIds = lens _gslJobIds (\s a -> s { _gslJobIds = a }) . _List
+-- | FIXME: Undocumented member.
+gslrqStateOrProvince :: Lens' GetShippingLabel (Maybe Text)
+gslrqStateOrProvince = lens _gslrqStateOrProvince (\ s a -> s{_gslrqStateOrProvince = a});
 
-gslName :: Lens' GetShippingLabel (Maybe Text)
-gslName = lens _gslName (\s a -> s { _gslName = a })
+-- | FIXME: Undocumented member.
+gslrqStreet2 :: Lens' GetShippingLabel (Maybe Text)
+gslrqStreet2 = lens _gslrqStreet2 (\ s a -> s{_gslrqStreet2 = a});
 
-gslPhoneNumber :: Lens' GetShippingLabel (Maybe Text)
-gslPhoneNumber = lens _gslPhoneNumber (\s a -> s { _gslPhoneNumber = a })
+-- | FIXME: Undocumented member.
+gslrqName :: Lens' GetShippingLabel (Maybe Text)
+gslrqName = lens _gslrqName (\ s a -> s{_gslrqName = a});
 
-gslPostalCode :: Lens' GetShippingLabel (Maybe Text)
-gslPostalCode = lens _gslPostalCode (\s a -> s { _gslPostalCode = a })
+-- | FIXME: Undocumented member.
+gslrqCompany :: Lens' GetShippingLabel (Maybe Text)
+gslrqCompany = lens _gslrqCompany (\ s a -> s{_gslrqCompany = a});
 
-gslStateOrProvince :: Lens' GetShippingLabel (Maybe Text)
-gslStateOrProvince =
-    lens _gslStateOrProvince (\s a -> s { _gslStateOrProvince = a })
+-- | FIXME: Undocumented member.
+gslrqCity :: Lens' GetShippingLabel (Maybe Text)
+gslrqCity = lens _gslrqCity (\ s a -> s{_gslrqCity = a});
 
-gslStreet1 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet1 = lens _gslStreet1 (\s a -> s { _gslStreet1 = a })
+-- | FIXME: Undocumented member.
+gslrqPhoneNumber :: Lens' GetShippingLabel (Maybe Text)
+gslrqPhoneNumber = lens _gslrqPhoneNumber (\ s a -> s{_gslrqPhoneNumber = a});
 
-gslStreet2 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet2 = lens _gslStreet2 (\s a -> s { _gslStreet2 = a })
+-- | FIXME: Undocumented member.
+gslrqStreet1 :: Lens' GetShippingLabel (Maybe Text)
+gslrqStreet1 = lens _gslrqStreet1 (\ s a -> s{_gslrqStreet1 = a});
 
-gslStreet3 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet3 = lens _gslStreet3 (\s a -> s { _gslStreet3 = a })
-
-data GetShippingLabelResponse = GetShippingLabelResponse
-    { _gslrShippingLabelURL :: Maybe Text
-    , _gslrWarning          :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'GetShippingLabelResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gslrShippingLabelURL' @::@ 'Maybe' 'Text'
---
--- * 'gslrWarning' @::@ 'Maybe' 'Text'
---
-getShippingLabelResponse :: GetShippingLabelResponse
-getShippingLabelResponse = GetShippingLabelResponse
-    { _gslrShippingLabelURL = Nothing
-    , _gslrWarning          = Nothing
-    }
-
-gslrShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
-gslrShippingLabelURL =
-    lens _gslrShippingLabelURL (\s a -> s { _gslrShippingLabelURL = a })
-
-gslrWarning :: Lens' GetShippingLabelResponse (Maybe Text)
-gslrWarning = lens _gslrWarning (\s a -> s { _gslrWarning = a })
-
-instance ToPath GetShippingLabel where
-    toPath = const "/"
-
-instance ToQuery GetShippingLabel where
-    toQuery GetShippingLabel{..} = mconcat
-        [ "APIVersion"      =? _gslAPIVersion
-        , "city"            =? _gslCity
-        , "company"         =? _gslCompany
-        , "country"         =? _gslCountry
-        , "jobIds"          =? _gslJobIds
-        , "name"            =? _gslName
-        , "phoneNumber"     =? _gslPhoneNumber
-        , "postalCode"      =? _gslPostalCode
-        , "stateOrProvince" =? _gslStateOrProvince
-        , "street1"         =? _gslStreet1
-        , "street2"         =? _gslStreet2
-        , "street3"         =? _gslStreet3
-        ]
-
-instance ToHeaders GetShippingLabel
+-- | FIXME: Undocumented member.
+gslrqJobIds :: Lens' GetShippingLabel [Text]
+gslrqJobIds = lens _gslrqJobIds (\ s a -> s{_gslrqJobIds = a});
 
 instance AWSRequest GetShippingLabel where
-    type Sv GetShippingLabel = ImportExport
-    type Rs GetShippingLabel = GetShippingLabelResponse
+        type Sv GetShippingLabel = ImportExport
+        type Rs GetShippingLabel = GetShippingLabelResponse
+        request = post
+        response
+          = receiveXMLWrapper "GetShippingLabelResult"
+              (\ s h x ->
+                 GetShippingLabelResponse' <$>
+                   (x .@? "ShippingLabelURL") <*> (x .@? "Warning") <*>
+                     (pure (fromEnum s)))
 
-    request  = post "GetShippingLabel"
-    response = xmlResponse
+instance ToHeaders GetShippingLabel where
+        toHeaders = const mempty
 
-instance FromXML GetShippingLabelResponse where
-    parseXML = withElement "GetShippingLabelResult" $ \x -> GetShippingLabelResponse
-        <$> x .@? "ShippingLabelURL"
-        <*> x .@? "Warning"
+instance ToPath GetShippingLabel where
+        toPath = const "/"
+
+instance ToQuery GetShippingLabel where
+        toQuery GetShippingLabel'{..}
+          = mconcat
+              ["Operation=GetShippingLabel",
+               "Action" =: ("GetShippingLabel" :: ByteString),
+               "Version" =: ("2010-06-01" :: ByteString),
+               "street3" =: _gslrqStreet3,
+               "APIVersion" =: _gslrqAPIVersion,
+               "postalCode" =: _gslrqPostalCode,
+               "country" =: _gslrqCountry,
+               "stateOrProvince" =: _gslrqStateOrProvince,
+               "street2" =: _gslrqStreet2, "name" =: _gslrqName,
+               "company" =: _gslrqCompany, "city" =: _gslrqCity,
+               "phoneNumber" =: _gslrqPhoneNumber,
+               "street1" =: _gslrqStreet1,
+               "jobIds" =: toQueryList "member" _gslrqJobIds]
+
+-- | /See:/ 'getShippingLabelResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gslrsShippingLabelURL'
+--
+-- * 'gslrsWarning'
+--
+-- * 'gslrsStatus'
+data GetShippingLabelResponse = GetShippingLabelResponse'
+    { _gslrsShippingLabelURL :: !(Maybe Text)
+    , _gslrsWarning          :: !(Maybe Text)
+    , _gslrsStatus           :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetShippingLabelResponse' smart constructor.
+getShippingLabelResponse :: Int -> GetShippingLabelResponse
+getShippingLabelResponse pStatus_ =
+    GetShippingLabelResponse'
+    { _gslrsShippingLabelURL = Nothing
+    , _gslrsWarning = Nothing
+    , _gslrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+gslrsShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
+gslrsShippingLabelURL = lens _gslrsShippingLabelURL (\ s a -> s{_gslrsShippingLabelURL = a});
+
+-- | FIXME: Undocumented member.
+gslrsWarning :: Lens' GetShippingLabelResponse (Maybe Text)
+gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
+
+-- | FIXME: Undocumented member.
+gslrsStatus :: Lens' GetShippingLabelResponse Int
+gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});

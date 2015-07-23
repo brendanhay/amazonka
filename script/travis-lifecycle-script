@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+GHCVER=${GHCVER?"GHCVER needs to be set."}
+LIBRARY=${LIBRARY?"LIBRARY needs to be set."}
+
+path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+
+if [ "$LIBRARY" == "documentation" ]; then
+    echo "Building documentation..."
+    $path/travis-documentation
+else
+    echo "Running tests for ${LIBRARY}..."
+    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY
+fi

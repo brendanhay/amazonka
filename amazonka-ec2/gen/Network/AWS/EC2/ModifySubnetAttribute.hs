@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.ModifySubnetAttribute
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Modifies a subnet attribute.
+-- Modifies a subnet attribute.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySubnetAttribute.html>
 module Network.AWS.EC2.ModifySubnetAttribute
@@ -32,8 +27,8 @@ module Network.AWS.EC2.ModifySubnetAttribute
     -- ** Request constructor
     , modifySubnetAttribute
     -- ** Request lenses
-    , msaMapPublicIpOnLaunch
-    , msaSubnetId
+    , msarqMapPublicIPOnLaunch
+    , msarqSubnetId
 
     -- * Response
     , ModifySubnetAttributeResponse
@@ -41,62 +36,66 @@ module Network.AWS.EC2.ModifySubnetAttribute
     , modifySubnetAttributeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ModifySubnetAttribute = ModifySubnetAttribute
-    { _msaMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
-    , _msaSubnetId            :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'ModifySubnetAttribute' constructor.
+-- | /See:/ 'modifySubnetAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'msaMapPublicIpOnLaunch' @::@ 'Maybe' 'AttributeBooleanValue'
+-- * 'msarqMapPublicIPOnLaunch'
 --
--- * 'msaSubnetId' @::@ 'Text'
---
-modifySubnetAttribute :: Text -- ^ 'msaSubnetId'
-                      -> ModifySubnetAttribute
-modifySubnetAttribute p1 = ModifySubnetAttribute
-    { _msaSubnetId            = p1
-    , _msaMapPublicIpOnLaunch = Nothing
+-- * 'msarqSubnetId'
+data ModifySubnetAttribute = ModifySubnetAttribute'
+    { _msarqMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
+    , _msarqSubnetId            :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifySubnetAttribute' smart constructor.
+modifySubnetAttribute :: Text -> ModifySubnetAttribute
+modifySubnetAttribute pSubnetId_ =
+    ModifySubnetAttribute'
+    { _msarqMapPublicIPOnLaunch = Nothing
+    , _msarqSubnetId = pSubnetId_
     }
 
--- | Specify 'true' to indicate that instances launched into the specified subnet
--- should be assigned public IP address.
-msaMapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msaMapPublicIpOnLaunch =
-    lens _msaMapPublicIpOnLaunch (\s a -> s { _msaMapPublicIpOnLaunch = a })
+-- | Specify @true@ to indicate that instances launched into the specified
+-- subnet should be assigned public IP address.
+msarqMapPublicIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
+msarqMapPublicIPOnLaunch = lens _msarqMapPublicIPOnLaunch (\ s a -> s{_msarqMapPublicIPOnLaunch = a});
 
 -- | The ID of the subnet.
-msaSubnetId :: Lens' ModifySubnetAttribute Text
-msaSubnetId = lens _msaSubnetId (\s a -> s { _msaSubnetId = a })
-
-data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ModifySubnetAttributeResponse' constructor.
-modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
-modifySubnetAttributeResponse = ModifySubnetAttributeResponse
-
-instance ToPath ModifySubnetAttribute where
-    toPath = const "/"
-
-instance ToQuery ModifySubnetAttribute where
-    toQuery ModifySubnetAttribute{..} = mconcat
-        [ "MapPublicIpOnLaunch" =? _msaMapPublicIpOnLaunch
-        , "SubnetId"            =? _msaSubnetId
-        ]
-
-instance ToHeaders ModifySubnetAttribute
+msarqSubnetId :: Lens' ModifySubnetAttribute Text
+msarqSubnetId = lens _msarqSubnetId (\ s a -> s{_msarqSubnetId = a});
 
 instance AWSRequest ModifySubnetAttribute where
-    type Sv ModifySubnetAttribute = EC2
-    type Rs ModifySubnetAttribute = ModifySubnetAttributeResponse
+        type Sv ModifySubnetAttribute = EC2
+        type Rs ModifySubnetAttribute =
+             ModifySubnetAttributeResponse
+        request = post
+        response = receiveNull ModifySubnetAttributeResponse'
 
-    request  = post "ModifySubnetAttribute"
-    response = nullResponse ModifySubnetAttributeResponse
+instance ToHeaders ModifySubnetAttribute where
+        toHeaders = const mempty
+
+instance ToPath ModifySubnetAttribute where
+        toPath = const "/"
+
+instance ToQuery ModifySubnetAttribute where
+        toQuery ModifySubnetAttribute'{..}
+          = mconcat
+              ["Action" =: ("ModifySubnetAttribute" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "MapPublicIpOnLaunch" =: _msarqMapPublicIPOnLaunch,
+               "SubnetId" =: _msarqSubnetId]
+
+-- | /See:/ 'modifySubnetAttributeResponse' smart constructor.
+data ModifySubnetAttributeResponse =
+    ModifySubnetAttributeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifySubnetAttributeResponse' smart constructor.
+modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
+modifySubnetAttributeResponse = ModifySubnetAttributeResponse'

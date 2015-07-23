@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.DataPipeline.RemoveTags
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Removes existing tags from the specified pipeline.
+-- Removes existing tags from the specified pipeline.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_RemoveTags.html>
 module Network.AWS.DataPipeline.RemoveTags
@@ -32,73 +27,100 @@ module Network.AWS.DataPipeline.RemoveTags
     -- ** Request constructor
     , removeTags
     -- ** Request lenses
-    , rtPipelineId
-    , rtTagKeys
+    , rtrqPipelineId
+    , rtrqTagKeys
 
     -- * Response
     , RemoveTagsResponse
     -- ** Response constructor
     , removeTagsResponse
+    -- ** Response lenses
+    , rtrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.Types
-import qualified GHC.Exts
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RemoveTags = RemoveTags
-    { _rtPipelineId :: Text
-    , _rtTagKeys    :: List "tagKeys" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'RemoveTags' constructor.
+-- | Contains the parameters for RemoveTags.
+--
+-- /See:/ 'removeTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtPipelineId' @::@ 'Text'
+-- * 'rtrqPipelineId'
 --
--- * 'rtTagKeys' @::@ ['Text']
---
-removeTags :: Text -- ^ 'rtPipelineId'
-           -> RemoveTags
-removeTags p1 = RemoveTags
-    { _rtPipelineId = p1
-    , _rtTagKeys    = mempty
+-- * 'rtrqTagKeys'
+data RemoveTags = RemoveTags'
+    { _rtrqPipelineId :: !Text
+    , _rtrqTagKeys    :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RemoveTags' smart constructor.
+removeTags :: Text -> RemoveTags
+removeTags pPipelineId_ =
+    RemoveTags'
+    { _rtrqPipelineId = pPipelineId_
+    , _rtrqTagKeys = mempty
     }
 
 -- | The ID of the pipeline.
-rtPipelineId :: Lens' RemoveTags Text
-rtPipelineId = lens _rtPipelineId (\s a -> s { _rtPipelineId = a })
+rtrqPipelineId :: Lens' RemoveTags Text
+rtrqPipelineId = lens _rtrqPipelineId (\ s a -> s{_rtrqPipelineId = a});
 
 -- | The keys of the tags to remove.
-rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a }) . _List
-
-data RemoveTagsResponse = RemoveTagsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RemoveTagsResponse' constructor.
-removeTagsResponse :: RemoveTagsResponse
-removeTagsResponse = RemoveTagsResponse
-
-instance ToPath RemoveTags where
-    toPath = const "/"
-
-instance ToQuery RemoveTags where
-    toQuery = const mempty
-
-instance ToHeaders RemoveTags
-
-instance ToJSON RemoveTags where
-    toJSON RemoveTags{..} = object
-        [ "pipelineId" .= _rtPipelineId
-        , "tagKeys"    .= _rtTagKeys
-        ]
+rtrqTagKeys :: Lens' RemoveTags [Text]
+rtrqTagKeys = lens _rtrqTagKeys (\ s a -> s{_rtrqTagKeys = a});
 
 instance AWSRequest RemoveTags where
-    type Sv RemoveTags = DataPipeline
-    type Rs RemoveTags = RemoveTagsResponse
+        type Sv RemoveTags = DataPipeline
+        type Rs RemoveTags = RemoveTagsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RemoveTagsResponse' <$> (pure (fromEnum s)))
 
-    request  = post "RemoveTags"
-    response = nullResponse RemoveTagsResponse
+instance ToHeaders RemoveTags where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DataPipeline.RemoveTags" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON RemoveTags where
+        toJSON RemoveTags'{..}
+          = object
+              ["pipelineId" .= _rtrqPipelineId,
+               "tagKeys" .= _rtrqTagKeys]
+
+instance ToPath RemoveTags where
+        toPath = const "/"
+
+instance ToQuery RemoveTags where
+        toQuery = const mempty
+
+-- | Contains the output of RemoveTags.
+--
+-- /See:/ 'removeTagsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rtrsStatus'
+newtype RemoveTagsResponse = RemoveTagsResponse'
+    { _rtrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RemoveTagsResponse' smart constructor.
+removeTagsResponse :: Int -> RemoveTagsResponse
+removeTagsResponse pStatus_ =
+    RemoveTagsResponse'
+    { _rtrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+rtrsStatus :: Lens' RemoveTagsResponse Int
+rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

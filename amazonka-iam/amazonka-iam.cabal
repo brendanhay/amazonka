@@ -1,28 +1,81 @@
 name:                  amazonka-iam
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Identity and Access Management SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    AWS Identity and Access Management (IAM) enables you to securely control
-    access to AWS services and resources for your users. Using IAM, you can
-    create and manage AWS users and groups and use permissions to allow and deny
-    their access to AWS resources.
+    AWS Identity and Access Management
 
+    AWS Identity and Access Management (IAM) is a web service that you can
+    use to manage users and user permissions under your AWS account. This
+    guide provides descriptions of IAM actions that you can call
+    programmatically. For general information about IAM, see
+    <http://aws.amazon.com/iam/ AWS Identity and Access Management (IAM)>.
+    For the user guide for IAM, see
+    <http://docs.aws.amazon.com/IAM/latest/UserGuide/ Using IAM>.
+
+    AWS provides SDKs that consist of libraries and sample code for various
+    programming languages and platforms (Java, Ruby, .NET, iOS, Android,
+    etc.). The SDKs provide a convenient way to create programmatic access
+    to IAM and AWS. For example, the SDKs take care of tasks such as
+    cryptographically signing requests (see below), managing errors, and
+    retrying requests automatically. For information about the AWS SDKs,
+    including how to download and install them, see the
+    <http://aws.amazon.com/tools/ Tools for Amazon Web Services> page.
+
+    We recommend that you use the AWS SDKs to make programmatic API calls to
+    IAM. However, you can also use the IAM Query API to make direct calls to
+    the IAM web service. To learn more about the IAM Query API, see
+    <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
+    in the /Using IAM/ guide. IAM supports GET and POST requests for all
+    actions. That is, the API does not require you to use GET for some
+    actions and POST for others. However, GET requests are subject to the
+    limitation size of a URL. Therefore, for operations that require larger
+    sizes, use a POST request.
+
+    __Signing Requests__
+
+    Requests must be signed using an access key ID and a secret access key.
+    We strongly recommend that you do not use your AWS account access key ID
+    and secret access key for everyday work with IAM. You can use the access
+    key ID and secret access key for an IAM user or you can use the AWS
+    Security Token Service to generate temporary security credentials and
+    use those to sign requests.
+
+    To sign requests, we recommend that you use
+    <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+    If you have an existing application that uses Signature Version 2, you
+    do not have to update it to use Signature Version 4. However, some
+    operations now require Signature Version 4. The documentation for
+    operations that require version 4 indicate this requirement.
+
+    __Additional Resources__
+
+    For more information, see the following:
+
+    -   <http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html AWS Security Credentials>.
+        This topic provides general information about the types of
+        credentials used for accessing AWS.
+    -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html IAM Best Practices>.
+        This topic presents a list of suggestions for using the IAM service
+        to help secure your AWS resources.
+    -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/ AWS Security Token Service>.
+        This guide describes how to create and use temporary security
+        credentials.
+    -   <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests>.
+        This set of topics walk you through the process of signing a request
+        using an access key ID and secret access key.
     .
     /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -36,7 +89,7 @@ library
 
     exposed-modules:
           Network.AWS.IAM
-        , Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
+        , Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
         , Network.AWS.IAM.AddRoleToInstanceProfile
         , Network.AWS.IAM.AddUserToGroup
         , Network.AWS.IAM.AttachGroupPolicy
@@ -48,7 +101,7 @@ library
         , Network.AWS.IAM.CreateGroup
         , Network.AWS.IAM.CreateInstanceProfile
         , Network.AWS.IAM.CreateLoginProfile
-        , Network.AWS.IAM.CreateOpenIDConnectProvider
+        , Network.AWS.IAM.CreateOpenIdConnectProvider
         , Network.AWS.IAM.CreatePolicy
         , Network.AWS.IAM.CreatePolicyVersion
         , Network.AWS.IAM.CreateRole
@@ -63,12 +116,13 @@ library
         , Network.AWS.IAM.DeleteGroupPolicy
         , Network.AWS.IAM.DeleteInstanceProfile
         , Network.AWS.IAM.DeleteLoginProfile
-        , Network.AWS.IAM.DeleteOpenIDConnectProvider
+        , Network.AWS.IAM.DeleteOpenIdConnectProvider
         , Network.AWS.IAM.DeletePolicy
         , Network.AWS.IAM.DeletePolicyVersion
         , Network.AWS.IAM.DeleteRole
         , Network.AWS.IAM.DeleteRolePolicy
         , Network.AWS.IAM.DeleteSAMLProvider
+        , Network.AWS.IAM.DeleteSSHPublicKey
         , Network.AWS.IAM.DeleteServerCertificate
         , Network.AWS.IAM.DeleteSigningCertificate
         , Network.AWS.IAM.DeleteUser
@@ -88,12 +142,13 @@ library
         , Network.AWS.IAM.GetGroupPolicy
         , Network.AWS.IAM.GetInstanceProfile
         , Network.AWS.IAM.GetLoginProfile
-        , Network.AWS.IAM.GetOpenIDConnectProvider
+        , Network.AWS.IAM.GetOpenIdConnectProvider
         , Network.AWS.IAM.GetPolicy
         , Network.AWS.IAM.GetPolicyVersion
         , Network.AWS.IAM.GetRole
         , Network.AWS.IAM.GetRolePolicy
         , Network.AWS.IAM.GetSAMLProvider
+        , Network.AWS.IAM.GetSSHPublicKey
         , Network.AWS.IAM.GetServerCertificate
         , Network.AWS.IAM.GetUser
         , Network.AWS.IAM.GetUserPolicy
@@ -109,12 +164,13 @@ library
         , Network.AWS.IAM.ListInstanceProfiles
         , Network.AWS.IAM.ListInstanceProfilesForRole
         , Network.AWS.IAM.ListMFADevices
-        , Network.AWS.IAM.ListOpenIDConnectProviders
+        , Network.AWS.IAM.ListOpenIdConnectProviders
         , Network.AWS.IAM.ListPolicies
         , Network.AWS.IAM.ListPolicyVersions
         , Network.AWS.IAM.ListRolePolicies
         , Network.AWS.IAM.ListRoles
         , Network.AWS.IAM.ListSAMLProviders
+        , Network.AWS.IAM.ListSSHPublicKeys
         , Network.AWS.IAM.ListServerCertificates
         , Network.AWS.IAM.ListSigningCertificates
         , Network.AWS.IAM.ListUserPolicies
@@ -123,7 +179,7 @@ library
         , Network.AWS.IAM.PutGroupPolicy
         , Network.AWS.IAM.PutRolePolicy
         , Network.AWS.IAM.PutUserPolicy
-        , Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
+        , Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
         , Network.AWS.IAM.RemoveRoleFromInstanceProfile
         , Network.AWS.IAM.RemoveUserFromGroup
         , Network.AWS.IAM.ResyncMFADevice
@@ -134,16 +190,49 @@ library
         , Network.AWS.IAM.UpdateAssumeRolePolicy
         , Network.AWS.IAM.UpdateGroup
         , Network.AWS.IAM.UpdateLoginProfile
-        , Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
+        , Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
         , Network.AWS.IAM.UpdateSAMLProvider
+        , Network.AWS.IAM.UpdateSSHPublicKey
         , Network.AWS.IAM.UpdateServerCertificate
         , Network.AWS.IAM.UpdateSigningCertificate
         , Network.AWS.IAM.UpdateUser
+        , Network.AWS.IAM.UploadSSHPublicKey
         , Network.AWS.IAM.UploadServerCertificate
         , Network.AWS.IAM.UploadSigningCertificate
+        , Network.AWS.IAM.Waiters
 
     other-modules:
+          Network.AWS.IAM.Types.Product
+        , Network.AWS.IAM.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-iam-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.IAM
+        , Test.AWS.Gen.IAM
+        , Test.AWS.IAM.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-iam == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

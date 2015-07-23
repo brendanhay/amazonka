@@ -1,51 +1,53 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
-{-# LANGUAGE ViewPatterns                #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+-- |
 -- Module      : Network.AWS.KMS.Types
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 module Network.AWS.KMS.Types
     (
     -- * Service
       KMS
-    -- ** Error
-    , JSONError
+
+    -- * Errors
+    , _InvalidMarkerException
+    , _InvalidKeyUsageException
+    , _UnsupportedOperationException
+    , _MalformedPolicyDocumentException
+    , _DisabledException
+    , _KeyUnavailableException
+    , _KMSInternalException
+    , _NotFoundException
+    , _InvalidAliasNameException
+    , _InvalidARNException
+    , _DependencyTimeoutException
+    , _InvalidGrantTokenException
+    , _InvalidCiphertextException
+    , _LimitExceededException
+    , _AlreadyExistsException
+
+    -- * DataKeySpec
+    , DataKeySpec (..)
+
+    -- * GrantOperation
+    , GrantOperation (..)
 
     -- * KeyUsageType
     , KeyUsageType (..)
 
-    -- * KeyMetadata
-    , KeyMetadata
-    , keyMetadata
-    , kmAWSAccountId
-    , kmArn
-    , kmCreationDate
-    , kmDescription
-    , kmEnabled
-    , kmKeyId
-    , kmKeyUsage
-
-    -- * DataKeySpec
-    , DataKeySpec (..)
+    -- * AliasListEntry
+    , AliasListEntry
+    , aliasListEntry
+    , aleTargetKeyId
+    , aleAliasName
+    , aleAliasARN
 
     -- * GrantConstraints
     , GrantConstraints
@@ -53,479 +55,148 @@ module Network.AWS.KMS.Types
     , gcEncryptionContextEquals
     , gcEncryptionContextSubset
 
-    -- * AliasListEntry
-    , AliasListEntry
-    , aliasListEntry
-    , aleAliasArn
-    , aleAliasName
-    , aleTargetKeyId
-
     -- * GrantListEntry
     , GrantListEntry
     , grantListEntry
-    , gleConstraints
-    , gleGrantId
-    , gleGranteePrincipal
-    , gleIssuingAccount
-    , gleOperations
     , gleRetiringPrincipal
-
-    -- * GrantOperation
-    , GrantOperation (..)
+    , gleIssuingAccount
+    , gleGrantId
+    , gleConstraints
+    , gleGranteePrincipal
+    , gleOperations
 
     -- * KeyListEntry
     , KeyListEntry
     , keyListEntry
-    , kleKeyArn
+    , kleKeyARN
     , kleKeyId
+
+    -- * KeyMetadata
+    , KeyMetadata
+    , keyMetadata
+    , kmARN
+    , kmEnabled
+    , kmAWSAccountId
+    , kmKeyUsage
+    , kmCreationDate
+    , kmDescription
+    , kmKeyId
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Signing
-import qualified GHC.Exts
+import           Network.AWS.KMS.Types.Product
+import           Network.AWS.KMS.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
--- | Version @2014-11-01@ of the Amazon Key Management Service service.
+-- | Version @2014-11-01@ of the Amazon Key Management Service SDK.
 data KMS
 
 instance AWSService KMS where
     type Sg KMS = V4
-    type Er KMS = JSONError
-
-    service = service'
+    service = const svc
       where
-        service' :: Service KMS
-        service' = Service
-            { _svcAbbrev       = "KMS"
-            , _svcPrefix       = "kms"
-            , _svcVersion      = "2014-11-01"
-            , _svcTargetPrefix = Just "TrentService"
-            , _svcJSONVersion  = Just "1.1"
-            , _svcHandle       = handle
-            , _svcRetry        = retry
+        svc =
+            Service
+            { _svcAbbrev = "KMS"
+            , _svcPrefix = "kms"
+            , _svcVersion = "2014-11-01"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout = Just 70000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
-
-        retry :: Retry KMS
-        retry = Exponential
-            { _retryBase     = 0.05
-            , _retryGrowth   = 2
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
             , _retryAttempts = 5
-            , _retryCheck    = check
+            , _retryCheck = check
             }
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e)
-            | s == 500  = True -- General Server Error
-            | s == 509  = True -- Limit Exceeded
-            | s == 503  = True -- Service Unavailable
-            | otherwise = False
+-- | The request was rejected because the marker that specifies where
+-- pagination should next begin is not valid.
+_InvalidMarkerException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidMarkerException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidMarker"
 
-data KeyUsageType
-    = EncryptDecrypt -- ^ ENCRYPT_DECRYPT
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
+-- | The request was rejected because the specified KeySpec parameter is not
+-- valid. The currently supported value is ENCRYPT\/DECRYPT.
+_InvalidKeyUsageException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidKeyUsageException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidKeyUsage"
 
-instance Hashable KeyUsageType
+-- | The request was rejected because a specified parameter is not supported.
+_UnsupportedOperationException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnsupportedOperationException =
+    _ServiceError . hasStatus 400 . hasCode "UnsupportedOperation"
 
-instance FromText KeyUsageType where
-    parser = takeLowerText >>= \case
-        "encrypt_decrypt" -> pure EncryptDecrypt
-        e                 -> fail $
-            "Failure parsing KeyUsageType from " ++ show e
+-- | The request was rejected because the specified policy is not
+-- syntactically or semantically correct.
+_MalformedPolicyDocumentException :: AWSError a => Getting (First ServiceError) a ServiceError
+_MalformedPolicyDocumentException =
+    _ServiceError . hasStatus 400 . hasCode "MalformedPolicyDocument"
 
-instance ToText KeyUsageType where
-    toText EncryptDecrypt = "ENCRYPT_DECRYPT"
+-- | A request was rejected because the specified key was marked as disabled.
+_DisabledException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DisabledException = _ServiceError . hasStatus 409 . hasCode "Disabled"
 
-instance ToByteString KeyUsageType
-instance ToHeader     KeyUsageType
-instance ToQuery      KeyUsageType
+-- | The request was rejected because the key was disabled, not found, or
+-- otherwise not available.
+_KeyUnavailableException :: AWSError a => Getting (First ServiceError) a ServiceError
+_KeyUnavailableException =
+    _ServiceError . hasStatus 500 . hasCode "KeyUnavailable"
 
-instance FromJSON KeyUsageType where
-    parseJSON = parseJSONText "KeyUsageType"
+-- | The request was rejected because an internal exception occurred. This
+-- error can be retried.
+_KMSInternalException :: AWSError a => Getting (First ServiceError) a ServiceError
+_KMSInternalException = _ServiceError . hasStatus 500 . hasCode "KMSInternal"
 
-instance ToJSON KeyUsageType where
-    toJSON = toJSONText
+-- | The request was rejected because the specified entity or resource could
+-- not be found.
+_NotFoundException :: AWSError a => Getting (First ServiceError) a ServiceError
+_NotFoundException = _ServiceError . hasStatus 404 . hasCode "NotFound"
 
-data KeyMetadata = KeyMetadata
-    { _kmAWSAccountId :: Maybe Text
-    , _kmArn          :: Maybe Text
-    , _kmCreationDate :: Maybe POSIX
-    , _kmDescription  :: Maybe Text
-    , _kmEnabled      :: Maybe Bool
-    , _kmKeyId        :: Text
-    , _kmKeyUsage     :: Maybe KeyUsageType
-    } deriving (Eq, Read, Show)
+-- | The request was rejected because the specified alias name is not valid.
+_InvalidAliasNameException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidAliasNameException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidAliasName"
 
--- | 'KeyMetadata' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kmAWSAccountId' @::@ 'Maybe' 'Text'
---
--- * 'kmArn' @::@ 'Maybe' 'Text'
---
--- * 'kmCreationDate' @::@ 'Maybe' 'UTCTime'
---
--- * 'kmDescription' @::@ 'Maybe' 'Text'
---
--- * 'kmEnabled' @::@ 'Maybe' 'Bool'
---
--- * 'kmKeyId' @::@ 'Text'
---
--- * 'kmKeyUsage' @::@ 'Maybe' 'KeyUsageType'
---
-keyMetadata :: Text -- ^ 'kmKeyId'
-            -> KeyMetadata
-keyMetadata p1 = KeyMetadata
-    { _kmKeyId        = p1
-    , _kmAWSAccountId = Nothing
-    , _kmArn          = Nothing
-    , _kmCreationDate = Nothing
-    , _kmEnabled      = Nothing
-    , _kmDescription  = Nothing
-    , _kmKeyUsage     = Nothing
-    }
+-- | The request was rejected because a specified ARN was not valid.
+_InvalidARNException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidARNException = _ServiceError . hasStatus 400 . hasCode "InvalidArn"
 
--- | Account ID number.
-kmAWSAccountId :: Lens' KeyMetadata (Maybe Text)
-kmAWSAccountId = lens _kmAWSAccountId (\s a -> s { _kmAWSAccountId = a })
+-- | The system timed out while trying to fulfill the request.
+_DependencyTimeoutException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DependencyTimeoutException =
+    _ServiceError . hasStatus 503 . hasCode "DependencyTimeout"
 
--- | Key ARN (Amazon Resource Name).
-kmArn :: Lens' KeyMetadata (Maybe Text)
-kmArn = lens _kmArn (\s a -> s { _kmArn = a })
+-- | A grant token provided as part of the request is invalid.
+_InvalidGrantTokenException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidGrantTokenException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidGrantToken"
 
--- | Date the key was created.
-kmCreationDate :: Lens' KeyMetadata (Maybe UTCTime)
-kmCreationDate = lens _kmCreationDate (\s a -> s { _kmCreationDate = a }) . mapping _Time
+-- | The request was rejected because the specified ciphertext has been
+-- corrupted or is otherwise invalid.
+_InvalidCiphertextException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidCiphertextException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidCiphertext"
 
--- | The description of the key.
-kmDescription :: Lens' KeyMetadata (Maybe Text)
-kmDescription = lens _kmDescription (\s a -> s { _kmDescription = a })
+-- | The request was rejected because a quota was exceeded.
+_LimitExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException =
+    _ServiceError . hasStatus 400 . hasCode "LimitExceeded"
 
--- | Value that specifies whether the key is enabled.
-kmEnabled :: Lens' KeyMetadata (Maybe Bool)
-kmEnabled = lens _kmEnabled (\s a -> s { _kmEnabled = a })
-
--- | Unique identifier for the key.
-kmKeyId :: Lens' KeyMetadata Text
-kmKeyId = lens _kmKeyId (\s a -> s { _kmKeyId = a })
-
--- | A value that specifies what operation(s) the key can perform.
-kmKeyUsage :: Lens' KeyMetadata (Maybe KeyUsageType)
-kmKeyUsage = lens _kmKeyUsage (\s a -> s { _kmKeyUsage = a })
-
-instance FromJSON KeyMetadata where
-    parseJSON = withObject "KeyMetadata" $ \o -> KeyMetadata
-        <$> o .:? "AWSAccountId"
-        <*> o .:? "Arn"
-        <*> o .:? "CreationDate"
-        <*> o .:? "Description"
-        <*> o .:? "Enabled"
-        <*> o .:  "KeyId"
-        <*> o .:? "KeyUsage"
-
-instance ToJSON KeyMetadata where
-    toJSON KeyMetadata{..} = object
-        [ "AWSAccountId" .= _kmAWSAccountId
-        , "KeyId"        .= _kmKeyId
-        , "Arn"          .= _kmArn
-        , "CreationDate" .= _kmCreationDate
-        , "Enabled"      .= _kmEnabled
-        , "Description"  .= _kmDescription
-        , "KeyUsage"     .= _kmKeyUsage
-        ]
-
-data DataKeySpec
-    = AES128 -- ^ AES_128
-    | AES256 -- ^ AES_256
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable DataKeySpec
-
-instance FromText DataKeySpec where
-    parser = takeLowerText >>= \case
-        "aes_128" -> pure AES128
-        "aes_256" -> pure AES256
-        e         -> fail $
-            "Failure parsing DataKeySpec from " ++ show e
-
-instance ToText DataKeySpec where
-    toText = \case
-        AES128 -> "AES_128"
-        AES256 -> "AES_256"
-
-instance ToByteString DataKeySpec
-instance ToHeader     DataKeySpec
-instance ToQuery      DataKeySpec
-
-instance FromJSON DataKeySpec where
-    parseJSON = parseJSONText "DataKeySpec"
-
-instance ToJSON DataKeySpec where
-    toJSON = toJSONText
-
-data GrantConstraints = GrantConstraints
-    { _gcEncryptionContextEquals :: Map Text Text
-    , _gcEncryptionContextSubset :: Map Text Text
-    } deriving (Eq, Read, Show)
-
--- | 'GrantConstraints' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gcEncryptionContextEquals' @::@ 'HashMap' 'Text' 'Text'
---
--- * 'gcEncryptionContextSubset' @::@ 'HashMap' 'Text' 'Text'
---
-grantConstraints :: GrantConstraints
-grantConstraints = GrantConstraints
-    { _gcEncryptionContextSubset = mempty
-    , _gcEncryptionContextEquals = mempty
-    }
-
--- | The constraint contains additional key/value pairs that serve to further
--- limit the grant.
-gcEncryptionContextEquals :: Lens' GrantConstraints (HashMap Text Text)
-gcEncryptionContextEquals =
-    lens _gcEncryptionContextEquals
-        (\s a -> s { _gcEncryptionContextEquals = a })
-            . _Map
-
--- | The constraint equals the full encryption context.
-gcEncryptionContextSubset :: Lens' GrantConstraints (HashMap Text Text)
-gcEncryptionContextSubset =
-    lens _gcEncryptionContextSubset
-        (\s a -> s { _gcEncryptionContextSubset = a })
-            . _Map
-
-instance FromJSON GrantConstraints where
-    parseJSON = withObject "GrantConstraints" $ \o -> GrantConstraints
-        <$> o .:? "EncryptionContextEquals" .!= mempty
-        <*> o .:? "EncryptionContextSubset" .!= mempty
-
-instance ToJSON GrantConstraints where
-    toJSON GrantConstraints{..} = object
-        [ "EncryptionContextSubset" .= _gcEncryptionContextSubset
-        , "EncryptionContextEquals" .= _gcEncryptionContextEquals
-        ]
-
-data AliasListEntry = AliasListEntry
-    { _aleAliasArn    :: Maybe Text
-    , _aleAliasName   :: Maybe Text
-    , _aleTargetKeyId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'AliasListEntry' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'aleAliasArn' @::@ 'Maybe' 'Text'
---
--- * 'aleAliasName' @::@ 'Maybe' 'Text'
---
--- * 'aleTargetKeyId' @::@ 'Maybe' 'Text'
---
-aliasListEntry :: AliasListEntry
-aliasListEntry = AliasListEntry
-    { _aleAliasName   = Nothing
-    , _aleAliasArn    = Nothing
-    , _aleTargetKeyId = Nothing
-    }
-
--- | String that contains the key ARN.
-aleAliasArn :: Lens' AliasListEntry (Maybe Text)
-aleAliasArn = lens _aleAliasArn (\s a -> s { _aleAliasArn = a })
-
--- | String that contains the alias.
-aleAliasName :: Lens' AliasListEntry (Maybe Text)
-aleAliasName = lens _aleAliasName (\s a -> s { _aleAliasName = a })
-
--- | String that contains the key identifier pointed to by the alias.
-aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
-aleTargetKeyId = lens _aleTargetKeyId (\s a -> s { _aleTargetKeyId = a })
-
-instance FromJSON AliasListEntry where
-    parseJSON = withObject "AliasListEntry" $ \o -> AliasListEntry
-        <$> o .:? "AliasArn"
-        <*> o .:? "AliasName"
-        <*> o .:? "TargetKeyId"
-
-instance ToJSON AliasListEntry where
-    toJSON AliasListEntry{..} = object
-        [ "AliasName"   .= _aleAliasName
-        , "AliasArn"    .= _aleAliasArn
-        , "TargetKeyId" .= _aleTargetKeyId
-        ]
-
-data GrantListEntry = GrantListEntry
-    { _gleConstraints       :: Maybe GrantConstraints
-    , _gleGrantId           :: Maybe Text
-    , _gleGranteePrincipal  :: Maybe Text
-    , _gleIssuingAccount    :: Maybe Text
-    , _gleOperations        :: List "Operations" GrantOperation
-    , _gleRetiringPrincipal :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'GrantListEntry' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gleConstraints' @::@ 'Maybe' 'GrantConstraints'
---
--- * 'gleGrantId' @::@ 'Maybe' 'Text'
---
--- * 'gleGranteePrincipal' @::@ 'Maybe' 'Text'
---
--- * 'gleIssuingAccount' @::@ 'Maybe' 'Text'
---
--- * 'gleOperations' @::@ ['GrantOperation']
---
--- * 'gleRetiringPrincipal' @::@ 'Maybe' 'Text'
---
-grantListEntry :: GrantListEntry
-grantListEntry = GrantListEntry
-    { _gleGrantId           = Nothing
-    , _gleGranteePrincipal  = Nothing
-    , _gleRetiringPrincipal = Nothing
-    , _gleIssuingAccount    = Nothing
-    , _gleOperations        = mempty
-    , _gleConstraints       = Nothing
-    }
-
--- | Specifies the conditions under which the actions specified by the 'Operations'
--- parameter are allowed.
-gleConstraints :: Lens' GrantListEntry (Maybe GrantConstraints)
-gleConstraints = lens _gleConstraints (\s a -> s { _gleConstraints = a })
-
--- | Unique grant identifier.
-gleGrantId :: Lens' GrantListEntry (Maybe Text)
-gleGrantId = lens _gleGrantId (\s a -> s { _gleGrantId = a })
-
--- | The principal that receives the grant permission.
-gleGranteePrincipal :: Lens' GrantListEntry (Maybe Text)
-gleGranteePrincipal =
-    lens _gleGranteePrincipal (\s a -> s { _gleGranteePrincipal = a })
-
--- | The account under which the grant was issued.
-gleIssuingAccount :: Lens' GrantListEntry (Maybe Text)
-gleIssuingAccount =
-    lens _gleIssuingAccount (\s a -> s { _gleIssuingAccount = a })
-
--- | List of operations permitted by the grant. This can be any combination of one
--- or more of the following values:  Decrypt Encrypt GenerateDataKey GenerateDataKeyWithoutPlaintext
--- ReEncryptFrom ReEncryptTo CreateGrant
-gleOperations :: Lens' GrantListEntry [GrantOperation]
-gleOperations = lens _gleOperations (\s a -> s { _gleOperations = a }) . _List
-
--- | The principal that can retire the account.
-gleRetiringPrincipal :: Lens' GrantListEntry (Maybe Text)
-gleRetiringPrincipal =
-    lens _gleRetiringPrincipal (\s a -> s { _gleRetiringPrincipal = a })
-
-instance FromJSON GrantListEntry where
-    parseJSON = withObject "GrantListEntry" $ \o -> GrantListEntry
-        <$> o .:? "Constraints"
-        <*> o .:? "GrantId"
-        <*> o .:? "GranteePrincipal"
-        <*> o .:? "IssuingAccount"
-        <*> o .:? "Operations" .!= mempty
-        <*> o .:? "RetiringPrincipal"
-
-instance ToJSON GrantListEntry where
-    toJSON GrantListEntry{..} = object
-        [ "GrantId"           .= _gleGrantId
-        , "GranteePrincipal"  .= _gleGranteePrincipal
-        , "RetiringPrincipal" .= _gleRetiringPrincipal
-        , "IssuingAccount"    .= _gleIssuingAccount
-        , "Operations"        .= _gleOperations
-        , "Constraints"       .= _gleConstraints
-        ]
-
-data GrantOperation
-    = GOCreateGrant                     -- ^ CreateGrant
-    | GODecrypt                         -- ^ Decrypt
-    | GOEncrypt                         -- ^ Encrypt
-    | GOGenerateDataKey                 -- ^ GenerateDataKey
-    | GOGenerateDataKeyWithoutPlaintext -- ^ GenerateDataKeyWithoutPlaintext
-    | GOReEncryptFrom                   -- ^ ReEncryptFrom
-    | GOReEncryptTo                     -- ^ ReEncryptTo
-    | GORetireGrant                     -- ^ RetireGrant
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable GrantOperation
-
-instance FromText GrantOperation where
-    parser = takeLowerText >>= \case
-        "creategrant"                     -> pure GOCreateGrant
-        "decrypt"                         -> pure GODecrypt
-        "encrypt"                         -> pure GOEncrypt
-        "generatedatakey"                 -> pure GOGenerateDataKey
-        "generatedatakeywithoutplaintext" -> pure GOGenerateDataKeyWithoutPlaintext
-        "reencryptfrom"                   -> pure GOReEncryptFrom
-        "reencryptto"                     -> pure GOReEncryptTo
-        "retiregrant"                     -> pure GORetireGrant
-        e                                 -> fail $
-            "Failure parsing GrantOperation from " ++ show e
-
-instance ToText GrantOperation where
-    toText = \case
-        GOCreateGrant                     -> "CreateGrant"
-        GODecrypt                         -> "Decrypt"
-        GOEncrypt                         -> "Encrypt"
-        GOGenerateDataKey                 -> "GenerateDataKey"
-        GOGenerateDataKeyWithoutPlaintext -> "GenerateDataKeyWithoutPlaintext"
-        GOReEncryptFrom                   -> "ReEncryptFrom"
-        GOReEncryptTo                     -> "ReEncryptTo"
-        GORetireGrant                     -> "RetireGrant"
-
-instance ToByteString GrantOperation
-instance ToHeader     GrantOperation
-instance ToQuery      GrantOperation
-
-instance FromJSON GrantOperation where
-    parseJSON = parseJSONText "GrantOperation"
-
-instance ToJSON GrantOperation where
-    toJSON = toJSONText
-
-data KeyListEntry = KeyListEntry
-    { _kleKeyArn :: Maybe Text
-    , _kleKeyId  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'KeyListEntry' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'kleKeyArn' @::@ 'Maybe' 'Text'
---
--- * 'kleKeyId' @::@ 'Maybe' 'Text'
---
-keyListEntry :: KeyListEntry
-keyListEntry = KeyListEntry
-    { _kleKeyId  = Nothing
-    , _kleKeyArn = Nothing
-    }
-
--- | ARN of the key.
-kleKeyArn :: Lens' KeyListEntry (Maybe Text)
-kleKeyArn = lens _kleKeyArn (\s a -> s { _kleKeyArn = a })
-
--- | Unique identifier of the key.
-kleKeyId :: Lens' KeyListEntry (Maybe Text)
-kleKeyId = lens _kleKeyId (\s a -> s { _kleKeyId = a })
-
-instance FromJSON KeyListEntry where
-    parseJSON = withObject "KeyListEntry" $ \o -> KeyListEntry
-        <$> o .:? "KeyArn"
-        <*> o .:? "KeyId"
-
-instance ToJSON KeyListEntry where
-    toJSON KeyListEntry{..} = object
-        [ "KeyId"  .= _kleKeyId
-        , "KeyArn" .= _kleKeyArn
-        ]
+-- | The request was rejected because it attempted to create a resource that
+-- already exists.
+_AlreadyExistsException :: AWSError a => Getting (First ServiceError) a ServiceError
+_AlreadyExistsException =
+    _ServiceError . hasStatus 400 . hasCode "AlreadyExists"

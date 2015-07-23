@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SNS.ListTopics
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of the requester's topics. Each call returns a limited list of
--- topics, up to 100. If there are more topics, a 'NextToken' is also returned.
--- Use the 'NextToken' parameter in a new 'ListTopics' call to get further results.
+-- Returns a list of the requester\'s topics. Each call returns a limited
+-- list of topics, up to 100. If there are more topics, a @NextToken@ is
+-- also returned. Use the @NextToken@ parameter in a new @ListTopics@ call
+-- to get further results.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_ListTopics.html>
 module Network.AWS.SNS.ListTopics
@@ -34,93 +30,112 @@ module Network.AWS.SNS.ListTopics
     -- ** Request constructor
     , listTopics
     -- ** Request lenses
-    , ltNextToken
+    , ltrqNextToken
 
     -- * Response
     , ListTopicsResponse
     -- ** Response constructor
     , listTopicsResponse
     -- ** Response lenses
-    , ltrNextToken
-    , ltrTopics
+    , ltrsTopics
+    , ltrsNextToken
+    , ltrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
-newtype ListTopics = ListTopics
-    { _ltNextToken :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'ListTopics' constructor.
+-- | /See:/ 'listTopics' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltNextToken' @::@ 'Maybe' 'Text'
---
+-- * 'ltrqNextToken'
+newtype ListTopics = ListTopics'
+    { _ltrqNextToken :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListTopics' smart constructor.
 listTopics :: ListTopics
-listTopics = ListTopics
-    { _ltNextToken = Nothing
+listTopics =
+    ListTopics'
+    { _ltrqNextToken = Nothing
     }
 
--- | Token returned by the previous 'ListTopics' request.
-ltNextToken :: Lens' ListTopics (Maybe Text)
-ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
-
-data ListTopicsResponse = ListTopicsResponse
-    { _ltrNextToken :: Maybe Text
-    , _ltrTopics    :: List "member" Topic
-    } deriving (Eq, Read, Show)
-
--- | 'ListTopicsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ltrNextToken' @::@ 'Maybe' 'Text'
---
--- * 'ltrTopics' @::@ ['Topic']
---
-listTopicsResponse :: ListTopicsResponse
-listTopicsResponse = ListTopicsResponse
-    { _ltrTopics    = mempty
-    , _ltrNextToken = Nothing
-    }
-
--- | Token to pass along to the next 'ListTopics' request. This element is returned
--- if there are additional topics to retrieve.
-ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
-ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
-
--- | A list of topic ARNs.
-ltrTopics :: Lens' ListTopicsResponse [Topic]
-ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a }) . _List
-
-instance ToPath ListTopics where
-    toPath = const "/"
-
-instance ToQuery ListTopics where
-    toQuery ListTopics{..} = mconcat
-        [ "NextToken" =? _ltNextToken
-        ]
-
-instance ToHeaders ListTopics
-
-instance AWSRequest ListTopics where
-    type Sv ListTopics = SNS
-    type Rs ListTopics = ListTopicsResponse
-
-    request  = post "ListTopics"
-    response = xmlResponse
-
-instance FromXML ListTopicsResponse where
-    parseXML = withElement "ListTopicsResult" $ \x -> ListTopicsResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "Topics" .!@ mempty
+-- | Token returned by the previous @ListTopics@ request.
+ltrqNextToken :: Lens' ListTopics (Maybe Text)
+ltrqNextToken = lens _ltrqNextToken (\ s a -> s{_ltrqNextToken = a});
 
 instance AWSPager ListTopics where
-    page rq rs
-        | stop (rs ^. ltrNextToken) = Nothing
-        | otherwise = (\x -> rq & ltNextToken ?~ x)
-            <$> (rs ^. ltrNextToken)
+        page rq rs
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsTopics) = Nothing
+          | otherwise =
+            Just $ rq & ltrqNextToken .~ rs ^. ltrsNextToken
+
+instance AWSRequest ListTopics where
+        type Sv ListTopics = SNS
+        type Rs ListTopics = ListTopicsResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListTopicsResult"
+              (\ s h x ->
+                 ListTopicsResponse' <$>
+                   (x .@? "Topics" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListTopics where
+        toHeaders = const mempty
+
+instance ToPath ListTopics where
+        toPath = const "/"
+
+instance ToQuery ListTopics where
+        toQuery ListTopics'{..}
+          = mconcat
+              ["Action" =: ("ListTopics" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "NextToken" =: _ltrqNextToken]
+
+-- | Response for ListTopics action.
+--
+-- /See:/ 'listTopicsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ltrsTopics'
+--
+-- * 'ltrsNextToken'
+--
+-- * 'ltrsStatus'
+data ListTopicsResponse = ListTopicsResponse'
+    { _ltrsTopics    :: !(Maybe [Topic])
+    , _ltrsNextToken :: !(Maybe Text)
+    , _ltrsStatus    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListTopicsResponse' smart constructor.
+listTopicsResponse :: Int -> ListTopicsResponse
+listTopicsResponse pStatus_ =
+    ListTopicsResponse'
+    { _ltrsTopics = Nothing
+    , _ltrsNextToken = Nothing
+    , _ltrsStatus = pStatus_
+    }
+
+-- | A list of topic ARNs.
+ltrsTopics :: Lens' ListTopicsResponse [Topic]
+ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default;
+
+-- | Token to pass along to the next @ListTopics@ request. This element is
+-- returned if there are additional topics to retrieve.
+ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
+
+-- | FIXME: Undocumented member.
+ltrsStatus :: Lens' ListTopicsResponse Int
+ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

@@ -1,11 +1,10 @@
-{-# LANGUAGE DataKinds         #-}
-{-# LANGUAGE KindSignatures    #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.TH
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -14,79 +13,63 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.TH where
+module Gen.TH
+    ( gParseJSON'
+    , gToJSON'
 
-import           Control.Applicative
+    , TH
+    , field
+    , ctor
+    , lenses
+
+    , upper
+    , lower
+    , spinal
+    , camel
+    ) where
+
+import           Gen.Text
 import           Control.Lens
-import qualified Data.Aeson.TH       as A
-import qualified Data.Jason.TH       as J
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
-import           Gen.Names
-import           Language.Haskell.TH
+import           Data.Aeson.TH
+import           Data.Aeson.Types
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
+import qualified Data.Text.Manipulate as Text
+import           GHC.Generics
 
 data TH = TH
-    { _thCtor     :: Text -> Text
-    , _thField    :: Text -> Text
-    , _thLens     :: Text -> Text
-    , _thTag      :: String
-    , _thContents :: String
-    , _thJSON     :: TH -> Name -> Q [Dec]
+    { _ctor   :: Text -> Text
+    , _field  :: Text -> Text
+    , _lenses :: Bool
     }
 
 makeLenses ''TH
 
-input :: TH
-input = TH ctorName keyName lensName "type" "contents" $
-    \t -> J.deriveFromJSON (jason t)
+gParseJSON' :: (Generic a, GFromJSON (Rep a)) => TH -> Value -> Parser a
+gParseJSON' th = genericParseJSON (aeson th)
 
-output :: TH
-output = input & thJSON .~ A.deriveToJSON . aeson
+gToJSON' :: (Generic a, GToJSON (Rep a)) => TH -> a -> Value
+gToJSON' th = genericToJSON (aeson th)
 
-nullary :: TH -> Name -> Q [Dec]
-nullary th = _thJSON th th
+upper, lower, spinal, camel :: TH
+upper  = TH Text.toUpper  Text.toUpper  False
+lower  = TH Text.toLower  Text.toLower  False
+spinal = TH Text.toSpinal Text.toSpinal False
+camel  = TH Text.toCamel  Text.toCamel  False
 
-record :: TH -> Name -> Q [Dec]
-record th n = concat <$> sequence
-    [ makeLensesWith (lenses th lensRules) n
-    , nullary th n
-    ]
-
-classy :: TH -> Name -> Q [Dec]
-classy th n = concat <$> sequence
-    [ makeLensesWith (lenses th classyRules) n
-    , nullary th n
-    ]
-
-aeson :: TH -> A.Options
-aeson th = A.defaultOptions
-    { A.constructorTagModifier = text (_thCtor th)
-    , A.fieldLabelModifier     = text (_thField th)
-    , A.omitNothingFields      = False
-    , A.allNullaryToStringTag  = True
-    , A.sumEncoding            =
-        A.defaultTaggedObject
-            { A.tagFieldName      = _thTag th
-            , A.contentsFieldName = _thContents th
+aeson :: TH -> Options
+aeson TH{..} = defaultOptions
+    { constructorTagModifier = f _ctor
+    , fieldLabelModifier     = f _field
+    , allNullaryToStringTag  = True
+    , sumEncoding            =
+        defaultTaggedObject
+            { tagFieldName      = "type"
+            , contentsFieldName = "contents"
             }
     }
+  where
+    f g = asText (g . camelAcronym . h . stripSuffix "'")
 
-jason :: TH -> J.Options
-jason th = J.defaultOptions
-    { J.constructorTagModifier = text (_thCtor th)
-    , J.fieldLabelModifier     = text (_thField th)
-    , J.allNullaryToStringTag  = True
-    , J.sumEncoding            =
-        J.defaultTaggedObject
-            { J.tagFieldName      = _thTag th
-            , J.contentsFieldName = _thContents th
-            }
-    }
-
-lenses :: TH -> LensRules -> LensRules
-lenses th = set lensField $ \_ _ x ->
-    [ TopName (mkName (text (_thLens th) (nameBase x)))
-    ]
-
-text :: (Text -> Text) -> String -> String
-text f = Text.unpack . f . Text.pack
+    h | _lenses   = stripLens
+      | otherwise = stripPrefix "_"

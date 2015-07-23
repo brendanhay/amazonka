@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.KMS.UpdateKeyDescription
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Updates the description of a key.
+-- Updates the description of a key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html>
 module Network.AWS.KMS.UpdateKeyDescription
@@ -32,8 +27,8 @@ module Network.AWS.KMS.UpdateKeyDescription
     -- ** Request constructor
     , updateKeyDescription
     -- ** Request lenses
-    , ukdDescription
-    , ukdKeyId
+    , ukdrqKeyId
+    , ukdrqDescription
 
     -- * Response
     , UpdateKeyDescriptionResponse
@@ -41,68 +36,78 @@ module Network.AWS.KMS.UpdateKeyDescription
     , updateKeyDescriptionResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.KMS.Types
-import qualified GHC.Exts
+import           Network.AWS.KMS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateKeyDescription = UpdateKeyDescription
-    { _ukdDescription :: Text
-    , _ukdKeyId       :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateKeyDescription' constructor.
+-- | /See:/ 'updateKeyDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ukdDescription' @::@ 'Text'
+-- * 'ukdrqKeyId'
 --
--- * 'ukdKeyId' @::@ 'Text'
---
-updateKeyDescription :: Text -- ^ 'ukdKeyId'
-                     -> Text -- ^ 'ukdDescription'
-                     -> UpdateKeyDescription
-updateKeyDescription p1 p2 = UpdateKeyDescription
-    { _ukdKeyId       = p1
-    , _ukdDescription = p2
+-- * 'ukdrqDescription'
+data UpdateKeyDescription = UpdateKeyDescription'
+    { _ukdrqKeyId       :: !Text
+    , _ukdrqDescription :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateKeyDescription' smart constructor.
+updateKeyDescription :: Text -> Text -> UpdateKeyDescription
+updateKeyDescription pKeyId_ pDescription_ =
+    UpdateKeyDescription'
+    { _ukdrqKeyId = pKeyId_
+    , _ukdrqDescription = pDescription_
     }
 
--- | New description for the key.
-ukdDescription :: Lens' UpdateKeyDescription Text
-ukdDescription = lens _ukdDescription (\s a -> s { _ukdDescription = a })
-
--- | A unique identifier for the customer master key. This value can be a globally
--- unique identifier or the fully specified ARN to a key.  Key ARN Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
+-- | A unique identifier for the customer master key. This value can be a
+-- globally unique identifier or the fully specified ARN to a key.
 --
-ukdKeyId :: Lens' UpdateKeyDescription Text
-ukdKeyId = lens _ukdKeyId (\s a -> s { _ukdKeyId = a })
+-- -   Key ARN Example -
+--     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
+-- -   Globally Unique Key ID Example -
+--     12345678-1234-1234-1234-123456789012
+ukdrqKeyId :: Lens' UpdateKeyDescription Text
+ukdrqKeyId = lens _ukdrqKeyId (\ s a -> s{_ukdrqKeyId = a});
 
-data UpdateKeyDescriptionResponse = UpdateKeyDescriptionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateKeyDescriptionResponse' constructor.
-updateKeyDescriptionResponse :: UpdateKeyDescriptionResponse
-updateKeyDescriptionResponse = UpdateKeyDescriptionResponse
-
-instance ToPath UpdateKeyDescription where
-    toPath = const "/"
-
-instance ToQuery UpdateKeyDescription where
-    toQuery = const mempty
-
-instance ToHeaders UpdateKeyDescription
-
-instance ToJSON UpdateKeyDescription where
-    toJSON UpdateKeyDescription{..} = object
-        [ "KeyId"       .= _ukdKeyId
-        , "Description" .= _ukdDescription
-        ]
+-- | New description for the key.
+ukdrqDescription :: Lens' UpdateKeyDescription Text
+ukdrqDescription = lens _ukdrqDescription (\ s a -> s{_ukdrqDescription = a});
 
 instance AWSRequest UpdateKeyDescription where
-    type Sv UpdateKeyDescription = KMS
-    type Rs UpdateKeyDescription = UpdateKeyDescriptionResponse
+        type Sv UpdateKeyDescription = KMS
+        type Rs UpdateKeyDescription =
+             UpdateKeyDescriptionResponse
+        request = postJSON
+        response = receiveNull UpdateKeyDescriptionResponse'
 
-    request  = post "UpdateKeyDescription"
-    response = nullResponse UpdateKeyDescriptionResponse
+instance ToHeaders UpdateKeyDescription where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("TrentService.UpdateKeyDescription" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateKeyDescription where
+        toJSON UpdateKeyDescription'{..}
+          = object
+              ["KeyId" .= _ukdrqKeyId,
+               "Description" .= _ukdrqDescription]
+
+instance ToPath UpdateKeyDescription where
+        toPath = const "/"
+
+instance ToQuery UpdateKeyDescription where
+        toQuery = const mempty
+
+-- | /See:/ 'updateKeyDescriptionResponse' smart constructor.
+data UpdateKeyDescriptionResponse =
+    UpdateKeyDescriptionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateKeyDescriptionResponse' smart constructor.
+updateKeyDescriptionResponse :: UpdateKeyDescriptionResponse
+updateKeyDescriptionResponse = UpdateKeyDescriptionResponse'

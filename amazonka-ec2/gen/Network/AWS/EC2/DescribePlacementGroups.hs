@@ -1,29 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DescribePlacementGroups
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes one or more of your placement groups. For more information about
--- placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /AmazonElastic Compute Cloud User Guide/.
+-- Describes one or more of your placement groups. For more information
+-- about placement groups and cluster instances, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html>
 module Network.AWS.EC2.DescribePlacementGroups
@@ -33,111 +30,128 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- ** Request constructor
     , describePlacementGroups
     -- ** Request lenses
-    , dpg1DryRun
-    , dpg1Filters
-    , dpg1GroupNames
+    , dpgsrqGroupNames
+    , dpgsrqFilters
+    , dpgsrqDryRun
 
     -- * Response
     , DescribePlacementGroupsResponse
     -- ** Response constructor
     , describePlacementGroupsResponse
     -- ** Response lenses
-    , dpgrPlacementGroups
+    , dpgrsPlacementGroups
+    , dpgrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribePlacementGroups = DescribePlacementGroups
-    { _dpg1DryRun     :: Maybe Bool
-    , _dpg1Filters    :: List "Filter" Filter
-    , _dpg1GroupNames :: List "groupName" Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribePlacementGroups' constructor.
+-- | /See:/ 'describePlacementGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpg1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dpgsrqGroupNames'
 --
--- * 'dpg1Filters' @::@ ['Filter']
+-- * 'dpgsrqFilters'
 --
--- * 'dpg1GroupNames' @::@ ['Text']
---
+-- * 'dpgsrqDryRun'
+data DescribePlacementGroups = DescribePlacementGroups'
+    { _dpgsrqGroupNames :: !(Maybe [Text])
+    , _dpgsrqFilters    :: !(Maybe [Filter])
+    , _dpgsrqDryRun     :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribePlacementGroups' smart constructor.
 describePlacementGroups :: DescribePlacementGroups
-describePlacementGroups = DescribePlacementGroups
-    { _dpg1DryRun     = Nothing
-    , _dpg1GroupNames = mempty
-    , _dpg1Filters    = mempty
+describePlacementGroups =
+    DescribePlacementGroups'
+    { _dpgsrqGroupNames = Nothing
+    , _dpgsrqFilters = Nothing
+    , _dpgsrqDryRun = Nothing
     }
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dpg1DryRun :: Lens' DescribePlacementGroups (Maybe Bool)
-dpg1DryRun = lens _dpg1DryRun (\s a -> s { _dpg1DryRun = a })
-
--- | One or more filters.
---
--- 'group-name' - The name of the placement group.
---
--- 'state' - The state of the placement group ('pending' | 'available' | 'deleting' | 'deleted').
---
--- 'strategy' - The strategy of the placement group ('cluster').
---
---
-dpg1Filters :: Lens' DescribePlacementGroups [Filter]
-dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a }) . _List
 
 -- | One or more placement group names.
 --
 -- Default: Describes all your placement groups, or only those otherwise
 -- specified.
-dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
-dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a }) . _List
+dpgsrqGroupNames :: Lens' DescribePlacementGroups [Text]
+dpgsrqGroupNames = lens _dpgsrqGroupNames (\ s a -> s{_dpgsrqGroupNames = a}) . _Default;
 
-newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
-    { _dpgrPlacementGroups :: List "item" PlacementGroup
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | One or more filters.
+--
+-- -   @group-name@ - The name of the placement group.
+--
+-- -   @state@ - The state of the placement group (@pending@ | @available@
+--     | @deleting@ | @deleted@).
+--
+-- -   @strategy@ - The strategy of the placement group (@cluster@).
+--
+dpgsrqFilters :: Lens' DescribePlacementGroups [Filter]
+dpgsrqFilters = lens _dpgsrqFilters (\ s a -> s{_dpgsrqFilters = a}) . _Default;
 
--- | 'DescribePlacementGroupsResponse' constructor.
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+dpgsrqDryRun :: Lens' DescribePlacementGroups (Maybe Bool)
+dpgsrqDryRun = lens _dpgsrqDryRun (\ s a -> s{_dpgsrqDryRun = a});
+
+instance AWSRequest DescribePlacementGroups where
+        type Sv DescribePlacementGroups = EC2
+        type Rs DescribePlacementGroups =
+             DescribePlacementGroupsResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 DescribePlacementGroupsResponse' <$>
+                   (x .@? "placementGroupSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribePlacementGroups where
+        toHeaders = const mempty
+
+instance ToPath DescribePlacementGroups where
+        toPath = const "/"
+
+instance ToQuery DescribePlacementGroups where
+        toQuery DescribePlacementGroups'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribePlacementGroups" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               toQuery
+                 (toQueryList "GroupName" <$> _dpgsrqGroupNames),
+               toQuery (toQueryList "Filter" <$> _dpgsrqFilters),
+               "DryRun" =: _dpgsrqDryRun]
+
+-- | /See:/ 'describePlacementGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpgrPlacementGroups' @::@ ['PlacementGroup']
+-- * 'dpgrsPlacementGroups'
 --
-describePlacementGroupsResponse :: DescribePlacementGroupsResponse
-describePlacementGroupsResponse = DescribePlacementGroupsResponse
-    { _dpgrPlacementGroups = mempty
+-- * 'dpgrsStatus'
+data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
+    { _dpgrsPlacementGroups :: !(Maybe [PlacementGroup])
+    , _dpgrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribePlacementGroupsResponse' smart constructor.
+describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
+describePlacementGroupsResponse pStatus_ =
+    DescribePlacementGroupsResponse'
+    { _dpgrsPlacementGroups = Nothing
+    , _dpgrsStatus = pStatus_
     }
 
 -- | One or more placement groups.
-dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
-dpgrPlacementGroups =
-    lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
-        . _List
+dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGroups = a}) . _Default;
 
-instance ToPath DescribePlacementGroups where
-    toPath = const "/"
-
-instance ToQuery DescribePlacementGroups where
-    toQuery DescribePlacementGroups{..} = mconcat
-        [ "DryRun"    =? _dpg1DryRun
-        , "Filter"    `toQueryList` _dpg1Filters
-        , "GroupName" `toQueryList` _dpg1GroupNames
-        ]
-
-instance ToHeaders DescribePlacementGroups
-
-instance AWSRequest DescribePlacementGroups where
-    type Sv DescribePlacementGroups = EC2
-    type Rs DescribePlacementGroups = DescribePlacementGroupsResponse
-
-    request  = post "DescribePlacementGroups"
-    response = xmlResponse
-
-instance FromXML DescribePlacementGroupsResponse where
-    parseXML x = DescribePlacementGroupsResponse
-        <$> x .@? "placementGroupSet" .!@ mempty
+-- | FIXME: Undocumented member.
+dpgrsStatus :: Lens' DescribePlacementGroupsResponse Int
+dpgrsStatus = lens _dpgrsStatus (\ s a -> s{_dpgrsStatus = a});

@@ -1,87 +1,73 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web
--- applications and services developed with Java, .NET, PHP, Node.js, Python,
--- Ruby, and Docker on familiar servers such as Apache HTTP Server, Apache
--- Tomcat, Nginx, Passenger, and IIS 7.5/8. You can simply upload your code and
--- Elastic Beanstalk automatically handles the deployment, from capacity
--- provisioning, load balancing, auto-scaling to application health monitoring.
--- At the same time, you retain full control over the AWS resources powering
--- your application and can access the underlying resources at any time. There
--- is no additional charge for Elastic Beanstalk - you pay only for the AWS
--- resources needed to store and run your applications.
+-- AWS Elastic Beanstalk
+--
+-- This is the AWS Elastic Beanstalk API Reference. This guide provides
+-- detailed information about AWS Elastic Beanstalk actions, data types,
+-- parameters, and errors.
+--
+-- AWS Elastic Beanstalk is a tool that makes it easy for you to create,
+-- deploy, and manage scalable, fault-tolerant applications running on
+-- Amazon Web Services cloud resources.
+--
+-- For more information about this product, go to the
+-- <http://aws.amazon.com/elasticbeanstalk/ AWS Elastic Beanstalk> details
+-- page. The location of the latest AWS Elastic Beanstalk WSDL is
+-- <http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl>.
+-- To install the Software Development Kits (SDKs), Integrated Development
+-- Environment (IDE) Toolkits, and command line tools that enable you to
+-- access the API, go to
+-- <https://aws.amazon.com/tools/ Tools for Amazon Web Services>.
+--
+-- __Endpoints__
+--
+-- For a list of region-specific endpoints that AWS Elastic Beanstalk
+-- supports, go to
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints>
+-- in the /Amazon Web Services Glossary/.
 module Network.AWS.ElasticBeanstalk
-    ( module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
-    , module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
-    , module Network.AWS.ElasticBeanstalk.CreateApplication
-    , module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
-    , module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
-    , module Network.AWS.ElasticBeanstalk.CreateEnvironment
-    , module Network.AWS.ElasticBeanstalk.CreateStorageLocation
-    , module Network.AWS.ElasticBeanstalk.DeleteApplication
-    , module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
-    , module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-    , module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
-    , module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
-    , module Network.AWS.ElasticBeanstalk.DescribeApplications
-    , module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
-    , module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
-    , module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
-    , module Network.AWS.ElasticBeanstalk.DescribeEnvironments
-    , module Network.AWS.ElasticBeanstalk.DescribeEvents
-    , module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-    , module Network.AWS.ElasticBeanstalk.RebuildEnvironment
-    , module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
-    , module Network.AWS.ElasticBeanstalk.RestartAppServer
-    , module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
-    , module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
-    , module Network.AWS.ElasticBeanstalk.TerminateEnvironment
-    , module Network.AWS.ElasticBeanstalk.Types
-    , module Network.AWS.ElasticBeanstalk.UpdateApplication
-    , module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-    , module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
-    , module Network.AWS.ElasticBeanstalk.UpdateEnvironment
-    , module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
+    ( module Export
     ) where
 
-import Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
-import Network.AWS.ElasticBeanstalk.CheckDNSAvailability
-import Network.AWS.ElasticBeanstalk.CreateApplication
-import Network.AWS.ElasticBeanstalk.CreateApplicationVersion
-import Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
-import Network.AWS.ElasticBeanstalk.CreateEnvironment
-import Network.AWS.ElasticBeanstalk.CreateStorageLocation
-import Network.AWS.ElasticBeanstalk.DeleteApplication
-import Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
-import Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-import Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
-import Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
-import Network.AWS.ElasticBeanstalk.DescribeApplications
-import Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
-import Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
-import Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
-import Network.AWS.ElasticBeanstalk.DescribeEnvironments
-import Network.AWS.ElasticBeanstalk.DescribeEvents
-import Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-import Network.AWS.ElasticBeanstalk.RebuildEnvironment
-import Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
-import Network.AWS.ElasticBeanstalk.RestartAppServer
-import Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
-import Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
-import Network.AWS.ElasticBeanstalk.TerminateEnvironment
-import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.UpdateApplication
-import Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
-import Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
-import Network.AWS.ElasticBeanstalk.UpdateEnvironment
-import Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
+import           Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate         as Export
+import           Network.AWS.ElasticBeanstalk.CheckDNSAvailability           as Export
+import           Network.AWS.ElasticBeanstalk.CreateApplication              as Export
+import           Network.AWS.ElasticBeanstalk.CreateApplicationVersion       as Export
+import           Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate    as Export
+import           Network.AWS.ElasticBeanstalk.CreateEnvironment              as Export
+import           Network.AWS.ElasticBeanstalk.CreateStorageLocation          as Export
+import           Network.AWS.ElasticBeanstalk.DeleteApplication              as Export
+import           Network.AWS.ElasticBeanstalk.DeleteApplicationVersion       as Export
+import           Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate    as Export
+import           Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration as Export
+import           Network.AWS.ElasticBeanstalk.DescribeApplications           as Export
+import           Network.AWS.ElasticBeanstalk.DescribeApplicationVersions    as Export
+import           Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions   as Export
+import           Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings  as Export
+import           Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources   as Export
+import           Network.AWS.ElasticBeanstalk.DescribeEnvironments           as Export
+import           Network.AWS.ElasticBeanstalk.DescribeEvents                 as Export
+import           Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks    as Export
+import           Network.AWS.ElasticBeanstalk.RebuildEnvironment             as Export
+import           Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo         as Export
+import           Network.AWS.ElasticBeanstalk.RestartAppServer               as Export
+import           Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo        as Export
+import           Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs          as Export
+import           Network.AWS.ElasticBeanstalk.TerminateEnvironment           as Export
+import           Network.AWS.ElasticBeanstalk.Types                          as Export
+import           Network.AWS.ElasticBeanstalk.UpdateApplication              as Export
+import           Network.AWS.ElasticBeanstalk.UpdateApplicationVersion       as Export
+import           Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate    as Export
+import           Network.AWS.ElasticBeanstalk.UpdateEnvironment              as Export
+import           Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings  as Export
+import           Network.AWS.ElasticBeanstalk.Waiters                        as Export

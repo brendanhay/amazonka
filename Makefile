@@ -1,9 +1,18 @@
-DEPS ?= core amazonka $(wildcard amazonka-*)
+SERVICES  ?= $(wildcard amazonka-*)
+LIBRARIES ?= core test amazonka $(SERVICES)
+FORWARD   := sdist upload
 
-.PHONY: full-clean
+build:
+	stack build
+
+clean:
+	stack clean
+
+doc:
+	stack -j3 haddock amazonka
 
 define forward
-$1: cabal.sandbox.config $$(addprefix $1-,$$(DEPS))
+$1: $$(addprefix $1-,$$(LIBRARIES))
 
 $1-%:
 	@make -C $$* $1
@@ -11,15 +20,18 @@ $1-%:
 .PHONY: $1
 endef
 
-FORWARD := build configure deps install sdist upload clean doc
-
 $(foreach c,$(FORWARD),$(eval $(call forward, $c)))
 
-full-clean: clean
-	rm -rf cabal.sandbox.config .cabal-sandbox
+.PHONY: $(LIBRARIES)
 
-cabal.sandbox.config:
-	cabal sandbox init
+amazonka:
+	stack build amazonka
 
-travis: cabal.sandbox.config
-	@make -C core test
+core:
+	stack build amazonka-core
+
+test:
+	stack test
+
+$(SERVICES):
+	stack build $@

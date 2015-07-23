@@ -1,32 +1,35 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.UpdateGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Updates the name and/or the path of the specified group.
+-- Updates the name and\/or the path of the specified group.
 --
--- You should understand the implications of changing a group's path or name.
--- For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups> in the /Using IAM/ guide.  To change a group name the requester must have appropriate permissions on both the source object and the target object. For example, to change Managers to MGRs, the entity making the request must have permission on Managers and MGRs, or must have permission on all (*). For more information about permissions, see
--- Permissions and Policies.
+-- You should understand the implications of changing a group\'s path or
+-- name. For more information, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups>
+-- in the /Using IAM/ guide.
+--
+-- To change a group name the requester must have appropriate permissions
+-- on both the source object and the target object. For example, to change
+-- Managers to MGRs, the entity making the request must have permission on
+-- Managers and MGRs, or must have permission on all (*). For more
+-- information about permissions, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/PermissionsAndPolicies.html Permissions and Policies>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateGroup.html>
 module Network.AWS.IAM.UpdateGroup
@@ -36,9 +39,9 @@ module Network.AWS.IAM.UpdateGroup
     -- ** Request constructor
     , updateGroup
     -- ** Request lenses
-    , ugGroupName
-    , ugNewGroupName
-    , ugNewPath
+    , ugrqNewGroupName
+    , ugrqNewPath
+    , ugrqGroupName
 
     -- * Response
     , UpdateGroupResponse
@@ -46,70 +49,74 @@ module Network.AWS.IAM.UpdateGroup
     , updateGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateGroup = UpdateGroup
-    { _ugGroupName    :: Text
-    , _ugNewGroupName :: Maybe Text
-    , _ugNewPath      :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateGroup' constructor.
+-- | /See:/ 'updateGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ugGroupName' @::@ 'Text'
+-- * 'ugrqNewGroupName'
 --
--- * 'ugNewGroupName' @::@ 'Maybe' 'Text'
+-- * 'ugrqNewPath'
 --
--- * 'ugNewPath' @::@ 'Maybe' 'Text'
---
-updateGroup :: Text -- ^ 'ugGroupName'
-            -> UpdateGroup
-updateGroup p1 = UpdateGroup
-    { _ugGroupName    = p1
-    , _ugNewPath      = Nothing
-    , _ugNewGroupName = Nothing
+-- * 'ugrqGroupName'
+data UpdateGroup = UpdateGroup'
+    { _ugrqNewGroupName :: !(Maybe Text)
+    , _ugrqNewPath      :: !(Maybe Text)
+    , _ugrqGroupName    :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateGroup' smart constructor.
+updateGroup :: Text -> UpdateGroup
+updateGroup pGroupName_ =
+    UpdateGroup'
+    { _ugrqNewGroupName = Nothing
+    , _ugrqNewPath = Nothing
+    , _ugrqGroupName = pGroupName_
     }
 
--- | Name of the group to update. If you're changing the name of the group, this
--- is the original name.
-ugGroupName :: Lens' UpdateGroup Text
-ugGroupName = lens _ugGroupName (\s a -> s { _ugGroupName = a })
+-- | New name for the group. Only include this if changing the group\'s name.
+ugrqNewGroupName :: Lens' UpdateGroup (Maybe Text)
+ugrqNewGroupName = lens _ugrqNewGroupName (\ s a -> s{_ugrqNewGroupName = a});
 
--- | New name for the group. Only include this if changing the group's name.
-ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
-ugNewGroupName = lens _ugNewGroupName (\s a -> s { _ugNewGroupName = a })
+-- | New path for the group. Only include this if changing the group\'s path.
+ugrqNewPath :: Lens' UpdateGroup (Maybe Text)
+ugrqNewPath = lens _ugrqNewPath (\ s a -> s{_ugrqNewPath = a});
 
--- | New path for the group. Only include this if changing the group's path.
-ugNewPath :: Lens' UpdateGroup (Maybe Text)
-ugNewPath = lens _ugNewPath (\s a -> s { _ugNewPath = a })
-
-data UpdateGroupResponse = UpdateGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateGroupResponse' constructor.
-updateGroupResponse :: UpdateGroupResponse
-updateGroupResponse = UpdateGroupResponse
-
-instance ToPath UpdateGroup where
-    toPath = const "/"
-
-instance ToQuery UpdateGroup where
-    toQuery UpdateGroup{..} = mconcat
-        [ "GroupName"    =? _ugGroupName
-        , "NewGroupName" =? _ugNewGroupName
-        , "NewPath"      =? _ugNewPath
-        ]
-
-instance ToHeaders UpdateGroup
+-- | Name of the group to update. If you\'re changing the name of the group,
+-- this is the original name.
+ugrqGroupName :: Lens' UpdateGroup Text
+ugrqGroupName = lens _ugrqGroupName (\ s a -> s{_ugrqGroupName = a});
 
 instance AWSRequest UpdateGroup where
-    type Sv UpdateGroup = IAM
-    type Rs UpdateGroup = UpdateGroupResponse
+        type Sv UpdateGroup = IAM
+        type Rs UpdateGroup = UpdateGroupResponse
+        request = post
+        response = receiveNull UpdateGroupResponse'
 
-    request  = post "UpdateGroup"
-    response = nullResponse UpdateGroupResponse
+instance ToHeaders UpdateGroup where
+        toHeaders = const mempty
+
+instance ToPath UpdateGroup where
+        toPath = const "/"
+
+instance ToQuery UpdateGroup where
+        toQuery UpdateGroup'{..}
+          = mconcat
+              ["Action" =: ("UpdateGroup" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "NewGroupName" =: _ugrqNewGroupName,
+               "NewPath" =: _ugrqNewPath,
+               "GroupName" =: _ugrqGroupName]
+
+-- | /See:/ 'updateGroupResponse' smart constructor.
+data UpdateGroupResponse =
+    UpdateGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateGroupResponse' smart constructor.
+updateGroupResponse :: UpdateGroupResponse
+updateGroupResponse = UpdateGroupResponse'

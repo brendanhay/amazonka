@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.DisableGateway
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Disables a gateway when the gateway is no longer functioning. For example, if
--- your gateway VM is damaged, you can disable the gateway so you can recover
--- virtual tapes.
+-- Disables a gateway when the gateway is no longer functioning. For
+-- example, if your gateway VM is damaged, you can disable the gateway so
+-- you can recover virtual tapes.
 --
 -- Use this operation for a gateway-VTL that is not reachable or not
 -- functioning.
@@ -39,80 +34,100 @@ module Network.AWS.StorageGateway.DisableGateway
     -- ** Request constructor
     , disableGateway
     -- ** Request lenses
-    , dg1GatewayARN
+    , drqGatewayARN
 
     -- * Response
     , DisableGatewayResponse
     -- ** Response constructor
     , disableGatewayResponse
     -- ** Response lenses
-    , dgr1GatewayARN
+    , disrsGatewayARN
+    , disrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-newtype DisableGateway = DisableGateway
-    { _dg1GatewayARN :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DisableGateway' constructor.
+-- | DisableGatewayInput
+--
+-- /See:/ 'disableGateway' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dg1GatewayARN' @::@ 'Text'
---
-disableGateway :: Text -- ^ 'dg1GatewayARN'
-               -> DisableGateway
-disableGateway p1 = DisableGateway
-    { _dg1GatewayARN = p1
+-- * 'drqGatewayARN'
+newtype DisableGateway = DisableGateway'
+    { _drqGatewayARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DisableGateway' smart constructor.
+disableGateway :: Text -> DisableGateway
+disableGateway pGatewayARN_ =
+    DisableGateway'
+    { _drqGatewayARN = pGatewayARN_
     }
 
-dg1GatewayARN :: Lens' DisableGateway Text
-dg1GatewayARN = lens _dg1GatewayARN (\s a -> s { _dg1GatewayARN = a })
+-- | FIXME: Undocumented member.
+drqGatewayARN :: Lens' DisableGateway Text
+drqGatewayARN = lens _drqGatewayARN (\ s a -> s{_drqGatewayARN = a});
 
-newtype DisableGatewayResponse = DisableGatewayResponse
-    { _dgr1GatewayARN :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance AWSRequest DisableGateway where
+        type Sv DisableGateway = StorageGateway
+        type Rs DisableGateway = DisableGatewayResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DisableGatewayResponse' <$>
+                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
 
--- | 'DisableGatewayResponse' constructor.
+instance ToHeaders DisableGateway where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DisableGateway" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DisableGateway where
+        toJSON DisableGateway'{..}
+          = object ["GatewayARN" .= _drqGatewayARN]
+
+instance ToPath DisableGateway where
+        toPath = const "/"
+
+instance ToQuery DisableGateway where
+        toQuery = const mempty
+
+-- | DisableGatewayOutput
+--
+-- /See:/ 'disableGatewayResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgr1GatewayARN' @::@ 'Maybe' 'Text'
+-- * 'disrsGatewayARN'
 --
-disableGatewayResponse :: DisableGatewayResponse
-disableGatewayResponse = DisableGatewayResponse
-    { _dgr1GatewayARN = Nothing
+-- * 'disrsStatus'
+data DisableGatewayResponse = DisableGatewayResponse'
+    { _disrsGatewayARN :: !(Maybe Text)
+    , _disrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DisableGatewayResponse' smart constructor.
+disableGatewayResponse :: Int -> DisableGatewayResponse
+disableGatewayResponse pStatus_ =
+    DisableGatewayResponse'
+    { _disrsGatewayARN = Nothing
+    , _disrsStatus = pStatus_
     }
 
 -- | The unique Amazon Resource Name of the disabled gateway.
-dgr1GatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
-dgr1GatewayARN = lens _dgr1GatewayARN (\s a -> s { _dgr1GatewayARN = a })
+disrsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
+disrsGatewayARN = lens _disrsGatewayARN (\ s a -> s{_disrsGatewayARN = a});
 
-instance ToPath DisableGateway where
-    toPath = const "/"
-
-instance ToQuery DisableGateway where
-    toQuery = const mempty
-
-instance ToHeaders DisableGateway
-
-instance ToJSON DisableGateway where
-    toJSON DisableGateway{..} = object
-        [ "GatewayARN" .= _dg1GatewayARN
-        ]
-
-instance AWSRequest DisableGateway where
-    type Sv DisableGateway = StorageGateway
-    type Rs DisableGateway = DisableGatewayResponse
-
-    request  = post "DisableGateway"
-    response = jsonResponse
-
-instance FromJSON DisableGatewayResponse where
-    parseJSON = withObject "DisableGatewayResponse" $ \o -> DisableGatewayResponse
-        <$> o .:? "GatewayARN"
+-- | FIXME: Undocumented member.
+disrsStatus :: Lens' DisableGatewayResponse Int
+disrsStatus = lens _disrsStatus (\ s a -> s{_disrsStatus = a});

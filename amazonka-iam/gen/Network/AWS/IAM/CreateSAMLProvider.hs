@@ -1,44 +1,46 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.CreateSAMLProvider
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates an IAM entity to describe an identity provider (IdP) that supports
--- SAML 2.0.
+-- Creates an IAM entity to describe an identity provider (IdP) that
+-- supports SAML 2.0.
 --
 -- The SAML provider that you create with this operation can be used as a
--- principal in a role's trust policy to establish a trust relationship between
--- AWS and a SAML identity provider. You can create an IAM role that supports
--- Web-based single sign-on (SSO) to the AWS Management Console or one that
--- supports API access to AWS.
+-- principal in a role\'s trust policy to establish a trust relationship
+-- between AWS and a SAML identity provider. You can create an IAM role
+-- that supports Web-based single sign-on (SSO) to the AWS Management
+-- Console or one that supports API access to AWS.
 --
--- When you create the SAML provider, you upload an a SAML metadata document
--- that you get from your IdP and that includes the issuer's name, expiration
--- information, and keys that can be used to validate the SAML authentication
--- response (assertions) that are received from the IdP. You must generate the
--- metadata document using the identity management software that is used as your
--- organization's IdP.
+-- When you create the SAML provider, you upload an a SAML metadata
+-- document that you get from your IdP and that includes the issuer\'s
+-- name, expiration information, and keys that can be used to validate the
+-- SAML authentication response (assertions) that are received from the
+-- IdP. You must generate the metadata document using the identity
+-- management software that is used as your organization\'s IdP.
 --
--- This operation requires <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.   For more information, see <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html Giving Console Access Using SAML> and <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation> in the /UsingTemporary Credentials/ guide.
+-- This operation requires
+-- <http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4>.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSMgmtConsole-SAML.html Giving Console Access Using SAML>
+-- and
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation>
+-- in the /Using Temporary Credentials/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateSAMLProvider.html>
 module Network.AWS.IAM.CreateSAMLProvider
@@ -48,98 +50,112 @@ module Network.AWS.IAM.CreateSAMLProvider
     -- ** Request constructor
     , createSAMLProvider
     -- ** Request lenses
-    , csamlpName
-    , csamlpSAMLMetadataDocument
+    , csamlprqSAMLMetadataDocument
+    , csamlprqName
 
     -- * Response
     , CreateSAMLProviderResponse
     -- ** Response constructor
     , createSAMLProviderResponse
     -- ** Response lenses
-    , csamlprSAMLProviderArn
+    , csamlprsSAMLProviderARN
+    , csamlprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateSAMLProvider = CreateSAMLProvider
-    { _csamlpName                 :: Text
-    , _csamlpSAMLMetadataDocument :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateSAMLProvider' constructor.
+-- | /See:/ 'createSAMLProvider' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csamlpName' @::@ 'Text'
+-- * 'csamlprqSAMLMetadataDocument'
 --
--- * 'csamlpSAMLMetadataDocument' @::@ 'Text'
---
-createSAMLProvider :: Text -- ^ 'csamlpSAMLMetadataDocument'
-                   -> Text -- ^ 'csamlpName'
-                   -> CreateSAMLProvider
-createSAMLProvider p1 p2 = CreateSAMLProvider
-    { _csamlpSAMLMetadataDocument = p1
-    , _csamlpName                 = p2
+-- * 'csamlprqName'
+data CreateSAMLProvider = CreateSAMLProvider'
+    { _csamlprqSAMLMetadataDocument :: !Text
+    , _csamlprqName                 :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateSAMLProvider' smart constructor.
+createSAMLProvider :: Text -> Text -> CreateSAMLProvider
+createSAMLProvider pSAMLMetadataDocument_ pName_ =
+    CreateSAMLProvider'
+    { _csamlprqSAMLMetadataDocument = pSAMLMetadataDocument_
+    , _csamlprqName = pName_
     }
 
--- | The name of the provider to create.
-csamlpName :: Lens' CreateSAMLProvider Text
-csamlpName = lens _csamlpName (\s a -> s { _csamlpName = a })
-
--- | An XML document generated by an identity provider (IdP) that supports SAML
--- 2.0. The document includes the issuer's name, expiration information, and
--- keys that can be used to validate the SAML authentication response
--- (assertions) that are received from the IdP. You must generate the metadata
--- document using the identity management software that is used as your
--- organization's IdP.
+-- | An XML document generated by an identity provider (IdP) that supports
+-- SAML 2.0. The document includes the issuer\'s name, expiration
+-- information, and keys that can be used to validate the SAML
+-- authentication response (assertions) that are received from the IdP. You
+-- must generate the metadata document using the identity management
+-- software that is used as your organization\'s IdP.
 --
--- For more information, see <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAMLFederation> in the /Using Temporary Security Credentials/ guide.
-csamlpSAMLMetadataDocument :: Lens' CreateSAMLProvider Text
-csamlpSAMLMetadataDocument =
-    lens _csamlpSAMLMetadataDocument
-        (\s a -> s { _csamlpSAMLMetadataDocument = a })
+-- For more information, see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation>
+-- in the /Using Temporary Security Credentials/ guide.
+csamlprqSAMLMetadataDocument :: Lens' CreateSAMLProvider Text
+csamlprqSAMLMetadataDocument = lens _csamlprqSAMLMetadataDocument (\ s a -> s{_csamlprqSAMLMetadataDocument = a});
 
-newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
-    { _csamlprSAMLProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The name of the provider to create.
+csamlprqName :: Lens' CreateSAMLProvider Text
+csamlprqName = lens _csamlprqName (\ s a -> s{_csamlprqName = a});
 
--- | 'CreateSAMLProviderResponse' constructor.
+instance AWSRequest CreateSAMLProvider where
+        type Sv CreateSAMLProvider = IAM
+        type Rs CreateSAMLProvider =
+             CreateSAMLProviderResponse
+        request = post
+        response
+          = receiveXMLWrapper "CreateSAMLProviderResult"
+              (\ s h x ->
+                 CreateSAMLProviderResponse' <$>
+                   (x .@? "SAMLProviderArn") <*> (pure (fromEnum s)))
+
+instance ToHeaders CreateSAMLProvider where
+        toHeaders = const mempty
+
+instance ToPath CreateSAMLProvider where
+        toPath = const "/"
+
+instance ToQuery CreateSAMLProvider where
+        toQuery CreateSAMLProvider'{..}
+          = mconcat
+              ["Action" =: ("CreateSAMLProvider" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "SAMLMetadataDocument" =:
+                 _csamlprqSAMLMetadataDocument,
+               "Name" =: _csamlprqName]
+
+-- | Contains the response to a successful CreateSAMLProvider request.
+--
+-- /See:/ 'createSAMLProviderResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csamlprSAMLProviderArn' @::@ 'Maybe' 'Text'
+-- * 'csamlprsSAMLProviderARN'
 --
-createSAMLProviderResponse :: CreateSAMLProviderResponse
-createSAMLProviderResponse = CreateSAMLProviderResponse
-    { _csamlprSAMLProviderArn = Nothing
+-- * 'csamlprsStatus'
+data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
+    { _csamlprsSAMLProviderARN :: !(Maybe Text)
+    , _csamlprsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateSAMLProviderResponse' smart constructor.
+createSAMLProviderResponse :: Int -> CreateSAMLProviderResponse
+createSAMLProviderResponse pStatus_ =
+    CreateSAMLProviderResponse'
+    { _csamlprsSAMLProviderARN = Nothing
+    , _csamlprsStatus = pStatus_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
-csamlprSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
-csamlprSAMLProviderArn =
-    lens _csamlprSAMLProviderArn (\s a -> s { _csamlprSAMLProviderArn = a })
+csamlprsSAMLProviderARN :: Lens' CreateSAMLProviderResponse (Maybe Text)
+csamlprsSAMLProviderARN = lens _csamlprsSAMLProviderARN (\ s a -> s{_csamlprsSAMLProviderARN = a});
 
-instance ToPath CreateSAMLProvider where
-    toPath = const "/"
-
-instance ToQuery CreateSAMLProvider where
-    toQuery CreateSAMLProvider{..} = mconcat
-        [ "Name"                 =? _csamlpName
-        , "SAMLMetadataDocument" =? _csamlpSAMLMetadataDocument
-        ]
-
-instance ToHeaders CreateSAMLProvider
-
-instance AWSRequest CreateSAMLProvider where
-    type Sv CreateSAMLProvider = IAM
-    type Rs CreateSAMLProvider = CreateSAMLProviderResponse
-
-    request  = post "CreateSAMLProvider"
-    response = xmlResponse
-
-instance FromXML CreateSAMLProviderResponse where
-    parseXML = withElement "CreateSAMLProviderResult" $ \x -> CreateSAMLProviderResponse
-        <$> x .@? "SAMLProviderArn"
+-- | FIXME: Undocumented member.
+csamlprsStatus :: Lens' CreateSAMLProviderResponse Int
+csamlprsStatus = lens _csamlprsStatus (\ s a -> s{_csamlprsStatus = a});

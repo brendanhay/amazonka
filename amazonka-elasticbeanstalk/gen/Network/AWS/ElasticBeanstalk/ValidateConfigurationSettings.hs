@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Takes a set of configuration settings and either a configuration template or
--- environment, and determines whether those values are valid.
+-- Takes a set of configuration settings and either a configuration
+-- template or environment, and determines whether those values are valid.
 --
 -- This action returns a list of messages indicating any errors or warnings
 -- associated with the selection of option values.
@@ -36,122 +31,138 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- ** Request constructor
     , validateConfigurationSettings
     -- ** Request lenses
-    , vcsApplicationName
-    , vcsEnvironmentName
-    , vcsOptionSettings
-    , vcsTemplateName
+    , vcsrqTemplateName
+    , vcsrqEnvironmentName
+    , vcsrqApplicationName
+    , vcsrqOptionSettings
 
     -- * Response
     , ValidateConfigurationSettingsResponse
     -- ** Response constructor
     , validateConfigurationSettingsResponse
     -- ** Response lenses
-    , vcsrMessages
+    , vcsrsMessages
+    , vcsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ValidateConfigurationSettings = ValidateConfigurationSettings
-    { _vcsApplicationName :: Text
-    , _vcsEnvironmentName :: Maybe Text
-    , _vcsOptionSettings  :: List "member" ConfigurationOptionSetting
-    , _vcsTemplateName    :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'ValidateConfigurationSettings' constructor.
+-- | A list of validation messages for a specified configuration template.
+--
+-- /See:/ 'validateConfigurationSettings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vcsApplicationName' @::@ 'Text'
+-- * 'vcsrqTemplateName'
 --
--- * 'vcsEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'vcsrqEnvironmentName'
 --
--- * 'vcsOptionSettings' @::@ ['ConfigurationOptionSetting']
+-- * 'vcsrqApplicationName'
 --
--- * 'vcsTemplateName' @::@ 'Maybe' 'Text'
---
-validateConfigurationSettings :: Text -- ^ 'vcsApplicationName'
-                              -> ValidateConfigurationSettings
-validateConfigurationSettings p1 = ValidateConfigurationSettings
-    { _vcsApplicationName = p1
-    , _vcsTemplateName    = Nothing
-    , _vcsEnvironmentName = Nothing
-    , _vcsOptionSettings  = mempty
+-- * 'vcsrqOptionSettings'
+data ValidateConfigurationSettings = ValidateConfigurationSettings'
+    { _vcsrqTemplateName    :: !(Maybe Text)
+    , _vcsrqEnvironmentName :: !(Maybe Text)
+    , _vcsrqApplicationName :: !Text
+    , _vcsrqOptionSettings  :: ![ConfigurationOptionSetting]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ValidateConfigurationSettings' smart constructor.
+validateConfigurationSettings :: Text -> ValidateConfigurationSettings
+validateConfigurationSettings pApplicationName_ =
+    ValidateConfigurationSettings'
+    { _vcsrqTemplateName = Nothing
+    , _vcsrqEnvironmentName = Nothing
+    , _vcsrqApplicationName = pApplicationName_
+    , _vcsrqOptionSettings = mempty
     }
-
--- | The name of the application that the configuration template or environment
--- belongs to.
-vcsApplicationName :: Lens' ValidateConfigurationSettings Text
-vcsApplicationName =
-    lens _vcsApplicationName (\s a -> s { _vcsApplicationName = a })
-
--- | The name of the environment to validate the settings against.
---
--- Condition: You cannot specify both this and a configuration template name.
-vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsEnvironmentName =
-    lens _vcsEnvironmentName (\s a -> s { _vcsEnvironmentName = a })
-
--- | A list of the options and desired values to evaluate.
-vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
-vcsOptionSettings =
-    lens _vcsOptionSettings (\s a -> s { _vcsOptionSettings = a })
-        . _List
 
 -- | The name of the configuration template to validate the settings against.
 --
 -- Condition: You cannot specify both this and an environment name.
-vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
+vcsrqTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsrqTemplateName = lens _vcsrqTemplateName (\ s a -> s{_vcsrqTemplateName = a});
 
-newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
-    { _vcsrMessages :: List "member" ValidationMessage
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | The name of the environment to validate the settings against.
+--
+-- Condition: You cannot specify both this and a configuration template
+-- name.
+vcsrqEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsrqEnvironmentName = lens _vcsrqEnvironmentName (\ s a -> s{_vcsrqEnvironmentName = a});
 
-instance GHC.Exts.IsList ValidateConfigurationSettingsResponse where
-    type Item ValidateConfigurationSettingsResponse = ValidationMessage
+-- | The name of the application that the configuration template or
+-- environment belongs to.
+vcsrqApplicationName :: Lens' ValidateConfigurationSettings Text
+vcsrqApplicationName = lens _vcsrqApplicationName (\ s a -> s{_vcsrqApplicationName = a});
 
-    fromList = ValidateConfigurationSettingsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _vcsrMessages
+-- | A list of the options and desired values to evaluate.
+vcsrqOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
+vcsrqOptionSettings = lens _vcsrqOptionSettings (\ s a -> s{_vcsrqOptionSettings = a});
 
--- | 'ValidateConfigurationSettingsResponse' constructor.
+instance AWSRequest ValidateConfigurationSettings
+         where
+        type Sv ValidateConfigurationSettings =
+             ElasticBeanstalk
+        type Rs ValidateConfigurationSettings =
+             ValidateConfigurationSettingsResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "ValidateConfigurationSettingsResult"
+              (\ s h x ->
+                 ValidateConfigurationSettingsResponse' <$>
+                   (x .@? "Messages" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ValidateConfigurationSettings
+         where
+        toHeaders = const mempty
+
+instance ToPath ValidateConfigurationSettings where
+        toPath = const "/"
+
+instance ToQuery ValidateConfigurationSettings where
+        toQuery ValidateConfigurationSettings'{..}
+          = mconcat
+              ["Action" =:
+                 ("ValidateConfigurationSettings" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "TemplateName" =: _vcsrqTemplateName,
+               "EnvironmentName" =: _vcsrqEnvironmentName,
+               "ApplicationName" =: _vcsrqApplicationName,
+               "OptionSettings" =:
+                 toQueryList "member" _vcsrqOptionSettings]
+
+-- | Provides a list of validation messages.
+--
+-- /See:/ 'validateConfigurationSettingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vcsrMessages' @::@ ['ValidationMessage']
+-- * 'vcsrsMessages'
 --
-validateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
-validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
-    { _vcsrMessages = mempty
+-- * 'vcsrsStatus'
+data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
+    { _vcsrsMessages :: !(Maybe [ValidationMessage])
+    , _vcsrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ValidateConfigurationSettingsResponse' smart constructor.
+validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse
+validateConfigurationSettingsResponse pStatus_ =
+    ValidateConfigurationSettingsResponse'
+    { _vcsrsMessages = Nothing
+    , _vcsrsStatus = pStatus_
     }
 
--- | A list of 'ValidationMessage'.
-vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
-vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a }) . _List
+-- | A list of ValidationMessage.
+vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
+vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default;
 
-instance ToPath ValidateConfigurationSettings where
-    toPath = const "/"
-
-instance ToQuery ValidateConfigurationSettings where
-    toQuery ValidateConfigurationSettings{..} = mconcat
-        [ "ApplicationName" =? _vcsApplicationName
-        , "EnvironmentName" =? _vcsEnvironmentName
-        , "OptionSettings"  =? _vcsOptionSettings
-        , "TemplateName"    =? _vcsTemplateName
-        ]
-
-instance ToHeaders ValidateConfigurationSettings
-
-instance AWSRequest ValidateConfigurationSettings where
-    type Sv ValidateConfigurationSettings = ElasticBeanstalk
-    type Rs ValidateConfigurationSettings = ValidateConfigurationSettingsResponse
-
-    request  = post "ValidateConfigurationSettings"
-    response = xmlResponse
-
-instance FromXML ValidateConfigurationSettingsResponse where
-    parseXML = withElement "ValidateConfigurationSettingsResult" $ \x -> ValidateConfigurationSettingsResponse
-        <$> x .@? "Messages" .!@ mempty
+-- | FIXME: Undocumented member.
+vcsrsStatus :: Lens' ValidateConfigurationSettingsResponse Int
+vcsrsStatus = lens _vcsrsStatus (\ s a -> s{_vcsrsStatus = a});

@@ -1,31 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudSearch.DescribeDomains
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets information about the search domains owned by this account. Can be
--- limited to specific domains. Shows all domains by default. To get the number
--- of searchable documents in a domain, use the console or submit a 'matchall'
--- request to your domain's search endpoint: 'q=matchall&amp;q.parser=structured&amp;size=0'. For more information, see Getting Information about a Search Domain in the /Amazon CloudSearch Developer Guide/.
+-- Gets information about the search domains owned by this account. Can be
+-- limited to specific domains. Shows all domains by default. To get the
+-- number of searchable documents in a domain, use the console or submit a
+-- @matchall@ request to your domain\'s search endpoint:
+-- @q=matchall&amp;q.parser=structured&amp;size=0@. For more information,
+-- see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-domain-info.html Getting Information about a Search Domain>
+-- in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_DescribeDomains.html>
 module Network.AWS.CloudSearch.DescribeDomains
@@ -35,89 +34,100 @@ module Network.AWS.CloudSearch.DescribeDomains
     -- ** Request constructor
     , describeDomains
     -- ** Request lenses
-    , ddDomainNames
+    , ddrqDomainNames
 
     -- * Response
     , DescribeDomainsResponse
     -- ** Response constructor
     , describeDomainsResponse
     -- ** Response lenses
-    , ddrDomainStatusList
+    , ddsrsStatus
+    , ddsrsDomainStatusList
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeDomains = DescribeDomains
-    { _ddDomainNames :: List "member" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeDomains where
-    type Item DescribeDomains = Text
-
-    fromList = DescribeDomains . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ddDomainNames
-
--- | 'DescribeDomains' constructor.
+-- | Container for the parameters to the @DescribeDomains@ operation. By
+-- default shows the status of all domains. To restrict the response to
+-- particular domains, specify the names of the domains you want to
+-- describe.
+--
+-- /See:/ 'describeDomains' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddDomainNames' @::@ ['Text']
---
+-- * 'ddrqDomainNames'
+newtype DescribeDomains = DescribeDomains'
+    { _ddrqDomainNames :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeDomains' smart constructor.
 describeDomains :: DescribeDomains
-describeDomains = DescribeDomains
-    { _ddDomainNames = mempty
+describeDomains =
+    DescribeDomains'
+    { _ddrqDomainNames = Nothing
     }
 
 -- | The names of the domains you want to include in the response.
-ddDomainNames :: Lens' DescribeDomains [Text]
-ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a }) . _List
+ddrqDomainNames :: Lens' DescribeDomains [Text]
+ddrqDomainNames = lens _ddrqDomainNames (\ s a -> s{_ddrqDomainNames = a}) . _Default;
 
-newtype DescribeDomainsResponse = DescribeDomainsResponse
-    { _ddrDomainStatusList :: List "member" DomainStatus
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeDomains where
+        type Sv DescribeDomains = CloudSearch
+        type Rs DescribeDomains = DescribeDomainsResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeDomainsResult"
+              (\ s h x ->
+                 DescribeDomainsResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (x .@? "DomainStatusList" .!@ mempty >>=
+                        parseXMLList "member"))
 
-instance GHC.Exts.IsList DescribeDomainsResponse where
-    type Item DescribeDomainsResponse = DomainStatus
+instance ToHeaders DescribeDomains where
+        toHeaders = const mempty
 
-    fromList = DescribeDomainsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _ddrDomainStatusList
+instance ToPath DescribeDomains where
+        toPath = const "/"
 
--- | 'DescribeDomainsResponse' constructor.
+instance ToQuery DescribeDomains where
+        toQuery DescribeDomains'{..}
+          = mconcat
+              ["Action" =: ("DescribeDomains" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "DomainNames" =:
+                 toQuery (toQueryList "member" <$> _ddrqDomainNames)]
+
+-- | The result of a @DescribeDomains@ request. Contains the status of the
+-- domains specified in the request or all domains owned by the account.
+--
+-- /See:/ 'describeDomainsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDomainStatusList' @::@ ['DomainStatus']
+-- * 'ddsrsStatus'
 --
-describeDomainsResponse :: DescribeDomainsResponse
-describeDomainsResponse = DescribeDomainsResponse
-    { _ddrDomainStatusList = mempty
+-- * 'ddsrsDomainStatusList'
+data DescribeDomainsResponse = DescribeDomainsResponse'
+    { _ddsrsStatus           :: !Int
+    , _ddsrsDomainStatusList :: ![DomainStatus]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeDomainsResponse' smart constructor.
+describeDomainsResponse :: Int -> DescribeDomainsResponse
+describeDomainsResponse pStatus_ =
+    DescribeDomainsResponse'
+    { _ddsrsStatus = pStatus_
+    , _ddsrsDomainStatusList = mempty
     }
 
-ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddrDomainStatusList =
-    lens _ddrDomainStatusList (\s a -> s { _ddrDomainStatusList = a })
-        . _List
+-- | FIXME: Undocumented member.
+ddsrsStatus :: Lens' DescribeDomainsResponse Int
+ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
 
-instance ToPath DescribeDomains where
-    toPath = const "/"
-
-instance ToQuery DescribeDomains where
-    toQuery DescribeDomains{..} = mconcat
-        [ "DomainNames" =? _ddDomainNames
-        ]
-
-instance ToHeaders DescribeDomains
-
-instance AWSRequest DescribeDomains where
-    type Sv DescribeDomains = CloudSearch
-    type Rs DescribeDomains = DescribeDomainsResponse
-
-    request  = post "DescribeDomains"
-    response = xmlResponse
-
-instance FromXML DescribeDomainsResponse where
-    parseXML = withElement "DescribeDomainsResult" $ \x -> DescribeDomainsResponse
-        <$> x .@? "DomainStatusList" .!@ mempty
+-- | FIXME: Undocumented member.
+ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
+ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a});

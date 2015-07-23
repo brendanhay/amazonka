@@ -1,36 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogStreams
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns all the log streams that are associated with the specified log
--- group. The list returned in the response is ASCII-sorted by log stream name.
+-- Returns all the log streams that are associated with the specified log
+-- group. The list returned in the response is ASCII-sorted by log stream
+-- name.
 --
--- By default, this operation returns up to 50 log streams. If there are more
--- log streams to list, the response would contain a 'nextToken' value in the
--- response body. You can also limit the number of log streams returned in the
--- response by specifying the 'limit' parameter in the request. This operation has
--- a limit of five transactions per second, after which transactions are
--- throttled.
+-- By default, this operation returns up to 50 log streams. If there are
+-- more log streams to list, the response would contain a @nextToken@ value
+-- in the response body. You can also limit the number of log streams
+-- returned in the response by specifying the @limit@ parameter in the
+-- request. This operation has a limit of five transactions per second,
+-- after which transactions are throttled.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html>
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
@@ -40,146 +36,168 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- ** Request constructor
     , describeLogStreams
     -- ** Request lenses
-    , dls1Descending
-    , dls1Limit
-    , dls1LogGroupName
-    , dls1LogStreamNamePrefix
-    , dls1NextToken
-    , dls1OrderBy
+    , dlssrqOrderBy
+    , dlssrqDescending
+    , dlssrqNextToken
+    , dlssrqLogStreamNamePrefix
+    , dlssrqLimit
+    , dlssrqLogGroupName
 
     -- * Response
     , DescribeLogStreamsResponse
     -- ** Response constructor
     , describeLogStreamsResponse
     -- ** Response lenses
-    , dlsrLogStreams
-    , dlsrNextToken
+    , dlsrsNextToken
+    , dlsrsLogStreams
+    , dlsrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudWatchLogs.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudWatchLogs.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeLogStreams = DescribeLogStreams
-    { _dls1Descending          :: Maybe Bool
-    , _dls1Limit               :: Maybe Nat
-    , _dls1LogGroupName        :: Text
-    , _dls1LogStreamNamePrefix :: Maybe Text
-    , _dls1NextToken           :: Maybe Text
-    , _dls1OrderBy             :: Maybe OrderBy
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeLogStreams' constructor.
+-- | /See:/ 'describeLogStreams' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dls1Descending' @::@ 'Maybe' 'Bool'
+-- * 'dlssrqOrderBy'
 --
--- * 'dls1Limit' @::@ 'Maybe' 'Natural'
+-- * 'dlssrqDescending'
 --
--- * 'dls1LogGroupName' @::@ 'Text'
+-- * 'dlssrqNextToken'
 --
--- * 'dls1LogStreamNamePrefix' @::@ 'Maybe' 'Text'
+-- * 'dlssrqLogStreamNamePrefix'
 --
--- * 'dls1NextToken' @::@ 'Maybe' 'Text'
+-- * 'dlssrqLimit'
 --
--- * 'dls1OrderBy' @::@ 'Maybe' 'OrderBy'
---
-describeLogStreams :: Text -- ^ 'dls1LogGroupName'
-                   -> DescribeLogStreams
-describeLogStreams p1 = DescribeLogStreams
-    { _dls1LogGroupName        = p1
-    , _dls1LogStreamNamePrefix = Nothing
-    , _dls1OrderBy             = Nothing
-    , _dls1Descending          = Nothing
-    , _dls1NextToken           = Nothing
-    , _dls1Limit               = Nothing
+-- * 'dlssrqLogGroupName'
+data DescribeLogStreams = DescribeLogStreams'
+    { _dlssrqOrderBy             :: !(Maybe OrderBy)
+    , _dlssrqDescending          :: !(Maybe Bool)
+    , _dlssrqNextToken           :: !(Maybe Text)
+    , _dlssrqLogStreamNamePrefix :: !(Maybe Text)
+    , _dlssrqLimit               :: !(Maybe Nat)
+    , _dlssrqLogGroupName        :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeLogStreams' smart constructor.
+describeLogStreams :: Text -> DescribeLogStreams
+describeLogStreams pLogGroupName_ =
+    DescribeLogStreams'
+    { _dlssrqOrderBy = Nothing
+    , _dlssrqDescending = Nothing
+    , _dlssrqNextToken = Nothing
+    , _dlssrqLogStreamNamePrefix = Nothing
+    , _dlssrqLimit = Nothing
+    , _dlssrqLogGroupName = pLogGroupName_
     }
-
--- | If set to true, results are returned in descending order. If you don't
--- specify a value or set it to false, results are returned in ascending order.
-dls1Descending :: Lens' DescribeLogStreams (Maybe Bool)
-dls1Descending = lens _dls1Descending (\s a -> s { _dls1Descending = a })
-
--- | The maximum number of items returned in the response. If you don't specify a
--- value, the request would return up to 50 items.
-dls1Limit :: Lens' DescribeLogStreams (Maybe Natural)
-dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a }) . mapping _Nat
-
-dls1LogGroupName :: Lens' DescribeLogStreams Text
-dls1LogGroupName = lens _dls1LogGroupName (\s a -> s { _dls1LogGroupName = a })
-
--- | Will only return log streams that match the provided logStreamNamePrefix. If
--- you don't specify a value, no prefix filter is applied.
-dls1LogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
-dls1LogStreamNamePrefix =
-    lens _dls1LogStreamNamePrefix (\s a -> s { _dls1LogStreamNamePrefix = a })
-
--- | A string token used for pagination that points to the next page of results.
--- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.
-dls1NextToken :: Lens' DescribeLogStreams (Maybe Text)
-dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
 
 -- | Specifies what to order the returned log streams by. Valid arguments are
--- 'LogStreamName' or 'LastEventTime'. If you don't specify a value, results are
--- ordered by LogStreamName. If 'LastEventTime' is chosen, the request cannot
--- also contain a logStreamNamePrefix.
-dls1OrderBy :: Lens' DescribeLogStreams (Maybe OrderBy)
-dls1OrderBy = lens _dls1OrderBy (\s a -> s { _dls1OrderBy = a })
+-- \'LogStreamName\' or \'LastEventTime\'. If you don\'t specify a value,
+-- results are ordered by LogStreamName. If \'LastEventTime\' is chosen,
+-- the request cannot also contain a logStreamNamePrefix.
+dlssrqOrderBy :: Lens' DescribeLogStreams (Maybe OrderBy)
+dlssrqOrderBy = lens _dlssrqOrderBy (\ s a -> s{_dlssrqOrderBy = a});
 
-data DescribeLogStreamsResponse = DescribeLogStreamsResponse
-    { _dlsrLogStreams :: List "logStreams" LogStream
-    , _dlsrNextToken  :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | If set to true, results are returned in descending order. If you don\'t
+-- specify a value or set it to false, results are returned in ascending
+-- order.
+dlssrqDescending :: Lens' DescribeLogStreams (Maybe Bool)
+dlssrqDescending = lens _dlssrqDescending (\ s a -> s{_dlssrqDescending = a});
 
--- | 'DescribeLogStreamsResponse' constructor.
+-- | A string token used for pagination that points to the next page of
+-- results. It must be a value obtained from the response of the previous
+-- @DescribeLogStreams@ request.
+dlssrqNextToken :: Lens' DescribeLogStreams (Maybe Text)
+dlssrqNextToken = lens _dlssrqNextToken (\ s a -> s{_dlssrqNextToken = a});
+
+-- | Will only return log streams that match the provided
+-- logStreamNamePrefix. If you don\'t specify a value, no prefix filter is
+-- applied.
+dlssrqLogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
+dlssrqLogStreamNamePrefix = lens _dlssrqLogStreamNamePrefix (\ s a -> s{_dlssrqLogStreamNamePrefix = a});
+
+-- | The maximum number of items returned in the response. If you don\'t
+-- specify a value, the request would return up to 50 items.
+dlssrqLimit :: Lens' DescribeLogStreams (Maybe Natural)
+dlssrqLimit = lens _dlssrqLimit (\ s a -> s{_dlssrqLimit = a}) . mapping _Nat;
+
+-- | The log group name for which log streams are to be listed.
+dlssrqLogGroupName :: Lens' DescribeLogStreams Text
+dlssrqLogGroupName = lens _dlssrqLogGroupName (\ s a -> s{_dlssrqLogGroupName = a});
+
+instance AWSRequest DescribeLogStreams where
+        type Sv DescribeLogStreams = CloudWatchLogs
+        type Rs DescribeLogStreams =
+             DescribeLogStreamsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeLogStreamsResponse' <$>
+                   (x .?> "nextToken") <*>
+                     (x .?> "logStreams" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeLogStreams where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Logs_20140328.DescribeLogStreams" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeLogStreams where
+        toJSON DescribeLogStreams'{..}
+          = object
+              ["orderBy" .= _dlssrqOrderBy,
+               "descending" .= _dlssrqDescending,
+               "nextToken" .= _dlssrqNextToken,
+               "logStreamNamePrefix" .= _dlssrqLogStreamNamePrefix,
+               "limit" .= _dlssrqLimit,
+               "logGroupName" .= _dlssrqLogGroupName]
+
+instance ToPath DescribeLogStreams where
+        toPath = const "/"
+
+instance ToQuery DescribeLogStreams where
+        toQuery = const mempty
+
+-- | /See:/ 'describeLogStreamsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlsrLogStreams' @::@ ['LogStream']
+-- * 'dlsrsNextToken'
 --
--- * 'dlsrNextToken' @::@ 'Maybe' 'Text'
+-- * 'dlsrsLogStreams'
 --
-describeLogStreamsResponse :: DescribeLogStreamsResponse
-describeLogStreamsResponse = DescribeLogStreamsResponse
-    { _dlsrLogStreams = mempty
-    , _dlsrNextToken  = Nothing
+-- * 'dlsrsStatus'
+data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
+    { _dlsrsNextToken  :: !(Maybe Text)
+    , _dlsrsLogStreams :: !(Maybe [LogStream])
+    , _dlsrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeLogStreamsResponse' smart constructor.
+describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse
+describeLogStreamsResponse pStatus_ =
+    DescribeLogStreamsResponse'
+    { _dlsrsNextToken = Nothing
+    , _dlsrsLogStreams = Nothing
+    , _dlsrsStatus = pStatus_
     }
 
-dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
-dlsrLogStreams = lens _dlsrLogStreams (\s a -> s { _dlsrLogStreams = a }) . _List
+-- | FIXME: Undocumented member.
+dlsrsNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
+dlsrsNextToken = lens _dlsrsNextToken (\ s a -> s{_dlsrsNextToken = a});
 
-dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
-dlsrNextToken = lens _dlsrNextToken (\s a -> s { _dlsrNextToken = a })
+-- | FIXME: Undocumented member.
+dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
+dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _Default;
 
-instance ToPath DescribeLogStreams where
-    toPath = const "/"
-
-instance ToQuery DescribeLogStreams where
-    toQuery = const mempty
-
-instance ToHeaders DescribeLogStreams
-
-instance ToJSON DescribeLogStreams where
-    toJSON DescribeLogStreams{..} = object
-        [ "logGroupName"        .= _dls1LogGroupName
-        , "logStreamNamePrefix" .= _dls1LogStreamNamePrefix
-        , "orderBy"             .= _dls1OrderBy
-        , "descending"          .= _dls1Descending
-        , "nextToken"           .= _dls1NextToken
-        , "limit"               .= _dls1Limit
-        ]
-
-instance AWSRequest DescribeLogStreams where
-    type Sv DescribeLogStreams = CloudWatchLogs
-    type Rs DescribeLogStreams = DescribeLogStreamsResponse
-
-    request  = post "DescribeLogStreams"
-    response = jsonResponse
-
-instance FromJSON DescribeLogStreamsResponse where
-    parseJSON = withObject "DescribeLogStreamsResponse" $ \o -> DescribeLogStreamsResponse
-        <$> o .:? "logStreams" .!= mempty
-        <*> o .:? "nextToken"
+-- | FIXME: Undocumented member.
+dlsrsStatus :: Lens' DescribeLogStreamsResponse Int
+dlsrsStatus = lens _dlsrsStatus (\ s a -> s{_dlsrsStatus = a});

@@ -1,40 +1,35 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a description of the settings for the specified configuration set,
--- that is, either a configuration template or the configuration set associated
--- with a running environment.
+-- Returns a description of the settings for the specified configuration
+-- set, that is, either a configuration template or the configuration set
+-- associated with a running environment.
 --
 -- When describing the settings for the configuration set associated with a
 -- running environment, it is possible to receive two sets of setting
--- descriptions. One is the deployed configuration set, and the other is a draft
--- configuration of an environment that is either in the process of deployment
--- or that failed to deploy.
+-- descriptions. One is the deployed configuration set, and the other is a
+-- draft configuration of an environment that is either in the process of
+-- deployment or that failed to deploy.
 --
 -- Related Topics
 --
--- 'DeleteEnvironmentConfiguration'
+-- -   DeleteEnvironmentConfiguration
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeConfigurationSettings.html>
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
@@ -44,115 +39,134 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- ** Request constructor
     , describeConfigurationSettings
     -- ** Request lenses
-    , dcsApplicationName
-    , dcsEnvironmentName
-    , dcsTemplateName
+    , dcsrqTemplateName
+    , dcsrqEnvironmentName
+    , dcsrqApplicationName
 
     -- * Response
     , DescribeConfigurationSettingsResponse
     -- ** Response constructor
     , describeConfigurationSettingsResponse
     -- ** Response lenses
-    , dcsrConfigurationSettings
+    , dcsrsConfigurationSettings
+    , dcsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeConfigurationSettings = DescribeConfigurationSettings
-    { _dcsApplicationName :: Text
-    , _dcsEnvironmentName :: Maybe Text
-    , _dcsTemplateName    :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeConfigurationSettings' constructor.
+-- | Result message containing all of the configuration settings for a
+-- specified solution stack or configuration template.
+--
+-- /See:/ 'describeConfigurationSettings' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsApplicationName' @::@ 'Text'
+-- * 'dcsrqTemplateName'
 --
--- * 'dcsEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'dcsrqEnvironmentName'
 --
--- * 'dcsTemplateName' @::@ 'Maybe' 'Text'
---
-describeConfigurationSettings :: Text -- ^ 'dcsApplicationName'
-                              -> DescribeConfigurationSettings
-describeConfigurationSettings p1 = DescribeConfigurationSettings
-    { _dcsApplicationName = p1
-    , _dcsTemplateName    = Nothing
-    , _dcsEnvironmentName = Nothing
+-- * 'dcsrqApplicationName'
+data DescribeConfigurationSettings = DescribeConfigurationSettings'
+    { _dcsrqTemplateName    :: !(Maybe Text)
+    , _dcsrqEnvironmentName :: !(Maybe Text)
+    , _dcsrqApplicationName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeConfigurationSettings' smart constructor.
+describeConfigurationSettings :: Text -> DescribeConfigurationSettings
+describeConfigurationSettings pApplicationName_ =
+    DescribeConfigurationSettings'
+    { _dcsrqTemplateName = Nothing
+    , _dcsrqEnvironmentName = Nothing
+    , _dcsrqApplicationName = pApplicationName_
     }
-
--- | The application for the environment or configuration template.
-dcsApplicationName :: Lens' DescribeConfigurationSettings Text
-dcsApplicationName =
-    lens _dcsApplicationName (\s a -> s { _dcsApplicationName = a })
-
--- | The name of the environment to describe.
---
--- Condition: You must specify either this or a TemplateName, but not both. If
--- you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination'
--- error. If you do not specify either, AWS Elastic Beanstalk returns 'MissingRequiredParameter' error.
-dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsEnvironmentName =
-    lens _dcsEnvironmentName (\s a -> s { _dcsEnvironmentName = a })
 
 -- | The name of the configuration template to describe.
 --
--- Conditional: You must specify either this parameter or an EnvironmentName,
--- but not both. If you specify both, AWS Elastic Beanstalk returns an 'InvalidParameterCombination' error. If you do not specify either, AWS Elastic Beanstalk returns a 'MissingRequiredParameter' error.
-dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsTemplateName = lens _dcsTemplateName (\s a -> s { _dcsTemplateName = a })
+-- Conditional: You must specify either this parameter or an
+-- EnvironmentName, but not both. If you specify both, AWS Elastic
+-- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
+-- specify either, AWS Elastic Beanstalk returns a
+-- @MissingRequiredParameter@ error.
+dcsrqTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
+dcsrqTemplateName = lens _dcsrqTemplateName (\ s a -> s{_dcsrqTemplateName = a});
 
-newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
-    { _dcsrConfigurationSettings :: List "member" ConfigurationSettingsDescription
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | The name of the environment to describe.
+--
+-- Condition: You must specify either this or a TemplateName, but not both.
+-- If you specify both, AWS Elastic Beanstalk returns an
+-- @InvalidParameterCombination@ error. If you do not specify either, AWS
+-- Elastic Beanstalk returns @MissingRequiredParameter@ error.
+dcsrqEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
+dcsrqEnvironmentName = lens _dcsrqEnvironmentName (\ s a -> s{_dcsrqEnvironmentName = a});
 
-instance GHC.Exts.IsList DescribeConfigurationSettingsResponse where
-    type Item DescribeConfigurationSettingsResponse = ConfigurationSettingsDescription
+-- | The application for the environment or configuration template.
+dcsrqApplicationName :: Lens' DescribeConfigurationSettings Text
+dcsrqApplicationName = lens _dcsrqApplicationName (\ s a -> s{_dcsrqApplicationName = a});
 
-    fromList = DescribeConfigurationSettingsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dcsrConfigurationSettings
+instance AWSRequest DescribeConfigurationSettings
+         where
+        type Sv DescribeConfigurationSettings =
+             ElasticBeanstalk
+        type Rs DescribeConfigurationSettings =
+             DescribeConfigurationSettingsResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "DescribeConfigurationSettingsResult"
+              (\ s h x ->
+                 DescribeConfigurationSettingsResponse' <$>
+                   (x .@? "ConfigurationSettings" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
--- | 'DescribeConfigurationSettingsResponse' constructor.
+instance ToHeaders DescribeConfigurationSettings
+         where
+        toHeaders = const mempty
+
+instance ToPath DescribeConfigurationSettings where
+        toPath = const "/"
+
+instance ToQuery DescribeConfigurationSettings where
+        toQuery DescribeConfigurationSettings'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeConfigurationSettings" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "TemplateName" =: _dcsrqTemplateName,
+               "EnvironmentName" =: _dcsrqEnvironmentName,
+               "ApplicationName" =: _dcsrqApplicationName]
+
+-- | The results from a request to change the configuration settings of an
+-- environment.
+--
+-- /See:/ 'describeConfigurationSettingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrConfigurationSettings' @::@ ['ConfigurationSettingsDescription']
+-- * 'dcsrsConfigurationSettings'
 --
-describeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
-describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
-    { _dcsrConfigurationSettings = mempty
+-- * 'dcsrsStatus'
+data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
+    { _dcsrsConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
+    , _dcsrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeConfigurationSettingsResponse' smart constructor.
+describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse
+describeConfigurationSettingsResponse pStatus_ =
+    DescribeConfigurationSettingsResponse'
+    { _dcsrsConfigurationSettings = Nothing
+    , _dcsrsStatus = pStatus_
     }
 
--- | A list of 'ConfigurationSettingsDescription'.
-dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
-dcsrConfigurationSettings =
-    lens _dcsrConfigurationSettings
-        (\s a -> s { _dcsrConfigurationSettings = a })
-            . _List
+-- | A list of ConfigurationSettingsDescription.
+dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
+dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default;
 
-instance ToPath DescribeConfigurationSettings where
-    toPath = const "/"
-
-instance ToQuery DescribeConfigurationSettings where
-    toQuery DescribeConfigurationSettings{..} = mconcat
-        [ "ApplicationName" =? _dcsApplicationName
-        , "EnvironmentName" =? _dcsEnvironmentName
-        , "TemplateName"    =? _dcsTemplateName
-        ]
-
-instance ToHeaders DescribeConfigurationSettings
-
-instance AWSRequest DescribeConfigurationSettings where
-    type Sv DescribeConfigurationSettings = ElasticBeanstalk
-    type Rs DescribeConfigurationSettings = DescribeConfigurationSettingsResponse
-
-    request  = post "DescribeConfigurationSettings"
-    response = xmlResponse
-
-instance FromXML DescribeConfigurationSettingsResponse where
-    parseXML = withElement "DescribeConfigurationSettingsResult" $ \x -> DescribeConfigurationSettingsResponse
-        <$> x .@? "ConfigurationSettings" .!@ mempty
+-- | FIXME: Undocumented member.
+dcsrsStatus :: Lens' DescribeConfigurationSettingsResponse Int
+dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

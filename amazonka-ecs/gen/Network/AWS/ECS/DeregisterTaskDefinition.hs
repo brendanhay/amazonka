@@ -1,31 +1,34 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ECS.DeregisterTaskDefinition
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | NOT YET IMPLEMENTED.
+-- Deregisters the specified task definition by family and revision. Upon
+-- deregistration, the task definition is marked as @INACTIVE@. Existing
+-- tasks and services that reference an @INACTIVE@ task definition continue
+-- to run without disruption. Existing services that reference an
+-- @INACTIVE@ task definition can still scale up or down by modifying the
+-- service\'s desired count.
 --
--- Deregisters the specified task definition. You will no longer be able to run
--- tasks from this definition after deregistration.
+-- You cannot use an @INACTIVE@ task definition to run new tasks or create
+-- new services, and you cannot update an existing service to reference an
+-- @INACTIVE@ task definition (although there may be up to a 10 minute
+-- window following deregistration where these restrictions have not yet
+-- taken effect).
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html>
 module Network.AWS.ECS.DeregisterTaskDefinition
@@ -35,84 +38,99 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     -- ** Request constructor
     , deregisterTaskDefinition
     -- ** Request lenses
-    , dtd1TaskDefinition
+    , drqTaskDefinition
 
     -- * Response
     , DeregisterTaskDefinitionResponse
     -- ** Response constructor
     , deregisterTaskDefinitionResponse
     -- ** Response lenses
-    , dtdrTaskDefinition
+    , dtdrsTaskDefinition
+    , dtdrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeregisterTaskDefinition = DeregisterTaskDefinition
-    { _dtd1TaskDefinition :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeregisterTaskDefinition' constructor.
+-- | /See:/ 'deregisterTaskDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtd1TaskDefinition' @::@ 'Text'
---
-deregisterTaskDefinition :: Text -- ^ 'dtd1TaskDefinition'
-                         -> DeregisterTaskDefinition
-deregisterTaskDefinition p1 = DeregisterTaskDefinition
-    { _dtd1TaskDefinition = p1
+-- * 'drqTaskDefinition'
+newtype DeregisterTaskDefinition = DeregisterTaskDefinition'
+    { _drqTaskDefinition :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeregisterTaskDefinition' smart constructor.
+deregisterTaskDefinition :: Text -> DeregisterTaskDefinition
+deregisterTaskDefinition pTaskDefinition_ =
+    DeregisterTaskDefinition'
+    { _drqTaskDefinition = pTaskDefinition_
     }
 
--- | The 'family' and 'revision' ('family:revision') or full Amazon Resource Name (ARN)
--- of the task definition that you want to deregister.
-dtd1TaskDefinition :: Lens' DeregisterTaskDefinition Text
-dtd1TaskDefinition =
-    lens _dtd1TaskDefinition (\s a -> s { _dtd1TaskDefinition = a })
+-- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
+-- Name (ARN) of the task definition that you want to deregister. You must
+-- specify a @revision@.
+drqTaskDefinition :: Lens' DeregisterTaskDefinition Text
+drqTaskDefinition = lens _drqTaskDefinition (\ s a -> s{_drqTaskDefinition = a});
 
-newtype DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse
-    { _dtdrTaskDefinition :: Maybe TaskDefinition
-    } deriving (Eq, Read, Show)
+instance AWSRequest DeregisterTaskDefinition where
+        type Sv DeregisterTaskDefinition = ECS
+        type Rs DeregisterTaskDefinition =
+             DeregisterTaskDefinitionResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeregisterTaskDefinitionResponse' <$>
+                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
 
--- | 'DeregisterTaskDefinitionResponse' constructor.
+instance ToHeaders DeregisterTaskDefinition where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeregisterTaskDefinition where
+        toJSON DeregisterTaskDefinition'{..}
+          = object ["taskDefinition" .= _drqTaskDefinition]
+
+instance ToPath DeregisterTaskDefinition where
+        toPath = const "/"
+
+instance ToQuery DeregisterTaskDefinition where
+        toQuery = const mempty
+
+-- | /See:/ 'deregisterTaskDefinitionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtdrTaskDefinition' @::@ 'Maybe' 'TaskDefinition'
+-- * 'dtdrsTaskDefinition'
 --
-deregisterTaskDefinitionResponse :: DeregisterTaskDefinitionResponse
-deregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse
-    { _dtdrTaskDefinition = Nothing
+-- * 'dtdrsStatus'
+data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
+    { _dtdrsTaskDefinition :: !(Maybe TaskDefinition)
+    , _dtdrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeregisterTaskDefinitionResponse' smart constructor.
+deregisterTaskDefinitionResponse :: Int -> DeregisterTaskDefinitionResponse
+deregisterTaskDefinitionResponse pStatus_ =
+    DeregisterTaskDefinitionResponse'
+    { _dtdrsTaskDefinition = Nothing
+    , _dtdrsStatus = pStatus_
     }
 
 -- | The full description of the deregistered task.
-dtdrTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
-dtdrTaskDefinition =
-    lens _dtdrTaskDefinition (\s a -> s { _dtdrTaskDefinition = a })
+dtdrsTaskDefinition :: Lens' DeregisterTaskDefinitionResponse (Maybe TaskDefinition)
+dtdrsTaskDefinition = lens _dtdrsTaskDefinition (\ s a -> s{_dtdrsTaskDefinition = a});
 
-instance ToPath DeregisterTaskDefinition where
-    toPath = const "/"
-
-instance ToQuery DeregisterTaskDefinition where
-    toQuery = const mempty
-
-instance ToHeaders DeregisterTaskDefinition
-
-instance ToJSON DeregisterTaskDefinition where
-    toJSON DeregisterTaskDefinition{..} = object
-        [ "taskDefinition" .= _dtd1TaskDefinition
-        ]
-
-instance AWSRequest DeregisterTaskDefinition where
-    type Sv DeregisterTaskDefinition = ECS
-    type Rs DeregisterTaskDefinition = DeregisterTaskDefinitionResponse
-
-    request  = post "DeregisterTaskDefinition"
-    response = jsonResponse
-
-instance FromJSON DeregisterTaskDefinitionResponse where
-    parseJSON = withObject "DeregisterTaskDefinitionResponse" $ \o -> DeregisterTaskDefinitionResponse
-        <$> o .:? "taskDefinition"
+-- | FIXME: Undocumented member.
+dtdrsStatus :: Lens' DeregisterTaskDefinitionResponse Int
+dtdrsStatus = lens _dtdrsStatus (\ s a -> s{_dtdrsStatus = a});

@@ -1,0 +1,15 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html",
+    "operationUrl": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/Web",
+    "libraryName": "amazonka-importexport",
+    "typeOverrides": {
+        "Job": {
+            "requiredFields": [
+                "JobType",
+                "JobId",
+                "IsCanceled",
+                "CreationDate"
+            ]
+        }
+    }
+}

@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.DynamoDB.ListTables
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns an array of table names associated with the current account and
--- endpoint. The output from /ListTables/ is paginated, with each page returning a
--- maximum of 100 table names.
+-- Returns an array of table names associated with the current account and
+-- endpoint. The output from /ListTables/ is paginated, with each page
+-- returning a maximum of 100 table names.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ListTables.html>
 module Network.AWS.DynamoDB.ListTables
@@ -34,123 +29,145 @@ module Network.AWS.DynamoDB.ListTables
     -- ** Request constructor
     , listTables
     -- ** Request lenses
-    , ltExclusiveStartTableName
-    , ltLimit
+    , ltrqExclusiveStartTableName
+    , ltrqLimit
 
     -- * Response
     , ListTablesResponse
     -- ** Response constructor
     , listTablesResponse
     -- ** Response lenses
-    , ltrLastEvaluatedTableName
-    , ltrTableNames
+    , ltrsLastEvaluatedTableName
+    , ltrsTableNames
+    , ltrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DynamoDB.Types
-import qualified GHC.Exts
+import           Network.AWS.DynamoDB.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListTables = ListTables
-    { _ltExclusiveStartTableName :: Maybe Text
-    , _ltLimit                   :: Maybe Nat
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListTables' constructor.
+-- | Represents the input of a /ListTables/ operation.
+--
+-- /See:/ 'listTables' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltExclusiveStartTableName' @::@ 'Maybe' 'Text'
+-- * 'ltrqExclusiveStartTableName'
 --
--- * 'ltLimit' @::@ 'Maybe' 'Natural'
---
+-- * 'ltrqLimit'
+data ListTables = ListTables'
+    { _ltrqExclusiveStartTableName :: !(Maybe Text)
+    , _ltrqLimit                   :: !(Maybe Nat)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListTables' smart constructor.
 listTables :: ListTables
-listTables = ListTables
-    { _ltExclusiveStartTableName = Nothing
-    , _ltLimit                   = Nothing
+listTables =
+    ListTables'
+    { _ltrqExclusiveStartTableName = Nothing
+    , _ltrqLimit = Nothing
     }
 
--- | The first table name that this operation will evaluate. Use the value that
--- was returned for /LastEvaluatedTableName/ in a previous operation, so that you
--- can obtain the next page of results.
-ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
-ltExclusiveStartTableName =
-    lens _ltExclusiveStartTableName
-        (\s a -> s { _ltExclusiveStartTableName = a })
+-- | The first table name that this operation will evaluate. Use the value
+-- that was returned for /LastEvaluatedTableName/ in a previous operation,
+-- so that you can obtain the next page of results.
+ltrqExclusiveStartTableName :: Lens' ListTables (Maybe Text)
+ltrqExclusiveStartTableName = lens _ltrqExclusiveStartTableName (\ s a -> s{_ltrqExclusiveStartTableName = a});
 
 -- | A maximum number of table names to return. If this parameter is not
 -- specified, the limit is 100.
-ltLimit :: Lens' ListTables (Maybe Natural)
-ltLimit = lens _ltLimit (\s a -> s { _ltLimit = a }) . mapping _Nat
+ltrqLimit :: Lens' ListTables (Maybe Natural)
+ltrqLimit = lens _ltrqLimit (\ s a -> s{_ltrqLimit = a}) . mapping _Nat;
 
-data ListTablesResponse = ListTablesResponse
-    { _ltrLastEvaluatedTableName :: Maybe Text
-    , _ltrTableNames             :: List "TableNames" Text
-    } deriving (Eq, Ord, Read, Show)
+instance AWSPager ListTables where
+        page rq rs
+          | stop (rs ^. ltrsLastEvaluatedTableName) = Nothing
+          | stop (rs ^. ltrsTableNames) = Nothing
+          | otherwise =
+            Just $ rq &
+              ltrqExclusiveStartTableName .~
+                rs ^. ltrsLastEvaluatedTableName
 
--- | 'ListTablesResponse' constructor.
+instance AWSRequest ListTables where
+        type Sv ListTables = DynamoDB
+        type Rs ListTables = ListTablesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListTablesResponse' <$>
+                   (x .?> "LastEvaluatedTableName") <*>
+                     (x .?> "TableNames" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListTables where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DynamoDB_20120810.ListTables" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.0" :: ByteString)])
+
+instance ToJSON ListTables where
+        toJSON ListTables'{..}
+          = object
+              ["ExclusiveStartTableName" .=
+                 _ltrqExclusiveStartTableName,
+               "Limit" .= _ltrqLimit]
+
+instance ToPath ListTables where
+        toPath = const "/"
+
+instance ToQuery ListTables where
+        toQuery = const mempty
+
+-- | Represents the output of a /ListTables/ operation.
+--
+-- /See:/ 'listTablesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrLastEvaluatedTableName' @::@ 'Maybe' 'Text'
+-- * 'ltrsLastEvaluatedTableName'
 --
--- * 'ltrTableNames' @::@ ['Text']
+-- * 'ltrsTableNames'
 --
-listTablesResponse :: ListTablesResponse
-listTablesResponse = ListTablesResponse
-    { _ltrTableNames             = mempty
-    , _ltrLastEvaluatedTableName = Nothing
+-- * 'ltrsStatus'
+data ListTablesResponse = ListTablesResponse'
+    { _ltrsLastEvaluatedTableName :: !(Maybe Text)
+    , _ltrsTableNames             :: !(Maybe [Text])
+    , _ltrsStatus                 :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListTablesResponse' smart constructor.
+listTablesResponse :: Int -> ListTablesResponse
+listTablesResponse pStatus_ =
+    ListTablesResponse'
+    { _ltrsLastEvaluatedTableName = Nothing
+    , _ltrsTableNames = Nothing
+    , _ltrsStatus = pStatus_
     }
 
--- | The name of the last table in the current page of results. Use this value as
--- the /ExclusiveStartTableName/ in a new request to obtain the next page of
--- results, until all the table names are returned.
+-- | The name of the last table in the current page of results. Use this
+-- value as the /ExclusiveStartTableName/ in a new request to obtain the
+-- next page of results, until all the table names are returned.
 --
--- If you do not receive a /LastEvaluatedTableName/ value in the response, this
--- means that there are no more table names to be retrieved.
-ltrLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
-ltrLastEvaluatedTableName =
-    lens _ltrLastEvaluatedTableName
-        (\s a -> s { _ltrLastEvaluatedTableName = a })
+-- If you do not receive a /LastEvaluatedTableName/ value in the response,
+-- this means that there are no more table names to be retrieved.
+ltrsLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
+ltrsLastEvaluatedTableName = lens _ltrsLastEvaluatedTableName (\ s a -> s{_ltrsLastEvaluatedTableName = a});
 
--- | The names of the tables associated with the current account at the current
--- endpoint. The maximum size of this array is 100.
+-- | The names of the tables associated with the current account at the
+-- current endpoint. The maximum size of this array is 100.
 --
--- If /LastEvaluatedTableName/ also appears in the output, you can use this value
--- as the /ExclusiveStartTableName/ parameter in a subsequent /ListTables/ request
--- and obtain the next page of results.
-ltrTableNames :: Lens' ListTablesResponse [Text]
-ltrTableNames = lens _ltrTableNames (\s a -> s { _ltrTableNames = a }) . _List
+-- If /LastEvaluatedTableName/ also appears in the output, you can use this
+-- value as the /ExclusiveStartTableName/ parameter in a subsequent
+-- /ListTables/ request and obtain the next page of results.
+ltrsTableNames :: Lens' ListTablesResponse [Text]
+ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default;
 
-instance ToPath ListTables where
-    toPath = const "/"
-
-instance ToQuery ListTables where
-    toQuery = const mempty
-
-instance ToHeaders ListTables
-
-instance ToJSON ListTables where
-    toJSON ListTables{..} = object
-        [ "ExclusiveStartTableName" .= _ltExclusiveStartTableName
-        , "Limit"                   .= _ltLimit
-        ]
-
-instance AWSRequest ListTables where
-    type Sv ListTables = DynamoDB
-    type Rs ListTables = ListTablesResponse
-
-    request  = post "ListTables"
-    response = jsonResponse
-
-instance FromJSON ListTablesResponse where
-    parseJSON = withObject "ListTablesResponse" $ \o -> ListTablesResponse
-        <$> o .:? "LastEvaluatedTableName"
-        <*> o .:? "TableNames" .!= mempty
-
-instance AWSPager ListTables where
-    page rq rs
-        | stop (rs ^. ltrLastEvaluatedTableName) = Nothing
-        | otherwise = (\x -> rq & ltExclusiveStartTableName ?~ x)
-            <$> (rs ^. ltrLastEvaluatedTableName)
+-- | FIXME: Undocumented member.
+ltrsStatus :: Lens' ListTablesResponse Int
+ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

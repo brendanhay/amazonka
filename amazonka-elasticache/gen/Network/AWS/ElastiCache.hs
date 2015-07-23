@@ -1,103 +1,69 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElastiCache
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | ElastiCache is a web service that makes it easy to deploy, operate, and scale
--- an in-memory cache in the cloud. The service improves the performance of web
--- applications by allowing you to retrieve information from fast, managed,
--- in-memory caches, instead of relying entirely on slower disk-based databases.
--- Amazon ElastiCache automatically detects and replaces failed nodes, reducing
--- the overhead associated with self-managed infrastructures and provides a
--- resilient system that mitigates the risk of overloaded databases, which slow
--- website and application load times. Through integration with Amazon
--- CloudWatch, Amazon ElastiCache provides enhanced visibility into key
--- performance metrics associated with your Memcached or Redis nodes.
+-- Amazon ElastiCache
+--
+-- Amazon ElastiCache is a web service that makes it easier to set up,
+-- operate, and scale a distributed cache in the cloud.
+--
+-- With ElastiCache, customers gain all of the benefits of a
+-- high-performance, in-memory cache with far less of the administrative
+-- burden of launching and managing a distributed cache. The service makes
+-- setup, scaling, and cluster failure handling much simpler than in a
+-- self-managed cache deployment.
+--
+-- In addition, through integration with Amazon CloudWatch, customers get
+-- enhanced visibility into the key performance statistics associated with
+-- their cache and can receive alarms if a part of their cache runs hot.
 module Network.AWS.ElastiCache
-    ( module Network.AWS.ElastiCache.AddTagsToResource
-    , module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
-    , module Network.AWS.ElastiCache.CopySnapshot
-    , module Network.AWS.ElastiCache.CreateCacheCluster
-    , module Network.AWS.ElastiCache.CreateCacheParameterGroup
-    , module Network.AWS.ElastiCache.CreateCacheSecurityGroup
-    , module Network.AWS.ElastiCache.CreateCacheSubnetGroup
-    , module Network.AWS.ElastiCache.CreateReplicationGroup
-    , module Network.AWS.ElastiCache.CreateSnapshot
-    , module Network.AWS.ElastiCache.DeleteCacheCluster
-    , module Network.AWS.ElastiCache.DeleteCacheParameterGroup
-    , module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
-    , module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
-    , module Network.AWS.ElastiCache.DeleteReplicationGroup
-    , module Network.AWS.ElastiCache.DeleteSnapshot
-    , module Network.AWS.ElastiCache.DescribeCacheClusters
-    , module Network.AWS.ElastiCache.DescribeCacheEngineVersions
-    , module Network.AWS.ElastiCache.DescribeCacheParameterGroups
-    , module Network.AWS.ElastiCache.DescribeCacheParameters
-    , module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-    , module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
-    , module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
-    , module Network.AWS.ElastiCache.DescribeEvents
-    , module Network.AWS.ElastiCache.DescribeReplicationGroups
-    , module Network.AWS.ElastiCache.DescribeReservedCacheNodes
-    , module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
-    , module Network.AWS.ElastiCache.DescribeSnapshots
-    , module Network.AWS.ElastiCache.ListTagsForResource
-    , module Network.AWS.ElastiCache.ModifyCacheCluster
-    , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
-    , module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
-    , module Network.AWS.ElastiCache.ModifyReplicationGroup
-    , module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
-    , module Network.AWS.ElastiCache.RebootCacheCluster
-    , module Network.AWS.ElastiCache.RemoveTagsFromResource
-    , module Network.AWS.ElastiCache.ResetCacheParameterGroup
-    , module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
-    , module Network.AWS.ElastiCache.Types
-    , module Network.AWS.ElastiCache.Waiters
+    ( module Export
     ) where
 
-import Network.AWS.ElastiCache.AddTagsToResource
-import Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
-import Network.AWS.ElastiCache.CopySnapshot
-import Network.AWS.ElastiCache.CreateCacheCluster
-import Network.AWS.ElastiCache.CreateCacheParameterGroup
-import Network.AWS.ElastiCache.CreateCacheSecurityGroup
-import Network.AWS.ElastiCache.CreateCacheSubnetGroup
-import Network.AWS.ElastiCache.CreateReplicationGroup
-import Network.AWS.ElastiCache.CreateSnapshot
-import Network.AWS.ElastiCache.DeleteCacheCluster
-import Network.AWS.ElastiCache.DeleteCacheParameterGroup
-import Network.AWS.ElastiCache.DeleteCacheSecurityGroup
-import Network.AWS.ElastiCache.DeleteCacheSubnetGroup
-import Network.AWS.ElastiCache.DeleteReplicationGroup
-import Network.AWS.ElastiCache.DeleteSnapshot
-import Network.AWS.ElastiCache.DescribeCacheClusters
-import Network.AWS.ElastiCache.DescribeCacheEngineVersions
-import Network.AWS.ElastiCache.DescribeCacheParameterGroups
-import Network.AWS.ElastiCache.DescribeCacheParameters
-import Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-import Network.AWS.ElastiCache.DescribeCacheSubnetGroups
-import Network.AWS.ElastiCache.DescribeEngineDefaultParameters
-import Network.AWS.ElastiCache.DescribeEvents
-import Network.AWS.ElastiCache.DescribeReplicationGroups
-import Network.AWS.ElastiCache.DescribeReservedCacheNodes
-import Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
-import Network.AWS.ElastiCache.DescribeSnapshots
-import Network.AWS.ElastiCache.ListTagsForResource
-import Network.AWS.ElastiCache.ModifyCacheCluster
-import Network.AWS.ElastiCache.ModifyCacheParameterGroup
-import Network.AWS.ElastiCache.ModifyCacheSubnetGroup
-import Network.AWS.ElastiCache.ModifyReplicationGroup
-import Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
-import Network.AWS.ElastiCache.RebootCacheCluster
-import Network.AWS.ElastiCache.RemoveTagsFromResource
-import Network.AWS.ElastiCache.ResetCacheParameterGroup
-import Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
-import Network.AWS.ElastiCache.Types
-import Network.AWS.ElastiCache.Waiters
+import           Network.AWS.ElastiCache.AddTagsToResource                   as Export
+import           Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress  as Export
+import           Network.AWS.ElastiCache.CopySnapshot                        as Export
+import           Network.AWS.ElastiCache.CreateCacheCluster                  as Export
+import           Network.AWS.ElastiCache.CreateCacheParameterGroup           as Export
+import           Network.AWS.ElastiCache.CreateCacheSecurityGroup            as Export
+import           Network.AWS.ElastiCache.CreateCacheSubnetGroup              as Export
+import           Network.AWS.ElastiCache.CreateReplicationGroup              as Export
+import           Network.AWS.ElastiCache.CreateSnapshot                      as Export
+import           Network.AWS.ElastiCache.DeleteCacheCluster                  as Export
+import           Network.AWS.ElastiCache.DeleteCacheParameterGroup           as Export
+import           Network.AWS.ElastiCache.DeleteCacheSecurityGroup            as Export
+import           Network.AWS.ElastiCache.DeleteCacheSubnetGroup              as Export
+import           Network.AWS.ElastiCache.DeleteReplicationGroup              as Export
+import           Network.AWS.ElastiCache.DeleteSnapshot                      as Export
+import           Network.AWS.ElastiCache.DescribeCacheClusters               as Export
+import           Network.AWS.ElastiCache.DescribeCacheEngineVersions         as Export
+import           Network.AWS.ElastiCache.DescribeCacheParameterGroups        as Export
+import           Network.AWS.ElastiCache.DescribeCacheParameters             as Export
+import           Network.AWS.ElastiCache.DescribeCacheSecurityGroups         as Export
+import           Network.AWS.ElastiCache.DescribeCacheSubnetGroups           as Export
+import           Network.AWS.ElastiCache.DescribeEngineDefaultParameters     as Export
+import           Network.AWS.ElastiCache.DescribeEvents                      as Export
+import           Network.AWS.ElastiCache.DescribeReplicationGroups           as Export
+import           Network.AWS.ElastiCache.DescribeReservedCacheNodes          as Export
+import           Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings as Export
+import           Network.AWS.ElastiCache.DescribeSnapshots                   as Export
+import           Network.AWS.ElastiCache.ListTagsForResource                 as Export
+import           Network.AWS.ElastiCache.ModifyCacheCluster                  as Export
+import           Network.AWS.ElastiCache.ModifyCacheParameterGroup           as Export
+import           Network.AWS.ElastiCache.ModifyCacheSubnetGroup              as Export
+import           Network.AWS.ElastiCache.ModifyReplicationGroup              as Export
+import           Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering  as Export
+import           Network.AWS.ElastiCache.RebootCacheCluster                  as Export
+import           Network.AWS.ElastiCache.RemoveTagsFromResource              as Export
+import           Network.AWS.ElastiCache.ResetCacheParameterGroup            as Export
+import           Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress     as Export
+import           Network.AWS.ElastiCache.Types                               as Export
+import           Network.AWS.ElastiCache.Waiters                             as Export

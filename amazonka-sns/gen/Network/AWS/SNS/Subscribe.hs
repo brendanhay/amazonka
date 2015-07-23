@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SNS.Subscribe
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Prepares to subscribe an endpoint by sending the endpoint a confirmation
--- message. To actually create a subscription, the endpoint owner must call the 'ConfirmSubscription' action with the token from the confirmation message. Confirmation tokens are
--- valid for three days.
+-- Prepares to subscribe an endpoint by sending the endpoint a confirmation
+-- message. To actually create a subscription, the endpoint owner must call
+-- the @ConfirmSubscription@ action with the token from the confirmation
+-- message. Confirmation tokens are valid for three days.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html>
 module Network.AWS.SNS.Subscribe
@@ -34,115 +30,138 @@ module Network.AWS.SNS.Subscribe
     -- ** Request constructor
     , subscribe
     -- ** Request lenses
-    , sEndpoint
-    , sProtocol
-    , sTopicArn
+    , srqEndpoint
+    , srqTopicARN
+    , srqProtocol
 
     -- * Response
     , SubscribeResponse
     -- ** Response constructor
     , subscribeResponse
     -- ** Response lenses
-    , srSubscriptionArn
+    , srsSubscriptionARN
+    , srsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SNS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SNS.Types
 
-data Subscribe = Subscribe
-    { _sEndpoint :: Maybe Text
-    , _sProtocol :: Text
-    , _sTopicArn :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'Subscribe' constructor.
+-- | Input for Subscribe action.
+--
+-- /See:/ 'subscribe' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sEndpoint' @::@ 'Maybe' 'Text'
+-- * 'srqEndpoint'
 --
--- * 'sProtocol' @::@ 'Text'
+-- * 'srqTopicARN'
 --
--- * 'sTopicArn' @::@ 'Text'
---
-subscribe :: Text -- ^ 'sTopicArn'
-          -> Text -- ^ 'sProtocol'
-          -> Subscribe
-subscribe p1 p2 = Subscribe
-    { _sTopicArn = p1
-    , _sProtocol = p2
-    , _sEndpoint = Nothing
+-- * 'srqProtocol'
+data Subscribe = Subscribe'
+    { _srqEndpoint :: !(Maybe Endpoint)
+    , _srqTopicARN :: !Text
+    , _srqProtocol :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'Subscribe' smart constructor.
+subscribe :: Text -> Text -> Subscribe
+subscribe pTopicARN_ pProtocol_ =
+    Subscribe'
+    { _srqEndpoint = Nothing
+    , _srqTopicARN = pTopicARN_
+    , _srqProtocol = pProtocol_
     }
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
 -- protocol:
 --
--- For the 'http' protocol, the endpoint is an URL beginning with "http://" For
--- the 'https' protocol, the endpoint is a URL beginning with "https://" For the 'email' protocol, the endpoint is an email address For the 'email-json' protocol, the
--- endpoint is an email address For the 'sms' protocol, the endpoint is a phone
--- number of an SMS-enabled device For the 'sqs' protocol, the endpoint is the ARN
--- of an Amazon SQS queue For the 'application' protocol, the endpoint is the
--- EndpointArn of a mobile app and device.
-sEndpoint :: Lens' Subscribe (Maybe Text)
-sEndpoint = lens _sEndpoint (\s a -> s { _sEndpoint = a })
+-- -   For the @http@ protocol, the endpoint is an URL beginning with
+--     \"http:\/\/\"
+-- -   For the @https@ protocol, the endpoint is a URL beginning with
+--     \"https:\/\/\"
+-- -   For the @email@ protocol, the endpoint is an email address
+-- -   For the @email-json@ protocol, the endpoint is an email address
+-- -   For the @sms@ protocol, the endpoint is a phone number of an
+--     SMS-enabled device
+-- -   For the @sqs@ protocol, the endpoint is the ARN of an Amazon SQS
+--     queue
+-- -   For the @application@ protocol, the endpoint is the EndpointArn of a
+--     mobile app and device.
+srqEndpoint :: Lens' Subscribe (Maybe Endpoint)
+srqEndpoint = lens _srqEndpoint (\ s a -> s{_srqEndpoint = a});
+
+-- | The ARN of the topic you want to subscribe to.
+srqTopicARN :: Lens' Subscribe Text
+srqTopicARN = lens _srqTopicARN (\ s a -> s{_srqTopicARN = a});
 
 -- | The protocol you want to use. Supported protocols include:
 --
--- 'http' -- delivery of JSON-encoded message via HTTP POST  'https' -- delivery
--- of JSON-encoded message via HTTPS POST  'email' -- delivery of message via SMTP
--- 'email-json' -- delivery of JSON-encoded message via SMTP  'sms' -- delivery of
--- message via SMS  'sqs' -- delivery of JSON-encoded message to an Amazon SQS
--- queue  'application' -- delivery of JSON-encoded message to an EndpointArn for
--- a mobile app and device.
-sProtocol :: Lens' Subscribe Text
-sProtocol = lens _sProtocol (\s a -> s { _sProtocol = a })
+-- -   @http@ -- delivery of JSON-encoded message via HTTP POST
+-- -   @https@ -- delivery of JSON-encoded message via HTTPS POST
+-- -   @email@ -- delivery of message via SMTP
+-- -   @email-json@ -- delivery of JSON-encoded message via SMTP
+-- -   @sms@ -- delivery of message via SMS
+-- -   @sqs@ -- delivery of JSON-encoded message to an Amazon SQS queue
+-- -   @application@ -- delivery of JSON-encoded message to an EndpointArn
+--     for a mobile app and device.
+srqProtocol :: Lens' Subscribe Text
+srqProtocol = lens _srqProtocol (\ s a -> s{_srqProtocol = a});
 
--- | The ARN of the topic you want to subscribe to.
-sTopicArn :: Lens' Subscribe Text
-sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
+instance AWSRequest Subscribe where
+        type Sv Subscribe = SNS
+        type Rs Subscribe = SubscribeResponse
+        request = post
+        response
+          = receiveXMLWrapper "SubscribeResult"
+              (\ s h x ->
+                 SubscribeResponse' <$>
+                   (x .@? "SubscriptionArn") <*> (pure (fromEnum s)))
 
-newtype SubscribeResponse = SubscribeResponse
-    { _srSubscriptionArn :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance ToHeaders Subscribe where
+        toHeaders = const mempty
 
--- | 'SubscribeResponse' constructor.
+instance ToPath Subscribe where
+        toPath = const "/"
+
+instance ToQuery Subscribe where
+        toQuery Subscribe'{..}
+          = mconcat
+              ["Action" =: ("Subscribe" :: ByteString),
+               "Version" =: ("2010-03-31" :: ByteString),
+               "Endpoint" =: _srqEndpoint,
+               "TopicArn" =: _srqTopicARN,
+               "Protocol" =: _srqProtocol]
+
+-- | Response for Subscribe action.
+--
+-- /See:/ 'subscribeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srSubscriptionArn' @::@ 'Maybe' 'Text'
+-- * 'srsSubscriptionARN'
 --
-subscribeResponse :: SubscribeResponse
-subscribeResponse = SubscribeResponse
-    { _srSubscriptionArn = Nothing
+-- * 'srsStatus'
+data SubscribeResponse = SubscribeResponse'
+    { _srsSubscriptionARN :: !(Maybe Text)
+    , _srsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SubscribeResponse' smart constructor.
+subscribeResponse :: Int -> SubscribeResponse
+subscribeResponse pStatus_ =
+    SubscribeResponse'
+    { _srsSubscriptionARN = Nothing
+    , _srsStatus = pStatus_
     }
 
--- | The ARN of the subscription, if the service was able to create a subscription
--- immediately (without requiring endpoint owner confirmation).
-srSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
-srSubscriptionArn =
-    lens _srSubscriptionArn (\s a -> s { _srSubscriptionArn = a })
+-- | The ARN of the subscription, if the service was able to create a
+-- subscription immediately (without requiring endpoint owner
+-- confirmation).
+srsSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
+srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = a});
 
-instance ToPath Subscribe where
-    toPath = const "/"
-
-instance ToQuery Subscribe where
-    toQuery Subscribe{..} = mconcat
-        [ "Endpoint" =? _sEndpoint
-        , "Protocol" =? _sProtocol
-        , "TopicArn" =? _sTopicArn
-        ]
-
-instance ToHeaders Subscribe
-
-instance AWSRequest Subscribe where
-    type Sv Subscribe = SNS
-    type Rs Subscribe = SubscribeResponse
-
-    request  = post "Subscribe"
-    response = xmlResponse
-
-instance FromXML SubscribeResponse where
-    parseXML = withElement "SubscribeResult" $ \x -> SubscribeResponse
-        <$> x .@? "SubscriptionArn"
+-- | FIXME: Undocumented member.
+srsStatus :: Lens' SubscribeResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

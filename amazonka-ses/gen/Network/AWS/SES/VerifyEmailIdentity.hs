@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SES.VerifyEmailIdentity
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Verifies an email address. This action causes a confirmation email message to
--- be sent to the specified address.
+-- Verifies an email address. This action causes a confirmation email
+-- message to be sent to the specified address.
 --
 -- This action is throttled at one request per second.
 --
@@ -35,59 +30,86 @@ module Network.AWS.SES.VerifyEmailIdentity
     -- ** Request constructor
     , verifyEmailIdentity
     -- ** Request lenses
-    , veiEmailAddress
+    , veirqEmailAddress
 
     -- * Response
     , VerifyEmailIdentityResponse
     -- ** Response constructor
     , verifyEmailIdentityResponse
+    -- ** Response lenses
+    , veirsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
-newtype VerifyEmailIdentity = VerifyEmailIdentity
-    { _veiEmailAddress :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'VerifyEmailIdentity' constructor.
+-- | Represents a request instructing the service to begin email address
+-- verification.
+--
+-- /See:/ 'verifyEmailIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'veiEmailAddress' @::@ 'Text'
---
-verifyEmailIdentity :: Text -- ^ 'veiEmailAddress'
-                    -> VerifyEmailIdentity
-verifyEmailIdentity p1 = VerifyEmailIdentity
-    { _veiEmailAddress = p1
+-- * 'veirqEmailAddress'
+newtype VerifyEmailIdentity = VerifyEmailIdentity'
+    { _veirqEmailAddress :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'VerifyEmailIdentity' smart constructor.
+verifyEmailIdentity :: Text -> VerifyEmailIdentity
+verifyEmailIdentity pEmailAddress_ =
+    VerifyEmailIdentity'
+    { _veirqEmailAddress = pEmailAddress_
     }
 
 -- | The email address to be verified.
-veiEmailAddress :: Lens' VerifyEmailIdentity Text
-veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
-
-data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'VerifyEmailIdentityResponse' constructor.
-verifyEmailIdentityResponse :: VerifyEmailIdentityResponse
-verifyEmailIdentityResponse = VerifyEmailIdentityResponse
-
-instance ToPath VerifyEmailIdentity where
-    toPath = const "/"
-
-instance ToQuery VerifyEmailIdentity where
-    toQuery VerifyEmailIdentity{..} = mconcat
-        [ "EmailAddress" =? _veiEmailAddress
-        ]
-
-instance ToHeaders VerifyEmailIdentity
+veirqEmailAddress :: Lens' VerifyEmailIdentity Text
+veirqEmailAddress = lens _veirqEmailAddress (\ s a -> s{_veirqEmailAddress = a});
 
 instance AWSRequest VerifyEmailIdentity where
-    type Sv VerifyEmailIdentity = SES
-    type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse
+        type Sv VerifyEmailIdentity = SES
+        type Rs VerifyEmailIdentity =
+             VerifyEmailIdentityResponse
+        request = post
+        response
+          = receiveXMLWrapper "VerifyEmailIdentityResult"
+              (\ s h x ->
+                 VerifyEmailIdentityResponse' <$> (pure (fromEnum s)))
 
-    request  = post "VerifyEmailIdentity"
-    response = nullResponse VerifyEmailIdentityResponse
+instance ToHeaders VerifyEmailIdentity where
+        toHeaders = const mempty
+
+instance ToPath VerifyEmailIdentity where
+        toPath = const "/"
+
+instance ToQuery VerifyEmailIdentity where
+        toQuery VerifyEmailIdentity'{..}
+          = mconcat
+              ["Action" =: ("VerifyEmailIdentity" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "EmailAddress" =: _veirqEmailAddress]
+
+-- | An empty element. Receiving this element indicates that the request
+-- completed successfully.
+--
+-- /See:/ 'verifyEmailIdentityResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'veirsStatus'
+newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
+    { _veirsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'VerifyEmailIdentityResponse' smart constructor.
+verifyEmailIdentityResponse :: Int -> VerifyEmailIdentityResponse
+verifyEmailIdentityResponse pStatus_ =
+    VerifyEmailIdentityResponse'
+    { _veirsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+veirsStatus :: Lens' VerifyEmailIdentityResponse Int
+veirsStatus = lens _veirsStatus (\ s a -> s{_veirsStatus = a});

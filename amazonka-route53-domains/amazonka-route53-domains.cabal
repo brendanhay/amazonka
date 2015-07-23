@@ -1,12 +1,12 @@
 name:                  amazonka-route53-domains
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Route 53 Domains SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
@@ -14,12 +14,8 @@ cabal-version:         >= 1.10
 
 description:
     Pending
-
     .
     /See:/ <http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -52,9 +48,40 @@ library
         , Network.AWS.Route53Domains.UpdateDomainContactPrivacy
         , Network.AWS.Route53Domains.UpdateDomainNameservers
         , Network.AWS.Route53Domains.UpdateTagsForDomain
+        , Network.AWS.Route53Domains.Waiters
 
     other-modules:
+          Network.AWS.Route53Domains.Types.Product
+        , Network.AWS.Route53Domains.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-route53-domains-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.Route53Domains
+        , Test.AWS.Gen.Route53Domains
+        , Test.AWS.Route53Domains.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-route53-domains == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

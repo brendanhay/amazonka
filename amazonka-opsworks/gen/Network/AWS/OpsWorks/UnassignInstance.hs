@@ -1,35 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.UnassignInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Unassigns a registered instance from all of it's layers. The instance remains
--- in the stack as an unassigned instance and can be assigned to another layer,
--- as needed. You cannot use this action with instances that were created with
--- AWS OpsWorks.
+-- Unassigns a registered instance from all of it\'s layers. The instance
+-- remains in the stack as an unassigned instance and can be assigned to
+-- another layer, as needed. You cannot use this action with instances that
+-- were created with AWS OpsWorks.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UnassignInstance.html>
 module Network.AWS.OpsWorks.UnassignInstance
@@ -39,7 +36,7 @@ module Network.AWS.OpsWorks.UnassignInstance
     -- ** Request constructor
     , unassignInstance
     -- ** Request lenses
-    , ui1InstanceId
+    , urqInstanceId
 
     -- * Response
     , UnassignInstanceResponse
@@ -47,55 +44,61 @@ module Network.AWS.OpsWorks.UnassignInstance
     , unassignInstanceResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype UnassignInstance = UnassignInstance
-    { _ui1InstanceId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'UnassignInstance' constructor.
+-- | /See:/ 'unassignInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ui1InstanceId' @::@ 'Text'
---
-unassignInstance :: Text -- ^ 'ui1InstanceId'
-                 -> UnassignInstance
-unassignInstance p1 = UnassignInstance
-    { _ui1InstanceId = p1
+-- * 'urqInstanceId'
+newtype UnassignInstance = UnassignInstance'
+    { _urqInstanceId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UnassignInstance' smart constructor.
+unassignInstance :: Text -> UnassignInstance
+unassignInstance pInstanceId_ =
+    UnassignInstance'
+    { _urqInstanceId = pInstanceId_
     }
 
 -- | The instance ID.
-ui1InstanceId :: Lens' UnassignInstance Text
-ui1InstanceId = lens _ui1InstanceId (\s a -> s { _ui1InstanceId = a })
-
-data UnassignInstanceResponse = UnassignInstanceResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UnassignInstanceResponse' constructor.
-unassignInstanceResponse :: UnassignInstanceResponse
-unassignInstanceResponse = UnassignInstanceResponse
-
-instance ToPath UnassignInstance where
-    toPath = const "/"
-
-instance ToQuery UnassignInstance where
-    toQuery = const mempty
-
-instance ToHeaders UnassignInstance
-
-instance ToJSON UnassignInstance where
-    toJSON UnassignInstance{..} = object
-        [ "InstanceId" .= _ui1InstanceId
-        ]
+urqInstanceId :: Lens' UnassignInstance Text
+urqInstanceId = lens _urqInstanceId (\ s a -> s{_urqInstanceId = a});
 
 instance AWSRequest UnassignInstance where
-    type Sv UnassignInstance = OpsWorks
-    type Rs UnassignInstance = UnassignInstanceResponse
+        type Sv UnassignInstance = OpsWorks
+        type Rs UnassignInstance = UnassignInstanceResponse
+        request = postJSON
+        response = receiveNull UnassignInstanceResponse'
 
-    request  = post "UnassignInstance"
-    response = nullResponse UnassignInstanceResponse
+instance ToHeaders UnassignInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.UnassignInstance" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UnassignInstance where
+        toJSON UnassignInstance'{..}
+          = object ["InstanceId" .= _urqInstanceId]
+
+instance ToPath UnassignInstance where
+        toPath = const "/"
+
+instance ToQuery UnassignInstance where
+        toQuery = const mempty
+
+-- | /See:/ 'unassignInstanceResponse' smart constructor.
+data UnassignInstanceResponse =
+    UnassignInstanceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UnassignInstanceResponse' smart constructor.
+unassignInstanceResponse :: UnassignInstanceResponse
+unassignInstanceResponse = UnassignInstanceResponse'

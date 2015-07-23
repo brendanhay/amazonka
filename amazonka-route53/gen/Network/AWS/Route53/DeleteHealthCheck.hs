@@ -1,37 +1,33 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Route53.DeleteHealthCheck
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This action deletes a health check. To delete a health check, send a 'DELETE'
--- request to the '2013-04-01/healthcheck//health check ID/ resource.
+-- This action deletes a health check. To delete a health check, send a
+-- @DELETE@ request to the @2013-04-01\/healthcheck\/health check ID@
+-- resource.
 --
 -- You can delete a health check only if there are no resource record sets
--- associated with this health check. If resource record sets are associated
--- with this health check, you must disassociate them before you can delete your
--- health check. If you try to delete a health check that is associated with
--- resource record sets, Route 53 will deny your request with a 'HealthCheckInUse'
--- error. For information about disassociating the records from your health
--- check, see 'ChangeResourceRecordSets'.
+-- associated with this health check. If resource record sets are
+-- associated with this health check, you must disassociate them before you
+-- can delete your health check. If you try to delete a health check that
+-- is associated with resource record sets, Route 53 will deny your request
+-- with a @HealthCheckInUse@ error. For information about disassociating
+-- the records from your health check, see ChangeResourceRecordSets.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteHealthCheck.html>
 module Network.AWS.Route53.DeleteHealthCheck
@@ -41,65 +37,83 @@ module Network.AWS.Route53.DeleteHealthCheck
     -- ** Request constructor
     , deleteHealthCheck
     -- ** Request lenses
-    , dhcHealthCheckId
+    , dhcrqHealthCheckId
 
     -- * Response
     , DeleteHealthCheckResponse
     -- ** Response constructor
     , deleteHealthCheckResponse
+    -- ** Response lenses
+    , dhcrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.Route53.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53.Types
 
-newtype DeleteHealthCheck = DeleteHealthCheck
-    { _dhcHealthCheckId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteHealthCheck' constructor.
+-- | A complex type containing the request information for delete health
+-- check.
+--
+-- /See:/ 'deleteHealthCheck' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhcHealthCheckId' @::@ 'Text'
---
-deleteHealthCheck :: Text -- ^ 'dhcHealthCheckId'
-                  -> DeleteHealthCheck
-deleteHealthCheck p1 = DeleteHealthCheck
-    { _dhcHealthCheckId = p1
+-- * 'dhcrqHealthCheckId'
+newtype DeleteHealthCheck = DeleteHealthCheck'
+    { _dhcrqHealthCheckId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteHealthCheck' smart constructor.
+deleteHealthCheck :: Text -> DeleteHealthCheck
+deleteHealthCheck pHealthCheckId_ =
+    DeleteHealthCheck'
+    { _dhcrqHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check to delete.
-dhcHealthCheckId :: Lens' DeleteHealthCheck Text
-dhcHealthCheckId = lens _dhcHealthCheckId (\s a -> s { _dhcHealthCheckId = a })
-
-data DeleteHealthCheckResponse = DeleteHealthCheckResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteHealthCheckResponse' constructor.
-deleteHealthCheckResponse :: DeleteHealthCheckResponse
-deleteHealthCheckResponse = DeleteHealthCheckResponse
-
-instance ToPath DeleteHealthCheck where
-    toPath DeleteHealthCheck{..} = mconcat
-        [ "/2013-04-01/healthcheck/"
-        , toText _dhcHealthCheckId
-        ]
-
-instance ToQuery DeleteHealthCheck where
-    toQuery = const mempty
-
-instance ToHeaders DeleteHealthCheck
-
-instance ToXMLRoot DeleteHealthCheck where
-    toXMLRoot = const (namespaced ns "DeleteHealthCheck" [])
-
-instance ToXML DeleteHealthCheck
+dhcrqHealthCheckId :: Lens' DeleteHealthCheck Text
+dhcrqHealthCheckId = lens _dhcrqHealthCheckId (\ s a -> s{_dhcrqHealthCheckId = a});
 
 instance AWSRequest DeleteHealthCheck where
-    type Sv DeleteHealthCheck = Route53
-    type Rs DeleteHealthCheck = DeleteHealthCheckResponse
+        type Sv DeleteHealthCheck = Route53
+        type Rs DeleteHealthCheck = DeleteHealthCheckResponse
+        request = delete
+        response
+          = receiveXML
+              (\ s h x ->
+                 DeleteHealthCheckResponse' <$> (pure (fromEnum s)))
 
-    request  = delete
-    response = nullResponse DeleteHealthCheckResponse
+instance ToHeaders DeleteHealthCheck where
+        toHeaders = const mempty
+
+instance ToPath DeleteHealthCheck where
+        toPath DeleteHealthCheck'{..}
+          = mconcat
+              ["/2013-04-01/healthcheck/",
+               toText _dhcrqHealthCheckId]
+
+instance ToQuery DeleteHealthCheck where
+        toQuery = const mempty
+
+-- | Empty response for the request.
+--
+-- /See:/ 'deleteHealthCheckResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dhcrsStatus'
+newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
+    { _dhcrsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteHealthCheckResponse' smart constructor.
+deleteHealthCheckResponse :: Int -> DeleteHealthCheckResponse
+deleteHealthCheckResponse pStatus_ =
+    DeleteHealthCheckResponse'
+    { _dhcrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+dhcrsStatus :: Lens' DeleteHealthCheckResponse Int
+dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});

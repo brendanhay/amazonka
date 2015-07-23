@@ -1,27 +1,36 @@
 name:                  amazonka-ssm
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Simple Systems Management Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon EC2 Simple Systems Manager (SSM) enables you to configure and manage
-    your EC2 instances. You can create a configuration document and then
-    associate it with one or more running instances.
+    Amazon EC2 Simple Systems Manager (SSM) enables you to configure and
+    manage your EC2 instances. You can create a configuration document and
+    then associate it with one or more running instances.
 
+    You can use a configuration document to automate the following tasks for
+    your Windows instances:
+
+    -   Join an AWS Directory
+
+    -   Install, repair, or uninstall software using an MSI package
+
+    -   Run PowerShell scripts
+
+    -   Configure CloudWatch Logs to monitor applications and systems
+
+    Note that configuration documents are not supported on Linux instances.
     .
     /See:/ <http://docs.aws.amazon.com/ssm/latest/APIReference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -47,9 +56,40 @@ library
         , Network.AWS.SSM.ListDocuments
         , Network.AWS.SSM.Types
         , Network.AWS.SSM.UpdateAssociationStatus
+        , Network.AWS.SSM.Waiters
 
     other-modules:
+          Network.AWS.SSM.Types.Product
+        , Network.AWS.SSM.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-ssm-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.SSM
+        , Test.AWS.Gen.SSM
+        , Test.AWS.SSM.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-ssm == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

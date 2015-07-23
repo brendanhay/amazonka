@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns descriptions for existing application versions.
+-- Returns descriptions for existing application versions.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplicationVersions.html>
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
@@ -32,99 +27,113 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- ** Request constructor
     , describeApplicationVersions
     -- ** Request lenses
-    , dav1ApplicationName
-    , dav1VersionLabels
+    , davsrqVersionLabels
+    , davsrqApplicationName
 
     -- * Response
     , DescribeApplicationVersionsResponse
     -- ** Response constructor
     , describeApplicationVersionsResponse
     -- ** Response lenses
-    , davrApplicationVersions
+    , davrsApplicationVersions
+    , davrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElasticBeanstalk.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticBeanstalk.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeApplicationVersions = DescribeApplicationVersions
-    { _dav1ApplicationName :: Maybe Text
-    , _dav1VersionLabels   :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeApplicationVersions' constructor.
+-- | Result message containing a list of configuration descriptions.
+--
+-- /See:/ 'describeApplicationVersions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dav1ApplicationName' @::@ 'Maybe' 'Text'
+-- * 'davsrqVersionLabels'
 --
--- * 'dav1VersionLabels' @::@ ['Text']
---
+-- * 'davsrqApplicationName'
+data DescribeApplicationVersions = DescribeApplicationVersions'
+    { _davsrqVersionLabels   :: !(Maybe [Text])
+    , _davsrqApplicationName :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeApplicationVersions' smart constructor.
 describeApplicationVersions :: DescribeApplicationVersions
-describeApplicationVersions = DescribeApplicationVersions
-    { _dav1ApplicationName = Nothing
-    , _dav1VersionLabels   = mempty
+describeApplicationVersions =
+    DescribeApplicationVersions'
+    { _davsrqVersionLabels = Nothing
+    , _davsrqApplicationName = Nothing
     }
 
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to
--- only include ones that are associated with the specified application.
-dav1ApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
-dav1ApplicationName =
-    lens _dav1ApplicationName (\s a -> s { _dav1ApplicationName = a })
+-- | If specified, restricts the returned descriptions to only include ones
+-- that have the specified version labels.
+davsrqVersionLabels :: Lens' DescribeApplicationVersions [Text]
+davsrqVersionLabels = lens _davsrqVersionLabels (\ s a -> s{_davsrqVersionLabels = a}) . _Default;
 
--- | If specified, restricts the returned descriptions to only include ones that
--- have the specified version labels.
-dav1VersionLabels :: Lens' DescribeApplicationVersions [Text]
-dav1VersionLabels =
-    lens _dav1VersionLabels (\s a -> s { _dav1VersionLabels = a })
-        . _List
-
-newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
-    { _davrApplicationVersions :: List "member" ApplicationVersionDescription
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeApplicationVersionsResponse where
-    type Item DescribeApplicationVersionsResponse = ApplicationVersionDescription
-
-    fromList = DescribeApplicationVersionsResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _davrApplicationVersions
-
--- | 'DescribeApplicationVersionsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'davrApplicationVersions' @::@ ['ApplicationVersionDescription']
---
-describeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
-describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
-    { _davrApplicationVersions = mempty
-    }
-
--- | A list of 'ApplicationVersionDescription' .
-davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
-davrApplicationVersions =
-    lens _davrApplicationVersions (\s a -> s { _davrApplicationVersions = a })
-        . _List
-
-instance ToPath DescribeApplicationVersions where
-    toPath = const "/"
-
-instance ToQuery DescribeApplicationVersions where
-    toQuery DescribeApplicationVersions{..} = mconcat
-        [ "ApplicationName" =? _dav1ApplicationName
-        , "VersionLabels"   =? _dav1VersionLabels
-        ]
-
-instance ToHeaders DescribeApplicationVersions
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to only include ones that are associated with the specified application.
+davsrqApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
+davsrqApplicationName = lens _davsrqApplicationName (\ s a -> s{_davsrqApplicationName = a});
 
 instance AWSRequest DescribeApplicationVersions where
-    type Sv DescribeApplicationVersions = ElasticBeanstalk
-    type Rs DescribeApplicationVersions = DescribeApplicationVersionsResponse
+        type Sv DescribeApplicationVersions =
+             ElasticBeanstalk
+        type Rs DescribeApplicationVersions =
+             DescribeApplicationVersionsResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "DescribeApplicationVersionsResult"
+              (\ s h x ->
+                 DescribeApplicationVersionsResponse' <$>
+                   (x .@? "ApplicationVersions" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
-    request  = post "DescribeApplicationVersions"
-    response = xmlResponse
+instance ToHeaders DescribeApplicationVersions where
+        toHeaders = const mempty
 
-instance FromXML DescribeApplicationVersionsResponse where
-    parseXML = withElement "DescribeApplicationVersionsResult" $ \x -> DescribeApplicationVersionsResponse
-        <$> x .@? "ApplicationVersions" .!@ mempty
+instance ToPath DescribeApplicationVersions where
+        toPath = const "/"
+
+instance ToQuery DescribeApplicationVersions where
+        toQuery DescribeApplicationVersions'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeApplicationVersions" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "VersionLabels" =:
+                 toQuery
+                   (toQueryList "member" <$> _davsrqVersionLabels),
+               "ApplicationName" =: _davsrqApplicationName]
+
+-- | Result message wrapping a list of application version descriptions.
+--
+-- /See:/ 'describeApplicationVersionsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'davrsApplicationVersions'
+--
+-- * 'davrsStatus'
+data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
+    { _davrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
+    , _davrsStatus              :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeApplicationVersionsResponse' smart constructor.
+describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse
+describeApplicationVersionsResponse pStatus_ =
+    DescribeApplicationVersionsResponse'
+    { _davrsApplicationVersions = Nothing
+    , _davrsStatus = pStatus_
+    }
+
+-- | A list of ApplicationVersionDescription .
+davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
+davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+davrsStatus :: Lens' DescribeApplicationVersionsResponse Int
+davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});

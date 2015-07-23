@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.DataPipeline.DeactivatePipeline
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deactivates the specified running pipeline. The pipeline is set to the 'DEACTIVATING' state until the deactivation process completes.
+-- Deactivates the specified running pipeline. The pipeline is set to the
+-- @DEACTIVATING@ state until the deactivation process completes.
 --
--- To resume a deactivated pipeline, use 'ActivatePipeline'. By default, the
+-- To resume a deactivated pipeline, use ActivatePipeline. By default, the
 -- pipeline resumes from the last completed execution. Optionally, you can
 -- specify the date and time to resume the pipeline.
 --
@@ -36,75 +32,103 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     -- ** Request constructor
     , deactivatePipeline
     -- ** Request lenses
-    , dp1CancelActive
-    , dp1PipelineId
+    , drqCancelActive
+    , drqPipelineId
 
     -- * Response
     , DeactivatePipelineResponse
     -- ** Response constructor
     , deactivatePipelineResponse
+    -- ** Response lenses
+    , drsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.Types
-import qualified GHC.Exts
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeactivatePipeline = DeactivatePipeline
-    { _dp1CancelActive :: Maybe Bool
-    , _dp1PipelineId   :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeactivatePipeline' constructor.
+-- | Contains the parameters for DeactivatePipeline.
+--
+-- /See:/ 'deactivatePipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dp1CancelActive' @::@ 'Maybe' 'Bool'
+-- * 'drqCancelActive'
 --
--- * 'dp1PipelineId' @::@ 'Text'
---
-deactivatePipeline :: Text -- ^ 'dp1PipelineId'
-                   -> DeactivatePipeline
-deactivatePipeline p1 = DeactivatePipeline
-    { _dp1PipelineId   = p1
-    , _dp1CancelActive = Nothing
+-- * 'drqPipelineId'
+data DeactivatePipeline = DeactivatePipeline'
+    { _drqCancelActive :: !(Maybe Bool)
+    , _drqPipelineId   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeactivatePipeline' smart constructor.
+deactivatePipeline :: Text -> DeactivatePipeline
+deactivatePipeline pPipelineId_ =
+    DeactivatePipeline'
+    { _drqCancelActive = Nothing
+    , _drqPipelineId = pPipelineId_
     }
 
--- | Indicates whether to cancel any running objects. The default is true, which
--- sets the state of any running objects to 'CANCELED'. If this value is false,
--- the pipeline is deactivated after all running objects finish.
-dp1CancelActive :: Lens' DeactivatePipeline (Maybe Bool)
-dp1CancelActive = lens _dp1CancelActive (\s a -> s { _dp1CancelActive = a })
+-- | Indicates whether to cancel any running objects. The default is true,
+-- which sets the state of any running objects to @CANCELED@. If this value
+-- is false, the pipeline is deactivated after all running objects finish.
+drqCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
+drqCancelActive = lens _drqCancelActive (\ s a -> s{_drqCancelActive = a});
 
 -- | The ID of the pipeline.
-dp1PipelineId :: Lens' DeactivatePipeline Text
-dp1PipelineId = lens _dp1PipelineId (\s a -> s { _dp1PipelineId = a })
-
-data DeactivatePipelineResponse = DeactivatePipelineResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeactivatePipelineResponse' constructor.
-deactivatePipelineResponse :: DeactivatePipelineResponse
-deactivatePipelineResponse = DeactivatePipelineResponse
-
-instance ToPath DeactivatePipeline where
-    toPath = const "/"
-
-instance ToQuery DeactivatePipeline where
-    toQuery = const mempty
-
-instance ToHeaders DeactivatePipeline
-
-instance ToJSON DeactivatePipeline where
-    toJSON DeactivatePipeline{..} = object
-        [ "pipelineId"   .= _dp1PipelineId
-        , "cancelActive" .= _dp1CancelActive
-        ]
+drqPipelineId :: Lens' DeactivatePipeline Text
+drqPipelineId = lens _drqPipelineId (\ s a -> s{_drqPipelineId = a});
 
 instance AWSRequest DeactivatePipeline where
-    type Sv DeactivatePipeline = DataPipeline
-    type Rs DeactivatePipeline = DeactivatePipelineResponse
+        type Sv DeactivatePipeline = DataPipeline
+        type Rs DeactivatePipeline =
+             DeactivatePipelineResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeactivatePipelineResponse' <$> (pure (fromEnum s)))
 
-    request  = post "DeactivatePipeline"
-    response = nullResponse DeactivatePipelineResponse
+instance ToHeaders DeactivatePipeline where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DataPipeline.DeactivatePipeline" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeactivatePipeline where
+        toJSON DeactivatePipeline'{..}
+          = object
+              ["cancelActive" .= _drqCancelActive,
+               "pipelineId" .= _drqPipelineId]
+
+instance ToPath DeactivatePipeline where
+        toPath = const "/"
+
+instance ToQuery DeactivatePipeline where
+        toQuery = const mempty
+
+-- | Contains the output of DeactivatePipeline.
+--
+-- /See:/ 'deactivatePipelineResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drsStatus'
+newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
+    { _drsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeactivatePipelineResponse' smart constructor.
+deactivatePipelineResponse :: Int -> DeactivatePipelineResponse
+deactivatePipelineResponse pStatus_ =
+    DeactivatePipelineResponse'
+    { _drsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+drsStatus :: Lens' DeactivatePipelineResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

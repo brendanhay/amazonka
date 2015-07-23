@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.StorageGateway.DescribeCache
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation returns information about the cache of a gateway. This
+-- This operation returns information about the cache of a gateway. This
 -- operation is supported only for the gateway-cached volume architecture.
 --
 -- The response includes disk IDs that are configured as cache, and it
@@ -36,139 +31,156 @@ module Network.AWS.StorageGateway.DescribeCache
     -- ** Request constructor
     , describeCache
     -- ** Request lenses
-    , dcGatewayARN
+    , dcrqGatewayARN
 
     -- * Response
     , DescribeCacheResponse
     -- ** Response constructor
     , describeCacheResponse
     -- ** Response lenses
-    , dcrCacheAllocatedInBytes
-    , dcrCacheDirtyPercentage
-    , dcrCacheHitPercentage
-    , dcrCacheMissPercentage
-    , dcrCacheUsedPercentage
-    , dcrDiskIds
-    , dcrGatewayARN
+    , dcrsGatewayARN
+    , dcrsDiskIds
+    , dcrsCacheUsedPercentage
+    , dcrsCacheHitPercentage
+    , dcrsCacheMissPercentage
+    , dcrsCacheAllocatedInBytes
+    , dcrsCacheDirtyPercentage
+    , dcrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.StorageGateway.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.StorageGateway.Types
 
-newtype DescribeCache = DescribeCache
-    { _dcGatewayARN :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DescribeCache' constructor.
+-- | /See:/ 'describeCache' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcGatewayARN' @::@ 'Text'
---
-describeCache :: Text -- ^ 'dcGatewayARN'
-              -> DescribeCache
-describeCache p1 = DescribeCache
-    { _dcGatewayARN = p1
+-- * 'dcrqGatewayARN'
+newtype DescribeCache = DescribeCache'
+    { _dcrqGatewayARN :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeCache' smart constructor.
+describeCache :: Text -> DescribeCache
+describeCache pGatewayARN_ =
+    DescribeCache'
+    { _dcrqGatewayARN = pGatewayARN_
     }
 
-dcGatewayARN :: Lens' DescribeCache Text
-dcGatewayARN = lens _dcGatewayARN (\s a -> s { _dcGatewayARN = a })
-
-data DescribeCacheResponse = DescribeCacheResponse
-    { _dcrCacheAllocatedInBytes :: Maybe Integer
-    , _dcrCacheDirtyPercentage  :: Maybe Double
-    , _dcrCacheHitPercentage    :: Maybe Double
-    , _dcrCacheMissPercentage   :: Maybe Double
-    , _dcrCacheUsedPercentage   :: Maybe Double
-    , _dcrDiskIds               :: List "DiskIds" Text
-    , _dcrGatewayARN            :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeCacheResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dcrCacheAllocatedInBytes' @::@ 'Maybe' 'Integer'
---
--- * 'dcrCacheDirtyPercentage' @::@ 'Maybe' 'Double'
---
--- * 'dcrCacheHitPercentage' @::@ 'Maybe' 'Double'
---
--- * 'dcrCacheMissPercentage' @::@ 'Maybe' 'Double'
---
--- * 'dcrCacheUsedPercentage' @::@ 'Maybe' 'Double'
---
--- * 'dcrDiskIds' @::@ ['Text']
---
--- * 'dcrGatewayARN' @::@ 'Maybe' 'Text'
---
-describeCacheResponse :: DescribeCacheResponse
-describeCacheResponse = DescribeCacheResponse
-    { _dcrGatewayARN            = Nothing
-    , _dcrDiskIds               = mempty
-    , _dcrCacheAllocatedInBytes = Nothing
-    , _dcrCacheUsedPercentage   = Nothing
-    , _dcrCacheDirtyPercentage  = Nothing
-    , _dcrCacheHitPercentage    = Nothing
-    , _dcrCacheMissPercentage   = Nothing
-    }
-
-dcrCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
-dcrCacheAllocatedInBytes =
-    lens _dcrCacheAllocatedInBytes
-        (\s a -> s { _dcrCacheAllocatedInBytes = a })
-
-dcrCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrCacheDirtyPercentage =
-    lens _dcrCacheDirtyPercentage (\s a -> s { _dcrCacheDirtyPercentage = a })
-
-dcrCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrCacheHitPercentage =
-    lens _dcrCacheHitPercentage (\s a -> s { _dcrCacheHitPercentage = a })
-
-dcrCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrCacheMissPercentage =
-    lens _dcrCacheMissPercentage (\s a -> s { _dcrCacheMissPercentage = a })
-
-dcrCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrCacheUsedPercentage =
-    lens _dcrCacheUsedPercentage (\s a -> s { _dcrCacheUsedPercentage = a })
-
-dcrDiskIds :: Lens' DescribeCacheResponse [Text]
-dcrDiskIds = lens _dcrDiskIds (\s a -> s { _dcrDiskIds = a }) . _List
-
-dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
-dcrGatewayARN = lens _dcrGatewayARN (\s a -> s { _dcrGatewayARN = a })
-
-instance ToPath DescribeCache where
-    toPath = const "/"
-
-instance ToQuery DescribeCache where
-    toQuery = const mempty
-
-instance ToHeaders DescribeCache
-
-instance ToJSON DescribeCache where
-    toJSON DescribeCache{..} = object
-        [ "GatewayARN" .= _dcGatewayARN
-        ]
+-- | FIXME: Undocumented member.
+dcrqGatewayARN :: Lens' DescribeCache Text
+dcrqGatewayARN = lens _dcrqGatewayARN (\ s a -> s{_dcrqGatewayARN = a});
 
 instance AWSRequest DescribeCache where
-    type Sv DescribeCache = StorageGateway
-    type Rs DescribeCache = DescribeCacheResponse
+        type Sv DescribeCache = StorageGateway
+        type Rs DescribeCache = DescribeCacheResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeCacheResponse' <$>
+                   (x .?> "GatewayARN") <*> (x .?> "DiskIds" .!@ mempty)
+                     <*> (x .?> "CacheUsedPercentage")
+                     <*> (x .?> "CacheHitPercentage")
+                     <*> (x .?> "CacheMissPercentage")
+                     <*> (x .?> "CacheAllocatedInBytes")
+                     <*> (x .?> "CacheDirtyPercentage")
+                     <*> (pure (fromEnum s)))
 
-    request  = post "DescribeCache"
-    response = jsonResponse
+instance ToHeaders DescribeCache where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.DescribeCache" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DescribeCacheResponse where
-    parseJSON = withObject "DescribeCacheResponse" $ \o -> DescribeCacheResponse
-        <$> o .:? "CacheAllocatedInBytes"
-        <*> o .:? "CacheDirtyPercentage"
-        <*> o .:? "CacheHitPercentage"
-        <*> o .:? "CacheMissPercentage"
-        <*> o .:? "CacheUsedPercentage"
-        <*> o .:? "DiskIds" .!= mempty
-        <*> o .:? "GatewayARN"
+instance ToJSON DescribeCache where
+        toJSON DescribeCache'{..}
+          = object ["GatewayARN" .= _dcrqGatewayARN]
+
+instance ToPath DescribeCache where
+        toPath = const "/"
+
+instance ToQuery DescribeCache where
+        toQuery = const mempty
+
+-- | /See:/ 'describeCacheResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcrsGatewayARN'
+--
+-- * 'dcrsDiskIds'
+--
+-- * 'dcrsCacheUsedPercentage'
+--
+-- * 'dcrsCacheHitPercentage'
+--
+-- * 'dcrsCacheMissPercentage'
+--
+-- * 'dcrsCacheAllocatedInBytes'
+--
+-- * 'dcrsCacheDirtyPercentage'
+--
+-- * 'dcrsStatus'
+data DescribeCacheResponse = DescribeCacheResponse'
+    { _dcrsGatewayARN            :: !(Maybe Text)
+    , _dcrsDiskIds               :: !(Maybe [Text])
+    , _dcrsCacheUsedPercentage   :: !(Maybe Double)
+    , _dcrsCacheHitPercentage    :: !(Maybe Double)
+    , _dcrsCacheMissPercentage   :: !(Maybe Double)
+    , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
+    , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
+    , _dcrsStatus                :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeCacheResponse' smart constructor.
+describeCacheResponse :: Int -> DescribeCacheResponse
+describeCacheResponse pStatus_ =
+    DescribeCacheResponse'
+    { _dcrsGatewayARN = Nothing
+    , _dcrsDiskIds = Nothing
+    , _dcrsCacheUsedPercentage = Nothing
+    , _dcrsCacheHitPercentage = Nothing
+    , _dcrsCacheMissPercentage = Nothing
+    , _dcrsCacheAllocatedInBytes = Nothing
+    , _dcrsCacheDirtyPercentage = Nothing
+    , _dcrsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
+dcrsGatewayARN = lens _dcrsGatewayARN (\ s a -> s{_dcrsGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
+dcrsDiskIds = lens _dcrsDiskIds (\ s a -> s{_dcrsDiskIds = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrsCacheUsedPercentage = lens _dcrsCacheUsedPercentage (\ s a -> s{_dcrsCacheUsedPercentage = a});
+
+-- | FIXME: Undocumented member.
+dcrsCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrsCacheHitPercentage = lens _dcrsCacheHitPercentage (\ s a -> s{_dcrsCacheHitPercentage = a});
+
+-- | FIXME: Undocumented member.
+dcrsCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrsCacheMissPercentage = lens _dcrsCacheMissPercentage (\ s a -> s{_dcrsCacheMissPercentage = a});
+
+-- | FIXME: Undocumented member.
+dcrsCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
+dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCacheAllocatedInBytes = a});
+
+-- | FIXME: Undocumented member.
+dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
+
+-- | FIXME: Undocumented member.
+dcrsStatus :: Lens' DescribeCacheResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

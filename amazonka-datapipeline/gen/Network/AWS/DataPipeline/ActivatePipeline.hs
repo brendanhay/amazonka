@@ -1,35 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.DataPipeline.ActivatePipeline
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Validates the specified pipeline and starts processing pipeline tasks. If the
--- pipeline does not pass validation, activation fails.
+-- Validates the specified pipeline and starts processing pipeline tasks.
+-- If the pipeline does not pass validation, activation fails.
 --
--- If you need to pause the pipeline to investigate an issue with a component,
--- such as a data source or script, call 'DeactivatePipeline'.
+-- If you need to pause the pipeline to investigate an issue with a
+-- component, such as a data source or script, call DeactivatePipeline.
 --
--- To activate a finished pipeline, modify the end date for the pipeline and
--- then activate it.
+-- To activate a finished pipeline, modify the end date for the pipeline
+-- and then activate it.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html>
 module Network.AWS.DataPipeline.ActivatePipeline
@@ -39,86 +34,111 @@ module Network.AWS.DataPipeline.ActivatePipeline
     -- ** Request constructor
     , activatePipeline
     -- ** Request lenses
-    , apParameterValues
-    , apPipelineId
-    , apStartTimestamp
+    , aprqStartTimestamp
+    , aprqParameterValues
+    , aprqPipelineId
 
     -- * Response
     , ActivatePipelineResponse
     -- ** Response constructor
     , activatePipelineResponse
+    -- ** Response lenses
+    , aprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.DataPipeline.Types
-import qualified GHC.Exts
+import           Network.AWS.DataPipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ActivatePipeline = ActivatePipeline
-    { _apParameterValues :: List "parameterValues" ParameterValue
-    , _apPipelineId      :: Text
-    , _apStartTimestamp  :: Maybe POSIX
-    } deriving (Eq, Read, Show)
-
--- | 'ActivatePipeline' constructor.
+-- | Contains the parameters for ActivatePipeline.
+--
+-- /See:/ 'activatePipeline' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apParameterValues' @::@ ['ParameterValue']
+-- * 'aprqStartTimestamp'
 --
--- * 'apPipelineId' @::@ 'Text'
+-- * 'aprqParameterValues'
 --
--- * 'apStartTimestamp' @::@ 'Maybe' 'UTCTime'
---
-activatePipeline :: Text -- ^ 'apPipelineId'
-                 -> ActivatePipeline
-activatePipeline p1 = ActivatePipeline
-    { _apPipelineId      = p1
-    , _apParameterValues = mempty
-    , _apStartTimestamp  = Nothing
+-- * 'aprqPipelineId'
+data ActivatePipeline = ActivatePipeline'
+    { _aprqStartTimestamp  :: !(Maybe POSIX)
+    , _aprqParameterValues :: !(Maybe [ParameterValue])
+    , _aprqPipelineId      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ActivatePipeline' smart constructor.
+activatePipeline :: Text -> ActivatePipeline
+activatePipeline pPipelineId_ =
+    ActivatePipeline'
+    { _aprqStartTimestamp = Nothing
+    , _aprqParameterValues = Nothing
+    , _aprqPipelineId = pPipelineId_
     }
 
+-- | The date and time to resume the pipeline. By default, the pipeline
+-- resumes from the last completed execution.
+aprqStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
+aprqStartTimestamp = lens _aprqStartTimestamp (\ s a -> s{_aprqStartTimestamp = a}) . mapping _Time;
+
 -- | A list of parameter values to pass to the pipeline at activation.
-apParameterValues :: Lens' ActivatePipeline [ParameterValue]
-apParameterValues =
-    lens _apParameterValues (\s a -> s { _apParameterValues = a })
-        . _List
+aprqParameterValues :: Lens' ActivatePipeline [ParameterValue]
+aprqParameterValues = lens _aprqParameterValues (\ s a -> s{_aprqParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
-apPipelineId :: Lens' ActivatePipeline Text
-apPipelineId = lens _apPipelineId (\s a -> s { _apPipelineId = a })
-
--- | The date and time to resume the pipeline. By default, the pipeline resumes
--- from the last completed execution.
-apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
-apStartTimestamp = lens _apStartTimestamp (\s a -> s { _apStartTimestamp = a }) . mapping _Time
-
-data ActivatePipelineResponse = ActivatePipelineResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ActivatePipelineResponse' constructor.
-activatePipelineResponse :: ActivatePipelineResponse
-activatePipelineResponse = ActivatePipelineResponse
-
-instance ToPath ActivatePipeline where
-    toPath = const "/"
-
-instance ToQuery ActivatePipeline where
-    toQuery = const mempty
-
-instance ToHeaders ActivatePipeline
-
-instance ToJSON ActivatePipeline where
-    toJSON ActivatePipeline{..} = object
-        [ "pipelineId"      .= _apPipelineId
-        , "parameterValues" .= _apParameterValues
-        , "startTimestamp"  .= _apStartTimestamp
-        ]
+aprqPipelineId :: Lens' ActivatePipeline Text
+aprqPipelineId = lens _aprqPipelineId (\ s a -> s{_aprqPipelineId = a});
 
 instance AWSRequest ActivatePipeline where
-    type Sv ActivatePipeline = DataPipeline
-    type Rs ActivatePipeline = ActivatePipelineResponse
+        type Sv ActivatePipeline = DataPipeline
+        type Rs ActivatePipeline = ActivatePipelineResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ActivatePipelineResponse' <$> (pure (fromEnum s)))
 
-    request  = post "ActivatePipeline"
-    response = nullResponse ActivatePipelineResponse
+instance ToHeaders ActivatePipeline where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DataPipeline.ActivatePipeline" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ActivatePipeline where
+        toJSON ActivatePipeline'{..}
+          = object
+              ["startTimestamp" .= _aprqStartTimestamp,
+               "parameterValues" .= _aprqParameterValues,
+               "pipelineId" .= _aprqPipelineId]
+
+instance ToPath ActivatePipeline where
+        toPath = const "/"
+
+instance ToQuery ActivatePipeline where
+        toQuery = const mempty
+
+-- | Contains the output of ActivatePipeline.
+--
+-- /See:/ 'activatePipelineResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'aprsStatus'
+newtype ActivatePipelineResponse = ActivatePipelineResponse'
+    { _aprsStatus :: Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ActivatePipelineResponse' smart constructor.
+activatePipelineResponse :: Int -> ActivatePipelineResponse
+activatePipelineResponse pStatus_ =
+    ActivatePipelineResponse'
+    { _aprsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+aprsStatus :: Lens' ActivatePipelineResponse Int
+aprsStatus = lens _aprsStatus (\ s a -> s{_aprsStatus = a});

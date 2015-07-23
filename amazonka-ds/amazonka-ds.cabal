@@ -1,0 +1,90 @@
+name:                  amazonka-ds
+version:               1.0.0
+synopsis:              Amazon Directory Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    AWS Directory Service
+
+    This is the /AWS Directory Service API Reference/. This guide provides
+    detailed information about AWS Directory Service operations, data types,
+    parameters, and errors.
+    .
+    /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/welcome.html AWS API Reference>
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.DirectoryService
+        , Network.AWS.DirectoryService.ConnectDirectory
+        , Network.AWS.DirectoryService.CreateAlias
+        , Network.AWS.DirectoryService.CreateComputer
+        , Network.AWS.DirectoryService.CreateDirectory
+        , Network.AWS.DirectoryService.CreateSnapshot
+        , Network.AWS.DirectoryService.DeleteDirectory
+        , Network.AWS.DirectoryService.DeleteSnapshot
+        , Network.AWS.DirectoryService.DescribeDirectories
+        , Network.AWS.DirectoryService.DescribeSnapshots
+        , Network.AWS.DirectoryService.DisableRadius
+        , Network.AWS.DirectoryService.DisableSso
+        , Network.AWS.DirectoryService.EnableRadius
+        , Network.AWS.DirectoryService.EnableSso
+        , Network.AWS.DirectoryService.GetDirectoryLimits
+        , Network.AWS.DirectoryService.GetSnapshotLimits
+        , Network.AWS.DirectoryService.RestoreFromSnapshot
+        , Network.AWS.DirectoryService.Types
+        , Network.AWS.DirectoryService.UpdateRadius
+        , Network.AWS.DirectoryService.Waiters
+
+    other-modules:
+          Network.AWS.DirectoryService.Types.Product
+        , Network.AWS.DirectoryService.Types.Sum
+
+    build-depends:
+          amazonka-core == 1.0.0.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-ds-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.DirectoryService
+        , Test.AWS.Gen.DirectoryService
+        , Test.AWS.DirectoryService.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-ds == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

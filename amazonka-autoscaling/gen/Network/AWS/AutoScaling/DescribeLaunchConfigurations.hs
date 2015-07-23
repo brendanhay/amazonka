@@ -1,34 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.AutoScaling.DescribeLaunchConfigurations
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes one or more launch configurations. If you omit the list of names,
--- then the call describes all launch configurations.
---
--- You can specify a maximum number of items to be returned with a single call.
--- If there are more items to return, the call returns a token. To get the next
--- set of items, repeat the call with the returned token in the 'NextToken'
--- parameter.
+-- Describes one or more launch configurations. If you omit the list of
+-- names, then the call describes all launch configurations.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html>
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
@@ -38,120 +28,138 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- ** Request constructor
     , describeLaunchConfigurations
     -- ** Request lenses
-    , dlcLaunchConfigurationNames
-    , dlcMaxRecords
-    , dlcNextToken
+    , dlcrqLaunchConfigurationNames
+    , dlcrqNextToken
+    , dlcrqMaxRecords
 
     -- * Response
     , DescribeLaunchConfigurationsResponse
     -- ** Response constructor
     , describeLaunchConfigurationsResponse
     -- ** Response lenses
-    , dlcrLaunchConfigurations
-    , dlcrNextToken
+    , dlcrsNextToken
+    , dlcrsStatus
+    , dlcrsLaunchConfigurations
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeLaunchConfigurations = DescribeLaunchConfigurations
-    { _dlcLaunchConfigurationNames :: List "member" Text
-    , _dlcMaxRecords               :: Maybe Int
-    , _dlcNextToken                :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeLaunchConfigurations' constructor.
+-- | /See:/ 'describeLaunchConfigurations' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcLaunchConfigurationNames' @::@ ['Text']
+-- * 'dlcrqLaunchConfigurationNames'
 --
--- * 'dlcMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dlcrqNextToken'
 --
--- * 'dlcNextToken' @::@ 'Maybe' 'Text'
---
+-- * 'dlcrqMaxRecords'
+data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
+    { _dlcrqLaunchConfigurationNames :: !(Maybe [Text])
+    , _dlcrqNextToken                :: !(Maybe Text)
+    , _dlcrqMaxRecords               :: !(Maybe Int)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeLaunchConfigurations' smart constructor.
 describeLaunchConfigurations :: DescribeLaunchConfigurations
-describeLaunchConfigurations = DescribeLaunchConfigurations
-    { _dlcLaunchConfigurationNames = mempty
-    , _dlcNextToken                = Nothing
-    , _dlcMaxRecords               = Nothing
+describeLaunchConfigurations =
+    DescribeLaunchConfigurations'
+    { _dlcrqLaunchConfigurationNames = Nothing
+    , _dlcrqNextToken = Nothing
+    , _dlcrqMaxRecords = Nothing
     }
 
 -- | The launch configuration names.
-dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
-dlcLaunchConfigurationNames =
-    lens _dlcLaunchConfigurationNames
-        (\s a -> s { _dlcLaunchConfigurationNames = a })
-            . _List
+dlcrqLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
+dlcrqLaunchConfigurationNames = lens _dlcrqLaunchConfigurationNames (\ s a -> s{_dlcrqLaunchConfigurationNames = a}) . _Default;
 
--- | The maximum number of items to return with this call. The default is 100.
-dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
-dlcMaxRecords = lens _dlcMaxRecords (\s a -> s { _dlcMaxRecords = a })
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+dlcrqNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
+dlcrqNextToken = lens _dlcrqNextToken (\ s a -> s{_dlcrqNextToken = a});
 
--- | The token for the next set of items to return. (You received this token from
--- a previous call.)
-dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
-dlcNextToken = lens _dlcNextToken (\s a -> s { _dlcNextToken = a })
+-- | The maximum number of items to return with this call. The default is
+-- 100.
+dlcrqMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
+dlcrqMaxRecords = lens _dlcrqMaxRecords (\ s a -> s{_dlcrqMaxRecords = a});
 
-data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
-    { _dlcrLaunchConfigurations :: List "member" LaunchConfiguration
-    , _dlcrNextToken            :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeLaunchConfigurations where
+        page rq rs
+          | stop (rs ^. dlcrsNextToken) = Nothing
+          | stop (rs ^. dlcrsLaunchConfigurations) = Nothing
+          | otherwise =
+            Just $ rq & dlcrqNextToken .~ rs ^. dlcrsNextToken
 
--- | 'DescribeLaunchConfigurationsResponse' constructor.
+instance AWSRequest DescribeLaunchConfigurations
+         where
+        type Sv DescribeLaunchConfigurations = AutoScaling
+        type Rs DescribeLaunchConfigurations =
+             DescribeLaunchConfigurationsResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "DescribeLaunchConfigurationsResult"
+              (\ s h x ->
+                 DescribeLaunchConfigurationsResponse' <$>
+                   (x .@? "NextToken") <*> (pure (fromEnum s)) <*>
+                     (x .@? "LaunchConfigurations" .!@ mempty >>=
+                        parseXMLList "member"))
+
+instance ToHeaders DescribeLaunchConfigurations where
+        toHeaders = const mempty
+
+instance ToPath DescribeLaunchConfigurations where
+        toPath = const "/"
+
+instance ToQuery DescribeLaunchConfigurations where
+        toQuery DescribeLaunchConfigurations'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeLaunchConfigurations" :: ByteString),
+               "Version" =: ("2011-01-01" :: ByteString),
+               "LaunchConfigurationNames" =:
+                 toQuery
+                   (toQueryList "member" <$>
+                      _dlcrqLaunchConfigurationNames),
+               "NextToken" =: _dlcrqNextToken,
+               "MaxRecords" =: _dlcrqMaxRecords]
+
+-- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcrLaunchConfigurations' @::@ ['LaunchConfiguration']
+-- * 'dlcrsNextToken'
 --
--- * 'dlcrNextToken' @::@ 'Maybe' 'Text'
+-- * 'dlcrsStatus'
 --
-describeLaunchConfigurationsResponse :: DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
-    { _dlcrLaunchConfigurations = mempty
-    , _dlcrNextToken            = Nothing
-    }
+-- * 'dlcrsLaunchConfigurations'
+data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
+    { _dlcrsNextToken            :: !(Maybe Text)
+    , _dlcrsStatus               :: !Int
+    , _dlcrsLaunchConfigurations :: ![LaunchConfiguration]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | The launch configurations.
-dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-dlcrLaunchConfigurations =
-    lens _dlcrLaunchConfigurations
-        (\s a -> s { _dlcrLaunchConfigurations = a })
-            . _List
+-- | 'DescribeLaunchConfigurationsResponse' smart constructor.
+describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse
+describeLaunchConfigurationsResponse pStatus_ =
+    DescribeLaunchConfigurationsResponse'
+    { _dlcrsNextToken = Nothing
+    , _dlcrsStatus = pStatus_
+    , _dlcrsLaunchConfigurations = mempty
+    }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
-dlcrNextToken = lens _dlcrNextToken (\s a -> s { _dlcrNextToken = a })
+dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
+dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
 
-instance ToPath DescribeLaunchConfigurations where
-    toPath = const "/"
+-- | FIXME: Undocumented member.
+dlcrsStatus :: Lens' DescribeLaunchConfigurationsResponse Int
+dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
 
-instance ToQuery DescribeLaunchConfigurations where
-    toQuery DescribeLaunchConfigurations{..} = mconcat
-        [ "LaunchConfigurationNames" =? _dlcLaunchConfigurationNames
-        , "MaxRecords"               =? _dlcMaxRecords
-        , "NextToken"                =? _dlcNextToken
-        ]
-
-instance ToHeaders DescribeLaunchConfigurations
-
-instance AWSRequest DescribeLaunchConfigurations where
-    type Sv DescribeLaunchConfigurations = AutoScaling
-    type Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse
-
-    request  = post "DescribeLaunchConfigurations"
-    response = xmlResponse
-
-instance FromXML DescribeLaunchConfigurationsResponse where
-    parseXML = withElement "DescribeLaunchConfigurationsResult" $ \x -> DescribeLaunchConfigurationsResponse
-        <$> x .@? "LaunchConfigurations" .!@ mempty
-        <*> x .@? "NextToken"
-
-instance AWSPager DescribeLaunchConfigurations where
-    page rq rs
-        | stop (rs ^. dlcrNextToken) = Nothing
-        | otherwise = (\x -> rq & dlcNextToken ?~ x)
-            <$> (rs ^. dlcrNextToken)
+-- | The launch configurations.
+dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
+dlcrsLaunchConfigurations = lens _dlcrsLaunchConfigurations (\ s a -> s{_dlcrsLaunchConfigurations = a});

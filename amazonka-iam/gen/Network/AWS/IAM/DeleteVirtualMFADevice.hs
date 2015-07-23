@@ -1,31 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.DeleteVirtualMFADevice
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes a virtual MFA device.
+-- Deletes a virtual MFA device.
 --
--- You must deactivate a user's virtual MFA device before you can delete it.
--- For information about deactivating MFA devices, see 'DeactivateMFADevice'.
+-- You must deactivate a user\'s virtual MFA device before you can delete
+-- it. For information about deactivating MFA devices, see
+-- DeactivateMFADevice.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html>
 module Network.AWS.IAM.DeleteVirtualMFADevice
@@ -35,7 +31,7 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
     -- ** Request constructor
     , deleteVirtualMFADevice
     -- ** Request lenses
-    , dvmfadSerialNumber
+    , dvmdrqSerialNumber
 
     -- * Response
     , DeleteVirtualMFADeviceResponse
@@ -43,53 +39,59 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
     , deleteVirtualMFADeviceResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
-    { _dvmfadSerialNumber :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteVirtualMFADevice' constructor.
+-- | /See:/ 'deleteVirtualMFADevice' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvmfadSerialNumber' @::@ 'Text'
---
-deleteVirtualMFADevice :: Text -- ^ 'dvmfadSerialNumber'
-                       -> DeleteVirtualMFADevice
-deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
-    { _dvmfadSerialNumber = p1
+-- * 'dvmdrqSerialNumber'
+newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
+    { _dvmdrqSerialNumber :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteVirtualMFADevice' smart constructor.
+deleteVirtualMFADevice :: Text -> DeleteVirtualMFADevice
+deleteVirtualMFADevice pSerialNumber_ =
+    DeleteVirtualMFADevice'
+    { _dvmdrqSerialNumber = pSerialNumber_
     }
 
--- | The serial number that uniquely identifies the MFA device. For virtual MFA
--- devices, the serial number is the same as the ARN.
-dvmfadSerialNumber :: Lens' DeleteVirtualMFADevice Text
-dvmfadSerialNumber =
-    lens _dvmfadSerialNumber (\s a -> s { _dvmfadSerialNumber = a })
-
-data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteVirtualMFADeviceResponse' constructor.
-deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
-deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
-
-instance ToPath DeleteVirtualMFADevice where
-    toPath = const "/"
-
-instance ToQuery DeleteVirtualMFADevice where
-    toQuery DeleteVirtualMFADevice{..} = mconcat
-        [ "SerialNumber" =? _dvmfadSerialNumber
-        ]
-
-instance ToHeaders DeleteVirtualMFADevice
+-- | The serial number that uniquely identifies the MFA device. For virtual
+-- MFA devices, the serial number is the same as the ARN.
+dvmdrqSerialNumber :: Lens' DeleteVirtualMFADevice Text
+dvmdrqSerialNumber = lens _dvmdrqSerialNumber (\ s a -> s{_dvmdrqSerialNumber = a});
 
 instance AWSRequest DeleteVirtualMFADevice where
-    type Sv DeleteVirtualMFADevice = IAM
-    type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
+        type Sv DeleteVirtualMFADevice = IAM
+        type Rs DeleteVirtualMFADevice =
+             DeleteVirtualMFADeviceResponse
+        request = post
+        response
+          = receiveNull DeleteVirtualMFADeviceResponse'
 
-    request  = post "DeleteVirtualMFADevice"
-    response = nullResponse DeleteVirtualMFADeviceResponse
+instance ToHeaders DeleteVirtualMFADevice where
+        toHeaders = const mempty
+
+instance ToPath DeleteVirtualMFADevice where
+        toPath = const "/"
+
+instance ToQuery DeleteVirtualMFADevice where
+        toQuery DeleteVirtualMFADevice'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteVirtualMFADevice" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "SerialNumber" =: _dvmdrqSerialNumber]
+
+-- | /See:/ 'deleteVirtualMFADeviceResponse' smart constructor.
+data DeleteVirtualMFADeviceResponse =
+    DeleteVirtualMFADeviceResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteVirtualMFADeviceResponse' smart constructor.
+deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
+deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'

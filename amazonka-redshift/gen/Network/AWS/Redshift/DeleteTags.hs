@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Redshift.DeleteTags
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes a tag or tags from a resource. You must provide the ARN of the
+-- Deletes a tag or tags from a resource. You must provide the ARN of the
 -- resource from which you want to delete the tag or tags.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteTags.html>
@@ -33,8 +28,8 @@ module Network.AWS.Redshift.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , dt1ResourceName
-    , dt1TagKeys
+    , drqResourceName
+    , drqTagKeys
 
     -- * Response
     , DeleteTagsResponse
@@ -42,61 +37,67 @@ module Network.AWS.Redshift.DeleteTags
     , deleteTagsResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteTags = DeleteTags
-    { _dt1ResourceName :: Text
-    , _dt1TagKeys      :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteTags' constructor.
+-- | Contains the output from the @DeleteTags@ action.
+--
+-- /See:/ 'deleteTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dt1ResourceName' @::@ 'Text'
+-- * 'drqResourceName'
 --
--- * 'dt1TagKeys' @::@ ['Text']
---
-deleteTags :: Text -- ^ 'dt1ResourceName'
-           -> DeleteTags
-deleteTags p1 = DeleteTags
-    { _dt1ResourceName = p1
-    , _dt1TagKeys      = mempty
+-- * 'drqTagKeys'
+data DeleteTags = DeleteTags'
+    { _drqResourceName :: !Text
+    , _drqTagKeys      :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteTags' smart constructor.
+deleteTags :: Text -> DeleteTags
+deleteTags pResourceName_ =
+    DeleteTags'
+    { _drqResourceName = pResourceName_
+    , _drqTagKeys = mempty
     }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
--- tags. For example, 'arn:aws:redshift:us-east-1:123456789:cluster:t1'.
-dt1ResourceName :: Lens' DeleteTags Text
-dt1ResourceName = lens _dt1ResourceName (\s a -> s { _dt1ResourceName = a })
+-- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
+drqResourceName :: Lens' DeleteTags Text
+drqResourceName = lens _drqResourceName (\ s a -> s{_drqResourceName = a});
 
 -- | The tag key that you want to delete.
-dt1TagKeys :: Lens' DeleteTags [Text]
-dt1TagKeys = lens _dt1TagKeys (\s a -> s { _dt1TagKeys = a }) . _List
-
-data DeleteTagsResponse = DeleteTagsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteTagsResponse' constructor.
-deleteTagsResponse :: DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse
-
-instance ToPath DeleteTags where
-    toPath = const "/"
-
-instance ToQuery DeleteTags where
-    toQuery DeleteTags{..} = mconcat
-        [ "ResourceName" =? _dt1ResourceName
-        , "TagKeys"      =? _dt1TagKeys
-        ]
-
-instance ToHeaders DeleteTags
+drqTagKeys :: Lens' DeleteTags [Text]
+drqTagKeys = lens _drqTagKeys (\ s a -> s{_drqTagKeys = a});
 
 instance AWSRequest DeleteTags where
-    type Sv DeleteTags = Redshift
-    type Rs DeleteTags = DeleteTagsResponse
+        type Sv DeleteTags = Redshift
+        type Rs DeleteTags = DeleteTagsResponse
+        request = post
+        response = receiveNull DeleteTagsResponse'
 
-    request  = post "DeleteTags"
-    response = nullResponse DeleteTagsResponse
+instance ToHeaders DeleteTags where
+        toHeaders = const mempty
+
+instance ToPath DeleteTags where
+        toPath = const "/"
+
+instance ToQuery DeleteTags where
+        toQuery DeleteTags'{..}
+          = mconcat
+              ["Action" =: ("DeleteTags" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "ResourceName" =: _drqResourceName,
+               "TagKeys" =: toQueryList "TagKey" _drqTagKeys]
+
+-- | /See:/ 'deleteTagsResponse' smart constructor.
+data DeleteTagsResponse =
+    DeleteTagsResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteTagsResponse' smart constructor.
+deleteTagsResponse :: DeleteTagsResponse
+deleteTagsResponse = DeleteTagsResponse'

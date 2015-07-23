@@ -1,7 +1,0 @@
-{% for field in response.fields %}
-  {% if field.value.location %}
-    {% include "field.ede" %}
-  {% else %}
-        {% include "applicative.ede" %} x {% include "xml-operator.ede" %}
-  {% endif %}
-{% endfor %}

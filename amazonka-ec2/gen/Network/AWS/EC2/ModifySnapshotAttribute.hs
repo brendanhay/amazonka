@@ -1,38 +1,33 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.ModifySnapshotAttribute
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Adds or removes permission settings for the specified snapshot. You may add
--- or remove specified AWS account IDs from a snapshot's list of create volume
--- permissions, but you cannot do both in a single API call. If you need to both
--- add and remove account IDs for a snapshot, you must use multiple API calls.
+-- Adds or removes permission settings for the specified snapshot. You may
+-- add or remove specified AWS account IDs from a snapshot\'s list of
+-- create volume permissions, but you cannot do both in a single API call.
+-- If you need to both add and remove account IDs for a snapshot, you must
+-- use multiple API calls.
 --
--- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
+-- For more information on modifying snapshot permissions, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Snapshots with AWS Marketplace product codes cannot be made public.
---
---
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySnapshotAttribute.html>
 module Network.AWS.EC2.ModifySnapshotAttribute
@@ -42,13 +37,13 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     -- ** Request constructor
     , modifySnapshotAttribute
     -- ** Request lenses
-    , msaAttribute
-    , msaCreateVolumePermission
-    , msaDryRun
-    , msaGroupNames
-    , msaOperationType
-    , msaSnapshotId
-    , msaUserIds
+    , msarqAttribute
+    , msarqUserIds
+    , msarqCreateVolumePermission
+    , msarqGroupNames
+    , msarqOperationType
+    , msarqDryRun
+    , msarqSnapshotId
 
     -- * Response
     , ModifySnapshotAttributeResponse
@@ -56,109 +51,117 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     , modifySnapshotAttributeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ModifySnapshotAttribute = ModifySnapshotAttribute
-    { _msaAttribute              :: Maybe SnapshotAttributeName
-    , _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications
-    , _msaDryRun                 :: Maybe Bool
-    , _msaGroupNames             :: List "GroupName" Text
-    , _msaOperationType          :: Maybe Text
-    , _msaSnapshotId             :: Text
-    , _msaUserIds                :: List "UserId" Text
-    } deriving (Eq, Read, Show)
-
--- | 'ModifySnapshotAttribute' constructor.
+-- | /See:/ 'modifySnapshotAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'msaAttribute' @::@ 'Maybe' 'SnapshotAttributeName'
+-- * 'msarqAttribute'
 --
--- * 'msaCreateVolumePermission' @::@ 'Maybe' 'CreateVolumePermissionModifications'
+-- * 'msarqUserIds'
 --
--- * 'msaDryRun' @::@ 'Maybe' 'Bool'
+-- * 'msarqCreateVolumePermission'
 --
--- * 'msaGroupNames' @::@ ['Text']
+-- * 'msarqGroupNames'
 --
--- * 'msaOperationType' @::@ 'Maybe' 'Text'
+-- * 'msarqOperationType'
 --
--- * 'msaSnapshotId' @::@ 'Text'
+-- * 'msarqDryRun'
 --
--- * 'msaUserIds' @::@ ['Text']
---
-modifySnapshotAttribute :: Text -- ^ 'msaSnapshotId'
-                        -> ModifySnapshotAttribute
-modifySnapshotAttribute p1 = ModifySnapshotAttribute
-    { _msaSnapshotId             = p1
-    , _msaDryRun                 = Nothing
-    , _msaAttribute              = Nothing
-    , _msaOperationType          = Nothing
-    , _msaUserIds                = mempty
-    , _msaGroupNames             = mempty
-    , _msaCreateVolumePermission = Nothing
+-- * 'msarqSnapshotId'
+data ModifySnapshotAttribute = ModifySnapshotAttribute'
+    { _msarqAttribute              :: !(Maybe ModifySnapshotAttributeName)
+    , _msarqUserIds                :: !(Maybe [Text])
+    , _msarqCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
+    , _msarqGroupNames             :: !(Maybe [Text])
+    , _msarqOperationType          :: !(Maybe Text)
+    , _msarqDryRun                 :: !(Maybe Bool)
+    , _msarqSnapshotId             :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifySnapshotAttribute' smart constructor.
+modifySnapshotAttribute :: Text -> ModifySnapshotAttribute
+modifySnapshotAttribute pSnapshotId_ =
+    ModifySnapshotAttribute'
+    { _msarqAttribute = Nothing
+    , _msarqUserIds = Nothing
+    , _msarqCreateVolumePermission = Nothing
+    , _msarqGroupNames = Nothing
+    , _msarqOperationType = Nothing
+    , _msarqDryRun = Nothing
+    , _msarqSnapshotId = pSnapshotId_
     }
 
 -- | The snapshot attribute to modify.
-msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
-msaAttribute = lens _msaAttribute (\s a -> s { _msaAttribute = a })
-
--- | A JSON representation of the snapshot attribute modification.
-msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
-msaCreateVolumePermission =
-    lens _msaCreateVolumePermission
-        (\s a -> s { _msaCreateVolumePermission = a })
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-msaDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
-msaDryRun = lens _msaDryRun (\s a -> s { _msaDryRun = a })
-
--- | The group to modify for the snapshot.
-msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
-msaGroupNames = lens _msaGroupNames (\s a -> s { _msaGroupNames = a }) . _List
-
--- | The type of operation to perform to the attribute.
-msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
-msaOperationType = lens _msaOperationType (\s a -> s { _msaOperationType = a })
-
--- | The ID of the snapshot.
-msaSnapshotId :: Lens' ModifySnapshotAttribute Text
-msaSnapshotId = lens _msaSnapshotId (\s a -> s { _msaSnapshotId = a })
+msarqAttribute :: Lens' ModifySnapshotAttribute (Maybe ModifySnapshotAttributeName)
+msarqAttribute = lens _msarqAttribute (\ s a -> s{_msarqAttribute = a});
 
 -- | The account ID to modify for the snapshot.
-msaUserIds :: Lens' ModifySnapshotAttribute [Text]
-msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a }) . _List
+msarqUserIds :: Lens' ModifySnapshotAttribute [Text]
+msarqUserIds = lens _msarqUserIds (\ s a -> s{_msarqUserIds = a}) . _Default;
 
-data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | A JSON representation of the snapshot attribute modification.
+msarqCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
+msarqCreateVolumePermission = lens _msarqCreateVolumePermission (\ s a -> s{_msarqCreateVolumePermission = a});
 
--- | 'ModifySnapshotAttributeResponse' constructor.
-modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
-modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
+-- | The group to modify for the snapshot.
+msarqGroupNames :: Lens' ModifySnapshotAttribute [Text]
+msarqGroupNames = lens _msarqGroupNames (\ s a -> s{_msarqGroupNames = a}) . _Default;
 
-instance ToPath ModifySnapshotAttribute where
-    toPath = const "/"
+-- | The type of operation to perform to the attribute.
+msarqOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
+msarqOperationType = lens _msarqOperationType (\ s a -> s{_msarqOperationType = a});
 
-instance ToQuery ModifySnapshotAttribute where
-    toQuery ModifySnapshotAttribute{..} = mconcat
-        [ "Attribute"              =? _msaAttribute
-        , "CreateVolumePermission" =? _msaCreateVolumePermission
-        , "DryRun"                 =? _msaDryRun
-        , "UserGroup"              `toQueryList` _msaGroupNames
-        , "OperationType"          =? _msaOperationType
-        , "SnapshotId"             =? _msaSnapshotId
-        , "UserId"                 `toQueryList` _msaUserIds
-        ]
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+msarqDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
+msarqDryRun = lens _msarqDryRun (\ s a -> s{_msarqDryRun = a});
 
-instance ToHeaders ModifySnapshotAttribute
+-- | The ID of the snapshot.
+msarqSnapshotId :: Lens' ModifySnapshotAttribute Text
+msarqSnapshotId = lens _msarqSnapshotId (\ s a -> s{_msarqSnapshotId = a});
 
 instance AWSRequest ModifySnapshotAttribute where
-    type Sv ModifySnapshotAttribute = EC2
-    type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse
+        type Sv ModifySnapshotAttribute = EC2
+        type Rs ModifySnapshotAttribute =
+             ModifySnapshotAttributeResponse
+        request = post
+        response
+          = receiveNull ModifySnapshotAttributeResponse'
 
-    request  = post "ModifySnapshotAttribute"
-    response = nullResponse ModifySnapshotAttributeResponse
+instance ToHeaders ModifySnapshotAttribute where
+        toHeaders = const mempty
+
+instance ToPath ModifySnapshotAttribute where
+        toPath = const "/"
+
+instance ToQuery ModifySnapshotAttribute where
+        toQuery ModifySnapshotAttribute'{..}
+          = mconcat
+              ["Action" =:
+                 ("ModifySnapshotAttribute" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "Attribute" =: _msarqAttribute,
+               toQuery (toQueryList "UserId" <$> _msarqUserIds),
+               "CreateVolumePermission" =:
+                 _msarqCreateVolumePermission,
+               toQuery
+                 (toQueryList "GroupName" <$> _msarqGroupNames),
+               "OperationType" =: _msarqOperationType,
+               "DryRun" =: _msarqDryRun,
+               "SnapshotId" =: _msarqSnapshotId]
+
+-- | /See:/ 'modifySnapshotAttributeResponse' smart constructor.
+data ModifySnapshotAttributeResponse =
+    ModifySnapshotAttributeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifySnapshotAttributeResponse' smart constructor.
+modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
+modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse'

@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CodeDeploy.UpdateApplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Changes an existing application's name.
+-- Changes an existing application\'s name.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html>
 module Network.AWS.CodeDeploy.UpdateApplication
@@ -32,8 +27,8 @@ module Network.AWS.CodeDeploy.UpdateApplication
     -- ** Request constructor
     , updateApplication
     -- ** Request lenses
-    , uaApplicationName
-    , uaNewApplicationName
+    , uarqNewApplicationName
+    , uarqApplicationName
 
     -- * Response
     , UpdateApplicationResponse
@@ -41,65 +36,74 @@ module Network.AWS.CodeDeploy.UpdateApplication
     , updateApplicationResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateApplication = UpdateApplication
-    { _uaApplicationName    :: Maybe Text
-    , _uaNewApplicationName :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateApplication' constructor.
+-- | Represents the input of an update application operation.
+--
+-- /See:/ 'updateApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaApplicationName' @::@ 'Maybe' 'Text'
+-- * 'uarqNewApplicationName'
 --
--- * 'uaNewApplicationName' @::@ 'Maybe' 'Text'
---
+-- * 'uarqApplicationName'
+data UpdateApplication = UpdateApplication'
+    { _uarqNewApplicationName :: !(Maybe Text)
+    , _uarqApplicationName    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateApplication' smart constructor.
 updateApplication :: UpdateApplication
-updateApplication = UpdateApplication
-    { _uaApplicationName    = Nothing
-    , _uaNewApplicationName = Nothing
+updateApplication =
+    UpdateApplication'
+    { _uarqNewApplicationName = Nothing
+    , _uarqApplicationName = Nothing
     }
 
--- | The current name of the application that you want to change.
-uaApplicationName :: Lens' UpdateApplication (Maybe Text)
-uaApplicationName =
-    lens _uaApplicationName (\s a -> s { _uaApplicationName = a })
-
 -- | The new name that you want to change the application to.
-uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
-uaNewApplicationName =
-    lens _uaNewApplicationName (\s a -> s { _uaNewApplicationName = a })
+uarqNewApplicationName :: Lens' UpdateApplication (Maybe Text)
+uarqNewApplicationName = lens _uarqNewApplicationName (\ s a -> s{_uarqNewApplicationName = a});
 
-data UpdateApplicationResponse = UpdateApplicationResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateApplicationResponse' constructor.
-updateApplicationResponse :: UpdateApplicationResponse
-updateApplicationResponse = UpdateApplicationResponse
-
-instance ToPath UpdateApplication where
-    toPath = const "/"
-
-instance ToQuery UpdateApplication where
-    toQuery = const mempty
-
-instance ToHeaders UpdateApplication
-
-instance ToJSON UpdateApplication where
-    toJSON UpdateApplication{..} = object
-        [ "applicationName"    .= _uaApplicationName
-        , "newApplicationName" .= _uaNewApplicationName
-        ]
+-- | The current name of the application that you want to change.
+uarqApplicationName :: Lens' UpdateApplication (Maybe Text)
+uarqApplicationName = lens _uarqApplicationName (\ s a -> s{_uarqApplicationName = a});
 
 instance AWSRequest UpdateApplication where
-    type Sv UpdateApplication = CodeDeploy
-    type Rs UpdateApplication = UpdateApplicationResponse
+        type Sv UpdateApplication = CodeDeploy
+        type Rs UpdateApplication = UpdateApplicationResponse
+        request = postJSON
+        response = receiveNull UpdateApplicationResponse'
 
-    request  = post "UpdateApplication"
-    response = nullResponse UpdateApplicationResponse
+instance ToHeaders UpdateApplication where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.UpdateApplication" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateApplication where
+        toJSON UpdateApplication'{..}
+          = object
+              ["newApplicationName" .= _uarqNewApplicationName,
+               "applicationName" .= _uarqApplicationName]
+
+instance ToPath UpdateApplication where
+        toPath = const "/"
+
+instance ToQuery UpdateApplication where
+        toQuery = const mempty
+
+-- | /See:/ 'updateApplicationResponse' smart constructor.
+data UpdateApplicationResponse =
+    UpdateApplicationResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateApplicationResponse' smart constructor.
+updateApplicationResponse :: UpdateApplicationResponse
+updateApplicationResponse = UpdateApplicationResponse'

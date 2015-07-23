@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ECS.CreateService
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Runs and maintains a desired number of tasks from a specified task
--- definition. If the number of tasks running in a service drops below 'desiredCount', Amazon ECS will spawn another instantiation of the task in the specified
--- cluster.
+-- Runs and maintains a desired number of tasks from a specified task
+-- definition. If the number of tasks running in a service drops below
+-- @desiredCount@, Amazon ECS will spawn another instantiation of the task
+-- in the specified cluster.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html>
 module Network.AWS.ECS.CreateService
@@ -34,153 +30,171 @@ module Network.AWS.ECS.CreateService
     -- ** Request constructor
     , createService
     -- ** Request lenses
-    , cs1ClientToken
-    , cs1Cluster
-    , cs1DesiredCount
-    , cs1LoadBalancers
-    , cs1Role
-    , cs1ServiceName
-    , cs1TaskDefinition
+    , csrqCluster
+    , csrqClientToken
+    , csrqLoadBalancers
+    , csrqRole
+    , csrqServiceName
+    , csrqTaskDefinition
+    , csrqDesiredCount
 
     -- * Response
     , CreateServiceResponse
     -- ** Response constructor
     , createServiceResponse
     -- ** Response lenses
-    , csrService
+    , csrsService
+    , csrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateService = CreateService
-    { _cs1ClientToken    :: Maybe Text
-    , _cs1Cluster        :: Maybe Text
-    , _cs1DesiredCount   :: Maybe Int
-    , _cs1LoadBalancers  :: List "loadBalancers" LoadBalancer
-    , _cs1Role           :: Maybe Text
-    , _cs1ServiceName    :: Text
-    , _cs1TaskDefinition :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'CreateService' constructor.
+-- | /See:/ 'createService' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cs1ClientToken' @::@ 'Maybe' 'Text'
+-- * 'csrqCluster'
 --
--- * 'cs1Cluster' @::@ 'Maybe' 'Text'
+-- * 'csrqClientToken'
 --
--- * 'cs1DesiredCount' @::@ 'Maybe' 'Int'
+-- * 'csrqLoadBalancers'
 --
--- * 'cs1LoadBalancers' @::@ ['LoadBalancer']
+-- * 'csrqRole'
 --
--- * 'cs1Role' @::@ 'Maybe' 'Text'
+-- * 'csrqServiceName'
 --
--- * 'cs1ServiceName' @::@ 'Text'
+-- * 'csrqTaskDefinition'
 --
--- * 'cs1TaskDefinition' @::@ 'Maybe' 'Text'
---
-createService :: Text -- ^ 'cs1ServiceName'
-              -> CreateService
-createService p1 = CreateService
-    { _cs1ServiceName    = p1
-    , _cs1Cluster        = Nothing
-    , _cs1TaskDefinition = Nothing
-    , _cs1LoadBalancers  = mempty
-    , _cs1DesiredCount   = Nothing
-    , _cs1ClientToken    = Nothing
-    , _cs1Role           = Nothing
+-- * 'csrqDesiredCount'
+data CreateService = CreateService'
+    { _csrqCluster        :: !(Maybe Text)
+    , _csrqClientToken    :: !(Maybe Text)
+    , _csrqLoadBalancers  :: !(Maybe [LoadBalancer])
+    , _csrqRole           :: !(Maybe Text)
+    , _csrqServiceName    :: !Text
+    , _csrqTaskDefinition :: !Text
+    , _csrqDesiredCount   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateService' smart constructor.
+createService :: Text -> Text -> Int -> CreateService
+createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
+    CreateService'
+    { _csrqCluster = Nothing
+    , _csrqClientToken = Nothing
+    , _csrqLoadBalancers = Nothing
+    , _csrqRole = Nothing
+    , _csrqServiceName = pServiceName_
+    , _csrqTaskDefinition = pTaskDefinition_
+    , _csrqDesiredCount = pDesiredCount_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of
--- the request. Up to 32 ASCII characters are allowed.
-cs1ClientToken :: Lens' CreateService (Maybe Text)
-cs1ClientToken = lens _cs1ClientToken (\s a -> s { _cs1ClientToken = a })
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- you want to run your service on. If you do not specify a cluster, the
+-- default cluster is assumed.
+csrqCluster :: Lens' CreateService (Maybe Text)
+csrqCluster = lens _csrqCluster (\ s a -> s{_csrqCluster = a});
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that you
--- want to run your service on. If you do not specify a cluster, the default
--- cluster is assumed.
-cs1Cluster :: Lens' CreateService (Maybe Text)
-cs1Cluster = lens _cs1Cluster (\s a -> s { _cs1Cluster = a })
-
--- | The number of instantiations of the specified task definition that you would
--- like to place and keep running on your cluster.
-cs1DesiredCount :: Lens' CreateService (Maybe Int)
-cs1DesiredCount = lens _cs1DesiredCount (\s a -> s { _cs1DesiredCount = a })
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency
+-- of the request. Up to 32 ASCII characters are allowed.
+csrqClientToken :: Lens' CreateService (Maybe Text)
+csrqClientToken = lens _csrqClientToken (\ s a -> s{_csrqClientToken = a});
 
 -- | A list of load balancer objects, containing the load balancer name, the
--- container name (as it appears in a container definition), and the container
--- port to access from the load balancer.
-cs1LoadBalancers :: Lens' CreateService [LoadBalancer]
-cs1LoadBalancers = lens _cs1LoadBalancers (\s a -> s { _cs1LoadBalancers = a }) . _List
+-- container name (as it appears in a container definition), and the
+-- container port to access from the load balancer.
+csrqLoadBalancers :: Lens' CreateService [LoadBalancer]
+csrqLoadBalancers = lens _csrqLoadBalancers (\ s a -> s{_csrqLoadBalancers = a}) . _Default;
 
--- | The name or full Amazon Resource Name (ARN) of the IAM role that allows your
--- Amazon ECS container agent to make calls to your load balancer on your
--- behalf. This parameter is only required if you are using a load balancer with
--- your service.
-cs1Role :: Lens' CreateService (Maybe Text)
-cs1Role = lens _cs1Role (\s a -> s { _cs1Role = a })
+-- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
+-- your Amazon ECS container agent to make calls to your load balancer on
+-- your behalf. This parameter is only required if you are using a load
+-- balancer with your service.
+csrqRole :: Lens' CreateService (Maybe Text)
+csrqRole = lens _csrqRole (\ s a -> s{_csrqRole = a});
 
 -- | The name of your service. Up to 255 letters (uppercase and lowercase),
--- numbers, hyphens, and underscores are allowed.
-cs1ServiceName :: Lens' CreateService Text
-cs1ServiceName = lens _cs1ServiceName (\s a -> s { _cs1ServiceName = a })
+-- numbers, hyphens, and underscores are allowed. Service names must be
+-- unique within a cluster, but you can have similarly named services in
+-- multiple clusters within a region or across multiple regions.
+csrqServiceName :: Lens' CreateService Text
+csrqServiceName = lens _csrqServiceName (\ s a -> s{_csrqServiceName = a});
 
--- | The 'family' and 'revision' ('family:revision') or full Amazon Resource Name (ARN)
--- of the task definition that you want to run in your service.
-cs1TaskDefinition :: Lens' CreateService (Maybe Text)
-cs1TaskDefinition =
-    lens _cs1TaskDefinition (\s a -> s { _cs1TaskDefinition = a })
+-- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
+-- Name (ARN) of the task definition that you want to run in your service.
+-- If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
+csrqTaskDefinition :: Lens' CreateService Text
+csrqTaskDefinition = lens _csrqTaskDefinition (\ s a -> s{_csrqTaskDefinition = a});
 
-newtype CreateServiceResponse = CreateServiceResponse
-    { _csrService :: Maybe ContainerService
-    } deriving (Eq, Read, Show)
+-- | The number of instantiations of the specified task definition that you
+-- would like to place and keep running on your cluster.
+csrqDesiredCount :: Lens' CreateService Int
+csrqDesiredCount = lens _csrqDesiredCount (\ s a -> s{_csrqDesiredCount = a});
 
--- | 'CreateServiceResponse' constructor.
+instance AWSRequest CreateService where
+        type Sv CreateService = ECS
+        type Rs CreateService = CreateServiceResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateServiceResponse' <$>
+                   (x .?> "service") <*> (pure (fromEnum s)))
+
+instance ToHeaders CreateService where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.CreateService"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateService where
+        toJSON CreateService'{..}
+          = object
+              ["cluster" .= _csrqCluster,
+               "clientToken" .= _csrqClientToken,
+               "loadBalancers" .= _csrqLoadBalancers,
+               "role" .= _csrqRole,
+               "serviceName" .= _csrqServiceName,
+               "taskDefinition" .= _csrqTaskDefinition,
+               "desiredCount" .= _csrqDesiredCount]
+
+instance ToPath CreateService where
+        toPath = const "/"
+
+instance ToQuery CreateService where
+        toQuery = const mempty
+
+-- | /See:/ 'createServiceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrService' @::@ 'Maybe' 'ContainerService'
+-- * 'csrsService'
 --
-createServiceResponse :: CreateServiceResponse
-createServiceResponse = CreateServiceResponse
-    { _csrService = Nothing
+-- * 'csrsStatus'
+data CreateServiceResponse = CreateServiceResponse'
+    { _csrsService :: !(Maybe ContainerService)
+    , _csrsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateServiceResponse' smart constructor.
+createServiceResponse :: Int -> CreateServiceResponse
+createServiceResponse pStatus_ =
+    CreateServiceResponse'
+    { _csrsService = Nothing
+    , _csrsStatus = pStatus_
     }
 
 -- | The full description of your service following the create call.
-csrService :: Lens' CreateServiceResponse (Maybe ContainerService)
-csrService = lens _csrService (\s a -> s { _csrService = a })
+csrsService :: Lens' CreateServiceResponse (Maybe ContainerService)
+csrsService = lens _csrsService (\ s a -> s{_csrsService = a});
 
-instance ToPath CreateService where
-    toPath = const "/"
-
-instance ToQuery CreateService where
-    toQuery = const mempty
-
-instance ToHeaders CreateService
-
-instance ToJSON CreateService where
-    toJSON CreateService{..} = object
-        [ "cluster"        .= _cs1Cluster
-        , "serviceName"    .= _cs1ServiceName
-        , "taskDefinition" .= _cs1TaskDefinition
-        , "loadBalancers"  .= _cs1LoadBalancers
-        , "desiredCount"   .= _cs1DesiredCount
-        , "clientToken"    .= _cs1ClientToken
-        , "role"           .= _cs1Role
-        ]
-
-instance AWSRequest CreateService where
-    type Sv CreateService = ECS
-    type Rs CreateService = CreateServiceResponse
-
-    request  = post "CreateService"
-    response = jsonResponse
-
-instance FromJSON CreateServiceResponse where
-    parseJSON = withObject "CreateServiceResponse" $ \o -> CreateServiceResponse
-        <$> o .:? "service"
+-- | FIXME: Undocumented member.
+csrsStatus :: Lens' CreateServiceResponse Int
+csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

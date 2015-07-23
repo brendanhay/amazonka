@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Route53Domains.GetDomainDetail
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This operation returns detailed information about the domain. The domain's
--- contact information is also returned as part of the output.
+-- This operation returns detailed information about the domain. The
+-- domain\'s contact information is also returned as part of the output.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetDomainDetail.html>
 module Network.AWS.Route53Domains.GetDomainDetail
@@ -33,56 +28,58 @@ module Network.AWS.Route53Domains.GetDomainDetail
     -- ** Request constructor
     , getDomainDetail
     -- ** Request lenses
-    , gddDomainName
+    , gddrqDomainName
 
     -- * Response
     , GetDomainDetailResponse
     -- ** Response constructor
     , getDomainDetailResponse
     -- ** Response lenses
-    , gddrAbuseContactEmail
-    , gddrAbuseContactPhone
-    , gddrAdminContact
-    , gddrAdminPrivacy
-    , gddrAutoRenew
-    , gddrCreationDate
-    , gddrDnsSec
-    , gddrDomainName
-    , gddrExpirationDate
-    , gddrNameservers
-    , gddrRegistrantContact
-    , gddrRegistrantPrivacy
-    , gddrRegistrarName
-    , gddrRegistrarUrl
-    , gddrRegistryDomainId
-    , gddrReseller
-    , gddrStatusList
-    , gddrTechContact
-    , gddrTechPrivacy
-    , gddrUpdatedDate
-    , gddrWhoIsServer
+    , gddrsTechPrivacy
+    , gddrsDNSSec
+    , gddrsWhoIsServer
+    , gddrsRegistryDomainId
+    , gddrsRegistrantPrivacy
+    , gddrsUpdatedDate
+    , gddrsAdminPrivacy
+    , gddrsAbuseContactEmail
+    , gddrsRegistrarURL
+    , gddrsAutoRenew
+    , gddrsAbuseContactPhone
+    , gddrsExpirationDate
+    , gddrsCreationDate
+    , gddrsRegistrarName
+    , gddrsStatusList
+    , gddrsReseller
+    , gddrsStatus
+    , gddrsDomainName
+    , gddrsNameservers
+    , gddrsAdminContact
+    , gddrsRegistrantContact
+    , gddrsTechContact
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.Route53Domains.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.Route53Domains.Types
 
-newtype GetDomainDetail = GetDomainDetail
-    { _gddDomainName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetDomainDetail' constructor.
+-- | The GetDomainDetail request includes the following element.
+--
+-- /See:/ 'getDomainDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gddDomainName' @::@ 'Text'
---
-getDomainDetail :: Text -- ^ 'gddDomainName'
-                -> GetDomainDetail
-getDomainDetail p1 = GetDomainDetail
-    { _gddDomainName = p1
+-- * 'gddrqDomainName'
+newtype GetDomainDetail = GetDomainDetail'
+    { _gddrqDomainName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetDomainDetail' smart constructor.
+getDomainDetail :: Text -> GetDomainDetail
+getDomainDetail pDomainName_ =
+    GetDomainDetail'
+    { _gddrqDomainName = pDomainName_
     }
 
 -- | The name of a domain.
@@ -91,314 +88,326 @@ getDomainDetail p1 = GetDomainDetail
 --
 -- Default: None
 --
--- Constraints: The domain name can contain only the letters a through z, the
--- numbers 0 through 9, and hyphen (-). Internationalized Domain Names are not
--- supported.
+-- Constraints: The domain name can contain only the letters a through z,
+-- the numbers 0 through 9, and hyphen (-). Internationalized Domain Names
+-- are not supported.
 --
 -- Required: Yes
-gddDomainName :: Lens' GetDomainDetail Text
-gddDomainName = lens _gddDomainName (\s a -> s { _gddDomainName = a })
+gddrqDomainName :: Lens' GetDomainDetail Text
+gddrqDomainName = lens _gddrqDomainName (\ s a -> s{_gddrqDomainName = a});
 
-data GetDomainDetailResponse = GetDomainDetailResponse
-    { _gddrAbuseContactEmail :: Maybe Text
-    , _gddrAbuseContactPhone :: Maybe Text
-    , _gddrAdminContact      :: ContactDetail
-    , _gddrAdminPrivacy      :: Maybe Bool
-    , _gddrAutoRenew         :: Maybe Bool
-    , _gddrCreationDate      :: Maybe POSIX
-    , _gddrDnsSec            :: Maybe Text
-    , _gddrDomainName        :: Text
-    , _gddrExpirationDate    :: Maybe POSIX
-    , _gddrNameservers       :: List "Nameservers" Nameserver
-    , _gddrRegistrantContact :: ContactDetail
-    , _gddrRegistrantPrivacy :: Maybe Bool
-    , _gddrRegistrarName     :: Maybe Text
-    , _gddrRegistrarUrl      :: Maybe Text
-    , _gddrRegistryDomainId  :: Maybe Text
-    , _gddrReseller          :: Maybe Text
-    , _gddrStatusList        :: List "StatusList" Text
-    , _gddrTechContact       :: ContactDetail
-    , _gddrTechPrivacy       :: Maybe Bool
-    , _gddrUpdatedDate       :: Maybe POSIX
-    , _gddrWhoIsServer       :: Maybe Text
-    } deriving (Eq, Read, Show)
+instance AWSRequest GetDomainDetail where
+        type Sv GetDomainDetail = Route53Domains
+        type Rs GetDomainDetail = GetDomainDetailResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetDomainDetailResponse' <$>
+                   (x .?> "TechPrivacy") <*> (x .?> "DnsSec") <*>
+                     (x .?> "WhoIsServer")
+                     <*> (x .?> "RegistryDomainId")
+                     <*> (x .?> "RegistrantPrivacy")
+                     <*> (x .?> "UpdatedDate")
+                     <*> (x .?> "AdminPrivacy")
+                     <*> (x .?> "AbuseContactEmail")
+                     <*> (x .?> "RegistrarUrl")
+                     <*> (x .?> "AutoRenew")
+                     <*> (x .?> "AbuseContactPhone")
+                     <*> (x .?> "ExpirationDate")
+                     <*> (x .?> "CreationDate")
+                     <*> (x .?> "RegistrarName")
+                     <*> (x .?> "StatusList" .!@ mempty)
+                     <*> (x .?> "Reseller")
+                     <*> (pure (fromEnum s))
+                     <*> (x .:> "DomainName")
+                     <*> (x .?> "Nameservers" .!@ mempty)
+                     <*> (x .:> "AdminContact")
+                     <*> (x .:> "RegistrantContact")
+                     <*> (x .:> "TechContact"))
 
--- | 'GetDomainDetailResponse' constructor.
+instance ToHeaders GetDomainDetail where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("Route53Domains_v20140515.GetDomainDetail" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetDomainDetail where
+        toJSON GetDomainDetail'{..}
+          = object ["DomainName" .= _gddrqDomainName]
+
+instance ToPath GetDomainDetail where
+        toPath = const "/"
+
+instance ToQuery GetDomainDetail where
+        toQuery = const mempty
+
+-- | The GetDomainDetail response includes the following elements.
+--
+-- /See:/ 'getDomainDetailResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gddrAbuseContactEmail' @::@ 'Maybe' 'Text'
+-- * 'gddrsTechPrivacy'
 --
--- * 'gddrAbuseContactPhone' @::@ 'Maybe' 'Text'
+-- * 'gddrsDNSSec'
 --
--- * 'gddrAdminContact' @::@ 'ContactDetail'
+-- * 'gddrsWhoIsServer'
 --
--- * 'gddrAdminPrivacy' @::@ 'Maybe' 'Bool'
+-- * 'gddrsRegistryDomainId'
 --
--- * 'gddrAutoRenew' @::@ 'Maybe' 'Bool'
+-- * 'gddrsRegistrantPrivacy'
 --
--- * 'gddrCreationDate' @::@ 'Maybe' 'UTCTime'
+-- * 'gddrsUpdatedDate'
 --
--- * 'gddrDnsSec' @::@ 'Maybe' 'Text'
+-- * 'gddrsAdminPrivacy'
 --
--- * 'gddrDomainName' @::@ 'Text'
+-- * 'gddrsAbuseContactEmail'
 --
--- * 'gddrExpirationDate' @::@ 'Maybe' 'UTCTime'
+-- * 'gddrsRegistrarURL'
 --
--- * 'gddrNameservers' @::@ ['Nameserver']
+-- * 'gddrsAutoRenew'
 --
--- * 'gddrRegistrantContact' @::@ 'ContactDetail'
+-- * 'gddrsAbuseContactPhone'
 --
--- * 'gddrRegistrantPrivacy' @::@ 'Maybe' 'Bool'
+-- * 'gddrsExpirationDate'
 --
--- * 'gddrRegistrarName' @::@ 'Maybe' 'Text'
+-- * 'gddrsCreationDate'
 --
--- * 'gddrRegistrarUrl' @::@ 'Maybe' 'Text'
+-- * 'gddrsRegistrarName'
 --
--- * 'gddrRegistryDomainId' @::@ 'Maybe' 'Text'
+-- * 'gddrsStatusList'
 --
--- * 'gddrReseller' @::@ 'Maybe' 'Text'
+-- * 'gddrsReseller'
 --
--- * 'gddrStatusList' @::@ ['Text']
+-- * 'gddrsStatus'
 --
--- * 'gddrTechContact' @::@ 'ContactDetail'
+-- * 'gddrsDomainName'
 --
--- * 'gddrTechPrivacy' @::@ 'Maybe' 'Bool'
+-- * 'gddrsNameservers'
 --
--- * 'gddrUpdatedDate' @::@ 'Maybe' 'UTCTime'
+-- * 'gddrsAdminContact'
 --
--- * 'gddrWhoIsServer' @::@ 'Maybe' 'Text'
+-- * 'gddrsRegistrantContact'
 --
-getDomainDetailResponse :: Text -- ^ 'gddrDomainName'
-                        -> ContactDetail -- ^ 'gddrAdminContact'
-                        -> ContactDetail -- ^ 'gddrRegistrantContact'
-                        -> ContactDetail -- ^ 'gddrTechContact'
-                        -> GetDomainDetailResponse
-getDomainDetailResponse p1 p2 p3 p4 = GetDomainDetailResponse
-    { _gddrDomainName        = p1
-    , _gddrAdminContact      = p2
-    , _gddrRegistrantContact = p3
-    , _gddrTechContact       = p4
-    , _gddrNameservers       = mempty
-    , _gddrAutoRenew         = Nothing
-    , _gddrAdminPrivacy      = Nothing
-    , _gddrRegistrantPrivacy = Nothing
-    , _gddrTechPrivacy       = Nothing
-    , _gddrRegistrarName     = Nothing
-    , _gddrWhoIsServer       = Nothing
-    , _gddrRegistrarUrl      = Nothing
-    , _gddrAbuseContactEmail = Nothing
-    , _gddrAbuseContactPhone = Nothing
-    , _gddrRegistryDomainId  = Nothing
-    , _gddrCreationDate      = Nothing
-    , _gddrUpdatedDate       = Nothing
-    , _gddrExpirationDate    = Nothing
-    , _gddrReseller          = Nothing
-    , _gddrDnsSec            = Nothing
-    , _gddrStatusList        = mempty
+-- * 'gddrsTechContact'
+data GetDomainDetailResponse = GetDomainDetailResponse'
+    { _gddrsTechPrivacy       :: !(Maybe Bool)
+    , _gddrsDNSSec            :: !(Maybe Text)
+    , _gddrsWhoIsServer       :: !(Maybe Text)
+    , _gddrsRegistryDomainId  :: !(Maybe Text)
+    , _gddrsRegistrantPrivacy :: !(Maybe Bool)
+    , _gddrsUpdatedDate       :: !(Maybe POSIX)
+    , _gddrsAdminPrivacy      :: !(Maybe Bool)
+    , _gddrsAbuseContactEmail :: !(Maybe Text)
+    , _gddrsRegistrarURL      :: !(Maybe Text)
+    , _gddrsAutoRenew         :: !(Maybe Bool)
+    , _gddrsAbuseContactPhone :: !(Maybe Text)
+    , _gddrsExpirationDate    :: !(Maybe POSIX)
+    , _gddrsCreationDate      :: !(Maybe POSIX)
+    , _gddrsRegistrarName     :: !(Maybe Text)
+    , _gddrsStatusList        :: !(Maybe [Text])
+    , _gddrsReseller          :: !(Maybe Text)
+    , _gddrsStatus            :: !Int
+    , _gddrsDomainName        :: !Text
+    , _gddrsNameservers       :: ![Nameserver]
+    , _gddrsAdminContact      :: !(Sensitive ContactDetail)
+    , _gddrsRegistrantContact :: !(Sensitive ContactDetail)
+    , _gddrsTechContact       :: !(Sensitive ContactDetail)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetDomainDetailResponse' smart constructor.
+getDomainDetailResponse :: Int -> Text -> ContactDetail -> ContactDetail -> ContactDetail -> GetDomainDetailResponse
+getDomainDetailResponse pStatus_ pDomainName_ pAdminContact_ pRegistrantContact_ pTechContact_ =
+    GetDomainDetailResponse'
+    { _gddrsTechPrivacy = Nothing
+    , _gddrsDNSSec = Nothing
+    , _gddrsWhoIsServer = Nothing
+    , _gddrsRegistryDomainId = Nothing
+    , _gddrsRegistrantPrivacy = Nothing
+    , _gddrsUpdatedDate = Nothing
+    , _gddrsAdminPrivacy = Nothing
+    , _gddrsAbuseContactEmail = Nothing
+    , _gddrsRegistrarURL = Nothing
+    , _gddrsAutoRenew = Nothing
+    , _gddrsAbuseContactPhone = Nothing
+    , _gddrsExpirationDate = Nothing
+    , _gddrsCreationDate = Nothing
+    , _gddrsRegistrarName = Nothing
+    , _gddrsStatusList = Nothing
+    , _gddrsReseller = Nothing
+    , _gddrsStatus = pStatus_
+    , _gddrsDomainName = pDomainName_
+    , _gddrsNameservers = mempty
+    , _gddrsAdminContact = _Sensitive # pAdminContact_
+    , _gddrsRegistrantContact = _Sensitive # pRegistrantContact_
+    , _gddrsTechContact = _Sensitive # pTechContact_
     }
 
--- | Email address to contact to report incorrect contact information for a
--- domain, to report that the domain is being used to send spam, to report that
--- someone is cybersquatting on a domain name, or report some other type of
--- abuse.
+-- | Specifies whether contact information for the tech contact is concealed
+-- from WHOIS queries. If the value is @true@, WHOIS (\"who is\") queries
+-- will return contact information for our registrar partner, Gandi,
+-- instead of the contact information that you enter.
+--
+-- Type: Boolean
+gddrsTechPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
+gddrsTechPrivacy = lens _gddrsTechPrivacy (\ s a -> s{_gddrsTechPrivacy = a});
+
+-- | Reserved for future use.
+gddrsDNSSec :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsDNSSec = lens _gddrsDNSSec (\ s a -> s{_gddrsDNSSec = a});
+
+-- | The fully qualified name of the WHOIS server that can answer the WHOIS
+-- query for the domain.
 --
 -- Type: String
-gddrAbuseContactEmail :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrAbuseContactEmail =
-    lens _gddrAbuseContactEmail (\s a -> s { _gddrAbuseContactEmail = a })
+gddrsWhoIsServer :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsWhoIsServer = lens _gddrsWhoIsServer (\ s a -> s{_gddrsWhoIsServer = a});
+
+-- | Reserved for future use.
+gddrsRegistryDomainId :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsRegistryDomainId = lens _gddrsRegistryDomainId (\ s a -> s{_gddrsRegistryDomainId = a});
+
+-- | Specifies whether contact information for the registrant contact is
+-- concealed from WHOIS queries. If the value is @true@, WHOIS (\"who is\")
+-- queries will return contact information for our registrar partner,
+-- Gandi, instead of the contact information that you enter.
+--
+-- Type: Boolean
+gddrsRegistrantPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
+gddrsRegistrantPrivacy = lens _gddrsRegistrantPrivacy (\ s a -> s{_gddrsRegistrantPrivacy = a});
+
+-- | The last updated date of the domain as found in the response to a WHOIS
+-- query. The date format is Unix time.
+gddrsUpdatedDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
+gddrsUpdatedDate = lens _gddrsUpdatedDate (\ s a -> s{_gddrsUpdatedDate = a}) . mapping _Time;
+
+-- | Specifies whether contact information for the admin contact is concealed
+-- from WHOIS queries. If the value is @true@, WHOIS (\"who is\") queries
+-- will return contact information for our registrar partner, Gandi,
+-- instead of the contact information that you enter.
+--
+-- Type: Boolean
+gddrsAdminPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
+gddrsAdminPrivacy = lens _gddrsAdminPrivacy (\ s a -> s{_gddrsAdminPrivacy = a});
+
+-- | Email address to contact to report incorrect contact information for a
+-- domain, to report that the domain is being used to send spam, to report
+-- that someone is cybersquatting on a domain name, or report some other
+-- type of abuse.
+--
+-- Type: String
+gddrsAbuseContactEmail :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsAbuseContactEmail = lens _gddrsAbuseContactEmail (\ s a -> s{_gddrsAbuseContactEmail = a});
+
+-- | Web address of the registrar.
+--
+-- Type: String
+gddrsRegistrarURL :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsRegistrarURL = lens _gddrsRegistrarURL (\ s a -> s{_gddrsRegistrarURL = a});
+
+-- | Specifies whether the domain registration is set to renew automatically.
+--
+-- Type: Boolean
+gddrsAutoRenew :: Lens' GetDomainDetailResponse (Maybe Bool)
+gddrsAutoRenew = lens _gddrsAutoRenew (\ s a -> s{_gddrsAutoRenew = a});
 
 -- | Phone number for reporting abuse.
 --
 -- Type: String
-gddrAbuseContactPhone :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrAbuseContactPhone =
-    lens _gddrAbuseContactPhone (\s a -> s { _gddrAbuseContactPhone = a })
+gddrsAbuseContactPhone :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsAbuseContactPhone = lens _gddrsAbuseContactPhone (\ s a -> s{_gddrsAbuseContactPhone = a});
+
+-- | The date when the registration for the domain is set to expire. The date
+-- format is Unix time.
+gddrsExpirationDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
+gddrsExpirationDate = lens _gddrsExpirationDate (\ s a -> s{_gddrsExpirationDate = a}) . mapping _Time;
+
+-- | The date when the domain was created as found in the response to a WHOIS
+-- query. The date format is Unix time.
+gddrsCreationDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
+gddrsCreationDate = lens _gddrsCreationDate (\ s a -> s{_gddrsCreationDate = a}) . mapping _Time;
+
+-- | Name of the registrar of the domain as identified in the registry.
+-- Amazon Route 53 domains are registered by registrar Gandi. The value is
+-- @\"GANDI SAS\"@.
+--
+-- Type: String
+gddrsRegistrarName :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsRegistrarName = lens _gddrsRegistrarName (\ s a -> s{_gddrsRegistrarName = a});
+
+-- | An array of domain name status codes, also known as Extensible
+-- Provisioning Protocol (EPP) status codes.
+--
+-- ICANN, the organization that maintains a central database of domain
+-- names, has developed a set of domain name status codes that tell you the
+-- status of a variety of operations on a domain name, for example,
+-- registering a domain name, transferring a domain name to another
+-- registrar, renewing the registration for a domain name, and so on. All
+-- registrars use this same set of status codes.
+--
+-- For a current list of domain name status codes and an explanation of
+-- what each code means, go to the <https://www.icann.org/ ICANN website>
+-- and search for @epp status codes@. (Search on the ICANN website; web
+-- searches sometimes return an old version of the document.)
+--
+-- Type: Array of String
+gddrsStatusList :: Lens' GetDomainDetailResponse [Text]
+gddrsStatusList = lens _gddrsStatusList (\ s a -> s{_gddrsStatusList = a}) . _Default;
+
+-- | Reseller of the domain. Domains registered or transferred using Amazon
+-- Route 53 domains will have @\"Amazon\"@ as the reseller.
+--
+-- Type: String
+gddrsReseller :: Lens' GetDomainDetailResponse (Maybe Text)
+gddrsReseller = lens _gddrsReseller (\ s a -> s{_gddrsReseller = a});
+
+-- | FIXME: Undocumented member.
+gddrsStatus :: Lens' GetDomainDetailResponse Int
+gddrsStatus = lens _gddrsStatus (\ s a -> s{_gddrsStatus = a});
+
+-- | The name of a domain.
+--
+-- Type: String
+gddrsDomainName :: Lens' GetDomainDetailResponse Text
+gddrsDomainName = lens _gddrsDomainName (\ s a -> s{_gddrsDomainName = a});
+
+-- | The name of the domain.
+--
+-- Type: String
+gddrsNameservers :: Lens' GetDomainDetailResponse [Nameserver]
+gddrsNameservers = lens _gddrsNameservers (\ s a -> s{_gddrsNameservers = a});
 
 -- | Provides details about the domain administrative contact.
 --
 -- Type: Complex
 --
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
-gddrAdminContact :: Lens' GetDomainDetailResponse ContactDetail
-gddrAdminContact = lens _gddrAdminContact (\s a -> s { _gddrAdminContact = a })
-
--- | Specifies whether contact information for the admin contact is concealed from
--- WHOIS queries. If the value is 'true', WHOIS ("who is") queries will return
--- contact information for our registrar partner, Gandi, instead of the contact
--- information that you enter.
---
--- Type: Boolean
-gddrAdminPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
-gddrAdminPrivacy = lens _gddrAdminPrivacy (\s a -> s { _gddrAdminPrivacy = a })
-
--- | Specifies whether the domain registration is set to renew automatically.
---
--- Type: Boolean
-gddrAutoRenew :: Lens' GetDomainDetailResponse (Maybe Bool)
-gddrAutoRenew = lens _gddrAutoRenew (\s a -> s { _gddrAutoRenew = a })
-
--- | The date when the domain was created as found in the response to a WHOIS
--- query. The date format is Unix time.
-gddrCreationDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
-gddrCreationDate = lens _gddrCreationDate (\s a -> s { _gddrCreationDate = a }) . mapping _Time
-
--- | Reserved for future use.
-gddrDnsSec :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrDnsSec = lens _gddrDnsSec (\s a -> s { _gddrDnsSec = a })
-
--- | The name of a domain.
---
--- Type: String
-gddrDomainName :: Lens' GetDomainDetailResponse Text
-gddrDomainName = lens _gddrDomainName (\s a -> s { _gddrDomainName = a })
-
--- | The date when the registration for the domain is set to expire. The date
--- format is Unix time.
-gddrExpirationDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
-gddrExpirationDate =
-    lens _gddrExpirationDate (\s a -> s { _gddrExpirationDate = a })
-        . mapping _Time
-
--- | The name of the domain.
---
--- Type: String
-gddrNameservers :: Lens' GetDomainDetailResponse [Nameserver]
-gddrNameservers = lens _gddrNameservers (\s a -> s { _gddrNameservers = a }) . _List
+-- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
+-- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
+-- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+gddrsAdminContact :: Lens' GetDomainDetailResponse ContactDetail
+gddrsAdminContact = lens _gddrsAdminContact (\ s a -> s{_gddrsAdminContact = a}) . _Sensitive;
 
 -- | Provides details about the domain registrant.
 --
 -- Type: Complex
 --
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
-gddrRegistrantContact :: Lens' GetDomainDetailResponse ContactDetail
-gddrRegistrantContact =
-    lens _gddrRegistrantContact (\s a -> s { _gddrRegistrantContact = a })
-
--- | Specifies whether contact information for the registrant contact is concealed
--- from WHOIS queries. If the value is 'true', WHOIS ("who is") queries will
--- return contact information for our registrar partner, Gandi, instead of the
--- contact information that you enter.
---
--- Type: Boolean
-gddrRegistrantPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
-gddrRegistrantPrivacy =
-    lens _gddrRegistrantPrivacy (\s a -> s { _gddrRegistrantPrivacy = a })
-
--- | Name of the registrar of the domain as identified in the registry. Amazon
--- Route 53 domains are registered by registrar Gandi. The value is '"GANDI SAS"'.
---
--- Type: String
-gddrRegistrarName :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrRegistrarName =
-    lens _gddrRegistrarName (\s a -> s { _gddrRegistrarName = a })
-
--- | Web address of the registrar.
---
--- Type: String
-gddrRegistrarUrl :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrRegistrarUrl = lens _gddrRegistrarUrl (\s a -> s { _gddrRegistrarUrl = a })
-
--- | Reserved for future use.
-gddrRegistryDomainId :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrRegistryDomainId =
-    lens _gddrRegistryDomainId (\s a -> s { _gddrRegistryDomainId = a })
-
--- | Reseller of the domain. Domains registered or transferred using Amazon Route
--- 53 domains will have '"Amazon"' as the reseller.
---
--- Type: String
-gddrReseller :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrReseller = lens _gddrReseller (\s a -> s { _gddrReseller = a })
-
--- | An array of domain name status codes, also known as Extensible Provisioning
--- Protocol (EPP) status codes.
---
--- ICANN, the organization that maintains a central database of domain names,
--- has developed a set of domain name status codes that tell you the status of a
--- variety of operations on a domain name, for example, registering a domain
--- name, transferring a domain name to another registrar, renewing the
--- registration for a domain name, and so on. All registrars use this same set
--- of status codes.
---
--- For a current list of domain name status codes and an explanation of what
--- each code means, go to the <https://www.icann.org/ ICANN website> and search for 'epp status codes'.
--- (Search on the ICANN website; web searches sometimes return an old version of
--- the document.)
---
--- Type: Array of String
-gddrStatusList :: Lens' GetDomainDetailResponse [Text]
-gddrStatusList = lens _gddrStatusList (\s a -> s { _gddrStatusList = a }) . _List
+-- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
+-- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
+-- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+gddrsRegistrantContact :: Lens' GetDomainDetailResponse ContactDetail
+gddrsRegistrantContact = lens _gddrsRegistrantContact (\ s a -> s{_gddrsRegistrantContact = a}) . _Sensitive;
 
 -- | Provides details about the domain technical contact.
 --
 -- Type: Complex
 --
--- Children: 'FirstName', 'MiddleName', 'LastName', 'ContactType', 'OrganizationName', 'AddressLine1', 'AddressLine2', 'City', 'State', 'CountryCode', 'ZipCode', 'PhoneNumber', 'Email', 'Fax', 'ExtraParams'
-gddrTechContact :: Lens' GetDomainDetailResponse ContactDetail
-gddrTechContact = lens _gddrTechContact (\s a -> s { _gddrTechContact = a })
-
--- | Specifies whether contact information for the tech contact is concealed from
--- WHOIS queries. If the value is 'true', WHOIS ("who is") queries will return
--- contact information for our registrar partner, Gandi, instead of the contact
--- information that you enter.
---
--- Type: Boolean
-gddrTechPrivacy :: Lens' GetDomainDetailResponse (Maybe Bool)
-gddrTechPrivacy = lens _gddrTechPrivacy (\s a -> s { _gddrTechPrivacy = a })
-
--- | The last updated date of the domain as found in the response to a WHOIS
--- query. The date format is Unix time.
-gddrUpdatedDate :: Lens' GetDomainDetailResponse (Maybe UTCTime)
-gddrUpdatedDate = lens _gddrUpdatedDate (\s a -> s { _gddrUpdatedDate = a }) . mapping _Time
-
--- | The fully qualified name of the WHOIS server that can answer the WHOIS query
--- for the domain.
---
--- Type: String
-gddrWhoIsServer :: Lens' GetDomainDetailResponse (Maybe Text)
-gddrWhoIsServer = lens _gddrWhoIsServer (\s a -> s { _gddrWhoIsServer = a })
-
-instance ToPath GetDomainDetail where
-    toPath = const "/"
-
-instance ToQuery GetDomainDetail where
-    toQuery = const mempty
-
-instance ToHeaders GetDomainDetail
-
-instance ToJSON GetDomainDetail where
-    toJSON GetDomainDetail{..} = object
-        [ "DomainName" .= _gddDomainName
-        ]
-
-instance AWSRequest GetDomainDetail where
-    type Sv GetDomainDetail = Route53Domains
-    type Rs GetDomainDetail = GetDomainDetailResponse
-
-    request  = post "GetDomainDetail"
-    response = jsonResponse
-
-instance FromJSON GetDomainDetailResponse where
-    parseJSON = withObject "GetDomainDetailResponse" $ \o -> GetDomainDetailResponse
-        <$> o .:? "AbuseContactEmail"
-        <*> o .:? "AbuseContactPhone"
-        <*> o .:  "AdminContact"
-        <*> o .:? "AdminPrivacy"
-        <*> o .:? "AutoRenew"
-        <*> o .:? "CreationDate"
-        <*> o .:? "DnsSec"
-        <*> o .:  "DomainName"
-        <*> o .:? "ExpirationDate"
-        <*> o .:? "Nameservers" .!= mempty
-        <*> o .:  "RegistrantContact"
-        <*> o .:? "RegistrantPrivacy"
-        <*> o .:? "RegistrarName"
-        <*> o .:? "RegistrarUrl"
-        <*> o .:? "RegistryDomainId"
-        <*> o .:? "Reseller"
-        <*> o .:? "StatusList" .!= mempty
-        <*> o .:  "TechContact"
-        <*> o .:? "TechPrivacy"
-        <*> o .:? "UpdatedDate"
-        <*> o .:? "WhoIsServer"
+-- Children: @FirstName@, @MiddleName@, @LastName@, @ContactType@,
+-- @OrganizationName@, @AddressLine1@, @AddressLine2@, @City@, @State@,
+-- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
+gddrsTechContact :: Lens' GetDomainDetailResponse ContactDetail
+gddrsTechContact = lens _gddrsTechContact (\ s a -> s{_gddrsTechContact = a}) . _Sensitive;

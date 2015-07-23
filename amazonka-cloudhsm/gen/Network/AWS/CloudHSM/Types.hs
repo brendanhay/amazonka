@@ -1,219 +1,87 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
-{-# LANGUAGE ViewPatterns                #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+-- |
 -- Module      : Network.AWS.CloudHSM.Types
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 module Network.AWS.CloudHSM.Types
     (
     -- * Service
       CloudHSM
-    -- ** Error
-    , JSONError
 
-    -- * CloudHsmObjectState
-    , CloudHsmObjectState (..)
-
-    -- * SubscriptionType
-    , SubscriptionType (..)
-
-    -- * HsmStatus
-    , HsmStatus (..)
+    -- * Errors
+    , _InvalidRequestException
+    , _CloudHSMServiceException
+    , _CloudHSMInternalException
 
     -- * ClientVersion
     , ClientVersion (..)
+
+    -- * CloudHSMObjectState
+    , CloudHSMObjectState (..)
+
+    -- * HSMStatus
+    , HSMStatus (..)
+
+    -- * SubscriptionType
+    , SubscriptionType (..)
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Signing
-import qualified GHC.Exts
+import           Network.AWS.CloudHSM.Types.Product
+import           Network.AWS.CloudHSM.Types.Sum
+import           Network.AWS.Prelude
+import           Network.AWS.Sign.V4
 
--- | Version @2014-05-30@ of the Amazon CloudHSM service.
+-- | Version @2014-05-30@ of the Amazon CloudHSM SDK.
 data CloudHSM
 
 instance AWSService CloudHSM where
     type Sg CloudHSM = V4
-    type Er CloudHSM = JSONError
-
-    service = service'
+    service = const svc
       where
-        service' :: Service CloudHSM
-        service' = Service
-            { _svcAbbrev       = "CloudHSM"
-            , _svcPrefix       = "cloudhsm"
-            , _svcVersion      = "2014-05-30"
-            , _svcTargetPrefix = Just "CloudHsmFrontendService"
-            , _svcJSONVersion  = Just "1.1"
-            , _svcHandle       = handle
-            , _svcRetry        = retry
+        svc =
+            Service
+            { _svcAbbrev = "CloudHSM"
+            , _svcPrefix = "cloudhsm"
+            , _svcVersion = "2014-05-30"
+            , _svcEndpoint = defaultEndpoint svc
+            , _svcTimeout = Just 70000000
+            , _svcStatus = statusSuccess
+            , _svcError = parseJSONError
+            , _svcRetry = retry
             }
-
-        handle :: Status
-               -> Maybe (LazyByteString -> ServiceError JSONError)
-        handle = jsonError statusSuccess service'
-
-        retry :: Retry CloudHSM
-        retry = Exponential
-            { _retryBase     = 0.05
-            , _retryGrowth   = 2
+        retry =
+            Exponential
+            { _retryBase = 5.0e-2
+            , _retryGrowth = 2
             , _retryAttempts = 5
-            , _retryCheck    = check
+            , _retryCheck = check
             }
+        check e
+          | has (hasCode "ThrottlingException" . hasStatus 400) e =
+              Just "throttling_exception"
+          | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
+          | has (hasStatus 503) e = Just "service_unavailable"
+          | has (hasStatus 500) e = Just "general_server_error"
+          | has (hasStatus 509) e = Just "limit_exceeded"
+          | otherwise = Nothing
 
-        check :: Status
-              -> JSONError
-              -> Bool
-        check (statusCode -> s) (awsErrorCode -> e)
-            | s == 500  = True -- General Server Error
-            | s == 509  = True -- Limit Exceeded
-            | s == 503  = True -- Service Unavailable
-            | otherwise = False
+-- | Indicates that one or more of the request parameters are not valid.
+_InvalidRequestException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidRequestException = _ServiceError . hasCode "InvalidRequestException"
 
-data CloudHsmObjectState
-    = Degraded -- ^ DEGRADED
-    | Ready    -- ^ READY
-    | Updating -- ^ UPDATING
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
+-- | Indicates that an exception occurred in the AWS CloudHSM service.
+_CloudHSMServiceException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CloudHSMServiceException = _ServiceError . hasCode "CloudHsmServiceException"
 
-instance Hashable CloudHsmObjectState
-
-instance FromText CloudHsmObjectState where
-    parser = takeLowerText >>= \case
-        "degraded" -> pure Degraded
-        "ready"    -> pure Ready
-        "updating" -> pure Updating
-        e          -> fail $
-            "Failure parsing CloudHsmObjectState from " ++ show e
-
-instance ToText CloudHsmObjectState where
-    toText = \case
-        Degraded -> "DEGRADED"
-        Ready    -> "READY"
-        Updating -> "UPDATING"
-
-instance ToByteString CloudHsmObjectState
-instance ToHeader     CloudHsmObjectState
-instance ToQuery      CloudHsmObjectState
-
-instance FromJSON CloudHsmObjectState where
-    parseJSON = parseJSONText "CloudHsmObjectState"
-
-instance ToJSON CloudHsmObjectState where
-    toJSON = toJSONText
-
-data SubscriptionType
-    = Production -- ^ PRODUCTION
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable SubscriptionType
-
-instance FromText SubscriptionType where
-    parser = takeLowerText >>= \case
-        "production" -> pure Production
-        e            -> fail $
-            "Failure parsing SubscriptionType from " ++ show e
-
-instance ToText SubscriptionType where
-    toText Production = "PRODUCTION"
-
-instance ToByteString SubscriptionType
-instance ToHeader     SubscriptionType
-instance ToQuery      SubscriptionType
-
-instance FromJSON SubscriptionType where
-    parseJSON = parseJSONText "SubscriptionType"
-
-instance ToJSON SubscriptionType where
-    toJSON = toJSONText
-
-data HsmStatus
-    = HSDegraded    -- ^ DEGRADED
-    | HSPending     -- ^ PENDING
-    | HSRunning     -- ^ RUNNING
-    | HSSuspended   -- ^ SUSPENDED
-    | HSTerminated  -- ^ TERMINATED
-    | HSTerminating -- ^ TERMINATING
-    | HSUpdating    -- ^ UPDATING
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable HsmStatus
-
-instance FromText HsmStatus where
-    parser = takeLowerText >>= \case
-        "degraded"    -> pure HSDegraded
-        "pending"     -> pure HSPending
-        "running"     -> pure HSRunning
-        "suspended"   -> pure HSSuspended
-        "terminated"  -> pure HSTerminated
-        "terminating" -> pure HSTerminating
-        "updating"    -> pure HSUpdating
-        e             -> fail $
-            "Failure parsing HsmStatus from " ++ show e
-
-instance ToText HsmStatus where
-    toText = \case
-        HSDegraded    -> "DEGRADED"
-        HSPending     -> "PENDING"
-        HSRunning     -> "RUNNING"
-        HSSuspended   -> "SUSPENDED"
-        HSTerminated  -> "TERMINATED"
-        HSTerminating -> "TERMINATING"
-        HSUpdating    -> "UPDATING"
-
-instance ToByteString HsmStatus
-instance ToHeader     HsmStatus
-instance ToQuery      HsmStatus
-
-instance FromJSON HsmStatus where
-    parseJSON = parseJSONText "HsmStatus"
-
-instance ToJSON HsmStatus where
-    toJSON = toJSONText
-
-data ClientVersion
-    = V51 -- ^ 5.1
-    | V53 -- ^ 5.3
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable ClientVersion
-
-instance FromText ClientVersion where
-    parser = takeLowerText >>= \case
-        "5.1" -> pure V51
-        "5.3" -> pure V53
-        e     -> fail $
-            "Failure parsing ClientVersion from " ++ show e
-
-instance ToText ClientVersion where
-    toText = \case
-        V51 -> "5.1"
-        V53 -> "5.3"
-
-instance ToByteString ClientVersion
-instance ToHeader     ClientVersion
-instance ToQuery      ClientVersion
-
-instance FromJSON ClientVersion where
-    parseJSON = parseJSONText "ClientVersion"
-
-instance ToJSON ClientVersion where
-    toJSON = toJSONText
+-- | Indicates that an internal error occurred.
+_CloudHSMInternalException :: AWSError a => Getting (First ServiceError) a ServiceError
+_CloudHSMInternalException =
+    _ServiceError . hasCode "CloudHsmInternalException"

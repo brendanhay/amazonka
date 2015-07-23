@@ -1,32 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.DescribeUserProfiles
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describe specified users.
+-- Describe specified users.
 --
--- Required Permissions: To use this action, an IAM user must have an attached
--- policy that explicitly grants permissions. For more information on user
--- permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have an
+-- attached policy that explicitly grants permissions. For more information
+-- on user permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeUserProfiles.html>
 module Network.AWS.OpsWorks.DescribeUserProfiles
@@ -36,92 +32,100 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     -- ** Request constructor
     , describeUserProfiles
     -- ** Request lenses
-    , dupIamUserArns
+    , duprqIAMUserARNs
 
     -- * Response
     , DescribeUserProfilesResponse
     -- ** Response constructor
     , describeUserProfilesResponse
     -- ** Response lenses
-    , duprUserProfiles
+    , duprsUserProfiles
+    , duprsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeUserProfiles = DescribeUserProfiles
-    { _dupIamUserArns :: List "IamUserArns" Text
-    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList DescribeUserProfiles where
-    type Item DescribeUserProfiles = Text
-
-    fromList = DescribeUserProfiles . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _dupIamUserArns
-
--- | 'DescribeUserProfiles' constructor.
+-- | /See:/ 'describeUserProfiles' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dupIamUserArns' @::@ ['Text']
---
+-- * 'duprqIAMUserARNs'
+newtype DescribeUserProfiles = DescribeUserProfiles'
+    { _duprqIAMUserARNs :: Maybe [Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeUserProfiles' smart constructor.
 describeUserProfiles :: DescribeUserProfiles
-describeUserProfiles = DescribeUserProfiles
-    { _dupIamUserArns = mempty
+describeUserProfiles =
+    DescribeUserProfiles'
+    { _duprqIAMUserARNs = Nothing
     }
 
 -- | An array of IAM user ARNs that identify the users to be described.
-dupIamUserArns :: Lens' DescribeUserProfiles [Text]
-dupIamUserArns = lens _dupIamUserArns (\s a -> s { _dupIamUserArns = a }) . _List
+duprqIAMUserARNs :: Lens' DescribeUserProfiles [Text]
+duprqIAMUserARNs = lens _duprqIAMUserARNs (\ s a -> s{_duprqIAMUserARNs = a}) . _Default;
 
-newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse
-    { _duprUserProfiles :: List "UserProfiles" UserProfile
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+instance AWSRequest DescribeUserProfiles where
+        type Sv DescribeUserProfiles = OpsWorks
+        type Rs DescribeUserProfiles =
+             DescribeUserProfilesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeUserProfilesResponse' <$>
+                   (x .?> "UserProfiles" .!@ mempty) <*>
+                     (pure (fromEnum s)))
 
-instance GHC.Exts.IsList DescribeUserProfilesResponse where
-    type Item DescribeUserProfilesResponse = UserProfile
+instance ToHeaders DescribeUserProfiles where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DescribeUserProfiles" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-    fromList = DescribeUserProfilesResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _duprUserProfiles
+instance ToJSON DescribeUserProfiles where
+        toJSON DescribeUserProfiles'{..}
+          = object ["IamUserArns" .= _duprqIAMUserARNs]
 
--- | 'DescribeUserProfilesResponse' constructor.
+instance ToPath DescribeUserProfiles where
+        toPath = const "/"
+
+instance ToQuery DescribeUserProfiles where
+        toQuery = const mempty
+
+-- | Contains the response to a @DescribeUserProfiles@ request.
+--
+-- /See:/ 'describeUserProfilesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'duprUserProfiles' @::@ ['UserProfile']
+-- * 'duprsUserProfiles'
 --
-describeUserProfilesResponse :: DescribeUserProfilesResponse
-describeUserProfilesResponse = DescribeUserProfilesResponse
-    { _duprUserProfiles = mempty
+-- * 'duprsStatus'
+data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
+    { _duprsUserProfiles :: !(Maybe [UserProfile])
+    , _duprsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeUserProfilesResponse' smart constructor.
+describeUserProfilesResponse :: Int -> DescribeUserProfilesResponse
+describeUserProfilesResponse pStatus_ =
+    DescribeUserProfilesResponse'
+    { _duprsUserProfiles = Nothing
+    , _duprsStatus = pStatus_
     }
 
--- | A 'Users' object that describes the specified users.
-duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
-duprUserProfiles = lens _duprUserProfiles (\s a -> s { _duprUserProfiles = a }) . _List
+-- | A @Users@ object that describes the specified users.
+duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
+duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default;
 
-instance ToPath DescribeUserProfiles where
-    toPath = const "/"
-
-instance ToQuery DescribeUserProfiles where
-    toQuery = const mempty
-
-instance ToHeaders DescribeUserProfiles
-
-instance ToJSON DescribeUserProfiles where
-    toJSON DescribeUserProfiles{..} = object
-        [ "IamUserArns" .= _dupIamUserArns
-        ]
-
-instance AWSRequest DescribeUserProfiles where
-    type Sv DescribeUserProfiles = OpsWorks
-    type Rs DescribeUserProfiles = DescribeUserProfilesResponse
-
-    request  = post "DescribeUserProfiles"
-    response = jsonResponse
-
-instance FromJSON DescribeUserProfilesResponse where
-    parseJSON = withObject "DescribeUserProfilesResponse" $ \o -> DescribeUserProfilesResponse
-        <$> o .:? "UserProfiles" .!= mempty
+-- | FIXME: Undocumented member.
+duprsStatus :: Lens' DescribeUserProfilesResponse Int
+duprsStatus = lens _duprsStatus (\ s a -> s{_duprsStatus = a});

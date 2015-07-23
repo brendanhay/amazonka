@@ -1,39 +1,39 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SQS.ChangeMessageVisibilityBatch
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Changes the visibility timeout of multiple messages. This is a batch version
--- of 'ChangeMessageVisibility'. The result of the action on each message is
--- reported individually in the response. You can send up to 10 'ChangeMessageVisibility' requests with each 'ChangeMessageVisibilityBatch' action.
+-- Changes the visibility timeout of multiple messages. This is a batch
+-- version of ChangeMessageVisibility. The result of the action on each
+-- message is reported individually in the response. You can send up to 10
+-- ChangeMessageVisibility requests with each
+-- @ChangeMessageVisibilityBatch@ action.
 --
 -- Because the batch request can result in a combination of successful and
--- unsuccessful actions, you should check for batch errors even when the call
--- returns an HTTP status code of 200. Some API actions take lists of
--- parameters. These lists are specified using the 'param.n' notation. Values of 'n'
--- are integers starting from 1. For example, a parameter list with two elements
--- looks like this:  '&Attribute.1=this'
+-- unsuccessful actions, you should check for batch errors even when the
+-- call returns an HTTP status code of 200.
 --
--- '&Attribute.2=that'
+-- Some API actions take lists of parameters. These lists are specified
+-- using the @param.n@ notation. Values of @n@ are integers starting from
+-- 1. For example, a parameter list with two elements looks like this:
+--
+-- @&Attribute.1=this@
+--
+-- @&Attribute.2=that@
 --
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html>
 module Network.AWS.SQS.ChangeMessageVisibilityBatch
@@ -43,98 +43,123 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     -- ** Request constructor
     , changeMessageVisibilityBatch
     -- ** Request lenses
-    , cmvbEntries
-    , cmvbQueueUrl
+    , cmvbrqQueueURL
+    , cmvbrqEntries
 
     -- * Response
     , ChangeMessageVisibilityBatchResponse
     -- ** Response constructor
     , changeMessageVisibilityBatchResponse
     -- ** Response lenses
-    , cmvbrFailed
-    , cmvbrSuccessful
+    , cmvbrsStatus
+    , cmvbrsSuccessful
+    , cmvbrsFailed
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SQS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SQS.Types
 
-data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
-    { _cmvbEntries  :: List "member" ChangeMessageVisibilityBatchRequestEntry
-    , _cmvbQueueUrl :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'ChangeMessageVisibilityBatch' constructor.
+-- | /See:/ 'changeMessageVisibilityBatch' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmvbEntries' @::@ ['ChangeMessageVisibilityBatchRequestEntry']
+-- * 'cmvbrqQueueURL'
 --
--- * 'cmvbQueueUrl' @::@ 'Text'
---
-changeMessageVisibilityBatch :: Text -- ^ 'cmvbQueueUrl'
-                             -> ChangeMessageVisibilityBatch
-changeMessageVisibilityBatch p1 = ChangeMessageVisibilityBatch
-    { _cmvbQueueUrl = p1
-    , _cmvbEntries  = mempty
-    }
+-- * 'cmvbrqEntries'
+data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
+    { _cmvbrqQueueURL :: !Text
+    , _cmvbrqEntries  :: ![ChangeMessageVisibilityBatchRequestEntry]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | A list of receipt handles of the messages for which the visibility timeout
--- must be changed.
-cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
-cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a }) . _List
+-- | 'ChangeMessageVisibilityBatch' smart constructor.
+changeMessageVisibilityBatch :: Text -> ChangeMessageVisibilityBatch
+changeMessageVisibilityBatch pQueueURL_ =
+    ChangeMessageVisibilityBatch'
+    { _cmvbrqQueueURL = pQueueURL_
+    , _cmvbrqEntries = mempty
+    }
 
 -- | The URL of the Amazon SQS queue to take action on.
-cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
-cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
+cmvbrqQueueURL :: Lens' ChangeMessageVisibilityBatch Text
+cmvbrqQueueURL = lens _cmvbrqQueueURL (\ s a -> s{_cmvbrqQueueURL = a});
 
-data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
-    { _cmvbrFailed     :: List "member" BatchResultErrorEntry
-    , _cmvbrSuccessful :: List "member" ChangeMessageVisibilityBatchResultEntry
-    } deriving (Eq, Read, Show)
+-- | A list of receipt handles of the messages for which the visibility
+-- timeout must be changed.
+cmvbrqEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
+cmvbrqEntries = lens _cmvbrqEntries (\ s a -> s{_cmvbrqEntries = a});
 
--- | 'ChangeMessageVisibilityBatchResponse' constructor.
+instance AWSRequest ChangeMessageVisibilityBatch
+         where
+        type Sv ChangeMessageVisibilityBatch = SQS
+        type Rs ChangeMessageVisibilityBatch =
+             ChangeMessageVisibilityBatchResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "ChangeMessageVisibilityBatchResult"
+              (\ s h x ->
+                 ChangeMessageVisibilityBatchResponse' <$>
+                   (pure (fromEnum s)) <*>
+                     (parseXMLList
+                        "ChangeMessageVisibilityBatchResultEntry"
+                        x)
+                     <*> (parseXMLList "BatchResultErrorEntry" x))
+
+instance ToHeaders ChangeMessageVisibilityBatch where
+        toHeaders = const mempty
+
+instance ToPath ChangeMessageVisibilityBatch where
+        toPath = const "/"
+
+instance ToQuery ChangeMessageVisibilityBatch where
+        toQuery ChangeMessageVisibilityBatch'{..}
+          = mconcat
+              ["Action" =:
+                 ("ChangeMessageVisibilityBatch" :: ByteString),
+               "Version" =: ("2012-11-05" :: ByteString),
+               "QueueUrl" =: _cmvbrqQueueURL,
+               toQueryList
+                 "ChangeMessageVisibilityBatchRequestEntry"
+                 _cmvbrqEntries]
+
+-- | For each message in the batch, the response contains a
+-- ChangeMessageVisibilityBatchResultEntry tag if the message succeeds or a
+-- BatchResultErrorEntry tag if the message fails.
+--
+-- /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmvbrFailed' @::@ ['BatchResultErrorEntry']
+-- * 'cmvbrsStatus'
 --
--- * 'cmvbrSuccessful' @::@ ['ChangeMessageVisibilityBatchResultEntry']
+-- * 'cmvbrsSuccessful'
 --
-changeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse
-changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
-    { _cmvbrSuccessful = mempty
-    , _cmvbrFailed     = mempty
+-- * 'cmvbrsFailed'
+data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'
+    { _cmvbrsStatus     :: !Int
+    , _cmvbrsSuccessful :: ![ChangeMessageVisibilityBatchResultEntry]
+    , _cmvbrsFailed     :: ![BatchResultErrorEntry]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
+changeMessageVisibilityBatchResponse :: Int -> ChangeMessageVisibilityBatchResponse
+changeMessageVisibilityBatchResponse pStatus_ =
+    ChangeMessageVisibilityBatchResponse'
+    { _cmvbrsStatus = pStatus_
+    , _cmvbrsSuccessful = mempty
+    , _cmvbrsFailed = mempty
     }
 
--- | A list of 'BatchResultErrorEntry' items.
-cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
-cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a }) . _List
+-- | FIXME: Undocumented member.
+cmvbrsStatus :: Lens' ChangeMessageVisibilityBatchResponse Int
+cmvbrsStatus = lens _cmvbrsStatus (\ s a -> s{_cmvbrsStatus = a});
 
--- | A list of 'ChangeMessageVisibilityBatchResultEntry' items.
-cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
-cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a }) . _List
+-- | A list of ChangeMessageVisibilityBatchResultEntry items.
+cmvbrsSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
+cmvbrsSuccessful = lens _cmvbrsSuccessful (\ s a -> s{_cmvbrsSuccessful = a});
 
-instance ToPath ChangeMessageVisibilityBatch where
-    toPath = const "/"
-
-instance ToQuery ChangeMessageVisibilityBatch where
-    toQuery ChangeMessageVisibilityBatch{..} = mconcat
-        [ toQuery   _cmvbEntries
-        , "QueueUrl" =? _cmvbQueueUrl
-        ]
-
-instance ToHeaders ChangeMessageVisibilityBatch
-
-instance AWSRequest ChangeMessageVisibilityBatch where
-    type Sv ChangeMessageVisibilityBatch = SQS
-    type Rs ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatchResponse
-
-    request  = post "ChangeMessageVisibilityBatch"
-    response = xmlResponse
-
-instance FromXML ChangeMessageVisibilityBatchResponse where
-    parseXML = withElement "ChangeMessageVisibilityBatchResult" $ \x -> ChangeMessageVisibilityBatchResponse
-        <$> parseXML x
-        <*> parseXML x
+-- | A list of BatchResultErrorEntry items.
+cmvbrsFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
+cmvbrsFailed = lens _cmvbrsFailed (\ s a -> s{_cmvbrsFailed = a});

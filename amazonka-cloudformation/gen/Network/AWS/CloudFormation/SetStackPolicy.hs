@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFormation.SetStackPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Sets a stack policy for a specified stack.
+-- Sets a stack policy for a specified stack.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html>
 module Network.AWS.CloudFormation.SetStackPolicy
@@ -32,9 +27,9 @@ module Network.AWS.CloudFormation.SetStackPolicy
     -- ** Request constructor
     , setStackPolicy
     -- ** Request lenses
-    , sspStackName
-    , sspStackPolicyBody
-    , sspStackPolicyURL
+    , ssprqStackPolicyBody
+    , ssprqStackPolicyURL
+    , ssprqStackName
 
     -- * Response
     , SetStackPolicyResponse
@@ -42,76 +37,81 @@ module Network.AWS.CloudFormation.SetStackPolicy
     , setStackPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SetStackPolicy = SetStackPolicy
-    { _sspStackName       :: Text
-    , _sspStackPolicyBody :: Maybe Text
-    , _sspStackPolicyURL  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'SetStackPolicy' constructor.
+-- | The input for the SetStackPolicy action.
+--
+-- /See:/ 'setStackPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sspStackName' @::@ 'Text'
+-- * 'ssprqStackPolicyBody'
 --
--- * 'sspStackPolicyBody' @::@ 'Maybe' 'Text'
+-- * 'ssprqStackPolicyURL'
 --
--- * 'sspStackPolicyURL' @::@ 'Maybe' 'Text'
---
-setStackPolicy :: Text -- ^ 'sspStackName'
-               -> SetStackPolicy
-setStackPolicy p1 = SetStackPolicy
-    { _sspStackName       = p1
-    , _sspStackPolicyBody = Nothing
-    , _sspStackPolicyURL  = Nothing
+-- * 'ssprqStackName'
+data SetStackPolicy = SetStackPolicy'
+    { _ssprqStackPolicyBody :: !(Maybe Text)
+    , _ssprqStackPolicyURL  :: !(Maybe Text)
+    , _ssprqStackName       :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetStackPolicy' smart constructor.
+setStackPolicy :: Text -> SetStackPolicy
+setStackPolicy pStackName_ =
+    SetStackPolicy'
+    { _ssprqStackPolicyBody = Nothing
+    , _ssprqStackPolicyURL = Nothing
+    , _ssprqStackName = pStackName_
     }
 
--- | The name or unique stack ID that you want to associate a policy with.
-sspStackName :: Lens' SetStackPolicy Text
-sspStackName = lens _sspStackName (\s a -> s { _sspStackName = a })
-
--- | Structure containing the stack policy body. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide. You
--- can specify either the 'StackPolicyBody' or the 'StackPolicyURL' parameter, but
--- not both.
-sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
-sspStackPolicyBody =
-    lens _sspStackPolicyBody (\s a -> s { _sspStackPolicyBody = a })
+-- | Structure containing the stack policy body. For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
+-- in the AWS CloudFormation User Guide. You can specify either the
+-- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+ssprqStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
+ssprqStackPolicyBody = lens _ssprqStackPolicyBody (\ s a -> s{_ssprqStackPolicyBody = a});
 
 -- | Location of a file containing the stack policy. The URL must point to a
--- policy (max size: 16KB) located in an S3 bucket in the same region as the
--- stack. You can specify either the 'StackPolicyBody' or the 'StackPolicyURL'
--- parameter, but not both.
-sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
-sspStackPolicyURL =
-    lens _sspStackPolicyURL (\s a -> s { _sspStackPolicyURL = a })
+-- policy (max size: 16KB) located in an S3 bucket in the same region as
+-- the stack. You can specify either the @StackPolicyBody@ or the
+-- @StackPolicyURL@ parameter, but not both.
+ssprqStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
+ssprqStackPolicyURL = lens _ssprqStackPolicyURL (\ s a -> s{_ssprqStackPolicyURL = a});
 
-data SetStackPolicyResponse = SetStackPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'SetStackPolicyResponse' constructor.
-setStackPolicyResponse :: SetStackPolicyResponse
-setStackPolicyResponse = SetStackPolicyResponse
-
-instance ToPath SetStackPolicy where
-    toPath = const "/"
-
-instance ToQuery SetStackPolicy where
-    toQuery SetStackPolicy{..} = mconcat
-        [ "StackName"       =? _sspStackName
-        , "StackPolicyBody" =? _sspStackPolicyBody
-        , "StackPolicyURL"  =? _sspStackPolicyURL
-        ]
-
-instance ToHeaders SetStackPolicy
+-- | The name or unique stack ID that you want to associate a policy with.
+ssprqStackName :: Lens' SetStackPolicy Text
+ssprqStackName = lens _ssprqStackName (\ s a -> s{_ssprqStackName = a});
 
 instance AWSRequest SetStackPolicy where
-    type Sv SetStackPolicy = CloudFormation
-    type Rs SetStackPolicy = SetStackPolicyResponse
+        type Sv SetStackPolicy = CloudFormation
+        type Rs SetStackPolicy = SetStackPolicyResponse
+        request = post
+        response = receiveNull SetStackPolicyResponse'
 
-    request  = post "SetStackPolicy"
-    response = nullResponse SetStackPolicyResponse
+instance ToHeaders SetStackPolicy where
+        toHeaders = const mempty
+
+instance ToPath SetStackPolicy where
+        toPath = const "/"
+
+instance ToQuery SetStackPolicy where
+        toQuery SetStackPolicy'{..}
+          = mconcat
+              ["Action" =: ("SetStackPolicy" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "StackPolicyBody" =: _ssprqStackPolicyBody,
+               "StackPolicyURL" =: _ssprqStackPolicyURL,
+               "StackName" =: _ssprqStackName]
+
+-- | /See:/ 'setStackPolicyResponse' smart constructor.
+data SetStackPolicyResponse =
+    SetStackPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SetStackPolicyResponse' smart constructor.
+setStackPolicyResponse :: SetStackPolicyResponse
+setStackPolicyResponse = SetStackPolicyResponse'

@@ -1,31 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EMR.ModifyInstanceGroups
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | ModifyInstanceGroups modifies the number of nodes and configuration settings
--- of an instance group. The input parameters include the new target instance
--- count for the group and the instance group ID. The call will either succeed
--- or fail atomically.
+-- ModifyInstanceGroups modifies the number of nodes and configuration
+-- settings of an instance group. The input parameters include the new
+-- target instance count for the group and the instance group ID. The call
+-- will either succeed or fail atomically.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ModifyInstanceGroups.html>
 module Network.AWS.EMR.ModifyInstanceGroups
@@ -35,7 +30,7 @@ module Network.AWS.EMR.ModifyInstanceGroups
     -- ** Request constructor
     , modifyInstanceGroups
     -- ** Request lenses
-    , migInstanceGroups
+    , migrqInstanceGroups
 
     -- * Response
     , ModifyInstanceGroupsResponse
@@ -43,62 +38,65 @@ module Network.AWS.EMR.ModifyInstanceGroups
     , modifyInstanceGroupsResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.Types
-import qualified GHC.Exts
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype ModifyInstanceGroups = ModifyInstanceGroups
-    { _migInstanceGroups :: List "InstanceGroups" InstanceGroupModifyConfig
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList ModifyInstanceGroups where
-    type Item ModifyInstanceGroups = InstanceGroupModifyConfig
-
-    fromList = ModifyInstanceGroups . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _migInstanceGroups
-
--- | 'ModifyInstanceGroups' constructor.
+-- | Change the size of some instance groups.
+--
+-- /See:/ 'modifyInstanceGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'migInstanceGroups' @::@ ['InstanceGroupModifyConfig']
---
+-- * 'migrqInstanceGroups'
+newtype ModifyInstanceGroups = ModifyInstanceGroups'
+    { _migrqInstanceGroups :: Maybe [InstanceGroupModifyConfig]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifyInstanceGroups' smart constructor.
 modifyInstanceGroups :: ModifyInstanceGroups
-modifyInstanceGroups = ModifyInstanceGroups
-    { _migInstanceGroups = mempty
+modifyInstanceGroups =
+    ModifyInstanceGroups'
+    { _migrqInstanceGroups = Nothing
     }
 
 -- | Instance groups to change.
-migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
-migInstanceGroups =
-    lens _migInstanceGroups (\s a -> s { _migInstanceGroups = a })
-        . _List
-
-data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ModifyInstanceGroupsResponse' constructor.
-modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
-modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse
-
-instance ToPath ModifyInstanceGroups where
-    toPath = const "/"
-
-instance ToQuery ModifyInstanceGroups where
-    toQuery = const mempty
-
-instance ToHeaders ModifyInstanceGroups
-
-instance ToJSON ModifyInstanceGroups where
-    toJSON ModifyInstanceGroups{..} = object
-        [ "InstanceGroups" .= _migInstanceGroups
-        ]
+migrqInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
+migrqInstanceGroups = lens _migrqInstanceGroups (\ s a -> s{_migrqInstanceGroups = a}) . _Default;
 
 instance AWSRequest ModifyInstanceGroups where
-    type Sv ModifyInstanceGroups = EMR
-    type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse
+        type Sv ModifyInstanceGroups = EMR
+        type Rs ModifyInstanceGroups =
+             ModifyInstanceGroupsResponse
+        request = postJSON
+        response = receiveNull ModifyInstanceGroupsResponse'
 
-    request  = post "ModifyInstanceGroups"
-    response = nullResponse ModifyInstanceGroupsResponse
+instance ToHeaders ModifyInstanceGroups where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.ModifyInstanceGroups" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ModifyInstanceGroups where
+        toJSON ModifyInstanceGroups'{..}
+          = object ["InstanceGroups" .= _migrqInstanceGroups]
+
+instance ToPath ModifyInstanceGroups where
+        toPath = const "/"
+
+instance ToQuery ModifyInstanceGroups where
+        toQuery = const mempty
+
+-- | /See:/ 'modifyInstanceGroupsResponse' smart constructor.
+data ModifyInstanceGroupsResponse =
+    ModifyInstanceGroupsResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ModifyInstanceGroupsResponse' smart constructor.
+modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse
+modifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'

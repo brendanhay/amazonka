@@ -1,29 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CognitoIdentity.GetId
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will create
--- an implicit linked account.
+-- Generates (or retrieves) a Cognito ID. Supplying multiple logins will
+-- create an implicit linked account.
+--
+-- token+\";\"+tokenSecret.
+--
+-- This is a public API. You do not need any credentials to call this API.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetId.html>
 module Network.AWS.CognitoIdentity.GetId
@@ -33,103 +32,129 @@ module Network.AWS.CognitoIdentity.GetId
     -- ** Request constructor
     , getId
     -- ** Request lenses
-    , giAccountId
-    , giIdentityPoolId
-    , giLogins
+    , girqAccountId
+    , girqLogins
+    , girqIdentityPoolId
 
     -- * Response
     , GetIdResponse
     -- ** Response constructor
     , getIdResponse
     -- ** Response lenses
-    , girIdentityId
+    , girsIdentityId
+    , girsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetId = GetId
-    { _giAccountId      :: Maybe Text
-    , _giIdentityPoolId :: Text
-    , _giLogins         :: Map Text Text
-    } deriving (Eq, Read, Show)
-
--- | 'GetId' constructor.
+-- | Input to the GetId action.
+--
+-- /See:/ 'getId' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giAccountId' @::@ 'Maybe' 'Text'
+-- * 'girqAccountId'
 --
--- * 'giIdentityPoolId' @::@ 'Text'
+-- * 'girqLogins'
 --
--- * 'giLogins' @::@ 'HashMap' 'Text' 'Text'
---
-getId :: Text -- ^ 'giIdentityPoolId'
-      -> GetId
-getId p1 = GetId
-    { _giIdentityPoolId = p1
-    , _giAccountId      = Nothing
-    , _giLogins         = mempty
+-- * 'girqIdentityPoolId'
+data GetId = GetId'
+    { _girqAccountId      :: !(Maybe Text)
+    , _girqLogins         :: !(Maybe (Map Text Text))
+    , _girqIdentityPoolId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetId' smart constructor.
+getId :: Text -> GetId
+getId pIdentityPoolId_ =
+    GetId'
+    { _girqAccountId = Nothing
+    , _girqLogins = Nothing
+    , _girqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A standard AWS account ID (9+ digits).
-giAccountId :: Lens' GetId (Maybe Text)
-giAccountId = lens _giAccountId (\s a -> s { _giAccountId = a })
+girqAccountId :: Lens' GetId (Maybe Text)
+girqAccountId = lens _girqAccountId (\ s a -> s{_girqAccountId = a});
+
+-- | A set of optional name-value pairs that map provider names to provider
+-- tokens.
+--
+-- The available provider names for @Logins@ are as follows:
+--
+-- -   Facebook: @graph.facebook.com@
+-- -   Google: @accounts.google.com@
+-- -   Amazon: @www.amazon.com@
+-- -   Twitter: @www.twitter.com@
+-- -   Digits: @www.digits.com@
+girqLogins :: Lens' GetId (HashMap Text Text)
+girqLogins = lens _girqLogins (\ s a -> s{_girqLogins = a}) . _Default . _Map;
 
 -- | An identity pool ID in the format REGION:GUID.
-giIdentityPoolId :: Lens' GetId Text
-giIdentityPoolId = lens _giIdentityPoolId (\s a -> s { _giIdentityPoolId = a })
+girqIdentityPoolId :: Lens' GetId Text
+girqIdentityPoolId = lens _girqIdentityPoolId (\ s a -> s{_girqIdentityPoolId = a});
 
--- | A set of optional name-value pairs that map provider names to provider tokens.
+instance AWSRequest GetId where
+        type Sv GetId = CognitoIdentity
+        type Rs GetId = GetIdResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 GetIdResponse' <$>
+                   (x .?> "IdentityId") <*> (pure (fromEnum s)))
+
+instance ToHeaders GetId where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityService.GetId" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON GetId where
+        toJSON GetId'{..}
+          = object
+              ["AccountId" .= _girqAccountId,
+               "Logins" .= _girqLogins,
+               "IdentityPoolId" .= _girqIdentityPoolId]
+
+instance ToPath GetId where
+        toPath = const "/"
+
+instance ToQuery GetId where
+        toQuery = const mempty
+
+-- | Returned in response to a GetId request.
 --
--- The available provider names for 'Logins' are as follows:  Facebook: 'graph.facebook.com'  Google: 'accounts.google.com'  Amazon: 'www.amazon.com'
-giLogins :: Lens' GetId (HashMap Text Text)
-giLogins = lens _giLogins (\s a -> s { _giLogins = a }) . _Map
-
-newtype GetIdResponse = GetIdResponse
-    { _girIdentityId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'GetIdResponse' constructor.
+-- /See:/ 'getIdResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'girIdentityId' @::@ 'Maybe' 'Text'
+-- * 'girsIdentityId'
 --
-getIdResponse :: GetIdResponse
-getIdResponse = GetIdResponse
-    { _girIdentityId = Nothing
+-- * 'girsStatus'
+data GetIdResponse = GetIdResponse'
+    { _girsIdentityId :: !(Maybe Text)
+    , _girsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetIdResponse' smart constructor.
+getIdResponse :: Int -> GetIdResponse
+getIdResponse pStatus_ =
+    GetIdResponse'
+    { _girsIdentityId = Nothing
+    , _girsStatus = pStatus_
     }
 
 -- | A unique identifier in the format REGION:GUID.
-girIdentityId :: Lens' GetIdResponse (Maybe Text)
-girIdentityId = lens _girIdentityId (\s a -> s { _girIdentityId = a })
+girsIdentityId :: Lens' GetIdResponse (Maybe Text)
+girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 
-instance ToPath GetId where
-    toPath = const "/"
-
-instance ToQuery GetId where
-    toQuery = const mempty
-
-instance ToHeaders GetId
-
-instance ToJSON GetId where
-    toJSON GetId{..} = object
-        [ "AccountId"      .= _giAccountId
-        , "IdentityPoolId" .= _giIdentityPoolId
-        , "Logins"         .= _giLogins
-        ]
-
-instance AWSRequest GetId where
-    type Sv GetId = CognitoIdentity
-    type Rs GetId = GetIdResponse
-
-    request  = post "GetId"
-    response = jsonResponse
-
-instance FromJSON GetIdResponse where
-    parseJSON = withObject "GetIdResponse" $ \o -> GetIdResponse
-        <$> o .:? "IdentityId"
+-- | FIXME: Undocumented member.
+girsStatus :: Lens' GetIdResponse Int
+girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

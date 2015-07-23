@@ -1,37 +1,33 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFormation.GetTemplateSummary
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns information about a new or existing template. The 'GetTemplateSummary'
--- action is useful for viewing parameter information, such as default parameter
--- values and parameter types, before you create or update a stack.
+-- Returns information about a new or existing template. The
+-- @GetTemplateSummary@ action is useful for viewing parameter information,
+-- such as default parameter values and parameter types, before you create
+-- or update a stack.
 --
--- You can use the 'GetTemplateSummary' action when you submit a template, or you
--- can get template information for a running or deleted stack.
+-- You can use the @GetTemplateSummary@ action when you submit a template,
+-- or you can get template information for a running or deleted stack.
 --
--- For deleted stacks, 'GetTemplateSummary' returns the template information for
--- up to 90 days after the stack has been deleted. If the template does not
--- exist, a 'ValidationError' is returned.
+-- For deleted stacks, @GetTemplateSummary@ returns the template
+-- information for up to 90 days after the stack has been deleted. If the
+-- template does not exist, a @ValidationError@ is returned.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetTemplateSummary.html>
 module Network.AWS.CloudFormation.GetTemplateSummary
@@ -41,170 +37,196 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     -- ** Request constructor
     , getTemplateSummary
     -- ** Request lenses
-    , gtsStackName
-    , gtsTemplateBody
-    , gtsTemplateURL
+    , gtsrqTemplateBody
+    , gtsrqTemplateURL
+    , gtsrqStackName
 
     -- * Response
     , GetTemplateSummaryResponse
     -- ** Response constructor
     , getTemplateSummaryResponse
     -- ** Response lenses
-    , gtsrCapabilities
-    , gtsrCapabilitiesReason
-    , gtsrDescription
-    , gtsrMetadata
-    , gtsrParameters
-    , gtsrVersion
+    , gtsrsVersion
+    , gtsrsParameters
+    , gtsrsCapabilitiesReason
+    , gtsrsMetadata
+    , gtsrsCapabilities
+    , gtsrsDescription
+    , gtsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetTemplateSummary = GetTemplateSummary
-    { _gtsStackName    :: Maybe Text
-    , _gtsTemplateBody :: Maybe Text
-    , _gtsTemplateURL  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'GetTemplateSummary' constructor.
+-- | The input for the GetTemplateSummary action.
+--
+-- /See:/ 'getTemplateSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtsStackName' @::@ 'Maybe' 'Text'
+-- * 'gtsrqTemplateBody'
 --
--- * 'gtsTemplateBody' @::@ 'Maybe' 'Text'
+-- * 'gtsrqTemplateURL'
 --
--- * 'gtsTemplateURL' @::@ 'Maybe' 'Text'
---
+-- * 'gtsrqStackName'
+data GetTemplateSummary = GetTemplateSummary'
+    { _gtsrqTemplateBody :: !(Maybe Text)
+    , _gtsrqTemplateURL  :: !(Maybe Text)
+    , _gtsrqStackName    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetTemplateSummary' smart constructor.
 getTemplateSummary :: GetTemplateSummary
-getTemplateSummary = GetTemplateSummary
-    { _gtsTemplateBody = Nothing
-    , _gtsTemplateURL  = Nothing
-    , _gtsStackName    = Nothing
+getTemplateSummary =
+    GetTemplateSummary'
+    { _gtsrqTemplateBody = Nothing
+    , _gtsrqTemplateURL = Nothing
+    , _gtsrqStackName = Nothing
     }
 
--- | The name or the stack ID that is associated with the stack, which are not
--- always interchangeable. For running stacks, you can specify either the
--- stack's name or its unique stack ID. For deleted stack, you must specify the
--- unique stack ID.
+-- | Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. For more information about
+-- templates, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.
 --
--- Conditional: You must specify only one of the following parameters: 'StackName'
--- , 'TemplateBody', or 'TemplateURL'.
-gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
-gtsStackName = lens _gtsStackName (\s a -> s { _gtsStackName = a })
-
--- | Structure containing the template body with a minimum length of 1 byte and a
--- maximum length of 51,200 bytes. For more information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters: 'StackName'
--- , 'TemplateBody', or 'TemplateURL'.
-gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
-gtsTemplateBody = lens _gtsTemplateBody (\s a -> s { _gtsTemplateBody = a })
+-- Conditional: You must specify only one of the following parameters:
+-- @StackName@, @TemplateBody@, or @TemplateURL@.
+gtsrqTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
+gtsrqTemplateBody = lens _gtsrqTemplateBody (\ s a -> s{_gtsrqTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For more
--- information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation
--- User Guide.
+-- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For
+-- more information about templates, see
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.
 --
--- Conditional: You must specify only one of the following parameters: 'StackName'
--- , 'TemplateBody', or 'TemplateURL'.
-gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
-gtsTemplateURL = lens _gtsTemplateURL (\s a -> s { _gtsTemplateURL = a })
+-- Conditional: You must specify only one of the following parameters:
+-- @StackName@, @TemplateBody@, or @TemplateURL@.
+gtsrqTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
+gtsrqTemplateURL = lens _gtsrqTemplateURL (\ s a -> s{_gtsrqTemplateURL = a});
 
-data GetTemplateSummaryResponse = GetTemplateSummaryResponse
-    { _gtsrCapabilities       :: List "member" Capability
-    , _gtsrCapabilitiesReason :: Maybe Text
-    , _gtsrDescription        :: Maybe Text
-    , _gtsrMetadata           :: Maybe Text
-    , _gtsrParameters         :: List "member" ParameterDeclaration
-    , _gtsrVersion            :: Maybe Text
-    } deriving (Eq, Read, Show)
+-- | The name or the stack ID that is associated with the stack, which are
+-- not always interchangeable. For running stacks, you can specify either
+-- the stack\'s name or its unique stack ID. For deleted stack, you must
+-- specify the unique stack ID.
+--
+-- Conditional: You must specify only one of the following parameters:
+-- @StackName@, @TemplateBody@, or @TemplateURL@.
+gtsrqStackName :: Lens' GetTemplateSummary (Maybe Text)
+gtsrqStackName = lens _gtsrqStackName (\ s a -> s{_gtsrqStackName = a});
 
--- | 'GetTemplateSummaryResponse' constructor.
+instance AWSRequest GetTemplateSummary where
+        type Sv GetTemplateSummary = CloudFormation
+        type Rs GetTemplateSummary =
+             GetTemplateSummaryResponse
+        request = post
+        response
+          = receiveXMLWrapper "GetTemplateSummaryResult"
+              (\ s h x ->
+                 GetTemplateSummaryResponse' <$>
+                   (x .@? "Version") <*>
+                     (x .@? "Parameters" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (x .@? "CapabilitiesReason")
+                     <*> (x .@? "Metadata")
+                     <*>
+                     (x .@? "Capabilities" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Description")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders GetTemplateSummary where
+        toHeaders = const mempty
+
+instance ToPath GetTemplateSummary where
+        toPath = const "/"
+
+instance ToQuery GetTemplateSummary where
+        toQuery GetTemplateSummary'{..}
+          = mconcat
+              ["Action" =: ("GetTemplateSummary" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "TemplateBody" =: _gtsrqTemplateBody,
+               "TemplateURL" =: _gtsrqTemplateURL,
+               "StackName" =: _gtsrqStackName]
+
+-- | The output for the GetTemplateSummary action.
+--
+-- /See:/ 'getTemplateSummaryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtsrCapabilities' @::@ ['Capability']
+-- * 'gtsrsVersion'
 --
--- * 'gtsrCapabilitiesReason' @::@ 'Maybe' 'Text'
+-- * 'gtsrsParameters'
 --
--- * 'gtsrDescription' @::@ 'Maybe' 'Text'
+-- * 'gtsrsCapabilitiesReason'
 --
--- * 'gtsrMetadata' @::@ 'Maybe' 'Text'
+-- * 'gtsrsMetadata'
 --
--- * 'gtsrParameters' @::@ ['ParameterDeclaration']
+-- * 'gtsrsCapabilities'
 --
--- * 'gtsrVersion' @::@ 'Maybe' 'Text'
+-- * 'gtsrsDescription'
 --
-getTemplateSummaryResponse :: GetTemplateSummaryResponse
-getTemplateSummaryResponse = GetTemplateSummaryResponse
-    { _gtsrParameters         = mempty
-    , _gtsrDescription        = Nothing
-    , _gtsrCapabilities       = mempty
-    , _gtsrCapabilitiesReason = Nothing
-    , _gtsrVersion            = Nothing
-    , _gtsrMetadata           = Nothing
+-- * 'gtsrsStatus'
+data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
+    { _gtsrsVersion            :: !(Maybe Text)
+    , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
+    , _gtsrsCapabilitiesReason :: !(Maybe Text)
+    , _gtsrsMetadata           :: !(Maybe Text)
+    , _gtsrsCapabilities       :: !(Maybe [Capability])
+    , _gtsrsDescription        :: !(Maybe Text)
+    , _gtsrsStatus             :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetTemplateSummaryResponse' smart constructor.
+getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse
+getTemplateSummaryResponse pStatus_ =
+    GetTemplateSummaryResponse'
+    { _gtsrsVersion = Nothing
+    , _gtsrsParameters = Nothing
+    , _gtsrsCapabilitiesReason = Nothing
+    , _gtsrsMetadata = Nothing
+    , _gtsrsCapabilities = Nothing
+    , _gtsrsDescription = Nothing
+    , _gtsrsStatus = pStatus_
     }
 
--- | The capabilities found within the template. Currently, AWS CloudFormation
--- supports only the CAPABILITY_IAM capability. If your template contains IAM
--- resources, you must specify the CAPABILITY_IAM value for this parameter when
--- you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise,
--- those actions return an InsufficientCapabilities error.
-gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
-gtsrCapabilities = lens _gtsrCapabilities (\s a -> s { _gtsrCapabilities = a }) . _List
+-- | The AWS template format version, which identifies the capabilities of
+-- the template.
+gtsrsVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsVersion = lens _gtsrsVersion (\ s a -> s{_gtsrsVersion = a});
 
--- | The list of resources that generated the values in the 'Capabilities' response
--- element.
-gtsrCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrCapabilitiesReason =
-    lens _gtsrCapabilitiesReason (\s a -> s { _gtsrCapabilitiesReason = a })
+-- | A list of parameter declarations that describe various properties for
+-- each parameter.
+gtsrsParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
+gtsrsParameters = lens _gtsrsParameters (\ s a -> s{_gtsrsParameters = a}) . _Default;
 
--- | The value that is defined in the 'Description' property of the template.
-gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrDescription = lens _gtsrDescription (\s a -> s { _gtsrDescription = a })
+-- | The list of resources that generated the values in the @Capabilities@
+-- response element.
+gtsrsCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsCapabilitiesReason = lens _gtsrsCapabilitiesReason (\ s a -> s{_gtsrsCapabilitiesReason = a});
 
--- | The value that is defined for the 'Metadata' property of the template.
-gtsrMetadata :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrMetadata = lens _gtsrMetadata (\s a -> s { _gtsrMetadata = a })
+-- | The value that is defined for the @Metadata@ property of the template.
+gtsrsMetadata :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsMetadata = lens _gtsrsMetadata (\ s a -> s{_gtsrsMetadata = a});
 
--- | A list of parameter declarations that describe various properties for each
--- parameter.
-gtsrParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
-gtsrParameters = lens _gtsrParameters (\s a -> s { _gtsrParameters = a }) . _List
+-- | The capabilities found within the template. Currently, AWS
+-- CloudFormation supports only the CAPABILITY_IAM capability. If your
+-- template contains IAM resources, you must specify the CAPABILITY_IAM
+-- value for this parameter when you use the CreateStack or UpdateStack
+-- actions with your template; otherwise, those actions return an
+-- InsufficientCapabilities error.
+gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
+gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default;
 
--- | The AWS template format version, which identifies the capabilities of the
--- template.
-gtsrVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrVersion = lens _gtsrVersion (\s a -> s { _gtsrVersion = a })
+-- | The value that is defined in the @Description@ property of the template.
+gtsrsDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
 
-instance ToPath GetTemplateSummary where
-    toPath = const "/"
-
-instance ToQuery GetTemplateSummary where
-    toQuery GetTemplateSummary{..} = mconcat
-        [ "StackName"    =? _gtsStackName
-        , "TemplateBody" =? _gtsTemplateBody
-        , "TemplateURL"  =? _gtsTemplateURL
-        ]
-
-instance ToHeaders GetTemplateSummary
-
-instance AWSRequest GetTemplateSummary where
-    type Sv GetTemplateSummary = CloudFormation
-    type Rs GetTemplateSummary = GetTemplateSummaryResponse
-
-    request  = post "GetTemplateSummary"
-    response = xmlResponse
-
-instance FromXML GetTemplateSummaryResponse where
-    parseXML = withElement "GetTemplateSummaryResult" $ \x -> GetTemplateSummaryResponse
-        <$> x .@? "Capabilities" .!@ mempty
-        <*> x .@? "CapabilitiesReason"
-        <*> x .@? "Description"
-        <*> x .@? "Metadata"
-        <*> x .@? "Parameters" .!@ mempty
-        <*> x .@? "Version"
+-- | FIXME: Undocumented member.
+gtsrsStatus :: Lens' GetTemplateSummaryResponse Int
+gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});

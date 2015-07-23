@@ -1,33 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.DeleteGroupPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified inline policy that is embedded in the specified group.
+-- Deletes the specified inline policy that is embedded in the specified
+-- group.
 --
--- A group can also have managed policies attached to it. To detach a managed
--- policy from a group, use 'DetachGroupPolicy'. For more information about
--- policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/
--- guide.
+-- A group can also have managed policies attached to it. To detach a
+-- managed policy from a group, use DetachGroupPolicy. For more information
+-- about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteGroupPolicy.html>
 module Network.AWS.IAM.DeleteGroupPolicy
@@ -37,8 +34,8 @@ module Network.AWS.IAM.DeleteGroupPolicy
     -- ** Request constructor
     , deleteGroupPolicy
     -- ** Request lenses
-    , dgp1GroupName
-    , dgp1PolicyName
+    , drqGroupName
+    , drqPolicyName
 
     -- * Response
     , DeleteGroupPolicyResponse
@@ -46,62 +43,65 @@ module Network.AWS.IAM.DeleteGroupPolicy
     , deleteGroupPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteGroupPolicy = DeleteGroupPolicy
-    { _dgp1GroupName  :: Text
-    , _dgp1PolicyName :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteGroupPolicy' constructor.
+-- | /See:/ 'deleteGroupPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgp1GroupName' @::@ 'Text'
+-- * 'drqGroupName'
 --
--- * 'dgp1PolicyName' @::@ 'Text'
---
-deleteGroupPolicy :: Text -- ^ 'dgp1GroupName'
-                  -> Text -- ^ 'dgp1PolicyName'
-                  -> DeleteGroupPolicy
-deleteGroupPolicy p1 p2 = DeleteGroupPolicy
-    { _dgp1GroupName  = p1
-    , _dgp1PolicyName = p2
+-- * 'drqPolicyName'
+data DeleteGroupPolicy = DeleteGroupPolicy'
+    { _drqGroupName  :: !Text
+    , _drqPolicyName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteGroupPolicy' smart constructor.
+deleteGroupPolicy :: Text -> Text -> DeleteGroupPolicy
+deleteGroupPolicy pGroupName_ pPolicyName_ =
+    DeleteGroupPolicy'
+    { _drqGroupName = pGroupName_
+    , _drqPolicyName = pPolicyName_
     }
 
--- | The name (friendly name, not ARN) identifying the group that the policy is
--- embedded in.
-dgp1GroupName :: Lens' DeleteGroupPolicy Text
-dgp1GroupName = lens _dgp1GroupName (\s a -> s { _dgp1GroupName = a })
+-- | The name (friendly name, not ARN) identifying the group that the policy
+-- is embedded in.
+drqGroupName :: Lens' DeleteGroupPolicy Text
+drqGroupName = lens _drqGroupName (\ s a -> s{_drqGroupName = a});
 
 -- | The name identifying the policy document to delete.
-dgp1PolicyName :: Lens' DeleteGroupPolicy Text
-dgp1PolicyName = lens _dgp1PolicyName (\s a -> s { _dgp1PolicyName = a })
-
-data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteGroupPolicyResponse' constructor.
-deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
-deleteGroupPolicyResponse = DeleteGroupPolicyResponse
-
-instance ToPath DeleteGroupPolicy where
-    toPath = const "/"
-
-instance ToQuery DeleteGroupPolicy where
-    toQuery DeleteGroupPolicy{..} = mconcat
-        [ "GroupName"  =? _dgp1GroupName
-        , "PolicyName" =? _dgp1PolicyName
-        ]
-
-instance ToHeaders DeleteGroupPolicy
+drqPolicyName :: Lens' DeleteGroupPolicy Text
+drqPolicyName = lens _drqPolicyName (\ s a -> s{_drqPolicyName = a});
 
 instance AWSRequest DeleteGroupPolicy where
-    type Sv DeleteGroupPolicy = IAM
-    type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
+        type Sv DeleteGroupPolicy = IAM
+        type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
+        request = post
+        response = receiveNull DeleteGroupPolicyResponse'
 
-    request  = post "DeleteGroupPolicy"
-    response = nullResponse DeleteGroupPolicyResponse
+instance ToHeaders DeleteGroupPolicy where
+        toHeaders = const mempty
+
+instance ToPath DeleteGroupPolicy where
+        toPath = const "/"
+
+instance ToQuery DeleteGroupPolicy where
+        toQuery DeleteGroupPolicy'{..}
+          = mconcat
+              ["Action" =: ("DeleteGroupPolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "GroupName" =: _drqGroupName,
+               "PolicyName" =: _drqPolicyName]
+
+-- | /See:/ 'deleteGroupPolicyResponse' smart constructor.
+data DeleteGroupPolicyResponse =
+    DeleteGroupPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteGroupPolicyResponse' smart constructor.
+deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
+deleteGroupPolicyResponse = DeleteGroupPolicyResponse'

@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CodeDeploy.DeleteApplication
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes an application.
+-- Deletes an application.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html>
 module Network.AWS.CodeDeploy.DeleteApplication
@@ -32,7 +27,7 @@ module Network.AWS.CodeDeploy.DeleteApplication
     -- ** Request constructor
     , deleteApplication
     -- ** Request lenses
-    , daApplicationName
+    , darqApplicationName
 
     -- * Response
     , DeleteApplicationResponse
@@ -40,57 +35,65 @@ module Network.AWS.CodeDeploy.DeleteApplication
     , deleteApplicationResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CodeDeploy.Types
-import qualified GHC.Exts
+import           Network.AWS.CodeDeploy.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteApplication = DeleteApplication
-    { _daApplicationName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteApplication' constructor.
+-- | Represents the input of a delete application operation.
+--
+-- /See:/ 'deleteApplication' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daApplicationName' @::@ 'Text'
---
-deleteApplication :: Text -- ^ 'daApplicationName'
-                  -> DeleteApplication
-deleteApplication p1 = DeleteApplication
-    { _daApplicationName = p1
+-- * 'darqApplicationName'
+newtype DeleteApplication = DeleteApplication'
+    { _darqApplicationName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteApplication' smart constructor.
+deleteApplication :: Text -> DeleteApplication
+deleteApplication pApplicationName_ =
+    DeleteApplication'
+    { _darqApplicationName = pApplicationName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-daApplicationName :: Lens' DeleteApplication Text
-daApplicationName =
-    lens _daApplicationName (\s a -> s { _daApplicationName = a })
-
-data DeleteApplicationResponse = DeleteApplicationResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteApplicationResponse' constructor.
-deleteApplicationResponse :: DeleteApplicationResponse
-deleteApplicationResponse = DeleteApplicationResponse
-
-instance ToPath DeleteApplication where
-    toPath = const "/"
-
-instance ToQuery DeleteApplication where
-    toQuery = const mempty
-
-instance ToHeaders DeleteApplication
-
-instance ToJSON DeleteApplication where
-    toJSON DeleteApplication{..} = object
-        [ "applicationName" .= _daApplicationName
-        ]
+darqApplicationName :: Lens' DeleteApplication Text
+darqApplicationName = lens _darqApplicationName (\ s a -> s{_darqApplicationName = a});
 
 instance AWSRequest DeleteApplication where
-    type Sv DeleteApplication = CodeDeploy
-    type Rs DeleteApplication = DeleteApplicationResponse
+        type Sv DeleteApplication = CodeDeploy
+        type Rs DeleteApplication = DeleteApplicationResponse
+        request = postJSON
+        response = receiveNull DeleteApplicationResponse'
 
-    request  = post "DeleteApplication"
-    response = nullResponse DeleteApplicationResponse
+instance ToHeaders DeleteApplication where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.DeleteApplication" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteApplication where
+        toJSON DeleteApplication'{..}
+          = object ["applicationName" .= _darqApplicationName]
+
+instance ToPath DeleteApplication where
+        toPath = const "/"
+
+instance ToQuery DeleteApplication where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteApplicationResponse' smart constructor.
+data DeleteApplicationResponse =
+    DeleteApplicationResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteApplicationResponse' smart constructor.
+deleteApplicationResponse :: DeleteApplicationResponse
+deleteApplicationResponse = DeleteApplicationResponse'

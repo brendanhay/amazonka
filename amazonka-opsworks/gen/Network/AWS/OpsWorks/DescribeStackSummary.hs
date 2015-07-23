@@ -1,33 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.DescribeStackSummary
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Describes the number of layers and apps in a specified stack, and the number
--- of instances in each state, such as 'running_setup' or 'online'.
+-- Describes the number of layers and apps in a specified stack, and the
+-- number of instances in each state, such as @running_setup@ or @online@.
 --
--- Required Permissions: To use this action, an IAM user must have a Show,
--- Deploy, or Manage permissions level for the stack, or an attached policy that
--- explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_DescribeStackSummary.html>
 module Network.AWS.OpsWorks.DescribeStackSummary
@@ -37,81 +34,99 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     -- ** Request constructor
     , describeStackSummary
     -- ** Request lenses
-    , dssStackId
+    , dssrqStackId
 
     -- * Response
     , DescribeStackSummaryResponse
     -- ** Response constructor
     , describeStackSummaryResponse
     -- ** Response lenses
-    , dssrStackSummary
+    , dssrsStackSummary
+    , dssrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeStackSummary = DescribeStackSummary
-    { _dssStackId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DescribeStackSummary' constructor.
+-- | /See:/ 'describeStackSummary' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssStackId' @::@ 'Text'
---
-describeStackSummary :: Text -- ^ 'dssStackId'
-                     -> DescribeStackSummary
-describeStackSummary p1 = DescribeStackSummary
-    { _dssStackId = p1
+-- * 'dssrqStackId'
+newtype DescribeStackSummary = DescribeStackSummary'
+    { _dssrqStackId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeStackSummary' smart constructor.
+describeStackSummary :: Text -> DescribeStackSummary
+describeStackSummary pStackId_ =
+    DescribeStackSummary'
+    { _dssrqStackId = pStackId_
     }
 
 -- | The stack ID.
-dssStackId :: Lens' DescribeStackSummary Text
-dssStackId = lens _dssStackId (\s a -> s { _dssStackId = a })
+dssrqStackId :: Lens' DescribeStackSummary Text
+dssrqStackId = lens _dssrqStackId (\ s a -> s{_dssrqStackId = a});
 
-newtype DescribeStackSummaryResponse = DescribeStackSummaryResponse
-    { _dssrStackSummary :: Maybe StackSummary
-    } deriving (Eq, Read, Show)
+instance AWSRequest DescribeStackSummary where
+        type Sv DescribeStackSummary = OpsWorks
+        type Rs DescribeStackSummary =
+             DescribeStackSummaryResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeStackSummaryResponse' <$>
+                   (x .?> "StackSummary") <*> (pure (fromEnum s)))
 
--- | 'DescribeStackSummaryResponse' constructor.
+instance ToHeaders DescribeStackSummary where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.DescribeStackSummary" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeStackSummary where
+        toJSON DescribeStackSummary'{..}
+          = object ["StackId" .= _dssrqStackId]
+
+instance ToPath DescribeStackSummary where
+        toPath = const "/"
+
+instance ToQuery DescribeStackSummary where
+        toQuery = const mempty
+
+-- | Contains the response to a @DescribeStackSummary@ request.
+--
+-- /See:/ 'describeStackSummaryResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssrStackSummary' @::@ 'Maybe' 'StackSummary'
+-- * 'dssrsStackSummary'
 --
-describeStackSummaryResponse :: DescribeStackSummaryResponse
-describeStackSummaryResponse = DescribeStackSummaryResponse
-    { _dssrStackSummary = Nothing
+-- * 'dssrsStatus'
+data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
+    { _dssrsStackSummary :: !(Maybe StackSummary)
+    , _dssrsStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeStackSummaryResponse' smart constructor.
+describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse
+describeStackSummaryResponse pStatus_ =
+    DescribeStackSummaryResponse'
+    { _dssrsStackSummary = Nothing
+    , _dssrsStatus = pStatus_
     }
 
--- | A 'StackSummary' object that contains the results.
-dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
-dssrStackSummary = lens _dssrStackSummary (\s a -> s { _dssrStackSummary = a })
+-- | A @StackSummary@ object that contains the results.
+dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
+dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a});
 
-instance ToPath DescribeStackSummary where
-    toPath = const "/"
-
-instance ToQuery DescribeStackSummary where
-    toQuery = const mempty
-
-instance ToHeaders DescribeStackSummary
-
-instance ToJSON DescribeStackSummary where
-    toJSON DescribeStackSummary{..} = object
-        [ "StackId" .= _dssStackId
-        ]
-
-instance AWSRequest DescribeStackSummary where
-    type Sv DescribeStackSummary = OpsWorks
-    type Rs DescribeStackSummary = DescribeStackSummaryResponse
-
-    request  = post "DescribeStackSummary"
-    response = jsonResponse
-
-instance FromJSON DescribeStackSummaryResponse where
-    parseJSON = withObject "DescribeStackSummaryResponse" $ \o -> DescribeStackSummaryResponse
-        <$> o .:? "StackSummary"
+-- | FIXME: Undocumented member.
+dssrsStatus :: Lens' DescribeStackSummaryResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

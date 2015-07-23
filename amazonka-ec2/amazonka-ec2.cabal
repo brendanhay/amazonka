@@ -1,36 +1,26 @@
 name:                  amazonka-ec2
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides
-    resizable compute capacity in the cloud. It is designed to make web-scale
-    computing easier for developers. Amazon EC2’s simple web service interface
-    allows you to obtain and configure capacity with minimal friction. It
-    provides you with complete control of your computing resources and lets you
-    run on Amazon’s proven computing environment. Amazon EC2 reduces the time
-    required to obtain and boot new server instances to minutes, allowing you to
-    quickly scale capacity, both up and down, as your computing requirements
-    change. Amazon EC2 changes the economics of computing by allowing you to pay
-    only for capacity that you actually use. Amazon EC2 provides developers the
-    tools to build failure resilient applications and isolate themselves from
-    common failure scenarios.
+    Amazon Elastic Compute Cloud
 
+    Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing
+    capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2
+    eliminates your need to invest in hardware up front, so you can develop
+    and deploy applications faster.
     .
     /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -44,17 +34,17 @@ library
 
     exposed-modules:
           Network.AWS.EC2
-        , Network.AWS.EC2.AcceptVpcPeeringConnection
+        , Network.AWS.EC2.AcceptVPCPeeringConnection
         , Network.AWS.EC2.AllocateAddress
-        , Network.AWS.EC2.AssignPrivateIpAddresses
+        , Network.AWS.EC2.AssignPrivateIPAddresses
         , Network.AWS.EC2.AssociateAddress
-        , Network.AWS.EC2.AssociateDhcpOptions
+        , Network.AWS.EC2.AssociateDHCPOptions
         , Network.AWS.EC2.AssociateRouteTable
-        , Network.AWS.EC2.AttachClassicLinkVpc
+        , Network.AWS.EC2.AttachClassicLinkVPC
         , Network.AWS.EC2.AttachInternetGateway
         , Network.AWS.EC2.AttachNetworkInterface
+        , Network.AWS.EC2.AttachVPNGateway
         , Network.AWS.EC2.AttachVolume
-        , Network.AWS.EC2.AttachVpnGateway
         , Network.AWS.EC2.AuthorizeSecurityGroupEgress
         , Network.AWS.EC2.AuthorizeSecurityGroupIngress
         , Network.AWS.EC2.BundleInstance
@@ -69,13 +59,14 @@ library
         , Network.AWS.EC2.CopyImage
         , Network.AWS.EC2.CopySnapshot
         , Network.AWS.EC2.CreateCustomerGateway
-        , Network.AWS.EC2.CreateDhcpOptions
+        , Network.AWS.EC2.CreateDHCPOptions
+        , Network.AWS.EC2.CreateFlowLogs
         , Network.AWS.EC2.CreateImage
         , Network.AWS.EC2.CreateInstanceExportTask
         , Network.AWS.EC2.CreateInternetGateway
         , Network.AWS.EC2.CreateKeyPair
-        , Network.AWS.EC2.CreateNetworkAcl
-        , Network.AWS.EC2.CreateNetworkAclEntry
+        , Network.AWS.EC2.CreateNetworkACL
+        , Network.AWS.EC2.CreateNetworkACLEntry
         , Network.AWS.EC2.CreateNetworkInterface
         , Network.AWS.EC2.CreatePlacementGroup
         , Network.AWS.EC2.CreateReservedInstancesListing
@@ -86,19 +77,20 @@ library
         , Network.AWS.EC2.CreateSpotDatafeedSubscription
         , Network.AWS.EC2.CreateSubnet
         , Network.AWS.EC2.CreateTags
+        , Network.AWS.EC2.CreateVPC
+        , Network.AWS.EC2.CreateVPCEndpoint
+        , Network.AWS.EC2.CreateVPCPeeringConnection
+        , Network.AWS.EC2.CreateVPNConnection
+        , Network.AWS.EC2.CreateVPNConnectionRoute
+        , Network.AWS.EC2.CreateVPNGateway
         , Network.AWS.EC2.CreateVolume
-        , Network.AWS.EC2.CreateVpc
-        , Network.AWS.EC2.CreateVpcEndpoint
-        , Network.AWS.EC2.CreateVpcPeeringConnection
-        , Network.AWS.EC2.CreateVpnConnection
-        , Network.AWS.EC2.CreateVpnConnectionRoute
-        , Network.AWS.EC2.CreateVpnGateway
         , Network.AWS.EC2.DeleteCustomerGateway
-        , Network.AWS.EC2.DeleteDhcpOptions
+        , Network.AWS.EC2.DeleteDHCPOptions
+        , Network.AWS.EC2.DeleteFlowLogs
         , Network.AWS.EC2.DeleteInternetGateway
         , Network.AWS.EC2.DeleteKeyPair
-        , Network.AWS.EC2.DeleteNetworkAcl
-        , Network.AWS.EC2.DeleteNetworkAclEntry
+        , Network.AWS.EC2.DeleteNetworkACL
+        , Network.AWS.EC2.DeleteNetworkACLEntry
         , Network.AWS.EC2.DeleteNetworkInterface
         , Network.AWS.EC2.DeletePlacementGroup
         , Network.AWS.EC2.DeleteRoute
@@ -108,13 +100,13 @@ library
         , Network.AWS.EC2.DeleteSpotDatafeedSubscription
         , Network.AWS.EC2.DeleteSubnet
         , Network.AWS.EC2.DeleteTags
+        , Network.AWS.EC2.DeleteVPC
+        , Network.AWS.EC2.DeleteVPCEndpoints
+        , Network.AWS.EC2.DeleteVPCPeeringConnection
+        , Network.AWS.EC2.DeleteVPNConnection
+        , Network.AWS.EC2.DeleteVPNConnectionRoute
+        , Network.AWS.EC2.DeleteVPNGateway
         , Network.AWS.EC2.DeleteVolume
-        , Network.AWS.EC2.DeleteVpc
-        , Network.AWS.EC2.DeleteVpcEndpoints
-        , Network.AWS.EC2.DeleteVpcPeeringConnection
-        , Network.AWS.EC2.DeleteVpnConnection
-        , Network.AWS.EC2.DeleteVpnConnectionRoute
-        , Network.AWS.EC2.DeleteVpnGateway
         , Network.AWS.EC2.DeregisterImage
         , Network.AWS.EC2.DescribeAccountAttributes
         , Network.AWS.EC2.DescribeAddresses
@@ -123,8 +115,9 @@ library
         , Network.AWS.EC2.DescribeClassicLinkInstances
         , Network.AWS.EC2.DescribeConversionTasks
         , Network.AWS.EC2.DescribeCustomerGateways
-        , Network.AWS.EC2.DescribeDhcpOptions
+        , Network.AWS.EC2.DescribeDHCPOptions
         , Network.AWS.EC2.DescribeExportTasks
+        , Network.AWS.EC2.DescribeFlowLogs
         , Network.AWS.EC2.DescribeImageAttribute
         , Network.AWS.EC2.DescribeImages
         , Network.AWS.EC2.DescribeImportImageTasks
@@ -135,7 +128,7 @@ library
         , Network.AWS.EC2.DescribeInternetGateways
         , Network.AWS.EC2.DescribeKeyPairs
         , Network.AWS.EC2.DescribeMovingAddresses
-        , Network.AWS.EC2.DescribeNetworkAcls
+        , Network.AWS.EC2.DescribeNetworkACLs
         , Network.AWS.EC2.DescribeNetworkInterfaceAttribute
         , Network.AWS.EC2.DescribeNetworkInterfaces
         , Network.AWS.EC2.DescribePlacementGroups
@@ -157,29 +150,29 @@ library
         , Network.AWS.EC2.DescribeSpotPriceHistory
         , Network.AWS.EC2.DescribeSubnets
         , Network.AWS.EC2.DescribeTags
+        , Network.AWS.EC2.DescribeVPCAttribute
+        , Network.AWS.EC2.DescribeVPCClassicLink
+        , Network.AWS.EC2.DescribeVPCEndpointServices
+        , Network.AWS.EC2.DescribeVPCEndpoints
+        , Network.AWS.EC2.DescribeVPCPeeringConnections
+        , Network.AWS.EC2.DescribeVPCs
+        , Network.AWS.EC2.DescribeVPNConnections
+        , Network.AWS.EC2.DescribeVPNGateways
         , Network.AWS.EC2.DescribeVolumeAttribute
         , Network.AWS.EC2.DescribeVolumeStatus
         , Network.AWS.EC2.DescribeVolumes
-        , Network.AWS.EC2.DescribeVpcAttribute
-        , Network.AWS.EC2.DescribeVpcClassicLink
-        , Network.AWS.EC2.DescribeVpcEndpointServices
-        , Network.AWS.EC2.DescribeVpcEndpoints
-        , Network.AWS.EC2.DescribeVpcPeeringConnections
-        , Network.AWS.EC2.DescribeVpcs
-        , Network.AWS.EC2.DescribeVpnConnections
-        , Network.AWS.EC2.DescribeVpnGateways
-        , Network.AWS.EC2.DetachClassicLinkVpc
+        , Network.AWS.EC2.DetachClassicLinkVPC
         , Network.AWS.EC2.DetachInternetGateway
         , Network.AWS.EC2.DetachNetworkInterface
+        , Network.AWS.EC2.DetachVPNGateway
         , Network.AWS.EC2.DetachVolume
-        , Network.AWS.EC2.DetachVpnGateway
-        , Network.AWS.EC2.DisableVgwRoutePropagation
-        , Network.AWS.EC2.DisableVpcClassicLink
+        , Network.AWS.EC2.DisableVGWRoutePropagation
+        , Network.AWS.EC2.DisableVPCClassicLink
         , Network.AWS.EC2.DisassociateAddress
         , Network.AWS.EC2.DisassociateRouteTable
-        , Network.AWS.EC2.EnableVgwRoutePropagation
+        , Network.AWS.EC2.EnableVGWRoutePropagation
+        , Network.AWS.EC2.EnableVPCClassicLink
         , Network.AWS.EC2.EnableVolumeIO
-        , Network.AWS.EC2.EnableVpcClassicLink
         , Network.AWS.EC2.GetConsoleOutput
         , Network.AWS.EC2.GetPasswordData
         , Network.AWS.EC2.ImportImage
@@ -193,18 +186,18 @@ library
         , Network.AWS.EC2.ModifyReservedInstances
         , Network.AWS.EC2.ModifySnapshotAttribute
         , Network.AWS.EC2.ModifySubnetAttribute
+        , Network.AWS.EC2.ModifyVPCAttribute
+        , Network.AWS.EC2.ModifyVPCEndpoint
         , Network.AWS.EC2.ModifyVolumeAttribute
-        , Network.AWS.EC2.ModifyVpcAttribute
-        , Network.AWS.EC2.ModifyVpcEndpoint
         , Network.AWS.EC2.MonitorInstances
-        , Network.AWS.EC2.MoveAddressToVpc
+        , Network.AWS.EC2.MoveAddressToVPC
         , Network.AWS.EC2.PurchaseReservedInstancesOffering
         , Network.AWS.EC2.RebootInstances
         , Network.AWS.EC2.RegisterImage
-        , Network.AWS.EC2.RejectVpcPeeringConnection
+        , Network.AWS.EC2.RejectVPCPeeringConnection
         , Network.AWS.EC2.ReleaseAddress
-        , Network.AWS.EC2.ReplaceNetworkAclAssociation
-        , Network.AWS.EC2.ReplaceNetworkAclEntry
+        , Network.AWS.EC2.ReplaceNetworkACLAssociation
+        , Network.AWS.EC2.ReplaceNetworkACLEntry
         , Network.AWS.EC2.ReplaceRoute
         , Network.AWS.EC2.ReplaceRouteTableAssociation
         , Network.AWS.EC2.ReportInstanceStatus
@@ -222,13 +215,42 @@ library
         , Network.AWS.EC2.StopInstances
         , Network.AWS.EC2.TerminateInstances
         , Network.AWS.EC2.Types
-        , Network.AWS.EC2.UnassignPrivateIpAddresses
+        , Network.AWS.EC2.UnassignPrivateIPAddresses
         , Network.AWS.EC2.UnmonitorInstances
         , Network.AWS.EC2.Waiters
 
     other-modules:
-          Network.AWS.EC2.Internal
+          Network.AWS.EC2.Types.Product
+        , Network.AWS.EC2.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-ec2-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.EC2
+        , Test.AWS.Gen.EC2
+        , Test.AWS.EC2.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-ec2 == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -1,32 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.RestoreDBInstanceToPointInTime
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Restores a DB instance to an arbitrary point-in-time. Users can restore to
--- any point in time before the LatestRestorableTime for up to
--- BackupRetentionPeriod days. The target database is created from the source
--- database with the same configuration as the original database except that the
--- DB instance is created with the default DB security group.
+-- Restores a DB instance to an arbitrary point-in-time. Users can restore
+-- to any point in time before the LatestRestorableTime for up to
+-- BackupRetentionPeriod days. The target database is created from the
+-- source database with the same configuration as the original database
+-- except that the DB instance is created with the default DB security
+-- group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RestoreDBInstanceToPointInTime.html>
 module Network.AWS.RDS.RestoreDBInstanceToPointInTime
@@ -36,247 +32,173 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     -- ** Request constructor
     , restoreDBInstanceToPointInTime
     -- ** Request lenses
-    , rdbitpitAutoMinorVersionUpgrade
-    , rdbitpitAvailabilityZone
-    , rdbitpitDBInstanceClass
-    , rdbitpitDBName
-    , rdbitpitDBSubnetGroupName
-    , rdbitpitEngine
-    , rdbitpitIops
-    , rdbitpitLicenseModel
-    , rdbitpitMultiAZ
-    , rdbitpitOptionGroupName
-    , rdbitpitPort
-    , rdbitpitPubliclyAccessible
-    , rdbitpitRestoreTime
-    , rdbitpitSourceDBInstanceIdentifier
-    , rdbitpitStorageType
-    , rdbitpitTags
-    , rdbitpitTargetDBInstanceIdentifier
-    , rdbitpitTdeCredentialArn
-    , rdbitpitTdeCredentialPassword
-    , rdbitpitUseLatestRestorableTime
+    , rditpitrqUseLatestRestorableTime
+    , rditpitrqAutoMinorVersionUpgrade
+    , rditpitrqPubliclyAccessible
+    , rditpitrqDBSubnetGroupName
+    , rditpitrqRestoreTime
+    , rditpitrqIOPS
+    , rditpitrqEngine
+    , rditpitrqTDECredentialPassword
+    , rditpitrqDBInstanceClass
+    , rditpitrqLicenseModel
+    , rditpitrqAvailabilityZone
+    , rditpitrqMultiAZ
+    , rditpitrqTDECredentialARN
+    , rditpitrqOptionGroupName
+    , rditpitrqDBName
+    , rditpitrqTags
+    , rditpitrqPort
+    , rditpitrqStorageType
+    , rditpitrqSourceDBInstanceIdentifier
+    , rditpitrqTargetDBInstanceIdentifier
 
     -- * Response
     , RestoreDBInstanceToPointInTimeResponse
     -- ** Response constructor
     , restoreDBInstanceToPointInTimeResponse
     -- ** Response lenses
-    , rdbitpitrDBInstance
+    , rditpitrsDBInstance
+    , rditpitrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
-    { _rdbitpitAutoMinorVersionUpgrade    :: Maybe Bool
-    , _rdbitpitAvailabilityZone           :: Maybe Text
-    , _rdbitpitDBInstanceClass            :: Maybe Text
-    , _rdbitpitDBName                     :: Maybe Text
-    , _rdbitpitDBSubnetGroupName          :: Maybe Text
-    , _rdbitpitEngine                     :: Maybe Text
-    , _rdbitpitIops                       :: Maybe Int
-    , _rdbitpitLicenseModel               :: Maybe Text
-    , _rdbitpitMultiAZ                    :: Maybe Bool
-    , _rdbitpitOptionGroupName            :: Maybe Text
-    , _rdbitpitPort                       :: Maybe Int
-    , _rdbitpitPubliclyAccessible         :: Maybe Bool
-    , _rdbitpitRestoreTime                :: Maybe ISO8601
-    , _rdbitpitSourceDBInstanceIdentifier :: Text
-    , _rdbitpitStorageType                :: Maybe Text
-    , _rdbitpitTags                       :: List "member" Tag
-    , _rdbitpitTargetDBInstanceIdentifier :: Text
-    , _rdbitpitTdeCredentialArn           :: Maybe Text
-    , _rdbitpitTdeCredentialPassword      :: Maybe Text
-    , _rdbitpitUseLatestRestorableTime    :: Maybe Bool
-    } deriving (Eq, Read, Show)
-
--- | 'RestoreDBInstanceToPointInTime' constructor.
+-- |
+--
+-- /See:/ 'restoreDBInstanceToPointInTime' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdbitpitAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
+-- * 'rditpitrqUseLatestRestorableTime'
 --
--- * 'rdbitpitAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqAutoMinorVersionUpgrade'
 --
--- * 'rdbitpitDBInstanceClass' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqPubliclyAccessible'
 --
--- * 'rdbitpitDBName' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqDBSubnetGroupName'
 --
--- * 'rdbitpitDBSubnetGroupName' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqRestoreTime'
 --
--- * 'rdbitpitEngine' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqIOPS'
 --
--- * 'rdbitpitIops' @::@ 'Maybe' 'Int'
+-- * 'rditpitrqEngine'
 --
--- * 'rdbitpitLicenseModel' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqTDECredentialPassword'
 --
--- * 'rdbitpitMultiAZ' @::@ 'Maybe' 'Bool'
+-- * 'rditpitrqDBInstanceClass'
 --
--- * 'rdbitpitOptionGroupName' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqLicenseModel'
 --
--- * 'rdbitpitPort' @::@ 'Maybe' 'Int'
+-- * 'rditpitrqAvailabilityZone'
 --
--- * 'rdbitpitPubliclyAccessible' @::@ 'Maybe' 'Bool'
+-- * 'rditpitrqMultiAZ'
 --
--- * 'rdbitpitRestoreTime' @::@ 'Maybe' 'UTCTime'
+-- * 'rditpitrqTDECredentialARN'
 --
--- * 'rdbitpitSourceDBInstanceIdentifier' @::@ 'Text'
+-- * 'rditpitrqOptionGroupName'
 --
--- * 'rdbitpitStorageType' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqDBName'
 --
--- * 'rdbitpitTags' @::@ ['Tag']
+-- * 'rditpitrqTags'
 --
--- * 'rdbitpitTargetDBInstanceIdentifier' @::@ 'Text'
+-- * 'rditpitrqPort'
 --
--- * 'rdbitpitTdeCredentialArn' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqStorageType'
 --
--- * 'rdbitpitTdeCredentialPassword' @::@ 'Maybe' 'Text'
+-- * 'rditpitrqSourceDBInstanceIdentifier'
 --
--- * 'rdbitpitUseLatestRestorableTime' @::@ 'Maybe' 'Bool'
---
-restoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitSourceDBInstanceIdentifier'
-                               -> Text -- ^ 'rdbitpitTargetDBInstanceIdentifier'
-                               -> RestoreDBInstanceToPointInTime
-restoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTime
-    { _rdbitpitSourceDBInstanceIdentifier = p1
-    , _rdbitpitTargetDBInstanceIdentifier = p2
-    , _rdbitpitRestoreTime                = Nothing
-    , _rdbitpitUseLatestRestorableTime    = Nothing
-    , _rdbitpitDBInstanceClass            = Nothing
-    , _rdbitpitPort                       = Nothing
-    , _rdbitpitAvailabilityZone           = Nothing
-    , _rdbitpitDBSubnetGroupName          = Nothing
-    , _rdbitpitMultiAZ                    = Nothing
-    , _rdbitpitPubliclyAccessible         = Nothing
-    , _rdbitpitAutoMinorVersionUpgrade    = Nothing
-    , _rdbitpitLicenseModel               = Nothing
-    , _rdbitpitDBName                     = Nothing
-    , _rdbitpitEngine                     = Nothing
-    , _rdbitpitIops                       = Nothing
-    , _rdbitpitOptionGroupName            = Nothing
-    , _rdbitpitTags                       = mempty
-    , _rdbitpitStorageType                = Nothing
-    , _rdbitpitTdeCredentialArn           = Nothing
-    , _rdbitpitTdeCredentialPassword      = Nothing
+-- * 'rditpitrqTargetDBInstanceIdentifier'
+data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
+    { _rditpitrqUseLatestRestorableTime    :: !(Maybe Bool)
+    , _rditpitrqAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _rditpitrqPubliclyAccessible         :: !(Maybe Bool)
+    , _rditpitrqDBSubnetGroupName          :: !(Maybe Text)
+    , _rditpitrqRestoreTime                :: !(Maybe ISO8601)
+    , _rditpitrqIOPS                       :: !(Maybe Int)
+    , _rditpitrqEngine                     :: !(Maybe Text)
+    , _rditpitrqTDECredentialPassword      :: !(Maybe Text)
+    , _rditpitrqDBInstanceClass            :: !(Maybe Text)
+    , _rditpitrqLicenseModel               :: !(Maybe Text)
+    , _rditpitrqAvailabilityZone           :: !(Maybe Text)
+    , _rditpitrqMultiAZ                    :: !(Maybe Bool)
+    , _rditpitrqTDECredentialARN           :: !(Maybe Text)
+    , _rditpitrqOptionGroupName            :: !(Maybe Text)
+    , _rditpitrqDBName                     :: !(Maybe Text)
+    , _rditpitrqTags                       :: !(Maybe [Tag])
+    , _rditpitrqPort                       :: !(Maybe Int)
+    , _rditpitrqStorageType                :: !(Maybe Text)
+    , _rditpitrqSourceDBInstanceIdentifier :: !Text
+    , _rditpitrqTargetDBInstanceIdentifier :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RestoreDBInstanceToPointInTime' smart constructor.
+restoreDBInstanceToPointInTime :: Text -> Text -> RestoreDBInstanceToPointInTime
+restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier_ pTargetDBInstanceIdentifier_ =
+    RestoreDBInstanceToPointInTime'
+    { _rditpitrqUseLatestRestorableTime = Nothing
+    , _rditpitrqAutoMinorVersionUpgrade = Nothing
+    , _rditpitrqPubliclyAccessible = Nothing
+    , _rditpitrqDBSubnetGroupName = Nothing
+    , _rditpitrqRestoreTime = Nothing
+    , _rditpitrqIOPS = Nothing
+    , _rditpitrqEngine = Nothing
+    , _rditpitrqTDECredentialPassword = Nothing
+    , _rditpitrqDBInstanceClass = Nothing
+    , _rditpitrqLicenseModel = Nothing
+    , _rditpitrqAvailabilityZone = Nothing
+    , _rditpitrqMultiAZ = Nothing
+    , _rditpitrqTDECredentialARN = Nothing
+    , _rditpitrqOptionGroupName = Nothing
+    , _rditpitrqDBName = Nothing
+    , _rditpitrqTags = Nothing
+    , _rditpitrqPort = Nothing
+    , _rditpitrqStorageType = Nothing
+    , _rditpitrqSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier_
+    , _rditpitrqTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier_
     }
 
--- | Indicates that minor version upgrades will be applied automatically to the
--- DB instance during the maintenance window.
-rdbitpitAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rdbitpitAutoMinorVersionUpgrade =
-    lens _rdbitpitAutoMinorVersionUpgrade
-        (\s a -> s { _rdbitpitAutoMinorVersionUpgrade = a })
+-- | Specifies whether (@true@) or not (@false@) the DB instance is restored
+-- from the latest backup time.
+--
+-- Default: @false@
+--
+-- Constraints: Cannot be specified if RestoreTime parameter is provided.
+rditpitrqUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
+rditpitrqUseLatestRestorableTime = lens _rditpitrqUseLatestRestorableTime (\ s a -> s{_rditpitrqUseLatestRestorableTime = a});
 
--- | The EC2 Availability Zone that the database instance will be created in.
---
--- Default: A random, system-chosen Availability Zone.
---
--- Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ
--- parameter is set to true.
---
--- Example: 'us-east-1a'
-rdbitpitAvailabilityZone :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitAvailabilityZone =
-    lens _rdbitpitAvailabilityZone
-        (\s a -> s { _rdbitpitAvailabilityZone = a })
-
--- | The compute and memory capacity of the Amazon RDS DB instance.
---
--- Valid Values: 'db.t1.micro | db.m1.small | db.m1.medium | db.m1.large |db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large |db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge |db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium'
---
--- Default: The same DBInstanceClass as the original DB instance.
-rdbitpitDBInstanceClass :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitDBInstanceClass =
-    lens _rdbitpitDBInstanceClass (\s a -> s { _rdbitpitDBInstanceClass = a })
-
--- | The database name for the restored DB instance.
---
--- This parameter is not used for the MySQL engine.
---
---
-rdbitpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitDBName = lens _rdbitpitDBName (\s a -> s { _rdbitpitDBName = a })
-
--- | The DB subnet group name to use for the new instance.
-rdbitpitDBSubnetGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitDBSubnetGroupName =
-    lens _rdbitpitDBSubnetGroupName
-        (\s a -> s { _rdbitpitDBSubnetGroupName = a })
-
--- | The database engine to use for the new instance.
---
--- Default: The same as source
---
--- Constraint: Must be compatible with the engine of the source
---
--- Valid Values: 'MySQL' | 'oracle-se1' | 'oracle-se' | 'oracle-ee' | 'sqlserver-ee' | 'sqlserver-se' | 'sqlserver-ex' | 'sqlserver-web' | 'postgres'
-rdbitpitEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitEngine = lens _rdbitpitEngine (\s a -> s { _rdbitpitEngine = a })
-
--- | The amount of Provisioned IOPS (input/output operations per second) to be
--- initially allocated for the DB instance.
---
--- Constraints: Must be an integer greater than 1000.
---
--- SQL Server
---
--- Setting the IOPS value for the SQL Server database engine is not supported.
-rdbitpitIops :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
-rdbitpitIops = lens _rdbitpitIops (\s a -> s { _rdbitpitIops = a })
-
--- | License model information for the restored DB instance.
---
--- Default: Same as source.
---
--- Valid values: 'license-included' | 'bring-your-own-license' | 'general-public-license'
-rdbitpitLicenseModel :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitLicenseModel =
-    lens _rdbitpitLicenseModel (\s a -> s { _rdbitpitLicenseModel = a })
-
--- | Specifies if the DB instance is a Multi-AZ deployment.
---
--- Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ
--- parameter is set to 'true'.
-rdbitpitMultiAZ :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rdbitpitMultiAZ = lens _rdbitpitMultiAZ (\s a -> s { _rdbitpitMultiAZ = a })
-
--- | The name of the option group to be used for the restored DB instance.
---
--- Permanent options, such as the TDE option for Oracle Advanced Security TDE,
--- cannot be removed from an option group, and that option group cannot be
--- removed from a DB instance once it is associated with a DB instance
-rdbitpitOptionGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitOptionGroupName =
-    lens _rdbitpitOptionGroupName (\s a -> s { _rdbitpitOptionGroupName = a })
-
--- | The port number on which the database accepts connections.
---
--- Constraints: Value must be '1150-65535'
---
--- Default: The same port as the original DB instance.
-rdbitpitPort :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
-rdbitpitPort = lens _rdbitpitPort (\s a -> s { _rdbitpitPort = a })
+-- | Indicates that minor version upgrades will be applied automatically to
+-- the DB instance during the maintenance window.
+rditpitrqAutoMinorVersionUpgrade :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
+rditpitrqAutoMinorVersionUpgrade = lens _rditpitrqAutoMinorVersionUpgrade (\ s a -> s{_rditpitrqAutoMinorVersionUpgrade = a});
 
 -- | Specifies the accessibility options for the DB instance. A value of true
--- specifies an Internet-facing instance with a publicly resolvable DNS name,
--- which resolves to a public IP address. A value of false specifies an internal
--- instance with a DNS name that resolves to a private IP address.
+-- specifies an Internet-facing instance with a publicly resolvable DNS
+-- name, which resolves to a public IP address. A value of false specifies
+-- an internal instance with a DNS name that resolves to a private IP
+-- address.
 --
 -- Default: The default behavior varies depending on whether a VPC has been
--- requested or not. The following list shows the default behavior in each case.
+-- requested or not. The following list shows the default behavior in each
+-- case.
 --
--- Default VPC:true  VPC:false   If no DB subnet group has been specified as
--- part of the request and the PubliclyAccessible value has not been set, the DB
--- instance will be publicly accessible. If a specific DB subnet group has been
--- specified as part of the request and the PubliclyAccessible value has not
--- been set, the DB instance will be private.
-rdbitpitPubliclyAccessible :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rdbitpitPubliclyAccessible =
-    lens _rdbitpitPubliclyAccessible
-        (\s a -> s { _rdbitpitPubliclyAccessible = a })
+-- -   __Default VPC:__true
+-- -   __VPC:__false
+--
+-- If no DB subnet group has been specified as part of the request and the
+-- PubliclyAccessible value has not been set, the DB instance will be
+-- publicly accessible. If a specific DB subnet group has been specified as
+-- part of the request and the PubliclyAccessible value has not been set,
+-- the DB instance will be private.
+rditpitrqPubliclyAccessible :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
+rditpitrqPubliclyAccessible = lens _rditpitrqPubliclyAccessible (\ s a -> s{_rditpitrqPubliclyAccessible = a});
+
+-- | The DB subnet group name to use for the new instance.
+rditpitrqDBSubnetGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqDBSubnetGroupName = lens _rditpitrqDBSubnetGroupName (\ s a -> s{_rditpitrqDBSubnetGroupName = a});
 
 -- | The date and time to restore from.
 --
@@ -284,131 +206,220 @@ rdbitpitPubliclyAccessible =
 --
 -- Constraints:
 --
--- Must be before the latest restorable time for the DB instance Cannot be
--- specified if UseLatestRestorableTime parameter is true  Example: '2009-09-07T23:45:00Z'
-rdbitpitRestoreTime :: Lens' RestoreDBInstanceToPointInTime (Maybe UTCTime)
-rdbitpitRestoreTime =
-    lens _rdbitpitRestoreTime (\s a -> s { _rdbitpitRestoreTime = a })
-        . mapping _Time
+-- -   Must be before the latest restorable time for the DB instance
+-- -   Cannot be specified if UseLatestRestorableTime parameter is true
+--
+-- Example: @2009-09-07T23:45:00Z@
+rditpitrqRestoreTime :: Lens' RestoreDBInstanceToPointInTime (Maybe UTCTime)
+rditpitrqRestoreTime = lens _rditpitrqRestoreTime (\ s a -> s{_rditpitrqRestoreTime = a}) . mapping _Time;
+
+-- | The amount of Provisioned IOPS (input\/output operations per second) to
+-- be initially allocated for the DB instance.
+--
+-- Constraints: Must be an integer greater than 1000.
+--
+-- __SQL Server__
+--
+-- Setting the IOPS value for the SQL Server database engine is not
+-- supported.
+rditpitrqIOPS :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
+rditpitrqIOPS = lens _rditpitrqIOPS (\ s a -> s{_rditpitrqIOPS = a});
+
+-- | The database engine to use for the new instance.
+--
+-- Default: The same as source
+--
+-- Constraint: Must be compatible with the engine of the source
+--
+-- Valid Values: @MySQL@ | @oracle-se1@ | @oracle-se@ | @oracle-ee@ |
+-- @sqlserver-ee@ | @sqlserver-se@ | @sqlserver-ex@ | @sqlserver-web@ |
+-- @postgres@
+rditpitrqEngine :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqEngine = lens _rditpitrqEngine (\ s a -> s{_rditpitrqEngine = a});
+
+-- | The password for the given ARN from the Key Store in order to access the
+-- device.
+rditpitrqTDECredentialPassword :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqTDECredentialPassword = lens _rditpitrqTDECredentialPassword (\ s a -> s{_rditpitrqTDECredentialPassword = a});
+
+-- | The compute and memory capacity of the Amazon RDS DB instance.
+--
+-- Valid Values:
+-- @db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium@
+--
+-- Default: The same DBInstanceClass as the original DB instance.
+rditpitrqDBInstanceClass :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqDBInstanceClass = lens _rditpitrqDBInstanceClass (\ s a -> s{_rditpitrqDBInstanceClass = a});
+
+-- | License model information for the restored DB instance.
+--
+-- Default: Same as source.
+--
+-- Valid values: @license-included@ | @bring-your-own-license@ |
+-- @general-public-license@
+rditpitrqLicenseModel :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqLicenseModel = lens _rditpitrqLicenseModel (\ s a -> s{_rditpitrqLicenseModel = a});
+
+-- | The EC2 Availability Zone that the database instance will be created in.
+--
+-- Default: A random, system-chosen Availability Zone.
+--
+-- Constraint: You cannot specify the AvailabilityZone parameter if the
+-- MultiAZ parameter is set to true.
+--
+-- Example: @us-east-1a@
+rditpitrqAvailabilityZone :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqAvailabilityZone = lens _rditpitrqAvailabilityZone (\ s a -> s{_rditpitrqAvailabilityZone = a});
+
+-- | Specifies if the DB instance is a Multi-AZ deployment.
+--
+-- Constraint: You cannot specify the AvailabilityZone parameter if the
+-- MultiAZ parameter is set to @true@.
+rditpitrqMultiAZ :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
+rditpitrqMultiAZ = lens _rditpitrqMultiAZ (\ s a -> s{_rditpitrqMultiAZ = a});
+
+-- | The ARN from the Key Store with which to associate the instance for TDE
+-- encryption.
+rditpitrqTDECredentialARN :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqTDECredentialARN = lens _rditpitrqTDECredentialARN (\ s a -> s{_rditpitrqTDECredentialARN = a});
+
+-- | The name of the option group to be used for the restored DB instance.
+--
+-- Permanent options, such as the TDE option for Oracle Advanced Security
+-- TDE, cannot be removed from an option group, and that option group
+-- cannot be removed from a DB instance once it is associated with a DB
+-- instance
+rditpitrqOptionGroupName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqOptionGroupName = lens _rditpitrqOptionGroupName (\ s a -> s{_rditpitrqOptionGroupName = a});
+
+-- | The database name for the restored DB instance.
+--
+-- This parameter is not used for the MySQL engine.
+rditpitrqDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqDBName = lens _rditpitrqDBName (\ s a -> s{_rditpitrqDBName = a});
+
+-- | FIXME: Undocumented member.
+rditpitrqTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
+rditpitrqTags = lens _rditpitrqTags (\ s a -> s{_rditpitrqTags = a}) . _Default;
+
+-- | The port number on which the database accepts connections.
+--
+-- Constraints: Value must be @1150-65535@
+--
+-- Default: The same port as the original DB instance.
+rditpitrqPort :: Lens' RestoreDBInstanceToPointInTime (Maybe Int)
+rditpitrqPort = lens _rditpitrqPort (\ s a -> s{_rditpitrqPort = a});
+
+-- | Specifies the storage type to be associated with the DB instance.
+--
+-- Valid values: @standard | gp2 | io1@
+--
+-- If you specify @io1@, you must also include a value for the @Iops@
+-- parameter.
+--
+-- Default: @io1@ if the @Iops@ parameter is specified; otherwise
+-- @standard@
+rditpitrqStorageType :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
+rditpitrqStorageType = lens _rditpitrqStorageType (\ s a -> s{_rditpitrqStorageType = a});
 
 -- | The identifier of the source DB instance from which to restore.
 --
 -- Constraints:
 --
--- Must be the identifier of an existing database instance Must contain from 1
--- to 63 alphanumeric characters or hyphens First character must be a letter Cannot end with a hyphen or contain two consecutive hyphens
---
-rdbitpitSourceDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
-rdbitpitSourceDBInstanceIdentifier =
-    lens _rdbitpitSourceDBInstanceIdentifier
-        (\s a -> s { _rdbitpitSourceDBInstanceIdentifier = a })
-
--- | Specifies the storage type to be associated with the DB instance.
---
--- Valid values: 'standard | gp2 | io1'
---
--- If you specify 'io1', you must also include a value for the 'Iops' parameter.
---
--- Default: 'io1' if the 'Iops' parameter is specified; otherwise 'standard'
-rdbitpitStorageType :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitStorageType =
-    lens _rdbitpitStorageType (\s a -> s { _rdbitpitStorageType = a })
-
-rdbitpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
-rdbitpitTags = lens _rdbitpitTags (\s a -> s { _rdbitpitTags = a }) . _List
+-- -   Must be the identifier of an existing database instance
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+rditpitrqSourceDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
+rditpitrqSourceDBInstanceIdentifier = lens _rditpitrqSourceDBInstanceIdentifier (\ s a -> s{_rditpitrqSourceDBInstanceIdentifier = a});
 
 -- | The name of the new database instance to be created.
 --
 -- Constraints:
 --
--- Must contain from 1 to 63 alphanumeric characters or hyphens First
--- character must be a letter Cannot end with a hyphen or contain two
--- consecutive hyphens
-rdbitpitTargetDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
-rdbitpitTargetDBInstanceIdentifier =
-    lens _rdbitpitTargetDBInstanceIdentifier
-        (\s a -> s { _rdbitpitTargetDBInstanceIdentifier = a })
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens
+-- -   First character must be a letter
+-- -   Cannot end with a hyphen or contain two consecutive hyphens
+rditpitrqTargetDBInstanceIdentifier :: Lens' RestoreDBInstanceToPointInTime Text
+rditpitrqTargetDBInstanceIdentifier = lens _rditpitrqTargetDBInstanceIdentifier (\ s a -> s{_rditpitrqTargetDBInstanceIdentifier = a});
 
--- | The ARN from the Key Store with which to associate the instance for TDE
--- encryption.
-rdbitpitTdeCredentialArn :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitTdeCredentialArn =
-    lens _rdbitpitTdeCredentialArn
-        (\s a -> s { _rdbitpitTdeCredentialArn = a })
+instance AWSRequest RestoreDBInstanceToPointInTime
+         where
+        type Sv RestoreDBInstanceToPointInTime = RDS
+        type Rs RestoreDBInstanceToPointInTime =
+             RestoreDBInstanceToPointInTimeResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "RestoreDBInstanceToPointInTimeResult"
+              (\ s h x ->
+                 RestoreDBInstanceToPointInTimeResponse' <$>
+                   (x .@? "DBInstance") <*> (pure (fromEnum s)))
 
--- | The password for the given ARN from the Key Store in order to access the
--- device.
-rdbitpitTdeCredentialPassword :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
-rdbitpitTdeCredentialPassword =
-    lens _rdbitpitTdeCredentialPassword
-        (\s a -> s { _rdbitpitTdeCredentialPassword = a })
+instance ToHeaders RestoreDBInstanceToPointInTime
+         where
+        toHeaders = const mempty
 
--- | Specifies whether ('true') or not ('false') the DB instance is restored from the
--- latest backup time.
---
--- Default: 'false'
---
--- Constraints: Cannot be specified if RestoreTime parameter is provided.
-rdbitpitUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTime (Maybe Bool)
-rdbitpitUseLatestRestorableTime =
-    lens _rdbitpitUseLatestRestorableTime
-        (\s a -> s { _rdbitpitUseLatestRestorableTime = a })
+instance ToPath RestoreDBInstanceToPointInTime where
+        toPath = const "/"
 
-newtype RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
-    { _rdbitpitrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Read, Show)
+instance ToQuery RestoreDBInstanceToPointInTime where
+        toQuery RestoreDBInstanceToPointInTime'{..}
+          = mconcat
+              ["Action" =:
+                 ("RestoreDBInstanceToPointInTime" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "UseLatestRestorableTime" =:
+                 _rditpitrqUseLatestRestorableTime,
+               "AutoMinorVersionUpgrade" =:
+                 _rditpitrqAutoMinorVersionUpgrade,
+               "PubliclyAccessible" =: _rditpitrqPubliclyAccessible,
+               "DBSubnetGroupName" =: _rditpitrqDBSubnetGroupName,
+               "RestoreTime" =: _rditpitrqRestoreTime,
+               "Iops" =: _rditpitrqIOPS,
+               "Engine" =: _rditpitrqEngine,
+               "TdeCredentialPassword" =:
+                 _rditpitrqTDECredentialPassword,
+               "DBInstanceClass" =: _rditpitrqDBInstanceClass,
+               "LicenseModel" =: _rditpitrqLicenseModel,
+               "AvailabilityZone" =: _rditpitrqAvailabilityZone,
+               "MultiAZ" =: _rditpitrqMultiAZ,
+               "TdeCredentialArn" =: _rditpitrqTDECredentialARN,
+               "OptionGroupName" =: _rditpitrqOptionGroupName,
+               "DBName" =: _rditpitrqDBName,
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _rditpitrqTags),
+               "Port" =: _rditpitrqPort,
+               "StorageType" =: _rditpitrqStorageType,
+               "SourceDBInstanceIdentifier" =:
+                 _rditpitrqSourceDBInstanceIdentifier,
+               "TargetDBInstanceIdentifier" =:
+                 _rditpitrqTargetDBInstanceIdentifier]
 
--- | 'RestoreDBInstanceToPointInTimeResponse' constructor.
+-- | /See:/ 'restoreDBInstanceToPointInTimeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdbitpitrDBInstance' @::@ 'Maybe' 'DBInstance'
+-- * 'rditpitrsDBInstance'
 --
-restoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResponse
-restoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
-    { _rdbitpitrDBInstance = Nothing
+-- * 'rditpitrsStatus'
+data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
+    { _rditpitrsDBInstance :: !(Maybe DBInstance)
+    , _rditpitrsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RestoreDBInstanceToPointInTimeResponse' smart constructor.
+restoreDBInstanceToPointInTimeResponse :: Int -> RestoreDBInstanceToPointInTimeResponse
+restoreDBInstanceToPointInTimeResponse pStatus_ =
+    RestoreDBInstanceToPointInTimeResponse'
+    { _rditpitrsDBInstance = Nothing
+    , _rditpitrsStatus = pStatus_
     }
 
-rdbitpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
-rdbitpitrDBInstance =
-    lens _rdbitpitrDBInstance (\s a -> s { _rdbitpitrDBInstance = a })
+-- | FIXME: Undocumented member.
+rditpitrsDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
+rditpitrsDBInstance = lens _rditpitrsDBInstance (\ s a -> s{_rditpitrsDBInstance = a});
 
-instance ToPath RestoreDBInstanceToPointInTime where
-    toPath = const "/"
-
-instance ToQuery RestoreDBInstanceToPointInTime where
-    toQuery RestoreDBInstanceToPointInTime{..} = mconcat
-        [ "AutoMinorVersionUpgrade"    =? _rdbitpitAutoMinorVersionUpgrade
-        , "AvailabilityZone"           =? _rdbitpitAvailabilityZone
-        , "DBInstanceClass"            =? _rdbitpitDBInstanceClass
-        , "DBName"                     =? _rdbitpitDBName
-        , "DBSubnetGroupName"          =? _rdbitpitDBSubnetGroupName
-        , "Engine"                     =? _rdbitpitEngine
-        , "Iops"                       =? _rdbitpitIops
-        , "LicenseModel"               =? _rdbitpitLicenseModel
-        , "MultiAZ"                    =? _rdbitpitMultiAZ
-        , "OptionGroupName"            =? _rdbitpitOptionGroupName
-        , "Port"                       =? _rdbitpitPort
-        , "PubliclyAccessible"         =? _rdbitpitPubliclyAccessible
-        , "RestoreTime"                =? _rdbitpitRestoreTime
-        , "SourceDBInstanceIdentifier" =? _rdbitpitSourceDBInstanceIdentifier
-        , "StorageType"                =? _rdbitpitStorageType
-        , "Tags"                       =? _rdbitpitTags
-        , "TargetDBInstanceIdentifier" =? _rdbitpitTargetDBInstanceIdentifier
-        , "TdeCredentialArn"           =? _rdbitpitTdeCredentialArn
-        , "TdeCredentialPassword"      =? _rdbitpitTdeCredentialPassword
-        , "UseLatestRestorableTime"    =? _rdbitpitUseLatestRestorableTime
-        ]
-
-instance ToHeaders RestoreDBInstanceToPointInTime
-
-instance AWSRequest RestoreDBInstanceToPointInTime where
-    type Sv RestoreDBInstanceToPointInTime = RDS
-    type Rs RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTimeResponse
-
-    request  = post "RestoreDBInstanceToPointInTime"
-    response = xmlResponse
-
-instance FromXML RestoreDBInstanceToPointInTimeResponse where
-    parseXML = withElement "RestoreDBInstanceToPointInTimeResult" $ \x -> RestoreDBInstanceToPointInTimeResponse
-        <$> x .@? "DBInstance"
+-- | FIXME: Undocumented member.
+rditpitrsStatus :: Lens' RestoreDBInstanceToPointInTimeResponse Int
+rditpitrsStatus = lens _rditpitrsStatus (\ s a -> s{_rditpitrsStatus = a});

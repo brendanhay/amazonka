@@ -1,0 +1,138 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.CloudHSM.ListHAPGs
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Lists the high-availability partition groups for the account.
+--
+-- This operation supports pagination with the use of the /NextToken/
+-- member. If more results are available, the /NextToken/ member of the
+-- response contains a token that you pass in the next call to ListHapgs to
+-- retrieve the next set of items.
+--
+-- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListHAPGs.html>
+module Network.AWS.CloudHSM.ListHAPGs
+    (
+    -- * Request
+      ListHAPGs
+    -- ** Request constructor
+    , listHAPGs
+    -- ** Request lenses
+    , lhrqNextToken
+
+    -- * Response
+    , ListHAPGsResponse
+    -- ** Response constructor
+    , listHAPGsResponse
+    -- ** Response lenses
+    , lhrsNextToken
+    , lhrsStatus
+    , lhrsHAPGList
+    ) where
+
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | /See:/ 'listHAPGs' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lhrqNextToken'
+newtype ListHAPGs = ListHAPGs'
+    { _lhrqNextToken :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListHAPGs' smart constructor.
+listHAPGs :: ListHAPGs
+listHAPGs =
+    ListHAPGs'
+    { _lhrqNextToken = Nothing
+    }
+
+-- | The /NextToken/ value from a previous call to ListHapgs. Pass null if
+-- this is the first call.
+lhrqNextToken :: Lens' ListHAPGs (Maybe Text)
+lhrqNextToken = lens _lhrqNextToken (\ s a -> s{_lhrqNextToken = a});
+
+instance AWSRequest ListHAPGs where
+        type Sv ListHAPGs = CloudHSM
+        type Rs ListHAPGs = ListHAPGsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListHAPGsResponse' <$>
+                   (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
+                     (x .?> "HapgList" .!@ mempty))
+
+instance ToHeaders ListHAPGs where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CloudHsmFrontendService.ListHAPGs" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListHAPGs where
+        toJSON ListHAPGs'{..}
+          = object ["NextToken" .= _lhrqNextToken]
+
+instance ToPath ListHAPGs where
+        toPath = const "/"
+
+instance ToQuery ListHAPGs where
+        toQuery = const mempty
+
+-- | /See:/ 'listHAPGsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lhrsNextToken'
+--
+-- * 'lhrsStatus'
+--
+-- * 'lhrsHAPGList'
+data ListHAPGsResponse = ListHAPGsResponse'
+    { _lhrsNextToken :: !(Maybe Text)
+    , _lhrsStatus    :: !Int
+    , _lhrsHAPGList  :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListHAPGsResponse' smart constructor.
+listHAPGsResponse :: Int -> ListHAPGsResponse
+listHAPGsResponse pStatus_ =
+    ListHAPGsResponse'
+    { _lhrsNextToken = Nothing
+    , _lhrsStatus = pStatus_
+    , _lhrsHAPGList = mempty
+    }
+
+-- | If not null, more results are available. Pass this value to ListHapgs to
+-- retrieve the next set of items.
+lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
+lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a});
+
+-- | FIXME: Undocumented member.
+lhrsStatus :: Lens' ListHAPGsResponse Int
+lhrsStatus = lens _lhrsStatus (\ s a -> s{_lhrsStatus = a});
+
+-- | The list of high-availability partition groups.
+lhrsHAPGList :: Lens' ListHAPGsResponse [Text]
+lhrsHAPGList = lens _lhrsHAPGList (\ s a -> s{_lhrsHAPGList = a});

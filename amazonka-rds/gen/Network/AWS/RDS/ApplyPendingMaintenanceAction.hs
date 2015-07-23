@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.ApplyPendingMaintenanceAction
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Applies a pending maintenance action to a resource (for example, a DB
+-- Applies a pending maintenance action to a resource (for example, a DB
 -- instance).
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ApplyPendingMaintenanceAction.html>
@@ -33,109 +28,126 @@ module Network.AWS.RDS.ApplyPendingMaintenanceAction
     -- ** Request constructor
     , applyPendingMaintenanceAction
     -- ** Request lenses
-    , apmaApplyAction
-    , apmaOptInType
-    , apmaResourceIdentifier
+    , apmarqResourceIdentifier
+    , apmarqApplyAction
+    , apmarqOptInType
 
     -- * Response
     , ApplyPendingMaintenanceActionResponse
     -- ** Response constructor
     , applyPendingMaintenanceActionResponse
     -- ** Response lenses
-    , apmarResourcePendingMaintenanceActions
+    , apmarsResourcePendingMaintenanceActions
+    , apmarsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction
-    { _apmaApplyAction        :: Text
-    , _apmaOptInType          :: Text
-    , _apmaResourceIdentifier :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ApplyPendingMaintenanceAction' constructor.
+-- |
+--
+-- /See:/ 'applyPendingMaintenanceAction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apmaApplyAction' @::@ 'Text'
+-- * 'apmarqResourceIdentifier'
 --
--- * 'apmaOptInType' @::@ 'Text'
+-- * 'apmarqApplyAction'
 --
--- * 'apmaResourceIdentifier' @::@ 'Text'
---
-applyPendingMaintenanceAction :: Text -- ^ 'apmaResourceIdentifier'
-                              -> Text -- ^ 'apmaApplyAction'
-                              -> Text -- ^ 'apmaOptInType'
-                              -> ApplyPendingMaintenanceAction
-applyPendingMaintenanceAction p1 p2 p3 = ApplyPendingMaintenanceAction
-    { _apmaResourceIdentifier = p1
-    , _apmaApplyAction        = p2
-    , _apmaOptInType          = p3
+-- * 'apmarqOptInType'
+data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
+    { _apmarqResourceIdentifier :: !Text
+    , _apmarqApplyAction        :: !Text
+    , _apmarqOptInType          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ApplyPendingMaintenanceAction' smart constructor.
+applyPendingMaintenanceAction :: Text -> Text -> Text -> ApplyPendingMaintenanceAction
+applyPendingMaintenanceAction pResourceIdentifier_ pApplyAction_ pOptInType_ =
+    ApplyPendingMaintenanceAction'
+    { _apmarqResourceIdentifier = pResourceIdentifier_
+    , _apmarqApplyAction = pApplyAction_
+    , _apmarqOptInType = pOptInType_
     }
 
+-- | The ARN of the resource that the pending maintenance action applies to.
+apmarqResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
+apmarqResourceIdentifier = lens _apmarqResourceIdentifier (\ s a -> s{_apmarqResourceIdentifier = a});
+
 -- | The pending maintenance action to apply to this resource.
-apmaApplyAction :: Lens' ApplyPendingMaintenanceAction Text
-apmaApplyAction = lens _apmaApplyAction (\s a -> s { _apmaApplyAction = a })
+apmarqApplyAction :: Lens' ApplyPendingMaintenanceAction Text
+apmarqApplyAction = lens _apmarqApplyAction (\ s a -> s{_apmarqApplyAction = a});
 
 -- | A value that specifies the type of opt-in request, or undoes an opt-in
--- request. An opt-in request of type 'immediate' cannot be undone.
+-- request. An opt-in request of type @immediate@ cannot be undone.
 --
 -- Valid values:
 --
--- 'immediate' - Apply the maintenance action immediately.  'next-maintenance' -
--- Apply the maintenance action during the next maintenance window for the
--- resource.  'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in requests.
---
-apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
-apmaOptInType = lens _apmaOptInType (\s a -> s { _apmaOptInType = a })
+-- -   @immediate@ - Apply the maintenance action immediately.
+-- -   @next-maintenance@ - Apply the maintenance action during the next
+--     maintenance window for the resource.
+-- -   @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in
+--     requests.
+apmarqOptInType :: Lens' ApplyPendingMaintenanceAction Text
+apmarqOptInType = lens _apmarqOptInType (\ s a -> s{_apmarqOptInType = a});
 
--- | The ARN of the resource that the pending maintenance action applies to.
-apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
-apmaResourceIdentifier =
-    lens _apmaResourceIdentifier (\s a -> s { _apmaResourceIdentifier = a })
+instance AWSRequest ApplyPendingMaintenanceAction
+         where
+        type Sv ApplyPendingMaintenanceAction = RDS
+        type Rs ApplyPendingMaintenanceAction =
+             ApplyPendingMaintenanceActionResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "ApplyPendingMaintenanceActionResult"
+              (\ s h x ->
+                 ApplyPendingMaintenanceActionResponse' <$>
+                   (x .@? "ResourcePendingMaintenanceActions") <*>
+                     (pure (fromEnum s)))
 
-newtype ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse
-    { _apmarResourcePendingMaintenanceActions :: Maybe ResourcePendingMaintenanceActions
-    } deriving (Eq, Read, Show)
+instance ToHeaders ApplyPendingMaintenanceAction
+         where
+        toHeaders = const mempty
 
--- | 'ApplyPendingMaintenanceActionResponse' constructor.
+instance ToPath ApplyPendingMaintenanceAction where
+        toPath = const "/"
+
+instance ToQuery ApplyPendingMaintenanceAction where
+        toQuery ApplyPendingMaintenanceAction'{..}
+          = mconcat
+              ["Action" =:
+                 ("ApplyPendingMaintenanceAction" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "ResourceIdentifier" =: _apmarqResourceIdentifier,
+               "ApplyAction" =: _apmarqApplyAction,
+               "OptInType" =: _apmarqOptInType]
+
+-- | /See:/ 'applyPendingMaintenanceActionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apmarResourcePendingMaintenanceActions' @::@ 'Maybe' 'ResourcePendingMaintenanceActions'
+-- * 'apmarsResourcePendingMaintenanceActions'
 --
-applyPendingMaintenanceActionResponse :: ApplyPendingMaintenanceActionResponse
-applyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse
-    { _apmarResourcePendingMaintenanceActions = Nothing
+-- * 'apmarsStatus'
+data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
+    { _apmarsResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
+    , _apmarsStatus                            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ApplyPendingMaintenanceActionResponse' smart constructor.
+applyPendingMaintenanceActionResponse :: Int -> ApplyPendingMaintenanceActionResponse
+applyPendingMaintenanceActionResponse pStatus_ =
+    ApplyPendingMaintenanceActionResponse'
+    { _apmarsResourcePendingMaintenanceActions = Nothing
+    , _apmarsStatus = pStatus_
     }
 
-apmarResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
-apmarResourcePendingMaintenanceActions =
-    lens _apmarResourcePendingMaintenanceActions
-        (\s a -> s { _apmarResourcePendingMaintenanceActions = a })
+-- | FIXME: Undocumented member.
+apmarsResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
+apmarsResourcePendingMaintenanceActions = lens _apmarsResourcePendingMaintenanceActions (\ s a -> s{_apmarsResourcePendingMaintenanceActions = a});
 
-instance ToPath ApplyPendingMaintenanceAction where
-    toPath = const "/"
-
-instance ToQuery ApplyPendingMaintenanceAction where
-    toQuery ApplyPendingMaintenanceAction{..} = mconcat
-        [ "ApplyAction"        =? _apmaApplyAction
-        , "OptInType"          =? _apmaOptInType
-        , "ResourceIdentifier" =? _apmaResourceIdentifier
-        ]
-
-instance ToHeaders ApplyPendingMaintenanceAction
-
-instance AWSRequest ApplyPendingMaintenanceAction where
-    type Sv ApplyPendingMaintenanceAction = RDS
-    type Rs ApplyPendingMaintenanceAction = ApplyPendingMaintenanceActionResponse
-
-    request  = post "ApplyPendingMaintenanceAction"
-    response = xmlResponse
-
-instance FromXML ApplyPendingMaintenanceActionResponse where
-    parseXML = withElement "ApplyPendingMaintenanceActionResult" $ \x -> ApplyPendingMaintenanceActionResponse
-        <$> x .@? "ResourcePendingMaintenanceActions"
+-- | FIXME: Undocumented member.
+apmarsStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
+apmarsStatus = lens _apmarsStatus (\ s a -> s{_apmarsStatus = a});

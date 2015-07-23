@@ -1,35 +1,32 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DisassociateAddress
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Disassociates an Elastic IP address from the instance or network interface
--- it's associated with.
+-- Disassociates an Elastic IP address from the instance or network
+-- interface it\'s associated with.
 --
--- An Elastic IP address is for use in either the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
+-- An Elastic IP address is for use in either the EC2-Classic platform or
+-- in a VPC. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- This is an idempotent operation. If you perform the operation more than
--- once, Amazon EC2 doesn't return an error.
+-- once, Amazon EC2 doesn\'t return an error.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisassociateAddress.html>
 module Network.AWS.EC2.DisassociateAddress
@@ -39,9 +36,9 @@ module Network.AWS.EC2.DisassociateAddress
     -- ** Request constructor
     , disassociateAddress
     -- ** Request lenses
-    , da1AssociationId
-    , da1DryRun
-    , da1PublicIp
+    , dasrqAssociationId
+    , dasrqPublicIP
+    , dasrqDryRun
 
     -- * Response
     , DisassociateAddressResponse
@@ -49,70 +46,77 @@ module Network.AWS.EC2.DisassociateAddress
     , disassociateAddressResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DisassociateAddress = DisassociateAddress
-    { _da1AssociationId :: Maybe Text
-    , _da1DryRun        :: Maybe Bool
-    , _da1PublicIp      :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DisassociateAddress' constructor.
+-- | /See:/ 'disassociateAddress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'da1AssociationId' @::@ 'Maybe' 'Text'
+-- * 'dasrqAssociationId'
 --
--- * 'da1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dasrqPublicIP'
 --
--- * 'da1PublicIp' @::@ 'Maybe' 'Text'
---
+-- * 'dasrqDryRun'
+data DisassociateAddress = DisassociateAddress'
+    { _dasrqAssociationId :: !(Maybe Text)
+    , _dasrqPublicIP      :: !(Maybe Text)
+    , _dasrqDryRun        :: !(Maybe Bool)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DisassociateAddress' smart constructor.
 disassociateAddress :: DisassociateAddress
-disassociateAddress = DisassociateAddress
-    { _da1DryRun        = Nothing
-    , _da1PublicIp      = Nothing
-    , _da1AssociationId = Nothing
+disassociateAddress =
+    DisassociateAddress'
+    { _dasrqAssociationId = Nothing
+    , _dasrqPublicIP = Nothing
+    , _dasrqDryRun = Nothing
     }
 
 -- | [EC2-VPC] The association ID. Required for EC2-VPC.
-da1AssociationId :: Lens' DisassociateAddress (Maybe Text)
-da1AssociationId = lens _da1AssociationId (\s a -> s { _da1AssociationId = a })
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-da1DryRun :: Lens' DisassociateAddress (Maybe Bool)
-da1DryRun = lens _da1DryRun (\s a -> s { _da1DryRun = a })
+dasrqAssociationId :: Lens' DisassociateAddress (Maybe Text)
+dasrqAssociationId = lens _dasrqAssociationId (\ s a -> s{_dasrqAssociationId = a});
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
-da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
+dasrqPublicIP :: Lens' DisassociateAddress (Maybe Text)
+dasrqPublicIP = lens _dasrqPublicIP (\ s a -> s{_dasrqPublicIP = a});
 
-data DisassociateAddressResponse = DisassociateAddressResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DisassociateAddressResponse' constructor.
-disassociateAddressResponse :: DisassociateAddressResponse
-disassociateAddressResponse = DisassociateAddressResponse
-
-instance ToPath DisassociateAddress where
-    toPath = const "/"
-
-instance ToQuery DisassociateAddress where
-    toQuery DisassociateAddress{..} = mconcat
-        [ "AssociationId" =? _da1AssociationId
-        , "DryRun"        =? _da1DryRun
-        , "PublicIp"      =? _da1PublicIp
-        ]
-
-instance ToHeaders DisassociateAddress
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+dasrqDryRun :: Lens' DisassociateAddress (Maybe Bool)
+dasrqDryRun = lens _dasrqDryRun (\ s a -> s{_dasrqDryRun = a});
 
 instance AWSRequest DisassociateAddress where
-    type Sv DisassociateAddress = EC2
-    type Rs DisassociateAddress = DisassociateAddressResponse
+        type Sv DisassociateAddress = EC2
+        type Rs DisassociateAddress =
+             DisassociateAddressResponse
+        request = post
+        response = receiveNull DisassociateAddressResponse'
 
-    request  = post "DisassociateAddress"
-    response = nullResponse DisassociateAddressResponse
+instance ToHeaders DisassociateAddress where
+        toHeaders = const mempty
+
+instance ToPath DisassociateAddress where
+        toPath = const "/"
+
+instance ToQuery DisassociateAddress where
+        toQuery DisassociateAddress'{..}
+          = mconcat
+              ["Action" =: ("DisassociateAddress" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "AssociationId" =: _dasrqAssociationId,
+               "PublicIp" =: _dasrqPublicIP,
+               "DryRun" =: _dasrqDryRun]
+
+-- | /See:/ 'disassociateAddressResponse' smart constructor.
+data DisassociateAddressResponse =
+    DisassociateAddressResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DisassociateAddressResponse' smart constructor.
+disassociateAddressResponse :: DisassociateAddressResponse
+disassociateAddressResponse = DisassociateAddressResponse'

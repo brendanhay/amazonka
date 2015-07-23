@@ -1,34 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.AutoScaling.DescribeMetricCollectionTypes
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of metrics and a corresponding list of granularities for each
--- metric.
+-- Describes the available CloudWatch metrics for Auto Scaling.
 --
--- The 'GroupStandbyInstances' metric is not returned by default. You must
--- explicitly request it when calling 'EnableMetricsCollection'.
---
---
+-- Note that the @GroupStandbyInstances@ metric is not returned by default.
+-- You must explicitly request this metric when calling
+-- EnableMetricsCollection.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeMetricCollectionTypes.html>
 module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
@@ -43,88 +36,90 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     -- ** Response constructor
     , describeMetricCollectionTypesResponse
     -- ** Response lenses
-    , dmctrGranularities
-    , dmctrMetrics
+    , dmctrsMetrics
+    , dmctrsGranularities
+    , dmctrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.AutoScaling.Types
-import qualified GHC.Exts
+import           Network.AWS.AutoScaling.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'describeMetricCollectionTypes' smart constructor.
+data DescribeMetricCollectionTypes =
+    DescribeMetricCollectionTypes'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'DescribeMetricCollectionTypes' constructor.
+-- | 'DescribeMetricCollectionTypes' smart constructor.
 describeMetricCollectionTypes :: DescribeMetricCollectionTypes
-describeMetricCollectionTypes = DescribeMetricCollectionTypes
+describeMetricCollectionTypes = DescribeMetricCollectionTypes'
 
-data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
-    { _dmctrGranularities :: List "member" MetricGranularityType
-    , _dmctrMetrics       :: List "member" MetricCollectionType
-    } deriving (Eq, Read, Show)
+instance AWSRequest DescribeMetricCollectionTypes
+         where
+        type Sv DescribeMetricCollectionTypes = AutoScaling
+        type Rs DescribeMetricCollectionTypes =
+             DescribeMetricCollectionTypesResponse
+        request = post
+        response
+          = receiveXMLWrapper
+              "DescribeMetricCollectionTypesResult"
+              (\ s h x ->
+                 DescribeMetricCollectionTypesResponse' <$>
+                   (x .@? "Metrics" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*>
+                     (x .@? "Granularities" .!@ mempty >>=
+                        may (parseXMLList "member"))
+                     <*> (pure (fromEnum s)))
 
--- | 'DescribeMetricCollectionTypesResponse' constructor.
+instance ToHeaders DescribeMetricCollectionTypes
+         where
+        toHeaders = const mempty
+
+instance ToPath DescribeMetricCollectionTypes where
+        toPath = const "/"
+
+instance ToQuery DescribeMetricCollectionTypes where
+        toQuery
+          = const
+              (mconcat
+                 ["Action" =:
+                    ("DescribeMetricCollectionTypes" :: ByteString),
+                  "Version" =: ("2011-01-01" :: ByteString)])
+
+-- | /See:/ 'describeMetricCollectionTypesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmctrGranularities' @::@ ['MetricGranularityType']
+-- * 'dmctrsMetrics'
 --
--- * 'dmctrMetrics' @::@ ['MetricCollectionType']
+-- * 'dmctrsGranularities'
 --
-describeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse
-describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
-    { _dmctrMetrics       = mempty
-    , _dmctrGranularities = mempty
+-- * 'dmctrsStatus'
+data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
+    { _dmctrsMetrics       :: !(Maybe [MetricCollectionType])
+    , _dmctrsGranularities :: !(Maybe [MetricGranularityType])
+    , _dmctrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeMetricCollectionTypesResponse' smart constructor.
+describeMetricCollectionTypesResponse :: Int -> DescribeMetricCollectionTypesResponse
+describeMetricCollectionTypesResponse pStatus_ =
+    DescribeMetricCollectionTypesResponse'
+    { _dmctrsMetrics = Nothing
+    , _dmctrsGranularities = Nothing
+    , _dmctrsStatus = pStatus_
     }
 
--- | The granularities for the listed metrics.
-dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
-dmctrGranularities =
-    lens _dmctrGranularities (\s a -> s { _dmctrGranularities = a })
-        . _List
+-- | One or more metrics.
+dmctrsMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
+dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default;
 
--- | One or more of the following metrics:
---
--- GroupMinSize
---
--- GroupMaxSize
---
--- GroupDesiredCapacity
---
--- GroupInServiceInstances
---
--- GroupPendingInstances
---
--- GroupStandbyInstances
---
--- GroupTerminatingInstances
---
--- GroupTotalInstances
---
--- The 'GroupStandbyInstances' metric is not returned by default. You must
--- explicitly request it when calling 'EnableMetricsCollection'.
---
---
-dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
-dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a }) . _List
+-- | The granularities for the metrics.
+dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
+dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default;
 
-instance ToPath DescribeMetricCollectionTypes where
-    toPath = const "/"
-
-instance ToQuery DescribeMetricCollectionTypes where
-    toQuery = const mempty
-
-instance ToHeaders DescribeMetricCollectionTypes
-
-instance AWSRequest DescribeMetricCollectionTypes where
-    type Sv DescribeMetricCollectionTypes = AutoScaling
-    type Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesResponse
-
-    request  = post "DescribeMetricCollectionTypes"
-    response = xmlResponse
-
-instance FromXML DescribeMetricCollectionTypesResponse where
-    parseXML = withElement "DescribeMetricCollectionTypesResult" $ \x -> DescribeMetricCollectionTypesResponse
-        <$> x .@? "Granularities" .!@ mempty
-        <*> x .@? "Metrics" .!@ mempty
+-- | FIXME: Undocumented member.
+dmctrsStatus :: Lens' DescribeMetricCollectionTypesResponse Int
+dmctrsStatus = lens _dmctrsStatus (\ s a -> s{_dmctrsStatus = a});

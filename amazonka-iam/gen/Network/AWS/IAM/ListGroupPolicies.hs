@@ -1,38 +1,34 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.ListGroupPolicies
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists the names of the inline policies that are embedded in the specified
--- group.
+-- Lists the names of the inline policies that are embedded in the
+-- specified group.
 --
--- A group can also have managed policies attached to it. To list the managed
--- policies that are attached to a group, use 'ListAttachedGroupPolicies'. For
--- more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- A group can also have managed policies attached to it. To list the
+-- managed policies that are attached to a group, use
+-- ListAttachedGroupPolicies. For more information about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
 -- in the /Using IAM/ guide.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters. If
--- there are no inline policies embedded with the specified group, the action
--- returns an empty list.
+-- You can paginate the results using the @MaxItems@ and @Marker@
+-- parameters. If there are no inline policies embedded with the specified
+-- group, the action returns an empty list.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListGroupPolicies.html>
 module Network.AWS.IAM.ListGroupPolicies
@@ -42,131 +38,152 @@ module Network.AWS.IAM.ListGroupPolicies
     -- ** Request constructor
     , listGroupPolicies
     -- ** Request lenses
-    , lgpGroupName
-    , lgpMarker
-    , lgpMaxItems
+    , lgprqMaxItems
+    , lgprqMarker
+    , lgprqGroupName
 
     -- * Response
     , ListGroupPoliciesResponse
     -- ** Response constructor
     , listGroupPoliciesResponse
     -- ** Response lenses
-    , lgprIsTruncated
-    , lgprMarker
-    , lgprPolicyNames
+    , lgprsMarker
+    , lgprsIsTruncated
+    , lgprsStatus
+    , lgprsPolicyNames
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListGroupPolicies = ListGroupPolicies
-    { _lgpGroupName :: Text
-    , _lgpMarker    :: Maybe Text
-    , _lgpMaxItems  :: Maybe Nat
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListGroupPolicies' constructor.
+-- | /See:/ 'listGroupPolicies' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgpGroupName' @::@ 'Text'
+-- * 'lgprqMaxItems'
 --
--- * 'lgpMarker' @::@ 'Maybe' 'Text'
+-- * 'lgprqMarker'
 --
--- * 'lgpMaxItems' @::@ 'Maybe' 'Natural'
---
-listGroupPolicies :: Text -- ^ 'lgpGroupName'
-                  -> ListGroupPolicies
-listGroupPolicies p1 = ListGroupPolicies
-    { _lgpGroupName = p1
-    , _lgpMarker    = Nothing
-    , _lgpMaxItems  = Nothing
+-- * 'lgprqGroupName'
+data ListGroupPolicies = ListGroupPolicies'
+    { _lgprqMaxItems  :: !(Maybe Nat)
+    , _lgprqMarker    :: !(Maybe Text)
+    , _lgprqGroupName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListGroupPolicies' smart constructor.
+listGroupPolicies :: Text -> ListGroupPolicies
+listGroupPolicies pGroupName_ =
+    ListGroupPolicies'
+    { _lgprqMaxItems = Nothing
+    , _lgprqMarker = Nothing
+    , _lgprqGroupName = pGroupName_
     }
-
--- | The name of the group to list policies for.
-lgpGroupName :: Lens' ListGroupPolicies Text
-lgpGroupName = lens _lgpGroupName (\s a -> s { _lgpGroupName = a })
-
--- | Use this only when paginating results, and only in a subsequent request
--- after you've received a response where the results are truncated. Set it to
--- the value of the 'Marker' element in the response you just received.
-lgpMarker :: Lens' ListGroupPolicies (Maybe Text)
-lgpMarker = lens _lgpMarker (\s a -> s { _lgpMarker = a })
 
 -- | Use this only when paginating results to indicate the maximum number of
--- policy names you want in the response. If there are additional policy names
--- beyond the maximum you specify, the 'IsTruncated' response element is 'true'.
--- This parameter is optional. If you do not include it, it defaults to 100.
-lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
-lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a }) . mapping _Nat
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
+lgprqMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
+lgprqMaxItems = lens _lgprqMaxItems (\ s a -> s{_lgprqMaxItems = a}) . mapping _Nat;
 
-data ListGroupPoliciesResponse = ListGroupPoliciesResponse
-    { _lgprIsTruncated :: Maybe Bool
-    , _lgprMarker      :: Maybe Text
-    , _lgprPolicyNames :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
+lgprqMarker :: Lens' ListGroupPolicies (Maybe Text)
+lgprqMarker = lens _lgprqMarker (\ s a -> s{_lgprqMarker = a});
 
--- | 'ListGroupPoliciesResponse' constructor.
+-- | The name of the group to list policies for.
+lgprqGroupName :: Lens' ListGroupPolicies Text
+lgprqGroupName = lens _lgprqGroupName (\ s a -> s{_lgprqGroupName = a});
+
+instance AWSPager ListGroupPolicies where
+        page rq rs
+          | stop (rs ^. lgprsIsTruncated) = Nothing
+          | isNothing (rs ^. lgprsMarker) = Nothing
+          | otherwise =
+            Just $ rq & lgprqMarker .~ rs ^. lgprsMarker
+
+instance AWSRequest ListGroupPolicies where
+        type Sv ListGroupPolicies = IAM
+        type Rs ListGroupPolicies = ListGroupPoliciesResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListGroupPoliciesResult"
+              (\ s h x ->
+                 ListGroupPoliciesResponse' <$>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (pure (fromEnum s))
+                     <*>
+                     (x .@? "PolicyNames" .!@ mempty >>=
+                        parseXMLList "member"))
+
+instance ToHeaders ListGroupPolicies where
+        toHeaders = const mempty
+
+instance ToPath ListGroupPolicies where
+        toPath = const "/"
+
+instance ToQuery ListGroupPolicies where
+        toQuery ListGroupPolicies'{..}
+          = mconcat
+              ["Action" =: ("ListGroupPolicies" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "MaxItems" =: _lgprqMaxItems,
+               "Marker" =: _lgprqMarker,
+               "GroupName" =: _lgprqGroupName]
+
+-- | Contains the response to a successful ListGroupPolicies request.
+--
+-- /See:/ 'listGroupPoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgprIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'lgprsMarker'
 --
--- * 'lgprMarker' @::@ 'Maybe' 'Text'
+-- * 'lgprsIsTruncated'
 --
--- * 'lgprPolicyNames' @::@ ['Text']
+-- * 'lgprsStatus'
 --
-listGroupPoliciesResponse :: ListGroupPoliciesResponse
-listGroupPoliciesResponse = ListGroupPoliciesResponse
-    { _lgprPolicyNames = mempty
-    , _lgprIsTruncated = Nothing
-    , _lgprMarker      = Nothing
+-- * 'lgprsPolicyNames'
+data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
+    { _lgprsMarker      :: !(Maybe Text)
+    , _lgprsIsTruncated :: !(Maybe Bool)
+    , _lgprsStatus      :: !Int
+    , _lgprsPolicyNames :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListGroupPoliciesResponse' smart constructor.
+listGroupPoliciesResponse :: Int -> ListGroupPoliciesResponse
+listGroupPoliciesResponse pStatus_ =
+    ListGroupPoliciesResponse'
+    { _lgprsMarker = Nothing
+    , _lgprsIsTruncated = Nothing
+    , _lgprsStatus = pStatus_
+    , _lgprsPolicyNames = mempty
     }
 
--- | A flag that indicates whether there are more policy names to list. If your
--- results were truncated, you can make a subsequent pagination request using
--- the 'Marker' request parameter to retrieve more policy names in the list.
-lgprIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
-lgprIsTruncated = lens _lgprIsTruncated (\s a -> s { _lgprIsTruncated = a })
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lgprsMarker :: Lens' ListGroupPoliciesResponse (Maybe Text)
+lgprsMarker = lens _lgprsMarker (\ s a -> s{_lgprsMarker = a});
 
--- | If 'IsTruncated' is 'true', this element is present and contains the value to
--- use for the 'Marker' parameter in a subsequent pagination request.
-lgprMarker :: Lens' ListGroupPoliciesResponse (Maybe Text)
-lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
+lgprsIsTruncated :: Lens' ListGroupPoliciesResponse (Maybe Bool)
+lgprsIsTruncated = lens _lgprsIsTruncated (\ s a -> s{_lgprsIsTruncated = a});
+
+-- | FIXME: Undocumented member.
+lgprsStatus :: Lens' ListGroupPoliciesResponse Int
+lgprsStatus = lens _lgprsStatus (\ s a -> s{_lgprsStatus = a});
 
 -- | A list of policy names.
-lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
-lgprPolicyNames = lens _lgprPolicyNames (\s a -> s { _lgprPolicyNames = a }) . _List
-
-instance ToPath ListGroupPolicies where
-    toPath = const "/"
-
-instance ToQuery ListGroupPolicies where
-    toQuery ListGroupPolicies{..} = mconcat
-        [ "GroupName" =? _lgpGroupName
-        , "Marker"    =? _lgpMarker
-        , "MaxItems"  =? _lgpMaxItems
-        ]
-
-instance ToHeaders ListGroupPolicies
-
-instance AWSRequest ListGroupPolicies where
-    type Sv ListGroupPolicies = IAM
-    type Rs ListGroupPolicies = ListGroupPoliciesResponse
-
-    request  = post "ListGroupPolicies"
-    response = xmlResponse
-
-instance FromXML ListGroupPoliciesResponse where
-    parseXML = withElement "ListGroupPoliciesResult" $ \x -> ListGroupPoliciesResponse
-        <$> x .@? "IsTruncated"
-        <*> x .@? "Marker"
-        <*> x .@? "PolicyNames" .!@ mempty
-
-instance AWSPager ListGroupPolicies where
-    page rq rs
-        | stop (rs ^. lgprIsTruncated) = Nothing
-        | otherwise = Just $ rq
-            & lgpMarker .~ rs ^. lgprMarker
+lgprsPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
+lgprsPolicyNames = lens _lgprsPolicyNames (\ s a -> s{_lgprsPolicyNames = a});

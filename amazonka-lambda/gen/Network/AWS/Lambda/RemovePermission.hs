@@ -1,34 +1,29 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Lambda.RemovePermission
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | You can remove individual permissions from an access policy associated with a
--- Lambda function by providing a Statement ID.
+-- You can remove individual permissions from an access policy associated
+-- with a Lambda function by providing a Statement ID.
 --
--- Note that removal of a permission will cause an active event source to lose
--- permission to the function.
+-- Note that removal of a permission will cause an active event source to
+-- lose permission to the function.
 --
--- You need permission for the 'lambda:RemovePermission' action.
+-- You need permission for the @lambda:RemovePermission@ action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_RemovePermission.html>
 module Network.AWS.Lambda.RemovePermission
@@ -38,8 +33,8 @@ module Network.AWS.Lambda.RemovePermission
     -- ** Request constructor
     , removePermission
     -- ** Request lenses
-    , rpFunctionName
-    , rpStatementId
+    , rprqFunctionName
+    , rprqStatementId
 
     -- * Response
     , RemovePermissionResponse
@@ -47,75 +42,72 @@ module Network.AWS.Lambda.RemovePermission
     , removePermissionResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.Lambda.Types
-import qualified GHC.Exts
+import           Network.AWS.Lambda.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RemovePermission = RemovePermission
-    { _rpFunctionName :: Text
-    , _rpStatementId  :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'RemovePermission' constructor.
+-- | /See:/ 'removePermission' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpFunctionName' @::@ 'Text'
+-- * 'rprqFunctionName'
 --
--- * 'rpStatementId' @::@ 'Text'
---
-removePermission :: Text -- ^ 'rpFunctionName'
-                 -> Text -- ^ 'rpStatementId'
-                 -> RemovePermission
-removePermission p1 p2 = RemovePermission
-    { _rpFunctionName = p1
-    , _rpStatementId  = p2
+-- * 'rprqStatementId'
+data RemovePermission = RemovePermission'
+    { _rprqFunctionName :: !Text
+    , _rprqStatementId  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RemovePermission' smart constructor.
+removePermission :: Text -> Text -> RemovePermission
+removePermission pFunctionName_ pStatementId_ =
+    RemovePermission'
+    { _rprqFunctionName = pFunctionName_
+    , _rprqStatementId = pStatementId_
     }
 
--- | Lambda function whose access policy you want to remove a permission from.
+-- | Lambda function whose access policy you want to remove a permission
+-- from.
 --
--- You can specify an unqualified function name (for example, "Thumbnail") or
--- you can specify Amazon Resource Name (ARN) of the function (for example,
--- "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also
--- allows you to specify only the account ID qualifier (for example,
--- "account-id:Thumbnail"). Note that the length constraint applies only to the
--- ARN. If you specify only the function name, it is limited to 64 character in
--- length.
-rpFunctionName :: Lens' RemovePermission Text
-rpFunctionName = lens _rpFunctionName (\s a -> s { _rpFunctionName = a })
+-- You can specify an unqualified function name (for example,
+-- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
+-- function (for example,
+-- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
+-- also allows you to specify only the account ID qualifier (for example,
+-- \"account-id:Thumbnail\"). Note that the length constraint applies only
+-- to the ARN. If you specify only the function name, it is limited to 64
+-- character in length.
+rprqFunctionName :: Lens' RemovePermission Text
+rprqFunctionName = lens _rprqFunctionName (\ s a -> s{_rprqFunctionName = a});
 
 -- | Statement ID of the permission to remove.
-rpStatementId :: Lens' RemovePermission Text
-rpStatementId = lens _rpStatementId (\s a -> s { _rpStatementId = a })
-
-data RemovePermissionResponse = RemovePermissionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RemovePermissionResponse' constructor.
-removePermissionResponse :: RemovePermissionResponse
-removePermissionResponse = RemovePermissionResponse
-
-instance ToPath RemovePermission where
-    toPath RemovePermission{..} = mconcat
-        [ "/2015-03-31/functions/"
-        , toText _rpFunctionName
-        , "/versions/HEAD/policy/"
-        , toText _rpStatementId
-        ]
-
-instance ToQuery RemovePermission where
-    toQuery = const mempty
-
-instance ToHeaders RemovePermission
-
-instance ToJSON RemovePermission where
-    toJSON = const (toJSON Empty)
+rprqStatementId :: Lens' RemovePermission Text
+rprqStatementId = lens _rprqStatementId (\ s a -> s{_rprqStatementId = a});
 
 instance AWSRequest RemovePermission where
-    type Sv RemovePermission = Lambda
-    type Rs RemovePermission = RemovePermissionResponse
+        type Sv RemovePermission = Lambda
+        type Rs RemovePermission = RemovePermissionResponse
+        request = delete
+        response = receiveNull RemovePermissionResponse'
 
-    request  = delete
-    response = nullResponse RemovePermissionResponse
+instance ToHeaders RemovePermission where
+        toHeaders = const mempty
+
+instance ToPath RemovePermission where
+        toPath RemovePermission'{..}
+          = mconcat
+              ["/2015-03-31/functions/", toText _rprqFunctionName,
+               "/versions/HEAD/policy/", toText _rprqStatementId]
+
+instance ToQuery RemovePermission where
+        toQuery = const mempty
+
+-- | /See:/ 'removePermissionResponse' smart constructor.
+data RemovePermissionResponse =
+    RemovePermissionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RemovePermissionResponse' smart constructor.
+removePermissionResponse :: RemovePermissionResponse
+removePermissionResponse = RemovePermissionResponse'

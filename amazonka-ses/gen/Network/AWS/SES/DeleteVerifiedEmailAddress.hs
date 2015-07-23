@@ -1,31 +1,29 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SES.DeleteVerifiedEmailAddress
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified email address from the list of verified addresses.
+-- Deletes the specified email address from the list of verified addresses.
 --
--- The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012
--- release of Domain Verification. The DeleteIdentity action is now preferred. This action is throttled at one request per second.
+-- The DeleteVerifiedEmailAddress action is deprecated as of the May 15,
+-- 2012 release of Domain Verification. The DeleteIdentity action is now
+-- preferred.
+--
+-- This action is throttled at one request per second.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_DeleteVerifiedEmailAddress.html>
 module Network.AWS.SES.DeleteVerifiedEmailAddress
@@ -35,7 +33,7 @@ module Network.AWS.SES.DeleteVerifiedEmailAddress
     -- ** Request constructor
     , deleteVerifiedEmailAddress
     -- ** Request lenses
-    , dveaEmailAddress
+    , dvearqEmailAddress
 
     -- * Response
     , DeleteVerifiedEmailAddressResponse
@@ -43,51 +41,61 @@ module Network.AWS.SES.DeleteVerifiedEmailAddress
     , deleteVerifiedEmailAddressResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
-newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
-    { _dveaEmailAddress :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteVerifiedEmailAddress' constructor.
+-- | Represents a request instructing the service to delete an address from
+-- the list of verified email addresses.
+--
+-- /See:/ 'deleteVerifiedEmailAddress' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dveaEmailAddress' @::@ 'Text'
---
-deleteVerifiedEmailAddress :: Text -- ^ 'dveaEmailAddress'
-                           -> DeleteVerifiedEmailAddress
-deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
-    { _dveaEmailAddress = p1
+-- * 'dvearqEmailAddress'
+newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
+    { _dvearqEmailAddress :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteVerifiedEmailAddress' smart constructor.
+deleteVerifiedEmailAddress :: Text -> DeleteVerifiedEmailAddress
+deleteVerifiedEmailAddress pEmailAddress_ =
+    DeleteVerifiedEmailAddress'
+    { _dvearqEmailAddress = pEmailAddress_
     }
 
 -- | An email address to be removed from the list of verified addresses.
-dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
-dveaEmailAddress = lens _dveaEmailAddress (\s a -> s { _dveaEmailAddress = a })
-
-data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteVerifiedEmailAddressResponse' constructor.
-deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
-deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
-
-instance ToPath DeleteVerifiedEmailAddress where
-    toPath = const "/"
-
-instance ToQuery DeleteVerifiedEmailAddress where
-    toQuery DeleteVerifiedEmailAddress{..} = mconcat
-        [ "EmailAddress" =? _dveaEmailAddress
-        ]
-
-instance ToHeaders DeleteVerifiedEmailAddress
+dvearqEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
+dvearqEmailAddress = lens _dvearqEmailAddress (\ s a -> s{_dvearqEmailAddress = a});
 
 instance AWSRequest DeleteVerifiedEmailAddress where
-    type Sv DeleteVerifiedEmailAddress = SES
-    type Rs DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddressResponse
+        type Sv DeleteVerifiedEmailAddress = SES
+        type Rs DeleteVerifiedEmailAddress =
+             DeleteVerifiedEmailAddressResponse
+        request = post
+        response
+          = receiveNull DeleteVerifiedEmailAddressResponse'
 
-    request  = post "DeleteVerifiedEmailAddress"
-    response = nullResponse DeleteVerifiedEmailAddressResponse
+instance ToHeaders DeleteVerifiedEmailAddress where
+        toHeaders = const mempty
+
+instance ToPath DeleteVerifiedEmailAddress where
+        toPath = const "/"
+
+instance ToQuery DeleteVerifiedEmailAddress where
+        toQuery DeleteVerifiedEmailAddress'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteVerifiedEmailAddress" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "EmailAddress" =: _dvearqEmailAddress]
+
+-- | /See:/ 'deleteVerifiedEmailAddressResponse' smart constructor.
+data DeleteVerifiedEmailAddressResponse =
+    DeleteVerifiedEmailAddressResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteVerifiedEmailAddressResponse' smart constructor.
+deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
+deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse'

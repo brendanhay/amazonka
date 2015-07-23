@@ -1,32 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ECS.RegisterContainerInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This action is only used by the Amazon EC2 Container Service agent, and it is
--- not intended for use outside of the agent.
+-- This action is only used by the Amazon EC2 Container Service agent, and
+-- it is not intended for use outside of the agent.
 --
--- Registers an Amazon EC2 instance into the specified cluster. This instance
--- will become available to place containers on.
+-- Registers an Amazon EC2 instance into the specified cluster. This
+-- instance will become available to place containers on.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RegisterContainerInstance.html>
 module Network.AWS.ECS.RegisterContainerInstance
@@ -36,124 +31,160 @@ module Network.AWS.ECS.RegisterContainerInstance
     -- ** Request constructor
     , registerContainerInstance
     -- ** Request lenses
-    , rciCluster
-    , rciInstanceIdentityDocument
-    , rciInstanceIdentityDocumentSignature
-    , rciTotalResources
-    , rciVersionInfo
+    , rcirqInstanceIdentityDocumentSignature
+    , rcirqCluster
+    , rcirqInstanceIdentityDocument
+    , rcirqContainerInstanceARN
+    , rcirqVersionInfo
+    , rcirqTotalResources
 
     -- * Response
     , RegisterContainerInstanceResponse
     -- ** Response constructor
     , registerContainerInstanceResponse
     -- ** Response lenses
-    , rcirContainerInstance
+    , rcirsContainerInstance
+    , rcirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RegisterContainerInstance = RegisterContainerInstance
-    { _rciCluster                           :: Maybe Text
-    , _rciInstanceIdentityDocument          :: Maybe Text
-    , _rciInstanceIdentityDocumentSignature :: Maybe Text
-    , _rciTotalResources                    :: List "totalResources" Resource
-    , _rciVersionInfo                       :: Maybe VersionInfo
-    } deriving (Eq, Read, Show)
-
--- | 'RegisterContainerInstance' constructor.
+-- | /See:/ 'registerContainerInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rciCluster' @::@ 'Maybe' 'Text'
+-- * 'rcirqInstanceIdentityDocumentSignature'
 --
--- * 'rciInstanceIdentityDocument' @::@ 'Maybe' 'Text'
+-- * 'rcirqCluster'
 --
--- * 'rciInstanceIdentityDocumentSignature' @::@ 'Maybe' 'Text'
+-- * 'rcirqInstanceIdentityDocument'
 --
--- * 'rciTotalResources' @::@ ['Resource']
+-- * 'rcirqContainerInstanceARN'
 --
--- * 'rciVersionInfo' @::@ 'Maybe' 'VersionInfo'
+-- * 'rcirqVersionInfo'
 --
+-- * 'rcirqTotalResources'
+data RegisterContainerInstance = RegisterContainerInstance'
+    { _rcirqInstanceIdentityDocumentSignature :: !(Maybe Text)
+    , _rcirqCluster                           :: !(Maybe Text)
+    , _rcirqInstanceIdentityDocument          :: !(Maybe Text)
+    , _rcirqContainerInstanceARN              :: !(Maybe Text)
+    , _rcirqVersionInfo                       :: !(Maybe VersionInfo)
+    , _rcirqTotalResources                    :: !(Maybe [Resource])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RegisterContainerInstance' smart constructor.
 registerContainerInstance :: RegisterContainerInstance
-registerContainerInstance = RegisterContainerInstance
-    { _rciCluster                           = Nothing
-    , _rciInstanceIdentityDocument          = Nothing
-    , _rciInstanceIdentityDocumentSignature = Nothing
-    , _rciTotalResources                    = mempty
-    , _rciVersionInfo                       = Nothing
+registerContainerInstance =
+    RegisterContainerInstance'
+    { _rcirqInstanceIdentityDocumentSignature = Nothing
+    , _rcirqCluster = Nothing
+    , _rcirqInstanceIdentityDocument = Nothing
+    , _rcirqContainerInstanceARN = Nothing
+    , _rcirqVersionInfo = Nothing
+    , _rcirqTotalResources = Nothing
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that you
--- want to register your container instance with. If you do not specify a
--- cluster, the default cluster is assumed..
-rciCluster :: Lens' RegisterContainerInstance (Maybe Text)
-rciCluster = lens _rciCluster (\s a -> s { _rciCluster = a })
+-- | The instance identity document signature for the Amazon EC2 instance to
+-- register. This signature can be found by running the following command
+-- from the instance:
+-- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/signature\/@
+rcirqInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
+rcirqInstanceIdentityDocumentSignature = lens _rcirqInstanceIdentityDocumentSignature (\ s a -> s{_rcirqInstanceIdentityDocumentSignature = a});
 
-rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
-rciInstanceIdentityDocument =
-    lens _rciInstanceIdentityDocument
-        (\s a -> s { _rciInstanceIdentityDocument = a })
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- you want to register your container instance with. If you do not specify
+-- a cluster, the default cluster is assumed..
+rcirqCluster :: Lens' RegisterContainerInstance (Maybe Text)
+rcirqCluster = lens _rcirqCluster (\ s a -> s{_rcirqCluster = a});
 
-rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
-rciInstanceIdentityDocumentSignature =
-    lens _rciInstanceIdentityDocumentSignature
-        (\s a -> s { _rciInstanceIdentityDocumentSignature = a })
+-- | The instance identity document for the Amazon EC2 instance to register.
+-- This document can be found by running the following command from the
+-- instance:
+-- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/@
+rcirqInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
+rcirqInstanceIdentityDocument = lens _rcirqInstanceIdentityDocument (\ s a -> s{_rcirqInstanceIdentityDocument = a});
 
-rciTotalResources :: Lens' RegisterContainerInstance [Resource]
-rciTotalResources =
-    lens _rciTotalResources (\s a -> s { _rciTotalResources = a })
-        . _List
+-- | The Amazon Resource Name (ARN) of the container instance (if it was
+-- previously registered).
+rcirqContainerInstanceARN :: Lens' RegisterContainerInstance (Maybe Text)
+rcirqContainerInstanceARN = lens _rcirqContainerInstanceARN (\ s a -> s{_rcirqContainerInstanceARN = a});
 
-rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
-rciVersionInfo = lens _rciVersionInfo (\s a -> s { _rciVersionInfo = a })
+-- | The version information for the Amazon ECS container agent and Docker
+-- daemon running on the container instance.
+rcirqVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
+rcirqVersionInfo = lens _rcirqVersionInfo (\ s a -> s{_rcirqVersionInfo = a});
 
-newtype RegisterContainerInstanceResponse = RegisterContainerInstanceResponse
-    { _rcirContainerInstance :: Maybe ContainerInstance
-    } deriving (Eq, Read, Show)
-
--- | 'RegisterContainerInstanceResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rcirContainerInstance' @::@ 'Maybe' 'ContainerInstance'
---
-registerContainerInstanceResponse :: RegisterContainerInstanceResponse
-registerContainerInstanceResponse = RegisterContainerInstanceResponse
-    { _rcirContainerInstance = Nothing
-    }
-
-rcirContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
-rcirContainerInstance =
-    lens _rcirContainerInstance (\s a -> s { _rcirContainerInstance = a })
-
-instance ToPath RegisterContainerInstance where
-    toPath = const "/"
-
-instance ToQuery RegisterContainerInstance where
-    toQuery = const mempty
-
-instance ToHeaders RegisterContainerInstance
-
-instance ToJSON RegisterContainerInstance where
-    toJSON RegisterContainerInstance{..} = object
-        [ "cluster"                           .= _rciCluster
-        , "instanceIdentityDocument"          .= _rciInstanceIdentityDocument
-        , "instanceIdentityDocumentSignature" .= _rciInstanceIdentityDocumentSignature
-        , "totalResources"                    .= _rciTotalResources
-        , "versionInfo"                       .= _rciVersionInfo
-        ]
+-- | The resources available on the instance.
+rcirqTotalResources :: Lens' RegisterContainerInstance [Resource]
+rcirqTotalResources = lens _rcirqTotalResources (\ s a -> s{_rcirqTotalResources = a}) . _Default;
 
 instance AWSRequest RegisterContainerInstance where
-    type Sv RegisterContainerInstance = ECS
-    type Rs RegisterContainerInstance = RegisterContainerInstanceResponse
+        type Sv RegisterContainerInstance = ECS
+        type Rs RegisterContainerInstance =
+             RegisterContainerInstanceResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RegisterContainerInstanceResponse' <$>
+                   (x .?> "containerInstance") <*> (pure (fromEnum s)))
 
-    request  = post "RegisterContainerInstance"
-    response = jsonResponse
+instance ToHeaders RegisterContainerInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.RegisterContainerInstance"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON RegisterContainerInstanceResponse where
-    parseJSON = withObject "RegisterContainerInstanceResponse" $ \o -> RegisterContainerInstanceResponse
-        <$> o .:? "containerInstance"
+instance ToJSON RegisterContainerInstance where
+        toJSON RegisterContainerInstance'{..}
+          = object
+              ["instanceIdentityDocumentSignature" .=
+                 _rcirqInstanceIdentityDocumentSignature,
+               "cluster" .= _rcirqCluster,
+               "instanceIdentityDocument" .=
+                 _rcirqInstanceIdentityDocument,
+               "containerInstanceArn" .= _rcirqContainerInstanceARN,
+               "versionInfo" .= _rcirqVersionInfo,
+               "totalResources" .= _rcirqTotalResources]
+
+instance ToPath RegisterContainerInstance where
+        toPath = const "/"
+
+instance ToQuery RegisterContainerInstance where
+        toQuery = const mempty
+
+-- | /See:/ 'registerContainerInstanceResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rcirsContainerInstance'
+--
+-- * 'rcirsStatus'
+data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
+    { _rcirsContainerInstance :: !(Maybe ContainerInstance)
+    , _rcirsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RegisterContainerInstanceResponse' smart constructor.
+registerContainerInstanceResponse :: Int -> RegisterContainerInstanceResponse
+registerContainerInstanceResponse pStatus_ =
+    RegisterContainerInstanceResponse'
+    { _rcirsContainerInstance = Nothing
+    , _rcirsStatus = pStatus_
+    }
+
+-- | FIXME: Undocumented member.
+rcirsContainerInstance :: Lens' RegisterContainerInstanceResponse (Maybe ContainerInstance)
+rcirsContainerInstance = lens _rcirsContainerInstance (\ s a -> s{_rcirsContainerInstance = a});
+
+-- | FIXME: Undocumented member.
+rcirsStatus :: Lens' RegisterContainerInstanceResponse Int
+rcirsStatus = lens _rcirsStatus (\ s a -> s{_rcirsStatus = a});

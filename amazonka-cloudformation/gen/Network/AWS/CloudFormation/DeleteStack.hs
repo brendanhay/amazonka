@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFormation.DeleteStack
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes a specified stack. Once the call completes successfully, stack
--- deletion starts. Deleted stacks do not show up in the 'DescribeStacks' API if
--- the deletion has been completed successfully.
+-- Deletes a specified stack. Once the call completes successfully, stack
+-- deletion starts. Deleted stacks do not show up in the DescribeStacks API
+-- if the deletion has been completed successfully.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeleteStack.html>
 module Network.AWS.CloudFormation.DeleteStack
@@ -34,7 +29,7 @@ module Network.AWS.CloudFormation.DeleteStack
     -- ** Request constructor
     , deleteStack
     -- ** Request lenses
-    , dsStackName
+    , dsrqStackName
 
     -- * Response
     , DeleteStackResponse
@@ -42,51 +37,57 @@ module Network.AWS.CloudFormation.DeleteStack
     , deleteStackResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteStack = DeleteStack
-    { _dsStackName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteStack' constructor.
+-- | The input for DeleteStack action.
+--
+-- /See:/ 'deleteStack' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsStackName' @::@ 'Text'
---
-deleteStack :: Text -- ^ 'dsStackName'
-            -> DeleteStack
-deleteStack p1 = DeleteStack
-    { _dsStackName = p1
+-- * 'dsrqStackName'
+newtype DeleteStack = DeleteStack'
+    { _dsrqStackName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteStack' smart constructor.
+deleteStack :: Text -> DeleteStack
+deleteStack pStackName_ =
+    DeleteStack'
+    { _dsrqStackName = pStackName_
     }
 
 -- | The name or the unique stack ID that is associated with the stack.
-dsStackName :: Lens' DeleteStack Text
-dsStackName = lens _dsStackName (\s a -> s { _dsStackName = a })
-
-data DeleteStackResponse = DeleteStackResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteStackResponse' constructor.
-deleteStackResponse :: DeleteStackResponse
-deleteStackResponse = DeleteStackResponse
-
-instance ToPath DeleteStack where
-    toPath = const "/"
-
-instance ToQuery DeleteStack where
-    toQuery DeleteStack{..} = mconcat
-        [ "StackName" =? _dsStackName
-        ]
-
-instance ToHeaders DeleteStack
+dsrqStackName :: Lens' DeleteStack Text
+dsrqStackName = lens _dsrqStackName (\ s a -> s{_dsrqStackName = a});
 
 instance AWSRequest DeleteStack where
-    type Sv DeleteStack = CloudFormation
-    type Rs DeleteStack = DeleteStackResponse
+        type Sv DeleteStack = CloudFormation
+        type Rs DeleteStack = DeleteStackResponse
+        request = post
+        response = receiveNull DeleteStackResponse'
 
-    request  = post "DeleteStack"
-    response = nullResponse DeleteStackResponse
+instance ToHeaders DeleteStack where
+        toHeaders = const mempty
+
+instance ToPath DeleteStack where
+        toPath = const "/"
+
+instance ToQuery DeleteStack where
+        toQuery DeleteStack'{..}
+          = mconcat
+              ["Action" =: ("DeleteStack" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "StackName" =: _dsrqStackName]
+
+-- | /See:/ 'deleteStackResponse' smart constructor.
+data DeleteStackResponse =
+    DeleteStackResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteStackResponse' smart constructor.
+deleteStackResponse :: DeleteStackResponse
+deleteStackResponse = DeleteStackResponse'

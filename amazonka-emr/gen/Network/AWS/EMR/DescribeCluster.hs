@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EMR.DescribeCluster
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Provides cluster-level details including status, hardware and software
--- configuration, VPC settings, and so on. For information about the cluster
--- steps, see 'ListSteps'.
+-- Provides cluster-level details including status, hardware and software
+-- configuration, VPC settings, and so on. For information about the
+-- cluster steps, see ListSteps.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_DescribeCluster.html>
 module Network.AWS.EMR.DescribeCluster
@@ -34,82 +29,99 @@ module Network.AWS.EMR.DescribeCluster
     -- ** Request constructor
     , describeCluster
     -- ** Request lenses
-    , dcClusterId
+    , dcrqClusterId
 
     -- * Response
     , DescribeClusterResponse
     -- ** Response constructor
     , describeClusterResponse
     -- ** Response lenses
-    , dcrCluster
+    , dcrsStatus
+    , dcrsCluster
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.EMR.Types
-import qualified GHC.Exts
+import           Network.AWS.EMR.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeCluster = DescribeCluster
-    { _dcClusterId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DescribeCluster' constructor.
+-- | This input determines which cluster to describe.
+--
+-- /See:/ 'describeCluster' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcClusterId' @::@ 'Text'
---
-describeCluster :: Text -- ^ 'dcClusterId'
-                -> DescribeCluster
-describeCluster p1 = DescribeCluster
-    { _dcClusterId = p1
+-- * 'dcrqClusterId'
+newtype DescribeCluster = DescribeCluster'
+    { _dcrqClusterId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeCluster' smart constructor.
+describeCluster :: Text -> DescribeCluster
+describeCluster pClusterId_ =
+    DescribeCluster'
+    { _dcrqClusterId = pClusterId_
     }
 
 -- | The identifier of the cluster to describe.
-dcClusterId :: Lens' DescribeCluster Text
-dcClusterId = lens _dcClusterId (\s a -> s { _dcClusterId = a })
+dcrqClusterId :: Lens' DescribeCluster Text
+dcrqClusterId = lens _dcrqClusterId (\ s a -> s{_dcrqClusterId = a});
 
-newtype DescribeClusterResponse = DescribeClusterResponse
-    { _dcrCluster :: Cluster
-    } deriving (Eq, Read, Show)
+instance AWSRequest DescribeCluster where
+        type Sv DescribeCluster = EMR
+        type Rs DescribeCluster = DescribeClusterResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeClusterResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "Cluster"))
 
--- | 'DescribeClusterResponse' constructor.
+instance ToHeaders DescribeCluster where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.DescribeCluster" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeCluster where
+        toJSON DescribeCluster'{..}
+          = object ["ClusterId" .= _dcrqClusterId]
+
+instance ToPath DescribeCluster where
+        toPath = const "/"
+
+instance ToQuery DescribeCluster where
+        toQuery = const mempty
+
+-- | This output contains the description of the cluster.
+--
+-- /See:/ 'describeClusterResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrCluster' @::@ 'Cluster'
+-- * 'dcrsStatus'
 --
-describeClusterResponse :: Cluster -- ^ 'dcrCluster'
-                        -> DescribeClusterResponse
-describeClusterResponse p1 = DescribeClusterResponse
-    { _dcrCluster = p1
+-- * 'dcrsCluster'
+data DescribeClusterResponse = DescribeClusterResponse'
+    { _dcrsStatus  :: !Int
+    , _dcrsCluster :: !Cluster
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeClusterResponse' smart constructor.
+describeClusterResponse :: Int -> Cluster -> DescribeClusterResponse
+describeClusterResponse pStatus_ pCluster_ =
+    DescribeClusterResponse'
+    { _dcrsStatus = pStatus_
+    , _dcrsCluster = pCluster_
     }
 
+-- | FIXME: Undocumented member.
+dcrsStatus :: Lens' DescribeClusterResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
+
 -- | This output contains the details for the requested cluster.
-dcrCluster :: Lens' DescribeClusterResponse Cluster
-dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
-
-instance ToPath DescribeCluster where
-    toPath = const "/"
-
-instance ToQuery DescribeCluster where
-    toQuery = const mempty
-
-instance ToHeaders DescribeCluster
-
-instance ToJSON DescribeCluster where
-    toJSON DescribeCluster{..} = object
-        [ "ClusterId" .= _dcClusterId
-        ]
-
-instance AWSRequest DescribeCluster where
-    type Sv DescribeCluster = EMR
-    type Rs DescribeCluster = DescribeClusterResponse
-
-    request  = post "DescribeCluster"
-    response = jsonResponse
-
-instance FromJSON DescribeClusterResponse where
-    parseJSON = withObject "DescribeClusterResponse" $ \o -> DescribeClusterResponse
-        <$> o .:  "Cluster"
+dcrsCluster :: Lens' DescribeClusterResponse Cluster
+dcrsCluster = lens _dcrsCluster (\ s a -> s{_dcrsCluster = a});

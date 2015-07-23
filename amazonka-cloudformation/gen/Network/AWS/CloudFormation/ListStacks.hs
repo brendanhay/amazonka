@@ -1,32 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFormation.ListStacks
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns the summary information for stacks whose status matches the specified
--- StackStatusFilter. Summary information for stacks that have been deleted is
--- kept for 90 days after the stack is deleted. If no StackStatusFilter is
--- specified, summary information for all stacks is returned (including existing
--- stacks and stacks that have been deleted).
+-- Returns the summary information for stacks whose status matches the
+-- specified StackStatusFilter. Summary information for stacks that have
+-- been deleted is kept for 90 days after the stack is deleted. If no
+-- StackStatusFilter is specified, summary information for all stacks is
+-- returned (including existing stacks and stacks that have been deleted).
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ListStacks.html>
 module Network.AWS.CloudFormation.ListStacks
@@ -36,111 +31,133 @@ module Network.AWS.CloudFormation.ListStacks
     -- ** Request constructor
     , listStacks
     -- ** Request lenses
-    , lsNextToken
-    , lsStackStatusFilter
+    , lsrqNextToken
+    , lsrqStackStatusFilter
 
     -- * Response
     , ListStacksResponse
     -- ** Response constructor
     , listStacksResponse
     -- ** Response lenses
-    , lsr1NextToken
-    , lsr1StackSummaries
+    , lsrsStackSummaries
+    , lsrsNextToken
+    , lsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListStacks = ListStacks
-    { _lsNextToken         :: Maybe Text
-    , _lsStackStatusFilter :: List "member" StackStatus
-    } deriving (Eq, Read, Show)
-
--- | 'ListStacks' constructor.
+-- | The input for ListStacks action.
+--
+-- /See:/ 'listStacks' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsNextToken' @::@ 'Maybe' 'Text'
+-- * 'lsrqNextToken'
 --
--- * 'lsStackStatusFilter' @::@ ['StackStatus']
---
+-- * 'lsrqStackStatusFilter'
+data ListStacks = ListStacks'
+    { _lsrqNextToken         :: !(Maybe Text)
+    , _lsrqStackStatusFilter :: !(Maybe [StackStatus])
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListStacks' smart constructor.
 listStacks :: ListStacks
-listStacks = ListStacks
-    { _lsNextToken         = Nothing
-    , _lsStackStatusFilter = mempty
+listStacks =
+    ListStacks'
+    { _lsrqNextToken = Nothing
+    , _lsrqStackStatusFilter = Nothing
     }
 
--- | String that identifies the start of the next list of stacks, if there is one.
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
 --
 -- Default: There is no default value.
-lsNextToken :: Lens' ListStacks (Maybe Text)
-lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
+lsrqNextToken :: Lens' ListStacks (Maybe Text)
+lsrqNextToken = lens _lsrqNextToken (\ s a -> s{_lsrqNextToken = a});
 
--- | Stack status to use as a filter. Specify one or more stack status codes to
--- list only stacks with the specified status codes. For a complete list of
--- stack status codes, see the 'StackStatus' parameter of the 'Stack' data type.
-lsStackStatusFilter :: Lens' ListStacks [StackStatus]
-lsStackStatusFilter =
-    lens _lsStackStatusFilter (\s a -> s { _lsStackStatusFilter = a })
-        . _List
+-- | Stack status to use as a filter. Specify one or more stack status codes
+-- to list only stacks with the specified status codes. For a complete list
+-- of stack status codes, see the @StackStatus@ parameter of the Stack data
+-- type.
+lsrqStackStatusFilter :: Lens' ListStacks [StackStatus]
+lsrqStackStatusFilter = lens _lsrqStackStatusFilter (\ s a -> s{_lsrqStackStatusFilter = a}) . _Default;
 
-data ListStacksResponse = ListStacksResponse
-    { _lsr1NextToken      :: Maybe Text
-    , _lsr1StackSummaries :: List "member" StackSummary
-    } deriving (Eq, Read, Show)
+instance AWSPager ListStacks where
+        page rq rs
+          | stop (rs ^. lsrsNextToken) = Nothing
+          | stop (rs ^. lsrsStackSummaries) = Nothing
+          | otherwise =
+            Just $ rq & lsrqNextToken .~ rs ^. lsrsNextToken
 
--- | 'ListStacksResponse' constructor.
+instance AWSRequest ListStacks where
+        type Sv ListStacks = CloudFormation
+        type Rs ListStacks = ListStacksResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListStacksResult"
+              (\ s h x ->
+                 ListStacksResponse' <$>
+                   (x .@? "StackSummaries" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken")
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListStacks where
+        toHeaders = const mempty
+
+instance ToPath ListStacks where
+        toPath = const "/"
+
+instance ToQuery ListStacks where
+        toQuery ListStacks'{..}
+          = mconcat
+              ["Action" =: ("ListStacks" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "NextToken" =: _lsrqNextToken,
+               "StackStatusFilter" =:
+                 toQuery
+                   (toQueryList "member" <$> _lsrqStackStatusFilter)]
+
+-- | The output for ListStacks action.
+--
+-- /See:/ 'listStacksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsr1NextToken' @::@ 'Maybe' 'Text'
+-- * 'lsrsStackSummaries'
 --
--- * 'lsr1StackSummaries' @::@ ['StackSummary']
+-- * 'lsrsNextToken'
 --
-listStacksResponse :: ListStacksResponse
-listStacksResponse = ListStacksResponse
-    { _lsr1StackSummaries = mempty
-    , _lsr1NextToken      = Nothing
+-- * 'lsrsStatus'
+data ListStacksResponse = ListStacksResponse'
+    { _lsrsStackSummaries :: !(Maybe [StackSummary])
+    , _lsrsNextToken      :: !(Maybe Text)
+    , _lsrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListStacksResponse' smart constructor.
+listStacksResponse :: Int -> ListStacksResponse
+listStacksResponse pStatus_ =
+    ListStacksResponse'
+    { _lsrsStackSummaries = Nothing
+    , _lsrsNextToken = Nothing
+    , _lsrsStatus = pStatus_
     }
 
--- | String that identifies the start of the next list of stacks, if there is one.
-lsr1NextToken :: Lens' ListStacksResponse (Maybe Text)
-lsr1NextToken = lens _lsr1NextToken (\s a -> s { _lsr1NextToken = a })
+-- | A list of @StackSummary@ structures containing information about the
+-- specified stacks.
+lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
+lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default;
 
--- | A list of 'StackSummary' structures containing information about the specified
--- stacks.
-lsr1StackSummaries :: Lens' ListStacksResponse [StackSummary]
-lsr1StackSummaries =
-    lens _lsr1StackSummaries (\s a -> s { _lsr1StackSummaries = a })
-        . _List
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
+lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
+lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
-instance ToPath ListStacks where
-    toPath = const "/"
-
-instance ToQuery ListStacks where
-    toQuery ListStacks{..} = mconcat
-        [ "NextToken"         =? _lsNextToken
-        , "StackStatusFilter" =? _lsStackStatusFilter
-        ]
-
-instance ToHeaders ListStacks
-
-instance AWSRequest ListStacks where
-    type Sv ListStacks = CloudFormation
-    type Rs ListStacks = ListStacksResponse
-
-    request  = post "ListStacks"
-    response = xmlResponse
-
-instance FromXML ListStacksResponse where
-    parseXML = withElement "ListStacksResult" $ \x -> ListStacksResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "StackSummaries" .!@ mempty
-
-instance AWSPager ListStacks where
-    page rq rs
-        | stop (rs ^. lsr1NextToken) = Nothing
-        | otherwise = (\x -> rq & lsNextToken ?~ x)
-            <$> (rs ^. lsr1NextToken)
+-- | FIXME: Undocumented member.
+lsrsStatus :: Lens' ListStacksResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

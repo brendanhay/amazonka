@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ECS.SubmitTaskStateChange
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | This action is only used by the Amazon EC2 Container Service agent, and it is
--- not intended for use outside of the agent.
+-- This action is only used by the Amazon EC2 Container Service agent, and
+-- it is not intended for use outside of the agent.
 --
 -- Sent to acknowledge that a task changed states.
 --
@@ -35,113 +30,129 @@ module Network.AWS.ECS.SubmitTaskStateChange
     -- ** Request constructor
     , submitTaskStateChange
     -- ** Request lenses
-    , stscCluster
-    , stscReason
-    , stscStatus
-    , stscTask
+    , stscrqStatus
+    , stscrqCluster
+    , stscrqReason
+    , stscrqTask
 
     -- * Response
     , SubmitTaskStateChangeResponse
     -- ** Response constructor
     , submitTaskStateChangeResponse
     -- ** Response lenses
-    , stscrAcknowledgment
+    , stscrsAcknowledgment
+    , stscrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.ECS.Types
-import qualified GHC.Exts
+import           Network.AWS.ECS.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data SubmitTaskStateChange = SubmitTaskStateChange
-    { _stscCluster :: Maybe Text
-    , _stscReason  :: Maybe Text
-    , _stscStatus  :: Maybe Text
-    , _stscTask    :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'SubmitTaskStateChange' constructor.
+-- | /See:/ 'submitTaskStateChange' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stscCluster' @::@ 'Maybe' 'Text'
+-- * 'stscrqStatus'
 --
--- * 'stscReason' @::@ 'Maybe' 'Text'
+-- * 'stscrqCluster'
 --
--- * 'stscStatus' @::@ 'Maybe' 'Text'
+-- * 'stscrqReason'
 --
--- * 'stscTask' @::@ 'Maybe' 'Text'
---
+-- * 'stscrqTask'
+data SubmitTaskStateChange = SubmitTaskStateChange'
+    { _stscrqStatus  :: !(Maybe Text)
+    , _stscrqCluster :: !(Maybe Text)
+    , _stscrqReason  :: !(Maybe Text)
+    , _stscrqTask    :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SubmitTaskStateChange' smart constructor.
 submitTaskStateChange :: SubmitTaskStateChange
-submitTaskStateChange = SubmitTaskStateChange
-    { _stscCluster = Nothing
-    , _stscTask    = Nothing
-    , _stscStatus  = Nothing
-    , _stscReason  = Nothing
+submitTaskStateChange =
+    SubmitTaskStateChange'
+    { _stscrqStatus = Nothing
+    , _stscrqCluster = Nothing
+    , _stscrqReason = Nothing
+    , _stscrqTask = Nothing
     }
 
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts
--- the task.
-stscCluster :: Lens' SubmitTaskStateChange (Maybe Text)
-stscCluster = lens _stscCluster (\s a -> s { _stscCluster = a })
+-- | The status of the state change request.
+stscrqStatus :: Lens' SubmitTaskStateChange (Maybe Text)
+stscrqStatus = lens _stscrqStatus (\ s a -> s{_stscrqStatus = a});
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that
+-- hosts the task.
+stscrqCluster :: Lens' SubmitTaskStateChange (Maybe Text)
+stscrqCluster = lens _stscrqCluster (\ s a -> s{_stscrqCluster = a});
 
 -- | The reason for the state change request.
-stscReason :: Lens' SubmitTaskStateChange (Maybe Text)
-stscReason = lens _stscReason (\s a -> s { _stscReason = a })
+stscrqReason :: Lens' SubmitTaskStateChange (Maybe Text)
+stscrqReason = lens _stscrqReason (\ s a -> s{_stscrqReason = a});
 
--- | The status of the state change request.
-stscStatus :: Lens' SubmitTaskStateChange (Maybe Text)
-stscStatus = lens _stscStatus (\s a -> s { _stscStatus = a })
+-- | The task UUID or full Amazon Resource Name (ARN) of the task in the
+-- state change request.
+stscrqTask :: Lens' SubmitTaskStateChange (Maybe Text)
+stscrqTask = lens _stscrqTask (\ s a -> s{_stscrqTask = a});
 
--- | The task UUID or full Amazon Resource Name (ARN) of the task in the state
--- change request.
-stscTask :: Lens' SubmitTaskStateChange (Maybe Text)
-stscTask = lens _stscTask (\s a -> s { _stscTask = a })
+instance AWSRequest SubmitTaskStateChange where
+        type Sv SubmitTaskStateChange = ECS
+        type Rs SubmitTaskStateChange =
+             SubmitTaskStateChangeResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 SubmitTaskStateChangeResponse' <$>
+                   (x .?> "acknowledgment") <*> (pure (fromEnum s)))
 
-newtype SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse
-    { _stscrAcknowledgment :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance ToHeaders SubmitTaskStateChange where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AmazonEC2ContainerServiceV20141113.SubmitTaskStateChange"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
--- | 'SubmitTaskStateChangeResponse' constructor.
+instance ToJSON SubmitTaskStateChange where
+        toJSON SubmitTaskStateChange'{..}
+          = object
+              ["status" .= _stscrqStatus,
+               "cluster" .= _stscrqCluster,
+               "reason" .= _stscrqReason, "task" .= _stscrqTask]
+
+instance ToPath SubmitTaskStateChange where
+        toPath = const "/"
+
+instance ToQuery SubmitTaskStateChange where
+        toQuery = const mempty
+
+-- | /See:/ 'submitTaskStateChangeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stscrAcknowledgment' @::@ 'Maybe' 'Text'
+-- * 'stscrsAcknowledgment'
 --
-submitTaskStateChangeResponse :: SubmitTaskStateChangeResponse
-submitTaskStateChangeResponse = SubmitTaskStateChangeResponse
-    { _stscrAcknowledgment = Nothing
+-- * 'stscrsStatus'
+data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
+    { _stscrsAcknowledgment :: !(Maybe Text)
+    , _stscrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SubmitTaskStateChangeResponse' smart constructor.
+submitTaskStateChangeResponse :: Int -> SubmitTaskStateChangeResponse
+submitTaskStateChangeResponse pStatus_ =
+    SubmitTaskStateChangeResponse'
+    { _stscrsAcknowledgment = Nothing
+    , _stscrsStatus = pStatus_
     }
 
 -- | Acknowledgement of the state change.
-stscrAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
-stscrAcknowledgment =
-    lens _stscrAcknowledgment (\s a -> s { _stscrAcknowledgment = a })
+stscrsAcknowledgment :: Lens' SubmitTaskStateChangeResponse (Maybe Text)
+stscrsAcknowledgment = lens _stscrsAcknowledgment (\ s a -> s{_stscrsAcknowledgment = a});
 
-instance ToPath SubmitTaskStateChange where
-    toPath = const "/"
-
-instance ToQuery SubmitTaskStateChange where
-    toQuery = const mempty
-
-instance ToHeaders SubmitTaskStateChange
-
-instance ToJSON SubmitTaskStateChange where
-    toJSON SubmitTaskStateChange{..} = object
-        [ "cluster" .= _stscCluster
-        , "task"    .= _stscTask
-        , "status"  .= _stscStatus
-        , "reason"  .= _stscReason
-        ]
-
-instance AWSRequest SubmitTaskStateChange where
-    type Sv SubmitTaskStateChange = ECS
-    type Rs SubmitTaskStateChange = SubmitTaskStateChangeResponse
-
-    request  = post "SubmitTaskStateChange"
-    response = jsonResponse
-
-instance FromJSON SubmitTaskStateChangeResponse where
-    parseJSON = withObject "SubmitTaskStateChangeResponse" $ \o -> SubmitTaskStateChangeResponse
-        <$> o .:? "acknowledgment"
+-- | FIXME: Undocumented member.
+stscrsStatus :: Lens' SubmitTaskStateChangeResponse Int
+stscrsStatus = lens _stscrsStatus (\ s a -> s{_stscrsStatus = a});

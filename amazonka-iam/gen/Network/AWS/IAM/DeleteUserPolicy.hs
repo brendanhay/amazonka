@@ -1,33 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.DeleteUserPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified inline policy that is embedded in the specified user.
+-- Deletes the specified inline policy that is embedded in the specified
+-- user.
 --
--- A user can also have managed policies attached to it. To detach a managed
--- policy from a user, use 'DetachUserPolicy'. For more information about
--- policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/
--- guide.
+-- A user can also have managed policies attached to it. To detach a
+-- managed policy from a user, use DetachUserPolicy. For more information
+-- about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html>
 module Network.AWS.IAM.DeleteUserPolicy
@@ -37,8 +34,8 @@ module Network.AWS.IAM.DeleteUserPolicy
     -- ** Request constructor
     , deleteUserPolicy
     -- ** Request lenses
-    , dupPolicyName
-    , dupUserName
+    , duprqUserName
+    , duprqPolicyName
 
     -- * Response
     , DeleteUserPolicyResponse
@@ -46,62 +43,65 @@ module Network.AWS.IAM.DeleteUserPolicy
     , deleteUserPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteUserPolicy = DeleteUserPolicy
-    { _dupPolicyName :: Text
-    , _dupUserName   :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteUserPolicy' constructor.
+-- | /See:/ 'deleteUserPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dupPolicyName' @::@ 'Text'
+-- * 'duprqUserName'
 --
--- * 'dupUserName' @::@ 'Text'
---
-deleteUserPolicy :: Text -- ^ 'dupUserName'
-                 -> Text -- ^ 'dupPolicyName'
-                 -> DeleteUserPolicy
-deleteUserPolicy p1 p2 = DeleteUserPolicy
-    { _dupUserName   = p1
-    , _dupPolicyName = p2
+-- * 'duprqPolicyName'
+data DeleteUserPolicy = DeleteUserPolicy'
+    { _duprqUserName   :: !Text
+    , _duprqPolicyName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteUserPolicy' smart constructor.
+deleteUserPolicy :: Text -> Text -> DeleteUserPolicy
+deleteUserPolicy pUserName_ pPolicyName_ =
+    DeleteUserPolicy'
+    { _duprqUserName = pUserName_
+    , _duprqPolicyName = pPolicyName_
     }
 
+-- | The name (friendly name, not ARN) identifying the user that the policy
+-- is embedded in.
+duprqUserName :: Lens' DeleteUserPolicy Text
+duprqUserName = lens _duprqUserName (\ s a -> s{_duprqUserName = a});
+
 -- | The name identifying the policy document to delete.
-dupPolicyName :: Lens' DeleteUserPolicy Text
-dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
-
--- | The name (friendly name, not ARN) identifying the user that the policy is
--- embedded in.
-dupUserName :: Lens' DeleteUserPolicy Text
-dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
-
-data DeleteUserPolicyResponse = DeleteUserPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteUserPolicyResponse' constructor.
-deleteUserPolicyResponse :: DeleteUserPolicyResponse
-deleteUserPolicyResponse = DeleteUserPolicyResponse
-
-instance ToPath DeleteUserPolicy where
-    toPath = const "/"
-
-instance ToQuery DeleteUserPolicy where
-    toQuery DeleteUserPolicy{..} = mconcat
-        [ "PolicyName" =? _dupPolicyName
-        , "UserName"   =? _dupUserName
-        ]
-
-instance ToHeaders DeleteUserPolicy
+duprqPolicyName :: Lens' DeleteUserPolicy Text
+duprqPolicyName = lens _duprqPolicyName (\ s a -> s{_duprqPolicyName = a});
 
 instance AWSRequest DeleteUserPolicy where
-    type Sv DeleteUserPolicy = IAM
-    type Rs DeleteUserPolicy = DeleteUserPolicyResponse
+        type Sv DeleteUserPolicy = IAM
+        type Rs DeleteUserPolicy = DeleteUserPolicyResponse
+        request = post
+        response = receiveNull DeleteUserPolicyResponse'
 
-    request  = post "DeleteUserPolicy"
-    response = nullResponse DeleteUserPolicyResponse
+instance ToHeaders DeleteUserPolicy where
+        toHeaders = const mempty
+
+instance ToPath DeleteUserPolicy where
+        toPath = const "/"
+
+instance ToQuery DeleteUserPolicy where
+        toQuery DeleteUserPolicy'{..}
+          = mconcat
+              ["Action" =: ("DeleteUserPolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _duprqUserName,
+               "PolicyName" =: _duprqPolicyName]
+
+-- | /See:/ 'deleteUserPolicyResponse' smart constructor.
+data DeleteUserPolicyResponse =
+    DeleteUserPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteUserPolicyResponse' smart constructor.
+deleteUserPolicyResponse :: DeleteUserPolicyResponse
+deleteUserPolicyResponse = DeleteUserPolicyResponse'

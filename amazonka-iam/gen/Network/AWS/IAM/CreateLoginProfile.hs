@@ -1,30 +1,27 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.CreateLoginProfile
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a password for the specified user, giving the user the ability to
--- access AWS services through the AWS Management Console. For more information
--- about managing passwords, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords> in the /Using IAM/ guide.
+-- Creates a password for the specified user, giving the user the ability
+-- to access AWS services through the AWS Management Console. For more
+-- information about managing passwords, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateLoginProfile.html>
 module Network.AWS.IAM.CreateLoginProfile
@@ -34,102 +31,114 @@ module Network.AWS.IAM.CreateLoginProfile
     -- ** Request constructor
     , createLoginProfile
     -- ** Request lenses
-    , clpPassword
-    , clpPasswordResetRequired
-    , clpUserName
+    , clprqPasswordResetRequired
+    , clprqUserName
+    , clprqPassword
 
     -- * Response
     , CreateLoginProfileResponse
     -- ** Response constructor
     , createLoginProfileResponse
     -- ** Response lenses
-    , clprLoginProfile
+    , clprsStatus
+    , clprsLoginProfile
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateLoginProfile = CreateLoginProfile
-    { _clpPassword              :: Sensitive Text
-    , _clpPasswordResetRequired :: Maybe Bool
-    , _clpUserName              :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateLoginProfile' constructor.
+-- | /See:/ 'createLoginProfile' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clpPassword' @::@ 'Text'
+-- * 'clprqPasswordResetRequired'
 --
--- * 'clpPasswordResetRequired' @::@ 'Maybe' 'Bool'
+-- * 'clprqUserName'
 --
--- * 'clpUserName' @::@ 'Text'
---
-createLoginProfile :: Text -- ^ 'clpUserName'
-                   -> Text -- ^ 'clpPassword'
-                   -> CreateLoginProfile
-createLoginProfile p1 p2 = CreateLoginProfile
-    { _clpUserName              = p1
-    , _clpPassword              = withIso _Sensitive (const id) p2
-    , _clpPasswordResetRequired = Nothing
-    }
+-- * 'clprqPassword'
+data CreateLoginProfile = CreateLoginProfile'
+    { _clprqPasswordResetRequired :: !(Maybe Bool)
+    , _clprqUserName              :: !Text
+    , _clprqPassword              :: !(Sensitive Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | The new password for the user.
-clpPassword :: Lens' CreateLoginProfile Text
-clpPassword = lens _clpPassword (\s a -> s { _clpPassword = a }) . _Sensitive
+-- | 'CreateLoginProfile' smart constructor.
+createLoginProfile :: Text -> Text -> CreateLoginProfile
+createLoginProfile pUserName_ pPassword_ =
+    CreateLoginProfile'
+    { _clprqPasswordResetRequired = Nothing
+    , _clprqUserName = pUserName_
+    , _clprqPassword = _Sensitive # pPassword_
+    }
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
-clpPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
-clpPasswordResetRequired =
-    lens _clpPasswordResetRequired
-        (\s a -> s { _clpPasswordResetRequired = a })
+clprqPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
+clprqPasswordResetRequired = lens _clprqPasswordResetRequired (\ s a -> s{_clprqPasswordResetRequired = a});
 
 -- | The name of the user to create a password for.
-clpUserName :: Lens' CreateLoginProfile Text
-clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
+clprqUserName :: Lens' CreateLoginProfile Text
+clprqUserName = lens _clprqUserName (\ s a -> s{_clprqUserName = a});
 
-newtype CreateLoginProfileResponse = CreateLoginProfileResponse
-    { _clprLoginProfile :: LoginProfile
-    } deriving (Eq, Read, Show)
+-- | The new password for the user.
+clprqPassword :: Lens' CreateLoginProfile Text
+clprqPassword = lens _clprqPassword (\ s a -> s{_clprqPassword = a}) . _Sensitive;
 
--- | 'CreateLoginProfileResponse' constructor.
+instance AWSRequest CreateLoginProfile where
+        type Sv CreateLoginProfile = IAM
+        type Rs CreateLoginProfile =
+             CreateLoginProfileResponse
+        request = post
+        response
+          = receiveXMLWrapper "CreateLoginProfileResult"
+              (\ s h x ->
+                 CreateLoginProfileResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "LoginProfile"))
+
+instance ToHeaders CreateLoginProfile where
+        toHeaders = const mempty
+
+instance ToPath CreateLoginProfile where
+        toPath = const "/"
+
+instance ToQuery CreateLoginProfile where
+        toQuery CreateLoginProfile'{..}
+          = mconcat
+              ["Action" =: ("CreateLoginProfile" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "PasswordResetRequired" =:
+                 _clprqPasswordResetRequired,
+               "UserName" =: _clprqUserName,
+               "Password" =: _clprqPassword]
+
+-- | Contains the response to a successful CreateLoginProfile request.
+--
+-- /See:/ 'createLoginProfileResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clprLoginProfile' @::@ 'LoginProfile'
+-- * 'clprsStatus'
 --
-createLoginProfileResponse :: LoginProfile -- ^ 'clprLoginProfile'
-                           -> CreateLoginProfileResponse
-createLoginProfileResponse p1 = CreateLoginProfileResponse
-    { _clprLoginProfile = p1
+-- * 'clprsLoginProfile'
+data CreateLoginProfileResponse = CreateLoginProfileResponse'
+    { _clprsStatus       :: !Int
+    , _clprsLoginProfile :: !LoginProfile
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateLoginProfileResponse' smart constructor.
+createLoginProfileResponse :: Int -> LoginProfile -> CreateLoginProfileResponse
+createLoginProfileResponse pStatus_ pLoginProfile_ =
+    CreateLoginProfileResponse'
+    { _clprsStatus = pStatus_
+    , _clprsLoginProfile = pLoginProfile_
     }
 
+-- | FIXME: Undocumented member.
+clprsStatus :: Lens' CreateLoginProfileResponse Int
+clprsStatus = lens _clprsStatus (\ s a -> s{_clprsStatus = a});
+
 -- | The user name and password create date.
-clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
-clprLoginProfile = lens _clprLoginProfile (\s a -> s { _clprLoginProfile = a })
-
-instance ToPath CreateLoginProfile where
-    toPath = const "/"
-
-instance ToQuery CreateLoginProfile where
-    toQuery CreateLoginProfile{..} = mconcat
-        [ "Password"              =? _clpPassword
-        , "PasswordResetRequired" =? _clpPasswordResetRequired
-        , "UserName"              =? _clpUserName
-        ]
-
-instance ToHeaders CreateLoginProfile
-
-instance AWSRequest CreateLoginProfile where
-    type Sv CreateLoginProfile = IAM
-    type Rs CreateLoginProfile = CreateLoginProfileResponse
-
-    request  = post "CreateLoginProfile"
-    response = xmlResponse
-
-instance FromXML CreateLoginProfileResponse where
-    parseXML = withElement "CreateLoginProfileResult" $ \x -> CreateLoginProfileResponse
-        <$> x .@  "LoginProfile"
+clprsLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
+clprsLoginProfile = lens _clprsLoginProfile (\ s a -> s{_clprsLoginProfile = a});

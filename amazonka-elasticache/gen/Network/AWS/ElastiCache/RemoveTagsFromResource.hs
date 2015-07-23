@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElastiCache.RemoveTagsFromResource
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The /RemoveTagsFromResource/ action removes the tags identified by the 'TagKeys'
--- list from the named resource.
+-- The /RemoveTagsFromResource/ action removes the tags identified by the
+-- @TagKeys@ list from the named resource.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html>
 module Network.AWS.ElastiCache.RemoveTagsFromResource
@@ -33,97 +28,76 @@ module Network.AWS.ElastiCache.RemoveTagsFromResource
     -- ** Request constructor
     , removeTagsFromResource
     -- ** Request lenses
-    , rtfrResourceName
-    , rtfrTagKeys
+    , rtfrrqResourceName
+    , rtfrrqTagKeys
 
     -- * Response
-    , RemoveTagsFromResourceResponse
+    , TagListMessage
     -- ** Response constructor
-    , removeTagsFromResourceResponse
+    , tagListMessage
     -- ** Response lenses
-    , rtfrrTagList
+    , tlmTagList
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RemoveTagsFromResource = RemoveTagsFromResource
-    { _rtfrResourceName :: Text
-    , _rtfrTagKeys      :: List "member" Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'RemoveTagsFromResource' constructor.
+-- | Represents the input of a /RemoveTagsFromResource/ action.
+--
+-- /See:/ 'removeTagsFromResource' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtfrResourceName' @::@ 'Text'
+-- * 'rtfrrqResourceName'
 --
--- * 'rtfrTagKeys' @::@ ['Text']
---
-removeTagsFromResource :: Text -- ^ 'rtfrResourceName'
-                       -> RemoveTagsFromResource
-removeTagsFromResource p1 = RemoveTagsFromResource
-    { _rtfrResourceName = p1
-    , _rtfrTagKeys      = mempty
+-- * 'rtfrrqTagKeys'
+data RemoveTagsFromResource = RemoveTagsFromResource'
+    { _rtfrrqResourceName :: !Text
+    , _rtfrrqTagKeys      :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RemoveTagsFromResource' smart constructor.
+removeTagsFromResource :: Text -> RemoveTagsFromResource
+removeTagsFromResource pResourceName_ =
+    RemoveTagsFromResource'
+    { _rtfrrqResourceName = pResourceName_
+    , _rtfrrqTagKeys = mempty
     }
 
 -- | The name of the ElastiCache resource from which you want the listed tags
--- removed, for example 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
-rtfrResourceName :: Lens' RemoveTagsFromResource Text
-rtfrResourceName = lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
+-- removed, for example
+-- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
+rtfrrqResourceName :: Lens' RemoveTagsFromResource Text
+rtfrrqResourceName = lens _rtfrrqResourceName (\ s a -> s{_rtfrrqResourceName = a});
 
--- | A list of 'TagKeys' identifying the tags you want removed from the named
--- resource. For example, 'TagKeys.member.1=Region' removes the cost allocation
--- tag with the key name 'Region' from the resource named by the /ResourceName/
--- parameter.
-rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\s a -> s { _rtfrTagKeys = a }) . _List
-
-newtype RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
-    { _rtfrrTagList :: List "member" Tag
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
-
-instance GHC.Exts.IsList RemoveTagsFromResourceResponse where
-    type Item RemoveTagsFromResourceResponse = Tag
-
-    fromList = RemoveTagsFromResourceResponse . GHC.Exts.fromList
-    toList   = GHC.Exts.toList . _rtfrrTagList
-
--- | 'RemoveTagsFromResourceResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rtfrrTagList' @::@ ['Tag']
---
-removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
-removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
-    { _rtfrrTagList = mempty
-    }
-
--- | A list of cost allocation tags as key-value pairs.
-rtfrrTagList :: Lens' RemoveTagsFromResourceResponse [Tag]
-rtfrrTagList = lens _rtfrrTagList (\s a -> s { _rtfrrTagList = a }) . _List
-
-instance ToPath RemoveTagsFromResource where
-    toPath = const "/"
-
-instance ToQuery RemoveTagsFromResource where
-    toQuery RemoveTagsFromResource{..} = mconcat
-        [ "ResourceName" =? _rtfrResourceName
-        , "TagKeys"      =? _rtfrTagKeys
-        ]
-
-instance ToHeaders RemoveTagsFromResource
+-- | A list of @TagKeys@ identifying the tags you want removed from the named
+-- resource. For example, @TagKeys.member.1=Region@ removes the cost
+-- allocation tag with the key name @Region@ from the resource named by the
+-- /ResourceName/ parameter.
+rtfrrqTagKeys :: Lens' RemoveTagsFromResource [Text]
+rtfrrqTagKeys = lens _rtfrrqTagKeys (\ s a -> s{_rtfrrqTagKeys = a});
 
 instance AWSRequest RemoveTagsFromResource where
-    type Sv RemoveTagsFromResource = ElastiCache
-    type Rs RemoveTagsFromResource = RemoveTagsFromResourceResponse
+        type Sv RemoveTagsFromResource = ElastiCache
+        type Rs RemoveTagsFromResource = TagListMessage
+        request = post
+        response
+          = receiveXMLWrapper "RemoveTagsFromResourceResult"
+              (\ s h x -> parseXML x)
 
-    request  = post "RemoveTagsFromResource"
-    response = xmlResponse
+instance ToHeaders RemoveTagsFromResource where
+        toHeaders = const mempty
 
-instance FromXML RemoveTagsFromResourceResponse where
-    parseXML = withElement "RemoveTagsFromResourceResult" $ \x -> RemoveTagsFromResourceResponse
-        <$> x .@? "TagList" .!@ mempty
+instance ToPath RemoveTagsFromResource where
+        toPath = const "/"
+
+instance ToQuery RemoveTagsFromResource where
+        toQuery RemoveTagsFromResource'{..}
+          = mconcat
+              ["Action" =:
+                 ("RemoveTagsFromResource" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "ResourceName" =: _rtfrrqResourceName,
+               "TagKeys" =: toQueryList "member" _rtfrrqTagKeys]

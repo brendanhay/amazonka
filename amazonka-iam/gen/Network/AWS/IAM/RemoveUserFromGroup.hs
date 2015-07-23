@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.RemoveUserFromGroup
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Removes the specified user from the specified group.
+-- Removes the specified user from the specified group.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_RemoveUserFromGroup.html>
 module Network.AWS.IAM.RemoveUserFromGroup
@@ -32,8 +27,8 @@ module Network.AWS.IAM.RemoveUserFromGroup
     -- ** Request constructor
     , removeUserFromGroup
     -- ** Request lenses
-    , rufgGroupName
-    , rufgUserName
+    , rufgrqGroupName
+    , rufgrqUserName
 
     -- * Response
     , RemoveUserFromGroupResponse
@@ -41,61 +36,65 @@ module Network.AWS.IAM.RemoveUserFromGroup
     , removeUserFromGroupResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RemoveUserFromGroup = RemoveUserFromGroup
-    { _rufgGroupName :: Text
-    , _rufgUserName  :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'RemoveUserFromGroup' constructor.
+-- | /See:/ 'removeUserFromGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rufgGroupName' @::@ 'Text'
+-- * 'rufgrqGroupName'
 --
--- * 'rufgUserName' @::@ 'Text'
---
-removeUserFromGroup :: Text -- ^ 'rufgGroupName'
-                    -> Text -- ^ 'rufgUserName'
-                    -> RemoveUserFromGroup
-removeUserFromGroup p1 p2 = RemoveUserFromGroup
-    { _rufgGroupName = p1
-    , _rufgUserName  = p2
+-- * 'rufgrqUserName'
+data RemoveUserFromGroup = RemoveUserFromGroup'
+    { _rufgrqGroupName :: !Text
+    , _rufgrqUserName  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RemoveUserFromGroup' smart constructor.
+removeUserFromGroup :: Text -> Text -> RemoveUserFromGroup
+removeUserFromGroup pGroupName_ pUserName_ =
+    RemoveUserFromGroup'
+    { _rufgrqGroupName = pGroupName_
+    , _rufgrqUserName = pUserName_
     }
 
 -- | The name of the group to update.
-rufgGroupName :: Lens' RemoveUserFromGroup Text
-rufgGroupName = lens _rufgGroupName (\s a -> s { _rufgGroupName = a })
+rufgrqGroupName :: Lens' RemoveUserFromGroup Text
+rufgrqGroupName = lens _rufgrqGroupName (\ s a -> s{_rufgrqGroupName = a});
 
 -- | The name of the user to remove.
-rufgUserName :: Lens' RemoveUserFromGroup Text
-rufgUserName = lens _rufgUserName (\s a -> s { _rufgUserName = a })
-
-data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'RemoveUserFromGroupResponse' constructor.
-removeUserFromGroupResponse :: RemoveUserFromGroupResponse
-removeUserFromGroupResponse = RemoveUserFromGroupResponse
-
-instance ToPath RemoveUserFromGroup where
-    toPath = const "/"
-
-instance ToQuery RemoveUserFromGroup where
-    toQuery RemoveUserFromGroup{..} = mconcat
-        [ "GroupName" =? _rufgGroupName
-        , "UserName"  =? _rufgUserName
-        ]
-
-instance ToHeaders RemoveUserFromGroup
+rufgrqUserName :: Lens' RemoveUserFromGroup Text
+rufgrqUserName = lens _rufgrqUserName (\ s a -> s{_rufgrqUserName = a});
 
 instance AWSRequest RemoveUserFromGroup where
-    type Sv RemoveUserFromGroup = IAM
-    type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
+        type Sv RemoveUserFromGroup = IAM
+        type Rs RemoveUserFromGroup =
+             RemoveUserFromGroupResponse
+        request = post
+        response = receiveNull RemoveUserFromGroupResponse'
 
-    request  = post "RemoveUserFromGroup"
-    response = nullResponse RemoveUserFromGroupResponse
+instance ToHeaders RemoveUserFromGroup where
+        toHeaders = const mempty
+
+instance ToPath RemoveUserFromGroup where
+        toPath = const "/"
+
+instance ToQuery RemoveUserFromGroup where
+        toQuery RemoveUserFromGroup'{..}
+          = mconcat
+              ["Action" =: ("RemoveUserFromGroup" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "GroupName" =: _rufgrqGroupName,
+               "UserName" =: _rufgrqUserName]
+
+-- | /See:/ 'removeUserFromGroupResponse' smart constructor.
+data RemoveUserFromGroupResponse =
+    RemoveUserFromGroupResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RemoveUserFromGroupResponse' smart constructor.
+removeUserFromGroupResponse :: RemoveUserFromGroupResponse
+removeUserFromGroupResponse = RemoveUserFromGroupResponse'

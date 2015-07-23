@@ -1,39 +1,41 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.PutUserPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Adds (or updates) an inline policy document that is embedded in the specified
--- user.
+-- Adds (or updates) an inline policy document that is embedded in the
+-- specified user.
 --
--- A user can also have a managed policy attached to it. To attach a managed
--- policy to a user, use 'AttachUserPolicy'. To create a new managed policy, use 'CreatePolicy'. For information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and InlinePolicies> in the /Using IAM/ guide.
+-- A user can also have a managed policy attached to it. To attach a
+-- managed policy to a user, use AttachUserPolicy. To create a new managed
+-- policy, use CreatePolicy. For information about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
--- For information about limits on the number of inline policies that you can
--- embed in a user, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
+-- For information about limits on the number of inline policies that you
+-- can embed in a user, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
+-- in the /Using IAM/ guide.
 --
--- Because policy documents can be large, you should use POST rather than GET
--- when calling 'PutUserPolicy'. For general information about using the Query API
--- with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/ guide.
+-- Because policy documents can be large, you should use POST rather than
+-- GET when calling @PutUserPolicy@. For general information about using
+-- the Query API with IAM, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests>
+-- in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html>
 module Network.AWS.IAM.PutUserPolicy
@@ -43,9 +45,9 @@ module Network.AWS.IAM.PutUserPolicy
     -- ** Request constructor
     , putUserPolicy
     -- ** Request lenses
-    , pupPolicyDocument
-    , pupPolicyName
-    , pupUserName
+    , puprqUserName
+    , puprqPolicyName
+    , puprqPolicyDocument
 
     -- * Response
     , PutUserPolicyResponse
@@ -53,72 +55,73 @@ module Network.AWS.IAM.PutUserPolicy
     , putUserPolicyResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data PutUserPolicy = PutUserPolicy
-    { _pupPolicyDocument :: Text
-    , _pupPolicyName     :: Text
-    , _pupUserName       :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'PutUserPolicy' constructor.
+-- | /See:/ 'putUserPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pupPolicyDocument' @::@ 'Text'
+-- * 'puprqUserName'
 --
--- * 'pupPolicyName' @::@ 'Text'
+-- * 'puprqPolicyName'
 --
--- * 'pupUserName' @::@ 'Text'
---
-putUserPolicy :: Text -- ^ 'pupUserName'
-              -> Text -- ^ 'pupPolicyName'
-              -> Text -- ^ 'pupPolicyDocument'
-              -> PutUserPolicy
-putUserPolicy p1 p2 p3 = PutUserPolicy
-    { _pupUserName       = p1
-    , _pupPolicyName     = p2
-    , _pupPolicyDocument = p3
+-- * 'puprqPolicyDocument'
+data PutUserPolicy = PutUserPolicy'
+    { _puprqUserName       :: !Text
+    , _puprqPolicyName     :: !Text
+    , _puprqPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutUserPolicy' smart constructor.
+putUserPolicy :: Text -> Text -> Text -> PutUserPolicy
+putUserPolicy pUserName_ pPolicyName_ pPolicyDocument_ =
+    PutUserPolicy'
+    { _puprqUserName = pUserName_
+    , _puprqPolicyName = pPolicyName_
+    , _puprqPolicyDocument = pPolicyDocument_
     }
 
--- | The policy document.
-pupPolicyDocument :: Lens' PutUserPolicy Text
-pupPolicyDocument =
-    lens _pupPolicyDocument (\s a -> s { _pupPolicyDocument = a })
+-- | The name of the user to associate the policy with.
+puprqUserName :: Lens' PutUserPolicy Text
+puprqUserName = lens _puprqUserName (\ s a -> s{_puprqUserName = a});
 
 -- | The name of the policy document.
-pupPolicyName :: Lens' PutUserPolicy Text
-pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
+puprqPolicyName :: Lens' PutUserPolicy Text
+puprqPolicyName = lens _puprqPolicyName (\ s a -> s{_puprqPolicyName = a});
 
--- | The name of the user to associate the policy with.
-pupUserName :: Lens' PutUserPolicy Text
-pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
-
-data PutUserPolicyResponse = PutUserPolicyResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutUserPolicyResponse' constructor.
-putUserPolicyResponse :: PutUserPolicyResponse
-putUserPolicyResponse = PutUserPolicyResponse
-
-instance ToPath PutUserPolicy where
-    toPath = const "/"
-
-instance ToQuery PutUserPolicy where
-    toQuery PutUserPolicy{..} = mconcat
-        [ "PolicyDocument" =? _pupPolicyDocument
-        , "PolicyName"     =? _pupPolicyName
-        , "UserName"       =? _pupUserName
-        ]
-
-instance ToHeaders PutUserPolicy
+-- | The policy document.
+puprqPolicyDocument :: Lens' PutUserPolicy Text
+puprqPolicyDocument = lens _puprqPolicyDocument (\ s a -> s{_puprqPolicyDocument = a});
 
 instance AWSRequest PutUserPolicy where
-    type Sv PutUserPolicy = IAM
-    type Rs PutUserPolicy = PutUserPolicyResponse
+        type Sv PutUserPolicy = IAM
+        type Rs PutUserPolicy = PutUserPolicyResponse
+        request = post
+        response = receiveNull PutUserPolicyResponse'
 
-    request  = post "PutUserPolicy"
-    response = nullResponse PutUserPolicyResponse
+instance ToHeaders PutUserPolicy where
+        toHeaders = const mempty
+
+instance ToPath PutUserPolicy where
+        toPath = const "/"
+
+instance ToQuery PutUserPolicy where
+        toQuery PutUserPolicy'{..}
+          = mconcat
+              ["Action" =: ("PutUserPolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _puprqUserName,
+               "PolicyName" =: _puprqPolicyName,
+               "PolicyDocument" =: _puprqPolicyDocument]
+
+-- | /See:/ 'putUserPolicyResponse' smart constructor.
+data PutUserPolicyResponse =
+    PutUserPolicyResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutUserPolicyResponse' smart constructor.
+putUserPolicyResponse :: PutUserPolicyResponse
+putUserPolicyResponse = PutUserPolicyResponse'

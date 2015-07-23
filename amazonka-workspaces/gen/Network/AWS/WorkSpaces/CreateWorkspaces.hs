@@ -1,33 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.WorkSpaces.CreateWorkspaces
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates one or more WorkSpaces.
+-- Creates one or more WorkSpaces.
 --
 -- This operation is asynchronous and returns before the WorkSpaces are
 -- created.
---
---
 --
 -- <http://docs.aws.amazon.com/workspaces/latest/devguide/API_CreateWorkspaces.html>
 module Network.AWS.WorkSpaces.CreateWorkspaces
@@ -37,100 +30,115 @@ module Network.AWS.WorkSpaces.CreateWorkspaces
     -- ** Request constructor
     , createWorkspaces
     -- ** Request lenses
-    , cwWorkspaces
+    , cwrqWorkspaces
 
     -- * Response
     , CreateWorkspacesResponse
     -- ** Response constructor
     , createWorkspacesResponse
     -- ** Response lenses
-    , cwrFailedRequests
-    , cwrPendingRequests
+    , cwrsFailedRequests
+    , cwrsPendingRequests
+    , cwrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.WorkSpaces.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.WorkSpaces.Types
 
-newtype CreateWorkspaces = CreateWorkspaces
-    { _cwWorkspaces :: List1 "Workspaces" WorkspaceRequest
-    } deriving (Eq, Read, Show, Semigroup)
-
--- | 'CreateWorkspaces' constructor.
+-- | Contains the inputs for the CreateWorkspaces operation.
+--
+-- /See:/ 'createWorkspaces' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cwWorkspaces' @::@ 'NonEmpty' 'WorkspaceRequest'
---
-createWorkspaces :: NonEmpty WorkspaceRequest -- ^ 'cwWorkspaces'
-                 -> CreateWorkspaces
-createWorkspaces p1 = CreateWorkspaces
-    { _cwWorkspaces = withIso _List1 (const id) p1
+-- * 'cwrqWorkspaces'
+newtype CreateWorkspaces = CreateWorkspaces'
+    { _cwrqWorkspaces :: List1 WorkspaceRequest
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateWorkspaces' smart constructor.
+createWorkspaces :: NonEmpty WorkspaceRequest -> CreateWorkspaces
+createWorkspaces pWorkspaces_ =
+    CreateWorkspaces'
+    { _cwrqWorkspaces = _List1 # pWorkspaces_
     }
 
 -- | An array of structures that specify the WorkSpaces to create.
-cwWorkspaces :: Lens' CreateWorkspaces (NonEmpty WorkspaceRequest)
-cwWorkspaces = lens _cwWorkspaces (\s a -> s { _cwWorkspaces = a }) . _List1
+cwrqWorkspaces :: Lens' CreateWorkspaces (NonEmpty WorkspaceRequest)
+cwrqWorkspaces = lens _cwrqWorkspaces (\ s a -> s{_cwrqWorkspaces = a}) . _List1;
 
-data CreateWorkspacesResponse = CreateWorkspacesResponse
-    { _cwrFailedRequests  :: List "FailedRequests" FailedCreateWorkspaceRequest
-    , _cwrPendingRequests :: List "PendingRequests" Workspace
-    } deriving (Eq, Read, Show)
+instance AWSRequest CreateWorkspaces where
+        type Sv CreateWorkspaces = WorkSpaces
+        type Rs CreateWorkspaces = CreateWorkspacesResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateWorkspacesResponse' <$>
+                   (x .?> "FailedRequests" .!@ mempty) <*>
+                     (x .?> "PendingRequests" .!@ mempty)
+                     <*> (pure (fromEnum s)))
 
--- | 'CreateWorkspacesResponse' constructor.
+instance ToHeaders CreateWorkspaces where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("WorkspacesService.CreateWorkspaces" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateWorkspaces where
+        toJSON CreateWorkspaces'{..}
+          = object ["Workspaces" .= _cwrqWorkspaces]
+
+instance ToPath CreateWorkspaces where
+        toPath = const "/"
+
+instance ToQuery CreateWorkspaces where
+        toQuery = const mempty
+
+-- | Contains the result of the CreateWorkspaces operation.
+--
+-- /See:/ 'createWorkspacesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cwrFailedRequests' @::@ ['FailedCreateWorkspaceRequest']
+-- * 'cwrsFailedRequests'
 --
--- * 'cwrPendingRequests' @::@ ['Workspace']
+-- * 'cwrsPendingRequests'
 --
-createWorkspacesResponse :: CreateWorkspacesResponse
-createWorkspacesResponse = CreateWorkspacesResponse
-    { _cwrFailedRequests  = mempty
-    , _cwrPendingRequests = mempty
+-- * 'cwrsStatus'
+data CreateWorkspacesResponse = CreateWorkspacesResponse'
+    { _cwrsFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
+    , _cwrsPendingRequests :: !(Maybe [Workspace])
+    , _cwrsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateWorkspacesResponse' smart constructor.
+createWorkspacesResponse :: Int -> CreateWorkspacesResponse
+createWorkspacesResponse pStatus_ =
+    CreateWorkspacesResponse'
+    { _cwrsFailedRequests = Nothing
+    , _cwrsPendingRequests = Nothing
+    , _cwrsStatus = pStatus_
     }
 
 -- | An array of structures that represent the WorkSpaces that could not be
 -- created.
-cwrFailedRequests :: Lens' CreateWorkspacesResponse [FailedCreateWorkspaceRequest]
-cwrFailedRequests =
-    lens _cwrFailedRequests (\s a -> s { _cwrFailedRequests = a })
-        . _List
+cwrsFailedRequests :: Lens' CreateWorkspacesResponse [FailedCreateWorkspaceRequest]
+cwrsFailedRequests = lens _cwrsFailedRequests (\ s a -> s{_cwrsFailedRequests = a}) . _Default;
 
 -- | An array of structures that represent the WorkSpaces that were created.
 --
--- Because this operation is asynchronous, the identifier in 'WorkspaceId' is not
--- immediately available. If you immediately call 'DescribeWorkspaces' with this
--- identifier, no information will be returned.
-cwrPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
-cwrPendingRequests =
-    lens _cwrPendingRequests (\s a -> s { _cwrPendingRequests = a })
-        . _List
+-- Because this operation is asynchronous, the identifier in @WorkspaceId@
+-- is not immediately available. If you immediately call DescribeWorkspaces
+-- with this identifier, no information will be returned.
+cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
+cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default;
 
-instance ToPath CreateWorkspaces where
-    toPath = const "/"
-
-instance ToQuery CreateWorkspaces where
-    toQuery = const mempty
-
-instance ToHeaders CreateWorkspaces
-
-instance ToJSON CreateWorkspaces where
-    toJSON CreateWorkspaces{..} = object
-        [ "Workspaces" .= _cwWorkspaces
-        ]
-
-instance AWSRequest CreateWorkspaces where
-    type Sv CreateWorkspaces = WorkSpaces
-    type Rs CreateWorkspaces = CreateWorkspacesResponse
-
-    request  = post "CreateWorkspaces"
-    response = jsonResponse
-
-instance FromJSON CreateWorkspacesResponse where
-    parseJSON = withObject "CreateWorkspacesResponse" $ \o -> CreateWorkspacesResponse
-        <$> o .:? "FailedRequests" .!= mempty
-        <*> o .:? "PendingRequests" .!= mempty
+-- | FIXME: Undocumented member.
+cwrsStatus :: Lens' CreateWorkspacesResponse Int
+cwrsStatus = lens _cwrsStatus (\ s a -> s{_cwrsStatus = a});

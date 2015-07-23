@@ -1,29 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CognitoIdentity.DescribeIdentityPool
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Gets details about a particular identity pool, including the pool name, ID
--- description, creation date, and current number of users.
+-- Gets details about a particular identity pool, including the pool name,
+-- ID description, creation date, and current number of users.
+--
+-- You must use AWS Developer credentials to call this API.
 --
 -- <http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_DescribeIdentityPool.html>
 module Network.AWS.CognitoIdentity.DescribeIdentityPool
@@ -33,147 +30,70 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     -- ** Request constructor
     , describeIdentityPool
     -- ** Request lenses
-    , dipIdentityPoolId
+    , diprqIdentityPoolId
 
     -- * Response
-    , DescribeIdentityPoolResponse
+    , IdentityPool
     -- ** Response constructor
-    , describeIdentityPoolResponse
+    , identityPool
     -- ** Response lenses
-    , diprAllowUnauthenticatedIdentities
-    , diprDeveloperProviderName
-    , diprIdentityPoolId
-    , diprIdentityPoolName
-    , diprOpenIdConnectProviderARNs
-    , diprSupportedLoginProviders
+    , ipSupportedLoginProviders
+    , ipDeveloperProviderName
+    , ipOpenIdConnectProviderARNs
+    , ipIdentityPoolId
+    , ipIdentityPoolName
+    , ipAllowUnauthenticatedIdentities
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CognitoIdentity.Types
-import qualified GHC.Exts
+import           Network.AWS.CognitoIdentity.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DescribeIdentityPool = DescribeIdentityPool
-    { _dipIdentityPoolId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DescribeIdentityPool' constructor.
+-- | Input to the DescribeIdentityPool action.
+--
+-- /See:/ 'describeIdentityPool' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dipIdentityPoolId' @::@ 'Text'
---
-describeIdentityPool :: Text -- ^ 'dipIdentityPoolId'
-                     -> DescribeIdentityPool
-describeIdentityPool p1 = DescribeIdentityPool
-    { _dipIdentityPoolId = p1
+-- * 'diprqIdentityPoolId'
+newtype DescribeIdentityPool = DescribeIdentityPool'
+    { _diprqIdentityPoolId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeIdentityPool' smart constructor.
+describeIdentityPool :: Text -> DescribeIdentityPool
+describeIdentityPool pIdentityPoolId_ =
+    DescribeIdentityPool'
+    { _diprqIdentityPoolId = pIdentityPoolId_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-dipIdentityPoolId :: Lens' DescribeIdentityPool Text
-dipIdentityPoolId =
-    lens _dipIdentityPoolId (\s a -> s { _dipIdentityPoolId = a })
-
-data DescribeIdentityPoolResponse = DescribeIdentityPoolResponse
-    { _diprAllowUnauthenticatedIdentities :: Bool
-    , _diprDeveloperProviderName          :: Maybe Text
-    , _diprIdentityPoolId                 :: Text
-    , _diprIdentityPoolName               :: Text
-    , _diprOpenIdConnectProviderARNs      :: List "OpenIdConnectProviderARNs" Text
-    , _diprSupportedLoginProviders        :: Map Text Text
-    } deriving (Eq, Read, Show)
-
--- | 'DescribeIdentityPoolResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'diprAllowUnauthenticatedIdentities' @::@ 'Bool'
---
--- * 'diprDeveloperProviderName' @::@ 'Maybe' 'Text'
---
--- * 'diprIdentityPoolId' @::@ 'Text'
---
--- * 'diprIdentityPoolName' @::@ 'Text'
---
--- * 'diprOpenIdConnectProviderARNs' @::@ ['Text']
---
--- * 'diprSupportedLoginProviders' @::@ 'HashMap' 'Text' 'Text'
---
-describeIdentityPoolResponse :: Text -- ^ 'diprIdentityPoolId'
-                             -> Text -- ^ 'diprIdentityPoolName'
-                             -> Bool -- ^ 'diprAllowUnauthenticatedIdentities'
-                             -> DescribeIdentityPoolResponse
-describeIdentityPoolResponse p1 p2 p3 = DescribeIdentityPoolResponse
-    { _diprIdentityPoolId                 = p1
-    , _diprIdentityPoolName               = p2
-    , _diprAllowUnauthenticatedIdentities = p3
-    , _diprSupportedLoginProviders        = mempty
-    , _diprDeveloperProviderName          = Nothing
-    , _diprOpenIdConnectProviderARNs      = mempty
-    }
-
--- | TRUE if the identity pool supports unauthenticated logins.
-diprAllowUnauthenticatedIdentities :: Lens' DescribeIdentityPoolResponse Bool
-diprAllowUnauthenticatedIdentities =
-    lens _diprAllowUnauthenticatedIdentities
-        (\s a -> s { _diprAllowUnauthenticatedIdentities = a })
-
--- | The "domain" by which Cognito will refer to your users.
-diprDeveloperProviderName :: Lens' DescribeIdentityPoolResponse (Maybe Text)
-diprDeveloperProviderName =
-    lens _diprDeveloperProviderName
-        (\s a -> s { _diprDeveloperProviderName = a })
-
--- | An identity pool ID in the format REGION:GUID.
-diprIdentityPoolId :: Lens' DescribeIdentityPoolResponse Text
-diprIdentityPoolId =
-    lens _diprIdentityPoolId (\s a -> s { _diprIdentityPoolId = a })
-
--- | A string that you provide.
-diprIdentityPoolName :: Lens' DescribeIdentityPoolResponse Text
-diprIdentityPoolName =
-    lens _diprIdentityPoolName (\s a -> s { _diprIdentityPoolName = a })
-
--- | A list of OpendID Connect provider ARNs.
-diprOpenIdConnectProviderARNs :: Lens' DescribeIdentityPoolResponse [Text]
-diprOpenIdConnectProviderARNs =
-    lens _diprOpenIdConnectProviderARNs
-        (\s a -> s { _diprOpenIdConnectProviderARNs = a })
-            . _List
-
--- | Optional key:value pairs mapping provider names to provider app IDs.
-diprSupportedLoginProviders :: Lens' DescribeIdentityPoolResponse (HashMap Text Text)
-diprSupportedLoginProviders =
-    lens _diprSupportedLoginProviders
-        (\s a -> s { _diprSupportedLoginProviders = a })
-            . _Map
-
-instance ToPath DescribeIdentityPool where
-    toPath = const "/"
-
-instance ToQuery DescribeIdentityPool where
-    toQuery = const mempty
-
-instance ToHeaders DescribeIdentityPool
-
-instance ToJSON DescribeIdentityPool where
-    toJSON DescribeIdentityPool{..} = object
-        [ "IdentityPoolId" .= _dipIdentityPoolId
-        ]
+diprqIdentityPoolId :: Lens' DescribeIdentityPool Text
+diprqIdentityPoolId = lens _diprqIdentityPoolId (\ s a -> s{_diprqIdentityPoolId = a});
 
 instance AWSRequest DescribeIdentityPool where
-    type Sv DescribeIdentityPool = CognitoIdentity
-    type Rs DescribeIdentityPool = DescribeIdentityPoolResponse
+        type Sv DescribeIdentityPool = CognitoIdentity
+        type Rs DescribeIdentityPool = IdentityPool
+        request = postJSON
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
 
-    request  = post "DescribeIdentityPool"
-    response = jsonResponse
+instance ToHeaders DescribeIdentityPool where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("AWSCognitoIdentityService.DescribeIdentityPool" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON DescribeIdentityPoolResponse where
-    parseJSON = withObject "DescribeIdentityPoolResponse" $ \o -> DescribeIdentityPoolResponse
-        <$> o .:  "AllowUnauthenticatedIdentities"
-        <*> o .:? "DeveloperProviderName"
-        <*> o .:  "IdentityPoolId"
-        <*> o .:  "IdentityPoolName"
-        <*> o .:? "OpenIdConnectProviderARNs" .!= mempty
-        <*> o .:? "SupportedLoginProviders" .!= mempty
+instance ToJSON DescribeIdentityPool where
+        toJSON DescribeIdentityPool'{..}
+          = object ["IdentityPoolId" .= _diprqIdentityPoolId]
+
+instance ToPath DescribeIdentityPool where
+        toPath = const "/"
+
+instance ToQuery DescribeIdentityPool where
+        toQuery = const mempty

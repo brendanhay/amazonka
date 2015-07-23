@@ -1,32 +1,31 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.UpdateVolume
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Updates an Amazon EBS volume's name or mount point. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- Updates an Amazon EBS volume\'s name or mount point. For more
+-- information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_UpdateVolume.html>
 module Network.AWS.OpsWorks.UpdateVolume
@@ -36,9 +35,9 @@ module Network.AWS.OpsWorks.UpdateVolume
     -- ** Request constructor
     , updateVolume
     -- ** Request lenses
-    , uv1MountPoint
-    , uv1Name
-    , uv1VolumeId
+    , urqName
+    , urqMountPoint
+    , urqVolumeId
 
     -- * Response
     , UpdateVolumeResponse
@@ -46,73 +45,79 @@ module Network.AWS.OpsWorks.UpdateVolume
     , updateVolumeResponse
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateVolume = UpdateVolume
-    { _uv1MountPoint :: Maybe Text
-    , _uv1Name       :: Maybe Text
-    , _uv1VolumeId   :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'UpdateVolume' constructor.
+-- | /See:/ 'updateVolume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uv1MountPoint' @::@ 'Maybe' 'Text'
+-- * 'urqName'
 --
--- * 'uv1Name' @::@ 'Maybe' 'Text'
+-- * 'urqMountPoint'
 --
--- * 'uv1VolumeId' @::@ 'Text'
---
-updateVolume :: Text -- ^ 'uv1VolumeId'
-             -> UpdateVolume
-updateVolume p1 = UpdateVolume
-    { _uv1VolumeId   = p1
-    , _uv1Name       = Nothing
-    , _uv1MountPoint = Nothing
+-- * 'urqVolumeId'
+data UpdateVolume = UpdateVolume'
+    { _urqName       :: !(Maybe Text)
+    , _urqMountPoint :: !(Maybe Text)
+    , _urqVolumeId   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateVolume' smart constructor.
+updateVolume :: Text -> UpdateVolume
+updateVolume pVolumeId_ =
+    UpdateVolume'
+    { _urqName = Nothing
+    , _urqMountPoint = Nothing
+    , _urqVolumeId = pVolumeId_
     }
 
--- | The new mount point.
-uv1MountPoint :: Lens' UpdateVolume (Maybe Text)
-uv1MountPoint = lens _uv1MountPoint (\s a -> s { _uv1MountPoint = a })
-
 -- | The new name.
-uv1Name :: Lens' UpdateVolume (Maybe Text)
-uv1Name = lens _uv1Name (\s a -> s { _uv1Name = a })
+urqName :: Lens' UpdateVolume (Maybe Text)
+urqName = lens _urqName (\ s a -> s{_urqName = a});
+
+-- | The new mount point.
+urqMountPoint :: Lens' UpdateVolume (Maybe Text)
+urqMountPoint = lens _urqMountPoint (\ s a -> s{_urqMountPoint = a});
 
 -- | The volume ID.
-uv1VolumeId :: Lens' UpdateVolume Text
-uv1VolumeId = lens _uv1VolumeId (\s a -> s { _uv1VolumeId = a })
-
-data UpdateVolumeResponse = UpdateVolumeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'UpdateVolumeResponse' constructor.
-updateVolumeResponse :: UpdateVolumeResponse
-updateVolumeResponse = UpdateVolumeResponse
-
-instance ToPath UpdateVolume where
-    toPath = const "/"
-
-instance ToQuery UpdateVolume where
-    toQuery = const mempty
-
-instance ToHeaders UpdateVolume
-
-instance ToJSON UpdateVolume where
-    toJSON UpdateVolume{..} = object
-        [ "VolumeId"   .= _uv1VolumeId
-        , "Name"       .= _uv1Name
-        , "MountPoint" .= _uv1MountPoint
-        ]
+urqVolumeId :: Lens' UpdateVolume Text
+urqVolumeId = lens _urqVolumeId (\ s a -> s{_urqVolumeId = a});
 
 instance AWSRequest UpdateVolume where
-    type Sv UpdateVolume = OpsWorks
-    type Rs UpdateVolume = UpdateVolumeResponse
+        type Sv UpdateVolume = OpsWorks
+        type Rs UpdateVolume = UpdateVolumeResponse
+        request = postJSON
+        response = receiveNull UpdateVolumeResponse'
 
-    request  = post "UpdateVolume"
-    response = nullResponse UpdateVolumeResponse
+instance ToHeaders UpdateVolume where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.UpdateVolume" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateVolume where
+        toJSON UpdateVolume'{..}
+          = object
+              ["Name" .= _urqName, "MountPoint" .= _urqMountPoint,
+               "VolumeId" .= _urqVolumeId]
+
+instance ToPath UpdateVolume where
+        toPath = const "/"
+
+instance ToQuery UpdateVolume where
+        toQuery = const mempty
+
+-- | /See:/ 'updateVolumeResponse' smart constructor.
+data UpdateVolumeResponse =
+    UpdateVolumeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateVolumeResponse' smart constructor.
+updateVolumeResponse :: UpdateVolumeResponse
+updateVolumeResponse = UpdateVolumeResponse'

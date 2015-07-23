@@ -1,33 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.CopyImage
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Initiates the copy of an AMI from the specified source region to the current
--- region. You specify the destination region by using its endpoint when making
--- the request. AMIs that use encrypted EBS snapshots cannot be copied with this
--- method.
+-- Initiates the copy of an AMI from the specified source region to the
+-- current region. You specify the destination region by using its endpoint
+-- when making the request. AMIs that use encrypted EBS snapshots cannot be
+-- copied with this method.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs> in the /Amazon Elastic Compute CloudUser Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopyImage.html>
 module Network.AWS.EC2.CopyImage
@@ -37,132 +34,145 @@ module Network.AWS.EC2.CopyImage
     -- ** Request constructor
     , copyImage
     -- ** Request lenses
-    , ciClientToken
-    , ciDescription
-    , ciDryRun
-    , ciName
-    , ciSourceImageId
-    , ciSourceRegion
+    , cirqClientToken
+    , cirqDryRun
+    , cirqDescription
+    , cirqSourceRegion
+    , cirqSourceImageId
+    , cirqName
 
     -- * Response
     , CopyImageResponse
     -- ** Response constructor
     , copyImageResponse
     -- ** Response lenses
-    , cir1ImageId
+    , coprsImageId
+    , coprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CopyImage = CopyImage
-    { _ciClientToken   :: Maybe Text
-    , _ciDescription   :: Maybe Text
-    , _ciDryRun        :: Maybe Bool
-    , _ciName          :: Text
-    , _ciSourceImageId :: Text
-    , _ciSourceRegion  :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CopyImage' constructor.
+-- | /See:/ 'copyImage' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciClientToken' @::@ 'Maybe' 'Text'
+-- * 'cirqClientToken'
 --
--- * 'ciDescription' @::@ 'Maybe' 'Text'
+-- * 'cirqDryRun'
 --
--- * 'ciDryRun' @::@ 'Maybe' 'Bool'
+-- * 'cirqDescription'
 --
--- * 'ciName' @::@ 'Text'
+-- * 'cirqSourceRegion'
 --
--- * 'ciSourceImageId' @::@ 'Text'
+-- * 'cirqSourceImageId'
 --
--- * 'ciSourceRegion' @::@ 'Text'
---
-copyImage :: Text -- ^ 'ciSourceRegion'
-          -> Text -- ^ 'ciSourceImageId'
-          -> Text -- ^ 'ciName'
-          -> CopyImage
-copyImage p1 p2 p3 = CopyImage
-    { _ciSourceRegion  = p1
-    , _ciSourceImageId = p2
-    , _ciName          = p3
-    , _ciDryRun        = Nothing
-    , _ciDescription   = Nothing
-    , _ciClientToken   = Nothing
+-- * 'cirqName'
+data CopyImage = CopyImage'
+    { _cirqClientToken   :: !(Maybe Text)
+    , _cirqDryRun        :: !(Maybe Bool)
+    , _cirqDescription   :: !(Maybe Text)
+    , _cirqSourceRegion  :: !Text
+    , _cirqSourceImageId :: !Text
+    , _cirqName          :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CopyImage' smart constructor.
+copyImage :: Text -> Text -> Text -> CopyImage
+copyImage pSourceRegion_ pSourceImageId_ pName_ =
+    CopyImage'
+    { _cirqClientToken = Nothing
+    , _cirqDryRun = Nothing
+    , _cirqDescription = Nothing
+    , _cirqSourceRegion = pSourceRegion_
+    , _cirqSourceImageId = pSourceImageId_
+    , _cirqName = pName_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of the
--- request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /AmazonElastic Compute Cloud User Guide/.
-ciClientToken :: Lens' CopyImage (Maybe Text)
-ciClientToken = lens _ciClientToken (\s a -> s { _ciClientToken = a })
-
--- | A description for the new AMI in the destination region.
-ciDescription :: Lens' CopyImage (Maybe Text)
-ciDescription = lens _ciDescription (\s a -> s { _ciDescription = a })
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of
+-- the request. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+cirqClientToken :: Lens' CopyImage (Maybe Text)
+cirqClientToken = lens _cirqClientToken (\ s a -> s{_cirqClientToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-ciDryRun :: Lens' CopyImage (Maybe Bool)
-ciDryRun = lens _ciDryRun (\s a -> s { _ciDryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+cirqDryRun :: Lens' CopyImage (Maybe Bool)
+cirqDryRun = lens _cirqDryRun (\ s a -> s{_cirqDryRun = a});
 
--- | The name of the new AMI in the destination region.
-ciName :: Lens' CopyImage Text
-ciName = lens _ciName (\s a -> s { _ciName = a })
-
--- | The ID of the AMI to copy.
-ciSourceImageId :: Lens' CopyImage Text
-ciSourceImageId = lens _ciSourceImageId (\s a -> s { _ciSourceImageId = a })
+-- | A description for the new AMI in the destination region.
+cirqDescription :: Lens' CopyImage (Maybe Text)
+cirqDescription = lens _cirqDescription (\ s a -> s{_cirqDescription = a});
 
 -- | The name of the region that contains the AMI to copy.
-ciSourceRegion :: Lens' CopyImage Text
-ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
+cirqSourceRegion :: Lens' CopyImage Text
+cirqSourceRegion = lens _cirqSourceRegion (\ s a -> s{_cirqSourceRegion = a});
 
-newtype CopyImageResponse = CopyImageResponse
-    { _cir1ImageId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+-- | The ID of the AMI to copy.
+cirqSourceImageId :: Lens' CopyImage Text
+cirqSourceImageId = lens _cirqSourceImageId (\ s a -> s{_cirqSourceImageId = a});
 
--- | 'CopyImageResponse' constructor.
+-- | The name of the new AMI in the destination region.
+cirqName :: Lens' CopyImage Text
+cirqName = lens _cirqName (\ s a -> s{_cirqName = a});
+
+instance AWSRequest CopyImage where
+        type Sv CopyImage = EC2
+        type Rs CopyImage = CopyImageResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 CopyImageResponse' <$>
+                   (x .@? "imageId") <*> (pure (fromEnum s)))
+
+instance ToHeaders CopyImage where
+        toHeaders = const mempty
+
+instance ToPath CopyImage where
+        toPath = const "/"
+
+instance ToQuery CopyImage where
+        toQuery CopyImage'{..}
+          = mconcat
+              ["Action" =: ("CopyImage" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "ClientToken" =: _cirqClientToken,
+               "DryRun" =: _cirqDryRun,
+               "Description" =: _cirqDescription,
+               "SourceRegion" =: _cirqSourceRegion,
+               "SourceImageId" =: _cirqSourceImageId,
+               "Name" =: _cirqName]
+
+-- | /See:/ 'copyImageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cir1ImageId' @::@ 'Maybe' 'Text'
+-- * 'coprsImageId'
 --
-copyImageResponse :: CopyImageResponse
-copyImageResponse = CopyImageResponse
-    { _cir1ImageId = Nothing
+-- * 'coprsStatus'
+data CopyImageResponse = CopyImageResponse'
+    { _coprsImageId :: !(Maybe Text)
+    , _coprsStatus  :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CopyImageResponse' smart constructor.
+copyImageResponse :: Int -> CopyImageResponse
+copyImageResponse pStatus_ =
+    CopyImageResponse'
+    { _coprsImageId = Nothing
+    , _coprsStatus = pStatus_
     }
 
 -- | The ID of the new AMI.
-cir1ImageId :: Lens' CopyImageResponse (Maybe Text)
-cir1ImageId = lens _cir1ImageId (\s a -> s { _cir1ImageId = a })
+coprsImageId :: Lens' CopyImageResponse (Maybe Text)
+coprsImageId = lens _coprsImageId (\ s a -> s{_coprsImageId = a});
 
-instance ToPath CopyImage where
-    toPath = const "/"
-
-instance ToQuery CopyImage where
-    toQuery CopyImage{..} = mconcat
-        [ "ClientToken"   =? _ciClientToken
-        , "Description"   =? _ciDescription
-        , "DryRun"        =? _ciDryRun
-        , "Name"          =? _ciName
-        , "SourceImageId" =? _ciSourceImageId
-        , "SourceRegion"  =? _ciSourceRegion
-        ]
-
-instance ToHeaders CopyImage
-
-instance AWSRequest CopyImage where
-    type Sv CopyImage = EC2
-    type Rs CopyImage = CopyImageResponse
-
-    request  = post "CopyImage"
-    response = xmlResponse
-
-instance FromXML CopyImageResponse where
-    parseXML x = CopyImageResponse
-        <$> x .@? "imageId"
+-- | FIXME: Undocumented member.
+coprsStatus :: Lens' CopyImageResponse Int
+coprsStatus = lens _coprsStatus (\ s a -> s{_coprsStatus = a});

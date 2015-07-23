@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Redshift.DeleteEventSubscription
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes an Amazon Redshift event notification subscription.
+-- Deletes an Amazon Redshift event notification subscription.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteEventSubscription.html>
 module Network.AWS.Redshift.DeleteEventSubscription
@@ -32,7 +27,7 @@ module Network.AWS.Redshift.DeleteEventSubscription
     -- ** Request constructor
     , deleteEventSubscription
     -- ** Request lenses
-    , desSubscriptionName
+    , desrqSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
@@ -40,52 +35,61 @@ module Network.AWS.Redshift.DeleteEventSubscription
     , deleteEventSubscriptionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteEventSubscription = DeleteEventSubscription
-    { _desSubscriptionName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteEventSubscription' constructor.
+-- |
+--
+-- /See:/ 'deleteEventSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desSubscriptionName' @::@ 'Text'
---
-deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
-                        -> DeleteEventSubscription
-deleteEventSubscription p1 = DeleteEventSubscription
-    { _desSubscriptionName = p1
+-- * 'desrqSubscriptionName'
+newtype DeleteEventSubscription = DeleteEventSubscription'
+    { _desrqSubscriptionName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteEventSubscription' smart constructor.
+deleteEventSubscription :: Text -> DeleteEventSubscription
+deleteEventSubscription pSubscriptionName_ =
+    DeleteEventSubscription'
+    { _desrqSubscriptionName = pSubscriptionName_
     }
 
--- | The name of the Amazon Redshift event notification subscription to be deleted.
-desSubscriptionName :: Lens' DeleteEventSubscription Text
-desSubscriptionName =
-    lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
-
-data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteEventSubscriptionResponse' constructor.
-deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
-deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-
-instance ToPath DeleteEventSubscription where
-    toPath = const "/"
-
-instance ToQuery DeleteEventSubscription where
-    toQuery DeleteEventSubscription{..} = mconcat
-        [ "SubscriptionName" =? _desSubscriptionName
-        ]
-
-instance ToHeaders DeleteEventSubscription
+-- | The name of the Amazon Redshift event notification subscription to be
+-- deleted.
+desrqSubscriptionName :: Lens' DeleteEventSubscription Text
+desrqSubscriptionName = lens _desrqSubscriptionName (\ s a -> s{_desrqSubscriptionName = a});
 
 instance AWSRequest DeleteEventSubscription where
-    type Sv DeleteEventSubscription = Redshift
-    type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
+        type Sv DeleteEventSubscription = Redshift
+        type Rs DeleteEventSubscription =
+             DeleteEventSubscriptionResponse
+        request = post
+        response
+          = receiveNull DeleteEventSubscriptionResponse'
 
-    request  = post "DeleteEventSubscription"
-    response = nullResponse DeleteEventSubscriptionResponse
+instance ToHeaders DeleteEventSubscription where
+        toHeaders = const mempty
+
+instance ToPath DeleteEventSubscription where
+        toPath = const "/"
+
+instance ToQuery DeleteEventSubscription where
+        toQuery DeleteEventSubscription'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteEventSubscription" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "SubscriptionName" =: _desrqSubscriptionName]
+
+-- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
+data DeleteEventSubscriptionResponse =
+    DeleteEventSubscriptionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteEventSubscriptionResponse' smart constructor.
+deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'

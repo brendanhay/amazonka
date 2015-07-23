@@ -1,20 +1,47 @@
 # Amazon Simple Queue Service SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Amazon Simple Queue Service (SQS) is a fast, reliable, scalable, fully
-managed message queuing service. SQS makes it simple and cost-effective to
-decouple the components of a cloud application. You can use SQS to transmit
-any volume of data, at any level of throughput, without losing messages or
-requiring other services to be always available. With SQS, you can offload
-the administrative burden of operating and scaling a highly available
-messaging cluster, while paying a low price for only what you use.
+Welcome to the /Amazon Simple Queue Service API Reference/. This section
+describes who should read this guide, how the guide is organized, and
+other resources related to the Amazon Simple Queue Service (Amazon SQS).
+
+Amazon SQS offers reliable and scalable hosted queues for storing
+messages as they travel between computers. By using Amazon SQS, you can
+move data between distributed components of your applications that
+perform different tasks without losing messages or requiring each
+component to be always available.
+
+Helpful Links:
+
+-   <http://queue.amazonaws.com/doc/2012-11-05/QueueService.wsdl Current WSDL (2012-11-05)>
+-   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html Making API Requests>
+-   <http://aws.amazon.com/sqs/ Amazon SQS product page>
+-   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html Using Amazon SQS Message Attributes>
+-   <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html Using Amazon SQS Dead Letter Queues>
+-   <http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
+
+We also provide SDKs that enable you to access Amazon SQS from your
+preferred programming language. The SDKs contain functionality that
+automatically takes care of tasks such as:
+
+-   Cryptographically signing your service requests
+-   Retrying requests
+-   Handling error responses
+
+For a list of available SDKs, go to
+<http://aws.amazon.com/tools/ Tools for Amazon Web Services>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-sqs)
 and the [AWS API Reference](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html).

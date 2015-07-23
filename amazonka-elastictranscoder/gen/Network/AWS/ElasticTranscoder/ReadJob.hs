@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticTranscoder.ReadJob
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The ReadJob operation returns detailed information about a job.
+-- The ReadJob operation returns detailed information about a job.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadJob.html>
 module Network.AWS.ElasticTranscoder.ReadJob
@@ -32,83 +27,91 @@ module Network.AWS.ElasticTranscoder.ReadJob
     -- ** Request constructor
     , readJob
     -- ** Request lenses
-    , rjId
+    , rjrqId
 
     -- * Response
     , ReadJobResponse
     -- ** Response constructor
     , readJobResponse
     -- ** Response lenses
-    , rjrJob
+    , rjrsStatus
+    , rjrsJob
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.ElasticTranscoder.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype ReadJob = ReadJob
-    { _rjId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'ReadJob' constructor.
+-- | The @ReadJobRequest@ structure.
+--
+-- /See:/ 'readJob' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rjId' @::@ 'Text'
---
-readJob :: Text -- ^ 'rjId'
-        -> ReadJob
-readJob p1 = ReadJob
-    { _rjId = p1
+-- * 'rjrqId'
+newtype ReadJob = ReadJob'
+    { _rjrqId :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ReadJob' smart constructor.
+readJob :: Text -> ReadJob
+readJob pId_ =
+    ReadJob'
+    { _rjrqId = pId_
     }
 
--- | The identifier of the job for which you want to get detailed information.
-rjId :: Lens' ReadJob Text
-rjId = lens _rjId (\s a -> s { _rjId = a })
-
-newtype ReadJobResponse = ReadJobResponse
-    { _rjrJob :: Job'
-    } deriving (Eq, Read, Show)
-
--- | 'ReadJobResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'rjrJob' @::@ 'Job''
---
-readJobResponse :: Job' -- ^ 'rjrJob'
-                -> ReadJobResponse
-readJobResponse p1 = ReadJobResponse
-    { _rjrJob = p1
-    }
-
--- | A section of the response body that provides information about the job.
-rjrJob :: Lens' ReadJobResponse Job'
-rjrJob = lens _rjrJob (\s a -> s { _rjrJob = a })
-
-instance ToPath ReadJob where
-    toPath ReadJob{..} = mconcat
-        [ "/2012-09-25/jobs/"
-        , toText _rjId
-        ]
-
-instance ToQuery ReadJob where
-    toQuery = const mempty
-
-instance ToHeaders ReadJob
-
-instance ToJSON ReadJob where
-    toJSON = const (toJSON Empty)
+-- | The identifier of the job for which you want to get detailed
+-- information.
+rjrqId :: Lens' ReadJob Text
+rjrqId = lens _rjrqId (\ s a -> s{_rjrqId = a});
 
 instance AWSRequest ReadJob where
-    type Sv ReadJob = ElasticTranscoder
-    type Rs ReadJob = ReadJobResponse
+        type Sv ReadJob = ElasticTranscoder
+        type Rs ReadJob = ReadJobResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ReadJobResponse' <$>
+                   (pure (fromEnum s)) <*> (x .:> "Job"))
 
-    request  = get
-    response = jsonResponse
+instance ToHeaders ReadJob where
+        toHeaders = const mempty
 
-instance FromJSON ReadJobResponse where
-    parseJSON = withObject "ReadJobResponse" $ \o -> ReadJobResponse
-        <$> o .:  "Job"
+instance ToPath ReadJob where
+        toPath ReadJob'{..}
+          = mconcat ["/2012-09-25/jobs/", toText _rjrqId]
+
+instance ToQuery ReadJob where
+        toQuery = const mempty
+
+-- | The @ReadJobResponse@ structure.
+--
+-- /See:/ 'readJobResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rjrsStatus'
+--
+-- * 'rjrsJob'
+data ReadJobResponse = ReadJobResponse'
+    { _rjrsStatus :: !Int
+    , _rjrsJob    :: !Job'
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ReadJobResponse' smart constructor.
+readJobResponse :: Int -> Job' -> ReadJobResponse
+readJobResponse pStatus_ pJob_ =
+    ReadJobResponse'
+    { _rjrsStatus = pStatus_
+    , _rjrsJob = pJob_
+    }
+
+-- | FIXME: Undocumented member.
+rjrsStatus :: Lens' ReadJobResponse Int
+rjrsStatus = lens _rjrsStatus (\ s a -> s{_rjrsStatus = a});
+
+-- | A section of the response body that provides information about the job.
+rjrsJob :: Lens' ReadJobResponse Job'
+rjrsJob = lens _rjrsJob (\ s a -> s{_rjrsJob = a});

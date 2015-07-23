@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.RDS.DeleteEventSubscription
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes an RDS event notification subscription.
+-- Deletes an RDS event notification subscription.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteEventSubscription.html>
 module Network.AWS.RDS.DeleteEventSubscription
@@ -32,78 +27,93 @@ module Network.AWS.RDS.DeleteEventSubscription
     -- ** Request constructor
     , deleteEventSubscription
     -- ** Request lenses
-    , desSubscriptionName
+    , desrqSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
     -- ** Response constructor
     , deleteEventSubscriptionResponse
     -- ** Response lenses
-    , desrEventSubscription
+    , drsEventSubscription
+    , drsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.RDS.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.RDS.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteEventSubscription = DeleteEventSubscription
-    { _desSubscriptionName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteEventSubscription' constructor.
+-- |
+--
+-- /See:/ 'deleteEventSubscription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desSubscriptionName' @::@ 'Text'
---
-deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
-                        -> DeleteEventSubscription
-deleteEventSubscription p1 = DeleteEventSubscription
-    { _desSubscriptionName = p1
+-- * 'desrqSubscriptionName'
+newtype DeleteEventSubscription = DeleteEventSubscription'
+    { _desrqSubscriptionName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteEventSubscription' smart constructor.
+deleteEventSubscription :: Text -> DeleteEventSubscription
+deleteEventSubscription pSubscriptionName_ =
+    DeleteEventSubscription'
+    { _desrqSubscriptionName = pSubscriptionName_
     }
 
 -- | The name of the RDS event notification subscription you want to delete.
-desSubscriptionName :: Lens' DeleteEventSubscription Text
-desSubscriptionName =
-    lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
+desrqSubscriptionName :: Lens' DeleteEventSubscription Text
+desrqSubscriptionName = lens _desrqSubscriptionName (\ s a -> s{_desrqSubscriptionName = a});
 
-newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-    { _desrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Read, Show)
+instance AWSRequest DeleteEventSubscription where
+        type Sv DeleteEventSubscription = RDS
+        type Rs DeleteEventSubscription =
+             DeleteEventSubscriptionResponse
+        request = post
+        response
+          = receiveXMLWrapper "DeleteEventSubscriptionResult"
+              (\ s h x ->
+                 DeleteEventSubscriptionResponse' <$>
+                   (x .@? "EventSubscription") <*> (pure (fromEnum s)))
 
--- | 'DeleteEventSubscriptionResponse' constructor.
+instance ToHeaders DeleteEventSubscription where
+        toHeaders = const mempty
+
+instance ToPath DeleteEventSubscription where
+        toPath = const "/"
+
+instance ToQuery DeleteEventSubscription where
+        toQuery DeleteEventSubscription'{..}
+          = mconcat
+              ["Action" =:
+                 ("DeleteEventSubscription" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "SubscriptionName" =: _desrqSubscriptionName]
+
+-- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrEventSubscription' @::@ 'Maybe' 'EventSubscription'
+-- * 'drsEventSubscription'
 --
-deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
-deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-    { _desrEventSubscription = Nothing
+-- * 'drsStatus'
+data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
+    { _drsEventSubscription :: !(Maybe EventSubscription)
+    , _drsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteEventSubscriptionResponse' smart constructor.
+deleteEventSubscriptionResponse :: Int -> DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse pStatus_ =
+    DeleteEventSubscriptionResponse'
+    { _drsEventSubscription = Nothing
+    , _drsStatus = pStatus_
     }
 
-desrEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
-desrEventSubscription =
-    lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
+-- | FIXME: Undocumented member.
+drsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
+drsEventSubscription = lens _drsEventSubscription (\ s a -> s{_drsEventSubscription = a});
 
-instance ToPath DeleteEventSubscription where
-    toPath = const "/"
-
-instance ToQuery DeleteEventSubscription where
-    toQuery DeleteEventSubscription{..} = mconcat
-        [ "SubscriptionName" =? _desSubscriptionName
-        ]
-
-instance ToHeaders DeleteEventSubscription
-
-instance AWSRequest DeleteEventSubscription where
-    type Sv DeleteEventSubscription = RDS
-    type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
-
-    request  = post "DeleteEventSubscription"
-    response = xmlResponse
-
-instance FromXML DeleteEventSubscriptionResponse where
-    parseXML = withElement "DeleteEventSubscriptionResult" $ \x -> DeleteEventSubscriptionResponse
-        <$> x .@? "EventSubscription"
+-- | FIXME: Undocumented member.
+drsStatus :: Lens' DeleteEventSubscriptionResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

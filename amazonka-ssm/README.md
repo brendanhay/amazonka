@@ -1,16 +1,34 @@
 # Amazon Simple Systems Management Service SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`1.0.0`
+
+
 ## Description
 
-Amazon EC2 Simple Systems Manager (SSM) enables you to configure and manage
-your EC2 instances. You can create a configuration document and then
-associate it with one or more running instances.
+Amazon EC2 Simple Systems Manager (SSM) enables you to configure and
+manage your EC2 instances. You can create a configuration document and
+then associate it with one or more running instances.
+
+You can use a configuration document to automate the following tasks for
+your Windows instances:
+
+-   Join an AWS Directory
+
+-   Install, repair, or uninstall software using an MSI package
+
+-   Run PowerShell scripts
+
+-   Configure CloudWatch Logs to monitor applications and systems
+
+Note that configuration documents are not supported on Linux instances.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ssm)
 and the [AWS API Reference](http://docs.aws.amazon.com/ssm/latest/APIReference/Welcome.html).

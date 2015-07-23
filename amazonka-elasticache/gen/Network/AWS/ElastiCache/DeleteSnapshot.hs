@@ -1,30 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The /DeleteSnapshot/ action deletes an existing snapshot. When you receive a
--- successful response from this action, ElastiCache immediately begins deleting
--- the snapshot; you cannot cancel or revert this action.
+-- The /DeleteSnapshot/ action deletes an existing snapshot. When you
+-- receive a successful response from this action, ElastiCache immediately
+-- begins deleting the snapshot; you cannot cancel or revert this action.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html>
 module Network.AWS.ElastiCache.DeleteSnapshot
@@ -34,76 +29,91 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , ds1SnapshotName
+    , drqSnapshotName
 
     -- * Response
     , DeleteSnapshotResponse
     -- ** Response constructor
     , deleteSnapshotResponse
     -- ** Response lenses
-    , dsrSnapshot
+    , dsrsSnapshot
+    , dsrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype DeleteSnapshot = DeleteSnapshot
-    { _ds1SnapshotName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'DeleteSnapshot' constructor.
+-- | Represents the input of a /DeleteSnapshot/ action.
+--
+-- /See:/ 'deleteSnapshot' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ds1SnapshotName' @::@ 'Text'
---
-deleteSnapshot :: Text -- ^ 'ds1SnapshotName'
-               -> DeleteSnapshot
-deleteSnapshot p1 = DeleteSnapshot
-    { _ds1SnapshotName = p1
+-- * 'drqSnapshotName'
+newtype DeleteSnapshot = DeleteSnapshot'
+    { _drqSnapshotName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteSnapshot' smart constructor.
+deleteSnapshot :: Text -> DeleteSnapshot
+deleteSnapshot pSnapshotName_ =
+    DeleteSnapshot'
+    { _drqSnapshotName = pSnapshotName_
     }
 
 -- | The name of the snapshot to be deleted.
-ds1SnapshotName :: Lens' DeleteSnapshot Text
-ds1SnapshotName = lens _ds1SnapshotName (\s a -> s { _ds1SnapshotName = a })
+drqSnapshotName :: Lens' DeleteSnapshot Text
+drqSnapshotName = lens _drqSnapshotName (\ s a -> s{_drqSnapshotName = a});
 
-newtype DeleteSnapshotResponse = DeleteSnapshotResponse
-    { _dsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Read, Show)
+instance AWSRequest DeleteSnapshot where
+        type Sv DeleteSnapshot = ElastiCache
+        type Rs DeleteSnapshot = DeleteSnapshotResponse
+        request = post
+        response
+          = receiveXMLWrapper "DeleteSnapshotResult"
+              (\ s h x ->
+                 DeleteSnapshotResponse' <$>
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
--- | 'DeleteSnapshotResponse' constructor.
+instance ToHeaders DeleteSnapshot where
+        toHeaders = const mempty
+
+instance ToPath DeleteSnapshot where
+        toPath = const "/"
+
+instance ToQuery DeleteSnapshot where
+        toQuery DeleteSnapshot'{..}
+          = mconcat
+              ["Action" =: ("DeleteSnapshot" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "SnapshotName" =: _drqSnapshotName]
+
+-- | /See:/ 'deleteSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrSnapshot' @::@ 'Maybe' 'Snapshot'
+-- * 'dsrsSnapshot'
 --
-deleteSnapshotResponse :: DeleteSnapshotResponse
-deleteSnapshotResponse = DeleteSnapshotResponse
-    { _dsrSnapshot = Nothing
+-- * 'dsrsStatus'
+data DeleteSnapshotResponse = DeleteSnapshotResponse'
+    { _dsrsSnapshot :: !(Maybe Snapshot)
+    , _dsrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteSnapshotResponse' smart constructor.
+deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
+deleteSnapshotResponse pStatus_ =
+    DeleteSnapshotResponse'
+    { _dsrsSnapshot = Nothing
+    , _dsrsStatus = pStatus_
     }
 
-dsrSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
-dsrSnapshot = lens _dsrSnapshot (\s a -> s { _dsrSnapshot = a })
+-- | FIXME: Undocumented member.
+dsrsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
+dsrsSnapshot = lens _dsrsSnapshot (\ s a -> s{_dsrsSnapshot = a});
 
-instance ToPath DeleteSnapshot where
-    toPath = const "/"
-
-instance ToQuery DeleteSnapshot where
-    toQuery DeleteSnapshot{..} = mconcat
-        [ "SnapshotName" =? _ds1SnapshotName
-        ]
-
-instance ToHeaders DeleteSnapshot
-
-instance AWSRequest DeleteSnapshot where
-    type Sv DeleteSnapshot = ElastiCache
-    type Rs DeleteSnapshot = DeleteSnapshotResponse
-
-    request  = post "DeleteSnapshot"
-    response = xmlResponse
-
-instance FromXML DeleteSnapshotResponse where
-    parseXML = withElement "DeleteSnapshotResult" $ \x -> DeleteSnapshotResponse
-        <$> x .@? "Snapshot"
+-- | FIXME: Undocumented member.
+dsrsStatus :: Lens' DeleteSnapshotResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

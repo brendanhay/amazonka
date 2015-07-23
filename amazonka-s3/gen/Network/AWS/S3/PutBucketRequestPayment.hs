@@ -1,33 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Sets the request payment configuration for a bucket. By default, the bucket
--- owner pays for downloads from the bucket. This configuration parameter
--- enables the bucket owner (only) to specify that the person requesting the
--- download will be charged for the download. Documentation on requester pays
--- buckets can be found at
--- http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
+-- Sets the request payment configuration for a bucket. By default, the
+-- bucket owner pays for downloads from the bucket. This configuration
+-- parameter enables the bucket owner (only) to specify that the person
+-- requesting the download will be charged for the download. Documentation
+-- on requester pays buckets can be found at
+-- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/RequesterPaysBuckets.html
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketRequestPayment.html>
 module Network.AWS.S3.PutBucketRequestPayment
@@ -37,9 +32,9 @@ module Network.AWS.S3.PutBucketRequestPayment
     -- ** Request constructor
     , putBucketRequestPayment
     -- ** Request lenses
-    , pbrpBucket
-    , pbrpContentMD5
-    , pbrpRequestPaymentConfiguration
+    , pbrprqContentMD5
+    , pbrprqBucket
+    , pbrprqRequestPaymentConfiguration
 
     -- * Response
     , PutBucketRequestPaymentResponse
@@ -47,76 +42,78 @@ module Network.AWS.S3.PutBucketRequestPayment
     , putBucketRequestPaymentResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-data PutBucketRequestPayment = PutBucketRequestPayment
-    { _pbrpBucket                      :: Text
-    , _pbrpContentMD5                  :: Maybe Text
-    , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
-    } deriving (Eq, Read, Show)
-
--- | 'PutBucketRequestPayment' constructor.
+-- | /See:/ 'putBucketRequestPayment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbrpBucket' @::@ 'Text'
+-- * 'pbrprqContentMD5'
 --
--- * 'pbrpContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbrprqBucket'
 --
--- * 'pbrpRequestPaymentConfiguration' @::@ 'RequestPaymentConfiguration'
---
-putBucketRequestPayment :: Text -- ^ 'pbrpBucket'
-                        -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
-                        -> PutBucketRequestPayment
-putBucketRequestPayment p1 p2 = PutBucketRequestPayment
-    { _pbrpBucket                      = p1
-    , _pbrpRequestPaymentConfiguration = p2
-    , _pbrpContentMD5                  = Nothing
+-- * 'pbrprqRequestPaymentConfiguration'
+data PutBucketRequestPayment = PutBucketRequestPayment'
+    { _pbrprqContentMD5                  :: !(Maybe Text)
+    , _pbrprqBucket                      :: !BucketName
+    , _pbrprqRequestPaymentConfiguration :: !RequestPaymentConfiguration
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'PutBucketRequestPayment' smart constructor.
+putBucketRequestPayment :: BucketName -> RequestPaymentConfiguration -> PutBucketRequestPayment
+putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
+    PutBucketRequestPayment'
+    { _pbrprqContentMD5 = Nothing
+    , _pbrprqBucket = pBucket_
+    , _pbrprqRequestPaymentConfiguration = pRequestPaymentConfiguration_
     }
 
-pbrpBucket :: Lens' PutBucketRequestPayment Text
-pbrpBucket = lens _pbrpBucket (\s a -> s { _pbrpBucket = a })
+-- | FIXME: Undocumented member.
+pbrprqContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
+pbrprqContentMD5 = lens _pbrprqContentMD5 (\ s a -> s{_pbrprqContentMD5 = a});
 
-pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
-pbrpContentMD5 = lens _pbrpContentMD5 (\s a -> s { _pbrpContentMD5 = a })
+-- | FIXME: Undocumented member.
+pbrprqBucket :: Lens' PutBucketRequestPayment BucketName
+pbrprqBucket = lens _pbrprqBucket (\ s a -> s{_pbrprqBucket = a});
 
-pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
-pbrpRequestPaymentConfiguration =
-    lens _pbrpRequestPaymentConfiguration
-        (\s a -> s { _pbrpRequestPaymentConfiguration = a })
-
-data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'PutBucketRequestPaymentResponse' constructor.
-putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
-putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
-
-instance ToPath PutBucketRequestPayment where
-    toPath PutBucketRequestPayment{..} = mconcat
-        [ "/"
-        , toText _pbrpBucket
-        ]
-
-instance ToQuery PutBucketRequestPayment where
-    toQuery = const "requestPayment"
-
-instance ToHeaders PutBucketRequestPayment where
-    toHeaders PutBucketRequestPayment{..} = mconcat
-        [ "Content-MD5" =: _pbrpContentMD5
-        ]
-
-instance ToXMLRoot PutBucketRequestPayment where
-    toXMLRoot = extractRoot ns . toXML . _pbrpRequestPaymentConfiguration
-
-instance ToXML PutBucketRequestPayment
+-- | FIXME: Undocumented member.
+pbrprqRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
+pbrprqRequestPaymentConfiguration = lens _pbrprqRequestPaymentConfiguration (\ s a -> s{_pbrprqRequestPaymentConfiguration = a});
 
 instance AWSRequest PutBucketRequestPayment where
-    type Sv PutBucketRequestPayment = S3
-    type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
+        type Sv PutBucketRequestPayment = S3
+        type Rs PutBucketRequestPayment =
+             PutBucketRequestPaymentResponse
+        request = putXML
+        response
+          = receiveNull PutBucketRequestPaymentResponse'
 
-    request  = put
-    response = nullResponse PutBucketRequestPaymentResponse
+instance ToElement PutBucketRequestPayment where
+        toElement
+          = mkElement
+              "{http://s3.amazonaws.com/doc/2006-03-01/}RequestPaymentConfiguration"
+              .
+              _pbrprqRequestPaymentConfiguration
+
+instance ToHeaders PutBucketRequestPayment where
+        toHeaders PutBucketRequestPayment'{..}
+          = mconcat ["Content-MD5" =# _pbrprqContentMD5]
+
+instance ToPath PutBucketRequestPayment where
+        toPath PutBucketRequestPayment'{..}
+          = mconcat ["/", toText _pbrprqBucket]
+
+instance ToQuery PutBucketRequestPayment where
+        toQuery = const (mconcat ["requestPayment"])
+
+-- | /See:/ 'putBucketRequestPaymentResponse' smart constructor.
+data PutBucketRequestPaymentResponse =
+    PutBucketRequestPaymentResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'PutBucketRequestPaymentResponse' smart constructor.
+putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
+putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse'

@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFormation.GetStackPolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns the stack policy for a specified stack. If a stack doesn't have a
--- policy, a null value is returned.
+-- Returns the stack policy for a specified stack. If a stack doesn\'t have
+-- a policy, a null value is returned.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html>
 module Network.AWS.CloudFormation.GetStackPolicy
@@ -33,79 +28,96 @@ module Network.AWS.CloudFormation.GetStackPolicy
     -- ** Request constructor
     , getStackPolicy
     -- ** Request lenses
-    , gspStackName
+    , gsprqStackName
 
     -- * Response
     , GetStackPolicyResponse
     -- ** Response constructor
     , getStackPolicyResponse
     -- ** Response lenses
-    , gsprStackPolicyBody
+    , gsprsStackPolicyBody
+    , gsprsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudFormation.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFormation.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype GetStackPolicy = GetStackPolicy
-    { _gspStackName :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'GetStackPolicy' constructor.
+-- | The input for the GetStackPolicy action.
+--
+-- /See:/ 'getStackPolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gspStackName' @::@ 'Text'
---
-getStackPolicy :: Text -- ^ 'gspStackName'
-               -> GetStackPolicy
-getStackPolicy p1 = GetStackPolicy
-    { _gspStackName = p1
+-- * 'gsprqStackName'
+newtype GetStackPolicy = GetStackPolicy'
+    { _gsprqStackName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetStackPolicy' smart constructor.
+getStackPolicy :: Text -> GetStackPolicy
+getStackPolicy pStackName_ =
+    GetStackPolicy'
+    { _gsprqStackName = pStackName_
     }
 
--- | The name or unique stack ID that is associated with the stack whose policy
--- you want to get.
-gspStackName :: Lens' GetStackPolicy Text
-gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
-
-newtype GetStackPolicyResponse = GetStackPolicyResponse
-    { _gsprStackPolicyBody :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'GetStackPolicyResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'gsprStackPolicyBody' @::@ 'Maybe' 'Text'
---
-getStackPolicyResponse :: GetStackPolicyResponse
-getStackPolicyResponse = GetStackPolicyResponse
-    { _gsprStackPolicyBody = Nothing
-    }
-
--- | Structure containing the stack policy body. (For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources> in the AWS CloudFormation User Guide.)
-gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
-gsprStackPolicyBody =
-    lens _gsprStackPolicyBody (\s a -> s { _gsprStackPolicyBody = a })
-
-instance ToPath GetStackPolicy where
-    toPath = const "/"
-
-instance ToQuery GetStackPolicy where
-    toQuery GetStackPolicy{..} = mconcat
-        [ "StackName" =? _gspStackName
-        ]
-
-instance ToHeaders GetStackPolicy
+-- | The name or unique stack ID that is associated with the stack whose
+-- policy you want to get.
+gsprqStackName :: Lens' GetStackPolicy Text
+gsprqStackName = lens _gsprqStackName (\ s a -> s{_gsprqStackName = a});
 
 instance AWSRequest GetStackPolicy where
-    type Sv GetStackPolicy = CloudFormation
-    type Rs GetStackPolicy = GetStackPolicyResponse
+        type Sv GetStackPolicy = CloudFormation
+        type Rs GetStackPolicy = GetStackPolicyResponse
+        request = post
+        response
+          = receiveXMLWrapper "GetStackPolicyResult"
+              (\ s h x ->
+                 GetStackPolicyResponse' <$>
+                   (x .@? "StackPolicyBody") <*> (pure (fromEnum s)))
 
-    request  = post "GetStackPolicy"
-    response = xmlResponse
+instance ToHeaders GetStackPolicy where
+        toHeaders = const mempty
 
-instance FromXML GetStackPolicyResponse where
-    parseXML = withElement "GetStackPolicyResult" $ \x -> GetStackPolicyResponse
-        <$> x .@? "StackPolicyBody"
+instance ToPath GetStackPolicy where
+        toPath = const "/"
+
+instance ToQuery GetStackPolicy where
+        toQuery GetStackPolicy'{..}
+          = mconcat
+              ["Action" =: ("GetStackPolicy" :: ByteString),
+               "Version" =: ("2010-05-15" :: ByteString),
+               "StackName" =: _gsprqStackName]
+
+-- | The output for the GetStackPolicy action.
+--
+-- /See:/ 'getStackPolicyResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gsprsStackPolicyBody'
+--
+-- * 'gsprsStatus'
+data GetStackPolicyResponse = GetStackPolicyResponse'
+    { _gsprsStackPolicyBody :: !(Maybe Text)
+    , _gsprsStatus          :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetStackPolicyResponse' smart constructor.
+getStackPolicyResponse :: Int -> GetStackPolicyResponse
+getStackPolicyResponse pStatus_ =
+    GetStackPolicyResponse'
+    { _gsprsStackPolicyBody = Nothing
+    , _gsprsStatus = pStatus_
+    }
+
+-- | Structure containing the stack policy body. (For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
+-- in the AWS CloudFormation User Guide.)
+gsprsStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
+gsprsStackPolicyBody = lens _gsprsStackPolicyBody (\ s a -> s{_gsprsStackPolicyBody = a});
+
+-- | FIXME: Undocumented member.
+gsprsStatus :: Lens' GetStackPolicyResponse Int
+gsprsStatus = lens _gsprsStatus (\ s a -> s{_gsprsStatus = a});

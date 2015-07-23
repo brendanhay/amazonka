@@ -1,33 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudHSM.ListLunaClients
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Lists all of the clients.
+-- Lists all of the clients.
 --
--- This operation supports pagination with the use of the /NextToken/ member. If
--- more results are available, the /NextToken/ member of the response contains a
--- token that you pass in the next call to 'ListLunaClients' to retrieve the next
--- set of items.
+-- This operation supports pagination with the use of the /NextToken/
+-- member. If more results are available, the /NextToken/ member of the
+-- response contains a token that you pass in the next call to
+-- ListLunaClients to retrieve the next set of items.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListLunaClients.html>
 module Network.AWS.CloudHSM.ListLunaClients
@@ -37,92 +32,108 @@ module Network.AWS.CloudHSM.ListLunaClients
     -- ** Request constructor
     , listLunaClients
     -- ** Request lenses
-    , llcNextToken
+    , llcrqNextToken
 
     -- * Response
     , ListLunaClientsResponse
     -- ** Response constructor
     , listLunaClientsResponse
     -- ** Response lenses
-    , llcrClientList
-    , llcrNextToken
+    , llcrsNextToken
+    , llcrsStatus
+    , llcrsClientList
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.CloudHSM.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudHSM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-newtype ListLunaClients = ListLunaClients
-    { _llcNextToken :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
-
--- | 'ListLunaClients' constructor.
+-- | /See:/ 'listLunaClients' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'llcNextToken' @::@ 'Maybe' 'Text'
---
+-- * 'llcrqNextToken'
+newtype ListLunaClients = ListLunaClients'
+    { _llcrqNextToken :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListLunaClients' smart constructor.
 listLunaClients :: ListLunaClients
-listLunaClients = ListLunaClients
-    { _llcNextToken = Nothing
+listLunaClients =
+    ListLunaClients'
+    { _llcrqNextToken = Nothing
     }
 
--- | The /NextToken/ value from a previous call to 'ListLunaClients'. Pass null if
--- this is the first call.
-llcNextToken :: Lens' ListLunaClients (Maybe Text)
-llcNextToken = lens _llcNextToken (\s a -> s { _llcNextToken = a })
-
-data ListLunaClientsResponse = ListLunaClientsResponse
-    { _llcrClientList :: List "ClientList" Text
-    , _llcrNextToken  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListLunaClientsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'llcrClientList' @::@ ['Text']
---
--- * 'llcrNextToken' @::@ 'Maybe' 'Text'
---
-listLunaClientsResponse :: ListLunaClientsResponse
-listLunaClientsResponse = ListLunaClientsResponse
-    { _llcrClientList = mempty
-    , _llcrNextToken  = Nothing
-    }
-
--- | The list of clients.
-llcrClientList :: Lens' ListLunaClientsResponse [Text]
-llcrClientList = lens _llcrClientList (\s a -> s { _llcrClientList = a }) . _List
-
--- | If not null, more results are available. Pass this to 'ListLunaClients' to
--- retrieve the next set of items.
-llcrNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
-llcrNextToken = lens _llcrNextToken (\s a -> s { _llcrNextToken = a })
-
-instance ToPath ListLunaClients where
-    toPath = const "/"
-
-instance ToQuery ListLunaClients where
-    toQuery = const mempty
-
-instance ToHeaders ListLunaClients
-
-instance ToJSON ListLunaClients where
-    toJSON ListLunaClients{..} = object
-        [ "NextToken" .= _llcNextToken
-        ]
+-- | The /NextToken/ value from a previous call to ListLunaClients. Pass null
+-- if this is the first call.
+llcrqNextToken :: Lens' ListLunaClients (Maybe Text)
+llcrqNextToken = lens _llcrqNextToken (\ s a -> s{_llcrqNextToken = a});
 
 instance AWSRequest ListLunaClients where
-    type Sv ListLunaClients = CloudHSM
-    type Rs ListLunaClients = ListLunaClientsResponse
+        type Sv ListLunaClients = CloudHSM
+        type Rs ListLunaClients = ListLunaClientsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListLunaClientsResponse' <$>
+                   (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
+                     (x .?> "ClientList" .!@ mempty))
 
-    request  = post "ListLunaClients"
-    response = jsonResponse
+instance ToHeaders ListLunaClients where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CloudHsmFrontendService.ListLunaClients" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
 
-instance FromJSON ListLunaClientsResponse where
-    parseJSON = withObject "ListLunaClientsResponse" $ \o -> ListLunaClientsResponse
-        <$> o .:? "ClientList" .!= mempty
-        <*> o .:? "NextToken"
+instance ToJSON ListLunaClients where
+        toJSON ListLunaClients'{..}
+          = object ["NextToken" .= _llcrqNextToken]
+
+instance ToPath ListLunaClients where
+        toPath = const "/"
+
+instance ToQuery ListLunaClients where
+        toQuery = const mempty
+
+-- | /See:/ 'listLunaClientsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'llcrsNextToken'
+--
+-- * 'llcrsStatus'
+--
+-- * 'llcrsClientList'
+data ListLunaClientsResponse = ListLunaClientsResponse'
+    { _llcrsNextToken  :: !(Maybe Text)
+    , _llcrsStatus     :: !Int
+    , _llcrsClientList :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListLunaClientsResponse' smart constructor.
+listLunaClientsResponse :: Int -> ListLunaClientsResponse
+listLunaClientsResponse pStatus_ =
+    ListLunaClientsResponse'
+    { _llcrsNextToken = Nothing
+    , _llcrsStatus = pStatus_
+    , _llcrsClientList = mempty
+    }
+
+-- | If not null, more results are available. Pass this to ListLunaClients to
+-- retrieve the next set of items.
+llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
+llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a});
+
+-- | FIXME: Undocumented member.
+llcrsStatus :: Lens' ListLunaClientsResponse Int
+llcrsStatus = lens _llcrsStatus (\ s a -> s{_llcrsStatus = a});
+
+-- | The list of clients.
+llcrsClientList :: Lens' ListLunaClientsResponse [Text]
+llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a});

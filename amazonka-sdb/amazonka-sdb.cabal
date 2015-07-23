@@ -1,38 +1,37 @@
 name:                  amazonka-sdb
-version:               0.3.6
+version:               1.0.0
 synopsis:              Amazon SimpleDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon SimpleDB is a highly available and flexible non-relational data store
-    that offloads the work of database administration. Developers simply store
-    and query data items via web services requests and Amazon SimpleDB does the
-    rest. Unbound by the strict requirements of a relational database, Amazon
-    SimpleDB is optimized to provide high availability and flexibility, with
-    little or no administrative burden. Behind the scenes, Amazon SimpleDB
-    creates and manages multiple geographically distributed replicas of your data
-    automatically to enable high availability and data durability. The service
-    charges you only for the resources actually consumed in storing your data and
-    serving your requests. You can change your data model on the fly, and data is
-    automatically indexed for you. With Amazon SimpleDB, you can focus on
-    application development without worrying about infrastructure provisioning,
-    high availability, software maintenance, schema and index management, or
-    performance tuning.
+    Amazon SimpleDB is a web service providing the core database functions
+    of data indexing and querying in the cloud. By offloading the time and
+    effort associated with building and operating a web-scale database,
+    SimpleDB provides developers the freedom to focus on application
+    development.
 
+    A traditional, clustered relational database requires a sizable upfront
+    capital outlay, is complex to design, and often requires extensive and
+    repetitive database administration. Amazon SimpleDB is dramatically
+    simpler, requiring no schema, automatically indexing your data and
+    providing a simple API for storage and access. This approach eliminates
+    the administrative burden of data modeling, index maintenance, and
+    performance tuning. Developers gain access to this functionality within
+    Amazon\'s proven computing environment, are able to scale instantly, and
+    pay only for what they use.
+
+    Visit <http://aws.amazon.com/simpledb/> for more information.
     .
     /See:/ <http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -57,9 +56,40 @@ library
         , Network.AWS.SDB.PutAttributes
         , Network.AWS.SDB.Select
         , Network.AWS.SDB.Types
+        , Network.AWS.SDB.Waiters
 
     other-modules:
+          Network.AWS.SDB.Types.Product
+        , Network.AWS.SDB.Types.Sum
 
     build-depends:
-          amazonka-core == 0.3.6.*
+          amazonka-core == 1.0.0.*
         , base          >= 4.7     && < 5
+
+test-suite amazonka-sdb-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.SDB
+        , Test.AWS.Gen.SDB
+        , Test.AWS.SDB.Internal
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-sdb == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

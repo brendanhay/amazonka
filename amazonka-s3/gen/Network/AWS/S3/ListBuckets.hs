@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.S3.ListBuckets
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Returns a list of all buckets owned by the authenticated sender of the
+-- Returns a list of all buckets owned by the authenticated sender of the
 -- request.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListBuckets.html>
@@ -38,68 +33,79 @@ module Network.AWS.S3.ListBuckets
     -- ** Response constructor
     , listBucketsResponse
     -- ** Response lenses
-    , lbrBuckets
-    , lbrOwner
+    , lbrsBuckets
+    , lbrsOwner
+    , lbrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.S3
-import Network.AWS.S3.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.S3.Types
 
-data ListBuckets = ListBuckets
-    deriving (Eq, Ord, Read, Show, Generic)
+-- | /See:/ 'listBuckets' smart constructor.
+data ListBuckets =
+    ListBuckets'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'ListBuckets' constructor.
+-- | 'ListBuckets' smart constructor.
 listBuckets :: ListBuckets
-listBuckets = ListBuckets
+listBuckets = ListBuckets'
 
-data ListBucketsResponse = ListBucketsResponse
-    { _lbrBuckets :: List "Bucket" Bucket
-    , _lbrOwner   :: Maybe Owner
-    } deriving (Eq, Read, Show)
+instance AWSRequest ListBuckets where
+        type Sv ListBuckets = S3
+        type Rs ListBuckets = ListBucketsResponse
+        request = get
+        response
+          = receiveXML
+              (\ s h x ->
+                 ListBucketsResponse' <$>
+                   (x .@? "Buckets" .!@ mempty >>=
+                      may (parseXMLList "Bucket"))
+                     <*> (x .@? "Owner")
+                     <*> (pure (fromEnum s)))
 
--- | 'ListBucketsResponse' constructor.
+instance ToHeaders ListBuckets where
+        toHeaders = const mempty
+
+instance ToPath ListBuckets where
+        toPath = const "/"
+
+instance ToQuery ListBuckets where
+        toQuery = const mempty
+
+-- | /See:/ 'listBucketsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lbrBuckets' @::@ ['Bucket']
+-- * 'lbrsBuckets'
 --
--- * 'lbrOwner' @::@ 'Maybe' 'Owner'
+-- * 'lbrsOwner'
 --
-listBucketsResponse :: ListBucketsResponse
-listBucketsResponse = ListBucketsResponse
-    { _lbrBuckets = mempty
-    , _lbrOwner   = Nothing
+-- * 'lbrsStatus'
+data ListBucketsResponse = ListBucketsResponse'
+    { _lbrsBuckets :: !(Maybe [Bucket])
+    , _lbrsOwner   :: !(Maybe Owner)
+    , _lbrsStatus  :: !Int
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'ListBucketsResponse' smart constructor.
+listBucketsResponse :: Int -> ListBucketsResponse
+listBucketsResponse pStatus_ =
+    ListBucketsResponse'
+    { _lbrsBuckets = Nothing
+    , _lbrsOwner = Nothing
+    , _lbrsStatus = pStatus_
     }
 
-lbrBuckets :: Lens' ListBucketsResponse [Bucket]
-lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a }) . _List
+-- | FIXME: Undocumented member.
+lbrsBuckets :: Lens' ListBucketsResponse [Bucket]
+lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default;
 
-lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
-lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })
+-- | FIXME: Undocumented member.
+lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)
+lbrsOwner = lens _lbrsOwner (\ s a -> s{_lbrsOwner = a});
 
-instance ToPath ListBuckets where
-    toPath = const "/"
-
-instance ToQuery ListBuckets where
-    toQuery = const mempty
-
-instance ToHeaders ListBuckets
-
-instance ToXMLRoot ListBuckets where
-    toXMLRoot = const (namespaced ns "ListBuckets" [])
-
-instance ToXML ListBuckets
-
-instance AWSRequest ListBuckets where
-    type Sv ListBuckets = S3
-    type Rs ListBuckets = ListBucketsResponse
-
-    request  = get
-    response = xmlResponse
-
-instance FromXML ListBucketsResponse where
-    parseXML x = ListBucketsResponse
-        <$> x .@? "Buckets" .!@ mempty
-        <*> x .@? "Owner"
+-- | FIXME: Undocumented member.
+lbrsStatus :: Lens' ListBucketsResponse Int
+lbrsStatus = lens _lbrsStatus (\ s a -> s{_lbrsStatus = a});

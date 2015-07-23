@@ -1,29 +1,24 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Resets a network interface attribute. You can specify only one attribute at a
--- time.
+-- Resets a network interface attribute. You can specify only one attribute
+-- at a time.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ResetNetworkInterfaceAttribute.html>
 module Network.AWS.EC2.ResetNetworkInterfaceAttribute
@@ -33,9 +28,9 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     -- ** Request constructor
     , resetNetworkInterfaceAttribute
     -- ** Request lenses
-    , rniaDryRun
-    , rniaNetworkInterfaceId
-    , rniaSourceDestCheck
+    , rniarqSourceDestCheck
+    , rniarqDryRun
+    , rniarqNetworkInterfaceId
 
     -- * Response
     , ResetNetworkInterfaceAttributeResponse
@@ -43,73 +38,82 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     , resetNetworkInterfaceAttributeResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
-    { _rniaDryRun             :: Maybe Bool
-    , _rniaNetworkInterfaceId :: Text
-    , _rniaSourceDestCheck    :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ResetNetworkInterfaceAttribute' constructor.
+-- | /See:/ 'resetNetworkInterfaceAttribute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rniaDryRun' @::@ 'Maybe' 'Bool'
+-- * 'rniarqSourceDestCheck'
 --
--- * 'rniaNetworkInterfaceId' @::@ 'Text'
+-- * 'rniarqDryRun'
 --
--- * 'rniaSourceDestCheck' @::@ 'Maybe' 'Text'
---
-resetNetworkInterfaceAttribute :: Text -- ^ 'rniaNetworkInterfaceId'
-                               -> ResetNetworkInterfaceAttribute
-resetNetworkInterfaceAttribute p1 = ResetNetworkInterfaceAttribute
-    { _rniaNetworkInterfaceId = p1
-    , _rniaDryRun             = Nothing
-    , _rniaSourceDestCheck    = Nothing
+-- * 'rniarqNetworkInterfaceId'
+data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
+    { _rniarqSourceDestCheck    :: !(Maybe Text)
+    , _rniarqDryRun             :: !(Maybe Bool)
+    , _rniarqNetworkInterfaceId :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ResetNetworkInterfaceAttribute' smart constructor.
+resetNetworkInterfaceAttribute :: Text -> ResetNetworkInterfaceAttribute
+resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
+    ResetNetworkInterfaceAttribute'
+    { _rniarqSourceDestCheck = Nothing
+    , _rniarqDryRun = Nothing
+    , _rniarqNetworkInterfaceId = pNetworkInterfaceId_
     }
 
+-- | The source\/destination checking attribute. Resets the value to @true@.
+rniarqSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
+rniarqSourceDestCheck = lens _rniarqSourceDestCheck (\ s a -> s{_rniarqSourceDestCheck = a});
+
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-rniaDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
-rniaDryRun = lens _rniaDryRun (\s a -> s { _rniaDryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+rniarqDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
+rniarqDryRun = lens _rniarqDryRun (\ s a -> s{_rniarqDryRun = a});
 
 -- | The ID of the network interface.
-rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
-rniaNetworkInterfaceId =
-    lens _rniaNetworkInterfaceId (\s a -> s { _rniaNetworkInterfaceId = a })
+rniarqNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
+rniarqNetworkInterfaceId = lens _rniarqNetworkInterfaceId (\ s a -> s{_rniarqNetworkInterfaceId = a});
 
--- | The source/destination checking attribute. Resets the value to 'true'.
-rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
-rniaSourceDestCheck =
-    lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })
-
-data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'ResetNetworkInterfaceAttributeResponse' constructor.
-resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
-resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
-
-instance ToPath ResetNetworkInterfaceAttribute where
-    toPath = const "/"
-
-instance ToQuery ResetNetworkInterfaceAttribute where
-    toQuery ResetNetworkInterfaceAttribute{..} = mconcat
-        [ "DryRun"             =? _rniaDryRun
-        , "NetworkInterfaceId" =? _rniaNetworkInterfaceId
-        , "SourceDestCheck"    =? _rniaSourceDestCheck
-        ]
+instance AWSRequest ResetNetworkInterfaceAttribute
+         where
+        type Sv ResetNetworkInterfaceAttribute = EC2
+        type Rs ResetNetworkInterfaceAttribute =
+             ResetNetworkInterfaceAttributeResponse
+        request = post
+        response
+          = receiveNull ResetNetworkInterfaceAttributeResponse'
 
 instance ToHeaders ResetNetworkInterfaceAttribute
+         where
+        toHeaders = const mempty
 
-instance AWSRequest ResetNetworkInterfaceAttribute where
-    type Sv ResetNetworkInterfaceAttribute = EC2
-    type Rs ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeResponse
+instance ToPath ResetNetworkInterfaceAttribute where
+        toPath = const "/"
 
-    request  = post "ResetNetworkInterfaceAttribute"
-    response = nullResponse ResetNetworkInterfaceAttributeResponse
+instance ToQuery ResetNetworkInterfaceAttribute where
+        toQuery ResetNetworkInterfaceAttribute'{..}
+          = mconcat
+              ["Action" =:
+                 ("ResetNetworkInterfaceAttribute" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "SourceDestCheck" =: _rniarqSourceDestCheck,
+               "DryRun" =: _rniarqDryRun,
+               "NetworkInterfaceId" =: _rniarqNetworkInterfaceId]
+
+-- | /See:/ 'resetNetworkInterfaceAttributeResponse' smart constructor.
+data ResetNetworkInterfaceAttributeResponse =
+    ResetNetworkInterfaceAttributeResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ResetNetworkInterfaceAttributeResponse' smart constructor.
+resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
+resetNetworkInterfaceAttributeResponse =
+    ResetNetworkInterfaceAttributeResponse'

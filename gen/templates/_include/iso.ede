@@ -1,1 +1,0 @@
-{% if field.iso %}withIso {{ field.iso }} (const id) {% endif %}

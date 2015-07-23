@@ -1,31 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.ImportVolume
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates an import volume task using metadata from the specified disk image.
--- After importing the image, you then upload it using the 'ec2-import-volume'
--- command in the Amazon EC2 command-line interface (CLI) tools. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machineto Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Creates an import volume task using metadata from the specified disk
+-- image. After importing the image, you then upload it using the
+-- @ec2-import-volume@ command in the Amazon EC2 command-line interface
+-- (CLI) tools. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machine to Amazon EC2>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html>
 module Network.AWS.EC2.ImportVolume
@@ -35,123 +32,131 @@ module Network.AWS.EC2.ImportVolume
     -- ** Request constructor
     , importVolume
     -- ** Request lenses
-    , ivAvailabilityZone
-    , ivDescription
-    , ivDryRun
-    , ivImage
-    , ivVolume
+    , ivrqDryRun
+    , ivrqDescription
+    , ivrqAvailabilityZone
+    , ivrqImage
+    , ivrqVolume
 
     -- * Response
     , ImportVolumeResponse
     -- ** Response constructor
     , importVolumeResponse
     -- ** Response lenses
-    , ivrConversionTask
+    , ivrsConversionTask
+    , ivrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ImportVolume = ImportVolume
-    { _ivAvailabilityZone :: Text
-    , _ivDescription      :: Maybe Text
-    , _ivDryRun           :: Maybe Bool
-    , _ivImage            :: DiskImageDetail
-    , _ivVolume           :: VolumeDetail
-    } deriving (Eq, Read, Show)
-
--- | 'ImportVolume' constructor.
+-- | /See:/ 'importVolume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ivAvailabilityZone' @::@ 'Text'
+-- * 'ivrqDryRun'
 --
--- * 'ivDescription' @::@ 'Maybe' 'Text'
+-- * 'ivrqDescription'
 --
--- * 'ivDryRun' @::@ 'Maybe' 'Bool'
+-- * 'ivrqAvailabilityZone'
 --
--- * 'ivImage' @::@ 'DiskImageDetail'
+-- * 'ivrqImage'
 --
--- * 'ivVolume' @::@ 'VolumeDetail'
---
-importVolume :: Text -- ^ 'ivAvailabilityZone'
-             -> DiskImageDetail -- ^ 'ivImage'
-             -> VolumeDetail -- ^ 'ivVolume'
-             -> ImportVolume
-importVolume p1 p2 p3 = ImportVolume
-    { _ivAvailabilityZone = p1
-    , _ivImage            = p2
-    , _ivVolume           = p3
-    , _ivDryRun           = Nothing
-    , _ivDescription      = Nothing
+-- * 'ivrqVolume'
+data ImportVolume = ImportVolume'
+    { _ivrqDryRun           :: !(Maybe Bool)
+    , _ivrqDescription      :: !(Maybe Text)
+    , _ivrqAvailabilityZone :: !Text
+    , _ivrqImage            :: !DiskImageDetail
+    , _ivrqVolume           :: !VolumeDetail
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ImportVolume' smart constructor.
+importVolume :: Text -> DiskImageDetail -> VolumeDetail -> ImportVolume
+importVolume pAvailabilityZone_ pImage_ pVolume_ =
+    ImportVolume'
+    { _ivrqDryRun = Nothing
+    , _ivrqDescription = Nothing
+    , _ivrqAvailabilityZone = pAvailabilityZone_
+    , _ivrqImage = pImage_
+    , _ivrqVolume = pVolume_
     }
 
--- | The Availability Zone for the resulting EBS volume.
-ivAvailabilityZone :: Lens' ImportVolume Text
-ivAvailabilityZone =
-    lens _ivAvailabilityZone (\s a -> s { _ivAvailabilityZone = a })
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+ivrqDryRun :: Lens' ImportVolume (Maybe Bool)
+ivrqDryRun = lens _ivrqDryRun (\ s a -> s{_ivrqDryRun = a});
 
 -- | A description of the volume.
-ivDescription :: Lens' ImportVolume (Maybe Text)
-ivDescription = lens _ivDescription (\s a -> s { _ivDescription = a })
+ivrqDescription :: Lens' ImportVolume (Maybe Text)
+ivrqDescription = lens _ivrqDescription (\ s a -> s{_ivrqDescription = a});
 
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-ivDryRun :: Lens' ImportVolume (Maybe Bool)
-ivDryRun = lens _ivDryRun (\s a -> s { _ivDryRun = a })
+-- | The Availability Zone for the resulting EBS volume.
+ivrqAvailabilityZone :: Lens' ImportVolume Text
+ivrqAvailabilityZone = lens _ivrqAvailabilityZone (\ s a -> s{_ivrqAvailabilityZone = a});
 
 -- | The disk image.
-ivImage :: Lens' ImportVolume DiskImageDetail
-ivImage = lens _ivImage (\s a -> s { _ivImage = a })
+ivrqImage :: Lens' ImportVolume DiskImageDetail
+ivrqImage = lens _ivrqImage (\ s a -> s{_ivrqImage = a});
 
 -- | The volume size.
-ivVolume :: Lens' ImportVolume VolumeDetail
-ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
+ivrqVolume :: Lens' ImportVolume VolumeDetail
+ivrqVolume = lens _ivrqVolume (\ s a -> s{_ivrqVolume = a});
 
-newtype ImportVolumeResponse = ImportVolumeResponse
-    { _ivrConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Read, Show)
+instance AWSRequest ImportVolume where
+        type Sv ImportVolume = EC2
+        type Rs ImportVolume = ImportVolumeResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 ImportVolumeResponse' <$>
+                   (x .@? "conversionTask") <*> (pure (fromEnum s)))
 
--- | 'ImportVolumeResponse' constructor.
+instance ToHeaders ImportVolume where
+        toHeaders = const mempty
+
+instance ToPath ImportVolume where
+        toPath = const "/"
+
+instance ToQuery ImportVolume where
+        toQuery ImportVolume'{..}
+          = mconcat
+              ["Action" =: ("ImportVolume" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _ivrqDryRun,
+               "Description" =: _ivrqDescription,
+               "AvailabilityZone" =: _ivrqAvailabilityZone,
+               "Image" =: _ivrqImage, "Volume" =: _ivrqVolume]
+
+-- | /See:/ 'importVolumeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ivrConversionTask' @::@ 'Maybe' 'ConversionTask'
+-- * 'ivrsConversionTask'
 --
-importVolumeResponse :: ImportVolumeResponse
-importVolumeResponse = ImportVolumeResponse
-    { _ivrConversionTask = Nothing
+-- * 'ivrsStatus'
+data ImportVolumeResponse = ImportVolumeResponse'
+    { _ivrsConversionTask :: !(Maybe ConversionTask)
+    , _ivrsStatus         :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ImportVolumeResponse' smart constructor.
+importVolumeResponse :: Int -> ImportVolumeResponse
+importVolumeResponse pStatus_ =
+    ImportVolumeResponse'
+    { _ivrsConversionTask = Nothing
+    , _ivrsStatus = pStatus_
     }
 
 -- | Information about the conversion task.
-ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
-ivrConversionTask =
-    lens _ivrConversionTask (\s a -> s { _ivrConversionTask = a })
+ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
+ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a});
 
-instance ToPath ImportVolume where
-    toPath = const "/"
-
-instance ToQuery ImportVolume where
-    toQuery ImportVolume{..} = mconcat
-        [ "AvailabilityZone" =? _ivAvailabilityZone
-        , "Description"      =? _ivDescription
-        , "DryRun"           =? _ivDryRun
-        , "Image"            =? _ivImage
-        , "Volume"           =? _ivVolume
-        ]
-
-instance ToHeaders ImportVolume
-
-instance AWSRequest ImportVolume where
-    type Sv ImportVolume = EC2
-    type Rs ImportVolume = ImportVolumeResponse
-
-    request  = post "ImportVolume"
-    response = xmlResponse
-
-instance FromXML ImportVolumeResponse where
-    parseXML x = ImportVolumeResponse
-        <$> x .@? "conversionTask"
+-- | FIXME: Undocumented member.
+ivrsStatus :: Lens' ImportVolumeResponse Int
+ivrsStatus = lens _ivrsStatus (\ s a -> s{_ivrsStatus = a});

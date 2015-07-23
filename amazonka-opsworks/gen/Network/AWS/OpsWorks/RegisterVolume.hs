@@ -1,35 +1,33 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.RegisterVolume
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Registers an Amazon EBS volume with a specified stack. A volume can be
+-- Registers an Amazon EBS volume with a specified stack. A volume can be
 -- registered with only one stack at a time. If the volume is already
--- registered, you must first deregister it by calling 'DeregisterVolume'. For
--- more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- registered, you must first deregister it by calling DeregisterVolume.
+-- For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_RegisterVolume.html>
 module Network.AWS.OpsWorks.RegisterVolume
@@ -39,91 +37,108 @@ module Network.AWS.OpsWorks.RegisterVolume
     -- ** Request constructor
     , registerVolume
     -- ** Request lenses
-    , rvEc2VolumeId
-    , rvStackId
+    , rvrqEC2VolumeId
+    , rvrqStackId
 
     -- * Response
     , RegisterVolumeResponse
     -- ** Response constructor
     , registerVolumeResponse
     -- ** Response lenses
-    , rvrVolumeId
+    , rvrsVolumeId
+    , rvrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data RegisterVolume = RegisterVolume
-    { _rvEc2VolumeId :: Maybe Text
-    , _rvStackId     :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'RegisterVolume' constructor.
+-- | /See:/ 'registerVolume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rvEc2VolumeId' @::@ 'Maybe' 'Text'
+-- * 'rvrqEC2VolumeId'
 --
--- * 'rvStackId' @::@ 'Text'
---
-registerVolume :: Text -- ^ 'rvStackId'
-               -> RegisterVolume
-registerVolume p1 = RegisterVolume
-    { _rvStackId     = p1
-    , _rvEc2VolumeId = Nothing
+-- * 'rvrqStackId'
+data RegisterVolume = RegisterVolume'
+    { _rvrqEC2VolumeId :: !(Maybe Text)
+    , _rvrqStackId     :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RegisterVolume' smart constructor.
+registerVolume :: Text -> RegisterVolume
+registerVolume pStackId_ =
+    RegisterVolume'
+    { _rvrqEC2VolumeId = Nothing
+    , _rvrqStackId = pStackId_
     }
 
 -- | The Amazon EBS volume ID.
-rvEc2VolumeId :: Lens' RegisterVolume (Maybe Text)
-rvEc2VolumeId = lens _rvEc2VolumeId (\s a -> s { _rvEc2VolumeId = a })
+rvrqEC2VolumeId :: Lens' RegisterVolume (Maybe Text)
+rvrqEC2VolumeId = lens _rvrqEC2VolumeId (\ s a -> s{_rvrqEC2VolumeId = a});
 
 -- | The stack ID.
-rvStackId :: Lens' RegisterVolume Text
-rvStackId = lens _rvStackId (\s a -> s { _rvStackId = a })
+rvrqStackId :: Lens' RegisterVolume Text
+rvrqStackId = lens _rvrqStackId (\ s a -> s{_rvrqStackId = a});
 
-newtype RegisterVolumeResponse = RegisterVolumeResponse
-    { _rvrVolumeId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance AWSRequest RegisterVolume where
+        type Sv RegisterVolume = OpsWorks
+        type Rs RegisterVolume = RegisterVolumeResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 RegisterVolumeResponse' <$>
+                   (x .?> "VolumeId") <*> (pure (fromEnum s)))
 
--- | 'RegisterVolumeResponse' constructor.
+instance ToHeaders RegisterVolume where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.RegisterVolume" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON RegisterVolume where
+        toJSON RegisterVolume'{..}
+          = object
+              ["Ec2VolumeId" .= _rvrqEC2VolumeId,
+               "StackId" .= _rvrqStackId]
+
+instance ToPath RegisterVolume where
+        toPath = const "/"
+
+instance ToQuery RegisterVolume where
+        toQuery = const mempty
+
+-- | Contains the response to a @RegisterVolume@ request.
+--
+-- /See:/ 'registerVolumeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rvrVolumeId' @::@ 'Maybe' 'Text'
+-- * 'rvrsVolumeId'
 --
-registerVolumeResponse :: RegisterVolumeResponse
-registerVolumeResponse = RegisterVolumeResponse
-    { _rvrVolumeId = Nothing
+-- * 'rvrsStatus'
+data RegisterVolumeResponse = RegisterVolumeResponse'
+    { _rvrsVolumeId :: !(Maybe Text)
+    , _rvrsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'RegisterVolumeResponse' smart constructor.
+registerVolumeResponse :: Int -> RegisterVolumeResponse
+registerVolumeResponse pStatus_ =
+    RegisterVolumeResponse'
+    { _rvrsVolumeId = Nothing
+    , _rvrsStatus = pStatus_
     }
 
 -- | The volume ID.
-rvrVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
-rvrVolumeId = lens _rvrVolumeId (\s a -> s { _rvrVolumeId = a })
+rvrsVolumeId :: Lens' RegisterVolumeResponse (Maybe Text)
+rvrsVolumeId = lens _rvrsVolumeId (\ s a -> s{_rvrsVolumeId = a});
 
-instance ToPath RegisterVolume where
-    toPath = const "/"
-
-instance ToQuery RegisterVolume where
-    toQuery = const mempty
-
-instance ToHeaders RegisterVolume
-
-instance ToJSON RegisterVolume where
-    toJSON RegisterVolume{..} = object
-        [ "Ec2VolumeId" .= _rvEc2VolumeId
-        , "StackId"     .= _rvStackId
-        ]
-
-instance AWSRequest RegisterVolume where
-    type Sv RegisterVolume = OpsWorks
-    type Rs RegisterVolume = RegisterVolumeResponse
-
-    request  = post "RegisterVolume"
-    response = jsonResponse
-
-instance FromJSON RegisterVolumeResponse where
-    parseJSON = withObject "RegisterVolumeResponse" $ \o -> RegisterVolumeResponse
-        <$> o .:? "VolumeId"
+-- | FIXME: Undocumented member.
+rvrsStatus :: Lens' RegisterVolumeResponse Int
+rvrsStatus = lens _rvrsStatus (\ s a -> s{_rvrsStatus = a});

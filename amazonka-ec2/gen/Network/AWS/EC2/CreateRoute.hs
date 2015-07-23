@@ -1,46 +1,44 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.CreateRoute
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a route in a route table within a VPC.
+-- Creates a route in a route table within a VPC.
 --
--- You must specify one of the following targets: Internet gateway or virtual
--- private gateway, NAT instance, VPC peering connection, or network interface.
+-- You must specify one of the following targets: Internet gateway or
+-- virtual private gateway, NAT instance, VPC peering connection, or
+-- network interface.
 --
 -- When determining how to route traffic, we use the route with the most
--- specific match. For example, let's say the traffic is destined for '192.0.2.3',
--- and the route table includes the following two routes:
+-- specific match. For example, let\'s say the traffic is destined for
+-- @192.0.2.3@, and the route table includes the following two routes:
 --
--- '192.0.2.0/24' (goes to some target A)
+-- -   @192.0.2.0\/24@ (goes to some target A)
 --
--- '192.0.2.0/28' (goes to some target B)
+-- -   @192.0.2.0\/28@ (goes to some target B)
 --
--- Both routes apply to the traffic destined for '192.0.2.3'. However, the
+-- Both routes apply to the traffic destined for @192.0.2.3@. However, the
 -- second route in the list covers a smaller number of IP addresses and is
--- therefore more specific, so we use that route to determine where to target
--- the traffic.
+-- therefore more specific, so we use that route to determine where to
+-- target the traffic.
 --
--- For more information about route tables, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables> in the /AmazonVirtual Private Cloud User Guide/.
+-- For more information about route tables, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html Route Tables>
+-- in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateRoute.html>
 module Network.AWS.EC2.CreateRoute
@@ -50,168 +48,179 @@ module Network.AWS.EC2.CreateRoute
     -- ** Request constructor
     , createRoute
     -- ** Request lenses
-    , crClientToken
-    , crDestinationCidrBlock
-    , crDryRun
-    , crGatewayId
-    , crInstanceId
-    , crNetworkInterfaceId
-    , crRouteTableId
-    , crVpcPeeringConnectionId
+    , crrqInstanceId
+    , crrqVPCPeeringConnectionId
+    , crrqClientToken
+    , crrqNetworkInterfaceId
+    , crrqGatewayId
+    , crrqDryRun
+    , crrqRouteTableId
+    , crrqDestinationCIdRBlock
 
     -- * Response
     , CreateRouteResponse
     -- ** Response constructor
     , createRouteResponse
     -- ** Response lenses
-    , crrClientToken
-    , crrReturn
+    , crrsReturn
+    , crrsClientToken
+    , crrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateRoute = CreateRoute
-    { _crClientToken            :: Maybe Text
-    , _crDestinationCidrBlock   :: Text
-    , _crDryRun                 :: Maybe Bool
-    , _crGatewayId              :: Maybe Text
-    , _crInstanceId             :: Maybe Text
-    , _crNetworkInterfaceId     :: Maybe Text
-    , _crRouteTableId           :: Text
-    , _crVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'CreateRoute' constructor.
+-- | /See:/ 'createRoute' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crClientToken' @::@ 'Maybe' 'Text'
+-- * 'crrqInstanceId'
 --
--- * 'crDestinationCidrBlock' @::@ 'Text'
+-- * 'crrqVPCPeeringConnectionId'
 --
--- * 'crDryRun' @::@ 'Maybe' 'Bool'
+-- * 'crrqClientToken'
 --
--- * 'crGatewayId' @::@ 'Maybe' 'Text'
+-- * 'crrqNetworkInterfaceId'
 --
--- * 'crInstanceId' @::@ 'Maybe' 'Text'
+-- * 'crrqGatewayId'
 --
--- * 'crNetworkInterfaceId' @::@ 'Maybe' 'Text'
+-- * 'crrqDryRun'
 --
--- * 'crRouteTableId' @::@ 'Text'
+-- * 'crrqRouteTableId'
 --
--- * 'crVpcPeeringConnectionId' @::@ 'Maybe' 'Text'
---
-createRoute :: Text -- ^ 'crRouteTableId'
-            -> Text -- ^ 'crDestinationCidrBlock'
-            -> CreateRoute
-createRoute p1 p2 = CreateRoute
-    { _crRouteTableId           = p1
-    , _crDestinationCidrBlock   = p2
-    , _crDryRun                 = Nothing
-    , _crGatewayId              = Nothing
-    , _crInstanceId             = Nothing
-    , _crNetworkInterfaceId     = Nothing
-    , _crVpcPeeringConnectionId = Nothing
-    , _crClientToken            = Nothing
+-- * 'crrqDestinationCIdRBlock'
+data CreateRoute = CreateRoute'
+    { _crrqInstanceId             :: !(Maybe Text)
+    , _crrqVPCPeeringConnectionId :: !(Maybe Text)
+    , _crrqClientToken            :: !(Maybe Text)
+    , _crrqNetworkInterfaceId     :: !(Maybe Text)
+    , _crrqGatewayId              :: !(Maybe Text)
+    , _crrqDryRun                 :: !(Maybe Bool)
+    , _crrqRouteTableId           :: !Text
+    , _crrqDestinationCIdRBlock   :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateRoute' smart constructor.
+createRoute :: Text -> Text -> CreateRoute
+createRoute pRouteTableId_ pDestinationCIdRBlock_ =
+    CreateRoute'
+    { _crrqInstanceId = Nothing
+    , _crrqVPCPeeringConnectionId = Nothing
+    , _crrqClientToken = Nothing
+    , _crrqNetworkInterfaceId = Nothing
+    , _crrqGatewayId = Nothing
+    , _crrqDryRun = Nothing
+    , _crrqRouteTableId = pRouteTableId_
+    , _crrqDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of
--- the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-crClientToken :: Lens' CreateRoute (Maybe Text)
-crClientToken = lens _crClientToken (\s a -> s { _crClientToken = a })
-
--- | The CIDR address block used for the destination match. Routing decisions are
--- based on the most specific match.
-crDestinationCidrBlock :: Lens' CreateRoute Text
-crDestinationCidrBlock =
-    lens _crDestinationCidrBlock (\s a -> s { _crDestinationCidrBlock = a })
-
--- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-crDryRun :: Lens' CreateRoute (Maybe Bool)
-crDryRun = lens _crDryRun (\s a -> s { _crDryRun = a })
-
--- | The ID of an Internet gateway or virtual private gateway attached to your VPC.
-crGatewayId :: Lens' CreateRoute (Maybe Text)
-crGatewayId = lens _crGatewayId (\s a -> s { _crGatewayId = a })
-
--- | The ID of a NAT instance in your VPC. The operation fails if you specify an
--- instance ID unless exactly one network interface is attached.
-crInstanceId :: Lens' CreateRoute (Maybe Text)
-crInstanceId = lens _crInstanceId (\s a -> s { _crInstanceId = a })
-
--- | The ID of a network interface.
-crNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
-crNetworkInterfaceId =
-    lens _crNetworkInterfaceId (\s a -> s { _crNetworkInterfaceId = a })
-
--- | The ID of the route table for the route.
-crRouteTableId :: Lens' CreateRoute Text
-crRouteTableId = lens _crRouteTableId (\s a -> s { _crRouteTableId = a })
+-- | The ID of a NAT instance in your VPC. The operation fails if you specify
+-- an instance ID unless exactly one network interface is attached.
+crrqInstanceId :: Lens' CreateRoute (Maybe Text)
+crrqInstanceId = lens _crrqInstanceId (\ s a -> s{_crrqInstanceId = a});
 
 -- | The ID of a VPC peering connection.
-crVpcPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
-crVpcPeeringConnectionId =
-    lens _crVpcPeeringConnectionId
-        (\s a -> s { _crVpcPeeringConnectionId = a })
+crrqVPCPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
+crrqVPCPeeringConnectionId = lens _crrqVPCPeeringConnectionId (\ s a -> s{_crrqVPCPeeringConnectionId = a});
 
-data CreateRouteResponse = CreateRouteResponse
-    { _crrClientToken :: Maybe Text
-    , _crrReturn      :: Maybe Bool
-    } deriving (Eq, Ord, Read, Show)
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency
+-- of the request. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+crrqClientToken :: Lens' CreateRoute (Maybe Text)
+crrqClientToken = lens _crrqClientToken (\ s a -> s{_crrqClientToken = a});
 
--- | 'CreateRouteResponse' constructor.
+-- | The ID of a network interface.
+crrqNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
+crrqNetworkInterfaceId = lens _crrqNetworkInterfaceId (\ s a -> s{_crrqNetworkInterfaceId = a});
+
+-- | The ID of an Internet gateway or virtual private gateway attached to
+-- your VPC.
+crrqGatewayId :: Lens' CreateRoute (Maybe Text)
+crrqGatewayId = lens _crrqGatewayId (\ s a -> s{_crrqGatewayId = a});
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+crrqDryRun :: Lens' CreateRoute (Maybe Bool)
+crrqDryRun = lens _crrqDryRun (\ s a -> s{_crrqDryRun = a});
+
+-- | The ID of the route table for the route.
+crrqRouteTableId :: Lens' CreateRoute Text
+crrqRouteTableId = lens _crrqRouteTableId (\ s a -> s{_crrqRouteTableId = a});
+
+-- | The CIDR address block used for the destination match. Routing decisions
+-- are based on the most specific match.
+crrqDestinationCIdRBlock :: Lens' CreateRoute Text
+crrqDestinationCIdRBlock = lens _crrqDestinationCIdRBlock (\ s a -> s{_crrqDestinationCIdRBlock = a});
+
+instance AWSRequest CreateRoute where
+        type Sv CreateRoute = EC2
+        type Rs CreateRoute = CreateRouteResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 CreateRouteResponse' <$>
+                   (x .@? "return") <*> (x .@? "clientToken") <*>
+                     (pure (fromEnum s)))
+
+instance ToHeaders CreateRoute where
+        toHeaders = const mempty
+
+instance ToPath CreateRoute where
+        toPath = const "/"
+
+instance ToQuery CreateRoute where
+        toQuery CreateRoute'{..}
+          = mconcat
+              ["Action" =: ("CreateRoute" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "InstanceId" =: _crrqInstanceId,
+               "VpcPeeringConnectionId" =:
+                 _crrqVPCPeeringConnectionId,
+               "ClientToken" =: _crrqClientToken,
+               "NetworkInterfaceId" =: _crrqNetworkInterfaceId,
+               "GatewayId" =: _crrqGatewayId,
+               "DryRun" =: _crrqDryRun,
+               "RouteTableId" =: _crrqRouteTableId,
+               "DestinationCidrBlock" =: _crrqDestinationCIdRBlock]
+
+-- | /See:/ 'createRouteResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrClientToken' @::@ 'Maybe' 'Text'
+-- * 'crrsReturn'
 --
--- * 'crrReturn' @::@ 'Maybe' 'Bool'
+-- * 'crrsClientToken'
 --
-createRouteResponse :: CreateRouteResponse
-createRouteResponse = CreateRouteResponse
-    { _crrReturn      = Nothing
-    , _crrClientToken = Nothing
+-- * 'crrsStatus'
+data CreateRouteResponse = CreateRouteResponse'
+    { _crrsReturn      :: !(Maybe Bool)
+    , _crrsClientToken :: !(Maybe Text)
+    , _crrsStatus      :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateRouteResponse' smart constructor.
+createRouteResponse :: Int -> CreateRouteResponse
+createRouteResponse pStatus_ =
+    CreateRouteResponse'
+    { _crrsReturn = Nothing
+    , _crrsClientToken = Nothing
+    , _crrsStatus = pStatus_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure the idempotency of
--- the request.
-crrClientToken :: Lens' CreateRouteResponse (Maybe Text)
-crrClientToken = lens _crrClientToken (\s a -> s { _crrClientToken = a })
+-- | Returns @true@ if the request succeeds; otherwise, it returns an error.
+crrsReturn :: Lens' CreateRouteResponse (Maybe Bool)
+crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
 
--- | Returns 'true' if the request succeeds; otherwise, it returns an error.
-crrReturn :: Lens' CreateRouteResponse (Maybe Bool)
-crrReturn = lens _crrReturn (\s a -> s { _crrReturn = a })
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency
+-- of the request.
+crrsClientToken :: Lens' CreateRouteResponse (Maybe Text)
+crrsClientToken = lens _crrsClientToken (\ s a -> s{_crrsClientToken = a});
 
-instance ToPath CreateRoute where
-    toPath = const "/"
-
-instance ToQuery CreateRoute where
-    toQuery CreateRoute{..} = mconcat
-        [ "ClientToken"            =? _crClientToken
-        , "DestinationCidrBlock"   =? _crDestinationCidrBlock
-        , "DryRun"                 =? _crDryRun
-        , "GatewayId"              =? _crGatewayId
-        , "InstanceId"             =? _crInstanceId
-        , "NetworkInterfaceId"     =? _crNetworkInterfaceId
-        , "RouteTableId"           =? _crRouteTableId
-        , "VpcPeeringConnectionId" =? _crVpcPeeringConnectionId
-        ]
-
-instance ToHeaders CreateRoute
-
-instance AWSRequest CreateRoute where
-    type Sv CreateRoute = EC2
-    type Rs CreateRoute = CreateRouteResponse
-
-    request  = post "CreateRoute"
-    response = xmlResponse
-
-instance FromXML CreateRouteResponse where
-    parseXML x = CreateRouteResponse
-        <$> x .@? "clientToken"
-        <*> x .@? "return"
+-- | FIXME: Undocumented member.
+crrsStatus :: Lens' CreateRouteResponse Int
+crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

@@ -1,44 +1,44 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.CreateReservedInstancesListing
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates a listing for Amazon EC2 Reserved Instances to be sold in the
--- Reserved Instance Marketplace. You can submit one Reserved Instance listing
--- at a time. To get a list of your Reserved Instances, you can use the 'DescribeReservedInstances' operation.
+-- Creates a listing for Amazon EC2 Reserved Instances to be sold in the
+-- Reserved Instance Marketplace. You can submit one Reserved Instance
+-- listing at a time. To get a list of your Reserved Instances, you can use
+-- the DescribeReservedInstances operation.
 --
 -- The Reserved Instance Marketplace matches sellers who want to resell
--- Reserved Instance capacity that they no longer need with buyers who want to
--- purchase additional capacity. Reserved Instances bought and sold through the
--- Reserved Instance Marketplace work like any other Reserved Instances.
+-- Reserved Instance capacity that they no longer need with buyers who want
+-- to purchase additional capacity. Reserved Instances bought and sold
+-- through the Reserved Instance Marketplace work like any other Reserved
+-- Instances.
 --
--- To sell your Reserved Instances, you must first register as a Seller in the
--- Reserved Instance Marketplace. After completing the registration process, you
--- can create a Reserved Instance Marketplace listing of some or all of your
--- Reserved Instances, and specify the upfront price to receive for them. Your
--- Reserved Instance listings then become available for purchase. To view the
--- details of your Reserved Instance listing, you can use the 'DescribeReservedInstancesListings' operation.
+-- To sell your Reserved Instances, you must first register as a seller in
+-- the Reserved Instance Marketplace. After completing the registration
+-- process, you can create a Reserved Instance Marketplace listing of some
+-- or all of your Reserved Instances, and specify the upfront price to
+-- receive for them. Your Reserved Instance listings then become available
+-- for purchase. To view the details of your Reserved Instance listing, you
+-- can use the DescribeReservedInstancesListings operation.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateReservedInstancesListing.html>
 module Network.AWS.EC2.CreateReservedInstancesListing
@@ -48,121 +48,132 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- ** Request constructor
     , createReservedInstancesListing
     -- ** Request lenses
-    , crilClientToken
-    , crilInstanceCount
-    , crilPriceSchedules
-    , crilReservedInstancesId
+    , crilrqReservedInstancesId
+    , crilrqInstanceCount
+    , crilrqPriceSchedules
+    , crilrqClientToken
 
     -- * Response
     , CreateReservedInstancesListingResponse
     -- ** Response constructor
     , createReservedInstancesListingResponse
     -- ** Response lenses
-    , crilr1ReservedInstancesListings
+    , crersReservedInstancesListings
+    , crersStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateReservedInstancesListing = CreateReservedInstancesListing
-    { _crilClientToken         :: Text
-    , _crilInstanceCount       :: Int
-    , _crilPriceSchedules      :: List "item" PriceScheduleSpecification
-    , _crilReservedInstancesId :: Text
-    } deriving (Eq, Read, Show)
-
--- | 'CreateReservedInstancesListing' constructor.
+-- | /See:/ 'createReservedInstancesListing' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crilClientToken' @::@ 'Text'
+-- * 'crilrqReservedInstancesId'
 --
--- * 'crilInstanceCount' @::@ 'Int'
+-- * 'crilrqInstanceCount'
 --
--- * 'crilPriceSchedules' @::@ ['PriceScheduleSpecification']
+-- * 'crilrqPriceSchedules'
 --
--- * 'crilReservedInstancesId' @::@ 'Text'
---
-createReservedInstancesListing :: Text -- ^ 'crilReservedInstancesId'
-                               -> Int -- ^ 'crilInstanceCount'
-                               -> Text -- ^ 'crilClientToken'
-                               -> CreateReservedInstancesListing
-createReservedInstancesListing p1 p2 p3 = CreateReservedInstancesListing
-    { _crilReservedInstancesId = p1
-    , _crilInstanceCount       = p2
-    , _crilClientToken         = p3
-    , _crilPriceSchedules      = mempty
+-- * 'crilrqClientToken'
+data CreateReservedInstancesListing = CreateReservedInstancesListing'
+    { _crilrqReservedInstancesId :: !Text
+    , _crilrqInstanceCount       :: !Int
+    , _crilrqPriceSchedules      :: ![PriceScheduleSpecification]
+    , _crilrqClientToken         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateReservedInstancesListing' smart constructor.
+createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
+createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToken_ =
+    CreateReservedInstancesListing'
+    { _crilrqReservedInstancesId = pReservedInstancesId_
+    , _crilrqInstanceCount = pInstanceCount_
+    , _crilrqPriceSchedules = mempty
+    , _crilrqClientToken = pClientToken_
     }
 
--- | Unique, case-sensitive identifier you provide to ensure idempotency of your
--- listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-crilClientToken :: Lens' CreateReservedInstancesListing Text
-crilClientToken = lens _crilClientToken (\s a -> s { _crilClientToken = a })
-
--- | The number of instances that are a part of a Reserved Instance account to be
--- listed in the Reserved Instance Marketplace. This number should be less than
--- or equal to the instance count associated with the Reserved Instance ID
--- specified in this call.
-crilInstanceCount :: Lens' CreateReservedInstancesListing Int
-crilInstanceCount =
-    lens _crilInstanceCount (\s a -> s { _crilInstanceCount = a })
-
--- | A list specifying the price of the Reserved Instance for each month remaining
--- in the Reserved Instance term.
-crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
-crilPriceSchedules =
-    lens _crilPriceSchedules (\s a -> s { _crilPriceSchedules = a })
-        . _List
-
 -- | The ID of the active Reserved Instance.
-crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
-crilReservedInstancesId =
-    lens _crilReservedInstancesId (\s a -> s { _crilReservedInstancesId = a })
+crilrqReservedInstancesId :: Lens' CreateReservedInstancesListing Text
+crilrqReservedInstancesId = lens _crilrqReservedInstancesId (\ s a -> s{_crilrqReservedInstancesId = a});
 
-newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
-    { _crilr1ReservedInstancesListings :: List "item" ReservedInstancesListing
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+-- | The number of instances that are a part of a Reserved Instance account
+-- to be listed in the Reserved Instance Marketplace. This number should be
+-- less than or equal to the instance count associated with the Reserved
+-- Instance ID specified in this call.
+crilrqInstanceCount :: Lens' CreateReservedInstancesListing Int
+crilrqInstanceCount = lens _crilrqInstanceCount (\ s a -> s{_crilrqInstanceCount = a});
 
--- | 'CreateReservedInstancesListingResponse' constructor.
+-- | A list specifying the price of the Reserved Instance for each month
+-- remaining in the Reserved Instance term.
+crilrqPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
+crilrqPriceSchedules = lens _crilrqPriceSchedules (\ s a -> s{_crilrqPriceSchedules = a});
+
+-- | Unique, case-sensitive identifier you provide to ensure idempotency of
+-- your listings. This helps avoid duplicate listings. For more
+-- information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+crilrqClientToken :: Lens' CreateReservedInstancesListing Text
+crilrqClientToken = lens _crilrqClientToken (\ s a -> s{_crilrqClientToken = a});
+
+instance AWSRequest CreateReservedInstancesListing
+         where
+        type Sv CreateReservedInstancesListing = EC2
+        type Rs CreateReservedInstancesListing =
+             CreateReservedInstancesListingResponse
+        request = post
+        response
+          = receiveXML
+              (\ s h x ->
+                 CreateReservedInstancesListingResponse' <$>
+                   (x .@? "reservedInstancesListingsSet" .!@ mempty >>=
+                      may (parseXMLList "item"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders CreateReservedInstancesListing
+         where
+        toHeaders = const mempty
+
+instance ToPath CreateReservedInstancesListing where
+        toPath = const "/"
+
+instance ToQuery CreateReservedInstancesListing where
+        toQuery CreateReservedInstancesListing'{..}
+          = mconcat
+              ["Action" =:
+                 ("CreateReservedInstancesListing" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "ReservedInstancesId" =: _crilrqReservedInstancesId,
+               "InstanceCount" =: _crilrqInstanceCount,
+               toQueryList "item" _crilrqPriceSchedules,
+               "ClientToken" =: _crilrqClientToken]
+
+-- | /See:/ 'createReservedInstancesListingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crilr1ReservedInstancesListings' @::@ ['ReservedInstancesListing']
+-- * 'crersReservedInstancesListings'
 --
-createReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
-createReservedInstancesListingResponse = CreateReservedInstancesListingResponse
-    { _crilr1ReservedInstancesListings = mempty
+-- * 'crersStatus'
+data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
+    { _crersReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
+    , _crersStatus                    :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateReservedInstancesListingResponse' smart constructor.
+createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
+createReservedInstancesListingResponse pStatus_ =
+    CreateReservedInstancesListingResponse'
+    { _crersReservedInstancesListings = Nothing
+    , _crersStatus = pStatus_
     }
 
 -- | Information about the Reserved Instances listing.
-crilr1ReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
-crilr1ReservedInstancesListings =
-    lens _crilr1ReservedInstancesListings
-        (\s a -> s { _crilr1ReservedInstancesListings = a })
-            . _List
+crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default;
 
-instance ToPath CreateReservedInstancesListing where
-    toPath = const "/"
-
-instance ToQuery CreateReservedInstancesListing where
-    toQuery CreateReservedInstancesListing{..} = mconcat
-        [ "ClientToken"         =? _crilClientToken
-        , "InstanceCount"       =? _crilInstanceCount
-        , "PriceSchedules"      `toQueryList` _crilPriceSchedules
-        , "ReservedInstancesId" =? _crilReservedInstancesId
-        ]
-
-instance ToHeaders CreateReservedInstancesListing
-
-instance AWSRequest CreateReservedInstancesListing where
-    type Sv CreateReservedInstancesListing = EC2
-    type Rs CreateReservedInstancesListing = CreateReservedInstancesListingResponse
-
-    request  = post "CreateReservedInstancesListing"
-    response = xmlResponse
-
-instance FromXML CreateReservedInstancesListingResponse where
-    parseXML x = CreateReservedInstancesListingResponse
-        <$> x .@? "reservedInstancesListingsSet" .!@ mempty
+-- | FIXME: Undocumented member.
+crersStatus :: Lens' CreateReservedInstancesListingResponse Int
+crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

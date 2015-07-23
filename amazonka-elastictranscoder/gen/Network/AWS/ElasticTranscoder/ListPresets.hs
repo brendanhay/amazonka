@@ -1,29 +1,25 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElasticTranscoder.ListPresets
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The ListPresets operation gets a list of the default presets included with
--- Elastic Transcoder and the presets that you've added in an AWS region.
+-- The ListPresets operation gets a list of the default presets included
+-- with Elastic Transcoder and the presets that you\'ve added in an AWS
+-- region.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPresets.html>
 module Network.AWS.ElasticTranscoder.ListPresets
@@ -33,111 +29,127 @@ module Network.AWS.ElasticTranscoder.ListPresets
     -- ** Request constructor
     , listPresets
     -- ** Request lenses
-    , lp1Ascending
-    , lp1PageToken
+    , lrqAscending
+    , lrqPageToken
 
     -- * Response
     , ListPresetsResponse
     -- ** Response constructor
     , listPresetsResponse
     -- ** Response lenses
-    , lpr1NextPageToken
-    , lpr1Presets
+    , lrsNextPageToken
+    , lrsPresets
+    , lrsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.RestJSON
-import Network.AWS.ElasticTranscoder.Types
-import qualified GHC.Exts
+import           Network.AWS.ElasticTranscoder.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data ListPresets = ListPresets
-    { _lp1Ascending :: Maybe Text
-    , _lp1PageToken :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'ListPresets' constructor.
+-- | The @ListPresetsRequest@ structure.
+--
+-- /See:/ 'listPresets' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lp1Ascending' @::@ 'Maybe' 'Text'
+-- * 'lrqAscending'
 --
--- * 'lp1PageToken' @::@ 'Maybe' 'Text'
---
+-- * 'lrqPageToken'
+data ListPresets = ListPresets'
+    { _lrqAscending :: !(Maybe Text)
+    , _lrqPageToken :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListPresets' smart constructor.
 listPresets :: ListPresets
-listPresets = ListPresets
-    { _lp1Ascending = Nothing
-    , _lp1PageToken = Nothing
+listPresets =
+    ListPresets'
+    { _lrqAscending = Nothing
+    , _lrqPageToken = Nothing
     }
 
--- | To list presets in chronological order by the date and time that they were
--- created, enter 'true'. To list presets in reverse chronological order, enter 'false'.
-lp1Ascending :: Lens' ListPresets (Maybe Text)
-lp1Ascending = lens _lp1Ascending (\s a -> s { _lp1Ascending = a })
+-- | To list presets in chronological order by the date and time that they
+-- were created, enter @true@. To list presets in reverse chronological
+-- order, enter @false@.
+lrqAscending :: Lens' ListPresets (Maybe Text)
+lrqAscending = lens _lrqAscending (\ s a -> s{_lrqAscending = a});
 
--- | When Elastic Transcoder returns more than one page of results, use 'pageToken'
--- in subsequent 'GET' requests to get each successive page of results.
-lp1PageToken :: Lens' ListPresets (Maybe Text)
-lp1PageToken = lens _lp1PageToken (\s a -> s { _lp1PageToken = a })
-
-data ListPresetsResponse = ListPresetsResponse
-    { _lpr1NextPageToken :: Maybe Text
-    , _lpr1Presets       :: List "Presets" Preset
-    } deriving (Eq, Read, Show)
-
--- | 'ListPresetsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lpr1NextPageToken' @::@ 'Maybe' 'Text'
---
--- * 'lpr1Presets' @::@ ['Preset']
---
-listPresetsResponse :: ListPresetsResponse
-listPresetsResponse = ListPresetsResponse
-    { _lpr1Presets       = mempty
-    , _lpr1NextPageToken = Nothing
-    }
-
--- | A value that you use to access the second and subsequent pages of results, if
--- any. When the presets fit on one page or when you've reached the last page of
--- results, the value of 'NextPageToken' is 'null'.
-lpr1NextPageToken :: Lens' ListPresetsResponse (Maybe Text)
-lpr1NextPageToken =
-    lens _lpr1NextPageToken (\s a -> s { _lpr1NextPageToken = a })
-
--- | An array of 'Preset' objects.
-lpr1Presets :: Lens' ListPresetsResponse [Preset]
-lpr1Presets = lens _lpr1Presets (\s a -> s { _lpr1Presets = a }) . _List
-
-instance ToPath ListPresets where
-    toPath = const "/2012-09-25/presets"
-
-instance ToQuery ListPresets where
-    toQuery ListPresets{..} = mconcat
-        [ "Ascending" =? _lp1Ascending
-        , "PageToken" =? _lp1PageToken
-        ]
-
-instance ToHeaders ListPresets
-
-instance ToJSON ListPresets where
-    toJSON = const (toJSON Empty)
-
-instance AWSRequest ListPresets where
-    type Sv ListPresets = ElasticTranscoder
-    type Rs ListPresets = ListPresetsResponse
-
-    request  = get
-    response = jsonResponse
-
-instance FromJSON ListPresetsResponse where
-    parseJSON = withObject "ListPresetsResponse" $ \o -> ListPresetsResponse
-        <$> o .:? "NextPageToken"
-        <*> o .:? "Presets" .!= mempty
+-- | When Elastic Transcoder returns more than one page of results, use
+-- @pageToken@ in subsequent @GET@ requests to get each successive page of
+-- results.
+lrqPageToken :: Lens' ListPresets (Maybe Text)
+lrqPageToken = lens _lrqPageToken (\ s a -> s{_lrqPageToken = a});
 
 instance AWSPager ListPresets where
-    page rq rs
-        | stop (rs ^. lpr1NextPageToken) = Nothing
-        | otherwise = (\x -> rq & lp1PageToken ?~ x)
-            <$> (rs ^. lpr1NextPageToken)
+        page rq rs
+          | stop (rs ^. lrsNextPageToken) = Nothing
+          | stop (rs ^. lrsPresets) = Nothing
+          | otherwise =
+            Just $ rq & lrqPageToken .~ rs ^. lrsNextPageToken
+
+instance AWSRequest ListPresets where
+        type Sv ListPresets = ElasticTranscoder
+        type Rs ListPresets = ListPresetsResponse
+        request = get
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListPresetsResponse' <$>
+                   (x .?> "NextPageToken") <*>
+                     (x .?> "Presets" .!@ mempty)
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders ListPresets where
+        toHeaders = const mempty
+
+instance ToPath ListPresets where
+        toPath = const "/2012-09-25/presets"
+
+instance ToQuery ListPresets where
+        toQuery ListPresets'{..}
+          = mconcat
+              ["Ascending" =: _lrqAscending,
+               "PageToken" =: _lrqPageToken]
+
+-- | The @ListPresetsResponse@ structure.
+--
+-- /See:/ 'listPresetsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lrsNextPageToken'
+--
+-- * 'lrsPresets'
+--
+-- * 'lrsStatus'
+data ListPresetsResponse = ListPresetsResponse'
+    { _lrsNextPageToken :: !(Maybe Text)
+    , _lrsPresets       :: !(Maybe [Preset])
+    , _lrsStatus        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ListPresetsResponse' smart constructor.
+listPresetsResponse :: Int -> ListPresetsResponse
+listPresetsResponse pStatus_ =
+    ListPresetsResponse'
+    { _lrsNextPageToken = Nothing
+    , _lrsPresets = Nothing
+    , _lrsStatus = pStatus_
+    }
+
+-- | A value that you use to access the second and subsequent pages of
+-- results, if any. When the presets fit on one page or when you\'ve
+-- reached the last page of results, the value of @NextPageToken@ is
+-- @null@.
+lrsNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
+lrsNextPageToken = lens _lrsNextPageToken (\ s a -> s{_lrsNextPageToken = a});
+
+-- | An array of @Preset@ objects.
+lrsPresets :: Lens' ListPresetsResponse [Preset]
+lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default;
+
+-- | FIXME: Undocumented member.
+lrsStatus :: Lens' ListPresetsResponse Int
+lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});

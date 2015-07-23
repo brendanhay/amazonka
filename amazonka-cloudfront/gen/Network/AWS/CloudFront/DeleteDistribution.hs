@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudFront.DeleteDistribution
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Delete a distribution.
+-- Delete a distribution.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html>
 module Network.AWS.CloudFront.DeleteDistribution
@@ -32,8 +27,8 @@ module Network.AWS.CloudFront.DeleteDistribution
     -- ** Request constructor
     , deleteDistribution
     -- ** Request lenses
-    , ddId
-    , ddIfMatch
+    , ddrqIfMatch
+    , ddrqId
 
     -- * Response
     , DeleteDistributionResponse
@@ -41,69 +36,66 @@ module Network.AWS.CloudFront.DeleteDistribution
     , deleteDistributionResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.RestXML
-import Network.AWS.CloudFront.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudFront.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteDistribution = DeleteDistribution
-    { _ddId      :: Text
-    , _ddIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DeleteDistribution' constructor.
+-- | The request to delete a distribution.
+--
+-- /See:/ 'deleteDistribution' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddId' @::@ 'Text'
+-- * 'ddrqIfMatch'
 --
--- * 'ddIfMatch' @::@ 'Maybe' 'Text'
---
-deleteDistribution :: Text -- ^ 'ddId'
-                   -> DeleteDistribution
-deleteDistribution p1 = DeleteDistribution
-    { _ddId      = p1
-    , _ddIfMatch = Nothing
+-- * 'ddrqId'
+data DeleteDistribution = DeleteDistribution'
+    { _ddrqIfMatch :: !(Maybe Text)
+    , _ddrqId      :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteDistribution' smart constructor.
+deleteDistribution :: Text -> DeleteDistribution
+deleteDistribution pId_ =
+    DeleteDistribution'
+    { _ddrqIfMatch = Nothing
+    , _ddrqId = pId_
     }
 
+-- | The value of the ETag header you received when you disabled the
+-- distribution. For example: E2QWRUHAPOMQZL.
+ddrqIfMatch :: Lens' DeleteDistribution (Maybe Text)
+ddrqIfMatch = lens _ddrqIfMatch (\ s a -> s{_ddrqIfMatch = a});
+
 -- | The distribution id.
-ddId :: Lens' DeleteDistribution Text
-ddId = lens _ddId (\s a -> s { _ddId = a })
-
--- | The value of the ETag header you received when you disabled the distribution.
--- For example: E2QWRUHAPOMQZL.
-ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
-ddIfMatch = lens _ddIfMatch (\s a -> s { _ddIfMatch = a })
-
-data DeleteDistributionResponse = DeleteDistributionResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteDistributionResponse' constructor.
-deleteDistributionResponse :: DeleteDistributionResponse
-deleteDistributionResponse = DeleteDistributionResponse
-
-instance ToPath DeleteDistribution where
-    toPath DeleteDistribution{..} = mconcat
-        [ "/2014-11-06/distribution/"
-        , toText _ddId
-        ]
-
-instance ToQuery DeleteDistribution where
-    toQuery = const mempty
-
-instance ToHeaders DeleteDistribution where
-    toHeaders DeleteDistribution{..} = mconcat
-        [ "If-Match" =: _ddIfMatch
-        ]
-
-instance ToXMLRoot DeleteDistribution where
-    toXMLRoot = const (namespaced ns "DeleteDistribution" [])
-
-instance ToXML DeleteDistribution
+ddrqId :: Lens' DeleteDistribution Text
+ddrqId = lens _ddrqId (\ s a -> s{_ddrqId = a});
 
 instance AWSRequest DeleteDistribution where
-    type Sv DeleteDistribution = CloudFront
-    type Rs DeleteDistribution = DeleteDistributionResponse
+        type Sv DeleteDistribution = CloudFront
+        type Rs DeleteDistribution =
+             DeleteDistributionResponse
+        request = delete
+        response = receiveNull DeleteDistributionResponse'
 
-    request  = delete
-    response = nullResponse DeleteDistributionResponse
+instance ToHeaders DeleteDistribution where
+        toHeaders DeleteDistribution'{..}
+          = mconcat ["If-Match" =# _ddrqIfMatch]
+
+instance ToPath DeleteDistribution where
+        toPath DeleteDistribution'{..}
+          = mconcat
+              ["/2015-04-17/distribution/", toText _ddrqId]
+
+instance ToQuery DeleteDistribution where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteDistributionResponse' smart constructor.
+data DeleteDistributionResponse =
+    DeleteDistributionResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteDistributionResponse' smart constructor.
+deleteDistributionResponse :: DeleteDistributionResponse
+deleteDistributionResponse = DeleteDistributionResponse'

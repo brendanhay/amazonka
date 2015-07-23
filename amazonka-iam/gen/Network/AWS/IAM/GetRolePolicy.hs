@@ -1,38 +1,36 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.IAM.GetRolePolicy
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Retrieves the specified inline policy document that is embedded with the
+-- Retrieves the specified inline policy document that is embedded with the
 -- specified role.
 --
--- A role can also have managed policies attached to it. To retrieve a managed
--- policy document that is attached to a role, use 'GetPolicy' to determine the
--- policy's default version, then use 'GetPolicyVersion' to retrieve the policy
--- document.
+-- A role can also have managed policies attached to it. To retrieve a
+-- managed policy document that is attached to a role, use GetPolicy to
+-- determine the policy\'s default version, then use GetPolicyVersion to
+-- retrieve the policy document.
 --
--- For more information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and InlinePolicies> in the /Using IAM/ guide.
+-- For more information about policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
 --
--- For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissionsand Federate Identities>.
+-- For more information about roles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRolePolicy.html>
 module Network.AWS.IAM.GetRolePolicy
@@ -42,112 +40,121 @@ module Network.AWS.IAM.GetRolePolicy
     -- ** Request constructor
     , getRolePolicy
     -- ** Request lenses
-    , grpPolicyName
-    , grpRoleName
+    , grprqRoleName
+    , grprqPolicyName
 
     -- * Response
     , GetRolePolicyResponse
     -- ** Response constructor
     , getRolePolicyResponse
     -- ** Response lenses
-    , grprPolicyDocument
-    , grprPolicyName
-    , grprRoleName
+    , grprsStatus
+    , grprsRoleName
+    , grprsPolicyName
+    , grprsPolicyDocument
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.IAM.Types
-import qualified GHC.Exts
+import           Network.AWS.IAM.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data GetRolePolicy = GetRolePolicy
-    { _grpPolicyName :: Text
-    , _grpRoleName   :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'GetRolePolicy' constructor.
+-- | /See:/ 'getRolePolicy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grpPolicyName' @::@ 'Text'
+-- * 'grprqRoleName'
 --
--- * 'grpRoleName' @::@ 'Text'
---
-getRolePolicy :: Text -- ^ 'grpRoleName'
-              -> Text -- ^ 'grpPolicyName'
-              -> GetRolePolicy
-getRolePolicy p1 p2 = GetRolePolicy
-    { _grpRoleName   = p1
-    , _grpPolicyName = p2
-    }
+-- * 'grprqPolicyName'
+data GetRolePolicy = GetRolePolicy'
+    { _grprqRoleName   :: !Text
+    , _grprqPolicyName :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | The name of the policy document to get.
-grpPolicyName :: Lens' GetRolePolicy Text
-grpPolicyName = lens _grpPolicyName (\s a -> s { _grpPolicyName = a })
+-- | 'GetRolePolicy' smart constructor.
+getRolePolicy :: Text -> Text -> GetRolePolicy
+getRolePolicy pRoleName_ pPolicyName_ =
+    GetRolePolicy'
+    { _grprqRoleName = pRoleName_
+    , _grprqPolicyName = pPolicyName_
+    }
 
 -- | The name of the role associated with the policy.
-grpRoleName :: Lens' GetRolePolicy Text
-grpRoleName = lens _grpRoleName (\s a -> s { _grpRoleName = a })
+grprqRoleName :: Lens' GetRolePolicy Text
+grprqRoleName = lens _grprqRoleName (\ s a -> s{_grprqRoleName = a});
 
-data GetRolePolicyResponse = GetRolePolicyResponse
-    { _grprPolicyDocument :: Text
-    , _grprPolicyName     :: Text
-    , _grprRoleName       :: Text
-    } deriving (Eq, Ord, Read, Show)
+-- | The name of the policy document to get.
+grprqPolicyName :: Lens' GetRolePolicy Text
+grprqPolicyName = lens _grprqPolicyName (\ s a -> s{_grprqPolicyName = a});
 
--- | 'GetRolePolicyResponse' constructor.
+instance AWSRequest GetRolePolicy where
+        type Sv GetRolePolicy = IAM
+        type Rs GetRolePolicy = GetRolePolicyResponse
+        request = post
+        response
+          = receiveXMLWrapper "GetRolePolicyResult"
+              (\ s h x ->
+                 GetRolePolicyResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "RoleName") <*>
+                     (x .@ "PolicyName")
+                     <*> (x .@ "PolicyDocument"))
+
+instance ToHeaders GetRolePolicy where
+        toHeaders = const mempty
+
+instance ToPath GetRolePolicy where
+        toPath = const "/"
+
+instance ToQuery GetRolePolicy where
+        toQuery GetRolePolicy'{..}
+          = mconcat
+              ["Action" =: ("GetRolePolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "RoleName" =: _grprqRoleName,
+               "PolicyName" =: _grprqPolicyName]
+
+-- | Contains the response to a successful GetRolePolicy request.
+--
+-- /See:/ 'getRolePolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grprPolicyDocument' @::@ 'Text'
+-- * 'grprsStatus'
 --
--- * 'grprPolicyName' @::@ 'Text'
+-- * 'grprsRoleName'
 --
--- * 'grprRoleName' @::@ 'Text'
+-- * 'grprsPolicyName'
 --
-getRolePolicyResponse :: Text -- ^ 'grprRoleName'
-                      -> Text -- ^ 'grprPolicyName'
-                      -> Text -- ^ 'grprPolicyDocument'
-                      -> GetRolePolicyResponse
-getRolePolicyResponse p1 p2 p3 = GetRolePolicyResponse
-    { _grprRoleName       = p1
-    , _grprPolicyName     = p2
-    , _grprPolicyDocument = p3
+-- * 'grprsPolicyDocument'
+data GetRolePolicyResponse = GetRolePolicyResponse'
+    { _grprsStatus         :: !Int
+    , _grprsRoleName       :: !Text
+    , _grprsPolicyName     :: !Text
+    , _grprsPolicyDocument :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'GetRolePolicyResponse' smart constructor.
+getRolePolicyResponse :: Int -> Text -> Text -> Text -> GetRolePolicyResponse
+getRolePolicyResponse pStatus_ pRoleName_ pPolicyName_ pPolicyDocument_ =
+    GetRolePolicyResponse'
+    { _grprsStatus = pStatus_
+    , _grprsRoleName = pRoleName_
+    , _grprsPolicyName = pPolicyName_
+    , _grprsPolicyDocument = pPolicyDocument_
     }
 
--- | The policy document.
-grprPolicyDocument :: Lens' GetRolePolicyResponse Text
-grprPolicyDocument =
-    lens _grprPolicyDocument (\s a -> s { _grprPolicyDocument = a })
-
--- | The name of the policy.
-grprPolicyName :: Lens' GetRolePolicyResponse Text
-grprPolicyName = lens _grprPolicyName (\s a -> s { _grprPolicyName = a })
+-- | FIXME: Undocumented member.
+grprsStatus :: Lens' GetRolePolicyResponse Int
+grprsStatus = lens _grprsStatus (\ s a -> s{_grprsStatus = a});
 
 -- | The role the policy is associated with.
-grprRoleName :: Lens' GetRolePolicyResponse Text
-grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
+grprsRoleName :: Lens' GetRolePolicyResponse Text
+grprsRoleName = lens _grprsRoleName (\ s a -> s{_grprsRoleName = a});
 
-instance ToPath GetRolePolicy where
-    toPath = const "/"
+-- | The name of the policy.
+grprsPolicyName :: Lens' GetRolePolicyResponse Text
+grprsPolicyName = lens _grprsPolicyName (\ s a -> s{_grprsPolicyName = a});
 
-instance ToQuery GetRolePolicy where
-    toQuery GetRolePolicy{..} = mconcat
-        [ "PolicyName" =? _grpPolicyName
-        , "RoleName"   =? _grpRoleName
-        ]
-
-instance ToHeaders GetRolePolicy
-
-instance AWSRequest GetRolePolicy where
-    type Sv GetRolePolicy = IAM
-    type Rs GetRolePolicy = GetRolePolicyResponse
-
-    request  = post "GetRolePolicy"
-    response = xmlResponse
-
-instance FromXML GetRolePolicyResponse where
-    parseXML = withElement "GetRolePolicyResult" $ \x -> GetRolePolicyResponse
-        <$> x .@  "PolicyDocument"
-        <*> x .@  "PolicyName"
-        <*> x .@  "RoleName"
+-- | The policy document.
+grprsPolicyDocument :: Lens' GetRolePolicyResponse Text
+grprsPolicyDocument = lens _grprsPolicyDocument (\ s a -> s{_grprsPolicyDocument = a});

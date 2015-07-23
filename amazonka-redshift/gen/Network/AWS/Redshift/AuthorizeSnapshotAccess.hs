@@ -1,31 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Redshift.AuthorizeSnapshotAccess
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Authorizes the specified AWS customer account to restore the specified
+-- Authorizes the specified AWS customer account to restore the specified
 -- snapshot.
 --
--- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots> in the /Amazon Redshift Cluster Management Guide/.
+-- For more information about working with snapshots, go to
+-- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots>
+-- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_AuthorizeSnapshotAccess.html>
 module Network.AWS.Redshift.AuthorizeSnapshotAccess
@@ -35,105 +32,119 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     -- ** Request constructor
     , authorizeSnapshotAccess
     -- ** Request lenses
-    , asaAccountWithRestoreAccess
-    , asaSnapshotClusterIdentifier
-    , asaSnapshotIdentifier
+    , asarqSnapshotClusterIdentifier
+    , asarqSnapshotIdentifier
+    , asarqAccountWithRestoreAccess
 
     -- * Response
     , AuthorizeSnapshotAccessResponse
     -- ** Response constructor
     , authorizeSnapshotAccessResponse
     -- ** Response lenses
-    , asarSnapshot
+    , asarsSnapshot
+    , asarsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.Redshift.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Redshift.Types
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
-    { _asaAccountWithRestoreAccess  :: Text
-    , _asaSnapshotClusterIdentifier :: Maybe Text
-    , _asaSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'AuthorizeSnapshotAccess' constructor.
+-- |
+--
+-- /See:/ 'authorizeSnapshotAccess' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asaAccountWithRestoreAccess' @::@ 'Text'
+-- * 'asarqSnapshotClusterIdentifier'
 --
--- * 'asaSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'asarqSnapshotIdentifier'
 --
--- * 'asaSnapshotIdentifier' @::@ 'Text'
---
-authorizeSnapshotAccess :: Text -- ^ 'asaSnapshotIdentifier'
-                        -> Text -- ^ 'asaAccountWithRestoreAccess'
-                        -> AuthorizeSnapshotAccess
-authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccess
-    { _asaSnapshotIdentifier        = p1
-    , _asaAccountWithRestoreAccess  = p2
-    , _asaSnapshotClusterIdentifier = Nothing
+-- * 'asarqAccountWithRestoreAccess'
+data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
+    { _asarqSnapshotClusterIdentifier :: !(Maybe Text)
+    , _asarqSnapshotIdentifier        :: !Text
+    , _asarqAccountWithRestoreAccess  :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AuthorizeSnapshotAccess' smart constructor.
+authorizeSnapshotAccess :: Text -> Text -> AuthorizeSnapshotAccess
+authorizeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
+    AuthorizeSnapshotAccess'
+    { _asarqSnapshotClusterIdentifier = Nothing
+    , _asarqSnapshotIdentifier = pSnapshotIdentifier_
+    , _asarqAccountWithRestoreAccess = pAccountWithRestoreAccess_
     }
+
+-- | The identifier of the cluster the snapshot was created from. This
+-- parameter is required if your IAM user has a policy containing a
+-- snapshot resource element that specifies anything other than * for the
+-- cluster name.
+asarqSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
+asarqSnapshotClusterIdentifier = lens _asarqSnapshotClusterIdentifier (\ s a -> s{_asarqSnapshotClusterIdentifier = a});
+
+-- | The identifier of the snapshot the account is authorized to restore.
+asarqSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
+asarqSnapshotIdentifier = lens _asarqSnapshotIdentifier (\ s a -> s{_asarqSnapshotIdentifier = a});
 
 -- | The identifier of the AWS customer account authorized to restore the
 -- specified snapshot.
-asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
-asaAccountWithRestoreAccess =
-    lens _asaAccountWithRestoreAccess
-        (\s a -> s { _asaAccountWithRestoreAccess = a })
+asarqAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
+asarqAccountWithRestoreAccess = lens _asarqAccountWithRestoreAccess (\ s a -> s{_asarqAccountWithRestoreAccess = a});
 
--- | The identifier of the cluster the snapshot was created from. This parameter
--- is required if your IAM user has a policy containing a snapshot resource
--- element that specifies anything other than * for the cluster name.
-asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
-asaSnapshotClusterIdentifier =
-    lens _asaSnapshotClusterIdentifier
-        (\s a -> s { _asaSnapshotClusterIdentifier = a })
+instance AWSRequest AuthorizeSnapshotAccess where
+        type Sv AuthorizeSnapshotAccess = Redshift
+        type Rs AuthorizeSnapshotAccess =
+             AuthorizeSnapshotAccessResponse
+        request = post
+        response
+          = receiveXMLWrapper "AuthorizeSnapshotAccessResult"
+              (\ s h x ->
+                 AuthorizeSnapshotAccessResponse' <$>
+                   (x .@? "Snapshot") <*> (pure (fromEnum s)))
 
--- | The identifier of the snapshot the account is authorized to restore.
-asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
-asaSnapshotIdentifier =
-    lens _asaSnapshotIdentifier (\s a -> s { _asaSnapshotIdentifier = a })
+instance ToHeaders AuthorizeSnapshotAccess where
+        toHeaders = const mempty
 
-newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
-    { _asarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Read, Show)
+instance ToPath AuthorizeSnapshotAccess where
+        toPath = const "/"
 
--- | 'AuthorizeSnapshotAccessResponse' constructor.
+instance ToQuery AuthorizeSnapshotAccess where
+        toQuery AuthorizeSnapshotAccess'{..}
+          = mconcat
+              ["Action" =:
+                 ("AuthorizeSnapshotAccess" :: ByteString),
+               "Version" =: ("2012-12-01" :: ByteString),
+               "SnapshotClusterIdentifier" =:
+                 _asarqSnapshotClusterIdentifier,
+               "SnapshotIdentifier" =: _asarqSnapshotIdentifier,
+               "AccountWithRestoreAccess" =:
+                 _asarqAccountWithRestoreAccess]
+
+-- | /See:/ 'authorizeSnapshotAccessResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asarSnapshot' @::@ 'Maybe' 'Snapshot'
+-- * 'asarsSnapshot'
 --
-authorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResponse
-authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
-    { _asarSnapshot = Nothing
+-- * 'asarsStatus'
+data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
+    { _asarsSnapshot :: !(Maybe Snapshot)
+    , _asarsStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'AuthorizeSnapshotAccessResponse' smart constructor.
+authorizeSnapshotAccessResponse :: Int -> AuthorizeSnapshotAccessResponse
+authorizeSnapshotAccessResponse pStatus_ =
+    AuthorizeSnapshotAccessResponse'
+    { _asarsSnapshot = Nothing
+    , _asarsStatus = pStatus_
     }
 
-asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
-asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
+-- | FIXME: Undocumented member.
+asarsSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
+asarsSnapshot = lens _asarsSnapshot (\ s a -> s{_asarsSnapshot = a});
 
-instance ToPath AuthorizeSnapshotAccess where
-    toPath = const "/"
-
-instance ToQuery AuthorizeSnapshotAccess where
-    toQuery AuthorizeSnapshotAccess{..} = mconcat
-        [ "AccountWithRestoreAccess"  =? _asaAccountWithRestoreAccess
-        , "SnapshotClusterIdentifier" =? _asaSnapshotClusterIdentifier
-        , "SnapshotIdentifier"        =? _asaSnapshotIdentifier
-        ]
-
-instance ToHeaders AuthorizeSnapshotAccess
-
-instance AWSRequest AuthorizeSnapshotAccess where
-    type Sv AuthorizeSnapshotAccess = Redshift
-    type Rs AuthorizeSnapshotAccess = AuthorizeSnapshotAccessResponse
-
-    request  = post "AuthorizeSnapshotAccess"
-    response = xmlResponse
-
-instance FromXML AuthorizeSnapshotAccessResponse where
-    parseXML = withElement "AuthorizeSnapshotAccessResult" $ \x -> AuthorizeSnapshotAccessResponse
-        <$> x .@? "Snapshot"
+-- | FIXME: Undocumented member.
+asarsStatus :: Lens' AuthorizeSnapshotAccessResponse Int
+asarsStatus = lens _asarsStatus (\ s a -> s{_asarsStatus = a});

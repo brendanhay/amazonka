@@ -1,31 +1,28 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.DeleteTags
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Deletes the specified set of tags from the specified set of resources. This
--- call is designed to follow a 'DescribeTags' request.
+-- Deletes the specified set of tags from the specified set of resources.
+-- This call is designed to follow a @DescribeTags@ request.
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information about tags, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteTags.html>
 module Network.AWS.EC2.DeleteTags
@@ -35,9 +32,9 @@ module Network.AWS.EC2.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , dt1DryRun
-    , dt1Resources
-    , dt1Tags
+    , dtsrqDryRun
+    , dtsrqTags
+    , dtsrqResources
 
     -- * Response
     , DeleteTagsResponse
@@ -45,73 +42,80 @@ module Network.AWS.EC2.DeleteTags
     , deleteTagsResponse
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.EC2.Types
-import qualified GHC.Exts
+import           Network.AWS.EC2.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DeleteTags = DeleteTags
-    { _dt1DryRun    :: Maybe Bool
-    , _dt1Resources :: List "resourceId" Text
-    , _dt1Tags      :: List "item" Tag
-    } deriving (Eq, Read, Show)
-
--- | 'DeleteTags' constructor.
+-- | /See:/ 'deleteTags' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dt1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dtsrqDryRun'
 --
--- * 'dt1Resources' @::@ ['Text']
+-- * 'dtsrqTags'
 --
--- * 'dt1Tags' @::@ ['Tag']
---
+-- * 'dtsrqResources'
+data DeleteTags = DeleteTags'
+    { _dtsrqDryRun    :: !(Maybe Bool)
+    , _dtsrqTags      :: !(Maybe [Tag])
+    , _dtsrqResources :: ![Text]
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteTags' smart constructor.
 deleteTags :: DeleteTags
-deleteTags = DeleteTags
-    { _dt1DryRun    = Nothing
-    , _dt1Resources = mempty
-    , _dt1Tags      = mempty
+deleteTags =
+    DeleteTags'
+    { _dtsrqDryRun = Nothing
+    , _dtsrqTags = Nothing
+    , _dtsrqResources = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
--- actually making the request, and provides an error response. If you have the
--- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
-dt1DryRun :: Lens' DeleteTags (Maybe Bool)
-dt1DryRun = lens _dt1DryRun (\s a -> s { _dt1DryRun = a })
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+dtsrqDryRun :: Lens' DeleteTags (Maybe Bool)
+dtsrqDryRun = lens _dtsrqDryRun (\ s a -> s{_dtsrqDryRun = a});
 
--- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more than
--- one resource ID.
-dt1Resources :: Lens' DeleteTags [Text]
-dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a }) . _List
+-- | One or more tags to delete. If you omit the @value@ parameter, we delete
+-- the tag regardless of its value. If you specify this parameter with an
+-- empty string as the value, we delete the key only if its value is an
+-- empty string.
+dtsrqTags :: Lens' DeleteTags [Tag]
+dtsrqTags = lens _dtsrqTags (\ s a -> s{_dtsrqTags = a}) . _Default;
 
--- | One or more tags to delete. If you omit the 'value' parameter, we delete the
--- tag regardless of its value. If you specify this parameter with an empty
--- string as the value, we delete the key only if its value is an empty string.
-dt1Tags :: Lens' DeleteTags [Tag]
-dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a }) . _List
-
-data DeleteTagsResponse = DeleteTagsResponse
-    deriving (Eq, Ord, Read, Show, Generic)
-
--- | 'DeleteTagsResponse' constructor.
-deleteTagsResponse :: DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse
-
-instance ToPath DeleteTags where
-    toPath = const "/"
-
-instance ToQuery DeleteTags where
-    toQuery DeleteTags{..} = mconcat
-        [ "DryRun"     =? _dt1DryRun
-        , "ResourceId" `toQueryList` _dt1Resources
-        , "Tag"        `toQueryList` _dt1Tags
-        ]
-
-instance ToHeaders DeleteTags
+-- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
+-- than one resource ID.
+dtsrqResources :: Lens' DeleteTags [Text]
+dtsrqResources = lens _dtsrqResources (\ s a -> s{_dtsrqResources = a});
 
 instance AWSRequest DeleteTags where
-    type Sv DeleteTags = EC2
-    type Rs DeleteTags = DeleteTagsResponse
+        type Sv DeleteTags = EC2
+        type Rs DeleteTags = DeleteTagsResponse
+        request = post
+        response = receiveNull DeleteTagsResponse'
 
-    request  = post "DeleteTags"
-    response = nullResponse DeleteTagsResponse
+instance ToHeaders DeleteTags where
+        toHeaders = const mempty
+
+instance ToPath DeleteTags where
+        toPath = const "/"
+
+instance ToQuery DeleteTags where
+        toQuery DeleteTags'{..}
+          = mconcat
+              ["Action" =: ("DeleteTags" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "DryRun" =: _dtsrqDryRun,
+               toQuery (toQueryList "item" <$> _dtsrqTags),
+               toQueryList "ResourceId" _dtsrqResources]
+
+-- | /See:/ 'deleteTagsResponse' smart constructor.
+data DeleteTagsResponse =
+    DeleteTagsResponse'
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteTagsResponse' smart constructor.
+deleteTagsResponse :: DeleteTagsResponse
+deleteTagsResponse = DeleteTagsResponse'

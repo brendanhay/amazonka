@@ -1,32 +1,30 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.OpsWorks.CreateInstance
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Creates an instance in a specified stack. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html Adding anInstance to a Layer>.
+-- Creates an instance in a specified stack. For more information, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html Adding an Instance to a Layer>.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack, or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_CreateInstance.html>
 module Network.AWS.OpsWorks.CreateInstance
@@ -36,269 +34,314 @@ module Network.AWS.OpsWorks.CreateInstance
     -- ** Request constructor
     , createInstance
     -- ** Request lenses
-    , ciAmiId
-    , ciArchitecture
-    , ciAutoScalingType
-    , ciAvailabilityZone
-    , ciBlockDeviceMappings
-    , ciEbsOptimized
-    , ciHostname
-    , ciInstallUpdatesOnBoot
-    , ciInstanceType
-    , ciLayerIds
-    , ciOs
-    , ciRootDeviceType
-    , ciSshKeyName
-    , ciStackId
-    , ciSubnetId
-    , ciVirtualizationType
+    , cirqInstallUpdatesOnBoot
+    , cirqVirtualizationType
+    , cirqHostname
+    , cirqSSHKeyName
+    , cirqAgentVersion
+    , cirqSubnetId
+    , cirqEBSOptimized
+    , cirqOS
+    , cirqAvailabilityZone
+    , cirqAutoScalingType
+    , cirqArchitecture
+    , cirqAMIId
+    , cirqBlockDeviceMappings
+    , cirqRootDeviceType
+    , cirqStackId
+    , cirqLayerIds
+    , cirqInstanceType
 
     -- * Response
     , CreateInstanceResponse
     -- ** Response constructor
     , createInstanceResponse
     -- ** Response lenses
-    , cirInstanceId
+    , cirsInstanceId
+    , cirsStatus
     ) where
 
-import Network.AWS.Data (Object)
-import Network.AWS.Prelude
-import Network.AWS.Request.JSON
-import Network.AWS.OpsWorks.Types
-import qualified GHC.Exts
+import           Network.AWS.OpsWorks.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data CreateInstance = CreateInstance
-    { _ciAmiId                :: Maybe Text
-    , _ciArchitecture         :: Maybe Architecture
-    , _ciAutoScalingType      :: Maybe AutoScalingType
-    , _ciAvailabilityZone     :: Maybe Text
-    , _ciBlockDeviceMappings  :: List "BlockDeviceMappings" BlockDeviceMapping
-    , _ciEbsOptimized         :: Maybe Bool
-    , _ciHostname             :: Maybe Text
-    , _ciInstallUpdatesOnBoot :: Maybe Bool
-    , _ciInstanceType         :: Text
-    , _ciLayerIds             :: List "LayerIds" Text
-    , _ciOs                   :: Maybe Text
-    , _ciRootDeviceType       :: Maybe RootDeviceType
-    , _ciSshKeyName           :: Maybe Text
-    , _ciStackId              :: Text
-    , _ciSubnetId             :: Maybe Text
-    , _ciVirtualizationType   :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'CreateInstance' constructor.
+-- | /See:/ 'createInstance' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciAmiId' @::@ 'Maybe' 'Text'
+-- * 'cirqInstallUpdatesOnBoot'
 --
--- * 'ciArchitecture' @::@ 'Maybe' 'Architecture'
+-- * 'cirqVirtualizationType'
 --
--- * 'ciAutoScalingType' @::@ 'Maybe' 'AutoScalingType'
+-- * 'cirqHostname'
 --
--- * 'ciAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'cirqSSHKeyName'
 --
--- * 'ciBlockDeviceMappings' @::@ ['BlockDeviceMapping']
+-- * 'cirqAgentVersion'
 --
--- * 'ciEbsOptimized' @::@ 'Maybe' 'Bool'
+-- * 'cirqSubnetId'
 --
--- * 'ciHostname' @::@ 'Maybe' 'Text'
+-- * 'cirqEBSOptimized'
 --
--- * 'ciInstallUpdatesOnBoot' @::@ 'Maybe' 'Bool'
+-- * 'cirqOS'
 --
--- * 'ciInstanceType' @::@ 'Text'
+-- * 'cirqAvailabilityZone'
 --
--- * 'ciLayerIds' @::@ ['Text']
+-- * 'cirqAutoScalingType'
 --
--- * 'ciOs' @::@ 'Maybe' 'Text'
+-- * 'cirqArchitecture'
 --
--- * 'ciRootDeviceType' @::@ 'Maybe' 'RootDeviceType'
+-- * 'cirqAMIId'
 --
--- * 'ciSshKeyName' @::@ 'Maybe' 'Text'
+-- * 'cirqBlockDeviceMappings'
 --
--- * 'ciStackId' @::@ 'Text'
+-- * 'cirqRootDeviceType'
 --
--- * 'ciSubnetId' @::@ 'Maybe' 'Text'
+-- * 'cirqStackId'
 --
--- * 'ciVirtualizationType' @::@ 'Maybe' 'Text'
+-- * 'cirqLayerIds'
 --
-createInstance :: Text -- ^ 'ciStackId'
-               -> Text -- ^ 'ciInstanceType'
-               -> CreateInstance
-createInstance p1 p2 = CreateInstance
-    { _ciStackId              = p1
-    , _ciInstanceType         = p2
-    , _ciLayerIds             = mempty
-    , _ciAutoScalingType      = Nothing
-    , _ciHostname             = Nothing
-    , _ciOs                   = Nothing
-    , _ciAmiId                = Nothing
-    , _ciSshKeyName           = Nothing
-    , _ciAvailabilityZone     = Nothing
-    , _ciVirtualizationType   = Nothing
-    , _ciSubnetId             = Nothing
-    , _ciArchitecture         = Nothing
-    , _ciRootDeviceType       = Nothing
-    , _ciBlockDeviceMappings  = mempty
-    , _ciInstallUpdatesOnBoot = Nothing
-    , _ciEbsOptimized         = Nothing
+-- * 'cirqInstanceType'
+data CreateInstance = CreateInstance'
+    { _cirqInstallUpdatesOnBoot :: !(Maybe Bool)
+    , _cirqVirtualizationType   :: !(Maybe Text)
+    , _cirqHostname             :: !(Maybe Text)
+    , _cirqSSHKeyName           :: !(Maybe Text)
+    , _cirqAgentVersion         :: !(Maybe Text)
+    , _cirqSubnetId             :: !(Maybe Text)
+    , _cirqEBSOptimized         :: !(Maybe Bool)
+    , _cirqOS                   :: !(Maybe Text)
+    , _cirqAvailabilityZone     :: !(Maybe Text)
+    , _cirqAutoScalingType      :: !(Maybe AutoScalingType)
+    , _cirqArchitecture         :: !(Maybe Architecture)
+    , _cirqAMIId                :: !(Maybe Text)
+    , _cirqBlockDeviceMappings  :: !(Maybe [BlockDeviceMapping])
+    , _cirqRootDeviceType       :: !(Maybe RootDeviceType)
+    , _cirqStackId              :: !Text
+    , _cirqLayerIds             :: ![Text]
+    , _cirqInstanceType         :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateInstance' smart constructor.
+createInstance :: Text -> Text -> CreateInstance
+createInstance pStackId_ pInstanceType_ =
+    CreateInstance'
+    { _cirqInstallUpdatesOnBoot = Nothing
+    , _cirqVirtualizationType = Nothing
+    , _cirqHostname = Nothing
+    , _cirqSSHKeyName = Nothing
+    , _cirqAgentVersion = Nothing
+    , _cirqSubnetId = Nothing
+    , _cirqEBSOptimized = Nothing
+    , _cirqOS = Nothing
+    , _cirqAvailabilityZone = Nothing
+    , _cirqAutoScalingType = Nothing
+    , _cirqArchitecture = Nothing
+    , _cirqAMIId = Nothing
+    , _cirqBlockDeviceMappings = Nothing
+    , _cirqRootDeviceType = Nothing
+    , _cirqStackId = pStackId_
+    , _cirqLayerIds = mempty
+    , _cirqInstanceType = pInstanceType_
     }
 
--- | A custom AMI ID to be used to create the instance. The AMI should be based on
--- one of the standard AWS OpsWorks AMIs: Amazon Linux, Ubuntu 12.04 LTS, or
--- Ubuntu 14.04 LTS. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances.html Instances>.
+-- | Whether to install operating system and package updates when the
+-- instance boots. The default value is @true@. To control when updates are
+-- installed, set this value to @false@. You must then update your
+-- instances manually by using CreateDeployment to run the
+-- @update_dependencies@ stack command or by manually running @yum@ (Amazon
+-- Linux) or @apt-get@ (Ubuntu) on the instances.
 --
--- If you specify a custom AMI, you must set 'Os' to 'Custom'.
-ciAmiId :: Lens' CreateInstance (Maybe Text)
-ciAmiId = lens _ciAmiId (\s a -> s { _ciAmiId = a })
+-- We strongly recommend using the default value of @true@ to ensure that
+-- your instances have the latest security updates.
+cirqInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
+cirqInstallUpdatesOnBoot = lens _cirqInstallUpdatesOnBoot (\ s a -> s{_cirqInstallUpdatesOnBoot = a});
 
--- | The instance architecture. The default option is 'x86_64'. Instance types do
--- not necessarily support both architectures. For a list of the architectures
--- that are supported by the different instance types, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families andTypes>.
-ciArchitecture :: Lens' CreateInstance (Maybe Architecture)
-ciArchitecture = lens _ciArchitecture (\s a -> s { _ciArchitecture = a })
-
--- | For load-based or time-based instances, the type. Windows stacks can use only
--- time-based instances.
-ciAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
-ciAutoScalingType =
-    lens _ciAutoScalingType (\s a -> s { _ciAutoScalingType = a })
-
--- | The instance Availability Zone. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions andEndpoints>.
-ciAvailabilityZone :: Lens' CreateInstance (Maybe Text)
-ciAvailabilityZone =
-    lens _ciAvailabilityZone (\s a -> s { _ciAvailabilityZone = a })
-
--- | An array of 'BlockDeviceMapping' objects that specify the instance's block
--- devices. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
-ciBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
-ciBlockDeviceMappings =
-    lens _ciBlockDeviceMappings (\s a -> s { _ciBlockDeviceMappings = a })
-        . _List
-
--- | Whether to create an Amazon EBS-optimized instance.
-ciEbsOptimized :: Lens' CreateInstance (Maybe Bool)
-ciEbsOptimized = lens _ciEbsOptimized (\s a -> s { _ciEbsOptimized = a })
+-- | The instance\'s virtualization type, @paravirtual@ or @hvm@.
+cirqVirtualizationType :: Lens' CreateInstance (Maybe Text)
+cirqVirtualizationType = lens _cirqVirtualizationType (\ s a -> s{_cirqVirtualizationType = a});
 
 -- | The instance host name.
-ciHostname :: Lens' CreateInstance (Maybe Text)
-ciHostname = lens _ciHostname (\s a -> s { _ciHostname = a })
+cirqHostname :: Lens' CreateInstance (Maybe Text)
+cirqHostname = lens _cirqHostname (\ s a -> s{_cirqHostname = a});
 
--- | Whether to install operating system and package updates when the instance
--- boots. The default value is 'true'. To control when updates are installed, set
--- this value to 'false'. You must then update your instances manually by using 'CreateDeployment' to run the 'update_dependencies' stack command or manually running 'yum' (Amazon
--- Linux) or 'apt-get' (Ubuntu) on the instances.
---
--- We strongly recommend using the default value of 'true' to ensure that your
--- instances have the latest security updates.
---
---
-ciInstallUpdatesOnBoot :: Lens' CreateInstance (Maybe Bool)
-ciInstallUpdatesOnBoot =
-    lens _ciInstallUpdatesOnBoot (\s a -> s { _ciInstallUpdatesOnBoot = a })
+-- | The instance\'s Amazon EC2 key-pair name.
+cirqSSHKeyName :: Lens' CreateInstance (Maybe Text)
+cirqSSHKeyName = lens _cirqSSHKeyName (\ s a -> s{_cirqSSHKeyName = a});
 
--- | The instance type. AWS OpsWorks supports all instance types except Cluster
--- Compute, Cluster GPU, and High Memory Cluster. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>. The parameter values that you use to specify the various types are in the
--- API Name column of the Available Instance Types table.
-ciInstanceType :: Lens' CreateInstance Text
-ciInstanceType = lens _ciInstanceType (\s a -> s { _ciInstanceType = a })
-
--- | An array that contains the instance layer IDs.
-ciLayerIds :: Lens' CreateInstance [Text]
-ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a }) . _List
-
--- | The instance's operating system, which must be set to one of the following.
+-- | The default AWS OpsWorks agent version. You have the following options:
 --
--- For Windows stacks: Microsoft Windows Server 2012 R2.
+-- -   @INHERIT@ - Use the stack\'s default agent version setting.
+-- -   /version_number/ - Use the specified agent version. This value
+--     overrides the stack\'s default setting. To update the agent version,
+--     edit the instance configuration and specify a new version. AWS
+--     OpsWorks then automatically installs that version on the instance.
 --
--- For Linux stacks:
+-- The default setting is @INHERIT@. To specify an agent version, you must
+-- use the complete version number, not the abbreviated number shown on the
+-- console. For a list of available agent version numbers, call
+-- DescribeAgentVersions.
+cirqAgentVersion :: Lens' CreateInstance (Maybe Text)
+cirqAgentVersion = lens _cirqAgentVersion (\ s a -> s{_cirqAgentVersion = a});
+
+-- | The ID of the instance\'s subnet. If the stack is running in a VPC, you
+-- can use this parameter to override the stack\'s default subnet ID value
+-- and direct AWS OpsWorks to launch the instance in a different subnet.
+cirqSubnetId :: Lens' CreateInstance (Maybe Text)
+cirqSubnetId = lens _cirqSubnetId (\ s a -> s{_cirqSubnetId = a});
+
+-- | Whether to create an Amazon EBS-optimized instance.
+cirqEBSOptimized :: Lens' CreateInstance (Maybe Bool)
+cirqEBSOptimized = lens _cirqEBSOptimized (\ s a -> s{_cirqEBSOptimized = a});
+
+-- | The instance\'s operating system, which must be set to one of the
+-- following.
 --
--- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The
--- default option is the current Amazon Linux version. If you set this parameter
--- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to
--- specify the custom AMI that you want to use. For more information on the
--- standard operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For more information on how
--- to use custom AMIs with OpsWorks, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
-ciOs :: Lens' CreateInstance (Maybe Text)
-ciOs = lens _ciOs (\s a -> s { _ciOs = a })
+-- -   A supported Linux operating system: An Amazon Linux version, such as
+--     @Amazon Linux 2015.03@, @Ubuntu 12.04 LTS@, or @Ubuntu 14.04 LTS@.
+-- -   @Microsoft Windows Server 2012 R2 Base@.
+-- -   A custom AMI: @Custom@.
+--
+-- For more information on the supported operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
+--
+-- The default option is the current Amazon Linux version. If you set this
+-- parameter to @Custom@, you must use the CreateInstance action\'s AmiId
+-- parameter to specify the custom AMI that you want to use. For more
+-- information on the supported operating systems, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For
+-- more information on how to use custom AMIs with AWS OpsWorks, see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
+cirqOS :: Lens' CreateInstance (Maybe Text)
+cirqOS = lens _cirqOS (\ s a -> s{_cirqOS = a});
 
--- | The instance root device type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice>.
-ciRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
-ciRootDeviceType = lens _ciRootDeviceType (\s a -> s { _ciRootDeviceType = a })
+-- | The instance Availability Zone. For more information, see
+-- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
+cirqAvailabilityZone :: Lens' CreateInstance (Maybe Text)
+cirqAvailabilityZone = lens _cirqAvailabilityZone (\ s a -> s{_cirqAvailabilityZone = a});
 
--- | The instance's Amazon EC2 key pair name.
-ciSshKeyName :: Lens' CreateInstance (Maybe Text)
-ciSshKeyName = lens _ciSshKeyName (\s a -> s { _ciSshKeyName = a })
+-- | For load-based or time-based instances, the type. Windows stacks can use
+-- only time-based instances.
+cirqAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
+cirqAutoScalingType = lens _cirqAutoScalingType (\ s a -> s{_cirqAutoScalingType = a});
+
+-- | The instance architecture. The default option is @x86_64@. Instance
+-- types do not necessarily support both architectures. For a list of the
+-- architectures that are supported by the different instance types, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
+cirqArchitecture :: Lens' CreateInstance (Maybe Architecture)
+cirqArchitecture = lens _cirqArchitecture (\ s a -> s{_cirqArchitecture = a});
+
+-- | A custom AMI ID to be used to create the instance. The AMI should be
+-- based on one of the supported operating systems. For more information,
+-- see
+-- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
+--
+-- If you specify a custom AMI, you must set @Os@ to @Custom@.
+cirqAMIId :: Lens' CreateInstance (Maybe Text)
+cirqAMIId = lens _cirqAMIId (\ s a -> s{_cirqAMIId = a});
+
+-- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
+-- block devices. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
+cirqBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
+cirqBlockDeviceMappings = lens _cirqBlockDeviceMappings (\ s a -> s{_cirqBlockDeviceMappings = a}) . _Default;
+
+-- | The instance root device type. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
+cirqRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
+cirqRootDeviceType = lens _cirqRootDeviceType (\ s a -> s{_cirqRootDeviceType = a});
 
 -- | The stack ID.
-ciStackId :: Lens' CreateInstance Text
-ciStackId = lens _ciStackId (\s a -> s { _ciStackId = a })
+cirqStackId :: Lens' CreateInstance Text
+cirqStackId = lens _cirqStackId (\ s a -> s{_cirqStackId = a});
 
--- | The ID of the instance's subnet. If the stack is running in a VPC, you can
--- use this parameter to override the stack's default subnet ID value and direct
--- AWS OpsWorks to launch the instance in a different subnet.
-ciSubnetId :: Lens' CreateInstance (Maybe Text)
-ciSubnetId = lens _ciSubnetId (\s a -> s { _ciSubnetId = a })
+-- | An array that contains the instance\'s layer IDs.
+cirqLayerIds :: Lens' CreateInstance [Text]
+cirqLayerIds = lens _cirqLayerIds (\ s a -> s{_cirqLayerIds = a});
 
--- | The instance's virtualization type, 'paravirtual' or 'hvm'.
-ciVirtualizationType :: Lens' CreateInstance (Maybe Text)
-ciVirtualizationType =
-    lens _ciVirtualizationType (\s a -> s { _ciVirtualizationType = a })
+-- | The instance type, such as @t2.micro@. For a list of supported instance
+-- types, open the stack in the console, choose __Instances__, and choose
+-- __+ Instance__. The __Size__ list contains the currently supported
+-- types. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
+-- The parameter values that you use to specify the various types are in
+-- the __API Name__ column of the __Available Instance Types__ table.
+cirqInstanceType :: Lens' CreateInstance Text
+cirqInstanceType = lens _cirqInstanceType (\ s a -> s{_cirqInstanceType = a});
 
-newtype CreateInstanceResponse = CreateInstanceResponse
-    { _cirInstanceId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+instance AWSRequest CreateInstance where
+        type Sv CreateInstance = OpsWorks
+        type Rs CreateInstance = CreateInstanceResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateInstanceResponse' <$>
+                   (x .?> "InstanceId") <*> (pure (fromEnum s)))
 
--- | 'CreateInstanceResponse' constructor.
+instance ToHeaders CreateInstance where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OpsWorks_20130218.CreateInstance" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateInstance where
+        toJSON CreateInstance'{..}
+          = object
+              ["InstallUpdatesOnBoot" .= _cirqInstallUpdatesOnBoot,
+               "VirtualizationType" .= _cirqVirtualizationType,
+               "Hostname" .= _cirqHostname,
+               "SshKeyName" .= _cirqSSHKeyName,
+               "AgentVersion" .= _cirqAgentVersion,
+               "SubnetId" .= _cirqSubnetId,
+               "EbsOptimized" .= _cirqEBSOptimized, "Os" .= _cirqOS,
+               "AvailabilityZone" .= _cirqAvailabilityZone,
+               "AutoScalingType" .= _cirqAutoScalingType,
+               "Architecture" .= _cirqArchitecture,
+               "AmiId" .= _cirqAMIId,
+               "BlockDeviceMappings" .= _cirqBlockDeviceMappings,
+               "RootDeviceType" .= _cirqRootDeviceType,
+               "StackId" .= _cirqStackId,
+               "LayerIds" .= _cirqLayerIds,
+               "InstanceType" .= _cirqInstanceType]
+
+instance ToPath CreateInstance where
+        toPath = const "/"
+
+instance ToQuery CreateInstance where
+        toQuery = const mempty
+
+-- | Contains the response to a @CreateInstance@ request.
+--
+-- /See:/ 'createInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cirInstanceId' @::@ 'Maybe' 'Text'
+-- * 'cirsInstanceId'
 --
-createInstanceResponse :: CreateInstanceResponse
-createInstanceResponse = CreateInstanceResponse
-    { _cirInstanceId = Nothing
+-- * 'cirsStatus'
+data CreateInstanceResponse = CreateInstanceResponse'
+    { _cirsInstanceId :: !(Maybe Text)
+    , _cirsStatus     :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'CreateInstanceResponse' smart constructor.
+createInstanceResponse :: Int -> CreateInstanceResponse
+createInstanceResponse pStatus_ =
+    CreateInstanceResponse'
+    { _cirsInstanceId = Nothing
+    , _cirsStatus = pStatus_
     }
 
 -- | The instance ID.
-cirInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
-cirInstanceId = lens _cirInstanceId (\s a -> s { _cirInstanceId = a })
+cirsInstanceId :: Lens' CreateInstanceResponse (Maybe Text)
+cirsInstanceId = lens _cirsInstanceId (\ s a -> s{_cirsInstanceId = a});
 
-instance ToPath CreateInstance where
-    toPath = const "/"
-
-instance ToQuery CreateInstance where
-    toQuery = const mempty
-
-instance ToHeaders CreateInstance
-
-instance ToJSON CreateInstance where
-    toJSON CreateInstance{..} = object
-        [ "StackId"              .= _ciStackId
-        , "LayerIds"             .= _ciLayerIds
-        , "InstanceType"         .= _ciInstanceType
-        , "AutoScalingType"      .= _ciAutoScalingType
-        , "Hostname"             .= _ciHostname
-        , "Os"                   .= _ciOs
-        , "AmiId"                .= _ciAmiId
-        , "SshKeyName"           .= _ciSshKeyName
-        , "AvailabilityZone"     .= _ciAvailabilityZone
-        , "VirtualizationType"   .= _ciVirtualizationType
-        , "SubnetId"             .= _ciSubnetId
-        , "Architecture"         .= _ciArchitecture
-        , "RootDeviceType"       .= _ciRootDeviceType
-        , "BlockDeviceMappings"  .= _ciBlockDeviceMappings
-        , "InstallUpdatesOnBoot" .= _ciInstallUpdatesOnBoot
-        , "EbsOptimized"         .= _ciEbsOptimized
-        ]
-
-instance AWSRequest CreateInstance where
-    type Sv CreateInstance = OpsWorks
-    type Rs CreateInstance = CreateInstanceResponse
-
-    request  = post "CreateInstance"
-    response = jsonResponse
-
-instance FromJSON CreateInstanceResponse where
-    parseJSON = withObject "CreateInstanceResponse" $ \o -> CreateInstanceResponse
-        <$> o .:? "InstanceId"
+-- | FIXME: Undocumented member.
+cirsStatus :: Lens' CreateInstanceResponse Int
+cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});

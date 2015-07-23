@@ -1,30 +1,26 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.ElastiCache.DescribeReplicationGroups
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | The /DescribeReplicationGroups/ action returns information about a particular
--- replication group. If no identifier is specified, /DescribeReplicationGroups/
--- returns information about all replication groups.
+-- The /DescribeReplicationGroups/ action returns information about a
+-- particular replication group. If no identifier is specified,
+-- /DescribeReplicationGroups/ returns information about all replication
+-- groups.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html>
 module Network.AWS.ElastiCache.DescribeReplicationGroups
@@ -34,129 +30,149 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- ** Request constructor
     , describeReplicationGroups
     -- ** Request lenses
-    , drg1Marker
-    , drg1MaxRecords
-    , drg1ReplicationGroupId
+    , drgsrqMaxRecords
+    , drgsrqMarker
+    , drgsrqReplicationGroupId
 
     -- * Response
     , DescribeReplicationGroupsResponse
     -- ** Response constructor
     , describeReplicationGroupsResponse
     -- ** Response lenses
-    , drgrMarker
-    , drgrReplicationGroups
+    , drgrsMarker
+    , drgrsReplicationGroups
+    , drgrsStatus
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.ElastiCache.Types
-import qualified GHC.Exts
+import           Network.AWS.ElastiCache.Types
+import           Network.AWS.Pager
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data DescribeReplicationGroups = DescribeReplicationGroups
-    { _drg1Marker             :: Maybe Text
-    , _drg1MaxRecords         :: Maybe Int
-    , _drg1ReplicationGroupId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
-
--- | 'DescribeReplicationGroups' constructor.
+-- | Represents the input of a /DescribeReplicationGroups/ action.
+--
+-- /See:/ 'describeReplicationGroups' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drg1Marker' @::@ 'Maybe' 'Text'
+-- * 'drgsrqMaxRecords'
 --
--- * 'drg1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'drgsrqMarker'
 --
--- * 'drg1ReplicationGroupId' @::@ 'Maybe' 'Text'
---
+-- * 'drgsrqReplicationGroupId'
+data DescribeReplicationGroups = DescribeReplicationGroups'
+    { _drgsrqMaxRecords         :: !(Maybe Int)
+    , _drgsrqMarker             :: !(Maybe Text)
+    , _drgsrqReplicationGroupId :: !(Maybe Text)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeReplicationGroups' smart constructor.
 describeReplicationGroups :: DescribeReplicationGroups
-describeReplicationGroups = DescribeReplicationGroups
-    { _drg1ReplicationGroupId = Nothing
-    , _drg1MaxRecords         = Nothing
-    , _drg1Marker             = Nothing
+describeReplicationGroups =
+    DescribeReplicationGroups'
+    { _drgsrqMaxRecords = Nothing
+    , _drgsrqMarker = Nothing
+    , _drgsrqReplicationGroupId = Nothing
     }
 
--- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this action. If this parameter is specified, the
--- response includes only records beyond the marker, up to the value specified
--- by /MaxRecords/.
-drg1Marker :: Lens' DescribeReplicationGroups (Maybe Text)
-drg1Marker = lens _drg1Marker (\s a -> s { _drg1Marker = a })
-
--- | The maximum number of records to include in the response. If more records
--- exist than the specified 'MaxRecords' value, a marker is included in the
--- response so that the remaining results can be retrieved.
+-- | The maximum number of records to include in the response. If more
+-- records exist than the specified @MaxRecords@ value, a marker is
+-- included in the response so that the remaining results can be retrieved.
 --
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-drg1MaxRecords :: Lens' DescribeReplicationGroups (Maybe Int)
-drg1MaxRecords = lens _drg1MaxRecords (\s a -> s { _drg1MaxRecords = a })
+drgsrqMaxRecords :: Lens' DescribeReplicationGroups (Maybe Int)
+drgsrqMaxRecords = lens _drgsrqMaxRecords (\ s a -> s{_drgsrqMaxRecords = a});
 
--- | The identifier for the replication group to be described. This parameter is
--- not case sensitive.
+-- | An optional marker returned from a prior request. Use this marker for
+-- pagination of results from this action. If this parameter is specified,
+-- the response includes only records beyond the marker, up to the value
+-- specified by /MaxRecords/.
+drgsrqMarker :: Lens' DescribeReplicationGroups (Maybe Text)
+drgsrqMarker = lens _drgsrqMarker (\ s a -> s{_drgsrqMarker = a});
+
+-- | The identifier for the replication group to be described. This parameter
+-- is not case sensitive.
 --
 -- If you do not specify this parameter, information about all replication
 -- groups is returned.
-drg1ReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
-drg1ReplicationGroupId =
-    lens _drg1ReplicationGroupId (\s a -> s { _drg1ReplicationGroupId = a })
+drgsrqReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
+drgsrqReplicationGroupId = lens _drgsrqReplicationGroupId (\ s a -> s{_drgsrqReplicationGroupId = a});
 
-data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
-    { _drgrMarker            :: Maybe Text
-    , _drgrReplicationGroups :: List "member" ReplicationGroup
-    } deriving (Eq, Read, Show)
+instance AWSPager DescribeReplicationGroups where
+        page rq rs
+          | stop (rs ^. drgrsMarker) = Nothing
+          | stop (rs ^. drgrsReplicationGroups) = Nothing
+          | otherwise =
+            Just $ rq & drgsrqMarker .~ rs ^. drgrsMarker
 
--- | 'DescribeReplicationGroupsResponse' constructor.
+instance AWSRequest DescribeReplicationGroups where
+        type Sv DescribeReplicationGroups = ElastiCache
+        type Rs DescribeReplicationGroups =
+             DescribeReplicationGroupsResponse
+        request = post
+        response
+          = receiveXMLWrapper "DescribeReplicationGroupsResult"
+              (\ s h x ->
+                 DescribeReplicationGroupsResponse' <$>
+                   (x .@? "Marker") <*>
+                     (x .@? "ReplicationGroups" .!@ mempty >>=
+                        may (parseXMLList "ReplicationGroup"))
+                     <*> (pure (fromEnum s)))
+
+instance ToHeaders DescribeReplicationGroups where
+        toHeaders = const mempty
+
+instance ToPath DescribeReplicationGroups where
+        toPath = const "/"
+
+instance ToQuery DescribeReplicationGroups where
+        toQuery DescribeReplicationGroups'{..}
+          = mconcat
+              ["Action" =:
+                 ("DescribeReplicationGroups" :: ByteString),
+               "Version" =: ("2015-02-02" :: ByteString),
+               "MaxRecords" =: _drgsrqMaxRecords,
+               "Marker" =: _drgsrqMarker,
+               "ReplicationGroupId" =: _drgsrqReplicationGroupId]
+
+-- | Represents the output of a /DescribeReplicationGroups/ action.
+--
+-- /See:/ 'describeReplicationGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drgrMarker' @::@ 'Maybe' 'Text'
+-- * 'drgrsMarker'
 --
--- * 'drgrReplicationGroups' @::@ ['ReplicationGroup']
+-- * 'drgrsReplicationGroups'
 --
-describeReplicationGroupsResponse :: DescribeReplicationGroupsResponse
-describeReplicationGroupsResponse = DescribeReplicationGroupsResponse
-    { _drgrMarker            = Nothing
-    , _drgrReplicationGroups = mempty
+-- * 'drgrsStatus'
+data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
+    { _drgrsMarker            :: !(Maybe Text)
+    , _drgrsReplicationGroups :: !(Maybe [ReplicationGroup])
+    , _drgrsStatus            :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DescribeReplicationGroupsResponse' smart constructor.
+describeReplicationGroupsResponse :: Int -> DescribeReplicationGroupsResponse
+describeReplicationGroupsResponse pStatus_ =
+    DescribeReplicationGroupsResponse'
+    { _drgrsMarker = Nothing
+    , _drgrsReplicationGroups = Nothing
+    , _drgrsStatus = pStatus_
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-drgrMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
-drgrMarker = lens _drgrMarker (\s a -> s { _drgrMarker = a })
+drgrsMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
+drgrsMarker = lens _drgrsMarker (\ s a -> s{_drgrsMarker = a});
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
-drgrReplicationGroups =
-    lens _drgrReplicationGroups (\s a -> s { _drgrReplicationGroups = a })
-        . _List
+drgrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
+drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default;
 
-instance ToPath DescribeReplicationGroups where
-    toPath = const "/"
-
-instance ToQuery DescribeReplicationGroups where
-    toQuery DescribeReplicationGroups{..} = mconcat
-        [ "Marker"             =? _drg1Marker
-        , "MaxRecords"         =? _drg1MaxRecords
-        , "ReplicationGroupId" =? _drg1ReplicationGroupId
-        ]
-
-instance ToHeaders DescribeReplicationGroups
-
-instance AWSRequest DescribeReplicationGroups where
-    type Sv DescribeReplicationGroups = ElastiCache
-    type Rs DescribeReplicationGroups = DescribeReplicationGroupsResponse
-
-    request  = post "DescribeReplicationGroups"
-    response = xmlResponse
-
-instance FromXML DescribeReplicationGroupsResponse where
-    parseXML = withElement "DescribeReplicationGroupsResult" $ \x -> DescribeReplicationGroupsResponse
-        <$> x .@? "Marker"
-        <*> x .@? "ReplicationGroups" .!@ mempty
-
-instance AWSPager DescribeReplicationGroups where
-    page rq rs
-        | stop (rs ^. drgrMarker) = Nothing
-        | otherwise = (\x -> rq & drg1Marker ?~ x)
-            <$> (rs ^. drgrMarker)
+-- | FIXME: Undocumented member.
+drgrsStatus :: Lens' DescribeReplicationGroupsResponse Int
+drgrsStatus = lens _drgrsStatus (\ s a -> s{_drgrsStatus = a});

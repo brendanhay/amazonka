@@ -1,34 +1,31 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Configures scaling parameters for a domain. A domain's scaling parameters
--- specify the desired search instance type and replication count. Amazon
--- CloudSearch will still automatically scale your domain based on the volume of
--- data and traffic, but not below the desired instance type and replication
--- count. If the Multi-AZ option is enabled, these values control the resources
--- used per Availability Zone. For more information, see Configuring Scaling
--- Options in the /Amazon CloudSearch Developer Guide/.
+-- Configures scaling parameters for a domain. A domain\'s scaling
+-- parameters specify the desired search instance type and replication
+-- count. Amazon CloudSearch will still automatically scale your domain
+-- based on the volume of data and traffic, but not below the desired
+-- instance type and replication count. If the Multi-AZ option is enabled,
+-- these values control the resources used per Availability Zone. For more
+-- information, see
+-- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options>
+-- in the /Amazon CloudSearch Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_UpdateScalingParameters.html>
 module Network.AWS.CloudSearch.UpdateScalingParameters
@@ -38,88 +35,108 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     -- ** Request constructor
     , updateScalingParameters
     -- ** Request lenses
-    , uspDomainName
-    , uspScalingParameters
+    , usprqDomainName
+    , usprqScalingParameters
 
     -- * Response
     , UpdateScalingParametersResponse
     -- ** Response constructor
     , updateScalingParametersResponse
     -- ** Response lenses
-    , usprScalingParameters
+    , usprsStatus
+    , usprsScalingParameters
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.CloudSearch.Types
-import qualified GHC.Exts
+import           Network.AWS.CloudSearch.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
 
-data UpdateScalingParameters = UpdateScalingParameters
-    { _uspDomainName        :: Text
-    , _uspScalingParameters :: ScalingParameters
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateScalingParameters' constructor.
+-- | Container for the parameters to the @UpdateScalingParameters@ operation.
+-- Specifies the name of the domain you want to update and the scaling
+-- parameters you want to configure.
+--
+-- /See:/ 'updateScalingParameters' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uspDomainName' @::@ 'Text'
+-- * 'usprqDomainName'
 --
--- * 'uspScalingParameters' @::@ 'ScalingParameters'
---
-updateScalingParameters :: Text -- ^ 'uspDomainName'
-                        -> ScalingParameters -- ^ 'uspScalingParameters'
-                        -> UpdateScalingParameters
-updateScalingParameters p1 p2 = UpdateScalingParameters
-    { _uspDomainName        = p1
-    , _uspScalingParameters = p2
+-- * 'usprqScalingParameters'
+data UpdateScalingParameters = UpdateScalingParameters'
+    { _usprqDomainName        :: !Text
+    , _usprqScalingParameters :: !ScalingParameters
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateScalingParameters' smart constructor.
+updateScalingParameters :: Text -> ScalingParameters -> UpdateScalingParameters
+updateScalingParameters pDomainName_ pScalingParameters_ =
+    UpdateScalingParameters'
+    { _usprqDomainName = pDomainName_
+    , _usprqScalingParameters = pScalingParameters_
     }
 
-uspDomainName :: Lens' UpdateScalingParameters Text
-uspDomainName = lens _uspDomainName (\s a -> s { _uspDomainName = a })
+-- | FIXME: Undocumented member.
+usprqDomainName :: Lens' UpdateScalingParameters Text
+usprqDomainName = lens _usprqDomainName (\ s a -> s{_usprqDomainName = a});
 
-uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
-uspScalingParameters =
-    lens _uspScalingParameters (\s a -> s { _uspScalingParameters = a })
-
-newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
-    { _usprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Read, Show)
-
--- | 'UpdateScalingParametersResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'usprScalingParameters' @::@ 'ScalingParametersStatus'
---
-updateScalingParametersResponse :: ScalingParametersStatus -- ^ 'usprScalingParameters'
-                                -> UpdateScalingParametersResponse
-updateScalingParametersResponse p1 = UpdateScalingParametersResponse
-    { _usprScalingParameters = p1
-    }
-
-usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
-usprScalingParameters =
-    lens _usprScalingParameters (\s a -> s { _usprScalingParameters = a })
-
-instance ToPath UpdateScalingParameters where
-    toPath = const "/"
-
-instance ToQuery UpdateScalingParameters where
-    toQuery UpdateScalingParameters{..} = mconcat
-        [ "DomainName"        =? _uspDomainName
-        , "ScalingParameters" =? _uspScalingParameters
-        ]
-
-instance ToHeaders UpdateScalingParameters
+-- | FIXME: Undocumented member.
+usprqScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
+usprqScalingParameters = lens _usprqScalingParameters (\ s a -> s{_usprqScalingParameters = a});
 
 instance AWSRequest UpdateScalingParameters where
-    type Sv UpdateScalingParameters = CloudSearch
-    type Rs UpdateScalingParameters = UpdateScalingParametersResponse
+        type Sv UpdateScalingParameters = CloudSearch
+        type Rs UpdateScalingParameters =
+             UpdateScalingParametersResponse
+        request = post
+        response
+          = receiveXMLWrapper "UpdateScalingParametersResult"
+              (\ s h x ->
+                 UpdateScalingParametersResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "ScalingParameters"))
 
-    request  = post "UpdateScalingParameters"
-    response = xmlResponse
+instance ToHeaders UpdateScalingParameters where
+        toHeaders = const mempty
 
-instance FromXML UpdateScalingParametersResponse where
-    parseXML = withElement "UpdateScalingParametersResult" $ \x -> UpdateScalingParametersResponse
-        <$> x .@  "ScalingParameters"
+instance ToPath UpdateScalingParameters where
+        toPath = const "/"
+
+instance ToQuery UpdateScalingParameters where
+        toQuery UpdateScalingParameters'{..}
+          = mconcat
+              ["Action" =:
+                 ("UpdateScalingParameters" :: ByteString),
+               "Version" =: ("2013-01-01" :: ByteString),
+               "DomainName" =: _usprqDomainName,
+               "ScalingParameters" =: _usprqScalingParameters]
+
+-- | The result of a @UpdateScalingParameters@ request. Contains the status
+-- of the newly-configured scaling parameters.
+--
+-- /See:/ 'updateScalingParametersResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'usprsStatus'
+--
+-- * 'usprsScalingParameters'
+data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
+    { _usprsStatus            :: !Int
+    , _usprsScalingParameters :: !ScalingParametersStatus
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdateScalingParametersResponse' smart constructor.
+updateScalingParametersResponse :: Int -> ScalingParametersStatus -> UpdateScalingParametersResponse
+updateScalingParametersResponse pStatus_ pScalingParameters_ =
+    UpdateScalingParametersResponse'
+    { _usprsStatus = pStatus_
+    , _usprsScalingParameters = pScalingParameters_
+    }
+
+-- | FIXME: Undocumented member.
+usprsStatus :: Lens' UpdateScalingParametersResponse Int
+usprsStatus = lens _usprsStatus (\ s a -> s{_usprsStatus = a});
+
+-- | FIXME: Undocumented member.
+usprsScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
+usprsScalingParameters = lens _usprsScalingParameters (\ s a -> s{_usprsScalingParameters = a});

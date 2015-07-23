@@ -1,28 +1,23 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.SES.VerifyDomainIdentity
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
--- | Verifies a domain.
+-- Verifies a domain.
 --
 -- This action is throttled at one request per second.
 --
@@ -34,80 +29,96 @@ module Network.AWS.SES.VerifyDomainIdentity
     -- ** Request constructor
     , verifyDomainIdentity
     -- ** Request lenses
-    , vdiDomain
+    , vdirqDomain
 
     -- * Response
     , VerifyDomainIdentityResponse
     -- ** Response constructor
     , verifyDomainIdentityResponse
     -- ** Response lenses
-    , vdirVerificationToken
+    , vdirsStatus
+    , vdirsVerificationToken
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Request.Query
-import Network.AWS.SES.Types
-import qualified GHC.Exts
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+import           Network.AWS.SES.Types
 
-newtype VerifyDomainIdentity = VerifyDomainIdentity
-    { _vdiDomain :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
-
--- | 'VerifyDomainIdentity' constructor.
+-- | Represents a request instructing the service to begin domain
+-- verification.
+--
+-- /See:/ 'verifyDomainIdentity' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vdiDomain' @::@ 'Text'
---
-verifyDomainIdentity :: Text -- ^ 'vdiDomain'
-                     -> VerifyDomainIdentity
-verifyDomainIdentity p1 = VerifyDomainIdentity
-    { _vdiDomain = p1
+-- * 'vdirqDomain'
+newtype VerifyDomainIdentity = VerifyDomainIdentity'
+    { _vdirqDomain :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'VerifyDomainIdentity' smart constructor.
+verifyDomainIdentity :: Text -> VerifyDomainIdentity
+verifyDomainIdentity pDomain_ =
+    VerifyDomainIdentity'
+    { _vdirqDomain = pDomain_
     }
 
 -- | The domain to be verified.
-vdiDomain :: Lens' VerifyDomainIdentity Text
-vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
+vdirqDomain :: Lens' VerifyDomainIdentity Text
+vdirqDomain = lens _vdirqDomain (\ s a -> s{_vdirqDomain = a});
 
-newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
-    { _vdirVerificationToken :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+instance AWSRequest VerifyDomainIdentity where
+        type Sv VerifyDomainIdentity = SES
+        type Rs VerifyDomainIdentity =
+             VerifyDomainIdentityResponse
+        request = post
+        response
+          = receiveXMLWrapper "VerifyDomainIdentityResult"
+              (\ s h x ->
+                 VerifyDomainIdentityResponse' <$>
+                   (pure (fromEnum s)) <*> (x .@ "VerificationToken"))
 
--- | 'VerifyDomainIdentityResponse' constructor.
+instance ToHeaders VerifyDomainIdentity where
+        toHeaders = const mempty
+
+instance ToPath VerifyDomainIdentity where
+        toPath = const "/"
+
+instance ToQuery VerifyDomainIdentity where
+        toQuery VerifyDomainIdentity'{..}
+          = mconcat
+              ["Action" =: ("VerifyDomainIdentity" :: ByteString),
+               "Version" =: ("2010-12-01" :: ByteString),
+               "Domain" =: _vdirqDomain]
+
+-- | Represents a token used for domain ownership verification.
+--
+-- /See:/ 'verifyDomainIdentityResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vdirVerificationToken' @::@ 'Text'
+-- * 'vdirsStatus'
 --
-verifyDomainIdentityResponse :: Text -- ^ 'vdirVerificationToken'
-                             -> VerifyDomainIdentityResponse
-verifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
-    { _vdirVerificationToken = p1
+-- * 'vdirsVerificationToken'
+data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
+    { _vdirsStatus            :: !Int
+    , _vdirsVerificationToken :: !Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'VerifyDomainIdentityResponse' smart constructor.
+verifyDomainIdentityResponse :: Int -> Text -> VerifyDomainIdentityResponse
+verifyDomainIdentityResponse pStatus_ pVerificationToken_ =
+    VerifyDomainIdentityResponse'
+    { _vdirsStatus = pStatus_
+    , _vdirsVerificationToken = pVerificationToken_
     }
 
--- | A TXT record that must be placed in the DNS settings for the domain, in order
--- to complete domain verification.
-vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
-vdirVerificationToken =
-    lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })
+-- | FIXME: Undocumented member.
+vdirsStatus :: Lens' VerifyDomainIdentityResponse Int
+vdirsStatus = lens _vdirsStatus (\ s a -> s{_vdirsStatus = a});
 
-instance ToPath VerifyDomainIdentity where
-    toPath = const "/"
-
-instance ToQuery VerifyDomainIdentity where
-    toQuery VerifyDomainIdentity{..} = mconcat
-        [ "Domain" =? _vdiDomain
-        ]
-
-instance ToHeaders VerifyDomainIdentity
-
-instance AWSRequest VerifyDomainIdentity where
-    type Sv VerifyDomainIdentity = SES
-    type Rs VerifyDomainIdentity = VerifyDomainIdentityResponse
-
-    request  = post "VerifyDomainIdentity"
-    response = xmlResponse
-
-instance FromXML VerifyDomainIdentityResponse where
-    parseXML = withElement "VerifyDomainIdentityResult" $ \x -> VerifyDomainIdentityResponse
-        <$> x .@  "VerificationToken"
+-- | A TXT record that must be placed in the DNS settings for the domain, in
+-- order to complete domain verification.
+vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
+vdirsVerificationToken = lens _vdirsVerificationToken (\ s a -> s{_vdirsVerificationToken = a});

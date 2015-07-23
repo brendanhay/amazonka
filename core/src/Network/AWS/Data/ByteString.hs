@@ -147,17 +147,6 @@ instance ToBuilder RequestBody where
           where
             n = BS.length bs
 
--- instance ToBuilder RsBody where
---     build = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
-
--- instance ToBuilder RqBody where
---     build x@(RqBody _ b) = mconcat $ intersperse "\n"
---         [ "    Body {"
---         , "      hash    = "  <> build (bodyHash x)
---         , "      payload =\n" <> build b
---         , "    }"
---         ]
-
 instance ToBuilder HttpException where
     build x = "[HttpException] {\n" <> build (show x) <> "\n}"
 

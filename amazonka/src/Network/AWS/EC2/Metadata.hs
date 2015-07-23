@@ -1,5 +1,6 @@
 {-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |
@@ -61,7 +62,7 @@ data Dynamic
     | Signature
 
 instance ToPath Dynamic where
-    toPath x = case x of
+    toPath = \case
        FWS       -> "fws/instance-monitoring"
        Document  -> "instance-identity/document"
        PKCS7     -> "instance-identity/pkcs7"
@@ -137,7 +138,7 @@ data Metadata
       deriving (Eq, Ord, Show)
 
 instance ToPath Metadata where
-    toPath x = case x of
+    toPath = \case
         AMIId            -> "ami-id"
         AMILaunchIndex   -> "ami-launch-index"
         AMIManifestPath  -> "ami-manifest-path"
@@ -181,7 +182,7 @@ data Mapping
       deriving (Eq, Ord, Show)
 
 instance ToPath Mapping where
-    toPath x = case x of
+    toPath = \case
         AMI         -> "ami"
         EBS       n -> "ebs"       <> toText n
         Ephemeral n -> "ephemeral" <> toText n
@@ -236,7 +237,7 @@ data Interface
       deriving (Eq, Ord, Show)
 
 instance ToPath Interface where
-    toPath x = case x of
+    toPath = \case
         IDeviceNumber         -> "device-number"
         IIPV4Associations ip  -> "ipv4-associations/" <> ip
         ILocalHostname        -> "local-hostname"
@@ -265,7 +266,7 @@ data Info
       deriving (Eq, Ord, Show)
 
 instance ToPath Info where
-    toPath x = case x of
+    toPath = \case
         Info'                 -> "info"
         SecurityCredentials r -> "security-credentials/" <> fromMaybe "" r
 

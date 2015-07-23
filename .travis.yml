@@ -80,6 +80,7 @@ addons:
       - ghc-7.8.4
 
 cache:
+  apt: true
   directories:
     - ~/.stack
 

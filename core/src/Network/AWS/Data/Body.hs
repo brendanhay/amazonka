@@ -45,22 +45,31 @@ data RqBody = RqBody
     }
 
 instance Show RqBody where
-    show b = "RqBody { RequestBody " ++ BS8.unpack (bodyHash b) ++ " }"
+    show b = "RqBody { RequestBody " ++ BS8.unpack (bodySHA256 b) ++ " }"
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
 
-bodyHash :: RqBody -> ByteString
-bodyHash = digestToBase Base16 . bodyDigest
-
 bodyStream :: RqBody -> Bool
-bodyStream b =
-    case bodyRequest b of
+bodyStream x =
+    case bodyRequest x of
         RequestBodyLBS           {} -> False
         RequestBodyBS            {} -> False
         RequestBodyBuilder       {} -> False
         RequestBodyStream        {} -> True
         RequestBodyStreamChunked {} -> True
+
+bodySHA256 :: RqBody -> ByteString
+bodySHA256 = digestToBase Base16 . bodyDigest
+
+bodyCalculateMD5 :: RqBody -> Maybe ByteString
+bodyCalculateMD5 x =
+    let hexMD5 = Just . digestToBase Base16 . hashMD5
+     in case bodyRequest x of
+        RequestBodyLBS           lbs -> hexMD5 (toBS lbs)
+        RequestBodyBS            bs  -> hexMD5 bs
+        RequestBodyBuilder     _ b   -> hexMD5 (toBS b)
+        _                            -> Nothing
 
 -- | Anything that can be safely converted to a 'RqBody'.
 class ToBody a where

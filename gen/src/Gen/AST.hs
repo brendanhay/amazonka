@@ -88,7 +88,7 @@ renderShapes cfg svc = do
     let prune = Map.filter $ \s -> not (isOrphan s) || s ^. infoException
 
     -- Convert shape ASTs into a rendered Haskell AST declaration,
-    xs <- traverse (operationData svc) x
+    xs <- traverse (operationData cfg svc) x
     ys <- kvTraverseMaybe (const (shapeData svc)) (prune y)
     zs <- Map.traverseWithKey (waiterData svc x) (svc ^. waiters)
 

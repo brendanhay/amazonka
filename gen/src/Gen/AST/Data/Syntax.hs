@@ -21,6 +21,7 @@ import           Control.Comonad
 import           Control.Error
 import           Control.Lens                 hiding (iso, mapping, op, strict)
 import qualified Data.Foldable                as Fold
+import qualified Data.HashMap.Strict          as Map
 import           Data.List.NonEmpty           (NonEmpty (..))
 import           Data.Monoid                  ((<>))
 import           Data.String
@@ -172,14 +173,14 @@ serviceD m r = instD "AWSService" n
 
     svc = sfun noLoc (ident "svc") [] . UnGuardedRhs $
         RecConstr (unqual "Service")
-            [ FieldUpdate (unqual "_svcAbbrev")   (str abbrev)
-            , FieldUpdate (unqual "_svcPrefix")   (m ^. endpointPrefix . to str)
-            , FieldUpdate (unqual "_svcVersion")  (m ^. apiVersion . to str)
-            , FieldUpdate (unqual "_svcEndpoint") (app (var "defaultEndpoint") (var "svc"))
-            , FieldUpdate (unqual "_svcTimeout")  (app justE (intE 70000000))
-            , FieldUpdate (unqual "_svcStatus")   (var "statusSuccess")
-            , FieldUpdate (unqual "_svcError")    (m ^. serviceError . to var)
-            , FieldUpdate (unqual "_svcRetry")    (var "retry")
+            [ FieldUpdate (unqual "_svcAbbrev")    (str abbrev)
+            , FieldUpdate (unqual "_svcPrefix")    (m ^. endpointPrefix . to str)
+            , FieldUpdate (unqual "_svcVersion")   (m ^. apiVersion . to str)
+            , FieldUpdate (unqual "_svcEndpoint")  (app (var "defaultEndpoint") (var "svc"))
+            , FieldUpdate (unqual "_svcTimeout")   (app justE (intE 70000000))
+            , FieldUpdate (unqual "_svcStatus")    (var "statusSuccess")
+            , FieldUpdate (unqual "_svcError")     (m ^. serviceError . to var)
+            , FieldUpdate (unqual "_svcRetry")     (var "retry")
             ]
 
     try = sfun noLoc (ident "retry") [] . UnGuardedRhs $
@@ -288,15 +289,16 @@ notationE = \case
         | otherwise     = key False f
 
 requestD :: HasMetadata a f
-         => a
+         => Config
+         -> a
          -> HTTP Identity
          -> (Ref, [Inst])
          -> (Ref, [Field])
          -> Decl
-requestD m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
+requestD c m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
     [ assocD (identifier a) "Sv" (m ^. serviceAbbrev)
     , assocD (identifier a) "Rs" (typeId (identifier b))
-    , funD "request"  (requestF h as)
+    , funD "request"  (requestF c h a as)
     , funD "response" (responseE (m ^. protocol) b bs)
     ]
 
@@ -606,10 +608,15 @@ inputNames, outputNames :: Protocol -> Field -> Names
 inputNames  p f = Proto.nestedNames p Input  (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
-requestF :: HTTP Identity -> [Inst] -> Exp
-requestF h is = var v
+requestF :: Config -> HTTP Identity -> Ref -> [Inst] -> Exp
+requestF c h r is = maybe v (Fold.foldr' plugin v) ps
   where
-    v = mappend (methodToText (h ^. method))
+    plugin x = infixApp (var x) "."
+
+    ps = Map.lookup (identifier r) (c ^. operationPlugins)
+
+    v = var
+      . mappend (methodToText (h ^. method))
       . fromMaybe mempty
       . listToMaybe
       $ mapMaybe f is

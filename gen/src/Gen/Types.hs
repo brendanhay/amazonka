@@ -136,6 +136,7 @@ data Config = Config
     , _referenceUrl     :: Text
     , _operationUrl     :: Text
     , _operationModules :: [NS]
+    , _operationPlugins :: Map Id [Text]
     , _typeModules      :: [NS]
     , _typeOverrides    :: Map Id Override
     , _ignoredWaiters   :: Set Id
@@ -149,6 +150,7 @@ instance FromJSON Config where
         <*> o .:  "referenceUrl"
         <*> o .:  "operationUrl"
         <*> o .:? "operationModules" .!= mempty
+        <*> o .:? "operationPlugins" .!= mempty
         <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "typeOverrides"    .!= mempty
         <*> o .:? "ignoredWaiters"   .!= mempty

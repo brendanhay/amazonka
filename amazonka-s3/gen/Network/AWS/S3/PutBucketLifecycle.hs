@@ -83,7 +83,7 @@ instance AWSRequest PutBucketLifecycle where
         type Sv PutBucketLifecycle = S3
         type Rs PutBucketLifecycle =
              PutBucketLifecycleResponse
-        request = putXML
+        request = contentMD5 . putXML
         response = receiveNull PutBucketLifecycleResponse'
 
 instance ToElement PutBucketLifecycle where

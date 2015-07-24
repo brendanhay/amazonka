@@ -283,22 +283,22 @@ type Response a = Either Error (Status, Rs a)
 
 -- | An unsigned request.
 data Request a = Request
-    { _rqMethod  :: !StdMethod
-    , _rqPath    :: ByteString
-    , _rqQuery   :: QueryString
-    , _rqHeaders :: [Header]
-    , _rqBody    :: RqBody
+    { _rqMethod    :: !StdMethod
+    , _rqPath      :: ByteString
+    , _rqQuery     :: QueryString
+    , _rqHeaders   :: [Header]
+    , _rqBody      :: RqBody
     }
 
 instance ToBuilder (Request a) where
     build Request{..} = buildLines
         [ "[Raw Request] {"
-        , "  method  = "  <> build _rqMethod
-        , "  path    = "  <> build _rqPath
-        , "  query   = "  <> build _rqQuery
-        , "  headers = "  <> build _rqHeaders
-        , "  body    = {"
-        , "    hash    = "  <> build (bodyHash    _rqBody)
+        , "  method    = "  <> build _rqMethod
+        , "  path      = "  <> build _rqPath
+        , "  query     = "  <> build _rqQuery
+        , "  headers   = "  <> build _rqHeaders
+        , "  body      = {"
+        , "    hash    = "  <> build (bodySHA256  _rqBody)
         , "    payload =\n" <> build (bodyRequest _rqBody)
         , "  }"
         , "}"

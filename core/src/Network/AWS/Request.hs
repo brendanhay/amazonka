@@ -33,6 +33,7 @@ module Network.AWS.Request
     -- ** Constructors
     , defaultRequest
     , contentSHA256
+    , contentMD5
 
     -- * Lenses
     , method
@@ -45,6 +46,7 @@ module Network.AWS.Request
     ) where
 
 import           Control.Lens
+import           Data.Maybe
 import           Data.Monoid
 import qualified Data.Text.Encoding           as Text
 import           Network.AWS.Data.Body
@@ -118,7 +120,15 @@ defaultRequest x = Request
 
 contentSHA256 :: Request a -> Request a
 contentSHA256 rq = rq
-    & rqHeaders %~ hdr hAMZContentSHA256 (rq ^. rqBody . to bodyHash)
+    & rqHeaders %~ hdr hAMZContentSHA256 (rq ^. rqBody . to bodySHA256)
+
+contentMD5 :: Request a -> Request a
+contentMD5 rq
+    | missing, Just x <- md5 = rq & rqHeaders %~ hdr HTTP.hContentMD5 x
+    | otherwise              = rq
+  where
+    missing = isNothing $ lookup HTTP.hContentMD5 (rq ^. rqHeaders)
+    md5     = rq ^. rqBody . to bodyCalculateMD5
 
 method :: Lens' HTTP.Request HTTP.Method
 method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }

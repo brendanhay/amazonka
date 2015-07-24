@@ -94,7 +94,7 @@ instance AWSSigner V4 where
 
         date   = toBS (Time t :: AWSTime)
         tok    = (hAMZToken,) . toBS <$> _authToken a
-        hashed = rq ^. rqBody . to bodyHash
+        hashed = rq ^. rqBody . to bodySHA256
 
 authorisation :: Meta V4 -> ByteString
 authorisation Meta{..} = BS.concat

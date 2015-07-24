@@ -92,7 +92,6 @@ import           Data.Conduit                 (Source)
 import           Data.Monoid
 import           Network.AWS.Auth
 import           Network.AWS.EC2.Metadata     (Dynamic, Metadata)
-import qualified Network.AWS.EC2.Metadata     as Meta
 import           Network.AWS.Env              (AWSEnv (..), Env, newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger

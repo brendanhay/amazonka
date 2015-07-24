@@ -31,7 +31,6 @@ module Control.Monad.Trans.AWS
     -- * Running AWS Actions
       AWST
     , runAWST
-    , pureAWST
 
     -- * Environment Setup
     , Credentials (..)
@@ -82,11 +81,12 @@ module Control.Monad.Trans.AWS
 import           Control.Applicative
 import           Control.Monad.Base
 import           Control.Monad.Catch          (MonadCatch)
-import           Control.Monad.Except
+import           Control.Monad.Error.Class
 import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.State.Class
 import           Control.Monad.Trans.Control
+import           Control.Monad.Trans.Except
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class

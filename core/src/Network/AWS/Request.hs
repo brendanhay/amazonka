@@ -84,8 +84,9 @@ postJSON x = putJSON x & rqMethod .~ POST
 
 postQuery :: (ToQuery a, ToPath a, ToHeaders a) => a -> Request a
 postQuery x = defaultRequest x
-    & rqMethod .~ POST
-    & rqQuery <>~ toQuery x
+    & rqMethod  .~ POST
+    & rqBody    .~ toBody (toQuery x)
+    & rqHeaders %~ hdr HTTP.hContentType "application/x-www-form-urlencoded"
     & contentSHA256
 
 postBody :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a

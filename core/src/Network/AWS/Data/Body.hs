@@ -26,6 +26,7 @@ import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Encoding      as LText
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
+import           Network.AWS.Data.Query       (QueryString)
 import           Network.AWS.Data.XML         (encodeXML)
 import           Network.HTTP.Client
 import           Text.XML                     (Element)
@@ -96,3 +97,6 @@ instance ToBody Value where
 
 instance ToBody Element where
     toBody = toBody . encodeXML
+
+instance ToBody QueryString where
+    toBody = toBody . toBS

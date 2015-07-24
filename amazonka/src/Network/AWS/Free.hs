@@ -105,19 +105,6 @@ evalProgramT = iterT go . toFT
         e <- view env
         waiter e w x (perform e s x) >>= k . fmap snd
 
--- | Interpret the 'Command' instruction set purely.
-pureProgramT :: Monad m
-             => (forall s a. Service s ->           a -> Either Error (Rs a))
-                -- ^ Define how responses for 'send' and 'paginate' can be obtained.
-             -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
-                -- ^ Define how responses for 'await' can be obtained.
-             -> ProgramT m b
-             -> m b
-pureProgramT f g = iterT go . toFT
-  where
-    go (Send  s   x k) = k (f s   x)
-    go (Await s w x k) = k (g s w x)
-
 -- | FIXME: add a note about using Network.AWS.EC2.Metadata directly
 -- if you need it pre-AWS initialisation.
 metadata :: MonadFree Command m

@@ -103,18 +103,13 @@ import           Network.AWS.Waiter
 -- FIXME: Add notes about specialising the constraints.
 -- FIXME: Add note about *With variants.
 -- FIXME: Add note about using Control.Monad.Error.Lens.catching* + error prisms
--- FIXME: Maybe a .Tutorial module?
 -- FIXME: Philosophical notes on the use of lenses, and notes about template-haskell usage.
 -- FIXME: Notes about associated response types, signers, service configuration.
--- FIXME: {-# OPTIONS_HADDOCK show-extensions #-} everywhere?
--- FIXME: Correct haddock module headings.
--- FIXME: Remove personal email address.
 -- FIXME: Note/example about mocking.
 
 -- Base64
 -- Blob
 -- ObjectKey
--- Truncate READMEs (or rewrite)
 
 newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
     deriving
@@ -170,14 +165,6 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
 
 runAWST :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWST m a -> m a
 runAWST e (AWST m) = runReaderT (evalProgramT m) (e ^. env)
-
-pureAWST :: (Monad m, AWSEnv r)
-         => (forall s a. Service s ->           a -> Either Error (Rs a))
-         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
-         -> r
-         -> AWST m b
-         -> m b
-pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) (e ^. env)
 
 {- $embedding
 The following is a more advanced example, of how you might embed Amazonka actions

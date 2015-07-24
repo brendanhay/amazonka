@@ -82,7 +82,7 @@ pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a});
 instance AWSRequest PutBucketPolicy where
         type Sv PutBucketPolicy = S3
         type Rs PutBucketPolicy = PutBucketPolicyResponse
-        request = putXML
+        request = contentMD5 . putXML
         response = receiveNull PutBucketPolicyResponse'
 
 instance ToElement PutBucketPolicy where

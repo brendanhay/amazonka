@@ -2,6 +2,13 @@
     "referenceUrl": "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
     "operationUrl": "http://docs.aws.amazon.com/AmazonS3/latest/API/",
     "libraryName": "amazonka-s3",
+    "operationPlugins": {
+        "DeleteObjects": ["contentMD5"],
+        "PutBucketCORS": ["contentMD5"],
+        "PutBucketLifecycle": ["contentMD5"],
+        "PutBucketPolicy": ["contentMD5"],
+        "PutBucketTagging": ["contentMD5"]
+    },
     "typeModules": [
         "Network.AWS.S3.Internal"
     ],

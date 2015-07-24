@@ -287,9 +287,6 @@ data Service s = Service
 
 type Response a = Either Error (Status, Rs a)
 
-newtype Operation = Operation Text
-    deriving (Eq, Show, IsString, ToText, ToByteString, ToBuilder)
-
 -- | An unsigned request.
 data Request a = Request
     { _rqOperation :: Operation

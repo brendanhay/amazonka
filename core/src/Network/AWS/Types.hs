@@ -52,8 +52,10 @@ module Network.AWS.Types
     , sgRequest
 
     -- * Requests
+    , Operation     (..)
     , AWSRequest    (..)
     , Request       (..)
+    , rqOperation
     , rqMethod
     , rqHeaders
     , rqPath
@@ -267,42 +269,51 @@ data Retry = Exponential
       -- if the request should be retried.
     }
 
+newtype Operation = Operation Text
+    deriving (Eq, Show, IsString, ToText, ToByteString, ToBuilder)
+
 -- | Attributes and functions specific to an AWS service.
 data Service s = Service
-    { _svcAbbrev   :: !Abbrev
-    , _svcPrefix   :: ByteString
-    , _svcVersion  :: ByteString
-    , _svcEndpoint :: Region -> Endpoint
-    , _svcTimeout  :: Maybe Seconds
-    , _svcStatus   :: Status -> Bool
-    , _svcError    :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
-    , _svcRetry    :: Retry
+    { _svcAbbrev    :: !Abbrev
+    , _svcPrefix    :: ByteString
+    , _svcVersion   :: ByteString
+    , _svcEndpoint  :: Region -> Endpoint
+    , _svcPreflight :: forall a. Request a -> Request a
+    , _svcTimeout   :: Maybe Seconds
+    , _svcStatus    :: Status -> Bool
+    , _svcError     :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
+    , _svcRetry     :: Retry
     }
 
 type Response a = Either Error (Status, Rs a)
 
 -- | An unsigned request.
 data Request a = Request
-    { _rqMethod  :: !StdMethod
-    , _rqPath    :: ByteString
-    , _rqQuery   :: QueryString
-    , _rqHeaders :: [Header]
-    , _rqBody    :: RqBody
+    { _rqOperation :: Operation
+    , _rqMethod    :: !StdMethod
+    , _rqPath      :: ByteString
+    , _rqQuery     :: QueryString
+    , _rqHeaders   :: [Header]
+    , _rqBody      :: RqBody
     }
 
 instance ToBuilder (Request a) where
     build Request{..} = buildLines
         [ "[Raw Request] {"
-        , "  method  = "  <> build _rqMethod
-        , "  path    = "  <> build _rqPath
-        , "  query   = "  <> build _rqQuery
-        , "  headers = "  <> build _rqHeaders
-        , "  body    = {"
-        , "    hash    = "  <> build (bodyHash    _rqBody)
+        , "  operation = "  <> build _rqOperation
+        , "  method    = "  <> build _rqMethod
+        , "  path      = "  <> build _rqPath
+        , "  query     = "  <> build _rqQuery
+        , "  headers   = "  <> build _rqHeaders
+        , "  body      = {"
+        , "    hash    = "  <> build (bodySHA256  _rqBody)
         , "    payload =\n" <> build (bodyRequest _rqBody)
         , "  }"
         , "}"
         ]
+
+rqOperation :: Lens' (Request a) Operation
+rqOperation = lens _rqOperation (\s a -> s { _rqOperation = a })
 
 rqBody :: Lens' (Request a) RqBody
 rqBody = lens _rqBody (\s a -> s { _rqBody = a })

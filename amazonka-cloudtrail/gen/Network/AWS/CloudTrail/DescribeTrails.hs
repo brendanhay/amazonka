@@ -69,7 +69,7 @@ dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _De
 instance AWSRequest DescribeTrails where
         type Sv DescribeTrails = CloudTrail
         type Rs DescribeTrails = DescribeTrailsResponse
-        request = postJSON
+        request = postJSON "DescribeTrails"
         response
           = receiveJSON
               (\ s h x ->

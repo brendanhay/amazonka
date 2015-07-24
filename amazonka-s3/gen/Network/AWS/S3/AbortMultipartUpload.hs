@@ -98,7 +98,7 @@ instance AWSRequest AbortMultipartUpload where
         type Sv AbortMultipartUpload = S3
         type Rs AbortMultipartUpload =
              AbortMultipartUploadResponse
-        request = delete
+        request = delete "AbortMultipartUpload"
         response
           = receiveXML
               (\ s h x ->

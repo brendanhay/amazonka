@@ -181,7 +181,7 @@ instance AWSRequest DescribeReservedDBInstances where
         type Sv DescribeReservedDBInstances = RDS
         type Rs DescribeReservedDBInstances =
              DescribeReservedDBInstancesResponse
-        request = post
+        request = post "DescribeReservedDBInstances"
         response
           = receiveXMLWrapper
               "DescribeReservedDBInstancesResult"

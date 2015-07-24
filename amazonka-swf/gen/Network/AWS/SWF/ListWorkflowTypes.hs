@@ -155,7 +155,7 @@ instance AWSPager ListWorkflowTypes where
 instance AWSRequest ListWorkflowTypes where
         type Sv ListWorkflowTypes = SWF
         type Rs ListWorkflowTypes = ListWorkflowTypesResponse
-        request = postJSON
+        request = postJSON "ListWorkflowTypes"
         response
           = receiveJSON
               (\ s h x ->

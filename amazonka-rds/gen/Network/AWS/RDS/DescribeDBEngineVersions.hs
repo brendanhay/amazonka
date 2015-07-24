@@ -159,7 +159,7 @@ instance AWSRequest DescribeDBEngineVersions where
         type Sv DescribeDBEngineVersions = RDS
         type Rs DescribeDBEngineVersions =
              DescribeDBEngineVersionsResponse
-        request = post
+        request = post "DescribeDBEngineVersions"
         response
           = receiveXMLWrapper "DescribeDBEngineVersionsResult"
               (\ s h x ->

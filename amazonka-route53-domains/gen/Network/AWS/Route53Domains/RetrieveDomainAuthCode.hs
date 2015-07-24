@@ -80,7 +80,7 @@ instance AWSRequest RetrieveDomainAuthCode where
         type Sv RetrieveDomainAuthCode = Route53Domains
         type Rs RetrieveDomainAuthCode =
              RetrieveDomainAuthCodeResponse
-        request = postJSON
+        request = postJSON "RetrieveDomainAuthCode"
         response
           = receiveJSON
               (\ s h x ->

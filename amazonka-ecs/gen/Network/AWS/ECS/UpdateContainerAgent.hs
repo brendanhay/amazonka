@@ -91,7 +91,7 @@ instance AWSRequest UpdateContainerAgent where
         type Sv UpdateContainerAgent = ECS
         type Rs UpdateContainerAgent =
              UpdateContainerAgentResponse
-        request = postJSON
+        request = postJSON "UpdateContainerAgent"
         response
           = receiveJSON
               (\ s h x ->

@@ -89,7 +89,7 @@ instance AWSRequest ListIdentityPolicies where
         type Sv ListIdentityPolicies = SES
         type Rs ListIdentityPolicies =
              ListIdentityPoliciesResponse
-        request = post
+        request = post "ListIdentityPolicies"
         response
           = receiveXMLWrapper "ListIdentityPoliciesResult"
               (\ s h x ->

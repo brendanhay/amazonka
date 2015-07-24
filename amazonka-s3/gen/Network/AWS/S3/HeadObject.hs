@@ -203,7 +203,7 @@ hoKey = lens _hoKey (\ s a -> s{_hoKey = a});
 instance AWSRequest HeadObject where
         type Sv HeadObject = S3
         type Rs HeadObject = HeadObjectResponse
-        request = head'
+        request = head' "HeadObject"
         response
           = receiveXML
               (\ s h x ->

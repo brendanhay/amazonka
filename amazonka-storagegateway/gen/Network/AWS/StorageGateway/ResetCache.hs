@@ -78,7 +78,7 @@ rcGatewayARN = lens _rcGatewayARN (\ s a -> s{_rcGatewayARN = a});
 instance AWSRequest ResetCache where
         type Sv ResetCache = StorageGateway
         type Rs ResetCache = ResetCacheResponse
-        request = postJSON
+        request = postJSON "ResetCache"
         response
           = receiveJSON
               (\ s h x ->

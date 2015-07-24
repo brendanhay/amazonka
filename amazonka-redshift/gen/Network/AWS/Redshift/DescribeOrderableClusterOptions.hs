@@ -138,7 +138,7 @@ instance AWSRequest DescribeOrderableClusterOptions
         type Sv DescribeOrderableClusterOptions = Redshift
         type Rs DescribeOrderableClusterOptions =
              DescribeOrderableClusterOptionsResponse
-        request = post
+        request = post "DescribeOrderableClusterOptions"
         response
           = receiveXMLWrapper
               "DescribeOrderableClusterOptionsResult"

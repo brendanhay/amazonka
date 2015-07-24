@@ -80,7 +80,7 @@ cdName = lens _cdName (\ s a -> s{_cdName = a});
 instance AWSRequest CreateDocument where
         type Sv CreateDocument = SSM
         type Rs CreateDocument = CreateDocumentResponse
-        request = postJSON
+        request = postJSON "CreateDocument"
         response
           = receiveJSON
               (\ s h x ->

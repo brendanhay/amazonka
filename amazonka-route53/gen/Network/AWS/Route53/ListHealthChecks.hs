@@ -110,7 +110,7 @@ instance AWSPager ListHealthChecks where
 instance AWSRequest ListHealthChecks where
         type Sv ListHealthChecks = Route53
         type Rs ListHealthChecks = ListHealthChecksResponse
-        request = get
+        request = get "ListHealthChecks"
         response
           = receiveXML
               (\ s h x ->

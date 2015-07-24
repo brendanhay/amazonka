@@ -157,7 +157,7 @@ fleLogGroupName = lens _fleLogGroupName (\ s a -> s{_fleLogGroupName = a});
 instance AWSRequest FilterLogEvents where
         type Sv FilterLogEvents = CloudWatchLogs
         type Rs FilterLogEvents = FilterLogEventsResponse
-        request = postJSON
+        request = postJSON "FilterLogEvents"
         response
           = receiveJSON
               (\ s h x ->

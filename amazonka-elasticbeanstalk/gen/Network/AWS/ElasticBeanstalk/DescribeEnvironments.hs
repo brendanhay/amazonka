@@ -124,7 +124,7 @@ instance AWSRequest DescribeEnvironments where
         type Sv DescribeEnvironments = ElasticBeanstalk
         type Rs DescribeEnvironments =
              DescribeEnvironmentsResponse
-        request = post
+        request = post "DescribeEnvironments"
         response
           = receiveXMLWrapper "DescribeEnvironmentsResult"
               (\ s h x ->

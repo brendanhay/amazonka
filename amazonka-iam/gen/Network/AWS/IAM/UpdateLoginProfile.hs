@@ -87,7 +87,7 @@ instance AWSRequest UpdateLoginProfile where
         type Sv UpdateLoginProfile = IAM
         type Rs UpdateLoginProfile =
              UpdateLoginProfileResponse
-        request = post
+        request = post "UpdateLoginProfile"
         response = receiveNull UpdateLoginProfileResponse'
 
 instance ToHeaders UpdateLoginProfile where

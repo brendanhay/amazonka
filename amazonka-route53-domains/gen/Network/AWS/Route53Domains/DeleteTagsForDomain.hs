@@ -102,7 +102,7 @@ instance AWSRequest DeleteTagsForDomain where
         type Sv DeleteTagsForDomain = Route53Domains
         type Rs DeleteTagsForDomain =
              DeleteTagsForDomainResponse
-        request = postJSON
+        request = postJSON "DeleteTagsForDomain"
         response
           = receiveJSON
               (\ s h x ->

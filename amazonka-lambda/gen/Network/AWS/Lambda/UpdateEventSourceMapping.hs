@@ -118,7 +118,7 @@ instance AWSRequest UpdateEventSourceMapping where
         type Sv UpdateEventSourceMapping = Lambda
         type Rs UpdateEventSourceMapping =
              EventSourceMappingConfiguration
-        request = putJSON
+        request = putJSON "UpdateEventSourceMapping"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateEventSourceMapping where

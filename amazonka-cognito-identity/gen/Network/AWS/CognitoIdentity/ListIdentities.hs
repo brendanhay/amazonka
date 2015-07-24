@@ -101,7 +101,7 @@ liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . _Nat;
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = CognitoIdentity
         type Rs ListIdentities = ListIdentitiesResponse
-        request = postJSON
+        request = postJSON "ListIdentities"
         response
           = receiveJSON
               (\ s h x ->

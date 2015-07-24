@@ -137,7 +137,7 @@ gleLogStreamName = lens _gleLogStreamName (\ s a -> s{_gleLogStreamName = a});
 instance AWSRequest GetLogEvents where
         type Sv GetLogEvents = CloudWatchLogs
         type Rs GetLogEvents = GetLogEventsResponse
-        request = postJSON
+        request = postJSON "GetLogEvents"
         response
           = receiveJSON
               (\ s h x ->

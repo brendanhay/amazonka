@@ -78,7 +78,7 @@ cJobId = lens _cJobId (\ s a -> s{_cJobId = a});
 instance AWSRequest CancelJob where
         type Sv CancelJob = ImportExport
         type Rs CancelJob = CancelJobResponse
-        request = post
+        request = post "CancelJob"
         response
           = receiveXMLWrapper "CancelJobResult"
               (\ s h x ->

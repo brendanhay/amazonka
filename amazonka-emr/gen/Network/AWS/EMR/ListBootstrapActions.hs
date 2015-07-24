@@ -89,7 +89,7 @@ instance AWSRequest ListBootstrapActions where
         type Sv ListBootstrapActions = EMR
         type Rs ListBootstrapActions =
              ListBootstrapActionsResponse
-        request = postJSON
+        request = postJSON "ListBootstrapActions"
         response
           = receiveJSON
               (\ s h x ->

@@ -118,7 +118,7 @@ instance AWSRequest DescribeCacheParameters where
         type Sv DescribeCacheParameters = ElastiCache
         type Rs DescribeCacheParameters =
              DescribeCacheParametersResponse
-        request = post
+        request = post "DescribeCacheParameters"
         response
           = receiveXMLWrapper "DescribeCacheParametersResult"
               (\ s h x ->

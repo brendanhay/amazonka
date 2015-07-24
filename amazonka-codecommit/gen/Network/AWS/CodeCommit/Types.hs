@@ -92,6 +92,7 @@ instance AWSService CodeCommit where
             , _svcPrefix = "codecommit"
             , _svcVersion = "2015-04-13"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

@@ -199,7 +199,7 @@ instance AWSRequest DescribeVolumeStatus where
         type Sv DescribeVolumeStatus = EC2
         type Rs DescribeVolumeStatus =
              DescribeVolumeStatusResponse
-        request = post
+        request = post "DescribeVolumeStatus"
         response
           = receiveXML
               (\ s h x ->

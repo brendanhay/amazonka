@@ -195,7 +195,7 @@ bwiRequestItems = lens _bwiRequestItems (\ s a -> s{_bwiRequestItems = a}) . _Ma
 instance AWSRequest BatchWriteItem where
         type Sv BatchWriteItem = DynamoDB
         type Rs BatchWriteItem = BatchWriteItemResponse
-        request = postJSON
+        request = postJSON "BatchWriteItem"
         response
           = receiveJSON
               (\ s h x ->

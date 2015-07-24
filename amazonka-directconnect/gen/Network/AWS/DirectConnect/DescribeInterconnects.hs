@@ -72,7 +72,7 @@ instance AWSRequest DescribeInterconnects where
         type Sv DescribeInterconnects = DirectConnect
         type Rs DescribeInterconnects =
              DescribeInterconnectsResponse
-        request = postJSON
+        request = postJSON "DescribeInterconnects"
         response
           = receiveJSON
               (\ s h x ->

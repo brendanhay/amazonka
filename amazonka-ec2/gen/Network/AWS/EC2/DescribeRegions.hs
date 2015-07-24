@@ -96,7 +96,7 @@ drsDryRun = lens _drsDryRun (\ s a -> s{_drsDryRun = a});
 instance AWSRequest DescribeRegions where
         type Sv DescribeRegions = EC2
         type Rs DescribeRegions = DescribeRegionsResponse
-        request = post
+        request = post "DescribeRegions"
         response
           = receiveXML
               (\ s h x ->

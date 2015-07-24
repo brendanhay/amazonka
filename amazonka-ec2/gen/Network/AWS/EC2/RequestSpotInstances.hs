@@ -200,7 +200,7 @@ instance AWSRequest RequestSpotInstances where
         type Sv RequestSpotInstances = EC2
         type Rs RequestSpotInstances =
              RequestSpotInstancesResponse
-        request = post
+        request = post "RequestSpotInstances"
         response
           = receiveXML
               (\ s h x ->

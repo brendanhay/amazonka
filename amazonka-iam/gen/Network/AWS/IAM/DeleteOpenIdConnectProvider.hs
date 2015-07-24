@@ -73,7 +73,7 @@ instance AWSRequest DeleteOpenIdConnectProvider where
         type Sv DeleteOpenIdConnectProvider = IAM
         type Rs DeleteOpenIdConnectProvider =
              DeleteOpenIdConnectProviderResponse
-        request = post
+        request = post "DeleteOpenIdConnectProvider"
         response
           = receiveNull DeleteOpenIdConnectProviderResponse'
 

@@ -103,7 +103,7 @@ instance AWSRequest
         type Sv PurchaseReservedDBInstancesOffering = RDS
         type Rs PurchaseReservedDBInstancesOffering =
              PurchaseReservedDBInstancesOfferingResponse
-        request = post
+        request = post "PurchaseReservedDBInstancesOffering"
         response
           = receiveXMLWrapper
               "PurchaseReservedDBInstancesOfferingResult"

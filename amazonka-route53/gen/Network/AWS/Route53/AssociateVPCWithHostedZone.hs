@@ -101,7 +101,7 @@ instance AWSRequest AssociateVPCWithHostedZone where
         type Sv AssociateVPCWithHostedZone = Route53
         type Rs AssociateVPCWithHostedZone =
              AssociateVPCWithHostedZoneResponse
-        request = postXML
+        request = postXML "AssociateVPCWithHostedZone"
         response
           = receiveXML
               (\ s h x ->

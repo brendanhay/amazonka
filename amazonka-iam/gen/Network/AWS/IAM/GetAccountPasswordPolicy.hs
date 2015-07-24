@@ -56,7 +56,7 @@ instance AWSRequest GetAccountPasswordPolicy where
         type Sv GetAccountPasswordPolicy = IAM
         type Rs GetAccountPasswordPolicy =
              GetAccountPasswordPolicyResponse
-        request = post
+        request = post "GetAccountPasswordPolicy"
         response
           = receiveXMLWrapper "GetAccountPasswordPolicyResult"
               (\ s h x ->

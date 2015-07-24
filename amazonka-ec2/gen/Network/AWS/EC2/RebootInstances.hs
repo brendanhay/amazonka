@@ -85,7 +85,7 @@ rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a});
 instance AWSRequest RebootInstances where
         type Sv RebootInstances = EC2
         type Rs RebootInstances = RebootInstancesResponse
-        request = post
+        request = post "RebootInstances"
         response = receiveNull RebootInstancesResponse'
 
 instance ToHeaders RebootInstances where

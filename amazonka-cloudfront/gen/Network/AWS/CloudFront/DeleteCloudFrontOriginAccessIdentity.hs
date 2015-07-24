@@ -78,7 +78,8 @@ instance AWSRequest
              CloudFront
         type Rs DeleteCloudFrontOriginAccessIdentity =
              DeleteCloudFrontOriginAccessIdentityResponse
-        request = delete
+        request
+          = delete "DeleteCloudFrontOriginAccessIdentity"
         response
           = receiveNull
               DeleteCloudFrontOriginAccessIdentityResponse'

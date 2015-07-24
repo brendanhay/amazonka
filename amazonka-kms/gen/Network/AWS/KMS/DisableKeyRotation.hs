@@ -70,7 +70,7 @@ instance AWSRequest DisableKeyRotation where
         type Sv DisableKeyRotation = KMS
         type Rs DisableKeyRotation =
              DisableKeyRotationResponse
-        request = postJSON
+        request = postJSON "DisableKeyRotation"
         response = receiveNull DisableKeyRotationResponse'
 
 instance ToHeaders DisableKeyRotation where

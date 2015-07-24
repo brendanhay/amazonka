@@ -107,7 +107,7 @@ instance AWSPager ListMFADevices where
 instance AWSRequest ListMFADevices where
         type Sv ListMFADevices = IAM
         type Rs ListMFADevices = ListMFADevicesResponse
-        request = post
+        request = post "ListMFADevices"
         response
           = receiveXMLWrapper "ListMFADevicesResult"
               (\ s h x ->

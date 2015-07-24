@@ -69,7 +69,7 @@ instance AWSRequest GetSubscriptionAttributes where
         type Sv GetSubscriptionAttributes = SNS
         type Rs GetSubscriptionAttributes =
              GetSubscriptionAttributesResponse
-        request = post
+        request = post "GetSubscriptionAttributes"
         response
           = receiveXMLWrapper "GetSubscriptionAttributesResult"
               (\ s h x ->

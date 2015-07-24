@@ -74,7 +74,7 @@ instance AWSRequest EnableVGWRoutePropagation where
         type Sv EnableVGWRoutePropagation = EC2
         type Rs EnableVGWRoutePropagation =
              EnableVGWRoutePropagationResponse
-        request = post
+        request = post "EnableVGWRoutePropagation"
         response
           = receiveNull EnableVGWRoutePropagationResponse'
 

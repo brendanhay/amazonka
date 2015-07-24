@@ -67,7 +67,7 @@ instance AWSRequest DescribeExportTasks where
         type Sv DescribeExportTasks = EC2
         type Rs DescribeExportTasks =
              DescribeExportTasksResponse
-        request = post
+        request = post "DescribeExportTasks"
         response
           = receiveXML
               (\ s h x ->

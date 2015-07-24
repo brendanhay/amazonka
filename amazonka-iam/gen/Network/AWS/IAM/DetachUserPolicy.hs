@@ -78,7 +78,7 @@ dPolicyARN = lens _dPolicyARN (\ s a -> s{_dPolicyARN = a});
 instance AWSRequest DetachUserPolicy where
         type Sv DetachUserPolicy = IAM
         type Rs DetachUserPolicy = DetachUserPolicyResponse
-        request = post
+        request = post "DetachUserPolicy"
         response = receiveNull DetachUserPolicyResponse'
 
 instance ToHeaders DetachUserPolicy where

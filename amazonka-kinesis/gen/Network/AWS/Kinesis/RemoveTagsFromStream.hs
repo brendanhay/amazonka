@@ -77,7 +77,7 @@ instance AWSRequest RemoveTagsFromStream where
         type Sv RemoveTagsFromStream = Kinesis
         type Rs RemoveTagsFromStream =
              RemoveTagsFromStreamResponse
-        request = postJSON
+        request = postJSON "RemoveTagsFromStream"
         response = receiveNull RemoveTagsFromStreamResponse'
 
 instance ToHeaders RemoveTagsFromStream where

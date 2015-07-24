@@ -338,6 +338,7 @@ instance AWSService IAM where
             , _svcPrefix = "iam"
             , _svcVersion = "2010-05-08"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

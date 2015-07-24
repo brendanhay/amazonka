@@ -69,7 +69,7 @@ instance AWSRequest
         type Sv GetBucketNotificationConfiguration = S3
         type Rs GetBucketNotificationConfiguration =
              NotificationConfiguration
-        request = get
+        request = get "GetBucketNotificationConfiguration"
         response = receiveXML (\ s h x -> parseXML x)
 
 instance ToHeaders GetBucketNotificationConfiguration

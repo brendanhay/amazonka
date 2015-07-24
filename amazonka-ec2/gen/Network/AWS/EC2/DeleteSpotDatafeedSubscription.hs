@@ -72,7 +72,7 @@ instance AWSRequest DeleteSpotDatafeedSubscription
         type Sv DeleteSpotDatafeedSubscription = EC2
         type Rs DeleteSpotDatafeedSubscription =
              DeleteSpotDatafeedSubscriptionResponse
-        request = post
+        request = post "DeleteSpotDatafeedSubscription"
         response
           = receiveNull DeleteSpotDatafeedSubscriptionResponse'
 

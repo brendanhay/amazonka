@@ -80,7 +80,7 @@ dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a});
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EFS
         type Rs DeleteTags = DeleteTagsResponse
-        request = postJSON
+        request = postJSON "DeleteTags"
         response = receiveNull DeleteTagsResponse'
 
 instance ToHeaders DeleteTags where

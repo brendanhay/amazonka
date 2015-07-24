@@ -69,7 +69,7 @@ instance AWSRequest GetOnPremisesInstance where
         type Sv GetOnPremisesInstance = CodeDeploy
         type Rs GetOnPremisesInstance =
              GetOnPremisesInstanceResponse
-        request = postJSON
+        request = postJSON "GetOnPremisesInstance"
         response
           = receiveJSON
               (\ s h x ->

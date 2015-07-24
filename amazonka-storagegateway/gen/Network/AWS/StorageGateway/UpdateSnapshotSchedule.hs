@@ -115,7 +115,7 @@ instance AWSRequest UpdateSnapshotSchedule where
         type Sv UpdateSnapshotSchedule = StorageGateway
         type Rs UpdateSnapshotSchedule =
              UpdateSnapshotScheduleResponse
-        request = postJSON
+        request = postJSON "UpdateSnapshotSchedule"
         response
           = receiveJSON
               (\ s h x ->

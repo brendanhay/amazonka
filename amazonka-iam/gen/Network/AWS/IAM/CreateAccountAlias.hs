@@ -67,7 +67,7 @@ instance AWSRequest CreateAccountAlias where
         type Sv CreateAccountAlias = IAM
         type Rs CreateAccountAlias =
              CreateAccountAliasResponse
-        request = post
+        request = post "CreateAccountAlias"
         response = receiveNull CreateAccountAliasResponse'
 
 instance ToHeaders CreateAccountAlias where

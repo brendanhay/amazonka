@@ -133,7 +133,7 @@ instance AWSPager ListParts where
 instance AWSRequest ListParts where
         type Sv ListParts = S3
         type Rs ListParts = ListPartsResponse
-        request = get
+        request = get "ListParts"
         response
           = receiveXML
               (\ s h x ->

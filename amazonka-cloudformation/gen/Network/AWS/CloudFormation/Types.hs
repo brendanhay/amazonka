@@ -179,6 +179,7 @@ instance AWSService CloudFormation where
             , _svcPrefix = "cloudformation"
             , _svcVersion = "2010-05-15"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

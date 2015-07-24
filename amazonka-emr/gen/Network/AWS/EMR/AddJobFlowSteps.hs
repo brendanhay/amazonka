@@ -102,7 +102,7 @@ ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a});
 instance AWSRequest AddJobFlowSteps where
         type Sv AddJobFlowSteps = EMR
         type Rs AddJobFlowSteps = AddJobFlowStepsResponse
-        request = postJSON
+        request = postJSON "AddJobFlowSteps"
         response
           = receiveJSON
               (\ s h x ->

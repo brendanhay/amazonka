@@ -125,7 +125,7 @@ cssCIdRBlock = lens _cssCIdRBlock (\ s a -> s{_cssCIdRBlock = a});
 instance AWSRequest CreateSubnet where
         type Sv CreateSubnet = EC2
         type Rs CreateSubnet = CreateSubnetResponse
-        request = post
+        request = post "CreateSubnet"
         response
           = receiveXML
               (\ s h x ->

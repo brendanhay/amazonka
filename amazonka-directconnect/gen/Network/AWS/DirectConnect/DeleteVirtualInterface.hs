@@ -69,7 +69,7 @@ instance AWSRequest DeleteVirtualInterface where
         type Sv DeleteVirtualInterface = DirectConnect
         type Rs DeleteVirtualInterface =
              DeleteVirtualInterfaceResponse
-        request = postJSON
+        request = postJSON "DeleteVirtualInterface"
         response
           = receiveJSON
               (\ s h x ->

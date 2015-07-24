@@ -82,7 +82,7 @@ instance AWSPager ListPipelines where
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = DataPipeline
         type Rs ListPipelines = ListPipelinesResponse
-        request = postJSON
+        request = postJSON "ListPipelines"
         response
           = receiveJSON
               (\ s h x ->

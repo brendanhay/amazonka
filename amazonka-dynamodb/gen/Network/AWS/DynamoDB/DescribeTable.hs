@@ -76,7 +76,7 @@ dTableName = lens _dTableName (\ s a -> s{_dTableName = a});
 instance AWSRequest DescribeTable where
         type Sv DescribeTable = DynamoDB
         type Rs DescribeTable = DescribeTableResponse
-        request = postJSON
+        request = postJSON "DescribeTable"
         response
           = receiveJSON
               (\ s h x ->

@@ -75,7 +75,7 @@ dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a})
 instance AWSRequest DescribeIdentityPool where
         type Sv DescribeIdentityPool = CognitoIdentity
         type Rs DescribeIdentityPool = IdentityPool
-        request = postJSON
+        request = postJSON "DescribeIdentityPool"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DescribeIdentityPool where

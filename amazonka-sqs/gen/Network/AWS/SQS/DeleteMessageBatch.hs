@@ -91,7 +91,7 @@ instance AWSRequest DeleteMessageBatch where
         type Sv DeleteMessageBatch = SQS
         type Rs DeleteMessageBatch =
              DeleteMessageBatchResponse
-        request = post
+        request = post "DeleteMessageBatch"
         response
           = receiveXMLWrapper "DeleteMessageBatchResult"
               (\ s h x ->

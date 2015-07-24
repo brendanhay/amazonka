@@ -85,7 +85,7 @@ reiStackId = lens _reiStackId (\ s a -> s{_reiStackId = a});
 instance AWSRequest RegisterElasticIP where
         type Sv RegisterElasticIP = OpsWorks
         type Rs RegisterElasticIP = RegisterElasticIPResponse
-        request = postJSON
+        request = postJSON "RegisterElasticIP"
         response
           = receiveJSON
               (\ s h x ->

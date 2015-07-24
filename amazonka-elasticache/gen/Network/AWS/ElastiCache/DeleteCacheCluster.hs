@@ -88,7 +88,7 @@ instance AWSRequest DeleteCacheCluster where
         type Sv DeleteCacheCluster = ElastiCache
         type Rs DeleteCacheCluster =
              DeleteCacheClusterResponse
-        request = post
+        request = post "DeleteCacheCluster"
         response
           = receiveXMLWrapper "DeleteCacheClusterResult"
               (\ s h x ->

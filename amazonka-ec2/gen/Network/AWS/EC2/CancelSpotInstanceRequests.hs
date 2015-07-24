@@ -90,7 +90,7 @@ instance AWSRequest CancelSpotInstanceRequests where
         type Sv CancelSpotInstanceRequests = EC2
         type Rs CancelSpotInstanceRequests =
              CancelSpotInstanceRequestsResponse
-        request = post
+        request = post "CancelSpotInstanceRequests"
         response
           = receiveXML
               (\ s h x ->

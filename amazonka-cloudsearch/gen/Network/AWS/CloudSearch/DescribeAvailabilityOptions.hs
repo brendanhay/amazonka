@@ -87,7 +87,7 @@ instance AWSRequest DescribeAvailabilityOptions where
         type Sv DescribeAvailabilityOptions = CloudSearch
         type Rs DescribeAvailabilityOptions =
              DescribeAvailabilityOptionsResponse
-        request = post
+        request = post "DescribeAvailabilityOptions"
         response
           = receiveXMLWrapper
               "DescribeAvailabilityOptionsResult"

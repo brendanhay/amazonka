@@ -77,7 +77,7 @@ instance AWSRequest RestoreFromSnapshot where
         type Sv RestoreFromSnapshot = DirectoryService
         type Rs RestoreFromSnapshot =
              RestoreFromSnapshotResponse
-        request = postJSON
+        request = postJSON "RestoreFromSnapshot"
         response
           = receiveJSON
               (\ s h x ->

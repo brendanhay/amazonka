@@ -80,7 +80,7 @@ instance AWSRequest DeleteSigningCertificate where
         type Sv DeleteSigningCertificate = IAM
         type Rs DeleteSigningCertificate =
              DeleteSigningCertificateResponse
-        request = post
+        request = post "DeleteSigningCertificate"
         response
           = receiveNull DeleteSigningCertificateResponse'
 

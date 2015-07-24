@@ -75,7 +75,7 @@ instance AWSRequest GetHealthCheckLastFailureReason
         type Sv GetHealthCheckLastFailureReason = Route53
         type Rs GetHealthCheckLastFailureReason =
              GetHealthCheckLastFailureReasonResponse
-        request = get
+        request = get "GetHealthCheckLastFailureReason"
         response
           = receiveXML
               (\ s h x ->

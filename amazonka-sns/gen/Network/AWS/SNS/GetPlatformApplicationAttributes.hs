@@ -73,7 +73,7 @@ instance AWSRequest GetPlatformApplicationAttributes
         type Sv GetPlatformApplicationAttributes = SNS
         type Rs GetPlatformApplicationAttributes =
              GetPlatformApplicationAttributesResponse
-        request = post
+        request = post "GetPlatformApplicationAttributes"
         response
           = receiveXMLWrapper
               "GetPlatformApplicationAttributesResult"

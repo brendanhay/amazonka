@@ -215,7 +215,7 @@ instance AWSRequest UpdateAutoScalingGroup where
         type Sv UpdateAutoScalingGroup = AutoScaling
         type Rs UpdateAutoScalingGroup =
              UpdateAutoScalingGroupResponse
-        request = post
+        request = post "UpdateAutoScalingGroup"
         response
           = receiveNull UpdateAutoScalingGroupResponse'
 

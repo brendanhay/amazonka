@@ -70,7 +70,7 @@ instance AWSRequest DeregisterRDSDBInstance where
         type Sv DeregisterRDSDBInstance = OpsWorks
         type Rs DeregisterRDSDBInstance =
              DeregisterRDSDBInstanceResponse
-        request = postJSON
+        request = postJSON "DeregisterRDSDBInstance"
         response
           = receiveNull DeregisterRDSDBInstanceResponse'
 

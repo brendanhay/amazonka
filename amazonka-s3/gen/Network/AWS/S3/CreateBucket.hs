@@ -131,7 +131,7 @@ cbBucket = lens _cbBucket (\ s a -> s{_cbBucket = a});
 instance AWSRequest CreateBucket where
         type Sv CreateBucket = S3
         type Rs CreateBucket = CreateBucketResponse
-        request = putXML
+        request = putXML "CreateBucket"
         response
           = receiveXML
               (\ s h x ->

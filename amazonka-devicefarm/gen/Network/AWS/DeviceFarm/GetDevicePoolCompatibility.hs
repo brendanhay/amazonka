@@ -106,7 +106,7 @@ instance AWSRequest GetDevicePoolCompatibility where
         type Sv GetDevicePoolCompatibility = DeviceFarm
         type Rs GetDevicePoolCompatibility =
              GetDevicePoolCompatibilityResponse
-        request = postJSON
+        request = postJSON "GetDevicePoolCompatibility"
         response
           = receiveJSON
               (\ s h x ->

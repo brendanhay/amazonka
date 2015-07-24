@@ -213,7 +213,7 @@ instance AWSPager DescribeMLModels where
 instance AWSRequest DescribeMLModels where
         type Sv DescribeMLModels = MachineLearning
         type Rs DescribeMLModels = DescribeMLModelsResponse
-        request = postJSON
+        request = postJSON "DescribeMLModels"
         response
           = receiveJSON
               (\ s h x ->

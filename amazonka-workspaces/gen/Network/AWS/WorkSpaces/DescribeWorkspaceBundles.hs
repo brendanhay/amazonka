@@ -107,7 +107,7 @@ instance AWSRequest DescribeWorkspaceBundles where
         type Sv DescribeWorkspaceBundles = WorkSpaces
         type Rs DescribeWorkspaceBundles =
              DescribeWorkspaceBundlesResponse
-        request = postJSON
+        request = postJSON "DescribeWorkspaceBundles"
         response
           = receiveJSON
               (\ s h x ->

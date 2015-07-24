@@ -90,7 +90,7 @@ instance AWSRequest EnableStageTransition where
         type Sv EnableStageTransition = CodePipeline
         type Rs EnableStageTransition =
              EnableStageTransitionResponse
-        request = postJSON
+        request = postJSON "EnableStageTransition"
         response = receiveNull EnableStageTransitionResponse'
 
 instance ToHeaders EnableStageTransition where

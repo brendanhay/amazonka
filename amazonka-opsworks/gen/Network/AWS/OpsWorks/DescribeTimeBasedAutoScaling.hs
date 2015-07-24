@@ -77,7 +77,7 @@ instance AWSRequest DescribeTimeBasedAutoScaling
         type Sv DescribeTimeBasedAutoScaling = OpsWorks
         type Rs DescribeTimeBasedAutoScaling =
              DescribeTimeBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON "DescribeTimeBasedAutoScaling"
         response
           = receiveJSON
               (\ s h x ->

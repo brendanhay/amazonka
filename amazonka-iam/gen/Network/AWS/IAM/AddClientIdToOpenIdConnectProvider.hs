@@ -81,7 +81,7 @@ instance AWSRequest
         type Sv AddClientIdToOpenIdConnectProvider = IAM
         type Rs AddClientIdToOpenIdConnectProvider =
              AddClientIdToOpenIdConnectProviderResponse
-        request = post
+        request = post "AddClientIdToOpenIdConnectProvider"
         response
           = receiveNull
               AddClientIdToOpenIdConnectProviderResponse'

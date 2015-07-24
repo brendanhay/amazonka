@@ -74,7 +74,7 @@ lhsmNextToken = lens _lhsmNextToken (\ s a -> s{_lhsmNextToken = a});
 instance AWSRequest ListHSMs where
         type Sv ListHSMs = CloudHSM
         type Rs ListHSMs = ListHSMsResponse
-        request = postJSON
+        request = postJSON "ListHSMs"
         response
           = receiveJSON
               (\ s h x ->

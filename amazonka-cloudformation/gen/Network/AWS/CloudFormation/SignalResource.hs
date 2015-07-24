@@ -105,7 +105,7 @@ sigStatus = lens _sigStatus (\ s a -> s{_sigStatus = a});
 instance AWSRequest SignalResource where
         type Sv SignalResource = CloudFormation
         type Rs SignalResource = SignalResourceResponse
-        request = post
+        request = post "SignalResource"
         response = receiveNull SignalResourceResponse'
 
 instance ToHeaders SignalResource where

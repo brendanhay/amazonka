@@ -81,7 +81,7 @@ instance AWSRequest ListUniqueProblems where
         type Sv ListUniqueProblems = DeviceFarm
         type Rs ListUniqueProblems =
              ListUniqueProblemsResponse
-        request = postJSON
+        request = postJSON "ListUniqueProblems"
         response
           = receiveJSON
               (\ s h x ->

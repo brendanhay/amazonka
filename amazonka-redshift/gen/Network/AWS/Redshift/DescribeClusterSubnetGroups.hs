@@ -151,7 +151,7 @@ instance AWSRequest DescribeClusterSubnetGroups where
         type Sv DescribeClusterSubnetGroups = Redshift
         type Rs DescribeClusterSubnetGroups =
              DescribeClusterSubnetGroupsResponse
-        request = post
+        request = post "DescribeClusterSubnetGroups"
         response
           = receiveXMLWrapper
               "DescribeClusterSubnetGroupsResult"

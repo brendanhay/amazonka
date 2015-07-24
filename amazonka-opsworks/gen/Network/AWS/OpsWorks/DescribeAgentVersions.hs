@@ -79,7 +79,7 @@ instance AWSRequest DescribeAgentVersions where
         type Sv DescribeAgentVersions = OpsWorks
         type Rs DescribeAgentVersions =
              DescribeAgentVersionsResponse
-        request = postJSON
+        request = postJSON "DescribeAgentVersions"
         response
           = receiveJSON
               (\ s h x ->

@@ -87,7 +87,7 @@ ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
 instance AWSRequest CreateTags where
         type Sv CreateTags = Redshift
         type Rs CreateTags = CreateTagsResponse
-        request = post
+        request = post "CreateTags"
         response = receiveNull CreateTagsResponse'
 
 instance ToHeaders CreateTags where

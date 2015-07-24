@@ -124,7 +124,7 @@ instance AWSRequest DescribeAlarmHistory where
         type Sv DescribeAlarmHistory = CloudWatch
         type Rs DescribeAlarmHistory =
              DescribeAlarmHistoryResponse
-        request = post
+        request = post "DescribeAlarmHistory"
         response
           = receiveXMLWrapper "DescribeAlarmHistoryResult"
               (\ s h x ->

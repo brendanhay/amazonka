@@ -76,7 +76,8 @@ instance AWSRequest
              OpsWorks
         type Rs DescribeStackProvisioningParameters =
              DescribeStackProvisioningParametersResponse
-        request = postJSON
+        request
+          = postJSON "DescribeStackProvisioningParameters"
         response
           = receiveJSON
               (\ s h x ->

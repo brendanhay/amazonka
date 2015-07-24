@@ -73,7 +73,7 @@ instance AWSRequest DeleteInstanceProfile where
         type Sv DeleteInstanceProfile = IAM
         type Rs DeleteInstanceProfile =
              DeleteInstanceProfileResponse
-        request = post
+        request = post "DeleteInstanceProfile"
         response = receiveNull DeleteInstanceProfileResponse'
 
 instance ToHeaders DeleteInstanceProfile where

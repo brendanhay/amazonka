@@ -103,7 +103,7 @@ dCiphertextBlob = lens _dCiphertextBlob (\ s a -> s{_dCiphertextBlob = a});
 instance AWSRequest Decrypt where
         type Sv Decrypt = KMS
         type Rs Decrypt = DecryptResponse
-        request = postJSON
+        request = postJSON "Decrypt"
         response
           = receiveJSON
               (\ s h x ->

@@ -73,7 +73,7 @@ instance AWSRequest DescribeDeliveryChannels where
         type Sv DescribeDeliveryChannels = Config
         type Rs DescribeDeliveryChannels =
              DescribeDeliveryChannelsResponse
-        request = postJSON
+        request = postJSON "DescribeDeliveryChannels"
         response
           = receiveJSON
               (\ s h x ->

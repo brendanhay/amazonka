@@ -105,7 +105,7 @@ instance AWSRequest SetIdentityNotificationTopic
         type Sv SetIdentityNotificationTopic = SES
         type Rs SetIdentityNotificationTopic =
              SetIdentityNotificationTopicResponse
-        request = post
+        request = post "SetIdentityNotificationTopic"
         response
           = receiveXMLWrapper
               "SetIdentityNotificationTopicResult"

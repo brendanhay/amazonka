@@ -77,7 +77,7 @@ instance AWSRequest PutJobFailureResult where
         type Sv PutJobFailureResult = CodePipeline
         type Rs PutJobFailureResult =
              PutJobFailureResultResponse
-        request = postJSON
+        request = postJSON "PutJobFailureResult"
         response = receiveNull PutJobFailureResultResponse'
 
 instance ToHeaders PutJobFailureResult where

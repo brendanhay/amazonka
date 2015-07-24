@@ -78,7 +78,8 @@ instance AWSRequest RemoveTagsFromOnPremisesInstances
              CodeDeploy
         type Rs RemoveTagsFromOnPremisesInstances =
              RemoveTagsFromOnPremisesInstancesResponse
-        request = postJSON
+        request
+          = postJSON "RemoveTagsFromOnPremisesInstances"
         response
           = receiveNull
               RemoveTagsFromOnPremisesInstancesResponse'

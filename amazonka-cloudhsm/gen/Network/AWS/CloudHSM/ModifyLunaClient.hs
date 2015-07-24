@@ -78,7 +78,7 @@ mlcCertificate = lens _mlcCertificate (\ s a -> s{_mlcCertificate = a});
 instance AWSRequest ModifyLunaClient where
         type Sv ModifyLunaClient = CloudHSM
         type Rs ModifyLunaClient = ModifyLunaClientResponse
-        request = postJSON
+        request = postJSON "ModifyLunaClient"
         response
           = receiveJSON
               (\ s h x ->

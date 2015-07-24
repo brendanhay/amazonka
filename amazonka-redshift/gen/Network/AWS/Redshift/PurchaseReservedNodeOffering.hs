@@ -91,7 +91,7 @@ instance AWSRequest PurchaseReservedNodeOffering
         type Sv PurchaseReservedNodeOffering = Redshift
         type Rs PurchaseReservedNodeOffering =
              PurchaseReservedNodeOfferingResponse
-        request = post
+        request = post "PurchaseReservedNodeOffering"
         response
           = receiveXMLWrapper
               "PurchaseReservedNodeOfferingResult"

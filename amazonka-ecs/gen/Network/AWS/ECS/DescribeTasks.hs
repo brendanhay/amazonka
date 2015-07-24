@@ -79,7 +79,7 @@ dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a});
 instance AWSRequest DescribeTasks where
         type Sv DescribeTasks = ECS
         type Rs DescribeTasks = DescribeTasksResponse
-        request = postJSON
+        request = postJSON "DescribeTasks"
         response
           = receiveJSON
               (\ s h x ->

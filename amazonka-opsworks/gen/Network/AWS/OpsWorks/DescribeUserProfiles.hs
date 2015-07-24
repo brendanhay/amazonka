@@ -72,7 +72,7 @@ instance AWSRequest DescribeUserProfiles where
         type Sv DescribeUserProfiles = OpsWorks
         type Rs DescribeUserProfiles =
              DescribeUserProfilesResponse
-        request = postJSON
+        request = postJSON "DescribeUserProfiles"
         response
           = receiveJSON
               (\ s h x ->

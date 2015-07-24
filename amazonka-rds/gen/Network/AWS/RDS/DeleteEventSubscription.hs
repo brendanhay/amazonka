@@ -69,7 +69,7 @@ instance AWSRequest DeleteEventSubscription where
         type Sv DeleteEventSubscription = RDS
         type Rs DeleteEventSubscription =
              DeleteEventSubscriptionResponse
-        request = post
+        request = post "DeleteEventSubscription"
         response
           = receiveXMLWrapper "DeleteEventSubscriptionResult"
               (\ s h x ->

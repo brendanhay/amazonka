@@ -100,7 +100,7 @@ instance AWSRequest ValidatePipelineDefinition where
         type Sv ValidatePipelineDefinition = DataPipeline
         type Rs ValidatePipelineDefinition =
              ValidatePipelineDefinitionResponse
-        request = postJSON
+        request = postJSON "ValidatePipelineDefinition"
         response
           = receiveJSON
               (\ s h x ->

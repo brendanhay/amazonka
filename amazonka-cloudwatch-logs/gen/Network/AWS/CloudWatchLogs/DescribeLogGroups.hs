@@ -97,7 +97,7 @@ dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . mapping _Nat;
 instance AWSRequest DescribeLogGroups where
         type Sv DescribeLogGroups = CloudWatchLogs
         type Rs DescribeLogGroups = DescribeLogGroupsResponse
-        request = postJSON
+        request = postJSON "DescribeLogGroups"
         response
           = receiveJSON
               (\ s h x ->

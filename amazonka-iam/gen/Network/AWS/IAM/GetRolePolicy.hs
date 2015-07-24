@@ -90,7 +90,7 @@ grpPolicyName = lens _grpPolicyName (\ s a -> s{_grpPolicyName = a});
 instance AWSRequest GetRolePolicy where
         type Sv GetRolePolicy = IAM
         type Rs GetRolePolicy = GetRolePolicyResponse
-        request = post
+        request = post "GetRolePolicy"
         response
           = receiveXMLWrapper "GetRolePolicyResult"
               (\ s h x ->

@@ -90,7 +90,7 @@ pPredictEndpoint = lens _pPredictEndpoint (\ s a -> s{_pPredictEndpoint = a});
 instance AWSRequest Predict where
         type Sv Predict = MachineLearning
         type Rs Predict = PredictResponse
-        request = postJSON
+        request = postJSON "Predict"
         response
           = receiveJSON
               (\ s h x ->

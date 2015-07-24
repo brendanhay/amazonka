@@ -88,7 +88,7 @@ rwRebuildWorkspaceRequests = lens _rwRebuildWorkspaceRequests (\ s a -> s{_rwReb
 instance AWSRequest RebuildWorkspaces where
         type Sv RebuildWorkspaces = WorkSpaces
         type Rs RebuildWorkspaces = RebuildWorkspacesResponse
-        request = postJSON
+        request = postJSON "RebuildWorkspaces"
         response
           = receiveJSON
               (\ s h x ->

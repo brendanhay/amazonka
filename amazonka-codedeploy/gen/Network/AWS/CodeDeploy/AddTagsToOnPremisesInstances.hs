@@ -79,7 +79,7 @@ instance AWSRequest AddTagsToOnPremisesInstances
         type Sv AddTagsToOnPremisesInstances = CodeDeploy
         type Rs AddTagsToOnPremisesInstances =
              AddTagsToOnPremisesInstancesResponse
-        request = postJSON
+        request = postJSON "AddTagsToOnPremisesInstances"
         response
           = receiveNull AddTagsToOnPremisesInstancesResponse'
 

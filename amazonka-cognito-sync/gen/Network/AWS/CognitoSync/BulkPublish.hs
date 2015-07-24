@@ -78,7 +78,7 @@ bpIdentityPoolId = lens _bpIdentityPoolId (\ s a -> s{_bpIdentityPoolId = a});
 instance AWSRequest BulkPublish where
         type Sv BulkPublish = CognitoSync
         type Rs BulkPublish = BulkPublishResponse
-        request = postJSON
+        request = postJSON "BulkPublish"
         response
           = receiveJSON
               (\ s h x ->

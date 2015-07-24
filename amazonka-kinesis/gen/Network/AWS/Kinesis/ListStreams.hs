@@ -104,7 +104,7 @@ instance AWSPager ListStreams where
 instance AWSRequest ListStreams where
         type Sv ListStreams = Kinesis
         type Rs ListStreams = ListStreamsResponse
-        request = postJSON
+        request = postJSON "ListStreams"
         response
           = receiveJSON
               (\ s h x ->

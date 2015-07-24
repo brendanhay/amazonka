@@ -111,7 +111,7 @@ instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling
         type Rs DescribeScalingActivities =
              DescribeScalingActivitiesResponse
-        request = post
+        request = post "DescribeScalingActivities"
         response
           = receiveXMLWrapper "DescribeScalingActivitiesResult"
               (\ s h x ->

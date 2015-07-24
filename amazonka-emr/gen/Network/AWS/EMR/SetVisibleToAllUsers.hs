@@ -84,7 +84,7 @@ instance AWSRequest SetVisibleToAllUsers where
         type Sv SetVisibleToAllUsers = EMR
         type Rs SetVisibleToAllUsers =
              SetVisibleToAllUsersResponse
-        request = postJSON
+        request = postJSON "SetVisibleToAllUsers"
         response = receiveNull SetVisibleToAllUsersResponse'
 
 instance ToHeaders SetVisibleToAllUsers where

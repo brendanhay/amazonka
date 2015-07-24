@@ -87,7 +87,7 @@ instance AWSRequest DescribeElasticLoadBalancers
         type Sv DescribeElasticLoadBalancers = OpsWorks
         type Rs DescribeElasticLoadBalancers =
              DescribeElasticLoadBalancersResponse
-        request = postJSON
+        request = postJSON "DescribeElasticLoadBalancers"
         response
           = receiveJSON
               (\ s h x ->

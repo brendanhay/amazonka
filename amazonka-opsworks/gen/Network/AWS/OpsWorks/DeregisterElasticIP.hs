@@ -72,7 +72,7 @@ instance AWSRequest DeregisterElasticIP where
         type Sv DeregisterElasticIP = OpsWorks
         type Rs DeregisterElasticIP =
              DeregisterElasticIPResponse
-        request = postJSON
+        request = postJSON "DeregisterElasticIP"
         response = receiveNull DeregisterElasticIPResponse'
 
 instance ToHeaders DeregisterElasticIP where

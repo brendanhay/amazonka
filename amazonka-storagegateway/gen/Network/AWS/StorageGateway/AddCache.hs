@@ -82,7 +82,7 @@ acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a});
 instance AWSRequest AddCache where
         type Sv AddCache = StorageGateway
         type Rs AddCache = AddCacheResponse
-        request = postJSON
+        request = postJSON "AddCache"
         response
           = receiveJSON
               (\ s h x ->

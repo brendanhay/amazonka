@@ -101,7 +101,7 @@ spAutoScalingGroupName = lens _spAutoScalingGroupName (\ s a -> s{_spAutoScaling
 instance AWSRequest SuspendProcesses where
         type Sv SuspendProcesses = AutoScaling
         type Rs SuspendProcesses = SuspendProcessesResponse
-        request = post
+        request = post "SuspendProcesses"
         response = receiveNull SuspendProcessesResponse'
 
 instance ToHeaders SuspendProcesses where

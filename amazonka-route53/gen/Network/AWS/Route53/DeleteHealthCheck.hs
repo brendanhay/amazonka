@@ -78,7 +78,7 @@ dhcHealthCheckId = lens _dhcHealthCheckId (\ s a -> s{_dhcHealthCheckId = a});
 instance AWSRequest DeleteHealthCheck where
         type Sv DeleteHealthCheck = Route53
         type Rs DeleteHealthCheck = DeleteHealthCheckResponse
-        request = delete
+        request = delete "DeleteHealthCheck"
         response
           = receiveXML
               (\ s h x ->

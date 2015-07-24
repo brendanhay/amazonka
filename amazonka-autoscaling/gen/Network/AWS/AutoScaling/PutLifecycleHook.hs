@@ -199,7 +199,7 @@ plhAutoScalingGroupName = lens _plhAutoScalingGroupName (\ s a -> s{_plhAutoScal
 instance AWSRequest PutLifecycleHook where
         type Sv PutLifecycleHook = AutoScaling
         type Rs PutLifecycleHook = PutLifecycleHookResponse
-        request = post
+        request = post "PutLifecycleHook"
         response
           = receiveXMLWrapper "PutLifecycleHookResult"
               (\ s h x ->

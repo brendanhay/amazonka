@@ -77,7 +77,7 @@ instance AWSRequest DeleteCustomerGateway where
         type Sv DeleteCustomerGateway = EC2
         type Rs DeleteCustomerGateway =
              DeleteCustomerGatewayResponse
-        request = post
+        request = post "DeleteCustomerGateway"
         response = receiveNull DeleteCustomerGatewayResponse'
 
 instance ToHeaders DeleteCustomerGateway where

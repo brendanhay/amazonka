@@ -107,7 +107,7 @@ cvVaultName = lens _cvVaultName (\ s a -> s{_cvVaultName = a});
 instance AWSRequest CreateVault where
         type Sv CreateVault = Glacier
         type Rs CreateVault = CreateVaultResponse
-        request = putJSON
+        request = putJSON "CreateVault"
         response
           = receiveJSON
               (\ s h x ->

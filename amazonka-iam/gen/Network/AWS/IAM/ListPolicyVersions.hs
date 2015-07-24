@@ -99,7 +99,7 @@ instance AWSRequest ListPolicyVersions where
         type Sv ListPolicyVersions = IAM
         type Rs ListPolicyVersions =
              ListPolicyVersionsResponse
-        request = post
+        request = post "ListPolicyVersions"
         response
           = receiveXMLWrapper "ListPolicyVersionsResult"
               (\ s h x ->

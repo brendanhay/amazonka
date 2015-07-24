@@ -89,7 +89,7 @@ instance AWSRequest UpdateDistribution where
         type Sv UpdateDistribution = CloudFront
         type Rs UpdateDistribution =
              UpdateDistributionResponse
-        request = putXML
+        request = putXML "UpdateDistribution"
         response
           = receiveXML
               (\ s h x ->

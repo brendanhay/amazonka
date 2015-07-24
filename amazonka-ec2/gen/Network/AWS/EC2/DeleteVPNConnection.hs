@@ -86,7 +86,7 @@ instance AWSRequest DeleteVPNConnection where
         type Sv DeleteVPNConnection = EC2
         type Rs DeleteVPNConnection =
              DeleteVPNConnectionResponse
-        request = post
+        request = post "DeleteVPNConnection"
         response = receiveNull DeleteVPNConnectionResponse'
 
 instance ToHeaders DeleteVPNConnection where

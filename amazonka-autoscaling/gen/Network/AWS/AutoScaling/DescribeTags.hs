@@ -103,7 +103,7 @@ instance AWSPager DescribeTags where
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = AutoScaling
         type Rs DescribeTags = DescribeTagsResponse
-        request = post
+        request = post "DescribeTags"
         response
           = receiveXMLWrapper "DescribeTagsResult"
               (\ s h x ->

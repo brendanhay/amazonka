@@ -74,7 +74,7 @@ instance AWSRequest DescribeChapCredentials where
         type Sv DescribeChapCredentials = StorageGateway
         type Rs DescribeChapCredentials =
              DescribeChapCredentialsResponse
-        request = postJSON
+        request = postJSON "DescribeChapCredentials"
         response
           = receiveJSON
               (\ s h x ->

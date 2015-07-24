@@ -96,7 +96,7 @@ instance AWSRequest UpdateApplicationVersion where
         type Sv UpdateApplicationVersion = ElasticBeanstalk
         type Rs UpdateApplicationVersion =
              ApplicationVersionDescriptionMessage
-        request = post
+        request = post "UpdateApplicationVersion"
         response
           = receiveXMLWrapper "UpdateApplicationVersionResult"
               (\ s h x -> parseXML x)

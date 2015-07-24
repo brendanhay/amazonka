@@ -76,7 +76,7 @@ dcGatewayARN = lens _dcGatewayARN (\ s a -> s{_dcGatewayARN = a});
 instance AWSRequest DescribeCache where
         type Sv DescribeCache = StorageGateway
         type Rs DescribeCache = DescribeCacheResponse
-        request = postJSON
+        request = postJSON "DescribeCache"
         response
           = receiveJSON
               (\ s h x ->

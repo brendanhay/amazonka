@@ -96,7 +96,7 @@ instance AWSRequest DescribeServiceErrors where
         type Sv DescribeServiceErrors = OpsWorks
         type Rs DescribeServiceErrors =
              DescribeServiceErrorsResponse
-        request = postJSON
+        request = postJSON "DescribeServiceErrors"
         response
           = receiveJSON
               (\ s h x ->

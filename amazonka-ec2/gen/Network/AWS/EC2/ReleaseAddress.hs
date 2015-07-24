@@ -100,7 +100,7 @@ raDryRun = lens _raDryRun (\ s a -> s{_raDryRun = a});
 instance AWSRequest ReleaseAddress where
         type Sv ReleaseAddress = EC2
         type Rs ReleaseAddress = ReleaseAddressResponse
-        request = post
+        request = post "ReleaseAddress"
         response = receiveNull ReleaseAddressResponse'
 
 instance ToHeaders ReleaseAddress where

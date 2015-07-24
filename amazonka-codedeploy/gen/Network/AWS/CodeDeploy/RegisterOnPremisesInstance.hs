@@ -75,7 +75,7 @@ instance AWSRequest RegisterOnPremisesInstance where
         type Sv RegisterOnPremisesInstance = CodeDeploy
         type Rs RegisterOnPremisesInstance =
              RegisterOnPremisesInstanceResponse
-        request = postJSON
+        request = postJSON "RegisterOnPremisesInstance"
         response
           = receiveNull RegisterOnPremisesInstanceResponse'
 

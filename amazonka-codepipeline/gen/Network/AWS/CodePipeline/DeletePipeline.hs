@@ -65,7 +65,7 @@ dpName = lens _dpName (\ s a -> s{_dpName = a});
 instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = CodePipeline
         type Rs DeletePipeline = DeletePipelineResponse
-        request = postJSON
+        request = postJSON "DeletePipeline"
         response = receiveNull DeletePipelineResponse'
 
 instance ToHeaders DeletePipeline where

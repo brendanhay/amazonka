@@ -176,7 +176,7 @@ uaAppId = lens _uaAppId (\ s a -> s{_uaAppId = a});
 instance AWSRequest UpdateApp where
         type Sv UpdateApp = OpsWorks
         type Rs UpdateApp = UpdateAppResponse
-        request = postJSON
+        request = postJSON "UpdateApp"
         response = receiveNull UpdateAppResponse'
 
 instance ToHeaders UpdateApp where

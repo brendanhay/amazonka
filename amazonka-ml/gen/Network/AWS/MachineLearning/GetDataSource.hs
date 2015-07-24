@@ -100,7 +100,7 @@ gdsDataSourceId = lens _gdsDataSourceId (\ s a -> s{_gdsDataSourceId = a});
 instance AWSRequest GetDataSource where
         type Sv GetDataSource = MachineLearning
         type Rs GetDataSource = GetDataSourceResponse
-        request = postJSON
+        request = postJSON "GetDataSource"
         response
           = receiveJSON
               (\ s h x ->

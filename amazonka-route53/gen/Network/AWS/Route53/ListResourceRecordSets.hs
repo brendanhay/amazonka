@@ -185,7 +185,7 @@ instance AWSRequest ListResourceRecordSets where
         type Sv ListResourceRecordSets = Route53
         type Rs ListResourceRecordSets =
              ListResourceRecordSetsResponse
-        request = get
+        request = get "ListResourceRecordSets"
         response
           = receiveXML
               (\ s h x ->

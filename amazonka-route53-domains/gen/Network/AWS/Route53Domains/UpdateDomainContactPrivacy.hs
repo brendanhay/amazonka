@@ -150,7 +150,7 @@ instance AWSRequest UpdateDomainContactPrivacy where
         type Sv UpdateDomainContactPrivacy = Route53Domains
         type Rs UpdateDomainContactPrivacy =
              UpdateDomainContactPrivacyResponse
-        request = postJSON
+        request = postJSON "UpdateDomainContactPrivacy"
         response
           = receiveJSON
               (\ s h x ->

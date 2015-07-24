@@ -71,7 +71,7 @@ instance AWSRequest DeleteCacheParameterGroup where
         type Sv DeleteCacheParameterGroup = ElastiCache
         type Rs DeleteCacheParameterGroup =
              DeleteCacheParameterGroupResponse
-        request = post
+        request = post "DeleteCacheParameterGroup"
         response
           = receiveNull DeleteCacheParameterGroupResponse'
 

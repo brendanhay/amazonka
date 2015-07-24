@@ -698,7 +698,7 @@ uiKey = lens _uiKey (\ s a -> s{_uiKey = a}) . _Map;
 instance AWSRequest UpdateItem where
         type Sv UpdateItem = DynamoDB
         type Rs UpdateItem = UpdateItemResponse
-        request = postJSON
+        request = postJSON "UpdateItem"
         response
           = receiveJSON
               (\ s h x ->

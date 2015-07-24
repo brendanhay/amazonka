@@ -127,7 +127,7 @@ instance AWSPager DescribeTags where
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EC2
         type Rs DescribeTags = DescribeTagsResponse
-        request = post
+        request = post "DescribeTags"
         response
           = receiveXML
               (\ s h x ->

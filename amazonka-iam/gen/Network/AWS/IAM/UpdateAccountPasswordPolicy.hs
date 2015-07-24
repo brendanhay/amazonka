@@ -176,7 +176,7 @@ instance AWSRequest UpdateAccountPasswordPolicy where
         type Sv UpdateAccountPasswordPolicy = IAM
         type Rs UpdateAccountPasswordPolicy =
              UpdateAccountPasswordPolicyResponse
-        request = post
+        request = post "UpdateAccountPasswordPolicy"
         response
           = receiveNull UpdateAccountPasswordPolicyResponse'
 

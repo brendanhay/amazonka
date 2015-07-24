@@ -70,7 +70,7 @@ ghcHealthCheckId = lens _ghcHealthCheckId (\ s a -> s{_ghcHealthCheckId = a});
 instance AWSRequest GetHealthCheck where
         type Sv GetHealthCheck = Route53
         type Rs GetHealthCheck = GetHealthCheckResponse
-        request = get
+        request = get "GetHealthCheck"
         response
           = receiveXML
               (\ s h x ->

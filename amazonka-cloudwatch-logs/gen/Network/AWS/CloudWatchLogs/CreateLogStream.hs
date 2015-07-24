@@ -79,7 +79,7 @@ clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a});
 instance AWSRequest CreateLogStream where
         type Sv CreateLogStream = CloudWatchLogs
         type Rs CreateLogStream = CreateLogStreamResponse
-        request = postJSON
+        request = postJSON "CreateLogStream"
         response = receiveNull CreateLogStreamResponse'
 
 instance ToHeaders CreateLogStream where

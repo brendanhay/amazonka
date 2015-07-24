@@ -85,7 +85,7 @@ dlStackId = lens _dlStackId (\ s a -> s{_dlStackId = a});
 instance AWSRequest DescribeLayers where
         type Sv DescribeLayers = OpsWorks
         type Rs DescribeLayers = DescribeLayersResponse
-        request = postJSON
+        request = postJSON "DescribeLayers"
         response
           = receiveJSON
               (\ s h x ->

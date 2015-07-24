@@ -84,7 +84,7 @@ instance AWSRequest UpdateGatewaySoftwareNow where
         type Sv UpdateGatewaySoftwareNow = StorageGateway
         type Rs UpdateGatewaySoftwareNow =
              UpdateGatewaySoftwareNowResponse
-        request = postJSON
+        request = postJSON "UpdateGatewaySoftwareNow"
         response
           = receiveJSON
               (\ s h x ->

@@ -123,7 +123,7 @@ instance AWSRequest CreateReservedInstancesListing
         type Sv CreateReservedInstancesListing = EC2
         type Rs CreateReservedInstancesListing =
              CreateReservedInstancesListingResponse
-        request = post
+        request = post "CreateReservedInstancesListing"
         response
           = receiveXML
               (\ s h x ->

@@ -115,7 +115,7 @@ instance AWSRequest DeregisterContainerInstance where
         type Sv DeregisterContainerInstance = ECS
         type Rs DeregisterContainerInstance =
              DeregisterContainerInstanceResponse
-        request = postJSON
+        request = postJSON "DeregisterContainerInstance"
         response
           = receiveJSON
               (\ s h x ->

@@ -72,7 +72,7 @@ instance AWSRequest DescribeSeverityLevels where
         type Sv DescribeSeverityLevels = Support
         type Rs DescribeSeverityLevels =
              DescribeSeverityLevelsResponse
-        request = postJSON
+        request = postJSON "DescribeSeverityLevels"
         response
           = receiveJSON
               (\ s h x ->

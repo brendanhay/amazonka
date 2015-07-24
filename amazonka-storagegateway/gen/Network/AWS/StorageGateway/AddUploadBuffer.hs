@@ -81,7 +81,7 @@ aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a});
 instance AWSRequest AddUploadBuffer where
         type Sv AddUploadBuffer = StorageGateway
         type Rs AddUploadBuffer = AddUploadBufferResponse
-        request = postJSON
+        request = postJSON "AddUploadBuffer"
         response
           = receiveJSON
               (\ s h x ->

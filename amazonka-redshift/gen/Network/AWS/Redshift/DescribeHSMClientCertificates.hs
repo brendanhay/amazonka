@@ -155,7 +155,7 @@ instance AWSRequest DescribeHSMClientCertificates
         type Sv DescribeHSMClientCertificates = Redshift
         type Rs DescribeHSMClientCertificates =
              DescribeHSMClientCertificatesResponse
-        request = post
+        request = post "DescribeHSMClientCertificates"
         response
           = receiveXMLWrapper
               "DescribeHsmClientCertificatesResult"

@@ -86,7 +86,7 @@ caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 instance AWSRequest CreateAlias where
         type Sv CreateAlias = DirectoryService
         type Rs CreateAlias = CreateAliasResponse
-        request = postJSON
+        request = postJSON "CreateAlias"
         response
           = receiveJSON
               (\ s h x ->

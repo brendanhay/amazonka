@@ -67,7 +67,7 @@ getBucket = lens _getBucket (\ s a -> s{_getBucket = a});
 instance AWSRequest GetBucketLogging where
         type Sv GetBucketLogging = S3
         type Rs GetBucketLogging = GetBucketLoggingResponse
-        request = get
+        request = get "GetBucketLogging"
         response
           = receiveXML
               (\ s h x ->

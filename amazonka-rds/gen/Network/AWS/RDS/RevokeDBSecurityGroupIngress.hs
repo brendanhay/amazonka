@@ -122,7 +122,7 @@ instance AWSRequest RevokeDBSecurityGroupIngress
         type Sv RevokeDBSecurityGroupIngress = RDS
         type Rs RevokeDBSecurityGroupIngress =
              RevokeDBSecurityGroupIngressResponse
-        request = post
+        request = post "RevokeDBSecurityGroupIngress"
         response
           = receiveXMLWrapper
               "RevokeDBSecurityGroupIngressResult"

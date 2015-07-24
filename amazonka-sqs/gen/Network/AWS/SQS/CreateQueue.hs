@@ -130,7 +130,7 @@ cqQueueName = lens _cqQueueName (\ s a -> s{_cqQueueName = a});
 instance AWSRequest CreateQueue where
         type Sv CreateQueue = SQS
         type Rs CreateQueue = CreateQueueResponse
-        request = post
+        request = post "CreateQueue"
         response
           = receiveXMLWrapper "CreateQueueResult"
               (\ s h x ->

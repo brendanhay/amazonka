@@ -350,6 +350,7 @@ instance AWSService CodePipeline where
             , _svcPrefix = "codepipeline"
             , _svcVersion = "2015-07-09"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

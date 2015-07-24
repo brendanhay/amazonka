@@ -139,7 +139,7 @@ instance AWSRequest DescribeCacheClusters where
         type Sv DescribeCacheClusters = ElastiCache
         type Rs DescribeCacheClusters =
              DescribeCacheClustersResponse
-        request = post
+        request = post "DescribeCacheClusters"
         response
           = receiveXMLWrapper "DescribeCacheClustersResult"
               (\ s h x ->

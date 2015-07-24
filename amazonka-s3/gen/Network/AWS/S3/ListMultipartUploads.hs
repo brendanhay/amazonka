@@ -149,7 +149,7 @@ instance AWSRequest ListMultipartUploads where
         type Sv ListMultipartUploads = S3
         type Rs ListMultipartUploads =
              ListMultipartUploadsResponse
-        request = get
+        request = get "ListMultipartUploads"
         response
           = receiveXML
               (\ s h x ->

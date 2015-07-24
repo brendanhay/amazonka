@@ -77,7 +77,7 @@ instance AWSRequest BatchGetRepositories where
         type Sv BatchGetRepositories = CodeCommit
         type Rs BatchGetRepositories =
              BatchGetRepositoriesResponse
-        request = postJSON
+        request = postJSON "BatchGetRepositories"
         response
           = receiveJSON
               (\ s h x ->

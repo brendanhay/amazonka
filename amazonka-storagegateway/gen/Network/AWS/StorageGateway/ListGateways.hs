@@ -102,7 +102,7 @@ instance AWSPager ListGateways where
 instance AWSRequest ListGateways where
         type Sv ListGateways = StorageGateway
         type Rs ListGateways = ListGatewaysResponse
-        request = postJSON
+        request = postJSON "ListGateways"
         response
           = receiveJSON
               (\ s h x ->

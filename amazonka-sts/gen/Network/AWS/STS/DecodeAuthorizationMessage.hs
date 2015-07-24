@@ -95,7 +95,7 @@ instance AWSRequest DecodeAuthorizationMessage where
         type Sv DecodeAuthorizationMessage = STS
         type Rs DecodeAuthorizationMessage =
              DecodeAuthorizationMessageResponse
-        request = post
+        request = post "DecodeAuthorizationMessage"
         response
           = receiveXMLWrapper
               "DecodeAuthorizationMessageResult"

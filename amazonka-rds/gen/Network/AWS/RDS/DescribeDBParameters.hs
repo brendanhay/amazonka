@@ -132,7 +132,7 @@ instance AWSRequest DescribeDBParameters where
         type Sv DescribeDBParameters = RDS
         type Rs DescribeDBParameters =
              DescribeDBParametersResponse
-        request = post
+        request = post "DescribeDBParameters"
         response
           = receiveXMLWrapper "DescribeDBParametersResult"
               (\ s h x ->

@@ -113,7 +113,7 @@ instance AWSRequest DescribeConfigurationSettings
              ElasticBeanstalk
         type Rs DescribeConfigurationSettings =
              DescribeConfigurationSettingsResponse
-        request = post
+        request = post "DescribeConfigurationSettings"
         response
           = receiveXMLWrapper
               "DescribeConfigurationSettingsResult"

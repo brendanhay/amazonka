@@ -72,7 +72,7 @@ instance AWSRequest DeleteLoginProfile where
         type Sv DeleteLoginProfile = IAM
         type Rs DeleteLoginProfile =
              DeleteLoginProfileResponse
-        request = post
+        request = post "DeleteLoginProfile"
         response = receiveNull DeleteLoginProfileResponse'
 
 instance ToHeaders DeleteLoginProfile where

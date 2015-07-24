@@ -83,7 +83,7 @@ difiIndexFieldName = lens _difiIndexFieldName (\ s a -> s{_difiIndexFieldName = 
 instance AWSRequest DeleteIndexField where
         type Sv DeleteIndexField = CloudSearch
         type Rs DeleteIndexField = DeleteIndexFieldResponse
-        request = post
+        request = post "DeleteIndexField"
         response
           = receiveXMLWrapper "DeleteIndexFieldResult"
               (\ s h x ->

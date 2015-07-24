@@ -112,7 +112,7 @@ instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = Redshift
         type Rs DescribeEventSubscriptions =
              DescribeEventSubscriptionsResponse
-        request = post
+        request = post "DescribeEventSubscriptions"
         response
           = receiveXMLWrapper
               "DescribeEventSubscriptionsResult"

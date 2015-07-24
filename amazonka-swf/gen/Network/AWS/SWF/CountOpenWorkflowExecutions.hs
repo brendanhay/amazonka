@@ -144,7 +144,7 @@ instance AWSRequest CountOpenWorkflowExecutions where
         type Sv CountOpenWorkflowExecutions = SWF
         type Rs CountOpenWorkflowExecutions =
              WorkflowExecutionCount
-        request = postJSON
+        request = postJSON "CountOpenWorkflowExecutions"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CountOpenWorkflowExecutions where

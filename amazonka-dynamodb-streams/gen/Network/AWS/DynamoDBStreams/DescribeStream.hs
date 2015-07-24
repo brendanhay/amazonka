@@ -99,7 +99,7 @@ dsStreamARN = lens _dsStreamARN (\ s a -> s{_dsStreamARN = a});
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = DynamoDBStreams
         type Rs DescribeStream = DescribeStreamResponse
-        request = postJSON
+        request = postJSON "DescribeStream"
         response
           = receiveJSON
               (\ s h x ->

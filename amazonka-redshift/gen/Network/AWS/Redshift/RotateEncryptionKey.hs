@@ -73,7 +73,7 @@ instance AWSRequest RotateEncryptionKey where
         type Sv RotateEncryptionKey = Redshift
         type Rs RotateEncryptionKey =
              RotateEncryptionKeyResponse
-        request = post
+        request = post "RotateEncryptionKey"
         response
           = receiveXMLWrapper "RotateEncryptionKeyResult"
               (\ s h x ->

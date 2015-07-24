@@ -79,7 +79,7 @@ instance AWSRequest GetDeploymentGroup where
         type Sv GetDeploymentGroup = CodeDeploy
         type Rs GetDeploymentGroup =
              GetDeploymentGroupResponse
-        request = postJSON
+        request = postJSON "GetDeploymentGroup"
         response
           = receiveJSON
               (\ s h x ->

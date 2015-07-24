@@ -78,7 +78,7 @@ instance AWSRequest AbortEnvironmentUpdate where
         type Sv AbortEnvironmentUpdate = ElasticBeanstalk
         type Rs AbortEnvironmentUpdate =
              AbortEnvironmentUpdateResponse
-        request = post
+        request = post "AbortEnvironmentUpdate"
         response
           = receiveNull AbortEnvironmentUpdateResponse'
 

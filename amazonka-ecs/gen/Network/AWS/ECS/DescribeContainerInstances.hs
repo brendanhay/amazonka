@@ -82,7 +82,7 @@ instance AWSRequest DescribeContainerInstances where
         type Sv DescribeContainerInstances = ECS
         type Rs DescribeContainerInstances =
              DescribeContainerInstancesResponse
-        request = postJSON
+        request = postJSON "DescribeContainerInstances"
         response
           = receiveJSON
               (\ s h x ->

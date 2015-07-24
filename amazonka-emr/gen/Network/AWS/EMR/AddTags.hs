@@ -83,7 +83,7 @@ atTags = lens _atTags (\ s a -> s{_atTags = a});
 instance AWSRequest AddTags where
         type Sv AddTags = EMR
         type Rs AddTags = AddTagsResponse
-        request = postJSON
+        request = postJSON "AddTags"
         response
           = receiveJSON
               (\ s h x -> AddTagsResponse' <$> (pure (fromEnum s)))

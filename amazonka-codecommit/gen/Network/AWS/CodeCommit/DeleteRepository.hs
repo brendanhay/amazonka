@@ -73,7 +73,7 @@ drRepositoryName = lens _drRepositoryName (\ s a -> s{_drRepositoryName = a});
 instance AWSRequest DeleteRepository where
         type Sv DeleteRepository = CodeCommit
         type Rs DeleteRepository = DeleteRepositoryResponse
-        request = postJSON
+        request = postJSON "DeleteRepository"
         response
           = receiveJSON
               (\ s h x ->

@@ -112,7 +112,7 @@ cpUniqueId = lens _cpUniqueId (\ s a -> s{_cpUniqueId = a});
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = DataPipeline
         type Rs CreatePipeline = CreatePipelineResponse
-        request = postJSON
+        request = postJSON "CreatePipeline"
         response
           = receiveJSON
               (\ s h x ->

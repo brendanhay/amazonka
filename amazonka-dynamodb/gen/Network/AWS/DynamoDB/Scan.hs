@@ -477,7 +477,7 @@ instance AWSPager Scan where
 instance AWSRequest Scan where
         type Sv Scan = DynamoDB
         type Rs Scan = ScanResponse
-        request = postJSON
+        request = postJSON "Scan"
         response
           = receiveJSON
               (\ s h x ->

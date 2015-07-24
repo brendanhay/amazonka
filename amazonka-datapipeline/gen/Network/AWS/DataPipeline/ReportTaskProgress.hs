@@ -91,7 +91,7 @@ instance AWSRequest ReportTaskProgress where
         type Sv ReportTaskProgress = DataPipeline
         type Rs ReportTaskProgress =
              ReportTaskProgressResponse
-        request = postJSON
+        request = postJSON "ReportTaskProgress"
         response
           = receiveJSON
               (\ s h x ->

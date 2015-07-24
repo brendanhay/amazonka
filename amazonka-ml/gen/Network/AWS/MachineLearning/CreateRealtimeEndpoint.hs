@@ -70,7 +70,7 @@ instance AWSRequest CreateRealtimeEndpoint where
         type Sv CreateRealtimeEndpoint = MachineLearning
         type Rs CreateRealtimeEndpoint =
              CreateRealtimeEndpointResponse
-        request = postJSON
+        request = postJSON "CreateRealtimeEndpoint"
         response
           = receiveJSON
               (\ s h x ->

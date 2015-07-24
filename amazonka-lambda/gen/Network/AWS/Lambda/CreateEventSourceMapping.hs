@@ -149,7 +149,7 @@ instance AWSRequest CreateEventSourceMapping where
         type Sv CreateEventSourceMapping = Lambda
         type Rs CreateEventSourceMapping =
              EventSourceMappingConfiguration
-        request = postJSON
+        request = postJSON "CreateEventSourceMapping"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateEventSourceMapping where

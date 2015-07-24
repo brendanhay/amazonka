@@ -95,7 +95,7 @@ instance AWSPager DescribeStacks where
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = CloudFormation
         type Rs DescribeStacks = DescribeStacksResponse
-        request = post
+        request = post "DescribeStacks"
         response
           = receiveXMLWrapper "DescribeStacksResult"
               (\ s h x ->

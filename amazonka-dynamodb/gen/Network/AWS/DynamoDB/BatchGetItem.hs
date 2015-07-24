@@ -225,7 +225,7 @@ bgiRequestItems = lens _bgiRequestItems (\ s a -> s{_bgiRequestItems = a}) . _Ma
 instance AWSRequest BatchGetItem where
         type Sv BatchGetItem = DynamoDB
         type Rs BatchGetItem = BatchGetItemResponse
-        request = postJSON
+        request = postJSON "BatchGetItem"
         response
           = receiveJSON
               (\ s h x ->

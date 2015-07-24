@@ -101,7 +101,7 @@ instance AWSRequest DisableStageTransition where
         type Sv DisableStageTransition = CodePipeline
         type Rs DisableStageTransition =
              DisableStageTransitionResponse
-        request = postJSON
+        request = postJSON "DisableStageTransition"
         response
           = receiveNull DisableStageTransitionResponse'
 

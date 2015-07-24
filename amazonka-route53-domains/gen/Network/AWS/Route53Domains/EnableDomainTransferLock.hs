@@ -83,7 +83,7 @@ instance AWSRequest EnableDomainTransferLock where
         type Sv EnableDomainTransferLock = Route53Domains
         type Rs EnableDomainTransferLock =
              EnableDomainTransferLockResponse
-        request = postJSON
+        request = postJSON "EnableDomainTransferLock"
         response
           = receiveJSON
               (\ s h x ->

@@ -108,7 +108,7 @@ instance AWSRequest DescribeDirectories where
         type Sv DescribeDirectories = DirectoryService
         type Rs DescribeDirectories =
              DescribeDirectoriesResponse
-        request = postJSON
+        request = postJSON "DescribeDirectories"
         response
           = receiveJSON
               (\ s h x ->

@@ -64,7 +64,7 @@ instance AWSRequest DeleteBucketTagging where
         type Sv DeleteBucketTagging = S3
         type Rs DeleteBucketTagging =
              DeleteBucketTaggingResponse
-        request = delete
+        request = delete "DeleteBucketTagging"
         response = receiveNull DeleteBucketTaggingResponse'
 
 instance ToHeaders DeleteBucketTagging where

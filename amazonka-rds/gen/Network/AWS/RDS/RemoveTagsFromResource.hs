@@ -80,7 +80,7 @@ instance AWSRequest RemoveTagsFromResource where
         type Sv RemoveTagsFromResource = RDS
         type Rs RemoveTagsFromResource =
              RemoveTagsFromResourceResponse
-        request = post
+        request = post "RemoveTagsFromResource"
         response
           = receiveNull RemoveTagsFromResourceResponse'
 

@@ -78,7 +78,7 @@ instance AWSRequest GetDeploymentInstance where
         type Sv GetDeploymentInstance = CodeDeploy
         type Rs GetDeploymentInstance =
              GetDeploymentInstanceResponse
-        request = postJSON
+        request = postJSON "GetDeploymentInstance"
         response
           = receiveJSON
               (\ s h x ->

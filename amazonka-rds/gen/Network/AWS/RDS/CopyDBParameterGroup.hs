@@ -115,7 +115,7 @@ instance AWSRequest CopyDBParameterGroup where
         type Sv CopyDBParameterGroup = RDS
         type Rs CopyDBParameterGroup =
              CopyDBParameterGroupResponse
-        request = post
+        request = post "CopyDBParameterGroup"
         response
           = receiveXMLWrapper "CopyDBParameterGroupResult"
               (\ s h x ->

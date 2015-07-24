@@ -107,7 +107,7 @@ dvVaultName = lens _dvVaultName (\ s a -> s{_dvVaultName = a});
 instance AWSRequest DescribeVault where
         type Sv DescribeVault = Glacier
         type Rs DescribeVault = DescribeVaultOutput
-        request = get
+        request = get "DescribeVault"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DescribeVault where

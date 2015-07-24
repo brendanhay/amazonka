@@ -102,7 +102,7 @@ instance AWSRequest DeprecateActivityType where
         type Sv DeprecateActivityType = SWF
         type Rs DeprecateActivityType =
              DeprecateActivityTypeResponse
-        request = postJSON
+        request = postJSON "DeprecateActivityType"
         response = receiveNull DeprecateActivityTypeResponse'
 
 instance ToHeaders DeprecateActivityType where

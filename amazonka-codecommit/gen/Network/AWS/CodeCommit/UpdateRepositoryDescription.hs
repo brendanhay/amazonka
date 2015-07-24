@@ -83,7 +83,7 @@ instance AWSRequest UpdateRepositoryDescription where
         type Sv UpdateRepositoryDescription = CodeCommit
         type Rs UpdateRepositoryDescription =
              UpdateRepositoryDescriptionResponse
-        request = postJSON
+        request = postJSON "UpdateRepositoryDescription"
         response
           = receiveNull UpdateRepositoryDescriptionResponse'
 

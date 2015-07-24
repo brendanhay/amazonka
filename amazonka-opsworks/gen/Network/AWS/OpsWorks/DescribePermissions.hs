@@ -83,7 +83,7 @@ instance AWSRequest DescribePermissions where
         type Sv DescribePermissions = OpsWorks
         type Rs DescribePermissions =
              DescribePermissionsResponse
-        request = postJSON
+        request = postJSON "DescribePermissions"
         response
           = receiveJSON
               (\ s h x ->

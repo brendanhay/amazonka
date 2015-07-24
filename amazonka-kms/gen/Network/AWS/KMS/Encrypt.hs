@@ -129,7 +129,7 @@ ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive;
 instance AWSRequest Encrypt where
         type Sv Encrypt = KMS
         type Rs Encrypt = EncryptResponse
-        request = postJSON
+        request = postJSON "Encrypt"
         response
           = receiveJSON
               (\ s h x ->

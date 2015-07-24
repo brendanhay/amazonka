@@ -116,7 +116,7 @@ cSize = lens _cSize (\ s a -> s{_cSize = a});
 instance AWSRequest CreateDirectory where
         type Sv CreateDirectory = DirectoryService
         type Rs CreateDirectory = CreateDirectoryResponse
-        request = postJSON
+        request = postJSON "CreateDirectory"
         response
           = receiveJSON
               (\ s h x ->

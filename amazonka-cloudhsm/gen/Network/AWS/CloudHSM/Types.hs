@@ -52,6 +52,7 @@ instance AWSService CloudHSM where
             , _svcPrefix = "cloudhsm"
             , _svcVersion = "2014-05-30"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

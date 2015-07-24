@@ -99,7 +99,7 @@ instance AWSRequest CreateDBSecurityGroup where
         type Sv CreateDBSecurityGroup = RDS
         type Rs CreateDBSecurityGroup =
              CreateDBSecurityGroupResponse
-        request = post
+        request = post "CreateDBSecurityGroup"
         response
           = receiveXMLWrapper "CreateDBSecurityGroupResult"
               (\ s h x ->

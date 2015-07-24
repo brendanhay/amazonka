@@ -193,7 +193,7 @@ caType = lens _caType (\ s a -> s{_caType = a});
 instance AWSRequest CreateApp where
         type Sv CreateApp = OpsWorks
         type Rs CreateApp = CreateAppResponse
-        request = postJSON
+        request = postJSON "CreateApp"
         response
           = receiveJSON
               (\ s h x ->

@@ -87,7 +87,7 @@ gupPolicyName = lens _gupPolicyName (\ s a -> s{_gupPolicyName = a});
 instance AWSRequest GetUserPolicy where
         type Sv GetUserPolicy = IAM
         type Rs GetUserPolicy = GetUserPolicyResponse
-        request = post
+        request = post "GetUserPolicy"
         response
           = receiveXMLWrapper "GetUserPolicyResult"
               (\ s h x ->

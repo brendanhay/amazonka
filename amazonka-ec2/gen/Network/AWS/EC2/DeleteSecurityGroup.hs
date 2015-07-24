@@ -91,7 +91,7 @@ instance AWSRequest DeleteSecurityGroup where
         type Sv DeleteSecurityGroup = EC2
         type Rs DeleteSecurityGroup =
              DeleteSecurityGroupResponse
-        request = post
+        request = post "DeleteSecurityGroup"
         response = receiveNull DeleteSecurityGroupResponse'
 
 instance ToHeaders DeleteSecurityGroup where

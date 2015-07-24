@@ -77,7 +77,7 @@ instance AWSRequest DescribeAssociation where
         type Sv DescribeAssociation = SSM
         type Rs DescribeAssociation =
              DescribeAssociationResponse
-        request = postJSON
+        request = postJSON "DescribeAssociation"
         response
           = receiveJSON
               (\ s h x ->

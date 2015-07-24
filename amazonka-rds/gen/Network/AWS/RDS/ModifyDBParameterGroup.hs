@@ -113,7 +113,7 @@ instance AWSRequest ModifyDBParameterGroup where
         type Sv ModifyDBParameterGroup = RDS
         type Rs ModifyDBParameterGroup =
              DBParameterGroupNameMessage
-        request = post
+        request = post "ModifyDBParameterGroup"
         response
           = receiveXMLWrapper "ModifyDBParameterGroupResult"
               (\ s h x -> parseXML x)

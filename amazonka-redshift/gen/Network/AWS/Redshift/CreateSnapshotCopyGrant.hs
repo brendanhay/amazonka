@@ -104,7 +104,7 @@ instance AWSRequest CreateSnapshotCopyGrant where
         type Sv CreateSnapshotCopyGrant = Redshift
         type Rs CreateSnapshotCopyGrant =
              CreateSnapshotCopyGrantResponse
-        request = post
+        request = post "CreateSnapshotCopyGrant"
         response
           = receiveXMLWrapper "CreateSnapshotCopyGrantResult"
               (\ s h x ->

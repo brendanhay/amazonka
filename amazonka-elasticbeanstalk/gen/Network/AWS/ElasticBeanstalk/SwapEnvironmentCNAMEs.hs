@@ -111,7 +111,7 @@ instance AWSRequest SwapEnvironmentCNAMEs where
         type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk
         type Rs SwapEnvironmentCNAMEs =
              SwapEnvironmentCNAMEsResponse
-        request = post
+        request = post "SwapEnvironmentCNAMEs"
         response = receiveNull SwapEnvironmentCNAMEsResponse'
 
 instance ToHeaders SwapEnvironmentCNAMEs where

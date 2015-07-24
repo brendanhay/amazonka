@@ -201,7 +201,7 @@ pspAdjustmentType = lens _pspAdjustmentType (\ s a -> s{_pspAdjustmentType = a})
 instance AWSRequest PutScalingPolicy where
         type Sv PutScalingPolicy = AutoScaling
         type Rs PutScalingPolicy = PutScalingPolicyResponse
-        request = post
+        request = post "PutScalingPolicy"
         response
           = receiveXMLWrapper "PutScalingPolicyResult"
               (\ s h x ->

@@ -67,7 +67,7 @@ instance AWSRequest DeleteAccountAlias where
         type Sv DeleteAccountAlias = IAM
         type Rs DeleteAccountAlias =
              DeleteAccountAliasResponse
-        request = post
+        request = post "DeleteAccountAlias"
         response = receiveNull DeleteAccountAliasResponse'
 
 instance ToHeaders DeleteAccountAlias where

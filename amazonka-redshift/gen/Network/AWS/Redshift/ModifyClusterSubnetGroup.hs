@@ -90,7 +90,7 @@ instance AWSRequest ModifyClusterSubnetGroup where
         type Sv ModifyClusterSubnetGroup = Redshift
         type Rs ModifyClusterSubnetGroup =
              ModifyClusterSubnetGroupResponse
-        request = post
+        request = post "ModifyClusterSubnetGroup"
         response
           = receiveXMLWrapper "ModifyClusterSubnetGroupResult"
               (\ s h x ->

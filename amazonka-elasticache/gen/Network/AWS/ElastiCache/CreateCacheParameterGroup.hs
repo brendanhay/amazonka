@@ -92,7 +92,7 @@ instance AWSRequest CreateCacheParameterGroup where
         type Sv CreateCacheParameterGroup = ElastiCache
         type Rs CreateCacheParameterGroup =
              CreateCacheParameterGroupResponse
-        request = post
+        request = post "CreateCacheParameterGroup"
         response
           = receiveXMLWrapper "CreateCacheParameterGroupResult"
               (\ s h x ->

@@ -118,7 +118,7 @@ instance AWSRequest ChangeMessageVisibility where
         type Sv ChangeMessageVisibility = SQS
         type Rs ChangeMessageVisibility =
              ChangeMessageVisibilityResponse
-        request = post
+        request = post "ChangeMessageVisibility"
         response
           = receiveNull ChangeMessageVisibilityResponse'
 

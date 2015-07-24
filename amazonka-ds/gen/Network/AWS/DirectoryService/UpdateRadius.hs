@@ -79,7 +79,7 @@ urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
 instance AWSRequest UpdateRadius where
         type Sv UpdateRadius = DirectoryService
         type Rs UpdateRadius = UpdateRadiusResponse
-        request = postJSON
+        request = postJSON "UpdateRadius"
         response
           = receiveJSON
               (\ s h x ->

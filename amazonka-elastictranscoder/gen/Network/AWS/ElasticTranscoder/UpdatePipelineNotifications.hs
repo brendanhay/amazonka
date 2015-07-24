@@ -103,7 +103,7 @@ instance AWSRequest UpdatePipelineNotifications where
              ElasticTranscoder
         type Rs UpdatePipelineNotifications =
              UpdatePipelineNotificationsResponse
-        request = postJSON
+        request = postJSON "UpdatePipelineNotifications"
         response
           = receiveJSON
               (\ s h x ->

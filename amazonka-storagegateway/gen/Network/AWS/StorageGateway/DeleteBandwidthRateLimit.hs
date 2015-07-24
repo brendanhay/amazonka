@@ -80,7 +80,7 @@ instance AWSRequest DeleteBandwidthRateLimit where
         type Sv DeleteBandwidthRateLimit = StorageGateway
         type Rs DeleteBandwidthRateLimit =
              DeleteBandwidthRateLimitResponse
-        request = postJSON
+        request = postJSON "DeleteBandwidthRateLimit"
         response
           = receiveJSON
               (\ s h x ->

@@ -67,7 +67,7 @@ instance AWSRequest DeleteEventSubscription where
         type Sv DeleteEventSubscription = Redshift
         type Rs DeleteEventSubscription =
              DeleteEventSubscriptionResponse
-        request = post
+        request = post "DeleteEventSubscription"
         response
           = receiveNull DeleteEventSubscriptionResponse'
 

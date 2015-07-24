@@ -79,7 +79,7 @@ cpNewPassword = lens _cpNewPassword (\ s a -> s{_cpNewPassword = a}) . _Sensitiv
 instance AWSRequest ChangePassword where
         type Sv ChangePassword = IAM
         type Rs ChangePassword = ChangePasswordResponse
-        request = post
+        request = post "ChangePassword"
         response = receiveNull ChangePasswordResponse'
 
 instance ToHeaders ChangePassword where

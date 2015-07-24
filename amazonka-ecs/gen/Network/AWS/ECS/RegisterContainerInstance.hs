@@ -126,7 +126,7 @@ instance AWSRequest RegisterContainerInstance where
         type Sv RegisterContainerInstance = ECS
         type Rs RegisterContainerInstance =
              RegisterContainerInstanceResponse
-        request = postJSON
+        request = postJSON "RegisterContainerInstance"
         response
           = receiveJSON
               (\ s h x ->

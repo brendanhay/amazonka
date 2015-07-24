@@ -73,7 +73,7 @@ instance AWSRequest GetHealthCheckStatus where
         type Sv GetHealthCheckStatus = Route53
         type Rs GetHealthCheckStatus =
              GetHealthCheckStatusResponse
-        request = get
+        request = get "GetHealthCheckStatus"
         response
           = receiveXML
               (\ s h x ->

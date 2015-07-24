@@ -70,7 +70,7 @@ dConnectionId = lens _dConnectionId (\ s a -> s{_dConnectionId = a});
 instance AWSRequest DescribeConnections where
         type Sv DescribeConnections = DirectConnect
         type Rs DescribeConnections = Connections
-        request = postJSON
+        request = postJSON "DescribeConnections"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DescribeConnections where

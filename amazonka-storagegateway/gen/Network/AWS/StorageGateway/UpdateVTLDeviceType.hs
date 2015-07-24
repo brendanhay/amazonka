@@ -83,7 +83,7 @@ instance AWSRequest UpdateVTLDeviceType where
         type Sv UpdateVTLDeviceType = StorageGateway
         type Rs UpdateVTLDeviceType =
              UpdateVTLDeviceTypeResponse
-        request = postJSON
+        request = postJSON "UpdateVTLDeviceType"
         response
           = receiveJSON
               (\ s h x ->

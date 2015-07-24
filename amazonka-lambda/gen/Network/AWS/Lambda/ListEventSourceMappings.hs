@@ -124,7 +124,7 @@ instance AWSRequest ListEventSourceMappings where
         type Sv ListEventSourceMappings = Lambda
         type Rs ListEventSourceMappings =
              ListEventSourceMappingsResponse
-        request = get
+        request = get "ListEventSourceMappings"
         response
           = receiveJSON
               (\ s h x ->

@@ -89,7 +89,8 @@ instance AWSRequest
         type Sv DisableAvailabilityZonesForLoadBalancer = ELB
         type Rs DisableAvailabilityZonesForLoadBalancer =
              DisableAvailabilityZonesForLoadBalancerResponse
-        request = post
+        request
+          = post "DisableAvailabilityZonesForLoadBalancer"
         response
           = receiveXMLWrapper
               "DisableAvailabilityZonesForLoadBalancerResult"

@@ -111,7 +111,7 @@ instance AWSRequest UpdateDomainNameservers where
         type Sv UpdateDomainNameservers = Route53Domains
         type Rs UpdateDomainNameservers =
              UpdateDomainNameserversResponse
-        request = postJSON
+        request = postJSON "UpdateDomainNameservers"
         response
           = receiveJSON
               (\ s h x ->

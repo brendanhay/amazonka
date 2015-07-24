@@ -236,7 +236,7 @@ instance AWSRequest ModifyInstanceAttribute where
         type Sv ModifyInstanceAttribute = EC2
         type Rs ModifyInstanceAttribute =
              ModifyInstanceAttributeResponse
-        request = post
+        request = post "ModifyInstanceAttribute"
         response
           = receiveNull ModifyInstanceAttributeResponse'
 

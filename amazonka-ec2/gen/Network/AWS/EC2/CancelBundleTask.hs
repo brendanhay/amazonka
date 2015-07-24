@@ -79,7 +79,7 @@ cbtBundleId = lens _cbtBundleId (\ s a -> s{_cbtBundleId = a});
 instance AWSRequest CancelBundleTask where
         type Sv CancelBundleTask = EC2
         type Rs CancelBundleTask = CancelBundleTaskResponse
-        request = post
+        request = post "CancelBundleTask"
         response
           = receiveXML
               (\ s h x ->

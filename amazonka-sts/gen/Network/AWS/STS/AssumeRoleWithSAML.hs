@@ -191,7 +191,7 @@ instance AWSRequest AssumeRoleWithSAML where
         type Sv AssumeRoleWithSAML = STS
         type Rs AssumeRoleWithSAML =
              AssumeRoleWithSAMLResponse
-        request = post
+        request = post "AssumeRoleWithSAML"
         response
           = receiveXMLWrapper "AssumeRoleWithSAMLResult"
               (\ s h x ->

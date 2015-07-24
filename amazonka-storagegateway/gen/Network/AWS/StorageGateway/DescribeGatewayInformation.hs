@@ -79,7 +79,7 @@ instance AWSRequest DescribeGatewayInformation where
         type Sv DescribeGatewayInformation = StorageGateway
         type Rs DescribeGatewayInformation =
              DescribeGatewayInformationResponse
-        request = postJSON
+        request = postJSON "DescribeGatewayInformation"
         response
           = receiveJSON
               (\ s h x ->

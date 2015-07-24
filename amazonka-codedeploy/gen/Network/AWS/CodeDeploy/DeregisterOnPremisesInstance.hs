@@ -67,7 +67,7 @@ instance AWSRequest DeregisterOnPremisesInstance
         type Sv DeregisterOnPremisesInstance = CodeDeploy
         type Rs DeregisterOnPremisesInstance =
              DeregisterOnPremisesInstanceResponse
-        request = postJSON
+        request = postJSON "DeregisterOnPremisesInstance"
         response
           = receiveNull DeregisterOnPremisesInstanceResponse'
 

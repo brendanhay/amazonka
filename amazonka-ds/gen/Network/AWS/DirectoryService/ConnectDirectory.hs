@@ -115,7 +115,7 @@ cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a})
 instance AWSRequest ConnectDirectory where
         type Sv ConnectDirectory = DirectoryService
         type Rs ConnectDirectory = ConnectDirectoryResponse
-        request = postJSON
+        request = postJSON "ConnectDirectory"
         response
           = receiveJSON
               (\ s h x ->

@@ -75,7 +75,7 @@ instance AWSRequest GetHostnameSuggestion where
         type Sv GetHostnameSuggestion = OpsWorks
         type Rs GetHostnameSuggestion =
              GetHostnameSuggestionResponse
-        request = postJSON
+        request = postJSON "GetHostnameSuggestion"
         response
           = receiveJSON
               (\ s h x ->

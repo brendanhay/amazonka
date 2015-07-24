@@ -113,7 +113,7 @@ instance AWSPager DescribeObjects where
 instance AWSRequest DescribeObjects where
         type Sv DescribeObjects = DataPipeline
         type Rs DescribeObjects = DescribeObjectsResponse
-        request = postJSON
+        request = postJSON "DescribeObjects"
         response
           = receiveJSON
               (\ s h x ->

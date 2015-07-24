@@ -82,7 +82,7 @@ instance AWSRequest CreateLoadBalancerListeners where
         type Sv CreateLoadBalancerListeners = ELB
         type Rs CreateLoadBalancerListeners =
              CreateLoadBalancerListenersResponse
-        request = post
+        request = post "CreateLoadBalancerListeners"
         response
           = receiveXMLWrapper
               "CreateLoadBalancerListenersResult"

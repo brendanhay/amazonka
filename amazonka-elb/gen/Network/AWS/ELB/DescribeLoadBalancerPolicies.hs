@@ -85,7 +85,7 @@ instance AWSRequest DescribeLoadBalancerPolicies
         type Sv DescribeLoadBalancerPolicies = ELB
         type Rs DescribeLoadBalancerPolicies =
              DescribeLoadBalancerPoliciesResponse
-        request = post
+        request = post "DescribeLoadBalancerPolicies"
         response
           = receiveXMLWrapper
               "DescribeLoadBalancerPoliciesResult"

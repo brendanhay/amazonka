@@ -88,7 +88,7 @@ instance AWSRequest UpdateRDSDBInstance where
         type Sv UpdateRDSDBInstance = OpsWorks
         type Rs UpdateRDSDBInstance =
              UpdateRDSDBInstanceResponse
-        request = postJSON
+        request = postJSON "UpdateRDSDBInstance"
         response = receiveNull UpdateRDSDBInstanceResponse'
 
 instance ToHeaders UpdateRDSDBInstance where

@@ -222,7 +222,7 @@ uiInstanceId = lens _uiInstanceId (\ s a -> s{_uiInstanceId = a});
 instance AWSRequest UpdateInstance where
         type Sv UpdateInstance = OpsWorks
         type Rs UpdateInstance = UpdateInstanceResponse
-        request = postJSON
+        request = postJSON "UpdateInstance"
         response = receiveNull UpdateInstanceResponse'
 
 instance ToHeaders UpdateInstance where

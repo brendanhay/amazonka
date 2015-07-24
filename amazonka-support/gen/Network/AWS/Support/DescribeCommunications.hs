@@ -129,7 +129,7 @@ instance AWSRequest DescribeCommunications where
         type Sv DescribeCommunications = Support
         type Rs DescribeCommunications =
              DescribeCommunicationsResponse
-        request = postJSON
+        request = postJSON "DescribeCommunications"
         response
           = receiveJSON
               (\ s h x ->

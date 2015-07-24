@@ -67,7 +67,7 @@ instance AWSRequest GetBucketLifecycle where
         type Sv GetBucketLifecycle = S3
         type Rs GetBucketLifecycle =
              GetBucketLifecycleResponse
-        request = get
+        request = get "GetBucketLifecycle"
         response
           = receiveXML
               (\ s h x ->

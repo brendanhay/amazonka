@@ -123,6 +123,7 @@ instance AWSService SQS where
             , _svcPrefix = "sqs"
             , _svcVersion = "2012-11-05"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

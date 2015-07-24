@@ -108,7 +108,7 @@ instance AWSRequest ValidateConfigurationSettings
              ElasticBeanstalk
         type Rs ValidateConfigurationSettings =
              ValidateConfigurationSettingsResponse
-        request = post
+        request = post "ValidateConfigurationSettings"
         response
           = receiveXMLWrapper
               "ValidateConfigurationSettingsResult"

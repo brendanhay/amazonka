@@ -69,7 +69,7 @@ rpId = lens _rpId (\ s a -> s{_rpId = a});
 instance AWSRequest ReadPreset where
         type Sv ReadPreset = ElasticTranscoder
         type Rs ReadPreset = ReadPresetResponse
-        request = get
+        request = get "ReadPreset"
         response
           = receiveJSON
               (\ s h x ->

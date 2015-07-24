@@ -80,7 +80,7 @@ sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a});
 instance AWSRequest StartGateway where
         type Sv StartGateway = StorageGateway
         type Rs StartGateway = StartGatewayResponse
-        request = postJSON
+        request = postJSON "StartGateway"
         response
           = receiveJSON
               (\ s h x ->

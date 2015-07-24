@@ -88,7 +88,7 @@ dmtMountTargetId = lens _dmtMountTargetId (\ s a -> s{_dmtMountTargetId = a});
 instance AWSRequest DeleteMountTarget where
         type Sv DeleteMountTarget = EFS
         type Rs DeleteMountTarget = DeleteMountTargetResponse
-        request = delete
+        request = delete "DeleteMountTarget"
         response = receiveNull DeleteMountTargetResponse'
 
 instance ToHeaders DeleteMountTarget where

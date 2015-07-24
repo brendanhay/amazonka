@@ -86,7 +86,7 @@ instance AWSRequest
         type Sv DeregisterInstancesFromLoadBalancer = ELB
         type Rs DeregisterInstancesFromLoadBalancer =
              DeregisterInstancesFromLoadBalancerResponse
-        request = post
+        request = post "DeregisterInstancesFromLoadBalancer"
         response
           = receiveXMLWrapper
               "DeregisterInstancesFromLoadBalancerResult"

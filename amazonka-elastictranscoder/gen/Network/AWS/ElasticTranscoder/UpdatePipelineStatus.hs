@@ -88,7 +88,7 @@ instance AWSRequest UpdatePipelineStatus where
         type Sv UpdatePipelineStatus = ElasticTranscoder
         type Rs UpdatePipelineStatus =
              UpdatePipelineStatusResponse
-        request = postJSON
+        request = postJSON "UpdatePipelineStatus"
         response
           = receiveJSON
               (\ s h x ->

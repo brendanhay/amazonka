@@ -90,7 +90,7 @@ laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociati
 instance AWSRequest ListAssociations where
         type Sv ListAssociations = SSM
         type Rs ListAssociations = ListAssociationsResponse
-        request = postJSON
+        request = postJSON "ListAssociations"
         response
           = receiveJSON
               (\ s h x ->

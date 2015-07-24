@@ -88,7 +88,7 @@ goitIdentityId = lens _goitIdentityId (\ s a -> s{_goitIdentityId = a});
 instance AWSRequest GetOpenIdToken where
         type Sv GetOpenIdToken = CognitoIdentity
         type Rs GetOpenIdToken = GetOpenIdTokenResponse
-        request = postJSON
+        request = postJSON "GetOpenIdToken"
         response
           = receiveJSON
               (\ s h x ->

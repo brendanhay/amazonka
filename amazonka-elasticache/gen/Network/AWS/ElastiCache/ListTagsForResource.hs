@@ -75,7 +75,7 @@ ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
 instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = ElastiCache
         type Rs ListTagsForResource = TagListMessage
-        request = post
+        request = post "ListTagsForResource"
         response
           = receiveXMLWrapper "ListTagsForResourceResult"
               (\ s h x -> parseXML x)

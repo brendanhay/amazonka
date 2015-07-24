@@ -95,6 +95,7 @@ instance AWSService SDB where
             , _svcPrefix = "sdb"
             , _svcVersion = "2009-04-15"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

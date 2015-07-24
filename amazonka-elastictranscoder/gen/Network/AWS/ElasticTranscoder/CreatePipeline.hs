@@ -297,7 +297,7 @@ cRole = lens _cRole (\ s a -> s{_cRole = a});
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = ElasticTranscoder
         type Rs CreatePipeline = CreatePipelineResponse
-        request = postJSON
+        request = postJSON "CreatePipeline"
         response
           = receiveJSON
               (\ s h x ->

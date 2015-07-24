@@ -76,7 +76,7 @@ instance AWSRequest DeleteDistribution where
         type Sv DeleteDistribution = CloudFront
         type Rs DeleteDistribution =
              DeleteDistributionResponse
-        request = delete
+        request = delete "DeleteDistribution"
         response = receiveNull DeleteDistributionResponse'
 
 instance ToHeaders DeleteDistribution where

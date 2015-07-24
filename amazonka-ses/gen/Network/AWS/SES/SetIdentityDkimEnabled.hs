@@ -95,7 +95,7 @@ instance AWSRequest SetIdentityDkimEnabled where
         type Sv SetIdentityDkimEnabled = SES
         type Rs SetIdentityDkimEnabled =
              SetIdentityDkimEnabledResponse
-        request = post
+        request = post "SetIdentityDkimEnabled"
         response
           = receiveXMLWrapper "SetIdentityDkimEnabledResult"
               (\ s h x ->

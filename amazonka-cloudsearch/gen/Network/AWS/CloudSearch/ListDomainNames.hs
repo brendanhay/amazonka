@@ -53,7 +53,7 @@ listDomainNames = ListDomainNames'
 instance AWSRequest ListDomainNames where
         type Sv ListDomainNames = CloudSearch
         type Rs ListDomainNames = ListDomainNamesResponse
-        request = post
+        request = post "ListDomainNames"
         response
           = receiveXMLWrapper "ListDomainNamesResult"
               (\ s h x ->

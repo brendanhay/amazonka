@@ -102,7 +102,7 @@ instance AWSRequest TerminateInstances where
         type Sv TerminateInstances = EC2
         type Rs TerminateInstances =
              TerminateInstancesResponse
-        request = post
+        request = post "TerminateInstances"
         response
           = receiveXML
               (\ s h x ->

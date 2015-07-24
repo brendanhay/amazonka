@@ -4,6 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Internal.HTTP
@@ -38,7 +39,7 @@ perform :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
         -> Service s
         -> Request a
         -> m (Response a)
-perform e@Env{..} svc x =
+perform e@Env{..} svc (_svcPreflight svc -> x) =
     catch go err >>= response _envLogger svc x
   where
     go = do

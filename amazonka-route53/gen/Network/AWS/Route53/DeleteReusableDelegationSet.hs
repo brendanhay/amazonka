@@ -77,7 +77,7 @@ instance AWSRequest DeleteReusableDelegationSet where
         type Sv DeleteReusableDelegationSet = Route53
         type Rs DeleteReusableDelegationSet =
              DeleteReusableDelegationSetResponse
-        request = delete
+        request = delete "DeleteReusableDelegationSet"
         response
           = receiveXML
               (\ s h x ->

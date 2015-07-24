@@ -161,7 +161,7 @@ instance AWSRequest DescribeReservedInstances where
         type Sv DescribeReservedInstances = EC2
         type Rs DescribeReservedInstances =
              DescribeReservedInstancesResponse
-        request = post
+        request = post "DescribeReservedInstances"
         response
           = receiveXML
               (\ s h x ->

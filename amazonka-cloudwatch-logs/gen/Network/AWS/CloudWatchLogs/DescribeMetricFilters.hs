@@ -107,7 +107,7 @@ instance AWSRequest DescribeMetricFilters where
         type Sv DescribeMetricFilters = CloudWatchLogs
         type Rs DescribeMetricFilters =
              DescribeMetricFiltersResponse
-        request = postJSON
+        request = postJSON "DescribeMetricFilters"
         response
           = receiveJSON
               (\ s h x ->

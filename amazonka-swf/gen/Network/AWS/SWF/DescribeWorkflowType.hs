@@ -102,7 +102,7 @@ instance AWSRequest DescribeWorkflowType where
         type Sv DescribeWorkflowType = SWF
         type Rs DescribeWorkflowType =
              DescribeWorkflowTypeResponse
-        request = postJSON
+        request = postJSON "DescribeWorkflowType"
         response
           = receiveJSON
               (\ s h x ->

@@ -98,7 +98,7 @@ dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default;
 instance AWSRequest DescribeCommands where
         type Sv DescribeCommands = OpsWorks
         type Rs DescribeCommands = DescribeCommandsResponse
-        request = postJSON
+        request = postJSON "DescribeCommands"
         response
           = receiveJSON
               (\ s h x ->

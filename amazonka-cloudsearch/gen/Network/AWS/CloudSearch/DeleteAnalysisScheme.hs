@@ -82,7 +82,7 @@ instance AWSRequest DeleteAnalysisScheme where
         type Sv DeleteAnalysisScheme = CloudSearch
         type Rs DeleteAnalysisScheme =
              DeleteAnalysisSchemeResponse
-        request = post
+        request = post "DeleteAnalysisScheme"
         response
           = receiveXMLWrapper "DeleteAnalysisSchemeResult"
               (\ s h x ->

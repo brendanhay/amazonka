@@ -99,7 +99,7 @@ instance AWSRequest DescribeIndexFields where
         type Sv DescribeIndexFields = CloudSearch
         type Rs DescribeIndexFields =
              DescribeIndexFieldsResponse
-        request = post
+        request = post "DescribeIndexFields"
         response
           = receiveXMLWrapper "DescribeIndexFieldsResult"
               (\ s h x ->

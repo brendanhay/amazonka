@@ -130,7 +130,7 @@ instance AWSPager DescribeSnapshots where
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache
         type Rs DescribeSnapshots = DescribeSnapshotsResponse
-        request = post
+        request = post "DescribeSnapshots"
         response
           = receiveXMLWrapper "DescribeSnapshotsResult"
               (\ s h x ->

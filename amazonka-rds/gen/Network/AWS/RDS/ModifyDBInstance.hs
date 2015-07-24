@@ -533,7 +533,7 @@ mdiDBInstanceIdentifier = lens _mdiDBInstanceIdentifier (\ s a -> s{_mdiDBInstan
 instance AWSRequest ModifyDBInstance where
         type Sv ModifyDBInstance = RDS
         type Rs ModifyDBInstance = ModifyDBInstanceResponse
-        request = post
+        request = post "ModifyDBInstance"
         response
           = receiveXMLWrapper "ModifyDBInstanceResult"
               (\ s h x ->

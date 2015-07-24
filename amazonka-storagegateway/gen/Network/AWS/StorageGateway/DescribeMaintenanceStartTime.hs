@@ -76,7 +76,7 @@ instance AWSRequest DescribeMaintenanceStartTime
         type Sv DescribeMaintenanceStartTime = StorageGateway
         type Rs DescribeMaintenanceStartTime =
              DescribeMaintenanceStartTimeResponse
-        request = postJSON
+        request = postJSON "DescribeMaintenanceStartTime"
         response
           = receiveJSON
               (\ s h x ->

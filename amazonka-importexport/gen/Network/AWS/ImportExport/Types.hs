@@ -74,6 +74,7 @@ instance AWSService ImportExport where
             , _svcPrefix = "importexport"
             , _svcVersion = "2010-06-01"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

@@ -74,7 +74,7 @@ dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default;
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = OpsWorks
         type Rs DescribeStacks = DescribeStacksResponse
-        request = postJSON
+        request = postJSON "DescribeStacks"
         response
           = receiveJSON
               (\ s h x ->

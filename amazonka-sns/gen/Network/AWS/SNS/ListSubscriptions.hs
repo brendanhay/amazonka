@@ -80,7 +80,7 @@ instance AWSPager ListSubscriptions where
 instance AWSRequest ListSubscriptions where
         type Sv ListSubscriptions = SNS
         type Rs ListSubscriptions = ListSubscriptionsResponse
-        request = post
+        request = post "ListSubscriptions"
         response
           = receiveXMLWrapper "ListSubscriptionsResult"
               (\ s h x ->

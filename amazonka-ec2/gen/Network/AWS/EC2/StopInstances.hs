@@ -125,7 +125,7 @@ siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a});
 instance AWSRequest StopInstances where
         type Sv StopInstances = EC2
         type Rs StopInstances = StopInstancesResponse
-        request = post
+        request = post "StopInstances"
         response
           = receiveXML
               (\ s h x ->

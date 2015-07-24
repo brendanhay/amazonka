@@ -81,7 +81,7 @@ instance AWSRequest GetApplicationRevision where
         type Sv GetApplicationRevision = CodeDeploy
         type Rs GetApplicationRevision =
              GetApplicationRevisionResponse
-        request = postJSON
+        request = postJSON "GetApplicationRevision"
         response
           = receiveJSON
               (\ s h x ->

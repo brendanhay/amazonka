@@ -259,7 +259,7 @@ instance AWSRequest StartWorkflowExecution where
         type Sv StartWorkflowExecution = SWF
         type Rs StartWorkflowExecution =
              StartWorkflowExecutionResponse
-        request = postJSON
+        request = postJSON "StartWorkflowExecution"
         response
           = receiveJSON
               (\ s h x ->

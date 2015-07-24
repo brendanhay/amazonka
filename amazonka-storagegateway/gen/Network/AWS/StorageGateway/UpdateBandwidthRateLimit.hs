@@ -101,7 +101,7 @@ instance AWSRequest UpdateBandwidthRateLimit where
         type Sv UpdateBandwidthRateLimit = StorageGateway
         type Rs UpdateBandwidthRateLimit =
              UpdateBandwidthRateLimitResponse
-        request = postJSON
+        request = postJSON "UpdateBandwidthRateLimit"
         response
           = receiveJSON
               (\ s h x ->

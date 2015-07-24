@@ -102,7 +102,7 @@ instance AWSPager ListIdentities where
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = SES
         type Rs ListIdentities = ListIdentitiesResponse
-        request = post
+        request = post "ListIdentities"
         response
           = receiveXMLWrapper "ListIdentitiesResult"
               (\ s h x ->

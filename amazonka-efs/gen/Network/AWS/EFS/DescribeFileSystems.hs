@@ -131,7 +131,7 @@ instance AWSRequest DescribeFileSystems where
         type Sv DescribeFileSystems = EFS
         type Rs DescribeFileSystems =
              DescribeFileSystemsResponse
-        request = get
+        request = get "DescribeFileSystems"
         response
           = receiveJSON
               (\ s h x ->

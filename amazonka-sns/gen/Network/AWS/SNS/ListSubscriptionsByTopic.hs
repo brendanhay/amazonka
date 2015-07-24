@@ -91,7 +91,7 @@ instance AWSRequest ListSubscriptionsByTopic where
         type Sv ListSubscriptionsByTopic = SNS
         type Rs ListSubscriptionsByTopic =
              ListSubscriptionsByTopicResponse
-        request = post
+        request = post "ListSubscriptionsByTopic"
         response
           = receiveXMLWrapper "ListSubscriptionsByTopicResult"
               (\ s h x ->

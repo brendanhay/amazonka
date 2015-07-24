@@ -132,7 +132,7 @@ instance AWSRequest DescribeLogStreams where
         type Sv DescribeLogStreams = CloudWatchLogs
         type Rs DescribeLogStreams =
              DescribeLogStreamsResponse
-        request = postJSON
+        request = postJSON "DescribeLogStreams"
         response
           = receiveJSON
               (\ s h x ->

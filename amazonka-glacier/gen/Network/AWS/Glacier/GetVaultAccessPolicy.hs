@@ -88,7 +88,7 @@ instance AWSRequest GetVaultAccessPolicy where
         type Sv GetVaultAccessPolicy = Glacier
         type Rs GetVaultAccessPolicy =
              GetVaultAccessPolicyResponse
-        request = get
+        request = get "GetVaultAccessPolicy"
         response
           = receiveJSON
               (\ s h x ->

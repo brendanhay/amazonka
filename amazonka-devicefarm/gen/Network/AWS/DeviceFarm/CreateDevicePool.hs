@@ -95,7 +95,7 @@ cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a});
 instance AWSRequest CreateDevicePool where
         type Sv CreateDevicePool = DeviceFarm
         type Rs CreateDevicePool = CreateDevicePoolResponse
-        request = postJSON
+        request = postJSON "CreateDevicePool"
         response
           = receiveJSON
               (\ s h x ->

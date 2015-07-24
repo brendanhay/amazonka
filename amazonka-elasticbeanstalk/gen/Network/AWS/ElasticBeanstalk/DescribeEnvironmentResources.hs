@@ -88,7 +88,7 @@ instance AWSRequest DescribeEnvironmentResources
              ElasticBeanstalk
         type Rs DescribeEnvironmentResources =
              DescribeEnvironmentResourcesResponse
-        request = post
+        request = post "DescribeEnvironmentResources"
         response
           = receiveXMLWrapper
               "DescribeEnvironmentResourcesResult"

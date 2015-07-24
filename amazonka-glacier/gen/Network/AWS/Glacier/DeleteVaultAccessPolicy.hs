@@ -88,7 +88,7 @@ instance AWSRequest DeleteVaultAccessPolicy where
         type Sv DeleteVaultAccessPolicy = Glacier
         type Rs DeleteVaultAccessPolicy =
              DeleteVaultAccessPolicyResponse
-        request = delete
+        request = delete "DeleteVaultAccessPolicy"
         response
           = receiveNull DeleteVaultAccessPolicyResponse'
 

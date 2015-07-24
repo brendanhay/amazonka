@@ -172,7 +172,7 @@ instance AWSRequest CreateDataSourceFromRDS where
         type Sv CreateDataSourceFromRDS = MachineLearning
         type Rs CreateDataSourceFromRDS =
              CreateDataSourceFromRDSResponse
-        request = postJSON
+        request = postJSON "CreateDataSourceFromRDS"
         response
           = receiveJSON
               (\ s h x ->

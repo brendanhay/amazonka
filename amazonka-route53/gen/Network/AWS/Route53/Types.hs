@@ -229,6 +229,7 @@ instance AWSService Route53 where
             , _svcPrefix = "route53"
             , _svcVersion = "2013-04-01"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

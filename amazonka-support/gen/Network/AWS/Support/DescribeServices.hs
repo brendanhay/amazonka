@@ -91,7 +91,7 @@ dsLanguage = lens _dsLanguage (\ s a -> s{_dsLanguage = a});
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = Support
         type Rs DescribeServices = DescribeServicesResponse
-        request = postJSON
+        request = postJSON "DescribeServices"
         response
           = receiveJSON
               (\ s h x ->

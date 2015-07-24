@@ -77,7 +77,7 @@ ctName = lens _ctName (\ s a -> s{_ctName = a});
 instance AWSRequest CreateTopic where
         type Sv CreateTopic = SNS
         type Rs CreateTopic = CreateTopicResponse
-        request = post
+        request = post "CreateTopic"
         response
           = receiveXMLWrapper "CreateTopicResult"
               (\ s h x ->

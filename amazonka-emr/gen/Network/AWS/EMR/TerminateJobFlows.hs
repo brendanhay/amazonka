@@ -74,7 +74,7 @@ tjfJobFlowIds = lens _tjfJobFlowIds (\ s a -> s{_tjfJobFlowIds = a});
 instance AWSRequest TerminateJobFlows where
         type Sv TerminateJobFlows = EMR
         type Rs TerminateJobFlows = TerminateJobFlowsResponse
-        request = postJSON
+        request = postJSON "TerminateJobFlows"
         response = receiveNull TerminateJobFlowsResponse'
 
 instance ToHeaders TerminateJobFlows where

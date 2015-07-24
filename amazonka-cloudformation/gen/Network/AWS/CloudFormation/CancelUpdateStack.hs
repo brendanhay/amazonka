@@ -69,7 +69,7 @@ cusStackName = lens _cusStackName (\ s a -> s{_cusStackName = a});
 instance AWSRequest CancelUpdateStack where
         type Sv CancelUpdateStack = CloudFormation
         type Rs CancelUpdateStack = CancelUpdateStackResponse
-        request = post
+        request = post "CancelUpdateStack"
         response = receiveNull CancelUpdateStackResponse'
 
 instance ToHeaders CancelUpdateStack where

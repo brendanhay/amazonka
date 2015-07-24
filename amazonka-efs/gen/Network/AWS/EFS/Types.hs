@@ -93,6 +93,7 @@ instance AWSService EFS where
             , _svcPrefix = "elasticfilesystem"
             , _svcVersion = "2015-02-01"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

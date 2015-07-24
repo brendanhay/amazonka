@@ -31,7 +31,6 @@ import           Gen.AST.Prefix
 import           Gen.AST.Subst
 import           Gen.AST.TypeOf
 import           Gen.Formatting
-import           Gen.Text
 import           Gen.Types
 
 -- FIXME: Relations need to be updated by the solving step.
@@ -42,7 +41,7 @@ rewrite :: Versions
         -> Either Error Library
 rewrite v cfg s' = do
     s <- rewriteService cfg (ignore cfg (deprecate s')) >>= renderShapes cfg
-    Library v cfg s <$> renderService s
+    Library v cfg s <$> renderService cfg s
 
 deprecate :: Service f a b c -> Service f a b c
 deprecate = operations %~ Map.filter (not . view opDeprecated)
@@ -98,8 +97,8 @@ renderShapes cfg svc = do
         , _waiters    = zs
         }
 
-renderService :: Service f a b c -> Either Error Rendered
-renderService s = serviceData (s ^. metadata) (s ^. retry)
+renderService :: Config -> Service f a b c -> Either Error Rendered
+renderService c s = serviceData c (s ^. metadata) (s ^. retry)
 
 type MemoR = StateT (Map Id Relation, Set (Id, Direction, Id)) (Either Error)
 

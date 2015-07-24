@@ -80,7 +80,7 @@ ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a});
 instance AWSRequest UpdateElasticIP where
         type Sv UpdateElasticIP = OpsWorks
         type Rs UpdateElasticIP = UpdateElasticIPResponse
-        request = postJSON
+        request = postJSON "UpdateElasticIP"
         response = receiveNull UpdateElasticIPResponse'
 
 instance ToHeaders UpdateElasticIP where

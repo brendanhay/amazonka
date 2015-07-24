@@ -99,7 +99,7 @@ instance AWSRequest ReplaceRouteTableAssociation
         type Sv ReplaceRouteTableAssociation = EC2
         type Rs ReplaceRouteTableAssociation =
              ReplaceRouteTableAssociationResponse
-        request = post
+        request = post "ReplaceRouteTableAssociation"
         response
           = receiveXML
               (\ s h x ->

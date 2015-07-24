@@ -123,7 +123,7 @@ instance AWSPager QueryObjects where
 instance AWSRequest QueryObjects where
         type Sv QueryObjects = DataPipeline
         type Rs QueryObjects = QueryObjectsResponse
-        request = postJSON
+        request = postJSON "QueryObjects"
         response
           = receiveJSON
               (\ s h x ->

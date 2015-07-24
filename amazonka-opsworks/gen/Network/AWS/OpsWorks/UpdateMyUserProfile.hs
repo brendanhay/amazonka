@@ -69,7 +69,7 @@ instance AWSRequest UpdateMyUserProfile where
         type Sv UpdateMyUserProfile = OpsWorks
         type Rs UpdateMyUserProfile =
              UpdateMyUserProfileResponse
-        request = postJSON
+        request = postJSON "UpdateMyUserProfile"
         response = receiveNull UpdateMyUserProfileResponse'
 
 instance ToHeaders UpdateMyUserProfile where

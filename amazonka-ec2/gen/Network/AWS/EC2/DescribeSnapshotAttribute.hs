@@ -95,7 +95,7 @@ instance AWSRequest DescribeSnapshotAttribute where
         type Sv DescribeSnapshotAttribute = EC2
         type Rs DescribeSnapshotAttribute =
              DescribeSnapshotAttributeResponse
-        request = post
+        request = post "DescribeSnapshotAttribute"
         response
           = receiveXML
               (\ s h x ->

@@ -74,7 +74,7 @@ instance AWSRequest DeleteSubscriptionFilter where
         type Sv DeleteSubscriptionFilter = CloudWatchLogs
         type Rs DeleteSubscriptionFilter =
              DeleteSubscriptionFilterResponse
-        request = postJSON
+        request = postJSON "DeleteSubscriptionFilter"
         response
           = receiveNull DeleteSubscriptionFilterResponse'
 

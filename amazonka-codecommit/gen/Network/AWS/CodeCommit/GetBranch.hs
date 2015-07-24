@@ -78,7 +78,7 @@ gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
 instance AWSRequest GetBranch where
         type Sv GetBranch = CodeCommit
         type Rs GetBranch = GetBranchResponse
-        request = postJSON
+        request = postJSON "GetBranch"
         response
           = receiveJSON
               (\ s h x ->

@@ -95,7 +95,7 @@ instance AWSRequest DescribeVolumeAttribute where
         type Sv DescribeVolumeAttribute = EC2
         type Rs DescribeVolumeAttribute =
              DescribeVolumeAttributeResponse
-        request = post
+        request = post "DescribeVolumeAttribute"
         response
           = receiveXML
               (\ s h x ->

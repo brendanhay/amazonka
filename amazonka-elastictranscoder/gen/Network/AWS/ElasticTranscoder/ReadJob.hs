@@ -69,7 +69,7 @@ rjId = lens _rjId (\ s a -> s{_rjId = a});
 instance AWSRequest ReadJob where
         type Sv ReadJob = ElasticTranscoder
         type Rs ReadJob = ReadJobResponse
-        request = get
+        request = get "ReadJob"
         response
           = receiveJSON
               (\ s h x ->

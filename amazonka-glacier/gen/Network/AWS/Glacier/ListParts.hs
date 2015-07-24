@@ -147,7 +147,7 @@ lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
 instance AWSRequest ListParts where
         type Sv ListParts = Glacier
         type Rs ListParts = ListPartsResponse
-        request = get
+        request = get "ListParts"
         response
           = receiveJSON
               (\ s h x ->

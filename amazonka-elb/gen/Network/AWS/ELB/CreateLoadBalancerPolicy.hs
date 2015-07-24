@@ -100,7 +100,7 @@ instance AWSRequest CreateLoadBalancerPolicy where
         type Sv CreateLoadBalancerPolicy = ELB
         type Rs CreateLoadBalancerPolicy =
              CreateLoadBalancerPolicyResponse
-        request = post
+        request = post "CreateLoadBalancerPolicy"
         response
           = receiveXMLWrapper "CreateLoadBalancerPolicyResult"
               (\ s h x ->

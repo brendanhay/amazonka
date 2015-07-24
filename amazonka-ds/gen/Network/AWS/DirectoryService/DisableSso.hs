@@ -95,7 +95,7 @@ disDirectoryId = lens _disDirectoryId (\ s a -> s{_disDirectoryId = a});
 instance AWSRequest DisableSso where
         type Sv DisableSso = DirectoryService
         type Rs DisableSso = DisableSsoResponse
-        request = postJSON
+        request = postJSON "DisableSso"
         response
           = receiveJSON
               (\ s h x ->

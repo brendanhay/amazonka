@@ -107,7 +107,7 @@ instance AWSRequest DescribeCacheSubnetGroups where
         type Sv DescribeCacheSubnetGroups = ElastiCache
         type Rs DescribeCacheSubnetGroups =
              DescribeCacheSubnetGroupsResponse
-        request = post
+        request = post "DescribeCacheSubnetGroups"
         response
           = receiveXMLWrapper "DescribeCacheSubnetGroupsResult"
               (\ s h x ->

@@ -84,7 +84,7 @@ instance AWSRequest UpdateSAMLProvider where
         type Sv UpdateSAMLProvider = IAM
         type Rs UpdateSAMLProvider =
              UpdateSAMLProviderResponse
-        request = post
+        request = post "UpdateSAMLProvider"
         response
           = receiveXMLWrapper "UpdateSAMLProviderResult"
               (\ s h x ->

@@ -114,7 +114,7 @@ cuType = lens _cuType (\ s a -> s{_cuType = a});
 instance AWSRequest CreateUpload where
         type Sv CreateUpload = DeviceFarm
         type Rs CreateUpload = CreateUploadResponse
-        request = postJSON
+        request = postJSON "CreateUpload"
         response
           = receiveJSON
               (\ s h x ->

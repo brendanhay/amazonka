@@ -136,7 +136,7 @@ instance AWSRequest UpdateDeploymentGroup where
         type Sv UpdateDeploymentGroup = CodeDeploy
         type Rs UpdateDeploymentGroup =
              UpdateDeploymentGroupResponse
-        request = postJSON
+        request = postJSON "UpdateDeploymentGroup"
         response
           = receiveJSON
               (\ s h x ->

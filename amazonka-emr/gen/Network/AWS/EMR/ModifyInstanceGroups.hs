@@ -69,7 +69,7 @@ instance AWSRequest ModifyInstanceGroups where
         type Sv ModifyInstanceGroups = EMR
         type Rs ModifyInstanceGroups =
              ModifyInstanceGroupsResponse
-        request = postJSON
+        request = postJSON "ModifyInstanceGroups"
         response = receiveNull ModifyInstanceGroupsResponse'
 
 instance ToHeaders ModifyInstanceGroups where

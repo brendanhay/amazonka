@@ -73,7 +73,7 @@ instance AWSRequest RemoveUserFromGroup where
         type Sv RemoveUserFromGroup = IAM
         type Rs RemoveUserFromGroup =
              RemoveUserFromGroupResponse
-        request = post
+        request = post "RemoveUserFromGroup"
         response = receiveNull RemoveUserFromGroupResponse'
 
 instance ToHeaders RemoveUserFromGroup where

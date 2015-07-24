@@ -81,7 +81,7 @@ instance AWSRequest DetachLoadBalancers where
         type Sv DetachLoadBalancers = AutoScaling
         type Rs DetachLoadBalancers =
              DetachLoadBalancersResponse
-        request = post
+        request = post "DetachLoadBalancers"
         response
           = receiveXMLWrapper "DetachLoadBalancersResult"
               (\ s h x ->

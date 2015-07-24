@@ -108,7 +108,7 @@ instance AWSRequest ListContainerInstances where
         type Sv ListContainerInstances = ECS
         type Rs ListContainerInstances =
              ListContainerInstancesResponse
-        request = postJSON
+        request = postJSON "ListContainerInstances"
         response
           = receiveJSON
               (\ s h x ->

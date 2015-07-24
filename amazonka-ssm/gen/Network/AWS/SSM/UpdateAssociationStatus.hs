@@ -86,7 +86,7 @@ instance AWSRequest UpdateAssociationStatus where
         type Sv UpdateAssociationStatus = SSM
         type Rs UpdateAssociationStatus =
              UpdateAssociationStatusResponse
-        request = postJSON
+        request = postJSON "UpdateAssociationStatus"
         response
           = receiveJSON
               (\ s h x ->

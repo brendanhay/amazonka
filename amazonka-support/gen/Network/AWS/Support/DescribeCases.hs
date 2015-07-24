@@ -170,7 +170,7 @@ instance AWSPager DescribeCases where
 instance AWSRequest DescribeCases where
         type Sv DescribeCases = Support
         type Rs DescribeCases = DescribeCasesResponse
-        request = postJSON
+        request = postJSON "DescribeCases"
         response
           = receiveJSON
               (\ s h x ->

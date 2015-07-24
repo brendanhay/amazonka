@@ -136,7 +136,7 @@ pStreamName = lens _pStreamName (\ s a -> s{_pStreamName = a});
 instance AWSRequest PutRecords where
         type Sv PutRecords = Kinesis
         type Rs PutRecords = PutRecordsResponse
-        request = postJSON
+        request = postJSON "PutRecords"
         response
           = receiveJSON
               (\ s h x ->

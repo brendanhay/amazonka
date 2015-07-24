@@ -215,7 +215,7 @@ ceEnvironmentName = lens _ceEnvironmentName (\ s a -> s{_ceEnvironmentName = a})
 instance AWSRequest CreateEnvironment where
         type Sv CreateEnvironment = ElasticBeanstalk
         type Rs CreateEnvironment = EnvironmentDescription
-        request = post
+        request = post "CreateEnvironment"
         response
           = receiveXMLWrapper "CreateEnvironmentResult"
               (\ s h x -> parseXML x)

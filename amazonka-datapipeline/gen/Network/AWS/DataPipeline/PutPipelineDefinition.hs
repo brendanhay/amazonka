@@ -113,7 +113,7 @@ instance AWSRequest PutPipelineDefinition where
         type Sv PutPipelineDefinition = DataPipeline
         type Rs PutPipelineDefinition =
              PutPipelineDefinitionResponse
-        request = postJSON
+        request = postJSON "PutPipelineDefinition"
         response
           = receiveJSON
               (\ s h x ->

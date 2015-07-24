@@ -78,7 +78,7 @@ attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map;
 instance AWSRequest AddTagsToStream where
         type Sv AddTagsToStream = Kinesis
         type Rs AddTagsToStream = AddTagsToStreamResponse
-        request = postJSON
+        request = postJSON "AddTagsToStream"
         response = receiveNull AddTagsToStreamResponse'
 
 instance ToHeaders AddTagsToStream where

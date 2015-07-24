@@ -83,7 +83,7 @@ instance AWSRequest DetachLoadBalancerFromSubnets
         type Sv DetachLoadBalancerFromSubnets = ELB
         type Rs DetachLoadBalancerFromSubnets =
              DetachLoadBalancerFromSubnetsResponse
-        request = post
+        request = post "DetachLoadBalancerFromSubnets"
         response
           = receiveXMLWrapper
               "DetachLoadBalancerFromSubnetsResult"

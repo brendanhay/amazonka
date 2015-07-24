@@ -102,7 +102,7 @@ instance AWSRequest ListOnPremisesInstances where
         type Sv ListOnPremisesInstances = CodeDeploy
         type Rs ListOnPremisesInstances =
              ListOnPremisesInstancesResponse
-        request = postJSON
+        request = postJSON "ListOnPremisesInstances"
         response
           = receiveJSON
               (\ s h x ->

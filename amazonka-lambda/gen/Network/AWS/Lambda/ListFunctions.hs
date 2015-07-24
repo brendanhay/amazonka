@@ -92,7 +92,7 @@ instance AWSPager ListFunctions where
 instance AWSRequest ListFunctions where
         type Sv ListFunctions = Lambda
         type Rs ListFunctions = ListFunctionsResponse
-        request = get
+        request = get "ListFunctions"
         response
           = receiveJSON
               (\ s h x ->

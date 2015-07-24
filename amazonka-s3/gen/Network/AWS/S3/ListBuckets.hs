@@ -55,7 +55,7 @@ listBuckets = ListBuckets'
 instance AWSRequest ListBuckets where
         type Sv ListBuckets = S3
         type Rs ListBuckets = ListBucketsResponse
-        request = get
+        request = get "ListBuckets"
         response
           = receiveXML
               (\ s h x ->

@@ -75,7 +75,7 @@ dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentif
 instance AWSRequest DescribeLoggingStatus where
         type Sv DescribeLoggingStatus = Redshift
         type Rs DescribeLoggingStatus = LoggingStatus
-        request = post
+        request = post "DescribeLoggingStatus"
         response
           = receiveXMLWrapper "DescribeLoggingStatusResult"
               (\ s h x -> parseXML x)

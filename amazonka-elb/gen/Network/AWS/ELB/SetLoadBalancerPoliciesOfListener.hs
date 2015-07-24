@@ -88,7 +88,7 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener
         type Sv SetLoadBalancerPoliciesOfListener = ELB
         type Rs SetLoadBalancerPoliciesOfListener =
              SetLoadBalancerPoliciesOfListenerResponse
-        request = post
+        request = post "SetLoadBalancerPoliciesOfListener"
         response
           = receiveXMLWrapper
               "SetLoadBalancerPoliciesOfListenerResult"

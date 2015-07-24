@@ -146,7 +146,7 @@ instance AWSRequest CreateDataSourceFromS where
         type Sv CreateDataSourceFromS = MachineLearning
         type Rs CreateDataSourceFromS =
              CreateDataSourceFromSResponse
-        request = postJSON
+        request = postJSON "CreateDataSourceFromS"
         response
           = receiveJSON
               (\ s h x ->

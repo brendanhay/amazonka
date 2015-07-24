@@ -87,7 +87,7 @@ instance AWSRequest ListInstanceGroups where
         type Sv ListInstanceGroups = EMR
         type Rs ListInstanceGroups =
              ListInstanceGroupsResponse
-        request = postJSON
+        request = postJSON "ListInstanceGroups"
         response
           = receiveJSON
               (\ s h x ->

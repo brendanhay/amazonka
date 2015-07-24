@@ -71,7 +71,7 @@ dId = lens _dId (\ s a -> s{_dId = a});
 instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = ElasticTranscoder
         type Rs DeletePipeline = DeletePipelineResponse
-        request = delete
+        request = delete "DeletePipeline"
         response
           = receiveJSON
               (\ s h x ->

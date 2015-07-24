@@ -128,7 +128,7 @@ instance AWSRequest RecordActivityTaskHeartbeat where
         type Sv RecordActivityTaskHeartbeat = SWF
         type Rs RecordActivityTaskHeartbeat =
              RecordActivityTaskHeartbeatResponse
-        request = postJSON
+        request = postJSON "RecordActivityTaskHeartbeat"
         response
           = receiveJSON
               (\ s h x ->

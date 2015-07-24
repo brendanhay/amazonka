@@ -69,7 +69,7 @@ staStackId = lens _staStackId (\ s a -> s{_staStackId = a});
 instance AWSRequest StartStack where
         type Sv StartStack = OpsWorks
         type Rs StartStack = StartStackResponse
-        request = postJSON
+        request = postJSON "StartStack"
         response = receiveNull StartStackResponse'
 
 instance ToHeaders StartStack where

@@ -66,7 +66,7 @@ gbcBucket = lens _gbcBucket (\ s a -> s{_gbcBucket = a});
 instance AWSRequest GetBucketCORS where
         type Sv GetBucketCORS = S3
         type Rs GetBucketCORS = GetBucketCORSResponse
-        request = get
+        request = get "GetBucketCORS"
         response
           = receiveXML
               (\ s h x ->

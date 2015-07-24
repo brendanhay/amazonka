@@ -70,7 +70,7 @@ instance AWSRequest BatchGetApplications where
         type Sv BatchGetApplications = CodeDeploy
         type Rs BatchGetApplications =
              BatchGetApplicationsResponse
-        request = postJSON
+        request = postJSON "BatchGetApplications"
         response
           = receiveJSON
               (\ s h x ->

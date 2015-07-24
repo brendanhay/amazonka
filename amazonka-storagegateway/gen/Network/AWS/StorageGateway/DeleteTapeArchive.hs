@@ -69,7 +69,7 @@ dtaTapeARN = lens _dtaTapeARN (\ s a -> s{_dtaTapeARN = a});
 instance AWSRequest DeleteTapeArchive where
         type Sv DeleteTapeArchive = StorageGateway
         type Rs DeleteTapeArchive = DeleteTapeArchiveResponse
-        request = postJSON
+        request = postJSON "DeleteTapeArchive"
         response
           = receiveJSON
               (\ s h x ->

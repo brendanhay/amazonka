@@ -98,7 +98,7 @@ instance AWSRequest DescribeLaunchConfigurations
         type Sv DescribeLaunchConfigurations = AutoScaling
         type Rs DescribeLaunchConfigurations =
              DescribeLaunchConfigurationsResponse
-        request = post
+        request = post "DescribeLaunchConfigurations"
         response
           = receiveXMLWrapper
               "DescribeLaunchConfigurationsResult"

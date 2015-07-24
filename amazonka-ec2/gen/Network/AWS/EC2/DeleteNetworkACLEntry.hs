@@ -95,7 +95,7 @@ instance AWSRequest DeleteNetworkACLEntry where
         type Sv DeleteNetworkACLEntry = EC2
         type Rs DeleteNetworkACLEntry =
              DeleteNetworkACLEntryResponse
-        request = post
+        request = post "DeleteNetworkACLEntry"
         response = receiveNull DeleteNetworkACLEntryResponse'
 
 instance ToHeaders DeleteNetworkACLEntry where

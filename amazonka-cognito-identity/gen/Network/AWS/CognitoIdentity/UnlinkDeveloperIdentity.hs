@@ -100,7 +100,7 @@ instance AWSRequest UnlinkDeveloperIdentity where
         type Sv UnlinkDeveloperIdentity = CognitoIdentity
         type Rs UnlinkDeveloperIdentity =
              UnlinkDeveloperIdentityResponse
-        request = postJSON
+        request = postJSON "UnlinkDeveloperIdentity"
         response
           = receiveNull UnlinkDeveloperIdentityResponse'
 

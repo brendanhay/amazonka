@@ -112,7 +112,7 @@ instance AWSPager ListVolumes where
 instance AWSRequest ListVolumes where
         type Sv ListVolumes = StorageGateway
         type Rs ListVolumes = ListVolumesResponse
-        request = postJSON
+        request = postJSON "ListVolumes"
         response
           = receiveJSON
               (\ s h x ->

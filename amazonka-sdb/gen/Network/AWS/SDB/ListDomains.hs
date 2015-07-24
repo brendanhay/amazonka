@@ -92,7 +92,7 @@ instance AWSPager ListDomains where
 instance AWSRequest ListDomains where
         type Sv ListDomains = SDB
         type Rs ListDomains = ListDomainsResponse
-        request = post
+        request = post "ListDomains"
         response
           = receiveXMLWrapper "ListDomainsResult"
               (\ s h x ->

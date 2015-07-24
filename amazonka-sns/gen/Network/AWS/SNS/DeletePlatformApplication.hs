@@ -68,7 +68,7 @@ instance AWSRequest DeletePlatformApplication where
         type Sv DeletePlatformApplication = SNS
         type Rs DeletePlatformApplication =
              DeletePlatformApplicationResponse
-        request = post
+        request = post "DeletePlatformApplication"
         response
           = receiveNull DeletePlatformApplicationResponse'
 

@@ -78,7 +78,7 @@ stTask = lens _stTask (\ s a -> s{_stTask = a});
 instance AWSRequest StopTask where
         type Sv StopTask = ECS
         type Rs StopTask = StopTaskResponse
-        request = postJSON
+        request = postJSON "StopTask"
         response
           = receiveJSON
               (\ s h x ->

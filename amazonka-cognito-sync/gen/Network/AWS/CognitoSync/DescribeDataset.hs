@@ -99,7 +99,7 @@ ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a});
 instance AWSRequest DescribeDataset where
         type Sv DescribeDataset = CognitoSync
         type Rs DescribeDataset = DescribeDatasetResponse
-        request = get
+        request = get "DescribeDataset"
         response
           = receiveJSON
               (\ s h x ->

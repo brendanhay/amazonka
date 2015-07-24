@@ -89,7 +89,7 @@ instance AWSRequest DescribeWorkspaceDirectories
         type Sv DescribeWorkspaceDirectories = WorkSpaces
         type Rs DescribeWorkspaceDirectories =
              DescribeWorkspaceDirectoriesResponse
-        request = postJSON
+        request = postJSON "DescribeWorkspaceDirectories"
         response
           = receiveJSON
               (\ s h x ->

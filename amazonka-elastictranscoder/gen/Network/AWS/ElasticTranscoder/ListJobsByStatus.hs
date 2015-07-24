@@ -104,7 +104,7 @@ instance AWSPager ListJobsByStatus where
 instance AWSRequest ListJobsByStatus where
         type Sv ListJobsByStatus = ElasticTranscoder
         type Rs ListJobsByStatus = ListJobsByStatusResponse
-        request = get
+        request = get "ListJobsByStatus"
         response
           = receiveJSON
               (\ s h x ->

@@ -136,7 +136,7 @@ instance AWSRequest DownloadDBLogFilePortion where
         type Sv DownloadDBLogFilePortion = RDS
         type Rs DownloadDBLogFilePortion =
              DownloadDBLogFilePortionResponse
-        request = post
+        request = post "DownloadDBLogFilePortion"
         response
           = receiveXMLWrapper "DownloadDBLogFilePortionResult"
               (\ s h x ->

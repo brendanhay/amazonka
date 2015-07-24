@@ -117,7 +117,7 @@ instance AWSRequest ResetDBParameterGroup where
         type Sv ResetDBParameterGroup = RDS
         type Rs ResetDBParameterGroup =
              DBParameterGroupNameMessage
-        request = post
+        request = post "ResetDBParameterGroup"
         response
           = receiveXMLWrapper "ResetDBParameterGroupResult"
               (\ s h x -> parseXML x)

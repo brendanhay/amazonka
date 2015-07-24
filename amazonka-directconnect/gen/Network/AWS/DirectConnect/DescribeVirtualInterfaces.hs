@@ -90,7 +90,7 @@ instance AWSRequest DescribeVirtualInterfaces where
         type Sv DescribeVirtualInterfaces = DirectConnect
         type Rs DescribeVirtualInterfaces =
              DescribeVirtualInterfacesResponse
-        request = postJSON
+        request = postJSON "DescribeVirtualInterfaces"
         response
           = receiveJSON
               (\ s h x ->

@@ -75,7 +75,7 @@ instance AWSRequest PutRetentionPolicy where
         type Sv PutRetentionPolicy = CloudWatchLogs
         type Rs PutRetentionPolicy =
              PutRetentionPolicyResponse
-        request = postJSON
+        request = postJSON "PutRetentionPolicy"
         response = receiveNull PutRetentionPolicyResponse'
 
 instance ToHeaders PutRetentionPolicy where

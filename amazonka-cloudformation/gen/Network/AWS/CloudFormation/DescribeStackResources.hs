@@ -129,7 +129,7 @@ instance AWSRequest DescribeStackResources where
         type Sv DescribeStackResources = CloudFormation
         type Rs DescribeStackResources =
              DescribeStackResourcesResponse
-        request = post
+        request = post "DescribeStackResources"
         response
           = receiveXMLWrapper "DescribeStackResourcesResult"
               (\ s h x ->

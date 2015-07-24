@@ -80,7 +80,7 @@ instance AWSRequest DetachElasticLoadBalancer where
         type Sv DetachElasticLoadBalancer = OpsWorks
         type Rs DetachElasticLoadBalancer =
              DetachElasticLoadBalancerResponse
-        request = postJSON
+        request = postJSON "DetachElasticLoadBalancer"
         response
           = receiveNull DetachElasticLoadBalancerResponse'
 

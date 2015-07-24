@@ -81,7 +81,7 @@ ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 instance AWSRequest ListDistributions where
         type Sv ListDistributions = CloudFront
         type Rs ListDistributions = ListDistributionsResponse
-        request = get
+        request = get "ListDistributions"
         response
           = receiveXML
               (\ s h x ->

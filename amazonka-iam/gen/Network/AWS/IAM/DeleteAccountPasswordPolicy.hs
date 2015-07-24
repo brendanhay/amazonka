@@ -51,7 +51,7 @@ instance AWSRequest DeleteAccountPasswordPolicy where
         type Sv DeleteAccountPasswordPolicy = IAM
         type Rs DeleteAccountPasswordPolicy =
              DeleteAccountPasswordPolicyResponse
-        request = post
+        request = post "DeleteAccountPasswordPolicy"
         response
           = receiveNull DeleteAccountPasswordPolicyResponse'
 

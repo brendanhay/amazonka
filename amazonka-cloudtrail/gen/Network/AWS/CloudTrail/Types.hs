@@ -90,6 +90,7 @@ instance AWSService CloudTrail where
             , _svcPrefix = "cloudtrail"
             , _svcVersion = "2013-11-01"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

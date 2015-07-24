@@ -112,7 +112,7 @@ instance AWSRequest MergeDeveloperIdentities where
         type Sv MergeDeveloperIdentities = CognitoIdentity
         type Rs MergeDeveloperIdentities =
              MergeDeveloperIdentitiesResponse
-        request = postJSON
+        request = postJSON "MergeDeveloperIdentities"
         response
           = receiveJSON
               (\ s h x ->

@@ -64,7 +64,7 @@ instance AWSRequest DeleteBucketReplication where
         type Sv DeleteBucketReplication = S3
         type Rs DeleteBucketReplication =
              DeleteBucketReplicationResponse
-        request = delete
+        request = delete "DeleteBucketReplication"
         response
           = receiveNull DeleteBucketReplicationResponse'
 

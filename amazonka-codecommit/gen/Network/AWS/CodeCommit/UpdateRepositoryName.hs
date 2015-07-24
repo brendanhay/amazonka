@@ -75,7 +75,7 @@ instance AWSRequest UpdateRepositoryName where
         type Sv UpdateRepositoryName = CodeCommit
         type Rs UpdateRepositoryName =
              UpdateRepositoryNameResponse
-        request = postJSON
+        request = postJSON "UpdateRepositoryName"
         response = receiveNull UpdateRepositoryNameResponse'
 
 instance ToHeaders UpdateRepositoryName where

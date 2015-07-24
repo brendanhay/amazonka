@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
 -- Module      : Network.AWS.S3.Internal
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -17,11 +18,10 @@ module Network.AWS.S3.Internal
     , Region
     ) where
 
-import           Data.Data            (Data, Typeable)
 import           Data.String
-import           GHC.Generics         (Generic)
 import           Network.AWS.Data.XML
 import           Network.AWS.Prelude
+import           Network.AWS.Request  (contentMD5)
 
 newtype BucketName = BucketName Text
     deriving
@@ -96,3 +96,14 @@ newtype ETag = ETag ByteString
         , ToXML
         , ToQuery
         )
+
+-- Taken from: https://github.com/aws/aws-sdk-ruby/blob/17508581a6887fb170e608242165b1ee18ccd9a9/aws-sdk-core/lib/aws-sdk-core/plugins/s3_md5s.rb#L15
+checksumMD5 :: Request a -> Request a
+checksumMD5 rq =
+    case _rqOperation rq of
+        "DeleteObjects"      -> contentMD5 rq
+        "PutBucketCORS"      -> contentMD5 rq
+        "PutBucketLifecycle" -> contentMD5 rq
+        "PutBucketPolicy"    -> contentMD5 rq
+        "PutBucketTagging"   -> contentMD5 rq
+        _                    -> rq

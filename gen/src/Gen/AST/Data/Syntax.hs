@@ -161,8 +161,8 @@ recordD ts n = conD . \case
 conD :: ConDecl -> QualConDecl
 conD = QualConDecl noLoc [] []
 
-serviceD :: HasMetadata a f => a -> Retry -> Decl
-serviceD m r = instD "AWSService" n
+serviceD :: HasMetadata a f => Config -> a -> Retry -> Decl
+serviceD c m r = instD "AWSService" n
     [ assocD n "Sg" sig
     , InsDecl $ patBindWhere noLoc (pvar "service") rhs bs
     ]
@@ -172,15 +172,18 @@ serviceD m r = instD "AWSService" n
 
     svc = sfun noLoc (ident "svc") [] . UnGuardedRhs $
         RecConstr (unqual "Service")
-            [ FieldUpdate (unqual "_svcAbbrev")   (str abbrev)
-            , FieldUpdate (unqual "_svcPrefix")   (m ^. endpointPrefix . to str)
-            , FieldUpdate (unqual "_svcVersion")  (m ^. apiVersion . to str)
-            , FieldUpdate (unqual "_svcEndpoint") (app (var "defaultEndpoint") (var "svc"))
-            , FieldUpdate (unqual "_svcTimeout")  (app justE (intE 70000000))
-            , FieldUpdate (unqual "_svcStatus")   (var "statusSuccess")
-            , FieldUpdate (unqual "_svcError")    (m ^. serviceError . to var)
-            , FieldUpdate (unqual "_svcRetry")    (var "retry")
+            [ FieldUpdate (unqual "_svcAbbrev")    (str abbrev)
+            , FieldUpdate (unqual "_svcPrefix")    (m ^. endpointPrefix . to str)
+            , FieldUpdate (unqual "_svcVersion")   (m ^. apiVersion . to str)
+            , FieldUpdate (unqual "_svcEndpoint")  (app (var "defaultEndpoint") (var "svc"))
+            , FieldUpdate (unqual "_svcPreflight") flight
+            , FieldUpdate (unqual "_svcTimeout")   (app justE (intE 70000000))
+            , FieldUpdate (unqual "_svcStatus")    (var "statusSuccess")
+            , FieldUpdate (unqual "_svcError")     (m ^. serviceError . to var)
+            , FieldUpdate (unqual "_svcRetry")     (var "retry")
             ]
+
+    flight = var $ fromMaybe "id" (c ^. preflightFunction)
 
     try = sfun noLoc (ident "retry") [] . UnGuardedRhs $
         RecConstr (r ^. delayType . to unqual)
@@ -296,7 +299,7 @@ requestD :: HasMetadata a f
 requestD m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
     [ assocD (identifier a) "Sv" (m ^. serviceAbbrev)
     , assocD (identifier a) "Rs" (typeId (identifier b))
-    , funD "request"  (requestF h as)
+    , funD "request"  (requestF h a as)
     , funD "response" (responseE (m ^. protocol) b bs)
     ]
 
@@ -606,8 +609,8 @@ inputNames, outputNames :: Protocol -> Field -> Names
 inputNames  p f = Proto.nestedNames p Input  (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
-requestF :: HTTP Identity -> [Inst] -> Exp
-requestF h is = var v
+requestF :: HTTP Identity -> Ref -> [Inst] -> Exp
+requestF h r is = app (var v) (str (typeId (identifier r)))
   where
     v = mappend (methodToText (h ^. method))
       . fromMaybe mempty

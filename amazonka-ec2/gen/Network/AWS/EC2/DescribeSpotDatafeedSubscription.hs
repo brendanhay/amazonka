@@ -75,7 +75,7 @@ instance AWSRequest DescribeSpotDatafeedSubscription
         type Sv DescribeSpotDatafeedSubscription = EC2
         type Rs DescribeSpotDatafeedSubscription =
              DescribeSpotDatafeedSubscriptionResponse
-        request = post
+        request = post "DescribeSpotDatafeedSubscription"
         response
           = receiveXML
               (\ s h x ->

@@ -99,7 +99,7 @@ instance AWSRequest DescribeSuggesters where
         type Sv DescribeSuggesters = CloudSearch
         type Rs DescribeSuggesters =
              DescribeSuggestersResponse
-        request = post
+        request = post "DescribeSuggesters"
         response
           = receiveXMLWrapper "DescribeSuggestersResult"
               (\ s h x ->

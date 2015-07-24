@@ -105,7 +105,7 @@ instance AWSPager ListMetrics where
 instance AWSRequest ListMetrics where
         type Sv ListMetrics = CloudWatch
         type Rs ListMetrics = ListMetricsResponse
-        request = post
+        request = post "ListMetrics"
         response
           = receiveXMLWrapper "ListMetricsResult"
               (\ s h x ->

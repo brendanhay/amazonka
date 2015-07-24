@@ -74,7 +74,7 @@ instance AWSRequest ModifySubnetAttribute where
         type Sv ModifySubnetAttribute = EC2
         type Rs ModifySubnetAttribute =
              ModifySubnetAttributeResponse
-        request = post
+        request = post "ModifySubnetAttribute"
         response = receiveNull ModifySubnetAttributeResponse'
 
 instance ToHeaders ModifySubnetAttribute where

@@ -96,7 +96,7 @@ instance AWSRequest DescribeRAIdArrays where
         type Sv DescribeRAIdArrays = OpsWorks
         type Rs DescribeRAIdArrays =
              DescribeRAIdArraysResponse
-        request = postJSON
+        request = postJSON "DescribeRAIdArrays"
         response
           = receiveJSON
               (\ s h x ->

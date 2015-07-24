@@ -68,7 +68,7 @@ dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
 instance AWSRequest DeleteUserProfile where
         type Sv DeleteUserProfile = OpsWorks
         type Rs DeleteUserProfile = DeleteUserProfileResponse
-        request = postJSON
+        request = postJSON "DeleteUserProfile"
         response = receiveNull DeleteUserProfileResponse'
 
 instance ToHeaders DeleteUserProfile where

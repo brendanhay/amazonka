@@ -94,7 +94,7 @@ rpAutoScalingGroupName = lens _rpAutoScalingGroupName (\ s a -> s{_rpAutoScaling
 instance AWSRequest ResumeProcesses where
         type Sv ResumeProcesses = AutoScaling
         type Rs ResumeProcesses = ResumeProcessesResponse
-        request = post
+        request = post "ResumeProcesses"
         response = receiveNull ResumeProcessesResponse'
 
 instance ToHeaders ResumeProcesses where

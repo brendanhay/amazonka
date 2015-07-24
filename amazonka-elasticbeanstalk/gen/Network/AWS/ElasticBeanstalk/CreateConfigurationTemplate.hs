@@ -175,7 +175,7 @@ instance AWSRequest CreateConfigurationTemplate where
              ElasticBeanstalk
         type Rs CreateConfigurationTemplate =
              ConfigurationSettingsDescription
-        request = post
+        request = post "CreateConfigurationTemplate"
         response
           = receiveXMLWrapper
               "CreateConfigurationTemplateResult"

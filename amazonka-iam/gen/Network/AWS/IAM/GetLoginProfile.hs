@@ -68,7 +68,7 @@ glpUserName = lens _glpUserName (\ s a -> s{_glpUserName = a});
 instance AWSRequest GetLoginProfile where
         type Sv GetLoginProfile = IAM
         type Rs GetLoginProfile = GetLoginProfileResponse
-        request = post
+        request = post "GetLoginProfile"
         response
           = receiveXMLWrapper "GetLoginProfileResult"
               (\ s h x ->

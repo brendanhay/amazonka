@@ -109,7 +109,7 @@ instance AWSPager ListGroups where
 instance AWSRequest ListGroups where
         type Sv ListGroups = IAM
         type Rs ListGroups = ListGroupsResponse
-        request = post
+        request = post "ListGroups"
         response
           = receiveXMLWrapper "ListGroupsResult"
               (\ s h x ->

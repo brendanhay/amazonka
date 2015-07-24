@@ -95,7 +95,7 @@ instance AWSRequest DescribeMountTargets where
         type Sv DescribeMountTargets = EFS
         type Rs DescribeMountTargets =
              DescribeMountTargetsResponse
-        request = get
+        request = get "DescribeMountTargets"
         response
           = receiveJSON
               (\ s h x ->

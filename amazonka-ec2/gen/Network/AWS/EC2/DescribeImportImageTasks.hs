@@ -108,7 +108,7 @@ instance AWSRequest DescribeImportImageTasks where
         type Sv DescribeImportImageTasks = EC2
         type Rs DescribeImportImageTasks =
              DescribeImportImageTasksResponse
-        request = post
+        request = post "DescribeImportImageTasks"
         response
           = receiveXML
               (\ s h x ->

@@ -97,7 +97,7 @@ instance AWSRequest AttachNetworkInterface where
         type Sv AttachNetworkInterface = EC2
         type Rs AttachNetworkInterface =
              AttachNetworkInterfaceResponse
-        request = post
+        request = post "AttachNetworkInterface"
         response
           = receiveXML
               (\ s h x ->

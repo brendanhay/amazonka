@@ -133,7 +133,7 @@ instance AWSRequest DescribeVPCPeeringConnections
         type Sv DescribeVPCPeeringConnections = EC2
         type Rs DescribeVPCPeeringConnections =
              DescribeVPCPeeringConnectionsResponse
-        request = post
+        request = post "DescribeVPCPeeringConnections"
         response
           = receiveXML
               (\ s h x ->

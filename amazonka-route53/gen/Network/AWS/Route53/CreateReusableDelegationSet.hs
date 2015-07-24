@@ -96,7 +96,7 @@ instance AWSRequest CreateReusableDelegationSet where
         type Sv CreateReusableDelegationSet = Route53
         type Rs CreateReusableDelegationSet =
              CreateReusableDelegationSetResponse
-        request = postXML
+        request = postXML "CreateReusableDelegationSet"
         response
           = receiveXML
               (\ s h x ->

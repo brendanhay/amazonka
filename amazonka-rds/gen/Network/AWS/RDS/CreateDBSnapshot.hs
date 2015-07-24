@@ -103,7 +103,7 @@ cdbsDBInstanceIdentifier = lens _cdbsDBInstanceIdentifier (\ s a -> s{_cdbsDBIns
 instance AWSRequest CreateDBSnapshot where
         type Sv CreateDBSnapshot = RDS
         type Rs CreateDBSnapshot = CreateDBSnapshotResponse
-        request = post
+        request = post "CreateDBSnapshot"
         response
           = receiveXMLWrapper "CreateDBSnapshotResult"
               (\ s h x ->

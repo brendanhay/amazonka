@@ -76,7 +76,7 @@ dnaNetworkACLId = lens _dnaNetworkACLId (\ s a -> s{_dnaNetworkACLId = a});
 instance AWSRequest DeleteNetworkACL where
         type Sv DeleteNetworkACL = EC2
         type Rs DeleteNetworkACL = DeleteNetworkACLResponse
-        request = post
+        request = post "DeleteNetworkACL"
         response = receiveNull DeleteNetworkACLResponse'
 
 instance ToHeaders DeleteNetworkACL where

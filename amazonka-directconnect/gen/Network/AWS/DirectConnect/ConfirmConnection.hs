@@ -72,7 +72,7 @@ ccConnectionId = lens _ccConnectionId (\ s a -> s{_ccConnectionId = a});
 instance AWSRequest ConfirmConnection where
         type Sv ConfirmConnection = DirectConnect
         type Rs ConfirmConnection = ConfirmConnectionResponse
-        request = postJSON
+        request = postJSON "ConfirmConnection"
         response
           = receiveJSON
               (\ s h x ->

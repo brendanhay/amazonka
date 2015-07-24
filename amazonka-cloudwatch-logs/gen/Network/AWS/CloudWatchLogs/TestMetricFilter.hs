@@ -77,7 +77,7 @@ tmfLogEventMessages = lens _tmfLogEventMessages (\ s a -> s{_tmfLogEventMessages
 instance AWSRequest TestMetricFilter where
         type Sv TestMetricFilter = CloudWatchLogs
         type Rs TestMetricFilter = TestMetricFilterResponse
-        request = postJSON
+        request = postJSON "TestMetricFilter"
         response
           = receiveJSON
               (\ s h x ->

@@ -104,7 +104,7 @@ daItemName = lens _daItemName (\ s a -> s{_daItemName = a});
 instance AWSRequest DeleteAttributes where
         type Sv DeleteAttributes = SDB
         type Rs DeleteAttributes = DeleteAttributesResponse
-        request = post
+        request = post "DeleteAttributes"
         response = receiveNull DeleteAttributesResponse'
 
 instance ToHeaders DeleteAttributes where

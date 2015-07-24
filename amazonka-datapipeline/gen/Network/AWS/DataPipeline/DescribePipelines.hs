@@ -79,7 +79,7 @@ dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a});
 instance AWSRequest DescribePipelines where
         type Sv DescribePipelines = DataPipeline
         type Rs DescribePipelines = DescribePipelinesResponse
-        request = postJSON
+        request = postJSON "DescribePipelines"
         response
           = receiveJSON
               (\ s h x ->

@@ -81,7 +81,7 @@ pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a});
 instance AWSRequest PutBucketTagging where
         type Sv PutBucketTagging = S3
         type Rs PutBucketTagging = PutBucketTaggingResponse
-        request = putXML
+        request = putXML "PutBucketTagging"
         response = receiveNull PutBucketTaggingResponse'
 
 instance ToElement PutBucketTagging where

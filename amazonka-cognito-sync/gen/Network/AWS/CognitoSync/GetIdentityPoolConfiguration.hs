@@ -78,7 +78,7 @@ instance AWSRequest GetIdentityPoolConfiguration
         type Sv GetIdentityPoolConfiguration = CognitoSync
         type Rs GetIdentityPoolConfiguration =
              GetIdentityPoolConfigurationResponse
-        request = get
+        request = get "GetIdentityPoolConfiguration"
         response
           = receiveJSON
               (\ s h x ->

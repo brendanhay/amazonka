@@ -120,7 +120,7 @@ instance AWSRequest BatchPutAttributes where
         type Sv BatchPutAttributes = SDB
         type Rs BatchPutAttributes =
              BatchPutAttributesResponse
-        request = post
+        request = post "BatchPutAttributes"
         response = receiveNull BatchPutAttributesResponse'
 
 instance ToHeaders BatchPutAttributes where

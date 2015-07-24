@@ -95,7 +95,7 @@ instance AWSRequest GetIdentityDkimAttributes where
         type Sv GetIdentityDkimAttributes = SES
         type Rs GetIdentityDkimAttributes =
              GetIdentityDkimAttributesResponse
-        request = post
+        request = post "GetIdentityDkimAttributes"
         response
           = receiveXMLWrapper "GetIdentityDkimAttributesResult"
               (\ s h x ->

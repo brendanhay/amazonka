@@ -82,7 +82,7 @@ instance AWSRequest DeleteVPCPeeringConnection where
         type Sv DeleteVPCPeeringConnection = EC2
         type Rs DeleteVPCPeeringConnection =
              DeleteVPCPeeringConnectionResponse
-        request = post
+        request = post "DeleteVPCPeeringConnection"
         response
           = receiveXML
               (\ s h x ->

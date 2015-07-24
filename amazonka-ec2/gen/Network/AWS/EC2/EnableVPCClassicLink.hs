@@ -87,7 +87,7 @@ instance AWSRequest EnableVPCClassicLink where
         type Sv EnableVPCClassicLink = EC2
         type Rs EnableVPCClassicLink =
              EnableVPCClassicLinkResponse
-        request = post
+        request = post "EnableVPCClassicLink"
         response
           = receiveXML
               (\ s h x ->

@@ -112,7 +112,7 @@ instance AWSPager ListGroupPolicies where
 instance AWSRequest ListGroupPolicies where
         type Sv ListGroupPolicies = IAM
         type Rs ListGroupPolicies = ListGroupPoliciesResponse
-        request = post
+        request = post "ListGroupPolicies"
         response
           = receiveXMLWrapper "ListGroupPoliciesResult"
               (\ s h x ->

@@ -169,7 +169,7 @@ ljVaultName = lens _ljVaultName (\ s a -> s{_ljVaultName = a});
 instance AWSRequest ListJobs where
         type Sv ListJobs = Glacier
         type Rs ListJobs = ListJobsResponse
-        request = get
+        request = get "ListJobs"
         response
           = receiveJSON
               (\ s h x ->

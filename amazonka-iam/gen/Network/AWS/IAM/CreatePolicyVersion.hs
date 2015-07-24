@@ -106,7 +106,7 @@ instance AWSRequest CreatePolicyVersion where
         type Sv CreatePolicyVersion = IAM
         type Rs CreatePolicyVersion =
              CreatePolicyVersionResponse
-        request = post
+        request = post "CreatePolicyVersion"
         response
           = receiveXMLWrapper "CreatePolicyVersionResult"
               (\ s h x ->

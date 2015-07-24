@@ -91,7 +91,7 @@ diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a
 instance AWSRequest DetachInstances where
         type Sv DetachInstances = AutoScaling
         type Rs DetachInstances = DetachInstancesResponse
-        request = post
+        request = post "DetachInstances"
         response
           = receiveXMLWrapper "DetachInstancesResult"
               (\ s h x ->

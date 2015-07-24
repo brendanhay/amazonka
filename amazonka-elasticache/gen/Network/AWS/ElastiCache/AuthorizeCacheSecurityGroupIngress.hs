@@ -98,7 +98,7 @@ instance AWSRequest
              ElastiCache
         type Rs AuthorizeCacheSecurityGroupIngress =
              AuthorizeCacheSecurityGroupIngressResponse
-        request = post
+        request = post "AuthorizeCacheSecurityGroupIngress"
         response
           = receiveXMLWrapper
               "AuthorizeCacheSecurityGroupIngressResult"

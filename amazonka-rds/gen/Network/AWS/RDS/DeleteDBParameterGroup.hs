@@ -73,7 +73,7 @@ instance AWSRequest DeleteDBParameterGroup where
         type Sv DeleteDBParameterGroup = RDS
         type Rs DeleteDBParameterGroup =
              DeleteDBParameterGroupResponse
-        request = post
+        request = post "DeleteDBParameterGroup"
         response
           = receiveNull DeleteDBParameterGroupResponse'
 

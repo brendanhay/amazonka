@@ -83,7 +83,7 @@ instance AWSRequest AttachLoadBalancers where
         type Sv AttachLoadBalancers = AutoScaling
         type Rs AttachLoadBalancers =
              AttachLoadBalancersResponse
-        request = post
+        request = post "AttachLoadBalancers"
         response
           = receiveXMLWrapper "AttachLoadBalancersResult"
               (\ s h x ->

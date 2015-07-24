@@ -108,7 +108,7 @@ instance AWSRequest PutThirdPartyJobSuccessResult
         type Sv PutThirdPartyJobSuccessResult = CodePipeline
         type Rs PutThirdPartyJobSuccessResult =
              PutThirdPartyJobSuccessResultResponse
-        request = postJSON
+        request = postJSON "PutThirdPartyJobSuccessResult"
         response
           = receiveNull PutThirdPartyJobSuccessResultResponse'
 

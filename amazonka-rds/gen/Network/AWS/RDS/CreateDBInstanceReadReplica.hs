@@ -254,7 +254,7 @@ instance AWSRequest CreateDBInstanceReadReplica where
         type Sv CreateDBInstanceReadReplica = RDS
         type Rs CreateDBInstanceReadReplica =
              CreateDBInstanceReadReplicaResponse
-        request = post
+        request = post "CreateDBInstanceReadReplica"
         response
           = receiveXMLWrapper
               "CreateDBInstanceReadReplicaResult"

@@ -95,7 +95,7 @@ laType = lens _laType (\ s a -> s{_laType = a});
 instance AWSRequest ListArtifacts where
         type Sv ListArtifacts = DeviceFarm
         type Rs ListArtifacts = ListArtifactsResponse
-        request = postJSON
+        request = postJSON "ListArtifacts"
         response
           = receiveJSON
               (\ s h x ->

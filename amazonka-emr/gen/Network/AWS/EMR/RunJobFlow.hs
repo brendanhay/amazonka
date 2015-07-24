@@ -243,7 +243,7 @@ rjfInstances = lens _rjfInstances (\ s a -> s{_rjfInstances = a});
 instance AWSRequest RunJobFlow where
         type Sv RunJobFlow = EMR
         type Rs RunJobFlow = RunJobFlowResponse
-        request = postJSON
+        request = postJSON "RunJobFlow"
         response
           = receiveJSON
               (\ s h x ->

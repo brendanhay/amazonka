@@ -90,7 +90,7 @@ lrSortBy = lens _lrSortBy (\ s a -> s{_lrSortBy = a});
 instance AWSRequest ListRepositories where
         type Sv ListRepositories = CodeCommit
         type Rs ListRepositories = ListRepositoriesResponse
-        request = postJSON
+        request = postJSON "ListRepositories"
         response
           = receiveJSON
               (\ s h x ->

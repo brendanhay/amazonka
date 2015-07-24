@@ -176,6 +176,7 @@ instance AWSService DirectoryService where
             , _svcPrefix = "ds"
             , _svcVersion = "2015-04-16"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

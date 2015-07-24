@@ -106,7 +106,7 @@ instance AWSPager ListOperations where
 instance AWSRequest ListOperations where
         type Sv ListOperations = Route53Domains
         type Rs ListOperations = ListOperationsResponse
-        request = postJSON
+        request = postJSON "ListOperations"
         response
           = receiveJSON
               (\ s h x ->

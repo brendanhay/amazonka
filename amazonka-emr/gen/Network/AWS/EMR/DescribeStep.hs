@@ -77,7 +77,7 @@ dsStepId = lens _dsStepId (\ s a -> s{_dsStepId = a});
 instance AWSRequest DescribeStep where
         type Sv DescribeStep = EMR
         type Rs DescribeStep = DescribeStepResponse
-        request = postJSON
+        request = postJSON "DescribeStep"
         response
           = receiveJSON
               (\ s h x ->

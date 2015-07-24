@@ -221,7 +221,7 @@ ulLayerId = lens _ulLayerId (\ s a -> s{_ulLayerId = a});
 instance AWSRequest UpdateLayer where
         type Sv UpdateLayer = OpsWorks
         type Rs UpdateLayer = UpdateLayerResponse
-        request = postJSON
+        request = postJSON "UpdateLayer"
         response = receiveNull UpdateLayerResponse'
 
 instance ToHeaders UpdateLayer where

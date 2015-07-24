@@ -136,4 +136,4 @@ llcrsStatus = lens _llcrsStatus (\ s a -> s{_llcrsStatus = a});
 
 -- | The list of clients.
 llcrsClientList :: Lens' ListLunaClientsResponse [Text]
-llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a});
+llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a}) . _Coerce;

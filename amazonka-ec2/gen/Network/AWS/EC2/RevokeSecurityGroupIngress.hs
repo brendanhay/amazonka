@@ -119,7 +119,7 @@ rsgiFromPort = lens _rsgiFromPort (\ s a -> s{_rsgiFromPort = a});
 -- | A set of IP permissions. You can\'t specify a source security group and
 -- a CIDR IP address range.
 rsgiIPPermissions :: Lens' RevokeSecurityGroupIngress [IPPermission]
-rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a}) . _Default;
+rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a}) . _Default . _Coerce;
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).

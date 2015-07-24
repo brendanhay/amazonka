@@ -72,7 +72,7 @@ aAdditionalInfo = lens _aAdditionalInfo (\ s a -> s{_aAdditionalInfo = a}) . _De
 
 -- | Arguments for Amazon EMR to pass to the application.
 aArgs :: Lens' Application [Text]
-aArgs = lens _aArgs (\ s a -> s{_aArgs = a}) . _Default;
+aArgs = lens _aArgs (\ s a -> s{_aArgs = a}) . _Default . _Coerce;
 
 -- | The name of the application.
 aName :: Lens' Application (Maybe Text)
@@ -256,11 +256,11 @@ cVisibleToAllUsers = lens _cVisibleToAllUsers (\ s a -> s{_cVisibleToAllUsers = 
 
 -- | The applications installed on this cluster.
 cApplications :: Lens' Cluster [Application]
-cApplications = lens _cApplications (\ s a -> s{_cApplications = a}) . _Default;
+cApplications = lens _cApplications (\ s a -> s{_cApplications = a}) . _Default . _Coerce;
 
 -- | A list of tags associated with a cluster.
 cTags :: Lens' Cluster [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access
 -- AWS resources on your behalf.
@@ -520,7 +520,7 @@ command =
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
 comArgs :: Lens' Command [Text]
-comArgs = lens _comArgs (\ s a -> s{_comArgs = a}) . _Default;
+comArgs = lens _comArgs (\ s a -> s{_comArgs = a}) . _Default . _Coerce;
 
 -- | The Amazon S3 location of the command script.
 comScriptPath :: Lens' Command (Maybe Text)
@@ -598,7 +598,7 @@ eiaEmrManagedSlaveSecurityGroup = lens _eiaEmrManagedSlaveSecurityGroup (\ s a -
 
 -- | A list of additional Amazon EC2 security group IDs for the slave nodes.
 eiaAdditionalSlaveSecurityGroups :: Lens' EC2InstanceAttributes [Text]
-eiaAdditionalSlaveSecurityGroups = lens _eiaAdditionalSlaveSecurityGroups (\ s a -> s{_eiaAdditionalSlaveSecurityGroups = a}) . _Default;
+eiaAdditionalSlaveSecurityGroups = lens _eiaAdditionalSlaveSecurityGroups (\ s a -> s{_eiaAdditionalSlaveSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The IAM role that was specified when the job flow was launched. The EC2
 -- instances of the job flow assume this role.
@@ -607,7 +607,7 @@ eiaIAMInstanceProfile = lens _eiaIAMInstanceProfile (\ s a -> s{_eiaIAMInstanceP
 
 -- | A list of additional Amazon EC2 security group IDs for the master node.
 eiaAdditionalMasterSecurityGroups :: Lens' EC2InstanceAttributes [Text]
-eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s a -> s{_eiaAdditionalMasterSecurityGroups = a}) . _Default;
+eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s a -> s{_eiaAdditionalMasterSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The identifier of the Amazon EC2 security group (managed by Amazon
 -- Elastic MapReduce) for the master node.
@@ -680,7 +680,7 @@ hadoopJARStepConfig pJAR_ =
 -- | A list of command line arguments passed to the JAR file\'s main function
 -- when executed.
 hjscArgs :: Lens' HadoopJARStepConfig [Text]
-hjscArgs = lens _hjscArgs (\ s a -> s{_hjscArgs = a}) . _Default;
+hjscArgs = lens _hjscArgs (\ s a -> s{_hjscArgs = a}) . _Default . _Coerce;
 
 -- | The name of the main class in the specified Java file. If not specified,
 -- the JAR file should specify a Main-Class in its manifest file.
@@ -690,7 +690,7 @@ hjscMainClass = lens _hjscMainClass (\ s a -> s{_hjscMainClass = a});
 -- | A list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
 hjscProperties :: Lens' HadoopJARStepConfig [KeyValue]
-hjscProperties = lens _hjscProperties (\ s a -> s{_hjscProperties = a}) . _Default;
+hjscProperties = lens _hjscProperties (\ s a -> s{_hjscProperties = a}) . _Default . _Coerce;
 
 -- | A path to a JAR file run during the step.
 hjscJAR :: Lens' HadoopJARStepConfig Text
@@ -737,7 +737,7 @@ hadoopStepConfig =
 -- | The list of command line arguments to pass to the JAR file\'s main
 -- function for execution.
 hscArgs :: Lens' HadoopStepConfig [Text]
-hscArgs = lens _hscArgs (\ s a -> s{_hscArgs = a}) . _Default;
+hscArgs = lens _hscArgs (\ s a -> s{_hscArgs = a}) . _Default . _Coerce;
 
 -- | The path to the JAR file that runs during the step.
 hscJAR :: Lens' HadoopStepConfig (Maybe Text)
@@ -1054,7 +1054,7 @@ igmcInstanceCount = lens _igmcInstanceCount (\ s a -> s{_igmcInstanceCount = a})
 -- terminate the instances, the instance group will not return to its
 -- original requested size.
 igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig [Text]
-igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{_igmcEC2InstanceIdsToTerminate = a}) . _Default;
+igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{_igmcEC2InstanceIdsToTerminate = a}) . _Default . _Coerce;
 
 -- | Unique ID of the instance group to expand or shrink.
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
@@ -1423,7 +1423,7 @@ jficEmrManagedSlaveSecurityGroup = lens _jficEmrManagedSlaveSecurityGroup (\ s a
 
 -- | A list of additional Amazon EC2 security group IDs for the slave nodes.
 jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
-jficAdditionalSlaveSecurityGroups = lens _jficAdditionalSlaveSecurityGroups (\ s a -> s{_jficAdditionalSlaveSecurityGroups = a}) . _Default;
+jficAdditionalSlaveSecurityGroups = lens _jficAdditionalSlaveSecurityGroups (\ s a -> s{_jficAdditionalSlaveSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The Hadoop version for the job flow. Valid inputs are \"0.18\",
 -- \"0.20\", \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do
@@ -1435,7 +1435,7 @@ jficHadoopVersion = lens _jficHadoopVersion (\ s a -> s{_jficHadoopVersion = a})
 
 -- | A list of additional Amazon EC2 security group IDs for the master node.
 jficAdditionalMasterSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
-jficAdditionalMasterSecurityGroups = lens _jficAdditionalMasterSecurityGroups (\ s a -> s{_jficAdditionalMasterSecurityGroups = a}) . _Default;
+jficAdditionalMasterSecurityGroups = lens _jficAdditionalMasterSecurityGroups (\ s a -> s{_jficAdditionalMasterSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The identifier of the Amazon EC2 security group (managed by Amazon
 -- ElasticMapReduce) for the master node.
@@ -1460,7 +1460,7 @@ jficMasterInstanceType = lens _jficMasterInstanceType (\ s a -> s{_jficMasterIns
 
 -- | Configuration for the job flow\'s instance groups.
 jficInstanceGroups :: Lens' JobFlowInstancesConfig [InstanceGroupConfig]
-jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = a}) . _Default;
+jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = a}) . _Default . _Coerce;
 
 -- | Specifies whether the job flow should terminate after completing all
 -- steps.
@@ -1584,7 +1584,7 @@ scriptBootstrapActionConfig pPath_ =
 
 -- | A list of command line arguments to pass to the bootstrap action script.
 sbacArgs :: Lens' ScriptBootstrapActionConfig [Text]
-sbacArgs = lens _sbacArgs (\ s a -> s{_sbacArgs = a}) . _Default;
+sbacArgs = lens _sbacArgs (\ s a -> s{_sbacArgs = a}) . _Default . _Coerce;
 
 -- | Location of the script to run during a bootstrap action. Can be either a
 -- location in Amazon S3 or on a local file system.
@@ -1925,7 +1925,7 @@ supportedProductConfig =
 
 -- | The list of user-supplied arguments.
 spcArgs :: Lens' SupportedProductConfig [Text]
-spcArgs = lens _spcArgs (\ s a -> s{_spcArgs = a}) . _Default;
+spcArgs = lens _spcArgs (\ s a -> s{_spcArgs = a}) . _Default . _Coerce;
 
 -- | The name of the product configuration.
 spcName :: Lens' SupportedProductConfig (Maybe Text)

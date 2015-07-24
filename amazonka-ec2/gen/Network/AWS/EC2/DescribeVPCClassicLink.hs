@@ -89,11 +89,11 @@ describeVPCClassicLink =
 --     filter is independent of the @tag-key@ filter.
 --
 dvclFilters :: Lens' DescribeVPCClassicLink [Filter]
-dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a}) . _Default;
+dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a}) . _Default . _Coerce;
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
 dvclVPCIds :: Lens' DescribeVPCClassicLink [Text]
-dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default;
+dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -153,7 +153,7 @@ describeVPCClassicLinkResponse pStatus_ =
 
 -- | The ClassicLink status of one or more VPCs.
 dvclrsVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
-dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default;
+dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvclrsStatus :: Lens' DescribeVPCClassicLinkResponse Int

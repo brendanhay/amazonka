@@ -105,7 +105,7 @@ deletableItem pName_ =
 
 -- | FIXME: Undocumented member.
 diAttributes :: Lens' DeletableItem [Attribute]
-diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a}) . _Default;
+diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 diName :: Lens' DeletableItem Text
@@ -153,7 +153,7 @@ iName = lens _iName (\ s a -> s{_iName = a});
 
 -- | A list of attributes.
 iAttributes :: Lens' Item [Attribute]
-iAttributes = lens _iAttributes (\ s a -> s{_iAttributes = a});
+iAttributes = lens _iAttributes (\ s a -> s{_iAttributes = a}) . _Coerce;
 
 instance FromXML Item where
         parseXML x
@@ -234,7 +234,7 @@ riName = lens _riName (\ s a -> s{_riName = a});
 
 -- | The list of attributes for a replaceable item.
 riAttributes :: Lens' ReplaceableItem [ReplaceableAttribute]
-riAttributes = lens _riAttributes (\ s a -> s{_riAttributes = a});
+riAttributes = lens _riAttributes (\ s a -> s{_riAttributes = a}) . _Coerce;
 
 instance ToQuery ReplaceableItem where
         toQuery ReplaceableItem'{..}

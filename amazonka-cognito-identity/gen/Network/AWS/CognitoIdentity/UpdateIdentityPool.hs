@@ -102,7 +102,7 @@ uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDevelo
 
 -- | A list of OpendID Connect provider ARNs.
 uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
-uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a}) . _Default;
+uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
 
 -- | An identity pool ID in the format REGION:GUID.
 uipIdentityPoolId :: Lens' UpdateIdentityPool Text

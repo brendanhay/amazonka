@@ -587,7 +587,7 @@ wdCustomerUserName = lens _wdCustomerUserName (\ s a -> s{_wdCustomerUserName = 
 -- | An array of strings that contains the identifiers of the subnets used
 -- with the directory.
 wdSubnetIds :: Lens' WorkspaceDirectory [Text]
-wdSubnetIds = lens _wdSubnetIds (\ s a -> s{_wdSubnetIds = a}) . _Default;
+wdSubnetIds = lens _wdSubnetIds (\ s a -> s{_wdSubnetIds = a}) . _Default . _Coerce;
 
 -- | The directory alias.
 wdAlias :: Lens' WorkspaceDirectory (Maybe Text)
@@ -609,7 +609,7 @@ wdWorkspaceCreationProperties = lens _wdWorkspaceCreationProperties (\ s a -> s{
 -- | An array of strings that contains the IP addresses of the DNS servers
 -- for the directory.
 wdDNSIPAddresses :: Lens' WorkspaceDirectory [Text]
-wdDNSIPAddresses = lens _wdDNSIPAddresses (\ s a -> s{_wdDNSIPAddresses = a}) . _Default;
+wdDNSIPAddresses = lens _wdDNSIPAddresses (\ s a -> s{_wdDNSIPAddresses = a}) . _Default . _Coerce;
 
 -- | The name of the directory.
 wdDirectoryName :: Lens' WorkspaceDirectory (Maybe Text)

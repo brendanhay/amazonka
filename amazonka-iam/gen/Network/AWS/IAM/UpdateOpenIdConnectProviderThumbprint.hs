@@ -87,7 +87,7 @@ uoicptOpenIdConnectProviderARN = lens _uoicptOpenIdConnectProviderARN (\ s a -> 
 -- IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
 uoicptThumbprintList :: Lens' UpdateOpenIdConnectProviderThumbprint [Text]
-uoicptThumbprintList = lens _uoicptThumbprintList (\ s a -> s{_uoicptThumbprintList = a});
+uoicptThumbprintList = lens _uoicptThumbprintList (\ s a -> s{_uoicptThumbprintList = a}) . _Coerce;
 
 instance AWSRequest
          UpdateOpenIdConnectProviderThumbprint where

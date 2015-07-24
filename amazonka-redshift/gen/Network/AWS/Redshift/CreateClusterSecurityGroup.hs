@@ -78,7 +78,7 @@ createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
 
 -- | A list of tag instances.
 creTags :: Lens' CreateClusterSecurityGroup [Tag]
-creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default;
+creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default . _Coerce;
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string.

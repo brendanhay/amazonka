@@ -149,7 +149,7 @@ dubrsGatewayARN = lens _dubrsGatewayARN (\ s a -> s{_dubrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
 dubrsDiskIds :: Lens' DescribeUploadBufferResponse [Text]
-dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default;
+dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)

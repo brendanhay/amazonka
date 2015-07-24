@@ -186,4 +186,4 @@ liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
 
 -- | A list of instance profiles.
 liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
-liprsInstanceProfiles = lens _liprsInstanceProfiles (\ s a -> s{_liprsInstanceProfiles = a});
+liprsInstanceProfiles = lens _liprsInstanceProfiles (\ s a -> s{_liprsInstanceProfiles = a}) . _Coerce;

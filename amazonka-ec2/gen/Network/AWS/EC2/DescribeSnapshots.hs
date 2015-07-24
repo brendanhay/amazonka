@@ -140,7 +140,7 @@ describeSnapshots =
 -- | Returns the snapshots owned by the specified owner. Multiple owners can
 -- be specified.
 dssOwnerIds :: Lens' DescribeSnapshots [Text]
-dssOwnerIds = lens _dssOwnerIds (\ s a -> s{_dssOwnerIds = a}) . _Default;
+dssOwnerIds = lens _dssOwnerIds (\ s a -> s{_dssOwnerIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -180,7 +180,7 @@ dssOwnerIds = lens _dssOwnerIds (\ s a -> s{_dssOwnerIds = a}) . _Default;
 -- -   @volume-size@ - The size of the volume, in GiB.
 --
 dssFilters :: Lens' DescribeSnapshots [Filter]
-dssFilters = lens _dssFilters (\ s a -> s{_dssFilters = a}) . _Default;
+dssFilters = lens _dssFilters (\ s a -> s{_dssFilters = a}) . _Default . _Coerce;
 
 -- | The @NextToken@ value returned from a previous paginated
 -- @DescribeSnapshots@ request where @MaxResults@ was used and the results
@@ -194,11 +194,11 @@ dssNextToken = lens _dssNextToken (\ s a -> s{_dssNextToken = a});
 --
 -- Default: Describes snapshots for which you have launch permissions.
 dssSnapshotIds :: Lens' DescribeSnapshots [Text]
-dssSnapshotIds = lens _dssSnapshotIds (\ s a -> s{_dssSnapshotIds = a}) . _Default;
+dssSnapshotIds = lens _dssSnapshotIds (\ s a -> s{_dssSnapshotIds = a}) . _Default . _Coerce;
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
 dssRestorableByUserIds :: Lens' DescribeSnapshots [Text]
-dssRestorableByUserIds = lens _dssRestorableByUserIds (\ s a -> s{_dssRestorableByUserIds = a}) . _Default;
+dssRestorableByUserIds = lens _dssRestorableByUserIds (\ s a -> s{_dssRestorableByUserIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -295,7 +295,7 @@ dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 
 -- | Information about the snapshots.
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default;
+dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dssrsStatus :: Lens' DescribeSnapshotsResponse Int

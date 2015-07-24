@@ -132,7 +132,7 @@ cesSourceType = lens _cesSourceType (\ s a -> s{_cesSourceType = a});
 -- topic in the Amazon RDS User Guide or by using the
 -- __DescribeEventCategories__ action.
 cesEventCategories :: Lens' CreateEventSubscription [Text]
-cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a}) . _Default;
+cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a}) . _Default . _Coerce;
 
 -- | The list of identifiers of the event sources for which events will be
 -- returned. If not specified, then all sources are included in the
@@ -152,11 +152,11 @@ cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = 
 -- -   If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must
 --     be supplied.
 cesSourceIds :: Lens' CreateEventSubscription [Text]
-cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default;
+cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 cesTags :: Lens' CreateEventSubscription [Tag]
-cesTags = lens _cesTags (\ s a -> s{_cesTags = a}) . _Default;
+cesTags = lens _cesTags (\ s a -> s{_cesTags = a}) . _Default . _Coerce;
 
 -- | The name of the subscription.
 --

@@ -136,7 +136,7 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
 -- | A list of subscriptions.
 lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
-lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default;
+lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lsrsStatus :: Lens' ListSubscriptionsResponse Int

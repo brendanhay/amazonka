@@ -206,7 +206,7 @@ docorsMarker = lens _docorsMarker (\ s a -> s{_docorsMarker = a});
 -- | An OrderableClusterOption structure containing information about
 -- orderable options for the Cluster.
 docorsOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
-docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{_docorsOrderableClusterOptions = a}) . _Default;
+docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{_docorsOrderableClusterOptions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 docorsStatus :: Lens' DescribeOrderableClusterOptionsResponse Int

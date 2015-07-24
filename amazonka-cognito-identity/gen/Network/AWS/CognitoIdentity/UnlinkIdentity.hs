@@ -83,7 +83,7 @@ uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Map;
 
 -- | Provider names to unlink from this identity.
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
-uiLoginsToRemove = lens _uiLoginsToRemove (\ s a -> s{_uiLoginsToRemove = a});
+uiLoginsToRemove = lens _uiLoginsToRemove (\ s a -> s{_uiLoginsToRemove = a}) . _Coerce;
 
 instance AWSRequest UnlinkIdentity where
         type Sv UnlinkIdentity = CognitoIdentity

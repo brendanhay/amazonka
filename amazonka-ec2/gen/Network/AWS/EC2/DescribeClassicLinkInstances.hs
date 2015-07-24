@@ -107,7 +107,7 @@ describeClassicLinkInstances =
 -- -   @vpc-id@ - The ID of the VPC that the instance is linked to.
 --
 dcliFilters :: Lens' DescribeClassicLinkInstances [Filter]
-dcliFilters = lens _dcliFilters (\ s a -> s{_dcliFilters = a}) . _Default;
+dcliFilters = lens _dcliFilters (\ s a -> s{_dcliFilters = a}) . _Default . _Coerce;
 
 -- | The token to retrieve the next page of results.
 dcliNextToken :: Lens' DescribeClassicLinkInstances (Maybe Text)
@@ -116,7 +116,7 @@ dcliNextToken = lens _dcliNextToken (\ s a -> s{_dcliNextToken = a});
 -- | One or more instance IDs. Must be instances linked to a VPC through
 -- ClassicLink.
 dcliInstanceIds :: Lens' DescribeClassicLinkInstances [Text]
-dcliInstanceIds = lens _dcliInstanceIds (\ s a -> s{_dcliInstanceIds = a}) . _Default;
+dcliInstanceIds = lens _dcliInstanceIds (\ s a -> s{_dcliInstanceIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -202,7 +202,7 @@ dclirsNextToken = lens _dclirsNextToken (\ s a -> s{_dclirsNextToken = a});
 
 -- | Information about one or more linked EC2-Classic instances.
 dclirsInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstance]
-dclirsInstances = lens _dclirsInstances (\ s a -> s{_dclirsInstances = a}) . _Default;
+dclirsInstances = lens _dclirsInstances (\ s a -> s{_dclirsInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dclirsStatus :: Lens' DescribeClassicLinkInstancesResponse Int

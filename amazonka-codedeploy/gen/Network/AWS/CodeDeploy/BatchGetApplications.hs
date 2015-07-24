@@ -64,7 +64,7 @@ batchGetApplications =
 -- | A list of application names, with multiple application names separated
 -- by spaces.
 bgaApplicationNames :: Lens' BatchGetApplications [Text]
-bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default;
+bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default . _Coerce;
 
 instance AWSRequest BatchGetApplications where
         type Sv BatchGetApplications = CodeDeploy
@@ -122,7 +122,7 @@ batchGetApplicationsResponse pStatus_ =
 
 -- | Information about the applications.
 bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
-bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default;
+bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 bgarsStatus :: Lens' BatchGetApplicationsResponse Int

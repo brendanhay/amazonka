@@ -64,7 +64,7 @@ describeTrails =
 
 -- | The trail returned.
 dtTrailNameList :: Lens' DescribeTrails [Text]
-dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default;
+dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeTrails where
         type Sv DescribeTrails = CloudTrail
@@ -122,7 +122,7 @@ describeTrailsResponse pStatus_ =
 
 -- | The list of trails.
 dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
-dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default;
+dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtrsStatus :: Lens' DescribeTrailsResponse Int

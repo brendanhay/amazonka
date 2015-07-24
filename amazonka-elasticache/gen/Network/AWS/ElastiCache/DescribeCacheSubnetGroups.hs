@@ -166,7 +166,7 @@ dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
 -- | A list of cache subnet groups. Each element in the list contains
 -- detailed information about one group.
 dcsgrsCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
-dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCacheSubnetGroups = a}) . _Default;
+dcsgrsCacheSubnetGroups = lens _dcsgrsCacheSubnetGroups (\ s a -> s{_dcsgrsCacheSubnetGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcsgrsStatus :: Lens' DescribeCacheSubnetGroupsResponse Int

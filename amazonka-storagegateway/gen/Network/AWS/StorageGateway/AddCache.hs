@@ -77,7 +77,7 @@ acGatewayARN = lens _acGatewayARN (\ s a -> s{_acGatewayARN = a});
 
 -- | FIXME: Undocumented member.
 acDiskIds :: Lens' AddCache [Text]
-acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a});
+acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddCache where
         type Sv AddCache = StorageGateway

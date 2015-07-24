@@ -77,7 +77,7 @@ describeCustomerGateways =
 --
 -- Default: Describes all your customer gateways.
 dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
-dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGatewayIds = a}) . _Default;
+dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGatewayIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -110,7 +110,7 @@ dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGate
 --     filter is independent of the @tag-key@ filter.
 --
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
-dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a}) . _Default;
+dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -172,7 +172,7 @@ describeCustomerGatewaysResponse pStatus_ =
 
 -- | Information about one or more customer gateways.
 dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
-dcgrsCustomerGateways = lens _dcgrsCustomerGateways (\ s a -> s{_dcgrsCustomerGateways = a}) . _Default;
+dcgrsCustomerGateways = lens _dcgrsCustomerGateways (\ s a -> s{_dcgrsCustomerGateways = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcgrsStatus :: Lens' DescribeCustomerGatewaysResponse Int

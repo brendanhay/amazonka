@@ -169,7 +169,7 @@ lsrsLastEvaluatedStreamARN = lens _lsrsLastEvaluatedStreamARN (\ s a -> s{_lsrsL
 -- | A list of stream descriptors associated with the current account and
 -- endpoint.
 lsrsStreams :: Lens' ListStreamsResponse [Stream]
-lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default;
+lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lsrsStatus :: Lens' ListStreamsResponse Int

@@ -357,7 +357,7 @@ gddrsRegistrarName = lens _gddrsRegistrarName (\ s a -> s{_gddrsRegistrarName = 
 --
 -- Type: Array of String
 gddrsStatusList :: Lens' GetDomainDetailResponse [Text]
-gddrsStatusList = lens _gddrsStatusList (\ s a -> s{_gddrsStatusList = a}) . _Default;
+gddrsStatusList = lens _gddrsStatusList (\ s a -> s{_gddrsStatusList = a}) . _Default . _Coerce;
 
 -- | Reseller of the domain. Domains registered or transferred using Amazon
 -- Route 53 domains will have @\"Amazon\"@ as the reseller.
@@ -380,7 +380,7 @@ gddrsDomainName = lens _gddrsDomainName (\ s a -> s{_gddrsDomainName = a});
 --
 -- Type: String
 gddrsNameservers :: Lens' GetDomainDetailResponse [Nameserver]
-gddrsNameservers = lens _gddrsNameservers (\ s a -> s{_gddrsNameservers = a});
+gddrsNameservers = lens _gddrsNameservers (\ s a -> s{_gddrsNameservers = a}) . _Coerce;
 
 -- | Provides details about the domain administrative contact.
 --

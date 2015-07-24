@@ -189,12 +189,12 @@ runTaskResponse pStatus_ =
 
 -- | Any failed tasks from your @RunTask@ action are listed here.
 rtrsFailures :: Lens' RunTaskResponse [Failure]
-rtrsFailures = lens _rtrsFailures (\ s a -> s{_rtrsFailures = a}) . _Default;
+rtrsFailures = lens _rtrsFailures (\ s a -> s{_rtrsFailures = a}) . _Default . _Coerce;
 
 -- | A full description of the tasks that were run. Each task that was
 -- successfully placed on your cluster will be described here.
 rtrsTasks :: Lens' RunTaskResponse [Task]
-rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default;
+rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 rtrsStatus :: Lens' RunTaskResponse Int

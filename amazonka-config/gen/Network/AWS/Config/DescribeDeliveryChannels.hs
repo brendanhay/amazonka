@@ -67,7 +67,7 @@ describeDeliveryChannels =
 
 -- | A list of delivery channel names.
 ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
-ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default;
+ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeDeliveryChannels where
         type Sv DescribeDeliveryChannels = Config
@@ -126,7 +126,7 @@ describeDeliveryChannelsResponse pStatus_ =
 
 -- | A list that contains the descriptions of the specified delivery channel.
 ddcrsDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
-ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryChannels = a}) . _Default;
+ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryChannels = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ddcrsStatus :: Lens' DescribeDeliveryChannelsResponse Int

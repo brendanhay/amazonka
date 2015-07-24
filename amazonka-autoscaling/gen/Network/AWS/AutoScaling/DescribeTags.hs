@@ -82,7 +82,7 @@ describeTags =
 
 -- | A filter used to scope the tags to return.
 dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -160,7 +160,7 @@ dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 
 -- | The tags.
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default;
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int

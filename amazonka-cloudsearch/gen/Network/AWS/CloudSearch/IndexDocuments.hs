@@ -118,7 +118,7 @@ indexDocumentsResponse pStatus_ =
 
 -- | The names of the fields that are currently being indexed.
 idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
-idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default;
+idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 idrsStatus :: Lens' IndexDocumentsResponse Int

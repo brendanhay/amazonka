@@ -276,7 +276,7 @@ describeEvaluationsResponse pStatus_ =
 
 -- | A list of Evaluation that meet the search criteria.
 desrsResults :: Lens' DescribeEvaluationsResponse [Evaluation]
-desrsResults = lens _desrsResults (\ s a -> s{_desrsResults = a}) . _Default;
+desrsResults = lens _desrsResults (\ s a -> s{_desrsResults = a}) . _Default . _Coerce;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.

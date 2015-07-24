@@ -148,7 +148,7 @@ describeVPCEndpointServicesResponse pStatus_ =
 
 -- | A list of supported AWS services.
 dvesrsServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
-dvesrsServiceNames = lens _dvesrsServiceNames (\ s a -> s{_dvesrsServiceNames = a}) . _Default;
+dvesrsServiceNames = lens _dvesrsServiceNames (\ s a -> s{_dvesrsServiceNames = a}) . _Default . _Coerce;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

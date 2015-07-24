@@ -326,7 +326,7 @@ bgirsResponses = lens _bgirsResponses (\ s a -> s{_bgirsResponses = a}) . _Defau
 -- -   /CapacityUnits/ - The total number of capacity units consumed.
 --
 bgirsConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
-bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCapacity = a}) . _Default;
+bgirsConsumedCapacity = lens _bgirsConsumedCapacity (\ s a -> s{_bgirsConsumedCapacity = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 bgirsStatus :: Lens' BatchGetItemResponse Int

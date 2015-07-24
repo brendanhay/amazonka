@@ -71,7 +71,7 @@ createAssociationBatch =
 
 -- | One or more associations.
 cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
-cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a});
+cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a}) . _Coerce;
 
 instance AWSRequest CreateAssociationBatch where
         type Sv CreateAssociationBatch = SSM
@@ -131,11 +131,11 @@ createAssociationBatchResponse pStatus_ =
 
 -- | Information about the associations that succeeded.
 cabrsSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
-cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _Default;
+cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _Default . _Coerce;
 
 -- | Information about the associations that failed.
 cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
-cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default;
+cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 cabrsStatus :: Lens' CreateAssociationBatchResponse Int

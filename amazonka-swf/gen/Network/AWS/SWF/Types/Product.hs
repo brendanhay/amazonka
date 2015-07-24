@@ -1527,7 +1527,7 @@ continueAsNewWorkflowExecutionDecisionAttributes =
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
 canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
-canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Default;
+canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for the new workflow
 -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
@@ -4357,7 +4357,7 @@ scwedaControl = lens _scwedaControl (\ s a -> s{_scwedaControl = a});
 -- with a specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
 scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes [Text]
-scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a}) . _Default;
+scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
@@ -4629,7 +4629,7 @@ scweieaControl = lens _scweieaControl (\ s a -> s{_scweieaControl = a});
 
 -- | The list of tags to associated with the child workflow execution.
 scweieaTagList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes [Text]
-scweieaTagList = lens _scweieaTagList (\ s a -> s{_scweieaTagList = a}) . _Default;
+scweieaTagList = lens _scweieaTagList (\ s a -> s{_scweieaTagList = a}) . _Default . _Coerce;
 
 -- | The maximum duration allowed for the decision tasks for this workflow
 -- execution.
@@ -5397,7 +5397,7 @@ workflowExecutionContinuedAsNewEventAttributes pDecisionTaskCompletedEventId_ pN
 
 -- | The list of tags associated with the new workflow execution.
 wecaneaTagList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes [Text]
-wecaneaTagList = lens _wecaneaTagList (\ s a -> s{_wecaneaTagList = a}) . _Default;
+wecaneaTagList = lens _wecaneaTagList (\ s a -> s{_wecaneaTagList = a}) . _Default . _Coerce;
 
 -- | The maximum duration of decision tasks for the new workflow execution.
 --
@@ -5651,7 +5651,7 @@ weiParent = lens _weiParent (\ s a -> s{_weiParent = a});
 -- used to identify and list workflow executions of interest through the
 -- visibility APIs. A workflow execution can have a maximum of 5 tags.
 weiTagList :: Lens' WorkflowExecutionInfo [Text]
-weiTagList = lens _weiTagList (\ s a -> s{_weiTagList = a}) . _Default;
+weiTagList = lens _weiTagList (\ s a -> s{_weiTagList = a}) . _Default . _Coerce;
 
 -- | If the execution status is closed then this specifies how the execution
 -- was closed:
@@ -5743,7 +5743,7 @@ weiNextPageToken = lens _weiNextPageToken (\ s a -> s{_weiNextPageToken = a});
 
 -- | The list of workflow information structures.
 weiExecutionInfos :: Lens' WorkflowExecutionInfos [WorkflowExecutionInfo]
-weiExecutionInfos = lens _weiExecutionInfos (\ s a -> s{_weiExecutionInfos = a});
+weiExecutionInfos = lens _weiExecutionInfos (\ s a -> s{_weiExecutionInfos = a}) . _Coerce;
 
 instance FromJSON WorkflowExecutionInfos where
         parseJSON
@@ -5949,7 +5949,7 @@ weseaParentInitiatedEventId = lens _weseaParentInitiatedEventId (\ s a -> s{_wes
 -- | The list of tags associated with this workflow execution. An execution
 -- can have up to 5 tags.
 weseaTagList :: Lens' WorkflowExecutionStartedEventAttributes [Text]
-weseaTagList = lens _weseaTagList (\ s a -> s{_weseaTagList = a}) . _Default;
+weseaTagList = lens _weseaTagList (\ s a -> s{_weseaTagList = a}) . _Default . _Coerce;
 
 -- | The maximum duration of decision tasks for this workflow type.
 --

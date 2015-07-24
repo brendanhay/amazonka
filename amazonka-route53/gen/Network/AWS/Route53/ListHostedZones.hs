@@ -198,7 +198,7 @@ lhzrsStatus = lens _lhzrsStatus (\ s a -> s{_lhzrsStatus = a});
 -- | A complex type that contains information about the hosted zones
 -- associated with the current AWS account.
 lhzrsHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
-lhzrsHostedZones = lens _lhzrsHostedZones (\ s a -> s{_lhzrsHostedZones = a});
+lhzrsHostedZones = lens _lhzrsHostedZones (\ s a -> s{_lhzrsHostedZones = a}) . _Coerce;
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in

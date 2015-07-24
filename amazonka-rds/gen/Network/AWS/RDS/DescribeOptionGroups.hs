@@ -90,7 +90,7 @@ describeOptionGroups =
 
 -- | This parameter is not currently supported.
 dogFilters :: Lens' DescribeOptionGroups [Filter]
-dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a}) . _Default;
+dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a}) . _Default . _Coerce;
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine.
@@ -199,7 +199,7 @@ dogrsMarker = lens _dogrsMarker (\ s a -> s{_dogrsMarker = a});
 
 -- | List of option groups.
 dogrsOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
-dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default;
+dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dogrsStatus :: Lens' DescribeOptionGroupsResponse Int

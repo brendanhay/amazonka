@@ -155,7 +155,7 @@ ltfsrsStatus = lens _ltfsrsStatus (\ s a -> s{_ltfsrsStatus = a});
 -- | A list of tags associated with @StreamName@, starting with the first tag
 -- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
 ltfsrsTags :: Lens' ListTagsForStreamResponse [Tag]
-ltfsrsTags = lens _ltfsrsTags (\ s a -> s{_ltfsrsTags = a});
+ltfsrsTags = lens _ltfsrsTags (\ s a -> s{_ltfsrsTags = a}) . _Coerce;
 
 -- | If set to @true@, more tags are available. To request additional tags,
 -- set @ExclusiveStartTagKey@ to the key of the last tag returned.

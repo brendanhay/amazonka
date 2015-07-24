@@ -189,7 +189,7 @@ rfcsSnapshotClusterIdentifier = lens _rfcsSnapshotClusterIdentifier (\ s a -> s{
 --
 -- Cluster security groups only apply to clusters outside of VPCs.
 rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot [Text]
-rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClusterSecurityGroups = a}) . _Default;
+rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClusterSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
@@ -256,7 +256,7 @@ rfcsKMSKeyId = lens _rfcsKMSKeyId (\ s a -> s{_rfcsKMSKeyId = a});
 --
 -- VPC security groups only apply to clusters in VPCs.
 rfcsVPCSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
-rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecurityGroupIds = a}) . _Default;
+rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | The AWS customer account used to create or copy the snapshot. Required
 -- if you are restoring a snapshot you do not own, optional if you own the

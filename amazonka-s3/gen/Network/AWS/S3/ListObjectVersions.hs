@@ -265,7 +265,7 @@ lovrsPrefix = lens _lovrsPrefix (\ s a -> s{_lovrsPrefix = a});
 
 -- | FIXME: Undocumented member.
 lovrsDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
-lovrsDeleteMarkers = lens _lovrsDeleteMarkers (\ s a -> s{_lovrsDeleteMarkers = a}) . _Default;
+lovrsDeleteMarkers = lens _lovrsDeleteMarkers (\ s a -> s{_lovrsDeleteMarkers = a}) . _Default . _Coerce;
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lovrsEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
@@ -273,11 +273,11 @@ lovrsEncodingType = lens _lovrsEncodingType (\ s a -> s{_lovrsEncodingType = a})
 
 -- | FIXME: Undocumented member.
 lovrsCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
-lovrsCommonPrefixes = lens _lovrsCommonPrefixes (\ s a -> s{_lovrsCommonPrefixes = a}) . _Default;
+lovrsCommonPrefixes = lens _lovrsCommonPrefixes (\ s a -> s{_lovrsCommonPrefixes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lovrsVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
-lovrsVersions = lens _lovrsVersions (\ s a -> s{_lovrsVersions = a}) . _Default;
+lovrsVersions = lens _lovrsVersions (\ s a -> s{_lovrsVersions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lovrsName :: Lens' ListObjectVersionsResponse (Maybe BucketName)

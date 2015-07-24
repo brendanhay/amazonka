@@ -125,7 +125,7 @@ asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
 -- | A set of IP permissions. You can\'t specify a destination security group
 -- and a CIDR IP address range.
 asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress [IPPermission]
-asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a}) . _Default;
+asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a}) . _Default . _Coerce;
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).

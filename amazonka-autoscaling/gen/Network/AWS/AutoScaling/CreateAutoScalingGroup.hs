@@ -157,7 +157,7 @@ casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a});
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 casgTerminationPolicies :: Lens' CreateAutoScalingGroup [Text]
-casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a}) . _Default;
+casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a}) . _Default . _Coerce;
 
 -- | The amount of time, in seconds, after an EC2 instance comes into service
 -- that Auto Scaling starts checking its health. During this time, any
@@ -237,7 +237,7 @@ casgPlacementGroup = lens _casgPlacementGroup (\ s a -> s{_casgPlacementGroup = 
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 casgLoadBalancerNames :: Lens' CreateAutoScalingGroup [Text]
-casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a}) . _Default;
+casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a}) . _Default . _Coerce;
 
 -- | The tag to be created or updated. Each tag should be defined by its
 -- resource type, resource ID, key, value, and a propagate flag. Valid
@@ -248,7 +248,7 @@ casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalance
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances>
 -- in the /Auto Scaling Developer Guide/.
 casgTags :: Lens' CreateAutoScalingGroup [Tag]
-casgTags = lens _casgTags (\ s a -> s{_casgTags = a}) . _Default;
+casgTags = lens _casgTags (\ s a -> s{_casgTags = a}) . _Default . _Coerce;
 
 -- | The name of the group. This name must be unique within the scope of your
 -- AWS account.

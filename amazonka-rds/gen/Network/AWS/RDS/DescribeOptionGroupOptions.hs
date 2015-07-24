@@ -85,7 +85,7 @@ describeOptionGroupOptions pEngineName_ =
 
 -- | This parameter is not currently supported.
 dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
-dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a}) . _Default;
+dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a}) . _Default . _Coerce;
 
 -- | If specified, filters the results to include only options for the
 -- specified major engine version.
@@ -183,7 +183,7 @@ describeOptionGroupOptionsResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 dogorsOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
-dogorsOptionGroupOptions = lens _dogorsOptionGroupOptions (\ s a -> s{_dogorsOptionGroupOptions = a}) . _Default;
+dogorsOptionGroupOptions = lens _dogorsOptionGroupOptions (\ s a -> s{_dogorsOptionGroupOptions = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

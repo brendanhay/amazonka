@@ -165,7 +165,7 @@ describeConfigurationSettingsResponse pStatus_ =
 
 -- | A list of ConfigurationSettingsDescription.
 dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
-dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default;
+dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcsrsStatus :: Lens' DescribeConfigurationSettingsResponse Int

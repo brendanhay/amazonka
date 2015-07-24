@@ -194,7 +194,7 @@ dcrsNextToken = lens _dcrsNextToken (\ s a -> s{_dcrsNextToken = a});
 
 -- | The communications for the case.
 dcrsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
-dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default;
+dcrsCommunications = lens _dcrsCommunications (\ s a -> s{_dcrsCommunications = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcrsStatus :: Lens' DescribeCommunicationsResponse Int

@@ -80,7 +80,7 @@ reportTaskProgress pTaskId_ =
 -- | Key-value pairs that define the properties of the
 -- ReportTaskProgressInput object.
 rtpFields :: Lens' ReportTaskProgress [Field]
-rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default;
+rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default . _Coerce;
 
 -- | The ID of the task assigned to the task runner. This value is provided
 -- in the response for PollForTask.

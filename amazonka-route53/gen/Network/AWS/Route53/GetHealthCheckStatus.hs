@@ -124,4 +124,4 @@ ghcsrsStatus = lens _ghcsrsStatus (\ s a -> s{_ghcsrsStatus = a});
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.
 ghcsrsHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
-ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a});
+ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a}) . _Coerce;

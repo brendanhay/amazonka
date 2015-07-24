@@ -146,7 +146,7 @@ operator =
 
 -- | The value that the actual field value will be compared with.
 oValues :: Lens' Operator [Text]
-oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default;
+oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default . _Coerce;
 
 -- | The logical operation to be performed: equal (@EQ@), equal reference
 -- (@REF_EQ@), less than or equal (@LE@), greater than or equal (@GE@), or
@@ -258,7 +258,7 @@ poId = lens _poId (\ s a -> s{_poId = a});
 
 -- | The attributes of the parameter object.
 poAttributes :: Lens' ParameterObject [ParameterAttribute]
-poAttributes = lens _poAttributes (\ s a -> s{_poAttributes = a});
+poAttributes = lens _poAttributes (\ s a -> s{_poAttributes = a}) . _Coerce;
 
 instance FromJSON ParameterObject where
         parseJSON
@@ -357,7 +357,7 @@ pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
 pdTags :: Lens' PipelineDescription [Tag]
-pdTags = lens _pdTags (\ s a -> s{_pdTags = a}) . _Default;
+pdTags = lens _pdTags (\ s a -> s{_pdTags = a}) . _Default . _Coerce;
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is
 -- a string of the form @df-297EG78HU43EEXAMPLE@.
@@ -371,7 +371,7 @@ pdName = lens _pdName (\ s a -> s{_pdName = a});
 -- | A list of read-only fields that contain metadata about the pipeline:
 -- \@userId, \@accountId, and \@pipelineState.
 pdFields :: Lens' PipelineDescription [Field]
-pdFields = lens _pdFields (\ s a -> s{_pdFields = a});
+pdFields = lens _pdFields (\ s a -> s{_pdFields = a}) . _Coerce;
 
 instance FromJSON PipelineDescription where
         parseJSON
@@ -458,7 +458,7 @@ pName = lens _pName (\ s a -> s{_pName = a});
 
 -- | Key-value pairs that define the properties of the object.
 pFields :: Lens' PipelineObject [Field]
-pFields = lens _pFields (\ s a -> s{_pFields = a});
+pFields = lens _pFields (\ s a -> s{_pFields = a}) . _Coerce;
 
 instance FromJSON PipelineObject where
         parseJSON
@@ -495,7 +495,7 @@ query =
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
 qSelectors :: Lens' Query [Selector]
-qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default;
+qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default . _Coerce;
 
 instance ToJSON Query where
         toJSON Query'{..}
@@ -678,7 +678,7 @@ veId = lens _veId (\ s a -> s{_veId = a});
 
 -- | A description of the validation error.
 veErrors :: Lens' ValidationError [Text]
-veErrors = lens _veErrors (\ s a -> s{_veErrors = a}) . _Default;
+veErrors = lens _veErrors (\ s a -> s{_veErrors = a}) . _Default . _Coerce;
 
 instance FromJSON ValidationError where
         parseJSON
@@ -713,7 +713,7 @@ validationWarning =
 
 -- | A description of the validation warning.
 vwWarnings :: Lens' ValidationWarning [Text]
-vwWarnings = lens _vwWarnings (\ s a -> s{_vwWarnings = a}) . _Default;
+vwWarnings = lens _vwWarnings (\ s a -> s{_vwWarnings = a}) . _Default . _Coerce;
 
 -- | The identifier of the object that contains the validation warning.
 vwId :: Lens' ValidationWarning (Maybe Text)

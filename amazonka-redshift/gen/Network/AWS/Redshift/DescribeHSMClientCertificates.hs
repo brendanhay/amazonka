@@ -104,7 +104,7 @@ describeHSMClientCertificates =
 -- the HSM client certificates that have either or both of these tag values
 -- associated with them.
 dhccTagValues :: Lens' DescribeHSMClientCertificates [Text]
-dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a}) . _Default;
+dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a}) . _Default . _Coerce;
 
 -- | A tag key or keys for which you want to return all matching HSM client
 -- certificates that are associated with the specified key or keys. For
@@ -114,7 +114,7 @@ dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a}) . _Default;
 -- client certificates that have either or both of these tag keys
 -- associated with them.
 dhccTagKeys :: Lens' DescribeHSMClientCertificates [Text]
-dhccTagKeys = lens _dhccTagKeys (\ s a -> s{_dhccTagKeys = a}) . _Default;
+dhccTagKeys = lens _dhccTagKeys (\ s a -> s{_dhccTagKeys = a}) . _Default . _Coerce;
 
 -- | The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for
@@ -227,7 +227,7 @@ dhccrsMarker = lens _dhccrsMarker (\ s a -> s{_dhccrsMarker = a});
 -- by Amazon Redshift clusters to store and retrieve database encryption
 -- keys in an HSM.
 dhccrsHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMClientCertificate]
-dhccrsHSMClientCertificates = lens _dhccrsHSMClientCertificates (\ s a -> s{_dhccrsHSMClientCertificates = a}) . _Default;
+dhccrsHSMClientCertificates = lens _dhccrsHSMClientCertificates (\ s a -> s{_dhccrsHSMClientCertificates = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dhccrsStatus :: Lens' DescribeHSMClientCertificatesResponse Int

@@ -209,7 +209,7 @@ dwrsNextToken = lens _dwrsNextToken (\ s a -> s{_dwrsNextToken = a});
 -- Because the CreateWorkspaces operation is asynchronous, some of this
 -- information may be incomplete for a newly-created WorkSpace.
 dwrsWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
-dwrsWorkspaces = lens _dwrsWorkspaces (\ s a -> s{_dwrsWorkspaces = a}) . _Default;
+dwrsWorkspaces = lens _dwrsWorkspaces (\ s a -> s{_dwrsWorkspaces = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dwrsStatus :: Lens' DescribeWorkspacesResponse Int

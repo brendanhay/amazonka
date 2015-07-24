@@ -96,7 +96,7 @@ dtfdDomainName = lens _dtfdDomainName (\ s a -> s{_dtfdDomainName = a});
 --
 -- \'>
 dtfdTagsToDelete :: Lens' DeleteTagsForDomain [Text]
-dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a});
+dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a}) . _Coerce;
 
 instance AWSRequest DeleteTagsForDomain where
         type Sv DeleteTagsForDomain = Route53Domains

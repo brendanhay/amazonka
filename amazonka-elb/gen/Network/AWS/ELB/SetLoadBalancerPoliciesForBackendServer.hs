@@ -90,7 +90,7 @@ slbpfbsInstancePort = lens _slbpfbsInstancePort (\ s a -> s{_slbpfbsInstancePort
 -- | The names of the policies. If the list is empty, then all current
 -- polices are removed from the back-end server.
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
-slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a});
+slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a}) . _Coerce;
 
 instance AWSRequest
          SetLoadBalancerPoliciesForBackendServer where

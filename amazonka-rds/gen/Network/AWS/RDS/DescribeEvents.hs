@@ -122,7 +122,7 @@ deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
 -- | This parameter is not currently supported.
 deFilters :: Lens' DescribeEvents [Filter]
-deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default;
+deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default . _Coerce;
 
 -- | The identifier of the event source for which events will be returned. If
 -- not specified, then all sources are included in the response.
@@ -156,7 +156,7 @@ deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 -- | A list of event categories that trigger notifications for a event
 -- notification subscription.
 deEventCategories :: Lens' DescribeEvents [Text]
-deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a}) . _Default;
+deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a}) . _Default . _Coerce;
 
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
@@ -250,7 +250,7 @@ describeEventsResponse pStatus_ =
 
 -- | A list of Event instances.
 dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default;
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous Events request. If
 -- this parameter is specified, the response includes only records beyond

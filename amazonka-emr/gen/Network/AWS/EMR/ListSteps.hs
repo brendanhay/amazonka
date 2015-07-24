@@ -80,11 +80,11 @@ listSteps pClusterId_ =
 
 -- | The filter to limit the step list based on the identifier of the steps.
 lsStepIds :: Lens' ListSteps [Text]
-lsStepIds = lens _lsStepIds (\ s a -> s{_lsStepIds = a}) . _Default;
+lsStepIds = lens _lsStepIds (\ s a -> s{_lsStepIds = a}) . _Default . _Coerce;
 
 -- | The filter to limit the step list based on certain states.
 lsStepStates :: Lens' ListSteps [StepState]
-lsStepStates = lens _lsStepStates (\ s a -> s{_lsStepStates = a}) . _Default;
+lsStepStates = lens _lsStepStates (\ s a -> s{_lsStepStates = a}) . _Default . _Coerce;
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lsMarker :: Lens' ListSteps (Maybe Text)
@@ -162,7 +162,7 @@ listStepsResponse pStatus_ =
 
 -- | The filtered list of steps for the cluster.
 lsrsSteps :: Lens' ListStepsResponse [StepSummary]
-lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default;
+lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default . _Coerce;
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lsrsMarker :: Lens' ListStepsResponse (Maybe Text)

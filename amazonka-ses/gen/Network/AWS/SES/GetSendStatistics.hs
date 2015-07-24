@@ -107,7 +107,7 @@ getSendStatisticsResponse pStatus_ =
 
 -- | A list of data points, each of which represents 15 minutes of activity.
 gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
-gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default;
+gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 gssrsStatus :: Lens' GetSendStatisticsResponse Int

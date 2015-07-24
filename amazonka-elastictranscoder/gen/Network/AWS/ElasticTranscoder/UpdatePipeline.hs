@@ -317,7 +317,7 @@ updatePipelineResponse pStatus_ =
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
 uprsWarnings :: Lens' UpdatePipelineResponse [Warning]
-uprsWarnings = lens _uprsWarnings (\ s a -> s{_uprsWarnings = a}) . _Default;
+uprsWarnings = lens _uprsWarnings (\ s a -> s{_uprsWarnings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 uprsPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)

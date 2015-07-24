@@ -88,7 +88,7 @@ describePendingMaintenanceActions =
 --     pending maintenance actions for the DB instances identified by these
 --     ARNs.
 dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
-dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default;
+dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -178,7 +178,7 @@ describePendingMaintenanceActionsResponse pStatus_ =
 
 -- | A list of the pending maintenance actions for the resource.
 dpmarsPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
-dpmarsPendingMaintenanceActions = lens _dpmarsPendingMaintenanceActions (\ s a -> s{_dpmarsPendingMaintenanceActions = a}) . _Default;
+dpmarsPendingMaintenanceActions = lens _dpmarsPendingMaintenanceActions (\ s a -> s{_dpmarsPendingMaintenanceActions = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous
 -- @DescribePendingMaintenanceActions@ request. If this parameter is

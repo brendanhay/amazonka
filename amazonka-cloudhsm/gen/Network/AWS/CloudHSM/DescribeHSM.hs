@@ -288,7 +288,7 @@ desrsSubnetId = lens _desrsSubnetId (\ s a -> s{_desrsSubnetId = a});
 
 -- | The list of partitions on the HSM.
 desrsPartitions :: Lens' DescribeHSMResponse [Text]
-desrsPartitions = lens _desrsPartitions (\ s a -> s{_desrsPartitions = a}) . _Default;
+desrsPartitions = lens _desrsPartitions (\ s a -> s{_desrsPartitions = a}) . _Default . _Coerce;
 
 -- | The Availability Zone that the HSM is in.
 desrsAvailabilityZone :: Lens' DescribeHSMResponse (Maybe Text)

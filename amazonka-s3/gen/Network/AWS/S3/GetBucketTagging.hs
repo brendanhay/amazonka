@@ -110,4 +110,4 @@ gbtrsStatus = lens _gbtrsStatus (\ s a -> s{_gbtrsStatus = a});
 
 -- | FIXME: Undocumented member.
 gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
-gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a});
+gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a}) . _Coerce;

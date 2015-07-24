@@ -83,7 +83,7 @@ deleteAttributes pDomainName_ pItemName_ =
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
 daAttributes :: Lens' DeleteAttributes [Attribute]
-daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Default;
+daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Default . _Coerce;
 
 -- | The update condition which, if specified, determines whether the
 -- specified attributes will be deleted or not. The update condition must

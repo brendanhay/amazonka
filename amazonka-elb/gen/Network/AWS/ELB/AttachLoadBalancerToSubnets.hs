@@ -77,7 +77,7 @@ albtsLoadBalancerName = lens _albtsLoadBalancerName (\ s a -> s{_albtsLoadBalanc
 -- | The IDs of the subnets to add for the load balancer. You can add only
 -- one subnet per Availability Zone.
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
-albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a});
+albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a}) . _Coerce;
 
 instance AWSRequest AttachLoadBalancerToSubnets where
         type Sv AttachLoadBalancerToSubnets = ELB
@@ -130,7 +130,7 @@ attachLoadBalancerToSubnetsResponse pStatus_ =
 
 -- | The IDs of the subnets attached to the load balancer.
 albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
-albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default;
+albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 albtsrsStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int

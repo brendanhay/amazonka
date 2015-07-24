@@ -74,7 +74,7 @@ describeRegions =
 
 -- | The names of one or more regions.
 drsRegionNames :: Lens' DescribeRegions [Text]
-drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Default;
+drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -84,7 +84,7 @@ drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Defau
 -- -   @region-name@ - The name of the region (for example, @us-east-1@).
 --
 drsFilters :: Lens' DescribeRegions [Filter]
-drsFilters = lens _drsFilters (\ s a -> s{_drsFilters = a}) . _Default;
+drsFilters = lens _drsFilters (\ s a -> s{_drsFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -143,7 +143,7 @@ describeRegionsResponse pStatus_ =
 
 -- | Information about one or more regions.
 drrsRegions :: Lens' DescribeRegionsResponse [RegionInfo]
-drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default;
+drrsRegions = lens _drrsRegions (\ s a -> s{_drrsRegions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drrsStatus :: Lens' DescribeRegionsResponse Int

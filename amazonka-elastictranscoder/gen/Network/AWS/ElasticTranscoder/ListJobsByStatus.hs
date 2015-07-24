@@ -161,7 +161,7 @@ ljbsrsNextPageToken = lens _ljbsrsNextPageToken (\ s a -> s{_ljbsrsNextPageToken
 
 -- | An array of @Job@ objects that have the specified status.
 ljbsrsJobs :: Lens' ListJobsByStatusResponse [Job']
-ljbsrsJobs = lens _ljbsrsJobs (\ s a -> s{_ljbsrsJobs = a}) . _Default;
+ljbsrsJobs = lens _ljbsrsJobs (\ s a -> s{_ljbsrsJobs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ljbsrsStatus :: Lens' ListJobsByStatusResponse Int

@@ -147,7 +147,7 @@ lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a});
 
 -- | A list of keys.
 lkrsKeys :: Lens' ListKeysResponse [KeyListEntry]
-lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default;
+lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default . _Coerce;
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination

@@ -102,7 +102,7 @@ sDryRun = lens _sDryRun (\ s a -> s{_sDryRun = a});
 
 -- | One or more instance IDs.
 sInstanceIds :: Lens' StartInstances [Text]
-sInstanceIds = lens _sInstanceIds (\ s a -> s{_sInstanceIds = a});
+sInstanceIds = lens _sInstanceIds (\ s a -> s{_sInstanceIds = a}) . _Coerce;
 
 instance AWSRequest StartInstances where
         type Sv StartInstances = EC2
@@ -153,7 +153,7 @@ startInstancesResponse pStatus_ =
 
 -- | Information about one or more started instances.
 srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
-srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default;
+srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 srsStatus :: Lens' StartInstancesResponse Int

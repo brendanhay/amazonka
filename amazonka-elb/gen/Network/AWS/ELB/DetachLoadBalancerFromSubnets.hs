@@ -76,7 +76,7 @@ dlbfsLoadBalancerName = lens _dlbfsLoadBalancerName (\ s a -> s{_dlbfsLoadBalanc
 
 -- | The IDs of the subnets.
 dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
-dlbfsSubnets = lens _dlbfsSubnets (\ s a -> s{_dlbfsSubnets = a});
+dlbfsSubnets = lens _dlbfsSubnets (\ s a -> s{_dlbfsSubnets = a}) . _Coerce;
 
 instance AWSRequest DetachLoadBalancerFromSubnets
          where
@@ -131,7 +131,7 @@ detachLoadBalancerFromSubnetsResponse pStatus_ =
 
 -- | The IDs of the remaining subnets for the load balancer.
 dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
-dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default;
+dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlbfsrsStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int

@@ -74,7 +74,7 @@ createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
 
 -- | FIXME: Undocumented member.
 cdbsTags :: Lens' CreateDBSnapshot [Tag]
-cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default;
+cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default . _Coerce;
 
 -- | The identifier for the DB snapshot.
 --

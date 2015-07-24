@@ -164,7 +164,7 @@ listKeyPoliciesResponse pStatus_ =
 -- | A list of policy names. Currently, there is only one policy and it is
 -- named \"Default\".
 lkprsPolicyNames :: Lens' ListKeyPoliciesResponse [Text]
-lkprsPolicyNames = lens _lkprsPolicyNames (\ s a -> s{_lkprsPolicyNames = a}) . _Default;
+lkprsPolicyNames = lens _lkprsPolicyNames (\ s a -> s{_lkprsPolicyNames = a}) . _Default . _Coerce;
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request

@@ -135,4 +135,4 @@ lhrsStatus = lens _lhrsStatus (\ s a -> s{_lhrsStatus = a});
 
 -- | The list of high-availability partition groups.
 lhrsHAPGList :: Lens' ListHAPGsResponse [Text]
-lhrsHAPGList = lens _lhrsHAPGList (\ s a -> s{_lhrsHAPGList = a});
+lhrsHAPGList = lens _lhrsHAPGList (\ s a -> s{_lhrsHAPGList = a}) . _Coerce;

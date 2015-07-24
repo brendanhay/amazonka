@@ -170,7 +170,7 @@ listTaskDefinitionFamiliesResponse pStatus_ =
 -- | The list of task definition family names that match the
 -- @ListTaskDefinitionFamilies@ request.
 ltdfrsFamilies :: Lens' ListTaskDefinitionFamiliesResponse [Text]
-ltdfrsFamilies = lens _ltdfrsFamilies (\ s a -> s{_ltdfrsFamilies = a}) . _Default;
+ltdfrsFamilies = lens _ltdfrsFamilies (\ s a -> s{_ltdfrsFamilies = a}) . _Default . _Coerce;
 
 -- | The @nextToken@ value to include in a future
 -- @ListTaskDefinitionFamilies@ request. When the results of a

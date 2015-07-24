@@ -84,7 +84,7 @@ createClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
 
 -- | A list of tag instances.
 ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
-ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default;
+ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default . _Coerce;
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -107,7 +107,7 @@ ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
 ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
-ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a});
+ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest CreateClusterSubnetGroup where
         type Sv CreateClusterSubnetGroup = Redshift

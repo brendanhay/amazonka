@@ -91,7 +91,7 @@ dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
 
 -- | The list of dimensions associated with the metric.
 dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
-dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default;
+dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default . _Coerce;
 
 -- | The statistic for the metric.
 dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
@@ -165,7 +165,7 @@ describeAlarmsForMetricResponse pStatus_ =
 
 -- | A list of information for each alarm with the specified metric.
 dafmrsMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
-dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default;
+dafmrsMetricAlarms = lens _dafmrsMetricAlarms (\ s a -> s{_dafmrsMetricAlarms = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dafmrsStatus :: Lens' DescribeAlarmsForMetricResponse Int

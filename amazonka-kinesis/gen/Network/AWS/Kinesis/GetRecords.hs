@@ -210,4 +210,4 @@ grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
 
 -- | The data records retrieved from the shard.
 grrsRecords :: Lens' GetRecordsResponse [Record]
-grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a});
+grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Coerce;

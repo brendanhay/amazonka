@@ -104,13 +104,13 @@ createLoadBalancer pLoadBalancerName_ =
 
 -- | The IDs of the security groups to assign to the load balancer.
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
-clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a}) . _Default;
+clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The IDs of the subnets in your VPC to attach to the load balancer.
 -- Specify one subnet per Availability Zone specified in
 -- @AvailabilityZones@.
 clbSubnets :: Lens' CreateLoadBalancer [Text]
-clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default;
+clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default . _Coerce;
 
 -- | One or more Availability Zones from the same region as the load
 -- balancer. Traffic is equally distributed across all specified
@@ -121,7 +121,7 @@ clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default;
 -- You can add more Availability Zones after you create the load balancer
 -- using EnableAvailabilityZonesForLoadBalancer.
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
-clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a}) . _Default;
+clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
@@ -159,7 +159,7 @@ clbLoadBalancerName = lens _clbLoadBalancerName (\ s a -> s{_clbLoadBalancerName
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listeners for Your Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
 clbListeners :: Lens' CreateLoadBalancer [Listener]
-clbListeners = lens _clbListeners (\ s a -> s{_clbListeners = a});
+clbListeners = lens _clbListeners (\ s a -> s{_clbListeners = a}) . _Coerce;
 
 instance AWSRequest CreateLoadBalancer where
         type Sv CreateLoadBalancer = ELB

@@ -81,7 +81,7 @@ dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a});
 -- you omit this parameter, all Auto Scaling instances are described. If
 -- you specify an ID that does not exist, it is ignored with no error.
 dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
-dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default;
+dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default . _Coerce;
 
 -- | The maximum number of items to return with this call.
 dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
@@ -158,7 +158,7 @@ dasirsNextToken = lens _dasirsNextToken (\ s a -> s{_dasirsNextToken = a});
 
 -- | The instances.
 dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
-dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default;
+dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dasirsStatus :: Lens' DescribeAutoScalingInstancesResponse Int

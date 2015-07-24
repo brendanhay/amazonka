@@ -142,7 +142,7 @@ lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
 -- | Information about the projects.
 lprsProjects :: Lens' ListProjectsResponse [Project]
-lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default;
+lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lprsStatus :: Lens' ListProjectsResponse Int

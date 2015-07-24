@@ -134,7 +134,7 @@ lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
 
 -- | The list of ARNs that identify the HSMs.
 lhsmrsHSMList :: Lens' ListHSMsResponse [Text]
-lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default;
+lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lhsmrsStatus :: Lens' ListHSMsResponse Int

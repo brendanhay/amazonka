@@ -175,7 +175,7 @@ listEventSourceMappingsResponse pStatus_ =
 
 -- | An array of @EventSourceMappingConfiguration@ objects.
 lesmrsEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
-lesmrsEventSourceMappings = lens _lesmrsEventSourceMappings (\ s a -> s{_lesmrsEventSourceMappings = a}) . _Default;
+lesmrsEventSourceMappings = lens _lesmrsEventSourceMappings (\ s a -> s{_lesmrsEventSourceMappings = a}) . _Default . _Coerce;
 
 -- | A string, present if there are more event source mappings.
 lesmrsNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)

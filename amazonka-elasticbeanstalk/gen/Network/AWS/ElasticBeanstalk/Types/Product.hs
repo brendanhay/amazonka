@@ -65,7 +65,7 @@ adDateUpdated = lens _adDateUpdated (\ s a -> s{_adDateUpdated = a}) . mapping _
 
 -- | The names of the versions for this application.
 adVersions :: Lens' ApplicationDescription [Text]
-adVersions = lens _adVersions (\ s a -> s{_adVersions = a}) . _Default;
+adVersions = lens _adVersions (\ s a -> s{_adVersions = a}) . _Default . _Coerce;
 
 -- | The date when the application was created.
 adDateCreated :: Lens' ApplicationDescription (Maybe UTCTime)
@@ -78,7 +78,7 @@ adApplicationName = lens _adApplicationName (\ s a -> s{_adApplicationName = a})
 -- | The names of the configuration templates associated with this
 -- application.
 adConfigurationTemplates :: Lens' ApplicationDescription [Text]
-adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a}) . _Default;
+adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a}) . _Default . _Coerce;
 
 -- | User-defined description of the application.
 adDescription :: Lens' ApplicationDescription (Maybe Text)
@@ -345,7 +345,7 @@ codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
 -- | If specified, values for the configuration option are selected from this
 -- list.
 codValueOptions :: Lens' ConfigurationOptionDescription [Text]
-codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _Default;
+codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _Default . _Coerce;
 
 -- | A unique namespace identifying the option\'s associated AWS resource.
 codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
@@ -548,7 +548,7 @@ csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a});
 -- | A list of the configuration options and their values in this
 -- configuration set.
 csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
-csdOptionSettings = lens _csdOptionSettings (\ s a -> s{_csdOptionSettings = a}) . _Default;
+csdOptionSettings = lens _csdOptionSettings (\ s a -> s{_csdOptionSettings = a}) . _Default . _Coerce;
 
 -- | The date (in UTC time) when this configuration set was last modified.
 csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
@@ -910,19 +910,19 @@ environmentResourceDescription =
 
 -- | The queues used by this environment.
 erdQueues :: Lens' EnvironmentResourceDescription [Queue]
-erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a}) . _Default;
+erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a}) . _Default . _Coerce;
 
 -- | The @AutoScaling@ triggers in use by this environment.
 erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
-erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a}) . _Default;
+erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a}) . _Default . _Coerce;
 
 -- | The LoadBalancers in use by this environment.
 erdLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
-erdLoadBalancers = lens _erdLoadBalancers (\ s a -> s{_erdLoadBalancers = a}) . _Default;
+erdLoadBalancers = lens _erdLoadBalancers (\ s a -> s{_erdLoadBalancers = a}) . _Default . _Coerce;
 
 -- | The Amazon EC2 instances used by this environment.
 erdInstances :: Lens' EnvironmentResourceDescription [Instance]
-erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a}) . _Default;
+erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a}) . _Default . _Coerce;
 
 -- | The name of the environment.
 erdEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
@@ -930,11 +930,11 @@ erdEnvironmentName = lens _erdEnvironmentName (\ s a -> s{_erdEnvironmentName = 
 
 -- | The Auto Scaling launch configurations in use by this environment.
 erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
-erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a}) . _Default;
+erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a}) . _Default . _Coerce;
 
 -- | The @AutoScalingGroups@ used by this environment.
 erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
-erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a}) . _Default;
+erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a}) . _Default . _Coerce;
 
 instance FromXML EnvironmentResourceDescription where
         parseXML x
@@ -1272,7 +1272,7 @@ lbdDomain = lens _lbdDomain (\ s a -> s{_lbdDomain = a});
 
 -- | A list of Listeners used by the LoadBalancer.
 lbdListeners :: Lens' LoadBalancerDescription [Listener]
-lbdListeners = lens _lbdListeners (\ s a -> s{_lbdListeners = a}) . _Default;
+lbdListeners = lens _lbdListeners (\ s a -> s{_lbdListeners = a}) . _Default . _Coerce;
 
 instance FromXML LoadBalancerDescription where
         parseXML x
@@ -1461,7 +1461,7 @@ solutionStackDescription =
 
 -- | The permitted file types allowed for a solution stack.
 ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
-ssdPermittedFileTypes = lens _ssdPermittedFileTypes (\ s a -> s{_ssdPermittedFileTypes = a}) . _Default;
+ssdPermittedFileTypes = lens _ssdPermittedFileTypes (\ s a -> s{_ssdPermittedFileTypes = a}) . _Default . _Coerce;
 
 -- | The name of the solution stack.
 ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)

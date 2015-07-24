@@ -105,7 +105,7 @@ dcoApplicationName = lens _dcoApplicationName (\ s a -> s{_dcoApplicationName = 
 
 -- | If specified, restricts the descriptions to only the specified options.
 dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
-dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default;
+dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default . _Coerce;
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
@@ -176,7 +176,7 @@ describeConfigurationOptionsResponse pStatus_ =
 
 -- | A list of ConfigurationOptionDescription.
 dcorsOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
-dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default;
+dcorsOptions = lens _dcorsOptions (\ s a -> s{_dcorsOptions = a}) . _Default . _Coerce;
 
 -- | The name of the solution stack these configuration options belong to.
 dcorsSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)

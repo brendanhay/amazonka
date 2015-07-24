@@ -224,7 +224,7 @@ listPartsResponse pStatus_ =
 
 -- | A list of the part sizes of the multipart upload.
 lprsParts :: Lens' ListPartsResponse [PartListElement]
-lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default;
+lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce;
 
 -- | The ID of the upload to which the parts are associated.
 lprsMultipartUploadId :: Lens' ListPartsResponse (Maybe Text)

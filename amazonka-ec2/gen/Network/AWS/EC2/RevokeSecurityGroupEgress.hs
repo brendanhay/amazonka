@@ -114,7 +114,7 @@ rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
 -- | A set of IP permissions. You can\'t specify a destination security group
 -- and a CIDR IP address range.
 rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress [IPPermission]
-rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a}) . _Default;
+rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a}) . _Default . _Coerce;
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).

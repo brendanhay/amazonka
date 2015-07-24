@@ -148,7 +148,7 @@ lrsNextPageToken = lens _lrsNextPageToken (\ s a -> s{_lrsNextPageToken = a});
 
 -- | An array of @Preset@ objects.
 lrsPresets :: Lens' ListPresetsResponse [Preset]
-lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default;
+lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lrsStatus :: Lens' ListPresetsResponse Int

@@ -153,7 +153,7 @@ listArtifactsResponse pStatus_ =
 
 -- | Information about the artifacts.
 larsArtifacts :: Lens' ListArtifactsResponse [Artifact]
-larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default;
+larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default . _Coerce;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent

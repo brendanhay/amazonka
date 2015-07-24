@@ -80,11 +80,11 @@ modifyOptionGroup pOptionGroupName_ =
 -- present, the specified configuration is used to update the existing
 -- configuration.
 mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
-mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a}) . _Default;
+mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a}) . _Default . _Coerce;
 
 -- | Options in this list are removed from the option group.
 mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
-mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a}) . _Default;
+mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a}) . _Default . _Coerce;
 
 -- | Indicates whether the changes should be applied immediately, or during
 -- the next maintenance window for each instance associated with the option

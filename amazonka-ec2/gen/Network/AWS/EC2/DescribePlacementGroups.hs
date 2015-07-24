@@ -77,7 +77,7 @@ describePlacementGroups =
 -- Default: Describes all your placement groups, or only those otherwise
 -- specified.
 dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
-dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Default;
+dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -89,7 +89,7 @@ dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Defau
 -- -   @strategy@ - The strategy of the placement group (@cluster@).
 --
 dpgsFilters :: Lens' DescribePlacementGroups [Filter]
-dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default;
+dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -150,7 +150,7 @@ describePlacementGroupsResponse pStatus_ =
 
 -- | One or more placement groups.
 dpgrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
-dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGroups = a}) . _Default;
+dpgrsPlacementGroups = lens _dpgrsPlacementGroups (\ s a -> s{_dpgrsPlacementGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dpgrsStatus :: Lens' DescribePlacementGroupsResponse Int

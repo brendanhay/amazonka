@@ -165,7 +165,7 @@ mrgSnapshottingClusterId = lens _mrgSnapshottingClusterId (\ s a -> s{_mrgSnapsh
 -- This parameter can be used only with replication group containing cache
 -- clusters running in an Amazon Virtual Private Cloud (VPC).
 mrgSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
-mrgSecurityGroupIds = lens _mrgSecurityGroupIds (\ s a -> s{_mrgSecurityGroupIds = a}) . _Default;
+mrgSecurityGroupIds = lens _mrgSecurityGroupIds (\ s a -> s{_mrgSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | This parameter is currently disabled.
 mrgAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
@@ -267,7 +267,7 @@ mrgNotificationTopicARN = lens _mrgNotificationTopicARN (\ s a -> s{_mrgNotifica
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
 mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
-mrgCacheSecurityGroupNames = lens _mrgCacheSecurityGroupNames (\ s a -> s{_mrgCacheSecurityGroupNames = a}) . _Default;
+mrgCacheSecurityGroupNames = lens _mrgCacheSecurityGroupNames (\ s a -> s{_mrgCacheSecurityGroupNames = a}) . _Default . _Coerce;
 
 -- | The identifier of the replication group to modify.
 mrgReplicationGroupId :: Lens' ModifyReplicationGroup Text

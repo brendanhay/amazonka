@@ -109,7 +109,7 @@ describeClusterParameterGroups =
 -- the parameter groups that have either or both of these tag values
 -- associated with them.
 dcpgTagValues :: Lens' DescribeClusterParameterGroups [Text]
-dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a}) . _Default;
+dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a}) . _Default . _Coerce;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- parameter groups that are associated with the specified key or keys. For
@@ -119,7 +119,7 @@ dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a}) . _Default;
 -- parameter groups that have either or both of these tag keys associated
 -- with them.
 dcpgTagKeys :: Lens' DescribeClusterParameterGroups [Text]
-dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a}) . _Default;
+dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a}) . _Default . _Coerce;
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -232,7 +232,7 @@ dcpgrsMarker = lens _dcpgrsMarker (\ s a -> s{_dcpgrsMarker = a});
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
 dcpgrsParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
-dcpgrsParameterGroups = lens _dcpgrsParameterGroups (\ s a -> s{_dcpgrsParameterGroups = a}) . _Default;
+dcpgrsParameterGroups = lens _dcpgrsParameterGroups (\ s a -> s{_dcpgrsParameterGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcpgrsStatus :: Lens' DescribeClusterParameterGroupsResponse Int

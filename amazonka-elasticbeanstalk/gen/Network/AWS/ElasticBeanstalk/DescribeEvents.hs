@@ -249,7 +249,7 @@ dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
 
 -- | A list of EventDescription.
 dersEvents :: Lens' DescribeEventsResponse [EventDescription]
-dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default;
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dersStatus :: Lens' DescribeEventsResponse Int

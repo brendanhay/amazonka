@@ -64,7 +64,7 @@ batchGetDeployments =
 -- | A list of deployment IDs, with multiple deployment IDs separated by
 -- spaces.
 bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
-bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default;
+bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default . _Coerce;
 
 instance AWSRequest BatchGetDeployments where
         type Sv BatchGetDeployments = CodeDeploy
@@ -122,7 +122,7 @@ batchGetDeploymentsResponse pStatus_ =
 
 -- | Information about the deployments.
 bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
-bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default;
+bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 bgdrsStatus :: Lens' BatchGetDeploymentsResponse Int

@@ -147,7 +147,7 @@ lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a})
 
 -- | An array of @Pipeline@ objects.
 lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
-lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default;
+lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lprsStatus :: Lens' ListPipelinesResponse Int

@@ -254,7 +254,7 @@ devDefaultCharacterSet = lens _devDefaultCharacterSet (\ s a -> s{_devDefaultCha
 -- | A list of the character sets supported by this engine for the
 -- @CharacterSetName@ parameter of the CreateDBInstance API.
 devSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
-devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupportedCharacterSets = a}) . _Default;
+devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupportedCharacterSets = a}) . _Default . _Coerce;
 
 -- | The name of the database engine.
 devEngine :: Lens' DBEngineVersion (Maybe Text)
@@ -453,7 +453,7 @@ dbInstance =
 -- | Provides List of DB security group elements containing only
 -- @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
 diDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
-diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = a}) . _Default;
+diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = a}) . _Default . _Coerce;
 
 -- | Indicates the database engine version.
 diEngineVersion :: Lens' DBInstance (Maybe Text)
@@ -495,7 +495,7 @@ diPubliclyAccessible = lens _diPubliclyAccessible (\ s a -> s{_diPubliclyAccessi
 -- | Contains one or more identifiers of the Read Replicas associated with
 -- this DB instance.
 diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
-diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\ s a -> s{_diReadReplicaDBInstanceIdentifiers = a}) . _Default;
+diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\ s a -> s{_diReadReplicaDBInstanceIdentifiers = a}) . _Default . _Coerce;
 
 -- | Specifies the Provisioned IOPS (I\/O operations per second) value.
 diIOPS :: Lens' DBInstance (Maybe Int)
@@ -562,7 +562,7 @@ diAvailabilityZone = lens _diAvailabilityZone (\ s a -> s{_diAvailabilityZone = 
 -- | Provides List of VPC security group elements that the DB instance
 -- belongs to.
 diVPCSecurityGroups :: Lens' DBInstance [VPCSecurityGroupMembership]
-diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups = a}) . _Default;
+diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups = a}) . _Default . _Coerce;
 
 -- | Specifies the number of days for which automatic DB snapshots are
 -- retained.
@@ -591,7 +591,7 @@ diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\ s a -> s{_diS
 
 -- | Provides the list of option group memberships for this DB instance.
 diOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
-diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a}) . _Default;
+diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a}) . _Default . _Coerce;
 
 -- | If @StorageEncrypted@ is true, the region-unique, immutable identifier
 -- for the encrypted DB instance. This identifier is found in AWS
@@ -610,7 +610,7 @@ diEndpoint = lens _diEndpoint (\ s a -> s{_diEndpoint = a});
 
 -- | Provides the list of DB parameter groups applied to this DB instance.
 diDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
-diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups = a}) . _Default;
+diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups = a}) . _Default . _Coerce;
 
 -- | The ARN from the Key Store with which the instance is associated for TDE
 -- encryption.
@@ -630,7 +630,7 @@ diPendingModifiedValues = lens _diPendingModifiedValues (\ s a -> s{_diPendingMo
 -- | The status of a Read Replica. If the instance is not a Read Replica,
 -- this will be blank.
 diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
-diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default;
+diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default . _Coerce;
 
 -- | The meaning of this parameter differs according to the database engine
 -- you use. For example, this value returns either MySQL or PostgreSQL
@@ -946,7 +946,7 @@ dsgOwnerId = lens _dsgOwnerId (\ s a -> s{_dsgOwnerId = a});
 
 -- | Contains a list of IPRange elements.
 dsgIPRanges :: Lens' DBSecurityGroup [IPRange]
-dsgIPRanges = lens _dsgIPRanges (\ s a -> s{_dsgIPRanges = a}) . _Default;
+dsgIPRanges = lens _dsgIPRanges (\ s a -> s{_dsgIPRanges = a}) . _Default . _Coerce;
 
 -- | Specifies the name of the DB security group.
 dsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
@@ -954,7 +954,7 @@ dsgDBSecurityGroupName = lens _dsgDBSecurityGroupName (\ s a -> s{_dsgDBSecurity
 
 -- | Contains a list of EC2SecurityGroup elements.
 dsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
-dsgEC2SecurityGroups = lens _dsgEC2SecurityGroups (\ s a -> s{_dsgEC2SecurityGroups = a}) . _Default;
+dsgEC2SecurityGroups = lens _dsgEC2SecurityGroups (\ s a -> s{_dsgEC2SecurityGroups = a}) . _Default . _Coerce;
 
 -- | Provides the description of the DB security group.
 dsgDBSecurityGroupDescription :: Lens' DBSecurityGroup (Maybe Text)
@@ -1291,7 +1291,7 @@ dbsgVPCId = lens _dbsgVPCId (\ s a -> s{_dbsgVPCId = a});
 
 -- | Contains a list of Subnet elements.
 dbsgSubnets :: Lens' DBSubnetGroup [Subnet]
-dbsgSubnets = lens _dbsgSubnets (\ s a -> s{_dbsgSubnets = a}) . _Default;
+dbsgSubnets = lens _dbsgSubnets (\ s a -> s{_dbsgSubnets = a}) . _Default . _Coerce;
 
 -- | Provides the description of the DB subnet group.
 dbsgDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
@@ -1486,7 +1486,7 @@ edDBParameterGroupFamily = lens _edDBParameterGroupFamily (\ s a -> s{_edDBParam
 
 -- | Contains a list of engine default parameters.
 edParameters :: Lens' EngineDefaults [Parameter]
-edParameters = lens _edParameters (\ s a -> s{_edParameters = a}) . _Default;
+edParameters = lens _edParameters (\ s a -> s{_edParameters = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous EngineDefaults
 -- request. If this parameter is specified, the response includes only
@@ -1551,7 +1551,7 @@ eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
 
 -- | Specifies the category for the event.
 eEventCategories :: Lens' Event [Text]
-eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default;
+eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default . _Coerce;
 
 -- | Provides the text of this event.
 eMessage :: Lens' Event (Maybe Text)
@@ -1596,7 +1596,7 @@ ecmSourceType = lens _ecmSourceType (\ s a -> s{_ecmSourceType = a});
 
 -- | The event categories for the specified source type
 ecmEventCategories :: Lens' EventCategoriesMap [Text]
-ecmEventCategories = lens _ecmEventCategories (\ s a -> s{_ecmEventCategories = a}) . _Default;
+ecmEventCategories = lens _ecmEventCategories (\ s a -> s{_ecmEventCategories = a}) . _Default . _Coerce;
 
 instance FromXML EventCategoriesMap where
         parseXML x
@@ -1697,11 +1697,11 @@ esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSub
 
 -- | A list of event categories for the RDS event notification subscription.
 esEventCategoriesList :: Lens' EventSubscription [Text]
-esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default;
+esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default . _Coerce;
 
 -- | A list of source IDs for the RDS event notification subscription.
 esSourceIdsList :: Lens' EventSubscription [Text]
-esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default;
+esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default . _Coerce;
 
 instance FromXML EventSubscription where
         parseXML x
@@ -1745,7 +1745,7 @@ fName = lens _fName (\ s a -> s{_fName = a});
 
 -- | This parameter is not currently supported.
 fValues :: Lens' Filter [Text]
-fValues = lens _fValues (\ s a -> s{_fValues = a});
+fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Coerce;
 
 instance ToQuery Filter where
         toQuery Filter'{..}
@@ -1853,17 +1853,17 @@ oOptionDescription = lens _oOptionDescription (\ s a -> s{_oOptionDescription = 
 
 -- | The option settings for this option.
 oOptionSettings :: Lens' Option [OptionSetting]
-oOptionSettings = lens _oOptionSettings (\ s a -> s{_oOptionSettings = a}) . _Default;
+oOptionSettings = lens _oOptionSettings (\ s a -> s{_oOptionSettings = a}) . _Default . _Coerce;
 
 -- | If the option requires access to a port, then this VPC security group
 -- allows access to the port.
 oVPCSecurityGroupMemberships :: Lens' Option [VPCSecurityGroupMembership]
-oVPCSecurityGroupMemberships = lens _oVPCSecurityGroupMemberships (\ s a -> s{_oVPCSecurityGroupMemberships = a}) . _Default;
+oVPCSecurityGroupMemberships = lens _oVPCSecurityGroupMemberships (\ s a -> s{_oVPCSecurityGroupMemberships = a}) . _Default . _Coerce;
 
 -- | If the option requires access to a port, then this DB security group
 -- allows access to the port.
 oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
-oDBSecurityGroupMemberships = lens _oDBSecurityGroupMemberships (\ s a -> s{_oDBSecurityGroupMemberships = a}) . _Default;
+oDBSecurityGroupMemberships = lens _oDBSecurityGroupMemberships (\ s a -> s{_oDBSecurityGroupMemberships = a}) . _Default . _Coerce;
 
 -- | If required, the port configured for this option to use.
 oPort :: Lens' Option (Maybe Int)
@@ -1922,15 +1922,15 @@ optionConfiguration pOptionName_ =
 
 -- | The option settings to include in an option group.
 ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
-ocOptionSettings = lens _ocOptionSettings (\ s a -> s{_ocOptionSettings = a}) . _Default;
+ocOptionSettings = lens _ocOptionSettings (\ s a -> s{_ocOptionSettings = a}) . _Default . _Coerce;
 
 -- | A list of VpcSecurityGroupMemebrship name strings used for this option.
 ocVPCSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
-ocVPCSecurityGroupMemberships = lens _ocVPCSecurityGroupMemberships (\ s a -> s{_ocVPCSecurityGroupMemberships = a}) . _Default;
+ocVPCSecurityGroupMemberships = lens _ocVPCSecurityGroupMemberships (\ s a -> s{_ocVPCSecurityGroupMemberships = a}) . _Default . _Coerce;
 
 -- | A list of DBSecurityGroupMemebrship name strings used for this option.
 ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
-ocDBSecurityGroupMemberships = lens _ocDBSecurityGroupMemberships (\ s a -> s{_ocDBSecurityGroupMemberships = a}) . _Default;
+ocDBSecurityGroupMemberships = lens _ocDBSecurityGroupMemberships (\ s a -> s{_ocDBSecurityGroupMemberships = a}) . _Default . _Coerce;
 
 -- | The optional port for the option.
 ocPort :: Lens' OptionConfiguration (Maybe Int)
@@ -2027,7 +2027,7 @@ ogMajorEngineVersion = lens _ogMajorEngineVersion (\ s a -> s{_ogMajorEngineVers
 
 -- | Indicates what options are available in the option group.
 ogOptions :: Lens' OptionGroup [Option]
-ogOptions = lens _ogOptions (\ s a -> s{_ogOptions = a}) . _Default;
+ogOptions = lens _ogOptions (\ s a -> s{_ogOptions = a}) . _Default . _Coerce;
 
 -- | Specifies the name of the option group.
 ogOptionGroupName :: Lens' OptionGroup (Maybe Text)
@@ -2177,7 +2177,7 @@ ogoDefaultPort = lens _ogoDefaultPort (\ s a -> s{_ogoDefaultPort = a});
 -- | Specifies the option settings that are available (and the default value)
 -- for each option in an option group.
 ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
-ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a}) . _Default;
+ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a}) . _Default . _Coerce;
 
 -- | Specifies whether the option requires a port.
 ogoPortRequired :: Lens' OptionGroupOption (Maybe Bool)
@@ -2185,7 +2185,7 @@ ogoPortRequired = lens _ogoPortRequired (\ s a -> s{_ogoPortRequired = a});
 
 -- | List of all options that are prerequisites for this option.
 ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
-ogoOptionsDependedOn = lens _ogoOptionsDependedOn (\ s a -> s{_ogoOptionsDependedOn = a}) . _Default;
+ogoOptionsDependedOn = lens _ogoOptionsDependedOn (\ s a -> s{_ogoOptionsDependedOn = a}) . _Default . _Coerce;
 
 -- | The description of the option.
 ogoDescription :: Lens' OptionGroupOption (Maybe Text)
@@ -2485,7 +2485,7 @@ odioLicenseModel = lens _odioLicenseModel (\ s a -> s{_odioLicenseModel = a});
 
 -- | A list of availability zones for the orderable DB instance.
 odioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
-odioAvailabilityZones = lens _odioAvailabilityZones (\ s a -> s{_odioAvailabilityZones = a}) . _Default;
+odioAvailabilityZones = lens _odioAvailabilityZones (\ s a -> s{_odioAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | Indicates whether this orderable DB instance can have a Read Replica.
 odioReadReplicaCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
@@ -3011,7 +3011,7 @@ rdiUsagePrice = lens _rdiUsagePrice (\ s a -> s{_rdiUsagePrice = a});
 
 -- | The recurring price charged to run this reserved DB instance.
 rdiRecurringCharges :: Lens' ReservedDBInstance [RecurringCharge]
-rdiRecurringCharges = lens _rdiRecurringCharges (\ s a -> s{_rdiRecurringCharges = a}) . _Default;
+rdiRecurringCharges = lens _rdiRecurringCharges (\ s a -> s{_rdiRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The fixed price charged for this reserved DB instance.
 rdiFixedPrice :: Lens' ReservedDBInstance (Maybe Double)
@@ -3125,7 +3125,7 @@ rdioUsagePrice = lens _rdioUsagePrice (\ s a -> s{_rdioUsagePrice = a});
 
 -- | The recurring price charged to run this reserved DB instance.
 rdioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
-rdioRecurringCharges = lens _rdioRecurringCharges (\ s a -> s{_rdioRecurringCharges = a}) . _Default;
+rdioRecurringCharges = lens _rdioRecurringCharges (\ s a -> s{_rdioRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The fixed price charged for this offering.
 rdioFixedPrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
@@ -3176,7 +3176,7 @@ resourcePendingMaintenanceActions =
 -- | A list that provides details about the pending maintenance actions for
 -- the resource.
 rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions [PendingMaintenanceAction]
-rpmaPendingMaintenanceActionDetails = lens _rpmaPendingMaintenanceActionDetails (\ s a -> s{_rpmaPendingMaintenanceActionDetails = a}) . _Default;
+rpmaPendingMaintenanceActionDetails = lens _rpmaPendingMaintenanceActionDetails (\ s a -> s{_rpmaPendingMaintenanceActionDetails = a}) . _Default . _Coerce;
 
 -- | The ARN of the resource that has pending maintenance actions.
 rpmaResourceIdentifier :: Lens' ResourcePendingMaintenanceActions (Maybe Text)

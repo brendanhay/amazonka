@@ -144,7 +144,7 @@ describeVirtualInterfacesResponse pStatus_ =
 
 -- | A list of virtual interfaces.
 dvisrsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
-dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default;
+dvisrsVirtualInterfaces = lens _dvisrsVirtualInterfaces (\ s a -> s{_dvisrsVirtualInterfaces = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvisrsStatus :: Lens' DescribeVirtualInterfacesResponse Int

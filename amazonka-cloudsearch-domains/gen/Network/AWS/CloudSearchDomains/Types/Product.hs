@@ -78,7 +78,7 @@ bucketInfo =
 
 -- | A list of the calculated facet values and counts.
 biBuckets :: Lens' BucketInfo [Bucket]
-biBuckets = lens _biBuckets (\ s a -> s{_biBuckets = a}) . _Default;
+biBuckets = lens _biBuckets (\ s a -> s{_biBuckets = a}) . _Default . _Coerce;
 
 instance FromJSON BucketInfo where
         parseJSON
@@ -207,7 +207,7 @@ hCursor = lens _hCursor (\ s a -> s{_hCursor = a});
 
 -- | A document that matches the search request.
 hHit :: Lens' Hits [Hit]
-hHit = lens _hHit (\ s a -> s{_hHit = a}) . _Default;
+hHit = lens _hHit (\ s a -> s{_hHit = a}) . _Default . _Coerce;
 
 -- | The index of the first matching document.
 hStart :: Lens' Hits (Maybe Integer)
@@ -296,7 +296,7 @@ smFound = lens _smFound (\ s a -> s{_smFound = a});
 
 -- | The documents that match the query string.
 smSuggestions :: Lens' SuggestModel [SuggestionMatch]
-smSuggestions = lens _smSuggestions (\ s a -> s{_smSuggestions = a}) . _Default;
+smSuggestions = lens _smSuggestions (\ s a -> s{_smSuggestions = a}) . _Default . _Coerce;
 
 -- | The query string specified in the suggest request.
 smQuery :: Lens' SuggestModel (Maybe Text)

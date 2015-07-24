@@ -61,7 +61,7 @@ describeExportTasks =
 
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
-detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default;
+detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeExportTasks where
         type Sv DescribeExportTasks = EC2
@@ -112,7 +112,7 @@ describeExportTasksResponse pStatus_ =
 
 -- | Information about the export tasks.
 detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default;
+detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 detrsStatus :: Lens' DescribeExportTasksResponse Int

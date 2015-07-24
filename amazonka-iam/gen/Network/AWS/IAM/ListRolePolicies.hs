@@ -185,4 +185,4 @@ lrprsStatus = lens _lrprsStatus (\ s a -> s{_lrprsStatus = a});
 
 -- | A list of policy names.
 lrprsPolicyNames :: Lens' ListRolePoliciesResponse [Text]
-lrprsPolicyNames = lens _lrprsPolicyNames (\ s a -> s{_lrprsPolicyNames = a});
+lrprsPolicyNames = lens _lrprsPolicyNames (\ s a -> s{_lrprsPolicyNames = a}) . _Coerce;

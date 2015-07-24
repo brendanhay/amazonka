@@ -74,7 +74,7 @@ rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
 
 -- | The tag key (name) of the tag to be removed.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a});
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTagsFromResource where
         type Sv RemoveTagsFromResource = RDS

@@ -59,7 +59,7 @@ deleteAlarms =
 
 -- | A list of alarms to be deleted.
 dAlarmNames :: Lens' DeleteAlarms [Text]
-dAlarmNames = lens _dAlarmNames (\ s a -> s{_dAlarmNames = a});
+dAlarmNames = lens _dAlarmNames (\ s a -> s{_dAlarmNames = a}) . _Coerce;
 
 instance AWSRequest DeleteAlarms where
         type Sv DeleteAlarms = CloudWatch

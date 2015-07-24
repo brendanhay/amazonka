@@ -149,7 +149,7 @@ lsbtrsNextToken = lens _lsbtrsNextToken (\ s a -> s{_lsbtrsNextToken = a});
 
 -- | A list of subscriptions.
 lsbtrsSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
-lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions = a}) . _Default;
+lsbtrsSubscriptions = lens _lsbtrsSubscriptions (\ s a -> s{_lsbtrsSubscriptions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lsbtrsStatus :: Lens' ListSubscriptionsByTopicResponse Int

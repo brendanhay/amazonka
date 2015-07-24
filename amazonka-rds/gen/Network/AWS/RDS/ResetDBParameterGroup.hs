@@ -101,7 +101,7 @@ rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllP
 --
 -- Valid Values (for Apply method): @pending-reboot@
 rdpgParameters :: Lens' ResetDBParameterGroup [Parameter]
-rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Default;
+rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Default . _Coerce;
 
 -- | The name of the DB parameter group.
 --

@@ -227,7 +227,7 @@ ljrsMarker = lens _ljrsMarker (\ s a -> s{_ljrsMarker = a});
 -- | A list of job objects. Each job object contains metadata describing the
 -- job.
 ljrsJobList :: Lens' ListJobsResponse [GlacierJobDescription]
-ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default;
+ljrsJobList = lens _ljrsJobList (\ s a -> s{_ljrsJobList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ljrsStatus :: Lens' ListJobsResponse Int

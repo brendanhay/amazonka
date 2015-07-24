@@ -182,11 +182,11 @@ describeCacheParametersResponse pStatus_ =
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
 dcprsCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
-dcprsCacheNodeTypeSpecificParameters = lens _dcprsCacheNodeTypeSpecificParameters (\ s a -> s{_dcprsCacheNodeTypeSpecificParameters = a}) . _Default;
+dcprsCacheNodeTypeSpecificParameters = lens _dcprsCacheNodeTypeSpecificParameters (\ s a -> s{_dcprsCacheNodeTypeSpecificParameters = a}) . _Default . _Coerce;
 
 -- | A list of Parameter instances.
 dcprsParameters :: Lens' DescribeCacheParametersResponse [Parameter]
-dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default;
+dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcprsMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)

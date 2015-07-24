@@ -118,7 +118,7 @@ buildSuggestersResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
-bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default;
+bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 bsrsStatus :: Lens' BuildSuggestersResponse Int

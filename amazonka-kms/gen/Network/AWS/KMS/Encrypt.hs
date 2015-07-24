@@ -87,7 +87,7 @@ data Encrypt = Encrypt'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Encrypt' smart constructor.
-encrypt :: Text -> Base64 -> Encrypt
+encrypt :: Text -> ByteString -> Encrypt
 encrypt pKeyId_ pPlaintext_ =
     Encrypt'
     { _eEncryptionContext = Nothing
@@ -106,7 +106,7 @@ eEncryptionContext = lens _eEncryptionContext (\ s a -> s{_eEncryptionContext = 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 eGrantTokens :: Lens' Encrypt [Text]
-eGrantTokens = lens _eGrantTokens (\ s a -> s{_eGrantTokens = a}) . _Default;
+eGrantTokens = lens _eGrantTokens (\ s a -> s{_eGrantTokens = a}) . _Default . _Coerce;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -123,8 +123,8 @@ eKeyId :: Lens' Encrypt Text
 eKeyId = lens _eKeyId (\ s a -> s{_eKeyId = a});
 
 -- | Data to be encrypted.
-ePlaintext :: Lens' Encrypt Base64
-ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive;
+ePlaintext :: Lens' Encrypt ByteString
+ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive . _Base64;
 
 instance AWSRequest Encrypt where
         type Sv Encrypt = KMS
@@ -189,8 +189,8 @@ ersKeyId = lens _ersKeyId (\ s a -> s{_ersKeyId = a});
 
 -- | The encrypted plaintext. If you are using the CLI, the value is Base64
 -- encoded. Otherwise, it is not encoded.
-ersCiphertextBlob :: Lens' EncryptResponse (Maybe Base64)
-ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a});
+ersCiphertextBlob :: Lens' EncryptResponse (Maybe ByteString)
+ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a}) . mapping _Base64;
 
 -- | FIXME: Undocumented member.
 ersStatus :: Lens' EncryptResponse Int

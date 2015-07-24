@@ -165,7 +165,7 @@ describeCacheParameterGroupsResponse pStatus_ =
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
 dcpgrsCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
-dcpgrsCacheParameterGroups = lens _dcpgrsCacheParameterGroups (\ s a -> s{_dcpgrsCacheParameterGroups = a}) . _Default;
+dcpgrsCacheParameterGroups = lens _dcpgrsCacheParameterGroups (\ s a -> s{_dcpgrsCacheParameterGroups = a}) . _Default . _Coerce;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcpgrsMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)

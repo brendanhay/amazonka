@@ -61,7 +61,7 @@ deleteFlowLogs =
 
 -- | One or more flow log IDs.
 dflFlowLogIds :: Lens' DeleteFlowLogs [Text]
-dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a});
+dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a}) . _Coerce;
 
 instance AWSRequest DeleteFlowLogs where
         type Sv DeleteFlowLogs = EC2
@@ -110,7 +110,7 @@ deleteFlowLogsResponse pStatus_ =
 
 -- | Information about the flow logs that could not be deleted successfully.
 dflrsUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
-dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default;
+dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dflrsStatus :: Lens' DeleteFlowLogsResponse Int

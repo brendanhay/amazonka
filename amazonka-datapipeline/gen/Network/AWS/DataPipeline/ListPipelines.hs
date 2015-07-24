@@ -159,4 +159,4 @@ lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
 -- the pipelines, you can use these identifiers to call DescribePipelines
 -- and GetPipelineDefinition.
 lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
-lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a});
+lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a}) . _Coerce;

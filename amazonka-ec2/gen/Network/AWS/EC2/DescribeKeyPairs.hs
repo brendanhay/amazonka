@@ -80,13 +80,13 @@ describeKeyPairs =
 -- -   @key-name@ - The name of the key pair.
 --
 dkpsFilters :: Lens' DescribeKeyPairs [Filter]
-dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default;
+dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default . _Coerce;
 
 -- | One or more key pair names.
 --
 -- Default: Describes all your key pairs.
 dkpsKeyNames :: Lens' DescribeKeyPairs [Text]
-dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default;
+dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -144,7 +144,7 @@ describeKeyPairsResponse pStatus_ =
 
 -- | Information about one or more key pairs.
 dkprsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
-dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default;
+dkprsKeyPairs = lens _dkprsKeyPairs (\ s a -> s{_dkprsKeyPairs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dkprsStatus :: Lens' DescribeKeyPairsResponse Int

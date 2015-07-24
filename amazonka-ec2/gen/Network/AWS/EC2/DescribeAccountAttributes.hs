@@ -86,7 +86,7 @@ describeAccountAttributes =
 
 -- | One or more account attribute names.
 daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
-daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default;
+daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -146,7 +146,7 @@ describeAccountAttributesResponse pStatus_ =
 
 -- | Information about one or more account attributes.
 daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
-daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default;
+daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 daarsStatus :: Lens' DescribeAccountAttributesResponse Int

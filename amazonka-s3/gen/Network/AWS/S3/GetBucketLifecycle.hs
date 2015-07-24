@@ -107,7 +107,7 @@ getBucketLifecycleResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 gblrsRules :: Lens' GetBucketLifecycleResponse [Rule]
-gblrsRules = lens _gblrsRules (\ s a -> s{_gblrsRules = a}) . _Default;
+gblrsRules = lens _gblrsRules (\ s a -> s{_gblrsRules = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 gblrsStatus :: Lens' GetBucketLifecycleResponse Int

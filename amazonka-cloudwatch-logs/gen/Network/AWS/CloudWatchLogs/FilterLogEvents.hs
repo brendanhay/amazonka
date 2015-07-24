@@ -225,7 +225,7 @@ filterLogEventsResponse pStatus_ =
 -- been searched in this request and whether each has been searched
 -- completely or still has more to be paginated.
 flersSearchedLogStreams :: Lens' FilterLogEventsResponse [SearchedLogStream]
-flersSearchedLogStreams = lens _flersSearchedLogStreams (\ s a -> s{_flersSearchedLogStreams = a}) . _Default;
+flersSearchedLogStreams = lens _flersSearchedLogStreams (\ s a -> s{_flersSearchedLogStreams = a}) . _Default . _Coerce;
 
 -- | A pagination token obtained from a @FilterLogEvents@ response to
 -- continue paginating the FilterLogEvents results.
@@ -235,7 +235,7 @@ flersNextToken = lens _flersNextToken (\ s a -> s{_flersNextToken = a});
 -- | A list of @FilteredLogEvent@ objects representing the matched events
 -- from the request.
 flersEvents :: Lens' FilterLogEventsResponse [FilteredLogEvent]
-flersEvents = lens _flersEvents (\ s a -> s{_flersEvents = a}) . _Default;
+flersEvents = lens _flersEvents (\ s a -> s{_flersEvents = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 flersStatus :: Lens' FilterLogEventsResponse Int

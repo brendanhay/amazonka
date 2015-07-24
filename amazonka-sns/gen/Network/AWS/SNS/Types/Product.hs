@@ -104,8 +104,8 @@ messageAttributeValue pDataType_ =
 
 -- | Binary type attributes can store any binary data, for example,
 -- compressed data, encrypted data, or images.
-mavBinaryValue :: Lens' MessageAttributeValue (Maybe Base64)
-mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a});
+mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
+mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a}) . mapping _Base64;
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code
 -- values, see

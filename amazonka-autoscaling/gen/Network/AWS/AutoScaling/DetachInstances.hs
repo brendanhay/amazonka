@@ -77,7 +77,7 @@ detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
 
 -- | One or more instance IDs.
 diInstanceIds :: Lens' DetachInstances [Text]
-diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default;
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce;
 
 -- | The name of the group.
 diAutoScalingGroupName :: Lens' DetachInstances Text
@@ -140,7 +140,7 @@ detachInstancesResponse pStatus_ =
 -- | The activities related to detaching the instances from the Auto Scaling
 -- group.
 dirsActivities :: Lens' DetachInstancesResponse [Activity]
-dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default;
+dirsActivities = lens _dirsActivities (\ s a -> s{_dirsActivities = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dirsStatus :: Lens' DetachInstancesResponse Int

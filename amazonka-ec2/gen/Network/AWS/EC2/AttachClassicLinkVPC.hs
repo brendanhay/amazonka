@@ -105,7 +105,7 @@ aclvVPCId = lens _aclvVPCId (\ s a -> s{_aclvVPCId = a});
 -- | The ID of one or more of the VPC\'s security groups. You cannot specify
 -- security groups from a different VPC.
 aclvGroups :: Lens' AttachClassicLinkVPC [Text]
-aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a});
+aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a}) . _Coerce;
 
 instance AWSRequest AttachClassicLinkVPC where
         type Sv AttachClassicLinkVPC = EC2

@@ -183,4 +183,4 @@ lursStatus = lens _lursStatus (\ s a -> s{_lursStatus = a});
 
 -- | A list of users.
 lursUsers :: Lens' ListUsersResponse [User]
-lursUsers = lens _lursUsers (\ s a -> s{_lursUsers = a});
+lursUsers = lens _lursUsers (\ s a -> s{_lursUsers = a}) . _Coerce;

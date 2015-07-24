@@ -89,7 +89,7 @@ deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a});
 -- | Limits the @DescribeExpressions@ response to the specified expressions.
 -- If not specified, all expressions are shown.
 deExpressionNames :: Lens' DescribeExpressions [Text]
-deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default;
+deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default . _Coerce;
 
 -- | The name of the domain you want to describe.
 deDomainName :: Lens' DescribeExpressions Text
@@ -154,4 +154,4 @@ drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
 -- | The expressions configured for the domain.
 drsExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-drsExpressions = lens _drsExpressions (\ s a -> s{_drsExpressions = a});
+drsExpressions = lens _drsExpressions (\ s a -> s{_drsExpressions = a}) . _Coerce;

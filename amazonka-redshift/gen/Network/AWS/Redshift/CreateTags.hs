@@ -82,7 +82,7 @@ ctResourceName = lens _ctResourceName (\ s a -> s{_ctResourceName = a});
 -- tags with a space. For example,
 -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
 ctTags :: Lens' CreateTags [Tag]
-ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
+ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
 instance AWSRequest CreateTags where
         type Sv CreateTags = Redshift

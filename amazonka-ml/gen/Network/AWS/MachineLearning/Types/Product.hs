@@ -956,7 +956,7 @@ rdsdsSubnetId = lens _rdsdsSubnetId (\ s a -> s{_rdsdsSubnetId = a});
 -- to the RDS DB instance. This attribute is used by Data Pipeline to carry
 -- out the copy operation from Amazon RDS to an Amazon S3 task.
 rdsdsSecurityGroupIds :: Lens' RDSDataSpec [Text]
-rdsdsSecurityGroupIds = lens _rdsdsSecurityGroupIds (\ s a -> s{_rdsdsSecurityGroupIds = a});
+rdsdsSecurityGroupIds = lens _rdsdsSecurityGroupIds (\ s a -> s{_rdsdsSecurityGroupIds = a}) . _Coerce;
 
 instance ToJSON RDSDataSpec where
         toJSON RDSDataSpec'{..}

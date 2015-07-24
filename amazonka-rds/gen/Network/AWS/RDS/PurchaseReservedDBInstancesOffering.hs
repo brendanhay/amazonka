@@ -90,7 +90,7 @@ prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioRe
 
 -- | FIXME: Undocumented member.
 prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
-prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default;
+prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default . _Coerce;
 
 -- | The ID of the Reserved DB instance offering to purchase.
 --

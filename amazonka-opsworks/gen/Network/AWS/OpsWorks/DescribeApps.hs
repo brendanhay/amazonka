@@ -76,7 +76,7 @@ describeApps =
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
 daAppIds :: Lens' DescribeApps [Text]
-daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default;
+daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default . _Coerce;
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
 -- description of the apps in the specified stack.
@@ -137,7 +137,7 @@ describeAppsResponse pStatus_ =
 
 -- | An array of @App@ objects that describe the specified apps.
 darsApps :: Lens' DescribeAppsResponse [App]
-darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default;
+darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 darsStatus :: Lens' DescribeAppsResponse Int

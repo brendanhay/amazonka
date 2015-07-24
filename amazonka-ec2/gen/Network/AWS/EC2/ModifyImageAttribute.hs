@@ -112,12 +112,12 @@ miaAttribute = lens _miaAttribute (\ s a -> s{_miaAttribute = a});
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- @launchPermission@ attribute.
 miaUserIds :: Lens' ModifyImageAttribute [Text]
-miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a}) . _Default;
+miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a}) . _Default . _Coerce;
 
 -- | One or more user groups. This is only valid when modifying the
 -- @launchPermission@ attribute.
 miaUserGroups :: Lens' ModifyImageAttribute [Text]
-miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a}) . _Default;
+miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a}) . _Default . _Coerce;
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the @description@ attribute.
@@ -136,7 +136,7 @@ miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
 -- can\'t be removed. This is only valid when modifying the @productCodes@
 -- attribute.
 miaProductCodes :: Lens' ModifyImageAttribute [Text]
-miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default;
+miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

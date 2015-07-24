@@ -153,7 +153,7 @@ goarsRequestCharged = lens _goarsRequestCharged (\ s a -> s{_goarsRequestCharged
 
 -- | A list of grants.
 goarsGrants :: Lens' GetObjectACLResponse [Grant]
-goarsGrants = lens _goarsGrants (\ s a -> s{_goarsGrants = a}) . _Default;
+goarsGrants = lens _goarsGrants (\ s a -> s{_goarsGrants = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 goarsOwner :: Lens' GetObjectACLResponse (Maybe Owner)

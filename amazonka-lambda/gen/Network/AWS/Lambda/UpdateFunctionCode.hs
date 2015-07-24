@@ -103,8 +103,8 @@ uS3Key :: Lens' UpdateFunctionCode (Maybe Text)
 uS3Key = lens _uS3Key (\ s a -> s{_uS3Key = a});
 
 -- | Based64-encoded .zip file containing your packaged source code.
-uZipFile :: Lens' UpdateFunctionCode (Maybe Base64)
-uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a});
+uZipFile :: Lens' UpdateFunctionCode (Maybe ByteString)
+uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a}) . mapping _Base64;
 
 -- | Amazon S3 bucket name where the .zip file containing your deployment
 -- package is stored. This bucket must reside in the same AWS region where

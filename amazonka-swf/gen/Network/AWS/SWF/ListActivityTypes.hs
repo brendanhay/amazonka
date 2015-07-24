@@ -234,4 +234,4 @@ latrsStatus = lens _latrsStatus (\ s a -> s{_latrsStatus = a});
 
 -- | List of activity type information.
 latrsTypeInfos :: Lens' ListActivityTypesResponse [ActivityTypeInfo]
-latrsTypeInfos = lens _latrsTypeInfos (\ s a -> s{_latrsTypeInfos = a});
+latrsTypeInfos = lens _latrsTypeInfos (\ s a -> s{_latrsTypeInfos = a}) . _Coerce;

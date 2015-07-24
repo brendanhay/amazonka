@@ -88,7 +88,7 @@ listDeploymentInstances pDeploymentId_ =
 -- -   Unknown: Include in the resulting list those instances with
 --     deployments in an unknown state.
 ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
-ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default;
+ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default . _Coerce;
 
 -- | An identifier that was returned from the previous list deployment
 -- instances call, which can be used to return the next set of deployment
@@ -171,7 +171,7 @@ ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
 
 -- | A list of instances IDs.
 ldirsInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
-ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default;
+ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ldirsStatus :: Lens' ListDeploymentInstancesResponse Int

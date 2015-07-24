@@ -164,4 +164,4 @@ dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
 -- | Returns tags associated with the file system as an array of @Tag@
 -- objects.
 dtrsTags :: Lens' DescribeTagsResponse [Tag]
-dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a});
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Coerce;

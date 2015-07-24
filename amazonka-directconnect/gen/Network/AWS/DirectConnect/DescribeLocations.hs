@@ -103,7 +103,7 @@ describeLocationsResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 dlrsLocations :: Lens' DescribeLocationsResponse [Location]
-dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default;
+dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlrsStatus :: Lens' DescribeLocationsResponse Int

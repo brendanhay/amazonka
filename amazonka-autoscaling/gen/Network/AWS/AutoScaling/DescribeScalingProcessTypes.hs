@@ -101,7 +101,7 @@ describeScalingProcessTypesResponse pStatus_ =
 
 -- | The names of the process types.
 dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
-dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default;
+dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsptrsStatus :: Lens' DescribeScalingProcessTypesResponse Int

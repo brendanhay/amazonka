@@ -193,7 +193,7 @@ describeCacheClustersResponse pStatus_ =
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
 drsCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
-drsCacheClusters = lens _drsCacheClusters (\ s a -> s{_drsCacheClusters = a}) . _Default;
+drsCacheClusters = lens _drsCacheClusters (\ s a -> s{_drsCacheClusters = a}) . _Default . _Coerce;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drsMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)

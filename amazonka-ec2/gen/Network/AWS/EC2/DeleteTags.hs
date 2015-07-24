@@ -83,12 +83,12 @@ dtsDryRun = lens _dtsDryRun (\ s a -> s{_dtsDryRun = a});
 -- empty string as the value, we delete the key only if its value is an
 -- empty string.
 dtsTags :: Lens' DeleteTags [Tag]
-dtsTags = lens _dtsTags (\ s a -> s{_dtsTags = a}) . _Default;
+dtsTags = lens _dtsTags (\ s a -> s{_dtsTags = a}) . _Default . _Coerce;
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
 dtsResources :: Lens' DeleteTags [Text]
-dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a});
+dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EC2

@@ -198,7 +198,7 @@ drrsEstimatedTimeToCompletionInSeconds = lens _drrsEstimatedTimeToCompletionInSe
 --
 -- Valid Values: List of table names
 drrsImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
-drrsImportTablesNotStarted = lens _drrsImportTablesNotStarted (\ s a -> s{_drrsImportTablesNotStarted = a}) . _Default;
+drrsImportTablesNotStarted = lens _drrsImportTablesNotStarted (\ s a -> s{_drrsImportTablesNotStarted = a}) . _Default . _Coerce;
 
 -- | The average rate of the resize operation over the last few minutes,
 -- measured in megabytes per second. After the resize operation completes,
@@ -220,13 +220,13 @@ drrsTargetNodeType = lens _drrsTargetNodeType (\ s a -> s{_drrsTargetNodeType = 
 --
 -- Valid Values: List of table names.
 drrsImportTablesInProgress :: Lens' DescribeResizeResponse [Text]
-drrsImportTablesInProgress = lens _drrsImportTablesInProgress (\ s a -> s{_drrsImportTablesInProgress = a}) . _Default;
+drrsImportTablesInProgress = lens _drrsImportTablesInProgress (\ s a -> s{_drrsImportTablesInProgress = a}) . _Default . _Coerce;
 
 -- | The names of tables that have been completely imported .
 --
 -- Valid Values: List of table names.
 drrsImportTablesCompleted :: Lens' DescribeResizeResponse [Text]
-drrsImportTablesCompleted = lens _drrsImportTablesCompleted (\ s a -> s{_drrsImportTablesCompleted = a}) . _Default;
+drrsImportTablesCompleted = lens _drrsImportTablesCompleted (\ s a -> s{_drrsImportTablesCompleted = a}) . _Default . _Coerce;
 
 -- | While the resize operation is in progress, this value shows the current
 -- amount of data, in megabytes, that has been processed so far. When the

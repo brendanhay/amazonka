@@ -203,7 +203,7 @@ gtsrsVersion = lens _gtsrsVersion (\ s a -> s{_gtsrsVersion = a});
 -- | A list of parameter declarations that describe various properties for
 -- each parameter.
 gtsrsParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
-gtsrsParameters = lens _gtsrsParameters (\ s a -> s{_gtsrsParameters = a}) . _Default;
+gtsrsParameters = lens _gtsrsParameters (\ s a -> s{_gtsrsParameters = a}) . _Default . _Coerce;
 
 -- | The list of resources that generated the values in the @Capabilities@
 -- response element.
@@ -221,7 +221,7 @@ gtsrsMetadata = lens _gtsrsMetadata (\ s a -> s{_gtsrsMetadata = a});
 -- actions with your template; otherwise, those actions return an
 -- InsufficientCapabilities error.
 gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
-gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default;
+gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default . _Coerce;
 
 -- | The value that is defined in the @Description@ property of the template.
 gtsrsDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)

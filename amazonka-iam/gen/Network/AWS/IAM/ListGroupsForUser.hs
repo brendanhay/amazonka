@@ -177,4 +177,4 @@ lgfursStatus = lens _lgfursStatus (\ s a -> s{_lgfursStatus = a});
 
 -- | A list of groups.
 lgfursGroups :: Lens' ListGroupsForUserResponse [Group]
-lgfursGroups = lens _lgfursGroups (\ s a -> s{_lgfursGroups = a});
+lgfursGroups = lens _lgfursGroups (\ s a -> s{_lgfursGroups = a}) . _Coerce;

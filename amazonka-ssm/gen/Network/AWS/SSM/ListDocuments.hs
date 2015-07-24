@@ -146,7 +146,7 @@ listDocumentsResponse pStatus_ =
 
 -- | The names of the configuration documents.
 ldrsDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
-ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\ s a -> s{_ldrsDocumentIdentifiers = a}) . _Default;
+ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\ s a -> s{_ldrsDocumentIdentifiers = a}) . _Default . _Coerce;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

@@ -264,7 +264,7 @@ lmursEncodingType = lens _lmursEncodingType (\ s a -> s{_lmursEncodingType = a})
 
 -- | FIXME: Undocumented member.
 lmursCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
-lmursCommonPrefixes = lens _lmursCommonPrefixes (\ s a -> s{_lmursCommonPrefixes = a}) . _Default;
+lmursCommonPrefixes = lens _lmursCommonPrefixes (\ s a -> s{_lmursCommonPrefixes = a}) . _Default . _Coerce;
 
 -- | Name of the bucket to which the multipart upload was initiated.
 lmursBucket :: Lens' ListMultipartUploadsResponse (Maybe BucketName)
@@ -286,7 +286,7 @@ lmursNextKeyMarker = lens _lmursNextKeyMarker (\ s a -> s{_lmursNextKeyMarker = 
 
 -- | FIXME: Undocumented member.
 lmursUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
-lmursUploads = lens _lmursUploads (\ s a -> s{_lmursUploads = a}) . _Default;
+lmursUploads = lens _lmursUploads (\ s a -> s{_lmursUploads = a}) . _Default . _Coerce;
 
 -- | Indicates whether the returned list of multipart uploads is truncated. A
 -- value of true indicates that the list was truncated. The list can be

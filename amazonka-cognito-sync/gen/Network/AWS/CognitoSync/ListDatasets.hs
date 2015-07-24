@@ -175,7 +175,7 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | A set of datasets.
 ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
-ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default;
+ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ldrsStatus :: Lens' ListDatasetsResponse Int

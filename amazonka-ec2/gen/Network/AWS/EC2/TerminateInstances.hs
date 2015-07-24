@@ -96,7 +96,7 @@ tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
 
 -- | One or more instance IDs.
 tiInstanceIds :: Lens' TerminateInstances [Text]
-tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a});
+tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a}) . _Coerce;
 
 instance AWSRequest TerminateInstances where
         type Sv TerminateInstances = EC2
@@ -147,7 +147,7 @@ terminateInstancesResponse pStatus_ =
 
 -- | Information about one or more terminated instances.
 tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
-tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default;
+tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 tirsStatus :: Lens' TerminateInstancesResponse Int

@@ -95,11 +95,11 @@ createNetworkInterface pSubnetId_ =
 
 -- | One or more private IP addresses.
 cniPrivateIPAddresses :: Lens' CreateNetworkInterface [PrivateIPAddressSpecification]
-cniPrivateIPAddresses = lens _cniPrivateIPAddresses (\ s a -> s{_cniPrivateIPAddresses = a}) . _Default;
+cniPrivateIPAddresses = lens _cniPrivateIPAddresses (\ s a -> s{_cniPrivateIPAddresses = a}) . _Default . _Coerce;
 
 -- | The IDs of one or more security groups.
 cniGroups :: Lens' CreateNetworkInterface [Text]
-cniGroups = lens _cniGroups (\ s a -> s{_cniGroups = a}) . _Default;
+cniGroups = lens _cniGroups (\ s a -> s{_cniGroups = a}) . _Default . _Coerce;
 
 -- | The primary private IP address of the network interface. If you don\'t
 -- specify an IP address, Amazon EC2 selects one for you from the subnet

@@ -102,7 +102,7 @@ createHSMConfiguration pHSMConfigurationIdentifier_ pDescription_ pHSMIPAddress_
 
 -- | A list of tag instances.
 chcTags :: Lens' CreateHSMConfiguration [Tag]
-chcTags = lens _chcTags (\ s a -> s{_chcTags = a}) . _Default;
+chcTags = lens _chcTags (\ s a -> s{_chcTags = a}) . _Default . _Coerce;
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM
 -- configuration.

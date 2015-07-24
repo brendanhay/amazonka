@@ -185,4 +185,4 @@ lipfrrsStatus = lens _lipfrrsStatus (\ s a -> s{_lipfrrsStatus = a});
 
 -- | A list of instance profiles.
 lipfrrsInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
-lipfrrsInstanceProfiles = lens _lipfrrsInstanceProfiles (\ s a -> s{_lipfrrsInstanceProfiles = a});
+lipfrrsInstanceProfiles = lens _lipfrrsInstanceProfiles (\ s a -> s{_lipfrrsInstanceProfiles = a}) . _Coerce;

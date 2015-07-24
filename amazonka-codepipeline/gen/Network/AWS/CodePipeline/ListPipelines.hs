@@ -127,7 +127,7 @@ listPipelinesResponse pStatus_ =
 
 -- | The list of pipelines.
 lprsPipelines :: Lens' ListPipelinesResponse [PipelineSummary]
-lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default;
+lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default . _Coerce;
 
 -- | If the amount of returned information is significantly large, an
 -- identifier is also returned which can be used in a subsequent list

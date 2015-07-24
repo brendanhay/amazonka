@@ -71,7 +71,7 @@ dCluster = lens _dCluster (\ s a -> s{_dCluster = a});
 
 -- | A list of services you want to describe.
 dServices :: Lens' DescribeServices [Text]
-dServices = lens _dServices (\ s a -> s{_dServices = a});
+dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Coerce;
 
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = ECS
@@ -132,11 +132,11 @@ describeServicesResponse pStatus_ =
 
 -- | Any failures associated with the call.
 dssrsFailures :: Lens' DescribeServicesResponse [Failure]
-dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default;
+dssrsFailures = lens _dssrsFailures (\ s a -> s{_dssrsFailures = a}) . _Default . _Coerce;
 
 -- | The list of services described.
 dssrsServices :: Lens' DescribeServicesResponse [ContainerService]
-dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default;
+dssrsServices = lens _dssrsServices (\ s a -> s{_dssrsServices = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dssrsStatus :: Lens' DescribeServicesResponse Int

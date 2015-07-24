@@ -44,7 +44,7 @@ accessControlPolicy =
 
 -- | A list of grants.
 acpGrants :: Lens' AccessControlPolicy [Grant]
-acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a}) . _Default;
+acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
@@ -131,7 +131,7 @@ corsConfiguration =
 
 -- | FIXME: Undocumented member.
 ccCORSRules :: Lens' CORSConfiguration [CORSRule]
-ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Default;
+ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Default . _Coerce;
 
 instance ToXML CORSConfiguration where
         toXML CORSConfiguration'{..}
@@ -173,7 +173,7 @@ corsRule =
 -- | Identifies HTTP methods that the domain\/origin specified in the rule is
 -- allowed to execute.
 crAllowedMethods :: Lens' CORSRule [Text]
-crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a}) . _Default;
+crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a}) . _Default . _Coerce;
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
@@ -182,18 +182,18 @@ crMaxAgeSeconds = lens _crMaxAgeSeconds (\ s a -> s{_crMaxAgeSeconds = a});
 
 -- | Specifies which headers are allowed in a pre-flight OPTIONS request.
 crAllowedHeaders :: Lens' CORSRule [Text]
-crAllowedHeaders = lens _crAllowedHeaders (\ s a -> s{_crAllowedHeaders = a}) . _Default;
+crAllowedHeaders = lens _crAllowedHeaders (\ s a -> s{_crAllowedHeaders = a}) . _Default . _Coerce;
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
 crAllowedOrigins :: Lens' CORSRule [Text]
-crAllowedOrigins = lens _crAllowedOrigins (\ s a -> s{_crAllowedOrigins = a}) . _Default;
+crAllowedOrigins = lens _crAllowedOrigins (\ s a -> s{_crAllowedOrigins = a}) . _Default . _Coerce;
 
 -- | One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- XMLHttpRequest object).
 crExposeHeaders :: Lens' CORSRule [Text]
-crExposeHeaders = lens _crExposeHeaders (\ s a -> s{_crExposeHeaders = a}) . _Default;
+crExposeHeaders = lens _crExposeHeaders (\ s a -> s{_crExposeHeaders = a}) . _Default . _Coerce;
 
 instance FromXML CORSRule where
         parseXML x
@@ -468,7 +468,7 @@ dQuiet = lens _dQuiet (\ s a -> s{_dQuiet = a});
 
 -- | FIXME: Undocumented member.
 dObjects :: Lens' Delete [ObjectIdentifier]
-dObjects = lens _dObjects (\ s a -> s{_dObjects = a});
+dObjects = lens _dObjects (\ s a -> s{_dObjects = a}) . _Coerce;
 
 instance ToXML Delete where
         toXML Delete'{..}
@@ -849,7 +849,7 @@ lfcLambdaFunctionARN = lens _lfcLambdaFunctionARN (\ s a -> s{_lfcLambdaFunction
 
 -- | FIXME: Undocumented member.
 lfcEvents :: Lens' LambdaFunctionConfiguration [Event]
-lfcEvents = lens _lfcEvents (\ s a -> s{_lfcEvents = a});
+lfcEvents = lens _lfcEvents (\ s a -> s{_lfcEvents = a}) . _Coerce;
 
 instance FromXML LambdaFunctionConfiguration where
         parseXML x
@@ -882,7 +882,7 @@ lifecycleConfiguration =
 
 -- | FIXME: Undocumented member.
 lcRules :: Lens' LifecycleConfiguration [Rule]
-lcRules = lens _lcRules (\ s a -> s{_lcRules = a});
+lcRules = lens _lcRules (\ s a -> s{_lcRules = a}) . _Coerce;
 
 instance ToXML LifecycleConfiguration where
         toXML LifecycleConfiguration'{..}
@@ -962,7 +962,7 @@ leTargetBucket = lens _leTargetBucket (\ s a -> s{_leTargetBucket = a});
 
 -- | FIXME: Undocumented member.
 leTargetGrants :: Lens' LoggingEnabled [TargetGrant]
-leTargetGrants = lens _leTargetGrants (\ s a -> s{_leTargetGrants = a}) . _Default;
+leTargetGrants = lens _leTargetGrants (\ s a -> s{_leTargetGrants = a}) . _Default . _Coerce;
 
 -- | This element lets you specify a prefix for the keys that the log files
 -- will be stored under.
@@ -1171,15 +1171,15 @@ notificationConfiguration =
 
 -- | FIXME: Undocumented member.
 ncQueueConfigurations :: Lens' NotificationConfiguration [QueueConfiguration]
-ncQueueConfigurations = lens _ncQueueConfigurations (\ s a -> s{_ncQueueConfigurations = a}) . _Default;
+ncQueueConfigurations = lens _ncQueueConfigurations (\ s a -> s{_ncQueueConfigurations = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ncTopicConfigurations :: Lens' NotificationConfiguration [TopicConfiguration]
-ncTopicConfigurations = lens _ncTopicConfigurations (\ s a -> s{_ncTopicConfigurations = a}) . _Default;
+ncTopicConfigurations = lens _ncTopicConfigurations (\ s a -> s{_ncTopicConfigurations = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ncLambdaFunctionConfigurations :: Lens' NotificationConfiguration [LambdaFunctionConfiguration]
-ncLambdaFunctionConfigurations = lens _ncLambdaFunctionConfigurations (\ s a -> s{_ncLambdaFunctionConfigurations = a}) . _Default;
+ncLambdaFunctionConfigurations = lens _ncLambdaFunctionConfigurations (\ s a -> s{_ncLambdaFunctionConfigurations = a}) . _Default . _Coerce;
 
 instance FromXML NotificationConfiguration where
         parseXML x
@@ -1517,7 +1517,7 @@ qcQueueARN = lens _qcQueueARN (\ s a -> s{_qcQueueARN = a});
 
 -- | FIXME: Undocumented member.
 qcEvents :: Lens' QueueConfiguration [Event]
-qcEvents = lens _qcEvents (\ s a -> s{_qcEvents = a});
+qcEvents = lens _qcEvents (\ s a -> s{_qcEvents = a}) . _Coerce;
 
 instance FromXML QueueConfiguration where
         parseXML x
@@ -1680,7 +1680,7 @@ rcRole = lens _rcRole (\ s a -> s{_rcRole = a});
 -- Replication configuration must have at least one rule and can contain up
 -- to 1,000 rules.
 rcRules :: Lens' ReplicationConfiguration [ReplicationRule]
-rcRules = lens _rcRules (\ s a -> s{_rcRules = a});
+rcRules = lens _rcRules (\ s a -> s{_rcRules = a}) . _Coerce;
 
 instance FromXML ReplicationConfiguration where
         parseXML x
@@ -2042,7 +2042,7 @@ tagging =
 
 -- | FIXME: Undocumented member.
 tTagSet :: Lens' Tagging [Tag]
-tTagSet = lens _tTagSet (\ s a -> s{_tTagSet = a});
+tTagSet = lens _tTagSet (\ s a -> s{_tTagSet = a}) . _Coerce;
 
 instance ToXML Tagging where
         toXML Tagging'{..}
@@ -2126,7 +2126,7 @@ tcTopicARN = lens _tcTopicARN (\ s a -> s{_tcTopicARN = a});
 
 -- | FIXME: Undocumented member.
 tcEvents :: Lens' TopicConfiguration [Event]
-tcEvents = lens _tcEvents (\ s a -> s{_tcEvents = a});
+tcEvents = lens _tcEvents (\ s a -> s{_tcEvents = a}) . _Coerce;
 
 instance FromXML TopicConfiguration where
         parseXML x
@@ -2264,7 +2264,7 @@ wcErrorDocument = lens _wcErrorDocument (\ s a -> s{_wcErrorDocument = a});
 
 -- | FIXME: Undocumented member.
 wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
-wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default;
+wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)

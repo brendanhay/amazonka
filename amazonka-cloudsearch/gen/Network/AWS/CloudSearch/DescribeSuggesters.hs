@@ -89,7 +89,7 @@ dssDeployed = lens _dssDeployed (\ s a -> s{_dssDeployed = a});
 
 -- | The suggesters you want to describe.
 dssSuggesterNames :: Lens' DescribeSuggesters [Text]
-dssSuggesterNames = lens _dssSuggesterNames (\ s a -> s{_dssSuggesterNames = a}) . _Default;
+dssSuggesterNames = lens _dssSuggesterNames (\ s a -> s{_dssSuggesterNames = a}) . _Default . _Coerce;
 
 -- | The name of the domain you want to describe.
 dssDomainName :: Lens' DescribeSuggesters Text
@@ -153,4 +153,4 @@ dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});
 
 -- | The suggesters configured for the domain specified in the request.
 dssrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dssrsSuggesters = lens _dssrsSuggesters (\ s a -> s{_dssrsSuggesters = a});
+dssrsSuggesters = lens _dssrsSuggesters (\ s a -> s{_dssrsSuggesters = a}) . _Coerce;

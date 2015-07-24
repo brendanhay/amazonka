@@ -146,7 +146,7 @@ describePermissionsResponse pStatus_ =
 --     contains a single @Permission@ object with permissions for the
 --     specified stack and IAM ARN.
 dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
-dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default;
+dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dprsStatus :: Lens' DescribePermissionsResponse Int

@@ -235,11 +235,11 @@ dgiTargetRevision = lens _dgiTargetRevision (\ s a -> s{_dgiTargetRevision = a})
 
 -- | The Amazon EC2 tags to filter on.
 dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
-dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a}) . _Default;
+dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a}) . _Default . _Coerce;
 
 -- | The on-premises instance tags to filter on.
 dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo [TagFilter]
-dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a}) . _Default;
+dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
 
 -- | The application name.
 dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -251,7 +251,7 @@ dgiDeploymentGroupId = lens _dgiDeploymentGroupId (\ s a -> s{_dgiDeploymentGrou
 
 -- | A list of associated Auto Scaling groups.
 dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
-dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a}) . _Default;
+dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a}) . _Default . _Coerce;
 
 -- | The deployment group name.
 dgiDeploymentGroupName :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -731,7 +731,7 @@ griFirstUsedTime = lens _griFirstUsedTime (\ s a -> s{_griFirstUsedTime = a}) . 
 
 -- | A list of deployment groups that use this revision.
 griDeploymentGroups :: Lens' GenericRevisionInfo [Text]
-griDeploymentGroups = lens _griDeploymentGroups (\ s a -> s{_griDeploymentGroups = a}) . _Default;
+griDeploymentGroups = lens _griDeploymentGroups (\ s a -> s{_griDeploymentGroups = a}) . _Default . _Coerce;
 
 -- | When the revision was last used by AWS CodeDeploy.
 griLastUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
@@ -861,7 +861,7 @@ iiInstanceName = lens _iiInstanceName (\ s a -> s{_iiInstanceName = a});
 
 -- | The tags that are currently associated with the on-premises instance.
 iiTags :: Lens' InstanceInfo [Tag]
-iiTags = lens _iiTags (\ s a -> s{_iiTags = a}) . _Default;
+iiTags = lens _iiTags (\ s a -> s{_iiTags = a}) . _Default . _Coerce;
 
 instance FromJSON InstanceInfo where
         parseJSON
@@ -933,7 +933,7 @@ isLastUpdatedAt = lens _isLastUpdatedAt (\ s a -> s{_isLastUpdatedAt = a}) . map
 
 -- | A list of lifecycle events for this instance.
 isLifecycleEvents :: Lens' InstanceSummary [LifecycleEvent]
-isLifecycleEvents = lens _isLifecycleEvents (\ s a -> s{_isLifecycleEvents = a}) . _Default;
+isLifecycleEvents = lens _isLifecycleEvents (\ s a -> s{_isLifecycleEvents = a}) . _Default . _Coerce;
 
 instance FromJSON InstanceSummary where
         parseJSON

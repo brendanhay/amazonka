@@ -136,7 +136,7 @@ lldrsGatewayARN = lens _lldrsGatewayARN (\ s a -> s{_lldrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
 lldrsDisks :: Lens' ListLocalDisksResponse [Disk]
-lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default;
+lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lldrsStatus :: Lens' ListLocalDisksResponse Int

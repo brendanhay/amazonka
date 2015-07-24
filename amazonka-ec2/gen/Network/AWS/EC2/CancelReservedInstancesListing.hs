@@ -120,7 +120,7 @@ cancelReservedInstancesListingResponse pStatus_ =
 
 -- | The Reserved Instance listing.
 crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
-crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default;
+crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 crilrsStatus :: Lens' CancelReservedInstancesListingResponse Int

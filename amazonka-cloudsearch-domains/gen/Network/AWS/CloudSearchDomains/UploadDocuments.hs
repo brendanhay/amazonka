@@ -170,7 +170,7 @@ udrsAdds = lens _udrsAdds (\ s a -> s{_udrsAdds = a});
 -- | Any warnings returned by the document service about the documents being
 -- uploaded.
 udrsWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
-udrsWarnings = lens _udrsWarnings (\ s a -> s{_udrsWarnings = a}) . _Default;
+udrsWarnings = lens _udrsWarnings (\ s a -> s{_udrsWarnings = a}) . _Default . _Coerce;
 
 -- | The number of documents that were deleted from the search domain.
 udrsDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)

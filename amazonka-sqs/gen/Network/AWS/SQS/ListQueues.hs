@@ -115,7 +115,7 @@ listQueuesResponse pStatus_ =
 
 -- | A list of queue URLs, up to 1000 entries.
 lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
-lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default;
+lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lqrsStatus :: Lens' ListQueuesResponse Int

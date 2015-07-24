@@ -229,7 +229,7 @@ lglrsStatus = lens _lglrsStatus (\ s a -> s{_lglrsStatus = a});
 -- | A complex type that contains information about the geo locations that
 -- are returned by the request.
 lglrsGeoLocationDetailsList :: Lens' ListGeoLocationsResponse [GeoLocationDetails]
-lglrsGeoLocationDetailsList = lens _lglrsGeoLocationDetailsList (\ s a -> s{_lglrsGeoLocationDetailsList = a});
+lglrsGeoLocationDetailsList = lens _lglrsGeoLocationDetailsList (\ s a -> s{_lglrsGeoLocationDetailsList = a}) . _Coerce;
 
 -- | A flag that indicates whether there are more geo locations to be listed.
 -- If your results were truncated, you can make a follow-up request for the

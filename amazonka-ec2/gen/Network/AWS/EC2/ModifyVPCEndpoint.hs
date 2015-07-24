@@ -93,7 +93,7 @@ mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a})
 
 -- | One or more route table IDs to disassociate from the endpoint.
 mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
-mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default;
+mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default . _Coerce;
 
 -- | Specify @true@ to reset the policy document to the default policy. The
 -- default policy allows access to the service.
@@ -102,7 +102,7 @@ mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
 
 -- | One or more route tables IDs to associate with the endpoint.
 mveAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
-mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a}) . _Default;
+mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

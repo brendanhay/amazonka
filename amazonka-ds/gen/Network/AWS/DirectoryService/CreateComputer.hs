@@ -85,7 +85,7 @@ createComputer pDirectoryId_ pComputerName_ pPassword_ =
 -- | An array of Attribute objects that contain any LDAP attributes to apply
 -- to the computer account.
 ccComputerAttributes :: Lens' CreateComputer [Attribute]
-ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default;
+ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default . _Coerce;
 
 -- | The fully-qualified distinguished name of the organizational unit to
 -- place the computer account in.

@@ -81,7 +81,7 @@ csfrDryRun = lens _csfrDryRun (\ s a -> s{_csfrDryRun = a});
 
 -- | The IDs of the Spot fleet requests.
 csfrSpotFleetRequestIds :: Lens' CancelSpotFleetRequests [Text]
-csfrSpotFleetRequestIds = lens _csfrSpotFleetRequestIds (\ s a -> s{_csfrSpotFleetRequestIds = a});
+csfrSpotFleetRequestIds = lens _csfrSpotFleetRequestIds (\ s a -> s{_csfrSpotFleetRequestIds = a}) . _Coerce;
 
 -- | Indicates whether to terminate instances for a Spot fleet request if it
 -- is canceled successfully.
@@ -149,12 +149,12 @@ cancelSpotFleetRequestsResponse pStatus_ =
 -- | Information about the Spot fleet requests that are successfully
 -- canceled.
 csfrrsSuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelSpotFleetRequestsSuccessItem]
-csfrrsSuccessfulFleetRequests = lens _csfrrsSuccessfulFleetRequests (\ s a -> s{_csfrrsSuccessfulFleetRequests = a}) . _Default;
+csfrrsSuccessfulFleetRequests = lens _csfrrsSuccessfulFleetRequests (\ s a -> s{_csfrrsSuccessfulFleetRequests = a}) . _Default . _Coerce;
 
 -- | Information about the Spot fleet requests that are not successfully
 -- canceled.
 csfrrsUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelSpotFleetRequestsErrorItem]
-csfrrsUnsuccessfulFleetRequests = lens _csfrrsUnsuccessfulFleetRequests (\ s a -> s{_csfrrsUnsuccessfulFleetRequests = a}) . _Default;
+csfrrsUnsuccessfulFleetRequests = lens _csfrrsUnsuccessfulFleetRequests (\ s a -> s{_csfrrsUnsuccessfulFleetRequests = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 csfrrsStatus :: Lens' CancelSpotFleetRequestsResponse Int

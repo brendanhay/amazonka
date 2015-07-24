@@ -79,7 +79,7 @@ diflbLoadBalancerName = lens _diflbLoadBalancerName (\ s a -> s{_diflbLoadBalanc
 
 -- | The IDs of the instances.
 diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
-diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a});
+diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a}) . _Coerce;
 
 instance AWSRequest
          DeregisterInstancesFromLoadBalancer where
@@ -137,7 +137,7 @@ deregisterInstancesFromLoadBalancerResponse pStatus_ =
 
 -- | The remaining instances registered with the load balancer.
 diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
-diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default;
+diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 diflbrsStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int

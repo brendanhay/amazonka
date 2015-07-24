@@ -70,7 +70,7 @@ exitStandby pAutoScalingGroupName_ =
 
 -- | One or more instance IDs. You must specify at least one instance ID.
 eInstanceIds :: Lens' ExitStandby [Text]
-eInstanceIds = lens _eInstanceIds (\ s a -> s{_eInstanceIds = a}) . _Default;
+eInstanceIds = lens _eInstanceIds (\ s a -> s{_eInstanceIds = a}) . _Default . _Coerce;
 
 -- | The name of the Auto Scaling group.
 eAutoScalingGroupName :: Lens' ExitStandby Text
@@ -125,7 +125,7 @@ exitStandbyResponse pStatus_ =
 
 -- | The activities related to moving instances out of @Standby@ mode.
 ersActivities :: Lens' ExitStandbyResponse [Activity]
-ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default;
+ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ersStatus :: Lens' ExitStandbyResponse Int

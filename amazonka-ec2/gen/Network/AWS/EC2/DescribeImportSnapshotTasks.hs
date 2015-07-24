@@ -82,11 +82,11 @@ describeImportSnapshotTasks =
 
 -- | One or more filters.
 distFilters :: Lens' DescribeImportSnapshotTasks [Filter]
-distFilters = lens _distFilters (\ s a -> s{_distFilters = a}) . _Default;
+distFilters = lens _distFilters (\ s a -> s{_distFilters = a}) . _Default . _Coerce;
 
 -- | A list of import snapshot task IDs.
 distImportTaskIds :: Lens' DescribeImportSnapshotTasks [Text]
-distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a}) . _Default;
+distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a}) . _Default . _Coerce;
 
 -- | A token that indicates the next page of results.
 distNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
@@ -168,7 +168,7 @@ distrsNextToken = lens _distrsNextToken (\ s a -> s{_distrsNextToken = a});
 -- | A list of zero or more import snapshot tasks that are currently active
 -- or were completed or canceled in the previous 7 days.
 distrsImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
-distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsImportSnapshotTasks = a}) . _Default;
+distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsImportSnapshotTasks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 distrsStatus :: Lens' DescribeImportSnapshotTasksResponse Int

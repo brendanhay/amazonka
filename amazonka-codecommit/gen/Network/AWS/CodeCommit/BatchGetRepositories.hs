@@ -71,7 +71,7 @@ batchGetRepositories =
 
 -- | The names of the repositories to get information about.
 bgrRepositoryNames :: Lens' BatchGetRepositories [Text]
-bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a});
+bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a}) . _Coerce;
 
 instance AWSRequest BatchGetRepositories where
         type Sv BatchGetRepositories = CodeCommit
@@ -134,12 +134,12 @@ batchGetRepositoriesResponse pStatus_ =
 
 -- | A list of repositories returned by the batch get repositories operation.
 bgrrsRepositories :: Lens' BatchGetRepositoriesResponse [RepositoryMetadata]
-bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a}) . _Default;
+bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a}) . _Default . _Coerce;
 
 -- | Returns a list of repository names for which information could not be
 -- found.
 bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
-bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default;
+bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 bgrrsStatus :: Lens' BatchGetRepositoriesResponse Int

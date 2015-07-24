@@ -90,7 +90,7 @@ describeDBSnapshots =
 
 -- | This parameter is not currently supported.
 ddsFilters :: Lens' DescribeDBSnapshots [Filter]
-ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default;
+ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default . _Coerce;
 
 -- | A specific DB snapshot identifier to describe. Cannot be used in
 -- conjunction with @DBInstanceIdentifier@. This value is stored as a
@@ -217,7 +217,7 @@ ddsrsMarker = lens _ddsrsMarker (\ s a -> s{_ddsrsMarker = a});
 
 -- | A list of DBSnapshot instances.
 ddsrsDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
-ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . _Default;
+ddsrsDBSnapshots = lens _ddsrsDBSnapshots (\ s a -> s{_ddsrsDBSnapshots = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ddsrsStatus :: Lens' DescribeDBSnapshotsResponse Int

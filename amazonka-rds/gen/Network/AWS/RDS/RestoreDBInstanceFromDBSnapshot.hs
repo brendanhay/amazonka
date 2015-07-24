@@ -278,7 +278,7 @@ rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 
 -- | FIXME: Undocumented member.
 rdifdsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
-rdifdsTags = lens _rdifdsTags (\ s a -> s{_rdifdsTags = a}) . _Default;
+rdifdsTags = lens _rdifdsTags (\ s a -> s{_rdifdsTags = a}) . _Default . _Coerce;
 
 -- | The port number on which the database accepts connections.
 --

@@ -74,7 +74,7 @@ describeAutoScalingGroups =
 
 -- | The group names.
 dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
-dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default;
+dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -159,4 +159,4 @@ dasgrsStatus = lens _dasgrsStatus (\ s a -> s{_dasgrsStatus = a});
 
 -- | The groups.
 dasgrsAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
-dasgrsAutoScalingGroups = lens _dasgrsAutoScalingGroups (\ s a -> s{_dasgrsAutoScalingGroups = a});
+dasgrsAutoScalingGroups = lens _dasgrsAutoScalingGroups (\ s a -> s{_dasgrsAutoScalingGroups = a}) . _Coerce;

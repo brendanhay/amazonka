@@ -181,4 +181,4 @@ lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
 --
 -- Children: @OperationId@, @Status@, @SubmittedDate@, @Type@
 lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
-lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a});
+lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a}) . _Coerce;

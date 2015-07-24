@@ -74,7 +74,7 @@ describeLaunchConfigurations =
 
 -- | The launch configuration names.
 dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
-dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default;
+dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -162,4 +162,4 @@ dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
 
 -- | The launch configurations.
 dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-dlcrsLaunchConfigurations = lens _dlcrsLaunchConfigurations (\ s a -> s{_dlcrsLaunchConfigurations = a});
+dlcrsLaunchConfigurations = lens _dlcrsLaunchConfigurations (\ s a -> s{_dlcrsLaunchConfigurations = a}) . _Coerce;

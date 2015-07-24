@@ -184,7 +184,7 @@ describeFileSystemsResponse pStatus_ =
 
 -- | An array of file system descriptions.
 dfsrsFileSystems :: Lens' DescribeFileSystemsResponse [FileSystemDescription]
-dfsrsFileSystems = lens _dfsrsFileSystems (\ s a -> s{_dfsrsFileSystems = a}) . _Default;
+dfsrsFileSystems = lens _dfsrsFileSystems (\ s a -> s{_dfsrsFileSystems = a}) . _Default . _Coerce;
 
 -- | A string, present if provided by caller in the request.
 dfsrsMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)

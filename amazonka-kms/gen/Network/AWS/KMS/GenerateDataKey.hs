@@ -135,7 +135,7 @@ gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 gdkGrantTokens :: Lens' GenerateDataKey [Text]
-gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default;
+gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default . _Coerce;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -222,8 +222,8 @@ gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a});
 
 -- | Plaintext that contains the data key. Use this for encryption and
 -- decryption and then remove it from memory as soon as possible.
-gdkrsPlaintext :: Lens' GenerateDataKeyResponse (Maybe Base64)
-gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mapping _Sensitive;
+gdkrsPlaintext :: Lens' GenerateDataKeyResponse (Maybe ByteString)
+gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mapping _Sensitive . _Base64;
 
 -- | Ciphertext that contains the encrypted data key. You must store the blob
 -- and enough information to reconstruct the encryption context so that the
@@ -233,8 +233,8 @@ gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mappin
 --
 -- If you are using the CLI, the value is Base64 encoded. Otherwise, it is
 -- not encoded.
-gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe Base64)
-gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a});
+gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe ByteString)
+gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a}) . mapping _Base64;
 
 -- | FIXME: Undocumented member.
 gdkrsStatus :: Lens' GenerateDataKeyResponse Int

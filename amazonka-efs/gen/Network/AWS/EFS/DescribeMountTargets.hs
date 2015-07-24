@@ -148,7 +148,7 @@ describeMountTargetsResponse pStatus_ =
 -- | Returns the file system\'s mount targets as an array of
 -- @MountTargetDescription@ objects.
 dmtrsMountTargets :: Lens' DescribeMountTargetsResponse [MountTargetDescription]
-dmtrsMountTargets = lens _dmtrsMountTargets (\ s a -> s{_dmtrsMountTargets = a}) . _Default;
+dmtrsMountTargets = lens _dmtrsMountTargets (\ s a -> s{_dmtrsMountTargets = a}) . _Default . _Coerce;
 
 -- | If the request included the @Marker@, the response returns that value in
 -- this field.

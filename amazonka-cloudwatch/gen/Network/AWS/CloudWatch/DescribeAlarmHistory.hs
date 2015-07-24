@@ -180,7 +180,7 @@ describeAlarmHistoryResponse pStatus_ =
 
 -- | A list of alarm histories in JSON format.
 dahrsAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
-dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHistoryItems = a}) . _Default;
+dahrsAlarmHistoryItems = lens _dahrsAlarmHistoryItems (\ s a -> s{_dahrsAlarmHistoryItems = a}) . _Default . _Coerce;
 
 -- | A string that marks the start of the next batch of returned results.
 dahrsNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)

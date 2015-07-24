@@ -85,7 +85,7 @@ cscgKMSKeyId = lens _cscgKMSKeyId (\ s a -> s{_cscgKMSKeyId = a});
 
 -- | A list of tag instances.
 cscgTags :: Lens' CreateSnapshotCopyGrant [Tag]
-cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default;
+cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default . _Coerce;
 
 -- | The name of the snapshot copy grant. This name must be unique in the
 -- region for the AWS account.

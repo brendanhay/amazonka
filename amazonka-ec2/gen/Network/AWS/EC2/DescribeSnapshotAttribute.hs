@@ -154,11 +154,11 @@ describeSnapshotAttributeResponse pStatus_ =
 
 -- | A list of permissions for creating volumes from the snapshot.
 dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
-dsarsCreateVolumePermissions = lens _dsarsCreateVolumePermissions (\ s a -> s{_dsarsCreateVolumePermissions = a}) . _Default;
+dsarsCreateVolumePermissions = lens _dsarsCreateVolumePermissions (\ s a -> s{_dsarsCreateVolumePermissions = a}) . _Default . _Coerce;
 
 -- | A list of product codes.
 dsarsProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
-dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a}) . _Default;
+dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a}) . _Default . _Coerce;
 
 -- | The ID of the EBS snapshot.
 dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)

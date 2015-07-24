@@ -126,7 +126,7 @@ describeSeverityLevelsResponse pStatus_ =
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
 dslrsSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
-dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default;
+dslrsSeverityLevels = lens _dslrsSeverityLevels (\ s a -> s{_dslrsSeverityLevels = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dslrsStatus :: Lens' DescribeSeverityLevelsResponse Int

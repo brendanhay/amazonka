@@ -66,7 +66,7 @@ describeUserProfiles =
 
 -- | An array of IAM user ARNs that identify the users to be described.
 dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
-dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default;
+dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeUserProfiles where
         type Sv DescribeUserProfiles = OpsWorks
@@ -124,7 +124,7 @@ describeUserProfilesResponse pStatus_ =
 
 -- | A @Users@ object that describes the specified users.
 duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
-duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default;
+duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 duprsStatus :: Lens' DescribeUserProfilesResponse Int

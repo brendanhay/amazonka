@@ -100,7 +100,7 @@ vcsApplicationName = lens _vcsApplicationName (\ s a -> s{_vcsApplicationName = 
 
 -- | A list of the options and desired values to evaluate.
 vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
-vcsOptionSettings = lens _vcsOptionSettings (\ s a -> s{_vcsOptionSettings = a});
+vcsOptionSettings = lens _vcsOptionSettings (\ s a -> s{_vcsOptionSettings = a}) . _Coerce;
 
 instance AWSRequest ValidateConfigurationSettings
          where
@@ -161,7 +161,7 @@ validateConfigurationSettingsResponse pStatus_ =
 
 -- | A list of ValidationMessage.
 vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
-vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default;
+vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 vcsrsStatus :: Lens' ValidateConfigurationSettingsResponse Int

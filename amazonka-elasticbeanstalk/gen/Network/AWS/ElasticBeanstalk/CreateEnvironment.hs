@@ -147,14 +147,14 @@ ceTemplateName = lens _ceTemplateName (\ s a -> s{_ceTemplateName = a});
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this new environment.
 ceOptionsToRemove :: Lens' CreateEnvironment [OptionSpecification]
-ceOptionsToRemove = lens _ceOptionsToRemove (\ s a -> s{_ceOptionsToRemove = a}) . _Default;
+ceOptionsToRemove = lens _ceOptionsToRemove (\ s a -> s{_ceOptionsToRemove = a}) . _Default . _Coerce;
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration
 -- options to the requested value in the configuration set for the new
 -- environment. These override the values obtained from the solution stack
 -- or the configuration template.
 ceOptionSettings :: Lens' CreateEnvironment [ConfigurationOptionSetting]
-ceOptionSettings = lens _ceOptionSettings (\ s a -> s{_ceOptionSettings = a}) . _Default;
+ceOptionSettings = lens _ceOptionSettings (\ s a -> s{_ceOptionSettings = a}) . _Default . _Coerce;
 
 -- | The name of the application version to deploy.
 --
@@ -188,7 +188,7 @@ ceDescription = lens _ceDescription (\ s a -> s{_ceDescription = a});
 
 -- | This specifies the tags applied to resources in the environment.
 ceTags :: Lens' CreateEnvironment [Tag]
-ceTags = lens _ceTags (\ s a -> s{_ceTags = a}) . _Default;
+ceTags = lens _ceTags (\ s a -> s{_ceTags = a}) . _Default . _Coerce;
 
 -- | The name of the application that contains the version to be deployed.
 --

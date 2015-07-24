@@ -139,7 +139,7 @@ describeRouteTables =
 -- -   @vpc-id@ - The ID of the VPC for the route table.
 --
 drtsFilters :: Lens' DescribeRouteTables [Filter]
-drtsFilters = lens _drtsFilters (\ s a -> s{_drtsFilters = a}) . _Default;
+drtsFilters = lens _drtsFilters (\ s a -> s{_drtsFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -152,7 +152,7 @@ drtsDryRun = lens _drtsDryRun (\ s a -> s{_drtsDryRun = a});
 --
 -- Default: Describes all your route tables.
 drtsRouteTableIds :: Lens' DescribeRouteTables [Text]
-drtsRouteTableIds = lens _drtsRouteTableIds (\ s a -> s{_drtsRouteTableIds = a}) . _Default;
+drtsRouteTableIds = lens _drtsRouteTableIds (\ s a -> s{_drtsRouteTableIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeRouteTables where
         type Sv DescribeRouteTables = EC2
@@ -204,7 +204,7 @@ describeRouteTablesResponse pStatus_ =
 
 -- | Information about one or more route tables.
 drtrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
-drtrsRouteTables = lens _drtrsRouteTables (\ s a -> s{_drtrsRouteTables = a}) . _Default;
+drtrsRouteTables = lens _drtrsRouteTables (\ s a -> s{_drtrsRouteTables = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drtrsStatus :: Lens' DescribeRouteTablesResponse Int

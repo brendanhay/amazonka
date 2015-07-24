@@ -91,7 +91,7 @@ iiLaunchSpecification = lens _iiLaunchSpecification (\ s a -> s{_iiLaunchSpecifi
 
 -- | The disk image.
 iiDiskImages :: Lens' ImportInstance [DiskImage]
-iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default;
+iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

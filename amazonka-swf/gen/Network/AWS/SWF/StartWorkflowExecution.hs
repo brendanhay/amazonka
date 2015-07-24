@@ -141,7 +141,7 @@ startWorkflowExecution pDomain_ pWorkflowId_ pWorkflowType_ =
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
 sTagList :: Lens' StartWorkflowExecution [Text]
-sTagList = lens _sTagList (\ s a -> s{_sTagList = a}) . _Default;
+sTagList = lens _sTagList (\ s a -> s{_sTagList = a}) . _Default . _Coerce;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@

@@ -116,7 +116,7 @@ mesSourceType = lens _mesSourceType (\ s a -> s{_mesSourceType = a});
 -- topic in the Amazon RDS User Guide or by using the
 -- __DescribeEventCategories__ action.
 mesEventCategories :: Lens' ModifyEventSubscription [Text]
-mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default;
+mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default . _Coerce;
 
 -- | The name of the RDS event notification subscription.
 mesSubscriptionName :: Lens' ModifyEventSubscription Text

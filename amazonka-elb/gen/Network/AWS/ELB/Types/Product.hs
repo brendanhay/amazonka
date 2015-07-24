@@ -187,7 +187,7 @@ backendServerDescription =
 
 -- | The names of the policies enabled for the back-end server.
 bsdPolicyNames :: Lens' BackendServerDescription [Text]
-bsdPolicyNames = lens _bsdPolicyNames (\ s a -> s{_bsdPolicyNames = a}) . _Default;
+bsdPolicyNames = lens _bsdPolicyNames (\ s a -> s{_bsdPolicyNames = a}) . _Default . _Coerce;
 
 -- | The port on which the back-end server is listening.
 bsdInstancePort :: Lens' BackendServerDescription (Maybe Natural)
@@ -664,7 +664,7 @@ listenerDescription =
 
 -- | The policies. If there are no policies enabled, the list is empty.
 ldPolicyNames :: Lens' ListenerDescription [Text]
-ldPolicyNames = lens _ldPolicyNames (\ s a -> s{_ldPolicyNames = a}) . _Default;
+ldPolicyNames = lens _ldPolicyNames (\ s a -> s{_ldPolicyNames = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ldListener :: Lens' ListenerDescription (Maybe Listener)
@@ -732,7 +732,7 @@ lbaAccessLog = lens _lbaAccessLog (\ s a -> s{_lbaAccessLog = a});
 
 -- | This parameter is reserved.
 lbaAdditionalAttributes :: Lens' LoadBalancerAttributes [AdditionalAttribute]
-lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\ s a -> s{_lbaAdditionalAttributes = a}) . _Default;
+lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\ s a -> s{_lbaAdditionalAttributes = a}) . _Default . _Coerce;
 
 -- | If enabled, the load balancer allows the connections to remain idle (no
 -- data is sent over the connection) for the specified duration.
@@ -879,7 +879,7 @@ lbdCanonicalHostedZoneName = lens _lbdCanonicalHostedZoneName (\ s a -> s{_lbdCa
 -- | The security groups for the load balancer. Valid only for load balancers
 -- in a VPC.
 lbdSecurityGroups :: Lens' LoadBalancerDescription [Text]
-lbdSecurityGroups = lens _lbdSecurityGroups (\ s a -> s{_lbdSecurityGroups = a}) . _Default;
+lbdSecurityGroups = lens _lbdSecurityGroups (\ s a -> s{_lbdSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The name of the load balancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -895,15 +895,15 @@ lbdVPCId = lens _lbdVPCId (\ s a -> s{_lbdVPCId = a});
 
 -- | The IDs of the subnets for the load balancer.
 lbdSubnets :: Lens' LoadBalancerDescription [Text]
-lbdSubnets = lens _lbdSubnets (\ s a -> s{_lbdSubnets = a}) . _Default;
+lbdSubnets = lens _lbdSubnets (\ s a -> s{_lbdSubnets = a}) . _Default . _Coerce;
 
 -- | The Availability Zones for the load balancer.
 lbdAvailabilityZones :: Lens' LoadBalancerDescription [Text]
-lbdAvailabilityZones = lens _lbdAvailabilityZones (\ s a -> s{_lbdAvailabilityZones = a}) . _Default;
+lbdAvailabilityZones = lens _lbdAvailabilityZones (\ s a -> s{_lbdAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | Information about the back-end servers.
 lbdBackendServerDescriptions :: Lens' LoadBalancerDescription [BackendServerDescription]
-lbdBackendServerDescriptions = lens _lbdBackendServerDescriptions (\ s a -> s{_lbdBackendServerDescriptions = a}) . _Default;
+lbdBackendServerDescriptions = lens _lbdBackendServerDescriptions (\ s a -> s{_lbdBackendServerDescriptions = a}) . _Default . _Coerce;
 
 -- | The ID of the Amazon Route 53 hosted zone name associated with the load
 -- balancer.
@@ -912,7 +912,7 @@ lbdCanonicalHostedZoneNameId = lens _lbdCanonicalHostedZoneNameId (\ s a -> s{_l
 
 -- | The IDs of the instances for the load balancer.
 lbdInstances :: Lens' LoadBalancerDescription [Instance]
-lbdInstances = lens _lbdInstances (\ s a -> s{_lbdInstances = a}) . _Default;
+lbdInstances = lens _lbdInstances (\ s a -> s{_lbdInstances = a}) . _Default . _Coerce;
 
 -- | The type of load balancer. Valid only for load balancers in a VPC.
 --
@@ -926,7 +926,7 @@ lbdScheme = lens _lbdScheme (\ s a -> s{_lbdScheme = a});
 
 -- | The listeners for the load balancer.
 lbdListenerDescriptions :: Lens' LoadBalancerDescription [ListenerDescription]
-lbdListenerDescriptions = lens _lbdListenerDescriptions (\ s a -> s{_lbdListenerDescriptions = a}) . _Default;
+lbdListenerDescriptions = lens _lbdListenerDescriptions (\ s a -> s{_lbdListenerDescriptions = a}) . _Default . _Coerce;
 
 -- | The external DNS name of the load balancer.
 lbdDNSName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -996,15 +996,15 @@ policies =
 
 -- | The policies other than the stickiness policies.
 pOtherPolicies :: Lens' Policies [Text]
-pOtherPolicies = lens _pOtherPolicies (\ s a -> s{_pOtherPolicies = a}) . _Default;
+pOtherPolicies = lens _pOtherPolicies (\ s a -> s{_pOtherPolicies = a}) . _Default . _Coerce;
 
 -- | The stickiness policies created using CreateLBCookieStickinessPolicy.
 pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
-pLBCookieStickinessPolicies = lens _pLBCookieStickinessPolicies (\ s a -> s{_pLBCookieStickinessPolicies = a}) . _Default;
+pLBCookieStickinessPolicies = lens _pLBCookieStickinessPolicies (\ s a -> s{_pLBCookieStickinessPolicies = a}) . _Default . _Coerce;
 
 -- | The stickiness policies created using CreateAppCookieStickinessPolicy.
 pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
-pAppCookieStickinessPolicies = lens _pAppCookieStickinessPolicies (\ s a -> s{_pAppCookieStickinessPolicies = a}) . _Default;
+pAppCookieStickinessPolicies = lens _pAppCookieStickinessPolicies (\ s a -> s{_pAppCookieStickinessPolicies = a}) . _Default . _Coerce;
 
 instance FromXML Policies where
         parseXML x
@@ -1190,7 +1190,7 @@ pdPolicyName = lens _pdPolicyName (\ s a -> s{_pdPolicyName = a});
 
 -- | The policy attributes.
 pdPolicyAttributeDescriptions :: Lens' PolicyDescription [PolicyAttributeDescription]
-pdPolicyAttributeDescriptions = lens _pdPolicyAttributeDescriptions (\ s a -> s{_pdPolicyAttributeDescriptions = a}) . _Default;
+pdPolicyAttributeDescriptions = lens _pdPolicyAttributeDescriptions (\ s a -> s{_pdPolicyAttributeDescriptions = a}) . _Default . _Coerce;
 
 -- | The name of the policy type.
 pdPolicyTypeName :: Lens' PolicyDescription (Maybe Text)
@@ -1241,7 +1241,7 @@ ptdDescription = lens _ptdDescription (\ s a -> s{_ptdDescription = a});
 -- | The description of the policy attributes associated with the policies
 -- defined by Elastic Load Balancing.
 ptdPolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription [PolicyAttributeTypeDescription]
-ptdPolicyAttributeTypeDescriptions = lens _ptdPolicyAttributeTypeDescriptions (\ s a -> s{_ptdPolicyAttributeTypeDescriptions = a}) . _Default;
+ptdPolicyAttributeTypeDescriptions = lens _ptdPolicyAttributeTypeDescriptions (\ s a -> s{_ptdPolicyAttributeTypeDescriptions = a}) . _Default . _Coerce;
 
 instance FromXML PolicyTypeDescription where
         parseXML x

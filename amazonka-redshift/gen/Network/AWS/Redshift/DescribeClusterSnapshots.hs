@@ -136,7 +136,7 @@ dcssSnapshotIdentifier = lens _dcssSnapshotIdentifier (\ s a -> s{_dcssSnapshotI
 -- the request, Amazon Redshift returns a response with the snapshots that
 -- have either or both of these tag values associated with them.
 dcssTagValues :: Lens' DescribeClusterSnapshots [Text]
-dcssTagValues = lens _dcssTagValues (\ s a -> s{_dcssTagValues = a}) . _Default;
+dcssTagValues = lens _dcssTagValues (\ s a -> s{_dcssTagValues = a}) . _Default . _Coerce;
 
 -- | A value that requests only snapshots created at or after the specified
 -- time. The time value is specified in ISO 8601 format. For more
@@ -154,7 +154,7 @@ dcssStartTime = lens _dcssStartTime (\ s a -> s{_dcssStartTime = a}) . mapping _
 -- in the request, Amazon Redshift returns a response with the snapshots
 -- that have either or both of these tag keys associated with them.
 dcssTagKeys :: Lens' DescribeClusterSnapshots [Text]
-dcssTagKeys = lens _dcssTagKeys (\ s a -> s{_dcssTagKeys = a}) . _Default;
+dcssTagKeys = lens _dcssTagKeys (\ s a -> s{_dcssTagKeys = a}) . _Default . _Coerce;
 
 -- | The identifier of the cluster for which information about snapshots is
 -- requested.
@@ -278,7 +278,7 @@ describeClusterSnapshotsResponse pStatus_ =
 
 -- | A list of Snapshot instances.
 dcssrsSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
-dcssrsSnapshots = lens _dcssrsSnapshots (\ s a -> s{_dcssrsSnapshots = a}) . _Default;
+dcssrsSnapshots = lens _dcssrsSnapshots (\ s a -> s{_dcssrsSnapshots = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

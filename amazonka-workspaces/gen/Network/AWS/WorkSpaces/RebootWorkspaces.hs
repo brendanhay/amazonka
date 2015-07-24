@@ -128,7 +128,7 @@ rebootWorkspacesResponse pStatus_ =
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebooted.
 rrsFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
-rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a}) . _Default;
+rrsFailedRequests = lens _rrsFailedRequests (\ s a -> s{_rrsFailedRequests = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 rrsStatus :: Lens' RebootWorkspacesResponse Int

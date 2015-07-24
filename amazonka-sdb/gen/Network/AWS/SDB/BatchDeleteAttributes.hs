@@ -74,7 +74,7 @@ bdaDomainName = lens _bdaDomainName (\ s a -> s{_bdaDomainName = a});
 
 -- | A list of items on which to perform the operation.
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
-bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a});
+bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a}) . _Coerce;
 
 instance AWSRequest BatchDeleteAttributes where
         type Sv BatchDeleteAttributes = SDB

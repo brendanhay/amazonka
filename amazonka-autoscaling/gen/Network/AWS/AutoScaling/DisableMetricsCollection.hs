@@ -82,7 +82,7 @@ disableMetricsCollection pAutoScalingGroupName_ =
 -- -   @GroupTotalInstances@
 --
 dmcMetrics :: Lens' DisableMetricsCollection [Text]
-dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default;
+dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default . _Coerce;
 
 -- | The name or Amazon Resource Name (ARN) of the group.
 dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text

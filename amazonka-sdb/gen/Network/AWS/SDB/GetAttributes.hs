@@ -90,7 +90,7 @@ gaConsistentRead = lens _gaConsistentRead (\ s a -> s{_gaConsistentRead = a});
 
 -- | The names of the attributes.
 gaAttributeNames :: Lens' GetAttributes [Text]
-gaAttributeNames = lens _gaAttributeNames (\ s a -> s{_gaAttributeNames = a}) . _Default;
+gaAttributeNames = lens _gaAttributeNames (\ s a -> s{_gaAttributeNames = a}) . _Default . _Coerce;
 
 -- | The name of the domain in which to perform the operation.
 gaDomainName :: Lens' GetAttributes Text
@@ -150,7 +150,7 @@ getAttributesResponse pStatus_ =
 
 -- | The list of attributes returned by the operation.
 garsAttributes :: Lens' GetAttributesResponse [Attribute]
-garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default;
+garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 garsStatus :: Lens' GetAttributesResponse Int

@@ -172,7 +172,7 @@ riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
 
 -- | One or more block device mapping entries.
 riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
-riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default;
+riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

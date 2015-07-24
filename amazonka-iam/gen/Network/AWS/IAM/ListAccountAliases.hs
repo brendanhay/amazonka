@@ -171,4 +171,4 @@ laarsStatus = lens _laarsStatus (\ s a -> s{_laarsStatus = a});
 
 -- | A list of aliases associated with the account.
 laarsAccountAliases :: Lens' ListAccountAliasesResponse [Text]
-laarsAccountAliases = lens _laarsAccountAliases (\ s a -> s{_laarsAccountAliases = a});
+laarsAccountAliases = lens _laarsAccountAliases (\ s a -> s{_laarsAccountAliases = a}) . _Coerce;

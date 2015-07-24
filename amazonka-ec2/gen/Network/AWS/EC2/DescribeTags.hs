@@ -96,7 +96,7 @@ describeTags =
 -- -   @value@ - The tag value.
 --
 dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default . _Coerce;
 
 -- | The token to retrieve the next page of results.
 dtNextToken :: Lens' DescribeTags (Maybe Text)
@@ -183,7 +183,7 @@ dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 
 -- | A list of tags.
 dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default;
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int

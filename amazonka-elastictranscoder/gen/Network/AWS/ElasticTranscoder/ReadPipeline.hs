@@ -120,7 +120,7 @@ readPipelineResponse pStatus_ =
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
 rrsWarnings :: Lens' ReadPipelineResponse [Warning]
-rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default;
+rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default . _Coerce;
 
 -- | A section of the response body that provides information about the
 -- pipeline.

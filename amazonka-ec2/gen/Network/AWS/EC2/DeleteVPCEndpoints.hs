@@ -75,7 +75,7 @@ dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a});
 
 -- | One or more endpoint IDs.
 dveVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
-dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a});
+dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a}) . _Coerce;
 
 instance AWSRequest DeleteVPCEndpoints where
         type Sv DeleteVPCEndpoints = EC2
@@ -126,7 +126,7 @@ deleteVPCEndpointsResponse pStatus_ =
 
 -- | Information about the endpoints that were not successfully deleted.
 dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
-dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default;
+dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dversStatus :: Lens' DeleteVPCEndpointsResponse Int

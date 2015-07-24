@@ -125,7 +125,7 @@ listVolumeInitiatorsResponse pStatus_ =
 -- | The host names and port numbers of all iSCSI initiators that are
 -- connected to the gateway.
 lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
-lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default;
+lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lvirsStatus :: Lens' ListVolumeInitiatorsResponse Int

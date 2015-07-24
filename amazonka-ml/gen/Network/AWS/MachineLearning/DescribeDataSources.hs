@@ -272,7 +272,7 @@ describeDataSourcesResponse pStatus_ =
 
 -- | A list of @DataSource@ that meet the search criteria.
 ddssrsResults :: Lens' DescribeDataSourcesResponse [DataSource]
-ddssrsResults = lens _ddssrsResults (\ s a -> s{_ddssrsResults = a}) . _Default;
+ddssrsResults = lens _ddssrsResults (\ s a -> s{_ddssrsResults = a}) . _Default . _Coerce;
 
 -- | An ID of the next page in the paginated results that indicates at least
 -- one more page follows.

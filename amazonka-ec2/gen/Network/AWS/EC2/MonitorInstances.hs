@@ -76,7 +76,7 @@ miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a});
 
 -- | One or more instance IDs.
 miInstanceIds :: Lens' MonitorInstances [Text]
-miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a});
+miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a}) . _Coerce;
 
 instance AWSRequest MonitorInstances where
         type Sv MonitorInstances = EC2
@@ -126,7 +126,7 @@ monitorInstancesResponse pStatus_ =
 
 -- | Monitoring information for one or more instances.
 mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
-mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default;
+mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 mirsStatus :: Lens' MonitorInstancesResponse Int

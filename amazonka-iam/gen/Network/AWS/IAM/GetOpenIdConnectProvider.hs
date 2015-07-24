@@ -148,13 +148,13 @@ goicprsURL = lens _goicprsURL (\ s a -> s{_goicprsURL = a});
 -- IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
 goicprsThumbprintList :: Lens' GetOpenIdConnectProviderResponse [Text]
-goicprsThumbprintList = lens _goicprsThumbprintList (\ s a -> s{_goicprsThumbprintList = a}) . _Default;
+goicprsThumbprintList = lens _goicprsThumbprintList (\ s a -> s{_goicprsThumbprintList = a}) . _Default . _Coerce;
 
 -- | A list of client IDs (also known as audiences) that are associated with
 -- the specified IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
 goicprsClientIdList :: Lens' GetOpenIdConnectProviderResponse [Text]
-goicprsClientIdList = lens _goicprsClientIdList (\ s a -> s{_goicprsClientIdList = a}) . _Default;
+goicprsClientIdList = lens _goicprsClientIdList (\ s a -> s{_goicprsClientIdList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 goicprsStatus :: Lens' GetOpenIdConnectProviderResponse Int

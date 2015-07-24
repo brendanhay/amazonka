@@ -147,7 +147,7 @@ connections =
 
 -- | A list of connections.
 cConnections :: Lens' Connections [Connection]
-cConnections = lens _cConnections (\ s a -> s{_cConnections = a}) . _Default;
+cConnections = lens _cConnections (\ s a -> s{_cConnections = a}) . _Default . _Coerce;
 
 instance FromJSON Connections where
         parseJSON
@@ -501,7 +501,7 @@ npviCustomerAddress = lens _npviCustomerAddress (\ s a -> s{_npviCustomerAddress
 
 -- | FIXME: Undocumented member.
 npviRouteFilterPrefixes :: Lens' NewPublicVirtualInterface [RouteFilterPrefix]
-npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a});
+npviRouteFilterPrefixes = lens _npviRouteFilterPrefixes (\ s a -> s{_npviRouteFilterPrefixes = a}) . _Coerce;
 
 instance ToJSON NewPublicVirtualInterface where
         toJSON NewPublicVirtualInterface'{..}
@@ -582,7 +582,7 @@ newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = 
 
 -- | FIXME: Undocumented member.
 newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
-newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a});
+newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a}) . _Coerce;
 
 instance ToJSON NewPublicVirtualInterfaceAllocation
          where
@@ -754,7 +754,7 @@ viVirtualGatewayId = lens _viVirtualGatewayId (\ s a -> s{_viVirtualGatewayId = 
 
 -- | FIXME: Undocumented member.
 viRouteFilterPrefixes :: Lens' VirtualInterface [RouteFilterPrefix]
-viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a}) . _Default;
+viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 viCustomerAddress :: Lens' VirtualInterface (Maybe Text)

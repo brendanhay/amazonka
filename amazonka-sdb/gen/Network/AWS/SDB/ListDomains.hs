@@ -141,7 +141,7 @@ listDomainsResponse pStatus_ =
 
 -- | A list of domain names that match the expression.
 ldrsDomainNames :: Lens' ListDomainsResponse [Text]
-ldrsDomainNames = lens _ldrsDomainNames (\ s a -> s{_ldrsDomainNames = a}) . _Default;
+ldrsDomainNames = lens _ldrsDomainNames (\ s a -> s{_ldrsDomainNames = a}) . _Default . _Coerce;
 
 -- | An opaque token indicating that there are more domains than the
 -- specified @MaxNumberOfDomains@ still available.

@@ -94,7 +94,7 @@ cComputerId = lens _cComputerId (\ s a -> s{_cComputerId = a});
 -- | An array of Attribute objects that contain the LDAP attributes that
 -- belong to the computer account.
 cComputerAttributes :: Lens' Computer [Attribute]
-cComputerAttributes = lens _cComputerAttributes (\ s a -> s{_cComputerAttributes = a}) . _Default;
+cComputerAttributes = lens _cComputerAttributes (\ s a -> s{_cComputerAttributes = a}) . _Default . _Coerce;
 
 -- | The computer name.
 cComputerName :: Lens' Computer (Maybe Text)
@@ -147,12 +147,12 @@ dcsVPCId = lens _dcsVPCId (\ s a -> s{_dcsVPCId = a});
 -- | A list of subnet identifiers in the VPC that the AD Connector is created
 -- in.
 dcsSubnetIds :: Lens' DirectoryConnectSettings [Text]
-dcsSubnetIds = lens _dcsSubnetIds (\ s a -> s{_dcsSubnetIds = a});
+dcsSubnetIds = lens _dcsSubnetIds (\ s a -> s{_dcsSubnetIds = a}) . _Coerce;
 
 -- | A list of one or more IP addresses of DNS servers or domain controllers
 -- in the on-premises directory.
 dcsCustomerDNSIPs :: Lens' DirectoryConnectSettings [Text]
-dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a});
+dcsCustomerDNSIPs = lens _dcsCustomerDNSIPs (\ s a -> s{_dcsCustomerDNSIPs = a}) . _Coerce;
 
 -- | The username of an account in the on-premises directory that is used to
 -- connect to the directory. This account must have the following
@@ -215,7 +215,7 @@ dcsdCustomerUserName = lens _dcsdCustomerUserName (\ s a -> s{_dcsdCustomerUserN
 
 -- | A list of subnet identifiers in the VPC that the AD connector is in.
 dcsdSubnetIds :: Lens' DirectoryConnectSettingsDescription [Text]
-dcsdSubnetIds = lens _dcsdSubnetIds (\ s a -> s{_dcsdSubnetIds = a}) . _Default;
+dcsdSubnetIds = lens _dcsdSubnetIds (\ s a -> s{_dcsdSubnetIds = a}) . _Default . _Coerce;
 
 -- | The identifier of the VPC that the AD Connector is in.
 dcsdVPCId :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
@@ -223,7 +223,7 @@ dcsdVPCId = lens _dcsdVPCId (\ s a -> s{_dcsdVPCId = a});
 
 -- | The IP addresses of the AD Connector servers.
 dcsdConnectIPs :: Lens' DirectoryConnectSettingsDescription [Text]
-dcsdConnectIPs = lens _dcsdConnectIPs (\ s a -> s{_dcsdConnectIPs = a}) . _Default;
+dcsdConnectIPs = lens _dcsdConnectIPs (\ s a -> s{_dcsdConnectIPs = a}) . _Default . _Coerce;
 
 -- | The security group identifier for the AD Connector directory.
 dcsdSecurityGroupId :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
@@ -231,7 +231,7 @@ dcsdSecurityGroupId = lens _dcsdSecurityGroupId (\ s a -> s{_dcsdSecurityGroupId
 
 -- | A list of the Availability Zones that the directory is in.
 dcsdAvailabilityZones :: Lens' DirectoryConnectSettingsDescription [Text]
-dcsdAvailabilityZones = lens _dcsdAvailabilityZones (\ s a -> s{_dcsdAvailabilityZones = a}) . _Default;
+dcsdAvailabilityZones = lens _dcsdAvailabilityZones (\ s a -> s{_dcsdAvailabilityZones = a}) . _Default . _Coerce;
 
 instance FromJSON DirectoryConnectSettingsDescription
          where
@@ -393,7 +393,7 @@ ddStageReason = lens _ddStageReason (\ s a -> s{_ddStageReason = a});
 -- the DNS servers or domain controllers in the on-premises directory that
 -- the AD Connector is connected to.
 ddDNSIPAddrs :: Lens' DirectoryDescription [Text]
-ddDNSIPAddrs = lens _ddDNSIPAddrs (\ s a -> s{_ddDNSIPAddrs = a}) . _Default;
+ddDNSIPAddrs = lens _ddDNSIPAddrs (\ s a -> s{_ddDNSIPAddrs = a}) . _Default . _Coerce;
 
 -- | A DirectoryVpcSettingsDescription object that contains additional
 -- information about a Simple AD directory. This member is only present if
@@ -543,7 +543,7 @@ dvsVPCId = lens _dvsVPCId (\ s a -> s{_dvsVPCId = a});
 -- subnets must be in different Availability Zones. AWS Directory Service
 -- creates a directory server and a DNS server in each of these subnets.
 dvsSubnetIds :: Lens' DirectoryVPCSettings [Text]
-dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a});
+dvsSubnetIds = lens _dvsSubnetIds (\ s a -> s{_dvsSubnetIds = a}) . _Coerce;
 
 instance ToJSON DirectoryVPCSettings where
         toJSON DirectoryVPCSettings'{..}
@@ -582,7 +582,7 @@ directoryVPCSettingsDescription =
 
 -- | The identifiers of the subnets for the directory servers.
 dvsdSubnetIds :: Lens' DirectoryVPCSettingsDescription [Text]
-dvsdSubnetIds = lens _dvsdSubnetIds (\ s a -> s{_dvsdSubnetIds = a}) . _Default;
+dvsdSubnetIds = lens _dvsdSubnetIds (\ s a -> s{_dvsdSubnetIds = a}) . _Default . _Coerce;
 
 -- | The identifier of the VPC that the directory is in.
 dvsdVPCId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
@@ -594,7 +594,7 @@ dvsdSecurityGroupId = lens _dvsdSecurityGroupId (\ s a -> s{_dvsdSecurityGroupId
 
 -- | The list of Availability Zones that the directory is in.
 dvsdAvailabilityZones :: Lens' DirectoryVPCSettingsDescription [Text]
-dvsdAvailabilityZones = lens _dvsdAvailabilityZones (\ s a -> s{_dvsdAvailabilityZones = a}) . _Default;
+dvsdAvailabilityZones = lens _dvsdAvailabilityZones (\ s a -> s{_dvsdAvailabilityZones = a}) . _Default . _Coerce;
 
 instance FromJSON DirectoryVPCSettingsDescription
          where
@@ -660,7 +660,7 @@ rsDisplayLabel = lens _rsDisplayLabel (\ s a -> s{_rsDisplayLabel = a});
 -- | An array of strings that contains the IP addresses of the RADIUS server
 -- endpoints, or the IP addresses of your RADIUS server load balancer.
 rsRadiusServers :: Lens' RadiusSettings [Text]
-rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _Default;
+rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _Default . _Coerce;
 
 -- | The maximum number of times that communication with the RADIUS server is
 -- attempted.

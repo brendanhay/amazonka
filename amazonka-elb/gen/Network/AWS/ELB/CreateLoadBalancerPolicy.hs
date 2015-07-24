@@ -80,7 +80,7 @@ createLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ pPolicyTypeName_ =
 
 -- | The attributes for the policy.
 clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
-clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttributes = a}) . _Default;
+clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttributes = a}) . _Default . _Coerce;
 
 -- | The name of the load balancer.
 clbpLoadBalancerName :: Lens' CreateLoadBalancerPolicy Text

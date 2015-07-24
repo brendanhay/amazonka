@@ -190,7 +190,7 @@ drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMa
 --     (for example, 0.84).
 --
 drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
-drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a}) . _Default;
+drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a}) . _Default . _Coerce;
 
 -- | The instance type on which the Reserved Instance can be used. For more
 -- information, see
@@ -222,7 +222,7 @@ drioOfferingType = lens _drioOfferingType (\ s a -> s{_drioOfferingType = a});
 
 -- | One or more Reserved Instances offering IDs.
 drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
-drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a -> s{_drioReservedInstancesOfferingIds = a}) . _Default;
+drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a -> s{_drioReservedInstancesOfferingIds = a}) . _Default . _Coerce;
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
 -- @dedicated@ tenancy runs on single-tenant hardware and can only be
@@ -341,7 +341,7 @@ driorsNextToken = lens _driorsNextToken (\ s a -> s{_driorsNextToken = a});
 
 -- | A list of Reserved Instances offerings.
 driorsReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
-driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default;
+driorsReservedInstancesOfferings = lens _driorsReservedInstancesOfferings (\ s a -> s{_driorsReservedInstancesOfferings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 driorsStatus :: Lens' DescribeReservedInstancesOfferingsResponse Int

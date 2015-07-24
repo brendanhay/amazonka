@@ -76,7 +76,7 @@ enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
 -- | One or more instances to move into @Standby@ mode. You must specify at
 -- least one instance ID.
 esInstanceIds :: Lens' EnterStandby [Text]
-esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default;
+esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default . _Coerce;
 
 -- | The name of the Auto Scaling group.
 esAutoScalingGroupName :: Lens' EnterStandby Text
@@ -140,7 +140,7 @@ enterStandbyResponse pStatus_ =
 
 -- | The activities related to moving instances into @Standby@ mode.
 esrsActivities :: Lens' EnterStandbyResponse [Activity]
-esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default;
+esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 esrsStatus :: Lens' EnterStandbyResponse Int

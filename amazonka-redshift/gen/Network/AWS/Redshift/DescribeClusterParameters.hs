@@ -189,7 +189,7 @@ describeClusterParametersResponse pStatus_ =
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
 dcprsParameters :: Lens' DescribeClusterParametersResponse [Parameter]
-dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default;
+dcprsParameters = lens _dcprsParameters (\ s a -> s{_dcprsParameters = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

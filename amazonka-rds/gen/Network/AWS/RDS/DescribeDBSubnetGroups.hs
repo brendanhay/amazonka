@@ -89,7 +89,7 @@ ddsgDBSubnetGroupName = lens _ddsgDBSubnetGroupName (\ s a -> s{_ddsgDBSubnetGro
 
 -- | This parameter is not currently supported.
 ddsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
-ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a}) . _Default;
+ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -177,7 +177,7 @@ describeDBSubnetGroupsResponse pStatus_ =
 
 -- | A list of DBSubnetGroup instances.
 ddsgrsDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
-ddsgrsDBSubnetGroups = lens _ddsgrsDBSubnetGroups (\ s a -> s{_ddsgrsDBSubnetGroups = a}) . _Default;
+ddsgrsDBSubnetGroups = lens _ddsgrsDBSubnetGroups (\ s a -> s{_ddsgrsDBSubnetGroups = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

@@ -71,7 +71,7 @@ dResourceName = lens _dResourceName (\ s a -> s{_dResourceName = a});
 
 -- | The tag key that you want to delete.
 dTagKeys :: Lens' DeleteTags [Text]
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a});
+dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = Redshift

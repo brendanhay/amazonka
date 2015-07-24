@@ -61,7 +61,7 @@ deleteTags =
 -- /auto-scaling-group/, Resource ID = /AutoScalingGroupName/, key=/value/,
 -- value=/value/, propagate=/true/ or /false/.
 dtTags :: Lens' DeleteTags [Tag]
-dtTags = lens _dtTags (\ s a -> s{_dtTags = a});
+dtTags = lens _dtTags (\ s a -> s{_dtTags = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = AutoScaling

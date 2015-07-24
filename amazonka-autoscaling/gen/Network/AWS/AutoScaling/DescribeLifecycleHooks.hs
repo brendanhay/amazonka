@@ -66,7 +66,7 @@ describeLifecycleHooks pAutoScalingGroupName_ =
 
 -- | The names of one or more lifecycle hooks.
 dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
-dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default;
+dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default . _Coerce;
 
 -- | The name of the group.
 dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
@@ -124,7 +124,7 @@ describeLifecycleHooksResponse pStatus_ =
 
 -- | The lifecycle hooks for the specified group.
 dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
-dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default;
+dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlhrsStatus :: Lens' DescribeLifecycleHooksResponse Int

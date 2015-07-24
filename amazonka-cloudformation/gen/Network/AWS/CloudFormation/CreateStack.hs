@@ -130,7 +130,7 @@ csDisableRollback = lens _csDisableRollback (\ s a -> s{_csDisableRollback = a})
 -- <http://console.aws.amazon.com/sns SNS console> or your Command Line
 -- Interface (CLI).
 csNotificationARNs :: Lens' CreateStack [Text]
-csNotificationARNs = lens _csNotificationARNs (\ s a -> s{_csNotificationARNs = a}) . _Default;
+csNotificationARNs = lens _csNotificationARNs (\ s a -> s{_csNotificationARNs = a}) . _Default . _Coerce;
 
 -- | Structure containing the stack policy body. For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
@@ -142,7 +142,7 @@ csStackPolicyBody = lens _csStackPolicyBody (\ s a -> s{_csStackPolicyBody = a})
 -- | A list of @Parameter@ structures that specify input parameters for the
 -- stack.
 csParameters :: Lens' CreateStack [Parameter]
-csParameters = lens _csParameters (\ s a -> s{_csParameters = a}) . _Default;
+csParameters = lens _csParameters (\ s a -> s{_csParameters = a}) . _Default . _Coerce;
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as
@@ -192,7 +192,7 @@ csTemplateURL = lens _csTemplateURL (\ s a -> s{_csTemplateURL = a});
 -- review any permissions associated with them. If you don\'t specify this
 -- parameter, this action returns an @InsufficientCapabilities@ error.
 csCapabilities :: Lens' CreateStack [Capability]
-csCapabilities = lens _csCapabilities (\ s a -> s{_csCapabilities = a}) . _Default;
+csCapabilities = lens _csCapabilities (\ s a -> s{_csCapabilities = a}) . _Default . _Coerce;
 
 -- | Determines what action will be taken if stack creation fails. This must
 -- be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either
@@ -207,7 +207,7 @@ csOnFailure = lens _csOnFailure (\ s a -> s{_csOnFailure = a});
 -- resources that are created as part of the stack. A maximum number of 10
 -- tags can be specified.
 csTags :: Lens' CreateStack [Tag]
-csTags = lens _csTags (\ s a -> s{_csTags = a}) . _Default;
+csTags = lens _csTags (\ s a -> s{_csTags = a}) . _Default . _Coerce;
 
 -- | The amount of time that can pass before the stack status becomes
 -- CREATE_FAILED; if @DisableRollback@ is not set or is set to @false@, the

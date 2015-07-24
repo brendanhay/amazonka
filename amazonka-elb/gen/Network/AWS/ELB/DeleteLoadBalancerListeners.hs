@@ -69,7 +69,7 @@ dlblLoadBalancerName = lens _dlblLoadBalancerName (\ s a -> s{_dlblLoadBalancerN
 
 -- | The client port numbers of the listeners.
 dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
-dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalancerPorts = a});
+dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalancerPorts = a}) . _Coerce;
 
 instance AWSRequest DeleteLoadBalancerListeners where
         type Sv DeleteLoadBalancerListeners = ELB

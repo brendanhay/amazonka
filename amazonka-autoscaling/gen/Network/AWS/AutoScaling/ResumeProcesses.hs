@@ -85,7 +85,7 @@ resumeProcesses pAutoScalingGroupName_ =
 -- -   @AddToLoadBalancer@
 --
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
-rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default;
+rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default . _Coerce;
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 rpAutoScalingGroupName :: Lens' ResumeProcesses Text

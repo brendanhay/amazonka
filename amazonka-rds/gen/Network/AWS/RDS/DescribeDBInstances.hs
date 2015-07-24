@@ -81,7 +81,7 @@ describeDBInstances =
 
 -- | This parameter is not currently supported.
 ddbiFilters :: Lens' DescribeDBInstances [Filter]
-ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default;
+ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default . _Coerce;
 
 -- | The user-supplied instance identifier. If this parameter is specified,
 -- information from only the specific DB instance is returned. This
@@ -179,7 +179,7 @@ describeDBInstancesResponse pStatus_ =
 
 -- | A list of DBInstance instances.
 ddbirsDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
-ddbirsDBInstances = lens _ddbirsDBInstances (\ s a -> s{_ddbirsDBInstances = a}) . _Default;
+ddbirsDBInstances = lens _ddbirsDBInstances (\ s a -> s{_ddbirsDBInstances = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

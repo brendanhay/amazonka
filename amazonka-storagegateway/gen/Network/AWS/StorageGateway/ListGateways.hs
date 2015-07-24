@@ -160,7 +160,7 @@ lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a});
 
 -- | FIXME: Undocumented member.
 lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
-lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default;
+lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lgrsStatus :: Lens' ListGatewaysResponse Int

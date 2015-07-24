@@ -85,7 +85,7 @@ aatsAttachmentSetId = lens _aatsAttachmentSetId (\ s a -> s{_aatsAttachmentSetId
 -- | One or more attachments to add to the set. The limit is 3 attachments
 -- per set, and the size limit is 5 MB per attachment.
 aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
-aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a});
+aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a}) . _Coerce;
 
 instance AWSRequest AddAttachmentsToSet where
         type Sv AddAttachmentsToSet = Support

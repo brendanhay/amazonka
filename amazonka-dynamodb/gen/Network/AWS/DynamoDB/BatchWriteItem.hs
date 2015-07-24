@@ -268,7 +268,7 @@ batchWriteItemResponse pStatus_ =
 -- -   /CapacityUnits/ - The total number of capacity units consumed.
 --
 bwirsConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
-bwirsConsumedCapacity = lens _bwirsConsumedCapacity (\ s a -> s{_bwirsConsumedCapacity = a}) . _Default;
+bwirsConsumedCapacity = lens _bwirsConsumedCapacity (\ s a -> s{_bwirsConsumedCapacity = a}) . _Default . _Coerce;
 
 -- | A list of tables that were processed by /BatchWriteItem/ and, for each
 -- table, information about any item collections that were affected by

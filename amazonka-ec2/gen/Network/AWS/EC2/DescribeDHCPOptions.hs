@@ -96,13 +96,13 @@ describeDHCPOptions =
 --     filter is independent of the @tag-key@ filter.
 --
 ddoFilters :: Lens' DescribeDHCPOptions [Filter]
-ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a}) . _Default;
+ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a}) . _Default . _Coerce;
 
 -- | The IDs of one or more DHCP options sets.
 --
 -- Default: Describes all your DHCP options sets.
 ddoDHCPOptionsIds :: Lens' DescribeDHCPOptions [Text]
-ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a}) . _Default;
+ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -162,7 +162,7 @@ describeDHCPOptionsResponse pStatus_ =
 
 -- | Information about one or more DHCP options sets.
 ddorsDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
-ddorsDHCPOptions = lens _ddorsDHCPOptions (\ s a -> s{_ddorsDHCPOptions = a}) . _Default;
+ddorsDHCPOptions = lens _ddorsDHCPOptions (\ s a -> s{_ddorsDHCPOptions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ddorsStatus :: Lens' DescribeDHCPOptionsResponse Int

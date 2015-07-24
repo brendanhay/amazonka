@@ -117,7 +117,7 @@ idCreationDate = lens _idCreationDate (\ s a -> s{_idCreationDate = a}) . mappin
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
 idLogins :: Lens' IdentityDescription [Text]
-idLogins = lens _idLogins (\ s a -> s{_idLogins = a}) . _Default;
+idLogins = lens _idLogins (\ s a -> s{_idLogins = a}) . _Default . _Coerce;
 
 -- | A unique identifier in the format REGION:GUID.
 idIdentityId :: Lens' IdentityDescription (Maybe Text)
@@ -180,7 +180,7 @@ ipDeveloperProviderName = lens _ipDeveloperProviderName (\ s a -> s{_ipDeveloper
 
 -- | A list of OpendID Connect provider ARNs.
 ipOpenIdConnectProviderARNs :: Lens' IdentityPool [Text]
-ipOpenIdConnectProviderARNs = lens _ipOpenIdConnectProviderARNs (\ s a -> s{_ipOpenIdConnectProviderARNs = a}) . _Default;
+ipOpenIdConnectProviderARNs = lens _ipOpenIdConnectProviderARNs (\ s a -> s{_ipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
 
 -- | An identity pool ID in the format REGION:GUID.
 ipIdentityPoolId :: Lens' IdentityPool Text

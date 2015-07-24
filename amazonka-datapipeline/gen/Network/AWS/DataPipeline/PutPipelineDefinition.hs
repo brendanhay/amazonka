@@ -94,11 +94,11 @@ putPipelineDefinition pPipelineId_ =
 
 -- | The parameter objects used with the pipeline.
 ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
-ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a}) . _Default;
+ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a}) . _Default . _Coerce;
 
 -- | The parameter values used with the pipeline.
 ppdParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
-ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a}) . _Default;
+ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a}) . _Default . _Coerce;
 
 -- | The ID of the pipeline.
 ppdPipelineId :: Lens' PutPipelineDefinition Text
@@ -107,7 +107,7 @@ ppdPipelineId = lens _ppdPipelineId (\ s a -> s{_ppdPipelineId = a});
 -- | The objects that define the pipeline. These objects overwrite the
 -- existing pipeline definition.
 ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
-ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a});
+ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a}) . _Coerce;
 
 instance AWSRequest PutPipelineDefinition where
         type Sv PutPipelineDefinition = DataPipeline
@@ -179,12 +179,12 @@ putPipelineDefinitionResponse pStatus_ pErrored_ =
 -- | The validation errors that are associated with the objects defined in
 -- @pipelineObjects@.
 ppdrsValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
-ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidationErrors = a}) . _Default;
+ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidationErrors = a}) . _Default . _Coerce;
 
 -- | The validation warnings that are associated with the objects defined in
 -- @pipelineObjects@.
 ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
-ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default;
+ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ppdrsStatus :: Lens' PutPipelineDefinitionResponse Int

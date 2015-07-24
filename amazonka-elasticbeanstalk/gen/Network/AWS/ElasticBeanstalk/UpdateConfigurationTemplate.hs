@@ -102,12 +102,12 @@ updateConfigurationTemplate pApplicationName_ pTemplateName_ =
 --
 -- Constraint: You can remove only @UserDefined@ configuration options.
 uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
-uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default;
+uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default . _Coerce;
 
 -- | A list of configuration option settings to update with the new specified
 -- option value.
 uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
-uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a}) . _Default;
+uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a}) . _Default . _Coerce;
 
 -- | A new description for the configuration.
 uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)

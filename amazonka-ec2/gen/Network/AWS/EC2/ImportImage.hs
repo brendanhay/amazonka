@@ -171,7 +171,7 @@ impClientData = lens _impClientData (\ s a -> s{_impClientData = a});
 
 -- | Information about the disk containers.
 impDiskContainers :: Lens' ImportImage [ImageDiskContainer]
-impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a}) . _Default;
+impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a}) . _Default . _Coerce;
 
 instance AWSRequest ImportImage where
         type Sv ImportImage = EC2
@@ -290,7 +290,7 @@ irsLicenseType = lens _irsLicenseType (\ s a -> s{_irsLicenseType = a});
 
 -- | Information about the snapshots.
 irsSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
-irsSnapshotDetails = lens _irsSnapshotDetails (\ s a -> s{_irsSnapshotDetails = a}) . _Default;
+irsSnapshotDetails = lens _irsSnapshotDetails (\ s a -> s{_irsSnapshotDetails = a}) . _Default . _Coerce;
 
 -- | A detailed status message of the import task.
 irsStatusMessage :: Lens' ImportImageResponse (Maybe Text)

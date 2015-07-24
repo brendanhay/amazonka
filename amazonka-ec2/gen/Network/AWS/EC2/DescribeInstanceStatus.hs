@@ -159,7 +159,7 @@ disIncludeAllInstances = lens _disIncludeAllInstances (\ s a -> s{_disIncludeAll
 --     @not-applicable@).
 --
 disFilters :: Lens' DescribeInstanceStatus [Filter]
-disFilters = lens _disFilters (\ s a -> s{_disFilters = a}) . _Default;
+disFilters = lens _disFilters (\ s a -> s{_disFilters = a}) . _Default . _Coerce;
 
 -- | The token to retrieve the next page of results.
 disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
@@ -171,7 +171,7 @@ disNextToken = lens _disNextToken (\ s a -> s{_disNextToken = a});
 --
 -- Constraints: Maximum 100 explicitly specified instance IDs.
 disInstanceIds :: Lens' DescribeInstanceStatus [Text]
-disInstanceIds = lens _disInstanceIds (\ s a -> s{_disInstanceIds = a}) . _Default;
+disInstanceIds = lens _disInstanceIds (\ s a -> s{_disInstanceIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -256,7 +256,7 @@ describeInstanceStatusResponse pStatus_ =
 
 -- | One or more instance status descriptions.
 disrsInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
-disrsInstanceStatuses = lens _disrsInstanceStatuses (\ s a -> s{_disrsInstanceStatuses = a}) . _Default;
+disrsInstanceStatuses = lens _disrsInstanceStatuses (\ s a -> s{_disrsInstanceStatuses = a}) . _Default . _Coerce;
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.

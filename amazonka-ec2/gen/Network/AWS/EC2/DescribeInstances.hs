@@ -337,7 +337,7 @@ describeInstances =
 --     network interface was associated with an IP address.
 --
 diiFilters :: Lens' DescribeInstances [Filter]
-diiFilters = lens _diiFilters (\ s a -> s{_diiFilters = a}) . _Default;
+diiFilters = lens _diiFilters (\ s a -> s{_diiFilters = a}) . _Default . _Coerce;
 
 -- | The token to request the next page of results.
 diiNextToken :: Lens' DescribeInstances (Maybe Text)
@@ -347,7 +347,7 @@ diiNextToken = lens _diiNextToken (\ s a -> s{_diiNextToken = a});
 --
 -- Default: Describes all your instances.
 diiInstanceIds :: Lens' DescribeInstances [Text]
-diiInstanceIds = lens _diiInstanceIds (\ s a -> s{_diiInstanceIds = a}) . _Default;
+diiInstanceIds = lens _diiInstanceIds (\ s a -> s{_diiInstanceIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -434,7 +434,7 @@ dirsNextToken = lens _dirsNextToken (\ s a -> s{_dirsNextToken = a});
 
 -- | One or more reservations.
 dirsReservations :: Lens' DescribeInstancesResponse [Reservation]
-dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . _Default;
+dirsReservations = lens _dirsReservations (\ s a -> s{_dirsReservations = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dirsStatus :: Lens' DescribeInstancesResponse Int

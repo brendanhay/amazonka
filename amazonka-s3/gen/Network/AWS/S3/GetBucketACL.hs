@@ -113,7 +113,7 @@ getBucketACLResponse pStatus_ =
 
 -- | A list of grants.
 gbarsGrants :: Lens' GetBucketACLResponse [Grant]
-gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default;
+gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)

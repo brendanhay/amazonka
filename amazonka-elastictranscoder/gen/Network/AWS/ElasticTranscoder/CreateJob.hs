@@ -102,7 +102,7 @@ createJob pPipelineId_ pInput_ =
 -- transcoded (target) files. We recommend that you use the @Outputs@
 -- syntax instead of the @Output@ syntax.
 cjOutputs :: Lens' CreateJob [CreateJobOutput]
-cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default;
+cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default . _Coerce;
 
 -- | User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
@@ -122,7 +122,7 @@ cjOutput = lens _cjOutput (\ s a -> s{_cjOutput = a});
 --
 -- The maximum number of master playlists in a job is 30.
 cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
-cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a}) . _Default;
+cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a}) . _Default . _Coerce;
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the
 -- names of all files that this job creates, including output files,

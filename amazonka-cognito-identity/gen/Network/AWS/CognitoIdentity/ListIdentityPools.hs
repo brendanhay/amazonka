@@ -139,7 +139,7 @@ listIdentityPoolsResponse pStatus_ =
 
 -- | The identity pools returned by the ListIdentityPools action.
 liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
-liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = a}) . _Default;
+liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = a}) . _Default . _Coerce;
 
 -- | A pagination token.
 liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)

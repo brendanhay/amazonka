@@ -203,15 +203,15 @@ listEntitiesForPolicyResponse pStatus_ =
 
 -- | A list of groups that the policy is attached to.
 lefprsPolicyGroups :: Lens' ListEntitiesForPolicyResponse [PolicyGroup]
-lefprsPolicyGroups = lens _lefprsPolicyGroups (\ s a -> s{_lefprsPolicyGroups = a}) . _Default;
+lefprsPolicyGroups = lens _lefprsPolicyGroups (\ s a -> s{_lefprsPolicyGroups = a}) . _Default . _Coerce;
 
 -- | A list of roles that the policy is attached to.
 lefprsPolicyRoles :: Lens' ListEntitiesForPolicyResponse [PolicyRole]
-lefprsPolicyRoles = lens _lefprsPolicyRoles (\ s a -> s{_lefprsPolicyRoles = a}) . _Default;
+lefprsPolicyRoles = lens _lefprsPolicyRoles (\ s a -> s{_lefprsPolicyRoles = a}) . _Default . _Coerce;
 
 -- | A list of users that the policy is attached to.
 lefprsPolicyUsers :: Lens' ListEntitiesForPolicyResponse [PolicyUser]
-lefprsPolicyUsers = lens _lefprsPolicyUsers (\ s a -> s{_lefprsPolicyUsers = a}) . _Default;
+lefprsPolicyUsers = lens _lefprsPolicyUsers (\ s a -> s{_lefprsPolicyUsers = a}) . _Default . _Coerce;
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination

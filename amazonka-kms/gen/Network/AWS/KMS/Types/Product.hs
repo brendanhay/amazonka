@@ -184,7 +184,7 @@ gleGranteePrincipal = lens _gleGranteePrincipal (\ s a -> s{_gleGranteePrincipal
 -- 6.  ReEncryptTo
 -- 7.  CreateGrant
 gleOperations :: Lens' GrantListEntry [GrantOperation]
-gleOperations = lens _gleOperations (\ s a -> s{_gleOperations = a}) . _Default;
+gleOperations = lens _gleOperations (\ s a -> s{_gleOperations = a}) . _Default . _Coerce;
 
 instance FromJSON GrantListEntry where
         parseJSON

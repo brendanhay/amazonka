@@ -165,7 +165,7 @@ listServicesResponse pStatus_ =
 -- | The list of full Amazon Resource Name (ARN) entries for each service
 -- associated with the specified cluster.
 lsrsServiceARNs :: Lens' ListServicesResponse [Text]
-lsrsServiceARNs = lens _lsrsServiceARNs (\ s a -> s{_lsrsServiceARNs = a}) . _Default;
+lsrsServiceARNs = lens _lsrsServiceARNs (\ s a -> s{_lsrsServiceARNs = a}) . _Default . _Coerce;
 
 -- | The @nextToken@ value to include in a future @ListServices@ request.
 -- When the results of a @ListServices@ request exceed @maxResults@, this

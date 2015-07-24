@@ -77,7 +77,7 @@ attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 
 -- | The tags to be assigned to the Amazon RDS resource.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a});
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
 instance AWSRequest AddTagsToResource where
         type Sv AddTagsToResource = RDS

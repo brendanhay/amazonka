@@ -137,7 +137,7 @@ pollForThirdPartyJobsResponse pStatus_ =
 
 -- | Information about the jobs to take action on.
 pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
-pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default;
+pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 pftpjrsStatus :: Lens' PollForThirdPartyJobsResponse Int

@@ -109,7 +109,7 @@ daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a});
 
 -- | A list of alarm names to retrieve information for.
 daAlarmNames :: Lens' DescribeAlarms [Text]
-daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default;
+daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default . _Coerce;
 
 -- | The maximum number of alarm descriptions to retrieve.
 daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
@@ -182,7 +182,7 @@ describeAlarmsResponse pStatus_ =
 
 -- | A list of information for the specified alarms.
 darsMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
-darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . _Default;
+darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . _Default . _Coerce;
 
 -- | A string that marks the start of the next batch of returned results.
 darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)

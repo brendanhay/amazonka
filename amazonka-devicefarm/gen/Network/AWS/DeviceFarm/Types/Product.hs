@@ -451,7 +451,7 @@ dpArn = lens _dpArn (\ s a -> s{_dpArn = a});
 
 -- | Information about the device pool\'s rules.
 dpRules :: Lens' DevicePool [Rule]
-dpRules = lens _dpRules (\ s a -> s{_dpRules = a}) . _Default;
+dpRules = lens _dpRules (\ s a -> s{_dpRules = a}) . _Default . _Coerce;
 
 -- | The device pool\'s name.
 dpName :: Lens' DevicePool (Maybe Text)
@@ -520,7 +520,7 @@ dpcrCompatible = lens _dpcrCompatible (\ s a -> s{_dpcrCompatible = a});
 
 -- | Information about the compatibility.
 dpcrIncompatibilityMessages :: Lens' DevicePoolCompatibilityResult [IncompatibilityMessage]
-dpcrIncompatibilityMessages = lens _dpcrIncompatibilityMessages (\ s a -> s{_dpcrIncompatibilityMessages = a}) . _Default;
+dpcrIncompatibilityMessages = lens _dpcrIncompatibilityMessages (\ s a -> s{_dpcrIncompatibilityMessages = a}) . _Default . _Coerce;
 
 instance FromJSON DevicePoolCompatibilityResult where
         parseJSON
@@ -1471,7 +1471,7 @@ srcExtraDataPackageARN = lens _srcExtraDataPackageARN (\ s a -> s{_srcExtraDataP
 
 -- | A list of auxiliary apps for the run.
 srcAuxiliaryApps :: Lens' ScheduleRunConfiguration [Text]
-srcAuxiliaryApps = lens _srcAuxiliaryApps (\ s a -> s{_srcAuxiliaryApps = a}) . _Default;
+srcAuxiliaryApps = lens _srcAuxiliaryApps (\ s a -> s{_srcAuxiliaryApps = a}) . _Default . _Coerce;
 
 instance ToJSON ScheduleRunConfiguration where
         toJSON ScheduleRunConfiguration'{..}
@@ -1892,7 +1892,7 @@ uniqueProblem =
 
 -- | Information about the problems.
 upProblems :: Lens' UniqueProblem [Problem]
-upProblems = lens _upProblems (\ s a -> s{_upProblems = a}) . _Default;
+upProblems = lens _upProblems (\ s a -> s{_upProblems = a}) . _Default . _Coerce;
 
 -- | A message about the unique problems\' result.
 upMessage :: Lens' UniqueProblem (Maybe Text)

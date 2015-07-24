@@ -90,7 +90,7 @@ ccsgCacheSubnetGroupDescription = lens _ccsgCacheSubnetGroupDescription (\ s a -
 
 -- | A list of VPC subnet IDs for the cache subnet group.
 ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
-ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a});
+ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest CreateCacheSubnetGroup where
         type Sv CreateCacheSubnetGroup = ElastiCache

@@ -185,4 +185,4 @@ lgprsStatus = lens _lgprsStatus (\ s a -> s{_lgprsStatus = a});
 
 -- | A list of policy names.
 lgprsPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
-lgprsPolicyNames = lens _lgprsPolicyNames (\ s a -> s{_lgprsPolicyNames = a});
+lgprsPolicyNames = lens _lgprsPolicyNames (\ s a -> s{_lgprsPolicyNames = a}) . _Coerce;

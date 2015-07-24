@@ -83,7 +83,7 @@ describeAddresses =
 --
 -- Default: Describes all your Elastic IP addresses.
 daPublicIPs :: Lens' DescribeAddresses [Text]
-daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default;
+daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default . _Coerce;
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -108,7 +108,7 @@ daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default;
 -- -   @public-ip@ - The Elastic IP address.
 --
 daFilters :: Lens' DescribeAddresses [Filter]
-daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default;
+daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -121,7 +121,7 @@ daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 --
 -- Default: Describes all your Elastic IP addresses.
 daAllocationIds :: Lens' DescribeAddresses [Text]
-daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default;
+daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeAddresses where
         type Sv DescribeAddresses = EC2
@@ -174,7 +174,7 @@ describeAddressesResponse pStatus_ =
 
 -- | Information about one or more Elastic IP addresses.
 darsAddresses :: Lens' DescribeAddressesResponse [Address]
-darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default;
+darsAddresses = lens _darsAddresses (\ s a -> s{_darsAddresses = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 darsStatus :: Lens' DescribeAddressesResponse Int

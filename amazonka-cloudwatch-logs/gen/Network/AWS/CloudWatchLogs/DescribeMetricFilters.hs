@@ -169,7 +169,7 @@ dmfrsNextToken = lens _dmfrsNextToken (\ s a -> s{_dmfrsNextToken = a});
 
 -- | FIXME: Undocumented member.
 dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
-dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default;
+dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dmfrsStatus :: Lens' DescribeMetricFiltersResponse Int

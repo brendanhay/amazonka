@@ -58,7 +58,7 @@ enableAlarmActions =
 
 -- | The names of the alarms to enable actions for.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]
-eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a});
+eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a}) . _Coerce;
 
 instance AWSRequest EnableAlarmActions where
         type Sv EnableAlarmActions = CloudWatch

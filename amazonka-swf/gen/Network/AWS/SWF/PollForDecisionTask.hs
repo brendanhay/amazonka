@@ -329,4 +329,4 @@ pfdtrsWorkflowType = lens _pfdtrsWorkflowType (\ s a -> s{_pfdtrsWorkflowType = 
 -- | A paginated list of history events of the workflow execution. The
 -- decider uses this during the processing of the decision task.
 pfdtrsEvents :: Lens' PollForDecisionTaskResponse [HistoryEvent]
-pfdtrsEvents = lens _pfdtrsEvents (\ s a -> s{_pfdtrsEvents = a});
+pfdtrsEvents = lens _pfdtrsEvents (\ s a -> s{_pfdtrsEvents = a}) . _Coerce;

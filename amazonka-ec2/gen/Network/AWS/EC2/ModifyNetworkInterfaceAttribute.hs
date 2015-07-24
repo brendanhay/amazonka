@@ -87,7 +87,7 @@ modifyNetworkInterfaceAttribute pNetworkInterfaceId_ =
 -- one group, even if it\'s just the default security group in the VPC. You
 -- must specify the ID of the security group, not the name.
 mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
-mniaGroups = lens _mniaGroups (\ s a -> s{_mniaGroups = a}) . _Default;
+mniaGroups = lens _mniaGroups (\ s a -> s{_mniaGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether source\/destination checking is enabled. A value of
 -- @true@ means checking is enabled, and @false@ means checking is

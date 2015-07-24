@@ -105,7 +105,7 @@ describeReservedInstancesListings =
 -- -   @status-message@ - The reason for the status.
 --
 drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
-drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default;
+drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default . _Coerce;
 
 -- | One or more Reserved Instance IDs.
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
@@ -171,7 +171,7 @@ describeReservedInstancesListingsResponse pStatus_ =
 
 -- | Information about the Reserved Instance listing.
 drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
-drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default;
+drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drilrsStatus :: Lens' DescribeReservedInstancesListingsResponse Int

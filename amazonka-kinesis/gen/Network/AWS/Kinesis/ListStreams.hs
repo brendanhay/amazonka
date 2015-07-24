@@ -168,7 +168,7 @@ lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
 -- | The names of the streams that are associated with the AWS account making
 -- the @ListStreams@ request.
 lsrsStreamNames :: Lens' ListStreamsResponse [Text]
-lsrsStreamNames = lens _lsrsStreamNames (\ s a -> s{_lsrsStreamNames = a});
+lsrsStreamNames = lens _lsrsStreamNames (\ s a -> s{_lsrsStreamNames = a}) . _Coerce;
 
 -- | If set to @true@, there are more streams available to list.
 lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool

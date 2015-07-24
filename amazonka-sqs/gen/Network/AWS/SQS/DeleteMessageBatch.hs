@@ -85,7 +85,7 @@ dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a});
 
 -- | A list of receipt handles for the messages to be deleted.
 dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
-dmbEntries = lens _dmbEntries (\ s a -> s{_dmbEntries = a});
+dmbEntries = lens _dmbEntries (\ s a -> s{_dmbEntries = a}) . _Coerce;
 
 instance AWSRequest DeleteMessageBatch where
         type Sv DeleteMessageBatch = SQS
@@ -149,8 +149,8 @@ dmbrsStatus = lens _dmbrsStatus (\ s a -> s{_dmbrsStatus = a});
 
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
-dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a});
+dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a}) . _Coerce;
 
 -- | A list of BatchResultErrorEntry items.
 dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
-dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a});
+dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a}) . _Coerce;

@@ -131,7 +131,7 @@ usUsePreviousTemplate = lens _usUsePreviousTemplate (\ s a -> s{_usUsePreviousTe
 -- | Update the ARNs for the Amazon SNS topics that are associated with the
 -- stack.
 usNotificationARNs :: Lens' UpdateStack [Text]
-usNotificationARNs = lens _usNotificationARNs (\ s a -> s{_usNotificationARNs = a}) . _Default;
+usNotificationARNs = lens _usNotificationARNs (\ s a -> s{_usNotificationARNs = a}) . _Default . _Coerce;
 
 -- | Structure containing a new stack policy body. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
@@ -172,7 +172,7 @@ usStackPolicyDuringUpdateURL = lens _usStackPolicyDuringUpdateURL (\ s a -> s{_u
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
 -- data type.
 usParameters :: Lens' UpdateStack [Parameter]
-usParameters = lens _usParameters (\ s a -> s{_usParameters = a}) . _Default;
+usParameters = lens _usParameters (\ s a -> s{_usParameters = a}) . _Default . _Coerce;
 
 -- | Location of a file containing the updated stack policy. The URL must
 -- point to a policy (max size: 16KB) located in an S3 bucket in the same
@@ -225,7 +225,7 @@ usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 -- review any permissions associated with them. If you don\'t specify this
 -- parameter, this action returns an InsufficientCapabilities error.
 usCapabilities :: Lens' UpdateStack [Capability]
-usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Default;
+usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Default . _Coerce;
 
 -- | The name or unique stack ID of the stack to update.
 usStackName :: Lens' UpdateStack Text

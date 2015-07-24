@@ -225,7 +225,7 @@ larrsNextToken = lens _larrsNextToken (\ s a -> s{_larrsNextToken = a});
 
 -- | A list of revision locations that contain the matching revisions.
 larrsRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
-larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Default;
+larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 larrsStatus :: Lens' ListApplicationRevisionsResponse Int

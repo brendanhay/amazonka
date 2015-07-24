@@ -77,7 +77,7 @@ asgtlbLoadBalancerName = lens _asgtlbLoadBalancerName (\ s a -> s{_asgtlbLoadBal
 -- | The IDs of the security groups to associate with the load balancer. Note
 -- that you cannot specify the name of the security group.
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
-asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGroups = a});
+asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGroups = a}) . _Coerce;
 
 instance AWSRequest ApplySecurityGroupsToLoadBalancer
          where
@@ -135,7 +135,7 @@ applySecurityGroupsToLoadBalancerResponse pStatus_ =
 
 -- | The IDs of the security groups associated with the load balancer.
 asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
-asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default;
+asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 asgtlbrsStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int

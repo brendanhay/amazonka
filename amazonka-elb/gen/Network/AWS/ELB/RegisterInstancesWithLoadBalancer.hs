@@ -100,7 +100,7 @@ riwlbLoadBalancerName = lens _riwlbLoadBalancerName (\ s a -> s{_riwlbLoadBalanc
 
 -- | The IDs of the instances.
 riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
-riwlbInstances = lens _riwlbInstances (\ s a -> s{_riwlbInstances = a});
+riwlbInstances = lens _riwlbInstances (\ s a -> s{_riwlbInstances = a}) . _Coerce;
 
 instance AWSRequest RegisterInstancesWithLoadBalancer
          where
@@ -157,7 +157,7 @@ registerInstancesWithLoadBalancerResponse pStatus_ =
 
 -- | The updated list of instances for the load balancer.
 riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
-riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default;
+riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 riwlbrsStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int

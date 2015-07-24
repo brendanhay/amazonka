@@ -135,7 +135,7 @@ describeReservedInstances =
 --     (for example, 0.84).
 --
 driFilters :: Lens' DescribeReservedInstances [Filter]
-driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default;
+driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default . _Coerce;
 
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the
@@ -148,7 +148,7 @@ driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
 -- Default: Describes all your Reserved Instances, or only those otherwise
 -- specified.
 driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
-driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a}) . _Default;
+driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -211,7 +211,7 @@ describeReservedInstancesResponse pStatus_ =
 
 -- | A list of Reserved Instances.
 drirsReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
-drirsReservedInstances = lens _drirsReservedInstances (\ s a -> s{_drirsReservedInstances = a}) . _Default;
+drirsReservedInstances = lens _drirsReservedInstances (\ s a -> s{_drirsReservedInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drirsStatus :: Lens' DescribeReservedInstancesResponse Int

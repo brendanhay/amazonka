@@ -107,7 +107,7 @@ mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\ s a -> s{_mdpgDBPar
 -- use the pending-reboot value for both dynamic and static parameters, and
 -- changes are applied when you reboot the DB instance without failover.
 mdpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
-mdpgParameters = lens _mdpgParameters (\ s a -> s{_mdpgParameters = a});
+mdpgParameters = lens _mdpgParameters (\ s a -> s{_mdpgParameters = a}) . _Coerce;
 
 instance AWSRequest ModifyDBParameterGroup where
         type Sv ModifyDBParameterGroup = RDS

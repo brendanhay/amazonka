@@ -111,7 +111,7 @@ describeTagsResponse pStatus_ =
 
 -- | Information about the tags.
 dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
-dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default;
+dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int

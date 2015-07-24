@@ -89,7 +89,7 @@ createClusterParameterGroup pParameterGroupName_ pParameterGroupFamily_ pDescrip
 
 -- | A list of tag instances.
 ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
-ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a}) . _Default;
+ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a}) . _Default . _Coerce;
 
 -- | The name of the cluster parameter group.
 --

@@ -150,11 +150,11 @@ caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a});
 -- specified one or more environment variables, you cannot modify the
 -- stack\'s Chef version.
 caEnvironment :: Lens' CreateApp [EnvironmentVariable]
-caEnvironment = lens _caEnvironment (\ s a -> s{_caEnvironment = a}) . _Default;
+caEnvironment = lens _caEnvironment (\ s a -> s{_caEnvironment = a}) . _Default . _Coerce;
 
 -- | The app\'s data source.
 caDataSources :: Lens' CreateApp [DataSource]
-caDataSources = lens _caDataSources (\ s a -> s{_caDataSources = a}) . _Default;
+caDataSources = lens _caDataSources (\ s a -> s{_caDataSources = a}) . _Default . _Coerce;
 
 -- | A @Source@ object that specifies the app repository.
 caAppSource :: Lens' CreateApp (Maybe Source)
@@ -168,7 +168,7 @@ caAttributes = lens _caAttributes (\ s a -> s{_caAttributes = a}) . _Default . _
 -- | The app virtual host settings, with multiple domains separated by
 -- commas. For example: @\'www.example.com, example.com\'@
 caDomains :: Lens' CreateApp [Text]
-caDomains = lens _caDomains (\ s a -> s{_caDomains = a}) . _Default;
+caDomains = lens _caDomains (\ s a -> s{_caDomains = a}) . _Default . _Coerce;
 
 -- | A description of the app.
 caDescription :: Lens' CreateApp (Maybe Text)

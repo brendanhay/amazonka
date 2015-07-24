@@ -141,7 +141,7 @@ mAttribute = lens _mAttribute (\ s a -> s{_mAttribute = a});
 -- group for the VPC. You must specify the security group ID, not the
 -- security group name.
 mGroups :: Lens' ModifyInstanceAttribute [Text]
-mGroups = lens _mGroups (\ s a -> s{_mGroups = a}) . _Default;
+mGroups = lens _mGroups (\ s a -> s{_mGroups = a}) . _Default . _Coerce;
 
 -- | Specifies whether source\/destination checking is enabled. A value of
 -- @true@ means that checking is enabled, and @false@ means checking is
@@ -219,7 +219,7 @@ mInstanceInitiatedShutdownBehavior = lens _mInstanceInitiatedShutdownBehavior (\
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the Block Device Mapping when Launching an Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 mBlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
-mBlockDeviceMappings = lens _mBlockDeviceMappings (\ s a -> s{_mBlockDeviceMappings = a}) . _Default;
+mBlockDeviceMappings = lens _mBlockDeviceMappings (\ s a -> s{_mBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

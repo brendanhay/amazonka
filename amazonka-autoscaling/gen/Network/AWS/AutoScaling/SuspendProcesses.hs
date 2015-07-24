@@ -92,7 +92,7 @@ suspendProcesses pAutoScalingGroupName_ =
 -- -   @AddToLoadBalancer@
 --
 spScalingProcesses :: Lens' SuspendProcesses [Text]
-spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a}) . _Default;
+spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a}) . _Default . _Coerce;
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 spAutoScalingGroupName :: Lens' SuspendProcesses Text

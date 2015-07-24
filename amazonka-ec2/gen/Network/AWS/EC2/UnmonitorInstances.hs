@@ -76,7 +76,7 @@ uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a});
 
 -- | One or more instance IDs.
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
-uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a});
+uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a}) . _Coerce;
 
 instance AWSRequest UnmonitorInstances where
         type Sv UnmonitorInstances = EC2
@@ -127,7 +127,7 @@ unmonitorInstancesResponse pStatus_ =
 
 -- | Monitoring information for one or more instances.
 uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
-uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default;
+uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 uirsStatus :: Lens' UnmonitorInstancesResponse Int

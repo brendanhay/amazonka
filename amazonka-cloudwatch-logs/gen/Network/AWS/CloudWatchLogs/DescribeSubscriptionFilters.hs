@@ -162,7 +162,7 @@ describeSubscriptionFiltersResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 dsfrsSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse [SubscriptionFilter]
-dsfrsSubscriptionFilters = lens _dsfrsSubscriptionFilters (\ s a -> s{_dsfrsSubscriptionFilters = a}) . _Default;
+dsfrsSubscriptionFilters = lens _dsfrsSubscriptionFilters (\ s a -> s{_dsfrsSubscriptionFilters = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsfrsNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)

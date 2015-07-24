@@ -103,7 +103,7 @@ listOpenIdConnectProvidersResponse pStatus_ =
 
 -- | The list of IAM OpenID Connect providers in the AWS account.
 loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
-loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default;
+loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 loicprsStatus :: Lens' ListOpenIdConnectProvidersResponse Int

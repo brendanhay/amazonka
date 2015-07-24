@@ -184,4 +184,4 @@ luprsStatus = lens _luprsStatus (\ s a -> s{_luprsStatus = a});
 
 -- | A list of policy names.
 luprsPolicyNames :: Lens' ListUserPoliciesResponse [Text]
-luprsPolicyNames = lens _luprsPolicyNames (\ s a -> s{_luprsPolicyNames = a});
+luprsPolicyNames = lens _luprsPolicyNames (\ s a -> s{_luprsPolicyNames = a}) . _Coerce;

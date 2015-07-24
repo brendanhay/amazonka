@@ -154,13 +154,13 @@ describeVolumeStatus =
 --     | @warning@ | @insufficient-data@).
 --
 dvssFilters :: Lens' DescribeVolumeStatus [Filter]
-dvssFilters = lens _dvssFilters (\ s a -> s{_dvssFilters = a}) . _Default;
+dvssFilters = lens _dvssFilters (\ s a -> s{_dvssFilters = a}) . _Default . _Coerce;
 
 -- | One or more volume IDs.
 --
 -- Default: Describes all your volumes.
 dvssVolumeIds :: Lens' DescribeVolumeStatus [Text]
-dvssVolumeIds = lens _dvssVolumeIds (\ s a -> s{_dvssVolumeIds = a}) . _Default;
+dvssVolumeIds = lens _dvssVolumeIds (\ s a -> s{_dvssVolumeIds = a}) . _Default . _Coerce;
 
 -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
 -- request. When the results of the request exceed @MaxResults@, this value
@@ -257,7 +257,7 @@ dvsrsNextToken = lens _dvsrsNextToken (\ s a -> s{_dvsrsNextToken = a});
 
 -- | A list of volumes.
 dvsrsVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
-dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses = a}) . _Default;
+dvsrsVolumeStatuses = lens _dvsrsVolumeStatuses (\ s a -> s{_dvsrsVolumeStatuses = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvsrsStatus :: Lens' DescribeVolumeStatusResponse Int

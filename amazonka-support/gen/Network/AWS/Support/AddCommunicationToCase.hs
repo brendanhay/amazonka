@@ -94,7 +94,7 @@ actcCaseId = lens _actcCaseId (\ s a -> s{_actcCaseId = a});
 -- | The email addresses in the CC line of an email to be added to the
 -- support case.
 actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
-actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default;
+actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default . _Coerce;
 
 -- | The ID of a set of one or more attachments for the communication to add
 -- to the case. Create the set by calling AddAttachmentsToSet

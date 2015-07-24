@@ -91,7 +91,7 @@ dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
 -- returns descriptions of the specified volumes. Otherwise, it returns a
 -- description of every volume.
 dvVolumeIds :: Lens' DescribeVolumes [Text]
-dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default;
+dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default . _Coerce;
 
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified RAID array.
@@ -160,7 +160,7 @@ describeVolumesResponse pStatus_ =
 
 -- | An array of volume IDs.
 dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default;
+dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvrsStatus :: Lens' DescribeVolumesResponse Int

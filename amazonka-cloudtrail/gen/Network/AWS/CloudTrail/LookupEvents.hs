@@ -105,7 +105,7 @@ leStartTime = lens _leStartTime (\ s a -> s{_leStartTime = a}) . mapping _Time;
 -- | Contains a list of lookup attributes. Currently the list can contain
 -- only one item.
 leLookupAttributes :: Lens' LookupEvents [LookupAttribute]
-leLookupAttributes = lens _leLookupAttributes (\ s a -> s{_leLookupAttributes = a}) . _Default;
+leLookupAttributes = lens _leLookupAttributes (\ s a -> s{_leLookupAttributes = a}) . _Default . _Coerce;
 
 -- | The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
@@ -200,7 +200,7 @@ lersNextToken = lens _lersNextToken (\ s a -> s{_lersNextToken = a});
 -- the CloudTrail event. The events list is sorted by time. The most recent
 -- event is listed first.
 lersEvents :: Lens' LookupEventsResponse [Event]
-lersEvents = lens _lersEvents (\ s a -> s{_lersEvents = a}) . _Default;
+lersEvents = lens _lersEvents (\ s a -> s{_lersEvents = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lersStatus :: Lens' LookupEventsResponse Int

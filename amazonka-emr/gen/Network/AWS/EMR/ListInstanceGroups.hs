@@ -150,7 +150,7 @@ ligrsMarker = lens _ligrsMarker (\ s a -> s{_ligrsMarker = a});
 
 -- | The list of instance groups for the cluster and given filters.
 ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
-ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default;
+ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ligrsStatus :: Lens' ListInstanceGroupsResponse Int

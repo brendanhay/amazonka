@@ -158,7 +158,7 @@ ldgrsApplicationName = lens _ldgrsApplicationName (\ s a -> s{_ldgrsApplicationN
 
 -- | A list of corresponding deployment group names.
 ldgrsDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
-ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeploymentGroups = a}) . _Default;
+ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeploymentGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ldgrsStatus :: Lens' ListDeploymentGroupsResponse Int

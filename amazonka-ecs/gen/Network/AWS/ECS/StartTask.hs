@@ -125,7 +125,7 @@ sTaskDefinition = lens _sTaskDefinition (\ s a -> s{_sTaskDefinition = a});
 --
 -- The list of container instances to start tasks on is limited to 10.
 sContainerInstances :: Lens' StartTask [Text]
-sContainerInstances = lens _sContainerInstances (\ s a -> s{_sContainerInstances = a});
+sContainerInstances = lens _sContainerInstances (\ s a -> s{_sContainerInstances = a}) . _Coerce;
 
 instance AWSRequest StartTask where
         type Sv StartTask = ECS
@@ -189,12 +189,12 @@ startTaskResponse pStatus_ =
 
 -- | Any failed tasks from your @StartTask@ action are listed here.
 strsFailures :: Lens' StartTaskResponse [Failure]
-strsFailures = lens _strsFailures (\ s a -> s{_strsFailures = a}) . _Default;
+strsFailures = lens _strsFailures (\ s a -> s{_strsFailures = a}) . _Default . _Coerce;
 
 -- | A full description of the tasks that were started. Each task that was
 -- successfully placed on your container instances will be described here.
 strsTasks :: Lens' StartTaskResponse [Task]
-strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default;
+strsTasks = lens _strsTasks (\ s a -> s{_strsTasks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 strsStatus :: Lens' StartTaskResponse Int

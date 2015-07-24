@@ -149,4 +149,4 @@ latrsStatus = lens _latrsStatus (\ s a -> s{_latrsStatus = a});
 
 -- | Provides details of the action types.
 latrsActionTypes :: Lens' ListActionTypesResponse [ActionType]
-latrsActionTypes = lens _latrsActionTypes (\ s a -> s{_latrsActionTypes = a});
+latrsActionTypes = lens _latrsActionTypes (\ s a -> s{_latrsActionTypes = a}) . _Coerce;

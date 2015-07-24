@@ -114,8 +114,8 @@ generateRandomResponse pStatus_ =
     }
 
 -- | Plaintext that contains the unpredictable byte string.
-grrsPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
-grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping _Sensitive;
+grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
+grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping _Sensitive . _Base64;
 
 -- | FIXME: Undocumented member.
 grrsStatus :: Lens' GenerateRandomResponse Int

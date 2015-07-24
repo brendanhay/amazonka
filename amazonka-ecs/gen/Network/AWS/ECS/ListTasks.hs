@@ -236,7 +236,7 @@ ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 -- | The list of task Amazon Resource Name (ARN) entries for the @ListTasks@
 -- request.
 ltrsTaskARNs :: Lens' ListTasksResponse [Text]
-ltrsTaskARNs = lens _ltrsTaskARNs (\ s a -> s{_ltrsTaskARNs = a}) . _Default;
+ltrsTaskARNs = lens _ltrsTaskARNs (\ s a -> s{_ltrsTaskARNs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ltrsStatus :: Lens' ListTasksResponse Int

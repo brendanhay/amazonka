@@ -78,7 +78,7 @@ createHSMClientCertificate pHSMClientCertificateIdentifier_ =
 
 -- | A list of tag instances.
 chccTags :: Lens' CreateHSMClientCertificate [Tag]
-chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default;
+chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default . _Coerce;
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption

@@ -89,7 +89,7 @@ rcpgCacheParameterGroupName = lens _rcpgCacheParameterGroupName (\ s a -> s{_rcp
 -- entire cache parameter group, you must specify at least one parameter
 -- name.
 rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
-rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a});
+rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a}) . _Coerce;
 
 instance AWSRequest ResetCacheParameterGroup where
         type Sv ResetCacheParameterGroup = ElastiCache

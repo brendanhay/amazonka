@@ -107,7 +107,7 @@ cClientToken = lens _cClientToken (\ s a -> s{_cClientToken = a});
 -- container name (as it appears in a container definition), and the
 -- container port to access from the load balancer.
 cLoadBalancers :: Lens' CreateService [LoadBalancer]
-cLoadBalancers = lens _cLoadBalancers (\ s a -> s{_cLoadBalancers = a}) . _Default;
+cLoadBalancers = lens _cLoadBalancers (\ s a -> s{_cLoadBalancers = a}) . _Default . _Coerce;
 
 -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
 -- your Amazon ECS container agent to make calls to your load balancer on

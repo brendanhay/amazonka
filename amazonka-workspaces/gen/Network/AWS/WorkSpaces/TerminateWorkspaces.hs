@@ -134,7 +134,7 @@ terminateWorkspacesResponse pStatus_ =
 -- | An array of structures that represent any WorkSpaces that could not be
 -- terminated.
 twrsFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
-twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default;
+twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 twrsStatus :: Lens' TerminateWorkspacesResponse Int

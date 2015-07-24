@@ -162,4 +162,4 @@ lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
 
 -- | A list of identities.
 lirsIdentities :: Lens' ListIdentitiesResponse [Text]
-lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a});
+lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Coerce;

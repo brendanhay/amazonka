@@ -186,4 +186,4 @@ lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
 
 -- | A list of the user\'s signing certificate information.
 lrsCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
-lrsCertificates = lens _lrsCertificates (\ s a -> s{_lrsCertificates = a});
+lrsCertificates = lens _lrsCertificates (\ s a -> s{_lrsCertificates = a}) . _Coerce;

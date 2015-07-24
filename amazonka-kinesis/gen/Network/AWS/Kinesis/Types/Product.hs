@@ -77,11 +77,11 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordsRequestEntry' smart constructor.
-putRecordsRequestEntry :: Base64 -> Text -> PutRecordsRequestEntry
+putRecordsRequestEntry :: ByteString -> Text -> PutRecordsRequestEntry
 putRecordsRequestEntry pData_ pPartitionKey_ =
     PutRecordsRequestEntry'
     { _prreExplicitHashKey = Nothing
-    , _prreData = pData_
+    , _prreData = _Base64 # pData_
     , _prrePartitionKey = pPartitionKey_
     }
 
@@ -93,8 +93,8 @@ prreExplicitHashKey = lens _prreExplicitHashKey (\ s a -> s{_prreExplicitHashKey
 -- | The data blob to put into the record, which is base64-encoded when the
 -- blob is serialized. The maximum size of the data blob (the payload
 -- before base64-encoding) is 50 kilobytes (KB)
-prreData :: Lens' PutRecordsRequestEntry Base64
-prreData = lens _prreData (\ s a -> s{_prreData = a});
+prreData :: Lens' PutRecordsRequestEntry ByteString
+prreData = lens _prreData (\ s a -> s{_prreData = a}) . _Base64;
 
 -- | Determines which shard in the stream the data record is assigned to.
 -- Partition keys are Unicode strings with a maximum length limit of 256
@@ -198,11 +198,11 @@ data Record = Record'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
-record :: Text -> Base64 -> Text -> Record
+record :: Text -> ByteString -> Text -> Record
 record pSequenceNumber_ pData_ pPartitionKey_ =
     Record'
     { _rSequenceNumber = pSequenceNumber_
-    , _rData = pData_
+    , _rData = _Base64 # pData_
     , _rPartitionKey = pPartitionKey_
     }
 
@@ -214,8 +214,8 @@ rSequenceNumber = lens _rSequenceNumber (\ s a -> s{_rSequenceNumber = a});
 -- Amazon Kinesis service, which does not inspect, interpret, or change the
 -- data in the blob in any way. The maximum size of the data blob (the
 -- payload before base64-encoding) is 50 kilobytes (KB)
-rData :: Lens' Record Base64
-rData = lens _rData (\ s a -> s{_rData = a});
+rData :: Lens' Record ByteString
+rData = lens _rData (\ s a -> s{_rData = a}) . _Base64;
 
 -- | Identifies which shard in the stream the data record is assigned to.
 rPartitionKey :: Lens' Record Text
@@ -395,7 +395,7 @@ sdStreamStatus = lens _sdStreamStatus (\ s a -> s{_sdStreamStatus = a});
 
 -- | The shards that comprise the stream.
 sdShards :: Lens' StreamDescription [Shard]
-sdShards = lens _sdShards (\ s a -> s{_sdShards = a});
+sdShards = lens _sdShards (\ s a -> s{_sdShards = a}) . _Coerce;
 
 -- | If set to @true@, more shards in the stream are available to describe.
 sdHasMoreShards :: Lens' StreamDescription Bool

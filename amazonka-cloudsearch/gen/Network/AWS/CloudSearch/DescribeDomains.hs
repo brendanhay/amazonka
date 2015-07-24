@@ -73,7 +73,7 @@ describeDomains =
 
 -- | The names of the domains you want to include in the response.
 ddDomainNames :: Lens' DescribeDomains [Text]
-ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default;
+ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeDomains where
         type Sv DescribeDomains = CloudSearch
@@ -130,4 +130,4 @@ ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});
 
 -- | FIXME: Undocumented member.
 ddsrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a});
+ddsrsDomainStatusList = lens _ddsrsDomainStatusList (\ s a -> s{_ddsrsDomainStatusList = a}) . _Coerce;

@@ -82,7 +82,7 @@ describeDBParameterGroups =
 
 -- | This parameter is not currently supported.
 ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
-ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default;
+ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default . _Coerce;
 
 -- | The name of a specific DB parameter group to return details for.
 --
@@ -186,7 +186,7 @@ ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
 
 -- | A list of DBParameterGroup instances.
 ddpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
-ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default;
+ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ddpgrsStatus :: Lens' DescribeDBParameterGroupsResponse Int

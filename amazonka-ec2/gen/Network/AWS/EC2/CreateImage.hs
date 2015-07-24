@@ -106,7 +106,7 @@ ciiNoReboot = lens _ciiNoReboot (\ s a -> s{_ciiNoReboot = a});
 
 -- | Information about one or more block device mappings.
 ciiBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
-ciiBlockDeviceMappings = lens _ciiBlockDeviceMappings (\ s a -> s{_ciiBlockDeviceMappings = a}) . _Default;
+ciiBlockDeviceMappings = lens _ciiBlockDeviceMappings (\ s a -> s{_ciiBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

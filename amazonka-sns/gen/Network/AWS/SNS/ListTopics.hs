@@ -129,7 +129,7 @@ listTopicsResponse pStatus_ =
 
 -- | A list of topic ARNs.
 ltrsTopics :: Lens' ListTopicsResponse [Topic]
-ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default;
+ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default . _Coerce;
 
 -- | Token to pass along to the next @ListTopics@ request. This element is
 -- returned if there are additional topics to retrieve.

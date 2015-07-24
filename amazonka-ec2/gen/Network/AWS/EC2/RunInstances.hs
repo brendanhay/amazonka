@@ -212,7 +212,7 @@ runInstances pImageId_ pMinCount_ pMaxCount_ =
 --
 -- Default: Amazon EC2 uses the default security group.
 rSecurityGroupIds :: Lens' RunInstances [Text]
-rSecurityGroupIds = lens _rSecurityGroupIds (\ s a -> s{_rSecurityGroupIds = a}) . _Default;
+rSecurityGroupIds = lens _rSecurityGroupIds (\ s a -> s{_rSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | Reserved.
 rAdditionalInfo :: Lens' RunInstances (Maybe Text)
@@ -223,7 +223,7 @@ rAdditionalInfo = lens _rAdditionalInfo (\ s a -> s{_rAdditionalInfo = a});
 --
 -- Default: Amazon EC2 uses the default security group.
 rSecurityGroups :: Lens' RunInstances [Text]
-rSecurityGroups = lens _rSecurityGroups (\ s a -> s{_rSecurityGroups = a}) . _Default;
+rSecurityGroups = lens _rSecurityGroups (\ s a -> s{_rSecurityGroups = a}) . _Default . _Coerce;
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
@@ -248,7 +248,7 @@ rDisableAPITermination = lens _rDisableAPITermination (\ s a -> s{_rDisableAPITe
 
 -- | One or more network interfaces.
 rNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
-rNetworkInterfaces = lens _rNetworkInterfaces (\ s a -> s{_rNetworkInterfaces = a}) . _Default;
+rNetworkInterfaces = lens _rNetworkInterfaces (\ s a -> s{_rNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The name of the key pair. You can create a key pair using CreateKeyPair
 -- or ImportKeyPair.
@@ -334,7 +334,7 @@ rPrivateIPAddress = lens _rPrivateIPAddress (\ s a -> s{_rPrivateIPAddress = a})
 
 -- | The block device mapping.
 rBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
-rBlockDeviceMappings = lens _rBlockDeviceMappings (\ s a -> s{_rBlockDeviceMappings = a}) . _Default;
+rBlockDeviceMappings = lens _rBlockDeviceMappings (\ s a -> s{_rBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

@@ -103,7 +103,7 @@ describeHSMConfigurations =
 -- the HSM configurations that have either or both of these tag values
 -- associated with them.
 dhsmcTagValues :: Lens' DescribeHSMConfigurations [Text]
-dhsmcTagValues = lens _dhsmcTagValues (\ s a -> s{_dhsmcTagValues = a}) . _Default;
+dhsmcTagValues = lens _dhsmcTagValues (\ s a -> s{_dhsmcTagValues = a}) . _Default . _Coerce;
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for
@@ -119,7 +119,7 @@ dhsmcHSMConfigurationIdentifier = lens _dhsmcHSMConfigurationIdentifier (\ s a -
 -- configurations that have either or both of these tag keys associated
 -- with them.
 dhsmcTagKeys :: Lens' DescribeHSMConfigurations [Text]
-dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default;
+dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default . _Coerce;
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -221,7 +221,7 @@ dhcrsMarker = lens _dhcrsMarker (\ s a -> s{_dhcrsMarker = a});
 
 -- | A list of Amazon Redshift HSM configurations.
 dhcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
-dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default;
+dhcrsHSMConfigurations = lens _dhcrsHSMConfigurations (\ s a -> s{_dhcrsHSMConfigurations = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dhcrsStatus :: Lens' DescribeHSMConfigurationsResponse Int

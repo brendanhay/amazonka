@@ -165,7 +165,7 @@ lebparsNextToken = lens _lebparsNextToken (\ s a -> s{_lebparsNextToken = a});
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
 lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
-lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default;
+lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lebparsStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int

@@ -74,7 +74,7 @@ dtCluster = lens _dtCluster (\ s a -> s{_dtCluster = a});
 -- | A space-separated list of task UUIDs or full Amazon Resource Name (ARN)
 -- entries.
 dtTasks :: Lens' DescribeTasks [Text]
-dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a});
+dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a}) . _Coerce;
 
 instance AWSRequest DescribeTasks where
         type Sv DescribeTasks = ECS
@@ -135,11 +135,11 @@ describeTasksResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 dtrsFailures :: Lens' DescribeTasksResponse [Failure]
-dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default;
+dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default . _Coerce;
 
 -- | The list of tasks.
 dtrsTasks :: Lens' DescribeTasksResponse [Task]
-dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default;
+dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtrsStatus :: Lens' DescribeTasksResponse Int

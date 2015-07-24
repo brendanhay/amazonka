@@ -84,7 +84,7 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 -- of stack status codes, see the @StackStatus@ parameter of the Stack data
 -- type.
 lsStackStatusFilter :: Lens' ListStacks [StackStatus]
-lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default;
+lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default . _Coerce;
 
 instance AWSPager ListStacks where
         page rq rs
@@ -151,7 +151,7 @@ listStacksResponse pStatus_ =
 -- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
 lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
-lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default;
+lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default . _Coerce;
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.

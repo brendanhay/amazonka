@@ -99,13 +99,13 @@ describeVPCs =
 -- -   @vpc-id@ - The ID of the VPC.
 --
 dvsFilters :: Lens' DescribeVPCs [Filter]
-dvsFilters = lens _dvsFilters (\ s a -> s{_dvsFilters = a}) . _Default;
+dvsFilters = lens _dvsFilters (\ s a -> s{_dvsFilters = a}) . _Default . _Coerce;
 
 -- | One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
 dvsVPCIds :: Lens' DescribeVPCs [Text]
-dvsVPCIds = lens _dvsVPCIds (\ s a -> s{_dvsVPCIds = a}) . _Default;
+dvsVPCIds = lens _dvsVPCIds (\ s a -> s{_dvsVPCIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -163,7 +163,7 @@ describeVPCsResponse pStatus_ =
 
 -- | Information about one or more VPCs.
 dvrsVPCs :: Lens' DescribeVPCsResponse [VPC]
-dvrsVPCs = lens _dvrsVPCs (\ s a -> s{_dvrsVPCs = a}) . _Default;
+dvrsVPCs = lens _dvrsVPCs (\ s a -> s{_dvrsVPCs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvrsStatus :: Lens' DescribeVPCsResponse Int

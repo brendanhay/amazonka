@@ -112,8 +112,8 @@ getCredentialReportResponse pStatus_ =
     }
 
 -- | Contains the credential report. The report is Base64-encoded.
-grsContent :: Lens' GetCredentialReportResponse (Maybe Base64)
-grsContent = lens _grsContent (\ s a -> s{_grsContent = a});
+grsContent :: Lens' GetCredentialReportResponse (Maybe ByteString)
+grsContent = lens _grsContent (\ s a -> s{_grsContent = a}) . mapping _Base64;
 
 -- | The date and time when the credential report was created, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>.

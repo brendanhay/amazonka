@@ -157,7 +157,7 @@ validateTemplateResponse pStatus_ =
 
 -- | A list of @TemplateParameter@ structures.
 vtrsParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
-vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Default;
+vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Default . _Coerce;
 
 -- | The list of resources that generated the values in the @Capabilities@
 -- response element.
@@ -171,7 +171,7 @@ vtrsCapabilitiesReason = lens _vtrsCapabilitiesReason (\ s a -> s{_vtrsCapabilit
 -- actions with your template; otherwise, those actions return an
 -- InsufficientCapabilities error.
 vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
-vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default;
+vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default . _Coerce;
 
 -- | The description found within the template.
 vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)

@@ -83,13 +83,13 @@ data ReEncrypt = ReEncrypt'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReEncrypt' smart constructor.
-reEncrypt :: Base64 -> Text -> ReEncrypt
+reEncrypt :: ByteString -> Text -> ReEncrypt
 reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
     ReEncrypt'
     { _reDestinationEncryptionContext = Nothing
     , _reSourceEncryptionContext = Nothing
     , _reGrantTokens = Nothing
-    , _reCiphertextBlob = pCiphertextBlob_
+    , _reCiphertextBlob = _Base64 # pCiphertextBlob_
     , _reDestinationKeyId = pDestinationKeyId_
     }
 
@@ -105,11 +105,11 @@ reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourc
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 reGrantTokens :: Lens' ReEncrypt [Text]
-reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default;
+reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default . _Coerce;
 
 -- | Ciphertext of the data to re-encrypt.
-reCiphertextBlob :: Lens' ReEncrypt Base64
-reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a});
+reCiphertextBlob :: Lens' ReEncrypt ByteString
+reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a}) . _Base64;
 
 -- | A unique identifier for the customer master key used to re-encrypt the
 -- data. This value can be a globally unique identifier, a fully specified
@@ -202,8 +202,8 @@ rersKeyId = lens _rersKeyId (\ s a -> s{_rersKeyId = a});
 
 -- | The re-encrypted data. If you are using the CLI, the value is Base64
 -- encoded. Otherwise, it is not encoded.
-rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe Base64)
-rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a});
+rersCiphertextBlob :: Lens' ReEncryptResponse (Maybe ByteString)
+rersCiphertextBlob = lens _rersCiphertextBlob (\ s a -> s{_rersCiphertextBlob = a}) . mapping _Base64;
 
 -- | FIXME: Undocumented member.
 rersStatus :: Lens' ReEncryptResponse Int

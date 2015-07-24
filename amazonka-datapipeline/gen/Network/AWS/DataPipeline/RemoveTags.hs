@@ -71,7 +71,7 @@ rtPipelineId = lens _rtPipelineId (\ s a -> s{_rtPipelineId = a});
 
 -- | The keys of the tags to remove.
 rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a});
+rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = DataPipeline

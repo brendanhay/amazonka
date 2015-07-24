@@ -80,7 +80,7 @@ aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a});
 -- | The layer ID, which must correspond to a custom layer. You cannot assign
 -- a registered instance to a built-in layer.
 aiLayerIds :: Lens' AssignInstance [Text]
-aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a});
+aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a}) . _Coerce;
 
 instance AWSRequest AssignInstance where
         type Sv AssignInstance = OpsWorks

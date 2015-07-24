@@ -295,7 +295,7 @@ mNamespace = lens _mNamespace (\ s a -> s{_mNamespace = a});
 
 -- | A list of dimensions associated with the metric.
 mDimensions :: Lens' Metric [Dimension]
-mDimensions = lens _mDimensions (\ s a -> s{_mDimensions = a}) . _Default;
+mDimensions = lens _mDimensions (\ s a -> s{_mDimensions = a}) . _Default . _Coerce;
 
 instance FromXML Metric where
         parseXML x
@@ -442,7 +442,7 @@ maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a});
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
 maOKActions :: Lens' MetricAlarm [Text]
-maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default;
+maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default . _Coerce;
 
 -- | The arithmetic operation to use when comparing the specified @Statistic@
 -- and @Threshold@. The specified @Statistic@ value is used as the first
@@ -480,11 +480,11 @@ maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestam
 --
 -- The current WSDL lists this attribute as @UnknownActions@.
 maInsufficientDataActions :: Lens' MetricAlarm [Text]
-maInsufficientDataActions = lens _maInsufficientDataActions (\ s a -> s{_maInsufficientDataActions = a}) . _Default;
+maInsufficientDataActions = lens _maInsufficientDataActions (\ s a -> s{_maInsufficientDataActions = a}) . _Default . _Coerce;
 
 -- | The list of dimensions associated with the alarm\'s associated metric.
 maDimensions :: Lens' MetricAlarm [Dimension]
-maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a}) . _Default;
+maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a}) . _Default . _Coerce;
 
 -- | An explanation for the alarm\'s state in machine-readable JSON format
 maStateReasonData :: Lens' MetricAlarm (Maybe Text)
@@ -503,7 +503,7 @@ maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
 -- Amazon Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
 maAlarmActions :: Lens' MetricAlarm [Text]
-maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a}) . _Default;
+maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a}) . _Default . _Coerce;
 
 -- | The statistic to apply to the alarm\'s associated metric.
 maStatistic :: Lens' MetricAlarm (Maybe Statistic)
@@ -600,7 +600,7 @@ mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
 -- Dimensions value in a query, you need to append .member.N to it (e.g.,
 -- Dimensions.member.N).
 mdDimensions :: Lens' MetricDatum [Dimension]
-mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default;
+mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default . _Coerce;
 
 -- | The time stamp used for the metric. If not specified, the default value
 -- is set to the time the metric data was received. Amazon CloudWatch uses

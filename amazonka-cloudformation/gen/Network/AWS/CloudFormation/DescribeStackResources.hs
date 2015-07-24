@@ -178,7 +178,7 @@ describeStackResourcesResponse pStatus_ =
 
 -- | A list of @StackResource@ structures.
 drsStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
-drsStackResources = lens _drsStackResources (\ s a -> s{_drsStackResources = a}) . _Default;
+drsStackResources = lens _drsStackResources (\ s a -> s{_drsStackResources = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drsStatus :: Lens' DescribeStackResourcesResponse Int

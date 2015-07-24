@@ -107,4 +107,4 @@ gcirrsStatus = lens _gcirrsStatus (\ s a -> s{_gcirrsStatus = a});
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.
 gcirrsCheckerIPRanges :: Lens' GetCheckerIPRangesResponse [Text]
-gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a});
+gcirrsCheckerIPRanges = lens _gcirrsCheckerIPRanges (\ s a -> s{_gcirrsCheckerIPRanges = a}) . _Coerce;

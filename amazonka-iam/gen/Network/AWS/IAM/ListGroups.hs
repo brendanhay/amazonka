@@ -182,4 +182,4 @@ lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});
 
 -- | A list of groups.
 lgrsGroups :: Lens' ListGroupsResponse [Group]
-lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a});
+lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a}) . _Coerce;

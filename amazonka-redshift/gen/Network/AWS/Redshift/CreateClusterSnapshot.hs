@@ -78,7 +78,7 @@ createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
 
 -- | A list of tag instances.
 ccsTags :: Lens' CreateClusterSnapshot [Tag]
-ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default;
+ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default . _Coerce;
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.

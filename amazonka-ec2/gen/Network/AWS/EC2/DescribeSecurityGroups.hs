@@ -88,7 +88,7 @@ describeSecurityGroups =
 --
 -- Default: Describes all your security groups.
 dsgsGroupNames :: Lens' DescribeSecurityGroups [Text]
-dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Default;
+dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -132,14 +132,14 @@ dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Defau
 --     created.
 --
 dsgsFilters :: Lens' DescribeSecurityGroups [Filter]
-dsgsFilters = lens _dsgsFilters (\ s a -> s{_dsgsFilters = a}) . _Default;
+dsgsFilters = lens _dsgsFilters (\ s a -> s{_dsgsFilters = a}) . _Default . _Coerce;
 
 -- | One or more security group IDs. Required for security groups in a
 -- nondefault VPC.
 --
 -- Default: Describes all your security groups.
 dsgsGroupIds :: Lens' DescribeSecurityGroups [Text]
-dsgsGroupIds = lens _dsgsGroupIds (\ s a -> s{_dsgsGroupIds = a}) . _Default;
+dsgsGroupIds = lens _dsgsGroupIds (\ s a -> s{_dsgsGroupIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -201,7 +201,7 @@ describeSecurityGroupsResponse pStatus_ =
 
 -- | Information about one or more security groups.
 dsgrsSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
-dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups = a}) . _Default;
+dsgrsSecurityGroups = lens _dsgrsSecurityGroups (\ s a -> s{_dsgrsSecurityGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsgrsStatus :: Lens' DescribeSecurityGroupsResponse Int

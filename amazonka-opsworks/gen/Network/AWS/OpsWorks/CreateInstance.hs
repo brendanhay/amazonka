@@ -246,7 +246,7 @@ ciAMIId = lens _ciAMIId (\ s a -> s{_ciAMIId = a});
 -- block devices. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
 ciBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
-ciBlockDeviceMappings = lens _ciBlockDeviceMappings (\ s a -> s{_ciBlockDeviceMappings = a}) . _Default;
+ciBlockDeviceMappings = lens _ciBlockDeviceMappings (\ s a -> s{_ciBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The instance root device type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
@@ -259,7 +259,7 @@ ciStackId = lens _ciStackId (\ s a -> s{_ciStackId = a});
 
 -- | An array that contains the instance\'s layer IDs.
 ciLayerIds :: Lens' CreateInstance [Text]
-ciLayerIds = lens _ciLayerIds (\ s a -> s{_ciLayerIds = a});
+ciLayerIds = lens _ciLayerIds (\ s a -> s{_ciLayerIds = a}) . _Coerce;
 
 -- | The instance type, such as @t2.micro@. For a list of supported instance
 -- types, open the stack in the console, choose __Instances__, and choose

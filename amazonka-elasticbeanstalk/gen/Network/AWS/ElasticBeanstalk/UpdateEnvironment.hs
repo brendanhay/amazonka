@@ -137,13 +137,13 @@ ueTemplateName = lens _ueTemplateName (\ s a -> s{_ueTemplateName = a});
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this environment.
 ueOptionsToRemove :: Lens' UpdateEnvironment [OptionSpecification]
-ueOptionsToRemove = lens _ueOptionsToRemove (\ s a -> s{_ueOptionsToRemove = a}) . _Default;
+ueOptionsToRemove = lens _ueOptionsToRemove (\ s a -> s{_ueOptionsToRemove = a}) . _Default . _Coerce;
 
 -- | If specified, AWS Elastic Beanstalk updates the configuration set
 -- associated with the running environment and sets the specified
 -- configuration options to the requested value.
 ueOptionSettings :: Lens' UpdateEnvironment [ConfigurationOptionSetting]
-ueOptionSettings = lens _ueOptionSettings (\ s a -> s{_ueOptionSettings = a}) . _Default;
+ueOptionSettings = lens _ueOptionSettings (\ s a -> s{_ueOptionSettings = a}) . _Default . _Coerce;
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named
 -- application version to the environment. If no such application version

@@ -85,7 +85,7 @@ rccCacheClusterId = lens _rccCacheClusterId (\ s a -> s{_rccCacheClusterId = a})
 -- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of
 -- the cache node IDs.
 rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
-rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a});
+rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a}) . _Coerce;
 
 instance AWSRequest RebootCacheCluster where
         type Sv RebootCacheCluster = ElastiCache

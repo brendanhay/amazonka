@@ -129,7 +129,7 @@ asgiFromPort = lens _asgiFromPort (\ s a -> s{_asgiFromPort = a});
 -- | A set of IP permissions. Can be used to specify multiple rules in a
 -- single command.
 asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress [IPPermission]
-asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a}) . _Default;
+asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a}) . _Default . _Coerce;
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).

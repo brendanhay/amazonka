@@ -190,7 +190,7 @@ listMultipartUploadsResponse pStatus_ =
 
 -- | A list of in-progress multipart uploads.
 lmursUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
-lmursUploadsList = lens _lmursUploadsList (\ s a -> s{_lmursUploadsList = a}) . _Default;
+lmursUploadsList = lens _lmursUploadsList (\ s a -> s{_lmursUploadsList = a}) . _Default . _Coerce;
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Multipart Uploads request to

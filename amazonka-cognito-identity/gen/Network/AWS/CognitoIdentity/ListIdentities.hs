@@ -174,7 +174,7 @@ lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 
 -- | An object containing a set of identities and associated mappings.
 lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default;
+lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lirsStatus :: Lens' ListIdentitiesResponse Int

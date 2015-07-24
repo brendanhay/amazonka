@@ -93,7 +93,7 @@ lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
 
 -- | The cluster state filters to apply when listing clusters.
 lcClusterStates :: Lens' ListClusters [ClusterState]
-lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _Default;
+lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _Default . _Coerce;
 
 -- | The creation date and time end value filter for listing clusters .
 lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
@@ -173,7 +173,7 @@ lcrsMarker = lens _lcrsMarker (\ s a -> s{_lcrsMarker = a});
 
 -- | The list of clusters for the account based on the given filters.
 lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
-lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default;
+lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lcrsStatus :: Lens' ListClustersResponse Int

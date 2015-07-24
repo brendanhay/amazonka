@@ -83,7 +83,7 @@ describeDBParameters pDBParameterGroupName_ =
 
 -- | This parameter is not currently supported.
 ddpFilters :: Lens' DescribeDBParameters [Filter]
-ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default;
+ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -188,7 +188,7 @@ describeDBParametersResponse pStatus_ =
 
 -- | A list of Parameter values.
 ddprsParameters :: Lens' DescribeDBParametersResponse [Parameter]
-ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default;
+ddprsParameters = lens _ddprsParameters (\ s a -> s{_ddprsParameters = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

@@ -185,7 +185,7 @@ lhcrsStatus = lens _lhcrsStatus (\ s a -> s{_lhcrsStatus = a});
 -- | A complex type that contains information about the health checks
 -- associated with the current AWS account.
 lhcrsHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
-lhcrsHealthChecks = lens _lhcrsHealthChecks (\ s a -> s{_lhcrsHealthChecks = a});
+lhcrsHealthChecks = lens _lhcrsHealthChecks (\ s a -> s{_lhcrsHealthChecks = a}) . _Coerce;
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in

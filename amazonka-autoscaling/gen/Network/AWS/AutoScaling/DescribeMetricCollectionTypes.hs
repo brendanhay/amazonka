@@ -114,11 +114,11 @@ describeMetricCollectionTypesResponse pStatus_ =
 
 -- | One or more metrics.
 dmctrsMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
-dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default;
+dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default . _Coerce;
 
 -- | The granularities for the metrics.
 dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
-dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default;
+dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dmctrsStatus :: Lens' DescribeMetricCollectionTypesResponse Int

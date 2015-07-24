@@ -154,7 +154,7 @@ describeLogGroupsResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 dlgrsLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
-dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Default;
+dlgrsLogGroups = lens _dlgrsLogGroups (\ s a -> s{_dlgrsLogGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlgrsNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)

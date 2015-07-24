@@ -74,7 +74,7 @@ copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
 
 -- | FIXME: Undocumented member.
 cdsTags :: Lens' CopyDBSnapshot [Tag]
-cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default;
+cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default . _Coerce;
 
 -- | The identifier for the source DB snapshot.
 --

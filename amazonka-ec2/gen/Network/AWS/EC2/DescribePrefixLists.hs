@@ -91,7 +91,7 @@ describePrefixLists =
 -- -   @prefix-list-name@: The name of a prefix list.
 --
 dplFilters :: Lens' DescribePrefixLists [Filter]
-dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a}) . _Default;
+dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
@@ -100,7 +100,7 @@ dplNextToken = lens _dplNextToken (\ s a -> s{_dplNextToken = a});
 
 -- | One or more prefix list IDs.
 dplPrefixListIds :: Lens' DescribePrefixLists [Text]
-dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default;
+dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -180,7 +180,7 @@ dplrsNextToken = lens _dplrsNextToken (\ s a -> s{_dplrsNextToken = a});
 
 -- | All available prefix lists.
 dplrsPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
-dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . _Default;
+dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dplrsStatus :: Lens' DescribePrefixListsResponse Int

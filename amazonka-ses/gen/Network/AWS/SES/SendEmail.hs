@@ -168,7 +168,7 @@ seReturnPathARN = lens _seReturnPathARN (\ s a -> s{_seReturnPathARN = a});
 -- | The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
 seReplyToAddresses :: Lens' SendEmail [Text]
-seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a}) . _Default;
+seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a}) . _Default . _Coerce;
 
 -- | The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has

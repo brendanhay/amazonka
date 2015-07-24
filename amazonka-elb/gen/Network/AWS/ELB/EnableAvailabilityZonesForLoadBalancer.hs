@@ -79,7 +79,7 @@ eazflbLoadBalancerName = lens _eazflbLoadBalancerName (\ s a -> s{_eazflbLoadBal
 -- | The Availability Zones. These must be in the same region as the load
 -- balancer.
 eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
-eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvailabilityZones = a});
+eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvailabilityZones = a}) . _Coerce;
 
 instance AWSRequest
          EnableAvailabilityZonesForLoadBalancer where
@@ -138,7 +138,7 @@ enableAvailabilityZonesForLoadBalancerResponse pStatus_ =
 
 -- | The updated list of Availability Zones for the load balancer.
 eazflbrsAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
-eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default;
+eazflbrsAvailabilityZones = lens _eazflbrsAvailabilityZones (\ s a -> s{_eazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 eazflbrsStatus :: Lens' EnableAvailabilityZonesForLoadBalancerResponse Int

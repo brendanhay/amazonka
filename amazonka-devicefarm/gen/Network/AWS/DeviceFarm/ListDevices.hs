@@ -142,7 +142,7 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | Information about the devices.
 ldrsDevices :: Lens' ListDevicesResponse [Device]
-ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default;
+ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ldrsStatus :: Lens' ListDevicesResponse Int

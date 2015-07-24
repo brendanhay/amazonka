@@ -77,7 +77,7 @@ rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
 -- allocation tag with the key name @Region@ from the resource named by the
 -- /ResourceName/ parameter.
 rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a});
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTagsFromResource where
         type Sv RemoveTagsFromResource = ElastiCache

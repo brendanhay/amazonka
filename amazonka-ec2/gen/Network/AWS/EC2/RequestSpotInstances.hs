@@ -253,7 +253,7 @@ requestSpotInstancesResponse pStatus_ =
 
 -- | One or more Spot Instance requests.
 rsirsSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
-rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSpotInstanceRequests = a}) . _Default;
+rsirsSpotInstanceRequests = lens _rsirsSpotInstanceRequests (\ s a -> s{_rsirsSpotInstanceRequests = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 rsirsStatus :: Lens' RequestSpotInstancesResponse Int

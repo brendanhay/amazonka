@@ -107,7 +107,7 @@ describeVPNGateways =
 -- -   @vpn-gateway-id@ - The ID of the virtual private gateway.
 --
 dvgsFilters :: Lens' DescribeVPNGateways [Filter]
-dvgsFilters = lens _dvgsFilters (\ s a -> s{_dvgsFilters = a}) . _Default;
+dvgsFilters = lens _dvgsFilters (\ s a -> s{_dvgsFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -120,7 +120,7 @@ dvgsDryRun = lens _dvgsDryRun (\ s a -> s{_dvgsDryRun = a});
 --
 -- Default: Describes all your virtual private gateways.
 dvgsVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
-dvgsVPNGatewayIds = lens _dvgsVPNGatewayIds (\ s a -> s{_dvgsVPNGatewayIds = a}) . _Default;
+dvgsVPNGatewayIds = lens _dvgsVPNGatewayIds (\ s a -> s{_dvgsVPNGatewayIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeVPNGateways where
         type Sv DescribeVPNGateways = EC2
@@ -173,7 +173,7 @@ describeVPNGatewaysResponse pStatus_ =
 
 -- | Information about one or more virtual private gateways.
 dvgrsVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
-dvgrsVPNGateways = lens _dvgrsVPNGateways (\ s a -> s{_dvgrsVPNGateways = a}) . _Default;
+dvgrsVPNGateways = lens _dvgrsVPNGateways (\ s a -> s{_dvgrsVPNGateways = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvgrsStatus :: Lens' DescribeVPNGatewaysResponse Int

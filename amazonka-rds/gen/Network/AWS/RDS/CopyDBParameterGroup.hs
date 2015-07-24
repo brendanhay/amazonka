@@ -78,7 +78,7 @@ copyDBParameterGroup pSourceDBParameterGroupIdentifier_ pTargetDBParameterGroupI
 
 -- | FIXME: Undocumented member.
 cdpgTags :: Lens' CopyDBParameterGroup [Tag]
-cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default;
+cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default . _Coerce;
 
 -- | The identifier or ARN for the source DB parameter group.
 --

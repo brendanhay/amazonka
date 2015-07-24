@@ -115,7 +115,7 @@ describeSpotPriceHistory =
 
 -- | Filters the results by the specified instance types.
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
-dsphInstanceTypes = lens _dsphInstanceTypes (\ s a -> s{_dsphInstanceTypes = a}) . _Default;
+dsphInstanceTypes = lens _dsphInstanceTypes (\ s a -> s{_dsphInstanceTypes = a}) . _Default . _Coerce;
 
 -- | The date and time, up to the past 90 days, from which to start
 -- retrieving the price history data, in UTC format (for example,
@@ -144,7 +144,7 @@ dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _
 --     supported.
 --
 dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
-dsphFilters = lens _dsphFilters (\ s a -> s{_dsphFilters = a}) . _Default;
+dsphFilters = lens _dsphFilters (\ s a -> s{_dsphFilters = a}) . _Default . _Coerce;
 
 -- | The token for the next set of results.
 dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
@@ -162,7 +162,7 @@ dsphEndTime = lens _dsphEndTime (\ s a -> s{_dsphEndTime = a}) . mapping _Time;
 
 -- | Filters the results by the specified basic product descriptions.
 dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
-dsphProductDescriptions = lens _dsphProductDescriptions (\ s a -> s{_dsphProductDescriptions = a}) . _Default;
+dsphProductDescriptions = lens _dsphProductDescriptions (\ s a -> s{_dsphProductDescriptions = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -257,7 +257,7 @@ dsphrsNextToken = lens _dsphrsNextToken (\ s a -> s{_dsphrsNextToken = a});
 
 -- | The historical Spot Prices.
 dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
-dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPriceHistory = a}) . _Default;
+dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPriceHistory = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsphrsStatus :: Lens' DescribeSpotPriceHistoryResponse Int

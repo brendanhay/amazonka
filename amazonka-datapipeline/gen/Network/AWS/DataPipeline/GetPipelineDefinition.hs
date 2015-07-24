@@ -147,15 +147,15 @@ getPipelineDefinitionResponse pStatus_ =
 
 -- | The objects defined in the pipeline.
 gpdrsPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
-gpdrsPipelineObjects = lens _gpdrsPipelineObjects (\ s a -> s{_gpdrsPipelineObjects = a}) . _Default;
+gpdrsPipelineObjects = lens _gpdrsPipelineObjects (\ s a -> s{_gpdrsPipelineObjects = a}) . _Default . _Coerce;
 
 -- | The parameter objects used in the pipeline definition.
 gpdrsParameterObjects :: Lens' GetPipelineDefinitionResponse [ParameterObject]
-gpdrsParameterObjects = lens _gpdrsParameterObjects (\ s a -> s{_gpdrsParameterObjects = a}) . _Default;
+gpdrsParameterObjects = lens _gpdrsParameterObjects (\ s a -> s{_gpdrsParameterObjects = a}) . _Default . _Coerce;
 
 -- | The parameter values used in the pipeline definition.
 gpdrsParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
-gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterValues = a}) . _Default;
+gpdrsParameterValues = lens _gpdrsParameterValues (\ s a -> s{_gpdrsParameterValues = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 gpdrsStatus :: Lens' GetPipelineDefinitionResponse Int

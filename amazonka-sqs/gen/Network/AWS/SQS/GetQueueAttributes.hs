@@ -114,7 +114,7 @@ getQueueAttributes pQueueURL_ =
 
 -- | A list of attributes to retrieve information for.
 gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
-gqaAttributeNames = lens _gqaAttributeNames (\ s a -> s{_gqaAttributeNames = a}) . _Default;
+gqaAttributeNames = lens _gqaAttributeNames (\ s a -> s{_gqaAttributeNames = a}) . _Default . _Coerce;
 
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueURL :: Lens' GetQueueAttributes Text

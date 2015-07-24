@@ -80,7 +80,7 @@ describeCertificates =
 
 -- | This parameter is not currently supported.
 dcFilters :: Lens' DescribeCertificates [Filter]
-dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default;
+dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default . _Coerce;
 
 -- | The user-supplied certificate identifier. If this parameter is
 -- specified, information for only the identified certificate is returned.
@@ -169,7 +169,7 @@ describeCertificatesResponse pStatus_ =
 
 -- | The list of Certificate objects for the AWS account.
 dcrsCertificates :: Lens' DescribeCertificatesResponse [Certificate]
-dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . _Default;
+dcrsCertificates = lens _dcrsCertificates (\ s a -> s{_dcrsCertificates = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous DescribeCertificates
 -- request. If this parameter is specified, the response includes only

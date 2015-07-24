@@ -276,7 +276,7 @@ describeMLModelsResponse pStatus_ =
 
 -- | A list of MLModel that meet the search criteria.
 dmlmsrsResults :: Lens' DescribeMLModelsResponse [MLModel]
-dmlmsrsResults = lens _dmlmsrsResults (\ s a -> s{_dmlmsrsResults = a}) . _Default;
+dmlmsrsResults = lens _dmlmsrsResults (\ s a -> s{_dmlmsrsResults = a}) . _Default . _Coerce;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.

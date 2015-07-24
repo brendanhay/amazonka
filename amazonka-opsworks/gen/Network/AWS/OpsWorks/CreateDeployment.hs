@@ -112,7 +112,7 @@ cdAppId = lens _cdAppId (\ s a -> s{_cdAppId = a});
 
 -- | The instance IDs for the deployment targets.
 cdInstanceIds :: Lens' CreateDeployment [Text]
-cdInstanceIds = lens _cdInstanceIds (\ s a -> s{_cdInstanceIds = a}) . _Default;
+cdInstanceIds = lens _cdInstanceIds (\ s a -> s{_cdInstanceIds = a}) . _Default . _Coerce;
 
 -- | A user-defined comment.
 cdComment :: Lens' CreateDeployment (Maybe Text)

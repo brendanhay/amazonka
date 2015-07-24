@@ -80,7 +80,7 @@ ssPipelineId = lens _ssPipelineId (\ s a -> s{_ssPipelineId = a});
 -- | The IDs of the objects. The corresponding objects can be either physical
 -- or components, but not a mix of both types.
 ssObjectIds :: Lens' SetStatus [Text]
-ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a});
+ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a}) . _Coerce;
 
 -- | The status to be set on all the objects specified in @objectIds@. For
 -- components, use @PAUSE@ or @RESUME@. For instances, use @TRY_CANCEL@,

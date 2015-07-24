@@ -74,7 +74,7 @@ describePipelines =
 -- identifiers in a single call. To obtain pipeline IDs, call
 -- ListPipelines.
 dpPipelineIds :: Lens' DescribePipelines [Text]
-dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a});
+dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a}) . _Coerce;
 
 instance AWSRequest DescribePipelines where
         type Sv DescribePipelines = DataPipeline
@@ -134,4 +134,4 @@ dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});
 
 -- | An array of descriptions for the specified pipelines.
 dprsPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
-dprsPipelineDescriptionList = lens _dprsPipelineDescriptionList (\ s a -> s{_dprsPipelineDescriptionList = a});
+dprsPipelineDescriptionList = lens _dprsPipelineDescriptionList (\ s a -> s{_dprsPipelineDescriptionList = a}) . _Coerce;

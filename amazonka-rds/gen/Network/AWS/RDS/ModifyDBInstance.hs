@@ -178,7 +178,7 @@ modifyDBInstance pDBInstanceIdentifier_ =
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 mdiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
-mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a}) . _Default;
+mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The version number of the database engine to upgrade to. Changing this
 -- parameter results in an outage and the change is applied during the next
@@ -394,7 +394,7 @@ mdiDBParameterGroupName = lens _mdiDBParameterGroupName (\ s a -> s{_mdiDBParame
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 mdiVPCSecurityGroupIds :: Lens' ModifyDBInstance [Text]
-mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurityGroupIds = a}) . _Default;
+mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
 -- parameter does not result in an outage and the change is applied during

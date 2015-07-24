@@ -113,13 +113,13 @@ data PutRecord = PutRecord'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecord' smart constructor.
-putRecord :: Text -> Base64 -> Text -> PutRecord
+putRecord :: Text -> ByteString -> Text -> PutRecord
 putRecord pStreamName_ pData_ pPartitionKey_ =
     PutRecord'
     { _prExplicitHashKey = Nothing
     , _prSequenceNumberForOrdering = Nothing
     , _prStreamName = pStreamName_
-    , _prData = pData_
+    , _prData = _Base64 # pData_
     , _prPartitionKey = pPartitionKey_
     }
 
@@ -144,8 +144,8 @@ prStreamName = lens _prStreamName (\ s a -> s{_prStreamName = a});
 -- | The data blob to put into the record, which is base64-encoded when the
 -- blob is serialized. The maximum size of the data blob (the payload
 -- before base64-encoding) is 50 kilobytes (KB)
-prData :: Lens' PutRecord Base64
-prData = lens _prData (\ s a -> s{_prData = a});
+prData :: Lens' PutRecord ByteString
+prData = lens _prData (\ s a -> s{_prData = a}) . _Base64;
 
 -- | Determines which shard in the stream the data record is assigned to.
 -- Partition keys are Unicode strings with a maximum length limit of 256

@@ -166,7 +166,7 @@ ltrsLastEvaluatedTableName = lens _ltrsLastEvaluatedTableName (\ s a -> s{_ltrsL
 -- value as the /ExclusiveStartTableName/ parameter in a subsequent
 -- /ListTables/ request and obtain the next page of results.
 ltrsTableNames :: Lens' ListTablesResponse [Text]
-ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default;
+ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ltrsStatus :: Lens' ListTablesResponse Int

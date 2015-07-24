@@ -215,4 +215,4 @@ ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 
 -- | A list of DomainInfo structures.
 ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
-ldrsDomainInfos = lens _ldrsDomainInfos (\ s a -> s{_ldrsDomainInfos = a});
+ldrsDomainInfos = lens _ldrsDomainInfos (\ s a -> s{_ldrsDomainInfos = a}) . _Coerce;

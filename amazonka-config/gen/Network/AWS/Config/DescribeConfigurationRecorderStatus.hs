@@ -69,7 +69,7 @@ describeConfigurationRecorderStatus =
 -- the action returns the current status of all the configuration recorders
 -- associated with the account.
 dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
-dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default;
+dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default . _Coerce;
 
 instance AWSRequest
          DescribeConfigurationRecorderStatus where
@@ -135,7 +135,7 @@ describeConfigurationRecorderStatusResponse pStatus_ =
 
 -- | A list that contains status of the specified recorders.
 dcrsrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
-dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default;
+dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcrsrsStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int

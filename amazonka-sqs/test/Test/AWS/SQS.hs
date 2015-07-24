@@ -28,7 +28,7 @@ fixtures =
         [ testSendMessage $
             sendMessage "http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/"
                         "This+is+a+test+message"
-                & smrqMessageAttributes .~ Map.fromList
+                & smMessageAttributes .~ Map.fromList
                     [ ("test_attribute_name_1", messageAttributeValue "String"
                         & mavStringValue ?~ "test_attribute_value_1")
                     , ("test_attribute_name_2", messageAttributeValue "String"

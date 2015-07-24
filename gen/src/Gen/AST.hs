@@ -31,7 +31,6 @@ import           Gen.AST.Prefix
 import           Gen.AST.Subst
 import           Gen.AST.TypeOf
 import           Gen.Formatting
-import           Gen.Text
 import           Gen.Types
 
 -- FIXME: Relations need to be updated by the solving step.

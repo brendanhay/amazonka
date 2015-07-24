@@ -26,7 +26,7 @@ import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.Body       as Export
 import           Network.AWS.Data.ByteString as Export
-import           Network.AWS.Data.Crypto     as Export
+import           Network.AWS.Data.Crypto     as Export hiding (Base (..))
 import           Network.AWS.Data.Headers    as Export
 import           Network.AWS.Data.JSON       as Export
 import           Network.AWS.Data.List1      as Export

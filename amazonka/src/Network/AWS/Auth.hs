@@ -39,7 +39,7 @@ module Network.AWS.Auth
 import           Control.Applicative
 import           Control.Concurrent
 import           Control.Monad
-import           Control.Monad.Except       (catchError, throwError)
+import           Control.Monad.Error.Class  (catchError, throwError)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Except
 import qualified Data.ByteString.Char8      as BS

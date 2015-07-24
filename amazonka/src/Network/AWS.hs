@@ -75,13 +75,13 @@ module Network.AWS
 
 import           Control.Applicative
 import           Control.Monad.Catch          (MonadCatch)
-import           Control.Monad.Except
 import           Control.Monad.Morph
 import           Control.Monad.Reader
 import qualified Control.Monad.State.Lazy     as LS
 import qualified Control.Monad.State.Strict   as S
 import           Control.Monad.Trans.AWS      (AWST)
 import qualified Control.Monad.Trans.AWS      as AWST
+import           Control.Monad.Trans.Except
 import           Control.Monad.Trans.Identity
 import           Control.Monad.Trans.Maybe
 import           Control.Monad.Trans.Resource

@@ -25,11 +25,11 @@ module Network.AWS.Presign
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
-import           Control.Monad.Except
+import           Control.Monad.IO.Class
 import           Network.AWS.Data.Time
 import           Network.AWS.Env
 import           Network.AWS.Prelude
-import           Network.AWS.Request   (requestURL)
+import           Network.AWS.Request    (requestURL)
 
 -- /See:/ 'presign', 'presignWith'
 presignURL :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)

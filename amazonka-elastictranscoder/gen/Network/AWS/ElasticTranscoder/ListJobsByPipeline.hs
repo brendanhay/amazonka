@@ -106,7 +106,7 @@ instance AWSRequest ListJobsByPipeline where
         type Sv ListJobsByPipeline = ElasticTranscoder
         type Rs ListJobsByPipeline =
              ListJobsByPipelineResponse
-        request = get
+        request = get "ListJobsByPipeline"
         response
           = receiveJSON
               (\ s h x ->

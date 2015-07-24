@@ -77,7 +77,7 @@ instance AWSRequest DeleteSnapshotSchedule where
         type Sv DeleteSnapshotSchedule = StorageGateway
         type Rs DeleteSnapshotSchedule =
              DeleteSnapshotScheduleResponse
-        request = postJSON
+        request = postJSON "DeleteSnapshotSchedule"
         response
           = receiveJSON
               (\ s h x ->

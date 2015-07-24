@@ -88,7 +88,7 @@ rpStatementId = lens _rpStatementId (\ s a -> s{_rpStatementId = a});
 instance AWSRequest RemovePermission where
         type Sv RemovePermission = Lambda
         type Rs RemovePermission = RemovePermissionResponse
-        request = delete
+        request = delete "RemovePermission"
         response = receiveNull RemovePermissionResponse'
 
 instance ToHeaders RemovePermission where

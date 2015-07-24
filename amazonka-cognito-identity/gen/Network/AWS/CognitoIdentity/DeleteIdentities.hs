@@ -71,7 +71,7 @@ diIdentityIdsToDelete = lens _diIdentityIdsToDelete (\ s a -> s{_diIdentityIdsTo
 instance AWSRequest DeleteIdentities where
         type Sv DeleteIdentities = CognitoIdentity
         type Rs DeleteIdentities = DeleteIdentitiesResponse
-        request = postJSON
+        request = postJSON "DeleteIdentities"
         response
           = receiveJSON
               (\ s h x ->

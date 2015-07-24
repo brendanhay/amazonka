@@ -218,7 +218,7 @@ ijVaultName = lens _ijVaultName (\ s a -> s{_ijVaultName = a});
 instance AWSRequest InitiateJob where
         type Sv InitiateJob = Glacier
         type Rs InitiateJob = InitiateJobResponse
-        request = postJSON
+        request = postJSON "InitiateJob"
         response
           = receiveJSON
               (\ s h x ->

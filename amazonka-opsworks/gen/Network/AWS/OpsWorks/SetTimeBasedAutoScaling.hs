@@ -81,7 +81,7 @@ instance AWSRequest SetTimeBasedAutoScaling where
         type Sv SetTimeBasedAutoScaling = OpsWorks
         type Rs SetTimeBasedAutoScaling =
              SetTimeBasedAutoScalingResponse
-        request = postJSON
+        request = postJSON "SetTimeBasedAutoScaling"
         response
           = receiveNull SetTimeBasedAutoScalingResponse'
 

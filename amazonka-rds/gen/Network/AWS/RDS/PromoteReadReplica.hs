@@ -119,7 +119,7 @@ instance AWSRequest PromoteReadReplica where
         type Sv PromoteReadReplica = RDS
         type Rs PromoteReadReplica =
              PromoteReadReplicaResponse
-        request = post
+        request = post "PromoteReadReplica"
         response
           = receiveXMLWrapper "PromoteReadReplicaResult"
               (\ s h x ->

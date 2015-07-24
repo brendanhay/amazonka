@@ -109,7 +109,7 @@ instance AWSPager ListDomains where
 instance AWSRequest ListDomains where
         type Sv ListDomains = Route53Domains
         type Rs ListDomains = ListDomainsResponse
-        request = postJSON
+        request = postJSON "ListDomains"
         response
           = receiveJSON
               (\ s h x ->

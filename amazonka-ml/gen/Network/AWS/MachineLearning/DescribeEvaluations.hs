@@ -213,7 +213,7 @@ instance AWSRequest DescribeEvaluations where
         type Sv DescribeEvaluations = MachineLearning
         type Rs DescribeEvaluations =
              DescribeEvaluationsResponse
-        request = postJSON
+        request = postJSON "DescribeEvaluations"
         response
           = receiveJSON
               (\ s h x ->

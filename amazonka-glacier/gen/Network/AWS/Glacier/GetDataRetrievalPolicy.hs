@@ -78,7 +78,7 @@ instance AWSRequest GetDataRetrievalPolicy where
         type Sv GetDataRetrievalPolicy = Glacier
         type Rs GetDataRetrievalPolicy =
              GetDataRetrievalPolicyResponse
-        request = get
+        request = get "GetDataRetrievalPolicy"
         response
           = receiveJSON
               (\ s h x ->

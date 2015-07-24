@@ -66,7 +66,7 @@ instance AWSRequest DeleteHSMClientCertificate where
         type Sv DeleteHSMClientCertificate = Redshift
         type Rs DeleteHSMClientCertificate =
              DeleteHSMClientCertificateResponse
-        request = post
+        request = post "DeleteHSMClientCertificate"
         response
           = receiveNull DeleteHSMClientCertificateResponse'
 

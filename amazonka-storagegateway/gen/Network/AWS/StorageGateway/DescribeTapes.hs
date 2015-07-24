@@ -115,7 +115,7 @@ instance AWSPager DescribeTapes where
 instance AWSRequest DescribeTapes where
         type Sv DescribeTapes = StorageGateway
         type Rs DescribeTapes = DescribeTapesResponse
-        request = postJSON
+        request = postJSON "DescribeTapes"
         response
           = receiveJSON
               (\ s h x ->

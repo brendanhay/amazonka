@@ -81,7 +81,7 @@ ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
 instance AWSRequest CreateTags where
         type Sv CreateTags = EFS
         type Rs CreateTags = CreateTagsResponse
-        request = postJSON
+        request = postJSON "CreateTags"
         response = receiveNull CreateTagsResponse'
 
 instance ToHeaders CreateTags where

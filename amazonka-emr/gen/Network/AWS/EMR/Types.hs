@@ -345,6 +345,7 @@ instance AWSService EMR where
             , _svcPrefix = "elasticmapreduce"
             , _svcVersion = "2009-03-31"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

@@ -75,7 +75,7 @@ instance AWSRequest DescribeTaskDefinition where
         type Sv DescribeTaskDefinition = ECS
         type Rs DescribeTaskDefinition =
              DescribeTaskDefinitionResponse
-        request = postJSON
+        request = postJSON "DescribeTaskDefinition"
         response
           = receiveJSON
               (\ s h x ->

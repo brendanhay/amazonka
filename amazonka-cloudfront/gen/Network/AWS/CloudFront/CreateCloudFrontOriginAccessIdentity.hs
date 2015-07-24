@@ -73,7 +73,8 @@ instance AWSRequest
              CloudFront
         type Rs CreateCloudFrontOriginAccessIdentity =
              CreateCloudFrontOriginAccessIdentityResponse
-        request = postXML
+        request
+          = postXML "CreateCloudFrontOriginAccessIdentity"
         response
           = receiveXML
               (\ s h x ->

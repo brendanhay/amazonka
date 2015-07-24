@@ -78,7 +78,7 @@ instance AWSRequest GetBatchPrediction where
         type Sv GetBatchPrediction = MachineLearning
         type Rs GetBatchPrediction =
              GetBatchPredictionResponse
-        request = postJSON
+        request = postJSON "GetBatchPrediction"
         response
           = receiveJSON
               (\ s h x ->

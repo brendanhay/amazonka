@@ -83,7 +83,7 @@ instance AWSRequest AcceptVPCPeeringConnection where
         type Sv AcceptVPCPeeringConnection = EC2
         type Rs AcceptVPCPeeringConnection =
              AcceptVPCPeeringConnectionResponse
-        request = post
+        request = post "AcceptVPCPeeringConnection"
         response
           = receiveXML
               (\ s h x ->

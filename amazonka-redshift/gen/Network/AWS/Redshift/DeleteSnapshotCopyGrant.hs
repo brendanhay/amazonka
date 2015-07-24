@@ -66,7 +66,7 @@ instance AWSRequest DeleteSnapshotCopyGrant where
         type Sv DeleteSnapshotCopyGrant = Redshift
         type Rs DeleteSnapshotCopyGrant =
              DeleteSnapshotCopyGrantResponse
-        request = post
+        request = post "DeleteSnapshotCopyGrant"
         response
           = receiveNull DeleteSnapshotCopyGrantResponse'
 

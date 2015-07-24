@@ -85,7 +85,7 @@ instance AWSRequest DetachNetworkInterface where
         type Sv DetachNetworkInterface = EC2
         type Rs DetachNetworkInterface =
              DetachNetworkInterfaceResponse
-        request = post
+        request = post "DetachNetworkInterface"
         response
           = receiveNull DetachNetworkInterfaceResponse'
 

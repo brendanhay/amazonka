@@ -110,7 +110,7 @@ instance AWSRequest PutSubscriptionFilter where
         type Sv PutSubscriptionFilter = CloudWatchLogs
         type Rs PutSubscriptionFilter =
              PutSubscriptionFilterResponse
-        request = postJSON
+        request = postJSON "PutSubscriptionFilter"
         response = receiveNull PutSubscriptionFilterResponse'
 
 instance ToHeaders PutSubscriptionFilter where

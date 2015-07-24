@@ -64,7 +64,7 @@ instance AWSRequest DeleteBucketPolicy where
         type Sv DeleteBucketPolicy = S3
         type Rs DeleteBucketPolicy =
              DeleteBucketPolicyResponse
-        request = delete
+        request = delete "DeleteBucketPolicy"
         response = receiveNull DeleteBucketPolicyResponse'
 
 instance ToHeaders DeleteBucketPolicy where

@@ -78,7 +78,7 @@ clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a});
 instance AWSRequest CreateLunaClient where
         type Sv CreateLunaClient = CloudHSM
         type Rs CreateLunaClient = CreateLunaClientResponse
-        request = postJSON
+        request = postJSON "CreateLunaClient"
         response
           = receiveJSON
               (\ s h x ->

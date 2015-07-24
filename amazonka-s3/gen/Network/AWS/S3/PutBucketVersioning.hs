@@ -93,7 +93,7 @@ instance AWSRequest PutBucketVersioning where
         type Sv PutBucketVersioning = S3
         type Rs PutBucketVersioning =
              PutBucketVersioningResponse
-        request = putXML
+        request = putXML "PutBucketVersioning"
         response = receiveNull PutBucketVersioningResponse'
 
 instance ToElement PutBucketVersioning where

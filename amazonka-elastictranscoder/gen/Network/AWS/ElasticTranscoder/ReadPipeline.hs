@@ -69,7 +69,7 @@ rId = lens _rId (\ s a -> s{_rId = a});
 instance AWSRequest ReadPipeline where
         type Sv ReadPipeline = ElasticTranscoder
         type Rs ReadPipeline = ReadPipelineResponse
-        request = get
+        request = get "ReadPipeline"
         response
           = receiveJSON
               (\ s h x ->

@@ -86,7 +86,7 @@ instance AWSRequest SetDefaultPolicyVersion where
         type Sv SetDefaultPolicyVersion = IAM
         type Rs SetDefaultPolicyVersion =
              SetDefaultPolicyVersionResponse
-        request = post
+        request = post "SetDefaultPolicyVersion"
         response
           = receiveNull SetDefaultPolicyVersionResponse'
 

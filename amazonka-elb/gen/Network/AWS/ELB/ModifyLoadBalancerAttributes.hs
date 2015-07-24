@@ -92,7 +92,7 @@ instance AWSRequest ModifyLoadBalancerAttributes
         type Sv ModifyLoadBalancerAttributes = ELB
         type Rs ModifyLoadBalancerAttributes =
              ModifyLoadBalancerAttributesResponse
-        request = post
+        request = post "ModifyLoadBalancerAttributes"
         response
           = receiveXMLWrapper
               "ModifyLoadBalancerAttributesResult"

@@ -105,7 +105,7 @@ instance AWSRequest GetAccountAuthorizationDetails
         type Sv GetAccountAuthorizationDetails = IAM
         type Rs GetAccountAuthorizationDetails =
              GetAccountAuthorizationDetailsResponse
-        request = post
+        request = post "GetAccountAuthorizationDetails"
         response
           = receiveXMLWrapper
               "GetAccountAuthorizationDetailsResult"

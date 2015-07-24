@@ -118,7 +118,7 @@ instance AWSRequest DescribeConfigurationOptions
              ElasticBeanstalk
         type Rs DescribeConfigurationOptions =
              DescribeConfigurationOptionsResponse
-        request = post
+        request = post "DescribeConfigurationOptions"
         response
           = receiveXMLWrapper
               "DescribeConfigurationOptionsResult"

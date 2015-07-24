@@ -74,7 +74,7 @@ instance AWSRequest
         type Sv PutBucketNotificationConfiguration = S3
         type Rs PutBucketNotificationConfiguration =
              PutBucketNotificationConfigurationResponse
-        request = putXML
+        request = putXML "PutBucketNotificationConfiguration"
         response
           = receiveNull
               PutBucketNotificationConfigurationResponse'

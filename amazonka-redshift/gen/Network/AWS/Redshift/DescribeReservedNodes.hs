@@ -109,7 +109,7 @@ instance AWSRequest DescribeReservedNodes where
         type Sv DescribeReservedNodes = Redshift
         type Rs DescribeReservedNodes =
              DescribeReservedNodesResponse
-        request = post
+        request = post "DescribeReservedNodes"
         response
           = receiveXMLWrapper "DescribeReservedNodesResult"
               (\ s h x ->

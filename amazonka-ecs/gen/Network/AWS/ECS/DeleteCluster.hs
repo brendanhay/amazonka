@@ -70,7 +70,7 @@ dcCluster = lens _dcCluster (\ s a -> s{_dcCluster = a});
 instance AWSRequest DeleteCluster where
         type Sv DeleteCluster = ECS
         type Rs DeleteCluster = DeleteClusterResponse
-        request = postJSON
+        request = postJSON "DeleteCluster"
         response
           = receiveJSON
               (\ s h x ->

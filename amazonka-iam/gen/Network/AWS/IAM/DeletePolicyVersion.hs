@@ -86,7 +86,7 @@ instance AWSRequest DeletePolicyVersion where
         type Sv DeletePolicyVersion = IAM
         type Rs DeletePolicyVersion =
              DeletePolicyVersionResponse
-        request = post
+        request = post "DeletePolicyVersion"
         response = receiveNull DeletePolicyVersionResponse'
 
 instance ToHeaders DeletePolicyVersion where

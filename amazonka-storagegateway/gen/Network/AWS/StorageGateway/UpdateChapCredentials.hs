@@ -118,7 +118,7 @@ instance AWSRequest UpdateChapCredentials where
         type Sv UpdateChapCredentials = StorageGateway
         type Rs UpdateChapCredentials =
              UpdateChapCredentialsResponse
-        request = postJSON
+        request = postJSON "UpdateChapCredentials"
         response
           = receiveJSON
               (\ s h x ->

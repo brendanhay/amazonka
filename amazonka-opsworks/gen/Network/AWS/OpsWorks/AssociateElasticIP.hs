@@ -82,7 +82,7 @@ instance AWSRequest AssociateElasticIP where
         type Sv AssociateElasticIP = OpsWorks
         type Rs AssociateElasticIP =
              AssociateElasticIPResponse
-        request = postJSON
+        request = postJSON "AssociateElasticIP"
         response = receiveNull AssociateElasticIPResponse'
 
 instance ToHeaders AssociateElasticIP where

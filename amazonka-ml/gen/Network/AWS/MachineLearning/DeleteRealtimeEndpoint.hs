@@ -68,7 +68,7 @@ instance AWSRequest DeleteRealtimeEndpoint where
         type Sv DeleteRealtimeEndpoint = MachineLearning
         type Rs DeleteRealtimeEndpoint =
              DeleteRealtimeEndpointResponse
-        request = postJSON
+        request = postJSON "DeleteRealtimeEndpoint"
         response
           = receiveJSON
               (\ s h x ->

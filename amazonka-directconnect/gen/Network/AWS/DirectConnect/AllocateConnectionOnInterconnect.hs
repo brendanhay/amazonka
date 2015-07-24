@@ -138,7 +138,7 @@ instance AWSRequest AllocateConnectionOnInterconnect
         type Sv AllocateConnectionOnInterconnect =
              DirectConnect
         type Rs AllocateConnectionOnInterconnect = Connection
-        request = postJSON
+        request = postJSON "AllocateConnectionOnInterconnect"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocateConnectionOnInterconnect

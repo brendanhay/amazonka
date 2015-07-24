@@ -92,7 +92,7 @@ awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a});
 instance AWSRequest AddWorkingStorage where
         type Sv AddWorkingStorage = StorageGateway
         type Rs AddWorkingStorage = AddWorkingStorageResponse
-        request = postJSON
+        request = postJSON "AddWorkingStorage"
         response
           = receiveJSON
               (\ s h x ->

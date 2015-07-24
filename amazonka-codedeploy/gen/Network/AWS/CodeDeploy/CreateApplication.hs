@@ -69,7 +69,7 @@ caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a})
 instance AWSRequest CreateApplication where
         type Sv CreateApplication = CodeDeploy
         type Rs CreateApplication = CreateApplicationResponse
-        request = postJSON
+        request = postJSON "CreateApplication"
         response
           = receiveJSON
               (\ s h x ->

@@ -55,7 +55,7 @@ instance AWSRequest DescribeScalingProcessTypes where
         type Sv DescribeScalingProcessTypes = AutoScaling
         type Rs DescribeScalingProcessTypes =
              DescribeScalingProcessTypesResponse
-        request = post
+        request = post "DescribeScalingProcessTypes"
         response
           = receiveXMLWrapper
               "DescribeScalingProcessTypesResult"

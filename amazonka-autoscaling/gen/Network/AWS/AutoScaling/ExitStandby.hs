@@ -79,7 +79,7 @@ eAutoScalingGroupName = lens _eAutoScalingGroupName (\ s a -> s{_eAutoScalingGro
 instance AWSRequest ExitStandby where
         type Sv ExitStandby = AutoScaling
         type Rs ExitStandby = ExitStandbyResponse
-        request = post
+        request = post "ExitStandby"
         response
           = receiveXMLWrapper "ExitStandbyResult"
               (\ s h x ->

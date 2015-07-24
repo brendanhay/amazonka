@@ -123,7 +123,7 @@ instance AWSRequest DescribeDBInstances where
         type Sv DescribeDBInstances = RDS
         type Rs DescribeDBInstances =
              DescribeDBInstancesResponse
-        request = post
+        request = post "DescribeDBInstances"
         response
           = receiveXMLWrapper "DescribeDBInstancesResult"
               (\ s h x ->

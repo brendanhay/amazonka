@@ -94,7 +94,7 @@ instance AWSRequest DisassociateAddress where
         type Sv DisassociateAddress = EC2
         type Rs DisassociateAddress =
              DisassociateAddressResponse
-        request = post
+        request = post "DisassociateAddress"
         response = receiveNull DisassociateAddressResponse'
 
 instance ToHeaders DisassociateAddress where

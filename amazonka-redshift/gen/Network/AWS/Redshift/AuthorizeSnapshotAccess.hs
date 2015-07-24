@@ -96,7 +96,7 @@ instance AWSRequest AuthorizeSnapshotAccess where
         type Sv AuthorizeSnapshotAccess = Redshift
         type Rs AuthorizeSnapshotAccess =
              AuthorizeSnapshotAccessResponse
-        request = post
+        request = post "AuthorizeSnapshotAccess"
         response
           = receiveXMLWrapper "AuthorizeSnapshotAccessResult"
               (\ s h x ->

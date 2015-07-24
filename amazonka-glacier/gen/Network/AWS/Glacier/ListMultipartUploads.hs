@@ -140,7 +140,7 @@ instance AWSRequest ListMultipartUploads where
         type Sv ListMultipartUploads = Glacier
         type Rs ListMultipartUploads =
              ListMultipartUploadsResponse
-        request = get
+        request = get "ListMultipartUploads"
         response
           = receiveJSON
               (\ s h x ->

@@ -107,7 +107,7 @@ instance AWSRequest CreateLBCookieStickinessPolicy
         type Sv CreateLBCookieStickinessPolicy = ELB
         type Rs CreateLBCookieStickinessPolicy =
              CreateLBCookieStickinessPolicyResponse
-        request = post
+        request = post "CreateLBCookieStickinessPolicy"
         response
           = receiveXMLWrapper
               "CreateLBCookieStickinessPolicyResult"

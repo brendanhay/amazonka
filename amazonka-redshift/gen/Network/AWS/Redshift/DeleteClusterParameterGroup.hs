@@ -72,7 +72,7 @@ instance AWSRequest DeleteClusterParameterGroup where
         type Sv DeleteClusterParameterGroup = Redshift
         type Rs DeleteClusterParameterGroup =
              DeleteClusterParameterGroupResponse
-        request = post
+        request = post "DeleteClusterParameterGroup"
         response
           = receiveNull DeleteClusterParameterGroupResponse'
 

@@ -70,7 +70,7 @@ instance AWSRequest GetStreamingDistribution where
         type Sv GetStreamingDistribution = CloudFront
         type Rs GetStreamingDistribution =
              GetStreamingDistributionResponse
-        request = get
+        request = get "GetStreamingDistribution"
         response
           = receiveXML
               (\ s h x ->

@@ -91,7 +91,7 @@ instance AWSRequest DetachClassicLinkVPC where
         type Sv DetachClassicLinkVPC = EC2
         type Rs DetachClassicLinkVPC =
              DetachClassicLinkVPCResponse
-        request = post
+        request = post "DetachClassicLinkVPC"
         response
           = receiveXML
               (\ s h x ->

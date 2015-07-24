@@ -114,7 +114,7 @@ ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluat
 instance AWSRequest CreateEvaluation where
         type Sv CreateEvaluation = MachineLearning
         type Rs CreateEvaluation = CreateEvaluationResponse
-        request = postJSON
+        request = postJSON "CreateEvaluation"
         response
           = receiveJSON
               (\ s h x ->

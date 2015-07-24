@@ -76,7 +76,7 @@ instance AWSRequest DeleteStreamingDistribution where
         type Sv DeleteStreamingDistribution = CloudFront
         type Rs DeleteStreamingDistribution =
              DeleteStreamingDistributionResponse
-        request = delete
+        request = delete "DeleteStreamingDistribution"
         response
           = receiveNull DeleteStreamingDistributionResponse'
 

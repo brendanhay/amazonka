@@ -80,7 +80,7 @@ instance AWSRequest DescribeLunaClient where
         type Sv DescribeLunaClient = CloudHSM
         type Rs DescribeLunaClient =
              DescribeLunaClientResponse
-        request = postJSON
+        request = postJSON "DescribeLunaClient"
         response
           = receiveJSON
               (\ s h x ->

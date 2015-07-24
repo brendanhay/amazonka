@@ -167,7 +167,7 @@ gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a});
 instance AWSRequest GetShippingLabel where
         type Sv GetShippingLabel = ImportExport
         type Rs GetShippingLabel = GetShippingLabelResponse
-        request = post
+        request = post "GetShippingLabel"
         response
           = receiveXMLWrapper "GetShippingLabelResult"
               (\ s h x ->

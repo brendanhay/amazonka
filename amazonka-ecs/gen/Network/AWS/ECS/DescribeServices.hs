@@ -76,7 +76,7 @@ dServices = lens _dServices (\ s a -> s{_dServices = a});
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = ECS
         type Rs DescribeServices = DescribeServicesResponse
-        request = postJSON
+        request = postJSON "DescribeServices"
         response
           = receiveJSON
               (\ s h x ->

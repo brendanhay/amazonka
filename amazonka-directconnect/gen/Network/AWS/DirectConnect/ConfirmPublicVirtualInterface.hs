@@ -76,7 +76,7 @@ instance AWSRequest ConfirmPublicVirtualInterface
         type Sv ConfirmPublicVirtualInterface = DirectConnect
         type Rs ConfirmPublicVirtualInterface =
              ConfirmPublicVirtualInterfaceResponse
-        request = postJSON
+        request = postJSON "ConfirmPublicVirtualInterface"
         response
           = receiveJSON
               (\ s h x ->

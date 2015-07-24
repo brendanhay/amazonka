@@ -81,7 +81,7 @@ crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
 instance AWSRequest CreateRepository where
         type Sv CreateRepository = CodeCommit
         type Rs CreateRepository = CreateRepositoryResponse
-        request = postJSON
+        request = postJSON "CreateRepository"
         response
           = receiveJSON
               (\ s h x ->

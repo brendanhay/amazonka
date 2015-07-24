@@ -68,7 +68,7 @@ drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a});
 instance AWSRequest DisableRadius where
         type Sv DisableRadius = DirectoryService
         type Rs DisableRadius = DisableRadiusResponse
-        request = postJSON
+        request = postJSON "DisableRadius"
         response
           = receiveJSON
               (\ s h x ->

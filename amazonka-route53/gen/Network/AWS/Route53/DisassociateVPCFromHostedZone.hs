@@ -101,7 +101,7 @@ instance AWSRequest DisassociateVPCFromHostedZone
         type Sv DisassociateVPCFromHostedZone = Route53
         type Rs DisassociateVPCFromHostedZone =
              DisassociateVPCFromHostedZoneResponse
-        request = postXML
+        request = postXML "DisassociateVPCFromHostedZone"
         response
           = receiveXML
               (\ s h x ->

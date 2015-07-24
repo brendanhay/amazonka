@@ -96,7 +96,7 @@ instance AWSRequest
              ElastiCache
         type Rs PurchaseReservedCacheNodesOffering =
              PurchaseReservedCacheNodesOfferingResponse
-        request = post
+        request = post "PurchaseReservedCacheNodesOffering"
         response
           = receiveXMLWrapper
               "PurchaseReservedCacheNodesOfferingResult"

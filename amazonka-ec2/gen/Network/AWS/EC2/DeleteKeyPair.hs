@@ -76,7 +76,7 @@ dkpKeyName = lens _dkpKeyName (\ s a -> s{_dkpKeyName = a});
 instance AWSRequest DeleteKeyPair where
         type Sv DeleteKeyPair = EC2
         type Rs DeleteKeyPair = DeleteKeyPairResponse
-        request = post
+        request = post "DeleteKeyPair"
         response = receiveNull DeleteKeyPairResponse'
 
 instance ToHeaders DeleteKeyPair where

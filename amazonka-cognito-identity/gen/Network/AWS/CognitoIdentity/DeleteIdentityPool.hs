@@ -69,7 +69,7 @@ instance AWSRequest DeleteIdentityPool where
         type Sv DeleteIdentityPool = CognitoIdentity
         type Rs DeleteIdentityPool =
              DeleteIdentityPoolResponse
-        request = postJSON
+        request = postJSON "DeleteIdentityPool"
         response = receiveNull DeleteIdentityPoolResponse'
 
 instance ToHeaders DeleteIdentityPool where

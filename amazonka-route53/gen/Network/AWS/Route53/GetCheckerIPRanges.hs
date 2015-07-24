@@ -60,7 +60,7 @@ instance AWSRequest GetCheckerIPRanges where
         type Sv GetCheckerIPRanges = Route53
         type Rs GetCheckerIPRanges =
              GetCheckerIPRangesResponse
-        request = get
+        request = get "GetCheckerIPRanges"
         response
           = receiveXML
               (\ s h x ->

@@ -114,7 +114,7 @@ instance AWSRequest PurchaseReservedInstancesOffering
         type Sv PurchaseReservedInstancesOffering = EC2
         type Rs PurchaseReservedInstancesOffering =
              PurchaseReservedInstancesOfferingResponse
-        request = post
+        request = post "PurchaseReservedInstancesOffering"
         response
           = receiveXML
               (\ s h x ->

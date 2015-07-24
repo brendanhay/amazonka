@@ -84,7 +84,7 @@ instance AWSRequest RemoveRoleFromInstanceProfile
         type Sv RemoveRoleFromInstanceProfile = IAM
         type Rs RemoveRoleFromInstanceProfile =
              RemoveRoleFromInstanceProfileResponse
-        request = post
+        request = post "RemoveRoleFromInstanceProfile"
         response
           = receiveNull RemoveRoleFromInstanceProfileResponse'
 

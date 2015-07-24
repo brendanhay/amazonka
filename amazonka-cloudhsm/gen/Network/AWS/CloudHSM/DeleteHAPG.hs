@@ -67,7 +67,7 @@ dhHAPGARN = lens _dhHAPGARN (\ s a -> s{_dhHAPGARN = a});
 instance AWSRequest DeleteHAPG where
         type Sv DeleteHAPG = CloudHSM
         type Rs DeleteHAPG = DeleteHAPGResponse
-        request = postJSON
+        request = postJSON "DeleteHAPG"
         response
           = receiveJSON
               (\ s h x ->

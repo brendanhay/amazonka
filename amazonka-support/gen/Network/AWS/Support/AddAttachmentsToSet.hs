@@ -91,7 +91,7 @@ instance AWSRequest AddAttachmentsToSet where
         type Sv AddAttachmentsToSet = Support
         type Rs AddAttachmentsToSet =
              AddAttachmentsToSetResponse
-        request = postJSON
+        request = postJSON "AddAttachmentsToSet"
         response
           = receiveJSON
               (\ s h x ->

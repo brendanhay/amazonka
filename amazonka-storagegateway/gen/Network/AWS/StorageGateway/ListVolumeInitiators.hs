@@ -72,7 +72,7 @@ instance AWSRequest ListVolumeInitiators where
         type Sv ListVolumeInitiators = StorageGateway
         type Rs ListVolumeInitiators =
              ListVolumeInitiatorsResponse
-        request = postJSON
+        request = postJSON "ListVolumeInitiators"
         response
           = receiveJSON
               (\ s h x ->

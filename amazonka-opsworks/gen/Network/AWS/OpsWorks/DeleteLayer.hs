@@ -72,7 +72,7 @@ dlLayerId = lens _dlLayerId (\ s a -> s{_dlLayerId = a});
 instance AWSRequest DeleteLayer where
         type Sv DeleteLayer = OpsWorks
         type Rs DeleteLayer = DeleteLayerResponse
-        request = postJSON
+        request = postJSON "DeleteLayer"
         response = receiveNull DeleteLayerResponse'
 
 instance ToHeaders DeleteLayer where

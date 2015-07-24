@@ -79,7 +79,7 @@ instance AWSRequest UpdateKeyDescription where
         type Sv UpdateKeyDescription = KMS
         type Rs UpdateKeyDescription =
              UpdateKeyDescriptionResponse
-        request = postJSON
+        request = postJSON "UpdateKeyDescription"
         response = receiveNull UpdateKeyDescriptionResponse'
 
 instance ToHeaders UpdateKeyDescription where

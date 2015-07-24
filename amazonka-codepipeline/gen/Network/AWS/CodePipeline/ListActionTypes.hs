@@ -81,7 +81,7 @@ latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a});
 instance AWSRequest ListActionTypes where
         type Sv ListActionTypes = CodePipeline
         type Rs ListActionTypes = ListActionTypesResponse
-        request = postJSON
+        request = postJSON "ListActionTypes"
         response
           = receiveJSON
               (\ s h x ->

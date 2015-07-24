@@ -89,7 +89,7 @@ cbCommitId = lens _cbCommitId (\ s a -> s{_cbCommitId = a});
 instance AWSRequest CreateBranch where
         type Sv CreateBranch = CodeCommit
         type Rs CreateBranch = CreateBranchResponse
-        request = postJSON
+        request = postJSON "CreateBranch"
         response = receiveNull CreateBranchResponse'
 
 instance ToHeaders CreateBranch where

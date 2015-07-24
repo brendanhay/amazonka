@@ -99,7 +99,8 @@ instance AWSRequest
              StorageGateway
         type Rs CreateSnapshotFromVolumeRecoveryPoint =
              CreateSnapshotFromVolumeRecoveryPointResponse
-        request = postJSON
+        request
+          = postJSON "CreateSnapshotFromVolumeRecoveryPoint"
         response
           = receiveJSON
               (\ s h x ->

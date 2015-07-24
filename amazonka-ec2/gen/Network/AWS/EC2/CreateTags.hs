@@ -93,7 +93,7 @@ cTags = lens _cTags (\ s a -> s{_cTags = a});
 instance AWSRequest CreateTags where
         type Sv CreateTags = EC2
         type Rs CreateTags = CreateTagsResponse
-        request = post
+        request = post "CreateTags"
         response = receiveNull CreateTagsResponse'
 
 instance ToHeaders CreateTags where

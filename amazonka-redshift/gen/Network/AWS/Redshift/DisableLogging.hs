@@ -75,7 +75,7 @@ dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier
 instance AWSRequest DisableLogging where
         type Sv DisableLogging = Redshift
         type Rs DisableLogging = LoggingStatus
-        request = post
+        request = post "DisableLogging"
         response
           = receiveXMLWrapper "DisableLoggingResult"
               (\ s h x -> parseXML x)

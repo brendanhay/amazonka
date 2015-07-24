@@ -91,7 +91,7 @@ instance AWSRequest DescribeVPCAttribute where
         type Sv DescribeVPCAttribute = EC2
         type Rs DescribeVPCAttribute =
              DescribeVPCAttributeResponse
-        request = post
+        request = post "DescribeVPCAttribute"
         response
           = receiveXML
               (\ s h x ->

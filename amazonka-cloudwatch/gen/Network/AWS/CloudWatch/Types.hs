@@ -142,6 +142,7 @@ instance AWSService CloudWatch where
             , _svcPrefix = "monitoring"
             , _svcVersion = "2010-08-01"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

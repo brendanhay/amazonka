@@ -66,7 +66,7 @@ gbpBucket = lens _gbpBucket (\ s a -> s{_gbpBucket = a});
 instance AWSRequest GetBucketPolicy where
         type Sv GetBucketPolicy = S3
         type Rs GetBucketPolicy = GetBucketPolicyResponse
-        request = get
+        request = get "GetBucketPolicy"
         response
           = receiveXML
               (\ s h x ->

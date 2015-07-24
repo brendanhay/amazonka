@@ -73,7 +73,7 @@ instance AWSRequest DeleteVerifiedEmailAddress where
         type Sv DeleteVerifiedEmailAddress = SES
         type Rs DeleteVerifiedEmailAddress =
              DeleteVerifiedEmailAddressResponse
-        request = post
+        request = post "DeleteVerifiedEmailAddress"
         response
           = receiveNull DeleteVerifiedEmailAddressResponse'
 

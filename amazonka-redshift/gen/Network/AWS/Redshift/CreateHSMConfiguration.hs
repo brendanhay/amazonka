@@ -136,7 +136,7 @@ instance AWSRequest CreateHSMConfiguration where
         type Sv CreateHSMConfiguration = Redshift
         type Rs CreateHSMConfiguration =
              CreateHSMConfigurationResponse
-        request = post
+        request = post "CreateHSMConfiguration"
         response
           = receiveXMLWrapper "CreateHsmConfigurationResult"
               (\ s h x ->

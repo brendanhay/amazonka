@@ -94,7 +94,7 @@ instance AWSRequest ReplaceNetworkACLAssociation
         type Sv ReplaceNetworkACLAssociation = EC2
         type Rs ReplaceNetworkACLAssociation =
              ReplaceNetworkACLAssociationResponse
-        request = post
+        request = post "ReplaceNetworkACLAssociation"
         response
           = receiveXML
               (\ s h x ->

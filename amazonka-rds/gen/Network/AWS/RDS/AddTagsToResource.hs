@@ -82,7 +82,7 @@ attrTags = lens _attrTags (\ s a -> s{_attrTags = a});
 instance AWSRequest AddTagsToResource where
         type Sv AddTagsToResource = RDS
         type Rs AddTagsToResource = AddTagsToResourceResponse
-        request = post
+        request = post "AddTagsToResource"
         response = receiveNull AddTagsToResourceResponse'
 
 instance ToHeaders AddTagsToResource where

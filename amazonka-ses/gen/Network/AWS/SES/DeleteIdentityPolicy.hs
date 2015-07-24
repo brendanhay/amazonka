@@ -97,7 +97,7 @@ instance AWSRequest DeleteIdentityPolicy where
         type Sv DeleteIdentityPolicy = SES
         type Rs DeleteIdentityPolicy =
              DeleteIdentityPolicyResponse
-        request = post
+        request = post "DeleteIdentityPolicy"
         response
           = receiveXMLWrapper "DeleteIdentityPolicyResult"
               (\ s h x ->

@@ -76,7 +76,7 @@ instance AWSRequest DeleteVPNConnectionRoute where
         type Sv DeleteVPNConnectionRoute = EC2
         type Rs DeleteVPNConnectionRoute =
              DeleteVPNConnectionRouteResponse
-        request = post
+        request = post "DeleteVPNConnectionRoute"
         response
           = receiveNull DeleteVPNConnectionRouteResponse'
 

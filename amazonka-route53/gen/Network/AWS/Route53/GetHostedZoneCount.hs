@@ -58,7 +58,7 @@ instance AWSRequest GetHostedZoneCount where
         type Sv GetHostedZoneCount = Route53
         type Rs GetHostedZoneCount =
              GetHostedZoneCountResponse
-        request = get
+        request = get "GetHostedZoneCount"
         response
           = receiveXML
               (\ s h x ->

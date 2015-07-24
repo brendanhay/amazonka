@@ -144,7 +144,7 @@ instance AWSRequest InitiateMultipartUpload where
         type Sv InitiateMultipartUpload = Glacier
         type Rs InitiateMultipartUpload =
              InitiateMultipartUploadResponse
-        request = postJSON
+        request = postJSON "InitiateMultipartUpload"
         response
           = receiveJSON
               (\ s h x ->

@@ -107,7 +107,7 @@ instance AWSRequest DescribeCacheSecurityGroups where
         type Sv DescribeCacheSecurityGroups = ElastiCache
         type Rs DescribeCacheSecurityGroups =
              DescribeCacheSecurityGroupsResponse
-        request = post
+        request = post "DescribeCacheSecurityGroups"
         response
           = receiveXMLWrapper
               "DescribeCacheSecurityGroupsResult"

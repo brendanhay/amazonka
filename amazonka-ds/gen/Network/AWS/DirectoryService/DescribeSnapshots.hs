@@ -108,7 +108,7 @@ dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = DirectoryService
         type Rs DescribeSnapshots = DescribeSnapshotsResponse
-        request = postJSON
+        request = postJSON "DescribeSnapshots"
         response
           = receiveJSON
               (\ s h x ->

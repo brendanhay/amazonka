@@ -1,7 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 
 -- Module      : Network.AWS.S3.Internal
@@ -99,11 +98,12 @@ newtype ETag = ETag ByteString
         )
 
 -- Taken from: https://github.com/aws/aws-sdk-ruby/blob/17508581a6887fb170e608242165b1ee18ccd9a9/aws-sdk-core/lib/aws-sdk-core/plugins/s3_md5s.rb#L15
-checksumMD5 :: Operation -> Request a -> Request a
-checksumMD5 = \case
-    "DeleteObjects"      -> contentMD5
-    "PutBucketCORS"      -> contentMD5
-    "PutBucketLifecycle" -> contentMD5
-    "PutBucketPolicy"    -> contentMD5
-    "PutBucketTagging"   -> contentMD5
-    _                    -> id
+checksumMD5 :: Request a -> Request a
+checksumMD5 rq =
+    case _rqOperation rq of
+        "DeleteObjects"      -> contentMD5 rq
+        "PutBucketCORS"      -> contentMD5 rq
+        "PutBucketLifecycle" -> contentMD5 rq
+        "PutBucketPolicy"    -> contentMD5 rq
+        "PutBucketTagging"   -> contentMD5 rq
+        _                    -> rq

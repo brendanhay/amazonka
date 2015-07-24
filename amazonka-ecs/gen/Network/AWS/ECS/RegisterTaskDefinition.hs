@@ -96,7 +96,7 @@ instance AWSRequest RegisterTaskDefinition where
         type Sv RegisterTaskDefinition = ECS
         type Rs RegisterTaskDefinition =
              RegisterTaskDefinitionResponse
-        request = postJSON
+        request = postJSON "RegisterTaskDefinition"
         response
           = receiveJSON
               (\ s h x ->

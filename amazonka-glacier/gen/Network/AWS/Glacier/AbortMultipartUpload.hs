@@ -115,7 +115,7 @@ instance AWSRequest AbortMultipartUpload where
         type Sv AbortMultipartUpload = Glacier
         type Rs AbortMultipartUpload =
              AbortMultipartUploadResponse
-        request = delete
+        request = delete "AbortMultipartUpload"
         response = receiveNull AbortMultipartUploadResponse'
 
 instance ToHeaders AbortMultipartUpload where

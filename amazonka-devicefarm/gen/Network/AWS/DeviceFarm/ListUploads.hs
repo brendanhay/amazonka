@@ -80,7 +80,7 @@ luArn = lens _luArn (\ s a -> s{_luArn = a});
 instance AWSRequest ListUploads where
         type Sv ListUploads = DeviceFarm
         type Rs ListUploads = ListUploadsResponse
-        request = postJSON
+        request = postJSON "ListUploads"
         response
           = receiveJSON
               (\ s h x ->

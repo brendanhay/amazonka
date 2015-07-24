@@ -107,7 +107,7 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
         type Sv RegisterInstancesWithLoadBalancer = ELB
         type Rs RegisterInstancesWithLoadBalancer =
              RegisterInstancesWithLoadBalancerResponse
-        request = post
+        request = post "RegisterInstancesWithLoadBalancer"
         response
           = receiveXMLWrapper
               "RegisterInstancesWithLoadBalancerResult"

@@ -132,7 +132,8 @@ instance AWSRequest
              CognitoIdentity
         type Rs GetOpenIdTokenForDeveloperIdentity =
              GetOpenIdTokenForDeveloperIdentityResponse
-        request = postJSON
+        request
+          = postJSON "GetOpenIdTokenForDeveloperIdentity"
         response
           = receiveJSON
               (\ s h x ->

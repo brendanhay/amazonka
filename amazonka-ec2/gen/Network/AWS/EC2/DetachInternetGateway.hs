@@ -87,7 +87,7 @@ instance AWSRequest DetachInternetGateway where
         type Sv DetachInternetGateway = EC2
         type Rs DetachInternetGateway =
              DetachInternetGatewayResponse
-        request = post
+        request = post "DetachInternetGateway"
         response = receiveNull DetachInternetGatewayResponse'
 
 instance ToHeaders DetachInternetGateway where

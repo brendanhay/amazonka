@@ -123,7 +123,7 @@ msAdjacentShardToMerge = lens _msAdjacentShardToMerge (\ s a -> s{_msAdjacentSha
 instance AWSRequest MergeShards where
         type Sv MergeShards = Kinesis
         type Rs MergeShards = MergeShardsResponse
-        request = postJSON
+        request = postJSON "MergeShards"
         response = receiveNull MergeShardsResponse'
 
 instance ToHeaders MergeShards where

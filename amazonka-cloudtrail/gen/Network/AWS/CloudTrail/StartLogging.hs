@@ -67,7 +67,7 @@ sName = lens _sName (\ s a -> s{_sName = a});
 instance AWSRequest StartLogging where
         type Sv StartLogging = CloudTrail
         type Rs StartLogging = StartLoggingResponse
-        request = postJSON
+        request = postJSON "StartLogging"
         response
           = receiveJSON
               (\ s h x ->

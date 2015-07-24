@@ -99,7 +99,7 @@ instance AWSRequest DescribeExpressions where
         type Sv DescribeExpressions = CloudSearch
         type Rs DescribeExpressions =
              DescribeExpressionsResponse
-        request = post
+        request = post "DescribeExpressions"
         response
           = receiveXMLWrapper "DescribeExpressionsResult"
               (\ s h x ->

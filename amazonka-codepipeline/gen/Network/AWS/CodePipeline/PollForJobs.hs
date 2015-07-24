@@ -96,7 +96,7 @@ pfjActionTypeId = lens _pfjActionTypeId (\ s a -> s{_pfjActionTypeId = a});
 instance AWSRequest PollForJobs where
         type Sv PollForJobs = CodePipeline
         type Rs PollForJobs = PollForJobsResponse
-        request = postJSON
+        request = postJSON "PollForJobs"
         response
           = receiveJSON
               (\ s h x ->

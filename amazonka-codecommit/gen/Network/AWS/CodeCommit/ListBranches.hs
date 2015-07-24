@@ -78,7 +78,7 @@ lbRepositoryName = lens _lbRepositoryName (\ s a -> s{_lbRepositoryName = a});
 instance AWSRequest ListBranches where
         type Sv ListBranches = CodeCommit
         type Rs ListBranches = ListBranchesResponse
-        request = postJSON
+        request = postJSON "ListBranches"
         response
           = receiveJSON
               (\ s h x ->

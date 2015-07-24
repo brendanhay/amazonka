@@ -130,7 +130,7 @@ cdApplicationName = lens _cdApplicationName (\ s a -> s{_cdApplicationName = a})
 instance AWSRequest CreateDeployment where
         type Sv CreateDeployment = CodeDeploy
         type Rs CreateDeployment = CreateDeploymentResponse
-        request = postJSON
+        request = postJSON "CreateDeployment"
         response
           = receiveJSON
               (\ s h x ->

@@ -73,7 +73,7 @@ cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 instance AWSRequest CreateDomain where
         type Sv CreateDomain = SDB
         type Rs CreateDomain = CreateDomainResponse
-        request = post
+        request = post "CreateDomain"
         response = receiveNull CreateDomainResponse'
 
 instance ToHeaders CreateDomain where

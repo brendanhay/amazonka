@@ -77,7 +77,7 @@ instance AWSRequest DeleteEventSourceMapping where
         type Sv DeleteEventSourceMapping = Lambda
         type Rs DeleteEventSourceMapping =
              EventSourceMappingConfiguration
-        request = delete
+        request = delete "DeleteEventSourceMapping"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DeleteEventSourceMapping where

@@ -64,7 +64,7 @@ instance AWSRequest DeleteBucketWebsite where
         type Sv DeleteBucketWebsite = S3
         type Rs DeleteBucketWebsite =
              DeleteBucketWebsiteResponse
-        request = delete
+        request = delete "DeleteBucketWebsite"
         response = receiveNull DeleteBucketWebsiteResponse'
 
 instance ToHeaders DeleteBucketWebsite where

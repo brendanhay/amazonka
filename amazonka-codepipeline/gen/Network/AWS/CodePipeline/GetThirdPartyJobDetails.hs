@@ -87,7 +87,7 @@ instance AWSRequest GetThirdPartyJobDetails where
         type Sv GetThirdPartyJobDetails = CodePipeline
         type Rs GetThirdPartyJobDetails =
              GetThirdPartyJobDetailsResponse
-        request = postJSON
+        request = postJSON "GetThirdPartyJobDetails"
         response
           = receiveJSON
               (\ s h x ->

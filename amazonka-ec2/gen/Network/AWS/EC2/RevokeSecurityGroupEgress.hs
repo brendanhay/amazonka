@@ -159,7 +159,7 @@ instance AWSRequest RevokeSecurityGroupEgress where
         type Sv RevokeSecurityGroupEgress = EC2
         type Rs RevokeSecurityGroupEgress =
              RevokeSecurityGroupEgressResponse
-        request = post
+        request = post "RevokeSecurityGroupEgress"
         response
           = receiveNull RevokeSecurityGroupEgressResponse'
 

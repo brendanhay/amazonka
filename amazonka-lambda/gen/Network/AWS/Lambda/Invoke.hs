@@ -134,7 +134,7 @@ iFunctionName = lens _iFunctionName (\ s a -> s{_iFunctionName = a});
 instance AWSRequest Invoke where
         type Sv Invoke = Lambda
         type Rs Invoke = InvokeResponse
-        request = postJSON
+        request = postJSON "Invoke"
         response
           = receiveJSON
               (\ s h x ->

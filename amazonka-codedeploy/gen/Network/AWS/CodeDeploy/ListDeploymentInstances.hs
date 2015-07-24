@@ -104,7 +104,7 @@ instance AWSRequest ListDeploymentInstances where
         type Sv ListDeploymentInstances = CodeDeploy
         type Rs ListDeploymentInstances =
              ListDeploymentInstancesResponse
-        request = postJSON
+        request = postJSON "ListDeploymentInstances"
         response
           = receiveJSON
               (\ s h x ->

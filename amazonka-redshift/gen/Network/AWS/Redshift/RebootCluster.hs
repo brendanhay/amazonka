@@ -75,7 +75,7 @@ rcClusterIdentifier = lens _rcClusterIdentifier (\ s a -> s{_rcClusterIdentifier
 instance AWSRequest RebootCluster where
         type Sv RebootCluster = Redshift
         type Rs RebootCluster = RebootClusterResponse
-        request = post
+        request = post "RebootCluster"
         response
           = receiveXMLWrapper "RebootClusterResult"
               (\ s h x ->

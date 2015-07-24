@@ -258,7 +258,7 @@ rdTechContact = lens _rdTechContact (\ s a -> s{_rdTechContact = a}) . _Sensitiv
 instance AWSRequest RegisterDomain where
         type Sv RegisterDomain = Route53Domains
         type Rs RegisterDomain = RegisterDomainResponse
-        request = postJSON
+        request = postJSON "RegisterDomain"
         response
           = receiveJSON
               (\ s h x ->

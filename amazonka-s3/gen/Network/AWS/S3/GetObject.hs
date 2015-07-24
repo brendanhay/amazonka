@@ -255,7 +255,7 @@ goKey = lens _goKey (\ s a -> s{_goKey = a});
 instance AWSRequest GetObject where
         type Sv GetObject = S3
         type Rs GetObject = GetObjectResponse
-        request = get
+        request = get "GetObject"
         response
           = receiveBody
               (\ s h x ->

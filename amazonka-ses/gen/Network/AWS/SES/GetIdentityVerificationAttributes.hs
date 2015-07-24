@@ -76,7 +76,7 @@ instance AWSRequest GetIdentityVerificationAttributes
         type Sv GetIdentityVerificationAttributes = SES
         type Rs GetIdentityVerificationAttributes =
              GetIdentityVerificationAttributesResponse
-        request = post
+        request = post "GetIdentityVerificationAttributes"
         response
           = receiveXMLWrapper
               "GetIdentityVerificationAttributesResult"

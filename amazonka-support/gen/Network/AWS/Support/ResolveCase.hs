@@ -70,7 +70,7 @@ rcCaseId = lens _rcCaseId (\ s a -> s{_rcCaseId = a});
 instance AWSRequest ResolveCase where
         type Sv ResolveCase = Support
         type Rs ResolveCase = ResolveCaseResponse
-        request = postJSON
+        request = postJSON "ResolveCase"
         response
           = receiveJSON
               (\ s h x ->

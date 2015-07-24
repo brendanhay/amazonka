@@ -80,7 +80,7 @@ instance AWSRequest DeleteSSHPublicKey where
         type Sv DeleteSSHPublicKey = IAM
         type Rs DeleteSSHPublicKey =
              DeleteSSHPublicKeyResponse
-        request = post
+        request = post "DeleteSSHPublicKey"
         response = receiveNull DeleteSSHPublicKeyResponse'
 
 instance ToHeaders DeleteSSHPublicKey where

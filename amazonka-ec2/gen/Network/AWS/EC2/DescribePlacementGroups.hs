@@ -102,7 +102,7 @@ instance AWSRequest DescribePlacementGroups where
         type Sv DescribePlacementGroups = EC2
         type Rs DescribePlacementGroups =
              DescribePlacementGroupsResponse
-        request = post
+        request = post "DescribePlacementGroups"
         response
           = receiveXML
               (\ s h x ->

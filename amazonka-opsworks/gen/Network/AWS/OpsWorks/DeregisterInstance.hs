@@ -73,7 +73,7 @@ instance AWSRequest DeregisterInstance where
         type Sv DeregisterInstance = OpsWorks
         type Rs DeregisterInstance =
              DeregisterInstanceResponse
-        request = postJSON
+        request = postJSON "DeregisterInstance"
         response = receiveNull DeregisterInstanceResponse'
 
 instance ToHeaders DeregisterInstance where

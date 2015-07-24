@@ -169,7 +169,7 @@ instance AWSRequest UploadMultipartPart where
         type Sv UploadMultipartPart = Glacier
         type Rs UploadMultipartPart =
              UploadMultipartPartResponse
-        request = putBody
+        request = putBody "UploadMultipartPart"
         response
           = receiveJSON
               (\ s h x ->

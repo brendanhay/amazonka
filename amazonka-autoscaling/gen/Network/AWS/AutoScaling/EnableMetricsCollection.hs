@@ -107,7 +107,7 @@ instance AWSRequest EnableMetricsCollection where
         type Sv EnableMetricsCollection = AutoScaling
         type Rs EnableMetricsCollection =
              EnableMetricsCollectionResponse
-        request = post
+        request = post "EnableMetricsCollection"
         response
           = receiveNull EnableMetricsCollectionResponse'
 

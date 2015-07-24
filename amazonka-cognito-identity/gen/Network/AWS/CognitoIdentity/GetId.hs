@@ -100,7 +100,7 @@ giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a});
 instance AWSRequest GetId where
         type Sv GetId = CognitoIdentity
         type Rs GetId = GetIdResponse
-        request = postJSON
+        request = postJSON "GetId"
         response
           = receiveJSON
               (\ s h x ->

@@ -72,7 +72,7 @@ instance AWSRequest DisableDomainAutoRenew where
         type Sv DisableDomainAutoRenew = Route53Domains
         type Rs DisableDomainAutoRenew =
              DisableDomainAutoRenewResponse
-        request = postJSON
+        request = postJSON "DisableDomainAutoRenew"
         response
           = receiveJSON
               (\ s h x ->

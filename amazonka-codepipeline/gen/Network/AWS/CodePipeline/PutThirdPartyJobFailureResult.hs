@@ -89,7 +89,7 @@ instance AWSRequest PutThirdPartyJobFailureResult
         type Sv PutThirdPartyJobFailureResult = CodePipeline
         type Rs PutThirdPartyJobFailureResult =
              PutThirdPartyJobFailureResultResponse
-        request = postJSON
+        request = postJSON "PutThirdPartyJobFailureResult"
         response
           = receiveNull PutThirdPartyJobFailureResultResponse'
 

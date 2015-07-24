@@ -72,7 +72,7 @@ uInstanceId = lens _uInstanceId (\ s a -> s{_uInstanceId = a});
 instance AWSRequest UnassignInstance where
         type Sv UnassignInstance = OpsWorks
         type Rs UnassignInstance = UnassignInstanceResponse
-        request = postJSON
+        request = postJSON "UnassignInstance"
         response = receiveNull UnassignInstanceResponse'
 
 instance ToHeaders UnassignInstance where

@@ -147,7 +147,7 @@ instance AWSRequest UpdateFunctionConfiguration where
         type Sv UpdateFunctionConfiguration = Lambda
         type Rs UpdateFunctionConfiguration =
              FunctionConfiguration
-        request = putJSON
+        request = putJSON "UpdateFunctionConfiguration"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateFunctionConfiguration where

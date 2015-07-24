@@ -85,7 +85,7 @@ instance AWSRequest GetCredentialsForIdentity where
         type Sv GetCredentialsForIdentity = CognitoIdentity
         type Rs GetCredentialsForIdentity =
              GetCredentialsForIdentityResponse
-        request = postJSON
+        request = postJSON "GetCredentialsForIdentity"
         response
           = receiveJSON
               (\ s h x ->

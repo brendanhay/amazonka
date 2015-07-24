@@ -75,7 +75,7 @@ instance AWSRequest DescribeTrustedAdvisorChecks
         type Sv DescribeTrustedAdvisorChecks = Support
         type Rs DescribeTrustedAdvisorChecks =
              DescribeTrustedAdvisorChecksResponse
-        request = postJSON
+        request = postJSON "DescribeTrustedAdvisorChecks"
         response
           = receiveJSON
               (\ s h x ->

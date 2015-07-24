@@ -139,7 +139,7 @@ instance AWSRequest GetResourceConfigHistory where
         type Sv GetResourceConfigHistory = Config
         type Rs GetResourceConfigHistory =
              GetResourceConfigHistoryResponse
-        request = postJSON
+        request = postJSON "GetResourceConfigHistory"
         response
           = receiveJSON
               (\ s h x ->

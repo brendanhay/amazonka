@@ -223,7 +223,7 @@ instance AWSRequest RegisterActivityType where
         type Sv RegisterActivityType = SWF
         type Rs RegisterActivityType =
              RegisterActivityTypeResponse
-        request = postJSON
+        request = postJSON "RegisterActivityType"
         response = receiveNull RegisterActivityTypeResponse'
 
 instance ToHeaders RegisterActivityType where

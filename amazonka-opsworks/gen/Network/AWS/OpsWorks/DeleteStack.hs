@@ -71,7 +71,7 @@ dsStackId = lens _dsStackId (\ s a -> s{_dsStackId = a});
 instance AWSRequest DeleteStack where
         type Sv DeleteStack = OpsWorks
         type Rs DeleteStack = DeleteStackResponse
-        request = postJSON
+        request = postJSON "DeleteStack"
         response = receiveNull DeleteStackResponse'
 
 instance ToHeaders DeleteStack where

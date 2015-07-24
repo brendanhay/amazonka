@@ -75,7 +75,7 @@ instance AWSRequest DeleteLoadBalancerListeners where
         type Sv DeleteLoadBalancerListeners = ELB
         type Rs DeleteLoadBalancerListeners =
              DeleteLoadBalancerListenersResponse
-        request = post
+        request = post "DeleteLoadBalancerListeners"
         response
           = receiveXMLWrapper
               "DeleteLoadBalancerListenersResult"

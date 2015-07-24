@@ -138,7 +138,7 @@ ssNewStartingHashKey = lens _ssNewStartingHashKey (\ s a -> s{_ssNewStartingHash
 instance AWSRequest SplitShard where
         type Sv SplitShard = Kinesis
         type Rs SplitShard = SplitShardResponse
-        request = postJSON
+        request = postJSON "SplitShard"
         response = receiveNull SplitShardResponse'
 
 instance ToHeaders SplitShard where

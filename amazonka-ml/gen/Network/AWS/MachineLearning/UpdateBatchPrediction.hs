@@ -79,7 +79,7 @@ instance AWSRequest UpdateBatchPrediction where
         type Sv UpdateBatchPrediction = MachineLearning
         type Rs UpdateBatchPrediction =
              UpdateBatchPredictionResponse
-        request = postJSON
+        request = postJSON "UpdateBatchPrediction"
         response
           = receiveJSON
               (\ s h x ->

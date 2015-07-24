@@ -80,7 +80,7 @@ instance AWSRequest SetIdentityPoolRoles where
         type Sv SetIdentityPoolRoles = CognitoIdentity
         type Rs SetIdentityPoolRoles =
              SetIdentityPoolRolesResponse
-        request = postJSON
+        request = postJSON "SetIdentityPoolRoles"
         response = receiveNull SetIdentityPoolRolesResponse'
 
 instance ToHeaders SetIdentityPoolRoles where

@@ -101,7 +101,7 @@ instance AWSRequest SubscribeToDataset where
         type Sv SubscribeToDataset = CognitoSync
         type Rs SubscribeToDataset =
              SubscribeToDatasetResponse
-        request = postJSON
+        request = postJSON "SubscribeToDataset"
         response
           = receiveJSON
               (\ s h x ->

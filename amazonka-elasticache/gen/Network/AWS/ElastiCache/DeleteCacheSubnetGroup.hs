@@ -72,7 +72,7 @@ instance AWSRequest DeleteCacheSubnetGroup where
         type Sv DeleteCacheSubnetGroup = ElastiCache
         type Rs DeleteCacheSubnetGroup =
              DeleteCacheSubnetGroupResponse
-        request = post
+        request = post "DeleteCacheSubnetGroup"
         response
           = receiveNull DeleteCacheSubnetGroupResponse'
 

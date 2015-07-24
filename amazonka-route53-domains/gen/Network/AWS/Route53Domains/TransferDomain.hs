@@ -289,7 +289,7 @@ tdTechContact = lens _tdTechContact (\ s a -> s{_tdTechContact = a}) . _Sensitiv
 instance AWSRequest TransferDomain where
         type Sv TransferDomain = Route53Domains
         type Rs TransferDomain = TransferDomainResponse
-        request = postJSON
+        request = postJSON "TransferDomain"
         response
           = receiveJSON
               (\ s h x ->

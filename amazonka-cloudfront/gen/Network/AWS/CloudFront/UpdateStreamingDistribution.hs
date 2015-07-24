@@ -89,7 +89,7 @@ instance AWSRequest UpdateStreamingDistribution where
         type Sv UpdateStreamingDistribution = CloudFront
         type Rs UpdateStreamingDistribution =
              UpdateStreamingDistributionResponse
-        request = putXML
+        request = putXML "UpdateStreamingDistribution"
         response
           = receiveXML
               (\ s h x ->

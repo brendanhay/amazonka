@@ -118,7 +118,7 @@ cipAllowUnauthenticatedIdentities = lens _cipAllowUnauthenticatedIdentities (\ s
 instance AWSRequest CreateIdentityPool where
         type Sv CreateIdentityPool = CognitoIdentity
         type Rs CreateIdentityPool = IdentityPool
-        request = postJSON
+        request = postJSON "CreateIdentityPool"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateIdentityPool where

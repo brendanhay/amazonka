@@ -141,7 +141,7 @@ utTableName = lens _utTableName (\ s a -> s{_utTableName = a});
 instance AWSRequest UpdateTable where
         type Sv UpdateTable = DynamoDB
         type Rs UpdateTable = UpdateTableResponse
-        request = postJSON
+        request = postJSON "UpdateTable"
         response
           = receiveJSON
               (\ s h x ->

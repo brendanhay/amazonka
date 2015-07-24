@@ -83,7 +83,7 @@ lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
 instance AWSRequest ListKeys where
         type Sv ListKeys = KMS
         type Rs ListKeys = ListKeysResponse
-        request = postJSON
+        request = postJSON "ListKeys"
         response
           = receiveJSON
               (\ s h x ->

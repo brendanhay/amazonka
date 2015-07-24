@@ -79,7 +79,7 @@ instance AWSRequest UpdateDefaultBranch where
         type Sv UpdateDefaultBranch = CodeCommit
         type Rs UpdateDefaultBranch =
              UpdateDefaultBranchResponse
-        request = postJSON
+        request = postJSON "UpdateDefaultBranch"
         response = receiveNull UpdateDefaultBranchResponse'
 
 instance ToHeaders UpdateDefaultBranch where

@@ -124,7 +124,7 @@ instance AWSRequest ModifyNetworkInterfaceAttribute
         type Sv ModifyNetworkInterfaceAttribute = EC2
         type Rs ModifyNetworkInterfaceAttribute =
              ModifyNetworkInterfaceAttributeResponse
-        request = post
+        request = post "ModifyNetworkInterfaceAttribute"
         response
           = receiveNull
               ModifyNetworkInterfaceAttributeResponse'

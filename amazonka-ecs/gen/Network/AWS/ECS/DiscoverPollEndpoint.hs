@@ -86,7 +86,7 @@ instance AWSRequest DiscoverPollEndpoint where
         type Sv DiscoverPollEndpoint = ECS
         type Rs DiscoverPollEndpoint =
              DiscoverPollEndpointResponse
-        request = postJSON
+        request = postJSON "DiscoverPollEndpoint"
         response
           = receiveJSON
               (\ s h x ->

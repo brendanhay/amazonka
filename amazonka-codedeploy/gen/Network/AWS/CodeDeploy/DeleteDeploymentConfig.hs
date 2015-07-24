@@ -70,7 +70,7 @@ instance AWSRequest DeleteDeploymentConfig where
         type Sv DeleteDeploymentConfig = CodeDeploy
         type Rs DeleteDeploymentConfig =
              DeleteDeploymentConfigResponse
-        request = postJSON
+        request = postJSON "DeleteDeploymentConfig"
         response
           = receiveNull DeleteDeploymentConfigResponse'
 

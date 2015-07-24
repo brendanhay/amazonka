@@ -92,7 +92,7 @@ instance AWSRequest DeleteCustomActionType where
         type Sv DeleteCustomActionType = CodePipeline
         type Rs DeleteCustomActionType =
              DeleteCustomActionTypeResponse
-        request = postJSON
+        request = postJSON "DeleteCustomActionType"
         response
           = receiveNull DeleteCustomActionTypeResponse'
 

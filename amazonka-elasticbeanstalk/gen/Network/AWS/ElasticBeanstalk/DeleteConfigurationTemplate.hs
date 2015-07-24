@@ -81,7 +81,7 @@ instance AWSRequest DeleteConfigurationTemplate where
              ElasticBeanstalk
         type Rs DeleteConfigurationTemplate =
              DeleteConfigurationTemplateResponse
-        request = post
+        request = post "DeleteConfigurationTemplate"
         response
           = receiveNull DeleteConfigurationTemplateResponse'
 

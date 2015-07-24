@@ -112,7 +112,7 @@ daArchiveId = lens _daArchiveId (\ s a -> s{_daArchiveId = a});
 instance AWSRequest DeleteArchive where
         type Sv DeleteArchive = Glacier
         type Rs DeleteArchive = DeleteArchiveResponse
-        request = delete
+        request = delete "DeleteArchive"
         response = receiveNull DeleteArchiveResponse'
 
 instance ToHeaders DeleteArchive where

@@ -125,7 +125,7 @@ instance AWSRequest CreateClusterParameterGroup where
         type Sv CreateClusterParameterGroup = Redshift
         type Rs CreateClusterParameterGroup =
              CreateClusterParameterGroupResponse
-        request = post
+        request = post "CreateClusterParameterGroup"
         response
           = receiveXMLWrapper
               "CreateClusterParameterGroupResult"

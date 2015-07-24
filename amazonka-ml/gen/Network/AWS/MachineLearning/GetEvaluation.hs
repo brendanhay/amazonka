@@ -79,7 +79,7 @@ geEvaluationId = lens _geEvaluationId (\ s a -> s{_geEvaluationId = a});
 instance AWSRequest GetEvaluation where
         type Sv GetEvaluation = MachineLearning
         type Rs GetEvaluation = GetEvaluationResponse
-        request = postJSON
+        request = postJSON "GetEvaluation"
         response
           = receiveJSON
               (\ s h x ->

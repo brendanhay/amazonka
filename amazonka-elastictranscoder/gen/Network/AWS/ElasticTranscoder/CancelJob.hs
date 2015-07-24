@@ -74,7 +74,7 @@ cjId = lens _cjId (\ s a -> s{_cjId = a});
 instance AWSRequest CancelJob where
         type Sv CancelJob = ElasticTranscoder
         type Rs CancelJob = CancelJobResponse
-        request = delete
+        request = delete "CancelJob"
         response
           = receiveJSON
               (\ s h x ->

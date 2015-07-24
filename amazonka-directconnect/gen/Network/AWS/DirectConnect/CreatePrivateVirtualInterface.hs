@@ -97,7 +97,7 @@ instance AWSRequest CreatePrivateVirtualInterface
         type Sv CreatePrivateVirtualInterface = DirectConnect
         type Rs CreatePrivateVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON "CreatePrivateVirtualInterface"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreatePrivateVirtualInterface

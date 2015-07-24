@@ -108,7 +108,7 @@ instance AWSRequest DescribeAvailabilityZones where
         type Sv DescribeAvailabilityZones = EC2
         type Rs DescribeAvailabilityZones =
              DescribeAvailabilityZonesResponse
-        request = post
+        request = post "DescribeAvailabilityZones"
         response
           = receiveXML
               (\ s h x ->

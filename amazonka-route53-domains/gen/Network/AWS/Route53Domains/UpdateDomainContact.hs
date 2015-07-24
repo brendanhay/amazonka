@@ -137,7 +137,7 @@ instance AWSRequest UpdateDomainContact where
         type Sv UpdateDomainContact = Route53Domains
         type Rs UpdateDomainContact =
              UpdateDomainContactResponse
-        request = postJSON
+        request = postJSON "UpdateDomainContact"
         response
           = receiveJSON
               (\ s h x ->

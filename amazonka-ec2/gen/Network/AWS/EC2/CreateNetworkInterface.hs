@@ -141,7 +141,7 @@ instance AWSRequest CreateNetworkInterface where
         type Sv CreateNetworkInterface = EC2
         type Rs CreateNetworkInterface =
              CreateNetworkInterfaceResponse
-        request = post
+        request = post "CreateNetworkInterface"
         response
           = receiveXML
               (\ s h x ->

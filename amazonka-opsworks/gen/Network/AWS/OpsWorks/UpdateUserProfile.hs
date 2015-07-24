@@ -101,7 +101,7 @@ uupIAMUserARN = lens _uupIAMUserARN (\ s a -> s{_uupIAMUserARN = a});
 instance AWSRequest UpdateUserProfile where
         type Sv UpdateUserProfile = OpsWorks
         type Rs UpdateUserProfile = UpdateUserProfileResponse
-        request = postJSON
+        request = postJSON "UpdateUserProfile"
         response = receiveNull UpdateUserProfileResponse'
 
 instance ToHeaders UpdateUserProfile where

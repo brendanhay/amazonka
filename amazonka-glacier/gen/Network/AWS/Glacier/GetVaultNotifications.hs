@@ -102,7 +102,7 @@ instance AWSRequest GetVaultNotifications where
         type Sv GetVaultNotifications = Glacier
         type Rs GetVaultNotifications =
              GetVaultNotificationsResponse
-        request = get
+        request = get "GetVaultNotifications"
         response
           = receiveJSON
               (\ s h x ->

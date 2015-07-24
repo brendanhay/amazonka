@@ -137,7 +137,7 @@ instance AWSRequest DescribeWorkspaces where
         type Sv DescribeWorkspaces = WorkSpaces
         type Rs DescribeWorkspaces =
              DescribeWorkspacesResponse
-        request = postJSON
+        request = postJSON "DescribeWorkspaces"
         response
           = receiveJSON
               (\ s h x ->

@@ -70,7 +70,7 @@ instance AWSRequest StartPipelineExecution where
         type Sv StartPipelineExecution = CodePipeline
         type Rs StartPipelineExecution =
              StartPipelineExecutionResponse
-        request = postJSON
+        request = postJSON "StartPipelineExecution"
         response
           = receiveJSON
               (\ s h x ->

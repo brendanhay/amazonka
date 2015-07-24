@@ -79,7 +79,7 @@ dgpPolicyARN = lens _dgpPolicyARN (\ s a -> s{_dgpPolicyARN = a});
 instance AWSRequest DetachGroupPolicy where
         type Sv DetachGroupPolicy = IAM
         type Rs DetachGroupPolicy = DetachGroupPolicyResponse
-        request = post
+        request = post "DetachGroupPolicy"
         response = receiveNull DetachGroupPolicyResponse'
 
 instance ToHeaders DetachGroupPolicy where

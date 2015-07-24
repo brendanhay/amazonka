@@ -130,7 +130,7 @@ grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a});
 instance AWSRequest GetRecords where
         type Sv GetRecords = Kinesis
         type Rs GetRecords = GetRecordsResponse
-        request = postJSON
+        request = postJSON "GetRecords"
         response
           = receiveJSON
               (\ s h x ->

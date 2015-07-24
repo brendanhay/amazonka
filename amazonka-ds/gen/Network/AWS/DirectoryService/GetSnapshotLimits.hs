@@ -68,7 +68,7 @@ gslDirectoryId = lens _gslDirectoryId (\ s a -> s{_gslDirectoryId = a});
 instance AWSRequest GetSnapshotLimits where
         type Sv GetSnapshotLimits = DirectoryService
         type Rs GetSnapshotLimits = GetSnapshotLimitsResponse
-        request = postJSON
+        request = postJSON "GetSnapshotLimits"
         response
           = receiveJSON
               (\ s h x ->

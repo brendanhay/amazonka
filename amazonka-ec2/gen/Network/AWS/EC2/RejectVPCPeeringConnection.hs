@@ -84,7 +84,7 @@ instance AWSRequest RejectVPCPeeringConnection where
         type Sv RejectVPCPeeringConnection = EC2
         type Rs RejectVPCPeeringConnection =
              RejectVPCPeeringConnectionResponse
-        request = post
+        request = post "RejectVPCPeeringConnection"
         response
           = receiveXML
               (\ s h x ->

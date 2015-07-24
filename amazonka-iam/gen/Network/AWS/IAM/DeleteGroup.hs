@@ -64,7 +64,7 @@ dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
 instance AWSRequest DeleteGroup where
         type Sv DeleteGroup = IAM
         type Rs DeleteGroup = DeleteGroupResponse
-        request = post
+        request = post "DeleteGroup"
         response = receiveNull DeleteGroupResponse'
 
 instance ToHeaders DeleteGroup where

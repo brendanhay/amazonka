@@ -115,7 +115,7 @@ instance AWSRequest DescribeDHCPOptions where
         type Sv DescribeDHCPOptions = EC2
         type Rs DescribeDHCPOptions =
              DescribeDHCPOptionsResponse
-        request = post
+        request = post "DescribeDHCPOptions"
         response
           = receiveXML
               (\ s h x ->

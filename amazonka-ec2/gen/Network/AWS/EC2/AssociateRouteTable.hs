@@ -97,7 +97,7 @@ instance AWSRequest AssociateRouteTable where
         type Sv AssociateRouteTable = EC2
         type Rs AssociateRouteTable =
              AssociateRouteTableResponse
-        request = post
+        request = post "AssociateRouteTable"
         response
           = receiveXML
               (\ s h x ->

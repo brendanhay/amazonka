@@ -123,7 +123,7 @@ ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstan
 instance AWSRequest DeleteDBInstance where
         type Sv DeleteDBInstance = RDS
         type Rs DeleteDBInstance = DeleteDBInstanceResponse
-        request = post
+        request = post "DeleteDBInstance"
         response
           = receiveXMLWrapper "DeleteDBInstanceResult"
               (\ s h x ->

@@ -328,7 +328,7 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
         type Sv RestoreDBInstanceFromDBSnapshot = RDS
         type Rs RestoreDBInstanceFromDBSnapshot =
              RestoreDBInstanceFromDBSnapshotResponse
-        request = post
+        request = post "RestoreDBInstanceFromDBSnapshot"
         response
           = receiveXMLWrapper
               "RestoreDBInstanceFromDBSnapshotResult"

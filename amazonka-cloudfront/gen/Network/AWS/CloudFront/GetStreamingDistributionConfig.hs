@@ -71,7 +71,7 @@ instance AWSRequest GetStreamingDistributionConfig
         type Sv GetStreamingDistributionConfig = CloudFront
         type Rs GetStreamingDistributionConfig =
              GetStreamingDistributionConfigResponse
-        request = get
+        request = get "GetStreamingDistributionConfig"
         response
           = receiveXML
               (\ s h x ->

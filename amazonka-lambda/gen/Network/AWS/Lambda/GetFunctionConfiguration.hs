@@ -90,7 +90,7 @@ instance AWSRequest GetFunctionConfiguration where
         type Sv GetFunctionConfiguration = Lambda
         type Rs GetFunctionConfiguration =
              FunctionConfiguration
-        request = get
+        request = get "GetFunctionConfiguration"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetFunctionConfiguration where

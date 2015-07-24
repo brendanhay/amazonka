@@ -93,7 +93,7 @@ dtsResources = lens _dtsResources (\ s a -> s{_dtsResources = a});
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EC2
         type Rs DeleteTags = DeleteTagsResponse
-        request = post
+        request = post "DeleteTags"
         response = receiveNull DeleteTagsResponse'
 
 instance ToHeaders DeleteTags where

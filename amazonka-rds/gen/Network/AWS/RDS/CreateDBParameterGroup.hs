@@ -129,7 +129,7 @@ instance AWSRequest CreateDBParameterGroup where
         type Sv CreateDBParameterGroup = RDS
         type Rs CreateDBParameterGroup =
              CreateDBParameterGroupResponse
-        request = post
+        request = post "CreateDBParameterGroup"
         response
           = receiveXMLWrapper "CreateDBParameterGroupResult"
               (\ s h x ->

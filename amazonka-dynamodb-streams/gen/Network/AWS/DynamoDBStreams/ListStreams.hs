@@ -94,7 +94,7 @@ lsTableName = lens _lsTableName (\ s a -> s{_lsTableName = a});
 instance AWSRequest ListStreams where
         type Sv ListStreams = DynamoDBStreams
         type Rs ListStreams = ListStreamsResponse
-        request = postJSON
+        request = postJSON "ListStreams"
         response
           = receiveJSON
               (\ s h x ->

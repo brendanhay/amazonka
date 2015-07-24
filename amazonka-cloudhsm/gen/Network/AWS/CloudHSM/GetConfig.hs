@@ -88,7 +88,7 @@ gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a});
 instance AWSRequest GetConfig where
         type Sv GetConfig = CloudHSM
         type Rs GetConfig = GetConfigResponse
-        request = postJSON
+        request = postJSON "GetConfig"
         response
           = receiveJSON
               (\ s h x ->

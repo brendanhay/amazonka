@@ -91,7 +91,7 @@ instance AWSRequest RetrieveTapeArchive where
         type Sv RetrieveTapeArchive = StorageGateway
         type Rs RetrieveTapeArchive =
              RetrieveTapeArchiveResponse
-        request = postJSON
+        request = postJSON "RetrieveTapeArchive"
         response
           = receiveJSON
               (\ s h x ->

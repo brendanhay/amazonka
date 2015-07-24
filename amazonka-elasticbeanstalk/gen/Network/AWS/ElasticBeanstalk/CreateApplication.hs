@@ -82,7 +82,7 @@ instance AWSRequest CreateApplication where
         type Sv CreateApplication = ElasticBeanstalk
         type Rs CreateApplication =
              ApplicationDescriptionMessage
-        request = post
+        request = post "CreateApplication"
         response
           = receiveXMLWrapper "CreateApplicationResult"
               (\ s h x -> parseXML x)

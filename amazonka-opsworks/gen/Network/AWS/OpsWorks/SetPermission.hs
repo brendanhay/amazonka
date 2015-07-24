@@ -117,7 +117,7 @@ spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
 instance AWSRequest SetPermission where
         type Sv SetPermission = OpsWorks
         type Rs SetPermission = SetPermissionResponse
-        request = postJSON
+        request = postJSON "SetPermission"
         response = receiveNull SetPermissionResponse'
 
 instance ToHeaders SetPermission where

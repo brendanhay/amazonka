@@ -138,7 +138,7 @@ instance AWSRequest ListTaskDefinitions where
         type Sv ListTaskDefinitions = ECS
         type Rs ListTaskDefinitions =
              ListTaskDefinitionsResponse
-        request = postJSON
+        request = postJSON "ListTaskDefinitions"
         response
           = receiveJSON
               (\ s h x ->

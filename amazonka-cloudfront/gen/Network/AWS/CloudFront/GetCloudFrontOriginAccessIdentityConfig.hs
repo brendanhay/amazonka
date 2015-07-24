@@ -72,7 +72,8 @@ instance AWSRequest
              CloudFront
         type Rs GetCloudFrontOriginAccessIdentityConfig =
              GetCloudFrontOriginAccessIdentityConfigResponse
-        request = get
+        request
+          = get "GetCloudFrontOriginAccessIdentityConfig"
         response
           = receiveXML
               (\ s h x ->

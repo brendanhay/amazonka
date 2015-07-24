@@ -87,7 +87,7 @@ instance AWSRequest SetTopicAttributes where
         type Sv SetTopicAttributes = SNS
         type Rs SetTopicAttributes =
              SetTopicAttributesResponse
-        request = post
+        request = post "SetTopicAttributes"
         response = receiveNull SetTopicAttributesResponse'
 
 instance ToHeaders SetTopicAttributes where

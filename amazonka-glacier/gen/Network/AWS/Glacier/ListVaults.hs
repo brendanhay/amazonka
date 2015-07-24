@@ -118,7 +118,7 @@ lvAccountId = lens _lvAccountId (\ s a -> s{_lvAccountId = a});
 instance AWSRequest ListVaults where
         type Sv ListVaults = Glacier
         type Rs ListVaults = ListVaultsResponse
-        request = get
+        request = get "ListVaults"
         response
           = receiveJSON
               (\ s h x ->

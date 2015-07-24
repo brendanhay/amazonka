@@ -117,7 +117,7 @@ dvsDryRun = lens _dvsDryRun (\ s a -> s{_dvsDryRun = a});
 instance AWSRequest DescribeVPCs where
         type Sv DescribeVPCs = EC2
         type Rs DescribeVPCs = DescribeVPCsResponse
-        request = post
+        request = post "DescribeVPCs"
         response
           = receiveXML
               (\ s h x ->

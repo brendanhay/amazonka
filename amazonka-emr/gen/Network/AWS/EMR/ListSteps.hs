@@ -104,7 +104,7 @@ instance AWSPager ListSteps where
 instance AWSRequest ListSteps where
         type Sv ListSteps = EMR
         type Rs ListSteps = ListStepsResponse
-        request = postJSON
+        request = postJSON "ListSteps"
         response
           = receiveJSON
               (\ s h x ->

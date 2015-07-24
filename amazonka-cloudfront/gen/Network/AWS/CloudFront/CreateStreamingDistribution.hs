@@ -71,7 +71,7 @@ instance AWSRequest CreateStreamingDistribution where
         type Sv CreateStreamingDistribution = CloudFront
         type Rs CreateStreamingDistribution =
              CreateStreamingDistributionResponse
-        request = postXML
+        request = postXML "CreateStreamingDistribution"
         response
           = receiveXML
               (\ s h x ->

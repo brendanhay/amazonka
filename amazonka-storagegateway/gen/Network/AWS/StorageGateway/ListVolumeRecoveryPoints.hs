@@ -75,7 +75,7 @@ instance AWSRequest ListVolumeRecoveryPoints where
         type Sv ListVolumeRecoveryPoints = StorageGateway
         type Rs ListVolumeRecoveryPoints =
              ListVolumeRecoveryPointsResponse
-        request = postJSON
+        request = postJSON "ListVolumeRecoveryPoints"
         response
           = receiveJSON
               (\ s h x ->

@@ -100,7 +100,7 @@ instance AWSRequest ListStackResources where
         type Sv ListStackResources = CloudFormation
         type Rs ListStackResources =
              ListStackResourcesResponse
-        request = post
+        request = post "ListStackResources"
         response
           = receiveXMLWrapper "ListStackResourcesResult"
               (\ s h x ->

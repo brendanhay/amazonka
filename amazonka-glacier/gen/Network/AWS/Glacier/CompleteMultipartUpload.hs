@@ -165,7 +165,7 @@ instance AWSRequest CompleteMultipartUpload where
         type Sv CompleteMultipartUpload = Glacier
         type Rs CompleteMultipartUpload =
              ArchiveCreationOutput
-        request = postJSON
+        request = postJSON "CompleteMultipartUpload"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CompleteMultipartUpload where

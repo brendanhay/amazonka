@@ -55,7 +55,7 @@ describeLocations = DescribeLocations'
 instance AWSRequest DescribeLocations where
         type Sv DescribeLocations = DirectConnect
         type Rs DescribeLocations = DescribeLocationsResponse
-        request = postJSON
+        request = postJSON "DescribeLocations"
         response
           = receiveJSON
               (\ s h x ->

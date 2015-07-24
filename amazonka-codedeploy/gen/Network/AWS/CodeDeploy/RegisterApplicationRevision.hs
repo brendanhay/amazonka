@@ -86,7 +86,7 @@ instance AWSRequest RegisterApplicationRevision where
         type Sv RegisterApplicationRevision = CodeDeploy
         type Rs RegisterApplicationRevision =
              RegisterApplicationRevisionResponse
-        request = postJSON
+        request = postJSON "RegisterApplicationRevision"
         response
           = receiveNull RegisterApplicationRevisionResponse'
 

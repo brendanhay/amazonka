@@ -66,7 +66,7 @@ gbtBucket = lens _gbtBucket (\ s a -> s{_gbtBucket = a});
 instance AWSRequest GetBucketTagging where
         type Sv GetBucketTagging = S3
         type Rs GetBucketTagging = GetBucketTaggingResponse
-        request = get
+        request = get "GetBucketTagging"
         response
           = receiveXML
               (\ s h x ->

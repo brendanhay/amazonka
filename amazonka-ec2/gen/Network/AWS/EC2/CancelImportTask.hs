@@ -89,7 +89,7 @@ citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
 instance AWSRequest CancelImportTask where
         type Sv CancelImportTask = EC2
         type Rs CancelImportTask = CancelImportTaskResponse
-        request = post
+        request = post "CancelImportTask"
         response
           = receiveXML
               (\ s h x ->

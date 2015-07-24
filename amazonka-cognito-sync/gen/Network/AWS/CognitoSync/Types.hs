@@ -122,6 +122,7 @@ instance AWSService CognitoSync where
             , _svcPrefix = "cognito-sync"
             , _svcVersion = "2014-06-30"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

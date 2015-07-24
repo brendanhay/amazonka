@@ -115,7 +115,7 @@ instance AWSRequest DescribeCertificates where
         type Sv DescribeCertificates = RDS
         type Rs DescribeCertificates =
              DescribeCertificatesResponse
-        request = post
+        request = post "DescribeCertificates"
         response
           = receiveXMLWrapper "DescribeCertificatesResult"
               (\ s h x ->

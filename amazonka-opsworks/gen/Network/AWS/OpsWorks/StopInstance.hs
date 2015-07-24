@@ -73,7 +73,7 @@ siInstanceId = lens _siInstanceId (\ s a -> s{_siInstanceId = a});
 instance AWSRequest StopInstance where
         type Sv StopInstance = OpsWorks
         type Rs StopInstance = StopInstanceResponse
-        request = postJSON
+        request = postJSON "StopInstance"
         response = receiveNull StopInstanceResponse'
 
 instance ToHeaders StopInstance where

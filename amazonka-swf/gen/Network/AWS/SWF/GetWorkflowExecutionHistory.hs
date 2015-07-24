@@ -150,7 +150,7 @@ instance AWSRequest GetWorkflowExecutionHistory where
         type Sv GetWorkflowExecutionHistory = SWF
         type Rs GetWorkflowExecutionHistory =
              GetWorkflowExecutionHistoryResponse
-        request = postJSON
+        request = postJSON "GetWorkflowExecutionHistory"
         response
           = receiveJSON
               (\ s h x ->

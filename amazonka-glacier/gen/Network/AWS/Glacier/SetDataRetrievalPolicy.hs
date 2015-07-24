@@ -89,7 +89,7 @@ instance AWSRequest SetDataRetrievalPolicy where
         type Sv SetDataRetrievalPolicy = Glacier
         type Rs SetDataRetrievalPolicy =
              SetDataRetrievalPolicyResponse
-        request = putJSON
+        request = putJSON "SetDataRetrievalPolicy"
         response
           = receiveNull SetDataRetrievalPolicyResponse'
 

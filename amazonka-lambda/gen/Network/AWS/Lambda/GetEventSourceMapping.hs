@@ -77,7 +77,7 @@ instance AWSRequest GetEventSourceMapping where
         type Sv GetEventSourceMapping = Lambda
         type Rs GetEventSourceMapping =
              EventSourceMappingConfiguration
-        request = get
+        request = get "GetEventSourceMapping"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders GetEventSourceMapping where

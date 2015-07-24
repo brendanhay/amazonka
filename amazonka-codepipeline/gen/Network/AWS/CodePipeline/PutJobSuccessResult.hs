@@ -98,7 +98,7 @@ instance AWSRequest PutJobSuccessResult where
         type Sv PutJobSuccessResult = CodePipeline
         type Rs PutJobSuccessResult =
              PutJobSuccessResultResponse
-        request = postJSON
+        request = postJSON "PutJobSuccessResult"
         response = receiveNull PutJobSuccessResultResponse'
 
 instance ToHeaders PutJobSuccessResult where

@@ -70,7 +70,7 @@ lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = CodePipeline
         type Rs ListPipelines = ListPipelinesResponse
-        request = postJSON
+        request = postJSON "ListPipelines"
         response
           = receiveJSON
               (\ s h x ->

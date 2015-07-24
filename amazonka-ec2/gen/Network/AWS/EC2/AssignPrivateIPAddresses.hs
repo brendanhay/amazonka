@@ -112,7 +112,7 @@ instance AWSRequest AssignPrivateIPAddresses where
         type Sv AssignPrivateIPAddresses = EC2
         type Rs AssignPrivateIPAddresses =
              AssignPrivateIPAddressesResponse
-        request = post
+        request = post "AssignPrivateIPAddresses"
         response
           = receiveNull AssignPrivateIPAddressesResponse'
 

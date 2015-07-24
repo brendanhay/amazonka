@@ -114,7 +114,7 @@ cTargetOptionGroupDescription = lens _cTargetOptionGroupDescription (\ s a -> s{
 instance AWSRequest CopyOptionGroup where
         type Sv CopyOptionGroup = RDS
         type Rs CopyOptionGroup = CopyOptionGroupResponse
-        request = post
+        request = post "CopyOptionGroup"
         response
           = receiveXMLWrapper "CopyOptionGroupResult"
               (\ s h x ->

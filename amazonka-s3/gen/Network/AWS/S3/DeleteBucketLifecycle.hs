@@ -64,7 +64,7 @@ instance AWSRequest DeleteBucketLifecycle where
         type Sv DeleteBucketLifecycle = S3
         type Rs DeleteBucketLifecycle =
              DeleteBucketLifecycleResponse
-        request = delete
+        request = delete "DeleteBucketLifecycle"
         response = receiveNull DeleteBucketLifecycleResponse'
 
 instance ToHeaders DeleteBucketLifecycle where

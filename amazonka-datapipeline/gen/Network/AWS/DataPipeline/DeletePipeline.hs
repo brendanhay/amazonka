@@ -72,7 +72,7 @@ dpPipelineId = lens _dpPipelineId (\ s a -> s{_dpPipelineId = a});
 instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = DataPipeline
         type Rs DeletePipeline = DeletePipelineResponse
-        request = postJSON
+        request = postJSON "DeletePipeline"
         response = receiveNull DeletePipelineResponse'
 
 instance ToHeaders DeletePipeline where

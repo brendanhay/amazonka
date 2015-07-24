@@ -70,7 +70,7 @@ instance AWSRequest CheckDNSAvailability where
         type Sv CheckDNSAvailability = ElasticBeanstalk
         type Rs CheckDNSAvailability =
              CheckDNSAvailabilityResponse
-        request = post
+        request = post "CheckDNSAvailability"
         response
           = receiveXMLWrapper "CheckDNSAvailabilityResult"
               (\ s h x ->

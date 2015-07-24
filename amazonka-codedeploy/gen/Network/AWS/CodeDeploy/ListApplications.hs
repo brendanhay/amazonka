@@ -72,7 +72,7 @@ laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 instance AWSRequest ListApplications where
         type Sv ListApplications = CodeDeploy
         type Rs ListApplications = ListApplicationsResponse
-        request = postJSON
+        request = postJSON "ListApplications"
         response
           = receiveJSON
               (\ s h x ->

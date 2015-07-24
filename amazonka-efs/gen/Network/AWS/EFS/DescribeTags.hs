@@ -95,7 +95,7 @@ dtFileSystemId = lens _dtFileSystemId (\ s a -> s{_dtFileSystemId = a});
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EFS
         type Rs DescribeTags = DescribeTagsResponse
-        request = get
+        request = get "DescribeTags"
         response
           = receiveJSON
               (\ s h x ->

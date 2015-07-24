@@ -94,7 +94,7 @@ instance AWSRequest PutNotificationConfiguration
         type Sv PutNotificationConfiguration = AutoScaling
         type Rs PutNotificationConfiguration =
              PutNotificationConfigurationResponse
-        request = post
+        request = post "PutNotificationConfiguration"
         response
           = receiveNull PutNotificationConfigurationResponse'
 

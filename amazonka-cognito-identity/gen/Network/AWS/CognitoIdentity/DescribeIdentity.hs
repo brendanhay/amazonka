@@ -73,7 +73,7 @@ diIdentityId = lens _diIdentityId (\ s a -> s{_diIdentityId = a});
 instance AWSRequest DescribeIdentity where
         type Sv DescribeIdentity = CognitoIdentity
         type Rs DescribeIdentity = IdentityDescription
-        request = postJSON
+        request = postJSON "DescribeIdentity"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DescribeIdentity where

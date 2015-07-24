@@ -82,7 +82,7 @@ gfFunctionName = lens _gfFunctionName (\ s a -> s{_gfFunctionName = a});
 instance AWSRequest GetFunction where
         type Sv GetFunction = Lambda
         type Rs GetFunction = GetFunctionResponse
-        request = get
+        request = get "GetFunction"
         response
           = receiveJSON
               (\ s h x ->

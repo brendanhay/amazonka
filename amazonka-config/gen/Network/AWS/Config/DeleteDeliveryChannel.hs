@@ -72,7 +72,7 @@ instance AWSRequest DeleteDeliveryChannel where
         type Sv DeleteDeliveryChannel = Config
         type Rs DeleteDeliveryChannel =
              DeleteDeliveryChannelResponse
-        request = postJSON
+        request = postJSON "DeleteDeliveryChannel"
         response = receiveNull DeleteDeliveryChannelResponse'
 
 instance ToHeaders DeleteDeliveryChannel where

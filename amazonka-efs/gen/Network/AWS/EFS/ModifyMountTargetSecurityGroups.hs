@@ -89,7 +89,7 @@ instance AWSRequest ModifyMountTargetSecurityGroups
         type Sv ModifyMountTargetSecurityGroups = EFS
         type Rs ModifyMountTargetSecurityGroups =
              ModifyMountTargetSecurityGroupsResponse
-        request = putJSON
+        request = putJSON "ModifyMountTargetSecurityGroups"
         response
           = receiveNull
               ModifyMountTargetSecurityGroupsResponse'

@@ -83,7 +83,7 @@ laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 instance AWSRequest ListAliases where
         type Sv ListAliases = KMS
         type Rs ListAliases = ListAliasesResponse
-        request = postJSON
+        request = postJSON "ListAliases"
         response
           = receiveJSON
               (\ s h x ->

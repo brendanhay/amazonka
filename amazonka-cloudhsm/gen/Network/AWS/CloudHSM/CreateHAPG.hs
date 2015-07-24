@@ -70,7 +70,7 @@ chLabel = lens _chLabel (\ s a -> s{_chLabel = a});
 instance AWSRequest CreateHAPG where
         type Sv CreateHAPG = CloudHSM
         type Rs CreateHAPG = CreateHAPGResponse
-        request = postJSON
+        request = postJSON "CreateHAPG"
         response
           = receiveJSON
               (\ s h x ->

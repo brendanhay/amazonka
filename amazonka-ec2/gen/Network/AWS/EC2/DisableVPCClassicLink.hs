@@ -80,7 +80,7 @@ instance AWSRequest DisableVPCClassicLink where
         type Sv DisableVPCClassicLink = EC2
         type Rs DisableVPCClassicLink =
              DisableVPCClassicLinkResponse
-        request = post
+        request = post "DisableVPCClassicLink"
         response
           = receiveXML
               (\ s h x ->

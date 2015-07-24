@@ -130,7 +130,7 @@ instance AWSRequest DescribeClusterVersions where
         type Sv DescribeClusterVersions = Redshift
         type Rs DescribeClusterVersions =
              DescribeClusterVersionsResponse
-        request = post
+        request = post "DescribeClusterVersions"
         response
           = receiveXMLWrapper "DescribeClusterVersionsResult"
               (\ s h x ->

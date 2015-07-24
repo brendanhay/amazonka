@@ -77,7 +77,7 @@ instance AWSRequest CreateAssociationBatch where
         type Sv CreateAssociationBatch = SSM
         type Rs CreateAssociationBatch =
              CreateAssociationBatchResponse
-        request = postJSON
+        request = postJSON "CreateAssociationBatch"
         response
           = receiveJSON
               (\ s h x ->

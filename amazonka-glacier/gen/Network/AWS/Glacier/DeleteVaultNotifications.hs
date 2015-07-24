@@ -96,7 +96,7 @@ instance AWSRequest DeleteVaultNotifications where
         type Sv DeleteVaultNotifications = Glacier
         type Rs DeleteVaultNotifications =
              DeleteVaultNotificationsResponse
-        request = delete
+        request = delete "DeleteVaultNotifications"
         response
           = receiveNull DeleteVaultNotificationsResponse'
 

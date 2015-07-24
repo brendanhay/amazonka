@@ -91,7 +91,8 @@ instance AWSRequest
              CloudFront
         type Rs UpdateCloudFrontOriginAccessIdentity =
              UpdateCloudFrontOriginAccessIdentityResponse
-        request = putXML
+        request
+          = putXML "UpdateCloudFrontOriginAccessIdentity"
         response
           = receiveXML
               (\ s h x ->

@@ -163,7 +163,7 @@ instance AWSRequest CreateNetworkACLEntry where
         type Sv CreateNetworkACLEntry = EC2
         type Rs CreateNetworkACLEntry =
              CreateNetworkACLEntryResponse
-        request = post
+        request = post "CreateNetworkACLEntry"
         response = receiveNull CreateNetworkACLEntryResponse'
 
 instance ToHeaders CreateNetworkACLEntry where

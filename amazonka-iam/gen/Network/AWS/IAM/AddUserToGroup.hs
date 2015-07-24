@@ -72,7 +72,7 @@ autgUserName = lens _autgUserName (\ s a -> s{_autgUserName = a});
 instance AWSRequest AddUserToGroup where
         type Sv AddUserToGroup = IAM
         type Rs AddUserToGroup = AddUserToGroupResponse
-        request = post
+        request = post "AddUserToGroup"
         response = receiveNull AddUserToGroupResponse'
 
 instance ToHeaders AddUserToGroup where

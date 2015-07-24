@@ -103,7 +103,7 @@ instance AWSRequest DescribeStackEvents where
         type Sv DescribeStackEvents = CloudFormation
         type Rs DescribeStackEvents =
              DescribeStackEventsResponse
-        request = post
+        request = post "DescribeStackEvents"
         response
           = receiveXMLWrapper "DescribeStackEventsResult"
               (\ s h x ->

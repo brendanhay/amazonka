@@ -123,7 +123,7 @@ instance AWSRequest SetVaultNotifications where
         type Sv SetVaultNotifications = Glacier
         type Rs SetVaultNotifications =
              SetVaultNotificationsResponse
-        request = putJSON
+        request = putJSON "SetVaultNotifications"
         response = receiveNull SetVaultNotificationsResponse'
 
 instance ToHeaders SetVaultNotifications where

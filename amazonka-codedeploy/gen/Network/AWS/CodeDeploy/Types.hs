@@ -309,6 +309,7 @@ instance AWSService CodeDeploy where
             , _svcPrefix = "codedeploy"
             , _svcVersion = "2014-10-06"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

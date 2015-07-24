@@ -91,7 +91,7 @@ instance AWSPager ListPipelines where
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = ElasticTranscoder
         type Rs ListPipelines = ListPipelinesResponse
-        request = get
+        request = get "ListPipelines"
         response
           = receiveJSON
               (\ s h x ->

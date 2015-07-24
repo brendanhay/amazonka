@@ -112,7 +112,7 @@ pftWorkerGroup = lens _pftWorkerGroup (\ s a -> s{_pftWorkerGroup = a});
 instance AWSRequest PollForTask where
         type Sv PollForTask = DataPipeline
         type Rs PollForTask = PollForTaskResponse
-        request = postJSON
+        request = postJSON "PollForTask"
         response
           = receiveJSON
               (\ s h x ->

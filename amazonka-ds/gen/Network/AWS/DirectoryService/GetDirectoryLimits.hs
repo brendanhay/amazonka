@@ -56,7 +56,7 @@ instance AWSRequest GetDirectoryLimits where
         type Sv GetDirectoryLimits = DirectoryService
         type Rs GetDirectoryLimits =
              GetDirectoryLimitsResponse
-        request = postJSON
+        request = postJSON "GetDirectoryLimits"
         response
           = receiveJSON
               (\ s h x ->

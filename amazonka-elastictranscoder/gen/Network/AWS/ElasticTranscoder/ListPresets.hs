@@ -92,7 +92,7 @@ instance AWSPager ListPresets where
 instance AWSRequest ListPresets where
         type Sv ListPresets = ElasticTranscoder
         type Rs ListPresets = ListPresetsResponse
-        request = get
+        request = get "ListPresets"
         response
           = receiveJSON
               (\ s h x ->

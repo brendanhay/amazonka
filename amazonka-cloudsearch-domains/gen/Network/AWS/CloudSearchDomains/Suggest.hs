@@ -104,7 +104,7 @@ sSuggester = lens _sSuggester (\ s a -> s{_sSuggester = a});
 instance AWSRequest Suggest where
         type Sv Suggest = CloudSearchDomains
         type Rs Suggest = SuggestResponse
-        request = get
+        request = get "Suggest"
         response
           = receiveJSON
               (\ s h x ->

@@ -75,7 +75,7 @@ dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
 instance AWSRequest DisableGateway where
         type Sv DisableGateway = StorageGateway
         type Rs DisableGateway = DisableGatewayResponse
-        request = postJSON
+        request = postJSON "DisableGateway"
         response
           = receiveJSON
               (\ s h x ->

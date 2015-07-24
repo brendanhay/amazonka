@@ -76,7 +76,7 @@ instance AWSRequest DeleteBatchPrediction where
         type Sv DeleteBatchPrediction = MachineLearning
         type Rs DeleteBatchPrediction =
              DeleteBatchPredictionResponse
-        request = postJSON
+        request = postJSON "DeleteBatchPrediction"
         response
           = receiveJSON
               (\ s h x ->

@@ -101,7 +101,7 @@ instance AWSRequest UnsubscribeFromDataset where
         type Sv UnsubscribeFromDataset = CognitoSync
         type Rs UnsubscribeFromDataset =
              UnsubscribeFromDatasetResponse
-        request = delete
+        request = delete "UnsubscribeFromDataset"
         response
           = receiveJSON
               (\ s h x ->

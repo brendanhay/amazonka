@@ -148,7 +148,7 @@ urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = 
 instance AWSRequest UpdateRecords where
         type Sv UpdateRecords = CognitoSync
         type Rs UpdateRecords = UpdateRecordsResponse
-        request = postJSON
+        request = postJSON "UpdateRecords"
         response
           = receiveJSON
               (\ s h x ->

@@ -371,7 +371,7 @@ instance AWSRequest ModifyCacheCluster where
         type Sv ModifyCacheCluster = ElastiCache
         type Rs ModifyCacheCluster =
              ModifyCacheClusterResponse
-        request = post
+        request = post "ModifyCacheCluster"
         response
           = receiveXMLWrapper "ModifyCacheClusterResult"
               (\ s h x ->

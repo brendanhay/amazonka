@@ -74,7 +74,7 @@ instance AWSRequest DescribeDeliveryChannelStatus
         type Sv DescribeDeliveryChannelStatus = Config
         type Rs DescribeDeliveryChannelStatus =
              DescribeDeliveryChannelStatusResponse
-        request = postJSON
+        request = postJSON "DescribeDeliveryChannelStatus"
         response
           = receiveJSON
               (\ s h x ->

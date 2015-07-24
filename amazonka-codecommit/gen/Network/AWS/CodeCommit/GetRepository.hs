@@ -75,7 +75,7 @@ grRepositoryName = lens _grRepositoryName (\ s a -> s{_grRepositoryName = a});
 instance AWSRequest GetRepository where
         type Sv GetRepository = CodeCommit
         type Rs GetRepository = GetRepositoryResponse
-        request = postJSON
+        request = postJSON "GetRepository"
         response
           = receiveJSON
               (\ s h x ->

@@ -214,7 +214,7 @@ instance AWSRequest DescribeBatchPredictions where
         type Sv DescribeBatchPredictions = MachineLearning
         type Rs DescribeBatchPredictions =
              DescribeBatchPredictionsResponse
-        request = postJSON
+        request = postJSON "DescribeBatchPredictions"
         response
           = receiveJSON
               (\ s h x ->

@@ -79,7 +79,7 @@ instance AWSRequest TerminateWorkspaces where
         type Sv TerminateWorkspaces = WorkSpaces
         type Rs TerminateWorkspaces =
              TerminateWorkspacesResponse
-        request = postJSON
+        request = postJSON "TerminateWorkspaces"
         response
           = receiveJSON
               (\ s h x ->

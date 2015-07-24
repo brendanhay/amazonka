@@ -81,7 +81,7 @@ instance AWSRequest DescribeApplicationVersions where
              ElasticBeanstalk
         type Rs DescribeApplicationVersions =
              DescribeApplicationVersionsResponse
-        request = post
+        request = post "DescribeApplicationVersions"
         response
           = receiveXMLWrapper
               "DescribeApplicationVersionsResult"

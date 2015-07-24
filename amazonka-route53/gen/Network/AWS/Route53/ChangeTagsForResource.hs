@@ -104,7 +104,7 @@ instance AWSRequest ChangeTagsForResource where
         type Sv ChangeTagsForResource = Route53
         type Rs ChangeTagsForResource =
              ChangeTagsForResourceResponse
-        request = postXML
+        request = postXML "ChangeTagsForResource"
         response
           = receiveXML
               (\ s h x ->

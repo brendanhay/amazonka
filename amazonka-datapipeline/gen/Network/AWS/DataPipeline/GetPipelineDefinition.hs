@@ -84,7 +84,7 @@ instance AWSRequest GetPipelineDefinition where
         type Sv GetPipelineDefinition = DataPipeline
         type Rs GetPipelineDefinition =
              GetPipelineDefinitionResponse
-        request = postJSON
+        request = postJSON "GetPipelineDefinition"
         response
           = receiveJSON
               (\ s h x ->

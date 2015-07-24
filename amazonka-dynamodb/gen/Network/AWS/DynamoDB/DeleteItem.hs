@@ -495,7 +495,7 @@ diKey = lens _diKey (\ s a -> s{_diKey = a}) . _Map;
 instance AWSRequest DeleteItem where
         type Sv DeleteItem = DynamoDB
         type Rs DeleteItem = DeleteItemResponse
-        request = postJSON
+        request = postJSON "DeleteItem"
         response
           = receiveJSON
               (\ s h x ->

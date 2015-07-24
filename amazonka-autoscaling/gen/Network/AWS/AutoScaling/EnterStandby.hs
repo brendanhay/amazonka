@@ -92,7 +92,7 @@ esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a
 instance AWSRequest EnterStandby where
         type Sv EnterStandby = AutoScaling
         type Rs EnterStandby = EnterStandbyResponse
-        request = post
+        request = post "EnterStandby"
         response
           = receiveXMLWrapper "EnterStandbyResult"
               (\ s h x ->

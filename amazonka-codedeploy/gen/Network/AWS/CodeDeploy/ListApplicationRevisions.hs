@@ -155,7 +155,7 @@ instance AWSRequest ListApplicationRevisions where
         type Sv ListApplicationRevisions = CodeDeploy
         type Rs ListApplicationRevisions =
              ListApplicationRevisionsResponse
-        request = postJSON
+        request = postJSON "ListApplicationRevisions"
         response
           = receiveJSON
               (\ s h x ->

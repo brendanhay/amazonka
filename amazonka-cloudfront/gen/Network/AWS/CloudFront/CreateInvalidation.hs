@@ -79,7 +79,7 @@ instance AWSRequest CreateInvalidation where
         type Sv CreateInvalidation = CloudFront
         type Rs CreateInvalidation =
              CreateInvalidationResponse
-        request = postXML
+        request = postXML "CreateInvalidation"
         response
           = receiveXML
               (\ s h x ->

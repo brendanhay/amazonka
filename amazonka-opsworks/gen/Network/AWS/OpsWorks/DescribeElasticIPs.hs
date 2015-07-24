@@ -101,7 +101,7 @@ instance AWSRequest DescribeElasticIPs where
         type Sv DescribeElasticIPs = OpsWorks
         type Rs DescribeElasticIPs =
              DescribeElasticIPsResponse
-        request = postJSON
+        request = postJSON "DescribeElasticIPs"
         response
           = receiveJSON
               (\ s h x ->

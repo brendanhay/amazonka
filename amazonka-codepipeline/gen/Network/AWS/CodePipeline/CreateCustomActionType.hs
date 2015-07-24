@@ -129,7 +129,7 @@ instance AWSRequest CreateCustomActionType where
         type Sv CreateCustomActionType = CodePipeline
         type Rs CreateCustomActionType =
              CreateCustomActionTypeResponse
-        request = postJSON
+        request = postJSON "CreateCustomActionType"
         response
           = receiveJSON
               (\ s h x ->

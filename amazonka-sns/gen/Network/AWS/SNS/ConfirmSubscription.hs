@@ -94,7 +94,7 @@ instance AWSRequest ConfirmSubscription where
         type Sv ConfirmSubscription = SNS
         type Rs ConfirmSubscription =
              ConfirmSubscriptionResponse
-        request = post
+        request = post "ConfirmSubscription"
         response
           = receiveXMLWrapper "ConfirmSubscriptionResult"
               (\ s h x ->

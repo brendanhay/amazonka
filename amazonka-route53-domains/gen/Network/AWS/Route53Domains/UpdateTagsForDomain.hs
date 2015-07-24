@@ -137,7 +137,7 @@ instance AWSRequest UpdateTagsForDomain where
         type Sv UpdateTagsForDomain = Route53Domains
         type Rs UpdateTagsForDomain =
              UpdateTagsForDomainResponse
-        request = postJSON
+        request = postJSON "UpdateTagsForDomain"
         response
           = receiveJSON
               (\ s h x ->

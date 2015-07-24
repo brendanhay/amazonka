@@ -77,7 +77,7 @@ csTargetSnapshotName = lens _csTargetSnapshotName (\ s a -> s{_csTargetSnapshotN
 instance AWSRequest CopySnapshot where
         type Sv CopySnapshot = ElastiCache
         type Rs CopySnapshot = CopySnapshotResponse
-        request = post
+        request = post "CopySnapshot"
         response
           = receiveXMLWrapper "CopySnapshotResult"
               (\ s h x ->

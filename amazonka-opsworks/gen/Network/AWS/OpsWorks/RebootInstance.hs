@@ -70,7 +70,7 @@ riInstanceId = lens _riInstanceId (\ s a -> s{_riInstanceId = a});
 instance AWSRequest RebootInstance where
         type Sv RebootInstance = OpsWorks
         type Rs RebootInstance = RebootInstanceResponse
-        request = postJSON
+        request = postJSON "RebootInstance"
         response = receiveNull RebootInstanceResponse'
 
 instance ToHeaders RebootInstance where

@@ -455,6 +455,7 @@ instance AWSService S3 where
             , _svcPrefix = "s3"
             , _svcVersion = "2006-03-01"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = checksumMD5
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

@@ -93,7 +93,7 @@ instance AWSPager ListTables where
 instance AWSRequest ListTables where
         type Sv ListTables = DynamoDB
         type Rs ListTables = ListTablesResponse
-        request = postJSON
+        request = postJSON "ListTables"
         response
           = receiveJSON
               (\ s h x ->

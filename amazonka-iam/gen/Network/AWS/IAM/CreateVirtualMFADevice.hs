@@ -99,7 +99,7 @@ instance AWSRequest CreateVirtualMFADevice where
         type Sv CreateVirtualMFADevice = IAM
         type Rs CreateVirtualMFADevice =
              CreateVirtualMFADeviceResponse
-        request = post
+        request = post "CreateVirtualMFADevice"
         response
           = receiveXMLWrapper "CreateVirtualMFADeviceResult"
               (\ s h x ->

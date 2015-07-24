@@ -110,7 +110,7 @@ instance AWSRequest ChangeResourceRecordSets where
         type Sv ChangeResourceRecordSets = Route53
         type Rs ChangeResourceRecordSets =
              ChangeResourceRecordSetsResponse
-        request = postXML
+        request = postXML "ChangeResourceRecordSets"
         response
           = receiveXML
               (\ s h x ->

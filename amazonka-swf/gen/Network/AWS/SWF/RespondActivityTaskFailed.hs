@@ -115,7 +115,7 @@ instance AWSRequest RespondActivityTaskFailed where
         type Sv RespondActivityTaskFailed = SWF
         type Rs RespondActivityTaskFailed =
              RespondActivityTaskFailedResponse
-        request = postJSON
+        request = postJSON "RespondActivityTaskFailed"
         response
           = receiveNull RespondActivityTaskFailedResponse'
 

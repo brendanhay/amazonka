@@ -107,7 +107,7 @@ trTopics = lens _trTopics (\ s a -> s{_trTopics = a});
 instance AWSRequest TestRole where
         type Sv TestRole = ElasticTranscoder
         type Rs TestRole = TestRoleResponse
-        request = postJSON
+        request = postJSON "TestRole"
         response
           = receiveJSON
               (\ s h x ->

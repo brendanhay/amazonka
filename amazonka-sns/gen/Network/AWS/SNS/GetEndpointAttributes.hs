@@ -72,7 +72,7 @@ instance AWSRequest GetEndpointAttributes where
         type Sv GetEndpointAttributes = SNS
         type Rs GetEndpointAttributes =
              GetEndpointAttributesResponse
-        request = post
+        request = post "GetEndpointAttributes"
         response
           = receiveXMLWrapper "GetEndpointAttributesResult"
               (\ s h x ->

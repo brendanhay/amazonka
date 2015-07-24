@@ -80,7 +80,7 @@ gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
 instance AWSRequest GrantAccess where
         type Sv GrantAccess = OpsWorks
         type Rs GrantAccess = GrantAccessResponse
-        request = postJSON
+        request = postJSON "GrantAccess"
         response
           = receiveJSON
               (\ s h x ->

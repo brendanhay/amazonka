@@ -97,7 +97,7 @@ pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetric
 instance AWSRequest PutMetricFilter where
         type Sv PutMetricFilter = CloudWatchLogs
         type Rs PutMetricFilter = PutMetricFilterResponse
-        request = postJSON
+        request = postJSON "PutMetricFilter"
         response = receiveNull PutMetricFilterResponse'
 
 instance ToHeaders PutMetricFilter where

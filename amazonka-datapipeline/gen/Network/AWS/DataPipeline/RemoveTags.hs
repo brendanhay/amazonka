@@ -76,7 +76,7 @@ rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a});
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = DataPipeline
         type Rs RemoveTags = RemoveTagsResponse
-        request = postJSON
+        request = postJSON "RemoveTags"
         response
           = receiveJSON
               (\ s h x ->

@@ -104,7 +104,7 @@ cupIAMUserARN = lens _cupIAMUserARN (\ s a -> s{_cupIAMUserARN = a});
 instance AWSRequest CreateUserProfile where
         type Sv CreateUserProfile = OpsWorks
         type Rs CreateUserProfile = CreateUserProfileResponse
-        request = postJSON
+        request = postJSON "CreateUserProfile"
         response
           = receiveJSON
               (\ s h x ->

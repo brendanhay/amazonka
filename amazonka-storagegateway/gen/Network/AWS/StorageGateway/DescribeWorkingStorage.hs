@@ -82,7 +82,7 @@ instance AWSRequest DescribeWorkingStorage where
         type Sv DescribeWorkingStorage = StorageGateway
         type Rs DescribeWorkingStorage =
              DescribeWorkingStorageResponse
-        request = postJSON
+        request = postJSON "DescribeWorkingStorage"
         response
           = receiveJSON
               (\ s h x ->

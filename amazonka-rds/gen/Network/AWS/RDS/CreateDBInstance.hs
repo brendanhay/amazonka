@@ -774,7 +774,7 @@ cdiMasterUserPassword = lens _cdiMasterUserPassword (\ s a -> s{_cdiMasterUserPa
 instance AWSRequest CreateDBInstance where
         type Sv CreateDBInstance = RDS
         type Rs CreateDBInstance = CreateDBInstanceResponse
-        request = post
+        request = post "CreateDBInstance"
         response
           = receiveXMLWrapper "CreateDBInstanceResult"
               (\ s h x ->

@@ -121,7 +121,7 @@ instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = RDS
         type Rs DescribeEventSubscriptions =
              DescribeEventSubscriptionsResponse
-        request = post
+        request = post "DescribeEventSubscriptions"
         response
           = receiveXMLWrapper
               "DescribeEventSubscriptionsResult"

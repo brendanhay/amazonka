@@ -136,7 +136,7 @@ instance AWSRequest DescribeVPNConnections where
         type Sv DescribeVPNConnections = EC2
         type Rs DescribeVPNConnections =
              DescribeVPNConnectionsResponse
-        request = post
+        request = post "DescribeVPNConnections"
         response
           = receiveXML
               (\ s h x ->

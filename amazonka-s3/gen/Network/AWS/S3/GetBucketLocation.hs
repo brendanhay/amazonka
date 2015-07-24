@@ -66,7 +66,7 @@ gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a});
 instance AWSRequest GetBucketLocation where
         type Sv GetBucketLocation = S3
         type Rs GetBucketLocation = GetBucketLocationResponse
-        request = get
+        request = get "GetBucketLocation"
         response
           = receiveXML
               (\ s h x ->

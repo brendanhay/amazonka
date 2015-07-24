@@ -91,7 +91,7 @@ instance AWSRequest AcknowledgeThirdPartyJob where
         type Sv AcknowledgeThirdPartyJob = CodePipeline
         type Rs AcknowledgeThirdPartyJob =
              AcknowledgeThirdPartyJobResponse
-        request = postJSON
+        request = postJSON "AcknowledgeThirdPartyJob"
         response
           = receiveJSON
               (\ s h x ->

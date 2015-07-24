@@ -78,7 +78,7 @@ gtsName = lens _gtsName (\ s a -> s{_gtsName = a});
 instance AWSRequest GetTrailStatus where
         type Sv GetTrailStatus = CloudTrail
         type Rs GetTrailStatus = GetTrailStatusResponse
-        request = postJSON
+        request = postJSON "GetTrailStatus"
         response
           = receiveJSON
               (\ s h x ->

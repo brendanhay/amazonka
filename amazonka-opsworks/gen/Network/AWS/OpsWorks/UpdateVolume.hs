@@ -89,7 +89,7 @@ uVolumeId = lens _uVolumeId (\ s a -> s{_uVolumeId = a});
 instance AWSRequest UpdateVolume where
         type Sv UpdateVolume = OpsWorks
         type Rs UpdateVolume = UpdateVolumeResponse
-        request = postJSON
+        request = postJSON "UpdateVolume"
         response = receiveNull UpdateVolumeResponse'
 
 instance ToHeaders UpdateVolume where

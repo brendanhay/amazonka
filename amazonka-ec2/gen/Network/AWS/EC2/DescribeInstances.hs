@@ -375,7 +375,7 @@ instance AWSPager DescribeInstances where
 instance AWSRequest DescribeInstances where
         type Sv DescribeInstances = EC2
         type Rs DescribeInstances = DescribeInstancesResponse
-        request = post
+        request = post "DescribeInstances"
         response
           = receiveXML
               (\ s h x ->

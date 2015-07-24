@@ -76,7 +76,7 @@ instance AWSRequest DescribeIdentityPoolUsage where
         type Sv DescribeIdentityPoolUsage = CognitoSync
         type Rs DescribeIdentityPoolUsage =
              DescribeIdentityPoolUsageResponse
-        request = get
+        request = get "DescribeIdentityPoolUsage"
         response
           = receiveJSON
               (\ s h x ->

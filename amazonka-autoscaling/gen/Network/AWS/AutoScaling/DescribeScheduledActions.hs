@@ -134,7 +134,7 @@ instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling
         type Rs DescribeScheduledActions =
              DescribeScheduledActionsResponse
-        request = post
+        request = post "DescribeScheduledActions"
         response
           = receiveXMLWrapper "DescribeScheduledActionsResult"
               (\ s h x ->

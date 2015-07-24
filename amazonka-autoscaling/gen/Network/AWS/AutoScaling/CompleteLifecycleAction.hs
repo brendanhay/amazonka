@@ -117,7 +117,7 @@ instance AWSRequest CompleteLifecycleAction where
         type Sv CompleteLifecycleAction = AutoScaling
         type Rs CompleteLifecycleAction =
              CompleteLifecycleActionResponse
-        request = post
+        request = post "CompleteLifecycleAction"
         response
           = receiveXMLWrapper "CompleteLifecycleActionResult"
               (\ s h x ->

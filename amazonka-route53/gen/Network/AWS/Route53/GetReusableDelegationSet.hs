@@ -71,7 +71,7 @@ instance AWSRequest GetReusableDelegationSet where
         type Sv GetReusableDelegationSet = Route53
         type Rs GetReusableDelegationSet =
              GetReusableDelegationSetResponse
-        request = get
+        request = get "GetReusableDelegationSet"
         response
           = receiveXML
               (\ s h x ->

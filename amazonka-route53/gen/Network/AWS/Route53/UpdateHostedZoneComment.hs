@@ -84,7 +84,7 @@ instance AWSRequest UpdateHostedZoneComment where
         type Sv UpdateHostedZoneComment = Route53
         type Rs UpdateHostedZoneComment =
              UpdateHostedZoneCommentResponse
-        request = postXML
+        request = postXML "UpdateHostedZoneComment"
         response
           = receiveXML
               (\ s h x ->

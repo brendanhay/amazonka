@@ -91,7 +91,7 @@ instance AWSRequest CheckDomainAvailability where
         type Sv CheckDomainAvailability = Route53Domains
         type Rs CheckDomainAvailability =
              CheckDomainAvailabilityResponse
-        request = postJSON
+        request = postJSON "CheckDomainAvailability"
         response
           = receiveJSON
               (\ s h x ->

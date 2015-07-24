@@ -123,7 +123,7 @@ instance AWSRequest DescribeCustomerGateways where
         type Sv DescribeCustomerGateways = EC2
         type Rs DescribeCustomerGateways =
              DescribeCustomerGatewaysResponse
-        request = post
+        request = post "DescribeCustomerGateways"
         response
           = receiveXML
               (\ s h x ->

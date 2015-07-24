@@ -82,7 +82,7 @@ instance AWSRequest RestoreAddressToClassic where
         type Sv RestoreAddressToClassic = EC2
         type Rs RestoreAddressToClassic =
              RestoreAddressToClassicResponse
-        request = post
+        request = post "RestoreAddressToClassic"
         response
           = receiveXML
               (\ s h x ->

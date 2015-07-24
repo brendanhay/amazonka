@@ -79,7 +79,7 @@ ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
 instance AWSRequest UpdateEvaluation where
         type Sv UpdateEvaluation = MachineLearning
         type Rs UpdateEvaluation = UpdateEvaluationResponse
-        request = postJSON
+        request = postJSON "UpdateEvaluation"
         response
           = receiveJSON
               (\ s h x ->

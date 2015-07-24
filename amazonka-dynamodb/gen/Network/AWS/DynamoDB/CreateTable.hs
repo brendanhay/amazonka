@@ -258,7 +258,7 @@ ctProvisionedThroughput = lens _ctProvisionedThroughput (\ s a -> s{_ctProvision
 instance AWSRequest CreateTable where
         type Sv CreateTable = DynamoDB
         type Rs CreateTable = CreateTableResponse
-        request = postJSON
+        request = postJSON "CreateTable"
         response
           = receiveJSON
               (\ s h x ->

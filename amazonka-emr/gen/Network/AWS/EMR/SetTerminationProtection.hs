@@ -98,7 +98,7 @@ instance AWSRequest SetTerminationProtection where
         type Sv SetTerminationProtection = EMR
         type Rs SetTerminationProtection =
              SetTerminationProtectionResponse
-        request = postJSON
+        request = postJSON "SetTerminationProtection"
         response
           = receiveNull SetTerminationProtectionResponse'
 

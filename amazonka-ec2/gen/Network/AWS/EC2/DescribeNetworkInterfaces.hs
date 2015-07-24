@@ -197,7 +197,7 @@ instance AWSRequest DescribeNetworkInterfaces where
         type Sv DescribeNetworkInterfaces = EC2
         type Rs DescribeNetworkInterfaces =
              DescribeNetworkInterfacesResponse
-        request = post
+        request = post "DescribeNetworkInterfaces"
         response
           = receiveXML
               (\ s h x ->

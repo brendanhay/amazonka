@@ -100,7 +100,7 @@ rdToken = lens _rdToken (\ s a -> s{_rdToken = a});
 instance AWSRequest RegisterDevice where
         type Sv RegisterDevice = CognitoSync
         type Rs RegisterDevice = RegisterDeviceResponse
-        request = postJSON
+        request = postJSON "RegisterDevice"
         response
           = receiveJSON
               (\ s h x ->

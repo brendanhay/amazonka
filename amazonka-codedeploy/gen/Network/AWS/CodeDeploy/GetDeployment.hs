@@ -69,7 +69,7 @@ gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a});
 instance AWSRequest GetDeployment where
         type Sv GetDeployment = CodeDeploy
         type Rs GetDeployment = GetDeploymentResponse
-        request = postJSON
+        request = postJSON "GetDeployment"
         response
           = receiveJSON
               (\ s h x ->

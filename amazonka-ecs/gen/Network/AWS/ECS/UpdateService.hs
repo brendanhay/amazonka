@@ -116,7 +116,7 @@ usService = lens _usService (\ s a -> s{_usService = a});
 instance AWSRequest UpdateService where
         type Sv UpdateService = ECS
         type Rs UpdateService = UpdateServiceResponse
-        request = postJSON
+        request = postJSON "UpdateService"
         response
           = receiveJSON
               (\ s h x ->

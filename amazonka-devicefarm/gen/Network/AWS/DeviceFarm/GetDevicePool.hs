@@ -68,7 +68,7 @@ gdpArn = lens _gdpArn (\ s a -> s{_gdpArn = a});
 instance AWSRequest GetDevicePool where
         type Sv GetDevicePool = DeviceFarm
         type Rs GetDevicePool = GetDevicePoolResponse
-        request = postJSON
+        request = postJSON "GetDevicePool"
         response
           = receiveJSON
               (\ s h x ->

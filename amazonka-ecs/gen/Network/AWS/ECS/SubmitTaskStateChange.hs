@@ -99,7 +99,7 @@ instance AWSRequest SubmitTaskStateChange where
         type Sv SubmitTaskStateChange = ECS
         type Rs SubmitTaskStateChange =
              SubmitTaskStateChangeResponse
-        request = postJSON
+        request = postJSON "SubmitTaskStateChange"
         response
           = receiveJSON
               (\ s h x ->

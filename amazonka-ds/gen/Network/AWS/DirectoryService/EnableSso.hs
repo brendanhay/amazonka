@@ -95,7 +95,7 @@ esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
 instance AWSRequest EnableSso where
         type Sv EnableSso = DirectoryService
         type Rs EnableSso = EnableSsoResponse
-        request = postJSON
+        request = postJSON "EnableSso"
         response
           = receiveJSON
               (\ s h x ->

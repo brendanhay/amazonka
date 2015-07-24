@@ -91,7 +91,7 @@ instance AWSRequest DescribeConversionTasks where
         type Sv DescribeConversionTasks = EC2
         type Rs DescribeConversionTasks =
              DescribeConversionTasksResponse
-        request = post
+        request = post "DescribeConversionTasks"
         response
           = receiveXML
               (\ s h x ->

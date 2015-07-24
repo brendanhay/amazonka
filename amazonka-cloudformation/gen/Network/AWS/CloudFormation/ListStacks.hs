@@ -96,7 +96,7 @@ instance AWSPager ListStacks where
 instance AWSRequest ListStacks where
         type Sv ListStacks = CloudFormation
         type Rs ListStacks = ListStacksResponse
-        request = post
+        request = post "ListStacks"
         response
           = receiveXMLWrapper "ListStacksResult"
               (\ s h x ->

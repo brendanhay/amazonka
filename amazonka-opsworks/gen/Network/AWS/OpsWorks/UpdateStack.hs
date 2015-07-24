@@ -335,7 +335,7 @@ usStackId = lens _usStackId (\ s a -> s{_usStackId = a});
 instance AWSRequest UpdateStack where
         type Sv UpdateStack = OpsWorks
         type Rs UpdateStack = UpdateStackResponse
-        request = postJSON
+        request = postJSON "UpdateStack"
         response = receiveNull UpdateStackResponse'
 
 instance ToHeaders UpdateStack where

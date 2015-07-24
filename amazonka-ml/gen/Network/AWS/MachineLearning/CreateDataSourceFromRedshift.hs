@@ -179,7 +179,7 @@ instance AWSRequest CreateDataSourceFromRedshift
              MachineLearning
         type Rs CreateDataSourceFromRedshift =
              CreateDataSourceFromRedshiftResponse
-        request = postJSON
+        request = postJSON "CreateDataSourceFromRedshift"
         response
           = receiveJSON
               (\ s h x ->

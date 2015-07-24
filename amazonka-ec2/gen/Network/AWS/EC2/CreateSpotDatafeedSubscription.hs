@@ -95,7 +95,7 @@ instance AWSRequest CreateSpotDatafeedSubscription
         type Sv CreateSpotDatafeedSubscription = EC2
         type Rs CreateSpotDatafeedSubscription =
              CreateSpotDatafeedSubscriptionResponse
-        request = post
+        request = post "CreateSpotDatafeedSubscription"
         response
           = receiveXML
               (\ s h x ->

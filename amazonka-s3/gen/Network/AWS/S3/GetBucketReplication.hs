@@ -67,7 +67,7 @@ instance AWSRequest GetBucketReplication where
         type Sv GetBucketReplication = S3
         type Rs GetBucketReplication =
              GetBucketReplicationResponse
-        request = get
+        request = get "GetBucketReplication"
         response
           = receiveXML
               (\ s h x ->

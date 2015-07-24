@@ -67,7 +67,7 @@ instance AWSRequest GetBucketRequestPayment where
         type Sv GetBucketRequestPayment = S3
         type Rs GetBucketRequestPayment =
              GetBucketRequestPaymentResponse
-        request = get
+        request = get "GetBucketRequestPayment"
         response
           = receiveXML
               (\ s h x ->

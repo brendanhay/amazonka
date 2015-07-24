@@ -85,7 +85,7 @@ aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a});
 instance AWSRequest AssignInstance where
         type Sv AssignInstance = OpsWorks
         type Rs AssignInstance = AssignInstanceResponse
-        request = postJSON
+        request = postJSON "AssignInstance"
         response = receiveNull AssignInstanceResponse'
 
 instance ToHeaders AssignInstance where

@@ -69,7 +69,7 @@ instance AWSRequest BatchGetOnPremisesInstances where
         type Sv BatchGetOnPremisesInstances = CodeDeploy
         type Rs BatchGetOnPremisesInstances =
              BatchGetOnPremisesInstancesResponse
-        request = postJSON
+        request = postJSON "BatchGetOnPremisesInstances"
         response
           = receiveJSON
               (\ s h x ->

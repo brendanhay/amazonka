@@ -80,7 +80,7 @@ instance AWSRequest DeregisterTaskDefinition where
         type Sv DeregisterTaskDefinition = ECS
         type Rs DeregisterTaskDefinition =
              DeregisterTaskDefinitionResponse
-        request = postJSON
+        request = postJSON "DeregisterTaskDefinition"
         response
           = receiveJSON
               (\ s h x ->

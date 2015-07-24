@@ -71,7 +71,7 @@ bsDomainName = lens _bsDomainName (\ s a -> s{_bsDomainName = a});
 instance AWSRequest BuildSuggesters where
         type Sv BuildSuggesters = CloudSearch
         type Rs BuildSuggesters = BuildSuggestersResponse
-        request = post
+        request = post "BuildSuggesters"
         response
           = receiveXMLWrapper "BuildSuggestersResult"
               (\ s h x ->

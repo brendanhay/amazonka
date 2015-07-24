@@ -121,7 +121,7 @@ ctTapeBarcodePrefix = lens _ctTapeBarcodePrefix (\ s a -> s{_ctTapeBarcodePrefix
 instance AWSRequest CreateTapes where
         type Sv CreateTapes = StorageGateway
         type Rs CreateTapes = CreateTapesResponse
-        request = postJSON
+        request = postJSON "CreateTapes"
         response
           = receiveJSON
               (\ s h x ->

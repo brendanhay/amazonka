@@ -119,7 +119,7 @@ instance AWSRequest CreatePlatformEndpoint where
         type Sv CreatePlatformEndpoint = SNS
         type Rs CreatePlatformEndpoint =
              CreatePlatformEndpointResponse
-        request = post
+        request = post "CreatePlatformEndpoint"
         response
           = receiveXMLWrapper "CreatePlatformEndpointResult"
               (\ s h x ->

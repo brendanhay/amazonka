@@ -91,7 +91,7 @@ instance AWSRequest SetEndpointAttributes where
         type Sv SetEndpointAttributes = SNS
         type Rs SetEndpointAttributes =
              SetEndpointAttributesResponse
-        request = post
+        request = post "SetEndpointAttributes"
         response = receiveNull SetEndpointAttributesResponse'
 
 instance ToHeaders SetEndpointAttributes where

@@ -80,7 +80,7 @@ crTapeARN = lens _crTapeARN (\ s a -> s{_crTapeARN = a});
 instance AWSRequest CancelRetrieval where
         type Sv CancelRetrieval = StorageGateway
         type Rs CancelRetrieval = CancelRetrievalResponse
-        request = postJSON
+        request = postJSON "CancelRetrieval"
         response
           = receiveJSON
               (\ s h x ->

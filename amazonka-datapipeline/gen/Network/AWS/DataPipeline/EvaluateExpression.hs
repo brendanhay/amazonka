@@ -89,7 +89,7 @@ instance AWSRequest EvaluateExpression where
         type Sv EvaluateExpression = DataPipeline
         type Rs EvaluateExpression =
              EvaluateExpressionResponse
-        request = postJSON
+        request = postJSON "EvaluateExpression"
         response
           = receiveJSON
               (\ s h x ->

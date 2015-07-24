@@ -72,7 +72,7 @@ slName = lens _slName (\ s a -> s{_slName = a});
 instance AWSRequest StopLogging where
         type Sv StopLogging = CloudTrail
         type Rs StopLogging = StopLoggingResponse
-        request = postJSON
+        request = postJSON "StopLogging"
         response
           = receiveJSON
               (\ s h x ->

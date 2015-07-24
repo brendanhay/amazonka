@@ -67,7 +67,7 @@ instance AWSRequest GetBucketVersioning where
         type Sv GetBucketVersioning = S3
         type Rs GetBucketVersioning =
              GetBucketVersioningResponse
-        request = get
+        request = get "GetBucketVersioning"
         response
           = receiveXML
               (\ s h x ->

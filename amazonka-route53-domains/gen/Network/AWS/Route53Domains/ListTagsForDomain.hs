@@ -72,7 +72,7 @@ ltfdDomainName = lens _ltfdDomainName (\ s a -> s{_ltfdDomainName = a});
 instance AWSRequest ListTagsForDomain where
         type Sv ListTagsForDomain = Route53Domains
         type Rs ListTagsForDomain = ListTagsForDomainResponse
-        request = postJSON
+        request = postJSON "ListTagsForDomain"
         response
           = receiveJSON
               (\ s h x ->

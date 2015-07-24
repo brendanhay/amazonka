@@ -80,7 +80,7 @@ ltArn = lens _ltArn (\ s a -> s{_ltArn = a});
 instance AWSRequest ListTests where
         type Sv ListTests = DeviceFarm
         type Rs ListTests = ListTestsResponse
-        request = postJSON
+        request = postJSON "ListTests"
         response
           = receiveJSON
               (\ s h x ->

@@ -120,7 +120,7 @@ instance AWSRequest DescribeMovingAddresses where
         type Sv DescribeMovingAddresses = EC2
         type Rs DescribeMovingAddresses =
              DescribeMovingAddressesResponse
-        request = post
+        request = post "DescribeMovingAddresses"
         response
           = receiveXML
               (\ s h x ->

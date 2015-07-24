@@ -352,6 +352,7 @@ instance AWSService ElasticTranscoder where
             , _svcPrefix = "elastictranscoder"
             , _svcVersion = "2012-09-25"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

@@ -117,7 +117,7 @@ instance AWSRequest DescribeVTLDevices where
         type Sv DescribeVTLDevices = StorageGateway
         type Rs DescribeVTLDevices =
              DescribeVTLDevicesResponse
-        request = postJSON
+        request = postJSON "DescribeVTLDevices"
         response
           = receiveJSON
               (\ s h x ->

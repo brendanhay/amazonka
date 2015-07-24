@@ -83,7 +83,7 @@ instance AWSRequest DescribeRDSDBInstances where
         type Sv DescribeRDSDBInstances = OpsWorks
         type Rs DescribeRDSDBInstances =
              DescribeRDSDBInstancesResponse
-        request = postJSON
+        request = postJSON "DescribeRDSDBInstances"
         response
           = receiveJSON
               (\ s h x ->

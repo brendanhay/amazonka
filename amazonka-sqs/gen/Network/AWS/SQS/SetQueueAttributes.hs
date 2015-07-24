@@ -110,7 +110,7 @@ instance AWSRequest SetQueueAttributes where
         type Sv SetQueueAttributes = SQS
         type Rs SetQueueAttributes =
              SetQueueAttributesResponse
-        request = post
+        request = post "SetQueueAttributes"
         response = receiveNull SetQueueAttributesResponse'
 
 instance ToHeaders SetQueueAttributes where

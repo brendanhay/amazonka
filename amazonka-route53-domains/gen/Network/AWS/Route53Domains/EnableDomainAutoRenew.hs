@@ -75,7 +75,7 @@ instance AWSRequest EnableDomainAutoRenew where
         type Sv EnableDomainAutoRenew = Route53Domains
         type Rs EnableDomainAutoRenew =
              EnableDomainAutoRenewResponse
-        request = postJSON
+        request = postJSON "EnableDomainAutoRenew"
         response
           = receiveJSON
               (\ s h x ->

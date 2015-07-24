@@ -167,7 +167,7 @@ uhcHealthCheckId = lens _uhcHealthCheckId (\ s a -> s{_uhcHealthCheckId = a});
 instance AWSRequest UpdateHealthCheck where
         type Sv UpdateHealthCheck = Route53
         type Rs UpdateHealthCheck = UpdateHealthCheckResponse
-        request = postXML
+        request = postXML "UpdateHealthCheck"
         response
           = receiveXML
               (\ s h x ->

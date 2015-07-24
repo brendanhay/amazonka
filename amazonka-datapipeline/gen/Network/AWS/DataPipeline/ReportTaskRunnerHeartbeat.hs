@@ -100,7 +100,7 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
         type Sv ReportTaskRunnerHeartbeat = DataPipeline
         type Rs ReportTaskRunnerHeartbeat =
              ReportTaskRunnerHeartbeatResponse
-        request = postJSON
+        request = postJSON "ReportTaskRunnerHeartbeat"
         response
           = receiveJSON
               (\ s h x ->

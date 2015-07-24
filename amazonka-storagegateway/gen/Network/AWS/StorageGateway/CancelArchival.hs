@@ -79,7 +79,7 @@ caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a});
 instance AWSRequest CancelArchival where
         type Sv CancelArchival = StorageGateway
         type Rs CancelArchival = CancelArchivalResponse
-        request = postJSON
+        request = postJSON "CancelArchival"
         response
           = receiveJSON
               (\ s h x ->

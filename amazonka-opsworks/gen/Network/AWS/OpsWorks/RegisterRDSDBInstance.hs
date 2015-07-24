@@ -97,7 +97,7 @@ instance AWSRequest RegisterRDSDBInstance where
         type Sv RegisterRDSDBInstance = OpsWorks
         type Rs RegisterRDSDBInstance =
              RegisterRDSDBInstanceResponse
-        request = postJSON
+        request = postJSON "RegisterRDSDBInstance"
         response = receiveNull RegisterRDSDBInstanceResponse'
 
 instance ToHeaders RegisterRDSDBInstance where

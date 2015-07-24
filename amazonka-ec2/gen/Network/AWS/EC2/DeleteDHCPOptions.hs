@@ -78,7 +78,7 @@ ddhcpoDHCPOptionsId = lens _ddhcpoDHCPOptionsId (\ s a -> s{_ddhcpoDHCPOptionsId
 instance AWSRequest DeleteDHCPOptions where
         type Sv DeleteDHCPOptions = EC2
         type Rs DeleteDHCPOptions = DeleteDHCPOptionsResponse
-        request = post
+        request = post "DeleteDHCPOptions"
         response = receiveNull DeleteDHCPOptionsResponse'
 
 instance ToHeaders DeleteDHCPOptions where

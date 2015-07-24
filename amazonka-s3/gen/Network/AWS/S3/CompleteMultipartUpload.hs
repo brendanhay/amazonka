@@ -111,7 +111,7 @@ instance AWSRequest CompleteMultipartUpload where
         type Sv CompleteMultipartUpload = S3
         type Rs CompleteMultipartUpload =
              CompleteMultipartUploadResponse
-        request = postXML
+        request = postXML "CompleteMultipartUpload"
         response
           = receiveXML
               (\ s h x ->

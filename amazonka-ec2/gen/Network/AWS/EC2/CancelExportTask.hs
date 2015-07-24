@@ -67,7 +67,7 @@ cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a});
 instance AWSRequest CancelExportTask where
         type Sv CancelExportTask = EC2
         type Rs CancelExportTask = CancelExportTaskResponse
-        request = post
+        request = post "CancelExportTask"
         response = receiveNull CancelExportTaskResponse'
 
 instance ToHeaders CancelExportTask where

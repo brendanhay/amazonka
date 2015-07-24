@@ -79,7 +79,7 @@ udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a})
 instance AWSRequest UpdateDataSource where
         type Sv UpdateDataSource = MachineLearning
         type Rs UpdateDataSource = UpdateDataSourceResponse
-        request = postJSON
+        request = postJSON "UpdateDataSource"
         response
           = receiveJSON
               (\ s h x ->

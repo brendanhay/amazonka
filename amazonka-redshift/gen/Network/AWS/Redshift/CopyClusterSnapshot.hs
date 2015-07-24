@@ -120,7 +120,7 @@ instance AWSRequest CopyClusterSnapshot where
         type Sv CopyClusterSnapshot = Redshift
         type Rs CopyClusterSnapshot =
              CopyClusterSnapshotResponse
-        request = post
+        request = post "CopyClusterSnapshot"
         response
           = receiveXMLWrapper "CopyClusterSnapshotResult"
               (\ s h x ->

@@ -98,7 +98,7 @@ instance AWSRequest DescribeDeployments where
         type Sv DescribeDeployments = OpsWorks
         type Rs DescribeDeployments =
              DescribeDeploymentsResponse
-        request = postJSON
+        request = postJSON "DescribeDeployments"
         response
           = receiveJSON
               (\ s h x ->

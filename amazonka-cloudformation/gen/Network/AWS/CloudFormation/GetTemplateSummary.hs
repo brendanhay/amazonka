@@ -122,7 +122,7 @@ instance AWSRequest GetTemplateSummary where
         type Sv GetTemplateSummary = CloudFormation
         type Rs GetTemplateSummary =
              GetTemplateSummaryResponse
-        request = post
+        request = post "GetTemplateSummary"
         response
           = receiveXMLWrapper "GetTemplateSummaryResult"
               (\ s h x ->

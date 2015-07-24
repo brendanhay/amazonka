@@ -71,7 +71,7 @@ instance AWSRequest CreateDistribution where
         type Sv CreateDistribution = CloudFront
         type Rs CreateDistribution =
              CreateDistributionResponse
-        request = postXML
+        request = postXML "CreateDistribution"
         response
           = receiveXML
               (\ s h x ->

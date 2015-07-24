@@ -91,7 +91,8 @@ instance AWSRequest
         type Sv SetLoadBalancerListenerSSLCertificate = ELB
         type Rs SetLoadBalancerListenerSSLCertificate =
              SetLoadBalancerListenerSSLCertificateResponse
-        request = post
+        request
+          = post "SetLoadBalancerListenerSSLCertificate"
         response
           = receiveXMLWrapper
               "SetLoadBalancerListenerSSLCertificateResult"

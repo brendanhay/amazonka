@@ -70,7 +70,7 @@ instance AWSRequest GetDeploymentConfig where
         type Sv GetDeploymentConfig = CodeDeploy
         type Rs GetDeploymentConfig =
              GetDeploymentConfigResponse
-        request = postJSON
+        request = postJSON "GetDeploymentConfig"
         response
           = receiveJSON
               (\ s h x ->

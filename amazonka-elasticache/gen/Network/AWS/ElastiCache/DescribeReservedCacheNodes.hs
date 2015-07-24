@@ -193,7 +193,7 @@ instance AWSRequest DescribeReservedCacheNodes where
         type Sv DescribeReservedCacheNodes = ElastiCache
         type Rs DescribeReservedCacheNodes =
              DescribeReservedCacheNodesResponse
-        request = post
+        request = post "DescribeReservedCacheNodes"
         response
           = receiveXMLWrapper
               "DescribeReservedCacheNodesResult"

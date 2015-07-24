@@ -83,7 +83,7 @@ instance AWSRequest PutBucketReplication where
         type Sv PutBucketReplication = S3
         type Rs PutBucketReplication =
              PutBucketReplicationResponse
-        request = putXML
+        request = putXML "PutBucketReplication"
         response = receiveNull PutBucketReplicationResponse'
 
 instance ToElement PutBucketReplication where

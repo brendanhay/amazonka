@@ -234,7 +234,7 @@ usStackName = lens _usStackName (\ s a -> s{_usStackName = a});
 instance AWSRequest UpdateStack where
         type Sv UpdateStack = CloudFormation
         type Rs UpdateStack = UpdateStackResponse
-        request = post
+        request = post "UpdateStack"
         response
           = receiveXMLWrapper "UpdateStackResult"
               (\ s h x ->

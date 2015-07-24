@@ -68,7 +68,7 @@ gsArn = lens _gsArn (\ s a -> s{_gsArn = a});
 instance AWSRequest GetSuite where
         type Sv GetSuite = DeviceFarm
         type Rs GetSuite = GetSuiteResponse
-        request = postJSON
+        request = postJSON "GetSuite"
         response
           = receiveJSON
               (\ s h x ->

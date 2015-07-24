@@ -92,7 +92,7 @@ dvpngVPCId = lens _dvpngVPCId (\ s a -> s{_dvpngVPCId = a});
 instance AWSRequest DetachVPNGateway where
         type Sv DetachVPNGateway = EC2
         type Rs DetachVPNGateway = DetachVPNGatewayResponse
-        request = post
+        request = post "DetachVPNGateway"
         response = receiveNull DetachVPNGatewayResponse'
 
 instance ToHeaders DetachVPNGateway where

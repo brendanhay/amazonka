@@ -123,7 +123,7 @@ instance AWSRequest DescribeVPCEndpoints where
         type Sv DescribeVPCEndpoints = EC2
         type Rs DescribeVPCEndpoints =
              DescribeVPCEndpointsResponse
-        request = post
+        request = post "DescribeVPCEndpoints"
         response
           = receiveXML
               (\ s h x ->

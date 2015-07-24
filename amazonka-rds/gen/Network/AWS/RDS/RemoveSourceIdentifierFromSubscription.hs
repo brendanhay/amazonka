@@ -83,7 +83,8 @@ instance AWSRequest
         type Sv RemoveSourceIdentifierFromSubscription = RDS
         type Rs RemoveSourceIdentifierFromSubscription =
              RemoveSourceIdentifierFromSubscriptionResponse
-        request = post
+        request
+          = post "RemoveSourceIdentifierFromSubscription"
         response
           = receiveXMLWrapper
               "RemoveSourceIdentifierFromSubscriptionResult"

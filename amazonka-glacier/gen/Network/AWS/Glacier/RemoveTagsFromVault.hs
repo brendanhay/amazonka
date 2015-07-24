@@ -92,7 +92,7 @@ instance AWSRequest RemoveTagsFromVault where
         type Sv RemoveTagsFromVault = Glacier
         type Rs RemoveTagsFromVault =
              RemoveTagsFromVaultResponse
-        request = postJSON
+        request = postJSON "RemoveTagsFromVault"
         response = receiveNull RemoveTagsFromVaultResponse'
 
 instance ToHeaders RemoveTagsFromVault where

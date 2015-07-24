@@ -119,7 +119,7 @@ uipAllowUnauthenticatedIdentities = lens _uipAllowUnauthenticatedIdentities (\ s
 instance AWSRequest UpdateIdentityPool where
         type Sv UpdateIdentityPool = CognitoIdentity
         type Rs UpdateIdentityPool = IdentityPool
-        request = postJSON
+        request = postJSON "UpdateIdentityPool"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders UpdateIdentityPool where

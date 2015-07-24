@@ -87,7 +87,7 @@ instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = AutoScaling
         type Rs DescribeLoadBalancers =
              DescribeLoadBalancersResponse
-        request = post
+        request = post "DescribeLoadBalancers"
         response
           = receiveXMLWrapper "DescribeLoadBalancersResult"
               (\ s h x ->

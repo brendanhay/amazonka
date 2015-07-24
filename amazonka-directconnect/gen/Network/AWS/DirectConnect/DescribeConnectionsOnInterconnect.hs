@@ -76,7 +76,8 @@ instance AWSRequest DescribeConnectionsOnInterconnect
              DirectConnect
         type Rs DescribeConnectionsOnInterconnect =
              Connections
-        request = postJSON
+        request
+          = postJSON "DescribeConnectionsOnInterconnect"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders DescribeConnectionsOnInterconnect

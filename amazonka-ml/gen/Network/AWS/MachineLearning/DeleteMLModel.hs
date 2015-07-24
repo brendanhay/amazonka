@@ -73,7 +73,7 @@ dmlmMLModelId = lens _dmlmMLModelId (\ s a -> s{_dmlmMLModelId = a});
 instance AWSRequest DeleteMLModel where
         type Sv DeleteMLModel = MachineLearning
         type Rs DeleteMLModel = DeleteMLModelResponse
-        request = postJSON
+        request = postJSON "DeleteMLModel"
         response
           = receiveJSON
               (\ s h x ->

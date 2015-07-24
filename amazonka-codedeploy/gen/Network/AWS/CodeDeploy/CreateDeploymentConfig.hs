@@ -95,7 +95,7 @@ instance AWSRequest CreateDeploymentConfig where
         type Sv CreateDeploymentConfig = CodeDeploy
         type Rs CreateDeploymentConfig =
              CreateDeploymentConfigResponse
-        request = postJSON
+        request = postJSON "CreateDeploymentConfig"
         response
           = receiveJSON
               (\ s h x ->

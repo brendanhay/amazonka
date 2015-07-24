@@ -68,7 +68,7 @@ cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a});
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = CodePipeline
         type Rs CreatePipeline = CreatePipelineResponse
-        request = postJSON
+        request = postJSON "CreatePipeline"
         response
           = receiveJSON
               (\ s h x ->

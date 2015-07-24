@@ -84,7 +84,7 @@ vddDomain = lens _vddDomain (\ s a -> s{_vddDomain = a});
 instance AWSRequest VerifyDomainDkim where
         type Sv VerifyDomainDkim = SES
         type Rs VerifyDomainDkim = VerifyDomainDkimResponse
-        request = post
+        request = post "VerifyDomainDkim"
         response
           = receiveXMLWrapper "VerifyDomainDkimResult"
               (\ s h x ->

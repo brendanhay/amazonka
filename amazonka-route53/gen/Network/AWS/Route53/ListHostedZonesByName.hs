@@ -124,7 +124,7 @@ instance AWSRequest ListHostedZonesByName where
         type Sv ListHostedZonesByName = Route53
         type Rs ListHostedZonesByName =
              ListHostedZonesByNameResponse
-        request = get
+        request = get "ListHostedZonesByName"
         response
           = receiveXML
               (\ s h x ->

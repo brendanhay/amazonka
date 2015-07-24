@@ -72,7 +72,7 @@ instance AWSRequest VerifyDomainIdentity where
         type Sv VerifyDomainIdentity = SES
         type Rs VerifyDomainIdentity =
              VerifyDomainIdentityResponse
-        request = post
+        request = post "VerifyDomainIdentity"
         response
           = receiveXMLWrapper "VerifyDomainIdentityResult"
               (\ s h x ->

@@ -125,7 +125,7 @@ instance AWSPager DescribeAlarms where
 instance AWSRequest DescribeAlarms where
         type Sv DescribeAlarms = CloudWatch
         type Rs DescribeAlarms = DescribeAlarmsResponse
-        request = post
+        request = post "DescribeAlarms"
         response
           = receiveXMLWrapper "DescribeAlarmsResult"
               (\ s h x ->

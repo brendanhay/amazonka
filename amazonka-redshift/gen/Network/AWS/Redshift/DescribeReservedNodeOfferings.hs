@@ -120,7 +120,7 @@ instance AWSRequest DescribeReservedNodeOfferings
         type Sv DescribeReservedNodeOfferings = Redshift
         type Rs DescribeReservedNodeOfferings =
              DescribeReservedNodeOfferingsResponse
-        request = post
+        request = post "DescribeReservedNodeOfferings"
         response
           = receiveXMLWrapper
               "DescribeReservedNodeOfferingsResult"

@@ -76,7 +76,7 @@ instance AWSRequest DescribeLifecycleHooks where
         type Sv DescribeLifecycleHooks = AutoScaling
         type Rs DescribeLifecycleHooks =
              DescribeLifecycleHooksResponse
-        request = post
+        request = post "DescribeLifecycleHooks"
         response
           = receiveXMLWrapper "DescribeLifecycleHooksResult"
               (\ s h x ->

@@ -705,7 +705,7 @@ instance AWSPager Query where
 instance AWSRequest Query where
         type Sv Query = DynamoDB
         type Rs Query = QueryResponse
-        request = postJSON
+        request = postJSON "Query"
         response
           = receiveJSON
               (\ s h x ->

@@ -132,7 +132,7 @@ avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
 instance AWSRequest AttachVolume where
         type Sv AttachVolume = EC2
         type Rs AttachVolume = VolumeAttachment
-        request = post
+        request = post "AttachVolume"
         response = receiveXML (\ s h x -> parseXML x)
 
 instance ToHeaders AttachVolume where

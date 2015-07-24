@@ -122,7 +122,7 @@ instance AWSPager ListHostedZones where
 instance AWSRequest ListHostedZones where
         type Sv ListHostedZones = Route53
         type Rs ListHostedZones = ListHostedZonesResponse
-        request = get
+        request = get "ListHostedZones"
         response
           = receiveXML
               (\ s h x ->

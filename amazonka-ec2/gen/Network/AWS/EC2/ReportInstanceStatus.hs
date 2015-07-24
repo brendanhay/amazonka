@@ -155,7 +155,7 @@ instance AWSRequest ReportInstanceStatus where
         type Sv ReportInstanceStatus = EC2
         type Rs ReportInstanceStatus =
              ReportInstanceStatusResponse
-        request = post
+        request = post "ReportInstanceStatus"
         response = receiveNull ReportInstanceStatusResponse'
 
 instance ToHeaders ReportInstanceStatus where

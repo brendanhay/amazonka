@@ -106,7 +106,7 @@ instance AWSRequest RetrieveEnvironmentInfo where
         type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
         type Rs RetrieveEnvironmentInfo =
              RetrieveEnvironmentInfoResponse
-        request = post
+        request = post "RetrieveEnvironmentInfo"
         response
           = receiveXMLWrapper "RetrieveEnvironmentInfoResult"
               (\ s h x ->

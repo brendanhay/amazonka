@@ -74,7 +74,7 @@ ddsDataSourceId = lens _ddsDataSourceId (\ s a -> s{_ddsDataSourceId = a});
 instance AWSRequest DeleteDataSource where
         type Sv DeleteDataSource = MachineLearning
         type Rs DeleteDataSource = DeleteDataSourceResponse
-        request = postJSON
+        request = postJSON "DeleteDataSource"
         response
           = receiveJSON
               (\ s h x ->

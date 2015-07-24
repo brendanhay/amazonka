@@ -103,7 +103,7 @@ ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a});
 instance AWSRequest CreateConnection where
         type Sv CreateConnection = DirectConnect
         type Rs CreateConnection = Connection
-        request = postJSON
+        request = postJSON "CreateConnection"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders CreateConnection where

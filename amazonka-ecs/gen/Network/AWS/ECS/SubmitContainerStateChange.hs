@@ -126,7 +126,7 @@ instance AWSRequest SubmitContainerStateChange where
         type Sv SubmitContainerStateChange = ECS
         type Rs SubmitContainerStateChange =
              SubmitContainerStateChangeResponse
-        request = postJSON
+        request = postJSON "SubmitContainerStateChange"
         response
           = receiveJSON
               (\ s h x ->

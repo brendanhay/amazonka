@@ -79,6 +79,7 @@ instance AWSService SNS where
             , _svcPrefix = "sns"
             , _svcVersion = "2010-03-31"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError

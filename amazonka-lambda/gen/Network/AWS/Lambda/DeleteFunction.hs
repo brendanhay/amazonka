@@ -78,7 +78,7 @@ dfFunctionName = lens _dfFunctionName (\ s a -> s{_dfFunctionName = a});
 instance AWSRequest DeleteFunction where
         type Sv DeleteFunction = Lambda
         type Rs DeleteFunction = DeleteFunctionResponse
-        request = delete
+        request = delete "DeleteFunction"
         response = receiveNull DeleteFunctionResponse'
 
 instance ToHeaders DeleteFunction where

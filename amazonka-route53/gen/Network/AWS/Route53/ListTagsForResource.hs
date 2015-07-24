@@ -83,7 +83,7 @@ instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = Route53
         type Rs ListTagsForResource =
              ListTagsForResourceResponse
-        request = get
+        request = get "ListTagsForResource"
         response
           = receiveXML
               (\ s h x ->

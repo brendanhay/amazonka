@@ -79,7 +79,7 @@ instance AWSRequest DescribeBandwidthRateLimit where
         type Sv DescribeBandwidthRateLimit = StorageGateway
         type Rs DescribeBandwidthRateLimit =
              DescribeBandwidthRateLimitResponse
-        request = postJSON
+        request = postJSON "DescribeBandwidthRateLimit"
         response
           = receiveJSON
               (\ s h x ->

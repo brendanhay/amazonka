@@ -78,7 +78,7 @@ instance AWSPager ListTopics where
 instance AWSRequest ListTopics where
         type Sv ListTopics = SNS
         type Rs ListTopics = ListTopicsResponse
-        request = post
+        request = post "ListTopics"
         response
           = receiveXMLWrapper "ListTopicsResult"
               (\ s h x ->

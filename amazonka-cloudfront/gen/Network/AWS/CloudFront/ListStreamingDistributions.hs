@@ -83,7 +83,7 @@ instance AWSRequest ListStreamingDistributions where
         type Sv ListStreamingDistributions = CloudFront
         type Rs ListStreamingDistributions =
              ListStreamingDistributionsResponse
-        request = get
+        request = get "ListStreamingDistributions"
         response
           = receiveXML
               (\ s h x ->

@@ -74,7 +74,7 @@ instance AWSRequest DescribeConfigurationRecorders
         type Sv DescribeConfigurationRecorders = Config
         type Rs DescribeConfigurationRecorders =
              DescribeConfigurationRecordersResponse
-        request = postJSON
+        request = postJSON "DescribeConfigurationRecorders"
         response
           = receiveJSON
               (\ s h x ->

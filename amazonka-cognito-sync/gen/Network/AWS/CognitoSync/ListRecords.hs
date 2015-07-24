@@ -142,7 +142,7 @@ lrDatasetName = lens _lrDatasetName (\ s a -> s{_lrDatasetName = a});
 instance AWSRequest ListRecords where
         type Sv ListRecords = CognitoSync
         type Rs ListRecords = ListRecordsResponse
-        request = get
+        request = get "ListRecords"
         response
           = receiveJSON
               (\ s h x ->

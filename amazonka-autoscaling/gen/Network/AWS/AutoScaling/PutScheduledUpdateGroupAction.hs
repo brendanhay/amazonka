@@ -159,7 +159,7 @@ instance AWSRequest PutScheduledUpdateGroupAction
         type Sv PutScheduledUpdateGroupAction = AutoScaling
         type Rs PutScheduledUpdateGroupAction =
              PutScheduledUpdateGroupActionResponse
-        request = post
+        request = post "PutScheduledUpdateGroupAction"
         response
           = receiveNull PutScheduledUpdateGroupActionResponse'
 

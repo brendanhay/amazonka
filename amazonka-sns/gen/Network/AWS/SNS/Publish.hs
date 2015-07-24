@@ -177,7 +177,7 @@ pMessage = lens _pMessage (\ s a -> s{_pMessage = a});
 instance AWSRequest Publish where
         type Sv Publish = SNS
         type Rs Publish = PublishResponse
-        request = post
+        request = post "Publish"
         response
           = receiveXMLWrapper "PublishResult"
               (\ s h x ->

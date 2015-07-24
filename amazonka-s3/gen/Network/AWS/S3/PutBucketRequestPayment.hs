@@ -87,7 +87,7 @@ instance AWSRequest PutBucketRequestPayment where
         type Sv PutBucketRequestPayment = S3
         type Rs PutBucketRequestPayment =
              PutBucketRequestPaymentResponse
-        request = putXML
+        request = putXML "PutBucketRequestPayment"
         response
           = receiveNull PutBucketRequestPaymentResponse'
 

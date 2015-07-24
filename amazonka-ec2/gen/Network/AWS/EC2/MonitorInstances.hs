@@ -81,7 +81,7 @@ miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a});
 instance AWSRequest MonitorInstances where
         type Sv MonitorInstances = EC2
         type Rs MonitorInstances = MonitorInstancesResponse
-        request = post
+        request = post "MonitorInstances"
         response
           = receiveXML
               (\ s h x ->

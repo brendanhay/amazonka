@@ -99,7 +99,7 @@ instance AWSRequest DescribeAccountAttributes where
         type Sv DescribeAccountAttributes = EC2
         type Rs DescribeAccountAttributes =
              DescribeAccountAttributesResponse
-        request = post
+        request = post "DescribeAccountAttributes"
         response
           = receiveXML
               (\ s h x ->

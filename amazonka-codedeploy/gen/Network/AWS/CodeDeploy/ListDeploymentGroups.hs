@@ -84,7 +84,7 @@ instance AWSRequest ListDeploymentGroups where
         type Sv ListDeploymentGroups = CodeDeploy
         type Rs ListDeploymentGroups =
              ListDeploymentGroupsResponse
-        request = postJSON
+        request = postJSON "ListDeploymentGroups"
         response
           = receiveJSON
               (\ s h x ->

@@ -67,7 +67,7 @@ gdName = lens _gdName (\ s a -> s{_gdName = a});
 instance AWSRequest GetDocument where
         type Sv GetDocument = SSM
         type Rs GetDocument = GetDocumentResponse
-        request = postJSON
+        request = postJSON "GetDocument"
         response
           = receiveJSON
               (\ s h x ->

@@ -69,7 +69,7 @@ gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a})
 instance AWSRequest GetApplication where
         type Sv GetApplication = CodeDeploy
         type Rs GetApplication = GetApplicationResponse
-        request = postJSON
+        request = postJSON "GetApplication"
         response
           = receiveJSON
               (\ s h x ->

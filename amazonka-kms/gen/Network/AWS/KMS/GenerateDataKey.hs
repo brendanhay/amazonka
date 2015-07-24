@@ -154,7 +154,7 @@ gdkKeyId = lens _gdkKeyId (\ s a -> s{_gdkKeyId = a});
 instance AWSRequest GenerateDataKey where
         type Sv GenerateDataKey = KMS
         type Rs GenerateDataKey = GenerateDataKeyResponse
-        request = postJSON
+        request = postJSON "GenerateDataKey"
         response
           = receiveJSON
               (\ s h x ->

@@ -76,7 +76,7 @@ aiAutoScalingGroupName = lens _aiAutoScalingGroupName (\ s a -> s{_aiAutoScaling
 instance AWSRequest AttachInstances where
         type Sv AttachInstances = AutoScaling
         type Rs AttachInstances = AttachInstancesResponse
-        request = post
+        request = post "AttachInstances"
         response = receiveNull AttachInstancesResponse'
 
 instance ToHeaders AttachInstances where

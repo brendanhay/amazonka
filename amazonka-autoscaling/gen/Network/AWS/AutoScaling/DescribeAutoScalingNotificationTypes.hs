@@ -56,7 +56,7 @@ instance AWSRequest
              AutoScaling
         type Rs DescribeAutoScalingNotificationTypes =
              DescribeAutoScalingNotificationTypesResponse
-        request = post
+        request = post "DescribeAutoScalingNotificationTypes"
         response
           = receiveXMLWrapper
               "DescribeAutoScalingNotificationTypesResult"

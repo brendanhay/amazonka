@@ -73,7 +73,7 @@ dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
 instance AWSRequest DeregisterVolume where
         type Sv DeregisterVolume = OpsWorks
         type Rs DeregisterVolume = DeregisterVolumeResponse
-        request = postJSON
+        request = postJSON "DeregisterVolume"
         response = receiveNull DeregisterVolumeResponse'
 
 instance ToHeaders DeregisterVolume where

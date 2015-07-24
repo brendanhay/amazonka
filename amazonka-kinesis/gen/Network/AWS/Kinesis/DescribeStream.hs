@@ -124,7 +124,7 @@ instance AWSPager DescribeStream where
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = Kinesis
         type Rs DescribeStream = DescribeStreamResponse
-        request = postJSON
+        request = postJSON "DescribeStream"
         response
           = receiveJSON
               (\ s h x ->

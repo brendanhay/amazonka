@@ -91,7 +91,7 @@ ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
 instance AWSRequest SetStatus where
         type Sv SetStatus = DataPipeline
         type Rs SetStatus = SetStatusResponse
-        request = postJSON
+        request = postJSON "SetStatus"
         response = receiveNull SetStatusResponse'
 
 instance ToHeaders SetStatus where

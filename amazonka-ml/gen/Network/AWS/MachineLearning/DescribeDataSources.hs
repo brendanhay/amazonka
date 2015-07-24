@@ -208,7 +208,7 @@ instance AWSRequest DescribeDataSources where
         type Sv DescribeDataSources = MachineLearning
         type Rs DescribeDataSources =
              DescribeDataSourcesResponse
-        request = postJSON
+        request = postJSON "DescribeDataSources"
         response
           = receiveJSON
               (\ s h x ->

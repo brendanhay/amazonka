@@ -118,7 +118,7 @@ instance AWSRequest AllocatePublicVirtualInterface
              DirectConnect
         type Rs AllocatePublicVirtualInterface =
              VirtualInterface
-        request = postJSON
+        request = postJSON "AllocatePublicVirtualInterface"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders AllocatePublicVirtualInterface

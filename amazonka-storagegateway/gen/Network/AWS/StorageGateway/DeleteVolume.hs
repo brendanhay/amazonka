@@ -83,7 +83,7 @@ dvVolumeARN = lens _dvVolumeARN (\ s a -> s{_dvVolumeARN = a});
 instance AWSRequest DeleteVolume where
         type Sv DeleteVolume = StorageGateway
         type Rs DeleteVolume = DeleteVolumeResponse
-        request = postJSON
+        request = postJSON "DeleteVolume"
         response
           = receiveJSON
               (\ s h x ->

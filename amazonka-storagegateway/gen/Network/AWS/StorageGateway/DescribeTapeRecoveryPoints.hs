@@ -105,7 +105,7 @@ instance AWSRequest DescribeTapeRecoveryPoints where
         type Sv DescribeTapeRecoveryPoints = StorageGateway
         type Rs DescribeTapeRecoveryPoints =
              DescribeTapeRecoveryPointsResponse
-        request = postJSON
+        request = postJSON "DescribeTapeRecoveryPoints"
         response
           = receiveJSON
               (\ s h x ->

@@ -133,7 +133,7 @@ instance AWSRequest UpdateConfigurationTemplate where
              ElasticBeanstalk
         type Rs UpdateConfigurationTemplate =
              ConfigurationSettingsDescription
-        request = post
+        request = post "UpdateConfigurationTemplate"
         response
           = receiveXMLWrapper
               "UpdateConfigurationTemplateResult"

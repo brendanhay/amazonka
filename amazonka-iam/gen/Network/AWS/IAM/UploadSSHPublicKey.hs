@@ -84,7 +84,7 @@ instance AWSRequest UploadSSHPublicKey where
         type Sv UploadSSHPublicKey = IAM
         type Rs UploadSSHPublicKey =
              UploadSSHPublicKeyResponse
-        request = post
+        request = post "UploadSSHPublicKey"
         response
           = receiveXMLWrapper "UploadSSHPublicKeyResult"
               (\ s h x ->

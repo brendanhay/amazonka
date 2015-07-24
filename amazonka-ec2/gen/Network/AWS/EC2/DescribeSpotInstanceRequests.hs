@@ -222,7 +222,7 @@ instance AWSRequest DescribeSpotInstanceRequests
         type Sv DescribeSpotInstanceRequests = EC2
         type Rs DescribeSpotInstanceRequests =
              DescribeSpotInstanceRequestsResponse
-        request = post
+        request = post "DescribeSpotInstanceRequests"
         response
           = receiveXML
               (\ s h x ->

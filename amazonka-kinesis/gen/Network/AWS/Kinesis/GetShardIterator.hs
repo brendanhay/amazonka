@@ -148,7 +148,7 @@ gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorT
 instance AWSRequest GetShardIterator where
         type Sv GetShardIterator = Kinesis
         type Rs GetShardIterator = GetShardIteratorResponse
-        request = postJSON
+        request = postJSON "GetShardIterator"
         response
           = receiveJSON
               (\ s h x ->

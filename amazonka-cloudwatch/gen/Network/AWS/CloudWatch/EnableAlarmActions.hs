@@ -64,7 +64,7 @@ instance AWSRequest EnableAlarmActions where
         type Sv EnableAlarmActions = CloudWatch
         type Rs EnableAlarmActions =
              EnableAlarmActionsResponse
-        request = post
+        request = post "EnableAlarmActions"
         response = receiveNull EnableAlarmActionsResponse'
 
 instance ToHeaders EnableAlarmActions where

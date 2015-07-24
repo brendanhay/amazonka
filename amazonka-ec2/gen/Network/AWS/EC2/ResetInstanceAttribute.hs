@@ -94,7 +94,7 @@ instance AWSRequest ResetInstanceAttribute where
         type Sv ResetInstanceAttribute = EC2
         type Rs ResetInstanceAttribute =
              ResetInstanceAttributeResponse
-        request = post
+        request = post "ResetInstanceAttribute"
         response
           = receiveNull ResetInstanceAttributeResponse'
 

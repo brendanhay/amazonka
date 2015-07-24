@@ -94,7 +94,7 @@ instance AWSRequest SetVaultAccessPolicy where
         type Sv SetVaultAccessPolicy = Glacier
         type Rs SetVaultAccessPolicy =
              SetVaultAccessPolicyResponse
-        request = putJSON
+        request = putJSON "SetVaultAccessPolicy"
         response = receiveNull SetVaultAccessPolicyResponse'
 
 instance ToHeaders SetVaultAccessPolicy where

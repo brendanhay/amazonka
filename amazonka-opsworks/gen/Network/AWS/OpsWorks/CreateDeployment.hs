@@ -130,7 +130,7 @@ cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
 instance AWSRequest CreateDeployment where
         type Sv CreateDeployment = OpsWorks
         type Rs CreateDeployment = CreateDeploymentResponse
-        request = postJSON
+        request = postJSON "CreateDeployment"
         response
           = receiveJSON
               (\ s h x ->

@@ -84,7 +84,7 @@ instance AWSRequest DeactivatePipeline where
         type Sv DeactivatePipeline = DataPipeline
         type Rs DeactivatePipeline =
              DeactivatePipelineResponse
-        request = postJSON
+        request = postJSON "DeactivatePipeline"
         response
           = receiveJSON
               (\ s h x ->

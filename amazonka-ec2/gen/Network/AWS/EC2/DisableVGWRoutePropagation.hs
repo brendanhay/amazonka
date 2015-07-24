@@ -74,7 +74,7 @@ instance AWSRequest DisableVGWRoutePropagation where
         type Sv DisableVGWRoutePropagation = EC2
         type Rs DisableVGWRoutePropagation =
              DisableVGWRoutePropagationResponse
-        request = post
+        request = post "DisableVGWRoutePropagation"
         response
           = receiveNull DisableVGWRoutePropagationResponse'
 

@@ -72,7 +72,7 @@ instance AWSRequest GetOpenIdConnectProvider where
         type Sv GetOpenIdConnectProvider = IAM
         type Rs GetOpenIdConnectProvider =
              GetOpenIdConnectProviderResponse
-        request = post
+        request = post "GetOpenIdConnectProvider"
         response
           = receiveXMLWrapper "GetOpenIDConnectProviderResult"
               (\ s h x ->

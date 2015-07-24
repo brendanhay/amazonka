@@ -72,7 +72,7 @@ instance AWSRequest GetIdentityPoolRoles where
         type Sv GetIdentityPoolRoles = CognitoIdentity
         type Rs GetIdentityPoolRoles =
              GetIdentityPoolRolesResponse
-        request = postJSON
+        request = postJSON "GetIdentityPoolRoles"
         response
           = receiveJSON
               (\ s h x ->

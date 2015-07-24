@@ -92,7 +92,7 @@ instance AWSRequest RevokeCacheSecurityGroupIngress
         type Sv RevokeCacheSecurityGroupIngress = ElastiCache
         type Rs RevokeCacheSecurityGroupIngress =
              RevokeCacheSecurityGroupIngressResponse
-        request = post
+        request = post "RevokeCacheSecurityGroupIngress"
         response
           = receiveXMLWrapper
               "RevokeCacheSecurityGroupIngressResult"

@@ -146,7 +146,7 @@ instance AWSRequest ListObjectVersions where
         type Sv ListObjectVersions = S3
         type Rs ListObjectVersions =
              ListObjectVersionsResponse
-        request = get
+        request = get "ListObjectVersions"
         response
           = receiveXML
               (\ s h x ->

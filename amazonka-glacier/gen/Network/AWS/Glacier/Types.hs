@@ -153,6 +153,7 @@ instance AWSService Glacier where
             , _svcPrefix = "glacier"
             , _svcVersion = "2012-06-01"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

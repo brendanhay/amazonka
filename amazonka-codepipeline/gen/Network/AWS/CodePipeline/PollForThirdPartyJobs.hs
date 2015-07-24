@@ -84,7 +84,7 @@ instance AWSRequest PollForThirdPartyJobs where
         type Sv PollForThirdPartyJobs = CodePipeline
         type Rs PollForThirdPartyJobs =
              PollForThirdPartyJobsResponse
-        request = postJSON
+        request = postJSON "PollForThirdPartyJobs"
         response
           = receiveJSON
               (\ s h x ->

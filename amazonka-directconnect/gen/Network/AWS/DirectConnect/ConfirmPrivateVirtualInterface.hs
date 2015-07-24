@@ -94,7 +94,7 @@ instance AWSRequest ConfirmPrivateVirtualInterface
              DirectConnect
         type Rs ConfirmPrivateVirtualInterface =
              ConfirmPrivateVirtualInterfaceResponse
-        request = postJSON
+        request = postJSON "ConfirmPrivateVirtualInterface"
         response
           = receiveJSON
               (\ s h x ->

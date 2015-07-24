@@ -196,7 +196,7 @@ instance AWSRequest ListOpenWorkflowExecutions where
         type Sv ListOpenWorkflowExecutions = SWF
         type Rs ListOpenWorkflowExecutions =
              WorkflowExecutionInfos
-        request = postJSON
+        request = postJSON "ListOpenWorkflowExecutions"
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToHeaders ListOpenWorkflowExecutions where

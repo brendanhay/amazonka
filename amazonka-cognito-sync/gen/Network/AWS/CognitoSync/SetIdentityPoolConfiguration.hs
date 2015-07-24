@@ -96,7 +96,7 @@ instance AWSRequest SetIdentityPoolConfiguration
         type Sv SetIdentityPoolConfiguration = CognitoSync
         type Rs SetIdentityPoolConfiguration =
              SetIdentityPoolConfigurationResponse
-        request = postJSON
+        request = postJSON "SetIdentityPoolConfiguration"
         response
           = receiveJSON
               (\ s h x ->

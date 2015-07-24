@@ -69,7 +69,7 @@ dkKeyId = lens _dkKeyId (\ s a -> s{_dkKeyId = a});
 instance AWSRequest DisableKey where
         type Sv DisableKey = KMS
         type Rs DisableKey = DisableKeyResponse
-        request = postJSON
+        request = postJSON "DisableKey"
         response = receiveNull DisableKeyResponse'
 
 instance ToHeaders DisableKey where

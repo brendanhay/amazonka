@@ -68,7 +68,7 @@ dhHSMARN = lens _dhHSMARN (\ s a -> s{_dhHSMARN = a});
 instance AWSRequest DeleteHSM where
         type Sv DeleteHSM = CloudHSM
         type Rs DeleteHSM = DeleteHSMResponse
-        request = postJSON
+        request = postJSON "DeleteHSM"
         response
           = receiveJSON
               (\ s h x ->

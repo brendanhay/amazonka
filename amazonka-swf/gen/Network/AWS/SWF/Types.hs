@@ -805,6 +805,7 @@ instance AWSService SWF where
             , _svcPrefix = "swf"
             , _svcVersion = "2012-01-25"
             , _svcEndpoint = defaultEndpoint svc
+            , _svcPreflight = id
             , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError

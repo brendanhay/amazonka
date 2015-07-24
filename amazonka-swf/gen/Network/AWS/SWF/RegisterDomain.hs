@@ -118,7 +118,7 @@ rdWorkflowExecutionRetentionPeriodInDays = lens _rdWorkflowExecutionRetentionPer
 instance AWSRequest RegisterDomain where
         type Sv RegisterDomain = SWF
         type Rs RegisterDomain = RegisterDomainResponse
-        request = postJSON
+        request = postJSON "RegisterDomain"
         response = receiveNull RegisterDomainResponse'
 
 instance ToHeaders RegisterDomain where

@@ -81,7 +81,7 @@ instance AWSRequest ModifyCacheParameterGroup where
         type Sv ModifyCacheParameterGroup = ElastiCache
         type Rs ModifyCacheParameterGroup =
              CacheParameterGroupNameMessage
-        request = post
+        request = post "ModifyCacheParameterGroup"
         response
           = receiveXMLWrapper "ModifyCacheParameterGroupResult"
               (\ s h x -> parseXML x)

@@ -332,7 +332,7 @@ instance AWSRequest RestoreFromClusterSnapshot where
         type Sv RestoreFromClusterSnapshot = Redshift
         type Rs RestoreFromClusterSnapshot =
              RestoreFromClusterSnapshotResponse
-        request = post
+        request = post "RestoreFromClusterSnapshot"
         response
           = receiveXMLWrapper
               "RestoreFromClusterSnapshotResult"

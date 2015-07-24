@@ -286,7 +286,7 @@ instance AWSRequest CreateMultipartUpload where
         type Sv CreateMultipartUpload = S3
         type Rs CreateMultipartUpload =
              CreateMultipartUploadResponse
-        request = post
+        request = post "CreateMultipartUpload"
         response
           = receiveXML
               (\ s h x ->

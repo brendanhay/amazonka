@@ -56,7 +56,7 @@ instance AWSRequest ListAvailableSolutionStacks where
              ElasticBeanstalk
         type Rs ListAvailableSolutionStacks =
              ListAvailableSolutionStacksResponse
-        request = post
+        request = post "ListAvailableSolutionStacks"
         response
           = receiveXMLWrapper
               "ListAvailableSolutionStacksResult"

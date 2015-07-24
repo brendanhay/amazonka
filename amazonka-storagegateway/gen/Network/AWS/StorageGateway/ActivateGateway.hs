@@ -166,7 +166,7 @@ agGatewayRegion = lens _agGatewayRegion (\ s a -> s{_agGatewayRegion = a});
 instance AWSRequest ActivateGateway where
         type Sv ActivateGateway = StorageGateway
         type Rs ActivateGateway = ActivateGatewayResponse
-        request = postJSON
+        request = postJSON "ActivateGateway"
         response
           = receiveJSON
               (\ s h x ->

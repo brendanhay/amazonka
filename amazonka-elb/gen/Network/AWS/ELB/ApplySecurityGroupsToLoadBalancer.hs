@@ -84,7 +84,7 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer
         type Sv ApplySecurityGroupsToLoadBalancer = ELB
         type Rs ApplySecurityGroupsToLoadBalancer =
              ApplySecurityGroupsToLoadBalancerResponse
-        request = post
+        request = post "ApplySecurityGroupsToLoadBalancer"
         response
           = receiveXMLWrapper
               "ApplySecurityGroupsToLoadBalancerResult"

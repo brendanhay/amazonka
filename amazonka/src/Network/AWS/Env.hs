@@ -131,14 +131,14 @@ timeout s = local (envTimeout ?~ s)
 -- Lenses such as 'envLogger' can be used to configure the resulting 'Env'.
 --
 -- /See:/ 'newEnvWith' to supply an existing HTTP 'Manager'.
-newEnv :: MonadIO m
+newEnv :: (Functor m, MonadIO m)
        => Region
        -> Credentials
        -> m (Either String Env)
 newEnv r c = liftIO (newManager conduitManagerSettings) >>= newEnvWith r c
 
 -- | /See:/ 'newEnv'
-newEnvWith :: MonadIO m
+newEnvWith :: (Functor m, MonadIO m)
            => Region
            -> Credentials
            -> Manager

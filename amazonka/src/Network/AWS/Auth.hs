@@ -113,7 +113,7 @@ instance Show Credentials where
     show = BS.unpack . toBS . build
 
 -- | Retrieve authentication information using the specified 'Credentials' style.
-getAuth :: MonadIO m
+getAuth :: (Functor m, MonadIO m)
         => Manager
         -> Credentials
         -> m (Either String Auth)
@@ -130,11 +130,11 @@ getAuth m = runExceptT . \case
 -- | Retrieve access and secret keys from the default environment variables.
 --
 -- /See:/ 'accessKey' and 'secretKey'
-fromEnv :: MonadIO m => m (Either String Auth)
+fromEnv :: (Functor m, MonadIO m) => m (Either String Auth)
 fromEnv = fromEnvKeys accessKey secretKey
 
 -- | Retrieve 'Access' and 'Secret' keys from specific environment variables.
-fromEnvKeys :: MonadIO m => Text -> Text -> m (Either String Auth)
+fromEnvKeys :: (Functor m, MonadIO m) => Text -> Text -> m (Either String Auth)
 fromEnvKeys a s = runExceptT . liftM Auth $ AuthEnv
     <$> (AccessKey <$> key a)
     <*> (SecretKey <$> key s)

@@ -2,17 +2,20 @@
 
 set -e
 
-GHCVER=${GHCVER?"GHCVER needs to be set."}
-DOC_TOKEN=${DOC_TOKEN?"DOC_TOKEN needs to be set."}
-DOC_REF=${DOC_REF?"DOC_REF needs to be set."}
-BUILD_BRANCH=${TRAVIS_BRANCH?"TRAVIS_BRANCH needs to be set."}
-BUILD_ID=${TRAVIS_BUILD_ID?"TRAVIS_BUILD_ID needs to be set."}
-BUILD_NUMBER=${TRAVIS_BUILD_NUMBER?"TRAVIS_BUILD_NUMBER needs to be set."}
-
 if [ "$BUILD_BRANCH" != "develop" ]; then
     echo "Ignoring documentation build for branch '$BUILD_BRANCH'."
     exit 0
 fi
+
+if [ -z "$DOC_TOKEN" ]; then
+    echo "Ignoring documentation build due to missing token."
+    exit 0
+fi
+
+GHCVER=${GHCVER?"GHCVER needs to be set."}
+DOC_REF=${DOC_REF?"DOC_REF needs to be set."}
+BUILD_ID=${TRAVIS_BUILD_ID?"TRAVIS_BUILD_ID needs to be set."}
+BUILD_NUMBER=${TRAVIS_BUILD_NUMBER?"TRAVIS_BUILD_NUMBER needs to be set."}
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 

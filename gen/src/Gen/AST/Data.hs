@@ -49,10 +49,11 @@ import           Language.Haskell.Exts.Pretty
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
 operationData :: HasMetadata a Identity
-              => a
+              => Config
+              -> a
               -> Operation Identity Ref (Pager Id)
               -> Either Error (Operation Identity SData (Pager Id))
-operationData m o = do
+operationData cfg m o = do
     (xa, x)  <- struct (xr ^. refAnn)
     (ya, y)  <- struct (yr ^. refAnn)
 
@@ -61,7 +62,7 @@ operationData m o = do
 
     is       <- requestInsts m h xr xs
 
-    cls      <- pp Print $ requestD m h (xr, is) (yr, ys)
+    cls      <- pp Print $ requestD cfg m h (xr, is) (yr, ys)
 
     mpage    <- pagerFields m o >>= traverse (pp Print . pagerD xn)
 

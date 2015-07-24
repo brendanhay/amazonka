@@ -90,7 +90,7 @@ instance AWSRequest CreateLoginProfile where
         type Sv CreateLoginProfile = IAM
         type Rs CreateLoginProfile =
              CreateLoginProfileResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateLoginProfileResult"
               (\ s h x ->

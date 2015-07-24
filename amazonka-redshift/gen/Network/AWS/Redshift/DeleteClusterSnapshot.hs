@@ -95,7 +95,7 @@ instance AWSRequest DeleteClusterSnapshot where
         type Sv DeleteClusterSnapshot = Redshift
         type Rs DeleteClusterSnapshot =
              DeleteClusterSnapshotResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DeleteClusterSnapshotResult"
               (\ s h x ->

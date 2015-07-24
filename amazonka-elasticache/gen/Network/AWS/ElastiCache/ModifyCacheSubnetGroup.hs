@@ -94,7 +94,7 @@ instance AWSRequest ModifyCacheSubnetGroup where
         type Sv ModifyCacheSubnetGroup = ElastiCache
         type Rs ModifyCacheSubnetGroup =
              ModifyCacheSubnetGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ModifyCacheSubnetGroupResult"
               (\ s h x ->

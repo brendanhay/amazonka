@@ -76,7 +76,7 @@ dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a});
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = Redshift
         type Rs DeleteTags = DeleteTagsResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteTagsResponse'
 
 instance ToHeaders DeleteTags where

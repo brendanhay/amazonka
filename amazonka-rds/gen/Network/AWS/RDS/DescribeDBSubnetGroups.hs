@@ -120,7 +120,7 @@ instance AWSRequest DescribeDBSubnetGroups where
         type Sv DescribeDBSubnetGroups = RDS
         type Rs DescribeDBSubnetGroups =
              DescribeDBSubnetGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeDBSubnetGroupsResult"
               (\ s h x ->

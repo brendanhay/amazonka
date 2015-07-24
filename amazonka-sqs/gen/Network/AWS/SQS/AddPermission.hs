@@ -130,7 +130,7 @@ apActions = lens _apActions (\ s a -> s{_apActions = a});
 instance AWSRequest AddPermission where
         type Sv AddPermission = SQS
         type Rs AddPermission = AddPermissionResponse
-        request = post
+        request = postQuery
         response = receiveNull AddPermissionResponse'
 
 instance ToHeaders AddPermission where

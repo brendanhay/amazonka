@@ -418,7 +418,7 @@ instance AWSRequest CreateCacheCluster where
         type Sv CreateCacheCluster = ElastiCache
         type Rs CreateCacheCluster =
              CreateCacheClusterResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateCacheClusterResult"
               (\ s h x ->

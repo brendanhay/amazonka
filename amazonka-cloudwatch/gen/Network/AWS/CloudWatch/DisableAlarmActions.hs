@@ -68,7 +68,7 @@ instance AWSRequest DisableAlarmActions where
         type Sv DisableAlarmActions = CloudWatch
         type Rs DisableAlarmActions =
              DisableAlarmActionsResponse
-        request = post
+        request = postQuery
         response = receiveNull DisableAlarmActionsResponse'
 
 instance ToHeaders DisableAlarmActions where

@@ -172,7 +172,7 @@ dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = Redshift
         type Rs DescribeTags = DescribeTagsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeTagsResult"
               (\ s h x ->

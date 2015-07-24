@@ -93,7 +93,7 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
         type Sv ModifySnapshotCopyRetentionPeriod = Redshift
         type Rs ModifySnapshotCopyRetentionPeriod =
              ModifySnapshotCopyRetentionPeriodResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "ModifySnapshotCopyRetentionPeriodResult"

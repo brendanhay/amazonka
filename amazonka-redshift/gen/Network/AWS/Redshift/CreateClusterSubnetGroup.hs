@@ -113,7 +113,7 @@ instance AWSRequest CreateClusterSubnetGroup where
         type Sv CreateClusterSubnetGroup = Redshift
         type Rs CreateClusterSubnetGroup =
              CreateClusterSubnetGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateClusterSubnetGroupResult"
               (\ s h x ->

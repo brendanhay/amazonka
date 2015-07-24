@@ -87,7 +87,7 @@ defeIndexField = lens _defeIndexField (\ s a -> s{_defeIndexField = a});
 instance AWSRequest DefineIndexField where
         type Sv DefineIndexField = CloudSearch
         type Rs DefineIndexField = DefineIndexFieldResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DefineIndexFieldResult"
               (\ s h x ->

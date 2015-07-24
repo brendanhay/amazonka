@@ -73,7 +73,7 @@ instance AWSRequest DeleteScheduledAction where
         type Sv DeleteScheduledAction = AutoScaling
         type Rs DeleteScheduledAction =
              DeleteScheduledActionResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteScheduledActionResponse'
 
 instance ToHeaders DeleteScheduledAction where

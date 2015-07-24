@@ -157,7 +157,7 @@ instance AWSPager DescribeClusters where
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = Redshift
         type Rs DescribeClusters = DescribeClustersResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeClustersResult"
               (\ s h x ->

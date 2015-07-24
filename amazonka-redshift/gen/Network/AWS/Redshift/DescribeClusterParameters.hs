@@ -134,7 +134,7 @@ instance AWSRequest DescribeClusterParameters where
         type Sv DescribeClusterParameters = Redshift
         type Rs DescribeClusterParameters =
              DescribeClusterParametersResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeClusterParametersResult"
               (\ s h x ->

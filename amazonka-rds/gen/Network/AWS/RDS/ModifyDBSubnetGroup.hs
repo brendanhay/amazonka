@@ -94,7 +94,7 @@ instance AWSRequest ModifyDBSubnetGroup where
         type Sv ModifyDBSubnetGroup = RDS
         type Rs ModifyDBSubnetGroup =
              ModifyDBSubnetGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ModifyDBSubnetGroupResult"
               (\ s h x ->

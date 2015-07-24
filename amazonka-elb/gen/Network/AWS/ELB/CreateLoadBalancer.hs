@@ -165,7 +165,7 @@ instance AWSRequest CreateLoadBalancer where
         type Sv CreateLoadBalancer = ELB
         type Rs CreateLoadBalancer =
              CreateLoadBalancerResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateLoadBalancerResult"
               (\ s h x ->

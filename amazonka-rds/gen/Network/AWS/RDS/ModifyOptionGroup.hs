@@ -104,7 +104,7 @@ mogOptionGroupName = lens _mogOptionGroupName (\ s a -> s{_mogOptionGroupName = 
 instance AWSRequest ModifyOptionGroup where
         type Sv ModifyOptionGroup = RDS
         type Rs ModifyOptionGroup = ModifyOptionGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ModifyOptionGroupResult"
               (\ s h x ->

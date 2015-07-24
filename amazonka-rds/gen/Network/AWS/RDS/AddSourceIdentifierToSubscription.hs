@@ -94,7 +94,7 @@ instance AWSRequest AddSourceIdentifierToSubscription
         type Sv AddSourceIdentifierToSubscription = RDS
         type Rs AddSourceIdentifierToSubscription =
              AddSourceIdentifierToSubscriptionResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "AddSourceIdentifierToSubscriptionResult"

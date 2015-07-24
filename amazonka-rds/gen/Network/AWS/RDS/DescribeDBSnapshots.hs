@@ -153,7 +153,7 @@ instance AWSRequest DescribeDBSnapshots where
         type Sv DescribeDBSnapshots = RDS
         type Rs DescribeDBSnapshots =
              DescribeDBSnapshotsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeDBSnapshotsResult"
               (\ s h x ->

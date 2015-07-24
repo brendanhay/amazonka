@@ -186,7 +186,7 @@ instance AWSRequest CreateEventSubscription where
         type Sv CreateEventSubscription = Redshift
         type Rs CreateEventSubscription =
              CreateEventSubscriptionResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateEventSubscriptionResult"
               (\ s h x ->

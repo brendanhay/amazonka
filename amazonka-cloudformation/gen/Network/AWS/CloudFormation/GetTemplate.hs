@@ -81,7 +81,7 @@ gtStackName = lens _gtStackName (\ s a -> s{_gtStackName = a});
 instance AWSRequest GetTemplate where
         type Sv GetTemplate = CloudFormation
         type Rs GetTemplate = GetTemplateResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetTemplateResult"
               (\ s h x ->

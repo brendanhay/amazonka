@@ -277,7 +277,7 @@ instance AWSRequest ModifyReplicationGroup where
         type Sv ModifyReplicationGroup = ElastiCache
         type Rs ModifyReplicationGroup =
              ModifyReplicationGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ModifyReplicationGroupResult"
               (\ s h x ->

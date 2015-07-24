@@ -68,7 +68,7 @@ instance AWSRequest DeleteLaunchConfiguration where
         type Sv DeleteLaunchConfiguration = AutoScaling
         type Rs DeleteLaunchConfiguration =
              DeleteLaunchConfigurationResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteLaunchConfigurationResponse'
 

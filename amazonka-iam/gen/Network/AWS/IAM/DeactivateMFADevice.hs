@@ -80,7 +80,7 @@ instance AWSRequest DeactivateMFADevice where
         type Sv DeactivateMFADevice = IAM
         type Rs DeactivateMFADevice =
              DeactivateMFADeviceResponse
-        request = post
+        request = postQuery
         response = receiveNull DeactivateMFADeviceResponse'
 
 instance ToHeaders DeactivateMFADevice where

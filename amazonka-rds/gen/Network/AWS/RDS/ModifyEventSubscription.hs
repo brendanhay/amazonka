@@ -126,7 +126,7 @@ instance AWSRequest ModifyEventSubscription where
         type Sv ModifyEventSubscription = RDS
         type Rs ModifyEventSubscription =
              ModifyEventSubscriptionResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ModifyEventSubscriptionResult"
               (\ s h x ->

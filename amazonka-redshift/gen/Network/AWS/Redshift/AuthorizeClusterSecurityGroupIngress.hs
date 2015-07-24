@@ -120,7 +120,7 @@ instance AWSRequest
              Redshift
         type Rs AuthorizeClusterSecurityGroupIngress =
              AuthorizeClusterSecurityGroupIngressResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "AuthorizeClusterSecurityGroupIngressResult"

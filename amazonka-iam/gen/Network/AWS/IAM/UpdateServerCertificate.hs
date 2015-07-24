@@ -98,7 +98,7 @@ instance AWSRequest UpdateServerCertificate where
         type Sv UpdateServerCertificate = IAM
         type Rs UpdateServerCertificate =
              UpdateServerCertificateResponse
-        request = post
+        request = postQuery
         response
           = receiveNull UpdateServerCertificateResponse'
 

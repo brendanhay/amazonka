@@ -71,7 +71,7 @@ instance AWSRequest GetAccessKeyLastUsed where
         type Sv GetAccessKeyLastUsed = IAM
         type Rs GetAccessKeyLastUsed =
              GetAccessKeyLastUsedResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetAccessKeyLastUsedResult"
               (\ s h x ->

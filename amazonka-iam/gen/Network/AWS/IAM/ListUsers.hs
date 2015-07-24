@@ -111,7 +111,7 @@ instance AWSPager ListUsers where
 instance AWSRequest ListUsers where
         type Sv ListUsers = IAM
         type Rs ListUsers = ListUsersResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListUsersResult"
               (\ s h x ->

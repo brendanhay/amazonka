@@ -70,7 +70,7 @@ gspStackName = lens _gspStackName (\ s a -> s{_gspStackName = a});
 instance AWSRequest GetStackPolicy where
         type Sv GetStackPolicy = CloudFormation
         type Rs GetStackPolicy = GetStackPolicyResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetStackPolicyResult"
               (\ s h x ->

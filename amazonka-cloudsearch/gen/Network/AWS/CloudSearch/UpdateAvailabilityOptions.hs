@@ -89,7 +89,7 @@ instance AWSRequest UpdateAvailabilityOptions where
         type Sv UpdateAvailabilityOptions = CloudSearch
         type Rs UpdateAvailabilityOptions =
              UpdateAvailabilityOptionsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "UpdateAvailabilityOptionsResult"
               (\ s h x ->

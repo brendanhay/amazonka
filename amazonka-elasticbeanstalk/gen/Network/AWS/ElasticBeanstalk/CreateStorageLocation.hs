@@ -56,7 +56,7 @@ instance AWSRequest CreateStorageLocation where
         type Sv CreateStorageLocation = ElasticBeanstalk
         type Rs CreateStorageLocation =
              CreateStorageLocationResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateStorageLocationResult"
               (\ s h x ->

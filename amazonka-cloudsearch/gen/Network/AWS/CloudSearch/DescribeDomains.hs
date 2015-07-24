@@ -78,7 +78,7 @@ ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default;
 instance AWSRequest DescribeDomains where
         type Sv DescribeDomains = CloudSearch
         type Rs DescribeDomains = DescribeDomainsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeDomainsResult"
               (\ s h x ->

@@ -122,7 +122,7 @@ instance AWSRequest DescribeEngineDefaultParameters
         type Sv DescribeEngineDefaultParameters = RDS
         type Rs DescribeEngineDefaultParameters =
              DescribeEngineDefaultParametersResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeEngineDefaultParametersResult"

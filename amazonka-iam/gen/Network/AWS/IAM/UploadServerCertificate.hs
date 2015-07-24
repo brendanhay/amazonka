@@ -133,7 +133,7 @@ instance AWSRequest UploadServerCertificate where
         type Sv UploadServerCertificate = IAM
         type Rs UploadServerCertificate =
              UploadServerCertificateResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "UploadServerCertificateResult"
               (\ s h x ->

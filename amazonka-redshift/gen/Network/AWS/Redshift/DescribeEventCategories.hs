@@ -75,7 +75,7 @@ instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = Redshift
         type Rs DescribeEventCategories =
              DescribeEventCategoriesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeEventCategoriesResult"
               (\ s h x ->

@@ -112,7 +112,7 @@ subProtocol = lens _subProtocol (\ s a -> s{_subProtocol = a});
 instance AWSRequest Subscribe where
         type Sv Subscribe = SNS
         type Rs Subscribe = SubscribeResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "SubscribeResult"
               (\ s h x ->

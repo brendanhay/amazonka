@@ -79,7 +79,7 @@ instance AWSRequest DeleteLifecycleHook where
         type Sv DeleteLifecycleHook = AutoScaling
         type Rs DeleteLifecycleHook =
              DeleteLifecycleHookResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DeleteLifecycleHookResult"
               (\ s h x ->

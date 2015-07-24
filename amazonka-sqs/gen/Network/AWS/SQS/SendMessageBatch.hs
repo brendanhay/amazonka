@@ -106,7 +106,7 @@ smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a});
 instance AWSRequest SendMessageBatch where
         type Sv SendMessageBatch = SQS
         type Rs SendMessageBatch = SendMessageBatchResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "SendMessageBatchResult"
               (\ s h x ->

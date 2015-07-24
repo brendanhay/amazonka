@@ -69,7 +69,7 @@ instance AWSRequest DeleteVirtualMFADevice where
         type Sv DeleteVirtualMFADevice = IAM
         type Rs DeleteVirtualMFADevice =
              DeleteVirtualMFADeviceResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteVirtualMFADeviceResponse'
 

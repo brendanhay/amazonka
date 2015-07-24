@@ -90,7 +90,7 @@ instance AWSRequest CreateHSMClientCertificate where
         type Sv CreateHSMClientCertificate = Redshift
         type Rs CreateHSMClientCertificate =
              CreateHSMClientCertificateResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "CreateHsmClientCertificateResult"

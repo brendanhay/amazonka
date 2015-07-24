@@ -143,7 +143,7 @@ instance AWSRequest CreateOpenIdConnectProvider where
         type Sv CreateOpenIdConnectProvider = IAM
         type Rs CreateOpenIdConnectProvider =
              CreateOpenIdConnectProviderResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "CreateOpenIDConnectProviderResult"

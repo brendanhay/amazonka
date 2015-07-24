@@ -85,7 +85,7 @@ instance AWSRequest RebuildEnvironment where
         type Sv RebuildEnvironment = ElasticBeanstalk
         type Rs RebuildEnvironment =
              RebuildEnvironmentResponse
-        request = post
+        request = postQuery
         response = receiveNull RebuildEnvironmentResponse'
 
 instance ToHeaders RebuildEnvironment where

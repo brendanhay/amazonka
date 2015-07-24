@@ -72,7 +72,7 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes
         type Sv DescribeLoadBalancerPolicyTypes = ELB
         type Rs DescribeLoadBalancerPolicyTypes =
              DescribeLoadBalancerPolicyTypesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeLoadBalancerPolicyTypesResult"

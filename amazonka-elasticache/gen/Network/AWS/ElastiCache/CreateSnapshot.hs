@@ -79,7 +79,7 @@ csSnapshotName = lens _csSnapshotName (\ s a -> s{_csSnapshotName = a});
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = ElastiCache
         type Rs CreateSnapshot = CreateSnapshotResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateSnapshotResult"
               (\ s h x ->

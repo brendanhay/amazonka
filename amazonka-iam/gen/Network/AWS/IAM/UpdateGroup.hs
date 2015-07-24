@@ -94,7 +94,7 @@ ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a});
 instance AWSRequest UpdateGroup where
         type Sv UpdateGroup = IAM
         type Rs UpdateGroup = UpdateGroupResponse
-        request = post
+        request = postQuery
         response = receiveNull UpdateGroupResponse'
 
 instance ToHeaders UpdateGroup where

@@ -72,7 +72,7 @@ instance AWSRequest GetInstanceProfile where
         type Sv GetInstanceProfile = IAM
         type Rs GetInstanceProfile =
              GetInstanceProfileResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetInstanceProfileResult"
               (\ s h x ->

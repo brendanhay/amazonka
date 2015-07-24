@@ -112,7 +112,7 @@ instance AWSRequest ListSigningCertificates where
         type Sv ListSigningCertificates = IAM
         type Rs ListSigningCertificates =
              ListSigningCertificatesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListSigningCertificatesResult"
               (\ s h x ->

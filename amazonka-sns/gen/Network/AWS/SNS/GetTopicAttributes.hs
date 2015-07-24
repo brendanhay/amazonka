@@ -70,7 +70,7 @@ instance AWSRequest GetTopicAttributes where
         type Sv GetTopicAttributes = SNS
         type Rs GetTopicAttributes =
              GetTopicAttributesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetTopicAttributesResult"
               (\ s h x ->

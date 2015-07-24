@@ -111,7 +111,7 @@ instance AWSRequest ListServerCertificates where
         type Sv ListServerCertificates = IAM
         type Rs ListServerCertificates =
              ListServerCertificatesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListServerCertificatesResult"
               (\ s h x ->

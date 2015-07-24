@@ -74,7 +74,7 @@ instance AWSRequest DescribeScalingParameters where
         type Sv DescribeScalingParameters = CloudSearch
         type Rs DescribeScalingParameters =
              DescribeScalingParametersResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeScalingParametersResult"
               (\ s h x ->

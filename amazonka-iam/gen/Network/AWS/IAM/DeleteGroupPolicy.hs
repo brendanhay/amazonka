@@ -80,7 +80,7 @@ dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a});
 instance AWSRequest DeleteGroupPolicy where
         type Sv DeleteGroupPolicy = IAM
         type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteGroupPolicyResponse'
 
 instance ToHeaders DeleteGroupPolicy where

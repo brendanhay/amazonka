@@ -103,7 +103,7 @@ gaItemName = lens _gaItemName (\ s a -> s{_gaItemName = a});
 instance AWSRequest GetAttributes where
         type Sv GetAttributes = SDB
         type Rs GetAttributes = GetAttributesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetAttributesResult"
               (\ s h x ->

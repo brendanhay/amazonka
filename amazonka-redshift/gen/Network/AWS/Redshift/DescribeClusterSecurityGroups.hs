@@ -162,7 +162,7 @@ instance AWSRequest DescribeClusterSecurityGroups
         type Sv DescribeClusterSecurityGroups = Redshift
         type Rs DescribeClusterSecurityGroups =
              DescribeClusterSecurityGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeClusterSecurityGroupsResult"

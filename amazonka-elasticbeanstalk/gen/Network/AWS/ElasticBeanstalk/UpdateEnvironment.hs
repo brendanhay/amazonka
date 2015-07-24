@@ -191,7 +191,7 @@ ueDescription = lens _ueDescription (\ s a -> s{_ueDescription = a});
 instance AWSRequest UpdateEnvironment where
         type Sv UpdateEnvironment = ElasticBeanstalk
         type Rs UpdateEnvironment = EnvironmentDescription
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "UpdateEnvironmentResult"
               (\ s h x -> parseXML x)

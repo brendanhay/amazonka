@@ -91,7 +91,7 @@ instance AWSRequest SetDesiredCapacity where
         type Sv SetDesiredCapacity = AutoScaling
         type Rs SetDesiredCapacity =
              SetDesiredCapacityResponse
-        request = post
+        request = postQuery
         response = receiveNull SetDesiredCapacityResponse'
 
 instance ToHeaders SetDesiredCapacity where

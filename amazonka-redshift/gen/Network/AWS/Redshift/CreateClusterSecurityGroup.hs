@@ -102,7 +102,7 @@ instance AWSRequest CreateClusterSecurityGroup where
         type Sv CreateClusterSecurityGroup = Redshift
         type Rs CreateClusterSecurityGroup =
              CreateClusterSecurityGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "CreateClusterSecurityGroupResult"

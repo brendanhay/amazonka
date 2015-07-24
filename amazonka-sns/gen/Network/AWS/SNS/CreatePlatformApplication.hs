@@ -106,7 +106,7 @@ instance AWSRequest CreatePlatformApplication where
         type Sv CreatePlatformApplication = SNS
         type Rs CreatePlatformApplication =
              CreatePlatformApplicationResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreatePlatformApplicationResult"
               (\ s h x ->

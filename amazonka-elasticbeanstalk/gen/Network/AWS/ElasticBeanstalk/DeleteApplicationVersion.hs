@@ -94,7 +94,7 @@ instance AWSRequest DeleteApplicationVersion where
         type Sv DeleteApplicationVersion = ElasticBeanstalk
         type Rs DeleteApplicationVersion =
              DeleteApplicationVersionResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteApplicationVersionResponse'
 

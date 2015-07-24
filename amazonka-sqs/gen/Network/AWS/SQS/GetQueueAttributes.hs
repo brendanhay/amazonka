@@ -124,7 +124,7 @@ instance AWSRequest GetQueueAttributes where
         type Sv GetQueueAttributes = SQS
         type Rs GetQueueAttributes =
              GetQueueAttributesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetQueueAttributesResult"
               (\ s h x ->

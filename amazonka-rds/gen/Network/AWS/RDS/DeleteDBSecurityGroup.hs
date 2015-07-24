@@ -79,7 +79,7 @@ instance AWSRequest DeleteDBSecurityGroup where
         type Sv DeleteDBSecurityGroup = RDS
         type Rs DeleteDBSecurityGroup =
              DeleteDBSecurityGroupResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteDBSecurityGroupResponse'
 
 instance ToHeaders DeleteDBSecurityGroup where

@@ -108,7 +108,7 @@ instance AWSRequest ListInstanceProfilesForRole where
         type Sv ListInstanceProfilesForRole = IAM
         type Rs ListInstanceProfilesForRole =
              ListInstanceProfilesForRoleResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "ListInstanceProfilesForRoleResult"

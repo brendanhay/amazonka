@@ -74,7 +74,7 @@ instance AWSRequest VerifyEmailAddress where
         type Sv VerifyEmailAddress = SES
         type Rs VerifyEmailAddress =
              VerifyEmailAddressResponse
-        request = post
+        request = postQuery
         response = receiveNull VerifyEmailAddressResponse'
 
 instance ToHeaders VerifyEmailAddress where

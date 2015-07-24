@@ -83,7 +83,7 @@ instance AWSRequest
              AutoScaling
         type Rs TerminateInstanceInAutoScalingGroup =
              TerminateInstanceInAutoScalingGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "TerminateInstanceInAutoScalingGroupResult"

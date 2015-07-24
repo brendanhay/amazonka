@@ -101,7 +101,7 @@ instance AWSPager ListJobs where
 instance AWSRequest ListJobs where
         type Sv ListJobs = ImportExport
         type Rs ListJobs = ListJobsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListJobsResult"
               (\ s h x ->

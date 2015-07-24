@@ -108,7 +108,7 @@ instance AWSRequest DescribeCacheParameterGroups
         type Sv DescribeCacheParameterGroups = ElastiCache
         type Rs DescribeCacheParameterGroups =
              DescribeCacheParameterGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeCacheParameterGroupsResult"

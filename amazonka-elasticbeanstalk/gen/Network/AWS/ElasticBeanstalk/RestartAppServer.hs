@@ -83,7 +83,7 @@ rasEnvironmentId = lens _rasEnvironmentId (\ s a -> s{_rasEnvironmentId = a});
 instance AWSRequest RestartAppServer where
         type Sv RestartAppServer = ElasticBeanstalk
         type Rs RestartAppServer = RestartAppServerResponse
-        request = post
+        request = postQuery
         response = receiveNull RestartAppServerResponse'
 
 instance ToHeaders RestartAppServer where

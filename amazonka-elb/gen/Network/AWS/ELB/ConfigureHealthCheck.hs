@@ -81,7 +81,7 @@ instance AWSRequest ConfigureHealthCheck where
         type Sv ConfigureHealthCheck = ELB
         type Rs ConfigureHealthCheck =
              ConfigureHealthCheckResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ConfigureHealthCheckResult"
               (\ s h x ->

@@ -78,7 +78,7 @@ instance AWSRequest DeleteLoadBalancerPolicy where
         type Sv DeleteLoadBalancerPolicy = ELB
         type Rs DeleteLoadBalancerPolicy =
              DeleteLoadBalancerPolicyResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DeleteLoadBalancerPolicyResult"
               (\ s h x ->

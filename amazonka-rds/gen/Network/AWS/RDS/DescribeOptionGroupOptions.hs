@@ -125,7 +125,7 @@ instance AWSRequest DescribeOptionGroupOptions where
         type Sv DescribeOptionGroupOptions = RDS
         type Rs DescribeOptionGroupOptions =
              DescribeOptionGroupOptionsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeOptionGroupOptionsResult"

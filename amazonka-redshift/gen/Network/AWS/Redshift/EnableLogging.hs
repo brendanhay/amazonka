@@ -110,7 +110,7 @@ elBucketName = lens _elBucketName (\ s a -> s{_elBucketName = a});
 instance AWSRequest EnableLogging where
         type Sv EnableLogging = Redshift
         type Rs EnableLogging = LoggingStatus
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "EnableLoggingResult"
               (\ s h x -> parseXML x)

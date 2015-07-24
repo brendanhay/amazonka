@@ -67,7 +67,7 @@ deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a});
 instance AWSRequest DeleteEndpoint where
         type Sv DeleteEndpoint = SNS
         type Rs DeleteEndpoint = DeleteEndpointResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteEndpointResponse'
 
 instance ToHeaders DeleteEndpoint where

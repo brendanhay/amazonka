@@ -188,7 +188,7 @@ instance AWSPager DescribeEvents where
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = RDS
         type Rs DescribeEvents = DescribeEventsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeEventsResult"
               (\ s h x ->

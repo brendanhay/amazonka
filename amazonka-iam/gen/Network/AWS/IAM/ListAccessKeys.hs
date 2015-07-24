@@ -114,7 +114,7 @@ instance AWSPager ListAccessKeys where
 instance AWSRequest ListAccessKeys where
         type Sv ListAccessKeys = IAM
         type Rs ListAccessKeys = ListAccessKeysResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListAccessKeysResult"
               (\ s h x ->

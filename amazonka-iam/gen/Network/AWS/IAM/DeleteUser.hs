@@ -64,7 +64,7 @@ duUserName = lens _duUserName (\ s a -> s{_duUserName = a});
 instance AWSRequest DeleteUser where
         type Sv DeleteUser = IAM
         type Rs DeleteUser = DeleteUserResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteUserResponse'
 
 instance ToHeaders DeleteUser where

@@ -102,7 +102,7 @@ instance AWSRequest CreateAppCookieStickinessPolicy
         type Sv CreateAppCookieStickinessPolicy = ELB
         type Rs CreateAppCookieStickinessPolicy =
              CreateAppCookieStickinessPolicyResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "CreateAppCookieStickinessPolicyResult"

@@ -84,7 +84,7 @@ instance AWSRequest DefineAnalysisScheme where
         type Sv DefineAnalysisScheme = CloudSearch
         type Rs DefineAnalysisScheme =
              DefineAnalysisSchemeResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DefineAnalysisSchemeResult"
               (\ s h x ->

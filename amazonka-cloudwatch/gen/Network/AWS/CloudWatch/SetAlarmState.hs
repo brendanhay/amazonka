@@ -97,7 +97,7 @@ sasStateReason = lens _sasStateReason (\ s a -> s{_sasStateReason = a});
 instance AWSRequest SetAlarmState where
         type Sv SetAlarmState = CloudWatch
         type Rs SetAlarmState = SetAlarmStateResponse
-        request = post
+        request = postQuery
         response = receiveNull SetAlarmStateResponse'
 
 instance ToHeaders SetAlarmState where

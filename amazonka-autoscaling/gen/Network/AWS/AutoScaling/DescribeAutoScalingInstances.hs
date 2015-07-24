@@ -99,7 +99,7 @@ instance AWSRequest DescribeAutoScalingInstances
         type Sv DescribeAutoScalingInstances = AutoScaling
         type Rs DescribeAutoScalingInstances =
              DescribeAutoScalingInstancesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeAutoScalingInstancesResult"

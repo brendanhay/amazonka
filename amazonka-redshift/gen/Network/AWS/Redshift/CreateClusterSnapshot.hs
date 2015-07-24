@@ -102,7 +102,7 @@ instance AWSRequest CreateClusterSnapshot where
         type Sv CreateClusterSnapshot = Redshift
         type Rs CreateClusterSnapshot =
              CreateClusterSnapshotResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateClusterSnapshotResult"
               (\ s h x ->

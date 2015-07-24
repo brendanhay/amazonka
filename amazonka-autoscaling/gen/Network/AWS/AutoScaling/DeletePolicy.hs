@@ -74,7 +74,7 @@ dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a});
 instance AWSRequest DeletePolicy where
         type Sv DeletePolicy = AutoScaling
         type Rs DeletePolicy = DeletePolicyResponse
-        request = post
+        request = postQuery
         response = receiveNull DeletePolicyResponse'
 
 instance ToHeaders DeletePolicy where

@@ -83,7 +83,7 @@ instance AWSRequest AttachLoadBalancerToSubnets where
         type Sv AttachLoadBalancerToSubnets = ELB
         type Rs AttachLoadBalancerToSubnets =
              AttachLoadBalancerToSubnetsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "AttachLoadBalancerToSubnetsResult"

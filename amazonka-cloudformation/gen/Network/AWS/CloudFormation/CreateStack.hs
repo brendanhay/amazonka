@@ -227,7 +227,7 @@ csStackName = lens _csStackName (\ s a -> s{_csStackName = a});
 instance AWSRequest CreateStack where
         type Sv CreateStack = CloudFormation
         type Rs CreateStack = CreateStackResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateStackResult"
               (\ s h x ->

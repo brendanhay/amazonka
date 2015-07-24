@@ -134,7 +134,7 @@ gstSerialNumber = lens _gstSerialNumber (\ s a -> s{_gstSerialNumber = a});
 instance AWSRequest GetSessionToken where
         type Sv GetSessionToken = STS
         type Rs GetSessionToken = GetSessionTokenResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetSessionTokenResult"
               (\ s h x ->

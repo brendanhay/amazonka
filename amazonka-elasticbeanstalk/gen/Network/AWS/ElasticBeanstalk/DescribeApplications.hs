@@ -70,7 +70,7 @@ instance AWSRequest DescribeApplications where
         type Sv DescribeApplications = ElasticBeanstalk
         type Rs DescribeApplications =
              DescribeApplicationsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeApplicationsResult"
               (\ s h x ->

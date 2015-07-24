@@ -95,7 +95,7 @@ apActionName = lens _apActionName (\ s a -> s{_apActionName = a});
 instance AWSRequest AddPermission where
         type Sv AddPermission = SNS
         type Rs AddPermission = AddPermissionResponse
-        request = post
+        request = postQuery
         response = receiveNull AddPermissionResponse'
 
 instance ToHeaders AddPermission where

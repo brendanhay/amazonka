@@ -88,7 +88,7 @@ instance AWSRequest SetSubscriptionAttributes where
         type Sv SetSubscriptionAttributes = SNS
         type Rs SetSubscriptionAttributes =
              SetSubscriptionAttributesResponse
-        request = post
+        request = postQuery
         response
           = receiveNull SetSubscriptionAttributesResponse'
 

@@ -75,7 +75,7 @@ instance AWSRequest UpdateAssumeRolePolicy where
         type Sv UpdateAssumeRolePolicy = IAM
         type Rs UpdateAssumeRolePolicy =
              UpdateAssumeRolePolicyResponse
-        request = post
+        request = postQuery
         response
           = receiveNull UpdateAssumeRolePolicyResponse'
 

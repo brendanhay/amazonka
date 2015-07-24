@@ -95,7 +95,7 @@ instance AWSRequest
         type Sv SetIdentityFeedbackForwardingEnabled = SES
         type Rs SetIdentityFeedbackForwardingEnabled =
              SetIdentityFeedbackForwardingEnabledResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "SetIdentityFeedbackForwardingEnabledResult"

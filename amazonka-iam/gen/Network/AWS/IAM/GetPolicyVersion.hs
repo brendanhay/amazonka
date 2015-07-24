@@ -86,7 +86,7 @@ gpvVersionId = lens _gpvVersionId (\ s a -> s{_gpvVersionId = a});
 instance AWSRequest GetPolicyVersion where
         type Sv GetPolicyVersion = IAM
         type Rs GetPolicyVersion = GetPolicyVersionResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetPolicyVersionResult"
               (\ s h x ->

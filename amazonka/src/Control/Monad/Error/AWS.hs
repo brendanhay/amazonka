@@ -40,11 +40,12 @@ module Control.Monad.Error.AWS
     , throwing
     ) where
 
-import           Control.Applicative
+import           Control.Monad
 import           Control.Monad.Catch          (MonadCatch)
+import           Control.Monad.Error.Class    (MonadError)
 import           Control.Monad.Error.Lens     (catching, throwing)
-import           Control.Monad.Except
 import qualified Control.Monad.Trans.AWS      as AWST
+import           Control.Monad.Trans.Except   (ExceptT, runExceptT)
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
 import           Data.Bifunctor

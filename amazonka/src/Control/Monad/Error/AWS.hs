@@ -69,11 +69,12 @@ runAWST :: (MonadCatch m, MonadResource m, AWSEnv r)
 runAWST e = runExceptT . AWST.runAWST e
 {-# DEPRECATED runAWST "Exists for backwards compatibility with pre-@1.0@." #-}
 
-hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
+hoistError :: (Applicative m, MonadError e m, AWSError e) => Either Error a -> m a
 hoistError = either (throwing _Error) pure
 
 -- | /See:/ 'AWST.metadata'
 metadata :: ( MonadFree Command m
+            , Applicative m
             , MonadError e m
             , AWSError e
             )
@@ -83,6 +84,7 @@ metadata = AWST.metadata >=> hoistError . first HTTPError
 
 -- | /See:/ 'AWST.dynamic'
 dynamic :: ( MonadFree Command m
+           , Applicative m
            , MonadError e m
            , AWSError e
            )
@@ -92,6 +94,7 @@ dynamic = AWST.dynamic >=> hoistError . first HTTPError
 
 -- | /See:/ 'AWST.userdata'
 userdata :: ( MonadFree Command m
+            , Applicative m
             , MonadError e m
             , AWSError e
             )
@@ -100,6 +103,7 @@ userdata = AWST.userdata >>= hoistError . first HTTPError
 
 -- | /See:/ 'AWST.send'
 send :: ( MonadFree Command m
+        , Applicative m
         , MonadError e m
         , AWSError e
         , AWSRequest a
@@ -110,6 +114,7 @@ send = AWST.send >=> hoistError
 
 -- | /See:/ 'AWST.paginate'
 paginate :: ( MonadFree Command m
+            , Applicative m
             , MonadError e m
             , AWSError e
             , AWSPager a
@@ -120,6 +125,7 @@ paginate x = AWST.paginate x =$= Conduit.mapM hoistError
 
 -- | /See:/ 'AWST.await'
 await :: ( MonadFree Command m
+         , Applicative m
          , MonadError e m
          , AWSError e
          , AWSRequest a

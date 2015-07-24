@@ -49,11 +49,11 @@ digestToBS = convert
 digestToBase :: ByteArrayAccess a => Base -> a -> ByteString
 digestToBase = convertToBase
 
-hmacSHA256 :: ByteString -> ByteString -> HMAC SHA256
+hmacSHA256 :: (ByteArrayAccess a, ByteArray b) => a -> b -> HMAC SHA256
 hmacSHA256 = hmac
 
-hashSHA256 :: ByteString -> Digest SHA256
+hashSHA256 :: ByteArrayAccess a => a -> Digest SHA256
 hashSHA256 = hashWith SHA256
 
-hashMD5 :: ByteString -> Digest MD5
+hashMD5 :: ByteArrayAccess a => a -> Digest MD5
 hashMD5 = hashWith MD5

@@ -187,10 +187,11 @@ renderInsts p n = fmap Map.fromList . traverse go
     go i = (instToText i,) <$> pp Print (instanceD p n i)
 
 serviceData :: HasMetadata a f
-            => a
+            => Config
+            -> a
             -> Retry
             -> Either Error Rendered
-serviceData m r = pp Indent (serviceD m r)
+serviceData c m r = pp Indent (serviceD c m r)
 
 waiterData :: HasMetadata a Identity
            => a

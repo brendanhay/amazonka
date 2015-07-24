@@ -132,13 +132,14 @@ data Versions = Versions
 makeClassy ''Versions
 
 data Config = Config
-    { _libraryName      :: Text
-    , _referenceUrl     :: Text
-    , _operationUrl     :: Text
-    , _operationModules :: [NS]
-    , _typeModules      :: [NS]
-    , _typeOverrides    :: Map Id Override
-    , _ignoredWaiters   :: Set Id
+    { _libraryName       :: Text
+    , _referenceUrl      :: Text
+    , _operationUrl      :: Text
+    , _operationModules  :: [NS]
+    , _typeModules       :: [NS]
+    , _typeOverrides     :: Map Id Override
+    , _ignoredWaiters    :: Set Id
+    , _preflightFunction :: Maybe Text
     }
 
 makeClassy ''Config
@@ -152,6 +153,7 @@ instance FromJSON Config where
         <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "typeOverrides"    .!= mempty
         <*> o .:? "ignoredWaiters"   .!= mempty
+        <*> o .:? "preflightFunction"
 
 data Library = Library
     { _versions' :: Versions

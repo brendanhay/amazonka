@@ -31,7 +31,7 @@ module Network.AWS.Config.DescribeConfigurationRecorders
     -- ** Request constructor
     , describeConfigurationRecorders
     -- ** Request lenses
-    , dcrrqConfigurationRecorderNames
+    , dcrConfigurationRecorderNames
 
     -- * Response
     , DescribeConfigurationRecordersResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrrqConfigurationRecorderNames'
+-- * 'dcrConfigurationRecorderNames'
 newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
-    { _dcrrqConfigurationRecorderNames :: Maybe [Text]
+    { _dcrConfigurationRecorderNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecorders' smart constructor.
 describeConfigurationRecorders :: DescribeConfigurationRecorders
 describeConfigurationRecorders =
     DescribeConfigurationRecorders'
-    { _dcrrqConfigurationRecorderNames = Nothing
+    { _dcrConfigurationRecorderNames = Nothing
     }
 
 -- | A list of configuration recorder names.
-dcrrqConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
-dcrrqConfigurationRecorderNames = lens _dcrrqConfigurationRecorderNames (\ s a -> s{_dcrrqConfigurationRecorderNames = a}) . _Default;
+dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
+dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{_dcrConfigurationRecorderNames = a}) . _Default;
 
 instance AWSRequest DescribeConfigurationRecorders
          where
@@ -97,7 +97,7 @@ instance ToJSON DescribeConfigurationRecorders where
         toJSON DescribeConfigurationRecorders'{..}
           = object
               ["ConfigurationRecorderNames" .=
-                 _dcrrqConfigurationRecorderNames]
+                 _dcrConfigurationRecorderNames]
 
 instance ToPath DescribeConfigurationRecorders where
         toPath = const "/"

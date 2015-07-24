@@ -30,7 +30,7 @@ module Network.AWS.Route53.GetHostedZone
     -- ** Request constructor
     , getHostedZone
     -- ** Request lenses
-    , ghzrqId
+    , ghzId
 
     -- * Response
     , GetHostedZoneResponse
@@ -54,22 +54,22 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghzrqId'
+-- * 'ghzId'
 newtype GetHostedZone = GetHostedZone'
-    { _ghzrqId :: Text
+    { _ghzId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostedZone' smart constructor.
 getHostedZone :: Text -> GetHostedZone
 getHostedZone pId_ =
     GetHostedZone'
-    { _ghzrqId = pId_
+    { _ghzId = pId_
     }
 
 -- | The ID of the hosted zone for which you want to get a list of the name
 -- servers in the delegation set.
-ghzrqId :: Lens' GetHostedZone Text
-ghzrqId = lens _ghzrqId (\ s a -> s{_ghzrqId = a});
+ghzId :: Lens' GetHostedZone Text
+ghzId = lens _ghzId (\ s a -> s{_ghzId = a});
 
 instance AWSRequest GetHostedZone where
         type Sv GetHostedZone = Route53
@@ -90,8 +90,7 @@ instance ToHeaders GetHostedZone where
 
 instance ToPath GetHostedZone where
         toPath GetHostedZone'{..}
-          = mconcat
-              ["/2013-04-01/hostedzone/", toText _ghzrqId]
+          = mconcat ["/2013-04-01/hostedzone/", toText _ghzId]
 
 instance ToQuery GetHostedZone where
         toQuery = const mempty

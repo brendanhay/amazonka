@@ -28,8 +28,8 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     -- ** Request constructor
     , listDeploymentGroups
     -- ** Request lenses
-    , ldgrqNextToken
-    , ldgrqApplicationName
+    , ldgNextToken
+    , ldgApplicationName
 
     -- * Response
     , ListDeploymentGroupsResponse
@@ -53,32 +53,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldgrqNextToken'
+-- * 'ldgNextToken'
 --
--- * 'ldgrqApplicationName'
+-- * 'ldgApplicationName'
 data ListDeploymentGroups = ListDeploymentGroups'
-    { _ldgrqNextToken       :: !(Maybe Text)
-    , _ldgrqApplicationName :: !Text
+    { _ldgNextToken       :: !(Maybe Text)
+    , _ldgApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentGroups' smart constructor.
 listDeploymentGroups :: Text -> ListDeploymentGroups
 listDeploymentGroups pApplicationName_ =
     ListDeploymentGroups'
-    { _ldgrqNextToken = Nothing
-    , _ldgrqApplicationName = pApplicationName_
+    { _ldgNextToken = Nothing
+    , _ldgApplicationName = pApplicationName_
     }
 
 -- | An identifier that was returned from the previous list deployment groups
 -- call, which can be used to return the next set of deployment groups in
 -- the list.
-ldgrqNextToken :: Lens' ListDeploymentGroups (Maybe Text)
-ldgrqNextToken = lens _ldgrqNextToken (\ s a -> s{_ldgrqNextToken = a});
+ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
+ldgNextToken = lens _ldgNextToken (\ s a -> s{_ldgNextToken = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-ldgrqApplicationName :: Lens' ListDeploymentGroups Text
-ldgrqApplicationName = lens _ldgrqApplicationName (\ s a -> s{_ldgrqApplicationName = a});
+ldgApplicationName :: Lens' ListDeploymentGroups Text
+ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a});
 
 instance AWSRequest ListDeploymentGroups where
         type Sv ListDeploymentGroups = CodeDeploy
@@ -106,8 +106,8 @@ instance ToHeaders ListDeploymentGroups where
 instance ToJSON ListDeploymentGroups where
         toJSON ListDeploymentGroups'{..}
           = object
-              ["nextToken" .= _ldgrqNextToken,
-               "applicationName" .= _ldgrqApplicationName]
+              ["nextToken" .= _ldgNextToken,
+               "applicationName" .= _ldgApplicationName]
 
 instance ToPath ListDeploymentGroups where
         toPath = const "/"

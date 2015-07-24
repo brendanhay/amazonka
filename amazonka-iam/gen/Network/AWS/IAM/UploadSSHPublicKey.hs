@@ -34,8 +34,8 @@ module Network.AWS.IAM.UploadSSHPublicKey
     -- ** Request constructor
     , uploadSSHPublicKey
     -- ** Request lenses
-    , usshpkrqUserName
-    , usshpkrqSSHPublicKeyBody
+    , usshpkUserName
+    , usshpkSSHPublicKeyBody
 
     -- * Response
     , UploadSSHPublicKeyResponse
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usshpkrqUserName'
+-- * 'usshpkUserName'
 --
--- * 'usshpkrqSSHPublicKeyBody'
+-- * 'usshpkSSHPublicKeyBody'
 data UploadSSHPublicKey = UploadSSHPublicKey'
-    { _usshpkrqUserName         :: !Text
-    , _usshpkrqSSHPublicKeyBody :: !Text
+    { _usshpkUserName         :: !Text
+    , _usshpkSSHPublicKeyBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSSHPublicKey' smart constructor.
 uploadSSHPublicKey :: Text -> Text -> UploadSSHPublicKey
 uploadSSHPublicKey pUserName_ pSSHPublicKeyBody_ =
     UploadSSHPublicKey'
-    { _usshpkrqUserName = pUserName_
-    , _usshpkrqSSHPublicKeyBody = pSSHPublicKeyBody_
+    { _usshpkUserName = pUserName_
+    , _usshpkSSHPublicKeyBody = pSSHPublicKeyBody_
     }
 
 -- | The name of the IAM user to associate the SSH public key with.
-usshpkrqUserName :: Lens' UploadSSHPublicKey Text
-usshpkrqUserName = lens _usshpkrqUserName (\ s a -> s{_usshpkrqUserName = a});
+usshpkUserName :: Lens' UploadSSHPublicKey Text
+usshpkUserName = lens _usshpkUserName (\ s a -> s{_usshpkUserName = a});
 
 -- | The SSH public key. The public key must be encoded in ssh-rsa format or
 -- PEM format.
-usshpkrqSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
-usshpkrqSSHPublicKeyBody = lens _usshpkrqSSHPublicKeyBody (\ s a -> s{_usshpkrqSSHPublicKeyBody = a});
+usshpkSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
+usshpkSSHPublicKeyBody = lens _usshpkSSHPublicKeyBody (\ s a -> s{_usshpkSSHPublicKeyBody = a});
 
 instance AWSRequest UploadSSHPublicKey where
         type Sv UploadSSHPublicKey = IAM
@@ -102,8 +102,8 @@ instance ToQuery UploadSSHPublicKey where
           = mconcat
               ["Action" =: ("UploadSSHPublicKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _usshpkrqUserName,
-               "SSHPublicKeyBody" =: _usshpkrqSSHPublicKeyBody]
+               "UserName" =: _usshpkUserName,
+               "SSHPublicKeyBody" =: _usshpkSSHPublicKeyBody]
 
 -- | Contains the response to a successful UploadSSHPublicKey request.
 --

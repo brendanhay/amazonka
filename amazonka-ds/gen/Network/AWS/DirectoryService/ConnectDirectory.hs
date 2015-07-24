@@ -27,12 +27,12 @@ module Network.AWS.DirectoryService.ConnectDirectory
     -- ** Request constructor
     , connectDirectory
     -- ** Request lenses
-    , cdrqShortName
-    , cdrqDescription
-    , cdrqName
-    , cdrqPassword
-    , cdrqSize
-    , cdrqConnectSettings
+    , cdShortName
+    , cdDescription
+    , cdName
+    , cdPassword
+    , cdSize
+    , cdConnectSettings
 
     -- * Response
     , ConnectDirectoryResponse
@@ -54,63 +54,63 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrqShortName'
+-- * 'cdShortName'
 --
--- * 'cdrqDescription'
+-- * 'cdDescription'
 --
--- * 'cdrqName'
+-- * 'cdName'
 --
--- * 'cdrqPassword'
+-- * 'cdPassword'
 --
--- * 'cdrqSize'
+-- * 'cdSize'
 --
--- * 'cdrqConnectSettings'
+-- * 'cdConnectSettings'
 data ConnectDirectory = ConnectDirectory'
-    { _cdrqShortName       :: !(Maybe Text)
-    , _cdrqDescription     :: !(Maybe Text)
-    , _cdrqName            :: !Text
-    , _cdrqPassword        :: !(Sensitive Text)
-    , _cdrqSize            :: !DirectorySize
-    , _cdrqConnectSettings :: !DirectoryConnectSettings
+    { _cdShortName       :: !(Maybe Text)
+    , _cdDescription     :: !(Maybe Text)
+    , _cdName            :: !Text
+    , _cdPassword        :: !(Sensitive Text)
+    , _cdSize            :: !DirectorySize
+    , _cdConnectSettings :: !DirectoryConnectSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConnectDirectory' smart constructor.
 connectDirectory :: Text -> Text -> DirectorySize -> DirectoryConnectSettings -> ConnectDirectory
 connectDirectory pName_ pPassword_ pSize_ pConnectSettings_ =
     ConnectDirectory'
-    { _cdrqShortName = Nothing
-    , _cdrqDescription = Nothing
-    , _cdrqName = pName_
-    , _cdrqPassword = _Sensitive # pPassword_
-    , _cdrqSize = pSize_
-    , _cdrqConnectSettings = pConnectSettings_
+    { _cdShortName = Nothing
+    , _cdDescription = Nothing
+    , _cdName = pName_
+    , _cdPassword = _Sensitive # pPassword_
+    , _cdSize = pSize_
+    , _cdConnectSettings = pConnectSettings_
     }
 
 -- | The NetBIOS name of the on-premises directory, such as @CORP@.
-cdrqShortName :: Lens' ConnectDirectory (Maybe Text)
-cdrqShortName = lens _cdrqShortName (\ s a -> s{_cdrqShortName = a});
+cdShortName :: Lens' ConnectDirectory (Maybe Text)
+cdShortName = lens _cdShortName (\ s a -> s{_cdShortName = a});
 
 -- | A textual description for the directory.
-cdrqDescription :: Lens' ConnectDirectory (Maybe Text)
-cdrqDescription = lens _cdrqDescription (\ s a -> s{_cdrqDescription = a});
+cdDescription :: Lens' ConnectDirectory (Maybe Text)
+cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 
 -- | The fully-qualified name of the on-premises directory, such as
 -- @corp.example.com@.
-cdrqName :: Lens' ConnectDirectory Text
-cdrqName = lens _cdrqName (\ s a -> s{_cdrqName = a});
+cdName :: Lens' ConnectDirectory Text
+cdName = lens _cdName (\ s a -> s{_cdName = a});
 
 -- | The password for the on-premises user account.
-cdrqPassword :: Lens' ConnectDirectory Text
-cdrqPassword = lens _cdrqPassword (\ s a -> s{_cdrqPassword = a}) . _Sensitive;
+cdPassword :: Lens' ConnectDirectory Text
+cdPassword = lens _cdPassword (\ s a -> s{_cdPassword = a}) . _Sensitive;
 
 -- | The size of the directory.
-cdrqSize :: Lens' ConnectDirectory DirectorySize
-cdrqSize = lens _cdrqSize (\ s a -> s{_cdrqSize = a});
+cdSize :: Lens' ConnectDirectory DirectorySize
+cdSize = lens _cdSize (\ s a -> s{_cdSize = a});
 
 -- | A DirectoryConnectSettings object that contains additional information
 -- for the operation.
-cdrqConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
-cdrqConnectSettings = lens _cdrqConnectSettings (\ s a -> s{_cdrqConnectSettings = a});
+cdConnectSettings :: Lens' ConnectDirectory DirectoryConnectSettings
+cdConnectSettings = lens _cdConnectSettings (\ s a -> s{_cdConnectSettings = a});
 
 instance AWSRequest ConnectDirectory where
         type Sv ConnectDirectory = DirectoryService
@@ -135,11 +135,10 @@ instance ToHeaders ConnectDirectory where
 instance ToJSON ConnectDirectory where
         toJSON ConnectDirectory'{..}
           = object
-              ["ShortName" .= _cdrqShortName,
-               "Description" .= _cdrqDescription,
-               "Name" .= _cdrqName, "Password" .= _cdrqPassword,
-               "Size" .= _cdrqSize,
-               "ConnectSettings" .= _cdrqConnectSettings]
+              ["ShortName" .= _cdShortName,
+               "Description" .= _cdDescription, "Name" .= _cdName,
+               "Password" .= _cdPassword, "Size" .= _cdSize,
+               "ConnectSettings" .= _cdConnectSettings]
 
 instance ToPath ConnectDirectory where
         toPath = const "/"

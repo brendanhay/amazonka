@@ -27,9 +27,9 @@ module Network.AWS.EC2.CancelImportTask
     -- ** Request constructor
     , cancelImportTask
     -- ** Request lenses
-    , citrqCancelReason
-    , citrqImportTaskId
-    , citrqDryRun
+    , citCancelReason
+    , citImportTaskId
+    , citDryRun
 
     -- * Response
     , CancelImportTaskResponse
@@ -51,40 +51,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'citrqCancelReason'
+-- * 'citCancelReason'
 --
--- * 'citrqImportTaskId'
+-- * 'citImportTaskId'
 --
--- * 'citrqDryRun'
+-- * 'citDryRun'
 data CancelImportTask = CancelImportTask'
-    { _citrqCancelReason :: !(Maybe Text)
-    , _citrqImportTaskId :: !(Maybe Text)
-    , _citrqDryRun       :: !(Maybe Bool)
+    { _citCancelReason :: !(Maybe Text)
+    , _citImportTaskId :: !(Maybe Text)
+    , _citDryRun       :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelImportTask' smart constructor.
 cancelImportTask :: CancelImportTask
 cancelImportTask =
     CancelImportTask'
-    { _citrqCancelReason = Nothing
-    , _citrqImportTaskId = Nothing
-    , _citrqDryRun = Nothing
+    { _citCancelReason = Nothing
+    , _citImportTaskId = Nothing
+    , _citDryRun = Nothing
     }
 
 -- | The reason for canceling the task.
-citrqCancelReason :: Lens' CancelImportTask (Maybe Text)
-citrqCancelReason = lens _citrqCancelReason (\ s a -> s{_citrqCancelReason = a});
+citCancelReason :: Lens' CancelImportTask (Maybe Text)
+citCancelReason = lens _citCancelReason (\ s a -> s{_citCancelReason = a});
 
 -- | The ID of the import image or import snapshot task to be canceled.
-citrqImportTaskId :: Lens' CancelImportTask (Maybe Text)
-citrqImportTaskId = lens _citrqImportTaskId (\ s a -> s{_citrqImportTaskId = a});
+citImportTaskId :: Lens' CancelImportTask (Maybe Text)
+citImportTaskId = lens _citImportTaskId (\ s a -> s{_citImportTaskId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-citrqDryRun :: Lens' CancelImportTask (Maybe Bool)
-citrqDryRun = lens _citrqDryRun (\ s a -> s{_citrqDryRun = a});
+citDryRun :: Lens' CancelImportTask (Maybe Bool)
+citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
 
 instance AWSRequest CancelImportTask where
         type Sv CancelImportTask = EC2
@@ -109,9 +109,9 @@ instance ToQuery CancelImportTask where
           = mconcat
               ["Action" =: ("CancelImportTask" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "CancelReason" =: _citrqCancelReason,
-               "ImportTaskId" =: _citrqImportTaskId,
-               "DryRun" =: _citrqDryRun]
+               "CancelReason" =: _citCancelReason,
+               "ImportTaskId" =: _citImportTaskId,
+               "DryRun" =: _citDryRun]
 
 -- | /See:/ 'cancelImportTaskResponse' smart constructor.
 --

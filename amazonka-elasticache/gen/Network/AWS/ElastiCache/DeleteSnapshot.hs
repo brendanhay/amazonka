@@ -29,7 +29,7 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , drqSnapshotName
+    , dSnapshotName
 
     -- * Response
     , DeleteSnapshotResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqSnapshotName'
+-- * 'dSnapshotName'
 newtype DeleteSnapshot = DeleteSnapshot'
-    { _drqSnapshotName :: Text
+    { _dSnapshotName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
 deleteSnapshot pSnapshotName_ =
     DeleteSnapshot'
-    { _drqSnapshotName = pSnapshotName_
+    { _dSnapshotName = pSnapshotName_
     }
 
 -- | The name of the snapshot to be deleted.
-drqSnapshotName :: Lens' DeleteSnapshot Text
-drqSnapshotName = lens _drqSnapshotName (\ s a -> s{_drqSnapshotName = a});
+dSnapshotName :: Lens' DeleteSnapshot Text
+dSnapshotName = lens _dSnapshotName (\ s a -> s{_dSnapshotName = a});
 
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = ElastiCache
@@ -88,7 +88,7 @@ instance ToQuery DeleteSnapshot where
           = mconcat
               ["Action" =: ("DeleteSnapshot" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "SnapshotName" =: _drqSnapshotName]
+               "SnapshotName" =: _dSnapshotName]
 
 -- | /See:/ 'deleteSnapshotResponse' smart constructor.
 --

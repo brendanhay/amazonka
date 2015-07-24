@@ -27,9 +27,9 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- ** Request constructor
     , updateDistribution
     -- ** Request lenses
-    , udrqIfMatch
-    , udrqDistributionConfig
-    , udrqId
+    , udIfMatch
+    , udDistributionConfig
+    , udId
 
     -- * Response
     , UpdateDistributionResponse
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udrqIfMatch'
+-- * 'udIfMatch'
 --
--- * 'udrqDistributionConfig'
+-- * 'udDistributionConfig'
 --
--- * 'udrqId'
+-- * 'udId'
 data UpdateDistribution = UpdateDistribution'
-    { _udrqIfMatch            :: !(Maybe Text)
-    , _udrqDistributionConfig :: !DistributionConfig
-    , _udrqId                 :: !Text
+    { _udIfMatch            :: !(Maybe Text)
+    , _udDistributionConfig :: !DistributionConfig
+    , _udId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDistribution' smart constructor.
 updateDistribution :: DistributionConfig -> Text -> UpdateDistribution
 updateDistribution pDistributionConfig_ pId_ =
     UpdateDistribution'
-    { _udrqIfMatch = Nothing
-    , _udrqDistributionConfig = pDistributionConfig_
-    , _udrqId = pId_
+    { _udIfMatch = Nothing
+    , _udDistributionConfig = pDistributionConfig_
+    , _udId = pId_
     }
 
 -- | The value of the ETag header you received when retrieving the
 -- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
-udrqIfMatch :: Lens' UpdateDistribution (Maybe Text)
-udrqIfMatch = lens _udrqIfMatch (\ s a -> s{_udrqIfMatch = a});
+udIfMatch :: Lens' UpdateDistribution (Maybe Text)
+udIfMatch = lens _udIfMatch (\ s a -> s{_udIfMatch = a});
 
 -- | The distribution\'s configuration information.
-udrqDistributionConfig :: Lens' UpdateDistribution DistributionConfig
-udrqDistributionConfig = lens _udrqDistributionConfig (\ s a -> s{_udrqDistributionConfig = a});
+udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
+udDistributionConfig = lens _udDistributionConfig (\ s a -> s{_udDistributionConfig = a});
 
 -- | The distribution\'s id.
-udrqId :: Lens' UpdateDistribution Text
-udrqId = lens _udrqId (\ s a -> s{_udrqId = a});
+udId :: Lens' UpdateDistribution Text
+udId = lens _udId (\ s a -> s{_udId = a});
 
 instance AWSRequest UpdateDistribution where
         type Sv UpdateDistribution = CloudFront
@@ -102,16 +102,16 @@ instance ToElement UpdateDistribution where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}DistributionConfig"
               .
-              _udrqDistributionConfig
+              _udDistributionConfig
 
 instance ToHeaders UpdateDistribution where
         toHeaders UpdateDistribution'{..}
-          = mconcat ["If-Match" =# _udrqIfMatch]
+          = mconcat ["If-Match" =# _udIfMatch]
 
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2015-04-17/distribution/", toText _udrqId,
+              ["/2015-04-17/distribution/", toText _udId,
                "/config"]
 
 instance ToQuery UpdateDistribution where

@@ -31,7 +31,7 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
     -- ** Request constructor
     , describeScalingParameters
     -- ** Request lenses
-    , dsprqDomainName
+    , dspDomainName
 
     -- * Response
     , DescribeScalingParametersResponse
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsprqDomainName'
+-- * 'dspDomainName'
 newtype DescribeScalingParameters = DescribeScalingParameters'
-    { _dsprqDomainName :: Text
+    { _dspDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingParameters' smart constructor.
 describeScalingParameters :: Text -> DescribeScalingParameters
 describeScalingParameters pDomainName_ =
     DescribeScalingParameters'
-    { _dsprqDomainName = pDomainName_
+    { _dspDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
-dsprqDomainName :: Lens' DescribeScalingParameters Text
-dsprqDomainName = lens _dsprqDomainName (\ s a -> s{_dsprqDomainName = a});
+dspDomainName :: Lens' DescribeScalingParameters Text
+dspDomainName = lens _dspDomainName (\ s a -> s{_dspDomainName = a});
 
 instance AWSRequest DescribeScalingParameters where
         type Sv DescribeScalingParameters = CloudSearch
@@ -93,7 +93,7 @@ instance ToQuery DescribeScalingParameters where
               ["Action" =:
                  ("DescribeScalingParameters" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _dsprqDomainName]
+               "DomainName" =: _dspDomainName]
 
 -- | The result of a @DescribeScalingParameters@ request. Contains the
 -- scaling parameters configured for the domain specified in the request.

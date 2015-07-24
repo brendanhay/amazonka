@@ -27,7 +27,7 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     -- ** Request constructor
     , describeLoadBalancerAttributes
     -- ** Request lenses
-    , dlbarqLoadBalancerName
+    , dlbaLoadBalancerName
 
     -- * Response
     , DescribeLoadBalancerAttributesResponse
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbarqLoadBalancerName'
+-- * 'dlbaLoadBalancerName'
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
-    { _dlbarqLoadBalancerName :: Text
+    { _dlbaLoadBalancerName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerAttributes' smart constructor.
 describeLoadBalancerAttributes :: Text -> DescribeLoadBalancerAttributes
 describeLoadBalancerAttributes pLoadBalancerName_ =
     DescribeLoadBalancerAttributes'
-    { _dlbarqLoadBalancerName = pLoadBalancerName_
+    { _dlbaLoadBalancerName = pLoadBalancerName_
     }
 
 -- | The name of the load balancer.
-dlbarqLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
-dlbarqLoadBalancerName = lens _dlbarqLoadBalancerName (\ s a -> s{_dlbarqLoadBalancerName = a});
+dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
+dlbaLoadBalancerName = lens _dlbaLoadBalancerName (\ s a -> s{_dlbaLoadBalancerName = a});
 
 instance AWSRequest DescribeLoadBalancerAttributes
          where
@@ -90,7 +90,7 @@ instance ToQuery DescribeLoadBalancerAttributes where
               ["Action" =:
                  ("DescribeLoadBalancerAttributes" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlbarqLoadBalancerName]
+               "LoadBalancerName" =: _dlbaLoadBalancerName]
 
 -- | /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
 --

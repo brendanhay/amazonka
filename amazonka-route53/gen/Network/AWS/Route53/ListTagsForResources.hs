@@ -27,8 +27,8 @@ module Network.AWS.Route53.ListTagsForResources
     -- ** Request constructor
     , listTagsForResources
     -- ** Request lenses
-    , lrqResourceType
-    , lrqResourceIds
+    , lResourceType
+    , lResourceIds
 
     -- * Response
     , ListTagsForResourcesResponse
@@ -51,20 +51,20 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrqResourceType'
+-- * 'lResourceType'
 --
--- * 'lrqResourceIds'
+-- * 'lResourceIds'
 data ListTagsForResources = ListTagsForResources'
-    { _lrqResourceType :: !TagResourceType
-    , _lrqResourceIds  :: !(List1 Text)
+    { _lResourceType :: !TagResourceType
+    , _lResourceIds  :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResources' smart constructor.
 listTagsForResources :: TagResourceType -> NonEmpty Text -> ListTagsForResources
 listTagsForResources pResourceType_ pResourceIds_ =
     ListTagsForResources'
-    { _lrqResourceType = pResourceType_
-    , _lrqResourceIds = _List1 # pResourceIds_
+    { _lResourceType = pResourceType_
+    , _lResourceIds = _List1 # pResourceIds_
     }
 
 -- | The type of the resources.
@@ -72,13 +72,13 @@ listTagsForResources pResourceType_ pResourceIds_ =
 -- - The resource type for health checks is @healthcheck@.
 --
 -- - The resource type for hosted zones is @hostedzone@.
-lrqResourceType :: Lens' ListTagsForResources TagResourceType
-lrqResourceType = lens _lrqResourceType (\ s a -> s{_lrqResourceType = a});
+lResourceType :: Lens' ListTagsForResources TagResourceType
+lResourceType = lens _lResourceType (\ s a -> s{_lResourceType = a});
 
 -- | A complex type that contains the ResourceId element for each resource
 -- for which you want to get a list of tags.
-lrqResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
-lrqResourceIds = lens _lrqResourceIds (\ s a -> s{_lrqResourceIds = a}) . _List1;
+lResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
+lResourceIds = lens _lResourceIds (\ s a -> s{_lResourceIds = a}) . _List1;
 
 instance AWSRequest ListTagsForResources where
         type Sv ListTagsForResources = Route53
@@ -104,7 +104,7 @@ instance ToHeaders ListTagsForResources where
 instance ToPath ListTagsForResources where
         toPath ListTagsForResources'{..}
           = mconcat
-              ["/2013-04-01/tags/", toText _lrqResourceType]
+              ["/2013-04-01/tags/", toText _lResourceType]
 
 instance ToQuery ListTagsForResources where
         toQuery = const mempty
@@ -113,7 +113,7 @@ instance ToXML ListTagsForResources where
         toXML ListTagsForResources'{..}
           = mconcat
               ["ResourceIds" @=
-                 toXMLList "ResourceId" _lrqResourceIds]
+                 toXMLList "ResourceId" _lResourceIds]
 
 -- | A complex type containing tags for the specified resources.
 --

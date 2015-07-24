@@ -38,9 +38,9 @@ module Network.AWS.IAM.ListSigningCertificates
     -- ** Request constructor
     , listSigningCertificates
     -- ** Request lenses
-    , lrqUserName
-    , lrqMaxItems
-    , lrqMarker
+    , lUserName
+    , lMaxItems
+    , lMarker
 
     -- * Response
     , ListSigningCertificatesResponse
@@ -63,29 +63,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrqUserName'
+-- * 'lUserName'
 --
--- * 'lrqMaxItems'
+-- * 'lMaxItems'
 --
--- * 'lrqMarker'
+-- * 'lMarker'
 data ListSigningCertificates = ListSigningCertificates'
-    { _lrqUserName :: !(Maybe Text)
-    , _lrqMaxItems :: !(Maybe Nat)
-    , _lrqMarker   :: !(Maybe Text)
+    { _lUserName :: !(Maybe Text)
+    , _lMaxItems :: !(Maybe Nat)
+    , _lMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSigningCertificates' smart constructor.
 listSigningCertificates :: ListSigningCertificates
 listSigningCertificates =
     ListSigningCertificates'
-    { _lrqUserName = Nothing
-    , _lrqMaxItems = Nothing
-    , _lrqMarker = Nothing
+    { _lUserName = Nothing
+    , _lMaxItems = Nothing
+    , _lMarker = Nothing
     }
 
 -- | The name of the user.
-lrqUserName :: Lens' ListSigningCertificates (Maybe Text)
-lrqUserName = lens _lrqUserName (\ s a -> s{_lrqUserName = a});
+lUserName :: Lens' ListSigningCertificates (Maybe Text)
+lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -93,21 +93,20 @@ lrqUserName = lens _lrqUserName (\ s a -> s{_lrqUserName = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lrqMaxItems :: Lens' ListSigningCertificates (Maybe Natural)
-lrqMaxItems = lens _lrqMaxItems (\ s a -> s{_lrqMaxItems = a}) . mapping _Nat;
+lMaxItems :: Lens' ListSigningCertificates (Maybe Natural)
+lMaxItems = lens _lMaxItems (\ s a -> s{_lMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lrqMarker :: Lens' ListSigningCertificates (Maybe Text)
-lrqMarker = lens _lrqMarker (\ s a -> s{_lrqMarker = a});
+lMarker :: Lens' ListSigningCertificates (Maybe Text)
+lMarker = lens _lMarker (\ s a -> s{_lMarker = a});
 
 instance AWSPager ListSigningCertificates where
         page rq rs
           | stop (rs ^. lrsIsTruncated) = Nothing
           | isNothing (rs ^. lrsMarker) = Nothing
-          | otherwise =
-            Just $ rq & lrqMarker .~ rs ^. lrsMarker
+          | otherwise = Just $ rq & lMarker .~ rs ^. lrsMarker
 
 instance AWSRequest ListSigningCertificates where
         type Sv ListSigningCertificates = IAM
@@ -136,8 +135,8 @@ instance ToQuery ListSigningCertificates where
               ["Action" =:
                  ("ListSigningCertificates" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lrqUserName,
-               "MaxItems" =: _lrqMaxItems, "Marker" =: _lrqMarker]
+               "UserName" =: _lUserName, "MaxItems" =: _lMaxItems,
+               "Marker" =: _lMarker]
 
 -- | Contains the response to a successful ListSigningCertificates request.
 --

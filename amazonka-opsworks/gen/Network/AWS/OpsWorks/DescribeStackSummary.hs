@@ -34,7 +34,7 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     -- ** Request constructor
     , describeStackSummary
     -- ** Request lenses
-    , dssrqStackId
+    , dssStackId
 
     -- * Response
     , DescribeStackSummaryResponse
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssrqStackId'
+-- * 'dssStackId'
 newtype DescribeStackSummary = DescribeStackSummary'
-    { _dssrqStackId :: Text
+    { _dssStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackSummary' smart constructor.
 describeStackSummary :: Text -> DescribeStackSummary
 describeStackSummary pStackId_ =
     DescribeStackSummary'
-    { _dssrqStackId = pStackId_
+    { _dssStackId = pStackId_
     }
 
 -- | The stack ID.
-dssrqStackId :: Lens' DescribeStackSummary Text
-dssrqStackId = lens _dssrqStackId (\ s a -> s{_dssrqStackId = a});
+dssStackId :: Lens' DescribeStackSummary Text
+dssStackId = lens _dssStackId (\ s a -> s{_dssStackId = a});
 
 instance AWSRequest DescribeStackSummary where
         type Sv DescribeStackSummary = OpsWorks
@@ -93,7 +93,7 @@ instance ToHeaders DescribeStackSummary where
 
 instance ToJSON DescribeStackSummary where
         toJSON DescribeStackSummary'{..}
-          = object ["StackId" .= _dssrqStackId]
+          = object ["StackId" .= _dssStackId]
 
 instance ToPath DescribeStackSummary where
         toPath = const "/"

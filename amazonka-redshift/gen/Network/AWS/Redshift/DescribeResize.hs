@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeResize
     -- ** Request constructor
     , describeResize
     -- ** Request lenses
-    , drrqClusterIdentifier
+    , drClusterIdentifier
 
     -- * Response
     , DescribeResizeResponse
@@ -66,16 +66,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drrqClusterIdentifier'
+-- * 'drClusterIdentifier'
 newtype DescribeResize = DescribeResize'
-    { _drrqClusterIdentifier :: Text
+    { _drClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeResize' smart constructor.
 describeResize :: Text -> DescribeResize
 describeResize pClusterIdentifier_ =
     DescribeResize'
-    { _drrqClusterIdentifier = pClusterIdentifier_
+    { _drClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The unique identifier of a cluster whose resize progress you are
@@ -83,8 +83,8 @@ describeResize pClusterIdentifier_ =
 --
 -- By default, resize operations for all clusters defined for an AWS
 -- account are returned.
-drrqClusterIdentifier :: Lens' DescribeResize Text
-drrqClusterIdentifier = lens _drrqClusterIdentifier (\ s a -> s{_drrqClusterIdentifier = a});
+drClusterIdentifier :: Lens' DescribeResize Text
+drClusterIdentifier = lens _drClusterIdentifier (\ s a -> s{_drClusterIdentifier = a});
 
 instance AWSRequest DescribeResize where
         type Sv DescribeResize = Redshift
@@ -123,7 +123,7 @@ instance ToQuery DescribeResize where
           = mconcat
               ["Action" =: ("DescribeResize" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _drrqClusterIdentifier]
+               "ClusterIdentifier" =: _drClusterIdentifier]
 
 -- | Describes the result of a cluster resize operation.
 --

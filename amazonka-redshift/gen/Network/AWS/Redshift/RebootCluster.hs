@@ -34,7 +34,7 @@ module Network.AWS.Redshift.RebootCluster
     -- ** Request constructor
     , rebootCluster
     -- ** Request lenses
-    , rcrqClusterIdentifier
+    , rcClusterIdentifier
 
     -- * Response
     , RebootClusterResponse
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcrqClusterIdentifier'
+-- * 'rcClusterIdentifier'
 newtype RebootCluster = RebootCluster'
-    { _rcrqClusterIdentifier :: Text
+    { _rcClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCluster' smart constructor.
 rebootCluster :: Text -> RebootCluster
 rebootCluster pClusterIdentifier_ =
     RebootCluster'
-    { _rcrqClusterIdentifier = pClusterIdentifier_
+    { _rcClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The cluster identifier.
-rcrqClusterIdentifier :: Lens' RebootCluster Text
-rcrqClusterIdentifier = lens _rcrqClusterIdentifier (\ s a -> s{_rcrqClusterIdentifier = a});
+rcClusterIdentifier :: Lens' RebootCluster Text
+rcClusterIdentifier = lens _rcClusterIdentifier (\ s a -> s{_rcClusterIdentifier = a});
 
 instance AWSRequest RebootCluster where
         type Sv RebootCluster = Redshift
@@ -93,7 +93,7 @@ instance ToQuery RebootCluster where
           = mconcat
               ["Action" =: ("RebootCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _rcrqClusterIdentifier]
+               "ClusterIdentifier" =: _rcClusterIdentifier]
 
 -- | /See:/ 'rebootClusterResponse' smart constructor.
 --

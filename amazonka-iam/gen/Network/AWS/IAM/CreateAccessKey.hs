@@ -44,7 +44,7 @@ module Network.AWS.IAM.CreateAccessKey
     -- ** Request constructor
     , createAccessKey
     -- ** Request lenses
-    , cakrqUserName
+    , cakUserName
 
     -- * Response
     , CreateAccessKeyResponse
@@ -64,21 +64,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cakrqUserName'
+-- * 'cakUserName'
 newtype CreateAccessKey = CreateAccessKey'
-    { _cakrqUserName :: Maybe Text
+    { _cakUserName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccessKey' smart constructor.
 createAccessKey :: CreateAccessKey
 createAccessKey =
     CreateAccessKey'
-    { _cakrqUserName = Nothing
+    { _cakUserName = Nothing
     }
 
 -- | The user name that the new key will belong to.
-cakrqUserName :: Lens' CreateAccessKey (Maybe Text)
-cakrqUserName = lens _cakrqUserName (\ s a -> s{_cakrqUserName = a});
+cakUserName :: Lens' CreateAccessKey (Maybe Text)
+cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a});
 
 instance AWSRequest CreateAccessKey where
         type Sv CreateAccessKey = IAM
@@ -101,7 +101,7 @@ instance ToQuery CreateAccessKey where
           = mconcat
               ["Action" =: ("CreateAccessKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _cakrqUserName]
+               "UserName" =: _cakUserName]
 
 -- | Contains the response to a successful CreateAccessKey request.
 --

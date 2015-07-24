@@ -36,9 +36,9 @@ module Network.AWS.EC2.DescribeRouteTables
     -- ** Request constructor
     , describeRouteTables
     -- ** Request lenses
-    , drtsrqFilters
-    , drtsrqDryRun
-    , drtsrqRouteTableIds
+    , drtsFilters
+    , drtsDryRun
+    , drtsRouteTableIds
 
     -- * Response
     , DescribeRouteTablesResponse
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drtsrqFilters'
+-- * 'drtsFilters'
 --
--- * 'drtsrqDryRun'
+-- * 'drtsDryRun'
 --
--- * 'drtsrqRouteTableIds'
+-- * 'drtsRouteTableIds'
 data DescribeRouteTables = DescribeRouteTables'
-    { _drtsrqFilters       :: !(Maybe [Filter])
-    , _drtsrqDryRun        :: !(Maybe Bool)
-    , _drtsrqRouteTableIds :: !(Maybe [Text])
+    { _drtsFilters       :: !(Maybe [Filter])
+    , _drtsDryRun        :: !(Maybe Bool)
+    , _drtsRouteTableIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRouteTables' smart constructor.
 describeRouteTables :: DescribeRouteTables
 describeRouteTables =
     DescribeRouteTables'
-    { _drtsrqFilters = Nothing
-    , _drtsrqDryRun = Nothing
-    , _drtsrqRouteTableIds = Nothing
+    { _drtsFilters = Nothing
+    , _drtsDryRun = Nothing
+    , _drtsRouteTableIds = Nothing
     }
 
 -- | One or more filters.
@@ -138,21 +138,21 @@ describeRouteTables =
 --
 -- -   @vpc-id@ - The ID of the VPC for the route table.
 --
-drtsrqFilters :: Lens' DescribeRouteTables [Filter]
-drtsrqFilters = lens _drtsrqFilters (\ s a -> s{_drtsrqFilters = a}) . _Default;
+drtsFilters :: Lens' DescribeRouteTables [Filter]
+drtsFilters = lens _drtsFilters (\ s a -> s{_drtsFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-drtsrqDryRun :: Lens' DescribeRouteTables (Maybe Bool)
-drtsrqDryRun = lens _drtsrqDryRun (\ s a -> s{_drtsrqDryRun = a});
+drtsDryRun :: Lens' DescribeRouteTables (Maybe Bool)
+drtsDryRun = lens _drtsDryRun (\ s a -> s{_drtsDryRun = a});
 
 -- | One or more route table IDs.
 --
 -- Default: Describes all your route tables.
-drtsrqRouteTableIds :: Lens' DescribeRouteTables [Text]
-drtsrqRouteTableIds = lens _drtsrqRouteTableIds (\ s a -> s{_drtsrqRouteTableIds = a}) . _Default;
+drtsRouteTableIds :: Lens' DescribeRouteTables [Text]
+drtsRouteTableIds = lens _drtsRouteTableIds (\ s a -> s{_drtsRouteTableIds = a}) . _Default;
 
 instance AWSRequest DescribeRouteTables where
         type Sv DescribeRouteTables = EC2
@@ -178,10 +178,9 @@ instance ToQuery DescribeRouteTables where
           = mconcat
               ["Action" =: ("DescribeRouteTables" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drtsrqFilters),
-               "DryRun" =: _drtsrqDryRun,
-               toQuery
-                 (toQueryList "item" <$> _drtsrqRouteTableIds)]
+               toQuery (toQueryList "Filter" <$> _drtsFilters),
+               "DryRun" =: _drtsDryRun,
+               toQuery (toQueryList "item" <$> _drtsRouteTableIds)]
 
 -- | /See:/ 'describeRouteTablesResponse' smart constructor.
 --

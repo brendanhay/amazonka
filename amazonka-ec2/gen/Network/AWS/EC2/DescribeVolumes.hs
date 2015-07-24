@@ -38,11 +38,11 @@ module Network.AWS.EC2.DescribeVolumes
     -- ** Request constructor
     , describeVolumes
     -- ** Request lenses
-    , desrqFilters
-    , desrqVolumeIds
-    , desrqNextToken
-    , desrqDryRun
-    , desrqMaxResults
+    , desFilters
+    , desVolumeIds
+    , desNextToken
+    , desDryRun
+    , desMaxResults
 
     -- * Response
     , DescribeVolumesResponse
@@ -63,32 +63,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrqFilters'
+-- * 'desFilters'
 --
--- * 'desrqVolumeIds'
+-- * 'desVolumeIds'
 --
--- * 'desrqNextToken'
+-- * 'desNextToken'
 --
--- * 'desrqDryRun'
+-- * 'desDryRun'
 --
--- * 'desrqMaxResults'
+-- * 'desMaxResults'
 data DescribeVolumes = DescribeVolumes'
-    { _desrqFilters    :: !(Maybe [Filter])
-    , _desrqVolumeIds  :: !(Maybe [Text])
-    , _desrqNextToken  :: !(Maybe Text)
-    , _desrqDryRun     :: !(Maybe Bool)
-    , _desrqMaxResults :: !(Maybe Int)
+    { _desFilters    :: !(Maybe [Filter])
+    , _desVolumeIds  :: !(Maybe [Text])
+    , _desNextToken  :: !(Maybe Text)
+    , _desDryRun     :: !(Maybe Bool)
+    , _desMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
 describeVolumes =
     DescribeVolumes'
-    { _desrqFilters = Nothing
-    , _desrqVolumeIds = Nothing
-    , _desrqNextToken = Nothing
-    , _desrqDryRun = Nothing
-    , _desrqMaxResults = Nothing
+    { _desFilters = Nothing
+    , _desVolumeIds = Nothing
+    , _desNextToken = Nothing
+    , _desDryRun = Nothing
+    , _desMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -142,27 +142,27 @@ describeVolumes =
 --     General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD)
 --     volumes, or @standard@ for Magnetic volumes.
 --
-desrqFilters :: Lens' DescribeVolumes [Filter]
-desrqFilters = lens _desrqFilters (\ s a -> s{_desrqFilters = a}) . _Default;
+desFilters :: Lens' DescribeVolumes [Filter]
+desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default;
 
 -- | One or more volume IDs.
-desrqVolumeIds :: Lens' DescribeVolumes [Text]
-desrqVolumeIds = lens _desrqVolumeIds (\ s a -> s{_desrqVolumeIds = a}) . _Default;
+desVolumeIds :: Lens' DescribeVolumes [Text]
+desVolumeIds = lens _desVolumeIds (\ s a -> s{_desVolumeIds = a}) . _Default;
 
 -- | The @NextToken@ value returned from a previous paginated
 -- @DescribeVolumes@ request where @MaxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @NextToken@ value. This value
 -- is @null@ when there are no more results to return.
-desrqNextToken :: Lens' DescribeVolumes (Maybe Text)
-desrqNextToken = lens _desrqNextToken (\ s a -> s{_desrqNextToken = a});
+desNextToken :: Lens' DescribeVolumes (Maybe Text)
+desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-desrqDryRun :: Lens' DescribeVolumes (Maybe Bool)
-desrqDryRun = lens _desrqDryRun (\ s a -> s{_desrqDryRun = a});
+desDryRun :: Lens' DescribeVolumes (Maybe Bool)
+desDryRun = lens _desDryRun (\ s a -> s{_desDryRun = a});
 
 -- | The maximum number of volume results returned by @DescribeVolumes@ in
 -- paginated output. When this parameter is used, @DescribeVolumes@ only
@@ -174,8 +174,8 @@ desrqDryRun = lens _desrqDryRun (\ s a -> s{_desrqDryRun = a});
 -- this parameter is not used, then @DescribeVolumes@ returns all results.
 -- You cannot specify this parameter and the volume IDs parameter in the
 -- same request.
-desrqMaxResults :: Lens' DescribeVolumes (Maybe Int)
-desrqMaxResults = lens _desrqMaxResults (\ s a -> s{_desrqMaxResults = a});
+desMaxResults :: Lens' DescribeVolumes (Maybe Int)
+desMaxResults = lens _desMaxResults (\ s a -> s{_desMaxResults = a});
 
 instance AWSRequest DescribeVolumes where
         type Sv DescribeVolumes = EC2
@@ -201,11 +201,10 @@ instance ToQuery DescribeVolumes where
           = mconcat
               ["Action" =: ("DescribeVolumes" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _desrqFilters),
-               toQuery (toQueryList "VolumeId" <$> _desrqVolumeIds),
-               "NextToken" =: _desrqNextToken,
-               "DryRun" =: _desrqDryRun,
-               "MaxResults" =: _desrqMaxResults]
+               toQuery (toQueryList "Filter" <$> _desFilters),
+               toQuery (toQueryList "VolumeId" <$> _desVolumeIds),
+               "NextToken" =: _desNextToken, "DryRun" =: _desDryRun,
+               "MaxResults" =: _desMaxResults]
 
 -- | /See:/ 'describeVolumesResponse' smart constructor.
 --

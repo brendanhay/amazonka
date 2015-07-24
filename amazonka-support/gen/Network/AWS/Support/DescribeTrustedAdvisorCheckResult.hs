@@ -43,8 +43,8 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     -- ** Request constructor
     , describeTrustedAdvisorCheckResult
     -- ** Request lenses
-    , dtacrrqLanguage
-    , dtacrrqCheckId
+    , dtacrLanguage
+    , dtacrCheckId
 
     -- * Response
     , DescribeTrustedAdvisorCheckResultResponse
@@ -64,32 +64,32 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrrqLanguage'
+-- * 'dtacrLanguage'
 --
--- * 'dtacrrqCheckId'
+-- * 'dtacrCheckId'
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
-    { _dtacrrqLanguage :: !(Maybe Text)
-    , _dtacrrqCheckId  :: !Text
+    { _dtacrLanguage :: !(Maybe Text)
+    , _dtacrCheckId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckResult' smart constructor.
 describeTrustedAdvisorCheckResult :: Text -> DescribeTrustedAdvisorCheckResult
 describeTrustedAdvisorCheckResult pCheckId_ =
     DescribeTrustedAdvisorCheckResult'
-    { _dtacrrqLanguage = Nothing
-    , _dtacrrqCheckId = pCheckId_
+    { _dtacrLanguage = Nothing
+    , _dtacrCheckId = pCheckId_
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-dtacrrqLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
-dtacrrqLanguage = lens _dtacrrqLanguage (\ s a -> s{_dtacrrqLanguage = a});
+dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
+dtacrLanguage = lens _dtacrLanguage (\ s a -> s{_dtacrLanguage = a});
 
 -- | The unique identifier for the Trusted Advisor check.
-dtacrrqCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
-dtacrrqCheckId = lens _dtacrrqCheckId (\ s a -> s{_dtacrrqCheckId = a});
+dtacrCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
+dtacrCheckId = lens _dtacrCheckId (\ s a -> s{_dtacrCheckId = a});
 
 instance AWSRequest DescribeTrustedAdvisorCheckResult
          where
@@ -118,8 +118,8 @@ instance ToJSON DescribeTrustedAdvisorCheckResult
          where
         toJSON DescribeTrustedAdvisorCheckResult'{..}
           = object
-              ["language" .= _dtacrrqLanguage,
-               "checkId" .= _dtacrrqCheckId]
+              ["language" .= _dtacrLanguage,
+               "checkId" .= _dtacrCheckId]
 
 instance ToPath DescribeTrustedAdvisorCheckResult
          where

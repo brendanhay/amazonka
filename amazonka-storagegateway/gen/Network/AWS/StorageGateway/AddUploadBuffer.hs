@@ -33,8 +33,8 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     -- ** Request constructor
     , addUploadBuffer
     -- ** Request lenses
-    , aubrqGatewayARN
-    , aubrqDiskIds
+    , aubGatewayARN
+    , aubDiskIds
 
     -- * Response
     , AddUploadBufferResponse
@@ -54,29 +54,29 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aubrqGatewayARN'
+-- * 'aubGatewayARN'
 --
--- * 'aubrqDiskIds'
+-- * 'aubDiskIds'
 data AddUploadBuffer = AddUploadBuffer'
-    { _aubrqGatewayARN :: !Text
-    , _aubrqDiskIds    :: ![Text]
+    { _aubGatewayARN :: !Text
+    , _aubDiskIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUploadBuffer' smart constructor.
 addUploadBuffer :: Text -> AddUploadBuffer
 addUploadBuffer pGatewayARN_ =
     AddUploadBuffer'
-    { _aubrqGatewayARN = pGatewayARN_
-    , _aubrqDiskIds = mempty
+    { _aubGatewayARN = pGatewayARN_
+    , _aubDiskIds = mempty
     }
 
 -- | FIXME: Undocumented member.
-aubrqGatewayARN :: Lens' AddUploadBuffer Text
-aubrqGatewayARN = lens _aubrqGatewayARN (\ s a -> s{_aubrqGatewayARN = a});
+aubGatewayARN :: Lens' AddUploadBuffer Text
+aubGatewayARN = lens _aubGatewayARN (\ s a -> s{_aubGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-aubrqDiskIds :: Lens' AddUploadBuffer [Text]
-aubrqDiskIds = lens _aubrqDiskIds (\ s a -> s{_aubrqDiskIds = a});
+aubDiskIds :: Lens' AddUploadBuffer [Text]
+aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a});
 
 instance AWSRequest AddUploadBuffer where
         type Sv AddUploadBuffer = StorageGateway
@@ -101,8 +101,8 @@ instance ToHeaders AddUploadBuffer where
 instance ToJSON AddUploadBuffer where
         toJSON AddUploadBuffer'{..}
           = object
-              ["GatewayARN" .= _aubrqGatewayARN,
-               "DiskIds" .= _aubrqDiskIds]
+              ["GatewayARN" .= _aubGatewayARN,
+               "DiskIds" .= _aubDiskIds]
 
 instance ToPath AddUploadBuffer where
         toPath = const "/"

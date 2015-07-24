@@ -36,10 +36,10 @@ module Network.AWS.Support.AddCommunicationToCase
     -- ** Request constructor
     , addCommunicationToCase
     -- ** Request lenses
-    , actcrqCaseId
-    , actcrqCcEmailAddresses
-    , actcrqAttachmentSetId
-    , actcrqCommunicationBody
+    , actcCaseId
+    , actcCcEmailAddresses
+    , actcAttachmentSetId
+    , actcCommunicationBody
 
     -- * Response
     , AddCommunicationToCaseResponse
@@ -61,49 +61,49 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'actcrqCaseId'
+-- * 'actcCaseId'
 --
--- * 'actcrqCcEmailAddresses'
+-- * 'actcCcEmailAddresses'
 --
--- * 'actcrqAttachmentSetId'
+-- * 'actcAttachmentSetId'
 --
--- * 'actcrqCommunicationBody'
+-- * 'actcCommunicationBody'
 data AddCommunicationToCase = AddCommunicationToCase'
-    { _actcrqCaseId            :: !(Maybe Text)
-    , _actcrqCcEmailAddresses  :: !(Maybe [Text])
-    , _actcrqAttachmentSetId   :: !(Maybe Text)
-    , _actcrqCommunicationBody :: !Text
+    { _actcCaseId            :: !(Maybe Text)
+    , _actcCcEmailAddresses  :: !(Maybe [Text])
+    , _actcAttachmentSetId   :: !(Maybe Text)
+    , _actcCommunicationBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddCommunicationToCase' smart constructor.
 addCommunicationToCase :: Text -> AddCommunicationToCase
 addCommunicationToCase pCommunicationBody_ =
     AddCommunicationToCase'
-    { _actcrqCaseId = Nothing
-    , _actcrqCcEmailAddresses = Nothing
-    , _actcrqAttachmentSetId = Nothing
-    , _actcrqCommunicationBody = pCommunicationBody_
+    { _actcCaseId = Nothing
+    , _actcCcEmailAddresses = Nothing
+    , _actcAttachmentSetId = Nothing
+    , _actcCommunicationBody = pCommunicationBody_
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-actcrqCaseId :: Lens' AddCommunicationToCase (Maybe Text)
-actcrqCaseId = lens _actcrqCaseId (\ s a -> s{_actcrqCaseId = a});
+actcCaseId :: Lens' AddCommunicationToCase (Maybe Text)
+actcCaseId = lens _actcCaseId (\ s a -> s{_actcCaseId = a});
 
 -- | The email addresses in the CC line of an email to be added to the
 -- support case.
-actcrqCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
-actcrqCcEmailAddresses = lens _actcrqCcEmailAddresses (\ s a -> s{_actcrqCcEmailAddresses = a}) . _Default;
+actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
+actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default;
 
 -- | The ID of a set of one or more attachments for the communication to add
 -- to the case. Create the set by calling AddAttachmentsToSet
-actcrqAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
-actcrqAttachmentSetId = lens _actcrqAttachmentSetId (\ s a -> s{_actcrqAttachmentSetId = a});
+actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
+actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId = a});
 
 -- | The body of an email communication to add to the support case.
-actcrqCommunicationBody :: Lens' AddCommunicationToCase Text
-actcrqCommunicationBody = lens _actcrqCommunicationBody (\ s a -> s{_actcrqCommunicationBody = a});
+actcCommunicationBody :: Lens' AddCommunicationToCase Text
+actcCommunicationBody = lens _actcCommunicationBody (\ s a -> s{_actcCommunicationBody = a});
 
 instance AWSRequest AddCommunicationToCase where
         type Sv AddCommunicationToCase = Support
@@ -129,10 +129,10 @@ instance ToHeaders AddCommunicationToCase where
 instance ToJSON AddCommunicationToCase where
         toJSON AddCommunicationToCase'{..}
           = object
-              ["caseId" .= _actcrqCaseId,
-               "ccEmailAddresses" .= _actcrqCcEmailAddresses,
-               "attachmentSetId" .= _actcrqAttachmentSetId,
-               "communicationBody" .= _actcrqCommunicationBody]
+              ["caseId" .= _actcCaseId,
+               "ccEmailAddresses" .= _actcCcEmailAddresses,
+               "attachmentSetId" .= _actcAttachmentSetId,
+               "communicationBody" .= _actcCommunicationBody]
 
 instance ToPath AddCommunicationToCase where
         toPath = const "/"

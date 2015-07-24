@@ -33,8 +33,8 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     -- ** Request constructor
     , describeServiceAccessPolicies
     -- ** Request lenses
-    , dsaprqDeployed
-    , dsaprqDomainName
+    , dsapDeployed
+    , dsapDomainName
 
     -- * Response
     , DescribeServiceAccessPoliciesResponse
@@ -59,30 +59,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsaprqDeployed'
+-- * 'dsapDeployed'
 --
--- * 'dsaprqDomainName'
+-- * 'dsapDomainName'
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
-    { _dsaprqDeployed   :: !(Maybe Bool)
-    , _dsaprqDomainName :: !Text
+    { _dsapDeployed   :: !(Maybe Bool)
+    , _dsapDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceAccessPolicies' smart constructor.
 describeServiceAccessPolicies :: Text -> DescribeServiceAccessPolicies
 describeServiceAccessPolicies pDomainName_ =
     DescribeServiceAccessPolicies'
-    { _dsaprqDeployed = Nothing
-    , _dsaprqDomainName = pDomainName_
+    { _dsapDeployed = Nothing
+    , _dsapDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-dsaprqDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
-dsaprqDeployed = lens _dsaprqDeployed (\ s a -> s{_dsaprqDeployed = a});
+dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
+dsapDeployed = lens _dsapDeployed (\ s a -> s{_dsapDeployed = a});
 
 -- | The name of the domain you want to describe.
-dsaprqDomainName :: Lens' DescribeServiceAccessPolicies Text
-dsaprqDomainName = lens _dsaprqDomainName (\ s a -> s{_dsaprqDomainName = a});
+dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
+dsapDomainName = lens _dsapDomainName (\ s a -> s{_dsapDomainName = a});
 
 instance AWSRequest DescribeServiceAccessPolicies
          where
@@ -110,8 +110,8 @@ instance ToQuery DescribeServiceAccessPolicies where
               ["Action" =:
                  ("DescribeServiceAccessPolicies" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _dsaprqDeployed,
-               "DomainName" =: _dsaprqDomainName]
+               "Deployed" =: _dsapDeployed,
+               "DomainName" =: _dsapDomainName]
 
 -- | The result of a @DescribeServiceAccessPolicies@ request.
 --

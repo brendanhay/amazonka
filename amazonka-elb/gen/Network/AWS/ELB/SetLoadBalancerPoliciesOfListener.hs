@@ -29,9 +29,9 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     -- ** Request constructor
     , setLoadBalancerPoliciesOfListener
     -- ** Request lenses
-    , slbpolrqLoadBalancerName
-    , slbpolrqLoadBalancerPort
-    , slbpolrqPolicyNames
+    , slbpolLoadBalancerName
+    , slbpolLoadBalancerPort
+    , slbpolPolicyNames
 
     -- * Response
     , SetLoadBalancerPoliciesOfListenerResponse
@@ -50,38 +50,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slbpolrqLoadBalancerName'
+-- * 'slbpolLoadBalancerName'
 --
--- * 'slbpolrqLoadBalancerPort'
+-- * 'slbpolLoadBalancerPort'
 --
--- * 'slbpolrqPolicyNames'
+-- * 'slbpolPolicyNames'
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
-    { _slbpolrqLoadBalancerName :: !Text
-    , _slbpolrqLoadBalancerPort :: !Int
-    , _slbpolrqPolicyNames      :: ![Text]
+    { _slbpolLoadBalancerName :: !Text
+    , _slbpolLoadBalancerPort :: !Int
+    , _slbpolPolicyNames      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListener' smart constructor.
 setLoadBalancerPoliciesOfListener :: Text -> Int -> SetLoadBalancerPoliciesOfListener
 setLoadBalancerPoliciesOfListener pLoadBalancerName_ pLoadBalancerPort_ =
     SetLoadBalancerPoliciesOfListener'
-    { _slbpolrqLoadBalancerName = pLoadBalancerName_
-    , _slbpolrqLoadBalancerPort = pLoadBalancerPort_
-    , _slbpolrqPolicyNames = mempty
+    { _slbpolLoadBalancerName = pLoadBalancerName_
+    , _slbpolLoadBalancerPort = pLoadBalancerPort_
+    , _slbpolPolicyNames = mempty
     }
 
 -- | The name of the load balancer.
-slbpolrqLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
-slbpolrqLoadBalancerName = lens _slbpolrqLoadBalancerName (\ s a -> s{_slbpolrqLoadBalancerName = a});
+slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
+slbpolLoadBalancerName = lens _slbpolLoadBalancerName (\ s a -> s{_slbpolLoadBalancerName = a});
 
 -- | The external port of the load balancer for the policy.
-slbpolrqLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
-slbpolrqLoadBalancerPort = lens _slbpolrqLoadBalancerPort (\ s a -> s{_slbpolrqLoadBalancerPort = a});
+slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
+slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBalancerPort = a});
 
 -- | The names of the policies. If the list is empty, the current policy is
 -- removed from the listener.
-slbpolrqPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
-slbpolrqPolicyNames = lens _slbpolrqPolicyNames (\ s a -> s{_slbpolrqPolicyNames = a});
+slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
+slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a});
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener
          where
@@ -111,10 +111,10 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
               ["Action" =:
                  ("SetLoadBalancerPoliciesOfListener" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _slbpolrqLoadBalancerName,
-               "LoadBalancerPort" =: _slbpolrqLoadBalancerPort,
+               "LoadBalancerName" =: _slbpolLoadBalancerName,
+               "LoadBalancerPort" =: _slbpolLoadBalancerPort,
                "PolicyNames" =:
-                 toQueryList "member" _slbpolrqPolicyNames]
+                 toQueryList "member" _slbpolPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
 --

@@ -31,8 +31,8 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     -- ** Request constructor
     , listIdentityPoolUsage
     -- ** Request lenses
-    , lipurqNextToken
-    , lipurqMaxResults
+    , lipuNextToken
+    , lipuMaxResults
 
     -- * Response
     , ListIdentityPoolUsageResponse
@@ -57,29 +57,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lipurqNextToken'
+-- * 'lipuNextToken'
 --
--- * 'lipurqMaxResults'
+-- * 'lipuMaxResults'
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
-    { _lipurqNextToken  :: !(Maybe Text)
-    , _lipurqMaxResults :: !(Maybe Int)
+    { _lipuNextToken  :: !(Maybe Text)
+    , _lipuMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolUsage' smart constructor.
 listIdentityPoolUsage :: ListIdentityPoolUsage
 listIdentityPoolUsage =
     ListIdentityPoolUsage'
-    { _lipurqNextToken = Nothing
-    , _lipurqMaxResults = Nothing
+    { _lipuNextToken = Nothing
+    , _lipuMaxResults = Nothing
     }
 
 -- | A pagination token for obtaining the next page of results.
-lipurqNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
-lipurqNextToken = lens _lipurqNextToken (\ s a -> s{_lipurqNextToken = a});
+lipuNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
+lipuNextToken = lens _lipuNextToken (\ s a -> s{_lipuNextToken = a});
 
 -- | The maximum number of results to be returned.
-lipurqMaxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
-lipurqMaxResults = lens _lipurqMaxResults (\ s a -> s{_lipurqMaxResults = a});
+lipuMaxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
+lipuMaxResults = lens _lipuMaxResults (\ s a -> s{_lipuMaxResults = a});
 
 instance AWSRequest ListIdentityPoolUsage where
         type Sv ListIdentityPoolUsage = CognitoSync
@@ -109,8 +109,8 @@ instance ToPath ListIdentityPoolUsage where
 instance ToQuery ListIdentityPoolUsage where
         toQuery ListIdentityPoolUsage'{..}
           = mconcat
-              ["nextToken" =: _lipurqNextToken,
-               "maxResults" =: _lipurqMaxResults]
+              ["nextToken" =: _lipuNextToken,
+               "maxResults" =: _lipuMaxResults]
 
 -- | Returned for a successful ListIdentityPoolUsage request.
 --

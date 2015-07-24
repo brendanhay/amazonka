@@ -35,9 +35,9 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     -- ** Request constructor
     , putNotificationConfiguration
     -- ** Request lenses
-    , pncrqAutoScalingGroupName
-    , pncrqTopicARN
-    , pncrqNotificationTypes
+    , pncAutoScalingGroupName
+    , pncTopicARN
+    , pncNotificationTypes
 
     -- * Response
     , PutNotificationConfigurationResponse
@@ -54,40 +54,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pncrqAutoScalingGroupName'
+-- * 'pncAutoScalingGroupName'
 --
--- * 'pncrqTopicARN'
+-- * 'pncTopicARN'
 --
--- * 'pncrqNotificationTypes'
+-- * 'pncNotificationTypes'
 data PutNotificationConfiguration = PutNotificationConfiguration'
-    { _pncrqAutoScalingGroupName :: !Text
-    , _pncrqTopicARN             :: !Text
-    , _pncrqNotificationTypes    :: ![Text]
+    { _pncAutoScalingGroupName :: !Text
+    , _pncTopicARN             :: !Text
+    , _pncNotificationTypes    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutNotificationConfiguration' smart constructor.
 putNotificationConfiguration :: Text -> Text -> PutNotificationConfiguration
 putNotificationConfiguration pAutoScalingGroupName_ pTopicARN_ =
     PutNotificationConfiguration'
-    { _pncrqAutoScalingGroupName = pAutoScalingGroupName_
-    , _pncrqTopicARN = pTopicARN_
-    , _pncrqNotificationTypes = mempty
+    { _pncAutoScalingGroupName = pAutoScalingGroupName_
+    , _pncTopicARN = pTopicARN_
+    , _pncNotificationTypes = mempty
     }
 
 -- | The name of the Auto Scaling group.
-pncrqAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
-pncrqAutoScalingGroupName = lens _pncrqAutoScalingGroupName (\ s a -> s{_pncrqAutoScalingGroupName = a});
+pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
+pncAutoScalingGroupName = lens _pncAutoScalingGroupName (\ s a -> s{_pncAutoScalingGroupName = a});
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-pncrqTopicARN :: Lens' PutNotificationConfiguration Text
-pncrqTopicARN = lens _pncrqTopicARN (\ s a -> s{_pncrqTopicARN = a});
+pncTopicARN :: Lens' PutNotificationConfiguration Text
+pncTopicARN = lens _pncTopicARN (\ s a -> s{_pncTopicARN = a});
 
 -- | The type of event that will cause the notification to be sent. For
 -- details about notification types supported by Auto Scaling, see
 -- DescribeAutoScalingNotificationTypes.
-pncrqNotificationTypes :: Lens' PutNotificationConfiguration [Text]
-pncrqNotificationTypes = lens _pncrqNotificationTypes (\ s a -> s{_pncrqNotificationTypes = a});
+pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
+pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTypes = a});
 
 instance AWSRequest PutNotificationConfiguration
          where
@@ -110,10 +110,10 @@ instance ToQuery PutNotificationConfiguration where
               ["Action" =:
                  ("PutNotificationConfiguration" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "AutoScalingGroupName" =: _pncrqAutoScalingGroupName,
-               "TopicARN" =: _pncrqTopicARN,
+               "AutoScalingGroupName" =: _pncAutoScalingGroupName,
+               "TopicARN" =: _pncTopicARN,
                "NotificationTypes" =:
-                 toQueryList "member" _pncrqNotificationTypes]
+                 toQueryList "member" _pncNotificationTypes]
 
 -- | /See:/ 'putNotificationConfigurationResponse' smart constructor.
 data PutNotificationConfigurationResponse =

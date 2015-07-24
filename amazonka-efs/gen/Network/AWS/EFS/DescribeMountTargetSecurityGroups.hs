@@ -37,7 +37,7 @@ module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     -- ** Request constructor
     , describeMountTargetSecurityGroups
     -- ** Request lenses
-    , dmtsgrqMountTargetId
+    , dmtsgMountTargetId
 
     -- * Response
     , DescribeMountTargetSecurityGroupsResponse
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmtsgrqMountTargetId'
+-- * 'dmtsgMountTargetId'
 newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
-    { _dmtsgrqMountTargetId :: Text
+    { _dmtsgMountTargetId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargetSecurityGroups' smart constructor.
 describeMountTargetSecurityGroups :: Text -> DescribeMountTargetSecurityGroups
 describeMountTargetSecurityGroups pMountTargetId_ =
     DescribeMountTargetSecurityGroups'
-    { _dmtsgrqMountTargetId = pMountTargetId_
+    { _dmtsgMountTargetId = pMountTargetId_
     }
 
 -- | The ID of the mount target whose security groups you want to retrieve.
-dmtsgrqMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
-dmtsgrqMountTargetId = lens _dmtsgrqMountTargetId (\ s a -> s{_dmtsgrqMountTargetId = a});
+dmtsgMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
+dmtsgMountTargetId = lens _dmtsgMountTargetId (\ s a -> s{_dmtsgMountTargetId = a});
 
 instance AWSRequest DescribeMountTargetSecurityGroups
          where
@@ -95,7 +95,7 @@ instance ToPath DescribeMountTargetSecurityGroups
         toPath DescribeMountTargetSecurityGroups'{..}
           = mconcat
               ["/2015-02-01/mount-targets/",
-               toText _dmtsgrqMountTargetId, "/security-groups"]
+               toText _dmtsgMountTargetId, "/security-groups"]
 
 instance ToQuery DescribeMountTargetSecurityGroups
          where

@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketWebsite
     -- ** Request constructor
     , getBucketWebsite
     -- ** Request lenses
-    , gbwrqBucket
+    , gbwBucket
 
     -- * Response
     , GetBucketWebsiteResponse
@@ -50,21 +50,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbwrqBucket'
+-- * 'gbwBucket'
 newtype GetBucketWebsite = GetBucketWebsite'
-    { _gbwrqBucket :: BucketName
+    { _gbwBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketWebsite' smart constructor.
 getBucketWebsite :: BucketName -> GetBucketWebsite
 getBucketWebsite pBucket_ =
     GetBucketWebsite'
-    { _gbwrqBucket = pBucket_
+    { _gbwBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gbwrqBucket :: Lens' GetBucketWebsite BucketName
-gbwrqBucket = lens _gbwrqBucket (\ s a -> s{_gbwrqBucket = a});
+gbwBucket :: Lens' GetBucketWebsite BucketName
+gbwBucket = lens _gbwBucket (\ s a -> s{_gbwBucket = a});
 
 instance AWSRequest GetBucketWebsite where
         type Sv GetBucketWebsite = S3
@@ -87,7 +87,7 @@ instance ToHeaders GetBucketWebsite where
 
 instance ToPath GetBucketWebsite where
         toPath GetBucketWebsite'{..}
-          = mconcat ["/", toText _gbwrqBucket]
+          = mconcat ["/", toText _gbwBucket]
 
 instance ToQuery GetBucketWebsite where
         toQuery = const (mconcat ["website"])

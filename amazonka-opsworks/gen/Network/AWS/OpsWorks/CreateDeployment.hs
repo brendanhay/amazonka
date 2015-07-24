@@ -36,12 +36,12 @@ module Network.AWS.OpsWorks.CreateDeployment
     -- ** Request constructor
     , createDeployment
     -- ** Request lenses
-    , cdrqCustomJSON
-    , cdrqAppId
-    , cdrqInstanceIds
-    , cdrqComment
-    , cdrqStackId
-    , cdrqCommand
+    , cdCustomJSON
+    , cdAppId
+    , cdInstanceIds
+    , cdComment
+    , cdStackId
+    , cdCommand
 
     -- * Response
     , CreateDeploymentResponse
@@ -61,36 +61,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrqCustomJSON'
+-- * 'cdCustomJSON'
 --
--- * 'cdrqAppId'
+-- * 'cdAppId'
 --
--- * 'cdrqInstanceIds'
+-- * 'cdInstanceIds'
 --
--- * 'cdrqComment'
+-- * 'cdComment'
 --
--- * 'cdrqStackId'
+-- * 'cdStackId'
 --
--- * 'cdrqCommand'
+-- * 'cdCommand'
 data CreateDeployment = CreateDeployment'
-    { _cdrqCustomJSON  :: !(Maybe Text)
-    , _cdrqAppId       :: !(Maybe Text)
-    , _cdrqInstanceIds :: !(Maybe [Text])
-    , _cdrqComment     :: !(Maybe Text)
-    , _cdrqStackId     :: !Text
-    , _cdrqCommand     :: !DeploymentCommand
+    { _cdCustomJSON  :: !(Maybe Text)
+    , _cdAppId       :: !(Maybe Text)
+    , _cdInstanceIds :: !(Maybe [Text])
+    , _cdComment     :: !(Maybe Text)
+    , _cdStackId     :: !Text
+    , _cdCommand     :: !DeploymentCommand
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> DeploymentCommand -> CreateDeployment
 createDeployment pStackId_ pCommand_ =
     CreateDeployment'
-    { _cdrqCustomJSON = Nothing
-    , _cdrqAppId = Nothing
-    , _cdrqInstanceIds = Nothing
-    , _cdrqComment = Nothing
-    , _cdrqStackId = pStackId_
-    , _cdrqCommand = pCommand_
+    { _cdCustomJSON = Nothing
+    , _cdAppId = Nothing
+    , _cdInstanceIds = Nothing
+    , _cdComment = Nothing
+    , _cdStackId = pStackId_
+    , _cdCommand = pCommand_
     }
 
 -- | A string that contains user-defined, custom JSON. It is used to override
@@ -102,30 +102,30 @@ createDeployment pStackId_ pCommand_ =
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-cdrqCustomJSON :: Lens' CreateDeployment (Maybe Text)
-cdrqCustomJSON = lens _cdrqCustomJSON (\ s a -> s{_cdrqCustomJSON = a});
+cdCustomJSON :: Lens' CreateDeployment (Maybe Text)
+cdCustomJSON = lens _cdCustomJSON (\ s a -> s{_cdCustomJSON = a});
 
 -- | The app ID. This parameter is required for app deployments, but not for
 -- other deployment commands.
-cdrqAppId :: Lens' CreateDeployment (Maybe Text)
-cdrqAppId = lens _cdrqAppId (\ s a -> s{_cdrqAppId = a});
+cdAppId :: Lens' CreateDeployment (Maybe Text)
+cdAppId = lens _cdAppId (\ s a -> s{_cdAppId = a});
 
 -- | The instance IDs for the deployment targets.
-cdrqInstanceIds :: Lens' CreateDeployment [Text]
-cdrqInstanceIds = lens _cdrqInstanceIds (\ s a -> s{_cdrqInstanceIds = a}) . _Default;
+cdInstanceIds :: Lens' CreateDeployment [Text]
+cdInstanceIds = lens _cdInstanceIds (\ s a -> s{_cdInstanceIds = a}) . _Default;
 
 -- | A user-defined comment.
-cdrqComment :: Lens' CreateDeployment (Maybe Text)
-cdrqComment = lens _cdrqComment (\ s a -> s{_cdrqComment = a});
+cdComment :: Lens' CreateDeployment (Maybe Text)
+cdComment = lens _cdComment (\ s a -> s{_cdComment = a});
 
 -- | The stack ID.
-cdrqStackId :: Lens' CreateDeployment Text
-cdrqStackId = lens _cdrqStackId (\ s a -> s{_cdrqStackId = a});
+cdStackId :: Lens' CreateDeployment Text
+cdStackId = lens _cdStackId (\ s a -> s{_cdStackId = a});
 
 -- | A @DeploymentCommand@ object that specifies the deployment command and
 -- any associated arguments.
-cdrqCommand :: Lens' CreateDeployment DeploymentCommand
-cdrqCommand = lens _cdrqCommand (\ s a -> s{_cdrqCommand = a});
+cdCommand :: Lens' CreateDeployment DeploymentCommand
+cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
 
 instance AWSRequest CreateDeployment where
         type Sv CreateDeployment = OpsWorks
@@ -149,11 +149,10 @@ instance ToHeaders CreateDeployment where
 instance ToJSON CreateDeployment where
         toJSON CreateDeployment'{..}
           = object
-              ["CustomJson" .= _cdrqCustomJSON,
-               "AppId" .= _cdrqAppId,
-               "InstanceIds" .= _cdrqInstanceIds,
-               "Comment" .= _cdrqComment, "StackId" .= _cdrqStackId,
-               "Command" .= _cdrqCommand]
+              ["CustomJson" .= _cdCustomJSON, "AppId" .= _cdAppId,
+               "InstanceIds" .= _cdInstanceIds,
+               "Comment" .= _cdComment, "StackId" .= _cdStackId,
+               "Command" .= _cdCommand]
 
 instance ToPath CreateDeployment where
         toPath = const "/"

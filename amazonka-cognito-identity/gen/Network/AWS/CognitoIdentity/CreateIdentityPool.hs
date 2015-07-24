@@ -30,11 +30,11 @@ module Network.AWS.CognitoIdentity.CreateIdentityPool
     -- ** Request constructor
     , createIdentityPool
     -- ** Request lenses
-    , ciprqSupportedLoginProviders
-    , ciprqDeveloperProviderName
-    , ciprqOpenIdConnectProviderARNs
-    , ciprqIdentityPoolName
-    , ciprqAllowUnauthenticatedIdentities
+    , cipSupportedLoginProviders
+    , cipDeveloperProviderName
+    , cipOpenIdConnectProviderARNs
+    , cipIdentityPoolName
+    , cipAllowUnauthenticatedIdentities
 
     -- * Response
     , IdentityPool
@@ -60,37 +60,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciprqSupportedLoginProviders'
+-- * 'cipSupportedLoginProviders'
 --
--- * 'ciprqDeveloperProviderName'
+-- * 'cipDeveloperProviderName'
 --
--- * 'ciprqOpenIdConnectProviderARNs'
+-- * 'cipOpenIdConnectProviderARNs'
 --
--- * 'ciprqIdentityPoolName'
+-- * 'cipIdentityPoolName'
 --
--- * 'ciprqAllowUnauthenticatedIdentities'
+-- * 'cipAllowUnauthenticatedIdentities'
 data CreateIdentityPool = CreateIdentityPool'
-    { _ciprqSupportedLoginProviders        :: !(Maybe (Map Text Text))
-    , _ciprqDeveloperProviderName          :: !(Maybe Text)
-    , _ciprqOpenIdConnectProviderARNs      :: !(Maybe [Text])
-    , _ciprqIdentityPoolName               :: !Text
-    , _ciprqAllowUnauthenticatedIdentities :: !Bool
+    { _cipSupportedLoginProviders        :: !(Maybe (Map Text Text))
+    , _cipDeveloperProviderName          :: !(Maybe Text)
+    , _cipOpenIdConnectProviderARNs      :: !(Maybe [Text])
+    , _cipIdentityPoolName               :: !Text
+    , _cipAllowUnauthenticatedIdentities :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateIdentityPool' smart constructor.
 createIdentityPool :: Text -> Bool -> CreateIdentityPool
 createIdentityPool pIdentityPoolName_ pAllowUnauthenticatedIdentities_ =
     CreateIdentityPool'
-    { _ciprqSupportedLoginProviders = Nothing
-    , _ciprqDeveloperProviderName = Nothing
-    , _ciprqOpenIdConnectProviderARNs = Nothing
-    , _ciprqIdentityPoolName = pIdentityPoolName_
-    , _ciprqAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
+    { _cipSupportedLoginProviders = Nothing
+    , _cipDeveloperProviderName = Nothing
+    , _cipOpenIdConnectProviderARNs = Nothing
+    , _cipIdentityPoolName = pIdentityPoolName_
+    , _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities_
     }
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-ciprqSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
-ciprqSupportedLoginProviders = lens _ciprqSupportedLoginProviders (\ s a -> s{_ciprqSupportedLoginProviders = a}) . _Default . _Map;
+cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
+cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSupportedLoginProviders = a}) . _Default . _Map;
 
 -- | The \"domain\" by which Cognito will refer to your users. This name acts
 -- as a placeholder that allows your backend and the Cognito service to
@@ -100,20 +100,20 @@ ciprqSupportedLoginProviders = lens _ciprqSupportedLoginProviders (\ s a -> s{_c
 --
 -- Once you have set a developer provider name, you cannot change it.
 -- Please take care in setting this parameter.
-ciprqDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
-ciprqDeveloperProviderName = lens _ciprqDeveloperProviderName (\ s a -> s{_ciprqDeveloperProviderName = a});
+cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
+cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDeveloperProviderName = a});
 
 -- | A list of OpendID Connect provider ARNs.
-ciprqOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
-ciprqOpenIdConnectProviderARNs = lens _ciprqOpenIdConnectProviderARNs (\ s a -> s{_ciprqOpenIdConnectProviderARNs = a}) . _Default;
+cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
+cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default;
 
 -- | A string that you provide.
-ciprqIdentityPoolName :: Lens' CreateIdentityPool Text
-ciprqIdentityPoolName = lens _ciprqIdentityPoolName (\ s a -> s{_ciprqIdentityPoolName = a});
+cipIdentityPoolName :: Lens' CreateIdentityPool Text
+cipIdentityPoolName = lens _cipIdentityPoolName (\ s a -> s{_cipIdentityPoolName = a});
 
 -- | TRUE if the identity pool supports unauthenticated logins.
-ciprqAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
-ciprqAllowUnauthenticatedIdentities = lens _ciprqAllowUnauthenticatedIdentities (\ s a -> s{_ciprqAllowUnauthenticatedIdentities = a});
+cipAllowUnauthenticatedIdentities :: Lens' CreateIdentityPool Bool
+cipAllowUnauthenticatedIdentities = lens _cipAllowUnauthenticatedIdentities (\ s a -> s{_cipAllowUnauthenticatedIdentities = a});
 
 instance AWSRequest CreateIdentityPool where
         type Sv CreateIdentityPool = CognitoIdentity
@@ -135,14 +135,13 @@ instance ToJSON CreateIdentityPool where
         toJSON CreateIdentityPool'{..}
           = object
               ["SupportedLoginProviders" .=
-                 _ciprqSupportedLoginProviders,
-               "DeveloperProviderName" .=
-                 _ciprqDeveloperProviderName,
+                 _cipSupportedLoginProviders,
+               "DeveloperProviderName" .= _cipDeveloperProviderName,
                "OpenIdConnectProviderARNs" .=
-                 _ciprqOpenIdConnectProviderARNs,
-               "IdentityPoolName" .= _ciprqIdentityPoolName,
+                 _cipOpenIdConnectProviderARNs,
+               "IdentityPoolName" .= _cipIdentityPoolName,
                "AllowUnauthenticatedIdentities" .=
-                 _ciprqAllowUnauthenticatedIdentities]
+                 _cipAllowUnauthenticatedIdentities]
 
 instance ToPath CreateIdentityPool where
         toPath = const "/"

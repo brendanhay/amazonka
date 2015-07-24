@@ -32,9 +32,9 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- ** Request constructor
     , describeVolumeAttribute
     -- ** Request lenses
-    , dvarqAttribute
-    , dvarqDryRun
-    , dvarqVolumeId
+    , dvaAttribute
+    , dvaDryRun
+    , dvaVolumeId
 
     -- * Response
     , DescribeVolumeAttributeResponse
@@ -56,40 +56,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvarqAttribute'
+-- * 'dvaAttribute'
 --
--- * 'dvarqDryRun'
+-- * 'dvaDryRun'
 --
--- * 'dvarqVolumeId'
+-- * 'dvaVolumeId'
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
-    { _dvarqAttribute :: !(Maybe VolumeAttributeName)
-    , _dvarqDryRun    :: !(Maybe Bool)
-    , _dvarqVolumeId  :: !Text
+    { _dvaAttribute :: !(Maybe VolumeAttributeName)
+    , _dvaDryRun    :: !(Maybe Bool)
+    , _dvaVolumeId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeAttribute' smart constructor.
 describeVolumeAttribute :: Text -> DescribeVolumeAttribute
 describeVolumeAttribute pVolumeId_ =
     DescribeVolumeAttribute'
-    { _dvarqAttribute = Nothing
-    , _dvarqDryRun = Nothing
-    , _dvarqVolumeId = pVolumeId_
+    { _dvaAttribute = Nothing
+    , _dvaDryRun = Nothing
+    , _dvaVolumeId = pVolumeId_
     }
 
 -- | The instance attribute.
-dvarqAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
-dvarqAttribute = lens _dvarqAttribute (\ s a -> s{_dvarqAttribute = a});
+dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
+dvaAttribute = lens _dvaAttribute (\ s a -> s{_dvaAttribute = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvarqDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
-dvarqDryRun = lens _dvarqDryRun (\ s a -> s{_dvarqDryRun = a});
+dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
+dvaDryRun = lens _dvaDryRun (\ s a -> s{_dvaDryRun = a});
 
 -- | The ID of the volume.
-dvarqVolumeId :: Lens' DescribeVolumeAttribute Text
-dvarqVolumeId = lens _dvarqVolumeId (\ s a -> s{_dvarqVolumeId = a});
+dvaVolumeId :: Lens' DescribeVolumeAttribute Text
+dvaVolumeId = lens _dvaVolumeId (\ s a -> s{_dvaVolumeId = a});
 
 instance AWSRequest DescribeVolumeAttribute where
         type Sv DescribeVolumeAttribute = EC2
@@ -118,9 +118,8 @@ instance ToQuery DescribeVolumeAttribute where
               ["Action" =:
                  ("DescribeVolumeAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Attribute" =: _dvarqAttribute,
-               "DryRun" =: _dvarqDryRun,
-               "VolumeId" =: _dvarqVolumeId]
+               "Attribute" =: _dvaAttribute, "DryRun" =: _dvaDryRun,
+               "VolumeId" =: _dvaVolumeId]
 
 -- | /See:/ 'describeVolumeAttributeResponse' smart constructor.
 --

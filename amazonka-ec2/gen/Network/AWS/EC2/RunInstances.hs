@@ -62,29 +62,29 @@ module Network.AWS.EC2.RunInstances
     -- ** Request constructor
     , runInstances
     -- ** Request lenses
-    , rirqSecurityGroupIds
-    , rirqAdditionalInfo
-    , rirqSecurityGroups
-    , rirqClientToken
-    , rirqDisableAPITermination
-    , rirqNetworkInterfaces
-    , rirqKeyName
-    , rirqRAMDiskId
-    , rirqKernelId
-    , rirqSubnetId
-    , rirqInstanceType
-    , rirqEBSOptimized
-    , rirqUserData
-    , rirqMonitoring
-    , rirqIAMInstanceProfile
-    , rirqInstanceInitiatedShutdownBehavior
-    , rirqPrivateIPAddress
-    , rirqBlockDeviceMappings
-    , rirqDryRun
-    , rirqPlacement
-    , rirqImageId
-    , rirqMinCount
-    , rirqMaxCount
+    , rSecurityGroupIds
+    , rAdditionalInfo
+    , rSecurityGroups
+    , rClientToken
+    , rDisableAPITermination
+    , rNetworkInterfaces
+    , rKeyName
+    , rRAMDiskId
+    , rKernelId
+    , rSubnetId
+    , rInstanceType
+    , rEBSOptimized
+    , rUserData
+    , rMonitoring
+    , rIAMInstanceProfile
+    , rInstanceInitiatedShutdownBehavior
+    , rPrivateIPAddress
+    , rBlockDeviceMappings
+    , rDryRun
+    , rPlacement
+    , rImageId
+    , rMinCount
+    , rMaxCount
 
     -- * Response
     , Reservation
@@ -107,131 +107,131 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rirqSecurityGroupIds'
+-- * 'rSecurityGroupIds'
 --
--- * 'rirqAdditionalInfo'
+-- * 'rAdditionalInfo'
 --
--- * 'rirqSecurityGroups'
+-- * 'rSecurityGroups'
 --
--- * 'rirqClientToken'
+-- * 'rClientToken'
 --
--- * 'rirqDisableAPITermination'
+-- * 'rDisableAPITermination'
 --
--- * 'rirqNetworkInterfaces'
+-- * 'rNetworkInterfaces'
 --
--- * 'rirqKeyName'
+-- * 'rKeyName'
 --
--- * 'rirqRAMDiskId'
+-- * 'rRAMDiskId'
 --
--- * 'rirqKernelId'
+-- * 'rKernelId'
 --
--- * 'rirqSubnetId'
+-- * 'rSubnetId'
 --
--- * 'rirqInstanceType'
+-- * 'rInstanceType'
 --
--- * 'rirqEBSOptimized'
+-- * 'rEBSOptimized'
 --
--- * 'rirqUserData'
+-- * 'rUserData'
 --
--- * 'rirqMonitoring'
+-- * 'rMonitoring'
 --
--- * 'rirqIAMInstanceProfile'
+-- * 'rIAMInstanceProfile'
 --
--- * 'rirqInstanceInitiatedShutdownBehavior'
+-- * 'rInstanceInitiatedShutdownBehavior'
 --
--- * 'rirqPrivateIPAddress'
+-- * 'rPrivateIPAddress'
 --
--- * 'rirqBlockDeviceMappings'
+-- * 'rBlockDeviceMappings'
 --
--- * 'rirqDryRun'
+-- * 'rDryRun'
 --
--- * 'rirqPlacement'
+-- * 'rPlacement'
 --
--- * 'rirqImageId'
+-- * 'rImageId'
 --
--- * 'rirqMinCount'
+-- * 'rMinCount'
 --
--- * 'rirqMaxCount'
+-- * 'rMaxCount'
 data RunInstances = RunInstances'
-    { _rirqSecurityGroupIds                  :: !(Maybe [Text])
-    , _rirqAdditionalInfo                    :: !(Maybe Text)
-    , _rirqSecurityGroups                    :: !(Maybe [Text])
-    , _rirqClientToken                       :: !(Maybe Text)
-    , _rirqDisableAPITermination             :: !(Maybe Bool)
-    , _rirqNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
-    , _rirqKeyName                           :: !(Maybe Text)
-    , _rirqRAMDiskId                         :: !(Maybe Text)
-    , _rirqKernelId                          :: !(Maybe Text)
-    , _rirqSubnetId                          :: !(Maybe Text)
-    , _rirqInstanceType                      :: !(Maybe InstanceType)
-    , _rirqEBSOptimized                      :: !(Maybe Bool)
-    , _rirqUserData                          :: !(Maybe Text)
-    , _rirqMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
-    , _rirqIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
-    , _rirqInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
-    , _rirqPrivateIPAddress                  :: !(Maybe Text)
-    , _rirqBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
-    , _rirqDryRun                            :: !(Maybe Bool)
-    , _rirqPlacement                         :: !(Maybe Placement)
-    , _rirqImageId                           :: !Text
-    , _rirqMinCount                          :: !Int
-    , _rirqMaxCount                          :: !Int
+    { _rSecurityGroupIds                  :: !(Maybe [Text])
+    , _rAdditionalInfo                    :: !(Maybe Text)
+    , _rSecurityGroups                    :: !(Maybe [Text])
+    , _rClientToken                       :: !(Maybe Text)
+    , _rDisableAPITermination             :: !(Maybe Bool)
+    , _rNetworkInterfaces                 :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _rKeyName                           :: !(Maybe Text)
+    , _rRAMDiskId                         :: !(Maybe Text)
+    , _rKernelId                          :: !(Maybe Text)
+    , _rSubnetId                          :: !(Maybe Text)
+    , _rInstanceType                      :: !(Maybe InstanceType)
+    , _rEBSOptimized                      :: !(Maybe Bool)
+    , _rUserData                          :: !(Maybe Text)
+    , _rMonitoring                        :: !(Maybe RunInstancesMonitoringEnabled)
+    , _rIAMInstanceProfile                :: !(Maybe IAMInstanceProfileSpecification)
+    , _rInstanceInitiatedShutdownBehavior :: !(Maybe ShutdownBehavior)
+    , _rPrivateIPAddress                  :: !(Maybe Text)
+    , _rBlockDeviceMappings               :: !(Maybe [BlockDeviceMapping])
+    , _rDryRun                            :: !(Maybe Bool)
+    , _rPlacement                         :: !(Maybe Placement)
+    , _rImageId                           :: !Text
+    , _rMinCount                          :: !Int
+    , _rMaxCount                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunInstances' smart constructor.
 runInstances :: Text -> Int -> Int -> RunInstances
 runInstances pImageId_ pMinCount_ pMaxCount_ =
     RunInstances'
-    { _rirqSecurityGroupIds = Nothing
-    , _rirqAdditionalInfo = Nothing
-    , _rirqSecurityGroups = Nothing
-    , _rirqClientToken = Nothing
-    , _rirqDisableAPITermination = Nothing
-    , _rirqNetworkInterfaces = Nothing
-    , _rirqKeyName = Nothing
-    , _rirqRAMDiskId = Nothing
-    , _rirqKernelId = Nothing
-    , _rirqSubnetId = Nothing
-    , _rirqInstanceType = Nothing
-    , _rirqEBSOptimized = Nothing
-    , _rirqUserData = Nothing
-    , _rirqMonitoring = Nothing
-    , _rirqIAMInstanceProfile = Nothing
-    , _rirqInstanceInitiatedShutdownBehavior = Nothing
-    , _rirqPrivateIPAddress = Nothing
-    , _rirqBlockDeviceMappings = Nothing
-    , _rirqDryRun = Nothing
-    , _rirqPlacement = Nothing
-    , _rirqImageId = pImageId_
-    , _rirqMinCount = pMinCount_
-    , _rirqMaxCount = pMaxCount_
+    { _rSecurityGroupIds = Nothing
+    , _rAdditionalInfo = Nothing
+    , _rSecurityGroups = Nothing
+    , _rClientToken = Nothing
+    , _rDisableAPITermination = Nothing
+    , _rNetworkInterfaces = Nothing
+    , _rKeyName = Nothing
+    , _rRAMDiskId = Nothing
+    , _rKernelId = Nothing
+    , _rSubnetId = Nothing
+    , _rInstanceType = Nothing
+    , _rEBSOptimized = Nothing
+    , _rUserData = Nothing
+    , _rMonitoring = Nothing
+    , _rIAMInstanceProfile = Nothing
+    , _rInstanceInitiatedShutdownBehavior = Nothing
+    , _rPrivateIPAddress = Nothing
+    , _rBlockDeviceMappings = Nothing
+    , _rDryRun = Nothing
+    , _rPlacement = Nothing
+    , _rImageId = pImageId_
+    , _rMinCount = pMinCount_
+    , _rMaxCount = pMaxCount_
     }
 
 -- | One or more security group IDs. You can create a security group using
 -- CreateSecurityGroup.
 --
 -- Default: Amazon EC2 uses the default security group.
-rirqSecurityGroupIds :: Lens' RunInstances [Text]
-rirqSecurityGroupIds = lens _rirqSecurityGroupIds (\ s a -> s{_rirqSecurityGroupIds = a}) . _Default;
+rSecurityGroupIds :: Lens' RunInstances [Text]
+rSecurityGroupIds = lens _rSecurityGroupIds (\ s a -> s{_rSecurityGroupIds = a}) . _Default;
 
 -- | Reserved.
-rirqAdditionalInfo :: Lens' RunInstances (Maybe Text)
-rirqAdditionalInfo = lens _rirqAdditionalInfo (\ s a -> s{_rirqAdditionalInfo = a});
+rAdditionalInfo :: Lens' RunInstances (Maybe Text)
+rAdditionalInfo = lens _rAdditionalInfo (\ s a -> s{_rAdditionalInfo = a});
 
 -- | [EC2-Classic, default VPC] One or more security group names. For a
 -- nondefault VPC, you must use security group IDs instead.
 --
 -- Default: Amazon EC2 uses the default security group.
-rirqSecurityGroups :: Lens' RunInstances [Text]
-rirqSecurityGroups = lens _rirqSecurityGroups (\ s a -> s{_rirqSecurityGroups = a}) . _Default;
+rSecurityGroups :: Lens' RunInstances [Text]
+rSecurityGroups = lens _rSecurityGroups (\ s a -> s{_rSecurityGroups = a}) . _Default;
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 --
 -- Constraints: Maximum 64 ASCII characters
-rirqClientToken :: Lens' RunInstances (Maybe Text)
-rirqClientToken = lens _rirqClientToken (\ s a -> s{_rirqClientToken = a});
+rClientToken :: Lens' RunInstances (Maybe Text)
+rClientToken = lens _rClientToken (\ s a -> s{_rClientToken = a});
 
 -- | If you set this parameter to @true@, you can\'t terminate the instance
 -- using the Amazon EC2 console, CLI, or API; otherwise, you can. If you
@@ -243,12 +243,12 @@ rirqClientToken = lens _rirqClientToken (\ s a -> s{_rirqClientToken = a});
 -- the instance by running the shutdown command from the instance.
 --
 -- Default: @false@
-rirqDisableAPITermination :: Lens' RunInstances (Maybe Bool)
-rirqDisableAPITermination = lens _rirqDisableAPITermination (\ s a -> s{_rirqDisableAPITermination = a});
+rDisableAPITermination :: Lens' RunInstances (Maybe Bool)
+rDisableAPITermination = lens _rDisableAPITermination (\ s a -> s{_rDisableAPITermination = a});
 
 -- | One or more network interfaces.
-rirqNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
-rirqNetworkInterfaces = lens _rirqNetworkInterfaces (\ s a -> s{_rirqNetworkInterfaces = a}) . _Default;
+rNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
+rNetworkInterfaces = lens _rNetworkInterfaces (\ s a -> s{_rNetworkInterfaces = a}) . _Default;
 
 -- | The name of the key pair. You can create a key pair using CreateKeyPair
 -- or ImportKeyPair.
@@ -256,8 +256,8 @@ rirqNetworkInterfaces = lens _rirqNetworkInterfaces (\ s a -> s{_rirqNetworkInte
 -- If you do not specify a key pair, you can\'t connect to the instance
 -- unless you choose an AMI that is configured to allow users another way
 -- to log in.
-rirqKeyName :: Lens' RunInstances (Maybe Text)
-rirqKeyName = lens _rirqKeyName (\ s a -> s{_rirqKeyName = a});
+rKeyName :: Lens' RunInstances (Maybe Text)
+rKeyName = lens _rKeyName (\ s a -> s{_rKeyName = a});
 
 -- | The ID of the RAM disk.
 --
@@ -265,8 +265,8 @@ rirqKeyName = lens _rirqKeyName (\ s a -> s{_rirqKeyName = a});
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-rirqRAMDiskId :: Lens' RunInstances (Maybe Text)
-rirqRAMDiskId = lens _rirqRAMDiskId (\ s a -> s{_rirqRAMDiskId = a});
+rRAMDiskId :: Lens' RunInstances (Maybe Text)
+rRAMDiskId = lens _rRAMDiskId (\ s a -> s{_rRAMDiskId = a});
 
 -- | The ID of the kernel.
 --
@@ -274,20 +274,20 @@ rirqRAMDiskId = lens _rirqRAMDiskId (\ s a -> s{_rirqRAMDiskId = a});
 -- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html PV-GRUB>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-rirqKernelId :: Lens' RunInstances (Maybe Text)
-rirqKernelId = lens _rirqKernelId (\ s a -> s{_rirqKernelId = a});
+rKernelId :: Lens' RunInstances (Maybe Text)
+rKernelId = lens _rKernelId (\ s a -> s{_rKernelId = a});
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
-rirqSubnetId :: Lens' RunInstances (Maybe Text)
-rirqSubnetId = lens _rirqSubnetId (\ s a -> s{_rirqSubnetId = a});
+rSubnetId :: Lens' RunInstances (Maybe Text)
+rSubnetId = lens _rSubnetId (\ s a -> s{_rSubnetId = a});
 
 -- | The instance type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Default: @m1.small@
-rirqInstanceType :: Lens' RunInstances (Maybe InstanceType)
-rirqInstanceType = lens _rirqInstanceType (\ s a -> s{_rirqInstanceType = a});
+rInstanceType :: Lens' RunInstances (Maybe InstanceType)
+rInstanceType = lens _rInstanceType (\ s a -> s{_rInstanceType = a});
 
 -- | Indicates whether the instance is optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
@@ -296,28 +296,28 @@ rirqInstanceType = lens _rirqInstanceType (\ s a -> s{_rirqInstanceType = a});
 -- usage charges apply when using an EBS-optimized instance.
 --
 -- Default: @false@
-rirqEBSOptimized :: Lens' RunInstances (Maybe Bool)
-rirqEBSOptimized = lens _rirqEBSOptimized (\ s a -> s{_rirqEBSOptimized = a});
+rEBSOptimized :: Lens' RunInstances (Maybe Bool)
+rEBSOptimized = lens _rEBSOptimized (\ s a -> s{_rEBSOptimized = a});
 
 -- | The Base64-encoded MIME user data for the instances.
-rirqUserData :: Lens' RunInstances (Maybe Text)
-rirqUserData = lens _rirqUserData (\ s a -> s{_rirqUserData = a});
+rUserData :: Lens' RunInstances (Maybe Text)
+rUserData = lens _rUserData (\ s a -> s{_rUserData = a});
 
 -- | The monitoring for the instance.
-rirqMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
-rirqMonitoring = lens _rirqMonitoring (\ s a -> s{_rirqMonitoring = a});
+rMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
+rMonitoring = lens _rMonitoring (\ s a -> s{_rMonitoring = a});
 
 -- | The IAM instance profile.
-rirqIAMInstanceProfile :: Lens' RunInstances (Maybe IAMInstanceProfileSpecification)
-rirqIAMInstanceProfile = lens _rirqIAMInstanceProfile (\ s a -> s{_rirqIAMInstanceProfile = a});
+rIAMInstanceProfile :: Lens' RunInstances (Maybe IAMInstanceProfileSpecification)
+rIAMInstanceProfile = lens _rIAMInstanceProfile (\ s a -> s{_rIAMInstanceProfile = a});
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
 --
 -- Default: @stop@
-rirqInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
-rirqInstanceInitiatedShutdownBehavior = lens _rirqInstanceInitiatedShutdownBehavior (\ s a -> s{_rirqInstanceInitiatedShutdownBehavior = a});
+rInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe ShutdownBehavior)
+rInstanceInitiatedShutdownBehavior = lens _rInstanceInitiatedShutdownBehavior (\ s a -> s{_rInstanceInitiatedShutdownBehavior = a});
 
 -- | [EC2-VPC] The primary IP address. You must specify a value from the IP
 -- address range of the subnet.
@@ -329,27 +329,27 @@ rirqInstanceInitiatedShutdownBehavior = lens _rirqInstanceInitiatedShutdownBehav
 --
 -- Default: We select an IP address from the IP address range of the
 -- subnet.
-rirqPrivateIPAddress :: Lens' RunInstances (Maybe Text)
-rirqPrivateIPAddress = lens _rirqPrivateIPAddress (\ s a -> s{_rirqPrivateIPAddress = a});
+rPrivateIPAddress :: Lens' RunInstances (Maybe Text)
+rPrivateIPAddress = lens _rPrivateIPAddress (\ s a -> s{_rPrivateIPAddress = a});
 
 -- | The block device mapping.
-rirqBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
-rirqBlockDeviceMappings = lens _rirqBlockDeviceMappings (\ s a -> s{_rirqBlockDeviceMappings = a}) . _Default;
+rBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
+rBlockDeviceMappings = lens _rBlockDeviceMappings (\ s a -> s{_rBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rirqDryRun :: Lens' RunInstances (Maybe Bool)
-rirqDryRun = lens _rirqDryRun (\ s a -> s{_rirqDryRun = a});
+rDryRun :: Lens' RunInstances (Maybe Bool)
+rDryRun = lens _rDryRun (\ s a -> s{_rDryRun = a});
 
 -- | The placement for the instance.
-rirqPlacement :: Lens' RunInstances (Maybe Placement)
-rirqPlacement = lens _rirqPlacement (\ s a -> s{_rirqPlacement = a});
+rPlacement :: Lens' RunInstances (Maybe Placement)
+rPlacement = lens _rPlacement (\ s a -> s{_rPlacement = a});
 
 -- | The ID of the AMI, which you can get by calling DescribeImages.
-rirqImageId :: Lens' RunInstances Text
-rirqImageId = lens _rirqImageId (\ s a -> s{_rirqImageId = a});
+rImageId :: Lens' RunInstances Text
+rImageId = lens _rImageId (\ s a -> s{_rImageId = a});
 
 -- | The minimum number of instances to launch. If you specify a minimum that
 -- is more instances than Amazon EC2 can launch in the target Availability
@@ -360,8 +360,8 @@ rirqImageId = lens _rirqImageId (\ s a -> s{_rirqImageId = a});
 -- and how to request an increase, see
 -- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2>
 -- in the Amazon EC2 General FAQ.
-rirqMinCount :: Lens' RunInstances Int
-rirqMinCount = lens _rirqMinCount (\ s a -> s{_rirqMinCount = a});
+rMinCount :: Lens' RunInstances Int
+rMinCount = lens _rMinCount (\ s a -> s{_rMinCount = a});
 
 -- | The maximum number of instances to launch. If you specify more instances
 -- than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
@@ -372,8 +372,8 @@ rirqMinCount = lens _rirqMinCount (\ s a -> s{_rirqMinCount = a});
 -- and how to request an increase, see
 -- <http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2 How many instances can I run in Amazon EC2>
 -- in the Amazon EC2 General FAQ.
-rirqMaxCount :: Lens' RunInstances Int
-rirqMaxCount = lens _rirqMaxCount (\ s a -> s{_rirqMaxCount = a});
+rMaxCount :: Lens' RunInstances Int
+rMaxCount = lens _rMaxCount (\ s a -> s{_rMaxCount = a});
 
 instance AWSRequest RunInstances where
         type Sv RunInstances = EC2
@@ -394,33 +394,26 @@ instance ToQuery RunInstances where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
                  (toQueryList "SecurityGroupId" <$>
-                    _rirqSecurityGroupIds),
-               "AdditionalInfo" =: _rirqAdditionalInfo,
+                    _rSecurityGroupIds),
+               "AdditionalInfo" =: _rAdditionalInfo,
                toQuery
-                 (toQueryList "SecurityGroup" <$>
-                    _rirqSecurityGroups),
-               "ClientToken" =: _rirqClientToken,
-               "DisableApiTermination" =:
-                 _rirqDisableAPITermination,
-               toQuery
-                 (toQueryList "item" <$> _rirqNetworkInterfaces),
-               "KeyName" =: _rirqKeyName,
-               "RamdiskId" =: _rirqRAMDiskId,
-               "KernelId" =: _rirqKernelId,
-               "SubnetId" =: _rirqSubnetId,
-               "InstanceType" =: _rirqInstanceType,
-               "EbsOptimized" =: _rirqEBSOptimized,
-               "UserData" =: _rirqUserData,
-               "Monitoring" =: _rirqMonitoring,
-               "IamInstanceProfile" =: _rirqIAMInstanceProfile,
+                 (toQueryList "SecurityGroup" <$> _rSecurityGroups),
+               "ClientToken" =: _rClientToken,
+               "DisableApiTermination" =: _rDisableAPITermination,
+               toQuery (toQueryList "item" <$> _rNetworkInterfaces),
+               "KeyName" =: _rKeyName, "RamdiskId" =: _rRAMDiskId,
+               "KernelId" =: _rKernelId, "SubnetId" =: _rSubnetId,
+               "InstanceType" =: _rInstanceType,
+               "EbsOptimized" =: _rEBSOptimized,
+               "UserData" =: _rUserData,
+               "Monitoring" =: _rMonitoring,
+               "IamInstanceProfile" =: _rIAMInstanceProfile,
                "InstanceInitiatedShutdownBehavior" =:
-                 _rirqInstanceInitiatedShutdownBehavior,
-               "PrivateIpAddress" =: _rirqPrivateIPAddress,
+                 _rInstanceInitiatedShutdownBehavior,
+               "PrivateIpAddress" =: _rPrivateIPAddress,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
-                    _rirqBlockDeviceMappings),
-               "DryRun" =: _rirqDryRun,
-               "Placement" =: _rirqPlacement,
-               "ImageId" =: _rirqImageId,
-               "MinCount" =: _rirqMinCount,
-               "MaxCount" =: _rirqMaxCount]
+                    _rBlockDeviceMappings),
+               "DryRun" =: _rDryRun, "Placement" =: _rPlacement,
+               "ImageId" =: _rImageId, "MinCount" =: _rMinCount,
+               "MaxCount" =: _rMaxCount]

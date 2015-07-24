@@ -77,12 +77,12 @@ module Network.AWS.SES.SendRawEmail
     -- ** Request constructor
     , sendRawEmail
     -- ** Request lenses
-    , srerqSourceARN
-    , srerqDestinations
-    , srerqReturnPathARN
-    , srerqSource
-    , srerqFromARN
-    , srerqRawMessage
+    , sreSourceARN
+    , sreDestinations
+    , sreReturnPathARN
+    , sreSource
+    , sreFromARN
+    , sreRawMessage
 
     -- * Response
     , SendRawEmailResponse
@@ -109,36 +109,36 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srerqSourceARN'
+-- * 'sreSourceARN'
 --
--- * 'srerqDestinations'
+-- * 'sreDestinations'
 --
--- * 'srerqReturnPathARN'
+-- * 'sreReturnPathARN'
 --
--- * 'srerqSource'
+-- * 'sreSource'
 --
--- * 'srerqFromARN'
+-- * 'sreFromARN'
 --
--- * 'srerqRawMessage'
+-- * 'sreRawMessage'
 data SendRawEmail = SendRawEmail'
-    { _srerqSourceARN     :: !(Maybe Text)
-    , _srerqDestinations  :: !(Maybe [Text])
-    , _srerqReturnPathARN :: !(Maybe Text)
-    , _srerqSource        :: !(Maybe Text)
-    , _srerqFromARN       :: !(Maybe Text)
-    , _srerqRawMessage    :: !RawMessage
+    { _sreSourceARN     :: !(Maybe Text)
+    , _sreDestinations  :: !(Maybe [Text])
+    , _sreReturnPathARN :: !(Maybe Text)
+    , _sreSource        :: !(Maybe Text)
+    , _sreFromARN       :: !(Maybe Text)
+    , _sreRawMessage    :: !RawMessage
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendRawEmail' smart constructor.
 sendRawEmail :: RawMessage -> SendRawEmail
 sendRawEmail pRawMessage_ =
     SendRawEmail'
-    { _srerqSourceARN = Nothing
-    , _srerqDestinations = Nothing
-    , _srerqReturnPathARN = Nothing
-    , _srerqSource = Nothing
-    , _srerqFromARN = Nothing
-    , _srerqRawMessage = pRawMessage_
+    { _sreSourceARN = Nothing
+    , _sreDestinations = Nothing
+    , _sreReturnPathARN = Nothing
+    , _sreSource = Nothing
+    , _sreFromARN = Nothing
+    , _sreRawMessage = pRawMessage_
     }
 
 -- | This parameter is used only for sending authorization. It is the ARN of
@@ -161,13 +161,13 @@ sendRawEmail pRawMessage_ =
 -- For information about when to use this parameter, see the description of
 -- @SendRawEmail@ in this guide, or see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-srerqSourceARN :: Lens' SendRawEmail (Maybe Text)
-srerqSourceARN = lens _srerqSourceARN (\ s a -> s{_srerqSourceARN = a});
+sreSourceARN :: Lens' SendRawEmail (Maybe Text)
+sreSourceARN = lens _sreSourceARN (\ s a -> s{_sreSourceARN = a});
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
-srerqDestinations :: Lens' SendRawEmail [Text]
-srerqDestinations = lens _srerqDestinations (\ s a -> s{_srerqDestinations = a}) . _Default;
+sreDestinations :: Lens' SendRawEmail [Text]
+sreDestinations = lens _sreDestinations (\ s a -> s{_sreDestinations = a}) . _Default;
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -189,8 +189,8 @@ srerqDestinations = lens _srerqDestinations (\ s a -> s{_srerqDestinations = a})
 -- For information about when to use this parameter, see the description of
 -- @SendRawEmail@ in this guide, or see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-srerqReturnPathARN :: Lens' SendRawEmail (Maybe Text)
-srerqReturnPathARN = lens _srerqReturnPathARN (\ s a -> s{_srerqReturnPathARN = a});
+sreReturnPathARN :: Lens' SendRawEmail (Maybe Text)
+sreReturnPathARN = lens _sreReturnPathARN (\ s a -> s{_sreReturnPathARN = a});
 
 -- | The identity\'s email address. If you do not provide a value for this
 -- parameter, you must specify a \"From\" address in the raw text of the
@@ -206,8 +206,8 @@ srerqReturnPathARN = lens _srerqReturnPathARN (\ s a -> s{_srerqReturnPathARN = 
 -- enabled, then bounces and complaints will be sent to this email address.
 -- This takes precedence over any /Return-Path/ header that you might
 -- include in the raw text of the message.
-srerqSource :: Lens' SendRawEmail (Maybe Text)
-srerqSource = lens _srerqSource (\ s a -> s{_srerqSource = a});
+sreSource :: Lens' SendRawEmail (Maybe Text)
+sreSource = lens _sreSource (\ s a -> s{_sreSource = a});
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -222,8 +222,8 @@ srerqSource = lens _srerqSource (\ s a -> s{_srerqSource = a});
 -- For information about when to use this parameter, see the description of
 -- @SendRawEmail@ in this guide, or see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html Amazon SES Developer Guide>.
-srerqFromARN :: Lens' SendRawEmail (Maybe Text)
-srerqFromARN = lens _srerqFromARN (\ s a -> s{_srerqFromARN = a});
+sreFromARN :: Lens' SendRawEmail (Maybe Text)
+sreFromARN = lens _sreFromARN (\ s a -> s{_sreFromARN = a});
 
 -- | The raw text of the message. The client is responsible for ensuring the
 -- following:
@@ -235,8 +235,8 @@ srerqFromARN = lens _srerqFromARN (\ s a -> s{_srerqFromARN = a});
 --     more information, go to the
 --     <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Amazon SES Developer Guide>.
 -- -   Content must be base64-encoded, if MIME requires it.
-srerqRawMessage :: Lens' SendRawEmail RawMessage
-srerqRawMessage = lens _srerqRawMessage (\ s a -> s{_srerqRawMessage = a});
+sreRawMessage :: Lens' SendRawEmail RawMessage
+sreRawMessage = lens _sreRawMessage (\ s a -> s{_sreRawMessage = a});
 
 instance AWSRequest SendRawEmail where
         type Sv SendRawEmail = SES
@@ -259,13 +259,12 @@ instance ToQuery SendRawEmail where
           = mconcat
               ["Action" =: ("SendRawEmail" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "SourceArn" =: _srerqSourceARN,
+               "SourceArn" =: _sreSourceARN,
                "Destinations" =:
-                 toQuery
-                   (toQueryList "member" <$> _srerqDestinations),
-               "ReturnPathArn" =: _srerqReturnPathARN,
-               "Source" =: _srerqSource, "FromArn" =: _srerqFromARN,
-               "RawMessage" =: _srerqRawMessage]
+                 toQuery (toQueryList "member" <$> _sreDestinations),
+               "ReturnPathArn" =: _sreReturnPathARN,
+               "Source" =: _sreSource, "FromArn" =: _sreFromARN,
+               "RawMessage" =: _sreRawMessage]
 
 -- | Represents a unique message ID returned from a successful @SendRawEmail@
 -- request.

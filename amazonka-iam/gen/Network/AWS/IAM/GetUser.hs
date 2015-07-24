@@ -31,7 +31,7 @@ module Network.AWS.IAM.GetUser
     -- ** Request constructor
     , getUser
     -- ** Request lenses
-    , gurqUserName
+    , guUserName
 
     -- * Response
     , GetUserResponse
@@ -51,24 +51,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gurqUserName'
+-- * 'guUserName'
 newtype GetUser = GetUser'
-    { _gurqUserName :: Maybe Text
+    { _guUserName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUser' smart constructor.
 getUser :: GetUser
 getUser =
     GetUser'
-    { _gurqUserName = Nothing
+    { _guUserName = Nothing
     }
 
 -- | The name of the user to get information about.
 --
 -- This parameter is optional. If it is not included, it defaults to the
 -- user making the request.
-gurqUserName :: Lens' GetUser (Maybe Text)
-gurqUserName = lens _gurqUserName (\ s a -> s{_gurqUserName = a});
+guUserName :: Lens' GetUser (Maybe Text)
+guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 
 instance AWSRequest GetUser where
         type Sv GetUser = IAM
@@ -91,7 +91,7 @@ instance ToQuery GetUser where
           = mconcat
               ["Action" =: ("GetUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _gurqUserName]
+               "UserName" =: _guUserName]
 
 -- | Contains the response to a successful GetUser request.
 --

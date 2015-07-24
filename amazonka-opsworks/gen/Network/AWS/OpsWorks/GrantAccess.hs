@@ -29,8 +29,8 @@ module Network.AWS.OpsWorks.GrantAccess
     -- ** Request constructor
     , grantAccess
     -- ** Request lenses
-    , garqValidForInMinutes
-    , garqInstanceId
+    , gaValidForInMinutes
+    , gaInstanceId
 
     -- * Response
     , GrantAccessResponse
@@ -50,32 +50,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'garqValidForInMinutes'
+-- * 'gaValidForInMinutes'
 --
--- * 'garqInstanceId'
+-- * 'gaInstanceId'
 data GrantAccess = GrantAccess'
-    { _garqValidForInMinutes :: !(Maybe Nat)
-    , _garqInstanceId        :: !Text
+    { _gaValidForInMinutes :: !(Maybe Nat)
+    , _gaInstanceId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantAccess' smart constructor.
 grantAccess :: Text -> GrantAccess
 grantAccess pInstanceId_ =
     GrantAccess'
-    { _garqValidForInMinutes = Nothing
-    , _garqInstanceId = pInstanceId_
+    { _gaValidForInMinutes = Nothing
+    , _gaInstanceId = pInstanceId_
     }
 
 -- | The length of time (in minutes) that the grant is valid. When the grant
 -- expires at the end of this period, the user will no longer be able to
 -- use the credentials to log in. If the user is logged in at the time, he
 -- or she automatically will be logged out.
-garqValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
-garqValidForInMinutes = lens _garqValidForInMinutes (\ s a -> s{_garqValidForInMinutes = a}) . mapping _Nat;
+gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
+gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat;
 
 -- | The instance\'s AWS OpsWorks ID.
-garqInstanceId :: Lens' GrantAccess Text
-garqInstanceId = lens _garqInstanceId (\ s a -> s{_garqInstanceId = a});
+gaInstanceId :: Lens' GrantAccess Text
+gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
 
 instance AWSRequest GrantAccess where
         type Sv GrantAccess = OpsWorks
@@ -100,8 +100,8 @@ instance ToHeaders GrantAccess where
 instance ToJSON GrantAccess where
         toJSON GrantAccess'{..}
           = object
-              ["ValidForInMinutes" .= _garqValidForInMinutes,
-               "InstanceId" .= _garqInstanceId]
+              ["ValidForInMinutes" .= _gaValidForInMinutes,
+               "InstanceId" .= _gaInstanceId]
 
 instance ToPath GrantAccess where
         toPath = const "/"

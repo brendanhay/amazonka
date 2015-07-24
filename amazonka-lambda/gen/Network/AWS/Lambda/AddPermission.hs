@@ -38,12 +38,12 @@ module Network.AWS.Lambda.AddPermission
     -- ** Request constructor
     , addPermission
     -- ** Request lenses
-    , aprqSourceAccount
-    , aprqSourceARN
-    , aprqFunctionName
-    , aprqStatementId
-    , aprqAction
-    , aprqPrincipal
+    , apSourceAccount
+    , apSourceARN
+    , apFunctionName
+    , apStatementId
+    , apAction
+    , apPrincipal
 
     -- * Response
     , AddPermissionResponse
@@ -63,36 +63,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aprqSourceAccount'
+-- * 'apSourceAccount'
 --
--- * 'aprqSourceARN'
+-- * 'apSourceARN'
 --
--- * 'aprqFunctionName'
+-- * 'apFunctionName'
 --
--- * 'aprqStatementId'
+-- * 'apStatementId'
 --
--- * 'aprqAction'
+-- * 'apAction'
 --
--- * 'aprqPrincipal'
+-- * 'apPrincipal'
 data AddPermission = AddPermission'
-    { _aprqSourceAccount :: !(Maybe Text)
-    , _aprqSourceARN     :: !(Maybe Text)
-    , _aprqFunctionName  :: !Text
-    , _aprqStatementId   :: !Text
-    , _aprqAction        :: !Text
-    , _aprqPrincipal     :: !Text
+    { _apSourceAccount :: !(Maybe Text)
+    , _apSourceARN     :: !(Maybe Text)
+    , _apFunctionName  :: !Text
+    , _apStatementId   :: !Text
+    , _apAction        :: !Text
+    , _apPrincipal     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> Text -> Text -> AddPermission
 addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
     AddPermission'
-    { _aprqSourceAccount = Nothing
-    , _aprqSourceARN = Nothing
-    , _aprqFunctionName = pFunctionName_
-    , _aprqStatementId = pStatementId_
-    , _aprqAction = pAction_
-    , _aprqPrincipal = pPrincipal_
+    { _apSourceAccount = Nothing
+    , _apSourceARN = Nothing
+    , _apFunctionName = pFunctionName_
+    , _apStatementId = pStatementId_
+    , _apAction = pAction_
+    , _apPrincipal = pPrincipal_
     }
 
 -- | The AWS account ID (without a hyphen) of the source owner. For example,
@@ -102,8 +102,8 @@ addPermission pFunctionName_ pStatementId_ pAction_ pPrincipal_ =
 -- owner deleted the bucket and some other AWS account created the bucket).
 -- You can also use this condition to specify all sources (that is, you
 -- don\'t specify the @SourceArn@) owned by a specific account.
-aprqSourceAccount :: Lens' AddPermission (Maybe Text)
-aprqSourceAccount = lens _aprqSourceAccount (\ s a -> s{_aprqSourceAccount = a});
+apSourceAccount :: Lens' AddPermission (Maybe Text)
+apSourceAccount = lens _apSourceAccount (\ s a -> s{_apSourceAccount = a});
 
 -- | This is optional; however, when granting Amazon S3 permission to invoke
 -- your function, you should specify this field with the bucket Amazon
@@ -113,8 +113,8 @@ aprqSourceAccount = lens _aprqSourceAccount (\ s a -> s{_aprqSourceAccount = a})
 -- If you add a permission for the Amazon S3 principal without providing
 -- the source ARN, any AWS account that creates a mapping to your function
 -- ARN can send events to invoke your Lambda function from Amazon S3.
-aprqSourceARN :: Lens' AddPermission (Maybe Text)
-aprqSourceARN = lens _aprqSourceARN (\ s a -> s{_aprqSourceARN = a});
+apSourceARN :: Lens' AddPermission (Maybe Text)
+apSourceARN = lens _apSourceARN (\ s a -> s{_apSourceARN = a});
 
 -- | Name of the Lambda function whose access policy you are updating by
 -- adding a new permission.
@@ -127,19 +127,19 @@ aprqSourceARN = lens _aprqSourceARN (\ s a -> s{_aprqSourceARN = a});
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-aprqFunctionName :: Lens' AddPermission Text
-aprqFunctionName = lens _aprqFunctionName (\ s a -> s{_aprqFunctionName = a});
+apFunctionName :: Lens' AddPermission Text
+apFunctionName = lens _apFunctionName (\ s a -> s{_apFunctionName = a});
 
 -- | A unique statement identifier.
-aprqStatementId :: Lens' AddPermission Text
-aprqStatementId = lens _aprqStatementId (\ s a -> s{_aprqStatementId = a});
+apStatementId :: Lens' AddPermission Text
+apStatementId = lens _apStatementId (\ s a -> s{_apStatementId = a});
 
 -- | The AWS Lambda action you want to allow in this statement. Each Lambda
 -- action is a string starting with \"lambda:\" followed by the API name
 -- (see Operations). For example, \"lambda:CreateFunction\". You can use
 -- wildcard (\"lambda:*\") to grant permission for all AWS Lambda actions.
-aprqAction :: Lens' AddPermission Text
-aprqAction = lens _aprqAction (\ s a -> s{_aprqAction = a});
+apAction :: Lens' AddPermission Text
+apAction = lens _apAction (\ s a -> s{_apAction = a});
 
 -- | The principal who is getting this permission. It can be Amazon S3
 -- service Principal (\"s3.amazonaws.com\") if you want Amazon S3 to invoke
@@ -148,8 +148,8 @@ aprqAction = lens _aprqAction (\ s a -> s{_aprqAction = a});
 -- \"sns.amazonaws.com\". For example, you might want to allow a custom
 -- application in another AWS account to push events to AWS Lambda by
 -- invoking your function.
-aprqPrincipal :: Lens' AddPermission Text
-aprqPrincipal = lens _aprqPrincipal (\ s a -> s{_aprqPrincipal = a});
+apPrincipal :: Lens' AddPermission Text
+apPrincipal = lens _apPrincipal (\ s a -> s{_apPrincipal = a});
 
 instance AWSRequest AddPermission where
         type Sv AddPermission = Lambda
@@ -167,16 +167,15 @@ instance ToHeaders AddPermission where
 instance ToJSON AddPermission where
         toJSON AddPermission'{..}
           = object
-              ["SourceAccount" .= _aprqSourceAccount,
-               "SourceArn" .= _aprqSourceARN,
-               "StatementId" .= _aprqStatementId,
-               "Action" .= _aprqAction,
-               "Principal" .= _aprqPrincipal]
+              ["SourceAccount" .= _apSourceAccount,
+               "SourceArn" .= _apSourceARN,
+               "StatementId" .= _apStatementId,
+               "Action" .= _apAction, "Principal" .= _apPrincipal]
 
 instance ToPath AddPermission where
         toPath AddPermission'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _aprqFunctionName,
+              ["/2015-03-31/functions/", toText _apFunctionName,
                "/versions/HEAD/policy"]
 
 instance ToQuery AddPermission where

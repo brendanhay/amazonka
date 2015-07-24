@@ -28,9 +28,9 @@ module Network.AWS.CloudHSM.GetConfig
     -- ** Request constructor
     , getConfig
     -- ** Request lenses
-    , gcrqClientARN
-    , gcrqClientVersion
-    , gcrqHAPGList
+    , gcClientARN
+    , gcClientVersion
+    , gcHAPGList
 
     -- * Response
     , GetConfigResponse
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcrqClientARN'
+-- * 'gcClientARN'
 --
--- * 'gcrqClientVersion'
+-- * 'gcClientVersion'
 --
--- * 'gcrqHAPGList'
+-- * 'gcHAPGList'
 data GetConfig = GetConfig'
-    { _gcrqClientARN     :: !Text
-    , _gcrqClientVersion :: !ClientVersion
-    , _gcrqHAPGList      :: ![Text]
+    { _gcClientARN     :: !Text
+    , _gcClientVersion :: !ClientVersion
+    , _gcHAPGList      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConfig' smart constructor.
 getConfig :: Text -> ClientVersion -> GetConfig
 getConfig pClientARN_ pClientVersion_ =
     GetConfig'
-    { _gcrqClientARN = pClientARN_
-    , _gcrqClientVersion = pClientVersion_
-    , _gcrqHAPGList = mempty
+    { _gcClientARN = pClientARN_
+    , _gcClientVersion = pClientVersion_
+    , _gcHAPGList = mempty
     }
 
 -- | The ARN of the client.
-gcrqClientARN :: Lens' GetConfig Text
-gcrqClientARN = lens _gcrqClientARN (\ s a -> s{_gcrqClientARN = a});
+gcClientARN :: Lens' GetConfig Text
+gcClientARN = lens _gcClientARN (\ s a -> s{_gcClientARN = a});
 
 -- | The client version.
-gcrqClientVersion :: Lens' GetConfig ClientVersion
-gcrqClientVersion = lens _gcrqClientVersion (\ s a -> s{_gcrqClientVersion = a});
+gcClientVersion :: Lens' GetConfig ClientVersion
+gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a});
 
 -- | A list of ARNs that identify the high-availability partition groups that
 -- are associated with the client.
-gcrqHAPGList :: Lens' GetConfig [Text]
-gcrqHAPGList = lens _gcrqHAPGList (\ s a -> s{_gcrqHAPGList = a});
+gcHAPGList :: Lens' GetConfig [Text]
+gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a});
 
 instance AWSRequest GetConfig where
         type Sv GetConfig = CloudHSM
@@ -109,9 +109,9 @@ instance ToHeaders GetConfig where
 instance ToJSON GetConfig where
         toJSON GetConfig'{..}
           = object
-              ["ClientArn" .= _gcrqClientARN,
-               "ClientVersion" .= _gcrqClientVersion,
-               "HapgList" .= _gcrqHAPGList]
+              ["ClientArn" .= _gcClientARN,
+               "ClientVersion" .= _gcClientVersion,
+               "HapgList" .= _gcHAPGList]
 
 instance ToPath GetConfig where
         toPath = const "/"

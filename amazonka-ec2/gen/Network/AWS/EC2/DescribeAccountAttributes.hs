@@ -47,8 +47,8 @@ module Network.AWS.EC2.DescribeAccountAttributes
     -- ** Request constructor
     , describeAccountAttributes
     -- ** Request lenses
-    , daarqAttributeNames
-    , daarqDryRun
+    , daaAttributeNames
+    , daaDryRun
 
     -- * Response
     , DescribeAccountAttributesResponse
@@ -68,32 +68,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daarqAttributeNames'
+-- * 'daaAttributeNames'
 --
--- * 'daarqDryRun'
+-- * 'daaDryRun'
 data DescribeAccountAttributes = DescribeAccountAttributes'
-    { _daarqAttributeNames :: !(Maybe [AccountAttributeName])
-    , _daarqDryRun         :: !(Maybe Bool)
+    { _daaAttributeNames :: !(Maybe [AccountAttributeName])
+    , _daaDryRun         :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountAttributes' smart constructor.
 describeAccountAttributes :: DescribeAccountAttributes
 describeAccountAttributes =
     DescribeAccountAttributes'
-    { _daarqAttributeNames = Nothing
-    , _daarqDryRun = Nothing
+    { _daaAttributeNames = Nothing
+    , _daaDryRun = Nothing
     }
 
 -- | One or more account attribute names.
-daarqAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
-daarqAttributeNames = lens _daarqAttributeNames (\ s a -> s{_daarqAttributeNames = a}) . _Default;
+daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
+daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-daarqDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
-daarqDryRun = lens _daarqDryRun (\ s a -> s{_daarqDryRun = a});
+daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
+daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a});
 
 instance AWSRequest DescribeAccountAttributes where
         type Sv DescribeAccountAttributes = EC2
@@ -121,9 +121,8 @@ instance ToQuery DescribeAccountAttributes where
                  ("DescribeAccountAttributes" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "attributeName" <$>
-                    _daarqAttributeNames),
-               "DryRun" =: _daarqDryRun]
+                 (toQueryList "attributeName" <$> _daaAttributeNames),
+               "DryRun" =: _daaDryRun]
 
 -- | /See:/ 'describeAccountAttributesResponse' smart constructor.
 --

@@ -42,7 +42,7 @@ module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     -- ** Request constructor
     , updateGatewaySoftwareNow
     -- ** Request lenses
-    , ugsnrqGatewayARN
+    , ugsnGatewayARN
 
     -- * Response
     , UpdateGatewaySoftwareNowResponse
@@ -64,21 +64,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ugsnrqGatewayARN'
+-- * 'ugsnGatewayARN'
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
-    { _ugsnrqGatewayARN :: Text
+    { _ugsnGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGatewaySoftwareNow' smart constructor.
 updateGatewaySoftwareNow :: Text -> UpdateGatewaySoftwareNow
 updateGatewaySoftwareNow pGatewayARN_ =
     UpdateGatewaySoftwareNow'
-    { _ugsnrqGatewayARN = pGatewayARN_
+    { _ugsnGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-ugsnrqGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
-ugsnrqGatewayARN = lens _ugsnrqGatewayARN (\ s a -> s{_ugsnrqGatewayARN = a});
+ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
+ugsnGatewayARN = lens _ugsnGatewayARN (\ s a -> s{_ugsnGatewayARN = a});
 
 instance AWSRequest UpdateGatewaySoftwareNow where
         type Sv UpdateGatewaySoftwareNow = StorageGateway
@@ -103,7 +103,7 @@ instance ToHeaders UpdateGatewaySoftwareNow where
 
 instance ToJSON UpdateGatewaySoftwareNow where
         toJSON UpdateGatewaySoftwareNow'{..}
-          = object ["GatewayARN" .= _ugsnrqGatewayARN]
+          = object ["GatewayARN" .= _ugsnGatewayARN]
 
 instance ToPath UpdateGatewaySoftwareNow where
         toPath = const "/"

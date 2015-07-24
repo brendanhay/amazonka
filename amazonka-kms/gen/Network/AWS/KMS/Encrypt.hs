@@ -48,10 +48,10 @@ module Network.AWS.KMS.Encrypt
     -- ** Request constructor
     , encrypt
     -- ** Request lenses
-    , erqEncryptionContext
-    , erqGrantTokens
-    , erqKeyId
-    , erqPlaintext
+    , eEncryptionContext
+    , eGrantTokens
+    , eKeyId
+    , ePlaintext
 
     -- * Response
     , EncryptResponse
@@ -72,41 +72,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'erqEncryptionContext'
+-- * 'eEncryptionContext'
 --
--- * 'erqGrantTokens'
+-- * 'eGrantTokens'
 --
--- * 'erqKeyId'
+-- * 'eKeyId'
 --
--- * 'erqPlaintext'
+-- * 'ePlaintext'
 data Encrypt = Encrypt'
-    { _erqEncryptionContext :: !(Maybe (Map Text Text))
-    , _erqGrantTokens       :: !(Maybe [Text])
-    , _erqKeyId             :: !Text
-    , _erqPlaintext         :: !(Sensitive Base64)
+    { _eEncryptionContext :: !(Maybe (Map Text Text))
+    , _eGrantTokens       :: !(Maybe [Text])
+    , _eKeyId             :: !Text
+    , _ePlaintext         :: !(Sensitive Base64)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Encrypt' smart constructor.
 encrypt :: Text -> Base64 -> Encrypt
 encrypt pKeyId_ pPlaintext_ =
     Encrypt'
-    { _erqEncryptionContext = Nothing
-    , _erqGrantTokens = Nothing
-    , _erqKeyId = pKeyId_
-    , _erqPlaintext = _Sensitive # pPlaintext_
+    { _eEncryptionContext = Nothing
+    , _eGrantTokens = Nothing
+    , _eKeyId = pKeyId_
+    , _ePlaintext = _Sensitive # pPlaintext_
     }
 
 -- | Name\/value pair that specifies the encryption context to be used for
 -- authenticated encryption. If used here, the same value must be supplied
 -- to the @Decrypt@ API or decryption will fail. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-erqEncryptionContext :: Lens' Encrypt (HashMap Text Text)
-erqEncryptionContext = lens _erqEncryptionContext (\ s a -> s{_erqEncryptionContext = a}) . _Default . _Map;
+eEncryptionContext :: Lens' Encrypt (HashMap Text Text)
+eEncryptionContext = lens _eEncryptionContext (\ s a -> s{_eEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-erqGrantTokens :: Lens' Encrypt [Text]
-erqGrantTokens = lens _erqGrantTokens (\ s a -> s{_erqGrantTokens = a}) . _Default;
+eGrantTokens :: Lens' Encrypt [Text]
+eGrantTokens = lens _eGrantTokens (\ s a -> s{_eGrantTokens = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -119,12 +119,12 @@ erqGrantTokens = lens _erqGrantTokens (\ s a -> s{_erqGrantTokens = a}) . _Defau
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-erqKeyId :: Lens' Encrypt Text
-erqKeyId = lens _erqKeyId (\ s a -> s{_erqKeyId = a});
+eKeyId :: Lens' Encrypt Text
+eKeyId = lens _eKeyId (\ s a -> s{_eKeyId = a});
 
 -- | Data to be encrypted.
-erqPlaintext :: Lens' Encrypt Base64
-erqPlaintext = lens _erqPlaintext (\ s a -> s{_erqPlaintext = a}) . _Sensitive;
+ePlaintext :: Lens' Encrypt Base64
+ePlaintext = lens _ePlaintext (\ s a -> s{_ePlaintext = a}) . _Sensitive;
 
 instance AWSRequest Encrypt where
         type Sv Encrypt = KMS
@@ -149,9 +149,9 @@ instance ToHeaders Encrypt where
 instance ToJSON Encrypt where
         toJSON Encrypt'{..}
           = object
-              ["EncryptionContext" .= _erqEncryptionContext,
-               "GrantTokens" .= _erqGrantTokens,
-               "KeyId" .= _erqKeyId, "Plaintext" .= _erqPlaintext]
+              ["EncryptionContext" .= _eEncryptionContext,
+               "GrantTokens" .= _eGrantTokens, "KeyId" .= _eKeyId,
+               "Plaintext" .= _ePlaintext]
 
 instance ToPath Encrypt where
         toPath = const "/"

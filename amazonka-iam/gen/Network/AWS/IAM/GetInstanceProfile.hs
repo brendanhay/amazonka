@@ -32,7 +32,7 @@ module Network.AWS.IAM.GetInstanceProfile
     -- ** Request constructor
     , getInstanceProfile
     -- ** Request lenses
-    , giprqInstanceProfileName
+    , gipInstanceProfileName
 
     -- * Response
     , GetInstanceProfileResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giprqInstanceProfileName'
+-- * 'gipInstanceProfileName'
 newtype GetInstanceProfile = GetInstanceProfile'
-    { _giprqInstanceProfileName :: Text
+    { _gipInstanceProfileName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInstanceProfile' smart constructor.
 getInstanceProfile :: Text -> GetInstanceProfile
 getInstanceProfile pInstanceProfileName_ =
     GetInstanceProfile'
-    { _giprqInstanceProfileName = pInstanceProfileName_
+    { _gipInstanceProfileName = pInstanceProfileName_
     }
 
 -- | The name of the instance profile to get information about.
-giprqInstanceProfileName :: Lens' GetInstanceProfile Text
-giprqInstanceProfileName = lens _giprqInstanceProfileName (\ s a -> s{_giprqInstanceProfileName = a});
+gipInstanceProfileName :: Lens' GetInstanceProfile Text
+gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstanceProfileName = a});
 
 instance AWSRequest GetInstanceProfile where
         type Sv GetInstanceProfile = IAM
@@ -90,7 +90,7 @@ instance ToQuery GetInstanceProfile where
           = mconcat
               ["Action" =: ("GetInstanceProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "InstanceProfileName" =: _giprqInstanceProfileName]
+               "InstanceProfileName" =: _gipInstanceProfileName]
 
 -- | Contains the response to a successful GetInstanceProfile request.
 --

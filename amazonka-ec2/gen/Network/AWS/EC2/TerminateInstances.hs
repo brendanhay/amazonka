@@ -50,8 +50,8 @@ module Network.AWS.EC2.TerminateInstances
     -- ** Request constructor
     , terminateInstances
     -- ** Request lenses
-    , tirqDryRun
-    , tirqInstanceIds
+    , tiDryRun
+    , tiInstanceIds
 
     -- * Response
     , TerminateInstancesResponse
@@ -71,32 +71,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tirqDryRun'
+-- * 'tiDryRun'
 --
--- * 'tirqInstanceIds'
+-- * 'tiInstanceIds'
 data TerminateInstances = TerminateInstances'
-    { _tirqDryRun      :: !(Maybe Bool)
-    , _tirqInstanceIds :: ![Text]
+    { _tiDryRun      :: !(Maybe Bool)
+    , _tiInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstances' smart constructor.
 terminateInstances :: TerminateInstances
 terminateInstances =
     TerminateInstances'
-    { _tirqDryRun = Nothing
-    , _tirqInstanceIds = mempty
+    { _tiDryRun = Nothing
+    , _tiInstanceIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-tirqDryRun :: Lens' TerminateInstances (Maybe Bool)
-tirqDryRun = lens _tirqDryRun (\ s a -> s{_tirqDryRun = a});
+tiDryRun :: Lens' TerminateInstances (Maybe Bool)
+tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
 
 -- | One or more instance IDs.
-tirqInstanceIds :: Lens' TerminateInstances [Text]
-tirqInstanceIds = lens _tirqInstanceIds (\ s a -> s{_tirqInstanceIds = a});
+tiInstanceIds :: Lens' TerminateInstances [Text]
+tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a});
 
 instance AWSRequest TerminateInstances where
         type Sv TerminateInstances = EC2
@@ -122,8 +122,8 @@ instance ToQuery TerminateInstances where
           = mconcat
               ["Action" =: ("TerminateInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _tirqDryRun,
-               toQueryList "InstanceId" _tirqInstanceIds]
+               "DryRun" =: _tiDryRun,
+               toQueryList "InstanceId" _tiInstanceIds]
 
 -- | /See:/ 'terminateInstancesResponse' smart constructor.
 --

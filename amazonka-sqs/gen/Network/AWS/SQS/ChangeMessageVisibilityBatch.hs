@@ -43,8 +43,8 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     -- ** Request constructor
     , changeMessageVisibilityBatch
     -- ** Request lenses
-    , cmvbrqQueueURL
-    , cmvbrqEntries
+    , cmvbQueueURL
+    , cmvbEntries
 
     -- * Response
     , ChangeMessageVisibilityBatchResponse
@@ -65,30 +65,30 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmvbrqQueueURL'
+-- * 'cmvbQueueURL'
 --
--- * 'cmvbrqEntries'
+-- * 'cmvbEntries'
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
-    { _cmvbrqQueueURL :: !Text
-    , _cmvbrqEntries  :: ![ChangeMessageVisibilityBatchRequestEntry]
+    { _cmvbQueueURL :: !Text
+    , _cmvbEntries  :: ![ChangeMessageVisibilityBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeMessageVisibilityBatch' smart constructor.
 changeMessageVisibilityBatch :: Text -> ChangeMessageVisibilityBatch
 changeMessageVisibilityBatch pQueueURL_ =
     ChangeMessageVisibilityBatch'
-    { _cmvbrqQueueURL = pQueueURL_
-    , _cmvbrqEntries = mempty
+    { _cmvbQueueURL = pQueueURL_
+    , _cmvbEntries = mempty
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-cmvbrqQueueURL :: Lens' ChangeMessageVisibilityBatch Text
-cmvbrqQueueURL = lens _cmvbrqQueueURL (\ s a -> s{_cmvbrqQueueURL = a});
+cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
+cmvbQueueURL = lens _cmvbQueueURL (\ s a -> s{_cmvbQueueURL = a});
 
 -- | A list of receipt handles of the messages for which the visibility
 -- timeout must be changed.
-cmvbrqEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
-cmvbrqEntries = lens _cmvbrqEntries (\ s a -> s{_cmvbrqEntries = a});
+cmvbEntries :: Lens' ChangeMessageVisibilityBatch [ChangeMessageVisibilityBatchRequestEntry]
+cmvbEntries = lens _cmvbEntries (\ s a -> s{_cmvbEntries = a});
 
 instance AWSRequest ChangeMessageVisibilityBatch
          where
@@ -119,10 +119,10 @@ instance ToQuery ChangeMessageVisibilityBatch where
               ["Action" =:
                  ("ChangeMessageVisibilityBatch" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _cmvbrqQueueURL,
+               "QueueUrl" =: _cmvbQueueURL,
                toQueryList
                  "ChangeMessageVisibilityBatchRequestEntry"
-                 _cmvbrqEntries]
+                 _cmvbEntries]
 
 -- | For each message in the batch, the response contains a
 -- ChangeMessageVisibilityBatchResultEntry tag if the message succeeds or a

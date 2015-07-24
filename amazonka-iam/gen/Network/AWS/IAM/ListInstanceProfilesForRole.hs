@@ -33,9 +33,9 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     -- ** Request constructor
     , listInstanceProfilesForRole
     -- ** Request lenses
-    , lipfrrqMaxItems
-    , lipfrrqMarker
-    , lipfrrqRoleName
+    , lipfrMaxItems
+    , lipfrMarker
+    , lipfrRoleName
 
     -- * Response
     , ListInstanceProfilesForRoleResponse
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lipfrrqMaxItems'
+-- * 'lipfrMaxItems'
 --
--- * 'lipfrrqMarker'
+-- * 'lipfrMarker'
 --
--- * 'lipfrrqRoleName'
+-- * 'lipfrRoleName'
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
-    { _lipfrrqMaxItems :: !(Maybe Nat)
-    , _lipfrrqMarker   :: !(Maybe Text)
-    , _lipfrrqRoleName :: !Text
+    { _lipfrMaxItems :: !(Maybe Nat)
+    , _lipfrMarker   :: !(Maybe Text)
+    , _lipfrRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfilesForRole' smart constructor.
 listInstanceProfilesForRole :: Text -> ListInstanceProfilesForRole
 listInstanceProfilesForRole pRoleName_ =
     ListInstanceProfilesForRole'
-    { _lipfrrqMaxItems = Nothing
-    , _lipfrrqMarker = Nothing
-    , _lipfrrqRoleName = pRoleName_
+    { _lipfrMaxItems = Nothing
+    , _lipfrMarker = Nothing
+    , _lipfrRoleName = pRoleName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -84,25 +84,25 @@ listInstanceProfilesForRole pRoleName_ =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lipfrrqMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
-lipfrrqMaxItems = lens _lipfrrqMaxItems (\ s a -> s{_lipfrrqMaxItems = a}) . mapping _Nat;
+lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
+lipfrMaxItems = lens _lipfrMaxItems (\ s a -> s{_lipfrMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lipfrrqMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
-lipfrrqMarker = lens _lipfrrqMarker (\ s a -> s{_lipfrrqMarker = a});
+lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
+lipfrMarker = lens _lipfrMarker (\ s a -> s{_lipfrMarker = a});
 
 -- | The name of the role to list instance profiles for.
-lipfrrqRoleName :: Lens' ListInstanceProfilesForRole Text
-lipfrrqRoleName = lens _lipfrrqRoleName (\ s a -> s{_lipfrrqRoleName = a});
+lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
+lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
 
 instance AWSPager ListInstanceProfilesForRole where
         page rq rs
           | stop (rs ^. lipfrrsIsTruncated) = Nothing
           | isNothing (rs ^. lipfrrsMarker) = Nothing
           | otherwise =
-            Just $ rq & lipfrrqMarker .~ rs ^. lipfrrsMarker
+            Just $ rq & lipfrMarker .~ rs ^. lipfrrsMarker
 
 instance AWSRequest ListInstanceProfilesForRole where
         type Sv ListInstanceProfilesForRole = IAM
@@ -132,9 +132,9 @@ instance ToQuery ListInstanceProfilesForRole where
               ["Action" =:
                  ("ListInstanceProfilesForRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lipfrrqMaxItems,
-               "Marker" =: _lipfrrqMarker,
-               "RoleName" =: _lipfrrqRoleName]
+               "MaxItems" =: _lipfrMaxItems,
+               "Marker" =: _lipfrMarker,
+               "RoleName" =: _lipfrRoleName]
 
 -- | Contains the response to a successful ListInstanceProfilesForRole
 -- request.

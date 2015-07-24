@@ -27,8 +27,8 @@ module Network.AWS.ElastiCache.CopySnapshot
     -- ** Request constructor
     , copySnapshot
     -- ** Request lenses
-    , csrqSourceSnapshotName
-    , csrqTargetSnapshotName
+    , csSourceSnapshotName
+    , csTargetSnapshotName
 
     -- * Response
     , CopySnapshotResponse
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrqSourceSnapshotName'
+-- * 'csSourceSnapshotName'
 --
--- * 'csrqTargetSnapshotName'
+-- * 'csTargetSnapshotName'
 data CopySnapshot = CopySnapshot'
-    { _csrqSourceSnapshotName :: !Text
-    , _csrqTargetSnapshotName :: !Text
+    { _csSourceSnapshotName :: !Text
+    , _csTargetSnapshotName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
 copySnapshot pSourceSnapshotName_ pTargetSnapshotName_ =
     CopySnapshot'
-    { _csrqSourceSnapshotName = pSourceSnapshotName_
-    , _csrqTargetSnapshotName = pTargetSnapshotName_
+    { _csSourceSnapshotName = pSourceSnapshotName_
+    , _csTargetSnapshotName = pTargetSnapshotName_
     }
 
 -- | The name of an existing snapshot from which to copy.
-csrqSourceSnapshotName :: Lens' CopySnapshot Text
-csrqSourceSnapshotName = lens _csrqSourceSnapshotName (\ s a -> s{_csrqSourceSnapshotName = a});
+csSourceSnapshotName :: Lens' CopySnapshot Text
+csSourceSnapshotName = lens _csSourceSnapshotName (\ s a -> s{_csSourceSnapshotName = a});
 
 -- | A name for the copied snapshot.
-csrqTargetSnapshotName :: Lens' CopySnapshot Text
-csrqTargetSnapshotName = lens _csrqTargetSnapshotName (\ s a -> s{_csrqTargetSnapshotName = a});
+csTargetSnapshotName :: Lens' CopySnapshot Text
+csTargetSnapshotName = lens _csTargetSnapshotName (\ s a -> s{_csTargetSnapshotName = a});
 
 instance AWSRequest CopySnapshot where
         type Sv CopySnapshot = ElastiCache
@@ -95,8 +95,8 @@ instance ToQuery CopySnapshot where
           = mconcat
               ["Action" =: ("CopySnapshot" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "SourceSnapshotName" =: _csrqSourceSnapshotName,
-               "TargetSnapshotName" =: _csrqTargetSnapshotName]
+               "SourceSnapshotName" =: _csSourceSnapshotName,
+               "TargetSnapshotName" =: _csTargetSnapshotName]
 
 -- | /See:/ 'copySnapshotResponse' smart constructor.
 --

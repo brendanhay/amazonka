@@ -27,24 +27,24 @@ module Network.AWS.S3.GetObject
     -- ** Request constructor
     , getObject
     -- ** Request lenses
-    , gorqIfMatch
-    , gorqVersionId
-    , gorqResponseContentType
-    , gorqResponseContentDisposition
-    , gorqResponseContentLanguage
-    , gorqSSECustomerAlgorithm
-    , gorqSSECustomerKey
-    , gorqRequestPayer
-    , gorqResponseContentEncoding
-    , gorqIfModifiedSince
-    , gorqRange
-    , gorqIfUnmodifiedSince
-    , gorqSSECustomerKeyMD5
-    , gorqResponseCacheControl
-    , gorqResponseExpires
-    , gorqIfNoneMatch
-    , gorqBucket
-    , gorqKey
+    , goIfMatch
+    , goVersionId
+    , goResponseContentType
+    , goResponseContentDisposition
+    , goResponseContentLanguage
+    , goSSECustomerAlgorithm
+    , goSSECustomerKey
+    , goRequestPayer
+    , goResponseContentEncoding
+    , goIfModifiedSince
+    , goRange
+    , goIfUnmodifiedSince
+    , goSSECustomerKeyMD5
+    , goResponseCacheControl
+    , goResponseExpires
+    , goIfNoneMatch
+    , goBucket
+    , goKey
 
     -- * Response
     , GetObjectResponse
@@ -87,170 +87,170 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gorqIfMatch'
+-- * 'goIfMatch'
 --
--- * 'gorqVersionId'
+-- * 'goVersionId'
 --
--- * 'gorqResponseContentType'
+-- * 'goResponseContentType'
 --
--- * 'gorqResponseContentDisposition'
+-- * 'goResponseContentDisposition'
 --
--- * 'gorqResponseContentLanguage'
+-- * 'goResponseContentLanguage'
 --
--- * 'gorqSSECustomerAlgorithm'
+-- * 'goSSECustomerAlgorithm'
 --
--- * 'gorqSSECustomerKey'
+-- * 'goSSECustomerKey'
 --
--- * 'gorqRequestPayer'
+-- * 'goRequestPayer'
 --
--- * 'gorqResponseContentEncoding'
+-- * 'goResponseContentEncoding'
 --
--- * 'gorqIfModifiedSince'
+-- * 'goIfModifiedSince'
 --
--- * 'gorqRange'
+-- * 'goRange'
 --
--- * 'gorqIfUnmodifiedSince'
+-- * 'goIfUnmodifiedSince'
 --
--- * 'gorqSSECustomerKeyMD5'
+-- * 'goSSECustomerKeyMD5'
 --
--- * 'gorqResponseCacheControl'
+-- * 'goResponseCacheControl'
 --
--- * 'gorqResponseExpires'
+-- * 'goResponseExpires'
 --
--- * 'gorqIfNoneMatch'
+-- * 'goIfNoneMatch'
 --
--- * 'gorqBucket'
+-- * 'goBucket'
 --
--- * 'gorqKey'
+-- * 'goKey'
 data GetObject = GetObject'
-    { _gorqIfMatch                    :: !(Maybe Text)
-    , _gorqVersionId                  :: !(Maybe ObjectVersionId)
-    , _gorqResponseContentType        :: !(Maybe Text)
-    , _gorqResponseContentDisposition :: !(Maybe Text)
-    , _gorqResponseContentLanguage    :: !(Maybe Text)
-    , _gorqSSECustomerAlgorithm       :: !(Maybe Text)
-    , _gorqSSECustomerKey             :: !(Maybe (Sensitive Text))
-    , _gorqRequestPayer               :: !(Maybe RequestPayer)
-    , _gorqResponseContentEncoding    :: !(Maybe Text)
-    , _gorqIfModifiedSince            :: !(Maybe RFC822)
-    , _gorqRange                      :: !(Maybe Text)
-    , _gorqIfUnmodifiedSince          :: !(Maybe RFC822)
-    , _gorqSSECustomerKeyMD5          :: !(Maybe Text)
-    , _gorqResponseCacheControl       :: !(Maybe Text)
-    , _gorqResponseExpires            :: !(Maybe RFC822)
-    , _gorqIfNoneMatch                :: !(Maybe Text)
-    , _gorqBucket                     :: !BucketName
-    , _gorqKey                        :: !ObjectKey
+    { _goIfMatch                    :: !(Maybe Text)
+    , _goVersionId                  :: !(Maybe ObjectVersionId)
+    , _goResponseContentType        :: !(Maybe Text)
+    , _goResponseContentDisposition :: !(Maybe Text)
+    , _goResponseContentLanguage    :: !(Maybe Text)
+    , _goSSECustomerAlgorithm       :: !(Maybe Text)
+    , _goSSECustomerKey             :: !(Maybe (Sensitive Text))
+    , _goRequestPayer               :: !(Maybe RequestPayer)
+    , _goResponseContentEncoding    :: !(Maybe Text)
+    , _goIfModifiedSince            :: !(Maybe RFC822)
+    , _goRange                      :: !(Maybe Text)
+    , _goIfUnmodifiedSince          :: !(Maybe RFC822)
+    , _goSSECustomerKeyMD5          :: !(Maybe Text)
+    , _goResponseCacheControl       :: !(Maybe Text)
+    , _goResponseExpires            :: !(Maybe RFC822)
+    , _goIfNoneMatch                :: !(Maybe Text)
+    , _goBucket                     :: !BucketName
+    , _goKey                        :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetObject' smart constructor.
 getObject :: BucketName -> ObjectKey -> GetObject
 getObject pBucket_ pKey_ =
     GetObject'
-    { _gorqIfMatch = Nothing
-    , _gorqVersionId = Nothing
-    , _gorqResponseContentType = Nothing
-    , _gorqResponseContentDisposition = Nothing
-    , _gorqResponseContentLanguage = Nothing
-    , _gorqSSECustomerAlgorithm = Nothing
-    , _gorqSSECustomerKey = Nothing
-    , _gorqRequestPayer = Nothing
-    , _gorqResponseContentEncoding = Nothing
-    , _gorqIfModifiedSince = Nothing
-    , _gorqRange = Nothing
-    , _gorqIfUnmodifiedSince = Nothing
-    , _gorqSSECustomerKeyMD5 = Nothing
-    , _gorqResponseCacheControl = Nothing
-    , _gorqResponseExpires = Nothing
-    , _gorqIfNoneMatch = Nothing
-    , _gorqBucket = pBucket_
-    , _gorqKey = pKey_
+    { _goIfMatch = Nothing
+    , _goVersionId = Nothing
+    , _goResponseContentType = Nothing
+    , _goResponseContentDisposition = Nothing
+    , _goResponseContentLanguage = Nothing
+    , _goSSECustomerAlgorithm = Nothing
+    , _goSSECustomerKey = Nothing
+    , _goRequestPayer = Nothing
+    , _goResponseContentEncoding = Nothing
+    , _goIfModifiedSince = Nothing
+    , _goRange = Nothing
+    , _goIfUnmodifiedSince = Nothing
+    , _goSSECustomerKeyMD5 = Nothing
+    , _goResponseCacheControl = Nothing
+    , _goResponseExpires = Nothing
+    , _goIfNoneMatch = Nothing
+    , _goBucket = pBucket_
+    , _goKey = pKey_
     }
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
-gorqIfMatch :: Lens' GetObject (Maybe Text)
-gorqIfMatch = lens _gorqIfMatch (\ s a -> s{_gorqIfMatch = a});
+goIfMatch :: Lens' GetObject (Maybe Text)
+goIfMatch = lens _goIfMatch (\ s a -> s{_goIfMatch = a});
 
 -- | VersionId used to reference a specific version of the object.
-gorqVersionId :: Lens' GetObject (Maybe ObjectVersionId)
-gorqVersionId = lens _gorqVersionId (\ s a -> s{_gorqVersionId = a});
+goVersionId :: Lens' GetObject (Maybe ObjectVersionId)
+goVersionId = lens _goVersionId (\ s a -> s{_goVersionId = a});
 
 -- | Sets the Content-Type header of the response.
-gorqResponseContentType :: Lens' GetObject (Maybe Text)
-gorqResponseContentType = lens _gorqResponseContentType (\ s a -> s{_gorqResponseContentType = a});
+goResponseContentType :: Lens' GetObject (Maybe Text)
+goResponseContentType = lens _goResponseContentType (\ s a -> s{_goResponseContentType = a});
 
 -- | Sets the Content-Disposition header of the response
-gorqResponseContentDisposition :: Lens' GetObject (Maybe Text)
-gorqResponseContentDisposition = lens _gorqResponseContentDisposition (\ s a -> s{_gorqResponseContentDisposition = a});
+goResponseContentDisposition :: Lens' GetObject (Maybe Text)
+goResponseContentDisposition = lens _goResponseContentDisposition (\ s a -> s{_goResponseContentDisposition = a});
 
 -- | Sets the Content-Language header of the response.
-gorqResponseContentLanguage :: Lens' GetObject (Maybe Text)
-gorqResponseContentLanguage = lens _gorqResponseContentLanguage (\ s a -> s{_gorqResponseContentLanguage = a});
+goResponseContentLanguage :: Lens' GetObject (Maybe Text)
+goResponseContentLanguage = lens _goResponseContentLanguage (\ s a -> s{_goResponseContentLanguage = a});
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256, aws:kms).
-gorqSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
-gorqSSECustomerAlgorithm = lens _gorqSSECustomerAlgorithm (\ s a -> s{_gorqSSECustomerAlgorithm = a});
+goSSECustomerAlgorithm :: Lens' GetObject (Maybe Text)
+goSSECustomerAlgorithm = lens _goSSECustomerAlgorithm (\ s a -> s{_goSSECustomerAlgorithm = a});
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side​-encryption​-customer-algorithm header.
-gorqSSECustomerKey :: Lens' GetObject (Maybe Text)
-gorqSSECustomerKey = lens _gorqSSECustomerKey (\ s a -> s{_gorqSSECustomerKey = a}) . mapping _Sensitive;
+goSSECustomerKey :: Lens' GetObject (Maybe Text)
+goSSECustomerKey = lens _goSSECustomerKey (\ s a -> s{_goSSECustomerKey = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-gorqRequestPayer :: Lens' GetObject (Maybe RequestPayer)
-gorqRequestPayer = lens _gorqRequestPayer (\ s a -> s{_gorqRequestPayer = a});
+goRequestPayer :: Lens' GetObject (Maybe RequestPayer)
+goRequestPayer = lens _goRequestPayer (\ s a -> s{_goRequestPayer = a});
 
 -- | Sets the Content-Encoding header of the response.
-gorqResponseContentEncoding :: Lens' GetObject (Maybe Text)
-gorqResponseContentEncoding = lens _gorqResponseContentEncoding (\ s a -> s{_gorqResponseContentEncoding = a});
+goResponseContentEncoding :: Lens' GetObject (Maybe Text)
+goResponseContentEncoding = lens _goResponseContentEncoding (\ s a -> s{_goResponseContentEncoding = a});
 
 -- | Return the object only if it has been modified since the specified time,
 -- otherwise return a 304 (not modified).
-gorqIfModifiedSince :: Lens' GetObject (Maybe UTCTime)
-gorqIfModifiedSince = lens _gorqIfModifiedSince (\ s a -> s{_gorqIfModifiedSince = a}) . mapping _Time;
+goIfModifiedSince :: Lens' GetObject (Maybe UTCTime)
+goIfModifiedSince = lens _goIfModifiedSince (\ s a -> s{_goIfModifiedSince = a}) . mapping _Time;
 
 -- | Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, go to
 -- http:\/\/www.w3.org\/Protocols\/rfc2616\/rfc2616-sec14.html#sec14.35.
-gorqRange :: Lens' GetObject (Maybe Text)
-gorqRange = lens _gorqRange (\ s a -> s{_gorqRange = a});
+goRange :: Lens' GetObject (Maybe Text)
+goRange = lens _goRange (\ s a -> s{_goRange = a});
 
 -- | Return the object only if it has not been modified since the specified
 -- time, otherwise return a 412 (precondition failed).
-gorqIfUnmodifiedSince :: Lens' GetObject (Maybe UTCTime)
-gorqIfUnmodifiedSince = lens _gorqIfUnmodifiedSince (\ s a -> s{_gorqIfUnmodifiedSince = a}) . mapping _Time;
+goIfUnmodifiedSince :: Lens' GetObject (Maybe UTCTime)
+goIfUnmodifiedSince = lens _goIfUnmodifiedSince (\ s a -> s{_goIfUnmodifiedSince = a}) . mapping _Time;
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-gorqSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
-gorqSSECustomerKeyMD5 = lens _gorqSSECustomerKeyMD5 (\ s a -> s{_gorqSSECustomerKeyMD5 = a});
+goSSECustomerKeyMD5 :: Lens' GetObject (Maybe Text)
+goSSECustomerKeyMD5 = lens _goSSECustomerKeyMD5 (\ s a -> s{_goSSECustomerKeyMD5 = a});
 
 -- | Sets the Cache-Control header of the response.
-gorqResponseCacheControl :: Lens' GetObject (Maybe Text)
-gorqResponseCacheControl = lens _gorqResponseCacheControl (\ s a -> s{_gorqResponseCacheControl = a});
+goResponseCacheControl :: Lens' GetObject (Maybe Text)
+goResponseCacheControl = lens _goResponseCacheControl (\ s a -> s{_goResponseCacheControl = a});
 
 -- | Sets the Expires header of the response.
-gorqResponseExpires :: Lens' GetObject (Maybe UTCTime)
-gorqResponseExpires = lens _gorqResponseExpires (\ s a -> s{_gorqResponseExpires = a}) . mapping _Time;
+goResponseExpires :: Lens' GetObject (Maybe UTCTime)
+goResponseExpires = lens _goResponseExpires (\ s a -> s{_goResponseExpires = a}) . mapping _Time;
 
 -- | Return the object only if its entity tag (ETag) is different from the
 -- one specified, otherwise return a 304 (not modified).
-gorqIfNoneMatch :: Lens' GetObject (Maybe Text)
-gorqIfNoneMatch = lens _gorqIfNoneMatch (\ s a -> s{_gorqIfNoneMatch = a});
+goIfNoneMatch :: Lens' GetObject (Maybe Text)
+goIfNoneMatch = lens _goIfNoneMatch (\ s a -> s{_goIfNoneMatch = a});
 
 -- | FIXME: Undocumented member.
-gorqBucket :: Lens' GetObject BucketName
-gorqBucket = lens _gorqBucket (\ s a -> s{_gorqBucket = a});
+goBucket :: Lens' GetObject BucketName
+goBucket = lens _goBucket (\ s a -> s{_goBucket = a});
 
 -- | FIXME: Undocumented member.
-gorqKey :: Lens' GetObject ObjectKey
-gorqKey = lens _gorqKey (\ s a -> s{_gorqKey = a});
+goKey :: Lens' GetObject ObjectKey
+goKey = lens _goKey (\ s a -> s{_goKey = a});
 
 instance AWSRequest GetObject where
         type Sv GetObject = S3
@@ -293,38 +293,36 @@ instance AWSRequest GetObject where
 instance ToHeaders GetObject where
         toHeaders GetObject'{..}
           = mconcat
-              ["If-Match" =# _gorqIfMatch,
+              ["If-Match" =# _goIfMatch,
                "x-amz-server-side-encryption-customer-algorithm" =#
-                 _gorqSSECustomerAlgorithm,
+                 _goSSECustomerAlgorithm,
                "x-amz-server-side-encryption-customer-key" =#
-                 _gorqSSECustomerKey,
-               "x-amz-request-payer" =# _gorqRequestPayer,
-               "If-Modified-Since" =# _gorqIfModifiedSince,
-               "Range" =# _gorqRange,
-               "If-Unmodified-Since" =# _gorqIfUnmodifiedSince,
+                 _goSSECustomerKey,
+               "x-amz-request-payer" =# _goRequestPayer,
+               "If-Modified-Since" =# _goIfModifiedSince,
+               "Range" =# _goRange,
+               "If-Unmodified-Since" =# _goIfUnmodifiedSince,
                "x-amz-server-side-encryption-customer-key-MD5" =#
-                 _gorqSSECustomerKeyMD5,
-               "If-None-Match" =# _gorqIfNoneMatch]
+                 _goSSECustomerKeyMD5,
+               "If-None-Match" =# _goIfNoneMatch]
 
 instance ToPath GetObject where
         toPath GetObject'{..}
-          = mconcat
-              ["/", toText _gorqBucket, "/", toText _gorqKey]
+          = mconcat ["/", toText _goBucket, "/", toText _goKey]
 
 instance ToQuery GetObject where
         toQuery GetObject'{..}
           = mconcat
-              ["versionId" =: _gorqVersionId,
-               "response-content-type" =: _gorqResponseContentType,
+              ["versionId" =: _goVersionId,
+               "response-content-type" =: _goResponseContentType,
                "response-content-disposition" =:
-                 _gorqResponseContentDisposition,
+                 _goResponseContentDisposition,
                "response-content-language" =:
-                 _gorqResponseContentLanguage,
+                 _goResponseContentLanguage,
                "response-content-encoding" =:
-                 _gorqResponseContentEncoding,
-               "response-cache-control" =:
-                 _gorqResponseCacheControl,
-               "response-expires" =: _gorqResponseExpires]
+                 _goResponseContentEncoding,
+               "response-cache-control" =: _goResponseCacheControl,
+               "response-expires" =: _goResponseExpires]
 
 -- | /See:/ 'getObjectResponse' smart constructor.
 --

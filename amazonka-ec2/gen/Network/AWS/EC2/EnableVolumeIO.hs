@@ -28,8 +28,8 @@ module Network.AWS.EC2.EnableVolumeIO
     -- ** Request constructor
     , enableVolumeIO
     -- ** Request lenses
-    , eviorqDryRun
-    , eviorqVolumeId
+    , evioDryRun
+    , evioVolumeId
 
     -- * Response
     , EnableVolumeIOResponse
@@ -46,32 +46,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eviorqDryRun'
+-- * 'evioDryRun'
 --
--- * 'eviorqVolumeId'
+-- * 'evioVolumeId'
 data EnableVolumeIO = EnableVolumeIO'
-    { _eviorqDryRun   :: !(Maybe Bool)
-    , _eviorqVolumeId :: !Text
+    { _evioDryRun   :: !(Maybe Bool)
+    , _evioVolumeId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVolumeIO' smart constructor.
 enableVolumeIO :: Text -> EnableVolumeIO
 enableVolumeIO pVolumeId_ =
     EnableVolumeIO'
-    { _eviorqDryRun = Nothing
-    , _eviorqVolumeId = pVolumeId_
+    { _evioDryRun = Nothing
+    , _evioVolumeId = pVolumeId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-eviorqDryRun :: Lens' EnableVolumeIO (Maybe Bool)
-eviorqDryRun = lens _eviorqDryRun (\ s a -> s{_eviorqDryRun = a});
+evioDryRun :: Lens' EnableVolumeIO (Maybe Bool)
+evioDryRun = lens _evioDryRun (\ s a -> s{_evioDryRun = a});
 
 -- | The ID of the volume.
-eviorqVolumeId :: Lens' EnableVolumeIO Text
-eviorqVolumeId = lens _eviorqVolumeId (\ s a -> s{_eviorqVolumeId = a});
+evioVolumeId :: Lens' EnableVolumeIO Text
+evioVolumeId = lens _evioVolumeId (\ s a -> s{_evioVolumeId = a});
 
 instance AWSRequest EnableVolumeIO where
         type Sv EnableVolumeIO = EC2
@@ -90,8 +90,7 @@ instance ToQuery EnableVolumeIO where
           = mconcat
               ["Action" =: ("EnableVolumeIO" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _eviorqDryRun,
-               "VolumeId" =: _eviorqVolumeId]
+               "DryRun" =: _evioDryRun, "VolumeId" =: _evioVolumeId]
 
 -- | /See:/ 'enableVolumeIOResponse' smart constructor.
 data EnableVolumeIOResponse =

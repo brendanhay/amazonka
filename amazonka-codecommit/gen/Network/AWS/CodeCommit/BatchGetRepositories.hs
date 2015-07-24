@@ -34,7 +34,7 @@ module Network.AWS.CodeCommit.BatchGetRepositories
     -- ** Request constructor
     , batchGetRepositories
     -- ** Request lenses
-    , bgrrqRepositoryNames
+    , bgrRepositoryNames
 
     -- * Response
     , BatchGetRepositoriesResponse
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgrrqRepositoryNames'
+-- * 'bgrRepositoryNames'
 newtype BatchGetRepositories = BatchGetRepositories'
-    { _bgrrqRepositoryNames :: [Text]
+    { _bgrRepositoryNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetRepositories' smart constructor.
 batchGetRepositories :: BatchGetRepositories
 batchGetRepositories =
     BatchGetRepositories'
-    { _bgrrqRepositoryNames = mempty
+    { _bgrRepositoryNames = mempty
     }
 
 -- | The names of the repositories to get information about.
-bgrrqRepositoryNames :: Lens' BatchGetRepositories [Text]
-bgrrqRepositoryNames = lens _bgrrqRepositoryNames (\ s a -> s{_bgrrqRepositoryNames = a});
+bgrRepositoryNames :: Lens' BatchGetRepositories [Text]
+bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a});
 
 instance AWSRequest BatchGetRepositories where
         type Sv BatchGetRepositories = CodeCommit
@@ -98,7 +98,7 @@ instance ToHeaders BatchGetRepositories where
 
 instance ToJSON BatchGetRepositories where
         toJSON BatchGetRepositories'{..}
-          = object ["repositoryNames" .= _bgrrqRepositoryNames]
+          = object ["repositoryNames" .= _bgrRepositoryNames]
 
 instance ToPath BatchGetRepositories where
         toPath = const "/"

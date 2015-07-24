@@ -28,7 +28,7 @@ module Network.AWS.CodePipeline.StartPipelineExecution
     -- ** Request constructor
     , startPipelineExecution
     -- ** Request lenses
-    , sperqName
+    , speName
 
     -- * Response
     , StartPipelineExecutionResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sperqName'
+-- * 'speName'
 newtype StartPipelineExecution = StartPipelineExecution'
-    { _sperqName :: Text
+    { _speName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartPipelineExecution' smart constructor.
 startPipelineExecution :: Text -> StartPipelineExecution
 startPipelineExecution pName_ =
     StartPipelineExecution'
-    { _sperqName = pName_
+    { _speName = pName_
     }
 
 -- | The name of the pipeline to start.
-sperqName :: Lens' StartPipelineExecution Text
-sperqName = lens _sperqName (\ s a -> s{_sperqName = a});
+speName :: Lens' StartPipelineExecution Text
+speName = lens _speName (\ s a -> s{_speName = a});
 
 instance AWSRequest StartPipelineExecution where
         type Sv StartPipelineExecution = CodePipeline
@@ -90,7 +90,7 @@ instance ToHeaders StartPipelineExecution where
 
 instance ToJSON StartPipelineExecution where
         toJSON StartPipelineExecution'{..}
-          = object ["name" .= _sperqName]
+          = object ["name" .= _speName]
 
 instance ToPath StartPipelineExecution where
         toPath = const "/"

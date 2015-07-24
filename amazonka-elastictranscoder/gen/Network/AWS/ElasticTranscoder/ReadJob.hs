@@ -27,7 +27,7 @@ module Network.AWS.ElasticTranscoder.ReadJob
     -- ** Request constructor
     , readJob
     -- ** Request lenses
-    , rjrqId
+    , rjId
 
     -- * Response
     , ReadJobResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rjrqId'
+-- * 'rjId'
 newtype ReadJob = ReadJob'
-    { _rjrqId :: Text
+    { _rjId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadJob' smart constructor.
 readJob :: Text -> ReadJob
 readJob pId_ =
     ReadJob'
-    { _rjrqId = pId_
+    { _rjId = pId_
     }
 
 -- | The identifier of the job for which you want to get detailed
 -- information.
-rjrqId :: Lens' ReadJob Text
-rjrqId = lens _rjrqId (\ s a -> s{_rjrqId = a});
+rjId :: Lens' ReadJob Text
+rjId = lens _rjId (\ s a -> s{_rjId = a});
 
 instance AWSRequest ReadJob where
         type Sv ReadJob = ElasticTranscoder
@@ -81,7 +81,7 @@ instance ToHeaders ReadJob where
 
 instance ToPath ReadJob where
         toPath ReadJob'{..}
-          = mconcat ["/2012-09-25/jobs/", toText _rjrqId]
+          = mconcat ["/2012-09-25/jobs/", toText _rjId]
 
 instance ToQuery ReadJob where
         toQuery = const mempty

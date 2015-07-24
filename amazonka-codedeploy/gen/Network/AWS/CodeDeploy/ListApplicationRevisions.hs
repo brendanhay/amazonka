@@ -27,13 +27,13 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     -- ** Request constructor
     , listApplicationRevisions
     -- ** Request lenses
-    , larrqS3KeyPrefix
-    , larrqDeployed
-    , larrqNextToken
-    , larrqSortOrder
-    , larrqS3Bucket
-    , larrqSortBy
-    , larrqApplicationName
+    , larS3KeyPrefix
+    , larDeployed
+    , larNextToken
+    , larSortOrder
+    , larS3Bucket
+    , larSortBy
+    , larApplicationName
 
     -- * Response
     , ListApplicationRevisionsResponse
@@ -56,46 +56,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larrqS3KeyPrefix'
+-- * 'larS3KeyPrefix'
 --
--- * 'larrqDeployed'
+-- * 'larDeployed'
 --
--- * 'larrqNextToken'
+-- * 'larNextToken'
 --
--- * 'larrqSortOrder'
+-- * 'larSortOrder'
 --
--- * 'larrqS3Bucket'
+-- * 'larS3Bucket'
 --
--- * 'larrqSortBy'
+-- * 'larSortBy'
 --
--- * 'larrqApplicationName'
+-- * 'larApplicationName'
 data ListApplicationRevisions = ListApplicationRevisions'
-    { _larrqS3KeyPrefix     :: !(Maybe Text)
-    , _larrqDeployed        :: !(Maybe ListStateFilterAction)
-    , _larrqNextToken       :: !(Maybe Text)
-    , _larrqSortOrder       :: !(Maybe SortOrder)
-    , _larrqS3Bucket        :: !(Maybe Text)
-    , _larrqSortBy          :: !(Maybe ApplicationRevisionSortBy)
-    , _larrqApplicationName :: !Text
+    { _larS3KeyPrefix     :: !(Maybe Text)
+    , _larDeployed        :: !(Maybe ListStateFilterAction)
+    , _larNextToken       :: !(Maybe Text)
+    , _larSortOrder       :: !(Maybe SortOrder)
+    , _larS3Bucket        :: !(Maybe Text)
+    , _larSortBy          :: !(Maybe ApplicationRevisionSortBy)
+    , _larApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationRevisions' smart constructor.
 listApplicationRevisions :: Text -> ListApplicationRevisions
 listApplicationRevisions pApplicationName_ =
     ListApplicationRevisions'
-    { _larrqS3KeyPrefix = Nothing
-    , _larrqDeployed = Nothing
-    , _larrqNextToken = Nothing
-    , _larrqSortOrder = Nothing
-    , _larrqS3Bucket = Nothing
-    , _larrqSortBy = Nothing
-    , _larrqApplicationName = pApplicationName_
+    { _larS3KeyPrefix = Nothing
+    , _larDeployed = Nothing
+    , _larNextToken = Nothing
+    , _larSortOrder = Nothing
+    , _larS3Bucket = Nothing
+    , _larSortBy = Nothing
+    , _larApplicationName = pApplicationName_
     }
 
 -- | A specific key prefix for the set of Amazon S3 objects to limit the
 -- search for revisions.
-larrqS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
-larrqS3KeyPrefix = lens _larrqS3KeyPrefix (\ s a -> s{_larrqS3KeyPrefix = a});
+larS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
+larS3KeyPrefix = lens _larS3KeyPrefix (\ s a -> s{_larS3KeyPrefix = a});
 
 -- | Whether to list revisions based on whether the revision is the target
 -- revision of an deployment group:
@@ -106,14 +106,14 @@ larrqS3KeyPrefix = lens _larrqS3KeyPrefix (\ s a -> s{_larrqS3KeyPrefix = a});
 --     deployment group.
 -- -   ignore: List all revisions, regardless of whether they are target
 --     revisions of a deployment group.
-larrqDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
-larrqDeployed = lens _larrqDeployed (\ s a -> s{_larrqDeployed = a});
+larDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
+larDeployed = lens _larDeployed (\ s a -> s{_larDeployed = a});
 
 -- | An identifier that was returned from the previous list application
 -- revisions call, which can be used to return the next set of applications
 -- in the list.
-larrqNextToken :: Lens' ListApplicationRevisions (Maybe Text)
-larrqNextToken = lens _larrqNextToken (\ s a -> s{_larrqNextToken = a});
+larNextToken :: Lens' ListApplicationRevisions (Maybe Text)
+larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 
 -- | The order to sort the list results by:
 --
@@ -123,14 +123,14 @@ larrqNextToken = lens _larrqNextToken (\ s a -> s{_larrqNextToken = a});
 -- If not specified, the results will be sorted in ascending order.
 --
 -- If set to null, the results will be sorted in an arbitrary order.
-larrqSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
-larrqSortOrder = lens _larrqSortOrder (\ s a -> s{_larrqSortOrder = a});
+larSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
+larSortOrder = lens _larSortOrder (\ s a -> s{_larSortOrder = a});
 
 -- | A specific Amazon S3 bucket name to limit the search for revisions.
 --
 -- If set to null, then all of the user\'s buckets will be searched.
-larrqS3Bucket :: Lens' ListApplicationRevisions (Maybe Text)
-larrqS3Bucket = lens _larrqS3Bucket (\ s a -> s{_larrqS3Bucket = a});
+larS3Bucket :: Lens' ListApplicationRevisions (Maybe Text)
+larS3Bucket = lens _larS3Bucket (\ s a -> s{_larS3Bucket = a});
 
 -- | The column name to sort the list results by:
 --
@@ -143,13 +143,13 @@ larrqS3Bucket = lens _larrqS3Bucket (\ s a -> s{_larrqS3Bucket = a});
 --
 -- If not specified or set to null, the results will be returned in an
 -- arbitrary order.
-larrqSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
-larrqSortBy = lens _larrqSortBy (\ s a -> s{_larrqSortBy = a});
+larSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
+larSortBy = lens _larSortBy (\ s a -> s{_larSortBy = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-larrqApplicationName :: Lens' ListApplicationRevisions Text
-larrqApplicationName = lens _larrqApplicationName (\ s a -> s{_larrqApplicationName = a});
+larApplicationName :: Lens' ListApplicationRevisions Text
+larApplicationName = lens _larApplicationName (\ s a -> s{_larApplicationName = a});
 
 instance AWSRequest ListApplicationRevisions where
         type Sv ListApplicationRevisions = CodeDeploy
@@ -177,13 +177,12 @@ instance ToHeaders ListApplicationRevisions where
 instance ToJSON ListApplicationRevisions where
         toJSON ListApplicationRevisions'{..}
           = object
-              ["s3KeyPrefix" .= _larrqS3KeyPrefix,
-               "deployed" .= _larrqDeployed,
-               "nextToken" .= _larrqNextToken,
-               "sortOrder" .= _larrqSortOrder,
-               "s3Bucket" .= _larrqS3Bucket,
-               "sortBy" .= _larrqSortBy,
-               "applicationName" .= _larrqApplicationName]
+              ["s3KeyPrefix" .= _larS3KeyPrefix,
+               "deployed" .= _larDeployed,
+               "nextToken" .= _larNextToken,
+               "sortOrder" .= _larSortOrder,
+               "s3Bucket" .= _larS3Bucket, "sortBy" .= _larSortBy,
+               "applicationName" .= _larApplicationName]
 
 instance ToPath ListApplicationRevisions where
         toPath = const "/"

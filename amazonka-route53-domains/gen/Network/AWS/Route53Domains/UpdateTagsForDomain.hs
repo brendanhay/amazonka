@@ -30,8 +30,8 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
     -- ** Request constructor
     , updateTagsForDomain
     -- ** Request lenses
-    , utfdrqTagsToUpdate
-    , utfdrqDomainName
+    , utfdTagsToUpdate
+    , utfdDomainName
 
     -- * Response
     , UpdateTagsForDomainResponse
@@ -52,20 +52,20 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'utfdrqTagsToUpdate'
+-- * 'utfdTagsToUpdate'
 --
--- * 'utfdrqDomainName'
+-- * 'utfdDomainName'
 data UpdateTagsForDomain = UpdateTagsForDomain'
-    { _utfdrqTagsToUpdate :: !(Maybe [Tag])
-    , _utfdrqDomainName   :: !Text
+    { _utfdTagsToUpdate :: !(Maybe [Tag])
+    , _utfdDomainName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTagsForDomain' smart constructor.
 updateTagsForDomain :: Text -> UpdateTagsForDomain
 updateTagsForDomain pDomainName_ =
     UpdateTagsForDomain'
-    { _utfdrqTagsToUpdate = Nothing
-    , _utfdrqDomainName = pDomainName_
+    { _utfdTagsToUpdate = Nothing
+    , _utfdDomainName = pDomainName_
     }
 
 -- | A list of the tag keys and values that you want to add or update. If you
@@ -112,8 +112,8 @@ updateTagsForDomain pDomainName_ =
 --
 --     Required: Yes
 --
-utfdrqTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
-utfdrqTagsToUpdate = lens _utfdrqTagsToUpdate (\ s a -> s{_utfdrqTagsToUpdate = a}) . _Default;
+utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
+utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default;
 
 -- | The domain for which you want to add or update tags.
 --
@@ -130,8 +130,8 @@ utfdrqTagsToUpdate = lens _utfdrqTagsToUpdate (\ s a -> s{_utfdrqTagsToUpdate = 
 -- an Internationalized Domain Name, you must convert the name to Punycode.
 --
 -- Required: Yes
-utfdrqDomainName :: Lens' UpdateTagsForDomain Text
-utfdrqDomainName = lens _utfdrqDomainName (\ s a -> s{_utfdrqDomainName = a});
+utfdDomainName :: Lens' UpdateTagsForDomain Text
+utfdDomainName = lens _utfdDomainName (\ s a -> s{_utfdDomainName = a});
 
 instance AWSRequest UpdateTagsForDomain where
         type Sv UpdateTagsForDomain = Route53Domains
@@ -156,8 +156,8 @@ instance ToHeaders UpdateTagsForDomain where
 instance ToJSON UpdateTagsForDomain where
         toJSON UpdateTagsForDomain'{..}
           = object
-              ["TagsToUpdate" .= _utfdrqTagsToUpdate,
-               "DomainName" .= _utfdrqDomainName]
+              ["TagsToUpdate" .= _utfdTagsToUpdate,
+               "DomainName" .= _utfdDomainName]
 
 instance ToPath UpdateTagsForDomain where
         toPath = const "/"

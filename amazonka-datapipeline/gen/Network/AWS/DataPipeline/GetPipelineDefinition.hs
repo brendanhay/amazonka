@@ -29,8 +29,8 @@ module Network.AWS.DataPipeline.GetPipelineDefinition
     -- ** Request constructor
     , getPipelineDefinition
     -- ** Request lenses
-    , gpdrqVersion
-    , gpdrqPipelineId
+    , gpdVersion
+    , gpdPipelineId
 
     -- * Response
     , GetPipelineDefinitionResponse
@@ -54,31 +54,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpdrqVersion'
+-- * 'gpdVersion'
 --
--- * 'gpdrqPipelineId'
+-- * 'gpdPipelineId'
 data GetPipelineDefinition = GetPipelineDefinition'
-    { _gpdrqVersion    :: !(Maybe Text)
-    , _gpdrqPipelineId :: !Text
+    { _gpdVersion    :: !(Maybe Text)
+    , _gpdPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineDefinition' smart constructor.
 getPipelineDefinition :: Text -> GetPipelineDefinition
 getPipelineDefinition pPipelineId_ =
     GetPipelineDefinition'
-    { _gpdrqVersion = Nothing
-    , _gpdrqPipelineId = pPipelineId_
+    { _gpdVersion = Nothing
+    , _gpdPipelineId = pPipelineId_
     }
 
 -- | The version of the pipeline definition to retrieve. Set this parameter
 -- to @latest@ (default) to use the last definition saved to the pipeline
 -- or @active@ to use the last definition that was activated.
-gpdrqVersion :: Lens' GetPipelineDefinition (Maybe Text)
-gpdrqVersion = lens _gpdrqVersion (\ s a -> s{_gpdrqVersion = a});
+gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
+gpdVersion = lens _gpdVersion (\ s a -> s{_gpdVersion = a});
 
 -- | The ID of the pipeline.
-gpdrqPipelineId :: Lens' GetPipelineDefinition Text
-gpdrqPipelineId = lens _gpdrqPipelineId (\ s a -> s{_gpdrqPipelineId = a});
+gpdPipelineId :: Lens' GetPipelineDefinition Text
+gpdPipelineId = lens _gpdPipelineId (\ s a -> s{_gpdPipelineId = a});
 
 instance AWSRequest GetPipelineDefinition where
         type Sv GetPipelineDefinition = DataPipeline
@@ -106,8 +106,8 @@ instance ToHeaders GetPipelineDefinition where
 instance ToJSON GetPipelineDefinition where
         toJSON GetPipelineDefinition'{..}
           = object
-              ["version" .= _gpdrqVersion,
-               "pipelineId" .= _gpdrqPipelineId]
+              ["version" .= _gpdVersion,
+               "pipelineId" .= _gpdPipelineId]
 
 instance ToPath GetPipelineDefinition where
         toPath = const "/"

@@ -29,7 +29,7 @@ module Network.AWS.StorageGateway.ListVolumeInitiators
     -- ** Request constructor
     , listVolumeInitiators
     -- ** Request lenses
-    , lvirqVolumeARN
+    , lviVolumeARN
 
     -- * Response
     , ListVolumeInitiatorsResponse
@@ -51,22 +51,22 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvirqVolumeARN'
+-- * 'lviVolumeARN'
 newtype ListVolumeInitiators = ListVolumeInitiators'
-    { _lvirqVolumeARN :: Text
+    { _lviVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeInitiators' smart constructor.
 listVolumeInitiators :: Text -> ListVolumeInitiators
 listVolumeInitiators pVolumeARN_ =
     ListVolumeInitiators'
-    { _lvirqVolumeARN = pVolumeARN_
+    { _lviVolumeARN = pVolumeARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes for the gateway.
-lvirqVolumeARN :: Lens' ListVolumeInitiators Text
-lvirqVolumeARN = lens _lvirqVolumeARN (\ s a -> s{_lvirqVolumeARN = a});
+lviVolumeARN :: Lens' ListVolumeInitiators Text
+lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});
 
 instance AWSRequest ListVolumeInitiators where
         type Sv ListVolumeInitiators = StorageGateway
@@ -92,7 +92,7 @@ instance ToHeaders ListVolumeInitiators where
 
 instance ToJSON ListVolumeInitiators where
         toJSON ListVolumeInitiators'{..}
-          = object ["VolumeARN" .= _lvirqVolumeARN]
+          = object ["VolumeARN" .= _lviVolumeARN]
 
 instance ToPath ListVolumeInitiators where
         toPath = const "/"

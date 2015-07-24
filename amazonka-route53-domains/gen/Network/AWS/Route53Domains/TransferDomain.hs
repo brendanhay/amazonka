@@ -52,18 +52,18 @@ module Network.AWS.Route53Domains.TransferDomain
     -- ** Request constructor
     , transferDomain
     -- ** Request lenses
-    , tdrqPrivacyProtectTechContact
-    , tdrqPrivacyProtectRegistrantContact
-    , tdrqAutoRenew
-    , tdrqPrivacyProtectAdminContact
-    , tdrqIdNLangCode
-    , tdrqAuthCode
-    , tdrqNameservers
-    , tdrqDomainName
-    , tdrqDurationInYears
-    , tdrqAdminContact
-    , tdrqRegistrantContact
-    , tdrqTechContact
+    , tdPrivacyProtectTechContact
+    , tdPrivacyProtectRegistrantContact
+    , tdAutoRenew
+    , tdPrivacyProtectAdminContact
+    , tdIdNLangCode
+    , tdAuthCode
+    , tdNameservers
+    , tdDomainName
+    , tdDurationInYears
+    , tdAdminContact
+    , tdRegistrantContact
+    , tdTechContact
 
     -- * Response
     , TransferDomainResponse
@@ -85,60 +85,60 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tdrqPrivacyProtectTechContact'
+-- * 'tdPrivacyProtectTechContact'
 --
--- * 'tdrqPrivacyProtectRegistrantContact'
+-- * 'tdPrivacyProtectRegistrantContact'
 --
--- * 'tdrqAutoRenew'
+-- * 'tdAutoRenew'
 --
--- * 'tdrqPrivacyProtectAdminContact'
+-- * 'tdPrivacyProtectAdminContact'
 --
--- * 'tdrqIdNLangCode'
+-- * 'tdIdNLangCode'
 --
--- * 'tdrqAuthCode'
+-- * 'tdAuthCode'
 --
--- * 'tdrqNameservers'
+-- * 'tdNameservers'
 --
--- * 'tdrqDomainName'
+-- * 'tdDomainName'
 --
--- * 'tdrqDurationInYears'
+-- * 'tdDurationInYears'
 --
--- * 'tdrqAdminContact'
+-- * 'tdAdminContact'
 --
--- * 'tdrqRegistrantContact'
+-- * 'tdRegistrantContact'
 --
--- * 'tdrqTechContact'
+-- * 'tdTechContact'
 data TransferDomain = TransferDomain'
-    { _tdrqPrivacyProtectTechContact       :: !(Maybe Bool)
-    , _tdrqPrivacyProtectRegistrantContact :: !(Maybe Bool)
-    , _tdrqAutoRenew                       :: !(Maybe Bool)
-    , _tdrqPrivacyProtectAdminContact      :: !(Maybe Bool)
-    , _tdrqIdNLangCode                     :: !(Maybe Text)
-    , _tdrqAuthCode                        :: !(Maybe (Sensitive Text))
-    , _tdrqNameservers                     :: !(Maybe [Nameserver])
-    , _tdrqDomainName                      :: !Text
-    , _tdrqDurationInYears                 :: !Nat
-    , _tdrqAdminContact                    :: !(Sensitive ContactDetail)
-    , _tdrqRegistrantContact               :: !(Sensitive ContactDetail)
-    , _tdrqTechContact                     :: !(Sensitive ContactDetail)
+    { _tdPrivacyProtectTechContact       :: !(Maybe Bool)
+    , _tdPrivacyProtectRegistrantContact :: !(Maybe Bool)
+    , _tdAutoRenew                       :: !(Maybe Bool)
+    , _tdPrivacyProtectAdminContact      :: !(Maybe Bool)
+    , _tdIdNLangCode                     :: !(Maybe Text)
+    , _tdAuthCode                        :: !(Maybe (Sensitive Text))
+    , _tdNameservers                     :: !(Maybe [Nameserver])
+    , _tdDomainName                      :: !Text
+    , _tdDurationInYears                 :: !Nat
+    , _tdAdminContact                    :: !(Sensitive ContactDetail)
+    , _tdRegistrantContact               :: !(Sensitive ContactDetail)
+    , _tdTechContact                     :: !(Sensitive ContactDetail)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TransferDomain' smart constructor.
 transferDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> TransferDomain
 transferDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_ pTechContact_ =
     TransferDomain'
-    { _tdrqPrivacyProtectTechContact = Nothing
-    , _tdrqPrivacyProtectRegistrantContact = Nothing
-    , _tdrqAutoRenew = Nothing
-    , _tdrqPrivacyProtectAdminContact = Nothing
-    , _tdrqIdNLangCode = Nothing
-    , _tdrqAuthCode = Nothing
-    , _tdrqNameservers = Nothing
-    , _tdrqDomainName = pDomainName_
-    , _tdrqDurationInYears = _Nat # pDurationInYears_
-    , _tdrqAdminContact = _Sensitive # pAdminContact_
-    , _tdrqRegistrantContact = _Sensitive # pRegistrantContact_
-    , _tdrqTechContact = _Sensitive # pTechContact_
+    { _tdPrivacyProtectTechContact = Nothing
+    , _tdPrivacyProtectRegistrantContact = Nothing
+    , _tdAutoRenew = Nothing
+    , _tdPrivacyProtectAdminContact = Nothing
+    , _tdIdNLangCode = Nothing
+    , _tdAuthCode = Nothing
+    , _tdNameservers = Nothing
+    , _tdDomainName = pDomainName_
+    , _tdDurationInYears = _Nat # pDurationInYears_
+    , _tdAdminContact = _Sensitive # pAdminContact_
+    , _tdRegistrantContact = _Sensitive # pRegistrantContact_
+    , _tdTechContact = _Sensitive # pTechContact_
     }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -153,8 +153,8 @@ transferDomain pDomainName_ pDurationInYears_ pAdminContact_ pRegistrantContact_
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-tdrqPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
-tdrqPrivacyProtectTechContact = lens _tdrqPrivacyProtectTechContact (\ s a -> s{_tdrqPrivacyProtectTechContact = a});
+tdPrivacyProtectTechContact :: Lens' TransferDomain (Maybe Bool)
+tdPrivacyProtectTechContact = lens _tdPrivacyProtectTechContact (\ s a -> s{_tdPrivacyProtectTechContact = a});
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -168,8 +168,8 @@ tdrqPrivacyProtectTechContact = lens _tdrqPrivacyProtectTechContact (\ s a -> s{
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-tdrqPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
-tdrqPrivacyProtectRegistrantContact = lens _tdrqPrivacyProtectRegistrantContact (\ s a -> s{_tdrqPrivacyProtectRegistrantContact = a});
+tdPrivacyProtectRegistrantContact :: Lens' TransferDomain (Maybe Bool)
+tdPrivacyProtectRegistrantContact = lens _tdPrivacyProtectRegistrantContact (\ s a -> s{_tdPrivacyProtectRegistrantContact = a});
 
 -- | Indicates whether the domain will be automatically renewed (true) or not
 -- (false). Autorenewal only takes effect after the account is charged.
@@ -181,8 +181,8 @@ tdrqPrivacyProtectRegistrantContact = lens _tdrqPrivacyProtectRegistrantContact 
 -- Default: true
 --
 -- Required: No
-tdrqAutoRenew :: Lens' TransferDomain (Maybe Bool)
-tdrqAutoRenew = lens _tdrqAutoRenew (\ s a -> s{_tdrqAutoRenew = a});
+tdAutoRenew :: Lens' TransferDomain (Maybe Bool)
+tdAutoRenew = lens _tdAutoRenew (\ s a -> s{_tdAutoRenew = a});
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -196,12 +196,12 @@ tdrqAutoRenew = lens _tdrqAutoRenew (\ s a -> s{_tdrqAutoRenew = a});
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-tdrqPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
-tdrqPrivacyProtectAdminContact = lens _tdrqPrivacyProtectAdminContact (\ s a -> s{_tdrqPrivacyProtectAdminContact = a});
+tdPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
+tdPrivacyProtectAdminContact = lens _tdPrivacyProtectAdminContact (\ s a -> s{_tdPrivacyProtectAdminContact = a});
 
 -- | Reserved for future use.
-tdrqIdNLangCode :: Lens' TransferDomain (Maybe Text)
-tdrqIdNLangCode = lens _tdrqIdNLangCode (\ s a -> s{_tdrqIdNLangCode = a});
+tdIdNLangCode :: Lens' TransferDomain (Maybe Text)
+tdIdNLangCode = lens _tdIdNLangCode (\ s a -> s{_tdIdNLangCode = a});
 
 -- | The authorization code for the domain. You get this value from the
 -- current registrar.
@@ -209,8 +209,8 @@ tdrqIdNLangCode = lens _tdrqIdNLangCode (\ s a -> s{_tdrqIdNLangCode = a});
 -- Type: String
 --
 -- Required: Yes
-tdrqAuthCode :: Lens' TransferDomain (Maybe Text)
-tdrqAuthCode = lens _tdrqAuthCode (\ s a -> s{_tdrqAuthCode = a}) . mapping _Sensitive;
+tdAuthCode :: Lens' TransferDomain (Maybe Text)
+tdAuthCode = lens _tdAuthCode (\ s a -> s{_tdAuthCode = a}) . mapping _Sensitive;
 
 -- | Contains details for the host and glue IP addresses.
 --
@@ -219,8 +219,8 @@ tdrqAuthCode = lens _tdrqAuthCode (\ s a -> s{_tdrqAuthCode = a}) . mapping _Sen
 -- Children: @GlueIps@, @Name@
 --
 -- Required: No
-tdrqNameservers :: Lens' TransferDomain [Nameserver]
-tdrqNameservers = lens _tdrqNameservers (\ s a -> s{_tdrqNameservers = a}) . _Default;
+tdNameservers :: Lens' TransferDomain [Nameserver]
+tdNameservers = lens _tdNameservers (\ s a -> s{_tdNameservers = a}) . _Default;
 
 -- | The name of a domain.
 --
@@ -233,8 +233,8 @@ tdrqNameservers = lens _tdrqNameservers (\ s a -> s{_tdrqNameservers = a}) . _De
 -- are not supported.
 --
 -- Required: Yes
-tdrqDomainName :: Lens' TransferDomain Text
-tdrqDomainName = lens _tdrqDomainName (\ s a -> s{_tdrqDomainName = a});
+tdDomainName :: Lens' TransferDomain Text
+tdDomainName = lens _tdDomainName (\ s a -> s{_tdDomainName = a});
 
 -- | The number of years the domain will be registered. Domains are
 -- registered for a minimum of one year. The maximum period depends on the
@@ -247,8 +247,8 @@ tdrqDomainName = lens _tdrqDomainName (\ s a -> s{_tdrqDomainName = a});
 -- Valid values: Integer from 1 to 10
 --
 -- Required: Yes
-tdrqDurationInYears :: Lens' TransferDomain Natural
-tdrqDurationInYears = lens _tdrqDurationInYears (\ s a -> s{_tdrqDurationInYears = a}) . _Nat;
+tdDurationInYears :: Lens' TransferDomain Natural
+tdDurationInYears = lens _tdDurationInYears (\ s a -> s{_tdDurationInYears = a}) . _Nat;
 
 -- | Provides detailed contact information.
 --
@@ -259,8 +259,8 @@ tdrqDurationInYears = lens _tdrqDurationInYears (\ s a -> s{_tdrqDurationInYears
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-tdrqAdminContact :: Lens' TransferDomain ContactDetail
-tdrqAdminContact = lens _tdrqAdminContact (\ s a -> s{_tdrqAdminContact = a}) . _Sensitive;
+tdAdminContact :: Lens' TransferDomain ContactDetail
+tdAdminContact = lens _tdAdminContact (\ s a -> s{_tdAdminContact = a}) . _Sensitive;
 
 -- | Provides detailed contact information.
 --
@@ -271,8 +271,8 @@ tdrqAdminContact = lens _tdrqAdminContact (\ s a -> s{_tdrqAdminContact = a}) . 
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-tdrqRegistrantContact :: Lens' TransferDomain ContactDetail
-tdrqRegistrantContact = lens _tdrqRegistrantContact (\ s a -> s{_tdrqRegistrantContact = a}) . _Sensitive;
+tdRegistrantContact :: Lens' TransferDomain ContactDetail
+tdRegistrantContact = lens _tdRegistrantContact (\ s a -> s{_tdRegistrantContact = a}) . _Sensitive;
 
 -- | Provides detailed contact information.
 --
@@ -283,8 +283,8 @@ tdrqRegistrantContact = lens _tdrqRegistrantContact (\ s a -> s{_tdrqRegistrantC
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-tdrqTechContact :: Lens' TransferDomain ContactDetail
-tdrqTechContact = lens _tdrqTechContact (\ s a -> s{_tdrqTechContact = a}) . _Sensitive;
+tdTechContact :: Lens' TransferDomain ContactDetail
+tdTechContact = lens _tdTechContact (\ s a -> s{_tdTechContact = a}) . _Sensitive;
 
 instance AWSRequest TransferDomain where
         type Sv TransferDomain = Route53Domains
@@ -310,20 +310,20 @@ instance ToJSON TransferDomain where
         toJSON TransferDomain'{..}
           = object
               ["PrivacyProtectTechContact" .=
-                 _tdrqPrivacyProtectTechContact,
+                 _tdPrivacyProtectTechContact,
                "PrivacyProtectRegistrantContact" .=
-                 _tdrqPrivacyProtectRegistrantContact,
-               "AutoRenew" .= _tdrqAutoRenew,
+                 _tdPrivacyProtectRegistrantContact,
+               "AutoRenew" .= _tdAutoRenew,
                "PrivacyProtectAdminContact" .=
-                 _tdrqPrivacyProtectAdminContact,
-               "IdnLangCode" .= _tdrqIdNLangCode,
-               "AuthCode" .= _tdrqAuthCode,
-               "Nameservers" .= _tdrqNameservers,
-               "DomainName" .= _tdrqDomainName,
-               "DurationInYears" .= _tdrqDurationInYears,
-               "AdminContact" .= _tdrqAdminContact,
-               "RegistrantContact" .= _tdrqRegistrantContact,
-               "TechContact" .= _tdrqTechContact]
+                 _tdPrivacyProtectAdminContact,
+               "IdnLangCode" .= _tdIdNLangCode,
+               "AuthCode" .= _tdAuthCode,
+               "Nameservers" .= _tdNameservers,
+               "DomainName" .= _tdDomainName,
+               "DurationInYears" .= _tdDurationInYears,
+               "AdminContact" .= _tdAdminContact,
+               "RegistrantContact" .= _tdRegistrantContact,
+               "TechContact" .= _tdTechContact]
 
 instance ToPath TransferDomain where
         toPath = const "/"

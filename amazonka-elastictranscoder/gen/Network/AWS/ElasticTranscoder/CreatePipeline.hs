@@ -28,14 +28,14 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     -- ** Request constructor
     , createPipeline
     -- ** Request lenses
-    , crqContentConfig
-    , crqOutputBucket
-    , crqAWSKMSKeyARN
-    , crqThumbnailConfig
-    , crqNotifications
-    , crqName
-    , crqInputBucket
-    , crqRole
+    , cContentConfig
+    , cOutputBucket
+    , cAWSKMSKeyARN
+    , cThumbnailConfig
+    , cNotifications
+    , cName
+    , cInputBucket
+    , cRole
 
     -- * Response
     , CreatePipelineResponse
@@ -58,44 +58,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crqContentConfig'
+-- * 'cContentConfig'
 --
--- * 'crqOutputBucket'
+-- * 'cOutputBucket'
 --
--- * 'crqAWSKMSKeyARN'
+-- * 'cAWSKMSKeyARN'
 --
--- * 'crqThumbnailConfig'
+-- * 'cThumbnailConfig'
 --
--- * 'crqNotifications'
+-- * 'cNotifications'
 --
--- * 'crqName'
+-- * 'cName'
 --
--- * 'crqInputBucket'
+-- * 'cInputBucket'
 --
--- * 'crqRole'
+-- * 'cRole'
 data CreatePipeline = CreatePipeline'
-    { _crqContentConfig   :: !(Maybe PipelineOutputConfig)
-    , _crqOutputBucket    :: !(Maybe Text)
-    , _crqAWSKMSKeyARN    :: !(Maybe Text)
-    , _crqThumbnailConfig :: !(Maybe PipelineOutputConfig)
-    , _crqNotifications   :: !(Maybe Notifications)
-    , _crqName            :: !Text
-    , _crqInputBucket     :: !Text
-    , _crqRole            :: !Text
+    { _cContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _cOutputBucket    :: !(Maybe Text)
+    , _cAWSKMSKeyARN    :: !(Maybe Text)
+    , _cThumbnailConfig :: !(Maybe PipelineOutputConfig)
+    , _cNotifications   :: !(Maybe Notifications)
+    , _cName            :: !Text
+    , _cInputBucket     :: !Text
+    , _cRole            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> Text -> CreatePipeline
 createPipeline pName_ pInputBucket_ pRole_ =
     CreatePipeline'
-    { _crqContentConfig = Nothing
-    , _crqOutputBucket = Nothing
-    , _crqAWSKMSKeyARN = Nothing
-    , _crqThumbnailConfig = Nothing
-    , _crqNotifications = Nothing
-    , _crqName = pName_
-    , _crqInputBucket = pInputBucket_
-    , _crqRole = pRole_
+    { _cContentConfig = Nothing
+    , _cOutputBucket = Nothing
+    , _cAWSKMSKeyARN = Nothing
+    , _cThumbnailConfig = Nothing
+    , _cNotifications = Nothing
+    , _cName = pName_
+    , _cInputBucket = pInputBucket_
+    , _cRole = pRole_
     }
 
 -- | The optional @ContentConfig@ object specifies information about the
@@ -155,8 +155,8 @@ createPipeline pName_ pInputBucket_ pRole_ =
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the video files and playlists that it stores in your Amazon S3
 --     bucket.
-crqContentConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
-crqContentConfig = lens _crqContentConfig (\ s a -> s{_crqContentConfig = a});
+cContentConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
+cContentConfig = lens _cContentConfig (\ s a -> s{_cContentConfig = a});
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
 -- transcoded files. (Use this, or use ContentConfig:Bucket plus
@@ -181,8 +181,8 @@ crqContentConfig = lens _crqContentConfig (\ s a -> s{_crqContentConfig = a});
 -- transcoded files or the permissions the users have, or change the Amazon
 -- S3 storage class, omit @OutputBucket@ and specify values for
 -- @ContentConfig@ and @ThumbnailConfig@ instead.
-crqOutputBucket :: Lens' CreatePipeline (Maybe Text)
-crqOutputBucket = lens _crqOutputBucket (\ s a -> s{_crqOutputBucket = a});
+cOutputBucket :: Lens' CreatePipeline (Maybe Text)
+cOutputBucket = lens _cOutputBucket (\ s a -> s{_cOutputBucket = a});
 
 -- | The AWS Key Management Service (AWS KMS) key that you want to use with
 -- this pipeline.
@@ -193,8 +193,8 @@ crqOutputBucket = lens _crqOutputBucket (\ s a -> s{_crqOutputBucket = a});
 -- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
 -- you are using an @Encryption:Mode@ of @AES-PKCS7@, @AES-CTR@, or
 -- @AES-GCM@.
-crqAWSKMSKeyARN :: Lens' CreatePipeline (Maybe Text)
-crqAWSKMSKeyARN = lens _crqAWSKMSKeyARN (\ s a -> s{_crqAWSKMSKeyARN = a});
+cAWSKMSKeyARN :: Lens' CreatePipeline (Maybe Text)
+cAWSKMSKeyARN = lens _cAWSKMSKeyARN (\ s a -> s{_cAWSKMSKeyARN = a});
 
 -- | The @ThumbnailConfig@ object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
@@ -247,8 +247,8 @@ crqAWSKMSKeyARN = lens _crqAWSKMSKeyARN (\ s a -> s{_crqAWSKMSKeyARN = a});
 -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
-crqThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
-crqThumbnailConfig = lens _crqThumbnailConfig (\ s a -> s{_crqThumbnailConfig = a});
+cThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
+cThumbnailConfig = lens _cThumbnailConfig (\ s a -> s{_cThumbnailConfig = a});
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
 -- to notify to report job status.
@@ -274,25 +274,25 @@ crqThumbnailConfig = lens _crqThumbnailConfig (\ s a -> s{_crqThumbnailConfig = 
 --     notify when Elastic Transcoder encounters an error condition while
 --     processing a job in this pipeline. This is the ARN that Amazon SNS
 --     returned when you created the topic.
-crqNotifications :: Lens' CreatePipeline (Maybe Notifications)
-crqNotifications = lens _crqNotifications (\ s a -> s{_crqNotifications = a});
+cNotifications :: Lens' CreatePipeline (Maybe Notifications)
+cNotifications = lens _cNotifications (\ s a -> s{_cNotifications = a});
 
 -- | The name of the pipeline. We recommend that the name be unique within
 -- the AWS account, but uniqueness is not enforced.
 --
 -- Constraints: Maximum 40 characters.
-crqName :: Lens' CreatePipeline Text
-crqName = lens _crqName (\ s a -> s{_crqName = a});
+cName :: Lens' CreatePipeline Text
+cName = lens _cName (\ s a -> s{_cName = a});
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode.
-crqInputBucket :: Lens' CreatePipeline Text
-crqInputBucket = lens _crqInputBucket (\ s a -> s{_crqInputBucket = a});
+cInputBucket :: Lens' CreatePipeline Text
+cInputBucket = lens _cInputBucket (\ s a -> s{_cInputBucket = a});
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to create the pipeline.
-crqRole :: Lens' CreatePipeline Text
-crqRole = lens _crqRole (\ s a -> s{_crqRole = a});
+cRole :: Lens' CreatePipeline Text
+cRole = lens _cRole (\ s a -> s{_cRole = a});
 
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = ElasticTranscoder
@@ -311,13 +311,12 @@ instance ToHeaders CreatePipeline where
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
           = object
-              ["ContentConfig" .= _crqContentConfig,
-               "OutputBucket" .= _crqOutputBucket,
-               "AwsKmsKeyArn" .= _crqAWSKMSKeyARN,
-               "ThumbnailConfig" .= _crqThumbnailConfig,
-               "Notifications" .= _crqNotifications,
-               "Name" .= _crqName, "InputBucket" .= _crqInputBucket,
-               "Role" .= _crqRole]
+              ["ContentConfig" .= _cContentConfig,
+               "OutputBucket" .= _cOutputBucket,
+               "AwsKmsKeyArn" .= _cAWSKMSKeyARN,
+               "ThumbnailConfig" .= _cThumbnailConfig,
+               "Notifications" .= _cNotifications, "Name" .= _cName,
+               "InputBucket" .= _cInputBucket, "Role" .= _cRole]
 
 instance ToPath CreatePipeline where
         toPath = const "/2012-09-25/pipelines"

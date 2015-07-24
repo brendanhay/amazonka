@@ -35,7 +35,7 @@ module Network.AWS.SNS.ListPlatformApplications
     -- ** Request constructor
     , listPlatformApplications
     -- ** Request lenses
-    , lparqNextToken
+    , lpaNextToken
 
     -- * Response
     , ListPlatformApplicationsResponse
@@ -59,30 +59,30 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lparqNextToken'
+-- * 'lpaNextToken'
 newtype ListPlatformApplications = ListPlatformApplications'
-    { _lparqNextToken :: Maybe Text
+    { _lpaNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPlatformApplications' smart constructor.
 listPlatformApplications :: ListPlatformApplications
 listPlatformApplications =
     ListPlatformApplications'
-    { _lparqNextToken = Nothing
+    { _lpaNextToken = Nothing
     }
 
 -- | NextToken string is used when calling ListPlatformApplications action to
 -- retrieve additional records that are available after the first page
 -- results.
-lparqNextToken :: Lens' ListPlatformApplications (Maybe Text)
-lparqNextToken = lens _lparqNextToken (\ s a -> s{_lparqNextToken = a});
+lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
+lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
 
 instance AWSPager ListPlatformApplications where
         page rq rs
           | stop (rs ^. lparsNextToken) = Nothing
           | stop (rs ^. lparsPlatformApplications) = Nothing
           | otherwise =
-            Just $ rq & lparqNextToken .~ rs ^. lparsNextToken
+            Just $ rq & lpaNextToken .~ rs ^. lparsNextToken
 
 instance AWSRequest ListPlatformApplications where
         type Sv ListPlatformApplications = SNS
@@ -110,7 +110,7 @@ instance ToQuery ListPlatformApplications where
               ["Action" =:
                  ("ListPlatformApplications" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _lparqNextToken]
+               "NextToken" =: _lpaNextToken]
 
 -- | Response for ListPlatformApplications action.
 --

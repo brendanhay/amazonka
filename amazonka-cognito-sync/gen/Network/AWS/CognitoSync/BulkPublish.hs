@@ -35,7 +35,7 @@ module Network.AWS.CognitoSync.BulkPublish
     -- ** Request constructor
     , bulkPublish
     -- ** Request lenses
-    , bprqIdentityPoolId
+    , bpIdentityPoolId
 
     -- * Response
     , BulkPublishResponse
@@ -57,23 +57,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bprqIdentityPoolId'
+-- * 'bpIdentityPoolId'
 newtype BulkPublish = BulkPublish'
-    { _bprqIdentityPoolId :: Text
+    { _bpIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BulkPublish' smart constructor.
 bulkPublish :: Text -> BulkPublish
 bulkPublish pIdentityPoolId_ =
     BulkPublish'
-    { _bprqIdentityPoolId = pIdentityPoolId_
+    { _bpIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-bprqIdentityPoolId :: Lens' BulkPublish Text
-bprqIdentityPoolId = lens _bprqIdentityPoolId (\ s a -> s{_bprqIdentityPoolId = a});
+bpIdentityPoolId :: Lens' BulkPublish Text
+bpIdentityPoolId = lens _bpIdentityPoolId (\ s a -> s{_bpIdentityPoolId = a});
 
 instance AWSRequest BulkPublish where
         type Sv BulkPublish = CognitoSync
@@ -98,7 +98,7 @@ instance ToJSON BulkPublish where
 instance ToPath BulkPublish where
         toPath BulkPublish'{..}
           = mconcat
-              ["/identitypools/", toText _bprqIdentityPoolId,
+              ["/identitypools/", toText _bpIdentityPoolId,
                "/bulkpublish"]
 
 instance ToQuery BulkPublish where

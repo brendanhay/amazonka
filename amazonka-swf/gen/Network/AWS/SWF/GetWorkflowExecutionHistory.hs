@@ -50,11 +50,11 @@ module Network.AWS.SWF.GetWorkflowExecutionHistory
     -- ** Request constructor
     , getWorkflowExecutionHistory
     -- ** Request lenses
-    , gwehrqNextPageToken
-    , gwehrqReverseOrder
-    , gwehrqMaximumPageSize
-    , gwehrqDomain
-    , gwehrqExecution
+    , gwehNextPageToken
+    , gwehReverseOrder
+    , gwehMaximumPageSize
+    , gwehDomain
+    , gwehExecution
 
     -- * Response
     , GetWorkflowExecutionHistoryResponse
@@ -76,32 +76,32 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gwehrqNextPageToken'
+-- * 'gwehNextPageToken'
 --
--- * 'gwehrqReverseOrder'
+-- * 'gwehReverseOrder'
 --
--- * 'gwehrqMaximumPageSize'
+-- * 'gwehMaximumPageSize'
 --
--- * 'gwehrqDomain'
+-- * 'gwehDomain'
 --
--- * 'gwehrqExecution'
+-- * 'gwehExecution'
 data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
-    { _gwehrqNextPageToken   :: !(Maybe Text)
-    , _gwehrqReverseOrder    :: !(Maybe Bool)
-    , _gwehrqMaximumPageSize :: !(Maybe Nat)
-    , _gwehrqDomain          :: !Text
-    , _gwehrqExecution       :: !WorkflowExecution
+    { _gwehNextPageToken   :: !(Maybe Text)
+    , _gwehReverseOrder    :: !(Maybe Bool)
+    , _gwehMaximumPageSize :: !(Maybe Nat)
+    , _gwehDomain          :: !Text
+    , _gwehExecution       :: !WorkflowExecution
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetWorkflowExecutionHistory' smart constructor.
 getWorkflowExecutionHistory :: Text -> WorkflowExecution -> GetWorkflowExecutionHistory
 getWorkflowExecutionHistory pDomain_ pExecution_ =
     GetWorkflowExecutionHistory'
-    { _gwehrqNextPageToken = Nothing
-    , _gwehrqReverseOrder = Nothing
-    , _gwehrqMaximumPageSize = Nothing
-    , _gwehrqDomain = pDomain_
-    , _gwehrqExecution = pExecution_
+    { _gwehNextPageToken = Nothing
+    , _gwehReverseOrder = Nothing
+    , _gwehMaximumPageSize = Nothing
+    , _gwehDomain = pDomain_
+    , _gwehExecution = pExecution_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -111,14 +111,14 @@ getWorkflowExecutionHistory pDomain_ pExecution_ =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-gwehrqNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
-gwehrqNextPageToken = lens _gwehrqNextPageToken (\ s a -> s{_gwehrqNextPageToken = a});
+gwehNextPageToken :: Lens' GetWorkflowExecutionHistory (Maybe Text)
+gwehNextPageToken = lens _gwehNextPageToken (\ s a -> s{_gwehNextPageToken = a});
 
 -- | When set to @true@, returns the events in reverse order. By default the
 -- results are returned in ascending order of the @eventTimeStamp@ of the
 -- events.
-gwehrqReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
-gwehrqReverseOrder = lens _gwehrqReverseOrder (\ s a -> s{_gwehrqReverseOrder = a});
+gwehReverseOrder :: Lens' GetWorkflowExecutionHistory (Maybe Bool)
+gwehReverseOrder = lens _gwehReverseOrder (\ s a -> s{_gwehReverseOrder = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -127,16 +127,16 @@ gwehrqReverseOrder = lens _gwehrqReverseOrder (\ s a -> s{_gwehrqReverseOrder = 
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
-gwehrqMaximumPageSize :: Lens' GetWorkflowExecutionHistory (Maybe Natural)
-gwehrqMaximumPageSize = lens _gwehrqMaximumPageSize (\ s a -> s{_gwehrqMaximumPageSize = a}) . mapping _Nat;
+gwehMaximumPageSize :: Lens' GetWorkflowExecutionHistory (Maybe Natural)
+gwehMaximumPageSize = lens _gwehMaximumPageSize (\ s a -> s{_gwehMaximumPageSize = a}) . mapping _Nat;
 
 -- | The name of the domain containing the workflow execution.
-gwehrqDomain :: Lens' GetWorkflowExecutionHistory Text
-gwehrqDomain = lens _gwehrqDomain (\ s a -> s{_gwehrqDomain = a});
+gwehDomain :: Lens' GetWorkflowExecutionHistory Text
+gwehDomain = lens _gwehDomain (\ s a -> s{_gwehDomain = a});
 
 -- | Specifies the workflow execution for which to return the history.
-gwehrqExecution :: Lens' GetWorkflowExecutionHistory WorkflowExecution
-gwehrqExecution = lens _gwehrqExecution (\ s a -> s{_gwehrqExecution = a});
+gwehExecution :: Lens' GetWorkflowExecutionHistory WorkflowExecution
+gwehExecution = lens _gwehExecution (\ s a -> s{_gwehExecution = a});
 
 instance AWSPager GetWorkflowExecutionHistory where
         page rq rs
@@ -144,7 +144,7 @@ instance AWSPager GetWorkflowExecutionHistory where
           | stop (rs ^. gwehrsEvents) = Nothing
           | otherwise =
             Just $ rq &
-              gwehrqNextPageToken .~ rs ^. gwehrsNextPageToken
+              gwehNextPageToken .~ rs ^. gwehrsNextPageToken
 
 instance AWSRequest GetWorkflowExecutionHistory where
         type Sv GetWorkflowExecutionHistory = SWF
@@ -171,11 +171,11 @@ instance ToHeaders GetWorkflowExecutionHistory where
 instance ToJSON GetWorkflowExecutionHistory where
         toJSON GetWorkflowExecutionHistory'{..}
           = object
-              ["nextPageToken" .= _gwehrqNextPageToken,
-               "reverseOrder" .= _gwehrqReverseOrder,
-               "maximumPageSize" .= _gwehrqMaximumPageSize,
-               "domain" .= _gwehrqDomain,
-               "execution" .= _gwehrqExecution]
+              ["nextPageToken" .= _gwehNextPageToken,
+               "reverseOrder" .= _gwehReverseOrder,
+               "maximumPageSize" .= _gwehMaximumPageSize,
+               "domain" .= _gwehDomain,
+               "execution" .= _gwehExecution]
 
 instance ToPath GetWorkflowExecutionHistory where
         toPath = const "/"

@@ -30,8 +30,8 @@ module Network.AWS.EC2.RestoreAddressToClassic
     -- ** Request constructor
     , restoreAddressToClassic
     -- ** Request lenses
-    , ratcrqDryRun
-    , ratcrqPublicIP
+    , ratcDryRun
+    , ratcPublicIP
 
     -- * Response
     , RestoreAddressToClassicResponse
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ratcrqDryRun'
+-- * 'ratcDryRun'
 --
--- * 'ratcrqPublicIP'
+-- * 'ratcPublicIP'
 data RestoreAddressToClassic = RestoreAddressToClassic'
-    { _ratcrqDryRun   :: !(Maybe Bool)
-    , _ratcrqPublicIP :: !Text
+    { _ratcDryRun   :: !(Maybe Bool)
+    , _ratcPublicIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreAddressToClassic' smart constructor.
 restoreAddressToClassic :: Text -> RestoreAddressToClassic
 restoreAddressToClassic pPublicIP_ =
     RestoreAddressToClassic'
-    { _ratcrqDryRun = Nothing
-    , _ratcrqPublicIP = pPublicIP_
+    { _ratcDryRun = Nothing
+    , _ratcPublicIP = pPublicIP_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ratcrqDryRun :: Lens' RestoreAddressToClassic (Maybe Bool)
-ratcrqDryRun = lens _ratcrqDryRun (\ s a -> s{_ratcrqDryRun = a});
+ratcDryRun :: Lens' RestoreAddressToClassic (Maybe Bool)
+ratcDryRun = lens _ratcDryRun (\ s a -> s{_ratcDryRun = a});
 
 -- | The Elastic IP address.
-ratcrqPublicIP :: Lens' RestoreAddressToClassic Text
-ratcrqPublicIP = lens _ratcrqPublicIP (\ s a -> s{_ratcrqPublicIP = a});
+ratcPublicIP :: Lens' RestoreAddressToClassic Text
+ratcPublicIP = lens _ratcPublicIP (\ s a -> s{_ratcPublicIP = a});
 
 instance AWSRequest RestoreAddressToClassic where
         type Sv RestoreAddressToClassic = EC2
@@ -101,8 +101,7 @@ instance ToQuery RestoreAddressToClassic where
               ["Action" =:
                  ("RestoreAddressToClassic" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ratcrqDryRun,
-               "PublicIp" =: _ratcrqPublicIP]
+               "DryRun" =: _ratcDryRun, "PublicIp" =: _ratcPublicIP]
 
 -- | /See:/ 'restoreAddressToClassicResponse' smart constructor.
 --

@@ -28,7 +28,7 @@ module Network.AWS.DirectoryService.DisableRadius
     -- ** Request constructor
     , disableRadius
     -- ** Request lenses
-    , drrqDirectoryId
+    , drDirectoryId
 
     -- * Response
     , DisableRadiusResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drrqDirectoryId'
+-- * 'drDirectoryId'
 newtype DisableRadius = DisableRadius'
-    { _drrqDirectoryId :: Text
+    { _drDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableRadius' smart constructor.
 disableRadius :: Text -> DisableRadius
 disableRadius pDirectoryId_ =
     DisableRadius'
-    { _drrqDirectoryId = pDirectoryId_
+    { _drDirectoryId = pDirectoryId_
     }
 
 -- | The identifier of the directory to disable MFA for.
-drrqDirectoryId :: Lens' DisableRadius Text
-drrqDirectoryId = lens _drrqDirectoryId (\ s a -> s{_drrqDirectoryId = a});
+drDirectoryId :: Lens' DisableRadius Text
+drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a});
 
 instance AWSRequest DisableRadius where
         type Sv DisableRadius = DirectoryService
@@ -86,7 +86,7 @@ instance ToHeaders DisableRadius where
 
 instance ToJSON DisableRadius where
         toJSON DisableRadius'{..}
-          = object ["DirectoryId" .= _drrqDirectoryId]
+          = object ["DirectoryId" .= _drDirectoryId]
 
 instance ToPath DisableRadius where
         toPath = const "/"

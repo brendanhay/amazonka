@@ -27,13 +27,13 @@ module Network.AWS.S3.ListMultipartUploads
     -- ** Request constructor
     , listMultipartUploads
     -- ** Request lenses
-    , lmurqKeyMarker
-    , lmurqPrefix
-    , lmurqEncodingType
-    , lmurqMaxUploads
-    , lmurqUploadIdMarker
-    , lmurqDelimiter
-    , lmurqBucket
+    , lmuKeyMarker
+    , lmuPrefix
+    , lmuEncodingType
+    , lmuMaxUploads
+    , lmuUploadIdMarker
+    , lmuDelimiter
+    , lmuBucket
 
     -- * Response
     , ListMultipartUploadsResponse
@@ -65,75 +65,75 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmurqKeyMarker'
+-- * 'lmuKeyMarker'
 --
--- * 'lmurqPrefix'
+-- * 'lmuPrefix'
 --
--- * 'lmurqEncodingType'
+-- * 'lmuEncodingType'
 --
--- * 'lmurqMaxUploads'
+-- * 'lmuMaxUploads'
 --
--- * 'lmurqUploadIdMarker'
+-- * 'lmuUploadIdMarker'
 --
--- * 'lmurqDelimiter'
+-- * 'lmuDelimiter'
 --
--- * 'lmurqBucket'
+-- * 'lmuBucket'
 data ListMultipartUploads = ListMultipartUploads'
-    { _lmurqKeyMarker      :: !(Maybe Text)
-    , _lmurqPrefix         :: !(Maybe Text)
-    , _lmurqEncodingType   :: !(Maybe EncodingType)
-    , _lmurqMaxUploads     :: !(Maybe Int)
-    , _lmurqUploadIdMarker :: !(Maybe Text)
-    , _lmurqDelimiter      :: !(Maybe Char)
-    , _lmurqBucket         :: !BucketName
+    { _lmuKeyMarker      :: !(Maybe Text)
+    , _lmuPrefix         :: !(Maybe Text)
+    , _lmuEncodingType   :: !(Maybe EncodingType)
+    , _lmuMaxUploads     :: !(Maybe Int)
+    , _lmuUploadIdMarker :: !(Maybe Text)
+    , _lmuDelimiter      :: !(Maybe Char)
+    , _lmuBucket         :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: BucketName -> ListMultipartUploads
 listMultipartUploads pBucket_ =
     ListMultipartUploads'
-    { _lmurqKeyMarker = Nothing
-    , _lmurqPrefix = Nothing
-    , _lmurqEncodingType = Nothing
-    , _lmurqMaxUploads = Nothing
-    , _lmurqUploadIdMarker = Nothing
-    , _lmurqDelimiter = Nothing
-    , _lmurqBucket = pBucket_
+    { _lmuKeyMarker = Nothing
+    , _lmuPrefix = Nothing
+    , _lmuEncodingType = Nothing
+    , _lmuMaxUploads = Nothing
+    , _lmuUploadIdMarker = Nothing
+    , _lmuDelimiter = Nothing
+    , _lmuBucket = pBucket_
     }
 
 -- | Together with upload-id-marker, this parameter specifies the multipart
 -- upload after which listing should begin.
-lmurqKeyMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmurqKeyMarker = lens _lmurqKeyMarker (\ s a -> s{_lmurqKeyMarker = a});
+lmuKeyMarker :: Lens' ListMultipartUploads (Maybe Text)
+lmuKeyMarker = lens _lmuKeyMarker (\ s a -> s{_lmuKeyMarker = a});
 
 -- | Lists in-progress uploads only for those keys that begin with the
 -- specified prefix.
-lmurqPrefix :: Lens' ListMultipartUploads (Maybe Text)
-lmurqPrefix = lens _lmurqPrefix (\ s a -> s{_lmurqPrefix = a});
+lmuPrefix :: Lens' ListMultipartUploads (Maybe Text)
+lmuPrefix = lens _lmuPrefix (\ s a -> s{_lmuPrefix = a});
 
 -- | FIXME: Undocumented member.
-lmurqEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
-lmurqEncodingType = lens _lmurqEncodingType (\ s a -> s{_lmurqEncodingType = a});
+lmuEncodingType :: Lens' ListMultipartUploads (Maybe EncodingType)
+lmuEncodingType = lens _lmuEncodingType (\ s a -> s{_lmuEncodingType = a});
 
 -- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return
 -- in the response body. 1,000 is the maximum number of uploads that can be
 -- returned in a response.
-lmurqMaxUploads :: Lens' ListMultipartUploads (Maybe Int)
-lmurqMaxUploads = lens _lmurqMaxUploads (\ s a -> s{_lmurqMaxUploads = a});
+lmuMaxUploads :: Lens' ListMultipartUploads (Maybe Int)
+lmuMaxUploads = lens _lmuMaxUploads (\ s a -> s{_lmuMaxUploads = a});
 
 -- | Together with key-marker, specifies the multipart upload after which
 -- listing should begin. If key-marker is not specified, the
 -- upload-id-marker parameter is ignored.
-lmurqUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmurqUploadIdMarker = lens _lmurqUploadIdMarker (\ s a -> s{_lmurqUploadIdMarker = a});
+lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
+lmuUploadIdMarker = lens _lmuUploadIdMarker (\ s a -> s{_lmuUploadIdMarker = a});
 
 -- | Character you use to group keys.
-lmurqDelimiter :: Lens' ListMultipartUploads (Maybe Char)
-lmurqDelimiter = lens _lmurqDelimiter (\ s a -> s{_lmurqDelimiter = a});
+lmuDelimiter :: Lens' ListMultipartUploads (Maybe Char)
+lmuDelimiter = lens _lmuDelimiter (\ s a -> s{_lmuDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lmurqBucket :: Lens' ListMultipartUploads BucketName
-lmurqBucket = lens _lmurqBucket (\ s a -> s{_lmurqBucket = a});
+lmuBucket :: Lens' ListMultipartUploads BucketName
+lmuBucket = lens _lmuBucket (\ s a -> s{_lmuBucket = a});
 
 instance AWSPager ListMultipartUploads where
         page rq rs
@@ -142,10 +142,8 @@ instance AWSPager ListMultipartUploads where
               isNothing (rs ^. lmursNextUploadIdMarker)
             = Nothing
           | otherwise =
-            Just $ rq &
-              lmurqKeyMarker .~ rs ^. lmursNextKeyMarker
-              &
-              lmurqUploadIdMarker .~ rs ^. lmursNextUploadIdMarker
+            Just $ rq & lmuKeyMarker .~ rs ^. lmursNextKeyMarker
+              & lmuUploadIdMarker .~ rs ^. lmursNextUploadIdMarker
 
 instance AWSRequest ListMultipartUploads where
         type Sv ListMultipartUploads = S3
@@ -174,17 +172,17 @@ instance ToHeaders ListMultipartUploads where
 
 instance ToPath ListMultipartUploads where
         toPath ListMultipartUploads'{..}
-          = mconcat ["/", toText _lmurqBucket]
+          = mconcat ["/", toText _lmuBucket]
 
 instance ToQuery ListMultipartUploads where
         toQuery ListMultipartUploads'{..}
           = mconcat
-              ["key-marker" =: _lmurqKeyMarker,
-               "prefix" =: _lmurqPrefix,
-               "encoding-type" =: _lmurqEncodingType,
-               "max-uploads" =: _lmurqMaxUploads,
-               "upload-id-marker" =: _lmurqUploadIdMarker,
-               "delimiter" =: _lmurqDelimiter, "uploads"]
+              ["key-marker" =: _lmuKeyMarker,
+               "prefix" =: _lmuPrefix,
+               "encoding-type" =: _lmuEncodingType,
+               "max-uploads" =: _lmuMaxUploads,
+               "upload-id-marker" =: _lmuUploadIdMarker,
+               "delimiter" =: _lmuDelimiter, "uploads"]
 
 -- | /See:/ 'listMultipartUploadsResponse' smart constructor.
 --

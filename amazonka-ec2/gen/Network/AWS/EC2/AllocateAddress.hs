@@ -32,8 +32,8 @@ module Network.AWS.EC2.AllocateAddress
     -- ** Request constructor
     , allocateAddress
     -- ** Request lenses
-    , aarqDomain
-    , aarqDryRun
+    , aaDomain
+    , aaDryRun
 
     -- * Response
     , AllocateAddressResponse
@@ -55,34 +55,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aarqDomain'
+-- * 'aaDomain'
 --
--- * 'aarqDryRun'
+-- * 'aaDryRun'
 data AllocateAddress = AllocateAddress'
-    { _aarqDomain :: !(Maybe DomainType)
-    , _aarqDryRun :: !(Maybe Bool)
+    { _aaDomain :: !(Maybe DomainType)
+    , _aaDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocateAddress' smart constructor.
 allocateAddress :: AllocateAddress
 allocateAddress =
     AllocateAddress'
-    { _aarqDomain = Nothing
-    , _aarqDryRun = Nothing
+    { _aaDomain = Nothing
+    , _aaDryRun = Nothing
     }
 
 -- | Set to @vpc@ to allocate the address for use with instances in a VPC.
 --
 -- Default: The address is for use with instances in EC2-Classic.
-aarqDomain :: Lens' AllocateAddress (Maybe DomainType)
-aarqDomain = lens _aarqDomain (\ s a -> s{_aarqDomain = a});
+aaDomain :: Lens' AllocateAddress (Maybe DomainType)
+aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-aarqDryRun :: Lens' AllocateAddress (Maybe Bool)
-aarqDryRun = lens _aarqDryRun (\ s a -> s{_aarqDryRun = a});
+aaDryRun :: Lens' AllocateAddress (Maybe Bool)
+aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
 
 instance AWSRequest AllocateAddress where
         type Sv AllocateAddress = EC2
@@ -107,7 +107,7 @@ instance ToQuery AllocateAddress where
           = mconcat
               ["Action" =: ("AllocateAddress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Domain" =: _aarqDomain, "DryRun" =: _aarqDryRun]
+               "Domain" =: _aaDomain, "DryRun" =: _aaDryRun]
 
 -- | /See:/ 'allocateAddressResponse' smart constructor.
 --

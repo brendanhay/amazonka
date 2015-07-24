@@ -35,7 +35,7 @@ module Network.AWS.Route53.GetChange
     -- ** Request constructor
     , getChange
     -- ** Request lenses
-    , gcrqId
+    , gcId
 
     -- * Response
     , GetChangeResponse
@@ -57,23 +57,23 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcrqId'
+-- * 'gcId'
 newtype GetChange = GetChange'
-    { _gcrqId :: Text
+    { _gcId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetChange' smart constructor.
 getChange :: Text -> GetChange
 getChange pId_ =
     GetChange'
-    { _gcrqId = pId_
+    { _gcId = pId_
     }
 
 -- | The ID of the change batch request. The value that you specify here is
 -- the value that @ChangeResourceRecordSets@ returned in the Id element
 -- when you submitted the request.
-gcrqId :: Lens' GetChange Text
-gcrqId = lens _gcrqId (\ s a -> s{_gcrqId = a});
+gcId :: Lens' GetChange Text
+gcId = lens _gcId (\ s a -> s{_gcId = a});
 
 instance AWSRequest GetChange where
         type Sv GetChange = Route53
@@ -90,7 +90,7 @@ instance ToHeaders GetChange where
 
 instance ToPath GetChange where
         toPath GetChange'{..}
-          = mconcat ["/2013-04-01/change/", toText _gcrqId]
+          = mconcat ["/2013-04-01/change/", toText _gcId]
 
 instance ToQuery GetChange where
         toQuery = const mempty

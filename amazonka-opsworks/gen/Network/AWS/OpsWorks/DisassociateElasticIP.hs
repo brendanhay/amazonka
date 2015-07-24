@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DisassociateElasticIP
     -- ** Request constructor
     , disassociateElasticIP
     -- ** Request lenses
-    , deirqElasticIP
+    , deiElasticIP
 
     -- * Response
     , DisassociateElasticIPResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deirqElasticIP'
+-- * 'deiElasticIP'
 newtype DisassociateElasticIP = DisassociateElasticIP'
-    { _deirqElasticIP :: Text
+    { _deiElasticIP :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateElasticIP' smart constructor.
 disassociateElasticIP :: Text -> DisassociateElasticIP
 disassociateElasticIP pElasticIP_ =
     DisassociateElasticIP'
-    { _deirqElasticIP = pElasticIP_
+    { _deiElasticIP = pElasticIP_
     }
 
 -- | The Elastic IP address.
-deirqElasticIP :: Lens' DisassociateElasticIP Text
-deirqElasticIP = lens _deirqElasticIP (\ s a -> s{_deirqElasticIP = a});
+deiElasticIP :: Lens' DisassociateElasticIP Text
+deiElasticIP = lens _deiElasticIP (\ s a -> s{_deiElasticIP = a});
 
 instance AWSRequest DisassociateElasticIP where
         type Sv DisassociateElasticIP = OpsWorks
@@ -87,7 +87,7 @@ instance ToHeaders DisassociateElasticIP where
 
 instance ToJSON DisassociateElasticIP where
         toJSON DisassociateElasticIP'{..}
-          = object ["ElasticIp" .= _deirqElasticIP]
+          = object ["ElasticIp" .= _deiElasticIP]
 
 instance ToPath DisassociateElasticIP where
         toPath = const "/"

@@ -33,8 +33,8 @@ module Network.AWS.IAM.ListAccountAliases
     -- ** Request constructor
     , listAccountAliases
     -- ** Request lenses
-    , laarqMaxItems
-    , laarqMarker
+    , laaMaxItems
+    , laaMarker
 
     -- * Response
     , ListAccountAliasesResponse
@@ -57,20 +57,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'laarqMaxItems'
+-- * 'laaMaxItems'
 --
--- * 'laarqMarker'
+-- * 'laaMarker'
 data ListAccountAliases = ListAccountAliases'
-    { _laarqMaxItems :: !(Maybe Nat)
-    , _laarqMarker   :: !(Maybe Text)
+    { _laaMaxItems :: !(Maybe Nat)
+    , _laaMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccountAliases' smart constructor.
 listAccountAliases :: ListAccountAliases
 listAccountAliases =
     ListAccountAliases'
-    { _laarqMaxItems = Nothing
-    , _laarqMarker = Nothing
+    { _laaMaxItems = Nothing
+    , _laaMarker = Nothing
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -79,21 +79,21 @@ listAccountAliases =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-laarqMaxItems :: Lens' ListAccountAliases (Maybe Natural)
-laarqMaxItems = lens _laarqMaxItems (\ s a -> s{_laarqMaxItems = a}) . mapping _Nat;
+laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
+laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-laarqMarker :: Lens' ListAccountAliases (Maybe Text)
-laarqMarker = lens _laarqMarker (\ s a -> s{_laarqMarker = a});
+laaMarker :: Lens' ListAccountAliases (Maybe Text)
+laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
 instance AWSPager ListAccountAliases where
         page rq rs
           | stop (rs ^. laarsIsTruncated) = Nothing
           | isNothing (rs ^. laarsMarker) = Nothing
           | otherwise =
-            Just $ rq & laarqMarker .~ rs ^. laarsMarker
+            Just $ rq & laaMarker .~ rs ^. laarsMarker
 
 instance AWSRequest ListAccountAliases where
         type Sv ListAccountAliases = IAM
@@ -121,8 +121,7 @@ instance ToQuery ListAccountAliases where
           = mconcat
               ["Action" =: ("ListAccountAliases" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _laarqMaxItems,
-               "Marker" =: _laarqMarker]
+               "MaxItems" =: _laaMaxItems, "Marker" =: _laaMarker]
 
 -- | Contains the response to a successful ListAccountAliases request.
 --

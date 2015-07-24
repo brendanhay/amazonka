@@ -27,7 +27,7 @@ module Network.AWS.KMS.DisableKey
     -- ** Request constructor
     , disableKey
     -- ** Request lenses
-    , dkrqKeyId
+    , dkKeyId
 
     -- * Response
     , DisableKeyResponse
@@ -44,16 +44,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkrqKeyId'
+-- * 'dkKeyId'
 newtype DisableKey = DisableKey'
-    { _dkrqKeyId :: Text
+    { _dkKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableKey' smart constructor.
 disableKey :: Text -> DisableKey
 disableKey pKeyId_ =
     DisableKey'
-    { _dkrqKeyId = pKeyId_
+    { _dkKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -63,8 +63,8 @@ disableKey pKeyId_ =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-dkrqKeyId :: Lens' DisableKey Text
-dkrqKeyId = lens _dkrqKeyId (\ s a -> s{_dkrqKeyId = a});
+dkKeyId :: Lens' DisableKey Text
+dkKeyId = lens _dkKeyId (\ s a -> s{_dkKeyId = a});
 
 instance AWSRequest DisableKey where
         type Sv DisableKey = KMS
@@ -82,8 +82,7 @@ instance ToHeaders DisableKey where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DisableKey where
-        toJSON DisableKey'{..}
-          = object ["KeyId" .= _dkrqKeyId]
+        toJSON DisableKey'{..} = object ["KeyId" .= _dkKeyId]
 
 instance ToPath DisableKey where
         toPath = const "/"

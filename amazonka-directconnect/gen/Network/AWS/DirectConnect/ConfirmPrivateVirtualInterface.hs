@@ -32,8 +32,8 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     -- ** Request constructor
     , confirmPrivateVirtualInterface
     -- ** Request lenses
-    , cpvirqVirtualInterfaceId
-    , cpvirqVirtualGatewayId
+    , cpviVirtualInterfaceId
+    , cpviVirtualGatewayId
 
     -- * Response
     , ConfirmPrivateVirtualInterfaceResponse
@@ -56,25 +56,25 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpvirqVirtualInterfaceId'
+-- * 'cpviVirtualInterfaceId'
 --
--- * 'cpvirqVirtualGatewayId'
+-- * 'cpviVirtualGatewayId'
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
-    { _cpvirqVirtualInterfaceId :: !Text
-    , _cpvirqVirtualGatewayId   :: !Text
+    { _cpviVirtualInterfaceId :: !Text
+    , _cpviVirtualGatewayId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPrivateVirtualInterface' smart constructor.
 confirmPrivateVirtualInterface :: Text -> Text -> ConfirmPrivateVirtualInterface
 confirmPrivateVirtualInterface pVirtualInterfaceId_ pVirtualGatewayId_ =
     ConfirmPrivateVirtualInterface'
-    { _cpvirqVirtualInterfaceId = pVirtualInterfaceId_
-    , _cpvirqVirtualGatewayId = pVirtualGatewayId_
+    { _cpviVirtualInterfaceId = pVirtualInterfaceId_
+    , _cpviVirtualGatewayId = pVirtualGatewayId_
     }
 
 -- | FIXME: Undocumented member.
-cpvirqVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
-cpvirqVirtualInterfaceId = lens _cpvirqVirtualInterfaceId (\ s a -> s{_cpvirqVirtualInterfaceId = a});
+cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
+cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a});
 
 -- | ID of the virtual private gateway that will be attached to the virtual
 -- interface.
@@ -85,8 +85,8 @@ cpvirqVirtualInterfaceId = lens _cpvirqVirtualInterfaceId (\ s a -> s{_cpvirqVir
 -- action.
 --
 -- Default: None
-cpvirqVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
-cpvirqVirtualGatewayId = lens _cpvirqVirtualGatewayId (\ s a -> s{_cpvirqVirtualGatewayId = a});
+cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
+cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
 
 instance AWSRequest ConfirmPrivateVirtualInterface
          where
@@ -116,8 +116,8 @@ instance ToHeaders ConfirmPrivateVirtualInterface
 instance ToJSON ConfirmPrivateVirtualInterface where
         toJSON ConfirmPrivateVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _cpvirqVirtualInterfaceId,
-               "virtualGatewayId" .= _cpvirqVirtualGatewayId]
+              ["virtualInterfaceId" .= _cpviVirtualInterfaceId,
+               "virtualGatewayId" .= _cpviVirtualGatewayId]
 
 instance ToPath ConfirmPrivateVirtualInterface where
         toPath = const "/"

@@ -41,10 +41,10 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- ** Request constructor
     , purchaseReservedInstancesOffering
     -- ** Request lenses
-    , priorqLimitPrice
-    , priorqDryRun
-    , priorqReservedInstancesOfferingId
-    , priorqInstanceCount
+    , prioLimitPrice
+    , prioDryRun
+    , prioReservedInstancesOfferingId
+    , prioInstanceCount
 
     -- * Response
     , PurchaseReservedInstancesOfferingResponse
@@ -64,50 +64,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'priorqLimitPrice'
+-- * 'prioLimitPrice'
 --
--- * 'priorqDryRun'
+-- * 'prioDryRun'
 --
--- * 'priorqReservedInstancesOfferingId'
+-- * 'prioReservedInstancesOfferingId'
 --
--- * 'priorqInstanceCount'
+-- * 'prioInstanceCount'
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
-    { _priorqLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
-    , _priorqDryRun                      :: !(Maybe Bool)
-    , _priorqReservedInstancesOfferingId :: !Text
-    , _priorqInstanceCount               :: !Int
+    { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
+    , _prioDryRun                      :: !(Maybe Bool)
+    , _prioReservedInstancesOfferingId :: !Text
+    , _prioInstanceCount               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedInstancesOffering' smart constructor.
 purchaseReservedInstancesOffering :: Text -> Int -> PurchaseReservedInstancesOffering
 purchaseReservedInstancesOffering pReservedInstancesOfferingId_ pInstanceCount_ =
     PurchaseReservedInstancesOffering'
-    { _priorqLimitPrice = Nothing
-    , _priorqDryRun = Nothing
-    , _priorqReservedInstancesOfferingId = pReservedInstancesOfferingId_
-    , _priorqInstanceCount = pInstanceCount_
+    { _prioLimitPrice = Nothing
+    , _prioDryRun = Nothing
+    , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId_
+    , _prioInstanceCount = pInstanceCount_
     }
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at
 -- unexpected prices.
-priorqLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
-priorqLimitPrice = lens _priorqLimitPrice (\ s a -> s{_priorqLimitPrice = a});
+prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
+prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-priorqDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
-priorqDryRun = lens _priorqDryRun (\ s a -> s{_priorqDryRun = a});
+prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
+prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
 
 -- | The ID of the Reserved Instance offering to purchase.
-priorqReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
-priorqReservedInstancesOfferingId = lens _priorqReservedInstancesOfferingId (\ s a -> s{_priorqReservedInstancesOfferingId = a});
+prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
+prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a});
 
 -- | The number of Reserved Instances to purchase.
-priorqInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
-priorqInstanceCount = lens _priorqInstanceCount (\ s a -> s{_priorqInstanceCount = a});
+prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
+prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a});
 
 instance AWSRequest PurchaseReservedInstancesOffering
          where
@@ -137,11 +137,11 @@ instance ToQuery PurchaseReservedInstancesOffering
               ["Action" =:
                  ("PurchaseReservedInstancesOffering" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "LimitPrice" =: _priorqLimitPrice,
-               "DryRun" =: _priorqDryRun,
+               "LimitPrice" =: _prioLimitPrice,
+               "DryRun" =: _prioDryRun,
                "ReservedInstancesOfferingId" =:
-                 _priorqReservedInstancesOfferingId,
-               "InstanceCount" =: _priorqInstanceCount]
+                 _prioReservedInstancesOfferingId,
+               "InstanceCount" =: _prioInstanceCount]
 
 -- | /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
 --

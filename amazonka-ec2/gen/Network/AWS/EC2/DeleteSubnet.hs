@@ -28,8 +28,8 @@ module Network.AWS.EC2.DeleteSubnet
     -- ** Request constructor
     , deleteSubnet
     -- ** Request lenses
-    , ddrqDryRun
-    , ddrqSubnetId
+    , ddDryRun
+    , ddSubnetId
 
     -- * Response
     , DeleteSubnetResponse
@@ -46,32 +46,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrqDryRun'
+-- * 'ddDryRun'
 --
--- * 'ddrqSubnetId'
+-- * 'ddSubnetId'
 data DeleteSubnet = DeleteSubnet'
-    { _ddrqDryRun   :: !(Maybe Bool)
-    , _ddrqSubnetId :: !Text
+    { _ddDryRun   :: !(Maybe Bool)
+    , _ddSubnetId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSubnet' smart constructor.
 deleteSubnet :: Text -> DeleteSubnet
 deleteSubnet pSubnetId_ =
     DeleteSubnet'
-    { _ddrqDryRun = Nothing
-    , _ddrqSubnetId = pSubnetId_
+    { _ddDryRun = Nothing
+    , _ddSubnetId = pSubnetId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ddrqDryRun :: Lens' DeleteSubnet (Maybe Bool)
-ddrqDryRun = lens _ddrqDryRun (\ s a -> s{_ddrqDryRun = a});
+ddDryRun :: Lens' DeleteSubnet (Maybe Bool)
+ddDryRun = lens _ddDryRun (\ s a -> s{_ddDryRun = a});
 
 -- | The ID of the subnet.
-ddrqSubnetId :: Lens' DeleteSubnet Text
-ddrqSubnetId = lens _ddrqSubnetId (\ s a -> s{_ddrqSubnetId = a});
+ddSubnetId :: Lens' DeleteSubnet Text
+ddSubnetId = lens _ddSubnetId (\ s a -> s{_ddSubnetId = a});
 
 instance AWSRequest DeleteSubnet where
         type Sv DeleteSubnet = EC2
@@ -90,7 +90,7 @@ instance ToQuery DeleteSubnet where
           = mconcat
               ["Action" =: ("DeleteSubnet" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ddrqDryRun, "SubnetId" =: _ddrqSubnetId]
+               "DryRun" =: _ddDryRun, "SubnetId" =: _ddSubnetId]
 
 -- | /See:/ 'deleteSubnetResponse' smart constructor.
 data DeleteSubnetResponse =

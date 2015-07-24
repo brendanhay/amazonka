@@ -34,7 +34,7 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
     -- ** Request constructor
     , getIdentityNotificationAttributes
     -- ** Request lenses
-    , ginarqIdentities
+    , ginaIdentities
 
     -- * Response
     , GetIdentityNotificationAttributesResponse
@@ -54,24 +54,24 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ginarqIdentities'
+-- * 'ginaIdentities'
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
-    { _ginarqIdentities :: [Text]
+    { _ginaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityNotificationAttributes' smart constructor.
 getIdentityNotificationAttributes :: GetIdentityNotificationAttributes
 getIdentityNotificationAttributes =
     GetIdentityNotificationAttributes'
-    { _ginarqIdentities = mempty
+    { _ginaIdentities = mempty
     }
 
 -- | A list of one or more identities. You can specify an identity by using
 -- its name or by using its Amazon Resource Name (ARN). Examples:
 -- @user\@example.com@, @example.com@,
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
-ginarqIdentities :: Lens' GetIdentityNotificationAttributes [Text]
-ginarqIdentities = lens _ginarqIdentities (\ s a -> s{_ginarqIdentities = a});
+ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
+ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a});
 
 instance AWSRequest GetIdentityNotificationAttributes
          where
@@ -103,8 +103,7 @@ instance ToQuery GetIdentityNotificationAttributes
               ["Action" =:
                  ("GetIdentityNotificationAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =:
-                 toQueryList "member" _ginarqIdentities]
+               "Identities" =: toQueryList "member" _ginaIdentities]
 
 -- | Describes whether an identity has Amazon Simple Notification Service
 -- (Amazon SNS) topics set for bounce, complaint, and\/or delivery

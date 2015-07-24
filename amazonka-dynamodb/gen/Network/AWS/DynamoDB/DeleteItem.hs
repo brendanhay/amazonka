@@ -41,16 +41,16 @@ module Network.AWS.DynamoDB.DeleteItem
     -- ** Request constructor
     , deleteItem
     -- ** Request lenses
-    , dirqReturnValues
-    , dirqExpressionAttributeNames
-    , dirqReturnConsumedCapacity
-    , dirqExpressionAttributeValues
-    , dirqReturnItemCollectionMetrics
-    , dirqConditionExpression
-    , dirqConditionalOperator
-    , dirqExpected
-    , dirqTableName
-    , dirqKey
+    , diReturnValues
+    , diExpressionAttributeNames
+    , diReturnConsumedCapacity
+    , diExpressionAttributeValues
+    , diReturnItemCollectionMetrics
+    , diConditionExpression
+    , diConditionalOperator
+    , diExpected
+    , diTableName
+    , diKey
 
     -- * Response
     , DeleteItemResponse
@@ -74,52 +74,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirqReturnValues'
+-- * 'diReturnValues'
 --
--- * 'dirqExpressionAttributeNames'
+-- * 'diExpressionAttributeNames'
 --
--- * 'dirqReturnConsumedCapacity'
+-- * 'diReturnConsumedCapacity'
 --
--- * 'dirqExpressionAttributeValues'
+-- * 'diExpressionAttributeValues'
 --
--- * 'dirqReturnItemCollectionMetrics'
+-- * 'diReturnItemCollectionMetrics'
 --
--- * 'dirqConditionExpression'
+-- * 'diConditionExpression'
 --
--- * 'dirqConditionalOperator'
+-- * 'diConditionalOperator'
 --
--- * 'dirqExpected'
+-- * 'diExpected'
 --
--- * 'dirqTableName'
+-- * 'diTableName'
 --
--- * 'dirqKey'
+-- * 'diKey'
 data DeleteItem = DeleteItem'
-    { _dirqReturnValues                :: !(Maybe ReturnValue)
-    , _dirqExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _dirqReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _dirqExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _dirqReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _dirqConditionExpression         :: !(Maybe Text)
-    , _dirqConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _dirqExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _dirqTableName                   :: !Text
-    , _dirqKey                         :: !(Map Text AttributeValue)
+    { _diReturnValues                :: !(Maybe ReturnValue)
+    , _diExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _diReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _diExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _diReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _diConditionExpression         :: !(Maybe Text)
+    , _diConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _diExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _diTableName                   :: !Text
+    , _diKey                         :: !(Map Text AttributeValue)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteItem' smart constructor.
 deleteItem :: Text -> DeleteItem
 deleteItem pTableName_ =
     DeleteItem'
-    { _dirqReturnValues = Nothing
-    , _dirqExpressionAttributeNames = Nothing
-    , _dirqReturnConsumedCapacity = Nothing
-    , _dirqExpressionAttributeValues = Nothing
-    , _dirqReturnItemCollectionMetrics = Nothing
-    , _dirqConditionExpression = Nothing
-    , _dirqConditionalOperator = Nothing
-    , _dirqExpected = Nothing
-    , _dirqTableName = pTableName_
-    , _dirqKey = mempty
+    { _diReturnValues = Nothing
+    , _diExpressionAttributeNames = Nothing
+    , _diReturnConsumedCapacity = Nothing
+    , _diExpressionAttributeValues = Nothing
+    , _diReturnItemCollectionMetrics = Nothing
+    , _diConditionExpression = Nothing
+    , _diConditionalOperator = Nothing
+    , _diExpected = Nothing
+    , _diTableName = pTableName_
+    , _diKey = mempty
     }
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
@@ -132,8 +132,8 @@ deleteItem pTableName_ =
 --
 -- -   @ALL_OLD@ - The content of the old item is returned.
 --
-dirqReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
-dirqReturnValues = lens _dirqReturnValues (\ s a -> s{_dirqReturnValues = a});
+diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
+diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -172,12 +172,12 @@ dirqReturnValues = lens _dirqReturnValues (\ s a -> s{_dirqReturnValues = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-dirqExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
-dirqExpressionAttributeNames = lens _dirqExpressionAttributeNames (\ s a -> s{_dirqExpressionAttributeNames = a}) . _Default . _Map;
+diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
+diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-dirqReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
-dirqReturnConsumedCapacity = lens _dirqReturnConsumedCapacity (\ s a -> s{_dirqReturnConsumedCapacity = a});
+diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
+diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnConsumedCapacity = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -198,15 +198,15 @@ dirqReturnConsumedCapacity = lens _dirqReturnConsumedCapacity (\ s a -> s{_dirqR
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-dirqExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
-dirqExpressionAttributeValues = lens _dirqExpressionAttributeValues (\ s a -> s{_dirqExpressionAttributeValues = a}) . _Default . _Map;
+diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
+diExpressionAttributeValues = lens _diExpressionAttributeValues (\ s a -> s{_diExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-dirqReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
-dirqReturnItemCollectionMetrics = lens _dirqReturnItemCollectionMetrics (\ s a -> s{_dirqReturnItemCollectionMetrics = a});
+diReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
+diReturnItemCollectionMetrics = lens _diReturnItemCollectionMetrics (\ s a -> s{_diReturnItemCollectionMetrics = a});
 
 -- | A condition that must be satisfied in order for a conditional
 -- /DeleteItem/ to succeed.
@@ -228,8 +228,8 @@ dirqReturnItemCollectionMetrics = lens _dirqReturnItemCollectionMetrics (\ s a -
 --
 -- /ConditionExpression/ replaces the legacy /ConditionalOperator/ and
 -- /Expected/ parameters.
-dirqConditionExpression :: Lens' DeleteItem (Maybe Text)
-dirqConditionExpression = lens _dirqConditionExpression (\ s a -> s{_dirqConditionExpression = a});
+diConditionExpression :: Lens' DeleteItem (Maybe Text)
+diConditionExpression = lens _diConditionExpression (\ s a -> s{_diConditionExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ConditionExpression/ instead. Do not combine legacy
@@ -249,8 +249,8 @@ dirqConditionExpression = lens _dirqConditionExpression (\ s a -> s{_dirqConditi
 -- The operation will succeed only if the entire map evaluates to true.
 --
 -- This parameter does not support attributes of type List or Map.
-dirqConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
-dirqConditionalOperator = lens _dirqConditionalOperator (\ s a -> s{_dirqConditionalOperator = a});
+diConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
+diConditionalOperator = lens _diConditionalOperator (\ s a -> s{_diConditionalOperator = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ConditionExpression/ instead. Do not combine legacy
@@ -475,12 +475,12 @@ dirqConditionalOperator = lens _dirqConditionalOperator (\ s a -> s{_dirqConditi
 -- exception.
 --
 -- This parameter does not support attributes of type List or Map.
-dirqExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
-dirqExpected = lens _dirqExpected (\ s a -> s{_dirqExpected = a}) . _Default . _Map;
+diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
+diExpected = lens _diExpected (\ s a -> s{_diExpected = a}) . _Default . _Map;
 
 -- | The name of the table from which to delete the item.
-dirqTableName :: Lens' DeleteItem Text
-dirqTableName = lens _dirqTableName (\ s a -> s{_dirqTableName = a});
+diTableName :: Lens' DeleteItem Text
+diTableName = lens _diTableName (\ s a -> s{_diTableName = a});
 
 -- | A map of attribute names to /AttributeValue/ objects, representing the
 -- primary key of the item to delete.
@@ -489,8 +489,8 @@ dirqTableName = lens _dirqTableName (\ s a -> s{_dirqTableName = a});
 -- example, with a hash type primary key, you only need to provide the hash
 -- attribute. For a hash-and-range type primary key, you must provide both
 -- the hash attribute and the range attribute.
-dirqKey :: Lens' DeleteItem (HashMap Text AttributeValue)
-dirqKey = lens _dirqKey (\ s a -> s{_dirqKey = a}) . _Map;
+diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
+diKey = lens _diKey (\ s a -> s{_diKey = a}) . _Map;
 
 instance AWSRequest DeleteItem where
         type Sv DeleteItem = DynamoDB
@@ -517,19 +517,19 @@ instance ToHeaders DeleteItem where
 instance ToJSON DeleteItem where
         toJSON DeleteItem'{..}
           = object
-              ["ReturnValues" .= _dirqReturnValues,
+              ["ReturnValues" .= _diReturnValues,
                "ExpressionAttributeNames" .=
-                 _dirqExpressionAttributeNames,
+                 _diExpressionAttributeNames,
                "ReturnConsumedCapacity" .=
-                 _dirqReturnConsumedCapacity,
+                 _diReturnConsumedCapacity,
                "ExpressionAttributeValues" .=
-                 _dirqExpressionAttributeValues,
+                 _diExpressionAttributeValues,
                "ReturnItemCollectionMetrics" .=
-                 _dirqReturnItemCollectionMetrics,
-               "ConditionExpression" .= _dirqConditionExpression,
-               "ConditionalOperator" .= _dirqConditionalOperator,
-               "Expected" .= _dirqExpected,
-               "TableName" .= _dirqTableName, "Key" .= _dirqKey]
+                 _diReturnItemCollectionMetrics,
+               "ConditionExpression" .= _diConditionExpression,
+               "ConditionalOperator" .= _diConditionalOperator,
+               "Expected" .= _diExpected,
+               "TableName" .= _diTableName, "Key" .= _diKey]
 
 instance ToPath DeleteItem where
         toPath = const "/"

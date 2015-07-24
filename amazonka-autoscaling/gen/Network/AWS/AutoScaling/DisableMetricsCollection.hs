@@ -28,8 +28,8 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     -- ** Request constructor
     , disableMetricsCollection
     -- ** Request lenses
-    , dmcrqMetrics
-    , dmcrqAutoScalingGroupName
+    , dmcMetrics
+    , dmcAutoScalingGroupName
 
     -- * Response
     , DisableMetricsCollectionResponse
@@ -46,20 +46,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmcrqMetrics'
+-- * 'dmcMetrics'
 --
--- * 'dmcrqAutoScalingGroupName'
+-- * 'dmcAutoScalingGroupName'
 data DisableMetricsCollection = DisableMetricsCollection'
-    { _dmcrqMetrics              :: !(Maybe [Text])
-    , _dmcrqAutoScalingGroupName :: !Text
+    { _dmcMetrics              :: !(Maybe [Text])
+    , _dmcAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableMetricsCollection' smart constructor.
 disableMetricsCollection :: Text -> DisableMetricsCollection
 disableMetricsCollection pAutoScalingGroupName_ =
     DisableMetricsCollection'
-    { _dmcrqMetrics = Nothing
-    , _dmcrqAutoScalingGroupName = pAutoScalingGroupName_
+    { _dmcMetrics = Nothing
+    , _dmcAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | One or more metrics. If you omit this parameter, all metrics are
@@ -81,12 +81,12 @@ disableMetricsCollection pAutoScalingGroupName_ =
 --
 -- -   @GroupTotalInstances@
 --
-dmcrqMetrics :: Lens' DisableMetricsCollection [Text]
-dmcrqMetrics = lens _dmcrqMetrics (\ s a -> s{_dmcrqMetrics = a}) . _Default;
+dmcMetrics :: Lens' DisableMetricsCollection [Text]
+dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default;
 
 -- | The name or Amazon Resource Name (ARN) of the group.
-dmcrqAutoScalingGroupName :: Lens' DisableMetricsCollection Text
-dmcrqAutoScalingGroupName = lens _dmcrqAutoScalingGroupName (\ s a -> s{_dmcrqAutoScalingGroupName = a});
+dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
+dmcAutoScalingGroupName = lens _dmcAutoScalingGroupName (\ s a -> s{_dmcAutoScalingGroupName = a});
 
 instance AWSRequest DisableMetricsCollection where
         type Sv DisableMetricsCollection = AutoScaling
@@ -109,8 +109,8 @@ instance ToQuery DisableMetricsCollection where
                  ("DisableMetricsCollection" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "Metrics" =:
-                 toQuery (toQueryList "member" <$> _dmcrqMetrics),
-               "AutoScalingGroupName" =: _dmcrqAutoScalingGroupName]
+                 toQuery (toQueryList "member" <$> _dmcMetrics),
+               "AutoScalingGroupName" =: _dmcAutoScalingGroupName]
 
 -- | /See:/ 'disableMetricsCollectionResponse' smart constructor.
 data DisableMetricsCollectionResponse =

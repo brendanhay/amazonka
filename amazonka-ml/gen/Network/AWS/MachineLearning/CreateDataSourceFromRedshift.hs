@@ -60,11 +60,11 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
     -- ** Request constructor
     , createDataSourceFromRedshift
     -- ** Request lenses
-    , cdsfrrqDataSourceName
-    , cdsfrrqComputeStatistics
-    , cdsfrrqDataSourceId
-    , cdsfrrqDataSpec
-    , cdsfrrqRoleARN
+    , cdsfrDataSourceName
+    , cdsfrComputeStatistics
+    , cdsfrDataSourceId
+    , cdsfrDataSpec
+    , cdsfrRoleARN
 
     -- * Response
     , CreateDataSourceFromRedshiftResponse
@@ -84,49 +84,49 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdsfrrqDataSourceName'
+-- * 'cdsfrDataSourceName'
 --
--- * 'cdsfrrqComputeStatistics'
+-- * 'cdsfrComputeStatistics'
 --
--- * 'cdsfrrqDataSourceId'
+-- * 'cdsfrDataSourceId'
 --
--- * 'cdsfrrqDataSpec'
+-- * 'cdsfrDataSpec'
 --
--- * 'cdsfrrqRoleARN'
+-- * 'cdsfrRoleARN'
 data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
-    { _cdsfrrqDataSourceName    :: !(Maybe Text)
-    , _cdsfrrqComputeStatistics :: !(Maybe Bool)
-    , _cdsfrrqDataSourceId      :: !Text
-    , _cdsfrrqDataSpec          :: !RedshiftDataSpec
-    , _cdsfrrqRoleARN           :: !Text
+    { _cdsfrDataSourceName    :: !(Maybe Text)
+    , _cdsfrComputeStatistics :: !(Maybe Bool)
+    , _cdsfrDataSourceId      :: !Text
+    , _cdsfrDataSpec          :: !RedshiftDataSpec
+    , _cdsfrRoleARN           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRedshift' smart constructor.
 createDataSourceFromRedshift :: Text -> RedshiftDataSpec -> Text -> CreateDataSourceFromRedshift
 createDataSourceFromRedshift pDataSourceId_ pDataSpec_ pRoleARN_ =
     CreateDataSourceFromRedshift'
-    { _cdsfrrqDataSourceName = Nothing
-    , _cdsfrrqComputeStatistics = Nothing
-    , _cdsfrrqDataSourceId = pDataSourceId_
-    , _cdsfrrqDataSpec = pDataSpec_
-    , _cdsfrrqRoleARN = pRoleARN_
+    { _cdsfrDataSourceName = Nothing
+    , _cdsfrComputeStatistics = Nothing
+    , _cdsfrDataSourceId = pDataSourceId_
+    , _cdsfrDataSpec = pDataSpec_
+    , _cdsfrRoleARN = pRoleARN_
     }
 
 -- | A user-supplied name or description of the @DataSource@.
-cdsfrrqDataSourceName :: Lens' CreateDataSourceFromRedshift (Maybe Text)
-cdsfrrqDataSourceName = lens _cdsfrrqDataSourceName (\ s a -> s{_cdsfrrqDataSourceName = a});
+cdsfrDataSourceName :: Lens' CreateDataSourceFromRedshift (Maybe Text)
+cdsfrDataSourceName = lens _cdsfrDataSourceName (\ s a -> s{_cdsfrDataSourceName = a});
 
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during @MLModel@ training. This parameter must
 -- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@
 -- training
-cdsfrrqComputeStatistics :: Lens' CreateDataSourceFromRedshift (Maybe Bool)
-cdsfrrqComputeStatistics = lens _cdsfrrqComputeStatistics (\ s a -> s{_cdsfrrqComputeStatistics = a});
+cdsfrComputeStatistics :: Lens' CreateDataSourceFromRedshift (Maybe Bool)
+cdsfrComputeStatistics = lens _cdsfrComputeStatistics (\ s a -> s{_cdsfrComputeStatistics = a});
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@.
-cdsfrrqDataSourceId :: Lens' CreateDataSourceFromRedshift Text
-cdsfrrqDataSourceId = lens _cdsfrrqDataSourceId (\ s a -> s{_cdsfrrqDataSourceId = a});
+cdsfrDataSourceId :: Lens' CreateDataSourceFromRedshift Text
+cdsfrDataSourceId = lens _cdsfrDataSourceId (\ s a -> s{_cdsfrDataSourceId = a});
 
 -- | The data specification of an Amazon Redshift @DataSource@:
 --
@@ -158,8 +158,8 @@ cdsfrrqDataSourceId = lens _cdsfrrqDataSourceId (\ s a -> s{_cdsfrrqDataSourceId
 --     Sample -
 --     @ \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"@
 --
-cdsfrrqDataSpec :: Lens' CreateDataSourceFromRedshift RedshiftDataSpec
-cdsfrrqDataSpec = lens _cdsfrrqDataSpec (\ s a -> s{_cdsfrrqDataSpec = a});
+cdsfrDataSpec :: Lens' CreateDataSourceFromRedshift RedshiftDataSpec
+cdsfrDataSpec = lens _cdsfrDataSpec (\ s a -> s{_cdsfrDataSpec = a});
 
 -- | A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the
 -- role on behalf of the user to create the following:
@@ -170,8 +170,8 @@ cdsfrrqDataSpec = lens _cdsfrrqDataSpec (\ s a -> s{_cdsfrrqDataSpec = a});
 -- -   An Amazon S3 bucket policy to grant Amazon ML read\/write
 --     permissions on the @S3StagingLocation@
 --
-cdsfrrqRoleARN :: Lens' CreateDataSourceFromRedshift Text
-cdsfrrqRoleARN = lens _cdsfrrqRoleARN (\ s a -> s{_cdsfrrqRoleARN = a});
+cdsfrRoleARN :: Lens' CreateDataSourceFromRedshift Text
+cdsfrRoleARN = lens _cdsfrRoleARN (\ s a -> s{_cdsfrRoleARN = a});
 
 instance AWSRequest CreateDataSourceFromRedshift
          where
@@ -199,11 +199,11 @@ instance ToHeaders CreateDataSourceFromRedshift where
 instance ToJSON CreateDataSourceFromRedshift where
         toJSON CreateDataSourceFromRedshift'{..}
           = object
-              ["DataSourceName" .= _cdsfrrqDataSourceName,
-               "ComputeStatistics" .= _cdsfrrqComputeStatistics,
-               "DataSourceId" .= _cdsfrrqDataSourceId,
-               "DataSpec" .= _cdsfrrqDataSpec,
-               "RoleARN" .= _cdsfrrqRoleARN]
+              ["DataSourceName" .= _cdsfrDataSourceName,
+               "ComputeStatistics" .= _cdsfrComputeStatistics,
+               "DataSourceId" .= _cdsfrDataSourceId,
+               "DataSpec" .= _cdsfrDataSpec,
+               "RoleARN" .= _cdsfrRoleARN]
 
 instance ToPath CreateDataSourceFromRedshift where
         toPath = const "/"

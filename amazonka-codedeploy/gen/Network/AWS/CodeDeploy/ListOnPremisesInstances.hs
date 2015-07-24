@@ -31,9 +31,9 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
     -- ** Request constructor
     , listOnPremisesInstances
     -- ** Request lenses
-    , lopirqTagFilters
-    , lopirqNextToken
-    , lopirqRegistrationStatus
+    , lopiTagFilters
+    , lopiNextToken
+    , lopiRegistrationStatus
 
     -- * Response
     , ListOnPremisesInstancesResponse
@@ -58,36 +58,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lopirqTagFilters'
+-- * 'lopiTagFilters'
 --
--- * 'lopirqNextToken'
+-- * 'lopiNextToken'
 --
--- * 'lopirqRegistrationStatus'
+-- * 'lopiRegistrationStatus'
 data ListOnPremisesInstances = ListOnPremisesInstances'
-    { _lopirqTagFilters         :: !(Maybe [TagFilter])
-    , _lopirqNextToken          :: !(Maybe Text)
-    , _lopirqRegistrationStatus :: !(Maybe RegistrationStatus)
+    { _lopiTagFilters         :: !(Maybe [TagFilter])
+    , _lopiNextToken          :: !(Maybe Text)
+    , _lopiRegistrationStatus :: !(Maybe RegistrationStatus)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOnPremisesInstances' smart constructor.
 listOnPremisesInstances :: ListOnPremisesInstances
 listOnPremisesInstances =
     ListOnPremisesInstances'
-    { _lopirqTagFilters = Nothing
-    , _lopirqNextToken = Nothing
-    , _lopirqRegistrationStatus = Nothing
+    { _lopiTagFilters = Nothing
+    , _lopiNextToken = Nothing
+    , _lopiRegistrationStatus = Nothing
     }
 
 -- | The on-premises instance tags that will be used to restrict the
 -- corresponding on-premises instance names that are returned.
-lopirqTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
-lopirqTagFilters = lens _lopirqTagFilters (\ s a -> s{_lopirqTagFilters = a}) . _Default;
+lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
+lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default;
 
 -- | An identifier that was returned from the previous list on-premises
 -- instances call, which can be used to return the next set of on-premises
 -- instances in the list.
-lopirqNextToken :: Lens' ListOnPremisesInstances (Maybe Text)
-lopirqNextToken = lens _lopirqNextToken (\ s a -> s{_lopirqNextToken = a});
+lopiNextToken :: Lens' ListOnPremisesInstances (Maybe Text)
+lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a});
 
 -- | The on-premises instances registration status:
 --
@@ -95,8 +95,8 @@ lopirqNextToken = lens _lopirqNextToken (\ s a -> s{_lopirqNextToken = a});
 --     instances.
 -- -   Registered: Include in the resulting list registered on-premises
 --     instances.
-lopirqRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
-lopirqRegistrationStatus = lens _lopirqRegistrationStatus (\ s a -> s{_lopirqRegistrationStatus = a});
+lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
+lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a});
 
 instance AWSRequest ListOnPremisesInstances where
         type Sv ListOnPremisesInstances = CodeDeploy
@@ -124,9 +124,9 @@ instance ToHeaders ListOnPremisesInstances where
 instance ToJSON ListOnPremisesInstances where
         toJSON ListOnPremisesInstances'{..}
           = object
-              ["tagFilters" .= _lopirqTagFilters,
-               "nextToken" .= _lopirqNextToken,
-               "registrationStatus" .= _lopirqRegistrationStatus]
+              ["tagFilters" .= _lopiTagFilters,
+               "nextToken" .= _lopiNextToken,
+               "registrationStatus" .= _lopiRegistrationStatus]
 
 instance ToPath ListOnPremisesInstances where
         toPath = const "/"

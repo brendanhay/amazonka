@@ -57,8 +57,8 @@ module Network.AWS.SQS.SendMessageBatch
     -- ** Request constructor
     , sendMessageBatch
     -- ** Request lenses
-    , smbrqQueueURL
-    , smbrqEntries
+    , smbQueueURL
+    , smbEntries
 
     -- * Response
     , SendMessageBatchResponse
@@ -79,29 +79,29 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'smbrqQueueURL'
+-- * 'smbQueueURL'
 --
--- * 'smbrqEntries'
+-- * 'smbEntries'
 data SendMessageBatch = SendMessageBatch'
-    { _smbrqQueueURL :: !Text
-    , _smbrqEntries  :: ![SendMessageBatchRequestEntry]
+    { _smbQueueURL :: !Text
+    , _smbEntries  :: ![SendMessageBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessageBatch' smart constructor.
 sendMessageBatch :: Text -> SendMessageBatch
 sendMessageBatch pQueueURL_ =
     SendMessageBatch'
-    { _smbrqQueueURL = pQueueURL_
-    , _smbrqEntries = mempty
+    { _smbQueueURL = pQueueURL_
+    , _smbEntries = mempty
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-smbrqQueueURL :: Lens' SendMessageBatch Text
-smbrqQueueURL = lens _smbrqQueueURL (\ s a -> s{_smbrqQueueURL = a});
+smbQueueURL :: Lens' SendMessageBatch Text
+smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a});
 
 -- | A list of SendMessageBatchRequestEntry items.
-smbrqEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
-smbrqEntries = lens _smbrqEntries (\ s a -> s{_smbrqEntries = a});
+smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
+smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a});
 
 instance AWSRequest SendMessageBatch where
         type Sv SendMessageBatch = SQS
@@ -126,9 +126,9 @@ instance ToQuery SendMessageBatch where
           = mconcat
               ["Action" =: ("SendMessageBatch" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _smbrqQueueURL,
+               "QueueUrl" =: _smbQueueURL,
                toQueryList "SendMessageBatchRequestEntry"
-                 _smbrqEntries]
+                 _smbEntries]
 
 -- | For each message in the batch, the response contains a
 -- SendMessageBatchResultEntry tag if the message succeeds or a

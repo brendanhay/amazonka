@@ -43,9 +43,9 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     -- ** Request constructor
     , createAppCookieStickinessPolicy
     -- ** Request lenses
-    , cacsprqLoadBalancerName
-    , cacsprqPolicyName
-    , cacsprqCookieName
+    , cacspLoadBalancerName
+    , cacspPolicyName
+    , cacspCookieName
 
     -- * Response
     , CreateAppCookieStickinessPolicyResponse
@@ -64,38 +64,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cacsprqLoadBalancerName'
+-- * 'cacspLoadBalancerName'
 --
--- * 'cacsprqPolicyName'
+-- * 'cacspPolicyName'
 --
--- * 'cacsprqCookieName'
+-- * 'cacspCookieName'
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
-    { _cacsprqLoadBalancerName :: !Text
-    , _cacsprqPolicyName       :: !Text
-    , _cacsprqCookieName       :: !Text
+    { _cacspLoadBalancerName :: !Text
+    , _cacspPolicyName       :: !Text
+    , _cacspCookieName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAppCookieStickinessPolicy' smart constructor.
 createAppCookieStickinessPolicy :: Text -> Text -> Text -> CreateAppCookieStickinessPolicy
 createAppCookieStickinessPolicy pLoadBalancerName_ pPolicyName_ pCookieName_ =
     CreateAppCookieStickinessPolicy'
-    { _cacsprqLoadBalancerName = pLoadBalancerName_
-    , _cacsprqPolicyName = pPolicyName_
-    , _cacsprqCookieName = pCookieName_
+    { _cacspLoadBalancerName = pLoadBalancerName_
+    , _cacspPolicyName = pPolicyName_
+    , _cacspCookieName = pCookieName_
     }
 
 -- | The name of the load balancer.
-cacsprqLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
-cacsprqLoadBalancerName = lens _cacsprqLoadBalancerName (\ s a -> s{_cacsprqLoadBalancerName = a});
+cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
+cacspLoadBalancerName = lens _cacspLoadBalancerName (\ s a -> s{_cacspLoadBalancerName = a});
 
 -- | The name of the policy being created. This name must be unique within
 -- the set of policies for this load balancer.
-cacsprqPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
-cacsprqPolicyName = lens _cacsprqPolicyName (\ s a -> s{_cacsprqPolicyName = a});
+cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
+cacspPolicyName = lens _cacspPolicyName (\ s a -> s{_cacspPolicyName = a});
 
 -- | The name of the application cookie used for stickiness.
-cacsprqCookieName :: Lens' CreateAppCookieStickinessPolicy Text
-cacsprqCookieName = lens _cacsprqCookieName (\ s a -> s{_cacsprqCookieName = a});
+cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
+cacspCookieName = lens _cacspCookieName (\ s a -> s{_cacspCookieName = a});
 
 instance AWSRequest CreateAppCookieStickinessPolicy
          where
@@ -124,9 +124,9 @@ instance ToQuery CreateAppCookieStickinessPolicy
               ["Action" =:
                  ("CreateAppCookieStickinessPolicy" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _cacsprqLoadBalancerName,
-               "PolicyName" =: _cacsprqPolicyName,
-               "CookieName" =: _cacsprqCookieName]
+               "LoadBalancerName" =: _cacspLoadBalancerName,
+               "PolicyName" =: _cacspPolicyName,
+               "CookieName" =: _cacspCookieName]
 
 -- | /See:/ 'createAppCookieStickinessPolicyResponse' smart constructor.
 --

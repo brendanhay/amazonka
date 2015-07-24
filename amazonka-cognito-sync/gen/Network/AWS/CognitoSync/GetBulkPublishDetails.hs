@@ -31,7 +31,7 @@ module Network.AWS.CognitoSync.GetBulkPublishDetails
     -- ** Request constructor
     , getBulkPublishDetails
     -- ** Request lenses
-    , gbpdrqIdentityPoolId
+    , gbpdIdentityPoolId
 
     -- * Response
     , GetBulkPublishDetailsResponse
@@ -57,23 +57,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbpdrqIdentityPoolId'
+-- * 'gbpdIdentityPoolId'
 newtype GetBulkPublishDetails = GetBulkPublishDetails'
-    { _gbpdrqIdentityPoolId :: Text
+    { _gbpdIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBulkPublishDetails' smart constructor.
 getBulkPublishDetails :: Text -> GetBulkPublishDetails
 getBulkPublishDetails pIdentityPoolId_ =
     GetBulkPublishDetails'
-    { _gbpdrqIdentityPoolId = pIdentityPoolId_
+    { _gbpdIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-gbpdrqIdentityPoolId :: Lens' GetBulkPublishDetails Text
-gbpdrqIdentityPoolId = lens _gbpdrqIdentityPoolId (\ s a -> s{_gbpdrqIdentityPoolId = a});
+gbpdIdentityPoolId :: Lens' GetBulkPublishDetails Text
+gbpdIdentityPoolId = lens _gbpdIdentityPoolId (\ s a -> s{_gbpdIdentityPoolId = a});
 
 instance AWSRequest GetBulkPublishDetails where
         type Sv GetBulkPublishDetails = CognitoSync
@@ -104,7 +104,7 @@ instance ToJSON GetBulkPublishDetails where
 instance ToPath GetBulkPublishDetails where
         toPath GetBulkPublishDetails'{..}
           = mconcat
-              ["/identitypools/", toText _gbpdrqIdentityPoolId,
+              ["/identitypools/", toText _gbpdIdentityPoolId,
                "/getBulkPublishDetails"]
 
 instance ToQuery GetBulkPublishDetails where

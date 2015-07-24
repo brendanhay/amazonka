@@ -36,7 +36,7 @@ module Network.AWS.Route53.DeleteReusableDelegationSet
     -- ** Request constructor
     , deleteReusableDelegationSet
     -- ** Request lenses
-    , drdsrqId
+    , drdsId
 
     -- * Response
     , DeleteReusableDelegationSetResponse
@@ -57,21 +57,21 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drdsrqId'
+-- * 'drdsId'
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
-    { _drdsrqId :: Text
+    { _drdsId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReusableDelegationSet' smart constructor.
 deleteReusableDelegationSet :: Text -> DeleteReusableDelegationSet
 deleteReusableDelegationSet pId_ =
     DeleteReusableDelegationSet'
-    { _drdsrqId = pId_
+    { _drdsId = pId_
     }
 
 -- | The ID of the reusable delegation set you want to delete.
-drdsrqId :: Lens' DeleteReusableDelegationSet Text
-drdsrqId = lens _drdsrqId (\ s a -> s{_drdsrqId = a});
+drdsId :: Lens' DeleteReusableDelegationSet Text
+drdsId = lens _drdsId (\ s a -> s{_drdsId = a});
 
 instance AWSRequest DeleteReusableDelegationSet where
         type Sv DeleteReusableDelegationSet = Route53
@@ -90,7 +90,7 @@ instance ToHeaders DeleteReusableDelegationSet where
 instance ToPath DeleteReusableDelegationSet where
         toPath DeleteReusableDelegationSet'{..}
           = mconcat
-              ["/2013-04-01/delegationset/", toText _drdsrqId]
+              ["/2013-04-01/delegationset/", toText _drdsId]
 
 instance ToQuery DeleteReusableDelegationSet where
         toQuery = const mempty

@@ -33,10 +33,10 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- ** Request constructor
     , createClusterSubnetGroup
     -- ** Request lenses
-    , ccsgrqTags
-    , ccsgrqClusterSubnetGroupName
-    , ccsgrqDescription
-    , ccsgrqSubnetIds
+    , ccsgTags
+    , ccsgClusterSubnetGroupName
+    , ccsgDescription
+    , ccsgSubnetIds
 
     -- * Response
     , CreateClusterSubnetGroupResponse
@@ -58,33 +58,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgrqTags'
+-- * 'ccsgTags'
 --
--- * 'ccsgrqClusterSubnetGroupName'
+-- * 'ccsgClusterSubnetGroupName'
 --
--- * 'ccsgrqDescription'
+-- * 'ccsgDescription'
 --
--- * 'ccsgrqSubnetIds'
+-- * 'ccsgSubnetIds'
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
-    { _ccsgrqTags                   :: !(Maybe [Tag])
-    , _ccsgrqClusterSubnetGroupName :: !Text
-    , _ccsgrqDescription            :: !Text
-    , _ccsgrqSubnetIds              :: ![Text]
+    { _ccsgTags                   :: !(Maybe [Tag])
+    , _ccsgClusterSubnetGroupName :: !Text
+    , _ccsgDescription            :: !Text
+    , _ccsgSubnetIds              :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSubnetGroup' smart constructor.
 createClusterSubnetGroup :: Text -> Text -> CreateClusterSubnetGroup
 createClusterSubnetGroup pClusterSubnetGroupName_ pDescription_ =
     CreateClusterSubnetGroup'
-    { _ccsgrqTags = Nothing
-    , _ccsgrqClusterSubnetGroupName = pClusterSubnetGroupName_
-    , _ccsgrqDescription = pDescription_
-    , _ccsgrqSubnetIds = mempty
+    { _ccsgTags = Nothing
+    , _ccsgClusterSubnetGroupName = pClusterSubnetGroupName_
+    , _ccsgDescription = pDescription_
+    , _ccsgSubnetIds = mempty
     }
 
 -- | A list of tag instances.
-ccsgrqTags :: Lens' CreateClusterSubnetGroup [Tag]
-ccsgrqTags = lens _ccsgrqTags (\ s a -> s{_ccsgrqTags = a}) . _Default;
+ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
+ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default;
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -97,17 +97,17 @@ ccsgrqTags = lens _ccsgrqTags (\ s a -> s{_ccsgrqTags = a}) . _Default;
 --     account.
 --
 -- Example: @examplesubnetgroup@
-ccsgrqClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
-ccsgrqClusterSubnetGroupName = lens _ccsgrqClusterSubnetGroupName (\ s a -> s{_ccsgrqClusterSubnetGroupName = a});
+ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
+ccsgClusterSubnetGroupName = lens _ccsgClusterSubnetGroupName (\ s a -> s{_ccsgClusterSubnetGroupName = a});
 
 -- | A description for the subnet group.
-ccsgrqDescription :: Lens' CreateClusterSubnetGroup Text
-ccsgrqDescription = lens _ccsgrqDescription (\ s a -> s{_ccsgrqDescription = a});
+ccsgDescription :: Lens' CreateClusterSubnetGroup Text
+ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-ccsgrqSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
-ccsgrqSubnetIds = lens _ccsgrqSubnetIds (\ s a -> s{_ccsgrqSubnetIds = a});
+ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
+ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a});
 
 instance AWSRequest CreateClusterSubnetGroup where
         type Sv CreateClusterSubnetGroup = Redshift
@@ -132,13 +132,12 @@ instance ToQuery CreateClusterSubnetGroup where
               ["Action" =:
                  ("CreateClusterSubnetGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =:
-                 toQuery (toQueryList "Tag" <$> _ccsgrqTags),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccsgTags),
                "ClusterSubnetGroupName" =:
-                 _ccsgrqClusterSubnetGroupName,
-               "Description" =: _ccsgrqDescription,
+                 _ccsgClusterSubnetGroupName,
+               "Description" =: _ccsgDescription,
                "SubnetIds" =:
-                 toQueryList "SubnetIdentifier" _ccsgrqSubnetIds]
+                 toQueryList "SubnetIdentifier" _ccsgSubnetIds]
 
 -- | /See:/ 'createClusterSubnetGroupResponse' smart constructor.
 --

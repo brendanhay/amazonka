@@ -48,9 +48,9 @@ module Network.AWS.Glacier.AbortMultipartUpload
     -- ** Request constructor
     , abortMultipartUpload
     -- ** Request lenses
-    , amurqAccountId
-    , amurqVaultName
-    , amurqUploadId
+    , amuAccountId
+    , amuVaultName
+    , amuUploadId
 
     -- * Response
     , AbortMultipartUploadResponse
@@ -75,24 +75,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'amurqAccountId'
+-- * 'amuAccountId'
 --
--- * 'amurqVaultName'
+-- * 'amuVaultName'
 --
--- * 'amurqUploadId'
+-- * 'amuUploadId'
 data AbortMultipartUpload = AbortMultipartUpload'
-    { _amurqAccountId :: !Text
-    , _amurqVaultName :: !Text
-    , _amurqUploadId  :: !Text
+    { _amuAccountId :: !Text
+    , _amuVaultName :: !Text
+    , _amuUploadId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: Text -> Text -> Text -> AbortMultipartUpload
 abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
     AbortMultipartUpload'
-    { _amurqAccountId = pAccountId_
-    , _amurqVaultName = pVaultName_
-    , _amurqUploadId = pUploadId_
+    { _amuAccountId = pAccountId_
+    , _amuVaultName = pVaultName_
+    , _amuUploadId = pUploadId_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -100,16 +100,16 @@ abortMultipartUpload pAccountId_ pVaultName_ pUploadId_ =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-amurqAccountId :: Lens' AbortMultipartUpload Text
-amurqAccountId = lens _amurqAccountId (\ s a -> s{_amurqAccountId = a});
+amuAccountId :: Lens' AbortMultipartUpload Text
+amuAccountId = lens _amuAccountId (\ s a -> s{_amuAccountId = a});
 
 -- | The name of the vault.
-amurqVaultName :: Lens' AbortMultipartUpload Text
-amurqVaultName = lens _amurqVaultName (\ s a -> s{_amurqVaultName = a});
+amuVaultName :: Lens' AbortMultipartUpload Text
+amuVaultName = lens _amuVaultName (\ s a -> s{_amuVaultName = a});
 
 -- | The upload ID of the multipart upload to delete.
-amurqUploadId :: Lens' AbortMultipartUpload Text
-amurqUploadId = lens _amurqUploadId (\ s a -> s{_amurqUploadId = a});
+amuUploadId :: Lens' AbortMultipartUpload Text
+amuUploadId = lens _amuUploadId (\ s a -> s{_amuUploadId = a});
 
 instance AWSRequest AbortMultipartUpload where
         type Sv AbortMultipartUpload = Glacier
@@ -124,9 +124,9 @@ instance ToHeaders AbortMultipartUpload where
 instance ToPath AbortMultipartUpload where
         toPath AbortMultipartUpload'{..}
           = mconcat
-              ["/", toText _amurqAccountId, "/vaults/",
-               toText _amurqVaultName, "/multipart-uploads/",
-               toText _amurqUploadId]
+              ["/", toText _amuAccountId, "/vaults/",
+               toText _amuVaultName, "/multipart-uploads/",
+               toText _amuUploadId]
 
 instance ToQuery AbortMultipartUpload where
         toQuery = const mempty

@@ -45,11 +45,11 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- ** Request constructor
     , describeClusterParameterGroups
     -- ** Request lenses
-    , dcpgrqTagValues
-    , dcpgrqTagKeys
-    , dcpgrqMaxRecords
-    , dcpgrqMarker
-    , dcpgrqParameterGroupName
+    , dcpgTagValues
+    , dcpgTagKeys
+    , dcpgMaxRecords
+    , dcpgMarker
+    , dcpgParameterGroupName
 
     -- * Response
     , DescribeClusterParameterGroupsResponse
@@ -73,32 +73,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcpgrqTagValues'
+-- * 'dcpgTagValues'
 --
--- * 'dcpgrqTagKeys'
+-- * 'dcpgTagKeys'
 --
--- * 'dcpgrqMaxRecords'
+-- * 'dcpgMaxRecords'
 --
--- * 'dcpgrqMarker'
+-- * 'dcpgMarker'
 --
--- * 'dcpgrqParameterGroupName'
+-- * 'dcpgParameterGroupName'
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
-    { _dcpgrqTagValues          :: !(Maybe [Text])
-    , _dcpgrqTagKeys            :: !(Maybe [Text])
-    , _dcpgrqMaxRecords         :: !(Maybe Int)
-    , _dcpgrqMarker             :: !(Maybe Text)
-    , _dcpgrqParameterGroupName :: !(Maybe Text)
+    { _dcpgTagValues          :: !(Maybe [Text])
+    , _dcpgTagKeys            :: !(Maybe [Text])
+    , _dcpgMaxRecords         :: !(Maybe Int)
+    , _dcpgMarker             :: !(Maybe Text)
+    , _dcpgParameterGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterParameterGroups' smart constructor.
 describeClusterParameterGroups :: DescribeClusterParameterGroups
 describeClusterParameterGroups =
     DescribeClusterParameterGroups'
-    { _dcpgrqTagValues = Nothing
-    , _dcpgrqTagKeys = Nothing
-    , _dcpgrqMaxRecords = Nothing
-    , _dcpgrqMarker = Nothing
-    , _dcpgrqParameterGroupName = Nothing
+    { _dcpgTagValues = Nothing
+    , _dcpgTagKeys = Nothing
+    , _dcpgMaxRecords = Nothing
+    , _dcpgMarker = Nothing
+    , _dcpgParameterGroupName = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching cluster
@@ -108,8 +108,8 @@ describeClusterParameterGroups =
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the parameter groups that have either or both of these tag values
 -- associated with them.
-dcpgrqTagValues :: Lens' DescribeClusterParameterGroups [Text]
-dcpgrqTagValues = lens _dcpgrqTagValues (\ s a -> s{_dcpgrqTagValues = a}) . _Default;
+dcpgTagValues :: Lens' DescribeClusterParameterGroups [Text]
+dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- parameter groups that are associated with the specified key or keys. For
@@ -118,8 +118,8 @@ dcpgrqTagValues = lens _dcpgrqTagValues (\ s a -> s{_dcpgrqTagValues = a}) . _De
 -- keys in the request, Amazon Redshift returns a response with the
 -- parameter groups that have either or both of these tag keys associated
 -- with them.
-dcpgrqTagKeys :: Lens' DescribeClusterParameterGroups [Text]
-dcpgrqTagKeys = lens _dcpgrqTagKeys (\ s a -> s{_dcpgrqTagKeys = a}) . _Default;
+dcpgTagKeys :: Lens' DescribeClusterParameterGroups [Text]
+dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a}) . _Default;
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -130,8 +130,8 @@ dcpgrqTagKeys = lens _dcpgrqTagKeys (\ s a -> s{_dcpgrqTagKeys = a}) . _Default;
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dcpgrqMaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Int)
-dcpgrqMaxRecords = lens _dcpgrqMaxRecords (\ s a -> s{_dcpgrqMaxRecords = a});
+dcpgMaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Int)
+dcpgMaxRecords = lens _dcpgMaxRecords (\ s a -> s{_dcpgMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
@@ -140,14 +140,14 @@ dcpgrqMaxRecords = lens _dcpgrqMaxRecords (\ s a -> s{_dcpgrqMaxRecords = a});
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the
 -- request.
-dcpgrqMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
-dcpgrqMarker = lens _dcpgrqMarker (\ s a -> s{_dcpgrqMarker = a});
+dcpgMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
+dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 
 -- | The name of a specific parameter group for which to return details. By
 -- default, details about all parameter groups and the default parameter
 -- group are returned.
-dcpgrqParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
-dcpgrqParameterGroupName = lens _dcpgrqParameterGroupName (\ s a -> s{_dcpgrqParameterGroupName = a});
+dcpgParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
+dcpgParameterGroupName = lens _dcpgParameterGroupName (\ s a -> s{_dcpgParameterGroupName = a});
 
 instance AWSPager DescribeClusterParameterGroups
          where
@@ -155,7 +155,7 @@ instance AWSPager DescribeClusterParameterGroups
           | stop (rs ^. dcpgrsMarker) = Nothing
           | stop (rs ^. dcpgrsParameterGroups) = Nothing
           | otherwise =
-            Just $ rq & dcpgrqMarker .~ rs ^. dcpgrsMarker
+            Just $ rq & dcpgMarker .~ rs ^. dcpgrsMarker
 
 instance AWSRequest DescribeClusterParameterGroups
          where
@@ -187,13 +187,12 @@ instance ToQuery DescribeClusterParameterGroups where
                  ("DescribeClusterParameterGroups" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
-                 toQuery
-                   (toQueryList "TagValue" <$> _dcpgrqTagValues),
+                 toQuery (toQueryList "TagValue" <$> _dcpgTagValues),
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dcpgrqTagKeys),
-               "MaxRecords" =: _dcpgrqMaxRecords,
-               "Marker" =: _dcpgrqMarker,
-               "ParameterGroupName" =: _dcpgrqParameterGroupName]
+                 toQuery (toQueryList "TagKey" <$> _dcpgTagKeys),
+               "MaxRecords" =: _dcpgMaxRecords,
+               "Marker" =: _dcpgMarker,
+               "ParameterGroupName" =: _dcpgParameterGroupName]
 
 -- | Contains the output from the DescribeClusterParameterGroups action.
 --

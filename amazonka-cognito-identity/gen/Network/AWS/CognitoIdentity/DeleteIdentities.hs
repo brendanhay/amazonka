@@ -30,7 +30,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentities
     -- ** Request constructor
     , deleteIdentities
     -- ** Request lenses
-    , dirqIdentityIdsToDelete
+    , diIdentityIdsToDelete
 
     -- * Response
     , DeleteIdentitiesResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirqIdentityIdsToDelete'
+-- * 'diIdentityIdsToDelete'
 newtype DeleteIdentities = DeleteIdentities'
-    { _dirqIdentityIdsToDelete :: List1 Text
+    { _diIdentityIdsToDelete :: List1 Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentities' smart constructor.
 deleteIdentities :: NonEmpty Text -> DeleteIdentities
 deleteIdentities pIdentityIdsToDelete_ =
     DeleteIdentities'
-    { _dirqIdentityIdsToDelete = _List1 # pIdentityIdsToDelete_
+    { _diIdentityIdsToDelete = _List1 # pIdentityIdsToDelete_
     }
 
 -- | A list of 1-60 identities that you want to delete.
-dirqIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
-dirqIdentityIdsToDelete = lens _dirqIdentityIdsToDelete (\ s a -> s{_dirqIdentityIdsToDelete = a}) . _List1;
+diIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
+diIdentityIdsToDelete = lens _diIdentityIdsToDelete (\ s a -> s{_diIdentityIdsToDelete = a}) . _List1;
 
 instance AWSRequest DeleteIdentities where
         type Sv DeleteIdentities = CognitoIdentity
@@ -92,7 +92,7 @@ instance ToHeaders DeleteIdentities where
 instance ToJSON DeleteIdentities where
         toJSON DeleteIdentities'{..}
           = object
-              ["IdentityIdsToDelete" .= _dirqIdentityIdsToDelete]
+              ["IdentityIdsToDelete" .= _diIdentityIdsToDelete]
 
 instance ToPath DeleteIdentities where
         toPath = const "/"

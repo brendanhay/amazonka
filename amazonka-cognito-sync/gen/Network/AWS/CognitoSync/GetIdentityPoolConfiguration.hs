@@ -31,7 +31,7 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     -- ** Request constructor
     , getIdentityPoolConfiguration
     -- ** Request lenses
-    , gipcrqIdentityPoolId
+    , gipcIdentityPoolId
 
     -- * Response
     , GetIdentityPoolConfigurationResponse
@@ -55,23 +55,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gipcrqIdentityPoolId'
+-- * 'gipcIdentityPoolId'
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
-    { _gipcrqIdentityPoolId :: Text
+    { _gipcIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolConfiguration' smart constructor.
 getIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
 getIdentityPoolConfiguration pIdentityPoolId_ =
     GetIdentityPoolConfiguration'
-    { _gipcrqIdentityPoolId = pIdentityPoolId_
+    { _gipcIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. This is the ID of the pool for which to return a configuration.
-gipcrqIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
-gipcrqIdentityPoolId = lens _gipcrqIdentityPoolId (\ s a -> s{_gipcrqIdentityPoolId = a});
+gipcIdentityPoolId :: Lens' GetIdentityPoolConfiguration Text
+gipcIdentityPoolId = lens _gipcIdentityPoolId (\ s a -> s{_gipcIdentityPoolId = a});
 
 instance AWSRequest GetIdentityPoolConfiguration
          where
@@ -97,7 +97,7 @@ instance ToHeaders GetIdentityPoolConfiguration where
 instance ToPath GetIdentityPoolConfiguration where
         toPath GetIdentityPoolConfiguration'{..}
           = mconcat
-              ["/identitypools/", toText _gipcrqIdentityPoolId,
+              ["/identitypools/", toText _gipcIdentityPoolId,
                "/configuration"]
 
 instance ToQuery GetIdentityPoolConfiguration where

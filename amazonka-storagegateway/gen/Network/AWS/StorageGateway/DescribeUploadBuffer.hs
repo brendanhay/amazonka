@@ -33,7 +33,7 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     -- ** Request constructor
     , describeUploadBuffer
     -- ** Request lenses
-    , dubrqGatewayARN
+    , dubGatewayARN
 
     -- * Response
     , DescribeUploadBufferResponse
@@ -56,21 +56,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dubrqGatewayARN'
+-- * 'dubGatewayARN'
 newtype DescribeUploadBuffer = DescribeUploadBuffer'
-    { _dubrqGatewayARN :: Text
+    { _dubGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUploadBuffer' smart constructor.
 describeUploadBuffer :: Text -> DescribeUploadBuffer
 describeUploadBuffer pGatewayARN_ =
     DescribeUploadBuffer'
-    { _dubrqGatewayARN = pGatewayARN_
+    { _dubGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-dubrqGatewayARN :: Lens' DescribeUploadBuffer Text
-dubrqGatewayARN = lens _dubrqGatewayARN (\ s a -> s{_dubrqGatewayARN = a});
+dubGatewayARN :: Lens' DescribeUploadBuffer Text
+dubGatewayARN = lens _dubGatewayARN (\ s a -> s{_dubGatewayARN = a});
 
 instance AWSRequest DescribeUploadBuffer where
         type Sv DescribeUploadBuffer = StorageGateway
@@ -99,7 +99,7 @@ instance ToHeaders DescribeUploadBuffer where
 
 instance ToJSON DescribeUploadBuffer where
         toJSON DescribeUploadBuffer'{..}
-          = object ["GatewayARN" .= _dubrqGatewayARN]
+          = object ["GatewayARN" .= _dubGatewayARN]
 
 instance ToPath DescribeUploadBuffer where
         toPath = const "/"

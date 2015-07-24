@@ -32,7 +32,7 @@ module Network.AWS.IAM.GetRole
     -- ** Request constructor
     , getRole
     -- ** Request lenses
-    , grrqRoleName
+    , grRoleName
 
     -- * Response
     , GetRoleResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrqRoleName'
+-- * 'grRoleName'
 newtype GetRole = GetRole'
-    { _grrqRoleName :: Text
+    { _grRoleName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRole' smart constructor.
 getRole :: Text -> GetRole
 getRole pRoleName_ =
     GetRole'
-    { _grrqRoleName = pRoleName_
+    { _grRoleName = pRoleName_
     }
 
 -- | The name of the role to get information about.
-grrqRoleName :: Lens' GetRole Text
-grrqRoleName = lens _grrqRoleName (\ s a -> s{_grrqRoleName = a});
+grRoleName :: Lens' GetRole Text
+grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a});
 
 instance AWSRequest GetRole where
         type Sv GetRole = IAM
@@ -89,7 +89,7 @@ instance ToQuery GetRole where
           = mconcat
               ["Action" =: ("GetRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _grrqRoleName]
+               "RoleName" =: _grRoleName]
 
 -- | Contains the response to a successful GetRole request.
 --

@@ -29,8 +29,8 @@ module Network.AWS.Kinesis.RemoveTagsFromStream
     -- ** Request constructor
     , removeTagsFromStream
     -- ** Request lenses
-    , rtfsrqStreamName
-    , rtfsrqTagKeys
+    , rtfsStreamName
+    , rtfsTagKeys
 
     -- * Response
     , RemoveTagsFromStreamResponse
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtfsrqStreamName'
+-- * 'rtfsStreamName'
 --
--- * 'rtfsrqTagKeys'
+-- * 'rtfsTagKeys'
 data RemoveTagsFromStream = RemoveTagsFromStream'
-    { _rtfsrqStreamName :: !Text
-    , _rtfsrqTagKeys    :: !(List1 Text)
+    { _rtfsStreamName :: !Text
+    , _rtfsTagKeys    :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromStream' smart constructor.
 removeTagsFromStream :: Text -> NonEmpty Text -> RemoveTagsFromStream
 removeTagsFromStream pStreamName_ pTagKeys_ =
     RemoveTagsFromStream'
-    { _rtfsrqStreamName = pStreamName_
-    , _rtfsrqTagKeys = _List1 # pTagKeys_
+    { _rtfsStreamName = pStreamName_
+    , _rtfsTagKeys = _List1 # pTagKeys_
     }
 
 -- | The name of the stream.
-rtfsrqStreamName :: Lens' RemoveTagsFromStream Text
-rtfsrqStreamName = lens _rtfsrqStreamName (\ s a -> s{_rtfsrqStreamName = a});
+rtfsStreamName :: Lens' RemoveTagsFromStream Text
+rtfsStreamName = lens _rtfsStreamName (\ s a -> s{_rtfsStreamName = a});
 
 -- | A list of tag keys. Each corresponding tag is removed from the stream.
-rtfsrqTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
-rtfsrqTagKeys = lens _rtfsrqTagKeys (\ s a -> s{_rtfsrqTagKeys = a}) . _List1;
+rtfsTagKeys :: Lens' RemoveTagsFromStream (NonEmpty Text)
+rtfsTagKeys = lens _rtfsTagKeys (\ s a -> s{_rtfsTagKeys = a}) . _List1;
 
 instance AWSRequest RemoveTagsFromStream where
         type Sv RemoveTagsFromStream = Kinesis
@@ -93,8 +93,8 @@ instance ToHeaders RemoveTagsFromStream where
 instance ToJSON RemoveTagsFromStream where
         toJSON RemoveTagsFromStream'{..}
           = object
-              ["StreamName" .= _rtfsrqStreamName,
-               "TagKeys" .= _rtfsrqTagKeys]
+              ["StreamName" .= _rtfsStreamName,
+               "TagKeys" .= _rtfsTagKeys]
 
 instance ToPath RemoveTagsFromStream where
         toPath = const "/"

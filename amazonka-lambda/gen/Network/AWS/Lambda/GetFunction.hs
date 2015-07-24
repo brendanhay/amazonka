@@ -33,7 +33,7 @@ module Network.AWS.Lambda.GetFunction
     -- ** Request constructor
     , getFunction
     -- ** Request lenses
-    , gfrqFunctionName
+    , gfFunctionName
 
     -- * Response
     , GetFunctionResponse
@@ -54,16 +54,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gfrqFunctionName'
+-- * 'gfFunctionName'
 newtype GetFunction = GetFunction'
-    { _gfrqFunctionName :: Text
+    { _gfFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFunction' smart constructor.
 getFunction :: Text -> GetFunction
 getFunction pFunctionName_ =
     GetFunction'
-    { _gfrqFunctionName = pFunctionName_
+    { _gfFunctionName = pFunctionName_
     }
 
 -- | The Lambda function name.
@@ -76,8 +76,8 @@ getFunction pFunctionName_ =
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-gfrqFunctionName :: Lens' GetFunction Text
-gfrqFunctionName = lens _gfrqFunctionName (\ s a -> s{_gfrqFunctionName = a});
+gfFunctionName :: Lens' GetFunction Text
+gfFunctionName = lens _gfFunctionName (\ s a -> s{_gfFunctionName = a});
 
 instance AWSRequest GetFunction where
         type Sv GetFunction = Lambda
@@ -96,7 +96,7 @@ instance ToHeaders GetFunction where
 instance ToPath GetFunction where
         toPath GetFunction'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _gfrqFunctionName,
+              ["/2015-03-31/functions/", toText _gfFunctionName,
                "/versions/HEAD"]
 
 instance ToQuery GetFunction where

@@ -51,19 +51,19 @@ module Network.AWS.CloudSearchDomains.Search
     -- ** Request constructor
     , search
     -- ** Request lenses
-    , searqExpr
-    , searqCursor
-    , searqFilterQuery
-    , searqReturn
-    , searqQueryOptions
-    , searqQueryParser
-    , searqSize
-    , searqStart
-    , searqHighlight
-    , searqSort
-    , searqFacet
-    , searqPartial
-    , searqQuery
+    , seaExpr
+    , seaCursor
+    , seaFilterQuery
+    , seaReturn
+    , seaQueryOptions
+    , seaQueryParser
+    , seaSize
+    , seaStart
+    , seaHighlight
+    , seaSort
+    , seaFacet
+    , seaPartial
+    , seaQuery
 
     -- * Response
     , SearchResponse
@@ -86,64 +86,64 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'searqExpr'
+-- * 'seaExpr'
 --
--- * 'searqCursor'
+-- * 'seaCursor'
 --
--- * 'searqFilterQuery'
+-- * 'seaFilterQuery'
 --
--- * 'searqReturn'
+-- * 'seaReturn'
 --
--- * 'searqQueryOptions'
+-- * 'seaQueryOptions'
 --
--- * 'searqQueryParser'
+-- * 'seaQueryParser'
 --
--- * 'searqSize'
+-- * 'seaSize'
 --
--- * 'searqStart'
+-- * 'seaStart'
 --
--- * 'searqHighlight'
+-- * 'seaHighlight'
 --
--- * 'searqSort'
+-- * 'seaSort'
 --
--- * 'searqFacet'
+-- * 'seaFacet'
 --
--- * 'searqPartial'
+-- * 'seaPartial'
 --
--- * 'searqQuery'
+-- * 'seaQuery'
 data Search = Search'
-    { _searqExpr         :: !(Maybe Text)
-    , _searqCursor       :: !(Maybe Text)
-    , _searqFilterQuery  :: !(Maybe Text)
-    , _searqReturn       :: !(Maybe Text)
-    , _searqQueryOptions :: !(Maybe Text)
-    , _searqQueryParser  :: !(Maybe QueryParser)
-    , _searqSize         :: !(Maybe Integer)
-    , _searqStart        :: !(Maybe Integer)
-    , _searqHighlight    :: !(Maybe Text)
-    , _searqSort         :: !(Maybe Text)
-    , _searqFacet        :: !(Maybe Text)
-    , _searqPartial      :: !(Maybe Bool)
-    , _searqQuery        :: !Text
+    { _seaExpr         :: !(Maybe Text)
+    , _seaCursor       :: !(Maybe Text)
+    , _seaFilterQuery  :: !(Maybe Text)
+    , _seaReturn       :: !(Maybe Text)
+    , _seaQueryOptions :: !(Maybe Text)
+    , _seaQueryParser  :: !(Maybe QueryParser)
+    , _seaSize         :: !(Maybe Integer)
+    , _seaStart        :: !(Maybe Integer)
+    , _seaHighlight    :: !(Maybe Text)
+    , _seaSort         :: !(Maybe Text)
+    , _seaFacet        :: !(Maybe Text)
+    , _seaPartial      :: !(Maybe Bool)
+    , _seaQuery        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Search' smart constructor.
 search :: Text -> Search
 search pQuery_ =
     Search'
-    { _searqExpr = Nothing
-    , _searqCursor = Nothing
-    , _searqFilterQuery = Nothing
-    , _searqReturn = Nothing
-    , _searqQueryOptions = Nothing
-    , _searqQueryParser = Nothing
-    , _searqSize = Nothing
-    , _searqStart = Nothing
-    , _searqHighlight = Nothing
-    , _searqSort = Nothing
-    , _searqFacet = Nothing
-    , _searqPartial = Nothing
-    , _searqQuery = pQuery_
+    { _seaExpr = Nothing
+    , _seaCursor = Nothing
+    , _seaFilterQuery = Nothing
+    , _seaReturn = Nothing
+    , _seaQueryOptions = Nothing
+    , _seaQueryParser = Nothing
+    , _seaSize = Nothing
+    , _seaStart = Nothing
+    , _seaHighlight = Nothing
+    , _seaSort = Nothing
+    , _seaFacet = Nothing
+    , _seaPartial = Nothing
+    , _seaQuery = pQuery_
     }
 
 -- | Defines one or more numeric expressions that can be used to sort results
@@ -160,8 +160,8 @@ search pQuery_ =
 -- use in expressions, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html#writing-expressions Writing Expressions>
 -- in the /Amazon CloudSearch Developer Guide/.
-searqExpr :: Lens' Search (Maybe Text)
-searqExpr = lens _searqExpr (\ s a -> s{_searqExpr = a});
+seaExpr :: Lens' Search (Maybe Text)
+seaExpr = lens _seaExpr (\ s a -> s{_seaExpr = a});
 
 -- | Retrieves a cursor value you can use to page through large result sets.
 -- Use the @size@ parameter to control the number of hits to include in
@@ -173,8 +173,8 @@ searqExpr = lens _searqExpr (\ s a -> s{_searqExpr = a});
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results>
 -- in the /Amazon CloudSearch Developer Guide/.
-searqCursor :: Lens' Search (Maybe Text)
-searqCursor = lens _searqCursor (\ s a -> s{_searqCursor = a});
+seaCursor :: Lens' Search (Maybe Text)
+seaCursor = lens _seaCursor (\ s a -> s{_seaCursor = a});
 
 -- | Specifies a structured query that filters the results of a search
 -- without affecting how the results are scored and sorted. You use
@@ -187,8 +187,8 @@ searqCursor = lens _searqCursor (\ s a -> s{_searqCursor = a});
 -- For more information about using filters, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/filtering-results.html Filtering Matching Documents>
 -- in the /Amazon CloudSearch Developer Guide/.
-searqFilterQuery :: Lens' Search (Maybe Text)
-searqFilterQuery = lens _searqFilterQuery (\ s a -> s{_searqFilterQuery = a});
+seaFilterQuery :: Lens' Search (Maybe Text)
+seaFilterQuery = lens _seaFilterQuery (\ s a -> s{_seaFilterQuery = a});
 
 -- | Specifies the field and expression values to include in the response.
 -- Multiple fields or expressions are specified as a comma-separated list.
@@ -196,8 +196,8 @@ searqFilterQuery = lens _searqFilterQuery (\ s a -> s{_searqFilterQuery = a});
 -- (@_all_fields@). To return only the document IDs for the matching
 -- documents, specify @_no_fields@. To retrieve the relevance score
 -- calculated for each document, specify @_score@.
-searqReturn :: Lens' Search (Maybe Text)
-searqReturn = lens _searqReturn (\ s a -> s{_searqReturn = a});
+seaReturn :: Lens' Search (Maybe Text)
+seaReturn = lens _seaReturn (\ s a -> s{_seaReturn = a});
 
 -- | Configures options for the query parser specified in the @queryParser@
 -- parameter. You specify the options in JSON using the following form
@@ -294,8 +294,8 @@ searqReturn = lens _searqReturn (\ s a -> s{_searqReturn = a});
 --     (pure max): @\"tieBreaker\":0@. Set to 1 to sum the scores from all
 --     fields (pure sum): @\"tieBreaker\":1@. Valid values: 0.0 to 1.0.
 --     Default: 0.0. Valid for: @dismax@.
-searqQueryOptions :: Lens' Search (Maybe Text)
-searqQueryOptions = lens _searqQueryOptions (\ s a -> s{_searqQueryOptions = a});
+seaQueryOptions :: Lens' Search (Maybe Text)
+seaQueryOptions = lens _seaQueryOptions (\ s a -> s{_seaQueryOptions = a});
 
 -- | Specifies which query parser to use to process the request. If
 -- @queryParser@ is not specified, Amazon CloudSearch uses the @simple@
@@ -330,12 +330,12 @@ searqQueryOptions = lens _searqQueryOptions (\ s a -> s{_searqQueryOptions = a})
 --     query parser syntax defined by the DisMax query parser. For more
 --     information, see
 --     <http://wiki.apache.org/solr/DisMaxQParserPlugin#Query_Syntax DisMax Query Parser Syntax>.
-searqQueryParser :: Lens' Search (Maybe QueryParser)
-searqQueryParser = lens _searqQueryParser (\ s a -> s{_searqQueryParser = a});
+seaQueryParser :: Lens' Search (Maybe QueryParser)
+seaQueryParser = lens _seaQueryParser (\ s a -> s{_seaQueryParser = a});
 
 -- | Specifies the maximum number of search hits to include in the response.
-searqSize :: Lens' Search (Maybe Integer)
-searqSize = lens _searqSize (\ s a -> s{_searqSize = a});
+seaSize :: Lens' Search (Maybe Integer)
+seaSize = lens _seaSize (\ s a -> s{_seaSize = a});
 
 -- | Specifies the offset of the first search hit you want to return. Note
 -- that the result set is zero-based; the first result is at index 0. You
@@ -345,8 +345,8 @@ searqSize = lens _searqSize (\ s a -> s{_searqSize = a});
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html Paginating Results>
 -- in the /Amazon CloudSearch Developer Guide/.
-searqStart :: Lens' Search (Maybe Integer)
-searqStart = lens _searqStart (\ s a -> s{_searqStart = a});
+seaStart :: Lens' Search (Maybe Integer)
+seaStart = lens _seaStart (\ s a -> s{_seaStart = a});
 
 -- | Retrieves highlights for matches in the specified @text@ or @text-array@
 -- fields. Each specified field must be highlight enabled in the domain
@@ -377,8 +377,8 @@ searqStart = lens _searqStart (\ s a -> s{_searqStart = a});
 -- and @title@ fields.
 --
 -- @{ \"actors\": {}, \"title\": {\"format\": \"text\",\"max_phrases\": 2,\"pre_tag\": \"\",\"post_tag\": \"\"} }@
-searqHighlight :: Lens' Search (Maybe Text)
-searqHighlight = lens _searqHighlight (\ s a -> s{_searqHighlight = a});
+seaHighlight :: Lens' Search (Maybe Text)
+seaHighlight = lens _seaHighlight (\ s a -> s{_seaHighlight = a});
 
 -- | Specifies the fields or custom expressions to use to sort the search
 -- results. Multiple fields or expressions are specified as a
@@ -393,8 +393,8 @@ searqHighlight = lens _searqHighlight (\ s a -> s{_searqHighlight = a});
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html Sorting Results>
 -- in the /Amazon CloudSearch Developer Guide/.
-searqSort :: Lens' Search (Maybe Text)
-searqSort = lens _searqSort (\ s a -> s{_searqSort = a});
+seaSort :: Lens' Search (Maybe Text)
+seaSort = lens _seaSort (\ s a -> s{_seaSort = a});
 
 -- | Specifies one or more fields for which to get facet information, and
 -- options that control how the facet information is returned. Each
@@ -451,8 +451,8 @@ searqSort = lens _searqSort (\ s a -> s{_searqSort = a});
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/faceting.html Getting and Using Facet Information>
 -- in the /Amazon CloudSearch Developer Guide/.
-searqFacet :: Lens' Search (Maybe Text)
-searqFacet = lens _searqFacet (\ s a -> s{_searqFacet = a});
+seaFacet :: Lens' Search (Maybe Text)
+seaFacet = lens _seaFacet (\ s a -> s{_seaFacet = a});
 
 -- | Enables partial results to be returned if one or more index partitions
 -- are unavailable. When your search index is partitioned across multiple
@@ -466,8 +466,8 @@ searqFacet = lens _searqFacet (\ s a -> s{_searqFacet = a});
 -- displaying no results, you could display the partial results and a
 -- message indicating that the results might be incomplete due to a
 -- temporary system outage.
-searqPartial :: Lens' Search (Maybe Bool)
-searqPartial = lens _searqPartial (\ s a -> s{_searqPartial = a});
+seaPartial :: Lens' Search (Maybe Bool)
+seaPartial = lens _seaPartial (\ s a -> s{_seaPartial = a});
 
 -- | Specifies the search criteria for the request. How you specify the
 -- search criteria depends on the query parser used for the request and the
@@ -479,8 +479,8 @@ searqPartial = lens _searqPartial (\ s a -> s{_searqPartial = a});
 -- For more information about specifying search criteria, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/searching.html Searching Your Data>
 -- in the /Amazon CloudSearch Developer Guide/.
-searqQuery :: Lens' Search Text
-searqQuery = lens _searqQuery (\ s a -> s{_searqQuery = a});
+seaQuery :: Lens' Search Text
+seaQuery = lens _seaQuery (\ s a -> s{_seaQuery = a});
 
 instance AWSRequest Search where
         type Sv Search = CloudSearchDomains
@@ -506,14 +506,14 @@ instance ToPath Search where
 instance ToQuery Search where
         toQuery Search'{..}
           = mconcat
-              ["expr" =: _searqExpr, "cursor" =: _searqCursor,
-               "fq" =: _searqFilterQuery, "return" =: _searqReturn,
-               "q.options" =: _searqQueryOptions,
-               "q.parser" =: _searqQueryParser,
-               "size" =: _searqSize, "start" =: _searqStart,
-               "highlight" =: _searqHighlight, "sort" =: _searqSort,
-               "facet" =: _searqFacet, "partial" =: _searqPartial,
-               "q" =: _searqQuery, "format=sdk&pretty=true"]
+              ["expr" =: _seaExpr, "cursor" =: _seaCursor,
+               "fq" =: _seaFilterQuery, "return" =: _seaReturn,
+               "q.options" =: _seaQueryOptions,
+               "q.parser" =: _seaQueryParser, "size" =: _seaSize,
+               "start" =: _seaStart, "highlight" =: _seaHighlight,
+               "sort" =: _seaSort, "facet" =: _seaFacet,
+               "partial" =: _seaPartial, "q" =: _seaQuery,
+               "format=sdk&pretty=true"]
 
 -- | The result of a @Search@ request. Contains the documents that match the
 -- specified search criteria and any requested fields, highlights, and

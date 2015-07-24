@@ -30,7 +30,7 @@ module Network.AWS.DirectConnect.DescribeConnections
     -- ** Request constructor
     , describeConnections
     -- ** Request lenses
-    , drqConnectionId
+    , dConnectionId
 
     -- * Response
     , Connections
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqConnectionId'
+-- * 'dConnectionId'
 newtype DescribeConnections = DescribeConnections'
-    { _drqConnectionId :: Maybe Text
+    { _dConnectionId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConnections' smart constructor.
 describeConnections :: DescribeConnections
 describeConnections =
     DescribeConnections'
-    { _drqConnectionId = Nothing
+    { _dConnectionId = Nothing
     }
 
 -- | FIXME: Undocumented member.
-drqConnectionId :: Lens' DescribeConnections (Maybe Text)
-drqConnectionId = lens _drqConnectionId (\ s a -> s{_drqConnectionId = a});
+dConnectionId :: Lens' DescribeConnections (Maybe Text)
+dConnectionId = lens _dConnectionId (\ s a -> s{_dConnectionId = a});
 
 instance AWSRequest DescribeConnections where
         type Sv DescribeConnections = DirectConnect
@@ -85,7 +85,7 @@ instance ToHeaders DescribeConnections where
 
 instance ToJSON DescribeConnections where
         toJSON DescribeConnections'{..}
-          = object ["connectionId" .= _drqConnectionId]
+          = object ["connectionId" .= _dConnectionId]
 
 instance ToPath DescribeConnections where
         toPath = const "/"

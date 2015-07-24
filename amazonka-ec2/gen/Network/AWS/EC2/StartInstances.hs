@@ -47,9 +47,9 @@ module Network.AWS.EC2.StartInstances
     -- ** Request constructor
     , startInstances
     -- ** Request lenses
-    , srqAdditionalInfo
-    , srqDryRun
-    , srqInstanceIds
+    , sAdditionalInfo
+    , sDryRun
+    , sInstanceIds
 
     -- * Response
     , StartInstancesResponse
@@ -69,40 +69,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqAdditionalInfo'
+-- * 'sAdditionalInfo'
 --
--- * 'srqDryRun'
+-- * 'sDryRun'
 --
--- * 'srqInstanceIds'
+-- * 'sInstanceIds'
 data StartInstances = StartInstances'
-    { _srqAdditionalInfo :: !(Maybe Text)
-    , _srqDryRun         :: !(Maybe Bool)
-    , _srqInstanceIds    :: ![Text]
+    { _sAdditionalInfo :: !(Maybe Text)
+    , _sDryRun         :: !(Maybe Bool)
+    , _sInstanceIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstances' smart constructor.
 startInstances :: StartInstances
 startInstances =
     StartInstances'
-    { _srqAdditionalInfo = Nothing
-    , _srqDryRun = Nothing
-    , _srqInstanceIds = mempty
+    { _sAdditionalInfo = Nothing
+    , _sDryRun = Nothing
+    , _sInstanceIds = mempty
     }
 
 -- | Reserved.
-srqAdditionalInfo :: Lens' StartInstances (Maybe Text)
-srqAdditionalInfo = lens _srqAdditionalInfo (\ s a -> s{_srqAdditionalInfo = a});
+sAdditionalInfo :: Lens' StartInstances (Maybe Text)
+sAdditionalInfo = lens _sAdditionalInfo (\ s a -> s{_sAdditionalInfo = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-srqDryRun :: Lens' StartInstances (Maybe Bool)
-srqDryRun = lens _srqDryRun (\ s a -> s{_srqDryRun = a});
+sDryRun :: Lens' StartInstances (Maybe Bool)
+sDryRun = lens _sDryRun (\ s a -> s{_sDryRun = a});
 
 -- | One or more instance IDs.
-srqInstanceIds :: Lens' StartInstances [Text]
-srqInstanceIds = lens _srqInstanceIds (\ s a -> s{_srqInstanceIds = a});
+sInstanceIds :: Lens' StartInstances [Text]
+sInstanceIds = lens _sInstanceIds (\ s a -> s{_sInstanceIds = a});
 
 instance AWSRequest StartInstances where
         type Sv StartInstances = EC2
@@ -127,9 +127,9 @@ instance ToQuery StartInstances where
           = mconcat
               ["Action" =: ("StartInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AdditionalInfo" =: _srqAdditionalInfo,
-               "DryRun" =: _srqDryRun,
-               toQueryList "InstanceId" _srqInstanceIds]
+               "AdditionalInfo" =: _sAdditionalInfo,
+               "DryRun" =: _sDryRun,
+               toQueryList "InstanceId" _sInstanceIds]
 
 -- | /See:/ 'startInstancesResponse' smart constructor.
 --

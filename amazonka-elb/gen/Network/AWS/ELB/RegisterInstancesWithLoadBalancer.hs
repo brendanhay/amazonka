@@ -57,8 +57,8 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- ** Request constructor
     , registerInstancesWithLoadBalancer
     -- ** Request lenses
-    , riwlbrqLoadBalancerName
-    , riwlbrqInstances
+    , riwlbLoadBalancerName
+    , riwlbInstances
 
     -- * Response
     , RegisterInstancesWithLoadBalancerResponse
@@ -78,29 +78,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riwlbrqLoadBalancerName'
+-- * 'riwlbLoadBalancerName'
 --
--- * 'riwlbrqInstances'
+-- * 'riwlbInstances'
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
-    { _riwlbrqLoadBalancerName :: !Text
-    , _riwlbrqInstances        :: ![Instance]
+    { _riwlbLoadBalancerName :: !Text
+    , _riwlbInstances        :: ![Instance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstancesWithLoadBalancer' smart constructor.
 registerInstancesWithLoadBalancer :: Text -> RegisterInstancesWithLoadBalancer
 registerInstancesWithLoadBalancer pLoadBalancerName_ =
     RegisterInstancesWithLoadBalancer'
-    { _riwlbrqLoadBalancerName = pLoadBalancerName_
-    , _riwlbrqInstances = mempty
+    { _riwlbLoadBalancerName = pLoadBalancerName_
+    , _riwlbInstances = mempty
     }
 
 -- | The name of the load balancer.
-riwlbrqLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
-riwlbrqLoadBalancerName = lens _riwlbrqLoadBalancerName (\ s a -> s{_riwlbrqLoadBalancerName = a});
+riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
+riwlbLoadBalancerName = lens _riwlbLoadBalancerName (\ s a -> s{_riwlbLoadBalancerName = a});
 
 -- | The IDs of the instances.
-riwlbrqInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
-riwlbrqInstances = lens _riwlbrqInstances (\ s a -> s{_riwlbrqInstances = a});
+riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
+riwlbInstances = lens _riwlbInstances (\ s a -> s{_riwlbInstances = a});
 
 instance AWSRequest RegisterInstancesWithLoadBalancer
          where
@@ -132,9 +132,8 @@ instance ToQuery RegisterInstancesWithLoadBalancer
               ["Action" =:
                  ("RegisterInstancesWithLoadBalancer" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _riwlbrqLoadBalancerName,
-               "Instances" =:
-                 toQueryList "member" _riwlbrqInstances]
+               "LoadBalancerName" =: _riwlbLoadBalancerName,
+               "Instances" =: toQueryList "member" _riwlbInstances]
 
 -- | /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
 --

@@ -29,7 +29,7 @@ module Network.AWS.SES.VerifyDomainIdentity
     -- ** Request constructor
     , verifyDomainIdentity
     -- ** Request lenses
-    , vdirqDomain
+    , vdiDomain
 
     -- * Response
     , VerifyDomainIdentityResponse
@@ -52,21 +52,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vdirqDomain'
+-- * 'vdiDomain'
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
-    { _vdirqDomain :: Text
+    { _vdiDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainIdentity' smart constructor.
 verifyDomainIdentity :: Text -> VerifyDomainIdentity
 verifyDomainIdentity pDomain_ =
     VerifyDomainIdentity'
-    { _vdirqDomain = pDomain_
+    { _vdiDomain = pDomain_
     }
 
 -- | The domain to be verified.
-vdirqDomain :: Lens' VerifyDomainIdentity Text
-vdirqDomain = lens _vdirqDomain (\ s a -> s{_vdirqDomain = a});
+vdiDomain :: Lens' VerifyDomainIdentity Text
+vdiDomain = lens _vdiDomain (\ s a -> s{_vdiDomain = a});
 
 instance AWSRequest VerifyDomainIdentity where
         type Sv VerifyDomainIdentity = SES
@@ -90,7 +90,7 @@ instance ToQuery VerifyDomainIdentity where
           = mconcat
               ["Action" =: ("VerifyDomainIdentity" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Domain" =: _vdirqDomain]
+               "Domain" =: _vdiDomain]
 
 -- | Represents a token used for domain ownership verification.
 --

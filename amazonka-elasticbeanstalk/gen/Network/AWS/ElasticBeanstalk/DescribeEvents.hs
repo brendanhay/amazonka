@@ -31,17 +31,17 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- ** Request constructor
     , describeEvents
     -- ** Request lenses
-    , derqRequestId
-    , derqTemplateName
-    , derqStartTime
-    , derqSeverity
-    , derqNextToken
-    , derqVersionLabel
-    , derqMaxRecords
-    , derqEnvironmentName
-    , derqEndTime
-    , derqApplicationName
-    , derqEnvironmentId
+    , deRequestId
+    , deTemplateName
+    , deStartTime
+    , deSeverity
+    , deNextToken
+    , deVersionLabel
+    , deMaxRecords
+    , deEnvironmentName
+    , deEndTime
+    , deApplicationName
+    , deEnvironmentId
 
     -- * Response
     , DescribeEventsResponse
@@ -65,119 +65,119 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derqRequestId'
+-- * 'deRequestId'
 --
--- * 'derqTemplateName'
+-- * 'deTemplateName'
 --
--- * 'derqStartTime'
+-- * 'deStartTime'
 --
--- * 'derqSeverity'
+-- * 'deSeverity'
 --
--- * 'derqNextToken'
+-- * 'deNextToken'
 --
--- * 'derqVersionLabel'
+-- * 'deVersionLabel'
 --
--- * 'derqMaxRecords'
+-- * 'deMaxRecords'
 --
--- * 'derqEnvironmentName'
+-- * 'deEnvironmentName'
 --
--- * 'derqEndTime'
+-- * 'deEndTime'
 --
--- * 'derqApplicationName'
+-- * 'deApplicationName'
 --
--- * 'derqEnvironmentId'
+-- * 'deEnvironmentId'
 data DescribeEvents = DescribeEvents'
-    { _derqRequestId       :: !(Maybe Text)
-    , _derqTemplateName    :: !(Maybe Text)
-    , _derqStartTime       :: !(Maybe ISO8601)
-    , _derqSeverity        :: !(Maybe EventSeverity)
-    , _derqNextToken       :: !(Maybe Text)
-    , _derqVersionLabel    :: !(Maybe Text)
-    , _derqMaxRecords      :: !(Maybe Nat)
-    , _derqEnvironmentName :: !(Maybe Text)
-    , _derqEndTime         :: !(Maybe ISO8601)
-    , _derqApplicationName :: !(Maybe Text)
-    , _derqEnvironmentId   :: !(Maybe Text)
+    { _deRequestId       :: !(Maybe Text)
+    , _deTemplateName    :: !(Maybe Text)
+    , _deStartTime       :: !(Maybe ISO8601)
+    , _deSeverity        :: !(Maybe EventSeverity)
+    , _deNextToken       :: !(Maybe Text)
+    , _deVersionLabel    :: !(Maybe Text)
+    , _deMaxRecords      :: !(Maybe Nat)
+    , _deEnvironmentName :: !(Maybe Text)
+    , _deEndTime         :: !(Maybe ISO8601)
+    , _deApplicationName :: !(Maybe Text)
+    , _deEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvents' smart constructor.
 describeEvents :: DescribeEvents
 describeEvents =
     DescribeEvents'
-    { _derqRequestId = Nothing
-    , _derqTemplateName = Nothing
-    , _derqStartTime = Nothing
-    , _derqSeverity = Nothing
-    , _derqNextToken = Nothing
-    , _derqVersionLabel = Nothing
-    , _derqMaxRecords = Nothing
-    , _derqEnvironmentName = Nothing
-    , _derqEndTime = Nothing
-    , _derqApplicationName = Nothing
-    , _derqEnvironmentId = Nothing
+    { _deRequestId = Nothing
+    , _deTemplateName = Nothing
+    , _deStartTime = Nothing
+    , _deSeverity = Nothing
+    , _deNextToken = Nothing
+    , _deVersionLabel = Nothing
+    , _deMaxRecords = Nothing
+    , _deEnvironmentName = Nothing
+    , _deEndTime = Nothing
+    , _deApplicationName = Nothing
+    , _deEnvironmentId = Nothing
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the described events to
 -- include only those associated with this request ID.
-derqRequestId :: Lens' DescribeEvents (Maybe Text)
-derqRequestId = lens _derqRequestId (\ s a -> s{_derqRequestId = a});
+deRequestId :: Lens' DescribeEvents (Maybe Text)
+deRequestId = lens _deRequestId (\ s a -> s{_deRequestId = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that are associated with this environment configuration.
-derqTemplateName :: Lens' DescribeEvents (Maybe Text)
-derqTemplateName = lens _derqTemplateName (\ s a -> s{_derqTemplateName = a});
+deTemplateName :: Lens' DescribeEvents (Maybe Text)
+deTemplateName = lens _deTemplateName (\ s a -> s{_deTemplateName = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur on or after this time.
-derqStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-derqStartTime = lens _derqStartTime (\ s a -> s{_derqStartTime = a}) . mapping _Time;
+deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
+deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 
 -- | If specified, limits the events returned from this call to include only
 -- those with the specified severity or higher.
-derqSeverity :: Lens' DescribeEvents (Maybe EventSeverity)
-derqSeverity = lens _derqSeverity (\ s a -> s{_derqSeverity = a});
+deSeverity :: Lens' DescribeEvents (Maybe EventSeverity)
+deSeverity = lens _deSeverity (\ s a -> s{_deSeverity = a});
 
 -- | Pagination token. If specified, the events return the next batch of
 -- results.
-derqNextToken :: Lens' DescribeEvents (Maybe Text)
-derqNextToken = lens _derqNextToken (\ s a -> s{_derqNextToken = a});
+deNextToken :: Lens' DescribeEvents (Maybe Text)
+deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this application version.
-derqVersionLabel :: Lens' DescribeEvents (Maybe Text)
-derqVersionLabel = lens _derqVersionLabel (\ s a -> s{_derqVersionLabel = a});
+deVersionLabel :: Lens' DescribeEvents (Maybe Text)
+deVersionLabel = lens _deVersionLabel (\ s a -> s{_deVersionLabel = a});
 
 -- | Specifies the maximum number of events that can be returned, beginning
 -- with the most recent event.
-derqMaxRecords :: Lens' DescribeEvents (Maybe Natural)
-derqMaxRecords = lens _derqMaxRecords (\ s a -> s{_derqMaxRecords = a}) . mapping _Nat;
+deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
+deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a}) . mapping _Nat;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this environment.
-derqEnvironmentName :: Lens' DescribeEvents (Maybe Text)
-derqEnvironmentName = lens _derqEnvironmentName (\ s a -> s{_derqEnvironmentName = a});
+deEnvironmentName :: Lens' DescribeEvents (Maybe Text)
+deEnvironmentName = lens _deEnvironmentName (\ s a -> s{_deEnvironmentName = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur up to, but not including, the @EndTime@.
-derqEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-derqEndTime = lens _derqEndTime (\ s a -> s{_derqEndTime = a}) . mapping _Time;
+deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
+deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those associated with this application.
-derqApplicationName :: Lens' DescribeEvents (Maybe Text)
-derqApplicationName = lens _derqApplicationName (\ s a -> s{_derqApplicationName = a});
+deApplicationName :: Lens' DescribeEvents (Maybe Text)
+deApplicationName = lens _deApplicationName (\ s a -> s{_deApplicationName = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this environment.
-derqEnvironmentId :: Lens' DescribeEvents (Maybe Text)
-derqEnvironmentId = lens _derqEnvironmentId (\ s a -> s{_derqEnvironmentId = a});
+deEnvironmentId :: Lens' DescribeEvents (Maybe Text)
+deEnvironmentId = lens _deEnvironmentId (\ s a -> s{_deEnvironmentId = a});
 
 instance AWSPager DescribeEvents where
         page rq rs
           | stop (rs ^. dersNextToken) = Nothing
           | stop (rs ^. dersEvents) = Nothing
           | otherwise =
-            Just $ rq & derqNextToken .~ rs ^. dersNextToken
+            Just $ rq & deNextToken .~ rs ^. dersNextToken
 
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = ElasticBeanstalk
@@ -203,17 +203,17 @@ instance ToQuery DescribeEvents where
           = mconcat
               ["Action" =: ("DescribeEvents" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "RequestId" =: _derqRequestId,
-               "TemplateName" =: _derqTemplateName,
-               "StartTime" =: _derqStartTime,
-               "Severity" =: _derqSeverity,
-               "NextToken" =: _derqNextToken,
-               "VersionLabel" =: _derqVersionLabel,
-               "MaxRecords" =: _derqMaxRecords,
-               "EnvironmentName" =: _derqEnvironmentName,
-               "EndTime" =: _derqEndTime,
-               "ApplicationName" =: _derqApplicationName,
-               "EnvironmentId" =: _derqEnvironmentId]
+               "RequestId" =: _deRequestId,
+               "TemplateName" =: _deTemplateName,
+               "StartTime" =: _deStartTime,
+               "Severity" =: _deSeverity,
+               "NextToken" =: _deNextToken,
+               "VersionLabel" =: _deVersionLabel,
+               "MaxRecords" =: _deMaxRecords,
+               "EnvironmentName" =: _deEnvironmentName,
+               "EndTime" =: _deEndTime,
+               "ApplicationName" =: _deApplicationName,
+               "EnvironmentId" =: _deEnvironmentId]
 
 -- | Result message wrapping a list of event descriptions.
 --

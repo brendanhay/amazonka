@@ -67,11 +67,11 @@ module Network.AWS.Glacier.UploadArchive
     -- ** Request constructor
     , uploadArchive
     -- ** Request lenses
-    , uarqChecksum
-    , uarqArchiveDescription
-    , uarqVaultName
-    , uarqAccountId
-    , uarqBody
+    , uaChecksum
+    , uaArchiveDescription
+    , uaVaultName
+    , uaAccountId
+    , uaBody
 
     -- * Response
     , ArchiveCreationOutput
@@ -94,57 +94,57 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uarqChecksum'
+-- * 'uaChecksum'
 --
--- * 'uarqArchiveDescription'
+-- * 'uaArchiveDescription'
 --
--- * 'uarqVaultName'
+-- * 'uaVaultName'
 --
--- * 'uarqAccountId'
+-- * 'uaAccountId'
 --
--- * 'uarqBody'
+-- * 'uaBody'
 data UploadArchive = UploadArchive'
-    { _uarqChecksum           :: !(Maybe Text)
-    , _uarqArchiveDescription :: !(Maybe Text)
-    , _uarqVaultName          :: !Text
-    , _uarqAccountId          :: !Text
-    , _uarqBody               :: !RqBody
+    { _uaChecksum           :: !(Maybe Text)
+    , _uaArchiveDescription :: !(Maybe Text)
+    , _uaVaultName          :: !Text
+    , _uaAccountId          :: !Text
+    , _uaBody               :: !RqBody
     } deriving (Show,Generic)
 
 -- | 'UploadArchive' smart constructor.
 uploadArchive :: Text -> Text -> RqBody -> UploadArchive
 uploadArchive pVaultName_ pAccountId_ pBody_ =
     UploadArchive'
-    { _uarqChecksum = Nothing
-    , _uarqArchiveDescription = Nothing
-    , _uarqVaultName = pVaultName_
-    , _uarqAccountId = pAccountId_
-    , _uarqBody = pBody_
+    { _uaChecksum = Nothing
+    , _uaArchiveDescription = Nothing
+    , _uaVaultName = pVaultName_
+    , _uaAccountId = pAccountId_
+    , _uaBody = pBody_
     }
 
 -- | The SHA256 tree hash of the data being uploaded.
-uarqChecksum :: Lens' UploadArchive (Maybe Text)
-uarqChecksum = lens _uarqChecksum (\ s a -> s{_uarqChecksum = a});
+uaChecksum :: Lens' UploadArchive (Maybe Text)
+uaChecksum = lens _uaChecksum (\ s a -> s{_uaChecksum = a});
 
 -- | The optional description of the archive you are uploading.
-uarqArchiveDescription :: Lens' UploadArchive (Maybe Text)
-uarqArchiveDescription = lens _uarqArchiveDescription (\ s a -> s{_uarqArchiveDescription = a});
+uaArchiveDescription :: Lens' UploadArchive (Maybe Text)
+uaArchiveDescription = lens _uaArchiveDescription (\ s a -> s{_uaArchiveDescription = a});
 
 -- | The name of the vault.
-uarqVaultName :: Lens' UploadArchive Text
-uarqVaultName = lens _uarqVaultName (\ s a -> s{_uarqVaultName = a});
+uaVaultName :: Lens' UploadArchive Text
+uaVaultName = lens _uaVaultName (\ s a -> s{_uaVaultName = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-uarqAccountId :: Lens' UploadArchive Text
-uarqAccountId = lens _uarqAccountId (\ s a -> s{_uarqAccountId = a});
+uaAccountId :: Lens' UploadArchive Text
+uaAccountId = lens _uaAccountId (\ s a -> s{_uaAccountId = a});
 
 -- | The data to upload.
-uarqBody :: Lens' UploadArchive RqBody
-uarqBody = lens _uarqBody (\ s a -> s{_uarqBody = a});
+uaBody :: Lens' UploadArchive RqBody
+uaBody = lens _uaBody (\ s a -> s{_uaBody = a});
 
 instance AWSRequest UploadArchive where
         type Sv UploadArchive = Glacier
@@ -153,20 +153,19 @@ instance AWSRequest UploadArchive where
         response = receiveJSON (\ s h x -> eitherParseJSON x)
 
 instance ToBody UploadArchive where
-        toBody = _uarqBody
+        toBody = _uaBody
 
 instance ToHeaders UploadArchive where
         toHeaders UploadArchive'{..}
           = mconcat
-              ["x-amz-sha256-tree-hash" =# _uarqChecksum,
-               "x-amz-archive-description" =#
-                 _uarqArchiveDescription]
+              ["x-amz-sha256-tree-hash" =# _uaChecksum,
+               "x-amz-archive-description" =# _uaArchiveDescription]
 
 instance ToPath UploadArchive where
         toPath UploadArchive'{..}
           = mconcat
-              ["/", toText _uarqAccountId, "/vaults/",
-               toText _uarqVaultName, "/archives"]
+              ["/", toText _uaAccountId, "/vaults/",
+               toText _uaVaultName, "/archives"]
 
 instance ToQuery UploadArchive where
         toQuery = const mempty

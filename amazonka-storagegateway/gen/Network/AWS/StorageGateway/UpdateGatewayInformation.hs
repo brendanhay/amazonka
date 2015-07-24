@@ -29,9 +29,9 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     -- ** Request constructor
     , updateGatewayInformation
     -- ** Request lenses
-    , ugirqGatewayName
-    , ugirqGatewayTimezone
-    , ugirqGatewayARN
+    , ugiGatewayName
+    , ugiGatewayTimezone
+    , ugiGatewayARN
 
     -- * Response
     , UpdateGatewayInformationResponse
@@ -51,37 +51,37 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ugirqGatewayName'
+-- * 'ugiGatewayName'
 --
--- * 'ugirqGatewayTimezone'
+-- * 'ugiGatewayTimezone'
 --
--- * 'ugirqGatewayARN'
+-- * 'ugiGatewayARN'
 data UpdateGatewayInformation = UpdateGatewayInformation'
-    { _ugirqGatewayName     :: !(Maybe Text)
-    , _ugirqGatewayTimezone :: !(Maybe Text)
-    , _ugirqGatewayARN      :: !Text
+    { _ugiGatewayName     :: !(Maybe Text)
+    , _ugiGatewayTimezone :: !(Maybe Text)
+    , _ugiGatewayARN      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGatewayInformation' smart constructor.
 updateGatewayInformation :: Text -> UpdateGatewayInformation
 updateGatewayInformation pGatewayARN_ =
     UpdateGatewayInformation'
-    { _ugirqGatewayName = Nothing
-    , _ugirqGatewayTimezone = Nothing
-    , _ugirqGatewayARN = pGatewayARN_
+    { _ugiGatewayName = Nothing
+    , _ugiGatewayTimezone = Nothing
+    , _ugiGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-ugirqGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
-ugirqGatewayName = lens _ugirqGatewayName (\ s a -> s{_ugirqGatewayName = a});
+ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
+ugiGatewayName = lens _ugiGatewayName (\ s a -> s{_ugiGatewayName = a});
 
 -- | FIXME: Undocumented member.
-ugirqGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
-ugirqGatewayTimezone = lens _ugirqGatewayTimezone (\ s a -> s{_ugirqGatewayTimezone = a});
+ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
+ugiGatewayTimezone = lens _ugiGatewayTimezone (\ s a -> s{_ugiGatewayTimezone = a});
 
 -- | FIXME: Undocumented member.
-ugirqGatewayARN :: Lens' UpdateGatewayInformation Text
-ugirqGatewayARN = lens _ugirqGatewayARN (\ s a -> s{_ugirqGatewayARN = a});
+ugiGatewayARN :: Lens' UpdateGatewayInformation Text
+ugiGatewayARN = lens _ugiGatewayARN (\ s a -> s{_ugiGatewayARN = a});
 
 instance AWSRequest UpdateGatewayInformation where
         type Sv UpdateGatewayInformation = StorageGateway
@@ -107,9 +107,9 @@ instance ToHeaders UpdateGatewayInformation where
 instance ToJSON UpdateGatewayInformation where
         toJSON UpdateGatewayInformation'{..}
           = object
-              ["GatewayName" .= _ugirqGatewayName,
-               "GatewayTimezone" .= _ugirqGatewayTimezone,
-               "GatewayARN" .= _ugirqGatewayARN]
+              ["GatewayName" .= _ugiGatewayName,
+               "GatewayTimezone" .= _ugiGatewayTimezone,
+               "GatewayARN" .= _ugiGatewayARN]
 
 instance ToPath UpdateGatewayInformation where
         toPath = const "/"

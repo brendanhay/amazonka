@@ -28,8 +28,8 @@ module Network.AWS.CloudWatchLogs.DeleteLogStream
     -- ** Request constructor
     , deleteLogStream
     -- ** Request lenses
-    , dlsrqLogGroupName
-    , dlsrqLogStreamName
+    , dlsLogGroupName
+    , dlsLogStreamName
 
     -- * Response
     , DeleteLogStreamResponse
@@ -46,29 +46,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlsrqLogGroupName'
+-- * 'dlsLogGroupName'
 --
--- * 'dlsrqLogStreamName'
+-- * 'dlsLogStreamName'
 data DeleteLogStream = DeleteLogStream'
-    { _dlsrqLogGroupName  :: !Text
-    , _dlsrqLogStreamName :: !Text
+    { _dlsLogGroupName  :: !Text
+    , _dlsLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogStream' smart constructor.
 deleteLogStream :: Text -> Text -> DeleteLogStream
 deleteLogStream pLogGroupName_ pLogStreamName_ =
     DeleteLogStream'
-    { _dlsrqLogGroupName = pLogGroupName_
-    , _dlsrqLogStreamName = pLogStreamName_
+    { _dlsLogGroupName = pLogGroupName_
+    , _dlsLogStreamName = pLogStreamName_
     }
 
 -- | The name of the log group under which the log stream to delete belongs.
-dlsrqLogGroupName :: Lens' DeleteLogStream Text
-dlsrqLogGroupName = lens _dlsrqLogGroupName (\ s a -> s{_dlsrqLogGroupName = a});
+dlsLogGroupName :: Lens' DeleteLogStream Text
+dlsLogGroupName = lens _dlsLogGroupName (\ s a -> s{_dlsLogGroupName = a});
 
 -- | The name of the log stream to delete.
-dlsrqLogStreamName :: Lens' DeleteLogStream Text
-dlsrqLogStreamName = lens _dlsrqLogStreamName (\ s a -> s{_dlsrqLogStreamName = a});
+dlsLogStreamName :: Lens' DeleteLogStream Text
+dlsLogStreamName = lens _dlsLogStreamName (\ s a -> s{_dlsLogStreamName = a});
 
 instance AWSRequest DeleteLogStream where
         type Sv DeleteLogStream = CloudWatchLogs
@@ -88,8 +88,8 @@ instance ToHeaders DeleteLogStream where
 instance ToJSON DeleteLogStream where
         toJSON DeleteLogStream'{..}
           = object
-              ["logGroupName" .= _dlsrqLogGroupName,
-               "logStreamName" .= _dlsrqLogStreamName]
+              ["logGroupName" .= _dlsLogGroupName,
+               "logStreamName" .= _dlsLogStreamName]
 
 instance ToPath DeleteLogStream where
         toPath = const "/"

@@ -39,11 +39,11 @@ module Network.AWS.KMS.ReEncrypt
     -- ** Request constructor
     , reEncrypt
     -- ** Request lenses
-    , rerqDestinationEncryptionContext
-    , rerqSourceEncryptionContext
-    , rerqGrantTokens
-    , rerqCiphertextBlob
-    , rerqDestinationKeyId
+    , reDestinationEncryptionContext
+    , reSourceEncryptionContext
+    , reGrantTokens
+    , reCiphertextBlob
+    , reDestinationKeyId
 
     -- * Response
     , ReEncryptResponse
@@ -65,51 +65,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rerqDestinationEncryptionContext'
+-- * 'reDestinationEncryptionContext'
 --
--- * 'rerqSourceEncryptionContext'
+-- * 'reSourceEncryptionContext'
 --
--- * 'rerqGrantTokens'
+-- * 'reGrantTokens'
 --
--- * 'rerqCiphertextBlob'
+-- * 'reCiphertextBlob'
 --
--- * 'rerqDestinationKeyId'
+-- * 'reDestinationKeyId'
 data ReEncrypt = ReEncrypt'
-    { _rerqDestinationEncryptionContext :: !(Maybe (Map Text Text))
-    , _rerqSourceEncryptionContext      :: !(Maybe (Map Text Text))
-    , _rerqGrantTokens                  :: !(Maybe [Text])
-    , _rerqCiphertextBlob               :: !Base64
-    , _rerqDestinationKeyId             :: !Text
+    { _reDestinationEncryptionContext :: !(Maybe (Map Text Text))
+    , _reSourceEncryptionContext      :: !(Maybe (Map Text Text))
+    , _reGrantTokens                  :: !(Maybe [Text])
+    , _reCiphertextBlob               :: !Base64
+    , _reDestinationKeyId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReEncrypt' smart constructor.
 reEncrypt :: Base64 -> Text -> ReEncrypt
 reEncrypt pCiphertextBlob_ pDestinationKeyId_ =
     ReEncrypt'
-    { _rerqDestinationEncryptionContext = Nothing
-    , _rerqSourceEncryptionContext = Nothing
-    , _rerqGrantTokens = Nothing
-    , _rerqCiphertextBlob = pCiphertextBlob_
-    , _rerqDestinationKeyId = pDestinationKeyId_
+    { _reDestinationEncryptionContext = Nothing
+    , _reSourceEncryptionContext = Nothing
+    , _reGrantTokens = Nothing
+    , _reCiphertextBlob = pCiphertextBlob_
+    , _reDestinationKeyId = pDestinationKeyId_
     }
 
 -- | Encryption context to be used when the data is re-encrypted.
-rerqDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
-rerqDestinationEncryptionContext = lens _rerqDestinationEncryptionContext (\ s a -> s{_rerqDestinationEncryptionContext = a}) . _Default . _Map;
+reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
+reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . _Default . _Map;
 
 -- | Encryption context used to encrypt and decrypt the data specified in the
 -- @CiphertextBlob@ parameter.
-rerqSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
-rerqSourceEncryptionContext = lens _rerqSourceEncryptionContext (\ s a -> s{_rerqSourceEncryptionContext = a}) . _Default . _Map;
+reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
+reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-rerqGrantTokens :: Lens' ReEncrypt [Text]
-rerqGrantTokens = lens _rerqGrantTokens (\ s a -> s{_rerqGrantTokens = a}) . _Default;
+reGrantTokens :: Lens' ReEncrypt [Text]
+reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default;
 
 -- | Ciphertext of the data to re-encrypt.
-rerqCiphertextBlob :: Lens' ReEncrypt Base64
-rerqCiphertextBlob = lens _rerqCiphertextBlob (\ s a -> s{_rerqCiphertextBlob = a});
+reCiphertextBlob :: Lens' ReEncrypt Base64
+reCiphertextBlob = lens _reCiphertextBlob (\ s a -> s{_reCiphertextBlob = a});
 
 -- | A unique identifier for the customer master key used to re-encrypt the
 -- data. This value can be a globally unique identifier, a fully specified
@@ -123,8 +123,8 @@ rerqCiphertextBlob = lens _rerqCiphertextBlob (\ s a -> s{_rerqCiphertextBlob = 
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-rerqDestinationKeyId :: Lens' ReEncrypt Text
-rerqDestinationKeyId = lens _rerqDestinationKeyId (\ s a -> s{_rerqDestinationKeyId = a});
+reDestinationKeyId :: Lens' ReEncrypt Text
+reDestinationKeyId = lens _reDestinationKeyId (\ s a -> s{_reDestinationKeyId = a});
 
 instance AWSRequest ReEncrypt where
         type Sv ReEncrypt = KMS
@@ -151,12 +151,12 @@ instance ToJSON ReEncrypt where
         toJSON ReEncrypt'{..}
           = object
               ["DestinationEncryptionContext" .=
-                 _rerqDestinationEncryptionContext,
+                 _reDestinationEncryptionContext,
                "SourceEncryptionContext" .=
-                 _rerqSourceEncryptionContext,
-               "GrantTokens" .= _rerqGrantTokens,
-               "CiphertextBlob" .= _rerqCiphertextBlob,
-               "DestinationKeyId" .= _rerqDestinationKeyId]
+                 _reSourceEncryptionContext,
+               "GrantTokens" .= _reGrantTokens,
+               "CiphertextBlob" .= _reCiphertextBlob,
+               "DestinationKeyId" .= _reDestinationKeyId]
 
 instance ToPath ReEncrypt where
         toPath = const "/"

@@ -40,8 +40,8 @@ module Network.AWS.Support.DescribeServices
     -- ** Request constructor
     , describeServices
     -- ** Request lenses
-    , dsrqServiceCodeList
-    , dsrqLanguage
+    , dsServiceCodeList
+    , dsLanguage
 
     -- * Response
     , DescribeServicesResponse
@@ -61,32 +61,32 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqServiceCodeList'
+-- * 'dsServiceCodeList'
 --
--- * 'dsrqLanguage'
+-- * 'dsLanguage'
 data DescribeServices = DescribeServices'
-    { _dsrqServiceCodeList :: !(Maybe [Text])
-    , _dsrqLanguage        :: !(Maybe Text)
+    { _dsServiceCodeList :: !(Maybe [Text])
+    , _dsLanguage        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
 describeServices =
     DescribeServices'
-    { _dsrqServiceCodeList = Nothing
-    , _dsrqLanguage = Nothing
+    { _dsServiceCodeList = Nothing
+    , _dsLanguage = Nothing
     }
 
 -- | A JSON-formatted list of service codes available for AWS services.
-dsrqServiceCodeList :: Lens' DescribeServices [Text]
-dsrqServiceCodeList = lens _dsrqServiceCodeList (\ s a -> s{_dsrqServiceCodeList = a}) . _Default;
+dsServiceCodeList :: Lens' DescribeServices [Text]
+dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a}) . _Default;
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-dsrqLanguage :: Lens' DescribeServices (Maybe Text)
-dsrqLanguage = lens _dsrqLanguage (\ s a -> s{_dsrqLanguage = a});
+dsLanguage :: Lens' DescribeServices (Maybe Text)
+dsLanguage = lens _dsLanguage (\ s a -> s{_dsLanguage = a});
 
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = Support
@@ -112,8 +112,8 @@ instance ToHeaders DescribeServices where
 instance ToJSON DescribeServices where
         toJSON DescribeServices'{..}
           = object
-              ["serviceCodeList" .= _dsrqServiceCodeList,
-               "language" .= _dsrqLanguage]
+              ["serviceCodeList" .= _dsServiceCodeList,
+               "language" .= _dsLanguage]
 
 instance ToPath DescribeServices where
         toPath = const "/"

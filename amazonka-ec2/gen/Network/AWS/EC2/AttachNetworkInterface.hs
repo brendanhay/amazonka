@@ -27,10 +27,10 @@ module Network.AWS.EC2.AttachNetworkInterface
     -- ** Request constructor
     , attachNetworkInterface
     -- ** Request lenses
-    , anirqDryRun
-    , anirqNetworkInterfaceId
-    , anirqInstanceId
-    , anirqDeviceIndex
+    , aniDryRun
+    , aniNetworkInterfaceId
+    , aniInstanceId
+    , aniDeviceIndex
 
     -- * Response
     , AttachNetworkInterfaceResponse
@@ -50,48 +50,48 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'anirqDryRun'
+-- * 'aniDryRun'
 --
--- * 'anirqNetworkInterfaceId'
+-- * 'aniNetworkInterfaceId'
 --
--- * 'anirqInstanceId'
+-- * 'aniInstanceId'
 --
--- * 'anirqDeviceIndex'
+-- * 'aniDeviceIndex'
 data AttachNetworkInterface = AttachNetworkInterface'
-    { _anirqDryRun             :: !(Maybe Bool)
-    , _anirqNetworkInterfaceId :: !Text
-    , _anirqInstanceId         :: !Text
-    , _anirqDeviceIndex        :: !Int
+    { _aniDryRun             :: !(Maybe Bool)
+    , _aniNetworkInterfaceId :: !Text
+    , _aniInstanceId         :: !Text
+    , _aniDeviceIndex        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachNetworkInterface' smart constructor.
 attachNetworkInterface :: Text -> Text -> Int -> AttachNetworkInterface
 attachNetworkInterface pNetworkInterfaceId_ pInstanceId_ pDeviceIndex_ =
     AttachNetworkInterface'
-    { _anirqDryRun = Nothing
-    , _anirqNetworkInterfaceId = pNetworkInterfaceId_
-    , _anirqInstanceId = pInstanceId_
-    , _anirqDeviceIndex = pDeviceIndex_
+    { _aniDryRun = Nothing
+    , _aniNetworkInterfaceId = pNetworkInterfaceId_
+    , _aniInstanceId = pInstanceId_
+    , _aniDeviceIndex = pDeviceIndex_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-anirqDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
-anirqDryRun = lens _anirqDryRun (\ s a -> s{_anirqDryRun = a});
+aniDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
+aniDryRun = lens _aniDryRun (\ s a -> s{_aniDryRun = a});
 
 -- | The ID of the network interface.
-anirqNetworkInterfaceId :: Lens' AttachNetworkInterface Text
-anirqNetworkInterfaceId = lens _anirqNetworkInterfaceId (\ s a -> s{_anirqNetworkInterfaceId = a});
+aniNetworkInterfaceId :: Lens' AttachNetworkInterface Text
+aniNetworkInterfaceId = lens _aniNetworkInterfaceId (\ s a -> s{_aniNetworkInterfaceId = a});
 
 -- | The ID of the instance.
-anirqInstanceId :: Lens' AttachNetworkInterface Text
-anirqInstanceId = lens _anirqInstanceId (\ s a -> s{_anirqInstanceId = a});
+aniInstanceId :: Lens' AttachNetworkInterface Text
+aniInstanceId = lens _aniInstanceId (\ s a -> s{_aniInstanceId = a});
 
 -- | The index of the device for the network interface attachment.
-anirqDeviceIndex :: Lens' AttachNetworkInterface Int
-anirqDeviceIndex = lens _anirqDeviceIndex (\ s a -> s{_anirqDeviceIndex = a});
+aniDeviceIndex :: Lens' AttachNetworkInterface Int
+aniDeviceIndex = lens _aniDeviceIndex (\ s a -> s{_aniDeviceIndex = a});
 
 instance AWSRequest AttachNetworkInterface where
         type Sv AttachNetworkInterface = EC2
@@ -116,10 +116,10 @@ instance ToQuery AttachNetworkInterface where
               ["Action" =:
                  ("AttachNetworkInterface" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _anirqDryRun,
-               "NetworkInterfaceId" =: _anirqNetworkInterfaceId,
-               "InstanceId" =: _anirqInstanceId,
-               "DeviceIndex" =: _anirqDeviceIndex]
+               "DryRun" =: _aniDryRun,
+               "NetworkInterfaceId" =: _aniNetworkInterfaceId,
+               "InstanceId" =: _aniInstanceId,
+               "DeviceIndex" =: _aniDeviceIndex]
 
 -- | /See:/ 'attachNetworkInterfaceResponse' smart constructor.
 --

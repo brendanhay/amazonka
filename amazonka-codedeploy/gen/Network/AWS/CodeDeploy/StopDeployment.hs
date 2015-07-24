@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.StopDeployment
     -- ** Request constructor
     , stopDeployment
     -- ** Request lenses
-    , sdrqDeploymentId
+    , sdDeploymentId
 
     -- * Response
     , StopDeploymentResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdrqDeploymentId'
+-- * 'sdDeploymentId'
 newtype StopDeployment = StopDeployment'
-    { _sdrqDeploymentId :: Text
+    { _sdDeploymentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopDeployment' smart constructor.
 stopDeployment :: Text -> StopDeployment
 stopDeployment pDeploymentId_ =
     StopDeployment'
-    { _sdrqDeploymentId = pDeploymentId_
+    { _sdDeploymentId = pDeploymentId_
     }
 
 -- | The unique ID of a deployment.
-sdrqDeploymentId :: Lens' StopDeployment Text
-sdrqDeploymentId = lens _sdrqDeploymentId (\ s a -> s{_sdrqDeploymentId = a});
+sdDeploymentId :: Lens' StopDeployment Text
+sdDeploymentId = lens _sdDeploymentId (\ s a -> s{_sdDeploymentId = a});
 
 instance AWSRequest StopDeployment where
         type Sv StopDeployment = CodeDeploy
@@ -86,7 +86,7 @@ instance ToHeaders StopDeployment where
 
 instance ToJSON StopDeployment where
         toJSON StopDeployment'{..}
-          = object ["deploymentId" .= _sdrqDeploymentId]
+          = object ["deploymentId" .= _sdDeploymentId]
 
 instance ToPath StopDeployment where
         toPath = const "/"

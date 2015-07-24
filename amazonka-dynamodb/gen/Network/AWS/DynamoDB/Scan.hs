@@ -47,22 +47,22 @@ module Network.AWS.DynamoDB.Scan
     -- ** Request constructor
     , scan
     -- ** Request lenses
-    , srqProjectionExpression
-    , srqScanFilter
-    , srqTotalSegments
-    , srqFilterExpression
-    , srqConsistentRead
-    , srqExpressionAttributeNames
-    , srqAttributesToGet
-    , srqReturnConsumedCapacity
-    , srqExpressionAttributeValues
-    , srqLimit
-    , srqSelect
-    , srqSegment
-    , srqConditionalOperator
-    , srqExclusiveStartKey
-    , srqIndexName
-    , srqTableName
+    , sProjectionExpression
+    , sScanFilter
+    , sTotalSegments
+    , sFilterExpression
+    , sConsistentRead
+    , sExpressionAttributeNames
+    , sAttributesToGet
+    , sReturnConsumedCapacity
+    , sExpressionAttributeValues
+    , sLimit
+    , sSelect
+    , sSegment
+    , sConditionalOperator
+    , sExclusiveStartKey
+    , sIndexName
+    , sTableName
 
     -- * Response
     , ScanResponse
@@ -89,76 +89,76 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqProjectionExpression'
+-- * 'sProjectionExpression'
 --
--- * 'srqScanFilter'
+-- * 'sScanFilter'
 --
--- * 'srqTotalSegments'
+-- * 'sTotalSegments'
 --
--- * 'srqFilterExpression'
+-- * 'sFilterExpression'
 --
--- * 'srqConsistentRead'
+-- * 'sConsistentRead'
 --
--- * 'srqExpressionAttributeNames'
+-- * 'sExpressionAttributeNames'
 --
--- * 'srqAttributesToGet'
+-- * 'sAttributesToGet'
 --
--- * 'srqReturnConsumedCapacity'
+-- * 'sReturnConsumedCapacity'
 --
--- * 'srqExpressionAttributeValues'
+-- * 'sExpressionAttributeValues'
 --
--- * 'srqLimit'
+-- * 'sLimit'
 --
--- * 'srqSelect'
+-- * 'sSelect'
 --
--- * 'srqSegment'
+-- * 'sSegment'
 --
--- * 'srqConditionalOperator'
+-- * 'sConditionalOperator'
 --
--- * 'srqExclusiveStartKey'
+-- * 'sExclusiveStartKey'
 --
--- * 'srqIndexName'
+-- * 'sIndexName'
 --
--- * 'srqTableName'
+-- * 'sTableName'
 data Scan = Scan'
-    { _srqProjectionExpression      :: !(Maybe Text)
-    , _srqScanFilter                :: !(Maybe (Map Text Condition))
-    , _srqTotalSegments             :: !(Maybe Nat)
-    , _srqFilterExpression          :: !(Maybe Text)
-    , _srqConsistentRead            :: !(Maybe Bool)
-    , _srqExpressionAttributeNames  :: !(Maybe (Map Text Text))
-    , _srqAttributesToGet           :: !(Maybe (List1 Text))
-    , _srqReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
-    , _srqExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
-    , _srqLimit                     :: !(Maybe Nat)
-    , _srqSelect                    :: !(Maybe Select)
-    , _srqSegment                   :: !(Maybe Nat)
-    , _srqConditionalOperator       :: !(Maybe ConditionalOperator)
-    , _srqExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
-    , _srqIndexName                 :: !(Maybe Text)
-    , _srqTableName                 :: !Text
+    { _sProjectionExpression      :: !(Maybe Text)
+    , _sScanFilter                :: !(Maybe (Map Text Condition))
+    , _sTotalSegments             :: !(Maybe Nat)
+    , _sFilterExpression          :: !(Maybe Text)
+    , _sConsistentRead            :: !(Maybe Bool)
+    , _sExpressionAttributeNames  :: !(Maybe (Map Text Text))
+    , _sAttributesToGet           :: !(Maybe (List1 Text))
+    , _sReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
+    , _sExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    , _sLimit                     :: !(Maybe Nat)
+    , _sSelect                    :: !(Maybe Select)
+    , _sSegment                   :: !(Maybe Nat)
+    , _sConditionalOperator       :: !(Maybe ConditionalOperator)
+    , _sExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
+    , _sIndexName                 :: !(Maybe Text)
+    , _sTableName                 :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Scan' smart constructor.
 scan :: Text -> Scan
 scan pTableName_ =
     Scan'
-    { _srqProjectionExpression = Nothing
-    , _srqScanFilter = Nothing
-    , _srqTotalSegments = Nothing
-    , _srqFilterExpression = Nothing
-    , _srqConsistentRead = Nothing
-    , _srqExpressionAttributeNames = Nothing
-    , _srqAttributesToGet = Nothing
-    , _srqReturnConsumedCapacity = Nothing
-    , _srqExpressionAttributeValues = Nothing
-    , _srqLimit = Nothing
-    , _srqSelect = Nothing
-    , _srqSegment = Nothing
-    , _srqConditionalOperator = Nothing
-    , _srqExclusiveStartKey = Nothing
-    , _srqIndexName = Nothing
-    , _srqTableName = pTableName_
+    { _sProjectionExpression = Nothing
+    , _sScanFilter = Nothing
+    , _sTotalSegments = Nothing
+    , _sFilterExpression = Nothing
+    , _sConsistentRead = Nothing
+    , _sExpressionAttributeNames = Nothing
+    , _sAttributesToGet = Nothing
+    , _sReturnConsumedCapacity = Nothing
+    , _sExpressionAttributeValues = Nothing
+    , _sLimit = Nothing
+    , _sSelect = Nothing
+    , _sSegment = Nothing
+    , _sConditionalOperator = Nothing
+    , _sExclusiveStartKey = Nothing
+    , _sIndexName = Nothing
+    , _sTableName = pTableName_
     }
 
 -- | A string that identifies one or more attributes to retrieve from the
@@ -175,8 +175,8 @@ scan pTableName_ =
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
-srqProjectionExpression :: Lens' Scan (Maybe Text)
-srqProjectionExpression = lens _srqProjectionExpression (\ s a -> s{_srqProjectionExpression = a});
+sProjectionExpression :: Lens' Scan (Maybe Text)
+sProjectionExpression = lens _sProjectionExpression (\ s a -> s{_sProjectionExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /FilterExpression/ instead. Do not combine legacy parameters
@@ -225,8 +225,8 @@ srqProjectionExpression = lens _srqProjectionExpression (\ s a -> s{_srqProjecti
 --     For complete descriptions of all comparison operators, see
 --     <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Condition.html Condition>.
 --
-srqScanFilter :: Lens' Scan (HashMap Text Condition)
-srqScanFilter = lens _srqScanFilter (\ s a -> s{_srqScanFilter = a}) . _Default . _Map;
+sScanFilter :: Lens' Scan (HashMap Text Condition)
+sScanFilter = lens _sScanFilter (\ s a -> s{_sScanFilter = a}) . _Default . _Map;
 
 -- | For a parallel /Scan/ request, /TotalSegments/ represents the total
 -- number of segments into which the /Scan/ operation will be divided. The
@@ -240,8 +240,8 @@ srqScanFilter = lens _srqScanFilter (\ s a -> s{_srqScanFilter = a}) . _Default 
 -- 1, the /Scan/ operation will be sequential rather than parallel.
 --
 -- If you specify /TotalSegments/, you must also specify /Segment/.
-srqTotalSegments :: Lens' Scan (Maybe Natural)
-srqTotalSegments = lens _srqTotalSegments (\ s a -> s{_srqTotalSegments = a}) . mapping _Nat;
+sTotalSegments :: Lens' Scan (Maybe Natural)
+sTotalSegments = lens _sTotalSegments (\ s a -> s{_sTotalSegments = a}) . mapping _Nat;
 
 -- | A string that contains conditions that DynamoDB applies after the /Scan/
 -- operation, but before the data is returned to you. Items that do not
@@ -257,8 +257,8 @@ srqTotalSegments = lens _srqTotalSegments (\ s a -> s{_srqTotalSegments = a}) . 
 --
 -- /FilterExpression/ replaces the legacy /ScanFilter/ and
 -- /ConditionalOperator/ parameters.
-srqFilterExpression :: Lens' Scan (Maybe Text)
-srqFilterExpression = lens _srqFilterExpression (\ s a -> s{_srqFilterExpression = a});
+sFilterExpression :: Lens' Scan (Maybe Text)
+sFilterExpression = lens _sFilterExpression (\ s a -> s{_sFilterExpression = a});
 
 -- | A Boolean value that determines the read consistency model during the
 -- scan:
@@ -280,8 +280,8 @@ srqFilterExpression = lens _srqFilterExpression (\ s a -> s{_srqFilterExpression
 -- Strongly consistent reads are not supported on global secondary indexes.
 -- If you scan a global secondary index with /ConsistentRead/ set to true,
 -- you will receive a /ValidationException/.
-srqConsistentRead :: Lens' Scan (Maybe Bool)
-srqConsistentRead = lens _srqConsistentRead (\ s a -> s{_srqConsistentRead = a});
+sConsistentRead :: Lens' Scan (Maybe Bool)
+sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -320,8 +320,8 @@ srqConsistentRead = lens _srqConsistentRead (\ s a -> s{_srqConsistentRead = a})
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-srqExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
-srqExpressionAttributeNames = lens _srqExpressionAttributeNames (\ s a -> s{_srqExpressionAttributeNames = a}) . _Default . _Map;
+sExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
+sExpressionAttributeNames = lens _sExpressionAttributeNames (\ s a -> s{_sExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ProjectionExpression/ instead. Do not combine legacy
@@ -338,12 +338,12 @@ srqExpressionAttributeNames = lens _srqExpressionAttributeNames (\ s a -> s{_srq
 -- Note that /AttributesToGet/ has no effect on provisioned throughput
 -- consumption. DynamoDB determines capacity units consumed based on item
 -- size, not on the amount of data that is returned to an application.
-srqAttributesToGet :: Lens' Scan (Maybe (NonEmpty Text))
-srqAttributesToGet = lens _srqAttributesToGet (\ s a -> s{_srqAttributesToGet = a}) . mapping _List1;
+sAttributesToGet :: Lens' Scan (Maybe (NonEmpty Text))
+sAttributesToGet = lens _sAttributesToGet (\ s a -> s{_sAttributesToGet = a}) . mapping _List1;
 
 -- | FIXME: Undocumented member.
-srqReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
-srqReturnConsumedCapacity = lens _srqReturnConsumedCapacity (\ s a -> s{_srqReturnConsumedCapacity = a});
+sReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
+sReturnConsumedCapacity = lens _sReturnConsumedCapacity (\ s a -> s{_sReturnConsumedCapacity = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -364,8 +364,8 @@ srqReturnConsumedCapacity = lens _srqReturnConsumedCapacity (\ s a -> s{_srqRetu
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-srqExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
-srqExpressionAttributeValues = lens _srqExpressionAttributeValues (\ s a -> s{_srqExpressionAttributeValues = a}) . _Default . _Map;
+sExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
+sExpressionAttributeValues = lens _sExpressionAttributeValues (\ s a -> s{_sExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the
@@ -379,8 +379,8 @@ srqExpressionAttributeValues = lens _srqExpressionAttributeValues (\ s a -> s{_s
 -- see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
 -- in the /Amazon DynamoDB Developer Guide/.
-srqLimit :: Lens' Scan (Maybe Natural)
-srqLimit = lens _srqLimit (\ s a -> s{_srqLimit = a}) . mapping _Nat;
+sLimit :: Lens' Scan (Maybe Natural)
+sLimit = lens _sLimit (\ s a -> s{_sLimit = a}) . mapping _Nat;
 
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, or the count of matching items.
@@ -399,8 +399,8 @@ srqLimit = lens _srqLimit (\ s a -> s{_srqLimit = a}) . mapping _Nat;
 -- /Select/ together in a single request, unless the value for /Select/ is
 -- @SPECIFIC_ATTRIBUTES@. (This usage is equivalent to specifying
 -- /AttributesToGet/ without any value for /Select/.)
-srqSelect :: Lens' Scan (Maybe Select)
-srqSelect = lens _srqSelect (\ s a -> s{_srqSelect = a});
+sSelect :: Lens' Scan (Maybe Select)
+sSelect = lens _sSelect (\ s a -> s{_sSelect = a});
 
 -- | For a parallel /Scan/ request, /Segment/ identifies an individual
 -- segment to be scanned by an application worker.
@@ -418,8 +418,8 @@ srqSelect = lens _srqSelect (\ s a -> s{_srqSelect = a});
 -- than the value provided for /TotalSegments/.
 --
 -- If you provide /Segment/, you must also provide /TotalSegments/.
-srqSegment :: Lens' Scan (Maybe Natural)
-srqSegment = lens _srqSegment (\ s a -> s{_srqSegment = a}) . mapping _Nat;
+sSegment :: Lens' Scan (Maybe Natural)
+sSegment = lens _sSegment (\ s a -> s{_sSegment = a}) . mapping _Nat;
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /FilterExpression/ instead. Do not combine legacy parameters
@@ -439,8 +439,8 @@ srqSegment = lens _srqSegment (\ s a -> s{_srqSegment = a}) . mapping _Nat;
 -- The operation will succeed only if the entire map evaluates to true.
 --
 -- This parameter does not support attributes of type List or Map.
-srqConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
-srqConditionalOperator = lens _srqConditionalOperator (\ s a -> s{_srqConditionalOperator = a});
+sConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
+sConditionalOperator = lens _sConditionalOperator (\ s a -> s{_sConditionalOperator = a});
 
 -- | The primary key of the first item that this operation will evaluate. Use
 -- the value that was returned for /LastEvaluatedKey/ in the previous
@@ -452,19 +452,19 @@ srqConditionalOperator = lens _srqConditionalOperator (\ s a -> s{_srqConditiona
 -- In a parallel scan, a /Scan/ request that includes /ExclusiveStartKey/
 -- must specify the same segment whose previous /Scan/ returned the
 -- corresponding value of /LastEvaluatedKey/.
-srqExclusiveStartKey :: Lens' Scan (HashMap Text AttributeValue)
-srqExclusiveStartKey = lens _srqExclusiveStartKey (\ s a -> s{_srqExclusiveStartKey = a}) . _Default . _Map;
+sExclusiveStartKey :: Lens' Scan (HashMap Text AttributeValue)
+sExclusiveStartKey = lens _sExclusiveStartKey (\ s a -> s{_sExclusiveStartKey = a}) . _Default . _Map;
 
 -- | The name of a secondary index to scan. This index can be any local
 -- secondary index or global secondary index. Note that if you use the
 -- @IndexName@ parameter, you must also provide @TableName@.
-srqIndexName :: Lens' Scan (Maybe Text)
-srqIndexName = lens _srqIndexName (\ s a -> s{_srqIndexName = a});
+sIndexName :: Lens' Scan (Maybe Text)
+sIndexName = lens _sIndexName (\ s a -> s{_sIndexName = a});
 
 -- | The name of the table containing the requested items; or, if you provide
 -- @IndexName@, the name of the table to which that index belongs.
-srqTableName :: Lens' Scan Text
-srqTableName = lens _srqTableName (\ s a -> s{_srqTableName = a});
+sTableName :: Lens' Scan Text
+sTableName = lens _sTableName (\ s a -> s{_sTableName = a});
 
 instance AWSPager Scan where
         page rq rs
@@ -472,7 +472,7 @@ instance AWSPager Scan where
           | stop (rs ^. srsItems) = Nothing
           | otherwise =
             Just $ rq &
-              srqExclusiveStartKey .~ rs ^. srsLastEvaluatedKey
+              sExclusiveStartKey .~ rs ^. srsLastEvaluatedKey
 
 instance AWSRequest Scan where
         type Sv Scan = DynamoDB
@@ -501,24 +501,23 @@ instance ToHeaders Scan where
 instance ToJSON Scan where
         toJSON Scan'{..}
           = object
-              ["ProjectionExpression" .= _srqProjectionExpression,
-               "ScanFilter" .= _srqScanFilter,
-               "TotalSegments" .= _srqTotalSegments,
-               "FilterExpression" .= _srqFilterExpression,
-               "ConsistentRead" .= _srqConsistentRead,
+              ["ProjectionExpression" .= _sProjectionExpression,
+               "ScanFilter" .= _sScanFilter,
+               "TotalSegments" .= _sTotalSegments,
+               "FilterExpression" .= _sFilterExpression,
+               "ConsistentRead" .= _sConsistentRead,
                "ExpressionAttributeNames" .=
-                 _srqExpressionAttributeNames,
-               "AttributesToGet" .= _srqAttributesToGet,
-               "ReturnConsumedCapacity" .=
-                 _srqReturnConsumedCapacity,
+                 _sExpressionAttributeNames,
+               "AttributesToGet" .= _sAttributesToGet,
+               "ReturnConsumedCapacity" .= _sReturnConsumedCapacity,
                "ExpressionAttributeValues" .=
-                 _srqExpressionAttributeValues,
-               "Limit" .= _srqLimit, "Select" .= _srqSelect,
-               "Segment" .= _srqSegment,
-               "ConditionalOperator" .= _srqConditionalOperator,
-               "ExclusiveStartKey" .= _srqExclusiveStartKey,
-               "IndexName" .= _srqIndexName,
-               "TableName" .= _srqTableName]
+                 _sExpressionAttributeValues,
+               "Limit" .= _sLimit, "Select" .= _sSelect,
+               "Segment" .= _sSegment,
+               "ConditionalOperator" .= _sConditionalOperator,
+               "ExclusiveStartKey" .= _sExclusiveStartKey,
+               "IndexName" .= _sIndexName,
+               "TableName" .= _sTableName]
 
 instance ToPath Scan where
         toPath = const "/"

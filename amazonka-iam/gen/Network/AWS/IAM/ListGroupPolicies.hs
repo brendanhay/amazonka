@@ -38,9 +38,9 @@ module Network.AWS.IAM.ListGroupPolicies
     -- ** Request constructor
     , listGroupPolicies
     -- ** Request lenses
-    , lgprqMaxItems
-    , lgprqMarker
-    , lgprqGroupName
+    , lgpMaxItems
+    , lgpMarker
+    , lgpGroupName
 
     -- * Response
     , ListGroupPoliciesResponse
@@ -63,24 +63,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgprqMaxItems'
+-- * 'lgpMaxItems'
 --
--- * 'lgprqMarker'
+-- * 'lgpMarker'
 --
--- * 'lgprqGroupName'
+-- * 'lgpGroupName'
 data ListGroupPolicies = ListGroupPolicies'
-    { _lgprqMaxItems  :: !(Maybe Nat)
-    , _lgprqMarker    :: !(Maybe Text)
-    , _lgprqGroupName :: !Text
+    { _lgpMaxItems  :: !(Maybe Nat)
+    , _lgpMarker    :: !(Maybe Text)
+    , _lgpGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupPolicies' smart constructor.
 listGroupPolicies :: Text -> ListGroupPolicies
 listGroupPolicies pGroupName_ =
     ListGroupPolicies'
-    { _lgprqMaxItems = Nothing
-    , _lgprqMarker = Nothing
-    , _lgprqGroupName = pGroupName_
+    { _lgpMaxItems = Nothing
+    , _lgpMarker = Nothing
+    , _lgpGroupName = pGroupName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -89,25 +89,25 @@ listGroupPolicies pGroupName_ =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lgprqMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
-lgprqMaxItems = lens _lgprqMaxItems (\ s a -> s{_lgprqMaxItems = a}) . mapping _Nat;
+lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
+lgpMaxItems = lens _lgpMaxItems (\ s a -> s{_lgpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lgprqMarker :: Lens' ListGroupPolicies (Maybe Text)
-lgprqMarker = lens _lgprqMarker (\ s a -> s{_lgprqMarker = a});
+lgpMarker :: Lens' ListGroupPolicies (Maybe Text)
+lgpMarker = lens _lgpMarker (\ s a -> s{_lgpMarker = a});
 
 -- | The name of the group to list policies for.
-lgprqGroupName :: Lens' ListGroupPolicies Text
-lgprqGroupName = lens _lgprqGroupName (\ s a -> s{_lgprqGroupName = a});
+lgpGroupName :: Lens' ListGroupPolicies Text
+lgpGroupName = lens _lgpGroupName (\ s a -> s{_lgpGroupName = a});
 
 instance AWSPager ListGroupPolicies where
         page rq rs
           | stop (rs ^. lgprsIsTruncated) = Nothing
           | isNothing (rs ^. lgprsMarker) = Nothing
           | otherwise =
-            Just $ rq & lgprqMarker .~ rs ^. lgprsMarker
+            Just $ rq & lgpMarker .~ rs ^. lgprsMarker
 
 instance AWSRequest ListGroupPolicies where
         type Sv ListGroupPolicies = IAM
@@ -134,9 +134,8 @@ instance ToQuery ListGroupPolicies where
           = mconcat
               ["Action" =: ("ListGroupPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lgprqMaxItems,
-               "Marker" =: _lgprqMarker,
-               "GroupName" =: _lgprqGroupName]
+               "MaxItems" =: _lgpMaxItems, "Marker" =: _lgpMarker,
+               "GroupName" =: _lgpGroupName]
 
 -- | Contains the response to a successful ListGroupPolicies request.
 --

@@ -29,8 +29,8 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     -- ** Request constructor
     , createPrivateVirtualInterface
     -- ** Request lenses
-    , crqConnectionId
-    , crqNewPrivateVirtualInterface
+    , creConnectionId
+    , creNewPrivateVirtualInterface
 
     -- * Response
     , VirtualInterface
@@ -66,31 +66,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crqConnectionId'
+-- * 'creConnectionId'
 --
--- * 'crqNewPrivateVirtualInterface'
+-- * 'creNewPrivateVirtualInterface'
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
-    { _crqConnectionId               :: !Text
-    , _crqNewPrivateVirtualInterface :: !NewPrivateVirtualInterface
+    { _creConnectionId               :: !Text
+    , _creNewPrivateVirtualInterface :: !NewPrivateVirtualInterface
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePrivateVirtualInterface' smart constructor.
 createPrivateVirtualInterface :: Text -> NewPrivateVirtualInterface -> CreatePrivateVirtualInterface
 createPrivateVirtualInterface pConnectionId_ pNewPrivateVirtualInterface_ =
     CreatePrivateVirtualInterface'
-    { _crqConnectionId = pConnectionId_
-    , _crqNewPrivateVirtualInterface = pNewPrivateVirtualInterface_
+    { _creConnectionId = pConnectionId_
+    , _creNewPrivateVirtualInterface = pNewPrivateVirtualInterface_
     }
 
 -- | FIXME: Undocumented member.
-crqConnectionId :: Lens' CreatePrivateVirtualInterface Text
-crqConnectionId = lens _crqConnectionId (\ s a -> s{_crqConnectionId = a});
+creConnectionId :: Lens' CreatePrivateVirtualInterface Text
+creConnectionId = lens _creConnectionId (\ s a -> s{_creConnectionId = a});
 
 -- | Detailed information for the private virtual interface to be created.
 --
 -- Default: None
-crqNewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
-crqNewPrivateVirtualInterface = lens _crqNewPrivateVirtualInterface (\ s a -> s{_crqNewPrivateVirtualInterface = a});
+creNewPrivateVirtualInterface :: Lens' CreatePrivateVirtualInterface NewPrivateVirtualInterface
+creNewPrivateVirtualInterface = lens _creNewPrivateVirtualInterface (\ s a -> s{_creNewPrivateVirtualInterface = a});
 
 instance AWSRequest CreatePrivateVirtualInterface
          where
@@ -114,9 +114,9 @@ instance ToHeaders CreatePrivateVirtualInterface
 instance ToJSON CreatePrivateVirtualInterface where
         toJSON CreatePrivateVirtualInterface'{..}
           = object
-              ["connectionId" .= _crqConnectionId,
+              ["connectionId" .= _creConnectionId,
                "newPrivateVirtualInterface" .=
-                 _crqNewPrivateVirtualInterface]
+                 _creNewPrivateVirtualInterface]
 
 instance ToPath CreatePrivateVirtualInterface where
         toPath = const "/"

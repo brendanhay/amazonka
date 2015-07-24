@@ -32,7 +32,7 @@ module Network.AWS.ECS.DescribeTaskDefinition
     -- ** Request constructor
     , describeTaskDefinition
     -- ** Request lenses
-    , dtdrqTaskDefinition
+    , dtdTaskDefinition
 
     -- * Response
     , DescribeTaskDefinitionResponse
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtdrqTaskDefinition'
+-- * 'dtdTaskDefinition'
 newtype DescribeTaskDefinition = DescribeTaskDefinition'
-    { _dtdrqTaskDefinition :: Text
+    { _dtdTaskDefinition :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTaskDefinition' smart constructor.
 describeTaskDefinition :: Text -> DescribeTaskDefinition
 describeTaskDefinition pTaskDefinition_ =
     DescribeTaskDefinition'
-    { _dtdrqTaskDefinition = pTaskDefinition_
+    { _dtdTaskDefinition = pTaskDefinition_
     }
 
 -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
 -- (@family:revision@) for a specific revision in the family, or full
 -- Amazon Resource Name (ARN) of the task definition that you want to
 -- describe.
-dtdrqTaskDefinition :: Lens' DescribeTaskDefinition Text
-dtdrqTaskDefinition = lens _dtdrqTaskDefinition (\ s a -> s{_dtdrqTaskDefinition = a});
+dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
+dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
 
 instance AWSRequest DescribeTaskDefinition where
         type Sv DescribeTaskDefinition = ECS
@@ -94,7 +94,7 @@ instance ToHeaders DescribeTaskDefinition where
 
 instance ToJSON DescribeTaskDefinition where
         toJSON DescribeTaskDefinition'{..}
-          = object ["taskDefinition" .= _dtdrqTaskDefinition]
+          = object ["taskDefinition" .= _dtdTaskDefinition]
 
 instance ToPath DescribeTaskDefinition where
         toPath = const "/"

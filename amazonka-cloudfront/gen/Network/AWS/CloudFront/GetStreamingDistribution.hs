@@ -27,7 +27,7 @@ module Network.AWS.CloudFront.GetStreamingDistribution
     -- ** Request constructor
     , getStreamingDistribution
     -- ** Request lenses
-    , gsdrqId
+    , gsdId
 
     -- * Response
     , GetStreamingDistributionResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsdrqId'
+-- * 'gsdId'
 newtype GetStreamingDistribution = GetStreamingDistribution'
-    { _gsdrqId :: Text
+    { _gsdId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistribution' smart constructor.
 getStreamingDistribution :: Text -> GetStreamingDistribution
 getStreamingDistribution pId_ =
     GetStreamingDistribution'
-    { _gsdrqId = pId_
+    { _gsdId = pId_
     }
 
 -- | The streaming distribution\'s id.
-gsdrqId :: Lens' GetStreamingDistribution Text
-gsdrqId = lens _gsdrqId (\ s a -> s{_gsdrqId = a});
+gsdId :: Lens' GetStreamingDistribution Text
+gsdId = lens _gsdId (\ s a -> s{_gsdId = a});
 
 instance AWSRequest GetStreamingDistribution where
         type Sv GetStreamingDistribution = CloudFront
@@ -85,7 +85,7 @@ instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _gsdrqId]
+               toText _gsdId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty

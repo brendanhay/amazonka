@@ -27,9 +27,9 @@ module Network.AWS.DirectoryService.DisableSso
     -- ** Request constructor
     , disableSso
     -- ** Request lenses
-    , drqUserName
-    , drqPassword
-    , drqDirectoryId
+    , disUserName
+    , disPassword
+    , disDirectoryId
 
     -- * Response
     , DisableSsoResponse
@@ -50,24 +50,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqUserName'
+-- * 'disUserName'
 --
--- * 'drqPassword'
+-- * 'disPassword'
 --
--- * 'drqDirectoryId'
+-- * 'disDirectoryId'
 data DisableSso = DisableSso'
-    { _drqUserName    :: !(Maybe Text)
-    , _drqPassword    :: !(Maybe (Sensitive Text))
-    , _drqDirectoryId :: !Text
+    { _disUserName    :: !(Maybe Text)
+    , _disPassword    :: !(Maybe (Sensitive Text))
+    , _disDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableSso' smart constructor.
 disableSso :: Text -> DisableSso
 disableSso pDirectoryId_ =
     DisableSso'
-    { _drqUserName = Nothing
-    , _drqPassword = Nothing
-    , _drqDirectoryId = pDirectoryId_
+    { _disUserName = Nothing
+    , _disPassword = Nothing
+    , _disDirectoryId = pDirectoryId_
     }
 
 -- | The username of an alternate account to use to disable single-sign on.
@@ -79,18 +79,18 @@ disableSso pDirectoryId_ =
 -- /UserName/ and /Password/ parameters. These credentials are only used to
 -- disable single sign-on and are not stored by the service. The AD
 -- Connector service account is not changed.
-drqUserName :: Lens' DisableSso (Maybe Text)
-drqUserName = lens _drqUserName (\ s a -> s{_drqUserName = a});
+disUserName :: Lens' DisableSso (Maybe Text)
+disUserName = lens _disUserName (\ s a -> s{_disUserName = a});
 
 -- | The password of an alternate account to use to disable single-sign on.
 -- This is only used for AD Connector directories. See the /UserName/
 -- parameter for more information.
-drqPassword :: Lens' DisableSso (Maybe Text)
-drqPassword = lens _drqPassword (\ s a -> s{_drqPassword = a}) . mapping _Sensitive;
+disPassword :: Lens' DisableSso (Maybe Text)
+disPassword = lens _disPassword (\ s a -> s{_disPassword = a}) . mapping _Sensitive;
 
 -- | The identifier of the directory to disable single-sign on for.
-drqDirectoryId :: Lens' DisableSso Text
-drqDirectoryId = lens _drqDirectoryId (\ s a -> s{_drqDirectoryId = a});
+disDirectoryId :: Lens' DisableSso Text
+disDirectoryId = lens _disDirectoryId (\ s a -> s{_disDirectoryId = a});
 
 instance AWSRequest DisableSso where
         type Sv DisableSso = DirectoryService
@@ -114,9 +114,9 @@ instance ToHeaders DisableSso where
 instance ToJSON DisableSso where
         toJSON DisableSso'{..}
           = object
-              ["UserName" .= _drqUserName,
-               "Password" .= _drqPassword,
-               "DirectoryId" .= _drqDirectoryId]
+              ["UserName" .= _disUserName,
+               "Password" .= _disPassword,
+               "DirectoryId" .= _disDirectoryId]
 
 instance ToPath DisableSso where
         toPath = const "/"

@@ -27,10 +27,10 @@ module Network.AWS.Route53.ChangeTagsForResource
     -- ** Request constructor
     , changeTagsForResource
     -- ** Request lenses
-    , ctfrrqRemoveTagKeys
-    , ctfrrqAddTags
-    , ctfrrqResourceType
-    , ctfrrqResourceId
+    , ctfrRemoveTagKeys
+    , ctfrAddTags
+    , ctfrResourceType
+    , ctfrResourceId
 
     -- * Response
     , ChangeTagsForResourceResponse
@@ -52,53 +52,53 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctfrrqRemoveTagKeys'
+-- * 'ctfrRemoveTagKeys'
 --
--- * 'ctfrrqAddTags'
+-- * 'ctfrAddTags'
 --
--- * 'ctfrrqResourceType'
+-- * 'ctfrResourceType'
 --
--- * 'ctfrrqResourceId'
+-- * 'ctfrResourceId'
 data ChangeTagsForResource = ChangeTagsForResource'
-    { _ctfrrqRemoveTagKeys :: !(Maybe (List1 Text))
-    , _ctfrrqAddTags       :: !(Maybe (List1 Tag))
-    , _ctfrrqResourceType  :: !TagResourceType
-    , _ctfrrqResourceId    :: !Text
+    { _ctfrRemoveTagKeys :: !(Maybe (List1 Text))
+    , _ctfrAddTags       :: !(Maybe (List1 Tag))
+    , _ctfrResourceType  :: !TagResourceType
+    , _ctfrResourceId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeTagsForResource' smart constructor.
 changeTagsForResource :: TagResourceType -> Text -> ChangeTagsForResource
 changeTagsForResource pResourceType_ pResourceId_ =
     ChangeTagsForResource'
-    { _ctfrrqRemoveTagKeys = Nothing
-    , _ctfrrqAddTags = Nothing
-    , _ctfrrqResourceType = pResourceType_
-    , _ctfrrqResourceId = pResourceId_
+    { _ctfrRemoveTagKeys = Nothing
+    , _ctfrAddTags = Nothing
+    , _ctfrResourceType = pResourceType_
+    , _ctfrResourceId = pResourceId_
     }
 
 -- | A list of @Tag@ keys that you want to remove from the specified
 -- resource.
-ctfrrqRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
-ctfrrqRemoveTagKeys = lens _ctfrrqRemoveTagKeys (\ s a -> s{_ctfrrqRemoveTagKeys = a}) . mapping _List1;
+ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
+ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . mapping _List1;
 
 -- | A complex type that contains a list of @Tag@ elements. Each @Tag@
 -- element identifies a tag that you want to add or update for the
 -- specified resource.
-ctfrrqAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
-ctfrrqAddTags = lens _ctfrrqAddTags (\ s a -> s{_ctfrrqAddTags = a}) . mapping _List1;
+ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
+ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1;
 
 -- | The type of the resource.
 --
 -- - The resource type for health checks is @healthcheck@.
 --
 -- - The resource type for hosted zones is @hostedzone@.
-ctfrrqResourceType :: Lens' ChangeTagsForResource TagResourceType
-ctfrrqResourceType = lens _ctfrrqResourceType (\ s a -> s{_ctfrrqResourceType = a});
+ctfrResourceType :: Lens' ChangeTagsForResource TagResourceType
+ctfrResourceType = lens _ctfrResourceType (\ s a -> s{_ctfrResourceType = a});
 
 -- | The ID of the resource for which you want to add, change, or delete
 -- tags.
-ctfrrqResourceId :: Lens' ChangeTagsForResource Text
-ctfrrqResourceId = lens _ctfrrqResourceId (\ s a -> s{_ctfrrqResourceId = a});
+ctfrResourceId :: Lens' ChangeTagsForResource Text
+ctfrResourceId = lens _ctfrResourceId (\ s a -> s{_ctfrResourceId = a});
 
 instance AWSRequest ChangeTagsForResource where
         type Sv ChangeTagsForResource = Route53
@@ -122,8 +122,8 @@ instance ToHeaders ChangeTagsForResource where
 instance ToPath ChangeTagsForResource where
         toPath ChangeTagsForResource'{..}
           = mconcat
-              ["/2013-04-01/tags/", toText _ctfrrqResourceType,
-               "/", toText _ctfrrqResourceId]
+              ["/2013-04-01/tags/", toText _ctfrResourceType, "/",
+               toText _ctfrResourceId]
 
 instance ToQuery ChangeTagsForResource where
         toQuery = const mempty
@@ -132,9 +132,9 @@ instance ToXML ChangeTagsForResource where
         toXML ChangeTagsForResource'{..}
           = mconcat
               ["RemoveTagKeys" @=
-                 toXML (toXMLList "Key" <$> _ctfrrqRemoveTagKeys),
+                 toXML (toXMLList "Key" <$> _ctfrRemoveTagKeys),
                "AddTags" @=
-                 toXML (toXMLList "Tag" <$> _ctfrrqAddTags)]
+                 toXML (toXMLList "Tag" <$> _ctfrAddTags)]
 
 -- | Empty response for the request.
 --

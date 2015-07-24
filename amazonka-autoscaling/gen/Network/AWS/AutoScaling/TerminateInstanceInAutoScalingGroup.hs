@@ -31,8 +31,8 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     -- ** Request constructor
     , terminateInstanceInAutoScalingGroup
     -- ** Request lenses
-    , tiiasgrqInstanceId
-    , tiiasgrqShouldDecrementDesiredCapacity
+    , tiiasgInstanceId
+    , tiiasgShouldDecrementDesiredCapacity
 
     -- * Response
     , TerminateInstanceInAutoScalingGroupResponse
@@ -52,30 +52,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tiiasgrqInstanceId'
+-- * 'tiiasgInstanceId'
 --
--- * 'tiiasgrqShouldDecrementDesiredCapacity'
+-- * 'tiiasgShouldDecrementDesiredCapacity'
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
-    { _tiiasgrqInstanceId                     :: !Text
-    , _tiiasgrqShouldDecrementDesiredCapacity :: !Bool
+    { _tiiasgInstanceId                     :: !Text
+    , _tiiasgShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroup' smart constructor.
 terminateInstanceInAutoScalingGroup :: Text -> Bool -> TerminateInstanceInAutoScalingGroup
 terminateInstanceInAutoScalingGroup pInstanceId_ pShouldDecrementDesiredCapacity_ =
     TerminateInstanceInAutoScalingGroup'
-    { _tiiasgrqInstanceId = pInstanceId_
-    , _tiiasgrqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+    { _tiiasgInstanceId = pInstanceId_
+    , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
 -- | The ID of the EC2 instance.
-tiiasgrqInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
-tiiasgrqInstanceId = lens _tiiasgrqInstanceId (\ s a -> s{_tiiasgrqInstanceId = a});
+tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
+tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
 
 -- | If @true@, terminating this instance also decrements the size of the
 -- Auto Scaling group.
-tiiasgrqShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
-tiiasgrqShouldDecrementDesiredCapacity = lens _tiiasgrqShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgrqShouldDecrementDesiredCapacity = a});
+tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
+tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest
          TerminateInstanceInAutoScalingGroup where
@@ -107,9 +107,9 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
                  ("TerminateInstanceInAutoScalingGroup" ::
                     ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceId" =: _tiiasgrqInstanceId,
+               "InstanceId" =: _tiiasgInstanceId,
                "ShouldDecrementDesiredCapacity" =:
-                 _tiiasgrqShouldDecrementDesiredCapacity]
+                 _tiiasgShouldDecrementDesiredCapacity]
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
 --

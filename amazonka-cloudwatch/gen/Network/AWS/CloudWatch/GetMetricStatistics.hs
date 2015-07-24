@@ -55,14 +55,14 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- ** Request constructor
     , getMetricStatistics
     -- ** Request lenses
-    , gmsrqDimensions
-    , gmsrqUnit
-    , gmsrqNamespace
-    , gmsrqMetricName
-    , gmsrqStartTime
-    , gmsrqEndTime
-    , gmsrqPeriod
-    , gmsrqStatistics
+    , gmsDimensions
+    , gmsUnit
+    , gmsNamespace
+    , gmsMetricName
+    , gmsStartTime
+    , gmsEndTime
+    , gmsPeriod
+    , gmsStatistics
 
     -- * Response
     , GetMetricStatisticsResponse
@@ -83,79 +83,79 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gmsrqDimensions'
+-- * 'gmsDimensions'
 --
--- * 'gmsrqUnit'
+-- * 'gmsUnit'
 --
--- * 'gmsrqNamespace'
+-- * 'gmsNamespace'
 --
--- * 'gmsrqMetricName'
+-- * 'gmsMetricName'
 --
--- * 'gmsrqStartTime'
+-- * 'gmsStartTime'
 --
--- * 'gmsrqEndTime'
+-- * 'gmsEndTime'
 --
--- * 'gmsrqPeriod'
+-- * 'gmsPeriod'
 --
--- * 'gmsrqStatistics'
+-- * 'gmsStatistics'
 data GetMetricStatistics = GetMetricStatistics'
-    { _gmsrqDimensions :: !(Maybe [Dimension])
-    , _gmsrqUnit       :: !(Maybe StandardUnit)
-    , _gmsrqNamespace  :: !Text
-    , _gmsrqMetricName :: !Text
-    , _gmsrqStartTime  :: !ISO8601
-    , _gmsrqEndTime    :: !ISO8601
-    , _gmsrqPeriod     :: !Nat
-    , _gmsrqStatistics :: !(List1 Statistic)
+    { _gmsDimensions :: !(Maybe [Dimension])
+    , _gmsUnit       :: !(Maybe StandardUnit)
+    , _gmsNamespace  :: !Text
+    , _gmsMetricName :: !Text
+    , _gmsStartTime  :: !ISO8601
+    , _gmsEndTime    :: !ISO8601
+    , _gmsPeriod     :: !Nat
+    , _gmsStatistics :: !(List1 Statistic)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMetricStatistics' smart constructor.
 getMetricStatistics :: Text -> Text -> UTCTime -> UTCTime -> Natural -> NonEmpty Statistic -> GetMetricStatistics
 getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ pStatistics_ =
     GetMetricStatistics'
-    { _gmsrqDimensions = Nothing
-    , _gmsrqUnit = Nothing
-    , _gmsrqNamespace = pNamespace_
-    , _gmsrqMetricName = pMetricName_
-    , _gmsrqStartTime = _Time # pStartTime_
-    , _gmsrqEndTime = _Time # pEndTime_
-    , _gmsrqPeriod = _Nat # pPeriod_
-    , _gmsrqStatistics = _List1 # pStatistics_
+    { _gmsDimensions = Nothing
+    , _gmsUnit = Nothing
+    , _gmsNamespace = pNamespace_
+    , _gmsMetricName = pMetricName_
+    , _gmsStartTime = _Time # pStartTime_
+    , _gmsEndTime = _Time # pEndTime_
+    , _gmsPeriod = _Nat # pPeriod_
+    , _gmsStatistics = _List1 # pStatistics_
     }
 
 -- | A list of dimensions describing qualities of the metric.
-gmsrqDimensions :: Lens' GetMetricStatistics [Dimension]
-gmsrqDimensions = lens _gmsrqDimensions (\ s a -> s{_gmsrqDimensions = a}) . _Default;
+gmsDimensions :: Lens' GetMetricStatistics [Dimension]
+gmsDimensions = lens _gmsDimensions (\ s a -> s{_gmsDimensions = a}) . _Default;
 
 -- | The unit for the metric.
-gmsrqUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
-gmsrqUnit = lens _gmsrqUnit (\ s a -> s{_gmsrqUnit = a});
+gmsUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
+gmsUnit = lens _gmsUnit (\ s a -> s{_gmsUnit = a});
 
 -- | The namespace of the metric, with or without spaces.
-gmsrqNamespace :: Lens' GetMetricStatistics Text
-gmsrqNamespace = lens _gmsrqNamespace (\ s a -> s{_gmsrqNamespace = a});
+gmsNamespace :: Lens' GetMetricStatistics Text
+gmsNamespace = lens _gmsNamespace (\ s a -> s{_gmsNamespace = a});
 
 -- | The name of the metric, with or without spaces.
-gmsrqMetricName :: Lens' GetMetricStatistics Text
-gmsrqMetricName = lens _gmsrqMetricName (\ s a -> s{_gmsrqMetricName = a});
+gmsMetricName :: Lens' GetMetricStatistics Text
+gmsMetricName = lens _gmsMetricName (\ s a -> s{_gmsMetricName = a});
 
 -- | The time stamp to use for determining the first datapoint to return. The
 -- value specified is inclusive; results include datapoints with the time
 -- stamp specified.
-gmsrqStartTime :: Lens' GetMetricStatistics UTCTime
-gmsrqStartTime = lens _gmsrqStartTime (\ s a -> s{_gmsrqStartTime = a}) . _Time;
+gmsStartTime :: Lens' GetMetricStatistics UTCTime
+gmsStartTime = lens _gmsStartTime (\ s a -> s{_gmsStartTime = a}) . _Time;
 
 -- | The time stamp to use for determining the last datapoint to return. The
 -- value specified is exclusive; results will include datapoints up to the
 -- time stamp specified.
-gmsrqEndTime :: Lens' GetMetricStatistics UTCTime
-gmsrqEndTime = lens _gmsrqEndTime (\ s a -> s{_gmsrqEndTime = a}) . _Time;
+gmsEndTime :: Lens' GetMetricStatistics UTCTime
+gmsEndTime = lens _gmsEndTime (\ s a -> s{_gmsEndTime = a}) . _Time;
 
 -- | The granularity, in seconds, of the returned datapoints. @Period@ must
 -- be at least 60 seconds and must be a multiple of 60. The default value
 -- is 60.
-gmsrqPeriod :: Lens' GetMetricStatistics Natural
-gmsrqPeriod = lens _gmsrqPeriod (\ s a -> s{_gmsrqPeriod = a}) . _Nat;
+gmsPeriod :: Lens' GetMetricStatistics Natural
+gmsPeriod = lens _gmsPeriod (\ s a -> s{_gmsPeriod = a}) . _Nat;
 
 -- | The metric statistics to return. For information about specific
 -- statistics returned by GetMetricStatistics, go to
@@ -163,8 +163,8 @@ gmsrqPeriod = lens _gmsrqPeriod (\ s a -> s{_gmsrqPeriod = a}) . _Nat;
 -- in the /Amazon CloudWatch Developer Guide/.
 --
 -- Valid Values: @Average | Sum | SampleCount | Maximum | Minimum@
-gmsrqStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
-gmsrqStatistics = lens _gmsrqStatistics (\ s a -> s{_gmsrqStatistics = a}) . _List1;
+gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Statistic)
+gmsStatistics = lens _gmsStatistics (\ s a -> s{_gmsStatistics = a}) . _List1;
 
 instance AWSRequest GetMetricStatistics where
         type Sv GetMetricStatistics = CloudWatch
@@ -192,13 +192,12 @@ instance ToQuery GetMetricStatistics where
               ["Action" =: ("GetMetricStatistics" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
                "Dimensions" =:
-                 toQuery (toQueryList "member" <$> _gmsrqDimensions),
-               "Unit" =: _gmsrqUnit, "Namespace" =: _gmsrqNamespace,
-               "MetricName" =: _gmsrqMetricName,
-               "StartTime" =: _gmsrqStartTime,
-               "EndTime" =: _gmsrqEndTime, "Period" =: _gmsrqPeriod,
-               "Statistics" =:
-                 toQueryList "member" _gmsrqStatistics]
+                 toQuery (toQueryList "member" <$> _gmsDimensions),
+               "Unit" =: _gmsUnit, "Namespace" =: _gmsNamespace,
+               "MetricName" =: _gmsMetricName,
+               "StartTime" =: _gmsStartTime,
+               "EndTime" =: _gmsEndTime, "Period" =: _gmsPeriod,
+               "Statistics" =: toQueryList "member" _gmsStatistics]
 
 -- | The output for the GetMetricStatistics action.
 --

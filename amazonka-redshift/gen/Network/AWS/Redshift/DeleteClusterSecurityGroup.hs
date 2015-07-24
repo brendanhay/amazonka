@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
     -- ** Request constructor
     , deleteClusterSecurityGroup
     -- ** Request lenses
-    , drqClusterSecurityGroupName
+    , dClusterSecurityGroupName
 
     -- * Response
     , DeleteClusterSecurityGroupResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqClusterSecurityGroupName'
+-- * 'dClusterSecurityGroupName'
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
-    { _drqClusterSecurityGroupName :: Text
+    { _dClusterSecurityGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSecurityGroup' smart constructor.
 deleteClusterSecurityGroup :: Text -> DeleteClusterSecurityGroup
 deleteClusterSecurityGroup pClusterSecurityGroupName_ =
     DeleteClusterSecurityGroup'
-    { _drqClusterSecurityGroupName = pClusterSecurityGroupName_
+    { _dClusterSecurityGroupName = pClusterSecurityGroupName_
     }
 
 -- | The name of the cluster security group to be deleted.
-drqClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
-drqClusterSecurityGroupName = lens _drqClusterSecurityGroupName (\ s a -> s{_drqClusterSecurityGroupName = a});
+dClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
+dClusterSecurityGroupName = lens _dClusterSecurityGroupName (\ s a -> s{_dClusterSecurityGroupName = a});
 
 instance AWSRequest DeleteClusterSecurityGroup where
         type Sv DeleteClusterSecurityGroup = Redshift
@@ -90,7 +90,7 @@ instance ToQuery DeleteClusterSecurityGroup where
                  ("DeleteClusterSecurityGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "ClusterSecurityGroupName" =:
-                 _drqClusterSecurityGroupName]
+                 _dClusterSecurityGroupName]
 
 -- | /See:/ 'deleteClusterSecurityGroupResponse' smart constructor.
 data DeleteClusterSecurityGroupResponse =

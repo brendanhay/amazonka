@@ -33,8 +33,8 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     -- ** Request constructor
     , getOpenIdToken
     -- ** Request lenses
-    , goitrqLogins
-    , goitrqIdentityId
+    , goitLogins
+    , goitIdentityId
 
     -- * Response
     , GetOpenIdTokenResponse
@@ -57,20 +57,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goitrqLogins'
+-- * 'goitLogins'
 --
--- * 'goitrqIdentityId'
+-- * 'goitIdentityId'
 data GetOpenIdToken = GetOpenIdToken'
-    { _goitrqLogins     :: !(Maybe (Map Text Text))
-    , _goitrqIdentityId :: !Text
+    { _goitLogins     :: !(Maybe (Map Text Text))
+    , _goitIdentityId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdToken' smart constructor.
 getOpenIdToken :: Text -> GetOpenIdToken
 getOpenIdToken pIdentityId_ =
     GetOpenIdToken'
-    { _goitrqLogins = Nothing
-    , _goitrqIdentityId = pIdentityId_
+    { _goitLogins = Nothing
+    , _goitIdentityId = pIdentityId_
     }
 
 -- | A set of optional name-value pairs that map provider names to provider
@@ -78,12 +78,12 @@ getOpenIdToken pIdentityId_ =
 -- access_token returned from the provider\'s authflow. For
 -- accounts.google.com or any other OpenId Connect provider, always include
 -- the id_token.
-goitrqLogins :: Lens' GetOpenIdToken (HashMap Text Text)
-goitrqLogins = lens _goitrqLogins (\ s a -> s{_goitrqLogins = a}) . _Default . _Map;
+goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
+goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.
-goitrqIdentityId :: Lens' GetOpenIdToken Text
-goitrqIdentityId = lens _goitrqIdentityId (\ s a -> s{_goitrqIdentityId = a});
+goitIdentityId :: Lens' GetOpenIdToken Text
+goitIdentityId = lens _goitIdentityId (\ s a -> s{_goitIdentityId = a});
 
 instance AWSRequest GetOpenIdToken where
         type Sv GetOpenIdToken = CognitoIdentity
@@ -109,8 +109,8 @@ instance ToHeaders GetOpenIdToken where
 instance ToJSON GetOpenIdToken where
         toJSON GetOpenIdToken'{..}
           = object
-              ["Logins" .= _goitrqLogins,
-               "IdentityId" .= _goitrqIdentityId]
+              ["Logins" .= _goitLogins,
+               "IdentityId" .= _goitIdentityId]
 
 instance ToPath GetOpenIdToken where
         toPath = const "/"

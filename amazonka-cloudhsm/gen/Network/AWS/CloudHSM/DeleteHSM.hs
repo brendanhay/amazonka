@@ -28,7 +28,7 @@ module Network.AWS.CloudHSM.DeleteHSM
     -- ** Request constructor
     , deleteHSM
     -- ** Request lenses
-    , dhrqHSMARN
+    , dhHSMARN
 
     -- * Response
     , DeleteHSMResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhrqHSMARN'
+-- * 'dhHSMARN'
 newtype DeleteHSM = DeleteHSM'
-    { _dhrqHSMARN :: Text
+    { _dhHSMARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSM' smart constructor.
 deleteHSM :: Text -> DeleteHSM
 deleteHSM pHSMARN_ =
     DeleteHSM'
-    { _dhrqHSMARN = pHSMARN_
+    { _dhHSMARN = pHSMARN_
     }
 
 -- | The ARN of the HSM to delete.
-dhrqHSMARN :: Lens' DeleteHSM Text
-dhrqHSMARN = lens _dhrqHSMARN (\ s a -> s{_dhrqHSMARN = a});
+dhHSMARN :: Lens' DeleteHSM Text
+dhHSMARN = lens _dhHSMARN (\ s a -> s{_dhHSMARN = a});
 
 instance AWSRequest DeleteHSM where
         type Sv DeleteHSM = CloudHSM
@@ -85,7 +85,7 @@ instance ToHeaders DeleteHSM where
 
 instance ToJSON DeleteHSM where
         toJSON DeleteHSM'{..}
-          = object ["HsmArn" .= _dhrqHSMARN]
+          = object ["HsmArn" .= _dhHSMARN]
 
 instance ToPath DeleteHSM where
         toPath = const "/"

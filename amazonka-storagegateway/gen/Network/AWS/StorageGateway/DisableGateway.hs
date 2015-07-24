@@ -34,7 +34,7 @@ module Network.AWS.StorageGateway.DisableGateway
     -- ** Request constructor
     , disableGateway
     -- ** Request lenses
-    , drqGatewayARN
+    , dGatewayARN
 
     -- * Response
     , DisableGatewayResponse
@@ -56,21 +56,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqGatewayARN'
+-- * 'dGatewayARN'
 newtype DisableGateway = DisableGateway'
-    { _drqGatewayARN :: Text
+    { _dGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableGateway' smart constructor.
 disableGateway :: Text -> DisableGateway
 disableGateway pGatewayARN_ =
     DisableGateway'
-    { _drqGatewayARN = pGatewayARN_
+    { _dGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-drqGatewayARN :: Lens' DisableGateway Text
-drqGatewayARN = lens _drqGatewayARN (\ s a -> s{_drqGatewayARN = a});
+dGatewayARN :: Lens' DisableGateway Text
+dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
 
 instance AWSRequest DisableGateway where
         type Sv DisableGateway = StorageGateway
@@ -94,7 +94,7 @@ instance ToHeaders DisableGateway where
 
 instance ToJSON DisableGateway where
         toJSON DisableGateway'{..}
-          = object ["GatewayARN" .= _drqGatewayARN]
+          = object ["GatewayARN" .= _dGatewayARN]
 
 instance ToPath DisableGateway where
         toPath = const "/"

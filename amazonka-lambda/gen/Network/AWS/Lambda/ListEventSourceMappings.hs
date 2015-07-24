@@ -36,10 +36,10 @@ module Network.AWS.Lambda.ListEventSourceMappings
     -- ** Request constructor
     , listEventSourceMappings
     -- ** Request lenses
-    , lesmrqEventSourceARN
-    , lesmrqMaxItems
-    , lesmrqMarker
-    , lesmrqFunctionName
+    , lesmEventSourceARN
+    , lesmMaxItems
+    , lesmMarker
+    , lesmFunctionName
 
     -- * Response
     , ListEventSourceMappingsResponse
@@ -61,44 +61,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lesmrqEventSourceARN'
+-- * 'lesmEventSourceARN'
 --
--- * 'lesmrqMaxItems'
+-- * 'lesmMaxItems'
 --
--- * 'lesmrqMarker'
+-- * 'lesmMarker'
 --
--- * 'lesmrqFunctionName'
+-- * 'lesmFunctionName'
 data ListEventSourceMappings = ListEventSourceMappings'
-    { _lesmrqEventSourceARN :: !(Maybe Text)
-    , _lesmrqMaxItems       :: !(Maybe Nat)
-    , _lesmrqMarker         :: !(Maybe Text)
-    , _lesmrqFunctionName   :: !(Maybe Text)
+    { _lesmEventSourceARN :: !(Maybe Text)
+    , _lesmMaxItems       :: !(Maybe Nat)
+    , _lesmMarker         :: !(Maybe Text)
+    , _lesmFunctionName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEventSourceMappings' smart constructor.
 listEventSourceMappings :: ListEventSourceMappings
 listEventSourceMappings =
     ListEventSourceMappings'
-    { _lesmrqEventSourceARN = Nothing
-    , _lesmrqMaxItems = Nothing
-    , _lesmrqMarker = Nothing
-    , _lesmrqFunctionName = Nothing
+    { _lesmEventSourceARN = Nothing
+    , _lesmMaxItems = Nothing
+    , _lesmMarker = Nothing
+    , _lesmFunctionName = Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream.
-lesmrqEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
-lesmrqEventSourceARN = lens _lesmrqEventSourceARN (\ s a -> s{_lesmrqEventSourceARN = a});
+lesmEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
+lesmEventSourceARN = lens _lesmEventSourceARN (\ s a -> s{_lesmEventSourceARN = a});
 
 -- | Optional integer. Specifies the maximum number of event sources to
 -- return in response. This value must be greater than 0.
-lesmrqMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
-lesmrqMaxItems = lens _lesmrqMaxItems (\ s a -> s{_lesmrqMaxItems = a}) . mapping _Nat;
+lesmMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
+lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. An opaque pagination token returned from a previous
 -- @ListEventSourceMappings@ operation. If present, specifies to continue
 -- the list from where the returning call left off.
-lesmrqMarker :: Lens' ListEventSourceMappings (Maybe Text)
-lesmrqMarker = lens _lesmrqMarker (\ s a -> s{_lesmrqMarker = a});
+lesmMarker :: Lens' ListEventSourceMappings (Maybe Text)
+lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a});
 
 -- | The name of the Lambda function.
 --
@@ -110,15 +110,15 @@ lesmrqMarker = lens _lesmrqMarker (\ s a -> s{_lesmrqMarker = a});
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-lesmrqFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
-lesmrqFunctionName = lens _lesmrqFunctionName (\ s a -> s{_lesmrqFunctionName = a});
+lesmFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
+lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a});
 
 instance AWSPager ListEventSourceMappings where
         page rq rs
           | stop (rs ^. lesmrsNextMarker) = Nothing
           | stop (rs ^. lesmrsEventSourceMappings) = Nothing
           | otherwise =
-            Just $ rq & lesmrqMarker .~ rs ^. lesmrsNextMarker
+            Just $ rq & lesmMarker .~ rs ^. lesmrsNextMarker
 
 instance AWSRequest ListEventSourceMappings where
         type Sv ListEventSourceMappings = Lambda
@@ -142,10 +142,9 @@ instance ToPath ListEventSourceMappings where
 instance ToQuery ListEventSourceMappings where
         toQuery ListEventSourceMappings'{..}
           = mconcat
-              ["EventSourceArn" =: _lesmrqEventSourceARN,
-               "MaxItems" =: _lesmrqMaxItems,
-               "Marker" =: _lesmrqMarker,
-               "FunctionName" =: _lesmrqFunctionName]
+              ["EventSourceArn" =: _lesmEventSourceARN,
+               "MaxItems" =: _lesmMaxItems, "Marker" =: _lesmMarker,
+               "FunctionName" =: _lesmFunctionName]
 
 -- | Contains a list of event sources (see
 -- API_EventSourceMappingConfiguration)

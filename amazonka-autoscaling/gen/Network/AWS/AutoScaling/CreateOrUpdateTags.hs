@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
     -- ** Request constructor
     , createOrUpdateTags
     -- ** Request lenses
-    , coutrqTags
+    , coutTags
 
     -- * Response
     , CreateOrUpdateTagsResponse
@@ -59,21 +59,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'coutrqTags'
+-- * 'coutTags'
 newtype CreateOrUpdateTags = CreateOrUpdateTags'
-    { _coutrqTags :: [Tag]
+    { _coutTags :: [Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOrUpdateTags' smart constructor.
 createOrUpdateTags :: CreateOrUpdateTags
 createOrUpdateTags =
     CreateOrUpdateTags'
-    { _coutrqTags = mempty
+    { _coutTags = mempty
     }
 
 -- | One or more tags.
-coutrqTags :: Lens' CreateOrUpdateTags [Tag]
-coutrqTags = lens _coutrqTags (\ s a -> s{_coutrqTags = a});
+coutTags :: Lens' CreateOrUpdateTags [Tag]
+coutTags = lens _coutTags (\ s a -> s{_coutTags = a});
 
 instance AWSRequest CreateOrUpdateTags where
         type Sv CreateOrUpdateTags = AutoScaling
@@ -93,7 +93,7 @@ instance ToQuery CreateOrUpdateTags where
           = mconcat
               ["Action" =: ("CreateOrUpdateTags" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Tags" =: toQueryList "member" _coutrqTags]
+               "Tags" =: toQueryList "member" _coutTags]
 
 -- | /See:/ 'createOrUpdateTagsResponse' smart constructor.
 data CreateOrUpdateTagsResponse =

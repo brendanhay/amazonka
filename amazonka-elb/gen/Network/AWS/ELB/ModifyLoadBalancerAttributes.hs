@@ -41,8 +41,8 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- ** Request constructor
     , modifyLoadBalancerAttributes
     -- ** Request lenses
-    , mlbarqLoadBalancerName
-    , mlbarqLoadBalancerAttributes
+    , mlbaLoadBalancerName
+    , mlbaLoadBalancerAttributes
 
     -- * Response
     , ModifyLoadBalancerAttributesResponse
@@ -63,29 +63,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mlbarqLoadBalancerName'
+-- * 'mlbaLoadBalancerName'
 --
--- * 'mlbarqLoadBalancerAttributes'
+-- * 'mlbaLoadBalancerAttributes'
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-    { _mlbarqLoadBalancerName       :: !Text
-    , _mlbarqLoadBalancerAttributes :: !LoadBalancerAttributes
+    { _mlbaLoadBalancerName       :: !Text
+    , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLoadBalancerAttributes' smart constructor.
 modifyLoadBalancerAttributes :: Text -> LoadBalancerAttributes -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes pLoadBalancerName_ pLoadBalancerAttributes_ =
     ModifyLoadBalancerAttributes'
-    { _mlbarqLoadBalancerName = pLoadBalancerName_
-    , _mlbarqLoadBalancerAttributes = pLoadBalancerAttributes_
+    { _mlbaLoadBalancerName = pLoadBalancerName_
+    , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes_
     }
 
 -- | The name of the load balancer.
-mlbarqLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
-mlbarqLoadBalancerName = lens _mlbarqLoadBalancerName (\ s a -> s{_mlbarqLoadBalancerName = a});
+mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
+mlbaLoadBalancerName = lens _mlbaLoadBalancerName (\ s a -> s{_mlbaLoadBalancerName = a});
 
 -- | The attributes of the load balancer.
-mlbarqLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
-mlbarqLoadBalancerAttributes = lens _mlbarqLoadBalancerAttributes (\ s a -> s{_mlbarqLoadBalancerAttributes = a});
+mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
+mlbaLoadBalancerAttributes = lens _mlbaLoadBalancerAttributes (\ s a -> s{_mlbaLoadBalancerAttributes = a});
 
 instance AWSRequest ModifyLoadBalancerAttributes
          where
@@ -114,9 +114,9 @@ instance ToQuery ModifyLoadBalancerAttributes where
               ["Action" =:
                  ("ModifyLoadBalancerAttributes" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _mlbarqLoadBalancerName,
+               "LoadBalancerName" =: _mlbaLoadBalancerName,
                "LoadBalancerAttributes" =:
-                 _mlbarqLoadBalancerAttributes]
+                 _mlbaLoadBalancerAttributes]
 
 -- | /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 --

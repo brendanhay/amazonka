@@ -52,8 +52,8 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     -- ** Request constructor
     , uploadDocuments
     -- ** Request lenses
-    , udrqContentType
-    , udrqDocuments
+    , udContentType
+    , udDocuments
 
     -- * Response
     , UploadDocumentsResponse
@@ -77,20 +77,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udrqContentType'
+-- * 'udContentType'
 --
--- * 'udrqDocuments'
+-- * 'udDocuments'
 data UploadDocuments = UploadDocuments'
-    { _udrqContentType :: !ContentType
-    , _udrqDocuments   :: !RqBody
+    { _udContentType :: !ContentType
+    , _udDocuments   :: !RqBody
     } deriving (Show,Generic)
 
 -- | 'UploadDocuments' smart constructor.
 uploadDocuments :: ContentType -> RqBody -> UploadDocuments
 uploadDocuments pContentType_ pDocuments_ =
     UploadDocuments'
-    { _udrqContentType = pContentType_
-    , _udrqDocuments = pDocuments_
+    { _udContentType = pContentType_
+    , _udDocuments = pDocuments_
     }
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports
@@ -98,12 +98,12 @@ uploadDocuments pContentType_ pDocuments_ =
 --
 -- -   application\/json
 -- -   application\/xml
-udrqContentType :: Lens' UploadDocuments ContentType
-udrqContentType = lens _udrqContentType (\ s a -> s{_udrqContentType = a});
+udContentType :: Lens' UploadDocuments ContentType
+udContentType = lens _udContentType (\ s a -> s{_udContentType = a});
 
 -- | A batch of documents formatted in JSON or HTML.
-udrqDocuments :: Lens' UploadDocuments RqBody
-udrqDocuments = lens _udrqDocuments (\ s a -> s{_udrqDocuments = a});
+udDocuments :: Lens' UploadDocuments RqBody
+udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a});
 
 instance AWSRequest UploadDocuments where
         type Sv UploadDocuments = CloudSearchDomains
@@ -118,12 +118,12 @@ instance AWSRequest UploadDocuments where
                      <*> (pure (fromEnum s)))
 
 instance ToBody UploadDocuments where
-        toBody = _udrqDocuments
+        toBody = _udDocuments
 
 instance ToHeaders UploadDocuments where
         toHeaders UploadDocuments'{..}
           = mconcat
-              ["Content-Type" =# _udrqContentType,
+              ["Content-Type" =# _udContentType,
                "Content-Type" =#
                  ("application/x-amz-json-1.1" :: ByteString)]
 

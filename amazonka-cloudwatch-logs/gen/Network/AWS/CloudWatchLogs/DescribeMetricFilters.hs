@@ -34,10 +34,10 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     -- ** Request constructor
     , describeMetricFilters
     -- ** Request lenses
-    , dmfrqFilterNamePrefix
-    , dmfrqNextToken
-    , dmfrqLimit
-    , dmfrqLogGroupName
+    , dmfFilterNamePrefix
+    , dmfNextToken
+    , dmfLimit
+    , dmfLogGroupName
 
     -- * Response
     , DescribeMetricFiltersResponse
@@ -58,50 +58,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmfrqFilterNamePrefix'
+-- * 'dmfFilterNamePrefix'
 --
--- * 'dmfrqNextToken'
+-- * 'dmfNextToken'
 --
--- * 'dmfrqLimit'
+-- * 'dmfLimit'
 --
--- * 'dmfrqLogGroupName'
+-- * 'dmfLogGroupName'
 data DescribeMetricFilters = DescribeMetricFilters'
-    { _dmfrqFilterNamePrefix :: !(Maybe Text)
-    , _dmfrqNextToken        :: !(Maybe Text)
-    , _dmfrqLimit            :: !(Maybe Nat)
-    , _dmfrqLogGroupName     :: !Text
+    { _dmfFilterNamePrefix :: !(Maybe Text)
+    , _dmfNextToken        :: !(Maybe Text)
+    , _dmfLimit            :: !(Maybe Nat)
+    , _dmfLogGroupName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricFilters' smart constructor.
 describeMetricFilters :: Text -> DescribeMetricFilters
 describeMetricFilters pLogGroupName_ =
     DescribeMetricFilters'
-    { _dmfrqFilterNamePrefix = Nothing
-    , _dmfrqNextToken = Nothing
-    , _dmfrqLimit = Nothing
-    , _dmfrqLogGroupName = pLogGroupName_
+    { _dmfFilterNamePrefix = Nothing
+    , _dmfNextToken = Nothing
+    , _dmfLimit = Nothing
+    , _dmfLogGroupName = pLogGroupName_
     }
 
 -- | Will only return metric filters that match the provided
 -- filterNamePrefix. If you don\'t specify a value, no prefix filter is
 -- applied.
-dmfrqFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
-dmfrqFilterNamePrefix = lens _dmfrqFilterNamePrefix (\ s a -> s{_dmfrqFilterNamePrefix = a});
+dmfFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
+dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\ s a -> s{_dmfFilterNamePrefix = a});
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
 -- @DescribeMetricFilters@ request.
-dmfrqNextToken :: Lens' DescribeMetricFilters (Maybe Text)
-dmfrqNextToken = lens _dmfrqNextToken (\ s a -> s{_dmfrqNextToken = a});
+dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
+dmfNextToken = lens _dmfNextToken (\ s a -> s{_dmfNextToken = a});
 
 -- | The maximum number of items returned in the response. If you don\'t
 -- specify a value, the request would return up to 50 items.
-dmfrqLimit :: Lens' DescribeMetricFilters (Maybe Natural)
-dmfrqLimit = lens _dmfrqLimit (\ s a -> s{_dmfrqLimit = a}) . mapping _Nat;
+dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
+dmfLimit = lens _dmfLimit (\ s a -> s{_dmfLimit = a}) . mapping _Nat;
 
 -- | The log group name for which metric filters are to be listed.
-dmfrqLogGroupName :: Lens' DescribeMetricFilters Text
-dmfrqLogGroupName = lens _dmfrqLogGroupName (\ s a -> s{_dmfrqLogGroupName = a});
+dmfLogGroupName :: Lens' DescribeMetricFilters Text
+dmfLogGroupName = lens _dmfLogGroupName (\ s a -> s{_dmfLogGroupName = a});
 
 instance AWSRequest DescribeMetricFilters where
         type Sv DescribeMetricFilters = CloudWatchLogs
@@ -129,10 +129,9 @@ instance ToHeaders DescribeMetricFilters where
 instance ToJSON DescribeMetricFilters where
         toJSON DescribeMetricFilters'{..}
           = object
-              ["filterNamePrefix" .= _dmfrqFilterNamePrefix,
-               "nextToken" .= _dmfrqNextToken,
-               "limit" .= _dmfrqLimit,
-               "logGroupName" .= _dmfrqLogGroupName]
+              ["filterNamePrefix" .= _dmfFilterNamePrefix,
+               "nextToken" .= _dmfNextToken, "limit" .= _dmfLimit,
+               "logGroupName" .= _dmfLogGroupName]
 
 instance ToPath DescribeMetricFilters where
         toPath = const "/"

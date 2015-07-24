@@ -32,9 +32,9 @@ module Network.AWS.S3.PutBucketRequestPayment
     -- ** Request constructor
     , putBucketRequestPayment
     -- ** Request lenses
-    , pbrprqContentMD5
-    , pbrprqBucket
-    , pbrprqRequestPaymentConfiguration
+    , pbrpContentMD5
+    , pbrpBucket
+    , pbrpRequestPaymentConfiguration
 
     -- * Response
     , PutBucketRequestPaymentResponse
@@ -51,37 +51,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbrprqContentMD5'
+-- * 'pbrpContentMD5'
 --
--- * 'pbrprqBucket'
+-- * 'pbrpBucket'
 --
--- * 'pbrprqRequestPaymentConfiguration'
+-- * 'pbrpRequestPaymentConfiguration'
 data PutBucketRequestPayment = PutBucketRequestPayment'
-    { _pbrprqContentMD5                  :: !(Maybe Text)
-    , _pbrprqBucket                      :: !BucketName
-    , _pbrprqRequestPaymentConfiguration :: !RequestPaymentConfiguration
+    { _pbrpContentMD5                  :: !(Maybe Text)
+    , _pbrpBucket                      :: !BucketName
+    , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketRequestPayment' smart constructor.
 putBucketRequestPayment :: BucketName -> RequestPaymentConfiguration -> PutBucketRequestPayment
 putBucketRequestPayment pBucket_ pRequestPaymentConfiguration_ =
     PutBucketRequestPayment'
-    { _pbrprqContentMD5 = Nothing
-    , _pbrprqBucket = pBucket_
-    , _pbrprqRequestPaymentConfiguration = pRequestPaymentConfiguration_
+    { _pbrpContentMD5 = Nothing
+    , _pbrpBucket = pBucket_
+    , _pbrpRequestPaymentConfiguration = pRequestPaymentConfiguration_
     }
 
 -- | FIXME: Undocumented member.
-pbrprqContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
-pbrprqContentMD5 = lens _pbrprqContentMD5 (\ s a -> s{_pbrprqContentMD5 = a});
+pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
+pbrpContentMD5 = lens _pbrpContentMD5 (\ s a -> s{_pbrpContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pbrprqBucket :: Lens' PutBucketRequestPayment BucketName
-pbrprqBucket = lens _pbrprqBucket (\ s a -> s{_pbrprqBucket = a});
+pbrpBucket :: Lens' PutBucketRequestPayment BucketName
+pbrpBucket = lens _pbrpBucket (\ s a -> s{_pbrpBucket = a});
 
 -- | FIXME: Undocumented member.
-pbrprqRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
-pbrprqRequestPaymentConfiguration = lens _pbrprqRequestPaymentConfiguration (\ s a -> s{_pbrprqRequestPaymentConfiguration = a});
+pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
+pbrpRequestPaymentConfiguration = lens _pbrpRequestPaymentConfiguration (\ s a -> s{_pbrpRequestPaymentConfiguration = a});
 
 instance AWSRequest PutBucketRequestPayment where
         type Sv PutBucketRequestPayment = S3
@@ -96,15 +96,15 @@ instance ToElement PutBucketRequestPayment where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}RequestPaymentConfiguration"
               .
-              _pbrprqRequestPaymentConfiguration
+              _pbrpRequestPaymentConfiguration
 
 instance ToHeaders PutBucketRequestPayment where
         toHeaders PutBucketRequestPayment'{..}
-          = mconcat ["Content-MD5" =# _pbrprqContentMD5]
+          = mconcat ["Content-MD5" =# _pbrpContentMD5]
 
 instance ToPath PutBucketRequestPayment where
         toPath PutBucketRequestPayment'{..}
-          = mconcat ["/", toText _pbrprqBucket]
+          = mconcat ["/", toText _pbrpBucket]
 
 instance ToQuery PutBucketRequestPayment where
         toQuery = const (mconcat ["requestPayment"])

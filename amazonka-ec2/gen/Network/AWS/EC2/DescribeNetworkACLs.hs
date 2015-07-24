@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeNetworkACLs
     -- ** Request constructor
     , describeNetworkACLs
     -- ** Request lenses
-    , dnaclrqFilters
-    , dnaclrqDryRun
-    , dnaclrqNetworkACLIds
+    , dnaclFilters
+    , dnaclDryRun
+    , dnaclNetworkACLIds
 
     -- * Response
     , DescribeNetworkACLsResponse
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnaclrqFilters'
+-- * 'dnaclFilters'
 --
--- * 'dnaclrqDryRun'
+-- * 'dnaclDryRun'
 --
--- * 'dnaclrqNetworkACLIds'
+-- * 'dnaclNetworkACLIds'
 data DescribeNetworkACLs = DescribeNetworkACLs'
-    { _dnaclrqFilters       :: !(Maybe [Filter])
-    , _dnaclrqDryRun        :: !(Maybe Bool)
-    , _dnaclrqNetworkACLIds :: !(Maybe [Text])
+    { _dnaclFilters       :: !(Maybe [Filter])
+    , _dnaclDryRun        :: !(Maybe Bool)
+    , _dnaclNetworkACLIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkACLs' smart constructor.
 describeNetworkACLs :: DescribeNetworkACLs
 describeNetworkACLs =
     DescribeNetworkACLs'
-    { _dnaclrqFilters = Nothing
-    , _dnaclrqDryRun = Nothing
-    , _dnaclrqNetworkACLIds = Nothing
+    { _dnaclFilters = Nothing
+    , _dnaclDryRun = Nothing
+    , _dnaclNetworkACLIds = Nothing
     }
 
 -- | One or more filters.
@@ -129,21 +129,21 @@ describeNetworkACLs =
 --
 -- -   @vpc-id@ - The ID of the VPC for the network ACL.
 --
-dnaclrqFilters :: Lens' DescribeNetworkACLs [Filter]
-dnaclrqFilters = lens _dnaclrqFilters (\ s a -> s{_dnaclrqFilters = a}) . _Default;
+dnaclFilters :: Lens' DescribeNetworkACLs [Filter]
+dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dnaclrqDryRun :: Lens' DescribeNetworkACLs (Maybe Bool)
-dnaclrqDryRun = lens _dnaclrqDryRun (\ s a -> s{_dnaclrqDryRun = a});
+dnaclDryRun :: Lens' DescribeNetworkACLs (Maybe Bool)
+dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
 
 -- | One or more network ACL IDs.
 --
 -- Default: Describes all your network ACLs.
-dnaclrqNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
-dnaclrqNetworkACLIds = lens _dnaclrqNetworkACLIds (\ s a -> s{_dnaclrqNetworkACLIds = a}) . _Default;
+dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
+dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default;
 
 instance AWSRequest DescribeNetworkACLs where
         type Sv DescribeNetworkACLs = EC2
@@ -169,10 +169,9 @@ instance ToQuery DescribeNetworkACLs where
           = mconcat
               ["Action" =: ("DescribeNetworkACLs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dnaclrqFilters),
-               "DryRun" =: _dnaclrqDryRun,
-               toQuery
-                 (toQueryList "item" <$> _dnaclrqNetworkACLIds)]
+               toQuery (toQueryList "Filter" <$> _dnaclFilters),
+               "DryRun" =: _dnaclDryRun,
+               toQuery (toQueryList "item" <$> _dnaclNetworkACLIds)]
 
 -- | /See:/ 'describeNetworkACLsResponse' smart constructor.
 --

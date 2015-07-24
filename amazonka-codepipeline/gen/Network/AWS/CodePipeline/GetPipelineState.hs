@@ -28,7 +28,7 @@ module Network.AWS.CodePipeline.GetPipelineState
     -- ** Request constructor
     , getPipelineState
     -- ** Request lenses
-    , gpsrqName
+    , gpsName
 
     -- * Response
     , GetPipelineStateResponse
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpsrqName'
+-- * 'gpsName'
 newtype GetPipelineState = GetPipelineState'
-    { _gpsrqName :: Text
+    { _gpsName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineState' smart constructor.
 getPipelineState :: Text -> GetPipelineState
 getPipelineState pName_ =
     GetPipelineState'
-    { _gpsrqName = pName_
+    { _gpsName = pName_
     }
 
 -- | The name of the pipeline about which you want to get information.
-gpsrqName :: Lens' GetPipelineState Text
-gpsrqName = lens _gpsrqName (\ s a -> s{_gpsrqName = a});
+gpsName :: Lens' GetPipelineState Text
+gpsName = lens _gpsName (\ s a -> s{_gpsName = a});
 
 instance AWSRequest GetPipelineState where
         type Sv GetPipelineState = CodePipeline
@@ -96,7 +96,7 @@ instance ToHeaders GetPipelineState where
 
 instance ToJSON GetPipelineState where
         toJSON GetPipelineState'{..}
-          = object ["name" .= _gpsrqName]
+          = object ["name" .= _gpsName]
 
 instance ToPath GetPipelineState where
         toPath = const "/"

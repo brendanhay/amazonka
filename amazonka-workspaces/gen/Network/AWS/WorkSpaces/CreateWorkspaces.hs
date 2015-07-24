@@ -30,7 +30,7 @@ module Network.AWS.WorkSpaces.CreateWorkspaces
     -- ** Request constructor
     , createWorkspaces
     -- ** Request lenses
-    , cwrqWorkspaces
+    , cwWorkspaces
 
     -- * Response
     , CreateWorkspacesResponse
@@ -53,21 +53,21 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cwrqWorkspaces'
+-- * 'cwWorkspaces'
 newtype CreateWorkspaces = CreateWorkspaces'
-    { _cwrqWorkspaces :: List1 WorkspaceRequest
+    { _cwWorkspaces :: List1 WorkspaceRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateWorkspaces' smart constructor.
 createWorkspaces :: NonEmpty WorkspaceRequest -> CreateWorkspaces
 createWorkspaces pWorkspaces_ =
     CreateWorkspaces'
-    { _cwrqWorkspaces = _List1 # pWorkspaces_
+    { _cwWorkspaces = _List1 # pWorkspaces_
     }
 
 -- | An array of structures that specify the WorkSpaces to create.
-cwrqWorkspaces :: Lens' CreateWorkspaces (NonEmpty WorkspaceRequest)
-cwrqWorkspaces = lens _cwrqWorkspaces (\ s a -> s{_cwrqWorkspaces = a}) . _List1;
+cwWorkspaces :: Lens' CreateWorkspaces (NonEmpty WorkspaceRequest)
+cwWorkspaces = lens _cwWorkspaces (\ s a -> s{_cwWorkspaces = a}) . _List1;
 
 instance AWSRequest CreateWorkspaces where
         type Sv CreateWorkspaces = WorkSpaces
@@ -92,7 +92,7 @@ instance ToHeaders CreateWorkspaces where
 
 instance ToJSON CreateWorkspaces where
         toJSON CreateWorkspaces'{..}
-          = object ["Workspaces" .= _cwrqWorkspaces]
+          = object ["Workspaces" .= _cwWorkspaces]
 
 instance ToPath CreateWorkspaces where
         toPath = const "/"

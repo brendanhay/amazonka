@@ -30,9 +30,9 @@ module Network.AWS.EC2.AttachInternetGateway
     -- ** Request constructor
     , attachInternetGateway
     -- ** Request lenses
-    , aigrqDryRun
-    , aigrqInternetGatewayId
-    , aigrqVPCId
+    , aigDryRun
+    , aigInternetGatewayId
+    , aigVPCId
 
     -- * Response
     , AttachInternetGatewayResponse
@@ -49,40 +49,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aigrqDryRun'
+-- * 'aigDryRun'
 --
--- * 'aigrqInternetGatewayId'
+-- * 'aigInternetGatewayId'
 --
--- * 'aigrqVPCId'
+-- * 'aigVPCId'
 data AttachInternetGateway = AttachInternetGateway'
-    { _aigrqDryRun            :: !(Maybe Bool)
-    , _aigrqInternetGatewayId :: !Text
-    , _aigrqVPCId             :: !Text
+    { _aigDryRun            :: !(Maybe Bool)
+    , _aigInternetGatewayId :: !Text
+    , _aigVPCId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInternetGateway' smart constructor.
 attachInternetGateway :: Text -> Text -> AttachInternetGateway
 attachInternetGateway pInternetGatewayId_ pVPCId_ =
     AttachInternetGateway'
-    { _aigrqDryRun = Nothing
-    , _aigrqInternetGatewayId = pInternetGatewayId_
-    , _aigrqVPCId = pVPCId_
+    { _aigDryRun = Nothing
+    , _aigInternetGatewayId = pInternetGatewayId_
+    , _aigVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-aigrqDryRun :: Lens' AttachInternetGateway (Maybe Bool)
-aigrqDryRun = lens _aigrqDryRun (\ s a -> s{_aigrqDryRun = a});
+aigDryRun :: Lens' AttachInternetGateway (Maybe Bool)
+aigDryRun = lens _aigDryRun (\ s a -> s{_aigDryRun = a});
 
 -- | The ID of the Internet gateway.
-aigrqInternetGatewayId :: Lens' AttachInternetGateway Text
-aigrqInternetGatewayId = lens _aigrqInternetGatewayId (\ s a -> s{_aigrqInternetGatewayId = a});
+aigInternetGatewayId :: Lens' AttachInternetGateway Text
+aigInternetGatewayId = lens _aigInternetGatewayId (\ s a -> s{_aigInternetGatewayId = a});
 
 -- | The ID of the VPC.
-aigrqVPCId :: Lens' AttachInternetGateway Text
-aigrqVPCId = lens _aigrqVPCId (\ s a -> s{_aigrqVPCId = a});
+aigVPCId :: Lens' AttachInternetGateway Text
+aigVPCId = lens _aigVPCId (\ s a -> s{_aigVPCId = a});
 
 instance AWSRequest AttachInternetGateway where
         type Sv AttachInternetGateway = EC2
@@ -102,9 +102,9 @@ instance ToQuery AttachInternetGateway where
           = mconcat
               ["Action" =: ("AttachInternetGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _aigrqDryRun,
-               "InternetGatewayId" =: _aigrqInternetGatewayId,
-               "VpcId" =: _aigrqVPCId]
+               "DryRun" =: _aigDryRun,
+               "InternetGatewayId" =: _aigInternetGatewayId,
+               "VpcId" =: _aigVPCId]
 
 -- | /See:/ 'attachInternetGatewayResponse' smart constructor.
 data AttachInternetGatewayResponse =

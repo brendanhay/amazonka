@@ -30,11 +30,11 @@ module Network.AWS.Lambda.Invoke
     -- ** Request constructor
     , invoke
     -- ** Request lenses
-    , irqInvocationType
-    , irqPayload
-    , irqLogType
-    , irqClientContext
-    , irqFunctionName
+    , iInvocationType
+    , iPayload
+    , iLogType
+    , iClientContext
+    , iFunctionName
 
     -- * Response
     , InvokeResponse
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'irqInvocationType'
+-- * 'iInvocationType'
 --
--- * 'irqPayload'
+-- * 'iPayload'
 --
--- * 'irqLogType'
+-- * 'iLogType'
 --
--- * 'irqClientContext'
+-- * 'iClientContext'
 --
--- * 'irqFunctionName'
+-- * 'iFunctionName'
 data Invoke = Invoke'
-    { _irqInvocationType :: !(Maybe InvocationType)
-    , _irqPayload        :: !(Maybe Base64)
-    , _irqLogType        :: !(Maybe LogType)
-    , _irqClientContext  :: !(Maybe Text)
-    , _irqFunctionName   :: !Text
+    { _iInvocationType :: !(Maybe InvocationType)
+    , _iPayload        :: !(Maybe Base64)
+    , _iLogType        :: !(Maybe LogType)
+    , _iClientContext  :: !(Maybe Text)
+    , _iFunctionName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Invoke' smart constructor.
 invoke :: Text -> Invoke
 invoke pFunctionName_ =
     Invoke'
-    { _irqInvocationType = Nothing
-    , _irqPayload = Nothing
-    , _irqLogType = Nothing
-    , _irqClientContext = Nothing
-    , _irqFunctionName = pFunctionName_
+    { _iInvocationType = Nothing
+    , _iPayload = Nothing
+    , _iLogType = Nothing
+    , _iClientContext = Nothing
+    , _iFunctionName = pFunctionName_
     }
 
 -- | By default, the @Invoke@ API assumes \"RequestResponse\" invocation
@@ -92,20 +92,20 @@ invoke pFunctionName_ =
 -- inputs are valid. You request this by specifying \"DryRun\" as the
 -- @InvocationType@. This is useful in a cross-account scenario when you
 -- want to verify access to a function without running it.
-irqInvocationType :: Lens' Invoke (Maybe InvocationType)
-irqInvocationType = lens _irqInvocationType (\ s a -> s{_irqInvocationType = a});
+iInvocationType :: Lens' Invoke (Maybe InvocationType)
+iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a});
 
 -- | JSON that you want to provide to your Lambda function as input.
-irqPayload :: Lens' Invoke (Maybe Base64)
-irqPayload = lens _irqPayload (\ s a -> s{_irqPayload = a});
+iPayload :: Lens' Invoke (Maybe Base64)
+iPayload = lens _iPayload (\ s a -> s{_iPayload = a});
 
 -- | You can set this optional parameter to \"Tail\" in the request only if
 -- you specify the @InvocationType@ parameter with value
 -- \"RequestResponse\". In this case, AWS Lambda returns the base64-encoded
 -- last 4 KB of log data produced by your Lambda function in the
 -- @x-amz-log-results@ header.
-irqLogType :: Lens' Invoke (Maybe LogType)
-irqLogType = lens _irqLogType (\ s a -> s{_irqLogType = a});
+iLogType :: Lens' Invoke (Maybe LogType)
+iLogType = lens _iLogType (\ s a -> s{_iLogType = a});
 
 -- | Using the @ClientContext@ you can pass client-specific information to
 -- the Lambda function you are invoking. You can then process the client
@@ -115,8 +115,8 @@ irqLogType = lens _irqLogType (\ s a -> s{_irqLogType = a});
 -- in the /Amazon Mobile Analytics API Reference and User Guide/.
 --
 -- The ClientContext JSON must be base64-encoded.
-irqClientContext :: Lens' Invoke (Maybe Text)
-irqClientContext = lens _irqClientContext (\ s a -> s{_irqClientContext = a});
+iClientContext :: Lens' Invoke (Maybe Text)
+iClientContext = lens _iClientContext (\ s a -> s{_iClientContext = a});
 
 -- | The Lambda function name.
 --
@@ -128,8 +128,8 @@ irqClientContext = lens _irqClientContext (\ s a -> s{_irqClientContext = a});
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-irqFunctionName :: Lens' Invoke Text
-irqFunctionName = lens _irqFunctionName (\ s a -> s{_irqFunctionName = a});
+iFunctionName :: Lens' Invoke Text
+iFunctionName = lens _iFunctionName (\ s a -> s{_iFunctionName = a});
 
 instance AWSRequest Invoke where
         type Sv Invoke = Lambda
@@ -147,18 +147,17 @@ instance AWSRequest Invoke where
 instance ToHeaders Invoke where
         toHeaders Invoke'{..}
           = mconcat
-              ["X-Amz-Invocation-Type" =# _irqInvocationType,
-               "X-Amz-Log-Type" =# _irqLogType,
-               "X-Amz-Client-Context" =# _irqClientContext]
+              ["X-Amz-Invocation-Type" =# _iInvocationType,
+               "X-Amz-Log-Type" =# _iLogType,
+               "X-Amz-Client-Context" =# _iClientContext]
 
 instance ToJSON Invoke where
-        toJSON Invoke'{..}
-          = object ["Payload" .= _irqPayload]
+        toJSON Invoke'{..} = object ["Payload" .= _iPayload]
 
 instance ToPath Invoke where
         toPath Invoke'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _irqFunctionName,
+              ["/2015-03-31/functions/", toText _iFunctionName,
                "/invocations"]
 
 instance ToQuery Invoke where

@@ -38,9 +38,9 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     -- ** Request constructor
     , updateBandwidthRateLimit
     -- ** Request lenses
-    , ubrlrqAverageUploadRateLimitInBitsPerSec
-    , ubrlrqAverageDownloadRateLimitInBitsPerSec
-    , ubrlrqGatewayARN
+    , ubrlAverageUploadRateLimitInBitsPerSec
+    , ubrlAverageDownloadRateLimitInBitsPerSec
+    , ubrlGatewayARN
 
     -- * Response
     , UpdateBandwidthRateLimitResponse
@@ -65,37 +65,37 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ubrlrqAverageUploadRateLimitInBitsPerSec'
+-- * 'ubrlAverageUploadRateLimitInBitsPerSec'
 --
--- * 'ubrlrqAverageDownloadRateLimitInBitsPerSec'
+-- * 'ubrlAverageDownloadRateLimitInBitsPerSec'
 --
--- * 'ubrlrqGatewayARN'
+-- * 'ubrlGatewayARN'
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
-    { _ubrlrqAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
-    , _ubrlrqAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
-    , _ubrlrqGatewayARN                           :: !Text
+    { _ubrlAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
+    , _ubrlAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
+    , _ubrlGatewayARN                           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBandwidthRateLimit' smart constructor.
 updateBandwidthRateLimit :: Text -> UpdateBandwidthRateLimit
 updateBandwidthRateLimit pGatewayARN_ =
     UpdateBandwidthRateLimit'
-    { _ubrlrqAverageUploadRateLimitInBitsPerSec = Nothing
-    , _ubrlrqAverageDownloadRateLimitInBitsPerSec = Nothing
-    , _ubrlrqGatewayARN = pGatewayARN_
+    { _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
+    , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
+    , _ubrlGatewayARN = pGatewayARN_
     }
 
 -- | The average upload bandwidth rate limit in bits per second.
-ubrlrqAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
-ubrlrqAverageUploadRateLimitInBitsPerSec = lens _ubrlrqAverageUploadRateLimitInBitsPerSec (\ s a -> s{_ubrlrqAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
+ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
+ubrlAverageUploadRateLimitInBitsPerSec = lens _ubrlAverageUploadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
 -- | The average download bandwidth rate limit in bits per second.
-ubrlrqAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
-ubrlrqAverageDownloadRateLimitInBitsPerSec = lens _ubrlrqAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_ubrlrqAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
+ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
+ubrlAverageDownloadRateLimitInBitsPerSec = lens _ubrlAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-ubrlrqGatewayARN :: Lens' UpdateBandwidthRateLimit Text
-ubrlrqGatewayARN = lens _ubrlrqGatewayARN (\ s a -> s{_ubrlrqGatewayARN = a});
+ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
+ubrlGatewayARN = lens _ubrlGatewayARN (\ s a -> s{_ubrlGatewayARN = a});
 
 instance AWSRequest UpdateBandwidthRateLimit where
         type Sv UpdateBandwidthRateLimit = StorageGateway
@@ -122,10 +122,10 @@ instance ToJSON UpdateBandwidthRateLimit where
         toJSON UpdateBandwidthRateLimit'{..}
           = object
               ["AverageUploadRateLimitInBitsPerSec" .=
-                 _ubrlrqAverageUploadRateLimitInBitsPerSec,
+                 _ubrlAverageUploadRateLimitInBitsPerSec,
                "AverageDownloadRateLimitInBitsPerSec" .=
-                 _ubrlrqAverageDownloadRateLimitInBitsPerSec,
-               "GatewayARN" .= _ubrlrqGatewayARN]
+                 _ubrlAverageDownloadRateLimitInBitsPerSec,
+               "GatewayARN" .= _ubrlGatewayARN]
 
 instance ToPath UpdateBandwidthRateLimit where
         toPath = const "/"

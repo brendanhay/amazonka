@@ -27,7 +27,7 @@ module Network.AWS.CodePipeline.DeletePipeline
     -- ** Request constructor
     , deletePipeline
     -- ** Request lenses
-    , dprqName
+    , dpName
 
     -- * Response
     , DeletePipelineResponse
@@ -46,21 +46,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprqName'
+-- * 'dpName'
 newtype DeletePipeline = DeletePipeline'
-    { _dprqName :: Text
+    { _dpName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
 deletePipeline pName_ =
     DeletePipeline'
-    { _dprqName = pName_
+    { _dpName = pName_
     }
 
 -- | The name of the pipeline to be deleted.
-dprqName :: Lens' DeletePipeline Text
-dprqName = lens _dprqName (\ s a -> s{_dprqName = a});
+dpName :: Lens' DeletePipeline Text
+dpName = lens _dpName (\ s a -> s{_dpName = a});
 
 instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = CodePipeline
@@ -80,7 +80,7 @@ instance ToHeaders DeletePipeline where
 
 instance ToJSON DeletePipeline where
         toJSON DeletePipeline'{..}
-          = object ["name" .= _dprqName]
+          = object ["name" .= _dpName]
 
 instance ToPath DeletePipeline where
         toPath = const "/"

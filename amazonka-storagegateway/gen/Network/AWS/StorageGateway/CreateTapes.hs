@@ -32,11 +32,11 @@ module Network.AWS.StorageGateway.CreateTapes
     -- ** Request constructor
     , createTapes
     -- ** Request lenses
-    , ctrqGatewayARN
-    , ctrqTapeSizeInBytes
-    , ctrqClientToken
-    , ctrqNumTapesToCreate
-    , ctrqTapeBarcodePrefix
+    , ctGatewayARN
+    , ctTapeSizeInBytes
+    , ctClientToken
+    , ctNumTapesToCreate
+    , ctTapeBarcodePrefix
 
     -- * Response
     , CreateTapesResponse
@@ -58,65 +58,65 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctrqGatewayARN'
+-- * 'ctGatewayARN'
 --
--- * 'ctrqTapeSizeInBytes'
+-- * 'ctTapeSizeInBytes'
 --
--- * 'ctrqClientToken'
+-- * 'ctClientToken'
 --
--- * 'ctrqNumTapesToCreate'
+-- * 'ctNumTapesToCreate'
 --
--- * 'ctrqTapeBarcodePrefix'
+-- * 'ctTapeBarcodePrefix'
 data CreateTapes = CreateTapes'
-    { _ctrqGatewayARN        :: !Text
-    , _ctrqTapeSizeInBytes   :: !Integer
-    , _ctrqClientToken       :: !Text
-    , _ctrqNumTapesToCreate  :: !Nat
-    , _ctrqTapeBarcodePrefix :: !Text
+    { _ctGatewayARN        :: !Text
+    , _ctTapeSizeInBytes   :: !Integer
+    , _ctClientToken       :: !Text
+    , _ctNumTapesToCreate  :: !Nat
+    , _ctTapeBarcodePrefix :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTapes' smart constructor.
 createTapes :: Text -> Integer -> Text -> Natural -> Text -> CreateTapes
 createTapes pGatewayARN_ pTapeSizeInBytes_ pClientToken_ pNumTapesToCreate_ pTapeBarcodePrefix_ =
     CreateTapes'
-    { _ctrqGatewayARN = pGatewayARN_
-    , _ctrqTapeSizeInBytes = pTapeSizeInBytes_
-    , _ctrqClientToken = pClientToken_
-    , _ctrqNumTapesToCreate = _Nat # pNumTapesToCreate_
-    , _ctrqTapeBarcodePrefix = pTapeBarcodePrefix_
+    { _ctGatewayARN = pGatewayARN_
+    , _ctTapeSizeInBytes = pTapeSizeInBytes_
+    , _ctClientToken = pClientToken_
+    , _ctNumTapesToCreate = _Nat # pNumTapesToCreate_
+    , _ctTapeBarcodePrefix = pTapeBarcodePrefix_
     }
 
 -- | The unique Amazon Resource Name(ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
 -- return a list of gateways for your account and region.
-ctrqGatewayARN :: Lens' CreateTapes Text
-ctrqGatewayARN = lens _ctrqGatewayARN (\ s a -> s{_ctrqGatewayARN = a});
+ctGatewayARN :: Lens' CreateTapes Text
+ctGatewayARN = lens _ctGatewayARN (\ s a -> s{_ctGatewayARN = a});
 
 -- | The size, in bytes, of the virtual tapes you want to create.
 --
 -- The size must be gigabyte (1024*1024*1024 byte) aligned.
-ctrqTapeSizeInBytes :: Lens' CreateTapes Integer
-ctrqTapeSizeInBytes = lens _ctrqTapeSizeInBytes (\ s a -> s{_ctrqTapeSizeInBytes = a});
+ctTapeSizeInBytes :: Lens' CreateTapes Integer
+ctTapeSizeInBytes = lens _ctTapeSizeInBytes (\ s a -> s{_ctTapeSizeInBytes = a});
 
 -- | A unique identifier that you use to retry a request. If you retry a
 -- request, use the same @ClientToken@ you specified in the initial
 -- request.
 --
 -- Using the same @ClientToken@ prevents creating the tape multiple times.
-ctrqClientToken :: Lens' CreateTapes Text
-ctrqClientToken = lens _ctrqClientToken (\ s a -> s{_ctrqClientToken = a});
+ctClientToken :: Lens' CreateTapes Text
+ctClientToken = lens _ctClientToken (\ s a -> s{_ctClientToken = a});
 
 -- | The number of virtual tapes you want to create.
-ctrqNumTapesToCreate :: Lens' CreateTapes Natural
-ctrqNumTapesToCreate = lens _ctrqNumTapesToCreate (\ s a -> s{_ctrqNumTapesToCreate = a}) . _Nat;
+ctNumTapesToCreate :: Lens' CreateTapes Natural
+ctNumTapesToCreate = lens _ctNumTapesToCreate (\ s a -> s{_ctNumTapesToCreate = a}) . _Nat;
 
 -- | A prefix you append to the barcode of the virtual tape you are creating.
 -- This makes a barcode unique.
 --
 -- The prefix must be 1 to 4 characters in length and must be upper-case
 -- letters A-Z.
-ctrqTapeBarcodePrefix :: Lens' CreateTapes Text
-ctrqTapeBarcodePrefix = lens _ctrqTapeBarcodePrefix (\ s a -> s{_ctrqTapeBarcodePrefix = a});
+ctTapeBarcodePrefix :: Lens' CreateTapes Text
+ctTapeBarcodePrefix = lens _ctTapeBarcodePrefix (\ s a -> s{_ctTapeBarcodePrefix = a});
 
 instance AWSRequest CreateTapes where
         type Sv CreateTapes = StorageGateway
@@ -142,11 +142,11 @@ instance ToHeaders CreateTapes where
 instance ToJSON CreateTapes where
         toJSON CreateTapes'{..}
           = object
-              ["GatewayARN" .= _ctrqGatewayARN,
-               "TapeSizeInBytes" .= _ctrqTapeSizeInBytes,
-               "ClientToken" .= _ctrqClientToken,
-               "NumTapesToCreate" .= _ctrqNumTapesToCreate,
-               "TapeBarcodePrefix" .= _ctrqTapeBarcodePrefix]
+              ["GatewayARN" .= _ctGatewayARN,
+               "TapeSizeInBytes" .= _ctTapeSizeInBytes,
+               "ClientToken" .= _ctClientToken,
+               "NumTapesToCreate" .= _ctNumTapesToCreate,
+               "TapeBarcodePrefix" .= _ctTapeBarcodePrefix]
 
 instance ToPath CreateTapes where
         toPath = const "/"

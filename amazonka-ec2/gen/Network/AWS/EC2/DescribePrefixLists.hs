@@ -31,11 +31,11 @@ module Network.AWS.EC2.DescribePrefixLists
     -- ** Request constructor
     , describePrefixLists
     -- ** Request lenses
-    , dplrqFilters
-    , dplrqNextToken
-    , dplrqPrefixListIds
-    , dplrqDryRun
-    , dplrqMaxResults
+    , dplFilters
+    , dplNextToken
+    , dplPrefixListIds
+    , dplDryRun
+    , dplMaxResults
 
     -- * Response
     , DescribePrefixListsResponse
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dplrqFilters'
+-- * 'dplFilters'
 --
--- * 'dplrqNextToken'
+-- * 'dplNextToken'
 --
--- * 'dplrqPrefixListIds'
+-- * 'dplPrefixListIds'
 --
--- * 'dplrqDryRun'
+-- * 'dplDryRun'
 --
--- * 'dplrqMaxResults'
+-- * 'dplMaxResults'
 data DescribePrefixLists = DescribePrefixLists'
-    { _dplrqFilters       :: !(Maybe [Filter])
-    , _dplrqNextToken     :: !(Maybe Text)
-    , _dplrqPrefixListIds :: !(Maybe [Text])
-    , _dplrqDryRun        :: !(Maybe Bool)
-    , _dplrqMaxResults    :: !(Maybe Int)
+    { _dplFilters       :: !(Maybe [Filter])
+    , _dplNextToken     :: !(Maybe Text)
+    , _dplPrefixListIds :: !(Maybe [Text])
+    , _dplDryRun        :: !(Maybe Bool)
+    , _dplMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePrefixLists' smart constructor.
 describePrefixLists :: DescribePrefixLists
 describePrefixLists =
     DescribePrefixLists'
-    { _dplrqFilters = Nothing
-    , _dplrqNextToken = Nothing
-    , _dplrqPrefixListIds = Nothing
-    , _dplrqDryRun = Nothing
-    , _dplrqMaxResults = Nothing
+    { _dplFilters = Nothing
+    , _dplNextToken = Nothing
+    , _dplPrefixListIds = Nothing
+    , _dplDryRun = Nothing
+    , _dplMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -90,24 +90,24 @@ describePrefixLists =
 --
 -- -   @prefix-list-name@: The name of a prefix list.
 --
-dplrqFilters :: Lens' DescribePrefixLists [Filter]
-dplrqFilters = lens _dplrqFilters (\ s a -> s{_dplrqFilters = a}) . _Default;
+dplFilters :: Lens' DescribePrefixLists [Filter]
+dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
-dplrqNextToken :: Lens' DescribePrefixLists (Maybe Text)
-dplrqNextToken = lens _dplrqNextToken (\ s a -> s{_dplrqNextToken = a});
+dplNextToken :: Lens' DescribePrefixLists (Maybe Text)
+dplNextToken = lens _dplNextToken (\ s a -> s{_dplNextToken = a});
 
 -- | One or more prefix list IDs.
-dplrqPrefixListIds :: Lens' DescribePrefixLists [Text]
-dplrqPrefixListIds = lens _dplrqPrefixListIds (\ s a -> s{_dplrqPrefixListIds = a}) . _Default;
+dplPrefixListIds :: Lens' DescribePrefixLists [Text]
+dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dplrqDryRun :: Lens' DescribePrefixLists (Maybe Bool)
-dplrqDryRun = lens _dplrqDryRun (\ s a -> s{_dplrqDryRun = a});
+dplDryRun :: Lens' DescribePrefixLists (Maybe Bool)
+dplDryRun = lens _dplDryRun (\ s a -> s{_dplDryRun = a});
 
 -- | The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
@@ -115,8 +115,8 @@ dplrqDryRun = lens _dplrqDryRun (\ s a -> s{_dplrqDryRun = a});
 --
 -- Constraint: If the value specified is greater than 1000, we return only
 -- 1000 items.
-dplrqMaxResults :: Lens' DescribePrefixLists (Maybe Int)
-dplrqMaxResults = lens _dplrqMaxResults (\ s a -> s{_dplrqMaxResults = a});
+dplMaxResults :: Lens' DescribePrefixLists (Maybe Int)
+dplMaxResults = lens _dplMaxResults (\ s a -> s{_dplMaxResults = a});
 
 instance AWSRequest DescribePrefixLists where
         type Sv DescribePrefixLists = EC2
@@ -143,11 +143,11 @@ instance ToQuery DescribePrefixLists where
           = mconcat
               ["Action" =: ("DescribePrefixLists" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dplrqFilters),
-               "NextToken" =: _dplrqNextToken,
-               toQuery (toQueryList "item" <$> _dplrqPrefixListIds),
-               "DryRun" =: _dplrqDryRun,
-               "MaxResults" =: _dplrqMaxResults]
+               toQuery (toQueryList "Filter" <$> _dplFilters),
+               "NextToken" =: _dplNextToken,
+               toQuery (toQueryList "item" <$> _dplPrefixListIds),
+               "DryRun" =: _dplDryRun,
+               "MaxResults" =: _dplMaxResults]
 
 -- | /See:/ 'describePrefixListsResponse' smart constructor.
 --

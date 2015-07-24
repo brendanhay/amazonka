@@ -33,9 +33,9 @@ module Network.AWS.IAM.ListVirtualMFADevices
     -- ** Request constructor
     , listVirtualMFADevices
     -- ** Request lenses
-    , lvmdrqAssignmentStatus
-    , lvmdrqMaxItems
-    , lvmdrqMarker
+    , lvmdAssignmentStatus
+    , lvmdMaxItems
+    , lvmdMarker
 
     -- * Response
     , ListVirtualMFADevicesResponse
@@ -58,31 +58,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvmdrqAssignmentStatus'
+-- * 'lvmdAssignmentStatus'
 --
--- * 'lvmdrqMaxItems'
+-- * 'lvmdMaxItems'
 --
--- * 'lvmdrqMarker'
+-- * 'lvmdMarker'
 data ListVirtualMFADevices = ListVirtualMFADevices'
-    { _lvmdrqAssignmentStatus :: !(Maybe AssignmentStatusType)
-    , _lvmdrqMaxItems         :: !(Maybe Nat)
-    , _lvmdrqMarker           :: !(Maybe Text)
+    { _lvmdAssignmentStatus :: !(Maybe AssignmentStatusType)
+    , _lvmdMaxItems         :: !(Maybe Nat)
+    , _lvmdMarker           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVirtualMFADevices' smart constructor.
 listVirtualMFADevices :: ListVirtualMFADevices
 listVirtualMFADevices =
     ListVirtualMFADevices'
-    { _lvmdrqAssignmentStatus = Nothing
-    , _lvmdrqMaxItems = Nothing
-    , _lvmdrqMarker = Nothing
+    { _lvmdAssignmentStatus = Nothing
+    , _lvmdMaxItems = Nothing
+    , _lvmdMarker = Nothing
     }
 
 -- | The status (unassigned or assigned) of the devices to list. If you do
 -- not specify an @AssignmentStatus@, the action defaults to @Any@ which
 -- lists both assigned and unassigned virtual MFA devices.
-lvmdrqAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
-lvmdrqAssignmentStatus = lens _lvmdrqAssignmentStatus (\ s a -> s{_lvmdrqAssignmentStatus = a});
+lvmdAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
+lvmdAssignmentStatus = lens _lvmdAssignmentStatus (\ s a -> s{_lvmdAssignmentStatus = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -90,21 +90,21 @@ lvmdrqAssignmentStatus = lens _lvmdrqAssignmentStatus (\ s a -> s{_lvmdrqAssignm
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lvmdrqMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
-lvmdrqMaxItems = lens _lvmdrqMaxItems (\ s a -> s{_lvmdrqMaxItems = a}) . mapping _Nat;
+lvmdMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
+lvmdMaxItems = lens _lvmdMaxItems (\ s a -> s{_lvmdMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lvmdrqMarker :: Lens' ListVirtualMFADevices (Maybe Text)
-lvmdrqMarker = lens _lvmdrqMarker (\ s a -> s{_lvmdrqMarker = a});
+lvmdMarker :: Lens' ListVirtualMFADevices (Maybe Text)
+lvmdMarker = lens _lvmdMarker (\ s a -> s{_lvmdMarker = a});
 
 instance AWSPager ListVirtualMFADevices where
         page rq rs
           | stop (rs ^. lvmdrsIsTruncated) = Nothing
           | isNothing (rs ^. lvmdrsMarker) = Nothing
           | otherwise =
-            Just $ rq & lvmdrqMarker .~ rs ^. lvmdrsMarker
+            Just $ rq & lvmdMarker .~ rs ^. lvmdrsMarker
 
 instance AWSRequest ListVirtualMFADevices where
         type Sv ListVirtualMFADevices = IAM
@@ -132,9 +132,8 @@ instance ToQuery ListVirtualMFADevices where
           = mconcat
               ["Action" =: ("ListVirtualMFADevices" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "AssignmentStatus" =: _lvmdrqAssignmentStatus,
-               "MaxItems" =: _lvmdrqMaxItems,
-               "Marker" =: _lvmdrqMarker]
+               "AssignmentStatus" =: _lvmdAssignmentStatus,
+               "MaxItems" =: _lvmdMaxItems, "Marker" =: _lvmdMarker]
 
 -- | Contains the response to a successful ListVirtualMFADevices request.
 --

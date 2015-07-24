@@ -33,8 +33,8 @@ module Network.AWS.IAM.DetachGroupPolicy
     -- ** Request constructor
     , detachGroupPolicy
     -- ** Request lenses
-    , dgprqGroupName
-    , dgprqPolicyARN
+    , dgpGroupName
+    , dgpPolicyARN
 
     -- * Response
     , DetachGroupPolicyResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgprqGroupName'
+-- * 'dgpGroupName'
 --
--- * 'dgprqPolicyARN'
+-- * 'dgpPolicyARN'
 data DetachGroupPolicy = DetachGroupPolicy'
-    { _dgprqGroupName :: !Text
-    , _dgprqPolicyARN :: !Text
+    { _dgpGroupName :: !Text
+    , _dgpPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachGroupPolicy' smart constructor.
 detachGroupPolicy :: Text -> Text -> DetachGroupPolicy
 detachGroupPolicy pGroupName_ pPolicyARN_ =
     DetachGroupPolicy'
-    { _dgprqGroupName = pGroupName_
-    , _dgprqPolicyARN = pPolicyARN_
+    { _dgpGroupName = pGroupName_
+    , _dgpPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the group to detach the policy
 -- from.
-dgprqGroupName :: Lens' DetachGroupPolicy Text
-dgprqGroupName = lens _dgprqGroupName (\ s a -> s{_dgprqGroupName = a});
+dgpGroupName :: Lens' DetachGroupPolicy Text
+dgpGroupName = lens _dgpGroupName (\ s a -> s{_dgpGroupName = a});
 
 -- | FIXME: Undocumented member.
-dgprqPolicyARN :: Lens' DetachGroupPolicy Text
-dgprqPolicyARN = lens _dgprqPolicyARN (\ s a -> s{_dgprqPolicyARN = a});
+dgpPolicyARN :: Lens' DetachGroupPolicy Text
+dgpPolicyARN = lens _dgpPolicyARN (\ s a -> s{_dgpPolicyARN = a});
 
 instance AWSRequest DetachGroupPolicy where
         type Sv DetachGroupPolicy = IAM
@@ -93,8 +93,8 @@ instance ToQuery DetachGroupPolicy where
           = mconcat
               ["Action" =: ("DetachGroupPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _dgprqGroupName,
-               "PolicyArn" =: _dgprqPolicyARN]
+               "GroupName" =: _dgpGroupName,
+               "PolicyArn" =: _dgpPolicyARN]
 
 -- | /See:/ 'detachGroupPolicyResponse' smart constructor.
 data DetachGroupPolicyResponse =

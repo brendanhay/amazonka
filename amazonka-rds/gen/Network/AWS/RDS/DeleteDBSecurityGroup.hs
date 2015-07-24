@@ -30,7 +30,7 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
     -- ** Request constructor
     , deleteDBSecurityGroup
     -- ** Request lenses
-    , ddsgrqDBSecurityGroupName
+    , ddsgDBSecurityGroupName
 
     -- * Response
     , DeleteDBSecurityGroupResponse
@@ -49,16 +49,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsgrqDBSecurityGroupName'
+-- * 'ddsgDBSecurityGroupName'
 newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
-    { _ddsgrqDBSecurityGroupName :: Text
+    { _ddsgDBSecurityGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSecurityGroup' smart constructor.
 deleteDBSecurityGroup :: Text -> DeleteDBSecurityGroup
 deleteDBSecurityGroup pDBSecurityGroupName_ =
     DeleteDBSecurityGroup'
-    { _ddsgrqDBSecurityGroupName = pDBSecurityGroupName_
+    { _ddsgDBSecurityGroupName = pDBSecurityGroupName_
     }
 
 -- | The name of the DB security group to delete.
@@ -72,8 +72,8 @@ deleteDBSecurityGroup pDBSecurityGroupName_ =
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 -- -   Must not be \"Default\"
 -- -   May not contain spaces
-ddsgrqDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
-ddsgrqDBSecurityGroupName = lens _ddsgrqDBSecurityGroupName (\ s a -> s{_ddsgrqDBSecurityGroupName = a});
+ddsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
+ddsgDBSecurityGroupName = lens _ddsgDBSecurityGroupName (\ s a -> s{_ddsgDBSecurityGroupName = a});
 
 instance AWSRequest DeleteDBSecurityGroup where
         type Sv DeleteDBSecurityGroup = RDS
@@ -93,7 +93,7 @@ instance ToQuery DeleteDBSecurityGroup where
           = mconcat
               ["Action" =: ("DeleteDBSecurityGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBSecurityGroupName" =: _ddsgrqDBSecurityGroupName]
+               "DBSecurityGroupName" =: _ddsgDBSecurityGroupName]
 
 -- | /See:/ 'deleteDBSecurityGroupResponse' smart constructor.
 data DeleteDBSecurityGroupResponse =

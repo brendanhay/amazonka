@@ -30,8 +30,8 @@ module Network.AWS.RDS.RemoveTagsFromResource
     -- ** Request constructor
     , removeTagsFromResource
     -- ** Request lenses
-    , rtfrrqResourceName
-    , rtfrrqTagKeys
+    , rtfrResourceName
+    , rtfrTagKeys
 
     -- * Response
     , RemoveTagsFromResourceResponse
@@ -50,31 +50,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtfrrqResourceName'
+-- * 'rtfrResourceName'
 --
--- * 'rtfrrqTagKeys'
+-- * 'rtfrTagKeys'
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrrqResourceName :: !Text
-    , _rtfrrqTagKeys      :: ![Text]
+    { _rtfrResourceName :: !Text
+    , _rtfrTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromResource' smart constructor.
 removeTagsFromResource :: Text -> RemoveTagsFromResource
 removeTagsFromResource pResourceName_ =
     RemoveTagsFromResource'
-    { _rtfrrqResourceName = pResourceName_
-    , _rtfrrqTagKeys = mempty
+    { _rtfrResourceName = pResourceName_
+    , _rtfrTagKeys = mempty
     }
 
 -- | The Amazon RDS resource the tags will be removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
-rtfrrqResourceName :: Lens' RemoveTagsFromResource Text
-rtfrrqResourceName = lens _rtfrrqResourceName (\ s a -> s{_rtfrrqResourceName = a});
+rtfrResourceName :: Lens' RemoveTagsFromResource Text
+rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
 
 -- | The tag key (name) of the tag to be removed.
-rtfrrqTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrrqTagKeys = lens _rtfrrqTagKeys (\ s a -> s{_rtfrrqTagKeys = a});
+rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a});
 
 instance AWSRequest RemoveTagsFromResource where
         type Sv RemoveTagsFromResource = RDS
@@ -96,8 +96,8 @@ instance ToQuery RemoveTagsFromResource where
               ["Action" =:
                  ("RemoveTagsFromResource" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "ResourceName" =: _rtfrrqResourceName,
-               "TagKeys" =: toQueryList "member" _rtfrrqTagKeys]
+               "ResourceName" =: _rtfrResourceName,
+               "TagKeys" =: toQueryList "member" _rtfrTagKeys]
 
 -- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse =

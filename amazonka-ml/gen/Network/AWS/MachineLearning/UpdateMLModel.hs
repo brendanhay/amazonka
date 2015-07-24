@@ -30,9 +30,9 @@ module Network.AWS.MachineLearning.UpdateMLModel
     -- ** Request constructor
     , updateMLModel
     -- ** Request lenses
-    , umlmrqMLModelName
-    , umlmrqScoreThreshold
-    , umlmrqMLModelId
+    , umlmMLModelName
+    , umlmScoreThreshold
+    , umlmMLModelId
 
     -- * Response
     , UpdateMLModelResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'umlmrqMLModelName'
+-- * 'umlmMLModelName'
 --
--- * 'umlmrqScoreThreshold'
+-- * 'umlmScoreThreshold'
 --
--- * 'umlmrqMLModelId'
+-- * 'umlmMLModelId'
 data UpdateMLModel = UpdateMLModel'
-    { _umlmrqMLModelName    :: !(Maybe Text)
-    , _umlmrqScoreThreshold :: !(Maybe Double)
-    , _umlmrqMLModelId      :: !Text
+    { _umlmMLModelName    :: !(Maybe Text)
+    , _umlmScoreThreshold :: !(Maybe Double)
+    , _umlmMLModelId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMLModel' smart constructor.
 updateMLModel :: Text -> UpdateMLModel
 updateMLModel pMLModelId_ =
     UpdateMLModel'
-    { _umlmrqMLModelName = Nothing
-    , _umlmrqScoreThreshold = Nothing
-    , _umlmrqMLModelId = pMLModelId_
+    { _umlmMLModelName = Nothing
+    , _umlmScoreThreshold = Nothing
+    , _umlmMLModelId = pMLModelId_
     }
 
 -- | A user-supplied name or description of the @MLModel@.
-umlmrqMLModelName :: Lens' UpdateMLModel (Maybe Text)
-umlmrqMLModelName = lens _umlmrqMLModelName (\ s a -> s{_umlmrqMLModelName = a});
+umlmMLModelName :: Lens' UpdateMLModel (Maybe Text)
+umlmMLModelName = lens _umlmMLModelName (\ s a -> s{_umlmMLModelName = a});
 
 -- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks
 -- the boundary between a positive prediction and a negative prediction.
@@ -83,12 +83,12 @@ umlmrqMLModelName = lens _umlmrqMLModelName (\ s a -> s{_umlmrqMLModelName = a})
 -- positive result from the @MLModel@, such as @true@. Output values less
 -- than the @ScoreThreshold@ receive a negative response from the
 -- @MLModel@, such as @false@.
-umlmrqScoreThreshold :: Lens' UpdateMLModel (Maybe Double)
-umlmrqScoreThreshold = lens _umlmrqScoreThreshold (\ s a -> s{_umlmrqScoreThreshold = a});
+umlmScoreThreshold :: Lens' UpdateMLModel (Maybe Double)
+umlmScoreThreshold = lens _umlmScoreThreshold (\ s a -> s{_umlmScoreThreshold = a});
 
 -- | The ID assigned to the @MLModel@ during creation.
-umlmrqMLModelId :: Lens' UpdateMLModel Text
-umlmrqMLModelId = lens _umlmrqMLModelId (\ s a -> s{_umlmrqMLModelId = a});
+umlmMLModelId :: Lens' UpdateMLModel Text
+umlmMLModelId = lens _umlmMLModelId (\ s a -> s{_umlmMLModelId = a});
 
 instance AWSRequest UpdateMLModel where
         type Sv UpdateMLModel = MachineLearning
@@ -112,9 +112,9 @@ instance ToHeaders UpdateMLModel where
 instance ToJSON UpdateMLModel where
         toJSON UpdateMLModel'{..}
           = object
-              ["MLModelName" .= _umlmrqMLModelName,
-               "ScoreThreshold" .= _umlmrqScoreThreshold,
-               "MLModelId" .= _umlmrqMLModelId]
+              ["MLModelName" .= _umlmMLModelName,
+               "ScoreThreshold" .= _umlmScoreThreshold,
+               "MLModelId" .= _umlmMLModelId]
 
 instance ToPath UpdateMLModel where
         toPath = const "/"

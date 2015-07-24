@@ -33,10 +33,10 @@ module Network.AWS.CloudFormation.SignalResource
     -- ** Request constructor
     , signalResource
     -- ** Request lenses
-    , srrqStackName
-    , srrqLogicalResourceId
-    , srrqUniqueId
-    , srrqStatus
+    , sigStackName
+    , sigLogicalResourceId
+    , sigUniqueId
+    , sigStatus
 
     -- * Response
     , SignalResourceResponse
@@ -55,52 +55,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srrqStackName'
+-- * 'sigStackName'
 --
--- * 'srrqLogicalResourceId'
+-- * 'sigLogicalResourceId'
 --
--- * 'srrqUniqueId'
+-- * 'sigUniqueId'
 --
--- * 'srrqStatus'
+-- * 'sigStatus'
 data SignalResource = SignalResource'
-    { _srrqStackName         :: !Text
-    , _srrqLogicalResourceId :: !Text
-    , _srrqUniqueId          :: !Text
-    , _srrqStatus            :: !ResourceSignalStatus
+    { _sigStackName         :: !Text
+    , _sigLogicalResourceId :: !Text
+    , _sigUniqueId          :: !Text
+    , _sigStatus            :: !ResourceSignalStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SignalResource' smart constructor.
 signalResource :: Text -> Text -> Text -> ResourceSignalStatus -> SignalResource
 signalResource pStackName_ pLogicalResourceId_ pUniqueId_ pStatus_ =
     SignalResource'
-    { _srrqStackName = pStackName_
-    , _srrqLogicalResourceId = pLogicalResourceId_
-    , _srrqUniqueId = pUniqueId_
-    , _srrqStatus = pStatus_
+    { _sigStackName = pStackName_
+    , _sigLogicalResourceId = pLogicalResourceId_
+    , _sigUniqueId = pUniqueId_
+    , _sigStatus = pStatus_
     }
 
 -- | The stack name or unique stack ID that includes the resource that you
 -- want to signal.
-srrqStackName :: Lens' SignalResource Text
-srrqStackName = lens _srrqStackName (\ s a -> s{_srrqStackName = a});
+sigStackName :: Lens' SignalResource Text
+sigStackName = lens _sigStackName (\ s a -> s{_sigStackName = a});
 
 -- | The logical ID of the resource that you want to signal. The logical ID
 -- is the name of the resource that given in the template.
-srrqLogicalResourceId :: Lens' SignalResource Text
-srrqLogicalResourceId = lens _srrqLogicalResourceId (\ s a -> s{_srrqLogicalResourceId = a});
+sigLogicalResourceId :: Lens' SignalResource Text
+sigLogicalResourceId = lens _sigLogicalResourceId (\ s a -> s{_sigLogicalResourceId = a});
 
 -- | A unique ID of the signal. When you signal Amazon EC2 instances or Auto
 -- Scaling groups, specify the instance ID that you are signaling as the
 -- unique ID. If you send multiple signals to a single resource (such as
 -- signaling a wait condition), each signal requires a different unique ID.
-srrqUniqueId :: Lens' SignalResource Text
-srrqUniqueId = lens _srrqUniqueId (\ s a -> s{_srrqUniqueId = a});
+sigUniqueId :: Lens' SignalResource Text
+sigUniqueId = lens _sigUniqueId (\ s a -> s{_sigUniqueId = a});
 
 -- | The status of the signal, which is either success or failure. A failure
 -- signal causes AWS CloudFormation to immediately fail the stack creation
 -- or update.
-srrqStatus :: Lens' SignalResource ResourceSignalStatus
-srrqStatus = lens _srrqStatus (\ s a -> s{_srrqStatus = a});
+sigStatus :: Lens' SignalResource ResourceSignalStatus
+sigStatus = lens _sigStatus (\ s a -> s{_sigStatus = a});
 
 instance AWSRequest SignalResource where
         type Sv SignalResource = CloudFormation
@@ -119,9 +119,9 @@ instance ToQuery SignalResource where
           = mconcat
               ["Action" =: ("SignalResource" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _srrqStackName,
-               "LogicalResourceId" =: _srrqLogicalResourceId,
-               "UniqueId" =: _srrqUniqueId, "Status" =: _srrqStatus]
+               "StackName" =: _sigStackName,
+               "LogicalResourceId" =: _sigLogicalResourceId,
+               "UniqueId" =: _sigUniqueId, "Status" =: _sigStatus]
 
 -- | /See:/ 'signalResourceResponse' smart constructor.
 data SignalResourceResponse =

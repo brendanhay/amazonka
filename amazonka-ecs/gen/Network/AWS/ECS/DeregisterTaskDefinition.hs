@@ -38,7 +38,7 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     -- ** Request constructor
     , deregisterTaskDefinition
     -- ** Request lenses
-    , drqTaskDefinition
+    , derTaskDefinition
 
     -- * Response
     , DeregisterTaskDefinitionResponse
@@ -58,23 +58,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqTaskDefinition'
+-- * 'derTaskDefinition'
 newtype DeregisterTaskDefinition = DeregisterTaskDefinition'
-    { _drqTaskDefinition :: Text
+    { _derTaskDefinition :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterTaskDefinition' smart constructor.
 deregisterTaskDefinition :: Text -> DeregisterTaskDefinition
 deregisterTaskDefinition pTaskDefinition_ =
     DeregisterTaskDefinition'
-    { _drqTaskDefinition = pTaskDefinition_
+    { _derTaskDefinition = pTaskDefinition_
     }
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to deregister. You must
 -- specify a @revision@.
-drqTaskDefinition :: Lens' DeregisterTaskDefinition Text
-drqTaskDefinition = lens _drqTaskDefinition (\ s a -> s{_drqTaskDefinition = a});
+derTaskDefinition :: Lens' DeregisterTaskDefinition Text
+derTaskDefinition = lens _derTaskDefinition (\ s a -> s{_derTaskDefinition = a});
 
 instance AWSRequest DeregisterTaskDefinition where
         type Sv DeregisterTaskDefinition = ECS
@@ -99,7 +99,7 @@ instance ToHeaders DeregisterTaskDefinition where
 
 instance ToJSON DeregisterTaskDefinition where
         toJSON DeregisterTaskDefinition'{..}
-          = object ["taskDefinition" .= _drqTaskDefinition]
+          = object ["taskDefinition" .= _derTaskDefinition]
 
 instance ToPath DeregisterTaskDefinition where
         toPath = const "/"

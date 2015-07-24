@@ -31,9 +31,9 @@ module Network.AWS.KMS.CreateKey
     -- ** Request constructor
     , createKey
     -- ** Request lenses
-    , ckrqKeyUsage
-    , ckrqPolicy
-    , ckrqDescription
+    , ckKeyUsage
+    , ckPolicy
+    , ckDescription
 
     -- * Response
     , CreateKeyResponse
@@ -53,41 +53,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ckrqKeyUsage'
+-- * 'ckKeyUsage'
 --
--- * 'ckrqPolicy'
+-- * 'ckPolicy'
 --
--- * 'ckrqDescription'
+-- * 'ckDescription'
 data CreateKey = CreateKey'
-    { _ckrqKeyUsage    :: !(Maybe KeyUsageType)
-    , _ckrqPolicy      :: !(Maybe Text)
-    , _ckrqDescription :: !(Maybe Text)
+    { _ckKeyUsage    :: !(Maybe KeyUsageType)
+    , _ckPolicy      :: !(Maybe Text)
+    , _ckDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKey' smart constructor.
 createKey :: CreateKey
 createKey =
     CreateKey'
-    { _ckrqKeyUsage = Nothing
-    , _ckrqPolicy = Nothing
-    , _ckrqDescription = Nothing
+    { _ckKeyUsage = Nothing
+    , _ckPolicy = Nothing
+    , _ckDescription = Nothing
     }
 
 -- | Specifies the intended use of the key. Currently this defaults to
 -- ENCRYPT\/DECRYPT, and only symmetric encryption and decryption are
 -- supported.
-ckrqKeyUsage :: Lens' CreateKey (Maybe KeyUsageType)
-ckrqKeyUsage = lens _ckrqKeyUsage (\ s a -> s{_ckrqKeyUsage = a});
+ckKeyUsage :: Lens' CreateKey (Maybe KeyUsageType)
+ckKeyUsage = lens _ckKeyUsage (\ s a -> s{_ckKeyUsage = a});
 
 -- | Policy to be attached to the key. This is required and delegates back to
 -- the account. The key is the root of trust.
-ckrqPolicy :: Lens' CreateKey (Maybe Text)
-ckrqPolicy = lens _ckrqPolicy (\ s a -> s{_ckrqPolicy = a});
+ckPolicy :: Lens' CreateKey (Maybe Text)
+ckPolicy = lens _ckPolicy (\ s a -> s{_ckPolicy = a});
 
 -- | Description of the key. We recommend that you choose a description that
 -- helps your customer decide whether the key is appropriate for a task.
-ckrqDescription :: Lens' CreateKey (Maybe Text)
-ckrqDescription = lens _ckrqDescription (\ s a -> s{_ckrqDescription = a});
+ckDescription :: Lens' CreateKey (Maybe Text)
+ckDescription = lens _ckDescription (\ s a -> s{_ckDescription = a});
 
 instance AWSRequest CreateKey where
         type Sv CreateKey = KMS
@@ -111,9 +111,8 @@ instance ToHeaders CreateKey where
 instance ToJSON CreateKey where
         toJSON CreateKey'{..}
           = object
-              ["KeyUsage" .= _ckrqKeyUsage,
-               "Policy" .= _ckrqPolicy,
-               "Description" .= _ckrqDescription]
+              ["KeyUsage" .= _ckKeyUsage, "Policy" .= _ckPolicy,
+               "Description" .= _ckDescription]
 
 instance ToPath CreateKey where
         toPath = const "/"

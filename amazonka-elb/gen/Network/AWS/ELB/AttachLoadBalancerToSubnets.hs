@@ -33,8 +33,8 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     -- ** Request constructor
     , attachLoadBalancerToSubnets
     -- ** Request lenses
-    , albtsrqLoadBalancerName
-    , albtsrqSubnets
+    , albtsLoadBalancerName
+    , albtsSubnets
 
     -- * Response
     , AttachLoadBalancerToSubnetsResponse
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'albtsrqLoadBalancerName'
+-- * 'albtsLoadBalancerName'
 --
--- * 'albtsrqSubnets'
+-- * 'albtsSubnets'
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
-    { _albtsrqLoadBalancerName :: !Text
-    , _albtsrqSubnets          :: ![Text]
+    { _albtsLoadBalancerName :: !Text
+    , _albtsSubnets          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancerToSubnets' smart constructor.
 attachLoadBalancerToSubnets :: Text -> AttachLoadBalancerToSubnets
 attachLoadBalancerToSubnets pLoadBalancerName_ =
     AttachLoadBalancerToSubnets'
-    { _albtsrqLoadBalancerName = pLoadBalancerName_
-    , _albtsrqSubnets = mempty
+    { _albtsLoadBalancerName = pLoadBalancerName_
+    , _albtsSubnets = mempty
     }
 
 -- | The name of the load balancer.
-albtsrqLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
-albtsrqLoadBalancerName = lens _albtsrqLoadBalancerName (\ s a -> s{_albtsrqLoadBalancerName = a});
+albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
+albtsLoadBalancerName = lens _albtsLoadBalancerName (\ s a -> s{_albtsLoadBalancerName = a});
 
 -- | The IDs of the subnets to add for the load balancer. You can add only
 -- one subnet per Availability Zone.
-albtsrqSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
-albtsrqSubnets = lens _albtsrqSubnets (\ s a -> s{_albtsrqSubnets = a});
+albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
+albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a});
 
 instance AWSRequest AttachLoadBalancerToSubnets where
         type Sv AttachLoadBalancerToSubnets = ELB
@@ -105,8 +105,8 @@ instance ToQuery AttachLoadBalancerToSubnets where
               ["Action" =:
                  ("AttachLoadBalancerToSubnets" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _albtsrqLoadBalancerName,
-               "Subnets" =: toQueryList "member" _albtsrqSubnets]
+               "LoadBalancerName" =: _albtsLoadBalancerName,
+               "Subnets" =: toQueryList "member" _albtsSubnets]
 
 -- | /See:/ 'attachLoadBalancerToSubnetsResponse' smart constructor.
 --

@@ -36,8 +36,8 @@ module Network.AWS.Route53.ListHealthChecks
     -- ** Request constructor
     , listHealthChecks
     -- ** Request lenses
-    , lhcrqMaxItems
-    , lhcrqMarker
+    , lhcMaxItems
+    , lhcMarker
 
     -- * Response
     , ListHealthChecksResponse
@@ -73,39 +73,39 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhcrqMaxItems'
+-- * 'lhcMaxItems'
 --
--- * 'lhcrqMarker'
+-- * 'lhcMarker'
 data ListHealthChecks = ListHealthChecks'
-    { _lhcrqMaxItems :: !(Maybe Text)
-    , _lhcrqMarker   :: !(Maybe Text)
+    { _lhcMaxItems :: !(Maybe Text)
+    , _lhcMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHealthChecks' smart constructor.
 listHealthChecks :: ListHealthChecks
 listHealthChecks =
     ListHealthChecks'
-    { _lhcrqMaxItems = Nothing
-    , _lhcrqMarker = Nothing
+    { _lhcMaxItems = Nothing
+    , _lhcMarker = Nothing
     }
 
 -- | Specify the maximum number of health checks to return per page of
 -- results.
-lhcrqMaxItems :: Lens' ListHealthChecks (Maybe Text)
-lhcrqMaxItems = lens _lhcrqMaxItems (\ s a -> s{_lhcrqMaxItems = a});
+lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
+lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lhcrqMarker :: Lens' ListHealthChecks (Maybe Text)
-lhcrqMarker = lens _lhcrqMarker (\ s a -> s{_lhcrqMarker = a});
+lhcMarker :: Lens' ListHealthChecks (Maybe Text)
+lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a});
 
 instance AWSPager ListHealthChecks where
         page rq rs
           | stop (rs ^. lhcrsIsTruncated) = Nothing
           | isNothing (rs ^. lhcrsNextMarker) = Nothing
           | otherwise =
-            Just $ rq & lhcrqMarker .~ rs ^. lhcrsNextMarker
+            Just $ rq & lhcMarker .~ rs ^. lhcrsNextMarker
 
 instance AWSRequest ListHealthChecks where
         type Sv ListHealthChecks = Route53
@@ -131,8 +131,7 @@ instance ToPath ListHealthChecks where
 instance ToQuery ListHealthChecks where
         toQuery ListHealthChecks'{..}
           = mconcat
-              ["maxitems" =: _lhcrqMaxItems,
-               "marker" =: _lhcrqMarker]
+              ["maxitems" =: _lhcMaxItems, "marker" =: _lhcMarker]
 
 -- | A complex type that contains the response for the request.
 --

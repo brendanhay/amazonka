@@ -30,8 +30,8 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     -- ** Request constructor
     , setPlatformApplicationAttributes
     -- ** Request lenses
-    , spaarqPlatformApplicationARN
-    , spaarqAttributes
+    , spaaPlatformApplicationARN
+    , spaaAttributes
 
     -- * Response
     , SetPlatformApplicationAttributesResponse
@@ -50,25 +50,25 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'spaarqPlatformApplicationARN'
+-- * 'spaaPlatformApplicationARN'
 --
--- * 'spaarqAttributes'
+-- * 'spaaAttributes'
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
-    { _spaarqPlatformApplicationARN :: !Text
-    , _spaarqAttributes             :: !(Map Text Text)
+    { _spaaPlatformApplicationARN :: !Text
+    , _spaaAttributes             :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetPlatformApplicationAttributes' smart constructor.
 setPlatformApplicationAttributes :: Text -> SetPlatformApplicationAttributes
 setPlatformApplicationAttributes pPlatformApplicationARN_ =
     SetPlatformApplicationAttributes'
-    { _spaarqPlatformApplicationARN = pPlatformApplicationARN_
-    , _spaarqAttributes = mempty
+    { _spaaPlatformApplicationARN = pPlatformApplicationARN_
+    , _spaaAttributes = mempty
     }
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-spaarqPlatformApplicationARN :: Lens' SetPlatformApplicationAttributes Text
-spaarqPlatformApplicationARN = lens _spaarqPlatformApplicationARN (\ s a -> s{_spaarqPlatformApplicationARN = a});
+spaaPlatformApplicationARN :: Lens' SetPlatformApplicationAttributes Text
+spaaPlatformApplicationARN = lens _spaaPlatformApplicationARN (\ s a -> s{_spaaPlatformApplicationARN = a});
 
 -- | A map of the platform application attributes. Attributes in this map
 -- include the following:
@@ -90,8 +90,8 @@ spaarqPlatformApplicationARN = lens _spaarqPlatformApplicationARN (\ s a -> s{_s
 -- -   @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
-spaarqAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
-spaarqAttributes = lens _spaarqAttributes (\ s a -> s{_spaarqAttributes = a}) . _Map;
+spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
+spaaAttributes = lens _spaaAttributes (\ s a -> s{_spaaAttributes = a}) . _Map;
 
 instance AWSRequest SetPlatformApplicationAttributes
          where
@@ -119,9 +119,9 @@ instance ToQuery SetPlatformApplicationAttributes
                  ("SetPlatformApplicationAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
                "PlatformApplicationArn" =:
-                 _spaarqPlatformApplicationARN,
+                 _spaaPlatformApplicationARN,
                "Attributes" =:
-                 toQueryMap "entry" "key" "value" _spaarqAttributes]
+                 toQueryMap "entry" "key" "value" _spaaAttributes]
 
 -- | /See:/ 'setPlatformApplicationAttributesResponse' smart constructor.
 data SetPlatformApplicationAttributesResponse =

@@ -32,8 +32,8 @@ module Network.AWS.EC2.RejectVPCPeeringConnection
     -- ** Request constructor
     , rejectVPCPeeringConnection
     -- ** Request lenses
-    , rvpcrqDryRun
-    , rvpcrqVPCPeeringConnectionId
+    , rvpcDryRun
+    , rvpcVPCPeeringConnectionId
 
     -- * Response
     , RejectVPCPeeringConnectionResponse
@@ -53,32 +53,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rvpcrqDryRun'
+-- * 'rvpcDryRun'
 --
--- * 'rvpcrqVPCPeeringConnectionId'
+-- * 'rvpcVPCPeeringConnectionId'
 data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
-    { _rvpcrqDryRun                 :: !(Maybe Bool)
-    , _rvpcrqVPCPeeringConnectionId :: !Text
+    { _rvpcDryRun                 :: !(Maybe Bool)
+    , _rvpcVPCPeeringConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RejectVPCPeeringConnection' smart constructor.
 rejectVPCPeeringConnection :: Text -> RejectVPCPeeringConnection
 rejectVPCPeeringConnection pVPCPeeringConnectionId_ =
     RejectVPCPeeringConnection'
-    { _rvpcrqDryRun = Nothing
-    , _rvpcrqVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    { _rvpcDryRun = Nothing
+    , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rvpcrqDryRun :: Lens' RejectVPCPeeringConnection (Maybe Bool)
-rvpcrqDryRun = lens _rvpcrqDryRun (\ s a -> s{_rvpcrqDryRun = a});
+rvpcDryRun :: Lens' RejectVPCPeeringConnection (Maybe Bool)
+rvpcDryRun = lens _rvpcDryRun (\ s a -> s{_rvpcDryRun = a});
 
 -- | The ID of the VPC peering connection.
-rvpcrqVPCPeeringConnectionId :: Lens' RejectVPCPeeringConnection Text
-rvpcrqVPCPeeringConnectionId = lens _rvpcrqVPCPeeringConnectionId (\ s a -> s{_rvpcrqVPCPeeringConnectionId = a});
+rvpcVPCPeeringConnectionId :: Lens' RejectVPCPeeringConnection Text
+rvpcVPCPeeringConnectionId = lens _rvpcVPCPeeringConnectionId (\ s a -> s{_rvpcVPCPeeringConnectionId = a});
 
 instance AWSRequest RejectVPCPeeringConnection where
         type Sv RejectVPCPeeringConnection = EC2
@@ -103,9 +103,9 @@ instance ToQuery RejectVPCPeeringConnection where
               ["Action" =:
                  ("RejectVPCPeeringConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rvpcrqDryRun,
+               "DryRun" =: _rvpcDryRun,
                "VpcPeeringConnectionId" =:
-                 _rvpcrqVPCPeeringConnectionId]
+                 _rvpcVPCPeeringConnectionId]
 
 -- | /See:/ 'rejectVPCPeeringConnectionResponse' smart constructor.
 --

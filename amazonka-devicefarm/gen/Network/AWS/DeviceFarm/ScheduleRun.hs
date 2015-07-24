@@ -27,12 +27,12 @@ module Network.AWS.DeviceFarm.ScheduleRun
     -- ** Request constructor
     , scheduleRun
     -- ** Request lenses
-    , srrqName
-    , srrqConfiguration
-    , srrqProjectARN
-    , srrqAppARN
-    , srrqDevicePoolARN
-    , srrqTest
+    , srName
+    , srConfiguration
+    , srProjectARN
+    , srAppARN
+    , srDevicePoolARN
+    , srTest
 
     -- * Response
     , ScheduleRunResponse
@@ -54,61 +54,61 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srrqName'
+-- * 'srName'
 --
--- * 'srrqConfiguration'
+-- * 'srConfiguration'
 --
--- * 'srrqProjectARN'
+-- * 'srProjectARN'
 --
--- * 'srrqAppARN'
+-- * 'srAppARN'
 --
--- * 'srrqDevicePoolARN'
+-- * 'srDevicePoolARN'
 --
--- * 'srrqTest'
+-- * 'srTest'
 data ScheduleRun = ScheduleRun'
-    { _srrqName          :: !(Maybe Text)
-    , _srrqConfiguration :: !(Maybe ScheduleRunConfiguration)
-    , _srrqProjectARN    :: !Text
-    , _srrqAppARN        :: !Text
-    , _srrqDevicePoolARN :: !Text
-    , _srrqTest          :: !ScheduleRunTest
+    { _srName          :: !(Maybe Text)
+    , _srConfiguration :: !(Maybe ScheduleRunConfiguration)
+    , _srProjectARN    :: !Text
+    , _srAppARN        :: !Text
+    , _srDevicePoolARN :: !Text
+    , _srTest          :: !ScheduleRunTest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScheduleRun' smart constructor.
 scheduleRun :: Text -> Text -> Text -> ScheduleRunTest -> ScheduleRun
 scheduleRun pProjectARN_ pAppARN_ pDevicePoolARN_ pTest_ =
     ScheduleRun'
-    { _srrqName = Nothing
-    , _srrqConfiguration = Nothing
-    , _srrqProjectARN = pProjectARN_
-    , _srrqAppARN = pAppARN_
-    , _srrqDevicePoolARN = pDevicePoolARN_
-    , _srrqTest = pTest_
+    { _srName = Nothing
+    , _srConfiguration = Nothing
+    , _srProjectARN = pProjectARN_
+    , _srAppARN = pAppARN_
+    , _srDevicePoolARN = pDevicePoolARN_
+    , _srTest = pTest_
     }
 
 -- | The name for the run to be scheduled.
-srrqName :: Lens' ScheduleRun (Maybe Text)
-srrqName = lens _srrqName (\ s a -> s{_srrqName = a});
+srName :: Lens' ScheduleRun (Maybe Text)
+srName = lens _srName (\ s a -> s{_srName = a});
 
 -- | Information about the settings for the run to be scheduled.
-srrqConfiguration :: Lens' ScheduleRun (Maybe ScheduleRunConfiguration)
-srrqConfiguration = lens _srrqConfiguration (\ s a -> s{_srrqConfiguration = a});
+srConfiguration :: Lens' ScheduleRun (Maybe ScheduleRunConfiguration)
+srConfiguration = lens _srConfiguration (\ s a -> s{_srConfiguration = a});
 
 -- | The ARN of the project for the run to be scheduled.
-srrqProjectARN :: Lens' ScheduleRun Text
-srrqProjectARN = lens _srrqProjectARN (\ s a -> s{_srrqProjectARN = a});
+srProjectARN :: Lens' ScheduleRun Text
+srProjectARN = lens _srProjectARN (\ s a -> s{_srProjectARN = a});
 
 -- | The ARN of the app to schedule a run.
-srrqAppARN :: Lens' ScheduleRun Text
-srrqAppARN = lens _srrqAppARN (\ s a -> s{_srrqAppARN = a});
+srAppARN :: Lens' ScheduleRun Text
+srAppARN = lens _srAppARN (\ s a -> s{_srAppARN = a});
 
 -- | The ARN of the device pool for the run to be scheduled.
-srrqDevicePoolARN :: Lens' ScheduleRun Text
-srrqDevicePoolARN = lens _srrqDevicePoolARN (\ s a -> s{_srrqDevicePoolARN = a});
+srDevicePoolARN :: Lens' ScheduleRun Text
+srDevicePoolARN = lens _srDevicePoolARN (\ s a -> s{_srDevicePoolARN = a});
 
 -- | Information about the test for the run to be scheduled.
-srrqTest :: Lens' ScheduleRun ScheduleRunTest
-srrqTest = lens _srrqTest (\ s a -> s{_srrqTest = a});
+srTest :: Lens' ScheduleRun ScheduleRunTest
+srTest = lens _srTest (\ s a -> s{_srTest = a});
 
 instance AWSRequest ScheduleRun where
         type Sv ScheduleRun = DeviceFarm
@@ -132,12 +132,11 @@ instance ToHeaders ScheduleRun where
 instance ToJSON ScheduleRun where
         toJSON ScheduleRun'{..}
           = object
-              ["name" .= _srrqName,
-               "configuration" .= _srrqConfiguration,
-               "projectArn" .= _srrqProjectARN,
-               "appArn" .= _srrqAppARN,
-               "devicePoolArn" .= _srrqDevicePoolARN,
-               "test" .= _srrqTest]
+              ["name" .= _srName,
+               "configuration" .= _srConfiguration,
+               "projectArn" .= _srProjectARN, "appArn" .= _srAppARN,
+               "devicePoolArn" .= _srDevicePoolARN,
+               "test" .= _srTest]
 
 instance ToPath ScheduleRun where
         toPath = const "/"

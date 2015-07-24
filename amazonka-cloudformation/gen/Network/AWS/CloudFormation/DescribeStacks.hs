@@ -28,8 +28,8 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- ** Request constructor
     , describeStacks
     -- ** Request lenses
-    , drqNextToken
-    , drqStackName
+    , dNextToken
+    , dStackName
 
     -- * Response
     , DescribeStacksResponse
@@ -53,26 +53,26 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqNextToken'
+-- * 'dNextToken'
 --
--- * 'drqStackName'
+-- * 'dStackName'
 data DescribeStacks = DescribeStacks'
-    { _drqNextToken :: !(Maybe Text)
-    , _drqStackName :: !(Maybe Text)
+    { _dNextToken :: !(Maybe Text)
+    , _dStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
 describeStacks =
     DescribeStacks'
-    { _drqNextToken = Nothing
-    , _drqStackName = Nothing
+    { _dNextToken = Nothing
+    , _dStackName = Nothing
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-drqNextToken :: Lens' DescribeStacks (Maybe Text)
-drqNextToken = lens _drqNextToken (\ s a -> s{_drqNextToken = a});
+dNextToken :: Lens' DescribeStacks (Maybe Text)
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -82,15 +82,15 @@ drqNextToken = lens _drqNextToken (\ s a -> s{_drqNextToken = a});
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-drqStackName :: Lens' DescribeStacks (Maybe Text)
-drqStackName = lens _drqStackName (\ s a -> s{_drqStackName = a});
+dStackName :: Lens' DescribeStacks (Maybe Text)
+dStackName = lens _dStackName (\ s a -> s{_dStackName = a});
 
 instance AWSPager DescribeStacks where
         page rq rs
           | stop (rs ^. dsrsNextToken) = Nothing
           | stop (rs ^. dsrsStacks) = Nothing
           | otherwise =
-            Just $ rq & drqNextToken .~ rs ^. dsrsNextToken
+            Just $ rq & dNextToken .~ rs ^. dsrsNextToken
 
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = CloudFormation
@@ -116,8 +116,8 @@ instance ToQuery DescribeStacks where
           = mconcat
               ["Action" =: ("DescribeStacks" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "NextToken" =: _drqNextToken,
-               "StackName" =: _drqStackName]
+               "NextToken" =: _dNextToken,
+               "StackName" =: _dStackName]
 
 -- | The output for a DescribeStacks action.
 --

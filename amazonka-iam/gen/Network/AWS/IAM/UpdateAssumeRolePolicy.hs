@@ -29,8 +29,8 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     -- ** Request constructor
     , updateAssumeRolePolicy
     -- ** Request lenses
-    , uarprqRoleName
-    , uarprqPolicyDocument
+    , uarpRoleName
+    , uarpPolicyDocument
 
     -- * Response
     , UpdateAssumeRolePolicyResponse
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uarprqRoleName'
+-- * 'uarpRoleName'
 --
--- * 'uarprqPolicyDocument'
+-- * 'uarpPolicyDocument'
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
-    { _uarprqRoleName       :: !Text
-    , _uarprqPolicyDocument :: !Text
+    { _uarpRoleName       :: !Text
+    , _uarpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssumeRolePolicy' smart constructor.
 updateAssumeRolePolicy :: Text -> Text -> UpdateAssumeRolePolicy
 updateAssumeRolePolicy pRoleName_ pPolicyDocument_ =
     UpdateAssumeRolePolicy'
-    { _uarprqRoleName = pRoleName_
-    , _uarprqPolicyDocument = pPolicyDocument_
+    { _uarpRoleName = pRoleName_
+    , _uarpPolicyDocument = pPolicyDocument_
     }
 
 -- | The name of the role to update.
-uarprqRoleName :: Lens' UpdateAssumeRolePolicy Text
-uarprqRoleName = lens _uarprqRoleName (\ s a -> s{_uarprqRoleName = a});
+uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
+uarpRoleName = lens _uarpRoleName (\ s a -> s{_uarpRoleName = a});
 
 -- | The policy that grants an entity permission to assume the role.
-uarprqPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
-uarprqPolicyDocument = lens _uarprqPolicyDocument (\ s a -> s{_uarprqPolicyDocument = a});
+uarpPolicyDocument :: Lens' UpdateAssumeRolePolicy Text
+uarpPolicyDocument = lens _uarpPolicyDocument (\ s a -> s{_uarpPolicyDocument = a});
 
 instance AWSRequest UpdateAssumeRolePolicy where
         type Sv UpdateAssumeRolePolicy = IAM
@@ -91,8 +91,8 @@ instance ToQuery UpdateAssumeRolePolicy where
               ["Action" =:
                  ("UpdateAssumeRolePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _uarprqRoleName,
-               "PolicyDocument" =: _uarprqPolicyDocument]
+               "RoleName" =: _uarpRoleName,
+               "PolicyDocument" =: _uarpPolicyDocument]
 
 -- | /See:/ 'updateAssumeRolePolicyResponse' smart constructor.
 data UpdateAssumeRolePolicyResponse =

@@ -33,8 +33,8 @@ module Network.AWS.OpsWorks.DescribeRDSDBInstances
     -- ** Request constructor
     , describeRDSDBInstances
     -- ** Request lenses
-    , drdirqRDSDBInstanceARNs
-    , drdirqStackId
+    , drdiRDSDBInstanceARNs
+    , drdiStackId
 
     -- * Response
     , DescribeRDSDBInstancesResponse
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drdirqRDSDBInstanceARNs'
+-- * 'drdiRDSDBInstanceARNs'
 --
--- * 'drdirqStackId'
+-- * 'drdiStackId'
 data DescribeRDSDBInstances = DescribeRDSDBInstances'
-    { _drdirqRDSDBInstanceARNs :: !(Maybe [Text])
-    , _drdirqStackId           :: !Text
+    { _drdiRDSDBInstanceARNs :: !(Maybe [Text])
+    , _drdiStackId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRDSDBInstances' smart constructor.
 describeRDSDBInstances :: Text -> DescribeRDSDBInstances
 describeRDSDBInstances pStackId_ =
     DescribeRDSDBInstances'
-    { _drdirqRDSDBInstanceARNs = Nothing
-    , _drdirqStackId = pStackId_
+    { _drdiRDSDBInstanceARNs = Nothing
+    , _drdiStackId = pStackId_
     }
 
 -- | An array containing the ARNs of the instances to be described.
-drdirqRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
-drdirqRDSDBInstanceARNs = lens _drdirqRDSDBInstanceARNs (\ s a -> s{_drdirqRDSDBInstanceARNs = a}) . _Default;
+drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
+drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a}) . _Default;
 
 -- | The stack ID that the instances are registered with. The operation
 -- returns descriptions of all registered Amazon RDS instances.
-drdirqStackId :: Lens' DescribeRDSDBInstances Text
-drdirqStackId = lens _drdirqStackId (\ s a -> s{_drdirqStackId = a});
+drdiStackId :: Lens' DescribeRDSDBInstances Text
+drdiStackId = lens _drdiStackId (\ s a -> s{_drdiStackId = a});
 
 instance AWSRequest DescribeRDSDBInstances where
         type Sv DescribeRDSDBInstances = OpsWorks
@@ -104,8 +104,8 @@ instance ToHeaders DescribeRDSDBInstances where
 instance ToJSON DescribeRDSDBInstances where
         toJSON DescribeRDSDBInstances'{..}
           = object
-              ["RdsDbInstanceArns" .= _drdirqRDSDBInstanceARNs,
-               "StackId" .= _drdirqStackId]
+              ["RdsDbInstanceArns" .= _drdiRDSDBInstanceARNs,
+               "StackId" .= _drdiStackId]
 
 instance ToPath DescribeRDSDBInstances where
         toPath = const "/"

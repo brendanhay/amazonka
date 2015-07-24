@@ -32,9 +32,9 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     -- ** Request constructor
     , listJobsByPipeline
     -- ** Request lenses
-    , ljbprqAscending
-    , ljbprqPageToken
-    , ljbprqPipelineId
+    , ljbpAscending
+    , ljbpPageToken
+    , ljbpPipelineId
 
     -- * Response
     , ListJobsByPipelineResponse
@@ -58,41 +58,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljbprqAscending'
+-- * 'ljbpAscending'
 --
--- * 'ljbprqPageToken'
+-- * 'ljbpPageToken'
 --
--- * 'ljbprqPipelineId'
+-- * 'ljbpPipelineId'
 data ListJobsByPipeline = ListJobsByPipeline'
-    { _ljbprqAscending  :: !(Maybe Text)
-    , _ljbprqPageToken  :: !(Maybe Text)
-    , _ljbprqPipelineId :: !Text
+    { _ljbpAscending  :: !(Maybe Text)
+    , _ljbpPageToken  :: !(Maybe Text)
+    , _ljbpPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByPipeline' smart constructor.
 listJobsByPipeline :: Text -> ListJobsByPipeline
 listJobsByPipeline pPipelineId_ =
     ListJobsByPipeline'
-    { _ljbprqAscending = Nothing
-    , _ljbprqPageToken = Nothing
-    , _ljbprqPipelineId = pPipelineId_
+    { _ljbpAscending = Nothing
+    , _ljbpPageToken = Nothing
+    , _ljbpPipelineId = pPipelineId_
     }
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter @true@. To list jobs in reverse chronological order,
 -- enter @false@.
-ljbprqAscending :: Lens' ListJobsByPipeline (Maybe Text)
-ljbprqAscending = lens _ljbprqAscending (\ s a -> s{_ljbprqAscending = a});
+ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
+ljbpAscending = lens _ljbpAscending (\ s a -> s{_ljbpAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-ljbprqPageToken :: Lens' ListJobsByPipeline (Maybe Text)
-ljbprqPageToken = lens _ljbprqPageToken (\ s a -> s{_ljbprqPageToken = a});
+ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
+ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a});
 
 -- | The ID of the pipeline for which you want to get job information.
-ljbprqPipelineId :: Lens' ListJobsByPipeline Text
-ljbprqPipelineId = lens _ljbprqPipelineId (\ s a -> s{_ljbprqPipelineId = a});
+ljbpPipelineId :: Lens' ListJobsByPipeline Text
+ljbpPipelineId = lens _ljbpPipelineId (\ s a -> s{_ljbpPipelineId = a});
 
 instance AWSPager ListJobsByPipeline where
         page rq rs
@@ -100,7 +100,7 @@ instance AWSPager ListJobsByPipeline where
           | stop (rs ^. ljbprsJobs) = Nothing
           | otherwise =
             Just $ rq &
-              ljbprqPageToken .~ rs ^. ljbprsNextPageToken
+              ljbpPageToken .~ rs ^. ljbprsNextPageToken
 
 instance AWSRequest ListJobsByPipeline where
         type Sv ListJobsByPipeline = ElasticTranscoder
@@ -121,13 +121,13 @@ instance ToPath ListJobsByPipeline where
         toPath ListJobsByPipeline'{..}
           = mconcat
               ["/2012-09-25/jobsByPipeline/",
-               toText _ljbprqPipelineId]
+               toText _ljbpPipelineId]
 
 instance ToQuery ListJobsByPipeline where
         toQuery ListJobsByPipeline'{..}
           = mconcat
-              ["Ascending" =: _ljbprqAscending,
-               "PageToken" =: _ljbprqPageToken]
+              ["Ascending" =: _ljbpAscending,
+               "PageToken" =: _ljbpPageToken]
 
 -- | The @ListJobsByPipelineResponse@ structure.
 --

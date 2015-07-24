@@ -30,9 +30,9 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     -- ** Request constructor
     , listTaskDefinitionFamilies
     -- ** Request lenses
-    , ltdfrqFamilyPrefix
-    , ltdfrqNextToken
-    , ltdfrqMaxResults
+    , ltdfFamilyPrefix
+    , ltdfNextToken
+    , ltdfMaxResults
 
     -- * Response
     , ListTaskDefinitionFamiliesResponse
@@ -54,40 +54,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltdfrqFamilyPrefix'
+-- * 'ltdfFamilyPrefix'
 --
--- * 'ltdfrqNextToken'
+-- * 'ltdfNextToken'
 --
--- * 'ltdfrqMaxResults'
+-- * 'ltdfMaxResults'
 data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
-    { _ltdfrqFamilyPrefix :: !(Maybe Text)
-    , _ltdfrqNextToken    :: !(Maybe Text)
-    , _ltdfrqMaxResults   :: !(Maybe Int)
+    { _ltdfFamilyPrefix :: !(Maybe Text)
+    , _ltdfNextToken    :: !(Maybe Text)
+    , _ltdfMaxResults   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionFamilies' smart constructor.
 listTaskDefinitionFamilies :: ListTaskDefinitionFamilies
 listTaskDefinitionFamilies =
     ListTaskDefinitionFamilies'
-    { _ltdfrqFamilyPrefix = Nothing
-    , _ltdfrqNextToken = Nothing
-    , _ltdfrqMaxResults = Nothing
+    { _ltdfFamilyPrefix = Nothing
+    , _ltdfNextToken = Nothing
+    , _ltdfMaxResults = Nothing
     }
 
 -- | The @familyPrefix@ is a string that is used to filter the results of
 -- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task
 -- definition family names that begin with the @familyPrefix@ string are
 -- returned.
-ltdfrqFamilyPrefix :: Lens' ListTaskDefinitionFamilies (Maybe Text)
-ltdfrqFamilyPrefix = lens _ltdfrqFamilyPrefix (\ s a -> s{_ltdfrqFamilyPrefix = a});
+ltdfFamilyPrefix :: Lens' ListTaskDefinitionFamilies (Maybe Text)
+ltdfFamilyPrefix = lens _ltdfFamilyPrefix (\ s a -> s{_ltdfFamilyPrefix = a});
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListTaskDefinitionFamilies@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
-ltdfrqNextToken :: Lens' ListTaskDefinitionFamilies (Maybe Text)
-ltdfrqNextToken = lens _ltdfrqNextToken (\ s a -> s{_ltdfrqNextToken = a});
+ltdfNextToken :: Lens' ListTaskDefinitionFamilies (Maybe Text)
+ltdfNextToken = lens _ltdfNextToken (\ s a -> s{_ltdfNextToken = a});
 
 -- | The maximum number of task definition family results returned by
 -- @ListTaskDefinitionFamilies@ in paginated output. When this parameter is
@@ -98,15 +98,15 @@ ltdfrqNextToken = lens _ltdfrqNextToken (\ s a -> s{_ltdfrqNextToken = a});
 -- value. This value can be between 1 and 100. If this parameter is not
 -- used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
-ltdfrqMaxResults :: Lens' ListTaskDefinitionFamilies (Maybe Int)
-ltdfrqMaxResults = lens _ltdfrqMaxResults (\ s a -> s{_ltdfrqMaxResults = a});
+ltdfMaxResults :: Lens' ListTaskDefinitionFamilies (Maybe Int)
+ltdfMaxResults = lens _ltdfMaxResults (\ s a -> s{_ltdfMaxResults = a});
 
 instance AWSPager ListTaskDefinitionFamilies where
         page rq rs
           | stop (rs ^. ltdfrsNextToken) = Nothing
           | stop (rs ^. ltdfrsFamilies) = Nothing
           | otherwise =
-            Just $ rq & ltdfrqNextToken .~ rs ^. ltdfrsNextToken
+            Just $ rq & ltdfNextToken .~ rs ^. ltdfrsNextToken
 
 instance AWSRequest ListTaskDefinitionFamilies where
         type Sv ListTaskDefinitionFamilies = ECS
@@ -133,9 +133,9 @@ instance ToHeaders ListTaskDefinitionFamilies where
 instance ToJSON ListTaskDefinitionFamilies where
         toJSON ListTaskDefinitionFamilies'{..}
           = object
-              ["familyPrefix" .= _ltdfrqFamilyPrefix,
-               "nextToken" .= _ltdfrqNextToken,
-               "maxResults" .= _ltdfrqMaxResults]
+              ["familyPrefix" .= _ltdfFamilyPrefix,
+               "nextToken" .= _ltdfNextToken,
+               "maxResults" .= _ltdfMaxResults]
 
 instance ToPath ListTaskDefinitionFamilies where
         toPath = const "/"

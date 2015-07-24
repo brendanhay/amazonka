@@ -27,7 +27,7 @@ module Network.AWS.EC2.DescribeExportTasks
     -- ** Request constructor
     , describeExportTasks
     -- ** Request lenses
-    , detrqExportTaskIds
+    , detExportTaskIds
 
     -- * Response
     , DescribeExportTasksResponse
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detrqExportTaskIds'
+-- * 'detExportTaskIds'
 newtype DescribeExportTasks = DescribeExportTasks'
-    { _detrqExportTaskIds :: Maybe [Text]
+    { _detExportTaskIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExportTasks' smart constructor.
 describeExportTasks :: DescribeExportTasks
 describeExportTasks =
     DescribeExportTasks'
-    { _detrqExportTaskIds = Nothing
+    { _detExportTaskIds = Nothing
     }
 
 -- | One or more export task IDs.
-detrqExportTaskIds :: Lens' DescribeExportTasks [Text]
-detrqExportTaskIds = lens _detrqExportTaskIds (\ s a -> s{_detrqExportTaskIds = a}) . _Default;
+detExportTaskIds :: Lens' DescribeExportTasks [Text]
+detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default;
 
 instance AWSRequest DescribeExportTasks where
         type Sv DescribeExportTasks = EC2
@@ -88,7 +88,7 @@ instance ToQuery DescribeExportTasks where
               ["Action" =: ("DescribeExportTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "ExportTaskId" <$> _detrqExportTaskIds)]
+                 (toQueryList "ExportTaskId" <$> _detExportTaskIds)]
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
 --

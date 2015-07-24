@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     -- ** Request constructor
     , describeLoadBasedAutoScaling
     -- ** Request lenses
-    , dlbasrqLayerIds
+    , dlbasLayerIds
 
     -- * Response
     , DescribeLoadBasedAutoScalingResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbasrqLayerIds'
+-- * 'dlbasLayerIds'
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
-    { _dlbasrqLayerIds :: [Text]
+    { _dlbasLayerIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBasedAutoScaling' smart constructor.
 describeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling
 describeLoadBasedAutoScaling =
     DescribeLoadBasedAutoScaling'
-    { _dlbasrqLayerIds = mempty
+    { _dlbasLayerIds = mempty
     }
 
 -- | An array of layer IDs.
-dlbasrqLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
-dlbasrqLayerIds = lens _dlbasrqLayerIds (\ s a -> s{_dlbasrqLayerIds = a});
+dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
+dlbasLayerIds = lens _dlbasLayerIds (\ s a -> s{_dlbasLayerIds = a});
 
 instance AWSRequest DescribeLoadBasedAutoScaling
          where
@@ -97,7 +97,7 @@ instance ToHeaders DescribeLoadBasedAutoScaling where
 
 instance ToJSON DescribeLoadBasedAutoScaling where
         toJSON DescribeLoadBasedAutoScaling'{..}
-          = object ["LayerIds" .= _dlbasrqLayerIds]
+          = object ["LayerIds" .= _dlbasLayerIds]
 
 instance ToPath DescribeLoadBasedAutoScaling where
         toPath = const "/"

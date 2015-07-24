@@ -28,11 +28,11 @@ module Network.AWS.EC2.DescribeImportImageTasks
     -- ** Request constructor
     , describeImportImageTasks
     -- ** Request lenses
-    , diitrqFilters
-    , diitrqImportTaskIds
-    , diitrqNextToken
-    , diitrqDryRun
-    , diitrqMaxResults
+    , diitFilters
+    , diitImportTaskIds
+    , diitNextToken
+    , diitDryRun
+    , diitMaxResults
 
     -- * Response
     , DescribeImportImageTasksResponse
@@ -53,56 +53,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diitrqFilters'
+-- * 'diitFilters'
 --
--- * 'diitrqImportTaskIds'
+-- * 'diitImportTaskIds'
 --
--- * 'diitrqNextToken'
+-- * 'diitNextToken'
 --
--- * 'diitrqDryRun'
+-- * 'diitDryRun'
 --
--- * 'diitrqMaxResults'
+-- * 'diitMaxResults'
 data DescribeImportImageTasks = DescribeImportImageTasks'
-    { _diitrqFilters       :: !(Maybe [Filter])
-    , _diitrqImportTaskIds :: !(Maybe [Text])
-    , _diitrqNextToken     :: !(Maybe Text)
-    , _diitrqDryRun        :: !(Maybe Bool)
-    , _diitrqMaxResults    :: !(Maybe Int)
+    { _diitFilters       :: !(Maybe [Filter])
+    , _diitImportTaskIds :: !(Maybe [Text])
+    , _diitNextToken     :: !(Maybe Text)
+    , _diitDryRun        :: !(Maybe Bool)
+    , _diitMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportImageTasks' smart constructor.
 describeImportImageTasks :: DescribeImportImageTasks
 describeImportImageTasks =
     DescribeImportImageTasks'
-    { _diitrqFilters = Nothing
-    , _diitrqImportTaskIds = Nothing
-    , _diitrqNextToken = Nothing
-    , _diitrqDryRun = Nothing
-    , _diitrqMaxResults = Nothing
+    { _diitFilters = Nothing
+    , _diitImportTaskIds = Nothing
+    , _diitNextToken = Nothing
+    , _diitDryRun = Nothing
+    , _diitMaxResults = Nothing
     }
 
 -- | One or more filters.
-diitrqFilters :: Lens' DescribeImportImageTasks [Filter]
-diitrqFilters = lens _diitrqFilters (\ s a -> s{_diitrqFilters = a}) . _Default;
+diitFilters :: Lens' DescribeImportImageTasks [Filter]
+diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default;
 
 -- | A list of import image task IDs.
-diitrqImportTaskIds :: Lens' DescribeImportImageTasks [Text]
-diitrqImportTaskIds = lens _diitrqImportTaskIds (\ s a -> s{_diitrqImportTaskIds = a}) . _Default;
+diitImportTaskIds :: Lens' DescribeImportImageTasks [Text]
+diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a}) . _Default;
 
 -- | A token that indicates the next page of results.
-diitrqNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
-diitrqNextToken = lens _diitrqNextToken (\ s a -> s{_diitrqNextToken = a});
+diitNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
+diitNextToken = lens _diitNextToken (\ s a -> s{_diitNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-diitrqDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
-diitrqDryRun = lens _diitrqDryRun (\ s a -> s{_diitrqDryRun = a});
+diitDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
+diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a});
 
 -- | The maximum number of results to return in a single request.
-diitrqMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
-diitrqMaxResults = lens _diitrqMaxResults (\ s a -> s{_diitrqMaxResults = a});
+diitMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
+diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a});
 
 instance AWSRequest DescribeImportImageTasks where
         type Sv DescribeImportImageTasks = EC2
@@ -130,13 +130,12 @@ instance ToQuery DescribeImportImageTasks where
               ["Action" =:
                  ("DescribeImportImageTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _diitrqFilters),
+               toQuery (toQueryList "Filter" <$> _diitFilters),
                toQuery
-                 (toQueryList "ImportTaskId" <$>
-                    _diitrqImportTaskIds),
-               "NextToken" =: _diitrqNextToken,
-               "DryRun" =: _diitrqDryRun,
-               "MaxResults" =: _diitrqMaxResults]
+                 (toQueryList "ImportTaskId" <$> _diitImportTaskIds),
+               "NextToken" =: _diitNextToken,
+               "DryRun" =: _diitDryRun,
+               "MaxResults" =: _diitMaxResults]
 
 -- | /See:/ 'describeImportImageTasksResponse' smart constructor.
 --

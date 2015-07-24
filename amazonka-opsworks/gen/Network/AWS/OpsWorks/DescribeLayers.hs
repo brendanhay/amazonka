@@ -35,8 +35,8 @@ module Network.AWS.OpsWorks.DescribeLayers
     -- ** Request constructor
     , describeLayers
     -- ** Request lenses
-    , dlrqLayerIds
-    , dlrqStackId
+    , dlLayerIds
+    , dlStackId
 
     -- * Response
     , DescribeLayersResponse
@@ -56,31 +56,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlrqLayerIds'
+-- * 'dlLayerIds'
 --
--- * 'dlrqStackId'
+-- * 'dlStackId'
 data DescribeLayers = DescribeLayers'
-    { _dlrqLayerIds :: !(Maybe [Text])
-    , _dlrqStackId  :: !(Maybe Text)
+    { _dlLayerIds :: !(Maybe [Text])
+    , _dlStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLayers' smart constructor.
 describeLayers :: DescribeLayers
 describeLayers =
     DescribeLayers'
-    { _dlrqLayerIds = Nothing
-    , _dlrqStackId = Nothing
+    { _dlLayerIds = Nothing
+    , _dlStackId = Nothing
     }
 
 -- | An array of layer IDs that specify the layers to be described. If you
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
-dlrqLayerIds :: Lens' DescribeLayers [Text]
-dlrqLayerIds = lens _dlrqLayerIds (\ s a -> s{_dlrqLayerIds = a}) . _Default;
+dlLayerIds :: Lens' DescribeLayers [Text]
+dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default;
 
 -- | The stack ID.
-dlrqStackId :: Lens' DescribeLayers (Maybe Text)
-dlrqStackId = lens _dlrqStackId (\ s a -> s{_dlrqStackId = a});
+dlStackId :: Lens' DescribeLayers (Maybe Text)
+dlStackId = lens _dlStackId (\ s a -> s{_dlStackId = a});
 
 instance AWSRequest DescribeLayers where
         type Sv DescribeLayers = OpsWorks
@@ -104,8 +104,7 @@ instance ToHeaders DescribeLayers where
 instance ToJSON DescribeLayers where
         toJSON DescribeLayers'{..}
           = object
-              ["LayerIds" .= _dlrqLayerIds,
-               "StackId" .= _dlrqStackId]
+              ["LayerIds" .= _dlLayerIds, "StackId" .= _dlStackId]
 
 instance ToPath DescribeLayers where
         toPath = const "/"

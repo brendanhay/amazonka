@@ -37,8 +37,8 @@ module Network.AWS.IAM.GetGroupPolicy
     -- ** Request constructor
     , getGroupPolicy
     -- ** Request lenses
-    , ggprqGroupName
-    , ggprqPolicyName
+    , ggpGroupName
+    , ggpPolicyName
 
     -- * Response
     , GetGroupPolicyResponse
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ggprqGroupName'
+-- * 'ggpGroupName'
 --
--- * 'ggprqPolicyName'
+-- * 'ggpPolicyName'
 data GetGroupPolicy = GetGroupPolicy'
-    { _ggprqGroupName  :: !Text
-    , _ggprqPolicyName :: !Text
+    { _ggpGroupName  :: !Text
+    , _ggpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupPolicy' smart constructor.
 getGroupPolicy :: Text -> Text -> GetGroupPolicy
 getGroupPolicy pGroupName_ pPolicyName_ =
     GetGroupPolicy'
-    { _ggprqGroupName = pGroupName_
-    , _ggprqPolicyName = pPolicyName_
+    { _ggpGroupName = pGroupName_
+    , _ggpPolicyName = pPolicyName_
     }
 
 -- | The name of the group the policy is associated with.
-ggprqGroupName :: Lens' GetGroupPolicy Text
-ggprqGroupName = lens _ggprqGroupName (\ s a -> s{_ggprqGroupName = a});
+ggpGroupName :: Lens' GetGroupPolicy Text
+ggpGroupName = lens _ggpGroupName (\ s a -> s{_ggpGroupName = a});
 
 -- | The name of the policy document to get.
-ggprqPolicyName :: Lens' GetGroupPolicy Text
-ggprqPolicyName = lens _ggprqPolicyName (\ s a -> s{_ggprqPolicyName = a});
+ggpPolicyName :: Lens' GetGroupPolicy Text
+ggpPolicyName = lens _ggpPolicyName (\ s a -> s{_ggpPolicyName = a});
 
 instance AWSRequest GetGroupPolicy where
         type Sv GetGroupPolicy = IAM
@@ -107,8 +107,8 @@ instance ToQuery GetGroupPolicy where
           = mconcat
               ["Action" =: ("GetGroupPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _ggprqGroupName,
-               "PolicyName" =: _ggprqPolicyName]
+               "GroupName" =: _ggpGroupName,
+               "PolicyName" =: _ggpPolicyName]
 
 -- | Contains the response to a successful GetGroupPolicy request.
 --

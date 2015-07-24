@@ -34,10 +34,10 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     -- ** Request constructor
     , updateEventSourceMapping
     -- ** Request lenses
-    , uesmrqEnabled
-    , uesmrqBatchSize
-    , uesmrqFunctionName
-    , uesmrqUUId
+    , uesmEnabled
+    , uesmBatchSize
+    , uesmFunctionName
+    , uesmUUId
 
     -- * Response
     , EventSourceMappingConfiguration
@@ -63,39 +63,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uesmrqEnabled'
+-- * 'uesmEnabled'
 --
--- * 'uesmrqBatchSize'
+-- * 'uesmBatchSize'
 --
--- * 'uesmrqFunctionName'
+-- * 'uesmFunctionName'
 --
--- * 'uesmrqUUId'
+-- * 'uesmUUId'
 data UpdateEventSourceMapping = UpdateEventSourceMapping'
-    { _uesmrqEnabled      :: !(Maybe Bool)
-    , _uesmrqBatchSize    :: !(Maybe Nat)
-    , _uesmrqFunctionName :: !(Maybe Text)
-    , _uesmrqUUId         :: !Text
+    { _uesmEnabled      :: !(Maybe Bool)
+    , _uesmBatchSize    :: !(Maybe Nat)
+    , _uesmFunctionName :: !(Maybe Text)
+    , _uesmUUId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEventSourceMapping' smart constructor.
 updateEventSourceMapping :: Text -> UpdateEventSourceMapping
 updateEventSourceMapping pUUId_ =
     UpdateEventSourceMapping'
-    { _uesmrqEnabled = Nothing
-    , _uesmrqBatchSize = Nothing
-    , _uesmrqFunctionName = Nothing
-    , _uesmrqUUId = pUUId_
+    { _uesmEnabled = Nothing
+    , _uesmBatchSize = Nothing
+    , _uesmFunctionName = Nothing
+    , _uesmUUId = pUUId_
     }
 
 -- | Specifies whether AWS Lambda should actively poll the stream or not. If
 -- disabled, AWS Lambda will not poll the stream.
-uesmrqEnabled :: Lens' UpdateEventSourceMapping (Maybe Bool)
-uesmrqEnabled = lens _uesmrqEnabled (\ s a -> s{_uesmrqEnabled = a});
+uesmEnabled :: Lens' UpdateEventSourceMapping (Maybe Bool)
+uesmEnabled = lens _uesmEnabled (\ s a -> s{_uesmEnabled = a});
 
 -- | The maximum number of stream records that can be sent to your Lambda
 -- function for a single invocation.
-uesmrqBatchSize :: Lens' UpdateEventSourceMapping (Maybe Natural)
-uesmrqBatchSize = lens _uesmrqBatchSize (\ s a -> s{_uesmrqBatchSize = a}) . mapping _Nat;
+uesmBatchSize :: Lens' UpdateEventSourceMapping (Maybe Natural)
+uesmBatchSize = lens _uesmBatchSize (\ s a -> s{_uesmBatchSize = a}) . mapping _Nat;
 
 -- | The Lambda function to which you want the stream records sent.
 --
@@ -107,12 +107,12 @@ uesmrqBatchSize = lens _uesmrqBatchSize (\ s a -> s{_uesmrqBatchSize = a}) . map
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-uesmrqFunctionName :: Lens' UpdateEventSourceMapping (Maybe Text)
-uesmrqFunctionName = lens _uesmrqFunctionName (\ s a -> s{_uesmrqFunctionName = a});
+uesmFunctionName :: Lens' UpdateEventSourceMapping (Maybe Text)
+uesmFunctionName = lens _uesmFunctionName (\ s a -> s{_uesmFunctionName = a});
 
 -- | The event source mapping identifier.
-uesmrqUUId :: Lens' UpdateEventSourceMapping Text
-uesmrqUUId = lens _uesmrqUUId (\ s a -> s{_uesmrqUUId = a});
+uesmUUId :: Lens' UpdateEventSourceMapping Text
+uesmUUId = lens _uesmUUId (\ s a -> s{_uesmUUId = a});
 
 instance AWSRequest UpdateEventSourceMapping where
         type Sv UpdateEventSourceMapping = Lambda
@@ -127,15 +127,15 @@ instance ToHeaders UpdateEventSourceMapping where
 instance ToJSON UpdateEventSourceMapping where
         toJSON UpdateEventSourceMapping'{..}
           = object
-              ["Enabled" .= _uesmrqEnabled,
-               "BatchSize" .= _uesmrqBatchSize,
-               "FunctionName" .= _uesmrqFunctionName]
+              ["Enabled" .= _uesmEnabled,
+               "BatchSize" .= _uesmBatchSize,
+               "FunctionName" .= _uesmFunctionName]
 
 instance ToPath UpdateEventSourceMapping where
         toPath UpdateEventSourceMapping'{..}
           = mconcat
               ["/2015-03-31/event-source-mappings/",
-               toText _uesmrqUUId]
+               toText _uesmUUId]
 
 instance ToQuery UpdateEventSourceMapping where
         toQuery = const mempty

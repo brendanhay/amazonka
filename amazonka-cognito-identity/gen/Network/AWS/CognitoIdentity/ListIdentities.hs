@@ -29,10 +29,10 @@ module Network.AWS.CognitoIdentity.ListIdentities
     -- ** Request constructor
     , listIdentities
     -- ** Request lenses
-    , lirqHideDisabled
-    , lirqNextToken
-    , lirqIdentityPoolId
-    , lirqMaxResults
+    , liHideDisabled
+    , liNextToken
+    , liIdentityPoolId
+    , liMaxResults
 
     -- * Response
     , ListIdentitiesResponse
@@ -56,47 +56,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirqHideDisabled'
+-- * 'liHideDisabled'
 --
--- * 'lirqNextToken'
+-- * 'liNextToken'
 --
--- * 'lirqIdentityPoolId'
+-- * 'liIdentityPoolId'
 --
--- * 'lirqMaxResults'
+-- * 'liMaxResults'
 data ListIdentities = ListIdentities'
-    { _lirqHideDisabled   :: !(Maybe Bool)
-    , _lirqNextToken      :: !(Maybe Text)
-    , _lirqIdentityPoolId :: !Text
-    , _lirqMaxResults     :: !Nat
+    { _liHideDisabled   :: !(Maybe Bool)
+    , _liNextToken      :: !(Maybe Text)
+    , _liIdentityPoolId :: !Text
+    , _liMaxResults     :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: Text -> Natural -> ListIdentities
 listIdentities pIdentityPoolId_ pMaxResults_ =
     ListIdentities'
-    { _lirqHideDisabled = Nothing
-    , _lirqNextToken = Nothing
-    , _lirqIdentityPoolId = pIdentityPoolId_
-    , _lirqMaxResults = _Nat # pMaxResults_
+    { _liHideDisabled = Nothing
+    , _liNextToken = Nothing
+    , _liIdentityPoolId = pIdentityPoolId_
+    , _liMaxResults = _Nat # pMaxResults_
     }
 
 -- | An optional boolean parameter that allows you to hide disabled
 -- identities. If omitted, the ListIdentities API will include disabled
 -- identities in the response.
-lirqHideDisabled :: Lens' ListIdentities (Maybe Bool)
-lirqHideDisabled = lens _lirqHideDisabled (\ s a -> s{_lirqHideDisabled = a});
+liHideDisabled :: Lens' ListIdentities (Maybe Bool)
+liHideDisabled = lens _liHideDisabled (\ s a -> s{_liHideDisabled = a});
 
 -- | A pagination token.
-lirqNextToken :: Lens' ListIdentities (Maybe Text)
-lirqNextToken = lens _lirqNextToken (\ s a -> s{_lirqNextToken = a});
+liNextToken :: Lens' ListIdentities (Maybe Text)
+liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
 
 -- | An identity pool ID in the format REGION:GUID.
-lirqIdentityPoolId :: Lens' ListIdentities Text
-lirqIdentityPoolId = lens _lirqIdentityPoolId (\ s a -> s{_lirqIdentityPoolId = a});
+liIdentityPoolId :: Lens' ListIdentities Text
+liIdentityPoolId = lens _liIdentityPoolId (\ s a -> s{_liIdentityPoolId = a});
 
 -- | The maximum number of identities to return.
-lirqMaxResults :: Lens' ListIdentities Natural
-lirqMaxResults = lens _lirqMaxResults (\ s a -> s{_lirqMaxResults = a}) . _Nat;
+liMaxResults :: Lens' ListIdentities Natural
+liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . _Nat;
 
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = CognitoIdentity
@@ -123,10 +123,10 @@ instance ToHeaders ListIdentities where
 instance ToJSON ListIdentities where
         toJSON ListIdentities'{..}
           = object
-              ["HideDisabled" .= _lirqHideDisabled,
-               "NextToken" .= _lirqNextToken,
-               "IdentityPoolId" .= _lirqIdentityPoolId,
-               "MaxResults" .= _lirqMaxResults]
+              ["HideDisabled" .= _liHideDisabled,
+               "NextToken" .= _liNextToken,
+               "IdentityPoolId" .= _liIdentityPoolId,
+               "MaxResults" .= _liMaxResults]
 
 instance ToPath ListIdentities where
         toPath = const "/"

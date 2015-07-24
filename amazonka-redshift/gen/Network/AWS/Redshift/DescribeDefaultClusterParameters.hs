@@ -32,9 +32,9 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     -- ** Request constructor
     , describeDefaultClusterParameters
     -- ** Request lenses
-    , ddcprqMaxRecords
-    , ddcprqMarker
-    , ddcprqParameterGroupFamily
+    , ddcpMaxRecords
+    , ddcpMarker
+    , ddcpParameterGroupFamily
 
     -- * Response
     , DescribeDefaultClusterParametersResponse
@@ -57,24 +57,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcprqMaxRecords'
+-- * 'ddcpMaxRecords'
 --
--- * 'ddcprqMarker'
+-- * 'ddcpMarker'
 --
--- * 'ddcprqParameterGroupFamily'
+-- * 'ddcpParameterGroupFamily'
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-    { _ddcprqMaxRecords           :: !(Maybe Int)
-    , _ddcprqMarker               :: !(Maybe Text)
-    , _ddcprqParameterGroupFamily :: !Text
+    { _ddcpMaxRecords           :: !(Maybe Int)
+    , _ddcpMarker               :: !(Maybe Text)
+    , _ddcpParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDefaultClusterParameters' smart constructor.
 describeDefaultClusterParameters :: Text -> DescribeDefaultClusterParameters
 describeDefaultClusterParameters pParameterGroupFamily_ =
     DescribeDefaultClusterParameters'
-    { _ddcprqMaxRecords = Nothing
-    , _ddcprqMarker = Nothing
-    , _ddcprqParameterGroupFamily = pParameterGroupFamily_
+    { _ddcpMaxRecords = Nothing
+    , _ddcpMarker = Nothing
+    , _ddcpParameterGroupFamily = pParameterGroupFamily_
     }
 
 -- | The maximum number of response records to return in each call. If the
@@ -86,8 +86,8 @@ describeDefaultClusterParameters pParameterGroupFamily_ =
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-ddcprqMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
-ddcprqMaxRecords = lens _ddcprqMaxRecords (\ s a -> s{_ddcprqMaxRecords = a});
+ddcpMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
+ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
@@ -96,12 +96,12 @@ ddcprqMaxRecords = lens _ddcprqMaxRecords (\ s a -> s{_ddcprqMaxRecords = a});
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the
 -- request.
-ddcprqMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
-ddcprqMarker = lens _ddcprqMarker (\ s a -> s{_ddcprqMarker = a});
+ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
+ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
 
 -- | The name of the cluster parameter group family.
-ddcprqParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
-ddcprqParameterGroupFamily = lens _ddcprqParameterGroupFamily (\ s a -> s{_ddcprqParameterGroupFamily = a});
+ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
+ddcpParameterGroupFamily = lens _ddcpParameterGroupFamily (\ s a -> s{_ddcpParameterGroupFamily = a});
 
 instance AWSPager DescribeDefaultClusterParameters
          where
@@ -116,7 +116,7 @@ instance AWSPager DescribeDefaultClusterParameters
             = Nothing
           | otherwise =
             Just $ rq &
-              ddcprqMarker .~
+              ddcpMarker .~
                 rs ^?
                   ddcprsDefaultClusterParameters . dcpMarker . _Just
 
@@ -149,10 +149,9 @@ instance ToQuery DescribeDefaultClusterParameters
               ["Action" =:
                  ("DescribeDefaultClusterParameters" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "MaxRecords" =: _ddcprqMaxRecords,
-               "Marker" =: _ddcprqMarker,
-               "ParameterGroupFamily" =:
-                 _ddcprqParameterGroupFamily]
+               "MaxRecords" =: _ddcpMaxRecords,
+               "Marker" =: _ddcpMarker,
+               "ParameterGroupFamily" =: _ddcpParameterGroupFamily]
 
 -- | /See:/ 'describeDefaultClusterParametersResponse' smart constructor.
 --

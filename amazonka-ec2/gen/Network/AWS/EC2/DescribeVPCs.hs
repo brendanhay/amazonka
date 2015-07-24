@@ -27,9 +27,9 @@ module Network.AWS.EC2.DescribeVPCs
     -- ** Request constructor
     , describeVPCs
     -- ** Request lenses
-    , dvsrqFilters
-    , dvsrqVPCIds
-    , dvsrqDryRun
+    , dvsFilters
+    , dvsVPCIds
+    , dvsDryRun
 
     -- * Response
     , DescribeVPCsResponse
@@ -49,24 +49,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvsrqFilters'
+-- * 'dvsFilters'
 --
--- * 'dvsrqVPCIds'
+-- * 'dvsVPCIds'
 --
--- * 'dvsrqDryRun'
+-- * 'dvsDryRun'
 data DescribeVPCs = DescribeVPCs'
-    { _dvsrqFilters :: !(Maybe [Filter])
-    , _dvsrqVPCIds  :: !(Maybe [Text])
-    , _dvsrqDryRun  :: !(Maybe Bool)
+    { _dvsFilters :: !(Maybe [Filter])
+    , _dvsVPCIds  :: !(Maybe [Text])
+    , _dvsDryRun  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCs' smart constructor.
 describeVPCs :: DescribeVPCs
 describeVPCs =
     DescribeVPCs'
-    { _dvsrqFilters = Nothing
-    , _dvsrqVPCIds = Nothing
-    , _dvsrqDryRun = Nothing
+    { _dvsFilters = Nothing
+    , _dvsVPCIds = Nothing
+    , _dvsDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -98,21 +98,21 @@ describeVPCs =
 --
 -- -   @vpc-id@ - The ID of the VPC.
 --
-dvsrqFilters :: Lens' DescribeVPCs [Filter]
-dvsrqFilters = lens _dvsrqFilters (\ s a -> s{_dvsrqFilters = a}) . _Default;
+dvsFilters :: Lens' DescribeVPCs [Filter]
+dvsFilters = lens _dvsFilters (\ s a -> s{_dvsFilters = a}) . _Default;
 
 -- | One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
-dvsrqVPCIds :: Lens' DescribeVPCs [Text]
-dvsrqVPCIds = lens _dvsrqVPCIds (\ s a -> s{_dvsrqVPCIds = a}) . _Default;
+dvsVPCIds :: Lens' DescribeVPCs [Text]
+dvsVPCIds = lens _dvsVPCIds (\ s a -> s{_dvsVPCIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvsrqDryRun :: Lens' DescribeVPCs (Maybe Bool)
-dvsrqDryRun = lens _dvsrqDryRun (\ s a -> s{_dvsrqDryRun = a});
+dvsDryRun :: Lens' DescribeVPCs (Maybe Bool)
+dvsDryRun = lens _dvsDryRun (\ s a -> s{_dvsDryRun = a});
 
 instance AWSRequest DescribeVPCs where
         type Sv DescribeVPCs = EC2
@@ -137,9 +137,9 @@ instance ToQuery DescribeVPCs where
           = mconcat
               ["Action" =: ("DescribeVPCs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvsrqFilters),
-               toQuery (toQueryList "VpcId" <$> _dvsrqVPCIds),
-               "DryRun" =: _dvsrqDryRun]
+               toQuery (toQueryList "Filter" <$> _dvsFilters),
+               toQuery (toQueryList "VpcId" <$> _dvsVPCIds),
+               "DryRun" =: _dvsDryRun]
 
 -- | /See:/ 'describeVPCsResponse' smart constructor.
 --

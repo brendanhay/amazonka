@@ -30,8 +30,8 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     -- ** Request constructor
     , checkDomainAvailability
     -- ** Request lenses
-    , cdarqIdNLangCode
-    , cdarqDomainName
+    , cdaIdNLangCode
+    , cdaDomainName
 
     -- * Response
     , CheckDomainAvailabilityResponse
@@ -53,25 +53,25 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdarqIdNLangCode'
+-- * 'cdaIdNLangCode'
 --
--- * 'cdarqDomainName'
+-- * 'cdaDomainName'
 data CheckDomainAvailability = CheckDomainAvailability'
-    { _cdarqIdNLangCode :: !(Maybe Text)
-    , _cdarqDomainName  :: !Text
+    { _cdaIdNLangCode :: !(Maybe Text)
+    , _cdaDomainName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDomainAvailability' smart constructor.
 checkDomainAvailability :: Text -> CheckDomainAvailability
 checkDomainAvailability pDomainName_ =
     CheckDomainAvailability'
-    { _cdarqIdNLangCode = Nothing
-    , _cdarqDomainName = pDomainName_
+    { _cdaIdNLangCode = Nothing
+    , _cdaDomainName = pDomainName_
     }
 
 -- | Reserved for future use.
-cdarqIdNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
-cdarqIdNLangCode = lens _cdarqIdNLangCode (\ s a -> s{_cdarqIdNLangCode = a});
+cdaIdNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
+cdaIdNLangCode = lens _cdaIdNLangCode (\ s a -> s{_cdaIdNLangCode = a});
 
 -- | The name of a domain.
 --
@@ -84,8 +84,8 @@ cdarqIdNLangCode = lens _cdarqIdNLangCode (\ s a -> s{_cdarqIdNLangCode = a});
 -- are not supported.
 --
 -- Required: Yes
-cdarqDomainName :: Lens' CheckDomainAvailability Text
-cdarqDomainName = lens _cdarqDomainName (\ s a -> s{_cdarqDomainName = a});
+cdaDomainName :: Lens' CheckDomainAvailability Text
+cdaDomainName = lens _cdaDomainName (\ s a -> s{_cdaDomainName = a});
 
 instance AWSRequest CheckDomainAvailability where
         type Sv CheckDomainAvailability = Route53Domains
@@ -111,8 +111,8 @@ instance ToHeaders CheckDomainAvailability where
 instance ToJSON CheckDomainAvailability where
         toJSON CheckDomainAvailability'{..}
           = object
-              ["IdnLangCode" .= _cdarqIdNLangCode,
-               "DomainName" .= _cdarqDomainName]
+              ["IdnLangCode" .= _cdaIdNLangCode,
+               "DomainName" .= _cdaDomainName]
 
 instance ToPath CheckDomainAvailability where
         toPath = const "/"

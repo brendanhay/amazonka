@@ -27,7 +27,7 @@ module Network.AWS.DirectoryService.DeleteDirectory
     -- ** Request constructor
     , deleteDirectory
     -- ** Request lenses
-    , ddrqDirectoryId
+    , dDirectoryId
 
     -- * Response
     , DeleteDirectoryResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrqDirectoryId'
+-- * 'dDirectoryId'
 newtype DeleteDirectory = DeleteDirectory'
-    { _ddrqDirectoryId :: Text
+    { _dDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDirectory' smart constructor.
 deleteDirectory :: Text -> DeleteDirectory
 deleteDirectory pDirectoryId_ =
     DeleteDirectory'
-    { _ddrqDirectoryId = pDirectoryId_
+    { _dDirectoryId = pDirectoryId_
     }
 
 -- | The identifier of the directory to delete.
-ddrqDirectoryId :: Lens' DeleteDirectory Text
-ddrqDirectoryId = lens _ddrqDirectoryId (\ s a -> s{_ddrqDirectoryId = a});
+dDirectoryId :: Lens' DeleteDirectory Text
+dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a});
 
 instance AWSRequest DeleteDirectory where
         type Sv DeleteDirectory = DirectoryService
@@ -87,7 +87,7 @@ instance ToHeaders DeleteDirectory where
 
 instance ToJSON DeleteDirectory where
         toJSON DeleteDirectory'{..}
-          = object ["DirectoryId" .= _ddrqDirectoryId]
+          = object ["DirectoryId" .= _dDirectoryId]
 
 instance ToPath DeleteDirectory where
         toPath = const "/"

@@ -30,7 +30,7 @@ module Network.AWS.RDS.DeleteDBSnapshot
     -- ** Request constructor
     , deleteDBSnapshot
     -- ** Request lenses
-    , ddbsrqDBSnapshotIdentifier
+    , ddbsDBSnapshotIdentifier
 
     -- * Response
     , DeleteDBSnapshotResponse
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbsrqDBSnapshotIdentifier'
+-- * 'ddbsDBSnapshotIdentifier'
 newtype DeleteDBSnapshot = DeleteDBSnapshot'
-    { _ddbsrqDBSnapshotIdentifier :: Text
+    { _ddbsDBSnapshotIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSnapshot' smart constructor.
 deleteDBSnapshot :: Text -> DeleteDBSnapshot
 deleteDBSnapshot pDBSnapshotIdentifier_ =
     DeleteDBSnapshot'
-    { _ddbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier_
+    { _ddbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
     }
 
 -- | The DBSnapshot identifier.
 --
 -- Constraints: Must be the name of an existing DB snapshot in the
 -- @available@ state.
-ddbsrqDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
-ddbsrqDBSnapshotIdentifier = lens _ddbsrqDBSnapshotIdentifier (\ s a -> s{_ddbsrqDBSnapshotIdentifier = a});
+ddbsDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
+ddbsDBSnapshotIdentifier = lens _ddbsDBSnapshotIdentifier (\ s a -> s{_ddbsDBSnapshotIdentifier = a});
 
 instance AWSRequest DeleteDBSnapshot where
         type Sv DeleteDBSnapshot = RDS
@@ -92,8 +92,7 @@ instance ToQuery DeleteDBSnapshot where
           = mconcat
               ["Action" =: ("DeleteDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBSnapshotIdentifier" =:
-                 _ddbsrqDBSnapshotIdentifier]
+               "DBSnapshotIdentifier" =: _ddbsDBSnapshotIdentifier]
 
 -- | /See:/ 'deleteDBSnapshotResponse' smart constructor.
 --

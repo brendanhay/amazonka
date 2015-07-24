@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketACL
     -- ** Request constructor
     , getBucketACL
     -- ** Request lenses
-    , gbarqBucket
+    , gbaBucket
 
     -- * Response
     , GetBucketACLResponse
@@ -48,21 +48,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbarqBucket'
+-- * 'gbaBucket'
 newtype GetBucketACL = GetBucketACL'
-    { _gbarqBucket :: BucketName
+    { _gbaBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketACL' smart constructor.
 getBucketACL :: BucketName -> GetBucketACL
 getBucketACL pBucket_ =
     GetBucketACL'
-    { _gbarqBucket = pBucket_
+    { _gbaBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gbarqBucket :: Lens' GetBucketACL BucketName
-gbarqBucket = lens _gbarqBucket (\ s a -> s{_gbarqBucket = a});
+gbaBucket :: Lens' GetBucketACL BucketName
+gbaBucket = lens _gbaBucket (\ s a -> s{_gbaBucket = a});
 
 instance AWSRequest GetBucketACL where
         type Sv GetBucketACL = S3
@@ -82,7 +82,7 @@ instance ToHeaders GetBucketACL where
 
 instance ToPath GetBucketACL where
         toPath GetBucketACL'{..}
-          = mconcat ["/", toText _gbarqBucket]
+          = mconcat ["/", toText _gbaBucket]
 
 instance ToQuery GetBucketACL where
         toQuery = const (mconcat ["acl"])

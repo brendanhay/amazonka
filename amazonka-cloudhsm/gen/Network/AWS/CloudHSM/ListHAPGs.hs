@@ -32,7 +32,7 @@ module Network.AWS.CloudHSM.ListHAPGs
     -- ** Request constructor
     , listHAPGs
     -- ** Request lenses
-    , lhrqNextToken
+    , lhNextToken
 
     -- * Response
     , ListHAPGsResponse
@@ -53,22 +53,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhrqNextToken'
+-- * 'lhNextToken'
 newtype ListHAPGs = ListHAPGs'
-    { _lhrqNextToken :: Maybe Text
+    { _lhNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHAPGs' smart constructor.
 listHAPGs :: ListHAPGs
 listHAPGs =
     ListHAPGs'
-    { _lhrqNextToken = Nothing
+    { _lhNextToken = Nothing
     }
 
 -- | The /NextToken/ value from a previous call to ListHapgs. Pass null if
 -- this is the first call.
-lhrqNextToken :: Lens' ListHAPGs (Maybe Text)
-lhrqNextToken = lens _lhrqNextToken (\ s a -> s{_lhrqNextToken = a});
+lhNextToken :: Lens' ListHAPGs (Maybe Text)
+lhNextToken = lens _lhNextToken (\ s a -> s{_lhNextToken = a});
 
 instance AWSRequest ListHAPGs where
         type Sv ListHAPGs = CloudHSM
@@ -92,7 +92,7 @@ instance ToHeaders ListHAPGs where
 
 instance ToJSON ListHAPGs where
         toJSON ListHAPGs'{..}
-          = object ["NextToken" .= _lhrqNextToken]
+          = object ["NextToken" .= _lhNextToken]
 
 instance ToPath ListHAPGs where
         toPath = const "/"

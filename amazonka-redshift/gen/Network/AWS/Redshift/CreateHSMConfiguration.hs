@@ -36,13 +36,13 @@ module Network.AWS.Redshift.CreateHSMConfiguration
     -- ** Request constructor
     , createHSMConfiguration
     -- ** Request lenses
-    , chcrqTags
-    , chcrqHSMConfigurationIdentifier
-    , chcrqDescription
-    , chcrqHSMIPAddress
-    , chcrqHSMPartitionName
-    , chcrqHSMPartitionPassword
-    , chcrqHSMServerPublicCertificate
+    , chcTags
+    , chcHSMConfigurationIdentifier
+    , chcDescription
+    , chcHSMIPAddress
+    , chcHSMPartitionName
+    , chcHSMPartitionPassword
+    , chcHSMServerPublicCertificate
 
     -- * Response
     , CreateHSMConfigurationResponse
@@ -64,73 +64,73 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcrqTags'
+-- * 'chcTags'
 --
--- * 'chcrqHSMConfigurationIdentifier'
+-- * 'chcHSMConfigurationIdentifier'
 --
--- * 'chcrqDescription'
+-- * 'chcDescription'
 --
--- * 'chcrqHSMIPAddress'
+-- * 'chcHSMIPAddress'
 --
--- * 'chcrqHSMPartitionName'
+-- * 'chcHSMPartitionName'
 --
--- * 'chcrqHSMPartitionPassword'
+-- * 'chcHSMPartitionPassword'
 --
--- * 'chcrqHSMServerPublicCertificate'
+-- * 'chcHSMServerPublicCertificate'
 data CreateHSMConfiguration = CreateHSMConfiguration'
-    { _chcrqTags                       :: !(Maybe [Tag])
-    , _chcrqHSMConfigurationIdentifier :: !Text
-    , _chcrqDescription                :: !Text
-    , _chcrqHSMIPAddress               :: !Text
-    , _chcrqHSMPartitionName           :: !Text
-    , _chcrqHSMPartitionPassword       :: !Text
-    , _chcrqHSMServerPublicCertificate :: !Text
+    { _chcTags                       :: !(Maybe [Tag])
+    , _chcHSMConfigurationIdentifier :: !Text
+    , _chcDescription                :: !Text
+    , _chcHSMIPAddress               :: !Text
+    , _chcHSMPartitionName           :: !Text
+    , _chcHSMPartitionPassword       :: !Text
+    , _chcHSMServerPublicCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMConfiguration' smart constructor.
 createHSMConfiguration :: Text -> Text -> Text -> Text -> Text -> Text -> CreateHSMConfiguration
 createHSMConfiguration pHSMConfigurationIdentifier_ pDescription_ pHSMIPAddress_ pHSMPartitionName_ pHSMPartitionPassword_ pHSMServerPublicCertificate_ =
     CreateHSMConfiguration'
-    { _chcrqTags = Nothing
-    , _chcrqHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
-    , _chcrqDescription = pDescription_
-    , _chcrqHSMIPAddress = pHSMIPAddress_
-    , _chcrqHSMPartitionName = pHSMPartitionName_
-    , _chcrqHSMPartitionPassword = pHSMPartitionPassword_
-    , _chcrqHSMServerPublicCertificate = pHSMServerPublicCertificate_
+    { _chcTags = Nothing
+    , _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier_
+    , _chcDescription = pDescription_
+    , _chcHSMIPAddress = pHSMIPAddress_
+    , _chcHSMPartitionName = pHSMPartitionName_
+    , _chcHSMPartitionPassword = pHSMPartitionPassword_
+    , _chcHSMServerPublicCertificate = pHSMServerPublicCertificate_
     }
 
 -- | A list of tag instances.
-chcrqTags :: Lens' CreateHSMConfiguration [Tag]
-chcrqTags = lens _chcrqTags (\ s a -> s{_chcrqTags = a}) . _Default;
+chcTags :: Lens' CreateHSMConfiguration [Tag]
+chcTags = lens _chcTags (\ s a -> s{_chcTags = a}) . _Default;
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM
 -- configuration.
-chcrqHSMConfigurationIdentifier :: Lens' CreateHSMConfiguration Text
-chcrqHSMConfigurationIdentifier = lens _chcrqHSMConfigurationIdentifier (\ s a -> s{_chcrqHSMConfigurationIdentifier = a});
+chcHSMConfigurationIdentifier :: Lens' CreateHSMConfiguration Text
+chcHSMConfigurationIdentifier = lens _chcHSMConfigurationIdentifier (\ s a -> s{_chcHSMConfigurationIdentifier = a});
 
 -- | A text description of the HSM configuration to be created.
-chcrqDescription :: Lens' CreateHSMConfiguration Text
-chcrqDescription = lens _chcrqDescription (\ s a -> s{_chcrqDescription = a});
+chcDescription :: Lens' CreateHSMConfiguration Text
+chcDescription = lens _chcDescription (\ s a -> s{_chcDescription = a});
 
 -- | The IP address that the Amazon Redshift cluster must use to access the
 -- HSM.
-chcrqHSMIPAddress :: Lens' CreateHSMConfiguration Text
-chcrqHSMIPAddress = lens _chcrqHSMIPAddress (\ s a -> s{_chcrqHSMIPAddress = a});
+chcHSMIPAddress :: Lens' CreateHSMConfiguration Text
+chcHSMIPAddress = lens _chcHSMIPAddress (\ s a -> s{_chcHSMIPAddress = a});
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters
 -- will store their database encryption keys.
-chcrqHSMPartitionName :: Lens' CreateHSMConfiguration Text
-chcrqHSMPartitionName = lens _chcrqHSMPartitionName (\ s a -> s{_chcrqHSMPartitionName = a});
+chcHSMPartitionName :: Lens' CreateHSMConfiguration Text
+chcHSMPartitionName = lens _chcHSMPartitionName (\ s a -> s{_chcHSMPartitionName = a});
 
 -- | The password required to access the HSM partition.
-chcrqHSMPartitionPassword :: Lens' CreateHSMConfiguration Text
-chcrqHSMPartitionPassword = lens _chcrqHSMPartitionPassword (\ s a -> s{_chcrqHSMPartitionPassword = a});
+chcHSMPartitionPassword :: Lens' CreateHSMConfiguration Text
+chcHSMPartitionPassword = lens _chcHSMPartitionPassword (\ s a -> s{_chcHSMPartitionPassword = a});
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is
 -- server.pem.
-chcrqHSMServerPublicCertificate :: Lens' CreateHSMConfiguration Text
-chcrqHSMServerPublicCertificate = lens _chcrqHSMServerPublicCertificate (\ s a -> s{_chcrqHSMServerPublicCertificate = a});
+chcHSMServerPublicCertificate :: Lens' CreateHSMConfiguration Text
+chcHSMServerPublicCertificate = lens _chcHSMServerPublicCertificate (\ s a -> s{_chcHSMServerPublicCertificate = a});
 
 instance AWSRequest CreateHSMConfiguration where
         type Sv CreateHSMConfiguration = Redshift
@@ -155,15 +155,15 @@ instance ToQuery CreateHSMConfiguration where
               ["Action" =:
                  ("CreateHSMConfiguration" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _chcrqTags),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _chcTags),
                "HsmConfigurationIdentifier" =:
-                 _chcrqHSMConfigurationIdentifier,
-               "Description" =: _chcrqDescription,
-               "HsmIpAddress" =: _chcrqHSMIPAddress,
-               "HsmPartitionName" =: _chcrqHSMPartitionName,
-               "HsmPartitionPassword" =: _chcrqHSMPartitionPassword,
+                 _chcHSMConfigurationIdentifier,
+               "Description" =: _chcDescription,
+               "HsmIpAddress" =: _chcHSMIPAddress,
+               "HsmPartitionName" =: _chcHSMPartitionName,
+               "HsmPartitionPassword" =: _chcHSMPartitionPassword,
                "HsmServerPublicCertificate" =:
-                 _chcrqHSMServerPublicCertificate]
+                 _chcHSMServerPublicCertificate]
 
 -- | /See:/ 'createHSMConfigurationResponse' smart constructor.
 --

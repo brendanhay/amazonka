@@ -41,10 +41,10 @@ module Network.AWS.Route53.ListGeoLocations
     -- ** Request constructor
     , listGeoLocations
     -- ** Request lenses
-    , lglrqStartSubdivisionCode
-    , lglrqMaxItems
-    , lglrqStartCountryCode
-    , lglrqStartContinentCode
+    , lglStartSubdivisionCode
+    , lglMaxItems
+    , lglStartCountryCode
+    , lglStartContinentCode
 
     -- * Response
     , ListGeoLocationsResponse
@@ -71,28 +71,28 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lglrqStartSubdivisionCode'
+-- * 'lglStartSubdivisionCode'
 --
--- * 'lglrqMaxItems'
+-- * 'lglMaxItems'
 --
--- * 'lglrqStartCountryCode'
+-- * 'lglStartCountryCode'
 --
--- * 'lglrqStartContinentCode'
+-- * 'lglStartContinentCode'
 data ListGeoLocations = ListGeoLocations'
-    { _lglrqStartSubdivisionCode :: !(Maybe Text)
-    , _lglrqMaxItems             :: !(Maybe Text)
-    , _lglrqStartCountryCode     :: !(Maybe Text)
-    , _lglrqStartContinentCode   :: !(Maybe Text)
+    { _lglStartSubdivisionCode :: !(Maybe Text)
+    , _lglMaxItems             :: !(Maybe Text)
+    , _lglStartCountryCode     :: !(Maybe Text)
+    , _lglStartContinentCode   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGeoLocations' smart constructor.
 listGeoLocations :: ListGeoLocations
 listGeoLocations =
     ListGeoLocations'
-    { _lglrqStartSubdivisionCode = Nothing
-    , _lglrqMaxItems = Nothing
-    , _lglrqStartCountryCode = Nothing
-    , _lglrqStartContinentCode = Nothing
+    { _lglStartSubdivisionCode = Nothing
+    , _lglMaxItems = Nothing
+    , _lglStartCountryCode = Nothing
+    , _lglStartContinentCode = Nothing
     }
 
 -- | The first subdivision code in the lexicographic ordering of geo
@@ -100,20 +100,20 @@ listGeoLocations =
 --
 -- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns
 -- an InvalidInput error.
-lglrqStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
-lglrqStartSubdivisionCode = lens _lglrqStartSubdivisionCode (\ s a -> s{_lglrqStartSubdivisionCode = a});
+lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
+lglStartSubdivisionCode = lens _lglStartSubdivisionCode (\ s a -> s{_lglStartSubdivisionCode = a});
 
 -- | The maximum number of geo locations you want in the response body.
-lglrqMaxItems :: Lens' ListGeoLocations (Maybe Text)
-lglrqMaxItems = lens _lglrqMaxItems (\ s a -> s{_lglrqMaxItems = a});
+lglMaxItems :: Lens' ListGeoLocations (Maybe Text)
+lglMaxItems = lens _lglMaxItems (\ s a -> s{_lglMaxItems = a});
 
 -- | The first country code in the lexicographic ordering of geo locations
 -- that you want the @ListGeoLocations@ request to list.
 --
 -- The default geo location uses a @*@ for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
-lglrqStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
-lglrqStartCountryCode = lens _lglrqStartCountryCode (\ s a -> s{_lglrqStartCountryCode = a});
+lglStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
+lglStartCountryCode = lens _lglStartCountryCode (\ s a -> s{_lglStartCountryCode = a});
 
 -- | The first continent code in the lexicographic ordering of geo locations
 -- that you want the @ListGeoLocations@ request to list. For non-continent
@@ -123,8 +123,8 @@ lglrqStartCountryCode = lens _lglrqStartCountryCode (\ s a -> s{_lglrqStartCount
 --
 -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
 -- @SubdivisionCode@ returns an InvalidInput error.
-lglrqStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
-lglrqStartContinentCode = lens _lglrqStartContinentCode (\ s a -> s{_lglrqStartContinentCode = a});
+lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
+lglStartContinentCode = lens _lglStartContinentCode (\ s a -> s{_lglStartContinentCode = a});
 
 instance AWSRequest ListGeoLocations where
         type Sv ListGeoLocations = Route53
@@ -153,11 +153,10 @@ instance ToPath ListGeoLocations where
 instance ToQuery ListGeoLocations where
         toQuery ListGeoLocations'{..}
           = mconcat
-              ["startsubdivisioncode" =:
-                 _lglrqStartSubdivisionCode,
-               "maxitems" =: _lglrqMaxItems,
-               "startcountrycode" =: _lglrqStartCountryCode,
-               "startcontinentcode" =: _lglrqStartContinentCode]
+              ["startsubdivisioncode" =: _lglStartSubdivisionCode,
+               "maxitems" =: _lglMaxItems,
+               "startcountrycode" =: _lglStartCountryCode,
+               "startcontinentcode" =: _lglStartContinentCode]
 
 -- | A complex type that contains information about the geo locations that
 -- are returned by the request and information about the response.

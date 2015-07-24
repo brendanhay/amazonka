@@ -31,7 +31,7 @@ module Network.AWS.Config.DescribeDeliveryChannels
     -- ** Request constructor
     , describeDeliveryChannels
     -- ** Request lenses
-    , ddcrqDeliveryChannelNames
+    , ddcDeliveryChannelNames
 
     -- * Response
     , DescribeDeliveryChannelsResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcrqDeliveryChannelNames'
+-- * 'ddcDeliveryChannelNames'
 newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
-    { _ddcrqDeliveryChannelNames :: Maybe [Text]
+    { _ddcDeliveryChannelNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeliveryChannels' smart constructor.
 describeDeliveryChannels :: DescribeDeliveryChannels
 describeDeliveryChannels =
     DescribeDeliveryChannels'
-    { _ddcrqDeliveryChannelNames = Nothing
+    { _ddcDeliveryChannelNames = Nothing
     }
 
 -- | A list of delivery channel names.
-ddcrqDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
-ddcrqDeliveryChannelNames = lens _ddcrqDeliveryChannelNames (\ s a -> s{_ddcrqDeliveryChannelNames = a}) . _Default;
+ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
+ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default;
 
 instance AWSRequest DescribeDeliveryChannels where
         type Sv DescribeDeliveryChannels = Config
@@ -94,8 +94,7 @@ instance ToHeaders DescribeDeliveryChannels where
 instance ToJSON DescribeDeliveryChannels where
         toJSON DescribeDeliveryChannels'{..}
           = object
-              ["DeliveryChannelNames" .=
-                 _ddcrqDeliveryChannelNames]
+              ["DeliveryChannelNames" .= _ddcDeliveryChannelNames]
 
 instance ToPath DescribeDeliveryChannels where
         toPath = const "/"

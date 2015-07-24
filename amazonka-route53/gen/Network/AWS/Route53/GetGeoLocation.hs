@@ -29,9 +29,9 @@ module Network.AWS.Route53.GetGeoLocation
     -- ** Request constructor
     , getGeoLocation
     -- ** Request lenses
-    , gglrqSubdivisionCode
-    , gglrqCountryCode
-    , gglrqContinentCode
+    , gglSubdivisionCode
+    , gglCountryCode
+    , gglContinentCode
 
     -- * Response
     , GetGeoLocationResponse
@@ -54,24 +54,24 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gglrqSubdivisionCode'
+-- * 'gglSubdivisionCode'
 --
--- * 'gglrqCountryCode'
+-- * 'gglCountryCode'
 --
--- * 'gglrqContinentCode'
+-- * 'gglContinentCode'
 data GetGeoLocation = GetGeoLocation'
-    { _gglrqSubdivisionCode :: !(Maybe Text)
-    , _gglrqCountryCode     :: !(Maybe Text)
-    , _gglrqContinentCode   :: !(Maybe Text)
+    { _gglSubdivisionCode :: !(Maybe Text)
+    , _gglCountryCode     :: !(Maybe Text)
+    , _gglContinentCode   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGeoLocation' smart constructor.
 getGeoLocation :: GetGeoLocation
 getGeoLocation =
     GetGeoLocation'
-    { _gglrqSubdivisionCode = Nothing
-    , _gglrqCountryCode = Nothing
-    , _gglrqContinentCode = Nothing
+    { _gglSubdivisionCode = Nothing
+    , _gglCountryCode = Nothing
+    , _gglContinentCode = Nothing
     }
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A
@@ -79,8 +79,8 @@ getGeoLocation =
 --
 -- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns
 -- an InvalidInput error.
-gglrqSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
-gglrqSubdivisionCode = lens _gglrqSubdivisionCode (\ s a -> s{_gglrqSubdivisionCode = a});
+gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
+gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a});
 
 -- | The code for a country geo location. The default location uses \'*\' for
 -- the country code and will match all locations that are not matched by a
@@ -88,8 +88,8 @@ gglrqSubdivisionCode = lens _gglrqSubdivisionCode (\ s a -> s{_gglrqSubdivisionC
 --
 -- The default geo location uses a @*@ for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
-gglrqCountryCode :: Lens' GetGeoLocation (Maybe Text)
-gglrqCountryCode = lens _gglrqCountryCode (\ s a -> s{_gglrqCountryCode = a});
+gglCountryCode :: Lens' GetGeoLocation (Maybe Text)
+gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 
 -- | The code for a continent geo location. Note: only continent locations
 -- have a continent code.
@@ -98,8 +98,8 @@ gglrqCountryCode = lens _gglrqCountryCode (\ s a -> s{_gglrqCountryCode = a});
 --
 -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
 -- @SubdivisionCode@ returns an InvalidInput error.
-gglrqContinentCode :: Lens' GetGeoLocation (Maybe Text)
-gglrqContinentCode = lens _gglrqContinentCode (\ s a -> s{_gglrqContinentCode = a});
+gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
+gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
 
 instance AWSRequest GetGeoLocation where
         type Sv GetGeoLocation = Route53
@@ -120,9 +120,9 @@ instance ToPath GetGeoLocation where
 instance ToQuery GetGeoLocation where
         toQuery GetGeoLocation'{..}
           = mconcat
-              ["subdivisioncode" =: _gglrqSubdivisionCode,
-               "countrycode" =: _gglrqCountryCode,
-               "continentcode" =: _gglrqContinentCode]
+              ["subdivisioncode" =: _gglSubdivisionCode,
+               "countrycode" =: _gglCountryCode,
+               "continentcode" =: _gglContinentCode]
 
 -- | A complex type containing information about the specified geo location.
 --

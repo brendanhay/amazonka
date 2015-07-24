@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.ListDistributions
     -- ** Request constructor
     , listDistributions
     -- ** Request lenses
-    , ldrqMaxItems
-    , ldrqMarker
+    , ldMaxItems
+    , ldMarker
 
     -- * Response
     , ListDistributionsResponse
@@ -50,33 +50,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrqMaxItems'
+-- * 'ldMaxItems'
 --
--- * 'ldrqMarker'
+-- * 'ldMarker'
 data ListDistributions = ListDistributions'
-    { _ldrqMaxItems :: !(Maybe Text)
-    , _ldrqMarker   :: !(Maybe Text)
+    { _ldMaxItems :: !(Maybe Text)
+    , _ldMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDistributions' smart constructor.
 listDistributions :: ListDistributions
 listDistributions =
     ListDistributions'
-    { _ldrqMaxItems = Nothing
-    , _ldrqMarker = Nothing
+    { _ldMaxItems = Nothing
+    , _ldMarker = Nothing
     }
 
 -- | The maximum number of distributions you want in the response body.
-ldrqMaxItems :: Lens' ListDistributions (Maybe Text)
-ldrqMaxItems = lens _ldrqMaxItems (\ s a -> s{_ldrqMaxItems = a});
+ldMaxItems :: Lens' ListDistributions (Maybe Text)
+ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of distributions. The results include distributions in the list that
 -- occur after the marker. To get the next page of results, set the Marker
 -- to the value of the NextMarker from the current page\'s response (which
 -- is also the ID of the last distribution on that page).
-ldrqMarker :: Lens' ListDistributions (Maybe Text)
-ldrqMarker = lens _ldrqMarker (\ s a -> s{_ldrqMarker = a});
+ldMarker :: Lens' ListDistributions (Maybe Text)
+ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
 instance AWSRequest ListDistributions where
         type Sv ListDistributions = CloudFront
@@ -97,8 +97,7 @@ instance ToPath ListDistributions where
 instance ToQuery ListDistributions where
         toQuery ListDistributions'{..}
           = mconcat
-              ["MaxItems" =: _ldrqMaxItems,
-               "Marker" =: _ldrqMarker]
+              ["MaxItems" =: _ldMaxItems, "Marker" =: _ldMarker]
 
 -- | The returned result of the corresponding request.
 --

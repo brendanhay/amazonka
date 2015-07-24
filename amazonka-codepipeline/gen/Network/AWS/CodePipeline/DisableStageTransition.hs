@@ -28,10 +28,10 @@ module Network.AWS.CodePipeline.DisableStageTransition
     -- ** Request constructor
     , disableStageTransition
     -- ** Request lenses
-    , dstrqPipelineName
-    , dstrqStageName
-    , dstrqTransitionType
-    , dstrqReason
+    , dstPipelineName
+    , dstStageName
+    , dstTransitionType
+    , dstReason
 
     -- * Response
     , DisableStageTransitionResponse
@@ -50,52 +50,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dstrqPipelineName'
+-- * 'dstPipelineName'
 --
--- * 'dstrqStageName'
+-- * 'dstStageName'
 --
--- * 'dstrqTransitionType'
+-- * 'dstTransitionType'
 --
--- * 'dstrqReason'
+-- * 'dstReason'
 data DisableStageTransition = DisableStageTransition'
-    { _dstrqPipelineName   :: !Text
-    , _dstrqStageName      :: !Text
-    , _dstrqTransitionType :: !StageTransitionType
-    , _dstrqReason         :: !Text
+    { _dstPipelineName   :: !Text
+    , _dstStageName      :: !Text
+    , _dstTransitionType :: !StageTransitionType
+    , _dstReason         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableStageTransition' smart constructor.
 disableStageTransition :: Text -> Text -> StageTransitionType -> Text -> DisableStageTransition
 disableStageTransition pPipelineName_ pStageName_ pTransitionType_ pReason_ =
     DisableStageTransition'
-    { _dstrqPipelineName = pPipelineName_
-    , _dstrqStageName = pStageName_
-    , _dstrqTransitionType = pTransitionType_
-    , _dstrqReason = pReason_
+    { _dstPipelineName = pPipelineName_
+    , _dstStageName = pStageName_
+    , _dstTransitionType = pTransitionType_
+    , _dstReason = pReason_
     }
 
 -- | The name of the pipeline in which you want to disable the flow of
 -- artifacts from one stage to another.
-dstrqPipelineName :: Lens' DisableStageTransition Text
-dstrqPipelineName = lens _dstrqPipelineName (\ s a -> s{_dstrqPipelineName = a});
+dstPipelineName :: Lens' DisableStageTransition Text
+dstPipelineName = lens _dstPipelineName (\ s a -> s{_dstPipelineName = a});
 
 -- | The name of the stage where you want to disable the inbound or outbound
 -- transition of artifacts.
-dstrqStageName :: Lens' DisableStageTransition Text
-dstrqStageName = lens _dstrqStageName (\ s a -> s{_dstrqStageName = a});
+dstStageName :: Lens' DisableStageTransition Text
+dstStageName = lens _dstStageName (\ s a -> s{_dstStageName = a});
 
 -- | Specifies whether artifacts will be prevented from transitioning into
 -- the stage and being processed by the actions in that stage (inbound), or
 -- prevented from transitioning from the stage after they have been
 -- processed by the actions in that stage (outbound).
-dstrqTransitionType :: Lens' DisableStageTransition StageTransitionType
-dstrqTransitionType = lens _dstrqTransitionType (\ s a -> s{_dstrqTransitionType = a});
+dstTransitionType :: Lens' DisableStageTransition StageTransitionType
+dstTransitionType = lens _dstTransitionType (\ s a -> s{_dstTransitionType = a});
 
 -- | The reason given to the user why a stage is disabled, such as waiting
 -- for manual approval or manual tests. This message is displayed in the
 -- pipeline console UI.
-dstrqReason :: Lens' DisableStageTransition Text
-dstrqReason = lens _dstrqReason (\ s a -> s{_dstrqReason = a});
+dstReason :: Lens' DisableStageTransition Text
+dstReason = lens _dstReason (\ s a -> s{_dstReason = a});
 
 instance AWSRequest DisableStageTransition where
         type Sv DisableStageTransition = CodePipeline
@@ -118,10 +118,10 @@ instance ToHeaders DisableStageTransition where
 instance ToJSON DisableStageTransition where
         toJSON DisableStageTransition'{..}
           = object
-              ["pipelineName" .= _dstrqPipelineName,
-               "stageName" .= _dstrqStageName,
-               "transitionType" .= _dstrqTransitionType,
-               "reason" .= _dstrqReason]
+              ["pipelineName" .= _dstPipelineName,
+               "stageName" .= _dstStageName,
+               "transitionType" .= _dstTransitionType,
+               "reason" .= _dstReason]
 
 instance ToPath DisableStageTransition where
         toPath = const "/"

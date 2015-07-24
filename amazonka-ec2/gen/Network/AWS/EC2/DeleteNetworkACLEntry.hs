@@ -28,10 +28,10 @@ module Network.AWS.EC2.DeleteNetworkACLEntry
     -- ** Request constructor
     , deleteNetworkACLEntry
     -- ** Request lenses
-    , dnaerqDryRun
-    , dnaerqNetworkACLId
-    , dnaerqRuleNumber
-    , dnaerqEgress
+    , dnaeDryRun
+    , dnaeNetworkACLId
+    , dnaeRuleNumber
+    , dnaeEgress
 
     -- * Response
     , DeleteNetworkACLEntryResponse
@@ -48,48 +48,48 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnaerqDryRun'
+-- * 'dnaeDryRun'
 --
--- * 'dnaerqNetworkACLId'
+-- * 'dnaeNetworkACLId'
 --
--- * 'dnaerqRuleNumber'
+-- * 'dnaeRuleNumber'
 --
--- * 'dnaerqEgress'
+-- * 'dnaeEgress'
 data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
-    { _dnaerqDryRun       :: !(Maybe Bool)
-    , _dnaerqNetworkACLId :: !Text
-    , _dnaerqRuleNumber   :: !Int
-    , _dnaerqEgress       :: !Bool
+    { _dnaeDryRun       :: !(Maybe Bool)
+    , _dnaeNetworkACLId :: !Text
+    , _dnaeRuleNumber   :: !Int
+    , _dnaeEgress       :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkACLEntry' smart constructor.
 deleteNetworkACLEntry :: Text -> Int -> Bool -> DeleteNetworkACLEntry
 deleteNetworkACLEntry pNetworkACLId_ pRuleNumber_ pEgress_ =
     DeleteNetworkACLEntry'
-    { _dnaerqDryRun = Nothing
-    , _dnaerqNetworkACLId = pNetworkACLId_
-    , _dnaerqRuleNumber = pRuleNumber_
-    , _dnaerqEgress = pEgress_
+    { _dnaeDryRun = Nothing
+    , _dnaeNetworkACLId = pNetworkACLId_
+    , _dnaeRuleNumber = pRuleNumber_
+    , _dnaeEgress = pEgress_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dnaerqDryRun :: Lens' DeleteNetworkACLEntry (Maybe Bool)
-dnaerqDryRun = lens _dnaerqDryRun (\ s a -> s{_dnaerqDryRun = a});
+dnaeDryRun :: Lens' DeleteNetworkACLEntry (Maybe Bool)
+dnaeDryRun = lens _dnaeDryRun (\ s a -> s{_dnaeDryRun = a});
 
 -- | The ID of the network ACL.
-dnaerqNetworkACLId :: Lens' DeleteNetworkACLEntry Text
-dnaerqNetworkACLId = lens _dnaerqNetworkACLId (\ s a -> s{_dnaerqNetworkACLId = a});
+dnaeNetworkACLId :: Lens' DeleteNetworkACLEntry Text
+dnaeNetworkACLId = lens _dnaeNetworkACLId (\ s a -> s{_dnaeNetworkACLId = a});
 
 -- | The rule number of the entry to delete.
-dnaerqRuleNumber :: Lens' DeleteNetworkACLEntry Int
-dnaerqRuleNumber = lens _dnaerqRuleNumber (\ s a -> s{_dnaerqRuleNumber = a});
+dnaeRuleNumber :: Lens' DeleteNetworkACLEntry Int
+dnaeRuleNumber = lens _dnaeRuleNumber (\ s a -> s{_dnaeRuleNumber = a});
 
 -- | Indicates whether the rule is an egress rule.
-dnaerqEgress :: Lens' DeleteNetworkACLEntry Bool
-dnaerqEgress = lens _dnaerqEgress (\ s a -> s{_dnaerqEgress = a});
+dnaeEgress :: Lens' DeleteNetworkACLEntry Bool
+dnaeEgress = lens _dnaeEgress (\ s a -> s{_dnaeEgress = a});
 
 instance AWSRequest DeleteNetworkACLEntry where
         type Sv DeleteNetworkACLEntry = EC2
@@ -109,10 +109,10 @@ instance ToQuery DeleteNetworkACLEntry where
           = mconcat
               ["Action" =: ("DeleteNetworkACLEntry" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dnaerqDryRun,
-               "NetworkAclId" =: _dnaerqNetworkACLId,
-               "RuleNumber" =: _dnaerqRuleNumber,
-               "Egress" =: _dnaerqEgress]
+               "DryRun" =: _dnaeDryRun,
+               "NetworkAclId" =: _dnaeNetworkACLId,
+               "RuleNumber" =: _dnaeRuleNumber,
+               "Egress" =: _dnaeEgress]
 
 -- | /See:/ 'deleteNetworkACLEntryResponse' smart constructor.
 data DeleteNetworkACLEntryResponse =

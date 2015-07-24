@@ -37,7 +37,7 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     -- ** Request constructor
     , deleteSnapshotSchedule
     -- ** Request lenses
-    , drqVolumeARN
+    , dVolumeARN
 
     -- * Response
     , DeleteSnapshotScheduleResponse
@@ -57,21 +57,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqVolumeARN'
+-- * 'dVolumeARN'
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
-    { _drqVolumeARN :: Text
+    { _dVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotSchedule' smart constructor.
 deleteSnapshotSchedule :: Text -> DeleteSnapshotSchedule
 deleteSnapshotSchedule pVolumeARN_ =
     DeleteSnapshotSchedule'
-    { _drqVolumeARN = pVolumeARN_
+    { _dVolumeARN = pVolumeARN_
     }
 
 -- | FIXME: Undocumented member.
-drqVolumeARN :: Lens' DeleteSnapshotSchedule Text
-drqVolumeARN = lens _drqVolumeARN (\ s a -> s{_drqVolumeARN = a});
+dVolumeARN :: Lens' DeleteSnapshotSchedule Text
+dVolumeARN = lens _dVolumeARN (\ s a -> s{_dVolumeARN = a});
 
 instance AWSRequest DeleteSnapshotSchedule where
         type Sv DeleteSnapshotSchedule = StorageGateway
@@ -96,7 +96,7 @@ instance ToHeaders DeleteSnapshotSchedule where
 
 instance ToJSON DeleteSnapshotSchedule where
         toJSON DeleteSnapshotSchedule'{..}
-          = object ["VolumeARN" .= _drqVolumeARN]
+          = object ["VolumeARN" .= _dVolumeARN]
 
 instance ToPath DeleteSnapshotSchedule where
         toPath = const "/"

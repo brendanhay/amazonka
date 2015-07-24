@@ -30,7 +30,7 @@ module Network.AWS.CloudTrail.StopLogging
     -- ** Request constructor
     , stopLogging
     -- ** Request lenses
-    , slrqName
+    , slName
 
     -- * Response
     , StopLoggingResponse
@@ -52,22 +52,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slrqName'
+-- * 'slName'
 newtype StopLogging = StopLogging'
-    { _slrqName :: Text
+    { _slName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopLogging' smart constructor.
 stopLogging :: Text -> StopLogging
 stopLogging pName_ =
     StopLogging'
-    { _slrqName = pName_
+    { _slName = pName_
     }
 
 -- | Communicates to CloudTrail the name of the trail for which to stop
 -- logging AWS API calls.
-slrqName :: Lens' StopLogging Text
-slrqName = lens _slrqName (\ s a -> s{_slrqName = a});
+slName :: Lens' StopLogging Text
+slName = lens _slName (\ s a -> s{_slName = a});
 
 instance AWSRequest StopLogging where
         type Sv StopLogging = CloudTrail
@@ -89,8 +89,7 @@ instance ToHeaders StopLogging where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON StopLogging where
-        toJSON StopLogging'{..}
-          = object ["Name" .= _slrqName]
+        toJSON StopLogging'{..} = object ["Name" .= _slName]
 
 instance ToPath StopLogging where
         toPath = const "/"

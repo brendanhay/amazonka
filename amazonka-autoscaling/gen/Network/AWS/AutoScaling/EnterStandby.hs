@@ -31,9 +31,9 @@ module Network.AWS.AutoScaling.EnterStandby
     -- ** Request constructor
     , enterStandby
     -- ** Request lenses
-    , esrqInstanceIds
-    , esrqAutoScalingGroupName
-    , esrqShouldDecrementDesiredCapacity
+    , esInstanceIds
+    , esAutoScalingGroupName
+    , esShouldDecrementDesiredCapacity
 
     -- * Response
     , EnterStandbyResponse
@@ -53,41 +53,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esrqInstanceIds'
+-- * 'esInstanceIds'
 --
--- * 'esrqAutoScalingGroupName'
+-- * 'esAutoScalingGroupName'
 --
--- * 'esrqShouldDecrementDesiredCapacity'
+-- * 'esShouldDecrementDesiredCapacity'
 data EnterStandby = EnterStandby'
-    { _esrqInstanceIds                    :: !(Maybe [Text])
-    , _esrqAutoScalingGroupName           :: !Text
-    , _esrqShouldDecrementDesiredCapacity :: !Bool
+    { _esInstanceIds                    :: !(Maybe [Text])
+    , _esAutoScalingGroupName           :: !Text
+    , _esShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnterStandby' smart constructor.
 enterStandby :: Text -> Bool -> EnterStandby
 enterStandby pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
     EnterStandby'
-    { _esrqInstanceIds = Nothing
-    , _esrqAutoScalingGroupName = pAutoScalingGroupName_
-    , _esrqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+    { _esInstanceIds = Nothing
+    , _esAutoScalingGroupName = pAutoScalingGroupName_
+    , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
 -- | One or more instances to move into @Standby@ mode. You must specify at
 -- least one instance ID.
-esrqInstanceIds :: Lens' EnterStandby [Text]
-esrqInstanceIds = lens _esrqInstanceIds (\ s a -> s{_esrqInstanceIds = a}) . _Default;
+esInstanceIds :: Lens' EnterStandby [Text]
+esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default;
 
 -- | The name of the Auto Scaling group.
-esrqAutoScalingGroupName :: Lens' EnterStandby Text
-esrqAutoScalingGroupName = lens _esrqAutoScalingGroupName (\ s a -> s{_esrqAutoScalingGroupName = a});
+esAutoScalingGroupName :: Lens' EnterStandby Text
+esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScalingGroupName = a});
 
 -- | Specifies whether the instances moved to @Standby@ mode count as part of
 -- the Auto Scaling group\'s desired capacity. If set, the desired capacity
 -- for the Auto Scaling group decrements by the number of instances moved
 -- to @Standby@ mode.
-esrqShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
-esrqShouldDecrementDesiredCapacity = lens _esrqShouldDecrementDesiredCapacity (\ s a -> s{_esrqShouldDecrementDesiredCapacity = a});
+esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
+esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest EnterStandby where
         type Sv EnterStandby = AutoScaling
@@ -113,10 +113,10 @@ instance ToQuery EnterStandby where
               ["Action" =: ("EnterStandby" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _esrqInstanceIds),
-               "AutoScalingGroupName" =: _esrqAutoScalingGroupName,
+                 toQuery (toQueryList "member" <$> _esInstanceIds),
+               "AutoScalingGroupName" =: _esAutoScalingGroupName,
                "ShouldDecrementDesiredCapacity" =:
-                 _esrqShouldDecrementDesiredCapacity]
+                 _esShouldDecrementDesiredCapacity]
 
 -- | /See:/ 'enterStandbyResponse' smart constructor.
 --

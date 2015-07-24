@@ -34,8 +34,8 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     -- ** Request constructor
     , deleteEnvironmentConfiguration
     -- ** Request lenses
-    , decrqApplicationName
-    , decrqEnvironmentName
+    , decApplicationName
+    , decEnvironmentName
 
     -- * Response
     , DeleteEnvironmentConfigurationResponse
@@ -54,29 +54,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decrqApplicationName'
+-- * 'decApplicationName'
 --
--- * 'decrqEnvironmentName'
+-- * 'decEnvironmentName'
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
-    { _decrqApplicationName :: !Text
-    , _decrqEnvironmentName :: !Text
+    { _decApplicationName :: !Text
+    , _decEnvironmentName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEnvironmentConfiguration' smart constructor.
 deleteEnvironmentConfiguration :: Text -> Text -> DeleteEnvironmentConfiguration
 deleteEnvironmentConfiguration pApplicationName_ pEnvironmentName_ =
     DeleteEnvironmentConfiguration'
-    { _decrqApplicationName = pApplicationName_
-    , _decrqEnvironmentName = pEnvironmentName_
+    { _decApplicationName = pApplicationName_
+    , _decEnvironmentName = pEnvironmentName_
     }
 
 -- | The name of the application the environment is associated with.
-decrqApplicationName :: Lens' DeleteEnvironmentConfiguration Text
-decrqApplicationName = lens _decrqApplicationName (\ s a -> s{_decrqApplicationName = a});
+decApplicationName :: Lens' DeleteEnvironmentConfiguration Text
+decApplicationName = lens _decApplicationName (\ s a -> s{_decApplicationName = a});
 
 -- | The name of the environment to delete the draft configuration from.
-decrqEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
-decrqEnvironmentName = lens _decrqEnvironmentName (\ s a -> s{_decrqEnvironmentName = a});
+decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
+decEnvironmentName = lens _decEnvironmentName (\ s a -> s{_decEnvironmentName = a});
 
 instance AWSRequest DeleteEnvironmentConfiguration
          where
@@ -101,8 +101,8 @@ instance ToQuery DeleteEnvironmentConfiguration where
               ["Action" =:
                  ("DeleteEnvironmentConfiguration" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "ApplicationName" =: _decrqApplicationName,
-               "EnvironmentName" =: _decrqEnvironmentName]
+               "ApplicationName" =: _decApplicationName,
+               "EnvironmentName" =: _decEnvironmentName]
 
 -- | /See:/ 'deleteEnvironmentConfigurationResponse' smart constructor.
 data DeleteEnvironmentConfigurationResponse =

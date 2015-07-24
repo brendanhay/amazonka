@@ -28,8 +28,8 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     -- ** Request constructor
     , deleteChapCredentials
     -- ** Request lenses
-    , drqTargetARN
-    , drqInitiatorName
+    , dTargetARN
+    , dInitiatorName
 
     -- * Response
     , DeleteChapCredentialsResponse
@@ -55,31 +55,31 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqTargetARN'
+-- * 'dTargetARN'
 --
--- * 'drqInitiatorName'
+-- * 'dInitiatorName'
 data DeleteChapCredentials = DeleteChapCredentials'
-    { _drqTargetARN     :: !Text
-    , _drqInitiatorName :: !Text
+    { _dTargetARN     :: !Text
+    , _dInitiatorName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteChapCredentials' smart constructor.
 deleteChapCredentials :: Text -> Text -> DeleteChapCredentials
 deleteChapCredentials pTargetARN_ pInitiatorName_ =
     DeleteChapCredentials'
-    { _drqTargetARN = pTargetARN_
-    , _drqInitiatorName = pInitiatorName_
+    { _dTargetARN = pTargetARN_
+    , _dInitiatorName = pInitiatorName_
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-drqTargetARN :: Lens' DeleteChapCredentials Text
-drqTargetARN = lens _drqTargetARN (\ s a -> s{_drqTargetARN = a});
+dTargetARN :: Lens' DeleteChapCredentials Text
+dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
 
 -- | The iSCSI initiator that connects to the target.
-drqInitiatorName :: Lens' DeleteChapCredentials Text
-drqInitiatorName = lens _drqInitiatorName (\ s a -> s{_drqInitiatorName = a});
+dInitiatorName :: Lens' DeleteChapCredentials Text
+dInitiatorName = lens _dInitiatorName (\ s a -> s{_dInitiatorName = a});
 
 instance AWSRequest DeleteChapCredentials where
         type Sv DeleteChapCredentials = StorageGateway
@@ -106,8 +106,8 @@ instance ToHeaders DeleteChapCredentials where
 instance ToJSON DeleteChapCredentials where
         toJSON DeleteChapCredentials'{..}
           = object
-              ["TargetARN" .= _drqTargetARN,
-               "InitiatorName" .= _drqInitiatorName]
+              ["TargetARN" .= _dTargetARN,
+               "InitiatorName" .= _dInitiatorName]
 
 instance ToPath DeleteChapCredentials where
         toPath = const "/"

@@ -41,9 +41,9 @@ module Network.AWS.DataPipeline.PollForTask
     -- ** Request constructor
     , pollForTask
     -- ** Request lenses
-    , pftrqHostname
-    , pftrqInstanceIdentity
-    , pftrqWorkerGroup
+    , pftHostname
+    , pftInstanceIdentity
+    , pftWorkerGroup
 
     -- * Response
     , PollForTaskResponse
@@ -65,29 +65,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pftrqHostname'
+-- * 'pftHostname'
 --
--- * 'pftrqInstanceIdentity'
+-- * 'pftInstanceIdentity'
 --
--- * 'pftrqWorkerGroup'
+-- * 'pftWorkerGroup'
 data PollForTask = PollForTask'
-    { _pftrqHostname         :: !(Maybe Text)
-    , _pftrqInstanceIdentity :: !(Maybe InstanceIdentity)
-    , _pftrqWorkerGroup      :: !Text
+    { _pftHostname         :: !(Maybe Text)
+    , _pftInstanceIdentity :: !(Maybe InstanceIdentity)
+    , _pftWorkerGroup      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForTask' smart constructor.
 pollForTask :: Text -> PollForTask
 pollForTask pWorkerGroup_ =
     PollForTask'
-    { _pftrqHostname = Nothing
-    , _pftrqInstanceIdentity = Nothing
-    , _pftrqWorkerGroup = pWorkerGroup_
+    { _pftHostname = Nothing
+    , _pftInstanceIdentity = Nothing
+    , _pftWorkerGroup = pWorkerGroup_
     }
 
 -- | The public DNS name of the calling task runner.
-pftrqHostname :: Lens' PollForTask (Maybe Text)
-pftrqHostname = lens _pftrqHostname (\ s a -> s{_pftrqHostname = a});
+pftHostname :: Lens' PollForTask (Maybe Text)
+pftHostname = lens _pftHostname (\ s a -> s{_pftHostname = a});
 
 -- | Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value from the instance using
@@ -98,16 +98,16 @@ pftrqHostname = lens _pftrqHostname (\ s a -> s{_pftrqHostname = a});
 -- proves that your task runner is running on an EC2 instance, and ensures
 -- the proper AWS Data Pipeline service charges are applied to your
 -- pipeline.
-pftrqInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
-pftrqInstanceIdentity = lens _pftrqInstanceIdentity (\ s a -> s{_pftrqInstanceIdentity = a});
+pftInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
+pftInstanceIdentity = lens _pftInstanceIdentity (\ s a -> s{_pftInstanceIdentity = a});
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
 -- are created. You can only specify a single value for @workerGroup@ in
 -- the call to @PollForTask@. There are no wildcard values permitted in
 -- @workerGroup@; the string must be an exact, case-sensitive, match.
-pftrqWorkerGroup :: Lens' PollForTask Text
-pftrqWorkerGroup = lens _pftrqWorkerGroup (\ s a -> s{_pftrqWorkerGroup = a});
+pftWorkerGroup :: Lens' PollForTask Text
+pftWorkerGroup = lens _pftWorkerGroup (\ s a -> s{_pftWorkerGroup = a});
 
 instance AWSRequest PollForTask where
         type Sv PollForTask = DataPipeline
@@ -131,9 +131,9 @@ instance ToHeaders PollForTask where
 instance ToJSON PollForTask where
         toJSON PollForTask'{..}
           = object
-              ["hostname" .= _pftrqHostname,
-               "instanceIdentity" .= _pftrqInstanceIdentity,
-               "workerGroup" .= _pftrqWorkerGroup]
+              ["hostname" .= _pftHostname,
+               "instanceIdentity" .= _pftInstanceIdentity,
+               "workerGroup" .= _pftWorkerGroup]
 
 instance ToPath PollForTask where
         toPath = const "/"

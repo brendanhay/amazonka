@@ -31,10 +31,10 @@ module Network.AWS.CognitoSync.SubscribeToDataset
     -- ** Request constructor
     , subscribeToDataset
     -- ** Request lenses
-    , stdrqIdentityPoolId
-    , stdrqIdentityId
-    , stdrqDatasetName
-    , stdrqDeviceId
+    , stdIdentityPoolId
+    , stdIdentityId
+    , stdDatasetName
+    , stdDeviceId
 
     -- * Response
     , SubscribeToDatasetResponse
@@ -55,47 +55,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stdrqIdentityPoolId'
+-- * 'stdIdentityPoolId'
 --
--- * 'stdrqIdentityId'
+-- * 'stdIdentityId'
 --
--- * 'stdrqDatasetName'
+-- * 'stdDatasetName'
 --
--- * 'stdrqDeviceId'
+-- * 'stdDeviceId'
 data SubscribeToDataset = SubscribeToDataset'
-    { _stdrqIdentityPoolId :: !Text
-    , _stdrqIdentityId     :: !Text
-    , _stdrqDatasetName    :: !Text
-    , _stdrqDeviceId       :: !Text
+    { _stdIdentityPoolId :: !Text
+    , _stdIdentityId     :: !Text
+    , _stdDatasetName    :: !Text
+    , _stdDeviceId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubscribeToDataset' smart constructor.
 subscribeToDataset :: Text -> Text -> Text -> Text -> SubscribeToDataset
 subscribeToDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ pDeviceId_ =
     SubscribeToDataset'
-    { _stdrqIdentityPoolId = pIdentityPoolId_
-    , _stdrqIdentityId = pIdentityId_
-    , _stdrqDatasetName = pDatasetName_
-    , _stdrqDeviceId = pDeviceId_
+    { _stdIdentityPoolId = pIdentityPoolId_
+    , _stdIdentityId = pIdentityId_
+    , _stdDatasetName = pDatasetName_
+    , _stdDeviceId = pDeviceId_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. The ID of the pool to which the identity belongs.
-stdrqIdentityPoolId :: Lens' SubscribeToDataset Text
-stdrqIdentityPoolId = lens _stdrqIdentityPoolId (\ s a -> s{_stdrqIdentityPoolId = a});
+stdIdentityPoolId :: Lens' SubscribeToDataset Text
+stdIdentityPoolId = lens _stdIdentityPoolId (\ s a -> s{_stdIdentityPoolId = a});
 
 -- | Unique ID for this identity.
-stdrqIdentityId :: Lens' SubscribeToDataset Text
-stdrqIdentityId = lens _stdrqIdentityId (\ s a -> s{_stdrqIdentityId = a});
+stdIdentityId :: Lens' SubscribeToDataset Text
+stdIdentityId = lens _stdIdentityId (\ s a -> s{_stdIdentityId = a});
 
 -- | The name of the dataset to subcribe to.
-stdrqDatasetName :: Lens' SubscribeToDataset Text
-stdrqDatasetName = lens _stdrqDatasetName (\ s a -> s{_stdrqDatasetName = a});
+stdDatasetName :: Lens' SubscribeToDataset Text
+stdDatasetName = lens _stdDatasetName (\ s a -> s{_stdDatasetName = a});
 
 -- | The unique ID generated for this device by Cognito.
-stdrqDeviceId :: Lens' SubscribeToDataset Text
-stdrqDeviceId = lens _stdrqDeviceId (\ s a -> s{_stdrqDeviceId = a});
+stdDeviceId :: Lens' SubscribeToDataset Text
+stdDeviceId = lens _stdDeviceId (\ s a -> s{_stdDeviceId = a});
 
 instance AWSRequest SubscribeToDataset where
         type Sv SubscribeToDataset = CognitoSync
@@ -120,10 +120,10 @@ instance ToJSON SubscribeToDataset where
 instance ToPath SubscribeToDataset where
         toPath SubscribeToDataset'{..}
           = mconcat
-              ["/identitypools/", toText _stdrqIdentityPoolId,
-               "/identities/", toText _stdrqIdentityId,
-               "/datasets/", toText _stdrqDatasetName,
-               "/subscriptions/", toText _stdrqDeviceId]
+              ["/identitypools/", toText _stdIdentityPoolId,
+               "/identities/", toText _stdIdentityId, "/datasets/",
+               toText _stdDatasetName, "/subscriptions/",
+               toText _stdDeviceId]
 
 instance ToQuery SubscribeToDataset where
         toQuery = const mempty

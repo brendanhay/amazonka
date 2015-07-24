@@ -29,8 +29,8 @@ module Network.AWS.EC2.DeleteVPCEndpoints
     -- ** Request constructor
     , deleteVPCEndpoints
     -- ** Request lenses
-    , dverqDryRun
-    , dverqVPCEndpointIds
+    , dveDryRun
+    , dveVPCEndpointIds
 
     -- * Response
     , DeleteVPCEndpointsResponse
@@ -50,32 +50,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dverqDryRun'
+-- * 'dveDryRun'
 --
--- * 'dverqVPCEndpointIds'
+-- * 'dveVPCEndpointIds'
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
-    { _dverqDryRun         :: !(Maybe Bool)
-    , _dverqVPCEndpointIds :: ![Text]
+    { _dveDryRun         :: !(Maybe Bool)
+    , _dveVPCEndpointIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCEndpoints' smart constructor.
 deleteVPCEndpoints :: DeleteVPCEndpoints
 deleteVPCEndpoints =
     DeleteVPCEndpoints'
-    { _dverqDryRun = Nothing
-    , _dverqVPCEndpointIds = mempty
+    { _dveDryRun = Nothing
+    , _dveVPCEndpointIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dverqDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
-dverqDryRun = lens _dverqDryRun (\ s a -> s{_dverqDryRun = a});
+dveDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
+dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a});
 
 -- | One or more endpoint IDs.
-dverqVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
-dverqVPCEndpointIds = lens _dverqVPCEndpointIds (\ s a -> s{_dverqVPCEndpointIds = a});
+dveVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
+dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a});
 
 instance AWSRequest DeleteVPCEndpoints where
         type Sv DeleteVPCEndpoints = EC2
@@ -101,8 +101,8 @@ instance ToQuery DeleteVPCEndpoints where
           = mconcat
               ["Action" =: ("DeleteVPCEndpoints" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dverqDryRun,
-               toQueryList "item" _dverqVPCEndpointIds]
+               "DryRun" =: _dveDryRun,
+               toQueryList "item" _dveVPCEndpointIds]
 
 -- | /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 --

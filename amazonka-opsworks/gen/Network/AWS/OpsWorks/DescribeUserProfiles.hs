@@ -32,7 +32,7 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     -- ** Request constructor
     , describeUserProfiles
     -- ** Request lenses
-    , duprqIAMUserARNs
+    , dupIAMUserARNs
 
     -- * Response
     , DescribeUserProfilesResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'duprqIAMUserARNs'
+-- * 'dupIAMUserARNs'
 newtype DescribeUserProfiles = DescribeUserProfiles'
-    { _duprqIAMUserARNs :: Maybe [Text]
+    { _dupIAMUserARNs :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUserProfiles' smart constructor.
 describeUserProfiles :: DescribeUserProfiles
 describeUserProfiles =
     DescribeUserProfiles'
-    { _duprqIAMUserARNs = Nothing
+    { _dupIAMUserARNs = Nothing
     }
 
 -- | An array of IAM user ARNs that identify the users to be described.
-duprqIAMUserARNs :: Lens' DescribeUserProfiles [Text]
-duprqIAMUserARNs = lens _duprqIAMUserARNs (\ s a -> s{_duprqIAMUserARNs = a}) . _Default;
+dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
+dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default;
 
 instance AWSRequest DescribeUserProfiles where
         type Sv DescribeUserProfiles = OpsWorks
@@ -92,7 +92,7 @@ instance ToHeaders DescribeUserProfiles where
 
 instance ToJSON DescribeUserProfiles where
         toJSON DescribeUserProfiles'{..}
-          = object ["IamUserArns" .= _duprqIAMUserARNs]
+          = object ["IamUserArns" .= _dupIAMUserARNs]
 
 instance ToPath DescribeUserProfiles where
         toPath = const "/"

@@ -34,8 +34,8 @@ module Network.AWS.CodePipeline.GetThirdPartyJobDetails
     -- ** Request constructor
     , getThirdPartyJobDetails
     -- ** Request lenses
-    , gtpjdrqJobId
-    , gtpjdrqClientToken
+    , gtpjdJobId
+    , gtpjdClientToken
 
     -- * Response
     , GetThirdPartyJobDetailsResponse
@@ -57,31 +57,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtpjdrqJobId'
+-- * 'gtpjdJobId'
 --
--- * 'gtpjdrqClientToken'
+-- * 'gtpjdClientToken'
 data GetThirdPartyJobDetails = GetThirdPartyJobDetails'
-    { _gtpjdrqJobId       :: !Text
-    , _gtpjdrqClientToken :: !Text
+    { _gtpjdJobId       :: !Text
+    , _gtpjdClientToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetThirdPartyJobDetails' smart constructor.
 getThirdPartyJobDetails :: Text -> Text -> GetThirdPartyJobDetails
 getThirdPartyJobDetails pJobId_ pClientToken_ =
     GetThirdPartyJobDetails'
-    { _gtpjdrqJobId = pJobId_
-    , _gtpjdrqClientToken = pClientToken_
+    { _gtpjdJobId = pJobId_
+    , _gtpjdClientToken = pClientToken_
     }
 
 -- | The unique system-generated ID used for identifying the job.
-gtpjdrqJobId :: Lens' GetThirdPartyJobDetails Text
-gtpjdrqJobId = lens _gtpjdrqJobId (\ s a -> s{_gtpjdrqJobId = a});
+gtpjdJobId :: Lens' GetThirdPartyJobDetails Text
+gtpjdJobId = lens _gtpjdJobId (\ s a -> s{_gtpjdJobId = a});
 
 -- | The clientToken portion of the clientId and clientToken pair used to
 -- verify that the calling entity is allowed access to the job and its
 -- details.
-gtpjdrqClientToken :: Lens' GetThirdPartyJobDetails Text
-gtpjdrqClientToken = lens _gtpjdrqClientToken (\ s a -> s{_gtpjdrqClientToken = a});
+gtpjdClientToken :: Lens' GetThirdPartyJobDetails Text
+gtpjdClientToken = lens _gtpjdClientToken (\ s a -> s{_gtpjdClientToken = a});
 
 instance AWSRequest GetThirdPartyJobDetails where
         type Sv GetThirdPartyJobDetails = CodePipeline
@@ -107,8 +107,8 @@ instance ToHeaders GetThirdPartyJobDetails where
 instance ToJSON GetThirdPartyJobDetails where
         toJSON GetThirdPartyJobDetails'{..}
           = object
-              ["jobId" .= _gtpjdrqJobId,
-               "clientToken" .= _gtpjdrqClientToken]
+              ["jobId" .= _gtpjdJobId,
+               "clientToken" .= _gtpjdClientToken]
 
 instance ToPath GetThirdPartyJobDetails where
         toPath = const "/"

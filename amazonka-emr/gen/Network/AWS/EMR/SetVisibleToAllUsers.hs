@@ -32,8 +32,8 @@ module Network.AWS.EMR.SetVisibleToAllUsers
     -- ** Request constructor
     , setVisibleToAllUsers
     -- ** Request lenses
-    , svtaurqJobFlowIds
-    , svtaurqVisibleToAllUsers
+    , svtauJobFlowIds
+    , svtauVisibleToAllUsers
 
     -- * Response
     , SetVisibleToAllUsersResponse
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'svtaurqJobFlowIds'
+-- * 'svtauJobFlowIds'
 --
--- * 'svtaurqVisibleToAllUsers'
+-- * 'svtauVisibleToAllUsers'
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
-    { _svtaurqJobFlowIds        :: ![Text]
-    , _svtaurqVisibleToAllUsers :: !Bool
+    { _svtauJobFlowIds        :: ![Text]
+    , _svtauVisibleToAllUsers :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVisibleToAllUsers' smart constructor.
 setVisibleToAllUsers :: Bool -> SetVisibleToAllUsers
 setVisibleToAllUsers pVisibleToAllUsers_ =
     SetVisibleToAllUsers'
-    { _svtaurqJobFlowIds = mempty
-    , _svtaurqVisibleToAllUsers = pVisibleToAllUsers_
+    { _svtauJobFlowIds = mempty
+    , _svtauVisibleToAllUsers = pVisibleToAllUsers_
     }
 
 -- | Identifiers of the job flows to receive the new visibility setting.
-svtaurqJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
-svtaurqJobFlowIds = lens _svtaurqJobFlowIds (\ s a -> s{_svtaurqJobFlowIds = a});
+svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]
+svtauJobFlowIds = lens _svtauJobFlowIds (\ s a -> s{_svtauJobFlowIds = a});
 
 -- | Whether the specified job flows are visible to all IAM users of the AWS
 -- account associated with the job flow. If this value is set to True, all
 -- IAM users of that AWS account can view and, if they have the proper IAM
 -- policy permissions set, manage the job flows. If it is set to False,
 -- only the IAM user that created a job flow can view and manage it.
-svtaurqVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
-svtaurqVisibleToAllUsers = lens _svtaurqVisibleToAllUsers (\ s a -> s{_svtaurqVisibleToAllUsers = a});
+svtauVisibleToAllUsers :: Lens' SetVisibleToAllUsers Bool
+svtauVisibleToAllUsers = lens _svtauVisibleToAllUsers (\ s a -> s{_svtauVisibleToAllUsers = a});
 
 instance AWSRequest SetVisibleToAllUsers where
         type Sv SetVisibleToAllUsers = EMR
@@ -100,8 +100,8 @@ instance ToHeaders SetVisibleToAllUsers where
 instance ToJSON SetVisibleToAllUsers where
         toJSON SetVisibleToAllUsers'{..}
           = object
-              ["JobFlowIds" .= _svtaurqJobFlowIds,
-               "VisibleToAllUsers" .= _svtaurqVisibleToAllUsers]
+              ["JobFlowIds" .= _svtauJobFlowIds,
+               "VisibleToAllUsers" .= _svtauVisibleToAllUsers]
 
 instance ToPath SetVisibleToAllUsers where
         toPath = const "/"

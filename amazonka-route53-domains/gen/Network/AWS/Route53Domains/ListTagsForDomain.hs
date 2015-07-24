@@ -31,7 +31,7 @@ module Network.AWS.Route53Domains.ListTagsForDomain
     -- ** Request constructor
     , listTagsForDomain
     -- ** Request lenses
-    , ltfdrqDomainName
+    , ltfdDomainName
 
     -- * Response
     , ListTagsForDomainResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfdrqDomainName'
+-- * 'ltfdDomainName'
 newtype ListTagsForDomain = ListTagsForDomain'
-    { _ltfdrqDomainName :: Text
+    { _ltfdDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForDomain' smart constructor.
 listTagsForDomain :: Text -> ListTagsForDomain
 listTagsForDomain pDomainName_ =
     ListTagsForDomain'
-    { _ltfdrqDomainName = pDomainName_
+    { _ltfdDomainName = pDomainName_
     }
 
 -- | The domain for which you want to get a list of tags.
-ltfdrqDomainName :: Lens' ListTagsForDomain Text
-ltfdrqDomainName = lens _ltfdrqDomainName (\ s a -> s{_ltfdrqDomainName = a});
+ltfdDomainName :: Lens' ListTagsForDomain Text
+ltfdDomainName = lens _ltfdDomainName (\ s a -> s{_ltfdDomainName = a});
 
 instance AWSRequest ListTagsForDomain where
         type Sv ListTagsForDomain = Route53Domains
@@ -91,7 +91,7 @@ instance ToHeaders ListTagsForDomain where
 
 instance ToJSON ListTagsForDomain where
         toJSON ListTagsForDomain'{..}
-          = object ["DomainName" .= _ltfdrqDomainName]
+          = object ["DomainName" .= _ltfdDomainName]
 
 instance ToPath ListTagsForDomain where
         toPath = const "/"

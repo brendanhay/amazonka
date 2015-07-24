@@ -35,9 +35,9 @@ module Network.AWS.OpsWorks.DescribeCommands
     -- ** Request constructor
     , describeCommands
     -- ** Request lenses
-    , dcrqInstanceId
-    , dcrqDeploymentId
-    , dcrqCommandIds
+    , dcInstanceId
+    , dcDeploymentId
+    , dcCommandIds
 
     -- * Response
     , DescribeCommandsResponse
@@ -57,43 +57,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrqInstanceId'
+-- * 'dcInstanceId'
 --
--- * 'dcrqDeploymentId'
+-- * 'dcDeploymentId'
 --
--- * 'dcrqCommandIds'
+-- * 'dcCommandIds'
 data DescribeCommands = DescribeCommands'
-    { _dcrqInstanceId   :: !(Maybe Text)
-    , _dcrqDeploymentId :: !(Maybe Text)
-    , _dcrqCommandIds   :: !(Maybe [Text])
+    { _dcInstanceId   :: !(Maybe Text)
+    , _dcDeploymentId :: !(Maybe Text)
+    , _dcCommandIds   :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommands' smart constructor.
 describeCommands :: DescribeCommands
 describeCommands =
     DescribeCommands'
-    { _dcrqInstanceId = Nothing
-    , _dcrqDeploymentId = Nothing
-    , _dcrqCommandIds = Nothing
+    { _dcInstanceId = Nothing
+    , _dcDeploymentId = Nothing
+    , _dcCommandIds = Nothing
     }
 
 -- | The instance ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
 -- instance.
-dcrqInstanceId :: Lens' DescribeCommands (Maybe Text)
-dcrqInstanceId = lens _dcrqInstanceId (\ s a -> s{_dcrqInstanceId = a});
+dcInstanceId :: Lens' DescribeCommands (Maybe Text)
+dcInstanceId = lens _dcInstanceId (\ s a -> s{_dcInstanceId = a});
 
 -- | The deployment ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
 -- deployment.
-dcrqDeploymentId :: Lens' DescribeCommands (Maybe Text)
-dcrqDeploymentId = lens _dcrqDeploymentId (\ s a -> s{_dcrqDeploymentId = a});
+dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
+dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
 
 -- | An array of command IDs. If you include this parameter,
 -- @DescribeCommands@ returns a description of the specified commands.
 -- Otherwise, it returns a description of every command.
-dcrqCommandIds :: Lens' DescribeCommands [Text]
-dcrqCommandIds = lens _dcrqCommandIds (\ s a -> s{_dcrqCommandIds = a}) . _Default;
+dcCommandIds :: Lens' DescribeCommands [Text]
+dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default;
 
 instance AWSRequest DescribeCommands where
         type Sv DescribeCommands = OpsWorks
@@ -118,9 +118,9 @@ instance ToHeaders DescribeCommands where
 instance ToJSON DescribeCommands where
         toJSON DescribeCommands'{..}
           = object
-              ["InstanceId" .= _dcrqInstanceId,
-               "DeploymentId" .= _dcrqDeploymentId,
-               "CommandIds" .= _dcrqCommandIds]
+              ["InstanceId" .= _dcInstanceId,
+               "DeploymentId" .= _dcDeploymentId,
+               "CommandIds" .= _dcCommandIds]
 
 instance ToPath DescribeCommands where
         toPath = const "/"

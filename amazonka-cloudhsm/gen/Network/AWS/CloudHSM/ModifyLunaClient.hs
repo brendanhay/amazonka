@@ -30,8 +30,8 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     -- ** Request constructor
     , modifyLunaClient
     -- ** Request lenses
-    , mlcrqClientARN
-    , mlcrqCertificate
+    , mlcClientARN
+    , mlcCertificate
 
     -- * Response
     , ModifyLunaClientResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mlcrqClientARN'
+-- * 'mlcClientARN'
 --
--- * 'mlcrqCertificate'
+-- * 'mlcCertificate'
 data ModifyLunaClient = ModifyLunaClient'
-    { _mlcrqClientARN   :: !Text
-    , _mlcrqCertificate :: !Text
+    { _mlcClientARN   :: !Text
+    , _mlcCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLunaClient' smart constructor.
 modifyLunaClient :: Text -> Text -> ModifyLunaClient
 modifyLunaClient pClientARN_ pCertificate_ =
     ModifyLunaClient'
-    { _mlcrqClientARN = pClientARN_
-    , _mlcrqCertificate = pCertificate_
+    { _mlcClientARN = pClientARN_
+    , _mlcCertificate = pCertificate_
     }
 
 -- | The ARN of the client.
-mlcrqClientARN :: Lens' ModifyLunaClient Text
-mlcrqClientARN = lens _mlcrqClientARN (\ s a -> s{_mlcrqClientARN = a});
+mlcClientARN :: Lens' ModifyLunaClient Text
+mlcClientARN = lens _mlcClientARN (\ s a -> s{_mlcClientARN = a});
 
 -- | The new certificate for the client.
-mlcrqCertificate :: Lens' ModifyLunaClient Text
-mlcrqCertificate = lens _mlcrqCertificate (\ s a -> s{_mlcrqCertificate = a});
+mlcCertificate :: Lens' ModifyLunaClient Text
+mlcCertificate = lens _mlcCertificate (\ s a -> s{_mlcCertificate = a});
 
 instance AWSRequest ModifyLunaClient where
         type Sv ModifyLunaClient = CloudHSM
@@ -98,8 +98,8 @@ instance ToHeaders ModifyLunaClient where
 instance ToJSON ModifyLunaClient where
         toJSON ModifyLunaClient'{..}
           = object
-              ["ClientArn" .= _mlcrqClientARN,
-               "Certificate" .= _mlcrqCertificate]
+              ["ClientArn" .= _mlcClientARN,
+               "Certificate" .= _mlcCertificate]
 
 instance ToPath ModifyLunaClient where
         toPath = const "/"

@@ -28,10 +28,10 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     -- ** Request constructor
     , describeCacheParameters
     -- ** Request lenses
-    , dcprqMaxRecords
-    , dcprqMarker
-    , dcprqSource
-    , dcprqCacheParameterGroupName
+    , dcpMaxRecords
+    , dcpMarker
+    , dcpSource
+    , dcpCacheParameterGroupName
 
     -- * Response
     , DescribeCacheParametersResponse
@@ -56,28 +56,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcprqMaxRecords'
+-- * 'dcpMaxRecords'
 --
--- * 'dcprqMarker'
+-- * 'dcpMarker'
 --
--- * 'dcprqSource'
+-- * 'dcpSource'
 --
--- * 'dcprqCacheParameterGroupName'
+-- * 'dcpCacheParameterGroupName'
 data DescribeCacheParameters = DescribeCacheParameters'
-    { _dcprqMaxRecords              :: !(Maybe Int)
-    , _dcprqMarker                  :: !(Maybe Text)
-    , _dcprqSource                  :: !(Maybe Text)
-    , _dcprqCacheParameterGroupName :: !Text
+    { _dcpMaxRecords              :: !(Maybe Int)
+    , _dcpMarker                  :: !(Maybe Text)
+    , _dcpSource                  :: !(Maybe Text)
+    , _dcpCacheParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParameters' smart constructor.
 describeCacheParameters :: Text -> DescribeCacheParameters
 describeCacheParameters pCacheParameterGroupName_ =
     DescribeCacheParameters'
-    { _dcprqMaxRecords = Nothing
-    , _dcprqMarker = Nothing
-    , _dcprqSource = Nothing
-    , _dcprqCacheParameterGroupName = pCacheParameterGroupName_
+    { _dcpMaxRecords = Nothing
+    , _dcpMarker = Nothing
+    , _dcpSource = Nothing
+    , _dcpCacheParameterGroupName = pCacheParameterGroupName_
     }
 
 -- | The maximum number of records to include in the response. If more
@@ -87,32 +87,32 @@ describeCacheParameters pCacheParameterGroupName_ =
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dcprqMaxRecords :: Lens' DescribeCacheParameters (Maybe Int)
-dcprqMaxRecords = lens _dcprqMaxRecords (\ s a -> s{_dcprqMaxRecords = a});
+dcpMaxRecords :: Lens' DescribeCacheParameters (Maybe Int)
+dcpMaxRecords = lens _dcpMaxRecords (\ s a -> s{_dcpMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dcprqMarker :: Lens' DescribeCacheParameters (Maybe Text)
-dcprqMarker = lens _dcprqMarker (\ s a -> s{_dcprqMarker = a});
+dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
+dcpMarker = lens _dcpMarker (\ s a -> s{_dcpMarker = a});
 
 -- | The parameter types to return.
 --
 -- Valid values: @user@ | @system@ | @engine-default@
-dcprqSource :: Lens' DescribeCacheParameters (Maybe Text)
-dcprqSource = lens _dcprqSource (\ s a -> s{_dcprqSource = a});
+dcpSource :: Lens' DescribeCacheParameters (Maybe Text)
+dcpSource = lens _dcpSource (\ s a -> s{_dcpSource = a});
 
 -- | The name of a specific cache parameter group to return details for.
-dcprqCacheParameterGroupName :: Lens' DescribeCacheParameters Text
-dcprqCacheParameterGroupName = lens _dcprqCacheParameterGroupName (\ s a -> s{_dcprqCacheParameterGroupName = a});
+dcpCacheParameterGroupName :: Lens' DescribeCacheParameters Text
+dcpCacheParameterGroupName = lens _dcpCacheParameterGroupName (\ s a -> s{_dcpCacheParameterGroupName = a});
 
 instance AWSPager DescribeCacheParameters where
         page rq rs
           | stop (rs ^. dcprsMarker) = Nothing
           | stop (rs ^. dcprsParameters) = Nothing
           | otherwise =
-            Just $ rq & dcprqMarker .~ rs ^. dcprsMarker
+            Just $ rq & dcpMarker .~ rs ^. dcprsMarker
 
 instance AWSRequest DescribeCacheParameters where
         type Sv DescribeCacheParameters = ElastiCache
@@ -144,10 +144,10 @@ instance ToQuery DescribeCacheParameters where
               ["Action" =:
                  ("DescribeCacheParameters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "MaxRecords" =: _dcprqMaxRecords,
-               "Marker" =: _dcprqMarker, "Source" =: _dcprqSource,
+               "MaxRecords" =: _dcpMaxRecords,
+               "Marker" =: _dcpMarker, "Source" =: _dcpSource,
                "CacheParameterGroupName" =:
-                 _dcprqCacheParameterGroupName]
+                 _dcpCacheParameterGroupName]
 
 -- | Represents the output of a /DescribeCacheParameters/ action.
 --

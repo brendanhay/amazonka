@@ -27,11 +27,11 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
     -- ** Request constructor
     , describeImportSnapshotTasks
     -- ** Request lenses
-    , distrqFilters
-    , distrqImportTaskIds
-    , distrqNextToken
-    , distrqDryRun
-    , distrqMaxResults
+    , distFilters
+    , distImportTaskIds
+    , distNextToken
+    , distDryRun
+    , distMaxResults
 
     -- * Response
     , DescribeImportSnapshotTasksResponse
@@ -52,56 +52,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'distrqFilters'
+-- * 'distFilters'
 --
--- * 'distrqImportTaskIds'
+-- * 'distImportTaskIds'
 --
--- * 'distrqNextToken'
+-- * 'distNextToken'
 --
--- * 'distrqDryRun'
+-- * 'distDryRun'
 --
--- * 'distrqMaxResults'
+-- * 'distMaxResults'
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-    { _distrqFilters       :: !(Maybe [Filter])
-    , _distrqImportTaskIds :: !(Maybe [Text])
-    , _distrqNextToken     :: !(Maybe Text)
-    , _distrqDryRun        :: !(Maybe Bool)
-    , _distrqMaxResults    :: !(Maybe Int)
+    { _distFilters       :: !(Maybe [Filter])
+    , _distImportTaskIds :: !(Maybe [Text])
+    , _distNextToken     :: !(Maybe Text)
+    , _distDryRun        :: !(Maybe Bool)
+    , _distMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportSnapshotTasks' smart constructor.
 describeImportSnapshotTasks :: DescribeImportSnapshotTasks
 describeImportSnapshotTasks =
     DescribeImportSnapshotTasks'
-    { _distrqFilters = Nothing
-    , _distrqImportTaskIds = Nothing
-    , _distrqNextToken = Nothing
-    , _distrqDryRun = Nothing
-    , _distrqMaxResults = Nothing
+    { _distFilters = Nothing
+    , _distImportTaskIds = Nothing
+    , _distNextToken = Nothing
+    , _distDryRun = Nothing
+    , _distMaxResults = Nothing
     }
 
 -- | One or more filters.
-distrqFilters :: Lens' DescribeImportSnapshotTasks [Filter]
-distrqFilters = lens _distrqFilters (\ s a -> s{_distrqFilters = a}) . _Default;
+distFilters :: Lens' DescribeImportSnapshotTasks [Filter]
+distFilters = lens _distFilters (\ s a -> s{_distFilters = a}) . _Default;
 
 -- | A list of import snapshot task IDs.
-distrqImportTaskIds :: Lens' DescribeImportSnapshotTasks [Text]
-distrqImportTaskIds = lens _distrqImportTaskIds (\ s a -> s{_distrqImportTaskIds = a}) . _Default;
+distImportTaskIds :: Lens' DescribeImportSnapshotTasks [Text]
+distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a}) . _Default;
 
 -- | A token that indicates the next page of results.
-distrqNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
-distrqNextToken = lens _distrqNextToken (\ s a -> s{_distrqNextToken = a});
+distNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
+distNextToken = lens _distNextToken (\ s a -> s{_distNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-distrqDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
-distrqDryRun = lens _distrqDryRun (\ s a -> s{_distrqDryRun = a});
+distDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
+distDryRun = lens _distDryRun (\ s a -> s{_distDryRun = a});
 
 -- | The maximum number of results to return in a single request.
-distrqMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
-distrqMaxResults = lens _distrqMaxResults (\ s a -> s{_distrqMaxResults = a});
+distMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
+distMaxResults = lens _distMaxResults (\ s a -> s{_distMaxResults = a});
 
 instance AWSRequest DescribeImportSnapshotTasks where
         type Sv DescribeImportSnapshotTasks = EC2
@@ -129,13 +129,12 @@ instance ToQuery DescribeImportSnapshotTasks where
               ["Action" =:
                  ("DescribeImportSnapshotTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _distrqFilters),
+               toQuery (toQueryList "Filter" <$> _distFilters),
                toQuery
-                 (toQueryList "ImportTaskId" <$>
-                    _distrqImportTaskIds),
-               "NextToken" =: _distrqNextToken,
-               "DryRun" =: _distrqDryRun,
-               "MaxResults" =: _distrqMaxResults]
+                 (toQueryList "ImportTaskId" <$> _distImportTaskIds),
+               "NextToken" =: _distNextToken,
+               "DryRun" =: _distDryRun,
+               "MaxResults" =: _distMaxResults]
 
 -- | /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
 --

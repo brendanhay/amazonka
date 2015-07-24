@@ -27,8 +27,8 @@ module Network.AWS.CodeCommit.ListBranches
     -- ** Request constructor
     , listBranches
     -- ** Request lenses
-    , lbrqNextToken
-    , lbrqRepositoryName
+    , lbNextToken
+    , lbRepositoryName
 
     -- * Response
     , ListBranchesResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lbrqNextToken'
+-- * 'lbNextToken'
 --
--- * 'lbrqRepositoryName'
+-- * 'lbRepositoryName'
 data ListBranches = ListBranches'
-    { _lbrqNextToken      :: !(Maybe Text)
-    , _lbrqRepositoryName :: !Text
+    { _lbNextToken      :: !(Maybe Text)
+    , _lbRepositoryName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBranches' smart constructor.
 listBranches :: Text -> ListBranches
 listBranches pRepositoryName_ =
     ListBranches'
-    { _lbrqNextToken = Nothing
-    , _lbrqRepositoryName = pRepositoryName_
+    { _lbNextToken = Nothing
+    , _lbRepositoryName = pRepositoryName_
     }
 
 -- | An enumeration token that allows the operation to batch the results.
-lbrqNextToken :: Lens' ListBranches (Maybe Text)
-lbrqNextToken = lens _lbrqNextToken (\ s a -> s{_lbrqNextToken = a});
+lbNextToken :: Lens' ListBranches (Maybe Text)
+lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
 
 -- | The name of the repository that contains the branches.
-lbrqRepositoryName :: Lens' ListBranches Text
-lbrqRepositoryName = lens _lbrqRepositoryName (\ s a -> s{_lbrqRepositoryName = a});
+lbRepositoryName :: Lens' ListBranches Text
+lbRepositoryName = lens _lbRepositoryName (\ s a -> s{_lbRepositoryName = a});
 
 instance AWSRequest ListBranches where
         type Sv ListBranches = CodeCommit
@@ -98,8 +98,8 @@ instance ToHeaders ListBranches where
 instance ToJSON ListBranches where
         toJSON ListBranches'{..}
           = object
-              ["nextToken" .= _lbrqNextToken,
-               "repositoryName" .= _lbrqRepositoryName]
+              ["nextToken" .= _lbNextToken,
+               "repositoryName" .= _lbRepositoryName]
 
 instance ToPath ListBranches where
         toPath = const "/"

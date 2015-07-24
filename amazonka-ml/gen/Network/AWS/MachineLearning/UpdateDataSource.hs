@@ -30,8 +30,8 @@ module Network.AWS.MachineLearning.UpdateDataSource
     -- ** Request constructor
     , updateDataSource
     -- ** Request lenses
-    , udsrqDataSourceId
-    , udsrqDataSourceName
+    , udsDataSourceId
+    , udsDataSourceName
 
     -- * Response
     , UpdateDataSourceResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udsrqDataSourceId'
+-- * 'udsDataSourceId'
 --
--- * 'udsrqDataSourceName'
+-- * 'udsDataSourceName'
 data UpdateDataSource = UpdateDataSource'
-    { _udsrqDataSourceId   :: !Text
-    , _udsrqDataSourceName :: !Text
+    { _udsDataSourceId   :: !Text
+    , _udsDataSourceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDataSource' smart constructor.
 updateDataSource :: Text -> Text -> UpdateDataSource
 updateDataSource pDataSourceId_ pDataSourceName_ =
     UpdateDataSource'
-    { _udsrqDataSourceId = pDataSourceId_
-    , _udsrqDataSourceName = pDataSourceName_
+    { _udsDataSourceId = pDataSourceId_
+    , _udsDataSourceName = pDataSourceName_
     }
 
 -- | The ID assigned to the @DataSource@ during creation.
-udsrqDataSourceId :: Lens' UpdateDataSource Text
-udsrqDataSourceId = lens _udsrqDataSourceId (\ s a -> s{_udsrqDataSourceId = a});
+udsDataSourceId :: Lens' UpdateDataSource Text
+udsDataSourceId = lens _udsDataSourceId (\ s a -> s{_udsDataSourceId = a});
 
 -- | A new user-supplied name or description of the @DataSource@ that will
 -- replace the current description.
-udsrqDataSourceName :: Lens' UpdateDataSource Text
-udsrqDataSourceName = lens _udsrqDataSourceName (\ s a -> s{_udsrqDataSourceName = a});
+udsDataSourceName :: Lens' UpdateDataSource Text
+udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a});
 
 instance AWSRequest UpdateDataSource where
         type Sv UpdateDataSource = MachineLearning
@@ -98,8 +98,8 @@ instance ToHeaders UpdateDataSource where
 instance ToJSON UpdateDataSource where
         toJSON UpdateDataSource'{..}
           = object
-              ["DataSourceId" .= _udsrqDataSourceId,
-               "DataSourceName" .= _udsrqDataSourceName]
+              ["DataSourceId" .= _udsDataSourceId,
+               "DataSourceName" .= _udsDataSourceName]
 
 instance ToPath UpdateDataSource where
         toPath = const "/"

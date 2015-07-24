@@ -37,9 +37,9 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     -- ** Request constructor
     , replaceRouteTableAssociation
     -- ** Request lenses
-    , rrtarqDryRun
-    , rrtarqAssociationId
-    , rrtarqRouteTableId
+    , rrtaDryRun
+    , rrtaAssociationId
+    , rrtaRouteTableId
 
     -- * Response
     , ReplaceRouteTableAssociationResponse
@@ -59,40 +59,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrtarqDryRun'
+-- * 'rrtaDryRun'
 --
--- * 'rrtarqAssociationId'
+-- * 'rrtaAssociationId'
 --
--- * 'rrtarqRouteTableId'
+-- * 'rrtaRouteTableId'
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
-    { _rrtarqDryRun        :: !(Maybe Bool)
-    , _rrtarqAssociationId :: !Text
-    , _rrtarqRouteTableId  :: !Text
+    { _rrtaDryRun        :: !(Maybe Bool)
+    , _rrtaAssociationId :: !Text
+    , _rrtaRouteTableId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteTableAssociation' smart constructor.
 replaceRouteTableAssociation :: Text -> Text -> ReplaceRouteTableAssociation
 replaceRouteTableAssociation pAssociationId_ pRouteTableId_ =
     ReplaceRouteTableAssociation'
-    { _rrtarqDryRun = Nothing
-    , _rrtarqAssociationId = pAssociationId_
-    , _rrtarqRouteTableId = pRouteTableId_
+    { _rrtaDryRun = Nothing
+    , _rrtaAssociationId = pAssociationId_
+    , _rrtaRouteTableId = pRouteTableId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rrtarqDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
-rrtarqDryRun = lens _rrtarqDryRun (\ s a -> s{_rrtarqDryRun = a});
+rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
+rrtaDryRun = lens _rrtaDryRun (\ s a -> s{_rrtaDryRun = a});
 
 -- | The association ID.
-rrtarqAssociationId :: Lens' ReplaceRouteTableAssociation Text
-rrtarqAssociationId = lens _rrtarqAssociationId (\ s a -> s{_rrtarqAssociationId = a});
+rrtaAssociationId :: Lens' ReplaceRouteTableAssociation Text
+rrtaAssociationId = lens _rrtaAssociationId (\ s a -> s{_rrtaAssociationId = a});
 
 -- | The ID of the new route table to associate with the subnet.
-rrtarqRouteTableId :: Lens' ReplaceRouteTableAssociation Text
-rrtarqRouteTableId = lens _rrtarqRouteTableId (\ s a -> s{_rrtarqRouteTableId = a});
+rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
+rrtaRouteTableId = lens _rrtaRouteTableId (\ s a -> s{_rrtaRouteTableId = a});
 
 instance AWSRequest ReplaceRouteTableAssociation
          where
@@ -118,9 +118,9 @@ instance ToQuery ReplaceRouteTableAssociation where
               ["Action" =:
                  ("ReplaceRouteTableAssociation" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rrtarqDryRun,
-               "AssociationId" =: _rrtarqAssociationId,
-               "RouteTableId" =: _rrtarqRouteTableId]
+               "DryRun" =: _rrtaDryRun,
+               "AssociationId" =: _rrtaAssociationId,
+               "RouteTableId" =: _rrtaRouteTableId]
 
 -- | /See:/ 'replaceRouteTableAssociationResponse' smart constructor.
 --

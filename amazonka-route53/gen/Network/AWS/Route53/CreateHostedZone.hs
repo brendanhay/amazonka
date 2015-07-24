@@ -49,11 +49,11 @@ module Network.AWS.Route53.CreateHostedZone
     -- ** Request constructor
     , createHostedZone
     -- ** Request lenses
-    , chzrqDelegationSetId
-    , chzrqHostedZoneConfig
-    , chzrqVPC
-    , chzrqName
-    , chzrqCallerReference
+    , chzDelegationSetId
+    , chzHostedZoneConfig
+    , chzVPC
+    , chzName
+    , chzCallerReference
 
     -- * Response
     , CreateHostedZoneResponse
@@ -80,48 +80,48 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chzrqDelegationSetId'
+-- * 'chzDelegationSetId'
 --
--- * 'chzrqHostedZoneConfig'
+-- * 'chzHostedZoneConfig'
 --
--- * 'chzrqVPC'
+-- * 'chzVPC'
 --
--- * 'chzrqName'
+-- * 'chzName'
 --
--- * 'chzrqCallerReference'
+-- * 'chzCallerReference'
 data CreateHostedZone = CreateHostedZone'
-    { _chzrqDelegationSetId  :: !(Maybe Text)
-    , _chzrqHostedZoneConfig :: !(Maybe HostedZoneConfig)
-    , _chzrqVPC              :: !(Maybe VPC)
-    , _chzrqName             :: !Text
-    , _chzrqCallerReference  :: !Text
+    { _chzDelegationSetId  :: !(Maybe Text)
+    , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
+    , _chzVPC              :: !(Maybe VPC)
+    , _chzName             :: !Text
+    , _chzCallerReference  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHostedZone' smart constructor.
 createHostedZone :: Text -> Text -> CreateHostedZone
 createHostedZone pName_ pCallerReference_ =
     CreateHostedZone'
-    { _chzrqDelegationSetId = Nothing
-    , _chzrqHostedZoneConfig = Nothing
-    , _chzrqVPC = Nothing
-    , _chzrqName = pName_
-    , _chzrqCallerReference = pCallerReference_
+    { _chzDelegationSetId = Nothing
+    , _chzHostedZoneConfig = Nothing
+    , _chzVPC = Nothing
+    , _chzName = pName_
+    , _chzCallerReference = pCallerReference_
     }
 
 -- | The delegation set id of the reusable delgation set whose NS records you
 -- want to assign to the new hosted zone.
-chzrqDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
-chzrqDelegationSetId = lens _chzrqDelegationSetId (\ s a -> s{_chzrqDelegationSetId = a});
+chzDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
+chzDelegationSetId = lens _chzDelegationSetId (\ s a -> s{_chzDelegationSetId = a});
 
 -- | A complex type that contains an optional comment about your hosted zone.
-chzrqHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
-chzrqHostedZoneConfig = lens _chzrqHostedZoneConfig (\ s a -> s{_chzrqHostedZoneConfig = a});
+chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
+chzHostedZoneConfig = lens _chzHostedZoneConfig (\ s a -> s{_chzHostedZoneConfig = a});
 
 -- | The VPC that you want your hosted zone to be associated with. By
 -- providing this parameter, your newly created hosted cannot be resolved
 -- anywhere other than the given VPC.
-chzrqVPC :: Lens' CreateHostedZone (Maybe VPC)
-chzrqVPC = lens _chzrqVPC (\ s a -> s{_chzrqVPC = a});
+chzVPC :: Lens' CreateHostedZone (Maybe VPC)
+chzVPC = lens _chzVPC (\ s a -> s{_chzVPC = a});
 
 -- | The name of the domain. This must be a fully-specified domain, for
 -- example, www.example.com. The trailing dot is optional; Route 53 assumes
@@ -132,8 +132,8 @@ chzrqVPC = lens _chzrqVPC (\ s a -> s{_chzrqVPC = a});
 -- This is the name you have registered with your DNS registrar. You should
 -- ask your registrar to change the authoritative name servers for your
 -- domain to the set of @NameServers@ elements returned in @DelegationSet@.
-chzrqName :: Lens' CreateHostedZone Text
-chzrqName = lens _chzrqName (\ s a -> s{_chzrqName = a});
+chzName :: Lens' CreateHostedZone Text
+chzName = lens _chzName (\ s a -> s{_chzName = a});
 
 -- | A unique string that identifies the request and that allows failed
 -- @CreateHostedZone@ requests to be retried without the risk of executing
@@ -145,8 +145,8 @@ chzrqName = lens _chzrqName (\ s a -> s{_chzrqName = a});
 -- Valid characters are any Unicode code points that are legal in an XML
 -- 1.0 document. The UTF-8 encoding of the value must be less than 128
 -- bytes.
-chzrqCallerReference :: Lens' CreateHostedZone Text
-chzrqCallerReference = lens _chzrqCallerReference (\ s a -> s{_chzrqCallerReference = a});
+chzCallerReference :: Lens' CreateHostedZone Text
+chzCallerReference = lens _chzCallerReference (\ s a -> s{_chzCallerReference = a});
 
 instance AWSRequest CreateHostedZone where
         type Sv CreateHostedZone = Route53
@@ -179,10 +179,10 @@ instance ToQuery CreateHostedZone where
 instance ToXML CreateHostedZone where
         toXML CreateHostedZone'{..}
           = mconcat
-              ["DelegationSetId" @= _chzrqDelegationSetId,
-               "HostedZoneConfig" @= _chzrqHostedZoneConfig,
-               "VPC" @= _chzrqVPC, "Name" @= _chzrqName,
-               "CallerReference" @= _chzrqCallerReference]
+              ["DelegationSetId" @= _chzDelegationSetId,
+               "HostedZoneConfig" @= _chzHostedZoneConfig,
+               "VPC" @= _chzVPC, "Name" @= _chzName,
+               "CallerReference" @= _chzCallerReference]
 
 -- | A complex type containing the response information for the new hosted
 -- zone.

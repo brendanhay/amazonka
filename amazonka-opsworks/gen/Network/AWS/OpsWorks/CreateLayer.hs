@@ -41,22 +41,22 @@ module Network.AWS.OpsWorks.CreateLayer
     -- ** Request constructor
     , createLayer
     -- ** Request lenses
-    , clrqCustomInstanceProfileARN
-    , clrqInstallUpdatesOnBoot
-    , clrqCustomSecurityGroupIds
-    , clrqLifecycleEventConfiguration
-    , clrqCustomRecipes
-    , clrqVolumeConfigurations
-    , clrqEnableAutoHealing
-    , clrqPackages
-    , clrqAttributes
-    , clrqAutoAssignPublicIPs
-    , clrqUseEBSOptimizedInstances
-    , clrqAutoAssignElasticIPs
-    , clrqStackId
-    , clrqType
-    , clrqName
-    , clrqShortname
+    , clCustomInstanceProfileARN
+    , clInstallUpdatesOnBoot
+    , clCustomSecurityGroupIds
+    , clLifecycleEventConfiguration
+    , clCustomRecipes
+    , clVolumeConfigurations
+    , clEnableAutoHealing
+    , clPackages
+    , clAttributes
+    , clAutoAssignPublicIPs
+    , clUseEBSOptimizedInstances
+    , clAutoAssignElasticIPs
+    , clStackId
+    , clType
+    , clName
+    , clShortname
 
     -- * Response
     , CreateLayerResponse
@@ -76,83 +76,83 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clrqCustomInstanceProfileARN'
+-- * 'clCustomInstanceProfileARN'
 --
--- * 'clrqInstallUpdatesOnBoot'
+-- * 'clInstallUpdatesOnBoot'
 --
--- * 'clrqCustomSecurityGroupIds'
+-- * 'clCustomSecurityGroupIds'
 --
--- * 'clrqLifecycleEventConfiguration'
+-- * 'clLifecycleEventConfiguration'
 --
--- * 'clrqCustomRecipes'
+-- * 'clCustomRecipes'
 --
--- * 'clrqVolumeConfigurations'
+-- * 'clVolumeConfigurations'
 --
--- * 'clrqEnableAutoHealing'
+-- * 'clEnableAutoHealing'
 --
--- * 'clrqPackages'
+-- * 'clPackages'
 --
--- * 'clrqAttributes'
+-- * 'clAttributes'
 --
--- * 'clrqAutoAssignPublicIPs'
+-- * 'clAutoAssignPublicIPs'
 --
--- * 'clrqUseEBSOptimizedInstances'
+-- * 'clUseEBSOptimizedInstances'
 --
--- * 'clrqAutoAssignElasticIPs'
+-- * 'clAutoAssignElasticIPs'
 --
--- * 'clrqStackId'
+-- * 'clStackId'
 --
--- * 'clrqType'
+-- * 'clType'
 --
--- * 'clrqName'
+-- * 'clName'
 --
--- * 'clrqShortname'
+-- * 'clShortname'
 data CreateLayer = CreateLayer'
-    { _clrqCustomInstanceProfileARN    :: !(Maybe Text)
-    , _clrqInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _clrqCustomSecurityGroupIds      :: !(Maybe [Text])
-    , _clrqLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _clrqCustomRecipes               :: !(Maybe Recipes)
-    , _clrqVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _clrqEnableAutoHealing           :: !(Maybe Bool)
-    , _clrqPackages                    :: !(Maybe [Text])
-    , _clrqAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _clrqAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _clrqUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _clrqAutoAssignElasticIPs        :: !(Maybe Bool)
-    , _clrqStackId                     :: !Text
-    , _clrqType                        :: !LayerType
-    , _clrqName                        :: !Text
-    , _clrqShortname                   :: !Text
+    { _clCustomInstanceProfileARN    :: !(Maybe Text)
+    , _clInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _clCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _clLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _clCustomRecipes               :: !(Maybe Recipes)
+    , _clVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _clEnableAutoHealing           :: !(Maybe Bool)
+    , _clPackages                    :: !(Maybe [Text])
+    , _clAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _clAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _clUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _clAutoAssignElasticIPs        :: !(Maybe Bool)
+    , _clStackId                     :: !Text
+    , _clType                        :: !LayerType
+    , _clName                        :: !Text
+    , _clShortname                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLayer' smart constructor.
 createLayer :: Text -> LayerType -> Text -> Text -> CreateLayer
 createLayer pStackId_ pType_ pName_ pShortname_ =
     CreateLayer'
-    { _clrqCustomInstanceProfileARN = Nothing
-    , _clrqInstallUpdatesOnBoot = Nothing
-    , _clrqCustomSecurityGroupIds = Nothing
-    , _clrqLifecycleEventConfiguration = Nothing
-    , _clrqCustomRecipes = Nothing
-    , _clrqVolumeConfigurations = Nothing
-    , _clrqEnableAutoHealing = Nothing
-    , _clrqPackages = Nothing
-    , _clrqAttributes = Nothing
-    , _clrqAutoAssignPublicIPs = Nothing
-    , _clrqUseEBSOptimizedInstances = Nothing
-    , _clrqAutoAssignElasticIPs = Nothing
-    , _clrqStackId = pStackId_
-    , _clrqType = pType_
-    , _clrqName = pName_
-    , _clrqShortname = pShortname_
+    { _clCustomInstanceProfileARN = Nothing
+    , _clInstallUpdatesOnBoot = Nothing
+    , _clCustomSecurityGroupIds = Nothing
+    , _clLifecycleEventConfiguration = Nothing
+    , _clCustomRecipes = Nothing
+    , _clVolumeConfigurations = Nothing
+    , _clEnableAutoHealing = Nothing
+    , _clPackages = Nothing
+    , _clAttributes = Nothing
+    , _clAutoAssignPublicIPs = Nothing
+    , _clUseEBSOptimizedInstances = Nothing
+    , _clAutoAssignElasticIPs = Nothing
+    , _clStackId = pStackId_
+    , _clType = pType_
+    , _clName = pName_
+    , _clShortname = pShortname_
     }
 
 -- | The ARN of an IAM profile that to be used for the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-clrqCustomInstanceProfileARN :: Lens' CreateLayer (Maybe Text)
-clrqCustomInstanceProfileARN = lens _clrqCustomInstanceProfileARN (\ s a -> s{_clrqCustomInstanceProfileARN = a});
+clCustomInstanceProfileARN :: Lens' CreateLayer (Maybe Text)
+clCustomInstanceProfileARN = lens _clCustomInstanceProfileARN (\ s a -> s{_clCustomInstanceProfileARN = a});
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -163,70 +163,70 @@ clrqCustomInstanceProfileARN = lens _clrqCustomInstanceProfileARN (\ s a -> s{_c
 --
 -- We strongly recommend using the default value of @true@, to ensure that
 -- your instances have the latest security updates.
-clrqInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
-clrqInstallUpdatesOnBoot = lens _clrqInstallUpdatesOnBoot (\ s a -> s{_clrqInstallUpdatesOnBoot = a});
+clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
+clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a});
 
 -- | An array containing the layer custom security group IDs.
-clrqCustomSecurityGroupIds :: Lens' CreateLayer [Text]
-clrqCustomSecurityGroupIds = lens _clrqCustomSecurityGroupIds (\ s a -> s{_clrqCustomSecurityGroupIds = a}) . _Default;
+clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
+clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default;
 
 -- | A LifeCycleEventConfiguration object that you can use to configure the
 -- Shutdown event to specify an execution timeout and enable or disable
 -- Elastic Load Balancer connection draining.
-clrqLifecycleEventConfiguration :: Lens' CreateLayer (Maybe LifecycleEventConfiguration)
-clrqLifecycleEventConfiguration = lens _clrqLifecycleEventConfiguration (\ s a -> s{_clrqLifecycleEventConfiguration = a});
+clLifecycleEventConfiguration :: Lens' CreateLayer (Maybe LifecycleEventConfiguration)
+clLifecycleEventConfiguration = lens _clLifecycleEventConfiguration (\ s a -> s{_clLifecycleEventConfiguration = a});
 
 -- | A @LayerCustomRecipes@ object that specifies the layer custom recipes.
-clrqCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
-clrqCustomRecipes = lens _clrqCustomRecipes (\ s a -> s{_clrqCustomRecipes = a});
+clCustomRecipes :: Lens' CreateLayer (Maybe Recipes)
+clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
-clrqVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
-clrqVolumeConfigurations = lens _clrqVolumeConfigurations (\ s a -> s{_clrqVolumeConfigurations = a}) . _Default;
+clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
+clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default;
 
 -- | Whether to disable auto healing for the layer.
-clrqEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
-clrqEnableAutoHealing = lens _clrqEnableAutoHealing (\ s a -> s{_clrqEnableAutoHealing = a});
+clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
+clEnableAutoHealing = lens _clEnableAutoHealing (\ s a -> s{_clEnableAutoHealing = a});
 
 -- | An array of @Package@ objects that describe the layer packages.
-clrqPackages :: Lens' CreateLayer [Text]
-clrqPackages = lens _clrqPackages (\ s a -> s{_clrqPackages = a}) . _Default;
+clPackages :: Lens' CreateLayer [Text]
+clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default;
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-clrqAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
-clrqAttributes = lens _clrqAttributes (\ s a -> s{_clrqAttributes = a}) . _Default . _Map;
+clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
+clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Default . _Map;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-clrqAutoAssignPublicIPs :: Lens' CreateLayer (Maybe Bool)
-clrqAutoAssignPublicIPs = lens _clrqAutoAssignPublicIPs (\ s a -> s{_clrqAutoAssignPublicIPs = a});
+clAutoAssignPublicIPs :: Lens' CreateLayer (Maybe Bool)
+clAutoAssignPublicIPs = lens _clAutoAssignPublicIPs (\ s a -> s{_clAutoAssignPublicIPs = a});
 
 -- | Whether to use Amazon EBS-optimized instances.
-clrqUseEBSOptimizedInstances :: Lens' CreateLayer (Maybe Bool)
-clrqUseEBSOptimizedInstances = lens _clrqUseEBSOptimizedInstances (\ s a -> s{_clrqUseEBSOptimizedInstances = a});
+clUseEBSOptimizedInstances :: Lens' CreateLayer (Maybe Bool)
+clUseEBSOptimizedInstances = lens _clUseEBSOptimizedInstances (\ s a -> s{_clUseEBSOptimizedInstances = a});
 
 -- | Whether to automatically assign an
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
 -- to the layer\'s instances. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-clrqAutoAssignElasticIPs :: Lens' CreateLayer (Maybe Bool)
-clrqAutoAssignElasticIPs = lens _clrqAutoAssignElasticIPs (\ s a -> s{_clrqAutoAssignElasticIPs = a});
+clAutoAssignElasticIPs :: Lens' CreateLayer (Maybe Bool)
+clAutoAssignElasticIPs = lens _clAutoAssignElasticIPs (\ s a -> s{_clAutoAssignElasticIPs = a});
 
 -- | The layer stack ID.
-clrqStackId :: Lens' CreateLayer Text
-clrqStackId = lens _clrqStackId (\ s a -> s{_clrqStackId = a});
+clStackId :: Lens' CreateLayer Text
+clStackId = lens _clStackId (\ s a -> s{_clStackId = a});
 
 -- | The layer type. A stack cannot have more than one built-in layer of the
 -- same type. It can have any number of custom layers.
-clrqType :: Lens' CreateLayer LayerType
-clrqType = lens _clrqType (\ s a -> s{_clrqType = a});
+clType :: Lens' CreateLayer LayerType
+clType = lens _clType (\ s a -> s{_clType = a});
 
 -- | The layer name, which is used by the console.
-clrqName :: Lens' CreateLayer Text
-clrqName = lens _clrqName (\ s a -> s{_clrqName = a});
+clName :: Lens' CreateLayer Text
+clName = lens _clName (\ s a -> s{_clName = a});
 
 -- | For custom layers only, use this parameter to specify the layer\'s short
 -- name, which is used internally by AWS OpsWorks and by Chef recipes. The
@@ -237,8 +237,8 @@ clrqName = lens _clrqName (\ s a -> s{_clrqName = a});
 -- The built-in layers\' short names are defined by AWS OpsWorks. For more
 -- information, see the
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
-clrqShortname :: Lens' CreateLayer Text
-clrqShortname = lens _clrqShortname (\ s a -> s{_clrqShortname = a});
+clShortname :: Lens' CreateLayer Text
+clShortname = lens _clShortname (\ s a -> s{_clShortname = a});
 
 instance AWSRequest CreateLayer where
         type Sv CreateLayer = OpsWorks
@@ -263,23 +263,23 @@ instance ToJSON CreateLayer where
         toJSON CreateLayer'{..}
           = object
               ["CustomInstanceProfileArn" .=
-                 _clrqCustomInstanceProfileARN,
-               "InstallUpdatesOnBoot" .= _clrqInstallUpdatesOnBoot,
+                 _clCustomInstanceProfileARN,
+               "InstallUpdatesOnBoot" .= _clInstallUpdatesOnBoot,
                "CustomSecurityGroupIds" .=
-                 _clrqCustomSecurityGroupIds,
+                 _clCustomSecurityGroupIds,
                "LifecycleEventConfiguration" .=
-                 _clrqLifecycleEventConfiguration,
-               "CustomRecipes" .= _clrqCustomRecipes,
-               "VolumeConfigurations" .= _clrqVolumeConfigurations,
-               "EnableAutoHealing" .= _clrqEnableAutoHealing,
-               "Packages" .= _clrqPackages,
-               "Attributes" .= _clrqAttributes,
-               "AutoAssignPublicIps" .= _clrqAutoAssignPublicIPs,
+                 _clLifecycleEventConfiguration,
+               "CustomRecipes" .= _clCustomRecipes,
+               "VolumeConfigurations" .= _clVolumeConfigurations,
+               "EnableAutoHealing" .= _clEnableAutoHealing,
+               "Packages" .= _clPackages,
+               "Attributes" .= _clAttributes,
+               "AutoAssignPublicIps" .= _clAutoAssignPublicIPs,
                "UseEbsOptimizedInstances" .=
-                 _clrqUseEBSOptimizedInstances,
-               "AutoAssignElasticIps" .= _clrqAutoAssignElasticIPs,
-               "StackId" .= _clrqStackId, "Type" .= _clrqType,
-               "Name" .= _clrqName, "Shortname" .= _clrqShortname]
+                 _clUseEBSOptimizedInstances,
+               "AutoAssignElasticIps" .= _clAutoAssignElasticIPs,
+               "StackId" .= _clStackId, "Type" .= _clType,
+               "Name" .= _clName, "Shortname" .= _clShortname]
 
 instance ToPath CreateLayer where
         toPath = const "/"

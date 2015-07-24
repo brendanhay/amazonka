@@ -28,7 +28,7 @@ module Network.AWS.DataPipeline.ListPipelines
     -- ** Request constructor
     , listPipelines
     -- ** Request lenses
-    , lprqMarker
+    , lpMarker
 
     -- * Response
     , ListPipelinesResponse
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprqMarker'
+-- * 'lpMarker'
 newtype ListPipelines = ListPipelines'
-    { _lprqMarker :: Maybe Text
+    { _lpMarker :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
 listPipelines =
     ListPipelines'
-    { _lprqMarker = Nothing
+    { _lpMarker = Nothing
     }
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @ListPipelines@ with the marker value from the previous call to
 -- retrieve the next set of results.
-lprqMarker :: Lens' ListPipelines (Maybe Text)
-lprqMarker = lens _lprqMarker (\ s a -> s{_lprqMarker = a});
+lpMarker :: Lens' ListPipelines (Maybe Text)
+lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
 instance AWSPager ListPipelines where
         page rq rs
           | stop (rs ^. lprsHasMoreResults) = Nothing
           | isNothing (rs ^. lprsMarker) = Nothing
           | otherwise =
-            Just $ rq & lprqMarker .~ rs ^. lprsMarker
+            Just $ rq & lpMarker .~ rs ^. lprsMarker
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = DataPipeline
@@ -102,7 +102,7 @@ instance ToHeaders ListPipelines where
 
 instance ToJSON ListPipelines where
         toJSON ListPipelines'{..}
-          = object ["marker" .= _lprqMarker]
+          = object ["marker" .= _lpMarker]
 
 instance ToPath ListPipelines where
         toPath = const "/"

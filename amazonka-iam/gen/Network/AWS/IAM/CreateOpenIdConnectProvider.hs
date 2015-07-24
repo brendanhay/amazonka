@@ -44,9 +44,9 @@ module Network.AWS.IAM.CreateOpenIdConnectProvider
     -- ** Request constructor
     , createOpenIdConnectProvider
     -- ** Request lenses
-    , coicprqClientIdList
-    , coicprqURL
-    , coicprqThumbprintList
+    , coicpClientIdList
+    , coicpURL
+    , coicpThumbprintList
 
     -- * Response
     , CreateOpenIdConnectProviderResponse
@@ -66,24 +66,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'coicprqClientIdList'
+-- * 'coicpClientIdList'
 --
--- * 'coicprqURL'
+-- * 'coicpURL'
 --
--- * 'coicprqThumbprintList'
+-- * 'coicpThumbprintList'
 data CreateOpenIdConnectProvider = CreateOpenIdConnectProvider'
-    { _coicprqClientIdList   :: !(Maybe [Text])
-    , _coicprqURL            :: !Text
-    , _coicprqThumbprintList :: ![Text]
+    { _coicpClientIdList   :: !(Maybe [Text])
+    , _coicpURL            :: !Text
+    , _coicpThumbprintList :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOpenIdConnectProvider' smart constructor.
 createOpenIdConnectProvider :: Text -> CreateOpenIdConnectProvider
 createOpenIdConnectProvider pURL_ =
     CreateOpenIdConnectProvider'
-    { _coicprqClientIdList = Nothing
-    , _coicprqURL = pURL_
-    , _coicprqThumbprintList = mempty
+    { _coicpClientIdList = Nothing
+    , _coicpURL = pURL_
+    , _coicpThumbprintList = mempty
     }
 
 -- | A list of client IDs (also known as audiences). When a mobile or web app
@@ -99,8 +99,8 @@ createOpenIdConnectProvider pURL_ =
 -- There is no defined format for a client ID. The
 -- @CreateOpenIDConnectProviderRequest@ action accepts client IDs up to 255
 -- characters long.
-coicprqClientIdList :: Lens' CreateOpenIdConnectProvider [Text]
-coicprqClientIdList = lens _coicprqClientIdList (\ s a -> s{_coicprqClientIdList = a}) . _Default;
+coicpClientIdList :: Lens' CreateOpenIdConnectProvider [Text]
+coicpClientIdList = lens _coicpClientIdList (\ s a -> s{_coicpClientIdList = a}) . _Default;
 
 -- | The URL of the identity provider. The URL must begin with \"https:\/\/\"
 -- and should correspond to the @iss@ claim in the provider\'s OpenID
@@ -112,8 +112,8 @@ coicprqClientIdList = lens _coicprqClientIdList (\ s a -> s{_coicprqClientIdList
 -- You cannot register the same provider multiple times in a single AWS
 -- account. If you try to submit a URL that has already been used for an
 -- OpenID Connect provider in the AWS account, you will get an error.
-coicprqURL :: Lens' CreateOpenIdConnectProvider Text
-coicprqURL = lens _coicprqURL (\ s a -> s{_coicprqURL = a});
+coicpURL :: Lens' CreateOpenIdConnectProvider Text
+coicpURL = lens _coicpURL (\ s a -> s{_coicpURL = a});
 
 -- | A list of server certificate thumbprints for the OpenID Connect (OIDC)
 -- identity provider\'s server certificate(s). Typically this list includes
@@ -136,8 +136,8 @@ coicprqURL = lens _coicprqURL (\ s a -> s{_coicprqURL = a});
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider>
 -- in the /Using IAM/ guide.
-coicprqThumbprintList :: Lens' CreateOpenIdConnectProvider [Text]
-coicprqThumbprintList = lens _coicprqThumbprintList (\ s a -> s{_coicprqThumbprintList = a});
+coicpThumbprintList :: Lens' CreateOpenIdConnectProvider [Text]
+coicpThumbprintList = lens _coicpThumbprintList (\ s a -> s{_coicpThumbprintList = a});
 
 instance AWSRequest CreateOpenIdConnectProvider where
         type Sv CreateOpenIdConnectProvider = IAM
@@ -166,10 +166,10 @@ instance ToQuery CreateOpenIdConnectProvider where
                "Version" =: ("2010-05-08" :: ByteString),
                "ClientIDList" =:
                  toQuery
-                   (toQueryList "member" <$> _coicprqClientIdList),
-               "Url" =: _coicprqURL,
+                   (toQueryList "member" <$> _coicpClientIdList),
+               "Url" =: _coicpURL,
                "ThumbprintList" =:
-                 toQueryList "member" _coicprqThumbprintList]
+                 toQueryList "member" _coicpThumbprintList]
 
 -- | Contains the response to a successful CreateOpenIDConnectProvider
 -- request.

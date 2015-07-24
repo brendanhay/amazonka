@@ -32,9 +32,9 @@ module Network.AWS.StorageGateway.DescribeTapeArchives
     -- ** Request constructor
     , describeTapeArchives
     -- ** Request lenses
-    , dtarqMarker
-    , dtarqLimit
-    , dtarqTapeARNs
+    , dtaMarker
+    , dtaLimit
+    , dtaTapeARNs
 
     -- * Response
     , DescribeTapeArchivesResponse
@@ -58,47 +58,47 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtarqMarker'
+-- * 'dtaMarker'
 --
--- * 'dtarqLimit'
+-- * 'dtaLimit'
 --
--- * 'dtarqTapeARNs'
+-- * 'dtaTapeARNs'
 data DescribeTapeArchives = DescribeTapeArchives'
-    { _dtarqMarker   :: !(Maybe Text)
-    , _dtarqLimit    :: !(Maybe Nat)
-    , _dtarqTapeARNs :: !(Maybe [Text])
+    { _dtaMarker   :: !(Maybe Text)
+    , _dtaLimit    :: !(Maybe Nat)
+    , _dtaTapeARNs :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapeArchives' smart constructor.
 describeTapeArchives :: DescribeTapeArchives
 describeTapeArchives =
     DescribeTapeArchives'
-    { _dtarqMarker = Nothing
-    , _dtarqLimit = Nothing
-    , _dtarqTapeARNs = Nothing
+    { _dtaMarker = Nothing
+    , _dtaLimit = Nothing
+    , _dtaTapeARNs = Nothing
     }
 
 -- | An opaque string that indicates the position at which to begin
 -- describing virtual tapes.
-dtarqMarker :: Lens' DescribeTapeArchives (Maybe Text)
-dtarqMarker = lens _dtarqMarker (\ s a -> s{_dtarqMarker = a});
+dtaMarker :: Lens' DescribeTapeArchives (Maybe Text)
+dtaMarker = lens _dtaMarker (\ s a -> s{_dtaMarker = a});
 
 -- | Specifies that the number of virtual tapes descried be limited to the
 -- specified number.
-dtarqLimit :: Lens' DescribeTapeArchives (Maybe Natural)
-dtarqLimit = lens _dtarqLimit (\ s a -> s{_dtarqLimit = a}) . mapping _Nat;
+dtaLimit :: Lens' DescribeTapeArchives (Maybe Natural)
+dtaLimit = lens _dtaLimit (\ s a -> s{_dtaLimit = a}) . mapping _Nat;
 
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
 -- the virtual tapes you want to describe.
-dtarqTapeARNs :: Lens' DescribeTapeArchives [Text]
-dtarqTapeARNs = lens _dtarqTapeARNs (\ s a -> s{_dtarqTapeARNs = a}) . _Default;
+dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
+dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default;
 
 instance AWSPager DescribeTapeArchives where
         page rq rs
           | stop (rs ^. dtarsMarker) = Nothing
           | stop (rs ^. dtarsTapeArchives) = Nothing
           | otherwise =
-            Just $ rq & dtarqMarker .~ rs ^. dtarsMarker
+            Just $ rq & dtaMarker .~ rs ^. dtarsMarker
 
 instance AWSRequest DescribeTapeArchives where
         type Sv DescribeTapeArchives = StorageGateway
@@ -126,8 +126,8 @@ instance ToHeaders DescribeTapeArchives where
 instance ToJSON DescribeTapeArchives where
         toJSON DescribeTapeArchives'{..}
           = object
-              ["Marker" .= _dtarqMarker, "Limit" .= _dtarqLimit,
-               "TapeARNs" .= _dtarqTapeARNs]
+              ["Marker" .= _dtaMarker, "Limit" .= _dtaLimit,
+               "TapeARNs" .= _dtaTapeARNs]
 
 instance ToPath DescribeTapeArchives where
         toPath = const "/"

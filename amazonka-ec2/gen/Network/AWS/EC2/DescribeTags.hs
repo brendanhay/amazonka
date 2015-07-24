@@ -31,10 +31,10 @@ module Network.AWS.EC2.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtrqFilters
-    , dtrqNextToken
-    , dtrqDryRun
-    , dtrqMaxResults
+    , dtFilters
+    , dtNextToken
+    , dtDryRun
+    , dtMaxResults
 
     -- * Response
     , DescribeTagsResponse
@@ -56,28 +56,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqFilters'
+-- * 'dtFilters'
 --
--- * 'dtrqNextToken'
+-- * 'dtNextToken'
 --
--- * 'dtrqDryRun'
+-- * 'dtDryRun'
 --
--- * 'dtrqMaxResults'
+-- * 'dtMaxResults'
 data DescribeTags = DescribeTags'
-    { _dtrqFilters    :: !(Maybe [Filter])
-    , _dtrqNextToken  :: !(Maybe Text)
-    , _dtrqDryRun     :: !(Maybe Bool)
-    , _dtrqMaxResults :: !(Maybe Int)
+    { _dtFilters    :: !(Maybe [Filter])
+    , _dtNextToken  :: !(Maybe Text)
+    , _dtDryRun     :: !(Maybe Bool)
+    , _dtMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
 describeTags =
     DescribeTags'
-    { _dtrqFilters = Nothing
-    , _dtrqNextToken = Nothing
-    , _dtrqDryRun = Nothing
-    , _dtrqMaxResults = Nothing
+    { _dtFilters = Nothing
+    , _dtNextToken = Nothing
+    , _dtDryRun = Nothing
+    , _dtMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -95,34 +95,34 @@ describeTags =
 --
 -- -   @value@ - The tag value.
 --
-dtrqFilters :: Lens' DescribeTags [Filter]
-dtrqFilters = lens _dtrqFilters (\ s a -> s{_dtrqFilters = a}) . _Default;
+dtFilters :: Lens' DescribeTags [Filter]
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
-dtrqNextToken :: Lens' DescribeTags (Maybe Text)
-dtrqNextToken = lens _dtrqNextToken (\ s a -> s{_dtrqNextToken = a});
+dtNextToken :: Lens' DescribeTags (Maybe Text)
+dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dtrqDryRun :: Lens' DescribeTags (Maybe Bool)
-dtrqDryRun = lens _dtrqDryRun (\ s a -> s{_dtrqDryRun = a});
+dtDryRun :: Lens' DescribeTags (Maybe Bool)
+dtDryRun = lens _dtDryRun (\ s a -> s{_dtDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
 -- sending another request with the returned @NextToken@ value. This value
 -- can be between 5 and 1000; if @MaxResults@ is given a value larger than
 -- 1000, only 1000 results are returned.
-dtrqMaxResults :: Lens' DescribeTags (Maybe Int)
-dtrqMaxResults = lens _dtrqMaxResults (\ s a -> s{_dtrqMaxResults = a});
+dtMaxResults :: Lens' DescribeTags (Maybe Int)
+dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
 
 instance AWSPager DescribeTags where
         page rq rs
           | stop (rs ^. dtrsNextToken) = Nothing
           | stop (rs ^. dtrsTags) = Nothing
           | otherwise =
-            Just $ rq & dtrqNextToken .~ rs ^. dtrsNextToken
+            Just $ rq & dtNextToken .~ rs ^. dtrsNextToken
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EC2
@@ -148,10 +148,9 @@ instance ToQuery DescribeTags where
           = mconcat
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dtrqFilters),
-               "NextToken" =: _dtrqNextToken,
-               "DryRun" =: _dtrqDryRun,
-               "MaxResults" =: _dtrqMaxResults]
+               toQuery (toQueryList "Filter" <$> _dtFilters),
+               "NextToken" =: _dtNextToken, "DryRun" =: _dtDryRun,
+               "MaxResults" =: _dtMaxResults]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --

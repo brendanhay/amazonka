@@ -29,10 +29,10 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- ** Request constructor
     , describeDBSecurityGroups
     -- ** Request lenses
-    , ddbsgrqFilters
-    , ddbsgrqMaxRecords
-    , ddbsgrqMarker
-    , ddbsgrqDBSecurityGroupName
+    , ddbsgFilters
+    , ddbsgMaxRecords
+    , ddbsgMarker
+    , ddbsgDBSecurityGroupName
 
     -- * Response
     , DescribeDBSecurityGroupsResponse
@@ -56,33 +56,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbsgrqFilters'
+-- * 'ddbsgFilters'
 --
--- * 'ddbsgrqMaxRecords'
+-- * 'ddbsgMaxRecords'
 --
--- * 'ddbsgrqMarker'
+-- * 'ddbsgMarker'
 --
--- * 'ddbsgrqDBSecurityGroupName'
+-- * 'ddbsgDBSecurityGroupName'
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
-    { _ddbsgrqFilters             :: !(Maybe [Filter])
-    , _ddbsgrqMaxRecords          :: !(Maybe Int)
-    , _ddbsgrqMarker              :: !(Maybe Text)
-    , _ddbsgrqDBSecurityGroupName :: !(Maybe Text)
+    { _ddbsgFilters             :: !(Maybe [Filter])
+    , _ddbsgMaxRecords          :: !(Maybe Int)
+    , _ddbsgMarker              :: !(Maybe Text)
+    , _ddbsgDBSecurityGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSecurityGroups' smart constructor.
 describeDBSecurityGroups :: DescribeDBSecurityGroups
 describeDBSecurityGroups =
     DescribeDBSecurityGroups'
-    { _ddbsgrqFilters = Nothing
-    , _ddbsgrqMaxRecords = Nothing
-    , _ddbsgrqMarker = Nothing
-    , _ddbsgrqDBSecurityGroupName = Nothing
+    { _ddbsgFilters = Nothing
+    , _ddbsgMaxRecords = Nothing
+    , _ddbsgMarker = Nothing
+    , _ddbsgDBSecurityGroupName = Nothing
     }
 
 -- | This parameter is not currently supported.
-ddbsgrqFilters :: Lens' DescribeDBSecurityGroups [Filter]
-ddbsgrqFilters = lens _ddbsgrqFilters (\ s a -> s{_ddbsgrqFilters = a}) . _Default;
+ddbsgFilters :: Lens' DescribeDBSecurityGroups [Filter]
+ddbsgFilters = lens _ddbsgFilters (\ s a -> s{_ddbsgFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -92,26 +92,26 @@ ddbsgrqFilters = lens _ddbsgrqFilters (\ s a -> s{_ddbsgrqFilters = a}) . _Defau
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddbsgrqMaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
-ddbsgrqMaxRecords = lens _ddbsgrqMaxRecords (\ s a -> s{_ddbsgrqMaxRecords = a});
+ddbsgMaxRecords :: Lens' DescribeDBSecurityGroups (Maybe Int)
+ddbsgMaxRecords = lens _ddbsgMaxRecords (\ s a -> s{_ddbsgMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBSecurityGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-ddbsgrqMarker :: Lens' DescribeDBSecurityGroups (Maybe Text)
-ddbsgrqMarker = lens _ddbsgrqMarker (\ s a -> s{_ddbsgrqMarker = a});
+ddbsgMarker :: Lens' DescribeDBSecurityGroups (Maybe Text)
+ddbsgMarker = lens _ddbsgMarker (\ s a -> s{_ddbsgMarker = a});
 
 -- | The name of the DB security group to return details for.
-ddbsgrqDBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
-ddbsgrqDBSecurityGroupName = lens _ddbsgrqDBSecurityGroupName (\ s a -> s{_ddbsgrqDBSecurityGroupName = a});
+ddbsgDBSecurityGroupName :: Lens' DescribeDBSecurityGroups (Maybe Text)
+ddbsgDBSecurityGroupName = lens _ddbsgDBSecurityGroupName (\ s a -> s{_ddbsgDBSecurityGroupName = a});
 
 instance AWSPager DescribeDBSecurityGroups where
         page rq rs
           | stop (rs ^. ddbsgrsMarker) = Nothing
           | stop (rs ^. ddbsgrsDBSecurityGroups) = Nothing
           | otherwise =
-            Just $ rq & ddbsgrqMarker .~ rs ^. ddbsgrsMarker
+            Just $ rq & ddbsgMarker .~ rs ^. ddbsgrsMarker
 
 instance AWSRequest DescribeDBSecurityGroups where
         type Sv DescribeDBSecurityGroups = RDS
@@ -140,10 +140,10 @@ instance ToQuery DescribeDBSecurityGroups where
                  ("DescribeDBSecurityGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddbsgrqFilters),
-               "MaxRecords" =: _ddbsgrqMaxRecords,
-               "Marker" =: _ddbsgrqMarker,
-               "DBSecurityGroupName" =: _ddbsgrqDBSecurityGroupName]
+                 toQuery (toQueryList "Filter" <$> _ddbsgFilters),
+               "MaxRecords" =: _ddbsgMaxRecords,
+               "Marker" =: _ddbsgMarker,
+               "DBSecurityGroupName" =: _ddbsgDBSecurityGroupName]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSecurityGroups action.

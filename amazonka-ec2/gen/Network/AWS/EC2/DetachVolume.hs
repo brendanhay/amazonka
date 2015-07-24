@@ -41,11 +41,11 @@ module Network.AWS.EC2.DetachVolume
     -- ** Request constructor
     , detachVolume
     -- ** Request lenses
-    , dvrqInstanceId
-    , dvrqForce
-    , dvrqDevice
-    , dvrqDryRun
-    , dvrqVolumeId
+    , dvInstanceId
+    , dvForce
+    , dvDevice
+    , dvDryRun
+    , dvVolumeId
 
     -- * Response
     , VolumeAttachment
@@ -69,37 +69,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrqInstanceId'
+-- * 'dvInstanceId'
 --
--- * 'dvrqForce'
+-- * 'dvForce'
 --
--- * 'dvrqDevice'
+-- * 'dvDevice'
 --
--- * 'dvrqDryRun'
+-- * 'dvDryRun'
 --
--- * 'dvrqVolumeId'
+-- * 'dvVolumeId'
 data DetachVolume = DetachVolume'
-    { _dvrqInstanceId :: !(Maybe Text)
-    , _dvrqForce      :: !(Maybe Bool)
-    , _dvrqDevice     :: !(Maybe Text)
-    , _dvrqDryRun     :: !(Maybe Bool)
-    , _dvrqVolumeId   :: !Text
+    { _dvInstanceId :: !(Maybe Text)
+    , _dvForce      :: !(Maybe Bool)
+    , _dvDevice     :: !(Maybe Text)
+    , _dvDryRun     :: !(Maybe Bool)
+    , _dvVolumeId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachVolume' smart constructor.
 detachVolume :: Text -> DetachVolume
 detachVolume pVolumeId_ =
     DetachVolume'
-    { _dvrqInstanceId = Nothing
-    , _dvrqForce = Nothing
-    , _dvrqDevice = Nothing
-    , _dvrqDryRun = Nothing
-    , _dvrqVolumeId = pVolumeId_
+    { _dvInstanceId = Nothing
+    , _dvForce = Nothing
+    , _dvDevice = Nothing
+    , _dvDryRun = Nothing
+    , _dvVolumeId = pVolumeId_
     }
 
 -- | The ID of the instance.
-dvrqInstanceId :: Lens' DetachVolume (Maybe Text)
-dvrqInstanceId = lens _dvrqInstanceId (\ s a -> s{_dvrqInstanceId = a});
+dvInstanceId :: Lens' DetachVolume (Maybe Text)
+dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
 
 -- | Forces detachment if the previous detachment attempt did not occur
 -- cleanly (for example, logging into an instance, unmounting the volume,
@@ -108,23 +108,23 @@ dvrqInstanceId = lens _dvrqInstanceId (\ s a -> s{_dvrqInstanceId = a});
 -- volume from a failed instance. The instance won\'t have an opportunity
 -- to flush file system caches or file system metadata. If you use this
 -- option, you must perform file system check and repair procedures.
-dvrqForce :: Lens' DetachVolume (Maybe Bool)
-dvrqForce = lens _dvrqForce (\ s a -> s{_dvrqForce = a});
+dvForce :: Lens' DetachVolume (Maybe Bool)
+dvForce = lens _dvForce (\ s a -> s{_dvForce = a});
 
 -- | The device name.
-dvrqDevice :: Lens' DetachVolume (Maybe Text)
-dvrqDevice = lens _dvrqDevice (\ s a -> s{_dvrqDevice = a});
+dvDevice :: Lens' DetachVolume (Maybe Text)
+dvDevice = lens _dvDevice (\ s a -> s{_dvDevice = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvrqDryRun :: Lens' DetachVolume (Maybe Bool)
-dvrqDryRun = lens _dvrqDryRun (\ s a -> s{_dvrqDryRun = a});
+dvDryRun :: Lens' DetachVolume (Maybe Bool)
+dvDryRun = lens _dvDryRun (\ s a -> s{_dvDryRun = a});
 
 -- | The ID of the volume.
-dvrqVolumeId :: Lens' DetachVolume Text
-dvrqVolumeId = lens _dvrqVolumeId (\ s a -> s{_dvrqVolumeId = a});
+dvVolumeId :: Lens' DetachVolume Text
+dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
 
 instance AWSRequest DetachVolume where
         type Sv DetachVolume = EC2
@@ -143,6 +143,6 @@ instance ToQuery DetachVolume where
           = mconcat
               ["Action" =: ("DetachVolume" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceId" =: _dvrqInstanceId,
-               "Force" =: _dvrqForce, "Device" =: _dvrqDevice,
-               "DryRun" =: _dvrqDryRun, "VolumeId" =: _dvrqVolumeId]
+               "InstanceId" =: _dvInstanceId, "Force" =: _dvForce,
+               "Device" =: _dvDevice, "DryRun" =: _dvDryRun,
+               "VolumeId" =: _dvVolumeId]

@@ -27,8 +27,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- ** Request constructor
     , describeEnvironmentResources
     -- ** Request lenses
-    , derrqEnvironmentName
-    , derrqEnvironmentId
+    , derEnvironmentName
+    , derEnvironmentId
 
     -- * Response
     , DescribeEnvironmentResourcesResponse
@@ -50,20 +50,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derrqEnvironmentName'
+-- * 'derEnvironmentName'
 --
--- * 'derrqEnvironmentId'
+-- * 'derEnvironmentId'
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
-    { _derrqEnvironmentName :: !(Maybe Text)
-    , _derrqEnvironmentId   :: !(Maybe Text)
+    { _derEnvironmentName :: !(Maybe Text)
+    , _derEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironmentResources' smart constructor.
 describeEnvironmentResources :: DescribeEnvironmentResources
 describeEnvironmentResources =
     DescribeEnvironmentResources'
-    { _derrqEnvironmentName = Nothing
-    , _derrqEnvironmentId = Nothing
+    { _derEnvironmentName = Nothing
+    , _derEnvironmentId = Nothing
     }
 
 -- | The name of the environment to retrieve AWS resource usage data.
@@ -71,16 +71,16 @@ describeEnvironmentResources =
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-derrqEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
-derrqEnvironmentName = lens _derrqEnvironmentName (\ s a -> s{_derrqEnvironmentName = a});
+derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
+derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
 
 -- | The ID of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-derrqEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
-derrqEnvironmentId = lens _derrqEnvironmentId (\ s a -> s{_derrqEnvironmentId = a});
+derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
+derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
 
 instance AWSRequest DescribeEnvironmentResources
          where
@@ -109,8 +109,8 @@ instance ToQuery DescribeEnvironmentResources where
               ["Action" =:
                  ("DescribeEnvironmentResources" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _derrqEnvironmentName,
-               "EnvironmentId" =: _derrqEnvironmentId]
+               "EnvironmentName" =: _derEnvironmentName,
+               "EnvironmentId" =: _derEnvironmentId]
 
 -- | Result message containing a list of environment resource descriptions.
 --

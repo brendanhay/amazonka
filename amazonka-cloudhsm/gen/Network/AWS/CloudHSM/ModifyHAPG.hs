@@ -27,9 +27,9 @@ module Network.AWS.CloudHSM.ModifyHAPG
     -- ** Request constructor
     , modifyHAPG
     -- ** Request lenses
-    , mhrqPartitionSerialList
-    , mhrqLabel
-    , mhrqHAPGARN
+    , mhPartitionSerialList
+    , mhLabel
+    , mhHAPGARN
 
     -- * Response
     , ModifyHAPGResponse
@@ -49,38 +49,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mhrqPartitionSerialList'
+-- * 'mhPartitionSerialList'
 --
--- * 'mhrqLabel'
+-- * 'mhLabel'
 --
--- * 'mhrqHAPGARN'
+-- * 'mhHAPGARN'
 data ModifyHAPG = ModifyHAPG'
-    { _mhrqPartitionSerialList :: !(Maybe [Text])
-    , _mhrqLabel               :: !(Maybe Text)
-    , _mhrqHAPGARN             :: !Text
+    { _mhPartitionSerialList :: !(Maybe [Text])
+    , _mhLabel               :: !(Maybe Text)
+    , _mhHAPGARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHAPG' smart constructor.
 modifyHAPG :: Text -> ModifyHAPG
 modifyHAPG pHAPGARN_ =
     ModifyHAPG'
-    { _mhrqPartitionSerialList = Nothing
-    , _mhrqLabel = Nothing
-    , _mhrqHAPGARN = pHAPGARN_
+    { _mhPartitionSerialList = Nothing
+    , _mhLabel = Nothing
+    , _mhHAPGARN = pHAPGARN_
     }
 
 -- | The list of partition serial numbers to make members of the
 -- high-availability partition group.
-mhrqPartitionSerialList :: Lens' ModifyHAPG [Text]
-mhrqPartitionSerialList = lens _mhrqPartitionSerialList (\ s a -> s{_mhrqPartitionSerialList = a}) . _Default;
+mhPartitionSerialList :: Lens' ModifyHAPG [Text]
+mhPartitionSerialList = lens _mhPartitionSerialList (\ s a -> s{_mhPartitionSerialList = a}) . _Default;
 
 -- | The new label for the high-availability partition group.
-mhrqLabel :: Lens' ModifyHAPG (Maybe Text)
-mhrqLabel = lens _mhrqLabel (\ s a -> s{_mhrqLabel = a});
+mhLabel :: Lens' ModifyHAPG (Maybe Text)
+mhLabel = lens _mhLabel (\ s a -> s{_mhLabel = a});
 
 -- | The ARN of the high-availability partition group to modify.
-mhrqHAPGARN :: Lens' ModifyHAPG Text
-mhrqHAPGARN = lens _mhrqHAPGARN (\ s a -> s{_mhrqHAPGARN = a});
+mhHAPGARN :: Lens' ModifyHAPG Text
+mhHAPGARN = lens _mhHAPGARN (\ s a -> s{_mhHAPGARN = a});
 
 instance AWSRequest ModifyHAPG where
         type Sv ModifyHAPG = CloudHSM
@@ -104,8 +104,8 @@ instance ToHeaders ModifyHAPG where
 instance ToJSON ModifyHAPG where
         toJSON ModifyHAPG'{..}
           = object
-              ["PartitionSerialList" .= _mhrqPartitionSerialList,
-               "Label" .= _mhrqLabel, "HapgArn" .= _mhrqHAPGARN]
+              ["PartitionSerialList" .= _mhPartitionSerialList,
+               "Label" .= _mhLabel, "HapgArn" .= _mhHAPGARN]
 
 instance ToPath ModifyHAPG where
         toPath = const "/"

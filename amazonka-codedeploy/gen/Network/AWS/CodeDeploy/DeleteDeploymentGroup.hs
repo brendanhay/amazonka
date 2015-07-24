@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     -- ** Request constructor
     , deleteDeploymentGroup
     -- ** Request lenses
-    , ddgrqApplicationName
-    , ddgrqDeploymentGroupName
+    , ddgApplicationName
+    , ddgDeploymentGroupName
 
     -- * Response
     , DeleteDeploymentGroupResponse
@@ -50,30 +50,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddgrqApplicationName'
+-- * 'ddgApplicationName'
 --
--- * 'ddgrqDeploymentGroupName'
+-- * 'ddgDeploymentGroupName'
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
-    { _ddgrqApplicationName     :: !Text
-    , _ddgrqDeploymentGroupName :: !Text
+    { _ddgApplicationName     :: !Text
+    , _ddgDeploymentGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentGroup' smart constructor.
 deleteDeploymentGroup :: Text -> Text -> DeleteDeploymentGroup
 deleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     DeleteDeploymentGroup'
-    { _ddgrqApplicationName = pApplicationName_
-    , _ddgrqDeploymentGroupName = pDeploymentGroupName_
+    { _ddgApplicationName = pApplicationName_
+    , _ddgDeploymentGroupName = pDeploymentGroupName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-ddgrqApplicationName :: Lens' DeleteDeploymentGroup Text
-ddgrqApplicationName = lens _ddgrqApplicationName (\ s a -> s{_ddgrqApplicationName = a});
+ddgApplicationName :: Lens' DeleteDeploymentGroup Text
+ddgApplicationName = lens _ddgApplicationName (\ s a -> s{_ddgApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-ddgrqDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
-ddgrqDeploymentGroupName = lens _ddgrqDeploymentGroupName (\ s a -> s{_ddgrqDeploymentGroupName = a});
+ddgDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
+ddgDeploymentGroupName = lens _ddgDeploymentGroupName (\ s a -> s{_ddgDeploymentGroupName = a});
 
 instance AWSRequest DeleteDeploymentGroup where
         type Sv DeleteDeploymentGroup = CodeDeploy
@@ -100,8 +100,8 @@ instance ToHeaders DeleteDeploymentGroup where
 instance ToJSON DeleteDeploymentGroup where
         toJSON DeleteDeploymentGroup'{..}
           = object
-              ["applicationName" .= _ddgrqApplicationName,
-               "deploymentGroupName" .= _ddgrqDeploymentGroupName]
+              ["applicationName" .= _ddgApplicationName,
+               "deploymentGroupName" .= _ddgDeploymentGroupName]
 
 instance ToPath DeleteDeploymentGroup where
         toPath = const "/"

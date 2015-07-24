@@ -28,8 +28,8 @@ module Network.AWS.DirectoryService.UpdateRadius
     -- ** Request constructor
     , updateRadius
     -- ** Request lenses
-    , urrqDirectoryId
-    , urrqRadiusSettings
+    , urDirectoryId
+    , urRadiusSettings
 
     -- * Response
     , UpdateRadiusResponse
@@ -50,31 +50,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urrqDirectoryId'
+-- * 'urDirectoryId'
 --
--- * 'urrqRadiusSettings'
+-- * 'urRadiusSettings'
 data UpdateRadius = UpdateRadius'
-    { _urrqDirectoryId    :: !Text
-    , _urrqRadiusSettings :: !RadiusSettings
+    { _urDirectoryId    :: !Text
+    , _urRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRadius' smart constructor.
 updateRadius :: Text -> RadiusSettings -> UpdateRadius
 updateRadius pDirectoryId_ pRadiusSettings_ =
     UpdateRadius'
-    { _urrqDirectoryId = pDirectoryId_
-    , _urrqRadiusSettings = pRadiusSettings_
+    { _urDirectoryId = pDirectoryId_
+    , _urRadiusSettings = pRadiusSettings_
     }
 
 -- | The identifier of the directory to update the RADIUS server information
 -- for.
-urrqDirectoryId :: Lens' UpdateRadius Text
-urrqDirectoryId = lens _urrqDirectoryId (\ s a -> s{_urrqDirectoryId = a});
+urDirectoryId :: Lens' UpdateRadius Text
+urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a});
 
 -- | A RadiusSettings object that contains information about the RADIUS
 -- server.
-urrqRadiusSettings :: Lens' UpdateRadius RadiusSettings
-urrqRadiusSettings = lens _urrqRadiusSettings (\ s a -> s{_urrqRadiusSettings = a});
+urRadiusSettings :: Lens' UpdateRadius RadiusSettings
+urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
 
 instance AWSRequest UpdateRadius where
         type Sv UpdateRadius = DirectoryService
@@ -98,8 +98,8 @@ instance ToHeaders UpdateRadius where
 instance ToJSON UpdateRadius where
         toJSON UpdateRadius'{..}
           = object
-              ["DirectoryId" .= _urrqDirectoryId,
-               "RadiusSettings" .= _urrqRadiusSettings]
+              ["DirectoryId" .= _urDirectoryId,
+               "RadiusSettings" .= _urRadiusSettings]
 
 instance ToPath UpdateRadius where
         toPath = const "/"

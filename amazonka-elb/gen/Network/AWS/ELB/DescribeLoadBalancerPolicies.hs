@@ -35,8 +35,8 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- ** Request constructor
     , describeLoadBalancerPolicies
     -- ** Request lenses
-    , dlbprqPolicyNames
-    , dlbprqLoadBalancerName
+    , dlbpPolicyNames
+    , dlbpLoadBalancerName
 
     -- * Response
     , DescribeLoadBalancerPoliciesResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbprqPolicyNames'
+-- * 'dlbpPolicyNames'
 --
--- * 'dlbprqLoadBalancerName'
+-- * 'dlbpLoadBalancerName'
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
-    { _dlbprqPolicyNames      :: !(Maybe [Text])
-    , _dlbprqLoadBalancerName :: !(Maybe Text)
+    { _dlbpPolicyNames      :: !(Maybe [Text])
+    , _dlbpLoadBalancerName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicies' smart constructor.
 describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies =
     DescribeLoadBalancerPolicies'
-    { _dlbprqPolicyNames = Nothing
-    , _dlbprqLoadBalancerName = Nothing
+    { _dlbpPolicyNames = Nothing
+    , _dlbpLoadBalancerName = Nothing
     }
 
 -- | The names of the policies.
-dlbprqPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
-dlbprqPolicyNames = lens _dlbprqPolicyNames (\ s a -> s{_dlbprqPolicyNames = a}) . _Default;
+dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
+dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a}) . _Default;
 
 -- | The name of the load balancer.
-dlbprqLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
-dlbprqLoadBalancerName = lens _dlbprqLoadBalancerName (\ s a -> s{_dlbprqLoadBalancerName = a});
+dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
+dlbpLoadBalancerName = lens _dlbpLoadBalancerName (\ s a -> s{_dlbpLoadBalancerName = a});
 
 instance AWSRequest DescribeLoadBalancerPolicies
          where
@@ -108,9 +108,8 @@ instance ToQuery DescribeLoadBalancerPolicies where
                  ("DescribeLoadBalancerPolicies" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "PolicyNames" =:
-                 toQuery
-                   (toQueryList "member" <$> _dlbprqPolicyNames),
-               "LoadBalancerName" =: _dlbprqLoadBalancerName]
+                 toQuery (toQueryList "member" <$> _dlbpPolicyNames),
+               "LoadBalancerName" =: _dlbpLoadBalancerName]
 
 -- | /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
 --

@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketCORS
     -- ** Request constructor
     , getBucketCORS
     -- ** Request lenses
-    , gbcrqBucket
+    , gbcBucket
 
     -- * Response
     , GetBucketCORSResponse
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbcrqBucket'
+-- * 'gbcBucket'
 newtype GetBucketCORS = GetBucketCORS'
-    { _gbcrqBucket :: BucketName
+    { _gbcBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketCORS' smart constructor.
 getBucketCORS :: BucketName -> GetBucketCORS
 getBucketCORS pBucket_ =
     GetBucketCORS'
-    { _gbcrqBucket = pBucket_
+    { _gbcBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gbcrqBucket :: Lens' GetBucketCORS BucketName
-gbcrqBucket = lens _gbcrqBucket (\ s a -> s{_gbcrqBucket = a});
+gbcBucket :: Lens' GetBucketCORS BucketName
+gbcBucket = lens _gbcBucket (\ s a -> s{_gbcBucket = a});
 
 instance AWSRequest GetBucketCORS where
         type Sv GetBucketCORS = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketCORS where
 
 instance ToPath GetBucketCORS where
         toPath GetBucketCORS'{..}
-          = mconcat ["/", toText _gbcrqBucket]
+          = mconcat ["/", toText _gbcBucket]
 
 instance ToQuery GetBucketCORS where
         toQuery = const (mconcat ["cors"])

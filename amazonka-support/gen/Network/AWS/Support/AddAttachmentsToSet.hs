@@ -37,8 +37,8 @@ module Network.AWS.Support.AddAttachmentsToSet
     -- ** Request constructor
     , addAttachmentsToSet
     -- ** Request lenses
-    , aatsrqAttachmentSetId
-    , aatsrqAttachments
+    , aatsAttachmentSetId
+    , aatsAttachments
 
     -- * Response
     , AddAttachmentsToSetResponse
@@ -59,33 +59,33 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aatsrqAttachmentSetId'
+-- * 'aatsAttachmentSetId'
 --
--- * 'aatsrqAttachments'
+-- * 'aatsAttachments'
 data AddAttachmentsToSet = AddAttachmentsToSet'
-    { _aatsrqAttachmentSetId :: !(Maybe Text)
-    , _aatsrqAttachments     :: ![Attachment]
+    { _aatsAttachmentSetId :: !(Maybe Text)
+    , _aatsAttachments     :: ![Attachment]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddAttachmentsToSet' smart constructor.
 addAttachmentsToSet :: AddAttachmentsToSet
 addAttachmentsToSet =
     AddAttachmentsToSet'
-    { _aatsrqAttachmentSetId = Nothing
-    , _aatsrqAttachments = mempty
+    { _aatsAttachmentSetId = Nothing
+    , _aatsAttachments = mempty
     }
 
 -- | The ID of the attachment set. If an @AttachmentSetId@ is not specified,
 -- a new attachment set is created, and the ID of the set is returned in
 -- the response. If an @AttachmentSetId@ is specified, the attachments are
 -- added to the specified set, if it exists.
-aatsrqAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
-aatsrqAttachmentSetId = lens _aatsrqAttachmentSetId (\ s a -> s{_aatsrqAttachmentSetId = a});
+aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
+aatsAttachmentSetId = lens _aatsAttachmentSetId (\ s a -> s{_aatsAttachmentSetId = a});
 
 -- | One or more attachments to add to the set. The limit is 3 attachments
 -- per set, and the size limit is 5 MB per attachment.
-aatsrqAttachments :: Lens' AddAttachmentsToSet [Attachment]
-aatsrqAttachments = lens _aatsrqAttachments (\ s a -> s{_aatsrqAttachments = a});
+aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
+aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a});
 
 instance AWSRequest AddAttachmentsToSet where
         type Sv AddAttachmentsToSet = Support
@@ -112,8 +112,8 @@ instance ToHeaders AddAttachmentsToSet where
 instance ToJSON AddAttachmentsToSet where
         toJSON AddAttachmentsToSet'{..}
           = object
-              ["attachmentSetId" .= _aatsrqAttachmentSetId,
-               "attachments" .= _aatsrqAttachments]
+              ["attachmentSetId" .= _aatsAttachmentSetId,
+               "attachments" .= _aatsAttachments]
 
 instance ToPath AddAttachmentsToSet where
         toPath = const "/"

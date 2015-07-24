@@ -29,7 +29,7 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     -- ** Request constructor
     , describeSpotDatafeedSubscription
     -- ** Request lenses
-    , dsdsrqDryRun
+    , dsdsDryRun
 
     -- * Response
     , DescribeSpotDatafeedSubscriptionResponse
@@ -51,24 +51,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsdsrqDryRun'
+-- * 'dsdsDryRun'
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
-    { _dsdsrqDryRun :: Maybe Bool
+    { _dsdsDryRun :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotDatafeedSubscription' smart constructor.
 describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
 describeSpotDatafeedSubscription =
     DescribeSpotDatafeedSubscription'
-    { _dsdsrqDryRun = Nothing
+    { _dsdsDryRun = Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsdsrqDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
-dsdsrqDryRun = lens _dsdsrqDryRun (\ s a -> s{_dsdsrqDryRun = a});
+dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
+dsdsDryRun = lens _dsdsDryRun (\ s a -> s{_dsdsDryRun = a});
 
 instance AWSRequest DescribeSpotDatafeedSubscription
          where
@@ -98,7 +98,7 @@ instance ToQuery DescribeSpotDatafeedSubscription
               ["Action" =:
                  ("DescribeSpotDatafeedSubscription" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dsdsrqDryRun]
+               "DryRun" =: _dsdsDryRun]
 
 -- | Contains the output of DescribeSpotDatafeedSubscription.
 --

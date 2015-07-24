@@ -28,7 +28,7 @@ module Network.AWS.Support.ResolveCase
     -- ** Request constructor
     , resolveCase
     -- ** Request lenses
-    , rcrqCaseId
+    , rcCaseId
 
     -- * Response
     , ResolveCaseResponse
@@ -49,23 +49,23 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcrqCaseId'
+-- * 'rcCaseId'
 newtype ResolveCase = ResolveCase'
-    { _rcrqCaseId :: Maybe Text
+    { _rcCaseId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResolveCase' smart constructor.
 resolveCase :: ResolveCase
 resolveCase =
     ResolveCase'
-    { _rcrqCaseId = Nothing
+    { _rcCaseId = Nothing
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-rcrqCaseId :: Lens' ResolveCase (Maybe Text)
-rcrqCaseId = lens _rcrqCaseId (\ s a -> s{_rcrqCaseId = a});
+rcCaseId :: Lens' ResolveCase (Maybe Text)
+rcCaseId = lens _rcCaseId (\ s a -> s{_rcCaseId = a});
 
 instance AWSRequest ResolveCase where
         type Sv ResolveCase = Support
@@ -90,7 +90,7 @@ instance ToHeaders ResolveCase where
 
 instance ToJSON ResolveCase where
         toJSON ResolveCase'{..}
-          = object ["caseId" .= _rcrqCaseId]
+          = object ["caseId" .= _rcCaseId]
 
 instance ToPath ResolveCase where
         toPath = const "/"

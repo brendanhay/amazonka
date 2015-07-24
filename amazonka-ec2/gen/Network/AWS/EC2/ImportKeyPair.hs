@@ -35,9 +35,9 @@ module Network.AWS.EC2.ImportKeyPair
     -- ** Request constructor
     , importKeyPair
     -- ** Request lenses
-    , ikprqDryRun
-    , ikprqKeyName
-    , ikprqPublicKeyMaterial
+    , ikpDryRun
+    , ikpKeyName
+    , ikpPublicKeyMaterial
 
     -- * Response
     , ImportKeyPairResponse
@@ -58,41 +58,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ikprqDryRun'
+-- * 'ikpDryRun'
 --
--- * 'ikprqKeyName'
+-- * 'ikpKeyName'
 --
--- * 'ikprqPublicKeyMaterial'
+-- * 'ikpPublicKeyMaterial'
 data ImportKeyPair = ImportKeyPair'
-    { _ikprqDryRun            :: !(Maybe Bool)
-    , _ikprqKeyName           :: !Text
-    , _ikprqPublicKeyMaterial :: !Base64
+    { _ikpDryRun            :: !(Maybe Bool)
+    , _ikpKeyName           :: !Text
+    , _ikpPublicKeyMaterial :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportKeyPair' smart constructor.
 importKeyPair :: Text -> Base64 -> ImportKeyPair
 importKeyPair pKeyName_ pPublicKeyMaterial_ =
     ImportKeyPair'
-    { _ikprqDryRun = Nothing
-    , _ikprqKeyName = pKeyName_
-    , _ikprqPublicKeyMaterial = pPublicKeyMaterial_
+    { _ikpDryRun = Nothing
+    , _ikpKeyName = pKeyName_
+    , _ikpPublicKeyMaterial = pPublicKeyMaterial_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ikprqDryRun :: Lens' ImportKeyPair (Maybe Bool)
-ikprqDryRun = lens _ikprqDryRun (\ s a -> s{_ikprqDryRun = a});
+ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
+ikpDryRun = lens _ikpDryRun (\ s a -> s{_ikpDryRun = a});
 
 -- | A unique name for the key pair.
-ikprqKeyName :: Lens' ImportKeyPair Text
-ikprqKeyName = lens _ikprqKeyName (\ s a -> s{_ikprqKeyName = a});
+ikpKeyName :: Lens' ImportKeyPair Text
+ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a});
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
-ikprqPublicKeyMaterial :: Lens' ImportKeyPair Base64
-ikprqPublicKeyMaterial = lens _ikprqPublicKeyMaterial (\ s a -> s{_ikprqPublicKeyMaterial = a});
+ikpPublicKeyMaterial :: Lens' ImportKeyPair Base64
+ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a});
 
 instance AWSRequest ImportKeyPair where
         type Sv ImportKeyPair = EC2
@@ -116,8 +116,8 @@ instance ToQuery ImportKeyPair where
           = mconcat
               ["Action" =: ("ImportKeyPair" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ikprqDryRun, "KeyName" =: _ikprqKeyName,
-               "PublicKeyMaterial" =: _ikprqPublicKeyMaterial]
+               "DryRun" =: _ikpDryRun, "KeyName" =: _ikpKeyName,
+               "PublicKeyMaterial" =: _ikpPublicKeyMaterial]
 
 -- | /See:/ 'importKeyPairResponse' smart constructor.
 --

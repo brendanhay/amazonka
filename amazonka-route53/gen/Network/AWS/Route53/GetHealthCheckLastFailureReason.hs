@@ -30,7 +30,7 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     -- ** Request constructor
     , getHealthCheckLastFailureReason
     -- ** Request lenses
-    , ghclfrrqHealthCheckId
+    , ghclfrHealthCheckId
 
     -- * Response
     , GetHealthCheckLastFailureReasonResponse
@@ -53,22 +53,22 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghclfrrqHealthCheckId'
+-- * 'ghclfrHealthCheckId'
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
-    { _ghclfrrqHealthCheckId :: Text
+    { _ghclfrHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckLastFailureReason' smart constructor.
 getHealthCheckLastFailureReason :: Text -> GetHealthCheckLastFailureReason
 getHealthCheckLastFailureReason pHealthCheckId_ =
     GetHealthCheckLastFailureReason'
-    { _ghclfrrqHealthCheckId = pHealthCheckId_
+    { _ghclfrHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check for which you want to retrieve the reason for
 -- the most recent failure.
-ghclfrrqHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
-ghclfrrqHealthCheckId = lens _ghclfrrqHealthCheckId (\ s a -> s{_ghclfrrqHealthCheckId = a});
+ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
+ghclfrHealthCheckId = lens _ghclfrHealthCheckId (\ s a -> s{_ghclfrHealthCheckId = a});
 
 instance AWSRequest GetHealthCheckLastFailureReason
          where
@@ -92,7 +92,7 @@ instance ToPath GetHealthCheckLastFailureReason where
         toPath GetHealthCheckLastFailureReason'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _ghclfrrqHealthCheckId, "/lastfailurereason"]
+               toText _ghclfrHealthCheckId, "/lastfailurereason"]
 
 instance ToQuery GetHealthCheckLastFailureReason
          where

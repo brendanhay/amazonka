@@ -28,8 +28,8 @@ module Network.AWS.EC2.EnableVGWRoutePropagation
     -- ** Request constructor
     , enableVGWRoutePropagation
     -- ** Request lenses
-    , evrprqRouteTableId
-    , evrprqGatewayId
+    , evrpRouteTableId
+    , evrpGatewayId
 
     -- * Response
     , EnableVGWRoutePropagationResponse
@@ -46,29 +46,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'evrprqRouteTableId'
+-- * 'evrpRouteTableId'
 --
--- * 'evrprqGatewayId'
+-- * 'evrpGatewayId'
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
-    { _evrprqRouteTableId :: !Text
-    , _evrprqGatewayId    :: !Text
+    { _evrpRouteTableId :: !Text
+    , _evrpGatewayId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVGWRoutePropagation' smart constructor.
 enableVGWRoutePropagation :: Text -> Text -> EnableVGWRoutePropagation
 enableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
     EnableVGWRoutePropagation'
-    { _evrprqRouteTableId = pRouteTableId_
-    , _evrprqGatewayId = pGatewayId_
+    { _evrpRouteTableId = pRouteTableId_
+    , _evrpGatewayId = pGatewayId_
     }
 
 -- | The ID of the route table.
-evrprqRouteTableId :: Lens' EnableVGWRoutePropagation Text
-evrprqRouteTableId = lens _evrprqRouteTableId (\ s a -> s{_evrprqRouteTableId = a});
+evrpRouteTableId :: Lens' EnableVGWRoutePropagation Text
+evrpRouteTableId = lens _evrpRouteTableId (\ s a -> s{_evrpRouteTableId = a});
 
 -- | The ID of the virtual private gateway.
-evrprqGatewayId :: Lens' EnableVGWRoutePropagation Text
-evrprqGatewayId = lens _evrprqGatewayId (\ s a -> s{_evrprqGatewayId = a});
+evrpGatewayId :: Lens' EnableVGWRoutePropagation Text
+evrpGatewayId = lens _evrpGatewayId (\ s a -> s{_evrpGatewayId = a});
 
 instance AWSRequest EnableVGWRoutePropagation where
         type Sv EnableVGWRoutePropagation = EC2
@@ -90,8 +90,8 @@ instance ToQuery EnableVGWRoutePropagation where
               ["Action" =:
                  ("EnableVGWRoutePropagation" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "RouteTableId" =: _evrprqRouteTableId,
-               "GatewayId" =: _evrprqGatewayId]
+               "RouteTableId" =: _evrpRouteTableId,
+               "GatewayId" =: _evrpGatewayId]
 
 -- | /See:/ 'enableVGWRoutePropagationResponse' smart constructor.
 data EnableVGWRoutePropagationResponse =

@@ -27,7 +27,7 @@ module Network.AWS.KMS.DescribeKey
     -- ** Request constructor
     , describeKey
     -- ** Request lenses
-    , drqKeyId
+    , dKeyId
 
     -- * Response
     , DescribeKeyResponse
@@ -47,16 +47,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqKeyId'
+-- * 'dKeyId'
 newtype DescribeKey = DescribeKey'
-    { _drqKeyId :: Text
+    { _dKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKey' smart constructor.
 describeKey :: Text -> DescribeKey
 describeKey pKeyId_ =
     DescribeKey'
-    { _drqKeyId = pKeyId_
+    { _dKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -70,8 +70,8 @@ describeKey pKeyId_ =
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-drqKeyId :: Lens' DescribeKey Text
-drqKeyId = lens _drqKeyId (\ s a -> s{_drqKeyId = a});
+dKeyId :: Lens' DescribeKey Text
+dKeyId = lens _dKeyId (\ s a -> s{_dKeyId = a});
 
 instance AWSRequest DescribeKey where
         type Sv DescribeKey = KMS
@@ -93,8 +93,7 @@ instance ToHeaders DescribeKey where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DescribeKey where
-        toJSON DescribeKey'{..}
-          = object ["KeyId" .= _drqKeyId]
+        toJSON DescribeKey'{..} = object ["KeyId" .= _dKeyId]
 
 instance ToPath DescribeKey where
         toPath = const "/"

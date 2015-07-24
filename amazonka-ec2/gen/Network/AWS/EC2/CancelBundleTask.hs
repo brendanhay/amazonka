@@ -28,8 +28,8 @@ module Network.AWS.EC2.CancelBundleTask
     -- ** Request constructor
     , cancelBundleTask
     -- ** Request lenses
-    , cbtrqDryRun
-    , cbtrqBundleId
+    , cbtDryRun
+    , cbtBundleId
 
     -- * Response
     , CancelBundleTaskResponse
@@ -49,32 +49,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbtrqDryRun'
+-- * 'cbtDryRun'
 --
--- * 'cbtrqBundleId'
+-- * 'cbtBundleId'
 data CancelBundleTask = CancelBundleTask'
-    { _cbtrqDryRun   :: !(Maybe Bool)
-    , _cbtrqBundleId :: !Text
+    { _cbtDryRun   :: !(Maybe Bool)
+    , _cbtBundleId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelBundleTask' smart constructor.
 cancelBundleTask :: Text -> CancelBundleTask
 cancelBundleTask pBundleId_ =
     CancelBundleTask'
-    { _cbtrqDryRun = Nothing
-    , _cbtrqBundleId = pBundleId_
+    { _cbtDryRun = Nothing
+    , _cbtBundleId = pBundleId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cbtrqDryRun :: Lens' CancelBundleTask (Maybe Bool)
-cbtrqDryRun = lens _cbtrqDryRun (\ s a -> s{_cbtrqDryRun = a});
+cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
+cbtDryRun = lens _cbtDryRun (\ s a -> s{_cbtDryRun = a});
 
 -- | The ID of the bundle task.
-cbtrqBundleId :: Lens' CancelBundleTask Text
-cbtrqBundleId = lens _cbtrqBundleId (\ s a -> s{_cbtrqBundleId = a});
+cbtBundleId :: Lens' CancelBundleTask Text
+cbtBundleId = lens _cbtBundleId (\ s a -> s{_cbtBundleId = a});
 
 instance AWSRequest CancelBundleTask where
         type Sv CancelBundleTask = EC2
@@ -97,8 +97,7 @@ instance ToQuery CancelBundleTask where
           = mconcat
               ["Action" =: ("CancelBundleTask" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cbtrqDryRun,
-               "BundleId" =: _cbtrqBundleId]
+               "DryRun" =: _cbtDryRun, "BundleId" =: _cbtBundleId]
 
 -- | /See:/ 'cancelBundleTaskResponse' smart constructor.
 --

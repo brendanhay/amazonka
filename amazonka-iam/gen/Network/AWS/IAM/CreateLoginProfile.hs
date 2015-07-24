@@ -31,9 +31,9 @@ module Network.AWS.IAM.CreateLoginProfile
     -- ** Request constructor
     , createLoginProfile
     -- ** Request lenses
-    , clprqPasswordResetRequired
-    , clprqUserName
-    , clprqPassword
+    , clpPasswordResetRequired
+    , clpUserName
+    , clpPassword
 
     -- * Response
     , CreateLoginProfileResponse
@@ -53,38 +53,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clprqPasswordResetRequired'
+-- * 'clpPasswordResetRequired'
 --
--- * 'clprqUserName'
+-- * 'clpUserName'
 --
--- * 'clprqPassword'
+-- * 'clpPassword'
 data CreateLoginProfile = CreateLoginProfile'
-    { _clprqPasswordResetRequired :: !(Maybe Bool)
-    , _clprqUserName              :: !Text
-    , _clprqPassword              :: !(Sensitive Text)
+    { _clpPasswordResetRequired :: !(Maybe Bool)
+    , _clpUserName              :: !Text
+    , _clpPassword              :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoginProfile' smart constructor.
 createLoginProfile :: Text -> Text -> CreateLoginProfile
 createLoginProfile pUserName_ pPassword_ =
     CreateLoginProfile'
-    { _clprqPasswordResetRequired = Nothing
-    , _clprqUserName = pUserName_
-    , _clprqPassword = _Sensitive # pPassword_
+    { _clpPasswordResetRequired = Nothing
+    , _clpUserName = pUserName_
+    , _clpPassword = _Sensitive # pPassword_
     }
 
 -- | Specifies whether the user is required to set a new password on next
 -- sign-in.
-clprqPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
-clprqPasswordResetRequired = lens _clprqPasswordResetRequired (\ s a -> s{_clprqPasswordResetRequired = a});
+clpPasswordResetRequired :: Lens' CreateLoginProfile (Maybe Bool)
+clpPasswordResetRequired = lens _clpPasswordResetRequired (\ s a -> s{_clpPasswordResetRequired = a});
 
 -- | The name of the user to create a password for.
-clprqUserName :: Lens' CreateLoginProfile Text
-clprqUserName = lens _clprqUserName (\ s a -> s{_clprqUserName = a});
+clpUserName :: Lens' CreateLoginProfile Text
+clpUserName = lens _clpUserName (\ s a -> s{_clpUserName = a});
 
 -- | The new password for the user.
-clprqPassword :: Lens' CreateLoginProfile Text
-clprqPassword = lens _clprqPassword (\ s a -> s{_clprqPassword = a}) . _Sensitive;
+clpPassword :: Lens' CreateLoginProfile Text
+clpPassword = lens _clpPassword (\ s a -> s{_clpPassword = a}) . _Sensitive;
 
 instance AWSRequest CreateLoginProfile where
         type Sv CreateLoginProfile = IAM
@@ -108,10 +108,9 @@ instance ToQuery CreateLoginProfile where
           = mconcat
               ["Action" =: ("CreateLoginProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PasswordResetRequired" =:
-                 _clprqPasswordResetRequired,
-               "UserName" =: _clprqUserName,
-               "Password" =: _clprqPassword]
+               "PasswordResetRequired" =: _clpPasswordResetRequired,
+               "UserName" =: _clpUserName,
+               "Password" =: _clpPassword]
 
 -- | Contains the response to a successful CreateLoginProfile request.
 --

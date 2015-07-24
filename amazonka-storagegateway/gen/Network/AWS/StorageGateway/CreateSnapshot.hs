@@ -47,8 +47,8 @@ module Network.AWS.StorageGateway.CreateSnapshot
     -- ** Request constructor
     , createSnapshot
     -- ** Request lenses
-    , csrqVolumeARN
-    , csrqSnapshotDescription
+    , csVolumeARN
+    , csSnapshotDescription
 
     -- * Response
     , CreateSnapshotResponse
@@ -74,33 +74,33 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrqVolumeARN'
+-- * 'csVolumeARN'
 --
--- * 'csrqSnapshotDescription'
+-- * 'csSnapshotDescription'
 data CreateSnapshot = CreateSnapshot'
-    { _csrqVolumeARN           :: !Text
-    , _csrqSnapshotDescription :: !Text
+    { _csVolumeARN           :: !Text
+    , _csSnapshotDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
 createSnapshot pVolumeARN_ pSnapshotDescription_ =
     CreateSnapshot'
-    { _csrqVolumeARN = pVolumeARN_
-    , _csrqSnapshotDescription = pSnapshotDescription_
+    { _csVolumeARN = pVolumeARN_
+    , _csSnapshotDescription = pSnapshotDescription_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-csrqVolumeARN :: Lens' CreateSnapshot Text
-csrqVolumeARN = lens _csrqVolumeARN (\ s a -> s{_csrqVolumeARN = a});
+csVolumeARN :: Lens' CreateSnapshot Text
+csVolumeARN = lens _csVolumeARN (\ s a -> s{_csVolumeARN = a});
 
 -- | Textual description of the snapshot that appears in the Amazon EC2
 -- console, Elastic Block Store snapshots panel in the __Description__
 -- field, and in the AWS Storage Gateway snapshot __Details__ pane,
 -- __Description__ field
-csrqSnapshotDescription :: Lens' CreateSnapshot Text
-csrqSnapshotDescription = lens _csrqSnapshotDescription (\ s a -> s{_csrqSnapshotDescription = a});
+csSnapshotDescription :: Lens' CreateSnapshot Text
+csSnapshotDescription = lens _csSnapshotDescription (\ s a -> s{_csSnapshotDescription = a});
 
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = StorageGateway
@@ -126,8 +126,8 @@ instance ToHeaders CreateSnapshot where
 instance ToJSON CreateSnapshot where
         toJSON CreateSnapshot'{..}
           = object
-              ["VolumeARN" .= _csrqVolumeARN,
-               "SnapshotDescription" .= _csrqSnapshotDescription]
+              ["VolumeARN" .= _csVolumeARN,
+               "SnapshotDescription" .= _csSnapshotDescription]
 
 instance ToPath CreateSnapshot where
         toPath = const "/"

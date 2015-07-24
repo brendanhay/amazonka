@@ -39,8 +39,8 @@ module Network.AWS.KMS.CreateAlias
     -- ** Request constructor
     , createAlias
     -- ** Request lenses
-    , carqAliasName
-    , carqTargetKeyId
+    , caAliasName
+    , caTargetKeyId
 
     -- * Response
     , CreateAliasResponse
@@ -57,27 +57,27 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carqAliasName'
+-- * 'caAliasName'
 --
--- * 'carqTargetKeyId'
+-- * 'caTargetKeyId'
 data CreateAlias = CreateAlias'
-    { _carqAliasName   :: !Text
-    , _carqTargetKeyId :: !Text
+    { _caAliasName   :: !Text
+    , _caTargetKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
 createAlias pAliasName_ pTargetKeyId_ =
     CreateAlias'
-    { _carqAliasName = pAliasName_
-    , _carqTargetKeyId = pTargetKeyId_
+    { _caAliasName = pAliasName_
+    , _caTargetKeyId = pTargetKeyId_
     }
 
 -- | String that contains the display name. The name must start with the word
 -- \"alias\" followed by a forward slash (alias\/). Aliases that begin with
 -- \"alias\/AWS\" are reserved.
-carqAliasName :: Lens' CreateAlias Text
-carqAliasName = lens _carqAliasName (\ s a -> s{_carqAliasName = a});
+caAliasName :: Lens' CreateAlias Text
+caAliasName = lens _caAliasName (\ s a -> s{_caAliasName = a});
 
 -- | An identifier of the key for which you are creating the alias. This
 -- value cannot be another alias but can be a globally unique identifier or
@@ -87,8 +87,8 @@ carqAliasName = lens _carqAliasName (\ s a -> s{_carqAliasName = a});
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-carqTargetKeyId :: Lens' CreateAlias Text
-carqTargetKeyId = lens _carqTargetKeyId (\ s a -> s{_carqTargetKeyId = a});
+caTargetKeyId :: Lens' CreateAlias Text
+caTargetKeyId = lens _caTargetKeyId (\ s a -> s{_caTargetKeyId = a});
 
 instance AWSRequest CreateAlias where
         type Sv CreateAlias = KMS
@@ -108,8 +108,8 @@ instance ToHeaders CreateAlias where
 instance ToJSON CreateAlias where
         toJSON CreateAlias'{..}
           = object
-              ["AliasName" .= _carqAliasName,
-               "TargetKeyId" .= _carqTargetKeyId]
+              ["AliasName" .= _caAliasName,
+               "TargetKeyId" .= _caTargetKeyId]
 
 instance ToPath CreateAlias where
         toPath = const "/"

@@ -31,7 +31,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     -- ** Request constructor
     , describeTrustedAdvisorChecks
     -- ** Request lenses
-    , dtacrqLanguage
+    , dtacLanguage
 
     -- * Response
     , DescribeTrustedAdvisorChecksResponse
@@ -51,24 +51,24 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrqLanguage'
+-- * 'dtacLanguage'
 newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
-    { _dtacrqLanguage :: Text
+    { _dtacLanguage :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorChecks' smart constructor.
 describeTrustedAdvisorChecks :: Text -> DescribeTrustedAdvisorChecks
 describeTrustedAdvisorChecks pLanguage_ =
     DescribeTrustedAdvisorChecks'
-    { _dtacrqLanguage = pLanguage_
+    { _dtacLanguage = pLanguage_
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-dtacrqLanguage :: Lens' DescribeTrustedAdvisorChecks Text
-dtacrqLanguage = lens _dtacrqLanguage (\ s a -> s{_dtacrqLanguage = a});
+dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
+dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a});
 
 instance AWSRequest DescribeTrustedAdvisorChecks
          where
@@ -94,7 +94,7 @@ instance ToHeaders DescribeTrustedAdvisorChecks where
 
 instance ToJSON DescribeTrustedAdvisorChecks where
         toJSON DescribeTrustedAdvisorChecks'{..}
-          = object ["language" .= _dtacrqLanguage]
+          = object ["language" .= _dtacLanguage]
 
 instance ToPath DescribeTrustedAdvisorChecks where
         toPath = const "/"

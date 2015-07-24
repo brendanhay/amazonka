@@ -33,8 +33,8 @@ module Network.AWS.RDS.AddTagsToResource
     -- ** Request constructor
     , addTagsToResource
     -- ** Request lenses
-    , attrrqResourceName
-    , attrrqTags
+    , attrResourceName
+    , attrTags
 
     -- * Response
     , AddTagsToResourceResponse
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attrrqResourceName'
+-- * 'attrResourceName'
 --
--- * 'attrrqTags'
+-- * 'attrTags'
 data AddTagsToResource = AddTagsToResource'
-    { _attrrqResourceName :: !Text
-    , _attrrqTags         :: ![Tag]
+    { _attrResourceName :: !Text
+    , _attrTags         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToResource' smart constructor.
 addTagsToResource :: Text -> AddTagsToResource
 addTagsToResource pResourceName_ =
     AddTagsToResource'
-    { _attrrqResourceName = pResourceName_
-    , _attrrqTags = mempty
+    { _attrResourceName = pResourceName_
+    , _attrTags = mempty
     }
 
 -- | The Amazon RDS resource the tags will be added to. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
-attrrqResourceName :: Lens' AddTagsToResource Text
-attrrqResourceName = lens _attrrqResourceName (\ s a -> s{_attrrqResourceName = a});
+attrResourceName :: Lens' AddTagsToResource Text
+attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 
 -- | The tags to be assigned to the Amazon RDS resource.
-attrrqTags :: Lens' AddTagsToResource [Tag]
-attrrqTags = lens _attrrqTags (\ s a -> s{_attrrqTags = a});
+attrTags :: Lens' AddTagsToResource [Tag]
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a});
 
 instance AWSRequest AddTagsToResource where
         type Sv AddTagsToResource = RDS
@@ -96,8 +96,8 @@ instance ToQuery AddTagsToResource where
           = mconcat
               ["Action" =: ("AddTagsToResource" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "ResourceName" =: _attrrqResourceName,
-               "Tags" =: toQueryList "Tag" _attrrqTags]
+               "ResourceName" =: _attrResourceName,
+               "Tags" =: toQueryList "Tag" _attrTags]
 
 -- | /See:/ 'addTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse =

@@ -37,8 +37,8 @@ module Network.AWS.EC2.DeleteVPNConnection
     -- ** Request constructor
     , deleteVPNConnection
     -- ** Request lenses
-    , dvcrqDryRun
-    , dvcrqVPNConnectionId
+    , dvcDryRun
+    , dvcVPNConnectionId
 
     -- * Response
     , DeleteVPNConnectionResponse
@@ -55,32 +55,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvcrqDryRun'
+-- * 'dvcDryRun'
 --
--- * 'dvcrqVPNConnectionId'
+-- * 'dvcVPNConnectionId'
 data DeleteVPNConnection = DeleteVPNConnection'
-    { _dvcrqDryRun          :: !(Maybe Bool)
-    , _dvcrqVPNConnectionId :: !Text
+    { _dvcDryRun          :: !(Maybe Bool)
+    , _dvcVPNConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNConnection' smart constructor.
 deleteVPNConnection :: Text -> DeleteVPNConnection
 deleteVPNConnection pVPNConnectionId_ =
     DeleteVPNConnection'
-    { _dvcrqDryRun = Nothing
-    , _dvcrqVPNConnectionId = pVPNConnectionId_
+    { _dvcDryRun = Nothing
+    , _dvcVPNConnectionId = pVPNConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvcrqDryRun :: Lens' DeleteVPNConnection (Maybe Bool)
-dvcrqDryRun = lens _dvcrqDryRun (\ s a -> s{_dvcrqDryRun = a});
+dvcDryRun :: Lens' DeleteVPNConnection (Maybe Bool)
+dvcDryRun = lens _dvcDryRun (\ s a -> s{_dvcDryRun = a});
 
 -- | The ID of the VPN connection.
-dvcrqVPNConnectionId :: Lens' DeleteVPNConnection Text
-dvcrqVPNConnectionId = lens _dvcrqVPNConnectionId (\ s a -> s{_dvcrqVPNConnectionId = a});
+dvcVPNConnectionId :: Lens' DeleteVPNConnection Text
+dvcVPNConnectionId = lens _dvcVPNConnectionId (\ s a -> s{_dvcVPNConnectionId = a});
 
 instance AWSRequest DeleteVPNConnection where
         type Sv DeleteVPNConnection = EC2
@@ -100,8 +100,8 @@ instance ToQuery DeleteVPNConnection where
           = mconcat
               ["Action" =: ("DeleteVPNConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dvcrqDryRun,
-               "VpnConnectionId" =: _dvcrqVPNConnectionId]
+               "DryRun" =: _dvcDryRun,
+               "VpnConnectionId" =: _dvcVPNConnectionId]
 
 -- | /See:/ 'deleteVPNConnectionResponse' smart constructor.
 data DeleteVPNConnectionResponse =

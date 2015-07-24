@@ -75,8 +75,8 @@ module Network.AWS.SQS.GetQueueAttributes
     -- ** Request constructor
     , getQueueAttributes
     -- ** Request lenses
-    , gqarqAttributeNames
-    , gqarqQueueURL
+    , gqaAttributeNames
+    , gqaQueueURL
 
     -- * Response
     , GetQueueAttributesResponse
@@ -96,29 +96,29 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqarqAttributeNames'
+-- * 'gqaAttributeNames'
 --
--- * 'gqarqQueueURL'
+-- * 'gqaQueueURL'
 data GetQueueAttributes = GetQueueAttributes'
-    { _gqarqAttributeNames :: !(Maybe [QueueAttributeName])
-    , _gqarqQueueURL       :: !Text
+    { _gqaAttributeNames :: !(Maybe [QueueAttributeName])
+    , _gqaQueueURL       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueAttributes' smart constructor.
 getQueueAttributes :: Text -> GetQueueAttributes
 getQueueAttributes pQueueURL_ =
     GetQueueAttributes'
-    { _gqarqAttributeNames = Nothing
-    , _gqarqQueueURL = pQueueURL_
+    { _gqaAttributeNames = Nothing
+    , _gqaQueueURL = pQueueURL_
     }
 
 -- | A list of attributes to retrieve information for.
-gqarqAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
-gqarqAttributeNames = lens _gqarqAttributeNames (\ s a -> s{_gqarqAttributeNames = a}) . _Default;
+gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
+gqaAttributeNames = lens _gqaAttributeNames (\ s a -> s{_gqaAttributeNames = a}) . _Default;
 
 -- | The URL of the Amazon SQS queue to take action on.
-gqarqQueueURL :: Lens' GetQueueAttributes Text
-gqarqQueueURL = lens _gqarqQueueURL (\ s a -> s{_gqarqQueueURL = a});
+gqaQueueURL :: Lens' GetQueueAttributes Text
+gqaQueueURL = lens _gqaQueueURL (\ s a -> s{_gqaQueueURL = a});
 
 instance AWSRequest GetQueueAttributes where
         type Sv GetQueueAttributes = SQS
@@ -144,9 +144,8 @@ instance ToQuery GetQueueAttributes where
               ["Action" =: ("GetQueueAttributes" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                toQuery
-                 (toQueryList "AttributeName" <$>
-                    _gqarqAttributeNames),
-               "QueueUrl" =: _gqarqQueueURL]
+                 (toQueryList "AttributeName" <$> _gqaAttributeNames),
+               "QueueUrl" =: _gqaQueueURL]
 
 -- | A list of returned queue attributes.
 --

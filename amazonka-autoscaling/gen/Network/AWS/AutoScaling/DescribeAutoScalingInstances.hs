@@ -28,9 +28,9 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- ** Request constructor
     , describeAutoScalingInstances
     -- ** Request lenses
-    , dasirqNextToken
-    , dasirqInstanceIds
-    , dasirqMaxRecords
+    , dasiNextToken
+    , dasiInstanceIds
+    , dasiMaxRecords
 
     -- * Response
     , DescribeAutoScalingInstancesResponse
@@ -52,47 +52,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasirqNextToken'
+-- * 'dasiNextToken'
 --
--- * 'dasirqInstanceIds'
+-- * 'dasiInstanceIds'
 --
--- * 'dasirqMaxRecords'
+-- * 'dasiMaxRecords'
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
-    { _dasirqNextToken   :: !(Maybe Text)
-    , _dasirqInstanceIds :: !(Maybe [Text])
-    , _dasirqMaxRecords  :: !(Maybe Int)
+    { _dasiNextToken   :: !(Maybe Text)
+    , _dasiInstanceIds :: !(Maybe [Text])
+    , _dasiMaxRecords  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingInstances' smart constructor.
 describeAutoScalingInstances :: DescribeAutoScalingInstances
 describeAutoScalingInstances =
     DescribeAutoScalingInstances'
-    { _dasirqNextToken = Nothing
-    , _dasirqInstanceIds = Nothing
-    , _dasirqMaxRecords = Nothing
+    { _dasiNextToken = Nothing
+    , _dasiInstanceIds = Nothing
+    , _dasiMaxRecords = Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dasirqNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
-dasirqNextToken = lens _dasirqNextToken (\ s a -> s{_dasirqNextToken = a});
+dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
+dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a});
 
 -- | One or more Auto Scaling instances to describe, up to 50 instances. If
 -- you omit this parameter, all Auto Scaling instances are described. If
 -- you specify an ID that does not exist, it is ignored with no error.
-dasirqInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
-dasirqInstanceIds = lens _dasirqInstanceIds (\ s a -> s{_dasirqInstanceIds = a}) . _Default;
+dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
+dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default;
 
 -- | The maximum number of items to return with this call.
-dasirqMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
-dasirqMaxRecords = lens _dasirqMaxRecords (\ s a -> s{_dasirqMaxRecords = a});
+dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
+dasiMaxRecords = lens _dasiMaxRecords (\ s a -> s{_dasiMaxRecords = a});
 
 instance AWSPager DescribeAutoScalingInstances where
         page rq rs
           | stop (rs ^. dasirsNextToken) = Nothing
           | stop (rs ^. dasirsAutoScalingInstances) = Nothing
           | otherwise =
-            Just $ rq & dasirqNextToken .~ rs ^. dasirsNextToken
+            Just $ rq & dasiNextToken .~ rs ^. dasirsNextToken
 
 instance AWSRequest DescribeAutoScalingInstances
          where
@@ -122,11 +122,10 @@ instance ToQuery DescribeAutoScalingInstances where
               ["Action" =:
                  ("DescribeAutoScalingInstances" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "NextToken" =: _dasirqNextToken,
+               "NextToken" =: _dasiNextToken,
                "InstanceIds" =:
-                 toQuery
-                   (toQueryList "member" <$> _dasirqInstanceIds),
-               "MaxRecords" =: _dasirqMaxRecords]
+                 toQuery (toQueryList "member" <$> _dasiInstanceIds),
+               "MaxRecords" =: _dasiMaxRecords]
 
 -- | /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
 --

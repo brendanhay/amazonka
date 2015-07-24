@@ -47,16 +47,16 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     -- ** Request constructor
     , authorizeSecurityGroupIngress
     -- ** Request lenses
-    , asgirqFromPort
-    , asgirqIPPermissions
-    , asgirqIPProtocol
-    , asgirqGroupId
-    , asgirqToPort
-    , asgirqCIdRIP
-    , asgirqGroupName
-    , asgirqSourceSecurityGroupOwnerId
-    , asgirqSourceSecurityGroupName
-    , asgirqDryRun
+    , asgiFromPort
+    , asgiIPPermissions
+    , asgiIPProtocol
+    , asgiGroupId
+    , asgiToPort
+    , asgiCIdRIP
+    , asgiGroupName
+    , asgiSourceSecurityGroupOwnerId
+    , asgiSourceSecurityGroupName
+    , asgiDryRun
 
     -- * Response
     , AuthorizeSecurityGroupIngressResponse
@@ -73,108 +73,108 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asgirqFromPort'
+-- * 'asgiFromPort'
 --
--- * 'asgirqIPPermissions'
+-- * 'asgiIPPermissions'
 --
--- * 'asgirqIPProtocol'
+-- * 'asgiIPProtocol'
 --
--- * 'asgirqGroupId'
+-- * 'asgiGroupId'
 --
--- * 'asgirqToPort'
+-- * 'asgiToPort'
 --
--- * 'asgirqCIdRIP'
+-- * 'asgiCIdRIP'
 --
--- * 'asgirqGroupName'
+-- * 'asgiGroupName'
 --
--- * 'asgirqSourceSecurityGroupOwnerId'
+-- * 'asgiSourceSecurityGroupOwnerId'
 --
--- * 'asgirqSourceSecurityGroupName'
+-- * 'asgiSourceSecurityGroupName'
 --
--- * 'asgirqDryRun'
+-- * 'asgiDryRun'
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
-    { _asgirqFromPort                   :: !(Maybe Int)
-    , _asgirqIPPermissions              :: !(Maybe [IPPermission])
-    , _asgirqIPProtocol                 :: !(Maybe Text)
-    , _asgirqGroupId                    :: !(Maybe Text)
-    , _asgirqToPort                     :: !(Maybe Int)
-    , _asgirqCIdRIP                     :: !(Maybe Text)
-    , _asgirqGroupName                  :: !(Maybe Text)
-    , _asgirqSourceSecurityGroupOwnerId :: !(Maybe Text)
-    , _asgirqSourceSecurityGroupName    :: !(Maybe Text)
-    , _asgirqDryRun                     :: !(Maybe Bool)
+    { _asgiFromPort                   :: !(Maybe Int)
+    , _asgiIPPermissions              :: !(Maybe [IPPermission])
+    , _asgiIPProtocol                 :: !(Maybe Text)
+    , _asgiGroupId                    :: !(Maybe Text)
+    , _asgiToPort                     :: !(Maybe Int)
+    , _asgiCIdRIP                     :: !(Maybe Text)
+    , _asgiGroupName                  :: !(Maybe Text)
+    , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
+    , _asgiSourceSecurityGroupName    :: !(Maybe Text)
+    , _asgiDryRun                     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupIngress' smart constructor.
 authorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
 authorizeSecurityGroupIngress =
     AuthorizeSecurityGroupIngress'
-    { _asgirqFromPort = Nothing
-    , _asgirqIPPermissions = Nothing
-    , _asgirqIPProtocol = Nothing
-    , _asgirqGroupId = Nothing
-    , _asgirqToPort = Nothing
-    , _asgirqCIdRIP = Nothing
-    , _asgirqGroupName = Nothing
-    , _asgirqSourceSecurityGroupOwnerId = Nothing
-    , _asgirqSourceSecurityGroupName = Nothing
-    , _asgirqDryRun = Nothing
+    { _asgiFromPort = Nothing
+    , _asgiIPPermissions = Nothing
+    , _asgiIPProtocol = Nothing
+    , _asgiGroupId = Nothing
+    , _asgiToPort = Nothing
+    , _asgiCIdRIP = Nothing
+    , _asgiGroupName = Nothing
+    , _asgiSourceSecurityGroupOwnerId = Nothing
+    , _asgiSourceSecurityGroupName = Nothing
+    , _asgiDryRun = Nothing
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
-asgirqFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
-asgirqFromPort = lens _asgirqFromPort (\ s a -> s{_asgirqFromPort = a});
+asgiFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
+asgiFromPort = lens _asgiFromPort (\ s a -> s{_asgiFromPort = a});
 
 -- | A set of IP permissions. Can be used to specify multiple rules in a
 -- single command.
-asgirqIPPermissions :: Lens' AuthorizeSecurityGroupIngress [IPPermission]
-asgirqIPPermissions = lens _asgirqIPPermissions (\ s a -> s{_asgirqIPPermissions = a}) . _Default;
+asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress [IPPermission]
+asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a}) . _Default;
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
 -- (VPC only) Use @-1@ to specify all.
-asgirqIPProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgirqIPProtocol = lens _asgirqIPProtocol (\ s a -> s{_asgirqIPProtocol = a});
+asgiIPProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiIPProtocol = lens _asgiIPProtocol (\ s a -> s{_asgiIPProtocol = a});
 
 -- | The ID of the security group. Required for a nondefault VPC.
-asgirqGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgirqGroupId = lens _asgirqGroupId (\ s a -> s{_asgirqGroupId = a});
+asgiGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiGroupId = lens _asgiGroupId (\ s a -> s{_asgiGroupId = a});
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code
 -- number. For the ICMP code number, use @-1@ to specify all ICMP codes for
 -- the ICMP type.
-asgirqToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
-asgirqToPort = lens _asgirqToPort (\ s a -> s{_asgirqToPort = a});
+asgiToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
+asgiToPort = lens _asgiToPort (\ s a -> s{_asgiToPort = a});
 
 -- | The CIDR IP address range. You can\'t specify this parameter when
 -- specifying a source security group.
-asgirqCIdRIP :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgirqCIdRIP = lens _asgirqCIdRIP (\ s a -> s{_asgirqCIdRIP = a});
+asgiCIdRIP :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiCIdRIP = lens _asgiCIdRIP (\ s a -> s{_asgiCIdRIP = a});
 
 -- | [EC2-Classic, default VPC] The name of the security group.
-asgirqGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgirqGroupName = lens _asgirqGroupName (\ s a -> s{_asgirqGroupName = a});
+asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiGroupName = lens _asgiGroupName (\ s a -> s{_asgiGroupName = a});
 
 -- | The ID of the source security group. You can\'t specify this parameter
 -- in combination with the following parameters: the CIDR IP address range,
 -- the start of the port range, and the end of the port range.
-asgirqSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgirqSourceSecurityGroupOwnerId = lens _asgirqSourceSecurityGroupOwnerId (\ s a -> s{_asgirqSourceSecurityGroupOwnerId = a});
+asgiSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiSourceSecurityGroupOwnerId = lens _asgiSourceSecurityGroupOwnerId (\ s a -> s{_asgiSourceSecurityGroupOwnerId = a});
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You
 -- can\'t specify this parameter in combination with the following
 -- parameters: the CIDR IP address range, the start of the port range, and
 -- the end of the port range.
-asgirqSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgirqSourceSecurityGroupName = lens _asgirqSourceSecurityGroupName (\ s a -> s{_asgirqSourceSecurityGroupName = a});
+asgiSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiSourceSecurityGroupName = lens _asgiSourceSecurityGroupName (\ s a -> s{_asgiSourceSecurityGroupName = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-asgirqDryRun :: Lens' AuthorizeSecurityGroupIngress (Maybe Bool)
-asgirqDryRun = lens _asgirqDryRun (\ s a -> s{_asgirqDryRun = a});
+asgiDryRun :: Lens' AuthorizeSecurityGroupIngress (Maybe Bool)
+asgiDryRun = lens _asgiDryRun (\ s a -> s{_asgiDryRun = a});
 
 instance AWSRequest AuthorizeSecurityGroupIngress
          where
@@ -198,18 +198,17 @@ instance ToQuery AuthorizeSecurityGroupIngress where
               ["Action" =:
                  ("AuthorizeSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "FromPort" =: _asgirqFromPort,
-               toQuery
-                 (toQueryList "item" <$> _asgirqIPPermissions),
-               "IpProtocol" =: _asgirqIPProtocol,
-               "GroupId" =: _asgirqGroupId,
-               "ToPort" =: _asgirqToPort, "CidrIp" =: _asgirqCIdRIP,
-               "GroupName" =: _asgirqGroupName,
+               "FromPort" =: _asgiFromPort,
+               toQuery (toQueryList "item" <$> _asgiIPPermissions),
+               "IpProtocol" =: _asgiIPProtocol,
+               "GroupId" =: _asgiGroupId, "ToPort" =: _asgiToPort,
+               "CidrIp" =: _asgiCIdRIP,
+               "GroupName" =: _asgiGroupName,
                "SourceSecurityGroupOwnerId" =:
-                 _asgirqSourceSecurityGroupOwnerId,
+                 _asgiSourceSecurityGroupOwnerId,
                "SourceSecurityGroupName" =:
-                 _asgirqSourceSecurityGroupName,
-               "DryRun" =: _asgirqDryRun]
+                 _asgiSourceSecurityGroupName,
+               "DryRun" =: _asgiDryRun]
 
 -- | /See:/ 'authorizeSecurityGroupIngressResponse' smart constructor.
 data AuthorizeSecurityGroupIngressResponse =

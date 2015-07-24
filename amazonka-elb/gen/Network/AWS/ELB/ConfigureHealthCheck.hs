@@ -32,8 +32,8 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- ** Request constructor
     , configureHealthCheck
     -- ** Request lenses
-    , chcrqLoadBalancerName
-    , chcrqHealthCheck
+    , chcLoadBalancerName
+    , chcHealthCheck
 
     -- * Response
     , ConfigureHealthCheckResponse
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcrqLoadBalancerName'
+-- * 'chcLoadBalancerName'
 --
--- * 'chcrqHealthCheck'
+-- * 'chcHealthCheck'
 data ConfigureHealthCheck = ConfigureHealthCheck'
-    { _chcrqLoadBalancerName :: !Text
-    , _chcrqHealthCheck      :: !HealthCheck
+    { _chcLoadBalancerName :: !Text
+    , _chcHealthCheck      :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigureHealthCheck' smart constructor.
 configureHealthCheck :: Text -> HealthCheck -> ConfigureHealthCheck
 configureHealthCheck pLoadBalancerName_ pHealthCheck_ =
     ConfigureHealthCheck'
-    { _chcrqLoadBalancerName = pLoadBalancerName_
-    , _chcrqHealthCheck = pHealthCheck_
+    { _chcLoadBalancerName = pLoadBalancerName_
+    , _chcHealthCheck = pHealthCheck_
     }
 
 -- | The name of the load balancer.
-chcrqLoadBalancerName :: Lens' ConfigureHealthCheck Text
-chcrqLoadBalancerName = lens _chcrqLoadBalancerName (\ s a -> s{_chcrqLoadBalancerName = a});
+chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
+chcLoadBalancerName = lens _chcLoadBalancerName (\ s a -> s{_chcLoadBalancerName = a});
 
 -- | The configuration information for the new health check.
-chcrqHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
-chcrqHealthCheck = lens _chcrqHealthCheck (\ s a -> s{_chcrqHealthCheck = a});
+chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
+chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a});
 
 instance AWSRequest ConfigureHealthCheck where
         type Sv ConfigureHealthCheck = ELB
@@ -99,8 +99,8 @@ instance ToQuery ConfigureHealthCheck where
           = mconcat
               ["Action" =: ("ConfigureHealthCheck" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _chcrqLoadBalancerName,
-               "HealthCheck" =: _chcrqHealthCheck]
+               "LoadBalancerName" =: _chcLoadBalancerName,
+               "HealthCheck" =: _chcHealthCheck]
 
 -- | /See:/ 'configureHealthCheckResponse' smart constructor.
 --

@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
     -- ** Request constructor
     , removeTagsFromOnPremisesInstances
     -- ** Request lenses
-    , rtfopirqTags
-    , rtfopirqInstanceNames
+    , rtfopiTags
+    , rtfopiInstanceNames
 
     -- * Response
     , RemoveTagsFromOnPremisesInstancesResponse
@@ -48,29 +48,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtfopirqTags'
+-- * 'rtfopiTags'
 --
--- * 'rtfopirqInstanceNames'
+-- * 'rtfopiInstanceNames'
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
-    { _rtfopirqTags          :: ![Tag]
-    , _rtfopirqInstanceNames :: ![Text]
+    { _rtfopiTags          :: ![Tag]
+    , _rtfopiInstanceNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromOnPremisesInstances' smart constructor.
 removeTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstances
 removeTagsFromOnPremisesInstances =
     RemoveTagsFromOnPremisesInstances'
-    { _rtfopirqTags = mempty
-    , _rtfopirqInstanceNames = mempty
+    { _rtfopiTags = mempty
+    , _rtfopiInstanceNames = mempty
     }
 
 -- | The tag key-value pairs to remove from the on-premises instances.
-rtfopirqTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]
-rtfopirqTags = lens _rtfopirqTags (\ s a -> s{_rtfopirqTags = a});
+rtfopiTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]
+rtfopiTags = lens _rtfopiTags (\ s a -> s{_rtfopiTags = a});
 
 -- | The names of the on-premises instances to remove tags from.
-rtfopirqInstanceNames :: Lens' RemoveTagsFromOnPremisesInstances [Text]
-rtfopirqInstanceNames = lens _rtfopirqInstanceNames (\ s a -> s{_rtfopirqInstanceNames = a});
+rtfopiInstanceNames :: Lens' RemoveTagsFromOnPremisesInstances [Text]
+rtfopiInstanceNames = lens _rtfopiInstanceNames (\ s a -> s{_rtfopiInstanceNames = a});
 
 instance AWSRequest RemoveTagsFromOnPremisesInstances
          where
@@ -98,8 +98,8 @@ instance ToJSON RemoveTagsFromOnPremisesInstances
          where
         toJSON RemoveTagsFromOnPremisesInstances'{..}
           = object
-              ["tags" .= _rtfopirqTags,
-               "instanceNames" .= _rtfopirqInstanceNames]
+              ["tags" .= _rtfopiTags,
+               "instanceNames" .= _rtfopiInstanceNames]
 
 instance ToPath RemoveTagsFromOnPremisesInstances
          where

@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DescribeLoggingStatus
     -- ** Request constructor
     , describeLoggingStatus
     -- ** Request lenses
-    , dlsrqClusterIdentifier
+    , dlsClusterIdentifier
 
     -- * Response
     , LoggingStatus
@@ -54,23 +54,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlsrqClusterIdentifier'
+-- * 'dlsClusterIdentifier'
 newtype DescribeLoggingStatus = DescribeLoggingStatus'
-    { _dlsrqClusterIdentifier :: Text
+    { _dlsClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoggingStatus' smart constructor.
 describeLoggingStatus :: Text -> DescribeLoggingStatus
 describeLoggingStatus pClusterIdentifier_ =
     DescribeLoggingStatus'
-    { _dlsrqClusterIdentifier = pClusterIdentifier_
+    { _dlsClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The identifier of the cluster to get the logging status from.
 --
 -- Example: @examplecluster@
-dlsrqClusterIdentifier :: Lens' DescribeLoggingStatus Text
-dlsrqClusterIdentifier = lens _dlsrqClusterIdentifier (\ s a -> s{_dlsrqClusterIdentifier = a});
+dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
+dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a});
 
 instance AWSRequest DescribeLoggingStatus where
         type Sv DescribeLoggingStatus = Redshift
@@ -91,4 +91,4 @@ instance ToQuery DescribeLoggingStatus where
           = mconcat
               ["Action" =: ("DescribeLoggingStatus" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _dlsrqClusterIdentifier]
+               "ClusterIdentifier" =: _dlsClusterIdentifier]

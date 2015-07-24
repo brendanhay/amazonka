@@ -35,8 +35,8 @@ module Network.AWS.EFS.CreateTags
     -- ** Request constructor
     , createTags
     -- ** Request lenses
-    , ctrqFileSystemId
-    , ctrqTags
+    , ctFileSystemId
+    , ctTags
 
     -- * Response
     , CreateTagsResponse
@@ -53,30 +53,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctrqFileSystemId'
+-- * 'ctFileSystemId'
 --
--- * 'ctrqTags'
+-- * 'ctTags'
 data CreateTags = CreateTags'
-    { _ctrqFileSystemId :: !Text
-    , _ctrqTags         :: ![Tag]
+    { _ctFileSystemId :: !Text
+    , _ctTags         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTags' smart constructor.
 createTags :: Text -> CreateTags
 createTags pFileSystemId_ =
     CreateTags'
-    { _ctrqFileSystemId = pFileSystemId_
-    , _ctrqTags = mempty
+    { _ctFileSystemId = pFileSystemId_
+    , _ctTags = mempty
     }
 
 -- | String. The ID of the file system whose tags you want to modify. This
 -- operation modifies only the tags and not the file system.
-ctrqFileSystemId :: Lens' CreateTags Text
-ctrqFileSystemId = lens _ctrqFileSystemId (\ s a -> s{_ctrqFileSystemId = a});
+ctFileSystemId :: Lens' CreateTags Text
+ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a});
 
 -- | An array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
-ctrqTags :: Lens' CreateTags [Tag]
-ctrqTags = lens _ctrqTags (\ s a -> s{_ctrqTags = a});
+ctTags :: Lens' CreateTags [Tag]
+ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
 
 instance AWSRequest CreateTags where
         type Sv CreateTags = EFS
@@ -88,13 +88,12 @@ instance ToHeaders CreateTags where
         toHeaders = const mempty
 
 instance ToJSON CreateTags where
-        toJSON CreateTags'{..} = object ["Tags" .= _ctrqTags]
+        toJSON CreateTags'{..} = object ["Tags" .= _ctTags]
 
 instance ToPath CreateTags where
         toPath CreateTags'{..}
           = mconcat
-              ["/2015-02-01/create-tags/",
-               toText _ctrqFileSystemId]
+              ["/2015-02-01/create-tags/", toText _ctFileSystemId]
 
 instance ToQuery CreateTags where
         toQuery = const mempty

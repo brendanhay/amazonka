@@ -28,7 +28,7 @@ module Network.AWS.RDS.DeleteDBParameterGroup
     -- ** Request constructor
     , deleteDBParameterGroup
     -- ** Request lenses
-    , ddbpgrqDBParameterGroupName
+    , ddbpgDBParameterGroupName
 
     -- * Response
     , DeleteDBParameterGroupResponse
@@ -47,16 +47,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbpgrqDBParameterGroupName'
+-- * 'ddbpgDBParameterGroupName'
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
-    { _ddbpgrqDBParameterGroupName :: Text
+    { _ddbpgDBParameterGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBParameterGroup' smart constructor.
 deleteDBParameterGroup :: Text -> DeleteDBParameterGroup
 deleteDBParameterGroup pDBParameterGroupName_ =
     DeleteDBParameterGroup'
-    { _ddbpgrqDBParameterGroupName = pDBParameterGroupName_
+    { _ddbpgDBParameterGroupName = pDBParameterGroupName_
     }
 
 -- | The name of the DB parameter group.
@@ -66,8 +66,8 @@ deleteDBParameterGroup pDBParameterGroupName_ =
 -- -   Must be the name of an existing DB parameter group
 -- -   You cannot delete a default DB parameter group
 -- -   Cannot be associated with any DB instances
-ddbpgrqDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
-ddbpgrqDBParameterGroupName = lens _ddbpgrqDBParameterGroupName (\ s a -> s{_ddbpgrqDBParameterGroupName = a});
+ddbpgDBParameterGroupName :: Lens' DeleteDBParameterGroup Text
+ddbpgDBParameterGroupName = lens _ddbpgDBParameterGroupName (\ s a -> s{_ddbpgDBParameterGroupName = a});
 
 instance AWSRequest DeleteDBParameterGroup where
         type Sv DeleteDBParameterGroup = RDS
@@ -89,8 +89,7 @@ instance ToQuery DeleteDBParameterGroup where
               ["Action" =:
                  ("DeleteDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBParameterGroupName" =:
-                 _ddbpgrqDBParameterGroupName]
+               "DBParameterGroupName" =: _ddbpgDBParameterGroupName]
 
 -- | /See:/ 'deleteDBParameterGroupResponse' smart constructor.
 data DeleteDBParameterGroupResponse =

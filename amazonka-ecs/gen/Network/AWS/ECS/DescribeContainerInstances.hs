@@ -29,8 +29,8 @@ module Network.AWS.ECS.DescribeContainerInstances
     -- ** Request constructor
     , describeContainerInstances
     -- ** Request lenses
-    , dcirqCluster
-    , dcirqContainerInstances
+    , dciCluster
+    , dciContainerInstances
 
     -- * Response
     , DescribeContainerInstancesResponse
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcirqCluster'
+-- * 'dciCluster'
 --
--- * 'dcirqContainerInstances'
+-- * 'dciContainerInstances'
 data DescribeContainerInstances = DescribeContainerInstances'
-    { _dcirqCluster            :: !(Maybe Text)
-    , _dcirqContainerInstances :: ![Text]
+    { _dciCluster            :: !(Maybe Text)
+    , _dciContainerInstances :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeContainerInstances' smart constructor.
 describeContainerInstances :: DescribeContainerInstances
 describeContainerInstances =
     DescribeContainerInstances'
-    { _dcirqCluster = Nothing
-    , _dcirqContainerInstances = mempty
+    { _dciCluster = Nothing
+    , _dciContainerInstances = mempty
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instances you want to describe. If you do not
 -- specify a cluster, the default cluster is assumed.
-dcirqCluster :: Lens' DescribeContainerInstances (Maybe Text)
-dcirqCluster = lens _dcirqCluster (\ s a -> s{_dcirqCluster = a});
+dciCluster :: Lens' DescribeContainerInstances (Maybe Text)
+dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a});
 
 -- | A space-separated list of container instance UUIDs or full Amazon
 -- Resource Name (ARN) entries.
-dcirqContainerInstances :: Lens' DescribeContainerInstances [Text]
-dcirqContainerInstances = lens _dcirqContainerInstances (\ s a -> s{_dcirqContainerInstances = a});
+dciContainerInstances :: Lens' DescribeContainerInstances [Text]
+dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a});
 
 instance AWSRequest DescribeContainerInstances where
         type Sv DescribeContainerInstances = ECS
@@ -104,8 +104,8 @@ instance ToHeaders DescribeContainerInstances where
 instance ToJSON DescribeContainerInstances where
         toJSON DescribeContainerInstances'{..}
           = object
-              ["cluster" .= _dcirqCluster,
-               "containerInstances" .= _dcirqContainerInstances]
+              ["cluster" .= _dciCluster,
+               "containerInstances" .= _dciContainerInstances]
 
 instance ToPath DescribeContainerInstances where
         toPath = const "/"

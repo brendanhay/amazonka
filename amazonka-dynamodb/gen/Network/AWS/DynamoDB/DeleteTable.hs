@@ -46,7 +46,7 @@ module Network.AWS.DynamoDB.DeleteTable
     -- ** Request constructor
     , deleteTable
     -- ** Request lenses
-    , dtrqTableName
+    , dtTableName
 
     -- * Response
     , DeleteTableResponse
@@ -68,21 +68,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqTableName'
+-- * 'dtTableName'
 newtype DeleteTable = DeleteTable'
-    { _dtrqTableName :: Text
+    { _dtTableName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTable' smart constructor.
 deleteTable :: Text -> DeleteTable
 deleteTable pTableName_ =
     DeleteTable'
-    { _dtrqTableName = pTableName_
+    { _dtTableName = pTableName_
     }
 
 -- | The name of the table to delete.
-dtrqTableName :: Lens' DeleteTable Text
-dtrqTableName = lens _dtrqTableName (\ s a -> s{_dtrqTableName = a});
+dtTableName :: Lens' DeleteTable Text
+dtTableName = lens _dtTableName (\ s a -> s{_dtTableName = a});
 
 instance AWSRequest DeleteTable where
         type Sv DeleteTable = DynamoDB
@@ -105,7 +105,7 @@ instance ToHeaders DeleteTable where
 
 instance ToJSON DeleteTable where
         toJSON DeleteTable'{..}
-          = object ["TableName" .= _dtrqTableName]
+          = object ["TableName" .= _dtTableName]
 
 instance ToPath DeleteTable where
         toPath = const "/"

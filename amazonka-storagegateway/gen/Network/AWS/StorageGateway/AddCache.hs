@@ -34,8 +34,8 @@ module Network.AWS.StorageGateway.AddCache
     -- ** Request constructor
     , addCache
     -- ** Request lenses
-    , acrqGatewayARN
-    , acrqDiskIds
+    , acGatewayARN
+    , acDiskIds
 
     -- * Response
     , AddCacheResponse
@@ -55,29 +55,29 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acrqGatewayARN'
+-- * 'acGatewayARN'
 --
--- * 'acrqDiskIds'
+-- * 'acDiskIds'
 data AddCache = AddCache'
-    { _acrqGatewayARN :: !Text
-    , _acrqDiskIds    :: ![Text]
+    { _acGatewayARN :: !Text
+    , _acDiskIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddCache' smart constructor.
 addCache :: Text -> AddCache
 addCache pGatewayARN_ =
     AddCache'
-    { _acrqGatewayARN = pGatewayARN_
-    , _acrqDiskIds = mempty
+    { _acGatewayARN = pGatewayARN_
+    , _acDiskIds = mempty
     }
 
 -- | FIXME: Undocumented member.
-acrqGatewayARN :: Lens' AddCache Text
-acrqGatewayARN = lens _acrqGatewayARN (\ s a -> s{_acrqGatewayARN = a});
+acGatewayARN :: Lens' AddCache Text
+acGatewayARN = lens _acGatewayARN (\ s a -> s{_acGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-acrqDiskIds :: Lens' AddCache [Text]
-acrqDiskIds = lens _acrqDiskIds (\ s a -> s{_acrqDiskIds = a});
+acDiskIds :: Lens' AddCache [Text]
+acDiskIds = lens _acDiskIds (\ s a -> s{_acDiskIds = a});
 
 instance AWSRequest AddCache where
         type Sv AddCache = StorageGateway
@@ -101,8 +101,8 @@ instance ToHeaders AddCache where
 instance ToJSON AddCache where
         toJSON AddCache'{..}
           = object
-              ["GatewayARN" .= _acrqGatewayARN,
-               "DiskIds" .= _acrqDiskIds]
+              ["GatewayARN" .= _acGatewayARN,
+               "DiskIds" .= _acDiskIds]
 
 instance ToPath AddCache where
         toPath = const "/"

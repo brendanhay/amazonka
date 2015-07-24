@@ -27,10 +27,10 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
     -- ** Request constructor
     , describeSpotFleetInstances
     -- ** Request lenses
-    , dsfirqNextToken
-    , dsfirqDryRun
-    , dsfirqMaxResults
-    , dsfirqSpotFleetRequestId
+    , dsfiNextToken
+    , dsfiDryRun
+    , dsfiMaxResults
+    , dsfiSpotFleetRequestId
 
     -- * Response
     , DescribeSpotFleetInstancesResponse
@@ -54,51 +54,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsfirqNextToken'
+-- * 'dsfiNextToken'
 --
--- * 'dsfirqDryRun'
+-- * 'dsfiDryRun'
 --
--- * 'dsfirqMaxResults'
+-- * 'dsfiMaxResults'
 --
--- * 'dsfirqSpotFleetRequestId'
+-- * 'dsfiSpotFleetRequestId'
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
-    { _dsfirqNextToken          :: !(Maybe Text)
-    , _dsfirqDryRun             :: !(Maybe Bool)
-    , _dsfirqMaxResults         :: !(Maybe Int)
-    , _dsfirqSpotFleetRequestId :: !Text
+    { _dsfiNextToken          :: !(Maybe Text)
+    , _dsfiDryRun             :: !(Maybe Bool)
+    , _dsfiMaxResults         :: !(Maybe Int)
+    , _dsfiSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetInstances' smart constructor.
 describeSpotFleetInstances :: Text -> DescribeSpotFleetInstances
 describeSpotFleetInstances pSpotFleetRequestId_ =
     DescribeSpotFleetInstances'
-    { _dsfirqNextToken = Nothing
-    , _dsfirqDryRun = Nothing
-    , _dsfirqMaxResults = Nothing
-    , _dsfirqSpotFleetRequestId = pSpotFleetRequestId_
+    { _dsfiNextToken = Nothing
+    , _dsfiDryRun = Nothing
+    , _dsfiMaxResults = Nothing
+    , _dsfiSpotFleetRequestId = pSpotFleetRequestId_
     }
 
 -- | The token for the next set of results.
-dsfirqNextToken :: Lens' DescribeSpotFleetInstances (Maybe Text)
-dsfirqNextToken = lens _dsfirqNextToken (\ s a -> s{_dsfirqNextToken = a});
+dsfiNextToken :: Lens' DescribeSpotFleetInstances (Maybe Text)
+dsfiNextToken = lens _dsfiNextToken (\ s a -> s{_dsfiNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsfirqDryRun :: Lens' DescribeSpotFleetInstances (Maybe Bool)
-dsfirqDryRun = lens _dsfirqDryRun (\ s a -> s{_dsfirqDryRun = a});
+dsfiDryRun :: Lens' DescribeSpotFleetInstances (Maybe Bool)
+dsfiDryRun = lens _dsfiDryRun (\ s a -> s{_dsfiDryRun = a});
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-dsfirqMaxResults :: Lens' DescribeSpotFleetInstances (Maybe Int)
-dsfirqMaxResults = lens _dsfirqMaxResults (\ s a -> s{_dsfirqMaxResults = a});
+dsfiMaxResults :: Lens' DescribeSpotFleetInstances (Maybe Int)
+dsfiMaxResults = lens _dsfiMaxResults (\ s a -> s{_dsfiMaxResults = a});
 
 -- | The ID of the Spot fleet request.
-dsfirqSpotFleetRequestId :: Lens' DescribeSpotFleetInstances Text
-dsfirqSpotFleetRequestId = lens _dsfirqSpotFleetRequestId (\ s a -> s{_dsfirqSpotFleetRequestId = a});
+dsfiSpotFleetRequestId :: Lens' DescribeSpotFleetInstances Text
+dsfiSpotFleetRequestId = lens _dsfiSpotFleetRequestId (\ s a -> s{_dsfiSpotFleetRequestId = a});
 
 instance AWSRequest DescribeSpotFleetInstances where
         type Sv DescribeSpotFleetInstances = EC2
@@ -127,10 +127,10 @@ instance ToQuery DescribeSpotFleetInstances where
               ["Action" =:
                  ("DescribeSpotFleetInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NextToken" =: _dsfirqNextToken,
-               "DryRun" =: _dsfirqDryRun,
-               "MaxResults" =: _dsfirqMaxResults,
-               "SpotFleetRequestId" =: _dsfirqSpotFleetRequestId]
+               "NextToken" =: _dsfiNextToken,
+               "DryRun" =: _dsfiDryRun,
+               "MaxResults" =: _dsfiMaxResults,
+               "SpotFleetRequestId" =: _dsfiSpotFleetRequestId]
 
 -- | Contains the output of DescribeSpotFleetInstances.
 --

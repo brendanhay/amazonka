@@ -33,8 +33,8 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     -- ** Request constructor
     , updateAvailabilityOptions
     -- ** Request lenses
-    , uaorqDomainName
-    , uaorqMultiAZ
+    , uaoDomainName
+    , uaoMultiAZ
 
     -- * Response
     , UpdateAvailabilityOptionsResponse
@@ -58,32 +58,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaorqDomainName'
+-- * 'uaoDomainName'
 --
--- * 'uaorqMultiAZ'
+-- * 'uaoMultiAZ'
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
-    { _uaorqDomainName :: !Text
-    , _uaorqMultiAZ    :: !Bool
+    { _uaoDomainName :: !Text
+    , _uaoMultiAZ    :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAvailabilityOptions' smart constructor.
 updateAvailabilityOptions :: Text -> Bool -> UpdateAvailabilityOptions
 updateAvailabilityOptions pDomainName_ pMultiAZ_ =
     UpdateAvailabilityOptions'
-    { _uaorqDomainName = pDomainName_
-    , _uaorqMultiAZ = pMultiAZ_
+    { _uaoDomainName = pDomainName_
+    , _uaoMultiAZ = pMultiAZ_
     }
 
 -- | FIXME: Undocumented member.
-uaorqDomainName :: Lens' UpdateAvailabilityOptions Text
-uaorqDomainName = lens _uaorqDomainName (\ s a -> s{_uaorqDomainName = a});
+uaoDomainName :: Lens' UpdateAvailabilityOptions Text
+uaoDomainName = lens _uaoDomainName (\ s a -> s{_uaoDomainName = a});
 
 -- | You expand an existing search domain to a second Availability Zone by
 -- setting the Multi-AZ option to true. Similarly, you can turn off the
 -- Multi-AZ option to downgrade the domain to a single Availability Zone by
 -- setting the Multi-AZ option to @false@.
-uaorqMultiAZ :: Lens' UpdateAvailabilityOptions Bool
-uaorqMultiAZ = lens _uaorqMultiAZ (\ s a -> s{_uaorqMultiAZ = a});
+uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
+uaoMultiAZ = lens _uaoMultiAZ (\ s a -> s{_uaoMultiAZ = a});
 
 instance AWSRequest UpdateAvailabilityOptions where
         type Sv UpdateAvailabilityOptions = CloudSearch
@@ -109,8 +109,8 @@ instance ToQuery UpdateAvailabilityOptions where
               ["Action" =:
                  ("UpdateAvailabilityOptions" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _uaorqDomainName,
-               "MultiAZ" =: _uaorqMultiAZ]
+               "DomainName" =: _uaoDomainName,
+               "MultiAZ" =: _uaoMultiAZ]
 
 -- | The result of a @UpdateAvailabilityOptions@ request. Contains the status
 -- of the domain\'s availability options.

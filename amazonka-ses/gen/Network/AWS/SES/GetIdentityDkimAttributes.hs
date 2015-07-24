@@ -47,7 +47,7 @@ module Network.AWS.SES.GetIdentityDkimAttributes
     -- ** Request constructor
     , getIdentityDkimAttributes
     -- ** Request lenses
-    , gidarqIdentities
+    , gidaIdentities
 
     -- * Response
     , GetIdentityDkimAttributesResponse
@@ -74,22 +74,22 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gidarqIdentities'
+-- * 'gidaIdentities'
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
-    { _gidarqIdentities :: [Text]
+    { _gidaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityDkimAttributes' smart constructor.
 getIdentityDkimAttributes :: GetIdentityDkimAttributes
 getIdentityDkimAttributes =
     GetIdentityDkimAttributes'
-    { _gidarqIdentities = mempty
+    { _gidaIdentities = mempty
     }
 
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
-gidarqIdentities :: Lens' GetIdentityDkimAttributes [Text]
-gidarqIdentities = lens _gidarqIdentities (\ s a -> s{_gidarqIdentities = a});
+gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
+gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a});
 
 instance AWSRequest GetIdentityDkimAttributes where
         type Sv GetIdentityDkimAttributes = SES
@@ -116,8 +116,7 @@ instance ToQuery GetIdentityDkimAttributes where
               ["Action" =:
                  ("GetIdentityDkimAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =:
-                 toQueryList "member" _gidarqIdentities]
+               "Identities" =: toQueryList "member" _gidaIdentities]
 
 -- | Represents a list of all the DKIM attributes for the specified identity.
 --

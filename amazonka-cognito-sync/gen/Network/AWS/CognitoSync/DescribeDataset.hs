@@ -34,9 +34,9 @@ module Network.AWS.CognitoSync.DescribeDataset
     -- ** Request constructor
     , describeDataset
     -- ** Request lenses
-    , ddrqIdentityPoolId
-    , ddrqIdentityId
-    , ddrqDatasetName
+    , ddIdentityPoolId
+    , ddIdentityId
+    , ddDatasetName
 
     -- * Response
     , DescribeDatasetResponse
@@ -59,42 +59,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrqIdentityPoolId'
+-- * 'ddIdentityPoolId'
 --
--- * 'ddrqIdentityId'
+-- * 'ddIdentityId'
 --
--- * 'ddrqDatasetName'
+-- * 'ddDatasetName'
 data DescribeDataset = DescribeDataset'
-    { _ddrqIdentityPoolId :: !Text
-    , _ddrqIdentityId     :: !Text
-    , _ddrqDatasetName    :: !Text
+    { _ddIdentityPoolId :: !Text
+    , _ddIdentityId     :: !Text
+    , _ddDatasetName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataset' smart constructor.
 describeDataset :: Text -> Text -> Text -> DescribeDataset
 describeDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     DescribeDataset'
-    { _ddrqIdentityPoolId = pIdentityPoolId_
-    , _ddrqIdentityId = pIdentityId_
-    , _ddrqDatasetName = pDatasetName_
+    { _ddIdentityPoolId = pIdentityPoolId_
+    , _ddIdentityId = pIdentityId_
+    , _ddDatasetName = pDatasetName_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-ddrqIdentityPoolId :: Lens' DescribeDataset Text
-ddrqIdentityPoolId = lens _ddrqIdentityPoolId (\ s a -> s{_ddrqIdentityPoolId = a});
+ddIdentityPoolId :: Lens' DescribeDataset Text
+ddIdentityPoolId = lens _ddIdentityPoolId (\ s a -> s{_ddIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-ddrqIdentityId :: Lens' DescribeDataset Text
-ddrqIdentityId = lens _ddrqIdentityId (\ s a -> s{_ddrqIdentityId = a});
+ddIdentityId :: Lens' DescribeDataset Text
+ddIdentityId = lens _ddIdentityId (\ s a -> s{_ddIdentityId = a});
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-ddrqDatasetName :: Lens' DescribeDataset Text
-ddrqDatasetName = lens _ddrqDatasetName (\ s a -> s{_ddrqDatasetName = a});
+ddDatasetName :: Lens' DescribeDataset Text
+ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a});
 
 instance AWSRequest DescribeDataset where
         type Sv DescribeDataset = CognitoSync
@@ -116,9 +116,9 @@ instance ToHeaders DescribeDataset where
 instance ToPath DescribeDataset where
         toPath DescribeDataset'{..}
           = mconcat
-              ["/identitypools/", toText _ddrqIdentityPoolId,
-               "/identities/", toText _ddrqIdentityId, "/datasets/",
-               toText _ddrqDatasetName]
+              ["/identitypools/", toText _ddIdentityPoolId,
+               "/identities/", toText _ddIdentityId, "/datasets/",
+               toText _ddDatasetName]
 
 instance ToQuery DescribeDataset where
         toQuery = const mempty

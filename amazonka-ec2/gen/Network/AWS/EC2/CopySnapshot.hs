@@ -42,14 +42,14 @@ module Network.AWS.EC2.CopySnapshot
     -- ** Request constructor
     , copySnapshot
     -- ** Request lenses
-    , csrqEncrypted
-    , csrqPresignedURL
-    , csrqDestinationRegion
-    , csrqKMSKeyId
-    , csrqDryRun
-    , csrqDescription
-    , csrqSourceRegion
-    , csrqSourceSnapshotId
+    , csEncrypted
+    , csPresignedURL
+    , csDestinationRegion
+    , csKMSKeyId
+    , csDryRun
+    , csDescription
+    , csSourceRegion
+    , csSourceSnapshotId
 
     -- * Response
     , CopySnapshotResponse
@@ -69,44 +69,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrqEncrypted'
+-- * 'csEncrypted'
 --
--- * 'csrqPresignedURL'
+-- * 'csPresignedURL'
 --
--- * 'csrqDestinationRegion'
+-- * 'csDestinationRegion'
 --
--- * 'csrqKMSKeyId'
+-- * 'csKMSKeyId'
 --
--- * 'csrqDryRun'
+-- * 'csDryRun'
 --
--- * 'csrqDescription'
+-- * 'csDescription'
 --
--- * 'csrqSourceRegion'
+-- * 'csSourceRegion'
 --
--- * 'csrqSourceSnapshotId'
+-- * 'csSourceSnapshotId'
 data CopySnapshot = CopySnapshot'
-    { _csrqEncrypted         :: !(Maybe Bool)
-    , _csrqPresignedURL      :: !(Maybe Text)
-    , _csrqDestinationRegion :: !(Maybe Text)
-    , _csrqKMSKeyId          :: !(Maybe Text)
-    , _csrqDryRun            :: !(Maybe Bool)
-    , _csrqDescription       :: !(Maybe Text)
-    , _csrqSourceRegion      :: !Text
-    , _csrqSourceSnapshotId  :: !Text
+    { _csEncrypted         :: !(Maybe Bool)
+    , _csPresignedURL      :: !(Maybe Text)
+    , _csDestinationRegion :: !(Maybe Text)
+    , _csKMSKeyId          :: !(Maybe Text)
+    , _csDryRun            :: !(Maybe Bool)
+    , _csDescription       :: !(Maybe Text)
+    , _csSourceRegion      :: !Text
+    , _csSourceSnapshotId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
 copySnapshot pSourceRegion_ pSourceSnapshotId_ =
     CopySnapshot'
-    { _csrqEncrypted = Nothing
-    , _csrqPresignedURL = Nothing
-    , _csrqDestinationRegion = Nothing
-    , _csrqKMSKeyId = Nothing
-    , _csrqDryRun = Nothing
-    , _csrqDescription = Nothing
-    , _csrqSourceRegion = pSourceRegion_
-    , _csrqSourceSnapshotId = pSourceSnapshotId_
+    { _csEncrypted = Nothing
+    , _csPresignedURL = Nothing
+    , _csDestinationRegion = Nothing
+    , _csKMSKeyId = Nothing
+    , _csDryRun = Nothing
+    , _csDescription = Nothing
+    , _csSourceRegion = pSourceRegion_
+    , _csSourceSnapshotId = pSourceSnapshotId_
     }
 
 -- | Specifies whether the destination snapshot should be encrypted. There is
@@ -117,8 +117,8 @@ copySnapshot pSourceRegion_ pSourceSnapshotId_ =
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-csrqEncrypted :: Lens' CopySnapshot (Maybe Bool)
-csrqEncrypted = lens _csrqEncrypted (\ s a -> s{_csrqEncrypted = a});
+csEncrypted :: Lens' CopySnapshot (Maybe Bool)
+csEncrypted = lens _csEncrypted (\ s a -> s{_csEncrypted = a});
 
 -- | The pre-signed URL that facilitates copying an encrypted snapshot. This
 -- parameter is only required when copying an encrypted snapshot with the
@@ -133,8 +133,8 @@ csrqEncrypted = lens _csrqEncrypted (\ s a -> s{_csrqEncrypted = a});
 -- in the /Amazon Simple Storage Service API Reference/. An invalid or
 -- improperly signed @PresignedUrl@ will cause the copy operation to fail
 -- asynchronously, and the snapshot will move to an @error@ state.
-csrqPresignedURL :: Lens' CopySnapshot (Maybe Text)
-csrqPresignedURL = lens _csrqPresignedURL (\ s a -> s{_csrqPresignedURL = a});
+csPresignedURL :: Lens' CopySnapshot (Maybe Text)
+csPresignedURL = lens _csPresignedURL (\ s a -> s{_csPresignedURL = a});
 
 -- | The destination region to use in the @PresignedUrl@ parameter of a
 -- snapshot copy operation. This parameter is only valid for specifying the
@@ -144,8 +144,8 @@ csrqPresignedURL = lens _csrqPresignedURL (\ s a -> s{_csrqPresignedURL = a});
 -- send the HTTP request to, such as @ec2.us-east-1.amazonaws.com@ (in the
 -- AWS CLI, this is specified with the @--region@ parameter or the default
 -- region in your AWS configuration file).
-csrqDestinationRegion :: Lens' CopySnapshot (Maybe Text)
-csrqDestinationRegion = lens _csrqDestinationRegion (\ s a -> s{_csrqDestinationRegion = a});
+csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
+csDestinationRegion = lens _csDestinationRegion (\ s a -> s{_csDestinationRegion = a});
 
 -- | The full ARN of the AWS Key Management Service (KMS) CMK to use when
 -- creating the snapshot copy. This parameter is only required if you want
@@ -157,27 +157,27 @@ csrqDestinationRegion = lens _csrqDestinationRegion (\ s a -> s{_csrqDestination
 -- The specified CMK must exist in the region that the snapshot is being
 -- copied to. If a @KmsKeyId@ is specified, the @Encrypted@ flag must also
 -- be set.
-csrqKMSKeyId :: Lens' CopySnapshot (Maybe Text)
-csrqKMSKeyId = lens _csrqKMSKeyId (\ s a -> s{_csrqKMSKeyId = a});
+csKMSKeyId :: Lens' CopySnapshot (Maybe Text)
+csKMSKeyId = lens _csKMSKeyId (\ s a -> s{_csKMSKeyId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-csrqDryRun :: Lens' CopySnapshot (Maybe Bool)
-csrqDryRun = lens _csrqDryRun (\ s a -> s{_csrqDryRun = a});
+csDryRun :: Lens' CopySnapshot (Maybe Bool)
+csDryRun = lens _csDryRun (\ s a -> s{_csDryRun = a});
 
 -- | A description for the EBS snapshot.
-csrqDescription :: Lens' CopySnapshot (Maybe Text)
-csrqDescription = lens _csrqDescription (\ s a -> s{_csrqDescription = a});
+csDescription :: Lens' CopySnapshot (Maybe Text)
+csDescription = lens _csDescription (\ s a -> s{_csDescription = a});
 
 -- | The ID of the region that contains the snapshot to be copied.
-csrqSourceRegion :: Lens' CopySnapshot Text
-csrqSourceRegion = lens _csrqSourceRegion (\ s a -> s{_csrqSourceRegion = a});
+csSourceRegion :: Lens' CopySnapshot Text
+csSourceRegion = lens _csSourceRegion (\ s a -> s{_csSourceRegion = a});
 
 -- | The ID of the EBS snapshot to copy.
-csrqSourceSnapshotId :: Lens' CopySnapshot Text
-csrqSourceSnapshotId = lens _csrqSourceSnapshotId (\ s a -> s{_csrqSourceSnapshotId = a});
+csSourceSnapshotId :: Lens' CopySnapshot Text
+csSourceSnapshotId = lens _csSourceSnapshotId (\ s a -> s{_csSourceSnapshotId = a});
 
 instance AWSRequest CopySnapshot where
         type Sv CopySnapshot = EC2
@@ -200,13 +200,13 @@ instance ToQuery CopySnapshot where
           = mconcat
               ["Action" =: ("CopySnapshot" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Encrypted" =: _csrqEncrypted,
-               "PresignedUrl" =: _csrqPresignedURL,
-               "DestinationRegion" =: _csrqDestinationRegion,
-               "KmsKeyId" =: _csrqKMSKeyId, "DryRun" =: _csrqDryRun,
-               "Description" =: _csrqDescription,
-               "SourceRegion" =: _csrqSourceRegion,
-               "SourceSnapshotId" =: _csrqSourceSnapshotId]
+               "Encrypted" =: _csEncrypted,
+               "PresignedUrl" =: _csPresignedURL,
+               "DestinationRegion" =: _csDestinationRegion,
+               "KmsKeyId" =: _csKMSKeyId, "DryRun" =: _csDryRun,
+               "Description" =: _csDescription,
+               "SourceRegion" =: _csSourceRegion,
+               "SourceSnapshotId" =: _csSourceSnapshotId]
 
 -- | /See:/ 'copySnapshotResponse' smart constructor.
 --

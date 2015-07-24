@@ -27,9 +27,9 @@ module Network.AWS.S3.PutBucketTagging
     -- ** Request constructor
     , putBucketTagging
     -- ** Request lenses
-    , pbtrqContentMD5
-    , pbtrqBucket
-    , pbtrqTagging
+    , pbtContentMD5
+    , pbtBucket
+    , pbtTagging
 
     -- * Response
     , PutBucketTaggingResponse
@@ -46,37 +46,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbtrqContentMD5'
+-- * 'pbtContentMD5'
 --
--- * 'pbtrqBucket'
+-- * 'pbtBucket'
 --
--- * 'pbtrqTagging'
+-- * 'pbtTagging'
 data PutBucketTagging = PutBucketTagging'
-    { _pbtrqContentMD5 :: !(Maybe Text)
-    , _pbtrqBucket     :: !BucketName
-    , _pbtrqTagging    :: !Tagging
+    { _pbtContentMD5 :: !(Maybe Text)
+    , _pbtBucket     :: !BucketName
+    , _pbtTagging    :: !Tagging
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketTagging' smart constructor.
 putBucketTagging :: BucketName -> Tagging -> PutBucketTagging
 putBucketTagging pBucket_ pTagging_ =
     PutBucketTagging'
-    { _pbtrqContentMD5 = Nothing
-    , _pbtrqBucket = pBucket_
-    , _pbtrqTagging = pTagging_
+    { _pbtContentMD5 = Nothing
+    , _pbtBucket = pBucket_
+    , _pbtTagging = pTagging_
     }
 
 -- | FIXME: Undocumented member.
-pbtrqContentMD5 :: Lens' PutBucketTagging (Maybe Text)
-pbtrqContentMD5 = lens _pbtrqContentMD5 (\ s a -> s{_pbtrqContentMD5 = a});
+pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
+pbtContentMD5 = lens _pbtContentMD5 (\ s a -> s{_pbtContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pbtrqBucket :: Lens' PutBucketTagging BucketName
-pbtrqBucket = lens _pbtrqBucket (\ s a -> s{_pbtrqBucket = a});
+pbtBucket :: Lens' PutBucketTagging BucketName
+pbtBucket = lens _pbtBucket (\ s a -> s{_pbtBucket = a});
 
 -- | FIXME: Undocumented member.
-pbtrqTagging :: Lens' PutBucketTagging Tagging
-pbtrqTagging = lens _pbtrqTagging (\ s a -> s{_pbtrqTagging = a});
+pbtTagging :: Lens' PutBucketTagging Tagging
+pbtTagging = lens _pbtTagging (\ s a -> s{_pbtTagging = a});
 
 instance AWSRequest PutBucketTagging where
         type Sv PutBucketTagging = S3
@@ -89,15 +89,15 @@ instance ToElement PutBucketTagging where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}Tagging"
               .
-              _pbtrqTagging
+              _pbtTagging
 
 instance ToHeaders PutBucketTagging where
         toHeaders PutBucketTagging'{..}
-          = mconcat ["Content-MD5" =# _pbtrqContentMD5]
+          = mconcat ["Content-MD5" =# _pbtContentMD5]
 
 instance ToPath PutBucketTagging where
         toPath PutBucketTagging'{..}
-          = mconcat ["/", toText _pbtrqBucket]
+          = mconcat ["/", toText _pbtBucket]
 
 instance ToQuery PutBucketTagging where
         toQuery = const (mconcat ["tagging"])

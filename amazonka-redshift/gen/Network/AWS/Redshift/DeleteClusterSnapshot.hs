@@ -36,8 +36,8 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     -- ** Request constructor
     , deleteClusterSnapshot
     -- ** Request lenses
-    , dcsrqSnapshotClusterIdentifier
-    , dcsrqSnapshotIdentifier
+    , dcsSnapshotClusterIdentifier
+    , dcsSnapshotIdentifier
 
     -- * Response
     , DeleteClusterSnapshotResponse
@@ -59,20 +59,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrqSnapshotClusterIdentifier'
+-- * 'dcsSnapshotClusterIdentifier'
 --
--- * 'dcsrqSnapshotIdentifier'
+-- * 'dcsSnapshotIdentifier'
 data DeleteClusterSnapshot = DeleteClusterSnapshot'
-    { _dcsrqSnapshotClusterIdentifier :: !(Maybe Text)
-    , _dcsrqSnapshotIdentifier        :: !Text
+    { _dcsSnapshotClusterIdentifier :: !(Maybe Text)
+    , _dcsSnapshotIdentifier        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSnapshot' smart constructor.
 deleteClusterSnapshot :: Text -> DeleteClusterSnapshot
 deleteClusterSnapshot pSnapshotIdentifier_ =
     DeleteClusterSnapshot'
-    { _dcsrqSnapshotClusterIdentifier = Nothing
-    , _dcsrqSnapshotIdentifier = pSnapshotIdentifier_
+    { _dcsSnapshotClusterIdentifier = Nothing
+    , _dcsSnapshotIdentifier = pSnapshotIdentifier_
     }
 
 -- | The unique identifier of the cluster the snapshot was created from. This
@@ -81,15 +81,15 @@ deleteClusterSnapshot pSnapshotIdentifier_ =
 -- cluster name.
 --
 -- Constraints: Must be the name of valid cluster.
-dcsrqSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
-dcsrqSnapshotClusterIdentifier = lens _dcsrqSnapshotClusterIdentifier (\ s a -> s{_dcsrqSnapshotClusterIdentifier = a});
+dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
+dcsSnapshotClusterIdentifier = lens _dcsSnapshotClusterIdentifier (\ s a -> s{_dcsSnapshotClusterIdentifier = a});
 
 -- | The unique identifier of the manual snapshot to be deleted.
 --
 -- Constraints: Must be the name of an existing snapshot that is in the
 -- @available@ state.
-dcsrqSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
-dcsrqSnapshotIdentifier = lens _dcsrqSnapshotIdentifier (\ s a -> s{_dcsrqSnapshotIdentifier = a});
+dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
+dcsSnapshotIdentifier = lens _dcsSnapshotIdentifier (\ s a -> s{_dcsSnapshotIdentifier = a});
 
 instance AWSRequest DeleteClusterSnapshot where
         type Sv DeleteClusterSnapshot = Redshift
@@ -114,8 +114,8 @@ instance ToQuery DeleteClusterSnapshot where
               ["Action" =: ("DeleteClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SnapshotClusterIdentifier" =:
-                 _dcsrqSnapshotClusterIdentifier,
-               "SnapshotIdentifier" =: _dcsrqSnapshotIdentifier]
+                 _dcsSnapshotClusterIdentifier,
+               "SnapshotIdentifier" =: _dcsSnapshotIdentifier]
 
 -- | /See:/ 'deleteClusterSnapshotResponse' smart constructor.
 --

@@ -31,7 +31,7 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     -- ** Request constructor
     , deletePreset
     -- ** Request lenses
-    , dprqId
+    , dpId
 
     -- * Response
     , DeletePresetResponse
@@ -52,22 +52,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprqId'
+-- * 'dpId'
 newtype DeletePreset = DeletePreset'
-    { _dprqId :: Text
+    { _dpId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePreset' smart constructor.
 deletePreset :: Text -> DeletePreset
 deletePreset pId_ =
     DeletePreset'
-    { _dprqId = pId_
+    { _dpId = pId_
     }
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-dprqId :: Lens' DeletePreset Text
-dprqId = lens _dprqId (\ s a -> s{_dprqId = a});
+dpId :: Lens' DeletePreset Text
+dpId = lens _dpId (\ s a -> s{_dpId = a});
 
 instance AWSRequest DeletePreset where
         type Sv DeletePreset = ElasticTranscoder
@@ -83,7 +83,7 @@ instance ToHeaders DeletePreset where
 
 instance ToPath DeletePreset where
         toPath DeletePreset'{..}
-          = mconcat ["/2012-09-25/presets/", toText _dprqId]
+          = mconcat ["/2012-09-25/presets/", toText _dpId]
 
 instance ToQuery DeletePreset where
         toQuery = const mempty

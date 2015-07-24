@@ -51,8 +51,8 @@ module Network.AWS.EMR.AddJobFlowSteps
     -- ** Request constructor
     , addJobFlowSteps
     -- ** Request lenses
-    , ajfsrqJobFlowId
-    , ajfsrqSteps
+    , ajfsJobFlowId
+    , ajfsSteps
 
     -- * Response
     , AddJobFlowStepsResponse
@@ -74,30 +74,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ajfsrqJobFlowId'
+-- * 'ajfsJobFlowId'
 --
--- * 'ajfsrqSteps'
+-- * 'ajfsSteps'
 data AddJobFlowSteps = AddJobFlowSteps'
-    { _ajfsrqJobFlowId :: !Text
-    , _ajfsrqSteps     :: ![StepConfig]
+    { _ajfsJobFlowId :: !Text
+    , _ajfsSteps     :: ![StepConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddJobFlowSteps' smart constructor.
 addJobFlowSteps :: Text -> AddJobFlowSteps
 addJobFlowSteps pJobFlowId_ =
     AddJobFlowSteps'
-    { _ajfsrqJobFlowId = pJobFlowId_
-    , _ajfsrqSteps = mempty
+    { _ajfsJobFlowId = pJobFlowId_
+    , _ajfsSteps = mempty
     }
 
 -- | A string that uniquely identifies the job flow. This identifier is
 -- returned by RunJobFlow and can also be obtained from ListClusters.
-ajfsrqJobFlowId :: Lens' AddJobFlowSteps Text
-ajfsrqJobFlowId = lens _ajfsrqJobFlowId (\ s a -> s{_ajfsrqJobFlowId = a});
+ajfsJobFlowId :: Lens' AddJobFlowSteps Text
+ajfsJobFlowId = lens _ajfsJobFlowId (\ s a -> s{_ajfsJobFlowId = a});
 
 -- | A list of StepConfig to be executed by the job flow.
-ajfsrqSteps :: Lens' AddJobFlowSteps [StepConfig]
-ajfsrqSteps = lens _ajfsrqSteps (\ s a -> s{_ajfsrqSteps = a});
+ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
+ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a});
 
 instance AWSRequest AddJobFlowSteps where
         type Sv AddJobFlowSteps = EMR
@@ -121,8 +121,8 @@ instance ToHeaders AddJobFlowSteps where
 instance ToJSON AddJobFlowSteps where
         toJSON AddJobFlowSteps'{..}
           = object
-              ["JobFlowId" .= _ajfsrqJobFlowId,
-               "Steps" .= _ajfsrqSteps]
+              ["JobFlowId" .= _ajfsJobFlowId,
+               "Steps" .= _ajfsSteps]
 
 instance ToPath AddJobFlowSteps where
         toPath = const "/"

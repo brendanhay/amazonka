@@ -28,8 +28,8 @@ module Network.AWS.ImportExport.CancelJob
     -- ** Request constructor
     , cancelJob
     -- ** Request lenses
-    , crqAPIVersion
-    , crqJobId
+    , cAPIVersion
+    , cJobId
 
     -- * Response
     , CancelJobResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crqAPIVersion'
+-- * 'cAPIVersion'
 --
--- * 'crqJobId'
+-- * 'cJobId'
 data CancelJob = CancelJob'
-    { _crqAPIVersion :: !(Maybe Text)
-    , _crqJobId      :: !Text
+    { _cAPIVersion :: !(Maybe Text)
+    , _cJobId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
 cancelJob pJobId_ =
     CancelJob'
-    { _crqAPIVersion = Nothing
-    , _crqJobId = pJobId_
+    { _cAPIVersion = Nothing
+    , _cJobId = pJobId_
     }
 
 -- | FIXME: Undocumented member.
-crqAPIVersion :: Lens' CancelJob (Maybe Text)
-crqAPIVersion = lens _crqAPIVersion (\ s a -> s{_crqAPIVersion = a});
+cAPIVersion :: Lens' CancelJob (Maybe Text)
+cAPIVersion = lens _cAPIVersion (\ s a -> s{_cAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-crqJobId :: Lens' CancelJob Text
-crqJobId = lens _crqJobId (\ s a -> s{_crqJobId = a});
+cJobId :: Lens' CancelJob Text
+cJobId = lens _cJobId (\ s a -> s{_cJobId = a});
 
 instance AWSRequest CancelJob where
         type Sv CancelJob = ImportExport
@@ -97,7 +97,7 @@ instance ToQuery CancelJob where
               ["Operation=CancelJob",
                "Action" =: ("CancelJob" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _crqAPIVersion, "JobId" =: _crqJobId]
+               "APIVersion" =: _cAPIVersion, "JobId" =: _cJobId]
 
 -- | Output structure for the CancelJob operation.
 --

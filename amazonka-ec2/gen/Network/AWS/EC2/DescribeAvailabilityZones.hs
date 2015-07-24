@@ -35,9 +35,9 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     -- ** Request constructor
     , describeAvailabilityZones
     -- ** Request lenses
-    , dazrqZoneNames
-    , dazrqFilters
-    , dazrqDryRun
+    , dazZoneNames
+    , dazFilters
+    , dazDryRun
 
     -- * Response
     , DescribeAvailabilityZonesResponse
@@ -57,29 +57,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dazrqZoneNames'
+-- * 'dazZoneNames'
 --
--- * 'dazrqFilters'
+-- * 'dazFilters'
 --
--- * 'dazrqDryRun'
+-- * 'dazDryRun'
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
-    { _dazrqZoneNames :: !(Maybe [Text])
-    , _dazrqFilters   :: !(Maybe [Filter])
-    , _dazrqDryRun    :: !(Maybe Bool)
+    { _dazZoneNames :: !(Maybe [Text])
+    , _dazFilters   :: !(Maybe [Filter])
+    , _dazDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityZones' smart constructor.
 describeAvailabilityZones :: DescribeAvailabilityZones
 describeAvailabilityZones =
     DescribeAvailabilityZones'
-    { _dazrqZoneNames = Nothing
-    , _dazrqFilters = Nothing
-    , _dazrqDryRun = Nothing
+    { _dazZoneNames = Nothing
+    , _dazFilters = Nothing
+    , _dazDryRun = Nothing
     }
 
 -- | The names of one or more Availability Zones.
-dazrqZoneNames :: Lens' DescribeAvailabilityZones [Text]
-dazrqZoneNames = lens _dazrqZoneNames (\ s a -> s{_dazrqZoneNames = a}) . _Default;
+dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
+dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -94,15 +94,15 @@ dazrqZoneNames = lens _dazrqZoneNames (\ s a -> s{_dazrqZoneNames = a}) . _Defau
 -- -   @zone-name@ - The name of the Availability Zone (for example,
 --     @us-east-1a@).
 --
-dazrqFilters :: Lens' DescribeAvailabilityZones [Filter]
-dazrqFilters = lens _dazrqFilters (\ s a -> s{_dazrqFilters = a}) . _Default;
+dazFilters :: Lens' DescribeAvailabilityZones [Filter]
+dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dazrqDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
-dazrqDryRun = lens _dazrqDryRun (\ s a -> s{_dazrqDryRun = a});
+dazDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
+dazDryRun = lens _dazDryRun (\ s a -> s{_dazDryRun = a});
 
 instance AWSRequest DescribeAvailabilityZones where
         type Sv DescribeAvailabilityZones = EC2
@@ -129,9 +129,9 @@ instance ToQuery DescribeAvailabilityZones where
               ["Action" =:
                  ("DescribeAvailabilityZones" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "ZoneName" <$> _dazrqZoneNames),
-               toQuery (toQueryList "Filter" <$> _dazrqFilters),
-               "DryRun" =: _dazrqDryRun]
+               toQuery (toQueryList "ZoneName" <$> _dazZoneNames),
+               toQuery (toQueryList "Filter" <$> _dazFilters),
+               "DryRun" =: _dazDryRun]
 
 -- | /See:/ 'describeAvailabilityZonesResponse' smart constructor.
 --

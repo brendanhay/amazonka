@@ -40,9 +40,9 @@ module Network.AWS.IAM.ListAccessKeys
     -- ** Request constructor
     , listAccessKeys
     -- ** Request lenses
-    , lakrqUserName
-    , lakrqMaxItems
-    , lakrqMarker
+    , lakUserName
+    , lakMaxItems
+    , lakMarker
 
     -- * Response
     , ListAccessKeysResponse
@@ -65,29 +65,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lakrqUserName'
+-- * 'lakUserName'
 --
--- * 'lakrqMaxItems'
+-- * 'lakMaxItems'
 --
--- * 'lakrqMarker'
+-- * 'lakMarker'
 data ListAccessKeys = ListAccessKeys'
-    { _lakrqUserName :: !(Maybe Text)
-    , _lakrqMaxItems :: !(Maybe Nat)
-    , _lakrqMarker   :: !(Maybe Text)
+    { _lakUserName :: !(Maybe Text)
+    , _lakMaxItems :: !(Maybe Nat)
+    , _lakMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccessKeys' smart constructor.
 listAccessKeys :: ListAccessKeys
 listAccessKeys =
     ListAccessKeys'
-    { _lakrqUserName = Nothing
-    , _lakrqMaxItems = Nothing
-    , _lakrqMarker = Nothing
+    { _lakUserName = Nothing
+    , _lakMaxItems = Nothing
+    , _lakMarker = Nothing
     }
 
 -- | The name of the user.
-lakrqUserName :: Lens' ListAccessKeys (Maybe Text)
-lakrqUserName = lens _lakrqUserName (\ s a -> s{_lakrqUserName = a});
+lakUserName :: Lens' ListAccessKeys (Maybe Text)
+lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -95,21 +95,21 @@ lakrqUserName = lens _lakrqUserName (\ s a -> s{_lakrqUserName = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lakrqMaxItems :: Lens' ListAccessKeys (Maybe Natural)
-lakrqMaxItems = lens _lakrqMaxItems (\ s a -> s{_lakrqMaxItems = a}) . mapping _Nat;
+lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
+lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lakrqMarker :: Lens' ListAccessKeys (Maybe Text)
-lakrqMarker = lens _lakrqMarker (\ s a -> s{_lakrqMarker = a});
+lakMarker :: Lens' ListAccessKeys (Maybe Text)
+lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
 
 instance AWSPager ListAccessKeys where
         page rq rs
           | stop (rs ^. lakrsIsTruncated) = Nothing
           | isNothing (rs ^. lakrsMarker) = Nothing
           | otherwise =
-            Just $ rq & lakrqMarker .~ rs ^. lakrsMarker
+            Just $ rq & lakMarker .~ rs ^. lakrsMarker
 
 instance AWSRequest ListAccessKeys where
         type Sv ListAccessKeys = IAM
@@ -136,9 +136,8 @@ instance ToQuery ListAccessKeys where
           = mconcat
               ["Action" =: ("ListAccessKeys" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lakrqUserName,
-               "MaxItems" =: _lakrqMaxItems,
-               "Marker" =: _lakrqMarker]
+               "UserName" =: _lakUserName,
+               "MaxItems" =: _lakMaxItems, "Marker" =: _lakMarker]
 
 -- | Contains the response to a successful ListAccessKeys request.
 --

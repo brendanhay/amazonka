@@ -36,8 +36,8 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     -- ** Request constructor
     , cancelSpotInstanceRequests
     -- ** Request lenses
-    , csirrqDryRun
-    , csirrqSpotInstanceRequestIds
+    , csirDryRun
+    , csirSpotInstanceRequestIds
 
     -- * Response
     , CancelSpotInstanceRequestsResponse
@@ -59,32 +59,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csirrqDryRun'
+-- * 'csirDryRun'
 --
--- * 'csirrqSpotInstanceRequestIds'
+-- * 'csirSpotInstanceRequestIds'
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
-    { _csirrqDryRun                 :: !(Maybe Bool)
-    , _csirrqSpotInstanceRequestIds :: ![Text]
+    { _csirDryRun                 :: !(Maybe Bool)
+    , _csirSpotInstanceRequestIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotInstanceRequests' smart constructor.
 cancelSpotInstanceRequests :: CancelSpotInstanceRequests
 cancelSpotInstanceRequests =
     CancelSpotInstanceRequests'
-    { _csirrqDryRun = Nothing
-    , _csirrqSpotInstanceRequestIds = mempty
+    { _csirDryRun = Nothing
+    , _csirSpotInstanceRequestIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-csirrqDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
-csirrqDryRun = lens _csirrqDryRun (\ s a -> s{_csirrqDryRun = a});
+csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
+csirDryRun = lens _csirDryRun (\ s a -> s{_csirDryRun = a});
 
 -- | One or more Spot Instance request IDs.
-csirrqSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
-csirrqSpotInstanceRequestIds = lens _csirrqSpotInstanceRequestIds (\ s a -> s{_csirrqSpotInstanceRequestIds = a});
+csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
+csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirSpotInstanceRequestIds = a});
 
 instance AWSRequest CancelSpotInstanceRequests where
         type Sv CancelSpotInstanceRequests = EC2
@@ -111,9 +111,9 @@ instance ToQuery CancelSpotInstanceRequests where
               ["Action" =:
                  ("CancelSpotInstanceRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _csirrqDryRun,
+               "DryRun" =: _csirDryRun,
                toQueryList "SpotInstanceRequestId"
-                 _csirrqSpotInstanceRequestIds]
+                 _csirSpotInstanceRequestIds]
 
 -- | Contains the output of CancelSpotInstanceRequests.
 --

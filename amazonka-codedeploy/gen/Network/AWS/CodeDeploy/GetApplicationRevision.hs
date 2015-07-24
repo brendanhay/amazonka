@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.GetApplicationRevision
     -- ** Request constructor
     , getApplicationRevision
     -- ** Request lenses
-    , garrqApplicationName
-    , garrqRevision
+    , garApplicationName
+    , garRevision
 
     -- * Response
     , GetApplicationRevisionResponse
@@ -52,30 +52,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'garrqApplicationName'
+-- * 'garApplicationName'
 --
--- * 'garrqRevision'
+-- * 'garRevision'
 data GetApplicationRevision = GetApplicationRevision'
-    { _garrqApplicationName :: !Text
-    , _garrqRevision        :: !RevisionLocation
+    { _garApplicationName :: !Text
+    , _garRevision        :: !RevisionLocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplicationRevision' smart constructor.
 getApplicationRevision :: Text -> RevisionLocation -> GetApplicationRevision
 getApplicationRevision pApplicationName_ pRevision_ =
     GetApplicationRevision'
-    { _garrqApplicationName = pApplicationName_
-    , _garrqRevision = pRevision_
+    { _garApplicationName = pApplicationName_
+    , _garRevision = pRevision_
     }
 
 -- | The name of the application that corresponds to the revision.
-garrqApplicationName :: Lens' GetApplicationRevision Text
-garrqApplicationName = lens _garrqApplicationName (\ s a -> s{_garrqApplicationName = a});
+garApplicationName :: Lens' GetApplicationRevision Text
+garApplicationName = lens _garApplicationName (\ s a -> s{_garApplicationName = a});
 
 -- | Information about the application revision to get, including the
 -- revision\'s type and its location.
-garrqRevision :: Lens' GetApplicationRevision RevisionLocation
-garrqRevision = lens _garrqRevision (\ s a -> s{_garrqRevision = a});
+garRevision :: Lens' GetApplicationRevision RevisionLocation
+garRevision = lens _garRevision (\ s a -> s{_garRevision = a});
 
 instance AWSRequest GetApplicationRevision where
         type Sv GetApplicationRevision = CodeDeploy
@@ -103,8 +103,8 @@ instance ToHeaders GetApplicationRevision where
 instance ToJSON GetApplicationRevision where
         toJSON GetApplicationRevision'{..}
           = object
-              ["applicationName" .= _garrqApplicationName,
-               "revision" .= _garrqRevision]
+              ["applicationName" .= _garApplicationName,
+               "revision" .= _garRevision]
 
 instance ToPath GetApplicationRevision where
         toPath = const "/"

@@ -32,9 +32,9 @@ module Network.AWS.CognitoIdentity.GetId
     -- ** Request constructor
     , getId
     -- ** Request lenses
-    , girqAccountId
-    , girqLogins
-    , girqIdentityPoolId
+    , giAccountId
+    , giLogins
+    , giIdentityPoolId
 
     -- * Response
     , GetIdResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'girqAccountId'
+-- * 'giAccountId'
 --
--- * 'girqLogins'
+-- * 'giLogins'
 --
--- * 'girqIdentityPoolId'
+-- * 'giIdentityPoolId'
 data GetId = GetId'
-    { _girqAccountId      :: !(Maybe Text)
-    , _girqLogins         :: !(Maybe (Map Text Text))
-    , _girqIdentityPoolId :: !Text
+    { _giAccountId      :: !(Maybe Text)
+    , _giLogins         :: !(Maybe (Map Text Text))
+    , _giIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetId' smart constructor.
 getId :: Text -> GetId
 getId pIdentityPoolId_ =
     GetId'
-    { _girqAccountId = Nothing
-    , _girqLogins = Nothing
-    , _girqIdentityPoolId = pIdentityPoolId_
+    { _giAccountId = Nothing
+    , _giLogins = Nothing
+    , _giIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A standard AWS account ID (9+ digits).
-girqAccountId :: Lens' GetId (Maybe Text)
-girqAccountId = lens _girqAccountId (\ s a -> s{_girqAccountId = a});
+giAccountId :: Lens' GetId (Maybe Text)
+giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
@@ -90,12 +90,12 @@ girqAccountId = lens _girqAccountId (\ s a -> s{_girqAccountId = a});
 -- -   Amazon: @www.amazon.com@
 -- -   Twitter: @www.twitter.com@
 -- -   Digits: @www.digits.com@
-girqLogins :: Lens' GetId (HashMap Text Text)
-girqLogins = lens _girqLogins (\ s a -> s{_girqLogins = a}) . _Default . _Map;
+giLogins :: Lens' GetId (HashMap Text Text)
+giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;
 
 -- | An identity pool ID in the format REGION:GUID.
-girqIdentityPoolId :: Lens' GetId Text
-girqIdentityPoolId = lens _girqIdentityPoolId (\ s a -> s{_girqIdentityPoolId = a});
+giIdentityPoolId :: Lens' GetId Text
+giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a});
 
 instance AWSRequest GetId where
         type Sv GetId = CognitoIdentity
@@ -119,9 +119,8 @@ instance ToHeaders GetId where
 instance ToJSON GetId where
         toJSON GetId'{..}
           = object
-              ["AccountId" .= _girqAccountId,
-               "Logins" .= _girqLogins,
-               "IdentityPoolId" .= _girqIdentityPoolId]
+              ["AccountId" .= _giAccountId, "Logins" .= _giLogins,
+               "IdentityPoolId" .= _giIdentityPoolId]
 
 instance ToPath GetId where
         toPath = const "/"

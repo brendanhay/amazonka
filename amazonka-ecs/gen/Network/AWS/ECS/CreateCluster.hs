@@ -30,7 +30,7 @@ module Network.AWS.ECS.CreateCluster
     -- ** Request constructor
     , createCluster
     -- ** Request lenses
-    , ccrqClusterName
+    , ccClusterName
 
     -- * Response
     , CreateClusterResponse
@@ -50,23 +50,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccrqClusterName'
+-- * 'ccClusterName'
 newtype CreateCluster = CreateCluster'
-    { _ccrqClusterName :: Maybe Text
+    { _ccClusterName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: CreateCluster
 createCluster =
     CreateCluster'
-    { _ccrqClusterName = Nothing
+    { _ccClusterName = Nothing
     }
 
 -- | The name of your cluster. If you do not specify a name for your cluster,
 -- you will create a cluster named @default@. Up to 255 letters (uppercase
 -- and lowercase), numbers, hyphens, and underscores are allowed.
-ccrqClusterName :: Lens' CreateCluster (Maybe Text)
-ccrqClusterName = lens _ccrqClusterName (\ s a -> s{_ccrqClusterName = a});
+ccClusterName :: Lens' CreateCluster (Maybe Text)
+ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
 
 instance AWSRequest CreateCluster where
         type Sv CreateCluster = ECS
@@ -90,7 +90,7 @@ instance ToHeaders CreateCluster where
 
 instance ToJSON CreateCluster where
         toJSON CreateCluster'{..}
-          = object ["clusterName" .= _ccrqClusterName]
+          = object ["clusterName" .= _ccClusterName]
 
 instance ToPath CreateCluster where
         toPath = const "/"

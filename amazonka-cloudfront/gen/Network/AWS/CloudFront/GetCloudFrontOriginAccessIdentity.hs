@@ -27,7 +27,7 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     -- ** Request constructor
     , getCloudFrontOriginAccessIdentity
     -- ** Request lenses
-    , gcfoairqId
+    , gcfoaiId
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcfoairqId'
+-- * 'gcfoaiId'
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity'
-    { _gcfoairqId :: Text
+    { _gcfoaiId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCloudFrontOriginAccessIdentity' smart constructor.
 getCloudFrontOriginAccessIdentity :: Text -> GetCloudFrontOriginAccessIdentity
 getCloudFrontOriginAccessIdentity pId_ =
     GetCloudFrontOriginAccessIdentity'
-    { _gcfoairqId = pId_
+    { _gcfoaiId = pId_
     }
 
 -- | The identity\'s id.
-gcfoairqId :: Lens' GetCloudFrontOriginAccessIdentity Text
-gcfoairqId = lens _gcfoairqId (\ s a -> s{_gcfoairqId = a});
+gcfoaiId :: Lens' GetCloudFrontOriginAccessIdentity Text
+gcfoaiId = lens _gcfoaiId (\ s a -> s{_gcfoaiId = a});
 
 instance AWSRequest GetCloudFrontOriginAccessIdentity
          where
@@ -89,7 +89,7 @@ instance ToPath GetCloudFrontOriginAccessIdentity
         toPath GetCloudFrontOriginAccessIdentity'{..}
           = mconcat
               ["/2015-04-17/origin-access-identity/cloudfront/",
-               toText _gcfoairqId]
+               toText _gcfoaiId]
 
 instance ToQuery GetCloudFrontOriginAccessIdentity
          where

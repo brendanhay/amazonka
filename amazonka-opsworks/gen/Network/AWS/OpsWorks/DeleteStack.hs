@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DeleteStack
     -- ** Request constructor
     , deleteStack
     -- ** Request lenses
-    , dsrqStackId
+    , dsStackId
 
     -- * Response
     , DeleteStackResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqStackId'
+-- * 'dsStackId'
 newtype DeleteStack = DeleteStack'
-    { _dsrqStackId :: Text
+    { _dsStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStack' smart constructor.
 deleteStack :: Text -> DeleteStack
 deleteStack pStackId_ =
     DeleteStack'
-    { _dsrqStackId = pStackId_
+    { _dsStackId = pStackId_
     }
 
 -- | The stack ID.
-dsrqStackId :: Lens' DeleteStack Text
-dsrqStackId = lens _dsrqStackId (\ s a -> s{_dsrqStackId = a});
+dsStackId :: Lens' DeleteStack Text
+dsStackId = lens _dsStackId (\ s a -> s{_dsStackId = a});
 
 instance AWSRequest DeleteStack where
         type Sv DeleteStack = OpsWorks
@@ -85,7 +85,7 @@ instance ToHeaders DeleteStack where
 
 instance ToJSON DeleteStack where
         toJSON DeleteStack'{..}
-          = object ["StackId" .= _dsrqStackId]
+          = object ["StackId" .= _dsStackId]
 
 instance ToPath DeleteStack where
         toPath = const "/"

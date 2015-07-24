@@ -49,9 +49,9 @@ module Network.AWS.Glacier.ListVaults
     -- ** Request constructor
     , listVaults
     -- ** Request lenses
-    , lvrqMarker
-    , lvrqLimit
-    , lvrqAccountId
+    , lvMarker
+    , lvLimit
+    , lvAccountId
 
     -- * Response
     , ListVaultsResponse
@@ -75,35 +75,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrqMarker'
+-- * 'lvMarker'
 --
--- * 'lvrqLimit'
+-- * 'lvLimit'
 --
--- * 'lvrqAccountId'
+-- * 'lvAccountId'
 data ListVaults = ListVaults'
-    { _lvrqMarker    :: !(Maybe Text)
-    , _lvrqLimit     :: !(Maybe Text)
-    , _lvrqAccountId :: !Text
+    { _lvMarker    :: !(Maybe Text)
+    , _lvLimit     :: !(Maybe Text)
+    , _lvAccountId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVaults' smart constructor.
 listVaults :: Text -> ListVaults
 listVaults pAccountId_ =
     ListVaults'
-    { _lvrqMarker = Nothing
-    , _lvrqLimit = Nothing
-    , _lvrqAccountId = pAccountId_
+    { _lvMarker = Nothing
+    , _lvLimit = Nothing
+    , _lvAccountId = pAccountId_
     }
 
 -- | A string used for pagination. The marker specifies the vault ARN after
 -- which the listing of vaults should begin.
-lvrqMarker :: Lens' ListVaults (Maybe Text)
-lvrqMarker = lens _lvrqMarker (\ s a -> s{_lvrqMarker = a});
+lvMarker :: Lens' ListVaults (Maybe Text)
+lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
 
 -- | The maximum number of items returned in the response. If you don\'t
 -- specify a value, the List Vaults operation returns up to 1,000 items.
-lvrqLimit :: Lens' ListVaults (Maybe Text)
-lvrqLimit = lens _lvrqLimit (\ s a -> s{_lvrqLimit = a});
+lvLimit :: Lens' ListVaults (Maybe Text)
+lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a});
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
@@ -112,8 +112,8 @@ lvrqLimit = lens _lvrqLimit (\ s a -> s{_lvrqLimit = a});
 -- ID associated with the credentials used to sign the request. If you
 -- specify your Account ID, do not include any hyphens (apos-apos) in the
 -- ID.
-lvrqAccountId :: Lens' ListVaults Text
-lvrqAccountId = lens _lvrqAccountId (\ s a -> s{_lvrqAccountId = a});
+lvAccountId :: Lens' ListVaults Text
+lvAccountId = lens _lvAccountId (\ s a -> s{_lvAccountId = a});
 
 instance AWSRequest ListVaults where
         type Sv ListVaults = Glacier
@@ -131,12 +131,12 @@ instance ToHeaders ListVaults where
 
 instance ToPath ListVaults where
         toPath ListVaults'{..}
-          = mconcat ["/", toText _lvrqAccountId, "/vaults"]
+          = mconcat ["/", toText _lvAccountId, "/vaults"]
 
 instance ToQuery ListVaults where
         toQuery ListVaults'{..}
           = mconcat
-              ["marker" =: _lvrqMarker, "limit" =: _lvrqLimit]
+              ["marker" =: _lvMarker, "limit" =: _lvLimit]
 
 -- | Contains the Amazon Glacier response to your request.
 --

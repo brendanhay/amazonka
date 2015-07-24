@@ -33,21 +33,21 @@ module Network.AWS.OpsWorks.UpdateLayer
     -- ** Request constructor
     , updateLayer
     -- ** Request lenses
-    , ulrqCustomInstanceProfileARN
-    , ulrqInstallUpdatesOnBoot
-    , ulrqCustomSecurityGroupIds
-    , ulrqLifecycleEventConfiguration
-    , ulrqShortname
-    , ulrqCustomRecipes
-    , ulrqVolumeConfigurations
-    , ulrqEnableAutoHealing
-    , ulrqPackages
-    , ulrqName
-    , ulrqAttributes
-    , ulrqAutoAssignPublicIPs
-    , ulrqUseEBSOptimizedInstances
-    , ulrqAutoAssignElasticIPs
-    , ulrqLayerId
+    , ulCustomInstanceProfileARN
+    , ulInstallUpdatesOnBoot
+    , ulCustomSecurityGroupIds
+    , ulLifecycleEventConfiguration
+    , ulShortname
+    , ulCustomRecipes
+    , ulVolumeConfigurations
+    , ulEnableAutoHealing
+    , ulPackages
+    , ulName
+    , ulAttributes
+    , ulAutoAssignPublicIPs
+    , ulUseEBSOptimizedInstances
+    , ulAutoAssignElasticIPs
+    , ulLayerId
 
     -- * Response
     , UpdateLayerResponse
@@ -64,79 +64,79 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ulrqCustomInstanceProfileARN'
+-- * 'ulCustomInstanceProfileARN'
 --
--- * 'ulrqInstallUpdatesOnBoot'
+-- * 'ulInstallUpdatesOnBoot'
 --
--- * 'ulrqCustomSecurityGroupIds'
+-- * 'ulCustomSecurityGroupIds'
 --
--- * 'ulrqLifecycleEventConfiguration'
+-- * 'ulLifecycleEventConfiguration'
 --
--- * 'ulrqShortname'
+-- * 'ulShortname'
 --
--- * 'ulrqCustomRecipes'
+-- * 'ulCustomRecipes'
 --
--- * 'ulrqVolumeConfigurations'
+-- * 'ulVolumeConfigurations'
 --
--- * 'ulrqEnableAutoHealing'
+-- * 'ulEnableAutoHealing'
 --
--- * 'ulrqPackages'
+-- * 'ulPackages'
 --
--- * 'ulrqName'
+-- * 'ulName'
 --
--- * 'ulrqAttributes'
+-- * 'ulAttributes'
 --
--- * 'ulrqAutoAssignPublicIPs'
+-- * 'ulAutoAssignPublicIPs'
 --
--- * 'ulrqUseEBSOptimizedInstances'
+-- * 'ulUseEBSOptimizedInstances'
 --
--- * 'ulrqAutoAssignElasticIPs'
+-- * 'ulAutoAssignElasticIPs'
 --
--- * 'ulrqLayerId'
+-- * 'ulLayerId'
 data UpdateLayer = UpdateLayer'
-    { _ulrqCustomInstanceProfileARN    :: !(Maybe Text)
-    , _ulrqInstallUpdatesOnBoot        :: !(Maybe Bool)
-    , _ulrqCustomSecurityGroupIds      :: !(Maybe [Text])
-    , _ulrqLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-    , _ulrqShortname                   :: !(Maybe Text)
-    , _ulrqCustomRecipes               :: !(Maybe Recipes)
-    , _ulrqVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
-    , _ulrqEnableAutoHealing           :: !(Maybe Bool)
-    , _ulrqPackages                    :: !(Maybe [Text])
-    , _ulrqName                        :: !(Maybe Text)
-    , _ulrqAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
-    , _ulrqAutoAssignPublicIPs         :: !(Maybe Bool)
-    , _ulrqUseEBSOptimizedInstances    :: !(Maybe Bool)
-    , _ulrqAutoAssignElasticIPs        :: !(Maybe Bool)
-    , _ulrqLayerId                     :: !Text
+    { _ulCustomInstanceProfileARN    :: !(Maybe Text)
+    , _ulInstallUpdatesOnBoot        :: !(Maybe Bool)
+    , _ulCustomSecurityGroupIds      :: !(Maybe [Text])
+    , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
+    , _ulShortname                   :: !(Maybe Text)
+    , _ulCustomRecipes               :: !(Maybe Recipes)
+    , _ulVolumeConfigurations        :: !(Maybe [VolumeConfiguration])
+    , _ulEnableAutoHealing           :: !(Maybe Bool)
+    , _ulPackages                    :: !(Maybe [Text])
+    , _ulName                        :: !(Maybe Text)
+    , _ulAttributes                  :: !(Maybe (Map LayerAttributesKeys Text))
+    , _ulAutoAssignPublicIPs         :: !(Maybe Bool)
+    , _ulUseEBSOptimizedInstances    :: !(Maybe Bool)
+    , _ulAutoAssignElasticIPs        :: !(Maybe Bool)
+    , _ulLayerId                     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLayer' smart constructor.
 updateLayer :: Text -> UpdateLayer
 updateLayer pLayerId_ =
     UpdateLayer'
-    { _ulrqCustomInstanceProfileARN = Nothing
-    , _ulrqInstallUpdatesOnBoot = Nothing
-    , _ulrqCustomSecurityGroupIds = Nothing
-    , _ulrqLifecycleEventConfiguration = Nothing
-    , _ulrqShortname = Nothing
-    , _ulrqCustomRecipes = Nothing
-    , _ulrqVolumeConfigurations = Nothing
-    , _ulrqEnableAutoHealing = Nothing
-    , _ulrqPackages = Nothing
-    , _ulrqName = Nothing
-    , _ulrqAttributes = Nothing
-    , _ulrqAutoAssignPublicIPs = Nothing
-    , _ulrqUseEBSOptimizedInstances = Nothing
-    , _ulrqAutoAssignElasticIPs = Nothing
-    , _ulrqLayerId = pLayerId_
+    { _ulCustomInstanceProfileARN = Nothing
+    , _ulInstallUpdatesOnBoot = Nothing
+    , _ulCustomSecurityGroupIds = Nothing
+    , _ulLifecycleEventConfiguration = Nothing
+    , _ulShortname = Nothing
+    , _ulCustomRecipes = Nothing
+    , _ulVolumeConfigurations = Nothing
+    , _ulEnableAutoHealing = Nothing
+    , _ulPackages = Nothing
+    , _ulName = Nothing
+    , _ulAttributes = Nothing
+    , _ulAutoAssignPublicIPs = Nothing
+    , _ulUseEBSOptimizedInstances = Nothing
+    , _ulAutoAssignElasticIPs = Nothing
+    , _ulLayerId = pLayerId_
     }
 
 -- | The ARN of an IAM profile to be used for all of the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-ulrqCustomInstanceProfileARN :: Lens' UpdateLayer (Maybe Text)
-ulrqCustomInstanceProfileARN = lens _ulrqCustomInstanceProfileARN (\ s a -> s{_ulrqCustomInstanceProfileARN = a});
+ulCustomInstanceProfileARN :: Lens' UpdateLayer (Maybe Text)
+ulCustomInstanceProfileARN = lens _ulCustomInstanceProfileARN (\ s a -> s{_ulCustomInstanceProfileARN = a});
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -147,16 +147,16 @@ ulrqCustomInstanceProfileARN = lens _ulrqCustomInstanceProfileARN (\ s a -> s{_u
 --
 -- We strongly recommend using the default value of @true@, to ensure that
 -- your instances have the latest security updates.
-ulrqInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
-ulrqInstallUpdatesOnBoot = lens _ulrqInstallUpdatesOnBoot (\ s a -> s{_ulrqInstallUpdatesOnBoot = a});
+ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
+ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpdatesOnBoot = a});
 
 -- | An array containing the layer\'s custom security group IDs.
-ulrqCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
-ulrqCustomSecurityGroupIds = lens _ulrqCustomSecurityGroupIds (\ s a -> s{_ulrqCustomSecurityGroupIds = a}) . _Default;
+ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
+ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomSecurityGroupIds = a}) . _Default;
 
 -- |
-ulrqLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
-ulrqLifecycleEventConfiguration = lens _ulrqLifecycleEventConfiguration (\ s a -> s{_ulrqLifecycleEventConfiguration = a});
+ulLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
+ulLifecycleEventConfiguration = lens _ulLifecycleEventConfiguration (\ s a -> s{_ulLifecycleEventConfiguration = a});
 
 -- | For custom layers only, use this parameter to specify the layer\'s short
 -- name, which is used internally by AWS OpsWorksand by Chef. The short
@@ -167,56 +167,56 @@ ulrqLifecycleEventConfiguration = lens _ulrqLifecycleEventConfiguration (\ s a -
 -- The built-in layers\' short names are defined by AWS OpsWorks. For more
 -- information, see the
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
-ulrqShortname :: Lens' UpdateLayer (Maybe Text)
-ulrqShortname = lens _ulrqShortname (\ s a -> s{_ulrqShortname = a});
+ulShortname :: Lens' UpdateLayer (Maybe Text)
+ulShortname = lens _ulShortname (\ s a -> s{_ulShortname = a});
 
 -- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
 -- recipes.
-ulrqCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
-ulrqCustomRecipes = lens _ulrqCustomRecipes (\ s a -> s{_ulrqCustomRecipes = a});
+ulCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
+ulCustomRecipes = lens _ulCustomRecipes (\ s a -> s{_ulCustomRecipes = a});
 
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
-ulrqVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
-ulrqVolumeConfigurations = lens _ulrqVolumeConfigurations (\ s a -> s{_ulrqVolumeConfigurations = a}) . _Default;
+ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
+ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default;
 
 -- | Whether to disable auto healing for the layer.
-ulrqEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
-ulrqEnableAutoHealing = lens _ulrqEnableAutoHealing (\ s a -> s{_ulrqEnableAutoHealing = a});
+ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
+ulEnableAutoHealing = lens _ulEnableAutoHealing (\ s a -> s{_ulEnableAutoHealing = a});
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
-ulrqPackages :: Lens' UpdateLayer [Text]
-ulrqPackages = lens _ulrqPackages (\ s a -> s{_ulrqPackages = a}) . _Default;
+ulPackages :: Lens' UpdateLayer [Text]
+ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a}) . _Default;
 
 -- | The layer name, which is used by the console.
-ulrqName :: Lens' UpdateLayer (Maybe Text)
-ulrqName = lens _ulrqName (\ s a -> s{_ulrqName = a});
+ulName :: Lens' UpdateLayer (Maybe Text)
+ulName = lens _ulName (\ s a -> s{_ulName = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-ulrqAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
-ulrqAttributes = lens _ulrqAttributes (\ s a -> s{_ulrqAttributes = a}) . _Default . _Map;
+ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
+ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . _Default . _Map;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-ulrqAutoAssignPublicIPs :: Lens' UpdateLayer (Maybe Bool)
-ulrqAutoAssignPublicIPs = lens _ulrqAutoAssignPublicIPs (\ s a -> s{_ulrqAutoAssignPublicIPs = a});
+ulAutoAssignPublicIPs :: Lens' UpdateLayer (Maybe Bool)
+ulAutoAssignPublicIPs = lens _ulAutoAssignPublicIPs (\ s a -> s{_ulAutoAssignPublicIPs = a});
 
 -- | Whether to use Amazon EBS-optimized instances.
-ulrqUseEBSOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
-ulrqUseEBSOptimizedInstances = lens _ulrqUseEBSOptimizedInstances (\ s a -> s{_ulrqUseEBSOptimizedInstances = a});
+ulUseEBSOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
+ulUseEBSOptimizedInstances = lens _ulUseEBSOptimizedInstances (\ s a -> s{_ulUseEBSOptimizedInstances = a});
 
 -- | Whether to automatically assign an
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
 -- to the layer\'s instances. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
-ulrqAutoAssignElasticIPs :: Lens' UpdateLayer (Maybe Bool)
-ulrqAutoAssignElasticIPs = lens _ulrqAutoAssignElasticIPs (\ s a -> s{_ulrqAutoAssignElasticIPs = a});
+ulAutoAssignElasticIPs :: Lens' UpdateLayer (Maybe Bool)
+ulAutoAssignElasticIPs = lens _ulAutoAssignElasticIPs (\ s a -> s{_ulAutoAssignElasticIPs = a});
 
 -- | The layer ID.
-ulrqLayerId :: Lens' UpdateLayer Text
-ulrqLayerId = lens _ulrqLayerId (\ s a -> s{_ulrqLayerId = a});
+ulLayerId :: Lens' UpdateLayer Text
+ulLayerId = lens _ulLayerId (\ s a -> s{_ulLayerId = a});
 
 instance AWSRequest UpdateLayer where
         type Sv UpdateLayer = OpsWorks
@@ -237,23 +237,23 @@ instance ToJSON UpdateLayer where
         toJSON UpdateLayer'{..}
           = object
               ["CustomInstanceProfileArn" .=
-                 _ulrqCustomInstanceProfileARN,
-               "InstallUpdatesOnBoot" .= _ulrqInstallUpdatesOnBoot,
+                 _ulCustomInstanceProfileARN,
+               "InstallUpdatesOnBoot" .= _ulInstallUpdatesOnBoot,
                "CustomSecurityGroupIds" .=
-                 _ulrqCustomSecurityGroupIds,
+                 _ulCustomSecurityGroupIds,
                "LifecycleEventConfiguration" .=
-                 _ulrqLifecycleEventConfiguration,
-               "Shortname" .= _ulrqShortname,
-               "CustomRecipes" .= _ulrqCustomRecipes,
-               "VolumeConfigurations" .= _ulrqVolumeConfigurations,
-               "EnableAutoHealing" .= _ulrqEnableAutoHealing,
-               "Packages" .= _ulrqPackages, "Name" .= _ulrqName,
-               "Attributes" .= _ulrqAttributes,
-               "AutoAssignPublicIps" .= _ulrqAutoAssignPublicIPs,
+                 _ulLifecycleEventConfiguration,
+               "Shortname" .= _ulShortname,
+               "CustomRecipes" .= _ulCustomRecipes,
+               "VolumeConfigurations" .= _ulVolumeConfigurations,
+               "EnableAutoHealing" .= _ulEnableAutoHealing,
+               "Packages" .= _ulPackages, "Name" .= _ulName,
+               "Attributes" .= _ulAttributes,
+               "AutoAssignPublicIps" .= _ulAutoAssignPublicIPs,
                "UseEbsOptimizedInstances" .=
-                 _ulrqUseEBSOptimizedInstances,
-               "AutoAssignElasticIps" .= _ulrqAutoAssignElasticIPs,
-               "LayerId" .= _ulrqLayerId]
+                 _ulUseEBSOptimizedInstances,
+               "AutoAssignElasticIps" .= _ulAutoAssignElasticIPs,
+               "LayerId" .= _ulLayerId]
 
 instance ToPath UpdateLayer where
         toPath = const "/"

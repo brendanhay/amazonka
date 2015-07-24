@@ -34,8 +34,8 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     -- ** Request constructor
     , createLoadBalancerListeners
     -- ** Request lenses
-    , clblrqLoadBalancerName
-    , clblrqListeners
+    , clblLoadBalancerName
+    , clblListeners
 
     -- * Response
     , CreateLoadBalancerListenersResponse
@@ -54,29 +54,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clblrqLoadBalancerName'
+-- * 'clblLoadBalancerName'
 --
--- * 'clblrqListeners'
+-- * 'clblListeners'
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
-    { _clblrqLoadBalancerName :: !Text
-    , _clblrqListeners        :: ![Listener]
+    { _clblLoadBalancerName :: !Text
+    , _clblListeners        :: ![Listener]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerListeners' smart constructor.
 createLoadBalancerListeners :: Text -> CreateLoadBalancerListeners
 createLoadBalancerListeners pLoadBalancerName_ =
     CreateLoadBalancerListeners'
-    { _clblrqLoadBalancerName = pLoadBalancerName_
-    , _clblrqListeners = mempty
+    { _clblLoadBalancerName = pLoadBalancerName_
+    , _clblListeners = mempty
     }
 
 -- | The name of the load balancer.
-clblrqLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
-clblrqLoadBalancerName = lens _clblrqLoadBalancerName (\ s a -> s{_clblrqLoadBalancerName = a});
+clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
+clblLoadBalancerName = lens _clblLoadBalancerName (\ s a -> s{_clblLoadBalancerName = a});
 
 -- | The listeners.
-clblrqListeners :: Lens' CreateLoadBalancerListeners [Listener]
-clblrqListeners = lens _clblrqListeners (\ s a -> s{_clblrqListeners = a});
+clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
+clblListeners = lens _clblListeners (\ s a -> s{_clblListeners = a});
 
 instance AWSRequest CreateLoadBalancerListeners where
         type Sv CreateLoadBalancerListeners = ELB
@@ -102,8 +102,8 @@ instance ToQuery CreateLoadBalancerListeners where
               ["Action" =:
                  ("CreateLoadBalancerListeners" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _clblrqLoadBalancerName,
-               "Listeners" =: toQueryList "member" _clblrqListeners]
+               "LoadBalancerName" =: _clblLoadBalancerName,
+               "Listeners" =: toQueryList "member" _clblListeners]
 
 -- | /See:/ 'createLoadBalancerListenersResponse' smart constructor.
 --

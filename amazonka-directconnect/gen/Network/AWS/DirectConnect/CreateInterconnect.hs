@@ -43,9 +43,9 @@ module Network.AWS.DirectConnect.CreateInterconnect
     -- ** Request constructor
     , createInterconnect
     -- ** Request lenses
-    , cirqInterconnectName
-    , cirqBandwidth
-    , cirqLocation
+    , ciInterconnectName
+    , ciBandwidth
+    , ciLocation
 
     -- * Response
     , Interconnect
@@ -71,24 +71,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cirqInterconnectName'
+-- * 'ciInterconnectName'
 --
--- * 'cirqBandwidth'
+-- * 'ciBandwidth'
 --
--- * 'cirqLocation'
+-- * 'ciLocation'
 data CreateInterconnect = CreateInterconnect'
-    { _cirqInterconnectName :: !Text
-    , _cirqBandwidth        :: !Text
-    , _cirqLocation         :: !Text
+    { _ciInterconnectName :: !Text
+    , _ciBandwidth        :: !Text
+    , _ciLocation         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInterconnect' smart constructor.
 createInterconnect :: Text -> Text -> Text -> CreateInterconnect
 createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
     CreateInterconnect'
-    { _cirqInterconnectName = pInterconnectName_
-    , _cirqBandwidth = pBandwidth_
-    , _cirqLocation = pLocation_
+    { _ciInterconnectName = pInterconnectName_
+    , _ciBandwidth = pBandwidth_
+    , _ciLocation = pLocation_
     }
 
 -- | The name of the interconnect.
@@ -96,8 +96,8 @@ createInterconnect pInterconnectName_ pBandwidth_ pLocation_ =
 -- Example: \"/1G Interconnect to AWS/\"
 --
 -- Default: None
-cirqInterconnectName :: Lens' CreateInterconnect Text
-cirqInterconnectName = lens _cirqInterconnectName (\ s a -> s{_cirqInterconnectName = a});
+ciInterconnectName :: Lens' CreateInterconnect Text
+ciInterconnectName = lens _ciInterconnectName (\ s a -> s{_ciInterconnectName = a});
 
 -- | The port bandwidth
 --
@@ -106,16 +106,16 @@ cirqInterconnectName = lens _cirqInterconnectName (\ s a -> s{_cirqInterconnectN
 -- Default: None
 --
 -- Available values: 1Gbps,10Gbps
-cirqBandwidth :: Lens' CreateInterconnect Text
-cirqBandwidth = lens _cirqBandwidth (\ s a -> s{_cirqBandwidth = a});
+ciBandwidth :: Lens' CreateInterconnect Text
+ciBandwidth = lens _ciBandwidth (\ s a -> s{_ciBandwidth = a});
 
 -- | Where the interconnect is located
 --
 -- Example: EqSV5
 --
 -- Default: None
-cirqLocation :: Lens' CreateInterconnect Text
-cirqLocation = lens _cirqLocation (\ s a -> s{_cirqLocation = a});
+ciLocation :: Lens' CreateInterconnect Text
+ciLocation = lens _ciLocation (\ s a -> s{_ciLocation = a});
 
 instance AWSRequest CreateInterconnect where
         type Sv CreateInterconnect = DirectConnect
@@ -135,9 +135,9 @@ instance ToHeaders CreateInterconnect where
 instance ToJSON CreateInterconnect where
         toJSON CreateInterconnect'{..}
           = object
-              ["interconnectName" .= _cirqInterconnectName,
-               "bandwidth" .= _cirqBandwidth,
-               "location" .= _cirqLocation]
+              ["interconnectName" .= _ciInterconnectName,
+               "bandwidth" .= _ciBandwidth,
+               "location" .= _ciLocation]
 
 instance ToPath CreateInterconnect where
         toPath = const "/"

@@ -33,9 +33,9 @@ module Network.AWS.Glacier.SetVaultAccessPolicy
     -- ** Request constructor
     , setVaultAccessPolicy
     -- ** Request lenses
-    , svaprqPolicy
-    , svaprqAccountId
-    , svaprqVaultName
+    , svapPolicy
+    , svapAccountId
+    , svapVaultName
 
     -- * Response
     , SetVaultAccessPolicyResponse
@@ -54,41 +54,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'svaprqPolicy'
+-- * 'svapPolicy'
 --
--- * 'svaprqAccountId'
+-- * 'svapAccountId'
 --
--- * 'svaprqVaultName'
+-- * 'svapVaultName'
 data SetVaultAccessPolicy = SetVaultAccessPolicy'
-    { _svaprqPolicy    :: !(Maybe VaultAccessPolicy)
-    , _svaprqAccountId :: !Text
-    , _svaprqVaultName :: !Text
+    { _svapPolicy    :: !(Maybe VaultAccessPolicy)
+    , _svapAccountId :: !Text
+    , _svapVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultAccessPolicy' smart constructor.
 setVaultAccessPolicy :: Text -> Text -> SetVaultAccessPolicy
 setVaultAccessPolicy pAccountId_ pVaultName_ =
     SetVaultAccessPolicy'
-    { _svaprqPolicy = Nothing
-    , _svaprqAccountId = pAccountId_
-    , _svaprqVaultName = pVaultName_
+    { _svapPolicy = Nothing
+    , _svapAccountId = pAccountId_
+    , _svapVaultName = pVaultName_
     }
 
 -- | The vault access policy as a JSON string.
-svaprqPolicy :: Lens' SetVaultAccessPolicy (Maybe VaultAccessPolicy)
-svaprqPolicy = lens _svaprqPolicy (\ s a -> s{_svaprqPolicy = a});
+svapPolicy :: Lens' SetVaultAccessPolicy (Maybe VaultAccessPolicy)
+svapPolicy = lens _svapPolicy (\ s a -> s{_svapPolicy = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-svaprqAccountId :: Lens' SetVaultAccessPolicy Text
-svaprqAccountId = lens _svaprqAccountId (\ s a -> s{_svaprqAccountId = a});
+svapAccountId :: Lens' SetVaultAccessPolicy Text
+svapAccountId = lens _svapAccountId (\ s a -> s{_svapAccountId = a});
 
 -- | The name of the vault.
-svaprqVaultName :: Lens' SetVaultAccessPolicy Text
-svaprqVaultName = lens _svaprqVaultName (\ s a -> s{_svaprqVaultName = a});
+svapVaultName :: Lens' SetVaultAccessPolicy Text
+svapVaultName = lens _svapVaultName (\ s a -> s{_svapVaultName = a});
 
 instance AWSRequest SetVaultAccessPolicy where
         type Sv SetVaultAccessPolicy = Glacier
@@ -102,13 +102,13 @@ instance ToHeaders SetVaultAccessPolicy where
 
 instance ToJSON SetVaultAccessPolicy where
         toJSON SetVaultAccessPolicy'{..}
-          = object ["policy" .= _svaprqPolicy]
+          = object ["policy" .= _svapPolicy]
 
 instance ToPath SetVaultAccessPolicy where
         toPath SetVaultAccessPolicy'{..}
           = mconcat
-              ["/", toText _svaprqAccountId, "/vaults/",
-               toText _svaprqVaultName, "/access-policy"]
+              ["/", toText _svapAccountId, "/vaults/",
+               toText _svapVaultName, "/access-policy"]
 
 instance ToQuery SetVaultAccessPolicy where
         toQuery = const mempty

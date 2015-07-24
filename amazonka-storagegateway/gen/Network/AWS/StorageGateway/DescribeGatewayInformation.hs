@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     -- ** Request constructor
     , describeGatewayInformation
     -- ** Request lenses
-    , dgirqGatewayARN
+    , dgiGatewayARN
 
     -- * Response
     , DescribeGatewayInformationResponse
@@ -59,21 +59,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgirqGatewayARN'
+-- * 'dgiGatewayARN'
 newtype DescribeGatewayInformation = DescribeGatewayInformation'
-    { _dgirqGatewayARN :: Text
+    { _dgiGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeGatewayInformation' smart constructor.
 describeGatewayInformation :: Text -> DescribeGatewayInformation
 describeGatewayInformation pGatewayARN_ =
     DescribeGatewayInformation'
-    { _dgirqGatewayARN = pGatewayARN_
+    { _dgiGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-dgirqGatewayARN :: Lens' DescribeGatewayInformation Text
-dgirqGatewayARN = lens _dgirqGatewayARN (\ s a -> s{_dgirqGatewayARN = a});
+dgiGatewayARN :: Lens' DescribeGatewayInformation Text
+dgiGatewayARN = lens _dgiGatewayARN (\ s a -> s{_dgiGatewayARN = a});
 
 instance AWSRequest DescribeGatewayInformation where
         type Sv DescribeGatewayInformation = StorageGateway
@@ -105,7 +105,7 @@ instance ToHeaders DescribeGatewayInformation where
 
 instance ToJSON DescribeGatewayInformation where
         toJSON DescribeGatewayInformation'{..}
-          = object ["GatewayARN" .= _dgirqGatewayARN]
+          = object ["GatewayARN" .= _dgiGatewayARN]
 
 instance ToPath DescribeGatewayInformation where
         toPath = const "/"

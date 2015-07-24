@@ -30,7 +30,7 @@ module Network.AWS.CodePipeline.UpdatePipeline
     -- ** Request constructor
     , updatePipeline
     -- ** Request lenses
-    , uprqPipeline
+    , upPipeline
 
     -- * Response
     , UpdatePipelineResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uprqPipeline'
+-- * 'upPipeline'
 newtype UpdatePipeline = UpdatePipeline'
-    { _uprqPipeline :: PipelineDeclaration
+    { _upPipeline :: PipelineDeclaration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: PipelineDeclaration -> UpdatePipeline
 updatePipeline pPipeline_ =
     UpdatePipeline'
-    { _uprqPipeline = pPipeline_
+    { _upPipeline = pPipeline_
     }
 
 -- | The name of the pipeline to be updated.
-uprqPipeline :: Lens' UpdatePipeline PipelineDeclaration
-uprqPipeline = lens _uprqPipeline (\ s a -> s{_uprqPipeline = a});
+upPipeline :: Lens' UpdatePipeline PipelineDeclaration
+upPipeline = lens _upPipeline (\ s a -> s{_upPipeline = a});
 
 instance AWSRequest UpdatePipeline where
         type Sv UpdatePipeline = CodePipeline
@@ -90,7 +90,7 @@ instance ToHeaders UpdatePipeline where
 
 instance ToJSON UpdatePipeline where
         toJSON UpdatePipeline'{..}
-          = object ["pipeline" .= _uprqPipeline]
+          = object ["pipeline" .= _upPipeline]
 
 instance ToPath UpdatePipeline where
         toPath = const "/"

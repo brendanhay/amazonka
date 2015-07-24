@@ -38,9 +38,9 @@ module Network.AWS.DynamoDBStreams.DescribeStream
     -- ** Request constructor
     , describeStream
     -- ** Request lenses
-    , dsrqExclusiveStartShardId
-    , dsrqLimit
-    , dsrqStreamARN
+    , dsExclusiveStartShardId
+    , dsLimit
+    , dsStreamARN
 
     -- * Response
     , DescribeStreamResponse
@@ -62,39 +62,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqExclusiveStartShardId'
+-- * 'dsExclusiveStartShardId'
 --
--- * 'dsrqLimit'
+-- * 'dsLimit'
 --
--- * 'dsrqStreamARN'
+-- * 'dsStreamARN'
 data DescribeStream = DescribeStream'
-    { _dsrqExclusiveStartShardId :: !(Maybe Text)
-    , _dsrqLimit                 :: !(Maybe Nat)
-    , _dsrqStreamARN             :: !Text
+    { _dsExclusiveStartShardId :: !(Maybe Text)
+    , _dsLimit                 :: !(Maybe Nat)
+    , _dsStreamARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
 describeStream pStreamARN_ =
     DescribeStream'
-    { _dsrqExclusiveStartShardId = Nothing
-    , _dsrqLimit = Nothing
-    , _dsrqStreamARN = pStreamARN_
+    { _dsExclusiveStartShardId = Nothing
+    , _dsLimit = Nothing
+    , _dsStreamARN = pStreamARN_
     }
 
 -- | The shard ID of the first item that this operation will evaluate. Use
 -- the value that was returned for @LastEvaluatedShardId@ in the previous
 -- operation.
-dsrqExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
-dsrqExclusiveStartShardId = lens _dsrqExclusiveStartShardId (\ s a -> s{_dsrqExclusiveStartShardId = a});
+dsExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
+dsExclusiveStartShardId = lens _dsExclusiveStartShardId (\ s a -> s{_dsExclusiveStartShardId = a});
 
 -- | The maximum number of shard objects to return. The upper limit is 100.
-dsrqLimit :: Lens' DescribeStream (Maybe Natural)
-dsrqLimit = lens _dsrqLimit (\ s a -> s{_dsrqLimit = a}) . mapping _Nat;
+dsLimit :: Lens' DescribeStream (Maybe Natural)
+dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
 
 -- | The Amazon Resource Name (ARN) for the stream.
-dsrqStreamARN :: Lens' DescribeStream Text
-dsrqStreamARN = lens _dsrqStreamARN (\ s a -> s{_dsrqStreamARN = a});
+dsStreamARN :: Lens' DescribeStream Text
+dsStreamARN = lens _dsStreamARN (\ s a -> s{_dsStreamARN = a});
 
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = DynamoDBStreams
@@ -119,9 +119,8 @@ instance ToHeaders DescribeStream where
 instance ToJSON DescribeStream where
         toJSON DescribeStream'{..}
           = object
-              ["ExclusiveStartShardId" .=
-                 _dsrqExclusiveStartShardId,
-               "Limit" .= _dsrqLimit, "StreamArn" .= _dsrqStreamARN]
+              ["ExclusiveStartShardId" .= _dsExclusiveStartShardId,
+               "Limit" .= _dsLimit, "StreamArn" .= _dsStreamARN]
 
 instance ToPath DescribeStream where
         toPath = const "/"

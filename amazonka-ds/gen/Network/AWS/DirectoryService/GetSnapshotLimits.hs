@@ -27,7 +27,7 @@ module Network.AWS.DirectoryService.GetSnapshotLimits
     -- ** Request constructor
     , getSnapshotLimits
     -- ** Request lenses
-    , gslrqDirectoryId
+    , gslDirectoryId
 
     -- * Response
     , GetSnapshotLimitsResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gslrqDirectoryId'
+-- * 'gslDirectoryId'
 newtype GetSnapshotLimits = GetSnapshotLimits'
-    { _gslrqDirectoryId :: Text
+    { _gslDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSnapshotLimits' smart constructor.
 getSnapshotLimits :: Text -> GetSnapshotLimits
 getSnapshotLimits pDirectoryId_ =
     GetSnapshotLimits'
-    { _gslrqDirectoryId = pDirectoryId_
+    { _gslDirectoryId = pDirectoryId_
     }
 
 -- | Contains the identifier of the directory to obtain the limits for.
-gslrqDirectoryId :: Lens' GetSnapshotLimits Text
-gslrqDirectoryId = lens _gslrqDirectoryId (\ s a -> s{_gslrqDirectoryId = a});
+gslDirectoryId :: Lens' GetSnapshotLimits Text
+gslDirectoryId = lens _gslDirectoryId (\ s a -> s{_gslDirectoryId = a});
 
 instance AWSRequest GetSnapshotLimits where
         type Sv GetSnapshotLimits = DirectoryService
@@ -87,7 +87,7 @@ instance ToHeaders GetSnapshotLimits where
 
 instance ToJSON GetSnapshotLimits where
         toJSON GetSnapshotLimits'{..}
-          = object ["DirectoryId" .= _gslrqDirectoryId]
+          = object ["DirectoryId" .= _gslDirectoryId]
 
 instance ToPath GetSnapshotLimits where
         toPath = const "/"

@@ -27,9 +27,9 @@ module Network.AWS.DeviceFarm.ListArtifacts
     -- ** Request constructor
     , listArtifacts
     -- ** Request lenses
-    , larqNextToken
-    , larqArn
-    , larqType
+    , laNextToken
+    , laArn
+    , laType
 
     -- * Response
     , ListArtifactsResponse
@@ -52,35 +52,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larqNextToken'
+-- * 'laNextToken'
 --
--- * 'larqArn'
+-- * 'laArn'
 --
--- * 'larqType'
+-- * 'laType'
 data ListArtifacts = ListArtifacts'
-    { _larqNextToken :: !(Maybe Text)
-    , _larqArn       :: !Text
-    , _larqType      :: !ArtifactCategory
+    { _laNextToken :: !(Maybe Text)
+    , _laArn       :: !Text
+    , _laType      :: !ArtifactCategory
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListArtifacts' smart constructor.
 listArtifacts :: Text -> ArtifactCategory -> ListArtifacts
 listArtifacts pArn_ pType_ =
     ListArtifacts'
-    { _larqNextToken = Nothing
-    , _larqArn = pArn_
-    , _larqType = pType_
+    { _laNextToken = Nothing
+    , _laArn = pArn_
+    , _laType = pType_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-larqNextToken :: Lens' ListArtifacts (Maybe Text)
-larqNextToken = lens _larqNextToken (\ s a -> s{_larqNextToken = a});
+laNextToken :: Lens' ListArtifacts (Maybe Text)
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
 -- | The artifacts\' ARNs.
-larqArn :: Lens' ListArtifacts Text
-larqArn = lens _larqArn (\ s a -> s{_larqArn = a});
+laArn :: Lens' ListArtifacts Text
+laArn = lens _laArn (\ s a -> s{_laArn = a});
 
 -- | The artifacts\' type.
 --
@@ -89,8 +89,8 @@ larqArn = lens _larqArn (\ s a -> s{_larqArn = a});
 -- -   FILE: The artifacts are files.
 -- -   LOG: The artifacts are logs.
 -- -   SCREENSHOT: The artifacts are screenshots.
-larqType :: Lens' ListArtifacts ArtifactCategory
-larqType = lens _larqType (\ s a -> s{_larqType = a});
+laType :: Lens' ListArtifacts ArtifactCategory
+laType = lens _laType (\ s a -> s{_laType = a});
 
 instance AWSRequest ListArtifacts where
         type Sv ListArtifacts = DeviceFarm
@@ -116,8 +116,8 @@ instance ToHeaders ListArtifacts where
 instance ToJSON ListArtifacts where
         toJSON ListArtifacts'{..}
           = object
-              ["nextToken" .= _larqNextToken, "arn" .= _larqArn,
-               "type" .= _larqType]
+              ["nextToken" .= _laNextToken, "arn" .= _laArn,
+               "type" .= _laType]
 
 instance ToPath ListArtifacts where
         toPath = const "/"

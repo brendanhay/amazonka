@@ -27,7 +27,7 @@ module Network.AWS.CodePipeline.ListPipelines
     -- ** Request constructor
     , listPipelines
     -- ** Request lenses
-    , lprqNextToken
+    , lpNextToken
 
     -- * Response
     , ListPipelinesResponse
@@ -50,22 +50,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprqNextToken'
+-- * 'lpNextToken'
 newtype ListPipelines = ListPipelines'
-    { _lprqNextToken :: Maybe Text
+    { _lpNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
 listPipelines =
     ListPipelines'
-    { _lprqNextToken = Nothing
+    { _lpNextToken = Nothing
     }
 
 -- | An identifier that was returned from the previous list pipelines call,
 -- which can be used to return the next set of pipelines in the list.
-lprqNextToken :: Lens' ListPipelines (Maybe Text)
-lprqNextToken = lens _lprqNextToken (\ s a -> s{_lprqNextToken = a});
+lpNextToken :: Lens' ListPipelines (Maybe Text)
+lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = CodePipeline
@@ -91,7 +91,7 @@ instance ToHeaders ListPipelines where
 
 instance ToJSON ListPipelines where
         toJSON ListPipelines'{..}
-          = object ["nextToken" .= _lprqNextToken]
+          = object ["nextToken" .= _lpNextToken]
 
 instance ToPath ListPipelines where
         toPath = const "/"

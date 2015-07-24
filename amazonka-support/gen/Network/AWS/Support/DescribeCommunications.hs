@@ -39,11 +39,11 @@ module Network.AWS.Support.DescribeCommunications
     -- ** Request constructor
     , describeCommunications
     -- ** Request lenses
-    , drqAfterTime
-    , drqNextToken
-    , drqBeforeTime
-    , drqMaxResults
-    , drqCaseId
+    , dAfterTime
+    , dNextToken
+    , dBeforeTime
+    , dMaxResults
+    , dCaseId
 
     -- * Response
     , DescribeCommunicationsResponse
@@ -65,65 +65,65 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqAfterTime'
+-- * 'dAfterTime'
 --
--- * 'drqNextToken'
+-- * 'dNextToken'
 --
--- * 'drqBeforeTime'
+-- * 'dBeforeTime'
 --
--- * 'drqMaxResults'
+-- * 'dMaxResults'
 --
--- * 'drqCaseId'
+-- * 'dCaseId'
 data DescribeCommunications = DescribeCommunications'
-    { _drqAfterTime  :: !(Maybe Text)
-    , _drqNextToken  :: !(Maybe Text)
-    , _drqBeforeTime :: !(Maybe Text)
-    , _drqMaxResults :: !(Maybe Nat)
-    , _drqCaseId     :: !Text
+    { _dAfterTime  :: !(Maybe Text)
+    , _dNextToken  :: !(Maybe Text)
+    , _dBeforeTime :: !(Maybe Text)
+    , _dMaxResults :: !(Maybe Nat)
+    , _dCaseId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommunications' smart constructor.
 describeCommunications :: Text -> DescribeCommunications
 describeCommunications pCaseId_ =
     DescribeCommunications'
-    { _drqAfterTime = Nothing
-    , _drqNextToken = Nothing
-    , _drqBeforeTime = Nothing
-    , _drqMaxResults = Nothing
-    , _drqCaseId = pCaseId_
+    { _dAfterTime = Nothing
+    , _dNextToken = Nothing
+    , _dBeforeTime = Nothing
+    , _dMaxResults = Nothing
+    , _dCaseId = pCaseId_
     }
 
 -- | The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
 -- creation.
-drqAfterTime :: Lens' DescribeCommunications (Maybe Text)
-drqAfterTime = lens _drqAfterTime (\ s a -> s{_drqAfterTime = a});
+dAfterTime :: Lens' DescribeCommunications (Maybe Text)
+dAfterTime = lens _dAfterTime (\ s a -> s{_dAfterTime = a});
 
 -- | A resumption point for pagination.
-drqNextToken :: Lens' DescribeCommunications (Maybe Text)
-drqNextToken = lens _drqNextToken (\ s a -> s{_drqNextToken = a});
+dNextToken :: Lens' DescribeCommunications (Maybe Text)
+dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-drqBeforeTime :: Lens' DescribeCommunications (Maybe Text)
-drqBeforeTime = lens _drqBeforeTime (\ s a -> s{_drqBeforeTime = a});
+dBeforeTime :: Lens' DescribeCommunications (Maybe Text)
+dBeforeTime = lens _dBeforeTime (\ s a -> s{_dBeforeTime = a});
 
 -- | The maximum number of results to return before paginating.
-drqMaxResults :: Lens' DescribeCommunications (Maybe Natural)
-drqMaxResults = lens _drqMaxResults (\ s a -> s{_drqMaxResults = a}) . mapping _Nat;
+dMaxResults :: Lens' DescribeCommunications (Maybe Natural)
+dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat;
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-drqCaseId :: Lens' DescribeCommunications Text
-drqCaseId = lens _drqCaseId (\ s a -> s{_drqCaseId = a});
+dCaseId :: Lens' DescribeCommunications Text
+dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a});
 
 instance AWSPager DescribeCommunications where
         page rq rs
           | stop (rs ^. dcrsNextToken) = Nothing
           | stop (rs ^. dcrsCommunications) = Nothing
           | otherwise =
-            Just $ rq & drqNextToken .~ rs ^. dcrsNextToken
+            Just $ rq & dNextToken .~ rs ^. dcrsNextToken
 
 instance AWSRequest DescribeCommunications where
         type Sv DescribeCommunications = Support
@@ -151,11 +151,10 @@ instance ToHeaders DescribeCommunications where
 instance ToJSON DescribeCommunications where
         toJSON DescribeCommunications'{..}
           = object
-              ["afterTime" .= _drqAfterTime,
-               "nextToken" .= _drqNextToken,
-               "beforeTime" .= _drqBeforeTime,
-               "maxResults" .= _drqMaxResults,
-               "caseId" .= _drqCaseId]
+              ["afterTime" .= _dAfterTime,
+               "nextToken" .= _dNextToken,
+               "beforeTime" .= _dBeforeTime,
+               "maxResults" .= _dMaxResults, "caseId" .= _dCaseId]
 
 instance ToPath DescribeCommunications where
         toPath = const "/"

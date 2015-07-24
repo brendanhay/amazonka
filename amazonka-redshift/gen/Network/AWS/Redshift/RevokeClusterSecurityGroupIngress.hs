@@ -32,10 +32,10 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     -- ** Request constructor
     , revokeClusterSecurityGroupIngress
     -- ** Request lenses
-    , rcsgirqEC2SecurityGroupOwnerId
-    , rcsgirqEC2SecurityGroupName
-    , rcsgirqCIdRIP
-    , rcsgirqClusterSecurityGroupName
+    , rcsgiEC2SecurityGroupOwnerId
+    , rcsgiEC2SecurityGroupName
+    , rcsgiCIdRIP
+    , rcsgiClusterSecurityGroupName
 
     -- * Response
     , RevokeClusterSecurityGroupIngressResponse
@@ -57,28 +57,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcsgirqEC2SecurityGroupOwnerId'
+-- * 'rcsgiEC2SecurityGroupOwnerId'
 --
--- * 'rcsgirqEC2SecurityGroupName'
+-- * 'rcsgiEC2SecurityGroupName'
 --
--- * 'rcsgirqCIdRIP'
+-- * 'rcsgiCIdRIP'
 --
--- * 'rcsgirqClusterSecurityGroupName'
+-- * 'rcsgiClusterSecurityGroupName'
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
-    { _rcsgirqEC2SecurityGroupOwnerId  :: !(Maybe Text)
-    , _rcsgirqEC2SecurityGroupName     :: !(Maybe Text)
-    , _rcsgirqCIdRIP                   :: !(Maybe Text)
-    , _rcsgirqClusterSecurityGroupName :: !Text
+    { _rcsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
+    , _rcsgiEC2SecurityGroupName     :: !(Maybe Text)
+    , _rcsgiCIdRIP                   :: !(Maybe Text)
+    , _rcsgiClusterSecurityGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeClusterSecurityGroupIngress' smart constructor.
 revokeClusterSecurityGroupIngress :: Text -> RevokeClusterSecurityGroupIngress
 revokeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
     RevokeClusterSecurityGroupIngress'
-    { _rcsgirqEC2SecurityGroupOwnerId = Nothing
-    , _rcsgirqEC2SecurityGroupName = Nothing
-    , _rcsgirqCIdRIP = Nothing
-    , _rcsgirqClusterSecurityGroupName = pClusterSecurityGroupName_
+    { _rcsgiEC2SecurityGroupOwnerId = Nothing
+    , _rcsgiEC2SecurityGroupName = Nothing
+    , _rcsgiCIdRIP = Nothing
+    , _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName_
     }
 
 -- | The AWS account number of the owner of the security group specified in
@@ -88,25 +88,25 @@ revokeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
 -- provided.
 --
 -- Example: @111122223333@
-rcsgirqEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgirqEC2SecurityGroupOwnerId = lens _rcsgirqEC2SecurityGroupOwnerId (\ s a -> s{_rcsgirqEC2SecurityGroupOwnerId = a});
+rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
+rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_rcsgiEC2SecurityGroupOwnerId = a});
 
 -- | The name of the EC2 Security Group whose access is to be revoked. If
 -- @EC2SecurityGroupName@ is specified, @EC2SecurityGroupOwnerId@ must also
 -- be provided and @CIDRIP@ cannot be provided.
-rcsgirqEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgirqEC2SecurityGroupName = lens _rcsgirqEC2SecurityGroupName (\ s a -> s{_rcsgirqEC2SecurityGroupName = a});
+rcsgiEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
+rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC2SecurityGroupName = a});
 
 -- | The IP range for which to revoke access. This range must be a valid
 -- Classless Inter-Domain Routing (CIDR) block of IP addresses. If @CIDRIP@
 -- is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@
 -- cannot be provided.
-rcsgirqCIdRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgirqCIdRIP = lens _rcsgirqCIdRIP (\ s a -> s{_rcsgirqCIdRIP = a});
+rcsgiCIdRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
+rcsgiCIdRIP = lens _rcsgiCIdRIP (\ s a -> s{_rcsgiCIdRIP = a});
 
 -- | The name of the security Group from which to revoke the ingress rule.
-rcsgirqClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
-rcsgirqClusterSecurityGroupName = lens _rcsgirqClusterSecurityGroupName (\ s a -> s{_rcsgirqClusterSecurityGroupName = a});
+rcsgiClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
+rcsgiClusterSecurityGroupName = lens _rcsgiClusterSecurityGroupName (\ s a -> s{_rcsgiClusterSecurityGroupName = a});
 
 instance AWSRequest RevokeClusterSecurityGroupIngress
          where
@@ -138,12 +138,11 @@ instance ToQuery RevokeClusterSecurityGroupIngress
                  ("RevokeClusterSecurityGroupIngress" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "EC2SecurityGroupOwnerId" =:
-                 _rcsgirqEC2SecurityGroupOwnerId,
-               "EC2SecurityGroupName" =:
-                 _rcsgirqEC2SecurityGroupName,
-               "CIDRIP" =: _rcsgirqCIdRIP,
+                 _rcsgiEC2SecurityGroupOwnerId,
+               "EC2SecurityGroupName" =: _rcsgiEC2SecurityGroupName,
+               "CIDRIP" =: _rcsgiCIdRIP,
                "ClusterSecurityGroupName" =:
-                 _rcsgirqClusterSecurityGroupName]
+                 _rcsgiClusterSecurityGroupName]
 
 -- | /See:/ 'revokeClusterSecurityGroupIngressResponse' smart constructor.
 --

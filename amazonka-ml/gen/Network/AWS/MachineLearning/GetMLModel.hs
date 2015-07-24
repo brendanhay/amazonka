@@ -30,8 +30,8 @@ module Network.AWS.MachineLearning.GetMLModel
     -- ** Request constructor
     , getMLModel
     -- ** Request lenses
-    , gmlmrqVerbose
-    , gmlmrqMLModelId
+    , gmlmVerbose
+    , gmlmMLModelId
 
     -- * Response
     , GetMLModelResponse
@@ -67,20 +67,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gmlmrqVerbose'
+-- * 'gmlmVerbose'
 --
--- * 'gmlmrqMLModelId'
+-- * 'gmlmMLModelId'
 data GetMLModel = GetMLModel'
-    { _gmlmrqVerbose   :: !(Maybe Bool)
-    , _gmlmrqMLModelId :: !Text
+    { _gmlmVerbose   :: !(Maybe Bool)
+    , _gmlmMLModelId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMLModel' smart constructor.
 getMLModel :: Text -> GetMLModel
 getMLModel pMLModelId_ =
     GetMLModel'
-    { _gmlmrqVerbose = Nothing
-    , _gmlmrqMLModelId = pMLModelId_
+    { _gmlmVerbose = Nothing
+    , _gmlmMLModelId = pMLModelId_
     }
 
 -- | Specifies whether the @GetMLModel@ operation should return @Recipe@.
@@ -88,12 +88,12 @@ getMLModel pMLModelId_ =
 -- If true, @Recipe@ is returned.
 --
 -- If false, @Recipe@ is not returned.
-gmlmrqVerbose :: Lens' GetMLModel (Maybe Bool)
-gmlmrqVerbose = lens _gmlmrqVerbose (\ s a -> s{_gmlmrqVerbose = a});
+gmlmVerbose :: Lens' GetMLModel (Maybe Bool)
+gmlmVerbose = lens _gmlmVerbose (\ s a -> s{_gmlmVerbose = a});
 
 -- | The ID assigned to the @MLModel@ at creation.
-gmlmrqMLModelId :: Lens' GetMLModel Text
-gmlmrqMLModelId = lens _gmlmrqMLModelId (\ s a -> s{_gmlmrqMLModelId = a});
+gmlmMLModelId :: Lens' GetMLModel Text
+gmlmMLModelId = lens _gmlmMLModelId (\ s a -> s{_gmlmMLModelId = a});
 
 instance AWSRequest GetMLModel where
         type Sv GetMLModel = MachineLearning
@@ -134,8 +134,8 @@ instance ToHeaders GetMLModel where
 instance ToJSON GetMLModel where
         toJSON GetMLModel'{..}
           = object
-              ["Verbose" .= _gmlmrqVerbose,
-               "MLModelId" .= _gmlmrqMLModelId]
+              ["Verbose" .= _gmlmVerbose,
+               "MLModelId" .= _gmlmMLModelId]
 
 instance ToPath GetMLModel where
         toPath = const "/"

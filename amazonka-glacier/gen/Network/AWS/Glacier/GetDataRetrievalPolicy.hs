@@ -30,7 +30,7 @@ module Network.AWS.Glacier.GetDataRetrievalPolicy
     -- ** Request constructor
     , getDataRetrievalPolicy
     -- ** Request lenses
-    , gdrprqAccountId
+    , gdrpAccountId
 
     -- * Response
     , GetDataRetrievalPolicyResponse
@@ -52,16 +52,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrprqAccountId'
+-- * 'gdrpAccountId'
 newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
-    { _gdrprqAccountId :: Text
+    { _gdrpAccountId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataRetrievalPolicy' smart constructor.
 getDataRetrievalPolicy :: Text -> GetDataRetrievalPolicy
 getDataRetrievalPolicy pAccountId_ =
     GetDataRetrievalPolicy'
-    { _gdrprqAccountId = pAccountId_
+    { _gdrpAccountId = pAccountId_
     }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -71,8 +71,8 @@ getDataRetrievalPolicy pAccountId_ =
 -- ID associated with the credentials used to sign the request. If you
 -- specify your Account ID, do not include any hyphens (apos-apos) in the
 -- ID.
-gdrprqAccountId :: Lens' GetDataRetrievalPolicy Text
-gdrprqAccountId = lens _gdrprqAccountId (\ s a -> s{_gdrprqAccountId = a});
+gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
+gdrpAccountId = lens _gdrpAccountId (\ s a -> s{_gdrpAccountId = a});
 
 instance AWSRequest GetDataRetrievalPolicy where
         type Sv GetDataRetrievalPolicy = Glacier
@@ -91,7 +91,7 @@ instance ToHeaders GetDataRetrievalPolicy where
 instance ToPath GetDataRetrievalPolicy where
         toPath GetDataRetrievalPolicy'{..}
           = mconcat
-              ["/", toText _gdrprqAccountId,
+              ["/", toText _gdrpAccountId,
                "/policies/data-retrieval"]
 
 instance ToQuery GetDataRetrievalPolicy where

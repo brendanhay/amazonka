@@ -30,8 +30,8 @@ module Network.AWS.OpsWorks.DescribeAgentVersions
     -- ** Request constructor
     , describeAgentVersions
     -- ** Request lenses
-    , davrqConfigurationManager
-    , davrqStackId
+    , davConfigurationManager
+    , davStackId
 
     -- * Response
     , DescribeAgentVersionsResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davrqConfigurationManager'
+-- * 'davConfigurationManager'
 --
--- * 'davrqStackId'
+-- * 'davStackId'
 data DescribeAgentVersions = DescribeAgentVersions'
-    { _davrqConfigurationManager :: !(Maybe StackConfigurationManager)
-    , _davrqStackId              :: !(Maybe Text)
+    { _davConfigurationManager :: !(Maybe StackConfigurationManager)
+    , _davStackId              :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAgentVersions' smart constructor.
 describeAgentVersions :: DescribeAgentVersions
 describeAgentVersions =
     DescribeAgentVersions'
-    { _davrqConfigurationManager = Nothing
-    , _davrqStackId = Nothing
+    { _davConfigurationManager = Nothing
+    , _davStackId = Nothing
     }
 
 -- | The configuration manager.
-davrqConfigurationManager :: Lens' DescribeAgentVersions (Maybe StackConfigurationManager)
-davrqConfigurationManager = lens _davrqConfigurationManager (\ s a -> s{_davrqConfigurationManager = a});
+davConfigurationManager :: Lens' DescribeAgentVersions (Maybe StackConfigurationManager)
+davConfigurationManager = lens _davConfigurationManager (\ s a -> s{_davConfigurationManager = a});
 
 -- | The stack ID.
-davrqStackId :: Lens' DescribeAgentVersions (Maybe Text)
-davrqStackId = lens _davrqStackId (\ s a -> s{_davrqStackId = a});
+davStackId :: Lens' DescribeAgentVersions (Maybe Text)
+davStackId = lens _davStackId (\ s a -> s{_davStackId = a});
 
 instance AWSRequest DescribeAgentVersions where
         type Sv DescribeAgentVersions = OpsWorks
@@ -100,9 +100,8 @@ instance ToHeaders DescribeAgentVersions where
 instance ToJSON DescribeAgentVersions where
         toJSON DescribeAgentVersions'{..}
           = object
-              ["ConfigurationManager" .=
-                 _davrqConfigurationManager,
-               "StackId" .= _davrqStackId]
+              ["ConfigurationManager" .= _davConfigurationManager,
+               "StackId" .= _davStackId]
 
 instance ToPath DescribeAgentVersions where
         toPath = const "/"

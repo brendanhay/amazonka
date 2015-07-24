@@ -28,7 +28,7 @@ module Network.AWS.CodeDeploy.ListApplications
     -- ** Request constructor
     , listApplications
     -- ** Request lenses
-    , larqNextToken
+    , laNextToken
 
     -- * Response
     , ListApplicationsResponse
@@ -51,23 +51,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larqNextToken'
+-- * 'laNextToken'
 newtype ListApplications = ListApplications'
-    { _larqNextToken :: Maybe Text
+    { _laNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplications' smart constructor.
 listApplications :: ListApplications
 listApplications =
     ListApplications'
-    { _larqNextToken = Nothing
+    { _laNextToken = Nothing
     }
 
 -- | An identifier that was returned from the previous list applications
 -- call, which can be used to return the next set of applications in the
 -- list.
-larqNextToken :: Lens' ListApplications (Maybe Text)
-larqNextToken = lens _larqNextToken (\ s a -> s{_larqNextToken = a});
+laNextToken :: Lens' ListApplications (Maybe Text)
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
 instance AWSRequest ListApplications where
         type Sv ListApplications = CodeDeploy
@@ -93,7 +93,7 @@ instance ToHeaders ListApplications where
 
 instance ToJSON ListApplications where
         toJSON ListApplications'{..}
-          = object ["nextToken" .= _larqNextToken]
+          = object ["nextToken" .= _laNextToken]
 
 instance ToPath ListApplications where
         toPath = const "/"

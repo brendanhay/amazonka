@@ -28,9 +28,9 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- ** Request constructor
     , copyDBSnapshot
     -- ** Request lenses
-    , cdsrqTags
-    , cdsrqSourceDBSnapshotIdentifier
-    , cdsrqTargetDBSnapshotIdentifier
+    , cdsTags
+    , cdsSourceDBSnapshotIdentifier
+    , cdsTargetDBSnapshotIdentifier
 
     -- * Response
     , CopyDBSnapshotResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdsrqTags'
+-- * 'cdsTags'
 --
--- * 'cdsrqSourceDBSnapshotIdentifier'
+-- * 'cdsSourceDBSnapshotIdentifier'
 --
--- * 'cdsrqTargetDBSnapshotIdentifier'
+-- * 'cdsTargetDBSnapshotIdentifier'
 data CopyDBSnapshot = CopyDBSnapshot'
-    { _cdsrqTags                       :: !(Maybe [Tag])
-    , _cdsrqSourceDBSnapshotIdentifier :: !Text
-    , _cdsrqTargetDBSnapshotIdentifier :: !Text
+    { _cdsTags                       :: !(Maybe [Tag])
+    , _cdsSourceDBSnapshotIdentifier :: !Text
+    , _cdsTargetDBSnapshotIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyDBSnapshot' smart constructor.
 copyDBSnapshot :: Text -> Text -> CopyDBSnapshot
 copyDBSnapshot pSourceDBSnapshotIdentifier_ pTargetDBSnapshotIdentifier_ =
     CopyDBSnapshot'
-    { _cdsrqTags = Nothing
-    , _cdsrqSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier_
-    , _cdsrqTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier_
+    { _cdsTags = Nothing
+    , _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier_
+    , _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier_
     }
 
 -- | FIXME: Undocumented member.
-cdsrqTags :: Lens' CopyDBSnapshot [Tag]
-cdsrqTags = lens _cdsrqTags (\ s a -> s{_cdsrqTags = a}) . _Default;
+cdsTags :: Lens' CopyDBSnapshot [Tag]
+cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default;
 
 -- | The identifier for the source DB snapshot.
 --
@@ -91,8 +91,8 @@ cdsrqTags = lens _cdsrqTags (\ s a -> s{_cdsrqTags = a}) . _Default;
 --
 -- Example:
 -- @arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805@
-cdsrqSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
-cdsrqSourceDBSnapshotIdentifier = lens _cdsrqSourceDBSnapshotIdentifier (\ s a -> s{_cdsrqSourceDBSnapshotIdentifier = a});
+cdsSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
+cdsSourceDBSnapshotIdentifier = lens _cdsSourceDBSnapshotIdentifier (\ s a -> s{_cdsSourceDBSnapshotIdentifier = a});
 
 -- | The identifier for the copied snapshot.
 --
@@ -104,8 +104,8 @@ cdsrqSourceDBSnapshotIdentifier = lens _cdsrqSourceDBSnapshotIdentifier (\ s a -
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-db-snapshot@
-cdsrqTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
-cdsrqTargetDBSnapshotIdentifier = lens _cdsrqTargetDBSnapshotIdentifier (\ s a -> s{_cdsrqTargetDBSnapshotIdentifier = a});
+cdsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
+cdsTargetDBSnapshotIdentifier = lens _cdsTargetDBSnapshotIdentifier (\ s a -> s{_cdsTargetDBSnapshotIdentifier = a});
 
 instance AWSRequest CopyDBSnapshot where
         type Sv CopyDBSnapshot = RDS
@@ -128,11 +128,11 @@ instance ToQuery CopyDBSnapshot where
           = mconcat
               ["Action" =: ("CopyDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cdsrqTags),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdsTags),
                "SourceDBSnapshotIdentifier" =:
-                 _cdsrqSourceDBSnapshotIdentifier,
+                 _cdsSourceDBSnapshotIdentifier,
                "TargetDBSnapshotIdentifier" =:
-                 _cdsrqTargetDBSnapshotIdentifier]
+                 _cdsTargetDBSnapshotIdentifier]
 
 -- | /See:/ 'copyDBSnapshotResponse' smart constructor.
 --

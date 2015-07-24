@@ -33,7 +33,7 @@ module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     -- ** Request constructor
     , describeStackProvisioningParameters
     -- ** Request lenses
-    , dspprqStackId
+    , dsppStackId
 
     -- * Response
     , DescribeStackProvisioningParametersResponse
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dspprqStackId'
+-- * 'dsppStackId'
 newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters'
-    { _dspprqStackId :: Text
+    { _dsppStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackProvisioningParameters' smart constructor.
 describeStackProvisioningParameters :: Text -> DescribeStackProvisioningParameters
 describeStackProvisioningParameters pStackId_ =
     DescribeStackProvisioningParameters'
-    { _dspprqStackId = pStackId_
+    { _dsppStackId = pStackId_
     }
 
 -- | The stack ID
-dspprqStackId :: Lens' DescribeStackProvisioningParameters Text
-dspprqStackId = lens _dspprqStackId (\ s a -> s{_dspprqStackId = a});
+dsppStackId :: Lens' DescribeStackProvisioningParameters Text
+dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a});
 
 instance AWSRequest
          DescribeStackProvisioningParameters where
@@ -99,7 +99,7 @@ instance ToHeaders
 instance ToJSON DescribeStackProvisioningParameters
          where
         toJSON DescribeStackProvisioningParameters'{..}
-          = object ["StackId" .= _dspprqStackId]
+          = object ["StackId" .= _dsppStackId]
 
 instance ToPath DescribeStackProvisioningParameters
          where

@@ -27,15 +27,15 @@ module Network.AWS.S3.PutBucketACL
     -- ** Request constructor
     , putBucketACL
     -- ** Request lenses
-    , pbarqGrantReadACP
-    , pbarqGrantWriteACP
-    , pbarqGrantRead
-    , pbarqGrantFullControl
-    , pbarqContentMD5
-    , pbarqAccessControlPolicy
-    , pbarqGrantWrite
-    , pbarqACL
-    , pbarqBucket
+    , pbaGrantReadACP
+    , pbaGrantWriteACP
+    , pbaGrantRead
+    , pbaGrantFullControl
+    , pbaContentMD5
+    , pbaAccessControlPolicy
+    , pbaGrantWrite
+    , pbaACL
+    , pbaBucket
 
     -- * Response
     , PutBucketACLResponse
@@ -52,87 +52,87 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbarqGrantReadACP'
+-- * 'pbaGrantReadACP'
 --
--- * 'pbarqGrantWriteACP'
+-- * 'pbaGrantWriteACP'
 --
--- * 'pbarqGrantRead'
+-- * 'pbaGrantRead'
 --
--- * 'pbarqGrantFullControl'
+-- * 'pbaGrantFullControl'
 --
--- * 'pbarqContentMD5'
+-- * 'pbaContentMD5'
 --
--- * 'pbarqAccessControlPolicy'
+-- * 'pbaAccessControlPolicy'
 --
--- * 'pbarqGrantWrite'
+-- * 'pbaGrantWrite'
 --
--- * 'pbarqACL'
+-- * 'pbaACL'
 --
--- * 'pbarqBucket'
+-- * 'pbaBucket'
 data PutBucketACL = PutBucketACL'
-    { _pbarqGrantReadACP        :: !(Maybe Text)
-    , _pbarqGrantWriteACP       :: !(Maybe Text)
-    , _pbarqGrantRead           :: !(Maybe Text)
-    , _pbarqGrantFullControl    :: !(Maybe Text)
-    , _pbarqContentMD5          :: !(Maybe Text)
-    , _pbarqAccessControlPolicy :: !(Maybe AccessControlPolicy)
-    , _pbarqGrantWrite          :: !(Maybe Text)
-    , _pbarqACL                 :: !(Maybe BucketCannedACL)
-    , _pbarqBucket              :: !BucketName
+    { _pbaGrantReadACP        :: !(Maybe Text)
+    , _pbaGrantWriteACP       :: !(Maybe Text)
+    , _pbaGrantRead           :: !(Maybe Text)
+    , _pbaGrantFullControl    :: !(Maybe Text)
+    , _pbaContentMD5          :: !(Maybe Text)
+    , _pbaAccessControlPolicy :: !(Maybe AccessControlPolicy)
+    , _pbaGrantWrite          :: !(Maybe Text)
+    , _pbaACL                 :: !(Maybe BucketCannedACL)
+    , _pbaBucket              :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketACL' smart constructor.
 putBucketACL :: BucketName -> PutBucketACL
 putBucketACL pBucket_ =
     PutBucketACL'
-    { _pbarqGrantReadACP = Nothing
-    , _pbarqGrantWriteACP = Nothing
-    , _pbarqGrantRead = Nothing
-    , _pbarqGrantFullControl = Nothing
-    , _pbarqContentMD5 = Nothing
-    , _pbarqAccessControlPolicy = Nothing
-    , _pbarqGrantWrite = Nothing
-    , _pbarqACL = Nothing
-    , _pbarqBucket = pBucket_
+    { _pbaGrantReadACP = Nothing
+    , _pbaGrantWriteACP = Nothing
+    , _pbaGrantRead = Nothing
+    , _pbaGrantFullControl = Nothing
+    , _pbaContentMD5 = Nothing
+    , _pbaAccessControlPolicy = Nothing
+    , _pbaGrantWrite = Nothing
+    , _pbaACL = Nothing
+    , _pbaBucket = pBucket_
     }
 
 -- | Allows grantee to read the bucket ACL.
-pbarqGrantReadACP :: Lens' PutBucketACL (Maybe Text)
-pbarqGrantReadACP = lens _pbarqGrantReadACP (\ s a -> s{_pbarqGrantReadACP = a});
+pbaGrantReadACP :: Lens' PutBucketACL (Maybe Text)
+pbaGrantReadACP = lens _pbaGrantReadACP (\ s a -> s{_pbaGrantReadACP = a});
 
 -- | Allows grantee to write the ACL for the applicable bucket.
-pbarqGrantWriteACP :: Lens' PutBucketACL (Maybe Text)
-pbarqGrantWriteACP = lens _pbarqGrantWriteACP (\ s a -> s{_pbarqGrantWriteACP = a});
+pbaGrantWriteACP :: Lens' PutBucketACL (Maybe Text)
+pbaGrantWriteACP = lens _pbaGrantWriteACP (\ s a -> s{_pbaGrantWriteACP = a});
 
 -- | Allows grantee to list the objects in the bucket.
-pbarqGrantRead :: Lens' PutBucketACL (Maybe Text)
-pbarqGrantRead = lens _pbarqGrantRead (\ s a -> s{_pbarqGrantRead = a});
+pbaGrantRead :: Lens' PutBucketACL (Maybe Text)
+pbaGrantRead = lens _pbaGrantRead (\ s a -> s{_pbaGrantRead = a});
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on
 -- the bucket.
-pbarqGrantFullControl :: Lens' PutBucketACL (Maybe Text)
-pbarqGrantFullControl = lens _pbarqGrantFullControl (\ s a -> s{_pbarqGrantFullControl = a});
+pbaGrantFullControl :: Lens' PutBucketACL (Maybe Text)
+pbaGrantFullControl = lens _pbaGrantFullControl (\ s a -> s{_pbaGrantFullControl = a});
 
 -- | FIXME: Undocumented member.
-pbarqContentMD5 :: Lens' PutBucketACL (Maybe Text)
-pbarqContentMD5 = lens _pbarqContentMD5 (\ s a -> s{_pbarqContentMD5 = a});
+pbaContentMD5 :: Lens' PutBucketACL (Maybe Text)
+pbaContentMD5 = lens _pbaContentMD5 (\ s a -> s{_pbaContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pbarqAccessControlPolicy :: Lens' PutBucketACL (Maybe AccessControlPolicy)
-pbarqAccessControlPolicy = lens _pbarqAccessControlPolicy (\ s a -> s{_pbarqAccessControlPolicy = a});
+pbaAccessControlPolicy :: Lens' PutBucketACL (Maybe AccessControlPolicy)
+pbaAccessControlPolicy = lens _pbaAccessControlPolicy (\ s a -> s{_pbaAccessControlPolicy = a});
 
 -- | Allows grantee to create, overwrite, and delete any object in the
 -- bucket.
-pbarqGrantWrite :: Lens' PutBucketACL (Maybe Text)
-pbarqGrantWrite = lens _pbarqGrantWrite (\ s a -> s{_pbarqGrantWrite = a});
+pbaGrantWrite :: Lens' PutBucketACL (Maybe Text)
+pbaGrantWrite = lens _pbaGrantWrite (\ s a -> s{_pbaGrantWrite = a});
 
 -- | The canned ACL to apply to the bucket.
-pbarqACL :: Lens' PutBucketACL (Maybe BucketCannedACL)
-pbarqACL = lens _pbarqACL (\ s a -> s{_pbarqACL = a});
+pbaACL :: Lens' PutBucketACL (Maybe BucketCannedACL)
+pbaACL = lens _pbaACL (\ s a -> s{_pbaACL = a});
 
 -- | FIXME: Undocumented member.
-pbarqBucket :: Lens' PutBucketACL BucketName
-pbarqBucket = lens _pbarqBucket (\ s a -> s{_pbarqBucket = a});
+pbaBucket :: Lens' PutBucketACL BucketName
+pbaBucket = lens _pbaBucket (\ s a -> s{_pbaBucket = a});
 
 instance AWSRequest PutBucketACL where
         type Sv PutBucketACL = S3
@@ -145,22 +145,22 @@ instance ToElement PutBucketACL where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}AccessControlPolicy"
               .
-              _pbarqAccessControlPolicy
+              _pbaAccessControlPolicy
 
 instance ToHeaders PutBucketACL where
         toHeaders PutBucketACL'{..}
           = mconcat
-              ["x-amz-grant-read-acp" =# _pbarqGrantReadACP,
-               "x-amz-grant-write-acp" =# _pbarqGrantWriteACP,
-               "x-amz-grant-read" =# _pbarqGrantRead,
-               "x-amz-grant-full-control" =# _pbarqGrantFullControl,
-               "Content-MD5" =# _pbarqContentMD5,
-               "x-amz-grant-write" =# _pbarqGrantWrite,
-               "x-amz-acl" =# _pbarqACL]
+              ["x-amz-grant-read-acp" =# _pbaGrantReadACP,
+               "x-amz-grant-write-acp" =# _pbaGrantWriteACP,
+               "x-amz-grant-read" =# _pbaGrantRead,
+               "x-amz-grant-full-control" =# _pbaGrantFullControl,
+               "Content-MD5" =# _pbaContentMD5,
+               "x-amz-grant-write" =# _pbaGrantWrite,
+               "x-amz-acl" =# _pbaACL]
 
 instance ToPath PutBucketACL where
         toPath PutBucketACL'{..}
-          = mconcat ["/", toText _pbarqBucket]
+          = mconcat ["/", toText _pbaBucket]
 
 instance ToQuery PutBucketACL where
         toQuery = const (mconcat ["acl"])

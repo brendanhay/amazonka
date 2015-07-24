@@ -38,10 +38,10 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     -- ** Request constructor
     , updateDomainContactPrivacy
     -- ** Request lenses
-    , udcprqTechPrivacy
-    , udcprqRegistrantPrivacy
-    , udcprqAdminPrivacy
-    , udcprqDomainName
+    , udcpTechPrivacy
+    , udcpRegistrantPrivacy
+    , udcpAdminPrivacy
+    , udcpDomainName
 
     -- * Response
     , UpdateDomainContactPrivacyResponse
@@ -63,28 +63,28 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udcprqTechPrivacy'
+-- * 'udcpTechPrivacy'
 --
--- * 'udcprqRegistrantPrivacy'
+-- * 'udcpRegistrantPrivacy'
 --
--- * 'udcprqAdminPrivacy'
+-- * 'udcpAdminPrivacy'
 --
--- * 'udcprqDomainName'
+-- * 'udcpDomainName'
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
-    { _udcprqTechPrivacy       :: !(Maybe Bool)
-    , _udcprqRegistrantPrivacy :: !(Maybe Bool)
-    , _udcprqAdminPrivacy      :: !(Maybe Bool)
-    , _udcprqDomainName        :: !Text
+    { _udcpTechPrivacy       :: !(Maybe Bool)
+    , _udcpRegistrantPrivacy :: !(Maybe Bool)
+    , _udcpAdminPrivacy      :: !(Maybe Bool)
+    , _udcpDomainName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContactPrivacy' smart constructor.
 updateDomainContactPrivacy :: Text -> UpdateDomainContactPrivacy
 updateDomainContactPrivacy pDomainName_ =
     UpdateDomainContactPrivacy'
-    { _udcprqTechPrivacy = Nothing
-    , _udcprqRegistrantPrivacy = Nothing
-    , _udcprqAdminPrivacy = Nothing
-    , _udcprqDomainName = pDomainName_
+    { _udcpTechPrivacy = Nothing
+    , _udcpRegistrantPrivacy = Nothing
+    , _udcpAdminPrivacy = Nothing
+    , _udcpDomainName = pDomainName_
     }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -99,8 +99,8 @@ updateDomainContactPrivacy pDomainName_ =
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-udcprqTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprqTechPrivacy = lens _udcprqTechPrivacy (\ s a -> s{_udcprqTechPrivacy = a});
+udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcpTechPrivacy = lens _udcpTechPrivacy (\ s a -> s{_udcpTechPrivacy = a});
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -114,8 +114,8 @@ udcprqTechPrivacy = lens _udcprqTechPrivacy (\ s a -> s{_udcprqTechPrivacy = a})
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-udcprqRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprqRegistrantPrivacy = lens _udcprqRegistrantPrivacy (\ s a -> s{_udcprqRegistrantPrivacy = a});
+udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcpRegistrantPrivacy = lens _udcpRegistrantPrivacy (\ s a -> s{_udcpRegistrantPrivacy = a});
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -129,8 +129,8 @@ udcprqRegistrantPrivacy = lens _udcprqRegistrantPrivacy (\ s a -> s{_udcprqRegis
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-udcprqAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcprqAdminPrivacy = lens _udcprqAdminPrivacy (\ s a -> s{_udcprqAdminPrivacy = a});
+udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcpAdminPrivacy = lens _udcpAdminPrivacy (\ s a -> s{_udcpAdminPrivacy = a});
 
 -- | The name of a domain.
 --
@@ -143,8 +143,8 @@ udcprqAdminPrivacy = lens _udcprqAdminPrivacy (\ s a -> s{_udcprqAdminPrivacy = 
 -- are not supported.
 --
 -- Required: Yes
-udcprqDomainName :: Lens' UpdateDomainContactPrivacy Text
-udcprqDomainName = lens _udcprqDomainName (\ s a -> s{_udcprqDomainName = a});
+udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
+udcpDomainName = lens _udcpDomainName (\ s a -> s{_udcpDomainName = a});
 
 instance AWSRequest UpdateDomainContactPrivacy where
         type Sv UpdateDomainContactPrivacy = Route53Domains
@@ -170,10 +170,10 @@ instance ToHeaders UpdateDomainContactPrivacy where
 instance ToJSON UpdateDomainContactPrivacy where
         toJSON UpdateDomainContactPrivacy'{..}
           = object
-              ["TechPrivacy" .= _udcprqTechPrivacy,
-               "RegistrantPrivacy" .= _udcprqRegistrantPrivacy,
-               "AdminPrivacy" .= _udcprqAdminPrivacy,
-               "DomainName" .= _udcprqDomainName]
+              ["TechPrivacy" .= _udcpTechPrivacy,
+               "RegistrantPrivacy" .= _udcpRegistrantPrivacy,
+               "AdminPrivacy" .= _udcpAdminPrivacy,
+               "DomainName" .= _udcpDomainName]
 
 instance ToPath UpdateDomainContactPrivacy where
         toPath = const "/"

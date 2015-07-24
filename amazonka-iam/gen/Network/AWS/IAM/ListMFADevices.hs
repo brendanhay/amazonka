@@ -33,9 +33,9 @@ module Network.AWS.IAM.ListMFADevices
     -- ** Request constructor
     , listMFADevices
     -- ** Request lenses
-    , lmdrqUserName
-    , lmdrqMaxItems
-    , lmdrqMarker
+    , lmdUserName
+    , lmdMaxItems
+    , lmdMarker
 
     -- * Response
     , ListMFADevicesResponse
@@ -58,29 +58,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmdrqUserName'
+-- * 'lmdUserName'
 --
--- * 'lmdrqMaxItems'
+-- * 'lmdMaxItems'
 --
--- * 'lmdrqMarker'
+-- * 'lmdMarker'
 data ListMFADevices = ListMFADevices'
-    { _lmdrqUserName :: !(Maybe Text)
-    , _lmdrqMaxItems :: !(Maybe Nat)
-    , _lmdrqMarker   :: !(Maybe Text)
+    { _lmdUserName :: !(Maybe Text)
+    , _lmdMaxItems :: !(Maybe Nat)
+    , _lmdMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMFADevices' smart constructor.
 listMFADevices :: ListMFADevices
 listMFADevices =
     ListMFADevices'
-    { _lmdrqUserName = Nothing
-    , _lmdrqMaxItems = Nothing
-    , _lmdrqMarker = Nothing
+    { _lmdUserName = Nothing
+    , _lmdMaxItems = Nothing
+    , _lmdMarker = Nothing
     }
 
 -- | The name of the user whose MFA devices you want to list.
-lmdrqUserName :: Lens' ListMFADevices (Maybe Text)
-lmdrqUserName = lens _lmdrqUserName (\ s a -> s{_lmdrqUserName = a});
+lmdUserName :: Lens' ListMFADevices (Maybe Text)
+lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -88,21 +88,21 @@ lmdrqUserName = lens _lmdrqUserName (\ s a -> s{_lmdrqUserName = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lmdrqMaxItems :: Lens' ListMFADevices (Maybe Natural)
-lmdrqMaxItems = lens _lmdrqMaxItems (\ s a -> s{_lmdrqMaxItems = a}) . mapping _Nat;
+lmdMaxItems :: Lens' ListMFADevices (Maybe Natural)
+lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lmdrqMarker :: Lens' ListMFADevices (Maybe Text)
-lmdrqMarker = lens _lmdrqMarker (\ s a -> s{_lmdrqMarker = a});
+lmdMarker :: Lens' ListMFADevices (Maybe Text)
+lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 
 instance AWSPager ListMFADevices where
         page rq rs
           | stop (rs ^. lmdrsIsTruncated) = Nothing
           | isNothing (rs ^. lmdrsMarker) = Nothing
           | otherwise =
-            Just $ rq & lmdrqMarker .~ rs ^. lmdrsMarker
+            Just $ rq & lmdMarker .~ rs ^. lmdrsMarker
 
 instance AWSRequest ListMFADevices where
         type Sv ListMFADevices = IAM
@@ -129,9 +129,8 @@ instance ToQuery ListMFADevices where
           = mconcat
               ["Action" =: ("ListMFADevices" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lmdrqUserName,
-               "MaxItems" =: _lmdrqMaxItems,
-               "Marker" =: _lmdrqMarker]
+               "UserName" =: _lmdUserName,
+               "MaxItems" =: _lmdMaxItems, "Marker" =: _lmdMarker]
 
 -- | Contains the response to a successful ListMFADevices request.
 --

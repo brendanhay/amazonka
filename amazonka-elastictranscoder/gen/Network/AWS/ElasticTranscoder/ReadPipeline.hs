@@ -27,7 +27,7 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     -- ** Request constructor
     , readPipeline
     -- ** Request lenses
-    , rrqId
+    , rId
 
     -- * Response
     , ReadPipelineResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrqId'
+-- * 'rId'
 newtype ReadPipeline = ReadPipeline'
-    { _rrqId :: Text
+    { _rId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPipeline' smart constructor.
 readPipeline :: Text -> ReadPipeline
 readPipeline pId_ =
     ReadPipeline'
-    { _rrqId = pId_
+    { _rId = pId_
     }
 
 -- | The identifier of the pipeline to read.
-rrqId :: Lens' ReadPipeline Text
-rrqId = lens _rrqId (\ s a -> s{_rrqId = a});
+rId :: Lens' ReadPipeline Text
+rId = lens _rId (\ s a -> s{_rId = a});
 
 instance AWSRequest ReadPipeline where
         type Sv ReadPipeline = ElasticTranscoder
@@ -82,7 +82,7 @@ instance ToHeaders ReadPipeline where
 
 instance ToPath ReadPipeline where
         toPath ReadPipeline'{..}
-          = mconcat ["/2012-09-25/pipelines/", toText _rrqId]
+          = mconcat ["/2012-09-25/pipelines/", toText _rId]
 
 instance ToQuery ReadPipeline where
         toQuery = const mempty

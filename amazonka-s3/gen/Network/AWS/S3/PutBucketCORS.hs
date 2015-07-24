@@ -27,9 +27,9 @@ module Network.AWS.S3.PutBucketCORS
     -- ** Request constructor
     , putBucketCORS
     -- ** Request lenses
-    , pbcrqContentMD5
-    , pbcrqCORSConfiguration
-    , pbcrqBucket
+    , pbcContentMD5
+    , pbcCORSConfiguration
+    , pbcBucket
 
     -- * Response
     , PutBucketCORSResponse
@@ -46,37 +46,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbcrqContentMD5'
+-- * 'pbcContentMD5'
 --
--- * 'pbcrqCORSConfiguration'
+-- * 'pbcCORSConfiguration'
 --
--- * 'pbcrqBucket'
+-- * 'pbcBucket'
 data PutBucketCORS = PutBucketCORS'
-    { _pbcrqContentMD5        :: !(Maybe Text)
-    , _pbcrqCORSConfiguration :: !(Maybe CORSConfiguration)
-    , _pbcrqBucket            :: !BucketName
+    { _pbcContentMD5        :: !(Maybe Text)
+    , _pbcCORSConfiguration :: !(Maybe CORSConfiguration)
+    , _pbcBucket            :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketCORS' smart constructor.
 putBucketCORS :: BucketName -> PutBucketCORS
 putBucketCORS pBucket_ =
     PutBucketCORS'
-    { _pbcrqContentMD5 = Nothing
-    , _pbcrqCORSConfiguration = Nothing
-    , _pbcrqBucket = pBucket_
+    { _pbcContentMD5 = Nothing
+    , _pbcCORSConfiguration = Nothing
+    , _pbcBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-pbcrqContentMD5 :: Lens' PutBucketCORS (Maybe Text)
-pbcrqContentMD5 = lens _pbcrqContentMD5 (\ s a -> s{_pbcrqContentMD5 = a});
+pbcContentMD5 :: Lens' PutBucketCORS (Maybe Text)
+pbcContentMD5 = lens _pbcContentMD5 (\ s a -> s{_pbcContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pbcrqCORSConfiguration :: Lens' PutBucketCORS (Maybe CORSConfiguration)
-pbcrqCORSConfiguration = lens _pbcrqCORSConfiguration (\ s a -> s{_pbcrqCORSConfiguration = a});
+pbcCORSConfiguration :: Lens' PutBucketCORS (Maybe CORSConfiguration)
+pbcCORSConfiguration = lens _pbcCORSConfiguration (\ s a -> s{_pbcCORSConfiguration = a});
 
 -- | FIXME: Undocumented member.
-pbcrqBucket :: Lens' PutBucketCORS BucketName
-pbcrqBucket = lens _pbcrqBucket (\ s a -> s{_pbcrqBucket = a});
+pbcBucket :: Lens' PutBucketCORS BucketName
+pbcBucket = lens _pbcBucket (\ s a -> s{_pbcBucket = a});
 
 instance AWSRequest PutBucketCORS where
         type Sv PutBucketCORS = S3
@@ -89,15 +89,15 @@ instance ToElement PutBucketCORS where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}CORSConfiguration"
               .
-              _pbcrqCORSConfiguration
+              _pbcCORSConfiguration
 
 instance ToHeaders PutBucketCORS where
         toHeaders PutBucketCORS'{..}
-          = mconcat ["Content-MD5" =# _pbcrqContentMD5]
+          = mconcat ["Content-MD5" =# _pbcContentMD5]
 
 instance ToPath PutBucketCORS where
         toPath PutBucketCORS'{..}
-          = mconcat ["/", toText _pbcrqBucket]
+          = mconcat ["/", toText _pbcBucket]
 
 instance ToQuery PutBucketCORS where
         toQuery = const (mconcat ["cors"])

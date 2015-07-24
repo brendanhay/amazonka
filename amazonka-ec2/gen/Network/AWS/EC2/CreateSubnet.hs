@@ -53,10 +53,10 @@ module Network.AWS.EC2.CreateSubnet
     -- ** Request constructor
     , createSubnet
     -- ** Request lenses
-    , crerqAvailabilityZone
-    , crerqDryRun
-    , crerqVPCId
-    , crerqCIdRBlock
+    , cssAvailabilityZone
+    , cssDryRun
+    , cssVPCId
+    , cssCIdRBlock
 
     -- * Response
     , CreateSubnetResponse
@@ -76,51 +76,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crerqAvailabilityZone'
+-- * 'cssAvailabilityZone'
 --
--- * 'crerqDryRun'
+-- * 'cssDryRun'
 --
--- * 'crerqVPCId'
+-- * 'cssVPCId'
 --
--- * 'crerqCIdRBlock'
+-- * 'cssCIdRBlock'
 data CreateSubnet = CreateSubnet'
-    { _crerqAvailabilityZone :: !(Maybe Text)
-    , _crerqDryRun           :: !(Maybe Bool)
-    , _crerqVPCId            :: !Text
-    , _crerqCIdRBlock        :: !Text
+    { _cssAvailabilityZone :: !(Maybe Text)
+    , _cssDryRun           :: !(Maybe Bool)
+    , _cssVPCId            :: !Text
+    , _cssCIdRBlock        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSubnet' smart constructor.
 createSubnet :: Text -> Text -> CreateSubnet
 createSubnet pVPCId_ pCIdRBlock_ =
     CreateSubnet'
-    { _crerqAvailabilityZone = Nothing
-    , _crerqDryRun = Nothing
-    , _crerqVPCId = pVPCId_
-    , _crerqCIdRBlock = pCIdRBlock_
+    { _cssAvailabilityZone = Nothing
+    , _cssDryRun = Nothing
+    , _cssVPCId = pVPCId_
+    , _cssCIdRBlock = pCIdRBlock_
     }
 
 -- | The Availability Zone for the subnet.
 --
 -- Default: Amazon EC2 selects one for you (recommended).
-crerqAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
-crerqAvailabilityZone = lens _crerqAvailabilityZone (\ s a -> s{_crerqAvailabilityZone = a});
+cssAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
+cssAvailabilityZone = lens _cssAvailabilityZone (\ s a -> s{_cssAvailabilityZone = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-crerqDryRun :: Lens' CreateSubnet (Maybe Bool)
-crerqDryRun = lens _crerqDryRun (\ s a -> s{_crerqDryRun = a});
+cssDryRun :: Lens' CreateSubnet (Maybe Bool)
+cssDryRun = lens _cssDryRun (\ s a -> s{_cssDryRun = a});
 
 -- | The ID of the VPC.
-crerqVPCId :: Lens' CreateSubnet Text
-crerqVPCId = lens _crerqVPCId (\ s a -> s{_crerqVPCId = a});
+cssVPCId :: Lens' CreateSubnet Text
+cssVPCId = lens _cssVPCId (\ s a -> s{_cssVPCId = a});
 
 -- | The network range for the subnet, in CIDR notation. For example,
 -- @10.0.0.0\/24@.
-crerqCIdRBlock :: Lens' CreateSubnet Text
-crerqCIdRBlock = lens _crerqCIdRBlock (\ s a -> s{_crerqCIdRBlock = a});
+cssCIdRBlock :: Lens' CreateSubnet Text
+cssCIdRBlock = lens _cssCIdRBlock (\ s a -> s{_cssCIdRBlock = a});
 
 instance AWSRequest CreateSubnet where
         type Sv CreateSubnet = EC2
@@ -143,9 +143,9 @@ instance ToQuery CreateSubnet where
           = mconcat
               ["Action" =: ("CreateSubnet" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AvailabilityZone" =: _crerqAvailabilityZone,
-               "DryRun" =: _crerqDryRun, "VpcId" =: _crerqVPCId,
-               "CidrBlock" =: _crerqCIdRBlock]
+               "AvailabilityZone" =: _cssAvailabilityZone,
+               "DryRun" =: _cssDryRun, "VpcId" =: _cssVPCId,
+               "CidrBlock" =: _cssCIdRBlock]
 
 -- | /See:/ 'createSubnetResponse' smart constructor.
 --

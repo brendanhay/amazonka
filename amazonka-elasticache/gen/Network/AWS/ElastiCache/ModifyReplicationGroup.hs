@@ -28,22 +28,22 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- ** Request constructor
     , modifyReplicationGroup
     -- ** Request lenses
-    , mrgrqAutomaticFailoverEnabled
-    , mrgrqEngineVersion
-    , mrgrqSnapshottingClusterId
-    , mrgrqSecurityGroupIds
-    , mrgrqAutoMinorVersionUpgrade
-    , mrgrqReplicationGroupDescription
-    , mrgrqCacheParameterGroupName
-    , mrgrqSnapshotWindow
-    , mrgrqPrimaryClusterId
-    , mrgrqPreferredMaintenanceWindow
-    , mrgrqSnapshotRetentionLimit
-    , mrgrqNotificationTopicStatus
-    , mrgrqApplyImmediately
-    , mrgrqNotificationTopicARN
-    , mrgrqCacheSecurityGroupNames
-    , mrgrqReplicationGroupId
+    , mrgAutomaticFailoverEnabled
+    , mrgEngineVersion
+    , mrgSnapshottingClusterId
+    , mrgSecurityGroupIds
+    , mrgAutoMinorVersionUpgrade
+    , mrgReplicationGroupDescription
+    , mrgCacheParameterGroupName
+    , mrgSnapshotWindow
+    , mrgPrimaryClusterId
+    , mrgPreferredMaintenanceWindow
+    , mrgSnapshotRetentionLimit
+    , mrgNotificationTopicStatus
+    , mrgApplyImmediately
+    , mrgNotificationTopicARN
+    , mrgCacheSecurityGroupNames
+    , mrgReplicationGroupId
 
     -- * Response
     , ModifyReplicationGroupResponse
@@ -65,76 +65,76 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mrgrqAutomaticFailoverEnabled'
+-- * 'mrgAutomaticFailoverEnabled'
 --
--- * 'mrgrqEngineVersion'
+-- * 'mrgEngineVersion'
 --
--- * 'mrgrqSnapshottingClusterId'
+-- * 'mrgSnapshottingClusterId'
 --
--- * 'mrgrqSecurityGroupIds'
+-- * 'mrgSecurityGroupIds'
 --
--- * 'mrgrqAutoMinorVersionUpgrade'
+-- * 'mrgAutoMinorVersionUpgrade'
 --
--- * 'mrgrqReplicationGroupDescription'
+-- * 'mrgReplicationGroupDescription'
 --
--- * 'mrgrqCacheParameterGroupName'
+-- * 'mrgCacheParameterGroupName'
 --
--- * 'mrgrqSnapshotWindow'
+-- * 'mrgSnapshotWindow'
 --
--- * 'mrgrqPrimaryClusterId'
+-- * 'mrgPrimaryClusterId'
 --
--- * 'mrgrqPreferredMaintenanceWindow'
+-- * 'mrgPreferredMaintenanceWindow'
 --
--- * 'mrgrqSnapshotRetentionLimit'
+-- * 'mrgSnapshotRetentionLimit'
 --
--- * 'mrgrqNotificationTopicStatus'
+-- * 'mrgNotificationTopicStatus'
 --
--- * 'mrgrqApplyImmediately'
+-- * 'mrgApplyImmediately'
 --
--- * 'mrgrqNotificationTopicARN'
+-- * 'mrgNotificationTopicARN'
 --
--- * 'mrgrqCacheSecurityGroupNames'
+-- * 'mrgCacheSecurityGroupNames'
 --
--- * 'mrgrqReplicationGroupId'
+-- * 'mrgReplicationGroupId'
 data ModifyReplicationGroup = ModifyReplicationGroup'
-    { _mrgrqAutomaticFailoverEnabled    :: !(Maybe Bool)
-    , _mrgrqEngineVersion               :: !(Maybe Text)
-    , _mrgrqSnapshottingClusterId       :: !(Maybe Text)
-    , _mrgrqSecurityGroupIds            :: !(Maybe [Text])
-    , _mrgrqAutoMinorVersionUpgrade     :: !(Maybe Bool)
-    , _mrgrqReplicationGroupDescription :: !(Maybe Text)
-    , _mrgrqCacheParameterGroupName     :: !(Maybe Text)
-    , _mrgrqSnapshotWindow              :: !(Maybe Text)
-    , _mrgrqPrimaryClusterId            :: !(Maybe Text)
-    , _mrgrqPreferredMaintenanceWindow  :: !(Maybe Text)
-    , _mrgrqSnapshotRetentionLimit      :: !(Maybe Int)
-    , _mrgrqNotificationTopicStatus     :: !(Maybe Text)
-    , _mrgrqApplyImmediately            :: !(Maybe Bool)
-    , _mrgrqNotificationTopicARN        :: !(Maybe Text)
-    , _mrgrqCacheSecurityGroupNames     :: !(Maybe [Text])
-    , _mrgrqReplicationGroupId          :: !Text
+    { _mrgAutomaticFailoverEnabled    :: !(Maybe Bool)
+    , _mrgEngineVersion               :: !(Maybe Text)
+    , _mrgSnapshottingClusterId       :: !(Maybe Text)
+    , _mrgSecurityGroupIds            :: !(Maybe [Text])
+    , _mrgAutoMinorVersionUpgrade     :: !(Maybe Bool)
+    , _mrgReplicationGroupDescription :: !(Maybe Text)
+    , _mrgCacheParameterGroupName     :: !(Maybe Text)
+    , _mrgSnapshotWindow              :: !(Maybe Text)
+    , _mrgPrimaryClusterId            :: !(Maybe Text)
+    , _mrgPreferredMaintenanceWindow  :: !(Maybe Text)
+    , _mrgSnapshotRetentionLimit      :: !(Maybe Int)
+    , _mrgNotificationTopicStatus     :: !(Maybe Text)
+    , _mrgApplyImmediately            :: !(Maybe Bool)
+    , _mrgNotificationTopicARN        :: !(Maybe Text)
+    , _mrgCacheSecurityGroupNames     :: !(Maybe [Text])
+    , _mrgReplicationGroupId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReplicationGroup' smart constructor.
 modifyReplicationGroup :: Text -> ModifyReplicationGroup
 modifyReplicationGroup pReplicationGroupId_ =
     ModifyReplicationGroup'
-    { _mrgrqAutomaticFailoverEnabled = Nothing
-    , _mrgrqEngineVersion = Nothing
-    , _mrgrqSnapshottingClusterId = Nothing
-    , _mrgrqSecurityGroupIds = Nothing
-    , _mrgrqAutoMinorVersionUpgrade = Nothing
-    , _mrgrqReplicationGroupDescription = Nothing
-    , _mrgrqCacheParameterGroupName = Nothing
-    , _mrgrqSnapshotWindow = Nothing
-    , _mrgrqPrimaryClusterId = Nothing
-    , _mrgrqPreferredMaintenanceWindow = Nothing
-    , _mrgrqSnapshotRetentionLimit = Nothing
-    , _mrgrqNotificationTopicStatus = Nothing
-    , _mrgrqApplyImmediately = Nothing
-    , _mrgrqNotificationTopicARN = Nothing
-    , _mrgrqCacheSecurityGroupNames = Nothing
-    , _mrgrqReplicationGroupId = pReplicationGroupId_
+    { _mrgAutomaticFailoverEnabled = Nothing
+    , _mrgEngineVersion = Nothing
+    , _mrgSnapshottingClusterId = Nothing
+    , _mrgSecurityGroupIds = Nothing
+    , _mrgAutoMinorVersionUpgrade = Nothing
+    , _mrgReplicationGroupDescription = Nothing
+    , _mrgCacheParameterGroupName = Nothing
+    , _mrgSnapshotWindow = Nothing
+    , _mrgPrimaryClusterId = Nothing
+    , _mrgPreferredMaintenanceWindow = Nothing
+    , _mrgSnapshotRetentionLimit = Nothing
+    , _mrgNotificationTopicStatus = Nothing
+    , _mrgApplyImmediately = Nothing
+    , _mrgNotificationTopicARN = Nothing
+    , _mrgCacheSecurityGroupNames = Nothing
+    , _mrgReplicationGroupId = pReplicationGroupId_
     }
 
 -- | Whether a read replica will be automatically promoted to read\/write
@@ -146,42 +146,42 @@ modifyReplicationGroup pReplicationGroupId_ =
 --
 -- -   Redis versions earlier than 2.8.6.
 -- -   T1 and T2 cache node types.
-mrgrqAutomaticFailoverEnabled :: Lens' ModifyReplicationGroup (Maybe Bool)
-mrgrqAutomaticFailoverEnabled = lens _mrgrqAutomaticFailoverEnabled (\ s a -> s{_mrgrqAutomaticFailoverEnabled = a});
+mrgAutomaticFailoverEnabled :: Lens' ModifyReplicationGroup (Maybe Bool)
+mrgAutomaticFailoverEnabled = lens _mrgAutomaticFailoverEnabled (\ s a -> s{_mrgAutomaticFailoverEnabled = a});
 
 -- | The upgraded version of the cache engine to be run on the cache clusters
 -- in the replication group.
-mrgrqEngineVersion :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqEngineVersion = lens _mrgrqEngineVersion (\ s a -> s{_mrgrqEngineVersion = a});
+mrgEngineVersion :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgEngineVersion = lens _mrgEngineVersion (\ s a -> s{_mrgEngineVersion = a});
 
 -- | The cache cluster ID that will be used as the daily snapshot source for
 -- the replication group.
-mrgrqSnapshottingClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqSnapshottingClusterId = lens _mrgrqSnapshottingClusterId (\ s a -> s{_mrgrqSnapshottingClusterId = a});
+mrgSnapshottingClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgSnapshottingClusterId = lens _mrgSnapshottingClusterId (\ s a -> s{_mrgSnapshottingClusterId = a});
 
 -- | Specifies the VPC Security Groups associated with the cache clusters in
 -- the replication group.
 --
 -- This parameter can be used only with replication group containing cache
 -- clusters running in an Amazon Virtual Private Cloud (VPC).
-mrgrqSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
-mrgrqSecurityGroupIds = lens _mrgrqSecurityGroupIds (\ s a -> s{_mrgrqSecurityGroupIds = a}) . _Default;
+mrgSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
+mrgSecurityGroupIds = lens _mrgSecurityGroupIds (\ s a -> s{_mrgSecurityGroupIds = a}) . _Default;
 
 -- | This parameter is currently disabled.
-mrgrqAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
-mrgrqAutoMinorVersionUpgrade = lens _mrgrqAutoMinorVersionUpgrade (\ s a -> s{_mrgrqAutoMinorVersionUpgrade = a});
+mrgAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
+mrgAutoMinorVersionUpgrade = lens _mrgAutoMinorVersionUpgrade (\ s a -> s{_mrgAutoMinorVersionUpgrade = a});
 
 -- | A description for the replication group. Maximum length is 255
 -- characters.
-mrgrqReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqReplicationGroupDescription = lens _mrgrqReplicationGroupDescription (\ s a -> s{_mrgrqReplicationGroupDescription = a});
+mrgReplicationGroupDescription :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgReplicationGroupDescription = lens _mrgReplicationGroupDescription (\ s a -> s{_mrgReplicationGroupDescription = a});
 
 -- | The name of the cache parameter group to apply to all of the clusters in
 -- this replication group. This change is asynchronously applied as soon as
 -- possible for parameters when the /ApplyImmediately/ parameter is
 -- specified as /true/ for this request.
-mrgrqCacheParameterGroupName :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqCacheParameterGroupName = lens _mrgrqCacheParameterGroupName (\ s a -> s{_mrgrqCacheParameterGroupName = a});
+mrgCacheParameterGroupName :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgCacheParameterGroupName = lens _mrgCacheParameterGroupName (\ s a -> s{_mrgCacheParameterGroupName = a});
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of the node group specified by /SnapshottingClusterId/.
@@ -190,15 +190,15 @@ mrgrqCacheParameterGroupName = lens _mrgrqCacheParameterGroupName (\ s a -> s{_m
 --
 -- If you do not specify this parameter, then ElastiCache will
 -- automatically choose an appropriate time range.
-mrgrqSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqSnapshotWindow = lens _mrgrqSnapshotWindow (\ s a -> s{_mrgrqSnapshotWindow = a});
+mrgSnapshotWindow :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgSnapshotWindow = lens _mrgSnapshotWindow (\ s a -> s{_mrgSnapshotWindow = a});
 
 -- | If this parameter is specified, ElastiCache will promote each of the
 -- cache clusters in the specified replication group to the primary role.
 -- The nodes of all other cache clusters in the replication group will be
 -- read replicas.
-mrgrqPrimaryClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqPrimaryClusterId = lens _mrgrqPrimaryClusterId (\ s a -> s{_mrgrqPrimaryClusterId = a});
+mrgPrimaryClusterId :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgPrimaryClusterId = lens _mrgPrimaryClusterId (\ s a -> s{_mrgPrimaryClusterId = a});
 
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
@@ -214,8 +214,8 @@ mrgrqPrimaryClusterId = lens _mrgrqPrimaryClusterId (\ s a -> s{_mrgrqPrimaryClu
 -- -   @sat@
 --
 -- Example: @sun:05:00-sun:09:00@
-mrgrqPreferredMaintenanceWindow :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqPreferredMaintenanceWindow = lens _mrgrqPreferredMaintenanceWindow (\ s a -> s{_mrgrqPreferredMaintenanceWindow = a});
+mrgPreferredMaintenanceWindow :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgPreferredMaintenanceWindow = lens _mrgPreferredMaintenanceWindow (\ s a -> s{_mrgPreferredMaintenanceWindow = a});
 
 -- | The number of days for which ElastiCache will retain automatic node
 -- group snapshots before deleting them. For example, if you set
@@ -225,15 +225,15 @@ mrgrqPreferredMaintenanceWindow = lens _mrgrqPreferredMaintenanceWindow (\ s a -
 -- __Important__
 -- If the value of SnapshotRetentionLimit is set to zero (0), backups are
 -- turned off.
-mrgrqSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Int)
-mrgrqSnapshotRetentionLimit = lens _mrgrqSnapshotRetentionLimit (\ s a -> s{_mrgrqSnapshotRetentionLimit = a});
+mrgSnapshotRetentionLimit :: Lens' ModifyReplicationGroup (Maybe Int)
+mrgSnapshotRetentionLimit = lens _mrgSnapshotRetentionLimit (\ s a -> s{_mrgSnapshotRetentionLimit = a});
 
 -- | The status of the Amazon SNS notification topic for the replication
 -- group. Notifications are sent only if the status is /active/.
 --
 -- Valid values: @active@ | @inactive@
-mrgrqNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqNotificationTopicStatus = lens _mrgrqNotificationTopicStatus (\ s a -> s{_mrgrqNotificationTopicStatus = a});
+mrgNotificationTopicStatus :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgNotificationTopicStatus = lens _mrgNotificationTopicStatus (\ s a -> s{_mrgNotificationTopicStatus = a});
 
 -- | If @true@, this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
@@ -247,15 +247,15 @@ mrgrqNotificationTopicStatus = lens _mrgrqNotificationTopicStatus (\ s a -> s{_m
 -- Valid values: @true@ | @false@
 --
 -- Default: @false@
-mrgrqApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
-mrgrqApplyImmediately = lens _mrgrqApplyImmediately (\ s a -> s{_mrgrqApplyImmediately = a});
+mrgApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
+mrgApplyImmediately = lens _mrgApplyImmediately (\ s a -> s{_mrgApplyImmediately = a});
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications will be sent.
 --
 -- The Amazon SNS topic owner must be same as the replication group owner.
-mrgrqNotificationTopicARN :: Lens' ModifyReplicationGroup (Maybe Text)
-mrgrqNotificationTopicARN = lens _mrgrqNotificationTopicARN (\ s a -> s{_mrgrqNotificationTopicARN = a});
+mrgNotificationTopicARN :: Lens' ModifyReplicationGroup (Maybe Text)
+mrgNotificationTopicARN = lens _mrgNotificationTopicARN (\ s a -> s{_mrgNotificationTopicARN = a});
 
 -- | A list of cache security group names to authorize for the clusters in
 -- this replication group. This change is asynchronously applied as soon as
@@ -266,12 +266,12 @@ mrgrqNotificationTopicARN = lens _mrgrqNotificationTopicARN (\ s a -> s{_mrgrqNo
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
-mrgrqCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
-mrgrqCacheSecurityGroupNames = lens _mrgrqCacheSecurityGroupNames (\ s a -> s{_mrgrqCacheSecurityGroupNames = a}) . _Default;
+mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
+mrgCacheSecurityGroupNames = lens _mrgCacheSecurityGroupNames (\ s a -> s{_mrgCacheSecurityGroupNames = a}) . _Default;
 
 -- | The identifier of the replication group to modify.
-mrgrqReplicationGroupId :: Lens' ModifyReplicationGroup Text
-mrgrqReplicationGroupId = lens _mrgrqReplicationGroupId (\ s a -> s{_mrgrqReplicationGroupId = a});
+mrgReplicationGroupId :: Lens' ModifyReplicationGroup Text
+mrgReplicationGroupId = lens _mrgReplicationGroupId (\ s a -> s{_mrgReplicationGroupId = a});
 
 instance AWSRequest ModifyReplicationGroup where
         type Sv ModifyReplicationGroup = ElastiCache
@@ -297,35 +297,34 @@ instance ToQuery ModifyReplicationGroup where
                  ("ModifyReplicationGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "AutomaticFailoverEnabled" =:
-                 _mrgrqAutomaticFailoverEnabled,
-               "EngineVersion" =: _mrgrqEngineVersion,
-               "SnapshottingClusterId" =:
-                 _mrgrqSnapshottingClusterId,
+                 _mrgAutomaticFailoverEnabled,
+               "EngineVersion" =: _mrgEngineVersion,
+               "SnapshottingClusterId" =: _mrgSnapshottingClusterId,
                "SecurityGroupIds" =:
                  toQuery
                    (toQueryList "SecurityGroupId" <$>
-                      _mrgrqSecurityGroupIds),
+                      _mrgSecurityGroupIds),
                "AutoMinorVersionUpgrade" =:
-                 _mrgrqAutoMinorVersionUpgrade,
+                 _mrgAutoMinorVersionUpgrade,
                "ReplicationGroupDescription" =:
-                 _mrgrqReplicationGroupDescription,
+                 _mrgReplicationGroupDescription,
                "CacheParameterGroupName" =:
-                 _mrgrqCacheParameterGroupName,
-               "SnapshotWindow" =: _mrgrqSnapshotWindow,
-               "PrimaryClusterId" =: _mrgrqPrimaryClusterId,
+                 _mrgCacheParameterGroupName,
+               "SnapshotWindow" =: _mrgSnapshotWindow,
+               "PrimaryClusterId" =: _mrgPrimaryClusterId,
                "PreferredMaintenanceWindow" =:
-                 _mrgrqPreferredMaintenanceWindow,
+                 _mrgPreferredMaintenanceWindow,
                "SnapshotRetentionLimit" =:
-                 _mrgrqSnapshotRetentionLimit,
+                 _mrgSnapshotRetentionLimit,
                "NotificationTopicStatus" =:
-                 _mrgrqNotificationTopicStatus,
-               "ApplyImmediately" =: _mrgrqApplyImmediately,
-               "NotificationTopicArn" =: _mrgrqNotificationTopicARN,
+                 _mrgNotificationTopicStatus,
+               "ApplyImmediately" =: _mrgApplyImmediately,
+               "NotificationTopicArn" =: _mrgNotificationTopicARN,
                "CacheSecurityGroupNames" =:
                  toQuery
                    (toQueryList "CacheSecurityGroupName" <$>
-                      _mrgrqCacheSecurityGroupNames),
-               "ReplicationGroupId" =: _mrgrqReplicationGroupId]
+                      _mrgCacheSecurityGroupNames),
+               "ReplicationGroupId" =: _mrgReplicationGroupId]
 
 -- | /See:/ 'modifyReplicationGroupResponse' smart constructor.
 --

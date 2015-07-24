@@ -36,7 +36,7 @@ module Network.AWS.IAM.DeleteInstanceProfile
     -- ** Request constructor
     , deleteInstanceProfile
     -- ** Request lenses
-    , diprqInstanceProfileName
+    , dipInstanceProfileName
 
     -- * Response
     , DeleteInstanceProfileResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diprqInstanceProfileName'
+-- * 'dipInstanceProfileName'
 newtype DeleteInstanceProfile = DeleteInstanceProfile'
-    { _diprqInstanceProfileName :: Text
+    { _dipInstanceProfileName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstanceProfile' smart constructor.
 deleteInstanceProfile :: Text -> DeleteInstanceProfile
 deleteInstanceProfile pInstanceProfileName_ =
     DeleteInstanceProfile'
-    { _diprqInstanceProfileName = pInstanceProfileName_
+    { _dipInstanceProfileName = pInstanceProfileName_
     }
 
 -- | The name of the instance profile to delete.
-diprqInstanceProfileName :: Lens' DeleteInstanceProfile Text
-diprqInstanceProfileName = lens _diprqInstanceProfileName (\ s a -> s{_diprqInstanceProfileName = a});
+dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
+dipInstanceProfileName = lens _dipInstanceProfileName (\ s a -> s{_dipInstanceProfileName = a});
 
 instance AWSRequest DeleteInstanceProfile where
         type Sv DeleteInstanceProfile = IAM
@@ -87,7 +87,7 @@ instance ToQuery DeleteInstanceProfile where
           = mconcat
               ["Action" =: ("DeleteInstanceProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "InstanceProfileName" =: _diprqInstanceProfileName]
+               "InstanceProfileName" =: _dipInstanceProfileName]
 
 -- | /See:/ 'deleteInstanceProfileResponse' smart constructor.
 data DeleteInstanceProfileResponse =

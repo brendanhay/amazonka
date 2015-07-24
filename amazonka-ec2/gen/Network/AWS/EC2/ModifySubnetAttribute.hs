@@ -27,8 +27,8 @@ module Network.AWS.EC2.ModifySubnetAttribute
     -- ** Request constructor
     , modifySubnetAttribute
     -- ** Request lenses
-    , msarqMapPublicIPOnLaunch
-    , msarqSubnetId
+    , msaMapPublicIPOnLaunch
+    , msaSubnetId
 
     -- * Response
     , ModifySubnetAttributeResponse
@@ -45,30 +45,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'msarqMapPublicIPOnLaunch'
+-- * 'msaMapPublicIPOnLaunch'
 --
--- * 'msarqSubnetId'
+-- * 'msaSubnetId'
 data ModifySubnetAttribute = ModifySubnetAttribute'
-    { _msarqMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
-    , _msarqSubnetId            :: !Text
+    { _msaMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
+    , _msaSubnetId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySubnetAttribute' smart constructor.
 modifySubnetAttribute :: Text -> ModifySubnetAttribute
 modifySubnetAttribute pSubnetId_ =
     ModifySubnetAttribute'
-    { _msarqMapPublicIPOnLaunch = Nothing
-    , _msarqSubnetId = pSubnetId_
+    { _msaMapPublicIPOnLaunch = Nothing
+    , _msaSubnetId = pSubnetId_
     }
 
 -- | Specify @true@ to indicate that instances launched into the specified
 -- subnet should be assigned public IP address.
-msarqMapPublicIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
-msarqMapPublicIPOnLaunch = lens _msarqMapPublicIPOnLaunch (\ s a -> s{_msarqMapPublicIPOnLaunch = a});
+msaMapPublicIPOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
+msaMapPublicIPOnLaunch = lens _msaMapPublicIPOnLaunch (\ s a -> s{_msaMapPublicIPOnLaunch = a});
 
 -- | The ID of the subnet.
-msarqSubnetId :: Lens' ModifySubnetAttribute Text
-msarqSubnetId = lens _msarqSubnetId (\ s a -> s{_msarqSubnetId = a});
+msaSubnetId :: Lens' ModifySubnetAttribute Text
+msaSubnetId = lens _msaSubnetId (\ s a -> s{_msaSubnetId = a});
 
 instance AWSRequest ModifySubnetAttribute where
         type Sv ModifySubnetAttribute = EC2
@@ -88,8 +88,8 @@ instance ToQuery ModifySubnetAttribute where
           = mconcat
               ["Action" =: ("ModifySubnetAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "MapPublicIpOnLaunch" =: _msarqMapPublicIPOnLaunch,
-               "SubnetId" =: _msarqSubnetId]
+               "MapPublicIpOnLaunch" =: _msaMapPublicIPOnLaunch,
+               "SubnetId" =: _msaSubnetId]
 
 -- | /See:/ 'modifySubnetAttributeResponse' smart constructor.
 data ModifySubnetAttributeResponse =

@@ -54,10 +54,10 @@ module Network.AWS.EFS.DescribeFileSystems
     -- ** Request constructor
     , describeFileSystems
     -- ** Request lenses
-    , dfsrqFileSystemId
-    , dfsrqMaxItems
-    , dfsrqCreationToken
-    , dfsrqMarker
+    , dfsFileSystemId
+    , dfsMaxItems
+    , dfsCreationToken
+    , dfsMarker
 
     -- * Response
     , DescribeFileSystemsResponse
@@ -79,53 +79,53 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dfsrqFileSystemId'
+-- * 'dfsFileSystemId'
 --
--- * 'dfsrqMaxItems'
+-- * 'dfsMaxItems'
 --
--- * 'dfsrqCreationToken'
+-- * 'dfsCreationToken'
 --
--- * 'dfsrqMarker'
+-- * 'dfsMarker'
 data DescribeFileSystems = DescribeFileSystems'
-    { _dfsrqFileSystemId  :: !(Maybe Text)
-    , _dfsrqMaxItems      :: !(Maybe Nat)
-    , _dfsrqCreationToken :: !(Maybe Text)
-    , _dfsrqMarker        :: !(Maybe Text)
+    { _dfsFileSystemId  :: !(Maybe Text)
+    , _dfsMaxItems      :: !(Maybe Nat)
+    , _dfsCreationToken :: !(Maybe Text)
+    , _dfsMarker        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFileSystems' smart constructor.
 describeFileSystems :: DescribeFileSystems
 describeFileSystems =
     DescribeFileSystems'
-    { _dfsrqFileSystemId = Nothing
-    , _dfsrqMaxItems = Nothing
-    , _dfsrqCreationToken = Nothing
-    , _dfsrqMarker = Nothing
+    { _dfsFileSystemId = Nothing
+    , _dfsMaxItems = Nothing
+    , _dfsCreationToken = Nothing
+    , _dfsMarker = Nothing
     }
 
 -- | Optional string. File system ID whose description you want to retrieve.
-dfsrqFileSystemId :: Lens' DescribeFileSystems (Maybe Text)
-dfsrqFileSystemId = lens _dfsrqFileSystemId (\ s a -> s{_dfsrqFileSystemId = a});
+dfsFileSystemId :: Lens' DescribeFileSystems (Maybe Text)
+dfsFileSystemId = lens _dfsFileSystemId (\ s a -> s{_dfsFileSystemId = a});
 
 -- | Optional integer. Specifies the maximum number of file systems to return
 -- in the response. This parameter value must be greater than 0. The number
 -- of items Amazon EFS returns will be the minimum of the @MaxItems@
 -- parameter specified in the request and the service\'s internal maximum
 -- number of items per page.
-dfsrqMaxItems :: Lens' DescribeFileSystems (Maybe Natural)
-dfsrqMaxItems = lens _dfsrqMaxItems (\ s a -> s{_dfsrqMaxItems = a}) . mapping _Nat;
+dfsMaxItems :: Lens' DescribeFileSystems (Maybe Natural)
+dfsMaxItems = lens _dfsMaxItems (\ s a -> s{_dfsMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. Restricts the list to the file system with this
 -- creation token (you specify a creation token at the time of creating an
 -- Amazon EFS file system).
-dfsrqCreationToken :: Lens' DescribeFileSystems (Maybe Text)
-dfsrqCreationToken = lens _dfsrqCreationToken (\ s a -> s{_dfsrqCreationToken = a});
+dfsCreationToken :: Lens' DescribeFileSystems (Maybe Text)
+dfsCreationToken = lens _dfsCreationToken (\ s a -> s{_dfsCreationToken = a});
 
 -- | Optional string. Opaque pagination token returned from a previous
 -- @DescribeFileSystems@ operation. If present, specifies to continue the
 -- list from where the returning call had left off.
-dfsrqMarker :: Lens' DescribeFileSystems (Maybe Text)
-dfsrqMarker = lens _dfsrqMarker (\ s a -> s{_dfsrqMarker = a});
+dfsMarker :: Lens' DescribeFileSystems (Maybe Text)
+dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a});
 
 instance AWSRequest DescribeFileSystems where
         type Sv DescribeFileSystems = EFS
@@ -149,10 +149,10 @@ instance ToPath DescribeFileSystems where
 instance ToQuery DescribeFileSystems where
         toQuery DescribeFileSystems'{..}
           = mconcat
-              ["FileSystemId" =: _dfsrqFileSystemId,
-               "MaxItems" =: _dfsrqMaxItems,
-               "CreationToken" =: _dfsrqCreationToken,
-               "Marker" =: _dfsrqMarker]
+              ["FileSystemId" =: _dfsFileSystemId,
+               "MaxItems" =: _dfsMaxItems,
+               "CreationToken" =: _dfsCreationToken,
+               "Marker" =: _dfsMarker]
 
 -- | /See:/ 'describeFileSystemsResponse' smart constructor.
 --

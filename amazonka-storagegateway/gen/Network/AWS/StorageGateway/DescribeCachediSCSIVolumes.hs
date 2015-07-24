@@ -33,7 +33,7 @@ module Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
     -- ** Request constructor
     , describeCachediSCSIVolumes
     -- ** Request lenses
-    , dcscsivrqVolumeARNs
+    , dcscsivVolumeARNs
 
     -- * Response
     , DescribeCachediSCSIVolumesResponse
@@ -53,21 +53,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcscsivrqVolumeARNs'
+-- * 'dcscsivVolumeARNs'
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
-    { _dcscsivrqVolumeARNs :: [Text]
+    { _dcscsivVolumeARNs :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCachediSCSIVolumes' smart constructor.
 describeCachediSCSIVolumes :: DescribeCachediSCSIVolumes
 describeCachediSCSIVolumes =
     DescribeCachediSCSIVolumes'
-    { _dcscsivrqVolumeARNs = mempty
+    { _dcscsivVolumeARNs = mempty
     }
 
 -- | FIXME: Undocumented member.
-dcscsivrqVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
-dcscsivrqVolumeARNs = lens _dcscsivrqVolumeARNs (\ s a -> s{_dcscsivrqVolumeARNs = a});
+dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
+dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\ s a -> s{_dcscsivVolumeARNs = a});
 
 instance AWSRequest DescribeCachediSCSIVolumes where
         type Sv DescribeCachediSCSIVolumes = StorageGateway
@@ -93,7 +93,7 @@ instance ToHeaders DescribeCachediSCSIVolumes where
 
 instance ToJSON DescribeCachediSCSIVolumes where
         toJSON DescribeCachediSCSIVolumes'{..}
-          = object ["VolumeARNs" .= _dcscsivrqVolumeARNs]
+          = object ["VolumeARNs" .= _dcscsivVolumeARNs]
 
 instance ToPath DescribeCachediSCSIVolumes where
         toPath = const "/"

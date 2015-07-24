@@ -28,8 +28,8 @@ module Network.AWS.ElastiCache.RemoveTagsFromResource
     -- ** Request constructor
     , removeTagsFromResource
     -- ** Request lenses
-    , rtfrrqResourceName
-    , rtfrrqTagKeys
+    , rtfrResourceName
+    , rtfrTagKeys
 
     -- * Response
     , TagListMessage
@@ -50,34 +50,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtfrrqResourceName'
+-- * 'rtfrResourceName'
 --
--- * 'rtfrrqTagKeys'
+-- * 'rtfrTagKeys'
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrrqResourceName :: !Text
-    , _rtfrrqTagKeys      :: ![Text]
+    { _rtfrResourceName :: !Text
+    , _rtfrTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromResource' smart constructor.
 removeTagsFromResource :: Text -> RemoveTagsFromResource
 removeTagsFromResource pResourceName_ =
     RemoveTagsFromResource'
-    { _rtfrrqResourceName = pResourceName_
-    , _rtfrrqTagKeys = mempty
+    { _rtfrResourceName = pResourceName_
+    , _rtfrTagKeys = mempty
     }
 
 -- | The name of the ElastiCache resource from which you want the listed tags
 -- removed, for example
 -- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
-rtfrrqResourceName :: Lens' RemoveTagsFromResource Text
-rtfrrqResourceName = lens _rtfrrqResourceName (\ s a -> s{_rtfrrqResourceName = a});
+rtfrResourceName :: Lens' RemoveTagsFromResource Text
+rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
 
 -- | A list of @TagKeys@ identifying the tags you want removed from the named
 -- resource. For example, @TagKeys.member.1=Region@ removes the cost
 -- allocation tag with the key name @Region@ from the resource named by the
 -- /ResourceName/ parameter.
-rtfrrqTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrrqTagKeys = lens _rtfrrqTagKeys (\ s a -> s{_rtfrrqTagKeys = a});
+rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
+rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a});
 
 instance AWSRequest RemoveTagsFromResource where
         type Sv RemoveTagsFromResource = ElastiCache
@@ -99,5 +99,5 @@ instance ToQuery RemoveTagsFromResource where
               ["Action" =:
                  ("RemoveTagsFromResource" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "ResourceName" =: _rtfrrqResourceName,
-               "TagKeys" =: toQueryList "member" _rtfrrqTagKeys]
+               "ResourceName" =: _rtfrResourceName,
+               "TagKeys" =: toQueryList "member" _rtfrTagKeys]

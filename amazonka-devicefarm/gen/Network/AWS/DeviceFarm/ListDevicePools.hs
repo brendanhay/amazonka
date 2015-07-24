@@ -27,9 +27,9 @@ module Network.AWS.DeviceFarm.ListDevicePools
     -- ** Request constructor
     , listDevicePools
     -- ** Request lenses
-    , ldprqNextToken
-    , ldprqType
-    , ldprqArn
+    , ldpNextToken
+    , ldpType
+    , ldpArn
 
     -- * Response
     , ListDevicePoolsResponse
@@ -52,31 +52,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldprqNextToken'
+-- * 'ldpNextToken'
 --
--- * 'ldprqType'
+-- * 'ldpType'
 --
--- * 'ldprqArn'
+-- * 'ldpArn'
 data ListDevicePools = ListDevicePools'
-    { _ldprqNextToken :: !(Maybe Text)
-    , _ldprqType      :: !(Maybe DevicePoolType)
-    , _ldprqArn       :: !Text
+    { _ldpNextToken :: !(Maybe Text)
+    , _ldpType      :: !(Maybe DevicePoolType)
+    , _ldpArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevicePools' smart constructor.
 listDevicePools :: Text -> ListDevicePools
 listDevicePools pArn_ =
     ListDevicePools'
-    { _ldprqNextToken = Nothing
-    , _ldprqType = Nothing
-    , _ldprqArn = pArn_
+    { _ldpNextToken = Nothing
+    , _ldpType = Nothing
+    , _ldpArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-ldprqNextToken :: Lens' ListDevicePools (Maybe Text)
-ldprqNextToken = lens _ldprqNextToken (\ s a -> s{_ldprqNextToken = a});
+ldpNextToken :: Lens' ListDevicePools (Maybe Text)
+ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a});
 
 -- | The device pools\' type.
 --
@@ -88,12 +88,12 @@ ldprqNextToken = lens _ldprqNextToken (\ s a -> s{_ldprqNextToken = a});
 -- -   PRIVATE: A device pool that is created and managed by the device
 --     pool developer.
 --
-ldprqType :: Lens' ListDevicePools (Maybe DevicePoolType)
-ldprqType = lens _ldprqType (\ s a -> s{_ldprqType = a});
+ldpType :: Lens' ListDevicePools (Maybe DevicePoolType)
+ldpType = lens _ldpType (\ s a -> s{_ldpType = a});
 
 -- | The project ARN.
-ldprqArn :: Lens' ListDevicePools Text
-ldprqArn = lens _ldprqArn (\ s a -> s{_ldprqArn = a});
+ldpArn :: Lens' ListDevicePools Text
+ldpArn = lens _ldpArn (\ s a -> s{_ldpArn = a});
 
 instance AWSRequest ListDevicePools where
         type Sv ListDevicePools = DeviceFarm
@@ -120,8 +120,8 @@ instance ToHeaders ListDevicePools where
 instance ToJSON ListDevicePools where
         toJSON ListDevicePools'{..}
           = object
-              ["nextToken" .= _ldprqNextToken,
-               "type" .= _ldprqType, "arn" .= _ldprqArn]
+              ["nextToken" .= _ldpNextToken, "type" .= _ldpType,
+               "arn" .= _ldpArn]
 
 instance ToPath ListDevicePools where
         toPath = const "/"

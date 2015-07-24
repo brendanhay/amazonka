@@ -37,9 +37,9 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     -- ** Request constructor
     , describeReservedNodeOfferings
     -- ** Request lenses
-    , drnorqReservedNodeOfferingId
-    , drnorqMaxRecords
-    , drnorqMarker
+    , drnoReservedNodeOfferingId
+    , drnoMaxRecords
+    , drnoMarker
 
     -- * Response
     , DescribeReservedNodeOfferingsResponse
@@ -63,29 +63,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drnorqReservedNodeOfferingId'
+-- * 'drnoReservedNodeOfferingId'
 --
--- * 'drnorqMaxRecords'
+-- * 'drnoMaxRecords'
 --
--- * 'drnorqMarker'
+-- * 'drnoMarker'
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
-    { _drnorqReservedNodeOfferingId :: !(Maybe Text)
-    , _drnorqMaxRecords             :: !(Maybe Int)
-    , _drnorqMarker                 :: !(Maybe Text)
+    { _drnoReservedNodeOfferingId :: !(Maybe Text)
+    , _drnoMaxRecords             :: !(Maybe Int)
+    , _drnoMarker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedNodeOfferings' smart constructor.
 describeReservedNodeOfferings :: DescribeReservedNodeOfferings
 describeReservedNodeOfferings =
     DescribeReservedNodeOfferings'
-    { _drnorqReservedNodeOfferingId = Nothing
-    , _drnorqMaxRecords = Nothing
-    , _drnorqMarker = Nothing
+    { _drnoReservedNodeOfferingId = Nothing
+    , _drnoMaxRecords = Nothing
+    , _drnoMarker = Nothing
     }
 
 -- | The unique identifier for the offering.
-drnorqReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
-drnorqReservedNodeOfferingId = lens _drnorqReservedNodeOfferingId (\ s a -> s{_drnorqReservedNodeOfferingId = a});
+drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
+drnoReservedNodeOfferingId = lens _drnoReservedNodeOfferingId (\ s a -> s{_drnoReservedNodeOfferingId = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -96,8 +96,8 @@ drnorqReservedNodeOfferingId = lens _drnorqReservedNodeOfferingId (\ s a -> s{_d
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-drnorqMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Int)
-drnorqMaxRecords = lens _drnorqMaxRecords (\ s a -> s{_drnorqMaxRecords = a});
+drnoMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Int)
+drnoMaxRecords = lens _drnoMaxRecords (\ s a -> s{_drnoMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeReservedNodeOfferings
@@ -105,15 +105,15 @@ drnorqMaxRecords = lens _drnorqMaxRecords (\ s a -> s{_drnorqMaxRecords = a});
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-drnorqMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
-drnorqMarker = lens _drnorqMarker (\ s a -> s{_drnorqMarker = a});
+drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
+drnoMarker = lens _drnoMarker (\ s a -> s{_drnoMarker = a});
 
 instance AWSPager DescribeReservedNodeOfferings where
         page rq rs
           | stop (rs ^. drnorsMarker) = Nothing
           | stop (rs ^. drnorsReservedNodeOfferings) = Nothing
           | otherwise =
-            Just $ rq & drnorqMarker .~ rs ^. drnorsMarker
+            Just $ rq & drnoMarker .~ rs ^. drnorsMarker
 
 instance AWSRequest DescribeReservedNodeOfferings
          where
@@ -145,9 +145,9 @@ instance ToQuery DescribeReservedNodeOfferings where
                  ("DescribeReservedNodeOfferings" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "ReservedNodeOfferingId" =:
-                 _drnorqReservedNodeOfferingId,
-               "MaxRecords" =: _drnorqMaxRecords,
-               "Marker" =: _drnorqMarker]
+                 _drnoReservedNodeOfferingId,
+               "MaxRecords" =: _drnoMaxRecords,
+               "Marker" =: _drnoMarker]
 
 -- | Contains the output from the DescribeReservedNodeOfferings action.
 --

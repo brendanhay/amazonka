@@ -33,8 +33,8 @@ module Network.AWS.IAM.DetachRolePolicy
     -- ** Request constructor
     , detachRolePolicy
     -- ** Request lenses
-    , drprqRoleName
-    , drprqPolicyARN
+    , drpRoleName
+    , drpPolicyARN
 
     -- * Response
     , DetachRolePolicyResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drprqRoleName'
+-- * 'drpRoleName'
 --
--- * 'drprqPolicyARN'
+-- * 'drpPolicyARN'
 data DetachRolePolicy = DetachRolePolicy'
-    { _drprqRoleName  :: !Text
-    , _drprqPolicyARN :: !Text
+    { _drpRoleName  :: !Text
+    , _drpPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachRolePolicy' smart constructor.
 detachRolePolicy :: Text -> Text -> DetachRolePolicy
 detachRolePolicy pRoleName_ pPolicyARN_ =
     DetachRolePolicy'
-    { _drprqRoleName = pRoleName_
-    , _drprqPolicyARN = pPolicyARN_
+    { _drpRoleName = pRoleName_
+    , _drpPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the role to detach the policy from.
-drprqRoleName :: Lens' DetachRolePolicy Text
-drprqRoleName = lens _drprqRoleName (\ s a -> s{_drprqRoleName = a});
+drpRoleName :: Lens' DetachRolePolicy Text
+drpRoleName = lens _drpRoleName (\ s a -> s{_drpRoleName = a});
 
 -- | FIXME: Undocumented member.
-drprqPolicyARN :: Lens' DetachRolePolicy Text
-drprqPolicyARN = lens _drprqPolicyARN (\ s a -> s{_drprqPolicyARN = a});
+drpPolicyARN :: Lens' DetachRolePolicy Text
+drpPolicyARN = lens _drpPolicyARN (\ s a -> s{_drpPolicyARN = a});
 
 instance AWSRequest DetachRolePolicy where
         type Sv DetachRolePolicy = IAM
@@ -92,8 +92,8 @@ instance ToQuery DetachRolePolicy where
           = mconcat
               ["Action" =: ("DetachRolePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _drprqRoleName,
-               "PolicyArn" =: _drprqPolicyARN]
+               "RoleName" =: _drpRoleName,
+               "PolicyArn" =: _drpPolicyARN]
 
 -- | /See:/ 'detachRolePolicyResponse' smart constructor.
 data DetachRolePolicyResponse =

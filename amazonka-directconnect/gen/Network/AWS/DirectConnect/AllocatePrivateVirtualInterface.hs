@@ -36,9 +36,9 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     -- ** Request constructor
     , allocatePrivateVirtualInterface
     -- ** Request lenses
-    , apvirqConnectionId
-    , apvirqOwnerAccount
-    , apvirqNewPrivateVirtualInterfaceAllocation
+    , apviConnectionId
+    , apviOwnerAccount
+    , apviNewPrivateVirtualInterfaceAllocation
 
     -- * Response
     , VirtualInterface
@@ -74,44 +74,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apvirqConnectionId'
+-- * 'apviConnectionId'
 --
--- * 'apvirqOwnerAccount'
+-- * 'apviOwnerAccount'
 --
--- * 'apvirqNewPrivateVirtualInterfaceAllocation'
+-- * 'apviNewPrivateVirtualInterfaceAllocation'
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
-    { _apvirqConnectionId                         :: !Text
-    , _apvirqOwnerAccount                         :: !Text
-    , _apvirqNewPrivateVirtualInterfaceAllocation :: !NewPrivateVirtualInterfaceAllocation
+    { _apviConnectionId                         :: !Text
+    , _apviOwnerAccount                         :: !Text
+    , _apviNewPrivateVirtualInterfaceAllocation :: !NewPrivateVirtualInterfaceAllocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocatePrivateVirtualInterface' smart constructor.
 allocatePrivateVirtualInterface :: Text -> Text -> NewPrivateVirtualInterfaceAllocation -> AllocatePrivateVirtualInterface
 allocatePrivateVirtualInterface pConnectionId_ pOwnerAccount_ pNewPrivateVirtualInterfaceAllocation_ =
     AllocatePrivateVirtualInterface'
-    { _apvirqConnectionId = pConnectionId_
-    , _apvirqOwnerAccount = pOwnerAccount_
-    , _apvirqNewPrivateVirtualInterfaceAllocation = pNewPrivateVirtualInterfaceAllocation_
+    { _apviConnectionId = pConnectionId_
+    , _apviOwnerAccount = pOwnerAccount_
+    , _apviNewPrivateVirtualInterfaceAllocation = pNewPrivateVirtualInterfaceAllocation_
     }
 
 -- | The connection ID on which the private virtual interface is provisioned.
 --
 -- Default: None
-apvirqConnectionId :: Lens' AllocatePrivateVirtualInterface Text
-apvirqConnectionId = lens _apvirqConnectionId (\ s a -> s{_apvirqConnectionId = a});
+apviConnectionId :: Lens' AllocatePrivateVirtualInterface Text
+apviConnectionId = lens _apviConnectionId (\ s a -> s{_apviConnectionId = a});
 
 -- | The AWS account that will own the new private virtual interface.
 --
 -- Default: None
-apvirqOwnerAccount :: Lens' AllocatePrivateVirtualInterface Text
-apvirqOwnerAccount = lens _apvirqOwnerAccount (\ s a -> s{_apvirqOwnerAccount = a});
+apviOwnerAccount :: Lens' AllocatePrivateVirtualInterface Text
+apviOwnerAccount = lens _apviOwnerAccount (\ s a -> s{_apviOwnerAccount = a});
 
 -- | Detailed information for the private virtual interface to be
 -- provisioned.
 --
 -- Default: None
-apvirqNewPrivateVirtualInterfaceAllocation :: Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
-apvirqNewPrivateVirtualInterfaceAllocation = lens _apvirqNewPrivateVirtualInterfaceAllocation (\ s a -> s{_apvirqNewPrivateVirtualInterfaceAllocation = a});
+apviNewPrivateVirtualInterfaceAllocation :: Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
+apviNewPrivateVirtualInterfaceAllocation = lens _apviNewPrivateVirtualInterfaceAllocation (\ s a -> s{_apviNewPrivateVirtualInterfaceAllocation = a});
 
 instance AWSRequest AllocatePrivateVirtualInterface
          where
@@ -136,10 +136,10 @@ instance ToHeaders AllocatePrivateVirtualInterface
 instance ToJSON AllocatePrivateVirtualInterface where
         toJSON AllocatePrivateVirtualInterface'{..}
           = object
-              ["connectionId" .= _apvirqConnectionId,
-               "ownerAccount" .= _apvirqOwnerAccount,
+              ["connectionId" .= _apviConnectionId,
+               "ownerAccount" .= _apviOwnerAccount,
                "newPrivateVirtualInterfaceAllocation" .=
-                 _apvirqNewPrivateVirtualInterfaceAllocation]
+                 _apviNewPrivateVirtualInterfaceAllocation]
 
 instance ToPath AllocatePrivateVirtualInterface where
         toPath = const "/"

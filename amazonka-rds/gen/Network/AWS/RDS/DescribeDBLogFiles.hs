@@ -27,13 +27,13 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- ** Request constructor
     , describeDBLogFiles
     -- ** Request lenses
-    , ddlfrqFilenameContains
-    , ddlfrqFileSize
-    , ddlfrqFileLastWritten
-    , ddlfrqFilters
-    , ddlfrqMaxRecords
-    , ddlfrqMarker
-    , ddlfrqDBInstanceIdentifier
+    , ddlfFilenameContains
+    , ddlfFileSize
+    , ddlfFileLastWritten
+    , ddlfFilters
+    , ddlfMaxRecords
+    , ddlfMarker
+    , ddlfDBInstanceIdentifier
 
     -- * Response
     , DescribeDBLogFilesResponse
@@ -57,73 +57,73 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddlfrqFilenameContains'
+-- * 'ddlfFilenameContains'
 --
--- * 'ddlfrqFileSize'
+-- * 'ddlfFileSize'
 --
--- * 'ddlfrqFileLastWritten'
+-- * 'ddlfFileLastWritten'
 --
--- * 'ddlfrqFilters'
+-- * 'ddlfFilters'
 --
--- * 'ddlfrqMaxRecords'
+-- * 'ddlfMaxRecords'
 --
--- * 'ddlfrqMarker'
+-- * 'ddlfMarker'
 --
--- * 'ddlfrqDBInstanceIdentifier'
+-- * 'ddlfDBInstanceIdentifier'
 data DescribeDBLogFiles = DescribeDBLogFiles'
-    { _ddlfrqFilenameContains     :: !(Maybe Text)
-    , _ddlfrqFileSize             :: !(Maybe Integer)
-    , _ddlfrqFileLastWritten      :: !(Maybe Integer)
-    , _ddlfrqFilters              :: !(Maybe [Filter])
-    , _ddlfrqMaxRecords           :: !(Maybe Int)
-    , _ddlfrqMarker               :: !(Maybe Text)
-    , _ddlfrqDBInstanceIdentifier :: !Text
+    { _ddlfFilenameContains     :: !(Maybe Text)
+    , _ddlfFileSize             :: !(Maybe Integer)
+    , _ddlfFileLastWritten      :: !(Maybe Integer)
+    , _ddlfFilters              :: !(Maybe [Filter])
+    , _ddlfMaxRecords           :: !(Maybe Int)
+    , _ddlfMarker               :: !(Maybe Text)
+    , _ddlfDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBLogFiles' smart constructor.
 describeDBLogFiles :: Text -> DescribeDBLogFiles
 describeDBLogFiles pDBInstanceIdentifier_ =
     DescribeDBLogFiles'
-    { _ddlfrqFilenameContains = Nothing
-    , _ddlfrqFileSize = Nothing
-    , _ddlfrqFileLastWritten = Nothing
-    , _ddlfrqFilters = Nothing
-    , _ddlfrqMaxRecords = Nothing
-    , _ddlfrqMarker = Nothing
-    , _ddlfrqDBInstanceIdentifier = pDBInstanceIdentifier_
+    { _ddlfFilenameContains = Nothing
+    , _ddlfFileSize = Nothing
+    , _ddlfFileLastWritten = Nothing
+    , _ddlfFilters = Nothing
+    , _ddlfMaxRecords = Nothing
+    , _ddlfMarker = Nothing
+    , _ddlfDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | Filters the available log files for log file names that contain the
 -- specified string.
-ddlfrqFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
-ddlfrqFilenameContains = lens _ddlfrqFilenameContains (\ s a -> s{_ddlfrqFilenameContains = a});
+ddlfFilenameContains :: Lens' DescribeDBLogFiles (Maybe Text)
+ddlfFilenameContains = lens _ddlfFilenameContains (\ s a -> s{_ddlfFilenameContains = a});
 
 -- | Filters the available log files for files larger than the specified
 -- size.
-ddlfrqFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddlfrqFileSize = lens _ddlfrqFileSize (\ s a -> s{_ddlfrqFileSize = a});
+ddlfFileSize :: Lens' DescribeDBLogFiles (Maybe Integer)
+ddlfFileSize = lens _ddlfFileSize (\ s a -> s{_ddlfFileSize = a});
 
 -- | Filters the available log files for files written since the specified
 -- date, in POSIX timestamp format.
-ddlfrqFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
-ddlfrqFileLastWritten = lens _ddlfrqFileLastWritten (\ s a -> s{_ddlfrqFileLastWritten = a});
+ddlfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
+ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten = a});
 
 -- | This parameter is not currently supported.
-ddlfrqFilters :: Lens' DescribeDBLogFiles [Filter]
-ddlfrqFilters = lens _ddlfrqFilters (\ s a -> s{_ddlfrqFilters = a}) . _Default;
+ddlfFilters :: Lens' DescribeDBLogFiles [Filter]
+ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a pagination token
 -- called a marker is included in the response so that the remaining
 -- results can be retrieved.
-ddlfrqMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
-ddlfrqMaxRecords = lens _ddlfrqMaxRecords (\ s a -> s{_ddlfrqMaxRecords = a});
+ddlfMaxRecords :: Lens' DescribeDBLogFiles (Maybe Int)
+ddlfMaxRecords = lens _ddlfMaxRecords (\ s a -> s{_ddlfMaxRecords = a});
 
 -- | The pagination token provided in the previous request. If this parameter
 -- is specified the response includes only records beyond the marker, up to
 -- MaxRecords.
-ddlfrqMarker :: Lens' DescribeDBLogFiles (Maybe Text)
-ddlfrqMarker = lens _ddlfrqMarker (\ s a -> s{_ddlfrqMarker = a});
+ddlfMarker :: Lens' DescribeDBLogFiles (Maybe Text)
+ddlfMarker = lens _ddlfMarker (\ s a -> s{_ddlfMarker = a});
 
 -- | The customer-assigned name of the DB instance that contains the log
 -- files you want to list.
@@ -133,15 +133,15 @@ ddlfrqMarker = lens _ddlfrqMarker (\ s a -> s{_ddlfrqMarker = a});
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddlfrqDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
-ddlfrqDBInstanceIdentifier = lens _ddlfrqDBInstanceIdentifier (\ s a -> s{_ddlfrqDBInstanceIdentifier = a});
+ddlfDBInstanceIdentifier :: Lens' DescribeDBLogFiles Text
+ddlfDBInstanceIdentifier = lens _ddlfDBInstanceIdentifier (\ s a -> s{_ddlfDBInstanceIdentifier = a});
 
 instance AWSPager DescribeDBLogFiles where
         page rq rs
           | stop (rs ^. ddlfrsMarker) = Nothing
           | stop (rs ^. ddlfrsDescribeDBLogFiles) = Nothing
           | otherwise =
-            Just $ rq & ddlfrqMarker .~ rs ^. ddlfrsMarker
+            Just $ rq & ddlfMarker .~ rs ^. ddlfrsMarker
 
 instance AWSRequest DescribeDBLogFiles where
         type Sv DescribeDBLogFiles = RDS
@@ -168,15 +168,14 @@ instance ToQuery DescribeDBLogFiles where
           = mconcat
               ["Action" =: ("DescribeDBLogFiles" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "FilenameContains" =: _ddlfrqFilenameContains,
-               "FileSize" =: _ddlfrqFileSize,
-               "FileLastWritten" =: _ddlfrqFileLastWritten,
+               "FilenameContains" =: _ddlfFilenameContains,
+               "FileSize" =: _ddlfFileSize,
+               "FileLastWritten" =: _ddlfFileLastWritten,
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddlfrqFilters),
-               "MaxRecords" =: _ddlfrqMaxRecords,
-               "Marker" =: _ddlfrqMarker,
-               "DBInstanceIdentifier" =:
-                 _ddlfrqDBInstanceIdentifier]
+                 toQuery (toQueryList "Filter" <$> _ddlfFilters),
+               "MaxRecords" =: _ddlfMaxRecords,
+               "Marker" =: _ddlfMarker,
+               "DBInstanceIdentifier" =: _ddlfDBInstanceIdentifier]
 
 -- | The response from a call to DescribeDBLogFiles.
 --

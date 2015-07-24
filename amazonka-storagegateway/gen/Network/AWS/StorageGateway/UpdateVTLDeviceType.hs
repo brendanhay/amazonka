@@ -30,8 +30,8 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     -- ** Request constructor
     , updateVTLDeviceType
     -- ** Request lenses
-    , uvtldtrqVTLDeviceARN
-    , uvtldtrqDeviceType
+    , uvtldtVTLDeviceARN
+    , uvtldtDeviceType
 
     -- * Response
     , UpdateVTLDeviceTypeResponse
@@ -53,31 +53,31 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uvtldtrqVTLDeviceARN'
+-- * 'uvtldtVTLDeviceARN'
 --
--- * 'uvtldtrqDeviceType'
+-- * 'uvtldtDeviceType'
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
-    { _uvtldtrqVTLDeviceARN :: !Text
-    , _uvtldtrqDeviceType   :: !Text
+    { _uvtldtVTLDeviceARN :: !Text
+    , _uvtldtDeviceType   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVTLDeviceType' smart constructor.
 updateVTLDeviceType :: Text -> Text -> UpdateVTLDeviceType
 updateVTLDeviceType pVTLDeviceARN_ pDeviceType_ =
     UpdateVTLDeviceType'
-    { _uvtldtrqVTLDeviceARN = pVTLDeviceARN_
-    , _uvtldtrqDeviceType = pDeviceType_
+    { _uvtldtVTLDeviceARN = pVTLDeviceARN_
+    , _uvtldtDeviceType = pDeviceType_
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
-uvtldtrqVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
-uvtldtrqVTLDeviceARN = lens _uvtldtrqVTLDeviceARN (\ s a -> s{_uvtldtrqVTLDeviceARN = a});
+uvtldtVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
+uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\ s a -> s{_uvtldtVTLDeviceARN = a});
 
 -- | The type of medium changer you want to select.
 --
 -- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"
-uvtldtrqDeviceType :: Lens' UpdateVTLDeviceType Text
-uvtldtrqDeviceType = lens _uvtldtrqDeviceType (\ s a -> s{_uvtldtrqDeviceType = a});
+uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
+uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
 
 instance AWSRequest UpdateVTLDeviceType where
         type Sv UpdateVTLDeviceType = StorageGateway
@@ -103,8 +103,8 @@ instance ToHeaders UpdateVTLDeviceType where
 instance ToJSON UpdateVTLDeviceType where
         toJSON UpdateVTLDeviceType'{..}
           = object
-              ["VTLDeviceARN" .= _uvtldtrqVTLDeviceARN,
-               "DeviceType" .= _uvtldtrqDeviceType]
+              ["VTLDeviceARN" .= _uvtldtVTLDeviceARN,
+               "DeviceType" .= _uvtldtDeviceType]
 
 instance ToPath UpdateVTLDeviceType where
         toPath = const "/"

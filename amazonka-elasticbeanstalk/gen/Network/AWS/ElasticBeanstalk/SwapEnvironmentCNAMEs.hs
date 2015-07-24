@@ -27,10 +27,10 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     -- ** Request constructor
     , swapEnvironmentCNAMEs
     -- ** Request lenses
-    , secnamerqDestinationEnvironmentName
-    , secnamerqDestinationEnvironmentId
-    , secnamerqSourceEnvironmentName
-    , secnamerqSourceEnvironmentId
+    , secnameDestinationEnvironmentName
+    , secnameDestinationEnvironmentId
+    , secnameSourceEnvironmentName
+    , secnameSourceEnvironmentId
 
     -- * Response
     , SwapEnvironmentCNAMEsResponse
@@ -49,28 +49,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'secnamerqDestinationEnvironmentName'
+-- * 'secnameDestinationEnvironmentName'
 --
--- * 'secnamerqDestinationEnvironmentId'
+-- * 'secnameDestinationEnvironmentId'
 --
--- * 'secnamerqSourceEnvironmentName'
+-- * 'secnameSourceEnvironmentName'
 --
--- * 'secnamerqSourceEnvironmentId'
+-- * 'secnameSourceEnvironmentId'
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
-    { _secnamerqDestinationEnvironmentName :: !(Maybe Text)
-    , _secnamerqDestinationEnvironmentId   :: !(Maybe Text)
-    , _secnamerqSourceEnvironmentName      :: !(Maybe Text)
-    , _secnamerqSourceEnvironmentId        :: !(Maybe Text)
+    { _secnameDestinationEnvironmentName :: !(Maybe Text)
+    , _secnameDestinationEnvironmentId   :: !(Maybe Text)
+    , _secnameSourceEnvironmentName      :: !(Maybe Text)
+    , _secnameSourceEnvironmentId        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SwapEnvironmentCNAMEs' smart constructor.
 swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
 swapEnvironmentCNAMEs =
     SwapEnvironmentCNAMEs'
-    { _secnamerqDestinationEnvironmentName = Nothing
-    , _secnamerqDestinationEnvironmentId = Nothing
-    , _secnamerqSourceEnvironmentName = Nothing
-    , _secnamerqSourceEnvironmentId = Nothing
+    { _secnameDestinationEnvironmentName = Nothing
+    , _secnameDestinationEnvironmentId = Nothing
+    , _secnameSourceEnvironmentName = Nothing
+    , _secnameSourceEnvironmentId = Nothing
     }
 
 -- | The name of the destination environment.
@@ -79,16 +79,16 @@ swapEnvironmentCNAMEs =
 -- the @DestinationEnvironmentName@. You may also specify both. You must
 -- specify the @SourceEnvironmentName@ with the
 -- @DestinationEnvironmentName@.
-secnamerqDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
-secnamerqDestinationEnvironmentName = lens _secnamerqDestinationEnvironmentName (\ s a -> s{_secnamerqDestinationEnvironmentName = a});
+secnameDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameDestinationEnvironmentName = lens _secnameDestinationEnvironmentName (\ s a -> s{_secnameDestinationEnvironmentName = a});
 
 -- | The ID of the destination environment.
 --
 -- Condition: You must specify at least the @DestinationEnvironmentID@ or
 -- the @DestinationEnvironmentName@. You may also specify both. You must
 -- specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@.
-secnamerqDestinationEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
-secnamerqDestinationEnvironmentId = lens _secnamerqDestinationEnvironmentId (\ s a -> s{_secnamerqDestinationEnvironmentId = a});
+secnameDestinationEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameDestinationEnvironmentId = lens _secnameDestinationEnvironmentId (\ s a -> s{_secnameDestinationEnvironmentId = a});
 
 -- | The name of the source environment.
 --
@@ -96,16 +96,16 @@ secnamerqDestinationEnvironmentId = lens _secnamerqDestinationEnvironmentId (\ s
 -- @SourceEnvironmentName@. You may also specify both. If you specify the
 -- @SourceEnvironmentName@, you must specify the
 -- @DestinationEnvironmentName@.
-secnamerqSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
-secnamerqSourceEnvironmentName = lens _secnamerqSourceEnvironmentName (\ s a -> s{_secnamerqSourceEnvironmentName = a});
+secnameSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameSourceEnvironmentName = lens _secnameSourceEnvironmentName (\ s a -> s{_secnameSourceEnvironmentName = a});
 
 -- | The ID of the source environment.
 --
 -- Condition: You must specify at least the @SourceEnvironmentID@ or the
 -- @SourceEnvironmentName@. You may also specify both. If you specify the
 -- @SourceEnvironmentId@, you must specify the @DestinationEnvironmentId@.
-secnamerqSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
-secnamerqSourceEnvironmentId = lens _secnamerqSourceEnvironmentId (\ s a -> s{_secnamerqSourceEnvironmentId = a});
+secnameSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameSourceEnvironmentId = lens _secnameSourceEnvironmentId (\ s a -> s{_secnameSourceEnvironmentId = a});
 
 instance AWSRequest SwapEnvironmentCNAMEs where
         type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk
@@ -126,13 +126,12 @@ instance ToQuery SwapEnvironmentCNAMEs where
               ["Action" =: ("SwapEnvironmentCNAMEs" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "DestinationEnvironmentName" =:
-                 _secnamerqDestinationEnvironmentName,
+                 _secnameDestinationEnvironmentName,
                "DestinationEnvironmentId" =:
-                 _secnamerqDestinationEnvironmentId,
+                 _secnameDestinationEnvironmentId,
                "SourceEnvironmentName" =:
-                 _secnamerqSourceEnvironmentName,
-               "SourceEnvironmentId" =:
-                 _secnamerqSourceEnvironmentId]
+                 _secnameSourceEnvironmentName,
+               "SourceEnvironmentId" =: _secnameSourceEnvironmentId]
 
 -- | /See:/ 'swapEnvironmentCNAMEsResponse' smart constructor.
 data SwapEnvironmentCNAMEsResponse =

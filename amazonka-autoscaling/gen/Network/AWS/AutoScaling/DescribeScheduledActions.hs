@@ -29,12 +29,12 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- ** Request constructor
     , describeScheduledActions
     -- ** Request lenses
-    , dsasrqStartTime
-    , dsasrqNextToken
-    , dsasrqMaxRecords
-    , dsasrqEndTime
-    , dsasrqAutoScalingGroupName
-    , dsasrqScheduledActionNames
+    , dsasStartTime
+    , dsasNextToken
+    , dsasMaxRecords
+    , dsasEndTime
+    , dsasAutoScalingGroupName
+    , dsasScheduledActionNames
 
     -- * Response
     , DescribeScheduledActionsResponse
@@ -56,60 +56,60 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsasrqStartTime'
+-- * 'dsasStartTime'
 --
--- * 'dsasrqNextToken'
+-- * 'dsasNextToken'
 --
--- * 'dsasrqMaxRecords'
+-- * 'dsasMaxRecords'
 --
--- * 'dsasrqEndTime'
+-- * 'dsasEndTime'
 --
--- * 'dsasrqAutoScalingGroupName'
+-- * 'dsasAutoScalingGroupName'
 --
--- * 'dsasrqScheduledActionNames'
+-- * 'dsasScheduledActionNames'
 data DescribeScheduledActions = DescribeScheduledActions'
-    { _dsasrqStartTime            :: !(Maybe ISO8601)
-    , _dsasrqNextToken            :: !(Maybe Text)
-    , _dsasrqMaxRecords           :: !(Maybe Int)
-    , _dsasrqEndTime              :: !(Maybe ISO8601)
-    , _dsasrqAutoScalingGroupName :: !(Maybe Text)
-    , _dsasrqScheduledActionNames :: !(Maybe [Text])
+    { _dsasStartTime            :: !(Maybe ISO8601)
+    , _dsasNextToken            :: !(Maybe Text)
+    , _dsasMaxRecords           :: !(Maybe Int)
+    , _dsasEndTime              :: !(Maybe ISO8601)
+    , _dsasAutoScalingGroupName :: !(Maybe Text)
+    , _dsasScheduledActionNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScheduledActions' smart constructor.
 describeScheduledActions :: DescribeScheduledActions
 describeScheduledActions =
     DescribeScheduledActions'
-    { _dsasrqStartTime = Nothing
-    , _dsasrqNextToken = Nothing
-    , _dsasrqMaxRecords = Nothing
-    , _dsasrqEndTime = Nothing
-    , _dsasrqAutoScalingGroupName = Nothing
-    , _dsasrqScheduledActionNames = Nothing
+    { _dsasStartTime = Nothing
+    , _dsasNextToken = Nothing
+    , _dsasMaxRecords = Nothing
+    , _dsasEndTime = Nothing
+    , _dsasAutoScalingGroupName = Nothing
+    , _dsasScheduledActionNames = Nothing
     }
 
 -- | The earliest scheduled start time to return. If scheduled action names
 -- are provided, this parameter is ignored.
-dsasrqStartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
-dsasrqStartTime = lens _dsasrqStartTime (\ s a -> s{_dsasrqStartTime = a}) . mapping _Time;
+dsasStartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
+dsasStartTime = lens _dsasStartTime (\ s a -> s{_dsasStartTime = a}) . mapping _Time;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dsasrqNextToken :: Lens' DescribeScheduledActions (Maybe Text)
-dsasrqNextToken = lens _dsasrqNextToken (\ s a -> s{_dsasrqNextToken = a});
+dsasNextToken :: Lens' DescribeScheduledActions (Maybe Text)
+dsasNextToken = lens _dsasNextToken (\ s a -> s{_dsasNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dsasrqMaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
-dsasrqMaxRecords = lens _dsasrqMaxRecords (\ s a -> s{_dsasrqMaxRecords = a});
+dsasMaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
+dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
 
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this parameter is ignored.
-dsasrqEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
-dsasrqEndTime = lens _dsasrqEndTime (\ s a -> s{_dsasrqEndTime = a}) . mapping _Time;
+dsasEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
+dsasEndTime = lens _dsasEndTime (\ s a -> s{_dsasEndTime = a}) . mapping _Time;
 
 -- | The name of the group.
-dsasrqAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
-dsasrqAutoScalingGroupName = lens _dsasrqAutoScalingGroupName (\ s a -> s{_dsasrqAutoScalingGroupName = a});
+dsasAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
+dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoScalingGroupName = a});
 
 -- | Describes one or more scheduled actions. If you omit this list, the call
 -- describes all scheduled actions. If you specify an unknown scheduled
@@ -119,8 +119,8 @@ dsasrqAutoScalingGroupName = lens _dsasrqAutoScalingGroupName (\ s a -> s{_dsasr
 -- there are more items to return, the call returns a token. To get the
 -- next set of items, repeat the call with the returned token in the
 -- @NextToken@ parameter.
-dsasrqScheduledActionNames :: Lens' DescribeScheduledActions [Text]
-dsasrqScheduledActionNames = lens _dsasrqScheduledActionNames (\ s a -> s{_dsasrqScheduledActionNames = a}) . _Default;
+dsasScheduledActionNames :: Lens' DescribeScheduledActions [Text]
+dsasScheduledActionNames = lens _dsasScheduledActionNames (\ s a -> s{_dsasScheduledActionNames = a}) . _Default;
 
 instance AWSPager DescribeScheduledActions where
         page rq rs
@@ -128,7 +128,7 @@ instance AWSPager DescribeScheduledActions where
           | stop (rs ^. dsarsScheduledUpdateGroupActions) =
             Nothing
           | otherwise =
-            Just $ rq & dsasrqNextToken .~ rs ^. dsarsNextToken
+            Just $ rq & dsasNextToken .~ rs ^. dsarsNextToken
 
 instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling
@@ -156,16 +156,14 @@ instance ToQuery DescribeScheduledActions where
               ["Action" =:
                  ("DescribeScheduledActions" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "StartTime" =: _dsasrqStartTime,
-               "NextToken" =: _dsasrqNextToken,
-               "MaxRecords" =: _dsasrqMaxRecords,
-               "EndTime" =: _dsasrqEndTime,
-               "AutoScalingGroupName" =:
-                 _dsasrqAutoScalingGroupName,
+               "StartTime" =: _dsasStartTime,
+               "NextToken" =: _dsasNextToken,
+               "MaxRecords" =: _dsasMaxRecords,
+               "EndTime" =: _dsasEndTime,
+               "AutoScalingGroupName" =: _dsasAutoScalingGroupName,
                "ScheduledActionNames" =:
                  toQuery
-                   (toQueryList "member" <$>
-                      _dsasrqScheduledActionNames)]
+                   (toQueryList "member" <$> _dsasScheduledActionNames)]
 
 -- | /See:/ 'describeScheduledActionsResponse' smart constructor.
 --

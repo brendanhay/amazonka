@@ -31,7 +31,7 @@ module Network.AWS.EC2.CreateInternetGateway
     -- ** Request constructor
     , createInternetGateway
     -- ** Request lenses
-    , cigrqDryRun
+    , cigDryRun
 
     -- * Response
     , CreateInternetGatewayResponse
@@ -51,24 +51,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cigrqDryRun'
+-- * 'cigDryRun'
 newtype CreateInternetGateway = CreateInternetGateway'
-    { _cigrqDryRun :: Maybe Bool
+    { _cigDryRun :: Maybe Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInternetGateway' smart constructor.
 createInternetGateway :: CreateInternetGateway
 createInternetGateway =
     CreateInternetGateway'
-    { _cigrqDryRun = Nothing
+    { _cigDryRun = Nothing
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cigrqDryRun :: Lens' CreateInternetGateway (Maybe Bool)
-cigrqDryRun = lens _cigrqDryRun (\ s a -> s{_cigrqDryRun = a});
+cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
+cigDryRun = lens _cigDryRun (\ s a -> s{_cigDryRun = a});
 
 instance AWSRequest CreateInternetGateway where
         type Sv CreateInternetGateway = EC2
@@ -92,7 +92,7 @@ instance ToQuery CreateInternetGateway where
           = mconcat
               ["Action" =: ("CreateInternetGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cigrqDryRun]
+               "DryRun" =: _cigDryRun]
 
 -- | /See:/ 'createInternetGatewayResponse' smart constructor.
 --

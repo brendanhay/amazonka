@@ -27,8 +27,8 @@ module Network.AWS.CloudWatchLogs.DeleteMetricFilter
     -- ** Request constructor
     , deleteMetricFilter
     -- ** Request lenses
-    , delrqLogGroupName
-    , delrqFilterName
+    , delLogGroupName
+    , delFilterName
 
     -- * Response
     , DeleteMetricFilterResponse
@@ -45,30 +45,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrqLogGroupName'
+-- * 'delLogGroupName'
 --
--- * 'delrqFilterName'
+-- * 'delFilterName'
 data DeleteMetricFilter = DeleteMetricFilter'
-    { _delrqLogGroupName :: !Text
-    , _delrqFilterName   :: !Text
+    { _delLogGroupName :: !Text
+    , _delFilterName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMetricFilter' smart constructor.
 deleteMetricFilter :: Text -> Text -> DeleteMetricFilter
 deleteMetricFilter pLogGroupName_ pFilterName_ =
     DeleteMetricFilter'
-    { _delrqLogGroupName = pLogGroupName_
-    , _delrqFilterName = pFilterName_
+    { _delLogGroupName = pLogGroupName_
+    , _delFilterName = pFilterName_
     }
 
 -- | The name of the log group that is associated with the metric filter to
 -- delete.
-delrqLogGroupName :: Lens' DeleteMetricFilter Text
-delrqLogGroupName = lens _delrqLogGroupName (\ s a -> s{_delrqLogGroupName = a});
+delLogGroupName :: Lens' DeleteMetricFilter Text
+delLogGroupName = lens _delLogGroupName (\ s a -> s{_delLogGroupName = a});
 
 -- | The name of the metric filter to delete.
-delrqFilterName :: Lens' DeleteMetricFilter Text
-delrqFilterName = lens _delrqFilterName (\ s a -> s{_delrqFilterName = a});
+delFilterName :: Lens' DeleteMetricFilter Text
+delFilterName = lens _delFilterName (\ s a -> s{_delFilterName = a});
 
 instance AWSRequest DeleteMetricFilter where
         type Sv DeleteMetricFilter = CloudWatchLogs
@@ -89,8 +89,8 @@ instance ToHeaders DeleteMetricFilter where
 instance ToJSON DeleteMetricFilter where
         toJSON DeleteMetricFilter'{..}
           = object
-              ["logGroupName" .= _delrqLogGroupName,
-               "filterName" .= _delrqFilterName]
+              ["logGroupName" .= _delLogGroupName,
+               "filterName" .= _delFilterName]
 
 instance ToPath DeleteMetricFilter where
         toPath = const "/"

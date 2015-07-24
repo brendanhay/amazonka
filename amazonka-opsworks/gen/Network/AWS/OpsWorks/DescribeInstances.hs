@@ -35,9 +35,9 @@ module Network.AWS.OpsWorks.DescribeInstances
     -- ** Request constructor
     , describeInstances
     -- ** Request lenses
-    , dirqInstanceIds
-    , dirqStackId
-    , dirqLayerId
+    , diInstanceIds
+    , diStackId
+    , diLayerId
 
     -- * Response
     , DescribeInstancesResponse
@@ -57,41 +57,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirqInstanceIds'
+-- * 'diInstanceIds'
 --
--- * 'dirqStackId'
+-- * 'diStackId'
 --
--- * 'dirqLayerId'
+-- * 'diLayerId'
 data DescribeInstances = DescribeInstances'
-    { _dirqInstanceIds :: !(Maybe [Text])
-    , _dirqStackId     :: !(Maybe Text)
-    , _dirqLayerId     :: !(Maybe Text)
+    { _diInstanceIds :: !(Maybe [Text])
+    , _diStackId     :: !(Maybe Text)
+    , _diLayerId     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
 describeInstances =
     DescribeInstances'
-    { _dirqInstanceIds = Nothing
-    , _dirqStackId = Nothing
-    , _dirqLayerId = Nothing
+    { _diInstanceIds = Nothing
+    , _diStackId = Nothing
+    , _diLayerId = Nothing
     }
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- @DescribeInstances@ returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
-dirqInstanceIds :: Lens' DescribeInstances [Text]
-dirqInstanceIds = lens _dirqInstanceIds (\ s a -> s{_dirqInstanceIds = a}) . _Default;
+diInstanceIds :: Lens' DescribeInstances [Text]
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default;
 
 -- | A stack ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified stack.
-dirqStackId :: Lens' DescribeInstances (Maybe Text)
-dirqStackId = lens _dirqStackId (\ s a -> s{_dirqStackId = a});
+diStackId :: Lens' DescribeInstances (Maybe Text)
+diStackId = lens _diStackId (\ s a -> s{_diStackId = a});
 
 -- | A layer ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified layer.
-dirqLayerId :: Lens' DescribeInstances (Maybe Text)
-dirqLayerId = lens _dirqLayerId (\ s a -> s{_dirqLayerId = a});
+diLayerId :: Lens' DescribeInstances (Maybe Text)
+diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a});
 
 instance AWSRequest DescribeInstances where
         type Sv DescribeInstances = OpsWorks
@@ -117,8 +117,8 @@ instance ToHeaders DescribeInstances where
 instance ToJSON DescribeInstances where
         toJSON DescribeInstances'{..}
           = object
-              ["InstanceIds" .= _dirqInstanceIds,
-               "StackId" .= _dirqStackId, "LayerId" .= _dirqLayerId]
+              ["InstanceIds" .= _diInstanceIds,
+               "StackId" .= _diStackId, "LayerId" .= _diLayerId]
 
 instance ToPath DescribeInstances where
         toPath = const "/"

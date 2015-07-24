@@ -36,7 +36,7 @@ module Network.AWS.ELB.DeleteLoadBalancer
     -- ** Request constructor
     , deleteLoadBalancer
     -- ** Request lenses
-    , dlbrqLoadBalancerName
+    , dlbLoadBalancerName
 
     -- * Response
     , DeleteLoadBalancerResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbrqLoadBalancerName'
+-- * 'dlbLoadBalancerName'
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
-    { _dlbrqLoadBalancerName :: Text
+    { _dlbLoadBalancerName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancer' smart constructor.
 deleteLoadBalancer :: Text -> DeleteLoadBalancer
 deleteLoadBalancer pLoadBalancerName_ =
     DeleteLoadBalancer'
-    { _dlbrqLoadBalancerName = pLoadBalancerName_
+    { _dlbLoadBalancerName = pLoadBalancerName_
     }
 
 -- | The name of the load balancer.
-dlbrqLoadBalancerName :: Lens' DeleteLoadBalancer Text
-dlbrqLoadBalancerName = lens _dlbrqLoadBalancerName (\ s a -> s{_dlbrqLoadBalancerName = a});
+dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
+dlbLoadBalancerName = lens _dlbLoadBalancerName (\ s a -> s{_dlbLoadBalancerName = a});
 
 instance AWSRequest DeleteLoadBalancer where
         type Sv DeleteLoadBalancer = ELB
@@ -92,7 +92,7 @@ instance ToQuery DeleteLoadBalancer where
           = mconcat
               ["Action" =: ("DeleteLoadBalancer" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlbrqLoadBalancerName]
+               "LoadBalancerName" =: _dlbLoadBalancerName]
 
 -- | /See:/ 'deleteLoadBalancerResponse' smart constructor.
 --

@@ -36,9 +36,9 @@ module Network.AWS.DirectConnect.AllocatePublicVirtualInterface
     -- ** Request constructor
     , allocatePublicVirtualInterface
     -- ** Request lenses
-    , arqConnectionId
-    , arqOwnerAccount
-    , arqNewPublicVirtualInterfaceAllocation
+    , aConnectionId
+    , aOwnerAccount
+    , aNewPublicVirtualInterfaceAllocation
 
     -- * Response
     , VirtualInterface
@@ -74,43 +74,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arqConnectionId'
+-- * 'aConnectionId'
 --
--- * 'arqOwnerAccount'
+-- * 'aOwnerAccount'
 --
--- * 'arqNewPublicVirtualInterfaceAllocation'
+-- * 'aNewPublicVirtualInterfaceAllocation'
 data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
-    { _arqConnectionId                        :: !Text
-    , _arqOwnerAccount                        :: !Text
-    , _arqNewPublicVirtualInterfaceAllocation :: !NewPublicVirtualInterfaceAllocation
+    { _aConnectionId                        :: !Text
+    , _aOwnerAccount                        :: !Text
+    , _aNewPublicVirtualInterfaceAllocation :: !NewPublicVirtualInterfaceAllocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocatePublicVirtualInterface' smart constructor.
 allocatePublicVirtualInterface :: Text -> Text -> NewPublicVirtualInterfaceAllocation -> AllocatePublicVirtualInterface
 allocatePublicVirtualInterface pConnectionId_ pOwnerAccount_ pNewPublicVirtualInterfaceAllocation_ =
     AllocatePublicVirtualInterface'
-    { _arqConnectionId = pConnectionId_
-    , _arqOwnerAccount = pOwnerAccount_
-    , _arqNewPublicVirtualInterfaceAllocation = pNewPublicVirtualInterfaceAllocation_
+    { _aConnectionId = pConnectionId_
+    , _aOwnerAccount = pOwnerAccount_
+    , _aNewPublicVirtualInterfaceAllocation = pNewPublicVirtualInterfaceAllocation_
     }
 
 -- | The connection ID on which the public virtual interface is provisioned.
 --
 -- Default: None
-arqConnectionId :: Lens' AllocatePublicVirtualInterface Text
-arqConnectionId = lens _arqConnectionId (\ s a -> s{_arqConnectionId = a});
+aConnectionId :: Lens' AllocatePublicVirtualInterface Text
+aConnectionId = lens _aConnectionId (\ s a -> s{_aConnectionId = a});
 
 -- | The AWS account that will own the new public virtual interface.
 --
 -- Default: None
-arqOwnerAccount :: Lens' AllocatePublicVirtualInterface Text
-arqOwnerAccount = lens _arqOwnerAccount (\ s a -> s{_arqOwnerAccount = a});
+aOwnerAccount :: Lens' AllocatePublicVirtualInterface Text
+aOwnerAccount = lens _aOwnerAccount (\ s a -> s{_aOwnerAccount = a});
 
 -- | Detailed information for the public virtual interface to be provisioned.
 --
 -- Default: None
-arqNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
-arqNewPublicVirtualInterfaceAllocation = lens _arqNewPublicVirtualInterfaceAllocation (\ s a -> s{_arqNewPublicVirtualInterfaceAllocation = a});
+aNewPublicVirtualInterfaceAllocation :: Lens' AllocatePublicVirtualInterface NewPublicVirtualInterfaceAllocation
+aNewPublicVirtualInterfaceAllocation = lens _aNewPublicVirtualInterfaceAllocation (\ s a -> s{_aNewPublicVirtualInterfaceAllocation = a});
 
 instance AWSRequest AllocatePublicVirtualInterface
          where
@@ -135,10 +135,10 @@ instance ToHeaders AllocatePublicVirtualInterface
 instance ToJSON AllocatePublicVirtualInterface where
         toJSON AllocatePublicVirtualInterface'{..}
           = object
-              ["connectionId" .= _arqConnectionId,
-               "ownerAccount" .= _arqOwnerAccount,
+              ["connectionId" .= _aConnectionId,
+               "ownerAccount" .= _aOwnerAccount,
                "newPublicVirtualInterfaceAllocation" .=
-                 _arqNewPublicVirtualInterfaceAllocation]
+                 _aNewPublicVirtualInterfaceAllocation]
 
 instance ToPath AllocatePublicVirtualInterface where
         toPath = const "/"

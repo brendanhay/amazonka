@@ -63,10 +63,10 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     -- ** Request constructor
     , initiateMultipartUpload
     -- ** Request lenses
-    , imurqPartSize
-    , imurqArchiveDescription
-    , imurqAccountId
-    , imurqVaultName
+    , imuPartSize
+    , imuArchiveDescription
+    , imuAccountId
+    , imuVaultName
 
     -- * Response
     , InitiateMultipartUploadResponse
@@ -90,34 +90,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'imurqPartSize'
+-- * 'imuPartSize'
 --
--- * 'imurqArchiveDescription'
+-- * 'imuArchiveDescription'
 --
--- * 'imurqAccountId'
+-- * 'imuAccountId'
 --
--- * 'imurqVaultName'
+-- * 'imuVaultName'
 data InitiateMultipartUpload = InitiateMultipartUpload'
-    { _imurqPartSize           :: !(Maybe Text)
-    , _imurqArchiveDescription :: !(Maybe Text)
-    , _imurqAccountId          :: !Text
-    , _imurqVaultName          :: !Text
+    { _imuPartSize           :: !(Maybe Text)
+    , _imuArchiveDescription :: !(Maybe Text)
+    , _imuAccountId          :: !Text
+    , _imuVaultName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateMultipartUpload' smart constructor.
 initiateMultipartUpload :: Text -> Text -> InitiateMultipartUpload
 initiateMultipartUpload pAccountId_ pVaultName_ =
     InitiateMultipartUpload'
-    { _imurqPartSize = Nothing
-    , _imurqArchiveDescription = Nothing
-    , _imurqAccountId = pAccountId_
-    , _imurqVaultName = pVaultName_
+    { _imuPartSize = Nothing
+    , _imuArchiveDescription = Nothing
+    , _imuAccountId = pAccountId_
+    , _imuVaultName = pVaultName_
     }
 
 -- | The size of each part except the last, in bytes. The last part can be
 -- smaller than this part size.
-imurqPartSize :: Lens' InitiateMultipartUpload (Maybe Text)
-imurqPartSize = lens _imurqPartSize (\ s a -> s{_imurqPartSize = a});
+imuPartSize :: Lens' InitiateMultipartUpload (Maybe Text)
+imuPartSize = lens _imuPartSize (\ s a -> s{_imuPartSize = a});
 
 -- | The archive description that you are uploading in parts.
 --
@@ -125,20 +125,20 @@ imurqPartSize = lens _imurqPartSize (\ s a -> s{_imurqPartSize = a});
 -- for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8
 -- MB), and so on. The minimum allowable part size is 1 MB, and the maximum
 -- is 4 GB (4096 MB).
-imurqArchiveDescription :: Lens' InitiateMultipartUpload (Maybe Text)
-imurqArchiveDescription = lens _imurqArchiveDescription (\ s a -> s{_imurqArchiveDescription = a});
+imuArchiveDescription :: Lens' InitiateMultipartUpload (Maybe Text)
+imuArchiveDescription = lens _imuArchiveDescription (\ s a -> s{_imuArchiveDescription = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-imurqAccountId :: Lens' InitiateMultipartUpload Text
-imurqAccountId = lens _imurqAccountId (\ s a -> s{_imurqAccountId = a});
+imuAccountId :: Lens' InitiateMultipartUpload Text
+imuAccountId = lens _imuAccountId (\ s a -> s{_imuAccountId = a});
 
 -- | The name of the vault.
-imurqVaultName :: Lens' InitiateMultipartUpload Text
-imurqVaultName = lens _imurqVaultName (\ s a -> s{_imurqVaultName = a});
+imuVaultName :: Lens' InitiateMultipartUpload Text
+imuVaultName = lens _imuVaultName (\ s a -> s{_imuVaultName = a});
 
 instance AWSRequest InitiateMultipartUpload where
         type Sv InitiateMultipartUpload = Glacier
@@ -156,9 +156,9 @@ instance AWSRequest InitiateMultipartUpload where
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}
           = mconcat
-              ["x-amz-part-size" =# _imurqPartSize,
+              ["x-amz-part-size" =# _imuPartSize,
                "x-amz-archive-description" =#
-                 _imurqArchiveDescription]
+                 _imuArchiveDescription]
 
 instance ToJSON InitiateMultipartUpload where
         toJSON = const (Object mempty)
@@ -166,8 +166,8 @@ instance ToJSON InitiateMultipartUpload where
 instance ToPath InitiateMultipartUpload where
         toPath InitiateMultipartUpload'{..}
           = mconcat
-              ["/", toText _imurqAccountId, "/vaults/",
-               toText _imurqVaultName, "/multipart-uploads"]
+              ["/", toText _imuAccountId, "/vaults/",
+               toText _imuVaultName, "/multipart-uploads"]
 
 instance ToQuery InitiateMultipartUpload where
         toQuery = const mempty

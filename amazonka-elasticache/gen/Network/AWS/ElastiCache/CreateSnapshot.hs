@@ -28,8 +28,8 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- ** Request constructor
     , createSnapshot
     -- ** Request lenses
-    , csrqCacheClusterId
-    , csrqSnapshotName
+    , csCacheClusterId
+    , csSnapshotName
 
     -- * Response
     , CreateSnapshotResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrqCacheClusterId'
+-- * 'csCacheClusterId'
 --
--- * 'csrqSnapshotName'
+-- * 'csSnapshotName'
 data CreateSnapshot = CreateSnapshot'
-    { _csrqCacheClusterId :: !Text
-    , _csrqSnapshotName   :: !Text
+    { _csCacheClusterId :: !Text
+    , _csSnapshotName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
 createSnapshot pCacheClusterId_ pSnapshotName_ =
     CreateSnapshot'
-    { _csrqCacheClusterId = pCacheClusterId_
-    , _csrqSnapshotName = pSnapshotName_
+    { _csCacheClusterId = pCacheClusterId_
+    , _csSnapshotName = pSnapshotName_
     }
 
 -- | The identifier of an existing cache cluster. The snapshot will be
 -- created from this cache cluster.
-csrqCacheClusterId :: Lens' CreateSnapshot Text
-csrqCacheClusterId = lens _csrqCacheClusterId (\ s a -> s{_csrqCacheClusterId = a});
+csCacheClusterId :: Lens' CreateSnapshot Text
+csCacheClusterId = lens _csCacheClusterId (\ s a -> s{_csCacheClusterId = a});
 
 -- | A name for the snapshot being created.
-csrqSnapshotName :: Lens' CreateSnapshot Text
-csrqSnapshotName = lens _csrqSnapshotName (\ s a -> s{_csrqSnapshotName = a});
+csSnapshotName :: Lens' CreateSnapshot Text
+csSnapshotName = lens _csSnapshotName (\ s a -> s{_csSnapshotName = a});
 
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = ElastiCache
@@ -97,8 +97,8 @@ instance ToQuery CreateSnapshot where
           = mconcat
               ["Action" =: ("CreateSnapshot" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheClusterId" =: _csrqCacheClusterId,
-               "SnapshotName" =: _csrqSnapshotName]
+               "CacheClusterId" =: _csCacheClusterId,
+               "SnapshotName" =: _csSnapshotName]
 
 -- | /See:/ 'createSnapshotResponse' smart constructor.
 --

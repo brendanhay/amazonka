@@ -29,8 +29,8 @@ module Network.AWS.StorageGateway.CancelRetrieval
     -- ** Request constructor
     , cancelRetrieval
     -- ** Request lenses
-    , crrqGatewayARN
-    , crrqTapeARN
+    , crGatewayARN
+    , crTapeARN
 
     -- * Response
     , CancelRetrievalResponse
@@ -52,30 +52,30 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrqGatewayARN'
+-- * 'crGatewayARN'
 --
--- * 'crrqTapeARN'
+-- * 'crTapeARN'
 data CancelRetrieval = CancelRetrieval'
-    { _crrqGatewayARN :: !Text
-    , _crrqTapeARN    :: !Text
+    { _crGatewayARN :: !Text
+    , _crTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelRetrieval' smart constructor.
 cancelRetrieval :: Text -> Text -> CancelRetrieval
 cancelRetrieval pGatewayARN_ pTapeARN_ =
     CancelRetrieval'
-    { _crrqGatewayARN = pGatewayARN_
-    , _crrqTapeARN = pTapeARN_
+    { _crGatewayARN = pGatewayARN_
+    , _crTapeARN = pTapeARN_
     }
 
 -- | FIXME: Undocumented member.
-crrqGatewayARN :: Lens' CancelRetrieval Text
-crrqGatewayARN = lens _crrqGatewayARN (\ s a -> s{_crrqGatewayARN = a});
+crGatewayARN :: Lens' CancelRetrieval Text
+crGatewayARN = lens _crGatewayARN (\ s a -> s{_crGatewayARN = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
 -- retrieval for.
-crrqTapeARN :: Lens' CancelRetrieval Text
-crrqTapeARN = lens _crrqTapeARN (\ s a -> s{_crrqTapeARN = a});
+crTapeARN :: Lens' CancelRetrieval Text
+crTapeARN = lens _crTapeARN (\ s a -> s{_crTapeARN = a});
 
 instance AWSRequest CancelRetrieval where
         type Sv CancelRetrieval = StorageGateway
@@ -100,8 +100,8 @@ instance ToHeaders CancelRetrieval where
 instance ToJSON CancelRetrieval where
         toJSON CancelRetrieval'{..}
           = object
-              ["GatewayARN" .= _crrqGatewayARN,
-               "TapeARN" .= _crrqTapeARN]
+              ["GatewayARN" .= _crGatewayARN,
+               "TapeARN" .= _crTapeARN]
 
 instance ToPath CancelRetrieval where
         toPath = const "/"

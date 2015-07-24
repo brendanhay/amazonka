@@ -30,8 +30,8 @@ module Network.AWS.RDS.ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
-    , ltfrrqFilters
-    , ltfrrqResourceName
+    , ltfrFilters
+    , ltfrResourceName
 
     -- * Response
     , ListTagsForResourceResponse
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrrqFilters'
+-- * 'ltfrFilters'
 --
--- * 'ltfrrqResourceName'
+-- * 'ltfrResourceName'
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrrqFilters      :: !(Maybe [Filter])
-    , _ltfrrqResourceName :: !Text
+    { _ltfrFilters      :: !(Maybe [Filter])
+    , _ltfrResourceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
 listTagsForResource pResourceName_ =
     ListTagsForResource'
-    { _ltfrrqFilters = Nothing
-    , _ltfrrqResourceName = pResourceName_
+    { _ltfrFilters = Nothing
+    , _ltfrResourceName = pResourceName_
     }
 
 -- | This parameter is not currently supported.
-ltfrrqFilters :: Lens' ListTagsForResource [Filter]
-ltfrrqFilters = lens _ltfrrqFilters (\ s a -> s{_ltfrrqFilters = a}) . _Default;
+ltfrFilters :: Lens' ListTagsForResource [Filter]
+ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default;
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
-ltfrrqResourceName :: Lens' ListTagsForResource Text
-ltfrrqResourceName = lens _ltfrrqResourceName (\ s a -> s{_ltfrrqResourceName = a});
+ltfrResourceName :: Lens' ListTagsForResource Text
+ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
 
 instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = RDS
@@ -104,8 +104,8 @@ instance ToQuery ListTagsForResource where
               ["Action" =: ("ListTagsForResource" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ltfrrqFilters),
-               "ResourceName" =: _ltfrrqResourceName]
+                 toQuery (toQueryList "Filter" <$> _ltfrFilters),
+               "ResourceName" =: _ltfrResourceName]
 
 -- |
 --

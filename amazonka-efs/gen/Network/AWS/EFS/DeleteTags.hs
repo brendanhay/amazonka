@@ -35,8 +35,8 @@ module Network.AWS.EFS.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , drqFileSystemId
-    , drqTagKeys
+    , dFileSystemId
+    , dTagKeys
 
     -- * Response
     , DeleteTagsResponse
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqFileSystemId'
+-- * 'dFileSystemId'
 --
--- * 'drqTagKeys'
+-- * 'dTagKeys'
 data DeleteTags = DeleteTags'
-    { _drqFileSystemId :: !Text
-    , _drqTagKeys      :: ![Text]
+    { _dFileSystemId :: !Text
+    , _dTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
 deleteTags pFileSystemId_ =
     DeleteTags'
-    { _drqFileSystemId = pFileSystemId_
-    , _drqTagKeys = mempty
+    { _dFileSystemId = pFileSystemId_
+    , _dTagKeys = mempty
     }
 
 -- | String. The ID of the file system whose tags you want to delete.
-drqFileSystemId :: Lens' DeleteTags Text
-drqFileSystemId = lens _drqFileSystemId (\ s a -> s{_drqFileSystemId = a});
+dFileSystemId :: Lens' DeleteTags Text
+dFileSystemId = lens _dFileSystemId (\ s a -> s{_dFileSystemId = a});
 
 -- | A list of tag keys to delete.
-drqTagKeys :: Lens' DeleteTags [Text]
-drqTagKeys = lens _drqTagKeys (\ s a -> s{_drqTagKeys = a});
+dTagKeys :: Lens' DeleteTags [Text]
+dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a});
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EFS
@@ -88,12 +88,12 @@ instance ToHeaders DeleteTags where
 
 instance ToJSON DeleteTags where
         toJSON DeleteTags'{..}
-          = object ["TagKeys" .= _drqTagKeys]
+          = object ["TagKeys" .= _dTagKeys]
 
 instance ToPath DeleteTags where
         toPath DeleteTags'{..}
           = mconcat
-              ["/2015-02-01/delete-tags/", toText _drqFileSystemId]
+              ["/2015-02-01/delete-tags/", toText _dFileSystemId]
 
 instance ToQuery DeleteTags where
         toQuery = const mempty

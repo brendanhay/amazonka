@@ -34,8 +34,8 @@ module Network.AWS.SDB.BatchDeleteAttributes
     -- ** Request constructor
     , batchDeleteAttributes
     -- ** Request lenses
-    , bdarqDomainName
-    , bdarqItems
+    , bdaDomainName
+    , bdaItems
 
     -- * Response
     , BatchDeleteAttributesResponse
@@ -52,29 +52,29 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bdarqDomainName'
+-- * 'bdaDomainName'
 --
--- * 'bdarqItems'
+-- * 'bdaItems'
 data BatchDeleteAttributes = BatchDeleteAttributes'
-    { _bdarqDomainName :: !Text
-    , _bdarqItems      :: ![DeletableItem]
+    { _bdaDomainName :: !Text
+    , _bdaItems      :: ![DeletableItem]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchDeleteAttributes' smart constructor.
 batchDeleteAttributes :: Text -> BatchDeleteAttributes
 batchDeleteAttributes pDomainName_ =
     BatchDeleteAttributes'
-    { _bdarqDomainName = pDomainName_
-    , _bdarqItems = mempty
+    { _bdaDomainName = pDomainName_
+    , _bdaItems = mempty
     }
 
 -- | The name of the domain in which the attributes are being deleted.
-bdarqDomainName :: Lens' BatchDeleteAttributes Text
-bdarqDomainName = lens _bdarqDomainName (\ s a -> s{_bdarqDomainName = a});
+bdaDomainName :: Lens' BatchDeleteAttributes Text
+bdaDomainName = lens _bdaDomainName (\ s a -> s{_bdaDomainName = a});
 
 -- | A list of items on which to perform the operation.
-bdarqItems :: Lens' BatchDeleteAttributes [DeletableItem]
-bdarqItems = lens _bdarqItems (\ s a -> s{_bdarqItems = a});
+bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
+bdaItems = lens _bdaItems (\ s a -> s{_bdaItems = a});
 
 instance AWSRequest BatchDeleteAttributes where
         type Sv BatchDeleteAttributes = SDB
@@ -94,8 +94,8 @@ instance ToQuery BatchDeleteAttributes where
           = mconcat
               ["Action" =: ("BatchDeleteAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _bdarqDomainName,
-               toQueryList "Item" _bdarqItems]
+               "DomainName" =: _bdaDomainName,
+               toQueryList "Item" _bdaItems]
 
 -- | /See:/ 'batchDeleteAttributesResponse' smart constructor.
 data BatchDeleteAttributesResponse =

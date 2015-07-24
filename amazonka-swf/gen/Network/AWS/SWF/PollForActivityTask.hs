@@ -59,9 +59,9 @@ module Network.AWS.SWF.PollForActivityTask
     -- ** Request constructor
     , pollForActivityTask
     -- ** Request lenses
-    , pfatrqIdentity
-    , pfatrqDomain
-    , pfatrqTaskList
+    , pfatIdentity
+    , pfatDomain
+    , pfatTaskList
 
     -- * Response
     , PollForActivityTaskResponse
@@ -86,36 +86,36 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pfatrqIdentity'
+-- * 'pfatIdentity'
 --
--- * 'pfatrqDomain'
+-- * 'pfatDomain'
 --
--- * 'pfatrqTaskList'
+-- * 'pfatTaskList'
 data PollForActivityTask = PollForActivityTask'
-    { _pfatrqIdentity :: !(Maybe Text)
-    , _pfatrqDomain   :: !Text
-    , _pfatrqTaskList :: !TaskList
+    { _pfatIdentity :: !(Maybe Text)
+    , _pfatDomain   :: !Text
+    , _pfatTaskList :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForActivityTask' smart constructor.
 pollForActivityTask :: Text -> TaskList -> PollForActivityTask
 pollForActivityTask pDomain_ pTaskList_ =
     PollForActivityTask'
-    { _pfatrqIdentity = Nothing
-    , _pfatrqDomain = pDomain_
-    , _pfatrqTaskList = pTaskList_
+    { _pfatIdentity = Nothing
+    , _pfatDomain = pDomain_
+    , _pfatTaskList = pTaskList_
     }
 
 -- | Identity of the worker making the request, recorded in the
 -- @ActivityTaskStarted@ event in the workflow history. This enables
 -- diagnostic tracing when problems arise. The form of this identity is
 -- user defined.
-pfatrqIdentity :: Lens' PollForActivityTask (Maybe Text)
-pfatrqIdentity = lens _pfatrqIdentity (\ s a -> s{_pfatrqIdentity = a});
+pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
+pfatIdentity = lens _pfatIdentity (\ s a -> s{_pfatIdentity = a});
 
 -- | The name of the domain that contains the task lists being polled.
-pfatrqDomain :: Lens' PollForActivityTask Text
-pfatrqDomain = lens _pfatrqDomain (\ s a -> s{_pfatrqDomain = a});
+pfatDomain :: Lens' PollForActivityTask Text
+pfatDomain = lens _pfatDomain (\ s a -> s{_pfatDomain = a});
 
 -- | Specifies the task list to poll for activity tasks.
 --
@@ -123,8 +123,8 @@ pfatrqDomain = lens _pfatrqDomain (\ s a -> s{_pfatrqDomain = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-pfatrqTaskList :: Lens' PollForActivityTask TaskList
-pfatrqTaskList = lens _pfatrqTaskList (\ s a -> s{_pfatrqTaskList = a});
+pfatTaskList :: Lens' PollForActivityTask TaskList
+pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a});
 
 instance AWSRequest PollForActivityTask where
         type Sv PollForActivityTask = SWF
@@ -155,9 +155,8 @@ instance ToHeaders PollForActivityTask where
 instance ToJSON PollForActivityTask where
         toJSON PollForActivityTask'{..}
           = object
-              ["identity" .= _pfatrqIdentity,
-               "domain" .= _pfatrqDomain,
-               "taskList" .= _pfatrqTaskList]
+              ["identity" .= _pfatIdentity,
+               "domain" .= _pfatDomain, "taskList" .= _pfatTaskList]
 
 instance ToPath PollForActivityTask where
         toPath = const "/"

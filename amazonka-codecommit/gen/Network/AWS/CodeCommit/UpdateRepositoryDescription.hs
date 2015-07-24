@@ -34,8 +34,8 @@ module Network.AWS.CodeCommit.UpdateRepositoryDescription
     -- ** Request constructor
     , updateRepositoryDescription
     -- ** Request lenses
-    , urdrqRepositoryDescription
-    , urdrqRepositoryName
+    , urdRepositoryDescription
+    , urdRepositoryName
 
     -- * Response
     , UpdateRepositoryDescriptionResponse
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urdrqRepositoryDescription'
+-- * 'urdRepositoryDescription'
 --
--- * 'urdrqRepositoryName'
+-- * 'urdRepositoryName'
 data UpdateRepositoryDescription = UpdateRepositoryDescription'
-    { _urdrqRepositoryDescription :: !(Maybe Text)
-    , _urdrqRepositoryName        :: !Text
+    { _urdRepositoryDescription :: !(Maybe Text)
+    , _urdRepositoryName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRepositoryDescription' smart constructor.
 updateRepositoryDescription :: Text -> UpdateRepositoryDescription
 updateRepositoryDescription pRepositoryName_ =
     UpdateRepositoryDescription'
-    { _urdrqRepositoryDescription = Nothing
-    , _urdrqRepositoryName = pRepositoryName_
+    { _urdRepositoryDescription = Nothing
+    , _urdRepositoryName = pRepositoryName_
     }
 
 -- | The new comment or description for the specified repository.
-urdrqRepositoryDescription :: Lens' UpdateRepositoryDescription (Maybe Text)
-urdrqRepositoryDescription = lens _urdrqRepositoryDescription (\ s a -> s{_urdrqRepositoryDescription = a});
+urdRepositoryDescription :: Lens' UpdateRepositoryDescription (Maybe Text)
+urdRepositoryDescription = lens _urdRepositoryDescription (\ s a -> s{_urdRepositoryDescription = a});
 
 -- | The name of the repository to set or change the comment or description
 -- for.
-urdrqRepositoryName :: Lens' UpdateRepositoryDescription Text
-urdrqRepositoryName = lens _urdrqRepositoryName (\ s a -> s{_urdrqRepositoryName = a});
+urdRepositoryName :: Lens' UpdateRepositoryDescription Text
+urdRepositoryName = lens _urdRepositoryName (\ s a -> s{_urdRepositoryName = a});
 
 instance AWSRequest UpdateRepositoryDescription where
         type Sv UpdateRepositoryDescription = CodeCommit
@@ -101,8 +101,8 @@ instance ToJSON UpdateRepositoryDescription where
         toJSON UpdateRepositoryDescription'{..}
           = object
               ["repositoryDescription" .=
-                 _urdrqRepositoryDescription,
-               "repositoryName" .= _urdrqRepositoryName]
+                 _urdRepositoryDescription,
+               "repositoryName" .= _urdRepositoryName]
 
 instance ToPath UpdateRepositoryDescription where
         toPath = const "/"

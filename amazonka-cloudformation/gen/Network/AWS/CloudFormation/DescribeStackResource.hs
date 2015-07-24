@@ -30,8 +30,8 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- ** Request constructor
     , describeStackResource
     -- ** Request lenses
-    , desrqStackName
-    , desrqLogicalResourceId
+    , desStackName
+    , desLogicalResourceId
 
     -- * Response
     , DescribeStackResourceResponse
@@ -53,20 +53,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrqStackName'
+-- * 'desStackName'
 --
--- * 'desrqLogicalResourceId'
+-- * 'desLogicalResourceId'
 data DescribeStackResource = DescribeStackResource'
-    { _desrqStackName         :: !Text
-    , _desrqLogicalResourceId :: !Text
+    { _desStackName         :: !Text
+    , _desLogicalResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResource' smart constructor.
 describeStackResource :: Text -> Text -> DescribeStackResource
 describeStackResource pStackName_ pLogicalResourceId_ =
     DescribeStackResource'
-    { _desrqStackName = pStackName_
-    , _desrqLogicalResourceId = pLogicalResourceId_
+    { _desStackName = pStackName_
+    , _desLogicalResourceId = pLogicalResourceId_
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -77,14 +77,14 @@ describeStackResource pStackName_ pLogicalResourceId_ =
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-desrqStackName :: Lens' DescribeStackResource Text
-desrqStackName = lens _desrqStackName (\ s a -> s{_desrqStackName = a});
+desStackName :: Lens' DescribeStackResource Text
+desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
 
 -- | The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
-desrqLogicalResourceId :: Lens' DescribeStackResource Text
-desrqLogicalResourceId = lens _desrqLogicalResourceId (\ s a -> s{_desrqLogicalResourceId = a});
+desLogicalResourceId :: Lens' DescribeStackResource Text
+desLogicalResourceId = lens _desLogicalResourceId (\ s a -> s{_desLogicalResourceId = a});
 
 instance AWSRequest DescribeStackResource where
         type Sv DescribeStackResource = CloudFormation
@@ -109,8 +109,8 @@ instance ToQuery DescribeStackResource where
           = mconcat
               ["Action" =: ("DescribeStackResource" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _desrqStackName,
-               "LogicalResourceId" =: _desrqLogicalResourceId]
+               "StackName" =: _desStackName,
+               "LogicalResourceId" =: _desLogicalResourceId]
 
 -- | The output for a DescribeStackResource action.
 --

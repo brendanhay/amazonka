@@ -32,11 +32,11 @@ module Network.AWS.ImportExport.CreateJob
     -- ** Request constructor
     , createJob
     -- ** Request lenses
-    , cjrqAPIVersion
-    , cjrqManifestAddendum
-    , cjrqJobType
-    , cjrqManifest
-    , cjrqValidateOnly
+    , cjAPIVersion
+    , cjManifestAddendum
+    , cjJobType
+    , cjManifest
+    , cjValidateOnly
 
     -- * Response
     , CreateJobResponse
@@ -63,53 +63,53 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjrqAPIVersion'
+-- * 'cjAPIVersion'
 --
--- * 'cjrqManifestAddendum'
+-- * 'cjManifestAddendum'
 --
--- * 'cjrqJobType'
+-- * 'cjJobType'
 --
--- * 'cjrqManifest'
+-- * 'cjManifest'
 --
--- * 'cjrqValidateOnly'
+-- * 'cjValidateOnly'
 data CreateJob = CreateJob'
-    { _cjrqAPIVersion       :: !(Maybe Text)
-    , _cjrqManifestAddendum :: !(Maybe Text)
-    , _cjrqJobType          :: !JobType
-    , _cjrqManifest         :: !Text
-    , _cjrqValidateOnly     :: !Bool
+    { _cjAPIVersion       :: !(Maybe Text)
+    , _cjManifestAddendum :: !(Maybe Text)
+    , _cjJobType          :: !JobType
+    , _cjManifest         :: !Text
+    , _cjValidateOnly     :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJob' smart constructor.
 createJob :: JobType -> Text -> Bool -> CreateJob
 createJob pJobType_ pManifest_ pValidateOnly_ =
     CreateJob'
-    { _cjrqAPIVersion = Nothing
-    , _cjrqManifestAddendum = Nothing
-    , _cjrqJobType = pJobType_
-    , _cjrqManifest = pManifest_
-    , _cjrqValidateOnly = pValidateOnly_
+    { _cjAPIVersion = Nothing
+    , _cjManifestAddendum = Nothing
+    , _cjJobType = pJobType_
+    , _cjManifest = pManifest_
+    , _cjValidateOnly = pValidateOnly_
     }
 
 -- | FIXME: Undocumented member.
-cjrqAPIVersion :: Lens' CreateJob (Maybe Text)
-cjrqAPIVersion = lens _cjrqAPIVersion (\ s a -> s{_cjrqAPIVersion = a});
+cjAPIVersion :: Lens' CreateJob (Maybe Text)
+cjAPIVersion = lens _cjAPIVersion (\ s a -> s{_cjAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-cjrqManifestAddendum :: Lens' CreateJob (Maybe Text)
-cjrqManifestAddendum = lens _cjrqManifestAddendum (\ s a -> s{_cjrqManifestAddendum = a});
+cjManifestAddendum :: Lens' CreateJob (Maybe Text)
+cjManifestAddendum = lens _cjManifestAddendum (\ s a -> s{_cjManifestAddendum = a});
 
 -- | FIXME: Undocumented member.
-cjrqJobType :: Lens' CreateJob JobType
-cjrqJobType = lens _cjrqJobType (\ s a -> s{_cjrqJobType = a});
+cjJobType :: Lens' CreateJob JobType
+cjJobType = lens _cjJobType (\ s a -> s{_cjJobType = a});
 
 -- | FIXME: Undocumented member.
-cjrqManifest :: Lens' CreateJob Text
-cjrqManifest = lens _cjrqManifest (\ s a -> s{_cjrqManifest = a});
+cjManifest :: Lens' CreateJob Text
+cjManifest = lens _cjManifest (\ s a -> s{_cjManifest = a});
 
 -- | FIXME: Undocumented member.
-cjrqValidateOnly :: Lens' CreateJob Bool
-cjrqValidateOnly = lens _cjrqValidateOnly (\ s a -> s{_cjrqValidateOnly = a});
+cjValidateOnly :: Lens' CreateJob Bool
+cjValidateOnly = lens _cjValidateOnly (\ s a -> s{_cjValidateOnly = a});
 
 instance AWSRequest CreateJob where
         type Sv CreateJob = ImportExport
@@ -140,11 +140,10 @@ instance ToQuery CreateJob where
               ["Operation=CreateJob",
                "Action" =: ("CreateJob" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _cjrqAPIVersion,
-               "ManifestAddendum" =: _cjrqManifestAddendum,
-               "JobType" =: _cjrqJobType,
-               "Manifest" =: _cjrqManifest,
-               "ValidateOnly" =: _cjrqValidateOnly]
+               "APIVersion" =: _cjAPIVersion,
+               "ManifestAddendum" =: _cjManifestAddendum,
+               "JobType" =: _cjJobType, "Manifest" =: _cjManifest,
+               "ValidateOnly" =: _cjValidateOnly]
 
 -- | Output structure for the CreateJob operation.
 --

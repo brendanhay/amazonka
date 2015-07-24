@@ -28,8 +28,8 @@ module Network.AWS.EC2.DisableVPCClassicLink
     -- ** Request constructor
     , disableVPCClassicLink
     -- ** Request lenses
-    , dvpcclrqDryRun
-    , dvpcclrqVPCId
+    , dvpcclDryRun
+    , dvpcclVPCId
 
     -- * Response
     , DisableVPCClassicLinkResponse
@@ -49,32 +49,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcclrqDryRun'
+-- * 'dvpcclDryRun'
 --
--- * 'dvpcclrqVPCId'
+-- * 'dvpcclVPCId'
 data DisableVPCClassicLink = DisableVPCClassicLink'
-    { _dvpcclrqDryRun :: !(Maybe Bool)
-    , _dvpcclrqVPCId  :: !Text
+    { _dvpcclDryRun :: !(Maybe Bool)
+    , _dvpcclVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVPCClassicLink' smart constructor.
 disableVPCClassicLink :: Text -> DisableVPCClassicLink
 disableVPCClassicLink pVPCId_ =
     DisableVPCClassicLink'
-    { _dvpcclrqDryRun = Nothing
-    , _dvpcclrqVPCId = pVPCId_
+    { _dvpcclDryRun = Nothing
+    , _dvpcclVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvpcclrqDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
-dvpcclrqDryRun = lens _dvpcclrqDryRun (\ s a -> s{_dvpcclrqDryRun = a});
+dvpcclDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
+dvpcclDryRun = lens _dvpcclDryRun (\ s a -> s{_dvpcclDryRun = a});
 
 -- | The ID of the VPC.
-dvpcclrqVPCId :: Lens' DisableVPCClassicLink Text
-dvpcclrqVPCId = lens _dvpcclrqVPCId (\ s a -> s{_dvpcclrqVPCId = a});
+dvpcclVPCId :: Lens' DisableVPCClassicLink Text
+dvpcclVPCId = lens _dvpcclVPCId (\ s a -> s{_dvpcclVPCId = a});
 
 instance AWSRequest DisableVPCClassicLink where
         type Sv DisableVPCClassicLink = EC2
@@ -98,8 +98,7 @@ instance ToQuery DisableVPCClassicLink where
           = mconcat
               ["Action" =: ("DisableVPCClassicLink" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dvpcclrqDryRun,
-               "VpcId" =: _dvpcclrqVPCId]
+               "DryRun" =: _dvpcclDryRun, "VpcId" =: _dvpcclVPCId]
 
 -- | /See:/ 'disableVPCClassicLinkResponse' smart constructor.
 --

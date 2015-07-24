@@ -31,8 +31,8 @@ module Network.AWS.Kinesis.AddTagsToStream
     -- ** Request constructor
     , addTagsToStream
     -- ** Request lenses
-    , attsrqStreamName
-    , attsrqTags
+    , attsStreamName
+    , attsTags
 
     -- * Response
     , AddTagsToStreamResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attsrqStreamName'
+-- * 'attsStreamName'
 --
--- * 'attsrqTags'
+-- * 'attsTags'
 data AddTagsToStream = AddTagsToStream'
-    { _attsrqStreamName :: !Text
-    , _attsrqTags       :: !(Map Text Text)
+    { _attsStreamName :: !Text
+    , _attsTags       :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToStream' smart constructor.
 addTagsToStream :: Text -> AddTagsToStream
 addTagsToStream pStreamName_ =
     AddTagsToStream'
-    { _attsrqStreamName = pStreamName_
-    , _attsrqTags = mempty
+    { _attsStreamName = pStreamName_
+    , _attsTags = mempty
     }
 
 -- | The name of the stream.
-attsrqStreamName :: Lens' AddTagsToStream Text
-attsrqStreamName = lens _attsrqStreamName (\ s a -> s{_attsrqStreamName = a});
+attsStreamName :: Lens' AddTagsToStream Text
+attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a});
 
 -- | The set of key-value pairs to use to create the tags.
-attsrqTags :: Lens' AddTagsToStream (HashMap Text Text)
-attsrqTags = lens _attsrqTags (\ s a -> s{_attsrqTags = a}) . _Map;
+attsTags :: Lens' AddTagsToStream (HashMap Text Text)
+attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map;
 
 instance AWSRequest AddTagsToStream where
         type Sv AddTagsToStream = Kinesis
@@ -93,8 +93,8 @@ instance ToHeaders AddTagsToStream where
 instance ToJSON AddTagsToStream where
         toJSON AddTagsToStream'{..}
           = object
-              ["StreamName" .= _attsrqStreamName,
-               "Tags" .= _attsrqTags]
+              ["StreamName" .= _attsStreamName,
+               "Tags" .= _attsTags]
 
 instance ToPath AddTagsToStream where
         toPath = const "/"

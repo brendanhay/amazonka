@@ -28,17 +28,17 @@ module Network.AWS.MachineLearning.DescribeDataSources
     -- ** Request constructor
     , describeDataSources
     -- ** Request lenses
-    , ddsrqEQ
-    , ddsrqGE
-    , ddsrqPrefix
-    , ddsrqGT
-    , ddsrqNE
-    , ddsrqNextToken
-    , ddsrqSortOrder
-    , ddsrqLimit
-    , ddsrqLT
-    , ddsrqFilterVariable
-    , ddsrqLE
+    , ddsEQ
+    , ddsGE
+    , ddsPrefix
+    , ddsGT
+    , ddsNE
+    , ddsNextToken
+    , ddsSortOrder
+    , ddsLimit
+    , ddsLT
+    , ddsFilterVariable
+    , ddsLE
 
     -- * Response
     , DescribeDataSourcesResponse
@@ -60,69 +60,69 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsrqEQ'
+-- * 'ddsEQ'
 --
--- * 'ddsrqGE'
+-- * 'ddsGE'
 --
--- * 'ddsrqPrefix'
+-- * 'ddsPrefix'
 --
--- * 'ddsrqGT'
+-- * 'ddsGT'
 --
--- * 'ddsrqNE'
+-- * 'ddsNE'
 --
--- * 'ddsrqNextToken'
+-- * 'ddsNextToken'
 --
--- * 'ddsrqSortOrder'
+-- * 'ddsSortOrder'
 --
--- * 'ddsrqLimit'
+-- * 'ddsLimit'
 --
--- * 'ddsrqLT'
+-- * 'ddsLT'
 --
--- * 'ddsrqFilterVariable'
+-- * 'ddsFilterVariable'
 --
--- * 'ddsrqLE'
+-- * 'ddsLE'
 data DescribeDataSources = DescribeDataSources'
-    { _ddsrqEQ             :: !(Maybe Text)
-    , _ddsrqGE             :: !(Maybe Text)
-    , _ddsrqPrefix         :: !(Maybe Text)
-    , _ddsrqGT             :: !(Maybe Text)
-    , _ddsrqNE             :: !(Maybe Text)
-    , _ddsrqNextToken      :: !(Maybe Text)
-    , _ddsrqSortOrder      :: !(Maybe SortOrder)
-    , _ddsrqLimit          :: !(Maybe Nat)
-    , _ddsrqLT             :: !(Maybe Text)
-    , _ddsrqFilterVariable :: !(Maybe DataSourceFilterVariable)
-    , _ddsrqLE             :: !(Maybe Text)
+    { _ddsEQ             :: !(Maybe Text)
+    , _ddsGE             :: !(Maybe Text)
+    , _ddsPrefix         :: !(Maybe Text)
+    , _ddsGT             :: !(Maybe Text)
+    , _ddsNE             :: !(Maybe Text)
+    , _ddsNextToken      :: !(Maybe Text)
+    , _ddsSortOrder      :: !(Maybe SortOrder)
+    , _ddsLimit          :: !(Maybe Nat)
+    , _ddsLT             :: !(Maybe Text)
+    , _ddsFilterVariable :: !(Maybe DataSourceFilterVariable)
+    , _ddsLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataSources' smart constructor.
 describeDataSources :: DescribeDataSources
 describeDataSources =
     DescribeDataSources'
-    { _ddsrqEQ = Nothing
-    , _ddsrqGE = Nothing
-    , _ddsrqPrefix = Nothing
-    , _ddsrqGT = Nothing
-    , _ddsrqNE = Nothing
-    , _ddsrqNextToken = Nothing
-    , _ddsrqSortOrder = Nothing
-    , _ddsrqLimit = Nothing
-    , _ddsrqLT = Nothing
-    , _ddsrqFilterVariable = Nothing
-    , _ddsrqLE = Nothing
+    { _ddsEQ = Nothing
+    , _ddsGE = Nothing
+    , _ddsPrefix = Nothing
+    , _ddsGT = Nothing
+    , _ddsNE = Nothing
+    , _ddsNextToken = Nothing
+    , _ddsSortOrder = Nothing
+    , _ddsLimit = Nothing
+    , _ddsLT = Nothing
+    , _ddsFilterVariable = Nothing
+    , _ddsLE = Nothing
     }
 
 -- | The equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
 -- @EQ@.
-ddsrqEQ :: Lens' DescribeDataSources (Maybe Text)
-ddsrqEQ = lens _ddsrqEQ (\ s a -> s{_ddsrqEQ = a});
+ddsEQ :: Lens' DescribeDataSources (Maybe Text)
+ddsEQ = lens _ddsEQ (\ s a -> s{_ddsEQ = a});
 
 -- | The greater than or equal to operator. The @DataSource@ results will
 -- have @FilterVariable@ values that are greater than or equal to the value
 -- specified with @GE@.
-ddsrqGE :: Lens' DescribeDataSources (Maybe Text)
-ddsrqGE = lens _ddsrqGE (\ s a -> s{_ddsrqGE = a});
+ddsGE :: Lens' DescribeDataSources (Maybe Text)
+ddsGE = lens _ddsGE (\ s a -> s{_ddsGE = a});
 
 -- | A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -138,23 +138,23 @@ ddsrqGE = lens _ddsrqGE (\ s a -> s{_ddsrqGE = a});
 --
 -- -   2014-09-09-Holiday
 --
-ddsrqPrefix :: Lens' DescribeDataSources (Maybe Text)
-ddsrqPrefix = lens _ddsrqPrefix (\ s a -> s{_ddsrqPrefix = a});
+ddsPrefix :: Lens' DescribeDataSources (Maybe Text)
+ddsPrefix = lens _ddsPrefix (\ s a -> s{_ddsPrefix = a});
 
 -- | The greater than operator. The @DataSource@ results will have
 -- @FilterVariable@ values that are greater than the value specified with
 -- @GT@.
-ddsrqGT :: Lens' DescribeDataSources (Maybe Text)
-ddsrqGT = lens _ddsrqGT (\ s a -> s{_ddsrqGT = a});
+ddsGT :: Lens' DescribeDataSources (Maybe Text)
+ddsGT = lens _ddsGT (\ s a -> s{_ddsGT = a});
 
 -- | The not equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values not equal to the value specified with @NE@.
-ddsrqNE :: Lens' DescribeDataSources (Maybe Text)
-ddsrqNE = lens _ddsrqNE (\ s a -> s{_ddsrqNE = a});
+ddsNE :: Lens' DescribeDataSources (Maybe Text)
+ddsNE = lens _ddsNE (\ s a -> s{_ddsNE = a});
 
 -- | The ID of the page in the paginated results.
-ddsrqNextToken :: Lens' DescribeDataSources (Maybe Text)
-ddsrqNextToken = lens _ddsrqNextToken (\ s a -> s{_ddsrqNextToken = a});
+ddsNextToken :: Lens' DescribeDataSources (Maybe Text)
+ddsNextToken = lens _ddsNextToken (\ s a -> s{_ddsNextToken = a});
 
 -- | A two-value parameter that determines the sequence of the resulting list
 -- of @DataSource@.
@@ -163,18 +163,18 @@ ddsrqNextToken = lens _ddsrqNextToken (\ s a -> s{_ddsrqNextToken = a});
 -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
 -- Results are sorted by @FilterVariable@.
-ddsrqSortOrder :: Lens' DescribeDataSources (Maybe SortOrder)
-ddsrqSortOrder = lens _ddsrqSortOrder (\ s a -> s{_ddsrqSortOrder = a});
+ddsSortOrder :: Lens' DescribeDataSources (Maybe SortOrder)
+ddsSortOrder = lens _ddsSortOrder (\ s a -> s{_ddsSortOrder = a});
 
 -- | The maximum number of @DataSource@ to include in the result.
-ddsrqLimit :: Lens' DescribeDataSources (Maybe Natural)
-ddsrqLimit = lens _ddsrqLimit (\ s a -> s{_ddsrqLimit = a}) . mapping _Nat;
+ddsLimit :: Lens' DescribeDataSources (Maybe Natural)
+ddsLimit = lens _ddsLimit (\ s a -> s{_ddsLimit = a}) . mapping _Nat;
 
 -- | The less than operator. The @DataSource@ results will have
 -- @FilterVariable@ values that are less than the value specified with
 -- @LT@.
-ddsrqLT :: Lens' DescribeDataSources (Maybe Text)
-ddsrqLT = lens _ddsrqLT (\ s a -> s{_ddsrqLT = a});
+ddsLT :: Lens' DescribeDataSources (Maybe Text)
+ddsLT = lens _ddsLT (\ s a -> s{_ddsLT = a});
 
 -- | Use one of the following variables to filter a list of @DataSource@:
 --
@@ -188,21 +188,21 @@ ddsrqLT = lens _ddsrqLT (\ s a -> s{_ddsrqLT = a});
 --     Amazon Simple Storage Service (Amazon S3) bucket or directory.
 -- -   @IAMUser@ - Sets the search criteria to the user account that
 --     invoked the @DataSource@ creation.
-ddsrqFilterVariable :: Lens' DescribeDataSources (Maybe DataSourceFilterVariable)
-ddsrqFilterVariable = lens _ddsrqFilterVariable (\ s a -> s{_ddsrqFilterVariable = a});
+ddsFilterVariable :: Lens' DescribeDataSources (Maybe DataSourceFilterVariable)
+ddsFilterVariable = lens _ddsFilterVariable (\ s a -> s{_ddsFilterVariable = a});
 
 -- | The less than or equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values that are less than or equal to the value
 -- specified with @LE@.
-ddsrqLE :: Lens' DescribeDataSources (Maybe Text)
-ddsrqLE = lens _ddsrqLE (\ s a -> s{_ddsrqLE = a});
+ddsLE :: Lens' DescribeDataSources (Maybe Text)
+ddsLE = lens _ddsLE (\ s a -> s{_ddsLE = a});
 
 instance AWSPager DescribeDataSources where
         page rq rs
           | stop (rs ^. ddssrsNextToken) = Nothing
           | stop (rs ^. ddssrsResults) = Nothing
           | otherwise =
-            Just $ rq & ddsrqNextToken .~ rs ^. ddssrsNextToken
+            Just $ rq & ddsNextToken .~ rs ^. ddssrsNextToken
 
 instance AWSRequest DescribeDataSources where
         type Sv DescribeDataSources = MachineLearning
@@ -229,13 +229,13 @@ instance ToHeaders DescribeDataSources where
 instance ToJSON DescribeDataSources where
         toJSON DescribeDataSources'{..}
           = object
-              ["EQ" .= _ddsrqEQ, "GE" .= _ddsrqGE,
-               "Prefix" .= _ddsrqPrefix, "GT" .= _ddsrqGT,
-               "NE" .= _ddsrqNE, "NextToken" .= _ddsrqNextToken,
-               "SortOrder" .= _ddsrqSortOrder,
-               "Limit" .= _ddsrqLimit, "LT" .= _ddsrqLT,
-               "FilterVariable" .= _ddsrqFilterVariable,
-               "LE" .= _ddsrqLE]
+              ["EQ" .= _ddsEQ, "GE" .= _ddsGE,
+               "Prefix" .= _ddsPrefix, "GT" .= _ddsGT,
+               "NE" .= _ddsNE, "NextToken" .= _ddsNextToken,
+               "SortOrder" .= _ddsSortOrder, "Limit" .= _ddsLimit,
+               "LT" .= _ddsLT,
+               "FilterVariable" .= _ddsFilterVariable,
+               "LE" .= _ddsLE]
 
 instance ToPath DescribeDataSources where
         toPath = const "/"

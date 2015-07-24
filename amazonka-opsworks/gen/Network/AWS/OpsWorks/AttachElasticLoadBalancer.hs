@@ -40,8 +40,8 @@ module Network.AWS.OpsWorks.AttachElasticLoadBalancer
     -- ** Request constructor
     , attachElasticLoadBalancer
     -- ** Request lenses
-    , aelbrqElasticLoadBalancerName
-    , aelbrqLayerId
+    , aelbElasticLoadBalancerName
+    , aelbLayerId
 
     -- * Response
     , AttachElasticLoadBalancerResponse
@@ -58,30 +58,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aelbrqElasticLoadBalancerName'
+-- * 'aelbElasticLoadBalancerName'
 --
--- * 'aelbrqLayerId'
+-- * 'aelbLayerId'
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
-    { _aelbrqElasticLoadBalancerName :: !Text
-    , _aelbrqLayerId                 :: !Text
+    { _aelbElasticLoadBalancerName :: !Text
+    , _aelbLayerId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachElasticLoadBalancer' smart constructor.
 attachElasticLoadBalancer :: Text -> Text -> AttachElasticLoadBalancer
 attachElasticLoadBalancer pElasticLoadBalancerName_ pLayerId_ =
     AttachElasticLoadBalancer'
-    { _aelbrqElasticLoadBalancerName = pElasticLoadBalancerName_
-    , _aelbrqLayerId = pLayerId_
+    { _aelbElasticLoadBalancerName = pElasticLoadBalancerName_
+    , _aelbLayerId = pLayerId_
     }
 
 -- | The Elastic Load Balancing instance\'s name.
-aelbrqElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
-aelbrqElasticLoadBalancerName = lens _aelbrqElasticLoadBalancerName (\ s a -> s{_aelbrqElasticLoadBalancerName = a});
+aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
+aelbElasticLoadBalancerName = lens _aelbElasticLoadBalancerName (\ s a -> s{_aelbElasticLoadBalancerName = a});
 
 -- | The ID of the layer that the Elastic Load Balancing instance is to be
 -- attached to.
-aelbrqLayerId :: Lens' AttachElasticLoadBalancer Text
-aelbrqLayerId = lens _aelbrqLayerId (\ s a -> s{_aelbrqLayerId = a});
+aelbLayerId :: Lens' AttachElasticLoadBalancer Text
+aelbLayerId = lens _aelbLayerId (\ s a -> s{_aelbLayerId = a});
 
 instance AWSRequest AttachElasticLoadBalancer where
         type Sv AttachElasticLoadBalancer = OpsWorks
@@ -105,8 +105,8 @@ instance ToJSON AttachElasticLoadBalancer where
         toJSON AttachElasticLoadBalancer'{..}
           = object
               ["ElasticLoadBalancerName" .=
-                 _aelbrqElasticLoadBalancerName,
-               "LayerId" .= _aelbrqLayerId]
+                 _aelbElasticLoadBalancerName,
+               "LayerId" .= _aelbLayerId]
 
 instance ToPath AttachElasticLoadBalancer where
         toPath = const "/"

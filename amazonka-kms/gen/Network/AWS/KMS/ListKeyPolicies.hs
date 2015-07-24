@@ -27,9 +27,9 @@ module Network.AWS.KMS.ListKeyPolicies
     -- ** Request constructor
     , listKeyPolicies
     -- ** Request lenses
-    , lkprqMarker
-    , lkprqLimit
-    , lkprqKeyId
+    , lkpMarker
+    , lkpLimit
+    , lkpKeyId
 
     -- * Response
     , ListKeyPoliciesResponse
@@ -51,39 +51,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lkprqMarker'
+-- * 'lkpMarker'
 --
--- * 'lkprqLimit'
+-- * 'lkpLimit'
 --
--- * 'lkprqKeyId'
+-- * 'lkpKeyId'
 data ListKeyPolicies = ListKeyPolicies'
-    { _lkprqMarker :: !(Maybe Text)
-    , _lkprqLimit  :: !(Maybe Nat)
-    , _lkprqKeyId  :: !Text
+    { _lkpMarker :: !(Maybe Text)
+    , _lkpLimit  :: !(Maybe Nat)
+    , _lkpKeyId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeyPolicies' smart constructor.
 listKeyPolicies :: Text -> ListKeyPolicies
 listKeyPolicies pKeyId_ =
     ListKeyPolicies'
-    { _lkprqMarker = Nothing
-    , _lkprqLimit = Nothing
-    , _lkprqKeyId = pKeyId_
+    { _lkpMarker = Nothing
+    , _lkpLimit = Nothing
+    , _lkpKeyId = pKeyId_
     }
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @NextMarker@ in the response
 -- you just received.
-lkprqMarker :: Lens' ListKeyPolicies (Maybe Text)
-lkprqMarker = lens _lkprqMarker (\ s a -> s{_lkprqMarker = a});
+lkpMarker :: Lens' ListKeyPolicies (Maybe Text)
+lkpMarker = lens _lkpMarker (\ s a -> s{_lkpMarker = a});
 
 -- | Specify this parameter only when paginating results to indicate the
 -- maximum number of policies you want listed in the response. If there are
 -- additional policies beyond the maximum you specify, the @Truncated@
 -- response element will be set to @true.@
-lkprqLimit :: Lens' ListKeyPolicies (Maybe Natural)
-lkprqLimit = lens _lkprqLimit (\ s a -> s{_lkprqLimit = a}) . mapping _Nat;
+lkpLimit :: Lens' ListKeyPolicies (Maybe Natural)
+lkpLimit = lens _lkpLimit (\ s a -> s{_lkpLimit = a}) . mapping _Nat;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -96,8 +96,8 @@ lkprqLimit = lens _lkprqLimit (\ s a -> s{_lkprqLimit = a}) . mapping _Nat;
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-lkprqKeyId :: Lens' ListKeyPolicies Text
-lkprqKeyId = lens _lkprqKeyId (\ s a -> s{_lkprqKeyId = a});
+lkpKeyId :: Lens' ListKeyPolicies Text
+lkpKeyId = lens _lkpKeyId (\ s a -> s{_lkpKeyId = a});
 
 instance AWSRequest ListKeyPolicies where
         type Sv ListKeyPolicies = KMS
@@ -124,8 +124,8 @@ instance ToHeaders ListKeyPolicies where
 instance ToJSON ListKeyPolicies where
         toJSON ListKeyPolicies'{..}
           = object
-              ["Marker" .= _lkprqMarker, "Limit" .= _lkprqLimit,
-               "KeyId" .= _lkprqKeyId]
+              ["Marker" .= _lkpMarker, "Limit" .= _lkpLimit,
+               "KeyId" .= _lkpKeyId]
 
 instance ToPath ListKeyPolicies where
         toPath = const "/"

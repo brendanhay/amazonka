@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.GetDevice
     -- ** Request constructor
     , getDevice
     -- ** Request lenses
-    , gdrqArn
+    , gdArn
 
     -- * Response
     , GetDeviceResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrqArn'
+-- * 'gdArn'
 newtype GetDevice = GetDevice'
-    { _gdrqArn :: Text
+    { _gdArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevice' smart constructor.
 getDevice :: Text -> GetDevice
 getDevice pArn_ =
     GetDevice'
-    { _gdrqArn = pArn_
+    { _gdArn = pArn_
     }
 
 -- | The device type\'s ARN.
-gdrqArn :: Lens' GetDevice Text
-gdrqArn = lens _gdrqArn (\ s a -> s{_gdrqArn = a});
+gdArn :: Lens' GetDevice Text
+gdArn = lens _gdArn (\ s a -> s{_gdArn = a});
 
 instance AWSRequest GetDevice where
         type Sv GetDevice = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetDevice where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDevice where
-        toJSON GetDevice'{..} = object ["arn" .= _gdrqArn]
+        toJSON GetDevice'{..} = object ["arn" .= _gdArn]
 
 instance ToPath GetDevice where
         toPath = const "/"

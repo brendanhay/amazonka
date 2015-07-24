@@ -27,9 +27,9 @@ module Network.AWS.EC2.DescribeVPCClassicLink
     -- ** Request constructor
     , describeVPCClassicLink
     -- ** Request lenses
-    , dvclrqFilters
-    , dvclrqVPCIds
-    , dvclrqDryRun
+    , dvclFilters
+    , dvclVPCIds
+    , dvclDryRun
 
     -- * Response
     , DescribeVPCClassicLinkResponse
@@ -49,24 +49,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvclrqFilters'
+-- * 'dvclFilters'
 --
--- * 'dvclrqVPCIds'
+-- * 'dvclVPCIds'
 --
--- * 'dvclrqDryRun'
+-- * 'dvclDryRun'
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
-    { _dvclrqFilters :: !(Maybe [Filter])
-    , _dvclrqVPCIds  :: !(Maybe [Text])
-    , _dvclrqDryRun  :: !(Maybe Bool)
+    { _dvclFilters :: !(Maybe [Filter])
+    , _dvclVPCIds  :: !(Maybe [Text])
+    , _dvclDryRun  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCClassicLink' smart constructor.
 describeVPCClassicLink :: DescribeVPCClassicLink
 describeVPCClassicLink =
     DescribeVPCClassicLink'
-    { _dvclrqFilters = Nothing
-    , _dvclrqVPCIds = Nothing
-    , _dvclrqDryRun = Nothing
+    { _dvclFilters = Nothing
+    , _dvclVPCIds = Nothing
+    , _dvclDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -88,19 +88,19 @@ describeVPCClassicLink =
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-dvclrqFilters :: Lens' DescribeVPCClassicLink [Filter]
-dvclrqFilters = lens _dvclrqFilters (\ s a -> s{_dvclrqFilters = a}) . _Default;
+dvclFilters :: Lens' DescribeVPCClassicLink [Filter]
+dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a}) . _Default;
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
-dvclrqVPCIds :: Lens' DescribeVPCClassicLink [Text]
-dvclrqVPCIds = lens _dvclrqVPCIds (\ s a -> s{_dvclrqVPCIds = a}) . _Default;
+dvclVPCIds :: Lens' DescribeVPCClassicLink [Text]
+dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvclrqDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
-dvclrqDryRun = lens _dvclrqDryRun (\ s a -> s{_dvclrqDryRun = a});
+dvclDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
+dvclDryRun = lens _dvclDryRun (\ s a -> s{_dvclDryRun = a});
 
 instance AWSRequest DescribeVPCClassicLink where
         type Sv DescribeVPCClassicLink = EC2
@@ -127,9 +127,9 @@ instance ToQuery DescribeVPCClassicLink where
               ["Action" =:
                  ("DescribeVPCClassicLink" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvclrqFilters),
-               toQuery (toQueryList "VpcId" <$> _dvclrqVPCIds),
-               "DryRun" =: _dvclrqDryRun]
+               toQuery (toQueryList "Filter" <$> _dvclFilters),
+               toQuery (toQueryList "VpcId" <$> _dvclVPCIds),
+               "DryRun" =: _dvclDryRun]
 
 -- | /See:/ 'describeVPCClassicLinkResponse' smart constructor.
 --

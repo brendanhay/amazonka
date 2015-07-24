@@ -32,7 +32,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     -- ** Request constructor
     , cancelReservedInstancesListing
     -- ** Request lenses
-    , crilrqReservedInstancesListingId
+    , crilReservedInstancesListingId
 
     -- * Response
     , CancelReservedInstancesListingResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crilrqReservedInstancesListingId'
+-- * 'crilReservedInstancesListingId'
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
-    { _crilrqReservedInstancesListingId :: Text
+    { _crilReservedInstancesListingId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelReservedInstancesListing' smart constructor.
 cancelReservedInstancesListing :: Text -> CancelReservedInstancesListing
 cancelReservedInstancesListing pReservedInstancesListingId_ =
     CancelReservedInstancesListing'
-    { _crilrqReservedInstancesListingId = pReservedInstancesListingId_
+    { _crilReservedInstancesListingId = pReservedInstancesListingId_
     }
 
 -- | The ID of the Reserved Instance listing.
-crilrqReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
-crilrqReservedInstancesListingId = lens _crilrqReservedInstancesListingId (\ s a -> s{_crilrqReservedInstancesListingId = a});
+crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
+crilReservedInstancesListingId = lens _crilReservedInstancesListingId (\ s a -> s{_crilReservedInstancesListingId = a});
 
 instance AWSRequest CancelReservedInstancesListing
          where
@@ -96,7 +96,7 @@ instance ToQuery CancelReservedInstancesListing where
                  ("CancelReservedInstancesListing" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "ReservedInstancesListingId" =:
-                 _crilrqReservedInstancesListingId]
+                 _crilReservedInstancesListingId]
 
 -- | /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
 --

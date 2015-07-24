@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.ListProjects
     -- ** Request constructor
     , listProjects
     -- ** Request lenses
-    , lprqArn
-    , lprqNextToken
+    , lpArn
+    , lpNextToken
 
     -- * Response
     , ListProjectsResponse
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprqArn'
+-- * 'lpArn'
 --
--- * 'lprqNextToken'
+-- * 'lpNextToken'
 data ListProjects = ListProjects'
-    { _lprqArn       :: !(Maybe Text)
-    , _lprqNextToken :: !(Maybe Text)
+    { _lpArn       :: !(Maybe Text)
+    , _lpNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListProjects' smart constructor.
 listProjects :: ListProjects
 listProjects =
     ListProjects'
-    { _lprqArn = Nothing
-    , _lprqNextToken = Nothing
+    { _lpArn = Nothing
+    , _lpNextToken = Nothing
     }
 
 -- | The projects\' ARNs.
-lprqArn :: Lens' ListProjects (Maybe Text)
-lprqArn = lens _lprqArn (\ s a -> s{_lprqArn = a});
+lpArn :: Lens' ListProjects (Maybe Text)
+lpArn = lens _lpArn (\ s a -> s{_lpArn = a});
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lprqNextToken :: Lens' ListProjects (Maybe Text)
-lprqNextToken = lens _lprqNextToken (\ s a -> s{_lprqNextToken = a});
+lpNextToken :: Lens' ListProjects (Maybe Text)
+lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
 
 instance AWSRequest ListProjects where
         type Sv ListProjects = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListProjects where
 instance ToJSON ListProjects where
         toJSON ListProjects'{..}
           = object
-              ["arn" .= _lprqArn, "nextToken" .= _lprqNextToken]
+              ["arn" .= _lpArn, "nextToken" .= _lpNextToken]
 
 instance ToPath ListProjects where
         toPath = const "/"

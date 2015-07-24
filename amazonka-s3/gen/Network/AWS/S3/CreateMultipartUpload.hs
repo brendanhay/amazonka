@@ -33,28 +33,28 @@ module Network.AWS.S3.CreateMultipartUpload
     -- ** Request constructor
     , createMultipartUpload
     -- ** Request lenses
-    , cmurqExpires
-    , cmurqSSECustomerAlgorithm
-    , cmurqGrantReadACP
-    , cmurqSSECustomerKey
-    , cmurqRequestPayer
-    , cmurqGrantWriteACP
-    , cmurqWebsiteRedirectLocation
-    , cmurqGrantRead
-    , cmurqStorageClass
-    , cmurqContentEncoding
-    , cmurqSSEKMSKeyId
-    , cmurqGrantFullControl
-    , cmurqSSECustomerKeyMD5
-    , cmurqMetadata
-    , cmurqCacheControl
-    , cmurqContentLanguage
-    , cmurqACL
-    , cmurqContentDisposition
-    , cmurqServerSideEncryption
-    , cmurqContentType
-    , cmurqBucket
-    , cmurqKey
+    , cmuExpires
+    , cmuSSECustomerAlgorithm
+    , cmuGrantReadACP
+    , cmuSSECustomerKey
+    , cmuRequestPayer
+    , cmuGrantWriteACP
+    , cmuWebsiteRedirectLocation
+    , cmuGrantRead
+    , cmuStorageClass
+    , cmuContentEncoding
+    , cmuSSEKMSKeyId
+    , cmuGrantFullControl
+    , cmuSSECustomerKeyMD5
+    , cmuMetadata
+    , cmuCacheControl
+    , cmuContentLanguage
+    , cmuACL
+    , cmuContentDisposition
+    , cmuServerSideEncryption
+    , cmuContentType
+    , cmuBucket
+    , cmuKey
 
     -- * Response
     , CreateMultipartUploadResponse
@@ -81,206 +81,206 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmurqExpires'
+-- * 'cmuExpires'
 --
--- * 'cmurqSSECustomerAlgorithm'
+-- * 'cmuSSECustomerAlgorithm'
 --
--- * 'cmurqGrantReadACP'
+-- * 'cmuGrantReadACP'
 --
--- * 'cmurqSSECustomerKey'
+-- * 'cmuSSECustomerKey'
 --
--- * 'cmurqRequestPayer'
+-- * 'cmuRequestPayer'
 --
--- * 'cmurqGrantWriteACP'
+-- * 'cmuGrantWriteACP'
 --
--- * 'cmurqWebsiteRedirectLocation'
+-- * 'cmuWebsiteRedirectLocation'
 --
--- * 'cmurqGrantRead'
+-- * 'cmuGrantRead'
 --
--- * 'cmurqStorageClass'
+-- * 'cmuStorageClass'
 --
--- * 'cmurqContentEncoding'
+-- * 'cmuContentEncoding'
 --
--- * 'cmurqSSEKMSKeyId'
+-- * 'cmuSSEKMSKeyId'
 --
--- * 'cmurqGrantFullControl'
+-- * 'cmuGrantFullControl'
 --
--- * 'cmurqSSECustomerKeyMD5'
+-- * 'cmuSSECustomerKeyMD5'
 --
--- * 'cmurqMetadata'
+-- * 'cmuMetadata'
 --
--- * 'cmurqCacheControl'
+-- * 'cmuCacheControl'
 --
--- * 'cmurqContentLanguage'
+-- * 'cmuContentLanguage'
 --
--- * 'cmurqACL'
+-- * 'cmuACL'
 --
--- * 'cmurqContentDisposition'
+-- * 'cmuContentDisposition'
 --
--- * 'cmurqServerSideEncryption'
+-- * 'cmuServerSideEncryption'
 --
--- * 'cmurqContentType'
+-- * 'cmuContentType'
 --
--- * 'cmurqBucket'
+-- * 'cmuBucket'
 --
--- * 'cmurqKey'
+-- * 'cmuKey'
 data CreateMultipartUpload = CreateMultipartUpload'
-    { _cmurqExpires                 :: !(Maybe RFC822)
-    , _cmurqSSECustomerAlgorithm    :: !(Maybe Text)
-    , _cmurqGrantReadACP            :: !(Maybe Text)
-    , _cmurqSSECustomerKey          :: !(Maybe (Sensitive Text))
-    , _cmurqRequestPayer            :: !(Maybe RequestPayer)
-    , _cmurqGrantWriteACP           :: !(Maybe Text)
-    , _cmurqWebsiteRedirectLocation :: !(Maybe Text)
-    , _cmurqGrantRead               :: !(Maybe Text)
-    , _cmurqStorageClass            :: !(Maybe StorageClass)
-    , _cmurqContentEncoding         :: !(Maybe Text)
-    , _cmurqSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _cmurqGrantFullControl        :: !(Maybe Text)
-    , _cmurqSSECustomerKeyMD5       :: !(Maybe Text)
-    , _cmurqMetadata                :: !(Map Text Text)
-    , _cmurqCacheControl            :: !(Maybe Text)
-    , _cmurqContentLanguage         :: !(Maybe Text)
-    , _cmurqACL                     :: !(Maybe ObjectCannedACL)
-    , _cmurqContentDisposition      :: !(Maybe Text)
-    , _cmurqServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _cmurqContentType             :: !(Maybe Text)
-    , _cmurqBucket                  :: !BucketName
-    , _cmurqKey                     :: !ObjectKey
+    { _cmuExpires                 :: !(Maybe RFC822)
+    , _cmuSSECustomerAlgorithm    :: !(Maybe Text)
+    , _cmuGrantReadACP            :: !(Maybe Text)
+    , _cmuSSECustomerKey          :: !(Maybe (Sensitive Text))
+    , _cmuRequestPayer            :: !(Maybe RequestPayer)
+    , _cmuGrantWriteACP           :: !(Maybe Text)
+    , _cmuWebsiteRedirectLocation :: !(Maybe Text)
+    , _cmuGrantRead               :: !(Maybe Text)
+    , _cmuStorageClass            :: !(Maybe StorageClass)
+    , _cmuContentEncoding         :: !(Maybe Text)
+    , _cmuSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _cmuGrantFullControl        :: !(Maybe Text)
+    , _cmuSSECustomerKeyMD5       :: !(Maybe Text)
+    , _cmuMetadata                :: !(Map Text Text)
+    , _cmuCacheControl            :: !(Maybe Text)
+    , _cmuContentLanguage         :: !(Maybe Text)
+    , _cmuACL                     :: !(Maybe ObjectCannedACL)
+    , _cmuContentDisposition      :: !(Maybe Text)
+    , _cmuServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _cmuContentType             :: !(Maybe Text)
+    , _cmuBucket                  :: !BucketName
+    , _cmuKey                     :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CreateMultipartUpload' smart constructor.
 createMultipartUpload :: BucketName -> ObjectKey -> CreateMultipartUpload
 createMultipartUpload pBucket_ pKey_ =
     CreateMultipartUpload'
-    { _cmurqExpires = Nothing
-    , _cmurqSSECustomerAlgorithm = Nothing
-    , _cmurqGrantReadACP = Nothing
-    , _cmurqSSECustomerKey = Nothing
-    , _cmurqRequestPayer = Nothing
-    , _cmurqGrantWriteACP = Nothing
-    , _cmurqWebsiteRedirectLocation = Nothing
-    , _cmurqGrantRead = Nothing
-    , _cmurqStorageClass = Nothing
-    , _cmurqContentEncoding = Nothing
-    , _cmurqSSEKMSKeyId = Nothing
-    , _cmurqGrantFullControl = Nothing
-    , _cmurqSSECustomerKeyMD5 = Nothing
-    , _cmurqMetadata = mempty
-    , _cmurqCacheControl = Nothing
-    , _cmurqContentLanguage = Nothing
-    , _cmurqACL = Nothing
-    , _cmurqContentDisposition = Nothing
-    , _cmurqServerSideEncryption = Nothing
-    , _cmurqContentType = Nothing
-    , _cmurqBucket = pBucket_
-    , _cmurqKey = pKey_
+    { _cmuExpires = Nothing
+    , _cmuSSECustomerAlgorithm = Nothing
+    , _cmuGrantReadACP = Nothing
+    , _cmuSSECustomerKey = Nothing
+    , _cmuRequestPayer = Nothing
+    , _cmuGrantWriteACP = Nothing
+    , _cmuWebsiteRedirectLocation = Nothing
+    , _cmuGrantRead = Nothing
+    , _cmuStorageClass = Nothing
+    , _cmuContentEncoding = Nothing
+    , _cmuSSEKMSKeyId = Nothing
+    , _cmuGrantFullControl = Nothing
+    , _cmuSSECustomerKeyMD5 = Nothing
+    , _cmuMetadata = mempty
+    , _cmuCacheControl = Nothing
+    , _cmuContentLanguage = Nothing
+    , _cmuACL = Nothing
+    , _cmuContentDisposition = Nothing
+    , _cmuServerSideEncryption = Nothing
+    , _cmuContentType = Nothing
+    , _cmuBucket = pBucket_
+    , _cmuKey = pKey_
     }
 
 -- | The date and time at which the object is no longer cacheable.
-cmurqExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
-cmurqExpires = lens _cmurqExpires (\ s a -> s{_cmurqExpires = a}) . mapping _Time;
+cmuExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
+cmuExpires = lens _cmuExpires (\ s a -> s{_cmuExpires = a}) . mapping _Time;
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256, aws:kms).
-cmurqSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqSSECustomerAlgorithm = lens _cmurqSSECustomerAlgorithm (\ s a -> s{_cmurqSSECustomerAlgorithm = a});
+cmuSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
+cmuSSECustomerAlgorithm = lens _cmuSSECustomerAlgorithm (\ s a -> s{_cmuSSECustomerAlgorithm = a});
 
 -- | Allows grantee to read the object ACL.
-cmurqGrantReadACP :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqGrantReadACP = lens _cmurqGrantReadACP (\ s a -> s{_cmurqGrantReadACP = a});
+cmuGrantReadACP :: Lens' CreateMultipartUpload (Maybe Text)
+cmuGrantReadACP = lens _cmuGrantReadACP (\ s a -> s{_cmuGrantReadACP = a});
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side​-encryption​-customer-algorithm header.
-cmurqSSECustomerKey :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqSSECustomerKey = lens _cmurqSSECustomerKey (\ s a -> s{_cmurqSSECustomerKey = a}) . mapping _Sensitive;
+cmuSSECustomerKey :: Lens' CreateMultipartUpload (Maybe Text)
+cmuSSECustomerKey = lens _cmuSSECustomerKey (\ s a -> s{_cmuSSECustomerKey = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-cmurqRequestPayer :: Lens' CreateMultipartUpload (Maybe RequestPayer)
-cmurqRequestPayer = lens _cmurqRequestPayer (\ s a -> s{_cmurqRequestPayer = a});
+cmuRequestPayer :: Lens' CreateMultipartUpload (Maybe RequestPayer)
+cmuRequestPayer = lens _cmuRequestPayer (\ s a -> s{_cmuRequestPayer = a});
 
 -- | Allows grantee to write the ACL for the applicable object.
-cmurqGrantWriteACP :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqGrantWriteACP = lens _cmurqGrantWriteACP (\ s a -> s{_cmurqGrantWriteACP = a});
+cmuGrantWriteACP :: Lens' CreateMultipartUpload (Maybe Text)
+cmuGrantWriteACP = lens _cmuGrantWriteACP (\ s a -> s{_cmuGrantWriteACP = a});
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL.
 -- Amazon S3 stores the value of this header in the object metadata.
-cmurqWebsiteRedirectLocation :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqWebsiteRedirectLocation = lens _cmurqWebsiteRedirectLocation (\ s a -> s{_cmurqWebsiteRedirectLocation = a});
+cmuWebsiteRedirectLocation :: Lens' CreateMultipartUpload (Maybe Text)
+cmuWebsiteRedirectLocation = lens _cmuWebsiteRedirectLocation (\ s a -> s{_cmuWebsiteRedirectLocation = a});
 
 -- | Allows grantee to read the object data and its metadata.
-cmurqGrantRead :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqGrantRead = lens _cmurqGrantRead (\ s a -> s{_cmurqGrantRead = a});
+cmuGrantRead :: Lens' CreateMultipartUpload (Maybe Text)
+cmuGrantRead = lens _cmuGrantRead (\ s a -> s{_cmuGrantRead = a});
 
 -- | The type of storage to use for the object. Defaults to \'STANDARD\'.
-cmurqStorageClass :: Lens' CreateMultipartUpload (Maybe StorageClass)
-cmurqStorageClass = lens _cmurqStorageClass (\ s a -> s{_cmurqStorageClass = a});
+cmuStorageClass :: Lens' CreateMultipartUpload (Maybe StorageClass)
+cmuStorageClass = lens _cmuStorageClass (\ s a -> s{_cmuStorageClass = a});
 
 -- | Specifies what content encodings have been applied to the object and
 -- thus what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-cmurqContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqContentEncoding = lens _cmurqContentEncoding (\ s a -> s{_cmurqContentEncoding = a});
+cmuContentEncoding :: Lens' CreateMultipartUpload (Maybe Text)
+cmuContentEncoding = lens _cmuContentEncoding (\ s a -> s{_cmuContentEncoding = a});
 
 -- | Specifies the AWS KMS key ID to use for object encryption. All GET and
 -- PUT requests for an object protected by AWS KMS will fail if not made
 -- via SSL or using SigV4. Documentation on configuring any of the
 -- officially supported AWS SDKs and CLI can be found at
 -- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
-cmurqSSEKMSKeyId :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqSSEKMSKeyId = lens _cmurqSSEKMSKeyId (\ s a -> s{_cmurqSSEKMSKeyId = a}) . mapping _Sensitive;
+cmuSSEKMSKeyId :: Lens' CreateMultipartUpload (Maybe Text)
+cmuSSEKMSKeyId = lens _cmuSSEKMSKeyId (\ s a -> s{_cmuSSEKMSKeyId = a}) . mapping _Sensitive;
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
-cmurqGrantFullControl :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqGrantFullControl = lens _cmurqGrantFullControl (\ s a -> s{_cmurqGrantFullControl = a});
+cmuGrantFullControl :: Lens' CreateMultipartUpload (Maybe Text)
+cmuGrantFullControl = lens _cmuGrantFullControl (\ s a -> s{_cmuGrantFullControl = a});
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-cmurqSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqSSECustomerKeyMD5 = lens _cmurqSSECustomerKeyMD5 (\ s a -> s{_cmurqSSECustomerKeyMD5 = a});
+cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
+cmuSSECustomerKeyMD5 = lens _cmuSSECustomerKeyMD5 (\ s a -> s{_cmuSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-cmurqMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
-cmurqMetadata = lens _cmurqMetadata (\ s a -> s{_cmurqMetadata = a}) . _Map;
+cmuMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
+cmuMetadata = lens _cmuMetadata (\ s a -> s{_cmuMetadata = a}) . _Map;
 
 -- | Specifies caching behavior along the request\/reply chain.
-cmurqCacheControl :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqCacheControl = lens _cmurqCacheControl (\ s a -> s{_cmurqCacheControl = a});
+cmuCacheControl :: Lens' CreateMultipartUpload (Maybe Text)
+cmuCacheControl = lens _cmuCacheControl (\ s a -> s{_cmuCacheControl = a});
 
 -- | The language the content is in.
-cmurqContentLanguage :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqContentLanguage = lens _cmurqContentLanguage (\ s a -> s{_cmurqContentLanguage = a});
+cmuContentLanguage :: Lens' CreateMultipartUpload (Maybe Text)
+cmuContentLanguage = lens _cmuContentLanguage (\ s a -> s{_cmuContentLanguage = a});
 
 -- | The canned ACL to apply to the object.
-cmurqACL :: Lens' CreateMultipartUpload (Maybe ObjectCannedACL)
-cmurqACL = lens _cmurqACL (\ s a -> s{_cmurqACL = a});
+cmuACL :: Lens' CreateMultipartUpload (Maybe ObjectCannedACL)
+cmuACL = lens _cmuACL (\ s a -> s{_cmuACL = a});
 
 -- | Specifies presentational information for the object.
-cmurqContentDisposition :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqContentDisposition = lens _cmurqContentDisposition (\ s a -> s{_cmurqContentDisposition = a});
+cmuContentDisposition :: Lens' CreateMultipartUpload (Maybe Text)
+cmuContentDisposition = lens _cmuContentDisposition (\ s a -> s{_cmuContentDisposition = a});
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-cmurqServerSideEncryption :: Lens' CreateMultipartUpload (Maybe ServerSideEncryption)
-cmurqServerSideEncryption = lens _cmurqServerSideEncryption (\ s a -> s{_cmurqServerSideEncryption = a});
+cmuServerSideEncryption :: Lens' CreateMultipartUpload (Maybe ServerSideEncryption)
+cmuServerSideEncryption = lens _cmuServerSideEncryption (\ s a -> s{_cmuServerSideEncryption = a});
 
 -- | A standard MIME type describing the format of the object data.
-cmurqContentType :: Lens' CreateMultipartUpload (Maybe Text)
-cmurqContentType = lens _cmurqContentType (\ s a -> s{_cmurqContentType = a});
+cmuContentType :: Lens' CreateMultipartUpload (Maybe Text)
+cmuContentType = lens _cmuContentType (\ s a -> s{_cmuContentType = a});
 
 -- | FIXME: Undocumented member.
-cmurqBucket :: Lens' CreateMultipartUpload BucketName
-cmurqBucket = lens _cmurqBucket (\ s a -> s{_cmurqBucket = a});
+cmuBucket :: Lens' CreateMultipartUpload BucketName
+cmuBucket = lens _cmuBucket (\ s a -> s{_cmuBucket = a});
 
 -- | FIXME: Undocumented member.
-cmurqKey :: Lens' CreateMultipartUpload ObjectKey
-cmurqKey = lens _cmurqKey (\ s a -> s{_cmurqKey = a});
+cmuKey :: Lens' CreateMultipartUpload ObjectKey
+cmuKey = lens _cmuKey (\ s a -> s{_cmuKey = a});
 
 instance AWSRequest CreateMultipartUpload where
         type Sv CreateMultipartUpload = S3
@@ -308,37 +308,37 @@ instance AWSRequest CreateMultipartUpload where
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}
           = mconcat
-              ["Expires" =# _cmurqExpires,
+              ["Expires" =# _cmuExpires,
                "x-amz-server-side-encryption-customer-algorithm" =#
-                 _cmurqSSECustomerAlgorithm,
-               "x-amz-grant-read-acp" =# _cmurqGrantReadACP,
+                 _cmuSSECustomerAlgorithm,
+               "x-amz-grant-read-acp" =# _cmuGrantReadACP,
                "x-amz-server-side-encryption-customer-key" =#
-                 _cmurqSSECustomerKey,
-               "x-amz-request-payer" =# _cmurqRequestPayer,
-               "x-amz-grant-write-acp" =# _cmurqGrantWriteACP,
+                 _cmuSSECustomerKey,
+               "x-amz-request-payer" =# _cmuRequestPayer,
+               "x-amz-grant-write-acp" =# _cmuGrantWriteACP,
                "x-amz-website-redirect-location" =#
-                 _cmurqWebsiteRedirectLocation,
-               "x-amz-grant-read" =# _cmurqGrantRead,
-               "x-amz-storage-class" =# _cmurqStorageClass,
-               "Content-Encoding" =# _cmurqContentEncoding,
+                 _cmuWebsiteRedirectLocation,
+               "x-amz-grant-read" =# _cmuGrantRead,
+               "x-amz-storage-class" =# _cmuStorageClass,
+               "Content-Encoding" =# _cmuContentEncoding,
                "x-amz-server-side-encryption-aws-kms-key-id" =#
-                 _cmurqSSEKMSKeyId,
-               "x-amz-grant-full-control" =# _cmurqGrantFullControl,
+                 _cmuSSEKMSKeyId,
+               "x-amz-grant-full-control" =# _cmuGrantFullControl,
                "x-amz-server-side-encryption-customer-key-MD5" =#
-                 _cmurqSSECustomerKeyMD5,
-               "x-amz-meta-" =# _cmurqMetadata,
-               "Cache-Control" =# _cmurqCacheControl,
-               "Content-Language" =# _cmurqContentLanguage,
-               "x-amz-acl" =# _cmurqACL,
-               "Content-Disposition" =# _cmurqContentDisposition,
+                 _cmuSSECustomerKeyMD5,
+               "x-amz-meta-" =# _cmuMetadata,
+               "Cache-Control" =# _cmuCacheControl,
+               "Content-Language" =# _cmuContentLanguage,
+               "x-amz-acl" =# _cmuACL,
+               "Content-Disposition" =# _cmuContentDisposition,
                "x-amz-server-side-encryption" =#
-                 _cmurqServerSideEncryption,
-               "Content-Type" =# _cmurqContentType]
+                 _cmuServerSideEncryption,
+               "Content-Type" =# _cmuContentType]
 
 instance ToPath CreateMultipartUpload where
         toPath CreateMultipartUpload'{..}
           = mconcat
-              ["/", toText _cmurqBucket, "/", toText _cmurqKey]
+              ["/", toText _cmuBucket, "/", toText _cmuKey]
 
 instance ToQuery CreateMultipartUpload where
         toQuery = const (mconcat ["uploads"])

@@ -34,8 +34,8 @@ module Network.AWS.SSM.DeleteAssociation
     -- ** Request constructor
     , deleteAssociation
     -- ** Request lenses
-    , drqName
-    , drqInstanceId
+    , delName
+    , delInstanceId
 
     -- * Response
     , DeleteAssociationResponse
@@ -54,29 +54,29 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqName'
+-- * 'delName'
 --
--- * 'drqInstanceId'
+-- * 'delInstanceId'
 data DeleteAssociation = DeleteAssociation'
-    { _drqName       :: !Text
-    , _drqInstanceId :: !Text
+    { _delName       :: !Text
+    , _delInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAssociation' smart constructor.
 deleteAssociation :: Text -> Text -> DeleteAssociation
 deleteAssociation pName_ pInstanceId_ =
     DeleteAssociation'
-    { _drqName = pName_
-    , _drqInstanceId = pInstanceId_
+    { _delName = pName_
+    , _delInstanceId = pInstanceId_
     }
 
 -- | The name of the configuration document.
-drqName :: Lens' DeleteAssociation Text
-drqName = lens _drqName (\ s a -> s{_drqName = a});
+delName :: Lens' DeleteAssociation Text
+delName = lens _delName (\ s a -> s{_delName = a});
 
 -- | The ID of the instance.
-drqInstanceId :: Lens' DeleteAssociation Text
-drqInstanceId = lens _drqInstanceId (\ s a -> s{_drqInstanceId = a});
+delInstanceId :: Lens' DeleteAssociation Text
+delInstanceId = lens _delInstanceId (\ s a -> s{_delInstanceId = a});
 
 instance AWSRequest DeleteAssociation where
         type Sv DeleteAssociation = SSM
@@ -99,7 +99,7 @@ instance ToHeaders DeleteAssociation where
 instance ToJSON DeleteAssociation where
         toJSON DeleteAssociation'{..}
           = object
-              ["Name" .= _drqName, "InstanceId" .= _drqInstanceId]
+              ["Name" .= _delName, "InstanceId" .= _delInstanceId]
 
 instance ToPath DeleteAssociation where
         toPath = const "/"

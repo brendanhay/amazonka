@@ -29,10 +29,10 @@ module Network.AWS.CloudWatch.ListMetrics
     -- ** Request constructor
     , listMetrics
     -- ** Request lenses
-    , lmrqMetricName
-    , lmrqNamespace
-    , lmrqNextToken
-    , lmrqDimensions
+    , lmMetricName
+    , lmNamespace
+    , lmNextToken
+    , lmDimensions
 
     -- * Response
     , ListMetricsResponse
@@ -54,53 +54,53 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmrqMetricName'
+-- * 'lmMetricName'
 --
--- * 'lmrqNamespace'
+-- * 'lmNamespace'
 --
--- * 'lmrqNextToken'
+-- * 'lmNextToken'
 --
--- * 'lmrqDimensions'
+-- * 'lmDimensions'
 data ListMetrics = ListMetrics'
-    { _lmrqMetricName :: !(Maybe Text)
-    , _lmrqNamespace  :: !(Maybe Text)
-    , _lmrqNextToken  :: !(Maybe Text)
-    , _lmrqDimensions :: !(Maybe [DimensionFilter])
+    { _lmMetricName :: !(Maybe Text)
+    , _lmNamespace  :: !(Maybe Text)
+    , _lmNextToken  :: !(Maybe Text)
+    , _lmDimensions :: !(Maybe [DimensionFilter])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMetrics' smart constructor.
 listMetrics :: ListMetrics
 listMetrics =
     ListMetrics'
-    { _lmrqMetricName = Nothing
-    , _lmrqNamespace = Nothing
-    , _lmrqNextToken = Nothing
-    , _lmrqDimensions = Nothing
+    { _lmMetricName = Nothing
+    , _lmNamespace = Nothing
+    , _lmNextToken = Nothing
+    , _lmDimensions = Nothing
     }
 
 -- | The name of the metric to filter against.
-lmrqMetricName :: Lens' ListMetrics (Maybe Text)
-lmrqMetricName = lens _lmrqMetricName (\ s a -> s{_lmrqMetricName = a});
+lmMetricName :: Lens' ListMetrics (Maybe Text)
+lmMetricName = lens _lmMetricName (\ s a -> s{_lmMetricName = a});
 
 -- | The namespace to filter against.
-lmrqNamespace :: Lens' ListMetrics (Maybe Text)
-lmrqNamespace = lens _lmrqNamespace (\ s a -> s{_lmrqNamespace = a});
+lmNamespace :: Lens' ListMetrics (Maybe Text)
+lmNamespace = lens _lmNamespace (\ s a -> s{_lmNamespace = a});
 
 -- | The token returned by a previous call to indicate that there is more
 -- data available.
-lmrqNextToken :: Lens' ListMetrics (Maybe Text)
-lmrqNextToken = lens _lmrqNextToken (\ s a -> s{_lmrqNextToken = a});
+lmNextToken :: Lens' ListMetrics (Maybe Text)
+lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a});
 
 -- | A list of dimensions to filter against.
-lmrqDimensions :: Lens' ListMetrics [DimensionFilter]
-lmrqDimensions = lens _lmrqDimensions (\ s a -> s{_lmrqDimensions = a}) . _Default;
+lmDimensions :: Lens' ListMetrics [DimensionFilter]
+lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default;
 
 instance AWSPager ListMetrics where
         page rq rs
           | stop (rs ^. lmrsNextToken) = Nothing
           | stop (rs ^. lmrsMetrics) = Nothing
           | otherwise =
-            Just $ rq & lmrqNextToken .~ rs ^. lmrsNextToken
+            Just $ rq & lmNextToken .~ rs ^. lmrsNextToken
 
 instance AWSRequest ListMetrics where
         type Sv ListMetrics = CloudWatch
@@ -126,11 +126,11 @@ instance ToQuery ListMetrics where
           = mconcat
               ["Action" =: ("ListMetrics" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "MetricName" =: _lmrqMetricName,
-               "Namespace" =: _lmrqNamespace,
-               "NextToken" =: _lmrqNextToken,
+               "MetricName" =: _lmMetricName,
+               "Namespace" =: _lmNamespace,
+               "NextToken" =: _lmNextToken,
                "Dimensions" =:
-                 toQuery (toQueryList "member" <$> _lmrqDimensions)]
+                 toQuery (toQueryList "member" <$> _lmDimensions)]
 
 -- | The output for the ListMetrics action.
 --

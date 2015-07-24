@@ -39,9 +39,9 @@ module Network.AWS.IAM.UpdateUser
     -- ** Request constructor
     , updateUser
     -- ** Request lenses
-    , uurqNewUserName
-    , uurqNewPath
-    , uurqUserName
+    , uuNewUserName
+    , uuNewPath
+    , uuUserName
 
     -- * Response
     , UpdateUserResponse
@@ -58,40 +58,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uurqNewUserName'
+-- * 'uuNewUserName'
 --
--- * 'uurqNewPath'
+-- * 'uuNewPath'
 --
--- * 'uurqUserName'
+-- * 'uuUserName'
 data UpdateUser = UpdateUser'
-    { _uurqNewUserName :: !(Maybe Text)
-    , _uurqNewPath     :: !(Maybe Text)
-    , _uurqUserName    :: !Text
+    { _uuNewUserName :: !(Maybe Text)
+    , _uuNewPath     :: !(Maybe Text)
+    , _uuUserName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateUser' smart constructor.
 updateUser :: Text -> UpdateUser
 updateUser pUserName_ =
     UpdateUser'
-    { _uurqNewUserName = Nothing
-    , _uurqNewPath = Nothing
-    , _uurqUserName = pUserName_
+    { _uuNewUserName = Nothing
+    , _uuNewPath = Nothing
+    , _uuUserName = pUserName_
     }
 
 -- | New name for the user. Include this parameter only if you\'re changing
 -- the user\'s name.
-uurqNewUserName :: Lens' UpdateUser (Maybe Text)
-uurqNewUserName = lens _uurqNewUserName (\ s a -> s{_uurqNewUserName = a});
+uuNewUserName :: Lens' UpdateUser (Maybe Text)
+uuNewUserName = lens _uuNewUserName (\ s a -> s{_uuNewUserName = a});
 
 -- | New path for the user. Include this parameter only if you\'re changing
 -- the user\'s path.
-uurqNewPath :: Lens' UpdateUser (Maybe Text)
-uurqNewPath = lens _uurqNewPath (\ s a -> s{_uurqNewPath = a});
+uuNewPath :: Lens' UpdateUser (Maybe Text)
+uuNewPath = lens _uuNewPath (\ s a -> s{_uuNewPath = a});
 
 -- | Name of the user to update. If you\'re changing the name of the user,
 -- this is the original user name.
-uurqUserName :: Lens' UpdateUser Text
-uurqUserName = lens _uurqUserName (\ s a -> s{_uurqUserName = a});
+uuUserName :: Lens' UpdateUser Text
+uuUserName = lens _uuUserName (\ s a -> s{_uuUserName = a});
 
 instance AWSRequest UpdateUser where
         type Sv UpdateUser = IAM
@@ -110,9 +110,8 @@ instance ToQuery UpdateUser where
           = mconcat
               ["Action" =: ("UpdateUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "NewUserName" =: _uurqNewUserName,
-               "NewPath" =: _uurqNewPath,
-               "UserName" =: _uurqUserName]
+               "NewUserName" =: _uuNewUserName,
+               "NewPath" =: _uuNewPath, "UserName" =: _uuUserName]
 
 -- | /See:/ 'updateUserResponse' smart constructor.
 data UpdateUserResponse =

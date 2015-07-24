@@ -61,9 +61,9 @@ module Network.AWS.Glacier.SetVaultNotifications
     -- ** Request constructor
     , setVaultNotifications
     -- ** Request lenses
-    , svnrqVaultNotificationConfig
-    , svnrqAccountId
-    , svnrqVaultName
+    , svnVaultNotificationConfig
+    , svnAccountId
+    , svnVaultName
 
     -- * Response
     , SetVaultNotificationsResponse
@@ -83,41 +83,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'svnrqVaultNotificationConfig'
+-- * 'svnVaultNotificationConfig'
 --
--- * 'svnrqAccountId'
+-- * 'svnAccountId'
 --
--- * 'svnrqVaultName'
+-- * 'svnVaultName'
 data SetVaultNotifications = SetVaultNotifications'
-    { _svnrqVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
-    , _svnrqAccountId               :: !Text
-    , _svnrqVaultName               :: !Text
+    { _svnVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
+    , _svnAccountId               :: !Text
+    , _svnVaultName               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultNotifications' smart constructor.
 setVaultNotifications :: Text -> Text -> SetVaultNotifications
 setVaultNotifications pAccountId_ pVaultName_ =
     SetVaultNotifications'
-    { _svnrqVaultNotificationConfig = Nothing
-    , _svnrqAccountId = pAccountId_
-    , _svnrqVaultName = pVaultName_
+    { _svnVaultNotificationConfig = Nothing
+    , _svnAccountId = pAccountId_
+    , _svnVaultName = pVaultName_
     }
 
 -- | Provides options for specifying notification configuration.
-svnrqVaultNotificationConfig :: Lens' SetVaultNotifications (Maybe VaultNotificationConfig)
-svnrqVaultNotificationConfig = lens _svnrqVaultNotificationConfig (\ s a -> s{_svnrqVaultNotificationConfig = a});
+svnVaultNotificationConfig :: Lens' SetVaultNotifications (Maybe VaultNotificationConfig)
+svnVaultNotificationConfig = lens _svnVaultNotificationConfig (\ s a -> s{_svnVaultNotificationConfig = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-svnrqAccountId :: Lens' SetVaultNotifications Text
-svnrqAccountId = lens _svnrqAccountId (\ s a -> s{_svnrqAccountId = a});
+svnAccountId :: Lens' SetVaultNotifications Text
+svnAccountId = lens _svnAccountId (\ s a -> s{_svnAccountId = a});
 
 -- | The name of the vault.
-svnrqVaultName :: Lens' SetVaultNotifications Text
-svnrqVaultName = lens _svnrqVaultName (\ s a -> s{_svnrqVaultName = a});
+svnVaultName :: Lens' SetVaultNotifications Text
+svnVaultName = lens _svnVaultName (\ s a -> s{_svnVaultName = a});
 
 instance AWSRequest SetVaultNotifications where
         type Sv SetVaultNotifications = Glacier
@@ -133,14 +133,13 @@ instance ToJSON SetVaultNotifications where
         toJSON SetVaultNotifications'{..}
           = object
               ["vaultNotificationConfig" .=
-                 _svnrqVaultNotificationConfig]
+                 _svnVaultNotificationConfig]
 
 instance ToPath SetVaultNotifications where
         toPath SetVaultNotifications'{..}
           = mconcat
-              ["/", toText _svnrqAccountId, "/vaults/",
-               toText _svnrqVaultName,
-               "/notification-configuration"]
+              ["/", toText _svnAccountId, "/vaults/",
+               toText _svnVaultName, "/notification-configuration"]
 
 instance ToQuery SetVaultNotifications where
         toQuery = const mempty

@@ -41,10 +41,10 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     -- ** Request constructor
     , putPipelineDefinition
     -- ** Request lenses
-    , ppdrqParameterObjects
-    , ppdrqParameterValues
-    , ppdrqPipelineId
-    , ppdrqPipelineObjects
+    , ppdParameterObjects
+    , ppdParameterValues
+    , ppdPipelineId
+    , ppdPipelineObjects
 
     -- * Response
     , PutPipelineDefinitionResponse
@@ -68,46 +68,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ppdrqParameterObjects'
+-- * 'ppdParameterObjects'
 --
--- * 'ppdrqParameterValues'
+-- * 'ppdParameterValues'
 --
--- * 'ppdrqPipelineId'
+-- * 'ppdPipelineId'
 --
--- * 'ppdrqPipelineObjects'
+-- * 'ppdPipelineObjects'
 data PutPipelineDefinition = PutPipelineDefinition'
-    { _ppdrqParameterObjects :: !(Maybe [ParameterObject])
-    , _ppdrqParameterValues  :: !(Maybe [ParameterValue])
-    , _ppdrqPipelineId       :: !Text
-    , _ppdrqPipelineObjects  :: ![PipelineObject]
+    { _ppdParameterObjects :: !(Maybe [ParameterObject])
+    , _ppdParameterValues  :: !(Maybe [ParameterValue])
+    , _ppdPipelineId       :: !Text
+    , _ppdPipelineObjects  :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutPipelineDefinition' smart constructor.
 putPipelineDefinition :: Text -> PutPipelineDefinition
 putPipelineDefinition pPipelineId_ =
     PutPipelineDefinition'
-    { _ppdrqParameterObjects = Nothing
-    , _ppdrqParameterValues = Nothing
-    , _ppdrqPipelineId = pPipelineId_
-    , _ppdrqPipelineObjects = mempty
+    { _ppdParameterObjects = Nothing
+    , _ppdParameterValues = Nothing
+    , _ppdPipelineId = pPipelineId_
+    , _ppdPipelineObjects = mempty
     }
 
 -- | The parameter objects used with the pipeline.
-ppdrqParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
-ppdrqParameterObjects = lens _ppdrqParameterObjects (\ s a -> s{_ppdrqParameterObjects = a}) . _Default;
+ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
+ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a}) . _Default;
 
 -- | The parameter values used with the pipeline.
-ppdrqParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
-ppdrqParameterValues = lens _ppdrqParameterValues (\ s a -> s{_ppdrqParameterValues = a}) . _Default;
+ppdParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
+ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
-ppdrqPipelineId :: Lens' PutPipelineDefinition Text
-ppdrqPipelineId = lens _ppdrqPipelineId (\ s a -> s{_ppdrqPipelineId = a});
+ppdPipelineId :: Lens' PutPipelineDefinition Text
+ppdPipelineId = lens _ppdPipelineId (\ s a -> s{_ppdPipelineId = a});
 
 -- | The objects that define the pipeline. These objects overwrite the
 -- existing pipeline definition.
-ppdrqPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
-ppdrqPipelineObjects = lens _ppdrqPipelineObjects (\ s a -> s{_ppdrqPipelineObjects = a});
+ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
+ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a});
 
 instance AWSRequest PutPipelineDefinition where
         type Sv PutPipelineDefinition = DataPipeline
@@ -135,10 +135,10 @@ instance ToHeaders PutPipelineDefinition where
 instance ToJSON PutPipelineDefinition where
         toJSON PutPipelineDefinition'{..}
           = object
-              ["parameterObjects" .= _ppdrqParameterObjects,
-               "parameterValues" .= _ppdrqParameterValues,
-               "pipelineId" .= _ppdrqPipelineId,
-               "pipelineObjects" .= _ppdrqPipelineObjects]
+              ["parameterObjects" .= _ppdParameterObjects,
+               "parameterValues" .= _ppdParameterValues,
+               "pipelineId" .= _ppdPipelineId,
+               "pipelineObjects" .= _ppdPipelineObjects]
 
 instance ToPath PutPipelineDefinition where
         toPath = const "/"

@@ -36,7 +36,7 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
     -- ** Request constructor
     , enableDomainAutoRenew
     -- ** Request lenses
-    , edarrqDomainName
+    , edarDomainName
 
     -- * Response
     , EnableDomainAutoRenewResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'edarrqDomainName'
+-- * 'edarDomainName'
 newtype EnableDomainAutoRenew = EnableDomainAutoRenew'
-    { _edarrqDomainName :: Text
+    { _edarDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableDomainAutoRenew' smart constructor.
 enableDomainAutoRenew :: Text -> EnableDomainAutoRenew
 enableDomainAutoRenew pDomainName_ =
     EnableDomainAutoRenew'
-    { _edarrqDomainName = pDomainName_
+    { _edarDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
-edarrqDomainName :: Lens' EnableDomainAutoRenew Text
-edarrqDomainName = lens _edarrqDomainName (\ s a -> s{_edarrqDomainName = a});
+edarDomainName :: Lens' EnableDomainAutoRenew Text
+edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a});
 
 instance AWSRequest EnableDomainAutoRenew where
         type Sv EnableDomainAutoRenew = Route53Domains
@@ -94,7 +94,7 @@ instance ToHeaders EnableDomainAutoRenew where
 
 instance ToJSON EnableDomainAutoRenew where
         toJSON EnableDomainAutoRenew'{..}
-          = object ["DomainName" .= _edarrqDomainName]
+          = object ["DomainName" .= _edarDomainName]
 
 instance ToPath EnableDomainAutoRenew where
         toPath = const "/"

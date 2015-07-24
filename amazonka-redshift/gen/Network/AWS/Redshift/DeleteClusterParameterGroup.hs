@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
     -- ** Request constructor
     , deleteClusterParameterGroup
     -- ** Request lenses
-    , drqParameterGroupName
+    , dParameterGroupName
 
     -- * Response
     , DeleteClusterParameterGroupResponse
@@ -47,16 +47,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqParameterGroupName'
+-- * 'dParameterGroupName'
 newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
-    { _drqParameterGroupName :: Text
+    { _dParameterGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterParameterGroup' smart constructor.
 deleteClusterParameterGroup :: Text -> DeleteClusterParameterGroup
 deleteClusterParameterGroup pParameterGroupName_ =
     DeleteClusterParameterGroup'
-    { _drqParameterGroupName = pParameterGroupName_
+    { _dParameterGroupName = pParameterGroupName_
     }
 
 -- | The name of the parameter group to be deleted.
@@ -65,8 +65,8 @@ deleteClusterParameterGroup pParameterGroupName_ =
 --
 -- -   Must be the name of an existing cluster parameter group.
 -- -   Cannot delete a default cluster parameter group.
-drqParameterGroupName :: Lens' DeleteClusterParameterGroup Text
-drqParameterGroupName = lens _drqParameterGroupName (\ s a -> s{_drqParameterGroupName = a});
+dParameterGroupName :: Lens' DeleteClusterParameterGroup Text
+dParameterGroupName = lens _dParameterGroupName (\ s a -> s{_dParameterGroupName = a});
 
 instance AWSRequest DeleteClusterParameterGroup where
         type Sv DeleteClusterParameterGroup = Redshift
@@ -88,7 +88,7 @@ instance ToQuery DeleteClusterParameterGroup where
               ["Action" =:
                  ("DeleteClusterParameterGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ParameterGroupName" =: _drqParameterGroupName]
+               "ParameterGroupName" =: _dParameterGroupName]
 
 -- | /See:/ 'deleteClusterParameterGroupResponse' smart constructor.
 data DeleteClusterParameterGroupResponse =

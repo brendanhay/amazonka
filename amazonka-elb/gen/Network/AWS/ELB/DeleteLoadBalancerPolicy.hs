@@ -28,8 +28,8 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- ** Request constructor
     , deleteLoadBalancerPolicy
     -- ** Request lenses
-    , drqLoadBalancerName
-    , drqPolicyName
+    , dLoadBalancerName
+    , dPolicyName
 
     -- * Response
     , DeleteLoadBalancerPolicyResponse
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqLoadBalancerName'
+-- * 'dLoadBalancerName'
 --
--- * 'drqPolicyName'
+-- * 'dPolicyName'
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
-    { _drqLoadBalancerName :: !Text
-    , _drqPolicyName       :: !Text
+    { _dLoadBalancerName :: !Text
+    , _dPolicyName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerPolicy' smart constructor.
 deleteLoadBalancerPolicy :: Text -> Text -> DeleteLoadBalancerPolicy
 deleteLoadBalancerPolicy pLoadBalancerName_ pPolicyName_ =
     DeleteLoadBalancerPolicy'
-    { _drqLoadBalancerName = pLoadBalancerName_
-    , _drqPolicyName = pPolicyName_
+    { _dLoadBalancerName = pLoadBalancerName_
+    , _dPolicyName = pPolicyName_
     }
 
 -- | The name of the load balancer.
-drqLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
-drqLoadBalancerName = lens _drqLoadBalancerName (\ s a -> s{_drqLoadBalancerName = a});
+dLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
+dLoadBalancerName = lens _dLoadBalancerName (\ s a -> s{_dLoadBalancerName = a});
 
 -- | The name of the policy.
-drqPolicyName :: Lens' DeleteLoadBalancerPolicy Text
-drqPolicyName = lens _drqPolicyName (\ s a -> s{_drqPolicyName = a});
+dPolicyName :: Lens' DeleteLoadBalancerPolicy Text
+dPolicyName = lens _dPolicyName (\ s a -> s{_dPolicyName = a});
 
 instance AWSRequest DeleteLoadBalancerPolicy where
         type Sv DeleteLoadBalancerPolicy = ELB
@@ -97,8 +97,8 @@ instance ToQuery DeleteLoadBalancerPolicy where
               ["Action" =:
                  ("DeleteLoadBalancerPolicy" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _drqLoadBalancerName,
-               "PolicyName" =: _drqPolicyName]
+               "LoadBalancerName" =: _dLoadBalancerName,
+               "PolicyName" =: _dPolicyName]
 
 -- | /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
 --

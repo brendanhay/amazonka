@@ -27,11 +27,11 @@ module Network.AWS.RDS.DescribeDBParameters
     -- ** Request constructor
     , describeDBParameters
     -- ** Request lenses
-    , ddprqFilters
-    , ddprqMaxRecords
-    , ddprqMarker
-    , ddprqSource
-    , ddprqDBParameterGroupName
+    , ddpFilters
+    , ddpMaxRecords
+    , ddpMarker
+    , ddpSource
+    , ddpDBParameterGroupName
 
     -- * Response
     , DescribeDBParametersResponse
@@ -53,37 +53,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddprqFilters'
+-- * 'ddpFilters'
 --
--- * 'ddprqMaxRecords'
+-- * 'ddpMaxRecords'
 --
--- * 'ddprqMarker'
+-- * 'ddpMarker'
 --
--- * 'ddprqSource'
+-- * 'ddpSource'
 --
--- * 'ddprqDBParameterGroupName'
+-- * 'ddpDBParameterGroupName'
 data DescribeDBParameters = DescribeDBParameters'
-    { _ddprqFilters              :: !(Maybe [Filter])
-    , _ddprqMaxRecords           :: !(Maybe Int)
-    , _ddprqMarker               :: !(Maybe Text)
-    , _ddprqSource               :: !(Maybe Text)
-    , _ddprqDBParameterGroupName :: !Text
+    { _ddpFilters              :: !(Maybe [Filter])
+    , _ddpMaxRecords           :: !(Maybe Int)
+    , _ddpMarker               :: !(Maybe Text)
+    , _ddpSource               :: !(Maybe Text)
+    , _ddpDBParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBParameters' smart constructor.
 describeDBParameters :: Text -> DescribeDBParameters
 describeDBParameters pDBParameterGroupName_ =
     DescribeDBParameters'
-    { _ddprqFilters = Nothing
-    , _ddprqMaxRecords = Nothing
-    , _ddprqMarker = Nothing
-    , _ddprqSource = Nothing
-    , _ddprqDBParameterGroupName = pDBParameterGroupName_
+    { _ddpFilters = Nothing
+    , _ddpMaxRecords = Nothing
+    , _ddpMarker = Nothing
+    , _ddpSource = Nothing
+    , _ddpDBParameterGroupName = pDBParameterGroupName_
     }
 
 -- | This parameter is not currently supported.
-ddprqFilters :: Lens' DescribeDBParameters [Filter]
-ddprqFilters = lens _ddprqFilters (\ s a -> s{_ddprqFilters = a}) . _Default;
+ddpFilters :: Lens' DescribeDBParameters [Filter]
+ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -93,23 +93,23 @@ ddprqFilters = lens _ddprqFilters (\ s a -> s{_ddprqFilters = a}) . _Default;
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddprqMaxRecords :: Lens' DescribeDBParameters (Maybe Int)
-ddprqMaxRecords = lens _ddprqMaxRecords (\ s a -> s{_ddprqMaxRecords = a});
+ddpMaxRecords :: Lens' DescribeDBParameters (Maybe Int)
+ddpMaxRecords = lens _ddpMaxRecords (\ s a -> s{_ddpMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBParameters@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-ddprqMarker :: Lens' DescribeDBParameters (Maybe Text)
-ddprqMarker = lens _ddprqMarker (\ s a -> s{_ddprqMarker = a});
+ddpMarker :: Lens' DescribeDBParameters (Maybe Text)
+ddpMarker = lens _ddpMarker (\ s a -> s{_ddpMarker = a});
 
 -- | The parameter types to return.
 --
 -- Default: All parameter types returned
 --
 -- Valid Values: @user | system | engine-default@
-ddprqSource :: Lens' DescribeDBParameters (Maybe Text)
-ddprqSource = lens _ddprqSource (\ s a -> s{_ddprqSource = a});
+ddpSource :: Lens' DescribeDBParameters (Maybe Text)
+ddpSource = lens _ddpSource (\ s a -> s{_ddpSource = a});
 
 -- | The name of a specific DB parameter group to return details for.
 --
@@ -118,15 +118,15 @@ ddprqSource = lens _ddprqSource (\ s a -> s{_ddprqSource = a});
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddprqDBParameterGroupName :: Lens' DescribeDBParameters Text
-ddprqDBParameterGroupName = lens _ddprqDBParameterGroupName (\ s a -> s{_ddprqDBParameterGroupName = a});
+ddpDBParameterGroupName :: Lens' DescribeDBParameters Text
+ddpDBParameterGroupName = lens _ddpDBParameterGroupName (\ s a -> s{_ddpDBParameterGroupName = a});
 
 instance AWSPager DescribeDBParameters where
         page rq rs
           | stop (rs ^. ddprsMarker) = Nothing
           | stop (rs ^. ddprsParameters) = Nothing
           | otherwise =
-            Just $ rq & ddprqMarker .~ rs ^. ddprsMarker
+            Just $ rq & ddpMarker .~ rs ^. ddprsMarker
 
 instance AWSRequest DescribeDBParameters where
         type Sv DescribeDBParameters = RDS
@@ -154,10 +154,10 @@ instance ToQuery DescribeDBParameters where
               ["Action" =: ("DescribeDBParameters" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddprqFilters),
-               "MaxRecords" =: _ddprqMaxRecords,
-               "Marker" =: _ddprqMarker, "Source" =: _ddprqSource,
-               "DBParameterGroupName" =: _ddprqDBParameterGroupName]
+                 toQuery (toQueryList "Filter" <$> _ddpFilters),
+               "MaxRecords" =: _ddpMaxRecords,
+               "Marker" =: _ddpMarker, "Source" =: _ddpSource,
+               "DBParameterGroupName" =: _ddpDBParameterGroupName]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBParameters action.

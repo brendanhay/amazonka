@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
     -- ** Request constructor
     , addTagsToOnPremisesInstances
     -- ** Request lenses
-    , attopirqTags
-    , attopirqInstanceNames
+    , attopiTags
+    , attopiInstanceNames
 
     -- * Response
     , AddTagsToOnPremisesInstancesResponse
@@ -47,32 +47,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attopirqTags'
+-- * 'attopiTags'
 --
--- * 'attopirqInstanceNames'
+-- * 'attopiInstanceNames'
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
-    { _attopirqTags          :: ![Tag]
-    , _attopirqInstanceNames :: ![Text]
+    { _attopiTags          :: ![Tag]
+    , _attopiInstanceNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToOnPremisesInstances' smart constructor.
 addTagsToOnPremisesInstances :: AddTagsToOnPremisesInstances
 addTagsToOnPremisesInstances =
     AddTagsToOnPremisesInstances'
-    { _attopirqTags = mempty
-    , _attopirqInstanceNames = mempty
+    { _attopiTags = mempty
+    , _attopiInstanceNames = mempty
     }
 
 -- | The tag key-value pairs to add to the on-premises instances.
 --
 -- Keys and values are both required. Keys cannot be nulls or empty
 -- strings. Value-only tags are not allowed.
-attopirqTags :: Lens' AddTagsToOnPremisesInstances [Tag]
-attopirqTags = lens _attopirqTags (\ s a -> s{_attopirqTags = a});
+attopiTags :: Lens' AddTagsToOnPremisesInstances [Tag]
+attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a});
 
 -- | The names of the on-premises instances to add tags to.
-attopirqInstanceNames :: Lens' AddTagsToOnPremisesInstances [Text]
-attopirqInstanceNames = lens _attopirqInstanceNames (\ s a -> s{_attopirqInstanceNames = a});
+attopiInstanceNames :: Lens' AddTagsToOnPremisesInstances [Text]
+attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames = a});
 
 instance AWSRequest AddTagsToOnPremisesInstances
          where
@@ -96,8 +96,8 @@ instance ToHeaders AddTagsToOnPremisesInstances where
 instance ToJSON AddTagsToOnPremisesInstances where
         toJSON AddTagsToOnPremisesInstances'{..}
           = object
-              ["tags" .= _attopirqTags,
-               "instanceNames" .= _attopirqInstanceNames]
+              ["tags" .= _attopiTags,
+               "instanceNames" .= _attopiInstanceNames]
 
 instance ToPath AddTagsToOnPremisesInstances where
         toPath = const "/"

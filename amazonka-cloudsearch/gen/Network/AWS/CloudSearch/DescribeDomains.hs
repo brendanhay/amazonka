@@ -34,7 +34,7 @@ module Network.AWS.CloudSearch.DescribeDomains
     -- ** Request constructor
     , describeDomains
     -- ** Request lenses
-    , ddrqDomainNames
+    , ddDomainNames
 
     -- * Response
     , DescribeDomainsResponse
@@ -59,21 +59,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrqDomainNames'
+-- * 'ddDomainNames'
 newtype DescribeDomains = DescribeDomains'
-    { _ddrqDomainNames :: Maybe [Text]
+    { _ddDomainNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomains' smart constructor.
 describeDomains :: DescribeDomains
 describeDomains =
     DescribeDomains'
-    { _ddrqDomainNames = Nothing
+    { _ddDomainNames = Nothing
     }
 
 -- | The names of the domains you want to include in the response.
-ddrqDomainNames :: Lens' DescribeDomains [Text]
-ddrqDomainNames = lens _ddrqDomainNames (\ s a -> s{_ddrqDomainNames = a}) . _Default;
+ddDomainNames :: Lens' DescribeDomains [Text]
+ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default;
 
 instance AWSRequest DescribeDomains where
         type Sv DescribeDomains = CloudSearch
@@ -99,7 +99,7 @@ instance ToQuery DescribeDomains where
               ["Action" =: ("DescribeDomains" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainNames" =:
-                 toQuery (toQueryList "member" <$> _ddrqDomainNames)]
+                 toQuery (toQueryList "member" <$> _ddDomainNames)]
 
 -- | The result of a @DescribeDomains@ request. Contains the status of the
 -- domains specified in the request or all domains owned by the account.

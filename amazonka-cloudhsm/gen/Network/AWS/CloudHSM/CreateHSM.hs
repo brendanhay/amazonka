@@ -29,14 +29,14 @@ module Network.AWS.CloudHSM.CreateHSM
     -- ** Request constructor
     , createHSM
     -- ** Request lenses
-    , chrqClientToken
-    , chrqSyslogIP
-    , chrqExternalId
-    , chrqEniIP
-    , chrqSubnetId
-    , chrqSSHKey
-    , chrqIAMRoleARN
-    , chrqSubscriptionType
+    , chClientToken
+    , chSyslogIP
+    , chExternalId
+    , chEniIP
+    , chSubnetId
+    , chSSHKey
+    , chIAMRoleARN
+    , chSubscriptionType
 
     -- * Response
     , CreateHSMResponse
@@ -58,79 +58,79 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chrqClientToken'
+-- * 'chClientToken'
 --
--- * 'chrqSyslogIP'
+-- * 'chSyslogIP'
 --
--- * 'chrqExternalId'
+-- * 'chExternalId'
 --
--- * 'chrqEniIP'
+-- * 'chEniIP'
 --
--- * 'chrqSubnetId'
+-- * 'chSubnetId'
 --
--- * 'chrqSSHKey'
+-- * 'chSSHKey'
 --
--- * 'chrqIAMRoleARN'
+-- * 'chIAMRoleARN'
 --
--- * 'chrqSubscriptionType'
+-- * 'chSubscriptionType'
 data CreateHSM = CreateHSM'
-    { _chrqClientToken      :: !(Maybe Text)
-    , _chrqSyslogIP         :: !(Maybe Text)
-    , _chrqExternalId       :: !(Maybe Text)
-    , _chrqEniIP            :: !(Maybe Text)
-    , _chrqSubnetId         :: !Text
-    , _chrqSSHKey           :: !Text
-    , _chrqIAMRoleARN       :: !Text
-    , _chrqSubscriptionType :: !SubscriptionType
+    { _chClientToken      :: !(Maybe Text)
+    , _chSyslogIP         :: !(Maybe Text)
+    , _chExternalId       :: !(Maybe Text)
+    , _chEniIP            :: !(Maybe Text)
+    , _chSubnetId         :: !Text
+    , _chSSHKey           :: !Text
+    , _chIAMRoleARN       :: !Text
+    , _chSubscriptionType :: !SubscriptionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSM' smart constructor.
 createHSM :: Text -> Text -> Text -> SubscriptionType -> CreateHSM
 createHSM pSubnetId_ pSSHKey_ pIAMRoleARN_ pSubscriptionType_ =
     CreateHSM'
-    { _chrqClientToken = Nothing
-    , _chrqSyslogIP = Nothing
-    , _chrqExternalId = Nothing
-    , _chrqEniIP = Nothing
-    , _chrqSubnetId = pSubnetId_
-    , _chrqSSHKey = pSSHKey_
-    , _chrqIAMRoleARN = pIAMRoleARN_
-    , _chrqSubscriptionType = pSubscriptionType_
+    { _chClientToken = Nothing
+    , _chSyslogIP = Nothing
+    , _chExternalId = Nothing
+    , _chEniIP = Nothing
+    , _chSubnetId = pSubnetId_
+    , _chSSHKey = pSSHKey_
+    , _chIAMRoleARN = pIAMRoleARN_
+    , _chSubscriptionType = pSubscriptionType_
     }
 
 -- | A user-defined token to ensure idempotence. Subsequent calls to this
 -- action with the same token will be ignored.
-chrqClientToken :: Lens' CreateHSM (Maybe Text)
-chrqClientToken = lens _chrqClientToken (\ s a -> s{_chrqClientToken = a});
+chClientToken :: Lens' CreateHSM (Maybe Text)
+chClientToken = lens _chClientToken (\ s a -> s{_chClientToken = a});
 
 -- | The IP address for the syslog monitoring server.
-chrqSyslogIP :: Lens' CreateHSM (Maybe Text)
-chrqSyslogIP = lens _chrqSyslogIP (\ s a -> s{_chrqSyslogIP = a});
+chSyslogIP :: Lens' CreateHSM (Maybe Text)
+chSyslogIP = lens _chSyslogIP (\ s a -> s{_chSyslogIP = a});
 
 -- | The external ID from __IamRoleArn__, if present.
-chrqExternalId :: Lens' CreateHSM (Maybe Text)
-chrqExternalId = lens _chrqExternalId (\ s a -> s{_chrqExternalId = a});
+chExternalId :: Lens' CreateHSM (Maybe Text)
+chExternalId = lens _chExternalId (\ s a -> s{_chExternalId = a});
 
 -- | The IP address to assign to the HSM\'s ENI.
-chrqEniIP :: Lens' CreateHSM (Maybe Text)
-chrqEniIP = lens _chrqEniIP (\ s a -> s{_chrqEniIP = a});
+chEniIP :: Lens' CreateHSM (Maybe Text)
+chEniIP = lens _chEniIP (\ s a -> s{_chEniIP = a});
 
 -- | The identifier of the subnet in your VPC in which to place the HSM.
-chrqSubnetId :: Lens' CreateHSM Text
-chrqSubnetId = lens _chrqSubnetId (\ s a -> s{_chrqSubnetId = a});
+chSubnetId :: Lens' CreateHSM Text
+chSubnetId = lens _chSubnetId (\ s a -> s{_chSubnetId = a});
 
 -- | The SSH public key to install on the HSM.
-chrqSSHKey :: Lens' CreateHSM Text
-chrqSSHKey = lens _chrqSSHKey (\ s a -> s{_chrqSSHKey = a});
+chSSHKey :: Lens' CreateHSM Text
+chSSHKey = lens _chSSHKey (\ s a -> s{_chSSHKey = a});
 
 -- | The ARN of an IAM role to enable the AWS CloudHSM service to allocate an
 -- ENI on your behalf.
-chrqIAMRoleARN :: Lens' CreateHSM Text
-chrqIAMRoleARN = lens _chrqIAMRoleARN (\ s a -> s{_chrqIAMRoleARN = a});
+chIAMRoleARN :: Lens' CreateHSM Text
+chIAMRoleARN = lens _chIAMRoleARN (\ s a -> s{_chIAMRoleARN = a});
 
 -- | The subscription type.
-chrqSubscriptionType :: Lens' CreateHSM SubscriptionType
-chrqSubscriptionType = lens _chrqSubscriptionType (\ s a -> s{_chrqSubscriptionType = a});
+chSubscriptionType :: Lens' CreateHSM SubscriptionType
+chSubscriptionType = lens _chSubscriptionType (\ s a -> s{_chSubscriptionType = a});
 
 instance AWSRequest CreateHSM where
         type Sv CreateHSM = CloudHSM
@@ -154,13 +154,12 @@ instance ToHeaders CreateHSM where
 instance ToJSON CreateHSM where
         toJSON CreateHSM'{..}
           = object
-              ["ClientToken" .= _chrqClientToken,
-               "SyslogIp" .= _chrqSyslogIP,
-               "ExternalId" .= _chrqExternalId,
-               "EniIp" .= _chrqEniIP, "SubnetId" .= _chrqSubnetId,
-               "SshKey" .= _chrqSSHKey,
-               "IamRoleArn" .= _chrqIAMRoleARN,
-               "SubscriptionType" .= _chrqSubscriptionType]
+              ["ClientToken" .= _chClientToken,
+               "SyslogIp" .= _chSyslogIP,
+               "ExternalId" .= _chExternalId, "EniIp" .= _chEniIP,
+               "SubnetId" .= _chSubnetId, "SshKey" .= _chSSHKey,
+               "IamRoleArn" .= _chIAMRoleARN,
+               "SubscriptionType" .= _chSubscriptionType]
 
 instance ToPath CreateHSM where
         toPath = const "/"

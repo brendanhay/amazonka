@@ -32,9 +32,9 @@ module Network.AWS.ECS.RegisterTaskDefinition
     -- ** Request constructor
     , registerTaskDefinition
     -- ** Request lenses
-    , rtdrqVolumes
-    , rtdrqFamily
-    , rtdrqContainerDefinitions
+    , rtdVolumes
+    , rtdFamily
+    , rtdContainerDefinitions
 
     -- * Response
     , RegisterTaskDefinitionResponse
@@ -54,43 +54,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtdrqVolumes'
+-- * 'rtdVolumes'
 --
--- * 'rtdrqFamily'
+-- * 'rtdFamily'
 --
--- * 'rtdrqContainerDefinitions'
+-- * 'rtdContainerDefinitions'
 data RegisterTaskDefinition = RegisterTaskDefinition'
-    { _rtdrqVolumes              :: !(Maybe [Volume])
-    , _rtdrqFamily               :: !Text
-    , _rtdrqContainerDefinitions :: ![ContainerDefinition]
+    { _rtdVolumes              :: !(Maybe [Volume])
+    , _rtdFamily               :: !Text
+    , _rtdContainerDefinitions :: ![ContainerDefinition]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterTaskDefinition' smart constructor.
 registerTaskDefinition :: Text -> RegisterTaskDefinition
 registerTaskDefinition pFamily_ =
     RegisterTaskDefinition'
-    { _rtdrqVolumes = Nothing
-    , _rtdrqFamily = pFamily_
-    , _rtdrqContainerDefinitions = mempty
+    { _rtdVolumes = Nothing
+    , _rtdFamily = pFamily_
+    , _rtdContainerDefinitions = mempty
     }
 
 -- | A list of volume definitions in JSON format that containers in your task
 -- may use.
-rtdrqVolumes :: Lens' RegisterTaskDefinition [Volume]
-rtdrqVolumes = lens _rtdrqVolumes (\ s a -> s{_rtdrqVolumes = a}) . _Default;
+rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
+rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a}) . _Default;
 
 -- | You must specify a @family@ for a task definition, which allows you to
 -- track multiple versions of the same task definition. You can think of
 -- the @family@ as a name for your task definition. Up to 255 letters
 -- (uppercase and lowercase), numbers, hyphens, and underscores are
 -- allowed.
-rtdrqFamily :: Lens' RegisterTaskDefinition Text
-rtdrqFamily = lens _rtdrqFamily (\ s a -> s{_rtdrqFamily = a});
+rtdFamily :: Lens' RegisterTaskDefinition Text
+rtdFamily = lens _rtdFamily (\ s a -> s{_rtdFamily = a});
 
 -- | A list of container definitions in JSON format that describe the
 -- different containers that make up your task.
-rtdrqContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
-rtdrqContainerDefinitions = lens _rtdrqContainerDefinitions (\ s a -> s{_rtdrqContainerDefinitions = a});
+rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
+rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a});
 
 instance AWSRequest RegisterTaskDefinition where
         type Sv RegisterTaskDefinition = ECS
@@ -116,9 +116,8 @@ instance ToHeaders RegisterTaskDefinition where
 instance ToJSON RegisterTaskDefinition where
         toJSON RegisterTaskDefinition'{..}
           = object
-              ["volumes" .= _rtdrqVolumes,
-               "family" .= _rtdrqFamily,
-               "containerDefinitions" .= _rtdrqContainerDefinitions]
+              ["volumes" .= _rtdVolumes, "family" .= _rtdFamily,
+               "containerDefinitions" .= _rtdContainerDefinitions]
 
 instance ToPath RegisterTaskDefinition where
         toPath = const "/"

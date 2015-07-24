@@ -97,9 +97,9 @@ module Network.AWS.STS.GetFederationToken
     -- ** Request constructor
     , getFederationToken
     -- ** Request lenses
-    , gftrqDurationSeconds
-    , gftrqPolicy
-    , gftrqName
+    , gftDurationSeconds
+    , gftPolicy
+    , gftName
 
     -- * Response
     , GetFederationTokenResponse
@@ -121,24 +121,24 @@ import           Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gftrqDurationSeconds'
+-- * 'gftDurationSeconds'
 --
--- * 'gftrqPolicy'
+-- * 'gftPolicy'
 --
--- * 'gftrqName'
+-- * 'gftName'
 data GetFederationToken = GetFederationToken'
-    { _gftrqDurationSeconds :: !(Maybe Nat)
-    , _gftrqPolicy          :: !(Maybe Text)
-    , _gftrqName            :: !Text
+    { _gftDurationSeconds :: !(Maybe Nat)
+    , _gftPolicy          :: !(Maybe Text)
+    , _gftName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFederationToken' smart constructor.
 getFederationToken :: Text -> GetFederationToken
 getFederationToken pName_ =
     GetFederationToken'
-    { _gftrqDurationSeconds = Nothing
-    , _gftrqPolicy = Nothing
-    , _gftrqName = pName_
+    { _gftDurationSeconds = Nothing
+    , _gftPolicy = Nothing
+    , _gftName = pName_
     }
 
 -- | The duration, in seconds, that the session should last. Acceptable
@@ -148,8 +148,8 @@ getFederationToken pName_ =
 -- a maximum of 3600 seconds (one hour). If the specified duration is
 -- longer than one hour, the session obtained by using AWS account (root)
 -- credentials defaults to one hour.
-gftrqDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
-gftrqDurationSeconds = lens _gftrqDurationSeconds (\ s a -> s{_gftrqDurationSeconds = a}) . mapping _Nat;
+gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
+gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = a}) . mapping _Nat;
 
 -- | An IAM policy in JSON format that is passed with the
 -- @GetFederationToken@ call and evaluated along with the policy or
@@ -176,15 +176,15 @@ gftrqDurationSeconds = lens _gftrqDurationSeconds (\ s a -> s{_gftrqDurationSeco
 --
 -- For more information about how permissions work, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>.
-gftrqPolicy :: Lens' GetFederationToken (Maybe Text)
-gftrqPolicy = lens _gftrqPolicy (\ s a -> s{_gftrqPolicy = a});
+gftPolicy :: Lens' GetFederationToken (Maybe Text)
+gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
 
 -- | The name of the federated user. The name is used as an identifier for
 -- the temporary security credentials (such as @Bob@). For example, you can
 -- reference the federated user name in a resource-based policy, such as in
 -- an Amazon S3 bucket policy.
-gftrqName :: Lens' GetFederationToken Text
-gftrqName = lens _gftrqName (\ s a -> s{_gftrqName = a});
+gftName :: Lens' GetFederationToken Text
+gftName = lens _gftName (\ s a -> s{_gftName = a});
 
 instance AWSRequest GetFederationToken where
         type Sv GetFederationToken = STS
@@ -210,8 +210,8 @@ instance ToQuery GetFederationToken where
           = mconcat
               ["Action" =: ("GetFederationToken" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "DurationSeconds" =: _gftrqDurationSeconds,
-               "Policy" =: _gftrqPolicy, "Name" =: _gftrqName]
+               "DurationSeconds" =: _gftDurationSeconds,
+               "Policy" =: _gftPolicy, "Name" =: _gftName]
 
 -- | Contains the response to a successful GetFederationToken request,
 -- including temporary AWS credentials that can be used to make AWS

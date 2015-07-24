@@ -36,8 +36,8 @@ module Network.AWS.Glacier.DeleteVaultAccessPolicy
     -- ** Request constructor
     , deleteVaultAccessPolicy
     -- ** Request lenses
-    , dvaprqAccountId
-    , dvaprqVaultName
+    , dvapAccountId
+    , dvapVaultName
 
     -- * Response
     , DeleteVaultAccessPolicyResponse
@@ -56,20 +56,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvaprqAccountId'
+-- * 'dvapAccountId'
 --
--- * 'dvaprqVaultName'
+-- * 'dvapVaultName'
 data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
-    { _dvaprqAccountId :: !Text
-    , _dvaprqVaultName :: !Text
+    { _dvapAccountId :: !Text
+    , _dvapVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultAccessPolicy' smart constructor.
 deleteVaultAccessPolicy :: Text -> Text -> DeleteVaultAccessPolicy
 deleteVaultAccessPolicy pAccountId_ pVaultName_ =
     DeleteVaultAccessPolicy'
-    { _dvaprqAccountId = pAccountId_
-    , _dvaprqVaultName = pVaultName_
+    { _dvapAccountId = pAccountId_
+    , _dvapVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -77,12 +77,12 @@ deleteVaultAccessPolicy pAccountId_ pVaultName_ =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-dvaprqAccountId :: Lens' DeleteVaultAccessPolicy Text
-dvaprqAccountId = lens _dvaprqAccountId (\ s a -> s{_dvaprqAccountId = a});
+dvapAccountId :: Lens' DeleteVaultAccessPolicy Text
+dvapAccountId = lens _dvapAccountId (\ s a -> s{_dvapAccountId = a});
 
 -- | The name of the vault.
-dvaprqVaultName :: Lens' DeleteVaultAccessPolicy Text
-dvaprqVaultName = lens _dvaprqVaultName (\ s a -> s{_dvaprqVaultName = a});
+dvapVaultName :: Lens' DeleteVaultAccessPolicy Text
+dvapVaultName = lens _dvapVaultName (\ s a -> s{_dvapVaultName = a});
 
 instance AWSRequest DeleteVaultAccessPolicy where
         type Sv DeleteVaultAccessPolicy = Glacier
@@ -98,8 +98,8 @@ instance ToHeaders DeleteVaultAccessPolicy where
 instance ToPath DeleteVaultAccessPolicy where
         toPath DeleteVaultAccessPolicy'{..}
           = mconcat
-              ["/", toText _dvaprqAccountId, "/vaults/",
-               toText _dvaprqVaultName, "/access-policy"]
+              ["/", toText _dvapAccountId, "/vaults/",
+               toText _dvapVaultName, "/access-policy"]
 
 instance ToQuery DeleteVaultAccessPolicy where
         toQuery = const mempty

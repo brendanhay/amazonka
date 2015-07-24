@@ -33,7 +33,7 @@ module Network.AWS.OpsWorks.StopStack
     -- ** Request constructor
     , stopStack
     -- ** Request lenses
-    , ssrqStackId
+    , stoStackId
 
     -- * Response
     , StopStackResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ssrqStackId'
+-- * 'stoStackId'
 newtype StopStack = StopStack'
-    { _ssrqStackId :: Text
+    { _stoStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopStack' smart constructor.
 stopStack :: Text -> StopStack
 stopStack pStackId_ =
     StopStack'
-    { _ssrqStackId = pStackId_
+    { _stoStackId = pStackId_
     }
 
 -- | The stack ID.
-ssrqStackId :: Lens' StopStack Text
-ssrqStackId = lens _ssrqStackId (\ s a -> s{_ssrqStackId = a});
+stoStackId :: Lens' StopStack Text
+stoStackId = lens _stoStackId (\ s a -> s{_stoStackId = a});
 
 instance AWSRequest StopStack where
         type Sv StopStack = OpsWorks
@@ -83,7 +83,7 @@ instance ToHeaders StopStack where
 
 instance ToJSON StopStack where
         toJSON StopStack'{..}
-          = object ["StackId" .= _ssrqStackId]
+          = object ["StackId" .= _stoStackId]
 
 instance ToPath StopStack where
         toPath = const "/"

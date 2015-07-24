@@ -28,8 +28,8 @@ module Network.AWS.EC2.DeleteNetworkInterface
     -- ** Request constructor
     , deleteNetworkInterface
     -- ** Request lenses
-    , dniirqDryRun
-    , dniirqNetworkInterfaceId
+    , dninDryRun
+    , dninNetworkInterfaceId
 
     -- * Response
     , DeleteNetworkInterfaceResponse
@@ -46,32 +46,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dniirqDryRun'
+-- * 'dninDryRun'
 --
--- * 'dniirqNetworkInterfaceId'
+-- * 'dninNetworkInterfaceId'
 data DeleteNetworkInterface = DeleteNetworkInterface'
-    { _dniirqDryRun             :: !(Maybe Bool)
-    , _dniirqNetworkInterfaceId :: !Text
+    { _dninDryRun             :: !(Maybe Bool)
+    , _dninNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkInterface' smart constructor.
 deleteNetworkInterface :: Text -> DeleteNetworkInterface
 deleteNetworkInterface pNetworkInterfaceId_ =
     DeleteNetworkInterface'
-    { _dniirqDryRun = Nothing
-    , _dniirqNetworkInterfaceId = pNetworkInterfaceId_
+    { _dninDryRun = Nothing
+    , _dninNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dniirqDryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
-dniirqDryRun = lens _dniirqDryRun (\ s a -> s{_dniirqDryRun = a});
+dninDryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
+dninDryRun = lens _dninDryRun (\ s a -> s{_dninDryRun = a});
 
 -- | The ID of the network interface.
-dniirqNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
-dniirqNetworkInterfaceId = lens _dniirqNetworkInterfaceId (\ s a -> s{_dniirqNetworkInterfaceId = a});
+dninNetworkInterfaceId :: Lens' DeleteNetworkInterface Text
+dninNetworkInterfaceId = lens _dninNetworkInterfaceId (\ s a -> s{_dninNetworkInterfaceId = a});
 
 instance AWSRequest DeleteNetworkInterface where
         type Sv DeleteNetworkInterface = EC2
@@ -93,8 +93,8 @@ instance ToQuery DeleteNetworkInterface where
               ["Action" =:
                  ("DeleteNetworkInterface" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dniirqDryRun,
-               "NetworkInterfaceId" =: _dniirqNetworkInterfaceId]
+               "DryRun" =: _dninDryRun,
+               "NetworkInterfaceId" =: _dninNetworkInterfaceId]
 
 -- | /See:/ 'deleteNetworkInterfaceResponse' smart constructor.
 data DeleteNetworkInterfaceResponse =

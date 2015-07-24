@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketVersioning
     -- ** Request constructor
     , getBucketVersioning
     -- ** Request lenses
-    , gbvrqBucket
+    , gbvBucket
 
     -- * Response
     , GetBucketVersioningResponse
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbvrqBucket'
+-- * 'gbvBucket'
 newtype GetBucketVersioning = GetBucketVersioning'
-    { _gbvrqBucket :: BucketName
+    { _gbvBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketVersioning' smart constructor.
 getBucketVersioning :: BucketName -> GetBucketVersioning
 getBucketVersioning pBucket_ =
     GetBucketVersioning'
-    { _gbvrqBucket = pBucket_
+    { _gbvBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gbvrqBucket :: Lens' GetBucketVersioning BucketName
-gbvrqBucket = lens _gbvrqBucket (\ s a -> s{_gbvrqBucket = a});
+gbvBucket :: Lens' GetBucketVersioning BucketName
+gbvBucket = lens _gbvBucket (\ s a -> s{_gbvBucket = a});
 
 instance AWSRequest GetBucketVersioning where
         type Sv GetBucketVersioning = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketVersioning where
 
 instance ToPath GetBucketVersioning where
         toPath GetBucketVersioning'{..}
-          = mconcat ["/", toText _gbvrqBucket]
+          = mconcat ["/", toText _gbvBucket]
 
 instance ToQuery GetBucketVersioning where
         toQuery = const (mconcat ["versioning"])

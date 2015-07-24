@@ -39,10 +39,10 @@ module Network.AWS.IAM.ListAttachedRolePolicies
     -- ** Request constructor
     , listAttachedRolePolicies
     -- ** Request lenses
-    , larprqPathPrefix
-    , larprqMaxItems
-    , larprqMarker
-    , larprqRoleName
+    , larpPathPrefix
+    , larpMaxItems
+    , larpMarker
+    , larpRoleName
 
     -- * Response
     , ListAttachedRolePoliciesResponse
@@ -64,35 +64,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larprqPathPrefix'
+-- * 'larpPathPrefix'
 --
--- * 'larprqMaxItems'
+-- * 'larpMaxItems'
 --
--- * 'larprqMarker'
+-- * 'larpMarker'
 --
--- * 'larprqRoleName'
+-- * 'larpRoleName'
 data ListAttachedRolePolicies = ListAttachedRolePolicies'
-    { _larprqPathPrefix :: !(Maybe Text)
-    , _larprqMaxItems   :: !(Maybe Nat)
-    , _larprqMarker     :: !(Maybe Text)
-    , _larprqRoleName   :: !Text
+    { _larpPathPrefix :: !(Maybe Text)
+    , _larpMaxItems   :: !(Maybe Nat)
+    , _larpMarker     :: !(Maybe Text)
+    , _larpRoleName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedRolePolicies' smart constructor.
 listAttachedRolePolicies :: Text -> ListAttachedRolePolicies
 listAttachedRolePolicies pRoleName_ =
     ListAttachedRolePolicies'
-    { _larprqPathPrefix = Nothing
-    , _larprqMaxItems = Nothing
-    , _larprqMarker = Nothing
-    , _larprqRoleName = pRoleName_
+    { _larpPathPrefix = Nothing
+    , _larpMaxItems = Nothing
+    , _larpMarker = Nothing
+    , _larpRoleName = pRoleName_
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
 -- policies.
-larprqPathPrefix :: Lens' ListAttachedRolePolicies (Maybe Text)
-larprqPathPrefix = lens _larprqPathPrefix (\ s a -> s{_larprqPathPrefix = a});
+larpPathPrefix :: Lens' ListAttachedRolePolicies (Maybe Text)
+larpPathPrefix = lens _larpPathPrefix (\ s a -> s{_larpPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -100,19 +100,19 @@ larprqPathPrefix = lens _larprqPathPrefix (\ s a -> s{_larprqPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-larprqMaxItems :: Lens' ListAttachedRolePolicies (Maybe Natural)
-larprqMaxItems = lens _larprqMaxItems (\ s a -> s{_larprqMaxItems = a}) . mapping _Nat;
+larpMaxItems :: Lens' ListAttachedRolePolicies (Maybe Natural)
+larpMaxItems = lens _larpMaxItems (\ s a -> s{_larpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-larprqMarker :: Lens' ListAttachedRolePolicies (Maybe Text)
-larprqMarker = lens _larprqMarker (\ s a -> s{_larprqMarker = a});
+larpMarker :: Lens' ListAttachedRolePolicies (Maybe Text)
+larpMarker = lens _larpMarker (\ s a -> s{_larpMarker = a});
 
 -- | The name (friendly name, not ARN) of the role to list attached policies
 -- for.
-larprqRoleName :: Lens' ListAttachedRolePolicies Text
-larprqRoleName = lens _larprqRoleName (\ s a -> s{_larprqRoleName = a});
+larpRoleName :: Lens' ListAttachedRolePolicies Text
+larpRoleName = lens _larpRoleName (\ s a -> s{_larpRoleName = a});
 
 instance AWSRequest ListAttachedRolePolicies where
         type Sv ListAttachedRolePolicies = IAM
@@ -141,10 +141,9 @@ instance ToQuery ListAttachedRolePolicies where
               ["Action" =:
                  ("ListAttachedRolePolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _larprqPathPrefix,
-               "MaxItems" =: _larprqMaxItems,
-               "Marker" =: _larprqMarker,
-               "RoleName" =: _larprqRoleName]
+               "PathPrefix" =: _larpPathPrefix,
+               "MaxItems" =: _larpMaxItems, "Marker" =: _larpMarker,
+               "RoleName" =: _larpRoleName]
 
 -- | Contains the response to a successful ListAttachedRolePolicies request.
 --

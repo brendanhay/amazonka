@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.GetProject
     -- ** Request constructor
     , getProject
     -- ** Request lenses
-    , gprqArn
+    , gpArn
 
     -- * Response
     , GetProjectResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprqArn'
+-- * 'gpArn'
 newtype GetProject = GetProject'
-    { _gprqArn :: Text
+    { _gpArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetProject' smart constructor.
 getProject :: Text -> GetProject
 getProject pArn_ =
     GetProject'
-    { _gprqArn = pArn_
+    { _gpArn = pArn_
     }
 
 -- | The project\'s ARN.
-gprqArn :: Lens' GetProject Text
-gprqArn = lens _gprqArn (\ s a -> s{_gprqArn = a});
+gpArn :: Lens' GetProject Text
+gpArn = lens _gpArn (\ s a -> s{_gpArn = a});
 
 instance AWSRequest GetProject where
         type Sv GetProject = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetProject where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetProject where
-        toJSON GetProject'{..} = object ["arn" .= _gprqArn]
+        toJSON GetProject'{..} = object ["arn" .= _gpArn]
 
 instance ToPath GetProject where
         toPath = const "/"

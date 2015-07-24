@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     -- ** Request constructor
     , getDeploymentConfig
     -- ** Request lenses
-    , gdcrqDeploymentConfigName
+    , gdcDeploymentConfigName
 
     -- * Response
     , GetDeploymentConfigResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdcrqDeploymentConfigName'
+-- * 'gdcDeploymentConfigName'
 newtype GetDeploymentConfig = GetDeploymentConfig'
-    { _gdcrqDeploymentConfigName :: Text
+    { _gdcDeploymentConfigName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentConfig' smart constructor.
 getDeploymentConfig :: Text -> GetDeploymentConfig
 getDeploymentConfig pDeploymentConfigName_ =
     GetDeploymentConfig'
-    { _gdcrqDeploymentConfigName = pDeploymentConfigName_
+    { _gdcDeploymentConfigName = pDeploymentConfigName_
     }
 
 -- | The name of an existing deployment configuration associated with the
 -- applicable IAM user or AWS account.
-gdcrqDeploymentConfigName :: Lens' GetDeploymentConfig Text
-gdcrqDeploymentConfigName = lens _gdcrqDeploymentConfigName (\ s a -> s{_gdcrqDeploymentConfigName = a});
+gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
+gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a});
 
 instance AWSRequest GetDeploymentConfig where
         type Sv GetDeploymentConfig = CodeDeploy
@@ -91,8 +91,7 @@ instance ToHeaders GetDeploymentConfig where
 instance ToJSON GetDeploymentConfig where
         toJSON GetDeploymentConfig'{..}
           = object
-              ["deploymentConfigName" .=
-                 _gdcrqDeploymentConfigName]
+              ["deploymentConfigName" .= _gdcDeploymentConfigName]
 
 instance ToPath GetDeploymentConfig where
         toPath = const "/"

@@ -30,9 +30,9 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- ** Request constructor
     , createCacheSubnetGroup
     -- ** Request lenses
-    , ccsgrqCacheSubnetGroupName
-    , ccsgrqCacheSubnetGroupDescription
-    , ccsgrqSubnetIds
+    , ccsgCacheSubnetGroupName
+    , ccsgCacheSubnetGroupDescription
+    , ccsgSubnetIds
 
     -- * Response
     , CreateCacheSubnetGroupResponse
@@ -54,24 +54,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgrqCacheSubnetGroupName'
+-- * 'ccsgCacheSubnetGroupName'
 --
--- * 'ccsgrqCacheSubnetGroupDescription'
+-- * 'ccsgCacheSubnetGroupDescription'
 --
--- * 'ccsgrqSubnetIds'
+-- * 'ccsgSubnetIds'
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
-    { _ccsgrqCacheSubnetGroupName        :: !Text
-    , _ccsgrqCacheSubnetGroupDescription :: !Text
-    , _ccsgrqSubnetIds                   :: ![Text]
+    { _ccsgCacheSubnetGroupName        :: !Text
+    , _ccsgCacheSubnetGroupDescription :: !Text
+    , _ccsgSubnetIds                   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSubnetGroup' smart constructor.
 createCacheSubnetGroup :: Text -> Text -> CreateCacheSubnetGroup
 createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
     CreateCacheSubnetGroup'
-    { _ccsgrqCacheSubnetGroupName = pCacheSubnetGroupName_
-    , _ccsgrqCacheSubnetGroupDescription = pCacheSubnetGroupDescription_
-    , _ccsgrqSubnetIds = mempty
+    { _ccsgCacheSubnetGroupName = pCacheSubnetGroupName_
+    , _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription_
+    , _ccsgSubnetIds = mempty
     }
 
 -- | A name for the cache subnet group. This value is stored as a lowercase
@@ -81,16 +81,16 @@ createCacheSubnetGroup pCacheSubnetGroupName_ pCacheSubnetGroupDescription_ =
 -- hyphens.
 --
 -- Example: @mysubnetgroup@
-ccsgrqCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
-ccsgrqCacheSubnetGroupName = lens _ccsgrqCacheSubnetGroupName (\ s a -> s{_ccsgrqCacheSubnetGroupName = a});
+ccsgCacheSubnetGroupName :: Lens' CreateCacheSubnetGroup Text
+ccsgCacheSubnetGroupName = lens _ccsgCacheSubnetGroupName (\ s a -> s{_ccsgCacheSubnetGroupName = a});
 
 -- | A description for the cache subnet group.
-ccsgrqCacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup Text
-ccsgrqCacheSubnetGroupDescription = lens _ccsgrqCacheSubnetGroupDescription (\ s a -> s{_ccsgrqCacheSubnetGroupDescription = a});
+ccsgCacheSubnetGroupDescription :: Lens' CreateCacheSubnetGroup Text
+ccsgCacheSubnetGroupDescription = lens _ccsgCacheSubnetGroupDescription (\ s a -> s{_ccsgCacheSubnetGroupDescription = a});
 
 -- | A list of VPC subnet IDs for the cache subnet group.
-ccsgrqSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
-ccsgrqSubnetIds = lens _ccsgrqSubnetIds (\ s a -> s{_ccsgrqSubnetIds = a});
+ccsgSubnetIds :: Lens' CreateCacheSubnetGroup [Text]
+ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a});
 
 instance AWSRequest CreateCacheSubnetGroup where
         type Sv CreateCacheSubnetGroup = ElastiCache
@@ -115,12 +115,11 @@ instance ToQuery CreateCacheSubnetGroup where
               ["Action" =:
                  ("CreateCacheSubnetGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheSubnetGroupName" =:
-                 _ccsgrqCacheSubnetGroupName,
+               "CacheSubnetGroupName" =: _ccsgCacheSubnetGroupName,
                "CacheSubnetGroupDescription" =:
-                 _ccsgrqCacheSubnetGroupDescription,
+                 _ccsgCacheSubnetGroupDescription,
                "SubnetIds" =:
-                 toQueryList "SubnetIdentifier" _ccsgrqSubnetIds]
+                 toQueryList "SubnetIdentifier" _ccsgSubnetIds]
 
 -- | /See:/ 'createCacheSubnetGroupResponse' smart constructor.
 --

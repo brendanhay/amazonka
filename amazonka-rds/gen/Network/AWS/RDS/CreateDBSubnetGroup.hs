@@ -28,10 +28,10 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- ** Request constructor
     , createDBSubnetGroup
     -- ** Request lenses
-    , cdbsgrqTags
-    , cdbsgrqDBSubnetGroupName
-    , cdbsgrqDBSubnetGroupDescription
-    , cdbsgrqSubnetIds
+    , cdbsgTags
+    , cdbsgDBSubnetGroupName
+    , cdbsgDBSubnetGroupDescription
+    , cdbsgSubnetIds
 
     -- * Response
     , CreateDBSubnetGroupResponse
@@ -53,33 +53,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsgrqTags'
+-- * 'cdbsgTags'
 --
--- * 'cdbsgrqDBSubnetGroupName'
+-- * 'cdbsgDBSubnetGroupName'
 --
--- * 'cdbsgrqDBSubnetGroupDescription'
+-- * 'cdbsgDBSubnetGroupDescription'
 --
--- * 'cdbsgrqSubnetIds'
+-- * 'cdbsgSubnetIds'
 data CreateDBSubnetGroup = CreateDBSubnetGroup'
-    { _cdbsgrqTags                     :: !(Maybe [Tag])
-    , _cdbsgrqDBSubnetGroupName        :: !Text
-    , _cdbsgrqDBSubnetGroupDescription :: !Text
-    , _cdbsgrqSubnetIds                :: ![Text]
+    { _cdbsgTags                     :: !(Maybe [Tag])
+    , _cdbsgDBSubnetGroupName        :: !Text
+    , _cdbsgDBSubnetGroupDescription :: !Text
+    , _cdbsgSubnetIds                :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSubnetGroup' smart constructor.
 createDBSubnetGroup :: Text -> Text -> CreateDBSubnetGroup
 createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
     CreateDBSubnetGroup'
-    { _cdbsgrqTags = Nothing
-    , _cdbsgrqDBSubnetGroupName = pDBSubnetGroupName_
-    , _cdbsgrqDBSubnetGroupDescription = pDBSubnetGroupDescription_
-    , _cdbsgrqSubnetIds = mempty
+    { _cdbsgTags = Nothing
+    , _cdbsgDBSubnetGroupName = pDBSubnetGroupName_
+    , _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription_
+    , _cdbsgSubnetIds = mempty
     }
 
 -- | FIXME: Undocumented member.
-cdbsgrqTags :: Lens' CreateDBSubnetGroup [Tag]
-cdbsgrqTags = lens _cdbsgrqTags (\ s a -> s{_cdbsgrqTags = a}) . _Default;
+cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
+cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default;
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
@@ -88,16 +88,16 @@ cdbsgrqTags = lens _cdbsgrqTags (\ s a -> s{_cdbsgrqTags = a}) . _Default;
 -- hyphens. Must not be \"Default\".
 --
 -- Example: @mySubnetgroup@
-cdbsgrqDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
-cdbsgrqDBSubnetGroupName = lens _cdbsgrqDBSubnetGroupName (\ s a -> s{_cdbsgrqDBSubnetGroupName = a});
+cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
+cdbsgDBSubnetGroupName = lens _cdbsgDBSubnetGroupName (\ s a -> s{_cdbsgDBSubnetGroupName = a});
 
 -- | The description for the DB subnet group.
-cdbsgrqDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
-cdbsgrqDBSubnetGroupDescription = lens _cdbsgrqDBSubnetGroupDescription (\ s a -> s{_cdbsgrqDBSubnetGroupDescription = a});
+cdbsgDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
+cdbsgDBSubnetGroupDescription = lens _cdbsgDBSubnetGroupDescription (\ s a -> s{_cdbsgDBSubnetGroupDescription = a});
 
 -- | The EC2 Subnet IDs for the DB subnet group.
-cdbsgrqSubnetIds :: Lens' CreateDBSubnetGroup [Text]
-cdbsgrqSubnetIds = lens _cdbsgrqSubnetIds (\ s a -> s{_cdbsgrqSubnetIds = a});
+cdbsgSubnetIds :: Lens' CreateDBSubnetGroup [Text]
+cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a});
 
 instance AWSRequest CreateDBSubnetGroup where
         type Sv CreateDBSubnetGroup = RDS
@@ -121,13 +121,12 @@ instance ToQuery CreateDBSubnetGroup where
           = mconcat
               ["Action" =: ("CreateDBSubnetGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =:
-                 toQuery (toQueryList "Tag" <$> _cdbsgrqTags),
-               "DBSubnetGroupName" =: _cdbsgrqDBSubnetGroupName,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdbsgTags),
+               "DBSubnetGroupName" =: _cdbsgDBSubnetGroupName,
                "DBSubnetGroupDescription" =:
-                 _cdbsgrqDBSubnetGroupDescription,
+                 _cdbsgDBSubnetGroupDescription,
                "SubnetIds" =:
-                 toQueryList "SubnetIdentifier" _cdbsgrqSubnetIds]
+                 toQueryList "SubnetIdentifier" _cdbsgSubnetIds]
 
 -- | /See:/ 'createDBSubnetGroupResponse' smart constructor.
 --

@@ -103,9 +103,9 @@ module Network.AWS.DynamoDB.BatchWriteItem
     -- ** Request constructor
     , batchWriteItem
     -- ** Request lenses
-    , bwirqReturnConsumedCapacity
-    , bwirqReturnItemCollectionMetrics
-    , bwirqRequestItems
+    , bwiReturnConsumedCapacity
+    , bwiReturnItemCollectionMetrics
+    , bwiRequestItems
 
     -- * Response
     , BatchWriteItemResponse
@@ -129,36 +129,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bwirqReturnConsumedCapacity'
+-- * 'bwiReturnConsumedCapacity'
 --
--- * 'bwirqReturnItemCollectionMetrics'
+-- * 'bwiReturnItemCollectionMetrics'
 --
--- * 'bwirqRequestItems'
+-- * 'bwiRequestItems'
 data BatchWriteItem = BatchWriteItem'
-    { _bwirqReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _bwirqReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _bwirqRequestItems                :: !(Map Text (List1 WriteRequest))
+    { _bwiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _bwiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _bwiRequestItems                :: !(Map Text (List1 WriteRequest))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItem' smart constructor.
 batchWriteItem :: BatchWriteItem
 batchWriteItem =
     BatchWriteItem'
-    { _bwirqReturnConsumedCapacity = Nothing
-    , _bwirqReturnItemCollectionMetrics = Nothing
-    , _bwirqRequestItems = mempty
+    { _bwiReturnConsumedCapacity = Nothing
+    , _bwiReturnItemCollectionMetrics = Nothing
+    , _bwiRequestItems = mempty
     }
 
 -- | FIXME: Undocumented member.
-bwirqReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
-bwirqReturnConsumedCapacity = lens _bwirqReturnConsumedCapacity (\ s a -> s{_bwirqReturnConsumedCapacity = a});
+bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
+bwiReturnConsumedCapacity = lens _bwiReturnConsumedCapacity (\ s a -> s{_bwiReturnConsumedCapacity = a});
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-bwirqReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
-bwirqReturnItemCollectionMetrics = lens _bwirqReturnItemCollectionMetrics (\ s a -> s{_bwirqReturnItemCollectionMetrics = a});
+bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
+bwiReturnItemCollectionMetrics = lens _bwiReturnItemCollectionMetrics (\ s a -> s{_bwiReturnItemCollectionMetrics = a});
 
 -- | A map of one or more table names and, for each table, a list of
 -- operations to be performed (/DeleteRequest/ or /PutRequest/). Each
@@ -189,8 +189,8 @@ bwirqReturnItemCollectionMetrics = lens _bwirqReturnItemCollectionMetrics (\ s a
 --         then the data types for those attributes must match those of the
 --         schema in the table\'s attribute definition.
 --
-bwirqRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
-bwirqRequestItems = lens _bwirqRequestItems (\ s a -> s{_bwirqRequestItems = a}) . _Map;
+bwiRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
+bwiRequestItems = lens _bwiRequestItems (\ s a -> s{_bwiRequestItems = a}) . _Map;
 
 instance AWSRequest BatchWriteItem where
         type Sv BatchWriteItem = DynamoDB
@@ -218,10 +218,10 @@ instance ToJSON BatchWriteItem where
         toJSON BatchWriteItem'{..}
           = object
               ["ReturnConsumedCapacity" .=
-                 _bwirqReturnConsumedCapacity,
+                 _bwiReturnConsumedCapacity,
                "ReturnItemCollectionMetrics" .=
-                 _bwirqReturnItemCollectionMetrics,
-               "RequestItems" .= _bwirqRequestItems]
+                 _bwiReturnItemCollectionMetrics,
+               "RequestItems" .= _bwiRequestItems]
 
 instance ToPath BatchWriteItem where
         toPath = const "/"

@@ -27,11 +27,11 @@ module Network.AWS.EC2.DescribeVPCEndpoints
     -- ** Request constructor
     , describeVPCEndpoints
     -- ** Request lenses
-    , dvpcerqFilters
-    , dvpcerqNextToken
-    , dvpcerqVPCEndpointIds
-    , dvpcerqDryRun
-    , dvpcerqMaxResults
+    , dvpceFilters
+    , dvpceNextToken
+    , dvpceVPCEndpointIds
+    , dvpceDryRun
+    , dvpceMaxResults
 
     -- * Response
     , DescribeVPCEndpointsResponse
@@ -52,32 +52,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcerqFilters'
+-- * 'dvpceFilters'
 --
--- * 'dvpcerqNextToken'
+-- * 'dvpceNextToken'
 --
--- * 'dvpcerqVPCEndpointIds'
+-- * 'dvpceVPCEndpointIds'
 --
--- * 'dvpcerqDryRun'
+-- * 'dvpceDryRun'
 --
--- * 'dvpcerqMaxResults'
+-- * 'dvpceMaxResults'
 data DescribeVPCEndpoints = DescribeVPCEndpoints'
-    { _dvpcerqFilters        :: !(Maybe [Filter])
-    , _dvpcerqNextToken      :: !(Maybe Text)
-    , _dvpcerqVPCEndpointIds :: !(Maybe [Text])
-    , _dvpcerqDryRun         :: !(Maybe Bool)
-    , _dvpcerqMaxResults     :: !(Maybe Int)
+    { _dvpceFilters        :: !(Maybe [Filter])
+    , _dvpceNextToken      :: !(Maybe Text)
+    , _dvpceVPCEndpointIds :: !(Maybe [Text])
+    , _dvpceDryRun         :: !(Maybe Bool)
+    , _dvpceMaxResults     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpoints' smart constructor.
 describeVPCEndpoints :: DescribeVPCEndpoints
 describeVPCEndpoints =
     DescribeVPCEndpoints'
-    { _dvpcerqFilters = Nothing
-    , _dvpcerqNextToken = Nothing
-    , _dvpcerqVPCEndpointIds = Nothing
-    , _dvpcerqDryRun = Nothing
-    , _dvpcerqMaxResults = Nothing
+    { _dvpceFilters = Nothing
+    , _dvpceNextToken = Nothing
+    , _dvpceVPCEndpointIds = Nothing
+    , _dvpceDryRun = Nothing
+    , _dvpceMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -91,24 +91,24 @@ describeVPCEndpoints =
 -- -   @vpc-endpoint-state@: The state of the endpoint. (@pending@ |
 --     @available@ | @deleting@ | @deleted@)
 --
-dvpcerqFilters :: Lens' DescribeVPCEndpoints [Filter]
-dvpcerqFilters = lens _dvpcerqFilters (\ s a -> s{_dvpcerqFilters = a}) . _Default;
+dvpceFilters :: Lens' DescribeVPCEndpoints [Filter]
+dvpceFilters = lens _dvpceFilters (\ s a -> s{_dvpceFilters = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
-dvpcerqNextToken :: Lens' DescribeVPCEndpoints (Maybe Text)
-dvpcerqNextToken = lens _dvpcerqNextToken (\ s a -> s{_dvpcerqNextToken = a});
+dvpceNextToken :: Lens' DescribeVPCEndpoints (Maybe Text)
+dvpceNextToken = lens _dvpceNextToken (\ s a -> s{_dvpceNextToken = a});
 
 -- | One or more endpoint IDs.
-dvpcerqVPCEndpointIds :: Lens' DescribeVPCEndpoints [Text]
-dvpcerqVPCEndpointIds = lens _dvpcerqVPCEndpointIds (\ s a -> s{_dvpcerqVPCEndpointIds = a}) . _Default;
+dvpceVPCEndpointIds :: Lens' DescribeVPCEndpoints [Text]
+dvpceVPCEndpointIds = lens _dvpceVPCEndpointIds (\ s a -> s{_dvpceVPCEndpointIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvpcerqDryRun :: Lens' DescribeVPCEndpoints (Maybe Bool)
-dvpcerqDryRun = lens _dvpcerqDryRun (\ s a -> s{_dvpcerqDryRun = a});
+dvpceDryRun :: Lens' DescribeVPCEndpoints (Maybe Bool)
+dvpceDryRun = lens _dvpceDryRun (\ s a -> s{_dvpceDryRun = a});
 
 -- | The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
@@ -116,8 +116,8 @@ dvpcerqDryRun = lens _dvpcerqDryRun (\ s a -> s{_dvpcerqDryRun = a});
 --
 -- Constraint: If the value is greater than 1000, we return only 1000
 -- items.
-dvpcerqMaxResults :: Lens' DescribeVPCEndpoints (Maybe Int)
-dvpcerqMaxResults = lens _dvpcerqMaxResults (\ s a -> s{_dvpcerqMaxResults = a});
+dvpceMaxResults :: Lens' DescribeVPCEndpoints (Maybe Int)
+dvpceMaxResults = lens _dvpceMaxResults (\ s a -> s{_dvpceMaxResults = a});
 
 instance AWSRequest DescribeVPCEndpoints where
         type Sv DescribeVPCEndpoints = EC2
@@ -144,12 +144,12 @@ instance ToQuery DescribeVPCEndpoints where
           = mconcat
               ["Action" =: ("DescribeVPCEndpoints" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvpcerqFilters),
-               "NextToken" =: _dvpcerqNextToken,
+               toQuery (toQueryList "Filter" <$> _dvpceFilters),
+               "NextToken" =: _dvpceNextToken,
                toQuery
-                 (toQueryList "item" <$> _dvpcerqVPCEndpointIds),
-               "DryRun" =: _dvpcerqDryRun,
-               "MaxResults" =: _dvpcerqMaxResults]
+                 (toQueryList "item" <$> _dvpceVPCEndpointIds),
+               "DryRun" =: _dvpceDryRun,
+               "MaxResults" =: _dvpceMaxResults]
 
 -- | /See:/ 'describeVPCEndpointsResponse' smart constructor.
 --

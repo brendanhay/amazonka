@@ -46,8 +46,8 @@ module Network.AWS.Glacier.GetVaultNotifications
     -- ** Request constructor
     , getVaultNotifications
     -- ** Request lenses
-    , gvnrqAccountId
-    , gvnrqVaultName
+    , gvnAccountId
+    , gvnVaultName
 
     -- * Response
     , GetVaultNotificationsResponse
@@ -70,20 +70,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gvnrqAccountId'
+-- * 'gvnAccountId'
 --
--- * 'gvnrqVaultName'
+-- * 'gvnVaultName'
 data GetVaultNotifications = GetVaultNotifications'
-    { _gvnrqAccountId :: !Text
-    , _gvnrqVaultName :: !Text
+    { _gvnAccountId :: !Text
+    , _gvnVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultNotifications' smart constructor.
 getVaultNotifications :: Text -> Text -> GetVaultNotifications
 getVaultNotifications pAccountId_ pVaultName_ =
     GetVaultNotifications'
-    { _gvnrqAccountId = pAccountId_
-    , _gvnrqVaultName = pVaultName_
+    { _gvnAccountId = pAccountId_
+    , _gvnVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -91,12 +91,12 @@ getVaultNotifications pAccountId_ pVaultName_ =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-gvnrqAccountId :: Lens' GetVaultNotifications Text
-gvnrqAccountId = lens _gvnrqAccountId (\ s a -> s{_gvnrqAccountId = a});
+gvnAccountId :: Lens' GetVaultNotifications Text
+gvnAccountId = lens _gvnAccountId (\ s a -> s{_gvnAccountId = a});
 
 -- | The name of the vault.
-gvnrqVaultName :: Lens' GetVaultNotifications Text
-gvnrqVaultName = lens _gvnrqVaultName (\ s a -> s{_gvnrqVaultName = a});
+gvnVaultName :: Lens' GetVaultNotifications Text
+gvnVaultName = lens _gvnVaultName (\ s a -> s{_gvnVaultName = a});
 
 instance AWSRequest GetVaultNotifications where
         type Sv GetVaultNotifications = Glacier
@@ -116,9 +116,8 @@ instance ToHeaders GetVaultNotifications where
 instance ToPath GetVaultNotifications where
         toPath GetVaultNotifications'{..}
           = mconcat
-              ["/", toText _gvnrqAccountId, "/vaults/",
-               toText _gvnrqVaultName,
-               "/notification-configuration"]
+              ["/", toText _gvnAccountId, "/vaults/",
+               toText _gvnVaultName, "/notification-configuration"]
 
 instance ToQuery GetVaultNotifications where
         toQuery = const mempty

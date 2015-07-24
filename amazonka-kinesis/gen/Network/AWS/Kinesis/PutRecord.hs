@@ -68,11 +68,11 @@ module Network.AWS.Kinesis.PutRecord
     -- ** Request constructor
     , putRecord
     -- ** Request lenses
-    , prrqExplicitHashKey
-    , prrqSequenceNumberForOrdering
-    , prrqStreamName
-    , prrqData
-    , prrqPartitionKey
+    , prExplicitHashKey
+    , prSequenceNumberForOrdering
+    , prStreamName
+    , prData
+    , prPartitionKey
 
     -- * Response
     , PutRecordResponse
@@ -95,38 +95,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prrqExplicitHashKey'
+-- * 'prExplicitHashKey'
 --
--- * 'prrqSequenceNumberForOrdering'
+-- * 'prSequenceNumberForOrdering'
 --
--- * 'prrqStreamName'
+-- * 'prStreamName'
 --
--- * 'prrqData'
+-- * 'prData'
 --
--- * 'prrqPartitionKey'
+-- * 'prPartitionKey'
 data PutRecord = PutRecord'
-    { _prrqExplicitHashKey           :: !(Maybe Text)
-    , _prrqSequenceNumberForOrdering :: !(Maybe Text)
-    , _prrqStreamName                :: !Text
-    , _prrqData                      :: !Base64
-    , _prrqPartitionKey              :: !Text
+    { _prExplicitHashKey           :: !(Maybe Text)
+    , _prSequenceNumberForOrdering :: !(Maybe Text)
+    , _prStreamName                :: !Text
+    , _prData                      :: !Base64
+    , _prPartitionKey              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecord' smart constructor.
 putRecord :: Text -> Base64 -> Text -> PutRecord
 putRecord pStreamName_ pData_ pPartitionKey_ =
     PutRecord'
-    { _prrqExplicitHashKey = Nothing
-    , _prrqSequenceNumberForOrdering = Nothing
-    , _prrqStreamName = pStreamName_
-    , _prrqData = pData_
-    , _prrqPartitionKey = pPartitionKey_
+    { _prExplicitHashKey = Nothing
+    , _prSequenceNumberForOrdering = Nothing
+    , _prStreamName = pStreamName_
+    , _prData = pData_
+    , _prPartitionKey = pPartitionKey_
     }
 
 -- | The hash value used to explicitly determine the shard the data record is
 -- assigned to by overriding the partition key hash.
-prrqExplicitHashKey :: Lens' PutRecord (Maybe Text)
-prrqExplicitHashKey = lens _prrqExplicitHashKey (\ s a -> s{_prrqExplicitHashKey = a});
+prExplicitHashKey :: Lens' PutRecord (Maybe Text)
+prExplicitHashKey = lens _prExplicitHashKey (\ s a -> s{_prExplicitHashKey = a});
 
 -- | Guarantees strictly increasing sequence numbers, for puts from the same
 -- client and to the same partition key. Usage: set the
@@ -134,18 +134,18 @@ prrqExplicitHashKey = lens _prrqExplicitHashKey (\ s a -> s{_prrqExplicitHashKey
 -- record /n-1/ (as returned in the result when putting record /n-1/). If
 -- this parameter is not set, records will be coarsely ordered based on
 -- arrival time.
-prrqSequenceNumberForOrdering :: Lens' PutRecord (Maybe Text)
-prrqSequenceNumberForOrdering = lens _prrqSequenceNumberForOrdering (\ s a -> s{_prrqSequenceNumberForOrdering = a});
+prSequenceNumberForOrdering :: Lens' PutRecord (Maybe Text)
+prSequenceNumberForOrdering = lens _prSequenceNumberForOrdering (\ s a -> s{_prSequenceNumberForOrdering = a});
 
 -- | The name of the stream to put the data record into.
-prrqStreamName :: Lens' PutRecord Text
-prrqStreamName = lens _prrqStreamName (\ s a -> s{_prrqStreamName = a});
+prStreamName :: Lens' PutRecord Text
+prStreamName = lens _prStreamName (\ s a -> s{_prStreamName = a});
 
 -- | The data blob to put into the record, which is base64-encoded when the
 -- blob is serialized. The maximum size of the data blob (the payload
 -- before base64-encoding) is 50 kilobytes (KB)
-prrqData :: Lens' PutRecord Base64
-prrqData = lens _prrqData (\ s a -> s{_prrqData = a});
+prData :: Lens' PutRecord Base64
+prData = lens _prData (\ s a -> s{_prData = a});
 
 -- | Determines which shard in the stream the data record is assigned to.
 -- Partition keys are Unicode strings with a maximum length limit of 256
@@ -156,8 +156,8 @@ prrqData = lens _prrqData (\ s a -> s{_prrqData = a});
 -- records to shards. As a result of this hashing mechanism, all data
 -- records with the same partition key will map to the same shard within
 -- the stream.
-prrqPartitionKey :: Lens' PutRecord Text
-prrqPartitionKey = lens _prrqPartitionKey (\ s a -> s{_prrqPartitionKey = a});
+prPartitionKey :: Lens' PutRecord Text
+prPartitionKey = lens _prPartitionKey (\ s a -> s{_prPartitionKey = a});
 
 instance AWSRequest PutRecord where
         type Sv PutRecord = Kinesis
@@ -182,11 +182,11 @@ instance ToHeaders PutRecord where
 instance ToJSON PutRecord where
         toJSON PutRecord'{..}
           = object
-              ["ExplicitHashKey" .= _prrqExplicitHashKey,
+              ["ExplicitHashKey" .= _prExplicitHashKey,
                "SequenceNumberForOrdering" .=
-                 _prrqSequenceNumberForOrdering,
-               "StreamName" .= _prrqStreamName, "Data" .= _prrqData,
-               "PartitionKey" .= _prrqPartitionKey]
+                 _prSequenceNumberForOrdering,
+               "StreamName" .= _prStreamName, "Data" .= _prData,
+               "PartitionKey" .= _prPartitionKey]
 
 instance ToPath PutRecord where
         toPath = const "/"

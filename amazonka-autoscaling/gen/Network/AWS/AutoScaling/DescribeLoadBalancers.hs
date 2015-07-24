@@ -27,9 +27,9 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
     -- ** Request constructor
     , describeLoadBalancers
     -- ** Request lenses
-    , dlbrqNextToken
-    , dlbrqMaxRecords
-    , dlbrqAutoScalingGroupName
+    , dlbNextToken
+    , dlbMaxRecords
+    , dlbAutoScalingGroupName
 
     -- * Response
     , DescribeLoadBalancersResponse
@@ -50,38 +50,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbrqNextToken'
+-- * 'dlbNextToken'
 --
--- * 'dlbrqMaxRecords'
+-- * 'dlbMaxRecords'
 --
--- * 'dlbrqAutoScalingGroupName'
+-- * 'dlbAutoScalingGroupName'
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbrqNextToken            :: !(Maybe Text)
-    , _dlbrqMaxRecords           :: !(Maybe Int)
-    , _dlbrqAutoScalingGroupName :: !Text
+    { _dlbNextToken            :: !(Maybe Text)
+    , _dlbMaxRecords           :: !(Maybe Int)
+    , _dlbAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: Text -> DescribeLoadBalancers
 describeLoadBalancers pAutoScalingGroupName_ =
     DescribeLoadBalancers'
-    { _dlbrqNextToken = Nothing
-    , _dlbrqMaxRecords = Nothing
-    , _dlbrqAutoScalingGroupName = pAutoScalingGroupName_
+    { _dlbNextToken = Nothing
+    , _dlbMaxRecords = Nothing
+    , _dlbAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dlbrqNextToken :: Lens' DescribeLoadBalancers (Maybe Text)
-dlbrqNextToken = lens _dlbrqNextToken (\ s a -> s{_dlbrqNextToken = a});
+dlbNextToken :: Lens' DescribeLoadBalancers (Maybe Text)
+dlbNextToken = lens _dlbNextToken (\ s a -> s{_dlbNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dlbrqMaxRecords :: Lens' DescribeLoadBalancers (Maybe Int)
-dlbrqMaxRecords = lens _dlbrqMaxRecords (\ s a -> s{_dlbrqMaxRecords = a});
+dlbMaxRecords :: Lens' DescribeLoadBalancers (Maybe Int)
+dlbMaxRecords = lens _dlbMaxRecords (\ s a -> s{_dlbMaxRecords = a});
 
 -- | The name of the group.
-dlbrqAutoScalingGroupName :: Lens' DescribeLoadBalancers Text
-dlbrqAutoScalingGroupName = lens _dlbrqAutoScalingGroupName (\ s a -> s{_dlbrqAutoScalingGroupName = a});
+dlbAutoScalingGroupName :: Lens' DescribeLoadBalancers Text
+dlbAutoScalingGroupName = lens _dlbAutoScalingGroupName (\ s a -> s{_dlbAutoScalingGroupName = a});
 
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = AutoScaling
@@ -108,9 +108,9 @@ instance ToQuery DescribeLoadBalancers where
           = mconcat
               ["Action" =: ("DescribeLoadBalancers" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "NextToken" =: _dlbrqNextToken,
-               "MaxRecords" =: _dlbrqMaxRecords,
-               "AutoScalingGroupName" =: _dlbrqAutoScalingGroupName]
+               "NextToken" =: _dlbNextToken,
+               "MaxRecords" =: _dlbMaxRecords,
+               "AutoScalingGroupName" =: _dlbAutoScalingGroupName]
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
 --

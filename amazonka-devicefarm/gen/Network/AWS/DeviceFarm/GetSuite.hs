@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.GetSuite
     -- ** Request constructor
     , getSuite
     -- ** Request lenses
-    , gsrqArn
+    , gsArn
 
     -- * Response
     , GetSuiteResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsrqArn'
+-- * 'gsArn'
 newtype GetSuite = GetSuite'
-    { _gsrqArn :: Text
+    { _gsArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSuite' smart constructor.
 getSuite :: Text -> GetSuite
 getSuite pArn_ =
     GetSuite'
-    { _gsrqArn = pArn_
+    { _gsArn = pArn_
     }
 
 -- | The suite\'s ARN.
-gsrqArn :: Lens' GetSuite Text
-gsrqArn = lens _gsrqArn (\ s a -> s{_gsrqArn = a});
+gsArn :: Lens' GetSuite Text
+gsArn = lens _gsArn (\ s a -> s{_gsArn = a});
 
 instance AWSRequest GetSuite where
         type Sv GetSuite = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetSuite where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetSuite where
-        toJSON GetSuite'{..} = object ["arn" .= _gsrqArn]
+        toJSON GetSuite'{..} = object ["arn" .= _gsArn]
 
 instance ToPath GetSuite where
         toPath = const "/"

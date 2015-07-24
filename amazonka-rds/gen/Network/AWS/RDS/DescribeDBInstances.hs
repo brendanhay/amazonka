@@ -28,10 +28,10 @@ module Network.AWS.RDS.DescribeDBInstances
     -- ** Request constructor
     , describeDBInstances
     -- ** Request lenses
-    , ddbirqFilters
-    , ddbirqDBInstanceIdentifier
-    , ddbirqMaxRecords
-    , ddbirqMarker
+    , ddbiFilters
+    , ddbiDBInstanceIdentifier
+    , ddbiMaxRecords
+    , ddbiMarker
 
     -- * Response
     , DescribeDBInstancesResponse
@@ -55,33 +55,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbirqFilters'
+-- * 'ddbiFilters'
 --
--- * 'ddbirqDBInstanceIdentifier'
+-- * 'ddbiDBInstanceIdentifier'
 --
--- * 'ddbirqMaxRecords'
+-- * 'ddbiMaxRecords'
 --
--- * 'ddbirqMarker'
+-- * 'ddbiMarker'
 data DescribeDBInstances = DescribeDBInstances'
-    { _ddbirqFilters              :: !(Maybe [Filter])
-    , _ddbirqDBInstanceIdentifier :: !(Maybe Text)
-    , _ddbirqMaxRecords           :: !(Maybe Int)
-    , _ddbirqMarker               :: !(Maybe Text)
+    { _ddbiFilters              :: !(Maybe [Filter])
+    , _ddbiDBInstanceIdentifier :: !(Maybe Text)
+    , _ddbiMaxRecords           :: !(Maybe Int)
+    , _ddbiMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBInstances' smart constructor.
 describeDBInstances :: DescribeDBInstances
 describeDBInstances =
     DescribeDBInstances'
-    { _ddbirqFilters = Nothing
-    , _ddbirqDBInstanceIdentifier = Nothing
-    , _ddbirqMaxRecords = Nothing
-    , _ddbirqMarker = Nothing
+    { _ddbiFilters = Nothing
+    , _ddbiDBInstanceIdentifier = Nothing
+    , _ddbiMaxRecords = Nothing
+    , _ddbiMarker = Nothing
     }
 
 -- | This parameter is not currently supported.
-ddbirqFilters :: Lens' DescribeDBInstances [Filter]
-ddbirqFilters = lens _ddbirqFilters (\ s a -> s{_ddbirqFilters = a}) . _Default;
+ddbiFilters :: Lens' DescribeDBInstances [Filter]
+ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default;
 
 -- | The user-supplied instance identifier. If this parameter is specified,
 -- information from only the specific DB instance is returned. This
@@ -92,8 +92,8 @@ ddbirqFilters = lens _ddbirqFilters (\ s a -> s{_ddbirqFilters = a}) . _Default;
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddbirqDBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
-ddbirqDBInstanceIdentifier = lens _ddbirqDBInstanceIdentifier (\ s a -> s{_ddbirqDBInstanceIdentifier = a});
+ddbiDBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
+ddbiDBInstanceIdentifier = lens _ddbiDBInstanceIdentifier (\ s a -> s{_ddbiDBInstanceIdentifier = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -103,21 +103,21 @@ ddbirqDBInstanceIdentifier = lens _ddbirqDBInstanceIdentifier (\ s a -> s{_ddbir
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddbirqMaxRecords :: Lens' DescribeDBInstances (Maybe Int)
-ddbirqMaxRecords = lens _ddbirqMaxRecords (\ s a -> s{_ddbirqMaxRecords = a});
+ddbiMaxRecords :: Lens' DescribeDBInstances (Maybe Int)
+ddbiMaxRecords = lens _ddbiMaxRecords (\ s a -> s{_ddbiMaxRecords = a});
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by @MaxRecords@ .
-ddbirqMarker :: Lens' DescribeDBInstances (Maybe Text)
-ddbirqMarker = lens _ddbirqMarker (\ s a -> s{_ddbirqMarker = a});
+ddbiMarker :: Lens' DescribeDBInstances (Maybe Text)
+ddbiMarker = lens _ddbiMarker (\ s a -> s{_ddbiMarker = a});
 
 instance AWSPager DescribeDBInstances where
         page rq rs
           | stop (rs ^. ddbirsMarker) = Nothing
           | stop (rs ^. ddbirsDBInstances) = Nothing
           | otherwise =
-            Just $ rq & ddbirqMarker .~ rs ^. ddbirsMarker
+            Just $ rq & ddbiMarker .~ rs ^. ddbirsMarker
 
 instance AWSRequest DescribeDBInstances where
         type Sv DescribeDBInstances = RDS
@@ -145,11 +145,10 @@ instance ToQuery DescribeDBInstances where
               ["Action" =: ("DescribeDBInstances" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddbirqFilters),
-               "DBInstanceIdentifier" =:
-                 _ddbirqDBInstanceIdentifier,
-               "MaxRecords" =: _ddbirqMaxRecords,
-               "Marker" =: _ddbirqMarker]
+                 toQuery (toQueryList "Filter" <$> _ddbiFilters),
+               "DBInstanceIdentifier" =: _ddbiDBInstanceIdentifier,
+               "MaxRecords" =: _ddbiMaxRecords,
+               "Marker" =: _ddbiMarker]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBInstances action.

@@ -36,9 +36,9 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     -- ** Request constructor
     , describeWorkspaceBundles
     -- ** Request lenses
-    , dwbrqBundleIds
-    , dwbrqOwner
-    , dwbrqNextToken
+    , dwbBundleIds
+    , dwbOwner
+    , dwbNextToken
 
     -- * Response
     , DescribeWorkspaceBundlesResponse
@@ -61,31 +61,31 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwbrqBundleIds'
+-- * 'dwbBundleIds'
 --
--- * 'dwbrqOwner'
+-- * 'dwbOwner'
 --
--- * 'dwbrqNextToken'
+-- * 'dwbNextToken'
 data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
-    { _dwbrqBundleIds :: !(Maybe (List1 Text))
-    , _dwbrqOwner     :: !(Maybe Text)
-    , _dwbrqNextToken :: !(Maybe Text)
+    { _dwbBundleIds :: !(Maybe (List1 Text))
+    , _dwbOwner     :: !(Maybe Text)
+    , _dwbNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkspaceBundles' smart constructor.
 describeWorkspaceBundles :: DescribeWorkspaceBundles
 describeWorkspaceBundles =
     DescribeWorkspaceBundles'
-    { _dwbrqBundleIds = Nothing
-    , _dwbrqOwner = Nothing
-    , _dwbrqNextToken = Nothing
+    { _dwbBundleIds = Nothing
+    , _dwbOwner = Nothing
+    , _dwbNextToken = Nothing
     }
 
 -- | An array of strings that contains the identifiers of the bundles to
 -- retrieve. This parameter cannot be combined with any other filter
 -- parameter.
-dwbrqBundleIds :: Lens' DescribeWorkspaceBundles (Maybe (NonEmpty Text))
-dwbrqBundleIds = lens _dwbrqBundleIds (\ s a -> s{_dwbrqBundleIds = a}) . mapping _List1;
+dwbBundleIds :: Lens' DescribeWorkspaceBundles (Maybe (NonEmpty Text))
+dwbBundleIds = lens _dwbBundleIds (\ s a -> s{_dwbBundleIds = a}) . mapping _List1;
 
 -- | The owner of the bundles to retrieve. This parameter cannot be combined
 -- with any other filter parameter.
@@ -95,13 +95,13 @@ dwbrqBundleIds = lens _dwbrqBundleIds (\ s a -> s{_dwbrqBundleIds = a}) . mappin
 -- -   null - Retrieves the bundles that belong to the account making the
 --     call.
 -- -   @AMAZON@ - Retrieves the bundles that are provided by AWS.
-dwbrqOwner :: Lens' DescribeWorkspaceBundles (Maybe Text)
-dwbrqOwner = lens _dwbrqOwner (\ s a -> s{_dwbrqOwner = a});
+dwbOwner :: Lens' DescribeWorkspaceBundles (Maybe Text)
+dwbOwner = lens _dwbOwner (\ s a -> s{_dwbOwner = a});
 
 -- | The @NextToken@ value from a previous call to this operation. Pass null
 -- if this is the first call.
-dwbrqNextToken :: Lens' DescribeWorkspaceBundles (Maybe Text)
-dwbrqNextToken = lens _dwbrqNextToken (\ s a -> s{_dwbrqNextToken = a});
+dwbNextToken :: Lens' DescribeWorkspaceBundles (Maybe Text)
+dwbNextToken = lens _dwbNextToken (\ s a -> s{_dwbNextToken = a});
 
 instance AWSRequest DescribeWorkspaceBundles where
         type Sv DescribeWorkspaceBundles = WorkSpaces
@@ -128,9 +128,8 @@ instance ToHeaders DescribeWorkspaceBundles where
 instance ToJSON DescribeWorkspaceBundles where
         toJSON DescribeWorkspaceBundles'{..}
           = object
-              ["BundleIds" .= _dwbrqBundleIds,
-               "Owner" .= _dwbrqOwner,
-               "NextToken" .= _dwbrqNextToken]
+              ["BundleIds" .= _dwbBundleIds, "Owner" .= _dwbOwner,
+               "NextToken" .= _dwbNextToken]
 
 instance ToPath DescribeWorkspaceBundles where
         toPath = const "/"

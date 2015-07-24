@@ -30,18 +30,18 @@ module Network.AWS.S3.HeadObject
     -- ** Request constructor
     , headObject
     -- ** Request lenses
-    , horqIfMatch
-    , horqVersionId
-    , horqSSECustomerAlgorithm
-    , horqSSECustomerKey
-    , horqRequestPayer
-    , horqIfModifiedSince
-    , horqRange
-    , horqIfUnmodifiedSince
-    , horqSSECustomerKeyMD5
-    , horqIfNoneMatch
-    , horqBucket
-    , horqKey
+    , hoIfMatch
+    , hoVersionId
+    , hoSSECustomerAlgorithm
+    , hoSSECustomerKey
+    , hoRequestPayer
+    , hoIfModifiedSince
+    , hoRange
+    , hoIfUnmodifiedSince
+    , hoSSECustomerKeyMD5
+    , hoIfNoneMatch
+    , hoBucket
+    , hoKey
 
     -- * Response
     , HeadObjectResponse
@@ -83,122 +83,122 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'horqIfMatch'
+-- * 'hoIfMatch'
 --
--- * 'horqVersionId'
+-- * 'hoVersionId'
 --
--- * 'horqSSECustomerAlgorithm'
+-- * 'hoSSECustomerAlgorithm'
 --
--- * 'horqSSECustomerKey'
+-- * 'hoSSECustomerKey'
 --
--- * 'horqRequestPayer'
+-- * 'hoRequestPayer'
 --
--- * 'horqIfModifiedSince'
+-- * 'hoIfModifiedSince'
 --
--- * 'horqRange'
+-- * 'hoRange'
 --
--- * 'horqIfUnmodifiedSince'
+-- * 'hoIfUnmodifiedSince'
 --
--- * 'horqSSECustomerKeyMD5'
+-- * 'hoSSECustomerKeyMD5'
 --
--- * 'horqIfNoneMatch'
+-- * 'hoIfNoneMatch'
 --
--- * 'horqBucket'
+-- * 'hoBucket'
 --
--- * 'horqKey'
+-- * 'hoKey'
 data HeadObject = HeadObject'
-    { _horqIfMatch              :: !(Maybe Text)
-    , _horqVersionId            :: !(Maybe ObjectVersionId)
-    , _horqSSECustomerAlgorithm :: !(Maybe Text)
-    , _horqSSECustomerKey       :: !(Maybe (Sensitive Text))
-    , _horqRequestPayer         :: !(Maybe RequestPayer)
-    , _horqIfModifiedSince      :: !(Maybe RFC822)
-    , _horqRange                :: !(Maybe Text)
-    , _horqIfUnmodifiedSince    :: !(Maybe RFC822)
-    , _horqSSECustomerKeyMD5    :: !(Maybe Text)
-    , _horqIfNoneMatch          :: !(Maybe Text)
-    , _horqBucket               :: !BucketName
-    , _horqKey                  :: !ObjectKey
+    { _hoIfMatch              :: !(Maybe Text)
+    , _hoVersionId            :: !(Maybe ObjectVersionId)
+    , _hoSSECustomerAlgorithm :: !(Maybe Text)
+    , _hoSSECustomerKey       :: !(Maybe (Sensitive Text))
+    , _hoRequestPayer         :: !(Maybe RequestPayer)
+    , _hoIfModifiedSince      :: !(Maybe RFC822)
+    , _hoRange                :: !(Maybe Text)
+    , _hoIfUnmodifiedSince    :: !(Maybe RFC822)
+    , _hoSSECustomerKeyMD5    :: !(Maybe Text)
+    , _hoIfNoneMatch          :: !(Maybe Text)
+    , _hoBucket               :: !BucketName
+    , _hoKey                  :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'HeadObject' smart constructor.
 headObject :: BucketName -> ObjectKey -> HeadObject
 headObject pBucket_ pKey_ =
     HeadObject'
-    { _horqIfMatch = Nothing
-    , _horqVersionId = Nothing
-    , _horqSSECustomerAlgorithm = Nothing
-    , _horqSSECustomerKey = Nothing
-    , _horqRequestPayer = Nothing
-    , _horqIfModifiedSince = Nothing
-    , _horqRange = Nothing
-    , _horqIfUnmodifiedSince = Nothing
-    , _horqSSECustomerKeyMD5 = Nothing
-    , _horqIfNoneMatch = Nothing
-    , _horqBucket = pBucket_
-    , _horqKey = pKey_
+    { _hoIfMatch = Nothing
+    , _hoVersionId = Nothing
+    , _hoSSECustomerAlgorithm = Nothing
+    , _hoSSECustomerKey = Nothing
+    , _hoRequestPayer = Nothing
+    , _hoIfModifiedSince = Nothing
+    , _hoRange = Nothing
+    , _hoIfUnmodifiedSince = Nothing
+    , _hoSSECustomerKeyMD5 = Nothing
+    , _hoIfNoneMatch = Nothing
+    , _hoBucket = pBucket_
+    , _hoKey = pKey_
     }
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
-horqIfMatch :: Lens' HeadObject (Maybe Text)
-horqIfMatch = lens _horqIfMatch (\ s a -> s{_horqIfMatch = a});
+hoIfMatch :: Lens' HeadObject (Maybe Text)
+hoIfMatch = lens _hoIfMatch (\ s a -> s{_hoIfMatch = a});
 
 -- | VersionId used to reference a specific version of the object.
-horqVersionId :: Lens' HeadObject (Maybe ObjectVersionId)
-horqVersionId = lens _horqVersionId (\ s a -> s{_horqVersionId = a});
+hoVersionId :: Lens' HeadObject (Maybe ObjectVersionId)
+hoVersionId = lens _hoVersionId (\ s a -> s{_hoVersionId = a});
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256, aws:kms).
-horqSSECustomerAlgorithm :: Lens' HeadObject (Maybe Text)
-horqSSECustomerAlgorithm = lens _horqSSECustomerAlgorithm (\ s a -> s{_horqSSECustomerAlgorithm = a});
+hoSSECustomerAlgorithm :: Lens' HeadObject (Maybe Text)
+hoSSECustomerAlgorithm = lens _hoSSECustomerAlgorithm (\ s a -> s{_hoSSECustomerAlgorithm = a});
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side​-encryption​-customer-algorithm header.
-horqSSECustomerKey :: Lens' HeadObject (Maybe Text)
-horqSSECustomerKey = lens _horqSSECustomerKey (\ s a -> s{_horqSSECustomerKey = a}) . mapping _Sensitive;
+hoSSECustomerKey :: Lens' HeadObject (Maybe Text)
+hoSSECustomerKey = lens _hoSSECustomerKey (\ s a -> s{_hoSSECustomerKey = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-horqRequestPayer :: Lens' HeadObject (Maybe RequestPayer)
-horqRequestPayer = lens _horqRequestPayer (\ s a -> s{_horqRequestPayer = a});
+hoRequestPayer :: Lens' HeadObject (Maybe RequestPayer)
+hoRequestPayer = lens _hoRequestPayer (\ s a -> s{_hoRequestPayer = a});
 
 -- | Return the object only if it has been modified since the specified time,
 -- otherwise return a 304 (not modified).
-horqIfModifiedSince :: Lens' HeadObject (Maybe UTCTime)
-horqIfModifiedSince = lens _horqIfModifiedSince (\ s a -> s{_horqIfModifiedSince = a}) . mapping _Time;
+hoIfModifiedSince :: Lens' HeadObject (Maybe UTCTime)
+hoIfModifiedSince = lens _hoIfModifiedSince (\ s a -> s{_hoIfModifiedSince = a}) . mapping _Time;
 
 -- | Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, go to
 -- http:\/\/www.w3.org\/Protocols\/rfc2616\/rfc2616-sec14.html#sec14.35.
-horqRange :: Lens' HeadObject (Maybe Text)
-horqRange = lens _horqRange (\ s a -> s{_horqRange = a});
+hoRange :: Lens' HeadObject (Maybe Text)
+hoRange = lens _hoRange (\ s a -> s{_hoRange = a});
 
 -- | Return the object only if it has not been modified since the specified
 -- time, otherwise return a 412 (precondition failed).
-horqIfUnmodifiedSince :: Lens' HeadObject (Maybe UTCTime)
-horqIfUnmodifiedSince = lens _horqIfUnmodifiedSince (\ s a -> s{_horqIfUnmodifiedSince = a}) . mapping _Time;
+hoIfUnmodifiedSince :: Lens' HeadObject (Maybe UTCTime)
+hoIfUnmodifiedSince = lens _hoIfUnmodifiedSince (\ s a -> s{_hoIfUnmodifiedSince = a}) . mapping _Time;
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-horqSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
-horqSSECustomerKeyMD5 = lens _horqSSECustomerKeyMD5 (\ s a -> s{_horqSSECustomerKeyMD5 = a});
+hoSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
+hoSSECustomerKeyMD5 = lens _hoSSECustomerKeyMD5 (\ s a -> s{_hoSSECustomerKeyMD5 = a});
 
 -- | Return the object only if its entity tag (ETag) is different from the
 -- one specified, otherwise return a 304 (not modified).
-horqIfNoneMatch :: Lens' HeadObject (Maybe Text)
-horqIfNoneMatch = lens _horqIfNoneMatch (\ s a -> s{_horqIfNoneMatch = a});
+hoIfNoneMatch :: Lens' HeadObject (Maybe Text)
+hoIfNoneMatch = lens _hoIfNoneMatch (\ s a -> s{_hoIfNoneMatch = a});
 
 -- | FIXME: Undocumented member.
-horqBucket :: Lens' HeadObject BucketName
-horqBucket = lens _horqBucket (\ s a -> s{_horqBucket = a});
+hoBucket :: Lens' HeadObject BucketName
+hoBucket = lens _hoBucket (\ s a -> s{_hoBucket = a});
 
 -- | FIXME: Undocumented member.
-horqKey :: Lens' HeadObject ObjectKey
-horqKey = lens _horqKey (\ s a -> s{_horqKey = a});
+hoKey :: Lens' HeadObject ObjectKey
+hoKey = lens _hoKey (\ s a -> s{_hoKey = a});
 
 instance AWSRequest HeadObject where
         type Sv HeadObject = S3
@@ -240,27 +240,26 @@ instance AWSRequest HeadObject where
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}
           = mconcat
-              ["If-Match" =# _horqIfMatch,
+              ["If-Match" =# _hoIfMatch,
                "x-amz-server-side-encryption-customer-algorithm" =#
-                 _horqSSECustomerAlgorithm,
+                 _hoSSECustomerAlgorithm,
                "x-amz-server-side-encryption-customer-key" =#
-                 _horqSSECustomerKey,
-               "x-amz-request-payer" =# _horqRequestPayer,
-               "If-Modified-Since" =# _horqIfModifiedSince,
-               "Range" =# _horqRange,
-               "If-Unmodified-Since" =# _horqIfUnmodifiedSince,
+                 _hoSSECustomerKey,
+               "x-amz-request-payer" =# _hoRequestPayer,
+               "If-Modified-Since" =# _hoIfModifiedSince,
+               "Range" =# _hoRange,
+               "If-Unmodified-Since" =# _hoIfUnmodifiedSince,
                "x-amz-server-side-encryption-customer-key-MD5" =#
-                 _horqSSECustomerKeyMD5,
-               "If-None-Match" =# _horqIfNoneMatch]
+                 _hoSSECustomerKeyMD5,
+               "If-None-Match" =# _hoIfNoneMatch]
 
 instance ToPath HeadObject where
         toPath HeadObject'{..}
-          = mconcat
-              ["/", toText _horqBucket, "/", toText _horqKey]
+          = mconcat ["/", toText _hoBucket, "/", toText _hoKey]
 
 instance ToQuery HeadObject where
         toQuery HeadObject'{..}
-          = mconcat ["versionId" =: _horqVersionId]
+          = mconcat ["versionId" =: _hoVersionId]
 
 -- | /See:/ 'headObjectResponse' smart constructor.
 --

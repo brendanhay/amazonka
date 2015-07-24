@@ -45,9 +45,9 @@ module Network.AWS.CloudSearchDomains.Suggest
     -- ** Request constructor
     , suggest
     -- ** Request lenses
-    , srqSize
-    , srqQuery
-    , srqSuggester
+    , sSize
+    , sQuery
+    , sSuggester
 
     -- * Response
     , SuggestResponse
@@ -69,37 +69,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqSize'
+-- * 'sSize'
 --
--- * 'srqQuery'
+-- * 'sQuery'
 --
--- * 'srqSuggester'
+-- * 'sSuggester'
 data Suggest = Suggest'
-    { _srqSize      :: !(Maybe Integer)
-    , _srqQuery     :: !Text
-    , _srqSuggester :: !Text
+    { _sSize      :: !(Maybe Integer)
+    , _sQuery     :: !Text
+    , _sSuggester :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Suggest' smart constructor.
 suggest :: Text -> Text -> Suggest
 suggest pQuery_ pSuggester_ =
     Suggest'
-    { _srqSize = Nothing
-    , _srqQuery = pQuery_
-    , _srqSuggester = pSuggester_
+    { _sSize = Nothing
+    , _sQuery = pQuery_
+    , _sSuggester = pSuggester_
     }
 
 -- | Specifies the maximum number of suggestions to return.
-srqSize :: Lens' Suggest (Maybe Integer)
-srqSize = lens _srqSize (\ s a -> s{_srqSize = a});
+sSize :: Lens' Suggest (Maybe Integer)
+sSize = lens _sSize (\ s a -> s{_sSize = a});
 
 -- | Specifies the string for which you want to get suggestions.
-srqQuery :: Lens' Suggest Text
-srqQuery = lens _srqQuery (\ s a -> s{_srqQuery = a});
+sQuery :: Lens' Suggest Text
+sQuery = lens _sQuery (\ s a -> s{_sQuery = a});
 
 -- | Specifies the name of the suggester to use to find suggested matches.
-srqSuggester :: Lens' Suggest Text
-srqSuggester = lens _srqSuggester (\ s a -> s{_srqSuggester = a});
+sSuggester :: Lens' Suggest Text
+sSuggester = lens _sSuggester (\ s a -> s{_sSuggester = a});
 
 instance AWSRequest Suggest where
         type Sv Suggest = CloudSearchDomains
@@ -124,9 +124,8 @@ instance ToPath Suggest where
 instance ToQuery Suggest where
         toQuery Suggest'{..}
           = mconcat
-              ["size" =: _srqSize, "q" =: _srqQuery,
-               "suggester" =: _srqSuggester,
-               "format=sdk&pretty=true"]
+              ["size" =: _sSize, "q" =: _sQuery,
+               "suggester" =: _sSuggester, "format=sdk&pretty=true"]
 
 -- | Contains the response to a @Suggest@ request.
 --

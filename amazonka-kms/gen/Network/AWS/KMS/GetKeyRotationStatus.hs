@@ -28,7 +28,7 @@ module Network.AWS.KMS.GetKeyRotationStatus
     -- ** Request constructor
     , getKeyRotationStatus
     -- ** Request lenses
-    , gkrsrqKeyId
+    , gkrsKeyId
 
     -- * Response
     , GetKeyRotationStatusResponse
@@ -48,16 +48,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gkrsrqKeyId'
+-- * 'gkrsKeyId'
 newtype GetKeyRotationStatus = GetKeyRotationStatus'
-    { _gkrsrqKeyId :: Text
+    { _gkrsKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyRotationStatus' smart constructor.
 getKeyRotationStatus :: Text -> GetKeyRotationStatus
 getKeyRotationStatus pKeyId_ =
     GetKeyRotationStatus'
-    { _gkrsrqKeyId = pKeyId_
+    { _gkrsKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -67,8 +67,8 @@ getKeyRotationStatus pKeyId_ =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-gkrsrqKeyId :: Lens' GetKeyRotationStatus Text
-gkrsrqKeyId = lens _gkrsrqKeyId (\ s a -> s{_gkrsrqKeyId = a});
+gkrsKeyId :: Lens' GetKeyRotationStatus Text
+gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
 
 instance AWSRequest GetKeyRotationStatus where
         type Sv GetKeyRotationStatus = KMS
@@ -92,7 +92,7 @@ instance ToHeaders GetKeyRotationStatus where
 
 instance ToJSON GetKeyRotationStatus where
         toJSON GetKeyRotationStatus'{..}
-          = object ["KeyId" .= _gkrsrqKeyId]
+          = object ["KeyId" .= _gkrsKeyId]
 
 instance ToPath GetKeyRotationStatus where
         toPath = const "/"

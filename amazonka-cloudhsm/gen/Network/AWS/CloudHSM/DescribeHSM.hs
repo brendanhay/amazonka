@@ -28,8 +28,8 @@ module Network.AWS.CloudHSM.DescribeHSM
     -- ** Request constructor
     , describeHSM
     -- ** Request lenses
-    , dhsmrqHSMSerialNumber
-    , dhsmrqHSMARN
+    , dhsmHSMSerialNumber
+    , dhsmHSMARN
 
     -- * Response
     , DescribeHSMResponse
@@ -70,31 +70,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhsmrqHSMSerialNumber'
+-- * 'dhsmHSMSerialNumber'
 --
--- * 'dhsmrqHSMARN'
+-- * 'dhsmHSMARN'
 data DescribeHSM = DescribeHSM'
-    { _dhsmrqHSMSerialNumber :: !(Maybe Text)
-    , _dhsmrqHSMARN          :: !(Maybe Text)
+    { _dhsmHSMSerialNumber :: !(Maybe Text)
+    , _dhsmHSMARN          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSM' smart constructor.
 describeHSM :: DescribeHSM
 describeHSM =
     DescribeHSM'
-    { _dhsmrqHSMSerialNumber = Nothing
-    , _dhsmrqHSMARN = Nothing
+    { _dhsmHSMSerialNumber = Nothing
+    , _dhsmHSMARN = Nothing
     }
 
 -- | The serial number of the HSM. Either the /HsmArn/ or the
 -- /HsmSerialNumber/ parameter must be specified.
-dhsmrqHSMSerialNumber :: Lens' DescribeHSM (Maybe Text)
-dhsmrqHSMSerialNumber = lens _dhsmrqHSMSerialNumber (\ s a -> s{_dhsmrqHSMSerialNumber = a});
+dhsmHSMSerialNumber :: Lens' DescribeHSM (Maybe Text)
+dhsmHSMSerialNumber = lens _dhsmHSMSerialNumber (\ s a -> s{_dhsmHSMSerialNumber = a});
 
 -- | The ARN of the HSM. Either the /HsmArn/ or the /SerialNumber/ parameter
 -- must be specified.
-dhsmrqHSMARN :: Lens' DescribeHSM (Maybe Text)
-dhsmrqHSMARN = lens _dhsmrqHSMARN (\ s a -> s{_dhsmrqHSMARN = a});
+dhsmHSMARN :: Lens' DescribeHSM (Maybe Text)
+dhsmHSMARN = lens _dhsmHSMARN (\ s a -> s{_dhsmHSMARN = a});
 
 instance AWSRequest DescribeHSM where
         type Sv DescribeHSM = CloudHSM
@@ -138,8 +138,8 @@ instance ToHeaders DescribeHSM where
 instance ToJSON DescribeHSM where
         toJSON DescribeHSM'{..}
           = object
-              ["HsmSerialNumber" .= _dhsmrqHSMSerialNumber,
-               "HsmArn" .= _dhsmrqHSMARN]
+              ["HsmSerialNumber" .= _dhsmHSMSerialNumber,
+               "HsmArn" .= _dhsmHSMARN]
 
 instance ToPath DescribeHSM where
         toPath = const "/"

@@ -27,7 +27,7 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     -- ** Request constructor
     , createStreamingDistribution
     -- ** Request lenses
-    , csdrqStreamingDistributionConfig
+    , csdStreamingDistributionConfig
 
     -- * Response
     , CreateStreamingDistributionResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csdrqStreamingDistributionConfig'
+-- * 'csdStreamingDistributionConfig'
 newtype CreateStreamingDistribution = CreateStreamingDistribution'
-    { _csdrqStreamingDistributionConfig :: StreamingDistributionConfig
+    { _csdStreamingDistributionConfig :: StreamingDistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStreamingDistribution' smart constructor.
 createStreamingDistribution :: StreamingDistributionConfig -> CreateStreamingDistribution
 createStreamingDistribution pStreamingDistributionConfig_ =
     CreateStreamingDistribution'
-    { _csdrqStreamingDistributionConfig = pStreamingDistributionConfig_
+    { _csdStreamingDistributionConfig = pStreamingDistributionConfig_
     }
 
 -- | The streaming distribution\'s configuration information.
-csdrqStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
-csdrqStreamingDistributionConfig = lens _csdrqStreamingDistributionConfig (\ s a -> s{_csdrqStreamingDistributionConfig = a});
+csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
+csdStreamingDistributionConfig = lens _csdStreamingDistributionConfig (\ s a -> s{_csdStreamingDistributionConfig = a});
 
 instance AWSRequest CreateStreamingDistribution where
         type Sv CreateStreamingDistribution = CloudFront
@@ -85,7 +85,7 @@ instance ToElement CreateStreamingDistribution where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}StreamingDistributionConfig"
               .
-              _csdrqStreamingDistributionConfig
+              _csdStreamingDistributionConfig
 
 instance ToHeaders CreateStreamingDistribution where
         toHeaders = const mempty

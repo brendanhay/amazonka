@@ -31,10 +31,10 @@ module Network.AWS.EMR.ListInstances
     -- ** Request constructor
     , listInstances
     -- ** Request lenses
-    , lirqInstanceGroupTypes
-    , lirqMarker
-    , lirqInstanceGroupId
-    , lirqClusterId
+    , liInstanceGroupTypes
+    , liMarker
+    , liInstanceGroupId
+    , liClusterId
 
     -- * Response
     , ListInstancesResponse
@@ -58,52 +58,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirqInstanceGroupTypes'
+-- * 'liInstanceGroupTypes'
 --
--- * 'lirqMarker'
+-- * 'liMarker'
 --
--- * 'lirqInstanceGroupId'
+-- * 'liInstanceGroupId'
 --
--- * 'lirqClusterId'
+-- * 'liClusterId'
 data ListInstances = ListInstances'
-    { _lirqInstanceGroupTypes :: !(Maybe [InstanceGroupType])
-    , _lirqMarker             :: !(Maybe Text)
-    , _lirqInstanceGroupId    :: !(Maybe Text)
-    , _lirqClusterId          :: !Text
+    { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
+    , _liMarker             :: !(Maybe Text)
+    , _liInstanceGroupId    :: !(Maybe Text)
+    , _liClusterId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstances' smart constructor.
 listInstances :: Text -> ListInstances
 listInstances pClusterId_ =
     ListInstances'
-    { _lirqInstanceGroupTypes = Nothing
-    , _lirqMarker = Nothing
-    , _lirqInstanceGroupId = Nothing
-    , _lirqClusterId = pClusterId_
+    { _liInstanceGroupTypes = Nothing
+    , _liMarker = Nothing
+    , _liInstanceGroupId = Nothing
+    , _liClusterId = pClusterId_
     }
 
 -- | The type of instance group for which to list the instances.
-lirqInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
-lirqInstanceGroupTypes = lens _lirqInstanceGroupTypes (\ s a -> s{_lirqInstanceGroupTypes = a}) . _Default;
+liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
+liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lirqMarker :: Lens' ListInstances (Maybe Text)
-lirqMarker = lens _lirqMarker (\ s a -> s{_lirqMarker = a});
+liMarker :: Lens' ListInstances (Maybe Text)
+liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 
 -- | The identifier of the instance group for which to list the instances.
-lirqInstanceGroupId :: Lens' ListInstances (Maybe Text)
-lirqInstanceGroupId = lens _lirqInstanceGroupId (\ s a -> s{_lirqInstanceGroupId = a});
+liInstanceGroupId :: Lens' ListInstances (Maybe Text)
+liInstanceGroupId = lens _liInstanceGroupId (\ s a -> s{_liInstanceGroupId = a});
 
 -- | The identifier of the cluster for which to list the instances.
-lirqClusterId :: Lens' ListInstances Text
-lirqClusterId = lens _lirqClusterId (\ s a -> s{_lirqClusterId = a});
+liClusterId :: Lens' ListInstances Text
+liClusterId = lens _liClusterId (\ s a -> s{_liClusterId = a});
 
 instance AWSPager ListInstances where
         page rq rs
           | stop (rs ^. lirsMarker) = Nothing
           | stop (rs ^. lirsInstances) = Nothing
           | otherwise =
-            Just $ rq & lirqMarker .~ rs ^. lirsMarker
+            Just $ rq & liMarker .~ rs ^. lirsMarker
 
 instance AWSRequest ListInstances where
         type Sv ListInstances = EMR
@@ -128,10 +128,10 @@ instance ToHeaders ListInstances where
 instance ToJSON ListInstances where
         toJSON ListInstances'{..}
           = object
-              ["InstanceGroupTypes" .= _lirqInstanceGroupTypes,
-               "Marker" .= _lirqMarker,
-               "InstanceGroupId" .= _lirqInstanceGroupId,
-               "ClusterId" .= _lirqClusterId]
+              ["InstanceGroupTypes" .= _liInstanceGroupTypes,
+               "Marker" .= _liMarker,
+               "InstanceGroupId" .= _liInstanceGroupId,
+               "ClusterId" .= _liClusterId]
 
 instance ToPath ListInstances where
         toPath = const "/"

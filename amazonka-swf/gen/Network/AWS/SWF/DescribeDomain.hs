@@ -46,7 +46,7 @@ module Network.AWS.SWF.DescribeDomain
     -- ** Request constructor
     , describeDomain
     -- ** Request lenses
-    , ddrqName
+    , ddName
 
     -- * Response
     , DescribeDomainResponse
@@ -67,21 +67,21 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrqName'
+-- * 'ddName'
 newtype DescribeDomain = DescribeDomain'
-    { _ddrqName :: Text
+    { _ddName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomain' smart constructor.
 describeDomain :: Text -> DescribeDomain
 describeDomain pName_ =
     DescribeDomain'
-    { _ddrqName = pName_
+    { _ddName = pName_
     }
 
 -- | The name of the domain to describe.
-ddrqName :: Lens' DescribeDomain Text
-ddrqName = lens _ddrqName (\ s a -> s{_ddrqName = a});
+ddName :: Lens' DescribeDomain Text
+ddName = lens _ddName (\ s a -> s{_ddName = a});
 
 instance AWSRequest DescribeDomain where
         type Sv DescribeDomain = SWF
@@ -106,7 +106,7 @@ instance ToHeaders DescribeDomain where
 
 instance ToJSON DescribeDomain where
         toJSON DescribeDomain'{..}
-          = object ["name" .= _ddrqName]
+          = object ["name" .= _ddName]
 
 instance ToPath DescribeDomain where
         toPath = const "/"

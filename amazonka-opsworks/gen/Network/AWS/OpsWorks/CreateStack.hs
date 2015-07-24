@@ -33,25 +33,25 @@ module Network.AWS.OpsWorks.CreateStack
     -- ** Request constructor
     , createStack
     -- ** Request lenses
-    , csrqDefaultRootDeviceType
-    , csrqChefConfiguration
-    , csrqVPCId
-    , csrqAgentVersion
-    , csrqDefaultSSHKeyName
-    , csrqCustomJSON
-    , csrqCustomCookbooksSource
-    , csrqDefaultAvailabilityZone
-    , csrqUseOpsworksSecurityGroups
-    , csrqDefaultOS
-    , csrqAttributes
-    , csrqUseCustomCookbooks
-    , csrqDefaultSubnetId
-    , csrqConfigurationManager
-    , csrqHostnameTheme
-    , csrqName
-    , csrqRegion
-    , csrqServiceRoleARN
-    , csrqDefaultInstanceProfileARN
+    , csDefaultRootDeviceType
+    , csChefConfiguration
+    , csVPCId
+    , csAgentVersion
+    , csDefaultSSHKeyName
+    , csCustomJSON
+    , csCustomCookbooksSource
+    , csDefaultAvailabilityZone
+    , csUseOpsworksSecurityGroups
+    , csDefaultOS
+    , csAttributes
+    , csUseCustomCookbooks
+    , csDefaultSubnetId
+    , csConfigurationManager
+    , csHostnameTheme
+    , csName
+    , csRegion
+    , csServiceRoleARN
+    , csDefaultInstanceProfileARN
 
     -- * Response
     , CreateStackResponse
@@ -71,88 +71,88 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrqDefaultRootDeviceType'
+-- * 'csDefaultRootDeviceType'
 --
--- * 'csrqChefConfiguration'
+-- * 'csChefConfiguration'
 --
--- * 'csrqVPCId'
+-- * 'csVPCId'
 --
--- * 'csrqAgentVersion'
+-- * 'csAgentVersion'
 --
--- * 'csrqDefaultSSHKeyName'
+-- * 'csDefaultSSHKeyName'
 --
--- * 'csrqCustomJSON'
+-- * 'csCustomJSON'
 --
--- * 'csrqCustomCookbooksSource'
+-- * 'csCustomCookbooksSource'
 --
--- * 'csrqDefaultAvailabilityZone'
+-- * 'csDefaultAvailabilityZone'
 --
--- * 'csrqUseOpsworksSecurityGroups'
+-- * 'csUseOpsworksSecurityGroups'
 --
--- * 'csrqDefaultOS'
+-- * 'csDefaultOS'
 --
--- * 'csrqAttributes'
+-- * 'csAttributes'
 --
--- * 'csrqUseCustomCookbooks'
+-- * 'csUseCustomCookbooks'
 --
--- * 'csrqDefaultSubnetId'
+-- * 'csDefaultSubnetId'
 --
--- * 'csrqConfigurationManager'
+-- * 'csConfigurationManager'
 --
--- * 'csrqHostnameTheme'
+-- * 'csHostnameTheme'
 --
--- * 'csrqName'
+-- * 'csName'
 --
--- * 'csrqRegion'
+-- * 'csRegion'
 --
--- * 'csrqServiceRoleARN'
+-- * 'csServiceRoleARN'
 --
--- * 'csrqDefaultInstanceProfileARN'
+-- * 'csDefaultInstanceProfileARN'
 data CreateStack = CreateStack'
-    { _csrqDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _csrqChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _csrqVPCId                     :: !(Maybe Text)
-    , _csrqAgentVersion              :: !(Maybe Text)
-    , _csrqDefaultSSHKeyName         :: !(Maybe Text)
-    , _csrqCustomJSON                :: !(Maybe Text)
-    , _csrqCustomCookbooksSource     :: !(Maybe Source)
-    , _csrqDefaultAvailabilityZone   :: !(Maybe Text)
-    , _csrqUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _csrqDefaultOS                 :: !(Maybe Text)
-    , _csrqAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _csrqUseCustomCookbooks        :: !(Maybe Bool)
-    , _csrqDefaultSubnetId           :: !(Maybe Text)
-    , _csrqConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _csrqHostnameTheme             :: !(Maybe Text)
-    , _csrqName                      :: !Text
-    , _csrqRegion                    :: !Text
-    , _csrqServiceRoleARN            :: !Text
-    , _csrqDefaultInstanceProfileARN :: !Text
+    { _csDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _csChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _csVPCId                     :: !(Maybe Text)
+    , _csAgentVersion              :: !(Maybe Text)
+    , _csDefaultSSHKeyName         :: !(Maybe Text)
+    , _csCustomJSON                :: !(Maybe Text)
+    , _csCustomCookbooksSource     :: !(Maybe Source)
+    , _csDefaultAvailabilityZone   :: !(Maybe Text)
+    , _csUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _csDefaultOS                 :: !(Maybe Text)
+    , _csAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _csUseCustomCookbooks        :: !(Maybe Bool)
+    , _csDefaultSubnetId           :: !(Maybe Text)
+    , _csConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _csHostnameTheme             :: !(Maybe Text)
+    , _csName                      :: !Text
+    , _csRegion                    :: !Text
+    , _csServiceRoleARN            :: !Text
+    , _csDefaultInstanceProfileARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> Text -> Text -> Text -> CreateStack
 createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
     CreateStack'
-    { _csrqDefaultRootDeviceType = Nothing
-    , _csrqChefConfiguration = Nothing
-    , _csrqVPCId = Nothing
-    , _csrqAgentVersion = Nothing
-    , _csrqDefaultSSHKeyName = Nothing
-    , _csrqCustomJSON = Nothing
-    , _csrqCustomCookbooksSource = Nothing
-    , _csrqDefaultAvailabilityZone = Nothing
-    , _csrqUseOpsworksSecurityGroups = Nothing
-    , _csrqDefaultOS = Nothing
-    , _csrqAttributes = Nothing
-    , _csrqUseCustomCookbooks = Nothing
-    , _csrqDefaultSubnetId = Nothing
-    , _csrqConfigurationManager = Nothing
-    , _csrqHostnameTheme = Nothing
-    , _csrqName = pName_
-    , _csrqRegion = pRegion_
-    , _csrqServiceRoleARN = pServiceRoleARN_
-    , _csrqDefaultInstanceProfileARN = pDefaultInstanceProfileARN_
+    { _csDefaultRootDeviceType = Nothing
+    , _csChefConfiguration = Nothing
+    , _csVPCId = Nothing
+    , _csAgentVersion = Nothing
+    , _csDefaultSSHKeyName = Nothing
+    , _csCustomJSON = Nothing
+    , _csCustomCookbooksSource = Nothing
+    , _csDefaultAvailabilityZone = Nothing
+    , _csUseOpsworksSecurityGroups = Nothing
+    , _csDefaultOS = Nothing
+    , _csAttributes = Nothing
+    , _csUseCustomCookbooks = Nothing
+    , _csDefaultSubnetId = Nothing
+    , _csConfigurationManager = Nothing
+    , _csHostnameTheme = Nothing
+    , _csName = pName_
+    , _csRegion = pRegion_
+    , _csServiceRoleARN = pServiceRoleARN_
+    , _csDefaultInstanceProfileARN = pDefaultInstanceProfileARN_
     }
 
 -- | The default root device type. This value is the default for all
@@ -160,15 +160,15 @@ createStack pName_ pRegion_ pServiceRoleARN_ pDefaultInstanceProfileARN_ =
 -- instance. The default option is @instance-store@. For more information,
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-csrqDefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
-csrqDefaultRootDeviceType = lens _csrqDefaultRootDeviceType (\ s a -> s{_csrqDefaultRootDeviceType = a});
+csDefaultRootDeviceType :: Lens' CreateStack (Maybe RootDeviceType)
+csDefaultRootDeviceType = lens _csDefaultRootDeviceType (\ s a -> s{_csDefaultRootDeviceType = a});
 
 -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-csrqChefConfiguration :: Lens' CreateStack (Maybe ChefConfiguration)
-csrqChefConfiguration = lens _csrqChefConfiguration (\ s a -> s{_csrqChefConfiguration = a});
+csChefConfiguration :: Lens' CreateStack (Maybe ChefConfiguration)
+csChefConfiguration = lens _csChefConfiguration (\ s a -> s{_csChefConfiguration = a});
 
 -- | The ID of the VPC that the stack is to be launched into. The VPC must be
 -- in the stack\'s region. All instances are launched into this VPC. You
@@ -195,8 +195,8 @@ csrqChefConfiguration = lens _csrqChefConfiguration (\ s a -> s{_csrqChefConfigu
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
 -- For more information on default VPC and EC2-Classic, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-csrqVPCId :: Lens' CreateStack (Maybe Text)
-csrqVPCId = lens _csrqVPCId (\ s a -> s{_csrqVPCId = a});
+csVPCId :: Lens' CreateStack (Maybe Text)
+csVPCId = lens _csVPCId (\ s a -> s{_csVPCId = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
@@ -215,8 +215,8 @@ csrqVPCId = lens _csrqVPCId (\ s a -> s{_csrqVPCId = a});
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
-csrqAgentVersion :: Lens' CreateStack (Maybe Text)
-csrqAgentVersion = lens _csrqAgentVersion (\ s a -> s{_csrqAgentVersion = a});
+csAgentVersion :: Lens' CreateStack (Maybe Text)
+csAgentVersion = lens _csAgentVersion (\ s a -> s{_csAgentVersion = a});
 
 -- | A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
@@ -228,8 +228,8 @@ csrqAgentVersion = lens _csrqAgentVersion (\ s a -> s{_csrqAgentVersion = a});
 -- You can override this setting by specifying a different key pair, or no
 -- key pair, when you
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-csrqDefaultSSHKeyName :: Lens' CreateStack (Maybe Text)
-csrqDefaultSSHKeyName = lens _csrqDefaultSSHKeyName (\ s a -> s{_csrqDefaultSSHKeyName = a});
+csDefaultSSHKeyName :: Lens' CreateStack (Maybe Text)
+csDefaultSSHKeyName = lens _csDefaultSSHKeyName (\ s a -> s{_csDefaultSSHKeyName = a});
 
 -- | A string that contains user-defined, custom JSON. It can be used to
 -- override the corresponding default stack configuration attribute values
@@ -240,12 +240,12 @@ csrqDefaultSSHKeyName = lens _csrqDefaultSSHKeyName (\ s a -> s{_csrqDefaultSSHK
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-csrqCustomJSON :: Lens' CreateStack (Maybe Text)
-csrqCustomJSON = lens _csrqCustomJSON (\ s a -> s{_csrqCustomJSON = a});
+csCustomJSON :: Lens' CreateStack (Maybe Text)
+csCustomJSON = lens _csCustomJSON (\ s a -> s{_csCustomJSON = a});
 
 -- | FIXME: Undocumented member.
-csrqCustomCookbooksSource :: Lens' CreateStack (Maybe Source)
-csrqCustomCookbooksSource = lens _csrqCustomCookbooksSource (\ s a -> s{_csrqCustomCookbooksSource = a});
+csCustomCookbooksSource :: Lens' CreateStack (Maybe Source)
+csCustomCookbooksSource = lens _csCustomCookbooksSource (\ s a -> s{_csCustomCookbooksSource = a});
 
 -- | The stack\'s default Availability Zone, which must be in the specified
 -- region. For more information, see
@@ -253,8 +253,8 @@ csrqCustomCookbooksSource = lens _csrqCustomCookbooksSource (\ s a -> s{_csrqCus
 -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
 -- the same zone. For more information, see the @VpcId@ parameter
 -- description.
-csrqDefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
-csrqDefaultAvailabilityZone = lens _csrqDefaultAvailabilityZone (\ s a -> s{_csrqDefaultAvailabilityZone = a});
+csDefaultAvailabilityZone :: Lens' CreateStack (Maybe Text)
+csDefaultAvailabilityZone = lens _csDefaultAvailabilityZone (\ s a -> s{_csDefaultAvailabilityZone = a});
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack\'s layers.
@@ -277,8 +277,8 @@ csrqDefaultAvailabilityZone = lens _csrqDefaultAvailabilityZone (\ s a -> s{_csr
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-csrqUseOpsworksSecurityGroups :: Lens' CreateStack (Maybe Bool)
-csrqUseOpsworksSecurityGroups = lens _csrqUseOpsworksSecurityGroups (\ s a -> s{_csrqUseOpsworksSecurityGroups = a});
+csUseOpsworksSecurityGroups :: Lens' CreateStack (Maybe Bool)
+csUseOpsworksSecurityGroups = lens _csUseOpsworksSecurityGroups (\ s a -> s{_csUseOpsworksSecurityGroups = a});
 
 -- | The stack\'s default operating system, which is installed on every
 -- instance unless you specify a different operating system when you create
@@ -294,17 +294,17 @@ csrqUseOpsworksSecurityGroups = lens _csrqUseOpsworksSecurityGroups (\ s a -> s{
 -- The default option is the current Amazon Linux version. For more
 -- information on the supported operating systems, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
-csrqDefaultOS :: Lens' CreateStack (Maybe Text)
-csrqDefaultOS = lens _csrqDefaultOS (\ s a -> s{_csrqDefaultOS = a});
+csDefaultOS :: Lens' CreateStack (Maybe Text)
+csDefaultOS = lens _csDefaultOS (\ s a -> s{_csDefaultOS = a});
 
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
-csrqAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
-csrqAttributes = lens _csrqAttributes (\ s a -> s{_csrqAttributes = a}) . _Default . _Map;
+csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
+csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.
-csrqUseCustomCookbooks :: Lens' CreateStack (Maybe Bool)
-csrqUseCustomCookbooks = lens _csrqUseCustomCookbooks (\ s a -> s{_csrqUseCustomCookbooks = a});
+csUseCustomCookbooks :: Lens' CreateStack (Maybe Bool)
+csUseCustomCookbooks = lens _csUseCustomCookbooks (\ s a -> s{_csUseCustomCookbooks = a});
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
 -- specify a value for the @VpcId@ parameter. All instances are launched
@@ -312,14 +312,14 @@ csrqUseCustomCookbooks = lens _csrqUseCustomCookbooks (\ s a -> s{_csrqUseCustom
 -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
 -- subnet must be in that zone. For information on default values and when
 -- this parameter is required, see the @VpcId@ parameter description.
-csrqDefaultSubnetId :: Lens' CreateStack (Maybe Text)
-csrqDefaultSubnetId = lens _csrqDefaultSubnetId (\ s a -> s{_csrqDefaultSubnetId = a});
+csDefaultSubnetId :: Lens' CreateStack (Maybe Text)
+csDefaultSubnetId = lens _csDefaultSubnetId (\ s a -> s{_csDefaultSubnetId = a});
 
 -- | The configuration manager. When you clone a stack we recommend that you
 -- use the configuration manager to specify the Chef version: 0.9, 11.4, or
 -- 11.10. The default value is currently 11.4.
-csrqConfigurationManager :: Lens' CreateStack (Maybe StackConfigurationManager)
-csrqConfigurationManager = lens _csrqConfigurationManager (\ s a -> s{_csrqConfigurationManager = a});
+csConfigurationManager :: Lens' CreateStack (Maybe StackConfigurationManager)
+csConfigurationManager = lens _csConfigurationManager (\ s a -> s{_csConfigurationManager = a});
 
 -- | The stack\'s host name theme, with spaces replaced by underscores. The
 -- theme is used to generate host names for the stack\'s instances. By
@@ -341,33 +341,33 @@ csrqConfigurationManager = lens _csrqConfigurationManager (\ s a -> s{_csrqConfi
 --
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
-csrqHostnameTheme :: Lens' CreateStack (Maybe Text)
-csrqHostnameTheme = lens _csrqHostnameTheme (\ s a -> s{_csrqHostnameTheme = a});
+csHostnameTheme :: Lens' CreateStack (Maybe Text)
+csHostnameTheme = lens _csHostnameTheme (\ s a -> s{_csHostnameTheme = a});
 
 -- | The stack name.
-csrqName :: Lens' CreateStack Text
-csrqName = lens _csrqName (\ s a -> s{_csrqName = a});
+csName :: Lens' CreateStack Text
+csName = lens _csName (\ s a -> s{_csName = a});
 
 -- | The stack\'s AWS region, such as \"us-east-1\". For more information
 -- about Amazon regions, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-csrqRegion :: Lens' CreateStack Text
-csrqRegion = lens _csrqRegion (\ s a -> s{_csrqRegion = a});
+csRegion :: Lens' CreateStack Text
+csRegion = lens _csRegion (\ s a -> s{_csRegion = a});
 
 -- | The stack\'s AWS Identity and Access Management (IAM) role, which allows
 -- AWS OpsWorks to work with AWS resources on your behalf. You must set
 -- this parameter to the Amazon Resource Name (ARN) for an existing IAM
 -- role. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-csrqServiceRoleARN :: Lens' CreateStack Text
-csrqServiceRoleARN = lens _csrqServiceRoleARN (\ s a -> s{_csrqServiceRoleARN = a});
+csServiceRoleARN :: Lens' CreateStack Text
+csServiceRoleARN = lens _csServiceRoleARN (\ s a -> s{_csServiceRoleARN = a});
 
 -- | The Amazon Resource Name (ARN) of an IAM profile that is the default
 -- profile for all of the stack\'s EC2 instances. For more information
 -- about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-csrqDefaultInstanceProfileARN :: Lens' CreateStack Text
-csrqDefaultInstanceProfileARN = lens _csrqDefaultInstanceProfileARN (\ s a -> s{_csrqDefaultInstanceProfileARN = a});
+csDefaultInstanceProfileARN :: Lens' CreateStack Text
+csDefaultInstanceProfileARN = lens _csDefaultInstanceProfileARN (\ s a -> s{_csDefaultInstanceProfileARN = a});
 
 instance AWSRequest CreateStack where
         type Sv CreateStack = OpsWorks
@@ -391,29 +391,27 @@ instance ToHeaders CreateStack where
 instance ToJSON CreateStack where
         toJSON CreateStack'{..}
           = object
-              ["DefaultRootDeviceType" .=
-                 _csrqDefaultRootDeviceType,
-               "ChefConfiguration" .= _csrqChefConfiguration,
-               "VpcId" .= _csrqVPCId,
-               "AgentVersion" .= _csrqAgentVersion,
-               "DefaultSshKeyName" .= _csrqDefaultSSHKeyName,
-               "CustomJson" .= _csrqCustomJSON,
-               "CustomCookbooksSource" .=
-                 _csrqCustomCookbooksSource,
+              ["DefaultRootDeviceType" .= _csDefaultRootDeviceType,
+               "ChefConfiguration" .= _csChefConfiguration,
+               "VpcId" .= _csVPCId,
+               "AgentVersion" .= _csAgentVersion,
+               "DefaultSshKeyName" .= _csDefaultSSHKeyName,
+               "CustomJson" .= _csCustomJSON,
+               "CustomCookbooksSource" .= _csCustomCookbooksSource,
                "DefaultAvailabilityZone" .=
-                 _csrqDefaultAvailabilityZone,
+                 _csDefaultAvailabilityZone,
                "UseOpsworksSecurityGroups" .=
-                 _csrqUseOpsworksSecurityGroups,
-               "DefaultOs" .= _csrqDefaultOS,
-               "Attributes" .= _csrqAttributes,
-               "UseCustomCookbooks" .= _csrqUseCustomCookbooks,
-               "DefaultSubnetId" .= _csrqDefaultSubnetId,
-               "ConfigurationManager" .= _csrqConfigurationManager,
-               "HostnameTheme" .= _csrqHostnameTheme,
-               "Name" .= _csrqName, "Region" .= _csrqRegion,
-               "ServiceRoleArn" .= _csrqServiceRoleARN,
+                 _csUseOpsworksSecurityGroups,
+               "DefaultOs" .= _csDefaultOS,
+               "Attributes" .= _csAttributes,
+               "UseCustomCookbooks" .= _csUseCustomCookbooks,
+               "DefaultSubnetId" .= _csDefaultSubnetId,
+               "ConfigurationManager" .= _csConfigurationManager,
+               "HostnameTheme" .= _csHostnameTheme,
+               "Name" .= _csName, "Region" .= _csRegion,
+               "ServiceRoleArn" .= _csServiceRoleARN,
                "DefaultInstanceProfileArn" .=
-                 _csrqDefaultInstanceProfileARN]
+                 _csDefaultInstanceProfileARN]
 
 instance ToPath CreateStack where
         toPath = const "/"

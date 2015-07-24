@@ -35,21 +35,21 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     -- ** Request constructor
     , createAutoScalingGroup
     -- ** Request lenses
-    , casgrqInstanceId
-    , casgrqTerminationPolicies
-    , casgrqHealthCheckGracePeriod
-    , casgrqVPCZoneIdentifier
-    , casgrqDefaultCooldown
-    , casgrqDesiredCapacity
-    , casgrqAvailabilityZones
-    , casgrqHealthCheckType
-    , casgrqLaunchConfigurationName
-    , casgrqPlacementGroup
-    , casgrqLoadBalancerNames
-    , casgrqTags
-    , casgrqAutoScalingGroupName
-    , casgrqMinSize
-    , casgrqMaxSize
+    , casgInstanceId
+    , casgTerminationPolicies
+    , casgHealthCheckGracePeriod
+    , casgVPCZoneIdentifier
+    , casgDefaultCooldown
+    , casgDesiredCapacity
+    , casgAvailabilityZones
+    , casgHealthCheckType
+    , casgLaunchConfigurationName
+    , casgPlacementGroup
+    , casgLoadBalancerNames
+    , casgTags
+    , casgAutoScalingGroupName
+    , casgMinSize
+    , casgMaxSize
 
     -- * Response
     , CreateAutoScalingGroupResponse
@@ -66,72 +66,72 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'casgrqInstanceId'
+-- * 'casgInstanceId'
 --
--- * 'casgrqTerminationPolicies'
+-- * 'casgTerminationPolicies'
 --
--- * 'casgrqHealthCheckGracePeriod'
+-- * 'casgHealthCheckGracePeriod'
 --
--- * 'casgrqVPCZoneIdentifier'
+-- * 'casgVPCZoneIdentifier'
 --
--- * 'casgrqDefaultCooldown'
+-- * 'casgDefaultCooldown'
 --
--- * 'casgrqDesiredCapacity'
+-- * 'casgDesiredCapacity'
 --
--- * 'casgrqAvailabilityZones'
+-- * 'casgAvailabilityZones'
 --
--- * 'casgrqHealthCheckType'
+-- * 'casgHealthCheckType'
 --
--- * 'casgrqLaunchConfigurationName'
+-- * 'casgLaunchConfigurationName'
 --
--- * 'casgrqPlacementGroup'
+-- * 'casgPlacementGroup'
 --
--- * 'casgrqLoadBalancerNames'
+-- * 'casgLoadBalancerNames'
 --
--- * 'casgrqTags'
+-- * 'casgTags'
 --
--- * 'casgrqAutoScalingGroupName'
+-- * 'casgAutoScalingGroupName'
 --
--- * 'casgrqMinSize'
+-- * 'casgMinSize'
 --
--- * 'casgrqMaxSize'
+-- * 'casgMaxSize'
 data CreateAutoScalingGroup = CreateAutoScalingGroup'
-    { _casgrqInstanceId              :: !(Maybe Text)
-    , _casgrqTerminationPolicies     :: !(Maybe [Text])
-    , _casgrqHealthCheckGracePeriod  :: !(Maybe Int)
-    , _casgrqVPCZoneIdentifier       :: !(Maybe Text)
-    , _casgrqDefaultCooldown         :: !(Maybe Int)
-    , _casgrqDesiredCapacity         :: !(Maybe Int)
-    , _casgrqAvailabilityZones       :: !(Maybe (List1 Text))
-    , _casgrqHealthCheckType         :: !(Maybe Text)
-    , _casgrqLaunchConfigurationName :: !(Maybe Text)
-    , _casgrqPlacementGroup          :: !(Maybe Text)
-    , _casgrqLoadBalancerNames       :: !(Maybe [Text])
-    , _casgrqTags                    :: !(Maybe [Tag])
-    , _casgrqAutoScalingGroupName    :: !Text
-    , _casgrqMinSize                 :: !Int
-    , _casgrqMaxSize                 :: !Int
+    { _casgInstanceId              :: !(Maybe Text)
+    , _casgTerminationPolicies     :: !(Maybe [Text])
+    , _casgHealthCheckGracePeriod  :: !(Maybe Int)
+    , _casgVPCZoneIdentifier       :: !(Maybe Text)
+    , _casgDefaultCooldown         :: !(Maybe Int)
+    , _casgDesiredCapacity         :: !(Maybe Int)
+    , _casgAvailabilityZones       :: !(Maybe (List1 Text))
+    , _casgHealthCheckType         :: !(Maybe Text)
+    , _casgLaunchConfigurationName :: !(Maybe Text)
+    , _casgPlacementGroup          :: !(Maybe Text)
+    , _casgLoadBalancerNames       :: !(Maybe [Text])
+    , _casgTags                    :: !(Maybe [Tag])
+    , _casgAutoScalingGroupName    :: !Text
+    , _casgMinSize                 :: !Int
+    , _casgMaxSize                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAutoScalingGroup' smart constructor.
 createAutoScalingGroup :: Text -> Int -> Int -> CreateAutoScalingGroup
 createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
     CreateAutoScalingGroup'
-    { _casgrqInstanceId = Nothing
-    , _casgrqTerminationPolicies = Nothing
-    , _casgrqHealthCheckGracePeriod = Nothing
-    , _casgrqVPCZoneIdentifier = Nothing
-    , _casgrqDefaultCooldown = Nothing
-    , _casgrqDesiredCapacity = Nothing
-    , _casgrqAvailabilityZones = Nothing
-    , _casgrqHealthCheckType = Nothing
-    , _casgrqLaunchConfigurationName = Nothing
-    , _casgrqPlacementGroup = Nothing
-    , _casgrqLoadBalancerNames = Nothing
-    , _casgrqTags = Nothing
-    , _casgrqAutoScalingGroupName = pAutoScalingGroupName_
-    , _casgrqMinSize = pMinSize_
-    , _casgrqMaxSize = pMaxSize_
+    { _casgInstanceId = Nothing
+    , _casgTerminationPolicies = Nothing
+    , _casgHealthCheckGracePeriod = Nothing
+    , _casgVPCZoneIdentifier = Nothing
+    , _casgDefaultCooldown = Nothing
+    , _casgDesiredCapacity = Nothing
+    , _casgAvailabilityZones = Nothing
+    , _casgHealthCheckType = Nothing
+    , _casgLaunchConfigurationName = Nothing
+    , _casgPlacementGroup = Nothing
+    , _casgLoadBalancerNames = Nothing
+    , _casgTags = Nothing
+    , _casgAutoScalingGroupName = pAutoScalingGroupName_
+    , _casgMinSize = pMinSize_
+    , _casgMaxSize = pMaxSize_
     }
 
 -- | The ID of the EC2 instance used to create a launch configuration for the
@@ -146,8 +146,8 @@ createAutoScalingGroup pAutoScalingGroupName_ pMinSize_ pMaxSize_ =
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group from an EC2 Instance>
 -- in the /Auto Scaling Developer Guide/.
-casgrqInstanceId :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgrqInstanceId = lens _casgrqInstanceId (\ s a -> s{_casgrqInstanceId = a});
+casgInstanceId :: Lens' CreateAutoScalingGroup (Maybe Text)
+casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a});
 
 -- | One or more termination policies used to select the instance to
 -- terminate. These policies are executed in the order that they are
@@ -156,8 +156,8 @@ casgrqInstanceId = lens _casgrqInstanceId (\ s a -> s{_casgrqInstanceId = a});
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
-casgrqTerminationPolicies :: Lens' CreateAutoScalingGroup [Text]
-casgrqTerminationPolicies = lens _casgrqTerminationPolicies (\ s a -> s{_casgrqTerminationPolicies = a}) . _Default;
+casgTerminationPolicies :: Lens' CreateAutoScalingGroup [Text]
+casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a}) . _Default;
 
 -- | The amount of time, in seconds, after an EC2 instance comes into service
 -- that Auto Scaling starts checking its health. During this time, any
@@ -172,8 +172,8 @@ casgrqTerminationPolicies = lens _casgrqTerminationPolicies (\ s a -> s{_casgrqT
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.html Add an Elastic Load Balancing Health Check to Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
-casgrqHealthCheckGracePeriod :: Lens' CreateAutoScalingGroup (Maybe Int)
-casgrqHealthCheckGracePeriod = lens _casgrqHealthCheckGracePeriod (\ s a -> s{_casgrqHealthCheckGracePeriod = a});
+casgHealthCheckGracePeriod :: Lens' CreateAutoScalingGroup (Maybe Int)
+casgHealthCheckGracePeriod = lens _casgHealthCheckGracePeriod (\ s a -> s{_casgHealthCheckGracePeriod = a});
 
 -- | A comma-separated list of subnet identifiers for your virtual private
 -- cloud (VPC).
@@ -185,8 +185,8 @@ casgrqHealthCheckGracePeriod = lens _casgrqHealthCheckGracePeriod (\ s a -> s{_c
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
 -- in the /Auto Scaling Developer Guide/.
-casgrqVPCZoneIdentifier :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgrqVPCZoneIdentifier = lens _casgrqVPCZoneIdentifier (\ s a -> s{_casgrqVPCZoneIdentifier = a});
+casgVPCZoneIdentifier :: Lens' CreateAutoScalingGroup (Maybe Text)
+casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIdentifier = a});
 
 -- | The amount of time, in seconds, after a scaling activity completes
 -- before another scaling activity can start.
@@ -195,19 +195,19 @@ casgrqVPCZoneIdentifier = lens _casgrqVPCZoneIdentifier (\ s a -> s{_casgrqVPCZo
 -- information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
-casgrqDefaultCooldown :: Lens' CreateAutoScalingGroup (Maybe Int)
-casgrqDefaultCooldown = lens _casgrqDefaultCooldown (\ s a -> s{_casgrqDefaultCooldown = a});
+casgDefaultCooldown :: Lens' CreateAutoScalingGroup (Maybe Int)
+casgDefaultCooldown = lens _casgDefaultCooldown (\ s a -> s{_casgDefaultCooldown = a});
 
 -- | The number of EC2 instances that should be running in the group. This
 -- number must be greater than or equal to the minimum size of the group
 -- and less than or equal to the maximum size of the group.
-casgrqDesiredCapacity :: Lens' CreateAutoScalingGroup (Maybe Int)
-casgrqDesiredCapacity = lens _casgrqDesiredCapacity (\ s a -> s{_casgrqDesiredCapacity = a});
+casgDesiredCapacity :: Lens' CreateAutoScalingGroup (Maybe Int)
+casgDesiredCapacity = lens _casgDesiredCapacity (\ s a -> s{_casgDesiredCapacity = a});
 
 -- | One or more Availability Zones for the group. This parameter is optional
 -- if you specify subnets using the @VPCZoneIdentifier@ parameter.
-casgrqAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
-casgrqAvailabilityZones = lens _casgrqAvailabilityZones (\ s a -> s{_casgrqAvailabilityZones = a}) . mapping _List1;
+casgAvailabilityZones :: Lens' CreateAutoScalingGroup (Maybe (NonEmpty Text))
+casgAvailabilityZones = lens _casgAvailabilityZones (\ s a -> s{_casgAvailabilityZones = a}) . mapping _List1;
 
 -- | The service to use for the health checks. The valid values are @EC2@ and
 -- @ELB@.
@@ -215,29 +215,29 @@ casgrqAvailabilityZones = lens _casgrqAvailabilityZones (\ s a -> s{_casgrqAvail
 -- By default, health checks use Amazon EC2 instance status checks to
 -- determine the health of an instance. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>.
-casgrqHealthCheckType :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgrqHealthCheckType = lens _casgrqHealthCheckType (\ s a -> s{_casgrqHealthCheckType = a});
+casgHealthCheckType :: Lens' CreateAutoScalingGroup (Maybe Text)
+casgHealthCheckType = lens _casgHealthCheckType (\ s a -> s{_casgHealthCheckType = a});
 
 -- | The name of the launch configuration. Alternatively, use the
 -- @InstanceId@ parameter to specify an EC2 instance instead of a launch
 -- configuration.
-casgrqLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgrqLaunchConfigurationName = lens _casgrqLaunchConfigurationName (\ s a -> s{_casgrqLaunchConfigurationName = a});
+casgLaunchConfigurationName :: Lens' CreateAutoScalingGroup (Maybe Text)
+casgLaunchConfigurationName = lens _casgLaunchConfigurationName (\ s a -> s{_casgLaunchConfigurationName = a});
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-casgrqPlacementGroup :: Lens' CreateAutoScalingGroup (Maybe Text)
-casgrqPlacementGroup = lens _casgrqPlacementGroup (\ s a -> s{_casgrqPlacementGroup = a});
+casgPlacementGroup :: Lens' CreateAutoScalingGroup (Maybe Text)
+casgPlacementGroup = lens _casgPlacementGroup (\ s a -> s{_casgPlacementGroup = a});
 
 -- | One or more load balancers.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
-casgrqLoadBalancerNames :: Lens' CreateAutoScalingGroup [Text]
-casgrqLoadBalancerNames = lens _casgrqLoadBalancerNames (\ s a -> s{_casgrqLoadBalancerNames = a}) . _Default;
+casgLoadBalancerNames :: Lens' CreateAutoScalingGroup [Text]
+casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a}) . _Default;
 
 -- | The tag to be created or updated. Each tag should be defined by its
 -- resource type, resource ID, key, value, and a propagate flag. Valid
@@ -247,21 +247,21 @@ casgrqLoadBalancerNames = lens _casgrqLoadBalancerNames (\ s a -> s{_casgrqLoadB
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Tagging Auto Scaling Groups and Instances>
 -- in the /Auto Scaling Developer Guide/.
-casgrqTags :: Lens' CreateAutoScalingGroup [Tag]
-casgrqTags = lens _casgrqTags (\ s a -> s{_casgrqTags = a}) . _Default;
+casgTags :: Lens' CreateAutoScalingGroup [Tag]
+casgTags = lens _casgTags (\ s a -> s{_casgTags = a}) . _Default;
 
 -- | The name of the group. This name must be unique within the scope of your
 -- AWS account.
-casgrqAutoScalingGroupName :: Lens' CreateAutoScalingGroup Text
-casgrqAutoScalingGroupName = lens _casgrqAutoScalingGroupName (\ s a -> s{_casgrqAutoScalingGroupName = a});
+casgAutoScalingGroupName :: Lens' CreateAutoScalingGroup Text
+casgAutoScalingGroupName = lens _casgAutoScalingGroupName (\ s a -> s{_casgAutoScalingGroupName = a});
 
 -- | The minimum size of the group.
-casgrqMinSize :: Lens' CreateAutoScalingGroup Int
-casgrqMinSize = lens _casgrqMinSize (\ s a -> s{_casgrqMinSize = a});
+casgMinSize :: Lens' CreateAutoScalingGroup Int
+casgMinSize = lens _casgMinSize (\ s a -> s{_casgMinSize = a});
 
 -- | The maximum size of the group.
-casgrqMaxSize :: Lens' CreateAutoScalingGroup Int
-casgrqMaxSize = lens _casgrqMaxSize (\ s a -> s{_casgrqMaxSize = a});
+casgMaxSize :: Lens' CreateAutoScalingGroup Int
+casgMaxSize = lens _casgMaxSize (\ s a -> s{_casgMaxSize = a});
 
 instance AWSRequest CreateAutoScalingGroup where
         type Sv CreateAutoScalingGroup = AutoScaling
@@ -283,32 +283,29 @@ instance ToQuery CreateAutoScalingGroup where
               ["Action" =:
                  ("CreateAutoScalingGroup" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceId" =: _casgrqInstanceId,
+               "InstanceId" =: _casgInstanceId,
                "TerminationPolicies" =:
                  toQuery
-                   (toQueryList "member" <$>
-                      _casgrqTerminationPolicies),
+                   (toQueryList "member" <$> _casgTerminationPolicies),
                "HealthCheckGracePeriod" =:
-                 _casgrqHealthCheckGracePeriod,
-               "VPCZoneIdentifier" =: _casgrqVPCZoneIdentifier,
-               "DefaultCooldown" =: _casgrqDefaultCooldown,
-               "DesiredCapacity" =: _casgrqDesiredCapacity,
+                 _casgHealthCheckGracePeriod,
+               "VPCZoneIdentifier" =: _casgVPCZoneIdentifier,
+               "DefaultCooldown" =: _casgDefaultCooldown,
+               "DesiredCapacity" =: _casgDesiredCapacity,
                "AvailabilityZones" =:
                  toQuery
-                   (toQueryList "member" <$> _casgrqAvailabilityZones),
-               "HealthCheckType" =: _casgrqHealthCheckType,
+                   (toQueryList "member" <$> _casgAvailabilityZones),
+               "HealthCheckType" =: _casgHealthCheckType,
                "LaunchConfigurationName" =:
-                 _casgrqLaunchConfigurationName,
-               "PlacementGroup" =: _casgrqPlacementGroup,
+                 _casgLaunchConfigurationName,
+               "PlacementGroup" =: _casgPlacementGroup,
                "LoadBalancerNames" =:
                  toQuery
-                   (toQueryList "member" <$> _casgrqLoadBalancerNames),
+                   (toQueryList "member" <$> _casgLoadBalancerNames),
                "Tags" =:
-                 toQuery (toQueryList "member" <$> _casgrqTags),
-               "AutoScalingGroupName" =:
-                 _casgrqAutoScalingGroupName,
-               "MinSize" =: _casgrqMinSize,
-               "MaxSize" =: _casgrqMaxSize]
+                 toQuery (toQueryList "member" <$> _casgTags),
+               "AutoScalingGroupName" =: _casgAutoScalingGroupName,
+               "MinSize" =: _casgMinSize, "MaxSize" =: _casgMaxSize]
 
 -- | /See:/ 'createAutoScalingGroupResponse' smart constructor.
 data CreateAutoScalingGroupResponse =

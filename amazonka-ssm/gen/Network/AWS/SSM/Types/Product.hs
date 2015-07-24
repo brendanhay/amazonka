@@ -260,46 +260,46 @@ instance ToJSON CreateAssociationBatchRequestEntry
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddStatus'
+-- * 'dStatus'
 --
--- * 'ddSha1'
+-- * 'dSha1'
 --
--- * 'ddCreatedDate'
+-- * 'dCreatedDate'
 --
--- * 'ddName'
+-- * 'dName'
 data DocumentDescription = DocumentDescription'
-    { _ddStatus      :: !(Maybe DocumentStatus)
-    , _ddSha1        :: !(Maybe Text)
-    , _ddCreatedDate :: !(Maybe POSIX)
-    , _ddName        :: !(Maybe Text)
+    { _dStatus      :: !(Maybe DocumentStatus)
+    , _dSha1        :: !(Maybe Text)
+    , _dCreatedDate :: !(Maybe POSIX)
+    , _dName        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DocumentDescription' smart constructor.
 documentDescription :: DocumentDescription
 documentDescription =
     DocumentDescription'
-    { _ddStatus = Nothing
-    , _ddSha1 = Nothing
-    , _ddCreatedDate = Nothing
-    , _ddName = Nothing
+    { _dStatus = Nothing
+    , _dSha1 = Nothing
+    , _dCreatedDate = Nothing
+    , _dName = Nothing
     }
 
 -- | The status of the configuration document.
-ddStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
-ddStatus = lens _ddStatus (\ s a -> s{_ddStatus = a});
+dStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
 -- | The SHA1 hash of the document, which you can use for verification
 -- purposes.
-ddSha1 :: Lens' DocumentDescription (Maybe Text)
-ddSha1 = lens _ddSha1 (\ s a -> s{_ddSha1 = a});
+dSha1 :: Lens' DocumentDescription (Maybe Text)
+dSha1 = lens _dSha1 (\ s a -> s{_dSha1 = a});
 
 -- | The date when the configuration document was created.
-ddCreatedDate :: Lens' DocumentDescription (Maybe UTCTime)
-ddCreatedDate = lens _ddCreatedDate (\ s a -> s{_ddCreatedDate = a}) . mapping _Time;
+dCreatedDate :: Lens' DocumentDescription (Maybe UTCTime)
+dCreatedDate = lens _dCreatedDate (\ s a -> s{_dCreatedDate = a}) . mapping _Time;
 
 -- | The name of the configuration document.
-ddName :: Lens' DocumentDescription (Maybe Text)
-ddName = lens _ddName (\ s a -> s{_ddName = a});
+dName :: Lens' DocumentDescription (Maybe Text)
+dName = lens _dName (\ s a -> s{_dName = a});
 
 instance FromJSON DocumentDescription where
         parseJSON

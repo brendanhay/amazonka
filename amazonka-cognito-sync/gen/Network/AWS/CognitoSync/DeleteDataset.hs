@@ -33,9 +33,9 @@ module Network.AWS.CognitoSync.DeleteDataset
     -- ** Request constructor
     , deleteDataset
     -- ** Request lenses
-    , drqIdentityPoolId
-    , drqIdentityId
-    , drqDatasetName
+    , delIdentityPoolId
+    , delIdentityId
+    , delDatasetName
 
     -- * Response
     , DeleteDatasetResponse
@@ -57,42 +57,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqIdentityPoolId'
+-- * 'delIdentityPoolId'
 --
--- * 'drqIdentityId'
+-- * 'delIdentityId'
 --
--- * 'drqDatasetName'
+-- * 'delDatasetName'
 data DeleteDataset = DeleteDataset'
-    { _drqIdentityPoolId :: !Text
-    , _drqIdentityId     :: !Text
-    , _drqDatasetName    :: !Text
+    { _delIdentityPoolId :: !Text
+    , _delIdentityId     :: !Text
+    , _delDatasetName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDataset' smart constructor.
 deleteDataset :: Text -> Text -> Text -> DeleteDataset
 deleteDataset pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     DeleteDataset'
-    { _drqIdentityPoolId = pIdentityPoolId_
-    , _drqIdentityId = pIdentityId_
-    , _drqDatasetName = pDatasetName_
+    { _delIdentityPoolId = pIdentityPoolId_
+    , _delIdentityId = pIdentityId_
+    , _delDatasetName = pDatasetName_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-drqIdentityPoolId :: Lens' DeleteDataset Text
-drqIdentityPoolId = lens _drqIdentityPoolId (\ s a -> s{_drqIdentityPoolId = a});
+delIdentityPoolId :: Lens' DeleteDataset Text
+delIdentityPoolId = lens _delIdentityPoolId (\ s a -> s{_delIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-drqIdentityId :: Lens' DeleteDataset Text
-drqIdentityId = lens _drqIdentityId (\ s a -> s{_drqIdentityId = a});
+delIdentityId :: Lens' DeleteDataset Text
+delIdentityId = lens _delIdentityId (\ s a -> s{_delIdentityId = a});
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-drqDatasetName :: Lens' DeleteDataset Text
-drqDatasetName = lens _drqDatasetName (\ s a -> s{_drqDatasetName = a});
+delDatasetName :: Lens' DeleteDataset Text
+delDatasetName = lens _delDatasetName (\ s a -> s{_delDatasetName = a});
 
 instance AWSRequest DeleteDataset where
         type Sv DeleteDataset = CognitoSync
@@ -114,9 +114,9 @@ instance ToHeaders DeleteDataset where
 instance ToPath DeleteDataset where
         toPath DeleteDataset'{..}
           = mconcat
-              ["/identitypools/", toText _drqIdentityPoolId,
-               "/identities/", toText _drqIdentityId, "/datasets/",
-               toText _drqDatasetName]
+              ["/identitypools/", toText _delIdentityPoolId,
+               "/identities/", toText _delIdentityId, "/datasets/",
+               toText _delDatasetName]
 
 instance ToQuery DeleteDataset where
         toQuery = const mempty

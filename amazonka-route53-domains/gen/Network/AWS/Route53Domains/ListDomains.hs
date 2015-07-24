@@ -28,8 +28,8 @@ module Network.AWS.Route53Domains.ListDomains
     -- ** Request constructor
     , listDomains
     -- ** Request lenses
-    , ldrqMaxItems
-    , ldrqMarker
+    , ldMaxItems
+    , ldMarker
 
     -- * Response
     , ListDomainsResponse
@@ -53,20 +53,20 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrqMaxItems'
+-- * 'ldMaxItems'
 --
--- * 'ldrqMarker'
+-- * 'ldMarker'
 data ListDomains = ListDomains'
-    { _ldrqMaxItems :: !(Maybe Int)
-    , _ldrqMarker   :: !(Maybe Text)
+    { _ldMaxItems :: !(Maybe Int)
+    , _ldMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: ListDomains
 listDomains =
     ListDomains'
-    { _ldrqMaxItems = Nothing
-    , _ldrqMarker = Nothing
+    { _ldMaxItems = Nothing
+    , _ldMarker = Nothing
     }
 
 -- | Number of domains to be returned.
@@ -78,8 +78,8 @@ listDomains =
 -- Constraints: A numeral between 1 and 100.
 --
 -- Required: No
-ldrqMaxItems :: Lens' ListDomains (Maybe Int)
-ldrqMaxItems = lens _ldrqMaxItems (\ s a -> s{_ldrqMaxItems = a});
+ldMaxItems :: Lens' ListDomains (Maybe Int)
+ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 
 -- | For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current AWS account is
@@ -96,15 +96,15 @@ ldrqMaxItems = lens _ldrqMaxItems (\ s a -> s{_ldrqMaxItems = a});
 -- request.
 --
 -- Required: No
-ldrqMarker :: Lens' ListDomains (Maybe Text)
-ldrqMarker = lens _ldrqMarker (\ s a -> s{_ldrqMarker = a});
+ldMarker :: Lens' ListDomains (Maybe Text)
+ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
 
 instance AWSPager ListDomains where
         page rq rs
           | stop (rs ^. ldrsNextPageMarker) = Nothing
           | stop (rs ^. ldrsDomains) = Nothing
           | otherwise =
-            Just $ rq & ldrqMarker .~ rs ^. ldrsNextPageMarker
+            Just $ rq & ldMarker .~ rs ^. ldrsNextPageMarker
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = Route53Domains
@@ -130,8 +130,7 @@ instance ToHeaders ListDomains where
 instance ToJSON ListDomains where
         toJSON ListDomains'{..}
           = object
-              ["MaxItems" .= _ldrqMaxItems,
-               "Marker" .= _ldrqMarker]
+              ["MaxItems" .= _ldMaxItems, "Marker" .= _ldMarker]
 
 instance ToPath ListDomains where
         toPath = const "/"

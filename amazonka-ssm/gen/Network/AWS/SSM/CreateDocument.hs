@@ -30,8 +30,8 @@ module Network.AWS.SSM.CreateDocument
     -- ** Request constructor
     , createDocument
     -- ** Request lenses
-    , cdrqContent
-    , cdrqName
+    , cdContent
+    , cdName
 
     -- * Response
     , CreateDocumentResponse
@@ -51,31 +51,31 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrqContent'
+-- * 'cdContent'
 --
--- * 'cdrqName'
+-- * 'cdName'
 data CreateDocument = CreateDocument'
-    { _cdrqContent :: !Text
-    , _cdrqName    :: !Text
+    { _cdContent :: !Text
+    , _cdName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDocument' smart constructor.
 createDocument :: Text -> Text -> CreateDocument
 createDocument pContent_ pName_ =
     CreateDocument'
-    { _cdrqContent = pContent_
-    , _cdrqName = pName_
+    { _cdContent = pContent_
+    , _cdName = pName_
     }
 
 -- | A valid JSON file. For more information about the contents of this file,
 -- see
 -- <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document>.
-cdrqContent :: Lens' CreateDocument Text
-cdrqContent = lens _cdrqContent (\ s a -> s{_cdrqContent = a});
+cdContent :: Lens' CreateDocument Text
+cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
 
 -- | A name for the configuration document.
-cdrqName :: Lens' CreateDocument Text
-cdrqName = lens _cdrqName (\ s a -> s{_cdrqName = a});
+cdName :: Lens' CreateDocument Text
+cdName = lens _cdName (\ s a -> s{_cdName = a});
 
 instance AWSRequest CreateDocument where
         type Sv CreateDocument = SSM
@@ -99,8 +99,7 @@ instance ToHeaders CreateDocument where
 
 instance ToJSON CreateDocument where
         toJSON CreateDocument'{..}
-          = object
-              ["Content" .= _cdrqContent, "Name" .= _cdrqName]
+          = object ["Content" .= _cdContent, "Name" .= _cdName]
 
 instance ToPath CreateDocument where
         toPath = const "/"

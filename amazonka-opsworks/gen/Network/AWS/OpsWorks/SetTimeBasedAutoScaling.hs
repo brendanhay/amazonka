@@ -35,8 +35,8 @@ module Network.AWS.OpsWorks.SetTimeBasedAutoScaling
     -- ** Request constructor
     , setTimeBasedAutoScaling
     -- ** Request lenses
-    , stbasrqAutoScalingSchedule
-    , stbasrqInstanceId
+    , stbasAutoScalingSchedule
+    , stbasInstanceId
 
     -- * Response
     , SetTimeBasedAutoScalingResponse
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stbasrqAutoScalingSchedule'
+-- * 'stbasAutoScalingSchedule'
 --
--- * 'stbasrqInstanceId'
+-- * 'stbasInstanceId'
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
-    { _stbasrqAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
-    , _stbasrqInstanceId          :: !Text
+    { _stbasAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
+    , _stbasInstanceId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTimeBasedAutoScaling' smart constructor.
 setTimeBasedAutoScaling :: Text -> SetTimeBasedAutoScaling
 setTimeBasedAutoScaling pInstanceId_ =
     SetTimeBasedAutoScaling'
-    { _stbasrqAutoScalingSchedule = Nothing
-    , _stbasrqInstanceId = pInstanceId_
+    { _stbasAutoScalingSchedule = Nothing
+    , _stbasInstanceId = pInstanceId_
     }
 
 -- | An @AutoScalingSchedule@ with the instance schedule.
-stbasrqAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
-stbasrqAutoScalingSchedule = lens _stbasrqAutoScalingSchedule (\ s a -> s{_stbasrqAutoScalingSchedule = a});
+stbasAutoScalingSchedule :: Lens' SetTimeBasedAutoScaling (Maybe WeeklyAutoScalingSchedule)
+stbasAutoScalingSchedule = lens _stbasAutoScalingSchedule (\ s a -> s{_stbasAutoScalingSchedule = a});
 
 -- | The instance ID.
-stbasrqInstanceId :: Lens' SetTimeBasedAutoScaling Text
-stbasrqInstanceId = lens _stbasrqInstanceId (\ s a -> s{_stbasrqInstanceId = a});
+stbasInstanceId :: Lens' SetTimeBasedAutoScaling Text
+stbasInstanceId = lens _stbasInstanceId (\ s a -> s{_stbasInstanceId = a});
 
 instance AWSRequest SetTimeBasedAutoScaling where
         type Sv SetTimeBasedAutoScaling = OpsWorks
@@ -98,9 +98,8 @@ instance ToHeaders SetTimeBasedAutoScaling where
 instance ToJSON SetTimeBasedAutoScaling where
         toJSON SetTimeBasedAutoScaling'{..}
           = object
-              ["AutoScalingSchedule" .=
-                 _stbasrqAutoScalingSchedule,
-               "InstanceId" .= _stbasrqInstanceId]
+              ["AutoScalingSchedule" .= _stbasAutoScalingSchedule,
+               "InstanceId" .= _stbasInstanceId]
 
 instance ToPath SetTimeBasedAutoScaling where
         toPath = const "/"

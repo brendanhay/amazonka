@@ -29,10 +29,10 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     -- ** Request constructor
     , updateMaintenanceStartTime
     -- ** Request lenses
-    , umstrqGatewayARN
-    , umstrqHourOfDay
-    , umstrqMinuteOfHour
-    , umstrqDayOfWeek
+    , umstGatewayARN
+    , umstHourOfDay
+    , umstMinuteOfHour
+    , umstDayOfWeek
 
     -- * Response
     , UpdateMaintenanceStartTimeResponse
@@ -58,49 +58,49 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'umstrqGatewayARN'
+-- * 'umstGatewayARN'
 --
--- * 'umstrqHourOfDay'
+-- * 'umstHourOfDay'
 --
--- * 'umstrqMinuteOfHour'
+-- * 'umstMinuteOfHour'
 --
--- * 'umstrqDayOfWeek'
+-- * 'umstDayOfWeek'
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
-    { _umstrqGatewayARN   :: !Text
-    , _umstrqHourOfDay    :: !Nat
-    , _umstrqMinuteOfHour :: !Nat
-    , _umstrqDayOfWeek    :: !Nat
+    { _umstGatewayARN   :: !Text
+    , _umstHourOfDay    :: !Nat
+    , _umstMinuteOfHour :: !Nat
+    , _umstDayOfWeek    :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMaintenanceStartTime' smart constructor.
 updateMaintenanceStartTime :: Text -> Natural -> Natural -> Natural -> UpdateMaintenanceStartTime
 updateMaintenanceStartTime pGatewayARN_ pHourOfDay_ pMinuteOfHour_ pDayOfWeek_ =
     UpdateMaintenanceStartTime'
-    { _umstrqGatewayARN = pGatewayARN_
-    , _umstrqHourOfDay = _Nat # pHourOfDay_
-    , _umstrqMinuteOfHour = _Nat # pMinuteOfHour_
-    , _umstrqDayOfWeek = _Nat # pDayOfWeek_
+    { _umstGatewayARN = pGatewayARN_
+    , _umstHourOfDay = _Nat # pHourOfDay_
+    , _umstMinuteOfHour = _Nat # pMinuteOfHour_
+    , _umstDayOfWeek = _Nat # pDayOfWeek_
     }
 
 -- | FIXME: Undocumented member.
-umstrqGatewayARN :: Lens' UpdateMaintenanceStartTime Text
-umstrqGatewayARN = lens _umstrqGatewayARN (\ s a -> s{_umstrqGatewayARN = a});
+umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
+umstGatewayARN = lens _umstGatewayARN (\ s a -> s{_umstGatewayARN = a});
 
 -- | The hour component of the maintenance start time represented as hh,
 -- where /hh/ is the hour (00 to 23). The hour of the day is in the time
 -- zone of the gateway.
-umstrqHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
-umstrqHourOfDay = lens _umstrqHourOfDay (\ s a -> s{_umstrqHourOfDay = a}) . _Nat;
+umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
+umstHourOfDay = lens _umstHourOfDay (\ s a -> s{_umstHourOfDay = a}) . _Nat;
 
 -- | The minute component of the maintenance start time represented as /mm/,
 -- where /mm/ is the minute (00 to 59). The minute of the hour is in the
 -- time zone of the gateway.
-umstrqMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
-umstrqMinuteOfHour = lens _umstrqMinuteOfHour (\ s a -> s{_umstrqMinuteOfHour = a}) . _Nat;
+umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
+umstMinuteOfHour = lens _umstMinuteOfHour (\ s a -> s{_umstMinuteOfHour = a}) . _Nat;
 
 -- | The maintenance start time day of the week.
-umstrqDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
-umstrqDayOfWeek = lens _umstrqDayOfWeek (\ s a -> s{_umstrqDayOfWeek = a}) . _Nat;
+umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
+umstDayOfWeek = lens _umstDayOfWeek (\ s a -> s{_umstDayOfWeek = a}) . _Nat;
 
 instance AWSRequest UpdateMaintenanceStartTime where
         type Sv UpdateMaintenanceStartTime = StorageGateway
@@ -126,10 +126,10 @@ instance ToHeaders UpdateMaintenanceStartTime where
 instance ToJSON UpdateMaintenanceStartTime where
         toJSON UpdateMaintenanceStartTime'{..}
           = object
-              ["GatewayARN" .= _umstrqGatewayARN,
-               "HourOfDay" .= _umstrqHourOfDay,
-               "MinuteOfHour" .= _umstrqMinuteOfHour,
-               "DayOfWeek" .= _umstrqDayOfWeek]
+              ["GatewayARN" .= _umstGatewayARN,
+               "HourOfDay" .= _umstHourOfDay,
+               "MinuteOfHour" .= _umstMinuteOfHour,
+               "DayOfWeek" .= _umstDayOfWeek]
 
 instance ToPath UpdateMaintenanceStartTime where
         toPath = const "/"

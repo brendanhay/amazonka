@@ -29,9 +29,9 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     -- ** Request constructor
     , listJobsByStatus
     -- ** Request lenses
-    , ljbsrqAscending
-    , ljbsrqPageToken
-    , ljbsrqStatus
+    , ljbsAscending
+    , ljbsPageToken
+    , ljbsStatus
 
     -- * Response
     , ListJobsByStatusResponse
@@ -55,43 +55,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljbsrqAscending'
+-- * 'ljbsAscending'
 --
--- * 'ljbsrqPageToken'
+-- * 'ljbsPageToken'
 --
--- * 'ljbsrqStatus'
+-- * 'ljbsStatus'
 data ListJobsByStatus = ListJobsByStatus'
-    { _ljbsrqAscending :: !(Maybe Text)
-    , _ljbsrqPageToken :: !(Maybe Text)
-    , _ljbsrqStatus    :: !Text
+    { _ljbsAscending :: !(Maybe Text)
+    , _ljbsPageToken :: !(Maybe Text)
+    , _ljbsStatus    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByStatus' smart constructor.
 listJobsByStatus :: Text -> ListJobsByStatus
 listJobsByStatus pStatus_ =
     ListJobsByStatus'
-    { _ljbsrqAscending = Nothing
-    , _ljbsrqPageToken = Nothing
-    , _ljbsrqStatus = pStatus_
+    { _ljbsAscending = Nothing
+    , _ljbsPageToken = Nothing
+    , _ljbsStatus = pStatus_
     }
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter @true@. To list jobs in reverse chronological order,
 -- enter @false@.
-ljbsrqAscending :: Lens' ListJobsByStatus (Maybe Text)
-ljbsrqAscending = lens _ljbsrqAscending (\ s a -> s{_ljbsrqAscending = a});
+ljbsAscending :: Lens' ListJobsByStatus (Maybe Text)
+ljbsAscending = lens _ljbsAscending (\ s a -> s{_ljbsAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-ljbsrqPageToken :: Lens' ListJobsByStatus (Maybe Text)
-ljbsrqPageToken = lens _ljbsrqPageToken (\ s a -> s{_ljbsrqPageToken = a});
+ljbsPageToken :: Lens' ListJobsByStatus (Maybe Text)
+ljbsPageToken = lens _ljbsPageToken (\ s a -> s{_ljbsPageToken = a});
 
 -- | To get information about all of the jobs associated with the current AWS
 -- account that have a given status, specify the following status:
 -- @Submitted@, @Progressing@, @Complete@, @Canceled@, or @Error@.
-ljbsrqStatus :: Lens' ListJobsByStatus Text
-ljbsrqStatus = lens _ljbsrqStatus (\ s a -> s{_ljbsrqStatus = a});
+ljbsStatus :: Lens' ListJobsByStatus Text
+ljbsStatus = lens _ljbsStatus (\ s a -> s{_ljbsStatus = a});
 
 instance AWSPager ListJobsByStatus where
         page rq rs
@@ -99,7 +99,7 @@ instance AWSPager ListJobsByStatus where
           | stop (rs ^. ljbsrsJobs) = Nothing
           | otherwise =
             Just $ rq &
-              ljbsrqPageToken .~ rs ^. ljbsrsNextPageToken
+              ljbsPageToken .~ rs ^. ljbsrsNextPageToken
 
 instance AWSRequest ListJobsByStatus where
         type Sv ListJobsByStatus = ElasticTranscoder
@@ -118,13 +118,13 @@ instance ToHeaders ListJobsByStatus where
 instance ToPath ListJobsByStatus where
         toPath ListJobsByStatus'{..}
           = mconcat
-              ["/2012-09-25/jobsByStatus/", toText _ljbsrqStatus]
+              ["/2012-09-25/jobsByStatus/", toText _ljbsStatus]
 
 instance ToQuery ListJobsByStatus where
         toQuery ListJobsByStatus'{..}
           = mconcat
-              ["Ascending" =: _ljbsrqAscending,
-               "PageToken" =: _ljbsrqPageToken]
+              ["Ascending" =: _ljbsAscending,
+               "PageToken" =: _ljbsPageToken]
 
 -- | The @ListJobsByStatusResponse@ structure.
 --

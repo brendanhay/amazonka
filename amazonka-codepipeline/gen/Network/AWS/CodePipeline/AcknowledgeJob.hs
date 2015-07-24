@@ -28,8 +28,8 @@ module Network.AWS.CodePipeline.AcknowledgeJob
     -- ** Request constructor
     , acknowledgeJob
     -- ** Request lenses
-    , ajrqJobId
-    , ajrqNonce
+    , ajJobId
+    , ajNonce
 
     -- * Response
     , AcknowledgeJobResponse
@@ -50,32 +50,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ajrqJobId'
+-- * 'ajJobId'
 --
--- * 'ajrqNonce'
+-- * 'ajNonce'
 data AcknowledgeJob = AcknowledgeJob'
-    { _ajrqJobId :: !Text
-    , _ajrqNonce :: !Text
+    { _ajJobId :: !Text
+    , _ajNonce :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcknowledgeJob' smart constructor.
 acknowledgeJob :: Text -> Text -> AcknowledgeJob
 acknowledgeJob pJobId_ pNonce_ =
     AcknowledgeJob'
-    { _ajrqJobId = pJobId_
-    , _ajrqNonce = pNonce_
+    { _ajJobId = pJobId_
+    , _ajNonce = pNonce_
     }
 
 -- | The unique system-generated ID of the job for which you want to confirm
 -- receipt.
-ajrqJobId :: Lens' AcknowledgeJob Text
-ajrqJobId = lens _ajrqJobId (\ s a -> s{_ajrqJobId = a});
+ajJobId :: Lens' AcknowledgeJob Text
+ajJobId = lens _ajJobId (\ s a -> s{_ajJobId = a});
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. This number must
 -- be returned in the response.
-ajrqNonce :: Lens' AcknowledgeJob Text
-ajrqNonce = lens _ajrqNonce (\ s a -> s{_ajrqNonce = a});
+ajNonce :: Lens' AcknowledgeJob Text
+ajNonce = lens _ajNonce (\ s a -> s{_ajNonce = a});
 
 instance AWSRequest AcknowledgeJob where
         type Sv AcknowledgeJob = CodePipeline
@@ -98,8 +98,7 @@ instance ToHeaders AcknowledgeJob where
 
 instance ToJSON AcknowledgeJob where
         toJSON AcknowledgeJob'{..}
-          = object
-              ["jobId" .= _ajrqJobId, "nonce" .= _ajrqNonce]
+          = object ["jobId" .= _ajJobId, "nonce" .= _ajNonce]
 
 instance ToPath AcknowledgeJob where
         toPath = const "/"

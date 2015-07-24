@@ -32,8 +32,8 @@ module Network.AWS.MachineLearning.GetDataSource
     -- ** Request constructor
     , getDataSource
     -- ** Request lenses
-    , gdsrqVerbose
-    , gdsrqDataSourceId
+    , gdsVerbose
+    , gdsDataSourceId
 
     -- * Response
     , GetDataSourceResponse
@@ -68,20 +68,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdsrqVerbose'
+-- * 'gdsVerbose'
 --
--- * 'gdsrqDataSourceId'
+-- * 'gdsDataSourceId'
 data GetDataSource = GetDataSource'
-    { _gdsrqVerbose      :: !(Maybe Bool)
-    , _gdsrqDataSourceId :: !Text
+    { _gdsVerbose      :: !(Maybe Bool)
+    , _gdsDataSourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataSource' smart constructor.
 getDataSource :: Text -> GetDataSource
 getDataSource pDataSourceId_ =
     GetDataSource'
-    { _gdsrqVerbose = Nothing
-    , _gdsrqDataSourceId = pDataSourceId_
+    { _gdsVerbose = Nothing
+    , _gdsDataSourceId = pDataSourceId_
     }
 
 -- | Specifies whether the @GetDataSource@ operation should return
@@ -90,12 +90,12 @@ getDataSource pDataSourceId_ =
 -- If true, @DataSourceSchema@ is returned.
 --
 -- If false, @DataSourceSchema@ is not returned.
-gdsrqVerbose :: Lens' GetDataSource (Maybe Bool)
-gdsrqVerbose = lens _gdsrqVerbose (\ s a -> s{_gdsrqVerbose = a});
+gdsVerbose :: Lens' GetDataSource (Maybe Bool)
+gdsVerbose = lens _gdsVerbose (\ s a -> s{_gdsVerbose = a});
 
 -- | The ID assigned to the @DataSource@ at creation.
-gdsrqDataSourceId :: Lens' GetDataSource Text
-gdsrqDataSourceId = lens _gdsrqDataSourceId (\ s a -> s{_gdsrqDataSourceId = a});
+gdsDataSourceId :: Lens' GetDataSource Text
+gdsDataSourceId = lens _gdsDataSourceId (\ s a -> s{_gdsDataSourceId = a});
 
 instance AWSRequest GetDataSource where
         type Sv GetDataSource = MachineLearning
@@ -134,8 +134,8 @@ instance ToHeaders GetDataSource where
 instance ToJSON GetDataSource where
         toJSON GetDataSource'{..}
           = object
-              ["Verbose" .= _gdsrqVerbose,
-               "DataSourceId" .= _gdsrqDataSourceId]
+              ["Verbose" .= _gdsVerbose,
+               "DataSourceId" .= _gdsDataSourceId]
 
 instance ToPath GetDataSource where
         toPath = const "/"

@@ -30,9 +30,9 @@ module Network.AWS.SES.ListIdentities
     -- ** Request constructor
     , listIdentities
     -- ** Request lenses
-    , lirqIdentityType
-    , lirqNextToken
-    , lirqMaxItems
+    , liIdentityType
+    , liNextToken
+    , liMaxItems
 
     -- * Response
     , ListIdentitiesResponse
@@ -57,47 +57,47 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirqIdentityType'
+-- * 'liIdentityType'
 --
--- * 'lirqNextToken'
+-- * 'liNextToken'
 --
--- * 'lirqMaxItems'
+-- * 'liMaxItems'
 data ListIdentities = ListIdentities'
-    { _lirqIdentityType :: !(Maybe IdentityType)
-    , _lirqNextToken    :: !(Maybe Text)
-    , _lirqMaxItems     :: !(Maybe Int)
+    { _liIdentityType :: !(Maybe IdentityType)
+    , _liNextToken    :: !(Maybe Text)
+    , _liMaxItems     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: ListIdentities
 listIdentities =
     ListIdentities'
-    { _lirqIdentityType = Nothing
-    , _lirqNextToken = Nothing
-    , _lirqMaxItems = Nothing
+    { _liIdentityType = Nothing
+    , _liNextToken = Nothing
+    , _liMaxItems = Nothing
     }
 
 -- | The type of the identities to list. Possible values are \"EmailAddress\"
 -- and \"Domain\". If this parameter is omitted, then all identities will
 -- be listed.
-lirqIdentityType :: Lens' ListIdentities (Maybe IdentityType)
-lirqIdentityType = lens _lirqIdentityType (\ s a -> s{_lirqIdentityType = a});
+liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
+liIdentityType = lens _liIdentityType (\ s a -> s{_liIdentityType = a});
 
 -- | The token to use for pagination.
-lirqNextToken :: Lens' ListIdentities (Maybe Text)
-lirqNextToken = lens _lirqNextToken (\ s a -> s{_lirqNextToken = a});
+liNextToken :: Lens' ListIdentities (Maybe Text)
+liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
 
 -- | The maximum number of identities per page. Possible values are 1-1000
 -- inclusive.
-lirqMaxItems :: Lens' ListIdentities (Maybe Int)
-lirqMaxItems = lens _lirqMaxItems (\ s a -> s{_lirqMaxItems = a});
+liMaxItems :: Lens' ListIdentities (Maybe Int)
+liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
 instance AWSPager ListIdentities where
         page rq rs
           | stop (rs ^. lirsNextToken) = Nothing
           | stop (rs ^. lirsIdentities) = Nothing
           | otherwise =
-            Just $ rq & lirqNextToken .~ rs ^. lirsNextToken
+            Just $ rq & liNextToken .~ rs ^. lirsNextToken
 
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = SES
@@ -122,9 +122,9 @@ instance ToQuery ListIdentities where
           = mconcat
               ["Action" =: ("ListIdentities" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "IdentityType" =: _lirqIdentityType,
-               "NextToken" =: _lirqNextToken,
-               "MaxItems" =: _lirqMaxItems]
+               "IdentityType" =: _liIdentityType,
+               "NextToken" =: _liNextToken,
+               "MaxItems" =: _liMaxItems]
 
 -- | Represents a list of all verified identities for the AWS Account.
 --

@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.BatchGetApplications
     -- ** Request constructor
     , batchGetApplications
     -- ** Request lenses
-    , bgarqApplicationNames
+    , bgaApplicationNames
 
     -- * Response
     , BatchGetApplicationsResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgarqApplicationNames'
+-- * 'bgaApplicationNames'
 newtype BatchGetApplications = BatchGetApplications'
-    { _bgarqApplicationNames :: Maybe [Text]
+    { _bgaApplicationNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetApplications' smart constructor.
 batchGetApplications :: BatchGetApplications
 batchGetApplications =
     BatchGetApplications'
-    { _bgarqApplicationNames = Nothing
+    { _bgaApplicationNames = Nothing
     }
 
 -- | A list of application names, with multiple application names separated
 -- by spaces.
-bgarqApplicationNames :: Lens' BatchGetApplications [Text]
-bgarqApplicationNames = lens _bgarqApplicationNames (\ s a -> s{_bgarqApplicationNames = a}) . _Default;
+bgaApplicationNames :: Lens' BatchGetApplications [Text]
+bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default;
 
 instance AWSRequest BatchGetApplications where
         type Sv BatchGetApplications = CodeDeploy
@@ -90,8 +90,7 @@ instance ToHeaders BatchGetApplications where
 
 instance ToJSON BatchGetApplications where
         toJSON BatchGetApplications'{..}
-          = object
-              ["applicationNames" .= _bgarqApplicationNames]
+          = object ["applicationNames" .= _bgaApplicationNames]
 
 instance ToPath BatchGetApplications where
         toPath = const "/"

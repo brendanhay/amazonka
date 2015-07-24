@@ -28,8 +28,8 @@ module Network.AWS.EMR.ListBootstrapActions
     -- ** Request constructor
     , listBootstrapActions
     -- ** Request lenses
-    , lbarqMarker
-    , lbarqClusterId
+    , lbaMarker
+    , lbaClusterId
 
     -- * Response
     , ListBootstrapActionsResponse
@@ -53,37 +53,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lbarqMarker'
+-- * 'lbaMarker'
 --
--- * 'lbarqClusterId'
+-- * 'lbaClusterId'
 data ListBootstrapActions = ListBootstrapActions'
-    { _lbarqMarker    :: !(Maybe Text)
-    , _lbarqClusterId :: !Text
+    { _lbaMarker    :: !(Maybe Text)
+    , _lbaClusterId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBootstrapActions' smart constructor.
 listBootstrapActions :: Text -> ListBootstrapActions
 listBootstrapActions pClusterId_ =
     ListBootstrapActions'
-    { _lbarqMarker = Nothing
-    , _lbarqClusterId = pClusterId_
+    { _lbaMarker = Nothing
+    , _lbaClusterId = pClusterId_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve
 -- .
-lbarqMarker :: Lens' ListBootstrapActions (Maybe Text)
-lbarqMarker = lens _lbarqMarker (\ s a -> s{_lbarqMarker = a});
+lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
+lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
 
 -- | The cluster identifier for the bootstrap actions to list .
-lbarqClusterId :: Lens' ListBootstrapActions Text
-lbarqClusterId = lens _lbarqClusterId (\ s a -> s{_lbarqClusterId = a});
+lbaClusterId :: Lens' ListBootstrapActions Text
+lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
 
 instance AWSPager ListBootstrapActions where
         page rq rs
           | stop (rs ^. lbarsMarker) = Nothing
           | stop (rs ^. lbarsBootstrapActions) = Nothing
           | otherwise =
-            Just $ rq & lbarqMarker .~ rs ^. lbarsMarker
+            Just $ rq & lbaMarker .~ rs ^. lbarsMarker
 
 instance AWSRequest ListBootstrapActions where
         type Sv ListBootstrapActions = EMR
@@ -111,8 +111,8 @@ instance ToHeaders ListBootstrapActions where
 instance ToJSON ListBootstrapActions where
         toJSON ListBootstrapActions'{..}
           = object
-              ["Marker" .= _lbarqMarker,
-               "ClusterId" .= _lbarqClusterId]
+              ["Marker" .= _lbaMarker,
+               "ClusterId" .= _lbaClusterId]
 
 instance ToPath ListBootstrapActions where
         toPath = const "/"

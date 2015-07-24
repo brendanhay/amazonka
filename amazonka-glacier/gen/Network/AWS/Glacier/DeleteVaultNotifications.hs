@@ -43,8 +43,8 @@ module Network.AWS.Glacier.DeleteVaultNotifications
     -- ** Request constructor
     , deleteVaultNotifications
     -- ** Request lenses
-    , dvnrqAccountId
-    , dvnrqVaultName
+    , dvnAccountId
+    , dvnVaultName
 
     -- * Response
     , DeleteVaultNotificationsResponse
@@ -64,20 +64,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvnrqAccountId'
+-- * 'dvnAccountId'
 --
--- * 'dvnrqVaultName'
+-- * 'dvnVaultName'
 data DeleteVaultNotifications = DeleteVaultNotifications'
-    { _dvnrqAccountId :: !Text
-    , _dvnrqVaultName :: !Text
+    { _dvnAccountId :: !Text
+    , _dvnVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultNotifications' smart constructor.
 deleteVaultNotifications :: Text -> Text -> DeleteVaultNotifications
 deleteVaultNotifications pAccountId_ pVaultName_ =
     DeleteVaultNotifications'
-    { _dvnrqAccountId = pAccountId_
-    , _dvnrqVaultName = pVaultName_
+    { _dvnAccountId = pAccountId_
+    , _dvnVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -85,12 +85,12 @@ deleteVaultNotifications pAccountId_ pVaultName_ =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-dvnrqAccountId :: Lens' DeleteVaultNotifications Text
-dvnrqAccountId = lens _dvnrqAccountId (\ s a -> s{_dvnrqAccountId = a});
+dvnAccountId :: Lens' DeleteVaultNotifications Text
+dvnAccountId = lens _dvnAccountId (\ s a -> s{_dvnAccountId = a});
 
 -- | The name of the vault.
-dvnrqVaultName :: Lens' DeleteVaultNotifications Text
-dvnrqVaultName = lens _dvnrqVaultName (\ s a -> s{_dvnrqVaultName = a});
+dvnVaultName :: Lens' DeleteVaultNotifications Text
+dvnVaultName = lens _dvnVaultName (\ s a -> s{_dvnVaultName = a});
 
 instance AWSRequest DeleteVaultNotifications where
         type Sv DeleteVaultNotifications = Glacier
@@ -106,9 +106,8 @@ instance ToHeaders DeleteVaultNotifications where
 instance ToPath DeleteVaultNotifications where
         toPath DeleteVaultNotifications'{..}
           = mconcat
-              ["/", toText _dvnrqAccountId, "/vaults/",
-               toText _dvnrqVaultName,
-               "/notification-configuration"]
+              ["/", toText _dvnAccountId, "/vaults/",
+               toText _dvnVaultName, "/notification-configuration"]
 
 instance ToQuery DeleteVaultNotifications where
         toQuery = const mempty

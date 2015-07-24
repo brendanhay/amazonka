@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.GetStackPolicy
     -- ** Request constructor
     , getStackPolicy
     -- ** Request lenses
-    , gsprqStackName
+    , gspStackName
 
     -- * Response
     , GetStackPolicyResponse
@@ -50,22 +50,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsprqStackName'
+-- * 'gspStackName'
 newtype GetStackPolicy = GetStackPolicy'
-    { _gsprqStackName :: Text
+    { _gspStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStackPolicy' smart constructor.
 getStackPolicy :: Text -> GetStackPolicy
 getStackPolicy pStackName_ =
     GetStackPolicy'
-    { _gsprqStackName = pStackName_
+    { _gspStackName = pStackName_
     }
 
 -- | The name or unique stack ID that is associated with the stack whose
 -- policy you want to get.
-gsprqStackName :: Lens' GetStackPolicy Text
-gsprqStackName = lens _gsprqStackName (\ s a -> s{_gsprqStackName = a});
+gspStackName :: Lens' GetStackPolicy Text
+gspStackName = lens _gspStackName (\ s a -> s{_gspStackName = a});
 
 instance AWSRequest GetStackPolicy where
         type Sv GetStackPolicy = CloudFormation
@@ -88,7 +88,7 @@ instance ToQuery GetStackPolicy where
           = mconcat
               ["Action" =: ("GetStackPolicy" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _gsprqStackName]
+               "StackName" =: _gspStackName]
 
 -- | The output for the GetStackPolicy action.
 --

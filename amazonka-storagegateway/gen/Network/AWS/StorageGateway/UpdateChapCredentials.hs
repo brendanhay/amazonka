@@ -33,10 +33,10 @@ module Network.AWS.StorageGateway.UpdateChapCredentials
     -- ** Request constructor
     , updateChapCredentials
     -- ** Request lenses
-    , uccrqSecretToAuthenticateTarget
-    , uccrqTargetARN
-    , uccrqSecretToAuthenticateInitiator
-    , uccrqInitiatorName
+    , uccSecretToAuthenticateTarget
+    , uccTargetARN
+    , uccSecretToAuthenticateInitiator
+    , uccInitiatorName
 
     -- * Response
     , UpdateChapCredentialsResponse
@@ -64,28 +64,28 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uccrqSecretToAuthenticateTarget'
+-- * 'uccSecretToAuthenticateTarget'
 --
--- * 'uccrqTargetARN'
+-- * 'uccTargetARN'
 --
--- * 'uccrqSecretToAuthenticateInitiator'
+-- * 'uccSecretToAuthenticateInitiator'
 --
--- * 'uccrqInitiatorName'
+-- * 'uccInitiatorName'
 data UpdateChapCredentials = UpdateChapCredentials'
-    { _uccrqSecretToAuthenticateTarget    :: !(Maybe Text)
-    , _uccrqTargetARN                     :: !Text
-    , _uccrqSecretToAuthenticateInitiator :: !Text
-    , _uccrqInitiatorName                 :: !Text
+    { _uccSecretToAuthenticateTarget    :: !(Maybe Text)
+    , _uccTargetARN                     :: !Text
+    , _uccSecretToAuthenticateInitiator :: !Text
+    , _uccInitiatorName                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateChapCredentials' smart constructor.
 updateChapCredentials :: Text -> Text -> Text -> UpdateChapCredentials
 updateChapCredentials pTargetARN_ pSecretToAuthenticateInitiator_ pInitiatorName_ =
     UpdateChapCredentials'
-    { _uccrqSecretToAuthenticateTarget = Nothing
-    , _uccrqTargetARN = pTargetARN_
-    , _uccrqSecretToAuthenticateInitiator = pSecretToAuthenticateInitiator_
-    , _uccrqInitiatorName = pInitiatorName_
+    { _uccSecretToAuthenticateTarget = Nothing
+    , _uccTargetARN = pTargetARN_
+    , _uccSecretToAuthenticateInitiator = pSecretToAuthenticateInitiator_
+    , _uccInitiatorName = pInitiatorName_
     }
 
 -- | The secret key that the target must provide to participate in mutual
@@ -94,25 +94,25 @@ updateChapCredentials pTargetARN_ pSecretToAuthenticateInitiator_ pInitiatorName
 -- Byte constraints: Minimum bytes of 12. Maximum bytes of 16.
 --
 -- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
-uccrqSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
-uccrqSecretToAuthenticateTarget = lens _uccrqSecretToAuthenticateTarget (\ s a -> s{_uccrqSecretToAuthenticateTarget = a});
+uccSecretToAuthenticateTarget :: Lens' UpdateChapCredentials (Maybe Text)
+uccSecretToAuthenticateTarget = lens _uccSecretToAuthenticateTarget (\ s a -> s{_uccSecretToAuthenticateTarget = a});
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return the TargetARN for
 -- specified VolumeARN.
-uccrqTargetARN :: Lens' UpdateChapCredentials Text
-uccrqTargetARN = lens _uccrqTargetARN (\ s a -> s{_uccrqTargetARN = a});
+uccTargetARN :: Lens' UpdateChapCredentials Text
+uccTargetARN = lens _uccTargetARN (\ s a -> s{_uccTargetARN = a});
 
 -- | The secret key that the initiator (for example, the Windows client) must
 -- provide to participate in mutual CHAP with the target.
 --
 -- The secret key must be between 12 and 16 bytes when encoded in UTF-8.
-uccrqSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials Text
-uccrqSecretToAuthenticateInitiator = lens _uccrqSecretToAuthenticateInitiator (\ s a -> s{_uccrqSecretToAuthenticateInitiator = a});
+uccSecretToAuthenticateInitiator :: Lens' UpdateChapCredentials Text
+uccSecretToAuthenticateInitiator = lens _uccSecretToAuthenticateInitiator (\ s a -> s{_uccSecretToAuthenticateInitiator = a});
 
 -- | The iSCSI initiator that connects to the target.
-uccrqInitiatorName :: Lens' UpdateChapCredentials Text
-uccrqInitiatorName = lens _uccrqInitiatorName (\ s a -> s{_uccrqInitiatorName = a});
+uccInitiatorName :: Lens' UpdateChapCredentials Text
+uccInitiatorName = lens _uccInitiatorName (\ s a -> s{_uccInitiatorName = a});
 
 instance AWSRequest UpdateChapCredentials where
         type Sv UpdateChapCredentials = StorageGateway
@@ -140,11 +140,11 @@ instance ToJSON UpdateChapCredentials where
         toJSON UpdateChapCredentials'{..}
           = object
               ["SecretToAuthenticateTarget" .=
-                 _uccrqSecretToAuthenticateTarget,
-               "TargetARN" .= _uccrqTargetARN,
+                 _uccSecretToAuthenticateTarget,
+               "TargetARN" .= _uccTargetARN,
                "SecretToAuthenticateInitiator" .=
-                 _uccrqSecretToAuthenticateInitiator,
-               "InitiatorName" .= _uccrqInitiatorName]
+                 _uccSecretToAuthenticateInitiator,
+               "InitiatorName" .= _uccInitiatorName]
 
 instance ToPath UpdateChapCredentials where
         toPath = const "/"

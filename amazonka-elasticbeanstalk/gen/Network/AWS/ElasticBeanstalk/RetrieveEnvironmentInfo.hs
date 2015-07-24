@@ -32,9 +32,9 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- ** Request constructor
     , retrieveEnvironmentInfo
     -- ** Request lenses
-    , rrqEnvironmentName
-    , rrqEnvironmentId
-    , rrqInfoType
+    , rEnvironmentName
+    , rEnvironmentId
+    , rInfoType
 
     -- * Response
     , RetrieveEnvironmentInfoResponse
@@ -56,24 +56,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrqEnvironmentName'
+-- * 'rEnvironmentName'
 --
--- * 'rrqEnvironmentId'
+-- * 'rEnvironmentId'
 --
--- * 'rrqInfoType'
+-- * 'rInfoType'
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'
-    { _rrqEnvironmentName :: !(Maybe Text)
-    , _rrqEnvironmentId   :: !(Maybe Text)
-    , _rrqInfoType        :: !EnvironmentInfoType
+    { _rEnvironmentName :: !(Maybe Text)
+    , _rEnvironmentId   :: !(Maybe Text)
+    , _rInfoType        :: !EnvironmentInfoType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveEnvironmentInfo' smart constructor.
 retrieveEnvironmentInfo :: EnvironmentInfoType -> RetrieveEnvironmentInfo
 retrieveEnvironmentInfo pInfoType_ =
     RetrieveEnvironmentInfo'
-    { _rrqEnvironmentName = Nothing
-    , _rrqEnvironmentId = Nothing
-    , _rrqInfoType = pInfoType_
+    { _rEnvironmentName = Nothing
+    , _rEnvironmentId = Nothing
+    , _rInfoType = pInfoType_
     }
 
 -- | The name of the data\'s environment.
@@ -84,8 +84,8 @@ retrieveEnvironmentInfo pInfoType_ =
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-rrqEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-rrqEnvironmentName = lens _rrqEnvironmentName (\ s a -> s{_rrqEnvironmentName = a});
+rEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
+rEnvironmentName = lens _rEnvironmentName (\ s a -> s{_rEnvironmentName = a});
 
 -- | The ID of the data\'s environment.
 --
@@ -95,12 +95,12 @@ rrqEnvironmentName = lens _rrqEnvironmentName (\ s a -> s{_rrqEnvironmentName = 
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-rrqEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-rrqEnvironmentId = lens _rrqEnvironmentId (\ s a -> s{_rrqEnvironmentId = a});
+rEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
+rEnvironmentId = lens _rEnvironmentId (\ s a -> s{_rEnvironmentId = a});
 
 -- | The type of information to retrieve.
-rrqInfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
-rrqInfoType = lens _rrqInfoType (\ s a -> s{_rrqInfoType = a});
+rInfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
+rInfoType = lens _rInfoType (\ s a -> s{_rInfoType = a});
 
 instance AWSRequest RetrieveEnvironmentInfo where
         type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
@@ -127,9 +127,9 @@ instance ToQuery RetrieveEnvironmentInfo where
               ["Action" =:
                  ("RetrieveEnvironmentInfo" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _rrqEnvironmentName,
-               "EnvironmentId" =: _rrqEnvironmentId,
-               "InfoType" =: _rrqInfoType]
+               "EnvironmentName" =: _rEnvironmentName,
+               "EnvironmentId" =: _rEnvironmentId,
+               "InfoType" =: _rInfoType]
 
 -- | Result message containing a description of the requested environment
 -- info.

@@ -38,9 +38,9 @@ module Network.AWS.IAM.ListRolePolicies
     -- ** Request constructor
     , listRolePolicies
     -- ** Request lenses
-    , lrprqMaxItems
-    , lrprqMarker
-    , lrprqRoleName
+    , lrpMaxItems
+    , lrpMarker
+    , lrpRoleName
 
     -- * Response
     , ListRolePoliciesResponse
@@ -63,24 +63,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrprqMaxItems'
+-- * 'lrpMaxItems'
 --
--- * 'lrprqMarker'
+-- * 'lrpMarker'
 --
--- * 'lrprqRoleName'
+-- * 'lrpRoleName'
 data ListRolePolicies = ListRolePolicies'
-    { _lrprqMaxItems :: !(Maybe Nat)
-    , _lrprqMarker   :: !(Maybe Text)
-    , _lrprqRoleName :: !Text
+    { _lrpMaxItems :: !(Maybe Nat)
+    , _lrpMarker   :: !(Maybe Text)
+    , _lrpRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolePolicies' smart constructor.
 listRolePolicies :: Text -> ListRolePolicies
 listRolePolicies pRoleName_ =
     ListRolePolicies'
-    { _lrprqMaxItems = Nothing
-    , _lrprqMarker = Nothing
-    , _lrprqRoleName = pRoleName_
+    { _lrpMaxItems = Nothing
+    , _lrpMarker = Nothing
+    , _lrpRoleName = pRoleName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -89,25 +89,25 @@ listRolePolicies pRoleName_ =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lrprqMaxItems :: Lens' ListRolePolicies (Maybe Natural)
-lrprqMaxItems = lens _lrprqMaxItems (\ s a -> s{_lrprqMaxItems = a}) . mapping _Nat;
+lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
+lrpMaxItems = lens _lrpMaxItems (\ s a -> s{_lrpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lrprqMarker :: Lens' ListRolePolicies (Maybe Text)
-lrprqMarker = lens _lrprqMarker (\ s a -> s{_lrprqMarker = a});
+lrpMarker :: Lens' ListRolePolicies (Maybe Text)
+lrpMarker = lens _lrpMarker (\ s a -> s{_lrpMarker = a});
 
 -- | The name of the role to list policies for.
-lrprqRoleName :: Lens' ListRolePolicies Text
-lrprqRoleName = lens _lrprqRoleName (\ s a -> s{_lrprqRoleName = a});
+lrpRoleName :: Lens' ListRolePolicies Text
+lrpRoleName = lens _lrpRoleName (\ s a -> s{_lrpRoleName = a});
 
 instance AWSPager ListRolePolicies where
         page rq rs
           | stop (rs ^. lrprsIsTruncated) = Nothing
           | isNothing (rs ^. lrprsMarker) = Nothing
           | otherwise =
-            Just $ rq & lrprqMarker .~ rs ^. lrprsMarker
+            Just $ rq & lrpMarker .~ rs ^. lrprsMarker
 
 instance AWSRequest ListRolePolicies where
         type Sv ListRolePolicies = IAM
@@ -134,9 +134,8 @@ instance ToQuery ListRolePolicies where
           = mconcat
               ["Action" =: ("ListRolePolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lrprqMaxItems,
-               "Marker" =: _lrprqMarker,
-               "RoleName" =: _lrprqRoleName]
+               "MaxItems" =: _lrpMaxItems, "Marker" =: _lrpMarker,
+               "RoleName" =: _lrpRoleName]
 
 -- | Contains the response to a successful ListRolePolicies request.
 --

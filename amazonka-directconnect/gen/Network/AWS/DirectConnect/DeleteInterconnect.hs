@@ -27,7 +27,7 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     -- ** Request constructor
     , deleteInterconnect
     -- ** Request lenses
-    , drqInterconnectId
+    , dInterconnectId
 
     -- * Response
     , DeleteInterconnectResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqInterconnectId'
+-- * 'dInterconnectId'
 newtype DeleteInterconnect = DeleteInterconnect'
-    { _drqInterconnectId :: Text
+    { _dInterconnectId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInterconnect' smart constructor.
 deleteInterconnect :: Text -> DeleteInterconnect
 deleteInterconnect pInterconnectId_ =
     DeleteInterconnect'
-    { _drqInterconnectId = pInterconnectId_
+    { _dInterconnectId = pInterconnectId_
     }
 
 -- | FIXME: Undocumented member.
-drqInterconnectId :: Lens' DeleteInterconnect Text
-drqInterconnectId = lens _drqInterconnectId (\ s a -> s{_drqInterconnectId = a});
+dInterconnectId :: Lens' DeleteInterconnect Text
+dInterconnectId = lens _dInterconnectId (\ s a -> s{_dInterconnectId = a});
 
 instance AWSRequest DeleteInterconnect where
         type Sv DeleteInterconnect = DirectConnect
@@ -87,7 +87,7 @@ instance ToHeaders DeleteInterconnect where
 
 instance ToJSON DeleteInterconnect where
         toJSON DeleteInterconnect'{..}
-          = object ["interconnectId" .= _drqInterconnectId]
+          = object ["interconnectId" .= _dInterconnectId]
 
 instance ToPath DeleteInterconnect where
         toPath = const "/"

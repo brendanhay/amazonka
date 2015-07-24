@@ -29,7 +29,7 @@ module Network.AWS.SDB.DomainMetadata
     -- ** Request constructor
     , domainMetadata
     -- ** Request lenses
-    , dmrqDomainName
+    , dmDomainName
 
     -- * Response
     , DomainMetadataResponse
@@ -55,21 +55,21 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmrqDomainName'
+-- * 'dmDomainName'
 newtype DomainMetadata = DomainMetadata'
-    { _dmrqDomainName :: Text
+    { _dmDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DomainMetadata' smart constructor.
 domainMetadata :: Text -> DomainMetadata
 domainMetadata pDomainName_ =
     DomainMetadata'
-    { _dmrqDomainName = pDomainName_
+    { _dmDomainName = pDomainName_
     }
 
 -- | The name of the domain for which to display the metadata of.
-dmrqDomainName :: Lens' DomainMetadata Text
-dmrqDomainName = lens _dmrqDomainName (\ s a -> s{_dmrqDomainName = a});
+dmDomainName :: Lens' DomainMetadata Text
+dmDomainName = lens _dmDomainName (\ s a -> s{_dmDomainName = a});
 
 instance AWSRequest DomainMetadata where
         type Sv DomainMetadata = SDB
@@ -99,7 +99,7 @@ instance ToQuery DomainMetadata where
           = mconcat
               ["Action" =: ("DomainMetadata" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _dmrqDomainName]
+               "DomainName" =: _dmDomainName]
 
 -- | /See:/ 'domainMetadataResponse' smart constructor.
 --

@@ -29,7 +29,7 @@ module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     -- ** Request constructor
     , describeMaintenanceStartTime
     -- ** Request lenses
-    , dmstrqGatewayARN
+    , dmstGatewayARN
 
     -- * Response
     , DescribeMaintenanceStartTimeResponse
@@ -55,21 +55,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmstrqGatewayARN'
+-- * 'dmstGatewayARN'
 newtype DescribeMaintenanceStartTime = DescribeMaintenanceStartTime'
-    { _dmstrqGatewayARN :: Text
+    { _dmstGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMaintenanceStartTime' smart constructor.
 describeMaintenanceStartTime :: Text -> DescribeMaintenanceStartTime
 describeMaintenanceStartTime pGatewayARN_ =
     DescribeMaintenanceStartTime'
-    { _dmstrqGatewayARN = pGatewayARN_
+    { _dmstGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-dmstrqGatewayARN :: Lens' DescribeMaintenanceStartTime Text
-dmstrqGatewayARN = lens _dmstrqGatewayARN (\ s a -> s{_dmstrqGatewayARN = a});
+dmstGatewayARN :: Lens' DescribeMaintenanceStartTime Text
+dmstGatewayARN = lens _dmstGatewayARN (\ s a -> s{_dmstGatewayARN = a});
 
 instance AWSRequest DescribeMaintenanceStartTime
          where
@@ -99,7 +99,7 @@ instance ToHeaders DescribeMaintenanceStartTime where
 
 instance ToJSON DescribeMaintenanceStartTime where
         toJSON DescribeMaintenanceStartTime'{..}
-          = object ["GatewayARN" .= _dmstrqGatewayARN]
+          = object ["GatewayARN" .= _dmstGatewayARN]
 
 instance ToPath DescribeMaintenanceStartTime where
         toPath = const "/"

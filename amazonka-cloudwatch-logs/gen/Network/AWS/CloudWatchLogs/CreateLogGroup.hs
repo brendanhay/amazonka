@@ -35,7 +35,7 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
     -- ** Request constructor
     , createLogGroup
     -- ** Request lenses
-    , clgrqLogGroupName
+    , clgLogGroupName
 
     -- * Response
     , CreateLogGroupResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clgrqLogGroupName'
+-- * 'clgLogGroupName'
 newtype CreateLogGroup = CreateLogGroup'
-    { _clgrqLogGroupName :: Text
+    { _clgLogGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogGroup' smart constructor.
 createLogGroup :: Text -> CreateLogGroup
 createLogGroup pLogGroupName_ =
     CreateLogGroup'
-    { _clgrqLogGroupName = pLogGroupName_
+    { _clgLogGroupName = pLogGroupName_
     }
 
 -- | The name of the log group to create.
-clgrqLogGroupName :: Lens' CreateLogGroup Text
-clgrqLogGroupName = lens _clgrqLogGroupName (\ s a -> s{_clgrqLogGroupName = a});
+clgLogGroupName :: Lens' CreateLogGroup Text
+clgLogGroupName = lens _clgLogGroupName (\ s a -> s{_clgLogGroupName = a});
 
 instance AWSRequest CreateLogGroup where
         type Sv CreateLogGroup = CloudWatchLogs
@@ -85,7 +85,7 @@ instance ToHeaders CreateLogGroup where
 
 instance ToJSON CreateLogGroup where
         toJSON CreateLogGroup'{..}
-          = object ["logGroupName" .= _clgrqLogGroupName]
+          = object ["logGroupName" .= _clgLogGroupName]
 
 instance ToPath CreateLogGroup where
         toPath = const "/"

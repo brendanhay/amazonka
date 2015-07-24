@@ -33,8 +33,8 @@ module Network.AWS.EMR.RemoveTags
     -- ** Request constructor
     , removeTags
     -- ** Request lenses
-    , rtrqResourceId
-    , rtrqTagKeys
+    , rtResourceId
+    , rtTagKeys
 
     -- * Response
     , RemoveTagsResponse
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrqResourceId'
+-- * 'rtResourceId'
 --
--- * 'rtrqTagKeys'
+-- * 'rtTagKeys'
 data RemoveTags = RemoveTags'
-    { _rtrqResourceId :: !Text
-    , _rtrqTagKeys    :: ![Text]
+    { _rtResourceId :: !Text
+    , _rtTagKeys    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
 removeTags pResourceId_ =
     RemoveTags'
-    { _rtrqResourceId = pResourceId_
-    , _rtrqTagKeys = mempty
+    { _rtResourceId = pResourceId_
+    , _rtTagKeys = mempty
     }
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
-rtrqResourceId :: Lens' RemoveTags Text
-rtrqResourceId = lens _rtrqResourceId (\ s a -> s{_rtrqResourceId = a});
+rtResourceId :: Lens' RemoveTags Text
+rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
 
 -- | A list of tag keys to remove from a resource.
-rtrqTagKeys :: Lens' RemoveTags [Text]
-rtrqTagKeys = lens _rtrqTagKeys (\ s a -> s{_rtrqTagKeys = a});
+rtTagKeys :: Lens' RemoveTags [Text]
+rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a});
 
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = EMR
@@ -101,8 +101,8 @@ instance ToHeaders RemoveTags where
 instance ToJSON RemoveTags where
         toJSON RemoveTags'{..}
           = object
-              ["ResourceId" .= _rtrqResourceId,
-               "TagKeys" .= _rtrqTagKeys]
+              ["ResourceId" .= _rtResourceId,
+               "TagKeys" .= _rtTagKeys]
 
 instance ToPath RemoveTags where
         toPath = const "/"

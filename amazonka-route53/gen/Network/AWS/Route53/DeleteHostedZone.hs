@@ -41,7 +41,7 @@ module Network.AWS.Route53.DeleteHostedZone
     -- ** Request constructor
     , deleteHostedZone
     -- ** Request lenses
-    , dhzrqId
+    , dhzId
 
     -- * Response
     , DeleteHostedZoneResponse
@@ -64,21 +64,21 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhzrqId'
+-- * 'dhzId'
 newtype DeleteHostedZone = DeleteHostedZone'
-    { _dhzrqId :: Text
+    { _dhzId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHostedZone' smart constructor.
 deleteHostedZone :: Text -> DeleteHostedZone
 deleteHostedZone pId_ =
     DeleteHostedZone'
-    { _dhzrqId = pId_
+    { _dhzId = pId_
     }
 
 -- | The ID of the hosted zone you want to delete.
-dhzrqId :: Lens' DeleteHostedZone Text
-dhzrqId = lens _dhzrqId (\ s a -> s{_dhzrqId = a});
+dhzId :: Lens' DeleteHostedZone Text
+dhzId = lens _dhzId (\ s a -> s{_dhzId = a});
 
 instance AWSRequest DeleteHostedZone where
         type Sv DeleteHostedZone = Route53
@@ -95,8 +95,7 @@ instance ToHeaders DeleteHostedZone where
 
 instance ToPath DeleteHostedZone where
         toPath DeleteHostedZone'{..}
-          = mconcat
-              ["/2013-04-01/hostedzone/", toText _dhzrqId]
+          = mconcat ["/2013-04-01/hostedzone/", toText _dhzId]
 
 instance ToQuery DeleteHostedZone where
         toQuery = const mempty

@@ -60,11 +60,11 @@ module Network.AWS.KMS.GenerateDataKey
     -- ** Request constructor
     , generateDataKey
     -- ** Request lenses
-    , gdkrqKeySpec
-    , gdkrqEncryptionContext
-    , gdkrqNumberOfBytes
-    , gdkrqGrantTokens
-    , gdkrqKeyId
+    , gdkKeySpec
+    , gdkEncryptionContext
+    , gdkNumberOfBytes
+    , gdkGrantTokens
+    , gdkKeyId
 
     -- * Response
     , GenerateDataKeyResponse
@@ -86,56 +86,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdkrqKeySpec'
+-- * 'gdkKeySpec'
 --
--- * 'gdkrqEncryptionContext'
+-- * 'gdkEncryptionContext'
 --
--- * 'gdkrqNumberOfBytes'
+-- * 'gdkNumberOfBytes'
 --
--- * 'gdkrqGrantTokens'
+-- * 'gdkGrantTokens'
 --
--- * 'gdkrqKeyId'
+-- * 'gdkKeyId'
 data GenerateDataKey = GenerateDataKey'
-    { _gdkrqKeySpec           :: !(Maybe DataKeySpec)
-    , _gdkrqEncryptionContext :: !(Maybe (Map Text Text))
-    , _gdkrqNumberOfBytes     :: !(Maybe Nat)
-    , _gdkrqGrantTokens       :: !(Maybe [Text])
-    , _gdkrqKeyId             :: !Text
+    { _gdkKeySpec           :: !(Maybe DataKeySpec)
+    , _gdkEncryptionContext :: !(Maybe (Map Text Text))
+    , _gdkNumberOfBytes     :: !(Maybe Nat)
+    , _gdkGrantTokens       :: !(Maybe [Text])
+    , _gdkKeyId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKey' smart constructor.
 generateDataKey :: Text -> GenerateDataKey
 generateDataKey pKeyId_ =
     GenerateDataKey'
-    { _gdkrqKeySpec = Nothing
-    , _gdkrqEncryptionContext = Nothing
-    , _gdkrqNumberOfBytes = Nothing
-    , _gdkrqGrantTokens = Nothing
-    , _gdkrqKeyId = pKeyId_
+    { _gdkKeySpec = Nothing
+    , _gdkEncryptionContext = Nothing
+    , _gdkNumberOfBytes = Nothing
+    , _gdkGrantTokens = Nothing
+    , _gdkKeyId = pKeyId_
     }
 
 -- | Value that identifies the encryption algorithm and key size to generate
 -- a data key for. Currently this can be AES_128 or AES_256.
-gdkrqKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
-gdkrqKeySpec = lens _gdkrqKeySpec (\ s a -> s{_gdkrqKeySpec = a});
+gdkKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
+gdkKeySpec = lens _gdkKeySpec (\ s a -> s{_gdkKeySpec = a});
 
 -- | Name\/value pair that contains additional data to be authenticated
 -- during the encryption and decryption processes that use the key. This
 -- value is logged by AWS CloudTrail to provide context around the data
 -- encrypted by the key.
-gdkrqEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
-gdkrqEncryptionContext = lens _gdkrqEncryptionContext (\ s a -> s{_gdkrqEncryptionContext = a}) . _Default . _Map;
+gdkEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
+gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionContext = a}) . _Default . _Map;
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, and 1024. 1024 is the current limit. We recommend that
 -- you use the @KeySpec@ parameter instead.
-gdkrqNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
-gdkrqNumberOfBytes = lens _gdkrqNumberOfBytes (\ s a -> s{_gdkrqNumberOfBytes = a}) . mapping _Nat;
+gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
+gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . mapping _Nat;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-gdkrqGrantTokens :: Lens' GenerateDataKey [Text]
-gdkrqGrantTokens = lens _gdkrqGrantTokens (\ s a -> s{_gdkrqGrantTokens = a}) . _Default;
+gdkGrantTokens :: Lens' GenerateDataKey [Text]
+gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -148,8 +148,8 @@ gdkrqGrantTokens = lens _gdkrqGrantTokens (\ s a -> s{_gdkrqGrantTokens = a}) . 
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-gdkrqKeyId :: Lens' GenerateDataKey Text
-gdkrqKeyId = lens _gdkrqKeyId (\ s a -> s{_gdkrqKeyId = a});
+gdkKeyId :: Lens' GenerateDataKey Text
+gdkKeyId = lens _gdkKeyId (\ s a -> s{_gdkKeyId = a});
 
 instance AWSRequest GenerateDataKey where
         type Sv GenerateDataKey = KMS
@@ -175,11 +175,11 @@ instance ToHeaders GenerateDataKey where
 instance ToJSON GenerateDataKey where
         toJSON GenerateDataKey'{..}
           = object
-              ["KeySpec" .= _gdkrqKeySpec,
-               "EncryptionContext" .= _gdkrqEncryptionContext,
-               "NumberOfBytes" .= _gdkrqNumberOfBytes,
-               "GrantTokens" .= _gdkrqGrantTokens,
-               "KeyId" .= _gdkrqKeyId]
+              ["KeySpec" .= _gdkKeySpec,
+               "EncryptionContext" .= _gdkEncryptionContext,
+               "NumberOfBytes" .= _gdkNumberOfBytes,
+               "GrantTokens" .= _gdkGrantTokens,
+               "KeyId" .= _gdkKeyId]
 
 instance ToPath GenerateDataKey where
         toPath = const "/"

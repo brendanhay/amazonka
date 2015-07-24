@@ -27,8 +27,8 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     -- ** Request constructor
     , describeLunaClient
     -- ** Request lenses
-    , dlcrqClientARN
-    , dlcrqCertificateFingerprint
+    , dlcClientARN
+    , dlcCertificateFingerprint
 
     -- * Response
     , DescribeLunaClientResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcrqClientARN'
+-- * 'dlcClientARN'
 --
--- * 'dlcrqCertificateFingerprint'
+-- * 'dlcCertificateFingerprint'
 data DescribeLunaClient = DescribeLunaClient'
-    { _dlcrqClientARN              :: !(Maybe Text)
-    , _dlcrqCertificateFingerprint :: !(Maybe Text)
+    { _dlcClientARN              :: !(Maybe Text)
+    , _dlcCertificateFingerprint :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLunaClient' smart constructor.
 describeLunaClient :: DescribeLunaClient
 describeLunaClient =
     DescribeLunaClient'
-    { _dlcrqClientARN = Nothing
-    , _dlcrqCertificateFingerprint = Nothing
+    { _dlcClientARN = Nothing
+    , _dlcCertificateFingerprint = Nothing
     }
 
 -- | The ARN of the client.
-dlcrqClientARN :: Lens' DescribeLunaClient (Maybe Text)
-dlcrqClientARN = lens _dlcrqClientARN (\ s a -> s{_dlcrqClientARN = a});
+dlcClientARN :: Lens' DescribeLunaClient (Maybe Text)
+dlcClientARN = lens _dlcClientARN (\ s a -> s{_dlcClientARN = a});
 
 -- | The certificate fingerprint.
-dlcrqCertificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
-dlcrqCertificateFingerprint = lens _dlcrqCertificateFingerprint (\ s a -> s{_dlcrqCertificateFingerprint = a});
+dlcCertificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
+dlcCertificateFingerprint = lens _dlcCertificateFingerprint (\ s a -> s{_dlcCertificateFingerprint = a});
 
 instance AWSRequest DescribeLunaClient where
         type Sv DescribeLunaClient = CloudHSM
@@ -105,9 +105,9 @@ instance ToHeaders DescribeLunaClient where
 instance ToJSON DescribeLunaClient where
         toJSON DescribeLunaClient'{..}
           = object
-              ["ClientArn" .= _dlcrqClientARN,
+              ["ClientArn" .= _dlcClientARN,
                "CertificateFingerprint" .=
-                 _dlcrqCertificateFingerprint]
+                 _dlcCertificateFingerprint]
 
 instance ToPath DescribeLunaClient where
         toPath = const "/"

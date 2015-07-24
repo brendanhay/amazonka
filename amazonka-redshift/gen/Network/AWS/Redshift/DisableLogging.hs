@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DisableLogging
     -- ** Request constructor
     , disableLogging
     -- ** Request lenses
-    , dlrqClusterIdentifier
+    , dlClusterIdentifier
 
     -- * Response
     , LoggingStatus
@@ -54,23 +54,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlrqClusterIdentifier'
+-- * 'dlClusterIdentifier'
 newtype DisableLogging = DisableLogging'
-    { _dlrqClusterIdentifier :: Text
+    { _dlClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableLogging' smart constructor.
 disableLogging :: Text -> DisableLogging
 disableLogging pClusterIdentifier_ =
     DisableLogging'
-    { _dlrqClusterIdentifier = pClusterIdentifier_
+    { _dlClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The identifier of the cluster on which logging is to be stopped.
 --
 -- Example: @examplecluster@
-dlrqClusterIdentifier :: Lens' DisableLogging Text
-dlrqClusterIdentifier = lens _dlrqClusterIdentifier (\ s a -> s{_dlrqClusterIdentifier = a});
+dlClusterIdentifier :: Lens' DisableLogging Text
+dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier = a});
 
 instance AWSRequest DisableLogging where
         type Sv DisableLogging = Redshift
@@ -91,4 +91,4 @@ instance ToQuery DisableLogging where
           = mconcat
               ["Action" =: ("DisableLogging" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _dlrqClusterIdentifier]
+               "ClusterIdentifier" =: _dlClusterIdentifier]

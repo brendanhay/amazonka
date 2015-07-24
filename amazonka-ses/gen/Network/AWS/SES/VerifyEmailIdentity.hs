@@ -30,7 +30,7 @@ module Network.AWS.SES.VerifyEmailIdentity
     -- ** Request constructor
     , verifyEmailIdentity
     -- ** Request lenses
-    , veirqEmailAddress
+    , veiEmailAddress
 
     -- * Response
     , VerifyEmailIdentityResponse
@@ -52,21 +52,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'veirqEmailAddress'
+-- * 'veiEmailAddress'
 newtype VerifyEmailIdentity = VerifyEmailIdentity'
-    { _veirqEmailAddress :: Text
+    { _veiEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyEmailIdentity' smart constructor.
 verifyEmailIdentity :: Text -> VerifyEmailIdentity
 verifyEmailIdentity pEmailAddress_ =
     VerifyEmailIdentity'
-    { _veirqEmailAddress = pEmailAddress_
+    { _veiEmailAddress = pEmailAddress_
     }
 
 -- | The email address to be verified.
-veirqEmailAddress :: Lens' VerifyEmailIdentity Text
-veirqEmailAddress = lens _veirqEmailAddress (\ s a -> s{_veirqEmailAddress = a});
+veiEmailAddress :: Lens' VerifyEmailIdentity Text
+veiEmailAddress = lens _veiEmailAddress (\ s a -> s{_veiEmailAddress = a});
 
 instance AWSRequest VerifyEmailIdentity where
         type Sv VerifyEmailIdentity = SES
@@ -89,7 +89,7 @@ instance ToQuery VerifyEmailIdentity where
           = mconcat
               ["Action" =: ("VerifyEmailIdentity" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EmailAddress" =: _veirqEmailAddress]
+               "EmailAddress" =: _veiEmailAddress]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.

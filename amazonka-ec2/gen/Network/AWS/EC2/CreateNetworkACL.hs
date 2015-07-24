@@ -33,8 +33,8 @@ module Network.AWS.EC2.CreateNetworkACL
     -- ** Request constructor
     , createNetworkACL
     -- ** Request lenses
-    , cnarqDryRun
-    , cnarqVPCId
+    , cnaDryRun
+    , cnaVPCId
 
     -- * Response
     , CreateNetworkACLResponse
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cnarqDryRun'
+-- * 'cnaDryRun'
 --
--- * 'cnarqVPCId'
+-- * 'cnaVPCId'
 data CreateNetworkACL = CreateNetworkACL'
-    { _cnarqDryRun :: !(Maybe Bool)
-    , _cnarqVPCId  :: !Text
+    { _cnaDryRun :: !(Maybe Bool)
+    , _cnaVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACL' smart constructor.
 createNetworkACL :: Text -> CreateNetworkACL
 createNetworkACL pVPCId_ =
     CreateNetworkACL'
-    { _cnarqDryRun = Nothing
-    , _cnarqVPCId = pVPCId_
+    { _cnaDryRun = Nothing
+    , _cnaVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cnarqDryRun :: Lens' CreateNetworkACL (Maybe Bool)
-cnarqDryRun = lens _cnarqDryRun (\ s a -> s{_cnarqDryRun = a});
+cnaDryRun :: Lens' CreateNetworkACL (Maybe Bool)
+cnaDryRun = lens _cnaDryRun (\ s a -> s{_cnaDryRun = a});
 
 -- | The ID of the VPC.
-cnarqVPCId :: Lens' CreateNetworkACL Text
-cnarqVPCId = lens _cnarqVPCId (\ s a -> s{_cnarqVPCId = a});
+cnaVPCId :: Lens' CreateNetworkACL Text
+cnaVPCId = lens _cnaVPCId (\ s a -> s{_cnaVPCId = a});
 
 instance AWSRequest CreateNetworkACL where
         type Sv CreateNetworkACL = EC2
@@ -102,7 +102,7 @@ instance ToQuery CreateNetworkACL where
           = mconcat
               ["Action" =: ("CreateNetworkACL" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cnarqDryRun, "VpcId" =: _cnarqVPCId]
+               "DryRun" =: _cnaDryRun, "VpcId" =: _cnaVPCId]
 
 -- | /See:/ 'createNetworkACLResponse' smart constructor.
 --

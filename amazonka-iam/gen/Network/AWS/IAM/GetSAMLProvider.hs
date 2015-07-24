@@ -31,7 +31,7 @@ module Network.AWS.IAM.GetSAMLProvider
     -- ** Request constructor
     , getSAMLProvider
     -- ** Request lenses
-    , gsamlprqSAMLProviderARN
+    , gsamlpSAMLProviderARN
 
     -- * Response
     , GetSAMLProviderResponse
@@ -53,22 +53,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsamlprqSAMLProviderARN'
+-- * 'gsamlpSAMLProviderARN'
 newtype GetSAMLProvider = GetSAMLProvider'
-    { _gsamlprqSAMLProviderARN :: Text
+    { _gsamlpSAMLProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSAMLProvider' smart constructor.
 getSAMLProvider :: Text -> GetSAMLProvider
 getSAMLProvider pSAMLProviderARN_ =
     GetSAMLProvider'
-    { _gsamlprqSAMLProviderARN = pSAMLProviderARN_
+    { _gsamlpSAMLProviderARN = pSAMLProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to get information
 -- about.
-gsamlprqSAMLProviderARN :: Lens' GetSAMLProvider Text
-gsamlprqSAMLProviderARN = lens _gsamlprqSAMLProviderARN (\ s a -> s{_gsamlprqSAMLProviderARN = a});
+gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
+gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a});
 
 instance AWSRequest GetSAMLProvider where
         type Sv GetSAMLProvider = IAM
@@ -93,7 +93,7 @@ instance ToQuery GetSAMLProvider where
           = mconcat
               ["Action" =: ("GetSAMLProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "SAMLProviderArn" =: _gsamlprqSAMLProviderARN]
+               "SAMLProviderArn" =: _gsamlpSAMLProviderARN]
 
 -- | Contains the response to a successful GetSAMLProvider request.
 --

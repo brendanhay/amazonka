@@ -48,17 +48,17 @@ module Network.AWS.EC2.RegisterImage
     -- ** Request constructor
     , registerImage
     -- ** Request lenses
-    , rrqVirtualizationType
-    , rrqImageLocation
-    , rrqRAMDiskId
-    , rrqKernelId
-    , rrqRootDeviceName
-    , rrqSRIOVNetSupport
-    , rrqArchitecture
-    , rrqBlockDeviceMappings
-    , rrqDryRun
-    , rrqDescription
-    , rrqName
+    , riVirtualizationType
+    , riImageLocation
+    , riRAMDiskId
+    , riKernelId
+    , riRootDeviceName
+    , riSRIOVNetSupport
+    , riArchitecture
+    , riBlockDeviceMappings
+    , riDryRun
+    , riDescription
+    , riName
 
     -- * Response
     , RegisterImageResponse
@@ -78,80 +78,80 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrqVirtualizationType'
+-- * 'riVirtualizationType'
 --
--- * 'rrqImageLocation'
+-- * 'riImageLocation'
 --
--- * 'rrqRAMDiskId'
+-- * 'riRAMDiskId'
 --
--- * 'rrqKernelId'
+-- * 'riKernelId'
 --
--- * 'rrqRootDeviceName'
+-- * 'riRootDeviceName'
 --
--- * 'rrqSRIOVNetSupport'
+-- * 'riSRIOVNetSupport'
 --
--- * 'rrqArchitecture'
+-- * 'riArchitecture'
 --
--- * 'rrqBlockDeviceMappings'
+-- * 'riBlockDeviceMappings'
 --
--- * 'rrqDryRun'
+-- * 'riDryRun'
 --
--- * 'rrqDescription'
+-- * 'riDescription'
 --
--- * 'rrqName'
+-- * 'riName'
 data RegisterImage = RegisterImage'
-    { _rrqVirtualizationType  :: !(Maybe Text)
-    , _rrqImageLocation       :: !(Maybe Text)
-    , _rrqRAMDiskId           :: !(Maybe Text)
-    , _rrqKernelId            :: !(Maybe Text)
-    , _rrqRootDeviceName      :: !(Maybe Text)
-    , _rrqSRIOVNetSupport     :: !(Maybe Text)
-    , _rrqArchitecture        :: !(Maybe ArchitectureValues)
-    , _rrqBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _rrqDryRun              :: !(Maybe Bool)
-    , _rrqDescription         :: !(Maybe Text)
-    , _rrqName                :: !Text
+    { _riVirtualizationType  :: !(Maybe Text)
+    , _riImageLocation       :: !(Maybe Text)
+    , _riRAMDiskId           :: !(Maybe Text)
+    , _riKernelId            :: !(Maybe Text)
+    , _riRootDeviceName      :: !(Maybe Text)
+    , _riSRIOVNetSupport     :: !(Maybe Text)
+    , _riArchitecture        :: !(Maybe ArchitectureValues)
+    , _riBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _riDryRun              :: !(Maybe Bool)
+    , _riDescription         :: !(Maybe Text)
+    , _riName                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterImage' smart constructor.
 registerImage :: Text -> RegisterImage
 registerImage pName_ =
     RegisterImage'
-    { _rrqVirtualizationType = Nothing
-    , _rrqImageLocation = Nothing
-    , _rrqRAMDiskId = Nothing
-    , _rrqKernelId = Nothing
-    , _rrqRootDeviceName = Nothing
-    , _rrqSRIOVNetSupport = Nothing
-    , _rrqArchitecture = Nothing
-    , _rrqBlockDeviceMappings = Nothing
-    , _rrqDryRun = Nothing
-    , _rrqDescription = Nothing
-    , _rrqName = pName_
+    { _riVirtualizationType = Nothing
+    , _riImageLocation = Nothing
+    , _riRAMDiskId = Nothing
+    , _riKernelId = Nothing
+    , _riRootDeviceName = Nothing
+    , _riSRIOVNetSupport = Nothing
+    , _riArchitecture = Nothing
+    , _riBlockDeviceMappings = Nothing
+    , _riDryRun = Nothing
+    , _riDescription = Nothing
+    , _riName = pName_
     }
 
 -- | The type of virtualization.
 --
 -- Default: @paravirtual@
-rrqVirtualizationType :: Lens' RegisterImage (Maybe Text)
-rrqVirtualizationType = lens _rrqVirtualizationType (\ s a -> s{_rrqVirtualizationType = a});
+riVirtualizationType :: Lens' RegisterImage (Maybe Text)
+riVirtualizationType = lens _riVirtualizationType (\ s a -> s{_riVirtualizationType = a});
 
 -- | The full path to your AMI manifest in Amazon S3 storage.
-rrqImageLocation :: Lens' RegisterImage (Maybe Text)
-rrqImageLocation = lens _rrqImageLocation (\ s a -> s{_rrqImageLocation = a});
+riImageLocation :: Lens' RegisterImage (Maybe Text)
+riImageLocation = lens _riImageLocation (\ s a -> s{_riImageLocation = a});
 
 -- | The ID of the RAM disk.
-rrqRAMDiskId :: Lens' RegisterImage (Maybe Text)
-rrqRAMDiskId = lens _rrqRAMDiskId (\ s a -> s{_rrqRAMDiskId = a});
+riRAMDiskId :: Lens' RegisterImage (Maybe Text)
+riRAMDiskId = lens _riRAMDiskId (\ s a -> s{_riRAMDiskId = a});
 
 -- | The ID of the kernel.
-rrqKernelId :: Lens' RegisterImage (Maybe Text)
-rrqKernelId = lens _rrqKernelId (\ s a -> s{_rrqKernelId = a});
+riKernelId :: Lens' RegisterImage (Maybe Text)
+riKernelId = lens _riKernelId (\ s a -> s{_riKernelId = a});
 
 -- | The name of the root device (for example, @\/dev\/sda1@, or
 -- @\/dev\/xvda@).
-rrqRootDeviceName :: Lens' RegisterImage (Maybe Text)
-rrqRootDeviceName = lens _rrqRootDeviceName (\ s a -> s{_rrqRootDeviceName = a});
+riRootDeviceName :: Lens' RegisterImage (Maybe Text)
+riRootDeviceName = lens _riRootDeviceName (\ s a -> s{_riRootDeviceName = a});
 
 -- | Set to @simple@ to enable enhanced networking for the AMI and any
 -- instances that you launch from the AMI.
@@ -160,38 +160,38 @@ rrqRootDeviceName = lens _rrqRootDeviceName (\ s a -> s{_rrqRootDeviceName = a})
 --
 -- This option is supported only for HVM AMIs. Specifying this option with
 -- a PV AMI can make instances launched from the AMI unreachable.
-rrqSRIOVNetSupport :: Lens' RegisterImage (Maybe Text)
-rrqSRIOVNetSupport = lens _rrqSRIOVNetSupport (\ s a -> s{_rrqSRIOVNetSupport = a});
+riSRIOVNetSupport :: Lens' RegisterImage (Maybe Text)
+riSRIOVNetSupport = lens _riSRIOVNetSupport (\ s a -> s{_riSRIOVNetSupport = a});
 
 -- | The architecture of the AMI.
 --
 -- Default: For Amazon EBS-backed AMIs, @i386@. For instance store-backed
 -- AMIs, the architecture specified in the manifest file.
-rrqArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
-rrqArchitecture = lens _rrqArchitecture (\ s a -> s{_rrqArchitecture = a});
+riArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
+riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
 
 -- | One or more block device mapping entries.
-rrqBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
-rrqBlockDeviceMappings = lens _rrqBlockDeviceMappings (\ s a -> s{_rrqBlockDeviceMappings = a}) . _Default;
+riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
+riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rrqDryRun :: Lens' RegisterImage (Maybe Bool)
-rrqDryRun = lens _rrqDryRun (\ s a -> s{_rrqDryRun = a});
+riDryRun :: Lens' RegisterImage (Maybe Bool)
+riDryRun = lens _riDryRun (\ s a -> s{_riDryRun = a});
 
 -- | A description for your AMI.
-rrqDescription :: Lens' RegisterImage (Maybe Text)
-rrqDescription = lens _rrqDescription (\ s a -> s{_rrqDescription = a});
+riDescription :: Lens' RegisterImage (Maybe Text)
+riDescription = lens _riDescription (\ s a -> s{_riDescription = a});
 
 -- | A name for your AMI.
 --
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
 -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
 -- quotes (\'), at-signs (\@), or underscores(_)
-rrqName :: Lens' RegisterImage Text
-rrqName = lens _rrqName (\ s a -> s{_rrqName = a});
+riName :: Lens' RegisterImage Text
+riName = lens _riName (\ s a -> s{_riName = a});
 
 instance AWSRequest RegisterImage where
         type Sv RegisterImage = EC2
@@ -214,18 +214,18 @@ instance ToQuery RegisterImage where
           = mconcat
               ["Action" =: ("RegisterImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "VirtualizationType" =: _rrqVirtualizationType,
-               "ImageLocation" =: _rrqImageLocation,
-               "RamdiskId" =: _rrqRAMDiskId,
-               "KernelId" =: _rrqKernelId,
-               "RootDeviceName" =: _rrqRootDeviceName,
-               "SriovNetSupport" =: _rrqSRIOVNetSupport,
-               "Architecture" =: _rrqArchitecture,
+               "VirtualizationType" =: _riVirtualizationType,
+               "ImageLocation" =: _riImageLocation,
+               "RamdiskId" =: _riRAMDiskId,
+               "KernelId" =: _riKernelId,
+               "RootDeviceName" =: _riRootDeviceName,
+               "SriovNetSupport" =: _riSRIOVNetSupport,
+               "Architecture" =: _riArchitecture,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
-                    _rrqBlockDeviceMappings),
-               "DryRun" =: _rrqDryRun,
-               "Description" =: _rrqDescription, "Name" =: _rrqName]
+                    _riBlockDeviceMappings),
+               "DryRun" =: _riDryRun,
+               "Description" =: _riDescription, "Name" =: _riName]
 
 -- | /See:/ 'registerImageResponse' smart constructor.
 --

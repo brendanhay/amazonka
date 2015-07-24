@@ -37,8 +37,8 @@ module Network.AWS.IAM.GetUserPolicy
     -- ** Request constructor
     , getUserPolicy
     -- ** Request lenses
-    , guprqUserName
-    , guprqPolicyName
+    , gupUserName
+    , gupPolicyName
 
     -- * Response
     , GetUserPolicyResponse
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'guprqUserName'
+-- * 'gupUserName'
 --
--- * 'guprqPolicyName'
+-- * 'gupPolicyName'
 data GetUserPolicy = GetUserPolicy'
-    { _guprqUserName   :: !Text
-    , _guprqPolicyName :: !Text
+    { _gupUserName   :: !Text
+    , _gupPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserPolicy' smart constructor.
 getUserPolicy :: Text -> Text -> GetUserPolicy
 getUserPolicy pUserName_ pPolicyName_ =
     GetUserPolicy'
-    { _guprqUserName = pUserName_
-    , _guprqPolicyName = pPolicyName_
+    { _gupUserName = pUserName_
+    , _gupPolicyName = pPolicyName_
     }
 
 -- | The name of the user who the policy is associated with.
-guprqUserName :: Lens' GetUserPolicy Text
-guprqUserName = lens _guprqUserName (\ s a -> s{_guprqUserName = a});
+gupUserName :: Lens' GetUserPolicy Text
+gupUserName = lens _gupUserName (\ s a -> s{_gupUserName = a});
 
 -- | The name of the policy document to get.
-guprqPolicyName :: Lens' GetUserPolicy Text
-guprqPolicyName = lens _guprqPolicyName (\ s a -> s{_guprqPolicyName = a});
+gupPolicyName :: Lens' GetUserPolicy Text
+gupPolicyName = lens _gupPolicyName (\ s a -> s{_gupPolicyName = a});
 
 instance AWSRequest GetUserPolicy where
         type Sv GetUserPolicy = IAM
@@ -107,8 +107,8 @@ instance ToQuery GetUserPolicy where
           = mconcat
               ["Action" =: ("GetUserPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _guprqUserName,
-               "PolicyName" =: _guprqPolicyName]
+               "UserName" =: _gupUserName,
+               "PolicyName" =: _gupPolicyName]
 
 -- | Contains the response to a successful GetUserPolicy request.
 --

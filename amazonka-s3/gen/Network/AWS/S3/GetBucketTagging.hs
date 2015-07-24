@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketTagging
     -- ** Request constructor
     , getBucketTagging
     -- ** Request lenses
-    , gbtrqBucket
+    , gbtBucket
 
     -- * Response
     , GetBucketTaggingResponse
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbtrqBucket'
+-- * 'gbtBucket'
 newtype GetBucketTagging = GetBucketTagging'
-    { _gbtrqBucket :: BucketName
+    { _gbtBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketTagging' smart constructor.
 getBucketTagging :: BucketName -> GetBucketTagging
 getBucketTagging pBucket_ =
     GetBucketTagging'
-    { _gbtrqBucket = pBucket_
+    { _gbtBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gbtrqBucket :: Lens' GetBucketTagging BucketName
-gbtrqBucket = lens _gbtrqBucket (\ s a -> s{_gbtrqBucket = a});
+gbtBucket :: Lens' GetBucketTagging BucketName
+gbtBucket = lens _gbtBucket (\ s a -> s{_gbtBucket = a});
 
 instance AWSRequest GetBucketTagging where
         type Sv GetBucketTagging = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketTagging where
 
 instance ToPath GetBucketTagging where
         toPath GetBucketTagging'{..}
-          = mconcat ["/", toText _gbtrqBucket]
+          = mconcat ["/", toText _gbtBucket]
 
 instance ToQuery GetBucketTagging where
         toQuery = const (mconcat ["tagging"])

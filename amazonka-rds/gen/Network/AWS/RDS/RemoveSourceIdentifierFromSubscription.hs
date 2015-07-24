@@ -28,8 +28,8 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     -- ** Request constructor
     , removeSourceIdentifierFromSubscription
     -- ** Request lenses
-    , rsifsrqSubscriptionName
-    , rsifsrqSourceIdentifier
+    , rsifsSubscriptionName
+    , rsifsSourceIdentifier
 
     -- * Response
     , RemoveSourceIdentifierFromSubscriptionResponse
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsifsrqSubscriptionName'
+-- * 'rsifsSubscriptionName'
 --
--- * 'rsifsrqSourceIdentifier'
+-- * 'rsifsSourceIdentifier'
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
-    { _rsifsrqSubscriptionName :: !Text
-    , _rsifsrqSourceIdentifier :: !Text
+    { _rsifsSubscriptionName :: !Text
+    , _rsifsSourceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveSourceIdentifierFromSubscription' smart constructor.
 removeSourceIdentifierFromSubscription :: Text -> Text -> RemoveSourceIdentifierFromSubscription
 removeSourceIdentifierFromSubscription pSubscriptionName_ pSourceIdentifier_ =
     RemoveSourceIdentifierFromSubscription'
-    { _rsifsrqSubscriptionName = pSubscriptionName_
-    , _rsifsrqSourceIdentifier = pSourceIdentifier_
+    { _rsifsSubscriptionName = pSubscriptionName_
+    , _rsifsSourceIdentifier = pSourceIdentifier_
     }
 
 -- | The name of the RDS event notification subscription you want to remove a
 -- source identifier from.
-rsifsrqSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
-rsifsrqSubscriptionName = lens _rsifsrqSubscriptionName (\ s a -> s{_rsifsrqSubscriptionName = a});
+rsifsSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
+rsifsSubscriptionName = lens _rsifsSubscriptionName (\ s a -> s{_rsifsSubscriptionName = a});
 
 -- | The source identifier to be removed from the subscription, such as the
 -- __DB instance identifier__ for a DB instance or the name of a security
 -- group.
-rsifsrqSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
-rsifsrqSourceIdentifier = lens _rsifsrqSourceIdentifier (\ s a -> s{_rsifsrqSourceIdentifier = a});
+rsifsSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
+rsifsSourceIdentifier = lens _rsifsSourceIdentifier (\ s a -> s{_rsifsSourceIdentifier = a});
 
 instance AWSRequest
          RemoveSourceIdentifierFromSubscription where
@@ -107,8 +107,8 @@ instance ToQuery
                  ("RemoveSourceIdentifierFromSubscription" ::
                     ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SubscriptionName" =: _rsifsrqSubscriptionName,
-               "SourceIdentifier" =: _rsifsrqSourceIdentifier]
+               "SubscriptionName" =: _rsifsSubscriptionName,
+               "SourceIdentifier" =: _rsifsSourceIdentifier]
 
 -- | /See:/ 'removeSourceIdentifierFromSubscriptionResponse' smart constructor.
 --

@@ -27,9 +27,9 @@ module Network.AWS.S3.PutBucketWebsite
     -- ** Request constructor
     , putBucketWebsite
     -- ** Request lenses
-    , pbwrqContentMD5
-    , pbwrqBucket
-    , pbwrqWebsiteConfiguration
+    , pbwContentMD5
+    , pbwBucket
+    , pbwWebsiteConfiguration
 
     -- * Response
     , PutBucketWebsiteResponse
@@ -46,37 +46,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbwrqContentMD5'
+-- * 'pbwContentMD5'
 --
--- * 'pbwrqBucket'
+-- * 'pbwBucket'
 --
--- * 'pbwrqWebsiteConfiguration'
+-- * 'pbwWebsiteConfiguration'
 data PutBucketWebsite = PutBucketWebsite'
-    { _pbwrqContentMD5           :: !(Maybe Text)
-    , _pbwrqBucket               :: !BucketName
-    , _pbwrqWebsiteConfiguration :: !WebsiteConfiguration
+    { _pbwContentMD5           :: !(Maybe Text)
+    , _pbwBucket               :: !BucketName
+    , _pbwWebsiteConfiguration :: !WebsiteConfiguration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketWebsite' smart constructor.
 putBucketWebsite :: BucketName -> WebsiteConfiguration -> PutBucketWebsite
 putBucketWebsite pBucket_ pWebsiteConfiguration_ =
     PutBucketWebsite'
-    { _pbwrqContentMD5 = Nothing
-    , _pbwrqBucket = pBucket_
-    , _pbwrqWebsiteConfiguration = pWebsiteConfiguration_
+    { _pbwContentMD5 = Nothing
+    , _pbwBucket = pBucket_
+    , _pbwWebsiteConfiguration = pWebsiteConfiguration_
     }
 
 -- | FIXME: Undocumented member.
-pbwrqContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
-pbwrqContentMD5 = lens _pbwrqContentMD5 (\ s a -> s{_pbwrqContentMD5 = a});
+pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
+pbwContentMD5 = lens _pbwContentMD5 (\ s a -> s{_pbwContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pbwrqBucket :: Lens' PutBucketWebsite BucketName
-pbwrqBucket = lens _pbwrqBucket (\ s a -> s{_pbwrqBucket = a});
+pbwBucket :: Lens' PutBucketWebsite BucketName
+pbwBucket = lens _pbwBucket (\ s a -> s{_pbwBucket = a});
 
 -- | FIXME: Undocumented member.
-pbwrqWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
-pbwrqWebsiteConfiguration = lens _pbwrqWebsiteConfiguration (\ s a -> s{_pbwrqWebsiteConfiguration = a});
+pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
+pbwWebsiteConfiguration = lens _pbwWebsiteConfiguration (\ s a -> s{_pbwWebsiteConfiguration = a});
 
 instance AWSRequest PutBucketWebsite where
         type Sv PutBucketWebsite = S3
@@ -89,15 +89,15 @@ instance ToElement PutBucketWebsite where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}WebsiteConfiguration"
               .
-              _pbwrqWebsiteConfiguration
+              _pbwWebsiteConfiguration
 
 instance ToHeaders PutBucketWebsite where
         toHeaders PutBucketWebsite'{..}
-          = mconcat ["Content-MD5" =# _pbwrqContentMD5]
+          = mconcat ["Content-MD5" =# _pbwContentMD5]
 
 instance ToPath PutBucketWebsite where
         toPath PutBucketWebsite'{..}
-          = mconcat ["/", toText _pbwrqBucket]
+          = mconcat ["/", toText _pbwBucket]
 
 instance ToQuery PutBucketWebsite where
         toQuery = const (mconcat ["website"])

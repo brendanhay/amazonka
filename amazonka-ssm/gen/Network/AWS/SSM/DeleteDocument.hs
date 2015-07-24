@@ -30,7 +30,7 @@ module Network.AWS.SSM.DeleteDocument
     -- ** Request constructor
     , deleteDocument
     -- ** Request lenses
-    , delrqName
+    , dddName
 
     -- * Response
     , DeleteDocumentResponse
@@ -49,21 +49,21 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrqName'
+-- * 'dddName'
 newtype DeleteDocument = DeleteDocument'
-    { _delrqName :: Text
+    { _dddName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDocument' smart constructor.
 deleteDocument :: Text -> DeleteDocument
 deleteDocument pName_ =
     DeleteDocument'
-    { _delrqName = pName_
+    { _dddName = pName_
     }
 
 -- | The name of the configuration document.
-delrqName :: Lens' DeleteDocument Text
-delrqName = lens _delrqName (\ s a -> s{_delrqName = a});
+dddName :: Lens' DeleteDocument Text
+dddName = lens _dddName (\ s a -> s{_dddName = a});
 
 instance AWSRequest DeleteDocument where
         type Sv DeleteDocument = SSM
@@ -85,7 +85,7 @@ instance ToHeaders DeleteDocument where
 
 instance ToJSON DeleteDocument where
         toJSON DeleteDocument'{..}
-          = object ["Name" .= _delrqName]
+          = object ["Name" .= _dddName]
 
 instance ToPath DeleteDocument where
         toPath = const "/"

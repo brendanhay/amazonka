@@ -41,8 +41,8 @@ module Network.AWS.SQS.DeleteMessageBatch
     -- ** Request constructor
     , deleteMessageBatch
     -- ** Request lenses
-    , dmbrqQueueURL
-    , dmbrqEntries
+    , dmbQueueURL
+    , dmbEntries
 
     -- * Response
     , DeleteMessageBatchResponse
@@ -63,29 +63,29 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmbrqQueueURL'
+-- * 'dmbQueueURL'
 --
--- * 'dmbrqEntries'
+-- * 'dmbEntries'
 data DeleteMessageBatch = DeleteMessageBatch'
-    { _dmbrqQueueURL :: !Text
-    , _dmbrqEntries  :: ![DeleteMessageBatchRequestEntry]
+    { _dmbQueueURL :: !Text
+    , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageBatch' smart constructor.
 deleteMessageBatch :: Text -> DeleteMessageBatch
 deleteMessageBatch pQueueURL_ =
     DeleteMessageBatch'
-    { _dmbrqQueueURL = pQueueURL_
-    , _dmbrqEntries = mempty
+    { _dmbQueueURL = pQueueURL_
+    , _dmbEntries = mempty
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-dmbrqQueueURL :: Lens' DeleteMessageBatch Text
-dmbrqQueueURL = lens _dmbrqQueueURL (\ s a -> s{_dmbrqQueueURL = a});
+dmbQueueURL :: Lens' DeleteMessageBatch Text
+dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a});
 
 -- | A list of receipt handles for the messages to be deleted.
-dmbrqEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
-dmbrqEntries = lens _dmbrqEntries (\ s a -> s{_dmbrqEntries = a});
+dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
+dmbEntries = lens _dmbEntries (\ s a -> s{_dmbEntries = a});
 
 instance AWSRequest DeleteMessageBatch where
         type Sv DeleteMessageBatch = SQS
@@ -111,9 +111,9 @@ instance ToQuery DeleteMessageBatch where
           = mconcat
               ["Action" =: ("DeleteMessageBatch" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _dmbrqQueueURL,
+               "QueueUrl" =: _dmbQueueURL,
                toQueryList "DeleteMessageBatchRequestEntry"
-                 _dmbrqEntries]
+                 _dmbEntries]
 
 -- | For each message in the batch, the response contains a
 -- DeleteMessageBatchResultEntry tag if the message is deleted or a

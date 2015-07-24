@@ -27,8 +27,8 @@ module Network.AWS.EMR.DescribeStep
     -- ** Request constructor
     , describeStep
     -- ** Request lenses
-    , dsrqClusterId
-    , dsrqStepId
+    , dsClusterId
+    , dsStepId
 
     -- * Response
     , DescribeStepResponse
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqClusterId'
+-- * 'dsClusterId'
 --
--- * 'dsrqStepId'
+-- * 'dsStepId'
 data DescribeStep = DescribeStep'
-    { _dsrqClusterId :: !Text
-    , _dsrqStepId    :: !Text
+    { _dsClusterId :: !Text
+    , _dsStepId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStep' smart constructor.
 describeStep :: Text -> Text -> DescribeStep
 describeStep pClusterId_ pStepId_ =
     DescribeStep'
-    { _dsrqClusterId = pClusterId_
-    , _dsrqStepId = pStepId_
+    { _dsClusterId = pClusterId_
+    , _dsStepId = pStepId_
     }
 
 -- | The identifier of the cluster with steps to describe.
-dsrqClusterId :: Lens' DescribeStep Text
-dsrqClusterId = lens _dsrqClusterId (\ s a -> s{_dsrqClusterId = a});
+dsClusterId :: Lens' DescribeStep Text
+dsClusterId = lens _dsClusterId (\ s a -> s{_dsClusterId = a});
 
 -- | The identifier of the step to describe.
-dsrqStepId :: Lens' DescribeStep Text
-dsrqStepId = lens _dsrqStepId (\ s a -> s{_dsrqStepId = a});
+dsStepId :: Lens' DescribeStep Text
+dsStepId = lens _dsStepId (\ s a -> s{_dsStepId = a});
 
 instance AWSRequest DescribeStep where
         type Sv DescribeStep = EMR
@@ -96,8 +96,7 @@ instance ToHeaders DescribeStep where
 instance ToJSON DescribeStep where
         toJSON DescribeStep'{..}
           = object
-              ["ClusterId" .= _dsrqClusterId,
-               "StepId" .= _dsrqStepId]
+              ["ClusterId" .= _dsClusterId, "StepId" .= _dsStepId]
 
 instance ToPath DescribeStep where
         toPath = const "/"

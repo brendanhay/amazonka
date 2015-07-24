@@ -45,10 +45,10 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     -- ** Request constructor
     , authorizeClusterSecurityGroupIngress
     -- ** Request lenses
-    , acsgirqEC2SecurityGroupOwnerId
-    , acsgirqEC2SecurityGroupName
-    , acsgirqCIdRIP
-    , acsgirqClusterSecurityGroupName
+    , acsgiEC2SecurityGroupOwnerId
+    , acsgiEC2SecurityGroupName
+    , acsgiCIdRIP
+    , acsgiClusterSecurityGroupName
 
     -- * Response
     , AuthorizeClusterSecurityGroupIngressResponse
@@ -70,28 +70,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acsgirqEC2SecurityGroupOwnerId'
+-- * 'acsgiEC2SecurityGroupOwnerId'
 --
--- * 'acsgirqEC2SecurityGroupName'
+-- * 'acsgiEC2SecurityGroupName'
 --
--- * 'acsgirqCIdRIP'
+-- * 'acsgiCIdRIP'
 --
--- * 'acsgirqClusterSecurityGroupName'
+-- * 'acsgiClusterSecurityGroupName'
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
-    { _acsgirqEC2SecurityGroupOwnerId  :: !(Maybe Text)
-    , _acsgirqEC2SecurityGroupName     :: !(Maybe Text)
-    , _acsgirqCIdRIP                   :: !(Maybe Text)
-    , _acsgirqClusterSecurityGroupName :: !Text
+    { _acsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
+    , _acsgiEC2SecurityGroupName     :: !(Maybe Text)
+    , _acsgiCIdRIP                   :: !(Maybe Text)
+    , _acsgiClusterSecurityGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngress' smart constructor.
 authorizeClusterSecurityGroupIngress :: Text -> AuthorizeClusterSecurityGroupIngress
 authorizeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
     AuthorizeClusterSecurityGroupIngress'
-    { _acsgirqEC2SecurityGroupOwnerId = Nothing
-    , _acsgirqEC2SecurityGroupName = Nothing
-    , _acsgirqCIdRIP = Nothing
-    , _acsgirqClusterSecurityGroupName = pClusterSecurityGroupName_
+    { _acsgiEC2SecurityGroupOwnerId = Nothing
+    , _acsgiEC2SecurityGroupName = Nothing
+    , _acsgiCIdRIP = Nothing
+    , _acsgiClusterSecurityGroupName = pClusterSecurityGroupName_
     }
 
 -- | The AWS account number of the owner of the security group specified by
@@ -99,20 +99,20 @@ authorizeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
 -- acceptable value.
 --
 -- Example: @111122223333@
-acsgirqEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgirqEC2SecurityGroupOwnerId = lens _acsgirqEC2SecurityGroupOwnerId (\ s a -> s{_acsgirqEC2SecurityGroupOwnerId = a});
+acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_acsgiEC2SecurityGroupOwnerId = a});
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
-acsgirqEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgirqEC2SecurityGroupName = lens _acsgirqEC2SecurityGroupName (\ s a -> s{_acsgirqEC2SecurityGroupName = a});
+acsgiEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgiEC2SecurityGroupName = lens _acsgiEC2SecurityGroupName (\ s a -> s{_acsgiEC2SecurityGroupName = a});
 
 -- | The IP range to be added the Amazon Redshift security group.
-acsgirqCIdRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgirqCIdRIP = lens _acsgirqCIdRIP (\ s a -> s{_acsgirqCIdRIP = a});
+acsgiCIdRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgiCIdRIP = lens _acsgiCIdRIP (\ s a -> s{_acsgiCIdRIP = a});
 
 -- | The name of the security group to which the ingress rule is added.
-acsgirqClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
-acsgirqClusterSecurityGroupName = lens _acsgirqClusterSecurityGroupName (\ s a -> s{_acsgirqClusterSecurityGroupName = a});
+acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
+acsgiClusterSecurityGroupName = lens _acsgiClusterSecurityGroupName (\ s a -> s{_acsgiClusterSecurityGroupName = a});
 
 instance AWSRequest
          AuthorizeClusterSecurityGroupIngress where
@@ -146,12 +146,11 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
                     ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "EC2SecurityGroupOwnerId" =:
-                 _acsgirqEC2SecurityGroupOwnerId,
-               "EC2SecurityGroupName" =:
-                 _acsgirqEC2SecurityGroupName,
-               "CIDRIP" =: _acsgirqCIdRIP,
+                 _acsgiEC2SecurityGroupOwnerId,
+               "EC2SecurityGroupName" =: _acsgiEC2SecurityGroupName,
+               "CIDRIP" =: _acsgiCIdRIP,
                "ClusterSecurityGroupName" =:
-                 _acsgirqClusterSecurityGroupName]
+                 _acsgiClusterSecurityGroupName]
 
 -- | /See:/ 'authorizeClusterSecurityGroupIngressResponse' smart constructor.
 --

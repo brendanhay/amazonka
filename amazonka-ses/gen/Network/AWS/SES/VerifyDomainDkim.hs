@@ -42,7 +42,7 @@ module Network.AWS.SES.VerifyDomainDkim
     -- ** Request constructor
     , verifyDomainDkim
     -- ** Request lenses
-    , vddrqDomain
+    , vddDomain
 
     -- * Response
     , VerifyDomainDkimResponse
@@ -65,21 +65,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vddrqDomain'
+-- * 'vddDomain'
 newtype VerifyDomainDkim = VerifyDomainDkim'
-    { _vddrqDomain :: Text
+    { _vddDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainDkim' smart constructor.
 verifyDomainDkim :: Text -> VerifyDomainDkim
 verifyDomainDkim pDomain_ =
     VerifyDomainDkim'
-    { _vddrqDomain = pDomain_
+    { _vddDomain = pDomain_
     }
 
 -- | The name of the domain to be verified for Easy DKIM signing.
-vddrqDomain :: Lens' VerifyDomainDkim Text
-vddrqDomain = lens _vddrqDomain (\ s a -> s{_vddrqDomain = a});
+vddDomain :: Lens' VerifyDomainDkim Text
+vddDomain = lens _vddDomain (\ s a -> s{_vddDomain = a});
 
 instance AWSRequest VerifyDomainDkim where
         type Sv VerifyDomainDkim = SES
@@ -104,7 +104,7 @@ instance ToQuery VerifyDomainDkim where
           = mconcat
               ["Action" =: ("VerifyDomainDkim" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Domain" =: _vddrqDomain]
+               "Domain" =: _vddDomain]
 
 -- | Represents the DNS records that must be published in the domain name\'s
 -- DNS to complete DKIM setup.

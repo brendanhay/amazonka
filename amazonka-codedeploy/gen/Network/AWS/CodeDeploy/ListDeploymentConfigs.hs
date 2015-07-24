@@ -28,7 +28,7 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
     -- ** Request constructor
     , listDeploymentConfigs
     -- ** Request lenses
-    , ldcrqNextToken
+    , ldcNextToken
 
     -- * Response
     , ListDeploymentConfigsResponse
@@ -51,23 +51,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldcrqNextToken'
+-- * 'ldcNextToken'
 newtype ListDeploymentConfigs = ListDeploymentConfigs'
-    { _ldcrqNextToken :: Maybe Text
+    { _ldcNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentConfigs' smart constructor.
 listDeploymentConfigs :: ListDeploymentConfigs
 listDeploymentConfigs =
     ListDeploymentConfigs'
-    { _ldcrqNextToken = Nothing
+    { _ldcNextToken = Nothing
     }
 
 -- | An identifier that was returned from the previous list deployment
 -- configurations call, which can be used to return the next set of
 -- deployment configurations in the list.
-ldcrqNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
-ldcrqNextToken = lens _ldcrqNextToken (\ s a -> s{_ldcrqNextToken = a});
+ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
+ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a});
 
 instance AWSRequest ListDeploymentConfigs where
         type Sv ListDeploymentConfigs = CodeDeploy
@@ -94,7 +94,7 @@ instance ToHeaders ListDeploymentConfigs where
 
 instance ToJSON ListDeploymentConfigs where
         toJSON ListDeploymentConfigs'{..}
-          = object ["nextToken" .= _ldcrqNextToken]
+          = object ["nextToken" .= _ldcNextToken]
 
 instance ToPath ListDeploymentConfigs where
         toPath = const "/"

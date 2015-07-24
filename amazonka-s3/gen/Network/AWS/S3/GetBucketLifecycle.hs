@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketLifecycle
     -- ** Request constructor
     , getBucketLifecycle
     -- ** Request lenses
-    , grqBucket
+    , gBucket
 
     -- * Response
     , GetBucketLifecycleResponse
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grqBucket'
+-- * 'gBucket'
 newtype GetBucketLifecycle = GetBucketLifecycle'
-    { _grqBucket :: BucketName
+    { _gBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLifecycle' smart constructor.
 getBucketLifecycle :: BucketName -> GetBucketLifecycle
 getBucketLifecycle pBucket_ =
     GetBucketLifecycle'
-    { _grqBucket = pBucket_
+    { _gBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-grqBucket :: Lens' GetBucketLifecycle BucketName
-grqBucket = lens _grqBucket (\ s a -> s{_grqBucket = a});
+gBucket :: Lens' GetBucketLifecycle BucketName
+gBucket = lens _gBucket (\ s a -> s{_gBucket = a});
 
 instance AWSRequest GetBucketLifecycle where
         type Sv GetBucketLifecycle = S3
@@ -80,7 +80,7 @@ instance ToHeaders GetBucketLifecycle where
 
 instance ToPath GetBucketLifecycle where
         toPath GetBucketLifecycle'{..}
-          = mconcat ["/", toText _grqBucket]
+          = mconcat ["/", toText _gBucket]
 
 instance ToQuery GetBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])

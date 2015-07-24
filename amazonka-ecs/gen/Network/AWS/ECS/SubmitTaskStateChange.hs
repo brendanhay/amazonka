@@ -30,10 +30,10 @@ module Network.AWS.ECS.SubmitTaskStateChange
     -- ** Request constructor
     , submitTaskStateChange
     -- ** Request lenses
-    , stscrqStatus
-    , stscrqCluster
-    , stscrqReason
-    , stscrqTask
+    , stscStatus
+    , stscCluster
+    , stscReason
+    , stscTask
 
     -- * Response
     , SubmitTaskStateChangeResponse
@@ -53,47 +53,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stscrqStatus'
+-- * 'stscStatus'
 --
--- * 'stscrqCluster'
+-- * 'stscCluster'
 --
--- * 'stscrqReason'
+-- * 'stscReason'
 --
--- * 'stscrqTask'
+-- * 'stscTask'
 data SubmitTaskStateChange = SubmitTaskStateChange'
-    { _stscrqStatus  :: !(Maybe Text)
-    , _stscrqCluster :: !(Maybe Text)
-    , _stscrqReason  :: !(Maybe Text)
-    , _stscrqTask    :: !(Maybe Text)
+    { _stscStatus  :: !(Maybe Text)
+    , _stscCluster :: !(Maybe Text)
+    , _stscReason  :: !(Maybe Text)
+    , _stscTask    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitTaskStateChange' smart constructor.
 submitTaskStateChange :: SubmitTaskStateChange
 submitTaskStateChange =
     SubmitTaskStateChange'
-    { _stscrqStatus = Nothing
-    , _stscrqCluster = Nothing
-    , _stscrqReason = Nothing
-    , _stscrqTask = Nothing
+    { _stscStatus = Nothing
+    , _stscCluster = Nothing
+    , _stscReason = Nothing
+    , _stscTask = Nothing
     }
 
 -- | The status of the state change request.
-stscrqStatus :: Lens' SubmitTaskStateChange (Maybe Text)
-stscrqStatus = lens _stscrqStatus (\ s a -> s{_stscrqStatus = a});
+stscStatus :: Lens' SubmitTaskStateChange (Maybe Text)
+stscStatus = lens _stscStatus (\ s a -> s{_stscStatus = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task.
-stscrqCluster :: Lens' SubmitTaskStateChange (Maybe Text)
-stscrqCluster = lens _stscrqCluster (\ s a -> s{_stscrqCluster = a});
+stscCluster :: Lens' SubmitTaskStateChange (Maybe Text)
+stscCluster = lens _stscCluster (\ s a -> s{_stscCluster = a});
 
 -- | The reason for the state change request.
-stscrqReason :: Lens' SubmitTaskStateChange (Maybe Text)
-stscrqReason = lens _stscrqReason (\ s a -> s{_stscrqReason = a});
+stscReason :: Lens' SubmitTaskStateChange (Maybe Text)
+stscReason = lens _stscReason (\ s a -> s{_stscReason = a});
 
 -- | The task UUID or full Amazon Resource Name (ARN) of the task in the
 -- state change request.
-stscrqTask :: Lens' SubmitTaskStateChange (Maybe Text)
-stscrqTask = lens _stscrqTask (\ s a -> s{_stscrqTask = a});
+stscTask :: Lens' SubmitTaskStateChange (Maybe Text)
+stscTask = lens _stscTask (\ s a -> s{_stscTask = a});
 
 instance AWSRequest SubmitTaskStateChange where
         type Sv SubmitTaskStateChange = ECS
@@ -119,9 +119,8 @@ instance ToHeaders SubmitTaskStateChange where
 instance ToJSON SubmitTaskStateChange where
         toJSON SubmitTaskStateChange'{..}
           = object
-              ["status" .= _stscrqStatus,
-               "cluster" .= _stscrqCluster,
-               "reason" .= _stscrqReason, "task" .= _stscrqTask]
+              ["status" .= _stscStatus, "cluster" .= _stscCluster,
+               "reason" .= _stscReason, "task" .= _stscTask]
 
 instance ToPath SubmitTaskStateChange where
         toPath = const "/"

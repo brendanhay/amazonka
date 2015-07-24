@@ -31,14 +31,14 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     -- ** Request constructor
     , updatePipeline
     -- ** Request lenses
-    , uprqInputBucket
-    , uprqContentConfig
-    , uprqRole
-    , uprqName
-    , uprqAWSKMSKeyARN
-    , uprqThumbnailConfig
-    , uprqNotifications
-    , uprqId
+    , upInputBucket
+    , upContentConfig
+    , upRole
+    , upName
+    , upAWSKMSKeyARN
+    , upThumbnailConfig
+    , upNotifications
+    , upId
 
     -- * Response
     , UpdatePipelineResponse
@@ -61,50 +61,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uprqInputBucket'
+-- * 'upInputBucket'
 --
--- * 'uprqContentConfig'
+-- * 'upContentConfig'
 --
--- * 'uprqRole'
+-- * 'upRole'
 --
--- * 'uprqName'
+-- * 'upName'
 --
--- * 'uprqAWSKMSKeyARN'
+-- * 'upAWSKMSKeyARN'
 --
--- * 'uprqThumbnailConfig'
+-- * 'upThumbnailConfig'
 --
--- * 'uprqNotifications'
+-- * 'upNotifications'
 --
--- * 'uprqId'
+-- * 'upId'
 data UpdatePipeline = UpdatePipeline'
-    { _uprqInputBucket     :: !(Maybe Text)
-    , _uprqContentConfig   :: !(Maybe PipelineOutputConfig)
-    , _uprqRole            :: !(Maybe Text)
-    , _uprqName            :: !(Maybe Text)
-    , _uprqAWSKMSKeyARN    :: !(Maybe Text)
-    , _uprqThumbnailConfig :: !(Maybe PipelineOutputConfig)
-    , _uprqNotifications   :: !(Maybe Notifications)
-    , _uprqId              :: !Text
+    { _upInputBucket     :: !(Maybe Text)
+    , _upContentConfig   :: !(Maybe PipelineOutputConfig)
+    , _upRole            :: !(Maybe Text)
+    , _upName            :: !(Maybe Text)
+    , _upAWSKMSKeyARN    :: !(Maybe Text)
+    , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
+    , _upNotifications   :: !(Maybe Notifications)
+    , _upId              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: Text -> UpdatePipeline
 updatePipeline pId_ =
     UpdatePipeline'
-    { _uprqInputBucket = Nothing
-    , _uprqContentConfig = Nothing
-    , _uprqRole = Nothing
-    , _uprqName = Nothing
-    , _uprqAWSKMSKeyARN = Nothing
-    , _uprqThumbnailConfig = Nothing
-    , _uprqNotifications = Nothing
-    , _uprqId = pId_
+    { _upInputBucket = Nothing
+    , _upContentConfig = Nothing
+    , _upRole = Nothing
+    , _upName = Nothing
+    , _upAWSKMSKeyARN = Nothing
+    , _upThumbnailConfig = Nothing
+    , _upNotifications = Nothing
+    , _upId = pId_
     }
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode and the graphics that you want to use as watermarks.
-uprqInputBucket :: Lens' UpdatePipeline (Maybe Text)
-uprqInputBucket = lens _uprqInputBucket (\ s a -> s{_uprqInputBucket = a});
+upInputBucket :: Lens' UpdatePipeline (Maybe Text)
+upInputBucket = lens _upInputBucket (\ s a -> s{_upInputBucket = a});
 
 -- | The optional @ContentConfig@ object specifies information about the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save transcoded
@@ -163,20 +163,20 @@ uprqInputBucket = lens _uprqInputBucket (\ s a -> s{_uprqInputBucket = a});
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the video files and playlists that it stores in your Amazon S3
 --     bucket.
-uprqContentConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
-uprqContentConfig = lens _uprqContentConfig (\ s a -> s{_uprqContentConfig = a});
+upContentConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
+upContentConfig = lens _upContentConfig (\ s a -> s{_upContentConfig = a});
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to use to transcode jobs for this pipeline.
-uprqRole :: Lens' UpdatePipeline (Maybe Text)
-uprqRole = lens _uprqRole (\ s a -> s{_uprqRole = a});
+upRole :: Lens' UpdatePipeline (Maybe Text)
+upRole = lens _upRole (\ s a -> s{_upRole = a});
 
 -- | The name of the pipeline. We recommend that the name be unique within
 -- the AWS account, but uniqueness is not enforced.
 --
 -- Constraints: Maximum 40 characters
-uprqName :: Lens' UpdatePipeline (Maybe Text)
-uprqName = lens _uprqName (\ s a -> s{_uprqName = a});
+upName :: Lens' UpdatePipeline (Maybe Text)
+upName = lens _upName (\ s a -> s{_upName = a});
 
 -- | The AWS Key Management Service (AWS KMS) key that you want to use with
 -- this pipeline.
@@ -187,8 +187,8 @@ uprqName = lens _uprqName (\ s a -> s{_uprqName = a});
 -- an AWS-KMS key only if you want to use a non-default AWS-KMS key, or if
 -- you are using an @Encryption:Mode@ of @AES-PKCS7@, @AES-CTR@, or
 -- @AES-GCM@.
-uprqAWSKMSKeyARN :: Lens' UpdatePipeline (Maybe Text)
-uprqAWSKMSKeyARN = lens _uprqAWSKMSKeyARN (\ s a -> s{_uprqAWSKMSKeyARN = a});
+upAWSKMSKeyARN :: Lens' UpdatePipeline (Maybe Text)
+upAWSKMSKeyARN = lens _upAWSKMSKeyARN (\ s a -> s{_upAWSKMSKeyARN = a});
 
 -- | The @ThumbnailConfig@ object specifies several values, including the
 -- Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail
@@ -241,16 +241,16 @@ uprqAWSKMSKeyARN = lens _uprqAWSKMSKeyARN (\ s a -> s{_uprqAWSKMSKeyARN = a});
 -- -   __StorageClass__: The Amazon S3 storage class, @Standard@ or
 --     @ReducedRedundancy@, that you want Elastic Transcoder to assign to
 --     the thumbnails that it stores in your Amazon S3 bucket.
-uprqThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
-uprqThumbnailConfig = lens _uprqThumbnailConfig (\ s a -> s{_uprqThumbnailConfig = a});
+upThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
+upThumbnailConfig = lens _upThumbnailConfig (\ s a -> s{_upThumbnailConfig = a});
 
 -- | FIXME: Undocumented member.
-uprqNotifications :: Lens' UpdatePipeline (Maybe Notifications)
-uprqNotifications = lens _uprqNotifications (\ s a -> s{_uprqNotifications = a});
+upNotifications :: Lens' UpdatePipeline (Maybe Notifications)
+upNotifications = lens _upNotifications (\ s a -> s{_upNotifications = a});
 
 -- | The ID of the pipeline that you want to update.
-uprqId :: Lens' UpdatePipeline Text
-uprqId = lens _uprqId (\ s a -> s{_uprqId = a});
+upId :: Lens' UpdatePipeline Text
+upId = lens _upId (\ s a -> s{_upId = a});
 
 instance AWSRequest UpdatePipeline where
         type Sv UpdatePipeline = ElasticTranscoder
@@ -269,16 +269,16 @@ instance ToHeaders UpdatePipeline where
 instance ToJSON UpdatePipeline where
         toJSON UpdatePipeline'{..}
           = object
-              ["InputBucket" .= _uprqInputBucket,
-               "ContentConfig" .= _uprqContentConfig,
-               "Role" .= _uprqRole, "Name" .= _uprqName,
-               "AwsKmsKeyArn" .= _uprqAWSKMSKeyARN,
-               "ThumbnailConfig" .= _uprqThumbnailConfig,
-               "Notifications" .= _uprqNotifications]
+              ["InputBucket" .= _upInputBucket,
+               "ContentConfig" .= _upContentConfig,
+               "Role" .= _upRole, "Name" .= _upName,
+               "AwsKmsKeyArn" .= _upAWSKMSKeyARN,
+               "ThumbnailConfig" .= _upThumbnailConfig,
+               "Notifications" .= _upNotifications]
 
 instance ToPath UpdatePipeline where
         toPath UpdatePipeline'{..}
-          = mconcat ["/2012-09-25/pipelines/", toText _uprqId]
+          = mconcat ["/2012-09-25/pipelines/", toText _upId]
 
 instance ToQuery UpdatePipeline where
         toQuery = const mempty

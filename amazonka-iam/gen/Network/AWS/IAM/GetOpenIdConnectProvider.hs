@@ -27,7 +27,7 @@ module Network.AWS.IAM.GetOpenIdConnectProvider
     -- ** Request constructor
     , getOpenIdConnectProvider
     -- ** Request lenses
-    , goicprqOpenIdConnectProviderARN
+    , goicpOpenIdConnectProviderARN
 
     -- * Response
     , GetOpenIdConnectProviderResponse
@@ -50,23 +50,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goicprqOpenIdConnectProviderARN'
+-- * 'goicpOpenIdConnectProviderARN'
 newtype GetOpenIdConnectProvider = GetOpenIdConnectProvider'
-    { _goicprqOpenIdConnectProviderARN :: Text
+    { _goicpOpenIdConnectProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdConnectProvider' smart constructor.
 getOpenIdConnectProvider :: Text -> GetOpenIdConnectProvider
 getOpenIdConnectProvider pOpenIdConnectProviderARN_ =
     GetOpenIdConnectProvider'
-    { _goicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+    { _goicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to get information for. You can get a list of OIDC provider ARNs by
 -- using the ListOpenIDConnectProviders action.
-goicprqOpenIdConnectProviderARN :: Lens' GetOpenIdConnectProvider Text
-goicprqOpenIdConnectProviderARN = lens _goicprqOpenIdConnectProviderARN (\ s a -> s{_goicprqOpenIdConnectProviderARN = a});
+goicpOpenIdConnectProviderARN :: Lens' GetOpenIdConnectProvider Text
+goicpOpenIdConnectProviderARN = lens _goicpOpenIdConnectProviderARN (\ s a -> s{_goicpOpenIdConnectProviderARN = a});
 
 instance AWSRequest GetOpenIdConnectProvider where
         type Sv GetOpenIdConnectProvider = IAM
@@ -98,7 +98,7 @@ instance ToQuery GetOpenIdConnectProvider where
                  ("GetOpenIdConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
-                 _goicprqOpenIdConnectProviderARN]
+                 _goicpOpenIdConnectProviderARN]
 
 -- | Contains the response to a successful GetOpenIDConnectProvider request.
 --

@@ -36,8 +36,8 @@ module Network.AWS.IAM.DeletePolicyVersion
     -- ** Request constructor
     , deletePolicyVersion
     -- ** Request lenses
-    , dpvrqPolicyARN
-    , dpvrqVersionId
+    , dpvPolicyARN
+    , dpvVersionId
 
     -- * Response
     , DeletePolicyVersionResponse
@@ -54,33 +54,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpvrqPolicyARN'
+-- * 'dpvPolicyARN'
 --
--- * 'dpvrqVersionId'
+-- * 'dpvVersionId'
 data DeletePolicyVersion = DeletePolicyVersion'
-    { _dpvrqPolicyARN :: !Text
-    , _dpvrqVersionId :: !Text
+    { _dpvPolicyARN :: !Text
+    , _dpvVersionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicyVersion' smart constructor.
 deletePolicyVersion :: Text -> Text -> DeletePolicyVersion
 deletePolicyVersion pPolicyARN_ pVersionId_ =
     DeletePolicyVersion'
-    { _dpvrqPolicyARN = pPolicyARN_
-    , _dpvrqVersionId = pVersionId_
+    { _dpvPolicyARN = pPolicyARN_
+    , _dpvVersionId = pVersionId_
     }
 
 -- | FIXME: Undocumented member.
-dpvrqPolicyARN :: Lens' DeletePolicyVersion Text
-dpvrqPolicyARN = lens _dpvrqPolicyARN (\ s a -> s{_dpvrqPolicyARN = a});
+dpvPolicyARN :: Lens' DeletePolicyVersion Text
+dpvPolicyARN = lens _dpvPolicyARN (\ s a -> s{_dpvPolicyARN = a});
 
 -- | The policy version to delete.
 --
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
-dpvrqVersionId :: Lens' DeletePolicyVersion Text
-dpvrqVersionId = lens _dpvrqVersionId (\ s a -> s{_dpvrqVersionId = a});
+dpvVersionId :: Lens' DeletePolicyVersion Text
+dpvVersionId = lens _dpvVersionId (\ s a -> s{_dpvVersionId = a});
 
 instance AWSRequest DeletePolicyVersion where
         type Sv DeletePolicyVersion = IAM
@@ -100,8 +100,8 @@ instance ToQuery DeletePolicyVersion where
           = mconcat
               ["Action" =: ("DeletePolicyVersion" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _dpvrqPolicyARN,
-               "VersionId" =: _dpvrqVersionId]
+               "PolicyArn" =: _dpvPolicyARN,
+               "VersionId" =: _dpvVersionId]
 
 -- | /See:/ 'deletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse =

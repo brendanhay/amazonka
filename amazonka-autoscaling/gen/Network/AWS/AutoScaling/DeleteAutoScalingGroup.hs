@@ -33,8 +33,8 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     -- ** Request constructor
     , deleteAutoScalingGroup
     -- ** Request lenses
-    , dasgrqForceDelete
-    , dasgrqAutoScalingGroupName
+    , dasgForceDelete
+    , dasgAutoScalingGroupName
 
     -- * Response
     , DeleteAutoScalingGroupResponse
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasgrqForceDelete'
+-- * 'dasgForceDelete'
 --
--- * 'dasgrqAutoScalingGroupName'
+-- * 'dasgAutoScalingGroupName'
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
-    { _dasgrqForceDelete          :: !(Maybe Bool)
-    , _dasgrqAutoScalingGroupName :: !Text
+    { _dasgForceDelete          :: !(Maybe Bool)
+    , _dasgAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAutoScalingGroup' smart constructor.
 deleteAutoScalingGroup :: Text -> DeleteAutoScalingGroup
 deleteAutoScalingGroup pAutoScalingGroupName_ =
     DeleteAutoScalingGroup'
-    { _dasgrqForceDelete = Nothing
-    , _dasgrqAutoScalingGroupName = pAutoScalingGroupName_
+    { _dasgForceDelete = Nothing
+    , _dasgAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | Specifies that the group will be deleted along with all instances
 -- associated with the group, without waiting for all instances to be
 -- terminated. This parameter also deletes any lifecycle actions associated
 -- with the group.
-dasgrqForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
-dasgrqForceDelete = lens _dasgrqForceDelete (\ s a -> s{_dasgrqForceDelete = a});
+dasgForceDelete :: Lens' DeleteAutoScalingGroup (Maybe Bool)
+dasgForceDelete = lens _dasgForceDelete (\ s a -> s{_dasgForceDelete = a});
 
 -- | The name of the group to delete.
-dasgrqAutoScalingGroupName :: Lens' DeleteAutoScalingGroup Text
-dasgrqAutoScalingGroupName = lens _dasgrqAutoScalingGroupName (\ s a -> s{_dasgrqAutoScalingGroupName = a});
+dasgAutoScalingGroupName :: Lens' DeleteAutoScalingGroup Text
+dasgAutoScalingGroupName = lens _dasgAutoScalingGroupName (\ s a -> s{_dasgAutoScalingGroupName = a});
 
 instance AWSRequest DeleteAutoScalingGroup where
         type Sv DeleteAutoScalingGroup = AutoScaling
@@ -98,9 +98,8 @@ instance ToQuery DeleteAutoScalingGroup where
               ["Action" =:
                  ("DeleteAutoScalingGroup" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "ForceDelete" =: _dasgrqForceDelete,
-               "AutoScalingGroupName" =:
-                 _dasgrqAutoScalingGroupName]
+               "ForceDelete" =: _dasgForceDelete,
+               "AutoScalingGroupName" =: _dasgAutoScalingGroupName]
 
 -- | /See:/ 'deleteAutoScalingGroupResponse' smart constructor.
 data DeleteAutoScalingGroupResponse =

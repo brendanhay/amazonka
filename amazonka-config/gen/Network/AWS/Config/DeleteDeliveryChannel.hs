@@ -32,7 +32,7 @@ module Network.AWS.Config.DeleteDeliveryChannel
     -- ** Request constructor
     , deleteDeliveryChannel
     -- ** Request lenses
-    , ddcrqDeliveryChannelName
+    , ddcDeliveryChannelName
 
     -- * Response
     , DeleteDeliveryChannelResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcrqDeliveryChannelName'
+-- * 'ddcDeliveryChannelName'
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
-    { _ddcrqDeliveryChannelName :: Text
+    { _ddcDeliveryChannelName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeliveryChannel' smart constructor.
 deleteDeliveryChannel :: Text -> DeleteDeliveryChannel
 deleteDeliveryChannel pDeliveryChannelName_ =
     DeleteDeliveryChannel'
-    { _ddcrqDeliveryChannelName = pDeliveryChannelName_
+    { _ddcDeliveryChannelName = pDeliveryChannelName_
     }
 
 -- | The name of the delivery channel to delete.
-ddcrqDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
-ddcrqDeliveryChannelName = lens _ddcrqDeliveryChannelName (\ s a -> s{_ddcrqDeliveryChannelName = a});
+ddcDeliveryChannelName :: Lens' DeleteDeliveryChannel Text
+ddcDeliveryChannelName = lens _ddcDeliveryChannelName (\ s a -> s{_ddcDeliveryChannelName = a});
 
 instance AWSRequest DeleteDeliveryChannel where
         type Sv DeleteDeliveryChannel = Config
@@ -88,7 +88,7 @@ instance ToHeaders DeleteDeliveryChannel where
 instance ToJSON DeleteDeliveryChannel where
         toJSON DeleteDeliveryChannel'{..}
           = object
-              ["DeliveryChannelName" .= _ddcrqDeliveryChannelName]
+              ["DeliveryChannelName" .= _ddcDeliveryChannelName]
 
 instance ToPath DeleteDeliveryChannel where
         toPath = const "/"

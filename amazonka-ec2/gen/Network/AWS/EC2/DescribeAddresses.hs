@@ -32,10 +32,10 @@ module Network.AWS.EC2.DescribeAddresses
     -- ** Request constructor
     , describeAddresses
     -- ** Request lenses
-    , darqPublicIPs
-    , darqFilters
-    , darqDryRun
-    , darqAllocationIds
+    , daPublicIPs
+    , daFilters
+    , daDryRun
+    , daAllocationIds
 
     -- * Response
     , DescribeAddressesResponse
@@ -55,35 +55,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darqPublicIPs'
+-- * 'daPublicIPs'
 --
--- * 'darqFilters'
+-- * 'daFilters'
 --
--- * 'darqDryRun'
+-- * 'daDryRun'
 --
--- * 'darqAllocationIds'
+-- * 'daAllocationIds'
 data DescribeAddresses = DescribeAddresses'
-    { _darqPublicIPs     :: !(Maybe [Text])
-    , _darqFilters       :: !(Maybe [Filter])
-    , _darqDryRun        :: !(Maybe Bool)
-    , _darqAllocationIds :: !(Maybe [Text])
+    { _daPublicIPs     :: !(Maybe [Text])
+    , _daFilters       :: !(Maybe [Filter])
+    , _daDryRun        :: !(Maybe Bool)
+    , _daAllocationIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAddresses' smart constructor.
 describeAddresses :: DescribeAddresses
 describeAddresses =
     DescribeAddresses'
-    { _darqPublicIPs = Nothing
-    , _darqFilters = Nothing
-    , _darqDryRun = Nothing
-    , _darqAllocationIds = Nothing
+    { _daPublicIPs = Nothing
+    , _daFilters = Nothing
+    , _daDryRun = Nothing
+    , _daAllocationIds = Nothing
     }
 
 -- | [EC2-Classic] One or more Elastic IP addresses.
 --
 -- Default: Describes all your Elastic IP addresses.
-darqPublicIPs :: Lens' DescribeAddresses [Text]
-darqPublicIPs = lens _darqPublicIPs (\ s a -> s{_darqPublicIPs = a}) . _Default;
+daPublicIPs :: Lens' DescribeAddresses [Text]
+daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default;
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -107,21 +107,21 @@ darqPublicIPs = lens _darqPublicIPs (\ s a -> s{_darqPublicIPs = a}) . _Default;
 --
 -- -   @public-ip@ - The Elastic IP address.
 --
-darqFilters :: Lens' DescribeAddresses [Filter]
-darqFilters = lens _darqFilters (\ s a -> s{_darqFilters = a}) . _Default;
+daFilters :: Lens' DescribeAddresses [Filter]
+daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-darqDryRun :: Lens' DescribeAddresses (Maybe Bool)
-darqDryRun = lens _darqDryRun (\ s a -> s{_darqDryRun = a});
+daDryRun :: Lens' DescribeAddresses (Maybe Bool)
+daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 
 -- | [EC2-VPC] One or more allocation IDs.
 --
 -- Default: Describes all your Elastic IP addresses.
-darqAllocationIds :: Lens' DescribeAddresses [Text]
-darqAllocationIds = lens _darqAllocationIds (\ s a -> s{_darqAllocationIds = a}) . _Default;
+daAllocationIds :: Lens' DescribeAddresses [Text]
+daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default;
 
 instance AWSRequest DescribeAddresses where
         type Sv DescribeAddresses = EC2
@@ -146,11 +146,11 @@ instance ToQuery DescribeAddresses where
           = mconcat
               ["Action" =: ("DescribeAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "PublicIp" <$> _darqPublicIPs),
-               toQuery (toQueryList "Filter" <$> _darqFilters),
-               "DryRun" =: _darqDryRun,
+               toQuery (toQueryList "PublicIp" <$> _daPublicIPs),
+               toQuery (toQueryList "Filter" <$> _daFilters),
+               "DryRun" =: _daDryRun,
                toQuery
-                 (toQueryList "AllocationId" <$> _darqAllocationIds)]
+                 (toQueryList "AllocationId" <$> _daAllocationIds)]
 
 -- | /See:/ 'describeAddressesResponse' smart constructor.
 --

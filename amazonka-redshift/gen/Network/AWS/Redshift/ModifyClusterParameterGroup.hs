@@ -31,8 +31,8 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- ** Request constructor
     , modifyClusterParameterGroup
     -- ** Request lenses
-    , mcpgrqParameterGroupName
-    , mcpgrqParameters
+    , mcpgParameterGroupName
+    , mcpgParameters
 
     -- * Response
     , ClusterParameterGroupNameMessage
@@ -54,25 +54,25 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mcpgrqParameterGroupName'
+-- * 'mcpgParameterGroupName'
 --
--- * 'mcpgrqParameters'
+-- * 'mcpgParameters'
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup'
-    { _mcpgrqParameterGroupName :: !Text
-    , _mcpgrqParameters         :: ![Parameter]
+    { _mcpgParameterGroupName :: !Text
+    , _mcpgParameters         :: ![Parameter]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyClusterParameterGroup' smart constructor.
 modifyClusterParameterGroup :: Text -> ModifyClusterParameterGroup
 modifyClusterParameterGroup pParameterGroupName_ =
     ModifyClusterParameterGroup'
-    { _mcpgrqParameterGroupName = pParameterGroupName_
-    , _mcpgrqParameters = mempty
+    { _mcpgParameterGroupName = pParameterGroupName_
+    , _mcpgParameters = mempty
     }
 
 -- | The name of the parameter group to be modified.
-mcpgrqParameterGroupName :: Lens' ModifyClusterParameterGroup Text
-mcpgrqParameterGroupName = lens _mcpgrqParameterGroupName (\ s a -> s{_mcpgrqParameterGroupName = a});
+mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text
+mcpgParameterGroupName = lens _mcpgParameterGroupName (\ s a -> s{_mcpgParameterGroupName = a});
 
 -- | An array of parameters to be modified. A maximum of 20 parameters can be
 -- modified in a single request.
@@ -83,8 +83,8 @@ mcpgrqParameterGroupName = lens _mcpgrqParameterGroupName (\ s a -> s{_mcpgrqPar
 --
 -- For the workload management (WLM) configuration, you must supply all the
 -- name-value pairs in the wlm_json_configuration parameter.
-mcpgrqParameters :: Lens' ModifyClusterParameterGroup [Parameter]
-mcpgrqParameters = lens _mcpgrqParameters (\ s a -> s{_mcpgrqParameters = a});
+mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
+mcpgParameters = lens _mcpgParameters (\ s a -> s{_mcpgParameters = a});
 
 instance AWSRequest ModifyClusterParameterGroup where
         type Sv ModifyClusterParameterGroup = Redshift
@@ -108,6 +108,6 @@ instance ToQuery ModifyClusterParameterGroup where
               ["Action" =:
                  ("ModifyClusterParameterGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ParameterGroupName" =: _mcpgrqParameterGroupName,
+               "ParameterGroupName" =: _mcpgParameterGroupName,
                "Parameters" =:
-                 toQueryList "Parameter" _mcpgrqParameters]
+                 toQueryList "Parameter" _mcpgParameters]

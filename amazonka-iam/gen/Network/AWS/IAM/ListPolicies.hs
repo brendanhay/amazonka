@@ -41,11 +41,11 @@ module Network.AWS.IAM.ListPolicies
     -- ** Request constructor
     , listPolicies
     -- ** Request lenses
-    , lprqPathPrefix
-    , lprqOnlyAttached
-    , lprqScope
-    , lprqMaxItems
-    , lprqMarker
+    , lpPathPrefix
+    , lpOnlyAttached
+    , lpScope
+    , lpMaxItems
+    , lpMarker
 
     -- * Response
     , ListPoliciesResponse
@@ -68,39 +68,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprqPathPrefix'
+-- * 'lpPathPrefix'
 --
--- * 'lprqOnlyAttached'
+-- * 'lpOnlyAttached'
 --
--- * 'lprqScope'
+-- * 'lpScope'
 --
--- * 'lprqMaxItems'
+-- * 'lpMaxItems'
 --
--- * 'lprqMarker'
+-- * 'lpMarker'
 data ListPolicies = ListPolicies'
-    { _lprqPathPrefix   :: !(Maybe Text)
-    , _lprqOnlyAttached :: !(Maybe Bool)
-    , _lprqScope        :: !(Maybe PolicyScopeType)
-    , _lprqMaxItems     :: !(Maybe Nat)
-    , _lprqMarker       :: !(Maybe Text)
+    { _lpPathPrefix   :: !(Maybe Text)
+    , _lpOnlyAttached :: !(Maybe Bool)
+    , _lpScope        :: !(Maybe PolicyScopeType)
+    , _lpMaxItems     :: !(Maybe Nat)
+    , _lpMarker       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicies' smart constructor.
 listPolicies :: ListPolicies
 listPolicies =
     ListPolicies'
-    { _lprqPathPrefix = Nothing
-    , _lprqOnlyAttached = Nothing
-    , _lprqScope = Nothing
-    , _lprqMaxItems = Nothing
-    , _lprqMarker = Nothing
+    { _lpPathPrefix = Nothing
+    , _lpOnlyAttached = Nothing
+    , _lpScope = Nothing
+    , _lpMaxItems = Nothing
+    , _lpMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
 -- policies.
-lprqPathPrefix :: Lens' ListPolicies (Maybe Text)
-lprqPathPrefix = lens _lprqPathPrefix (\ s a -> s{_lprqPathPrefix = a});
+lpPathPrefix :: Lens' ListPolicies (Maybe Text)
+lpPathPrefix = lens _lpPathPrefix (\ s a -> s{_lpPathPrefix = a});
 
 -- | A flag to filter the results to only the attached policies.
 --
@@ -108,8 +108,8 @@ lprqPathPrefix = lens _lprqPathPrefix (\ s a -> s{_lprqPathPrefix = a});
 -- policies that are attached to a user, group, or role. When
 -- @OnlyAttached@ is @false@, or when the parameter is not included, all
 -- policies are returned.
-lprqOnlyAttached :: Lens' ListPolicies (Maybe Bool)
-lprqOnlyAttached = lens _lprqOnlyAttached (\ s a -> s{_lprqOnlyAttached = a});
+lpOnlyAttached :: Lens' ListPolicies (Maybe Bool)
+lpOnlyAttached = lens _lpOnlyAttached (\ s a -> s{_lpOnlyAttached = a});
 
 -- | The scope to use for filtering the results.
 --
@@ -119,8 +119,8 @@ lprqOnlyAttached = lens _lprqOnlyAttached (\ s a -> s{_lprqOnlyAttached = a});
 --
 -- This parameter is optional. If it is not included, or if it is set to
 -- @All@, all policies are returned.
-lprqScope :: Lens' ListPolicies (Maybe PolicyScopeType)
-lprqScope = lens _lprqScope (\ s a -> s{_lprqScope = a});
+lpScope :: Lens' ListPolicies (Maybe PolicyScopeType)
+lpScope = lens _lpScope (\ s a -> s{_lpScope = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -128,21 +128,21 @@ lprqScope = lens _lprqScope (\ s a -> s{_lprqScope = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lprqMaxItems :: Lens' ListPolicies (Maybe Natural)
-lprqMaxItems = lens _lprqMaxItems (\ s a -> s{_lprqMaxItems = a}) . mapping _Nat;
+lpMaxItems :: Lens' ListPolicies (Maybe Natural)
+lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lprqMarker :: Lens' ListPolicies (Maybe Text)
-lprqMarker = lens _lprqMarker (\ s a -> s{_lprqMarker = a});
+lpMarker :: Lens' ListPolicies (Maybe Text)
+lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
 instance AWSPager ListPolicies where
         page rq rs
           | stop (rs ^. lprsIsTruncated) = Nothing
           | isNothing (rs ^. lprsMarker) = Nothing
           | otherwise =
-            Just $ rq & lprqMarker .~ rs ^. lprsMarker
+            Just $ rq & lpMarker .~ rs ^. lprsMarker
 
 instance AWSRequest ListPolicies where
         type Sv ListPolicies = IAM
@@ -168,10 +168,10 @@ instance ToQuery ListPolicies where
           = mconcat
               ["Action" =: ("ListPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lprqPathPrefix,
-               "OnlyAttached" =: _lprqOnlyAttached,
-               "Scope" =: _lprqScope, "MaxItems" =: _lprqMaxItems,
-               "Marker" =: _lprqMarker]
+               "PathPrefix" =: _lpPathPrefix,
+               "OnlyAttached" =: _lpOnlyAttached,
+               "Scope" =: _lpScope, "MaxItems" =: _lpMaxItems,
+               "Marker" =: _lpMarker]
 
 -- | Contains the response to a successful ListPolicies request.
 --

@@ -33,13 +33,13 @@ module Network.AWS.EC2.ReplaceRoute
     -- ** Request constructor
     , replaceRoute
     -- ** Request lenses
-    , rrrqInstanceId
-    , rrrqVPCPeeringConnectionId
-    , rrrqNetworkInterfaceId
-    , rrrqGatewayId
-    , rrrqDryRun
-    , rrrqRouteTableId
-    , rrrqDestinationCIdRBlock
+    , rrInstanceId
+    , rrVPCPeeringConnectionId
+    , rrNetworkInterfaceId
+    , rrGatewayId
+    , rrDryRun
+    , rrRouteTableId
+    , rrDestinationCIdRBlock
 
     -- * Response
     , ReplaceRouteResponse
@@ -56,73 +56,73 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrrqInstanceId'
+-- * 'rrInstanceId'
 --
--- * 'rrrqVPCPeeringConnectionId'
+-- * 'rrVPCPeeringConnectionId'
 --
--- * 'rrrqNetworkInterfaceId'
+-- * 'rrNetworkInterfaceId'
 --
--- * 'rrrqGatewayId'
+-- * 'rrGatewayId'
 --
--- * 'rrrqDryRun'
+-- * 'rrDryRun'
 --
--- * 'rrrqRouteTableId'
+-- * 'rrRouteTableId'
 --
--- * 'rrrqDestinationCIdRBlock'
+-- * 'rrDestinationCIdRBlock'
 data ReplaceRoute = ReplaceRoute'
-    { _rrrqInstanceId             :: !(Maybe Text)
-    , _rrrqVPCPeeringConnectionId :: !(Maybe Text)
-    , _rrrqNetworkInterfaceId     :: !(Maybe Text)
-    , _rrrqGatewayId              :: !(Maybe Text)
-    , _rrrqDryRun                 :: !(Maybe Bool)
-    , _rrrqRouteTableId           :: !Text
-    , _rrrqDestinationCIdRBlock   :: !Text
+    { _rrInstanceId             :: !(Maybe Text)
+    , _rrVPCPeeringConnectionId :: !(Maybe Text)
+    , _rrNetworkInterfaceId     :: !(Maybe Text)
+    , _rrGatewayId              :: !(Maybe Text)
+    , _rrDryRun                 :: !(Maybe Bool)
+    , _rrRouteTableId           :: !Text
+    , _rrDestinationCIdRBlock   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRoute' smart constructor.
 replaceRoute :: Text -> Text -> ReplaceRoute
 replaceRoute pRouteTableId_ pDestinationCIdRBlock_ =
     ReplaceRoute'
-    { _rrrqInstanceId = Nothing
-    , _rrrqVPCPeeringConnectionId = Nothing
-    , _rrrqNetworkInterfaceId = Nothing
-    , _rrrqGatewayId = Nothing
-    , _rrrqDryRun = Nothing
-    , _rrrqRouteTableId = pRouteTableId_
-    , _rrrqDestinationCIdRBlock = pDestinationCIdRBlock_
+    { _rrInstanceId = Nothing
+    , _rrVPCPeeringConnectionId = Nothing
+    , _rrNetworkInterfaceId = Nothing
+    , _rrGatewayId = Nothing
+    , _rrDryRun = Nothing
+    , _rrRouteTableId = pRouteTableId_
+    , _rrDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
 -- | The ID of a NAT instance in your VPC.
-rrrqInstanceId :: Lens' ReplaceRoute (Maybe Text)
-rrrqInstanceId = lens _rrrqInstanceId (\ s a -> s{_rrrqInstanceId = a});
+rrInstanceId :: Lens' ReplaceRoute (Maybe Text)
+rrInstanceId = lens _rrInstanceId (\ s a -> s{_rrInstanceId = a});
 
 -- | The ID of a VPC peering connection.
-rrrqVPCPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
-rrrqVPCPeeringConnectionId = lens _rrrqVPCPeeringConnectionId (\ s a -> s{_rrrqVPCPeeringConnectionId = a});
+rrVPCPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
+rrVPCPeeringConnectionId = lens _rrVPCPeeringConnectionId (\ s a -> s{_rrVPCPeeringConnectionId = a});
 
 -- | The ID of a network interface.
-rrrqNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
-rrrqNetworkInterfaceId = lens _rrrqNetworkInterfaceId (\ s a -> s{_rrrqNetworkInterfaceId = a});
+rrNetworkInterfaceId :: Lens' ReplaceRoute (Maybe Text)
+rrNetworkInterfaceId = lens _rrNetworkInterfaceId (\ s a -> s{_rrNetworkInterfaceId = a});
 
 -- | The ID of an Internet gateway or virtual private gateway.
-rrrqGatewayId :: Lens' ReplaceRoute (Maybe Text)
-rrrqGatewayId = lens _rrrqGatewayId (\ s a -> s{_rrrqGatewayId = a});
+rrGatewayId :: Lens' ReplaceRoute (Maybe Text)
+rrGatewayId = lens _rrGatewayId (\ s a -> s{_rrGatewayId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rrrqDryRun :: Lens' ReplaceRoute (Maybe Bool)
-rrrqDryRun = lens _rrrqDryRun (\ s a -> s{_rrrqDryRun = a});
+rrDryRun :: Lens' ReplaceRoute (Maybe Bool)
+rrDryRun = lens _rrDryRun (\ s a -> s{_rrDryRun = a});
 
 -- | The ID of the route table.
-rrrqRouteTableId :: Lens' ReplaceRoute Text
-rrrqRouteTableId = lens _rrrqRouteTableId (\ s a -> s{_rrrqRouteTableId = a});
+rrRouteTableId :: Lens' ReplaceRoute Text
+rrRouteTableId = lens _rrRouteTableId (\ s a -> s{_rrRouteTableId = a});
 
 -- | The CIDR address block used for the destination match. The value you
 -- provide must match the CIDR of an existing route in the table.
-rrrqDestinationCIdRBlock :: Lens' ReplaceRoute Text
-rrrqDestinationCIdRBlock = lens _rrrqDestinationCIdRBlock (\ s a -> s{_rrrqDestinationCIdRBlock = a});
+rrDestinationCIdRBlock :: Lens' ReplaceRoute Text
+rrDestinationCIdRBlock = lens _rrDestinationCIdRBlock (\ s a -> s{_rrDestinationCIdRBlock = a});
 
 instance AWSRequest ReplaceRoute where
         type Sv ReplaceRoute = EC2
@@ -141,14 +141,13 @@ instance ToQuery ReplaceRoute where
           = mconcat
               ["Action" =: ("ReplaceRoute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceId" =: _rrrqInstanceId,
+               "InstanceId" =: _rrInstanceId,
                "VpcPeeringConnectionId" =:
-                 _rrrqVPCPeeringConnectionId,
-               "NetworkInterfaceId" =: _rrrqNetworkInterfaceId,
-               "GatewayId" =: _rrrqGatewayId,
-               "DryRun" =: _rrrqDryRun,
-               "RouteTableId" =: _rrrqRouteTableId,
-               "DestinationCidrBlock" =: _rrrqDestinationCIdRBlock]
+                 _rrVPCPeeringConnectionId,
+               "NetworkInterfaceId" =: _rrNetworkInterfaceId,
+               "GatewayId" =: _rrGatewayId, "DryRun" =: _rrDryRun,
+               "RouteTableId" =: _rrRouteTableId,
+               "DestinationCidrBlock" =: _rrDestinationCIdRBlock]
 
 -- | /See:/ 'replaceRouteResponse' smart constructor.
 data ReplaceRouteResponse =

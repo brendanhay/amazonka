@@ -36,7 +36,7 @@ module Network.AWS.Config.DeliverConfigSnapshot
     -- ** Request constructor
     , deliverConfigSnapshot
     -- ** Request lenses
-    , dcsrqDeliveryChannelName
+    , dcsDeliveryChannelName
 
     -- * Response
     , DeliverConfigSnapshotResponse
@@ -58,22 +58,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrqDeliveryChannelName'
+-- * 'dcsDeliveryChannelName'
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
-    { _dcsrqDeliveryChannelName :: Text
+    { _dcsDeliveryChannelName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliverConfigSnapshot' smart constructor.
 deliverConfigSnapshot :: Text -> DeliverConfigSnapshot
 deliverConfigSnapshot pDeliveryChannelName_ =
     DeliverConfigSnapshot'
-    { _dcsrqDeliveryChannelName = pDeliveryChannelName_
+    { _dcsDeliveryChannelName = pDeliveryChannelName_
     }
 
 -- | The name of the delivery channel through which the snapshot is
 -- delivered.
-dcsrqDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
-dcsrqDeliveryChannelName = lens _dcsrqDeliveryChannelName (\ s a -> s{_dcsrqDeliveryChannelName = a});
+dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
+dcsDeliveryChannelName = lens _dcsDeliveryChannelName (\ s a -> s{_dcsDeliveryChannelName = a});
 
 instance AWSRequest DeliverConfigSnapshot where
         type Sv DeliverConfigSnapshot = Config
@@ -99,7 +99,7 @@ instance ToHeaders DeliverConfigSnapshot where
 instance ToJSON DeliverConfigSnapshot where
         toJSON DeliverConfigSnapshot'{..}
           = object
-              ["deliveryChannelName" .= _dcsrqDeliveryChannelName]
+              ["deliveryChannelName" .= _dcsDeliveryChannelName]
 
 instance ToPath DeliverConfigSnapshot where
         toPath = const "/"

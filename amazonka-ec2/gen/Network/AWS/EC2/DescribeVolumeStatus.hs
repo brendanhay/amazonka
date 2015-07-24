@@ -65,11 +65,11 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- ** Request constructor
     , describeVolumeStatus
     -- ** Request lenses
-    , dvssrqFilters
-    , dvssrqVolumeIds
-    , dvssrqNextToken
-    , dvssrqDryRun
-    , dvssrqMaxResults
+    , dvssFilters
+    , dvssVolumeIds
+    , dvssNextToken
+    , dvssDryRun
+    , dvssMaxResults
 
     -- * Response
     , DescribeVolumeStatusResponse
@@ -91,32 +91,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvssrqFilters'
+-- * 'dvssFilters'
 --
--- * 'dvssrqVolumeIds'
+-- * 'dvssVolumeIds'
 --
--- * 'dvssrqNextToken'
+-- * 'dvssNextToken'
 --
--- * 'dvssrqDryRun'
+-- * 'dvssDryRun'
 --
--- * 'dvssrqMaxResults'
+-- * 'dvssMaxResults'
 data DescribeVolumeStatus = DescribeVolumeStatus'
-    { _dvssrqFilters    :: !(Maybe [Filter])
-    , _dvssrqVolumeIds  :: !(Maybe [Text])
-    , _dvssrqNextToken  :: !(Maybe Text)
-    , _dvssrqDryRun     :: !(Maybe Bool)
-    , _dvssrqMaxResults :: !(Maybe Int)
+    { _dvssFilters    :: !(Maybe [Filter])
+    , _dvssVolumeIds  :: !(Maybe [Text])
+    , _dvssNextToken  :: !(Maybe Text)
+    , _dvssDryRun     :: !(Maybe Bool)
+    , _dvssMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeStatus' smart constructor.
 describeVolumeStatus :: DescribeVolumeStatus
 describeVolumeStatus =
     DescribeVolumeStatus'
-    { _dvssrqFilters = Nothing
-    , _dvssrqVolumeIds = Nothing
-    , _dvssrqNextToken = Nothing
-    , _dvssrqDryRun = Nothing
-    , _dvssrqMaxResults = Nothing
+    { _dvssFilters = Nothing
+    , _dvssVolumeIds = Nothing
+    , _dvssNextToken = Nothing
+    , _dvssDryRun = Nothing
+    , _dvssMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -153,28 +153,28 @@ describeVolumeStatus =
 -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
 --     | @warning@ | @insufficient-data@).
 --
-dvssrqFilters :: Lens' DescribeVolumeStatus [Filter]
-dvssrqFilters = lens _dvssrqFilters (\ s a -> s{_dvssrqFilters = a}) . _Default;
+dvssFilters :: Lens' DescribeVolumeStatus [Filter]
+dvssFilters = lens _dvssFilters (\ s a -> s{_dvssFilters = a}) . _Default;
 
 -- | One or more volume IDs.
 --
 -- Default: Describes all your volumes.
-dvssrqVolumeIds :: Lens' DescribeVolumeStatus [Text]
-dvssrqVolumeIds = lens _dvssrqVolumeIds (\ s a -> s{_dvssrqVolumeIds = a}) . _Default;
+dvssVolumeIds :: Lens' DescribeVolumeStatus [Text]
+dvssVolumeIds = lens _dvssVolumeIds (\ s a -> s{_dvssVolumeIds = a}) . _Default;
 
 -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
 -- request. When the results of the request exceed @MaxResults@, this value
 -- can be used to retrieve the next page of results. This value is @null@
 -- when there are no more results to return.
-dvssrqNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
-dvssrqNextToken = lens _dvssrqNextToken (\ s a -> s{_dvssrqNextToken = a});
+dvssNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
+dvssNextToken = lens _dvssNextToken (\ s a -> s{_dvssNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvssrqDryRun :: Lens' DescribeVolumeStatus (Maybe Bool)
-dvssrqDryRun = lens _dvssrqDryRun (\ s a -> s{_dvssrqDryRun = a});
+dvssDryRun :: Lens' DescribeVolumeStatus (Maybe Bool)
+dvssDryRun = lens _dvssDryRun (\ s a -> s{_dvssDryRun = a});
 
 -- | The maximum number of volume results returned by @DescribeVolumeStatus@
 -- in paginated output. When this parameter is used, the request only
@@ -185,15 +185,15 @@ dvssrqDryRun = lens _dvssrqDryRun (\ s a -> s{_dvssrqDryRun = a});
 -- larger than 1000, only 1000 results are returned. If this parameter is
 -- not used, then @DescribeVolumeStatus@ returns all results. You cannot
 -- specify this parameter and the volume IDs parameter in the same request.
-dvssrqMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
-dvssrqMaxResults = lens _dvssrqMaxResults (\ s a -> s{_dvssrqMaxResults = a});
+dvssMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
+dvssMaxResults = lens _dvssMaxResults (\ s a -> s{_dvssMaxResults = a});
 
 instance AWSPager DescribeVolumeStatus where
         page rq rs
           | stop (rs ^. dvsrsNextToken) = Nothing
           | stop (rs ^. dvsrsVolumeStatuses) = Nothing
           | otherwise =
-            Just $ rq & dvssrqNextToken .~ rs ^. dvsrsNextToken
+            Just $ rq & dvssNextToken .~ rs ^. dvsrsNextToken
 
 instance AWSRequest DescribeVolumeStatus where
         type Sv DescribeVolumeStatus = EC2
@@ -220,12 +220,11 @@ instance ToQuery DescribeVolumeStatus where
           = mconcat
               ["Action" =: ("DescribeVolumeStatus" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvssrqFilters),
-               toQuery
-                 (toQueryList "VolumeId" <$> _dvssrqVolumeIds),
-               "NextToken" =: _dvssrqNextToken,
-               "DryRun" =: _dvssrqDryRun,
-               "MaxResults" =: _dvssrqMaxResults]
+               toQuery (toQueryList "Filter" <$> _dvssFilters),
+               toQuery (toQueryList "VolumeId" <$> _dvssVolumeIds),
+               "NextToken" =: _dvssNextToken,
+               "DryRun" =: _dvssDryRun,
+               "MaxResults" =: _dvssMaxResults]
 
 -- | /See:/ 'describeVolumeStatusResponse' smart constructor.
 --

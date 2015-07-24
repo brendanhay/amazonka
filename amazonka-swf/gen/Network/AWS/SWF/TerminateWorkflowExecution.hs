@@ -60,12 +60,12 @@ module Network.AWS.SWF.TerminateWorkflowExecution
     -- ** Request constructor
     , terminateWorkflowExecution
     -- ** Request lenses
-    , twerqRunId
-    , twerqReason
-    , twerqDetails
-    , twerqChildPolicy
-    , twerqDomain
-    , twerqWorkflowId
+    , tweRunId
+    , tweReason
+    , tweDetails
+    , tweChildPolicy
+    , tweDomain
+    , tweWorkflowId
 
     -- * Response
     , TerminateWorkflowExecutionResponse
@@ -82,49 +82,49 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'twerqRunId'
+-- * 'tweRunId'
 --
--- * 'twerqReason'
+-- * 'tweReason'
 --
--- * 'twerqDetails'
+-- * 'tweDetails'
 --
--- * 'twerqChildPolicy'
+-- * 'tweChildPolicy'
 --
--- * 'twerqDomain'
+-- * 'tweDomain'
 --
--- * 'twerqWorkflowId'
+-- * 'tweWorkflowId'
 data TerminateWorkflowExecution = TerminateWorkflowExecution'
-    { _twerqRunId       :: !(Maybe Text)
-    , _twerqReason      :: !(Maybe Text)
-    , _twerqDetails     :: !(Maybe Text)
-    , _twerqChildPolicy :: !(Maybe ChildPolicy)
-    , _twerqDomain      :: !Text
-    , _twerqWorkflowId  :: !Text
+    { _tweRunId       :: !(Maybe Text)
+    , _tweReason      :: !(Maybe Text)
+    , _tweDetails     :: !(Maybe Text)
+    , _tweChildPolicy :: !(Maybe ChildPolicy)
+    , _tweDomain      :: !Text
+    , _tweWorkflowId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateWorkflowExecution' smart constructor.
 terminateWorkflowExecution :: Text -> Text -> TerminateWorkflowExecution
 terminateWorkflowExecution pDomain_ pWorkflowId_ =
     TerminateWorkflowExecution'
-    { _twerqRunId = Nothing
-    , _twerqReason = Nothing
-    , _twerqDetails = Nothing
-    , _twerqChildPolicy = Nothing
-    , _twerqDomain = pDomain_
-    , _twerqWorkflowId = pWorkflowId_
+    { _tweRunId = Nothing
+    , _tweReason = Nothing
+    , _tweDetails = Nothing
+    , _tweChildPolicy = Nothing
+    , _tweDomain = pDomain_
+    , _tweWorkflowId = pWorkflowId_
     }
 
 -- | The runId of the workflow execution to terminate.
-twerqRunId :: Lens' TerminateWorkflowExecution (Maybe Text)
-twerqRunId = lens _twerqRunId (\ s a -> s{_twerqRunId = a});
+tweRunId :: Lens' TerminateWorkflowExecution (Maybe Text)
+tweRunId = lens _tweRunId (\ s a -> s{_tweRunId = a});
 
 -- | /Optional./ A descriptive reason for terminating the workflow execution.
-twerqReason :: Lens' TerminateWorkflowExecution (Maybe Text)
-twerqReason = lens _twerqReason (\ s a -> s{_twerqReason = a});
+tweReason :: Lens' TerminateWorkflowExecution (Maybe Text)
+tweReason = lens _tweReason (\ s a -> s{_tweReason = a});
 
 -- | /Optional./ Details for terminating the workflow execution.
-twerqDetails :: Lens' TerminateWorkflowExecution (Maybe Text)
-twerqDetails = lens _twerqDetails (\ s a -> s{_twerqDetails = a});
+tweDetails :: Lens' TerminateWorkflowExecution (Maybe Text)
+tweDetails = lens _tweDetails (\ s a -> s{_tweDetails = a});
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- the workflow execution being terminated. This policy overrides the child
@@ -145,16 +145,16 @@ twerqDetails = lens _twerqDetails (\ s a -> s{_twerqDetails = a});
 -- default for the workflow type or through this parameter. If neither this
 -- parameter is set nor a default child policy was specified at
 -- registration time then a fault will be returned.
-twerqChildPolicy :: Lens' TerminateWorkflowExecution (Maybe ChildPolicy)
-twerqChildPolicy = lens _twerqChildPolicy (\ s a -> s{_twerqChildPolicy = a});
+tweChildPolicy :: Lens' TerminateWorkflowExecution (Maybe ChildPolicy)
+tweChildPolicy = lens _tweChildPolicy (\ s a -> s{_tweChildPolicy = a});
 
 -- | The domain of the workflow execution to terminate.
-twerqDomain :: Lens' TerminateWorkflowExecution Text
-twerqDomain = lens _twerqDomain (\ s a -> s{_twerqDomain = a});
+tweDomain :: Lens' TerminateWorkflowExecution Text
+tweDomain = lens _tweDomain (\ s a -> s{_tweDomain = a});
 
 -- | The workflowId of the workflow execution to terminate.
-twerqWorkflowId :: Lens' TerminateWorkflowExecution Text
-twerqWorkflowId = lens _twerqWorkflowId (\ s a -> s{_twerqWorkflowId = a});
+tweWorkflowId :: Lens' TerminateWorkflowExecution Text
+tweWorkflowId = lens _tweWorkflowId (\ s a -> s{_tweWorkflowId = a});
 
 instance AWSRequest TerminateWorkflowExecution where
         type Sv TerminateWorkflowExecution = SWF
@@ -177,11 +177,11 @@ instance ToHeaders TerminateWorkflowExecution where
 instance ToJSON TerminateWorkflowExecution where
         toJSON TerminateWorkflowExecution'{..}
           = object
-              ["runId" .= _twerqRunId, "reason" .= _twerqReason,
-               "details" .= _twerqDetails,
-               "childPolicy" .= _twerqChildPolicy,
-               "domain" .= _twerqDomain,
-               "workflowId" .= _twerqWorkflowId]
+              ["runId" .= _tweRunId, "reason" .= _tweReason,
+               "details" .= _tweDetails,
+               "childPolicy" .= _tweChildPolicy,
+               "domain" .= _tweDomain,
+               "workflowId" .= _tweWorkflowId]
 
 instance ToPath TerminateWorkflowExecution where
         toPath = const "/"

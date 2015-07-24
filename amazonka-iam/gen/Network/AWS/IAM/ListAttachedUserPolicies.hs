@@ -39,10 +39,10 @@ module Network.AWS.IAM.ListAttachedUserPolicies
     -- ** Request constructor
     , listAttachedUserPolicies
     -- ** Request lenses
-    , lauprqPathPrefix
-    , lauprqMaxItems
-    , lauprqMarker
-    , lauprqUserName
+    , laupPathPrefix
+    , laupMaxItems
+    , laupMarker
+    , laupUserName
 
     -- * Response
     , ListAttachedUserPoliciesResponse
@@ -64,35 +64,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lauprqPathPrefix'
+-- * 'laupPathPrefix'
 --
--- * 'lauprqMaxItems'
+-- * 'laupMaxItems'
 --
--- * 'lauprqMarker'
+-- * 'laupMarker'
 --
--- * 'lauprqUserName'
+-- * 'laupUserName'
 data ListAttachedUserPolicies = ListAttachedUserPolicies'
-    { _lauprqPathPrefix :: !(Maybe Text)
-    , _lauprqMaxItems   :: !(Maybe Nat)
-    , _lauprqMarker     :: !(Maybe Text)
-    , _lauprqUserName   :: !Text
+    { _laupPathPrefix :: !(Maybe Text)
+    , _laupMaxItems   :: !(Maybe Nat)
+    , _laupMarker     :: !(Maybe Text)
+    , _laupUserName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedUserPolicies' smart constructor.
 listAttachedUserPolicies :: Text -> ListAttachedUserPolicies
 listAttachedUserPolicies pUserName_ =
     ListAttachedUserPolicies'
-    { _lauprqPathPrefix = Nothing
-    , _lauprqMaxItems = Nothing
-    , _lauprqMarker = Nothing
-    , _lauprqUserName = pUserName_
+    { _laupPathPrefix = Nothing
+    , _laupMaxItems = Nothing
+    , _laupMarker = Nothing
+    , _laupUserName = pUserName_
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
 -- policies.
-lauprqPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
-lauprqPathPrefix = lens _lauprqPathPrefix (\ s a -> s{_lauprqPathPrefix = a});
+laupPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
+laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -100,19 +100,19 @@ lauprqPathPrefix = lens _lauprqPathPrefix (\ s a -> s{_lauprqPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lauprqMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
-lauprqMaxItems = lens _lauprqMaxItems (\ s a -> s{_lauprqMaxItems = a}) . mapping _Nat;
+laupMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
+laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lauprqMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
-lauprqMarker = lens _lauprqMarker (\ s a -> s{_lauprqMarker = a});
+laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
+laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
 
 -- | The name (friendly name, not ARN) of the user to list attached policies
 -- for.
-lauprqUserName :: Lens' ListAttachedUserPolicies Text
-lauprqUserName = lens _lauprqUserName (\ s a -> s{_lauprqUserName = a});
+laupUserName :: Lens' ListAttachedUserPolicies Text
+laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a});
 
 instance AWSRequest ListAttachedUserPolicies where
         type Sv ListAttachedUserPolicies = IAM
@@ -141,10 +141,9 @@ instance ToQuery ListAttachedUserPolicies where
               ["Action" =:
                  ("ListAttachedUserPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lauprqPathPrefix,
-               "MaxItems" =: _lauprqMaxItems,
-               "Marker" =: _lauprqMarker,
-               "UserName" =: _lauprqUserName]
+               "PathPrefix" =: _laupPathPrefix,
+               "MaxItems" =: _laupMaxItems, "Marker" =: _laupMarker,
+               "UserName" =: _laupUserName]
 
 -- | Contains the response to a successful ListAttachedUserPolicies request.
 --

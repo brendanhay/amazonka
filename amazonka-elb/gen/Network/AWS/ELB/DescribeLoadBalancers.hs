@@ -28,9 +28,9 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- ** Request constructor
     , describeLoadBalancers
     -- ** Request lenses
-    , dlbrqMarker
-    , dlbrqPageSize
-    , dlbrqLoadBalancerNames
+    , dlbMarker
+    , dlbPageSize
+    , dlbLoadBalancerNames
 
     -- * Response
     , DescribeLoadBalancersResponse
@@ -52,39 +52,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbrqMarker'
+-- * 'dlbMarker'
 --
--- * 'dlbrqPageSize'
+-- * 'dlbPageSize'
 --
--- * 'dlbrqLoadBalancerNames'
+-- * 'dlbLoadBalancerNames'
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbrqMarker            :: !(Maybe Text)
-    , _dlbrqPageSize          :: !(Maybe Nat)
-    , _dlbrqLoadBalancerNames :: !(Maybe [Text])
+    { _dlbMarker            :: !(Maybe Text)
+    , _dlbPageSize          :: !(Maybe Nat)
+    , _dlbLoadBalancerNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: DescribeLoadBalancers
 describeLoadBalancers =
     DescribeLoadBalancers'
-    { _dlbrqMarker = Nothing
-    , _dlbrqPageSize = Nothing
-    , _dlbrqLoadBalancerNames = Nothing
+    { _dlbMarker = Nothing
+    , _dlbPageSize = Nothing
+    , _dlbLoadBalancerNames = Nothing
     }
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-dlbrqMarker :: Lens' DescribeLoadBalancers (Maybe Text)
-dlbrqMarker = lens _dlbrqMarker (\ s a -> s{_dlbrqMarker = a});
+dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
+dlbMarker = lens _dlbMarker (\ s a -> s{_dlbMarker = a});
 
 -- | The maximum number of results to return with this call (a number from 1
 -- to 400). The default is 400.
-dlbrqPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
-dlbrqPageSize = lens _dlbrqPageSize (\ s a -> s{_dlbrqPageSize = a}) . mapping _Nat;
+dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
+dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
 
 -- | The names of the load balancers.
-dlbrqLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
-dlbrqLoadBalancerNames = lens _dlbrqLoadBalancerNames (\ s a -> s{_dlbrqLoadBalancerNames = a}) . _Default;
+dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
+dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a}) . _Default;
 
 instance AWSPager DescribeLoadBalancers where
         page rq rs
@@ -92,7 +92,7 @@ instance AWSPager DescribeLoadBalancers where
           | stop (rs ^. dlbrsLoadBalancerDescriptions) =
             Nothing
           | otherwise =
-            Just $ rq & dlbrqMarker .~ rs ^. dlbrsNextMarker
+            Just $ rq & dlbMarker .~ rs ^. dlbrsNextMarker
 
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = ELB
@@ -119,11 +119,10 @@ instance ToQuery DescribeLoadBalancers where
           = mconcat
               ["Action" =: ("DescribeLoadBalancers" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "Marker" =: _dlbrqMarker,
-               "PageSize" =: _dlbrqPageSize,
+               "Marker" =: _dlbMarker, "PageSize" =: _dlbPageSize,
                "LoadBalancerNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dlbrqLoadBalancerNames)]
+                   (toQueryList "member" <$> _dlbLoadBalancerNames)]
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
 --

@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     -- ** Request constructor
     , describeApplications
     -- ** Request lenses
-    , darqApplicationNames
+    , daApplicationNames
 
     -- * Response
     , DescribeApplicationsResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darqApplicationNames'
+-- * 'daApplicationNames'
 newtype DescribeApplications = DescribeApplications'
-    { _darqApplicationNames :: Maybe [Text]
+    { _daApplicationNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplications' smart constructor.
 describeApplications :: DescribeApplications
 describeApplications =
     DescribeApplications'
-    { _darqApplicationNames = Nothing
+    { _daApplicationNames = Nothing
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
-darqApplicationNames :: Lens' DescribeApplications [Text]
-darqApplicationNames = lens _darqApplicationNames (\ s a -> s{_darqApplicationNames = a}) . _Default;
+daApplicationNames :: Lens' DescribeApplications [Text]
+daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default;
 
 instance AWSRequest DescribeApplications where
         type Sv DescribeApplications = ElasticBeanstalk
@@ -92,7 +92,7 @@ instance ToQuery DescribeApplications where
                "Version" =: ("2010-12-01" :: ByteString),
                "ApplicationNames" =:
                  toQuery
-                   (toQueryList "member" <$> _darqApplicationNames)]
+                   (toQueryList "member" <$> _daApplicationNames)]
 
 -- | Result message containing a list of application descriptions.
 --

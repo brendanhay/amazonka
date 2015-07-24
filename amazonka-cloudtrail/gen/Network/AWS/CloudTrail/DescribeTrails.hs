@@ -28,7 +28,7 @@ module Network.AWS.CloudTrail.DescribeTrails
     -- ** Request constructor
     , describeTrails
     -- ** Request lenses
-    , dtrqTrailNameList
+    , dtTrailNameList
 
     -- * Response
     , DescribeTrailsResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqTrailNameList'
+-- * 'dtTrailNameList'
 newtype DescribeTrails = DescribeTrails'
-    { _dtrqTrailNameList :: Maybe [Text]
+    { _dtTrailNameList :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrails' smart constructor.
 describeTrails :: DescribeTrails
 describeTrails =
     DescribeTrails'
-    { _dtrqTrailNameList = Nothing
+    { _dtTrailNameList = Nothing
     }
 
 -- | The trail returned.
-dtrqTrailNameList :: Lens' DescribeTrails [Text]
-dtrqTrailNameList = lens _dtrqTrailNameList (\ s a -> s{_dtrqTrailNameList = a}) . _Default;
+dtTrailNameList :: Lens' DescribeTrails [Text]
+dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default;
 
 instance AWSRequest DescribeTrails where
         type Sv DescribeTrails = CloudTrail
@@ -89,7 +89,7 @@ instance ToHeaders DescribeTrails where
 
 instance ToJSON DescribeTrails where
         toJSON DescribeTrails'{..}
-          = object ["trailNameList" .= _dtrqTrailNameList]
+          = object ["trailNameList" .= _dtTrailNameList]
 
 instance ToPath DescribeTrails where
         toPath = const "/"

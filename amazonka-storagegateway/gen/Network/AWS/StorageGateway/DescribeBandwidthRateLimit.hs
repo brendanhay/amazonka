@@ -35,7 +35,7 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimit
     -- ** Request constructor
     , describeBandwidthRateLimit
     -- ** Request lenses
-    , dbrlrqGatewayARN
+    , dbrlGatewayARN
 
     -- * Response
     , DescribeBandwidthRateLimitResponse
@@ -59,21 +59,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbrlrqGatewayARN'
+-- * 'dbrlGatewayARN'
 newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
-    { _dbrlrqGatewayARN :: Text
+    { _dbrlGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBandwidthRateLimit' smart constructor.
 describeBandwidthRateLimit :: Text -> DescribeBandwidthRateLimit
 describeBandwidthRateLimit pGatewayARN_ =
     DescribeBandwidthRateLimit'
-    { _dbrlrqGatewayARN = pGatewayARN_
+    { _dbrlGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-dbrlrqGatewayARN :: Lens' DescribeBandwidthRateLimit Text
-dbrlrqGatewayARN = lens _dbrlrqGatewayARN (\ s a -> s{_dbrlrqGatewayARN = a});
+dbrlGatewayARN :: Lens' DescribeBandwidthRateLimit Text
+dbrlGatewayARN = lens _dbrlGatewayARN (\ s a -> s{_dbrlGatewayARN = a});
 
 instance AWSRequest DescribeBandwidthRateLimit where
         type Sv DescribeBandwidthRateLimit = StorageGateway
@@ -101,7 +101,7 @@ instance ToHeaders DescribeBandwidthRateLimit where
 
 instance ToJSON DescribeBandwidthRateLimit where
         toJSON DescribeBandwidthRateLimit'{..}
-          = object ["GatewayARN" .= _dbrlrqGatewayARN]
+          = object ["GatewayARN" .= _dbrlGatewayARN]
 
 instance ToPath DescribeBandwidthRateLimit where
         toPath = const "/"

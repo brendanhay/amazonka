@@ -27,12 +27,12 @@ module Network.AWS.CloudHSM.ModifyHSM
     -- ** Request constructor
     , modifyHSM
     -- ** Request lenses
-    , mhrqIAMRoleARN
-    , mhrqSubnetId
-    , mhrqSyslogIP
-    , mhrqExternalId
-    , mhrqEniIP
-    , mhrqHSMARN
+    , mhIAMRoleARN
+    , mhSubnetId
+    , mhSyslogIP
+    , mhExternalId
+    , mhEniIP
+    , mhHSMARN
 
     -- * Response
     , ModifyHSMResponse
@@ -54,62 +54,62 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mhrqIAMRoleARN'
+-- * 'mhIAMRoleARN'
 --
--- * 'mhrqSubnetId'
+-- * 'mhSubnetId'
 --
--- * 'mhrqSyslogIP'
+-- * 'mhSyslogIP'
 --
--- * 'mhrqExternalId'
+-- * 'mhExternalId'
 --
--- * 'mhrqEniIP'
+-- * 'mhEniIP'
 --
--- * 'mhrqHSMARN'
+-- * 'mhHSMARN'
 data ModifyHSM = ModifyHSM'
-    { _mhrqIAMRoleARN :: !(Maybe Text)
-    , _mhrqSubnetId   :: !(Maybe Text)
-    , _mhrqSyslogIP   :: !(Maybe Text)
-    , _mhrqExternalId :: !(Maybe Text)
-    , _mhrqEniIP      :: !(Maybe Text)
-    , _mhrqHSMARN     :: !Text
+    { _mhIAMRoleARN :: !(Maybe Text)
+    , _mhSubnetId   :: !(Maybe Text)
+    , _mhSyslogIP   :: !(Maybe Text)
+    , _mhExternalId :: !(Maybe Text)
+    , _mhEniIP      :: !(Maybe Text)
+    , _mhHSMARN     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHSM' smart constructor.
 modifyHSM :: Text -> ModifyHSM
 modifyHSM pHSMARN_ =
     ModifyHSM'
-    { _mhrqIAMRoleARN = Nothing
-    , _mhrqSubnetId = Nothing
-    , _mhrqSyslogIP = Nothing
-    , _mhrqExternalId = Nothing
-    , _mhrqEniIP = Nothing
-    , _mhrqHSMARN = pHSMARN_
+    { _mhIAMRoleARN = Nothing
+    , _mhSubnetId = Nothing
+    , _mhSyslogIP = Nothing
+    , _mhExternalId = Nothing
+    , _mhEniIP = Nothing
+    , _mhHSMARN = pHSMARN_
     }
 
 -- | The new IAM role ARN.
-mhrqIAMRoleARN :: Lens' ModifyHSM (Maybe Text)
-mhrqIAMRoleARN = lens _mhrqIAMRoleARN (\ s a -> s{_mhrqIAMRoleARN = a});
+mhIAMRoleARN :: Lens' ModifyHSM (Maybe Text)
+mhIAMRoleARN = lens _mhIAMRoleARN (\ s a -> s{_mhIAMRoleARN = a});
 
 -- | The new identifier of the subnet that the HSM is in.
-mhrqSubnetId :: Lens' ModifyHSM (Maybe Text)
-mhrqSubnetId = lens _mhrqSubnetId (\ s a -> s{_mhrqSubnetId = a});
+mhSubnetId :: Lens' ModifyHSM (Maybe Text)
+mhSubnetId = lens _mhSubnetId (\ s a -> s{_mhSubnetId = a});
 
 -- | The new IP address for the syslog monitoring server.
-mhrqSyslogIP :: Lens' ModifyHSM (Maybe Text)
-mhrqSyslogIP = lens _mhrqSyslogIP (\ s a -> s{_mhrqSyslogIP = a});
+mhSyslogIP :: Lens' ModifyHSM (Maybe Text)
+mhSyslogIP = lens _mhSyslogIP (\ s a -> s{_mhSyslogIP = a});
 
 -- | The new external ID.
-mhrqExternalId :: Lens' ModifyHSM (Maybe Text)
-mhrqExternalId = lens _mhrqExternalId (\ s a -> s{_mhrqExternalId = a});
+mhExternalId :: Lens' ModifyHSM (Maybe Text)
+mhExternalId = lens _mhExternalId (\ s a -> s{_mhExternalId = a});
 
 -- | The new IP address for the elastic network interface attached to the
 -- HSM.
-mhrqEniIP :: Lens' ModifyHSM (Maybe Text)
-mhrqEniIP = lens _mhrqEniIP (\ s a -> s{_mhrqEniIP = a});
+mhEniIP :: Lens' ModifyHSM (Maybe Text)
+mhEniIP = lens _mhEniIP (\ s a -> s{_mhEniIP = a});
 
 -- | The ARN of the HSM to modify.
-mhrqHSMARN :: Lens' ModifyHSM Text
-mhrqHSMARN = lens _mhrqHSMARN (\ s a -> s{_mhrqHSMARN = a});
+mhHSMARN :: Lens' ModifyHSM Text
+mhHSMARN = lens _mhHSMARN (\ s a -> s{_mhHSMARN = a});
 
 instance AWSRequest ModifyHSM where
         type Sv ModifyHSM = CloudHSM
@@ -133,11 +133,10 @@ instance ToHeaders ModifyHSM where
 instance ToJSON ModifyHSM where
         toJSON ModifyHSM'{..}
           = object
-              ["IamRoleArn" .= _mhrqIAMRoleARN,
-               "SubnetId" .= _mhrqSubnetId,
-               "SyslogIp" .= _mhrqSyslogIP,
-               "ExternalId" .= _mhrqExternalId,
-               "EniIp" .= _mhrqEniIP, "HsmArn" .= _mhrqHSMARN]
+              ["IamRoleArn" .= _mhIAMRoleARN,
+               "SubnetId" .= _mhSubnetId, "SyslogIp" .= _mhSyslogIP,
+               "ExternalId" .= _mhExternalId, "EniIp" .= _mhEniIP,
+               "HsmArn" .= _mhHSMARN]
 
 instance ToPath ModifyHSM where
         toPath = const "/"

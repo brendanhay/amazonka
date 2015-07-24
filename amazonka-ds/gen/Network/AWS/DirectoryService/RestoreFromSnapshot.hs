@@ -36,7 +36,7 @@ module Network.AWS.DirectoryService.RestoreFromSnapshot
     -- ** Request constructor
     , restoreFromSnapshot
     -- ** Request lenses
-    , rfsrqSnapshotId
+    , rfsSnapshotId
 
     -- * Response
     , RestoreFromSnapshotResponse
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rfsrqSnapshotId'
+-- * 'rfsSnapshotId'
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
-    { _rfsrqSnapshotId :: Text
+    { _rfsSnapshotId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreFromSnapshot' smart constructor.
 restoreFromSnapshot :: Text -> RestoreFromSnapshot
 restoreFromSnapshot pSnapshotId_ =
     RestoreFromSnapshot'
-    { _rfsrqSnapshotId = pSnapshotId_
+    { _rfsSnapshotId = pSnapshotId_
     }
 
 -- | The identifier of the snapshot to restore from.
-rfsrqSnapshotId :: Lens' RestoreFromSnapshot Text
-rfsrqSnapshotId = lens _rfsrqSnapshotId (\ s a -> s{_rfsrqSnapshotId = a});
+rfsSnapshotId :: Lens' RestoreFromSnapshot Text
+rfsSnapshotId = lens _rfsSnapshotId (\ s a -> s{_rfsSnapshotId = a});
 
 instance AWSRequest RestoreFromSnapshot where
         type Sv RestoreFromSnapshot = DirectoryService
@@ -95,7 +95,7 @@ instance ToHeaders RestoreFromSnapshot where
 
 instance ToJSON RestoreFromSnapshot where
         toJSON RestoreFromSnapshot'{..}
-          = object ["SnapshotId" .= _rfsrqSnapshotId]
+          = object ["SnapshotId" .= _rfsSnapshotId]
 
 instance ToPath RestoreFromSnapshot where
         toPath = const "/"

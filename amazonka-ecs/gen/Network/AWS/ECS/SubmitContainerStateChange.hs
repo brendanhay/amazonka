@@ -30,13 +30,13 @@ module Network.AWS.ECS.SubmitContainerStateChange
     -- ** Request constructor
     , submitContainerStateChange
     -- ** Request lenses
-    , scscrqNetworkBindings
-    , scscrqStatus
-    , scscrqCluster
-    , scscrqContainerName
-    , scscrqReason
-    , scscrqExitCode
-    , scscrqTask
+    , scscNetworkBindings
+    , scscStatus
+    , scscCluster
+    , scscContainerName
+    , scscReason
+    , scscExitCode
+    , scscTask
 
     -- * Response
     , SubmitContainerStateChangeResponse
@@ -56,71 +56,71 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'scscrqNetworkBindings'
+-- * 'scscNetworkBindings'
 --
--- * 'scscrqStatus'
+-- * 'scscStatus'
 --
--- * 'scscrqCluster'
+-- * 'scscCluster'
 --
--- * 'scscrqContainerName'
+-- * 'scscContainerName'
 --
--- * 'scscrqReason'
+-- * 'scscReason'
 --
--- * 'scscrqExitCode'
+-- * 'scscExitCode'
 --
--- * 'scscrqTask'
+-- * 'scscTask'
 data SubmitContainerStateChange = SubmitContainerStateChange'
-    { _scscrqNetworkBindings :: !(Maybe [NetworkBinding])
-    , _scscrqStatus          :: !(Maybe Text)
-    , _scscrqCluster         :: !(Maybe Text)
-    , _scscrqContainerName   :: !(Maybe Text)
-    , _scscrqReason          :: !(Maybe Text)
-    , _scscrqExitCode        :: !(Maybe Int)
-    , _scscrqTask            :: !(Maybe Text)
+    { _scscNetworkBindings :: !(Maybe [NetworkBinding])
+    , _scscStatus          :: !(Maybe Text)
+    , _scscCluster         :: !(Maybe Text)
+    , _scscContainerName   :: !(Maybe Text)
+    , _scscReason          :: !(Maybe Text)
+    , _scscExitCode        :: !(Maybe Int)
+    , _scscTask            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitContainerStateChange' smart constructor.
 submitContainerStateChange :: SubmitContainerStateChange
 submitContainerStateChange =
     SubmitContainerStateChange'
-    { _scscrqNetworkBindings = Nothing
-    , _scscrqStatus = Nothing
-    , _scscrqCluster = Nothing
-    , _scscrqContainerName = Nothing
-    , _scscrqReason = Nothing
-    , _scscrqExitCode = Nothing
-    , _scscrqTask = Nothing
+    { _scscNetworkBindings = Nothing
+    , _scscStatus = Nothing
+    , _scscCluster = Nothing
+    , _scscContainerName = Nothing
+    , _scscReason = Nothing
+    , _scscExitCode = Nothing
+    , _scscTask = Nothing
     }
 
 -- | The network bindings of the container.
-scscrqNetworkBindings :: Lens' SubmitContainerStateChange [NetworkBinding]
-scscrqNetworkBindings = lens _scscrqNetworkBindings (\ s a -> s{_scscrqNetworkBindings = a}) . _Default;
+scscNetworkBindings :: Lens' SubmitContainerStateChange [NetworkBinding]
+scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings = a}) . _Default;
 
 -- | The status of the state change request.
-scscrqStatus :: Lens' SubmitContainerStateChange (Maybe Text)
-scscrqStatus = lens _scscrqStatus (\ s a -> s{_scscrqStatus = a});
+scscStatus :: Lens' SubmitContainerStateChange (Maybe Text)
+scscStatus = lens _scscStatus (\ s a -> s{_scscStatus = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container.
-scscrqCluster :: Lens' SubmitContainerStateChange (Maybe Text)
-scscrqCluster = lens _scscrqCluster (\ s a -> s{_scscrqCluster = a});
+scscCluster :: Lens' SubmitContainerStateChange (Maybe Text)
+scscCluster = lens _scscCluster (\ s a -> s{_scscCluster = a});
 
 -- | The name of the container.
-scscrqContainerName :: Lens' SubmitContainerStateChange (Maybe Text)
-scscrqContainerName = lens _scscrqContainerName (\ s a -> s{_scscrqContainerName = a});
+scscContainerName :: Lens' SubmitContainerStateChange (Maybe Text)
+scscContainerName = lens _scscContainerName (\ s a -> s{_scscContainerName = a});
 
 -- | The reason for the state change request.
-scscrqReason :: Lens' SubmitContainerStateChange (Maybe Text)
-scscrqReason = lens _scscrqReason (\ s a -> s{_scscrqReason = a});
+scscReason :: Lens' SubmitContainerStateChange (Maybe Text)
+scscReason = lens _scscReason (\ s a -> s{_scscReason = a});
 
 -- | The exit code returned for the state change request.
-scscrqExitCode :: Lens' SubmitContainerStateChange (Maybe Int)
-scscrqExitCode = lens _scscrqExitCode (\ s a -> s{_scscrqExitCode = a});
+scscExitCode :: Lens' SubmitContainerStateChange (Maybe Int)
+scscExitCode = lens _scscExitCode (\ s a -> s{_scscExitCode = a});
 
 -- | The task UUID or full Amazon Resource Name (ARN) of the task that hosts
 -- the container.
-scscrqTask :: Lens' SubmitContainerStateChange (Maybe Text)
-scscrqTask = lens _scscrqTask (\ s a -> s{_scscrqTask = a});
+scscTask :: Lens' SubmitContainerStateChange (Maybe Text)
+scscTask = lens _scscTask (\ s a -> s{_scscTask = a});
 
 instance AWSRequest SubmitContainerStateChange where
         type Sv SubmitContainerStateChange = ECS
@@ -146,12 +146,11 @@ instance ToHeaders SubmitContainerStateChange where
 instance ToJSON SubmitContainerStateChange where
         toJSON SubmitContainerStateChange'{..}
           = object
-              ["networkBindings" .= _scscrqNetworkBindings,
-               "status" .= _scscrqStatus,
-               "cluster" .= _scscrqCluster,
-               "containerName" .= _scscrqContainerName,
-               "reason" .= _scscrqReason,
-               "exitCode" .= _scscrqExitCode, "task" .= _scscrqTask]
+              ["networkBindings" .= _scscNetworkBindings,
+               "status" .= _scscStatus, "cluster" .= _scscCluster,
+               "containerName" .= _scscContainerName,
+               "reason" .= _scscReason, "exitCode" .= _scscExitCode,
+               "task" .= _scscTask]
 
 instance ToPath SubmitContainerStateChange where
         toPath = const "/"

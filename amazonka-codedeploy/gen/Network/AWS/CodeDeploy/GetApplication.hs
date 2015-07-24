@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.GetApplication
     -- ** Request constructor
     , getApplication
     -- ** Request lenses
-    , garqApplicationName
+    , gaApplicationName
 
     -- * Response
     , GetApplicationResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'garqApplicationName'
+-- * 'gaApplicationName'
 newtype GetApplication = GetApplication'
-    { _garqApplicationName :: Text
+    { _gaApplicationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplication' smart constructor.
 getApplication :: Text -> GetApplication
 getApplication pApplicationName_ =
     GetApplication'
-    { _garqApplicationName = pApplicationName_
+    { _gaApplicationName = pApplicationName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-garqApplicationName :: Lens' GetApplication Text
-garqApplicationName = lens _garqApplicationName (\ s a -> s{_garqApplicationName = a});
+gaApplicationName :: Lens' GetApplication Text
+gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a});
 
 instance AWSRequest GetApplication where
         type Sv GetApplication = CodeDeploy
@@ -87,7 +87,7 @@ instance ToHeaders GetApplication where
 
 instance ToJSON GetApplication where
         toJSON GetApplication'{..}
-          = object ["applicationName" .= _garqApplicationName]
+          = object ["applicationName" .= _gaApplicationName]
 
 instance ToPath GetApplication where
         toPath = const "/"

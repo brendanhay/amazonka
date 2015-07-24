@@ -29,8 +29,8 @@ module Network.AWS.DynamoDB.ListTables
     -- ** Request constructor
     , listTables
     -- ** Request lenses
-    , ltrqExclusiveStartTableName
-    , ltrqLimit
+    , ltExclusiveStartTableName
+    , ltLimit
 
     -- * Response
     , ListTablesResponse
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrqExclusiveStartTableName'
+-- * 'ltExclusiveStartTableName'
 --
--- * 'ltrqLimit'
+-- * 'ltLimit'
 data ListTables = ListTables'
-    { _ltrqExclusiveStartTableName :: !(Maybe Text)
-    , _ltrqLimit                   :: !(Maybe Nat)
+    { _ltExclusiveStartTableName :: !(Maybe Text)
+    , _ltLimit                   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTables' smart constructor.
 listTables :: ListTables
 listTables =
     ListTables'
-    { _ltrqExclusiveStartTableName = Nothing
-    , _ltrqLimit = Nothing
+    { _ltExclusiveStartTableName = Nothing
+    , _ltLimit = Nothing
     }
 
 -- | The first table name that this operation will evaluate. Use the value
 -- that was returned for /LastEvaluatedTableName/ in a previous operation,
 -- so that you can obtain the next page of results.
-ltrqExclusiveStartTableName :: Lens' ListTables (Maybe Text)
-ltrqExclusiveStartTableName = lens _ltrqExclusiveStartTableName (\ s a -> s{_ltrqExclusiveStartTableName = a});
+ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
+ltExclusiveStartTableName = lens _ltExclusiveStartTableName (\ s a -> s{_ltExclusiveStartTableName = a});
 
 -- | A maximum number of table names to return. If this parameter is not
 -- specified, the limit is 100.
-ltrqLimit :: Lens' ListTables (Maybe Natural)
-ltrqLimit = lens _ltrqLimit (\ s a -> s{_ltrqLimit = a}) . mapping _Nat;
+ltLimit :: Lens' ListTables (Maybe Natural)
+ltLimit = lens _ltLimit (\ s a -> s{_ltLimit = a}) . mapping _Nat;
 
 instance AWSPager ListTables where
         page rq rs
@@ -87,7 +87,7 @@ instance AWSPager ListTables where
           | stop (rs ^. ltrsTableNames) = Nothing
           | otherwise =
             Just $ rq &
-              ltrqExclusiveStartTableName .~
+              ltExclusiveStartTableName .~
                 rs ^. ltrsLastEvaluatedTableName
 
 instance AWSRequest ListTables where
@@ -115,8 +115,8 @@ instance ToJSON ListTables where
         toJSON ListTables'{..}
           = object
               ["ExclusiveStartTableName" .=
-                 _ltrqExclusiveStartTableName,
-               "Limit" .= _ltrqLimit]
+                 _ltExclusiveStartTableName,
+               "Limit" .= _ltLimit]
 
 instance ToPath ListTables where
         toPath = const "/"

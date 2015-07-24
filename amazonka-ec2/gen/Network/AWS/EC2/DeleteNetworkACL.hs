@@ -28,8 +28,8 @@ module Network.AWS.EC2.DeleteNetworkACL
     -- ** Request constructor
     , deleteNetworkACL
     -- ** Request lenses
-    , dnarqDryRun
-    , dnarqNetworkACLId
+    , dnaDryRun
+    , dnaNetworkACLId
 
     -- * Response
     , DeleteNetworkACLResponse
@@ -46,32 +46,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnarqDryRun'
+-- * 'dnaDryRun'
 --
--- * 'dnarqNetworkACLId'
+-- * 'dnaNetworkACLId'
 data DeleteNetworkACL = DeleteNetworkACL'
-    { _dnarqDryRun       :: !(Maybe Bool)
-    , _dnarqNetworkACLId :: !Text
+    { _dnaDryRun       :: !(Maybe Bool)
+    , _dnaNetworkACLId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkACL' smart constructor.
 deleteNetworkACL :: Text -> DeleteNetworkACL
 deleteNetworkACL pNetworkACLId_ =
     DeleteNetworkACL'
-    { _dnarqDryRun = Nothing
-    , _dnarqNetworkACLId = pNetworkACLId_
+    { _dnaDryRun = Nothing
+    , _dnaNetworkACLId = pNetworkACLId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dnarqDryRun :: Lens' DeleteNetworkACL (Maybe Bool)
-dnarqDryRun = lens _dnarqDryRun (\ s a -> s{_dnarqDryRun = a});
+dnaDryRun :: Lens' DeleteNetworkACL (Maybe Bool)
+dnaDryRun = lens _dnaDryRun (\ s a -> s{_dnaDryRun = a});
 
 -- | The ID of the network ACL.
-dnarqNetworkACLId :: Lens' DeleteNetworkACL Text
-dnarqNetworkACLId = lens _dnarqNetworkACLId (\ s a -> s{_dnarqNetworkACLId = a});
+dnaNetworkACLId :: Lens' DeleteNetworkACL Text
+dnaNetworkACLId = lens _dnaNetworkACLId (\ s a -> s{_dnaNetworkACLId = a});
 
 instance AWSRequest DeleteNetworkACL where
         type Sv DeleteNetworkACL = EC2
@@ -90,8 +90,8 @@ instance ToQuery DeleteNetworkACL where
           = mconcat
               ["Action" =: ("DeleteNetworkACL" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dnarqDryRun,
-               "NetworkAclId" =: _dnarqNetworkACLId]
+               "DryRun" =: _dnaDryRun,
+               "NetworkAclId" =: _dnaNetworkACLId]
 
 -- | /See:/ 'deleteNetworkACLResponse' smart constructor.
 data DeleteNetworkACLResponse =

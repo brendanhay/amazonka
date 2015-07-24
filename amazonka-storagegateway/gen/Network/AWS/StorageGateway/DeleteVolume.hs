@@ -41,7 +41,7 @@ module Network.AWS.StorageGateway.DeleteVolume
     -- ** Request constructor
     , deleteVolume
     -- ** Request lenses
-    , dvrqVolumeARN
+    , dvVolumeARN
 
     -- * Response
     , DeleteVolumeResponse
@@ -63,22 +63,22 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrqVolumeARN'
+-- * 'dvVolumeARN'
 newtype DeleteVolume = DeleteVolume'
-    { _dvrqVolumeARN :: Text
+    { _dvVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
 deleteVolume pVolumeARN_ =
     DeleteVolume'
-    { _dvrqVolumeARN = pVolumeARN_
+    { _dvVolumeARN = pVolumeARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-dvrqVolumeARN :: Lens' DeleteVolume Text
-dvrqVolumeARN = lens _dvrqVolumeARN (\ s a -> s{_dvrqVolumeARN = a});
+dvVolumeARN :: Lens' DeleteVolume Text
+dvVolumeARN = lens _dvVolumeARN (\ s a -> s{_dvVolumeARN = a});
 
 instance AWSRequest DeleteVolume where
         type Sv DeleteVolume = StorageGateway
@@ -102,7 +102,7 @@ instance ToHeaders DeleteVolume where
 
 instance ToJSON DeleteVolume where
         toJSON DeleteVolume'{..}
-          = object ["VolumeARN" .= _dvrqVolumeARN]
+          = object ["VolumeARN" .= _dvVolumeARN]
 
 instance ToPath DeleteVolume where
         toPath = const "/"

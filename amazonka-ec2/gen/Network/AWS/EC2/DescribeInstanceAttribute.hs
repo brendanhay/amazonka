@@ -32,9 +32,9 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- ** Request constructor
     , describeInstanceAttribute
     -- ** Request lenses
-    , diarqDryRun
-    , diarqInstanceId
-    , diarqAttribute
+    , diaDryRun
+    , diaInstanceId
+    , diaAttribute
 
     -- * Response
     , DescribeInstanceAttributeResponse
@@ -67,40 +67,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diarqDryRun'
+-- * 'diaDryRun'
 --
--- * 'diarqInstanceId'
+-- * 'diaInstanceId'
 --
--- * 'diarqAttribute'
+-- * 'diaAttribute'
 data DescribeInstanceAttribute = DescribeInstanceAttribute'
-    { _diarqDryRun     :: !(Maybe Bool)
-    , _diarqInstanceId :: !Text
-    , _diarqAttribute  :: !InstanceAttributeName
+    { _diaDryRun     :: !(Maybe Bool)
+    , _diaInstanceId :: !Text
+    , _diaAttribute  :: !InstanceAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceAttribute' smart constructor.
 describeInstanceAttribute :: Text -> InstanceAttributeName -> DescribeInstanceAttribute
 describeInstanceAttribute pInstanceId_ pAttribute_ =
     DescribeInstanceAttribute'
-    { _diarqDryRun = Nothing
-    , _diarqInstanceId = pInstanceId_
-    , _diarqAttribute = pAttribute_
+    { _diaDryRun = Nothing
+    , _diaInstanceId = pInstanceId_
+    , _diaAttribute = pAttribute_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-diarqDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
-diarqDryRun = lens _diarqDryRun (\ s a -> s{_diarqDryRun = a});
+diaDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
+diaDryRun = lens _diaDryRun (\ s a -> s{_diaDryRun = a});
 
 -- | The ID of the instance.
-diarqInstanceId :: Lens' DescribeInstanceAttribute Text
-diarqInstanceId = lens _diarqInstanceId (\ s a -> s{_diarqInstanceId = a});
+diaInstanceId :: Lens' DescribeInstanceAttribute Text
+diaInstanceId = lens _diaInstanceId (\ s a -> s{_diaInstanceId = a});
 
 -- | The instance attribute.
-diarqAttribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
-diarqAttribute = lens _diarqAttribute (\ s a -> s{_diarqAttribute = a});
+diaAttribute :: Lens' DescribeInstanceAttribute InstanceAttributeName
+diaAttribute = lens _diaAttribute (\ s a -> s{_diaAttribute = a});
 
 instance AWSRequest DescribeInstanceAttribute where
         type Sv DescribeInstanceAttribute = EC2
@@ -144,9 +144,9 @@ instance ToQuery DescribeInstanceAttribute where
               ["Action" =:
                  ("DescribeInstanceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _diarqDryRun,
-               "InstanceId" =: _diarqInstanceId,
-               "Attribute" =: _diarqAttribute]
+               "DryRun" =: _diaDryRun,
+               "InstanceId" =: _diaInstanceId,
+               "Attribute" =: _diaAttribute]
 
 -- | Describes an instance attribute.
 --

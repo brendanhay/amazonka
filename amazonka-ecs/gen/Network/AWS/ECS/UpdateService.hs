@@ -42,10 +42,10 @@ module Network.AWS.ECS.UpdateService
     -- ** Request constructor
     , updateService
     -- ** Request lenses
-    , usrqCluster
-    , usrqDesiredCount
-    , usrqTaskDefinition
-    , usrqService
+    , usCluster
+    , usDesiredCount
+    , usTaskDefinition
+    , usService
 
     -- * Response
     , UpdateServiceResponse
@@ -65,40 +65,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usrqCluster'
+-- * 'usCluster'
 --
--- * 'usrqDesiredCount'
+-- * 'usDesiredCount'
 --
--- * 'usrqTaskDefinition'
+-- * 'usTaskDefinition'
 --
--- * 'usrqService'
+-- * 'usService'
 data UpdateService = UpdateService'
-    { _usrqCluster        :: !(Maybe Text)
-    , _usrqDesiredCount   :: !(Maybe Int)
-    , _usrqTaskDefinition :: !(Maybe Text)
-    , _usrqService        :: !Text
+    { _usCluster        :: !(Maybe Text)
+    , _usDesiredCount   :: !(Maybe Int)
+    , _usTaskDefinition :: !(Maybe Text)
+    , _usService        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateService' smart constructor.
 updateService :: Text -> UpdateService
 updateService pService_ =
     UpdateService'
-    { _usrqCluster = Nothing
-    , _usrqDesiredCount = Nothing
-    , _usrqTaskDefinition = Nothing
-    , _usrqService = pService_
+    { _usCluster = Nothing
+    , _usDesiredCount = Nothing
+    , _usTaskDefinition = Nothing
+    , _usService = pService_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your service is running on. If you do not specify a cluster, the default
 -- cluster is assumed.
-usrqCluster :: Lens' UpdateService (Maybe Text)
-usrqCluster = lens _usrqCluster (\ s a -> s{_usrqCluster = a});
+usCluster :: Lens' UpdateService (Maybe Text)
+usCluster = lens _usCluster (\ s a -> s{_usCluster = a});
 
 -- | The number of instantiations of the task that you would like to place
 -- and keep running in your service.
-usrqDesiredCount :: Lens' UpdateService (Maybe Int)
-usrqDesiredCount = lens _usrqDesiredCount (\ s a -> s{_usrqDesiredCount = a});
+usDesiredCount :: Lens' UpdateService (Maybe Int)
+usDesiredCount = lens _usDesiredCount (\ s a -> s{_usDesiredCount = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to run in your service.
@@ -106,12 +106,12 @@ usrqDesiredCount = lens _usrqDesiredCount (\ s a -> s{_usrqDesiredCount = a});
 -- If you modify the task definition with @UpdateService@, Amazon ECS
 -- spawns a task with the new version of the task definition and then stops
 -- an old task after the new version is running.
-usrqTaskDefinition :: Lens' UpdateService (Maybe Text)
-usrqTaskDefinition = lens _usrqTaskDefinition (\ s a -> s{_usrqTaskDefinition = a});
+usTaskDefinition :: Lens' UpdateService (Maybe Text)
+usTaskDefinition = lens _usTaskDefinition (\ s a -> s{_usTaskDefinition = a});
 
 -- | The name of the service that you want to update.
-usrqService :: Lens' UpdateService Text
-usrqService = lens _usrqService (\ s a -> s{_usrqService = a});
+usService :: Lens' UpdateService Text
+usService = lens _usService (\ s a -> s{_usService = a});
 
 instance AWSRequest UpdateService where
         type Sv UpdateService = ECS
@@ -136,10 +136,10 @@ instance ToHeaders UpdateService where
 instance ToJSON UpdateService where
         toJSON UpdateService'{..}
           = object
-              ["cluster" .= _usrqCluster,
-               "desiredCount" .= _usrqDesiredCount,
-               "taskDefinition" .= _usrqTaskDefinition,
-               "service" .= _usrqService]
+              ["cluster" .= _usCluster,
+               "desiredCount" .= _usDesiredCount,
+               "taskDefinition" .= _usTaskDefinition,
+               "service" .= _usService]
 
 instance ToPath UpdateService where
         toPath = const "/"

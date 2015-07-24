@@ -34,7 +34,7 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
     -- ** Request constructor
     , getHostnameSuggestion
     -- ** Request lenses
-    , ghsrqLayerId
+    , ghsLayerId
 
     -- * Response
     , GetHostnameSuggestionResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghsrqLayerId'
+-- * 'ghsLayerId'
 newtype GetHostnameSuggestion = GetHostnameSuggestion'
-    { _ghsrqLayerId :: Text
+    { _ghsLayerId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostnameSuggestion' smart constructor.
 getHostnameSuggestion :: Text -> GetHostnameSuggestion
 getHostnameSuggestion pLayerId_ =
     GetHostnameSuggestion'
-    { _ghsrqLayerId = pLayerId_
+    { _ghsLayerId = pLayerId_
     }
 
 -- | The layer ID.
-ghsrqLayerId :: Lens' GetHostnameSuggestion Text
-ghsrqLayerId = lens _ghsrqLayerId (\ s a -> s{_ghsrqLayerId = a});
+ghsLayerId :: Lens' GetHostnameSuggestion Text
+ghsLayerId = lens _ghsLayerId (\ s a -> s{_ghsLayerId = a});
 
 instance AWSRequest GetHostnameSuggestion where
         type Sv GetHostnameSuggestion = OpsWorks
@@ -95,7 +95,7 @@ instance ToHeaders GetHostnameSuggestion where
 
 instance ToJSON GetHostnameSuggestion where
         toJSON GetHostnameSuggestion'{..}
-          = object ["LayerId" .= _ghsrqLayerId]
+          = object ["LayerId" .= _ghsLayerId]
 
 instance ToPath GetHostnameSuggestion where
         toPath = const "/"

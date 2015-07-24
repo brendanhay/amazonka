@@ -31,10 +31,10 @@ module Network.AWS.CloudWatch.SetAlarmState
     -- ** Request constructor
     , setAlarmState
     -- ** Request lenses
-    , sasrqStateReasonData
-    , sasrqAlarmName
-    , sasrqStateValue
-    , sasrqStateReason
+    , sasStateReasonData
+    , sasAlarmName
+    , sasStateValue
+    , sasStateReason
 
     -- * Response
     , SetAlarmStateResponse
@@ -51,48 +51,48 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sasrqStateReasonData'
+-- * 'sasStateReasonData'
 --
--- * 'sasrqAlarmName'
+-- * 'sasAlarmName'
 --
--- * 'sasrqStateValue'
+-- * 'sasStateValue'
 --
--- * 'sasrqStateReason'
+-- * 'sasStateReason'
 data SetAlarmState = SetAlarmState'
-    { _sasrqStateReasonData :: !(Maybe Text)
-    , _sasrqAlarmName       :: !Text
-    , _sasrqStateValue      :: !StateValue
-    , _sasrqStateReason     :: !Text
+    { _sasStateReasonData :: !(Maybe Text)
+    , _sasAlarmName       :: !Text
+    , _sasStateValue      :: !StateValue
+    , _sasStateReason     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetAlarmState' smart constructor.
 setAlarmState :: Text -> StateValue -> Text -> SetAlarmState
 setAlarmState pAlarmName_ pStateValue_ pStateReason_ =
     SetAlarmState'
-    { _sasrqStateReasonData = Nothing
-    , _sasrqAlarmName = pAlarmName_
-    , _sasrqStateValue = pStateValue_
-    , _sasrqStateReason = pStateReason_
+    { _sasStateReasonData = Nothing
+    , _sasAlarmName = pAlarmName_
+    , _sasStateValue = pStateValue_
+    , _sasStateReason = pStateReason_
     }
 
 -- | The reason that this alarm is set to this specific state (in
 -- machine-readable JSON format)
-sasrqStateReasonData :: Lens' SetAlarmState (Maybe Text)
-sasrqStateReasonData = lens _sasrqStateReasonData (\ s a -> s{_sasrqStateReasonData = a});
+sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
+sasStateReasonData = lens _sasStateReasonData (\ s a -> s{_sasStateReasonData = a});
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user\'s AWS account. The maximum length is 255 characters.
-sasrqAlarmName :: Lens' SetAlarmState Text
-sasrqAlarmName = lens _sasrqAlarmName (\ s a -> s{_sasrqAlarmName = a});
+sasAlarmName :: Lens' SetAlarmState Text
+sasAlarmName = lens _sasAlarmName (\ s a -> s{_sasAlarmName = a});
 
 -- | The value of the state.
-sasrqStateValue :: Lens' SetAlarmState StateValue
-sasrqStateValue = lens _sasrqStateValue (\ s a -> s{_sasrqStateValue = a});
+sasStateValue :: Lens' SetAlarmState StateValue
+sasStateValue = lens _sasStateValue (\ s a -> s{_sasStateValue = a});
 
 -- | The reason that this alarm is set to this specific state (in
 -- human-readable text format)
-sasrqStateReason :: Lens' SetAlarmState Text
-sasrqStateReason = lens _sasrqStateReason (\ s a -> s{_sasrqStateReason = a});
+sasStateReason :: Lens' SetAlarmState Text
+sasStateReason = lens _sasStateReason (\ s a -> s{_sasStateReason = a});
 
 instance AWSRequest SetAlarmState where
         type Sv SetAlarmState = CloudWatch
@@ -111,10 +111,10 @@ instance ToQuery SetAlarmState where
           = mconcat
               ["Action" =: ("SetAlarmState" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "StateReasonData" =: _sasrqStateReasonData,
-               "AlarmName" =: _sasrqAlarmName,
-               "StateValue" =: _sasrqStateValue,
-               "StateReason" =: _sasrqStateReason]
+               "StateReasonData" =: _sasStateReasonData,
+               "AlarmName" =: _sasAlarmName,
+               "StateValue" =: _sasStateValue,
+               "StateReason" =: _sasStateReason]
 
 -- | /See:/ 'setAlarmStateResponse' smart constructor.
 data SetAlarmStateResponse =

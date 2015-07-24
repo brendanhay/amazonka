@@ -33,9 +33,9 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     -- ** Request constructor
     , describeIndexFields
     -- ** Request lenses
-    , difrqDeployed
-    , difrqFieldNames
-    , difrqDomainName
+    , difDeployed
+    , difFieldNames
+    , difDomainName
 
     -- * Response
     , DescribeIndexFieldsResponse
@@ -61,39 +61,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'difrqDeployed'
+-- * 'difDeployed'
 --
--- * 'difrqFieldNames'
+-- * 'difFieldNames'
 --
--- * 'difrqDomainName'
+-- * 'difDomainName'
 data DescribeIndexFields = DescribeIndexFields'
-    { _difrqDeployed   :: !(Maybe Bool)
-    , _difrqFieldNames :: !(Maybe [Text])
-    , _difrqDomainName :: !Text
+    { _difDeployed   :: !(Maybe Bool)
+    , _difFieldNames :: !(Maybe [Text])
+    , _difDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIndexFields' smart constructor.
 describeIndexFields :: Text -> DescribeIndexFields
 describeIndexFields pDomainName_ =
     DescribeIndexFields'
-    { _difrqDeployed = Nothing
-    , _difrqFieldNames = Nothing
-    , _difrqDomainName = pDomainName_
+    { _difDeployed = Nothing
+    , _difFieldNames = Nothing
+    , _difDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-difrqDeployed :: Lens' DescribeIndexFields (Maybe Bool)
-difrqDeployed = lens _difrqDeployed (\ s a -> s{_difrqDeployed = a});
+difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
+difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a});
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
-difrqFieldNames :: Lens' DescribeIndexFields [Text]
-difrqFieldNames = lens _difrqFieldNames (\ s a -> s{_difrqFieldNames = a}) . _Default;
+difFieldNames :: Lens' DescribeIndexFields [Text]
+difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-difrqDomainName :: Lens' DescribeIndexFields Text
-difrqDomainName = lens _difrqDomainName (\ s a -> s{_difrqDomainName = a});
+difDomainName :: Lens' DescribeIndexFields Text
+difDomainName = lens _difDomainName (\ s a -> s{_difDomainName = a});
 
 instance AWSRequest DescribeIndexFields where
         type Sv DescribeIndexFields = CloudSearch
@@ -119,10 +119,10 @@ instance ToQuery DescribeIndexFields where
           = mconcat
               ["Action" =: ("DescribeIndexFields" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _difrqDeployed,
+               "Deployed" =: _difDeployed,
                "FieldNames" =:
-                 toQuery (toQueryList "member" <$> _difrqFieldNames),
-               "DomainName" =: _difrqDomainName]
+                 toQuery (toQueryList "member" <$> _difFieldNames),
+               "DomainName" =: _difDomainName]
 
 -- | The result of a @DescribeIndexFields@ request. Contains the index fields
 -- configured for the domain specified in the request.

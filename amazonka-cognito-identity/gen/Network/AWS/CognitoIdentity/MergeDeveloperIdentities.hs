@@ -36,10 +36,10 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     -- ** Request constructor
     , mergeDeveloperIdentities
     -- ** Request lenses
-    , mdirqSourceUserIdentifier
-    , mdirqDestinationUserIdentifier
-    , mdirqDeveloperProviderName
-    , mdirqIdentityPoolId
+    , mdiSourceUserIdentifier
+    , mdiDestinationUserIdentifier
+    , mdiDeveloperProviderName
+    , mdiIdentityPoolId
 
     -- * Response
     , MergeDeveloperIdentitiesResponse
@@ -61,39 +61,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdirqSourceUserIdentifier'
+-- * 'mdiSourceUserIdentifier'
 --
--- * 'mdirqDestinationUserIdentifier'
+-- * 'mdiDestinationUserIdentifier'
 --
--- * 'mdirqDeveloperProviderName'
+-- * 'mdiDeveloperProviderName'
 --
--- * 'mdirqIdentityPoolId'
+-- * 'mdiIdentityPoolId'
 data MergeDeveloperIdentities = MergeDeveloperIdentities'
-    { _mdirqSourceUserIdentifier      :: !Text
-    , _mdirqDestinationUserIdentifier :: !Text
-    , _mdirqDeveloperProviderName     :: !Text
-    , _mdirqIdentityPoolId            :: !Text
+    { _mdiSourceUserIdentifier      :: !Text
+    , _mdiDestinationUserIdentifier :: !Text
+    , _mdiDeveloperProviderName     :: !Text
+    , _mdiIdentityPoolId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeDeveloperIdentities' smart constructor.
 mergeDeveloperIdentities :: Text -> Text -> Text -> Text -> MergeDeveloperIdentities
 mergeDeveloperIdentities pSourceUserIdentifier_ pDestinationUserIdentifier_ pDeveloperProviderName_ pIdentityPoolId_ =
     MergeDeveloperIdentities'
-    { _mdirqSourceUserIdentifier = pSourceUserIdentifier_
-    , _mdirqDestinationUserIdentifier = pDestinationUserIdentifier_
-    , _mdirqDeveloperProviderName = pDeveloperProviderName_
-    , _mdirqIdentityPoolId = pIdentityPoolId_
+    { _mdiSourceUserIdentifier = pSourceUserIdentifier_
+    , _mdiDestinationUserIdentifier = pDestinationUserIdentifier_
+    , _mdiDeveloperProviderName = pDeveloperProviderName_
+    , _mdiIdentityPoolId = pIdentityPoolId_
     }
 
 -- | User identifier for the source user. The value should be a
 -- @DeveloperUserIdentifier@.
-mdirqSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
-mdirqSourceUserIdentifier = lens _mdirqSourceUserIdentifier (\ s a -> s{_mdirqSourceUserIdentifier = a});
+mdiSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
+mdiSourceUserIdentifier = lens _mdiSourceUserIdentifier (\ s a -> s{_mdiSourceUserIdentifier = a});
 
 -- | User identifier for the destination user. The value should be a
 -- @DeveloperUserIdentifier@.
-mdirqDestinationUserIdentifier :: Lens' MergeDeveloperIdentities Text
-mdirqDestinationUserIdentifier = lens _mdirqDestinationUserIdentifier (\ s a -> s{_mdirqDestinationUserIdentifier = a});
+mdiDestinationUserIdentifier :: Lens' MergeDeveloperIdentities Text
+mdiDestinationUserIdentifier = lens _mdiDestinationUserIdentifier (\ s a -> s{_mdiDestinationUserIdentifier = a});
 
 -- | The \"domain\" by which Cognito will refer to your users. This is a
 -- (pseudo) domain name that you provide while creating an identity pool.
@@ -101,12 +101,12 @@ mdirqDestinationUserIdentifier = lens _mdirqDestinationUserIdentifier (\ s a -> 
 -- service to communicate about the developer provider. For the
 -- @DeveloperProviderName@, you can use letters as well as period (.),
 -- underscore (_), and dash (-).
-mdirqDeveloperProviderName :: Lens' MergeDeveloperIdentities Text
-mdirqDeveloperProviderName = lens _mdirqDeveloperProviderName (\ s a -> s{_mdirqDeveloperProviderName = a});
+mdiDeveloperProviderName :: Lens' MergeDeveloperIdentities Text
+mdiDeveloperProviderName = lens _mdiDeveloperProviderName (\ s a -> s{_mdiDeveloperProviderName = a});
 
 -- | An identity pool ID in the format REGION:GUID.
-mdirqIdentityPoolId :: Lens' MergeDeveloperIdentities Text
-mdirqIdentityPoolId = lens _mdirqIdentityPoolId (\ s a -> s{_mdirqIdentityPoolId = a});
+mdiIdentityPoolId :: Lens' MergeDeveloperIdentities Text
+mdiIdentityPoolId = lens _mdiIdentityPoolId (\ s a -> s{_mdiIdentityPoolId = a});
 
 instance AWSRequest MergeDeveloperIdentities where
         type Sv MergeDeveloperIdentities = CognitoIdentity
@@ -132,13 +132,11 @@ instance ToHeaders MergeDeveloperIdentities where
 instance ToJSON MergeDeveloperIdentities where
         toJSON MergeDeveloperIdentities'{..}
           = object
-              ["SourceUserIdentifier" .=
-                 _mdirqSourceUserIdentifier,
+              ["SourceUserIdentifier" .= _mdiSourceUserIdentifier,
                "DestinationUserIdentifier" .=
-                 _mdirqDestinationUserIdentifier,
-               "DeveloperProviderName" .=
-                 _mdirqDeveloperProviderName,
-               "IdentityPoolId" .= _mdirqIdentityPoolId]
+                 _mdiDestinationUserIdentifier,
+               "DeveloperProviderName" .= _mdiDeveloperProviderName,
+               "IdentityPoolId" .= _mdiIdentityPoolId]
 
 instance ToPath MergeDeveloperIdentities where
         toPath = const "/"

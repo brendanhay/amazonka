@@ -29,7 +29,7 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     -- ** Request constructor
     , deleteCacheParameterGroup
     -- ** Request lenses
-    , drqCacheParameterGroupName
+    , dCacheParameterGroupName
 
     -- * Response
     , DeleteCacheParameterGroupResponse
@@ -48,24 +48,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqCacheParameterGroupName'
+-- * 'dCacheParameterGroupName'
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
-    { _drqCacheParameterGroupName :: Text
+    { _dCacheParameterGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheParameterGroup' smart constructor.
 deleteCacheParameterGroup :: Text -> DeleteCacheParameterGroup
 deleteCacheParameterGroup pCacheParameterGroupName_ =
     DeleteCacheParameterGroup'
-    { _drqCacheParameterGroupName = pCacheParameterGroupName_
+    { _dCacheParameterGroupName = pCacheParameterGroupName_
     }
 
 -- | The name of the cache parameter group to delete.
 --
 -- The specified cache security group must not be associated with any cache
 -- clusters.
-drqCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
-drqCacheParameterGroupName = lens _drqCacheParameterGroupName (\ s a -> s{_drqCacheParameterGroupName = a});
+dCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
+dCacheParameterGroupName = lens _dCacheParameterGroupName (\ s a -> s{_dCacheParameterGroupName = a});
 
 instance AWSRequest DeleteCacheParameterGroup where
         type Sv DeleteCacheParameterGroup = ElastiCache
@@ -88,7 +88,7 @@ instance ToQuery DeleteCacheParameterGroup where
                  ("DeleteCacheParameterGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheParameterGroupName" =:
-                 _drqCacheParameterGroupName]
+                 _dCacheParameterGroupName]
 
 -- | /See:/ 'deleteCacheParameterGroupResponse' smart constructor.
 data DeleteCacheParameterGroupResponse =

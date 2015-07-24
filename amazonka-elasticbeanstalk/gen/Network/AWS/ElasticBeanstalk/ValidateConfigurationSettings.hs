@@ -31,10 +31,10 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- ** Request constructor
     , validateConfigurationSettings
     -- ** Request lenses
-    , vcsrqTemplateName
-    , vcsrqEnvironmentName
-    , vcsrqApplicationName
-    , vcsrqOptionSettings
+    , vcsTemplateName
+    , vcsEnvironmentName
+    , vcsApplicationName
+    , vcsOptionSettings
 
     -- * Response
     , ValidateConfigurationSettingsResponse
@@ -56,51 +56,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vcsrqTemplateName'
+-- * 'vcsTemplateName'
 --
--- * 'vcsrqEnvironmentName'
+-- * 'vcsEnvironmentName'
 --
--- * 'vcsrqApplicationName'
+-- * 'vcsApplicationName'
 --
--- * 'vcsrqOptionSettings'
+-- * 'vcsOptionSettings'
 data ValidateConfigurationSettings = ValidateConfigurationSettings'
-    { _vcsrqTemplateName    :: !(Maybe Text)
-    , _vcsrqEnvironmentName :: !(Maybe Text)
-    , _vcsrqApplicationName :: !Text
-    , _vcsrqOptionSettings  :: ![ConfigurationOptionSetting]
+    { _vcsTemplateName    :: !(Maybe Text)
+    , _vcsEnvironmentName :: !(Maybe Text)
+    , _vcsApplicationName :: !Text
+    , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateConfigurationSettings' smart constructor.
 validateConfigurationSettings :: Text -> ValidateConfigurationSettings
 validateConfigurationSettings pApplicationName_ =
     ValidateConfigurationSettings'
-    { _vcsrqTemplateName = Nothing
-    , _vcsrqEnvironmentName = Nothing
-    , _vcsrqApplicationName = pApplicationName_
-    , _vcsrqOptionSettings = mempty
+    { _vcsTemplateName = Nothing
+    , _vcsEnvironmentName = Nothing
+    , _vcsApplicationName = pApplicationName_
+    , _vcsOptionSettings = mempty
     }
 
 -- | The name of the configuration template to validate the settings against.
 --
 -- Condition: You cannot specify both this and an environment name.
-vcsrqTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsrqTemplateName = lens _vcsrqTemplateName (\ s a -> s{_vcsrqTemplateName = a});
+vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsTemplateName = lens _vcsTemplateName (\ s a -> s{_vcsTemplateName = a});
 
 -- | The name of the environment to validate the settings against.
 --
 -- Condition: You cannot specify both this and a configuration template
 -- name.
-vcsrqEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsrqEnvironmentName = lens _vcsrqEnvironmentName (\ s a -> s{_vcsrqEnvironmentName = a});
+vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsEnvironmentName = lens _vcsEnvironmentName (\ s a -> s{_vcsEnvironmentName = a});
 
 -- | The name of the application that the configuration template or
 -- environment belongs to.
-vcsrqApplicationName :: Lens' ValidateConfigurationSettings Text
-vcsrqApplicationName = lens _vcsrqApplicationName (\ s a -> s{_vcsrqApplicationName = a});
+vcsApplicationName :: Lens' ValidateConfigurationSettings Text
+vcsApplicationName = lens _vcsApplicationName (\ s a -> s{_vcsApplicationName = a});
 
 -- | A list of the options and desired values to evaluate.
-vcsrqOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
-vcsrqOptionSettings = lens _vcsrqOptionSettings (\ s a -> s{_vcsrqOptionSettings = a});
+vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
+vcsOptionSettings = lens _vcsOptionSettings (\ s a -> s{_vcsOptionSettings = a});
 
 instance AWSRequest ValidateConfigurationSettings
          where
@@ -131,11 +131,11 @@ instance ToQuery ValidateConfigurationSettings where
               ["Action" =:
                  ("ValidateConfigurationSettings" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _vcsrqTemplateName,
-               "EnvironmentName" =: _vcsrqEnvironmentName,
-               "ApplicationName" =: _vcsrqApplicationName,
+               "TemplateName" =: _vcsTemplateName,
+               "EnvironmentName" =: _vcsEnvironmentName,
+               "ApplicationName" =: _vcsApplicationName,
                "OptionSettings" =:
-                 toQueryList "member" _vcsrqOptionSettings]
+                 toQueryList "member" _vcsOptionSettings]
 
 -- | Provides a list of validation messages.
 --

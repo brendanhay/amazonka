@@ -34,8 +34,8 @@ module Network.AWS.IAM.DeleteUserPolicy
     -- ** Request constructor
     , deleteUserPolicy
     -- ** Request lenses
-    , duprqUserName
-    , duprqPolicyName
+    , dupUserName
+    , dupPolicyName
 
     -- * Response
     , DeleteUserPolicyResponse
@@ -52,30 +52,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'duprqUserName'
+-- * 'dupUserName'
 --
--- * 'duprqPolicyName'
+-- * 'dupPolicyName'
 data DeleteUserPolicy = DeleteUserPolicy'
-    { _duprqUserName   :: !Text
-    , _duprqPolicyName :: !Text
+    { _dupUserName   :: !Text
+    , _dupPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserPolicy' smart constructor.
 deleteUserPolicy :: Text -> Text -> DeleteUserPolicy
 deleteUserPolicy pUserName_ pPolicyName_ =
     DeleteUserPolicy'
-    { _duprqUserName = pUserName_
-    , _duprqPolicyName = pPolicyName_
+    { _dupUserName = pUserName_
+    , _dupPolicyName = pPolicyName_
     }
 
 -- | The name (friendly name, not ARN) identifying the user that the policy
 -- is embedded in.
-duprqUserName :: Lens' DeleteUserPolicy Text
-duprqUserName = lens _duprqUserName (\ s a -> s{_duprqUserName = a});
+dupUserName :: Lens' DeleteUserPolicy Text
+dupUserName = lens _dupUserName (\ s a -> s{_dupUserName = a});
 
 -- | The name identifying the policy document to delete.
-duprqPolicyName :: Lens' DeleteUserPolicy Text
-duprqPolicyName = lens _duprqPolicyName (\ s a -> s{_duprqPolicyName = a});
+dupPolicyName :: Lens' DeleteUserPolicy Text
+dupPolicyName = lens _dupPolicyName (\ s a -> s{_dupPolicyName = a});
 
 instance AWSRequest DeleteUserPolicy where
         type Sv DeleteUserPolicy = IAM
@@ -94,8 +94,8 @@ instance ToQuery DeleteUserPolicy where
           = mconcat
               ["Action" =: ("DeleteUserPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _duprqUserName,
-               "PolicyName" =: _duprqPolicyName]
+               "UserName" =: _dupUserName,
+               "PolicyName" =: _dupPolicyName]
 
 -- | /See:/ 'deleteUserPolicyResponse' smart constructor.
 data DeleteUserPolicyResponse =

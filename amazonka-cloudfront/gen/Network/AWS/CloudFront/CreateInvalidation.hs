@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- ** Request constructor
     , createInvalidation
     -- ** Request lenses
-    , cirqDistributionId
-    , cirqInvalidationBatch
+    , ciDistributionId
+    , ciInvalidationBatch
 
     -- * Response
     , CreateInvalidationResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cirqDistributionId'
+-- * 'ciDistributionId'
 --
--- * 'cirqInvalidationBatch'
+-- * 'ciInvalidationBatch'
 data CreateInvalidation = CreateInvalidation'
-    { _cirqDistributionId    :: !Text
-    , _cirqInvalidationBatch :: !InvalidationBatch
+    { _ciDistributionId    :: !Text
+    , _ciInvalidationBatch :: !InvalidationBatch
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInvalidation' smart constructor.
 createInvalidation :: Text -> InvalidationBatch -> CreateInvalidation
 createInvalidation pDistributionId_ pInvalidationBatch_ =
     CreateInvalidation'
-    { _cirqDistributionId = pDistributionId_
-    , _cirqInvalidationBatch = pInvalidationBatch_
+    { _ciDistributionId = pDistributionId_
+    , _ciInvalidationBatch = pInvalidationBatch_
     }
 
 -- | The distribution\'s id.
-cirqDistributionId :: Lens' CreateInvalidation Text
-cirqDistributionId = lens _cirqDistributionId (\ s a -> s{_cirqDistributionId = a});
+ciDistributionId :: Lens' CreateInvalidation Text
+ciDistributionId = lens _ciDistributionId (\ s a -> s{_ciDistributionId = a});
 
 -- | The batch information for the invalidation.
-cirqInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
-cirqInvalidationBatch = lens _cirqInvalidationBatch (\ s a -> s{_cirqInvalidationBatch = a});
+ciInvalidationBatch :: Lens' CreateInvalidation InvalidationBatch
+ciInvalidationBatch = lens _ciInvalidationBatch (\ s a -> s{_ciInvalidationBatch = a});
 
 instance AWSRequest CreateInvalidation where
         type Sv CreateInvalidation = CloudFront
@@ -92,7 +92,7 @@ instance ToElement CreateInvalidation where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}InvalidationBatch"
               .
-              _cirqInvalidationBatch
+              _ciInvalidationBatch
 
 instance ToHeaders CreateInvalidation where
         toHeaders = const mempty
@@ -101,7 +101,7 @@ instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
               ["/2015-04-17/distribution/",
-               toText _cirqDistributionId, "/invalidation"]
+               toText _ciDistributionId, "/invalidation"]
 
 instance ToQuery CreateInvalidation where
         toQuery = const mempty

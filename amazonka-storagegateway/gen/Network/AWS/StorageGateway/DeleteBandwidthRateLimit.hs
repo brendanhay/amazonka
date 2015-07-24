@@ -31,8 +31,8 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     -- ** Request constructor
     , deleteBandwidthRateLimit
     -- ** Request lenses
-    , delrqGatewayARN
-    , delrqBandwidthType
+    , delGatewayARN
+    , delBandwidthType
 
     -- * Response
     , DeleteBandwidthRateLimitResponse
@@ -52,29 +52,29 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrqGatewayARN'
+-- * 'delGatewayARN'
 --
--- * 'delrqBandwidthType'
+-- * 'delBandwidthType'
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
-    { _delrqGatewayARN    :: !Text
-    , _delrqBandwidthType :: !Text
+    { _delGatewayARN    :: !Text
+    , _delBandwidthType :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBandwidthRateLimit' smart constructor.
 deleteBandwidthRateLimit :: Text -> Text -> DeleteBandwidthRateLimit
 deleteBandwidthRateLimit pGatewayARN_ pBandwidthType_ =
     DeleteBandwidthRateLimit'
-    { _delrqGatewayARN = pGatewayARN_
-    , _delrqBandwidthType = pBandwidthType_
+    { _delGatewayARN = pGatewayARN_
+    , _delBandwidthType = pBandwidthType_
     }
 
 -- | FIXME: Undocumented member.
-delrqGatewayARN :: Lens' DeleteBandwidthRateLimit Text
-delrqGatewayARN = lens _delrqGatewayARN (\ s a -> s{_delrqGatewayARN = a});
+delGatewayARN :: Lens' DeleteBandwidthRateLimit Text
+delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-delrqBandwidthType :: Lens' DeleteBandwidthRateLimit Text
-delrqBandwidthType = lens _delrqBandwidthType (\ s a -> s{_delrqBandwidthType = a});
+delBandwidthType :: Lens' DeleteBandwidthRateLimit Text
+delBandwidthType = lens _delBandwidthType (\ s a -> s{_delBandwidthType = a});
 
 instance AWSRequest DeleteBandwidthRateLimit where
         type Sv DeleteBandwidthRateLimit = StorageGateway
@@ -100,8 +100,8 @@ instance ToHeaders DeleteBandwidthRateLimit where
 instance ToJSON DeleteBandwidthRateLimit where
         toJSON DeleteBandwidthRateLimit'{..}
           = object
-              ["GatewayARN" .= _delrqGatewayARN,
-               "BandwidthType" .= _delrqBandwidthType]
+              ["GatewayARN" .= _delGatewayARN,
+               "BandwidthType" .= _delBandwidthType]
 
 instance ToPath DeleteBandwidthRateLimit where
         toPath = const "/"

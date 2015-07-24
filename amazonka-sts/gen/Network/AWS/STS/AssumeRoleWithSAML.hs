@@ -79,11 +79,11 @@ module Network.AWS.STS.AssumeRoleWithSAML
     -- ** Request constructor
     , assumeRoleWithSAML
     -- ** Request lenses
-    , arwsamlrqDurationSeconds
-    , arwsamlrqPolicy
-    , arwsamlrqRoleARN
-    , arwsamlrqPrincipalARN
-    , arwsamlrqSAMLAssertion
+    , arwsamlDurationSeconds
+    , arwsamlPolicy
+    , arwsamlRoleARN
+    , arwsamlPrincipalARN
+    , arwsamlSAMLAssertion
 
     -- * Response
     , AssumeRoleWithSAMLResponse
@@ -110,32 +110,32 @@ import           Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arwsamlrqDurationSeconds'
+-- * 'arwsamlDurationSeconds'
 --
--- * 'arwsamlrqPolicy'
+-- * 'arwsamlPolicy'
 --
--- * 'arwsamlrqRoleARN'
+-- * 'arwsamlRoleARN'
 --
--- * 'arwsamlrqPrincipalARN'
+-- * 'arwsamlPrincipalARN'
 --
--- * 'arwsamlrqSAMLAssertion'
+-- * 'arwsamlSAMLAssertion'
 data AssumeRoleWithSAML = AssumeRoleWithSAML'
-    { _arwsamlrqDurationSeconds :: !(Maybe Nat)
-    , _arwsamlrqPolicy          :: !(Maybe Text)
-    , _arwsamlrqRoleARN         :: !Text
-    , _arwsamlrqPrincipalARN    :: !Text
-    , _arwsamlrqSAMLAssertion   :: !Text
+    { _arwsamlDurationSeconds :: !(Maybe Nat)
+    , _arwsamlPolicy          :: !(Maybe Text)
+    , _arwsamlRoleARN         :: !Text
+    , _arwsamlPrincipalARN    :: !Text
+    , _arwsamlSAMLAssertion   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithSAML' smart constructor.
 assumeRoleWithSAML :: Text -> Text -> Text -> AssumeRoleWithSAML
 assumeRoleWithSAML pRoleARN_ pPrincipalARN_ pSAMLAssertion_ =
     AssumeRoleWithSAML'
-    { _arwsamlrqDurationSeconds = Nothing
-    , _arwsamlrqPolicy = Nothing
-    , _arwsamlrqRoleARN = pRoleARN_
-    , _arwsamlrqPrincipalARN = pPrincipalARN_
-    , _arwsamlrqSAMLAssertion = pSAMLAssertion_
+    { _arwsamlDurationSeconds = Nothing
+    , _arwsamlPolicy = Nothing
+    , _arwsamlRoleARN = pRoleARN_
+    , _arwsamlPrincipalARN = pPrincipalARN_
+    , _arwsamlSAMLAssertion = pSAMLAssertion_
     }
 
 -- | The duration, in seconds, of the role session. The value can range from
@@ -146,8 +146,8 @@ assumeRoleWithSAML pRoleARN_ pPrincipalARN_ pSAMLAssertion_ =
 --
 -- The maximum duration for a session is 1 hour, and the minimum duration
 -- is 15 minutes, even if values outside this range are specified.
-arwsamlrqDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
-arwsamlrqDurationSeconds = lens _arwsamlrqDurationSeconds (\ s a -> s{_arwsamlrqDurationSeconds = a}) . mapping _Nat;
+arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
+arwsamlDurationSeconds = lens _arwsamlDurationSeconds (\ s a -> s{_arwsamlDurationSeconds = a}) . mapping _Nat;
 
 -- | An IAM policy in JSON format.
 --
@@ -167,25 +167,25 @@ arwsamlrqDurationSeconds = lens _arwsamlrqDurationSeconds (\ s a -> s{_arwsamlrq
 -- separate limit. The PackedPolicySize response element indicates by
 -- percentage how close to the upper size limit the policy is, with 100%
 -- equaling the maximum allowed size.
-arwsamlrqPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
-arwsamlrqPolicy = lens _arwsamlrqPolicy (\ s a -> s{_arwsamlrqPolicy = a});
+arwsamlPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
+arwsamlPolicy = lens _arwsamlPolicy (\ s a -> s{_arwsamlPolicy = a});
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-arwsamlrqRoleARN :: Lens' AssumeRoleWithSAML Text
-arwsamlrqRoleARN = lens _arwsamlrqRoleARN (\ s a -> s{_arwsamlrqRoleARN = a});
+arwsamlRoleARN :: Lens' AssumeRoleWithSAML Text
+arwsamlRoleARN = lens _arwsamlRoleARN (\ s a -> s{_arwsamlRoleARN = a});
 
 -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that
 -- describes the IdP.
-arwsamlrqPrincipalARN :: Lens' AssumeRoleWithSAML Text
-arwsamlrqPrincipalARN = lens _arwsamlrqPrincipalARN (\ s a -> s{_arwsamlrqPrincipalARN = a});
+arwsamlPrincipalARN :: Lens' AssumeRoleWithSAML Text
+arwsamlPrincipalARN = lens _arwsamlPrincipalARN (\ s a -> s{_arwsamlPrincipalARN = a});
 
 -- | The base-64 encoded SAML authentication response provided by the IdP.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
 -- in the /Using IAM/ guide.
-arwsamlrqSAMLAssertion :: Lens' AssumeRoleWithSAML Text
-arwsamlrqSAMLAssertion = lens _arwsamlrqSAMLAssertion (\ s a -> s{_arwsamlrqSAMLAssertion = a});
+arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
+arwsamlSAMLAssertion = lens _arwsamlSAMLAssertion (\ s a -> s{_arwsamlSAMLAssertion = a});
 
 instance AWSRequest AssumeRoleWithSAML where
         type Sv AssumeRoleWithSAML = STS
@@ -216,11 +216,11 @@ instance ToQuery AssumeRoleWithSAML where
           = mconcat
               ["Action" =: ("AssumeRoleWithSAML" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "DurationSeconds" =: _arwsamlrqDurationSeconds,
-               "Policy" =: _arwsamlrqPolicy,
-               "RoleArn" =: _arwsamlrqRoleARN,
-               "PrincipalArn" =: _arwsamlrqPrincipalARN,
-               "SAMLAssertion" =: _arwsamlrqSAMLAssertion]
+               "DurationSeconds" =: _arwsamlDurationSeconds,
+               "Policy" =: _arwsamlPolicy,
+               "RoleArn" =: _arwsamlRoleARN,
+               "PrincipalArn" =: _arwsamlPrincipalARN,
+               "SAMLAssertion" =: _arwsamlSAMLAssertion]
 
 -- | Contains the response to a successful AssumeRoleWithSAML request,
 -- including temporary AWS credentials that can be used to make AWS

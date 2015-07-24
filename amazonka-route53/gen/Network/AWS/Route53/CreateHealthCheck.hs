@@ -33,8 +33,8 @@ module Network.AWS.Route53.CreateHealthCheck
     -- ** Request constructor
     , createHealthCheck
     -- ** Request lenses
-    , chcrqCallerReference
-    , chcrqHealthCheckConfig
+    , chcCallerReference
+    , chcHealthCheckConfig
 
     -- * Response
     , CreateHealthCheckResponse
@@ -58,20 +58,20 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcrqCallerReference'
+-- * 'chcCallerReference'
 --
--- * 'chcrqHealthCheckConfig'
+-- * 'chcHealthCheckConfig'
 data CreateHealthCheck = CreateHealthCheck'
-    { _chcrqCallerReference   :: !Text
-    , _chcrqHealthCheckConfig :: !HealthCheckConfig
+    { _chcCallerReference   :: !Text
+    , _chcHealthCheckConfig :: !HealthCheckConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHealthCheck' smart constructor.
 createHealthCheck :: Text -> HealthCheckConfig -> CreateHealthCheck
 createHealthCheck pCallerReference_ pHealthCheckConfig_ =
     CreateHealthCheck'
-    { _chcrqCallerReference = pCallerReference_
-    , _chcrqHealthCheckConfig = pHealthCheckConfig_
+    { _chcCallerReference = pCallerReference_
+    , _chcHealthCheckConfig = pHealthCheckConfig_
     }
 
 -- | A unique string that identifies the request and that allows failed
@@ -84,12 +84,12 @@ createHealthCheck pCallerReference_ pHealthCheckConfig_ =
 -- Valid characters are any Unicode code points that are legal in an XML
 -- 1.0 document. The UTF-8 encoding of the value must be less than 128
 -- bytes.
-chcrqCallerReference :: Lens' CreateHealthCheck Text
-chcrqCallerReference = lens _chcrqCallerReference (\ s a -> s{_chcrqCallerReference = a});
+chcCallerReference :: Lens' CreateHealthCheck Text
+chcCallerReference = lens _chcCallerReference (\ s a -> s{_chcCallerReference = a});
 
 -- | A complex type that contains health check configuration.
-chcrqHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
-chcrqHealthCheckConfig = lens _chcrqHealthCheckConfig (\ s a -> s{_chcrqHealthCheckConfig = a});
+chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
+chcHealthCheckConfig = lens _chcHealthCheckConfig (\ s a -> s{_chcHealthCheckConfig = a});
 
 instance AWSRequest CreateHealthCheck where
         type Sv CreateHealthCheck = Route53
@@ -119,8 +119,8 @@ instance ToQuery CreateHealthCheck where
 instance ToXML CreateHealthCheck where
         toXML CreateHealthCheck'{..}
           = mconcat
-              ["CallerReference" @= _chcrqCallerReference,
-               "HealthCheckConfig" @= _chcrqHealthCheckConfig]
+              ["CallerReference" @= _chcCallerReference,
+               "HealthCheckConfig" @= _chcHealthCheckConfig]
 
 -- | A complex type containing the response information for the new health
 -- check.

@@ -32,8 +32,8 @@ module Network.AWS.IAM.CreateUser
     -- ** Request constructor
     , createUser
     -- ** Request lenses
-    , curqPath
-    , curqUserName
+    , cuPath
+    , cuUserName
 
     -- * Response
     , CreateUserResponse
@@ -53,20 +53,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'curqPath'
+-- * 'cuPath'
 --
--- * 'curqUserName'
+-- * 'cuUserName'
 data CreateUser = CreateUser'
-    { _curqPath     :: !(Maybe Text)
-    , _curqUserName :: !Text
+    { _cuPath     :: !(Maybe Text)
+    , _cuUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUser' smart constructor.
 createUser :: Text -> CreateUser
 createUser pUserName_ =
     CreateUser'
-    { _curqPath = Nothing
-    , _curqUserName = pUserName_
+    { _cuPath = Nothing
+    , _cuUserName = pUserName_
     }
 
 -- | The path for the user name. For more information about paths, see
@@ -75,12 +75,12 @@ createUser pUserName_ =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-curqPath :: Lens' CreateUser (Maybe Text)
-curqPath = lens _curqPath (\ s a -> s{_curqPath = a});
+cuPath :: Lens' CreateUser (Maybe Text)
+cuPath = lens _cuPath (\ s a -> s{_cuPath = a});
 
 -- | The name of the user to create.
-curqUserName :: Lens' CreateUser Text
-curqUserName = lens _curqUserName (\ s a -> s{_curqUserName = a});
+cuUserName :: Lens' CreateUser Text
+cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
 
 instance AWSRequest CreateUser where
         type Sv CreateUser = IAM
@@ -103,7 +103,7 @@ instance ToQuery CreateUser where
           = mconcat
               ["Action" =: ("CreateUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _curqPath, "UserName" =: _curqUserName]
+               "Path" =: _cuPath, "UserName" =: _cuUserName]
 
 -- | Contains the response to a successful CreateUser request.
 --

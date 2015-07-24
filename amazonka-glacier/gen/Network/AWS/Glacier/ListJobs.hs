@@ -70,12 +70,12 @@ module Network.AWS.Glacier.ListJobs
     -- ** Request constructor
     , listJobs
     -- ** Request lenses
-    , ljrqMarker
-    , ljrqCompleted
-    , ljrqLimit
-    , ljrqStatuscode
-    , ljrqAccountId
-    , ljrqVaultName
+    , ljMarker
+    , ljCompleted
+    , ljLimit
+    , ljStatuscode
+    , ljAccountId
+    , ljVaultName
 
     -- * Response
     , ListJobsResponse
@@ -98,36 +98,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljrqMarker'
+-- * 'ljMarker'
 --
--- * 'ljrqCompleted'
+-- * 'ljCompleted'
 --
--- * 'ljrqLimit'
+-- * 'ljLimit'
 --
--- * 'ljrqStatuscode'
+-- * 'ljStatuscode'
 --
--- * 'ljrqAccountId'
+-- * 'ljAccountId'
 --
--- * 'ljrqVaultName'
+-- * 'ljVaultName'
 data ListJobs = ListJobs'
-    { _ljrqMarker     :: !(Maybe Text)
-    , _ljrqCompleted  :: !(Maybe Text)
-    , _ljrqLimit      :: !(Maybe Text)
-    , _ljrqStatuscode :: !(Maybe Text)
-    , _ljrqAccountId  :: !Text
-    , _ljrqVaultName  :: !Text
+    { _ljMarker     :: !(Maybe Text)
+    , _ljCompleted  :: !(Maybe Text)
+    , _ljLimit      :: !(Maybe Text)
+    , _ljStatuscode :: !(Maybe Text)
+    , _ljAccountId  :: !Text
+    , _ljVaultName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: Text -> Text -> ListJobs
 listJobs pAccountId_ pVaultName_ =
     ListJobs'
-    { _ljrqMarker = Nothing
-    , _ljrqCompleted = Nothing
-    , _ljrqLimit = Nothing
-    , _ljrqStatuscode = Nothing
-    , _ljrqAccountId = pAccountId_
-    , _ljrqVaultName = pVaultName_
+    { _ljMarker = Nothing
+    , _ljCompleted = Nothing
+    , _ljLimit = Nothing
+    , _ljStatuscode = Nothing
+    , _ljAccountId = pAccountId_
+    , _ljVaultName = pVaultName_
     }
 
 -- | An opaque string used for pagination. This value specifies the job at
@@ -135,36 +135,36 @@ listJobs pAccountId_ pVaultName_ =
 -- previous List Jobs response. You need only include the marker if you are
 -- continuing the pagination of results started in a previous List Jobs
 -- request.
-ljrqMarker :: Lens' ListJobs (Maybe Text)
-ljrqMarker = lens _ljrqMarker (\ s a -> s{_ljrqMarker = a});
+ljMarker :: Lens' ListJobs (Maybe Text)
+ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
 
 -- | Specifies the state of the jobs to return. You can specify @true@ or
 -- @false@.
-ljrqCompleted :: Lens' ListJobs (Maybe Text)
-ljrqCompleted = lens _ljrqCompleted (\ s a -> s{_ljrqCompleted = a});
+ljCompleted :: Lens' ListJobs (Maybe Text)
+ljCompleted = lens _ljCompleted (\ s a -> s{_ljCompleted = a});
 
 -- | Specifies that the response be limited to the specified number of items
 -- or fewer. If not specified, the List Jobs operation returns up to 1,000
 -- jobs.
-ljrqLimit :: Lens' ListJobs (Maybe Text)
-ljrqLimit = lens _ljrqLimit (\ s a -> s{_ljrqLimit = a});
+ljLimit :: Lens' ListJobs (Maybe Text)
+ljLimit = lens _ljLimit (\ s a -> s{_ljLimit = a});
 
 -- | Specifies the type of job status to return. You can specify the
 -- following values: \"InProgress\", \"Succeeded\", or \"Failed\".
-ljrqStatuscode :: Lens' ListJobs (Maybe Text)
-ljrqStatuscode = lens _ljrqStatuscode (\ s a -> s{_ljrqStatuscode = a});
+ljStatuscode :: Lens' ListJobs (Maybe Text)
+ljStatuscode = lens _ljStatuscode (\ s a -> s{_ljStatuscode = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-ljrqAccountId :: Lens' ListJobs Text
-ljrqAccountId = lens _ljrqAccountId (\ s a -> s{_ljrqAccountId = a});
+ljAccountId :: Lens' ListJobs Text
+ljAccountId = lens _ljAccountId (\ s a -> s{_ljAccountId = a});
 
 -- | The name of the vault.
-ljrqVaultName :: Lens' ListJobs Text
-ljrqVaultName = lens _ljrqVaultName (\ s a -> s{_ljrqVaultName = a});
+ljVaultName :: Lens' ListJobs Text
+ljVaultName = lens _ljVaultName (\ s a -> s{_ljVaultName = a});
 
 instance AWSRequest ListJobs where
         type Sv ListJobs = Glacier
@@ -183,15 +183,14 @@ instance ToHeaders ListJobs where
 instance ToPath ListJobs where
         toPath ListJobs'{..}
           = mconcat
-              ["/", toText _ljrqAccountId, "/vaults/",
-               toText _ljrqVaultName, "/jobs"]
+              ["/", toText _ljAccountId, "/vaults/",
+               toText _ljVaultName, "/jobs"]
 
 instance ToQuery ListJobs where
         toQuery ListJobs'{..}
           = mconcat
-              ["marker" =: _ljrqMarker,
-               "completed" =: _ljrqCompleted, "limit" =: _ljrqLimit,
-               "statuscode" =: _ljrqStatuscode]
+              ["marker" =: _ljMarker, "completed" =: _ljCompleted,
+               "limit" =: _ljLimit, "statuscode" =: _ljStatuscode]
 
 -- | Contains the Amazon Glacier response to your request.
 --

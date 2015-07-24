@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     -- ** Request constructor
     , getDeploymentInstance
     -- ** Request lenses
-    , gdirqDeploymentId
-    , gdirqInstanceId
+    , gdiDeploymentId
+    , gdiInstanceId
 
     -- * Response
     , GetDeploymentInstanceResponse
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdirqDeploymentId'
+-- * 'gdiDeploymentId'
 --
--- * 'gdirqInstanceId'
+-- * 'gdiInstanceId'
 data GetDeploymentInstance = GetDeploymentInstance'
-    { _gdirqDeploymentId :: !Text
-    , _gdirqInstanceId   :: !Text
+    { _gdiDeploymentId :: !Text
+    , _gdiInstanceId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentInstance' smart constructor.
 getDeploymentInstance :: Text -> Text -> GetDeploymentInstance
 getDeploymentInstance pDeploymentId_ pInstanceId_ =
     GetDeploymentInstance'
-    { _gdirqDeploymentId = pDeploymentId_
-    , _gdirqInstanceId = pInstanceId_
+    { _gdiDeploymentId = pDeploymentId_
+    , _gdiInstanceId = pInstanceId_
     }
 
 -- | The unique ID of a deployment.
-gdirqDeploymentId :: Lens' GetDeploymentInstance Text
-gdirqDeploymentId = lens _gdirqDeploymentId (\ s a -> s{_gdirqDeploymentId = a});
+gdiDeploymentId :: Lens' GetDeploymentInstance Text
+gdiDeploymentId = lens _gdiDeploymentId (\ s a -> s{_gdiDeploymentId = a});
 
 -- | The unique ID of an instance in the deployment\'s deployment group.
-gdirqInstanceId :: Lens' GetDeploymentInstance Text
-gdirqInstanceId = lens _gdirqInstanceId (\ s a -> s{_gdirqInstanceId = a});
+gdiInstanceId :: Lens' GetDeploymentInstance Text
+gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
 
 instance AWSRequest GetDeploymentInstance where
         type Sv GetDeploymentInstance = CodeDeploy
@@ -98,8 +98,8 @@ instance ToHeaders GetDeploymentInstance where
 instance ToJSON GetDeploymentInstance where
         toJSON GetDeploymentInstance'{..}
           = object
-              ["deploymentId" .= _gdirqDeploymentId,
-               "instanceId" .= _gdirqInstanceId]
+              ["deploymentId" .= _gdiDeploymentId,
+               "instanceId" .= _gdiInstanceId]
 
 instance ToPath GetDeploymentInstance where
         toPath = const "/"

@@ -48,12 +48,12 @@ module Network.AWS.Redshift.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtrqResourceType
-    , dtrqTagValues
-    , dtrqResourceName
-    , dtrqTagKeys
-    , dtrqMaxRecords
-    , dtrqMarker
+    , dtResourceType
+    , dtTagValues
+    , dtResourceName
+    , dtTagKeys
+    , dtMaxRecords
+    , dtMarker
 
     -- * Response
     , DescribeTagsResponse
@@ -76,36 +76,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqResourceType'
+-- * 'dtResourceType'
 --
--- * 'dtrqTagValues'
+-- * 'dtTagValues'
 --
--- * 'dtrqResourceName'
+-- * 'dtResourceName'
 --
--- * 'dtrqTagKeys'
+-- * 'dtTagKeys'
 --
--- * 'dtrqMaxRecords'
+-- * 'dtMaxRecords'
 --
--- * 'dtrqMarker'
+-- * 'dtMarker'
 data DescribeTags = DescribeTags'
-    { _dtrqResourceType :: !(Maybe Text)
-    , _dtrqTagValues    :: !(Maybe [Text])
-    , _dtrqResourceName :: !(Maybe Text)
-    , _dtrqTagKeys      :: !(Maybe [Text])
-    , _dtrqMaxRecords   :: !(Maybe Int)
-    , _dtrqMarker       :: !(Maybe Text)
+    { _dtResourceType :: !(Maybe Text)
+    , _dtTagValues    :: !(Maybe [Text])
+    , _dtResourceName :: !(Maybe Text)
+    , _dtTagKeys      :: !(Maybe [Text])
+    , _dtMaxRecords   :: !(Maybe Int)
+    , _dtMarker       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
 describeTags =
     DescribeTags'
-    { _dtrqResourceType = Nothing
-    , _dtrqTagValues = Nothing
-    , _dtrqResourceName = Nothing
-    , _dtrqTagKeys = Nothing
-    , _dtrqMaxRecords = Nothing
-    , _dtrqMarker = Nothing
+    { _dtResourceType = Nothing
+    , _dtTagValues = Nothing
+    , _dtResourceName = Nothing
+    , _dtTagKeys = Nothing
+    , _dtMaxRecords = Nothing
+    , _dtMarker = Nothing
     }
 
 -- | The type of resource with which you want to view tags. Valid resource
@@ -126,8 +126,8 @@ describeTags =
 -- constructing ARNs, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)>
 -- in the Amazon Redshift Cluster Management Guide.
-dtrqResourceType :: Lens' DescribeTags (Maybe Text)
-dtrqResourceType = lens _dtrqResourceType (\ s a -> s{_dtrqResourceType = a});
+dtResourceType :: Lens' DescribeTags (Maybe Text)
+dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a});
 
 -- | A tag value or values for which you want to return all matching
 -- resources that are associated with the specified value or values. For
@@ -135,13 +135,13 @@ dtrqResourceType = lens _dtrqResourceType (\ s a -> s{_dtrqResourceType = a});
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
-dtrqTagValues :: Lens' DescribeTags [Text]
-dtrqTagValues = lens _dtrqTagValues (\ s a -> s{_dtrqTagValues = a}) . _Default;
+dtTagValues :: Lens' DescribeTags [Text]
+dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a}) . _Default;
 
 -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
 -- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
-dtrqResourceName :: Lens' DescribeTags (Maybe Text)
-dtrqResourceName = lens _dtrqResourceName (\ s a -> s{_dtrqResourceName = a});
+dtResourceName :: Lens' DescribeTags (Maybe Text)
+dtResourceName = lens _dtResourceName (\ s a -> s{_dtResourceName = a});
 
 -- | A tag key or keys for which you want to return all matching resources
 -- that are associated with the specified key or keys. For example, suppose
@@ -149,16 +149,16 @@ dtrqResourceName = lens _dtrqResourceName (\ s a -> s{_dtrqResourceName = a});
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with all resources that have either
 -- or both of these tag keys associated with them.
-dtrqTagKeys :: Lens' DescribeTags [Text]
-dtrqTagKeys = lens _dtrqTagKeys (\ s a -> s{_dtrqTagKeys = a}) . _Default;
+dtTagKeys :: Lens' DescribeTags [Text]
+dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a}) . _Default;
 
 -- | The maximum number or response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
 -- value, a value is returned in a @marker@ field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned @marker@ value.
-dtrqMaxRecords :: Lens' DescribeTags (Maybe Int)
-dtrqMaxRecords = lens _dtrqMaxRecords (\ s a -> s{_dtrqMaxRecords = a});
+dtMaxRecords :: Lens' DescribeTags (Maybe Int)
+dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -166,8 +166,8 @@ dtrqMaxRecords = lens _dtrqMaxRecords (\ s a -> s{_dtrqMaxRecords = a});
 -- marker value in the @marker@ parameter and retrying the command. If the
 -- @marker@ field is empty, all response records have been retrieved for
 -- the request.
-dtrqMarker :: Lens' DescribeTags (Maybe Text)
-dtrqMarker = lens _dtrqMarker (\ s a -> s{_dtrqMarker = a});
+dtMarker :: Lens' DescribeTags (Maybe Text)
+dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = Redshift
@@ -193,14 +193,13 @@ instance ToQuery DescribeTags where
           = mconcat
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ResourceType" =: _dtrqResourceType,
+               "ResourceType" =: _dtResourceType,
                "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dtrqTagValues),
-               "ResourceName" =: _dtrqResourceName,
+                 toQuery (toQueryList "TagValue" <$> _dtTagValues),
+               "ResourceName" =: _dtResourceName,
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dtrqTagKeys),
-               "MaxRecords" =: _dtrqMaxRecords,
-               "Marker" =: _dtrqMarker]
+                 toQuery (toQueryList "TagKey" <$> _dtTagKeys),
+               "MaxRecords" =: _dtMaxRecords, "Marker" =: _dtMarker]
 
 -- | Contains the output from the @DescribeTags@ action.
 --

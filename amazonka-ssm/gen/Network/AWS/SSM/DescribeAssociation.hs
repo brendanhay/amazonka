@@ -28,8 +28,8 @@ module Network.AWS.SSM.DescribeAssociation
     -- ** Request constructor
     , describeAssociation
     -- ** Request lenses
-    , darqName
-    , darqInstanceId
+    , daName
+    , daInstanceId
 
     -- * Response
     , DescribeAssociationResponse
@@ -49,29 +49,29 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darqName'
+-- * 'daName'
 --
--- * 'darqInstanceId'
+-- * 'daInstanceId'
 data DescribeAssociation = DescribeAssociation'
-    { _darqName       :: !Text
-    , _darqInstanceId :: !Text
+    { _daName       :: !Text
+    , _daInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAssociation' smart constructor.
 describeAssociation :: Text -> Text -> DescribeAssociation
 describeAssociation pName_ pInstanceId_ =
     DescribeAssociation'
-    { _darqName = pName_
-    , _darqInstanceId = pInstanceId_
+    { _daName = pName_
+    , _daInstanceId = pInstanceId_
     }
 
 -- | The name of the configuration document.
-darqName :: Lens' DescribeAssociation Text
-darqName = lens _darqName (\ s a -> s{_darqName = a});
+daName :: Lens' DescribeAssociation Text
+daName = lens _daName (\ s a -> s{_daName = a});
 
 -- | The ID of the instance.
-darqInstanceId :: Lens' DescribeAssociation Text
-darqInstanceId = lens _darqInstanceId (\ s a -> s{_darqInstanceId = a});
+daInstanceId :: Lens' DescribeAssociation Text
+daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
 
 instance AWSRequest DescribeAssociation where
         type Sv DescribeAssociation = SSM
@@ -97,8 +97,7 @@ instance ToHeaders DescribeAssociation where
 instance ToJSON DescribeAssociation where
         toJSON DescribeAssociation'{..}
           = object
-              ["Name" .= _darqName,
-               "InstanceId" .= _darqInstanceId]
+              ["Name" .= _daName, "InstanceId" .= _daInstanceId]
 
 instance ToPath DescribeAssociation where
         toPath = const "/"

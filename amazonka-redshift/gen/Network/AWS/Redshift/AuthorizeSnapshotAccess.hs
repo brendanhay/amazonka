@@ -32,9 +32,9 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     -- ** Request constructor
     , authorizeSnapshotAccess
     -- ** Request lenses
-    , asarqSnapshotClusterIdentifier
-    , asarqSnapshotIdentifier
-    , asarqAccountWithRestoreAccess
+    , asaSnapshotClusterIdentifier
+    , asaSnapshotIdentifier
+    , asaAccountWithRestoreAccess
 
     -- * Response
     , AuthorizeSnapshotAccessResponse
@@ -56,41 +56,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asarqSnapshotClusterIdentifier'
+-- * 'asaSnapshotClusterIdentifier'
 --
--- * 'asarqSnapshotIdentifier'
+-- * 'asaSnapshotIdentifier'
 --
--- * 'asarqAccountWithRestoreAccess'
+-- * 'asaAccountWithRestoreAccess'
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
-    { _asarqSnapshotClusterIdentifier :: !(Maybe Text)
-    , _asarqSnapshotIdentifier        :: !Text
-    , _asarqAccountWithRestoreAccess  :: !Text
+    { _asaSnapshotClusterIdentifier :: !(Maybe Text)
+    , _asaSnapshotIdentifier        :: !Text
+    , _asaAccountWithRestoreAccess  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSnapshotAccess' smart constructor.
 authorizeSnapshotAccess :: Text -> Text -> AuthorizeSnapshotAccess
 authorizeSnapshotAccess pSnapshotIdentifier_ pAccountWithRestoreAccess_ =
     AuthorizeSnapshotAccess'
-    { _asarqSnapshotClusterIdentifier = Nothing
-    , _asarqSnapshotIdentifier = pSnapshotIdentifier_
-    , _asarqAccountWithRestoreAccess = pAccountWithRestoreAccess_
+    { _asaSnapshotClusterIdentifier = Nothing
+    , _asaSnapshotIdentifier = pSnapshotIdentifier_
+    , _asaAccountWithRestoreAccess = pAccountWithRestoreAccess_
     }
 
 -- | The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
-asarqSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
-asarqSnapshotClusterIdentifier = lens _asarqSnapshotClusterIdentifier (\ s a -> s{_asarqSnapshotClusterIdentifier = a});
+asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
+asaSnapshotClusterIdentifier = lens _asaSnapshotClusterIdentifier (\ s a -> s{_asaSnapshotClusterIdentifier = a});
 
 -- | The identifier of the snapshot the account is authorized to restore.
-asarqSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
-asarqSnapshotIdentifier = lens _asarqSnapshotIdentifier (\ s a -> s{_asarqSnapshotIdentifier = a});
+asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
+asaSnapshotIdentifier = lens _asaSnapshotIdentifier (\ s a -> s{_asaSnapshotIdentifier = a});
 
 -- | The identifier of the AWS customer account authorized to restore the
 -- specified snapshot.
-asarqAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
-asarqAccountWithRestoreAccess = lens _asarqAccountWithRestoreAccess (\ s a -> s{_asarqAccountWithRestoreAccess = a});
+asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
+asaAccountWithRestoreAccess = lens _asaAccountWithRestoreAccess (\ s a -> s{_asaAccountWithRestoreAccess = a});
 
 instance AWSRequest AuthorizeSnapshotAccess where
         type Sv AuthorizeSnapshotAccess = Redshift
@@ -116,10 +116,10 @@ instance ToQuery AuthorizeSnapshotAccess where
                  ("AuthorizeSnapshotAccess" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SnapshotClusterIdentifier" =:
-                 _asarqSnapshotClusterIdentifier,
-               "SnapshotIdentifier" =: _asarqSnapshotIdentifier,
+                 _asaSnapshotClusterIdentifier,
+               "SnapshotIdentifier" =: _asaSnapshotIdentifier,
                "AccountWithRestoreAccess" =:
-                 _asarqAccountWithRestoreAccess]
+                 _asaAccountWithRestoreAccess]
 
 -- | /See:/ 'authorizeSnapshotAccessResponse' smart constructor.
 --

@@ -30,11 +30,11 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     -- ** Request constructor
     , allocateConnectionOnInterconnect
     -- ** Request lenses
-    , acoirqBandwidth
-    , acoirqConnectionName
-    , acoirqOwnerAccount
-    , acoirqInterconnectId
-    , acoirqVlan
+    , acoiBandwidth
+    , acoiConnectionName
+    , acoiOwnerAccount
+    , acoiInterconnectId
+    , acoiVlan
 
     -- * Response
     , Connection
@@ -64,32 +64,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acoirqBandwidth'
+-- * 'acoiBandwidth'
 --
--- * 'acoirqConnectionName'
+-- * 'acoiConnectionName'
 --
--- * 'acoirqOwnerAccount'
+-- * 'acoiOwnerAccount'
 --
--- * 'acoirqInterconnectId'
+-- * 'acoiInterconnectId'
 --
--- * 'acoirqVlan'
+-- * 'acoiVlan'
 data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
-    { _acoirqBandwidth      :: !Text
-    , _acoirqConnectionName :: !Text
-    , _acoirqOwnerAccount   :: !Text
-    , _acoirqInterconnectId :: !Text
-    , _acoirqVlan           :: !Int
+    { _acoiBandwidth      :: !Text
+    , _acoiConnectionName :: !Text
+    , _acoiOwnerAccount   :: !Text
+    , _acoiInterconnectId :: !Text
+    , _acoiVlan           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocateConnectionOnInterconnect' smart constructor.
 allocateConnectionOnInterconnect :: Text -> Text -> Text -> Text -> Int -> AllocateConnectionOnInterconnect
 allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pInterconnectId_ pVlan_ =
     AllocateConnectionOnInterconnect'
-    { _acoirqBandwidth = pBandwidth_
-    , _acoirqConnectionName = pConnectionName_
-    , _acoirqOwnerAccount = pOwnerAccount_
-    , _acoirqInterconnectId = pInterconnectId_
-    , _acoirqVlan = pVlan_
+    { _acoiBandwidth = pBandwidth_
+    , _acoiConnectionName = pConnectionName_
+    , _acoiOwnerAccount = pOwnerAccount_
+    , _acoiInterconnectId = pInterconnectId_
+    , _acoiVlan = pVlan_
     }
 
 -- | Bandwidth of the connection.
@@ -97,16 +97,16 @@ allocateConnectionOnInterconnect pBandwidth_ pConnectionName_ pOwnerAccount_ pIn
 -- Example: \"/500Mbps/\"
 --
 -- Default: None
-acoirqBandwidth :: Lens' AllocateConnectionOnInterconnect Text
-acoirqBandwidth = lens _acoirqBandwidth (\ s a -> s{_acoirqBandwidth = a});
+acoiBandwidth :: Lens' AllocateConnectionOnInterconnect Text
+acoiBandwidth = lens _acoiBandwidth (\ s a -> s{_acoiBandwidth = a});
 
 -- | Name of the provisioned connection.
 --
 -- Example: \"/500M Connection to AWS/\"
 --
 -- Default: None
-acoirqConnectionName :: Lens' AllocateConnectionOnInterconnect Text
-acoirqConnectionName = lens _acoirqConnectionName (\ s a -> s{_acoirqConnectionName = a});
+acoiConnectionName :: Lens' AllocateConnectionOnInterconnect Text
+acoiConnectionName = lens _acoiConnectionName (\ s a -> s{_acoiConnectionName = a});
 
 -- | Numeric account Id of the customer for whom the connection will be
 -- provisioned.
@@ -114,24 +114,24 @@ acoirqConnectionName = lens _acoirqConnectionName (\ s a -> s{_acoirqConnectionN
 -- Example: 123443215678
 --
 -- Default: None
-acoirqOwnerAccount :: Lens' AllocateConnectionOnInterconnect Text
-acoirqOwnerAccount = lens _acoirqOwnerAccount (\ s a -> s{_acoirqOwnerAccount = a});
+acoiOwnerAccount :: Lens' AllocateConnectionOnInterconnect Text
+acoiOwnerAccount = lens _acoiOwnerAccount (\ s a -> s{_acoiOwnerAccount = a});
 
 -- | ID of the interconnect on which the connection will be provisioned.
 --
 -- Example: dxcon-456abc78
 --
 -- Default: None
-acoirqInterconnectId :: Lens' AllocateConnectionOnInterconnect Text
-acoirqInterconnectId = lens _acoirqInterconnectId (\ s a -> s{_acoirqInterconnectId = a});
+acoiInterconnectId :: Lens' AllocateConnectionOnInterconnect Text
+acoiInterconnectId = lens _acoiInterconnectId (\ s a -> s{_acoiInterconnectId = a});
 
 -- | The dedicated VLAN provisioned to the connection.
 --
 -- Example: 101
 --
 -- Default: None
-acoirqVlan :: Lens' AllocateConnectionOnInterconnect Int
-acoirqVlan = lens _acoirqVlan (\ s a -> s{_acoirqVlan = a});
+acoiVlan :: Lens' AllocateConnectionOnInterconnect Int
+acoiVlan = lens _acoiVlan (\ s a -> s{_acoiVlan = a});
 
 instance AWSRequest AllocateConnectionOnInterconnect
          where
@@ -156,11 +156,11 @@ instance ToJSON AllocateConnectionOnInterconnect
          where
         toJSON AllocateConnectionOnInterconnect'{..}
           = object
-              ["bandwidth" .= _acoirqBandwidth,
-               "connectionName" .= _acoirqConnectionName,
-               "ownerAccount" .= _acoirqOwnerAccount,
-               "interconnectId" .= _acoirqInterconnectId,
-               "vlan" .= _acoirqVlan]
+              ["bandwidth" .= _acoiBandwidth,
+               "connectionName" .= _acoiConnectionName,
+               "ownerAccount" .= _acoiOwnerAccount,
+               "interconnectId" .= _acoiInterconnectId,
+               "vlan" .= _acoiVlan]
 
 instance ToPath AllocateConnectionOnInterconnect
          where

@@ -27,7 +27,7 @@ module Network.AWS.S3.DeleteBucketCORS
     -- ** Request constructor
     , deleteBucketCORS
     -- ** Request lenses
-    , dbcrqBucket
+    , dbcBucket
 
     -- * Response
     , DeleteBucketCORSResponse
@@ -44,21 +44,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbcrqBucket'
+-- * 'dbcBucket'
 newtype DeleteBucketCORS = DeleteBucketCORS'
-    { _dbcrqBucket :: BucketName
+    { _dbcBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketCORS' smart constructor.
 deleteBucketCORS :: BucketName -> DeleteBucketCORS
 deleteBucketCORS pBucket_ =
     DeleteBucketCORS'
-    { _dbcrqBucket = pBucket_
+    { _dbcBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-dbcrqBucket :: Lens' DeleteBucketCORS BucketName
-dbcrqBucket = lens _dbcrqBucket (\ s a -> s{_dbcrqBucket = a});
+dbcBucket :: Lens' DeleteBucketCORS BucketName
+dbcBucket = lens _dbcBucket (\ s a -> s{_dbcBucket = a});
 
 instance AWSRequest DeleteBucketCORS where
         type Sv DeleteBucketCORS = S3
@@ -71,7 +71,7 @@ instance ToHeaders DeleteBucketCORS where
 
 instance ToPath DeleteBucketCORS where
         toPath DeleteBucketCORS'{..}
-          = mconcat ["/", toText _dbcrqBucket]
+          = mconcat ["/", toText _dbcBucket]
 
 instance ToQuery DeleteBucketCORS where
         toQuery = const (mconcat ["cors"])

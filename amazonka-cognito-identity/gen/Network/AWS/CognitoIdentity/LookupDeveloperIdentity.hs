@@ -38,11 +38,11 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     -- ** Request constructor
     , lookupDeveloperIdentity
     -- ** Request lenses
-    , ldirqDeveloperUserIdentifier
-    , ldirqNextToken
-    , ldirqIdentityId
-    , ldirqMaxResults
-    , ldirqIdentityPoolId
+    , ldiDeveloperUserIdentifier
+    , ldiNextToken
+    , ldiIdentityId
+    , ldiMaxResults
+    , ldiIdentityPoolId
 
     -- * Response
     , LookupDeveloperIdentityResponse
@@ -66,39 +66,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldirqDeveloperUserIdentifier'
+-- * 'ldiDeveloperUserIdentifier'
 --
--- * 'ldirqNextToken'
+-- * 'ldiNextToken'
 --
--- * 'ldirqIdentityId'
+-- * 'ldiIdentityId'
 --
--- * 'ldirqMaxResults'
+-- * 'ldiMaxResults'
 --
--- * 'ldirqIdentityPoolId'
+-- * 'ldiIdentityPoolId'
 data LookupDeveloperIdentity = LookupDeveloperIdentity'
-    { _ldirqDeveloperUserIdentifier :: !(Maybe Text)
-    , _ldirqNextToken               :: !(Maybe Text)
-    , _ldirqIdentityId              :: !(Maybe Text)
-    , _ldirqMaxResults              :: !(Maybe Nat)
-    , _ldirqIdentityPoolId          :: !Text
+    { _ldiDeveloperUserIdentifier :: !(Maybe Text)
+    , _ldiNextToken               :: !(Maybe Text)
+    , _ldiIdentityId              :: !(Maybe Text)
+    , _ldiMaxResults              :: !(Maybe Nat)
+    , _ldiIdentityPoolId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupDeveloperIdentity' smart constructor.
 lookupDeveloperIdentity :: Text -> LookupDeveloperIdentity
 lookupDeveloperIdentity pIdentityPoolId_ =
     LookupDeveloperIdentity'
-    { _ldirqDeveloperUserIdentifier = Nothing
-    , _ldirqNextToken = Nothing
-    , _ldirqIdentityId = Nothing
-    , _ldirqMaxResults = Nothing
-    , _ldirqIdentityPoolId = pIdentityPoolId_
+    { _ldiDeveloperUserIdentifier = Nothing
+    , _ldiNextToken = Nothing
+    , _ldiIdentityId = Nothing
+    , _ldiMaxResults = Nothing
+    , _ldiIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A unique ID used by your backend authentication process to identify a
 -- user. Typically, a developer identity provider would issue many
 -- developer user identifiers, in keeping with the number of users.
-ldirqDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity (Maybe Text)
-ldirqDeveloperUserIdentifier = lens _ldirqDeveloperUserIdentifier (\ s a -> s{_ldirqDeveloperUserIdentifier = a});
+ldiDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity (Maybe Text)
+ldiDeveloperUserIdentifier = lens _ldiDeveloperUserIdentifier (\ s a -> s{_ldiDeveloperUserIdentifier = a});
 
 -- | A pagination token. The first call you make will have @NextToken@ set to
 -- null. After that the service will return @NextToken@ values as needed.
@@ -106,20 +106,20 @@ ldirqDeveloperUserIdentifier = lens _ldirqDeveloperUserIdentifier (\ s a -> s{_l
 -- and there are 20 matches in the database. The service will return a
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.
-ldirqNextToken :: Lens' LookupDeveloperIdentity (Maybe Text)
-ldirqNextToken = lens _ldirqNextToken (\ s a -> s{_ldirqNextToken = a});
+ldiNextToken :: Lens' LookupDeveloperIdentity (Maybe Text)
+ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
 
 -- | A unique identifier in the format REGION:GUID.
-ldirqIdentityId :: Lens' LookupDeveloperIdentity (Maybe Text)
-ldirqIdentityId = lens _ldirqIdentityId (\ s a -> s{_ldirqIdentityId = a});
+ldiIdentityId :: Lens' LookupDeveloperIdentity (Maybe Text)
+ldiIdentityId = lens _ldiIdentityId (\ s a -> s{_ldiIdentityId = a});
 
 -- | The maximum number of identities to return.
-ldirqMaxResults :: Lens' LookupDeveloperIdentity (Maybe Natural)
-ldirqMaxResults = lens _ldirqMaxResults (\ s a -> s{_ldirqMaxResults = a}) . mapping _Nat;
+ldiMaxResults :: Lens' LookupDeveloperIdentity (Maybe Natural)
+ldiMaxResults = lens _ldiMaxResults (\ s a -> s{_ldiMaxResults = a}) . mapping _Nat;
 
 -- | An identity pool ID in the format REGION:GUID.
-ldirqIdentityPoolId :: Lens' LookupDeveloperIdentity Text
-ldirqIdentityPoolId = lens _ldirqIdentityPoolId (\ s a -> s{_ldirqIdentityPoolId = a});
+ldiIdentityPoolId :: Lens' LookupDeveloperIdentity Text
+ldiIdentityPoolId = lens _ldiIdentityPoolId (\ s a -> s{_ldiIdentityPoolId = a});
 
 instance AWSRequest LookupDeveloperIdentity where
         type Sv LookupDeveloperIdentity = CognitoIdentity
@@ -148,11 +148,11 @@ instance ToJSON LookupDeveloperIdentity where
         toJSON LookupDeveloperIdentity'{..}
           = object
               ["DeveloperUserIdentifier" .=
-                 _ldirqDeveloperUserIdentifier,
-               "NextToken" .= _ldirqNextToken,
-               "IdentityId" .= _ldirqIdentityId,
-               "MaxResults" .= _ldirqMaxResults,
-               "IdentityPoolId" .= _ldirqIdentityPoolId]
+                 _ldiDeveloperUserIdentifier,
+               "NextToken" .= _ldiNextToken,
+               "IdentityId" .= _ldiIdentityId,
+               "MaxResults" .= _ldiMaxResults,
+               "IdentityPoolId" .= _ldiIdentityPoolId]
 
 instance ToPath LookupDeveloperIdentity where
         toPath = const "/"

@@ -32,9 +32,9 @@ module Network.AWS.IAM.ListUsers
     -- ** Request constructor
     , listUsers
     -- ** Request lenses
-    , lurqPathPrefix
-    , lurqMaxItems
-    , lurqMarker
+    , luPathPrefix
+    , luMaxItems
+    , luMarker
 
     -- * Response
     , ListUsersResponse
@@ -57,24 +57,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lurqPathPrefix'
+-- * 'luPathPrefix'
 --
--- * 'lurqMaxItems'
+-- * 'luMaxItems'
 --
--- * 'lurqMarker'
+-- * 'luMarker'
 data ListUsers = ListUsers'
-    { _lurqPathPrefix :: !(Maybe Text)
-    , _lurqMaxItems   :: !(Maybe Nat)
-    , _lurqMarker     :: !(Maybe Text)
+    { _luPathPrefix :: !(Maybe Text)
+    , _luMaxItems   :: !(Maybe Nat)
+    , _luMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUsers' smart constructor.
 listUsers :: ListUsers
 listUsers =
     ListUsers'
-    { _lurqPathPrefix = Nothing
-    , _lurqMaxItems = Nothing
-    , _lurqMarker = Nothing
+    { _luPathPrefix = Nothing
+    , _luMaxItems = Nothing
+    , _luMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. For example:
@@ -83,8 +83,8 @@ listUsers =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all user names.
-lurqPathPrefix :: Lens' ListUsers (Maybe Text)
-lurqPathPrefix = lens _lurqPathPrefix (\ s a -> s{_lurqPathPrefix = a});
+luPathPrefix :: Lens' ListUsers (Maybe Text)
+luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -92,21 +92,21 @@ lurqPathPrefix = lens _lurqPathPrefix (\ s a -> s{_lurqPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lurqMaxItems :: Lens' ListUsers (Maybe Natural)
-lurqMaxItems = lens _lurqMaxItems (\ s a -> s{_lurqMaxItems = a}) . mapping _Nat;
+luMaxItems :: Lens' ListUsers (Maybe Natural)
+luMaxItems = lens _luMaxItems (\ s a -> s{_luMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lurqMarker :: Lens' ListUsers (Maybe Text)
-lurqMarker = lens _lurqMarker (\ s a -> s{_lurqMarker = a});
+luMarker :: Lens' ListUsers (Maybe Text)
+luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
 
 instance AWSPager ListUsers where
         page rq rs
           | stop (rs ^. lursIsTruncated) = Nothing
           | isNothing (rs ^. lursMarker) = Nothing
           | otherwise =
-            Just $ rq & lurqMarker .~ rs ^. lursMarker
+            Just $ rq & luMarker .~ rs ^. lursMarker
 
 instance AWSRequest ListUsers where
         type Sv ListUsers = IAM
@@ -132,8 +132,8 @@ instance ToQuery ListUsers where
           = mconcat
               ["Action" =: ("ListUsers" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lurqPathPrefix,
-               "MaxItems" =: _lurqMaxItems, "Marker" =: _lurqMarker]
+               "PathPrefix" =: _luPathPrefix,
+               "MaxItems" =: _luMaxItems, "Marker" =: _luMarker]
 
 -- | Contains the response to a successful ListUsers request.
 --

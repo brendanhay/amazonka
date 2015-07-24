@@ -31,8 +31,8 @@ module Network.AWS.AutoScaling.ExitStandby
     -- ** Request constructor
     , exitStandby
     -- ** Request lenses
-    , erqInstanceIds
-    , erqAutoScalingGroupName
+    , eInstanceIds
+    , eAutoScalingGroupName
 
     -- * Response
     , ExitStandbyResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'erqInstanceIds'
+-- * 'eInstanceIds'
 --
--- * 'erqAutoScalingGroupName'
+-- * 'eAutoScalingGroupName'
 data ExitStandby = ExitStandby'
-    { _erqInstanceIds          :: !(Maybe [Text])
-    , _erqAutoScalingGroupName :: !Text
+    { _eInstanceIds          :: !(Maybe [Text])
+    , _eAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExitStandby' smart constructor.
 exitStandby :: Text -> ExitStandby
 exitStandby pAutoScalingGroupName_ =
     ExitStandby'
-    { _erqInstanceIds = Nothing
-    , _erqAutoScalingGroupName = pAutoScalingGroupName_
+    { _eInstanceIds = Nothing
+    , _eAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | One or more instance IDs. You must specify at least one instance ID.
-erqInstanceIds :: Lens' ExitStandby [Text]
-erqInstanceIds = lens _erqInstanceIds (\ s a -> s{_erqInstanceIds = a}) . _Default;
+eInstanceIds :: Lens' ExitStandby [Text]
+eInstanceIds = lens _eInstanceIds (\ s a -> s{_eInstanceIds = a}) . _Default;
 
 -- | The name of the Auto Scaling group.
-erqAutoScalingGroupName :: Lens' ExitStandby Text
-erqAutoScalingGroupName = lens _erqAutoScalingGroupName (\ s a -> s{_erqAutoScalingGroupName = a});
+eAutoScalingGroupName :: Lens' ExitStandby Text
+eAutoScalingGroupName = lens _eAutoScalingGroupName (\ s a -> s{_eAutoScalingGroupName = a});
 
 instance AWSRequest ExitStandby where
         type Sv ExitStandby = AutoScaling
@@ -100,8 +100,8 @@ instance ToQuery ExitStandby where
               ["Action" =: ("ExitStandby" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _erqInstanceIds),
-               "AutoScalingGroupName" =: _erqAutoScalingGroupName]
+                 toQuery (toQueryList "member" <$> _eInstanceIds),
+               "AutoScalingGroupName" =: _eAutoScalingGroupName]
 
 -- | /See:/ 'exitStandbyResponse' smart constructor.
 --

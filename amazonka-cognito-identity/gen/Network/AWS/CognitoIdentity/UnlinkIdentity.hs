@@ -31,9 +31,9 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     -- ** Request constructor
     , unlinkIdentity
     -- ** Request lenses
-    , uirqIdentityId
-    , uirqLogins
-    , uirqLoginsToRemove
+    , uiIdentityId
+    , uiLogins
+    , uiLoginsToRemove
 
     -- * Response
     , UnlinkIdentityResponse
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uirqIdentityId'
+-- * 'uiIdentityId'
 --
--- * 'uirqLogins'
+-- * 'uiLogins'
 --
--- * 'uirqLoginsToRemove'
+-- * 'uiLoginsToRemove'
 data UnlinkIdentity = UnlinkIdentity'
-    { _uirqIdentityId     :: !Text
-    , _uirqLogins         :: !(Map Text Text)
-    , _uirqLoginsToRemove :: ![Text]
+    { _uiIdentityId     :: !Text
+    , _uiLogins         :: !(Map Text Text)
+    , _uiLoginsToRemove :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkIdentity' smart constructor.
 unlinkIdentity :: Text -> UnlinkIdentity
 unlinkIdentity pIdentityId_ =
     UnlinkIdentity'
-    { _uirqIdentityId = pIdentityId_
-    , _uirqLogins = mempty
-    , _uirqLoginsToRemove = mempty
+    { _uiIdentityId = pIdentityId_
+    , _uiLogins = mempty
+    , _uiLoginsToRemove = mempty
     }
 
 -- | A unique identifier in the format REGION:GUID.
-uirqIdentityId :: Lens' UnlinkIdentity Text
-uirqIdentityId = lens _uirqIdentityId (\ s a -> s{_uirqIdentityId = a});
+uiIdentityId :: Lens' UnlinkIdentity Text
+uiIdentityId = lens _uiIdentityId (\ s a -> s{_uiIdentityId = a});
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-uirqLogins :: Lens' UnlinkIdentity (HashMap Text Text)
-uirqLogins = lens _uirqLogins (\ s a -> s{_uirqLogins = a}) . _Map;
+uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
+uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Map;
 
 -- | Provider names to unlink from this identity.
-uirqLoginsToRemove :: Lens' UnlinkIdentity [Text]
-uirqLoginsToRemove = lens _uirqLoginsToRemove (\ s a -> s{_uirqLoginsToRemove = a});
+uiLoginsToRemove :: Lens' UnlinkIdentity [Text]
+uiLoginsToRemove = lens _uiLoginsToRemove (\ s a -> s{_uiLoginsToRemove = a});
 
 instance AWSRequest UnlinkIdentity where
         type Sv UnlinkIdentity = CognitoIdentity
@@ -104,9 +104,9 @@ instance ToHeaders UnlinkIdentity where
 instance ToJSON UnlinkIdentity where
         toJSON UnlinkIdentity'{..}
           = object
-              ["IdentityId" .= _uirqIdentityId,
-               "Logins" .= _uirqLogins,
-               "LoginsToRemove" .= _uirqLoginsToRemove]
+              ["IdentityId" .= _uiIdentityId,
+               "Logins" .= _uiLogins,
+               "LoginsToRemove" .= _uiLoginsToRemove]
 
 instance ToPath UnlinkIdentity where
         toPath = const "/"

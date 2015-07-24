@@ -33,7 +33,7 @@ module Network.AWS.WorkSpaces.RebootWorkspaces
     -- ** Request constructor
     , rebootWorkspaces
     -- ** Request lenses
-    , rwrqRebootWorkspaceRequests
+    , rwRebootWorkspaceRequests
 
     -- * Response
     , RebootWorkspacesResponse
@@ -55,21 +55,21 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rwrqRebootWorkspaceRequests'
+-- * 'rwRebootWorkspaceRequests'
 newtype RebootWorkspaces = RebootWorkspaces'
-    { _rwrqRebootWorkspaceRequests :: List1 RebootRequest
+    { _rwRebootWorkspaceRequests :: List1 RebootRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootWorkspaces' smart constructor.
 rebootWorkspaces :: NonEmpty RebootRequest -> RebootWorkspaces
 rebootWorkspaces pRebootWorkspaceRequests_ =
     RebootWorkspaces'
-    { _rwrqRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests_
+    { _rwRebootWorkspaceRequests = _List1 # pRebootWorkspaceRequests_
     }
 
 -- | An array of structures that specify the WorkSpaces to reboot.
-rwrqRebootWorkspaceRequests :: Lens' RebootWorkspaces (NonEmpty RebootRequest)
-rwrqRebootWorkspaceRequests = lens _rwrqRebootWorkspaceRequests (\ s a -> s{_rwrqRebootWorkspaceRequests = a}) . _List1;
+rwRebootWorkspaceRequests :: Lens' RebootWorkspaces (NonEmpty RebootRequest)
+rwRebootWorkspaceRequests = lens _rwRebootWorkspaceRequests (\ s a -> s{_rwRebootWorkspaceRequests = a}) . _List1;
 
 instance AWSRequest RebootWorkspaces where
         type Sv RebootWorkspaces = WorkSpaces
@@ -95,7 +95,7 @@ instance ToJSON RebootWorkspaces where
         toJSON RebootWorkspaces'{..}
           = object
               ["RebootWorkspaceRequests" .=
-                 _rwrqRebootWorkspaceRequests]
+                 _rwRebootWorkspaceRequests]
 
 instance ToPath RebootWorkspaces where
         toPath = const "/"

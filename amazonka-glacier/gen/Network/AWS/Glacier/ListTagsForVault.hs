@@ -30,8 +30,8 @@ module Network.AWS.Glacier.ListTagsForVault
     -- ** Request constructor
     , listTagsForVault
     -- ** Request lenses
-    , ltfvrqAccountId
-    , ltfvrqVaultName
+    , ltfvAccountId
+    , ltfvVaultName
 
     -- * Response
     , ListTagsForVaultResponse
@@ -53,20 +53,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfvrqAccountId'
+-- * 'ltfvAccountId'
 --
--- * 'ltfvrqVaultName'
+-- * 'ltfvVaultName'
 data ListTagsForVault = ListTagsForVault'
-    { _ltfvrqAccountId :: !Text
-    , _ltfvrqVaultName :: !Text
+    { _ltfvAccountId :: !Text
+    , _ltfvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForVault' smart constructor.
 listTagsForVault :: Text -> Text -> ListTagsForVault
 listTagsForVault pAccountId_ pVaultName_ =
     ListTagsForVault'
-    { _ltfvrqAccountId = pAccountId_
-    , _ltfvrqVaultName = pVaultName_
+    { _ltfvAccountId = pAccountId_
+    , _ltfvVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -74,12 +74,12 @@ listTagsForVault pAccountId_ pVaultName_ =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-ltfvrqAccountId :: Lens' ListTagsForVault Text
-ltfvrqAccountId = lens _ltfvrqAccountId (\ s a -> s{_ltfvrqAccountId = a});
+ltfvAccountId :: Lens' ListTagsForVault Text
+ltfvAccountId = lens _ltfvAccountId (\ s a -> s{_ltfvAccountId = a});
 
 -- | The name of the vault.
-ltfvrqVaultName :: Lens' ListTagsForVault Text
-ltfvrqVaultName = lens _ltfvrqVaultName (\ s a -> s{_ltfvrqVaultName = a});
+ltfvVaultName :: Lens' ListTagsForVault Text
+ltfvVaultName = lens _ltfvVaultName (\ s a -> s{_ltfvVaultName = a});
 
 instance AWSRequest ListTagsForVault where
         type Sv ListTagsForVault = Glacier
@@ -97,8 +97,8 @@ instance ToHeaders ListTagsForVault where
 instance ToPath ListTagsForVault where
         toPath ListTagsForVault'{..}
           = mconcat
-              ["/", toText _ltfvrqAccountId, "/vaults/",
-               toText _ltfvrqVaultName, "/tags"]
+              ["/", toText _ltfvAccountId, "/vaults/",
+               toText _ltfvVaultName, "/tags"]
 
 instance ToQuery ListTagsForVault where
         toQuery = const mempty

@@ -32,10 +32,10 @@ module Network.AWS.EC2.CreateInstanceExportTask
     -- ** Request constructor
     , createInstanceExportTask
     -- ** Request lenses
-    , cietrqTargetEnvironment
-    , cietrqExportToS3Task
-    , cietrqDescription
-    , cietrqInstanceId
+    , cietTargetEnvironment
+    , cietExportToS3Task
+    , cietDescription
+    , cietInstanceId
 
     -- * Response
     , CreateInstanceExportTaskResponse
@@ -55,46 +55,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cietrqTargetEnvironment'
+-- * 'cietTargetEnvironment'
 --
--- * 'cietrqExportToS3Task'
+-- * 'cietExportToS3Task'
 --
--- * 'cietrqDescription'
+-- * 'cietDescription'
 --
--- * 'cietrqInstanceId'
+-- * 'cietInstanceId'
 data CreateInstanceExportTask = CreateInstanceExportTask'
-    { _cietrqTargetEnvironment :: !(Maybe ExportEnvironment)
-    , _cietrqExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
-    , _cietrqDescription       :: !(Maybe Text)
-    , _cietrqInstanceId        :: !Text
+    { _cietTargetEnvironment :: !(Maybe ExportEnvironment)
+    , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
+    , _cietDescription       :: !(Maybe Text)
+    , _cietInstanceId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceExportTask' smart constructor.
 createInstanceExportTask :: Text -> CreateInstanceExportTask
 createInstanceExportTask pInstanceId_ =
     CreateInstanceExportTask'
-    { _cietrqTargetEnvironment = Nothing
-    , _cietrqExportToS3Task = Nothing
-    , _cietrqDescription = Nothing
-    , _cietrqInstanceId = pInstanceId_
+    { _cietTargetEnvironment = Nothing
+    , _cietExportToS3Task = Nothing
+    , _cietDescription = Nothing
+    , _cietInstanceId = pInstanceId_
     }
 
 -- | The target virtualization environment.
-cietrqTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
-cietrqTargetEnvironment = lens _cietrqTargetEnvironment (\ s a -> s{_cietrqTargetEnvironment = a});
+cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe ExportEnvironment)
+cietTargetEnvironment = lens _cietTargetEnvironment (\ s a -> s{_cietTargetEnvironment = a});
 
 -- | The format and location for an instance export task.
-cietrqExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
-cietrqExportToS3Task = lens _cietrqExportToS3Task (\ s a -> s{_cietrqExportToS3Task = a});
+cietExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
+cietExportToS3Task = lens _cietExportToS3Task (\ s a -> s{_cietExportToS3Task = a});
 
 -- | A description for the conversion task or the resource being exported.
 -- The maximum length is 255 bytes.
-cietrqDescription :: Lens' CreateInstanceExportTask (Maybe Text)
-cietrqDescription = lens _cietrqDescription (\ s a -> s{_cietrqDescription = a});
+cietDescription :: Lens' CreateInstanceExportTask (Maybe Text)
+cietDescription = lens _cietDescription (\ s a -> s{_cietDescription = a});
 
 -- | The ID of the instance.
-cietrqInstanceId :: Lens' CreateInstanceExportTask Text
-cietrqInstanceId = lens _cietrqInstanceId (\ s a -> s{_cietrqInstanceId = a});
+cietInstanceId :: Lens' CreateInstanceExportTask Text
+cietInstanceId = lens _cietInstanceId (\ s a -> s{_cietInstanceId = a});
 
 instance AWSRequest CreateInstanceExportTask where
         type Sv CreateInstanceExportTask = EC2
@@ -119,10 +119,10 @@ instance ToQuery CreateInstanceExportTask where
               ["Action" =:
                  ("CreateInstanceExportTask" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "TargetEnvironment" =: _cietrqTargetEnvironment,
-               "ExportToS3" =: _cietrqExportToS3Task,
-               "Description" =: _cietrqDescription,
-               "InstanceId" =: _cietrqInstanceId]
+               "TargetEnvironment" =: _cietTargetEnvironment,
+               "ExportToS3" =: _cietExportToS3Task,
+               "Description" =: _cietDescription,
+               "InstanceId" =: _cietInstanceId]
 
 -- | /See:/ 'createInstanceExportTaskResponse' smart constructor.
 --

@@ -30,10 +30,10 @@ module Network.AWS.CognitoSync.RegisterDevice
     -- ** Request constructor
     , registerDevice
     -- ** Request lenses
-    , rdrqIdentityPoolId
-    , rdrqIdentityId
-    , rdrqPlatform
-    , rdrqToken
+    , rdIdentityPoolId
+    , rdIdentityId
+    , rdPlatform
+    , rdToken
 
     -- * Response
     , RegisterDeviceResponse
@@ -55,47 +55,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdrqIdentityPoolId'
+-- * 'rdIdentityPoolId'
 --
--- * 'rdrqIdentityId'
+-- * 'rdIdentityId'
 --
--- * 'rdrqPlatform'
+-- * 'rdPlatform'
 --
--- * 'rdrqToken'
+-- * 'rdToken'
 data RegisterDevice = RegisterDevice'
-    { _rdrqIdentityPoolId :: !Text
-    , _rdrqIdentityId     :: !Text
-    , _rdrqPlatform       :: !Platform
-    , _rdrqToken          :: !Text
+    { _rdIdentityPoolId :: !Text
+    , _rdIdentityId     :: !Text
+    , _rdPlatform       :: !Platform
+    , _rdToken          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDevice' smart constructor.
 registerDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
 registerDevice pIdentityPoolId_ pIdentityId_ pPlatform_ pToken_ =
     RegisterDevice'
-    { _rdrqIdentityPoolId = pIdentityPoolId_
-    , _rdrqIdentityId = pIdentityId_
-    , _rdrqPlatform = pPlatform_
-    , _rdrqToken = pToken_
+    { _rdIdentityPoolId = pIdentityPoolId_
+    , _rdIdentityId = pIdentityId_
+    , _rdPlatform = pPlatform_
+    , _rdToken = pToken_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. Here, the ID of the pool that the identity belongs to.
-rdrqIdentityPoolId :: Lens' RegisterDevice Text
-rdrqIdentityPoolId = lens _rdrqIdentityPoolId (\ s a -> s{_rdrqIdentityPoolId = a});
+rdIdentityPoolId :: Lens' RegisterDevice Text
+rdIdentityPoolId = lens _rdIdentityPoolId (\ s a -> s{_rdIdentityPoolId = a});
 
 -- | The unique ID for this identity.
-rdrqIdentityId :: Lens' RegisterDevice Text
-rdrqIdentityId = lens _rdrqIdentityId (\ s a -> s{_rdrqIdentityId = a});
+rdIdentityId :: Lens' RegisterDevice Text
+rdIdentityId = lens _rdIdentityId (\ s a -> s{_rdIdentityId = a});
 
 -- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
-rdrqPlatform :: Lens' RegisterDevice Platform
-rdrqPlatform = lens _rdrqPlatform (\ s a -> s{_rdrqPlatform = a});
+rdPlatform :: Lens' RegisterDevice Platform
+rdPlatform = lens _rdPlatform (\ s a -> s{_rdPlatform = a});
 
 -- | The push token.
-rdrqToken :: Lens' RegisterDevice Text
-rdrqToken = lens _rdrqToken (\ s a -> s{_rdrqToken = a});
+rdToken :: Lens' RegisterDevice Text
+rdToken = lens _rdToken (\ s a -> s{_rdToken = a});
 
 instance AWSRequest RegisterDevice where
         type Sv RegisterDevice = CognitoSync
@@ -117,13 +117,13 @@ instance ToHeaders RegisterDevice where
 instance ToJSON RegisterDevice where
         toJSON RegisterDevice'{..}
           = object
-              ["Platform" .= _rdrqPlatform, "Token" .= _rdrqToken]
+              ["Platform" .= _rdPlatform, "Token" .= _rdToken]
 
 instance ToPath RegisterDevice where
         toPath RegisterDevice'{..}
           = mconcat
-              ["/identitypools/", toText _rdrqIdentityPoolId,
-               "/identity/", toText _rdrqIdentityId, "/device"]
+              ["/identitypools/", toText _rdIdentityPoolId,
+               "/identity/", toText _rdIdentityId, "/device"]
 
 instance ToQuery RegisterDevice where
         toQuery = const mempty

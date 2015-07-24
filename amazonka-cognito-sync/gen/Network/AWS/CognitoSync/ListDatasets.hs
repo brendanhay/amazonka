@@ -33,10 +33,10 @@ module Network.AWS.CognitoSync.ListDatasets
     -- ** Request constructor
     , listDatasets
     -- ** Request lenses
-    , ldrqNextToken
-    , ldrqMaxResults
-    , ldrqIdentityId
-    , ldrqIdentityPoolId
+    , ldNextToken
+    , ldMaxResults
+    , ldIdentityId
+    , ldIdentityPoolId
 
     -- * Response
     , ListDatasetsResponse
@@ -60,49 +60,49 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrqNextToken'
+-- * 'ldNextToken'
 --
--- * 'ldrqMaxResults'
+-- * 'ldMaxResults'
 --
--- * 'ldrqIdentityId'
+-- * 'ldIdentityId'
 --
--- * 'ldrqIdentityPoolId'
+-- * 'ldIdentityPoolId'
 data ListDatasets = ListDatasets'
-    { _ldrqNextToken      :: !(Maybe Text)
-    , _ldrqMaxResults     :: !(Maybe Int)
-    , _ldrqIdentityId     :: !Text
-    , _ldrqIdentityPoolId :: !Text
+    { _ldNextToken      :: !(Maybe Text)
+    , _ldMaxResults     :: !(Maybe Int)
+    , _ldIdentityId     :: !Text
+    , _ldIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDatasets' smart constructor.
 listDatasets :: Text -> Text -> ListDatasets
 listDatasets pIdentityId_ pIdentityPoolId_ =
     ListDatasets'
-    { _ldrqNextToken = Nothing
-    , _ldrqMaxResults = Nothing
-    , _ldrqIdentityId = pIdentityId_
-    , _ldrqIdentityPoolId = pIdentityPoolId_
+    { _ldNextToken = Nothing
+    , _ldMaxResults = Nothing
+    , _ldIdentityId = pIdentityId_
+    , _ldIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A pagination token for obtaining the next page of results.
-ldrqNextToken :: Lens' ListDatasets (Maybe Text)
-ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
+ldNextToken :: Lens' ListDatasets (Maybe Text)
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
 -- | The maximum number of results to be returned.
-ldrqMaxResults :: Lens' ListDatasets (Maybe Int)
-ldrqMaxResults = lens _ldrqMaxResults (\ s a -> s{_ldrqMaxResults = a});
+ldMaxResults :: Lens' ListDatasets (Maybe Int)
+ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-ldrqIdentityId :: Lens' ListDatasets Text
-ldrqIdentityId = lens _ldrqIdentityId (\ s a -> s{_ldrqIdentityId = a});
+ldIdentityId :: Lens' ListDatasets Text
+ldIdentityId = lens _ldIdentityId (\ s a -> s{_ldIdentityId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-ldrqIdentityPoolId :: Lens' ListDatasets Text
-ldrqIdentityPoolId = lens _ldrqIdentityPoolId (\ s a -> s{_ldrqIdentityPoolId = a});
+ldIdentityPoolId :: Lens' ListDatasets Text
+ldIdentityPoolId = lens _ldIdentityPoolId (\ s a -> s{_ldIdentityPoolId = a});
 
 instance AWSRequest ListDatasets where
         type Sv ListDatasets = CognitoSync
@@ -126,14 +126,14 @@ instance ToHeaders ListDatasets where
 instance ToPath ListDatasets where
         toPath ListDatasets'{..}
           = mconcat
-              ["/identitypools/", toText _ldrqIdentityPoolId,
-               "/identities/", toText _ldrqIdentityId, "/datasets"]
+              ["/identitypools/", toText _ldIdentityPoolId,
+               "/identities/", toText _ldIdentityId, "/datasets"]
 
 instance ToQuery ListDatasets where
         toQuery ListDatasets'{..}
           = mconcat
-              ["nextToken" =: _ldrqNextToken,
-               "maxResults" =: _ldrqMaxResults]
+              ["nextToken" =: _ldNextToken,
+               "maxResults" =: _ldMaxResults]
 
 -- | Returned for a successful ListDatasets request.
 --

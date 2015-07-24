@@ -48,10 +48,10 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- ** Request constructor
     , createReservedInstancesListing
     -- ** Request lenses
-    , crilrqReservedInstancesId
-    , crilrqInstanceCount
-    , crilrqPriceSchedules
-    , crilrqClientToken
+    , crilReservedInstancesId
+    , crilInstanceCount
+    , crilPriceSchedules
+    , crilClientToken
 
     -- * Response
     , CreateReservedInstancesListingResponse
@@ -71,52 +71,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crilrqReservedInstancesId'
+-- * 'crilReservedInstancesId'
 --
--- * 'crilrqInstanceCount'
+-- * 'crilInstanceCount'
 --
--- * 'crilrqPriceSchedules'
+-- * 'crilPriceSchedules'
 --
--- * 'crilrqClientToken'
+-- * 'crilClientToken'
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
-    { _crilrqReservedInstancesId :: !Text
-    , _crilrqInstanceCount       :: !Int
-    , _crilrqPriceSchedules      :: ![PriceScheduleSpecification]
-    , _crilrqClientToken         :: !Text
+    { _crilReservedInstancesId :: !Text
+    , _crilInstanceCount       :: !Int
+    , _crilPriceSchedules      :: ![PriceScheduleSpecification]
+    , _crilClientToken         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReservedInstancesListing' smart constructor.
 createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
 createReservedInstancesListing pReservedInstancesId_ pInstanceCount_ pClientToken_ =
     CreateReservedInstancesListing'
-    { _crilrqReservedInstancesId = pReservedInstancesId_
-    , _crilrqInstanceCount = pInstanceCount_
-    , _crilrqPriceSchedules = mempty
-    , _crilrqClientToken = pClientToken_
+    { _crilReservedInstancesId = pReservedInstancesId_
+    , _crilInstanceCount = pInstanceCount_
+    , _crilPriceSchedules = mempty
+    , _crilClientToken = pClientToken_
     }
 
 -- | The ID of the active Reserved Instance.
-crilrqReservedInstancesId :: Lens' CreateReservedInstancesListing Text
-crilrqReservedInstancesId = lens _crilrqReservedInstancesId (\ s a -> s{_crilrqReservedInstancesId = a});
+crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
+crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a});
 
 -- | The number of instances that are a part of a Reserved Instance account
 -- to be listed in the Reserved Instance Marketplace. This number should be
 -- less than or equal to the instance count associated with the Reserved
 -- Instance ID specified in this call.
-crilrqInstanceCount :: Lens' CreateReservedInstancesListing Int
-crilrqInstanceCount = lens _crilrqInstanceCount (\ s a -> s{_crilrqInstanceCount = a});
+crilInstanceCount :: Lens' CreateReservedInstancesListing Int
+crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a});
 
 -- | A list specifying the price of the Reserved Instance for each month
 -- remaining in the Reserved Instance term.
-crilrqPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
-crilrqPriceSchedules = lens _crilrqPriceSchedules (\ s a -> s{_crilrqPriceSchedules = a});
+crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
+crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a});
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
 -- your listings. This helps avoid duplicate listings. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-crilrqClientToken :: Lens' CreateReservedInstancesListing Text
-crilrqClientToken = lens _crilrqClientToken (\ s a -> s{_crilrqClientToken = a});
+crilClientToken :: Lens' CreateReservedInstancesListing Text
+crilClientToken = lens _crilClientToken (\ s a -> s{_crilClientToken = a});
 
 instance AWSRequest CreateReservedInstancesListing
          where
@@ -145,10 +145,10 @@ instance ToQuery CreateReservedInstancesListing where
               ["Action" =:
                  ("CreateReservedInstancesListing" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ReservedInstancesId" =: _crilrqReservedInstancesId,
-               "InstanceCount" =: _crilrqInstanceCount,
-               toQueryList "item" _crilrqPriceSchedules,
-               "ClientToken" =: _crilrqClientToken]
+               "ReservedInstancesId" =: _crilReservedInstancesId,
+               "InstanceCount" =: _crilInstanceCount,
+               toQueryList "item" _crilPriceSchedules,
+               "ClientToken" =: _crilClientToken]
 
 -- | /See:/ 'createReservedInstancesListingResponse' smart constructor.
 --

@@ -33,8 +33,8 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- ** Request constructor
     , describeStackEvents
     -- ** Request lenses
-    , dserqNextToken
-    , dserqStackName
+    , dseNextToken
+    , dseStackName
 
     -- * Response
     , DescribeStackEventsResponse
@@ -58,28 +58,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dserqNextToken'
+-- * 'dseNextToken'
 --
--- * 'dserqStackName'
+-- * 'dseStackName'
 data DescribeStackEvents = DescribeStackEvents'
-    { _dserqNextToken :: !(Maybe Text)
-    , _dserqStackName :: !(Maybe Text)
+    { _dseNextToken :: !(Maybe Text)
+    , _dseStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackEvents' smart constructor.
 describeStackEvents :: DescribeStackEvents
 describeStackEvents =
     DescribeStackEvents'
-    { _dserqNextToken = Nothing
-    , _dserqStackName = Nothing
+    { _dseNextToken = Nothing
+    , _dseStackName = Nothing
     }
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
 --
 -- Default: There is no default value.
-dserqNextToken :: Lens' DescribeStackEvents (Maybe Text)
-dserqNextToken = lens _dserqNextToken (\ s a -> s{_dserqNextToken = a});
+dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
+dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -89,15 +89,15 @@ dserqNextToken = lens _dserqNextToken (\ s a -> s{_dserqNextToken = a});
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-dserqStackName :: Lens' DescribeStackEvents (Maybe Text)
-dserqStackName = lens _dserqStackName (\ s a -> s{_dserqStackName = a});
+dseStackName :: Lens' DescribeStackEvents (Maybe Text)
+dseStackName = lens _dseStackName (\ s a -> s{_dseStackName = a});
 
 instance AWSPager DescribeStackEvents where
         page rq rs
           | stop (rs ^. dsersNextToken) = Nothing
           | stop (rs ^. dsersStackEvents) = Nothing
           | otherwise =
-            Just $ rq & dserqNextToken .~ rs ^. dsersNextToken
+            Just $ rq & dseNextToken .~ rs ^. dsersNextToken
 
 instance AWSRequest DescribeStackEvents where
         type Sv DescribeStackEvents = CloudFormation
@@ -124,8 +124,8 @@ instance ToQuery DescribeStackEvents where
           = mconcat
               ["Action" =: ("DescribeStackEvents" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "NextToken" =: _dserqNextToken,
-               "StackName" =: _dserqStackName]
+               "NextToken" =: _dseNextToken,
+               "StackName" =: _dseStackName]
 
 -- | The output for a DescribeStackEvents action.
 --

@@ -30,8 +30,8 @@ module Network.AWS.CloudSearch.DeleteExpression
     -- ** Request constructor
     , deleteExpression
     -- ** Request lenses
-    , delrqDomainName
-    , delrqExpressionName
+    , delDomainName
+    , delExpressionName
 
     -- * Response
     , DeleteExpressionResponse
@@ -55,29 +55,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrqDomainName'
+-- * 'delDomainName'
 --
--- * 'delrqExpressionName'
+-- * 'delExpressionName'
 data DeleteExpression = DeleteExpression'
-    { _delrqDomainName     :: !Text
-    , _delrqExpressionName :: !Text
+    { _delDomainName     :: !Text
+    , _delExpressionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteExpression' smart constructor.
 deleteExpression :: Text -> Text -> DeleteExpression
 deleteExpression pDomainName_ pExpressionName_ =
     DeleteExpression'
-    { _delrqDomainName = pDomainName_
-    , _delrqExpressionName = pExpressionName_
+    { _delDomainName = pDomainName_
+    , _delExpressionName = pExpressionName_
     }
 
 -- | FIXME: Undocumented member.
-delrqDomainName :: Lens' DeleteExpression Text
-delrqDomainName = lens _delrqDomainName (\ s a -> s{_delrqDomainName = a});
+delDomainName :: Lens' DeleteExpression Text
+delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a});
 
 -- | The name of the @Expression@ to delete.
-delrqExpressionName :: Lens' DeleteExpression Text
-delrqExpressionName = lens _delrqExpressionName (\ s a -> s{_delrqExpressionName = a});
+delExpressionName :: Lens' DeleteExpression Text
+delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a});
 
 instance AWSRequest DeleteExpression where
         type Sv DeleteExpression = CloudSearch
@@ -100,8 +100,8 @@ instance ToQuery DeleteExpression where
           = mconcat
               ["Action" =: ("DeleteExpression" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _delrqDomainName,
-               "ExpressionName" =: _delrqExpressionName]
+               "DomainName" =: _delDomainName,
+               "ExpressionName" =: _delExpressionName]
 
 -- | The result of a @DeleteExpression@ request. Specifies the expression
 -- being deleted.

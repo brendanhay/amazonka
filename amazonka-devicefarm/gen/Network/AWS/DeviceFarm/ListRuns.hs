@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.ListRuns
     -- ** Request constructor
     , listRuns
     -- ** Request lenses
-    , lrrqNextToken
-    , lrrqArn
+    , lrNextToken
+    , lrArn
 
     -- * Response
     , ListRunsResponse
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrrqNextToken'
+-- * 'lrNextToken'
 --
--- * 'lrrqArn'
+-- * 'lrArn'
 data ListRuns = ListRuns'
-    { _lrrqNextToken :: !(Maybe Text)
-    , _lrrqArn       :: !Text
+    { _lrNextToken :: !(Maybe Text)
+    , _lrArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRuns' smart constructor.
 listRuns :: Text -> ListRuns
 listRuns pArn_ =
     ListRuns'
-    { _lrrqNextToken = Nothing
-    , _lrrqArn = pArn_
+    { _lrNextToken = Nothing
+    , _lrArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lrrqNextToken :: Lens' ListRuns (Maybe Text)
-lrrqNextToken = lens _lrrqNextToken (\ s a -> s{_lrrqNextToken = a});
+lrNextToken :: Lens' ListRuns (Maybe Text)
+lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 
 -- | The runs\' ARNs.
-lrrqArn :: Lens' ListRuns Text
-lrrqArn = lens _lrrqArn (\ s a -> s{_lrrqArn = a});
+lrArn :: Lens' ListRuns Text
+lrArn = lens _lrArn (\ s a -> s{_lrArn = a});
 
 instance AWSRequest ListRuns where
         type Sv ListRuns = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListRuns where
 instance ToJSON ListRuns where
         toJSON ListRuns'{..}
           = object
-              ["nextToken" .= _lrrqNextToken, "arn" .= _lrrqArn]
+              ["nextToken" .= _lrNextToken, "arn" .= _lrArn]
 
 instance ToPath ListRuns where
         toPath = const "/"

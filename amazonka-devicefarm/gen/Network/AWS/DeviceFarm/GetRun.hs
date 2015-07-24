@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.GetRun
     -- ** Request constructor
     , getRun
     -- ** Request lenses
-    , grrqArn
+    , grArn
 
     -- * Response
     , GetRunResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrqArn'
+-- * 'grArn'
 newtype GetRun = GetRun'
-    { _grrqArn :: Text
+    { _grArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRun' smart constructor.
 getRun :: Text -> GetRun
 getRun pArn_ =
     GetRun'
-    { _grrqArn = pArn_
+    { _grArn = pArn_
     }
 
 -- | The run\'s ARN.
-grrqArn :: Lens' GetRun Text
-grrqArn = lens _grrqArn (\ s a -> s{_grrqArn = a});
+grArn :: Lens' GetRun Text
+grArn = lens _grArn (\ s a -> s{_grArn = a});
 
 instance AWSRequest GetRun where
         type Sv GetRun = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetRun where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetRun where
-        toJSON GetRun'{..} = object ["arn" .= _grrqArn]
+        toJSON GetRun'{..} = object ["arn" .= _grArn]
 
 instance ToPath GetRun where
         toPath = const "/"

@@ -39,8 +39,8 @@ module Network.AWS.SES.DeleteIdentityPolicy
     -- ** Request constructor
     , deleteIdentityPolicy
     -- ** Request lenses
-    , diprqIdentity
-    , diprqPolicyName
+    , dipIdentity
+    , dipPolicyName
 
     -- * Response
     , DeleteIdentityPolicyResponse
@@ -64,20 +64,20 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diprqIdentity'
+-- * 'dipIdentity'
 --
--- * 'diprqPolicyName'
+-- * 'dipPolicyName'
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
-    { _diprqIdentity   :: !Text
-    , _diprqPolicyName :: !Text
+    { _dipIdentity   :: !Text
+    , _dipPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityPolicy' smart constructor.
 deleteIdentityPolicy :: Text -> Text -> DeleteIdentityPolicy
 deleteIdentityPolicy pIdentity_ pPolicyName_ =
     DeleteIdentityPolicy'
-    { _diprqIdentity = pIdentity_
-    , _diprqPolicyName = pPolicyName_
+    { _dipIdentity = pIdentity_
+    , _dipPolicyName = pPolicyName_
     }
 
 -- | The identity that is associated with the policy that you want to delete.
@@ -86,12 +86,12 @@ deleteIdentityPolicy pIdentity_ pPolicyName_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-diprqIdentity :: Lens' DeleteIdentityPolicy Text
-diprqIdentity = lens _diprqIdentity (\ s a -> s{_diprqIdentity = a});
+dipIdentity :: Lens' DeleteIdentityPolicy Text
+dipIdentity = lens _dipIdentity (\ s a -> s{_dipIdentity = a});
 
 -- | The name of the policy to be deleted.
-diprqPolicyName :: Lens' DeleteIdentityPolicy Text
-diprqPolicyName = lens _diprqPolicyName (\ s a -> s{_diprqPolicyName = a});
+dipPolicyName :: Lens' DeleteIdentityPolicy Text
+dipPolicyName = lens _dipPolicyName (\ s a -> s{_dipPolicyName = a});
 
 instance AWSRequest DeleteIdentityPolicy where
         type Sv DeleteIdentityPolicy = SES
@@ -115,8 +115,8 @@ instance ToQuery DeleteIdentityPolicy where
           = mconcat
               ["Action" =: ("DeleteIdentityPolicy" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _diprqIdentity,
-               "PolicyName" =: _diprqPolicyName]
+               "Identity" =: _dipIdentity,
+               "PolicyName" =: _dipPolicyName]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.

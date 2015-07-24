@@ -27,9 +27,9 @@ module Network.AWS.KMS.ListGrants
     -- ** Request constructor
     , listGrants
     -- ** Request lenses
-    , lgrqMarker
-    , lgrqLimit
-    , lgrqKeyId
+    , lgMarker
+    , lgLimit
+    , lgKeyId
 
     -- * Response
     , ListGrantsResponse
@@ -51,39 +51,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgrqMarker'
+-- * 'lgMarker'
 --
--- * 'lgrqLimit'
+-- * 'lgLimit'
 --
--- * 'lgrqKeyId'
+-- * 'lgKeyId'
 data ListGrants = ListGrants'
-    { _lgrqMarker :: !(Maybe Text)
-    , _lgrqLimit  :: !(Maybe Nat)
-    , _lgrqKeyId  :: !Text
+    { _lgMarker :: !(Maybe Text)
+    , _lgLimit  :: !(Maybe Nat)
+    , _lgKeyId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGrants' smart constructor.
 listGrants :: Text -> ListGrants
 listGrants pKeyId_ =
     ListGrants'
-    { _lgrqMarker = Nothing
-    , _lgrqLimit = Nothing
-    , _lgrqKeyId = pKeyId_
+    { _lgMarker = Nothing
+    , _lgLimit = Nothing
+    , _lgKeyId = pKeyId_
     }
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @NextMarker@ in the response
 -- you just received.
-lgrqMarker :: Lens' ListGrants (Maybe Text)
-lgrqMarker = lens _lgrqMarker (\ s a -> s{_lgrqMarker = a});
+lgMarker :: Lens' ListGrants (Maybe Text)
+lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
 -- | Specify this parameter only when paginating results to indicate the
 -- maximum number of grants you want listed in the response. If there are
 -- additional grants beyond the maximum you specify, the @Truncated@
 -- response element will be set to @true.@
-lgrqLimit :: Lens' ListGrants (Maybe Natural)
-lgrqLimit = lens _lgrqLimit (\ s a -> s{_lgrqLimit = a}) . mapping _Nat;
+lgLimit :: Lens' ListGrants (Maybe Natural)
+lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -92,8 +92,8 @@ lgrqLimit = lens _lgrqLimit (\ s a -> s{_lgrqLimit = a}) . mapping _Nat;
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-lgrqKeyId :: Lens' ListGrants Text
-lgrqKeyId = lens _lgrqKeyId (\ s a -> s{_lgrqKeyId = a});
+lgKeyId :: Lens' ListGrants Text
+lgKeyId = lens _lgKeyId (\ s a -> s{_lgKeyId = a});
 
 instance AWSRequest ListGrants where
         type Sv ListGrants = KMS
@@ -119,8 +119,8 @@ instance ToHeaders ListGrants where
 instance ToJSON ListGrants where
         toJSON ListGrants'{..}
           = object
-              ["Marker" .= _lgrqMarker, "Limit" .= _lgrqLimit,
-               "KeyId" .= _lgrqKeyId]
+              ["Marker" .= _lgMarker, "Limit" .= _lgLimit,
+               "KeyId" .= _lgKeyId]
 
 instance ToPath ListGrants where
         toPath = const "/"

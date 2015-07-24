@@ -27,7 +27,7 @@ module Network.AWS.EC2.DeleteFlowLogs
     -- ** Request constructor
     , deleteFlowLogs
     -- ** Request lenses
-    , dflrqFlowLogIds
+    , dflFlowLogIds
 
     -- * Response
     , DeleteFlowLogsResponse
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dflrqFlowLogIds'
+-- * 'dflFlowLogIds'
 newtype DeleteFlowLogs = DeleteFlowLogs'
-    { _dflrqFlowLogIds :: [Text]
+    { _dflFlowLogIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFlowLogs' smart constructor.
 deleteFlowLogs :: DeleteFlowLogs
 deleteFlowLogs =
     DeleteFlowLogs'
-    { _dflrqFlowLogIds = mempty
+    { _dflFlowLogIds = mempty
     }
 
 -- | One or more flow log IDs.
-dflrqFlowLogIds :: Lens' DeleteFlowLogs [Text]
-dflrqFlowLogIds = lens _dflrqFlowLogIds (\ s a -> s{_dflrqFlowLogIds = a});
+dflFlowLogIds :: Lens' DeleteFlowLogs [Text]
+dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a});
 
 instance AWSRequest DeleteFlowLogs where
         type Sv DeleteFlowLogs = EC2
@@ -86,7 +86,7 @@ instance ToQuery DeleteFlowLogs where
           = mconcat
               ["Action" =: ("DeleteFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQueryList "item" _dflrqFlowLogIds]
+               toQueryList "item" _dflFlowLogIds]
 
 -- | /See:/ 'deleteFlowLogsResponse' smart constructor.
 --

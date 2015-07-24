@@ -35,7 +35,7 @@ module Network.AWS.DynamoDB.DescribeTable
     -- ** Request constructor
     , describeTable
     -- ** Request lenses
-    , drqTableName
+    , dTableName
 
     -- * Response
     , DescribeTableResponse
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqTableName'
+-- * 'dTableName'
 newtype DescribeTable = DescribeTable'
-    { _drqTableName :: Text
+    { _dTableName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTable' smart constructor.
 describeTable :: Text -> DescribeTable
 describeTable pTableName_ =
     DescribeTable'
-    { _drqTableName = pTableName_
+    { _dTableName = pTableName_
     }
 
 -- | The name of the table to describe.
-drqTableName :: Lens' DescribeTable Text
-drqTableName = lens _drqTableName (\ s a -> s{_drqTableName = a});
+dTableName :: Lens' DescribeTable Text
+dTableName = lens _dTableName (\ s a -> s{_dTableName = a});
 
 instance AWSRequest DescribeTable where
         type Sv DescribeTable = DynamoDB
@@ -94,7 +94,7 @@ instance ToHeaders DescribeTable where
 
 instance ToJSON DescribeTable where
         toJSON DescribeTable'{..}
-          = object ["TableName" .= _drqTableName]
+          = object ["TableName" .= _dTableName]
 
 instance ToPath DescribeTable where
         toPath = const "/"

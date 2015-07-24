@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketPolicy
     -- ** Request constructor
     , getBucketPolicy
     -- ** Request lenses
-    , gbprqBucket
+    , gbpBucket
 
     -- * Response
     , GetBucketPolicyResponse
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbprqBucket'
+-- * 'gbpBucket'
 newtype GetBucketPolicy = GetBucketPolicy'
-    { _gbprqBucket :: BucketName
+    { _gbpBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketPolicy' smart constructor.
 getBucketPolicy :: BucketName -> GetBucketPolicy
 getBucketPolicy pBucket_ =
     GetBucketPolicy'
-    { _gbprqBucket = pBucket_
+    { _gbpBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gbprqBucket :: Lens' GetBucketPolicy BucketName
-gbprqBucket = lens _gbprqBucket (\ s a -> s{_gbprqBucket = a});
+gbpBucket :: Lens' GetBucketPolicy BucketName
+gbpBucket = lens _gbpBucket (\ s a -> s{_gbpBucket = a});
 
 instance AWSRequest GetBucketPolicy where
         type Sv GetBucketPolicy = S3
@@ -78,7 +78,7 @@ instance ToHeaders GetBucketPolicy where
 
 instance ToPath GetBucketPolicy where
         toPath GetBucketPolicy'{..}
-          = mconcat ["/", toText _gbprqBucket]
+          = mconcat ["/", toText _gbpBucket]
 
 instance ToQuery GetBucketPolicy where
         toQuery = const (mconcat ["policy"])

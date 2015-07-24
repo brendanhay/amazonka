@@ -38,9 +38,9 @@ module Network.AWS.SES.PutIdentityPolicy
     -- ** Request constructor
     , putIdentityPolicy
     -- ** Request lenses
-    , piprqIdentity
-    , piprqPolicyName
-    , piprqPolicy
+    , pipIdentity
+    , pipPolicyName
+    , pipPolicy
 
     -- * Response
     , PutIdentityPolicyResponse
@@ -62,24 +62,24 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'piprqIdentity'
+-- * 'pipIdentity'
 --
--- * 'piprqPolicyName'
+-- * 'pipPolicyName'
 --
--- * 'piprqPolicy'
+-- * 'pipPolicy'
 data PutIdentityPolicy = PutIdentityPolicy'
-    { _piprqIdentity   :: !Text
-    , _piprqPolicyName :: !Text
-    , _piprqPolicy     :: !Text
+    { _pipIdentity   :: !Text
+    , _pipPolicyName :: !Text
+    , _pipPolicy     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutIdentityPolicy' smart constructor.
 putIdentityPolicy :: Text -> Text -> Text -> PutIdentityPolicy
 putIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
     PutIdentityPolicy'
-    { _piprqIdentity = pIdentity_
-    , _piprqPolicyName = pPolicyName_
-    , _piprqPolicy = pPolicy_
+    { _pipIdentity = pIdentity_
+    , _pipPolicyName = pPolicyName_
+    , _pipPolicy = pPolicy_
     }
 
 -- | The identity to which the policy will apply. You can specify an identity
@@ -88,23 +88,23 @@ putIdentityPolicy pIdentity_ pPolicyName_ pPolicy_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-piprqIdentity :: Lens' PutIdentityPolicy Text
-piprqIdentity = lens _piprqIdentity (\ s a -> s{_piprqIdentity = a});
+pipIdentity :: Lens' PutIdentityPolicy Text
+pipIdentity = lens _pipIdentity (\ s a -> s{_pipIdentity = a});
 
 -- | The name of the policy.
 --
 -- The policy name cannot exceed 64 characters and can only include
 -- alphanumeric characters, dashes, and underscores.
-piprqPolicyName :: Lens' PutIdentityPolicy Text
-piprqPolicyName = lens _piprqPolicyName (\ s a -> s{_piprqPolicyName = a});
+pipPolicyName :: Lens' PutIdentityPolicy Text
+pipPolicyName = lens _pipPolicyName (\ s a -> s{_pipPolicyName = a});
 
 -- | The text of the policy in JSON format. The policy cannot exceed 4 KB.
 --
 -- For information about the syntax of sending authorization policies, see
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide>.
-piprqPolicy :: Lens' PutIdentityPolicy Text
-piprqPolicy = lens _piprqPolicy (\ s a -> s{_piprqPolicy = a});
+pipPolicy :: Lens' PutIdentityPolicy Text
+pipPolicy = lens _pipPolicy (\ s a -> s{_pipPolicy = a});
 
 instance AWSRequest PutIdentityPolicy where
         type Sv PutIdentityPolicy = SES
@@ -126,9 +126,9 @@ instance ToQuery PutIdentityPolicy where
           = mconcat
               ["Action" =: ("PutIdentityPolicy" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _piprqIdentity,
-               "PolicyName" =: _piprqPolicyName,
-               "Policy" =: _piprqPolicy]
+               "Identity" =: _pipIdentity,
+               "PolicyName" =: _pipPolicyName,
+               "Policy" =: _pipPolicy]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.

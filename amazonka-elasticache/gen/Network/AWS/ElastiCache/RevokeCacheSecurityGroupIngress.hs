@@ -29,9 +29,9 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     -- ** Request constructor
     , revokeCacheSecurityGroupIngress
     -- ** Request lenses
-    , rcsgirqCacheSecurityGroupName
-    , rcsgirqEC2SecurityGroupName
-    , rcsgirqEC2SecurityGroupOwnerId
+    , rcsgiCacheSecurityGroupName
+    , rcsgiEC2SecurityGroupName
+    , rcsgiEC2SecurityGroupOwnerId
 
     -- * Response
     , RevokeCacheSecurityGroupIngressResponse
@@ -53,39 +53,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcsgirqCacheSecurityGroupName'
+-- * 'rcsgiCacheSecurityGroupName'
 --
--- * 'rcsgirqEC2SecurityGroupName'
+-- * 'rcsgiEC2SecurityGroupName'
 --
--- * 'rcsgirqEC2SecurityGroupOwnerId'
+-- * 'rcsgiEC2SecurityGroupOwnerId'
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
-    { _rcsgirqCacheSecurityGroupName  :: !Text
-    , _rcsgirqEC2SecurityGroupName    :: !Text
-    , _rcsgirqEC2SecurityGroupOwnerId :: !Text
+    { _rcsgiCacheSecurityGroupName  :: !Text
+    , _rcsgiEC2SecurityGroupName    :: !Text
+    , _rcsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeCacheSecurityGroupIngress' smart constructor.
 revokeCacheSecurityGroupIngress :: Text -> Text -> Text -> RevokeCacheSecurityGroupIngress
 revokeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
     RevokeCacheSecurityGroupIngress'
-    { _rcsgirqCacheSecurityGroupName = pCacheSecurityGroupName_
-    , _rcsgirqEC2SecurityGroupName = pEC2SecurityGroupName_
-    , _rcsgirqEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
+    { _rcsgiCacheSecurityGroupName = pCacheSecurityGroupName_
+    , _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName_
+    , _rcsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
     }
 
 -- | The name of the cache security group to revoke ingress from.
-rcsgirqCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgirqCacheSecurityGroupName = lens _rcsgirqCacheSecurityGroupName (\ s a -> s{_rcsgirqCacheSecurityGroupName = a});
+rcsgiCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgiCacheSecurityGroupName = lens _rcsgiCacheSecurityGroupName (\ s a -> s{_rcsgiCacheSecurityGroupName = a});
 
 -- | The name of the Amazon EC2 security group to revoke access from.
-rcsgirqEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgirqEC2SecurityGroupName = lens _rcsgirqEC2SecurityGroupName (\ s a -> s{_rcsgirqEC2SecurityGroupName = a});
+rcsgiEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC2SecurityGroupName = a});
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-rcsgirqEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgirqEC2SecurityGroupOwnerId = lens _rcsgirqEC2SecurityGroupOwnerId (\ s a -> s{_rcsgirqEC2SecurityGroupOwnerId = a});
+rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_rcsgiEC2SecurityGroupOwnerId = a});
 
 instance AWSRequest RevokeCacheSecurityGroupIngress
          where
@@ -115,11 +115,10 @@ instance ToQuery RevokeCacheSecurityGroupIngress
                  ("RevokeCacheSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
-                 _rcsgirqCacheSecurityGroupName,
-               "EC2SecurityGroupName" =:
-                 _rcsgirqEC2SecurityGroupName,
+                 _rcsgiCacheSecurityGroupName,
+               "EC2SecurityGroupName" =: _rcsgiEC2SecurityGroupName,
                "EC2SecurityGroupOwnerId" =:
-                 _rcsgirqEC2SecurityGroupOwnerId]
+                 _rcsgiEC2SecurityGroupOwnerId]
 
 -- | /See:/ 'revokeCacheSecurityGroupIngressResponse' smart constructor.
 --

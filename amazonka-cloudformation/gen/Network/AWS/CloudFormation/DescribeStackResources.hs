@@ -46,9 +46,9 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- ** Request constructor
     , describeStackResources
     -- ** Request lenses
-    , dsrrqLogicalResourceId
-    , dsrrqPhysicalResourceId
-    , dsrrqStackName
+    , dsrLogicalResourceId
+    , dsrPhysicalResourceId
+    , dsrStackName
 
     -- * Response
     , DescribeStackResourcesResponse
@@ -70,31 +70,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrrqLogicalResourceId'
+-- * 'dsrLogicalResourceId'
 --
--- * 'dsrrqPhysicalResourceId'
+-- * 'dsrPhysicalResourceId'
 --
--- * 'dsrrqStackName'
+-- * 'dsrStackName'
 data DescribeStackResources = DescribeStackResources'
-    { _dsrrqLogicalResourceId  :: !(Maybe Text)
-    , _dsrrqPhysicalResourceId :: !(Maybe Text)
-    , _dsrrqStackName          :: !(Maybe Text)
+    { _dsrLogicalResourceId  :: !(Maybe Text)
+    , _dsrPhysicalResourceId :: !(Maybe Text)
+    , _dsrStackName          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResources' smart constructor.
 describeStackResources :: DescribeStackResources
 describeStackResources =
     DescribeStackResources'
-    { _dsrrqLogicalResourceId = Nothing
-    , _dsrrqPhysicalResourceId = Nothing
-    , _dsrrqStackName = Nothing
+    { _dsrLogicalResourceId = Nothing
+    , _dsrPhysicalResourceId = Nothing
+    , _dsrStackName = Nothing
     }
 
 -- | The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
-dsrrqLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrrqLogicalResourceId = lens _dsrrqLogicalResourceId (\ s a -> s{_dsrrqLogicalResourceId = a});
+dsrLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
+dsrLogicalResourceId = lens _dsrLogicalResourceId (\ s a -> s{_dsrLogicalResourceId = a});
 
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by AWS CloudFormation.
@@ -108,8 +108,8 @@ dsrrqLogicalResourceId = lens _dsrrqLogicalResourceId (\ s a -> s{_dsrrqLogicalR
 -- must specify @StackName@.
 --
 -- Default: There is no default value.
-dsrrqPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
-dsrrqPhysicalResourceId = lens _dsrrqPhysicalResourceId (\ s a -> s{_dsrrqPhysicalResourceId = a});
+dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
+dsrPhysicalResourceId = lens _dsrPhysicalResourceId (\ s a -> s{_dsrPhysicalResourceId = a});
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -122,8 +122,8 @@ dsrrqPhysicalResourceId = lens _dsrrqPhysicalResourceId (\ s a -> s{_dsrrqPhysic
 --
 -- Required: Conditional. If you do not specify @StackName@, you must
 -- specify @PhysicalResourceId@.
-dsrrqStackName :: Lens' DescribeStackResources (Maybe Text)
-dsrrqStackName = lens _dsrrqStackName (\ s a -> s{_dsrrqStackName = a});
+dsrStackName :: Lens' DescribeStackResources (Maybe Text)
+dsrStackName = lens _dsrStackName (\ s a -> s{_dsrStackName = a});
 
 instance AWSRequest DescribeStackResources where
         type Sv DescribeStackResources = CloudFormation
@@ -150,9 +150,9 @@ instance ToQuery DescribeStackResources where
               ["Action" =:
                  ("DescribeStackResources" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "LogicalResourceId" =: _dsrrqLogicalResourceId,
-               "PhysicalResourceId" =: _dsrrqPhysicalResourceId,
-               "StackName" =: _dsrrqStackName]
+               "LogicalResourceId" =: _dsrLogicalResourceId,
+               "PhysicalResourceId" =: _dsrPhysicalResourceId,
+               "StackName" =: _dsrStackName]
 
 -- | The output for a DescribeStackResources action.
 --

@@ -37,7 +37,7 @@ module Network.AWS.Route53.DeleteHealthCheck
     -- ** Request constructor
     , deleteHealthCheck
     -- ** Request lenses
-    , dhcrqHealthCheckId
+    , dhcHealthCheckId
 
     -- * Response
     , DeleteHealthCheckResponse
@@ -59,21 +59,21 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhcrqHealthCheckId'
+-- * 'dhcHealthCheckId'
 newtype DeleteHealthCheck = DeleteHealthCheck'
-    { _dhcrqHealthCheckId :: Text
+    { _dhcHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHealthCheck' smart constructor.
 deleteHealthCheck :: Text -> DeleteHealthCheck
 deleteHealthCheck pHealthCheckId_ =
     DeleteHealthCheck'
-    { _dhcrqHealthCheckId = pHealthCheckId_
+    { _dhcHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check to delete.
-dhcrqHealthCheckId :: Lens' DeleteHealthCheck Text
-dhcrqHealthCheckId = lens _dhcrqHealthCheckId (\ s a -> s{_dhcrqHealthCheckId = a});
+dhcHealthCheckId :: Lens' DeleteHealthCheck Text
+dhcHealthCheckId = lens _dhcHealthCheckId (\ s a -> s{_dhcHealthCheckId = a});
 
 instance AWSRequest DeleteHealthCheck where
         type Sv DeleteHealthCheck = Route53
@@ -91,7 +91,7 @@ instance ToPath DeleteHealthCheck where
         toPath DeleteHealthCheck'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _dhcrqHealthCheckId]
+               toText _dhcHealthCheckId]
 
 instance ToQuery DeleteHealthCheck where
         toQuery = const mempty

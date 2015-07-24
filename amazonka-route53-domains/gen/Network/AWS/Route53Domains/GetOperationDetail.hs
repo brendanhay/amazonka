@@ -28,7 +28,7 @@ module Network.AWS.Route53Domains.GetOperationDetail
     -- ** Request constructor
     , getOperationDetail
     -- ** Request lenses
-    , godrqOperationId
+    , godOperationId
 
     -- * Response
     , GetOperationDetailResponse
@@ -54,16 +54,16 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'godrqOperationId'
+-- * 'godOperationId'
 newtype GetOperationDetail = GetOperationDetail'
-    { _godrqOperationId :: Text
+    { _godOperationId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOperationDetail' smart constructor.
 getOperationDetail :: Text -> GetOperationDetail
 getOperationDetail pOperationId_ =
     GetOperationDetail'
-    { _godrqOperationId = pOperationId_
+    { _godOperationId = pOperationId_
     }
 
 -- | The identifier for the operation for which you want to get the status.
@@ -75,8 +75,8 @@ getOperationDetail pOperationId_ =
 -- Default: None
 --
 -- Required: Yes
-godrqOperationId :: Lens' GetOperationDetail Text
-godrqOperationId = lens _godrqOperationId (\ s a -> s{_godrqOperationId = a});
+godOperationId :: Lens' GetOperationDetail Text
+godOperationId = lens _godOperationId (\ s a -> s{_godOperationId = a});
 
 instance AWSRequest GetOperationDetail where
         type Sv GetOperationDetail = Route53Domains
@@ -105,7 +105,7 @@ instance ToHeaders GetOperationDetail where
 
 instance ToJSON GetOperationDetail where
         toJSON GetOperationDetail'{..}
-          = object ["OperationId" .= _godrqOperationId]
+          = object ["OperationId" .= _godOperationId]
 
 instance ToPath GetOperationDetail where
         toPath = const "/"

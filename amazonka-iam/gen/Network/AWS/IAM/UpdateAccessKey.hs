@@ -39,9 +39,9 @@ module Network.AWS.IAM.UpdateAccessKey
     -- ** Request constructor
     , updateAccessKey
     -- ** Request lenses
-    , uakrqUserName
-    , uakrqAccessKeyId
-    , uakrqStatus
+    , uakUserName
+    , uakAccessKeyId
+    , uakStatus
 
     -- * Response
     , UpdateAccessKeyResponse
@@ -58,39 +58,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uakrqUserName'
+-- * 'uakUserName'
 --
--- * 'uakrqAccessKeyId'
+-- * 'uakAccessKeyId'
 --
--- * 'uakrqStatus'
+-- * 'uakStatus'
 data UpdateAccessKey = UpdateAccessKey'
-    { _uakrqUserName    :: !(Maybe Text)
-    , _uakrqAccessKeyId :: !Text
-    , _uakrqStatus      :: !StatusType
+    { _uakUserName    :: !(Maybe Text)
+    , _uakAccessKeyId :: !Text
+    , _uakStatus      :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccessKey' smart constructor.
 updateAccessKey :: Text -> StatusType -> UpdateAccessKey
 updateAccessKey pAccessKeyId_ pStatus_ =
     UpdateAccessKey'
-    { _uakrqUserName = Nothing
-    , _uakrqAccessKeyId = pAccessKeyId_
-    , _uakrqStatus = pStatus_
+    { _uakUserName = Nothing
+    , _uakAccessKeyId = pAccessKeyId_
+    , _uakStatus = pStatus_
     }
 
 -- | The name of the user whose key you want to update.
-uakrqUserName :: Lens' UpdateAccessKey (Maybe Text)
-uakrqUserName = lens _uakrqUserName (\ s a -> s{_uakrqUserName = a});
+uakUserName :: Lens' UpdateAccessKey (Maybe Text)
+uakUserName = lens _uakUserName (\ s a -> s{_uakUserName = a});
 
 -- | The access key ID of the secret access key you want to update.
-uakrqAccessKeyId :: Lens' UpdateAccessKey Text
-uakrqAccessKeyId = lens _uakrqAccessKeyId (\ s a -> s{_uakrqAccessKeyId = a});
+uakAccessKeyId :: Lens' UpdateAccessKey Text
+uakAccessKeyId = lens _uakAccessKeyId (\ s a -> s{_uakAccessKeyId = a});
 
 -- | The status you want to assign to the secret access key. @Active@ means
 -- the key can be used for API calls to AWS, while @Inactive@ means the key
 -- cannot be used.
-uakrqStatus :: Lens' UpdateAccessKey StatusType
-uakrqStatus = lens _uakrqStatus (\ s a -> s{_uakrqStatus = a});
+uakStatus :: Lens' UpdateAccessKey StatusType
+uakStatus = lens _uakStatus (\ s a -> s{_uakStatus = a});
 
 instance AWSRequest UpdateAccessKey where
         type Sv UpdateAccessKey = IAM
@@ -109,9 +109,9 @@ instance ToQuery UpdateAccessKey where
           = mconcat
               ["Action" =: ("UpdateAccessKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _uakrqUserName,
-               "AccessKeyId" =: _uakrqAccessKeyId,
-               "Status" =: _uakrqStatus]
+               "UserName" =: _uakUserName,
+               "AccessKeyId" =: _uakAccessKeyId,
+               "Status" =: _uakStatus]
 
 -- | /See:/ 'updateAccessKeyResponse' smart constructor.
 data UpdateAccessKeyResponse =

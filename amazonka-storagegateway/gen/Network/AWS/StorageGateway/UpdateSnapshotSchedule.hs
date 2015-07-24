@@ -37,10 +37,10 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     -- ** Request constructor
     , updateSnapshotSchedule
     -- ** Request lenses
-    , ussrqDescription
-    , ussrqVolumeARN
-    , ussrqStartAt
-    , ussrqRecurrenceInHours
+    , ussDescription
+    , ussVolumeARN
+    , ussStartAt
+    , ussRecurrenceInHours
 
     -- * Response
     , UpdateSnapshotScheduleResponse
@@ -67,49 +67,49 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ussrqDescription'
+-- * 'ussDescription'
 --
--- * 'ussrqVolumeARN'
+-- * 'ussVolumeARN'
 --
--- * 'ussrqStartAt'
+-- * 'ussStartAt'
 --
--- * 'ussrqRecurrenceInHours'
+-- * 'ussRecurrenceInHours'
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-    { _ussrqDescription       :: !(Maybe Text)
-    , _ussrqVolumeARN         :: !Text
-    , _ussrqStartAt           :: !Nat
-    , _ussrqRecurrenceInHours :: !Nat
+    { _ussDescription       :: !(Maybe Text)
+    , _ussVolumeARN         :: !Text
+    , _ussStartAt           :: !Nat
+    , _ussRecurrenceInHours :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSnapshotSchedule' smart constructor.
 updateSnapshotSchedule :: Text -> Natural -> Natural -> UpdateSnapshotSchedule
 updateSnapshotSchedule pVolumeARN_ pStartAt_ pRecurrenceInHours_ =
     UpdateSnapshotSchedule'
-    { _ussrqDescription = Nothing
-    , _ussrqVolumeARN = pVolumeARN_
-    , _ussrqStartAt = _Nat # pStartAt_
-    , _ussrqRecurrenceInHours = _Nat # pRecurrenceInHours_
+    { _ussDescription = Nothing
+    , _ussVolumeARN = pVolumeARN_
+    , _ussStartAt = _Nat # pStartAt_
+    , _ussRecurrenceInHours = _Nat # pRecurrenceInHours_
     }
 
 -- | Optional description of the snapshot that overwrites the existing
 -- description.
-ussrqDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
-ussrqDescription = lens _ussrqDescription (\ s a -> s{_ussrqDescription = a});
+ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
+ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a});
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-ussrqVolumeARN :: Lens' UpdateSnapshotSchedule Text
-ussrqVolumeARN = lens _ussrqVolumeARN (\ s a -> s{_ussrqVolumeARN = a});
+ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
+ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a});
 
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
 -- time zone of the gateway.
-ussrqStartAt :: Lens' UpdateSnapshotSchedule Natural
-ussrqStartAt = lens _ussrqStartAt (\ s a -> s{_ussrqStartAt = a}) . _Nat;
+ussStartAt :: Lens' UpdateSnapshotSchedule Natural
+ussStartAt = lens _ussStartAt (\ s a -> s{_ussStartAt = a}) . _Nat;
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
-ussrqRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
-ussrqRecurrenceInHours = lens _ussrqRecurrenceInHours (\ s a -> s{_ussrqRecurrenceInHours = a}) . _Nat;
+ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
+ussRecurrenceInHours = lens _ussRecurrenceInHours (\ s a -> s{_ussRecurrenceInHours = a}) . _Nat;
 
 instance AWSRequest UpdateSnapshotSchedule where
         type Sv UpdateSnapshotSchedule = StorageGateway
@@ -135,10 +135,10 @@ instance ToHeaders UpdateSnapshotSchedule where
 instance ToJSON UpdateSnapshotSchedule where
         toJSON UpdateSnapshotSchedule'{..}
           = object
-              ["Description" .= _ussrqDescription,
-               "VolumeARN" .= _ussrqVolumeARN,
-               "StartAt" .= _ussrqStartAt,
-               "RecurrenceInHours" .= _ussrqRecurrenceInHours]
+              ["Description" .= _ussDescription,
+               "VolumeARN" .= _ussVolumeARN,
+               "StartAt" .= _ussStartAt,
+               "RecurrenceInHours" .= _ussRecurrenceInHours]
 
 instance ToPath UpdateSnapshotSchedule where
         toPath = const "/"

@@ -28,7 +28,7 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     -- ** Request constructor
     , retrieveDomainAuthCode
     -- ** Request lenses
-    , rdacrqDomainName
+    , rdacDomainName
 
     -- * Response
     , RetrieveDomainAuthCodeResponse
@@ -50,16 +50,16 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdacrqDomainName'
+-- * 'rdacDomainName'
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
-    { _rdacrqDomainName :: Text
+    { _rdacDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveDomainAuthCode' smart constructor.
 retrieveDomainAuthCode :: Text -> RetrieveDomainAuthCode
 retrieveDomainAuthCode pDomainName_ =
     RetrieveDomainAuthCode'
-    { _rdacrqDomainName = pDomainName_
+    { _rdacDomainName = pDomainName_
     }
 
 -- | The name of a domain.
@@ -73,8 +73,8 @@ retrieveDomainAuthCode pDomainName_ =
 -- are not supported.
 --
 -- Required: Yes
-rdacrqDomainName :: Lens' RetrieveDomainAuthCode Text
-rdacrqDomainName = lens _rdacrqDomainName (\ s a -> s{_rdacrqDomainName = a});
+rdacDomainName :: Lens' RetrieveDomainAuthCode Text
+rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a});
 
 instance AWSRequest RetrieveDomainAuthCode where
         type Sv RetrieveDomainAuthCode = Route53Domains
@@ -99,7 +99,7 @@ instance ToHeaders RetrieveDomainAuthCode where
 
 instance ToJSON RetrieveDomainAuthCode where
         toJSON RetrieveDomainAuthCode'{..}
-          = object ["DomainName" .= _rdacrqDomainName]
+          = object ["DomainName" .= _rdacDomainName]
 
 instance ToPath RetrieveDomainAuthCode where
         toPath = const "/"

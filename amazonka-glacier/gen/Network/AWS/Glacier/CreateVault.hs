@@ -51,8 +51,8 @@ module Network.AWS.Glacier.CreateVault
     -- ** Request constructor
     , createVault
     -- ** Request lenses
-    , cvrqAccountId
-    , cvrqVaultName
+    , cvAccountId
+    , cvVaultName
 
     -- * Response
     , CreateVaultResponse
@@ -74,20 +74,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvrqAccountId'
+-- * 'cvAccountId'
 --
--- * 'cvrqVaultName'
+-- * 'cvVaultName'
 data CreateVault = CreateVault'
-    { _cvrqAccountId :: !Text
-    , _cvrqVaultName :: !Text
+    { _cvAccountId :: !Text
+    , _cvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVault' smart constructor.
 createVault :: Text -> Text -> CreateVault
 createVault pAccountId_ pVaultName_ =
     CreateVault'
-    { _cvrqAccountId = pAccountId_
-    , _cvrqVaultName = pVaultName_
+    { _cvAccountId = pAccountId_
+    , _cvVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -97,12 +97,12 @@ createVault pAccountId_ pVaultName_ =
 -- ID associated with the credentials used to sign the request. If you
 -- specify your Account ID, do not include any hyphens (apos-apos) in the
 -- ID.
-cvrqAccountId :: Lens' CreateVault Text
-cvrqAccountId = lens _cvrqAccountId (\ s a -> s{_cvrqAccountId = a});
+cvAccountId :: Lens' CreateVault Text
+cvAccountId = lens _cvAccountId (\ s a -> s{_cvAccountId = a});
 
 -- | The name of the vault.
-cvrqVaultName :: Lens' CreateVault Text
-cvrqVaultName = lens _cvrqVaultName (\ s a -> s{_cvrqVaultName = a});
+cvVaultName :: Lens' CreateVault Text
+cvVaultName = lens _cvVaultName (\ s a -> s{_cvVaultName = a});
 
 instance AWSRequest CreateVault where
         type Sv CreateVault = Glacier
@@ -123,8 +123,8 @@ instance ToJSON CreateVault where
 instance ToPath CreateVault where
         toPath CreateVault'{..}
           = mconcat
-              ["/", toText _cvrqAccountId, "/vaults/",
-               toText _cvrqVaultName]
+              ["/", toText _cvAccountId, "/vaults/",
+               toText _cvVaultName]
 
 instance ToQuery CreateVault where
         toQuery = const mempty

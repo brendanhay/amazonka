@@ -38,10 +38,10 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     -- ** Request constructor
     , createVPCPeeringConnection
     -- ** Request lenses
-    , cvpcrqPeerVPCId
-    , cvpcrqVPCId
-    , cvpcrqPeerOwnerId
-    , cvpcrqDryRun
+    , cvpcPeerVPCId
+    , cvpcVPCId
+    , cvpcPeerOwnerId
+    , cvpcDryRun
 
     -- * Response
     , CreateVPCPeeringConnectionResponse
@@ -61,51 +61,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvpcrqPeerVPCId'
+-- * 'cvpcPeerVPCId'
 --
--- * 'cvpcrqVPCId'
+-- * 'cvpcVPCId'
 --
--- * 'cvpcrqPeerOwnerId'
+-- * 'cvpcPeerOwnerId'
 --
--- * 'cvpcrqDryRun'
+-- * 'cvpcDryRun'
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-    { _cvpcrqPeerVPCId   :: !(Maybe Text)
-    , _cvpcrqVPCId       :: !(Maybe Text)
-    , _cvpcrqPeerOwnerId :: !(Maybe Text)
-    , _cvpcrqDryRun      :: !(Maybe Bool)
+    { _cvpcPeerVPCId   :: !(Maybe Text)
+    , _cvpcVPCId       :: !(Maybe Text)
+    , _cvpcPeerOwnerId :: !(Maybe Text)
+    , _cvpcDryRun      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCPeeringConnection' smart constructor.
 createVPCPeeringConnection :: CreateVPCPeeringConnection
 createVPCPeeringConnection =
     CreateVPCPeeringConnection'
-    { _cvpcrqPeerVPCId = Nothing
-    , _cvpcrqVPCId = Nothing
-    , _cvpcrqPeerOwnerId = Nothing
-    , _cvpcrqDryRun = Nothing
+    { _cvpcPeerVPCId = Nothing
+    , _cvpcVPCId = Nothing
+    , _cvpcPeerOwnerId = Nothing
+    , _cvpcDryRun = Nothing
     }
 
 -- | The ID of the VPC with which you are creating the VPC peering
 -- connection.
-cvpcrqPeerVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcrqPeerVPCId = lens _cvpcrqPeerVPCId (\ s a -> s{_cvpcrqPeerVPCId = a});
+cvpcPeerVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
+cvpcPeerVPCId = lens _cvpcPeerVPCId (\ s a -> s{_cvpcPeerVPCId = a});
 
 -- | The ID of the requester VPC.
-cvpcrqVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcrqVPCId = lens _cvpcrqVPCId (\ s a -> s{_cvpcrqVPCId = a});
+cvpcVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
+cvpcVPCId = lens _cvpcVPCId (\ s a -> s{_cvpcVPCId = a});
 
 -- | The AWS account ID of the owner of the peer VPC.
 --
 -- Default: Your AWS account ID
-cvpcrqPeerOwnerId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcrqPeerOwnerId = lens _cvpcrqPeerOwnerId (\ s a -> s{_cvpcrqPeerOwnerId = a});
+cvpcPeerOwnerId :: Lens' CreateVPCPeeringConnection (Maybe Text)
+cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\ s a -> s{_cvpcPeerOwnerId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cvpcrqDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
-cvpcrqDryRun = lens _cvpcrqDryRun (\ s a -> s{_cvpcrqDryRun = a});
+cvpcDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
+cvpcDryRun = lens _cvpcDryRun (\ s a -> s{_cvpcDryRun = a});
 
 instance AWSRequest CreateVPCPeeringConnection where
         type Sv CreateVPCPeeringConnection = EC2
@@ -131,10 +131,9 @@ instance ToQuery CreateVPCPeeringConnection where
               ["Action" =:
                  ("CreateVPCPeeringConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "PeerVpcId" =: _cvpcrqPeerVPCId,
-               "VpcId" =: _cvpcrqVPCId,
-               "PeerOwnerId" =: _cvpcrqPeerOwnerId,
-               "DryRun" =: _cvpcrqDryRun]
+               "PeerVpcId" =: _cvpcPeerVPCId, "VpcId" =: _cvpcVPCId,
+               "PeerOwnerId" =: _cvpcPeerOwnerId,
+               "DryRun" =: _cvpcDryRun]
 
 -- | /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
 --

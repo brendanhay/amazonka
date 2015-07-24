@@ -31,8 +31,8 @@ module Network.AWS.CloudSearch.DefineExpression
     -- ** Request constructor
     , defineExpression
     -- ** Request lenses
-    , drqDomainName
-    , drqExpression
+    , dDomainName
+    , dExpression
 
     -- * Response
     , DefineExpressionResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqDomainName'
+-- * 'dDomainName'
 --
--- * 'drqExpression'
+-- * 'dExpression'
 data DefineExpression = DefineExpression'
-    { _drqDomainName :: !Text
-    , _drqExpression :: !Expression
+    { _dDomainName :: !Text
+    , _dExpression :: !Expression
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineExpression' smart constructor.
 defineExpression :: Text -> Expression -> DefineExpression
 defineExpression pDomainName_ pExpression_ =
     DefineExpression'
-    { _drqDomainName = pDomainName_
-    , _drqExpression = pExpression_
+    { _dDomainName = pDomainName_
+    , _dExpression = pExpression_
     }
 
 -- | FIXME: Undocumented member.
-drqDomainName :: Lens' DefineExpression Text
-drqDomainName = lens _drqDomainName (\ s a -> s{_drqDomainName = a});
+dDomainName :: Lens' DefineExpression Text
+dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
 
 -- | FIXME: Undocumented member.
-drqExpression :: Lens' DefineExpression Expression
-drqExpression = lens _drqExpression (\ s a -> s{_drqExpression = a});
+dExpression :: Lens' DefineExpression Expression
+dExpression = lens _dExpression (\ s a -> s{_dExpression = a});
 
 instance AWSRequest DefineExpression where
         type Sv DefineExpression = CloudSearch
@@ -101,8 +101,8 @@ instance ToQuery DefineExpression where
           = mconcat
               ["Action" =: ("DefineExpression" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _drqDomainName,
-               "Expression" =: _drqExpression]
+               "DomainName" =: _dDomainName,
+               "Expression" =: _dExpression]
 
 -- | The result of a @DefineExpression@ request. Contains the status of the
 -- newly-configured expression.

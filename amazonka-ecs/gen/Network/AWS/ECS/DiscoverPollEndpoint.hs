@@ -31,8 +31,8 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     -- ** Request constructor
     , discoverPollEndpoint
     -- ** Request lenses
-    , dperqCluster
-    , dperqContainerInstance
+    , dpeCluster
+    , dpeContainerInstance
 
     -- * Response
     , DiscoverPollEndpointResponse
@@ -53,25 +53,25 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dperqCluster'
+-- * 'dpeCluster'
 --
--- * 'dperqContainerInstance'
+-- * 'dpeContainerInstance'
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
-    { _dperqCluster           :: !(Maybe Text)
-    , _dperqContainerInstance :: !(Maybe Text)
+    { _dpeCluster           :: !(Maybe Text)
+    , _dpeContainerInstance :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiscoverPollEndpoint' smart constructor.
 discoverPollEndpoint :: DiscoverPollEndpoint
 discoverPollEndpoint =
     DiscoverPollEndpoint'
-    { _dperqCluster = Nothing
-    , _dperqContainerInstance = Nothing
+    { _dpeCluster = Nothing
+    , _dpeContainerInstance = Nothing
     }
 
 -- | The cluster that the container instance belongs to.
-dperqCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
-dperqCluster = lens _dperqCluster (\ s a -> s{_dperqCluster = a});
+dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
+dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) of the
 -- container instance. The ARN contains the @arn:aws:ecs@ namespace,
@@ -79,8 +79,8 @@ dperqCluster = lens _dperqCluster (\ s a -> s{_dperqCluster = a});
 -- the container instance owner, the @container-instance@ namespace, and
 -- then the container instance UUID. For example,
 -- arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_UUID/.
-dperqContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
-dperqContainerInstance = lens _dperqContainerInstance (\ s a -> s{_dperqContainerInstance = a});
+dpeContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
+dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInstance = a});
 
 instance AWSRequest DiscoverPollEndpoint where
         type Sv DiscoverPollEndpoint = ECS
@@ -107,8 +107,8 @@ instance ToHeaders DiscoverPollEndpoint where
 instance ToJSON DiscoverPollEndpoint where
         toJSON DiscoverPollEndpoint'{..}
           = object
-              ["cluster" .= _dperqCluster,
-               "containerInstance" .= _dperqContainerInstance]
+              ["cluster" .= _dpeCluster,
+               "containerInstance" .= _dpeContainerInstance]
 
 instance ToPath DiscoverPollEndpoint where
         toPath = const "/"

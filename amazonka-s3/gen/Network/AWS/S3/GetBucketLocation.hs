@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketLocation
     -- ** Request constructor
     , getBucketLocation
     -- ** Request lenses
-    , gblrqBucket
+    , gblBucket
 
     -- * Response
     , GetBucketLocationResponse
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblrqBucket'
+-- * 'gblBucket'
 newtype GetBucketLocation = GetBucketLocation'
-    { _gblrqBucket :: BucketName
+    { _gblBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLocation' smart constructor.
 getBucketLocation :: BucketName -> GetBucketLocation
 getBucketLocation pBucket_ =
     GetBucketLocation'
-    { _gblrqBucket = pBucket_
+    { _gblBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gblrqBucket :: Lens' GetBucketLocation BucketName
-gblrqBucket = lens _gblrqBucket (\ s a -> s{_gblrqBucket = a});
+gblBucket :: Lens' GetBucketLocation BucketName
+gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a});
 
 instance AWSRequest GetBucketLocation where
         type Sv GetBucketLocation = S3
@@ -78,7 +78,7 @@ instance ToHeaders GetBucketLocation where
 
 instance ToPath GetBucketLocation where
         toPath GetBucketLocation'{..}
-          = mconcat ["/", toText _gblrqBucket]
+          = mconcat ["/", toText _gblBucket]
 
 instance ToQuery GetBucketLocation where
         toQuery = const (mconcat ["location"])

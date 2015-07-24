@@ -33,8 +33,8 @@ module Network.AWS.EC2.MoveAddressToVPC
     -- ** Request constructor
     , moveAddressToVPC
     -- ** Request lenses
-    , matvrqDryRun
-    , matvrqPublicIP
+    , matvDryRun
+    , matvPublicIP
 
     -- * Response
     , MoveAddressToVPCResponse
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'matvrqDryRun'
+-- * 'matvDryRun'
 --
--- * 'matvrqPublicIP'
+-- * 'matvPublicIP'
 data MoveAddressToVPC = MoveAddressToVPC'
-    { _matvrqDryRun   :: !(Maybe Bool)
-    , _matvrqPublicIP :: !Text
+    { _matvDryRun   :: !(Maybe Bool)
+    , _matvPublicIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MoveAddressToVPC' smart constructor.
 moveAddressToVPC :: Text -> MoveAddressToVPC
 moveAddressToVPC pPublicIP_ =
     MoveAddressToVPC'
-    { _matvrqDryRun = Nothing
-    , _matvrqPublicIP = pPublicIP_
+    { _matvDryRun = Nothing
+    , _matvPublicIP = pPublicIP_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-matvrqDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
-matvrqDryRun = lens _matvrqDryRun (\ s a -> s{_matvrqDryRun = a});
+matvDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
+matvDryRun = lens _matvDryRun (\ s a -> s{_matvDryRun = a});
 
 -- | The Elastic IP address.
-matvrqPublicIP :: Lens' MoveAddressToVPC Text
-matvrqPublicIP = lens _matvrqPublicIP (\ s a -> s{_matvrqPublicIP = a});
+matvPublicIP :: Lens' MoveAddressToVPC Text
+matvPublicIP = lens _matvPublicIP (\ s a -> s{_matvPublicIP = a});
 
 instance AWSRequest MoveAddressToVPC where
         type Sv MoveAddressToVPC = EC2
@@ -102,8 +102,7 @@ instance ToQuery MoveAddressToVPC where
           = mconcat
               ["Action" =: ("MoveAddressToVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _matvrqDryRun,
-               "PublicIp" =: _matvrqPublicIP]
+               "DryRun" =: _matvDryRun, "PublicIp" =: _matvPublicIP]
 
 -- | /See:/ 'moveAddressToVPCResponse' smart constructor.
 --

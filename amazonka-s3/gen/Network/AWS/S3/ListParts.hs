@@ -27,12 +27,12 @@ module Network.AWS.S3.ListParts
     -- ** Request constructor
     , listParts
     -- ** Request lenses
-    , lprqMaxParts
-    , lprqRequestPayer
-    , lprqPartNumberMarker
-    , lprqBucket
-    , lprqKey
-    , lprqUploadId
+    , lpMaxParts
+    , lpRequestPayer
+    , lpPartNumberMarker
+    , lpBucket
+    , lpKey
+    , lpUploadId
 
     -- * Response
     , ListPartsResponse
@@ -64,62 +64,62 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprqMaxParts'
+-- * 'lpMaxParts'
 --
--- * 'lprqRequestPayer'
+-- * 'lpRequestPayer'
 --
--- * 'lprqPartNumberMarker'
+-- * 'lpPartNumberMarker'
 --
--- * 'lprqBucket'
+-- * 'lpBucket'
 --
--- * 'lprqKey'
+-- * 'lpKey'
 --
--- * 'lprqUploadId'
+-- * 'lpUploadId'
 data ListParts = ListParts'
-    { _lprqMaxParts         :: !(Maybe Int)
-    , _lprqRequestPayer     :: !(Maybe RequestPayer)
-    , _lprqPartNumberMarker :: !(Maybe Int)
-    , _lprqBucket           :: !BucketName
-    , _lprqKey              :: !ObjectKey
-    , _lprqUploadId         :: !Text
+    { _lpMaxParts         :: !(Maybe Int)
+    , _lpRequestPayer     :: !(Maybe RequestPayer)
+    , _lpPartNumberMarker :: !(Maybe Int)
+    , _lpBucket           :: !BucketName
+    , _lpKey              :: !ObjectKey
+    , _lpUploadId         :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListParts' smart constructor.
 listParts :: BucketName -> ObjectKey -> Text -> ListParts
 listParts pBucket_ pKey_ pUploadId_ =
     ListParts'
-    { _lprqMaxParts = Nothing
-    , _lprqRequestPayer = Nothing
-    , _lprqPartNumberMarker = Nothing
-    , _lprqBucket = pBucket_
-    , _lprqKey = pKey_
-    , _lprqUploadId = pUploadId_
+    { _lpMaxParts = Nothing
+    , _lpRequestPayer = Nothing
+    , _lpPartNumberMarker = Nothing
+    , _lpBucket = pBucket_
+    , _lpKey = pKey_
+    , _lpUploadId = pUploadId_
     }
 
 -- | Sets the maximum number of parts to return.
-lprqMaxParts :: Lens' ListParts (Maybe Int)
-lprqMaxParts = lens _lprqMaxParts (\ s a -> s{_lprqMaxParts = a});
+lpMaxParts :: Lens' ListParts (Maybe Int)
+lpMaxParts = lens _lpMaxParts (\ s a -> s{_lpMaxParts = a});
 
 -- | FIXME: Undocumented member.
-lprqRequestPayer :: Lens' ListParts (Maybe RequestPayer)
-lprqRequestPayer = lens _lprqRequestPayer (\ s a -> s{_lprqRequestPayer = a});
+lpRequestPayer :: Lens' ListParts (Maybe RequestPayer)
+lpRequestPayer = lens _lpRequestPayer (\ s a -> s{_lpRequestPayer = a});
 
 -- | Specifies the part after which listing should begin. Only parts with
 -- higher part numbers will be listed.
-lprqPartNumberMarker :: Lens' ListParts (Maybe Int)
-lprqPartNumberMarker = lens _lprqPartNumberMarker (\ s a -> s{_lprqPartNumberMarker = a});
+lpPartNumberMarker :: Lens' ListParts (Maybe Int)
+lpPartNumberMarker = lens _lpPartNumberMarker (\ s a -> s{_lpPartNumberMarker = a});
 
 -- | FIXME: Undocumented member.
-lprqBucket :: Lens' ListParts BucketName
-lprqBucket = lens _lprqBucket (\ s a -> s{_lprqBucket = a});
+lpBucket :: Lens' ListParts BucketName
+lpBucket = lens _lpBucket (\ s a -> s{_lpBucket = a});
 
 -- | FIXME: Undocumented member.
-lprqKey :: Lens' ListParts ObjectKey
-lprqKey = lens _lprqKey (\ s a -> s{_lprqKey = a});
+lpKey :: Lens' ListParts ObjectKey
+lpKey = lens _lpKey (\ s a -> s{_lpKey = a});
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
-lprqUploadId :: Lens' ListParts Text
-lprqUploadId = lens _lprqUploadId (\ s a -> s{_lprqUploadId = a});
+lpUploadId :: Lens' ListParts Text
+lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
 
 instance AWSPager ListParts where
         page rq rs
@@ -128,8 +128,7 @@ instance AWSPager ListParts where
             Nothing
           | otherwise =
             Just $ rq &
-              lprqPartNumberMarker .~
-                rs ^. lprsNextPartNumberMarker
+              lpPartNumberMarker .~ rs ^. lprsNextPartNumberMarker
 
 instance AWSRequest ListParts where
         type Sv ListParts = S3
@@ -155,20 +154,18 @@ instance AWSRequest ListParts where
 
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
-          = mconcat
-              ["x-amz-request-payer" =# _lprqRequestPayer]
+          = mconcat ["x-amz-request-payer" =# _lpRequestPayer]
 
 instance ToPath ListParts where
         toPath ListParts'{..}
-          = mconcat
-              ["/", toText _lprqBucket, "/", toText _lprqKey]
+          = mconcat ["/", toText _lpBucket, "/", toText _lpKey]
 
 instance ToQuery ListParts where
         toQuery ListParts'{..}
           = mconcat
-              ["max-parts" =: _lprqMaxParts,
-               "part-number-marker" =: _lprqPartNumberMarker,
-               "uploadId" =: _lprqUploadId]
+              ["max-parts" =: _lpMaxParts,
+               "part-number-marker" =: _lpPartNumberMarker,
+               "uploadId" =: _lpUploadId]
 
 -- | /See:/ 'listPartsResponse' smart constructor.
 --

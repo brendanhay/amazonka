@@ -32,7 +32,7 @@ module Network.AWS.CognitoSync.GetCognitoEvents
     -- ** Request constructor
     , getCognitoEvents
     -- ** Request lenses
-    , gcerqIdentityPoolId
+    , gceIdentityPoolId
 
     -- * Response
     , GetCognitoEventsResponse
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcerqIdentityPoolId'
+-- * 'gceIdentityPoolId'
 newtype GetCognitoEvents = GetCognitoEvents'
-    { _gcerqIdentityPoolId :: Text
+    { _gceIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCognitoEvents' smart constructor.
 getCognitoEvents :: Text -> GetCognitoEvents
 getCognitoEvents pIdentityPoolId_ =
     GetCognitoEvents'
-    { _gcerqIdentityPoolId = pIdentityPoolId_
+    { _gceIdentityPoolId = pIdentityPoolId_
     }
 
 -- | The Cognito Identity Pool ID for the request
-gcerqIdentityPoolId :: Lens' GetCognitoEvents Text
-gcerqIdentityPoolId = lens _gcerqIdentityPoolId (\ s a -> s{_gcerqIdentityPoolId = a});
+gceIdentityPoolId :: Lens' GetCognitoEvents Text
+gceIdentityPoolId = lens _gceIdentityPoolId (\ s a -> s{_gceIdentityPoolId = a});
 
 instance AWSRequest GetCognitoEvents where
         type Sv GetCognitoEvents = CognitoSync
@@ -90,7 +90,7 @@ instance ToHeaders GetCognitoEvents where
 instance ToPath GetCognitoEvents where
         toPath GetCognitoEvents'{..}
           = mconcat
-              ["/identitypools/", toText _gcerqIdentityPoolId,
+              ["/identitypools/", toText _gceIdentityPoolId,
                "/events"]
 
 instance ToQuery GetCognitoEvents where

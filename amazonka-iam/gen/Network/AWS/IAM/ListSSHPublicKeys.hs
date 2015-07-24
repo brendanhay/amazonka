@@ -38,9 +38,9 @@ module Network.AWS.IAM.ListSSHPublicKeys
     -- ** Request constructor
     , listSSHPublicKeys
     -- ** Request lenses
-    , lspkrqUserName
-    , lspkrqMaxItems
-    , lspkrqMarker
+    , lspkUserName
+    , lspkMaxItems
+    , lspkMarker
 
     -- * Response
     , ListSSHPublicKeysResponse
@@ -62,31 +62,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lspkrqUserName'
+-- * 'lspkUserName'
 --
--- * 'lspkrqMaxItems'
+-- * 'lspkMaxItems'
 --
--- * 'lspkrqMarker'
+-- * 'lspkMarker'
 data ListSSHPublicKeys = ListSSHPublicKeys'
-    { _lspkrqUserName :: !(Maybe Text)
-    , _lspkrqMaxItems :: !(Maybe Nat)
-    , _lspkrqMarker   :: !(Maybe Text)
+    { _lspkUserName :: !(Maybe Text)
+    , _lspkMaxItems :: !(Maybe Nat)
+    , _lspkMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSSHPublicKeys' smart constructor.
 listSSHPublicKeys :: ListSSHPublicKeys
 listSSHPublicKeys =
     ListSSHPublicKeys'
-    { _lspkrqUserName = Nothing
-    , _lspkrqMaxItems = Nothing
-    , _lspkrqMarker = Nothing
+    { _lspkUserName = Nothing
+    , _lspkMaxItems = Nothing
+    , _lspkMarker = Nothing
     }
 
 -- | The name of the IAM user to list SSH public keys for. If none is
 -- specified, the UserName field is determined implicitly based on the AWS
 -- access key used to sign the request.
-lspkrqUserName :: Lens' ListSSHPublicKeys (Maybe Text)
-lspkrqUserName = lens _lspkrqUserName (\ s a -> s{_lspkrqUserName = a});
+lspkUserName :: Lens' ListSSHPublicKeys (Maybe Text)
+lspkUserName = lens _lspkUserName (\ s a -> s{_lspkUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -94,14 +94,14 @@ lspkrqUserName = lens _lspkrqUserName (\ s a -> s{_lspkrqUserName = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lspkrqMaxItems :: Lens' ListSSHPublicKeys (Maybe Natural)
-lspkrqMaxItems = lens _lspkrqMaxItems (\ s a -> s{_lspkrqMaxItems = a}) . mapping _Nat;
+lspkMaxItems :: Lens' ListSSHPublicKeys (Maybe Natural)
+lspkMaxItems = lens _lspkMaxItems (\ s a -> s{_lspkMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lspkrqMarker :: Lens' ListSSHPublicKeys (Maybe Text)
-lspkrqMarker = lens _lspkrqMarker (\ s a -> s{_lspkrqMarker = a});
+lspkMarker :: Lens' ListSSHPublicKeys (Maybe Text)
+lspkMarker = lens _lspkMarker (\ s a -> s{_lspkMarker = a});
 
 instance AWSRequest ListSSHPublicKeys where
         type Sv ListSSHPublicKeys = IAM
@@ -128,9 +128,8 @@ instance ToQuery ListSSHPublicKeys where
           = mconcat
               ["Action" =: ("ListSSHPublicKeys" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lspkrqUserName,
-               "MaxItems" =: _lspkrqMaxItems,
-               "Marker" =: _lspkrqMarker]
+               "UserName" =: _lspkUserName,
+               "MaxItems" =: _lspkMaxItems, "Marker" =: _lspkMarker]
 
 -- | Contains the response to a successful ListSSHPublicKeys request.
 --

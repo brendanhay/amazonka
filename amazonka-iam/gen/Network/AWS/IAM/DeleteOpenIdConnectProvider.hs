@@ -34,7 +34,7 @@ module Network.AWS.IAM.DeleteOpenIdConnectProvider
     -- ** Request constructor
     , deleteOpenIdConnectProvider
     -- ** Request lenses
-    , doicprqOpenIdConnectProviderARN
+    , doicpOpenIdConnectProviderARN
 
     -- * Response
     , DeleteOpenIdConnectProviderResponse
@@ -51,23 +51,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'doicprqOpenIdConnectProviderARN'
+-- * 'doicpOpenIdConnectProviderARN'
 newtype DeleteOpenIdConnectProvider = DeleteOpenIdConnectProvider'
-    { _doicprqOpenIdConnectProviderARN :: Text
+    { _doicpOpenIdConnectProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteOpenIdConnectProvider' smart constructor.
 deleteOpenIdConnectProvider :: Text -> DeleteOpenIdConnectProvider
 deleteOpenIdConnectProvider pOpenIdConnectProviderARN_ =
     DeleteOpenIdConnectProvider'
-    { _doicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+    { _doicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider to
 -- delete. You can get a list of OpenID Connect provider ARNs by using the
 -- ListOpenIDConnectProviders action.
-doicprqOpenIdConnectProviderARN :: Lens' DeleteOpenIdConnectProvider Text
-doicprqOpenIdConnectProviderARN = lens _doicprqOpenIdConnectProviderARN (\ s a -> s{_doicprqOpenIdConnectProviderARN = a});
+doicpOpenIdConnectProviderARN :: Lens' DeleteOpenIdConnectProvider Text
+doicpOpenIdConnectProviderARN = lens _doicpOpenIdConnectProviderARN (\ s a -> s{_doicpOpenIdConnectProviderARN = a});
 
 instance AWSRequest DeleteOpenIdConnectProvider where
         type Sv DeleteOpenIdConnectProvider = IAM
@@ -90,7 +90,7 @@ instance ToQuery DeleteOpenIdConnectProvider where
                  ("DeleteOpenIdConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
-                 _doicprqOpenIdConnectProviderARN]
+                 _doicpOpenIdConnectProviderARN]
 
 -- | /See:/ 'deleteOpenIdConnectProviderResponse' smart constructor.
 data DeleteOpenIdConnectProviderResponse =

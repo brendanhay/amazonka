@@ -31,9 +31,9 @@ module Network.AWS.ImportExport.ListJobs
     -- ** Request constructor
     , listJobs
     -- ** Request lenses
-    , ljrqAPIVersion
-    , ljrqMarker
-    , ljrqMaxJobs
+    , ljAPIVersion
+    , ljMarker
+    , ljMaxJobs
 
     -- * Response
     , ListJobsResponse
@@ -57,37 +57,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljrqAPIVersion'
+-- * 'ljAPIVersion'
 --
--- * 'ljrqMarker'
+-- * 'ljMarker'
 --
--- * 'ljrqMaxJobs'
+-- * 'ljMaxJobs'
 data ListJobs = ListJobs'
-    { _ljrqAPIVersion :: !(Maybe Text)
-    , _ljrqMarker     :: !(Maybe Text)
-    , _ljrqMaxJobs    :: !(Maybe Int)
+    { _ljAPIVersion :: !(Maybe Text)
+    , _ljMarker     :: !(Maybe Text)
+    , _ljMaxJobs    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: ListJobs
 listJobs =
     ListJobs'
-    { _ljrqAPIVersion = Nothing
-    , _ljrqMarker = Nothing
-    , _ljrqMaxJobs = Nothing
+    { _ljAPIVersion = Nothing
+    , _ljMarker = Nothing
+    , _ljMaxJobs = Nothing
     }
 
 -- | FIXME: Undocumented member.
-ljrqAPIVersion :: Lens' ListJobs (Maybe Text)
-ljrqAPIVersion = lens _ljrqAPIVersion (\ s a -> s{_ljrqAPIVersion = a});
+ljAPIVersion :: Lens' ListJobs (Maybe Text)
+ljAPIVersion = lens _ljAPIVersion (\ s a -> s{_ljAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-ljrqMarker :: Lens' ListJobs (Maybe Text)
-ljrqMarker = lens _ljrqMarker (\ s a -> s{_ljrqMarker = a});
+ljMarker :: Lens' ListJobs (Maybe Text)
+ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
 
 -- | FIXME: Undocumented member.
-ljrqMaxJobs :: Lens' ListJobs (Maybe Int)
-ljrqMaxJobs = lens _ljrqMaxJobs (\ s a -> s{_ljrqMaxJobs = a});
+ljMaxJobs :: Lens' ListJobs (Maybe Int)
+ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
 
 instance AWSPager ListJobs where
         page rq rs
@@ -96,7 +96,7 @@ instance AWSPager ListJobs where
             Nothing
           | otherwise =
             Just $ rq &
-              ljrqMarker .~ rs ^? ljrsJobs . _last . jobJobId
+              ljMarker .~ rs ^? ljrsJobs . _last . jobJobId
 
 instance AWSRequest ListJobs where
         type Sv ListJobs = ImportExport
@@ -123,8 +123,8 @@ instance ToQuery ListJobs where
               ["Operation=ListJobs",
                "Action" =: ("ListJobs" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _ljrqAPIVersion,
-               "Marker" =: _ljrqMarker, "MaxJobs" =: _ljrqMaxJobs]
+               "APIVersion" =: _ljAPIVersion, "Marker" =: _ljMarker,
+               "MaxJobs" =: _ljMaxJobs]
 
 -- | Output structure for the ListJobs operation.
 --

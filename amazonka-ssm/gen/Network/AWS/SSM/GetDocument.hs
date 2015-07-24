@@ -27,7 +27,7 @@ module Network.AWS.SSM.GetDocument
     -- ** Request constructor
     , getDocument
     -- ** Request lenses
-    , gdrqName
+    , gdName
 
     -- * Response
     , GetDocumentResponse
@@ -48,21 +48,21 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrqName'
+-- * 'gdName'
 newtype GetDocument = GetDocument'
-    { _gdrqName :: Text
+    { _gdName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDocument' smart constructor.
 getDocument :: Text -> GetDocument
 getDocument pName_ =
     GetDocument'
-    { _gdrqName = pName_
+    { _gdName = pName_
     }
 
 -- | The name of the configuration document.
-gdrqName :: Lens' GetDocument Text
-gdrqName = lens _gdrqName (\ s a -> s{_gdrqName = a});
+gdName :: Lens' GetDocument Text
+gdName = lens _gdName (\ s a -> s{_gdName = a});
 
 instance AWSRequest GetDocument where
         type Sv GetDocument = SSM
@@ -85,8 +85,7 @@ instance ToHeaders GetDocument where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDocument where
-        toJSON GetDocument'{..}
-          = object ["Name" .= _gdrqName]
+        toJSON GetDocument'{..} = object ["Name" .= _gdName]
 
 instance ToPath GetDocument where
         toPath = const "/"

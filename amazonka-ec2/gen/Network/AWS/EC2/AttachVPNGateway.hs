@@ -29,9 +29,9 @@ module Network.AWS.EC2.AttachVPNGateway
     -- ** Request constructor
     , attachVPNGateway
     -- ** Request lenses
-    , avgrqDryRun
-    , avgrqVPNGatewayId
-    , avgrqVPCId
+    , avgDryRun
+    , avgVPNGatewayId
+    , avgVPCId
 
     -- * Response
     , AttachVPNGatewayResponse
@@ -51,40 +51,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avgrqDryRun'
+-- * 'avgDryRun'
 --
--- * 'avgrqVPNGatewayId'
+-- * 'avgVPNGatewayId'
 --
--- * 'avgrqVPCId'
+-- * 'avgVPCId'
 data AttachVPNGateway = AttachVPNGateway'
-    { _avgrqDryRun       :: !(Maybe Bool)
-    , _avgrqVPNGatewayId :: !Text
-    , _avgrqVPCId        :: !Text
+    { _avgDryRun       :: !(Maybe Bool)
+    , _avgVPNGatewayId :: !Text
+    , _avgVPCId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVPNGateway' smart constructor.
 attachVPNGateway :: Text -> Text -> AttachVPNGateway
 attachVPNGateway pVPNGatewayId_ pVPCId_ =
     AttachVPNGateway'
-    { _avgrqDryRun = Nothing
-    , _avgrqVPNGatewayId = pVPNGatewayId_
-    , _avgrqVPCId = pVPCId_
+    { _avgDryRun = Nothing
+    , _avgVPNGatewayId = pVPNGatewayId_
+    , _avgVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-avgrqDryRun :: Lens' AttachVPNGateway (Maybe Bool)
-avgrqDryRun = lens _avgrqDryRun (\ s a -> s{_avgrqDryRun = a});
+avgDryRun :: Lens' AttachVPNGateway (Maybe Bool)
+avgDryRun = lens _avgDryRun (\ s a -> s{_avgDryRun = a});
 
 -- | The ID of the virtual private gateway.
-avgrqVPNGatewayId :: Lens' AttachVPNGateway Text
-avgrqVPNGatewayId = lens _avgrqVPNGatewayId (\ s a -> s{_avgrqVPNGatewayId = a});
+avgVPNGatewayId :: Lens' AttachVPNGateway Text
+avgVPNGatewayId = lens _avgVPNGatewayId (\ s a -> s{_avgVPNGatewayId = a});
 
 -- | The ID of the VPC.
-avgrqVPCId :: Lens' AttachVPNGateway Text
-avgrqVPCId = lens _avgrqVPCId (\ s a -> s{_avgrqVPCId = a});
+avgVPCId :: Lens' AttachVPNGateway Text
+avgVPCId = lens _avgVPCId (\ s a -> s{_avgVPCId = a});
 
 instance AWSRequest AttachVPNGateway where
         type Sv AttachVPNGateway = EC2
@@ -107,9 +107,9 @@ instance ToQuery AttachVPNGateway where
           = mconcat
               ["Action" =: ("AttachVPNGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _avgrqDryRun,
-               "VpnGatewayId" =: _avgrqVPNGatewayId,
-               "VpcId" =: _avgrqVPCId]
+               "DryRun" =: _avgDryRun,
+               "VpnGatewayId" =: _avgVPNGatewayId,
+               "VpcId" =: _avgVPCId]
 
 -- | /See:/ 'attachVPNGatewayResponse' smart constructor.
 --

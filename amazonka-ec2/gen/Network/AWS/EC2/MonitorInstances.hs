@@ -30,8 +30,8 @@ module Network.AWS.EC2.MonitorInstances
     -- ** Request constructor
     , monitorInstances
     -- ** Request lenses
-    , mirqDryRun
-    , mirqInstanceIds
+    , miDryRun
+    , miInstanceIds
 
     -- * Response
     , MonitorInstancesResponse
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mirqDryRun'
+-- * 'miDryRun'
 --
--- * 'mirqInstanceIds'
+-- * 'miInstanceIds'
 data MonitorInstances = MonitorInstances'
-    { _mirqDryRun      :: !(Maybe Bool)
-    , _mirqInstanceIds :: ![Text]
+    { _miDryRun      :: !(Maybe Bool)
+    , _miInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MonitorInstances' smart constructor.
 monitorInstances :: MonitorInstances
 monitorInstances =
     MonitorInstances'
-    { _mirqDryRun = Nothing
-    , _mirqInstanceIds = mempty
+    { _miDryRun = Nothing
+    , _miInstanceIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-mirqDryRun :: Lens' MonitorInstances (Maybe Bool)
-mirqDryRun = lens _mirqDryRun (\ s a -> s{_mirqDryRun = a});
+miDryRun :: Lens' MonitorInstances (Maybe Bool)
+miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a});
 
 -- | One or more instance IDs.
-mirqInstanceIds :: Lens' MonitorInstances [Text]
-mirqInstanceIds = lens _mirqInstanceIds (\ s a -> s{_mirqInstanceIds = a});
+miInstanceIds :: Lens' MonitorInstances [Text]
+miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a});
 
 instance AWSRequest MonitorInstances where
         type Sv MonitorInstances = EC2
@@ -101,8 +101,8 @@ instance ToQuery MonitorInstances where
           = mconcat
               ["Action" =: ("MonitorInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _mirqDryRun,
-               toQueryList "InstanceId" _mirqInstanceIds]
+               "DryRun" =: _miDryRun,
+               toQueryList "InstanceId" _miInstanceIds]
 
 -- | /See:/ 'monitorInstancesResponse' smart constructor.
 --

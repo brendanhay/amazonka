@@ -36,9 +36,9 @@ module Network.AWS.AutoScaling.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtrqFilters
-    , dtrqNextToken
-    , dtrqMaxRecords
+    , dtFilters
+    , dtNextToken
+    , dtMaxRecords
 
     -- * Response
     , DescribeTagsResponse
@@ -60,45 +60,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqFilters'
+-- * 'dtFilters'
 --
--- * 'dtrqNextToken'
+-- * 'dtNextToken'
 --
--- * 'dtrqMaxRecords'
+-- * 'dtMaxRecords'
 data DescribeTags = DescribeTags'
-    { _dtrqFilters    :: !(Maybe [Filter])
-    , _dtrqNextToken  :: !(Maybe Text)
-    , _dtrqMaxRecords :: !(Maybe Int)
+    { _dtFilters    :: !(Maybe [Filter])
+    , _dtNextToken  :: !(Maybe Text)
+    , _dtMaxRecords :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
 describeTags =
     DescribeTags'
-    { _dtrqFilters = Nothing
-    , _dtrqNextToken = Nothing
-    , _dtrqMaxRecords = Nothing
+    { _dtFilters = Nothing
+    , _dtNextToken = Nothing
+    , _dtMaxRecords = Nothing
     }
 
 -- | A filter used to scope the tags to return.
-dtrqFilters :: Lens' DescribeTags [Filter]
-dtrqFilters = lens _dtrqFilters (\ s a -> s{_dtrqFilters = a}) . _Default;
+dtFilters :: Lens' DescribeTags [Filter]
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dtrqNextToken :: Lens' DescribeTags (Maybe Text)
-dtrqNextToken = lens _dtrqNextToken (\ s a -> s{_dtrqNextToken = a});
+dtNextToken :: Lens' DescribeTags (Maybe Text)
+dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dtrqMaxRecords :: Lens' DescribeTags (Maybe Int)
-dtrqMaxRecords = lens _dtrqMaxRecords (\ s a -> s{_dtrqMaxRecords = a});
+dtMaxRecords :: Lens' DescribeTags (Maybe Int)
+dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
 
 instance AWSPager DescribeTags where
         page rq rs
           | stop (rs ^. dtrsNextToken) = Nothing
           | stop (rs ^. dtrsTags) = Nothing
           | otherwise =
-            Just $ rq & dtrqNextToken .~ rs ^. dtrsNextToken
+            Just $ rq & dtNextToken .~ rs ^. dtrsNextToken
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = AutoScaling
@@ -125,9 +125,9 @@ instance ToQuery DescribeTags where
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "member" <$> _dtrqFilters),
-               "NextToken" =: _dtrqNextToken,
-               "MaxRecords" =: _dtrqMaxRecords]
+                 toQuery (toQueryList "member" <$> _dtFilters),
+               "NextToken" =: _dtNextToken,
+               "MaxRecords" =: _dtMaxRecords]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --

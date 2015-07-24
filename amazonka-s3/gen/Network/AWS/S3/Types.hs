@@ -181,10 +181,10 @@ module Network.AWS.S3.Types
     -- * DeletedObject
     , DeletedObject
     , deletedObject
-    , doVersionId
-    , doDeleteMarker
-    , doDeleteMarkerVersionId
-    , doKey
+    , dVersionId
+    , dDeleteMarker
+    , dDeleteMarkerVersionId
+    , dKey
 
     -- * Destination
     , Destination

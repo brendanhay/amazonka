@@ -68,11 +68,11 @@ module Network.AWS.Route53.ListResourceRecordSets
     -- ** Request constructor
     , listResourceRecordSets
     -- ** Request lenses
-    , lrrsrqStartRecordName
-    , lrrsrqStartRecordType
-    , lrrsrqStartRecordIdentifier
-    , lrrsrqMaxItems
-    , lrrsrqHostedZoneId
+    , lrrsStartRecordName
+    , lrrsStartRecordType
+    , lrrsStartRecordIdentifier
+    , lrrsMaxItems
+    , lrrsHostedZoneId
 
     -- * Response
     , ListResourceRecordSetsResponse
@@ -100,38 +100,38 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrrsrqStartRecordName'
+-- * 'lrrsStartRecordName'
 --
--- * 'lrrsrqStartRecordType'
+-- * 'lrrsStartRecordType'
 --
--- * 'lrrsrqStartRecordIdentifier'
+-- * 'lrrsStartRecordIdentifier'
 --
--- * 'lrrsrqMaxItems'
+-- * 'lrrsMaxItems'
 --
--- * 'lrrsrqHostedZoneId'
+-- * 'lrrsHostedZoneId'
 data ListResourceRecordSets = ListResourceRecordSets'
-    { _lrrsrqStartRecordName       :: !(Maybe Text)
-    , _lrrsrqStartRecordType       :: !(Maybe RecordType)
-    , _lrrsrqStartRecordIdentifier :: !(Maybe Text)
-    , _lrrsrqMaxItems              :: !(Maybe Text)
-    , _lrrsrqHostedZoneId          :: !Text
+    { _lrrsStartRecordName       :: !(Maybe Text)
+    , _lrrsStartRecordType       :: !(Maybe RecordType)
+    , _lrrsStartRecordIdentifier :: !(Maybe Text)
+    , _lrrsMaxItems              :: !(Maybe Text)
+    , _lrrsHostedZoneId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListResourceRecordSets' smart constructor.
 listResourceRecordSets :: Text -> ListResourceRecordSets
 listResourceRecordSets pHostedZoneId_ =
     ListResourceRecordSets'
-    { _lrrsrqStartRecordName = Nothing
-    , _lrrsrqStartRecordType = Nothing
-    , _lrrsrqStartRecordIdentifier = Nothing
-    , _lrrsrqMaxItems = Nothing
-    , _lrrsrqHostedZoneId = pHostedZoneId_
+    { _lrrsStartRecordName = Nothing
+    , _lrrsStartRecordType = Nothing
+    , _lrrsStartRecordIdentifier = Nothing
+    , _lrrsMaxItems = Nothing
+    , _lrrsHostedZoneId = pHostedZoneId_
     }
 
 -- | The first name in the lexicographic ordering of domain names that you
 -- want the @ListResourceRecordSets@ request to list.
-lrrsrqStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
-lrrsrqStartRecordName = lens _lrrsrqStartRecordName (\ s a -> s{_lrrsrqStartRecordName = a});
+lrrsStartRecordName :: Lens' ListResourceRecordSets (Maybe Text)
+lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName = a});
 
 -- | The DNS type at which to begin the listing of resource record sets.
 --
@@ -146,25 +146,25 @@ lrrsrqStartRecordName = lens _lrrsrqStartRecordName (\ s a -> s{_lrrsrqStartReco
 --
 -- Constraint: Specifying @type@ without specifying @name@ returns an
 -- InvalidInput error.
-lrrsrqStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
-lrrsrqStartRecordType = lens _lrrsrqStartRecordType (\ s a -> s{_lrrsrqStartRecordType = a});
+lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
+lrrsStartRecordType = lens _lrrsStartRecordType (\ s a -> s{_lrrsStartRecordType = a});
 
 -- | /Weighted resource record sets only:/ If results were truncated for a
 -- given DNS name and type, specify the value of
 -- @ListResourceRecordSetsResponse$NextRecordIdentifier@ from the previous
 -- response to get the next resource record set that has the current DNS
 -- name and type.
-lrrsrqStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
-lrrsrqStartRecordIdentifier = lens _lrrsrqStartRecordIdentifier (\ s a -> s{_lrrsrqStartRecordIdentifier = a});
+lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
+lrrsStartRecordIdentifier = lens _lrrsStartRecordIdentifier (\ s a -> s{_lrrsStartRecordIdentifier = a});
 
 -- | The maximum number of records you want in the response body.
-lrrsrqMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
-lrrsrqMaxItems = lens _lrrsrqMaxItems (\ s a -> s{_lrrsrqMaxItems = a});
+lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
+lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
 
 -- | The ID of the hosted zone that contains the resource record sets that
 -- you want to get.
-lrrsrqHostedZoneId :: Lens' ListResourceRecordSets Text
-lrrsrqHostedZoneId = lens _lrrsrqHostedZoneId (\ s a -> s{_lrrsrqHostedZoneId = a});
+lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
+lrrsHostedZoneId = lens _lrrsHostedZoneId (\ s a -> s{_lrrsHostedZoneId = a});
 
 instance AWSPager ListResourceRecordSets where
         page rq rs
@@ -175,10 +175,10 @@ instance AWSPager ListResourceRecordSets where
             = Nothing
           | otherwise =
             Just $ rq &
-              lrrsrqStartRecordName .~ rs ^. lrrsrsNextRecordName
-              & lrrsrqStartRecordType .~ rs ^. lrrsrsNextRecordType
+              lrrsStartRecordName .~ rs ^. lrrsrsNextRecordName
+              & lrrsStartRecordType .~ rs ^. lrrsrsNextRecordType
               &
-              lrrsrqStartRecordIdentifier .~
+              lrrsStartRecordIdentifier .~
                 rs ^. lrrsrsNextRecordIdentifier
 
 instance AWSRequest ListResourceRecordSets where
@@ -205,16 +205,16 @@ instance ToHeaders ListResourceRecordSets where
 instance ToPath ListResourceRecordSets where
         toPath ListResourceRecordSets'{..}
           = mconcat
-              ["/2013-04-01/hostedzone/",
-               toText _lrrsrqHostedZoneId, "/rrset"]
+              ["/2013-04-01/hostedzone/", toText _lrrsHostedZoneId,
+               "/rrset"]
 
 instance ToQuery ListResourceRecordSets where
         toQuery ListResourceRecordSets'{..}
           = mconcat
-              ["name" =: _lrrsrqStartRecordName,
-               "type" =: _lrrsrqStartRecordType,
-               "identifier" =: _lrrsrqStartRecordIdentifier,
-               "maxitems" =: _lrrsrqMaxItems]
+              ["name" =: _lrrsStartRecordName,
+               "type" =: _lrrsStartRecordType,
+               "identifier" =: _lrrsStartRecordIdentifier,
+               "maxitems" =: _lrrsMaxItems]
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request and information about the response.

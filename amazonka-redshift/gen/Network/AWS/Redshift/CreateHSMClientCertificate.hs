@@ -37,8 +37,8 @@ module Network.AWS.Redshift.CreateHSMClientCertificate
     -- ** Request constructor
     , createHSMClientCertificate
     -- ** Request lenses
-    , chccrqTags
-    , chccrqHSMClientCertificateIdentifier
+    , chccTags
+    , chccHSMClientCertificateIdentifier
 
     -- * Response
     , CreateHSMClientCertificateResponse
@@ -60,31 +60,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chccrqTags'
+-- * 'chccTags'
 --
--- * 'chccrqHSMClientCertificateIdentifier'
+-- * 'chccHSMClientCertificateIdentifier'
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
-    { _chccrqTags                           :: !(Maybe [Tag])
-    , _chccrqHSMClientCertificateIdentifier :: !Text
+    { _chccTags                           :: !(Maybe [Tag])
+    , _chccHSMClientCertificateIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMClientCertificate' smart constructor.
 createHSMClientCertificate :: Text -> CreateHSMClientCertificate
 createHSMClientCertificate pHSMClientCertificateIdentifier_ =
     CreateHSMClientCertificate'
-    { _chccrqTags = Nothing
-    , _chccrqHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
+    { _chccTags = Nothing
+    , _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier_
     }
 
 -- | A list of tag instances.
-chccrqTags :: Lens' CreateHSMClientCertificate [Tag]
-chccrqTags = lens _chccrqTags (\ s a -> s{_chccrqTags = a}) . _Default;
+chccTags :: Lens' CreateHSMClientCertificate [Tag]
+chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default;
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption
 -- keys.
-chccrqHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
-chccrqHSMClientCertificateIdentifier = lens _chccrqHSMClientCertificateIdentifier (\ s a -> s{_chccrqHSMClientCertificateIdentifier = a});
+chccHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
+chccHSMClientCertificateIdentifier = lens _chccHSMClientCertificateIdentifier (\ s a -> s{_chccHSMClientCertificateIdentifier = a});
 
 instance AWSRequest CreateHSMClientCertificate where
         type Sv CreateHSMClientCertificate = Redshift
@@ -111,10 +111,9 @@ instance ToQuery CreateHSMClientCertificate where
               ["Action" =:
                  ("CreateHSMClientCertificate" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =:
-                 toQuery (toQueryList "Tag" <$> _chccrqTags),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _chccTags),
                "HsmClientCertificateIdentifier" =:
-                 _chccrqHSMClientCertificateIdentifier]
+                 _chccHSMClientCertificateIdentifier]
 
 -- | /See:/ 'createHSMClientCertificateResponse' smart constructor.
 --

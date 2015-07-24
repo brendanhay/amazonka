@@ -37,8 +37,8 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     -- ** Request constructor
     , rebootCacheCluster
     -- ** Request lenses
-    , rccrqCacheClusterId
-    , rccrqCacheNodeIdsToReboot
+    , rccCacheClusterId
+    , rccCacheNodeIdsToReboot
 
     -- * Response
     , RebootCacheClusterResponse
@@ -60,32 +60,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rccrqCacheClusterId'
+-- * 'rccCacheClusterId'
 --
--- * 'rccrqCacheNodeIdsToReboot'
+-- * 'rccCacheNodeIdsToReboot'
 data RebootCacheCluster = RebootCacheCluster'
-    { _rccrqCacheClusterId       :: !Text
-    , _rccrqCacheNodeIdsToReboot :: ![Text]
+    { _rccCacheClusterId       :: !Text
+    , _rccCacheNodeIdsToReboot :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCacheCluster' smart constructor.
 rebootCacheCluster :: Text -> RebootCacheCluster
 rebootCacheCluster pCacheClusterId_ =
     RebootCacheCluster'
-    { _rccrqCacheClusterId = pCacheClusterId_
-    , _rccrqCacheNodeIdsToReboot = mempty
+    { _rccCacheClusterId = pCacheClusterId_
+    , _rccCacheNodeIdsToReboot = mempty
     }
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
 -- string.
-rccrqCacheClusterId :: Lens' RebootCacheCluster Text
-rccrqCacheClusterId = lens _rccrqCacheClusterId (\ s a -> s{_rccrqCacheClusterId = a});
+rccCacheClusterId :: Lens' RebootCacheCluster Text
+rccCacheClusterId = lens _rccCacheClusterId (\ s a -> s{_rccCacheClusterId = a});
 
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier
 -- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of
 -- the cache node IDs.
-rccrqCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
-rccrqCacheNodeIdsToReboot = lens _rccrqCacheNodeIdsToReboot (\ s a -> s{_rccrqCacheNodeIdsToReboot = a});
+rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
+rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a});
 
 instance AWSRequest RebootCacheCluster where
         type Sv RebootCacheCluster = ElastiCache
@@ -109,9 +109,9 @@ instance ToQuery RebootCacheCluster where
           = mconcat
               ["Action" =: ("RebootCacheCluster" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheClusterId" =: _rccrqCacheClusterId,
+               "CacheClusterId" =: _rccCacheClusterId,
                "CacheNodeIdsToReboot" =:
-                 toQueryList "CacheNodeId" _rccrqCacheNodeIdsToReboot]
+                 toQueryList "CacheNodeId" _rccCacheNodeIdsToReboot]
 
 -- | /See:/ 'rebootCacheClusterResponse' smart constructor.
 --

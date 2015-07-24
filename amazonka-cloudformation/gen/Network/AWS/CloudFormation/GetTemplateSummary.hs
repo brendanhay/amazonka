@@ -37,9 +37,9 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     -- ** Request constructor
     , getTemplateSummary
     -- ** Request lenses
-    , gtsrqTemplateBody
-    , gtsrqTemplateURL
-    , gtsrqStackName
+    , gtsTemplateBody
+    , gtsTemplateURL
+    , gtsStackName
 
     -- * Response
     , GetTemplateSummaryResponse
@@ -66,24 +66,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtsrqTemplateBody'
+-- * 'gtsTemplateBody'
 --
--- * 'gtsrqTemplateURL'
+-- * 'gtsTemplateURL'
 --
--- * 'gtsrqStackName'
+-- * 'gtsStackName'
 data GetTemplateSummary = GetTemplateSummary'
-    { _gtsrqTemplateBody :: !(Maybe Text)
-    , _gtsrqTemplateURL  :: !(Maybe Text)
-    , _gtsrqStackName    :: !(Maybe Text)
+    { _gtsTemplateBody :: !(Maybe Text)
+    , _gtsTemplateURL  :: !(Maybe Text)
+    , _gtsStackName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateSummary' smart constructor.
 getTemplateSummary :: GetTemplateSummary
 getTemplateSummary =
     GetTemplateSummary'
-    { _gtsrqTemplateBody = Nothing
-    , _gtsrqTemplateURL = Nothing
-    , _gtsrqStackName = Nothing
+    { _gtsTemplateBody = Nothing
+    , _gtsTemplateURL = Nothing
+    , _gtsStackName = Nothing
     }
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -94,8 +94,8 @@ getTemplateSummary =
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsrqTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
-gtsrqTemplateBody = lens _gtsrqTemplateBody (\ s a -> s{_gtsrqTemplateBody = a});
+gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
+gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For
@@ -105,8 +105,8 @@ gtsrqTemplateBody = lens _gtsrqTemplateBody (\ s a -> s{_gtsrqTemplateBody = a})
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsrqTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
-gtsrqTemplateURL = lens _gtsrqTemplateURL (\ s a -> s{_gtsrqTemplateURL = a});
+gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
+gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
 
 -- | The name or the stack ID that is associated with the stack, which are
 -- not always interchangeable. For running stacks, you can specify either
@@ -115,8 +115,8 @@ gtsrqTemplateURL = lens _gtsrqTemplateURL (\ s a -> s{_gtsrqTemplateURL = a});
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsrqStackName :: Lens' GetTemplateSummary (Maybe Text)
-gtsrqStackName = lens _gtsrqStackName (\ s a -> s{_gtsrqStackName = a});
+gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
+gtsStackName = lens _gtsStackName (\ s a -> s{_gtsStackName = a});
 
 instance AWSRequest GetTemplateSummary where
         type Sv GetTemplateSummary = CloudFormation
@@ -149,9 +149,9 @@ instance ToQuery GetTemplateSummary where
           = mconcat
               ["Action" =: ("GetTemplateSummary" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "TemplateBody" =: _gtsrqTemplateBody,
-               "TemplateURL" =: _gtsrqTemplateURL,
-               "StackName" =: _gtsrqStackName]
+               "TemplateBody" =: _gtsTemplateBody,
+               "TemplateURL" =: _gtsTemplateURL,
+               "StackName" =: _gtsStackName]
 
 -- | The output for the GetTemplateSummary action.
 --

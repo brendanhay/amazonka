@@ -38,10 +38,10 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     -- ** Request constructor
     , createClusterParameterGroup
     -- ** Request lenses
-    , ccpgrqTags
-    , ccpgrqParameterGroupName
-    , ccpgrqParameterGroupFamily
-    , ccpgrqDescription
+    , ccpgTags
+    , ccpgParameterGroupName
+    , ccpgParameterGroupFamily
+    , ccpgDescription
 
     -- * Response
     , CreateClusterParameterGroupResponse
@@ -63,33 +63,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccpgrqTags'
+-- * 'ccpgTags'
 --
--- * 'ccpgrqParameterGroupName'
+-- * 'ccpgParameterGroupName'
 --
--- * 'ccpgrqParameterGroupFamily'
+-- * 'ccpgParameterGroupFamily'
 --
--- * 'ccpgrqDescription'
+-- * 'ccpgDescription'
 data CreateClusterParameterGroup = CreateClusterParameterGroup'
-    { _ccpgrqTags                 :: !(Maybe [Tag])
-    , _ccpgrqParameterGroupName   :: !Text
-    , _ccpgrqParameterGroupFamily :: !Text
-    , _ccpgrqDescription          :: !Text
+    { _ccpgTags                 :: !(Maybe [Tag])
+    , _ccpgParameterGroupName   :: !Text
+    , _ccpgParameterGroupFamily :: !Text
+    , _ccpgDescription          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterParameterGroup' smart constructor.
 createClusterParameterGroup :: Text -> Text -> Text -> CreateClusterParameterGroup
 createClusterParameterGroup pParameterGroupName_ pParameterGroupFamily_ pDescription_ =
     CreateClusterParameterGroup'
-    { _ccpgrqTags = Nothing
-    , _ccpgrqParameterGroupName = pParameterGroupName_
-    , _ccpgrqParameterGroupFamily = pParameterGroupFamily_
-    , _ccpgrqDescription = pDescription_
+    { _ccpgTags = Nothing
+    , _ccpgParameterGroupName = pParameterGroupName_
+    , _ccpgParameterGroupFamily = pParameterGroupFamily_
+    , _ccpgDescription = pDescription_
     }
 
 -- | A list of tag instances.
-ccpgrqTags :: Lens' CreateClusterParameterGroup [Tag]
-ccpgrqTags = lens _ccpgrqTags (\ s a -> s{_ccpgrqTags = a}) . _Default;
+ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
+ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a}) . _Default;
 
 -- | The name of the cluster parameter group.
 --
@@ -101,8 +101,8 @@ ccpgrqTags = lens _ccpgrqTags (\ s a -> s{_ccpgrqTags = a}) . _Default;
 -- -   Must be unique withing your AWS account.
 --
 -- This value is stored as a lower-case string.
-ccpgrqParameterGroupName :: Lens' CreateClusterParameterGroup Text
-ccpgrqParameterGroupName = lens _ccpgrqParameterGroupName (\ s a -> s{_ccpgrqParameterGroupName = a});
+ccpgParameterGroupName :: Lens' CreateClusterParameterGroup Text
+ccpgParameterGroupName = lens _ccpgParameterGroupName (\ s a -> s{_ccpgParameterGroupName = a});
 
 -- | The Amazon Redshift engine version to which the cluster parameter group
 -- applies. The cluster engine version determines the set of parameters.
@@ -114,12 +114,12 @@ ccpgrqParameterGroupName = lens _ccpgrqParameterGroupName (\ s a -> s{_ccpgrqPar
 -- version. The parameter group family names associated with the default
 -- parameter groups provide you the valid values. For example, a valid
 -- family name is \"redshift-1.0\".
-ccpgrqParameterGroupFamily :: Lens' CreateClusterParameterGroup Text
-ccpgrqParameterGroupFamily = lens _ccpgrqParameterGroupFamily (\ s a -> s{_ccpgrqParameterGroupFamily = a});
+ccpgParameterGroupFamily :: Lens' CreateClusterParameterGroup Text
+ccpgParameterGroupFamily = lens _ccpgParameterGroupFamily (\ s a -> s{_ccpgParameterGroupFamily = a});
 
 -- | A description of the parameter group.
-ccpgrqDescription :: Lens' CreateClusterParameterGroup Text
-ccpgrqDescription = lens _ccpgrqDescription (\ s a -> s{_ccpgrqDescription = a});
+ccpgDescription :: Lens' CreateClusterParameterGroup Text
+ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
 
 instance AWSRequest CreateClusterParameterGroup where
         type Sv CreateClusterParameterGroup = Redshift
@@ -146,12 +146,10 @@ instance ToQuery CreateClusterParameterGroup where
               ["Action" =:
                  ("CreateClusterParameterGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =:
-                 toQuery (toQueryList "Tag" <$> _ccpgrqTags),
-               "ParameterGroupName" =: _ccpgrqParameterGroupName,
-               "ParameterGroupFamily" =:
-                 _ccpgrqParameterGroupFamily,
-               "Description" =: _ccpgrqDescription]
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccpgTags),
+               "ParameterGroupName" =: _ccpgParameterGroupName,
+               "ParameterGroupFamily" =: _ccpgParameterGroupFamily,
+               "Description" =: _ccpgDescription]
 
 -- | /See:/ 'createClusterParameterGroupResponse' smart constructor.
 --

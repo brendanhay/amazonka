@@ -32,10 +32,10 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- ** Request constructor
     , describeDBSubnetGroups
     -- ** Request lenses
-    , ddsgrqDBSubnetGroupName
-    , ddsgrqFilters
-    , ddsgrqMaxRecords
-    , ddsgrqMarker
+    , ddsgDBSubnetGroupName
+    , ddsgFilters
+    , ddsgMaxRecords
+    , ddsgMarker
 
     -- * Response
     , DescribeDBSubnetGroupsResponse
@@ -59,37 +59,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsgrqDBSubnetGroupName'
+-- * 'ddsgDBSubnetGroupName'
 --
--- * 'ddsgrqFilters'
+-- * 'ddsgFilters'
 --
--- * 'ddsgrqMaxRecords'
+-- * 'ddsgMaxRecords'
 --
--- * 'ddsgrqMarker'
+-- * 'ddsgMarker'
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
-    { _ddsgrqDBSubnetGroupName :: !(Maybe Text)
-    , _ddsgrqFilters           :: !(Maybe [Filter])
-    , _ddsgrqMaxRecords        :: !(Maybe Int)
-    , _ddsgrqMarker            :: !(Maybe Text)
+    { _ddsgDBSubnetGroupName :: !(Maybe Text)
+    , _ddsgFilters           :: !(Maybe [Filter])
+    , _ddsgMaxRecords        :: !(Maybe Int)
+    , _ddsgMarker            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSubnetGroups' smart constructor.
 describeDBSubnetGroups :: DescribeDBSubnetGroups
 describeDBSubnetGroups =
     DescribeDBSubnetGroups'
-    { _ddsgrqDBSubnetGroupName = Nothing
-    , _ddsgrqFilters = Nothing
-    , _ddsgrqMaxRecords = Nothing
-    , _ddsgrqMarker = Nothing
+    { _ddsgDBSubnetGroupName = Nothing
+    , _ddsgFilters = Nothing
+    , _ddsgMaxRecords = Nothing
+    , _ddsgMarker = Nothing
     }
 
 -- | The name of the DB subnet group to return details for.
-ddsgrqDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
-ddsgrqDBSubnetGroupName = lens _ddsgrqDBSubnetGroupName (\ s a -> s{_ddsgrqDBSubnetGroupName = a});
+ddsgDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
+ddsgDBSubnetGroupName = lens _ddsgDBSubnetGroupName (\ s a -> s{_ddsgDBSubnetGroupName = a});
 
 -- | This parameter is not currently supported.
-ddsgrqFilters :: Lens' DescribeDBSubnetGroups [Filter]
-ddsgrqFilters = lens _ddsgrqFilters (\ s a -> s{_ddsgrqFilters = a}) . _Default;
+ddsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
+ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -99,22 +99,22 @@ ddsgrqFilters = lens _ddsgrqFilters (\ s a -> s{_ddsgrqFilters = a}) . _Default;
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddsgrqMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
-ddsgrqMaxRecords = lens _ddsgrqMaxRecords (\ s a -> s{_ddsgrqMaxRecords = a});
+ddsgMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
+ddsgMaxRecords = lens _ddsgMaxRecords (\ s a -> s{_ddsgMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBSubnetGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-ddsgrqMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
-ddsgrqMarker = lens _ddsgrqMarker (\ s a -> s{_ddsgrqMarker = a});
+ddsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
+ddsgMarker = lens _ddsgMarker (\ s a -> s{_ddsgMarker = a});
 
 instance AWSPager DescribeDBSubnetGroups where
         page rq rs
           | stop (rs ^. ddsgrsMarker) = Nothing
           | stop (rs ^. ddsgrsDBSubnetGroups) = Nothing
           | otherwise =
-            Just $ rq & ddsgrqMarker .~ rs ^. ddsgrsMarker
+            Just $ rq & ddsgMarker .~ rs ^. ddsgrsMarker
 
 instance AWSRequest DescribeDBSubnetGroups where
         type Sv DescribeDBSubnetGroups = RDS
@@ -142,11 +142,11 @@ instance ToQuery DescribeDBSubnetGroups where
               ["Action" =:
                  ("DescribeDBSubnetGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBSubnetGroupName" =: _ddsgrqDBSubnetGroupName,
+               "DBSubnetGroupName" =: _ddsgDBSubnetGroupName,
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddsgrqFilters),
-               "MaxRecords" =: _ddsgrqMaxRecords,
-               "Marker" =: _ddsgrqMarker]
+                 toQuery (toQueryList "Filter" <$> _ddsgFilters),
+               "MaxRecords" =: _ddsgMaxRecords,
+               "Marker" =: _ddsgMarker]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSubnetGroups action.

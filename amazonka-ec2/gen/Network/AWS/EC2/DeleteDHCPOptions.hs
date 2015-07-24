@@ -30,8 +30,8 @@ module Network.AWS.EC2.DeleteDHCPOptions
     -- ** Request constructor
     , deleteDHCPOptions
     -- ** Request lenses
-    , ddhcporqDryRun
-    , ddhcporqDHCPOptionsId
+    , ddhcpoDryRun
+    , ddhcpoDHCPOptionsId
 
     -- * Response
     , DeleteDHCPOptionsResponse
@@ -48,32 +48,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddhcporqDryRun'
+-- * 'ddhcpoDryRun'
 --
--- * 'ddhcporqDHCPOptionsId'
+-- * 'ddhcpoDHCPOptionsId'
 data DeleteDHCPOptions = DeleteDHCPOptions'
-    { _ddhcporqDryRun        :: !(Maybe Bool)
-    , _ddhcporqDHCPOptionsId :: !Text
+    { _ddhcpoDryRun        :: !(Maybe Bool)
+    , _ddhcpoDHCPOptionsId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDHCPOptions' smart constructor.
 deleteDHCPOptions :: Text -> DeleteDHCPOptions
 deleteDHCPOptions pDHCPOptionsId_ =
     DeleteDHCPOptions'
-    { _ddhcporqDryRun = Nothing
-    , _ddhcporqDHCPOptionsId = pDHCPOptionsId_
+    { _ddhcpoDryRun = Nothing
+    , _ddhcpoDHCPOptionsId = pDHCPOptionsId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ddhcporqDryRun :: Lens' DeleteDHCPOptions (Maybe Bool)
-ddhcporqDryRun = lens _ddhcporqDryRun (\ s a -> s{_ddhcporqDryRun = a});
+ddhcpoDryRun :: Lens' DeleteDHCPOptions (Maybe Bool)
+ddhcpoDryRun = lens _ddhcpoDryRun (\ s a -> s{_ddhcpoDryRun = a});
 
 -- | The ID of the DHCP options set.
-ddhcporqDHCPOptionsId :: Lens' DeleteDHCPOptions Text
-ddhcporqDHCPOptionsId = lens _ddhcporqDHCPOptionsId (\ s a -> s{_ddhcporqDHCPOptionsId = a});
+ddhcpoDHCPOptionsId :: Lens' DeleteDHCPOptions Text
+ddhcpoDHCPOptionsId = lens _ddhcpoDHCPOptionsId (\ s a -> s{_ddhcpoDHCPOptionsId = a});
 
 instance AWSRequest DeleteDHCPOptions where
         type Sv DeleteDHCPOptions = EC2
@@ -92,8 +92,8 @@ instance ToQuery DeleteDHCPOptions where
           = mconcat
               ["Action" =: ("DeleteDHCPOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ddhcporqDryRun,
-               "DhcpOptionsId" =: _ddhcporqDHCPOptionsId]
+               "DryRun" =: _ddhcpoDryRun,
+               "DhcpOptionsId" =: _ddhcpoDHCPOptionsId]
 
 -- | /See:/ 'deleteDHCPOptionsResponse' smart constructor.
 data DeleteDHCPOptionsResponse =

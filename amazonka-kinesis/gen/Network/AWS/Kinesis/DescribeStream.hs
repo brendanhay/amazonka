@@ -49,9 +49,9 @@ module Network.AWS.Kinesis.DescribeStream
     -- ** Request constructor
     , describeStream
     -- ** Request lenses
-    , drqExclusiveStartShardId
-    , drqLimit
-    , drqStreamName
+    , dExclusiveStartShardId
+    , dLimit
+    , dStreamName
 
     -- * Response
     , DescribeStreamResponse
@@ -74,37 +74,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqExclusiveStartShardId'
+-- * 'dExclusiveStartShardId'
 --
--- * 'drqLimit'
+-- * 'dLimit'
 --
--- * 'drqStreamName'
+-- * 'dStreamName'
 data DescribeStream = DescribeStream'
-    { _drqExclusiveStartShardId :: !(Maybe Text)
-    , _drqLimit                 :: !(Maybe Nat)
-    , _drqStreamName            :: !Text
+    { _dExclusiveStartShardId :: !(Maybe Text)
+    , _dLimit                 :: !(Maybe Nat)
+    , _dStreamName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
 describeStream pStreamName_ =
     DescribeStream'
-    { _drqExclusiveStartShardId = Nothing
-    , _drqLimit = Nothing
-    , _drqStreamName = pStreamName_
+    { _dExclusiveStartShardId = Nothing
+    , _dLimit = Nothing
+    , _dStreamName = pStreamName_
     }
 
 -- | The shard ID of the shard to start with.
-drqExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
-drqExclusiveStartShardId = lens _drqExclusiveStartShardId (\ s a -> s{_drqExclusiveStartShardId = a});
+dExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
+dExclusiveStartShardId = lens _dExclusiveStartShardId (\ s a -> s{_dExclusiveStartShardId = a});
 
 -- | The maximum number of shards to return.
-drqLimit :: Lens' DescribeStream (Maybe Natural)
-drqLimit = lens _drqLimit (\ s a -> s{_drqLimit = a}) . mapping _Nat;
+dLimit :: Lens' DescribeStream (Maybe Natural)
+dLimit = lens _dLimit (\ s a -> s{_dLimit = a}) . mapping _Nat;
 
 -- | The name of the stream to describe.
-drqStreamName :: Lens' DescribeStream Text
-drqStreamName = lens _drqStreamName (\ s a -> s{_drqStreamName = a});
+dStreamName :: Lens' DescribeStream Text
+dStreamName = lens _dStreamName (\ s a -> s{_dStreamName = a});
 
 instance AWSPager DescribeStream where
         page rq rs
@@ -117,7 +117,7 @@ instance AWSPager DescribeStream where
             = Nothing
           | otherwise =
             Just $ rq &
-              drqExclusiveStartShardId .~
+              dExclusiveStartShardId .~
                 rs ^?
                   dsrsStreamDescription . sdShards . _last . sShardId
 
@@ -143,9 +143,8 @@ instance ToHeaders DescribeStream where
 instance ToJSON DescribeStream where
         toJSON DescribeStream'{..}
           = object
-              ["ExclusiveStartShardId" .=
-                 _drqExclusiveStartShardId,
-               "Limit" .= _drqLimit, "StreamName" .= _drqStreamName]
+              ["ExclusiveStartShardId" .= _dExclusiveStartShardId,
+               "Limit" .= _dLimit, "StreamName" .= _dStreamName]
 
 instance ToPath DescribeStream where
         toPath = const "/"

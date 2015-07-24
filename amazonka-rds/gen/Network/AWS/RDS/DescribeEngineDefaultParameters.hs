@@ -28,10 +28,10 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- ** Request constructor
     , describeEngineDefaultParameters
     -- ** Request lenses
-    , dedprqFilters
-    , dedprqMaxRecords
-    , dedprqMarker
-    , dedprqDBParameterGroupFamily
+    , dedpFilters
+    , dedpMaxRecords
+    , dedpMarker
+    , dedpDBParameterGroupFamily
 
     -- * Response
     , DescribeEngineDefaultParametersResponse
@@ -54,33 +54,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedprqFilters'
+-- * 'dedpFilters'
 --
--- * 'dedprqMaxRecords'
+-- * 'dedpMaxRecords'
 --
--- * 'dedprqMarker'
+-- * 'dedpMarker'
 --
--- * 'dedprqDBParameterGroupFamily'
+-- * 'dedpDBParameterGroupFamily'
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedprqFilters                :: !(Maybe [Filter])
-    , _dedprqMaxRecords             :: !(Maybe Int)
-    , _dedprqMarker                 :: !(Maybe Text)
-    , _dedprqDBParameterGroupFamily :: !Text
+    { _dedpFilters                :: !(Maybe [Filter])
+    , _dedpMaxRecords             :: !(Maybe Int)
+    , _dedpMarker                 :: !(Maybe Text)
+    , _dedpDBParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pDBParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
-    { _dedprqFilters = Nothing
-    , _dedprqMaxRecords = Nothing
-    , _dedprqMarker = Nothing
-    , _dedprqDBParameterGroupFamily = pDBParameterGroupFamily_
+    { _dedpFilters = Nothing
+    , _dedpMaxRecords = Nothing
+    , _dedpMarker = Nothing
+    , _dedpDBParameterGroupFamily = pDBParameterGroupFamily_
     }
 
 -- | Not currently supported.
-dedprqFilters :: Lens' DescribeEngineDefaultParameters [Filter]
-dedprqFilters = lens _dedprqFilters (\ s a -> s{_dedprqFilters = a}) . _Default;
+dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
+dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -90,19 +90,19 @@ dedprqFilters = lens _dedprqFilters (\ s a -> s{_dedprqFilters = a}) . _Default;
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dedprqMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
-dedprqMaxRecords = lens _dedprqMaxRecords (\ s a -> s{_dedprqMaxRecords = a});
+dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
+dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- @DescribeEngineDefaultParameters@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-dedprqMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedprqMarker = lens _dedprqMarker (\ s a -> s{_dedprqMarker = a});
+dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
 -- | The name of the DB parameter group family.
-dedprqDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
-dedprqDBParameterGroupFamily = lens _dedprqDBParameterGroupFamily (\ s a -> s{_dedprqDBParameterGroupFamily = a});
+dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
+dedpDBParameterGroupFamily = lens _dedpDBParameterGroupFamily (\ s a -> s{_dedpDBParameterGroupFamily = a});
 
 instance AWSPager DescribeEngineDefaultParameters
          where
@@ -114,7 +114,7 @@ instance AWSPager DescribeEngineDefaultParameters
             Nothing
           | otherwise =
             Just $ rq &
-              dedprqMarker .~
+              dedpMarker .~
                 rs ^? dedprsEngineDefaults . edMarker . _Just
 
 instance AWSRequest DescribeEngineDefaultParameters
@@ -145,11 +145,11 @@ instance ToQuery DescribeEngineDefaultParameters
                  ("DescribeEngineDefaultParameters" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dedprqFilters),
-               "MaxRecords" =: _dedprqMaxRecords,
-               "Marker" =: _dedprqMarker,
+                 toQuery (toQueryList "Filter" <$> _dedpFilters),
+               "MaxRecords" =: _dedpMaxRecords,
+               "Marker" =: _dedpMarker,
                "DBParameterGroupFamily" =:
-                 _dedprqDBParameterGroupFamily]
+                 _dedpDBParameterGroupFamily]
 
 -- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
 --

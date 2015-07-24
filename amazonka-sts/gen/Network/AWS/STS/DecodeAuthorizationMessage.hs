@@ -55,7 +55,7 @@ module Network.AWS.STS.DecodeAuthorizationMessage
     -- ** Request constructor
     , decodeAuthorizationMessage
     -- ** Request lenses
-    , damrqEncodedMessage
+    , damEncodedMessage
 
     -- * Response
     , DecodeAuthorizationMessageResponse
@@ -75,21 +75,21 @@ import           Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'damrqEncodedMessage'
+-- * 'damEncodedMessage'
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage'
-    { _damrqEncodedMessage :: Text
+    { _damEncodedMessage :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DecodeAuthorizationMessage' smart constructor.
 decodeAuthorizationMessage :: Text -> DecodeAuthorizationMessage
 decodeAuthorizationMessage pEncodedMessage_ =
     DecodeAuthorizationMessage'
-    { _damrqEncodedMessage = pEncodedMessage_
+    { _damEncodedMessage = pEncodedMessage_
     }
 
 -- | The encoded message that was returned with the response.
-damrqEncodedMessage :: Lens' DecodeAuthorizationMessage Text
-damrqEncodedMessage = lens _damrqEncodedMessage (\ s a -> s{_damrqEncodedMessage = a});
+damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
+damEncodedMessage = lens _damEncodedMessage (\ s a -> s{_damEncodedMessage = a});
 
 instance AWSRequest DecodeAuthorizationMessage where
         type Sv DecodeAuthorizationMessage = STS
@@ -115,7 +115,7 @@ instance ToQuery DecodeAuthorizationMessage where
               ["Action" =:
                  ("DecodeAuthorizationMessage" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "EncodedMessage" =: _damrqEncodedMessage]
+               "EncodedMessage" =: _damEncodedMessage]
 
 -- | A document that contains additional information about the authorization
 -- status of a request from an encoded message that is returned in response

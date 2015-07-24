@@ -28,8 +28,8 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     -- ** Request constructor
     , listPipelines
     -- ** Request lenses
-    , lprqAscending
-    , lprqPageToken
+    , lpAscending
+    , lpPageToken
 
     -- * Response
     , ListPipelinesResponse
@@ -53,40 +53,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprqAscending'
+-- * 'lpAscending'
 --
--- * 'lprqPageToken'
+-- * 'lpPageToken'
 data ListPipelines = ListPipelines'
-    { _lprqAscending :: !(Maybe Text)
-    , _lprqPageToken :: !(Maybe Text)
+    { _lpAscending :: !(Maybe Text)
+    , _lpPageToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
 listPipelines =
     ListPipelines'
-    { _lprqAscending = Nothing
-    , _lprqPageToken = Nothing
+    { _lpAscending = Nothing
+    , _lpPageToken = Nothing
     }
 
 -- | To list pipelines in chronological order by the date and time that they
 -- were created, enter @true@. To list pipelines in reverse chronological
 -- order, enter @false@.
-lprqAscending :: Lens' ListPipelines (Maybe Text)
-lprqAscending = lens _lprqAscending (\ s a -> s{_lprqAscending = a});
+lpAscending :: Lens' ListPipelines (Maybe Text)
+lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-lprqPageToken :: Lens' ListPipelines (Maybe Text)
-lprqPageToken = lens _lprqPageToken (\ s a -> s{_lprqPageToken = a});
+lpPageToken :: Lens' ListPipelines (Maybe Text)
+lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
 
 instance AWSPager ListPipelines where
         page rq rs
           | stop (rs ^. lprsNextPageToken) = Nothing
           | stop (rs ^. lprsPipelines) = Nothing
           | otherwise =
-            Just $ rq & lprqPageToken .~ rs ^. lprsNextPageToken
+            Just $ rq & lpPageToken .~ rs ^. lprsNextPageToken
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = ElasticTranscoder
@@ -109,8 +109,8 @@ instance ToPath ListPipelines where
 instance ToQuery ListPipelines where
         toQuery ListPipelines'{..}
           = mconcat
-              ["Ascending" =: _lprqAscending,
-               "PageToken" =: _lprqPageToken]
+              ["Ascending" =: _lpAscending,
+               "PageToken" =: _lpPageToken]
 
 -- | A list of the pipelines associated with the current AWS account.
 --

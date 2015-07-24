@@ -55,8 +55,8 @@ module Network.AWS.SQS.CreateQueue
     -- ** Request constructor
     , createQueue
     -- ** Request lenses
-    , cqrqAttributes
-    , cqrqQueueName
+    , cqAttributes
+    , cqQueueName
 
     -- * Response
     , CreateQueueResponse
@@ -76,20 +76,20 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cqrqAttributes'
+-- * 'cqAttributes'
 --
--- * 'cqrqQueueName'
+-- * 'cqQueueName'
 data CreateQueue = CreateQueue'
-    { _cqrqAttributes :: !(Maybe (Map QueueAttributeName Text))
-    , _cqrqQueueName  :: !Text
+    { _cqAttributes :: !(Maybe (Map QueueAttributeName Text))
+    , _cqQueueName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateQueue' smart constructor.
 createQueue :: Text -> CreateQueue
 createQueue pQueueName_ =
     CreateQueue'
-    { _cqrqAttributes = Nothing
-    , _cqrqQueueName = pQueueName_
+    { _cqAttributes = Nothing
+    , _cqQueueName = pQueueName_
     }
 
 -- | A map of attributes with their corresponding values.
@@ -120,12 +120,12 @@ createQueue pQueueName_ =
 --     is 30. For more information about visibility timeout, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout>
 --     in the /Amazon SQS Developer Guide/.
-cqrqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
-cqrqAttributes = lens _cqrqAttributes (\ s a -> s{_cqrqAttributes = a}) . _Default . _Map;
+cqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
+cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . _Default . _Map;
 
 -- | The name for the queue to be created.
-cqrqQueueName :: Lens' CreateQueue Text
-cqrqQueueName = lens _cqrqQueueName (\ s a -> s{_cqrqQueueName = a});
+cqQueueName :: Lens' CreateQueue Text
+cqQueueName = lens _cqQueueName (\ s a -> s{_cqQueueName = a});
 
 instance AWSRequest CreateQueue where
         type Sv CreateQueue = SQS
@@ -150,8 +150,8 @@ instance ToQuery CreateQueue where
                "Version" =: ("2012-11-05" :: ByteString),
                toQuery
                  (toQueryMap "Attribute" "Name" "Value" <$>
-                    _cqrqAttributes),
-               "QueueName" =: _cqrqQueueName]
+                    _cqAttributes),
+               "QueueName" =: _cqQueueName]
 
 -- | Returns the QueueUrl element of the created queue.
 --

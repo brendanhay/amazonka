@@ -33,7 +33,7 @@ module Network.AWS.SNS.Unsubscribe
     -- ** Request constructor
     , unsubscribe
     -- ** Request lenses
-    , urqSubscriptionARN
+    , uSubscriptionARN
 
     -- * Response
     , UnsubscribeResponse
@@ -52,21 +52,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urqSubscriptionARN'
+-- * 'uSubscriptionARN'
 newtype Unsubscribe = Unsubscribe'
-    { _urqSubscriptionARN :: Text
+    { _uSubscriptionARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Unsubscribe' smart constructor.
 unsubscribe :: Text -> Unsubscribe
 unsubscribe pSubscriptionARN_ =
     Unsubscribe'
-    { _urqSubscriptionARN = pSubscriptionARN_
+    { _uSubscriptionARN = pSubscriptionARN_
     }
 
 -- | The ARN of the subscription to be deleted.
-urqSubscriptionARN :: Lens' Unsubscribe Text
-urqSubscriptionARN = lens _urqSubscriptionARN (\ s a -> s{_urqSubscriptionARN = a});
+uSubscriptionARN :: Lens' Unsubscribe Text
+uSubscriptionARN = lens _uSubscriptionARN (\ s a -> s{_uSubscriptionARN = a});
 
 instance AWSRequest Unsubscribe where
         type Sv Unsubscribe = SNS
@@ -85,7 +85,7 @@ instance ToQuery Unsubscribe where
           = mconcat
               ["Action" =: ("Unsubscribe" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "SubscriptionArn" =: _urqSubscriptionARN]
+               "SubscriptionArn" =: _uSubscriptionARN]
 
 -- | /See:/ 'unsubscribeResponse' smart constructor.
 data UnsubscribeResponse =

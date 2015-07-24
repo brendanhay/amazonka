@@ -30,9 +30,9 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- ** Request constructor
     , describePlacementGroups
     -- ** Request lenses
-    , dpgsrqGroupNames
-    , dpgsrqFilters
-    , dpgsrqDryRun
+    , dpgsGroupNames
+    , dpgsFilters
+    , dpgsDryRun
 
     -- * Response
     , DescribePlacementGroupsResponse
@@ -52,32 +52,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpgsrqGroupNames'
+-- * 'dpgsGroupNames'
 --
--- * 'dpgsrqFilters'
+-- * 'dpgsFilters'
 --
--- * 'dpgsrqDryRun'
+-- * 'dpgsDryRun'
 data DescribePlacementGroups = DescribePlacementGroups'
-    { _dpgsrqGroupNames :: !(Maybe [Text])
-    , _dpgsrqFilters    :: !(Maybe [Filter])
-    , _dpgsrqDryRun     :: !(Maybe Bool)
+    { _dpgsGroupNames :: !(Maybe [Text])
+    , _dpgsFilters    :: !(Maybe [Filter])
+    , _dpgsDryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePlacementGroups' smart constructor.
 describePlacementGroups :: DescribePlacementGroups
 describePlacementGroups =
     DescribePlacementGroups'
-    { _dpgsrqGroupNames = Nothing
-    , _dpgsrqFilters = Nothing
-    , _dpgsrqDryRun = Nothing
+    { _dpgsGroupNames = Nothing
+    , _dpgsFilters = Nothing
+    , _dpgsDryRun = Nothing
     }
 
 -- | One or more placement group names.
 --
 -- Default: Describes all your placement groups, or only those otherwise
 -- specified.
-dpgsrqGroupNames :: Lens' DescribePlacementGroups [Text]
-dpgsrqGroupNames = lens _dpgsrqGroupNames (\ s a -> s{_dpgsrqGroupNames = a}) . _Default;
+dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
+dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -88,15 +88,15 @@ dpgsrqGroupNames = lens _dpgsrqGroupNames (\ s a -> s{_dpgsrqGroupNames = a}) . 
 --
 -- -   @strategy@ - The strategy of the placement group (@cluster@).
 --
-dpgsrqFilters :: Lens' DescribePlacementGroups [Filter]
-dpgsrqFilters = lens _dpgsrqFilters (\ s a -> s{_dpgsrqFilters = a}) . _Default;
+dpgsFilters :: Lens' DescribePlacementGroups [Filter]
+dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dpgsrqDryRun :: Lens' DescribePlacementGroups (Maybe Bool)
-dpgsrqDryRun = lens _dpgsrqDryRun (\ s a -> s{_dpgsrqDryRun = a});
+dpgsDryRun :: Lens' DescribePlacementGroups (Maybe Bool)
+dpgsDryRun = lens _dpgsDryRun (\ s a -> s{_dpgsDryRun = a});
 
 instance AWSRequest DescribePlacementGroups where
         type Sv DescribePlacementGroups = EC2
@@ -124,9 +124,9 @@ instance ToQuery DescribePlacementGroups where
                  ("DescribePlacementGroups" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "GroupName" <$> _dpgsrqGroupNames),
-               toQuery (toQueryList "Filter" <$> _dpgsrqFilters),
-               "DryRun" =: _dpgsrqDryRun]
+                 (toQueryList "GroupName" <$> _dpgsGroupNames),
+               toQuery (toQueryList "Filter" <$> _dpgsFilters),
+               "DryRun" =: _dpgsDryRun]
 
 -- | /See:/ 'describePlacementGroupsResponse' smart constructor.
 --

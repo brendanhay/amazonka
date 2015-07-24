@@ -36,8 +36,8 @@ module Network.AWS.SQS.GetQueueURL
     -- ** Request constructor
     , getQueueURL
     -- ** Request lenses
-    , gqurqQueueOwnerAWSAccountId
-    , gqurqQueueName
+    , gquQueueOwnerAWSAccountId
+    , gquQueueName
 
     -- * Response
     , GetQueueURLResponse
@@ -57,30 +57,30 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqurqQueueOwnerAWSAccountId'
+-- * 'gquQueueOwnerAWSAccountId'
 --
--- * 'gqurqQueueName'
+-- * 'gquQueueName'
 data GetQueueURL = GetQueueURL'
-    { _gqurqQueueOwnerAWSAccountId :: !(Maybe Text)
-    , _gqurqQueueName              :: !Text
+    { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
+    , _gquQueueName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueURL' smart constructor.
 getQueueURL :: Text -> GetQueueURL
 getQueueURL pQueueName_ =
     GetQueueURL'
-    { _gqurqQueueOwnerAWSAccountId = Nothing
-    , _gqurqQueueName = pQueueName_
+    { _gquQueueOwnerAWSAccountId = Nothing
+    , _gquQueueName = pQueueName_
     }
 
 -- | The AWS account ID of the account that created the queue.
-gqurqQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
-gqurqQueueOwnerAWSAccountId = lens _gqurqQueueOwnerAWSAccountId (\ s a -> s{_gqurqQueueOwnerAWSAccountId = a});
+gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
+gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a});
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters;
 -- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
-gqurqQueueName :: Lens' GetQueueURL Text
-gqurqQueueName = lens _gqurqQueueName (\ s a -> s{_gqurqQueueName = a});
+gquQueueName :: Lens' GetQueueURL Text
+gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
 
 instance AWSRequest GetQueueURL where
         type Sv GetQueueURL = SQS
@@ -104,8 +104,8 @@ instance ToQuery GetQueueURL where
               ["Action" =: ("GetQueueURL" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                "QueueOwnerAWSAccountId" =:
-                 _gqurqQueueOwnerAWSAccountId,
-               "QueueName" =: _gqurqQueueName]
+                 _gquQueueOwnerAWSAccountId,
+               "QueueName" =: _gquQueueName]
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses>

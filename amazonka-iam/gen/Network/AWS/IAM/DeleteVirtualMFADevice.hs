@@ -31,7 +31,7 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
     -- ** Request constructor
     , deleteVirtualMFADevice
     -- ** Request lenses
-    , dvmdrqSerialNumber
+    , dvmdSerialNumber
 
     -- * Response
     , DeleteVirtualMFADeviceResponse
@@ -48,22 +48,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvmdrqSerialNumber'
+-- * 'dvmdSerialNumber'
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
-    { _dvmdrqSerialNumber :: Text
+    { _dvmdSerialNumber :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualMFADevice' smart constructor.
 deleteVirtualMFADevice :: Text -> DeleteVirtualMFADevice
 deleteVirtualMFADevice pSerialNumber_ =
     DeleteVirtualMFADevice'
-    { _dvmdrqSerialNumber = pSerialNumber_
+    { _dvmdSerialNumber = pSerialNumber_
     }
 
 -- | The serial number that uniquely identifies the MFA device. For virtual
 -- MFA devices, the serial number is the same as the ARN.
-dvmdrqSerialNumber :: Lens' DeleteVirtualMFADevice Text
-dvmdrqSerialNumber = lens _dvmdrqSerialNumber (\ s a -> s{_dvmdrqSerialNumber = a});
+dvmdSerialNumber :: Lens' DeleteVirtualMFADevice Text
+dvmdSerialNumber = lens _dvmdSerialNumber (\ s a -> s{_dvmdSerialNumber = a});
 
 instance AWSRequest DeleteVirtualMFADevice where
         type Sv DeleteVirtualMFADevice = IAM
@@ -85,7 +85,7 @@ instance ToQuery DeleteVirtualMFADevice where
               ["Action" =:
                  ("DeleteVirtualMFADevice" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "SerialNumber" =: _dvmdrqSerialNumber]
+               "SerialNumber" =: _dvmdSerialNumber]
 
 -- | /See:/ 'deleteVirtualMFADeviceResponse' smart constructor.
 data DeleteVirtualMFADeviceResponse =

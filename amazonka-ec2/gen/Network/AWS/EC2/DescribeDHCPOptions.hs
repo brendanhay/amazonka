@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeDHCPOptions
     -- ** Request constructor
     , describeDHCPOptions
     -- ** Request lenses
-    , ddorqFilters
-    , ddorqDHCPOptionsIds
-    , ddorqDryRun
+    , ddoFilters
+    , ddoDHCPOptionsIds
+    , ddoDryRun
 
     -- * Response
     , DescribeDHCPOptionsResponse
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddorqFilters'
+-- * 'ddoFilters'
 --
--- * 'ddorqDHCPOptionsIds'
+-- * 'ddoDHCPOptionsIds'
 --
--- * 'ddorqDryRun'
+-- * 'ddoDryRun'
 data DescribeDHCPOptions = DescribeDHCPOptions'
-    { _ddorqFilters        :: !(Maybe [Filter])
-    , _ddorqDHCPOptionsIds :: !(Maybe [Text])
-    , _ddorqDryRun         :: !(Maybe Bool)
+    { _ddoFilters        :: !(Maybe [Filter])
+    , _ddoDHCPOptionsIds :: !(Maybe [Text])
+    , _ddoDryRun         :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDHCPOptions' smart constructor.
 describeDHCPOptions :: DescribeDHCPOptions
 describeDHCPOptions =
     DescribeDHCPOptions'
-    { _ddorqFilters = Nothing
-    , _ddorqDHCPOptionsIds = Nothing
-    , _ddorqDryRun = Nothing
+    { _ddoFilters = Nothing
+    , _ddoDHCPOptionsIds = Nothing
+    , _ddoDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -95,21 +95,21 @@ describeDHCPOptions =
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-ddorqFilters :: Lens' DescribeDHCPOptions [Filter]
-ddorqFilters = lens _ddorqFilters (\ s a -> s{_ddorqFilters = a}) . _Default;
+ddoFilters :: Lens' DescribeDHCPOptions [Filter]
+ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a}) . _Default;
 
 -- | The IDs of one or more DHCP options sets.
 --
 -- Default: Describes all your DHCP options sets.
-ddorqDHCPOptionsIds :: Lens' DescribeDHCPOptions [Text]
-ddorqDHCPOptionsIds = lens _ddorqDHCPOptionsIds (\ s a -> s{_ddorqDHCPOptionsIds = a}) . _Default;
+ddoDHCPOptionsIds :: Lens' DescribeDHCPOptions [Text]
+ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ddorqDryRun :: Lens' DescribeDHCPOptions (Maybe Bool)
-ddorqDryRun = lens _ddorqDryRun (\ s a -> s{_ddorqDryRun = a});
+ddoDryRun :: Lens' DescribeDHCPOptions (Maybe Bool)
+ddoDryRun = lens _ddoDryRun (\ s a -> s{_ddoDryRun = a});
 
 instance AWSRequest DescribeDHCPOptions where
         type Sv DescribeDHCPOptions = EC2
@@ -135,11 +135,10 @@ instance ToQuery DescribeDHCPOptions where
           = mconcat
               ["Action" =: ("DescribeDHCPOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _ddorqFilters),
+               toQuery (toQueryList "Filter" <$> _ddoFilters),
                toQuery
-                 (toQueryList "DhcpOptionsId" <$>
-                    _ddorqDHCPOptionsIds),
-               "DryRun" =: _ddorqDryRun]
+                 (toQueryList "DhcpOptionsId" <$> _ddoDHCPOptionsIds),
+               "DryRun" =: _ddoDryRun]
 
 -- | /See:/ 'describeDHCPOptionsResponse' smart constructor.
 --

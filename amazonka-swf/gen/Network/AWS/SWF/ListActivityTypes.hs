@@ -50,12 +50,12 @@ module Network.AWS.SWF.ListActivityTypes
     -- ** Request constructor
     , listActivityTypes
     -- ** Request lenses
-    , latrqNextPageToken
-    , latrqReverseOrder
-    , latrqName
-    , latrqMaximumPageSize
-    , latrqDomain
-    , latrqRegistrationStatus
+    , latNextPageToken
+    , latReverseOrder
+    , latName
+    , latMaximumPageSize
+    , latDomain
+    , latRegistrationStatus
 
     -- * Response
     , ListActivityTypesResponse
@@ -77,36 +77,36 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'latrqNextPageToken'
+-- * 'latNextPageToken'
 --
--- * 'latrqReverseOrder'
+-- * 'latReverseOrder'
 --
--- * 'latrqName'
+-- * 'latName'
 --
--- * 'latrqMaximumPageSize'
+-- * 'latMaximumPageSize'
 --
--- * 'latrqDomain'
+-- * 'latDomain'
 --
--- * 'latrqRegistrationStatus'
+-- * 'latRegistrationStatus'
 data ListActivityTypes = ListActivityTypes'
-    { _latrqNextPageToken      :: !(Maybe Text)
-    , _latrqReverseOrder       :: !(Maybe Bool)
-    , _latrqName               :: !(Maybe Text)
-    , _latrqMaximumPageSize    :: !(Maybe Nat)
-    , _latrqDomain             :: !Text
-    , _latrqRegistrationStatus :: !RegistrationStatus
+    { _latNextPageToken      :: !(Maybe Text)
+    , _latReverseOrder       :: !(Maybe Bool)
+    , _latName               :: !(Maybe Text)
+    , _latMaximumPageSize    :: !(Maybe Nat)
+    , _latDomain             :: !Text
+    , _latRegistrationStatus :: !RegistrationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListActivityTypes' smart constructor.
 listActivityTypes :: Text -> RegistrationStatus -> ListActivityTypes
 listActivityTypes pDomain_ pRegistrationStatus_ =
     ListActivityTypes'
-    { _latrqNextPageToken = Nothing
-    , _latrqReverseOrder = Nothing
-    , _latrqName = Nothing
-    , _latrqMaximumPageSize = Nothing
-    , _latrqDomain = pDomain_
-    , _latrqRegistrationStatus = pRegistrationStatus_
+    { _latNextPageToken = Nothing
+    , _latReverseOrder = Nothing
+    , _latName = Nothing
+    , _latMaximumPageSize = Nothing
+    , _latDomain = pDomain_
+    , _latRegistrationStatus = pRegistrationStatus_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -116,18 +116,18 @@ listActivityTypes pDomain_ pRegistrationStatus_ =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-latrqNextPageToken :: Lens' ListActivityTypes (Maybe Text)
-latrqNextPageToken = lens _latrqNextPageToken (\ s a -> s{_latrqNextPageToken = a});
+latNextPageToken :: Lens' ListActivityTypes (Maybe Text)
+latNextPageToken = lens _latNextPageToken (\ s a -> s{_latNextPageToken = a});
 
 -- | When set to @true@, returns the results in reverse order. By default,
 -- the results are returned in ascending alphabetical order by @name@ of
 -- the activity types.
-latrqReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
-latrqReverseOrder = lens _latrqReverseOrder (\ s a -> s{_latrqReverseOrder = a});
+latReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
+latReverseOrder = lens _latReverseOrder (\ s a -> s{_latReverseOrder = a});
 
 -- | If specified, only lists the activity types that have this name.
-latrqName :: Lens' ListActivityTypes (Maybe Text)
-latrqName = lens _latrqName (\ s a -> s{_latrqName = a});
+latName :: Lens' ListActivityTypes (Maybe Text)
+latName = lens _latName (\ s a -> s{_latName = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -136,16 +136,16 @@ latrqName = lens _latrqName (\ s a -> s{_latrqName = a});
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
-latrqMaximumPageSize :: Lens' ListActivityTypes (Maybe Natural)
-latrqMaximumPageSize = lens _latrqMaximumPageSize (\ s a -> s{_latrqMaximumPageSize = a}) . mapping _Nat;
+latMaximumPageSize :: Lens' ListActivityTypes (Maybe Natural)
+latMaximumPageSize = lens _latMaximumPageSize (\ s a -> s{_latMaximumPageSize = a}) . mapping _Nat;
 
 -- | The name of the domain in which the activity types have been registered.
-latrqDomain :: Lens' ListActivityTypes Text
-latrqDomain = lens _latrqDomain (\ s a -> s{_latrqDomain = a});
+latDomain :: Lens' ListActivityTypes Text
+latDomain = lens _latDomain (\ s a -> s{_latDomain = a});
 
 -- | Specifies the registration status of the activity types to list.
-latrqRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
-latrqRegistrationStatus = lens _latrqRegistrationStatus (\ s a -> s{_latrqRegistrationStatus = a});
+latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
+latRegistrationStatus = lens _latRegistrationStatus (\ s a -> s{_latRegistrationStatus = a});
 
 instance AWSPager ListActivityTypes where
         page rq rs
@@ -153,7 +153,7 @@ instance AWSPager ListActivityTypes where
           | stop (rs ^. latrsTypeInfos) = Nothing
           | otherwise =
             Just $ rq &
-              latrqNextPageToken .~ rs ^. latrsNextPageToken
+              latNextPageToken .~ rs ^. latrsNextPageToken
 
 instance AWSRequest ListActivityTypes where
         type Sv ListActivityTypes = SWF
@@ -179,12 +179,12 @@ instance ToHeaders ListActivityTypes where
 instance ToJSON ListActivityTypes where
         toJSON ListActivityTypes'{..}
           = object
-              ["nextPageToken" .= _latrqNextPageToken,
-               "reverseOrder" .= _latrqReverseOrder,
-               "name" .= _latrqName,
-               "maximumPageSize" .= _latrqMaximumPageSize,
-               "domain" .= _latrqDomain,
-               "registrationStatus" .= _latrqRegistrationStatus]
+              ["nextPageToken" .= _latNextPageToken,
+               "reverseOrder" .= _latReverseOrder,
+               "name" .= _latName,
+               "maximumPageSize" .= _latMaximumPageSize,
+               "domain" .= _latDomain,
+               "registrationStatus" .= _latRegistrationStatus]
 
 instance ToPath ListActivityTypes where
         toPath = const "/"

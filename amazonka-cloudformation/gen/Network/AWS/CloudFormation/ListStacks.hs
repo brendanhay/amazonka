@@ -31,8 +31,8 @@ module Network.AWS.CloudFormation.ListStacks
     -- ** Request constructor
     , listStacks
     -- ** Request lenses
-    , lsrqNextToken
-    , lsrqStackStatusFilter
+    , lsNextToken
+    , lsStackStatusFilter
 
     -- * Response
     , ListStacksResponse
@@ -56,42 +56,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrqNextToken'
+-- * 'lsNextToken'
 --
--- * 'lsrqStackStatusFilter'
+-- * 'lsStackStatusFilter'
 data ListStacks = ListStacks'
-    { _lsrqNextToken         :: !(Maybe Text)
-    , _lsrqStackStatusFilter :: !(Maybe [StackStatus])
+    { _lsNextToken         :: !(Maybe Text)
+    , _lsStackStatusFilter :: !(Maybe [StackStatus])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStacks' smart constructor.
 listStacks :: ListStacks
 listStacks =
     ListStacks'
-    { _lsrqNextToken = Nothing
-    , _lsrqStackStatusFilter = Nothing
+    { _lsNextToken = Nothing
+    , _lsStackStatusFilter = Nothing
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 --
 -- Default: There is no default value.
-lsrqNextToken :: Lens' ListStacks (Maybe Text)
-lsrqNextToken = lens _lsrqNextToken (\ s a -> s{_lsrqNextToken = a});
+lsNextToken :: Lens' ListStacks (Maybe Text)
+lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
 -- | Stack status to use as a filter. Specify one or more stack status codes
 -- to list only stacks with the specified status codes. For a complete list
 -- of stack status codes, see the @StackStatus@ parameter of the Stack data
 -- type.
-lsrqStackStatusFilter :: Lens' ListStacks [StackStatus]
-lsrqStackStatusFilter = lens _lsrqStackStatusFilter (\ s a -> s{_lsrqStackStatusFilter = a}) . _Default;
+lsStackStatusFilter :: Lens' ListStacks [StackStatus]
+lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default;
 
 instance AWSPager ListStacks where
         page rq rs
           | stop (rs ^. lsrsNextToken) = Nothing
           | stop (rs ^. lsrsStackSummaries) = Nothing
           | otherwise =
-            Just $ rq & lsrqNextToken .~ rs ^. lsrsNextToken
+            Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListStacks where
         type Sv ListStacks = CloudFormation
@@ -117,10 +117,10 @@ instance ToQuery ListStacks where
           = mconcat
               ["Action" =: ("ListStacks" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "NextToken" =: _lsrqNextToken,
+               "NextToken" =: _lsNextToken,
                "StackStatusFilter" =:
                  toQuery
-                   (toQueryList "member" <$> _lsrqStackStatusFilter)]
+                   (toQueryList "member" <$> _lsStackStatusFilter)]
 
 -- | The output for ListStacks action.
 --

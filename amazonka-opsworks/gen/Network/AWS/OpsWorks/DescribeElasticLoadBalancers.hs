@@ -35,8 +35,8 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     -- ** Request constructor
     , describeElasticLoadBalancers
     -- ** Request lenses
-    , delbrqLayerIds
-    , delbrqStackId
+    , delbLayerIds
+    , delbStackId
 
     -- * Response
     , DescribeElasticLoadBalancersResponse
@@ -56,31 +56,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delbrqLayerIds'
+-- * 'delbLayerIds'
 --
--- * 'delbrqStackId'
+-- * 'delbStackId'
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
-    { _delbrqLayerIds :: !(Maybe [Text])
-    , _delbrqStackId  :: !(Maybe Text)
+    { _delbLayerIds :: !(Maybe [Text])
+    , _delbStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticLoadBalancers' smart constructor.
 describeElasticLoadBalancers :: DescribeElasticLoadBalancers
 describeElasticLoadBalancers =
     DescribeElasticLoadBalancers'
-    { _delbrqLayerIds = Nothing
-    , _delbrqStackId = Nothing
+    { _delbLayerIds = Nothing
+    , _delbStackId = Nothing
     }
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
-delbrqLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
-delbrqLayerIds = lens _delbrqLayerIds (\ s a -> s{_delbrqLayerIds = a}) . _Default;
+delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
+delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default;
 
 -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
 -- instances.
-delbrqStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
-delbrqStackId = lens _delbrqStackId (\ s a -> s{_delbrqStackId = a});
+delbStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
+delbStackId = lens _delbStackId (\ s a -> s{_delbStackId = a});
 
 instance AWSRequest DescribeElasticLoadBalancers
          where
@@ -108,8 +108,8 @@ instance ToHeaders DescribeElasticLoadBalancers where
 instance ToJSON DescribeElasticLoadBalancers where
         toJSON DescribeElasticLoadBalancers'{..}
           = object
-              ["LayerIds" .= _delbrqLayerIds,
-               "StackId" .= _delbrqStackId]
+              ["LayerIds" .= _delbLayerIds,
+               "StackId" .= _delbStackId]
 
 instance ToPath DescribeElasticLoadBalancers where
         toPath = const "/"

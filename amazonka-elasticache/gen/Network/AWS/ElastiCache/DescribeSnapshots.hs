@@ -30,11 +30,11 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- ** Request constructor
     , describeSnapshots
     -- ** Request lenses
-    , dsrqCacheClusterId
-    , dsrqMaxRecords
-    , dsrqMarker
-    , dsrqSnapshotName
-    , dsrqSnapshotSource
+    , dsCacheClusterId
+    , dsMaxRecords
+    , dsMarker
+    , dsSnapshotName
+    , dsSnapshotSource
 
     -- * Response
     , DescribeSnapshotsResponse
@@ -58,38 +58,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqCacheClusterId'
+-- * 'dsCacheClusterId'
 --
--- * 'dsrqMaxRecords'
+-- * 'dsMaxRecords'
 --
--- * 'dsrqMarker'
+-- * 'dsMarker'
 --
--- * 'dsrqSnapshotName'
+-- * 'dsSnapshotName'
 --
--- * 'dsrqSnapshotSource'
+-- * 'dsSnapshotSource'
 data DescribeSnapshots = DescribeSnapshots'
-    { _dsrqCacheClusterId :: !(Maybe Text)
-    , _dsrqMaxRecords     :: !(Maybe Int)
-    , _dsrqMarker         :: !(Maybe Text)
-    , _dsrqSnapshotName   :: !(Maybe Text)
-    , _dsrqSnapshotSource :: !(Maybe Text)
+    { _dsCacheClusterId :: !(Maybe Text)
+    , _dsMaxRecords     :: !(Maybe Int)
+    , _dsMarker         :: !(Maybe Text)
+    , _dsSnapshotName   :: !(Maybe Text)
+    , _dsSnapshotSource :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
 describeSnapshots =
     DescribeSnapshots'
-    { _dsrqCacheClusterId = Nothing
-    , _dsrqMaxRecords = Nothing
-    , _dsrqMarker = Nothing
-    , _dsrqSnapshotName = Nothing
-    , _dsrqSnapshotSource = Nothing
+    { _dsCacheClusterId = Nothing
+    , _dsMaxRecords = Nothing
+    , _dsMarker = Nothing
+    , _dsSnapshotName = Nothing
+    , _dsSnapshotSource = Nothing
     }
 
 -- | A user-supplied cluster identifier. If this parameter is specified, only
 -- snapshots associated with that specific cache cluster will be described.
-dsrqCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
-dsrqCacheClusterId = lens _dsrqCacheClusterId (\ s a -> s{_dsrqCacheClusterId = a});
+dsCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
+dsCacheClusterId = lens _dsCacheClusterId (\ s a -> s{_dsCacheClusterId = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -98,34 +98,34 @@ dsrqCacheClusterId = lens _dsrqCacheClusterId (\ s a -> s{_dsrqCacheClusterId = 
 -- Default: 50
 --
 -- Constraints: minimum 20; maximum 50.
-dsrqMaxRecords :: Lens' DescribeSnapshots (Maybe Int)
-dsrqMaxRecords = lens _dsrqMaxRecords (\ s a -> s{_dsrqMaxRecords = a});
+dsMaxRecords :: Lens' DescribeSnapshots (Maybe Int)
+dsMaxRecords = lens _dsMaxRecords (\ s a -> s{_dsMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dsrqMarker :: Lens' DescribeSnapshots (Maybe Text)
-dsrqMarker = lens _dsrqMarker (\ s a -> s{_dsrqMarker = a});
+dsMarker :: Lens' DescribeSnapshots (Maybe Text)
+dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
 
 -- | A user-supplied name of the snapshot. If this parameter is specified,
 -- only this snapshot will be described.
-dsrqSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
-dsrqSnapshotName = lens _dsrqSnapshotName (\ s a -> s{_dsrqSnapshotName = a});
+dsSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
+dsSnapshotName = lens _dsSnapshotName (\ s a -> s{_dsSnapshotName = a});
 
 -- | If set to @system@, the output shows snapshots that were automatically
 -- created by ElastiCache. If set to @user@ the output shows snapshots that
 -- were manually created. If omitted, the output shows both automatically
 -- and manually created snapshots.
-dsrqSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
-dsrqSnapshotSource = lens _dsrqSnapshotSource (\ s a -> s{_dsrqSnapshotSource = a});
+dsSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
+dsSnapshotSource = lens _dsSnapshotSource (\ s a -> s{_dsSnapshotSource = a});
 
 instance AWSPager DescribeSnapshots where
         page rq rs
           | stop (rs ^. dssrsMarker) = Nothing
           | stop (rs ^. dssrsSnapshots) = Nothing
           | otherwise =
-            Just $ rq & dsrqMarker .~ rs ^. dssrsMarker
+            Just $ rq & dsMarker .~ rs ^. dssrsMarker
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache
@@ -151,11 +151,10 @@ instance ToQuery DescribeSnapshots where
           = mconcat
               ["Action" =: ("DescribeSnapshots" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheClusterId" =: _dsrqCacheClusterId,
-               "MaxRecords" =: _dsrqMaxRecords,
-               "Marker" =: _dsrqMarker,
-               "SnapshotName" =: _dsrqSnapshotName,
-               "SnapshotSource" =: _dsrqSnapshotSource]
+               "CacheClusterId" =: _dsCacheClusterId,
+               "MaxRecords" =: _dsMaxRecords, "Marker" =: _dsMarker,
+               "SnapshotName" =: _dsSnapshotName,
+               "SnapshotSource" =: _dsSnapshotSource]
 
 -- | Represents the output of a /DescribeSnapshots/ action.
 --

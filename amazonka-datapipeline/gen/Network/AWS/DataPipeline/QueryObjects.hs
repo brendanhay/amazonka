@@ -28,11 +28,11 @@ module Network.AWS.DataPipeline.QueryObjects
     -- ** Request constructor
     , queryObjects
     -- ** Request lenses
-    , qorqQuery
-    , qorqMarker
-    , qorqLimit
-    , qorqPipelineId
-    , qorqSphere
+    , qoQuery
+    , qoMarker
+    , qoLimit
+    , qoPipelineId
+    , qoSphere
 
     -- * Response
     , QueryObjectsResponse
@@ -57,68 +57,68 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'qorqQuery'
+-- * 'qoQuery'
 --
--- * 'qorqMarker'
+-- * 'qoMarker'
 --
--- * 'qorqLimit'
+-- * 'qoLimit'
 --
--- * 'qorqPipelineId'
+-- * 'qoPipelineId'
 --
--- * 'qorqSphere'
+-- * 'qoSphere'
 data QueryObjects = QueryObjects'
-    { _qorqQuery      :: !(Maybe Query)
-    , _qorqMarker     :: !(Maybe Text)
-    , _qorqLimit      :: !(Maybe Int)
-    , _qorqPipelineId :: !Text
-    , _qorqSphere     :: !Text
+    { _qoQuery      :: !(Maybe Query)
+    , _qoMarker     :: !(Maybe Text)
+    , _qoLimit      :: !(Maybe Int)
+    , _qoPipelineId :: !Text
+    , _qoSphere     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'QueryObjects' smart constructor.
 queryObjects :: Text -> Text -> QueryObjects
 queryObjects pPipelineId_ pSphere_ =
     QueryObjects'
-    { _qorqQuery = Nothing
-    , _qorqMarker = Nothing
-    , _qorqLimit = Nothing
-    , _qorqPipelineId = pPipelineId_
-    , _qorqSphere = pSphere_
+    { _qoQuery = Nothing
+    , _qoMarker = Nothing
+    , _qoLimit = Nothing
+    , _qoPipelineId = pPipelineId_
+    , _qoSphere = pSphere_
     }
 
 -- | The query that defines the objects to be returned. The @Query@ object
 -- can contain a maximum of ten selectors. The conditions in the query are
 -- limited to top-level String fields in the object. These filters can be
 -- applied to components, instances, and attempts.
-qorqQuery :: Lens' QueryObjects (Maybe Query)
-qorqQuery = lens _qorqQuery (\ s a -> s{_qorqQuery = a});
+qoQuery :: Lens' QueryObjects (Maybe Query)
+qoQuery = lens _qoQuery (\ s a -> s{_qoQuery = a});
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @QueryObjects@ with the marker value from the previous call to
 -- retrieve the next set of results.
-qorqMarker :: Lens' QueryObjects (Maybe Text)
-qorqMarker = lens _qorqMarker (\ s a -> s{_qorqMarker = a});
+qoMarker :: Lens' QueryObjects (Maybe Text)
+qoMarker = lens _qoMarker (\ s a -> s{_qoMarker = a});
 
 -- | The maximum number of object names that @QueryObjects@ will return in a
 -- single call. The default value is 100.
-qorqLimit :: Lens' QueryObjects (Maybe Int)
-qorqLimit = lens _qorqLimit (\ s a -> s{_qorqLimit = a});
+qoLimit :: Lens' QueryObjects (Maybe Int)
+qoLimit = lens _qoLimit (\ s a -> s{_qoLimit = a});
 
 -- | The ID of the pipeline.
-qorqPipelineId :: Lens' QueryObjects Text
-qorqPipelineId = lens _qorqPipelineId (\ s a -> s{_qorqPipelineId = a});
+qoPipelineId :: Lens' QueryObjects Text
+qoPipelineId = lens _qoPipelineId (\ s a -> s{_qoPipelineId = a});
 
 -- | Indicates whether the query applies to components or instances. The
 -- possible values are: @COMPONENT@, @INSTANCE@, and @ATTEMPT@.
-qorqSphere :: Lens' QueryObjects Text
-qorqSphere = lens _qorqSphere (\ s a -> s{_qorqSphere = a});
+qoSphere :: Lens' QueryObjects Text
+qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a});
 
 instance AWSPager QueryObjects where
         page rq rs
           | stop (rs ^. qorsHasMoreResults) = Nothing
           | isNothing (rs ^. qorsMarker) = Nothing
           | otherwise =
-            Just $ rq & qorqMarker .~ rs ^. qorsMarker
+            Just $ rq & qoMarker .~ rs ^. qorsMarker
 
 instance AWSRequest QueryObjects where
         type Sv QueryObjects = DataPipeline
@@ -144,10 +144,9 @@ instance ToHeaders QueryObjects where
 instance ToJSON QueryObjects where
         toJSON QueryObjects'{..}
           = object
-              ["query" .= _qorqQuery, "marker" .= _qorqMarker,
-               "limit" .= _qorqLimit,
-               "pipelineId" .= _qorqPipelineId,
-               "sphere" .= _qorqSphere]
+              ["query" .= _qoQuery, "marker" .= _qoMarker,
+               "limit" .= _qoLimit, "pipelineId" .= _qoPipelineId,
+               "sphere" .= _qoSphere]
 
 instance ToPath QueryObjects where
         toPath = const "/"

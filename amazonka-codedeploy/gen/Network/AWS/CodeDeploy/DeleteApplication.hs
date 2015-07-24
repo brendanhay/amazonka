@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.DeleteApplication
     -- ** Request constructor
     , deleteApplication
     -- ** Request lenses
-    , darqApplicationName
+    , daApplicationName
 
     -- * Response
     , DeleteApplicationResponse
@@ -46,22 +46,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darqApplicationName'
+-- * 'daApplicationName'
 newtype DeleteApplication = DeleteApplication'
-    { _darqApplicationName :: Text
+    { _daApplicationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
 deleteApplication pApplicationName_ =
     DeleteApplication'
-    { _darqApplicationName = pApplicationName_
+    { _daApplicationName = pApplicationName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-darqApplicationName :: Lens' DeleteApplication Text
-darqApplicationName = lens _darqApplicationName (\ s a -> s{_darqApplicationName = a});
+daApplicationName :: Lens' DeleteApplication Text
+daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
 
 instance AWSRequest DeleteApplication where
         type Sv DeleteApplication = CodeDeploy
@@ -81,7 +81,7 @@ instance ToHeaders DeleteApplication where
 
 instance ToJSON DeleteApplication where
         toJSON DeleteApplication'{..}
-          = object ["applicationName" .= _darqApplicationName]
+          = object ["applicationName" .= _daApplicationName]
 
 instance ToPath DeleteApplication where
         toPath = const "/"

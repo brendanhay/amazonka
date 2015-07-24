@@ -27,8 +27,8 @@ module Network.AWS.DataPipeline.RemoveTags
     -- ** Request constructor
     , removeTags
     -- ** Request lenses
-    , rtrqPipelineId
-    , rtrqTagKeys
+    , rtPipelineId
+    , rtTagKeys
 
     -- * Response
     , RemoveTagsResponse
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrqPipelineId'
+-- * 'rtPipelineId'
 --
--- * 'rtrqTagKeys'
+-- * 'rtTagKeys'
 data RemoveTags = RemoveTags'
-    { _rtrqPipelineId :: !Text
-    , _rtrqTagKeys    :: ![Text]
+    { _rtPipelineId :: !Text
+    , _rtTagKeys    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
 removeTags pPipelineId_ =
     RemoveTags'
-    { _rtrqPipelineId = pPipelineId_
-    , _rtrqTagKeys = mempty
+    { _rtPipelineId = pPipelineId_
+    , _rtTagKeys = mempty
     }
 
 -- | The ID of the pipeline.
-rtrqPipelineId :: Lens' RemoveTags Text
-rtrqPipelineId = lens _rtrqPipelineId (\ s a -> s{_rtrqPipelineId = a});
+rtPipelineId :: Lens' RemoveTags Text
+rtPipelineId = lens _rtPipelineId (\ s a -> s{_rtPipelineId = a});
 
 -- | The keys of the tags to remove.
-rtrqTagKeys :: Lens' RemoveTags [Text]
-rtrqTagKeys = lens _rtrqTagKeys (\ s a -> s{_rtrqTagKeys = a});
+rtTagKeys :: Lens' RemoveTags [Text]
+rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a});
 
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = DataPipeline
@@ -94,8 +94,8 @@ instance ToHeaders RemoveTags where
 instance ToJSON RemoveTags where
         toJSON RemoveTags'{..}
           = object
-              ["pipelineId" .= _rtrqPipelineId,
-               "tagKeys" .= _rtrqTagKeys]
+              ["pipelineId" .= _rtPipelineId,
+               "tagKeys" .= _rtTagKeys]
 
 instance ToPath RemoveTags where
         toPath = const "/"

@@ -36,9 +36,9 @@ module Network.AWS.Route53.ListHostedZones
     -- ** Request constructor
     , listHostedZones
     -- ** Request lenses
-    , lhzrqDelegationSetId
-    , lhzrqMaxItems
-    , lhzrqMarker
+    , lhzDelegationSetId
+    , lhzMaxItems
+    , lhzMarker
 
     -- * Response
     , ListHostedZonesResponse
@@ -77,47 +77,47 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhzrqDelegationSetId'
+-- * 'lhzDelegationSetId'
 --
--- * 'lhzrqMaxItems'
+-- * 'lhzMaxItems'
 --
--- * 'lhzrqMarker'
+-- * 'lhzMarker'
 data ListHostedZones = ListHostedZones'
-    { _lhzrqDelegationSetId :: !(Maybe Text)
-    , _lhzrqMaxItems        :: !(Maybe Text)
-    , _lhzrqMarker          :: !(Maybe Text)
+    { _lhzDelegationSetId :: !(Maybe Text)
+    , _lhzMaxItems        :: !(Maybe Text)
+    , _lhzMarker          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZones' smart constructor.
 listHostedZones :: ListHostedZones
 listHostedZones =
     ListHostedZones'
-    { _lhzrqDelegationSetId = Nothing
-    , _lhzrqMaxItems = Nothing
-    , _lhzrqMarker = Nothing
+    { _lhzDelegationSetId = Nothing
+    , _lhzMaxItems = Nothing
+    , _lhzMarker = Nothing
     }
 
 -- | FIXME: Undocumented member.
-lhzrqDelegationSetId :: Lens' ListHostedZones (Maybe Text)
-lhzrqDelegationSetId = lens _lhzrqDelegationSetId (\ s a -> s{_lhzrqDelegationSetId = a});
+lhzDelegationSetId :: Lens' ListHostedZones (Maybe Text)
+lhzDelegationSetId = lens _lhzDelegationSetId (\ s a -> s{_lhzDelegationSetId = a});
 
 -- | Specify the maximum number of hosted zones to return per page of
 -- results.
-lhzrqMaxItems :: Lens' ListHostedZones (Maybe Text)
-lhzrqMaxItems = lens _lhzrqMaxItems (\ s a -> s{_lhzrqMaxItems = a});
+lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
+lhzMaxItems = lens _lhzMaxItems (\ s a -> s{_lhzMaxItems = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lhzrqMarker :: Lens' ListHostedZones (Maybe Text)
-lhzrqMarker = lens _lhzrqMarker (\ s a -> s{_lhzrqMarker = a});
+lhzMarker :: Lens' ListHostedZones (Maybe Text)
+lhzMarker = lens _lhzMarker (\ s a -> s{_lhzMarker = a});
 
 instance AWSPager ListHostedZones where
         page rq rs
           | stop (rs ^. lhzrsIsTruncated) = Nothing
           | isNothing (rs ^. lhzrsNextMarker) = Nothing
           | otherwise =
-            Just $ rq & lhzrqMarker .~ rs ^. lhzrsNextMarker
+            Just $ rq & lhzMarker .~ rs ^. lhzrsNextMarker
 
 instance AWSRequest ListHostedZones where
         type Sv ListHostedZones = Route53
@@ -143,9 +143,8 @@ instance ToPath ListHostedZones where
 instance ToQuery ListHostedZones where
         toQuery ListHostedZones'{..}
           = mconcat
-              ["delegationsetid" =: _lhzrqDelegationSetId,
-               "maxitems" =: _lhzrqMaxItems,
-               "marker" =: _lhzrqMarker]
+              ["delegationsetid" =: _lhzDelegationSetId,
+               "maxitems" =: _lhzMaxItems, "marker" =: _lhzMarker]
 
 -- | A complex type that contains the response for the request.
 --

@@ -39,10 +39,10 @@ module Network.AWS.EC2.AssignPrivateIPAddresses
     -- ** Request constructor
     , assignPrivateIPAddresses
     -- ** Request lenses
-    , apiarqPrivateIPAddresses
-    , apiarqAllowReassignment
-    , apiarqSecondaryPrivateIPAddressCount
-    , apiarqNetworkInterfaceId
+    , apiaPrivateIPAddresses
+    , apiaAllowReassignment
+    , apiaSecondaryPrivateIPAddressCount
+    , apiaNetworkInterfaceId
 
     -- * Response
     , AssignPrivateIPAddressesResponse
@@ -59,28 +59,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apiarqPrivateIPAddresses'
+-- * 'apiaPrivateIPAddresses'
 --
--- * 'apiarqAllowReassignment'
+-- * 'apiaAllowReassignment'
 --
--- * 'apiarqSecondaryPrivateIPAddressCount'
+-- * 'apiaSecondaryPrivateIPAddressCount'
 --
--- * 'apiarqNetworkInterfaceId'
+-- * 'apiaNetworkInterfaceId'
 data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
-    { _apiarqPrivateIPAddresses             :: !(Maybe [Text])
-    , _apiarqAllowReassignment              :: !(Maybe Bool)
-    , _apiarqSecondaryPrivateIPAddressCount :: !(Maybe Int)
-    , _apiarqNetworkInterfaceId             :: !Text
+    { _apiaPrivateIPAddresses             :: !(Maybe [Text])
+    , _apiaAllowReassignment              :: !(Maybe Bool)
+    , _apiaSecondaryPrivateIPAddressCount :: !(Maybe Int)
+    , _apiaNetworkInterfaceId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignPrivateIPAddresses' smart constructor.
 assignPrivateIPAddresses :: Text -> AssignPrivateIPAddresses
 assignPrivateIPAddresses pNetworkInterfaceId_ =
     AssignPrivateIPAddresses'
-    { _apiarqPrivateIPAddresses = Nothing
-    , _apiarqAllowReassignment = Nothing
-    , _apiarqSecondaryPrivateIPAddressCount = Nothing
-    , _apiarqNetworkInterfaceId = pNetworkInterfaceId_
+    { _apiaPrivateIPAddresses = Nothing
+    , _apiaAllowReassignment = Nothing
+    , _apiaSecondaryPrivateIPAddressCount = Nothing
+    , _apiaNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | One or more IP addresses to be assigned as a secondary private IP
@@ -89,24 +89,24 @@ assignPrivateIPAddresses pNetworkInterfaceId_ =
 --
 -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
 -- IP address within the subnet range.
-apiarqPrivateIPAddresses :: Lens' AssignPrivateIPAddresses [Text]
-apiarqPrivateIPAddresses = lens _apiarqPrivateIPAddresses (\ s a -> s{_apiarqPrivateIPAddresses = a}) . _Default;
+apiaPrivateIPAddresses :: Lens' AssignPrivateIPAddresses [Text]
+apiaPrivateIPAddresses = lens _apiaPrivateIPAddresses (\ s a -> s{_apiaPrivateIPAddresses = a}) . _Default;
 
 -- | Indicates whether to allow an IP address that is already assigned to
 -- another network interface or instance to be reassigned to the specified
 -- network interface.
-apiarqAllowReassignment :: Lens' AssignPrivateIPAddresses (Maybe Bool)
-apiarqAllowReassignment = lens _apiarqAllowReassignment (\ s a -> s{_apiarqAllowReassignment = a});
+apiaAllowReassignment :: Lens' AssignPrivateIPAddresses (Maybe Bool)
+apiaAllowReassignment = lens _apiaAllowReassignment (\ s a -> s{_apiaAllowReassignment = a});
 
 -- | The number of secondary IP addresses to assign to the network interface.
 -- You can\'t specify this parameter when also specifying private IP
 -- addresses.
-apiarqSecondaryPrivateIPAddressCount :: Lens' AssignPrivateIPAddresses (Maybe Int)
-apiarqSecondaryPrivateIPAddressCount = lens _apiarqSecondaryPrivateIPAddressCount (\ s a -> s{_apiarqSecondaryPrivateIPAddressCount = a});
+apiaSecondaryPrivateIPAddressCount :: Lens' AssignPrivateIPAddresses (Maybe Int)
+apiaSecondaryPrivateIPAddressCount = lens _apiaSecondaryPrivateIPAddressCount (\ s a -> s{_apiaSecondaryPrivateIPAddressCount = a});
 
 -- | The ID of the network interface.
-apiarqNetworkInterfaceId :: Lens' AssignPrivateIPAddresses Text
-apiarqNetworkInterfaceId = lens _apiarqNetworkInterfaceId (\ s a -> s{_apiarqNetworkInterfaceId = a});
+apiaNetworkInterfaceId :: Lens' AssignPrivateIPAddresses Text
+apiaNetworkInterfaceId = lens _apiaNetworkInterfaceId (\ s a -> s{_apiaNetworkInterfaceId = a});
 
 instance AWSRequest AssignPrivateIPAddresses where
         type Sv AssignPrivateIPAddresses = EC2
@@ -130,11 +130,11 @@ instance ToQuery AssignPrivateIPAddresses where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
                  (toQueryList "PrivateIpAddress" <$>
-                    _apiarqPrivateIPAddresses),
-               "AllowReassignment" =: _apiarqAllowReassignment,
+                    _apiaPrivateIPAddresses),
+               "AllowReassignment" =: _apiaAllowReassignment,
                "SecondaryPrivateIpAddressCount" =:
-                 _apiarqSecondaryPrivateIPAddressCount,
-               "NetworkInterfaceId" =: _apiarqNetworkInterfaceId]
+                 _apiaSecondaryPrivateIPAddressCount,
+               "NetworkInterfaceId" =: _apiaNetworkInterfaceId]
 
 -- | /See:/ 'assignPrivateIPAddressesResponse' smart constructor.
 data AssignPrivateIPAddressesResponse =

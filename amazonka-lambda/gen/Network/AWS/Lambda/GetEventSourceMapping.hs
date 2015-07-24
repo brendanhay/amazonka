@@ -31,7 +31,7 @@ module Network.AWS.Lambda.GetEventSourceMapping
     -- ** Request constructor
     , getEventSourceMapping
     -- ** Request lenses
-    , gesmrqUUId
+    , gesmUUId
 
     -- * Response
     , EventSourceMappingConfiguration
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gesmrqUUId'
+-- * 'gesmUUId'
 newtype GetEventSourceMapping = GetEventSourceMapping'
-    { _gesmrqUUId :: Text
+    { _gesmUUId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEventSourceMapping' smart constructor.
 getEventSourceMapping :: Text -> GetEventSourceMapping
 getEventSourceMapping pUUId_ =
     GetEventSourceMapping'
-    { _gesmrqUUId = pUUId_
+    { _gesmUUId = pUUId_
     }
 
 -- | The AWS Lambda assigned ID of the event source mapping.
-gesmrqUUId :: Lens' GetEventSourceMapping Text
-gesmrqUUId = lens _gesmrqUUId (\ s a -> s{_gesmrqUUId = a});
+gesmUUId :: Lens' GetEventSourceMapping Text
+gesmUUId = lens _gesmUUId (\ s a -> s{_gesmUUId = a});
 
 instance AWSRequest GetEventSourceMapping where
         type Sv GetEventSourceMapping = Lambda
@@ -87,7 +87,7 @@ instance ToPath GetEventSourceMapping where
         toPath GetEventSourceMapping'{..}
           = mconcat
               ["/2015-03-31/event-source-mappings/",
-               toText _gesmrqUUId]
+               toText _gesmUUId]
 
 instance ToQuery GetEventSourceMapping where
         toQuery = const mempty

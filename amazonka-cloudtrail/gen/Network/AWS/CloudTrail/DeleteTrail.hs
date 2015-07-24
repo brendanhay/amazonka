@@ -27,7 +27,7 @@ module Network.AWS.CloudTrail.DeleteTrail
     -- ** Request constructor
     , deleteTrail
     -- ** Request lenses
-    , dtrqName
+    , dtName
 
     -- * Response
     , DeleteTrailResponse
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqName'
+-- * 'dtName'
 newtype DeleteTrail = DeleteTrail'
-    { _dtrqName :: Text
+    { _dtName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTrail' smart constructor.
 deleteTrail :: Text -> DeleteTrail
 deleteTrail pName_ =
     DeleteTrail'
-    { _dtrqName = pName_
+    { _dtName = pName_
     }
 
 -- | The name of a trail to be deleted.
-dtrqName :: Lens' DeleteTrail Text
-dtrqName = lens _dtrqName (\ s a -> s{_dtrqName = a});
+dtName :: Lens' DeleteTrail Text
+dtName = lens _dtName (\ s a -> s{_dtName = a});
 
 instance AWSRequest DeleteTrail where
         type Sv DeleteTrail = CloudTrail
@@ -84,8 +84,7 @@ instance ToHeaders DeleteTrail where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DeleteTrail where
-        toJSON DeleteTrail'{..}
-          = object ["Name" .= _dtrqName]
+        toJSON DeleteTrail'{..} = object ["Name" .= _dtName]
 
 instance ToPath DeleteTrail where
         toPath = const "/"

@@ -36,8 +36,8 @@ module Network.AWS.Route53.CreateReusableDelegationSet
     -- ** Request constructor
     , createReusableDelegationSet
     -- ** Request lenses
-    , crdsrqHostedZoneId
-    , crdsrqCallerReference
+    , crdsHostedZoneId
+    , crdsCallerReference
 
     -- * Response
     , CreateReusableDelegationSetResponse
@@ -58,26 +58,26 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crdsrqHostedZoneId'
+-- * 'crdsHostedZoneId'
 --
--- * 'crdsrqCallerReference'
+-- * 'crdsCallerReference'
 data CreateReusableDelegationSet = CreateReusableDelegationSet'
-    { _crdsrqHostedZoneId    :: !(Maybe Text)
-    , _crdsrqCallerReference :: !Text
+    { _crdsHostedZoneId    :: !(Maybe Text)
+    , _crdsCallerReference :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReusableDelegationSet' smart constructor.
 createReusableDelegationSet :: Text -> CreateReusableDelegationSet
 createReusableDelegationSet pCallerReference_ =
     CreateReusableDelegationSet'
-    { _crdsrqHostedZoneId = Nothing
-    , _crdsrqCallerReference = pCallerReference_
+    { _crdsHostedZoneId = Nothing
+    , _crdsCallerReference = pCallerReference_
     }
 
 -- | The ID of the hosted zone whose delegation set you want to mark as
 -- reusable. It is an optional parameter.
-crdsrqHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
-crdsrqHostedZoneId = lens _crdsrqHostedZoneId (\ s a -> s{_crdsrqHostedZoneId = a});
+crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
+crdsHostedZoneId = lens _crdsHostedZoneId (\ s a -> s{_crdsHostedZoneId = a});
 
 -- | A unique string that identifies the request and that allows failed
 -- @CreateReusableDelegationSet@ requests to be retried without the risk of
@@ -89,8 +89,8 @@ crdsrqHostedZoneId = lens _crdsrqHostedZoneId (\ s a -> s{_crdsrqHostedZoneId = 
 -- Valid characters are any Unicode code points that are legal in an XML
 -- 1.0 document. The UTF-8 encoding of the value must be less than 128
 -- bytes.
-crdsrqCallerReference :: Lens' CreateReusableDelegationSet Text
-crdsrqCallerReference = lens _crdsrqCallerReference (\ s a -> s{_crdsrqCallerReference = a});
+crdsCallerReference :: Lens' CreateReusableDelegationSet Text
+crdsCallerReference = lens _crdsCallerReference (\ s a -> s{_crdsCallerReference = a});
 
 instance AWSRequest CreateReusableDelegationSet where
         type Sv CreateReusableDelegationSet = Route53
@@ -121,8 +121,8 @@ instance ToQuery CreateReusableDelegationSet where
 instance ToXML CreateReusableDelegationSet where
         toXML CreateReusableDelegationSet'{..}
           = mconcat
-              ["HostedZoneId" @= _crdsrqHostedZoneId,
-               "CallerReference" @= _crdsrqCallerReference]
+              ["HostedZoneId" @= _crdsHostedZoneId,
+               "CallerReference" @= _crdsCallerReference]
 
 -- | /See:/ 'createReusableDelegationSetResponse' smart constructor.
 --

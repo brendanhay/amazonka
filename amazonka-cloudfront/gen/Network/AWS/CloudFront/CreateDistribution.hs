@@ -27,7 +27,7 @@ module Network.AWS.CloudFront.CreateDistribution
     -- ** Request constructor
     , createDistribution
     -- ** Request lenses
-    , cdrqDistributionConfig
+    , cdDistributionConfig
 
     -- * Response
     , CreateDistributionResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrqDistributionConfig'
+-- * 'cdDistributionConfig'
 newtype CreateDistribution = CreateDistribution'
-    { _cdrqDistributionConfig :: DistributionConfig
+    { _cdDistributionConfig :: DistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDistribution' smart constructor.
 createDistribution :: DistributionConfig -> CreateDistribution
 createDistribution pDistributionConfig_ =
     CreateDistribution'
-    { _cdrqDistributionConfig = pDistributionConfig_
+    { _cdDistributionConfig = pDistributionConfig_
     }
 
 -- | The distribution\'s configuration information.
-cdrqDistributionConfig :: Lens' CreateDistribution DistributionConfig
-cdrqDistributionConfig = lens _cdrqDistributionConfig (\ s a -> s{_cdrqDistributionConfig = a});
+cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
+cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a});
 
 instance AWSRequest CreateDistribution where
         type Sv CreateDistribution = CloudFront
@@ -85,7 +85,7 @@ instance ToElement CreateDistribution where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}DistributionConfig"
               .
-              _cdrqDistributionConfig
+              _cdDistributionConfig
 
 instance ToHeaders CreateDistribution where
         toHeaders = const mempty

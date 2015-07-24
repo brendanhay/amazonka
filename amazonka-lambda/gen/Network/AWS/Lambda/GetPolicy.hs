@@ -30,7 +30,7 @@ module Network.AWS.Lambda.GetPolicy
     -- ** Request constructor
     , getPolicy
     -- ** Request lenses
-    , gprqFunctionName
+    , gpFunctionName
 
     -- * Response
     , GetPolicyResponse
@@ -50,16 +50,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprqFunctionName'
+-- * 'gpFunctionName'
 newtype GetPolicy = GetPolicy'
-    { _gprqFunctionName :: Text
+    { _gpFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
 getPolicy pFunctionName_ =
     GetPolicy'
-    { _gprqFunctionName = pFunctionName_
+    { _gpFunctionName = pFunctionName_
     }
 
 -- | Function name whose access policy you want to retrieve.
@@ -72,8 +72,8 @@ getPolicy pFunctionName_ =
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-gprqFunctionName :: Lens' GetPolicy Text
-gprqFunctionName = lens _gprqFunctionName (\ s a -> s{_gprqFunctionName = a});
+gpFunctionName :: Lens' GetPolicy Text
+gpFunctionName = lens _gpFunctionName (\ s a -> s{_gpFunctionName = a});
 
 instance AWSRequest GetPolicy where
         type Sv GetPolicy = Lambda
@@ -91,7 +91,7 @@ instance ToHeaders GetPolicy where
 instance ToPath GetPolicy where
         toPath GetPolicy'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _gprqFunctionName,
+              ["/2015-03-31/functions/", toText _gpFunctionName,
                "/versions/HEAD/policy"]
 
 instance ToQuery GetPolicy where

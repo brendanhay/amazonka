@@ -33,7 +33,7 @@ module Network.AWS.OpsWorks.DeleteApp
     -- ** Request constructor
     , deleteApp
     -- ** Request lenses
-    , darqAppId
+    , daAppId
 
     -- * Response
     , DeleteAppResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darqAppId'
+-- * 'daAppId'
 newtype DeleteApp = DeleteApp'
-    { _darqAppId :: Text
+    { _daAppId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApp' smart constructor.
 deleteApp :: Text -> DeleteApp
 deleteApp pAppId_ =
     DeleteApp'
-    { _darqAppId = pAppId_
+    { _daAppId = pAppId_
     }
 
 -- | The app ID.
-darqAppId :: Lens' DeleteApp Text
-darqAppId = lens _darqAppId (\ s a -> s{_darqAppId = a});
+daAppId :: Lens' DeleteApp Text
+daAppId = lens _daAppId (\ s a -> s{_daAppId = a});
 
 instance AWSRequest DeleteApp where
         type Sv DeleteApp = OpsWorks
@@ -82,8 +82,7 @@ instance ToHeaders DeleteApp where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DeleteApp where
-        toJSON DeleteApp'{..}
-          = object ["AppId" .= _darqAppId]
+        toJSON DeleteApp'{..} = object ["AppId" .= _daAppId]
 
 instance ToPath DeleteApp where
         toPath = const "/"

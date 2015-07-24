@@ -40,9 +40,9 @@ module Network.AWS.IAM.CreatePolicyVersion
     -- ** Request constructor
     , createPolicyVersion
     -- ** Request lenses
-    , cpvrqSetAsDefault
-    , cpvrqPolicyARN
-    , cpvrqPolicyDocument
+    , cpvSetAsDefault
+    , cpvPolicyARN
+    , cpvPolicyDocument
 
     -- * Response
     , CreatePolicyVersionResponse
@@ -62,24 +62,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpvrqSetAsDefault'
+-- * 'cpvSetAsDefault'
 --
--- * 'cpvrqPolicyARN'
+-- * 'cpvPolicyARN'
 --
--- * 'cpvrqPolicyDocument'
+-- * 'cpvPolicyDocument'
 data CreatePolicyVersion = CreatePolicyVersion'
-    { _cpvrqSetAsDefault   :: !(Maybe Bool)
-    , _cpvrqPolicyARN      :: !Text
-    , _cpvrqPolicyDocument :: !Text
+    { _cpvSetAsDefault   :: !(Maybe Bool)
+    , _cpvPolicyARN      :: !Text
+    , _cpvPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyVersion' smart constructor.
 createPolicyVersion :: Text -> Text -> CreatePolicyVersion
 createPolicyVersion pPolicyARN_ pPolicyDocument_ =
     CreatePolicyVersion'
-    { _cpvrqSetAsDefault = Nothing
-    , _cpvrqPolicyARN = pPolicyARN_
-    , _cpvrqPolicyDocument = pPolicyDocument_
+    { _cpvSetAsDefault = Nothing
+    , _cpvPolicyARN = pPolicyARN_
+    , _cpvPolicyDocument = pPolicyDocument_
     }
 
 -- | Specifies whether to set this version as the policy\'s default version.
@@ -91,16 +91,16 @@ createPolicyVersion pPolicyARN_ pPolicyDocument_ =
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
-cpvrqSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
-cpvrqSetAsDefault = lens _cpvrqSetAsDefault (\ s a -> s{_cpvrqSetAsDefault = a});
+cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
+cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
 
 -- | FIXME: Undocumented member.
-cpvrqPolicyARN :: Lens' CreatePolicyVersion Text
-cpvrqPolicyARN = lens _cpvrqPolicyARN (\ s a -> s{_cpvrqPolicyARN = a});
+cpvPolicyARN :: Lens' CreatePolicyVersion Text
+cpvPolicyARN = lens _cpvPolicyARN (\ s a -> s{_cpvPolicyARN = a});
 
 -- | The policy document.
-cpvrqPolicyDocument :: Lens' CreatePolicyVersion Text
-cpvrqPolicyDocument = lens _cpvrqPolicyDocument (\ s a -> s{_cpvrqPolicyDocument = a});
+cpvPolicyDocument :: Lens' CreatePolicyVersion Text
+cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
 
 instance AWSRequest CreatePolicyVersion where
         type Sv CreatePolicyVersion = IAM
@@ -124,9 +124,9 @@ instance ToQuery CreatePolicyVersion where
           = mconcat
               ["Action" =: ("CreatePolicyVersion" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "SetAsDefault" =: _cpvrqSetAsDefault,
-               "PolicyArn" =: _cpvrqPolicyARN,
-               "PolicyDocument" =: _cpvrqPolicyDocument]
+               "SetAsDefault" =: _cpvSetAsDefault,
+               "PolicyArn" =: _cpvPolicyARN,
+               "PolicyDocument" =: _cpvPolicyDocument]
 
 -- | Contains the response to a successful CreatePolicyVersion request.
 --

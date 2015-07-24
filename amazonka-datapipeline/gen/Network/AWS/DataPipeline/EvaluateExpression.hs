@@ -29,9 +29,9 @@ module Network.AWS.DataPipeline.EvaluateExpression
     -- ** Request constructor
     , evaluateExpression
     -- ** Request lenses
-    , eerqPipelineId
-    , eerqObjectId
-    , eerqExpression
+    , eePipelineId
+    , eeObjectId
+    , eeExpression
 
     -- * Response
     , EvaluateExpressionResponse
@@ -53,37 +53,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eerqPipelineId'
+-- * 'eePipelineId'
 --
--- * 'eerqObjectId'
+-- * 'eeObjectId'
 --
--- * 'eerqExpression'
+-- * 'eeExpression'
 data EvaluateExpression = EvaluateExpression'
-    { _eerqPipelineId :: !Text
-    , _eerqObjectId   :: !Text
-    , _eerqExpression :: !Text
+    { _eePipelineId :: !Text
+    , _eeObjectId   :: !Text
+    , _eeExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EvaluateExpression' smart constructor.
 evaluateExpression :: Text -> Text -> Text -> EvaluateExpression
 evaluateExpression pPipelineId_ pObjectId_ pExpression_ =
     EvaluateExpression'
-    { _eerqPipelineId = pPipelineId_
-    , _eerqObjectId = pObjectId_
-    , _eerqExpression = pExpression_
+    { _eePipelineId = pPipelineId_
+    , _eeObjectId = pObjectId_
+    , _eeExpression = pExpression_
     }
 
 -- | The ID of the pipeline.
-eerqPipelineId :: Lens' EvaluateExpression Text
-eerqPipelineId = lens _eerqPipelineId (\ s a -> s{_eerqPipelineId = a});
+eePipelineId :: Lens' EvaluateExpression Text
+eePipelineId = lens _eePipelineId (\ s a -> s{_eePipelineId = a});
 
 -- | The ID of the object.
-eerqObjectId :: Lens' EvaluateExpression Text
-eerqObjectId = lens _eerqObjectId (\ s a -> s{_eerqObjectId = a});
+eeObjectId :: Lens' EvaluateExpression Text
+eeObjectId = lens _eeObjectId (\ s a -> s{_eeObjectId = a});
 
 -- | The expression to evaluate.
-eerqExpression :: Lens' EvaluateExpression Text
-eerqExpression = lens _eerqExpression (\ s a -> s{_eerqExpression = a});
+eeExpression :: Lens' EvaluateExpression Text
+eeExpression = lens _eeExpression (\ s a -> s{_eeExpression = a});
 
 instance AWSRequest EvaluateExpression where
         type Sv EvaluateExpression = DataPipeline
@@ -109,9 +109,9 @@ instance ToHeaders EvaluateExpression where
 instance ToJSON EvaluateExpression where
         toJSON EvaluateExpression'{..}
           = object
-              ["pipelineId" .= _eerqPipelineId,
-               "objectId" .= _eerqObjectId,
-               "expression" .= _eerqExpression]
+              ["pipelineId" .= _eePipelineId,
+               "objectId" .= _eeObjectId,
+               "expression" .= _eeExpression]
 
 instance ToPath EvaluateExpression where
         toPath = const "/"

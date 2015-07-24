@@ -29,7 +29,7 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     -- ** Request constructor
     , describeChapCredentials
     -- ** Request lenses
-    , dccrqTargetARN
+    , dccTargetARN
 
     -- * Response
     , DescribeChapCredentialsResponse
@@ -52,23 +52,23 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccrqTargetARN'
+-- * 'dccTargetARN'
 newtype DescribeChapCredentials = DescribeChapCredentials'
-    { _dccrqTargetARN :: Text
+    { _dccTargetARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeChapCredentials' smart constructor.
 describeChapCredentials :: Text -> DescribeChapCredentials
 describeChapCredentials pTargetARN_ =
     DescribeChapCredentials'
-    { _dccrqTargetARN = pTargetARN_
+    { _dccTargetARN = pTargetARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-dccrqTargetARN :: Lens' DescribeChapCredentials Text
-dccrqTargetARN = lens _dccrqTargetARN (\ s a -> s{_dccrqTargetARN = a});
+dccTargetARN :: Lens' DescribeChapCredentials Text
+dccTargetARN = lens _dccTargetARN (\ s a -> s{_dccTargetARN = a});
 
 instance AWSRequest DescribeChapCredentials where
         type Sv DescribeChapCredentials = StorageGateway
@@ -94,7 +94,7 @@ instance ToHeaders DescribeChapCredentials where
 
 instance ToJSON DescribeChapCredentials where
         toJSON DescribeChapCredentials'{..}
-          = object ["TargetARN" .= _dccrqTargetARN]
+          = object ["TargetARN" .= _dccTargetARN]
 
 instance ToPath DescribeChapCredentials where
         toPath = const "/"

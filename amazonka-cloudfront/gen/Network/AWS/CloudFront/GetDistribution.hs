@@ -27,7 +27,7 @@ module Network.AWS.CloudFront.GetDistribution
     -- ** Request constructor
     , getDistribution
     -- ** Request lenses
-    , gdrqId
+    , gdId
 
     -- * Response
     , GetDistributionResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrqId'
+-- * 'gdId'
 newtype GetDistribution = GetDistribution'
-    { _gdrqId :: Text
+    { _gdId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistribution' smart constructor.
 getDistribution :: Text -> GetDistribution
 getDistribution pId_ =
     GetDistribution'
-    { _gdrqId = pId_
+    { _gdId = pId_
     }
 
 -- | The distribution\'s id.
-gdrqId :: Lens' GetDistribution Text
-gdrqId = lens _gdrqId (\ s a -> s{_gdrqId = a});
+gdId :: Lens' GetDistribution Text
+gdId = lens _gdId (\ s a -> s{_gdId = a});
 
 instance AWSRequest GetDistribution where
         type Sv GetDistribution = CloudFront
@@ -82,8 +82,7 @@ instance ToHeaders GetDistribution where
 
 instance ToPath GetDistribution where
         toPath GetDistribution'{..}
-          = mconcat
-              ["/2015-04-17/distribution/", toText _gdrqId]
+          = mconcat ["/2015-04-17/distribution/", toText _gdId]
 
 instance ToQuery GetDistribution where
         toQuery = const mempty

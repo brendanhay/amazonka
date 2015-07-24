@@ -33,9 +33,9 @@ module Network.AWS.IAM.ListInstanceProfiles
     -- ** Request constructor
     , listInstanceProfiles
     -- ** Request lenses
-    , liprqPathPrefix
-    , liprqMaxItems
-    , liprqMarker
+    , lipPathPrefix
+    , lipMaxItems
+    , lipMarker
 
     -- * Response
     , ListInstanceProfilesResponse
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liprqPathPrefix'
+-- * 'lipPathPrefix'
 --
--- * 'liprqMaxItems'
+-- * 'lipMaxItems'
 --
--- * 'liprqMarker'
+-- * 'lipMarker'
 data ListInstanceProfiles = ListInstanceProfiles'
-    { _liprqPathPrefix :: !(Maybe Text)
-    , _liprqMaxItems   :: !(Maybe Nat)
-    , _liprqMarker     :: !(Maybe Text)
+    { _lipPathPrefix :: !(Maybe Text)
+    , _lipMaxItems   :: !(Maybe Nat)
+    , _lipMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfiles' smart constructor.
 listInstanceProfiles :: ListInstanceProfiles
 listInstanceProfiles =
     ListInstanceProfiles'
-    { _liprqPathPrefix = Nothing
-    , _liprqMaxItems = Nothing
-    , _liprqMarker = Nothing
+    { _lipPathPrefix = Nothing
+    , _lipMaxItems = Nothing
+    , _lipMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -84,8 +84,8 @@ listInstanceProfiles =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all instance profiles.
-liprqPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
-liprqPathPrefix = lens _liprqPathPrefix (\ s a -> s{_liprqPathPrefix = a});
+lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
+lipPathPrefix = lens _lipPathPrefix (\ s a -> s{_lipPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -93,21 +93,21 @@ liprqPathPrefix = lens _liprqPathPrefix (\ s a -> s{_liprqPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-liprqMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
-liprqMaxItems = lens _liprqMaxItems (\ s a -> s{_liprqMaxItems = a}) . mapping _Nat;
+lipMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
+lipMaxItems = lens _lipMaxItems (\ s a -> s{_lipMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-liprqMarker :: Lens' ListInstanceProfiles (Maybe Text)
-liprqMarker = lens _liprqMarker (\ s a -> s{_liprqMarker = a});
+lipMarker :: Lens' ListInstanceProfiles (Maybe Text)
+lipMarker = lens _lipMarker (\ s a -> s{_lipMarker = a});
 
 instance AWSPager ListInstanceProfiles where
         page rq rs
           | stop (rs ^. liprsIsTruncated) = Nothing
           | isNothing (rs ^. liprsMarker) = Nothing
           | otherwise =
-            Just $ rq & liprqMarker .~ rs ^. liprsMarker
+            Just $ rq & lipMarker .~ rs ^. liprsMarker
 
 instance AWSRequest ListInstanceProfiles where
         type Sv ListInstanceProfiles = IAM
@@ -135,9 +135,8 @@ instance ToQuery ListInstanceProfiles where
           = mconcat
               ["Action" =: ("ListInstanceProfiles" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _liprqPathPrefix,
-               "MaxItems" =: _liprqMaxItems,
-               "Marker" =: _liprqMarker]
+               "PathPrefix" =: _lipPathPrefix,
+               "MaxItems" =: _lipMaxItems, "Marker" =: _lipMarker]
 
 -- | Contains the response to a successful ListInstanceProfiles request.
 --

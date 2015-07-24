@@ -33,8 +33,8 @@ module Network.AWS.CloudSearch.DefineSuggester
     -- ** Request constructor
     , defineSuggester
     -- ** Request lenses
-    , defrqDomainName
-    , defrqSuggester
+    , defDomainName
+    , defSuggester
 
     -- * Response
     , DefineSuggesterResponse
@@ -58,29 +58,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'defrqDomainName'
+-- * 'defDomainName'
 --
--- * 'defrqSuggester'
+-- * 'defSuggester'
 data DefineSuggester = DefineSuggester'
-    { _defrqDomainName :: !Text
-    , _defrqSuggester  :: !Suggester
+    { _defDomainName :: !Text
+    , _defSuggester  :: !Suggester
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineSuggester' smart constructor.
 defineSuggester :: Text -> Suggester -> DefineSuggester
 defineSuggester pDomainName_ pSuggester_ =
     DefineSuggester'
-    { _defrqDomainName = pDomainName_
-    , _defrqSuggester = pSuggester_
+    { _defDomainName = pDomainName_
+    , _defSuggester = pSuggester_
     }
 
 -- | FIXME: Undocumented member.
-defrqDomainName :: Lens' DefineSuggester Text
-defrqDomainName = lens _defrqDomainName (\ s a -> s{_defrqDomainName = a});
+defDomainName :: Lens' DefineSuggester Text
+defDomainName = lens _defDomainName (\ s a -> s{_defDomainName = a});
 
 -- | FIXME: Undocumented member.
-defrqSuggester :: Lens' DefineSuggester Suggester
-defrqSuggester = lens _defrqSuggester (\ s a -> s{_defrqSuggester = a});
+defSuggester :: Lens' DefineSuggester Suggester
+defSuggester = lens _defSuggester (\ s a -> s{_defSuggester = a});
 
 instance AWSRequest DefineSuggester where
         type Sv DefineSuggester = CloudSearch
@@ -103,8 +103,8 @@ instance ToQuery DefineSuggester where
           = mconcat
               ["Action" =: ("DefineSuggester" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _defrqDomainName,
-               "Suggester" =: _defrqSuggester]
+               "DomainName" =: _defDomainName,
+               "Suggester" =: _defSuggester]
 
 -- | The result of a @DefineSuggester@ request. Contains the status of the
 -- newly-configured suggester.

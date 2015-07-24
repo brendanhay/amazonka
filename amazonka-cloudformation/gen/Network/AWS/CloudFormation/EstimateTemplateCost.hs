@@ -29,9 +29,9 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     -- ** Request constructor
     , estimateTemplateCost
     -- ** Request lenses
-    , etcrqParameters
-    , etcrqTemplateBody
-    , etcrqTemplateURL
+    , etcParameters
+    , etcTemplateBody
+    , etcTemplateURL
 
     -- * Response
     , EstimateTemplateCostResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'etcrqParameters'
+-- * 'etcParameters'
 --
--- * 'etcrqTemplateBody'
+-- * 'etcTemplateBody'
 --
--- * 'etcrqTemplateURL'
+-- * 'etcTemplateURL'
 data EstimateTemplateCost = EstimateTemplateCost'
-    { _etcrqParameters   :: !(Maybe [Parameter])
-    , _etcrqTemplateBody :: !(Maybe Text)
-    , _etcrqTemplateURL  :: !(Maybe Text)
+    { _etcParameters   :: !(Maybe [Parameter])
+    , _etcTemplateBody :: !(Maybe Text)
+    , _etcTemplateURL  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EstimateTemplateCost' smart constructor.
 estimateTemplateCost :: EstimateTemplateCost
 estimateTemplateCost =
     EstimateTemplateCost'
-    { _etcrqParameters = Nothing
-    , _etcrqTemplateBody = Nothing
-    , _etcrqTemplateURL = Nothing
+    { _etcParameters = Nothing
+    , _etcTemplateBody = Nothing
+    , _etcTemplateURL = Nothing
     }
 
 -- | A list of @Parameter@ structures that specify input parameters.
-etcrqParameters :: Lens' EstimateTemplateCost [Parameter]
-etcrqParameters = lens _etcrqParameters (\ s a -> s{_etcrqParameters = a}) . _Default;
+etcParameters :: Lens' EstimateTemplateCost [Parameter]
+etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default;
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
@@ -82,8 +82,8 @@ etcrqParameters = lens _etcrqParameters (\ s a -> s{_etcrqParameters = a}) . _De
 --
 -- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
 -- passed, only @TemplateBody@ is used.
-etcrqTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
-etcrqTemplateBody = lens _etcrqTemplateBody (\ s a -> s{_etcrqTemplateBody = a});
+etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
+etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For
@@ -93,8 +93,8 @@ etcrqTemplateBody = lens _etcrqTemplateBody (\ s a -> s{_etcrqTemplateBody = a})
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-etcrqTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
-etcrqTemplateURL = lens _etcrqTemplateURL (\ s a -> s{_etcrqTemplateURL = a});
+etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
+etcTemplateURL = lens _etcTemplateURL (\ s a -> s{_etcTemplateURL = a});
 
 instance AWSRequest EstimateTemplateCost where
         type Sv EstimateTemplateCost = CloudFormation
@@ -119,9 +119,9 @@ instance ToQuery EstimateTemplateCost where
               ["Action" =: ("EstimateTemplateCost" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
                "Parameters" =:
-                 toQuery (toQueryList "member" <$> _etcrqParameters),
-               "TemplateBody" =: _etcrqTemplateBody,
-               "TemplateURL" =: _etcrqTemplateURL]
+                 toQuery (toQueryList "member" <$> _etcParameters),
+               "TemplateBody" =: _etcTemplateBody,
+               "TemplateURL" =: _etcTemplateURL]
 
 -- | The output for a EstimateTemplateCost action.
 --

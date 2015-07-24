@@ -39,17 +39,17 @@ module Network.AWS.CloudFormation.UpdateStack
     -- ** Request constructor
     , updateStack
     -- ** Request lenses
-    , usrqUsePreviousTemplate
-    , usrqNotificationARNs
-    , usrqStackPolicyBody
-    , usrqStackPolicyDuringUpdateBody
-    , usrqStackPolicyDuringUpdateURL
-    , usrqParameters
-    , usrqStackPolicyURL
-    , usrqTemplateBody
-    , usrqTemplateURL
-    , usrqCapabilities
-    , usrqStackName
+    , usUsePreviousTemplate
+    , usNotificationARNs
+    , usStackPolicyBody
+    , usStackPolicyDuringUpdateBody
+    , usStackPolicyDuringUpdateURL
+    , usParameters
+    , usStackPolicyURL
+    , usTemplateBody
+    , usTemplateURL
+    , usCapabilities
+    , usStackName
 
     -- * Response
     , UpdateStackResponse
@@ -71,67 +71,67 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usrqUsePreviousTemplate'
+-- * 'usUsePreviousTemplate'
 --
--- * 'usrqNotificationARNs'
+-- * 'usNotificationARNs'
 --
--- * 'usrqStackPolicyBody'
+-- * 'usStackPolicyBody'
 --
--- * 'usrqStackPolicyDuringUpdateBody'
+-- * 'usStackPolicyDuringUpdateBody'
 --
--- * 'usrqStackPolicyDuringUpdateURL'
+-- * 'usStackPolicyDuringUpdateURL'
 --
--- * 'usrqParameters'
+-- * 'usParameters'
 --
--- * 'usrqStackPolicyURL'
+-- * 'usStackPolicyURL'
 --
--- * 'usrqTemplateBody'
+-- * 'usTemplateBody'
 --
--- * 'usrqTemplateURL'
+-- * 'usTemplateURL'
 --
--- * 'usrqCapabilities'
+-- * 'usCapabilities'
 --
--- * 'usrqStackName'
+-- * 'usStackName'
 data UpdateStack = UpdateStack'
-    { _usrqUsePreviousTemplate         :: !(Maybe Bool)
-    , _usrqNotificationARNs            :: !(Maybe [Text])
-    , _usrqStackPolicyBody             :: !(Maybe Text)
-    , _usrqStackPolicyDuringUpdateBody :: !(Maybe Text)
-    , _usrqStackPolicyDuringUpdateURL  :: !(Maybe Text)
-    , _usrqParameters                  :: !(Maybe [Parameter])
-    , _usrqStackPolicyURL              :: !(Maybe Text)
-    , _usrqTemplateBody                :: !(Maybe Text)
-    , _usrqTemplateURL                 :: !(Maybe Text)
-    , _usrqCapabilities                :: !(Maybe [Capability])
-    , _usrqStackName                   :: !Text
+    { _usUsePreviousTemplate         :: !(Maybe Bool)
+    , _usNotificationARNs            :: !(Maybe [Text])
+    , _usStackPolicyBody             :: !(Maybe Text)
+    , _usStackPolicyDuringUpdateBody :: !(Maybe Text)
+    , _usStackPolicyDuringUpdateURL  :: !(Maybe Text)
+    , _usParameters                  :: !(Maybe [Parameter])
+    , _usStackPolicyURL              :: !(Maybe Text)
+    , _usTemplateBody                :: !(Maybe Text)
+    , _usTemplateURL                 :: !(Maybe Text)
+    , _usCapabilities                :: !(Maybe [Capability])
+    , _usStackName                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
 updateStack pStackName_ =
     UpdateStack'
-    { _usrqUsePreviousTemplate = Nothing
-    , _usrqNotificationARNs = Nothing
-    , _usrqStackPolicyBody = Nothing
-    , _usrqStackPolicyDuringUpdateBody = Nothing
-    , _usrqStackPolicyDuringUpdateURL = Nothing
-    , _usrqParameters = Nothing
-    , _usrqStackPolicyURL = Nothing
-    , _usrqTemplateBody = Nothing
-    , _usrqTemplateURL = Nothing
-    , _usrqCapabilities = Nothing
-    , _usrqStackName = pStackName_
+    { _usUsePreviousTemplate = Nothing
+    , _usNotificationARNs = Nothing
+    , _usStackPolicyBody = Nothing
+    , _usStackPolicyDuringUpdateBody = Nothing
+    , _usStackPolicyDuringUpdateURL = Nothing
+    , _usParameters = Nothing
+    , _usStackPolicyURL = Nothing
+    , _usTemplateBody = Nothing
+    , _usTemplateURL = Nothing
+    , _usCapabilities = Nothing
+    , _usStackName = pStackName_
     }
 
 -- | Reuse the existing template that is associated with the stack that you
 -- are updating.
-usrqUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
-usrqUsePreviousTemplate = lens _usrqUsePreviousTemplate (\ s a -> s{_usrqUsePreviousTemplate = a});
+usUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
+usUsePreviousTemplate = lens _usUsePreviousTemplate (\ s a -> s{_usUsePreviousTemplate = a});
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the
 -- stack.
-usrqNotificationARNs :: Lens' UpdateStack [Text]
-usrqNotificationARNs = lens _usrqNotificationARNs (\ s a -> s{_usrqNotificationARNs = a}) . _Default;
+usNotificationARNs :: Lens' UpdateStack [Text]
+usNotificationARNs = lens _usNotificationARNs (\ s a -> s{_usNotificationARNs = a}) . _Default;
 
 -- | Structure containing a new stack policy body. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
@@ -140,8 +140,8 @@ usrqNotificationARNs = lens _usrqNotificationARNs (\ s a -> s{_usrqNotificationA
 -- new resource that you created during a stack update. If you do not
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
-usrqStackPolicyBody :: Lens' UpdateStack (Maybe Text)
-usrqStackPolicyBody = lens _usrqStackPolicyBody (\ s a -> s{_usrqStackPolicyBody = a});
+usStackPolicyBody :: Lens' UpdateStack (Maybe Text)
+usStackPolicyBody = lens _usStackPolicyBody (\ s a -> s{_usStackPolicyBody = a});
 
 -- | Structure containing the temporary overriding stack policy body. You can
 -- specify either the @StackPolicyDuringUpdateBody@ or the
@@ -151,8 +151,8 @@ usrqStackPolicyBody = lens _usrqStackPolicyBody (\ s a -> s{_usrqStackPolicyBody
 -- overriding stack policy during this update. If you do not specify a
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
-usrqStackPolicyDuringUpdateBody :: Lens' UpdateStack (Maybe Text)
-usrqStackPolicyDuringUpdateBody = lens _usrqStackPolicyDuringUpdateBody (\ s a -> s{_usrqStackPolicyDuringUpdateBody = a});
+usStackPolicyDuringUpdateBody :: Lens' UpdateStack (Maybe Text)
+usStackPolicyDuringUpdateBody = lens _usStackPolicyDuringUpdateBody (\ s a -> s{_usStackPolicyDuringUpdateBody = a});
 
 -- | Location of a file containing the temporary overriding stack policy. The
 -- URL must point to a policy (max size: 16KB) located in an S3 bucket in
@@ -164,15 +164,15 @@ usrqStackPolicyDuringUpdateBody = lens _usrqStackPolicyDuringUpdateBody (\ s a -
 -- overriding stack policy during this update. If you do not specify a
 -- stack policy, the current policy that is associated with the stack will
 -- be used.
-usrqStackPolicyDuringUpdateURL :: Lens' UpdateStack (Maybe Text)
-usrqStackPolicyDuringUpdateURL = lens _usrqStackPolicyDuringUpdateURL (\ s a -> s{_usrqStackPolicyDuringUpdateURL = a});
+usStackPolicyDuringUpdateURL :: Lens' UpdateStack (Maybe Text)
+usStackPolicyDuringUpdateURL = lens _usStackPolicyDuringUpdateURL (\ s a -> s{_usStackPolicyDuringUpdateURL = a});
 
 -- | A list of @Parameter@ structures that specify input parameters for the
 -- stack. For more information, see the
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
 -- data type.
-usrqParameters :: Lens' UpdateStack [Parameter]
-usrqParameters = lens _usrqParameters (\ s a -> s{_usrqParameters = a}) . _Default;
+usParameters :: Lens' UpdateStack [Parameter]
+usParameters = lens _usParameters (\ s a -> s{_usParameters = a}) . _Default;
 
 -- | Location of a file containing the updated stack policy. The URL must
 -- point to a policy (max size: 16KB) located in an S3 bucket in the same
@@ -183,8 +183,8 @@ usrqParameters = lens _usrqParameters (\ s a -> s{_usrqParameters = a}) . _Defau
 -- new resource that you created during a stack update. If you do not
 -- specify a stack policy, the current policy that is associated with the
 -- stack is unchanged.
-usrqStackPolicyURL :: Lens' UpdateStack (Maybe Text)
-usrqStackPolicyURL = lens _usrqStackPolicyURL (\ s a -> s{_usrqStackPolicyURL = a});
+usStackPolicyURL :: Lens' UpdateStack (Maybe Text)
+usStackPolicyURL = lens _usStackPolicyURL (\ s a -> s{_usStackPolicyURL = a});
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
@@ -193,8 +193,8 @@ usrqStackPolicyURL = lens _usrqStackPolicyURL (\ s a -> s{_usrqStackPolicyURL = 
 --
 -- Conditional: You must specify either the @TemplateBody@ or the
 -- @TemplateURL@ parameter, but not both.
-usrqTemplateBody :: Lens' UpdateStack (Maybe Text)
-usrqTemplateBody = lens _usrqTemplateBody (\ s a -> s{_usrqTemplateBody = a});
+usTemplateBody :: Lens' UpdateStack (Maybe Text)
+usTemplateBody = lens _usTemplateBody (\ s a -> s{_usTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For
@@ -204,8 +204,8 @@ usrqTemplateBody = lens _usrqTemplateBody (\ s a -> s{_usrqTemplateBody = a});
 --
 -- Conditional: You must specify either the @TemplateBody@ or the
 -- @TemplateURL@ parameter, but not both.
-usrqTemplateURL :: Lens' UpdateStack (Maybe Text)
-usrqTemplateURL = lens _usrqTemplateURL (\ s a -> s{_usrqTemplateURL = a});
+usTemplateURL :: Lens' UpdateStack (Maybe Text)
+usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 
 -- | A list of capabilities that you must specify before AWS CloudFormation
 -- can create or update certain stacks. Some stack templates might include
@@ -224,12 +224,12 @@ usrqTemplateURL = lens _usrqTemplateURL (\ s a -> s{_usrqTemplateURL = a});
 -- If your stack template contains these resources, we recommend that you
 -- review any permissions associated with them. If you don\'t specify this
 -- parameter, this action returns an InsufficientCapabilities error.
-usrqCapabilities :: Lens' UpdateStack [Capability]
-usrqCapabilities = lens _usrqCapabilities (\ s a -> s{_usrqCapabilities = a}) . _Default;
+usCapabilities :: Lens' UpdateStack [Capability]
+usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Default;
 
 -- | The name or unique stack ID of the stack to update.
-usrqStackName :: Lens' UpdateStack Text
-usrqStackName = lens _usrqStackName (\ s a -> s{_usrqStackName = a});
+usStackName :: Lens' UpdateStack Text
+usStackName = lens _usStackName (\ s a -> s{_usStackName = a});
 
 instance AWSRequest UpdateStack where
         type Sv UpdateStack = CloudFormation
@@ -252,23 +252,23 @@ instance ToQuery UpdateStack where
           = mconcat
               ["Action" =: ("UpdateStack" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "UsePreviousTemplate" =: _usrqUsePreviousTemplate,
+               "UsePreviousTemplate" =: _usUsePreviousTemplate,
                "NotificationARNs" =:
                  toQuery
-                   (toQueryList "member" <$> _usrqNotificationARNs),
-               "StackPolicyBody" =: _usrqStackPolicyBody,
+                   (toQueryList "member" <$> _usNotificationARNs),
+               "StackPolicyBody" =: _usStackPolicyBody,
                "StackPolicyDuringUpdateBody" =:
-                 _usrqStackPolicyDuringUpdateBody,
+                 _usStackPolicyDuringUpdateBody,
                "StackPolicyDuringUpdateURL" =:
-                 _usrqStackPolicyDuringUpdateURL,
+                 _usStackPolicyDuringUpdateURL,
                "Parameters" =:
-                 toQuery (toQueryList "member" <$> _usrqParameters),
-               "StackPolicyURL" =: _usrqStackPolicyURL,
-               "TemplateBody" =: _usrqTemplateBody,
-               "TemplateURL" =: _usrqTemplateURL,
+                 toQuery (toQueryList "member" <$> _usParameters),
+               "StackPolicyURL" =: _usStackPolicyURL,
+               "TemplateBody" =: _usTemplateBody,
+               "TemplateURL" =: _usTemplateURL,
                "Capabilities" =:
-                 toQuery (toQueryList "member" <$> _usrqCapabilities),
-               "StackName" =: _usrqStackName]
+                 toQuery (toQueryList "member" <$> _usCapabilities),
+               "StackName" =: _usStackName]
 
 -- | The output for a UpdateStack action.
 --

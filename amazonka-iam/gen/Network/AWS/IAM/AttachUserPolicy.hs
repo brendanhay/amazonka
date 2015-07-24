@@ -34,8 +34,8 @@ module Network.AWS.IAM.AttachUserPolicy
     -- ** Request constructor
     , attachUserPolicy
     -- ** Request lenses
-    , auprqUserName
-    , auprqPolicyARN
+    , aupUserName
+    , aupPolicyARN
 
     -- * Response
     , AttachUserPolicyResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'auprqUserName'
+-- * 'aupUserName'
 --
--- * 'auprqPolicyARN'
+-- * 'aupPolicyARN'
 data AttachUserPolicy = AttachUserPolicy'
-    { _auprqUserName  :: !Text
-    , _auprqPolicyARN :: !Text
+    { _aupUserName  :: !Text
+    , _aupPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachUserPolicy' smart constructor.
 attachUserPolicy :: Text -> Text -> AttachUserPolicy
 attachUserPolicy pUserName_ pPolicyARN_ =
     AttachUserPolicy'
-    { _auprqUserName = pUserName_
-    , _auprqPolicyARN = pPolicyARN_
+    { _aupUserName = pUserName_
+    , _aupPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the user to attach the policy to.
-auprqUserName :: Lens' AttachUserPolicy Text
-auprqUserName = lens _auprqUserName (\ s a -> s{_auprqUserName = a});
+aupUserName :: Lens' AttachUserPolicy Text
+aupUserName = lens _aupUserName (\ s a -> s{_aupUserName = a});
 
 -- | FIXME: Undocumented member.
-auprqPolicyARN :: Lens' AttachUserPolicy Text
-auprqPolicyARN = lens _auprqPolicyARN (\ s a -> s{_auprqPolicyARN = a});
+aupPolicyARN :: Lens' AttachUserPolicy Text
+aupPolicyARN = lens _aupPolicyARN (\ s a -> s{_aupPolicyARN = a});
 
 instance AWSRequest AttachUserPolicy where
         type Sv AttachUserPolicy = IAM
@@ -93,8 +93,8 @@ instance ToQuery AttachUserPolicy where
           = mconcat
               ["Action" =: ("AttachUserPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _auprqUserName,
-               "PolicyArn" =: _auprqPolicyARN]
+               "UserName" =: _aupUserName,
+               "PolicyArn" =: _aupPolicyARN]
 
 -- | /See:/ 'attachUserPolicyResponse' smart constructor.
 data AttachUserPolicyResponse =

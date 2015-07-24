@@ -27,7 +27,7 @@ module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
     -- ** Request constructor
     , deleteRealtimeEndpoint
     -- ** Request lenses
-    , drerqMLModelId
+    , dreMLModelId
 
     -- * Response
     , DeleteRealtimeEndpointResponse
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drerqMLModelId'
+-- * 'dreMLModelId'
 newtype DeleteRealtimeEndpoint = DeleteRealtimeEndpoint'
-    { _drerqMLModelId :: Text
+    { _dreMLModelId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRealtimeEndpoint' smart constructor.
 deleteRealtimeEndpoint :: Text -> DeleteRealtimeEndpoint
 deleteRealtimeEndpoint pMLModelId_ =
     DeleteRealtimeEndpoint'
-    { _drerqMLModelId = pMLModelId_
+    { _dreMLModelId = pMLModelId_
     }
 
 -- | The ID assigned to the @MLModel@ during creation.
-drerqMLModelId :: Lens' DeleteRealtimeEndpoint Text
-drerqMLModelId = lens _drerqMLModelId (\ s a -> s{_drerqMLModelId = a});
+dreMLModelId :: Lens' DeleteRealtimeEndpoint Text
+dreMLModelId = lens _dreMLModelId (\ s a -> s{_dreMLModelId = a});
 
 instance AWSRequest DeleteRealtimeEndpoint where
         type Sv DeleteRealtimeEndpoint = MachineLearning
@@ -89,7 +89,7 @@ instance ToHeaders DeleteRealtimeEndpoint where
 
 instance ToJSON DeleteRealtimeEndpoint where
         toJSON DeleteRealtimeEndpoint'{..}
-          = object ["MLModelId" .= _drerqMLModelId]
+          = object ["MLModelId" .= _dreMLModelId]
 
 instance ToPath DeleteRealtimeEndpoint where
         toPath = const "/"

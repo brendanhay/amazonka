@@ -34,13 +34,13 @@ module Network.AWS.CognitoSync.ListRecords
     -- ** Request constructor
     , listRecords
     -- ** Request lenses
-    , lrrqLastSyncCount
-    , lrrqNextToken
-    , lrrqSyncSessionToken
-    , lrrqMaxResults
-    , lrrqIdentityPoolId
-    , lrrqIdentityId
-    , lrrqDatasetName
+    , lrLastSyncCount
+    , lrNextToken
+    , lrSyncSessionToken
+    , lrMaxResults
+    , lrIdentityPoolId
+    , lrIdentityId
+    , lrDatasetName
 
     -- * Response
     , ListRecordsResponse
@@ -70,74 +70,74 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrrqLastSyncCount'
+-- * 'lrLastSyncCount'
 --
--- * 'lrrqNextToken'
+-- * 'lrNextToken'
 --
--- * 'lrrqSyncSessionToken'
+-- * 'lrSyncSessionToken'
 --
--- * 'lrrqMaxResults'
+-- * 'lrMaxResults'
 --
--- * 'lrrqIdentityPoolId'
+-- * 'lrIdentityPoolId'
 --
--- * 'lrrqIdentityId'
+-- * 'lrIdentityId'
 --
--- * 'lrrqDatasetName'
+-- * 'lrDatasetName'
 data ListRecords = ListRecords'
-    { _lrrqLastSyncCount    :: !(Maybe Integer)
-    , _lrrqNextToken        :: !(Maybe Text)
-    , _lrrqSyncSessionToken :: !(Maybe Text)
-    , _lrrqMaxResults       :: !(Maybe Int)
-    , _lrrqIdentityPoolId   :: !Text
-    , _lrrqIdentityId       :: !Text
-    , _lrrqDatasetName      :: !Text
+    { _lrLastSyncCount    :: !(Maybe Integer)
+    , _lrNextToken        :: !(Maybe Text)
+    , _lrSyncSessionToken :: !(Maybe Text)
+    , _lrMaxResults       :: !(Maybe Int)
+    , _lrIdentityPoolId   :: !Text
+    , _lrIdentityId       :: !Text
+    , _lrDatasetName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRecords' smart constructor.
 listRecords :: Text -> Text -> Text -> ListRecords
 listRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ =
     ListRecords'
-    { _lrrqLastSyncCount = Nothing
-    , _lrrqNextToken = Nothing
-    , _lrrqSyncSessionToken = Nothing
-    , _lrrqMaxResults = Nothing
-    , _lrrqIdentityPoolId = pIdentityPoolId_
-    , _lrrqIdentityId = pIdentityId_
-    , _lrrqDatasetName = pDatasetName_
+    { _lrLastSyncCount = Nothing
+    , _lrNextToken = Nothing
+    , _lrSyncSessionToken = Nothing
+    , _lrMaxResults = Nothing
+    , _lrIdentityPoolId = pIdentityPoolId_
+    , _lrIdentityId = pIdentityId_
+    , _lrDatasetName = pDatasetName_
     }
 
 -- | The last server sync count for this record.
-lrrqLastSyncCount :: Lens' ListRecords (Maybe Integer)
-lrrqLastSyncCount = lens _lrrqLastSyncCount (\ s a -> s{_lrrqLastSyncCount = a});
+lrLastSyncCount :: Lens' ListRecords (Maybe Integer)
+lrLastSyncCount = lens _lrLastSyncCount (\ s a -> s{_lrLastSyncCount = a});
 
 -- | A pagination token for obtaining the next page of results.
-lrrqNextToken :: Lens' ListRecords (Maybe Text)
-lrrqNextToken = lens _lrrqNextToken (\ s a -> s{_lrrqNextToken = a});
+lrNextToken :: Lens' ListRecords (Maybe Text)
+lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 
 -- | A token containing a session ID, identity ID, and expiration.
-lrrqSyncSessionToken :: Lens' ListRecords (Maybe Text)
-lrrqSyncSessionToken = lens _lrrqSyncSessionToken (\ s a -> s{_lrrqSyncSessionToken = a});
+lrSyncSessionToken :: Lens' ListRecords (Maybe Text)
+lrSyncSessionToken = lens _lrSyncSessionToken (\ s a -> s{_lrSyncSessionToken = a});
 
 -- | The maximum number of results to be returned.
-lrrqMaxResults :: Lens' ListRecords (Maybe Int)
-lrrqMaxResults = lens _lrrqMaxResults (\ s a -> s{_lrrqMaxResults = a});
+lrMaxResults :: Lens' ListRecords (Maybe Int)
+lrMaxResults = lens _lrMaxResults (\ s a -> s{_lrMaxResults = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-lrrqIdentityPoolId :: Lens' ListRecords Text
-lrrqIdentityPoolId = lens _lrrqIdentityPoolId (\ s a -> s{_lrrqIdentityPoolId = a});
+lrIdentityPoolId :: Lens' ListRecords Text
+lrIdentityPoolId = lens _lrIdentityPoolId (\ s a -> s{_lrIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-lrrqIdentityId :: Lens' ListRecords Text
-lrrqIdentityId = lens _lrrqIdentityId (\ s a -> s{_lrrqIdentityId = a});
+lrIdentityId :: Lens' ListRecords Text
+lrIdentityId = lens _lrIdentityId (\ s a -> s{_lrIdentityId = a});
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-lrrqDatasetName :: Lens' ListRecords Text
-lrrqDatasetName = lens _lrrqDatasetName (\ s a -> s{_lrrqDatasetName = a});
+lrDatasetName :: Lens' ListRecords Text
+lrDatasetName = lens _lrDatasetName (\ s a -> s{_lrDatasetName = a});
 
 instance AWSRequest ListRecords where
         type Sv ListRecords = CognitoSync
@@ -168,17 +168,17 @@ instance ToHeaders ListRecords where
 instance ToPath ListRecords where
         toPath ListRecords'{..}
           = mconcat
-              ["/identitypools/", toText _lrrqIdentityPoolId,
-               "/identities/", toText _lrrqIdentityId, "/datasets/",
-               toText _lrrqDatasetName, "/records"]
+              ["/identitypools/", toText _lrIdentityPoolId,
+               "/identities/", toText _lrIdentityId, "/datasets/",
+               toText _lrDatasetName, "/records"]
 
 instance ToQuery ListRecords where
         toQuery ListRecords'{..}
           = mconcat
-              ["lastSyncCount" =: _lrrqLastSyncCount,
-               "nextToken" =: _lrrqNextToken,
-               "syncSessionToken" =: _lrrqSyncSessionToken,
-               "maxResults" =: _lrrqMaxResults]
+              ["lastSyncCount" =: _lrLastSyncCount,
+               "nextToken" =: _lrNextToken,
+               "syncSessionToken" =: _lrSyncSessionToken,
+               "maxResults" =: _lrMaxResults]
 
 -- | Returned for a successful ListRecordsRequest.
 --

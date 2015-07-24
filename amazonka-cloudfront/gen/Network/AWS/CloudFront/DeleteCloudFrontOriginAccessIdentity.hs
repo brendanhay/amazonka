@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     -- ** Request constructor
     , deleteCloudFrontOriginAccessIdentity
     -- ** Request lenses
-    , dcfoairqIfMatch
-    , dcfoairqId
+    , dcfoaiIfMatch
+    , dcfoaiId
 
     -- * Response
     , DeleteCloudFrontOriginAccessIdentityResponse
@@ -47,30 +47,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcfoairqIfMatch'
+-- * 'dcfoaiIfMatch'
 --
--- * 'dcfoairqId'
+-- * 'dcfoaiId'
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
-    { _dcfoairqIfMatch :: !(Maybe Text)
-    , _dcfoairqId      :: !Text
+    { _dcfoaiIfMatch :: !(Maybe Text)
+    , _dcfoaiId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCloudFrontOriginAccessIdentity' smart constructor.
 deleteCloudFrontOriginAccessIdentity :: Text -> DeleteCloudFrontOriginAccessIdentity
 deleteCloudFrontOriginAccessIdentity pId_ =
     DeleteCloudFrontOriginAccessIdentity'
-    { _dcfoairqIfMatch = Nothing
-    , _dcfoairqId = pId_
+    { _dcfoaiIfMatch = Nothing
+    , _dcfoaiId = pId_
     }
 
 -- | The value of the ETag header you received from a previous GET or PUT
 -- request. For example: E2QWRUHAPOMQZL.
-dcfoairqIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
-dcfoairqIfMatch = lens _dcfoairqIfMatch (\ s a -> s{_dcfoairqIfMatch = a});
+dcfoaiIfMatch :: Lens' DeleteCloudFrontOriginAccessIdentity (Maybe Text)
+dcfoaiIfMatch = lens _dcfoaiIfMatch (\ s a -> s{_dcfoaiIfMatch = a});
 
 -- | The origin access identity\'s id.
-dcfoairqId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
-dcfoairqId = lens _dcfoairqId (\ s a -> s{_dcfoairqId = a});
+dcfoaiId :: Lens' DeleteCloudFrontOriginAccessIdentity Text
+dcfoaiId = lens _dcfoaiId (\ s a -> s{_dcfoaiId = a});
 
 instance AWSRequest
          DeleteCloudFrontOriginAccessIdentity where
@@ -86,14 +86,14 @@ instance AWSRequest
 instance ToHeaders
          DeleteCloudFrontOriginAccessIdentity where
         toHeaders DeleteCloudFrontOriginAccessIdentity'{..}
-          = mconcat ["If-Match" =# _dcfoairqIfMatch]
+          = mconcat ["If-Match" =# _dcfoaiIfMatch]
 
 instance ToPath DeleteCloudFrontOriginAccessIdentity
          where
         toPath DeleteCloudFrontOriginAccessIdentity'{..}
           = mconcat
               ["/2015-04-17/origin-access-identity/cloudfront/",
-               toText _dcfoairqId]
+               toText _dcfoaiId]
 
 instance ToQuery DeleteCloudFrontOriginAccessIdentity
          where

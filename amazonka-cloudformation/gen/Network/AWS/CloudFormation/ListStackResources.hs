@@ -30,8 +30,8 @@ module Network.AWS.CloudFormation.ListStackResources
     -- ** Request constructor
     , listStackResources
     -- ** Request lenses
-    , lsrrqNextToken
-    , lsrrqStackName
+    , lsrNextToken
+    , lsrStackName
 
     -- * Response
     , ListStackResourcesResponse
@@ -55,28 +55,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrrqNextToken'
+-- * 'lsrNextToken'
 --
--- * 'lsrrqStackName'
+-- * 'lsrStackName'
 data ListStackResources = ListStackResources'
-    { _lsrrqNextToken :: !(Maybe Text)
-    , _lsrrqStackName :: !Text
+    { _lsrNextToken :: !(Maybe Text)
+    , _lsrStackName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStackResources' smart constructor.
 listStackResources :: Text -> ListStackResources
 listStackResources pStackName_ =
     ListStackResources'
-    { _lsrrqNextToken = Nothing
-    , _lsrrqStackName = pStackName_
+    { _lsrNextToken = Nothing
+    , _lsrStackName = pStackName_
     }
 
 -- | String that identifies the start of the next list of stack resource
 -- summaries, if there is one.
 --
 -- Default: There is no default value.
-lsrrqNextToken :: Lens' ListStackResources (Maybe Text)
-lsrrqNextToken = lens _lsrrqNextToken (\ s a -> s{_lsrrqNextToken = a});
+lsrNextToken :: Lens' ListStackResources (Maybe Text)
+lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -86,15 +86,15 @@ lsrrqNextToken = lens _lsrrqNextToken (\ s a -> s{_lsrrqNextToken = a});
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-lsrrqStackName :: Lens' ListStackResources Text
-lsrrqStackName = lens _lsrrqStackName (\ s a -> s{_lsrrqStackName = a});
+lsrStackName :: Lens' ListStackResources Text
+lsrStackName = lens _lsrStackName (\ s a -> s{_lsrStackName = a});
 
 instance AWSPager ListStackResources where
         page rq rs
           | stop (rs ^. lsrrsNextToken) = Nothing
           | stop (rs ^. lsrrsStackResourceSummaries) = Nothing
           | otherwise =
-            Just $ rq & lsrrqNextToken .~ rs ^. lsrrsNextToken
+            Just $ rq & lsrNextToken .~ rs ^. lsrrsNextToken
 
 instance AWSRequest ListStackResources where
         type Sv ListStackResources = CloudFormation
@@ -121,8 +121,8 @@ instance ToQuery ListStackResources where
           = mconcat
               ["Action" =: ("ListStackResources" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "NextToken" =: _lsrrqNextToken,
-               "StackName" =: _lsrrqStackName]
+               "NextToken" =: _lsrNextToken,
+               "StackName" =: _lsrStackName]
 
 -- | The output for a ListStackResources action.
 --

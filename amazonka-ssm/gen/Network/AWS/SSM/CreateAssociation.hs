@@ -36,8 +36,8 @@ module Network.AWS.SSM.CreateAssociation
     -- ** Request constructor
     , createAssociation
     -- ** Request lenses
-    , carqName
-    , carqInstanceId
+    , caName
+    , caInstanceId
 
     -- * Response
     , CreateAssociationResponse
@@ -57,29 +57,29 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carqName'
+-- * 'caName'
 --
--- * 'carqInstanceId'
+-- * 'caInstanceId'
 data CreateAssociation = CreateAssociation'
-    { _carqName       :: !Text
-    , _carqInstanceId :: !Text
+    { _caName       :: !Text
+    , _caInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociation' smart constructor.
 createAssociation :: Text -> Text -> CreateAssociation
 createAssociation pName_ pInstanceId_ =
     CreateAssociation'
-    { _carqName = pName_
-    , _carqInstanceId = pInstanceId_
+    { _caName = pName_
+    , _caInstanceId = pInstanceId_
     }
 
 -- | The name of the configuration document.
-carqName :: Lens' CreateAssociation Text
-carqName = lens _carqName (\ s a -> s{_carqName = a});
+caName :: Lens' CreateAssociation Text
+caName = lens _caName (\ s a -> s{_caName = a});
 
 -- | The ID of the instance.
-carqInstanceId :: Lens' CreateAssociation Text
-carqInstanceId = lens _carqInstanceId (\ s a -> s{_carqInstanceId = a});
+caInstanceId :: Lens' CreateAssociation Text
+caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
 
 instance AWSRequest CreateAssociation where
         type Sv CreateAssociation = SSM
@@ -104,8 +104,7 @@ instance ToHeaders CreateAssociation where
 instance ToJSON CreateAssociation where
         toJSON CreateAssociation'{..}
           = object
-              ["Name" .= _carqName,
-               "InstanceId" .= _carqInstanceId]
+              ["Name" .= _caName, "InstanceId" .= _caInstanceId]
 
 instance ToPath CreateAssociation where
         toPath = const "/"

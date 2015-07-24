@@ -27,8 +27,8 @@ module Network.AWS.KMS.GetKeyPolicy
     -- ** Request constructor
     , getKeyPolicy
     -- ** Request lenses
-    , gkprqKeyId
-    , gkprqPolicyName
+    , gkpKeyId
+    , gkpPolicyName
 
     -- * Response
     , GetKeyPolicyResponse
@@ -48,20 +48,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gkprqKeyId'
+-- * 'gkpKeyId'
 --
--- * 'gkprqPolicyName'
+-- * 'gkpPolicyName'
 data GetKeyPolicy = GetKeyPolicy'
-    { _gkprqKeyId      :: !Text
-    , _gkprqPolicyName :: !Text
+    { _gkpKeyId      :: !Text
+    , _gkpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyPolicy' smart constructor.
 getKeyPolicy :: Text -> Text -> GetKeyPolicy
 getKeyPolicy pKeyId_ pPolicyName_ =
     GetKeyPolicy'
-    { _gkprqKeyId = pKeyId_
-    , _gkprqPolicyName = pPolicyName_
+    { _gkpKeyId = pKeyId_
+    , _gkpPolicyName = pPolicyName_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -71,13 +71,13 @@ getKeyPolicy pKeyId_ pPolicyName_ =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-gkprqKeyId :: Lens' GetKeyPolicy Text
-gkprqKeyId = lens _gkprqKeyId (\ s a -> s{_gkprqKeyId = a});
+gkpKeyId :: Lens' GetKeyPolicy Text
+gkpKeyId = lens _gkpKeyId (\ s a -> s{_gkpKeyId = a});
 
 -- | String that contains the name of the policy. Currently, this must be
 -- \"default\". Policy names can be discovered by calling ListKeyPolicies.
-gkprqPolicyName :: Lens' GetKeyPolicy Text
-gkprqPolicyName = lens _gkprqPolicyName (\ s a -> s{_gkprqPolicyName = a});
+gkpPolicyName :: Lens' GetKeyPolicy Text
+gkpPolicyName = lens _gkpPolicyName (\ s a -> s{_gkpPolicyName = a});
 
 instance AWSRequest GetKeyPolicy where
         type Sv GetKeyPolicy = KMS
@@ -101,8 +101,8 @@ instance ToHeaders GetKeyPolicy where
 instance ToJSON GetKeyPolicy where
         toJSON GetKeyPolicy'{..}
           = object
-              ["KeyId" .= _gkprqKeyId,
-               "PolicyName" .= _gkprqPolicyName]
+              ["KeyId" .= _gkpKeyId,
+               "PolicyName" .= _gkpPolicyName]
 
 instance ToPath GetKeyPolicy where
         toPath = const "/"

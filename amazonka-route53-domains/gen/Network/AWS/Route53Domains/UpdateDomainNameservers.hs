@@ -35,9 +35,9 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     -- ** Request constructor
     , updateDomainNameservers
     -- ** Request lenses
-    , udnrqFIAuthKey
-    , udnrqDomainName
-    , udnrqNameservers
+    , udnFIAuthKey
+    , udnDomainName
+    , udnNameservers
 
     -- * Response
     , UpdateDomainNameserversResponse
@@ -59,29 +59,29 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udnrqFIAuthKey'
+-- * 'udnFIAuthKey'
 --
--- * 'udnrqDomainName'
+-- * 'udnDomainName'
 --
--- * 'udnrqNameservers'
+-- * 'udnNameservers'
 data UpdateDomainNameservers = UpdateDomainNameservers'
-    { _udnrqFIAuthKey   :: !(Maybe Text)
-    , _udnrqDomainName  :: !Text
-    , _udnrqNameservers :: ![Nameserver]
+    { _udnFIAuthKey   :: !(Maybe Text)
+    , _udnDomainName  :: !Text
+    , _udnNameservers :: ![Nameserver]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainNameservers' smart constructor.
 updateDomainNameservers :: Text -> UpdateDomainNameservers
 updateDomainNameservers pDomainName_ =
     UpdateDomainNameservers'
-    { _udnrqFIAuthKey = Nothing
-    , _udnrqDomainName = pDomainName_
-    , _udnrqNameservers = mempty
+    { _udnFIAuthKey = Nothing
+    , _udnDomainName = pDomainName_
+    , _udnNameservers = mempty
     }
 
 -- | The authorization key for .fi domains
-udnrqFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
-udnrqFIAuthKey = lens _udnrqFIAuthKey (\ s a -> s{_udnrqFIAuthKey = a});
+udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
+udnFIAuthKey = lens _udnFIAuthKey (\ s a -> s{_udnFIAuthKey = a});
 
 -- | The name of a domain.
 --
@@ -94,8 +94,8 @@ udnrqFIAuthKey = lens _udnrqFIAuthKey (\ s a -> s{_udnrqFIAuthKey = a});
 -- are not supported.
 --
 -- Required: Yes
-udnrqDomainName :: Lens' UpdateDomainNameservers Text
-udnrqDomainName = lens _udnrqDomainName (\ s a -> s{_udnrqDomainName = a});
+udnDomainName :: Lens' UpdateDomainNameservers Text
+udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 
 -- | A list of new name servers for the domain.
 --
@@ -104,8 +104,8 @@ udnrqDomainName = lens _udnrqDomainName (\ s a -> s{_udnrqDomainName = a});
 -- Children: @Name@, @GlueIps@
 --
 -- Required: Yes
-udnrqNameservers :: Lens' UpdateDomainNameservers [Nameserver]
-udnrqNameservers = lens _udnrqNameservers (\ s a -> s{_udnrqNameservers = a});
+udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
+udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a});
 
 instance AWSRequest UpdateDomainNameservers where
         type Sv UpdateDomainNameservers = Route53Domains
@@ -131,9 +131,9 @@ instance ToHeaders UpdateDomainNameservers where
 instance ToJSON UpdateDomainNameservers where
         toJSON UpdateDomainNameservers'{..}
           = object
-              ["FIAuthKey" .= _udnrqFIAuthKey,
-               "DomainName" .= _udnrqDomainName,
-               "Nameservers" .= _udnrqNameservers]
+              ["FIAuthKey" .= _udnFIAuthKey,
+               "DomainName" .= _udnDomainName,
+               "Nameservers" .= _udnNameservers]
 
 instance ToPath UpdateDomainNameservers where
         toPath = const "/"

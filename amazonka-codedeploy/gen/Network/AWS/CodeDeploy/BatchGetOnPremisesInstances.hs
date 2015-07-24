@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     -- ** Request constructor
     , batchGetOnPremisesInstances
     -- ** Request lenses
-    , bgopirqInstanceNames
+    , bgopiInstanceNames
 
     -- * Response
     , BatchGetOnPremisesInstancesResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgopirqInstanceNames'
+-- * 'bgopiInstanceNames'
 newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
-    { _bgopirqInstanceNames :: Maybe [Text]
+    { _bgopiInstanceNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetOnPremisesInstances' smart constructor.
 batchGetOnPremisesInstances :: BatchGetOnPremisesInstances
 batchGetOnPremisesInstances =
     BatchGetOnPremisesInstances'
-    { _bgopirqInstanceNames = Nothing
+    { _bgopiInstanceNames = Nothing
     }
 
 -- | The names of the on-premises instances to get information about.
-bgopirqInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
-bgopirqInstanceNames = lens _bgopirqInstanceNames (\ s a -> s{_bgopirqInstanceNames = a}) . _Default;
+bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
+bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default;
 
 instance AWSRequest BatchGetOnPremisesInstances where
         type Sv BatchGetOnPremisesInstances = CodeDeploy
@@ -89,7 +89,7 @@ instance ToHeaders BatchGetOnPremisesInstances where
 
 instance ToJSON BatchGetOnPremisesInstances where
         toJSON BatchGetOnPremisesInstances'{..}
-          = object ["instanceNames" .= _bgopirqInstanceNames]
+          = object ["instanceNames" .= _bgopiInstanceNames]
 
 instance ToPath BatchGetOnPremisesInstances where
         toPath = const "/"

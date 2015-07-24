@@ -41,11 +41,11 @@ module Network.AWS.CloudTrail.LookupEvents
     -- ** Request constructor
     , lookupEvents
     -- ** Request lenses
-    , lerqStartTime
-    , lerqLookupAttributes
-    , lerqNextToken
-    , lerqEndTime
-    , lerqMaxResults
+    , leStartTime
+    , leLookupAttributes
+    , leNextToken
+    , leEndTime
+    , leMaxResults
 
     -- * Response
     , LookupEventsResponse
@@ -68,63 +68,63 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lerqStartTime'
+-- * 'leStartTime'
 --
--- * 'lerqLookupAttributes'
+-- * 'leLookupAttributes'
 --
--- * 'lerqNextToken'
+-- * 'leNextToken'
 --
--- * 'lerqEndTime'
+-- * 'leEndTime'
 --
--- * 'lerqMaxResults'
+-- * 'leMaxResults'
 data LookupEvents = LookupEvents'
-    { _lerqStartTime        :: !(Maybe POSIX)
-    , _lerqLookupAttributes :: !(Maybe [LookupAttribute])
-    , _lerqNextToken        :: !(Maybe Text)
-    , _lerqEndTime          :: !(Maybe POSIX)
-    , _lerqMaxResults       :: !(Maybe Nat)
+    { _leStartTime        :: !(Maybe POSIX)
+    , _leLookupAttributes :: !(Maybe [LookupAttribute])
+    , _leNextToken        :: !(Maybe Text)
+    , _leEndTime          :: !(Maybe POSIX)
+    , _leMaxResults       :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupEvents' smart constructor.
 lookupEvents :: LookupEvents
 lookupEvents =
     LookupEvents'
-    { _lerqStartTime = Nothing
-    , _lerqLookupAttributes = Nothing
-    , _lerqNextToken = Nothing
-    , _lerqEndTime = Nothing
-    , _lerqMaxResults = Nothing
+    { _leStartTime = Nothing
+    , _leLookupAttributes = Nothing
+    , _leNextToken = Nothing
+    , _leEndTime = Nothing
+    , _leMaxResults = Nothing
     }
 
 -- | Specifies that only events that occur after or at the specified time are
 -- returned. If the specified start time is after the specified end time,
 -- an error is returned.
-lerqStartTime :: Lens' LookupEvents (Maybe UTCTime)
-lerqStartTime = lens _lerqStartTime (\ s a -> s{_lerqStartTime = a}) . mapping _Time;
+leStartTime :: Lens' LookupEvents (Maybe UTCTime)
+leStartTime = lens _leStartTime (\ s a -> s{_leStartTime = a}) . mapping _Time;
 
 -- | Contains a list of lookup attributes. Currently the list can contain
 -- only one item.
-lerqLookupAttributes :: Lens' LookupEvents [LookupAttribute]
-lerqLookupAttributes = lens _lerqLookupAttributes (\ s a -> s{_lerqLookupAttributes = a}) . _Default;
+leLookupAttributes :: Lens' LookupEvents [LookupAttribute]
+leLookupAttributes = lens _leLookupAttributes (\ s a -> s{_leLookupAttributes = a}) . _Default;
 
 -- | The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
 -- specified in the the original call. For example, if the original call
 -- specified an AttributeKey of \'Username\' with a value of \'root\', the
 -- call with NextToken should include those same parameters.
-lerqNextToken :: Lens' LookupEvents (Maybe Text)
-lerqNextToken = lens _lerqNextToken (\ s a -> s{_lerqNextToken = a});
+leNextToken :: Lens' LookupEvents (Maybe Text)
+leNextToken = lens _leNextToken (\ s a -> s{_leNextToken = a});
 
 -- | Specifies that only events that occur before or at the specified time
 -- are returned. If the specified end time is before the specified start
 -- time, an error is returned.
-lerqEndTime :: Lens' LookupEvents (Maybe UTCTime)
-lerqEndTime = lens _lerqEndTime (\ s a -> s{_lerqEndTime = a}) . mapping _Time;
+leEndTime :: Lens' LookupEvents (Maybe UTCTime)
+leEndTime = lens _leEndTime (\ s a -> s{_leEndTime = a}) . mapping _Time;
 
 -- | The number of events to return. Possible values are 1 through 50. The
 -- default is 10.
-lerqMaxResults :: Lens' LookupEvents (Maybe Natural)
-lerqMaxResults = lens _lerqMaxResults (\ s a -> s{_lerqMaxResults = a}) . mapping _Nat;
+leMaxResults :: Lens' LookupEvents (Maybe Natural)
+leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest LookupEvents where
         type Sv LookupEvents = CloudTrail
@@ -150,11 +150,10 @@ instance ToHeaders LookupEvents where
 instance ToJSON LookupEvents where
         toJSON LookupEvents'{..}
           = object
-              ["StartTime" .= _lerqStartTime,
-               "LookupAttributes" .= _lerqLookupAttributes,
-               "NextToken" .= _lerqNextToken,
-               "EndTime" .= _lerqEndTime,
-               "MaxResults" .= _lerqMaxResults]
+              ["StartTime" .= _leStartTime,
+               "LookupAttributes" .= _leLookupAttributes,
+               "NextToken" .= _leNextToken, "EndTime" .= _leEndTime,
+               "MaxResults" .= _leMaxResults]
 
 instance ToPath LookupEvents where
         toPath = const "/"

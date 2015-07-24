@@ -40,13 +40,13 @@ module Network.AWS.ELB.CreateLoadBalancer
     -- ** Request constructor
     , createLoadBalancer
     -- ** Request lenses
-    , clbrqSecurityGroups
-    , clbrqSubnets
-    , clbrqAvailabilityZones
-    , clbrqScheme
-    , clbrqTags
-    , clbrqLoadBalancerName
-    , clbrqListeners
+    , clbSecurityGroups
+    , clbSubnets
+    , clbAvailabilityZones
+    , clbScheme
+    , clbTags
+    , clbLoadBalancerName
+    , clbListeners
 
     -- * Response
     , CreateLoadBalancerResponse
@@ -66,51 +66,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbrqSecurityGroups'
+-- * 'clbSecurityGroups'
 --
--- * 'clbrqSubnets'
+-- * 'clbSubnets'
 --
--- * 'clbrqAvailabilityZones'
+-- * 'clbAvailabilityZones'
 --
--- * 'clbrqScheme'
+-- * 'clbScheme'
 --
--- * 'clbrqTags'
+-- * 'clbTags'
 --
--- * 'clbrqLoadBalancerName'
+-- * 'clbLoadBalancerName'
 --
--- * 'clbrqListeners'
+-- * 'clbListeners'
 data CreateLoadBalancer = CreateLoadBalancer'
-    { _clbrqSecurityGroups    :: !(Maybe [Text])
-    , _clbrqSubnets           :: !(Maybe [Text])
-    , _clbrqAvailabilityZones :: !(Maybe [Text])
-    , _clbrqScheme            :: !(Maybe Text)
-    , _clbrqTags              :: !(Maybe (List1 Tag))
-    , _clbrqLoadBalancerName  :: !Text
-    , _clbrqListeners         :: ![Listener]
+    { _clbSecurityGroups    :: !(Maybe [Text])
+    , _clbSubnets           :: !(Maybe [Text])
+    , _clbAvailabilityZones :: !(Maybe [Text])
+    , _clbScheme            :: !(Maybe Text)
+    , _clbTags              :: !(Maybe (List1 Tag))
+    , _clbLoadBalancerName  :: !Text
+    , _clbListeners         :: ![Listener]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancer' smart constructor.
 createLoadBalancer :: Text -> CreateLoadBalancer
 createLoadBalancer pLoadBalancerName_ =
     CreateLoadBalancer'
-    { _clbrqSecurityGroups = Nothing
-    , _clbrqSubnets = Nothing
-    , _clbrqAvailabilityZones = Nothing
-    , _clbrqScheme = Nothing
-    , _clbrqTags = Nothing
-    , _clbrqLoadBalancerName = pLoadBalancerName_
-    , _clbrqListeners = mempty
+    { _clbSecurityGroups = Nothing
+    , _clbSubnets = Nothing
+    , _clbAvailabilityZones = Nothing
+    , _clbScheme = Nothing
+    , _clbTags = Nothing
+    , _clbLoadBalancerName = pLoadBalancerName_
+    , _clbListeners = mempty
     }
 
 -- | The IDs of the security groups to assign to the load balancer.
-clbrqSecurityGroups :: Lens' CreateLoadBalancer [Text]
-clbrqSecurityGroups = lens _clbrqSecurityGroups (\ s a -> s{_clbrqSecurityGroups = a}) . _Default;
+clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
+clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a}) . _Default;
 
 -- | The IDs of the subnets in your VPC to attach to the load balancer.
 -- Specify one subnet per Availability Zone specified in
 -- @AvailabilityZones@.
-clbrqSubnets :: Lens' CreateLoadBalancer [Text]
-clbrqSubnets = lens _clbrqSubnets (\ s a -> s{_clbrqSubnets = a}) . _Default;
+clbSubnets :: Lens' CreateLoadBalancer [Text]
+clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default;
 
 -- | One or more Availability Zones from the same region as the load
 -- balancer. Traffic is equally distributed across all specified
@@ -120,8 +120,8 @@ clbrqSubnets = lens _clbrqSubnets (\ s a -> s{_clbrqSubnets = a}) . _Default;
 --
 -- You can add more Availability Zones after you create the load balancer
 -- using EnableAvailabilityZonesForLoadBalancer.
-clbrqAvailabilityZones :: Lens' CreateLoadBalancer [Text]
-clbrqAvailabilityZones = lens _clbrqAvailabilityZones (\ s a -> s{_clbrqAvailabilityZones = a}) . _Default;
+clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
+clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a}) . _Default;
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
@@ -134,32 +134,32 @@ clbrqAvailabilityZones = lens _clbrqAvailabilityZones (\ s a -> s{_clbrqAvailabi
 --
 -- Specify @internal@ to create an internal load balancer with a DNS name
 -- that resolves to private IP addresses.
-clbrqScheme :: Lens' CreateLoadBalancer (Maybe Text)
-clbrqScheme = lens _clbrqScheme (\ s a -> s{_clbrqScheme = a});
+clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
+clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a});
 
 -- | A list of tags to assign to the load balancer.
 --
 -- For more information about tagging your load balancer, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging>
 -- in the /Elastic Load Balancing Developer Guide/.
-clbrqTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
-clbrqTags = lens _clbrqTags (\ s a -> s{_clbrqTags = a}) . mapping _List1;
+clbTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
+clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . mapping _List1;
 
 -- | The name of the load balancer.
 --
 -- This name must be unique within your AWS account, must have a maximum of
 -- 32 characters, must contain only alphanumeric characters or hyphens, and
 -- cannot begin or end with a hyphen.
-clbrqLoadBalancerName :: Lens' CreateLoadBalancer Text
-clbrqLoadBalancerName = lens _clbrqLoadBalancerName (\ s a -> s{_clbrqLoadBalancerName = a});
+clbLoadBalancerName :: Lens' CreateLoadBalancer Text
+clbLoadBalancerName = lens _clbLoadBalancerName (\ s a -> s{_clbLoadBalancerName = a});
 
 -- | The listeners.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listeners for Your Load Balancer>
 -- in the /Elastic Load Balancing Developer Guide/.
-clbrqListeners :: Lens' CreateLoadBalancer [Listener]
-clbrqListeners = lens _clbrqListeners (\ s a -> s{_clbrqListeners = a});
+clbListeners :: Lens' CreateLoadBalancer [Listener]
+clbListeners = lens _clbListeners (\ s a -> s{_clbListeners = a});
 
 instance AWSRequest CreateLoadBalancer where
         type Sv CreateLoadBalancer = ELB
@@ -185,17 +185,17 @@ instance ToQuery CreateLoadBalancer where
                "Version" =: ("2012-06-01" :: ByteString),
                "SecurityGroups" =:
                  toQuery
-                   (toQueryList "member" <$> _clbrqSecurityGroups),
+                   (toQueryList "member" <$> _clbSecurityGroups),
                "Subnets" =:
-                 toQuery (toQueryList "member" <$> _clbrqSubnets),
+                 toQuery (toQueryList "member" <$> _clbSubnets),
                "AvailabilityZones" =:
                  toQuery
-                   (toQueryList "member" <$> _clbrqAvailabilityZones),
-               "Scheme" =: _clbrqScheme,
+                   (toQueryList "member" <$> _clbAvailabilityZones),
+               "Scheme" =: _clbScheme,
                "Tags" =:
-                 toQuery (toQueryList "member" <$> _clbrqTags),
-               "LoadBalancerName" =: _clbrqLoadBalancerName,
-               "Listeners" =: toQueryList "member" _clbrqListeners]
+                 toQuery (toQueryList "member" <$> _clbTags),
+               "LoadBalancerName" =: _clbLoadBalancerName,
+               "Listeners" =: toQueryList "member" _clbListeners]
 
 -- | /See:/ 'createLoadBalancerResponse' smart constructor.
 --

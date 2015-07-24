@@ -27,7 +27,7 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     -- ** Request constructor
     , readPreset
     -- ** Request lenses
-    , rprqId
+    , rpId
 
     -- * Response
     , ReadPresetResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rprqId'
+-- * 'rpId'
 newtype ReadPreset = ReadPreset'
-    { _rprqId :: Text
+    { _rpId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPreset' smart constructor.
 readPreset :: Text -> ReadPreset
 readPreset pId_ =
     ReadPreset'
-    { _rprqId = pId_
+    { _rpId = pId_
     }
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-rprqId :: Lens' ReadPreset Text
-rprqId = lens _rprqId (\ s a -> s{_rprqId = a});
+rpId :: Lens' ReadPreset Text
+rpId = lens _rpId (\ s a -> s{_rpId = a});
 
 instance AWSRequest ReadPreset where
         type Sv ReadPreset = ElasticTranscoder
@@ -81,7 +81,7 @@ instance ToHeaders ReadPreset where
 
 instance ToPath ReadPreset where
         toPath ReadPreset'{..}
-          = mconcat ["/2012-09-25/presets/", toText _rprqId]
+          = mconcat ["/2012-09-25/presets/", toText _rpId]
 
 instance ToQuery ReadPreset where
         toQuery = const mempty

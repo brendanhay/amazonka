@@ -85,10 +85,10 @@ module Network.AWS.SSM.Types
     -- * DocumentDescription
     , DocumentDescription
     , documentDescription
-    , ddStatus
-    , ddSha1
-    , ddCreatedDate
-    , ddName
+    , dStatus
+    , dSha1
+    , dCreatedDate
+    , dName
 
     -- * DocumentFilter
     , DocumentFilter

@@ -28,14 +28,14 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- ** Request constructor
     , describeOrderableDBInstanceOptions
     -- ** Request lenses
-    , dodiorqEngineVersion
-    , dodiorqFilters
-    , dodiorqDBInstanceClass
-    , dodiorqLicenseModel
-    , dodiorqMaxRecords
-    , dodiorqMarker
-    , dodiorqVPC
-    , dodiorqEngine
+    , dodioEngineVersion
+    , dodioFilters
+    , dodioDBInstanceClass
+    , dodioLicenseModel
+    , dodioMaxRecords
+    , dodioMarker
+    , dodioVPC
+    , dodioEngine
 
     -- * Response
     , DescribeOrderableDBInstanceOptionsResponse
@@ -59,64 +59,64 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dodiorqEngineVersion'
+-- * 'dodioEngineVersion'
 --
--- * 'dodiorqFilters'
+-- * 'dodioFilters'
 --
--- * 'dodiorqDBInstanceClass'
+-- * 'dodioDBInstanceClass'
 --
--- * 'dodiorqLicenseModel'
+-- * 'dodioLicenseModel'
 --
--- * 'dodiorqMaxRecords'
+-- * 'dodioMaxRecords'
 --
--- * 'dodiorqMarker'
+-- * 'dodioMarker'
 --
--- * 'dodiorqVPC'
+-- * 'dodioVPC'
 --
--- * 'dodiorqEngine'
+-- * 'dodioEngine'
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
-    { _dodiorqEngineVersion   :: !(Maybe Text)
-    , _dodiorqFilters         :: !(Maybe [Filter])
-    , _dodiorqDBInstanceClass :: !(Maybe Text)
-    , _dodiorqLicenseModel    :: !(Maybe Text)
-    , _dodiorqMaxRecords      :: !(Maybe Int)
-    , _dodiorqMarker          :: !(Maybe Text)
-    , _dodiorqVPC             :: !(Maybe Bool)
-    , _dodiorqEngine          :: !Text
+    { _dodioEngineVersion   :: !(Maybe Text)
+    , _dodioFilters         :: !(Maybe [Filter])
+    , _dodioDBInstanceClass :: !(Maybe Text)
+    , _dodioLicenseModel    :: !(Maybe Text)
+    , _dodioMaxRecords      :: !(Maybe Int)
+    , _dodioMarker          :: !(Maybe Text)
+    , _dodioVPC             :: !(Maybe Bool)
+    , _dodioEngine          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOrderableDBInstanceOptions' smart constructor.
 describeOrderableDBInstanceOptions :: Text -> DescribeOrderableDBInstanceOptions
 describeOrderableDBInstanceOptions pEngine_ =
     DescribeOrderableDBInstanceOptions'
-    { _dodiorqEngineVersion = Nothing
-    , _dodiorqFilters = Nothing
-    , _dodiorqDBInstanceClass = Nothing
-    , _dodiorqLicenseModel = Nothing
-    , _dodiorqMaxRecords = Nothing
-    , _dodiorqMarker = Nothing
-    , _dodiorqVPC = Nothing
-    , _dodiorqEngine = pEngine_
+    { _dodioEngineVersion = Nothing
+    , _dodioFilters = Nothing
+    , _dodioDBInstanceClass = Nothing
+    , _dodioLicenseModel = Nothing
+    , _dodioMaxRecords = Nothing
+    , _dodioMarker = Nothing
+    , _dodioVPC = Nothing
+    , _dodioEngine = pEngine_
     }
 
 -- | The engine version filter value. Specify this parameter to show only the
 -- available offerings matching the specified engine version.
-dodiorqEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodiorqEngineVersion = lens _dodiorqEngineVersion (\ s a -> s{_dodiorqEngineVersion = a});
+dodioEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioEngineVersion = lens _dodioEngineVersion (\ s a -> s{_dodioEngineVersion = a});
 
 -- | This parameter is not currently supported.
-dodiorqFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
-dodiorqFilters = lens _dodiorqFilters (\ s a -> s{_dodiorqFilters = a}) . _Default;
+dodioFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
+dodioFilters = lens _dodioFilters (\ s a -> s{_dodioFilters = a}) . _Default;
 
 -- | The DB instance class filter value. Specify this parameter to show only
 -- the available offerings matching the specified DB instance class.
-dodiorqDBInstanceClass :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodiorqDBInstanceClass = lens _dodiorqDBInstanceClass (\ s a -> s{_dodiorqDBInstanceClass = a});
+dodioDBInstanceClass :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioDBInstanceClass = lens _dodioDBInstanceClass (\ s a -> s{_dodioDBInstanceClass = a});
 
 -- | The license model filter value. Specify this parameter to show only the
 -- available offerings matching the specified license model.
-dodiorqLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodiorqLicenseModel = lens _dodiorqLicenseModel (\ s a -> s{_dodiorqLicenseModel = a});
+dodioLicenseModel :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioLicenseModel = lens _dodioLicenseModel (\ s a -> s{_dodioLicenseModel = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -126,24 +126,24 @@ dodiorqLicenseModel = lens _dodiorqLicenseModel (\ s a -> s{_dodiorqLicenseModel
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dodiorqMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
-dodiorqMaxRecords = lens _dodiorqMaxRecords (\ s a -> s{_dodiorqMaxRecords = a});
+dodioMaxRecords :: Lens' DescribeOrderableDBInstanceOptions (Maybe Int)
+dodioMaxRecords = lens _dodioMaxRecords (\ s a -> s{_dodioMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@ .
-dodiorqMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
-dodiorqMarker = lens _dodiorqMarker (\ s a -> s{_dodiorqMarker = a});
+dodioMarker :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
+dodioMarker = lens _dodioMarker (\ s a -> s{_dodioMarker = a});
 
 -- | The VPC filter value. Specify this parameter to show only the available
 -- VPC or non-VPC offerings.
-dodiorqVPC :: Lens' DescribeOrderableDBInstanceOptions (Maybe Bool)
-dodiorqVPC = lens _dodiorqVPC (\ s a -> s{_dodiorqVPC = a});
+dodioVPC :: Lens' DescribeOrderableDBInstanceOptions (Maybe Bool)
+dodioVPC = lens _dodioVPC (\ s a -> s{_dodioVPC = a});
 
 -- | The name of the engine to retrieve DB instance options for.
-dodiorqEngine :: Lens' DescribeOrderableDBInstanceOptions Text
-dodiorqEngine = lens _dodiorqEngine (\ s a -> s{_dodiorqEngine = a});
+dodioEngine :: Lens' DescribeOrderableDBInstanceOptions Text
+dodioEngine = lens _dodioEngine (\ s a -> s{_dodioEngine = a});
 
 instance AWSPager DescribeOrderableDBInstanceOptions
          where
@@ -152,7 +152,7 @@ instance AWSPager DescribeOrderableDBInstanceOptions
           | stop (rs ^. dodiorsOrderableDBInstanceOptions) =
             Nothing
           | otherwise =
-            Just $ rq & dodiorqMarker .~ rs ^. dodiorsMarker
+            Just $ rq & dodioMarker .~ rs ^. dodiorsMarker
 
 instance AWSRequest
          DescribeOrderableDBInstanceOptions where
@@ -185,14 +185,14 @@ instance ToQuery DescribeOrderableDBInstanceOptions
               ["Action" =:
                  ("DescribeOrderableDBInstanceOptions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "EngineVersion" =: _dodiorqEngineVersion,
+               "EngineVersion" =: _dodioEngineVersion,
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dodiorqFilters),
-               "DBInstanceClass" =: _dodiorqDBInstanceClass,
-               "LicenseModel" =: _dodiorqLicenseModel,
-               "MaxRecords" =: _dodiorqMaxRecords,
-               "Marker" =: _dodiorqMarker, "Vpc" =: _dodiorqVPC,
-               "Engine" =: _dodiorqEngine]
+                 toQuery (toQueryList "Filter" <$> _dodioFilters),
+               "DBInstanceClass" =: _dodioDBInstanceClass,
+               "LicenseModel" =: _dodioLicenseModel,
+               "MaxRecords" =: _dodioMaxRecords,
+               "Marker" =: _dodioMarker, "Vpc" =: _dodioVPC,
+               "Engine" =: _dodioEngine]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeOrderableDBInstanceOptions action.

@@ -30,8 +30,8 @@ module Network.AWS.MachineLearning.UpdateEvaluation
     -- ** Request constructor
     , updateEvaluation
     -- ** Request lenses
-    , uerqEvaluationId
-    , uerqEvaluationName
+    , ueEvaluationId
+    , ueEvaluationName
 
     -- * Response
     , UpdateEvaluationResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uerqEvaluationId'
+-- * 'ueEvaluationId'
 --
--- * 'uerqEvaluationName'
+-- * 'ueEvaluationName'
 data UpdateEvaluation = UpdateEvaluation'
-    { _uerqEvaluationId   :: !Text
-    , _uerqEvaluationName :: !Text
+    { _ueEvaluationId   :: !Text
+    , _ueEvaluationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEvaluation' smart constructor.
 updateEvaluation :: Text -> Text -> UpdateEvaluation
 updateEvaluation pEvaluationId_ pEvaluationName_ =
     UpdateEvaluation'
-    { _uerqEvaluationId = pEvaluationId_
-    , _uerqEvaluationName = pEvaluationName_
+    { _ueEvaluationId = pEvaluationId_
+    , _ueEvaluationName = pEvaluationName_
     }
 
 -- | The ID assigned to the @Evaluation@ during creation.
-uerqEvaluationId :: Lens' UpdateEvaluation Text
-uerqEvaluationId = lens _uerqEvaluationId (\ s a -> s{_uerqEvaluationId = a});
+ueEvaluationId :: Lens' UpdateEvaluation Text
+ueEvaluationId = lens _ueEvaluationId (\ s a -> s{_ueEvaluationId = a});
 
 -- | A new user-supplied name or description of the @Evaluation@ that will
 -- replace the current content.
-uerqEvaluationName :: Lens' UpdateEvaluation Text
-uerqEvaluationName = lens _uerqEvaluationName (\ s a -> s{_uerqEvaluationName = a});
+ueEvaluationName :: Lens' UpdateEvaluation Text
+ueEvaluationName = lens _ueEvaluationName (\ s a -> s{_ueEvaluationName = a});
 
 instance AWSRequest UpdateEvaluation where
         type Sv UpdateEvaluation = MachineLearning
@@ -98,8 +98,8 @@ instance ToHeaders UpdateEvaluation where
 instance ToJSON UpdateEvaluation where
         toJSON UpdateEvaluation'{..}
           = object
-              ["EvaluationId" .= _uerqEvaluationId,
-               "EvaluationName" .= _uerqEvaluationName]
+              ["EvaluationId" .= _ueEvaluationId,
+               "EvaluationName" .= _ueEvaluationName]
 
 instance ToPath UpdateEvaluation where
         toPath = const "/"

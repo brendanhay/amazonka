@@ -38,8 +38,8 @@ module Network.AWS.ECS.UpdateContainerAgent
     -- ** Request constructor
     , updateContainerAgent
     -- ** Request lenses
-    , ucarqCluster
-    , ucarqContainerInstance
+    , ucaCluster
+    , ucaContainerInstance
 
     -- * Response
     , UpdateContainerAgentResponse
@@ -59,33 +59,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ucarqCluster'
+-- * 'ucaCluster'
 --
--- * 'ucarqContainerInstance'
+-- * 'ucaContainerInstance'
 data UpdateContainerAgent = UpdateContainerAgent'
-    { _ucarqCluster           :: !(Maybe Text)
-    , _ucarqContainerInstance :: !Text
+    { _ucaCluster           :: !(Maybe Text)
+    , _ucaContainerInstance :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateContainerAgent' smart constructor.
 updateContainerAgent :: Text -> UpdateContainerAgent
 updateContainerAgent pContainerInstance_ =
     UpdateContainerAgent'
-    { _ucarqCluster = Nothing
-    , _ucarqContainerInstance = pContainerInstance_
+    { _ucaCluster = Nothing
+    , _ucaContainerInstance = pContainerInstance_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your container instance is running on. If you do not specify a cluster,
 -- the default cluster is assumed.
-ucarqCluster :: Lens' UpdateContainerAgent (Maybe Text)
-ucarqCluster = lens _ucarqCluster (\ s a -> s{_ucarqCluster = a});
+ucaCluster :: Lens' UpdateContainerAgent (Maybe Text)
+ucaCluster = lens _ucaCluster (\ s a -> s{_ucaCluster = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) entries
 -- for the container instance on which you would like to update the Amazon
 -- ECS container agent.
-ucarqContainerInstance :: Lens' UpdateContainerAgent Text
-ucarqContainerInstance = lens _ucarqContainerInstance (\ s a -> s{_ucarqContainerInstance = a});
+ucaContainerInstance :: Lens' UpdateContainerAgent Text
+ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a});
 
 instance AWSRequest UpdateContainerAgent where
         type Sv UpdateContainerAgent = ECS
@@ -111,8 +111,8 @@ instance ToHeaders UpdateContainerAgent where
 instance ToJSON UpdateContainerAgent where
         toJSON UpdateContainerAgent'{..}
           = object
-              ["cluster" .= _ucarqCluster,
-               "containerInstance" .= _ucarqContainerInstance]
+              ["cluster" .= _ucaCluster,
+               "containerInstance" .= _ucaContainerInstance]
 
 instance ToPath UpdateContainerAgent where
         toPath = const "/"

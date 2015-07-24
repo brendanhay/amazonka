@@ -29,12 +29,12 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- ** Request constructor
     , describeAlarmHistory
     -- ** Request lenses
-    , dahrqAlarmName
-    , dahrqHistoryItemType
-    , dahrqEndDate
-    , dahrqStartDate
-    , dahrqNextToken
-    , dahrqMaxRecords
+    , dahAlarmName
+    , dahHistoryItemType
+    , dahEndDate
+    , dahStartDate
+    , dahNextToken
+    , dahMaxRecords
 
     -- * Response
     , DescribeAlarmHistoryResponse
@@ -56,69 +56,69 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dahrqAlarmName'
+-- * 'dahAlarmName'
 --
--- * 'dahrqHistoryItemType'
+-- * 'dahHistoryItemType'
 --
--- * 'dahrqEndDate'
+-- * 'dahEndDate'
 --
--- * 'dahrqStartDate'
+-- * 'dahStartDate'
 --
--- * 'dahrqNextToken'
+-- * 'dahNextToken'
 --
--- * 'dahrqMaxRecords'
+-- * 'dahMaxRecords'
 data DescribeAlarmHistory = DescribeAlarmHistory'
-    { _dahrqAlarmName       :: !(Maybe Text)
-    , _dahrqHistoryItemType :: !(Maybe HistoryItemType)
-    , _dahrqEndDate         :: !(Maybe ISO8601)
-    , _dahrqStartDate       :: !(Maybe ISO8601)
-    , _dahrqNextToken       :: !(Maybe Text)
-    , _dahrqMaxRecords      :: !(Maybe Nat)
+    { _dahAlarmName       :: !(Maybe Text)
+    , _dahHistoryItemType :: !(Maybe HistoryItemType)
+    , _dahEndDate         :: !(Maybe ISO8601)
+    , _dahStartDate       :: !(Maybe ISO8601)
+    , _dahNextToken       :: !(Maybe Text)
+    , _dahMaxRecords      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmHistory' smart constructor.
 describeAlarmHistory :: DescribeAlarmHistory
 describeAlarmHistory =
     DescribeAlarmHistory'
-    { _dahrqAlarmName = Nothing
-    , _dahrqHistoryItemType = Nothing
-    , _dahrqEndDate = Nothing
-    , _dahrqStartDate = Nothing
-    , _dahrqNextToken = Nothing
-    , _dahrqMaxRecords = Nothing
+    { _dahAlarmName = Nothing
+    , _dahHistoryItemType = Nothing
+    , _dahEndDate = Nothing
+    , _dahStartDate = Nothing
+    , _dahNextToken = Nothing
+    , _dahMaxRecords = Nothing
     }
 
 -- | The name of the alarm.
-dahrqAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
-dahrqAlarmName = lens _dahrqAlarmName (\ s a -> s{_dahrqAlarmName = a});
+dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
+dahAlarmName = lens _dahAlarmName (\ s a -> s{_dahAlarmName = a});
 
 -- | The type of alarm histories to retrieve.
-dahrqHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
-dahrqHistoryItemType = lens _dahrqHistoryItemType (\ s a -> s{_dahrqHistoryItemType = a});
+dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
+dahHistoryItemType = lens _dahHistoryItemType (\ s a -> s{_dahHistoryItemType = a});
 
 -- | The ending date to retrieve alarm history.
-dahrqEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahrqEndDate = lens _dahrqEndDate (\ s a -> s{_dahrqEndDate = a}) . mapping _Time;
+dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
+dahEndDate = lens _dahEndDate (\ s a -> s{_dahEndDate = a}) . mapping _Time;
 
 -- | The starting date to retrieve alarm history.
-dahrqStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
-dahrqStartDate = lens _dahrqStartDate (\ s a -> s{_dahrqStartDate = a}) . mapping _Time;
+dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
+dahStartDate = lens _dahStartDate (\ s a -> s{_dahStartDate = a}) . mapping _Time;
 
 -- | The token returned by a previous call to indicate that there is more
 -- data available.
-dahrqNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
-dahrqNextToken = lens _dahrqNextToken (\ s a -> s{_dahrqNextToken = a});
+dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
+dahNextToken = lens _dahNextToken (\ s a -> s{_dahNextToken = a});
 
 -- | The maximum number of alarm history records to retrieve.
-dahrqMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
-dahrqMaxRecords = lens _dahrqMaxRecords (\ s a -> s{_dahrqMaxRecords = a}) . mapping _Nat;
+dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
+dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . mapping _Nat;
 
 instance AWSPager DescribeAlarmHistory where
         page rq rs
           | stop (rs ^. dahrsNextToken) = Nothing
           | stop (rs ^. dahrsAlarmHistoryItems) = Nothing
           | otherwise =
-            Just $ rq & dahrqNextToken .~ rs ^. dahrsNextToken
+            Just $ rq & dahNextToken .~ rs ^. dahrsNextToken
 
 instance AWSRequest DescribeAlarmHistory where
         type Sv DescribeAlarmHistory = CloudWatch
@@ -145,12 +145,12 @@ instance ToQuery DescribeAlarmHistory where
           = mconcat
               ["Action" =: ("DescribeAlarmHistory" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmName" =: _dahrqAlarmName,
-               "HistoryItemType" =: _dahrqHistoryItemType,
-               "EndDate" =: _dahrqEndDate,
-               "StartDate" =: _dahrqStartDate,
-               "NextToken" =: _dahrqNextToken,
-               "MaxRecords" =: _dahrqMaxRecords]
+               "AlarmName" =: _dahAlarmName,
+               "HistoryItemType" =: _dahHistoryItemType,
+               "EndDate" =: _dahEndDate,
+               "StartDate" =: _dahStartDate,
+               "NextToken" =: _dahNextToken,
+               "MaxRecords" =: _dahMaxRecords]
 
 -- | The output for the DescribeAlarmHistory action.
 --

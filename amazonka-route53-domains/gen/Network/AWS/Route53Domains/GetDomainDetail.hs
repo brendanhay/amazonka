@@ -28,7 +28,7 @@ module Network.AWS.Route53Domains.GetDomainDetail
     -- ** Request constructor
     , getDomainDetail
     -- ** Request lenses
-    , gddrqDomainName
+    , gddDomainName
 
     -- * Response
     , GetDomainDetailResponse
@@ -70,16 +70,16 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gddrqDomainName'
+-- * 'gddDomainName'
 newtype GetDomainDetail = GetDomainDetail'
-    { _gddrqDomainName :: Text
+    { _gddDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDomainDetail' smart constructor.
 getDomainDetail :: Text -> GetDomainDetail
 getDomainDetail pDomainName_ =
     GetDomainDetail'
-    { _gddrqDomainName = pDomainName_
+    { _gddDomainName = pDomainName_
     }
 
 -- | The name of a domain.
@@ -93,8 +93,8 @@ getDomainDetail pDomainName_ =
 -- are not supported.
 --
 -- Required: Yes
-gddrqDomainName :: Lens' GetDomainDetail Text
-gddrqDomainName = lens _gddrqDomainName (\ s a -> s{_gddrqDomainName = a});
+gddDomainName :: Lens' GetDomainDetail Text
+gddDomainName = lens _gddDomainName (\ s a -> s{_gddDomainName = a});
 
 instance AWSRequest GetDomainDetail where
         type Sv GetDomainDetail = Route53Domains
@@ -138,7 +138,7 @@ instance ToHeaders GetDomainDetail where
 
 instance ToJSON GetDomainDetail where
         toJSON GetDomainDetail'{..}
-          = object ["DomainName" .= _gddrqDomainName]
+          = object ["DomainName" .= _gddDomainName]
 
 instance ToPath GetDomainDetail where
         toPath = const "/"

@@ -30,22 +30,22 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     -- ** Request constructor
     , modifyCacheCluster
     -- ** Request lenses
-    , mccrqEngineVersion
-    , mccrqSecurityGroupIds
-    , mccrqAutoMinorVersionUpgrade
-    , mccrqCacheParameterGroupName
-    , mccrqNewAvailabilityZones
-    , mccrqSnapshotWindow
-    , mccrqPreferredMaintenanceWindow
-    , mccrqCacheNodeIdsToRemove
-    , mccrqSnapshotRetentionLimit
-    , mccrqAZMode
-    , mccrqNotificationTopicStatus
-    , mccrqApplyImmediately
-    , mccrqNotificationTopicARN
-    , mccrqNumCacheNodes
-    , mccrqCacheSecurityGroupNames
-    , mccrqCacheClusterId
+    , mccEngineVersion
+    , mccSecurityGroupIds
+    , mccAutoMinorVersionUpgrade
+    , mccCacheParameterGroupName
+    , mccNewAvailabilityZones
+    , mccSnapshotWindow
+    , mccPreferredMaintenanceWindow
+    , mccCacheNodeIdsToRemove
+    , mccSnapshotRetentionLimit
+    , mccAZMode
+    , mccNotificationTopicStatus
+    , mccApplyImmediately
+    , mccNotificationTopicARN
+    , mccNumCacheNodes
+    , mccCacheSecurityGroupNames
+    , mccCacheClusterId
 
     -- * Response
     , ModifyCacheClusterResponse
@@ -67,99 +67,99 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mccrqEngineVersion'
+-- * 'mccEngineVersion'
 --
--- * 'mccrqSecurityGroupIds'
+-- * 'mccSecurityGroupIds'
 --
--- * 'mccrqAutoMinorVersionUpgrade'
+-- * 'mccAutoMinorVersionUpgrade'
 --
--- * 'mccrqCacheParameterGroupName'
+-- * 'mccCacheParameterGroupName'
 --
--- * 'mccrqNewAvailabilityZones'
+-- * 'mccNewAvailabilityZones'
 --
--- * 'mccrqSnapshotWindow'
+-- * 'mccSnapshotWindow'
 --
--- * 'mccrqPreferredMaintenanceWindow'
+-- * 'mccPreferredMaintenanceWindow'
 --
--- * 'mccrqCacheNodeIdsToRemove'
+-- * 'mccCacheNodeIdsToRemove'
 --
--- * 'mccrqSnapshotRetentionLimit'
+-- * 'mccSnapshotRetentionLimit'
 --
--- * 'mccrqAZMode'
+-- * 'mccAZMode'
 --
--- * 'mccrqNotificationTopicStatus'
+-- * 'mccNotificationTopicStatus'
 --
--- * 'mccrqApplyImmediately'
+-- * 'mccApplyImmediately'
 --
--- * 'mccrqNotificationTopicARN'
+-- * 'mccNotificationTopicARN'
 --
--- * 'mccrqNumCacheNodes'
+-- * 'mccNumCacheNodes'
 --
--- * 'mccrqCacheSecurityGroupNames'
+-- * 'mccCacheSecurityGroupNames'
 --
--- * 'mccrqCacheClusterId'
+-- * 'mccCacheClusterId'
 data ModifyCacheCluster = ModifyCacheCluster'
-    { _mccrqEngineVersion              :: !(Maybe Text)
-    , _mccrqSecurityGroupIds           :: !(Maybe [Text])
-    , _mccrqAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _mccrqCacheParameterGroupName    :: !(Maybe Text)
-    , _mccrqNewAvailabilityZones       :: !(Maybe [Text])
-    , _mccrqSnapshotWindow             :: !(Maybe Text)
-    , _mccrqPreferredMaintenanceWindow :: !(Maybe Text)
-    , _mccrqCacheNodeIdsToRemove       :: !(Maybe [Text])
-    , _mccrqSnapshotRetentionLimit     :: !(Maybe Int)
-    , _mccrqAZMode                     :: !(Maybe AZMode)
-    , _mccrqNotificationTopicStatus    :: !(Maybe Text)
-    , _mccrqApplyImmediately           :: !(Maybe Bool)
-    , _mccrqNotificationTopicARN       :: !(Maybe Text)
-    , _mccrqNumCacheNodes              :: !(Maybe Int)
-    , _mccrqCacheSecurityGroupNames    :: !(Maybe [Text])
-    , _mccrqCacheClusterId             :: !Text
+    { _mccEngineVersion              :: !(Maybe Text)
+    , _mccSecurityGroupIds           :: !(Maybe [Text])
+    , _mccAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _mccCacheParameterGroupName    :: !(Maybe Text)
+    , _mccNewAvailabilityZones       :: !(Maybe [Text])
+    , _mccSnapshotWindow             :: !(Maybe Text)
+    , _mccPreferredMaintenanceWindow :: !(Maybe Text)
+    , _mccCacheNodeIdsToRemove       :: !(Maybe [Text])
+    , _mccSnapshotRetentionLimit     :: !(Maybe Int)
+    , _mccAZMode                     :: !(Maybe AZMode)
+    , _mccNotificationTopicStatus    :: !(Maybe Text)
+    , _mccApplyImmediately           :: !(Maybe Bool)
+    , _mccNotificationTopicARN       :: !(Maybe Text)
+    , _mccNumCacheNodes              :: !(Maybe Int)
+    , _mccCacheSecurityGroupNames    :: !(Maybe [Text])
+    , _mccCacheClusterId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheCluster' smart constructor.
 modifyCacheCluster :: Text -> ModifyCacheCluster
 modifyCacheCluster pCacheClusterId_ =
     ModifyCacheCluster'
-    { _mccrqEngineVersion = Nothing
-    , _mccrqSecurityGroupIds = Nothing
-    , _mccrqAutoMinorVersionUpgrade = Nothing
-    , _mccrqCacheParameterGroupName = Nothing
-    , _mccrqNewAvailabilityZones = Nothing
-    , _mccrqSnapshotWindow = Nothing
-    , _mccrqPreferredMaintenanceWindow = Nothing
-    , _mccrqCacheNodeIdsToRemove = Nothing
-    , _mccrqSnapshotRetentionLimit = Nothing
-    , _mccrqAZMode = Nothing
-    , _mccrqNotificationTopicStatus = Nothing
-    , _mccrqApplyImmediately = Nothing
-    , _mccrqNotificationTopicARN = Nothing
-    , _mccrqNumCacheNodes = Nothing
-    , _mccrqCacheSecurityGroupNames = Nothing
-    , _mccrqCacheClusterId = pCacheClusterId_
+    { _mccEngineVersion = Nothing
+    , _mccSecurityGroupIds = Nothing
+    , _mccAutoMinorVersionUpgrade = Nothing
+    , _mccCacheParameterGroupName = Nothing
+    , _mccNewAvailabilityZones = Nothing
+    , _mccSnapshotWindow = Nothing
+    , _mccPreferredMaintenanceWindow = Nothing
+    , _mccCacheNodeIdsToRemove = Nothing
+    , _mccSnapshotRetentionLimit = Nothing
+    , _mccAZMode = Nothing
+    , _mccNotificationTopicStatus = Nothing
+    , _mccApplyImmediately = Nothing
+    , _mccNotificationTopicARN = Nothing
+    , _mccNumCacheNodes = Nothing
+    , _mccCacheSecurityGroupNames = Nothing
+    , _mccCacheClusterId = pCacheClusterId_
     }
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
-mccrqEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
-mccrqEngineVersion = lens _mccrqEngineVersion (\ s a -> s{_mccrqEngineVersion = a});
+mccEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
+mccEngineVersion = lens _mccEngineVersion (\ s a -> s{_mccEngineVersion = a});
 
 -- | Specifies the VPC Security Groups associated with the cache cluster.
 --
 -- This parameter can be used only with clusters that are created in an
 -- Amazon Virtual Private Cloud (VPC).
-mccrqSecurityGroupIds :: Lens' ModifyCacheCluster [Text]
-mccrqSecurityGroupIds = lens _mccrqSecurityGroupIds (\ s a -> s{_mccrqSecurityGroupIds = a}) . _Default;
+mccSecurityGroupIds :: Lens' ModifyCacheCluster [Text]
+mccSecurityGroupIds = lens _mccSecurityGroupIds (\ s a -> s{_mccSecurityGroupIds = a}) . _Default;
 
 -- | This parameter is currently disabled.
-mccrqAutoMinorVersionUpgrade :: Lens' ModifyCacheCluster (Maybe Bool)
-mccrqAutoMinorVersionUpgrade = lens _mccrqAutoMinorVersionUpgrade (\ s a -> s{_mccrqAutoMinorVersionUpgrade = a});
+mccAutoMinorVersionUpgrade :: Lens' ModifyCacheCluster (Maybe Bool)
+mccAutoMinorVersionUpgrade = lens _mccAutoMinorVersionUpgrade (\ s a -> s{_mccAutoMinorVersionUpgrade = a});
 
 -- | The name of the cache parameter group to apply to this cache cluster.
 -- This change is asynchronously applied as soon as possible for parameters
 -- when the /ApplyImmediately/ parameter is specified as /true/ for this
 -- request.
-mccrqCacheParameterGroupName :: Lens' ModifyCacheCluster (Maybe Text)
-mccrqCacheParameterGroupName = lens _mccrqCacheParameterGroupName (\ s a -> s{_mccrqCacheParameterGroupName = a});
+mccCacheParameterGroupName :: Lens' ModifyCacheCluster (Maybe Text)
+mccCacheParameterGroupName = lens _mccCacheParameterGroupName (\ s a -> s{_mccCacheParameterGroupName = a});
 
 -- | The list of Availability Zones where the new Memcached cache nodes will
 -- be created.
@@ -212,13 +212,13 @@ mccrqCacheParameterGroupName = lens _mccrqCacheParameterGroupName (\ s a -> s{_m
 --
 -- Example:
 -- @NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c@
-mccrqNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
-mccrqNewAvailabilityZones = lens _mccrqNewAvailabilityZones (\ s a -> s{_mccrqNewAvailabilityZones = a}) . _Default;
+mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
+mccNewAvailabilityZones = lens _mccNewAvailabilityZones (\ s a -> s{_mccNewAvailabilityZones = a}) . _Default;
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of your cache cluster.
-mccrqSnapshotWindow :: Lens' ModifyCacheCluster (Maybe Text)
-mccrqSnapshotWindow = lens _mccrqSnapshotWindow (\ s a -> s{_mccrqSnapshotWindow = a});
+mccSnapshotWindow :: Lens' ModifyCacheCluster (Maybe Text)
+mccSnapshotWindow = lens _mccSnapshotWindow (\ s a -> s{_mccSnapshotWindow = a});
 
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
@@ -234,8 +234,8 @@ mccrqSnapshotWindow = lens _mccrqSnapshotWindow (\ s a -> s{_mccrqSnapshotWindow
 -- -   @sat@
 --
 -- Example: @sun:05:00-sun:09:00@
-mccrqPreferredMaintenanceWindow :: Lens' ModifyCacheCluster (Maybe Text)
-mccrqPreferredMaintenanceWindow = lens _mccrqPreferredMaintenanceWindow (\ s a -> s{_mccrqPreferredMaintenanceWindow = a});
+mccPreferredMaintenanceWindow :: Lens' ModifyCacheCluster (Maybe Text)
+mccPreferredMaintenanceWindow = lens _mccPreferredMaintenanceWindow (\ s a -> s{_mccPreferredMaintenanceWindow = a});
 
 -- | A list of cache node IDs to be removed. A node ID is a numeric
 -- identifier (0001, 0002, etc.). This parameter is only valid when
@@ -248,8 +248,8 @@ mccrqPreferredMaintenanceWindow = lens _mccrqPreferredMaintenanceWindow (\ s a -
 -- For example: If you have 3 active cache nodes, 7 pending cache nodes,
 -- and the number of cache nodes in this @ModifyCacheCluser@ call is 5, you
 -- must list 2 (7 - 5) cache node IDs to remove.
-mccrqCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
-mccrqCacheNodeIdsToRemove = lens _mccrqCacheNodeIdsToRemove (\ s a -> s{_mccrqCacheNodeIdsToRemove = a}) . _Default;
+mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
+mccCacheNodeIdsToRemove = lens _mccCacheNodeIdsToRemove (\ s a -> s{_mccCacheNodeIdsToRemove = a}) . _Default;
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
@@ -259,8 +259,8 @@ mccrqCacheNodeIdsToRemove = lens _mccrqCacheNodeIdsToRemove (\ s a -> s{_mccrqCa
 -- __Important__
 -- If the value of SnapshotRetentionLimit is set to zero (0), backups are
 -- turned off.
-mccrqSnapshotRetentionLimit :: Lens' ModifyCacheCluster (Maybe Int)
-mccrqSnapshotRetentionLimit = lens _mccrqSnapshotRetentionLimit (\ s a -> s{_mccrqSnapshotRetentionLimit = a});
+mccSnapshotRetentionLimit :: Lens' ModifyCacheCluster (Maybe Int)
+mccSnapshotRetentionLimit = lens _mccSnapshotRetentionLimit (\ s a -> s{_mccSnapshotRetentionLimit = a});
 
 -- | Specifies whether the new nodes in this Memcached cache cluster are all
 -- created in a single Availability Zone or created across multiple
@@ -280,15 +280,15 @@ mccrqSnapshotRetentionLimit = lens _mccrqSnapshotRetentionLimit (\ s a -> s{_mcc
 -- different Availability Zones, see the __Availability Zone
 -- Considerations__ section of
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html Cache Node Considerations for Memcached>.
-mccrqAZMode :: Lens' ModifyCacheCluster (Maybe AZMode)
-mccrqAZMode = lens _mccrqAZMode (\ s a -> s{_mccrqAZMode = a});
+mccAZMode :: Lens' ModifyCacheCluster (Maybe AZMode)
+mccAZMode = lens _mccAZMode (\ s a -> s{_mccAZMode = a});
 
 -- | The status of the Amazon SNS notification topic. Notifications are sent
 -- only if the status is /active/.
 --
 -- Valid values: @active@ | @inactive@
-mccrqNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
-mccrqNotificationTopicStatus = lens _mccrqNotificationTopicStatus (\ s a -> s{_mccrqNotificationTopicStatus = a});
+mccNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
+mccNotificationTopicStatus = lens _mccNotificationTopicStatus (\ s a -> s{_mccNotificationTopicStatus = a});
 
 -- | If @true@, this parameter causes the modifications in this request and
 -- any pending modifications to be applied, asynchronously and as soon as
@@ -304,15 +304,15 @@ mccrqNotificationTopicStatus = lens _mccrqNotificationTopicStatus (\ s a -> s{_m
 -- Valid values: @true@ | @false@
 --
 -- Default: @false@
-mccrqApplyImmediately :: Lens' ModifyCacheCluster (Maybe Bool)
-mccrqApplyImmediately = lens _mccrqApplyImmediately (\ s a -> s{_mccrqApplyImmediately = a});
+mccApplyImmediately :: Lens' ModifyCacheCluster (Maybe Bool)
+mccApplyImmediately = lens _mccApplyImmediately (\ s a -> s{_mccApplyImmediately = a});
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications will be sent.
 --
 -- The Amazon SNS topic owner must be same as the cache cluster owner.
-mccrqNotificationTopicARN :: Lens' ModifyCacheCluster (Maybe Text)
-mccrqNotificationTopicARN = lens _mccrqNotificationTopicARN (\ s a -> s{_mccrqNotificationTopicARN = a});
+mccNotificationTopicARN :: Lens' ModifyCacheCluster (Maybe Text)
+mccNotificationTopicARN = lens _mccNotificationTopicARN (\ s a -> s{_mccNotificationTopicARN = a});
 
 -- | The number of cache nodes that the cache cluster should have. If the
 -- value for @NumCacheNodes@ is greater than the sum of the number of
@@ -348,8 +348,8 @@ mccrqNotificationTopicARN = lens _mccrqNotificationTopicARN (\ s a -> s{_mccrqNo
 -- modify the number of cache nodes in a cluster, use the
 -- @ModifyCacheCluster@ request and set /NumCacheNodes/ equal to the number
 -- of cache nodes currently in the cache cluster.
-mccrqNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Int)
-mccrqNumCacheNodes = lens _mccrqNumCacheNodes (\ s a -> s{_mccrqNumCacheNodes = a});
+mccNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Int)
+mccNumCacheNodes = lens _mccNumCacheNodes (\ s a -> s{_mccNumCacheNodes = a});
 
 -- | A list of cache security group names to authorize on this cache cluster.
 -- This change is asynchronously applied as soon as possible.
@@ -359,13 +359,13 @@ mccrqNumCacheNodes = lens _mccrqNumCacheNodes (\ s a -> s{_mccrqNumCacheNodes = 
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
-mccrqCacheSecurityGroupNames :: Lens' ModifyCacheCluster [Text]
-mccrqCacheSecurityGroupNames = lens _mccrqCacheSecurityGroupNames (\ s a -> s{_mccrqCacheSecurityGroupNames = a}) . _Default;
+mccCacheSecurityGroupNames :: Lens' ModifyCacheCluster [Text]
+mccCacheSecurityGroupNames = lens _mccCacheSecurityGroupNames (\ s a -> s{_mccCacheSecurityGroupNames = a}) . _Default;
 
 -- | The cache cluster identifier. This value is stored as a lowercase
 -- string.
-mccrqCacheClusterId :: Lens' ModifyCacheCluster Text
-mccrqCacheClusterId = lens _mccrqCacheClusterId (\ s a -> s{_mccrqCacheClusterId = a});
+mccCacheClusterId :: Lens' ModifyCacheCluster Text
+mccCacheClusterId = lens _mccCacheClusterId (\ s a -> s{_mccCacheClusterId = a});
 
 instance AWSRequest ModifyCacheCluster where
         type Sv ModifyCacheCluster = ElastiCache
@@ -389,39 +389,39 @@ instance ToQuery ModifyCacheCluster where
           = mconcat
               ["Action" =: ("ModifyCacheCluster" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "EngineVersion" =: _mccrqEngineVersion,
+               "EngineVersion" =: _mccEngineVersion,
                "SecurityGroupIds" =:
                  toQuery
                    (toQueryList "SecurityGroupId" <$>
-                      _mccrqSecurityGroupIds),
+                      _mccSecurityGroupIds),
                "AutoMinorVersionUpgrade" =:
-                 _mccrqAutoMinorVersionUpgrade,
+                 _mccAutoMinorVersionUpgrade,
                "CacheParameterGroupName" =:
-                 _mccrqCacheParameterGroupName,
+                 _mccCacheParameterGroupName,
                "NewAvailabilityZones" =:
                  toQuery
                    (toQueryList "PreferredAvailabilityZone" <$>
-                      _mccrqNewAvailabilityZones),
-               "SnapshotWindow" =: _mccrqSnapshotWindow,
+                      _mccNewAvailabilityZones),
+               "SnapshotWindow" =: _mccSnapshotWindow,
                "PreferredMaintenanceWindow" =:
-                 _mccrqPreferredMaintenanceWindow,
+                 _mccPreferredMaintenanceWindow,
                "CacheNodeIdsToRemove" =:
                  toQuery
                    (toQueryList "CacheNodeId" <$>
-                      _mccrqCacheNodeIdsToRemove),
+                      _mccCacheNodeIdsToRemove),
                "SnapshotRetentionLimit" =:
-                 _mccrqSnapshotRetentionLimit,
-               "AZMode" =: _mccrqAZMode,
+                 _mccSnapshotRetentionLimit,
+               "AZMode" =: _mccAZMode,
                "NotificationTopicStatus" =:
-                 _mccrqNotificationTopicStatus,
-               "ApplyImmediately" =: _mccrqApplyImmediately,
-               "NotificationTopicArn" =: _mccrqNotificationTopicARN,
-               "NumCacheNodes" =: _mccrqNumCacheNodes,
+                 _mccNotificationTopicStatus,
+               "ApplyImmediately" =: _mccApplyImmediately,
+               "NotificationTopicArn" =: _mccNotificationTopicARN,
+               "NumCacheNodes" =: _mccNumCacheNodes,
                "CacheSecurityGroupNames" =:
                  toQuery
                    (toQueryList "CacheSecurityGroupName" <$>
-                      _mccrqCacheSecurityGroupNames),
-               "CacheClusterId" =: _mccrqCacheClusterId]
+                      _mccCacheSecurityGroupNames),
+               "CacheClusterId" =: _mccCacheClusterId]
 
 -- | /See:/ 'modifyCacheClusterResponse' smart constructor.
 --

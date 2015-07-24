@@ -28,7 +28,7 @@ module Network.AWS.IAM.DeleteGroup
     -- ** Request constructor
     , deleteGroup
     -- ** Request lenses
-    , dgrqGroupName
+    , dgGroupName
 
     -- * Response
     , DeleteGroupResponse
@@ -45,21 +45,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgrqGroupName'
+-- * 'dgGroupName'
 newtype DeleteGroup = DeleteGroup'
-    { _dgrqGroupName :: Text
+    { _dgGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroup' smart constructor.
 deleteGroup :: Text -> DeleteGroup
 deleteGroup pGroupName_ =
     DeleteGroup'
-    { _dgrqGroupName = pGroupName_
+    { _dgGroupName = pGroupName_
     }
 
 -- | The name of the group to delete.
-dgrqGroupName :: Lens' DeleteGroup Text
-dgrqGroupName = lens _dgrqGroupName (\ s a -> s{_dgrqGroupName = a});
+dgGroupName :: Lens' DeleteGroup Text
+dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a});
 
 instance AWSRequest DeleteGroup where
         type Sv DeleteGroup = IAM
@@ -78,7 +78,7 @@ instance ToQuery DeleteGroup where
           = mconcat
               ["Action" =: ("DeleteGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _dgrqGroupName]
+               "GroupName" =: _dgGroupName]
 
 -- | /See:/ 'deleteGroupResponse' smart constructor.
 data DeleteGroupResponse =

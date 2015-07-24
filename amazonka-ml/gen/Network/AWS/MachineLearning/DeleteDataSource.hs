@@ -35,7 +35,7 @@ module Network.AWS.MachineLearning.DeleteDataSource
     -- ** Request constructor
     , deleteDataSource
     -- ** Request lenses
-    , ddsrqDataSourceId
+    , ddsDataSourceId
 
     -- * Response
     , DeleteDataSourceResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsrqDataSourceId'
+-- * 'ddsDataSourceId'
 newtype DeleteDataSource = DeleteDataSource'
-    { _ddsrqDataSourceId :: Text
+    { _ddsDataSourceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDataSource' smart constructor.
 deleteDataSource :: Text -> DeleteDataSource
 deleteDataSource pDataSourceId_ =
     DeleteDataSource'
-    { _ddsrqDataSourceId = pDataSourceId_
+    { _ddsDataSourceId = pDataSourceId_
     }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@.
-ddsrqDataSourceId :: Lens' DeleteDataSource Text
-ddsrqDataSourceId = lens _ddsrqDataSourceId (\ s a -> s{_ddsrqDataSourceId = a});
+ddsDataSourceId :: Lens' DeleteDataSource Text
+ddsDataSourceId = lens _ddsDataSourceId (\ s a -> s{_ddsDataSourceId = a});
 
 instance AWSRequest DeleteDataSource where
         type Sv DeleteDataSource = MachineLearning
@@ -92,7 +92,7 @@ instance ToHeaders DeleteDataSource where
 
 instance ToJSON DeleteDataSource where
         toJSON DeleteDataSource'{..}
-          = object ["DataSourceId" .= _ddsrqDataSourceId]
+          = object ["DataSourceId" .= _ddsDataSourceId]
 
 instance ToPath DeleteDataSource where
         toPath = const "/"

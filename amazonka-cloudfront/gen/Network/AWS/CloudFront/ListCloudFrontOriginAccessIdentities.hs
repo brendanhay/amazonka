@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- ** Request constructor
     , listCloudFrontOriginAccessIdentities
     -- ** Request lenses
-    , lcfoairqMaxItems
-    , lcfoairqMarker
+    , lcfoaiMaxItems
+    , lcfoaiMarker
 
     -- * Response
     , ListCloudFrontOriginAccessIdentitiesResponse
@@ -50,34 +50,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcfoairqMaxItems'
+-- * 'lcfoaiMaxItems'
 --
--- * 'lcfoairqMarker'
+-- * 'lcfoaiMarker'
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
-    { _lcfoairqMaxItems :: !(Maybe Text)
-    , _lcfoairqMarker   :: !(Maybe Text)
+    { _lcfoaiMaxItems :: !(Maybe Text)
+    , _lcfoaiMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentities' smart constructor.
 listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
 listCloudFrontOriginAccessIdentities =
     ListCloudFrontOriginAccessIdentities'
-    { _lcfoairqMaxItems = Nothing
-    , _lcfoairqMarker = Nothing
+    { _lcfoaiMaxItems = Nothing
+    , _lcfoaiMarker = Nothing
     }
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
-lcfoairqMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoairqMaxItems = lens _lcfoairqMaxItems (\ s a -> s{_lcfoairqMaxItems = a});
+lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoaiMaxItems = lens _lcfoaiMaxItems (\ s a -> s{_lcfoaiMaxItems = a});
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of origin access identities. The results include identities in the list
 -- that occur after the marker. To get the next page of results, set the
 -- Marker to the value of the NextMarker from the current page\'s response
 -- (which is also the ID of the last identity on that page).
-lcfoairqMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoairqMarker = lens _lcfoairqMarker (\ s a -> s{_lcfoairqMarker = a});
+lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
 
 instance AWSRequest
          ListCloudFrontOriginAccessIdentities where
@@ -106,8 +106,8 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
          where
         toQuery ListCloudFrontOriginAccessIdentities'{..}
           = mconcat
-              ["MaxItems" =: _lcfoairqMaxItems,
-               "Marker" =: _lcfoairqMarker]
+              ["MaxItems" =: _lcfoaiMaxItems,
+               "Marker" =: _lcfoaiMarker]
 
 -- | The returned result of the corresponding request.
 --

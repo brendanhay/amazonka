@@ -52,19 +52,19 @@ module Network.AWS.EMR.RunJobFlow
     -- ** Request constructor
     , runJobFlow
     -- ** Request lenses
-    , rjfrqAMIVersion
-    , rjfrqAdditionalInfo
-    , rjfrqJobFlowRole
-    , rjfrqSteps
-    , rjfrqBootstrapActions
-    , rjfrqNewSupportedProducts
-    , rjfrqLogURI
-    , rjfrqSupportedProducts
-    , rjfrqVisibleToAllUsers
-    , rjfrqTags
-    , rjfrqServiceRole
-    , rjfrqName
-    , rjfrqInstances
+    , rjfAMIVersion
+    , rjfAdditionalInfo
+    , rjfJobFlowRole
+    , rjfSteps
+    , rjfBootstrapActions
+    , rjfNewSupportedProducts
+    , rjfLogURI
+    , rjfSupportedProducts
+    , rjfVisibleToAllUsers
+    , rjfTags
+    , rjfServiceRole
+    , rjfName
+    , rjfInstances
 
     -- * Response
     , RunJobFlowResponse
@@ -86,64 +86,64 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rjfrqAMIVersion'
+-- * 'rjfAMIVersion'
 --
--- * 'rjfrqAdditionalInfo'
+-- * 'rjfAdditionalInfo'
 --
--- * 'rjfrqJobFlowRole'
+-- * 'rjfJobFlowRole'
 --
--- * 'rjfrqSteps'
+-- * 'rjfSteps'
 --
--- * 'rjfrqBootstrapActions'
+-- * 'rjfBootstrapActions'
 --
--- * 'rjfrqNewSupportedProducts'
+-- * 'rjfNewSupportedProducts'
 --
--- * 'rjfrqLogURI'
+-- * 'rjfLogURI'
 --
--- * 'rjfrqSupportedProducts'
+-- * 'rjfSupportedProducts'
 --
--- * 'rjfrqVisibleToAllUsers'
+-- * 'rjfVisibleToAllUsers'
 --
--- * 'rjfrqTags'
+-- * 'rjfTags'
 --
--- * 'rjfrqServiceRole'
+-- * 'rjfServiceRole'
 --
--- * 'rjfrqName'
+-- * 'rjfName'
 --
--- * 'rjfrqInstances'
+-- * 'rjfInstances'
 data RunJobFlow = RunJobFlow'
-    { _rjfrqAMIVersion           :: !(Maybe Text)
-    , _rjfrqAdditionalInfo       :: !(Maybe Text)
-    , _rjfrqJobFlowRole          :: !(Maybe Text)
-    , _rjfrqSteps                :: !(Maybe [StepConfig])
-    , _rjfrqBootstrapActions     :: !(Maybe [BootstrapActionConfig])
-    , _rjfrqNewSupportedProducts :: !(Maybe [SupportedProductConfig])
-    , _rjfrqLogURI               :: !(Maybe Text)
-    , _rjfrqSupportedProducts    :: !(Maybe [Text])
-    , _rjfrqVisibleToAllUsers    :: !(Maybe Bool)
-    , _rjfrqTags                 :: !(Maybe [Tag])
-    , _rjfrqServiceRole          :: !(Maybe Text)
-    , _rjfrqName                 :: !Text
-    , _rjfrqInstances            :: !JobFlowInstancesConfig
+    { _rjfAMIVersion           :: !(Maybe Text)
+    , _rjfAdditionalInfo       :: !(Maybe Text)
+    , _rjfJobFlowRole          :: !(Maybe Text)
+    , _rjfSteps                :: !(Maybe [StepConfig])
+    , _rjfBootstrapActions     :: !(Maybe [BootstrapActionConfig])
+    , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
+    , _rjfLogURI               :: !(Maybe Text)
+    , _rjfSupportedProducts    :: !(Maybe [Text])
+    , _rjfVisibleToAllUsers    :: !(Maybe Bool)
+    , _rjfTags                 :: !(Maybe [Tag])
+    , _rjfServiceRole          :: !(Maybe Text)
+    , _rjfName                 :: !Text
+    , _rjfInstances            :: !JobFlowInstancesConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunJobFlow' smart constructor.
 runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow
 runJobFlow pName_ pInstances_ =
     RunJobFlow'
-    { _rjfrqAMIVersion = Nothing
-    , _rjfrqAdditionalInfo = Nothing
-    , _rjfrqJobFlowRole = Nothing
-    , _rjfrqSteps = Nothing
-    , _rjfrqBootstrapActions = Nothing
-    , _rjfrqNewSupportedProducts = Nothing
-    , _rjfrqLogURI = Nothing
-    , _rjfrqSupportedProducts = Nothing
-    , _rjfrqVisibleToAllUsers = Nothing
-    , _rjfrqTags = Nothing
-    , _rjfrqServiceRole = Nothing
-    , _rjfrqName = pName_
-    , _rjfrqInstances = pInstances_
+    { _rjfAMIVersion = Nothing
+    , _rjfAdditionalInfo = Nothing
+    , _rjfJobFlowRole = Nothing
+    , _rjfSteps = Nothing
+    , _rjfBootstrapActions = Nothing
+    , _rjfNewSupportedProducts = Nothing
+    , _rjfLogURI = Nothing
+    , _rjfSupportedProducts = Nothing
+    , _rjfVisibleToAllUsers = Nothing
+    , _rjfTags = Nothing
+    , _rjfServiceRole = Nothing
+    , _rjfName = pName_
+    , _rjfInstances = pInstances_
     }
 
 -- | The version of the Amazon Machine Image (AMI) to use when launching
@@ -161,27 +161,27 @@ runJobFlow pName_ pInstances_ =
 -- MapReduce, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported AMI Versions Supported in Elastic MapReduce>
 -- in the /Amazon Elastic MapReduce Developer\'s Guide./
-rjfrqAMIVersion :: Lens' RunJobFlow (Maybe Text)
-rjfrqAMIVersion = lens _rjfrqAMIVersion (\ s a -> s{_rjfrqAMIVersion = a});
+rjfAMIVersion :: Lens' RunJobFlow (Maybe Text)
+rjfAMIVersion = lens _rjfAMIVersion (\ s a -> s{_rjfAMIVersion = a});
 
 -- | A JSON string for selecting additional features.
-rjfrqAdditionalInfo :: Lens' RunJobFlow (Maybe Text)
-rjfrqAdditionalInfo = lens _rjfrqAdditionalInfo (\ s a -> s{_rjfrqAdditionalInfo = a});
+rjfAdditionalInfo :: Lens' RunJobFlow (Maybe Text)
+rjfAdditionalInfo = lens _rjfAdditionalInfo (\ s a -> s{_rjfAdditionalInfo = a});
 
 -- | An IAM role for the job flow. The EC2 instances of the job flow assume
 -- this role. The default role is @EMRJobflowDefault@. In order to use the
 -- default role, you must have already created it using the CLI.
-rjfrqJobFlowRole :: Lens' RunJobFlow (Maybe Text)
-rjfrqJobFlowRole = lens _rjfrqJobFlowRole (\ s a -> s{_rjfrqJobFlowRole = a});
+rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
+rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
 
 -- | A list of steps to be executed by the job flow.
-rjfrqSteps :: Lens' RunJobFlow [StepConfig]
-rjfrqSteps = lens _rjfrqSteps (\ s a -> s{_rjfrqSteps = a}) . _Default;
+rjfSteps :: Lens' RunJobFlow [StepConfig]
+rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a}) . _Default;
 
 -- | A list of bootstrap actions that will be run before Hadoop is started on
 -- the cluster nodes.
-rjfrqBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
-rjfrqBootstrapActions = lens _rjfrqBootstrapActions (\ s a -> s{_rjfrqBootstrapActions = a}) . _Default;
+rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
+rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions = a}) . _Default;
 
 -- | A list of strings that indicates third-party software to use with the
 -- job flow that accepts a user argument list. EMR accepts and forwards the
@@ -195,13 +195,13 @@ rjfrqBootstrapActions = lens _rjfrqBootstrapActions (\ s a -> s{_rjfrqBootstrapA
 -- -   \"mapr\" with the user arguments specifying \"--edition,m3\" or
 --     \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition
 --     respectively.
-rjfrqNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
-rjfrqNewSupportedProducts = lens _rjfrqNewSupportedProducts (\ s a -> s{_rjfrqNewSupportedProducts = a}) . _Default;
+rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
+rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSupportedProducts = a}) . _Default;
 
 -- | The location in Amazon S3 to write the log files of the job flow. If a
 -- value is not provided, logs are not created.
-rjfrqLogURI :: Lens' RunJobFlow (Maybe Text)
-rjfrqLogURI = lens _rjfrqLogURI (\ s a -> s{_rjfrqLogURI = a});
+rjfLogURI :: Lens' RunJobFlow (Maybe Text)
+rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
 
 -- | A list of strings that indicates third-party software to use with the
 -- job flow. For more information, go to
@@ -210,35 +210,35 @@ rjfrqLogURI = lens _rjfrqLogURI (\ s a -> s{_rjfrqLogURI = a});
 --
 -- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
 -- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
-rjfrqSupportedProducts :: Lens' RunJobFlow [Text]
-rjfrqSupportedProducts = lens _rjfrqSupportedProducts (\ s a -> s{_rjfrqSupportedProducts = a}) . _Default;
+rjfSupportedProducts :: Lens' RunJobFlow [Text]
+rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default;
 
 -- | Whether the job flow is visible to all IAM users of the AWS account
 -- associated with the job flow. If this value is set to @true@, all IAM
 -- users of that AWS account can view and (if they have the proper policy
 -- permissions set) manage the job flow. If it is set to @false@, only the
 -- IAM user that created the job flow can view and manage it.
-rjfrqVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
-rjfrqVisibleToAllUsers = lens _rjfrqVisibleToAllUsers (\ s a -> s{_rjfrqVisibleToAllUsers = a});
+rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
+rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUsers = a});
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
-rjfrqTags :: Lens' RunJobFlow [Tag]
-rjfrqTags = lens _rjfrqTags (\ s a -> s{_rjfrqTags = a}) . _Default;
+rjfTags :: Lens' RunJobFlow [Tag]
+rjfTags = lens _rjfTags (\ s a -> s{_rjfTags = a}) . _Default;
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access
 -- AWS resources on your behalf.
-rjfrqServiceRole :: Lens' RunJobFlow (Maybe Text)
-rjfrqServiceRole = lens _rjfrqServiceRole (\ s a -> s{_rjfrqServiceRole = a});
+rjfServiceRole :: Lens' RunJobFlow (Maybe Text)
+rjfServiceRole = lens _rjfServiceRole (\ s a -> s{_rjfServiceRole = a});
 
 -- | The name of the job flow.
-rjfrqName :: Lens' RunJobFlow Text
-rjfrqName = lens _rjfrqName (\ s a -> s{_rjfrqName = a});
+rjfName :: Lens' RunJobFlow Text
+rjfName = lens _rjfName (\ s a -> s{_rjfName = a});
 
 -- | A specification of the number and type of Amazon EC2 instances on which
 -- to run the job flow.
-rjfrqInstances :: Lens' RunJobFlow JobFlowInstancesConfig
-rjfrqInstances = lens _rjfrqInstances (\ s a -> s{_rjfrqInstances = a});
+rjfInstances :: Lens' RunJobFlow JobFlowInstancesConfig
+rjfInstances = lens _rjfInstances (\ s a -> s{_rjfInstances = a});
 
 instance AWSRequest RunJobFlow where
         type Sv RunJobFlow = EMR
@@ -262,18 +262,17 @@ instance ToHeaders RunJobFlow where
 instance ToJSON RunJobFlow where
         toJSON RunJobFlow'{..}
           = object
-              ["AmiVersion" .= _rjfrqAMIVersion,
-               "AdditionalInfo" .= _rjfrqAdditionalInfo,
-               "JobFlowRole" .= _rjfrqJobFlowRole,
-               "Steps" .= _rjfrqSteps,
-               "BootstrapActions" .= _rjfrqBootstrapActions,
-               "NewSupportedProducts" .= _rjfrqNewSupportedProducts,
-               "LogUri" .= _rjfrqLogURI,
-               "SupportedProducts" .= _rjfrqSupportedProducts,
-               "VisibleToAllUsers" .= _rjfrqVisibleToAllUsers,
-               "Tags" .= _rjfrqTags,
-               "ServiceRole" .= _rjfrqServiceRole,
-               "Name" .= _rjfrqName, "Instances" .= _rjfrqInstances]
+              ["AmiVersion" .= _rjfAMIVersion,
+               "AdditionalInfo" .= _rjfAdditionalInfo,
+               "JobFlowRole" .= _rjfJobFlowRole,
+               "Steps" .= _rjfSteps,
+               "BootstrapActions" .= _rjfBootstrapActions,
+               "NewSupportedProducts" .= _rjfNewSupportedProducts,
+               "LogUri" .= _rjfLogURI,
+               "SupportedProducts" .= _rjfSupportedProducts,
+               "VisibleToAllUsers" .= _rjfVisibleToAllUsers,
+               "Tags" .= _rjfTags, "ServiceRole" .= _rjfServiceRole,
+               "Name" .= _rjfName, "Instances" .= _rjfInstances]
 
 instance ToPath RunJobFlow where
         toPath = const "/"

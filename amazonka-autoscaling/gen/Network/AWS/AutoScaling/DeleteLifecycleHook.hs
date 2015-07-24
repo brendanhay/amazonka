@@ -31,8 +31,8 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     -- ** Request constructor
     , deleteLifecycleHook
     -- ** Request lenses
-    , delrqLifecycleHookName
-    , delrqAutoScalingGroupName
+    , delLifecycleHookName
+    , delAutoScalingGroupName
 
     -- * Response
     , DeleteLifecycleHookResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrqLifecycleHookName'
+-- * 'delLifecycleHookName'
 --
--- * 'delrqAutoScalingGroupName'
+-- * 'delAutoScalingGroupName'
 data DeleteLifecycleHook = DeleteLifecycleHook'
-    { _delrqLifecycleHookName    :: !Text
-    , _delrqAutoScalingGroupName :: !Text
+    { _delLifecycleHookName    :: !Text
+    , _delAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLifecycleHook' smart constructor.
 deleteLifecycleHook :: Text -> Text -> DeleteLifecycleHook
 deleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
     DeleteLifecycleHook'
-    { _delrqLifecycleHookName = pLifecycleHookName_
-    , _delrqAutoScalingGroupName = pAutoScalingGroupName_
+    { _delLifecycleHookName = pLifecycleHookName_
+    , _delAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The name of the lifecycle hook.
-delrqLifecycleHookName :: Lens' DeleteLifecycleHook Text
-delrqLifecycleHookName = lens _delrqLifecycleHookName (\ s a -> s{_delrqLifecycleHookName = a});
+delLifecycleHookName :: Lens' DeleteLifecycleHook Text
+delLifecycleHookName = lens _delLifecycleHookName (\ s a -> s{_delLifecycleHookName = a});
 
 -- | The name of the Auto Scaling group for the lifecycle hook.
-delrqAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
-delrqAutoScalingGroupName = lens _delrqAutoScalingGroupName (\ s a -> s{_delrqAutoScalingGroupName = a});
+delAutoScalingGroupName :: Lens' DeleteLifecycleHook Text
+delAutoScalingGroupName = lens _delAutoScalingGroupName (\ s a -> s{_delAutoScalingGroupName = a});
 
 instance AWSRequest DeleteLifecycleHook where
         type Sv DeleteLifecycleHook = AutoScaling
@@ -96,8 +96,8 @@ instance ToQuery DeleteLifecycleHook where
           = mconcat
               ["Action" =: ("DeleteLifecycleHook" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "LifecycleHookName" =: _delrqLifecycleHookName,
-               "AutoScalingGroupName" =: _delrqAutoScalingGroupName]
+               "LifecycleHookName" =: _delLifecycleHookName,
+               "AutoScalingGroupName" =: _delAutoScalingGroupName]
 
 -- | /See:/ 'deleteLifecycleHookResponse' smart constructor.
 --

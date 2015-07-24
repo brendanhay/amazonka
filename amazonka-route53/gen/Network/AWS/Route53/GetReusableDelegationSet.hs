@@ -28,7 +28,7 @@ module Network.AWS.Route53.GetReusableDelegationSet
     -- ** Request constructor
     , getReusableDelegationSet
     -- ** Request lenses
-    , grdsrqId
+    , grdsId
 
     -- * Response
     , GetReusableDelegationSetResponse
@@ -50,22 +50,22 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grdsrqId'
+-- * 'grdsId'
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
-    { _grdsrqId :: Text
+    { _grdsId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetReusableDelegationSet' smart constructor.
 getReusableDelegationSet :: Text -> GetReusableDelegationSet
 getReusableDelegationSet pId_ =
     GetReusableDelegationSet'
-    { _grdsrqId = pId_
+    { _grdsId = pId_
     }
 
 -- | The ID of the reusable delegation set for which you want to get a list
 -- of the name server.
-grdsrqId :: Lens' GetReusableDelegationSet Text
-grdsrqId = lens _grdsrqId (\ s a -> s{_grdsrqId = a});
+grdsId :: Lens' GetReusableDelegationSet Text
+grdsId = lens _grdsId (\ s a -> s{_grdsId = a});
 
 instance AWSRequest GetReusableDelegationSet where
         type Sv GetReusableDelegationSet = Route53
@@ -84,7 +84,7 @@ instance ToHeaders GetReusableDelegationSet where
 instance ToPath GetReusableDelegationSet where
         toPath GetReusableDelegationSet'{..}
           = mconcat
-              ["/2013-04-01/delegationset/", toText _grdsrqId]
+              ["/2013-04-01/delegationset/", toText _grdsId]
 
 instance ToQuery GetReusableDelegationSet where
         toQuery = const mempty

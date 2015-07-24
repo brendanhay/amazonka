@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DeregisterElasticIP
     -- ** Request constructor
     , deregisterElasticIP
     -- ** Request lenses
-    , deiprqElasticIP
+    , deipElasticIP
 
     -- * Response
     , DeregisterElasticIPResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deiprqElasticIP'
+-- * 'deipElasticIP'
 newtype DeregisterElasticIP = DeregisterElasticIP'
-    { _deiprqElasticIP :: Text
+    { _deipElasticIP :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterElasticIP' smart constructor.
 deregisterElasticIP :: Text -> DeregisterElasticIP
 deregisterElasticIP pElasticIP_ =
     DeregisterElasticIP'
-    { _deiprqElasticIP = pElasticIP_
+    { _deipElasticIP = pElasticIP_
     }
 
 -- | The Elastic IP address.
-deiprqElasticIP :: Lens' DeregisterElasticIP Text
-deiprqElasticIP = lens _deiprqElasticIP (\ s a -> s{_deiprqElasticIP = a});
+deipElasticIP :: Lens' DeregisterElasticIP Text
+deipElasticIP = lens _deipElasticIP (\ s a -> s{_deipElasticIP = a});
 
 instance AWSRequest DeregisterElasticIP where
         type Sv DeregisterElasticIP = OpsWorks
@@ -87,7 +87,7 @@ instance ToHeaders DeregisterElasticIP where
 
 instance ToJSON DeregisterElasticIP where
         toJSON DeregisterElasticIP'{..}
-          = object ["ElasticIp" .= _deiprqElasticIP]
+          = object ["ElasticIp" .= _deipElasticIP]
 
 instance ToPath DeregisterElasticIP where
         toPath = const "/"

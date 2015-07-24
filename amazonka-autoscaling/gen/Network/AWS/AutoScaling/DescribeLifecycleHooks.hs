@@ -27,8 +27,8 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     -- ** Request constructor
     , describeLifecycleHooks
     -- ** Request lenses
-    , dlhrqLifecycleHookNames
-    , dlhrqAutoScalingGroupName
+    , dlhLifecycleHookNames
+    , dlhAutoScalingGroupName
 
     -- * Response
     , DescribeLifecycleHooksResponse
@@ -48,29 +48,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlhrqLifecycleHookNames'
+-- * 'dlhLifecycleHookNames'
 --
--- * 'dlhrqAutoScalingGroupName'
+-- * 'dlhAutoScalingGroupName'
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
-    { _dlhrqLifecycleHookNames   :: !(Maybe [Text])
-    , _dlhrqAutoScalingGroupName :: !Text
+    { _dlhLifecycleHookNames   :: !(Maybe [Text])
+    , _dlhAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHooks' smart constructor.
 describeLifecycleHooks :: Text -> DescribeLifecycleHooks
 describeLifecycleHooks pAutoScalingGroupName_ =
     DescribeLifecycleHooks'
-    { _dlhrqLifecycleHookNames = Nothing
-    , _dlhrqAutoScalingGroupName = pAutoScalingGroupName_
+    { _dlhLifecycleHookNames = Nothing
+    , _dlhAutoScalingGroupName = pAutoScalingGroupName_
     }
 
 -- | The names of one or more lifecycle hooks.
-dlhrqLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
-dlhrqLifecycleHookNames = lens _dlhrqLifecycleHookNames (\ s a -> s{_dlhrqLifecycleHookNames = a}) . _Default;
+dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
+dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default;
 
 -- | The name of the group.
-dlhrqAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
-dlhrqAutoScalingGroupName = lens _dlhrqAutoScalingGroupName (\ s a -> s{_dlhrqAutoScalingGroupName = a});
+dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
+dlhAutoScalingGroupName = lens _dlhAutoScalingGroupName (\ s a -> s{_dlhAutoScalingGroupName = a});
 
 instance AWSRequest DescribeLifecycleHooks where
         type Sv DescribeLifecycleHooks = AutoScaling
@@ -99,8 +99,8 @@ instance ToQuery DescribeLifecycleHooks where
                "Version" =: ("2011-01-01" :: ByteString),
                "LifecycleHookNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dlhrqLifecycleHookNames),
-               "AutoScalingGroupName" =: _dlhrqAutoScalingGroupName]
+                   (toQueryList "member" <$> _dlhLifecycleHookNames),
+               "AutoScalingGroupName" =: _dlhAutoScalingGroupName]
 
 -- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
 --

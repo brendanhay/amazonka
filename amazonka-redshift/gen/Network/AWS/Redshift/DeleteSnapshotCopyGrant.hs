@@ -27,7 +27,7 @@ module Network.AWS.Redshift.DeleteSnapshotCopyGrant
     -- ** Request constructor
     , deleteSnapshotCopyGrant
     -- ** Request lenses
-    , dscgrqSnapshotCopyGrantName
+    , dscgSnapshotCopyGrantName
 
     -- * Response
     , DeleteSnapshotCopyGrantResponse
@@ -46,21 +46,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscgrqSnapshotCopyGrantName'
+-- * 'dscgSnapshotCopyGrantName'
 newtype DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
-    { _dscgrqSnapshotCopyGrantName :: Text
+    { _dscgSnapshotCopyGrantName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotCopyGrant' smart constructor.
 deleteSnapshotCopyGrant :: Text -> DeleteSnapshotCopyGrant
 deleteSnapshotCopyGrant pSnapshotCopyGrantName_ =
     DeleteSnapshotCopyGrant'
-    { _dscgrqSnapshotCopyGrantName = pSnapshotCopyGrantName_
+    { _dscgSnapshotCopyGrantName = pSnapshotCopyGrantName_
     }
 
 -- | The name of the snapshot copy grant to delete.
-dscgrqSnapshotCopyGrantName :: Lens' DeleteSnapshotCopyGrant Text
-dscgrqSnapshotCopyGrantName = lens _dscgrqSnapshotCopyGrantName (\ s a -> s{_dscgrqSnapshotCopyGrantName = a});
+dscgSnapshotCopyGrantName :: Lens' DeleteSnapshotCopyGrant Text
+dscgSnapshotCopyGrantName = lens _dscgSnapshotCopyGrantName (\ s a -> s{_dscgSnapshotCopyGrantName = a});
 
 instance AWSRequest DeleteSnapshotCopyGrant where
         type Sv DeleteSnapshotCopyGrant = Redshift
@@ -83,7 +83,7 @@ instance ToQuery DeleteSnapshotCopyGrant where
                  ("DeleteSnapshotCopyGrant" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SnapshotCopyGrantName" =:
-                 _dscgrqSnapshotCopyGrantName]
+                 _dscgSnapshotCopyGrantName]
 
 -- | /See:/ 'deleteSnapshotCopyGrantResponse' smart constructor.
 data DeleteSnapshotCopyGrantResponse =

@@ -27,14 +27,14 @@ module Network.AWS.S3.CreateBucket
     -- ** Request constructor
     , createBucket
     -- ** Request lenses
-    , cbrqGrantReadACP
-    , cbrqGrantWriteACP
-    , cbrqGrantRead
-    , cbrqGrantFullControl
-    , cbrqCreateBucketConfiguration
-    , cbrqGrantWrite
-    , cbrqACL
-    , cbrqBucket
+    , cbGrantReadACP
+    , cbGrantWriteACP
+    , cbGrantRead
+    , cbGrantFullControl
+    , cbCreateBucketConfiguration
+    , cbGrantWrite
+    , cbACL
+    , cbBucket
 
     -- * Response
     , CreateBucketResponse
@@ -54,79 +54,79 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbrqGrantReadACP'
+-- * 'cbGrantReadACP'
 --
--- * 'cbrqGrantWriteACP'
+-- * 'cbGrantWriteACP'
 --
--- * 'cbrqGrantRead'
+-- * 'cbGrantRead'
 --
--- * 'cbrqGrantFullControl'
+-- * 'cbGrantFullControl'
 --
--- * 'cbrqCreateBucketConfiguration'
+-- * 'cbCreateBucketConfiguration'
 --
--- * 'cbrqGrantWrite'
+-- * 'cbGrantWrite'
 --
--- * 'cbrqACL'
+-- * 'cbACL'
 --
--- * 'cbrqBucket'
+-- * 'cbBucket'
 data CreateBucket = CreateBucket'
-    { _cbrqGrantReadACP              :: !(Maybe Text)
-    , _cbrqGrantWriteACP             :: !(Maybe Text)
-    , _cbrqGrantRead                 :: !(Maybe Text)
-    , _cbrqGrantFullControl          :: !(Maybe Text)
-    , _cbrqCreateBucketConfiguration :: !(Maybe CreateBucketConfiguration)
-    , _cbrqGrantWrite                :: !(Maybe Text)
-    , _cbrqACL                       :: !(Maybe BucketCannedACL)
-    , _cbrqBucket                    :: !BucketName
+    { _cbGrantReadACP              :: !(Maybe Text)
+    , _cbGrantWriteACP             :: !(Maybe Text)
+    , _cbGrantRead                 :: !(Maybe Text)
+    , _cbGrantFullControl          :: !(Maybe Text)
+    , _cbCreateBucketConfiguration :: !(Maybe CreateBucketConfiguration)
+    , _cbGrantWrite                :: !(Maybe Text)
+    , _cbACL                       :: !(Maybe BucketCannedACL)
+    , _cbBucket                    :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CreateBucket' smart constructor.
 createBucket :: BucketName -> CreateBucket
 createBucket pBucket_ =
     CreateBucket'
-    { _cbrqGrantReadACP = Nothing
-    , _cbrqGrantWriteACP = Nothing
-    , _cbrqGrantRead = Nothing
-    , _cbrqGrantFullControl = Nothing
-    , _cbrqCreateBucketConfiguration = Nothing
-    , _cbrqGrantWrite = Nothing
-    , _cbrqACL = Nothing
-    , _cbrqBucket = pBucket_
+    { _cbGrantReadACP = Nothing
+    , _cbGrantWriteACP = Nothing
+    , _cbGrantRead = Nothing
+    , _cbGrantFullControl = Nothing
+    , _cbCreateBucketConfiguration = Nothing
+    , _cbGrantWrite = Nothing
+    , _cbACL = Nothing
+    , _cbBucket = pBucket_
     }
 
 -- | Allows grantee to read the bucket ACL.
-cbrqGrantReadACP :: Lens' CreateBucket (Maybe Text)
-cbrqGrantReadACP = lens _cbrqGrantReadACP (\ s a -> s{_cbrqGrantReadACP = a});
+cbGrantReadACP :: Lens' CreateBucket (Maybe Text)
+cbGrantReadACP = lens _cbGrantReadACP (\ s a -> s{_cbGrantReadACP = a});
 
 -- | Allows grantee to write the ACL for the applicable bucket.
-cbrqGrantWriteACP :: Lens' CreateBucket (Maybe Text)
-cbrqGrantWriteACP = lens _cbrqGrantWriteACP (\ s a -> s{_cbrqGrantWriteACP = a});
+cbGrantWriteACP :: Lens' CreateBucket (Maybe Text)
+cbGrantWriteACP = lens _cbGrantWriteACP (\ s a -> s{_cbGrantWriteACP = a});
 
 -- | Allows grantee to list the objects in the bucket.
-cbrqGrantRead :: Lens' CreateBucket (Maybe Text)
-cbrqGrantRead = lens _cbrqGrantRead (\ s a -> s{_cbrqGrantRead = a});
+cbGrantRead :: Lens' CreateBucket (Maybe Text)
+cbGrantRead = lens _cbGrantRead (\ s a -> s{_cbGrantRead = a});
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on
 -- the bucket.
-cbrqGrantFullControl :: Lens' CreateBucket (Maybe Text)
-cbrqGrantFullControl = lens _cbrqGrantFullControl (\ s a -> s{_cbrqGrantFullControl = a});
+cbGrantFullControl :: Lens' CreateBucket (Maybe Text)
+cbGrantFullControl = lens _cbGrantFullControl (\ s a -> s{_cbGrantFullControl = a});
 
 -- | FIXME: Undocumented member.
-cbrqCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
-cbrqCreateBucketConfiguration = lens _cbrqCreateBucketConfiguration (\ s a -> s{_cbrqCreateBucketConfiguration = a});
+cbCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)
+cbCreateBucketConfiguration = lens _cbCreateBucketConfiguration (\ s a -> s{_cbCreateBucketConfiguration = a});
 
 -- | Allows grantee to create, overwrite, and delete any object in the
 -- bucket.
-cbrqGrantWrite :: Lens' CreateBucket (Maybe Text)
-cbrqGrantWrite = lens _cbrqGrantWrite (\ s a -> s{_cbrqGrantWrite = a});
+cbGrantWrite :: Lens' CreateBucket (Maybe Text)
+cbGrantWrite = lens _cbGrantWrite (\ s a -> s{_cbGrantWrite = a});
 
 -- | The canned ACL to apply to the bucket.
-cbrqACL :: Lens' CreateBucket (Maybe BucketCannedACL)
-cbrqACL = lens _cbrqACL (\ s a -> s{_cbrqACL = a});
+cbACL :: Lens' CreateBucket (Maybe BucketCannedACL)
+cbACL = lens _cbACL (\ s a -> s{_cbACL = a});
 
 -- | FIXME: Undocumented member.
-cbrqBucket :: Lens' CreateBucket BucketName
-cbrqBucket = lens _cbrqBucket (\ s a -> s{_cbrqBucket = a});
+cbBucket :: Lens' CreateBucket BucketName
+cbBucket = lens _cbBucket (\ s a -> s{_cbBucket = a});
 
 instance AWSRequest CreateBucket where
         type Sv CreateBucket = S3
@@ -143,21 +143,21 @@ instance ToElement CreateBucket where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}CreateBucketConfiguration"
               .
-              _cbrqCreateBucketConfiguration
+              _cbCreateBucketConfiguration
 
 instance ToHeaders CreateBucket where
         toHeaders CreateBucket'{..}
           = mconcat
-              ["x-amz-grant-read-acp" =# _cbrqGrantReadACP,
-               "x-amz-grant-write-acp" =# _cbrqGrantWriteACP,
-               "x-amz-grant-read" =# _cbrqGrantRead,
-               "x-amz-grant-full-control" =# _cbrqGrantFullControl,
-               "x-amz-grant-write" =# _cbrqGrantWrite,
-               "x-amz-acl" =# _cbrqACL]
+              ["x-amz-grant-read-acp" =# _cbGrantReadACP,
+               "x-amz-grant-write-acp" =# _cbGrantWriteACP,
+               "x-amz-grant-read" =# _cbGrantRead,
+               "x-amz-grant-full-control" =# _cbGrantFullControl,
+               "x-amz-grant-write" =# _cbGrantWrite,
+               "x-amz-acl" =# _cbACL]
 
 instance ToPath CreateBucket where
         toPath CreateBucket'{..}
-          = mconcat ["/", toText _cbrqBucket]
+          = mconcat ["/", toText _cbBucket]
 
 instance ToQuery CreateBucket where
         toQuery = const mempty

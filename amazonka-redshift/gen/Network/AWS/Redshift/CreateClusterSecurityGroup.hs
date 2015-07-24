@@ -32,9 +32,9 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     -- ** Request constructor
     , createClusterSecurityGroup
     -- ** Request lenses
-    , crqTags
-    , crqClusterSecurityGroupName
-    , crqDescription
+    , creTags
+    , creClusterSecurityGroupName
+    , creDescription
 
     -- * Response
     , CreateClusterSecurityGroupResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crqTags'
+-- * 'creTags'
 --
--- * 'crqClusterSecurityGroupName'
+-- * 'creClusterSecurityGroupName'
 --
--- * 'crqDescription'
+-- * 'creDescription'
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
-    { _crqTags                     :: !(Maybe [Tag])
-    , _crqClusterSecurityGroupName :: !Text
-    , _crqDescription              :: !Text
+    { _creTags                     :: !(Maybe [Tag])
+    , _creClusterSecurityGroupName :: !Text
+    , _creDescription              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSecurityGroup' smart constructor.
 createClusterSecurityGroup :: Text -> Text -> CreateClusterSecurityGroup
 createClusterSecurityGroup pClusterSecurityGroupName_ pDescription_ =
     CreateClusterSecurityGroup'
-    { _crqTags = Nothing
-    , _crqClusterSecurityGroupName = pClusterSecurityGroupName_
-    , _crqDescription = pDescription_
+    { _creTags = Nothing
+    , _creClusterSecurityGroupName = pClusterSecurityGroupName_
+    , _creDescription = pDescription_
     }
 
 -- | A list of tag instances.
-crqTags :: Lens' CreateClusterSecurityGroup [Tag]
-crqTags = lens _crqTags (\ s a -> s{_crqTags = a}) . _Default;
+creTags :: Lens' CreateClusterSecurityGroup [Tag]
+creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default;
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -91,12 +91,12 @@ crqTags = lens _crqTags (\ s a -> s{_crqTags = a}) . _Default;
 --     account.
 --
 -- Example: @examplesecuritygroup@
-crqClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
-crqClusterSecurityGroupName = lens _crqClusterSecurityGroupName (\ s a -> s{_crqClusterSecurityGroupName = a});
+creClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
+creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_creClusterSecurityGroupName = a});
 
 -- | A description for the security group.
-crqDescription :: Lens' CreateClusterSecurityGroup Text
-crqDescription = lens _crqDescription (\ s a -> s{_crqDescription = a});
+creDescription :: Lens' CreateClusterSecurityGroup Text
+creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
 
 instance AWSRequest CreateClusterSecurityGroup where
         type Sv CreateClusterSecurityGroup = Redshift
@@ -123,10 +123,10 @@ instance ToQuery CreateClusterSecurityGroup where
               ["Action" =:
                  ("CreateClusterSecurityGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _crqTags),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _creTags),
                "ClusterSecurityGroupName" =:
-                 _crqClusterSecurityGroupName,
-               "Description" =: _crqDescription]
+                 _creClusterSecurityGroupName,
+               "Description" =: _creDescription]
 
 -- | /See:/ 'createClusterSecurityGroupResponse' smart constructor.
 --

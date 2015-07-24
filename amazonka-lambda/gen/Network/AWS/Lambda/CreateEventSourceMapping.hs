@@ -46,11 +46,11 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     -- ** Request constructor
     , createEventSourceMapping
     -- ** Request lenses
-    , cesmrqEnabled
-    , cesmrqBatchSize
-    , cesmrqEventSourceARN
-    , cesmrqFunctionName
-    , cesmrqStartingPosition
+    , cesmEnabled
+    , cesmBatchSize
+    , cesmEventSourceARN
+    , cesmFunctionName
+    , cesmStartingPosition
 
     -- * Response
     , EventSourceMappingConfiguration
@@ -76,53 +76,53 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cesmrqEnabled'
+-- * 'cesmEnabled'
 --
--- * 'cesmrqBatchSize'
+-- * 'cesmBatchSize'
 --
--- * 'cesmrqEventSourceARN'
+-- * 'cesmEventSourceARN'
 --
--- * 'cesmrqFunctionName'
+-- * 'cesmFunctionName'
 --
--- * 'cesmrqStartingPosition'
+-- * 'cesmStartingPosition'
 data CreateEventSourceMapping = CreateEventSourceMapping'
-    { _cesmrqEnabled          :: !(Maybe Bool)
-    , _cesmrqBatchSize        :: !(Maybe Nat)
-    , _cesmrqEventSourceARN   :: !Text
-    , _cesmrqFunctionName     :: !Text
-    , _cesmrqStartingPosition :: !EventSourcePosition
+    { _cesmEnabled          :: !(Maybe Bool)
+    , _cesmBatchSize        :: !(Maybe Nat)
+    , _cesmEventSourceARN   :: !Text
+    , _cesmFunctionName     :: !Text
+    , _cesmStartingPosition :: !EventSourcePosition
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEventSourceMapping' smart constructor.
 createEventSourceMapping :: Text -> Text -> EventSourcePosition -> CreateEventSourceMapping
 createEventSourceMapping pEventSourceARN_ pFunctionName_ pStartingPosition_ =
     CreateEventSourceMapping'
-    { _cesmrqEnabled = Nothing
-    , _cesmrqBatchSize = Nothing
-    , _cesmrqEventSourceARN = pEventSourceARN_
-    , _cesmrqFunctionName = pFunctionName_
-    , _cesmrqStartingPosition = pStartingPosition_
+    { _cesmEnabled = Nothing
+    , _cesmBatchSize = Nothing
+    , _cesmEventSourceARN = pEventSourceARN_
+    , _cesmFunctionName = pFunctionName_
+    , _cesmStartingPosition = pStartingPosition_
     }
 
 -- | Indicates whether AWS Lambda should begin polling the event source, the
 -- default is not enabled.
-cesmrqEnabled :: Lens' CreateEventSourceMapping (Maybe Bool)
-cesmrqEnabled = lens _cesmrqEnabled (\ s a -> s{_cesmrqEnabled = a});
+cesmEnabled :: Lens' CreateEventSourceMapping (Maybe Bool)
+cesmEnabled = lens _cesmEnabled (\ s a -> s{_cesmEnabled = a});
 
 -- | The largest number of records that AWS Lambda will retrieve from your
 -- event source at the time of invoking your function. Your function
 -- receives an event with all the retrieved records. The default is 100
 -- records.
-cesmrqBatchSize :: Lens' CreateEventSourceMapping (Maybe Natural)
-cesmrqBatchSize = lens _cesmrqBatchSize (\ s a -> s{_cesmrqBatchSize = a}) . mapping _Nat;
+cesmBatchSize :: Lens' CreateEventSourceMapping (Maybe Natural)
+cesmBatchSize = lens _cesmBatchSize (\ s a -> s{_cesmBatchSize = a}) . mapping _Nat;
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon
 -- DynamoDB stream that is the event source. Any record added to this
 -- stream could cause AWS Lambda to invoke your Lambda function, it depends
 -- on the @BatchSize@. AWS Lambda POSTs the Amazon Kinesis event,
 -- containing records, to your Lambda function as JSON.
-cesmrqEventSourceARN :: Lens' CreateEventSourceMapping Text
-cesmrqEventSourceARN = lens _cesmrqEventSourceARN (\ s a -> s{_cesmrqEventSourceARN = a});
+cesmEventSourceARN :: Lens' CreateEventSourceMapping Text
+cesmEventSourceARN = lens _cesmEventSourceARN (\ s a -> s{_cesmEventSourceARN = a});
 
 -- | The Lambda function to invoke when AWS Lambda detects an event on the
 -- stream.
@@ -135,15 +135,15 @@ cesmrqEventSourceARN = lens _cesmrqEventSourceARN (\ s a -> s{_cesmrqEventSource
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-cesmrqFunctionName :: Lens' CreateEventSourceMapping Text
-cesmrqFunctionName = lens _cesmrqFunctionName (\ s a -> s{_cesmrqFunctionName = a});
+cesmFunctionName :: Lens' CreateEventSourceMapping Text
+cesmFunctionName = lens _cesmFunctionName (\ s a -> s{_cesmFunctionName = a});
 
 -- | The position in the stream where AWS Lambda should start reading. For
 -- more information, go to
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType ShardIteratorType>
 -- in the /Amazon Kinesis API Reference/.
-cesmrqStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
-cesmrqStartingPosition = lens _cesmrqStartingPosition (\ s a -> s{_cesmrqStartingPosition = a});
+cesmStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
+cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a});
 
 instance AWSRequest CreateEventSourceMapping where
         type Sv CreateEventSourceMapping = Lambda
@@ -158,11 +158,11 @@ instance ToHeaders CreateEventSourceMapping where
 instance ToJSON CreateEventSourceMapping where
         toJSON CreateEventSourceMapping'{..}
           = object
-              ["Enabled" .= _cesmrqEnabled,
-               "BatchSize" .= _cesmrqBatchSize,
-               "EventSourceArn" .= _cesmrqEventSourceARN,
-               "FunctionName" .= _cesmrqFunctionName,
-               "StartingPosition" .= _cesmrqStartingPosition]
+              ["Enabled" .= _cesmEnabled,
+               "BatchSize" .= _cesmBatchSize,
+               "EventSourceArn" .= _cesmEventSourceARN,
+               "FunctionName" .= _cesmFunctionName,
+               "StartingPosition" .= _cesmStartingPosition]
 
 instance ToPath CreateEventSourceMapping where
         toPath = const "/2015-03-31/event-source-mappings/"

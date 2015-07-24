@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.GetUpload
     -- ** Request constructor
     , getUpload
     -- ** Request lenses
-    , gurqArn
+    , guArn
 
     -- * Response
     , GetUploadResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gurqArn'
+-- * 'guArn'
 newtype GetUpload = GetUpload'
-    { _gurqArn :: Text
+    { _guArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUpload' smart constructor.
 getUpload :: Text -> GetUpload
 getUpload pArn_ =
     GetUpload'
-    { _gurqArn = pArn_
+    { _guArn = pArn_
     }
 
 -- | The upload\'s ARN.
-gurqArn :: Lens' GetUpload Text
-gurqArn = lens _gurqArn (\ s a -> s{_gurqArn = a});
+guArn :: Lens' GetUpload Text
+guArn = lens _guArn (\ s a -> s{_guArn = a});
 
 instance AWSRequest GetUpload where
         type Sv GetUpload = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetUpload where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetUpload where
-        toJSON GetUpload'{..} = object ["arn" .= _gurqArn]
+        toJSON GetUpload'{..} = object ["arn" .= _guArn]
 
 instance ToPath GetUpload where
         toPath = const "/"

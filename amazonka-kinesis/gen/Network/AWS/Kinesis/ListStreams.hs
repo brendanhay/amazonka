@@ -43,8 +43,8 @@ module Network.AWS.Kinesis.ListStreams
     -- ** Request constructor
     , listStreams
     -- ** Request lenses
-    , lsrqLimit
-    , lsrqExclusiveStartStreamName
+    , lsLimit
+    , lsExclusiveStartStreamName
 
     -- * Response
     , ListStreamsResponse
@@ -68,29 +68,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrqLimit'
+-- * 'lsLimit'
 --
--- * 'lsrqExclusiveStartStreamName'
+-- * 'lsExclusiveStartStreamName'
 data ListStreams = ListStreams'
-    { _lsrqLimit                    :: !(Maybe Nat)
-    , _lsrqExclusiveStartStreamName :: !(Maybe Text)
+    { _lsLimit                    :: !(Maybe Nat)
+    , _lsExclusiveStartStreamName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreams' smart constructor.
 listStreams :: ListStreams
 listStreams =
     ListStreams'
-    { _lsrqLimit = Nothing
-    , _lsrqExclusiveStartStreamName = Nothing
+    { _lsLimit = Nothing
+    , _lsExclusiveStartStreamName = Nothing
     }
 
 -- | The maximum number of streams to list.
-lsrqLimit :: Lens' ListStreams (Maybe Natural)
-lsrqLimit = lens _lsrqLimit (\ s a -> s{_lsrqLimit = a}) . mapping _Nat;
+lsLimit :: Lens' ListStreams (Maybe Natural)
+lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
 
 -- | The name of the stream to start the list with.
-lsrqExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
-lsrqExclusiveStartStreamName = lens _lsrqExclusiveStartStreamName (\ s a -> s{_lsrqExclusiveStartStreamName = a});
+lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
+lsExclusiveStartStreamName = lens _lsExclusiveStartStreamName (\ s a -> s{_lsExclusiveStartStreamName = a});
 
 instance AWSPager ListStreams where
         page rq rs
@@ -98,7 +98,7 @@ instance AWSPager ListStreams where
           | isNothing (rs ^? lsrsStreamNames . _last) = Nothing
           | otherwise =
             Just $ rq &
-              lsrqExclusiveStartStreamName .~
+              lsExclusiveStartStreamName .~
                 rs ^? lsrsStreamNames . _last
 
 instance AWSRequest ListStreams where
@@ -125,9 +125,9 @@ instance ToHeaders ListStreams where
 instance ToJSON ListStreams where
         toJSON ListStreams'{..}
           = object
-              ["Limit" .= _lsrqLimit,
+              ["Limit" .= _lsLimit,
                "ExclusiveStartStreamName" .=
-                 _lsrqExclusiveStartStreamName]
+                 _lsExclusiveStartStreamName]
 
 instance ToPath ListStreams where
         toPath = const "/"

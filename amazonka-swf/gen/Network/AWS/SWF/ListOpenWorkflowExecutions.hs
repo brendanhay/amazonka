@@ -58,14 +58,14 @@ module Network.AWS.SWF.ListOpenWorkflowExecutions
     -- ** Request constructor
     , listOpenWorkflowExecutions
     -- ** Request lenses
-    , lowerqNextPageToken
-    , lowerqExecutionFilter
-    , lowerqTypeFilter
-    , lowerqReverseOrder
-    , lowerqTagFilter
-    , lowerqMaximumPageSize
-    , lowerqDomain
-    , lowerqStartTimeFilter
+    , loweNextPageToken
+    , loweExecutionFilter
+    , loweTypeFilter
+    , loweReverseOrder
+    , loweTagFilter
+    , loweMaximumPageSize
+    , loweDomain
+    , loweStartTimeFilter
 
     -- * Response
     , WorkflowExecutionInfos
@@ -86,44 +86,44 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lowerqNextPageToken'
+-- * 'loweNextPageToken'
 --
--- * 'lowerqExecutionFilter'
+-- * 'loweExecutionFilter'
 --
--- * 'lowerqTypeFilter'
+-- * 'loweTypeFilter'
 --
--- * 'lowerqReverseOrder'
+-- * 'loweReverseOrder'
 --
--- * 'lowerqTagFilter'
+-- * 'loweTagFilter'
 --
--- * 'lowerqMaximumPageSize'
+-- * 'loweMaximumPageSize'
 --
--- * 'lowerqDomain'
+-- * 'loweDomain'
 --
--- * 'lowerqStartTimeFilter'
+-- * 'loweStartTimeFilter'
 data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
-    { _lowerqNextPageToken   :: !(Maybe Text)
-    , _lowerqExecutionFilter :: !(Maybe WorkflowExecutionFilter)
-    , _lowerqTypeFilter      :: !(Maybe WorkflowTypeFilter)
-    , _lowerqReverseOrder    :: !(Maybe Bool)
-    , _lowerqTagFilter       :: !(Maybe TagFilter)
-    , _lowerqMaximumPageSize :: !(Maybe Nat)
-    , _lowerqDomain          :: !Text
-    , _lowerqStartTimeFilter :: !ExecutionTimeFilter
+    { _loweNextPageToken   :: !(Maybe Text)
+    , _loweExecutionFilter :: !(Maybe WorkflowExecutionFilter)
+    , _loweTypeFilter      :: !(Maybe WorkflowTypeFilter)
+    , _loweReverseOrder    :: !(Maybe Bool)
+    , _loweTagFilter       :: !(Maybe TagFilter)
+    , _loweMaximumPageSize :: !(Maybe Nat)
+    , _loweDomain          :: !Text
+    , _loweStartTimeFilter :: !ExecutionTimeFilter
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOpenWorkflowExecutions' smart constructor.
 listOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> ListOpenWorkflowExecutions
 listOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
     ListOpenWorkflowExecutions'
-    { _lowerqNextPageToken = Nothing
-    , _lowerqExecutionFilter = Nothing
-    , _lowerqTypeFilter = Nothing
-    , _lowerqReverseOrder = Nothing
-    , _lowerqTagFilter = Nothing
-    , _lowerqMaximumPageSize = Nothing
-    , _lowerqDomain = pDomain_
-    , _lowerqStartTimeFilter = pStartTimeFilter_
+    { _loweNextPageToken = Nothing
+    , _loweExecutionFilter = Nothing
+    , _loweTypeFilter = Nothing
+    , _loweReverseOrder = Nothing
+    , _loweTagFilter = Nothing
+    , _loweMaximumPageSize = Nothing
+    , _loweDomain = pDomain_
+    , _loweStartTimeFilter = pStartTimeFilter_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -133,37 +133,37 @@ listOpenWorkflowExecutions pDomain_ pStartTimeFilter_ =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-lowerqNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
-lowerqNextPageToken = lens _lowerqNextPageToken (\ s a -> s{_lowerqNextPageToken = a});
+loweNextPageToken :: Lens' ListOpenWorkflowExecutions (Maybe Text)
+loweNextPageToken = lens _loweNextPageToken (\ s a -> s{_loweNextPageToken = a});
 
 -- | If specified, only workflow executions matching the workflow id
 -- specified in the filter are returned.
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
 -- You can specify at most one of these in a request.
-lowerqExecutionFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
-lowerqExecutionFilter = lens _lowerqExecutionFilter (\ s a -> s{_lowerqExecutionFilter = a});
+loweExecutionFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowExecutionFilter)
+loweExecutionFilter = lens _loweExecutionFilter (\ s a -> s{_loweExecutionFilter = a});
 
 -- | If specified, only executions of the type specified in the filter are
 -- returned.
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
 -- You can specify at most one of these in a request.
-lowerqTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
-lowerqTypeFilter = lens _lowerqTypeFilter (\ s a -> s{_lowerqTypeFilter = a});
+loweTypeFilter :: Lens' ListOpenWorkflowExecutions (Maybe WorkflowTypeFilter)
+loweTypeFilter = lens _loweTypeFilter (\ s a -> s{_loweTypeFilter = a});
 
 -- | When set to @true@, returns the results in reverse order. By default the
 -- results are returned in descending order of the start time of the
 -- executions.
-lowerqReverseOrder :: Lens' ListOpenWorkflowExecutions (Maybe Bool)
-lowerqReverseOrder = lens _lowerqReverseOrder (\ s a -> s{_lowerqReverseOrder = a});
+loweReverseOrder :: Lens' ListOpenWorkflowExecutions (Maybe Bool)
+loweReverseOrder = lens _loweReverseOrder (\ s a -> s{_loweReverseOrder = a});
 
 -- | If specified, only executions that have the matching tag are listed.
 --
 -- @executionFilter@, @typeFilter@ and @tagFilter@ are mutually exclusive.
 -- You can specify at most one of these in a request.
-lowerqTagFilter :: Lens' ListOpenWorkflowExecutions (Maybe TagFilter)
-lowerqTagFilter = lens _lowerqTagFilter (\ s a -> s{_lowerqTagFilter = a});
+loweTagFilter :: Lens' ListOpenWorkflowExecutions (Maybe TagFilter)
+loweTagFilter = lens _loweTagFilter (\ s a -> s{_loweTagFilter = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -172,17 +172,17 @@ lowerqTagFilter = lens _lowerqTagFilter (\ s a -> s{_lowerqTagFilter = a});
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
-lowerqMaximumPageSize :: Lens' ListOpenWorkflowExecutions (Maybe Natural)
-lowerqMaximumPageSize = lens _lowerqMaximumPageSize (\ s a -> s{_lowerqMaximumPageSize = a}) . mapping _Nat;
+loweMaximumPageSize :: Lens' ListOpenWorkflowExecutions (Maybe Natural)
+loweMaximumPageSize = lens _loweMaximumPageSize (\ s a -> s{_loweMaximumPageSize = a}) . mapping _Nat;
 
 -- | The name of the domain that contains the workflow executions to list.
-lowerqDomain :: Lens' ListOpenWorkflowExecutions Text
-lowerqDomain = lens _lowerqDomain (\ s a -> s{_lowerqDomain = a});
+loweDomain :: Lens' ListOpenWorkflowExecutions Text
+loweDomain = lens _loweDomain (\ s a -> s{_loweDomain = a});
 
 -- | Workflow executions are included in the returned results based on
 -- whether their start times are within the range specified by this filter.
-lowerqStartTimeFilter :: Lens' ListOpenWorkflowExecutions ExecutionTimeFilter
-lowerqStartTimeFilter = lens _lowerqStartTimeFilter (\ s a -> s{_lowerqStartTimeFilter = a});
+loweStartTimeFilter :: Lens' ListOpenWorkflowExecutions ExecutionTimeFilter
+loweStartTimeFilter = lens _loweStartTimeFilter (\ s a -> s{_loweStartTimeFilter = a});
 
 instance AWSPager ListOpenWorkflowExecutions where
         page rq rs
@@ -190,7 +190,7 @@ instance AWSPager ListOpenWorkflowExecutions where
           | stop (rs ^. weiExecutionInfos) = Nothing
           | otherwise =
             Just $ rq &
-              lowerqNextPageToken .~ rs ^. weiNextPageToken
+              loweNextPageToken .~ rs ^. weiNextPageToken
 
 instance AWSRequest ListOpenWorkflowExecutions where
         type Sv ListOpenWorkflowExecutions = SWF
@@ -212,14 +212,14 @@ instance ToHeaders ListOpenWorkflowExecutions where
 instance ToJSON ListOpenWorkflowExecutions where
         toJSON ListOpenWorkflowExecutions'{..}
           = object
-              ["nextPageToken" .= _lowerqNextPageToken,
-               "executionFilter" .= _lowerqExecutionFilter,
-               "typeFilter" .= _lowerqTypeFilter,
-               "reverseOrder" .= _lowerqReverseOrder,
-               "tagFilter" .= _lowerqTagFilter,
-               "maximumPageSize" .= _lowerqMaximumPageSize,
-               "domain" .= _lowerqDomain,
-               "startTimeFilter" .= _lowerqStartTimeFilter]
+              ["nextPageToken" .= _loweNextPageToken,
+               "executionFilter" .= _loweExecutionFilter,
+               "typeFilter" .= _loweTypeFilter,
+               "reverseOrder" .= _loweReverseOrder,
+               "tagFilter" .= _loweTagFilter,
+               "maximumPageSize" .= _loweMaximumPageSize,
+               "domain" .= _loweDomain,
+               "startTimeFilter" .= _loweStartTimeFilter]
 
 instance ToPath ListOpenWorkflowExecutions where
         toPath = const "/"

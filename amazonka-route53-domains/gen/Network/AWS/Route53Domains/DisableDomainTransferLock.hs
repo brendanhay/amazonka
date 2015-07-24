@@ -33,7 +33,7 @@ module Network.AWS.Route53Domains.DisableDomainTransferLock
     -- ** Request constructor
     , disableDomainTransferLock
     -- ** Request lenses
-    , ddtlrqDomainName
+    , ddtlDomainName
 
     -- * Response
     , DisableDomainTransferLockResponse
@@ -55,16 +55,16 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddtlrqDomainName'
+-- * 'ddtlDomainName'
 newtype DisableDomainTransferLock = DisableDomainTransferLock'
-    { _ddtlrqDomainName :: Text
+    { _ddtlDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableDomainTransferLock' smart constructor.
 disableDomainTransferLock :: Text -> DisableDomainTransferLock
 disableDomainTransferLock pDomainName_ =
     DisableDomainTransferLock'
-    { _ddtlrqDomainName = pDomainName_
+    { _ddtlDomainName = pDomainName_
     }
 
 -- | The name of a domain.
@@ -78,8 +78,8 @@ disableDomainTransferLock pDomainName_ =
 -- are not supported.
 --
 -- Required: Yes
-ddtlrqDomainName :: Lens' DisableDomainTransferLock Text
-ddtlrqDomainName = lens _ddtlrqDomainName (\ s a -> s{_ddtlrqDomainName = a});
+ddtlDomainName :: Lens' DisableDomainTransferLock Text
+ddtlDomainName = lens _ddtlDomainName (\ s a -> s{_ddtlDomainName = a});
 
 instance AWSRequest DisableDomainTransferLock where
         type Sv DisableDomainTransferLock = Route53Domains
@@ -104,7 +104,7 @@ instance ToHeaders DisableDomainTransferLock where
 
 instance ToJSON DisableDomainTransferLock where
         toJSON DisableDomainTransferLock'{..}
-          = object ["DomainName" .= _ddtlrqDomainName]
+          = object ["DomainName" .= _ddtlDomainName]
 
 instance ToPath DisableDomainTransferLock where
         toPath = const "/"

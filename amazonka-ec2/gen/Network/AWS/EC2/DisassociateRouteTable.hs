@@ -33,8 +33,8 @@ module Network.AWS.EC2.DisassociateRouteTable
     -- ** Request constructor
     , disassociateRouteTable
     -- ** Request lenses
-    , drtrqDryRun
-    , drtrqAssociationId
+    , drtDryRun
+    , drtAssociationId
 
     -- * Response
     , DisassociateRouteTableResponse
@@ -51,33 +51,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drtrqDryRun'
+-- * 'drtDryRun'
 --
--- * 'drtrqAssociationId'
+-- * 'drtAssociationId'
 data DisassociateRouteTable = DisassociateRouteTable'
-    { _drtrqDryRun        :: !(Maybe Bool)
-    , _drtrqAssociationId :: !Text
+    { _drtDryRun        :: !(Maybe Bool)
+    , _drtAssociationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateRouteTable' smart constructor.
 disassociateRouteTable :: Text -> DisassociateRouteTable
 disassociateRouteTable pAssociationId_ =
     DisassociateRouteTable'
-    { _drtrqDryRun = Nothing
-    , _drtrqAssociationId = pAssociationId_
+    { _drtDryRun = Nothing
+    , _drtAssociationId = pAssociationId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-drtrqDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
-drtrqDryRun = lens _drtrqDryRun (\ s a -> s{_drtrqDryRun = a});
+drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
+drtDryRun = lens _drtDryRun (\ s a -> s{_drtDryRun = a});
 
 -- | The association ID representing the current association between the
 -- route table and subnet.
-drtrqAssociationId :: Lens' DisassociateRouteTable Text
-drtrqAssociationId = lens _drtrqAssociationId (\ s a -> s{_drtrqAssociationId = a});
+drtAssociationId :: Lens' DisassociateRouteTable Text
+drtAssociationId = lens _drtAssociationId (\ s a -> s{_drtAssociationId = a});
 
 instance AWSRequest DisassociateRouteTable where
         type Sv DisassociateRouteTable = EC2
@@ -99,8 +99,8 @@ instance ToQuery DisassociateRouteTable where
               ["Action" =:
                  ("DisassociateRouteTable" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _drtrqDryRun,
-               "AssociationId" =: _drtrqAssociationId]
+               "DryRun" =: _drtDryRun,
+               "AssociationId" =: _drtAssociationId]
 
 -- | /See:/ 'disassociateRouteTableResponse' smart constructor.
 data DisassociateRouteTableResponse =

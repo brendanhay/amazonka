@@ -49,8 +49,8 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     -- ** Request constructor
     , describeWorkflowExecution
     -- ** Request lenses
-    , dwerqDomain
-    , dwerqExecution
+    , dweDomain
+    , dweExecution
 
     -- * Response
     , DescribeWorkflowExecutionResponse
@@ -74,29 +74,29 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwerqDomain'
+-- * 'dweDomain'
 --
--- * 'dwerqExecution'
+-- * 'dweExecution'
 data DescribeWorkflowExecution = DescribeWorkflowExecution'
-    { _dwerqDomain    :: !Text
-    , _dwerqExecution :: !WorkflowExecution
+    { _dweDomain    :: !Text
+    , _dweExecution :: !WorkflowExecution
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkflowExecution' smart constructor.
 describeWorkflowExecution :: Text -> WorkflowExecution -> DescribeWorkflowExecution
 describeWorkflowExecution pDomain_ pExecution_ =
     DescribeWorkflowExecution'
-    { _dwerqDomain = pDomain_
-    , _dwerqExecution = pExecution_
+    { _dweDomain = pDomain_
+    , _dweExecution = pExecution_
     }
 
 -- | The name of the domain containing the workflow execution.
-dwerqDomain :: Lens' DescribeWorkflowExecution Text
-dwerqDomain = lens _dwerqDomain (\ s a -> s{_dwerqDomain = a});
+dweDomain :: Lens' DescribeWorkflowExecution Text
+dweDomain = lens _dweDomain (\ s a -> s{_dweDomain = a});
 
 -- | The workflow execution to describe.
-dwerqExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
-dwerqExecution = lens _dwerqExecution (\ s a -> s{_dwerqExecution = a});
+dweExecution :: Lens' DescribeWorkflowExecution WorkflowExecution
+dweExecution = lens _dweExecution (\ s a -> s{_dweExecution = a});
 
 instance AWSRequest DescribeWorkflowExecution where
         type Sv DescribeWorkflowExecution = SWF
@@ -127,8 +127,8 @@ instance ToHeaders DescribeWorkflowExecution where
 instance ToJSON DescribeWorkflowExecution where
         toJSON DescribeWorkflowExecution'{..}
           = object
-              ["domain" .= _dwerqDomain,
-               "execution" .= _dwerqExecution]
+              ["domain" .= _dweDomain,
+               "execution" .= _dweExecution]
 
 instance ToPath DescribeWorkflowExecution where
         toPath = const "/"

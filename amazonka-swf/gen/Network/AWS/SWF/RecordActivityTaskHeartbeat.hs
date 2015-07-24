@@ -74,8 +74,8 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     -- ** Request constructor
     , recordActivityTaskHeartbeat
     -- ** Request lenses
-    , rathrqDetails
-    , rathrqTaskToken
+    , rathDetails
+    , rathTaskToken
 
     -- * Response
     , RecordActivityTaskHeartbeatResponse
@@ -95,25 +95,25 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rathrqDetails'
+-- * 'rathDetails'
 --
--- * 'rathrqTaskToken'
+-- * 'rathTaskToken'
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'
-    { _rathrqDetails   :: !(Maybe Text)
-    , _rathrqTaskToken :: !Text
+    { _rathDetails   :: !(Maybe Text)
+    , _rathTaskToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordActivityTaskHeartbeat' smart constructor.
 recordActivityTaskHeartbeat :: Text -> RecordActivityTaskHeartbeat
 recordActivityTaskHeartbeat pTaskToken_ =
     RecordActivityTaskHeartbeat'
-    { _rathrqDetails = Nothing
-    , _rathrqTaskToken = pTaskToken_
+    { _rathDetails = Nothing
+    , _rathTaskToken = pTaskToken_
     }
 
 -- | If specified, contains details about the progress of the task.
-rathrqDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
-rathrqDetails = lens _rathrqDetails (\ s a -> s{_rathrqDetails = a});
+rathDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
+rathDetails = lens _rathDetails (\ s a -> s{_rathDetails = a});
 
 -- | The @taskToken@ of the ActivityTask.
 --
@@ -121,8 +121,8 @@ rathrqDetails = lens _rathrqDetails (\ s a -> s{_rathrqDetails = a});
 -- opaque value. If the task is passed to another process, its @taskToken@
 -- must also be passed. This enables it to provide its progress and respond
 -- with results.
-rathrqTaskToken :: Lens' RecordActivityTaskHeartbeat Text
-rathrqTaskToken = lens _rathrqTaskToken (\ s a -> s{_rathrqTaskToken = a});
+rathTaskToken :: Lens' RecordActivityTaskHeartbeat Text
+rathTaskToken = lens _rathTaskToken (\ s a -> s{_rathTaskToken = a});
 
 instance AWSRequest RecordActivityTaskHeartbeat where
         type Sv RecordActivityTaskHeartbeat = SWF
@@ -148,8 +148,8 @@ instance ToHeaders RecordActivityTaskHeartbeat where
 instance ToJSON RecordActivityTaskHeartbeat where
         toJSON RecordActivityTaskHeartbeat'{..}
           = object
-              ["details" .= _rathrqDetails,
-               "taskToken" .= _rathrqTaskToken]
+              ["details" .= _rathDetails,
+               "taskToken" .= _rathTaskToken]
 
 instance ToPath RecordActivityTaskHeartbeat where
         toPath = const "/"

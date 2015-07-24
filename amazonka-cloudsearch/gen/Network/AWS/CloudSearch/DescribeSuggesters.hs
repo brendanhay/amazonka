@@ -34,9 +34,9 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     -- ** Request constructor
     , describeSuggesters
     -- ** Request lenses
-    , dsrqDeployed
-    , dsrqSuggesterNames
-    , dsrqDomainName
+    , dssDeployed
+    , dssSuggesterNames
+    , dssDomainName
 
     -- * Response
     , DescribeSuggestersResponse
@@ -62,38 +62,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqDeployed'
+-- * 'dssDeployed'
 --
--- * 'dsrqSuggesterNames'
+-- * 'dssSuggesterNames'
 --
--- * 'dsrqDomainName'
+-- * 'dssDomainName'
 data DescribeSuggesters = DescribeSuggesters'
-    { _dsrqDeployed       :: !(Maybe Bool)
-    , _dsrqSuggesterNames :: !(Maybe [Text])
-    , _dsrqDomainName     :: !Text
+    { _dssDeployed       :: !(Maybe Bool)
+    , _dssSuggesterNames :: !(Maybe [Text])
+    , _dssDomainName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSuggesters' smart constructor.
 describeSuggesters :: Text -> DescribeSuggesters
 describeSuggesters pDomainName_ =
     DescribeSuggesters'
-    { _dsrqDeployed = Nothing
-    , _dsrqSuggesterNames = Nothing
-    , _dsrqDomainName = pDomainName_
+    { _dssDeployed = Nothing
+    , _dssSuggesterNames = Nothing
+    , _dssDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-dsrqDeployed :: Lens' DescribeSuggesters (Maybe Bool)
-dsrqDeployed = lens _dsrqDeployed (\ s a -> s{_dsrqDeployed = a});
+dssDeployed :: Lens' DescribeSuggesters (Maybe Bool)
+dssDeployed = lens _dssDeployed (\ s a -> s{_dssDeployed = a});
 
 -- | The suggesters you want to describe.
-dsrqSuggesterNames :: Lens' DescribeSuggesters [Text]
-dsrqSuggesterNames = lens _dsrqSuggesterNames (\ s a -> s{_dsrqSuggesterNames = a}) . _Default;
+dssSuggesterNames :: Lens' DescribeSuggesters [Text]
+dssSuggesterNames = lens _dssSuggesterNames (\ s a -> s{_dssSuggesterNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-dsrqDomainName :: Lens' DescribeSuggesters Text
-dsrqDomainName = lens _dsrqDomainName (\ s a -> s{_dsrqDomainName = a});
+dssDomainName :: Lens' DescribeSuggesters Text
+dssDomainName = lens _dssDomainName (\ s a -> s{_dssDomainName = a});
 
 instance AWSRequest DescribeSuggesters where
         type Sv DescribeSuggesters = CloudSearch
@@ -119,11 +119,11 @@ instance ToQuery DescribeSuggesters where
           = mconcat
               ["Action" =: ("DescribeSuggesters" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _dsrqDeployed,
+               "Deployed" =: _dssDeployed,
                "SuggesterNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dsrqSuggesterNames),
-               "DomainName" =: _dsrqDomainName]
+                   (toQueryList "member" <$> _dssSuggesterNames),
+               "DomainName" =: _dssDomainName]
 
 -- | The result of a @DescribeSuggesters@ request.
 --

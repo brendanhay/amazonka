@@ -34,7 +34,7 @@ module Network.AWS.MachineLearning.DeleteMLModel
     -- ** Request constructor
     , deleteMLModel
     -- ** Request lenses
-    , dmlmrqMLModelId
+    , dmlmMLModelId
 
     -- * Response
     , DeleteMLModelResponse
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmlmrqMLModelId'
+-- * 'dmlmMLModelId'
 newtype DeleteMLModel = DeleteMLModel'
-    { _dmlmrqMLModelId :: Text
+    { _dmlmMLModelId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMLModel' smart constructor.
 deleteMLModel :: Text -> DeleteMLModel
 deleteMLModel pMLModelId_ =
     DeleteMLModel'
-    { _dmlmrqMLModelId = pMLModelId_
+    { _dmlmMLModelId = pMLModelId_
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
-dmlmrqMLModelId :: Lens' DeleteMLModel Text
-dmlmrqMLModelId = lens _dmlmrqMLModelId (\ s a -> s{_dmlmrqMLModelId = a});
+dmlmMLModelId :: Lens' DeleteMLModel Text
+dmlmMLModelId = lens _dmlmMLModelId (\ s a -> s{_dmlmMLModelId = a});
 
 instance AWSRequest DeleteMLModel where
         type Sv DeleteMLModel = MachineLearning
@@ -91,7 +91,7 @@ instance ToHeaders DeleteMLModel where
 
 instance ToJSON DeleteMLModel where
         toJSON DeleteMLModel'{..}
-          = object ["MLModelId" .= _dmlmrqMLModelId]
+          = object ["MLModelId" .= _dmlmMLModelId]
 
 instance ToPath DeleteMLModel where
         toPath = const "/"

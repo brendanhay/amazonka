@@ -28,16 +28,16 @@ module Network.AWS.EC2.ImportImage
     -- ** Request constructor
     , importImage
     -- ** Request lenses
-    , irqHypervisor
-    , irqPlatform
-    , irqClientToken
-    , irqLicenseType
-    , irqRoleName
-    , irqArchitecture
-    , irqDryRun
-    , irqDescription
-    , irqClientData
-    , irqDiskContainers
+    , impHypervisor
+    , impPlatform
+    , impClientToken
+    , impLicenseType
+    , impRoleName
+    , impArchitecture
+    , impDryRun
+    , impDescription
+    , impClientData
+    , impDiskContainers
 
     -- * Response
     , ImportImageResponse
@@ -66,69 +66,69 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'irqHypervisor'
+-- * 'impHypervisor'
 --
--- * 'irqPlatform'
+-- * 'impPlatform'
 --
--- * 'irqClientToken'
+-- * 'impClientToken'
 --
--- * 'irqLicenseType'
+-- * 'impLicenseType'
 --
--- * 'irqRoleName'
+-- * 'impRoleName'
 --
--- * 'irqArchitecture'
+-- * 'impArchitecture'
 --
--- * 'irqDryRun'
+-- * 'impDryRun'
 --
--- * 'irqDescription'
+-- * 'impDescription'
 --
--- * 'irqClientData'
+-- * 'impClientData'
 --
--- * 'irqDiskContainers'
+-- * 'impDiskContainers'
 data ImportImage = ImportImage'
-    { _irqHypervisor     :: !(Maybe Text)
-    , _irqPlatform       :: !(Maybe Text)
-    , _irqClientToken    :: !(Maybe Text)
-    , _irqLicenseType    :: !(Maybe Text)
-    , _irqRoleName       :: !(Maybe Text)
-    , _irqArchitecture   :: !(Maybe Text)
-    , _irqDryRun         :: !(Maybe Bool)
-    , _irqDescription    :: !(Maybe Text)
-    , _irqClientData     :: !(Maybe ClientData)
-    , _irqDiskContainers :: !(Maybe [ImageDiskContainer])
+    { _impHypervisor     :: !(Maybe Text)
+    , _impPlatform       :: !(Maybe Text)
+    , _impClientToken    :: !(Maybe Text)
+    , _impLicenseType    :: !(Maybe Text)
+    , _impRoleName       :: !(Maybe Text)
+    , _impArchitecture   :: !(Maybe Text)
+    , _impDryRun         :: !(Maybe Bool)
+    , _impDescription    :: !(Maybe Text)
+    , _impClientData     :: !(Maybe ClientData)
+    , _impDiskContainers :: !(Maybe [ImageDiskContainer])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportImage' smart constructor.
 importImage :: ImportImage
 importImage =
     ImportImage'
-    { _irqHypervisor = Nothing
-    , _irqPlatform = Nothing
-    , _irqClientToken = Nothing
-    , _irqLicenseType = Nothing
-    , _irqRoleName = Nothing
-    , _irqArchitecture = Nothing
-    , _irqDryRun = Nothing
-    , _irqDescription = Nothing
-    , _irqClientData = Nothing
-    , _irqDiskContainers = Nothing
+    { _impHypervisor = Nothing
+    , _impPlatform = Nothing
+    , _impClientToken = Nothing
+    , _impLicenseType = Nothing
+    , _impRoleName = Nothing
+    , _impArchitecture = Nothing
+    , _impDryRun = Nothing
+    , _impDescription = Nothing
+    , _impClientData = Nothing
+    , _impDiskContainers = Nothing
     }
 
 -- | The target hypervisor platform.
 --
 -- Valid values: @xen@
-irqHypervisor :: Lens' ImportImage (Maybe Text)
-irqHypervisor = lens _irqHypervisor (\ s a -> s{_irqHypervisor = a});
+impHypervisor :: Lens' ImportImage (Maybe Text)
+impHypervisor = lens _impHypervisor (\ s a -> s{_impHypervisor = a});
 
 -- | The operating system of the virtual machine.
 --
 -- Valid values: @Windows@ | @Linux@
-irqPlatform :: Lens' ImportImage (Maybe Text)
-irqPlatform = lens _irqPlatform (\ s a -> s{_irqPlatform = a});
+impPlatform :: Lens' ImportImage (Maybe Text)
+impPlatform = lens _impPlatform (\ s a -> s{_impPlatform = a});
 
 -- | The token to enable idempotency for VM import requests.
-irqClientToken :: Lens' ImportImage (Maybe Text)
-irqClientToken = lens _irqClientToken (\ s a -> s{_irqClientToken = a});
+impClientToken :: Lens' ImportImage (Maybe Text)
+impClientToken = lens _impClientToken (\ s a -> s{_impClientToken = a});
 
 -- | The license type to be used for the Amazon Machine Image (AMI) after
 -- importing.
@@ -140,38 +140,38 @@ irqClientToken = lens _irqClientToken (\ s a -> s{_irqClientToken = a});
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Valid values: @AWS@ | @BYOL@
-irqLicenseType :: Lens' ImportImage (Maybe Text)
-irqLicenseType = lens _irqLicenseType (\ s a -> s{_irqLicenseType = a});
+impLicenseType :: Lens' ImportImage (Maybe Text)
+impLicenseType = lens _impLicenseType (\ s a -> s{_impLicenseType = a});
 
 -- | The name of the role to use when not using the default role,
 -- \'vmimport\'.
-irqRoleName :: Lens' ImportImage (Maybe Text)
-irqRoleName = lens _irqRoleName (\ s a -> s{_irqRoleName = a});
+impRoleName :: Lens' ImportImage (Maybe Text)
+impRoleName = lens _impRoleName (\ s a -> s{_impRoleName = a});
 
 -- | The architecture of the virtual machine.
 --
 -- Valid values: @i386@ | @x86_64@
-irqArchitecture :: Lens' ImportImage (Maybe Text)
-irqArchitecture = lens _irqArchitecture (\ s a -> s{_irqArchitecture = a});
+impArchitecture :: Lens' ImportImage (Maybe Text)
+impArchitecture = lens _impArchitecture (\ s a -> s{_impArchitecture = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-irqDryRun :: Lens' ImportImage (Maybe Bool)
-irqDryRun = lens _irqDryRun (\ s a -> s{_irqDryRun = a});
+impDryRun :: Lens' ImportImage (Maybe Bool)
+impDryRun = lens _impDryRun (\ s a -> s{_impDryRun = a});
 
 -- | A description string for the import image task.
-irqDescription :: Lens' ImportImage (Maybe Text)
-irqDescription = lens _irqDescription (\ s a -> s{_irqDescription = a});
+impDescription :: Lens' ImportImage (Maybe Text)
+impDescription = lens _impDescription (\ s a -> s{_impDescription = a});
 
 -- | The client-specific data.
-irqClientData :: Lens' ImportImage (Maybe ClientData)
-irqClientData = lens _irqClientData (\ s a -> s{_irqClientData = a});
+impClientData :: Lens' ImportImage (Maybe ClientData)
+impClientData = lens _impClientData (\ s a -> s{_impClientData = a});
 
 -- | Information about the disk containers.
-irqDiskContainers :: Lens' ImportImage [ImageDiskContainer]
-irqDiskContainers = lens _irqDiskContainers (\ s a -> s{_irqDiskContainers = a}) . _Default;
+impDiskContainers :: Lens' ImportImage [ImageDiskContainer]
+impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a}) . _Default;
 
 instance AWSRequest ImportImage where
         type Sv ImportImage = EC2
@@ -205,16 +205,16 @@ instance ToQuery ImportImage where
           = mconcat
               ["Action" =: ("ImportImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Hypervisor" =: _irqHypervisor,
-               "Platform" =: _irqPlatform,
-               "ClientToken" =: _irqClientToken,
-               "LicenseType" =: _irqLicenseType,
-               "RoleName" =: _irqRoleName,
-               "Architecture" =: _irqArchitecture,
-               "DryRun" =: _irqDryRun,
-               "Description" =: _irqDescription,
-               "ClientData" =: _irqClientData,
-               toQuery (toQueryList "item" <$> _irqDiskContainers)]
+               "Hypervisor" =: _impHypervisor,
+               "Platform" =: _impPlatform,
+               "ClientToken" =: _impClientToken,
+               "LicenseType" =: _impLicenseType,
+               "RoleName" =: _impRoleName,
+               "Architecture" =: _impArchitecture,
+               "DryRun" =: _impDryRun,
+               "Description" =: _impDescription,
+               "ClientData" =: _impClientData,
+               toQuery (toQueryList "item" <$> _impDiskContainers)]
 
 -- | /See:/ 'importImageResponse' smart constructor.
 --

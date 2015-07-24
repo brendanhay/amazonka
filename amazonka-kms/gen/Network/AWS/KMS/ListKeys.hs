@@ -27,8 +27,8 @@ module Network.AWS.KMS.ListKeys
     -- ** Request constructor
     , listKeys
     -- ** Request lenses
-    , lkrqMarker
-    , lkrqLimit
+    , lkMarker
+    , lkLimit
 
     -- * Response
     , ListKeysResponse
@@ -50,35 +50,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lkrqMarker'
+-- * 'lkMarker'
 --
--- * 'lkrqLimit'
+-- * 'lkLimit'
 data ListKeys = ListKeys'
-    { _lkrqMarker :: !(Maybe Text)
-    , _lkrqLimit  :: !(Maybe Nat)
+    { _lkMarker :: !(Maybe Text)
+    , _lkLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeys' smart constructor.
 listKeys :: ListKeys
 listKeys =
     ListKeys'
-    { _lkrqMarker = Nothing
-    , _lkrqLimit = Nothing
+    { _lkMarker = Nothing
+    , _lkLimit = Nothing
     }
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @NextMarker@ in the response
 -- you just received.
-lkrqMarker :: Lens' ListKeys (Maybe Text)
-lkrqMarker = lens _lkrqMarker (\ s a -> s{_lkrqMarker = a});
+lkMarker :: Lens' ListKeys (Maybe Text)
+lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
 
 -- | Specify this parameter only when paginating results to indicate the
 -- maximum number of keys you want listed in the response. If there are
 -- additional keys beyond the maximum you specify, the @Truncated@ response
 -- element will be set to @true.@
-lkrqLimit :: Lens' ListKeys (Maybe Natural)
-lkrqLimit = lens _lkrqLimit (\ s a -> s{_lkrqLimit = a}) . mapping _Nat;
+lkLimit :: Lens' ListKeys (Maybe Natural)
+lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListKeys where
         type Sv ListKeys = KMS
@@ -103,8 +103,7 @@ instance ToHeaders ListKeys where
 
 instance ToJSON ListKeys where
         toJSON ListKeys'{..}
-          = object
-              ["Marker" .= _lkrqMarker, "Limit" .= _lkrqLimit]
+          = object ["Marker" .= _lkMarker, "Limit" .= _lkLimit]
 
 instance ToPath ListKeys where
         toPath = const "/"

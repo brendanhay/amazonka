@@ -28,7 +28,7 @@ module Network.AWS.SNS.GetTopicAttributes
     -- ** Request constructor
     , getTopicAttributes
     -- ** Request lenses
-    , gtarqTopicARN
+    , gtaTopicARN
 
     -- * Response
     , GetTopicAttributesResponse
@@ -50,21 +50,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtarqTopicARN'
+-- * 'gtaTopicARN'
 newtype GetTopicAttributes = GetTopicAttributes'
-    { _gtarqTopicARN :: Text
+    { _gtaTopicARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTopicAttributes' smart constructor.
 getTopicAttributes :: Text -> GetTopicAttributes
 getTopicAttributes pTopicARN_ =
     GetTopicAttributes'
-    { _gtarqTopicARN = pTopicARN_
+    { _gtaTopicARN = pTopicARN_
     }
 
 -- | The ARN of the topic whose properties you want to get.
-gtarqTopicARN :: Lens' GetTopicAttributes Text
-gtarqTopicARN = lens _gtarqTopicARN (\ s a -> s{_gtarqTopicARN = a});
+gtaTopicARN :: Lens' GetTopicAttributes Text
+gtaTopicARN = lens _gtaTopicARN (\ s a -> s{_gtaTopicARN = a});
 
 instance AWSRequest GetTopicAttributes where
         type Sv GetTopicAttributes = SNS
@@ -90,7 +90,7 @@ instance ToQuery GetTopicAttributes where
           = mconcat
               ["Action" =: ("GetTopicAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "TopicArn" =: _gtarqTopicARN]
+               "TopicArn" =: _gtaTopicARN]
 
 -- | Response for GetTopicAttributes action.
 --

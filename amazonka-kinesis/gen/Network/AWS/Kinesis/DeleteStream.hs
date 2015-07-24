@@ -46,7 +46,7 @@ module Network.AWS.Kinesis.DeleteStream
     -- ** Request constructor
     , deleteStream
     -- ** Request lenses
-    , dsrqStreamName
+    , dsStreamName
 
     -- * Response
     , DeleteStreamResponse
@@ -65,21 +65,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqStreamName'
+-- * 'dsStreamName'
 newtype DeleteStream = DeleteStream'
-    { _dsrqStreamName :: Text
+    { _dsStreamName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStream' smart constructor.
 deleteStream :: Text -> DeleteStream
 deleteStream pStreamName_ =
     DeleteStream'
-    { _dsrqStreamName = pStreamName_
+    { _dsStreamName = pStreamName_
     }
 
 -- | The name of the stream to delete.
-dsrqStreamName :: Lens' DeleteStream Text
-dsrqStreamName = lens _dsrqStreamName (\ s a -> s{_dsrqStreamName = a});
+dsStreamName :: Lens' DeleteStream Text
+dsStreamName = lens _dsStreamName (\ s a -> s{_dsStreamName = a});
 
 instance AWSRequest DeleteStream where
         type Sv DeleteStream = Kinesis
@@ -98,7 +98,7 @@ instance ToHeaders DeleteStream where
 
 instance ToJSON DeleteStream where
         toJSON DeleteStream'{..}
-          = object ["StreamName" .= _dsrqStreamName]
+          = object ["StreamName" .= _dsStreamName]
 
 instance ToPath DeleteStream where
         toPath = const "/"

@@ -70,12 +70,12 @@ module Network.AWS.SWF.PollForDecisionTask
     -- ** Request constructor
     , pollForDecisionTask
     -- ** Request lenses
-    , pfdtrqNextPageToken
-    , pfdtrqReverseOrder
-    , pfdtrqIdentity
-    , pfdtrqMaximumPageSize
-    , pfdtrqDomain
-    , pfdtrqTaskList
+    , pfdtNextPageToken
+    , pfdtReverseOrder
+    , pfdtIdentity
+    , pfdtMaximumPageSize
+    , pfdtDomain
+    , pfdtTaskList
 
     -- * Response
     , PollForDecisionTaskResponse
@@ -102,36 +102,36 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pfdtrqNextPageToken'
+-- * 'pfdtNextPageToken'
 --
--- * 'pfdtrqReverseOrder'
+-- * 'pfdtReverseOrder'
 --
--- * 'pfdtrqIdentity'
+-- * 'pfdtIdentity'
 --
--- * 'pfdtrqMaximumPageSize'
+-- * 'pfdtMaximumPageSize'
 --
--- * 'pfdtrqDomain'
+-- * 'pfdtDomain'
 --
--- * 'pfdtrqTaskList'
+-- * 'pfdtTaskList'
 data PollForDecisionTask = PollForDecisionTask'
-    { _pfdtrqNextPageToken   :: !(Maybe Text)
-    , _pfdtrqReverseOrder    :: !(Maybe Bool)
-    , _pfdtrqIdentity        :: !(Maybe Text)
-    , _pfdtrqMaximumPageSize :: !(Maybe Nat)
-    , _pfdtrqDomain          :: !Text
-    , _pfdtrqTaskList        :: !TaskList
+    { _pfdtNextPageToken   :: !(Maybe Text)
+    , _pfdtReverseOrder    :: !(Maybe Bool)
+    , _pfdtIdentity        :: !(Maybe Text)
+    , _pfdtMaximumPageSize :: !(Maybe Nat)
+    , _pfdtDomain          :: !Text
+    , _pfdtTaskList        :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForDecisionTask' smart constructor.
 pollForDecisionTask :: Text -> TaskList -> PollForDecisionTask
 pollForDecisionTask pDomain_ pTaskList_ =
     PollForDecisionTask'
-    { _pfdtrqNextPageToken = Nothing
-    , _pfdtrqReverseOrder = Nothing
-    , _pfdtrqIdentity = Nothing
-    , _pfdtrqMaximumPageSize = Nothing
-    , _pfdtrqDomain = pDomain_
-    , _pfdtrqTaskList = pTaskList_
+    { _pfdtNextPageToken = Nothing
+    , _pfdtReverseOrder = Nothing
+    , _pfdtIdentity = Nothing
+    , _pfdtMaximumPageSize = Nothing
+    , _pfdtDomain = pDomain_
+    , _pfdtTaskList = pTaskList_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -149,21 +149,21 @@ pollForDecisionTask pDomain_ pTaskList_ =
 -- @nextPageToken@ will not return a new decision task.
 --
 -- .
-pfdtrqNextPageToken :: Lens' PollForDecisionTask (Maybe Text)
-pfdtrqNextPageToken = lens _pfdtrqNextPageToken (\ s a -> s{_pfdtrqNextPageToken = a});
+pfdtNextPageToken :: Lens' PollForDecisionTask (Maybe Text)
+pfdtNextPageToken = lens _pfdtNextPageToken (\ s a -> s{_pfdtNextPageToken = a});
 
 -- | When set to @true@, returns the events in reverse order. By default the
 -- results are returned in ascending order of the @eventTimestamp@ of the
 -- events.
-pfdtrqReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
-pfdtrqReverseOrder = lens _pfdtrqReverseOrder (\ s a -> s{_pfdtrqReverseOrder = a});
+pfdtReverseOrder :: Lens' PollForDecisionTask (Maybe Bool)
+pfdtReverseOrder = lens _pfdtReverseOrder (\ s a -> s{_pfdtReverseOrder = a});
 
 -- | Identity of the decider making the request, which is recorded in the
 -- DecisionTaskStarted event in the workflow history. This enables
 -- diagnostic tracing when problems arise. The form of this identity is
 -- user defined.
-pfdtrqIdentity :: Lens' PollForDecisionTask (Maybe Text)
-pfdtrqIdentity = lens _pfdtrqIdentity (\ s a -> s{_pfdtrqIdentity = a});
+pfdtIdentity :: Lens' PollForDecisionTask (Maybe Text)
+pfdtIdentity = lens _pfdtIdentity (\ s a -> s{_pfdtIdentity = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -172,12 +172,12 @@ pfdtrqIdentity = lens _pfdtrqIdentity (\ s a -> s{_pfdtrqIdentity = a});
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
-pfdtrqMaximumPageSize :: Lens' PollForDecisionTask (Maybe Natural)
-pfdtrqMaximumPageSize = lens _pfdtrqMaximumPageSize (\ s a -> s{_pfdtrqMaximumPageSize = a}) . mapping _Nat;
+pfdtMaximumPageSize :: Lens' PollForDecisionTask (Maybe Natural)
+pfdtMaximumPageSize = lens _pfdtMaximumPageSize (\ s a -> s{_pfdtMaximumPageSize = a}) . mapping _Nat;
 
 -- | The name of the domain containing the task lists to poll.
-pfdtrqDomain :: Lens' PollForDecisionTask Text
-pfdtrqDomain = lens _pfdtrqDomain (\ s a -> s{_pfdtrqDomain = a});
+pfdtDomain :: Lens' PollForDecisionTask Text
+pfdtDomain = lens _pfdtDomain (\ s a -> s{_pfdtDomain = a});
 
 -- | Specifies the task list to poll for decision tasks.
 --
@@ -185,8 +185,8 @@ pfdtrqDomain = lens _pfdtrqDomain (\ s a -> s{_pfdtrqDomain = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-pfdtrqTaskList :: Lens' PollForDecisionTask TaskList
-pfdtrqTaskList = lens _pfdtrqTaskList (\ s a -> s{_pfdtrqTaskList = a});
+pfdtTaskList :: Lens' PollForDecisionTask TaskList
+pfdtTaskList = lens _pfdtTaskList (\ s a -> s{_pfdtTaskList = a});
 
 instance AWSPager PollForDecisionTask where
         page rq rs
@@ -194,7 +194,7 @@ instance AWSPager PollForDecisionTask where
           | stop (rs ^. pfdtrsEvents) = Nothing
           | otherwise =
             Just $ rq &
-              pfdtrqNextPageToken .~ rs ^. pfdtrsNextPageToken
+              pfdtNextPageToken .~ rs ^. pfdtrsNextPageToken
 
 instance AWSRequest PollForDecisionTask where
         type Sv PollForDecisionTask = SWF
@@ -227,12 +227,11 @@ instance ToHeaders PollForDecisionTask where
 instance ToJSON PollForDecisionTask where
         toJSON PollForDecisionTask'{..}
           = object
-              ["nextPageToken" .= _pfdtrqNextPageToken,
-               "reverseOrder" .= _pfdtrqReverseOrder,
-               "identity" .= _pfdtrqIdentity,
-               "maximumPageSize" .= _pfdtrqMaximumPageSize,
-               "domain" .= _pfdtrqDomain,
-               "taskList" .= _pfdtrqTaskList]
+              ["nextPageToken" .= _pfdtNextPageToken,
+               "reverseOrder" .= _pfdtReverseOrder,
+               "identity" .= _pfdtIdentity,
+               "maximumPageSize" .= _pfdtMaximumPageSize,
+               "domain" .= _pfdtDomain, "taskList" .= _pfdtTaskList]
 
 instance ToPath PollForDecisionTask where
         toPath = const "/"

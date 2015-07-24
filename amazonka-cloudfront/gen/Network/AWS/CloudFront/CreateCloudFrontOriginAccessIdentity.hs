@@ -27,7 +27,7 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     -- ** Request constructor
     , createCloudFrontOriginAccessIdentity
     -- ** Request lenses
-    , ccfoairqCloudFrontOriginAccessIdentityConfig
+    , ccfoaiCloudFrontOriginAccessIdentityConfig
 
     -- * Response
     , CreateCloudFrontOriginAccessIdentityResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccfoairqCloudFrontOriginAccessIdentityConfig'
+-- * 'ccfoaiCloudFrontOriginAccessIdentityConfig'
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity'
-    { _ccfoairqCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
+    { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCloudFrontOriginAccessIdentity' smart constructor.
 createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> CreateCloudFrontOriginAccessIdentity
 createCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ =
     CreateCloudFrontOriginAccessIdentity'
-    { _ccfoairqCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
+    { _ccfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
     }
 
 -- | The origin access identity\'s configuration information.
-ccfoairqCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
-ccfoairqCloudFrontOriginAccessIdentityConfig = lens _ccfoairqCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ccfoairqCloudFrontOriginAccessIdentityConfig = a});
+ccfoaiCloudFrontOriginAccessIdentityConfig :: Lens' CreateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
+ccfoaiCloudFrontOriginAccessIdentityConfig = lens _ccfoaiCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ccfoaiCloudFrontOriginAccessIdentityConfig = a});
 
 instance AWSRequest
          CreateCloudFrontOriginAccessIdentity where
@@ -88,7 +88,7 @@ instance ToElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}CloudFrontOriginAccessIdentityConfig"
               .
-              _ccfoairqCloudFrontOriginAccessIdentityConfig
+              _ccfoaiCloudFrontOriginAccessIdentityConfig
 
 instance ToHeaders
          CreateCloudFrontOriginAccessIdentity where

@@ -34,8 +34,8 @@ module Network.AWS.SQS.SetQueueAttributes
     -- ** Request constructor
     , setQueueAttributes
     -- ** Request lenses
-    , sqarqQueueURL
-    , sqarqAttributes
+    , sqaQueueURL
+    , sqaAttributes
 
     -- * Response
     , SetQueueAttributesResponse
@@ -52,25 +52,25 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sqarqQueueURL'
+-- * 'sqaQueueURL'
 --
--- * 'sqarqAttributes'
+-- * 'sqaAttributes'
 data SetQueueAttributes = SetQueueAttributes'
-    { _sqarqQueueURL   :: !Text
-    , _sqarqAttributes :: !(Map QueueAttributeName Text)
+    { _sqaQueueURL   :: !Text
+    , _sqaAttributes :: !(Map QueueAttributeName Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetQueueAttributes' smart constructor.
 setQueueAttributes :: Text -> SetQueueAttributes
 setQueueAttributes pQueueURL_ =
     SetQueueAttributes'
-    { _sqarqQueueURL = pQueueURL_
-    , _sqarqAttributes = mempty
+    { _sqaQueueURL = pQueueURL_
+    , _sqaAttributes = mempty
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-sqarqQueueURL :: Lens' SetQueueAttributes Text
-sqarqQueueURL = lens _sqarqQueueURL (\ s a -> s{_sqarqQueueURL = a});
+sqaQueueURL :: Lens' SetQueueAttributes Text
+sqaQueueURL = lens _sqaQueueURL (\ s a -> s{_sqaQueueURL = a});
 
 -- | A map of attributes to set.
 --
@@ -103,8 +103,8 @@ sqarqQueueURL = lens _sqarqQueueURL (\ s a -> s{_sqarqQueueURL = a});
 --     of the source queue. For more information about RedrivePolicy and
 --     dead letter queues, see Using Amazon SQS Dead Letter Queues in the
 --     /Amazon SQS Developer Guide/.
-sqarqAttributes :: Lens' SetQueueAttributes (HashMap QueueAttributeName Text)
-sqarqAttributes = lens _sqarqAttributes (\ s a -> s{_sqarqAttributes = a}) . _Map;
+sqaAttributes :: Lens' SetQueueAttributes (HashMap QueueAttributeName Text)
+sqaAttributes = lens _sqaAttributes (\ s a -> s{_sqaAttributes = a}) . _Map;
 
 instance AWSRequest SetQueueAttributes where
         type Sv SetQueueAttributes = SQS
@@ -124,9 +124,8 @@ instance ToQuery SetQueueAttributes where
           = mconcat
               ["Action" =: ("SetQueueAttributes" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _sqarqQueueURL,
-               toQueryMap "Attribute" "Name" "Value"
-                 _sqarqAttributes]
+               "QueueUrl" =: _sqaQueueURL,
+               toQueryMap "Attribute" "Name" "Value" _sqaAttributes]
 
 -- | /See:/ 'setQueueAttributesResponse' smart constructor.
 data SetQueueAttributesResponse =

@@ -27,8 +27,8 @@ module Network.AWS.CodeCommit.CreateRepository
     -- ** Request constructor
     , createRepository
     -- ** Request lenses
-    , crrqRepositoryDescription
-    , crrqRepositoryName
+    , crRepositoryDescription
+    , crRepositoryName
 
     -- * Response
     , CreateRepositoryResponse
@@ -50,33 +50,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrqRepositoryDescription'
+-- * 'crRepositoryDescription'
 --
--- * 'crrqRepositoryName'
+-- * 'crRepositoryName'
 data CreateRepository = CreateRepository'
-    { _crrqRepositoryDescription :: !(Maybe Text)
-    , _crrqRepositoryName        :: !Text
+    { _crRepositoryDescription :: !(Maybe Text)
+    , _crRepositoryName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRepository' smart constructor.
 createRepository :: Text -> CreateRepository
 createRepository pRepositoryName_ =
     CreateRepository'
-    { _crrqRepositoryDescription = Nothing
-    , _crrqRepositoryName = pRepositoryName_
+    { _crRepositoryDescription = Nothing
+    , _crRepositoryName = pRepositoryName_
     }
 
 -- | A comment or description about the new repository.
-crrqRepositoryDescription :: Lens' CreateRepository (Maybe Text)
-crrqRepositoryDescription = lens _crrqRepositoryDescription (\ s a -> s{_crrqRepositoryDescription = a});
+crRepositoryDescription :: Lens' CreateRepository (Maybe Text)
+crRepositoryDescription = lens _crRepositoryDescription (\ s a -> s{_crRepositoryDescription = a});
 
 -- | The name of the new repository to be created.
 --
 -- The repository name must be unique across the calling AWS account. In
 -- addition, repository names are restricted to alphanumeric characters.
 -- The suffix \".git\" is prohibited.
-crrqRepositoryName :: Lens' CreateRepository Text
-crrqRepositoryName = lens _crrqRepositoryName (\ s a -> s{_crrqRepositoryName = a});
+crRepositoryName :: Lens' CreateRepository Text
+crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
 
 instance AWSRequest CreateRepository where
         type Sv CreateRepository = CodeCommit
@@ -101,9 +101,8 @@ instance ToHeaders CreateRepository where
 instance ToJSON CreateRepository where
         toJSON CreateRepository'{..}
           = object
-              ["repositoryDescription" .=
-                 _crrqRepositoryDescription,
-               "repositoryName" .= _crrqRepositoryName]
+              ["repositoryDescription" .= _crRepositoryDescription,
+               "repositoryName" .= _crRepositoryName]
 
 instance ToPath CreateRepository where
         toPath = const "/"

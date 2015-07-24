@@ -37,9 +37,9 @@ module Network.AWS.StorageGateway.ListVolumes
     -- ** Request constructor
     , listVolumes
     -- ** Request lenses
-    , lvrqMarker
-    , lvrqLimit
-    , lvrqGatewayARN
+    , lvMarker
+    , lvLimit
+    , lvGatewayARN
 
     -- * Response
     , ListVolumesResponse
@@ -67,47 +67,47 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrqMarker'
+-- * 'lvMarker'
 --
--- * 'lvrqLimit'
+-- * 'lvLimit'
 --
--- * 'lvrqGatewayARN'
+-- * 'lvGatewayARN'
 data ListVolumes = ListVolumes'
-    { _lvrqMarker     :: !(Maybe Text)
-    , _lvrqLimit      :: !(Maybe Nat)
-    , _lvrqGatewayARN :: !Text
+    { _lvMarker     :: !(Maybe Text)
+    , _lvLimit      :: !(Maybe Nat)
+    , _lvGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumes' smart constructor.
 listVolumes :: Text -> ListVolumes
 listVolumes pGatewayARN_ =
     ListVolumes'
-    { _lvrqMarker = Nothing
-    , _lvrqLimit = Nothing
-    , _lvrqGatewayARN = pGatewayARN_
+    { _lvMarker = Nothing
+    , _lvLimit = Nothing
+    , _lvGatewayARN = pGatewayARN_
     }
 
 -- | A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
 -- Volumes request.
-lvrqMarker :: Lens' ListVolumes (Maybe Text)
-lvrqMarker = lens _lvrqMarker (\ s a -> s{_lvrqMarker = a});
+lvMarker :: Lens' ListVolumes (Maybe Text)
+lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
 
 -- | Specifies that the list of volumes returned be limited to the specified
 -- number of items.
-lvrqLimit :: Lens' ListVolumes (Maybe Natural)
-lvrqLimit = lens _lvrqLimit (\ s a -> s{_lvrqLimit = a}) . mapping _Nat;
+lvLimit :: Lens' ListVolumes (Maybe Natural)
+lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-lvrqGatewayARN :: Lens' ListVolumes Text
-lvrqGatewayARN = lens _lvrqGatewayARN (\ s a -> s{_lvrqGatewayARN = a});
+lvGatewayARN :: Lens' ListVolumes Text
+lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
 
 instance AWSPager ListVolumes where
         page rq rs
           | stop (rs ^. lvrsMarker) = Nothing
           | stop (rs ^. lvrsVolumeInfos) = Nothing
           | otherwise =
-            Just $ rq & lvrqMarker .~ rs ^. lvrsMarker
+            Just $ rq & lvMarker .~ rs ^. lvrsMarker
 
 instance AWSRequest ListVolumes where
         type Sv ListVolumes = StorageGateway
@@ -134,8 +134,8 @@ instance ToHeaders ListVolumes where
 instance ToJSON ListVolumes where
         toJSON ListVolumes'{..}
           = object
-              ["Marker" .= _lvrqMarker, "Limit" .= _lvrqLimit,
-               "GatewayARN" .= _lvrqGatewayARN]
+              ["Marker" .= _lvMarker, "Limit" .= _lvLimit,
+               "GatewayARN" .= _lvGatewayARN]
 
 instance ToPath ListVolumes where
         toPath = const "/"

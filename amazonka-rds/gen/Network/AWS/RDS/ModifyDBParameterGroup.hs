@@ -47,8 +47,8 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     -- ** Request constructor
     , modifyDBParameterGroup
     -- ** Request lenses
-    , mdpgrqDBParameterGroupName
-    , mdpgrqParameters
+    , mdpgDBParameterGroupName
+    , mdpgParameters
 
     -- * Response
     , DBParameterGroupNameMessage
@@ -69,20 +69,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdpgrqDBParameterGroupName'
+-- * 'mdpgDBParameterGroupName'
 --
--- * 'mdpgrqParameters'
+-- * 'mdpgParameters'
 data ModifyDBParameterGroup = ModifyDBParameterGroup'
-    { _mdpgrqDBParameterGroupName :: !Text
-    , _mdpgrqParameters           :: ![Parameter]
+    { _mdpgDBParameterGroupName :: !Text
+    , _mdpgParameters           :: ![Parameter]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyDBParameterGroup' smart constructor.
 modifyDBParameterGroup :: Text -> ModifyDBParameterGroup
 modifyDBParameterGroup pDBParameterGroupName_ =
     ModifyDBParameterGroup'
-    { _mdpgrqDBParameterGroupName = pDBParameterGroupName_
-    , _mdpgrqParameters = mempty
+    { _mdpgDBParameterGroupName = pDBParameterGroupName_
+    , _mdpgParameters = mempty
     }
 
 -- | The name of the DB parameter group.
@@ -93,8 +93,8 @@ modifyDBParameterGroup pDBParameterGroupName_ =
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-mdpgrqDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
-mdpgrqDBParameterGroupName = lens _mdpgrqDBParameterGroupName (\ s a -> s{_mdpgrqDBParameterGroupName = a});
+mdpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
+mdpgDBParameterGroupName = lens _mdpgDBParameterGroupName (\ s a -> s{_mdpgDBParameterGroupName = a});
 
 -- | An array of parameter names, values, and the apply method for the
 -- parameter update. At least one parameter name, value, and apply method
@@ -106,8 +106,8 @@ mdpgrqDBParameterGroupName = lens _mdpgrqDBParameterGroupName (\ s a -> s{_mdpgr
 -- You can use the immediate value with dynamic parameters only. You can
 -- use the pending-reboot value for both dynamic and static parameters, and
 -- changes are applied when you reboot the DB instance without failover.
-mdpgrqParameters :: Lens' ModifyDBParameterGroup [Parameter]
-mdpgrqParameters = lens _mdpgrqParameters (\ s a -> s{_mdpgrqParameters = a});
+mdpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
+mdpgParameters = lens _mdpgParameters (\ s a -> s{_mdpgParameters = a});
 
 instance AWSRequest ModifyDBParameterGroup where
         type Sv ModifyDBParameterGroup = RDS
@@ -130,7 +130,6 @@ instance ToQuery ModifyDBParameterGroup where
               ["Action" =:
                  ("ModifyDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBParameterGroupName" =:
-                 _mdpgrqDBParameterGroupName,
+               "DBParameterGroupName" =: _mdpgDBParameterGroupName,
                "Parameters" =:
-                 toQueryList "Parameter" _mdpgrqParameters]
+                 toQueryList "Parameter" _mdpgParameters]

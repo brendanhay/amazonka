@@ -27,10 +27,10 @@ module Network.AWS.DeviceFarm.CreateUpload
     -- ** Request constructor
     , createUpload
     -- ** Request lenses
-    , curqContentType
-    , curqProjectARN
-    , curqName
-    , curqType
+    , cuContentType
+    , cuProjectARN
+    , cuName
+    , cuType
 
     -- * Response
     , CreateUploadResponse
@@ -52,41 +52,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'curqContentType'
+-- * 'cuContentType'
 --
--- * 'curqProjectARN'
+-- * 'cuProjectARN'
 --
--- * 'curqName'
+-- * 'cuName'
 --
--- * 'curqType'
+-- * 'cuType'
 data CreateUpload = CreateUpload'
-    { _curqContentType :: !(Maybe Text)
-    , _curqProjectARN  :: !Text
-    , _curqName        :: !Text
-    , _curqType        :: !UploadType
+    { _cuContentType :: !(Maybe Text)
+    , _cuProjectARN  :: !Text
+    , _cuName        :: !Text
+    , _cuType        :: !UploadType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUpload' smart constructor.
 createUpload :: Text -> Text -> UploadType -> CreateUpload
 createUpload pProjectARN_ pName_ pType_ =
     CreateUpload'
-    { _curqContentType = Nothing
-    , _curqProjectARN = pProjectARN_
-    , _curqName = pName_
-    , _curqType = pType_
+    { _cuContentType = Nothing
+    , _cuProjectARN = pProjectARN_
+    , _cuName = pName_
+    , _cuType = pType_
     }
 
 -- | The upload\'s content type (for example, \"application\/octet-stream\").
-curqContentType :: Lens' CreateUpload (Maybe Text)
-curqContentType = lens _curqContentType (\ s a -> s{_curqContentType = a});
+cuContentType :: Lens' CreateUpload (Maybe Text)
+cuContentType = lens _cuContentType (\ s a -> s{_cuContentType = a});
 
 -- | The ARN of the project for the upload.
-curqProjectARN :: Lens' CreateUpload Text
-curqProjectARN = lens _curqProjectARN (\ s a -> s{_curqProjectARN = a});
+cuProjectARN :: Lens' CreateUpload Text
+cuProjectARN = lens _cuProjectARN (\ s a -> s{_cuProjectARN = a});
 
 -- | The upload\'s file name.
-curqName :: Lens' CreateUpload Text
-curqName = lens _curqName (\ s a -> s{_curqName = a});
+cuName :: Lens' CreateUpload Text
+cuName = lens _cuName (\ s a -> s{_cuName = a});
 
 -- | The upload\'s upload type.
 --
@@ -108,8 +108,8 @@ curqName = lens _curqName (\ s a -> s{_curqName = a});
 --
 -- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
 --
-curqType :: Lens' CreateUpload UploadType
-curqType = lens _curqType (\ s a -> s{_curqType = a});
+cuType :: Lens' CreateUpload UploadType
+cuType = lens _cuType (\ s a -> s{_cuType = a});
 
 instance AWSRequest CreateUpload where
         type Sv CreateUpload = DeviceFarm
@@ -133,9 +133,9 @@ instance ToHeaders CreateUpload where
 instance ToJSON CreateUpload where
         toJSON CreateUpload'{..}
           = object
-              ["contentType" .= _curqContentType,
-               "projectArn" .= _curqProjectARN, "name" .= _curqName,
-               "type" .= _curqType]
+              ["contentType" .= _cuContentType,
+               "projectArn" .= _cuProjectARN, "name" .= _cuName,
+               "type" .= _cuType]
 
 instance ToPath CreateUpload where
         toPath = const "/"

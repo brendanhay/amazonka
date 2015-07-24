@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.RegisterOnPremisesInstance
     -- ** Request constructor
     , registerOnPremisesInstance
     -- ** Request lenses
-    , ropirqInstanceName
-    , ropirqIamUserARN
+    , ropiInstanceName
+    , ropiIamUserARN
 
     -- * Response
     , RegisterOnPremisesInstanceResponse
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ropirqInstanceName'
+-- * 'ropiInstanceName'
 --
--- * 'ropirqIamUserARN'
+-- * 'ropiIamUserARN'
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
-    { _ropirqInstanceName :: !Text
-    , _ropirqIamUserARN   :: !Text
+    { _ropiInstanceName :: !Text
+    , _ropiIamUserARN   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterOnPremisesInstance' smart constructor.
 registerOnPremisesInstance :: Text -> Text -> RegisterOnPremisesInstance
 registerOnPremisesInstance pInstanceName_ pIamUserARN_ =
     RegisterOnPremisesInstance'
-    { _ropirqInstanceName = pInstanceName_
-    , _ropirqIamUserARN = pIamUserARN_
+    { _ropiInstanceName = pInstanceName_
+    , _ropiIamUserARN = pIamUserARN_
     }
 
 -- | The name of the on-premises instance to register.
-ropirqInstanceName :: Lens' RegisterOnPremisesInstance Text
-ropirqInstanceName = lens _ropirqInstanceName (\ s a -> s{_ropirqInstanceName = a});
+ropiInstanceName :: Lens' RegisterOnPremisesInstance Text
+ropiInstanceName = lens _ropiInstanceName (\ s a -> s{_ropiInstanceName = a});
 
 -- | The ARN of the IAM user to associate with the on-premises instance.
-ropirqIamUserARN :: Lens' RegisterOnPremisesInstance Text
-ropirqIamUserARN = lens _ropirqIamUserARN (\ s a -> s{_ropirqIamUserARN = a});
+ropiIamUserARN :: Lens' RegisterOnPremisesInstance Text
+ropiIamUserARN = lens _ropiIamUserARN (\ s a -> s{_ropiIamUserARN = a});
 
 instance AWSRequest RegisterOnPremisesInstance where
         type Sv RegisterOnPremisesInstance = CodeDeploy
@@ -92,8 +92,8 @@ instance ToHeaders RegisterOnPremisesInstance where
 instance ToJSON RegisterOnPremisesInstance where
         toJSON RegisterOnPremisesInstance'{..}
           = object
-              ["instanceName" .= _ropirqInstanceName,
-               "iamUserArn" .= _ropirqIamUserARN]
+              ["instanceName" .= _ropiInstanceName,
+               "iamUserArn" .= _ropiIamUserARN]
 
 instance ToPath RegisterOnPremisesInstance where
         toPath = const "/"

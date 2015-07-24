@@ -29,7 +29,7 @@ module Network.AWS.CloudTrail.GetTrailStatus
     -- ** Request constructor
     , getTrailStatus
     -- ** Request lenses
-    , gtsrqName
+    , gtsName
 
     -- * Response
     , GetTrailStatusResponse
@@ -59,21 +59,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtsrqName'
+-- * 'gtsName'
 newtype GetTrailStatus = GetTrailStatus'
-    { _gtsrqName :: Text
+    { _gtsName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTrailStatus' smart constructor.
 getTrailStatus :: Text -> GetTrailStatus
 getTrailStatus pName_ =
     GetTrailStatus'
-    { _gtsrqName = pName_
+    { _gtsName = pName_
     }
 
 -- | The name of the trail for which you are requesting the current status.
-gtsrqName :: Lens' GetTrailStatus Text
-gtsrqName = lens _gtsrqName (\ s a -> s{_gtsrqName = a});
+gtsName :: Lens' GetTrailStatus Text
+gtsName = lens _gtsName (\ s a -> s{_gtsName = a});
 
 instance AWSRequest GetTrailStatus where
         type Sv GetTrailStatus = CloudTrail
@@ -106,7 +106,7 @@ instance ToHeaders GetTrailStatus where
 
 instance ToJSON GetTrailStatus where
         toJSON GetTrailStatus'{..}
-          = object ["Name" .= _gtsrqName]
+          = object ["Name" .= _gtsName]
 
 instance ToPath GetTrailStatus where
         toPath = const "/"

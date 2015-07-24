@@ -30,9 +30,9 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- ** Request constructor
     , describeReplicationGroups
     -- ** Request lenses
-    , drgsrqMaxRecords
-    , drgsrqMarker
-    , drgsrqReplicationGroupId
+    , drgsMaxRecords
+    , drgsMarker
+    , drgsReplicationGroupId
 
     -- * Response
     , DescribeReplicationGroupsResponse
@@ -56,24 +56,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drgsrqMaxRecords'
+-- * 'drgsMaxRecords'
 --
--- * 'drgsrqMarker'
+-- * 'drgsMarker'
 --
--- * 'drgsrqReplicationGroupId'
+-- * 'drgsReplicationGroupId'
 data DescribeReplicationGroups = DescribeReplicationGroups'
-    { _drgsrqMaxRecords         :: !(Maybe Int)
-    , _drgsrqMarker             :: !(Maybe Text)
-    , _drgsrqReplicationGroupId :: !(Maybe Text)
+    { _drgsMaxRecords         :: !(Maybe Int)
+    , _drgsMarker             :: !(Maybe Text)
+    , _drgsReplicationGroupId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReplicationGroups' smart constructor.
 describeReplicationGroups :: DescribeReplicationGroups
 describeReplicationGroups =
     DescribeReplicationGroups'
-    { _drgsrqMaxRecords = Nothing
-    , _drgsrqMarker = Nothing
-    , _drgsrqReplicationGroupId = Nothing
+    { _drgsMaxRecords = Nothing
+    , _drgsMarker = Nothing
+    , _drgsReplicationGroupId = Nothing
     }
 
 -- | The maximum number of records to include in the response. If more
@@ -83,30 +83,30 @@ describeReplicationGroups =
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-drgsrqMaxRecords :: Lens' DescribeReplicationGroups (Maybe Int)
-drgsrqMaxRecords = lens _drgsrqMaxRecords (\ s a -> s{_drgsrqMaxRecords = a});
+drgsMaxRecords :: Lens' DescribeReplicationGroups (Maybe Int)
+drgsMaxRecords = lens _drgsMaxRecords (\ s a -> s{_drgsMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-drgsrqMarker :: Lens' DescribeReplicationGroups (Maybe Text)
-drgsrqMarker = lens _drgsrqMarker (\ s a -> s{_drgsrqMarker = a});
+drgsMarker :: Lens' DescribeReplicationGroups (Maybe Text)
+drgsMarker = lens _drgsMarker (\ s a -> s{_drgsMarker = a});
 
 -- | The identifier for the replication group to be described. This parameter
 -- is not case sensitive.
 --
 -- If you do not specify this parameter, information about all replication
 -- groups is returned.
-drgsrqReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
-drgsrqReplicationGroupId = lens _drgsrqReplicationGroupId (\ s a -> s{_drgsrqReplicationGroupId = a});
+drgsReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
+drgsReplicationGroupId = lens _drgsReplicationGroupId (\ s a -> s{_drgsReplicationGroupId = a});
 
 instance AWSPager DescribeReplicationGroups where
         page rq rs
           | stop (rs ^. drgrsMarker) = Nothing
           | stop (rs ^. drgrsReplicationGroups) = Nothing
           | otherwise =
-            Just $ rq & drgsrqMarker .~ rs ^. drgrsMarker
+            Just $ rq & drgsMarker .~ rs ^. drgrsMarker
 
 instance AWSRequest DescribeReplicationGroups where
         type Sv DescribeReplicationGroups = ElastiCache
@@ -134,9 +134,9 @@ instance ToQuery DescribeReplicationGroups where
               ["Action" =:
                  ("DescribeReplicationGroups" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "MaxRecords" =: _drgsrqMaxRecords,
-               "Marker" =: _drgsrqMarker,
-               "ReplicationGroupId" =: _drgsrqReplicationGroupId]
+               "MaxRecords" =: _drgsMaxRecords,
+               "Marker" =: _drgsMarker,
+               "ReplicationGroupId" =: _drgsReplicationGroupId]
 
 -- | Represents the output of a /DescribeReplicationGroups/ action.
 --

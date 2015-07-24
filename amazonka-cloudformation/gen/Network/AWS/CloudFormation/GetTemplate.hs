@@ -33,7 +33,7 @@ module Network.AWS.CloudFormation.GetTemplate
     -- ** Request constructor
     , getTemplate
     -- ** Request lenses
-    , gtrqStackName
+    , gtStackName
 
     -- * Response
     , GetTemplateResponse
@@ -55,16 +55,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtrqStackName'
+-- * 'gtStackName'
 newtype GetTemplate = GetTemplate'
-    { _gtrqStackName :: Text
+    { _gtStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplate' smart constructor.
 getTemplate :: Text -> GetTemplate
 getTemplate pStackName_ =
     GetTemplate'
-    { _gtrqStackName = pStackName_
+    { _gtStackName = pStackName_
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -75,8 +75,8 @@ getTemplate pStackName_ =
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-gtrqStackName :: Lens' GetTemplate Text
-gtrqStackName = lens _gtrqStackName (\ s a -> s{_gtrqStackName = a});
+gtStackName :: Lens' GetTemplate Text
+gtStackName = lens _gtStackName (\ s a -> s{_gtStackName = a});
 
 instance AWSRequest GetTemplate where
         type Sv GetTemplate = CloudFormation
@@ -99,7 +99,7 @@ instance ToQuery GetTemplate where
           = mconcat
               ["Action" =: ("GetTemplate" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _gtrqStackName]
+               "StackName" =: _gtStackName]
 
 -- | The output for GetTemplate action.
 --

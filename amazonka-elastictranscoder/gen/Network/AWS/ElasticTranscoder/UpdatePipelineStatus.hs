@@ -34,8 +34,8 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     -- ** Request constructor
     , updatePipelineStatus
     -- ** Request lenses
-    , upsrqId
-    , upsrqStatus
+    , upsId
+    , upsStatus
 
     -- * Response
     , UpdatePipelineStatusResponse
@@ -57,32 +57,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upsrqId'
+-- * 'upsId'
 --
--- * 'upsrqStatus'
+-- * 'upsStatus'
 data UpdatePipelineStatus = UpdatePipelineStatus'
-    { _upsrqId     :: !Text
-    , _upsrqStatus :: !Text
+    { _upsId     :: !Text
+    , _upsStatus :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineStatus' smart constructor.
 updatePipelineStatus :: Text -> Text -> UpdatePipelineStatus
 updatePipelineStatus pId_ pStatus_ =
     UpdatePipelineStatus'
-    { _upsrqId = pId_
-    , _upsrqStatus = pStatus_
+    { _upsId = pId_
+    , _upsStatus = pStatus_
     }
 
 -- | The identifier of the pipeline to update.
-upsrqId :: Lens' UpdatePipelineStatus Text
-upsrqId = lens _upsrqId (\ s a -> s{_upsrqId = a});
+upsId :: Lens' UpdatePipelineStatus Text
+upsId = lens _upsId (\ s a -> s{_upsId = a});
 
 -- | The desired status of the pipeline:
 --
 -- -   @Active@: The pipeline is processing jobs.
 -- -   @Paused@: The pipeline is not currently processing jobs.
-upsrqStatus :: Lens' UpdatePipelineStatus Text
-upsrqStatus = lens _upsrqStatus (\ s a -> s{_upsrqStatus = a});
+upsStatus :: Lens' UpdatePipelineStatus Text
+upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
 
 instance AWSRequest UpdatePipelineStatus where
         type Sv UpdatePipelineStatus = ElasticTranscoder
@@ -100,13 +100,12 @@ instance ToHeaders UpdatePipelineStatus where
 
 instance ToJSON UpdatePipelineStatus where
         toJSON UpdatePipelineStatus'{..}
-          = object ["Status" .= _upsrqStatus]
+          = object ["Status" .= _upsStatus]
 
 instance ToPath UpdatePipelineStatus where
         toPath UpdatePipelineStatus'{..}
           = mconcat
-              ["/2012-09-25/pipelines/", toText _upsrqId,
-               "/status"]
+              ["/2012-09-25/pipelines/", toText _upsId, "/status"]
 
 instance ToQuery UpdatePipelineStatus where
         toQuery = const mempty

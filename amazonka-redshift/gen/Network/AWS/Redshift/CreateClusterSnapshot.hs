@@ -32,9 +32,9 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- ** Request constructor
     , createClusterSnapshot
     -- ** Request lenses
-    , ccsrqTags
-    , ccsrqSnapshotIdentifier
-    , ccsrqClusterIdentifier
+    , ccsTags
+    , ccsSnapshotIdentifier
+    , ccsClusterIdentifier
 
     -- * Response
     , CreateClusterSnapshotResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsrqTags'
+-- * 'ccsTags'
 --
--- * 'ccsrqSnapshotIdentifier'
+-- * 'ccsSnapshotIdentifier'
 --
--- * 'ccsrqClusterIdentifier'
+-- * 'ccsClusterIdentifier'
 data CreateClusterSnapshot = CreateClusterSnapshot'
-    { _ccsrqTags               :: !(Maybe [Tag])
-    , _ccsrqSnapshotIdentifier :: !Text
-    , _ccsrqClusterIdentifier  :: !Text
+    { _ccsTags               :: !(Maybe [Tag])
+    , _ccsSnapshotIdentifier :: !Text
+    , _ccsClusterIdentifier  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSnapshot' smart constructor.
 createClusterSnapshot :: Text -> Text -> CreateClusterSnapshot
 createClusterSnapshot pSnapshotIdentifier_ pClusterIdentifier_ =
     CreateClusterSnapshot'
-    { _ccsrqTags = Nothing
-    , _ccsrqSnapshotIdentifier = pSnapshotIdentifier_
-    , _ccsrqClusterIdentifier = pClusterIdentifier_
+    { _ccsTags = Nothing
+    , _ccsSnapshotIdentifier = pSnapshotIdentifier_
+    , _ccsClusterIdentifier = pClusterIdentifier_
     }
 
 -- | A list of tag instances.
-ccsrqTags :: Lens' CreateClusterSnapshot [Tag]
-ccsrqTags = lens _ccsrqTags (\ s a -> s{_ccsrqTags = a}) . _Default;
+ccsTags :: Lens' CreateClusterSnapshot [Tag]
+ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default;
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
@@ -91,12 +91,12 @@ ccsrqTags = lens _ccsrqTags (\ s a -> s{_ccsrqTags = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-snapshot-id@
-ccsrqSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
-ccsrqSnapshotIdentifier = lens _ccsrqSnapshotIdentifier (\ s a -> s{_ccsrqSnapshotIdentifier = a});
+ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
+ccsSnapshotIdentifier = lens _ccsSnapshotIdentifier (\ s a -> s{_ccsSnapshotIdentifier = a});
 
 -- | The cluster identifier for which you want a snapshot.
-ccsrqClusterIdentifier :: Lens' CreateClusterSnapshot Text
-ccsrqClusterIdentifier = lens _ccsrqClusterIdentifier (\ s a -> s{_ccsrqClusterIdentifier = a});
+ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
+ccsClusterIdentifier = lens _ccsClusterIdentifier (\ s a -> s{_ccsClusterIdentifier = a});
 
 instance AWSRequest CreateClusterSnapshot where
         type Sv CreateClusterSnapshot = Redshift
@@ -120,9 +120,9 @@ instance ToQuery CreateClusterSnapshot where
           = mconcat
               ["Action" =: ("CreateClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _ccsrqTags),
-               "SnapshotIdentifier" =: _ccsrqSnapshotIdentifier,
-               "ClusterIdentifier" =: _ccsrqClusterIdentifier]
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccsTags),
+               "SnapshotIdentifier" =: _ccsSnapshotIdentifier,
+               "ClusterIdentifier" =: _ccsClusterIdentifier]
 
 -- | /See:/ 'createClusterSnapshotResponse' smart constructor.
 --

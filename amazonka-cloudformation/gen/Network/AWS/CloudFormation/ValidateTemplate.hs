@@ -27,8 +27,8 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- ** Request constructor
     , validateTemplate
     -- ** Request lenses
-    , vtrqTemplateBody
-    , vtrqTemplateURL
+    , vtTemplateBody
+    , vtTemplateURL
 
     -- * Response
     , ValidateTemplateResponse
@@ -53,20 +53,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vtrqTemplateBody'
+-- * 'vtTemplateBody'
 --
--- * 'vtrqTemplateURL'
+-- * 'vtTemplateURL'
 data ValidateTemplate = ValidateTemplate'
-    { _vtrqTemplateBody :: !(Maybe Text)
-    , _vtrqTemplateURL  :: !(Maybe Text)
+    { _vtTemplateBody :: !(Maybe Text)
+    , _vtTemplateURL  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateTemplate' smart constructor.
 validateTemplate :: ValidateTemplate
 validateTemplate =
     ValidateTemplate'
-    { _vtrqTemplateBody = Nothing
-    , _vtrqTemplateURL = Nothing
+    { _vtTemplateBody = Nothing
+    , _vtTemplateURL = Nothing
     }
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -76,8 +76,8 @@ validateTemplate =
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-vtrqTemplateBody :: Lens' ValidateTemplate (Maybe Text)
-vtrqTemplateBody = lens _vtrqTemplateBody (\ s a -> s{_vtrqTemplateBody = a});
+vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
+vtTemplateBody = lens _vtTemplateBody (\ s a -> s{_vtTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 460,800 bytes) located in an S3 bucket in the same
@@ -87,8 +87,8 @@ vtrqTemplateBody = lens _vtrqTemplateBody (\ s a -> s{_vtrqTemplateBody = a});
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-vtrqTemplateURL :: Lens' ValidateTemplate (Maybe Text)
-vtrqTemplateURL = lens _vtrqTemplateURL (\ s a -> s{_vtrqTemplateURL = a});
+vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
+vtTemplateURL = lens _vtTemplateURL (\ s a -> s{_vtTemplateURL = a});
 
 instance AWSRequest ValidateTemplate where
         type Sv ValidateTemplate = CloudFormation
@@ -118,8 +118,8 @@ instance ToQuery ValidateTemplate where
           = mconcat
               ["Action" =: ("ValidateTemplate" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "TemplateBody" =: _vtrqTemplateBody,
-               "TemplateURL" =: _vtrqTemplateURL]
+               "TemplateBody" =: _vtTemplateBody,
+               "TemplateURL" =: _vtTemplateURL]
 
 -- | The output for ValidateTemplate action.
 --

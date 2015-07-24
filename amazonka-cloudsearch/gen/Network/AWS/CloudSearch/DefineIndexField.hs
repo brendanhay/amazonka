@@ -35,8 +35,8 @@ module Network.AWS.CloudSearch.DefineIndexField
     -- ** Request constructor
     , defineIndexField
     -- ** Request lenses
-    , deffrqDomainName
-    , deffrqIndexField
+    , defeDomainName
+    , defeIndexField
 
     -- * Response
     , DefineIndexFieldResponse
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deffrqDomainName'
+-- * 'defeDomainName'
 --
--- * 'deffrqIndexField'
+-- * 'defeIndexField'
 data DefineIndexField = DefineIndexField'
-    { _deffrqDomainName :: !Text
-    , _deffrqIndexField :: !IndexField
+    { _defeDomainName :: !Text
+    , _defeIndexField :: !IndexField
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineIndexField' smart constructor.
 defineIndexField :: Text -> IndexField -> DefineIndexField
 defineIndexField pDomainName_ pIndexField_ =
     DefineIndexField'
-    { _deffrqDomainName = pDomainName_
-    , _deffrqIndexField = pIndexField_
+    { _defeDomainName = pDomainName_
+    , _defeIndexField = pIndexField_
     }
 
 -- | FIXME: Undocumented member.
-deffrqDomainName :: Lens' DefineIndexField Text
-deffrqDomainName = lens _deffrqDomainName (\ s a -> s{_deffrqDomainName = a});
+defeDomainName :: Lens' DefineIndexField Text
+defeDomainName = lens _defeDomainName (\ s a -> s{_defeDomainName = a});
 
 -- | The index field and field options you want to configure.
-deffrqIndexField :: Lens' DefineIndexField IndexField
-deffrqIndexField = lens _deffrqIndexField (\ s a -> s{_deffrqIndexField = a});
+defeIndexField :: Lens' DefineIndexField IndexField
+defeIndexField = lens _defeIndexField (\ s a -> s{_defeIndexField = a});
 
 instance AWSRequest DefineIndexField where
         type Sv DefineIndexField = CloudSearch
@@ -105,8 +105,8 @@ instance ToQuery DefineIndexField where
           = mconcat
               ["Action" =: ("DefineIndexField" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _deffrqDomainName,
-               "IndexField" =: _deffrqIndexField]
+               "DomainName" =: _defeDomainName,
+               "IndexField" =: _defeIndexField]
 
 -- | The result of a @DefineIndexField@ request. Contains the status of the
 -- newly-configured index field.

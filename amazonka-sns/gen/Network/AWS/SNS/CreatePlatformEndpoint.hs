@@ -42,10 +42,10 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     -- ** Request constructor
     , createPlatformEndpoint
     -- ** Request lenses
-    , cperqCustomUserData
-    , cperqAttributes
-    , cperqPlatformApplicationARN
-    , cperqToken
+    , cpeCustomUserData
+    , cpeAttributes
+    , cpePlatformApplicationARN
+    , cpeToken
 
     -- * Response
     , CreatePlatformEndpointResponse
@@ -67,44 +67,44 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cperqCustomUserData'
+-- * 'cpeCustomUserData'
 --
--- * 'cperqAttributes'
+-- * 'cpeAttributes'
 --
--- * 'cperqPlatformApplicationARN'
+-- * 'cpePlatformApplicationARN'
 --
--- * 'cperqToken'
+-- * 'cpeToken'
 data CreatePlatformEndpoint = CreatePlatformEndpoint'
-    { _cperqCustomUserData         :: !(Maybe Text)
-    , _cperqAttributes             :: !(Maybe (Map Text Text))
-    , _cperqPlatformApplicationARN :: !Text
-    , _cperqToken                  :: !Text
+    { _cpeCustomUserData         :: !(Maybe Text)
+    , _cpeAttributes             :: !(Maybe (Map Text Text))
+    , _cpePlatformApplicationARN :: !Text
+    , _cpeToken                  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformEndpoint' smart constructor.
 createPlatformEndpoint :: Text -> Text -> CreatePlatformEndpoint
 createPlatformEndpoint pPlatformApplicationARN_ pToken_ =
     CreatePlatformEndpoint'
-    { _cperqCustomUserData = Nothing
-    , _cperqAttributes = Nothing
-    , _cperqPlatformApplicationARN = pPlatformApplicationARN_
-    , _cperqToken = pToken_
+    { _cpeCustomUserData = Nothing
+    , _cpeAttributes = Nothing
+    , _cpePlatformApplicationARN = pPlatformApplicationARN_
+    , _cpeToken = pToken_
     }
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
 -- use this data. The data must be in UTF-8 format and less than 2KB.
-cperqCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
-cperqCustomUserData = lens _cperqCustomUserData (\ s a -> s{_cperqCustomUserData = a});
+cpeCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
+cpeCustomUserData = lens _cpeCustomUserData (\ s a -> s{_cpeCustomUserData = a});
 
 -- | For a list of attributes, see
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
-cperqAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
-cperqAttributes = lens _cperqAttributes (\ s a -> s{_cperqAttributes = a}) . _Default . _Map;
+cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
+cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . _Default . _Map;
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used
 -- to create a an endpoint.
-cperqPlatformApplicationARN :: Lens' CreatePlatformEndpoint Text
-cperqPlatformApplicationARN = lens _cperqPlatformApplicationARN (\ s a -> s{_cperqPlatformApplicationARN = a});
+cpePlatformApplicationARN :: Lens' CreatePlatformEndpoint Text
+cpePlatformApplicationARN = lens _cpePlatformApplicationARN (\ s a -> s{_cpePlatformApplicationARN = a});
 
 -- | Unique identifier created by the notification service for an app on a
 -- device. The specific name for Token will vary, depending on which
@@ -112,8 +112,8 @@ cperqPlatformApplicationARN = lens _cperqPlatformApplicationARN (\ s a -> s{_cpe
 -- notification service, you need the device token. Alternatively, when
 -- using GCM or ADM, the device token equivalent is called the registration
 -- ID.
-cperqToken :: Lens' CreatePlatformEndpoint Text
-cperqToken = lens _cperqToken (\ s a -> s{_cperqToken = a});
+cpeToken :: Lens' CreatePlatformEndpoint Text
+cpeToken = lens _cpeToken (\ s a -> s{_cpeToken = a});
 
 instance AWSRequest CreatePlatformEndpoint where
         type Sv CreatePlatformEndpoint = SNS
@@ -138,14 +138,14 @@ instance ToQuery CreatePlatformEndpoint where
               ["Action" =:
                  ("CreatePlatformEndpoint" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "CustomUserData" =: _cperqCustomUserData,
+               "CustomUserData" =: _cpeCustomUserData,
                "Attributes" =:
                  toQuery
                    (toQueryMap "entry" "key" "value" <$>
-                      _cperqAttributes),
+                      _cpeAttributes),
                "PlatformApplicationArn" =:
-                 _cperqPlatformApplicationARN,
-               "Token" =: _cperqToken]
+                 _cpePlatformApplicationARN,
+               "Token" =: _cpeToken]
 
 -- | Response from CreateEndpoint action.
 --

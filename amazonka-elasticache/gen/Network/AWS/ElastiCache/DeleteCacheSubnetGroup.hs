@@ -30,7 +30,7 @@ module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     -- ** Request constructor
     , deleteCacheSubnetGroup
     -- ** Request lenses
-    , drqCacheSubnetGroupName
+    , dCacheSubnetGroupName
 
     -- * Response
     , DeleteCacheSubnetGroupResponse
@@ -49,24 +49,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqCacheSubnetGroupName'
+-- * 'dCacheSubnetGroupName'
 newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
-    { _drqCacheSubnetGroupName :: Text
+    { _dCacheSubnetGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheSubnetGroup' smart constructor.
 deleteCacheSubnetGroup :: Text -> DeleteCacheSubnetGroup
 deleteCacheSubnetGroup pCacheSubnetGroupName_ =
     DeleteCacheSubnetGroup'
-    { _drqCacheSubnetGroupName = pCacheSubnetGroupName_
+    { _dCacheSubnetGroupName = pCacheSubnetGroupName_
     }
 
 -- | The name of the cache subnet group to delete.
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters or
 -- hyphens.
-drqCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
-drqCacheSubnetGroupName = lens _drqCacheSubnetGroupName (\ s a -> s{_drqCacheSubnetGroupName = a});
+dCacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
+dCacheSubnetGroupName = lens _dCacheSubnetGroupName (\ s a -> s{_dCacheSubnetGroupName = a});
 
 instance AWSRequest DeleteCacheSubnetGroup where
         type Sv DeleteCacheSubnetGroup = ElastiCache
@@ -88,7 +88,7 @@ instance ToQuery DeleteCacheSubnetGroup where
               ["Action" =:
                  ("DeleteCacheSubnetGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheSubnetGroupName" =: _drqCacheSubnetGroupName]
+               "CacheSubnetGroupName" =: _dCacheSubnetGroupName]
 
 -- | /See:/ 'deleteCacheSubnetGroupResponse' smart constructor.
 data DeleteCacheSubnetGroupResponse =

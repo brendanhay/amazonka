@@ -38,12 +38,12 @@ module Network.AWS.EC2.CreateImage
     -- ** Request constructor
     , createImage
     -- ** Request lenses
-    , ciirqNoReboot
-    , ciirqBlockDeviceMappings
-    , ciirqDryRun
-    , ciirqDescription
-    , ciirqInstanceId
-    , ciirqName
+    , ciiNoReboot
+    , ciiBlockDeviceMappings
+    , ciiDryRun
+    , ciiDescription
+    , ciiInstanceId
+    , ciiName
 
     -- * Response
     , CreateImageResponse
@@ -63,36 +63,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciirqNoReboot'
+-- * 'ciiNoReboot'
 --
--- * 'ciirqBlockDeviceMappings'
+-- * 'ciiBlockDeviceMappings'
 --
--- * 'ciirqDryRun'
+-- * 'ciiDryRun'
 --
--- * 'ciirqDescription'
+-- * 'ciiDescription'
 --
--- * 'ciirqInstanceId'
+-- * 'ciiInstanceId'
 --
--- * 'ciirqName'
+-- * 'ciiName'
 data CreateImage = CreateImage'
-    { _ciirqNoReboot            :: !(Maybe Bool)
-    , _ciirqBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _ciirqDryRun              :: !(Maybe Bool)
-    , _ciirqDescription         :: !(Maybe Text)
-    , _ciirqInstanceId          :: !Text
-    , _ciirqName                :: !Text
+    { _ciiNoReboot            :: !(Maybe Bool)
+    , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _ciiDryRun              :: !(Maybe Bool)
+    , _ciiDescription         :: !(Maybe Text)
+    , _ciiInstanceId          :: !Text
+    , _ciiName                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateImage' smart constructor.
 createImage :: Text -> Text -> CreateImage
 createImage pInstanceId_ pName_ =
     CreateImage'
-    { _ciirqNoReboot = Nothing
-    , _ciirqBlockDeviceMappings = Nothing
-    , _ciirqDryRun = Nothing
-    , _ciirqDescription = Nothing
-    , _ciirqInstanceId = pInstanceId_
-    , _ciirqName = pName_
+    { _ciiNoReboot = Nothing
+    , _ciiBlockDeviceMappings = Nothing
+    , _ciiDryRun = Nothing
+    , _ciiDescription = Nothing
+    , _ciiInstanceId = pInstanceId_
+    , _ciiName = pName_
     }
 
 -- | By default, this parameter is set to @false@, which means Amazon EC2
@@ -101,35 +101,35 @@ createImage pInstanceId_ pName_ =
 -- EC2 doesn\'t shut down the instance before creating the image. When this
 -- option is used, file system integrity on the created image can\'t be
 -- guaranteed.
-ciirqNoReboot :: Lens' CreateImage (Maybe Bool)
-ciirqNoReboot = lens _ciirqNoReboot (\ s a -> s{_ciirqNoReboot = a});
+ciiNoReboot :: Lens' CreateImage (Maybe Bool)
+ciiNoReboot = lens _ciiNoReboot (\ s a -> s{_ciiNoReboot = a});
 
 -- | Information about one or more block device mappings.
-ciirqBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
-ciirqBlockDeviceMappings = lens _ciirqBlockDeviceMappings (\ s a -> s{_ciirqBlockDeviceMappings = a}) . _Default;
+ciiBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
+ciiBlockDeviceMappings = lens _ciiBlockDeviceMappings (\ s a -> s{_ciiBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ciirqDryRun :: Lens' CreateImage (Maybe Bool)
-ciirqDryRun = lens _ciirqDryRun (\ s a -> s{_ciirqDryRun = a});
+ciiDryRun :: Lens' CreateImage (Maybe Bool)
+ciiDryRun = lens _ciiDryRun (\ s a -> s{_ciiDryRun = a});
 
 -- | A description for the new image.
-ciirqDescription :: Lens' CreateImage (Maybe Text)
-ciirqDescription = lens _ciirqDescription (\ s a -> s{_ciirqDescription = a});
+ciiDescription :: Lens' CreateImage (Maybe Text)
+ciiDescription = lens _ciiDescription (\ s a -> s{_ciiDescription = a});
 
 -- | The ID of the instance.
-ciirqInstanceId :: Lens' CreateImage Text
-ciirqInstanceId = lens _ciirqInstanceId (\ s a -> s{_ciirqInstanceId = a});
+ciiInstanceId :: Lens' CreateImage Text
+ciiInstanceId = lens _ciiInstanceId (\ s a -> s{_ciiInstanceId = a});
 
 -- | A name for the new image.
 --
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
 -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
 -- quotes (\'), at-signs (\@), or underscores(_)
-ciirqName :: Lens' CreateImage Text
-ciirqName = lens _ciirqName (\ s a -> s{_ciirqName = a});
+ciiName :: Lens' CreateImage Text
+ciiName = lens _ciiName (\ s a -> s{_ciiName = a});
 
 instance AWSRequest CreateImage where
         type Sv CreateImage = EC2
@@ -152,14 +152,13 @@ instance ToQuery CreateImage where
           = mconcat
               ["Action" =: ("CreateImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NoReboot" =: _ciirqNoReboot,
+               "NoReboot" =: _ciiNoReboot,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
-                    _ciirqBlockDeviceMappings),
-               "DryRun" =: _ciirqDryRun,
-               "Description" =: _ciirqDescription,
-               "InstanceId" =: _ciirqInstanceId,
-               "Name" =: _ciirqName]
+                    _ciiBlockDeviceMappings),
+               "DryRun" =: _ciiDryRun,
+               "Description" =: _ciiDescription,
+               "InstanceId" =: _ciiInstanceId, "Name" =: _ciiName]
 
 -- | /See:/ 'createImageResponse' smart constructor.
 --

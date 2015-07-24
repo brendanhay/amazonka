@@ -84,8 +84,8 @@ module Network.AWS.DynamoDB.BatchGetItem
     -- ** Request constructor
     , batchGetItem
     -- ** Request lenses
-    , bgirqReturnConsumedCapacity
-    , bgirqRequestItems
+    , bgiReturnConsumedCapacity
+    , bgiRequestItems
 
     -- * Response
     , BatchGetItemResponse
@@ -109,25 +109,25 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgirqReturnConsumedCapacity'
+-- * 'bgiReturnConsumedCapacity'
 --
--- * 'bgirqRequestItems'
+-- * 'bgiRequestItems'
 data BatchGetItem = BatchGetItem'
-    { _bgirqReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
-    , _bgirqRequestItems           :: !(Map Text KeysAndAttributes)
+    { _bgiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
+    , _bgiRequestItems           :: !(Map Text KeysAndAttributes)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetItem' smart constructor.
 batchGetItem :: BatchGetItem
 batchGetItem =
     BatchGetItem'
-    { _bgirqReturnConsumedCapacity = Nothing
-    , _bgirqRequestItems = mempty
+    { _bgiReturnConsumedCapacity = Nothing
+    , _bgiRequestItems = mempty
     }
 
 -- | FIXME: Undocumented member.
-bgirqReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
-bgirqReturnConsumedCapacity = lens _bgirqReturnConsumedCapacity (\ s a -> s{_bgirqReturnConsumedCapacity = a});
+bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
+bgiReturnConsumedCapacity = lens _bgiReturnConsumedCapacity (\ s a -> s{_bgiReturnConsumedCapacity = a});
 
 -- | A map of one or more table names and, for each table, a map that
 -- describes one or more items to retrieve from that table. Each table name
@@ -219,8 +219,8 @@ bgirqReturnConsumedCapacity = lens _bgirqReturnConsumedCapacity (\ s a -> s{_bgi
 --     item size, not on the amount of data that is returned to an
 --     application.
 --
-bgirqRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
-bgirqRequestItems = lens _bgirqRequestItems (\ s a -> s{_bgirqRequestItems = a}) . _Map;
+bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)
+bgiRequestItems = lens _bgiRequestItems (\ s a -> s{_bgiRequestItems = a}) . _Map;
 
 instance AWSRequest BatchGetItem where
         type Sv BatchGetItem = DynamoDB
@@ -248,8 +248,8 @@ instance ToJSON BatchGetItem where
         toJSON BatchGetItem'{..}
           = object
               ["ReturnConsumedCapacity" .=
-                 _bgirqReturnConsumedCapacity,
-               "RequestItems" .= _bgirqRequestItems]
+                 _bgiReturnConsumedCapacity,
+               "RequestItems" .= _bgiRequestItems]
 
 instance ToPath BatchGetItem where
         toPath = const "/"

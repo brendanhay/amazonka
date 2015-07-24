@@ -36,8 +36,8 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     -- ** Request constructor
     , deregisterInstancesFromLoadBalancer
     -- ** Request lenses
-    , diflbrqLoadBalancerName
-    , diflbrqInstances
+    , diflbLoadBalancerName
+    , diflbInstances
 
     -- * Response
     , DeregisterInstancesFromLoadBalancerResponse
@@ -57,29 +57,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diflbrqLoadBalancerName'
+-- * 'diflbLoadBalancerName'
 --
--- * 'diflbrqInstances'
+-- * 'diflbInstances'
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
-    { _diflbrqLoadBalancerName :: !Text
-    , _diflbrqInstances        :: ![Instance]
+    { _diflbLoadBalancerName :: !Text
+    , _diflbInstances        :: ![Instance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
 deregisterInstancesFromLoadBalancer :: Text -> DeregisterInstancesFromLoadBalancer
 deregisterInstancesFromLoadBalancer pLoadBalancerName_ =
     DeregisterInstancesFromLoadBalancer'
-    { _diflbrqLoadBalancerName = pLoadBalancerName_
-    , _diflbrqInstances = mempty
+    { _diflbLoadBalancerName = pLoadBalancerName_
+    , _diflbInstances = mempty
     }
 
 -- | The name of the load balancer.
-diflbrqLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
-diflbrqLoadBalancerName = lens _diflbrqLoadBalancerName (\ s a -> s{_diflbrqLoadBalancerName = a});
+diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
+diflbLoadBalancerName = lens _diflbLoadBalancerName (\ s a -> s{_diflbLoadBalancerName = a});
 
 -- | The IDs of the instances.
-diflbrqInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
-diflbrqInstances = lens _diflbrqInstances (\ s a -> s{_diflbrqInstances = a});
+diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
+diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a});
 
 instance AWSRequest
          DeregisterInstancesFromLoadBalancer where
@@ -112,9 +112,8 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
                  ("DeregisterInstancesFromLoadBalancer" ::
                     ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _diflbrqLoadBalancerName,
-               "Instances" =:
-                 toQueryList "member" _diflbrqInstances]
+               "LoadBalancerName" =: _diflbLoadBalancerName,
+               "Instances" =: toQueryList "member" _diflbInstances]
 
 -- | /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
 --

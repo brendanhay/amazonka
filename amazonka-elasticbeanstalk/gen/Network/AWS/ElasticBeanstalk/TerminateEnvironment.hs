@@ -27,9 +27,9 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- ** Request constructor
     , terminateEnvironment
     -- ** Request lenses
-    , terqTerminateResources
-    , terqEnvironmentName
-    , terqEnvironmentId
+    , teTerminateResources
+    , teEnvironmentName
+    , teEnvironmentId
 
     -- * Response
     , EnvironmentDescription
@@ -65,24 +65,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'terqTerminateResources'
+-- * 'teTerminateResources'
 --
--- * 'terqEnvironmentName'
+-- * 'teEnvironmentName'
 --
--- * 'terqEnvironmentId'
+-- * 'teEnvironmentId'
 data TerminateEnvironment = TerminateEnvironment'
-    { _terqTerminateResources :: !(Maybe Bool)
-    , _terqEnvironmentName    :: !(Maybe Text)
-    , _terqEnvironmentId      :: !(Maybe Text)
+    { _teTerminateResources :: !(Maybe Bool)
+    , _teEnvironmentName    :: !(Maybe Text)
+    , _teEnvironmentId      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateEnvironment' smart constructor.
 terminateEnvironment :: TerminateEnvironment
 terminateEnvironment =
     TerminateEnvironment'
-    { _terqTerminateResources = Nothing
-    , _terqEnvironmentName = Nothing
-    , _terqEnvironmentId = Nothing
+    { _teTerminateResources = Nothing
+    , _teEnvironmentName = Nothing
+    , _teEnvironmentId = Nothing
     }
 
 -- | Indicates whether the associated AWS resources should shut down when the
@@ -106,24 +106,24 @@ terminateEnvironment =
 -- Default: @true@
 --
 -- Valid Values: @true@ | @false@
-terqTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
-terqTerminateResources = lens _terqTerminateResources (\ s a -> s{_terqTerminateResources = a});
+teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
+teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResources = a});
 
 -- | The name of the environment to terminate.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-terqEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
-terqEnvironmentName = lens _terqEnvironmentName (\ s a -> s{_terqEnvironmentName = a});
+teEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
+teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a});
 
 -- | The ID of the environment to terminate.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-terqEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
-terqEnvironmentId = lens _terqEnvironmentId (\ s a -> s{_terqEnvironmentId = a});
+teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
+teEnvironmentId = lens _teEnvironmentId (\ s a -> s{_teEnvironmentId = a});
 
 instance AWSRequest TerminateEnvironment where
         type Sv TerminateEnvironment = ElasticBeanstalk
@@ -144,6 +144,6 @@ instance ToQuery TerminateEnvironment where
           = mconcat
               ["Action" =: ("TerminateEnvironment" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TerminateResources" =: _terqTerminateResources,
-               "EnvironmentName" =: _terqEnvironmentName,
-               "EnvironmentId" =: _terqEnvironmentId]
+               "TerminateResources" =: _teTerminateResources,
+               "EnvironmentName" =: _teEnvironmentName,
+               "EnvironmentId" =: _teEnvironmentId]

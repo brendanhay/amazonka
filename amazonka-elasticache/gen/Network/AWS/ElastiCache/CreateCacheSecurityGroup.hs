@@ -35,8 +35,8 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     -- ** Request constructor
     , createCacheSecurityGroup
     -- ** Request lenses
-    , ccsgrqCacheSecurityGroupName
-    , ccsgrqDescription
+    , ccsgCacheSecurityGroupName
+    , ccsgDescription
 
     -- * Response
     , CreateCacheSecurityGroupResponse
@@ -58,20 +58,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgrqCacheSecurityGroupName'
+-- * 'ccsgCacheSecurityGroupName'
 --
--- * 'ccsgrqDescription'
+-- * 'ccsgDescription'
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
-    { _ccsgrqCacheSecurityGroupName :: !Text
-    , _ccsgrqDescription            :: !Text
+    { _ccsgCacheSecurityGroupName :: !Text
+    , _ccsgDescription            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSecurityGroup' smart constructor.
 createCacheSecurityGroup :: Text -> Text -> CreateCacheSecurityGroup
 createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
     CreateCacheSecurityGroup'
-    { _ccsgrqCacheSecurityGroupName = pCacheSecurityGroupName_
-    , _ccsgrqDescription = pDescription_
+    { _ccsgCacheSecurityGroupName = pCacheSecurityGroupName_
+    , _ccsgDescription = pDescription_
     }
 
 -- | A name for the cache security group. This value is stored as a lowercase
@@ -81,12 +81,12 @@ createCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
 -- Cannot be the word \"Default\".
 --
 -- Example: @mysecuritygroup@
-ccsgrqCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
-ccsgrqCacheSecurityGroupName = lens _ccsgrqCacheSecurityGroupName (\ s a -> s{_ccsgrqCacheSecurityGroupName = a});
+ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
+ccsgCacheSecurityGroupName = lens _ccsgCacheSecurityGroupName (\ s a -> s{_ccsgCacheSecurityGroupName = a});
 
 -- | A description for the cache security group.
-ccsgrqDescription :: Lens' CreateCacheSecurityGroup Text
-ccsgrqDescription = lens _ccsgrqDescription (\ s a -> s{_ccsgrqDescription = a});
+ccsgDescription :: Lens' CreateCacheSecurityGroup Text
+ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
 
 instance AWSRequest CreateCacheSecurityGroup where
         type Sv CreateCacheSecurityGroup = ElastiCache
@@ -112,8 +112,8 @@ instance ToQuery CreateCacheSecurityGroup where
                  ("CreateCacheSecurityGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
-                 _ccsgrqCacheSecurityGroupName,
-               "Description" =: _ccsgrqDescription]
+                 _ccsgCacheSecurityGroupName,
+               "Description" =: _ccsgDescription]
 
 -- | /See:/ 'createCacheSecurityGroupResponse' smart constructor.
 --

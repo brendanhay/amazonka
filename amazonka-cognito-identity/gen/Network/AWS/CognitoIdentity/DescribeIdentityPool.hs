@@ -30,7 +30,7 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     -- ** Request constructor
     , describeIdentityPool
     -- ** Request lenses
-    , diprqIdentityPoolId
+    , dipIdentityPoolId
 
     -- * Response
     , IdentityPool
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diprqIdentityPoolId'
+-- * 'dipIdentityPoolId'
 newtype DescribeIdentityPool = DescribeIdentityPool'
-    { _diprqIdentityPoolId :: Text
+    { _dipIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityPool' smart constructor.
 describeIdentityPool :: Text -> DescribeIdentityPool
 describeIdentityPool pIdentityPoolId_ =
     DescribeIdentityPool'
-    { _diprqIdentityPoolId = pIdentityPoolId_
+    { _dipIdentityPoolId = pIdentityPoolId_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-diprqIdentityPoolId :: Lens' DescribeIdentityPool Text
-diprqIdentityPoolId = lens _diprqIdentityPoolId (\ s a -> s{_diprqIdentityPoolId = a});
+dipIdentityPoolId :: Lens' DescribeIdentityPool Text
+dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a});
 
 instance AWSRequest DescribeIdentityPool where
         type Sv DescribeIdentityPool = CognitoIdentity
@@ -90,7 +90,7 @@ instance ToHeaders DescribeIdentityPool where
 
 instance ToJSON DescribeIdentityPool where
         toJSON DescribeIdentityPool'{..}
-          = object ["IdentityPoolId" .= _diprqIdentityPoolId]
+          = object ["IdentityPoolId" .= _dipIdentityPoolId]
 
 instance ToPath DescribeIdentityPool where
         toPath = const "/"

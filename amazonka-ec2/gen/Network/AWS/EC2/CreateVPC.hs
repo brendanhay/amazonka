@@ -39,9 +39,9 @@ module Network.AWS.EC2.CreateVPC
     -- ** Request constructor
     , createVPC
     -- ** Request lenses
-    , cvrqInstanceTenancy
-    , cvrqDryRun
-    , cvrqCIdRBlock
+    , cvInstanceTenancy
+    , cvDryRun
+    , cvCIdRBlock
 
     -- * Response
     , CreateVPCResponse
@@ -61,24 +61,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvrqInstanceTenancy'
+-- * 'cvInstanceTenancy'
 --
--- * 'cvrqDryRun'
+-- * 'cvDryRun'
 --
--- * 'cvrqCIdRBlock'
+-- * 'cvCIdRBlock'
 data CreateVPC = CreateVPC'
-    { _cvrqInstanceTenancy :: !(Maybe Tenancy)
-    , _cvrqDryRun          :: !(Maybe Bool)
-    , _cvrqCIdRBlock       :: !Text
+    { _cvInstanceTenancy :: !(Maybe Tenancy)
+    , _cvDryRun          :: !(Maybe Bool)
+    , _cvCIdRBlock       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPC' smart constructor.
 createVPC :: Text -> CreateVPC
 createVPC pCIdRBlock_ =
     CreateVPC'
-    { _cvrqInstanceTenancy = Nothing
-    , _cvrqDryRun = Nothing
-    , _cvrqCIdRBlock = pCIdRBlock_
+    { _cvInstanceTenancy = Nothing
+    , _cvDryRun = Nothing
+    , _cvCIdRBlock = pCIdRBlock_
     }
 
 -- | The supported tenancy options for instances launched into the VPC. A
@@ -89,20 +89,20 @@ createVPC pCIdRBlock_ =
 -- run on single-tenant hardware.
 --
 -- Default: @default@
-cvrqInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)
-cvrqInstanceTenancy = lens _cvrqInstanceTenancy (\ s a -> s{_cvrqInstanceTenancy = a});
+cvInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)
+cvInstanceTenancy = lens _cvInstanceTenancy (\ s a -> s{_cvInstanceTenancy = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cvrqDryRun :: Lens' CreateVPC (Maybe Bool)
-cvrqDryRun = lens _cvrqDryRun (\ s a -> s{_cvrqDryRun = a});
+cvDryRun :: Lens' CreateVPC (Maybe Bool)
+cvDryRun = lens _cvDryRun (\ s a -> s{_cvDryRun = a});
 
 -- | The network range for the VPC, in CIDR notation. For example,
 -- @10.0.0.0\/16@.
-cvrqCIdRBlock :: Lens' CreateVPC Text
-cvrqCIdRBlock = lens _cvrqCIdRBlock (\ s a -> s{_cvrqCIdRBlock = a});
+cvCIdRBlock :: Lens' CreateVPC Text
+cvCIdRBlock = lens _cvCIdRBlock (\ s a -> s{_cvCIdRBlock = a});
 
 instance AWSRequest CreateVPC where
         type Sv CreateVPC = EC2
@@ -125,9 +125,8 @@ instance ToQuery CreateVPC where
           = mconcat
               ["Action" =: ("CreateVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceTenancy" =: _cvrqInstanceTenancy,
-               "DryRun" =: _cvrqDryRun,
-               "CidrBlock" =: _cvrqCIdRBlock]
+               "InstanceTenancy" =: _cvInstanceTenancy,
+               "DryRun" =: _cvDryRun, "CidrBlock" =: _cvCIdRBlock]
 
 -- | /See:/ 'createVPCResponse' smart constructor.
 --

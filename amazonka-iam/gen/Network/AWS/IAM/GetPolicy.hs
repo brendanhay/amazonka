@@ -41,7 +41,7 @@ module Network.AWS.IAM.GetPolicy
     -- ** Request constructor
     , getPolicy
     -- ** Request lenses
-    , gprqPolicyARN
+    , gpPolicyARN
 
     -- * Response
     , GetPolicyResponse
@@ -61,21 +61,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprqPolicyARN'
+-- * 'gpPolicyARN'
 newtype GetPolicy = GetPolicy'
-    { _gprqPolicyARN :: Text
+    { _gpPolicyARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
 getPolicy pPolicyARN_ =
     GetPolicy'
-    { _gprqPolicyARN = pPolicyARN_
+    { _gpPolicyARN = pPolicyARN_
     }
 
 -- | FIXME: Undocumented member.
-gprqPolicyARN :: Lens' GetPolicy Text
-gprqPolicyARN = lens _gprqPolicyARN (\ s a -> s{_gprqPolicyARN = a});
+gpPolicyARN :: Lens' GetPolicy Text
+gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
 
 instance AWSRequest GetPolicy where
         type Sv GetPolicy = IAM
@@ -98,7 +98,7 @@ instance ToQuery GetPolicy where
           = mconcat
               ["Action" =: ("GetPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _gprqPolicyARN]
+               "PolicyArn" =: _gpPolicyARN]
 
 -- | Contains the response to a successful GetPolicy request.
 --

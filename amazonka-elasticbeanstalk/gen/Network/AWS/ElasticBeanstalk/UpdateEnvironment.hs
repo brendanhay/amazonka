@@ -39,15 +39,15 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- ** Request constructor
     , updateEnvironment
     -- ** Request lenses
-    , uerqTemplateName
-    , uerqOptionsToRemove
-    , uerqOptionSettings
-    , uerqVersionLabel
-    , uerqTier
-    , uerqEnvironmentName
-    , uerqEnvironmentId
-    , uerqSolutionStackName
-    , uerqDescription
+    , ueTemplateName
+    , ueOptionsToRemove
+    , ueOptionSettings
+    , ueVersionLabel
+    , ueTier
+    , ueEnvironmentName
+    , ueEnvironmentId
+    , ueSolutionStackName
+    , ueDescription
 
     -- * Response
     , EnvironmentDescription
@@ -83,80 +83,80 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uerqTemplateName'
+-- * 'ueTemplateName'
 --
--- * 'uerqOptionsToRemove'
+-- * 'ueOptionsToRemove'
 --
--- * 'uerqOptionSettings'
+-- * 'ueOptionSettings'
 --
--- * 'uerqVersionLabel'
+-- * 'ueVersionLabel'
 --
--- * 'uerqTier'
+-- * 'ueTier'
 --
--- * 'uerqEnvironmentName'
+-- * 'ueEnvironmentName'
 --
--- * 'uerqEnvironmentId'
+-- * 'ueEnvironmentId'
 --
--- * 'uerqSolutionStackName'
+-- * 'ueSolutionStackName'
 --
--- * 'uerqDescription'
+-- * 'ueDescription'
 data UpdateEnvironment = UpdateEnvironment'
-    { _uerqTemplateName      :: !(Maybe Text)
-    , _uerqOptionsToRemove   :: !(Maybe [OptionSpecification])
-    , _uerqOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
-    , _uerqVersionLabel      :: !(Maybe Text)
-    , _uerqTier              :: !(Maybe EnvironmentTier)
-    , _uerqEnvironmentName   :: !(Maybe Text)
-    , _uerqEnvironmentId     :: !(Maybe Text)
-    , _uerqSolutionStackName :: !(Maybe Text)
-    , _uerqDescription       :: !(Maybe Text)
+    { _ueTemplateName      :: !(Maybe Text)
+    , _ueOptionsToRemove   :: !(Maybe [OptionSpecification])
+    , _ueOptionSettings    :: !(Maybe [ConfigurationOptionSetting])
+    , _ueVersionLabel      :: !(Maybe Text)
+    , _ueTier              :: !(Maybe EnvironmentTier)
+    , _ueEnvironmentName   :: !(Maybe Text)
+    , _ueEnvironmentId     :: !(Maybe Text)
+    , _ueSolutionStackName :: !(Maybe Text)
+    , _ueDescription       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEnvironment' smart constructor.
 updateEnvironment :: UpdateEnvironment
 updateEnvironment =
     UpdateEnvironment'
-    { _uerqTemplateName = Nothing
-    , _uerqOptionsToRemove = Nothing
-    , _uerqOptionSettings = Nothing
-    , _uerqVersionLabel = Nothing
-    , _uerqTier = Nothing
-    , _uerqEnvironmentName = Nothing
-    , _uerqEnvironmentId = Nothing
-    , _uerqSolutionStackName = Nothing
-    , _uerqDescription = Nothing
+    { _ueTemplateName = Nothing
+    , _ueOptionsToRemove = Nothing
+    , _ueOptionSettings = Nothing
+    , _ueVersionLabel = Nothing
+    , _ueTier = Nothing
+    , _ueEnvironmentName = Nothing
+    , _ueEnvironmentId = Nothing
+    , _ueSolutionStackName = Nothing
+    , _ueDescription = Nothing
     }
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys this
 -- configuration template to the environment. If no such configuration
 -- template is found, AWS Elastic Beanstalk returns an
 -- @InvalidParameterValue@ error.
-uerqTemplateName :: Lens' UpdateEnvironment (Maybe Text)
-uerqTemplateName = lens _uerqTemplateName (\ s a -> s{_uerqTemplateName = a});
+ueTemplateName :: Lens' UpdateEnvironment (Maybe Text)
+ueTemplateName = lens _ueTemplateName (\ s a -> s{_ueTemplateName = a});
 
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this environment.
-uerqOptionsToRemove :: Lens' UpdateEnvironment [OptionSpecification]
-uerqOptionsToRemove = lens _uerqOptionsToRemove (\ s a -> s{_uerqOptionsToRemove = a}) . _Default;
+ueOptionsToRemove :: Lens' UpdateEnvironment [OptionSpecification]
+ueOptionsToRemove = lens _ueOptionsToRemove (\ s a -> s{_ueOptionsToRemove = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk updates the configuration set
 -- associated with the running environment and sets the specified
 -- configuration options to the requested value.
-uerqOptionSettings :: Lens' UpdateEnvironment [ConfigurationOptionSetting]
-uerqOptionSettings = lens _uerqOptionSettings (\ s a -> s{_uerqOptionSettings = a}) . _Default;
+ueOptionSettings :: Lens' UpdateEnvironment [ConfigurationOptionSetting]
+ueOptionSettings = lens _ueOptionSettings (\ s a -> s{_ueOptionSettings = a}) . _Default;
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named
 -- application version to the environment. If no such application version
 -- is found, returns an @InvalidParameterValue@ error.
-uerqVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
-uerqVersionLabel = lens _uerqVersionLabel (\ s a -> s{_uerqVersionLabel = a});
+ueVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
+ueVersionLabel = lens _ueVersionLabel (\ s a -> s{_ueVersionLabel = a});
 
 -- | This specifies the tier to use to update the environment.
 --
 -- Condition: At this time, if you change the tier version, name, or type,
 -- AWS Elastic Beanstalk returns @InvalidParameterValue@ error.
-uerqTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
-uerqTier = lens _uerqTier (\ s a -> s{_uerqTier = a});
+ueTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
+ueTier = lens _ueTier (\ s a -> s{_ueTier = a});
 
 -- | The name of the environment to update. If no environment with this name
 -- exists, AWS Elastic Beanstalk returns an @InvalidParameterValue@ error.
@@ -164,8 +164,8 @@ uerqTier = lens _uerqTier (\ s a -> s{_uerqTier = a});
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-uerqEnvironmentName :: Lens' UpdateEnvironment (Maybe Text)
-uerqEnvironmentName = lens _uerqEnvironmentName (\ s a -> s{_uerqEnvironmentName = a});
+ueEnvironmentName :: Lens' UpdateEnvironment (Maybe Text)
+ueEnvironmentName = lens _ueEnvironmentName (\ s a -> s{_ueEnvironmentName = a});
 
 -- | The ID of the environment to update.
 --
@@ -175,18 +175,18 @@ uerqEnvironmentName = lens _uerqEnvironmentName (\ s a -> s{_uerqEnvironmentName
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-uerqEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
-uerqEnvironmentId = lens _uerqEnvironmentId (\ s a -> s{_uerqEnvironmentId = a});
+ueEnvironmentId :: Lens' UpdateEnvironment (Maybe Text)
+ueEnvironmentId = lens _ueEnvironmentId (\ s a -> s{_ueEnvironmentId = a});
 
 -- | This specifies the platform version that the environment will run after
 -- the environment is updated.
-uerqSolutionStackName :: Lens' UpdateEnvironment (Maybe Text)
-uerqSolutionStackName = lens _uerqSolutionStackName (\ s a -> s{_uerqSolutionStackName = a});
+ueSolutionStackName :: Lens' UpdateEnvironment (Maybe Text)
+ueSolutionStackName = lens _ueSolutionStackName (\ s a -> s{_ueSolutionStackName = a});
 
 -- | If this parameter is specified, AWS Elastic Beanstalk updates the
 -- description of this environment.
-uerqDescription :: Lens' UpdateEnvironment (Maybe Text)
-uerqDescription = lens _uerqDescription (\ s a -> s{_uerqDescription = a});
+ueDescription :: Lens' UpdateEnvironment (Maybe Text)
+ueDescription = lens _ueDescription (\ s a -> s{_ueDescription = a});
 
 instance AWSRequest UpdateEnvironment where
         type Sv UpdateEnvironment = ElasticBeanstalk
@@ -207,16 +207,14 @@ instance ToQuery UpdateEnvironment where
           = mconcat
               ["Action" =: ("UpdateEnvironment" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _uerqTemplateName,
+               "TemplateName" =: _ueTemplateName,
                "OptionsToRemove" =:
                  toQuery
-                   (toQueryList "member" <$> _uerqOptionsToRemove),
+                   (toQueryList "member" <$> _ueOptionsToRemove),
                "OptionSettings" =:
-                 toQuery
-                   (toQueryList "member" <$> _uerqOptionSettings),
-               "VersionLabel" =: _uerqVersionLabel,
-               "Tier" =: _uerqTier,
-               "EnvironmentName" =: _uerqEnvironmentName,
-               "EnvironmentId" =: _uerqEnvironmentId,
-               "SolutionStackName" =: _uerqSolutionStackName,
-               "Description" =: _uerqDescription]
+                 toQuery (toQueryList "member" <$> _ueOptionSettings),
+               "VersionLabel" =: _ueVersionLabel, "Tier" =: _ueTier,
+               "EnvironmentName" =: _ueEnvironmentName,
+               "EnvironmentId" =: _ueEnvironmentId,
+               "SolutionStackName" =: _ueSolutionStackName,
+               "Description" =: _ueDescription]

@@ -27,8 +27,8 @@ module Network.AWS.ECS.DescribeServices
     -- ** Request constructor
     , describeServices
     -- ** Request lenses
-    , drqCluster
-    , drqServices
+    , dCluster
+    , dServices
 
     -- * Response
     , DescribeServicesResponse
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqCluster'
+-- * 'dCluster'
 --
--- * 'drqServices'
+-- * 'dServices'
 data DescribeServices = DescribeServices'
-    { _drqCluster  :: !(Maybe Text)
-    , _drqServices :: ![Text]
+    { _dCluster  :: !(Maybe Text)
+    , _dServices :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
 describeServices =
     DescribeServices'
-    { _drqCluster = Nothing
-    , _drqServices = mempty
+    { _dCluster = Nothing
+    , _dServices = mempty
     }
 
 -- | The name of the cluster that hosts the service you want to describe.
-drqCluster :: Lens' DescribeServices (Maybe Text)
-drqCluster = lens _drqCluster (\ s a -> s{_drqCluster = a});
+dCluster :: Lens' DescribeServices (Maybe Text)
+dCluster = lens _dCluster (\ s a -> s{_dCluster = a});
 
 -- | A list of services you want to describe.
-drqServices :: Lens' DescribeServices [Text]
-drqServices = lens _drqServices (\ s a -> s{_drqServices = a});
+dServices :: Lens' DescribeServices [Text]
+dServices = lens _dServices (\ s a -> s{_dServices = a});
 
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = ECS
@@ -98,8 +98,7 @@ instance ToHeaders DescribeServices where
 instance ToJSON DescribeServices where
         toJSON DescribeServices'{..}
           = object
-              ["cluster" .= _drqCluster,
-               "services" .= _drqServices]
+              ["cluster" .= _dCluster, "services" .= _dServices]
 
 instance ToPath DescribeServices where
         toPath = const "/"

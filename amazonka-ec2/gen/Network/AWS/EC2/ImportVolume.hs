@@ -32,11 +32,11 @@ module Network.AWS.EC2.ImportVolume
     -- ** Request constructor
     , importVolume
     -- ** Request lenses
-    , ivrqDryRun
-    , ivrqDescription
-    , ivrqAvailabilityZone
-    , ivrqImage
-    , ivrqVolume
+    , ivDryRun
+    , ivDescription
+    , ivAvailabilityZone
+    , ivImage
+    , ivVolume
 
     -- * Response
     , ImportVolumeResponse
@@ -56,56 +56,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ivrqDryRun'
+-- * 'ivDryRun'
 --
--- * 'ivrqDescription'
+-- * 'ivDescription'
 --
--- * 'ivrqAvailabilityZone'
+-- * 'ivAvailabilityZone'
 --
--- * 'ivrqImage'
+-- * 'ivImage'
 --
--- * 'ivrqVolume'
+-- * 'ivVolume'
 data ImportVolume = ImportVolume'
-    { _ivrqDryRun           :: !(Maybe Bool)
-    , _ivrqDescription      :: !(Maybe Text)
-    , _ivrqAvailabilityZone :: !Text
-    , _ivrqImage            :: !DiskImageDetail
-    , _ivrqVolume           :: !VolumeDetail
+    { _ivDryRun           :: !(Maybe Bool)
+    , _ivDescription      :: !(Maybe Text)
+    , _ivAvailabilityZone :: !Text
+    , _ivImage            :: !DiskImageDetail
+    , _ivVolume           :: !VolumeDetail
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportVolume' smart constructor.
 importVolume :: Text -> DiskImageDetail -> VolumeDetail -> ImportVolume
 importVolume pAvailabilityZone_ pImage_ pVolume_ =
     ImportVolume'
-    { _ivrqDryRun = Nothing
-    , _ivrqDescription = Nothing
-    , _ivrqAvailabilityZone = pAvailabilityZone_
-    , _ivrqImage = pImage_
-    , _ivrqVolume = pVolume_
+    { _ivDryRun = Nothing
+    , _ivDescription = Nothing
+    , _ivAvailabilityZone = pAvailabilityZone_
+    , _ivImage = pImage_
+    , _ivVolume = pVolume_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ivrqDryRun :: Lens' ImportVolume (Maybe Bool)
-ivrqDryRun = lens _ivrqDryRun (\ s a -> s{_ivrqDryRun = a});
+ivDryRun :: Lens' ImportVolume (Maybe Bool)
+ivDryRun = lens _ivDryRun (\ s a -> s{_ivDryRun = a});
 
 -- | A description of the volume.
-ivrqDescription :: Lens' ImportVolume (Maybe Text)
-ivrqDescription = lens _ivrqDescription (\ s a -> s{_ivrqDescription = a});
+ivDescription :: Lens' ImportVolume (Maybe Text)
+ivDescription = lens _ivDescription (\ s a -> s{_ivDescription = a});
 
 -- | The Availability Zone for the resulting EBS volume.
-ivrqAvailabilityZone :: Lens' ImportVolume Text
-ivrqAvailabilityZone = lens _ivrqAvailabilityZone (\ s a -> s{_ivrqAvailabilityZone = a});
+ivAvailabilityZone :: Lens' ImportVolume Text
+ivAvailabilityZone = lens _ivAvailabilityZone (\ s a -> s{_ivAvailabilityZone = a});
 
 -- | The disk image.
-ivrqImage :: Lens' ImportVolume DiskImageDetail
-ivrqImage = lens _ivrqImage (\ s a -> s{_ivrqImage = a});
+ivImage :: Lens' ImportVolume DiskImageDetail
+ivImage = lens _ivImage (\ s a -> s{_ivImage = a});
 
 -- | The volume size.
-ivrqVolume :: Lens' ImportVolume VolumeDetail
-ivrqVolume = lens _ivrqVolume (\ s a -> s{_ivrqVolume = a});
+ivVolume :: Lens' ImportVolume VolumeDetail
+ivVolume = lens _ivVolume (\ s a -> s{_ivVolume = a});
 
 instance AWSRequest ImportVolume where
         type Sv ImportVolume = EC2
@@ -128,10 +128,10 @@ instance ToQuery ImportVolume where
           = mconcat
               ["Action" =: ("ImportVolume" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ivrqDryRun,
-               "Description" =: _ivrqDescription,
-               "AvailabilityZone" =: _ivrqAvailabilityZone,
-               "Image" =: _ivrqImage, "Volume" =: _ivrqVolume]
+               "DryRun" =: _ivDryRun,
+               "Description" =: _ivDescription,
+               "AvailabilityZone" =: _ivAvailabilityZone,
+               "Image" =: _ivImage, "Volume" =: _ivVolume]
 
 -- | /See:/ 'importVolumeResponse' smart constructor.
 --

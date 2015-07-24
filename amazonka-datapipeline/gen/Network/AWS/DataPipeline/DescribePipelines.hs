@@ -36,7 +36,7 @@ module Network.AWS.DataPipeline.DescribePipelines
     -- ** Request constructor
     , describePipelines
     -- ** Request lenses
-    , dprqPipelineIds
+    , dpPipelineIds
 
     -- * Response
     , DescribePipelinesResponse
@@ -58,23 +58,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprqPipelineIds'
+-- * 'dpPipelineIds'
 newtype DescribePipelines = DescribePipelines'
-    { _dprqPipelineIds :: [Text]
+    { _dpPipelineIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePipelines' smart constructor.
 describePipelines :: DescribePipelines
 describePipelines =
     DescribePipelines'
-    { _dprqPipelineIds = mempty
+    { _dpPipelineIds = mempty
     }
 
 -- | The IDs of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call. To obtain pipeline IDs, call
 -- ListPipelines.
-dprqPipelineIds :: Lens' DescribePipelines [Text]
-dprqPipelineIds = lens _dprqPipelineIds (\ s a -> s{_dprqPipelineIds = a});
+dpPipelineIds :: Lens' DescribePipelines [Text]
+dpPipelineIds = lens _dpPipelineIds (\ s a -> s{_dpPipelineIds = a});
 
 instance AWSRequest DescribePipelines where
         type Sv DescribePipelines = DataPipeline
@@ -98,7 +98,7 @@ instance ToHeaders DescribePipelines where
 
 instance ToJSON DescribePipelines where
         toJSON DescribePipelines'{..}
-          = object ["pipelineIds" .= _dprqPipelineIds]
+          = object ["pipelineIds" .= _dpPipelineIds]
 
 instance ToPath DescribePipelines where
         toPath = const "/"

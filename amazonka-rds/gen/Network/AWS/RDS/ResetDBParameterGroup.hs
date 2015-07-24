@@ -34,9 +34,9 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- ** Request constructor
     , resetDBParameterGroup
     -- ** Request lenses
-    , rdpgrqResetAllParameters
-    , rdpgrqParameters
-    , rdpgrqDBParameterGroupName
+    , rdpgResetAllParameters
+    , rdpgParameters
+    , rdpgDBParameterGroupName
 
     -- * Response
     , DBParameterGroupNameMessage
@@ -57,32 +57,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdpgrqResetAllParameters'
+-- * 'rdpgResetAllParameters'
 --
--- * 'rdpgrqParameters'
+-- * 'rdpgParameters'
 --
--- * 'rdpgrqDBParameterGroupName'
+-- * 'rdpgDBParameterGroupName'
 data ResetDBParameterGroup = ResetDBParameterGroup'
-    { _rdpgrqResetAllParameters   :: !(Maybe Bool)
-    , _rdpgrqParameters           :: !(Maybe [Parameter])
-    , _rdpgrqDBParameterGroupName :: !Text
+    { _rdpgResetAllParameters   :: !(Maybe Bool)
+    , _rdpgParameters           :: !(Maybe [Parameter])
+    , _rdpgDBParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetDBParameterGroup' smart constructor.
 resetDBParameterGroup :: Text -> ResetDBParameterGroup
 resetDBParameterGroup pDBParameterGroupName_ =
     ResetDBParameterGroup'
-    { _rdpgrqResetAllParameters = Nothing
-    , _rdpgrqParameters = Nothing
-    , _rdpgrqDBParameterGroupName = pDBParameterGroupName_
+    { _rdpgResetAllParameters = Nothing
+    , _rdpgParameters = Nothing
+    , _rdpgDBParameterGroupName = pDBParameterGroupName_
     }
 
 -- | Specifies whether (@true@) or not (@false@) to reset all parameters in
 -- the DB parameter group to default values.
 --
 -- Default: @true@
-rdpgrqResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
-rdpgrqResetAllParameters = lens _rdpgrqResetAllParameters (\ s a -> s{_rdpgrqResetAllParameters = a});
+rdpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
+rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllParameters = a});
 
 -- | An array of parameter names, values, and the apply method for the
 -- parameter update. At least one parameter name, value, and apply method
@@ -100,8 +100,8 @@ rdpgrqResetAllParameters = lens _rdpgrqResetAllParameters (\ s a -> s{_rdpgrqRes
 -- __Oracle__
 --
 -- Valid Values (for Apply method): @pending-reboot@
-rdpgrqParameters :: Lens' ResetDBParameterGroup [Parameter]
-rdpgrqParameters = lens _rdpgrqParameters (\ s a -> s{_rdpgrqParameters = a}) . _Default;
+rdpgParameters :: Lens' ResetDBParameterGroup [Parameter]
+rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Default;
 
 -- | The name of the DB parameter group.
 --
@@ -110,8 +110,8 @@ rdpgrqParameters = lens _rdpgrqParameters (\ s a -> s{_rdpgrqParameters = a}) . 
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-rdpgrqDBParameterGroupName :: Lens' ResetDBParameterGroup Text
-rdpgrqDBParameterGroupName = lens _rdpgrqDBParameterGroupName (\ s a -> s{_rdpgrqDBParameterGroupName = a});
+rdpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
+rdpgDBParameterGroupName = lens _rdpgDBParameterGroupName (\ s a -> s{_rdpgDBParameterGroupName = a});
 
 instance AWSRequest ResetDBParameterGroup where
         type Sv ResetDBParameterGroup = RDS
@@ -133,9 +133,8 @@ instance ToQuery ResetDBParameterGroup where
           = mconcat
               ["Action" =: ("ResetDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "ResetAllParameters" =: _rdpgrqResetAllParameters,
+               "ResetAllParameters" =: _rdpgResetAllParameters,
                "Parameters" =:
                  toQuery
-                   (toQueryList "Parameter" <$> _rdpgrqParameters),
-               "DBParameterGroupName" =:
-                 _rdpgrqDBParameterGroupName]
+                   (toQueryList "Parameter" <$> _rdpgParameters),
+               "DBParameterGroupName" =: _rdpgDBParameterGroupName]

@@ -28,9 +28,9 @@ module Network.AWS.CodePipeline.PutThirdPartyJobFailureResult
     -- ** Request constructor
     , putThirdPartyJobFailureResult
     -- ** Request lenses
-    , ptpjfrrqJobId
-    , ptpjfrrqClientToken
-    , ptpjfrrqFailureDetails
+    , ptpjfrJobId
+    , ptpjfrClientToken
+    , ptpjfrFailureDetails
 
     -- * Response
     , PutThirdPartyJobFailureResultResponse
@@ -49,40 +49,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ptpjfrrqJobId'
+-- * 'ptpjfrJobId'
 --
--- * 'ptpjfrrqClientToken'
+-- * 'ptpjfrClientToken'
 --
--- * 'ptpjfrrqFailureDetails'
+-- * 'ptpjfrFailureDetails'
 data PutThirdPartyJobFailureResult = PutThirdPartyJobFailureResult'
-    { _ptpjfrrqJobId          :: !Text
-    , _ptpjfrrqClientToken    :: !Text
-    , _ptpjfrrqFailureDetails :: !FailureDetails
+    { _ptpjfrJobId          :: !Text
+    , _ptpjfrClientToken    :: !Text
+    , _ptpjfrFailureDetails :: !FailureDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutThirdPartyJobFailureResult' smart constructor.
 putThirdPartyJobFailureResult :: Text -> Text -> FailureDetails -> PutThirdPartyJobFailureResult
 putThirdPartyJobFailureResult pJobId_ pClientToken_ pFailureDetails_ =
     PutThirdPartyJobFailureResult'
-    { _ptpjfrrqJobId = pJobId_
-    , _ptpjfrrqClientToken = pClientToken_
-    , _ptpjfrrqFailureDetails = pFailureDetails_
+    { _ptpjfrJobId = pJobId_
+    , _ptpjfrClientToken = pClientToken_
+    , _ptpjfrFailureDetails = pFailureDetails_
     }
 
 -- | The ID of the job that failed. This is the same ID returned from
 -- PollForThirdPartyJobs.
-ptpjfrrqJobId :: Lens' PutThirdPartyJobFailureResult Text
-ptpjfrrqJobId = lens _ptpjfrrqJobId (\ s a -> s{_ptpjfrrqJobId = a});
+ptpjfrJobId :: Lens' PutThirdPartyJobFailureResult Text
+ptpjfrJobId = lens _ptpjfrJobId (\ s a -> s{_ptpjfrJobId = a});
 
 -- | The clientToken portion of the clientId and clientToken pair used to
 -- verify that the calling entity is allowed access to the job and its
 -- details.
-ptpjfrrqClientToken :: Lens' PutThirdPartyJobFailureResult Text
-ptpjfrrqClientToken = lens _ptpjfrrqClientToken (\ s a -> s{_ptpjfrrqClientToken = a});
+ptpjfrClientToken :: Lens' PutThirdPartyJobFailureResult Text
+ptpjfrClientToken = lens _ptpjfrClientToken (\ s a -> s{_ptpjfrClientToken = a});
 
 -- | FIXME: Undocumented member.
-ptpjfrrqFailureDetails :: Lens' PutThirdPartyJobFailureResult FailureDetails
-ptpjfrrqFailureDetails = lens _ptpjfrrqFailureDetails (\ s a -> s{_ptpjfrrqFailureDetails = a});
+ptpjfrFailureDetails :: Lens' PutThirdPartyJobFailureResult FailureDetails
+ptpjfrFailureDetails = lens _ptpjfrFailureDetails (\ s a -> s{_ptpjfrFailureDetails = a});
 
 instance AWSRequest PutThirdPartyJobFailureResult
          where
@@ -107,9 +107,9 @@ instance ToHeaders PutThirdPartyJobFailureResult
 instance ToJSON PutThirdPartyJobFailureResult where
         toJSON PutThirdPartyJobFailureResult'{..}
           = object
-              ["jobId" .= _ptpjfrrqJobId,
-               "clientToken" .= _ptpjfrrqClientToken,
-               "failureDetails" .= _ptpjfrrqFailureDetails]
+              ["jobId" .= _ptpjfrJobId,
+               "clientToken" .= _ptpjfrClientToken,
+               "failureDetails" .= _ptpjfrFailureDetails]
 
 instance ToPath PutThirdPartyJobFailureResult where
         toPath = const "/"

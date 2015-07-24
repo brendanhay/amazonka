@@ -44,8 +44,8 @@ module Network.AWS.RDS.RebootDBInstance
     -- ** Request constructor
     , rebootDBInstance
     -- ** Request lenses
-    , rdirqForceFailover
-    , rdirqDBInstanceIdentifier
+    , rdiForceFailover
+    , rdiDBInstanceIdentifier
 
     -- * Response
     , RebootDBInstanceResponse
@@ -67,28 +67,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdirqForceFailover'
+-- * 'rdiForceFailover'
 --
--- * 'rdirqDBInstanceIdentifier'
+-- * 'rdiDBInstanceIdentifier'
 data RebootDBInstance = RebootDBInstance'
-    { _rdirqForceFailover        :: !(Maybe Bool)
-    , _rdirqDBInstanceIdentifier :: !Text
+    { _rdiForceFailover        :: !(Maybe Bool)
+    , _rdiDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootDBInstance' smart constructor.
 rebootDBInstance :: Text -> RebootDBInstance
 rebootDBInstance pDBInstanceIdentifier_ =
     RebootDBInstance'
-    { _rdirqForceFailover = Nothing
-    , _rdirqDBInstanceIdentifier = pDBInstanceIdentifier_
+    { _rdiForceFailover = Nothing
+    , _rdiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | When @true@, the reboot will be conducted through a MultiAZ failover.
 --
 -- Constraint: You cannot specify @true@ if the instance is not configured
 -- for MultiAZ.
-rdirqForceFailover :: Lens' RebootDBInstance (Maybe Bool)
-rdirqForceFailover = lens _rdirqForceFailover (\ s a -> s{_rdirqForceFailover = a});
+rdiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
+rdiForceFailover = lens _rdiForceFailover (\ s a -> s{_rdiForceFailover = a});
 
 -- | The DB instance identifier. This parameter is stored as a lowercase
 -- string.
@@ -98,8 +98,8 @@ rdirqForceFailover = lens _rdirqForceFailover (\ s a -> s{_rdirqForceFailover = 
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-rdirqDBInstanceIdentifier :: Lens' RebootDBInstance Text
-rdirqDBInstanceIdentifier = lens _rdirqDBInstanceIdentifier (\ s a -> s{_rdirqDBInstanceIdentifier = a});
+rdiDBInstanceIdentifier :: Lens' RebootDBInstance Text
+rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\ s a -> s{_rdiDBInstanceIdentifier = a});
 
 instance AWSRequest RebootDBInstance where
         type Sv RebootDBInstance = RDS
@@ -122,8 +122,8 @@ instance ToQuery RebootDBInstance where
           = mconcat
               ["Action" =: ("RebootDBInstance" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "ForceFailover" =: _rdirqForceFailover,
-               "DBInstanceIdentifier" =: _rdirqDBInstanceIdentifier]
+               "ForceFailover" =: _rdiForceFailover,
+               "DBInstanceIdentifier" =: _rdiDBInstanceIdentifier]
 
 -- | /See:/ 'rebootDBInstanceResponse' smart constructor.
 --

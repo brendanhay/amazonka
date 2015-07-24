@@ -29,7 +29,7 @@ module Network.AWS.StorageGateway.DescribeSnapshotSchedule
     -- ** Request constructor
     , describeSnapshotSchedule
     -- ** Request lenses
-    , dssrqVolumeARN
+    , dssVolumeARN
 
     -- * Response
     , DescribeSnapshotScheduleResponse
@@ -56,22 +56,22 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssrqVolumeARN'
+-- * 'dssVolumeARN'
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
-    { _dssrqVolumeARN :: Text
+    { _dssVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotSchedule' smart constructor.
 describeSnapshotSchedule :: Text -> DescribeSnapshotSchedule
 describeSnapshotSchedule pVolumeARN_ =
     DescribeSnapshotSchedule'
-    { _dssrqVolumeARN = pVolumeARN_
+    { _dssVolumeARN = pVolumeARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-dssrqVolumeARN :: Lens' DescribeSnapshotSchedule Text
-dssrqVolumeARN = lens _dssrqVolumeARN (\ s a -> s{_dssrqVolumeARN = a});
+dssVolumeARN :: Lens' DescribeSnapshotSchedule Text
+dssVolumeARN = lens _dssVolumeARN (\ s a -> s{_dssVolumeARN = a});
 
 instance AWSRequest DescribeSnapshotSchedule where
         type Sv DescribeSnapshotSchedule = StorageGateway
@@ -100,7 +100,7 @@ instance ToHeaders DescribeSnapshotSchedule where
 
 instance ToJSON DescribeSnapshotSchedule where
         toJSON DescribeSnapshotSchedule'{..}
-          = object ["VolumeARN" .= _dssrqVolumeARN]
+          = object ["VolumeARN" .= _dssVolumeARN]
 
 instance ToPath DescribeSnapshotSchedule where
         toPath = const "/"

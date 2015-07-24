@@ -33,8 +33,8 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     -- ** Request constructor
     , detachLoadBalancers
     -- ** Request lenses
-    , drqAutoScalingGroupName
-    , drqLoadBalancerNames
+    , dAutoScalingGroupName
+    , dLoadBalancerNames
 
     -- * Response
     , DetachLoadBalancersResponse
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqAutoScalingGroupName'
+-- * 'dAutoScalingGroupName'
 --
--- * 'drqLoadBalancerNames'
+-- * 'dLoadBalancerNames'
 data DetachLoadBalancers = DetachLoadBalancers'
-    { _drqAutoScalingGroupName :: !(Maybe Text)
-    , _drqLoadBalancerNames    :: !(Maybe [Text])
+    { _dAutoScalingGroupName :: !(Maybe Text)
+    , _dLoadBalancerNames    :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancers' smart constructor.
 detachLoadBalancers :: DetachLoadBalancers
 detachLoadBalancers =
     DetachLoadBalancers'
-    { _drqAutoScalingGroupName = Nothing
-    , _drqLoadBalancerNames = Nothing
+    { _dAutoScalingGroupName = Nothing
+    , _dLoadBalancerNames = Nothing
     }
 
 -- | The name of the group.
-drqAutoScalingGroupName :: Lens' DetachLoadBalancers (Maybe Text)
-drqAutoScalingGroupName = lens _drqAutoScalingGroupName (\ s a -> s{_drqAutoScalingGroupName = a});
+dAutoScalingGroupName :: Lens' DetachLoadBalancers (Maybe Text)
+dAutoScalingGroupName = lens _dAutoScalingGroupName (\ s a -> s{_dAutoScalingGroupName = a});
 
 -- | One or more load balancer names.
-drqLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
-drqLoadBalancerNames = lens _drqLoadBalancerNames (\ s a -> s{_drqLoadBalancerNames = a}) . _Default;
+dLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
+dLoadBalancerNames = lens _dLoadBalancerNames (\ s a -> s{_dLoadBalancerNames = a}) . _Default;
 
 instance AWSRequest DetachLoadBalancers where
         type Sv DetachLoadBalancers = AutoScaling
@@ -98,10 +98,10 @@ instance ToQuery DetachLoadBalancers where
           = mconcat
               ["Action" =: ("DetachLoadBalancers" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "AutoScalingGroupName" =: _drqAutoScalingGroupName,
+               "AutoScalingGroupName" =: _dAutoScalingGroupName,
                "LoadBalancerNames" =:
                  toQuery
-                   (toQueryList "member" <$> _drqLoadBalancerNames)]
+                   (toQueryList "member" <$> _dLoadBalancerNames)]
 
 -- | /See:/ 'detachLoadBalancersResponse' smart constructor.
 --

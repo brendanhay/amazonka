@@ -36,9 +36,9 @@ module Network.AWS.IAM.CreateRole
     -- ** Request constructor
     , createRole
     -- ** Request lenses
-    , crrqPath
-    , crrqRoleName
-    , crrqAssumeRolePolicyDocument
+    , crPath
+    , crRoleName
+    , crAssumeRolePolicyDocument
 
     -- * Response
     , CreateRoleResponse
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrqPath'
+-- * 'crPath'
 --
--- * 'crrqRoleName'
+-- * 'crRoleName'
 --
--- * 'crrqAssumeRolePolicyDocument'
+-- * 'crAssumeRolePolicyDocument'
 data CreateRole = CreateRole'
-    { _crrqPath                     :: !(Maybe Text)
-    , _crrqRoleName                 :: !Text
-    , _crrqAssumeRolePolicyDocument :: !Text
+    { _crPath                     :: !(Maybe Text)
+    , _crRoleName                 :: !Text
+    , _crAssumeRolePolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRole' smart constructor.
 createRole :: Text -> Text -> CreateRole
 createRole pRoleName_ pAssumeRolePolicyDocument_ =
     CreateRole'
-    { _crrqPath = Nothing
-    , _crrqRoleName = pRoleName_
-    , _crrqAssumeRolePolicyDocument = pAssumeRolePolicyDocument_
+    { _crPath = Nothing
+    , _crRoleName = pRoleName_
+    , _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument_
     }
 
 -- | The path to the role. For more information about paths, see
@@ -84,16 +84,16 @@ createRole pRoleName_ pAssumeRolePolicyDocument_ =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-crrqPath :: Lens' CreateRole (Maybe Text)
-crrqPath = lens _crrqPath (\ s a -> s{_crrqPath = a});
+crPath :: Lens' CreateRole (Maybe Text)
+crPath = lens _crPath (\ s a -> s{_crPath = a});
 
 -- | The name of the role to create.
-crrqRoleName :: Lens' CreateRole Text
-crrqRoleName = lens _crrqRoleName (\ s a -> s{_crrqRoleName = a});
+crRoleName :: Lens' CreateRole Text
+crRoleName = lens _crRoleName (\ s a -> s{_crRoleName = a});
 
 -- | The policy that grants an entity permission to assume the role.
-crrqAssumeRolePolicyDocument :: Lens' CreateRole Text
-crrqAssumeRolePolicyDocument = lens _crrqAssumeRolePolicyDocument (\ s a -> s{_crrqAssumeRolePolicyDocument = a});
+crAssumeRolePolicyDocument :: Lens' CreateRole Text
+crAssumeRolePolicyDocument = lens _crAssumeRolePolicyDocument (\ s a -> s{_crAssumeRolePolicyDocument = a});
 
 instance AWSRequest CreateRole where
         type Sv CreateRole = IAM
@@ -116,9 +116,9 @@ instance ToQuery CreateRole where
           = mconcat
               ["Action" =: ("CreateRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _crrqPath, "RoleName" =: _crrqRoleName,
+               "Path" =: _crPath, "RoleName" =: _crRoleName,
                "AssumeRolePolicyDocument" =:
-                 _crrqAssumeRolePolicyDocument]
+                 _crAssumeRolePolicyDocument]
 
 -- | Contains the response to a successful CreateRole request.
 --

@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.CreateApplication
     -- ** Request constructor
     , createApplication
     -- ** Request lenses
-    , carqApplicationName
+    , caApplicationName
 
     -- * Response
     , CreateApplicationResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carqApplicationName'
+-- * 'caApplicationName'
 newtype CreateApplication = CreateApplication'
-    { _carqApplicationName :: Text
+    { _caApplicationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
 createApplication pApplicationName_ =
     CreateApplication'
-    { _carqApplicationName = pApplicationName_
+    { _caApplicationName = pApplicationName_
     }
 
 -- | The name of the application. This name must be unique with the
 -- applicable IAM user or AWS account.
-carqApplicationName :: Lens' CreateApplication Text
-carqApplicationName = lens _carqApplicationName (\ s a -> s{_carqApplicationName = a});
+caApplicationName :: Lens' CreateApplication Text
+caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 
 instance AWSRequest CreateApplication where
         type Sv CreateApplication = CodeDeploy
@@ -88,7 +88,7 @@ instance ToHeaders CreateApplication where
 
 instance ToJSON CreateApplication where
         toJSON CreateApplication'{..}
-          = object ["applicationName" .= _carqApplicationName]
+          = object ["applicationName" .= _caApplicationName]
 
 instance ToPath CreateApplication where
         toPath = const "/"

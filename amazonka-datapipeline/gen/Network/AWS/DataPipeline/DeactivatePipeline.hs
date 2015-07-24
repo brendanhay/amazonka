@@ -32,8 +32,8 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     -- ** Request constructor
     , deactivatePipeline
     -- ** Request lenses
-    , drqCancelActive
-    , drqPipelineId
+    , dCancelActive
+    , dPipelineId
 
     -- * Response
     , DeactivatePipelineResponse
@@ -54,31 +54,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqCancelActive'
+-- * 'dCancelActive'
 --
--- * 'drqPipelineId'
+-- * 'dPipelineId'
 data DeactivatePipeline = DeactivatePipeline'
-    { _drqCancelActive :: !(Maybe Bool)
-    , _drqPipelineId   :: !Text
+    { _dCancelActive :: !(Maybe Bool)
+    , _dPipelineId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivatePipeline' smart constructor.
 deactivatePipeline :: Text -> DeactivatePipeline
 deactivatePipeline pPipelineId_ =
     DeactivatePipeline'
-    { _drqCancelActive = Nothing
-    , _drqPipelineId = pPipelineId_
+    { _dCancelActive = Nothing
+    , _dPipelineId = pPipelineId_
     }
 
 -- | Indicates whether to cancel any running objects. The default is true,
 -- which sets the state of any running objects to @CANCELED@. If this value
 -- is false, the pipeline is deactivated after all running objects finish.
-drqCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
-drqCancelActive = lens _drqCancelActive (\ s a -> s{_drqCancelActive = a});
+dCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
+dCancelActive = lens _dCancelActive (\ s a -> s{_dCancelActive = a});
 
 -- | The ID of the pipeline.
-drqPipelineId :: Lens' DeactivatePipeline Text
-drqPipelineId = lens _drqPipelineId (\ s a -> s{_drqPipelineId = a});
+dPipelineId :: Lens' DeactivatePipeline Text
+dPipelineId = lens _dPipelineId (\ s a -> s{_dPipelineId = a});
 
 instance AWSRequest DeactivatePipeline where
         type Sv DeactivatePipeline = DataPipeline
@@ -102,8 +102,8 @@ instance ToHeaders DeactivatePipeline where
 instance ToJSON DeactivatePipeline where
         toJSON DeactivatePipeline'{..}
           = object
-              ["cancelActive" .= _drqCancelActive,
-               "pipelineId" .= _drqPipelineId]
+              ["cancelActive" .= _dCancelActive,
+               "pipelineId" .= _dPipelineId]
 
 instance ToPath DeactivatePipeline where
         toPath = const "/"

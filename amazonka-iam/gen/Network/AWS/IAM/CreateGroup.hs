@@ -31,8 +31,8 @@ module Network.AWS.IAM.CreateGroup
     -- ** Request constructor
     , createGroup
     -- ** Request lenses
-    , cgrqPath
-    , cgrqGroupName
+    , cgPath
+    , cgGroupName
 
     -- * Response
     , CreateGroupResponse
@@ -52,20 +52,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cgrqPath'
+-- * 'cgPath'
 --
--- * 'cgrqGroupName'
+-- * 'cgGroupName'
 data CreateGroup = CreateGroup'
-    { _cgrqPath      :: !(Maybe Text)
-    , _cgrqGroupName :: !Text
+    { _cgPath      :: !(Maybe Text)
+    , _cgGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGroup' smart constructor.
 createGroup :: Text -> CreateGroup
 createGroup pGroupName_ =
     CreateGroup'
-    { _cgrqPath = Nothing
-    , _cgrqGroupName = pGroupName_
+    { _cgPath = Nothing
+    , _cgGroupName = pGroupName_
     }
 
 -- | The path to the group. For more information about paths, see
@@ -74,12 +74,12 @@ createGroup pGroupName_ =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cgrqPath :: Lens' CreateGroup (Maybe Text)
-cgrqPath = lens _cgrqPath (\ s a -> s{_cgrqPath = a});
+cgPath :: Lens' CreateGroup (Maybe Text)
+cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
 
 -- | The name of the group to create. Do not include the path in this value.
-cgrqGroupName :: Lens' CreateGroup Text
-cgrqGroupName = lens _cgrqGroupName (\ s a -> s{_cgrqGroupName = a});
+cgGroupName :: Lens' CreateGroup Text
+cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 
 instance AWSRequest CreateGroup where
         type Sv CreateGroup = IAM
@@ -102,7 +102,7 @@ instance ToQuery CreateGroup where
           = mconcat
               ["Action" =: ("CreateGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _cgrqPath, "GroupName" =: _cgrqGroupName]
+               "Path" =: _cgPath, "GroupName" =: _cgGroupName]
 
 -- | Contains the response to a successful CreateGroup request.
 --

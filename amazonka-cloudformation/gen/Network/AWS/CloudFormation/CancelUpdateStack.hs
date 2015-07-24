@@ -31,7 +31,7 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     -- ** Request constructor
     , cancelUpdateStack
     -- ** Request lenses
-    , cusrqStackName
+    , cusStackName
 
     -- * Response
     , CancelUpdateStackResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cusrqStackName'
+-- * 'cusStackName'
 newtype CancelUpdateStack = CancelUpdateStack'
-    { _cusrqStackName :: Text
+    { _cusStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelUpdateStack' smart constructor.
 cancelUpdateStack :: Text -> CancelUpdateStack
 cancelUpdateStack pStackName_ =
     CancelUpdateStack'
-    { _cusrqStackName = pStackName_
+    { _cusStackName = pStackName_
     }
 
 -- | The name or the unique stack ID that is associated with the stack.
-cusrqStackName :: Lens' CancelUpdateStack Text
-cusrqStackName = lens _cusrqStackName (\ s a -> s{_cusrqStackName = a});
+cusStackName :: Lens' CancelUpdateStack Text
+cusStackName = lens _cusStackName (\ s a -> s{_cusStackName = a});
 
 instance AWSRequest CancelUpdateStack where
         type Sv CancelUpdateStack = CloudFormation
@@ -83,7 +83,7 @@ instance ToQuery CancelUpdateStack where
           = mconcat
               ["Action" =: ("CancelUpdateStack" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _cusrqStackName]
+               "StackName" =: _cusStackName]
 
 -- | /See:/ 'cancelUpdateStackResponse' smart constructor.
 data CancelUpdateStackResponse =

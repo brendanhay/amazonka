@@ -30,8 +30,8 @@ module Network.AWS.CognitoIdentity.SetIdentityPoolRoles
     -- ** Request constructor
     , setIdentityPoolRoles
     -- ** Request lenses
-    , siprrqIdentityPoolId
-    , siprrqRoles
+    , siprIdentityPoolId
+    , siprRoles
 
     -- * Response
     , SetIdentityPoolRolesResponse
@@ -50,31 +50,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siprrqIdentityPoolId'
+-- * 'siprIdentityPoolId'
 --
--- * 'siprrqRoles'
+-- * 'siprRoles'
 data SetIdentityPoolRoles = SetIdentityPoolRoles'
-    { _siprrqIdentityPoolId :: !Text
-    , _siprrqRoles          :: !(Map Text Text)
+    { _siprIdentityPoolId :: !Text
+    , _siprRoles          :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolRoles' smart constructor.
 setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
 setIdentityPoolRoles pIdentityPoolId_ =
     SetIdentityPoolRoles'
-    { _siprrqIdentityPoolId = pIdentityPoolId_
-    , _siprrqRoles = mempty
+    { _siprIdentityPoolId = pIdentityPoolId_
+    , _siprRoles = mempty
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-siprrqIdentityPoolId :: Lens' SetIdentityPoolRoles Text
-siprrqIdentityPoolId = lens _siprrqIdentityPoolId (\ s a -> s{_siprrqIdentityPoolId = a});
+siprIdentityPoolId :: Lens' SetIdentityPoolRoles Text
+siprIdentityPoolId = lens _siprIdentityPoolId (\ s a -> s{_siprIdentityPoolId = a});
 
 -- | The map of roles associated with this pool. For a given role, the key
 -- will be either \"authenticated\" or \"unauthenticated\" and the value
 -- will be the Role ARN.
-siprrqRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
-siprrqRoles = lens _siprrqRoles (\ s a -> s{_siprrqRoles = a}) . _Map;
+siprRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
+siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Map;
 
 instance AWSRequest SetIdentityPoolRoles where
         type Sv SetIdentityPoolRoles = CognitoIdentity
@@ -96,8 +96,8 @@ instance ToHeaders SetIdentityPoolRoles where
 instance ToJSON SetIdentityPoolRoles where
         toJSON SetIdentityPoolRoles'{..}
           = object
-              ["IdentityPoolId" .= _siprrqIdentityPoolId,
-               "Roles" .= _siprrqRoles]
+              ["IdentityPoolId" .= _siprIdentityPoolId,
+               "Roles" .= _siprRoles]
 
 instance ToPath SetIdentityPoolRoles where
         toPath = const "/"

@@ -31,8 +31,8 @@ module Network.AWS.RDS.DescribeEventCategories
     -- ** Request constructor
     , describeEventCategories
     -- ** Request lenses
-    , decrqSourceType
-    , decrqFilters
+    , decSourceType
+    , decFilters
 
     -- * Response
     , DescribeEventCategoriesResponse
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decrqSourceType'
+-- * 'decSourceType'
 --
--- * 'decrqFilters'
+-- * 'decFilters'
 data DescribeEventCategories = DescribeEventCategories'
-    { _decrqSourceType :: !(Maybe Text)
-    , _decrqFilters    :: !(Maybe [Filter])
+    { _decSourceType :: !(Maybe Text)
+    , _decFilters    :: !(Maybe [Filter])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventCategories' smart constructor.
 describeEventCategories :: DescribeEventCategories
 describeEventCategories =
     DescribeEventCategories'
-    { _decrqSourceType = Nothing
-    , _decrqFilters = Nothing
+    { _decSourceType = Nothing
+    , _decFilters = Nothing
     }
 
 -- | The type of source that will be generating the events.
 --
 -- Valid values: db-instance | db-parameter-group | db-security-group |
 -- db-snapshot
-decrqSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decrqSourceType = lens _decrqSourceType (\ s a -> s{_decrqSourceType = a});
+decSourceType :: Lens' DescribeEventCategories (Maybe Text)
+decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
 -- | This parameter is not currently supported.
-decrqFilters :: Lens' DescribeEventCategories [Filter]
-decrqFilters = lens _decrqFilters (\ s a -> s{_decrqFilters = a}) . _Default;
+decFilters :: Lens' DescribeEventCategories [Filter]
+decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default;
 
 instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = RDS
@@ -106,9 +106,9 @@ instance ToQuery DescribeEventCategories where
               ["Action" =:
                  ("DescribeEventCategories" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SourceType" =: _decrqSourceType,
+               "SourceType" =: _decSourceType,
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _decrqFilters)]
+                 toQuery (toQueryList "Filter" <$> _decFilters)]
 
 -- | Data returned from the __DescribeEventCategories__ action.
 --

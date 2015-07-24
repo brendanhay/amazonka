@@ -32,11 +32,11 @@ module Network.AWS.Lambda.UpdateFunctionCode
     -- ** Request constructor
     , updateFunctionCode
     -- ** Request lenses
-    , urqS3ObjectVersion
-    , urqS3Key
-    , urqZipFile
-    , urqS3Bucket
-    , urqFunctionName
+    , uS3ObjectVersion
+    , uS3Key
+    , uZipFile
+    , uS3Bucket
+    , uFunctionName
 
     -- * Response
     , FunctionConfiguration
@@ -64,53 +64,53 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urqS3ObjectVersion'
+-- * 'uS3ObjectVersion'
 --
--- * 'urqS3Key'
+-- * 'uS3Key'
 --
--- * 'urqZipFile'
+-- * 'uZipFile'
 --
--- * 'urqS3Bucket'
+-- * 'uS3Bucket'
 --
--- * 'urqFunctionName'
+-- * 'uFunctionName'
 data UpdateFunctionCode = UpdateFunctionCode'
-    { _urqS3ObjectVersion :: !(Maybe Text)
-    , _urqS3Key           :: !(Maybe Text)
-    , _urqZipFile         :: !(Maybe Base64)
-    , _urqS3Bucket        :: !(Maybe Text)
-    , _urqFunctionName    :: !Text
+    { _uS3ObjectVersion :: !(Maybe Text)
+    , _uS3Key           :: !(Maybe Text)
+    , _uZipFile         :: !(Maybe Base64)
+    , _uS3Bucket        :: !(Maybe Text)
+    , _uFunctionName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateFunctionCode' smart constructor.
 updateFunctionCode :: Text -> UpdateFunctionCode
 updateFunctionCode pFunctionName_ =
     UpdateFunctionCode'
-    { _urqS3ObjectVersion = Nothing
-    , _urqS3Key = Nothing
-    , _urqZipFile = Nothing
-    , _urqS3Bucket = Nothing
-    , _urqFunctionName = pFunctionName_
+    { _uS3ObjectVersion = Nothing
+    , _uS3Key = Nothing
+    , _uZipFile = Nothing
+    , _uS3Bucket = Nothing
+    , _uFunctionName = pFunctionName_
     }
 
 -- | The Amazon S3 object (the deployment package) version you want to
 -- upload.
-urqS3ObjectVersion :: Lens' UpdateFunctionCode (Maybe Text)
-urqS3ObjectVersion = lens _urqS3ObjectVersion (\ s a -> s{_urqS3ObjectVersion = a});
+uS3ObjectVersion :: Lens' UpdateFunctionCode (Maybe Text)
+uS3ObjectVersion = lens _uS3ObjectVersion (\ s a -> s{_uS3ObjectVersion = a});
 
 -- | The Amazon S3 object (the deployment package) key name you want to
 -- upload.
-urqS3Key :: Lens' UpdateFunctionCode (Maybe Text)
-urqS3Key = lens _urqS3Key (\ s a -> s{_urqS3Key = a});
+uS3Key :: Lens' UpdateFunctionCode (Maybe Text)
+uS3Key = lens _uS3Key (\ s a -> s{_uS3Key = a});
 
 -- | Based64-encoded .zip file containing your packaged source code.
-urqZipFile :: Lens' UpdateFunctionCode (Maybe Base64)
-urqZipFile = lens _urqZipFile (\ s a -> s{_urqZipFile = a});
+uZipFile :: Lens' UpdateFunctionCode (Maybe Base64)
+uZipFile = lens _uZipFile (\ s a -> s{_uZipFile = a});
 
 -- | Amazon S3 bucket name where the .zip file containing your deployment
 -- package is stored. This bucket must reside in the same AWS region where
 -- you are creating the Lambda function.
-urqS3Bucket :: Lens' UpdateFunctionCode (Maybe Text)
-urqS3Bucket = lens _urqS3Bucket (\ s a -> s{_urqS3Bucket = a});
+uS3Bucket :: Lens' UpdateFunctionCode (Maybe Text)
+uS3Bucket = lens _uS3Bucket (\ s a -> s{_uS3Bucket = a});
 
 -- | The existing Lambda function name whose code you want to replace.
 --
@@ -122,8 +122,8 @@ urqS3Bucket = lens _urqS3Bucket (\ s a -> s{_urqS3Bucket = a});
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-urqFunctionName :: Lens' UpdateFunctionCode Text
-urqFunctionName = lens _urqFunctionName (\ s a -> s{_urqFunctionName = a});
+uFunctionName :: Lens' UpdateFunctionCode Text
+uFunctionName = lens _uFunctionName (\ s a -> s{_uFunctionName = a});
 
 instance AWSRequest UpdateFunctionCode where
         type Sv UpdateFunctionCode = Lambda
@@ -137,14 +137,14 @@ instance ToHeaders UpdateFunctionCode where
 instance ToJSON UpdateFunctionCode where
         toJSON UpdateFunctionCode'{..}
           = object
-              ["S3ObjectVersion" .= _urqS3ObjectVersion,
-               "S3Key" .= _urqS3Key, "ZipFile" .= _urqZipFile,
-               "S3Bucket" .= _urqS3Bucket]
+              ["S3ObjectVersion" .= _uS3ObjectVersion,
+               "S3Key" .= _uS3Key, "ZipFile" .= _uZipFile,
+               "S3Bucket" .= _uS3Bucket]
 
 instance ToPath UpdateFunctionCode where
         toPath UpdateFunctionCode'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _urqFunctionName,
+              ["/2015-03-31/functions/", toText _uFunctionName,
                "/versions/HEAD/code"]
 
 instance ToQuery UpdateFunctionCode where

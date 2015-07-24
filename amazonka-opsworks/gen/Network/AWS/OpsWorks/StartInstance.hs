@@ -34,7 +34,7 @@ module Network.AWS.OpsWorks.StartInstance
     -- ** Request constructor
     , startInstance
     -- ** Request lenses
-    , srqInstanceId
+    , sInstanceId
 
     -- * Response
     , StartInstanceResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqInstanceId'
+-- * 'sInstanceId'
 newtype StartInstance = StartInstance'
-    { _srqInstanceId :: Text
+    { _sInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstance' smart constructor.
 startInstance :: Text -> StartInstance
 startInstance pInstanceId_ =
     StartInstance'
-    { _srqInstanceId = pInstanceId_
+    { _sInstanceId = pInstanceId_
     }
 
 -- | The instance ID.
-srqInstanceId :: Lens' StartInstance Text
-srqInstanceId = lens _srqInstanceId (\ s a -> s{_srqInstanceId = a});
+sInstanceId :: Lens' StartInstance Text
+sInstanceId = lens _sInstanceId (\ s a -> s{_sInstanceId = a});
 
 instance AWSRequest StartInstance where
         type Sv StartInstance = OpsWorks
@@ -84,7 +84,7 @@ instance ToHeaders StartInstance where
 
 instance ToJSON StartInstance where
         toJSON StartInstance'{..}
-          = object ["InstanceId" .= _srqInstanceId]
+          = object ["InstanceId" .= _sInstanceId]
 
 instance ToPath StartInstance where
         toPath = const "/"

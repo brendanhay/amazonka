@@ -32,7 +32,7 @@ module Network.AWS.CodeCommit.DeleteRepository
     -- ** Request constructor
     , deleteRepository
     -- ** Request lenses
-    , drrqRepositoryName
+    , drRepositoryName
 
     -- * Response
     , DeleteRepositoryResponse
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drrqRepositoryName'
+-- * 'drRepositoryName'
 newtype DeleteRepository = DeleteRepository'
-    { _drrqRepositoryName :: Text
+    { _drRepositoryName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRepository' smart constructor.
 deleteRepository :: Text -> DeleteRepository
 deleteRepository pRepositoryName_ =
     DeleteRepository'
-    { _drrqRepositoryName = pRepositoryName_
+    { _drRepositoryName = pRepositoryName_
     }
 
 -- | The name of the repository to delete.
-drrqRepositoryName :: Lens' DeleteRepository Text
-drrqRepositoryName = lens _drrqRepositoryName (\ s a -> s{_drrqRepositoryName = a});
+drRepositoryName :: Lens' DeleteRepository Text
+drRepositoryName = lens _drRepositoryName (\ s a -> s{_drRepositoryName = a});
 
 instance AWSRequest DeleteRepository where
         type Sv DeleteRepository = CodeCommit
@@ -92,7 +92,7 @@ instance ToHeaders DeleteRepository where
 
 instance ToJSON DeleteRepository where
         toJSON DeleteRepository'{..}
-          = object ["repositoryName" .= _drrqRepositoryName]
+          = object ["repositoryName" .= _drRepositoryName]
 
 instance ToPath DeleteRepository where
         toPath = const "/"

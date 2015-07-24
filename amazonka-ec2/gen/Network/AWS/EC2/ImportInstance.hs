@@ -33,11 +33,11 @@ module Network.AWS.EC2.ImportInstance
     -- ** Request constructor
     , importInstance
     -- ** Request lenses
-    , iirqLaunchSpecification
-    , iirqDiskImages
-    , iirqDryRun
-    , iirqDescription
-    , iirqPlatform
+    , iiLaunchSpecification
+    , iiDiskImages
+    , iiDryRun
+    , iiDescription
+    , iiPlatform
 
     -- * Response
     , ImportInstanceResponse
@@ -57,56 +57,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iirqLaunchSpecification'
+-- * 'iiLaunchSpecification'
 --
--- * 'iirqDiskImages'
+-- * 'iiDiskImages'
 --
--- * 'iirqDryRun'
+-- * 'iiDryRun'
 --
--- * 'iirqDescription'
+-- * 'iiDescription'
 --
--- * 'iirqPlatform'
+-- * 'iiPlatform'
 data ImportInstance = ImportInstance'
-    { _iirqLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
-    , _iirqDiskImages          :: !(Maybe [DiskImage])
-    , _iirqDryRun              :: !(Maybe Bool)
-    , _iirqDescription         :: !(Maybe Text)
-    , _iirqPlatform            :: !PlatformValues
+    { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
+    , _iiDiskImages          :: !(Maybe [DiskImage])
+    , _iiDryRun              :: !(Maybe Bool)
+    , _iiDescription         :: !(Maybe Text)
+    , _iiPlatform            :: !PlatformValues
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstance' smart constructor.
 importInstance :: PlatformValues -> ImportInstance
 importInstance pPlatform_ =
     ImportInstance'
-    { _iirqLaunchSpecification = Nothing
-    , _iirqDiskImages = Nothing
-    , _iirqDryRun = Nothing
-    , _iirqDescription = Nothing
-    , _iirqPlatform = pPlatform_
+    { _iiLaunchSpecification = Nothing
+    , _iiDiskImages = Nothing
+    , _iiDryRun = Nothing
+    , _iiDescription = Nothing
+    , _iiPlatform = pPlatform_
     }
 
 -- | The launch specification.
-iirqLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
-iirqLaunchSpecification = lens _iirqLaunchSpecification (\ s a -> s{_iirqLaunchSpecification = a});
+iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
+iiLaunchSpecification = lens _iiLaunchSpecification (\ s a -> s{_iiLaunchSpecification = a});
 
 -- | The disk image.
-iirqDiskImages :: Lens' ImportInstance [DiskImage]
-iirqDiskImages = lens _iirqDiskImages (\ s a -> s{_iirqDiskImages = a}) . _Default;
+iiDiskImages :: Lens' ImportInstance [DiskImage]
+iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-iirqDryRun :: Lens' ImportInstance (Maybe Bool)
-iirqDryRun = lens _iirqDryRun (\ s a -> s{_iirqDryRun = a});
+iiDryRun :: Lens' ImportInstance (Maybe Bool)
+iiDryRun = lens _iiDryRun (\ s a -> s{_iiDryRun = a});
 
 -- | A description for the instance being imported.
-iirqDescription :: Lens' ImportInstance (Maybe Text)
-iirqDescription = lens _iirqDescription (\ s a -> s{_iirqDescription = a});
+iiDescription :: Lens' ImportInstance (Maybe Text)
+iiDescription = lens _iiDescription (\ s a -> s{_iiDescription = a});
 
 -- | The instance operating system.
-iirqPlatform :: Lens' ImportInstance PlatformValues
-iirqPlatform = lens _iirqPlatform (\ s a -> s{_iirqPlatform = a});
+iiPlatform :: Lens' ImportInstance PlatformValues
+iiPlatform = lens _iiPlatform (\ s a -> s{_iiPlatform = a});
 
 instance AWSRequest ImportInstance where
         type Sv ImportInstance = EC2
@@ -129,12 +129,11 @@ instance ToQuery ImportInstance where
           = mconcat
               ["Action" =: ("ImportInstance" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "LaunchSpecification" =: _iirqLaunchSpecification,
-               toQuery
-                 (toQueryList "DiskImage" <$> _iirqDiskImages),
-               "DryRun" =: _iirqDryRun,
-               "Description" =: _iirqDescription,
-               "Platform" =: _iirqPlatform]
+               "LaunchSpecification" =: _iiLaunchSpecification,
+               toQuery (toQueryList "DiskImage" <$> _iiDiskImages),
+               "DryRun" =: _iiDryRun,
+               "Description" =: _iiDescription,
+               "Platform" =: _iiPlatform]
 
 -- | /See:/ 'importInstanceResponse' smart constructor.
 --

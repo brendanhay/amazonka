@@ -37,7 +37,7 @@ module Network.AWS.Config.PutDeliveryChannel
     -- ** Request constructor
     , putDeliveryChannel
     -- ** Request lenses
-    , pdcrqDeliveryChannel
+    , pdcDeliveryChannel
 
     -- * Response
     , PutDeliveryChannelResponse
@@ -56,23 +56,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pdcrqDeliveryChannel'
+-- * 'pdcDeliveryChannel'
 newtype PutDeliveryChannel = PutDeliveryChannel'
-    { _pdcrqDeliveryChannel :: DeliveryChannel
+    { _pdcDeliveryChannel :: DeliveryChannel
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutDeliveryChannel' smart constructor.
 putDeliveryChannel :: DeliveryChannel -> PutDeliveryChannel
 putDeliveryChannel pDeliveryChannel_ =
     PutDeliveryChannel'
-    { _pdcrqDeliveryChannel = pDeliveryChannel_
+    { _pdcDeliveryChannel = pDeliveryChannel_
     }
 
 -- | The configuration delivery channel object that delivers the
 -- configuration information to an Amazon S3 bucket, and to an Amazon SNS
 -- topic.
-pdcrqDeliveryChannel :: Lens' PutDeliveryChannel DeliveryChannel
-pdcrqDeliveryChannel = lens _pdcrqDeliveryChannel (\ s a -> s{_pdcrqDeliveryChannel = a});
+pdcDeliveryChannel :: Lens' PutDeliveryChannel DeliveryChannel
+pdcDeliveryChannel = lens _pdcDeliveryChannel (\ s a -> s{_pdcDeliveryChannel = a});
 
 instance AWSRequest PutDeliveryChannel where
         type Sv PutDeliveryChannel = Config
@@ -93,7 +93,7 @@ instance ToHeaders PutDeliveryChannel where
 
 instance ToJSON PutDeliveryChannel where
         toJSON PutDeliveryChannel'{..}
-          = object ["DeliveryChannel" .= _pdcrqDeliveryChannel]
+          = object ["DeliveryChannel" .= _pdcDeliveryChannel]
 
 instance ToPath PutDeliveryChannel where
         toPath = const "/"

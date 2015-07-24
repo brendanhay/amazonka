@@ -74,12 +74,12 @@ module Network.AWS.Glacier.UploadMultipartPart
     -- ** Request constructor
     , uploadMultipartPart
     -- ** Request lenses
-    , umprqChecksum
-    , umprqRange
-    , umprqAccountId
-    , umprqVaultName
-    , umprqUploadId
-    , umprqBody
+    , umpChecksum
+    , umpRange
+    , umpAccountId
+    , umpVaultName
+    , umpUploadId
+    , umpBody
 
     -- * Response
     , UploadMultipartPartResponse
@@ -102,68 +102,68 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'umprqChecksum'
+-- * 'umpChecksum'
 --
--- * 'umprqRange'
+-- * 'umpRange'
 --
--- * 'umprqAccountId'
+-- * 'umpAccountId'
 --
--- * 'umprqVaultName'
+-- * 'umpVaultName'
 --
--- * 'umprqUploadId'
+-- * 'umpUploadId'
 --
--- * 'umprqBody'
+-- * 'umpBody'
 data UploadMultipartPart = UploadMultipartPart'
-    { _umprqChecksum  :: !(Maybe Text)
-    , _umprqRange     :: !(Maybe Text)
-    , _umprqAccountId :: !Text
-    , _umprqVaultName :: !Text
-    , _umprqUploadId  :: !Text
-    , _umprqBody      :: !RqBody
+    { _umpChecksum  :: !(Maybe Text)
+    , _umpRange     :: !(Maybe Text)
+    , _umpAccountId :: !Text
+    , _umpVaultName :: !Text
+    , _umpUploadId  :: !Text
+    , _umpBody      :: !RqBody
     } deriving (Show,Generic)
 
 -- | 'UploadMultipartPart' smart constructor.
 uploadMultipartPart :: Text -> Text -> Text -> RqBody -> UploadMultipartPart
 uploadMultipartPart pAccountId_ pVaultName_ pUploadId_ pBody_ =
     UploadMultipartPart'
-    { _umprqChecksum = Nothing
-    , _umprqRange = Nothing
-    , _umprqAccountId = pAccountId_
-    , _umprqVaultName = pVaultName_
-    , _umprqUploadId = pUploadId_
-    , _umprqBody = pBody_
+    { _umpChecksum = Nothing
+    , _umpRange = Nothing
+    , _umpAccountId = pAccountId_
+    , _umpVaultName = pVaultName_
+    , _umpUploadId = pUploadId_
+    , _umpBody = pBody_
     }
 
 -- | The SHA256 tree hash of the data being uploaded.
-umprqChecksum :: Lens' UploadMultipartPart (Maybe Text)
-umprqChecksum = lens _umprqChecksum (\ s a -> s{_umprqChecksum = a});
+umpChecksum :: Lens' UploadMultipartPart (Maybe Text)
+umpChecksum = lens _umpChecksum (\ s a -> s{_umpChecksum = a});
 
 -- | Identifies the range of bytes in the assembled archive that will be
 -- uploaded in this part. Amazon Glacier uses this information to assemble
 -- the archive in the proper sequence. The format of this header follows
 -- RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
-umprqRange :: Lens' UploadMultipartPart (Maybe Text)
-umprqRange = lens _umprqRange (\ s a -> s{_umprqRange = a});
+umpRange :: Lens' UploadMultipartPart (Maybe Text)
+umpRange = lens _umpRange (\ s a -> s{_umpRange = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-umprqAccountId :: Lens' UploadMultipartPart Text
-umprqAccountId = lens _umprqAccountId (\ s a -> s{_umprqAccountId = a});
+umpAccountId :: Lens' UploadMultipartPart Text
+umpAccountId = lens _umpAccountId (\ s a -> s{_umpAccountId = a});
 
 -- | The name of the vault.
-umprqVaultName :: Lens' UploadMultipartPart Text
-umprqVaultName = lens _umprqVaultName (\ s a -> s{_umprqVaultName = a});
+umpVaultName :: Lens' UploadMultipartPart Text
+umpVaultName = lens _umpVaultName (\ s a -> s{_umpVaultName = a});
 
 -- | The upload ID of the multipart upload.
-umprqUploadId :: Lens' UploadMultipartPart Text
-umprqUploadId = lens _umprqUploadId (\ s a -> s{_umprqUploadId = a});
+umpUploadId :: Lens' UploadMultipartPart Text
+umpUploadId = lens _umpUploadId (\ s a -> s{_umpUploadId = a});
 
 -- | The data to upload.
-umprqBody :: Lens' UploadMultipartPart RqBody
-umprqBody = lens _umprqBody (\ s a -> s{_umprqBody = a});
+umpBody :: Lens' UploadMultipartPart RqBody
+umpBody = lens _umpBody (\ s a -> s{_umpBody = a});
 
 instance AWSRequest UploadMultipartPart where
         type Sv UploadMultipartPart = Glacier
@@ -178,20 +178,20 @@ instance AWSRequest UploadMultipartPart where
                      (pure (fromEnum s)))
 
 instance ToBody UploadMultipartPart where
-        toBody = _umprqBody
+        toBody = _umpBody
 
 instance ToHeaders UploadMultipartPart where
         toHeaders UploadMultipartPart'{..}
           = mconcat
-              ["x-amz-sha256-tree-hash" =# _umprqChecksum,
-               "Content-Range" =# _umprqRange]
+              ["x-amz-sha256-tree-hash" =# _umpChecksum,
+               "Content-Range" =# _umpRange]
 
 instance ToPath UploadMultipartPart where
         toPath UploadMultipartPart'{..}
           = mconcat
-              ["/", toText _umprqAccountId, "/vaults/",
-               toText _umprqVaultName, "/multipart-uploads/",
-               toText _umprqUploadId]
+              ["/", toText _umpAccountId, "/vaults/",
+               toText _umpVaultName, "/multipart-uploads/",
+               toText _umpUploadId]
 
 instance ToQuery UploadMultipartPart where
         toQuery = const mempty

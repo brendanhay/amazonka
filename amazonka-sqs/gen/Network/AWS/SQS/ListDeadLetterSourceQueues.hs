@@ -31,7 +31,7 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     -- ** Request constructor
     , listDeadLetterSourceQueues
     -- ** Request lenses
-    , ldlsqrqQueueURL
+    , ldlsqQueueURL
 
     -- * Response
     , ListDeadLetterSourceQueuesResponse
@@ -51,21 +51,21 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldlsqrqQueueURL'
+-- * 'ldlsqQueueURL'
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
-    { _ldlsqrqQueueURL :: Text
+    { _ldlsqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeadLetterSourceQueues' smart constructor.
 listDeadLetterSourceQueues :: Text -> ListDeadLetterSourceQueues
 listDeadLetterSourceQueues pQueueURL_ =
     ListDeadLetterSourceQueues'
-    { _ldlsqrqQueueURL = pQueueURL_
+    { _ldlsqQueueURL = pQueueURL_
     }
 
 -- | The queue URL of a dead letter queue.
-ldlsqrqQueueURL :: Lens' ListDeadLetterSourceQueues Text
-ldlsqrqQueueURL = lens _ldlsqrqQueueURL (\ s a -> s{_ldlsqrqQueueURL = a});
+ldlsqQueueURL :: Lens' ListDeadLetterSourceQueues Text
+ldlsqQueueURL = lens _ldlsqQueueURL (\ s a -> s{_ldlsqQueueURL = a});
 
 instance AWSRequest ListDeadLetterSourceQueues where
         type Sv ListDeadLetterSourceQueues = SQS
@@ -91,7 +91,7 @@ instance ToQuery ListDeadLetterSourceQueues where
               ["Action" =:
                  ("ListDeadLetterSourceQueues" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _ldlsqrqQueueURL]
+               "QueueUrl" =: _ldlsqQueueURL]
 
 -- | A list of your dead letter source queues.
 --

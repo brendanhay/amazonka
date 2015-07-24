@@ -36,11 +36,11 @@ module Network.AWS.IAM.ListEntitiesForPolicy
     -- ** Request constructor
     , listEntitiesForPolicy
     -- ** Request lenses
-    , lefprqPathPrefix
-    , lefprqEntityFilter
-    , lefprqMaxItems
-    , lefprqMarker
-    , lefprqPolicyARN
+    , lefpPathPrefix
+    , lefpEntityFilter
+    , lefpMaxItems
+    , lefpMarker
+    , lefpPolicyARN
 
     -- * Response
     , ListEntitiesForPolicyResponse
@@ -64,39 +64,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lefprqPathPrefix'
+-- * 'lefpPathPrefix'
 --
--- * 'lefprqEntityFilter'
+-- * 'lefpEntityFilter'
 --
--- * 'lefprqMaxItems'
+-- * 'lefpMaxItems'
 --
--- * 'lefprqMarker'
+-- * 'lefpMarker'
 --
--- * 'lefprqPolicyARN'
+-- * 'lefpPolicyARN'
 data ListEntitiesForPolicy = ListEntitiesForPolicy'
-    { _lefprqPathPrefix   :: !(Maybe Text)
-    , _lefprqEntityFilter :: !(Maybe EntityType)
-    , _lefprqMaxItems     :: !(Maybe Nat)
-    , _lefprqMarker       :: !(Maybe Text)
-    , _lefprqPolicyARN    :: !Text
+    { _lefpPathPrefix   :: !(Maybe Text)
+    , _lefpEntityFilter :: !(Maybe EntityType)
+    , _lefpMaxItems     :: !(Maybe Nat)
+    , _lefpMarker       :: !(Maybe Text)
+    , _lefpPolicyARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEntitiesForPolicy' smart constructor.
 listEntitiesForPolicy :: Text -> ListEntitiesForPolicy
 listEntitiesForPolicy pPolicyARN_ =
     ListEntitiesForPolicy'
-    { _lefprqPathPrefix = Nothing
-    , _lefprqEntityFilter = Nothing
-    , _lefprqMaxItems = Nothing
-    , _lefprqMarker = Nothing
-    , _lefprqPolicyARN = pPolicyARN_
+    { _lefpPathPrefix = Nothing
+    , _lefpEntityFilter = Nothing
+    , _lefpMaxItems = Nothing
+    , _lefpMarker = Nothing
+    , _lefpPolicyARN = pPolicyARN_
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
 -- entities.
-lefprqPathPrefix :: Lens' ListEntitiesForPolicy (Maybe Text)
-lefprqPathPrefix = lens _lefprqPathPrefix (\ s a -> s{_lefprqPathPrefix = a});
+lefpPathPrefix :: Lens' ListEntitiesForPolicy (Maybe Text)
+lefpPathPrefix = lens _lefpPathPrefix (\ s a -> s{_lefpPathPrefix = a});
 
 -- | The entity type to use for filtering the results.
 --
@@ -104,8 +104,8 @@ lefprqPathPrefix = lens _lefprqPathPrefix (\ s a -> s{_lefprqPathPrefix = a});
 -- attached to the specified policy are returned. This parameter is
 -- optional. If it is not included, all attached entities (users, groups,
 -- and roles) are returned.
-lefprqEntityFilter :: Lens' ListEntitiesForPolicy (Maybe EntityType)
-lefprqEntityFilter = lens _lefprqEntityFilter (\ s a -> s{_lefprqEntityFilter = a});
+lefpEntityFilter :: Lens' ListEntitiesForPolicy (Maybe EntityType)
+lefpEntityFilter = lens _lefpEntityFilter (\ s a -> s{_lefpEntityFilter = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -113,18 +113,18 @@ lefprqEntityFilter = lens _lefprqEntityFilter (\ s a -> s{_lefprqEntityFilter = 
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lefprqMaxItems :: Lens' ListEntitiesForPolicy (Maybe Natural)
-lefprqMaxItems = lens _lefprqMaxItems (\ s a -> s{_lefprqMaxItems = a}) . mapping _Nat;
+lefpMaxItems :: Lens' ListEntitiesForPolicy (Maybe Natural)
+lefpMaxItems = lens _lefpMaxItems (\ s a -> s{_lefpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lefprqMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
-lefprqMarker = lens _lefprqMarker (\ s a -> s{_lefprqMarker = a});
+lefpMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
+lefpMarker = lens _lefpMarker (\ s a -> s{_lefpMarker = a});
 
 -- | FIXME: Undocumented member.
-lefprqPolicyARN :: Lens' ListEntitiesForPolicy Text
-lefprqPolicyARN = lens _lefprqPolicyARN (\ s a -> s{_lefprqPolicyARN = a});
+lefpPolicyARN :: Lens' ListEntitiesForPolicy Text
+lefpPolicyARN = lens _lefpPolicyARN (\ s a -> s{_lefpPolicyARN = a});
 
 instance AWSRequest ListEntitiesForPolicy where
         type Sv ListEntitiesForPolicy = IAM
@@ -158,11 +158,10 @@ instance ToQuery ListEntitiesForPolicy where
           = mconcat
               ["Action" =: ("ListEntitiesForPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lefprqPathPrefix,
-               "EntityFilter" =: _lefprqEntityFilter,
-               "MaxItems" =: _lefprqMaxItems,
-               "Marker" =: _lefprqMarker,
-               "PolicyArn" =: _lefprqPolicyARN]
+               "PathPrefix" =: _lefpPathPrefix,
+               "EntityFilter" =: _lefpEntityFilter,
+               "MaxItems" =: _lefpMaxItems, "Marker" =: _lefpMarker,
+               "PolicyArn" =: _lefpPolicyARN]
 
 -- | Contains the response to a successful ListEntitiesForPolicy request.
 --

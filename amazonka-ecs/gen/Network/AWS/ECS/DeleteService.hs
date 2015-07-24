@@ -27,8 +27,8 @@ module Network.AWS.ECS.DeleteService
     -- ** Request constructor
     , deleteService
     -- ** Request lenses
-    , dsrqCluster
-    , dsrqService
+    , dsCluster
+    , dsService
 
     -- * Response
     , DeleteServiceResponse
@@ -48,29 +48,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqCluster'
+-- * 'dsCluster'
 --
--- * 'dsrqService'
+-- * 'dsService'
 data DeleteService = DeleteService'
-    { _dsrqCluster :: !(Maybe Text)
-    , _dsrqService :: !Text
+    { _dsCluster :: !(Maybe Text)
+    , _dsService :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteService' smart constructor.
 deleteService :: Text -> DeleteService
 deleteService pService_ =
     DeleteService'
-    { _dsrqCluster = Nothing
-    , _dsrqService = pService_
+    { _dsCluster = Nothing
+    , _dsService = pService_
     }
 
 -- | The name of the cluster that hosts the service you want to delete.
-dsrqCluster :: Lens' DeleteService (Maybe Text)
-dsrqCluster = lens _dsrqCluster (\ s a -> s{_dsrqCluster = a});
+dsCluster :: Lens' DeleteService (Maybe Text)
+dsCluster = lens _dsCluster (\ s a -> s{_dsCluster = a});
 
 -- | The name of the service you want to delete.
-dsrqService :: Lens' DeleteService Text
-dsrqService = lens _dsrqService (\ s a -> s{_dsrqService = a});
+dsService :: Lens' DeleteService Text
+dsService = lens _dsService (\ s a -> s{_dsService = a});
 
 instance AWSRequest DeleteService where
         type Sv DeleteService = ECS
@@ -95,8 +95,7 @@ instance ToHeaders DeleteService where
 instance ToJSON DeleteService where
         toJSON DeleteService'{..}
           = object
-              ["cluster" .= _dsrqCluster,
-               "service" .= _dsrqService]
+              ["cluster" .= _dsCluster, "service" .= _dsService]
 
 instance ToPath DeleteService where
         toPath = const "/"

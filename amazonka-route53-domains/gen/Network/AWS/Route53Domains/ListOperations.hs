@@ -28,8 +28,8 @@ module Network.AWS.Route53Domains.ListOperations
     -- ** Request constructor
     , listOperations
     -- ** Request lenses
-    , lorqMaxItems
-    , lorqMarker
+    , loMaxItems
+    , loMarker
 
     -- * Response
     , ListOperationsResponse
@@ -53,20 +53,20 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lorqMaxItems'
+-- * 'loMaxItems'
 --
--- * 'lorqMarker'
+-- * 'loMarker'
 data ListOperations = ListOperations'
-    { _lorqMaxItems :: !(Maybe Int)
-    , _lorqMarker   :: !(Maybe Text)
+    { _loMaxItems :: !(Maybe Int)
+    , _loMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOperations' smart constructor.
 listOperations :: ListOperations
 listOperations =
     ListOperations'
-    { _lorqMaxItems = Nothing
-    , _lorqMarker = Nothing
+    { _loMaxItems = Nothing
+    , _loMarker = Nothing
     }
 
 -- | Number of domains to be returned.
@@ -78,8 +78,8 @@ listOperations =
 -- Constraints: A value between 1 and 100.
 --
 -- Required: No
-lorqMaxItems :: Lens' ListOperations (Maybe Int)
-lorqMaxItems = lens _lorqMaxItems (\ s a -> s{_lorqMaxItems = a});
+loMaxItems :: Lens' ListOperations (Maybe Int)
+loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 
 -- | For an initial request for a list of operations, omit this element. If
 -- the number of operations that are not yet complete is greater than the
@@ -93,15 +93,15 @@ lorqMaxItems = lens _lorqMaxItems (\ s a -> s{_lorqMaxItems = a});
 -- Default: None
 --
 -- Required: No
-lorqMarker :: Lens' ListOperations (Maybe Text)
-lorqMarker = lens _lorqMarker (\ s a -> s{_lorqMarker = a});
+loMarker :: Lens' ListOperations (Maybe Text)
+loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
 instance AWSPager ListOperations where
         page rq rs
           | stop (rs ^. lorsNextPageMarker) = Nothing
           | stop (rs ^. lorsOperations) = Nothing
           | otherwise =
-            Just $ rq & lorqMarker .~ rs ^. lorsNextPageMarker
+            Just $ rq & loMarker .~ rs ^. lorsNextPageMarker
 
 instance AWSRequest ListOperations where
         type Sv ListOperations = Route53Domains
@@ -127,8 +127,7 @@ instance ToHeaders ListOperations where
 instance ToJSON ListOperations where
         toJSON ListOperations'{..}
           = object
-              ["MaxItems" .= _lorqMaxItems,
-               "Marker" .= _lorqMarker]
+              ["MaxItems" .= _loMaxItems, "Marker" .= _loMarker]
 
 instance ToPath ListOperations where
         toPath = const "/"

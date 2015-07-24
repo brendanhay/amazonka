@@ -27,8 +27,8 @@ module Network.AWS.CodeCommit.UpdateRepositoryName
     -- ** Request constructor
     , updateRepositoryName
     -- ** Request lenses
-    , urnrqOldName
-    , urnrqNewName
+    , urnOldName
+    , urnNewName
 
     -- * Response
     , UpdateRepositoryNameResponse
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urnrqOldName'
+-- * 'urnOldName'
 --
--- * 'urnrqNewName'
+-- * 'urnNewName'
 data UpdateRepositoryName = UpdateRepositoryName'
-    { _urnrqOldName :: !Text
-    , _urnrqNewName :: !Text
+    { _urnOldName :: !Text
+    , _urnNewName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRepositoryName' smart constructor.
 updateRepositoryName :: Text -> Text -> UpdateRepositoryName
 updateRepositoryName pOldName_ pNewName_ =
     UpdateRepositoryName'
-    { _urnrqOldName = pOldName_
-    , _urnrqNewName = pNewName_
+    { _urnOldName = pOldName_
+    , _urnNewName = pNewName_
     }
 
 -- | FIXME: Undocumented member.
-urnrqOldName :: Lens' UpdateRepositoryName Text
-urnrqOldName = lens _urnrqOldName (\ s a -> s{_urnrqOldName = a});
+urnOldName :: Lens' UpdateRepositoryName Text
+urnOldName = lens _urnOldName (\ s a -> s{_urnOldName = a});
 
 -- | FIXME: Undocumented member.
-urnrqNewName :: Lens' UpdateRepositoryName Text
-urnrqNewName = lens _urnrqNewName (\ s a -> s{_urnrqNewName = a});
+urnNewName :: Lens' UpdateRepositoryName Text
+urnNewName = lens _urnNewName (\ s a -> s{_urnNewName = a});
 
 instance AWSRequest UpdateRepositoryName where
         type Sv UpdateRepositoryName = CodeCommit
@@ -91,8 +91,7 @@ instance ToHeaders UpdateRepositoryName where
 instance ToJSON UpdateRepositoryName where
         toJSON UpdateRepositoryName'{..}
           = object
-              ["oldName" .= _urnrqOldName,
-               "newName" .= _urnrqNewName]
+              ["oldName" .= _urnOldName, "newName" .= _urnNewName]
 
 instance ToPath UpdateRepositoryName where
         toPath = const "/"

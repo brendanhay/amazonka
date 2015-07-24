@@ -46,9 +46,9 @@ module Network.AWS.SWF.RegisterDomain
     -- ** Request constructor
     , registerDomain
     -- ** Request lenses
-    , rdrqDescription
-    , rdrqName
-    , rdrqWorkflowExecutionRetentionPeriodInDays
+    , rdDescription
+    , rdName
+    , rdWorkflowExecutionRetentionPeriodInDays
 
     -- * Response
     , RegisterDomainResponse
@@ -65,29 +65,29 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdrqDescription'
+-- * 'rdDescription'
 --
--- * 'rdrqName'
+-- * 'rdName'
 --
--- * 'rdrqWorkflowExecutionRetentionPeriodInDays'
+-- * 'rdWorkflowExecutionRetentionPeriodInDays'
 data RegisterDomain = RegisterDomain'
-    { _rdrqDescription                            :: !(Maybe Text)
-    , _rdrqName                                   :: !Text
-    , _rdrqWorkflowExecutionRetentionPeriodInDays :: !Text
+    { _rdDescription                            :: !(Maybe Text)
+    , _rdName                                   :: !Text
+    , _rdWorkflowExecutionRetentionPeriodInDays :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDomain' smart constructor.
 registerDomain :: Text -> Text -> RegisterDomain
 registerDomain pName_ pWorkflowExecutionRetentionPeriodInDays_ =
     RegisterDomain'
-    { _rdrqDescription = Nothing
-    , _rdrqName = pName_
-    , _rdrqWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays_
+    { _rdDescription = Nothing
+    , _rdName = pName_
+    , _rdWorkflowExecutionRetentionPeriodInDays = pWorkflowExecutionRetentionPeriodInDays_
     }
 
 -- | A text description of the domain.
-rdrqDescription :: Lens' RegisterDomain (Maybe Text)
-rdrqDescription = lens _rdrqDescription (\ s a -> s{_rdrqDescription = a});
+rdDescription :: Lens' RegisterDomain (Maybe Text)
+rdDescription = lens _rdDescription (\ s a -> s{_rdDescription = a});
 
 -- | Name of the domain to register. The name must be unique in the region
 -- that the domain is registered in.
@@ -96,8 +96,8 @@ rdrqDescription = lens _rdrqDescription (\ s a -> s{_rdrqDescription = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-rdrqName :: Lens' RegisterDomain Text
-rdrqName = lens _rdrqName (\ s a -> s{_rdrqName = a});
+rdName :: Lens' RegisterDomain Text
+rdName = lens _rdName (\ s a -> s{_rdName = a});
 
 -- | The duration (in days) that records and histories of workflow executions
 -- on the domain should be kept by the service. After the retention period,
@@ -112,8 +112,8 @@ rdrqName = lens _rdrqName (\ s a -> s{_rdrqName = a});
 -- information about Amazon SWF service limits, see:
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dg-limits.html Amazon SWF Service Limits>
 -- in the /Amazon SWF Developer Guide/.
-rdrqWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain Text
-rdrqWorkflowExecutionRetentionPeriodInDays = lens _rdrqWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_rdrqWorkflowExecutionRetentionPeriodInDays = a});
+rdWorkflowExecutionRetentionPeriodInDays :: Lens' RegisterDomain Text
+rdWorkflowExecutionRetentionPeriodInDays = lens _rdWorkflowExecutionRetentionPeriodInDays (\ s a -> s{_rdWorkflowExecutionRetentionPeriodInDays = a});
 
 instance AWSRequest RegisterDomain where
         type Sv RegisterDomain = SWF
@@ -134,10 +134,9 @@ instance ToHeaders RegisterDomain where
 instance ToJSON RegisterDomain where
         toJSON RegisterDomain'{..}
           = object
-              ["description" .= _rdrqDescription,
-               "name" .= _rdrqName,
+              ["description" .= _rdDescription, "name" .= _rdName,
                "workflowExecutionRetentionPeriodInDays" .=
-                 _rdrqWorkflowExecutionRetentionPeriodInDays]
+                 _rdWorkflowExecutionRetentionPeriodInDays]
 
 instance ToPath RegisterDomain where
         toPath = const "/"

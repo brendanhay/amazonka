@@ -52,8 +52,8 @@ module Network.AWS.SWF.DescribeWorkflowType
     -- ** Request constructor
     , describeWorkflowType
     -- ** Request lenses
-    , dwtrqDomain
-    , dwtrqWorkflowType
+    , dwtDomain
+    , dwtWorkflowType
 
     -- * Response
     , DescribeWorkflowTypeResponse
@@ -74,29 +74,29 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwtrqDomain'
+-- * 'dwtDomain'
 --
--- * 'dwtrqWorkflowType'
+-- * 'dwtWorkflowType'
 data DescribeWorkflowType = DescribeWorkflowType'
-    { _dwtrqDomain       :: !Text
-    , _dwtrqWorkflowType :: !WorkflowType
+    { _dwtDomain       :: !Text
+    , _dwtWorkflowType :: !WorkflowType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkflowType' smart constructor.
 describeWorkflowType :: Text -> WorkflowType -> DescribeWorkflowType
 describeWorkflowType pDomain_ pWorkflowType_ =
     DescribeWorkflowType'
-    { _dwtrqDomain = pDomain_
-    , _dwtrqWorkflowType = pWorkflowType_
+    { _dwtDomain = pDomain_
+    , _dwtWorkflowType = pWorkflowType_
     }
 
 -- | The name of the domain in which this workflow type is registered.
-dwtrqDomain :: Lens' DescribeWorkflowType Text
-dwtrqDomain = lens _dwtrqDomain (\ s a -> s{_dwtrqDomain = a});
+dwtDomain :: Lens' DescribeWorkflowType Text
+dwtDomain = lens _dwtDomain (\ s a -> s{_dwtDomain = a});
 
 -- | The workflow type to describe.
-dwtrqWorkflowType :: Lens' DescribeWorkflowType WorkflowType
-dwtrqWorkflowType = lens _dwtrqWorkflowType (\ s a -> s{_dwtrqWorkflowType = a});
+dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
+dwtWorkflowType = lens _dwtWorkflowType (\ s a -> s{_dwtWorkflowType = a});
 
 instance AWSRequest DescribeWorkflowType where
         type Sv DescribeWorkflowType = SWF
@@ -123,8 +123,8 @@ instance ToHeaders DescribeWorkflowType where
 instance ToJSON DescribeWorkflowType where
         toJSON DescribeWorkflowType'{..}
           = object
-              ["domain" .= _dwtrqDomain,
-               "workflowType" .= _dwtrqWorkflowType]
+              ["domain" .= _dwtDomain,
+               "workflowType" .= _dwtWorkflowType]
 
 instance ToPath DescribeWorkflowType where
         toPath = const "/"

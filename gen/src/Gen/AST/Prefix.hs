@@ -124,23 +124,30 @@ keys :: Map Id a -> Set (CI Text)
 keys = Set.fromList . map (CI.mk . typeId) . Map.keys
 
 -- | Acronym preference list.
+--
+-- Prefixing occurs as follows:
+-- * Requests  - prefer acronyms
+-- * Responses - prefer acronyms, and append 'rs'
+-- * Shapes    - prefer single letters, then acronyms
 acronymPrefixes :: Relation -> Text -> [CI Text]
 acronymPrefixes r (stripSuffix "Response" -> n)
     | isOrphan r
     , Uni d <- _relMode r =
         case d of
-            Input  -> ci requests
-            Output -> ci responses
-    | otherwise     = ci types
+            Input  -> ci ss
+            Output -> ci rs
+    | otherwise     = ci ss
   where
-    requests  = map (<> "rq") types
-    responses = map (<> "rs") types
-    types     = xs ++ map suffix ys
+    rs = map (<> "rs") ss
+    ss = xs ++ map suffix ys
 
     ci = map CI.mk
 
-    -- Replicate the last char
-    suffix x = Text.snoc x (Text.last x)
+    -- Take the next char
+    suffix x = Text.snoc x c
+      where
+        c | Text.length x >= 2 = Text.head (Text.drop 1 x)
+          | otherwise          = Text.head x
 
     xs = catMaybes [r1, r2, r3, r4, r5, r6]
     ys = catMaybes [r1, r2, r3, r4, r6]

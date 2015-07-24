@@ -38,8 +38,8 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     -- ** Request constructor
     , addWorkingStorage
     -- ** Request lenses
-    , awsrqGatewayARN
-    , awsrqDiskIds
+    , awsGatewayARN
+    , awsDiskIds
 
     -- * Response
     , AddWorkingStorageResponse
@@ -63,31 +63,31 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'awsrqGatewayARN'
+-- * 'awsGatewayARN'
 --
--- * 'awsrqDiskIds'
+-- * 'awsDiskIds'
 data AddWorkingStorage = AddWorkingStorage'
-    { _awsrqGatewayARN :: !Text
-    , _awsrqDiskIds    :: ![Text]
+    { _awsGatewayARN :: !Text
+    , _awsDiskIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddWorkingStorage' smart constructor.
 addWorkingStorage :: Text -> AddWorkingStorage
 addWorkingStorage pGatewayARN_ =
     AddWorkingStorage'
-    { _awsrqGatewayARN = pGatewayARN_
-    , _awsrqDiskIds = mempty
+    { _awsGatewayARN = pGatewayARN_
+    , _awsDiskIds = mempty
     }
 
 -- | FIXME: Undocumented member.
-awsrqGatewayARN :: Lens' AddWorkingStorage Text
-awsrqGatewayARN = lens _awsrqGatewayARN (\ s a -> s{_awsrqGatewayARN = a});
+awsGatewayARN :: Lens' AddWorkingStorage Text
+awsGatewayARN = lens _awsGatewayARN (\ s a -> s{_awsGatewayARN = a});
 
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string have a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-awsrqDiskIds :: Lens' AddWorkingStorage [Text]
-awsrqDiskIds = lens _awsrqDiskIds (\ s a -> s{_awsrqDiskIds = a});
+awsDiskIds :: Lens' AddWorkingStorage [Text]
+awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a});
 
 instance AWSRequest AddWorkingStorage where
         type Sv AddWorkingStorage = StorageGateway
@@ -112,8 +112,8 @@ instance ToHeaders AddWorkingStorage where
 instance ToJSON AddWorkingStorage where
         toJSON AddWorkingStorage'{..}
           = object
-              ["GatewayARN" .= _awsrqGatewayARN,
-               "DiskIds" .= _awsrqDiskIds]
+              ["GatewayARN" .= _awsGatewayARN,
+               "DiskIds" .= _awsDiskIds]
 
 instance ToPath AddWorkingStorage where
         toPath = const "/"

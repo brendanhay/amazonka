@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.DeleteDistribution
     -- ** Request constructor
     , deleteDistribution
     -- ** Request lenses
-    , ddrqIfMatch
-    , ddrqId
+    , ddIfMatch
+    , ddId
 
     -- * Response
     , DeleteDistributionResponse
@@ -47,30 +47,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrqIfMatch'
+-- * 'ddIfMatch'
 --
--- * 'ddrqId'
+-- * 'ddId'
 data DeleteDistribution = DeleteDistribution'
-    { _ddrqIfMatch :: !(Maybe Text)
-    , _ddrqId      :: !Text
+    { _ddIfMatch :: !(Maybe Text)
+    , _ddId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDistribution' smart constructor.
 deleteDistribution :: Text -> DeleteDistribution
 deleteDistribution pId_ =
     DeleteDistribution'
-    { _ddrqIfMatch = Nothing
-    , _ddrqId = pId_
+    { _ddIfMatch = Nothing
+    , _ddId = pId_
     }
 
 -- | The value of the ETag header you received when you disabled the
 -- distribution. For example: E2QWRUHAPOMQZL.
-ddrqIfMatch :: Lens' DeleteDistribution (Maybe Text)
-ddrqIfMatch = lens _ddrqIfMatch (\ s a -> s{_ddrqIfMatch = a});
+ddIfMatch :: Lens' DeleteDistribution (Maybe Text)
+ddIfMatch = lens _ddIfMatch (\ s a -> s{_ddIfMatch = a});
 
 -- | The distribution id.
-ddrqId :: Lens' DeleteDistribution Text
-ddrqId = lens _ddrqId (\ s a -> s{_ddrqId = a});
+ddId :: Lens' DeleteDistribution Text
+ddId = lens _ddId (\ s a -> s{_ddId = a});
 
 instance AWSRequest DeleteDistribution where
         type Sv DeleteDistribution = CloudFront
@@ -81,12 +81,11 @@ instance AWSRequest DeleteDistribution where
 
 instance ToHeaders DeleteDistribution where
         toHeaders DeleteDistribution'{..}
-          = mconcat ["If-Match" =# _ddrqIfMatch]
+          = mconcat ["If-Match" =# _ddIfMatch]
 
 instance ToPath DeleteDistribution where
         toPath DeleteDistribution'{..}
-          = mconcat
-              ["/2015-04-17/distribution/", toText _ddrqId]
+          = mconcat ["/2015-04-17/distribution/", toText _ddId]
 
 instance ToQuery DeleteDistribution where
         toQuery = const mempty

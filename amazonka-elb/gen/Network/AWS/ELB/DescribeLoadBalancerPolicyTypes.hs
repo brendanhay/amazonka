@@ -30,7 +30,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     -- ** Request constructor
     , describeLoadBalancerPolicyTypes
     -- ** Request lenses
-    , dlbptrqPolicyTypeNames
+    , dlbptPolicyTypeNames
 
     -- * Response
     , DescribeLoadBalancerPolicyTypesResponse
@@ -50,22 +50,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbptrqPolicyTypeNames'
+-- * 'dlbptPolicyTypeNames'
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
-    { _dlbptrqPolicyTypeNames :: Maybe [Text]
+    { _dlbptPolicyTypeNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicyTypes' smart constructor.
 describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
 describeLoadBalancerPolicyTypes =
     DescribeLoadBalancerPolicyTypes'
-    { _dlbptrqPolicyTypeNames = Nothing
+    { _dlbptPolicyTypeNames = Nothing
     }
 
 -- | The names of the policy types. If no names are specified, describes all
 -- policy types defined by Elastic Load Balancing.
-dlbptrqPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
-dlbptrqPolicyTypeNames = lens _dlbptrqPolicyTypeNames (\ s a -> s{_dlbptrqPolicyTypeNames = a}) . _Default;
+dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
+dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a}) . _Default;
 
 instance AWSRequest DescribeLoadBalancerPolicyTypes
          where
@@ -98,7 +98,7 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
                "Version" =: ("2012-06-01" :: ByteString),
                "PolicyTypeNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dlbptrqPolicyTypeNames)]
+                   (toQueryList "member" <$> _dlbptPolicyTypeNames)]
 
 -- | /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 --

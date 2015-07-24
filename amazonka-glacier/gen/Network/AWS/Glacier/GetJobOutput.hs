@@ -73,10 +73,10 @@ module Network.AWS.Glacier.GetJobOutput
     -- ** Request constructor
     , getJobOutput
     -- ** Request lenses
-    , gjorqRange
-    , gjorqAccountId
-    , gjorqVaultName
-    , gjorqJobId
+    , gjoRange
+    , gjoAccountId
+    , gjoVaultName
+    , gjoJobId
 
     -- * Response
     , GetJobOutputResponse
@@ -103,52 +103,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjorqRange'
+-- * 'gjoRange'
 --
--- * 'gjorqAccountId'
+-- * 'gjoAccountId'
 --
--- * 'gjorqVaultName'
+-- * 'gjoVaultName'
 --
--- * 'gjorqJobId'
+-- * 'gjoJobId'
 data GetJobOutput = GetJobOutput'
-    { _gjorqRange     :: !(Maybe Text)
-    , _gjorqAccountId :: !Text
-    , _gjorqVaultName :: !Text
-    , _gjorqJobId     :: !Text
+    { _gjoRange     :: !(Maybe Text)
+    , _gjoAccountId :: !Text
+    , _gjoVaultName :: !Text
+    , _gjoJobId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobOutput' smart constructor.
 getJobOutput :: Text -> Text -> Text -> GetJobOutput
 getJobOutput pAccountId_ pVaultName_ pJobId_ =
     GetJobOutput'
-    { _gjorqRange = Nothing
-    , _gjorqAccountId = pAccountId_
-    , _gjorqVaultName = pVaultName_
-    , _gjorqJobId = pJobId_
+    { _gjoRange = Nothing
+    , _gjoAccountId = pAccountId_
+    , _gjoVaultName = pVaultName_
+    , _gjoJobId = pJobId_
     }
 
 -- | The range of bytes to retrieve from the output. For example, if you want
 -- to download the first 1,048,576 bytes, specify \"Range:
 -- bytes=0-1048575\". By default, this operation downloads the entire
 -- output.
-gjorqRange :: Lens' GetJobOutput (Maybe Text)
-gjorqRange = lens _gjorqRange (\ s a -> s{_gjorqRange = a});
+gjoRange :: Lens' GetJobOutput (Maybe Text)
+gjoRange = lens _gjoRange (\ s a -> s{_gjoRange = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-gjorqAccountId :: Lens' GetJobOutput Text
-gjorqAccountId = lens _gjorqAccountId (\ s a -> s{_gjorqAccountId = a});
+gjoAccountId :: Lens' GetJobOutput Text
+gjoAccountId = lens _gjoAccountId (\ s a -> s{_gjoAccountId = a});
 
 -- | The name of the vault.
-gjorqVaultName :: Lens' GetJobOutput Text
-gjorqVaultName = lens _gjorqVaultName (\ s a -> s{_gjorqVaultName = a});
+gjoVaultName :: Lens' GetJobOutput Text
+gjoVaultName = lens _gjoVaultName (\ s a -> s{_gjoVaultName = a});
 
 -- | The job ID whose data is downloaded.
-gjorqJobId :: Lens' GetJobOutput Text
-gjorqJobId = lens _gjorqJobId (\ s a -> s{_gjorqJobId = a});
+gjoJobId :: Lens' GetJobOutput Text
+gjoJobId = lens _gjoJobId (\ s a -> s{_gjoJobId = a});
 
 instance AWSRequest GetJobOutput where
         type Sv GetJobOutput = Glacier
@@ -168,13 +168,13 @@ instance AWSRequest GetJobOutput where
 
 instance ToHeaders GetJobOutput where
         toHeaders GetJobOutput'{..}
-          = mconcat ["Range" =# _gjorqRange]
+          = mconcat ["Range" =# _gjoRange]
 
 instance ToPath GetJobOutput where
         toPath GetJobOutput'{..}
           = mconcat
-              ["/", toText _gjorqAccountId, "/vaults/",
-               toText _gjorqVaultName, "/jobs/", toText _gjorqJobId,
+              ["/", toText _gjoAccountId, "/vaults/",
+               toText _gjoVaultName, "/jobs/", toText _gjoJobId,
                "/output"]
 
 instance ToQuery GetJobOutput where

@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeSubnets
     -- ** Request constructor
     , describeSubnets
     -- ** Request lenses
-    , dsrqSubnetIds
-    , dsrqFilters
-    , dsrqDryRun
+    , dsSubnetIds
+    , dsFilters
+    , dsDryRun
 
     -- * Response
     , DescribeSubnetsResponse
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqSubnetIds'
+-- * 'dsSubnetIds'
 --
--- * 'dsrqFilters'
+-- * 'dsFilters'
 --
--- * 'dsrqDryRun'
+-- * 'dsDryRun'
 data DescribeSubnets = DescribeSubnets'
-    { _dsrqSubnetIds :: !(Maybe [Text])
-    , _dsrqFilters   :: !(Maybe [Filter])
-    , _dsrqDryRun    :: !(Maybe Bool)
+    { _dsSubnetIds :: !(Maybe [Text])
+    , _dsFilters   :: !(Maybe [Filter])
+    , _dsDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubnets' smart constructor.
 describeSubnets :: DescribeSubnets
 describeSubnets =
     DescribeSubnets'
-    { _dsrqSubnetIds = Nothing
-    , _dsrqFilters = Nothing
-    , _dsrqDryRun = Nothing
+    { _dsSubnetIds = Nothing
+    , _dsFilters = Nothing
+    , _dsDryRun = Nothing
     }
 
 -- | One or more subnet IDs.
 --
 -- Default: Describes all your subnets.
-dsrqSubnetIds :: Lens' DescribeSubnets [Text]
-dsrqSubnetIds = lens _dsrqSubnetIds (\ s a -> s{_dsrqSubnetIds = a}) . _Default;
+dsSubnetIds :: Lens' DescribeSubnets [Text]
+dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -116,15 +116,15 @@ dsrqSubnetIds = lens _dsrqSubnetIds (\ s a -> s{_dsrqSubnetIds = a}) . _Default;
 --
 -- -   @vpc-id@ - The ID of the VPC for the subnet.
 --
-dsrqFilters :: Lens' DescribeSubnets [Filter]
-dsrqFilters = lens _dsrqFilters (\ s a -> s{_dsrqFilters = a}) . _Default;
+dsFilters :: Lens' DescribeSubnets [Filter]
+dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsrqDryRun :: Lens' DescribeSubnets (Maybe Bool)
-dsrqDryRun = lens _dsrqDryRun (\ s a -> s{_dsrqDryRun = a});
+dsDryRun :: Lens' DescribeSubnets (Maybe Bool)
+dsDryRun = lens _dsDryRun (\ s a -> s{_dsDryRun = a});
 
 instance AWSRequest DescribeSubnets where
         type Sv DescribeSubnets = EC2
@@ -149,9 +149,9 @@ instance ToQuery DescribeSubnets where
           = mconcat
               ["Action" =: ("DescribeSubnets" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "SubnetId" <$> _dsrqSubnetIds),
-               toQuery (toQueryList "Filter" <$> _dsrqFilters),
-               "DryRun" =: _dsrqDryRun]
+               toQuery (toQueryList "SubnetId" <$> _dsSubnetIds),
+               toQuery (toQueryList "Filter" <$> _dsFilters),
+               "DryRun" =: _dsDryRun]
 
 -- | /See:/ 'describeSubnetsResponse' smart constructor.
 --

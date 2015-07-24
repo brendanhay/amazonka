@@ -31,9 +31,9 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     -- ** Request constructor
     , createSpotDatafeedSubscription
     -- ** Request lenses
-    , csdsrqPrefix
-    , csdsrqDryRun
-    , csdsrqBucket
+    , csdsPrefix
+    , csdsDryRun
+    , csdsBucket
 
     -- * Response
     , CreateSpotDatafeedSubscriptionResponse
@@ -55,40 +55,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csdsrqPrefix'
+-- * 'csdsPrefix'
 --
--- * 'csdsrqDryRun'
+-- * 'csdsDryRun'
 --
--- * 'csdsrqBucket'
+-- * 'csdsBucket'
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
-    { _csdsrqPrefix :: !(Maybe Text)
-    , _csdsrqDryRun :: !(Maybe Bool)
-    , _csdsrqBucket :: !Text
+    { _csdsPrefix :: !(Maybe Text)
+    , _csdsDryRun :: !(Maybe Bool)
+    , _csdsBucket :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSpotDatafeedSubscription' smart constructor.
 createSpotDatafeedSubscription :: Text -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription pBucket_ =
     CreateSpotDatafeedSubscription'
-    { _csdsrqPrefix = Nothing
-    , _csdsrqDryRun = Nothing
-    , _csdsrqBucket = pBucket_
+    { _csdsPrefix = Nothing
+    , _csdsDryRun = Nothing
+    , _csdsBucket = pBucket_
     }
 
 -- | A prefix for the data feed file names.
-csdsrqPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
-csdsrqPrefix = lens _csdsrqPrefix (\ s a -> s{_csdsrqPrefix = a});
+csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
+csdsPrefix = lens _csdsPrefix (\ s a -> s{_csdsPrefix = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-csdsrqDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
-csdsrqDryRun = lens _csdsrqDryRun (\ s a -> s{_csdsrqDryRun = a});
+csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
+csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a});
 
 -- | The Amazon S3 bucket in which to store the Spot Instance data feed.
-csdsrqBucket :: Lens' CreateSpotDatafeedSubscription Text
-csdsrqBucket = lens _csdsrqBucket (\ s a -> s{_csdsrqBucket = a});
+csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
+csdsBucket = lens _csdsBucket (\ s a -> s{_csdsBucket = a});
 
 instance AWSRequest CreateSpotDatafeedSubscription
          where
@@ -116,8 +116,8 @@ instance ToQuery CreateSpotDatafeedSubscription where
               ["Action" =:
                  ("CreateSpotDatafeedSubscription" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Prefix" =: _csdsrqPrefix, "DryRun" =: _csdsrqDryRun,
-               "Bucket" =: _csdsrqBucket]
+               "Prefix" =: _csdsPrefix, "DryRun" =: _csdsDryRun,
+               "Bucket" =: _csdsBucket]
 
 -- | Contains the output of CreateSpotDatafeedSubscription.
 --

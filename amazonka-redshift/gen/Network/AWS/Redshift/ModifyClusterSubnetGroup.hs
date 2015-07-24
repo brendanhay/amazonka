@@ -29,9 +29,9 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     -- ** Request constructor
     , modifyClusterSubnetGroup
     -- ** Request lenses
-    , mcsgrqDescription
-    , mcsgrqClusterSubnetGroupName
-    , mcsgrqSubnetIds
+    , mcsgDescription
+    , mcsgClusterSubnetGroupName
+    , mcsgSubnetIds
 
     -- * Response
     , ModifyClusterSubnetGroupResponse
@@ -53,38 +53,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mcsgrqDescription'
+-- * 'mcsgDescription'
 --
--- * 'mcsgrqClusterSubnetGroupName'
+-- * 'mcsgClusterSubnetGroupName'
 --
--- * 'mcsgrqSubnetIds'
+-- * 'mcsgSubnetIds'
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
-    { _mcsgrqDescription            :: !(Maybe Text)
-    , _mcsgrqClusterSubnetGroupName :: !Text
-    , _mcsgrqSubnetIds              :: ![Text]
+    { _mcsgDescription            :: !(Maybe Text)
+    , _mcsgClusterSubnetGroupName :: !Text
+    , _mcsgSubnetIds              :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyClusterSubnetGroup' smart constructor.
 modifyClusterSubnetGroup :: Text -> ModifyClusterSubnetGroup
 modifyClusterSubnetGroup pClusterSubnetGroupName_ =
     ModifyClusterSubnetGroup'
-    { _mcsgrqDescription = Nothing
-    , _mcsgrqClusterSubnetGroupName = pClusterSubnetGroupName_
-    , _mcsgrqSubnetIds = mempty
+    { _mcsgDescription = Nothing
+    , _mcsgClusterSubnetGroupName = pClusterSubnetGroupName_
+    , _mcsgSubnetIds = mempty
     }
 
 -- | A text description of the subnet group to be modified.
-mcsgrqDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
-mcsgrqDescription = lens _mcsgrqDescription (\ s a -> s{_mcsgrqDescription = a});
+mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)
+mcsgDescription = lens _mcsgDescription (\ s a -> s{_mcsgDescription = a});
 
 -- | The name of the subnet group to be modified.
-mcsgrqClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
-mcsgrqClusterSubnetGroupName = lens _mcsgrqClusterSubnetGroupName (\ s a -> s{_mcsgrqClusterSubnetGroupName = a});
+mcsgClusterSubnetGroupName :: Lens' ModifyClusterSubnetGroup Text
+mcsgClusterSubnetGroupName = lens _mcsgClusterSubnetGroupName (\ s a -> s{_mcsgClusterSubnetGroupName = a});
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-mcsgrqSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
-mcsgrqSubnetIds = lens _mcsgrqSubnetIds (\ s a -> s{_mcsgrqSubnetIds = a});
+mcsgSubnetIds :: Lens' ModifyClusterSubnetGroup [Text]
+mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a});
 
 instance AWSRequest ModifyClusterSubnetGroup where
         type Sv ModifyClusterSubnetGroup = Redshift
@@ -109,11 +109,11 @@ instance ToQuery ModifyClusterSubnetGroup where
               ["Action" =:
                  ("ModifyClusterSubnetGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Description" =: _mcsgrqDescription,
+               "Description" =: _mcsgDescription,
                "ClusterSubnetGroupName" =:
-                 _mcsgrqClusterSubnetGroupName,
+                 _mcsgClusterSubnetGroupName,
                "SubnetIds" =:
-                 toQueryList "SubnetIdentifier" _mcsgrqSubnetIds]
+                 toQueryList "SubnetIdentifier" _mcsgSubnetIds]
 
 -- | /See:/ 'modifyClusterSubnetGroupResponse' smart constructor.
 --

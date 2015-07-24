@@ -37,9 +37,9 @@ module Network.AWS.Route53.ListHostedZonesByName
     -- ** Request constructor
     , listHostedZonesByName
     -- ** Request lenses
-    , lhzbnrqHostedZoneId
-    , lhzbnrqMaxItems
-    , lhzbnrqDNSName
+    , lhzbnHostedZoneId
+    , lhzbnMaxItems
+    , lhzbnDNSName
 
     -- * Response
     , ListHostedZonesByNameResponse
@@ -78,37 +78,37 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhzbnrqHostedZoneId'
+-- * 'lhzbnHostedZoneId'
 --
--- * 'lhzbnrqMaxItems'
+-- * 'lhzbnMaxItems'
 --
--- * 'lhzbnrqDNSName'
+-- * 'lhzbnDNSName'
 data ListHostedZonesByName = ListHostedZonesByName'
-    { _lhzbnrqHostedZoneId :: !(Maybe Text)
-    , _lhzbnrqMaxItems     :: !(Maybe Text)
-    , _lhzbnrqDNSName      :: !(Maybe Text)
+    { _lhzbnHostedZoneId :: !(Maybe Text)
+    , _lhzbnMaxItems     :: !(Maybe Text)
+    , _lhzbnDNSName      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZonesByName' smart constructor.
 listHostedZonesByName :: ListHostedZonesByName
 listHostedZonesByName =
     ListHostedZonesByName'
-    { _lhzbnrqHostedZoneId = Nothing
-    , _lhzbnrqMaxItems = Nothing
-    , _lhzbnrqDNSName = Nothing
+    { _lhzbnHostedZoneId = Nothing
+    , _lhzbnMaxItems = Nothing
+    , _lhzbnDNSName = Nothing
     }
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextDNSName@ and @NextHostedZoneId@
 -- from the last response in the @DNSName@ and @HostedZoneId@ parameters to
 -- get the next page of results.
-lhzbnrqHostedZoneId :: Lens' ListHostedZonesByName (Maybe Text)
-lhzbnrqHostedZoneId = lens _lhzbnrqHostedZoneId (\ s a -> s{_lhzbnrqHostedZoneId = a});
+lhzbnHostedZoneId :: Lens' ListHostedZonesByName (Maybe Text)
+lhzbnHostedZoneId = lens _lhzbnHostedZoneId (\ s a -> s{_lhzbnHostedZoneId = a});
 
 -- | Specify the maximum number of hosted zones to return per page of
 -- results.
-lhzbnrqMaxItems :: Lens' ListHostedZonesByName (Maybe Text)
-lhzbnrqMaxItems = lens _lhzbnrqMaxItems (\ s a -> s{_lhzbnrqMaxItems = a});
+lhzbnMaxItems :: Lens' ListHostedZonesByName (Maybe Text)
+lhzbnMaxItems = lens _lhzbnMaxItems (\ s a -> s{_lhzbnMaxItems = a});
 
 -- | The first name in the lexicographic ordering of domain names that you
 -- want the @ListHostedZonesByNameRequest@ request to list.
@@ -117,8 +117,8 @@ lhzbnrqMaxItems = lens _lhzbnrqMaxItems (\ s a -> s{_lhzbnrqMaxItems = a});
 -- request and specify the value of @NextDNSName@ and @NextHostedZoneId@
 -- from the last response in the @DNSName@ and @HostedZoneId@ parameters to
 -- get the next page of results.
-lhzbnrqDNSName :: Lens' ListHostedZonesByName (Maybe Text)
-lhzbnrqDNSName = lens _lhzbnrqDNSName (\ s a -> s{_lhzbnrqDNSName = a});
+lhzbnDNSName :: Lens' ListHostedZonesByName (Maybe Text)
+lhzbnDNSName = lens _lhzbnDNSName (\ s a -> s{_lhzbnDNSName = a});
 
 instance AWSRequest ListHostedZonesByName where
         type Sv ListHostedZonesByName = Route53
@@ -148,9 +148,9 @@ instance ToPath ListHostedZonesByName where
 instance ToQuery ListHostedZonesByName where
         toQuery ListHostedZonesByName'{..}
           = mconcat
-              ["hostedzoneid" =: _lhzbnrqHostedZoneId,
-               "maxitems" =: _lhzbnrqMaxItems,
-               "dnsname" =: _lhzbnrqDNSName]
+              ["hostedzoneid" =: _lhzbnHostedZoneId,
+               "maxitems" =: _lhzbnMaxItems,
+               "dnsname" =: _lhzbnDNSName]
 
 -- | A complex type that contains the response for the request.
 --

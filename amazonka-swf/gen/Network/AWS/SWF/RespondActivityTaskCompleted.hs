@@ -61,8 +61,8 @@ module Network.AWS.SWF.RespondActivityTaskCompleted
     -- ** Request constructor
     , respondActivityTaskCompleted
     -- ** Request lenses
-    , ratcrqResult
-    , ratcrqTaskToken
+    , ratcResult
+    , ratcTaskToken
 
     -- * Response
     , RespondActivityTaskCompletedResponse
@@ -79,26 +79,26 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ratcrqResult'
+-- * 'ratcResult'
 --
--- * 'ratcrqTaskToken'
+-- * 'ratcTaskToken'
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted'
-    { _ratcrqResult    :: !(Maybe Text)
-    , _ratcrqTaskToken :: !Text
+    { _ratcResult    :: !(Maybe Text)
+    , _ratcTaskToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondActivityTaskCompleted' smart constructor.
 respondActivityTaskCompleted :: Text -> RespondActivityTaskCompleted
 respondActivityTaskCompleted pTaskToken_ =
     RespondActivityTaskCompleted'
-    { _ratcrqResult = Nothing
-    , _ratcrqTaskToken = pTaskToken_
+    { _ratcResult = Nothing
+    , _ratcTaskToken = pTaskToken_
     }
 
 -- | The result of the activity task. It is a free form string that is
 -- implementation specific.
-ratcrqResult :: Lens' RespondActivityTaskCompleted (Maybe Text)
-ratcrqResult = lens _ratcrqResult (\ s a -> s{_ratcrqResult = a});
+ratcResult :: Lens' RespondActivityTaskCompleted (Maybe Text)
+ratcResult = lens _ratcResult (\ s a -> s{_ratcResult = a});
 
 -- | The @taskToken@ of the ActivityTask.
 --
@@ -106,8 +106,8 @@ ratcrqResult = lens _ratcrqResult (\ s a -> s{_ratcrqResult = a});
 -- opaque value. If the task is passed to another process, its @taskToken@
 -- must also be passed. This enables it to provide its progress and respond
 -- with results.
-ratcrqTaskToken :: Lens' RespondActivityTaskCompleted Text
-ratcrqTaskToken = lens _ratcrqTaskToken (\ s a -> s{_ratcrqTaskToken = a});
+ratcTaskToken :: Lens' RespondActivityTaskCompleted Text
+ratcTaskToken = lens _ratcTaskToken (\ s a -> s{_ratcTaskToken = a});
 
 instance AWSRequest RespondActivityTaskCompleted
          where
@@ -131,8 +131,8 @@ instance ToHeaders RespondActivityTaskCompleted where
 instance ToJSON RespondActivityTaskCompleted where
         toJSON RespondActivityTaskCompleted'{..}
           = object
-              ["result" .= _ratcrqResult,
-               "taskToken" .= _ratcrqTaskToken]
+              ["result" .= _ratcResult,
+               "taskToken" .= _ratcTaskToken]
 
 instance ToPath RespondActivityTaskCompleted where
         toPath = const "/"

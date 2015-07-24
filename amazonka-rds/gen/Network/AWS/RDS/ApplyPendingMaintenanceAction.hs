@@ -28,9 +28,9 @@ module Network.AWS.RDS.ApplyPendingMaintenanceAction
     -- ** Request constructor
     , applyPendingMaintenanceAction
     -- ** Request lenses
-    , apmarqResourceIdentifier
-    , apmarqApplyAction
-    , apmarqOptInType
+    , apmaResourceIdentifier
+    , apmaApplyAction
+    , apmaOptInType
 
     -- * Response
     , ApplyPendingMaintenanceActionResponse
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apmarqResourceIdentifier'
+-- * 'apmaResourceIdentifier'
 --
--- * 'apmarqApplyAction'
+-- * 'apmaApplyAction'
 --
--- * 'apmarqOptInType'
+-- * 'apmaOptInType'
 data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
-    { _apmarqResourceIdentifier :: !Text
-    , _apmarqApplyAction        :: !Text
-    , _apmarqOptInType          :: !Text
+    { _apmaResourceIdentifier :: !Text
+    , _apmaApplyAction        :: !Text
+    , _apmaOptInType          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplyPendingMaintenanceAction' smart constructor.
 applyPendingMaintenanceAction :: Text -> Text -> Text -> ApplyPendingMaintenanceAction
 applyPendingMaintenanceAction pResourceIdentifier_ pApplyAction_ pOptInType_ =
     ApplyPendingMaintenanceAction'
-    { _apmarqResourceIdentifier = pResourceIdentifier_
-    , _apmarqApplyAction = pApplyAction_
-    , _apmarqOptInType = pOptInType_
+    { _apmaResourceIdentifier = pResourceIdentifier_
+    , _apmaApplyAction = pApplyAction_
+    , _apmaOptInType = pOptInType_
     }
 
 -- | The ARN of the resource that the pending maintenance action applies to.
-apmarqResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
-apmarqResourceIdentifier = lens _apmarqResourceIdentifier (\ s a -> s{_apmarqResourceIdentifier = a});
+apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
+apmaResourceIdentifier = lens _apmaResourceIdentifier (\ s a -> s{_apmaResourceIdentifier = a});
 
 -- | The pending maintenance action to apply to this resource.
-apmarqApplyAction :: Lens' ApplyPendingMaintenanceAction Text
-apmarqApplyAction = lens _apmarqApplyAction (\ s a -> s{_apmarqApplyAction = a});
+apmaApplyAction :: Lens' ApplyPendingMaintenanceAction Text
+apmaApplyAction = lens _apmaApplyAction (\ s a -> s{_apmaApplyAction = a});
 
 -- | A value that specifies the type of opt-in request, or undoes an opt-in
 -- request. An opt-in request of type @immediate@ cannot be undone.
@@ -90,8 +90,8 @@ apmarqApplyAction = lens _apmarqApplyAction (\ s a -> s{_apmarqApplyAction = a})
 --     maintenance window for the resource.
 -- -   @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in
 --     requests.
-apmarqOptInType :: Lens' ApplyPendingMaintenanceAction Text
-apmarqOptInType = lens _apmarqOptInType (\ s a -> s{_apmarqOptInType = a});
+apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
+apmaOptInType = lens _apmaOptInType (\ s a -> s{_apmaOptInType = a});
 
 instance AWSRequest ApplyPendingMaintenanceAction
          where
@@ -120,9 +120,9 @@ instance ToQuery ApplyPendingMaintenanceAction where
               ["Action" =:
                  ("ApplyPendingMaintenanceAction" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "ResourceIdentifier" =: _apmarqResourceIdentifier,
-               "ApplyAction" =: _apmarqApplyAction,
-               "OptInType" =: _apmarqOptInType]
+               "ResourceIdentifier" =: _apmaResourceIdentifier,
+               "ApplyAction" =: _apmaApplyAction,
+               "OptInType" =: _apmaOptInType]
 
 -- | /See:/ 'applyPendingMaintenanceActionResponse' smart constructor.
 --

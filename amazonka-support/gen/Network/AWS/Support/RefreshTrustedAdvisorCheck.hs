@@ -38,7 +38,7 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     -- ** Request constructor
     , refreshTrustedAdvisorCheck
     -- ** Request lenses
-    , rtacrqCheckId
+    , rtacCheckId
 
     -- * Response
     , RefreshTrustedAdvisorCheckResponse
@@ -57,21 +57,21 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtacrqCheckId'
+-- * 'rtacCheckId'
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
-    { _rtacrqCheckId :: Text
+    { _rtacCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RefreshTrustedAdvisorCheck' smart constructor.
 refreshTrustedAdvisorCheck :: Text -> RefreshTrustedAdvisorCheck
 refreshTrustedAdvisorCheck pCheckId_ =
     RefreshTrustedAdvisorCheck'
-    { _rtacrqCheckId = pCheckId_
+    { _rtacCheckId = pCheckId_
     }
 
 -- | The unique identifier for the Trusted Advisor check.
-rtacrqCheckId :: Lens' RefreshTrustedAdvisorCheck Text
-rtacrqCheckId = lens _rtacrqCheckId (\ s a -> s{_rtacrqCheckId = a});
+rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
+rtacCheckId = lens _rtacCheckId (\ s a -> s{_rtacCheckId = a});
 
 instance AWSRequest RefreshTrustedAdvisorCheck where
         type Sv RefreshTrustedAdvisorCheck = Support
@@ -96,7 +96,7 @@ instance ToHeaders RefreshTrustedAdvisorCheck where
 
 instance ToJSON RefreshTrustedAdvisorCheck where
         toJSON RefreshTrustedAdvisorCheck'{..}
-          = object ["checkId" .= _rtacrqCheckId]
+          = object ["checkId" .= _rtacCheckId]
 
 instance ToPath RefreshTrustedAdvisorCheck where
         toPath = const "/"

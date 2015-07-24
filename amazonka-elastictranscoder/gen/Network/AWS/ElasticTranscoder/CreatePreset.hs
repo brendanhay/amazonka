@@ -44,12 +44,12 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- ** Request constructor
     , createPreset
     -- ** Request lenses
-    , cprqVideo
-    , cprqThumbnails
-    , cprqAudio
-    , cprqDescription
-    , cprqName
-    , cprqContainer
+    , cpVideo
+    , cpThumbnails
+    , cpAudio
+    , cpDescription
+    , cpName
+    , cpContainer
 
     -- * Response
     , CreatePresetResponse
@@ -72,65 +72,65 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprqVideo'
+-- * 'cpVideo'
 --
--- * 'cprqThumbnails'
+-- * 'cpThumbnails'
 --
--- * 'cprqAudio'
+-- * 'cpAudio'
 --
--- * 'cprqDescription'
+-- * 'cpDescription'
 --
--- * 'cprqName'
+-- * 'cpName'
 --
--- * 'cprqContainer'
+-- * 'cpContainer'
 data CreatePreset = CreatePreset'
-    { _cprqVideo       :: !(Maybe VideoParameters)
-    , _cprqThumbnails  :: !(Maybe Thumbnails)
-    , _cprqAudio       :: !(Maybe AudioParameters)
-    , _cprqDescription :: !(Maybe Text)
-    , _cprqName        :: !Text
-    , _cprqContainer   :: !Text
+    { _cpVideo       :: !(Maybe VideoParameters)
+    , _cpThumbnails  :: !(Maybe Thumbnails)
+    , _cpAudio       :: !(Maybe AudioParameters)
+    , _cpDescription :: !(Maybe Text)
+    , _cpName        :: !Text
+    , _cpContainer   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePreset' smart constructor.
 createPreset :: Text -> Text -> CreatePreset
 createPreset pName_ pContainer_ =
     CreatePreset'
-    { _cprqVideo = Nothing
-    , _cprqThumbnails = Nothing
-    , _cprqAudio = Nothing
-    , _cprqDescription = Nothing
-    , _cprqName = pName_
-    , _cprqContainer = pContainer_
+    { _cpVideo = Nothing
+    , _cpThumbnails = Nothing
+    , _cpAudio = Nothing
+    , _cpDescription = Nothing
+    , _cpName = pName_
+    , _cpContainer = pContainer_
     }
 
 -- | A section of the request body that specifies the video parameters.
-cprqVideo :: Lens' CreatePreset (Maybe VideoParameters)
-cprqVideo = lens _cprqVideo (\ s a -> s{_cprqVideo = a});
+cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
+cpVideo = lens _cpVideo (\ s a -> s{_cpVideo = a});
 
 -- | A section of the request body that specifies the thumbnail parameters,
 -- if any.
-cprqThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
-cprqThumbnails = lens _cprqThumbnails (\ s a -> s{_cprqThumbnails = a});
+cpThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
+cpThumbnails = lens _cpThumbnails (\ s a -> s{_cpThumbnails = a});
 
 -- | A section of the request body that specifies the audio parameters.
-cprqAudio :: Lens' CreatePreset (Maybe AudioParameters)
-cprqAudio = lens _cprqAudio (\ s a -> s{_cprqAudio = a});
+cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
+cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a});
 
 -- | A description of the preset.
-cprqDescription :: Lens' CreatePreset (Maybe Text)
-cprqDescription = lens _cprqDescription (\ s a -> s{_cprqDescription = a});
+cpDescription :: Lens' CreatePreset (Maybe Text)
+cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 
 -- | The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
-cprqName :: Lens' CreatePreset Text
-cprqName = lens _cprqName (\ s a -> s{_cprqName = a});
+cpName :: Lens' CreatePreset Text
+cpName = lens _cpName (\ s a -> s{_cpName = a});
 
 -- | The container type for the output file. Valid values include @flac@,
 -- @flv@, @fmp4@, @gif@, @mp3@, @mp4@, @mpg@, @mxf@, @oga@, @ogg@, @ts@,
 -- and @webm@.
-cprqContainer :: Lens' CreatePreset Text
-cprqContainer = lens _cprqContainer (\ s a -> s{_cprqContainer = a});
+cpContainer :: Lens' CreatePreset Text
+cpContainer = lens _cpContainer (\ s a -> s{_cpContainer = a});
 
 instance AWSRequest CreatePreset where
         type Sv CreatePreset = ElasticTranscoder
@@ -149,11 +149,9 @@ instance ToHeaders CreatePreset where
 instance ToJSON CreatePreset where
         toJSON CreatePreset'{..}
           = object
-              ["Video" .= _cprqVideo,
-               "Thumbnails" .= _cprqThumbnails,
-               "Audio" .= _cprqAudio,
-               "Description" .= _cprqDescription,
-               "Name" .= _cprqName, "Container" .= _cprqContainer]
+              ["Video" .= _cpVideo, "Thumbnails" .= _cpThumbnails,
+               "Audio" .= _cpAudio, "Description" .= _cpDescription,
+               "Name" .= _cpName, "Container" .= _cpContainer]
 
 instance ToPath CreatePreset where
         toPath = const "/2012-09-25/presets"

@@ -36,9 +36,9 @@ module Network.AWS.EC2.BundleInstance
     -- ** Request constructor
     , bundleInstance
     -- ** Request lenses
-    , birqDryRun
-    , birqInstanceId
-    , birqStorage
+    , biDryRun
+    , biInstanceId
+    , biStorage
 
     -- * Response
     , BundleInstanceResponse
@@ -58,32 +58,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'birqDryRun'
+-- * 'biDryRun'
 --
--- * 'birqInstanceId'
+-- * 'biInstanceId'
 --
--- * 'birqStorage'
+-- * 'biStorage'
 data BundleInstance = BundleInstance'
-    { _birqDryRun     :: !(Maybe Bool)
-    , _birqInstanceId :: !Text
-    , _birqStorage    :: !Storage
+    { _biDryRun     :: !(Maybe Bool)
+    , _biInstanceId :: !Text
+    , _biStorage    :: !Storage
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleInstance' smart constructor.
 bundleInstance :: Text -> Storage -> BundleInstance
 bundleInstance pInstanceId_ pStorage_ =
     BundleInstance'
-    { _birqDryRun = Nothing
-    , _birqInstanceId = pInstanceId_
-    , _birqStorage = pStorage_
+    { _biDryRun = Nothing
+    , _biInstanceId = pInstanceId_
+    , _biStorage = pStorage_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-birqDryRun :: Lens' BundleInstance (Maybe Bool)
-birqDryRun = lens _birqDryRun (\ s a -> s{_birqDryRun = a});
+biDryRun :: Lens' BundleInstance (Maybe Bool)
+biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
 
 -- | The ID of the instance to bundle.
 --
@@ -92,15 +92,15 @@ birqDryRun = lens _birqDryRun (\ s a -> s{_birqDryRun = a});
 -- Default: None
 --
 -- Required: Yes
-birqInstanceId :: Lens' BundleInstance Text
-birqInstanceId = lens _birqInstanceId (\ s a -> s{_birqInstanceId = a});
+biInstanceId :: Lens' BundleInstance Text
+biInstanceId = lens _biInstanceId (\ s a -> s{_biInstanceId = a});
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
 -- already own or a new bucket that Amazon EC2 creates on your behalf. If
 -- you specify a bucket that belongs to someone else, Amazon EC2 returns an
 -- error.
-birqStorage :: Lens' BundleInstance Storage
-birqStorage = lens _birqStorage (\ s a -> s{_birqStorage = a});
+biStorage :: Lens' BundleInstance Storage
+biStorage = lens _biStorage (\ s a -> s{_biStorage = a});
 
 instance AWSRequest BundleInstance where
         type Sv BundleInstance = EC2
@@ -123,9 +123,8 @@ instance ToQuery BundleInstance where
           = mconcat
               ["Action" =: ("BundleInstance" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _birqDryRun,
-               "InstanceId" =: _birqInstanceId,
-               "Storage" =: _birqStorage]
+               "DryRun" =: _biDryRun, "InstanceId" =: _biInstanceId,
+               "Storage" =: _biStorage]
 
 -- | /See:/ 'bundleInstanceResponse' smart constructor.
 --

@@ -34,8 +34,8 @@ module Network.AWS.IAM.AttachGroupPolicy
     -- ** Request constructor
     , attachGroupPolicy
     -- ** Request lenses
-    , agprqGroupName
-    , agprqPolicyARN
+    , agpGroupName
+    , agpPolicyARN
 
     -- * Response
     , AttachGroupPolicyResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'agprqGroupName'
+-- * 'agpGroupName'
 --
--- * 'agprqPolicyARN'
+-- * 'agpPolicyARN'
 data AttachGroupPolicy = AttachGroupPolicy'
-    { _agprqGroupName :: !Text
-    , _agprqPolicyARN :: !Text
+    { _agpGroupName :: !Text
+    , _agpPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachGroupPolicy' smart constructor.
 attachGroupPolicy :: Text -> Text -> AttachGroupPolicy
 attachGroupPolicy pGroupName_ pPolicyARN_ =
     AttachGroupPolicy'
-    { _agprqGroupName = pGroupName_
-    , _agprqPolicyARN = pPolicyARN_
+    { _agpGroupName = pGroupName_
+    , _agpPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the group to attach the policy to.
-agprqGroupName :: Lens' AttachGroupPolicy Text
-agprqGroupName = lens _agprqGroupName (\ s a -> s{_agprqGroupName = a});
+agpGroupName :: Lens' AttachGroupPolicy Text
+agpGroupName = lens _agpGroupName (\ s a -> s{_agpGroupName = a});
 
 -- | FIXME: Undocumented member.
-agprqPolicyARN :: Lens' AttachGroupPolicy Text
-agprqPolicyARN = lens _agprqPolicyARN (\ s a -> s{_agprqPolicyARN = a});
+agpPolicyARN :: Lens' AttachGroupPolicy Text
+agpPolicyARN = lens _agpPolicyARN (\ s a -> s{_agpPolicyARN = a});
 
 instance AWSRequest AttachGroupPolicy where
         type Sv AttachGroupPolicy = IAM
@@ -93,8 +93,8 @@ instance ToQuery AttachGroupPolicy where
           = mconcat
               ["Action" =: ("AttachGroupPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _agprqGroupName,
-               "PolicyArn" =: _agprqPolicyARN]
+               "GroupName" =: _agpGroupName,
+               "PolicyArn" =: _agpPolicyARN]
 
 -- | /See:/ 'attachGroupPolicyResponse' smart constructor.
 data AttachGroupPolicyResponse =

@@ -32,8 +32,8 @@ module Network.AWS.Route53.UpdateHostedZoneComment
     -- ** Request constructor
     , updateHostedZoneComment
     -- ** Request lenses
-    , uhzcrqComment
-    , uhzcrqId
+    , uhzcComment
+    , uhzcId
 
     -- * Response
     , UpdateHostedZoneCommentResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uhzcrqComment'
+-- * 'uhzcComment'
 --
--- * 'uhzcrqId'
+-- * 'uhzcId'
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
-    { _uhzcrqComment :: !(Maybe Text)
-    , _uhzcrqId      :: !Text
+    { _uhzcComment :: !(Maybe Text)
+    , _uhzcId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateHostedZoneComment' smart constructor.
 updateHostedZoneComment :: Text -> UpdateHostedZoneComment
 updateHostedZoneComment pId_ =
     UpdateHostedZoneComment'
-    { _uhzcrqComment = Nothing
-    , _uhzcrqId = pId_
+    { _uhzcComment = Nothing
+    , _uhzcId = pId_
     }
 
 -- | A comment about your hosted zone.
-uhzcrqComment :: Lens' UpdateHostedZoneComment (Maybe Text)
-uhzcrqComment = lens _uhzcrqComment (\ s a -> s{_uhzcrqComment = a});
+uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
+uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a});
 
 -- | The ID of the hosted zone you want to update.
-uhzcrqId :: Lens' UpdateHostedZoneComment Text
-uhzcrqId = lens _uhzcrqId (\ s a -> s{_uhzcrqId = a});
+uhzcId :: Lens' UpdateHostedZoneComment Text
+uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
 
 instance AWSRequest UpdateHostedZoneComment where
         type Sv UpdateHostedZoneComment = Route53
@@ -101,15 +101,14 @@ instance ToHeaders UpdateHostedZoneComment where
 
 instance ToPath UpdateHostedZoneComment where
         toPath UpdateHostedZoneComment'{..}
-          = mconcat
-              ["/2013-04-01/hostedzone/", toText _uhzcrqId]
+          = mconcat ["/2013-04-01/hostedzone/", toText _uhzcId]
 
 instance ToQuery UpdateHostedZoneComment where
         toQuery = const mempty
 
 instance ToXML UpdateHostedZoneComment where
         toXML UpdateHostedZoneComment'{..}
-          = mconcat ["Comment" @= _uhzcrqComment]
+          = mconcat ["Comment" @= _uhzcComment]
 
 -- | A complex type containing information about the specified hosted zone
 -- after the update.

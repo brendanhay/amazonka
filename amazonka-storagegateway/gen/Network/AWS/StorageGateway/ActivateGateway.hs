@@ -37,13 +37,13 @@ module Network.AWS.StorageGateway.ActivateGateway
     -- ** Request constructor
     , activateGateway
     -- ** Request lenses
-    , agrqMediumChangerType
-    , agrqTapeDriveType
-    , agrqGatewayType
-    , agrqActivationKey
-    , agrqGatewayName
-    , agrqGatewayTimezone
-    , agrqGatewayRegion
+    , agMediumChangerType
+    , agTapeDriveType
+    , agGatewayType
+    , agActivationKey
+    , agGatewayName
+    , agGatewayTimezone
+    , agGatewayRegion
 
     -- * Response
     , ActivateGatewayResponse
@@ -73,61 +73,61 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'agrqMediumChangerType'
+-- * 'agMediumChangerType'
 --
--- * 'agrqTapeDriveType'
+-- * 'agTapeDriveType'
 --
--- * 'agrqGatewayType'
+-- * 'agGatewayType'
 --
--- * 'agrqActivationKey'
+-- * 'agActivationKey'
 --
--- * 'agrqGatewayName'
+-- * 'agGatewayName'
 --
--- * 'agrqGatewayTimezone'
+-- * 'agGatewayTimezone'
 --
--- * 'agrqGatewayRegion'
+-- * 'agGatewayRegion'
 data ActivateGateway = ActivateGateway'
-    { _agrqMediumChangerType :: !(Maybe Text)
-    , _agrqTapeDriveType     :: !(Maybe Text)
-    , _agrqGatewayType       :: !(Maybe Text)
-    , _agrqActivationKey     :: !Text
-    , _agrqGatewayName       :: !Text
-    , _agrqGatewayTimezone   :: !Text
-    , _agrqGatewayRegion     :: !Text
+    { _agMediumChangerType :: !(Maybe Text)
+    , _agTapeDriveType     :: !(Maybe Text)
+    , _agGatewayType       :: !(Maybe Text)
+    , _agActivationKey     :: !Text
+    , _agGatewayName       :: !Text
+    , _agGatewayTimezone   :: !Text
+    , _agGatewayRegion     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivateGateway' smart constructor.
 activateGateway :: Text -> Text -> Text -> Text -> ActivateGateway
 activateGateway pActivationKey_ pGatewayName_ pGatewayTimezone_ pGatewayRegion_ =
     ActivateGateway'
-    { _agrqMediumChangerType = Nothing
-    , _agrqTapeDriveType = Nothing
-    , _agrqGatewayType = Nothing
-    , _agrqActivationKey = pActivationKey_
-    , _agrqGatewayName = pGatewayName_
-    , _agrqGatewayTimezone = pGatewayTimezone_
-    , _agrqGatewayRegion = pGatewayRegion_
+    { _agMediumChangerType = Nothing
+    , _agTapeDriveType = Nothing
+    , _agGatewayType = Nothing
+    , _agActivationKey = pActivationKey_
+    , _agGatewayName = pGatewayName_
+    , _agGatewayTimezone = pGatewayTimezone_
+    , _agGatewayRegion = pGatewayRegion_
     }
 
 -- | The value that indicates the type of medium changer to use for
 -- gateway-VTL. This field is optional.
 --
 -- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"
-agrqMediumChangerType :: Lens' ActivateGateway (Maybe Text)
-agrqMediumChangerType = lens _agrqMediumChangerType (\ s a -> s{_agrqMediumChangerType = a});
+agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
+agMediumChangerType = lens _agMediumChangerType (\ s a -> s{_agMediumChangerType = a});
 
 -- | The value that indicates the type of tape drive to use for gateway-VTL.
 -- This field is optional.
 --
 -- /Valid Values/: \"IBM-ULT3580-TD5\"
-agrqTapeDriveType :: Lens' ActivateGateway (Maybe Text)
-agrqTapeDriveType = lens _agrqTapeDriveType (\ s a -> s{_agrqTapeDriveType = a});
+agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
+agTapeDriveType = lens _agTapeDriveType (\ s a -> s{_agTapeDriveType = a});
 
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot
 -- be changed after activation. The default value is @STORED@.
-agrqGatewayType :: Lens' ActivateGateway (Maybe Text)
-agrqGatewayType = lens _agrqGatewayType (\ s a -> s{_agrqGatewayType = a});
+agGatewayType :: Lens' ActivateGateway (Maybe Text)
+agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a});
 
 -- | Your gateway activation key. You can obtain the activation key by
 -- sending an HTTP GET request with redirects enabled to the gateway IP
@@ -137,18 +137,18 @@ agrqGatewayType = lens _agrqGatewayType (\ s a -> s{_agrqGatewayType = a});
 -- parameters, however, these are merely defaults -- the arguments you pass
 -- to the @ActivateGateway@ API call determine the actual configuration of
 -- your gateway.
-agrqActivationKey :: Lens' ActivateGateway Text
-agrqActivationKey = lens _agrqActivationKey (\ s a -> s{_agrqActivationKey = a});
+agActivationKey :: Lens' ActivateGateway Text
+agActivationKey = lens _agActivationKey (\ s a -> s{_agActivationKey = a});
 
 -- | FIXME: Undocumented member.
-agrqGatewayName :: Lens' ActivateGateway Text
-agrqGatewayName = lens _agrqGatewayName (\ s a -> s{_agrqGatewayName = a});
+agGatewayName :: Lens' ActivateGateway Text
+agGatewayName = lens _agGatewayName (\ s a -> s{_agGatewayName = a});
 
 -- | One of the values that indicates the time zone you want to set for the
 -- gateway. The time zone is used, for example, for scheduling snapshots
 -- and your gateway\'s maintenance schedule.
-agrqGatewayTimezone :: Lens' ActivateGateway Text
-agrqGatewayTimezone = lens _agrqGatewayTimezone (\ s a -> s{_agrqGatewayTimezone = a});
+agGatewayTimezone :: Lens' ActivateGateway Text
+agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a});
 
 -- | One of the values that indicates the region where you want to store the
 -- snapshot backups. The gateway region specified must be the same region
@@ -160,8 +160,8 @@ agrqGatewayTimezone = lens _agrqGatewayTimezone (\ s a -> s{_agrqGatewayTimezone
 -- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\",
 -- \"eu-west-1\", \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\",
 -- \"ap-southeast-2\", \"sa-east-1\"
-agrqGatewayRegion :: Lens' ActivateGateway Text
-agrqGatewayRegion = lens _agrqGatewayRegion (\ s a -> s{_agrqGatewayRegion = a});
+agGatewayRegion :: Lens' ActivateGateway Text
+agGatewayRegion = lens _agGatewayRegion (\ s a -> s{_agGatewayRegion = a});
 
 instance AWSRequest ActivateGateway where
         type Sv ActivateGateway = StorageGateway
@@ -186,13 +186,13 @@ instance ToHeaders ActivateGateway where
 instance ToJSON ActivateGateway where
         toJSON ActivateGateway'{..}
           = object
-              ["MediumChangerType" .= _agrqMediumChangerType,
-               "TapeDriveType" .= _agrqTapeDriveType,
-               "GatewayType" .= _agrqGatewayType,
-               "ActivationKey" .= _agrqActivationKey,
-               "GatewayName" .= _agrqGatewayName,
-               "GatewayTimezone" .= _agrqGatewayTimezone,
-               "GatewayRegion" .= _agrqGatewayRegion]
+              ["MediumChangerType" .= _agMediumChangerType,
+               "TapeDriveType" .= _agTapeDriveType,
+               "GatewayType" .= _agGatewayType,
+               "ActivationKey" .= _agActivationKey,
+               "GatewayName" .= _agGatewayName,
+               "GatewayTimezone" .= _agGatewayTimezone,
+               "GatewayRegion" .= _agGatewayRegion]
 
 instance ToPath ActivateGateway where
         toPath = const "/"

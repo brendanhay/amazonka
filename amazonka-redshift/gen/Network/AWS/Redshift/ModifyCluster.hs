@@ -40,21 +40,21 @@ module Network.AWS.Redshift.ModifyCluster
     -- ** Request constructor
     , modifyCluster
     -- ** Request lenses
-    , mcrqMasterUserPassword
-    , mcrqHSMConfigurationIdentifier
-    , mcrqClusterSecurityGroups
-    , mcrqAutomatedSnapshotRetentionPeriod
-    , mcrqNumberOfNodes
-    , mcrqHSMClientCertificateIdentifier
-    , mcrqPreferredMaintenanceWindow
-    , mcrqVPCSecurityGroupIds
-    , mcrqClusterType
-    , mcrqNewClusterIdentifier
-    , mcrqClusterVersion
-    , mcrqNodeType
-    , mcrqAllowVersionUpgrade
-    , mcrqClusterParameterGroupName
-    , mcrqClusterIdentifier
+    , mcMasterUserPassword
+    , mcHSMConfigurationIdentifier
+    , mcClusterSecurityGroups
+    , mcAutomatedSnapshotRetentionPeriod
+    , mcNumberOfNodes
+    , mcHSMClientCertificateIdentifier
+    , mcPreferredMaintenanceWindow
+    , mcVPCSecurityGroupIds
+    , mcClusterType
+    , mcNewClusterIdentifier
+    , mcClusterVersion
+    , mcNodeType
+    , mcAllowVersionUpgrade
+    , mcClusterParameterGroupName
+    , mcClusterIdentifier
 
     -- * Response
     , ModifyClusterResponse
@@ -76,72 +76,72 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mcrqMasterUserPassword'
+-- * 'mcMasterUserPassword'
 --
--- * 'mcrqHSMConfigurationIdentifier'
+-- * 'mcHSMConfigurationIdentifier'
 --
--- * 'mcrqClusterSecurityGroups'
+-- * 'mcClusterSecurityGroups'
 --
--- * 'mcrqAutomatedSnapshotRetentionPeriod'
+-- * 'mcAutomatedSnapshotRetentionPeriod'
 --
--- * 'mcrqNumberOfNodes'
+-- * 'mcNumberOfNodes'
 --
--- * 'mcrqHSMClientCertificateIdentifier'
+-- * 'mcHSMClientCertificateIdentifier'
 --
--- * 'mcrqPreferredMaintenanceWindow'
+-- * 'mcPreferredMaintenanceWindow'
 --
--- * 'mcrqVPCSecurityGroupIds'
+-- * 'mcVPCSecurityGroupIds'
 --
--- * 'mcrqClusterType'
+-- * 'mcClusterType'
 --
--- * 'mcrqNewClusterIdentifier'
+-- * 'mcNewClusterIdentifier'
 --
--- * 'mcrqClusterVersion'
+-- * 'mcClusterVersion'
 --
--- * 'mcrqNodeType'
+-- * 'mcNodeType'
 --
--- * 'mcrqAllowVersionUpgrade'
+-- * 'mcAllowVersionUpgrade'
 --
--- * 'mcrqClusterParameterGroupName'
+-- * 'mcClusterParameterGroupName'
 --
--- * 'mcrqClusterIdentifier'
+-- * 'mcClusterIdentifier'
 data ModifyCluster = ModifyCluster'
-    { _mcrqMasterUserPassword               :: !(Maybe Text)
-    , _mcrqHSMConfigurationIdentifier       :: !(Maybe Text)
-    , _mcrqClusterSecurityGroups            :: !(Maybe [Text])
-    , _mcrqAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _mcrqNumberOfNodes                    :: !(Maybe Int)
-    , _mcrqHSMClientCertificateIdentifier   :: !(Maybe Text)
-    , _mcrqPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _mcrqVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _mcrqClusterType                      :: !(Maybe Text)
-    , _mcrqNewClusterIdentifier             :: !(Maybe Text)
-    , _mcrqClusterVersion                   :: !(Maybe Text)
-    , _mcrqNodeType                         :: !(Maybe Text)
-    , _mcrqAllowVersionUpgrade              :: !(Maybe Bool)
-    , _mcrqClusterParameterGroupName        :: !(Maybe Text)
-    , _mcrqClusterIdentifier                :: !Text
+    { _mcMasterUserPassword               :: !(Maybe Text)
+    , _mcHSMConfigurationIdentifier       :: !(Maybe Text)
+    , _mcClusterSecurityGroups            :: !(Maybe [Text])
+    , _mcAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _mcNumberOfNodes                    :: !(Maybe Int)
+    , _mcHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _mcPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _mcVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _mcClusterType                      :: !(Maybe Text)
+    , _mcNewClusterIdentifier             :: !(Maybe Text)
+    , _mcClusterVersion                   :: !(Maybe Text)
+    , _mcNodeType                         :: !(Maybe Text)
+    , _mcAllowVersionUpgrade              :: !(Maybe Bool)
+    , _mcClusterParameterGroupName        :: !(Maybe Text)
+    , _mcClusterIdentifier                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCluster' smart constructor.
 modifyCluster :: Text -> ModifyCluster
 modifyCluster pClusterIdentifier_ =
     ModifyCluster'
-    { _mcrqMasterUserPassword = Nothing
-    , _mcrqHSMConfigurationIdentifier = Nothing
-    , _mcrqClusterSecurityGroups = Nothing
-    , _mcrqAutomatedSnapshotRetentionPeriod = Nothing
-    , _mcrqNumberOfNodes = Nothing
-    , _mcrqHSMClientCertificateIdentifier = Nothing
-    , _mcrqPreferredMaintenanceWindow = Nothing
-    , _mcrqVPCSecurityGroupIds = Nothing
-    , _mcrqClusterType = Nothing
-    , _mcrqNewClusterIdentifier = Nothing
-    , _mcrqClusterVersion = Nothing
-    , _mcrqNodeType = Nothing
-    , _mcrqAllowVersionUpgrade = Nothing
-    , _mcrqClusterParameterGroupName = Nothing
-    , _mcrqClusterIdentifier = pClusterIdentifier_
+    { _mcMasterUserPassword = Nothing
+    , _mcHSMConfigurationIdentifier = Nothing
+    , _mcClusterSecurityGroups = Nothing
+    , _mcAutomatedSnapshotRetentionPeriod = Nothing
+    , _mcNumberOfNodes = Nothing
+    , _mcHSMClientCertificateIdentifier = Nothing
+    , _mcPreferredMaintenanceWindow = Nothing
+    , _mcVPCSecurityGroupIds = Nothing
+    , _mcClusterType = Nothing
+    , _mcNewClusterIdentifier = Nothing
+    , _mcClusterVersion = Nothing
+    , _mcNodeType = Nothing
+    , _mcAllowVersionUpgrade = Nothing
+    , _mcClusterParameterGroupName = Nothing
+    , _mcClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The new password for the cluster master user. This change is
@@ -164,14 +164,14 @@ modifyCluster pClusterIdentifier_ =
 -- -   Must contain one number.
 -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
 --     \' (single quote), \" (double quote), \\, \/, \@, or space.
-mcrqMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
-mcrqMasterUserPassword = lens _mcrqMasterUserPassword (\ s a -> s{_mcrqMasterUserPassword = a});
+mcMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
+mcMasterUserPassword = lens _mcMasterUserPassword (\ s a -> s{_mcMasterUserPassword = a});
 
 -- | Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
-mcrqHSMConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
-mcrqHSMConfigurationIdentifier = lens _mcrqHSMConfigurationIdentifier (\ s a -> s{_mcrqHSMConfigurationIdentifier = a});
+mcHSMConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcHSMConfigurationIdentifier = lens _mcHSMConfigurationIdentifier (\ s a -> s{_mcHSMConfigurationIdentifier = a});
 
 -- | A list of cluster security groups to be authorized on this cluster. This
 -- change is asynchronously applied as soon as possible.
@@ -184,8 +184,8 @@ mcrqHSMConfigurationIdentifier = lens _mcrqHSMConfigurationIdentifier (\ s a -> 
 -- -   Must be 1 to 255 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-mcrqClusterSecurityGroups :: Lens' ModifyCluster [Text]
-mcrqClusterSecurityGroups = lens _mcrqClusterSecurityGroups (\ s a -> s{_mcrqClusterSecurityGroups = a}) . _Default;
+mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
+mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSecurityGroups = a}) . _Default;
 
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
@@ -199,8 +199,8 @@ mcrqClusterSecurityGroups = lens _mcrqClusterSecurityGroups (\ s a -> s{_mcrqClu
 -- Default: Uses existing setting.
 --
 -- Constraints: Must be a value from 0 to 35.
-mcrqAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Int)
-mcrqAutomatedSnapshotRetentionPeriod = lens _mcrqAutomatedSnapshotRetentionPeriod (\ s a -> s{_mcrqAutomatedSnapshotRetentionPeriod = a});
+mcAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Int)
+mcAutomatedSnapshotRetentionPeriod = lens _mcAutomatedSnapshotRetentionPeriod (\ s a -> s{_mcAutomatedSnapshotRetentionPeriod = a});
 
 -- | The new number of nodes of the cluster. If you specify a new number of
 -- nodes, you must also specify the node type parameter.
@@ -214,13 +214,13 @@ mcrqAutomatedSnapshotRetentionPeriod = lens _mcrqAutomatedSnapshotRetentionPerio
 -- You can use DescribeResize to track the progress of the resize request.
 --
 -- Valid Values: Integer greater than @0@.
-mcrqNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
-mcrqNumberOfNodes = lens _mcrqNumberOfNodes (\ s a -> s{_mcrqNumberOfNodes = a});
+mcNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
+mcNumberOfNodes = lens _mcNumberOfNodes (\ s a -> s{_mcNumberOfNodes = a});
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-mcrqHSMClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
-mcrqHSMClientCertificateIdentifier = lens _mcrqHSMClientCertificateIdentifier (\ s a -> s{_mcrqHSMClientCertificateIdentifier = a});
+mcHSMClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcHSMClientCertificateIdentifier = lens _mcHSMClientCertificateIdentifier (\ s a -> s{_mcHSMClientCertificateIdentifier = a});
 
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur, if necessary. If system maintenance is necessary during the
@@ -238,13 +238,13 @@ mcrqHSMClientCertificateIdentifier = lens _mcrqHSMClientCertificateIdentifier (\
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Must be at least 30 minutes.
-mcrqPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
-mcrqPreferredMaintenanceWindow = lens _mcrqPreferredMaintenanceWindow (\ s a -> s{_mcrqPreferredMaintenanceWindow = a});
+mcPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
+mcPreferredMaintenanceWindow = lens _mcPreferredMaintenanceWindow (\ s a -> s{_mcPreferredMaintenanceWindow = a});
 
 -- | A list of virtual private cloud (VPC) security groups to be associated
 -- with the cluster.
-mcrqVPCSecurityGroupIds :: Lens' ModifyCluster [Text]
-mcrqVPCSecurityGroupIds = lens _mcrqVPCSecurityGroupIds (\ s a -> s{_mcrqVPCSecurityGroupIds = a}) . _Default;
+mcVPCSecurityGroupIds :: Lens' ModifyCluster [Text]
+mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGroupIds = a}) . _Default;
 
 -- | The new cluster type.
 --
@@ -256,8 +256,8 @@ mcrqVPCSecurityGroupIds = lens _mcrqVPCSecurityGroupIds (\ s a -> s{_mcrqVPCSecu
 -- resize request.
 --
 -- Valid Values: @ multi-node | single-node @
-mcrqClusterType :: Lens' ModifyCluster (Maybe Text)
-mcrqClusterType = lens _mcrqClusterType (\ s a -> s{_mcrqClusterType = a});
+mcClusterType :: Lens' ModifyCluster (Maybe Text)
+mcClusterType = lens _mcClusterType (\ s a -> s{_mcClusterType = a});
 
 -- | The new identifier for the cluster.
 --
@@ -270,8 +270,8 @@ mcrqClusterType = lens _mcrqClusterType (\ s a -> s{_mcrqClusterType = a});
 -- -   Must be unique for all clusters within an AWS account.
 --
 -- Example: @examplecluster@
-mcrqNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
-mcrqNewClusterIdentifier = lens _mcrqNewClusterIdentifier (\ s a -> s{_mcrqNewClusterIdentifier = a});
+mcNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcNewClusterIdentifier = lens _mcNewClusterIdentifier (\ s a -> s{_mcNewClusterIdentifier = a});
 
 -- | The new version number of the Amazon Redshift engine to upgrade to.
 --
@@ -285,8 +285,8 @@ mcrqNewClusterIdentifier = lens _mcrqNewClusterIdentifier (\ s a -> s{_mcrqNewCl
 -- in the /Amazon Redshift Cluster Management Guide/.
 --
 -- Example: @1.0@
-mcrqClusterVersion :: Lens' ModifyCluster (Maybe Text)
-mcrqClusterVersion = lens _mcrqClusterVersion (\ s a -> s{_mcrqClusterVersion = a});
+mcClusterVersion :: Lens' ModifyCluster (Maybe Text)
+mcClusterVersion = lens _mcClusterVersion (\ s a -> s{_mcClusterVersion = a});
 
 -- | The new node type of the cluster. If you specify a new node type, you
 -- must also specify the number of nodes parameter.
@@ -301,15 +301,15 @@ mcrqClusterVersion = lens _mcrqClusterVersion (\ s a -> s{_mcrqClusterVersion = 
 --
 -- Valid Values: @ ds1.xlarge@ | @ds1.8xlarge@ | @ ds2.xlarge@ |
 -- @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@.
-mcrqNodeType :: Lens' ModifyCluster (Maybe Text)
-mcrqNodeType = lens _mcrqNodeType (\ s a -> s{_mcrqNodeType = a});
+mcNodeType :: Lens' ModifyCluster (Maybe Text)
+mcNodeType = lens _mcNodeType (\ s a -> s{_mcNodeType = a});
 
 -- | If @true@, major version upgrades will be applied automatically to the
 -- cluster during the maintenance window.
 --
 -- Default: @false@
-mcrqAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
-mcrqAllowVersionUpgrade = lens _mcrqAllowVersionUpgrade (\ s a -> s{_mcrqAllowVersionUpgrade = a});
+mcAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
+mcAllowVersionUpgrade = lens _mcAllowVersionUpgrade (\ s a -> s{_mcAllowVersionUpgrade = a});
 
 -- | The name of the cluster parameter group to apply to this cluster. This
 -- change is applied only after the cluster is rebooted. To reboot a
@@ -319,14 +319,14 @@ mcrqAllowVersionUpgrade = lens _mcrqAllowVersionUpgrade (\ s a -> s{_mcrqAllowVe
 --
 -- Constraints: The cluster parameter group must be in the same parameter
 -- group family that matches the cluster version.
-mcrqClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
-mcrqClusterParameterGroupName = lens _mcrqClusterParameterGroupName (\ s a -> s{_mcrqClusterParameterGroupName = a});
+mcClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
+mcClusterParameterGroupName = lens _mcClusterParameterGroupName (\ s a -> s{_mcClusterParameterGroupName = a});
 
 -- | The unique identifier of the cluster to be modified.
 --
 -- Example: @examplecluster@
-mcrqClusterIdentifier :: Lens' ModifyCluster Text
-mcrqClusterIdentifier = lens _mcrqClusterIdentifier (\ s a -> s{_mcrqClusterIdentifier = a});
+mcClusterIdentifier :: Lens' ModifyCluster Text
+mcClusterIdentifier = lens _mcClusterIdentifier (\ s a -> s{_mcClusterIdentifier = a});
 
 instance AWSRequest ModifyCluster where
         type Sv ModifyCluster = Redshift
@@ -349,32 +349,32 @@ instance ToQuery ModifyCluster where
           = mconcat
               ["Action" =: ("ModifyCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "MasterUserPassword" =: _mcrqMasterUserPassword,
+               "MasterUserPassword" =: _mcMasterUserPassword,
                "HsmConfigurationIdentifier" =:
-                 _mcrqHSMConfigurationIdentifier,
+                 _mcHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:
                  toQuery
                    (toQueryList "ClusterSecurityGroupName" <$>
-                      _mcrqClusterSecurityGroups),
+                      _mcClusterSecurityGroups),
                "AutomatedSnapshotRetentionPeriod" =:
-                 _mcrqAutomatedSnapshotRetentionPeriod,
-               "NumberOfNodes" =: _mcrqNumberOfNodes,
+                 _mcAutomatedSnapshotRetentionPeriod,
+               "NumberOfNodes" =: _mcNumberOfNodes,
                "HsmClientCertificateIdentifier" =:
-                 _mcrqHSMClientCertificateIdentifier,
+                 _mcHSMClientCertificateIdentifier,
                "PreferredMaintenanceWindow" =:
-                 _mcrqPreferredMaintenanceWindow,
+                 _mcPreferredMaintenanceWindow,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
-                      _mcrqVPCSecurityGroupIds),
-               "ClusterType" =: _mcrqClusterType,
-               "NewClusterIdentifier" =: _mcrqNewClusterIdentifier,
-               "ClusterVersion" =: _mcrqClusterVersion,
-               "NodeType" =: _mcrqNodeType,
-               "AllowVersionUpgrade" =: _mcrqAllowVersionUpgrade,
+                      _mcVPCSecurityGroupIds),
+               "ClusterType" =: _mcClusterType,
+               "NewClusterIdentifier" =: _mcNewClusterIdentifier,
+               "ClusterVersion" =: _mcClusterVersion,
+               "NodeType" =: _mcNodeType,
+               "AllowVersionUpgrade" =: _mcAllowVersionUpgrade,
                "ClusterParameterGroupName" =:
-                 _mcrqClusterParameterGroupName,
-               "ClusterIdentifier" =: _mcrqClusterIdentifier]
+                 _mcClusterParameterGroupName,
+               "ClusterIdentifier" =: _mcClusterIdentifier]
 
 -- | /See:/ 'modifyClusterResponse' smart constructor.
 --

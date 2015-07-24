@@ -33,9 +33,9 @@ module Network.AWS.CodePipeline.PollForJobs
     -- ** Request constructor
     , pollForJobs
     -- ** Request lenses
-    , pfjrqMaxBatchSize
-    , pfjrqQueryParam
-    , pfjrqActionTypeId
+    , pfjMaxBatchSize
+    , pfjQueryParam
+    , pfjActionTypeId
 
     -- * Response
     , PollForJobsResponse
@@ -57,41 +57,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pfjrqMaxBatchSize'
+-- * 'pfjMaxBatchSize'
 --
--- * 'pfjrqQueryParam'
+-- * 'pfjQueryParam'
 --
--- * 'pfjrqActionTypeId'
+-- * 'pfjActionTypeId'
 data PollForJobs = PollForJobs'
-    { _pfjrqMaxBatchSize :: !(Maybe Nat)
-    , _pfjrqQueryParam   :: !(Maybe (Map Text Text))
-    , _pfjrqActionTypeId :: !ActionTypeId
+    { _pfjMaxBatchSize :: !(Maybe Nat)
+    , _pfjQueryParam   :: !(Maybe (Map Text Text))
+    , _pfjActionTypeId :: !ActionTypeId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForJobs' smart constructor.
 pollForJobs :: ActionTypeId -> PollForJobs
 pollForJobs pActionTypeId_ =
     PollForJobs'
-    { _pfjrqMaxBatchSize = Nothing
-    , _pfjrqQueryParam = Nothing
-    , _pfjrqActionTypeId = pActionTypeId_
+    { _pfjMaxBatchSize = Nothing
+    , _pfjQueryParam = Nothing
+    , _pfjActionTypeId = pActionTypeId_
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
-pfjrqMaxBatchSize :: Lens' PollForJobs (Maybe Natural)
-pfjrqMaxBatchSize = lens _pfjrqMaxBatchSize (\ s a -> s{_pfjrqMaxBatchSize = a}) . mapping _Nat;
+pfjMaxBatchSize :: Lens' PollForJobs (Maybe Natural)
+pfjMaxBatchSize = lens _pfjMaxBatchSize (\ s a -> s{_pfjMaxBatchSize = a}) . mapping _Nat;
 
 -- | A map of property names and values. For an action type with no queryable
 -- properties, this value must be null or an empty map. For an action type
 -- with a queryable property, you must supply that property as a key in the
 -- map. Only jobs whose action configuration matches the mapped value will
 -- be returned.
-pfjrqQueryParam :: Lens' PollForJobs (HashMap Text Text)
-pfjrqQueryParam = lens _pfjrqQueryParam (\ s a -> s{_pfjrqQueryParam = a}) . _Default . _Map;
+pfjQueryParam :: Lens' PollForJobs (HashMap Text Text)
+pfjQueryParam = lens _pfjQueryParam (\ s a -> s{_pfjQueryParam = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-pfjrqActionTypeId :: Lens' PollForJobs ActionTypeId
-pfjrqActionTypeId = lens _pfjrqActionTypeId (\ s a -> s{_pfjrqActionTypeId = a});
+pfjActionTypeId :: Lens' PollForJobs ActionTypeId
+pfjActionTypeId = lens _pfjActionTypeId (\ s a -> s{_pfjActionTypeId = a});
 
 instance AWSRequest PollForJobs where
         type Sv PollForJobs = CodePipeline
@@ -115,9 +115,9 @@ instance ToHeaders PollForJobs where
 instance ToJSON PollForJobs where
         toJSON PollForJobs'{..}
           = object
-              ["maxBatchSize" .= _pfjrqMaxBatchSize,
-               "queryParam" .= _pfjrqQueryParam,
-               "actionTypeId" .= _pfjrqActionTypeId]
+              ["maxBatchSize" .= _pfjMaxBatchSize,
+               "queryParam" .= _pfjQueryParam,
+               "actionTypeId" .= _pfjActionTypeId]
 
 instance ToPath PollForJobs where
         toPath = const "/"

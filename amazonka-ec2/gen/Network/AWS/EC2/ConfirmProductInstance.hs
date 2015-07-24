@@ -30,9 +30,9 @@ module Network.AWS.EC2.ConfirmProductInstance
     -- ** Request constructor
     , confirmProductInstance
     -- ** Request lenses
-    , cpirqDryRun
-    , cpirqProductCode
-    , cpirqInstanceId
+    , cpiDryRun
+    , cpiProductCode
+    , cpiInstanceId
 
     -- * Response
     , ConfirmProductInstanceResponse
@@ -53,40 +53,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpirqDryRun'
+-- * 'cpiDryRun'
 --
--- * 'cpirqProductCode'
+-- * 'cpiProductCode'
 --
--- * 'cpirqInstanceId'
+-- * 'cpiInstanceId'
 data ConfirmProductInstance = ConfirmProductInstance'
-    { _cpirqDryRun      :: !(Maybe Bool)
-    , _cpirqProductCode :: !Text
-    , _cpirqInstanceId  :: !Text
+    { _cpiDryRun      :: !(Maybe Bool)
+    , _cpiProductCode :: !Text
+    , _cpiInstanceId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmProductInstance' smart constructor.
 confirmProductInstance :: Text -> Text -> ConfirmProductInstance
 confirmProductInstance pProductCode_ pInstanceId_ =
     ConfirmProductInstance'
-    { _cpirqDryRun = Nothing
-    , _cpirqProductCode = pProductCode_
-    , _cpirqInstanceId = pInstanceId_
+    { _cpiDryRun = Nothing
+    , _cpiProductCode = pProductCode_
+    , _cpiInstanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cpirqDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
-cpirqDryRun = lens _cpirqDryRun (\ s a -> s{_cpirqDryRun = a});
+cpiDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
+cpiDryRun = lens _cpiDryRun (\ s a -> s{_cpiDryRun = a});
 
 -- | The product code. This must be a product code that you own.
-cpirqProductCode :: Lens' ConfirmProductInstance Text
-cpirqProductCode = lens _cpirqProductCode (\ s a -> s{_cpirqProductCode = a});
+cpiProductCode :: Lens' ConfirmProductInstance Text
+cpiProductCode = lens _cpiProductCode (\ s a -> s{_cpiProductCode = a});
 
 -- | The ID of the instance.
-cpirqInstanceId :: Lens' ConfirmProductInstance Text
-cpirqInstanceId = lens _cpirqInstanceId (\ s a -> s{_cpirqInstanceId = a});
+cpiInstanceId :: Lens' ConfirmProductInstance Text
+cpiInstanceId = lens _cpiInstanceId (\ s a -> s{_cpiInstanceId = a});
 
 instance AWSRequest ConfirmProductInstance where
         type Sv ConfirmProductInstance = EC2
@@ -112,9 +112,9 @@ instance ToQuery ConfirmProductInstance where
               ["Action" =:
                  ("ConfirmProductInstance" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cpirqDryRun,
-               "ProductCode" =: _cpirqProductCode,
-               "InstanceId" =: _cpirqInstanceId]
+               "DryRun" =: _cpiDryRun,
+               "ProductCode" =: _cpiProductCode,
+               "InstanceId" =: _cpiInstanceId]
 
 -- | /See:/ 'confirmProductInstanceResponse' smart constructor.
 --

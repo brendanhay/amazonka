@@ -28,8 +28,8 @@ module Network.AWS.StorageGateway.CancelArchival
     -- ** Request constructor
     , cancelArchival
     -- ** Request lenses
-    , carqGatewayARN
-    , carqTapeARN
+    , caGatewayARN
+    , caTapeARN
 
     -- * Response
     , CancelArchivalResponse
@@ -51,30 +51,30 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carqGatewayARN'
+-- * 'caGatewayARN'
 --
--- * 'carqTapeARN'
+-- * 'caTapeARN'
 data CancelArchival = CancelArchival'
-    { _carqGatewayARN :: !Text
-    , _carqTapeARN    :: !Text
+    { _caGatewayARN :: !Text
+    , _caTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelArchival' smart constructor.
 cancelArchival :: Text -> Text -> CancelArchival
 cancelArchival pGatewayARN_ pTapeARN_ =
     CancelArchival'
-    { _carqGatewayARN = pGatewayARN_
-    , _carqTapeARN = pTapeARN_
+    { _caGatewayARN = pGatewayARN_
+    , _caTapeARN = pTapeARN_
     }
 
 -- | FIXME: Undocumented member.
-carqGatewayARN :: Lens' CancelArchival Text
-carqGatewayARN = lens _carqGatewayARN (\ s a -> s{_carqGatewayARN = a});
+caGatewayARN :: Lens' CancelArchival Text
+caGatewayARN = lens _caGatewayARN (\ s a -> s{_caGatewayARN = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
 -- archiving for.
-carqTapeARN :: Lens' CancelArchival Text
-carqTapeARN = lens _carqTapeARN (\ s a -> s{_carqTapeARN = a});
+caTapeARN :: Lens' CancelArchival Text
+caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a});
 
 instance AWSRequest CancelArchival where
         type Sv CancelArchival = StorageGateway
@@ -99,8 +99,8 @@ instance ToHeaders CancelArchival where
 instance ToJSON CancelArchival where
         toJSON CancelArchival'{..}
           = object
-              ["GatewayARN" .= _carqGatewayARN,
-               "TapeARN" .= _carqTapeARN]
+              ["GatewayARN" .= _caGatewayARN,
+               "TapeARN" .= _caTapeARN]
 
 instance ToPath CancelArchival where
         toPath = const "/"

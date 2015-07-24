@@ -29,8 +29,8 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     -- ** Request constructor
     , listIdentityPools
     -- ** Request lenses
-    , liprqNextToken
-    , liprqMaxResults
+    , lipNextToken
+    , lipMaxResults
 
     -- * Response
     , ListIdentityPoolsResponse
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liprqNextToken'
+-- * 'lipNextToken'
 --
--- * 'liprqMaxResults'
+-- * 'lipMaxResults'
 data ListIdentityPools = ListIdentityPools'
-    { _liprqNextToken  :: !(Maybe Text)
-    , _liprqMaxResults :: !Nat
+    { _lipNextToken  :: !(Maybe Text)
+    , _lipMaxResults :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPools' smart constructor.
 listIdentityPools :: Natural -> ListIdentityPools
 listIdentityPools pMaxResults_ =
     ListIdentityPools'
-    { _liprqNextToken = Nothing
-    , _liprqMaxResults = _Nat # pMaxResults_
+    { _lipNextToken = Nothing
+    , _lipMaxResults = _Nat # pMaxResults_
     }
 
 -- | A pagination token.
-liprqNextToken :: Lens' ListIdentityPools (Maybe Text)
-liprqNextToken = lens _liprqNextToken (\ s a -> s{_liprqNextToken = a});
+lipNextToken :: Lens' ListIdentityPools (Maybe Text)
+lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a});
 
 -- | The maximum number of identities to return.
-liprqMaxResults :: Lens' ListIdentityPools Natural
-liprqMaxResults = lens _liprqMaxResults (\ s a -> s{_liprqMaxResults = a}) . _Nat;
+lipMaxResults :: Lens' ListIdentityPools Natural
+lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . _Nat;
 
 instance AWSRequest ListIdentityPools where
         type Sv ListIdentityPools = CognitoIdentity
@@ -102,8 +102,8 @@ instance ToHeaders ListIdentityPools where
 instance ToJSON ListIdentityPools where
         toJSON ListIdentityPools'{..}
           = object
-              ["NextToken" .= _liprqNextToken,
-               "MaxResults" .= _liprqMaxResults]
+              ["NextToken" .= _lipNextToken,
+               "MaxResults" .= _lipMaxResults]
 
 instance ToPath ListIdentityPools where
         toPath = const "/"

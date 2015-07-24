@@ -29,7 +29,7 @@ module Network.AWS.Support.DescribeSeverityLevels
     -- ** Request constructor
     , describeSeverityLevels
     -- ** Request lenses
-    , dslrqLanguage
+    , dslLanguage
 
     -- * Response
     , DescribeSeverityLevelsResponse
@@ -49,24 +49,24 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dslrqLanguage'
+-- * 'dslLanguage'
 newtype DescribeSeverityLevels = DescribeSeverityLevels'
-    { _dslrqLanguage :: Maybe Text
+    { _dslLanguage :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSeverityLevels' smart constructor.
 describeSeverityLevels :: DescribeSeverityLevels
 describeSeverityLevels =
     DescribeSeverityLevels'
-    { _dslrqLanguage = Nothing
+    { _dslLanguage = Nothing
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-dslrqLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
-dslrqLanguage = lens _dslrqLanguage (\ s a -> s{_dslrqLanguage = a});
+dslLanguage :: Lens' DescribeSeverityLevels (Maybe Text)
+dslLanguage = lens _dslLanguage (\ s a -> s{_dslLanguage = a});
 
 instance AWSRequest DescribeSeverityLevels where
         type Sv DescribeSeverityLevels = Support
@@ -92,7 +92,7 @@ instance ToHeaders DescribeSeverityLevels where
 
 instance ToJSON DescribeSeverityLevels where
         toJSON DescribeSeverityLevels'{..}
-          = object ["language" .= _dslrqLanguage]
+          = object ["language" .= _dslLanguage]
 
 instance ToPath DescribeSeverityLevels where
         toPath = const "/"

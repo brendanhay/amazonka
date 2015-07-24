@@ -34,12 +34,12 @@ module Network.AWS.EC2.CopyImage
     -- ** Request constructor
     , copyImage
     -- ** Request lenses
-    , cirqClientToken
-    , cirqDryRun
-    , cirqDescription
-    , cirqSourceRegion
-    , cirqSourceImageId
-    , cirqName
+    , ciClientToken
+    , ciDryRun
+    , ciDescription
+    , ciSourceRegion
+    , ciSourceImageId
+    , ciName
 
     -- * Response
     , CopyImageResponse
@@ -59,67 +59,67 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cirqClientToken'
+-- * 'ciClientToken'
 --
--- * 'cirqDryRun'
+-- * 'ciDryRun'
 --
--- * 'cirqDescription'
+-- * 'ciDescription'
 --
--- * 'cirqSourceRegion'
+-- * 'ciSourceRegion'
 --
--- * 'cirqSourceImageId'
+-- * 'ciSourceImageId'
 --
--- * 'cirqName'
+-- * 'ciName'
 data CopyImage = CopyImage'
-    { _cirqClientToken   :: !(Maybe Text)
-    , _cirqDryRun        :: !(Maybe Bool)
-    , _cirqDescription   :: !(Maybe Text)
-    , _cirqSourceRegion  :: !Text
-    , _cirqSourceImageId :: !Text
-    , _cirqName          :: !Text
+    { _ciClientToken   :: !(Maybe Text)
+    , _ciDryRun        :: !(Maybe Bool)
+    , _ciDescription   :: !(Maybe Text)
+    , _ciSourceRegion  :: !Text
+    , _ciSourceImageId :: !Text
+    , _ciName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyImage' smart constructor.
 copyImage :: Text -> Text -> Text -> CopyImage
 copyImage pSourceRegion_ pSourceImageId_ pName_ =
     CopyImage'
-    { _cirqClientToken = Nothing
-    , _cirqDryRun = Nothing
-    , _cirqDescription = Nothing
-    , _cirqSourceRegion = pSourceRegion_
-    , _cirqSourceImageId = pSourceImageId_
-    , _cirqName = pName_
+    { _ciClientToken = Nothing
+    , _ciDryRun = Nothing
+    , _ciDescription = Nothing
+    , _ciSourceRegion = pSourceRegion_
+    , _ciSourceImageId = pSourceImageId_
+    , _ciName = pName_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
 -- the request. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-cirqClientToken :: Lens' CopyImage (Maybe Text)
-cirqClientToken = lens _cirqClientToken (\ s a -> s{_cirqClientToken = a});
+ciClientToken :: Lens' CopyImage (Maybe Text)
+ciClientToken = lens _ciClientToken (\ s a -> s{_ciClientToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cirqDryRun :: Lens' CopyImage (Maybe Bool)
-cirqDryRun = lens _cirqDryRun (\ s a -> s{_cirqDryRun = a});
+ciDryRun :: Lens' CopyImage (Maybe Bool)
+ciDryRun = lens _ciDryRun (\ s a -> s{_ciDryRun = a});
 
 -- | A description for the new AMI in the destination region.
-cirqDescription :: Lens' CopyImage (Maybe Text)
-cirqDescription = lens _cirqDescription (\ s a -> s{_cirqDescription = a});
+ciDescription :: Lens' CopyImage (Maybe Text)
+ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
 
 -- | The name of the region that contains the AMI to copy.
-cirqSourceRegion :: Lens' CopyImage Text
-cirqSourceRegion = lens _cirqSourceRegion (\ s a -> s{_cirqSourceRegion = a});
+ciSourceRegion :: Lens' CopyImage Text
+ciSourceRegion = lens _ciSourceRegion (\ s a -> s{_ciSourceRegion = a});
 
 -- | The ID of the AMI to copy.
-cirqSourceImageId :: Lens' CopyImage Text
-cirqSourceImageId = lens _cirqSourceImageId (\ s a -> s{_cirqSourceImageId = a});
+ciSourceImageId :: Lens' CopyImage Text
+ciSourceImageId = lens _ciSourceImageId (\ s a -> s{_ciSourceImageId = a});
 
 -- | The name of the new AMI in the destination region.
-cirqName :: Lens' CopyImage Text
-cirqName = lens _cirqName (\ s a -> s{_cirqName = a});
+ciName :: Lens' CopyImage Text
+ciName = lens _ciName (\ s a -> s{_ciName = a});
 
 instance AWSRequest CopyImage where
         type Sv CopyImage = EC2
@@ -142,12 +142,12 @@ instance ToQuery CopyImage where
           = mconcat
               ["Action" =: ("CopyImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ClientToken" =: _cirqClientToken,
-               "DryRun" =: _cirqDryRun,
-               "Description" =: _cirqDescription,
-               "SourceRegion" =: _cirqSourceRegion,
-               "SourceImageId" =: _cirqSourceImageId,
-               "Name" =: _cirqName]
+               "ClientToken" =: _ciClientToken,
+               "DryRun" =: _ciDryRun,
+               "Description" =: _ciDescription,
+               "SourceRegion" =: _ciSourceRegion,
+               "SourceImageId" =: _ciSourceImageId,
+               "Name" =: _ciName]
 
 -- | /See:/ 'copyImageResponse' smart constructor.
 --

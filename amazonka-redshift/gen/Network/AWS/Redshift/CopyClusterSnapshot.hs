@@ -40,9 +40,9 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     -- ** Request constructor
     , copyClusterSnapshot
     -- ** Request lenses
-    , ccsrqSourceSnapshotClusterIdentifier
-    , ccsrqSourceSnapshotIdentifier
-    , ccsrqTargetSnapshotIdentifier
+    , ccsSourceSnapshotClusterIdentifier
+    , ccsSourceSnapshotIdentifier
+    , ccsTargetSnapshotIdentifier
 
     -- * Response
     , CopyClusterSnapshotResponse
@@ -64,24 +64,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsrqSourceSnapshotClusterIdentifier'
+-- * 'ccsSourceSnapshotClusterIdentifier'
 --
--- * 'ccsrqSourceSnapshotIdentifier'
+-- * 'ccsSourceSnapshotIdentifier'
 --
--- * 'ccsrqTargetSnapshotIdentifier'
+-- * 'ccsTargetSnapshotIdentifier'
 data CopyClusterSnapshot = CopyClusterSnapshot'
-    { _ccsrqSourceSnapshotClusterIdentifier :: !(Maybe Text)
-    , _ccsrqSourceSnapshotIdentifier        :: !Text
-    , _ccsrqTargetSnapshotIdentifier        :: !Text
+    { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
+    , _ccsSourceSnapshotIdentifier        :: !Text
+    , _ccsTargetSnapshotIdentifier        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyClusterSnapshot' smart constructor.
 copyClusterSnapshot :: Text -> Text -> CopyClusterSnapshot
 copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
     CopyClusterSnapshot'
-    { _ccsrqSourceSnapshotClusterIdentifier = Nothing
-    , _ccsrqSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
-    , _ccsrqTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
+    { _ccsSourceSnapshotClusterIdentifier = Nothing
+    , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier_
+    , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier_
     }
 
 -- | The identifier of the cluster the source snapshot was created from. This
@@ -92,8 +92,8 @@ copyClusterSnapshot pSourceSnapshotIdentifier_ pTargetSnapshotIdentifier_ =
 -- Constraints:
 --
 -- -   Must be the identifier for a valid cluster.
-ccsrqSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
-ccsrqSourceSnapshotClusterIdentifier = lens _ccsrqSourceSnapshotClusterIdentifier (\ s a -> s{_ccsrqSourceSnapshotClusterIdentifier = a});
+ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
+ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\ s a -> s{_ccsSourceSnapshotClusterIdentifier = a});
 
 -- | The identifier for the source snapshot.
 --
@@ -101,8 +101,8 @@ ccsrqSourceSnapshotClusterIdentifier = lens _ccsrqSourceSnapshotClusterIdentifie
 --
 -- -   Must be the identifier for a valid automated snapshot whose state is
 --     @available@.
-ccsrqSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsrqSourceSnapshotIdentifier = lens _ccsrqSourceSnapshotIdentifier (\ s a -> s{_ccsrqSourceSnapshotIdentifier = a});
+ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
+ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a});
 
 -- | The identifier given to the new manual snapshot.
 --
@@ -113,8 +113,8 @@ ccsrqSourceSnapshotIdentifier = lens _ccsrqSourceSnapshotIdentifier (\ s a -> s{
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 -- -   Must be unique for the AWS account that is making the request.
-ccsrqTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsrqTargetSnapshotIdentifier = lens _ccsrqTargetSnapshotIdentifier (\ s a -> s{_ccsrqTargetSnapshotIdentifier = a});
+ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
+ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a});
 
 instance AWSRequest CopyClusterSnapshot where
         type Sv CopyClusterSnapshot = Redshift
@@ -139,11 +139,11 @@ instance ToQuery CopyClusterSnapshot where
               ["Action" =: ("CopyClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SourceSnapshotClusterIdentifier" =:
-                 _ccsrqSourceSnapshotClusterIdentifier,
+                 _ccsSourceSnapshotClusterIdentifier,
                "SourceSnapshotIdentifier" =:
-                 _ccsrqSourceSnapshotIdentifier,
+                 _ccsSourceSnapshotIdentifier,
                "TargetSnapshotIdentifier" =:
-                 _ccsrqTargetSnapshotIdentifier]
+                 _ccsTargetSnapshotIdentifier]
 
 -- | /See:/ 'copyClusterSnapshotResponse' smart constructor.
 --

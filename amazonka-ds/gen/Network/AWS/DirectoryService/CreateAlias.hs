@@ -32,8 +32,8 @@ module Network.AWS.DirectoryService.CreateAlias
     -- ** Request constructor
     , createAlias
     -- ** Request lenses
-    , carqDirectoryId
-    , carqAlias
+    , caDirectoryId
+    , caAlias
 
     -- * Response
     , CreateAliasResponse
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carqDirectoryId'
+-- * 'caDirectoryId'
 --
--- * 'carqAlias'
+-- * 'caAlias'
 data CreateAlias = CreateAlias'
-    { _carqDirectoryId :: !Text
-    , _carqAlias       :: !Text
+    { _caDirectoryId :: !Text
+    , _caAlias       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
 createAlias pDirectoryId_ pAlias_ =
     CreateAlias'
-    { _carqDirectoryId = pDirectoryId_
-    , _carqAlias = pAlias_
+    { _caDirectoryId = pDirectoryId_
+    , _caAlias = pAlias_
     }
 
 -- | The identifier of the directory to create the alias for.
-carqDirectoryId :: Lens' CreateAlias Text
-carqDirectoryId = lens _carqDirectoryId (\ s a -> s{_carqDirectoryId = a});
+caDirectoryId :: Lens' CreateAlias Text
+caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a});
 
 -- | The requested alias.
 --
 -- The alias must be unique amongst all aliases in AWS. This operation will
 -- throw an @EntityAlreadyExistsException@ if this alias already exists.
-carqAlias :: Lens' CreateAlias Text
-carqAlias = lens _carqAlias (\ s a -> s{_carqAlias = a});
+caAlias :: Lens' CreateAlias Text
+caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
 
 instance AWSRequest CreateAlias where
         type Sv CreateAlias = DirectoryService
@@ -107,8 +107,8 @@ instance ToHeaders CreateAlias where
 instance ToJSON CreateAlias where
         toJSON CreateAlias'{..}
           = object
-              ["DirectoryId" .= _carqDirectoryId,
-               "Alias" .= _carqAlias]
+              ["DirectoryId" .= _caDirectoryId,
+               "Alias" .= _caAlias]
 
 instance ToPath CreateAlias where
         toPath = const "/"

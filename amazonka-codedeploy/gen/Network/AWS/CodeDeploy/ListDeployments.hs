@@ -28,11 +28,11 @@ module Network.AWS.CodeDeploy.ListDeployments
     -- ** Request constructor
     , listDeployments
     -- ** Request lenses
-    , ldrqCreateTimeRange
-    , ldrqNextToken
-    , ldrqIncludeOnlyStatuses
-    , ldrqApplicationName
-    , ldrqDeploymentGroupName
+    , ldCreateTimeRange
+    , ldNextToken
+    , ldIncludeOnlyStatuses
+    , ldApplicationName
+    , ldDeploymentGroupName
 
     -- * Response
     , ListDeploymentsResponse
@@ -55,43 +55,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrqCreateTimeRange'
+-- * 'ldCreateTimeRange'
 --
--- * 'ldrqNextToken'
+-- * 'ldNextToken'
 --
--- * 'ldrqIncludeOnlyStatuses'
+-- * 'ldIncludeOnlyStatuses'
 --
--- * 'ldrqApplicationName'
+-- * 'ldApplicationName'
 --
--- * 'ldrqDeploymentGroupName'
+-- * 'ldDeploymentGroupName'
 data ListDeployments = ListDeployments'
-    { _ldrqCreateTimeRange     :: !(Maybe TimeRange)
-    , _ldrqNextToken           :: !(Maybe Text)
-    , _ldrqIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
-    , _ldrqApplicationName     :: !(Maybe Text)
-    , _ldrqDeploymentGroupName :: !(Maybe Text)
+    { _ldCreateTimeRange     :: !(Maybe TimeRange)
+    , _ldNextToken           :: !(Maybe Text)
+    , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
+    , _ldApplicationName     :: !(Maybe Text)
+    , _ldDeploymentGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeployments' smart constructor.
 listDeployments :: ListDeployments
 listDeployments =
     ListDeployments'
-    { _ldrqCreateTimeRange = Nothing
-    , _ldrqNextToken = Nothing
-    , _ldrqIncludeOnlyStatuses = Nothing
-    , _ldrqApplicationName = Nothing
-    , _ldrqDeploymentGroupName = Nothing
+    { _ldCreateTimeRange = Nothing
+    , _ldNextToken = Nothing
+    , _ldIncludeOnlyStatuses = Nothing
+    , _ldApplicationName = Nothing
+    , _ldDeploymentGroupName = Nothing
     }
 
 -- | A deployment creation start- and end-time range for returning a subset
 -- of the list of deployments.
-ldrqCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
-ldrqCreateTimeRange = lens _ldrqCreateTimeRange (\ s a -> s{_ldrqCreateTimeRange = a});
+ldCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
+ldCreateTimeRange = lens _ldCreateTimeRange (\ s a -> s{_ldCreateTimeRange = a});
 
 -- | An identifier that was returned from the previous list deployments call,
 -- which can be used to return the next set of deployments in the list.
-ldrqNextToken :: Lens' ListDeployments (Maybe Text)
-ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
+ldNextToken :: Lens' ListDeployments (Maybe Text)
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
 -- | A subset of deployments to list, by status:
 --
@@ -101,17 +101,17 @@ ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
 -- -   Succeeded: Include in the resulting list succeeded deployments.
 -- -   Failed: Include in the resulting list failed deployments.
 -- -   Aborted: Include in the resulting list aborted deployments.
-ldrqIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
-ldrqIncludeOnlyStatuses = lens _ldrqIncludeOnlyStatuses (\ s a -> s{_ldrqIncludeOnlyStatuses = a}) . _Default;
+ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
+ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default;
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-ldrqApplicationName :: Lens' ListDeployments (Maybe Text)
-ldrqApplicationName = lens _ldrqApplicationName (\ s a -> s{_ldrqApplicationName = a});
+ldApplicationName :: Lens' ListDeployments (Maybe Text)
+ldApplicationName = lens _ldApplicationName (\ s a -> s{_ldApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-ldrqDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
-ldrqDeploymentGroupName = lens _ldrqDeploymentGroupName (\ s a -> s{_ldrqDeploymentGroupName = a});
+ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
+ldDeploymentGroupName = lens _ldDeploymentGroupName (\ s a -> s{_ldDeploymentGroupName = a});
 
 instance AWSRequest ListDeployments where
         type Sv ListDeployments = CodeDeploy
@@ -138,11 +138,11 @@ instance ToHeaders ListDeployments where
 instance ToJSON ListDeployments where
         toJSON ListDeployments'{..}
           = object
-              ["createTimeRange" .= _ldrqCreateTimeRange,
-               "nextToken" .= _ldrqNextToken,
-               "includeOnlyStatuses" .= _ldrqIncludeOnlyStatuses,
-               "applicationName" .= _ldrqApplicationName,
-               "deploymentGroupName" .= _ldrqDeploymentGroupName]
+              ["createTimeRange" .= _ldCreateTimeRange,
+               "nextToken" .= _ldNextToken,
+               "includeOnlyStatuses" .= _ldIncludeOnlyStatuses,
+               "applicationName" .= _ldApplicationName,
+               "deploymentGroupName" .= _ldDeploymentGroupName]
 
 instance ToPath ListDeployments where
         toPath = const "/"

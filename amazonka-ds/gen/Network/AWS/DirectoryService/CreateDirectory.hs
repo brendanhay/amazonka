@@ -27,12 +27,12 @@ module Network.AWS.DirectoryService.CreateDirectory
     -- ** Request constructor
     , createDirectory
     -- ** Request lenses
-    , crqShortName
-    , crqVPCSettings
-    , crqDescription
-    , crqName
-    , crqPassword
-    , crqSize
+    , cShortName
+    , cVPCSettings
+    , cDescription
+    , cName
+    , cPassword
+    , cSize
 
     -- * Response
     , CreateDirectoryResponse
@@ -54,64 +54,64 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crqShortName'
+-- * 'cShortName'
 --
--- * 'crqVPCSettings'
+-- * 'cVPCSettings'
 --
--- * 'crqDescription'
+-- * 'cDescription'
 --
--- * 'crqName'
+-- * 'cName'
 --
--- * 'crqPassword'
+-- * 'cPassword'
 --
--- * 'crqSize'
+-- * 'cSize'
 data CreateDirectory = CreateDirectory'
-    { _crqShortName   :: !(Maybe Text)
-    , _crqVPCSettings :: !(Maybe DirectoryVPCSettings)
-    , _crqDescription :: !(Maybe Text)
-    , _crqName        :: !Text
-    , _crqPassword    :: !(Sensitive Text)
-    , _crqSize        :: !DirectorySize
+    { _cShortName   :: !(Maybe Text)
+    , _cVPCSettings :: !(Maybe DirectoryVPCSettings)
+    , _cDescription :: !(Maybe Text)
+    , _cName        :: !Text
+    , _cPassword    :: !(Sensitive Text)
+    , _cSize        :: !DirectorySize
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDirectory' smart constructor.
 createDirectory :: Text -> Text -> DirectorySize -> CreateDirectory
 createDirectory pName_ pPassword_ pSize_ =
     CreateDirectory'
-    { _crqShortName = Nothing
-    , _crqVPCSettings = Nothing
-    , _crqDescription = Nothing
-    , _crqName = pName_
-    , _crqPassword = _Sensitive # pPassword_
-    , _crqSize = pSize_
+    { _cShortName = Nothing
+    , _cVPCSettings = Nothing
+    , _cDescription = Nothing
+    , _cName = pName_
+    , _cPassword = _Sensitive # pPassword_
+    , _cSize = pSize_
     }
 
 -- | The short name of the directory, such as @CORP@.
-crqShortName :: Lens' CreateDirectory (Maybe Text)
-crqShortName = lens _crqShortName (\ s a -> s{_crqShortName = a});
+cShortName :: Lens' CreateDirectory (Maybe Text)
+cShortName = lens _cShortName (\ s a -> s{_cShortName = a});
 
 -- | A DirectoryVpcSettings object that contains additional information for
 -- the operation.
-crqVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
-crqVPCSettings = lens _crqVPCSettings (\ s a -> s{_crqVPCSettings = a});
+cVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
+cVPCSettings = lens _cVPCSettings (\ s a -> s{_cVPCSettings = a});
 
 -- | A textual description for the directory.
-crqDescription :: Lens' CreateDirectory (Maybe Text)
-crqDescription = lens _crqDescription (\ s a -> s{_crqDescription = a});
+cDescription :: Lens' CreateDirectory (Maybe Text)
+cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 
 -- | The fully qualified name for the directory, such as @corp.example.com@.
-crqName :: Lens' CreateDirectory Text
-crqName = lens _crqName (\ s a -> s{_crqName = a});
+cName :: Lens' CreateDirectory Text
+cName = lens _cName (\ s a -> s{_cName = a});
 
 -- | The password for the directory administrator. The directory creation
 -- process creates a directory administrator account with the username
 -- @Administrator@ and this password.
-crqPassword :: Lens' CreateDirectory Text
-crqPassword = lens _crqPassword (\ s a -> s{_crqPassword = a}) . _Sensitive;
+cPassword :: Lens' CreateDirectory Text
+cPassword = lens _cPassword (\ s a -> s{_cPassword = a}) . _Sensitive;
 
 -- | The size of the directory.
-crqSize :: Lens' CreateDirectory DirectorySize
-crqSize = lens _crqSize (\ s a -> s{_crqSize = a});
+cSize :: Lens' CreateDirectory DirectorySize
+cSize = lens _cSize (\ s a -> s{_cSize = a});
 
 instance AWSRequest CreateDirectory where
         type Sv CreateDirectory = DirectoryService
@@ -136,10 +136,10 @@ instance ToHeaders CreateDirectory where
 instance ToJSON CreateDirectory where
         toJSON CreateDirectory'{..}
           = object
-              ["ShortName" .= _crqShortName,
-               "VpcSettings" .= _crqVPCSettings,
-               "Description" .= _crqDescription, "Name" .= _crqName,
-               "Password" .= _crqPassword, "Size" .= _crqSize]
+              ["ShortName" .= _cShortName,
+               "VpcSettings" .= _cVPCSettings,
+               "Description" .= _cDescription, "Name" .= _cName,
+               "Password" .= _cPassword, "Size" .= _cSize]
 
 instance ToPath CreateDirectory where
         toPath = const "/"

@@ -33,8 +33,8 @@ module Network.AWS.OpsWorks.DescribePermissions
     -- ** Request constructor
     , describePermissions
     -- ** Request lenses
-    , dprqIAMUserARN
-    , dprqStackId
+    , dpIAMUserARN
+    , dpStackId
 
     -- * Response
     , DescribePermissionsResponse
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprqIAMUserARN'
+-- * 'dpIAMUserARN'
 --
--- * 'dprqStackId'
+-- * 'dpStackId'
 data DescribePermissions = DescribePermissions'
-    { _dprqIAMUserARN :: !(Maybe Text)
-    , _dprqStackId    :: !(Maybe Text)
+    { _dpIAMUserARN :: !(Maybe Text)
+    , _dpStackId    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePermissions' smart constructor.
 describePermissions :: DescribePermissions
 describePermissions =
     DescribePermissions'
-    { _dprqIAMUserARN = Nothing
-    , _dprqStackId = Nothing
+    { _dpIAMUserARN = Nothing
+    , _dpStackId = Nothing
     }
 
 -- | The user\'s IAM ARN. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-dprqIAMUserARN :: Lens' DescribePermissions (Maybe Text)
-dprqIAMUserARN = lens _dprqIAMUserARN (\ s a -> s{_dprqIAMUserARN = a});
+dpIAMUserARN :: Lens' DescribePermissions (Maybe Text)
+dpIAMUserARN = lens _dpIAMUserARN (\ s a -> s{_dpIAMUserARN = a});
 
 -- | The stack ID.
-dprqStackId :: Lens' DescribePermissions (Maybe Text)
-dprqStackId = lens _dprqStackId (\ s a -> s{_dprqStackId = a});
+dpStackId :: Lens' DescribePermissions (Maybe Text)
+dpStackId = lens _dpStackId (\ s a -> s{_dpStackId = a});
 
 instance AWSRequest DescribePermissions where
         type Sv DescribePermissions = OpsWorks
@@ -104,8 +104,8 @@ instance ToHeaders DescribePermissions where
 instance ToJSON DescribePermissions where
         toJSON DescribePermissions'{..}
           = object
-              ["IamUserArn" .= _dprqIAMUserARN,
-               "StackId" .= _dprqStackId]
+              ["IamUserArn" .= _dpIAMUserARN,
+               "StackId" .= _dpStackId]
 
 instance ToPath DescribePermissions where
         toPath = const "/"

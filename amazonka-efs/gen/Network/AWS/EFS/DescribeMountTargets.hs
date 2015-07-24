@@ -32,9 +32,9 @@ module Network.AWS.EFS.DescribeMountTargets
     -- ** Request constructor
     , describeMountTargets
     -- ** Request lenses
-    , dmtrqMaxItems
-    , dmtrqMarker
-    , dmtrqFileSystemId
+    , dmtMaxItems
+    , dmtMarker
+    , dmtFileSystemId
 
     -- * Response
     , DescribeMountTargetsResponse
@@ -56,40 +56,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmtrqMaxItems'
+-- * 'dmtMaxItems'
 --
--- * 'dmtrqMarker'
+-- * 'dmtMarker'
 --
--- * 'dmtrqFileSystemId'
+-- * 'dmtFileSystemId'
 data DescribeMountTargets = DescribeMountTargets'
-    { _dmtrqMaxItems     :: !(Maybe Nat)
-    , _dmtrqMarker       :: !(Maybe Text)
-    , _dmtrqFileSystemId :: !Text
+    { _dmtMaxItems     :: !(Maybe Nat)
+    , _dmtMarker       :: !(Maybe Text)
+    , _dmtFileSystemId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargets' smart constructor.
 describeMountTargets :: Text -> DescribeMountTargets
 describeMountTargets pFileSystemId_ =
     DescribeMountTargets'
-    { _dmtrqMaxItems = Nothing
-    , _dmtrqMarker = Nothing
-    , _dmtrqFileSystemId = pFileSystemId_
+    { _dmtMaxItems = Nothing
+    , _dmtMarker = Nothing
+    , _dmtFileSystemId = pFileSystemId_
     }
 
 -- | Optional. Maximum number of mount targets to return in the response. It
 -- must be an integer with a value greater than zero.
-dmtrqMaxItems :: Lens' DescribeMountTargets (Maybe Natural)
-dmtrqMaxItems = lens _dmtrqMaxItems (\ s a -> s{_dmtrqMaxItems = a}) . mapping _Nat;
+dmtMaxItems :: Lens' DescribeMountTargets (Maybe Natural)
+dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . mapping _Nat;
 
 -- | Optional. String. Opaque pagination token returned from a previous
 -- @DescribeMountTargets@ operation. If present, it specifies to continue
 -- the list from where the previous returning call left off.
-dmtrqMarker :: Lens' DescribeMountTargets (Maybe Text)
-dmtrqMarker = lens _dmtrqMarker (\ s a -> s{_dmtrqMarker = a});
+dmtMarker :: Lens' DescribeMountTargets (Maybe Text)
+dmtMarker = lens _dmtMarker (\ s a -> s{_dmtMarker = a});
 
 -- | String. The ID of the file system whose mount targets you want to list.
-dmtrqFileSystemId :: Lens' DescribeMountTargets Text
-dmtrqFileSystemId = lens _dmtrqFileSystemId (\ s a -> s{_dmtrqFileSystemId = a});
+dmtFileSystemId :: Lens' DescribeMountTargets Text
+dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a});
 
 instance AWSRequest DescribeMountTargets where
         type Sv DescribeMountTargets = EFS
@@ -114,9 +114,8 @@ instance ToPath DescribeMountTargets where
 instance ToQuery DescribeMountTargets where
         toQuery DescribeMountTargets'{..}
           = mconcat
-              ["MaxItems" =: _dmtrqMaxItems,
-               "Marker" =: _dmtrqMarker,
-               "FileSystemId" =: _dmtrqFileSystemId]
+              ["MaxItems" =: _dmtMaxItems, "Marker" =: _dmtMarker,
+               "FileSystemId" =: _dmtFileSystemId]
 
 -- | /See:/ 'describeMountTargetsResponse' smart constructor.
 --

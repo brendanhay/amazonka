@@ -34,9 +34,9 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- ** Request constructor
     , describeReservedInstancesModifications
     -- ** Request lenses
-    , drimrqFilters
-    , drimrqReservedInstancesModificationIds
-    , drimrqNextToken
+    , drimFilters
+    , drimReservedInstancesModificationIds
+    , drimNextToken
 
     -- * Response
     , DescribeReservedInstancesModificationsResponse
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drimrqFilters'
+-- * 'drimFilters'
 --
--- * 'drimrqReservedInstancesModificationIds'
+-- * 'drimReservedInstancesModificationIds'
 --
--- * 'drimrqNextToken'
+-- * 'drimNextToken'
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
-    { _drimrqFilters                          :: !(Maybe [Filter])
-    , _drimrqReservedInstancesModificationIds :: !(Maybe [Text])
-    , _drimrqNextToken                        :: !(Maybe Text)
+    { _drimFilters                          :: !(Maybe [Filter])
+    , _drimReservedInstancesModificationIds :: !(Maybe [Text])
+    , _drimNextToken                        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesModifications' smart constructor.
 describeReservedInstancesModifications :: DescribeReservedInstancesModifications
 describeReservedInstancesModifications =
     DescribeReservedInstancesModifications'
-    { _drimrqFilters = Nothing
-    , _drimrqReservedInstancesModificationIds = Nothing
-    , _drimrqNextToken = Nothing
+    { _drimFilters = Nothing
+    , _drimReservedInstancesModificationIds = Nothing
+    , _drimNextToken = Nothing
     }
 
 -- | One or more filters.
@@ -116,16 +116,16 @@ describeReservedInstancesModifications =
 -- -   @update-date@ - The time when the modification request was last
 --     updated.
 --
-drimrqFilters :: Lens' DescribeReservedInstancesModifications [Filter]
-drimrqFilters = lens _drimrqFilters (\ s a -> s{_drimrqFilters = a}) . _Default;
+drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
+drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a}) . _Default;
 
 -- | IDs for the submitted modification request.
-drimrqReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
-drimrqReservedInstancesModificationIds = lens _drimrqReservedInstancesModificationIds (\ s a -> s{_drimrqReservedInstancesModificationIds = a}) . _Default;
+drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
+drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
-drimrqNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
-drimrqNextToken = lens _drimrqNextToken (\ s a -> s{_drimrqNextToken = a});
+drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
+drimNextToken = lens _drimNextToken (\ s a -> s{_drimNextToken = a});
 
 instance AWSPager
          DescribeReservedInstancesModifications where
@@ -134,7 +134,7 @@ instance AWSPager
           | stop (rs ^. drimrsReservedInstancesModifications) =
             Nothing
           | otherwise =
-            Just $ rq & drimrqNextToken .~ rs ^. drimrsNextToken
+            Just $ rq & drimNextToken .~ rs ^. drimrsNextToken
 
 instance AWSRequest
          DescribeReservedInstancesModifications where
@@ -167,11 +167,11 @@ instance ToQuery
                  ("DescribeReservedInstancesModifications" ::
                     ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drimrqFilters),
+               toQuery (toQueryList "Filter" <$> _drimFilters),
                toQuery
                  (toQueryList "ReservedInstancesModificationId" <$>
-                    _drimrqReservedInstancesModificationIds),
-               "NextToken" =: _drimrqNextToken]
+                    _drimReservedInstancesModificationIds),
+               "NextToken" =: _drimNextToken]
 
 -- | /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
 --

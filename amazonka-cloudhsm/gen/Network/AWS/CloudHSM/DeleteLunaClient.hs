@@ -27,7 +27,7 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     -- ** Request constructor
     , deleteLunaClient
     -- ** Request lenses
-    , drqClientARN
+    , dClientARN
 
     -- * Response
     , DeleteLunaClientResponse
@@ -46,21 +46,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqClientARN'
+-- * 'dClientARN'
 newtype DeleteLunaClient = DeleteLunaClient'
-    { _drqClientARN :: Text
+    { _dClientARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLunaClient' smart constructor.
 deleteLunaClient :: Text -> DeleteLunaClient
 deleteLunaClient pClientARN_ =
     DeleteLunaClient'
-    { _drqClientARN = pClientARN_
+    { _dClientARN = pClientARN_
     }
 
 -- | The ARN of the client to delete.
-drqClientARN :: Lens' DeleteLunaClient Text
-drqClientARN = lens _drqClientARN (\ s a -> s{_drqClientARN = a});
+dClientARN :: Lens' DeleteLunaClient Text
+dClientARN = lens _dClientARN (\ s a -> s{_dClientARN = a});
 
 instance AWSRequest DeleteLunaClient where
         type Sv DeleteLunaClient = CloudHSM
@@ -83,7 +83,7 @@ instance ToHeaders DeleteLunaClient where
 
 instance ToJSON DeleteLunaClient where
         toJSON DeleteLunaClient'{..}
-          = object ["ClientArn" .= _drqClientARN]
+          = object ["ClientArn" .= _dClientARN]
 
 instance ToPath DeleteLunaClient where
         toPath = const "/"

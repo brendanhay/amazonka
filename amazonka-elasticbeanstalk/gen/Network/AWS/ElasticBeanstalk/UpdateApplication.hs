@@ -30,8 +30,8 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- ** Request constructor
     , updateApplication
     -- ** Request lenses
-    , uarqDescription
-    , uarqApplicationName
+    , uaDescription
+    , uaApplicationName
 
     -- * Response
     , ApplicationDescriptionMessage
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uarqDescription'
+-- * 'uaDescription'
 --
--- * 'uarqApplicationName'
+-- * 'uaApplicationName'
 data UpdateApplication = UpdateApplication'
-    { _uarqDescription     :: !(Maybe Text)
-    , _uarqApplicationName :: !Text
+    { _uaDescription     :: !(Maybe Text)
+    , _uaApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApplication' smart constructor.
 updateApplication :: Text -> UpdateApplication
 updateApplication pApplicationName_ =
     UpdateApplication'
-    { _uarqDescription = Nothing
-    , _uarqApplicationName = pApplicationName_
+    { _uaDescription = Nothing
+    , _uaApplicationName = pApplicationName_
     }
 
 -- | A new description for the application.
 --
 -- Default: If not specified, AWS Elastic Beanstalk does not update the
 -- description.
-uarqDescription :: Lens' UpdateApplication (Maybe Text)
-uarqDescription = lens _uarqDescription (\ s a -> s{_uarqDescription = a});
+uaDescription :: Lens' UpdateApplication (Maybe Text)
+uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
 
 -- | The name of the application to update. If no such application is found,
 -- @UpdateApplication@ returns an @InvalidParameterValue@ error.
-uarqApplicationName :: Lens' UpdateApplication Text
-uarqApplicationName = lens _uarqApplicationName (\ s a -> s{_uarqApplicationName = a});
+uaApplicationName :: Lens' UpdateApplication Text
+uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
 instance AWSRequest UpdateApplication where
         type Sv UpdateApplication = ElasticBeanstalk
@@ -100,5 +100,5 @@ instance ToQuery UpdateApplication where
           = mconcat
               ["Action" =: ("UpdateApplication" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Description" =: _uarqDescription,
-               "ApplicationName" =: _uarqApplicationName]
+               "Description" =: _uaDescription,
+               "ApplicationName" =: _uaApplicationName]

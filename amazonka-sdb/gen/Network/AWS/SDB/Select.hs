@@ -39,9 +39,9 @@ module Network.AWS.SDB.Select
     -- ** Request constructor
     , select
     -- ** Request lenses
-    , srqConsistentRead
-    , srqNextToken
-    , srqSelectExpression
+    , sConsistentRead
+    , sNextToken
+    , sSelectExpression
 
     -- * Response
     , SelectResponse
@@ -63,24 +63,24 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqConsistentRead'
+-- * 'sConsistentRead'
 --
--- * 'srqNextToken'
+-- * 'sNextToken'
 --
--- * 'srqSelectExpression'
+-- * 'sSelectExpression'
 data Select = Select'
-    { _srqConsistentRead   :: !(Maybe Bool)
-    , _srqNextToken        :: !(Maybe Text)
-    , _srqSelectExpression :: !Text
+    { _sConsistentRead   :: !(Maybe Bool)
+    , _sNextToken        :: !(Maybe Text)
+    , _sSelectExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Select' smart constructor.
 select :: Text -> Select
 select pSelectExpression_ =
     Select'
-    { _srqConsistentRead = Nothing
-    , _srqNextToken = Nothing
-    , _srqSelectExpression = pSelectExpression_
+    { _sConsistentRead = Nothing
+    , _sNextToken = Nothing
+    , _sSelectExpression = pSelectExpression_
     }
 
 -- | Determines whether or not strong consistency should be enforced when
@@ -88,24 +88,24 @@ select pSelectExpression_ =
 -- SimpleDB will be returned. Otherwise, results will be consistent
 -- eventually, and the client may not see data that was written immediately
 -- before your read.
-srqConsistentRead :: Lens' Select (Maybe Bool)
-srqConsistentRead = lens _srqConsistentRead (\ s a -> s{_srqConsistentRead = a});
+sConsistentRead :: Lens' Select (Maybe Bool)
+sConsistentRead = lens _sConsistentRead (\ s a -> s{_sConsistentRead = a});
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- @ItemNames@.
-srqNextToken :: Lens' Select (Maybe Text)
-srqNextToken = lens _srqNextToken (\ s a -> s{_srqNextToken = a});
+sNextToken :: Lens' Select (Maybe Text)
+sNextToken = lens _sNextToken (\ s a -> s{_sNextToken = a});
 
 -- | The expression used to query the domain.
-srqSelectExpression :: Lens' Select Text
-srqSelectExpression = lens _srqSelectExpression (\ s a -> s{_srqSelectExpression = a});
+sSelectExpression :: Lens' Select Text
+sSelectExpression = lens _sSelectExpression (\ s a -> s{_sSelectExpression = a});
 
 instance AWSPager Select where
         page rq rs
           | stop (rs ^. srsNextToken) = Nothing
           | stop (rs ^. srsItems) = Nothing
           | otherwise =
-            Just $ rq & srqNextToken .~ rs ^. srsNextToken
+            Just $ rq & sNextToken .~ rs ^. srsNextToken
 
 instance AWSRequest Select where
         type Sv Select = SDB
@@ -129,9 +129,9 @@ instance ToQuery Select where
           = mconcat
               ["Action" =: ("Select" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "ConsistentRead" =: _srqConsistentRead,
-               "NextToken" =: _srqNextToken,
-               "SelectExpression" =: _srqSelectExpression]
+               "ConsistentRead" =: _sConsistentRead,
+               "NextToken" =: _sNextToken,
+               "SelectExpression" =: _sSelectExpression]
 
 -- | /See:/ 'selectResponse' smart constructor.
 --

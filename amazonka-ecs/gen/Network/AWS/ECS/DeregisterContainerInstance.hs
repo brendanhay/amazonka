@@ -41,9 +41,9 @@ module Network.AWS.ECS.DeregisterContainerInstance
     -- ** Request constructor
     , deregisterContainerInstance
     -- ** Request lenses
-    , derrqCluster
-    , derrqForce
-    , derrqContainerInstance
+    , derCluster
+    , derForce
+    , derContainerInstance
 
     -- * Response
     , DeregisterContainerInstanceResponse
@@ -63,31 +63,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derrqCluster'
+-- * 'derCluster'
 --
--- * 'derrqForce'
+-- * 'derForce'
 --
--- * 'derrqContainerInstance'
+-- * 'derContainerInstance'
 data DeregisterContainerInstance = DeregisterContainerInstance'
-    { _derrqCluster           :: !(Maybe Text)
-    , _derrqForce             :: !(Maybe Bool)
-    , _derrqContainerInstance :: !Text
+    { _derCluster           :: !(Maybe Text)
+    , _derForce             :: !(Maybe Bool)
+    , _derContainerInstance :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterContainerInstance' smart constructor.
 deregisterContainerInstance :: Text -> DeregisterContainerInstance
 deregisterContainerInstance pContainerInstance_ =
     DeregisterContainerInstance'
-    { _derrqCluster = Nothing
-    , _derrqForce = Nothing
-    , _derrqContainerInstance = pContainerInstance_
+    { _derCluster = Nothing
+    , _derForce = Nothing
+    , _derContainerInstance = pContainerInstance_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instance you want to deregister. If you do not
 -- specify a cluster, the default cluster is assumed.
-derrqCluster :: Lens' DeregisterContainerInstance (Maybe Text)
-derrqCluster = lens _derrqCluster (\ s a -> s{_derrqCluster = a});
+derCluster :: Lens' DeregisterContainerInstance (Maybe Text)
+derCluster = lens _derCluster (\ s a -> s{_derCluster = a});
 
 -- | Force the deregistration of the container instance. If you have tasks
 -- running on the container instance when you deregister it with the
@@ -98,8 +98,8 @@ derrqCluster = lens _derrqCluster (\ s a -> s{_derrqCluster = a});
 -- If an orphaned task on your container instance is part of an Amazon ECS
 -- service, then the service scheduler will start another copy of that task
 -- on a different container instance if possible.
-derrqForce :: Lens' DeregisterContainerInstance (Maybe Bool)
-derrqForce = lens _derrqForce (\ s a -> s{_derrqForce = a});
+derForce :: Lens' DeregisterContainerInstance (Maybe Bool)
+derForce = lens _derForce (\ s a -> s{_derForce = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) of the
 -- container instance you want to deregister. The ARN contains the
@@ -108,8 +108,8 @@ derrqForce = lens _derrqForce (\ s a -> s{_derrqForce = a});
 -- @container-instance@ namespace, and then the container instance UUID.
 -- For example,
 -- arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_UUID/.
-derrqContainerInstance :: Lens' DeregisterContainerInstance Text
-derrqContainerInstance = lens _derrqContainerInstance (\ s a -> s{_derrqContainerInstance = a});
+derContainerInstance :: Lens' DeregisterContainerInstance Text
+derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInstance = a});
 
 instance AWSRequest DeregisterContainerInstance where
         type Sv DeregisterContainerInstance = ECS
@@ -135,8 +135,8 @@ instance ToHeaders DeregisterContainerInstance where
 instance ToJSON DeregisterContainerInstance where
         toJSON DeregisterContainerInstance'{..}
           = object
-              ["cluster" .= _derrqCluster, "force" .= _derrqForce,
-               "containerInstance" .= _derrqContainerInstance]
+              ["cluster" .= _derCluster, "force" .= _derForce,
+               "containerInstance" .= _derContainerInstance]
 
 instance ToPath DeregisterContainerInstance where
         toPath = const "/"

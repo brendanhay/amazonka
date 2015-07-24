@@ -30,7 +30,7 @@ module Network.AWS.SES.DeleteIdentity
     -- ** Request constructor
     , deleteIdentity
     -- ** Request lenses
-    , dirqIdentity
+    , diIdentity
 
     -- * Response
     , DeleteIdentityResponse
@@ -52,22 +52,22 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirqIdentity'
+-- * 'diIdentity'
 newtype DeleteIdentity = DeleteIdentity'
-    { _dirqIdentity :: Text
+    { _diIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentity' smart constructor.
 deleteIdentity :: Text -> DeleteIdentity
 deleteIdentity pIdentity_ =
     DeleteIdentity'
-    { _dirqIdentity = pIdentity_
+    { _diIdentity = pIdentity_
     }
 
 -- | The identity to be removed from the list of identities for the AWS
 -- Account.
-dirqIdentity :: Lens' DeleteIdentity Text
-dirqIdentity = lens _dirqIdentity (\ s a -> s{_dirqIdentity = a});
+diIdentity :: Lens' DeleteIdentity Text
+diIdentity = lens _diIdentity (\ s a -> s{_diIdentity = a});
 
 instance AWSRequest DeleteIdentity where
         type Sv DeleteIdentity = SES
@@ -89,7 +89,7 @@ instance ToQuery DeleteIdentity where
           = mconcat
               ["Action" =: ("DeleteIdentity" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _dirqIdentity]
+               "Identity" =: _diIdentity]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.

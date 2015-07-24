@@ -29,11 +29,11 @@ module Network.AWS.S3.DeleteObject
     -- ** Request constructor
     , deleteObject
     -- ** Request lenses
-    , dorqVersionId
-    , dorqMFA
-    , dorqRequestPayer
-    , dorqBucket
-    , dorqKey
+    , doVersionId
+    , doMFA
+    , doRequestPayer
+    , doBucket
+    , doKey
 
     -- * Response
     , DeleteObjectResponse
@@ -55,54 +55,54 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dorqVersionId'
+-- * 'doVersionId'
 --
--- * 'dorqMFA'
+-- * 'doMFA'
 --
--- * 'dorqRequestPayer'
+-- * 'doRequestPayer'
 --
--- * 'dorqBucket'
+-- * 'doBucket'
 --
--- * 'dorqKey'
+-- * 'doKey'
 data DeleteObject = DeleteObject'
-    { _dorqVersionId    :: !(Maybe ObjectVersionId)
-    , _dorqMFA          :: !(Maybe Text)
-    , _dorqRequestPayer :: !(Maybe RequestPayer)
-    , _dorqBucket       :: !BucketName
-    , _dorqKey          :: !ObjectKey
+    { _doVersionId    :: !(Maybe ObjectVersionId)
+    , _doMFA          :: !(Maybe Text)
+    , _doRequestPayer :: !(Maybe RequestPayer)
+    , _doBucket       :: !BucketName
+    , _doKey          :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObject' smart constructor.
 deleteObject :: BucketName -> ObjectKey -> DeleteObject
 deleteObject pBucket_ pKey_ =
     DeleteObject'
-    { _dorqVersionId = Nothing
-    , _dorqMFA = Nothing
-    , _dorqRequestPayer = Nothing
-    , _dorqBucket = pBucket_
-    , _dorqKey = pKey_
+    { _doVersionId = Nothing
+    , _doMFA = Nothing
+    , _doRequestPayer = Nothing
+    , _doBucket = pBucket_
+    , _doKey = pKey_
     }
 
 -- | VersionId used to reference a specific version of the object.
-dorqVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
-dorqVersionId = lens _dorqVersionId (\ s a -> s{_dorqVersionId = a});
+doVersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
+doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a});
 
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
-dorqMFA :: Lens' DeleteObject (Maybe Text)
-dorqMFA = lens _dorqMFA (\ s a -> s{_dorqMFA = a});
+doMFA :: Lens' DeleteObject (Maybe Text)
+doMFA = lens _doMFA (\ s a -> s{_doMFA = a});
 
 -- | FIXME: Undocumented member.
-dorqRequestPayer :: Lens' DeleteObject (Maybe RequestPayer)
-dorqRequestPayer = lens _dorqRequestPayer (\ s a -> s{_dorqRequestPayer = a});
+doRequestPayer :: Lens' DeleteObject (Maybe RequestPayer)
+doRequestPayer = lens _doRequestPayer (\ s a -> s{_doRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-dorqBucket :: Lens' DeleteObject BucketName
-dorqBucket = lens _dorqBucket (\ s a -> s{_dorqBucket = a});
+doBucket :: Lens' DeleteObject BucketName
+doBucket = lens _doBucket (\ s a -> s{_doBucket = a});
 
 -- | FIXME: Undocumented member.
-dorqKey :: Lens' DeleteObject ObjectKey
-dorqKey = lens _dorqKey (\ s a -> s{_dorqKey = a});
+doKey :: Lens' DeleteObject ObjectKey
+doKey = lens _doKey (\ s a -> s{_doKey = a});
 
 instance AWSRequest DeleteObject where
         type Sv DeleteObject = S3
@@ -120,17 +120,16 @@ instance AWSRequest DeleteObject where
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}
           = mconcat
-              ["x-amz-mfa" =# _dorqMFA,
-               "x-amz-request-payer" =# _dorqRequestPayer]
+              ["x-amz-mfa" =# _doMFA,
+               "x-amz-request-payer" =# _doRequestPayer]
 
 instance ToPath DeleteObject where
         toPath DeleteObject'{..}
-          = mconcat
-              ["/", toText _dorqBucket, "/", toText _dorqKey]
+          = mconcat ["/", toText _doBucket, "/", toText _doKey]
 
 instance ToQuery DeleteObject where
         toQuery DeleteObject'{..}
-          = mconcat ["versionId" =: _dorqVersionId]
+          = mconcat ["versionId" =: _doVersionId]
 
 -- | /See:/ 'deleteObjectResponse' smart constructor.
 --

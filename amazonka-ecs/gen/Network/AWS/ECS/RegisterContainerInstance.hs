@@ -31,12 +31,12 @@ module Network.AWS.ECS.RegisterContainerInstance
     -- ** Request constructor
     , registerContainerInstance
     -- ** Request lenses
-    , rcirqInstanceIdentityDocumentSignature
-    , rcirqCluster
-    , rcirqInstanceIdentityDocument
-    , rcirqContainerInstanceARN
-    , rcirqVersionInfo
-    , rcirqTotalResources
+    , rciInstanceIdentityDocumentSignature
+    , rciCluster
+    , rciInstanceIdentityDocument
+    , rciContainerInstanceARN
+    , rciVersionInfo
+    , rciTotalResources
 
     -- * Response
     , RegisterContainerInstanceResponse
@@ -56,71 +56,71 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcirqInstanceIdentityDocumentSignature'
+-- * 'rciInstanceIdentityDocumentSignature'
 --
--- * 'rcirqCluster'
+-- * 'rciCluster'
 --
--- * 'rcirqInstanceIdentityDocument'
+-- * 'rciInstanceIdentityDocument'
 --
--- * 'rcirqContainerInstanceARN'
+-- * 'rciContainerInstanceARN'
 --
--- * 'rcirqVersionInfo'
+-- * 'rciVersionInfo'
 --
--- * 'rcirqTotalResources'
+-- * 'rciTotalResources'
 data RegisterContainerInstance = RegisterContainerInstance'
-    { _rcirqInstanceIdentityDocumentSignature :: !(Maybe Text)
-    , _rcirqCluster                           :: !(Maybe Text)
-    , _rcirqInstanceIdentityDocument          :: !(Maybe Text)
-    , _rcirqContainerInstanceARN              :: !(Maybe Text)
-    , _rcirqVersionInfo                       :: !(Maybe VersionInfo)
-    , _rcirqTotalResources                    :: !(Maybe [Resource])
+    { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
+    , _rciCluster                           :: !(Maybe Text)
+    , _rciInstanceIdentityDocument          :: !(Maybe Text)
+    , _rciContainerInstanceARN              :: !(Maybe Text)
+    , _rciVersionInfo                       :: !(Maybe VersionInfo)
+    , _rciTotalResources                    :: !(Maybe [Resource])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterContainerInstance' smart constructor.
 registerContainerInstance :: RegisterContainerInstance
 registerContainerInstance =
     RegisterContainerInstance'
-    { _rcirqInstanceIdentityDocumentSignature = Nothing
-    , _rcirqCluster = Nothing
-    , _rcirqInstanceIdentityDocument = Nothing
-    , _rcirqContainerInstanceARN = Nothing
-    , _rcirqVersionInfo = Nothing
-    , _rcirqTotalResources = Nothing
+    { _rciInstanceIdentityDocumentSignature = Nothing
+    , _rciCluster = Nothing
+    , _rciInstanceIdentityDocument = Nothing
+    , _rciContainerInstanceARN = Nothing
+    , _rciVersionInfo = Nothing
+    , _rciTotalResources = Nothing
     }
 
 -- | The instance identity document signature for the Amazon EC2 instance to
 -- register. This signature can be found by running the following command
 -- from the instance:
 -- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/signature\/@
-rcirqInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
-rcirqInstanceIdentityDocumentSignature = lens _rcirqInstanceIdentityDocumentSignature (\ s a -> s{_rcirqInstanceIdentityDocumentSignature = a});
+rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
+rciInstanceIdentityDocumentSignature = lens _rciInstanceIdentityDocumentSignature (\ s a -> s{_rciInstanceIdentityDocumentSignature = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to register your container instance with. If you do not specify
 -- a cluster, the default cluster is assumed..
-rcirqCluster :: Lens' RegisterContainerInstance (Maybe Text)
-rcirqCluster = lens _rcirqCluster (\ s a -> s{_rcirqCluster = a});
+rciCluster :: Lens' RegisterContainerInstance (Maybe Text)
+rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a});
 
 -- | The instance identity document for the Amazon EC2 instance to register.
 -- This document can be found by running the following command from the
 -- instance:
 -- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/@
-rcirqInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
-rcirqInstanceIdentityDocument = lens _rcirqInstanceIdentityDocument (\ s a -> s{_rcirqInstanceIdentityDocument = a});
+rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
+rciInstanceIdentityDocument = lens _rciInstanceIdentityDocument (\ s a -> s{_rciInstanceIdentityDocument = a});
 
 -- | The Amazon Resource Name (ARN) of the container instance (if it was
 -- previously registered).
-rcirqContainerInstanceARN :: Lens' RegisterContainerInstance (Maybe Text)
-rcirqContainerInstanceARN = lens _rcirqContainerInstanceARN (\ s a -> s{_rcirqContainerInstanceARN = a});
+rciContainerInstanceARN :: Lens' RegisterContainerInstance (Maybe Text)
+rciContainerInstanceARN = lens _rciContainerInstanceARN (\ s a -> s{_rciContainerInstanceARN = a});
 
 -- | The version information for the Amazon ECS container agent and Docker
 -- daemon running on the container instance.
-rcirqVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
-rcirqVersionInfo = lens _rcirqVersionInfo (\ s a -> s{_rcirqVersionInfo = a});
+rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
+rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
 
 -- | The resources available on the instance.
-rcirqTotalResources :: Lens' RegisterContainerInstance [Resource]
-rcirqTotalResources = lens _rcirqTotalResources (\ s a -> s{_rcirqTotalResources = a}) . _Default;
+rciTotalResources :: Lens' RegisterContainerInstance [Resource]
+rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default;
 
 instance AWSRequest RegisterContainerInstance where
         type Sv RegisterContainerInstance = ECS
@@ -147,13 +147,13 @@ instance ToJSON RegisterContainerInstance where
         toJSON RegisterContainerInstance'{..}
           = object
               ["instanceIdentityDocumentSignature" .=
-                 _rcirqInstanceIdentityDocumentSignature,
-               "cluster" .= _rcirqCluster,
+                 _rciInstanceIdentityDocumentSignature,
+               "cluster" .= _rciCluster,
                "instanceIdentityDocument" .=
-                 _rcirqInstanceIdentityDocument,
-               "containerInstanceArn" .= _rcirqContainerInstanceARN,
-               "versionInfo" .= _rcirqVersionInfo,
-               "totalResources" .= _rcirqTotalResources]
+                 _rciInstanceIdentityDocument,
+               "containerInstanceArn" .= _rciContainerInstanceARN,
+               "versionInfo" .= _rciVersionInfo,
+               "totalResources" .= _rciTotalResources]
 
 instance ToPath RegisterContainerInstance where
         toPath = const "/"

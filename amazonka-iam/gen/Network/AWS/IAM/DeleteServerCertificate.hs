@@ -38,7 +38,7 @@ module Network.AWS.IAM.DeleteServerCertificate
     -- ** Request constructor
     , deleteServerCertificate
     -- ** Request lenses
-    , dscrqServerCertificateName
+    , dscServerCertificateName
 
     -- * Response
     , DeleteServerCertificateResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscrqServerCertificateName'
+-- * 'dscServerCertificateName'
 newtype DeleteServerCertificate = DeleteServerCertificate'
-    { _dscrqServerCertificateName :: Text
+    { _dscServerCertificateName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteServerCertificate' smart constructor.
 deleteServerCertificate :: Text -> DeleteServerCertificate
 deleteServerCertificate pServerCertificateName_ =
     DeleteServerCertificate'
-    { _dscrqServerCertificateName = pServerCertificateName_
+    { _dscServerCertificateName = pServerCertificateName_
     }
 
 -- | The name of the server certificate you want to delete.
-dscrqServerCertificateName :: Lens' DeleteServerCertificate Text
-dscrqServerCertificateName = lens _dscrqServerCertificateName (\ s a -> s{_dscrqServerCertificateName = a});
+dscServerCertificateName :: Lens' DeleteServerCertificate Text
+dscServerCertificateName = lens _dscServerCertificateName (\ s a -> s{_dscServerCertificateName = a});
 
 instance AWSRequest DeleteServerCertificate where
         type Sv DeleteServerCertificate = IAM
@@ -91,8 +91,7 @@ instance ToQuery DeleteServerCertificate where
               ["Action" =:
                  ("DeleteServerCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "ServerCertificateName" =:
-                 _dscrqServerCertificateName]
+               "ServerCertificateName" =: _dscServerCertificateName]
 
 -- | /See:/ 'deleteServerCertificateResponse' smart constructor.
 data DeleteServerCertificateResponse =

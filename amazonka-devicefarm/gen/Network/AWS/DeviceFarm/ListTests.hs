@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.ListTests
     -- ** Request constructor
     , listTests
     -- ** Request lenses
-    , ltrqNextToken
-    , ltrqArn
+    , ltNextToken
+    , ltArn
 
     -- * Response
     , ListTestsResponse
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrqNextToken'
+-- * 'ltNextToken'
 --
--- * 'ltrqArn'
+-- * 'ltArn'
 data ListTests = ListTests'
-    { _ltrqNextToken :: !(Maybe Text)
-    , _ltrqArn       :: !Text
+    { _ltNextToken :: !(Maybe Text)
+    , _ltArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTests' smart constructor.
 listTests :: Text -> ListTests
 listTests pArn_ =
     ListTests'
-    { _ltrqNextToken = Nothing
-    , _ltrqArn = pArn_
+    { _ltNextToken = Nothing
+    , _ltArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-ltrqNextToken :: Lens' ListTests (Maybe Text)
-ltrqNextToken = lens _ltrqNextToken (\ s a -> s{_ltrqNextToken = a});
+ltNextToken :: Lens' ListTests (Maybe Text)
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
 -- | The tests\' ARNs.
-ltrqArn :: Lens' ListTests Text
-ltrqArn = lens _ltrqArn (\ s a -> s{_ltrqArn = a});
+ltArn :: Lens' ListTests Text
+ltArn = lens _ltArn (\ s a -> s{_ltArn = a});
 
 instance AWSRequest ListTests where
         type Sv ListTests = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListTests where
 instance ToJSON ListTests where
         toJSON ListTests'{..}
           = object
-              ["nextToken" .= _ltrqNextToken, "arn" .= _ltrqArn]
+              ["nextToken" .= _ltNextToken, "arn" .= _ltArn]
 
 instance ToPath ListTests where
         toPath = const "/"

@@ -32,7 +32,7 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
     -- ** Request constructor
     , getIdentityVerificationAttributes
     -- ** Request lenses
-    , givarqIdentities
+    , givaIdentities
 
     -- * Response
     , GetIdentityVerificationAttributesResponse
@@ -55,21 +55,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'givarqIdentities'
+-- * 'givaIdentities'
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
-    { _givarqIdentities :: [Text]
+    { _givaIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityVerificationAttributes' smart constructor.
 getIdentityVerificationAttributes :: GetIdentityVerificationAttributes
 getIdentityVerificationAttributes =
     GetIdentityVerificationAttributes'
-    { _givarqIdentities = mempty
+    { _givaIdentities = mempty
     }
 
 -- | A list of identities.
-givarqIdentities :: Lens' GetIdentityVerificationAttributes [Text]
-givarqIdentities = lens _givarqIdentities (\ s a -> s{_givarqIdentities = a});
+givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
+givaIdentities = lens _givaIdentities (\ s a -> s{_givaIdentities = a});
 
 instance AWSRequest GetIdentityVerificationAttributes
          where
@@ -101,8 +101,7 @@ instance ToQuery GetIdentityVerificationAttributes
               ["Action" =:
                  ("GetIdentityVerificationAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =:
-                 toQueryList "member" _givarqIdentities]
+               "Identities" =: toQueryList "member" _givaIdentities]
 
 -- | Represents the verification attributes for a list of identities.
 --

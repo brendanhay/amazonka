@@ -65,8 +65,8 @@ module Network.AWS.EC2.CreateDHCPOptions
     -- ** Request constructor
     , createDHCPOptions
     -- ** Request lenses
-    , cdorqDryRun
-    , cdorqDHCPConfigurations
+    , cdoDryRun
+    , cdoDHCPConfigurations
 
     -- * Response
     , CreateDHCPOptionsResponse
@@ -86,32 +86,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdorqDryRun'
+-- * 'cdoDryRun'
 --
--- * 'cdorqDHCPConfigurations'
+-- * 'cdoDHCPConfigurations'
 data CreateDHCPOptions = CreateDHCPOptions'
-    { _cdorqDryRun             :: !(Maybe Bool)
-    , _cdorqDHCPConfigurations :: ![NewDHCPConfiguration]
+    { _cdoDryRun             :: !(Maybe Bool)
+    , _cdoDHCPConfigurations :: ![NewDHCPConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDHCPOptions' smart constructor.
 createDHCPOptions :: CreateDHCPOptions
 createDHCPOptions =
     CreateDHCPOptions'
-    { _cdorqDryRun = Nothing
-    , _cdorqDHCPConfigurations = mempty
+    { _cdoDryRun = Nothing
+    , _cdoDHCPConfigurations = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cdorqDryRun :: Lens' CreateDHCPOptions (Maybe Bool)
-cdorqDryRun = lens _cdorqDryRun (\ s a -> s{_cdorqDryRun = a});
+cdoDryRun :: Lens' CreateDHCPOptions (Maybe Bool)
+cdoDryRun = lens _cdoDryRun (\ s a -> s{_cdoDryRun = a});
 
 -- | A DHCP configuration option.
-cdorqDHCPConfigurations :: Lens' CreateDHCPOptions [NewDHCPConfiguration]
-cdorqDHCPConfigurations = lens _cdorqDHCPConfigurations (\ s a -> s{_cdorqDHCPConfigurations = a});
+cdoDHCPConfigurations :: Lens' CreateDHCPOptions [NewDHCPConfiguration]
+cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigurations = a});
 
 instance AWSRequest CreateDHCPOptions where
         type Sv CreateDHCPOptions = EC2
@@ -134,8 +134,8 @@ instance ToQuery CreateDHCPOptions where
           = mconcat
               ["Action" =: ("CreateDHCPOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cdorqDryRun,
-               toQueryList "item" _cdorqDHCPConfigurations]
+               "DryRun" =: _cdoDryRun,
+               toQueryList "item" _cdoDHCPConfigurations]
 
 -- | /See:/ 'createDHCPOptionsResponse' smart constructor.
 --

@@ -34,8 +34,8 @@ module Network.AWS.CloudWatchLogs.CreateLogStream
     -- ** Request constructor
     , createLogStream
     -- ** Request lenses
-    , clsrqLogGroupName
-    , clsrqLogStreamName
+    , clsLogGroupName
+    , clsLogStreamName
 
     -- * Response
     , CreateLogStreamResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clsrqLogGroupName'
+-- * 'clsLogGroupName'
 --
--- * 'clsrqLogStreamName'
+-- * 'clsLogStreamName'
 data CreateLogStream = CreateLogStream'
-    { _clsrqLogGroupName  :: !Text
-    , _clsrqLogStreamName :: !Text
+    { _clsLogGroupName  :: !Text
+    , _clsLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogStream' smart constructor.
 createLogStream :: Text -> Text -> CreateLogStream
 createLogStream pLogGroupName_ pLogStreamName_ =
     CreateLogStream'
-    { _clsrqLogGroupName = pLogGroupName_
-    , _clsrqLogStreamName = pLogStreamName_
+    { _clsLogGroupName = pLogGroupName_
+    , _clsLogStreamName = pLogStreamName_
     }
 
 -- | The name of the log group under which the log stream is to be created.
-clsrqLogGroupName :: Lens' CreateLogStream Text
-clsrqLogGroupName = lens _clsrqLogGroupName (\ s a -> s{_clsrqLogGroupName = a});
+clsLogGroupName :: Lens' CreateLogStream Text
+clsLogGroupName = lens _clsLogGroupName (\ s a -> s{_clsLogGroupName = a});
 
 -- | The name of the log stream to create.
-clsrqLogStreamName :: Lens' CreateLogStream Text
-clsrqLogStreamName = lens _clsrqLogStreamName (\ s a -> s{_clsrqLogStreamName = a});
+clsLogStreamName :: Lens' CreateLogStream Text
+clsLogStreamName = lens _clsLogStreamName (\ s a -> s{_clsLogStreamName = a});
 
 instance AWSRequest CreateLogStream where
         type Sv CreateLogStream = CloudWatchLogs
@@ -94,8 +94,8 @@ instance ToHeaders CreateLogStream where
 instance ToJSON CreateLogStream where
         toJSON CreateLogStream'{..}
           = object
-              ["logGroupName" .= _clsrqLogGroupName,
-               "logStreamName" .= _clsrqLogStreamName]
+              ["logGroupName" .= _clsLogGroupName,
+               "logStreamName" .= _clsLogStreamName]
 
 instance ToPath CreateLogStream where
         toPath = const "/"

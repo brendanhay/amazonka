@@ -30,8 +30,8 @@ module Network.AWS.SNS.SetEndpointAttributes
     -- ** Request constructor
     , setEndpointAttributes
     -- ** Request lenses
-    , searqEndpointARN
-    , searqAttributes
+    , seaEndpointARN
+    , seaAttributes
 
     -- * Response
     , SetEndpointAttributesResponse
@@ -50,25 +50,25 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'searqEndpointARN'
+-- * 'seaEndpointARN'
 --
--- * 'searqAttributes'
+-- * 'seaAttributes'
 data SetEndpointAttributes = SetEndpointAttributes'
-    { _searqEndpointARN :: !Text
-    , _searqAttributes  :: !(Map Text Text)
+    { _seaEndpointARN :: !Text
+    , _seaAttributes  :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetEndpointAttributes' smart constructor.
 setEndpointAttributes :: Text -> SetEndpointAttributes
 setEndpointAttributes pEndpointARN_ =
     SetEndpointAttributes'
-    { _searqEndpointARN = pEndpointARN_
-    , _searqAttributes = mempty
+    { _seaEndpointARN = pEndpointARN_
+    , _seaAttributes = mempty
     }
 
 -- | EndpointArn used for SetEndpointAttributes action.
-searqEndpointARN :: Lens' SetEndpointAttributes Text
-searqEndpointARN = lens _searqEndpointARN (\ s a -> s{_searqEndpointARN = a});
+seaEndpointARN :: Lens' SetEndpointAttributes Text
+seaEndpointARN = lens _seaEndpointARN (\ s a -> s{_seaEndpointARN = a});
 
 -- | A map of the endpoint attributes. Attributes in this map include the
 -- following:
@@ -84,8 +84,8 @@ searqEndpointARN = lens _searqEndpointARN (\ s a -> s{_searqEndpointARN = a});
 --     an app and mobile device. This is returned from the notification
 --     service when an app and mobile device are registered with the
 --     notification service.
-searqAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
-searqAttributes = lens _searqAttributes (\ s a -> s{_searqAttributes = a}) . _Map;
+seaAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
+seaAttributes = lens _seaAttributes (\ s a -> s{_seaAttributes = a}) . _Map;
 
 instance AWSRequest SetEndpointAttributes where
         type Sv SetEndpointAttributes = SNS
@@ -105,9 +105,9 @@ instance ToQuery SetEndpointAttributes where
           = mconcat
               ["Action" =: ("SetEndpointAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "EndpointArn" =: _searqEndpointARN,
+               "EndpointArn" =: _seaEndpointARN,
                "Attributes" =:
-                 toQueryMap "entry" "key" "value" _searqAttributes]
+                 toQueryMap "entry" "key" "value" _seaAttributes]
 
 -- | /See:/ 'setEndpointAttributesResponse' smart constructor.
 data SetEndpointAttributesResponse =

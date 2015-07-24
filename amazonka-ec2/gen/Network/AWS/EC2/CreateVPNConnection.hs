@@ -43,11 +43,11 @@ module Network.AWS.EC2.CreateVPNConnection
     -- ** Request constructor
     , createVPNConnection
     -- ** Request lenses
-    , cvcrqOptions
-    , cvcrqDryRun
-    , cvcrqType
-    , cvcrqCustomerGatewayId
-    , cvcrqVPNGatewayId
+    , cvcOptions
+    , cvcDryRun
+    , cvcType
+    , cvcCustomerGatewayId
+    , cvcVPNGatewayId
 
     -- * Response
     , CreateVPNConnectionResponse
@@ -67,32 +67,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvcrqOptions'
+-- * 'cvcOptions'
 --
--- * 'cvcrqDryRun'
+-- * 'cvcDryRun'
 --
--- * 'cvcrqType'
+-- * 'cvcType'
 --
--- * 'cvcrqCustomerGatewayId'
+-- * 'cvcCustomerGatewayId'
 --
--- * 'cvcrqVPNGatewayId'
+-- * 'cvcVPNGatewayId'
 data CreateVPNConnection = CreateVPNConnection'
-    { _cvcrqOptions           :: !(Maybe VPNConnectionOptionsSpecification)
-    , _cvcrqDryRun            :: !(Maybe Bool)
-    , _cvcrqType              :: !Text
-    , _cvcrqCustomerGatewayId :: !Text
-    , _cvcrqVPNGatewayId      :: !Text
+    { _cvcOptions           :: !(Maybe VPNConnectionOptionsSpecification)
+    , _cvcDryRun            :: !(Maybe Bool)
+    , _cvcType              :: !Text
+    , _cvcCustomerGatewayId :: !Text
+    , _cvcVPNGatewayId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnection' smart constructor.
 createVPNConnection :: Text -> Text -> Text -> CreateVPNConnection
 createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
     CreateVPNConnection'
-    { _cvcrqOptions = Nothing
-    , _cvcrqDryRun = Nothing
-    , _cvcrqType = pType_
-    , _cvcrqCustomerGatewayId = pCustomerGatewayId_
-    , _cvcrqVPNGatewayId = pVPNGatewayId_
+    { _cvcOptions = Nothing
+    , _cvcDryRun = Nothing
+    , _cvcType = pType_
+    , _cvcCustomerGatewayId = pCustomerGatewayId_
+    , _cvcVPNGatewayId = pVPNGatewayId_
     }
 
 -- | Indicates whether the VPN connection requires static routes. If you are
@@ -100,27 +100,27 @@ createVPNConnection pType_ pCustomerGatewayId_ pVPNGatewayId_ =
 -- must specify @true@.
 --
 -- Default: @false@
-cvcrqOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
-cvcrqOptions = lens _cvcrqOptions (\ s a -> s{_cvcrqOptions = a});
+cvcOptions :: Lens' CreateVPNConnection (Maybe VPNConnectionOptionsSpecification)
+cvcOptions = lens _cvcOptions (\ s a -> s{_cvcOptions = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cvcrqDryRun :: Lens' CreateVPNConnection (Maybe Bool)
-cvcrqDryRun = lens _cvcrqDryRun (\ s a -> s{_cvcrqDryRun = a});
+cvcDryRun :: Lens' CreateVPNConnection (Maybe Bool)
+cvcDryRun = lens _cvcDryRun (\ s a -> s{_cvcDryRun = a});
 
 -- | The type of VPN connection (@ipsec.1@).
-cvcrqType :: Lens' CreateVPNConnection Text
-cvcrqType = lens _cvcrqType (\ s a -> s{_cvcrqType = a});
+cvcType :: Lens' CreateVPNConnection Text
+cvcType = lens _cvcType (\ s a -> s{_cvcType = a});
 
 -- | The ID of the customer gateway.
-cvcrqCustomerGatewayId :: Lens' CreateVPNConnection Text
-cvcrqCustomerGatewayId = lens _cvcrqCustomerGatewayId (\ s a -> s{_cvcrqCustomerGatewayId = a});
+cvcCustomerGatewayId :: Lens' CreateVPNConnection Text
+cvcCustomerGatewayId = lens _cvcCustomerGatewayId (\ s a -> s{_cvcCustomerGatewayId = a});
 
 -- | The ID of the virtual private gateway.
-cvcrqVPNGatewayId :: Lens' CreateVPNConnection Text
-cvcrqVPNGatewayId = lens _cvcrqVPNGatewayId (\ s a -> s{_cvcrqVPNGatewayId = a});
+cvcVPNGatewayId :: Lens' CreateVPNConnection Text
+cvcVPNGatewayId = lens _cvcVPNGatewayId (\ s a -> s{_cvcVPNGatewayId = a});
 
 instance AWSRequest CreateVPNConnection where
         type Sv CreateVPNConnection = EC2
@@ -144,10 +144,10 @@ instance ToQuery CreateVPNConnection where
           = mconcat
               ["Action" =: ("CreateVPNConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Options" =: _cvcrqOptions, "DryRun" =: _cvcrqDryRun,
-               "Type" =: _cvcrqType,
-               "CustomerGatewayId" =: _cvcrqCustomerGatewayId,
-               "VpnGatewayId" =: _cvcrqVPNGatewayId]
+               "Options" =: _cvcOptions, "DryRun" =: _cvcDryRun,
+               "Type" =: _cvcType,
+               "CustomerGatewayId" =: _cvcCustomerGatewayId,
+               "VpnGatewayId" =: _cvcVPNGatewayId]
 
 -- | /See:/ 'createVPNConnectionResponse' smart constructor.
 --

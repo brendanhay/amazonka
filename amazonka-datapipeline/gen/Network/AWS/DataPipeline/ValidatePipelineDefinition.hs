@@ -28,10 +28,10 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     -- ** Request constructor
     , validatePipelineDefinition
     -- ** Request lenses
-    , vpdrqParameterObjects
-    , vpdrqParameterValues
-    , vpdrqPipelineId
-    , vpdrqPipelineObjects
+    , vpdParameterObjects
+    , vpdParameterValues
+    , vpdPipelineId
+    , vpdPipelineObjects
 
     -- * Response
     , ValidatePipelineDefinitionResponse
@@ -55,46 +55,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vpdrqParameterObjects'
+-- * 'vpdParameterObjects'
 --
--- * 'vpdrqParameterValues'
+-- * 'vpdParameterValues'
 --
--- * 'vpdrqPipelineId'
+-- * 'vpdPipelineId'
 --
--- * 'vpdrqPipelineObjects'
+-- * 'vpdPipelineObjects'
 data ValidatePipelineDefinition = ValidatePipelineDefinition'
-    { _vpdrqParameterObjects :: !(Maybe [ParameterObject])
-    , _vpdrqParameterValues  :: !(Maybe [ParameterValue])
-    , _vpdrqPipelineId       :: !Text
-    , _vpdrqPipelineObjects  :: ![PipelineObject]
+    { _vpdParameterObjects :: !(Maybe [ParameterObject])
+    , _vpdParameterValues  :: !(Maybe [ParameterValue])
+    , _vpdPipelineId       :: !Text
+    , _vpdPipelineObjects  :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidatePipelineDefinition' smart constructor.
 validatePipelineDefinition :: Text -> ValidatePipelineDefinition
 validatePipelineDefinition pPipelineId_ =
     ValidatePipelineDefinition'
-    { _vpdrqParameterObjects = Nothing
-    , _vpdrqParameterValues = Nothing
-    , _vpdrqPipelineId = pPipelineId_
-    , _vpdrqPipelineObjects = mempty
+    { _vpdParameterObjects = Nothing
+    , _vpdParameterValues = Nothing
+    , _vpdPipelineId = pPipelineId_
+    , _vpdPipelineObjects = mempty
     }
 
 -- | The parameter objects used with the pipeline.
-vpdrqParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
-vpdrqParameterObjects = lens _vpdrqParameterObjects (\ s a -> s{_vpdrqParameterObjects = a}) . _Default;
+vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
+vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a}) . _Default;
 
 -- | The parameter values used with the pipeline.
-vpdrqParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
-vpdrqParameterValues = lens _vpdrqParameterValues (\ s a -> s{_vpdrqParameterValues = a}) . _Default;
+vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
+vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
-vpdrqPipelineId :: Lens' ValidatePipelineDefinition Text
-vpdrqPipelineId = lens _vpdrqPipelineId (\ s a -> s{_vpdrqPipelineId = a});
+vpdPipelineId :: Lens' ValidatePipelineDefinition Text
+vpdPipelineId = lens _vpdPipelineId (\ s a -> s{_vpdPipelineId = a});
 
 -- | The objects that define the pipeline changes to validate against the
 -- pipeline.
-vpdrqPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
-vpdrqPipelineObjects = lens _vpdrqPipelineObjects (\ s a -> s{_vpdrqPipelineObjects = a});
+vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
+vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a});
 
 instance AWSRequest ValidatePipelineDefinition where
         type Sv ValidatePipelineDefinition = DataPipeline
@@ -123,10 +123,10 @@ instance ToHeaders ValidatePipelineDefinition where
 instance ToJSON ValidatePipelineDefinition where
         toJSON ValidatePipelineDefinition'{..}
           = object
-              ["parameterObjects" .= _vpdrqParameterObjects,
-               "parameterValues" .= _vpdrqParameterValues,
-               "pipelineId" .= _vpdrqPipelineId,
-               "pipelineObjects" .= _vpdrqPipelineObjects]
+              ["parameterObjects" .= _vpdParameterObjects,
+               "parameterValues" .= _vpdParameterValues,
+               "pipelineId" .= _vpdPipelineId,
+               "pipelineObjects" .= _vpdPipelineObjects]
 
 instance ToPath ValidatePipelineDefinition where
         toPath = const "/"

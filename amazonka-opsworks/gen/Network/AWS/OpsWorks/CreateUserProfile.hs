@@ -32,10 +32,10 @@ module Network.AWS.OpsWorks.CreateUserProfile
     -- ** Request constructor
     , createUserProfile
     -- ** Request lenses
-    , cuprqSSHUsername
-    , cuprqSSHPublicKey
-    , cuprqAllowSelfManagement
-    , cuprqIAMUserARN
+    , cupSSHUsername
+    , cupSSHPublicKey
+    , cupAllowSelfManagement
+    , cupIAMUserARN
 
     -- * Response
     , CreateUserProfileResponse
@@ -55,28 +55,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cuprqSSHUsername'
+-- * 'cupSSHUsername'
 --
--- * 'cuprqSSHPublicKey'
+-- * 'cupSSHPublicKey'
 --
--- * 'cuprqAllowSelfManagement'
+-- * 'cupAllowSelfManagement'
 --
--- * 'cuprqIAMUserARN'
+-- * 'cupIAMUserARN'
 data CreateUserProfile = CreateUserProfile'
-    { _cuprqSSHUsername         :: !(Maybe Text)
-    , _cuprqSSHPublicKey        :: !(Maybe Text)
-    , _cuprqAllowSelfManagement :: !(Maybe Bool)
-    , _cuprqIAMUserARN          :: !Text
+    { _cupSSHUsername         :: !(Maybe Text)
+    , _cupSSHPublicKey        :: !(Maybe Text)
+    , _cupAllowSelfManagement :: !(Maybe Bool)
+    , _cupIAMUserARN          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUserProfile' smart constructor.
 createUserProfile :: Text -> CreateUserProfile
 createUserProfile pIAMUserARN_ =
     CreateUserProfile'
-    { _cuprqSSHUsername = Nothing
-    , _cuprqSSHPublicKey = Nothing
-    , _cuprqAllowSelfManagement = Nothing
-    , _cuprqIAMUserARN = pIAMUserARN_
+    { _cupSSHUsername = Nothing
+    , _cupSSHPublicKey = Nothing
+    , _cupAllowSelfManagement = Nothing
+    , _cupIAMUserARN = pIAMUserARN_
     }
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
@@ -84,22 +84,22 @@ createUserProfile pIAMUserARN_ =
 -- punctuation marks, AWS OpsWorks removes them. For example, @my.name@
 -- will be changed to @myname@. If you do not specify an SSH user name, AWS
 -- OpsWorks generates one from the IAM user name.
-cuprqSSHUsername :: Lens' CreateUserProfile (Maybe Text)
-cuprqSSHUsername = lens _cuprqSSHUsername (\ s a -> s{_cuprqSSHUsername = a});
+cupSSHUsername :: Lens' CreateUserProfile (Maybe Text)
+cupSSHUsername = lens _cupSSHUsername (\ s a -> s{_cupSSHUsername = a});
 
 -- | The user\'s public SSH key.
-cuprqSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
-cuprqSSHPublicKey = lens _cuprqSSHPublicKey (\ s a -> s{_cuprqSSHPublicKey = a});
+cupSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
+cupSSHPublicKey = lens _cupSSHPublicKey (\ s a -> s{_cupSSHPublicKey = a});
 
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
-cuprqAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
-cuprqAllowSelfManagement = lens _cuprqAllowSelfManagement (\ s a -> s{_cuprqAllowSelfManagement = a});
+cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
+cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfManagement = a});
 
 -- | The user\'s IAM ARN.
-cuprqIAMUserARN :: Lens' CreateUserProfile Text
-cuprqIAMUserARN = lens _cuprqIAMUserARN (\ s a -> s{_cuprqIAMUserARN = a});
+cupIAMUserARN :: Lens' CreateUserProfile Text
+cupIAMUserARN = lens _cupIAMUserARN (\ s a -> s{_cupIAMUserARN = a});
 
 instance AWSRequest CreateUserProfile where
         type Sv CreateUserProfile = OpsWorks
@@ -124,10 +124,10 @@ instance ToHeaders CreateUserProfile where
 instance ToJSON CreateUserProfile where
         toJSON CreateUserProfile'{..}
           = object
-              ["SshUsername" .= _cuprqSSHUsername,
-               "SshPublicKey" .= _cuprqSSHPublicKey,
-               "AllowSelfManagement" .= _cuprqAllowSelfManagement,
-               "IamUserArn" .= _cuprqIAMUserARN]
+              ["SshUsername" .= _cupSSHUsername,
+               "SshPublicKey" .= _cupSSHPublicKey,
+               "AllowSelfManagement" .= _cupAllowSelfManagement,
+               "IamUserArn" .= _cupIAMUserARN]
 
 instance ToPath CreateUserProfile where
         toPath = const "/"

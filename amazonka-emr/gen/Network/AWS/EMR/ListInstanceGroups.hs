@@ -27,8 +27,8 @@ module Network.AWS.EMR.ListInstanceGroups
     -- ** Request constructor
     , listInstanceGroups
     -- ** Request lenses
-    , ligrqMarker
-    , ligrqClusterId
+    , ligMarker
+    , ligClusterId
 
     -- * Response
     , ListInstanceGroupsResponse
@@ -52,36 +52,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ligrqMarker'
+-- * 'ligMarker'
 --
--- * 'ligrqClusterId'
+-- * 'ligClusterId'
 data ListInstanceGroups = ListInstanceGroups'
-    { _ligrqMarker    :: !(Maybe Text)
-    , _ligrqClusterId :: !Text
+    { _ligMarker    :: !(Maybe Text)
+    , _ligClusterId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceGroups' smart constructor.
 listInstanceGroups :: Text -> ListInstanceGroups
 listInstanceGroups pClusterId_ =
     ListInstanceGroups'
-    { _ligrqMarker = Nothing
-    , _ligrqClusterId = pClusterId_
+    { _ligMarker = Nothing
+    , _ligClusterId = pClusterId_
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
-ligrqMarker :: Lens' ListInstanceGroups (Maybe Text)
-ligrqMarker = lens _ligrqMarker (\ s a -> s{_ligrqMarker = a});
+ligMarker :: Lens' ListInstanceGroups (Maybe Text)
+ligMarker = lens _ligMarker (\ s a -> s{_ligMarker = a});
 
 -- | The identifier of the cluster for which to list the instance groups.
-ligrqClusterId :: Lens' ListInstanceGroups Text
-ligrqClusterId = lens _ligrqClusterId (\ s a -> s{_ligrqClusterId = a});
+ligClusterId :: Lens' ListInstanceGroups Text
+ligClusterId = lens _ligClusterId (\ s a -> s{_ligClusterId = a});
 
 instance AWSPager ListInstanceGroups where
         page rq rs
           | stop (rs ^. ligrsMarker) = Nothing
           | stop (rs ^. ligrsInstanceGroups) = Nothing
           | otherwise =
-            Just $ rq & ligrqMarker .~ rs ^. ligrsMarker
+            Just $ rq & ligMarker .~ rs ^. ligrsMarker
 
 instance AWSRequest ListInstanceGroups where
         type Sv ListInstanceGroups = EMR
@@ -109,8 +109,8 @@ instance ToHeaders ListInstanceGroups where
 instance ToJSON ListInstanceGroups where
         toJSON ListInstanceGroups'{..}
           = object
-              ["Marker" .= _ligrqMarker,
-               "ClusterId" .= _ligrqClusterId]
+              ["Marker" .= _ligMarker,
+               "ClusterId" .= _ligClusterId]
 
 instance ToPath ListInstanceGroups where
         toPath = const "/"

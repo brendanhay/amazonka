@@ -38,8 +38,8 @@ module Network.AWS.StorageGateway.ListGateways
     -- ** Request constructor
     , listGateways
     -- ** Request lenses
-    , lgrqMarker
-    , lgrqLimit
+    , lgMarker
+    , lgLimit
 
     -- * Response
     , ListGatewaysResponse
@@ -66,38 +66,38 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgrqMarker'
+-- * 'lgMarker'
 --
--- * 'lgrqLimit'
+-- * 'lgLimit'
 data ListGateways = ListGateways'
-    { _lgrqMarker :: !(Maybe Text)
-    , _lgrqLimit  :: !(Maybe Nat)
+    { _lgMarker :: !(Maybe Text)
+    , _lgLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGateways' smart constructor.
 listGateways :: ListGateways
 listGateways =
     ListGateways'
-    { _lgrqMarker = Nothing
-    , _lgrqLimit = Nothing
+    { _lgMarker = Nothing
+    , _lgLimit = Nothing
     }
 
 -- | An opaque string that indicates the position at which to begin the
 -- returned list of gateways.
-lgrqMarker :: Lens' ListGateways (Maybe Text)
-lgrqMarker = lens _lgrqMarker (\ s a -> s{_lgrqMarker = a});
+lgMarker :: Lens' ListGateways (Maybe Text)
+lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
-lgrqLimit :: Lens' ListGateways (Maybe Natural)
-lgrqLimit = lens _lgrqLimit (\ s a -> s{_lgrqLimit = a}) . mapping _Nat;
+lgLimit :: Lens' ListGateways (Maybe Natural)
+lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 
 instance AWSPager ListGateways where
         page rq rs
           | stop (rs ^. lgrsMarker) = Nothing
           | stop (rs ^. lgrsGateways) = Nothing
           | otherwise =
-            Just $ rq & lgrqMarker .~ rs ^. lgrsMarker
+            Just $ rq & lgMarker .~ rs ^. lgrsMarker
 
 instance AWSRequest ListGateways where
         type Sv ListGateways = StorageGateway
@@ -122,8 +122,7 @@ instance ToHeaders ListGateways where
 
 instance ToJSON ListGateways where
         toJSON ListGateways'{..}
-          = object
-              ["Marker" .= _lgrqMarker, "Limit" .= _lgrqLimit]
+          = object ["Marker" .= _lgMarker, "Limit" .= _lgLimit]
 
 instance ToPath ListGateways where
         toPath = const "/"

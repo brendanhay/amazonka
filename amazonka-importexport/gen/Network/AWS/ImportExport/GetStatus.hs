@@ -30,8 +30,8 @@ module Network.AWS.ImportExport.GetStatus
     -- ** Request constructor
     , getStatus
     -- ** Request lenses
-    , gsrqAPIVersion
-    , gsrqJobId
+    , gsAPIVersion
+    , gsJobId
 
     -- * Response
     , GetStatusResponse
@@ -68,29 +68,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsrqAPIVersion'
+-- * 'gsAPIVersion'
 --
--- * 'gsrqJobId'
+-- * 'gsJobId'
 data GetStatus = GetStatus'
-    { _gsrqAPIVersion :: !(Maybe Text)
-    , _gsrqJobId      :: !Text
+    { _gsAPIVersion :: !(Maybe Text)
+    , _gsJobId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStatus' smart constructor.
 getStatus :: Text -> GetStatus
 getStatus pJobId_ =
     GetStatus'
-    { _gsrqAPIVersion = Nothing
-    , _gsrqJobId = pJobId_
+    { _gsAPIVersion = Nothing
+    , _gsJobId = pJobId_
     }
 
 -- | FIXME: Undocumented member.
-gsrqAPIVersion :: Lens' GetStatus (Maybe Text)
-gsrqAPIVersion = lens _gsrqAPIVersion (\ s a -> s{_gsrqAPIVersion = a});
+gsAPIVersion :: Lens' GetStatus (Maybe Text)
+gsAPIVersion = lens _gsAPIVersion (\ s a -> s{_gsAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-gsrqJobId :: Lens' GetStatus Text
-gsrqJobId = lens _gsrqJobId (\ s a -> s{_gsrqJobId = a});
+gsJobId :: Lens' GetStatus Text
+gsJobId = lens _gsJobId (\ s a -> s{_gsJobId = a});
 
 instance AWSRequest GetStatus where
         type Sv GetStatus = ImportExport
@@ -131,8 +131,7 @@ instance ToQuery GetStatus where
               ["Operation=GetStatus",
                "Action" =: ("GetStatus" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _gsrqAPIVersion,
-               "JobId" =: _gsrqJobId]
+               "APIVersion" =: _gsAPIVersion, "JobId" =: _gsJobId]
 
 -- | Output structure for the GetStatus operation.
 --

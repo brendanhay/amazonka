@@ -27,8 +27,8 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- ** Request constructor
     , describeApplicationVersions
     -- ** Request lenses
-    , davsrqVersionLabels
-    , davsrqApplicationName
+    , davsVersionLabels
+    , davsApplicationName
 
     -- * Response
     , DescribeApplicationVersionsResponse
@@ -50,31 +50,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davsrqVersionLabels'
+-- * 'davsVersionLabels'
 --
--- * 'davsrqApplicationName'
+-- * 'davsApplicationName'
 data DescribeApplicationVersions = DescribeApplicationVersions'
-    { _davsrqVersionLabels   :: !(Maybe [Text])
-    , _davsrqApplicationName :: !(Maybe Text)
+    { _davsVersionLabels   :: !(Maybe [Text])
+    , _davsApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationVersions' smart constructor.
 describeApplicationVersions :: DescribeApplicationVersions
 describeApplicationVersions =
     DescribeApplicationVersions'
-    { _davsrqVersionLabels = Nothing
-    , _davsrqApplicationName = Nothing
+    { _davsVersionLabels = Nothing
+    , _davsApplicationName = Nothing
     }
 
 -- | If specified, restricts the returned descriptions to only include ones
 -- that have the specified version labels.
-davsrqVersionLabels :: Lens' DescribeApplicationVersions [Text]
-davsrqVersionLabels = lens _davsrqVersionLabels (\ s a -> s{_davsrqVersionLabels = a}) . _Default;
+davsVersionLabels :: Lens' DescribeApplicationVersions [Text]
+davsVersionLabels = lens _davsVersionLabels (\ s a -> s{_davsVersionLabels = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include ones that are associated with the specified application.
-davsrqApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
-davsrqApplicationName = lens _davsrqApplicationName (\ s a -> s{_davsrqApplicationName = a});
+davsApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
+davsApplicationName = lens _davsApplicationName (\ s a -> s{_davsApplicationName = a});
 
 instance AWSRequest DescribeApplicationVersions where
         type Sv DescribeApplicationVersions =
@@ -105,8 +105,8 @@ instance ToQuery DescribeApplicationVersions where
                "Version" =: ("2010-12-01" :: ByteString),
                "VersionLabels" =:
                  toQuery
-                   (toQueryList "member" <$> _davsrqVersionLabels),
-               "ApplicationName" =: _davsrqApplicationName]
+                   (toQueryList "member" <$> _davsVersionLabels),
+               "ApplicationName" =: _davsApplicationName]
 
 -- | Result message wrapping a list of application version descriptions.
 --

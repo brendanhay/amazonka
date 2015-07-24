@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.GetDeployment
     -- ** Request constructor
     , getDeployment
     -- ** Request lenses
-    , gdrqDeploymentId
+    , gdDeploymentId
 
     -- * Response
     , GetDeploymentResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrqDeploymentId'
+-- * 'gdDeploymentId'
 newtype GetDeployment = GetDeployment'
-    { _gdrqDeploymentId :: Text
+    { _gdDeploymentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeployment' smart constructor.
 getDeployment :: Text -> GetDeployment
 getDeployment pDeploymentId_ =
     GetDeployment'
-    { _gdrqDeploymentId = pDeploymentId_
+    { _gdDeploymentId = pDeploymentId_
     }
 
 -- | An existing deployment ID associated with the applicable IAM user or AWS
 -- account.
-gdrqDeploymentId :: Lens' GetDeployment Text
-gdrqDeploymentId = lens _gdrqDeploymentId (\ s a -> s{_gdrqDeploymentId = a});
+gdDeploymentId :: Lens' GetDeployment Text
+gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a});
 
 instance AWSRequest GetDeployment where
         type Sv GetDeployment = CodeDeploy
@@ -87,7 +87,7 @@ instance ToHeaders GetDeployment where
 
 instance ToJSON GetDeployment where
         toJSON GetDeployment'{..}
-          = object ["deploymentId" .= _gdrqDeploymentId]
+          = object ["deploymentId" .= _gdDeploymentId]
 
 instance ToPath GetDeployment where
         toPath = const "/"

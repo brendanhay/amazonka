@@ -35,11 +35,11 @@ module Network.AWS.CloudWatchLogs.PutSubscriptionFilter
     -- ** Request constructor
     , putSubscriptionFilter
     -- ** Request lenses
-    , psfrqLogGroupName
-    , psfrqFilterName
-    , psfrqFilterPattern
-    , psfrqDestinationARN
-    , psfrqRoleARN
+    , psfLogGroupName
+    , psfFilterName
+    , psfFilterPattern
+    , psfDestinationARN
+    , psfRoleARN
 
     -- * Response
     , PutSubscriptionFilterResponse
@@ -56,55 +56,55 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'psfrqLogGroupName'
+-- * 'psfLogGroupName'
 --
--- * 'psfrqFilterName'
+-- * 'psfFilterName'
 --
--- * 'psfrqFilterPattern'
+-- * 'psfFilterPattern'
 --
--- * 'psfrqDestinationARN'
+-- * 'psfDestinationARN'
 --
--- * 'psfrqRoleARN'
+-- * 'psfRoleARN'
 data PutSubscriptionFilter = PutSubscriptionFilter'
-    { _psfrqLogGroupName   :: !Text
-    , _psfrqFilterName     :: !Text
-    , _psfrqFilterPattern  :: !Text
-    , _psfrqDestinationARN :: !Text
-    , _psfrqRoleARN        :: !Text
+    { _psfLogGroupName   :: !Text
+    , _psfFilterName     :: !Text
+    , _psfFilterPattern  :: !Text
+    , _psfDestinationARN :: !Text
+    , _psfRoleARN        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutSubscriptionFilter' smart constructor.
 putSubscriptionFilter :: Text -> Text -> Text -> Text -> Text -> PutSubscriptionFilter
 putSubscriptionFilter pLogGroupName_ pFilterName_ pFilterPattern_ pDestinationARN_ pRoleARN_ =
     PutSubscriptionFilter'
-    { _psfrqLogGroupName = pLogGroupName_
-    , _psfrqFilterName = pFilterName_
-    , _psfrqFilterPattern = pFilterPattern_
-    , _psfrqDestinationARN = pDestinationARN_
-    , _psfrqRoleARN = pRoleARN_
+    { _psfLogGroupName = pLogGroupName_
+    , _psfFilterName = pFilterName_
+    , _psfFilterPattern = pFilterPattern_
+    , _psfDestinationARN = pDestinationARN_
+    , _psfRoleARN = pRoleARN_
     }
 
 -- | The name of the log group to associate the subscription filter with.
-psfrqLogGroupName :: Lens' PutSubscriptionFilter Text
-psfrqLogGroupName = lens _psfrqLogGroupName (\ s a -> s{_psfrqLogGroupName = a});
+psfLogGroupName :: Lens' PutSubscriptionFilter Text
+psfLogGroupName = lens _psfLogGroupName (\ s a -> s{_psfLogGroupName = a});
 
 -- | A name for the subscription filter.
-psfrqFilterName :: Lens' PutSubscriptionFilter Text
-psfrqFilterName = lens _psfrqFilterName (\ s a -> s{_psfrqFilterName = a});
+psfFilterName :: Lens' PutSubscriptionFilter Text
+psfFilterName = lens _psfFilterName (\ s a -> s{_psfFilterName = a});
 
 -- | A valid CloudWatch Logs filter pattern for subscribing to a filtered
 -- stream of log events.
-psfrqFilterPattern :: Lens' PutSubscriptionFilter Text
-psfrqFilterPattern = lens _psfrqFilterPattern (\ s a -> s{_psfrqFilterPattern = a});
+psfFilterPattern :: Lens' PutSubscriptionFilter Text
+psfFilterPattern = lens _psfFilterPattern (\ s a -> s{_psfFilterPattern = a});
 
 -- | The ARN of an Amazon Kinesis stream to deliver matching log events to.
-psfrqDestinationARN :: Lens' PutSubscriptionFilter Text
-psfrqDestinationARN = lens _psfrqDestinationARN (\ s a -> s{_psfrqDestinationARN = a});
+psfDestinationARN :: Lens' PutSubscriptionFilter Text
+psfDestinationARN = lens _psfDestinationARN (\ s a -> s{_psfDestinationARN = a});
 
 -- | The ARN of an IAM role that grants Amazon CloudWatch Logs permissions to
 -- do Amazon Kinesis PutRecord requests on the desitnation stream.
-psfrqRoleARN :: Lens' PutSubscriptionFilter Text
-psfrqRoleARN = lens _psfrqRoleARN (\ s a -> s{_psfrqRoleARN = a});
+psfRoleARN :: Lens' PutSubscriptionFilter Text
+psfRoleARN = lens _psfRoleARN (\ s a -> s{_psfRoleARN = a});
 
 instance AWSRequest PutSubscriptionFilter where
         type Sv PutSubscriptionFilter = CloudWatchLogs
@@ -126,11 +126,11 @@ instance ToHeaders PutSubscriptionFilter where
 instance ToJSON PutSubscriptionFilter where
         toJSON PutSubscriptionFilter'{..}
           = object
-              ["logGroupName" .= _psfrqLogGroupName,
-               "filterName" .= _psfrqFilterName,
-               "filterPattern" .= _psfrqFilterPattern,
-               "destinationArn" .= _psfrqDestinationARN,
-               "roleArn" .= _psfrqRoleARN]
+              ["logGroupName" .= _psfLogGroupName,
+               "filterName" .= _psfFilterName,
+               "filterPattern" .= _psfFilterPattern,
+               "destinationArn" .= _psfDestinationARN,
+               "roleArn" .= _psfRoleARN]
 
 instance ToPath PutSubscriptionFilter where
         toPath = const "/"

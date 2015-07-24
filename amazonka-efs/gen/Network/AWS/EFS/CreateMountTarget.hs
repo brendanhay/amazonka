@@ -126,10 +126,10 @@ module Network.AWS.EFS.CreateMountTarget
     -- ** Request constructor
     , createMountTarget
     -- ** Request lenses
-    , cmtrqIPAddress
-    , cmtrqSecurityGroups
-    , cmtrqFileSystemId
-    , cmtrqSubnetId
+    , cmtIPAddress
+    , cmtSecurityGroups
+    , cmtFileSystemId
+    , cmtSubnetId
 
     -- * Response
     , MountTargetDescription
@@ -154,46 +154,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmtrqIPAddress'
+-- * 'cmtIPAddress'
 --
--- * 'cmtrqSecurityGroups'
+-- * 'cmtSecurityGroups'
 --
--- * 'cmtrqFileSystemId'
+-- * 'cmtFileSystemId'
 --
--- * 'cmtrqSubnetId'
+-- * 'cmtSubnetId'
 data CreateMountTarget = CreateMountTarget'
-    { _cmtrqIPAddress      :: !(Maybe Text)
-    , _cmtrqSecurityGroups :: !(Maybe [Text])
-    , _cmtrqFileSystemId   :: !Text
-    , _cmtrqSubnetId       :: !Text
+    { _cmtIPAddress      :: !(Maybe Text)
+    , _cmtSecurityGroups :: !(Maybe [Text])
+    , _cmtFileSystemId   :: !Text
+    , _cmtSubnetId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMountTarget' smart constructor.
 createMountTarget :: Text -> Text -> CreateMountTarget
 createMountTarget pFileSystemId_ pSubnetId_ =
     CreateMountTarget'
-    { _cmtrqIPAddress = Nothing
-    , _cmtrqSecurityGroups = Nothing
-    , _cmtrqFileSystemId = pFileSystemId_
-    , _cmtrqSubnetId = pSubnetId_
+    { _cmtIPAddress = Nothing
+    , _cmtSecurityGroups = Nothing
+    , _cmtFileSystemId = pFileSystemId_
+    , _cmtSubnetId = pSubnetId_
     }
 
 -- | A valid IPv4 address within the address range of the specified subnet.
-cmtrqIPAddress :: Lens' CreateMountTarget (Maybe Text)
-cmtrqIPAddress = lens _cmtrqIPAddress (\ s a -> s{_cmtrqIPAddress = a});
+cmtIPAddress :: Lens' CreateMountTarget (Maybe Text)
+cmtIPAddress = lens _cmtIPAddress (\ s a -> s{_cmtIPAddress = a});
 
 -- | Up to 5 VPC security group IDs, of the form \"sg-xxxxxxxx\". These must
 -- be for the same VPC as subnet specified.
-cmtrqSecurityGroups :: Lens' CreateMountTarget [Text]
-cmtrqSecurityGroups = lens _cmtrqSecurityGroups (\ s a -> s{_cmtrqSecurityGroups = a}) . _Default;
+cmtSecurityGroups :: Lens' CreateMountTarget [Text]
+cmtSecurityGroups = lens _cmtSecurityGroups (\ s a -> s{_cmtSecurityGroups = a}) . _Default;
 
 -- | The ID of the file system for which to create the mount target.
-cmtrqFileSystemId :: Lens' CreateMountTarget Text
-cmtrqFileSystemId = lens _cmtrqFileSystemId (\ s a -> s{_cmtrqFileSystemId = a});
+cmtFileSystemId :: Lens' CreateMountTarget Text
+cmtFileSystemId = lens _cmtFileSystemId (\ s a -> s{_cmtFileSystemId = a});
 
 -- | The ID of the subnet to add the mount target in.
-cmtrqSubnetId :: Lens' CreateMountTarget Text
-cmtrqSubnetId = lens _cmtrqSubnetId (\ s a -> s{_cmtrqSubnetId = a});
+cmtSubnetId :: Lens' CreateMountTarget Text
+cmtSubnetId = lens _cmtSubnetId (\ s a -> s{_cmtSubnetId = a});
 
 instance AWSRequest CreateMountTarget where
         type Sv CreateMountTarget = EFS
@@ -207,10 +207,10 @@ instance ToHeaders CreateMountTarget where
 instance ToJSON CreateMountTarget where
         toJSON CreateMountTarget'{..}
           = object
-              ["IpAddress" .= _cmtrqIPAddress,
-               "SecurityGroups" .= _cmtrqSecurityGroups,
-               "FileSystemId" .= _cmtrqFileSystemId,
-               "SubnetId" .= _cmtrqSubnetId]
+              ["IpAddress" .= _cmtIPAddress,
+               "SecurityGroups" .= _cmtSecurityGroups,
+               "FileSystemId" .= _cmtFileSystemId,
+               "SubnetId" .= _cmtSubnetId]
 
 instance ToPath CreateMountTarget where
         toPath = const "/2015-02-01/mount-targets"

@@ -29,8 +29,8 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- ** Request constructor
     , modifyCacheParameterGroup
     -- ** Request lenses
-    , mcpgrqCacheParameterGroupName
-    , mcpgrqParameterNameValues
+    , mcpgCacheParameterGroupName
+    , mcpgParameterNameValues
 
     -- * Response
     , CacheParameterGroupNameMessage
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mcpgrqCacheParameterGroupName'
+-- * 'mcpgCacheParameterGroupName'
 --
--- * 'mcpgrqParameterNameValues'
+-- * 'mcpgParameterNameValues'
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'
-    { _mcpgrqCacheParameterGroupName :: !Text
-    , _mcpgrqParameterNameValues     :: ![ParameterNameValue]
+    { _mcpgCacheParameterGroupName :: !Text
+    , _mcpgParameterNameValues     :: ![ParameterNameValue]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheParameterGroup' smart constructor.
 modifyCacheParameterGroup :: Text -> ModifyCacheParameterGroup
 modifyCacheParameterGroup pCacheParameterGroupName_ =
     ModifyCacheParameterGroup'
-    { _mcpgrqCacheParameterGroupName = pCacheParameterGroupName_
-    , _mcpgrqParameterNameValues = mempty
+    { _mcpgCacheParameterGroupName = pCacheParameterGroupName_
+    , _mcpgParameterNameValues = mempty
     }
 
 -- | The name of the cache parameter group to modify.
-mcpgrqCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text
-mcpgrqCacheParameterGroupName = lens _mcpgrqCacheParameterGroupName (\ s a -> s{_mcpgrqCacheParameterGroupName = a});
+mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text
+mcpgCacheParameterGroupName = lens _mcpgCacheParameterGroupName (\ s a -> s{_mcpgCacheParameterGroupName = a});
 
 -- | An array of parameter names and values for the parameter update. You
 -- must supply at least one parameter name and value; subsequent arguments
 -- are optional. A maximum of 20 parameters may be modified per request.
-mcpgrqParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
-mcpgrqParameterNameValues = lens _mcpgrqParameterNameValues (\ s a -> s{_mcpgrqParameterNameValues = a});
+mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
+mcpgParameterNameValues = lens _mcpgParameterNameValues (\ s a -> s{_mcpgParameterNameValues = a});
 
 instance AWSRequest ModifyCacheParameterGroup where
         type Sv ModifyCacheParameterGroup = ElastiCache
@@ -99,7 +99,7 @@ instance ToQuery ModifyCacheParameterGroup where
                  ("ModifyCacheParameterGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheParameterGroupName" =:
-                 _mcpgrqCacheParameterGroupName,
+                 _mcpgCacheParameterGroupName,
                "ParameterNameValues" =:
                  toQueryList "ParameterNameValue"
-                   _mcpgrqParameterNameValues]
+                   _mcpgParameterNameValues]

@@ -67,10 +67,10 @@ module Network.AWS.Kinesis.GetShardIterator
     -- ** Request constructor
     , getShardIterator
     -- ** Request lenses
-    , gsirqStartingSequenceNumber
-    , gsirqStreamName
-    , gsirqShardId
-    , gsirqShardIteratorType
+    , gsiStartingSequenceNumber
+    , gsiStreamName
+    , gsiShardId
+    , gsiShardIteratorType
 
     -- * Response
     , GetShardIteratorResponse
@@ -92,42 +92,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsirqStartingSequenceNumber'
+-- * 'gsiStartingSequenceNumber'
 --
--- * 'gsirqStreamName'
+-- * 'gsiStreamName'
 --
--- * 'gsirqShardId'
+-- * 'gsiShardId'
 --
--- * 'gsirqShardIteratorType'
+-- * 'gsiShardIteratorType'
 data GetShardIterator = GetShardIterator'
-    { _gsirqStartingSequenceNumber :: !(Maybe Text)
-    , _gsirqStreamName             :: !Text
-    , _gsirqShardId                :: !Text
-    , _gsirqShardIteratorType      :: !ShardIteratorType
+    { _gsiStartingSequenceNumber :: !(Maybe Text)
+    , _gsiStreamName             :: !Text
+    , _gsiShardId                :: !Text
+    , _gsiShardIteratorType      :: !ShardIteratorType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIterator' smart constructor.
 getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
 getShardIterator pStreamName_ pShardId_ pShardIteratorType_ =
     GetShardIterator'
-    { _gsirqStartingSequenceNumber = Nothing
-    , _gsirqStreamName = pStreamName_
-    , _gsirqShardId = pShardId_
-    , _gsirqShardIteratorType = pShardIteratorType_
+    { _gsiStartingSequenceNumber = Nothing
+    , _gsiStreamName = pStreamName_
+    , _gsiShardId = pShardId_
+    , _gsiShardIteratorType = pShardIteratorType_
     }
 
 -- | The sequence number of the data record in the shard from which to start
 -- reading from.
-gsirqStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
-gsirqStartingSequenceNumber = lens _gsirqStartingSequenceNumber (\ s a -> s{_gsirqStartingSequenceNumber = a});
+gsiStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
+gsiStartingSequenceNumber = lens _gsiStartingSequenceNumber (\ s a -> s{_gsiStartingSequenceNumber = a});
 
 -- | The name of the stream.
-gsirqStreamName :: Lens' GetShardIterator Text
-gsirqStreamName = lens _gsirqStreamName (\ s a -> s{_gsirqStreamName = a});
+gsiStreamName :: Lens' GetShardIterator Text
+gsiStreamName = lens _gsiStreamName (\ s a -> s{_gsiStreamName = a});
 
 -- | The shard ID of the shard to get the iterator for.
-gsirqShardId :: Lens' GetShardIterator Text
-gsirqShardId = lens _gsirqShardId (\ s a -> s{_gsirqShardId = a});
+gsiShardId :: Lens' GetShardIterator Text
+gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
 
 -- | Determines how the shard iterator is used to start reading data records
 -- from the shard.
@@ -142,8 +142,8 @@ gsirqShardId = lens _gsirqShardId (\ s a -> s{_gsirqShardId = a});
 --     shard in the system, which is the oldest data record in the shard.
 -- -   LATEST - Start reading just after the most recent record in the
 --     shard, so that you always read the most recent data in the shard.
-gsirqShardIteratorType :: Lens' GetShardIterator ShardIteratorType
-gsirqShardIteratorType = lens _gsirqShardIteratorType (\ s a -> s{_gsirqShardIteratorType = a});
+gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
+gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a});
 
 instance AWSRequest GetShardIterator where
         type Sv GetShardIterator = Kinesis
@@ -168,10 +168,10 @@ instance ToJSON GetShardIterator where
         toJSON GetShardIterator'{..}
           = object
               ["StartingSequenceNumber" .=
-                 _gsirqStartingSequenceNumber,
-               "StreamName" .= _gsirqStreamName,
-               "ShardId" .= _gsirqShardId,
-               "ShardIteratorType" .= _gsirqShardIteratorType]
+                 _gsiStartingSequenceNumber,
+               "StreamName" .= _gsiStreamName,
+               "ShardId" .= _gsiShardId,
+               "ShardIteratorType" .= _gsiShardIteratorType]
 
 instance ToPath GetShardIterator where
         toPath = const "/"

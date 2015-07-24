@@ -31,9 +31,9 @@ module Network.AWS.EC2.ReplaceNetworkACLAssociation
     -- ** Request constructor
     , replaceNetworkACLAssociation
     -- ** Request lenses
-    , rnaarqDryRun
-    , rnaarqAssociationId
-    , rnaarqNetworkACLId
+    , rnaaDryRun
+    , rnaaAssociationId
+    , rnaaNetworkACLId
 
     -- * Response
     , ReplaceNetworkACLAssociationResponse
@@ -53,41 +53,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rnaarqDryRun'
+-- * 'rnaaDryRun'
 --
--- * 'rnaarqAssociationId'
+-- * 'rnaaAssociationId'
 --
--- * 'rnaarqNetworkACLId'
+-- * 'rnaaNetworkACLId'
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
-    { _rnaarqDryRun        :: !(Maybe Bool)
-    , _rnaarqAssociationId :: !Text
-    , _rnaarqNetworkACLId  :: !Text
+    { _rnaaDryRun        :: !(Maybe Bool)
+    , _rnaaAssociationId :: !Text
+    , _rnaaNetworkACLId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLAssociation' smart constructor.
 replaceNetworkACLAssociation :: Text -> Text -> ReplaceNetworkACLAssociation
 replaceNetworkACLAssociation pAssociationId_ pNetworkACLId_ =
     ReplaceNetworkACLAssociation'
-    { _rnaarqDryRun = Nothing
-    , _rnaarqAssociationId = pAssociationId_
-    , _rnaarqNetworkACLId = pNetworkACLId_
+    { _rnaaDryRun = Nothing
+    , _rnaaAssociationId = pAssociationId_
+    , _rnaaNetworkACLId = pNetworkACLId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rnaarqDryRun :: Lens' ReplaceNetworkACLAssociation (Maybe Bool)
-rnaarqDryRun = lens _rnaarqDryRun (\ s a -> s{_rnaarqDryRun = a});
+rnaaDryRun :: Lens' ReplaceNetworkACLAssociation (Maybe Bool)
+rnaaDryRun = lens _rnaaDryRun (\ s a -> s{_rnaaDryRun = a});
 
 -- | The ID of the current association between the original network ACL and
 -- the subnet.
-rnaarqAssociationId :: Lens' ReplaceNetworkACLAssociation Text
-rnaarqAssociationId = lens _rnaarqAssociationId (\ s a -> s{_rnaarqAssociationId = a});
+rnaaAssociationId :: Lens' ReplaceNetworkACLAssociation Text
+rnaaAssociationId = lens _rnaaAssociationId (\ s a -> s{_rnaaAssociationId = a});
 
 -- | The ID of the new network ACL to associate with the subnet.
-rnaarqNetworkACLId :: Lens' ReplaceNetworkACLAssociation Text
-rnaarqNetworkACLId = lens _rnaarqNetworkACLId (\ s a -> s{_rnaarqNetworkACLId = a});
+rnaaNetworkACLId :: Lens' ReplaceNetworkACLAssociation Text
+rnaaNetworkACLId = lens _rnaaNetworkACLId (\ s a -> s{_rnaaNetworkACLId = a});
 
 instance AWSRequest ReplaceNetworkACLAssociation
          where
@@ -113,9 +113,9 @@ instance ToQuery ReplaceNetworkACLAssociation where
               ["Action" =:
                  ("ReplaceNetworkACLAssociation" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rnaarqDryRun,
-               "AssociationId" =: _rnaarqAssociationId,
-               "NetworkAclId" =: _rnaarqNetworkACLId]
+               "DryRun" =: _rnaaDryRun,
+               "AssociationId" =: _rnaaAssociationId,
+               "NetworkAclId" =: _rnaaNetworkACLId]
 
 -- | /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
 --

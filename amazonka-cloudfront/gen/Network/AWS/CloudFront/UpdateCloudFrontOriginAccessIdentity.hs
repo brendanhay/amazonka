@@ -27,9 +27,9 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- ** Request constructor
     , updateCloudFrontOriginAccessIdentity
     -- ** Request lenses
-    , ucfoairqIfMatch
-    , ucfoairqCloudFrontOriginAccessIdentityConfig
-    , ucfoairqId
+    , ucfoaiIfMatch
+    , ucfoaiCloudFrontOriginAccessIdentityConfig
+    , ucfoaiId
 
     -- * Response
     , UpdateCloudFrontOriginAccessIdentityResponse
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ucfoairqIfMatch'
+-- * 'ucfoaiIfMatch'
 --
--- * 'ucfoairqCloudFrontOriginAccessIdentityConfig'
+-- * 'ucfoaiCloudFrontOriginAccessIdentityConfig'
 --
--- * 'ucfoairqId'
+-- * 'ucfoaiId'
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
-    { _ucfoairqIfMatch                              :: !(Maybe Text)
-    , _ucfoairqCloudFrontOriginAccessIdentityConfig :: !CloudFrontOriginAccessIdentityConfig
-    , _ucfoairqId                                   :: !Text
+    { _ucfoaiIfMatch                              :: !(Maybe Text)
+    , _ucfoaiCloudFrontOriginAccessIdentityConfig :: !CloudFrontOriginAccessIdentityConfig
+    , _ucfoaiId                                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateCloudFrontOriginAccessIdentity' smart constructor.
 updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> Text -> UpdateCloudFrontOriginAccessIdentity
 updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig_ pId_ =
     UpdateCloudFrontOriginAccessIdentity'
-    { _ucfoairqIfMatch = Nothing
-    , _ucfoairqCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
-    , _ucfoairqId = pId_
+    { _ucfoaiIfMatch = Nothing
+    , _ucfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig_
+    , _ucfoaiId = pId_
     }
 
 -- | The value of the ETag header you received when retrieving the
 -- identity\'s configuration. For example: E2QWRUHAPOMQZL.
-ucfoairqIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
-ucfoairqIfMatch = lens _ucfoairqIfMatch (\ s a -> s{_ucfoairqIfMatch = a});
+ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
+ucfoaiIfMatch = lens _ucfoaiIfMatch (\ s a -> s{_ucfoaiIfMatch = a});
 
 -- | The identity\'s configuration information.
-ucfoairqCloudFrontOriginAccessIdentityConfig :: Lens' UpdateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
-ucfoairqCloudFrontOriginAccessIdentityConfig = lens _ucfoairqCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ucfoairqCloudFrontOriginAccessIdentityConfig = a});
+ucfoaiCloudFrontOriginAccessIdentityConfig :: Lens' UpdateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
+ucfoaiCloudFrontOriginAccessIdentityConfig = lens _ucfoaiCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ucfoaiCloudFrontOriginAccessIdentityConfig = a});
 
 -- | The identity\'s id.
-ucfoairqId :: Lens' UpdateCloudFrontOriginAccessIdentity Text
-ucfoairqId = lens _ucfoairqId (\ s a -> s{_ucfoairqId = a});
+ucfoaiId :: Lens' UpdateCloudFrontOriginAccessIdentity Text
+ucfoaiId = lens _ucfoaiId (\ s a -> s{_ucfoaiId = a});
 
 instance AWSRequest
          UpdateCloudFrontOriginAccessIdentity where
@@ -105,19 +105,19 @@ instance ToElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}CloudFrontOriginAccessIdentityConfig"
               .
-              _ucfoairqCloudFrontOriginAccessIdentityConfig
+              _ucfoaiCloudFrontOriginAccessIdentityConfig
 
 instance ToHeaders
          UpdateCloudFrontOriginAccessIdentity where
         toHeaders UpdateCloudFrontOriginAccessIdentity'{..}
-          = mconcat ["If-Match" =# _ucfoairqIfMatch]
+          = mconcat ["If-Match" =# _ucfoaiIfMatch]
 
 instance ToPath UpdateCloudFrontOriginAccessIdentity
          where
         toPath UpdateCloudFrontOriginAccessIdentity'{..}
           = mconcat
               ["/2015-04-17/origin-access-identity/cloudfront/",
-               toText _ucfoairqId, "/config"]
+               toText _ucfoaiId, "/config"]
 
 instance ToQuery UpdateCloudFrontOriginAccessIdentity
          where

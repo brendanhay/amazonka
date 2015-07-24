@@ -39,10 +39,10 @@ module Network.AWS.SQS.SendMessage
     -- ** Request constructor
     , sendMessage
     -- ** Request lenses
-    , smrqMessageAttributes
-    , smrqDelaySeconds
-    , smrqQueueURL
-    , smrqMessageBody
+    , smMessageAttributes
+    , smDelaySeconds
+    , smQueueURL
+    , smMessageBody
 
     -- * Response
     , SendMessageResponse
@@ -64,51 +64,51 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'smrqMessageAttributes'
+-- * 'smMessageAttributes'
 --
--- * 'smrqDelaySeconds'
+-- * 'smDelaySeconds'
 --
--- * 'smrqQueueURL'
+-- * 'smQueueURL'
 --
--- * 'smrqMessageBody'
+-- * 'smMessageBody'
 data SendMessage = SendMessage'
-    { _smrqMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _smrqDelaySeconds      :: !(Maybe Int)
-    , _smrqQueueURL          :: !Text
-    , _smrqMessageBody       :: !Text
+    { _smMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _smDelaySeconds      :: !(Maybe Int)
+    , _smQueueURL          :: !Text
+    , _smMessageBody       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessage' smart constructor.
 sendMessage :: Text -> Text -> SendMessage
 sendMessage pQueueURL_ pMessageBody_ =
     SendMessage'
-    { _smrqMessageAttributes = Nothing
-    , _smrqDelaySeconds = Nothing
-    , _smrqQueueURL = pQueueURL_
-    , _smrqMessageBody = pMessageBody_
+    { _smMessageAttributes = Nothing
+    , _smDelaySeconds = Nothing
+    , _smQueueURL = pQueueURL_
+    , _smMessageBody = pMessageBody_
     }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-smrqMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
-smrqMessageAttributes = lens _smrqMessageAttributes (\ s a -> s{_smrqMessageAttributes = a}) . _Default . _Map;
+smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
+smMessageAttributes = lens _smMessageAttributes (\ s a -> s{_smMessageAttributes = a}) . _Default . _Map;
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific
 -- message. Messages with a positive @DelaySeconds@ value become available
 -- for processing after the delay time is finished. If you don\'t specify a
 -- value, the default value for the queue applies.
-smrqDelaySeconds :: Lens' SendMessage (Maybe Int)
-smrqDelaySeconds = lens _smrqDelaySeconds (\ s a -> s{_smrqDelaySeconds = a});
+smDelaySeconds :: Lens' SendMessage (Maybe Int)
+smDelaySeconds = lens _smDelaySeconds (\ s a -> s{_smDelaySeconds = a});
 
 -- | The URL of the Amazon SQS queue to take action on.
-smrqQueueURL :: Lens' SendMessage Text
-smrqQueueURL = lens _smrqQueueURL (\ s a -> s{_smrqQueueURL = a});
+smQueueURL :: Lens' SendMessage Text
+smQueueURL = lens _smQueueURL (\ s a -> s{_smQueueURL = a});
 
 -- | The message to send. String maximum 256 KB in size. For a list of
 -- allowed characters, see the preceding important note.
-smrqMessageBody :: Lens' SendMessage Text
-smrqMessageBody = lens _smrqMessageBody (\ s a -> s{_smrqMessageBody = a});
+smMessageBody :: Lens' SendMessage Text
+smMessageBody = lens _smMessageBody (\ s a -> s{_smMessageBody = a});
 
 instance AWSRequest SendMessage where
         type Sv SendMessage = SQS
@@ -135,10 +135,10 @@ instance ToQuery SendMessage where
                "Version" =: ("2012-11-05" :: ByteString),
                toQuery
                  (toQueryMap "MessageAttribute" "Name" "Value" <$>
-                    _smrqMessageAttributes),
-               "DelaySeconds" =: _smrqDelaySeconds,
-               "QueueUrl" =: _smrqQueueURL,
-               "MessageBody" =: _smrqMessageBody]
+                    _smMessageAttributes),
+               "DelaySeconds" =: _smDelaySeconds,
+               "QueueUrl" =: _smQueueURL,
+               "MessageBody" =: _smMessageBody]
 
 -- | The MD5OfMessageBody and MessageId elements.
 --

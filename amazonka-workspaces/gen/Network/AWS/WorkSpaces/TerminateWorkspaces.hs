@@ -37,7 +37,7 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
     -- ** Request constructor
     , terminateWorkspaces
     -- ** Request lenses
-    , twrqTerminateWorkspaceRequests
+    , twTerminateWorkspaceRequests
 
     -- * Response
     , TerminateWorkspacesResponse
@@ -59,21 +59,21 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'twrqTerminateWorkspaceRequests'
+-- * 'twTerminateWorkspaceRequests'
 newtype TerminateWorkspaces = TerminateWorkspaces'
-    { _twrqTerminateWorkspaceRequests :: List1 TerminateRequest
+    { _twTerminateWorkspaceRequests :: List1 TerminateRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateWorkspaces' smart constructor.
 terminateWorkspaces :: NonEmpty TerminateRequest -> TerminateWorkspaces
 terminateWorkspaces pTerminateWorkspaceRequests_ =
     TerminateWorkspaces'
-    { _twrqTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests_
+    { _twTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests_
     }
 
 -- | An array of structures that specify the WorkSpaces to terminate.
-twrqTerminateWorkspaceRequests :: Lens' TerminateWorkspaces (NonEmpty TerminateRequest)
-twrqTerminateWorkspaceRequests = lens _twrqTerminateWorkspaceRequests (\ s a -> s{_twrqTerminateWorkspaceRequests = a}) . _List1;
+twTerminateWorkspaceRequests :: Lens' TerminateWorkspaces (NonEmpty TerminateRequest)
+twTerminateWorkspaceRequests = lens _twTerminateWorkspaceRequests (\ s a -> s{_twTerminateWorkspaceRequests = a}) . _List1;
 
 instance AWSRequest TerminateWorkspaces where
         type Sv TerminateWorkspaces = WorkSpaces
@@ -101,7 +101,7 @@ instance ToJSON TerminateWorkspaces where
         toJSON TerminateWorkspaces'{..}
           = object
               ["TerminateWorkspaceRequests" .=
-                 _twrqTerminateWorkspaceRequests]
+                 _twTerminateWorkspaceRequests]
 
 instance ToPath TerminateWorkspaces where
         toPath = const "/"

@@ -36,9 +36,9 @@ module Network.AWS.RDS.DeleteDBInstance
     -- ** Request constructor
     , deleteDBInstance
     -- ** Request lenses
-    , ddirqFinalDBSnapshotIdentifier
-    , ddirqSkipFinalSnapshot
-    , ddirqDBInstanceIdentifier
+    , ddiFinalDBSnapshotIdentifier
+    , ddiSkipFinalSnapshot
+    , ddiDBInstanceIdentifier
 
     -- * Response
     , DeleteDBInstanceResponse
@@ -60,24 +60,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddirqFinalDBSnapshotIdentifier'
+-- * 'ddiFinalDBSnapshotIdentifier'
 --
--- * 'ddirqSkipFinalSnapshot'
+-- * 'ddiSkipFinalSnapshot'
 --
--- * 'ddirqDBInstanceIdentifier'
+-- * 'ddiDBInstanceIdentifier'
 data DeleteDBInstance = DeleteDBInstance'
-    { _ddirqFinalDBSnapshotIdentifier :: !(Maybe Text)
-    , _ddirqSkipFinalSnapshot         :: !(Maybe Bool)
-    , _ddirqDBInstanceIdentifier      :: !Text
+    { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
+    , _ddiSkipFinalSnapshot         :: !(Maybe Bool)
+    , _ddiDBInstanceIdentifier      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBInstance' smart constructor.
 deleteDBInstance :: Text -> DeleteDBInstance
 deleteDBInstance pDBInstanceIdentifier_ =
     DeleteDBInstance'
-    { _ddirqFinalDBSnapshotIdentifier = Nothing
-    , _ddirqSkipFinalSnapshot = Nothing
-    , _ddirqDBInstanceIdentifier = pDBInstanceIdentifier_
+    { _ddiFinalDBSnapshotIdentifier = Nothing
+    , _ddiSkipFinalSnapshot = Nothing
+    , _ddiDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
@@ -92,8 +92,8 @@ deleteDBInstance pDBInstanceIdentifier_ =
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 -- -   Cannot be specified when deleting a Read Replica.
-ddirqFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
-ddirqFinalDBSnapshotIdentifier = lens _ddirqFinalDBSnapshotIdentifier (\ s a -> s{_ddirqFinalDBSnapshotIdentifier = a});
+ddiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
+ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_ddiFinalDBSnapshotIdentifier = a});
 
 -- | Determines whether a final DB snapshot is created before the DB instance
 -- is deleted. If @true@ is specified, no DBSnapshot is created. If @false@
@@ -106,8 +106,8 @@ ddirqFinalDBSnapshotIdentifier = lens _ddirqFinalDBSnapshotIdentifier (\ s a -> 
 -- SkipFinalSnapshot is @false@.
 --
 -- Default: @false@
-ddirqSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
-ddirqSkipFinalSnapshot = lens _ddirqSkipFinalSnapshot (\ s a -> s{_ddirqSkipFinalSnapshot = a});
+ddiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
+ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnapshot = a});
 
 -- | The DB instance identifier for the DB instance to be deleted. This
 -- parameter isn\'t case sensitive.
@@ -117,8 +117,8 @@ ddirqSkipFinalSnapshot = lens _ddirqSkipFinalSnapshot (\ s a -> s{_ddirqSkipFina
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddirqDBInstanceIdentifier :: Lens' DeleteDBInstance Text
-ddirqDBInstanceIdentifier = lens _ddirqDBInstanceIdentifier (\ s a -> s{_ddirqDBInstanceIdentifier = a});
+ddiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
+ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstanceIdentifier = a});
 
 instance AWSRequest DeleteDBInstance where
         type Sv DeleteDBInstance = RDS
@@ -142,9 +142,9 @@ instance ToQuery DeleteDBInstance where
               ["Action" =: ("DeleteDBInstance" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "FinalDBSnapshotIdentifier" =:
-                 _ddirqFinalDBSnapshotIdentifier,
-               "SkipFinalSnapshot" =: _ddirqSkipFinalSnapshot,
-               "DBInstanceIdentifier" =: _ddirqDBInstanceIdentifier]
+                 _ddiFinalDBSnapshotIdentifier,
+               "SkipFinalSnapshot" =: _ddiSkipFinalSnapshot,
+               "DBInstanceIdentifier" =: _ddiDBInstanceIdentifier]
 
 -- | /See:/ 'deleteDBInstanceResponse' smart constructor.
 --

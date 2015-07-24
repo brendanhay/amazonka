@@ -35,8 +35,8 @@ module Network.AWS.OpsWorks.DescribeApps
     -- ** Request constructor
     , describeApps
     -- ** Request lenses
-    , darqAppIds
-    , darqStackId
+    , daAppIds
+    , daStackId
 
     -- * Response
     , DescribeAppsResponse
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darqAppIds'
+-- * 'daAppIds'
 --
--- * 'darqStackId'
+-- * 'daStackId'
 data DescribeApps = DescribeApps'
-    { _darqAppIds  :: !(Maybe [Text])
-    , _darqStackId :: !(Maybe Text)
+    { _daAppIds  :: !(Maybe [Text])
+    , _daStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApps' smart constructor.
 describeApps :: DescribeApps
 describeApps =
     DescribeApps'
-    { _darqAppIds = Nothing
-    , _darqStackId = Nothing
+    { _daAppIds = Nothing
+    , _daStackId = Nothing
     }
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
-darqAppIds :: Lens' DescribeApps [Text]
-darqAppIds = lens _darqAppIds (\ s a -> s{_darqAppIds = a}) . _Default;
+daAppIds :: Lens' DescribeApps [Text]
+daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default;
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
 -- description of the apps in the specified stack.
-darqStackId :: Lens' DescribeApps (Maybe Text)
-darqStackId = lens _darqStackId (\ s a -> s{_darqStackId = a});
+daStackId :: Lens' DescribeApps (Maybe Text)
+daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
 
 instance AWSRequest DescribeApps where
         type Sv DescribeApps = OpsWorks
@@ -105,7 +105,7 @@ instance ToHeaders DescribeApps where
 instance ToJSON DescribeApps where
         toJSON DescribeApps'{..}
           = object
-              ["AppIds" .= _darqAppIds, "StackId" .= _darqStackId]
+              ["AppIds" .= _daAppIds, "StackId" .= _daStackId]
 
 instance ToPath DescribeApps where
         toPath = const "/"

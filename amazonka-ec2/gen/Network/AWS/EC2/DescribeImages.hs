@@ -33,11 +33,11 @@ module Network.AWS.EC2.DescribeImages
     -- ** Request constructor
     , describeImages
     -- ** Request lenses
-    , dessrqOwners
-    , dessrqExecutableUsers
-    , dessrqFilters
-    , dessrqImageIds
-    , dessrqDryRun
+    , deseOwners
+    , deseExecutableUsers
+    , deseFilters
+    , deseImageIds
+    , deseDryRun
 
     -- * Response
     , DescribeImagesResponse
@@ -57,46 +57,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dessrqOwners'
+-- * 'deseOwners'
 --
--- * 'dessrqExecutableUsers'
+-- * 'deseExecutableUsers'
 --
--- * 'dessrqFilters'
+-- * 'deseFilters'
 --
--- * 'dessrqImageIds'
+-- * 'deseImageIds'
 --
--- * 'dessrqDryRun'
+-- * 'deseDryRun'
 data DescribeImages = DescribeImages'
-    { _dessrqOwners          :: !(Maybe [Text])
-    , _dessrqExecutableUsers :: !(Maybe [Text])
-    , _dessrqFilters         :: !(Maybe [Filter])
-    , _dessrqImageIds        :: !(Maybe [Text])
-    , _dessrqDryRun          :: !(Maybe Bool)
+    { _deseOwners          :: !(Maybe [Text])
+    , _deseExecutableUsers :: !(Maybe [Text])
+    , _deseFilters         :: !(Maybe [Filter])
+    , _deseImageIds        :: !(Maybe [Text])
+    , _deseDryRun          :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImages' smart constructor.
 describeImages :: DescribeImages
 describeImages =
     DescribeImages'
-    { _dessrqOwners = Nothing
-    , _dessrqExecutableUsers = Nothing
-    , _dessrqFilters = Nothing
-    , _dessrqImageIds = Nothing
-    , _dessrqDryRun = Nothing
+    { _deseOwners = Nothing
+    , _deseExecutableUsers = Nothing
+    , _deseFilters = Nothing
+    , _deseImageIds = Nothing
+    , _deseDryRun = Nothing
     }
 
 -- | Filters the images by the owner. Specify an AWS account ID, @amazon@
 -- (owner is Amazon), @aws-marketplace@ (owner is AWS Marketplace), @self@
 -- (owner is the sender of the request). Omitting this option returns all
 -- images for which you have launch permissions, regardless of ownership.
-dessrqOwners :: Lens' DescribeImages [Text]
-dessrqOwners = lens _dessrqOwners (\ s a -> s{_dessrqOwners = a}) . _Default;
+deseOwners :: Lens' DescribeImages [Text]
+deseOwners = lens _deseOwners (\ s a -> s{_deseOwners = a}) . _Default;
 
 -- | Scopes the images by users with explicit launch permissions. Specify an
 -- AWS account ID, @self@ (the sender of the request), or @all@ (public
 -- AMIs).
-dessrqExecutableUsers :: Lens' DescribeImages [Text]
-dessrqExecutableUsers = lens _dessrqExecutableUsers (\ s a -> s{_dessrqExecutableUsers = a}) . _Default;
+deseExecutableUsers :: Lens' DescribeImages [Text]
+deseExecutableUsers = lens _deseExecutableUsers (\ s a -> s{_deseExecutableUsers = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -179,21 +179,21 @@ dessrqExecutableUsers = lens _dessrqExecutableUsers (\ s a -> s{_dessrqExecutabl
 -- -   @virtualization-type@ - The virtualization type (@paravirtual@ |
 --     @hvm@).
 --
-dessrqFilters :: Lens' DescribeImages [Filter]
-dessrqFilters = lens _dessrqFilters (\ s a -> s{_dessrqFilters = a}) . _Default;
+deseFilters :: Lens' DescribeImages [Filter]
+deseFilters = lens _deseFilters (\ s a -> s{_deseFilters = a}) . _Default;
 
 -- | One or more image IDs.
 --
 -- Default: Describes all images available to you.
-dessrqImageIds :: Lens' DescribeImages [Text]
-dessrqImageIds = lens _dessrqImageIds (\ s a -> s{_dessrqImageIds = a}) . _Default;
+deseImageIds :: Lens' DescribeImages [Text]
+deseImageIds = lens _deseImageIds (\ s a -> s{_deseImageIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dessrqDryRun :: Lens' DescribeImages (Maybe Bool)
-dessrqDryRun = lens _dessrqDryRun (\ s a -> s{_dessrqDryRun = a});
+deseDryRun :: Lens' DescribeImages (Maybe Bool)
+deseDryRun = lens _deseDryRun (\ s a -> s{_deseDryRun = a});
 
 instance AWSRequest DescribeImages where
         type Sv DescribeImages = EC2
@@ -218,13 +218,13 @@ instance ToQuery DescribeImages where
           = mconcat
               ["Action" =: ("DescribeImages" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Owner" <$> _dessrqOwners),
+               toQuery (toQueryList "Owner" <$> _deseOwners),
                toQuery
                  (toQueryList "ExecutableBy" <$>
-                    _dessrqExecutableUsers),
-               toQuery (toQueryList "Filter" <$> _dessrqFilters),
-               toQuery (toQueryList "ImageId" <$> _dessrqImageIds),
-               "DryRun" =: _dessrqDryRun]
+                    _deseExecutableUsers),
+               toQuery (toQueryList "Filter" <$> _deseFilters),
+               toQuery (toQueryList "ImageId" <$> _deseImageIds),
+               "DryRun" =: _deseDryRun]
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 --

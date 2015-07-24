@@ -30,9 +30,9 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- ** Request constructor
     , describeConversionTasks
     -- ** Request lenses
-    , dctrqConversionTaskIds
-    , dctrqFilters
-    , dctrqDryRun
+    , dctConversionTaskIds
+    , dctFilters
+    , dctDryRun
 
     -- * Response
     , DescribeConversionTasksResponse
@@ -52,40 +52,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dctrqConversionTaskIds'
+-- * 'dctConversionTaskIds'
 --
--- * 'dctrqFilters'
+-- * 'dctFilters'
 --
--- * 'dctrqDryRun'
+-- * 'dctDryRun'
 data DescribeConversionTasks = DescribeConversionTasks'
-    { _dctrqConversionTaskIds :: !(Maybe [Text])
-    , _dctrqFilters           :: !(Maybe [Filter])
-    , _dctrqDryRun            :: !(Maybe Bool)
+    { _dctConversionTaskIds :: !(Maybe [Text])
+    , _dctFilters           :: !(Maybe [Filter])
+    , _dctDryRun            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConversionTasks' smart constructor.
 describeConversionTasks :: DescribeConversionTasks
 describeConversionTasks =
     DescribeConversionTasks'
-    { _dctrqConversionTaskIds = Nothing
-    , _dctrqFilters = Nothing
-    , _dctrqDryRun = Nothing
+    { _dctConversionTaskIds = Nothing
+    , _dctFilters = Nothing
+    , _dctDryRun = Nothing
     }
 
 -- | One or more conversion task IDs.
-dctrqConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctrqConversionTaskIds = lens _dctrqConversionTaskIds (\ s a -> s{_dctrqConversionTaskIds = a}) . _Default;
+dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default;
 
 -- | One or more filters.
-dctrqFilters :: Lens' DescribeConversionTasks [Filter]
-dctrqFilters = lens _dctrqFilters (\ s a -> s{_dctrqFilters = a}) . _Default;
+dctFilters :: Lens' DescribeConversionTasks [Filter]
+dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dctrqDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
-dctrqDryRun = lens _dctrqDryRun (\ s a -> s{_dctrqDryRun = a});
+dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
+dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a});
 
 instance AWSRequest DescribeConversionTasks where
         type Sv DescribeConversionTasks = EC2
@@ -113,9 +113,9 @@ instance ToQuery DescribeConversionTasks where
                  ("DescribeConversionTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "item" <$> _dctrqConversionTaskIds),
-               toQuery (toQueryList "Filter" <$> _dctrqFilters),
-               "DryRun" =: _dctrqDryRun]
+                 (toQueryList "item" <$> _dctConversionTaskIds),
+               toQuery (toQueryList "Filter" <$> _dctFilters),
+               "DryRun" =: _dctDryRun]
 
 -- | /See:/ 'describeConversionTasksResponse' smart constructor.
 --

@@ -29,7 +29,7 @@ module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     -- ** Request constructor
     , createRealtimeEndpoint
     -- ** Request lenses
-    , crerqMLModelId
+    , creMLModelId
 
     -- * Response
     , CreateRealtimeEndpointResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crerqMLModelId'
+-- * 'creMLModelId'
 newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
-    { _crerqMLModelId :: Text
+    { _creMLModelId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRealtimeEndpoint' smart constructor.
 createRealtimeEndpoint :: Text -> CreateRealtimeEndpoint
 createRealtimeEndpoint pMLModelId_ =
     CreateRealtimeEndpoint'
-    { _crerqMLModelId = pMLModelId_
+    { _creMLModelId = pMLModelId_
     }
 
 -- | The ID assigned to the @MLModel@ during creation.
-crerqMLModelId :: Lens' CreateRealtimeEndpoint Text
-crerqMLModelId = lens _crerqMLModelId (\ s a -> s{_crerqMLModelId = a});
+creMLModelId :: Lens' CreateRealtimeEndpoint Text
+creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a});
 
 instance AWSRequest CreateRealtimeEndpoint where
         type Sv CreateRealtimeEndpoint = MachineLearning
@@ -91,7 +91,7 @@ instance ToHeaders CreateRealtimeEndpoint where
 
 instance ToJSON CreateRealtimeEndpoint where
         toJSON CreateRealtimeEndpoint'{..}
-          = object ["MLModelId" .= _crerqMLModelId]
+          = object ["MLModelId" .= _creMLModelId]
 
 instance ToPath CreateRealtimeEndpoint where
         toPath = const "/"

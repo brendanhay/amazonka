@@ -38,7 +38,7 @@ module Network.AWS.Config.PutConfigurationRecorder
     -- ** Request constructor
     , putConfigurationRecorder
     -- ** Request lenses
-    , pcrrqConfigurationRecorder
+    , pcrConfigurationRecorder
 
     -- * Response
     , PutConfigurationRecorderResponse
@@ -57,22 +57,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pcrrqConfigurationRecorder'
+-- * 'pcrConfigurationRecorder'
 newtype PutConfigurationRecorder = PutConfigurationRecorder'
-    { _pcrrqConfigurationRecorder :: ConfigurationRecorder
+    { _pcrConfigurationRecorder :: ConfigurationRecorder
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutConfigurationRecorder' smart constructor.
 putConfigurationRecorder :: ConfigurationRecorder -> PutConfigurationRecorder
 putConfigurationRecorder pConfigurationRecorder_ =
     PutConfigurationRecorder'
-    { _pcrrqConfigurationRecorder = pConfigurationRecorder_
+    { _pcrConfigurationRecorder = pConfigurationRecorder_
     }
 
 -- | The configuration recorder object that records each configuration change
 -- made to the resources.
-pcrrqConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
-pcrrqConfigurationRecorder = lens _pcrrqConfigurationRecorder (\ s a -> s{_pcrrqConfigurationRecorder = a});
+pcrConfigurationRecorder :: Lens' PutConfigurationRecorder ConfigurationRecorder
+pcrConfigurationRecorder = lens _pcrConfigurationRecorder (\ s a -> s{_pcrConfigurationRecorder = a});
 
 instance AWSRequest PutConfigurationRecorder where
         type Sv PutConfigurationRecorder = Config
@@ -96,7 +96,7 @@ instance ToJSON PutConfigurationRecorder where
         toJSON PutConfigurationRecorder'{..}
           = object
               ["ConfigurationRecorder" .=
-                 _pcrrqConfigurationRecorder]
+                 _pcrConfigurationRecorder]
 
 instance ToPath PutConfigurationRecorder where
         toPath = const "/"

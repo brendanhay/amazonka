@@ -33,8 +33,8 @@ module Network.AWS.IAM.DetachUserPolicy
     -- ** Request constructor
     , detachUserPolicy
     -- ** Request lenses
-    , drqUserName
-    , drqPolicyARN
+    , dUserName
+    , dPolicyARN
 
     -- * Response
     , DetachUserPolicyResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqUserName'
+-- * 'dUserName'
 --
--- * 'drqPolicyARN'
+-- * 'dPolicyARN'
 data DetachUserPolicy = DetachUserPolicy'
-    { _drqUserName  :: !Text
-    , _drqPolicyARN :: !Text
+    { _dUserName  :: !Text
+    , _dPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachUserPolicy' smart constructor.
 detachUserPolicy :: Text -> Text -> DetachUserPolicy
 detachUserPolicy pUserName_ pPolicyARN_ =
     DetachUserPolicy'
-    { _drqUserName = pUserName_
-    , _drqPolicyARN = pPolicyARN_
+    { _dUserName = pUserName_
+    , _dPolicyARN = pPolicyARN_
     }
 
 -- | The name (friendly name, not ARN) of the user to detach the policy from.
-drqUserName :: Lens' DetachUserPolicy Text
-drqUserName = lens _drqUserName (\ s a -> s{_drqUserName = a});
+dUserName :: Lens' DetachUserPolicy Text
+dUserName = lens _dUserName (\ s a -> s{_dUserName = a});
 
 -- | FIXME: Undocumented member.
-drqPolicyARN :: Lens' DetachUserPolicy Text
-drqPolicyARN = lens _drqPolicyARN (\ s a -> s{_drqPolicyARN = a});
+dPolicyARN :: Lens' DetachUserPolicy Text
+dPolicyARN = lens _dPolicyARN (\ s a -> s{_dPolicyARN = a});
 
 instance AWSRequest DetachUserPolicy where
         type Sv DetachUserPolicy = IAM
@@ -92,8 +92,7 @@ instance ToQuery DetachUserPolicy where
           = mconcat
               ["Action" =: ("DetachUserPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _drqUserName,
-               "PolicyArn" =: _drqPolicyARN]
+               "UserName" =: _dUserName, "PolicyArn" =: _dPolicyARN]
 
 -- | /See:/ 'detachUserPolicyResponse' smart constructor.
 data DetachUserPolicyResponse =

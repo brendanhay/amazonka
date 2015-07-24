@@ -27,8 +27,8 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     -- ** Request constructor
     , deleteLoadBalancerListeners
     -- ** Request lenses
-    , dlblrqLoadBalancerName
-    , dlblrqLoadBalancerPorts
+    , dlblLoadBalancerName
+    , dlblLoadBalancerPorts
 
     -- * Response
     , DeleteLoadBalancerListenersResponse
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlblrqLoadBalancerName'
+-- * 'dlblLoadBalancerName'
 --
--- * 'dlblrqLoadBalancerPorts'
+-- * 'dlblLoadBalancerPorts'
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
-    { _dlblrqLoadBalancerName  :: !Text
-    , _dlblrqLoadBalancerPorts :: ![Int]
+    { _dlblLoadBalancerName  :: !Text
+    , _dlblLoadBalancerPorts :: ![Int]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerListeners' smart constructor.
 deleteLoadBalancerListeners :: Text -> DeleteLoadBalancerListeners
 deleteLoadBalancerListeners pLoadBalancerName_ =
     DeleteLoadBalancerListeners'
-    { _dlblrqLoadBalancerName = pLoadBalancerName_
-    , _dlblrqLoadBalancerPorts = mempty
+    { _dlblLoadBalancerName = pLoadBalancerName_
+    , _dlblLoadBalancerPorts = mempty
     }
 
 -- | The name of the load balancer.
-dlblrqLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
-dlblrqLoadBalancerName = lens _dlblrqLoadBalancerName (\ s a -> s{_dlblrqLoadBalancerName = a});
+dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
+dlblLoadBalancerName = lens _dlblLoadBalancerName (\ s a -> s{_dlblLoadBalancerName = a});
 
 -- | The client port numbers of the listeners.
-dlblrqLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
-dlblrqLoadBalancerPorts = lens _dlblrqLoadBalancerPorts (\ s a -> s{_dlblrqLoadBalancerPorts = a});
+dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
+dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalancerPorts = a});
 
 instance AWSRequest DeleteLoadBalancerListeners where
         type Sv DeleteLoadBalancerListeners = ELB
@@ -95,9 +95,9 @@ instance ToQuery DeleteLoadBalancerListeners where
               ["Action" =:
                  ("DeleteLoadBalancerListeners" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlblrqLoadBalancerName,
+               "LoadBalancerName" =: _dlblLoadBalancerName,
                "LoadBalancerPorts" =:
-                 toQueryList "member" _dlblrqLoadBalancerPorts]
+                 toQueryList "member" _dlblLoadBalancerPorts]
 
 -- | /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
 --

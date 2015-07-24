@@ -33,9 +33,9 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     -- ** Request constructor
     , authorizeCacheSecurityGroupIngress
     -- ** Request lenses
-    , acsgirqCacheSecurityGroupName
-    , acsgirqEC2SecurityGroupName
-    , acsgirqEC2SecurityGroupOwnerId
+    , acsgiCacheSecurityGroupName
+    , acsgiEC2SecurityGroupName
+    , acsgiEC2SecurityGroupOwnerId
 
     -- * Response
     , AuthorizeCacheSecurityGroupIngressResponse
@@ -57,40 +57,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acsgirqCacheSecurityGroupName'
+-- * 'acsgiCacheSecurityGroupName'
 --
--- * 'acsgirqEC2SecurityGroupName'
+-- * 'acsgiEC2SecurityGroupName'
 --
--- * 'acsgirqEC2SecurityGroupOwnerId'
+-- * 'acsgiEC2SecurityGroupOwnerId'
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
-    { _acsgirqCacheSecurityGroupName  :: !Text
-    , _acsgirqEC2SecurityGroupName    :: !Text
-    , _acsgirqEC2SecurityGroupOwnerId :: !Text
+    { _acsgiCacheSecurityGroupName  :: !Text
+    , _acsgiEC2SecurityGroupName    :: !Text
+    , _acsgiEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngress' smart constructor.
 authorizeCacheSecurityGroupIngress :: Text -> Text -> Text -> AuthorizeCacheSecurityGroupIngress
 authorizeCacheSecurityGroupIngress pCacheSecurityGroupName_ pEC2SecurityGroupName_ pEC2SecurityGroupOwnerId_ =
     AuthorizeCacheSecurityGroupIngress'
-    { _acsgirqCacheSecurityGroupName = pCacheSecurityGroupName_
-    , _acsgirqEC2SecurityGroupName = pEC2SecurityGroupName_
-    , _acsgirqEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
+    { _acsgiCacheSecurityGroupName = pCacheSecurityGroupName_
+    , _acsgiEC2SecurityGroupName = pEC2SecurityGroupName_
+    , _acsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId_
     }
 
 -- | The cache security group which will allow network ingress.
-acsgirqCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
-acsgirqCacheSecurityGroupName = lens _acsgirqCacheSecurityGroupName (\ s a -> s{_acsgirqCacheSecurityGroupName = a});
+acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiCacheSecurityGroupName = lens _acsgiCacheSecurityGroupName (\ s a -> s{_acsgiCacheSecurityGroupName = a});
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
-acsgirqEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
-acsgirqEC2SecurityGroupName = lens _acsgirqEC2SecurityGroupName (\ s a -> s{_acsgirqEC2SecurityGroupName = a});
+acsgiEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiEC2SecurityGroupName = lens _acsgiEC2SecurityGroupName (\ s a -> s{_acsgiEC2SecurityGroupName = a});
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-acsgirqEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
-acsgirqEC2SecurityGroupOwnerId = lens _acsgirqEC2SecurityGroupOwnerId (\ s a -> s{_acsgirqEC2SecurityGroupOwnerId = a});
+acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_acsgiEC2SecurityGroupOwnerId = a});
 
 instance AWSRequest
          AuthorizeCacheSecurityGroupIngress where
@@ -122,11 +122,10 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
                  ("AuthorizeCacheSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
-                 _acsgirqCacheSecurityGroupName,
-               "EC2SecurityGroupName" =:
-                 _acsgirqEC2SecurityGroupName,
+                 _acsgiCacheSecurityGroupName,
+               "EC2SecurityGroupName" =: _acsgiEC2SecurityGroupName,
                "EC2SecurityGroupOwnerId" =:
-                 _acsgirqEC2SecurityGroupOwnerId]
+                 _acsgiEC2SecurityGroupOwnerId]
 
 -- | /See:/ 'authorizeCacheSecurityGroupIngressResponse' smart constructor.
 --

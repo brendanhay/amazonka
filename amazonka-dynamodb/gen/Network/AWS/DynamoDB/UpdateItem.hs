@@ -36,18 +36,18 @@ module Network.AWS.DynamoDB.UpdateItem
     -- ** Request constructor
     , updateItem
     -- ** Request lenses
-    , uirqReturnValues
-    , uirqExpressionAttributeNames
-    , uirqUpdateExpression
-    , uirqAttributeUpdates
-    , uirqReturnConsumedCapacity
-    , uirqExpressionAttributeValues
-    , uirqReturnItemCollectionMetrics
-    , uirqConditionExpression
-    , uirqConditionalOperator
-    , uirqExpected
-    , uirqTableName
-    , uirqKey
+    , uiReturnValues
+    , uiExpressionAttributeNames
+    , uiUpdateExpression
+    , uiAttributeUpdates
+    , uiReturnConsumedCapacity
+    , uiExpressionAttributeValues
+    , uiReturnItemCollectionMetrics
+    , uiConditionExpression
+    , uiConditionalOperator
+    , uiExpected
+    , uiTableName
+    , uiKey
 
     -- * Response
     , UpdateItemResponse
@@ -71,60 +71,60 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uirqReturnValues'
+-- * 'uiReturnValues'
 --
--- * 'uirqExpressionAttributeNames'
+-- * 'uiExpressionAttributeNames'
 --
--- * 'uirqUpdateExpression'
+-- * 'uiUpdateExpression'
 --
--- * 'uirqAttributeUpdates'
+-- * 'uiAttributeUpdates'
 --
--- * 'uirqReturnConsumedCapacity'
+-- * 'uiReturnConsumedCapacity'
 --
--- * 'uirqExpressionAttributeValues'
+-- * 'uiExpressionAttributeValues'
 --
--- * 'uirqReturnItemCollectionMetrics'
+-- * 'uiReturnItemCollectionMetrics'
 --
--- * 'uirqConditionExpression'
+-- * 'uiConditionExpression'
 --
--- * 'uirqConditionalOperator'
+-- * 'uiConditionalOperator'
 --
--- * 'uirqExpected'
+-- * 'uiExpected'
 --
--- * 'uirqTableName'
+-- * 'uiTableName'
 --
--- * 'uirqKey'
+-- * 'uiKey'
 data UpdateItem = UpdateItem'
-    { _uirqReturnValues                :: !(Maybe ReturnValue)
-    , _uirqExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _uirqUpdateExpression            :: !(Maybe Text)
-    , _uirqAttributeUpdates            :: !(Maybe (Map Text AttributeValueUpdate))
-    , _uirqReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _uirqExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _uirqReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _uirqConditionExpression         :: !(Maybe Text)
-    , _uirqConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _uirqExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _uirqTableName                   :: !Text
-    , _uirqKey                         :: !(Map Text AttributeValue)
+    { _uiReturnValues                :: !(Maybe ReturnValue)
+    , _uiExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _uiUpdateExpression            :: !(Maybe Text)
+    , _uiAttributeUpdates            :: !(Maybe (Map Text AttributeValueUpdate))
+    , _uiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _uiExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _uiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _uiConditionExpression         :: !(Maybe Text)
+    , _uiConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _uiExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _uiTableName                   :: !Text
+    , _uiKey                         :: !(Map Text AttributeValue)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'UpdateItem' smart constructor.
 updateItem :: Text -> UpdateItem
 updateItem pTableName_ =
     UpdateItem'
-    { _uirqReturnValues = Nothing
-    , _uirqExpressionAttributeNames = Nothing
-    , _uirqUpdateExpression = Nothing
-    , _uirqAttributeUpdates = Nothing
-    , _uirqReturnConsumedCapacity = Nothing
-    , _uirqExpressionAttributeValues = Nothing
-    , _uirqReturnItemCollectionMetrics = Nothing
-    , _uirqConditionExpression = Nothing
-    , _uirqConditionalOperator = Nothing
-    , _uirqExpected = Nothing
-    , _uirqTableName = pTableName_
-    , _uirqKey = mempty
+    { _uiReturnValues = Nothing
+    , _uiExpressionAttributeNames = Nothing
+    , _uiUpdateExpression = Nothing
+    , _uiAttributeUpdates = Nothing
+    , _uiReturnConsumedCapacity = Nothing
+    , _uiExpressionAttributeValues = Nothing
+    , _uiReturnItemCollectionMetrics = Nothing
+    , _uiConditionExpression = Nothing
+    , _uiConditionalOperator = Nothing
+    , _uiExpected = Nothing
+    , _uiTableName = pTableName_
+    , _uiKey = mempty
     }
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
@@ -147,8 +147,8 @@ updateItem pTableName_ =
 -- -   @UPDATED_NEW@ - The new versions of only the updated attributes are
 --     returned.
 --
-uirqReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
-uirqReturnValues = lens _uirqReturnValues (\ s a -> s{_uirqReturnValues = a});
+uiReturnValues :: Lens' UpdateItem (Maybe ReturnValue)
+uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -187,8 +187,8 @@ uirqReturnValues = lens _uirqReturnValues (\ s a -> s{_uirqReturnValues = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-uirqExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
-uirqExpressionAttributeNames = lens _uirqExpressionAttributeNames (\ s a -> s{_uirqExpressionAttributeNames = a}) . _Default . _Map;
+uiExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
+uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | An expression that defines one or more attributes to be updated, the
 -- action to be performed on them, and new value(s) for them.
@@ -275,8 +275,8 @@ uirqExpressionAttributeNames = lens _uirqExpressionAttributeNames (\ s a -> s{_u
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- /UpdateExpression/ replaces the legacy /AttributeUpdates/ parameter.
-uirqUpdateExpression :: Lens' UpdateItem (Maybe Text)
-uirqUpdateExpression = lens _uirqUpdateExpression (\ s a -> s{_uirqUpdateExpression = a});
+uiUpdateExpression :: Lens' UpdateItem (Maybe Text)
+uiUpdateExpression = lens _uiUpdateExpression (\ s a -> s{_uiUpdateExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /UpdateExpression/ instead. Do not combine legacy parameters
@@ -375,12 +375,12 @@ uirqUpdateExpression = lens _uirqUpdateExpression (\ s a -> s{_uirqUpdateExpress
 -- If you provide any attributes that are part of an index key, then the
 -- data types for those attributes must match those of the schema in the
 -- table\'s attribute definition.
-uirqAttributeUpdates :: Lens' UpdateItem (HashMap Text AttributeValueUpdate)
-uirqAttributeUpdates = lens _uirqAttributeUpdates (\ s a -> s{_uirqAttributeUpdates = a}) . _Default . _Map;
+uiAttributeUpdates :: Lens' UpdateItem (HashMap Text AttributeValueUpdate)
+uiAttributeUpdates = lens _uiAttributeUpdates (\ s a -> s{_uiAttributeUpdates = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-uirqReturnConsumedCapacity :: Lens' UpdateItem (Maybe ReturnConsumedCapacity)
-uirqReturnConsumedCapacity = lens _uirqReturnConsumedCapacity (\ s a -> s{_uirqReturnConsumedCapacity = a});
+uiReturnConsumedCapacity :: Lens' UpdateItem (Maybe ReturnConsumedCapacity)
+uiReturnConsumedCapacity = lens _uiReturnConsumedCapacity (\ s a -> s{_uiReturnConsumedCapacity = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -401,15 +401,15 @@ uirqReturnConsumedCapacity = lens _uirqReturnConsumedCapacity (\ s a -> s{_uirqR
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-uirqExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
-uirqExpressionAttributeValues = lens _uirqExpressionAttributeValues (\ s a -> s{_uirqExpressionAttributeValues = a}) . _Default . _Map;
+uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
+uiExpressionAttributeValues = lens _uiExpressionAttributeValues (\ s a -> s{_uiExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-uirqReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe ReturnItemCollectionMetrics)
-uirqReturnItemCollectionMetrics = lens _uirqReturnItemCollectionMetrics (\ s a -> s{_uirqReturnItemCollectionMetrics = a});
+uiReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe ReturnItemCollectionMetrics)
+uiReturnItemCollectionMetrics = lens _uiReturnItemCollectionMetrics (\ s a -> s{_uiReturnItemCollectionMetrics = a});
 
 -- | A condition that must be satisfied in order for a conditional update to
 -- succeed.
@@ -431,8 +431,8 @@ uirqReturnItemCollectionMetrics = lens _uirqReturnItemCollectionMetrics (\ s a -
 --
 -- /ConditionExpression/ replaces the legacy /ConditionalOperator/ and
 -- /Expected/ parameters.
-uirqConditionExpression :: Lens' UpdateItem (Maybe Text)
-uirqConditionExpression = lens _uirqConditionExpression (\ s a -> s{_uirqConditionExpression = a});
+uiConditionExpression :: Lens' UpdateItem (Maybe Text)
+uiConditionExpression = lens _uiConditionExpression (\ s a -> s{_uiConditionExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ConditionExpression/ instead. Do not combine legacy
@@ -452,8 +452,8 @@ uirqConditionExpression = lens _uirqConditionExpression (\ s a -> s{_uirqConditi
 -- The operation will succeed only if the entire map evaluates to true.
 --
 -- This parameter does not support attributes of type List or Map.
-uirqConditionalOperator :: Lens' UpdateItem (Maybe ConditionalOperator)
-uirqConditionalOperator = lens _uirqConditionalOperator (\ s a -> s{_uirqConditionalOperator = a});
+uiConditionalOperator :: Lens' UpdateItem (Maybe ConditionalOperator)
+uiConditionalOperator = lens _uiConditionalOperator (\ s a -> s{_uiConditionalOperator = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ConditionExpression/ instead. Do not combine legacy
@@ -678,12 +678,12 @@ uirqConditionalOperator = lens _uirqConditionalOperator (\ s a -> s{_uirqConditi
 -- exception.
 --
 -- This parameter does not support attributes of type List or Map.
-uirqExpected :: Lens' UpdateItem (HashMap Text ExpectedAttributeValue)
-uirqExpected = lens _uirqExpected (\ s a -> s{_uirqExpected = a}) . _Default . _Map;
+uiExpected :: Lens' UpdateItem (HashMap Text ExpectedAttributeValue)
+uiExpected = lens _uiExpected (\ s a -> s{_uiExpected = a}) . _Default . _Map;
 
 -- | The name of the table containing the item to update.
-uirqTableName :: Lens' UpdateItem Text
-uirqTableName = lens _uirqTableName (\ s a -> s{_uirqTableName = a});
+uiTableName :: Lens' UpdateItem Text
+uiTableName = lens _uiTableName (\ s a -> s{_uiTableName = a});
 
 -- | The primary key of the item to be updated. Each element consists of an
 -- attribute name and a value for that attribute.
@@ -692,8 +692,8 @@ uirqTableName = lens _uirqTableName (\ s a -> s{_uirqTableName = a});
 -- example, with a hash type primary key, you only need to provide the hash
 -- attribute. For a hash-and-range type primary key, you must provide both
 -- the hash attribute and the range attribute.
-uirqKey :: Lens' UpdateItem (HashMap Text AttributeValue)
-uirqKey = lens _uirqKey (\ s a -> s{_uirqKey = a}) . _Map;
+uiKey :: Lens' UpdateItem (HashMap Text AttributeValue)
+uiKey = lens _uiKey (\ s a -> s{_uiKey = a}) . _Map;
 
 instance AWSRequest UpdateItem where
         type Sv UpdateItem = DynamoDB
@@ -720,21 +720,21 @@ instance ToHeaders UpdateItem where
 instance ToJSON UpdateItem where
         toJSON UpdateItem'{..}
           = object
-              ["ReturnValues" .= _uirqReturnValues,
+              ["ReturnValues" .= _uiReturnValues,
                "ExpressionAttributeNames" .=
-                 _uirqExpressionAttributeNames,
-               "UpdateExpression" .= _uirqUpdateExpression,
-               "AttributeUpdates" .= _uirqAttributeUpdates,
+                 _uiExpressionAttributeNames,
+               "UpdateExpression" .= _uiUpdateExpression,
+               "AttributeUpdates" .= _uiAttributeUpdates,
                "ReturnConsumedCapacity" .=
-                 _uirqReturnConsumedCapacity,
+                 _uiReturnConsumedCapacity,
                "ExpressionAttributeValues" .=
-                 _uirqExpressionAttributeValues,
+                 _uiExpressionAttributeValues,
                "ReturnItemCollectionMetrics" .=
-                 _uirqReturnItemCollectionMetrics,
-               "ConditionExpression" .= _uirqConditionExpression,
-               "ConditionalOperator" .= _uirqConditionalOperator,
-               "Expected" .= _uirqExpected,
-               "TableName" .= _uirqTableName, "Key" .= _uirqKey]
+                 _uiReturnItemCollectionMetrics,
+               "ConditionExpression" .= _uiConditionExpression,
+               "ConditionalOperator" .= _uiConditionalOperator,
+               "Expected" .= _uiExpected,
+               "TableName" .= _uiTableName, "Key" .= _uiKey]
 
 instance ToPath UpdateItem where
         toPath = const "/"

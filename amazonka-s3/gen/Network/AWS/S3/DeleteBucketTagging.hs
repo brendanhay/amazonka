@@ -27,7 +27,7 @@ module Network.AWS.S3.DeleteBucketTagging
     -- ** Request constructor
     , deleteBucketTagging
     -- ** Request lenses
-    , dbtrqBucket
+    , dbtBucket
 
     -- * Response
     , DeleteBucketTaggingResponse
@@ -44,21 +44,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbtrqBucket'
+-- * 'dbtBucket'
 newtype DeleteBucketTagging = DeleteBucketTagging'
-    { _dbtrqBucket :: BucketName
+    { _dbtBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketTagging' smart constructor.
 deleteBucketTagging :: BucketName -> DeleteBucketTagging
 deleteBucketTagging pBucket_ =
     DeleteBucketTagging'
-    { _dbtrqBucket = pBucket_
+    { _dbtBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-dbtrqBucket :: Lens' DeleteBucketTagging BucketName
-dbtrqBucket = lens _dbtrqBucket (\ s a -> s{_dbtrqBucket = a});
+dbtBucket :: Lens' DeleteBucketTagging BucketName
+dbtBucket = lens _dbtBucket (\ s a -> s{_dbtBucket = a});
 
 instance AWSRequest DeleteBucketTagging where
         type Sv DeleteBucketTagging = S3
@@ -72,7 +72,7 @@ instance ToHeaders DeleteBucketTagging where
 
 instance ToPath DeleteBucketTagging where
         toPath DeleteBucketTagging'{..}
-          = mconcat ["/", toText _dbtrqBucket]
+          = mconcat ["/", toText _dbtBucket]
 
 instance ToQuery DeleteBucketTagging where
         toQuery = const (mconcat ["tagging"])

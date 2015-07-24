@@ -30,8 +30,8 @@ module Network.AWS.EMR.AddTags
     -- ** Request constructor
     , addTags
     -- ** Request lenses
-    , atrqResourceId
-    , atrqTags
+    , atResourceId
+    , atTags
 
     -- * Response
     , AddTagsResponse
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrqResourceId'
+-- * 'atResourceId'
 --
--- * 'atrqTags'
+-- * 'atTags'
 data AddTags = AddTags'
-    { _atrqResourceId :: !Text
-    , _atrqTags       :: ![Tag]
+    { _atResourceId :: !Text
+    , _atTags       :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
 addTags pResourceId_ =
     AddTags'
-    { _atrqResourceId = pResourceId_
-    , _atrqTags = mempty
+    { _atResourceId = pResourceId_
+    , _atTags = mempty
     }
 
 -- | The Amazon EMR resource identifier to which tags will be added. This
 -- value must be a cluster identifier.
-atrqResourceId :: Lens' AddTags Text
-atrqResourceId = lens _atrqResourceId (\ s a -> s{_atrqResourceId = a});
+atResourceId :: Lens' AddTags Text
+atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances. Tags are user-defined key\/value pairs that consist of a
 -- required key string with a maximum of 128 characters, and an optional
 -- value string with a maximum of 256 characters.
-atrqTags :: Lens' AddTags [Tag]
-atrqTags = lens _atrqTags (\ s a -> s{_atrqTags = a});
+atTags :: Lens' AddTags [Tag]
+atTags = lens _atTags (\ s a -> s{_atTags = a});
 
 instance AWSRequest AddTags where
         type Sv AddTags = EMR
@@ -100,8 +100,7 @@ instance ToHeaders AddTags where
 instance ToJSON AddTags where
         toJSON AddTags'{..}
           = object
-              ["ResourceId" .= _atrqResourceId,
-               "Tags" .= _atrqTags]
+              ["ResourceId" .= _atResourceId, "Tags" .= _atTags]
 
 instance ToPath AddTags where
         toPath = const "/"

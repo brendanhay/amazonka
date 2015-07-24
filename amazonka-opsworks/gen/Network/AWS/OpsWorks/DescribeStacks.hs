@@ -33,7 +33,7 @@ module Network.AWS.OpsWorks.DescribeStacks
     -- ** Request constructor
     , describeStacks
     -- ** Request lenses
-    , dsrqStackIds
+    , dsStackIds
 
     -- * Response
     , DescribeStacksResponse
@@ -53,23 +53,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqStackIds'
+-- * 'dsStackIds'
 newtype DescribeStacks = DescribeStacks'
-    { _dsrqStackIds :: Maybe [Text]
+    { _dsStackIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
 describeStacks =
     DescribeStacks'
-    { _dsrqStackIds = Nothing
+    { _dsStackIds = Nothing
     }
 
 -- | An array of stack IDs that specify the stacks to be described. If you
 -- omit this parameter, @DescribeStacks@ returns a description of every
 -- stack.
-dsrqStackIds :: Lens' DescribeStacks [Text]
-dsrqStackIds = lens _dsrqStackIds (\ s a -> s{_dsrqStackIds = a}) . _Default;
+dsStackIds :: Lens' DescribeStacks [Text]
+dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default;
 
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = OpsWorks
@@ -92,7 +92,7 @@ instance ToHeaders DescribeStacks where
 
 instance ToJSON DescribeStacks where
         toJSON DescribeStacks'{..}
-          = object ["StackIds" .= _dsrqStackIds]
+          = object ["StackIds" .= _dsStackIds]
 
 instance ToPath DescribeStacks where
         toPath = const "/"

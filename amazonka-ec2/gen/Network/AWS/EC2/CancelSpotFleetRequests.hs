@@ -27,9 +27,9 @@ module Network.AWS.EC2.CancelSpotFleetRequests
     -- ** Request constructor
     , cancelSpotFleetRequests
     -- ** Request lenses
-    , csfrrqDryRun
-    , csfrrqSpotFleetRequestIds
-    , csfrrqTerminateInstances
+    , csfrDryRun
+    , csfrSpotFleetRequestIds
+    , csfrTerminateInstances
 
     -- * Response
     , CancelSpotFleetRequestsResponse
@@ -52,41 +52,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csfrrqDryRun'
+-- * 'csfrDryRun'
 --
--- * 'csfrrqSpotFleetRequestIds'
+-- * 'csfrSpotFleetRequestIds'
 --
--- * 'csfrrqTerminateInstances'
+-- * 'csfrTerminateInstances'
 data CancelSpotFleetRequests = CancelSpotFleetRequests'
-    { _csfrrqDryRun              :: !(Maybe Bool)
-    , _csfrrqSpotFleetRequestIds :: ![Text]
-    , _csfrrqTerminateInstances  :: !Bool
+    { _csfrDryRun              :: !(Maybe Bool)
+    , _csfrSpotFleetRequestIds :: ![Text]
+    , _csfrTerminateInstances  :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotFleetRequests' smart constructor.
 cancelSpotFleetRequests :: Bool -> CancelSpotFleetRequests
 cancelSpotFleetRequests pTerminateInstances_ =
     CancelSpotFleetRequests'
-    { _csfrrqDryRun = Nothing
-    , _csfrrqSpotFleetRequestIds = mempty
-    , _csfrrqTerminateInstances = pTerminateInstances_
+    { _csfrDryRun = Nothing
+    , _csfrSpotFleetRequestIds = mempty
+    , _csfrTerminateInstances = pTerminateInstances_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-csfrrqDryRun :: Lens' CancelSpotFleetRequests (Maybe Bool)
-csfrrqDryRun = lens _csfrrqDryRun (\ s a -> s{_csfrrqDryRun = a});
+csfrDryRun :: Lens' CancelSpotFleetRequests (Maybe Bool)
+csfrDryRun = lens _csfrDryRun (\ s a -> s{_csfrDryRun = a});
 
 -- | The IDs of the Spot fleet requests.
-csfrrqSpotFleetRequestIds :: Lens' CancelSpotFleetRequests [Text]
-csfrrqSpotFleetRequestIds = lens _csfrrqSpotFleetRequestIds (\ s a -> s{_csfrrqSpotFleetRequestIds = a});
+csfrSpotFleetRequestIds :: Lens' CancelSpotFleetRequests [Text]
+csfrSpotFleetRequestIds = lens _csfrSpotFleetRequestIds (\ s a -> s{_csfrSpotFleetRequestIds = a});
 
 -- | Indicates whether to terminate instances for a Spot fleet request if it
 -- is canceled successfully.
-csfrrqTerminateInstances :: Lens' CancelSpotFleetRequests Bool
-csfrrqTerminateInstances = lens _csfrrqTerminateInstances (\ s a -> s{_csfrrqTerminateInstances = a});
+csfrTerminateInstances :: Lens' CancelSpotFleetRequests Bool
+csfrTerminateInstances = lens _csfrTerminateInstances (\ s a -> s{_csfrTerminateInstances = a});
 
 instance AWSRequest CancelSpotFleetRequests where
         type Sv CancelSpotFleetRequests = EC2
@@ -116,9 +116,9 @@ instance ToQuery CancelSpotFleetRequests where
               ["Action" =:
                  ("CancelSpotFleetRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _csfrrqDryRun,
-               toQueryList "item" _csfrrqSpotFleetRequestIds,
-               "TerminateInstances" =: _csfrrqTerminateInstances]
+               "DryRun" =: _csfrDryRun,
+               toQueryList "item" _csfrSpotFleetRequestIds,
+               "TerminateInstances" =: _csfrTerminateInstances]
 
 -- | Contains the output of CancelSpotFleetRequests.
 --

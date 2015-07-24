@@ -40,9 +40,9 @@ module Network.AWS.IAM.UpdateServerCertificate
     -- ** Request constructor
     , updateServerCertificate
     -- ** Request lenses
-    , urqNewServerCertificateName
-    , urqNewPath
-    , urqServerCertificateName
+    , uNewServerCertificateName
+    , uNewPath
+    , uServerCertificateName
 
     -- * Response
     , UpdateServerCertificateResponse
@@ -59,40 +59,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urqNewServerCertificateName'
+-- * 'uNewServerCertificateName'
 --
--- * 'urqNewPath'
+-- * 'uNewPath'
 --
--- * 'urqServerCertificateName'
+-- * 'uServerCertificateName'
 data UpdateServerCertificate = UpdateServerCertificate'
-    { _urqNewServerCertificateName :: !(Maybe Text)
-    , _urqNewPath                  :: !(Maybe Text)
-    , _urqServerCertificateName    :: !Text
+    { _uNewServerCertificateName :: !(Maybe Text)
+    , _uNewPath                  :: !(Maybe Text)
+    , _uServerCertificateName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServerCertificate' smart constructor.
 updateServerCertificate :: Text -> UpdateServerCertificate
 updateServerCertificate pServerCertificateName_ =
     UpdateServerCertificate'
-    { _urqNewServerCertificateName = Nothing
-    , _urqNewPath = Nothing
-    , _urqServerCertificateName = pServerCertificateName_
+    { _uNewServerCertificateName = Nothing
+    , _uNewPath = Nothing
+    , _uServerCertificateName = pServerCertificateName_
     }
 
 -- | The new name for the server certificate. Include this only if you are
 -- updating the server certificate\'s name. The name of the certificate
 -- cannot contain any spaces.
-urqNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
-urqNewServerCertificateName = lens _urqNewServerCertificateName (\ s a -> s{_urqNewServerCertificateName = a});
+uNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
+uNewServerCertificateName = lens _uNewServerCertificateName (\ s a -> s{_uNewServerCertificateName = a});
 
 -- | The new path for the server certificate. Include this only if you are
 -- updating the server certificate\'s path.
-urqNewPath :: Lens' UpdateServerCertificate (Maybe Text)
-urqNewPath = lens _urqNewPath (\ s a -> s{_urqNewPath = a});
+uNewPath :: Lens' UpdateServerCertificate (Maybe Text)
+uNewPath = lens _uNewPath (\ s a -> s{_uNewPath = a});
 
 -- | The name of the server certificate that you want to update.
-urqServerCertificateName :: Lens' UpdateServerCertificate Text
-urqServerCertificateName = lens _urqServerCertificateName (\ s a -> s{_urqServerCertificateName = a});
+uServerCertificateName :: Lens' UpdateServerCertificate Text
+uServerCertificateName = lens _uServerCertificateName (\ s a -> s{_uServerCertificateName = a});
 
 instance AWSRequest UpdateServerCertificate where
         type Sv UpdateServerCertificate = IAM
@@ -115,9 +115,9 @@ instance ToQuery UpdateServerCertificate where
                  ("UpdateServerCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "NewServerCertificateName" =:
-                 _urqNewServerCertificateName,
-               "NewPath" =: _urqNewPath,
-               "ServerCertificateName" =: _urqServerCertificateName]
+                 _uNewServerCertificateName,
+               "NewPath" =: _uNewPath,
+               "ServerCertificateName" =: _uServerCertificateName]
 
 -- | /See:/ 'updateServerCertificateResponse' smart constructor.
 data UpdateServerCertificateResponse =

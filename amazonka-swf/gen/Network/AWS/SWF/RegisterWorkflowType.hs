@@ -58,15 +58,15 @@ module Network.AWS.SWF.RegisterWorkflowType
     -- ** Request constructor
     , registerWorkflowType
     -- ** Request lenses
-    , rwtrqDefaultChildPolicy
-    , rwtrqDefaultTaskList
-    , rwtrqDefaultTaskPriority
-    , rwtrqDefaultExecutionStartToCloseTimeout
-    , rwtrqDefaultTaskStartToCloseTimeout
-    , rwtrqDescription
-    , rwtrqDomain
-    , rwtrqName
-    , rwtrqVersion
+    , rwtDefaultChildPolicy
+    , rwtDefaultTaskList
+    , rwtDefaultTaskPriority
+    , rwtDefaultExecutionStartToCloseTimeout
+    , rwtDefaultTaskStartToCloseTimeout
+    , rwtDescription
+    , rwtDomain
+    , rwtName
+    , rwtVersion
 
     -- * Response
     , RegisterWorkflowTypeResponse
@@ -83,48 +83,48 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rwtrqDefaultChildPolicy'
+-- * 'rwtDefaultChildPolicy'
 --
--- * 'rwtrqDefaultTaskList'
+-- * 'rwtDefaultTaskList'
 --
--- * 'rwtrqDefaultTaskPriority'
+-- * 'rwtDefaultTaskPriority'
 --
--- * 'rwtrqDefaultExecutionStartToCloseTimeout'
+-- * 'rwtDefaultExecutionStartToCloseTimeout'
 --
--- * 'rwtrqDefaultTaskStartToCloseTimeout'
+-- * 'rwtDefaultTaskStartToCloseTimeout'
 --
--- * 'rwtrqDescription'
+-- * 'rwtDescription'
 --
--- * 'rwtrqDomain'
+-- * 'rwtDomain'
 --
--- * 'rwtrqName'
+-- * 'rwtName'
 --
--- * 'rwtrqVersion'
+-- * 'rwtVersion'
 data RegisterWorkflowType = RegisterWorkflowType'
-    { _rwtrqDefaultChildPolicy                  :: !(Maybe ChildPolicy)
-    , _rwtrqDefaultTaskList                     :: !(Maybe TaskList)
-    , _rwtrqDefaultTaskPriority                 :: !(Maybe Text)
-    , _rwtrqDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
-    , _rwtrqDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
-    , _rwtrqDescription                         :: !(Maybe Text)
-    , _rwtrqDomain                              :: !Text
-    , _rwtrqName                                :: !Text
-    , _rwtrqVersion                             :: !Text
+    { _rwtDefaultChildPolicy                  :: !(Maybe ChildPolicy)
+    , _rwtDefaultTaskList                     :: !(Maybe TaskList)
+    , _rwtDefaultTaskPriority                 :: !(Maybe Text)
+    , _rwtDefaultExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _rwtDefaultTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _rwtDescription                         :: !(Maybe Text)
+    , _rwtDomain                              :: !Text
+    , _rwtName                                :: !Text
+    , _rwtVersion                             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterWorkflowType' smart constructor.
 registerWorkflowType :: Text -> Text -> Text -> RegisterWorkflowType
 registerWorkflowType pDomain_ pName_ pVersion_ =
     RegisterWorkflowType'
-    { _rwtrqDefaultChildPolicy = Nothing
-    , _rwtrqDefaultTaskList = Nothing
-    , _rwtrqDefaultTaskPriority = Nothing
-    , _rwtrqDefaultExecutionStartToCloseTimeout = Nothing
-    , _rwtrqDefaultTaskStartToCloseTimeout = Nothing
-    , _rwtrqDescription = Nothing
-    , _rwtrqDomain = pDomain_
-    , _rwtrqName = pName_
-    , _rwtrqVersion = pVersion_
+    { _rwtDefaultChildPolicy = Nothing
+    , _rwtDefaultTaskList = Nothing
+    , _rwtDefaultTaskPriority = Nothing
+    , _rwtDefaultExecutionStartToCloseTimeout = Nothing
+    , _rwtDefaultTaskStartToCloseTimeout = Nothing
+    , _rwtDescription = Nothing
+    , _rwtDomain = pDomain_
+    , _rwtName = pName_
+    , _rwtVersion = pVersion_
     }
 
 -- | If set, specifies the default policy to use for the child workflow
@@ -143,15 +143,15 @@ registerWorkflowType pDomain_ pName_ pVersion_ =
 --     actions when it receives an execution history with this event.
 -- -   __ABANDON:__ no action will be taken. The child executions will
 --     continue to run.
-rwtrqDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe ChildPolicy)
-rwtrqDefaultChildPolicy = lens _rwtrqDefaultChildPolicy (\ s a -> s{_rwtrqDefaultChildPolicy = a});
+rwtDefaultChildPolicy :: Lens' RegisterWorkflowType (Maybe ChildPolicy)
+rwtDefaultChildPolicy = lens _rwtDefaultChildPolicy (\ s a -> s{_rwtDefaultChildPolicy = a});
 
 -- | If set, specifies the default task list to use for scheduling decision
 -- tasks for executions of this workflow type. This default is used only if
 -- a task list is not provided when starting the execution through the
 -- StartWorkflowExecution Action or @StartChildWorkflowExecution@ Decision.
-rwtrqDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
-rwtrqDefaultTaskList = lens _rwtrqDefaultTaskList (\ s a -> s{_rwtrqDefaultTaskList = a});
+rwtDefaultTaskList :: Lens' RegisterWorkflowType (Maybe TaskList)
+rwtDefaultTaskList = lens _rwtDefaultTaskList (\ s a -> s{_rwtDefaultTaskList = a});
 
 -- | The default task priority to assign to the workflow type. If not
 -- assigned, then \"0\" will be used. Valid values are integers that range
@@ -161,8 +161,8 @@ rwtrqDefaultTaskList = lens _rwtrqDefaultTaskList (\ s a -> s{_rwtrqDefaultTaskL
 -- For more information about setting task priority, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon Simple Workflow Developer Guide/.
-rwtrqDefaultTaskPriority :: Lens' RegisterWorkflowType (Maybe Text)
-rwtrqDefaultTaskPriority = lens _rwtrqDefaultTaskPriority (\ s a -> s{_rwtrqDefaultTaskPriority = a});
+rwtDefaultTaskPriority :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDefaultTaskPriority = lens _rwtDefaultTaskPriority (\ s a -> s{_rwtDefaultTaskPriority = a});
 
 -- | If set, specifies the default maximum duration for executions of this
 -- workflow type. You can override this default when starting an execution
@@ -175,8 +175,8 @@ rwtrqDefaultTaskPriority = lens _rwtrqDefaultTaskPriority (\ s a -> s{_rwtrqDefa
 -- @defaultExecutionStartToCloseTimeout@; there is a one-year max limit on
 -- the time that a workflow execution can run. Exceeding this limit will
 -- always cause the workflow execution to time out.
-rwtrqDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
-rwtrqDefaultExecutionStartToCloseTimeout = lens _rwtrqDefaultExecutionStartToCloseTimeout (\ s a -> s{_rwtrqDefaultExecutionStartToCloseTimeout = a});
+rwtDefaultExecutionStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDefaultExecutionStartToCloseTimeout = lens _rwtDefaultExecutionStartToCloseTimeout (\ s a -> s{_rwtDefaultExecutionStartToCloseTimeout = a});
 
 -- | If set, specifies the default maximum duration of decision tasks for
 -- this workflow type. This default can be overridden when starting a
@@ -185,16 +185,16 @@ rwtrqDefaultExecutionStartToCloseTimeout = lens _rwtrqDefaultExecutionStartToClo
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
-rwtrqDefaultTaskStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
-rwtrqDefaultTaskStartToCloseTimeout = lens _rwtrqDefaultTaskStartToCloseTimeout (\ s a -> s{_rwtrqDefaultTaskStartToCloseTimeout = a});
+rwtDefaultTaskStartToCloseTimeout :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDefaultTaskStartToCloseTimeout = lens _rwtDefaultTaskStartToCloseTimeout (\ s a -> s{_rwtDefaultTaskStartToCloseTimeout = a});
 
 -- | Textual description of the workflow type.
-rwtrqDescription :: Lens' RegisterWorkflowType (Maybe Text)
-rwtrqDescription = lens _rwtrqDescription (\ s a -> s{_rwtrqDescription = a});
+rwtDescription :: Lens' RegisterWorkflowType (Maybe Text)
+rwtDescription = lens _rwtDescription (\ s a -> s{_rwtDescription = a});
 
 -- | The name of the domain in which to register the workflow type.
-rwtrqDomain :: Lens' RegisterWorkflowType Text
-rwtrqDomain = lens _rwtrqDomain (\ s a -> s{_rwtrqDomain = a});
+rwtDomain :: Lens' RegisterWorkflowType Text
+rwtDomain = lens _rwtDomain (\ s a -> s{_rwtDomain = a});
 
 -- | The name of the workflow type.
 --
@@ -202,8 +202,8 @@ rwtrqDomain = lens _rwtrqDomain (\ s a -> s{_rwtrqDomain = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-rwtrqName :: Lens' RegisterWorkflowType Text
-rwtrqName = lens _rwtrqName (\ s a -> s{_rwtrqName = a});
+rwtName :: Lens' RegisterWorkflowType Text
+rwtName = lens _rwtName (\ s a -> s{_rwtName = a});
 
 -- | The version of the workflow type.
 --
@@ -215,8 +215,8 @@ rwtrqName = lens _rwtrqName (\ s a -> s{_rwtrqName = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-rwtrqVersion :: Lens' RegisterWorkflowType Text
-rwtrqVersion = lens _rwtrqVersion (\ s a -> s{_rwtrqVersion = a});
+rwtVersion :: Lens' RegisterWorkflowType Text
+rwtVersion = lens _rwtVersion (\ s a -> s{_rwtVersion = a});
 
 instance AWSRequest RegisterWorkflowType where
         type Sv RegisterWorkflowType = SWF
@@ -238,16 +238,16 @@ instance ToHeaders RegisterWorkflowType where
 instance ToJSON RegisterWorkflowType where
         toJSON RegisterWorkflowType'{..}
           = object
-              ["defaultChildPolicy" .= _rwtrqDefaultChildPolicy,
-               "defaultTaskList" .= _rwtrqDefaultTaskList,
-               "defaultTaskPriority" .= _rwtrqDefaultTaskPriority,
+              ["defaultChildPolicy" .= _rwtDefaultChildPolicy,
+               "defaultTaskList" .= _rwtDefaultTaskList,
+               "defaultTaskPriority" .= _rwtDefaultTaskPriority,
                "defaultExecutionStartToCloseTimeout" .=
-                 _rwtrqDefaultExecutionStartToCloseTimeout,
+                 _rwtDefaultExecutionStartToCloseTimeout,
                "defaultTaskStartToCloseTimeout" .=
-                 _rwtrqDefaultTaskStartToCloseTimeout,
-               "description" .= _rwtrqDescription,
-               "domain" .= _rwtrqDomain, "name" .= _rwtrqName,
-               "version" .= _rwtrqVersion]
+                 _rwtDefaultTaskStartToCloseTimeout,
+               "description" .= _rwtDescription,
+               "domain" .= _rwtDomain, "name" .= _rwtName,
+               "version" .= _rwtVersion]
 
 instance ToPath RegisterWorkflowType where
         toPath = const "/"

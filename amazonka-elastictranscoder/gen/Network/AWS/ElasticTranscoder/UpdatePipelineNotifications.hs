@@ -31,8 +31,8 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     -- ** Request constructor
     , updatePipelineNotifications
     -- ** Request lenses
-    , upnrqId
-    , upnrqNotifications
+    , upnId
+    , upnNotifications
 
     -- * Response
     , UpdatePipelineNotificationsResponse
@@ -54,26 +54,26 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upnrqId'
+-- * 'upnId'
 --
--- * 'upnrqNotifications'
+-- * 'upnNotifications'
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
-    { _upnrqId            :: !Text
-    , _upnrqNotifications :: !Notifications
+    { _upnId            :: !Text
+    , _upnNotifications :: !Notifications
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineNotifications' smart constructor.
 updatePipelineNotifications :: Text -> Notifications -> UpdatePipelineNotifications
 updatePipelineNotifications pId_ pNotifications_ =
     UpdatePipelineNotifications'
-    { _upnrqId = pId_
-    , _upnrqNotifications = pNotifications_
+    { _upnId = pId_
+    , _upnNotifications = pNotifications_
     }
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
-upnrqId :: Lens' UpdatePipelineNotifications Text
-upnrqId = lens _upnrqId (\ s a -> s{_upnrqId = a});
+upnId :: Lens' UpdatePipelineNotifications Text
+upnId = lens _upnId (\ s a -> s{_upnId = a});
 
 -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
 -- topic that you want to notify to report job status.
@@ -95,8 +95,8 @@ upnrqId = lens _upnrqId (\ s a -> s{_upnrqId = a});
 -- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
 --     notify when Elastic Transcoder encounters an error condition. This
 --     is the ARN that Amazon SNS returned when you created the topic.
-upnrqNotifications :: Lens' UpdatePipelineNotifications Notifications
-upnrqNotifications = lens _upnrqNotifications (\ s a -> s{_upnrqNotifications = a});
+upnNotifications :: Lens' UpdatePipelineNotifications Notifications
+upnNotifications = lens _upnNotifications (\ s a -> s{_upnNotifications = a});
 
 instance AWSRequest UpdatePipelineNotifications where
         type Sv UpdatePipelineNotifications =
@@ -115,12 +115,12 @@ instance ToHeaders UpdatePipelineNotifications where
 
 instance ToJSON UpdatePipelineNotifications where
         toJSON UpdatePipelineNotifications'{..}
-          = object ["Notifications" .= _upnrqNotifications]
+          = object ["Notifications" .= _upnNotifications]
 
 instance ToPath UpdatePipelineNotifications where
         toPath UpdatePipelineNotifications'{..}
           = mconcat
-              ["/2012-09-25/pipelines/", toText _upnrqId,
+              ["/2012-09-25/pipelines/", toText _upnId,
                "/notifications"]
 
 instance ToQuery UpdatePipelineNotifications where

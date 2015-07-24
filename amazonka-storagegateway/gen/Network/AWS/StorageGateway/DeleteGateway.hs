@@ -44,7 +44,7 @@ module Network.AWS.StorageGateway.DeleteGateway
     -- ** Request constructor
     , deleteGateway
     -- ** Request lenses
-    , dgrqGatewayARN
+    , dgGatewayARN
 
     -- * Response
     , DeleteGatewayResponse
@@ -66,21 +66,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgrqGatewayARN'
+-- * 'dgGatewayARN'
 newtype DeleteGateway = DeleteGateway'
-    { _dgrqGatewayARN :: Text
+    { _dgGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGateway' smart constructor.
 deleteGateway :: Text -> DeleteGateway
 deleteGateway pGatewayARN_ =
     DeleteGateway'
-    { _dgrqGatewayARN = pGatewayARN_
+    { _dgGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-dgrqGatewayARN :: Lens' DeleteGateway Text
-dgrqGatewayARN = lens _dgrqGatewayARN (\ s a -> s{_dgrqGatewayARN = a});
+dgGatewayARN :: Lens' DeleteGateway Text
+dgGatewayARN = lens _dgGatewayARN (\ s a -> s{_dgGatewayARN = a});
 
 instance AWSRequest DeleteGateway where
         type Sv DeleteGateway = StorageGateway
@@ -104,7 +104,7 @@ instance ToHeaders DeleteGateway where
 
 instance ToJSON DeleteGateway where
         toJSON DeleteGateway'{..}
-          = object ["GatewayARN" .= _dgrqGatewayARN]
+          = object ["GatewayARN" .= _dgGatewayARN]
 
 instance ToPath DeleteGateway where
         toPath = const "/"

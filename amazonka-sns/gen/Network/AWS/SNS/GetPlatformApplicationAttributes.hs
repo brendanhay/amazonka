@@ -30,7 +30,7 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
     -- ** Request constructor
     , getPlatformApplicationAttributes
     -- ** Request lenses
-    , gpaarqPlatformApplicationARN
+    , gpaaPlatformApplicationARN
 
     -- * Response
     , GetPlatformApplicationAttributesResponse
@@ -52,21 +52,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpaarqPlatformApplicationARN'
+-- * 'gpaaPlatformApplicationARN'
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
-    { _gpaarqPlatformApplicationARN :: Text
+    { _gpaaPlatformApplicationARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPlatformApplicationAttributes' smart constructor.
 getPlatformApplicationAttributes :: Text -> GetPlatformApplicationAttributes
 getPlatformApplicationAttributes pPlatformApplicationARN_ =
     GetPlatformApplicationAttributes'
-    { _gpaarqPlatformApplicationARN = pPlatformApplicationARN_
+    { _gpaaPlatformApplicationARN = pPlatformApplicationARN_
     }
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
-gpaarqPlatformApplicationARN :: Lens' GetPlatformApplicationAttributes Text
-gpaarqPlatformApplicationARN = lens _gpaarqPlatformApplicationARN (\ s a -> s{_gpaarqPlatformApplicationARN = a});
+gpaaPlatformApplicationARN :: Lens' GetPlatformApplicationAttributes Text
+gpaaPlatformApplicationARN = lens _gpaaPlatformApplicationARN (\ s a -> s{_gpaaPlatformApplicationARN = a});
 
 instance AWSRequest GetPlatformApplicationAttributes
          where
@@ -99,7 +99,7 @@ instance ToQuery GetPlatformApplicationAttributes
                  ("GetPlatformApplicationAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
                "PlatformApplicationArn" =:
-                 _gpaarqPlatformApplicationARN]
+                 _gpaaPlatformApplicationARN]
 
 -- | Response for GetPlatformApplicationAttributes action.
 --

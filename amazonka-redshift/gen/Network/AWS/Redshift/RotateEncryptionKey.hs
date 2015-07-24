@@ -27,7 +27,7 @@ module Network.AWS.Redshift.RotateEncryptionKey
     -- ** Request constructor
     , rotateEncryptionKey
     -- ** Request lenses
-    , rekrqClusterIdentifier
+    , rekClusterIdentifier
 
     -- * Response
     , RotateEncryptionKeyResponse
@@ -49,16 +49,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rekrqClusterIdentifier'
+-- * 'rekClusterIdentifier'
 newtype RotateEncryptionKey = RotateEncryptionKey'
-    { _rekrqClusterIdentifier :: Text
+    { _rekClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RotateEncryptionKey' smart constructor.
 rotateEncryptionKey :: Text -> RotateEncryptionKey
 rotateEncryptionKey pClusterIdentifier_ =
     RotateEncryptionKey'
-    { _rekrqClusterIdentifier = pClusterIdentifier_
+    { _rekClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The unique identifier of the cluster that you want to rotate the
@@ -66,8 +66,8 @@ rotateEncryptionKey pClusterIdentifier_ =
 --
 -- Constraints: Must be the name of valid cluster that has encryption
 -- enabled.
-rekrqClusterIdentifier :: Lens' RotateEncryptionKey Text
-rekrqClusterIdentifier = lens _rekrqClusterIdentifier (\ s a -> s{_rekrqClusterIdentifier = a});
+rekClusterIdentifier :: Lens' RotateEncryptionKey Text
+rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a});
 
 instance AWSRequest RotateEncryptionKey where
         type Sv RotateEncryptionKey = Redshift
@@ -91,7 +91,7 @@ instance ToQuery RotateEncryptionKey where
           = mconcat
               ["Action" =: ("RotateEncryptionKey" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _rekrqClusterIdentifier]
+               "ClusterIdentifier" =: _rekClusterIdentifier]
 
 -- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
 --

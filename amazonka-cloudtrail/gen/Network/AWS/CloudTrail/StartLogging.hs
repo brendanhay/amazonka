@@ -27,7 +27,7 @@ module Network.AWS.CloudTrail.StartLogging
     -- ** Request constructor
     , startLogging
     -- ** Request lenses
-    , srqName
+    , sName
 
     -- * Response
     , StartLoggingResponse
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqName'
+-- * 'sName'
 newtype StartLogging = StartLogging'
-    { _srqName :: Text
+    { _sName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartLogging' smart constructor.
 startLogging :: Text -> StartLogging
 startLogging pName_ =
     StartLogging'
-    { _srqName = pName_
+    { _sName = pName_
     }
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
-srqName :: Lens' StartLogging Text
-srqName = lens _srqName (\ s a -> s{_srqName = a});
+sName :: Lens' StartLogging Text
+sName = lens _sName (\ s a -> s{_sName = a});
 
 instance AWSRequest StartLogging where
         type Sv StartLogging = CloudTrail
@@ -84,8 +84,7 @@ instance ToHeaders StartLogging where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON StartLogging where
-        toJSON StartLogging'{..}
-          = object ["Name" .= _srqName]
+        toJSON StartLogging'{..} = object ["Name" .= _sName]
 
 instance ToPath StartLogging where
         toPath = const "/"

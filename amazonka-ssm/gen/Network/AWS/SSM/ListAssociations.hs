@@ -28,9 +28,9 @@ module Network.AWS.SSM.ListAssociations
     -- ** Request constructor
     , listAssociations
     -- ** Request lenses
-    , larqNextToken
-    , larqMaxResults
-    , larqAssociationFilterList
+    , laNextToken
+    , laMaxResults
+    , laAssociationFilterList
 
     -- * Response
     , ListAssociationsResponse
@@ -51,41 +51,41 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larqNextToken'
+-- * 'laNextToken'
 --
--- * 'larqMaxResults'
+-- * 'laMaxResults'
 --
--- * 'larqAssociationFilterList'
+-- * 'laAssociationFilterList'
 data ListAssociations = ListAssociations'
-    { _larqNextToken             :: !(Maybe Text)
-    , _larqMaxResults            :: !(Maybe Nat)
-    , _larqAssociationFilterList :: !(List1 AssociationFilter)
+    { _laNextToken             :: !(Maybe Text)
+    , _laMaxResults            :: !(Maybe Nat)
+    , _laAssociationFilterList :: !(List1 AssociationFilter)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAssociations' smart constructor.
 listAssociations :: NonEmpty AssociationFilter -> ListAssociations
 listAssociations pAssociationFilterList_ =
     ListAssociations'
-    { _larqNextToken = Nothing
-    , _larqMaxResults = Nothing
-    , _larqAssociationFilterList = _List1 # pAssociationFilterList_
+    { _laNextToken = Nothing
+    , _laMaxResults = Nothing
+    , _laAssociationFilterList = _List1 # pAssociationFilterList_
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-larqNextToken :: Lens' ListAssociations (Maybe Text)
-larqNextToken = lens _larqNextToken (\ s a -> s{_larqNextToken = a});
+laNextToken :: Lens' ListAssociations (Maybe Text)
+laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-larqMaxResults :: Lens' ListAssociations (Maybe Natural)
-larqMaxResults = lens _larqMaxResults (\ s a -> s{_larqMaxResults = a}) . mapping _Nat;
+laMaxResults :: Lens' ListAssociations (Maybe Natural)
+laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
-larqAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
-larqAssociationFilterList = lens _larqAssociationFilterList (\ s a -> s{_larqAssociationFilterList = a}) . _List1;
+laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
+laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
 
 instance AWSRequest ListAssociations where
         type Sv ListAssociations = SSM
@@ -111,10 +111,9 @@ instance ToHeaders ListAssociations where
 instance ToJSON ListAssociations where
         toJSON ListAssociations'{..}
           = object
-              ["NextToken" .= _larqNextToken,
-               "MaxResults" .= _larqMaxResults,
-               "AssociationFilterList" .=
-                 _larqAssociationFilterList]
+              ["NextToken" .= _laNextToken,
+               "MaxResults" .= _laMaxResults,
+               "AssociationFilterList" .= _laAssociationFilterList]
 
 instance ToPath ListAssociations where
         toPath = const "/"

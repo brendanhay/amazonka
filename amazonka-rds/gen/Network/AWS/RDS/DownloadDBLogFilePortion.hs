@@ -27,10 +27,10 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     -- ** Request constructor
     , downloadDBLogFilePortion
     -- ** Request lenses
-    , ddlfprqNumberOfLines
-    , ddlfprqMarker
-    , ddlfprqDBInstanceIdentifier
-    , ddlfprqLogFileName
+    , ddlfpNumberOfLines
+    , ddlfpMarker
+    , ddlfpDBInstanceIdentifier
+    , ddlfpLogFileName
 
     -- * Response
     , DownloadDBLogFilePortionResponse
@@ -55,28 +55,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddlfprqNumberOfLines'
+-- * 'ddlfpNumberOfLines'
 --
--- * 'ddlfprqMarker'
+-- * 'ddlfpMarker'
 --
--- * 'ddlfprqDBInstanceIdentifier'
+-- * 'ddlfpDBInstanceIdentifier'
 --
--- * 'ddlfprqLogFileName'
+-- * 'ddlfpLogFileName'
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
-    { _ddlfprqNumberOfLines        :: !(Maybe Int)
-    , _ddlfprqMarker               :: !(Maybe Text)
-    , _ddlfprqDBInstanceIdentifier :: !Text
-    , _ddlfprqLogFileName          :: !Text
+    { _ddlfpNumberOfLines        :: !(Maybe Int)
+    , _ddlfpMarker               :: !(Maybe Text)
+    , _ddlfpDBInstanceIdentifier :: !Text
+    , _ddlfpLogFileName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DownloadDBLogFilePortion' smart constructor.
 downloadDBLogFilePortion :: Text -> Text -> DownloadDBLogFilePortion
 downloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
     DownloadDBLogFilePortion'
-    { _ddlfprqNumberOfLines = Nothing
-    , _ddlfprqMarker = Nothing
-    , _ddlfprqDBInstanceIdentifier = pDBInstanceIdentifier_
-    , _ddlfprqLogFileName = pLogFileName_
+    { _ddlfpNumberOfLines = Nothing
+    , _ddlfpMarker = Nothing
+    , _ddlfpDBInstanceIdentifier = pDBInstanceIdentifier_
+    , _ddlfpLogFileName = pLogFileName_
     }
 
 -- | The number of lines to download.
@@ -101,14 +101,14 @@ downloadDBLogFilePortion pDBInstanceIdentifier_ pLogFileName_ =
 --     Marker value for the next request, continuing until the
 --     AdditionalDataPending response element returns false.
 --
-ddlfprqNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Int)
-ddlfprqNumberOfLines = lens _ddlfprqNumberOfLines (\ s a -> s{_ddlfprqNumberOfLines = a});
+ddlfpNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Int)
+ddlfpNumberOfLines = lens _ddlfpNumberOfLines (\ s a -> s{_ddlfpNumberOfLines = a});
 
 -- | The pagination token provided in the previous request or \"0\". If the
 -- Marker parameter is specified the response includes only records beyond
 -- the marker until the end of the file or up to NumberOfLines.
-ddlfprqMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
-ddlfprqMarker = lens _ddlfprqMarker (\ s a -> s{_ddlfprqMarker = a});
+ddlfpMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
+ddlfpMarker = lens _ddlfpMarker (\ s a -> s{_ddlfpMarker = a});
 
 -- | The customer-assigned name of the DB instance that contains the log
 -- files you want to list.
@@ -118,19 +118,19 @@ ddlfprqMarker = lens _ddlfprqMarker (\ s a -> s{_ddlfprqMarker = a});
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddlfprqDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion Text
-ddlfprqDBInstanceIdentifier = lens _ddlfprqDBInstanceIdentifier (\ s a -> s{_ddlfprqDBInstanceIdentifier = a});
+ddlfpDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion Text
+ddlfpDBInstanceIdentifier = lens _ddlfpDBInstanceIdentifier (\ s a -> s{_ddlfpDBInstanceIdentifier = a});
 
 -- | The name of the log file to be downloaded.
-ddlfprqLogFileName :: Lens' DownloadDBLogFilePortion Text
-ddlfprqLogFileName = lens _ddlfprqLogFileName (\ s a -> s{_ddlfprqLogFileName = a});
+ddlfpLogFileName :: Lens' DownloadDBLogFilePortion Text
+ddlfpLogFileName = lens _ddlfpLogFileName (\ s a -> s{_ddlfpLogFileName = a});
 
 instance AWSPager DownloadDBLogFilePortion where
         page rq rs
           | stop (rs ^. ddlfprsAdditionalDataPending) = Nothing
           | isNothing (rs ^. ddlfprsMarker) = Nothing
           | otherwise =
-            Just $ rq & ddlfprqMarker .~ rs ^. ddlfprsMarker
+            Just $ rq & ddlfpMarker .~ rs ^. ddlfprsMarker
 
 instance AWSRequest DownloadDBLogFilePortion where
         type Sv DownloadDBLogFilePortion = RDS
@@ -158,11 +158,10 @@ instance ToQuery DownloadDBLogFilePortion where
               ["Action" =:
                  ("DownloadDBLogFilePortion" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "NumberOfLines" =: _ddlfprqNumberOfLines,
-               "Marker" =: _ddlfprqMarker,
-               "DBInstanceIdentifier" =:
-                 _ddlfprqDBInstanceIdentifier,
-               "LogFileName" =: _ddlfprqLogFileName]
+               "NumberOfLines" =: _ddlfpNumberOfLines,
+               "Marker" =: _ddlfpMarker,
+               "DBInstanceIdentifier" =: _ddlfpDBInstanceIdentifier,
+               "LogFileName" =: _ddlfpLogFileName]
 
 -- | This data type is used as a response element to
 -- DownloadDBLogFilePortion.

@@ -32,7 +32,7 @@ module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     -- ** Request constructor
     , describeIdentityPoolUsage
     -- ** Request lenses
-    , dipurqIdentityPoolId
+    , dipuIdentityPoolId
 
     -- * Response
     , DescribeIdentityPoolUsageResponse
@@ -54,23 +54,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dipurqIdentityPoolId'
+-- * 'dipuIdentityPoolId'
 newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
-    { _dipurqIdentityPoolId :: Text
+    { _dipuIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityPoolUsage' smart constructor.
 describeIdentityPoolUsage :: Text -> DescribeIdentityPoolUsage
 describeIdentityPoolUsage pIdentityPoolId_ =
     DescribeIdentityPoolUsage'
-    { _dipurqIdentityPoolId = pIdentityPoolId_
+    { _dipuIdentityPoolId = pIdentityPoolId_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-dipurqIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
-dipurqIdentityPoolId = lens _dipurqIdentityPoolId (\ s a -> s{_dipurqIdentityPoolId = a});
+dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
+dipuIdentityPoolId = lens _dipuIdentityPoolId (\ s a -> s{_dipuIdentityPoolId = a});
 
 instance AWSRequest DescribeIdentityPoolUsage where
         type Sv DescribeIdentityPoolUsage = CognitoSync
@@ -93,7 +93,7 @@ instance ToHeaders DescribeIdentityPoolUsage where
 instance ToPath DescribeIdentityPoolUsage where
         toPath DescribeIdentityPoolUsage'{..}
           = mconcat
-              ["/identitypools/", toText _dipurqIdentityPoolId]
+              ["/identitypools/", toText _dipuIdentityPoolId]
 
 instance ToQuery DescribeIdentityPoolUsage where
         toQuery = const mempty

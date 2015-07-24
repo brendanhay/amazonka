@@ -27,8 +27,8 @@ module Network.AWS.Route53.ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
-    , ltfrrqResourceType
-    , ltfrrqResourceId
+    , ltfrResourceType
+    , ltfrResourceId
 
     -- * Response
     , ListTagsForResourceResponse
@@ -51,20 +51,20 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrrqResourceType'
+-- * 'ltfrResourceType'
 --
--- * 'ltfrrqResourceId'
+-- * 'ltfrResourceId'
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrrqResourceType :: !TagResourceType
-    , _ltfrrqResourceId   :: !Text
+    { _ltfrResourceType :: !TagResourceType
+    , _ltfrResourceId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: TagResourceType -> Text -> ListTagsForResource
 listTagsForResource pResourceType_ pResourceId_ =
     ListTagsForResource'
-    { _ltfrrqResourceType = pResourceType_
-    , _ltfrrqResourceId = pResourceId_
+    { _ltfrResourceType = pResourceType_
+    , _ltfrResourceId = pResourceId_
     }
 
 -- | The type of the resource.
@@ -72,12 +72,12 @@ listTagsForResource pResourceType_ pResourceId_ =
 -- - The resource type for health checks is @healthcheck@.
 --
 -- - The resource type for hosted zones is @hostedzone@.
-ltfrrqResourceType :: Lens' ListTagsForResource TagResourceType
-ltfrrqResourceType = lens _ltfrrqResourceType (\ s a -> s{_ltfrrqResourceType = a});
+ltfrResourceType :: Lens' ListTagsForResource TagResourceType
+ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a});
 
 -- | The ID of the resource for which you want to retrieve tags.
-ltfrrqResourceId :: Lens' ListTagsForResource Text
-ltfrrqResourceId = lens _ltfrrqResourceId (\ s a -> s{_ltfrrqResourceId = a});
+ltfrResourceId :: Lens' ListTagsForResource Text
+ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a});
 
 instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = Route53
@@ -96,8 +96,8 @@ instance ToHeaders ListTagsForResource where
 instance ToPath ListTagsForResource where
         toPath ListTagsForResource'{..}
           = mconcat
-              ["/2013-04-01/tags/", toText _ltfrrqResourceType,
-               "/", toText _ltfrrqResourceId]
+              ["/2013-04-01/tags/", toText _ltfrResourceType, "/",
+               toText _ltfrResourceId]
 
 instance ToQuery ListTagsForResource where
         toQuery = const mempty

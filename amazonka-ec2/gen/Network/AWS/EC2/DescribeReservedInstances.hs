@@ -31,10 +31,10 @@ module Network.AWS.EC2.DescribeReservedInstances
     -- ** Request constructor
     , describeReservedInstances
     -- ** Request lenses
-    , drirqFilters
-    , drirqOfferingType
-    , drirqReservedInstancesIds
-    , drirqDryRun
+    , driFilters
+    , driOfferingType
+    , driReservedInstancesIds
+    , driDryRun
 
     -- * Response
     , DescribeReservedInstancesResponse
@@ -54,28 +54,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drirqFilters'
+-- * 'driFilters'
 --
--- * 'drirqOfferingType'
+-- * 'driOfferingType'
 --
--- * 'drirqReservedInstancesIds'
+-- * 'driReservedInstancesIds'
 --
--- * 'drirqDryRun'
+-- * 'driDryRun'
 data DescribeReservedInstances = DescribeReservedInstances'
-    { _drirqFilters              :: !(Maybe [Filter])
-    , _drirqOfferingType         :: !(Maybe OfferingTypeValues)
-    , _drirqReservedInstancesIds :: !(Maybe [Text])
-    , _drirqDryRun               :: !(Maybe Bool)
+    { _driFilters              :: !(Maybe [Filter])
+    , _driOfferingType         :: !(Maybe OfferingTypeValues)
+    , _driReservedInstancesIds :: !(Maybe [Text])
+    , _driDryRun               :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstances' smart constructor.
 describeReservedInstances :: DescribeReservedInstances
 describeReservedInstances =
     DescribeReservedInstances'
-    { _drirqFilters = Nothing
-    , _drirqOfferingType = Nothing
-    , _drirqReservedInstancesIds = Nothing
-    , _drirqDryRun = Nothing
+    { _driFilters = Nothing
+    , _driOfferingType = Nothing
+    , _driReservedInstancesIds = Nothing
+    , _driDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -134,28 +134,28 @@ describeReservedInstances =
 -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
 --
-drirqFilters :: Lens' DescribeReservedInstances [Filter]
-drirqFilters = lens _drirqFilters (\ s a -> s{_drirqFilters = a}) . _Default;
+driFilters :: Lens' DescribeReservedInstances [Filter]
+driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default;
 
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the
 -- @Medium Utilization@ Reserved Instance offering type.
-drirqOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
-drirqOfferingType = lens _drirqOfferingType (\ s a -> s{_drirqOfferingType = a});
+driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
+driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
 
 -- | One or more Reserved Instance IDs.
 --
 -- Default: Describes all your Reserved Instances, or only those otherwise
 -- specified.
-drirqReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
-drirqReservedInstancesIds = lens _drirqReservedInstancesIds (\ s a -> s{_drirqReservedInstancesIds = a}) . _Default;
+driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
+driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-drirqDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
-drirqDryRun = lens _drirqDryRun (\ s a -> s{_drirqDryRun = a});
+driDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
+driDryRun = lens _driDryRun (\ s a -> s{_driDryRun = a});
 
 instance AWSRequest DescribeReservedInstances where
         type Sv DescribeReservedInstances = EC2
@@ -182,12 +182,12 @@ instance ToQuery DescribeReservedInstances where
               ["Action" =:
                  ("DescribeReservedInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drirqFilters),
-               "OfferingType" =: _drirqOfferingType,
+               toQuery (toQueryList "Filter" <$> _driFilters),
+               "OfferingType" =: _driOfferingType,
                toQuery
                  (toQueryList "ReservedInstancesId" <$>
-                    _drirqReservedInstancesIds),
-               "DryRun" =: _drirqDryRun]
+                    _driReservedInstancesIds),
+               "DryRun" =: _driDryRun]
 
 -- | /See:/ 'describeReservedInstancesResponse' smart constructor.
 --

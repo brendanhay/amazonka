@@ -27,9 +27,9 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- ** Request constructor
     , updateStreamingDistribution
     -- ** Request lenses
-    , usdrqIfMatch
-    , usdrqStreamingDistributionConfig
-    , usdrqId
+    , usdIfMatch
+    , usdStreamingDistributionConfig
+    , usdId
 
     -- * Response
     , UpdateStreamingDistributionResponse
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usdrqIfMatch'
+-- * 'usdIfMatch'
 --
--- * 'usdrqStreamingDistributionConfig'
+-- * 'usdStreamingDistributionConfig'
 --
--- * 'usdrqId'
+-- * 'usdId'
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
-    { _usdrqIfMatch                     :: !(Maybe Text)
-    , _usdrqStreamingDistributionConfig :: !StreamingDistributionConfig
-    , _usdrqId                          :: !Text
+    { _usdIfMatch                     :: !(Maybe Text)
+    , _usdStreamingDistributionConfig :: !StreamingDistributionConfig
+    , _usdId                          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStreamingDistribution' smart constructor.
 updateStreamingDistribution :: StreamingDistributionConfig -> Text -> UpdateStreamingDistribution
 updateStreamingDistribution pStreamingDistributionConfig_ pId_ =
     UpdateStreamingDistribution'
-    { _usdrqIfMatch = Nothing
-    , _usdrqStreamingDistributionConfig = pStreamingDistributionConfig_
-    , _usdrqId = pId_
+    { _usdIfMatch = Nothing
+    , _usdStreamingDistributionConfig = pStreamingDistributionConfig_
+    , _usdId = pId_
     }
 
 -- | The value of the ETag header you received when retrieving the streaming
 -- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
-usdrqIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
-usdrqIfMatch = lens _usdrqIfMatch (\ s a -> s{_usdrqIfMatch = a});
+usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
+usdIfMatch = lens _usdIfMatch (\ s a -> s{_usdIfMatch = a});
 
 -- | The streaming distribution\'s configuration information.
-usdrqStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
-usdrqStreamingDistributionConfig = lens _usdrqStreamingDistributionConfig (\ s a -> s{_usdrqStreamingDistributionConfig = a});
+usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
+usdStreamingDistributionConfig = lens _usdStreamingDistributionConfig (\ s a -> s{_usdStreamingDistributionConfig = a});
 
 -- | The streaming distribution\'s id.
-usdrqId :: Lens' UpdateStreamingDistribution Text
-usdrqId = lens _usdrqId (\ s a -> s{_usdrqId = a});
+usdId :: Lens' UpdateStreamingDistribution Text
+usdId = lens _usdId (\ s a -> s{_usdId = a});
 
 instance AWSRequest UpdateStreamingDistribution where
         type Sv UpdateStreamingDistribution = CloudFront
@@ -102,17 +102,17 @@ instance ToElement UpdateStreamingDistribution where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}StreamingDistributionConfig"
               .
-              _usdrqStreamingDistributionConfig
+              _usdStreamingDistributionConfig
 
 instance ToHeaders UpdateStreamingDistribution where
         toHeaders UpdateStreamingDistribution'{..}
-          = mconcat ["If-Match" =# _usdrqIfMatch]
+          = mconcat ["If-Match" =# _usdIfMatch]
 
 instance ToPath UpdateStreamingDistribution where
         toPath UpdateStreamingDistribution'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _usdrqId, "/config"]
+               toText _usdId, "/config"]
 
 instance ToQuery UpdateStreamingDistribution where
         toQuery = const mempty

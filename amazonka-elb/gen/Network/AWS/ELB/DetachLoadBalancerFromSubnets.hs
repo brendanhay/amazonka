@@ -33,8 +33,8 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     -- ** Request constructor
     , detachLoadBalancerFromSubnets
     -- ** Request lenses
-    , dlbfsrqLoadBalancerName
-    , dlbfsrqSubnets
+    , dlbfsLoadBalancerName
+    , dlbfsSubnets
 
     -- * Response
     , DetachLoadBalancerFromSubnetsResponse
@@ -54,29 +54,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbfsrqLoadBalancerName'
+-- * 'dlbfsLoadBalancerName'
 --
--- * 'dlbfsrqSubnets'
+-- * 'dlbfsSubnets'
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
-    { _dlbfsrqLoadBalancerName :: !Text
-    , _dlbfsrqSubnets          :: ![Text]
+    { _dlbfsLoadBalancerName :: !Text
+    , _dlbfsSubnets          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancerFromSubnets' smart constructor.
 detachLoadBalancerFromSubnets :: Text -> DetachLoadBalancerFromSubnets
 detachLoadBalancerFromSubnets pLoadBalancerName_ =
     DetachLoadBalancerFromSubnets'
-    { _dlbfsrqLoadBalancerName = pLoadBalancerName_
-    , _dlbfsrqSubnets = mempty
+    { _dlbfsLoadBalancerName = pLoadBalancerName_
+    , _dlbfsSubnets = mempty
     }
 
 -- | The name of the load balancer.
-dlbfsrqLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
-dlbfsrqLoadBalancerName = lens _dlbfsrqLoadBalancerName (\ s a -> s{_dlbfsrqLoadBalancerName = a});
+dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
+dlbfsLoadBalancerName = lens _dlbfsLoadBalancerName (\ s a -> s{_dlbfsLoadBalancerName = a});
 
 -- | The IDs of the subnets.
-dlbfsrqSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
-dlbfsrqSubnets = lens _dlbfsrqSubnets (\ s a -> s{_dlbfsrqSubnets = a});
+dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
+dlbfsSubnets = lens _dlbfsSubnets (\ s a -> s{_dlbfsSubnets = a});
 
 instance AWSRequest DetachLoadBalancerFromSubnets
          where
@@ -106,8 +106,8 @@ instance ToQuery DetachLoadBalancerFromSubnets where
               ["Action" =:
                  ("DetachLoadBalancerFromSubnets" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlbfsrqLoadBalancerName,
-               "Subnets" =: toQueryList "member" _dlbfsrqSubnets]
+               "LoadBalancerName" =: _dlbfsLoadBalancerName,
+               "Subnets" =: toQueryList "member" _dlbfsSubnets]
 
 -- | /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
 --

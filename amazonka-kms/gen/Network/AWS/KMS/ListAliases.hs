@@ -27,8 +27,8 @@ module Network.AWS.KMS.ListAliases
     -- ** Request constructor
     , listAliases
     -- ** Request lenses
-    , larqMarker
-    , larqLimit
+    , laMarker
+    , laLimit
 
     -- * Response
     , ListAliasesResponse
@@ -50,35 +50,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larqMarker'
+-- * 'laMarker'
 --
--- * 'larqLimit'
+-- * 'laLimit'
 data ListAliases = ListAliases'
-    { _larqMarker :: !(Maybe Text)
-    , _larqLimit  :: !(Maybe Nat)
+    { _laMarker :: !(Maybe Text)
+    , _laLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAliases' smart constructor.
 listAliases :: ListAliases
 listAliases =
     ListAliases'
-    { _larqMarker = Nothing
-    , _larqLimit = Nothing
+    { _laMarker = Nothing
+    , _laLimit = Nothing
     }
 
 -- | Use this parameter when paginating results, and only in a subsequent
 -- request after you\'ve received a response where the results are
 -- truncated. Set it to the value of the @NextMarker@ element in the
 -- response you just received.
-larqMarker :: Lens' ListAliases (Maybe Text)
-larqMarker = lens _larqMarker (\ s a -> s{_larqMarker = a});
+laMarker :: Lens' ListAliases (Maybe Text)
+laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
 -- | Specify this parameter when paginating results to indicate the maximum
 -- number of aliases you want in each response. If there are additional
 -- aliases beyond the maximum you specify, the @Truncated@ response element
 -- will be set to @true.@
-larqLimit :: Lens' ListAliases (Maybe Natural)
-larqLimit = lens _larqLimit (\ s a -> s{_larqLimit = a}) . mapping _Nat;
+laLimit :: Lens' ListAliases (Maybe Natural)
+laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListAliases where
         type Sv ListAliases = KMS
@@ -103,8 +103,7 @@ instance ToHeaders ListAliases where
 
 instance ToJSON ListAliases where
         toJSON ListAliases'{..}
-          = object
-              ["Marker" .= _larqMarker, "Limit" .= _larqLimit]
+          = object ["Marker" .= _laMarker, "Limit" .= _laLimit]
 
 instance ToPath ListAliases where
         toPath = const "/"

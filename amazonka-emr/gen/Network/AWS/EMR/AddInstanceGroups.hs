@@ -27,8 +27,8 @@ module Network.AWS.EMR.AddInstanceGroups
     -- ** Request constructor
     , addInstanceGroups
     -- ** Request lenses
-    , aigrqInstanceGroups
-    , aigrqJobFlowId
+    , aigInstanceGroups
+    , aigJobFlowId
 
     -- * Response
     , AddInstanceGroupsResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aigrqInstanceGroups'
+-- * 'aigInstanceGroups'
 --
--- * 'aigrqJobFlowId'
+-- * 'aigJobFlowId'
 data AddInstanceGroups = AddInstanceGroups'
-    { _aigrqInstanceGroups :: ![InstanceGroupConfig]
-    , _aigrqJobFlowId      :: !Text
+    { _aigInstanceGroups :: ![InstanceGroupConfig]
+    , _aigJobFlowId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddInstanceGroups' smart constructor.
 addInstanceGroups :: Text -> AddInstanceGroups
 addInstanceGroups pJobFlowId_ =
     AddInstanceGroups'
-    { _aigrqInstanceGroups = mempty
-    , _aigrqJobFlowId = pJobFlowId_
+    { _aigInstanceGroups = mempty
+    , _aigJobFlowId = pJobFlowId_
     }
 
 -- | Instance Groups to add.
-aigrqInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
-aigrqInstanceGroups = lens _aigrqInstanceGroups (\ s a -> s{_aigrqInstanceGroups = a});
+aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
+aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a});
 
 -- | Job flow in which to add the instance groups.
-aigrqJobFlowId :: Lens' AddInstanceGroups Text
-aigrqJobFlowId = lens _aigrqJobFlowId (\ s a -> s{_aigrqJobFlowId = a});
+aigJobFlowId :: Lens' AddInstanceGroups Text
+aigJobFlowId = lens _aigJobFlowId (\ s a -> s{_aigJobFlowId = a});
 
 instance AWSRequest AddInstanceGroups where
         type Sv AddInstanceGroups = EMR
@@ -99,8 +99,8 @@ instance ToHeaders AddInstanceGroups where
 instance ToJSON AddInstanceGroups where
         toJSON AddInstanceGroups'{..}
           = object
-              ["InstanceGroups" .= _aigrqInstanceGroups,
-               "JobFlowId" .= _aigrqJobFlowId]
+              ["InstanceGroups" .= _aigInstanceGroups,
+               "JobFlowId" .= _aigJobFlowId]
 
 instance ToPath AddInstanceGroups where
         toPath = const "/"

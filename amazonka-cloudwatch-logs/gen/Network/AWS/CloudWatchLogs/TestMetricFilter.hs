@@ -29,8 +29,8 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     -- ** Request constructor
     , testMetricFilter
     -- ** Request lenses
-    , tmfrqFilterPattern
-    , tmfrqLogEventMessages
+    , tmfFilterPattern
+    , tmfLogEventMessages
 
     -- * Response
     , TestMetricFilterResponse
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tmfrqFilterPattern'
+-- * 'tmfFilterPattern'
 --
--- * 'tmfrqLogEventMessages'
+-- * 'tmfLogEventMessages'
 data TestMetricFilter = TestMetricFilter'
-    { _tmfrqFilterPattern    :: !Text
-    , _tmfrqLogEventMessages :: !(List1 Text)
+    { _tmfFilterPattern    :: !Text
+    , _tmfLogEventMessages :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestMetricFilter' smart constructor.
 testMetricFilter :: Text -> NonEmpty Text -> TestMetricFilter
 testMetricFilter pFilterPattern_ pLogEventMessages_ =
     TestMetricFilter'
-    { _tmfrqFilterPattern = pFilterPattern_
-    , _tmfrqLogEventMessages = _List1 # pLogEventMessages_
+    { _tmfFilterPattern = pFilterPattern_
+    , _tmfLogEventMessages = _List1 # pLogEventMessages_
     }
 
 -- | FIXME: Undocumented member.
-tmfrqFilterPattern :: Lens' TestMetricFilter Text
-tmfrqFilterPattern = lens _tmfrqFilterPattern (\ s a -> s{_tmfrqFilterPattern = a});
+tmfFilterPattern :: Lens' TestMetricFilter Text
+tmfFilterPattern = lens _tmfFilterPattern (\ s a -> s{_tmfFilterPattern = a});
 
 -- | A list of log event messages to test.
-tmfrqLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
-tmfrqLogEventMessages = lens _tmfrqLogEventMessages (\ s a -> s{_tmfrqLogEventMessages = a}) . _List1;
+tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
+tmfLogEventMessages = lens _tmfLogEventMessages (\ s a -> s{_tmfLogEventMessages = a}) . _List1;
 
 instance AWSRequest TestMetricFilter where
         type Sv TestMetricFilter = CloudWatchLogs
@@ -96,8 +96,8 @@ instance ToHeaders TestMetricFilter where
 instance ToJSON TestMetricFilter where
         toJSON TestMetricFilter'{..}
           = object
-              ["filterPattern" .= _tmfrqFilterPattern,
-               "logEventMessages" .= _tmfrqLogEventMessages]
+              ["filterPattern" .= _tmfFilterPattern,
+               "logEventMessages" .= _tmfLogEventMessages]
 
 instance ToPath TestMetricFilter where
         toPath = const "/"

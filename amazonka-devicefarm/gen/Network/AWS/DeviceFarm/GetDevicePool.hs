@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.GetDevicePool
     -- ** Request constructor
     , getDevicePool
     -- ** Request lenses
-    , gdprqArn
+    , gdpArn
 
     -- * Response
     , GetDevicePoolResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdprqArn'
+-- * 'gdpArn'
 newtype GetDevicePool = GetDevicePool'
-    { _gdprqArn :: Text
+    { _gdpArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevicePool' smart constructor.
 getDevicePool :: Text -> GetDevicePool
 getDevicePool pArn_ =
     GetDevicePool'
-    { _gdprqArn = pArn_
+    { _gdpArn = pArn_
     }
 
 -- | The device pool\'s ARN.
-gdprqArn :: Lens' GetDevicePool Text
-gdprqArn = lens _gdprqArn (\ s a -> s{_gdprqArn = a});
+gdpArn :: Lens' GetDevicePool Text
+gdpArn = lens _gdpArn (\ s a -> s{_gdpArn = a});
 
 instance AWSRequest GetDevicePool where
         type Sv GetDevicePool = DeviceFarm
@@ -85,8 +85,7 @@ instance ToHeaders GetDevicePool where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDevicePool where
-        toJSON GetDevicePool'{..}
-          = object ["arn" .= _gdprqArn]
+        toJSON GetDevicePool'{..} = object ["arn" .= _gdpArn]
 
 instance ToPath GetDevicePool where
         toPath = const "/"

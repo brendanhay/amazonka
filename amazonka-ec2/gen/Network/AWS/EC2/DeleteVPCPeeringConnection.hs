@@ -30,8 +30,8 @@ module Network.AWS.EC2.DeleteVPCPeeringConnection
     -- ** Request constructor
     , deleteVPCPeeringConnection
     -- ** Request lenses
-    , dvpcrqDryRun
-    , dvpcrqVPCPeeringConnectionId
+    , dvpcDryRun
+    , dvpcVPCPeeringConnectionId
 
     -- * Response
     , DeleteVPCPeeringConnectionResponse
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcrqDryRun'
+-- * 'dvpcDryRun'
 --
--- * 'dvpcrqVPCPeeringConnectionId'
+-- * 'dvpcVPCPeeringConnectionId'
 data DeleteVPCPeeringConnection = DeleteVPCPeeringConnection'
-    { _dvpcrqDryRun                 :: !(Maybe Bool)
-    , _dvpcrqVPCPeeringConnectionId :: !Text
+    { _dvpcDryRun                 :: !(Maybe Bool)
+    , _dvpcVPCPeeringConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCPeeringConnection' smart constructor.
 deleteVPCPeeringConnection :: Text -> DeleteVPCPeeringConnection
 deleteVPCPeeringConnection pVPCPeeringConnectionId_ =
     DeleteVPCPeeringConnection'
-    { _dvpcrqDryRun = Nothing
-    , _dvpcrqVPCPeeringConnectionId = pVPCPeeringConnectionId_
+    { _dvpcDryRun = Nothing
+    , _dvpcVPCPeeringConnectionId = pVPCPeeringConnectionId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvpcrqDryRun :: Lens' DeleteVPCPeeringConnection (Maybe Bool)
-dvpcrqDryRun = lens _dvpcrqDryRun (\ s a -> s{_dvpcrqDryRun = a});
+dvpcDryRun :: Lens' DeleteVPCPeeringConnection (Maybe Bool)
+dvpcDryRun = lens _dvpcDryRun (\ s a -> s{_dvpcDryRun = a});
 
 -- | The ID of the VPC peering connection.
-dvpcrqVPCPeeringConnectionId :: Lens' DeleteVPCPeeringConnection Text
-dvpcrqVPCPeeringConnectionId = lens _dvpcrqVPCPeeringConnectionId (\ s a -> s{_dvpcrqVPCPeeringConnectionId = a});
+dvpcVPCPeeringConnectionId :: Lens' DeleteVPCPeeringConnection Text
+dvpcVPCPeeringConnectionId = lens _dvpcVPCPeeringConnectionId (\ s a -> s{_dvpcVPCPeeringConnectionId = a});
 
 instance AWSRequest DeleteVPCPeeringConnection where
         type Sv DeleteVPCPeeringConnection = EC2
@@ -101,9 +101,9 @@ instance ToQuery DeleteVPCPeeringConnection where
               ["Action" =:
                  ("DeleteVPCPeeringConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dvpcrqDryRun,
+               "DryRun" =: _dvpcDryRun,
                "VpcPeeringConnectionId" =:
-                 _dvpcrqVPCPeeringConnectionId]
+                 _dvpcVPCPeeringConnectionId]
 
 -- | /See:/ 'deleteVPCPeeringConnectionResponse' smart constructor.
 --

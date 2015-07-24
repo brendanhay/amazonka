@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeVPNGateways
     -- ** Request constructor
     , describeVPNGateways
     -- ** Request lenses
-    , dvgsrqFilters
-    , dvgsrqDryRun
-    , dvgsrqVPNGatewayIds
+    , dvgsFilters
+    , dvgsDryRun
+    , dvgsVPNGatewayIds
 
     -- * Response
     , DescribeVPNGatewaysResponse
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvgsrqFilters'
+-- * 'dvgsFilters'
 --
--- * 'dvgsrqDryRun'
+-- * 'dvgsDryRun'
 --
--- * 'dvgsrqVPNGatewayIds'
+-- * 'dvgsVPNGatewayIds'
 data DescribeVPNGateways = DescribeVPNGateways'
-    { _dvgsrqFilters       :: !(Maybe [Filter])
-    , _dvgsrqDryRun        :: !(Maybe Bool)
-    , _dvgsrqVPNGatewayIds :: !(Maybe [Text])
+    { _dvgsFilters       :: !(Maybe [Filter])
+    , _dvgsDryRun        :: !(Maybe Bool)
+    , _dvgsVPNGatewayIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNGateways' smart constructor.
 describeVPNGateways :: DescribeVPNGateways
 describeVPNGateways =
     DescribeVPNGateways'
-    { _dvgsrqFilters = Nothing
-    , _dvgsrqDryRun = Nothing
-    , _dvgsrqVPNGatewayIds = Nothing
+    { _dvgsFilters = Nothing
+    , _dvgsDryRun = Nothing
+    , _dvgsVPNGatewayIds = Nothing
     }
 
 -- | One or more filters.
@@ -106,21 +106,21 @@ describeVPNGateways =
 --
 -- -   @vpn-gateway-id@ - The ID of the virtual private gateway.
 --
-dvgsrqFilters :: Lens' DescribeVPNGateways [Filter]
-dvgsrqFilters = lens _dvgsrqFilters (\ s a -> s{_dvgsrqFilters = a}) . _Default;
+dvgsFilters :: Lens' DescribeVPNGateways [Filter]
+dvgsFilters = lens _dvgsFilters (\ s a -> s{_dvgsFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvgsrqDryRun :: Lens' DescribeVPNGateways (Maybe Bool)
-dvgsrqDryRun = lens _dvgsrqDryRun (\ s a -> s{_dvgsrqDryRun = a});
+dvgsDryRun :: Lens' DescribeVPNGateways (Maybe Bool)
+dvgsDryRun = lens _dvgsDryRun (\ s a -> s{_dvgsDryRun = a});
 
 -- | One or more virtual private gateway IDs.
 --
 -- Default: Describes all your virtual private gateways.
-dvgsrqVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
-dvgsrqVPNGatewayIds = lens _dvgsrqVPNGatewayIds (\ s a -> s{_dvgsrqVPNGatewayIds = a}) . _Default;
+dvgsVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
+dvgsVPNGatewayIds = lens _dvgsVPNGatewayIds (\ s a -> s{_dvgsVPNGatewayIds = a}) . _Default;
 
 instance AWSRequest DescribeVPNGateways where
         type Sv DescribeVPNGateways = EC2
@@ -146,11 +146,10 @@ instance ToQuery DescribeVPNGateways where
           = mconcat
               ["Action" =: ("DescribeVPNGateways" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvgsrqFilters),
-               "DryRun" =: _dvgsrqDryRun,
+               toQuery (toQueryList "Filter" <$> _dvgsFilters),
+               "DryRun" =: _dvgsDryRun,
                toQuery
-                 (toQueryList "VpnGatewayId" <$>
-                    _dvgsrqVPNGatewayIds)]
+                 (toQueryList "VpnGatewayId" <$> _dvgsVPNGatewayIds)]
 
 -- | /See:/ 'describeVPNGatewaysResponse' smart constructor.
 --

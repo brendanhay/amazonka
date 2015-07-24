@@ -27,9 +27,9 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- ** Request constructor
     , describeInternetGateways
     -- ** Request lenses
-    , drqFilters
-    , drqInternetGatewayIds
-    , drqDryRun
+    , dFilters
+    , dInternetGatewayIds
+    , dDryRun
 
     -- * Response
     , DescribeInternetGatewaysResponse
@@ -49,24 +49,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqFilters'
+-- * 'dFilters'
 --
--- * 'drqInternetGatewayIds'
+-- * 'dInternetGatewayIds'
 --
--- * 'drqDryRun'
+-- * 'dDryRun'
 data DescribeInternetGateways = DescribeInternetGateways'
-    { _drqFilters            :: !(Maybe [Filter])
-    , _drqInternetGatewayIds :: !(Maybe [Text])
-    , _drqDryRun             :: !(Maybe Bool)
+    { _dFilters            :: !(Maybe [Filter])
+    , _dInternetGatewayIds :: !(Maybe [Text])
+    , _dDryRun             :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInternetGateways' smart constructor.
 describeInternetGateways :: DescribeInternetGateways
 describeInternetGateways =
     DescribeInternetGateways'
-    { _drqFilters = Nothing
-    , _drqInternetGatewayIds = Nothing
-    , _drqDryRun = Nothing
+    { _dFilters = Nothing
+    , _dInternetGatewayIds = Nothing
+    , _dDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -93,21 +93,21 @@ describeInternetGateways =
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-drqFilters :: Lens' DescribeInternetGateways [Filter]
-drqFilters = lens _drqFilters (\ s a -> s{_drqFilters = a}) . _Default;
+dFilters :: Lens' DescribeInternetGateways [Filter]
+dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default;
 
 -- | One or more Internet gateway IDs.
 --
 -- Default: Describes all your Internet gateways.
-drqInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
-drqInternetGatewayIds = lens _drqInternetGatewayIds (\ s a -> s{_drqInternetGatewayIds = a}) . _Default;
+dInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+dInternetGatewayIds = lens _dInternetGatewayIds (\ s a -> s{_dInternetGatewayIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-drqDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
-drqDryRun = lens _drqDryRun (\ s a -> s{_drqDryRun = a});
+dDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
+dDryRun = lens _dDryRun (\ s a -> s{_dDryRun = a});
 
 instance AWSRequest DescribeInternetGateways where
         type Sv DescribeInternetGateways = EC2
@@ -134,10 +134,10 @@ instance ToQuery DescribeInternetGateways where
               ["Action" =:
                  ("DescribeInternetGateways" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drqFilters),
+               toQuery (toQueryList "Filter" <$> _dFilters),
                toQuery
-                 (toQueryList "item" <$> _drqInternetGatewayIds),
-               "DryRun" =: _drqDryRun]
+                 (toQueryList "item" <$> _dInternetGatewayIds),
+               "DryRun" =: _dDryRun]
 
 -- | /See:/ 'describeInternetGatewaysResponse' smart constructor.
 --

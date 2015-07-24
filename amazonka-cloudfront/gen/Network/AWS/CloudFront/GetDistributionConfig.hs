@@ -27,7 +27,7 @@ module Network.AWS.CloudFront.GetDistributionConfig
     -- ** Request constructor
     , getDistributionConfig
     -- ** Request lenses
-    , gdcrqId
+    , gdcId
 
     -- * Response
     , GetDistributionConfigResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdcrqId'
+-- * 'gdcId'
 newtype GetDistributionConfig = GetDistributionConfig'
-    { _gdcrqId :: Text
+    { _gdcId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistributionConfig' smart constructor.
 getDistributionConfig :: Text -> GetDistributionConfig
 getDistributionConfig pId_ =
     GetDistributionConfig'
-    { _gdcrqId = pId_
+    { _gdcId = pId_
     }
 
 -- | The distribution\'s id.
-gdcrqId :: Lens' GetDistributionConfig Text
-gdcrqId = lens _gdcrqId (\ s a -> s{_gdcrqId = a});
+gdcId :: Lens' GetDistributionConfig Text
+gdcId = lens _gdcId (\ s a -> s{_gdcId = a});
 
 instance AWSRequest GetDistributionConfig where
         type Sv GetDistributionConfig = CloudFront
@@ -84,7 +84,7 @@ instance ToHeaders GetDistributionConfig where
 instance ToPath GetDistributionConfig where
         toPath GetDistributionConfig'{..}
           = mconcat
-              ["/2015-04-17/distribution/", toText _gdcrqId,
+              ["/2015-04-17/distribution/", toText _gdcId,
                "/config"]
 
 instance ToQuery GetDistributionConfig where

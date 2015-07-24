@@ -33,7 +33,7 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
     -- ** Request constructor
     , disableDomainAutoRenew
     -- ** Request lenses
-    , ddarrqDomainName
+    , ddarDomainName
 
     -- * Response
     , DisableDomainAutoRenewResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddarrqDomainName'
+-- * 'ddarDomainName'
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
-    { _ddarrqDomainName :: Text
+    { _ddarDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableDomainAutoRenew' smart constructor.
 disableDomainAutoRenew :: Text -> DisableDomainAutoRenew
 disableDomainAutoRenew pDomainName_ =
     DisableDomainAutoRenew'
-    { _ddarrqDomainName = pDomainName_
+    { _ddarDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
-ddarrqDomainName :: Lens' DisableDomainAutoRenew Text
-ddarrqDomainName = lens _ddarrqDomainName (\ s a -> s{_ddarrqDomainName = a});
+ddarDomainName :: Lens' DisableDomainAutoRenew Text
+ddarDomainName = lens _ddarDomainName (\ s a -> s{_ddarDomainName = a});
 
 instance AWSRequest DisableDomainAutoRenew where
         type Sv DisableDomainAutoRenew = Route53Domains
@@ -91,7 +91,7 @@ instance ToHeaders DisableDomainAutoRenew where
 
 instance ToJSON DisableDomainAutoRenew where
         toJSON DisableDomainAutoRenew'{..}
-          = object ["DomainName" .= _ddarrqDomainName]
+          = object ["DomainName" .= _ddarDomainName]
 
 instance ToPath DisableDomainAutoRenew where
         toPath = const "/"

@@ -43,8 +43,8 @@ module Network.AWS.IAM.CreateVirtualMFADevice
     -- ** Request constructor
     , createVirtualMFADevice
     -- ** Request lenses
-    , cvmdrqPath
-    , cvmdrqVirtualMFADeviceName
+    , cvmdPath
+    , cvmdVirtualMFADeviceName
 
     -- * Response
     , CreateVirtualMFADeviceResponse
@@ -64,20 +64,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvmdrqPath'
+-- * 'cvmdPath'
 --
--- * 'cvmdrqVirtualMFADeviceName'
+-- * 'cvmdVirtualMFADeviceName'
 data CreateVirtualMFADevice = CreateVirtualMFADevice'
-    { _cvmdrqPath                 :: !(Maybe Text)
-    , _cvmdrqVirtualMFADeviceName :: !Text
+    { _cvmdPath                 :: !(Maybe Text)
+    , _cvmdVirtualMFADeviceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVirtualMFADevice' smart constructor.
 createVirtualMFADevice :: Text -> CreateVirtualMFADevice
 createVirtualMFADevice pVirtualMFADeviceName_ =
     CreateVirtualMFADevice'
-    { _cvmdrqPath = Nothing
-    , _cvmdrqVirtualMFADeviceName = pVirtualMFADeviceName_
+    { _cvmdPath = Nothing
+    , _cvmdVirtualMFADeviceName = pVirtualMFADeviceName_
     }
 
 -- | The path for the virtual MFA device. For more information about paths,
@@ -87,13 +87,13 @@ createVirtualMFADevice pVirtualMFADeviceName_ =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cvmdrqPath :: Lens' CreateVirtualMFADevice (Maybe Text)
-cvmdrqPath = lens _cvmdrqPath (\ s a -> s{_cvmdrqPath = a});
+cvmdPath :: Lens' CreateVirtualMFADevice (Maybe Text)
+cvmdPath = lens _cvmdPath (\ s a -> s{_cvmdPath = a});
 
 -- | The name of the virtual MFA device. Use with path to uniquely identify a
 -- virtual MFA device.
-cvmdrqVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
-cvmdrqVirtualMFADeviceName = lens _cvmdrqVirtualMFADeviceName (\ s a -> s{_cvmdrqVirtualMFADeviceName = a});
+cvmdVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
+cvmdVirtualMFADeviceName = lens _cvmdVirtualMFADeviceName (\ s a -> s{_cvmdVirtualMFADeviceName = a});
 
 instance AWSRequest CreateVirtualMFADevice where
         type Sv CreateVirtualMFADevice = IAM
@@ -118,9 +118,8 @@ instance ToQuery CreateVirtualMFADevice where
               ["Action" =:
                  ("CreateVirtualMFADevice" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _cvmdrqPath,
-               "VirtualMFADeviceName" =:
-                 _cvmdrqVirtualMFADeviceName]
+               "Path" =: _cvmdPath,
+               "VirtualMFADeviceName" =: _cvmdVirtualMFADeviceName]
 
 -- | Contains the response to a successful CreateVirtualMFADevice request.
 --

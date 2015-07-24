@@ -28,9 +28,9 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     -- ** Request constructor
     , describeEngineDefaultParameters
     -- ** Request lenses
-    , dedprqMaxRecords
-    , dedprqMarker
-    , dedprqCacheParameterGroupFamily
+    , dedpMaxRecords
+    , dedpMarker
+    , dedpCacheParameterGroupFamily
 
     -- * Response
     , DescribeEngineDefaultParametersResponse
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedprqMaxRecords'
+-- * 'dedpMaxRecords'
 --
--- * 'dedprqMarker'
+-- * 'dedpMarker'
 --
--- * 'dedprqCacheParameterGroupFamily'
+-- * 'dedpCacheParameterGroupFamily'
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedprqMaxRecords                :: !(Maybe Int)
-    , _dedprqMarker                    :: !(Maybe Text)
-    , _dedprqCacheParameterGroupFamily :: !Text
+    { _dedpMaxRecords                :: !(Maybe Int)
+    , _dedpMarker                    :: !(Maybe Text)
+    , _dedpCacheParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pCacheParameterGroupFamily_ =
     DescribeEngineDefaultParameters'
-    { _dedprqMaxRecords = Nothing
-    , _dedprqMarker = Nothing
-    , _dedprqCacheParameterGroupFamily = pCacheParameterGroupFamily_
+    { _dedpMaxRecords = Nothing
+    , _dedpMarker = Nothing
+    , _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily_
     }
 
 -- | The maximum number of records to include in the response. If more
@@ -80,20 +80,20 @@ describeEngineDefaultParameters pCacheParameterGroupFamily_ =
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dedprqMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
-dedprqMaxRecords = lens _dedprqMaxRecords (\ s a -> s{_dedprqMaxRecords = a});
+dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
+dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dedprqMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedprqMarker = lens _dedprqMarker (\ s a -> s{_dedprqMarker = a});
+dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
 
 -- | The name of the cache parameter group family. Valid values are:
 -- @memcached1.4@ | @redis2.6@ | @redis2.8@
-dedprqCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
-dedprqCacheParameterGroupFamily = lens _dedprqCacheParameterGroupFamily (\ s a -> s{_dedprqCacheParameterGroupFamily = a});
+dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
+dedpCacheParameterGroupFamily = lens _dedpCacheParameterGroupFamily (\ s a -> s{_dedpCacheParameterGroupFamily = a});
 
 instance AWSPager DescribeEngineDefaultParameters
          where
@@ -105,7 +105,7 @@ instance AWSPager DescribeEngineDefaultParameters
             Nothing
           | otherwise =
             Just $ rq &
-              dedprqMarker .~
+              dedpMarker .~
                 rs ^? dedprsEngineDefaults . edMarker . _Just
 
 instance AWSRequest DescribeEngineDefaultParameters
@@ -135,10 +135,10 @@ instance ToQuery DescribeEngineDefaultParameters
               ["Action" =:
                  ("DescribeEngineDefaultParameters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "MaxRecords" =: _dedprqMaxRecords,
-               "Marker" =: _dedprqMarker,
+               "MaxRecords" =: _dedpMaxRecords,
+               "Marker" =: _dedpMarker,
                "CacheParameterGroupFamily" =:
-                 _dedprqCacheParameterGroupFamily]
+                 _dedpCacheParameterGroupFamily]
 
 -- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
 --

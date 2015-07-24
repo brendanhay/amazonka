@@ -29,10 +29,10 @@ module Network.AWS.IAM.EnableMFADevice
     -- ** Request constructor
     , enableMFADevice
     -- ** Request lenses
-    , emdrqUserName
-    , emdrqSerialNumber
-    , emdrqAuthenticationCode1
-    , emdrqAuthenticationCode2
+    , emdUserName
+    , emdSerialNumber
+    , emdAuthenticationCode1
+    , emdAuthenticationCode2
 
     -- * Response
     , EnableMFADeviceResponse
@@ -49,46 +49,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'emdrqUserName'
+-- * 'emdUserName'
 --
--- * 'emdrqSerialNumber'
+-- * 'emdSerialNumber'
 --
--- * 'emdrqAuthenticationCode1'
+-- * 'emdAuthenticationCode1'
 --
--- * 'emdrqAuthenticationCode2'
+-- * 'emdAuthenticationCode2'
 data EnableMFADevice = EnableMFADevice'
-    { _emdrqUserName            :: !Text
-    , _emdrqSerialNumber        :: !Text
-    , _emdrqAuthenticationCode1 :: !Text
-    , _emdrqAuthenticationCode2 :: !Text
+    { _emdUserName            :: !Text
+    , _emdSerialNumber        :: !Text
+    , _emdAuthenticationCode1 :: !Text
+    , _emdAuthenticationCode2 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMFADevice' smart constructor.
 enableMFADevice :: Text -> Text -> Text -> Text -> EnableMFADevice
 enableMFADevice pUserName_ pSerialNumber_ pAuthenticationCode1_ pAuthenticationCode2_ =
     EnableMFADevice'
-    { _emdrqUserName = pUserName_
-    , _emdrqSerialNumber = pSerialNumber_
-    , _emdrqAuthenticationCode1 = pAuthenticationCode1_
-    , _emdrqAuthenticationCode2 = pAuthenticationCode2_
+    { _emdUserName = pUserName_
+    , _emdSerialNumber = pSerialNumber_
+    , _emdAuthenticationCode1 = pAuthenticationCode1_
+    , _emdAuthenticationCode2 = pAuthenticationCode2_
     }
 
 -- | The name of the user for whom you want to enable the MFA device.
-emdrqUserName :: Lens' EnableMFADevice Text
-emdrqUserName = lens _emdrqUserName (\ s a -> s{_emdrqUserName = a});
+emdUserName :: Lens' EnableMFADevice Text
+emdUserName = lens _emdUserName (\ s a -> s{_emdUserName = a});
 
 -- | The serial number that uniquely identifies the MFA device. For virtual
 -- MFA devices, the serial number is the device ARN.
-emdrqSerialNumber :: Lens' EnableMFADevice Text
-emdrqSerialNumber = lens _emdrqSerialNumber (\ s a -> s{_emdrqSerialNumber = a});
+emdSerialNumber :: Lens' EnableMFADevice Text
+emdSerialNumber = lens _emdSerialNumber (\ s a -> s{_emdSerialNumber = a});
 
 -- | An authentication code emitted by the device.
-emdrqAuthenticationCode1 :: Lens' EnableMFADevice Text
-emdrqAuthenticationCode1 = lens _emdrqAuthenticationCode1 (\ s a -> s{_emdrqAuthenticationCode1 = a});
+emdAuthenticationCode1 :: Lens' EnableMFADevice Text
+emdAuthenticationCode1 = lens _emdAuthenticationCode1 (\ s a -> s{_emdAuthenticationCode1 = a});
 
 -- | A subsequent authentication code emitted by the device.
-emdrqAuthenticationCode2 :: Lens' EnableMFADevice Text
-emdrqAuthenticationCode2 = lens _emdrqAuthenticationCode2 (\ s a -> s{_emdrqAuthenticationCode2 = a});
+emdAuthenticationCode2 :: Lens' EnableMFADevice Text
+emdAuthenticationCode2 = lens _emdAuthenticationCode2 (\ s a -> s{_emdAuthenticationCode2 = a});
 
 instance AWSRequest EnableMFADevice where
         type Sv EnableMFADevice = IAM
@@ -107,10 +107,10 @@ instance ToQuery EnableMFADevice where
           = mconcat
               ["Action" =: ("EnableMFADevice" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _emdrqUserName,
-               "SerialNumber" =: _emdrqSerialNumber,
-               "AuthenticationCode1" =: _emdrqAuthenticationCode1,
-               "AuthenticationCode2" =: _emdrqAuthenticationCode2]
+               "UserName" =: _emdUserName,
+               "SerialNumber" =: _emdSerialNumber,
+               "AuthenticationCode1" =: _emdAuthenticationCode1,
+               "AuthenticationCode2" =: _emdAuthenticationCode2]
 
 -- | /See:/ 'enableMFADeviceResponse' smart constructor.
 data EnableMFADeviceResponse =

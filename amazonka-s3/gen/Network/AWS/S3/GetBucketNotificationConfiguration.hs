@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketNotificationConfiguration
     -- ** Request constructor
     , getBucketNotificationConfiguration
     -- ** Request lenses
-    , gbncrqBucket
+    , gbncBucket
 
     -- * Response
     , NotificationConfiguration
@@ -48,21 +48,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbncrqBucket'
+-- * 'gbncBucket'
 newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
-    { _gbncrqBucket :: BucketName
+    { _gbncBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketNotificationConfiguration' smart constructor.
 getBucketNotificationConfiguration :: BucketName -> GetBucketNotificationConfiguration
 getBucketNotificationConfiguration pBucket_ =
     GetBucketNotificationConfiguration'
-    { _gbncrqBucket = pBucket_
+    { _gbncBucket = pBucket_
     }
 
 -- | Name of the buket to get the notification configuration for.
-gbncrqBucket :: Lens' GetBucketNotificationConfiguration BucketName
-gbncrqBucket = lens _gbncrqBucket (\ s a -> s{_gbncrqBucket = a});
+gbncBucket :: Lens' GetBucketNotificationConfiguration BucketName
+gbncBucket = lens _gbncBucket (\ s a -> s{_gbncBucket = a});
 
 instance AWSRequest
          GetBucketNotificationConfiguration where
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketNotificationConfiguration
 instance ToPath GetBucketNotificationConfiguration
          where
         toPath GetBucketNotificationConfiguration'{..}
-          = mconcat ["/", toText _gbncrqBucket]
+          = mconcat ["/", toText _gbncBucket]
 
 instance ToQuery GetBucketNotificationConfiguration
          where

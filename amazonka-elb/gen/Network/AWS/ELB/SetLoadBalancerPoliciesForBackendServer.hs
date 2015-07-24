@@ -38,9 +38,9 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     -- ** Request constructor
     , setLoadBalancerPoliciesForBackendServer
     -- ** Request lenses
-    , slbpfbsrqLoadBalancerName
-    , slbpfbsrqInstancePort
-    , slbpfbsrqPolicyNames
+    , slbpfbsLoadBalancerName
+    , slbpfbsInstancePort
+    , slbpfbsPolicyNames
 
     -- * Response
     , SetLoadBalancerPoliciesForBackendServerResponse
@@ -59,38 +59,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slbpfbsrqLoadBalancerName'
+-- * 'slbpfbsLoadBalancerName'
 --
--- * 'slbpfbsrqInstancePort'
+-- * 'slbpfbsInstancePort'
 --
--- * 'slbpfbsrqPolicyNames'
+-- * 'slbpfbsPolicyNames'
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'
-    { _slbpfbsrqLoadBalancerName :: !Text
-    , _slbpfbsrqInstancePort     :: !Int
-    , _slbpfbsrqPolicyNames      :: ![Text]
+    { _slbpfbsLoadBalancerName :: !Text
+    , _slbpfbsInstancePort     :: !Int
+    , _slbpfbsPolicyNames      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' smart constructor.
 setLoadBalancerPoliciesForBackendServer :: Text -> Int -> SetLoadBalancerPoliciesForBackendServer
 setLoadBalancerPoliciesForBackendServer pLoadBalancerName_ pInstancePort_ =
     SetLoadBalancerPoliciesForBackendServer'
-    { _slbpfbsrqLoadBalancerName = pLoadBalancerName_
-    , _slbpfbsrqInstancePort = pInstancePort_
-    , _slbpfbsrqPolicyNames = mempty
+    { _slbpfbsLoadBalancerName = pLoadBalancerName_
+    , _slbpfbsInstancePort = pInstancePort_
+    , _slbpfbsPolicyNames = mempty
     }
 
 -- | The name of the load balancer.
-slbpfbsrqLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
-slbpfbsrqLoadBalancerName = lens _slbpfbsrqLoadBalancerName (\ s a -> s{_slbpfbsrqLoadBalancerName = a});
+slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
+slbpfbsLoadBalancerName = lens _slbpfbsLoadBalancerName (\ s a -> s{_slbpfbsLoadBalancerName = a});
 
 -- | The port number associated with the back-end server.
-slbpfbsrqInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
-slbpfbsrqInstancePort = lens _slbpfbsrqInstancePort (\ s a -> s{_slbpfbsrqInstancePort = a});
+slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
+slbpfbsInstancePort = lens _slbpfbsInstancePort (\ s a -> s{_slbpfbsInstancePort = a});
 
 -- | The names of the policies. If the list is empty, then all current
 -- polices are removed from the back-end server.
-slbpfbsrqPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
-slbpfbsrqPolicyNames = lens _slbpfbsrqPolicyNames (\ s a -> s{_slbpfbsrqPolicyNames = a});
+slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
+slbpfbsPolicyNames = lens _slbpfbsPolicyNames (\ s a -> s{_slbpfbsPolicyNames = a});
 
 instance AWSRequest
          SetLoadBalancerPoliciesForBackendServer where
@@ -121,10 +121,10 @@ instance ToQuery
                  ("SetLoadBalancerPoliciesForBackendServer" ::
                     ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _slbpfbsrqLoadBalancerName,
-               "InstancePort" =: _slbpfbsrqInstancePort,
+               "LoadBalancerName" =: _slbpfbsLoadBalancerName,
+               "InstancePort" =: _slbpfbsInstancePort,
                "PolicyNames" =:
-                 toQueryList "member" _slbpfbsrqPolicyNames]
+                 toQueryList "member" _slbpfbsPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 --

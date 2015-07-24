@@ -31,7 +31,7 @@ module Network.AWS.ElasticTranscoder.CancelJob
     -- ** Request constructor
     , cancelJob
     -- ** Request lenses
-    , cjrqId
+    , cjId
 
     -- * Response
     , CancelJobResponse
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjrqId'
+-- * 'cjId'
 newtype CancelJob = CancelJob'
-    { _cjrqId :: Text
+    { _cjId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
 cancelJob pId_ =
     CancelJob'
-    { _cjrqId = pId_
+    { _cjId = pId_
     }
 
 -- | The identifier of the job that you want to cancel.
 --
 -- To get a list of the jobs (including their @jobId@) that have a status
 -- of @Submitted@, use the ListJobsByStatus API action.
-cjrqId :: Lens' CancelJob Text
-cjrqId = lens _cjrqId (\ s a -> s{_cjrqId = a});
+cjId :: Lens' CancelJob Text
+cjId = lens _cjId (\ s a -> s{_cjId = a});
 
 instance AWSRequest CancelJob where
         type Sv CancelJob = ElasticTranscoder
@@ -85,7 +85,7 @@ instance ToHeaders CancelJob where
 
 instance ToPath CancelJob where
         toPath CancelJob'{..}
-          = mconcat ["/2012-09-25/jobs/", toText _cjrqId]
+          = mconcat ["/2012-09-25/jobs/", toText _cjId]
 
 instance ToQuery CancelJob where
         toQuery = const mempty

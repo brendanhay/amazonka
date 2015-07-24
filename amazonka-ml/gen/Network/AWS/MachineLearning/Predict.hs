@@ -33,9 +33,9 @@ module Network.AWS.MachineLearning.Predict
     -- ** Request constructor
     , predict
     -- ** Request lenses
-    , prqMLModelId
-    , prqRecord
-    , prqPredictEndpoint
+    , pMLModelId
+    , pRecord
+    , pPredictEndpoint
 
     -- * Response
     , PredictResponse
@@ -55,37 +55,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prqMLModelId'
+-- * 'pMLModelId'
 --
--- * 'prqRecord'
+-- * 'pRecord'
 --
--- * 'prqPredictEndpoint'
+-- * 'pPredictEndpoint'
 data Predict = Predict'
-    { _prqMLModelId       :: !Text
-    , _prqRecord          :: !(Map Text Text)
-    , _prqPredictEndpoint :: !Text
+    { _pMLModelId       :: !Text
+    , _pRecord          :: !(Map Text Text)
+    , _pPredictEndpoint :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Predict' smart constructor.
 predict :: Text -> Text -> Predict
 predict pMLModelId_ pPredictEndpoint_ =
     Predict'
-    { _prqMLModelId = pMLModelId_
-    , _prqRecord = mempty
-    , _prqPredictEndpoint = pPredictEndpoint_
+    { _pMLModelId = pMLModelId_
+    , _pRecord = mempty
+    , _pPredictEndpoint = pPredictEndpoint_
     }
 
 -- | A unique identifier of the @MLModel@.
-prqMLModelId :: Lens' Predict Text
-prqMLModelId = lens _prqMLModelId (\ s a -> s{_prqMLModelId = a});
+pMLModelId :: Lens' Predict Text
+pMLModelId = lens _pMLModelId (\ s a -> s{_pMLModelId = a});
 
 -- | FIXME: Undocumented member.
-prqRecord :: Lens' Predict (HashMap Text Text)
-prqRecord = lens _prqRecord (\ s a -> s{_prqRecord = a}) . _Map;
+pRecord :: Lens' Predict (HashMap Text Text)
+pRecord = lens _pRecord (\ s a -> s{_pRecord = a}) . _Map;
 
 -- | FIXME: Undocumented member.
-prqPredictEndpoint :: Lens' Predict Text
-prqPredictEndpoint = lens _prqPredictEndpoint (\ s a -> s{_prqPredictEndpoint = a});
+pPredictEndpoint :: Lens' Predict Text
+pPredictEndpoint = lens _pPredictEndpoint (\ s a -> s{_pPredictEndpoint = a});
 
 instance AWSRequest Predict where
         type Sv Predict = MachineLearning
@@ -109,9 +109,8 @@ instance ToHeaders Predict where
 instance ToJSON Predict where
         toJSON Predict'{..}
           = object
-              ["MLModelId" .= _prqMLModelId,
-               "Record" .= _prqRecord,
-               "PredictEndpoint" .= _prqPredictEndpoint]
+              ["MLModelId" .= _pMLModelId, "Record" .= _pRecord,
+               "PredictEndpoint" .= _pPredictEndpoint]
 
 instance ToPath Predict where
         toPath = const "/"

@@ -41,8 +41,8 @@ module Network.AWS.EC2.GetPasswordData
     -- ** Request constructor
     , getPasswordData
     -- ** Request lenses
-    , gpdrqDryRun
-    , gpdrqInstanceId
+    , gpdDryRun
+    , gpdInstanceId
 
     -- * Response
     , GetPasswordDataResponse
@@ -64,32 +64,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpdrqDryRun'
+-- * 'gpdDryRun'
 --
--- * 'gpdrqInstanceId'
+-- * 'gpdInstanceId'
 data GetPasswordData = GetPasswordData'
-    { _gpdrqDryRun     :: !(Maybe Bool)
-    , _gpdrqInstanceId :: !Text
+    { _gpdDryRun     :: !(Maybe Bool)
+    , _gpdInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPasswordData' smart constructor.
 getPasswordData :: Text -> GetPasswordData
 getPasswordData pInstanceId_ =
     GetPasswordData'
-    { _gpdrqDryRun = Nothing
-    , _gpdrqInstanceId = pInstanceId_
+    { _gpdDryRun = Nothing
+    , _gpdInstanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-gpdrqDryRun :: Lens' GetPasswordData (Maybe Bool)
-gpdrqDryRun = lens _gpdrqDryRun (\ s a -> s{_gpdrqDryRun = a});
+gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
+gpdDryRun = lens _gpdDryRun (\ s a -> s{_gpdDryRun = a});
 
 -- | The ID of the Windows instance.
-gpdrqInstanceId :: Lens' GetPasswordData Text
-gpdrqInstanceId = lens _gpdrqInstanceId (\ s a -> s{_gpdrqInstanceId = a});
+gpdInstanceId :: Lens' GetPasswordData Text
+gpdInstanceId = lens _gpdInstanceId (\ s a -> s{_gpdInstanceId = a});
 
 instance AWSRequest GetPasswordData where
         type Sv GetPasswordData = EC2
@@ -114,8 +114,8 @@ instance ToQuery GetPasswordData where
           = mconcat
               ["Action" =: ("GetPasswordData" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _gpdrqDryRun,
-               "InstanceId" =: _gpdrqInstanceId]
+               "DryRun" =: _gpdDryRun,
+               "InstanceId" =: _gpdInstanceId]
 
 -- | /See:/ 'getPasswordDataResponse' smart constructor.
 --

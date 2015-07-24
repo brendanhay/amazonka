@@ -39,9 +39,9 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     -- ** Request constructor
     , setIdentityNotificationTopic
     -- ** Request lenses
-    , sintrqSNSTopic
-    , sintrqIdentity
-    , sintrqNotificationType
+    , sintSNSTopic
+    , sintIdentity
+    , sintNotificationType
 
     -- * Response
     , SetIdentityNotificationTopicResponse
@@ -62,43 +62,43 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sintrqSNSTopic'
+-- * 'sintSNSTopic'
 --
--- * 'sintrqIdentity'
+-- * 'sintIdentity'
 --
--- * 'sintrqNotificationType'
+-- * 'sintNotificationType'
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
-    { _sintrqSNSTopic         :: !(Maybe Text)
-    , _sintrqIdentity         :: !Text
-    , _sintrqNotificationType :: !NotificationType
+    { _sintSNSTopic         :: !(Maybe Text)
+    , _sintIdentity         :: !Text
+    , _sintNotificationType :: !NotificationType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityNotificationTopic' smart constructor.
 setIdentityNotificationTopic :: Text -> NotificationType -> SetIdentityNotificationTopic
 setIdentityNotificationTopic pIdentity_ pNotificationType_ =
     SetIdentityNotificationTopic'
-    { _sintrqSNSTopic = Nothing
-    , _sintrqIdentity = pIdentity_
-    , _sintrqNotificationType = pNotificationType_
+    { _sintSNSTopic = Nothing
+    , _sintIdentity = pIdentity_
+    , _sintNotificationType = pNotificationType_
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
 -- is omitted from the request or a null value is passed, @SnsTopic@ is
 -- cleared and publishing is disabled.
-sintrqSNSTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
-sintrqSNSTopic = lens _sintrqSNSTopic (\ s a -> s{_sintrqSNSTopic = a});
+sintSNSTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
+sintSNSTopic = lens _sintSNSTopic (\ s a -> s{_sintSNSTopic = a});
 
 -- | The identity for which the Amazon SNS topic will be set. You can specify
 -- an identity by using its name or by using its Amazon Resource Name
 -- (ARN). Examples: @user\@example.com@, @example.com@,
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
-sintrqIdentity :: Lens' SetIdentityNotificationTopic Text
-sintrqIdentity = lens _sintrqIdentity (\ s a -> s{_sintrqIdentity = a});
+sintIdentity :: Lens' SetIdentityNotificationTopic Text
+sintIdentity = lens _sintIdentity (\ s a -> s{_sintIdentity = a});
 
 -- | The type of notifications that will be published to the specified Amazon
 -- SNS topic.
-sintrqNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
-sintrqNotificationType = lens _sintrqNotificationType (\ s a -> s{_sintrqNotificationType = a});
+sintNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
+sintNotificationType = lens _sintNotificationType (\ s a -> s{_sintNotificationType = a});
 
 instance AWSRequest SetIdentityNotificationTopic
          where
@@ -125,9 +125,9 @@ instance ToQuery SetIdentityNotificationTopic where
               ["Action" =:
                  ("SetIdentityNotificationTopic" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "SnsTopic" =: _sintrqSNSTopic,
-               "Identity" =: _sintrqIdentity,
-               "NotificationType" =: _sintrqNotificationType]
+               "SnsTopic" =: _sintSNSTopic,
+               "Identity" =: _sintIdentity,
+               "NotificationType" =: _sintNotificationType]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.

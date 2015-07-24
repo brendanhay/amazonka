@@ -30,8 +30,8 @@ module Network.AWS.CodePipeline.GetPipeline
     -- ** Request constructor
     , getPipeline
     -- ** Request lenses
-    , gprqVersion
-    , gprqName
+    , gpVersion
+    , gpName
 
     -- * Response
     , GetPipelineResponse
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprqVersion'
+-- * 'gpVersion'
 --
--- * 'gprqName'
+-- * 'gpName'
 data GetPipeline = GetPipeline'
-    { _gprqVersion :: !(Maybe Nat)
-    , _gprqName    :: !Text
+    { _gpVersion :: !(Maybe Nat)
+    , _gpName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipeline' smart constructor.
 getPipeline :: Text -> GetPipeline
 getPipeline pName_ =
     GetPipeline'
-    { _gprqVersion = Nothing
-    , _gprqName = pName_
+    { _gpVersion = Nothing
+    , _gpName = pName_
     }
 
 -- | The version number of the pipeline. If you do not specify a version,
 -- defaults to the most current version.
-gprqVersion :: Lens' GetPipeline (Maybe Natural)
-gprqVersion = lens _gprqVersion (\ s a -> s{_gprqVersion = a}) . mapping _Nat;
+gpVersion :: Lens' GetPipeline (Maybe Natural)
+gpVersion = lens _gpVersion (\ s a -> s{_gpVersion = a}) . mapping _Nat;
 
 -- | The name of the pipeline for which you want to get information. Pipeline
 -- names must be unique under an Amazon Web Services (AWS) user account.
-gprqName :: Lens' GetPipeline Text
-gprqName = lens _gprqName (\ s a -> s{_gprqName = a});
+gpName :: Lens' GetPipeline Text
+gpName = lens _gpName (\ s a -> s{_gpName = a});
 
 instance AWSRequest GetPipeline where
         type Sv GetPipeline = CodePipeline
@@ -100,8 +100,7 @@ instance ToHeaders GetPipeline where
 
 instance ToJSON GetPipeline where
         toJSON GetPipeline'{..}
-          = object
-              ["version" .= _gprqVersion, "name" .= _gprqName]
+          = object ["version" .= _gpVersion, "name" .= _gpName]
 
 instance ToPath GetPipeline where
         toPath = const "/"

@@ -29,7 +29,7 @@ module Network.AWS.CloudHSM.CreateHAPG
     -- ** Request constructor
     , createHAPG
     -- ** Request lenses
-    , chrqLabel
+    , chLabel
 
     -- * Response
     , CreateHAPGResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chrqLabel'
+-- * 'chLabel'
 newtype CreateHAPG = CreateHAPG'
-    { _chrqLabel :: Text
+    { _chLabel :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHAPG' smart constructor.
 createHAPG :: Text -> CreateHAPG
 createHAPG pLabel_ =
     CreateHAPG'
-    { _chrqLabel = pLabel_
+    { _chLabel = pLabel_
     }
 
 -- | The label of the new high-availability partition group.
-chrqLabel :: Lens' CreateHAPG Text
-chrqLabel = lens _chrqLabel (\ s a -> s{_chrqLabel = a});
+chLabel :: Lens' CreateHAPG Text
+chLabel = lens _chLabel (\ s a -> s{_chLabel = a});
 
 instance AWSRequest CreateHAPG where
         type Sv CreateHAPG = CloudHSM
@@ -87,8 +87,7 @@ instance ToHeaders CreateHAPG where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON CreateHAPG where
-        toJSON CreateHAPG'{..}
-          = object ["Label" .= _chrqLabel]
+        toJSON CreateHAPG'{..} = object ["Label" .= _chLabel]
 
 instance ToPath CreateHAPG where
         toPath = const "/"

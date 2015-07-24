@@ -31,11 +31,11 @@ module Network.AWS.ECS.StartTask
     -- ** Request constructor
     , startTask
     -- ** Request lenses
-    , srqOverrides
-    , srqCluster
-    , srqStartedBy
-    , srqTaskDefinition
-    , srqContainerInstances
+    , sOverrides
+    , sCluster
+    , sStartedBy
+    , sTaskDefinition
+    , sContainerInstances
 
     -- * Response
     , StartTaskResponse
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqOverrides'
+-- * 'sOverrides'
 --
--- * 'srqCluster'
+-- * 'sCluster'
 --
--- * 'srqStartedBy'
+-- * 'sStartedBy'
 --
--- * 'srqTaskDefinition'
+-- * 'sTaskDefinition'
 --
--- * 'srqContainerInstances'
+-- * 'sContainerInstances'
 data StartTask = StartTask'
-    { _srqOverrides          :: !(Maybe TaskOverride)
-    , _srqCluster            :: !(Maybe Text)
-    , _srqStartedBy          :: !(Maybe Text)
-    , _srqTaskDefinition     :: !Text
-    , _srqContainerInstances :: ![Text]
+    { _sOverrides          :: !(Maybe TaskOverride)
+    , _sCluster            :: !(Maybe Text)
+    , _sStartedBy          :: !(Maybe Text)
+    , _sTaskDefinition     :: !Text
+    , _sContainerInstances :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartTask' smart constructor.
 startTask :: Text -> StartTask
 startTask pTaskDefinition_ =
     StartTask'
-    { _srqOverrides = Nothing
-    , _srqCluster = Nothing
-    , _srqStartedBy = Nothing
-    , _srqTaskDefinition = pTaskDefinition_
-    , _srqContainerInstances = mempty
+    { _sOverrides = Nothing
+    , _sCluster = Nothing
+    , _sStartedBy = Nothing
+    , _sTaskDefinition = pTaskDefinition_
+    , _sContainerInstances = mempty
     }
 
 -- | A list of container overrides in JSON format that specify the name of a
@@ -94,14 +94,14 @@ startTask pTaskDefinition_ =
 --
 -- A total of 8192 characters are allowed for overrides. This limit
 -- includes the JSON formatting characters of the override structure.
-srqOverrides :: Lens' StartTask (Maybe TaskOverride)
-srqOverrides = lens _srqOverrides (\ s a -> s{_srqOverrides = a});
+sOverrides :: Lens' StartTask (Maybe TaskOverride)
+sOverrides = lens _sOverrides (\ s a -> s{_sOverrides = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to start your task on. If you do not specify a cluster, the
 -- default cluster is assumed..
-srqCluster :: Lens' StartTask (Maybe Text)
-srqCluster = lens _srqCluster (\ s a -> s{_srqCluster = a});
+sCluster :: Lens' StartTask (Maybe Text)
+sCluster = lens _sCluster (\ s a -> s{_sCluster = a});
 
 -- | An optional tag specified when a task is started. For example if you
 -- automatically trigger a task to run a batch process job, you could apply
@@ -111,21 +111,21 @@ srqCluster = lens _srqCluster (\ s a -> s{_srqCluster = a});
 --
 -- If a task is started by an Amazon ECS service, then the @startedBy@
 -- parameter contains the deployment ID of the service that starts it.
-srqStartedBy :: Lens' StartTask (Maybe Text)
-srqStartedBy = lens _srqStartedBy (\ s a -> s{_srqStartedBy = a});
+sStartedBy :: Lens' StartTask (Maybe Text)
+sStartedBy = lens _sStartedBy (\ s a -> s{_sStartedBy = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to start. If a
 -- @revision@ is not specified, the latest @ACTIVE@ revision is used.
-srqTaskDefinition :: Lens' StartTask Text
-srqTaskDefinition = lens _srqTaskDefinition (\ s a -> s{_srqTaskDefinition = a});
+sTaskDefinition :: Lens' StartTask Text
+sTaskDefinition = lens _sTaskDefinition (\ s a -> s{_sTaskDefinition = a});
 
 -- | The container instance UUIDs or full Amazon Resource Name (ARN) entries
 -- for the container instances on which you would like to place your task.
 --
 -- The list of container instances to start tasks on is limited to 10.
-srqContainerInstances :: Lens' StartTask [Text]
-srqContainerInstances = lens _srqContainerInstances (\ s a -> s{_srqContainerInstances = a});
+sContainerInstances :: Lens' StartTask [Text]
+sContainerInstances = lens _sContainerInstances (\ s a -> s{_sContainerInstances = a});
 
 instance AWSRequest StartTask where
         type Sv StartTask = ECS
@@ -152,11 +152,10 @@ instance ToHeaders StartTask where
 instance ToJSON StartTask where
         toJSON StartTask'{..}
           = object
-              ["overrides" .= _srqOverrides,
-               "cluster" .= _srqCluster,
-               "startedBy" .= _srqStartedBy,
-               "taskDefinition" .= _srqTaskDefinition,
-               "containerInstances" .= _srqContainerInstances]
+              ["overrides" .= _sOverrides, "cluster" .= _sCluster,
+               "startedBy" .= _sStartedBy,
+               "taskDefinition" .= _sTaskDefinition,
+               "containerInstances" .= _sContainerInstances]
 
 instance ToPath StartTask where
         toPath = const "/"

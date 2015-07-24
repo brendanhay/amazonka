@@ -38,8 +38,8 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     -- ** Request constructor
     , reportTaskProgress
     -- ** Request lenses
-    , rtprqFields
-    , rtprqTaskId
+    , rtpFields
+    , rtpTaskId
 
     -- * Response
     , ReportTaskProgressResponse
@@ -61,31 +61,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtprqFields'
+-- * 'rtpFields'
 --
--- * 'rtprqTaskId'
+-- * 'rtpTaskId'
 data ReportTaskProgress = ReportTaskProgress'
-    { _rtprqFields :: !(Maybe [Field])
-    , _rtprqTaskId :: !Text
+    { _rtpFields :: !(Maybe [Field])
+    , _rtpTaskId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskProgress' smart constructor.
 reportTaskProgress :: Text -> ReportTaskProgress
 reportTaskProgress pTaskId_ =
     ReportTaskProgress'
-    { _rtprqFields = Nothing
-    , _rtprqTaskId = pTaskId_
+    { _rtpFields = Nothing
+    , _rtpTaskId = pTaskId_
     }
 
 -- | Key-value pairs that define the properties of the
 -- ReportTaskProgressInput object.
-rtprqFields :: Lens' ReportTaskProgress [Field]
-rtprqFields = lens _rtprqFields (\ s a -> s{_rtprqFields = a}) . _Default;
+rtpFields :: Lens' ReportTaskProgress [Field]
+rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default;
 
 -- | The ID of the task assigned to the task runner. This value is provided
 -- in the response for PollForTask.
-rtprqTaskId :: Lens' ReportTaskProgress Text
-rtprqTaskId = lens _rtprqTaskId (\ s a -> s{_rtprqTaskId = a});
+rtpTaskId :: Lens' ReportTaskProgress Text
+rtpTaskId = lens _rtpTaskId (\ s a -> s{_rtpTaskId = a});
 
 instance AWSRequest ReportTaskProgress where
         type Sv ReportTaskProgress = DataPipeline
@@ -110,7 +110,7 @@ instance ToHeaders ReportTaskProgress where
 instance ToJSON ReportTaskProgress where
         toJSON ReportTaskProgress'{..}
           = object
-              ["fields" .= _rtprqFields, "taskId" .= _rtprqTaskId]
+              ["fields" .= _rtpFields, "taskId" .= _rtpTaskId]
 
 instance ToPath ReportTaskProgress where
         toPath = const "/"

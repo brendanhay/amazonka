@@ -27,8 +27,8 @@ module Network.AWS.ECS.DescribeTasks
     -- ** Request constructor
     , describeTasks
     -- ** Request lenses
-    , dtrqCluster
-    , dtrqTasks
+    , dtCluster
+    , dtTasks
 
     -- * Response
     , DescribeTasksResponse
@@ -49,32 +49,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqCluster'
+-- * 'dtCluster'
 --
--- * 'dtrqTasks'
+-- * 'dtTasks'
 data DescribeTasks = DescribeTasks'
-    { _dtrqCluster :: !(Maybe Text)
-    , _dtrqTasks   :: ![Text]
+    { _dtCluster :: !(Maybe Text)
+    , _dtTasks   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTasks' smart constructor.
 describeTasks :: DescribeTasks
 describeTasks =
     DescribeTasks'
-    { _dtrqCluster = Nothing
-    , _dtrqTasks = mempty
+    { _dtCluster = Nothing
+    , _dtTasks = mempty
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task you want to describe. If you do not specify a cluster,
 -- the default cluster is assumed.
-dtrqCluster :: Lens' DescribeTasks (Maybe Text)
-dtrqCluster = lens _dtrqCluster (\ s a -> s{_dtrqCluster = a});
+dtCluster :: Lens' DescribeTasks (Maybe Text)
+dtCluster = lens _dtCluster (\ s a -> s{_dtCluster = a});
 
 -- | A space-separated list of task UUIDs or full Amazon Resource Name (ARN)
 -- entries.
-dtrqTasks :: Lens' DescribeTasks [Text]
-dtrqTasks = lens _dtrqTasks (\ s a -> s{_dtrqTasks = a});
+dtTasks :: Lens' DescribeTasks [Text]
+dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a});
 
 instance AWSRequest DescribeTasks where
         type Sv DescribeTasks = ECS
@@ -101,7 +101,7 @@ instance ToHeaders DescribeTasks where
 instance ToJSON DescribeTasks where
         toJSON DescribeTasks'{..}
           = object
-              ["cluster" .= _dtrqCluster, "tasks" .= _dtrqTasks]
+              ["cluster" .= _dtCluster, "tasks" .= _dtTasks]
 
 instance ToPath DescribeTasks where
         toPath = const "/"

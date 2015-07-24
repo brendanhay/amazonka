@@ -30,8 +30,8 @@ module Network.AWS.CloudSearch.DeleteIndexField
     -- ** Request constructor
     , deleteIndexField
     -- ** Request lenses
-    , diffrqDomainName
-    , diffrqIndexFieldName
+    , difiDomainName
+    , difiIndexFieldName
 
     -- * Response
     , DeleteIndexFieldResponse
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diffrqDomainName'
+-- * 'difiDomainName'
 --
--- * 'diffrqIndexFieldName'
+-- * 'difiIndexFieldName'
 data DeleteIndexField = DeleteIndexField'
-    { _diffrqDomainName     :: !Text
-    , _diffrqIndexFieldName :: !Text
+    { _difiDomainName     :: !Text
+    , _difiIndexFieldName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexField' smart constructor.
 deleteIndexField :: Text -> Text -> DeleteIndexField
 deleteIndexField pDomainName_ pIndexFieldName_ =
     DeleteIndexField'
-    { _diffrqDomainName = pDomainName_
-    , _diffrqIndexFieldName = pIndexFieldName_
+    { _difiDomainName = pDomainName_
+    , _difiIndexFieldName = pIndexFieldName_
     }
 
 -- | FIXME: Undocumented member.
-diffrqDomainName :: Lens' DeleteIndexField Text
-diffrqDomainName = lens _diffrqDomainName (\ s a -> s{_diffrqDomainName = a});
+difiDomainName :: Lens' DeleteIndexField Text
+difiDomainName = lens _difiDomainName (\ s a -> s{_difiDomainName = a});
 
 -- | The name of the index field your want to remove from the domain\'s
 -- indexing options.
-diffrqIndexFieldName :: Lens' DeleteIndexField Text
-diffrqIndexFieldName = lens _diffrqIndexFieldName (\ s a -> s{_diffrqIndexFieldName = a});
+difiIndexFieldName :: Lens' DeleteIndexField Text
+difiIndexFieldName = lens _difiIndexFieldName (\ s a -> s{_difiIndexFieldName = a});
 
 instance AWSRequest DeleteIndexField where
         type Sv DeleteIndexField = CloudSearch
@@ -101,8 +101,8 @@ instance ToQuery DeleteIndexField where
           = mconcat
               ["Action" =: ("DeleteIndexField" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _diffrqDomainName,
-               "IndexFieldName" =: _diffrqIndexFieldName]
+               "DomainName" =: _difiDomainName,
+               "IndexFieldName" =: _difiIndexFieldName]
 
 -- | The result of a @DeleteIndexField@ request.
 --

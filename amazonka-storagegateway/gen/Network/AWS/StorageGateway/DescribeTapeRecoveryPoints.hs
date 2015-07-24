@@ -33,9 +33,9 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     -- ** Request constructor
     , describeTapeRecoveryPoints
     -- ** Request lenses
-    , dtrprqMarker
-    , dtrprqLimit
-    , dtrprqGatewayARN
+    , dtrpMarker
+    , dtrpLimit
+    , dtrpGatewayARN
 
     -- * Response
     , DescribeTapeRecoveryPointsResponse
@@ -60,46 +60,46 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrprqMarker'
+-- * 'dtrpMarker'
 --
--- * 'dtrprqLimit'
+-- * 'dtrpLimit'
 --
--- * 'dtrprqGatewayARN'
+-- * 'dtrpGatewayARN'
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
-    { _dtrprqMarker     :: !(Maybe Text)
-    , _dtrprqLimit      :: !(Maybe Nat)
-    , _dtrprqGatewayARN :: !Text
+    { _dtrpMarker     :: !(Maybe Text)
+    , _dtrpLimit      :: !(Maybe Nat)
+    , _dtrpGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapeRecoveryPoints' smart constructor.
 describeTapeRecoveryPoints :: Text -> DescribeTapeRecoveryPoints
 describeTapeRecoveryPoints pGatewayARN_ =
     DescribeTapeRecoveryPoints'
-    { _dtrprqMarker = Nothing
-    , _dtrprqLimit = Nothing
-    , _dtrprqGatewayARN = pGatewayARN_
+    { _dtrpMarker = Nothing
+    , _dtrpLimit = Nothing
+    , _dtrpGatewayARN = pGatewayARN_
     }
 
 -- | An opaque string that indicates the position at which to begin
 -- describing the virtual tape recovery points.
-dtrprqMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
-dtrprqMarker = lens _dtrprqMarker (\ s a -> s{_dtrprqMarker = a});
+dtrpMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
+dtrpMarker = lens _dtrpMarker (\ s a -> s{_dtrpMarker = a});
 
 -- | Specifies that the number of virtual tape recovery points that are
 -- described be limited to the specified number.
-dtrprqLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
-dtrprqLimit = lens _dtrprqLimit (\ s a -> s{_dtrprqLimit = a}) . mapping _Nat;
+dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
+dtrpLimit = lens _dtrpLimit (\ s a -> s{_dtrpLimit = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-dtrprqGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
-dtrprqGatewayARN = lens _dtrprqGatewayARN (\ s a -> s{_dtrprqGatewayARN = a});
+dtrpGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
+dtrpGatewayARN = lens _dtrpGatewayARN (\ s a -> s{_dtrpGatewayARN = a});
 
 instance AWSPager DescribeTapeRecoveryPoints where
         page rq rs
           | stop (rs ^. dtrprsMarker) = Nothing
           | stop (rs ^. dtrprsTapeRecoveryPointInfos) = Nothing
           | otherwise =
-            Just $ rq & dtrprqMarker .~ rs ^. dtrprsMarker
+            Just $ rq & dtrpMarker .~ rs ^. dtrprsMarker
 
 instance AWSRequest DescribeTapeRecoveryPoints where
         type Sv DescribeTapeRecoveryPoints = StorageGateway
@@ -128,8 +128,8 @@ instance ToHeaders DescribeTapeRecoveryPoints where
 instance ToJSON DescribeTapeRecoveryPoints where
         toJSON DescribeTapeRecoveryPoints'{..}
           = object
-              ["Marker" .= _dtrprqMarker, "Limit" .= _dtrprqLimit,
-               "GatewayARN" .= _dtrprqGatewayARN]
+              ["Marker" .= _dtrpMarker, "Limit" .= _dtrpLimit,
+               "GatewayARN" .= _dtrpGatewayARN]
 
 instance ToPath DescribeTapeRecoveryPoints where
         toPath = const "/"

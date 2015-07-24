@@ -36,8 +36,8 @@ module Network.AWS.ELB.AddTags
     -- ** Request constructor
     , addTags
     -- ** Request lenses
-    , atrqLoadBalancerNames
-    , atrqTags
+    , atLoadBalancerNames
+    , atTags
 
     -- * Response
     , AddTagsResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrqLoadBalancerNames'
+-- * 'atLoadBalancerNames'
 --
--- * 'atrqTags'
+-- * 'atTags'
 data AddTags = AddTags'
-    { _atrqLoadBalancerNames :: ![Text]
-    , _atrqTags              :: !(List1 Tag)
+    { _atLoadBalancerNames :: ![Text]
+    , _atTags              :: !(List1 Tag)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: NonEmpty Tag -> AddTags
 addTags pTags_ =
     AddTags'
-    { _atrqLoadBalancerNames = mempty
-    , _atrqTags = _List1 # pTags_
+    { _atLoadBalancerNames = mempty
+    , _atTags = _List1 # pTags_
     }
 
 -- | The name of the load balancer. You can specify one load balancer only.
-atrqLoadBalancerNames :: Lens' AddTags [Text]
-atrqLoadBalancerNames = lens _atrqLoadBalancerNames (\ s a -> s{_atrqLoadBalancerNames = a});
+atLoadBalancerNames :: Lens' AddTags [Text]
+atLoadBalancerNames = lens _atLoadBalancerNames (\ s a -> s{_atLoadBalancerNames = a});
 
 -- | The tags.
-atrqTags :: Lens' AddTags (NonEmpty Tag)
-atrqTags = lens _atrqTags (\ s a -> s{_atrqTags = a}) . _List1;
+atTags :: Lens' AddTags (NonEmpty Tag)
+atTags = lens _atTags (\ s a -> s{_atTags = a}) . _List1;
 
 instance AWSRequest AddTags where
         type Sv AddTags = ELB
@@ -100,8 +100,8 @@ instance ToQuery AddTags where
               ["Action" =: ("AddTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 toQueryList "member" _atrqLoadBalancerNames,
-               "Tags" =: toQueryList "member" _atrqTags]
+                 toQueryList "member" _atLoadBalancerNames,
+               "Tags" =: toQueryList "member" _atTags]
 
 -- | /See:/ 'addTagsResponse' smart constructor.
 --

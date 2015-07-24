@@ -31,9 +31,9 @@ module Network.AWS.Glacier.RemoveTagsFromVault
     -- ** Request constructor
     , removeTagsFromVault
     -- ** Request lenses
-    , rtfvrqTagKeys
-    , rtfvrqAccountId
-    , rtfvrqVaultName
+    , rtfvTagKeys
+    , rtfvAccountId
+    , rtfvVaultName
 
     -- * Response
     , RemoveTagsFromVaultResponse
@@ -52,41 +52,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtfvrqTagKeys'
+-- * 'rtfvTagKeys'
 --
--- * 'rtfvrqAccountId'
+-- * 'rtfvAccountId'
 --
--- * 'rtfvrqVaultName'
+-- * 'rtfvVaultName'
 data RemoveTagsFromVault = RemoveTagsFromVault'
-    { _rtfvrqTagKeys   :: !(Maybe [Text])
-    , _rtfvrqAccountId :: !Text
-    , _rtfvrqVaultName :: !Text
+    { _rtfvTagKeys   :: !(Maybe [Text])
+    , _rtfvAccountId :: !Text
+    , _rtfvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromVault' smart constructor.
 removeTagsFromVault :: Text -> Text -> RemoveTagsFromVault
 removeTagsFromVault pAccountId_ pVaultName_ =
     RemoveTagsFromVault'
-    { _rtfvrqTagKeys = Nothing
-    , _rtfvrqAccountId = pAccountId_
-    , _rtfvrqVaultName = pVaultName_
+    { _rtfvTagKeys = Nothing
+    , _rtfvAccountId = pAccountId_
+    , _rtfvVaultName = pVaultName_
     }
 
 -- | A list of tag keys. Each corresponding tag is removed from the vault.
-rtfvrqTagKeys :: Lens' RemoveTagsFromVault [Text]
-rtfvrqTagKeys = lens _rtfvrqTagKeys (\ s a -> s{_rtfvrqTagKeys = a}) . _Default;
+rtfvTagKeys :: Lens' RemoveTagsFromVault [Text]
+rtfvTagKeys = lens _rtfvTagKeys (\ s a -> s{_rtfvTagKeys = a}) . _Default;
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-rtfvrqAccountId :: Lens' RemoveTagsFromVault Text
-rtfvrqAccountId = lens _rtfvrqAccountId (\ s a -> s{_rtfvrqAccountId = a});
+rtfvAccountId :: Lens' RemoveTagsFromVault Text
+rtfvAccountId = lens _rtfvAccountId (\ s a -> s{_rtfvAccountId = a});
 
 -- | The name of the vault.
-rtfvrqVaultName :: Lens' RemoveTagsFromVault Text
-rtfvrqVaultName = lens _rtfvrqVaultName (\ s a -> s{_rtfvrqVaultName = a});
+rtfvVaultName :: Lens' RemoveTagsFromVault Text
+rtfvVaultName = lens _rtfvVaultName (\ s a -> s{_rtfvVaultName = a});
 
 instance AWSRequest RemoveTagsFromVault where
         type Sv RemoveTagsFromVault = Glacier
@@ -100,13 +100,13 @@ instance ToHeaders RemoveTagsFromVault where
 
 instance ToJSON RemoveTagsFromVault where
         toJSON RemoveTagsFromVault'{..}
-          = object ["TagKeys" .= _rtfvrqTagKeys]
+          = object ["TagKeys" .= _rtfvTagKeys]
 
 instance ToPath RemoveTagsFromVault where
         toPath RemoveTagsFromVault'{..}
           = mconcat
-              ["/", toText _rtfvrqAccountId, "/vaults/",
-               toText _rtfvrqVaultName, "/tags"]
+              ["/", toText _rtfvAccountId, "/vaults/",
+               toText _rtfvVaultName, "/tags"]
 
 instance ToQuery RemoveTagsFromVault where
         toQuery = const (mconcat ["operation=remove"])

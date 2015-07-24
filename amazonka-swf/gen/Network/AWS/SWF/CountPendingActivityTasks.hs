@@ -50,8 +50,8 @@ module Network.AWS.SWF.CountPendingActivityTasks
     -- ** Request constructor
     , countPendingActivityTasks
     -- ** Request lenses
-    , cpatrqDomain
-    , cpatrqTaskList
+    , cpatDomain
+    , cpatTaskList
 
     -- * Response
     , PendingTaskCount
@@ -71,29 +71,29 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpatrqDomain'
+-- * 'cpatDomain'
 --
--- * 'cpatrqTaskList'
+-- * 'cpatTaskList'
 data CountPendingActivityTasks = CountPendingActivityTasks'
-    { _cpatrqDomain   :: !Text
-    , _cpatrqTaskList :: !TaskList
+    { _cpatDomain   :: !Text
+    , _cpatTaskList :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CountPendingActivityTasks' smart constructor.
 countPendingActivityTasks :: Text -> TaskList -> CountPendingActivityTasks
 countPendingActivityTasks pDomain_ pTaskList_ =
     CountPendingActivityTasks'
-    { _cpatrqDomain = pDomain_
-    , _cpatrqTaskList = pTaskList_
+    { _cpatDomain = pDomain_
+    , _cpatTaskList = pTaskList_
     }
 
 -- | The name of the domain that contains the task list.
-cpatrqDomain :: Lens' CountPendingActivityTasks Text
-cpatrqDomain = lens _cpatrqDomain (\ s a -> s{_cpatrqDomain = a});
+cpatDomain :: Lens' CountPendingActivityTasks Text
+cpatDomain = lens _cpatDomain (\ s a -> s{_cpatDomain = a});
 
 -- | The name of the task list.
-cpatrqTaskList :: Lens' CountPendingActivityTasks TaskList
-cpatrqTaskList = lens _cpatrqTaskList (\ s a -> s{_cpatrqTaskList = a});
+cpatTaskList :: Lens' CountPendingActivityTasks TaskList
+cpatTaskList = lens _cpatTaskList (\ s a -> s{_cpatTaskList = a});
 
 instance AWSRequest CountPendingActivityTasks where
         type Sv CountPendingActivityTasks = SWF
@@ -114,8 +114,8 @@ instance ToHeaders CountPendingActivityTasks where
 instance ToJSON CountPendingActivityTasks where
         toJSON CountPendingActivityTasks'{..}
           = object
-              ["domain" .= _cpatrqDomain,
-               "taskList" .= _cpatrqTaskList]
+              ["domain" .= _cpatDomain,
+               "taskList" .= _cpatTaskList]
 
 instance ToPath CountPendingActivityTasks where
         toPath = const "/"

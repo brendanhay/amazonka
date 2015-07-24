@@ -34,13 +34,13 @@ module Network.AWS.DynamoDB.GetItem
     -- ** Request constructor
     , getItem
     -- ** Request lenses
-    , girqProjectionExpression
-    , girqConsistentRead
-    , girqExpressionAttributeNames
-    , girqAttributesToGet
-    , girqReturnConsumedCapacity
-    , girqTableName
-    , girqKey
+    , giProjectionExpression
+    , giConsistentRead
+    , giExpressionAttributeNames
+    , giAttributesToGet
+    , giReturnConsumedCapacity
+    , giTableName
+    , giKey
 
     -- * Response
     , GetItemResponse
@@ -63,40 +63,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'girqProjectionExpression'
+-- * 'giProjectionExpression'
 --
--- * 'girqConsistentRead'
+-- * 'giConsistentRead'
 --
--- * 'girqExpressionAttributeNames'
+-- * 'giExpressionAttributeNames'
 --
--- * 'girqAttributesToGet'
+-- * 'giAttributesToGet'
 --
--- * 'girqReturnConsumedCapacity'
+-- * 'giReturnConsumedCapacity'
 --
--- * 'girqTableName'
+-- * 'giTableName'
 --
--- * 'girqKey'
+-- * 'giKey'
 data GetItem = GetItem'
-    { _girqProjectionExpression     :: !(Maybe Text)
-    , _girqConsistentRead           :: !(Maybe Bool)
-    , _girqExpressionAttributeNames :: !(Maybe (Map Text Text))
-    , _girqAttributesToGet          :: !(Maybe (List1 Text))
-    , _girqReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
-    , _girqTableName                :: !Text
-    , _girqKey                      :: !(Map Text AttributeValue)
+    { _giProjectionExpression     :: !(Maybe Text)
+    , _giConsistentRead           :: !(Maybe Bool)
+    , _giExpressionAttributeNames :: !(Maybe (Map Text Text))
+    , _giAttributesToGet          :: !(Maybe (List1 Text))
+    , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
+    , _giTableName                :: !Text
+    , _giKey                      :: !(Map Text AttributeValue)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetItem' smart constructor.
 getItem :: Text -> GetItem
 getItem pTableName_ =
     GetItem'
-    { _girqProjectionExpression = Nothing
-    , _girqConsistentRead = Nothing
-    , _girqExpressionAttributeNames = Nothing
-    , _girqAttributesToGet = Nothing
-    , _girqReturnConsumedCapacity = Nothing
-    , _girqTableName = pTableName_
-    , _girqKey = mempty
+    { _giProjectionExpression = Nothing
+    , _giConsistentRead = Nothing
+    , _giExpressionAttributeNames = Nothing
+    , _giAttributesToGet = Nothing
+    , _giReturnConsumedCapacity = Nothing
+    , _giTableName = pTableName_
+    , _giKey = mempty
     }
 
 -- | A string that identifies one or more attributes to retrieve from the
@@ -112,14 +112,14 @@ getItem pTableName_ =
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
-girqProjectionExpression :: Lens' GetItem (Maybe Text)
-girqProjectionExpression = lens _girqProjectionExpression (\ s a -> s{_girqProjectionExpression = a});
+giProjectionExpression :: Lens' GetItem (Maybe Text)
+giProjectionExpression = lens _giProjectionExpression (\ s a -> s{_giProjectionExpression = a});
 
 -- | Determines the read consistency model: If set to @true@, then the
 -- operation uses strongly consistent reads; otherwise, the operation uses
 -- eventually consistent reads.
-girqConsistentRead :: Lens' GetItem (Maybe Bool)
-girqConsistentRead = lens _girqConsistentRead (\ s a -> s{_girqConsistentRead = a});
+giConsistentRead :: Lens' GetItem (Maybe Bool)
+giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -158,8 +158,8 @@ girqConsistentRead = lens _girqConsistentRead (\ s a -> s{_girqConsistentRead = 
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-girqExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
-girqExpressionAttributeNames = lens _girqExpressionAttributeNames (\ s a -> s{_girqExpressionAttributeNames = a}) . _Default . _Map;
+giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
+giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ProjectionExpression/ instead. Do not combine legacy
@@ -176,16 +176,16 @@ girqExpressionAttributeNames = lens _girqExpressionAttributeNames (\ s a -> s{_g
 -- Note that /AttributesToGet/ has no effect on provisioned throughput
 -- consumption. DynamoDB determines capacity units consumed based on item
 -- size, not on the amount of data that is returned to an application.
-girqAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
-girqAttributesToGet = lens _girqAttributesToGet (\ s a -> s{_girqAttributesToGet = a}) . mapping _List1;
+giAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
+giAttributesToGet = lens _giAttributesToGet (\ s a -> s{_giAttributesToGet = a}) . mapping _List1;
 
 -- | FIXME: Undocumented member.
-girqReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
-girqReturnConsumedCapacity = lens _girqReturnConsumedCapacity (\ s a -> s{_girqReturnConsumedCapacity = a});
+giReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
+giReturnConsumedCapacity = lens _giReturnConsumedCapacity (\ s a -> s{_giReturnConsumedCapacity = a});
 
 -- | The name of the table containing the requested item.
-girqTableName :: Lens' GetItem Text
-girqTableName = lens _girqTableName (\ s a -> s{_girqTableName = a});
+giTableName :: Lens' GetItem Text
+giTableName = lens _giTableName (\ s a -> s{_giTableName = a});
 
 -- | A map of attribute names to /AttributeValue/ objects, representing the
 -- primary key of the item to retrieve.
@@ -194,8 +194,8 @@ girqTableName = lens _girqTableName (\ s a -> s{_girqTableName = a});
 -- example, with a hash type primary key, you only need to provide the hash
 -- attribute. For a hash-and-range type primary key, you must provide both
 -- the hash attribute and the range attribute.
-girqKey :: Lens' GetItem (HashMap Text AttributeValue)
-girqKey = lens _girqKey (\ s a -> s{_girqKey = a}) . _Map;
+giKey :: Lens' GetItem (HashMap Text AttributeValue)
+giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Map;
 
 instance AWSRequest GetItem where
         type Sv GetItem = DynamoDB
@@ -221,14 +221,14 @@ instance ToHeaders GetItem where
 instance ToJSON GetItem where
         toJSON GetItem'{..}
           = object
-              ["ProjectionExpression" .= _girqProjectionExpression,
-               "ConsistentRead" .= _girqConsistentRead,
+              ["ProjectionExpression" .= _giProjectionExpression,
+               "ConsistentRead" .= _giConsistentRead,
                "ExpressionAttributeNames" .=
-                 _girqExpressionAttributeNames,
-               "AttributesToGet" .= _girqAttributesToGet,
+                 _giExpressionAttributeNames,
+               "AttributesToGet" .= _giAttributesToGet,
                "ReturnConsumedCapacity" .=
-                 _girqReturnConsumedCapacity,
-               "TableName" .= _girqTableName, "Key" .= _girqKey]
+                 _giReturnConsumedCapacity,
+               "TableName" .= _giTableName, "Key" .= _giKey]
 
 instance ToPath GetItem where
         toPath = const "/"

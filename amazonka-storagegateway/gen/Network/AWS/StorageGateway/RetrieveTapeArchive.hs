@@ -34,8 +34,8 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     -- ** Request constructor
     , retrieveTapeArchive
     -- ** Request lenses
-    , rtarqTapeARN
-    , rtarqGatewayARN
+    , rtaTapeARN
+    , rtaGatewayARN
 
     -- * Response
     , RetrieveTapeArchiveResponse
@@ -57,26 +57,26 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtarqTapeARN'
+-- * 'rtaTapeARN'
 --
--- * 'rtarqGatewayARN'
+-- * 'rtaGatewayARN'
 data RetrieveTapeArchive = RetrieveTapeArchive'
-    { _rtarqTapeARN    :: !Text
-    , _rtarqGatewayARN :: !Text
+    { _rtaTapeARN    :: !Text
+    , _rtaGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveTapeArchive' smart constructor.
 retrieveTapeArchive :: Text -> Text -> RetrieveTapeArchive
 retrieveTapeArchive pTapeARN_ pGatewayARN_ =
     RetrieveTapeArchive'
-    { _rtarqTapeARN = pTapeARN_
-    , _rtarqGatewayARN = pGatewayARN_
+    { _rtaTapeARN = pTapeARN_
+    , _rtaGatewayARN = pGatewayARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve
 -- from the virtual tape shelf (VTS).
-rtarqTapeARN :: Lens' RetrieveTapeArchive Text
-rtarqTapeARN = lens _rtarqTapeARN (\ s a -> s{_rtarqTapeARN = a});
+rtaTapeARN :: Lens' RetrieveTapeArchive Text
+rtaTapeARN = lens _rtaTapeARN (\ s a -> s{_rtaTapeARN = a});
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
 -- virtual tape to. Use the ListGateways operation to return a list of
@@ -84,8 +84,8 @@ rtarqTapeARN = lens _rtarqTapeARN (\ s a -> s{_rtarqTapeARN = a});
 --
 -- You retrieve archived virtual tapes to only one gateway and the gateway
 -- must be a gateway-VTL.
-rtarqGatewayARN :: Lens' RetrieveTapeArchive Text
-rtarqGatewayARN = lens _rtarqGatewayARN (\ s a -> s{_rtarqGatewayARN = a});
+rtaGatewayARN :: Lens' RetrieveTapeArchive Text
+rtaGatewayARN = lens _rtaGatewayARN (\ s a -> s{_rtaGatewayARN = a});
 
 instance AWSRequest RetrieveTapeArchive where
         type Sv RetrieveTapeArchive = StorageGateway
@@ -111,8 +111,8 @@ instance ToHeaders RetrieveTapeArchive where
 instance ToJSON RetrieveTapeArchive where
         toJSON RetrieveTapeArchive'{..}
           = object
-              ["TapeARN" .= _rtarqTapeARN,
-               "GatewayARN" .= _rtarqGatewayARN]
+              ["TapeARN" .= _rtaTapeARN,
+               "GatewayARN" .= _rtaGatewayARN]
 
 instance ToPath RetrieveTapeArchive where
         toPath = const "/"

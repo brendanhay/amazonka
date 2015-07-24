@@ -28,17 +28,17 @@ module Network.AWS.MachineLearning.DescribeMLModels
     -- ** Request constructor
     , describeMLModels
     -- ** Request lenses
-    , dmlmrqEQ
-    , dmlmrqGE
-    , dmlmrqPrefix
-    , dmlmrqGT
-    , dmlmrqNE
-    , dmlmrqNextToken
-    , dmlmrqSortOrder
-    , dmlmrqLimit
-    , dmlmrqLT
-    , dmlmrqFilterVariable
-    , dmlmrqLE
+    , dmlmEQ
+    , dmlmGE
+    , dmlmPrefix
+    , dmlmGT
+    , dmlmNE
+    , dmlmNextToken
+    , dmlmSortOrder
+    , dmlmLimit
+    , dmlmLT
+    , dmlmFilterVariable
+    , dmlmLE
 
     -- * Response
     , DescribeMLModelsResponse
@@ -60,68 +60,68 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmlmrqEQ'
+-- * 'dmlmEQ'
 --
--- * 'dmlmrqGE'
+-- * 'dmlmGE'
 --
--- * 'dmlmrqPrefix'
+-- * 'dmlmPrefix'
 --
--- * 'dmlmrqGT'
+-- * 'dmlmGT'
 --
--- * 'dmlmrqNE'
+-- * 'dmlmNE'
 --
--- * 'dmlmrqNextToken'
+-- * 'dmlmNextToken'
 --
--- * 'dmlmrqSortOrder'
+-- * 'dmlmSortOrder'
 --
--- * 'dmlmrqLimit'
+-- * 'dmlmLimit'
 --
--- * 'dmlmrqLT'
+-- * 'dmlmLT'
 --
--- * 'dmlmrqFilterVariable'
+-- * 'dmlmFilterVariable'
 --
--- * 'dmlmrqLE'
+-- * 'dmlmLE'
 data DescribeMLModels = DescribeMLModels'
-    { _dmlmrqEQ             :: !(Maybe Text)
-    , _dmlmrqGE             :: !(Maybe Text)
-    , _dmlmrqPrefix         :: !(Maybe Text)
-    , _dmlmrqGT             :: !(Maybe Text)
-    , _dmlmrqNE             :: !(Maybe Text)
-    , _dmlmrqNextToken      :: !(Maybe Text)
-    , _dmlmrqSortOrder      :: !(Maybe SortOrder)
-    , _dmlmrqLimit          :: !(Maybe Nat)
-    , _dmlmrqLT             :: !(Maybe Text)
-    , _dmlmrqFilterVariable :: !(Maybe MLModelFilterVariable)
-    , _dmlmrqLE             :: !(Maybe Text)
+    { _dmlmEQ             :: !(Maybe Text)
+    , _dmlmGE             :: !(Maybe Text)
+    , _dmlmPrefix         :: !(Maybe Text)
+    , _dmlmGT             :: !(Maybe Text)
+    , _dmlmNE             :: !(Maybe Text)
+    , _dmlmNextToken      :: !(Maybe Text)
+    , _dmlmSortOrder      :: !(Maybe SortOrder)
+    , _dmlmLimit          :: !(Maybe Nat)
+    , _dmlmLT             :: !(Maybe Text)
+    , _dmlmFilterVariable :: !(Maybe MLModelFilterVariable)
+    , _dmlmLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMLModels' smart constructor.
 describeMLModels :: DescribeMLModels
 describeMLModels =
     DescribeMLModels'
-    { _dmlmrqEQ = Nothing
-    , _dmlmrqGE = Nothing
-    , _dmlmrqPrefix = Nothing
-    , _dmlmrqGT = Nothing
-    , _dmlmrqNE = Nothing
-    , _dmlmrqNextToken = Nothing
-    , _dmlmrqSortOrder = Nothing
-    , _dmlmrqLimit = Nothing
-    , _dmlmrqLT = Nothing
-    , _dmlmrqFilterVariable = Nothing
-    , _dmlmrqLE = Nothing
+    { _dmlmEQ = Nothing
+    , _dmlmGE = Nothing
+    , _dmlmPrefix = Nothing
+    , _dmlmGT = Nothing
+    , _dmlmNE = Nothing
+    , _dmlmNextToken = Nothing
+    , _dmlmSortOrder = Nothing
+    , _dmlmLimit = Nothing
+    , _dmlmLT = Nothing
+    , _dmlmFilterVariable = Nothing
+    , _dmlmLE = Nothing
     }
 
 -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
 -- values that exactly match the value specified with @EQ@.
-dmlmrqEQ :: Lens' DescribeMLModels (Maybe Text)
-dmlmrqEQ = lens _dmlmrqEQ (\ s a -> s{_dmlmrqEQ = a});
+dmlmEQ :: Lens' DescribeMLModels (Maybe Text)
+dmlmEQ = lens _dmlmEQ (\ s a -> s{_dmlmEQ = a});
 
 -- | The greater than or equal to operator. The @MLModel@ results will have
 -- @FilterVariable@ values that are greater than or equal to the value
 -- specified with @GE@.
-dmlmrqGE :: Lens' DescribeMLModels (Maybe Text)
-dmlmrqGE = lens _dmlmrqGE (\ s a -> s{_dmlmrqGE = a});
+dmlmGE :: Lens' DescribeMLModels (Maybe Text)
+dmlmGE = lens _dmlmGE (\ s a -> s{_dmlmGE = a});
 
 -- | A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -137,23 +137,23 @@ dmlmrqGE = lens _dmlmrqGE (\ s a -> s{_dmlmrqGE = a});
 --
 -- -   2014-09-09-Holiday
 --
-dmlmrqPrefix :: Lens' DescribeMLModels (Maybe Text)
-dmlmrqPrefix = lens _dmlmrqPrefix (\ s a -> s{_dmlmrqPrefix = a});
+dmlmPrefix :: Lens' DescribeMLModels (Maybe Text)
+dmlmPrefix = lens _dmlmPrefix (\ s a -> s{_dmlmPrefix = a});
 
 -- | The greater than operator. The @MLModel@ results will have
 -- @FilterVariable@ values that are greater than the value specified with
 -- @GT@.
-dmlmrqGT :: Lens' DescribeMLModels (Maybe Text)
-dmlmrqGT = lens _dmlmrqGT (\ s a -> s{_dmlmrqGT = a});
+dmlmGT :: Lens' DescribeMLModels (Maybe Text)
+dmlmGT = lens _dmlmGT (\ s a -> s{_dmlmGT = a});
 
 -- | The not equal to operator. The @MLModel@ results will have
 -- @FilterVariable@ values not equal to the value specified with @NE@.
-dmlmrqNE :: Lens' DescribeMLModels (Maybe Text)
-dmlmrqNE = lens _dmlmrqNE (\ s a -> s{_dmlmrqNE = a});
+dmlmNE :: Lens' DescribeMLModels (Maybe Text)
+dmlmNE = lens _dmlmNE (\ s a -> s{_dmlmNE = a});
 
 -- | The ID of the page in the paginated results.
-dmlmrqNextToken :: Lens' DescribeMLModels (Maybe Text)
-dmlmrqNextToken = lens _dmlmrqNextToken (\ s a -> s{_dmlmrqNextToken = a});
+dmlmNextToken :: Lens' DescribeMLModels (Maybe Text)
+dmlmNextToken = lens _dmlmNextToken (\ s a -> s{_dmlmNextToken = a});
 
 -- | A two-value parameter that determines the sequence of the resulting list
 -- of @MLModel@.
@@ -162,18 +162,18 @@ dmlmrqNextToken = lens _dmlmrqNextToken (\ s a -> s{_dmlmrqNextToken = a});
 -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
 -- Results are sorted by @FilterVariable@.
-dmlmrqSortOrder :: Lens' DescribeMLModels (Maybe SortOrder)
-dmlmrqSortOrder = lens _dmlmrqSortOrder (\ s a -> s{_dmlmrqSortOrder = a});
+dmlmSortOrder :: Lens' DescribeMLModels (Maybe SortOrder)
+dmlmSortOrder = lens _dmlmSortOrder (\ s a -> s{_dmlmSortOrder = a});
 
 -- | The number of pages of information to include in the result. The range
 -- of acceptable values is 1 through 100. The default value is 100.
-dmlmrqLimit :: Lens' DescribeMLModels (Maybe Natural)
-dmlmrqLimit = lens _dmlmrqLimit (\ s a -> s{_dmlmrqLimit = a}) . mapping _Nat;
+dmlmLimit :: Lens' DescribeMLModels (Maybe Natural)
+dmlmLimit = lens _dmlmLimit (\ s a -> s{_dmlmLimit = a}) . mapping _Nat;
 
 -- | The less than operator. The @MLModel@ results will have @FilterVariable@
 -- values that are less than the value specified with @LT@.
-dmlmrqLT :: Lens' DescribeMLModels (Maybe Text)
-dmlmrqLT = lens _dmlmrqLT (\ s a -> s{_dmlmrqLT = a});
+dmlmLT :: Lens' DescribeMLModels (Maybe Text)
+dmlmLT = lens _dmlmLT (\ s a -> s{_dmlmLT = a});
 
 -- | Use one of the following variables to filter a list of @MLModel@:
 --
@@ -194,21 +194,21 @@ dmlmrqLT = lens _dmlmrqLT (\ s a -> s{_dmlmrqLT = a});
 -- -   @TrainingDataURI@ - Sets the search criteria to the data file(s)
 --     used in training a @MLModel@. The URL can identify either a file or
 --     an Amazon Simple Storage Service (Amazon S3) bucket or directory.
-dmlmrqFilterVariable :: Lens' DescribeMLModels (Maybe MLModelFilterVariable)
-dmlmrqFilterVariable = lens _dmlmrqFilterVariable (\ s a -> s{_dmlmrqFilterVariable = a});
+dmlmFilterVariable :: Lens' DescribeMLModels (Maybe MLModelFilterVariable)
+dmlmFilterVariable = lens _dmlmFilterVariable (\ s a -> s{_dmlmFilterVariable = a});
 
 -- | The less than or equal to operator. The @MLModel@ results will have
 -- @FilterVariable@ values that are less than or equal to the value
 -- specified with @LE@.
-dmlmrqLE :: Lens' DescribeMLModels (Maybe Text)
-dmlmrqLE = lens _dmlmrqLE (\ s a -> s{_dmlmrqLE = a});
+dmlmLE :: Lens' DescribeMLModels (Maybe Text)
+dmlmLE = lens _dmlmLE (\ s a -> s{_dmlmLE = a});
 
 instance AWSPager DescribeMLModels where
         page rq rs
           | stop (rs ^. dmlmsrsNextToken) = Nothing
           | stop (rs ^. dmlmsrsResults) = Nothing
           | otherwise =
-            Just $ rq & dmlmrqNextToken .~ rs ^. dmlmsrsNextToken
+            Just $ rq & dmlmNextToken .~ rs ^. dmlmsrsNextToken
 
 instance AWSRequest DescribeMLModels where
         type Sv DescribeMLModels = MachineLearning
@@ -233,13 +233,13 @@ instance ToHeaders DescribeMLModels where
 instance ToJSON DescribeMLModels where
         toJSON DescribeMLModels'{..}
           = object
-              ["EQ" .= _dmlmrqEQ, "GE" .= _dmlmrqGE,
-               "Prefix" .= _dmlmrqPrefix, "GT" .= _dmlmrqGT,
-               "NE" .= _dmlmrqNE, "NextToken" .= _dmlmrqNextToken,
-               "SortOrder" .= _dmlmrqSortOrder,
-               "Limit" .= _dmlmrqLimit, "LT" .= _dmlmrqLT,
-               "FilterVariable" .= _dmlmrqFilterVariable,
-               "LE" .= _dmlmrqLE]
+              ["EQ" .= _dmlmEQ, "GE" .= _dmlmGE,
+               "Prefix" .= _dmlmPrefix, "GT" .= _dmlmGT,
+               "NE" .= _dmlmNE, "NextToken" .= _dmlmNextToken,
+               "SortOrder" .= _dmlmSortOrder, "Limit" .= _dmlmLimit,
+               "LT" .= _dmlmLT,
+               "FilterVariable" .= _dmlmFilterVariable,
+               "LE" .= _dmlmLE]
 
 instance ToPath DescribeMLModels where
         toPath = const "/"

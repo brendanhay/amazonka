@@ -59,10 +59,10 @@ module Network.AWS.Glacier.ListMultipartUploads
     -- ** Request constructor
     , listMultipartUploads
     -- ** Request lenses
-    , lmurqMarker
-    , lmurqLimit
-    , lmurqAccountId
-    , lmurqVaultName
+    , lmuMarker
+    , lmuLimit
+    , lmuAccountId
+    , lmuVaultName
 
     -- * Response
     , ListMultipartUploadsResponse
@@ -86,28 +86,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmurqMarker'
+-- * 'lmuMarker'
 --
--- * 'lmurqLimit'
+-- * 'lmuLimit'
 --
--- * 'lmurqAccountId'
+-- * 'lmuAccountId'
 --
--- * 'lmurqVaultName'
+-- * 'lmuVaultName'
 data ListMultipartUploads = ListMultipartUploads'
-    { _lmurqMarker    :: !(Maybe Text)
-    , _lmurqLimit     :: !(Maybe Text)
-    , _lmurqAccountId :: !Text
-    , _lmurqVaultName :: !Text
+    { _lmuMarker    :: !(Maybe Text)
+    , _lmuLimit     :: !(Maybe Text)
+    , _lmuAccountId :: !Text
+    , _lmuVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: Text -> Text -> ListMultipartUploads
 listMultipartUploads pAccountId_ pVaultName_ =
     ListMultipartUploads'
-    { _lmurqMarker = Nothing
-    , _lmurqLimit = Nothing
-    , _lmurqAccountId = pAccountId_
-    , _lmurqVaultName = pVaultName_
+    { _lmuMarker = Nothing
+    , _lmuLimit = Nothing
+    , _lmuAccountId = pAccountId_
+    , _lmuVaultName = pVaultName_
     }
 
 -- | An opaque string used for pagination. This value specifies the upload at
@@ -115,26 +115,26 @@ listMultipartUploads pAccountId_ pVaultName_ =
 -- previous List Uploads response. You need only include the marker if you
 -- are continuing the pagination of results started in a previous List
 -- Uploads request.
-lmurqMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmurqMarker = lens _lmurqMarker (\ s a -> s{_lmurqMarker = a});
+lmuMarker :: Lens' ListMultipartUploads (Maybe Text)
+lmuMarker = lens _lmuMarker (\ s a -> s{_lmuMarker = a});
 
 -- | Specifies the maximum number of uploads returned in the response body.
 -- If this value is not specified, the List Uploads operation returns up to
 -- 1,000 uploads.
-lmurqLimit :: Lens' ListMultipartUploads (Maybe Text)
-lmurqLimit = lens _lmurqLimit (\ s a -> s{_lmurqLimit = a});
+lmuLimit :: Lens' ListMultipartUploads (Maybe Text)
+lmuLimit = lens _lmuLimit (\ s a -> s{_lmuLimit = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-lmurqAccountId :: Lens' ListMultipartUploads Text
-lmurqAccountId = lens _lmurqAccountId (\ s a -> s{_lmurqAccountId = a});
+lmuAccountId :: Lens' ListMultipartUploads Text
+lmuAccountId = lens _lmuAccountId (\ s a -> s{_lmuAccountId = a});
 
 -- | The name of the vault.
-lmurqVaultName :: Lens' ListMultipartUploads Text
-lmurqVaultName = lens _lmurqVaultName (\ s a -> s{_lmurqVaultName = a});
+lmuVaultName :: Lens' ListMultipartUploads Text
+lmuVaultName = lens _lmuVaultName (\ s a -> s{_lmuVaultName = a});
 
 instance AWSRequest ListMultipartUploads where
         type Sv ListMultipartUploads = Glacier
@@ -154,13 +154,13 @@ instance ToHeaders ListMultipartUploads where
 instance ToPath ListMultipartUploads where
         toPath ListMultipartUploads'{..}
           = mconcat
-              ["/", toText _lmurqAccountId, "/vaults/",
-               toText _lmurqVaultName, "/multipart-uploads"]
+              ["/", toText _lmuAccountId, "/vaults/",
+               toText _lmuVaultName, "/multipart-uploads"]
 
 instance ToQuery ListMultipartUploads where
         toQuery ListMultipartUploads'{..}
           = mconcat
-              ["marker" =: _lmurqMarker, "limit" =: _lmurqLimit]
+              ["marker" =: _lmuMarker, "limit" =: _lmuLimit]
 
 -- | Contains the Amazon Glacier response to your request.
 --

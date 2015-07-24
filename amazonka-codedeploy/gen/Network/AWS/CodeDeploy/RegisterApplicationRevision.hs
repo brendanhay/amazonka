@@ -27,9 +27,9 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
     -- ** Request constructor
     , registerApplicationRevision
     -- ** Request lenses
-    , rarrqDescription
-    , rarrqApplicationName
-    , rarrqRevision
+    , rarDescription
+    , rarApplicationName
+    , rarRevision
 
     -- * Response
     , RegisterApplicationRevisionResponse
@@ -48,39 +48,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rarrqDescription'
+-- * 'rarDescription'
 --
--- * 'rarrqApplicationName'
+-- * 'rarApplicationName'
 --
--- * 'rarrqRevision'
+-- * 'rarRevision'
 data RegisterApplicationRevision = RegisterApplicationRevision'
-    { _rarrqDescription     :: !(Maybe Text)
-    , _rarrqApplicationName :: !Text
-    , _rarrqRevision        :: !RevisionLocation
+    { _rarDescription     :: !(Maybe Text)
+    , _rarApplicationName :: !Text
+    , _rarRevision        :: !RevisionLocation
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterApplicationRevision' smart constructor.
 registerApplicationRevision :: Text -> RevisionLocation -> RegisterApplicationRevision
 registerApplicationRevision pApplicationName_ pRevision_ =
     RegisterApplicationRevision'
-    { _rarrqDescription = Nothing
-    , _rarrqApplicationName = pApplicationName_
-    , _rarrqRevision = pRevision_
+    { _rarDescription = Nothing
+    , _rarApplicationName = pApplicationName_
+    , _rarRevision = pRevision_
     }
 
 -- | A comment about the revision.
-rarrqDescription :: Lens' RegisterApplicationRevision (Maybe Text)
-rarrqDescription = lens _rarrqDescription (\ s a -> s{_rarrqDescription = a});
+rarDescription :: Lens' RegisterApplicationRevision (Maybe Text)
+rarDescription = lens _rarDescription (\ s a -> s{_rarDescription = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-rarrqApplicationName :: Lens' RegisterApplicationRevision Text
-rarrqApplicationName = lens _rarrqApplicationName (\ s a -> s{_rarrqApplicationName = a});
+rarApplicationName :: Lens' RegisterApplicationRevision Text
+rarApplicationName = lens _rarApplicationName (\ s a -> s{_rarApplicationName = a});
 
 -- | Information about the application revision to register, including the
 -- revision\'s type and its location.
-rarrqRevision :: Lens' RegisterApplicationRevision RevisionLocation
-rarrqRevision = lens _rarrqRevision (\ s a -> s{_rarrqRevision = a});
+rarRevision :: Lens' RegisterApplicationRevision RevisionLocation
+rarRevision = lens _rarRevision (\ s a -> s{_rarRevision = a});
 
 instance AWSRequest RegisterApplicationRevision where
         type Sv RegisterApplicationRevision = CodeDeploy
@@ -103,9 +103,9 @@ instance ToHeaders RegisterApplicationRevision where
 instance ToJSON RegisterApplicationRevision where
         toJSON RegisterApplicationRevision'{..}
           = object
-              ["description" .= _rarrqDescription,
-               "applicationName" .= _rarrqApplicationName,
-               "revision" .= _rarrqRevision]
+              ["description" .= _rarDescription,
+               "applicationName" .= _rarApplicationName,
+               "revision" .= _rarRevision]
 
 instance ToPath RegisterApplicationRevision where
         toPath = const "/"

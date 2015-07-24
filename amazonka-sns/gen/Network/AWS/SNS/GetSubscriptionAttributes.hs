@@ -27,7 +27,7 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     -- ** Request constructor
     , getSubscriptionAttributes
     -- ** Request lenses
-    , gsarqSubscriptionARN
+    , gsaSubscriptionARN
 
     -- * Response
     , GetSubscriptionAttributesResponse
@@ -49,21 +49,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsarqSubscriptionARN'
+-- * 'gsaSubscriptionARN'
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
-    { _gsarqSubscriptionARN :: Text
+    { _gsaSubscriptionARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSubscriptionAttributes' smart constructor.
 getSubscriptionAttributes :: Text -> GetSubscriptionAttributes
 getSubscriptionAttributes pSubscriptionARN_ =
     GetSubscriptionAttributes'
-    { _gsarqSubscriptionARN = pSubscriptionARN_
+    { _gsaSubscriptionARN = pSubscriptionARN_
     }
 
 -- | The ARN of the subscription whose properties you want to get.
-gsarqSubscriptionARN :: Lens' GetSubscriptionAttributes Text
-gsarqSubscriptionARN = lens _gsarqSubscriptionARN (\ s a -> s{_gsarqSubscriptionARN = a});
+gsaSubscriptionARN :: Lens' GetSubscriptionAttributes Text
+gsaSubscriptionARN = lens _gsaSubscriptionARN (\ s a -> s{_gsaSubscriptionARN = a});
 
 instance AWSRequest GetSubscriptionAttributes where
         type Sv GetSubscriptionAttributes = SNS
@@ -90,7 +90,7 @@ instance ToQuery GetSubscriptionAttributes where
               ["Action" =:
                  ("GetSubscriptionAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "SubscriptionArn" =: _gsarqSubscriptionARN]
+               "SubscriptionArn" =: _gsaSubscriptionARN]
 
 -- | Response for GetSubscriptionAttributes action.
 --

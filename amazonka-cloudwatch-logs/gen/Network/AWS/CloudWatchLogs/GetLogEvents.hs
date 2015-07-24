@@ -36,13 +36,13 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     -- ** Request constructor
     , getLogEvents
     -- ** Request lenses
-    , glerqStartTime
-    , glerqStartFromHead
-    , glerqNextToken
-    , glerqEndTime
-    , glerqLimit
-    , glerqLogGroupName
-    , glerqLogStreamName
+    , gleStartTime
+    , gleStartFromHead
+    , gleNextToken
+    , gleEndTime
+    , gleLimit
+    , gleLogGroupName
+    , gleLogStreamName
 
     -- * Response
     , GetLogEventsResponse
@@ -64,75 +64,75 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'glerqStartTime'
+-- * 'gleStartTime'
 --
--- * 'glerqStartFromHead'
+-- * 'gleStartFromHead'
 --
--- * 'glerqNextToken'
+-- * 'gleNextToken'
 --
--- * 'glerqEndTime'
+-- * 'gleEndTime'
 --
--- * 'glerqLimit'
+-- * 'gleLimit'
 --
--- * 'glerqLogGroupName'
+-- * 'gleLogGroupName'
 --
--- * 'glerqLogStreamName'
+-- * 'gleLogStreamName'
 data GetLogEvents = GetLogEvents'
-    { _glerqStartTime     :: !(Maybe Nat)
-    , _glerqStartFromHead :: !(Maybe Bool)
-    , _glerqNextToken     :: !(Maybe Text)
-    , _glerqEndTime       :: !(Maybe Nat)
-    , _glerqLimit         :: !(Maybe Nat)
-    , _glerqLogGroupName  :: !Text
-    , _glerqLogStreamName :: !Text
+    { _gleStartTime     :: !(Maybe Nat)
+    , _gleStartFromHead :: !(Maybe Bool)
+    , _gleNextToken     :: !(Maybe Text)
+    , _gleEndTime       :: !(Maybe Nat)
+    , _gleLimit         :: !(Maybe Nat)
+    , _gleLogGroupName  :: !Text
+    , _gleLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLogEvents' smart constructor.
 getLogEvents :: Text -> Text -> GetLogEvents
 getLogEvents pLogGroupName_ pLogStreamName_ =
     GetLogEvents'
-    { _glerqStartTime = Nothing
-    , _glerqStartFromHead = Nothing
-    , _glerqNextToken = Nothing
-    , _glerqEndTime = Nothing
-    , _glerqLimit = Nothing
-    , _glerqLogGroupName = pLogGroupName_
-    , _glerqLogStreamName = pLogStreamName_
+    { _gleStartTime = Nothing
+    , _gleStartFromHead = Nothing
+    , _gleNextToken = Nothing
+    , _gleEndTime = Nothing
+    , _gleLimit = Nothing
+    , _gleLogGroupName = pLogGroupName_
+    , _gleLogStreamName = pLogStreamName_
     }
 
 -- | FIXME: Undocumented member.
-glerqStartTime :: Lens' GetLogEvents (Maybe Natural)
-glerqStartTime = lens _glerqStartTime (\ s a -> s{_glerqStartTime = a}) . mapping _Nat;
+gleStartTime :: Lens' GetLogEvents (Maybe Natural)
+gleStartTime = lens _gleStartTime (\ s a -> s{_gleStartTime = a}) . mapping _Nat;
 
 -- | If set to true, the earliest log events would be returned first. The
 -- default is false (the latest log events are returned first).
-glerqStartFromHead :: Lens' GetLogEvents (Maybe Bool)
-glerqStartFromHead = lens _glerqStartFromHead (\ s a -> s{_glerqStartFromHead = a});
+gleStartFromHead :: Lens' GetLogEvents (Maybe Bool)
+gleStartFromHead = lens _gleStartFromHead (\ s a -> s{_gleStartFromHead = a});
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the @nextForwardToken@ or
 -- @nextBackwardToken@ fields in the response of the previous
 -- @GetLogEvents@ request.
-glerqNextToken :: Lens' GetLogEvents (Maybe Text)
-glerqNextToken = lens _glerqNextToken (\ s a -> s{_glerqNextToken = a});
+gleNextToken :: Lens' GetLogEvents (Maybe Text)
+gleNextToken = lens _gleNextToken (\ s a -> s{_gleNextToken = a});
 
 -- | FIXME: Undocumented member.
-glerqEndTime :: Lens' GetLogEvents (Maybe Natural)
-glerqEndTime = lens _glerqEndTime (\ s a -> s{_glerqEndTime = a}) . mapping _Nat;
+gleEndTime :: Lens' GetLogEvents (Maybe Natural)
+gleEndTime = lens _gleEndTime (\ s a -> s{_gleEndTime = a}) . mapping _Nat;
 
 -- | The maximum number of log events returned in the response. If you don\'t
 -- specify a value, the request would return as many log events as can fit
 -- in a response size of 1MB, up to 10,000 log events.
-glerqLimit :: Lens' GetLogEvents (Maybe Natural)
-glerqLimit = lens _glerqLimit (\ s a -> s{_glerqLimit = a}) . mapping _Nat;
+gleLimit :: Lens' GetLogEvents (Maybe Natural)
+gleLimit = lens _gleLimit (\ s a -> s{_gleLimit = a}) . mapping _Nat;
 
 -- | The name of the log group to query.
-glerqLogGroupName :: Lens' GetLogEvents Text
-glerqLogGroupName = lens _glerqLogGroupName (\ s a -> s{_glerqLogGroupName = a});
+gleLogGroupName :: Lens' GetLogEvents Text
+gleLogGroupName = lens _gleLogGroupName (\ s a -> s{_gleLogGroupName = a});
 
 -- | The name of the log stream to query.
-glerqLogStreamName :: Lens' GetLogEvents Text
-glerqLogStreamName = lens _glerqLogStreamName (\ s a -> s{_glerqLogStreamName = a});
+gleLogStreamName :: Lens' GetLogEvents Text
+gleLogStreamName = lens _gleLogStreamName (\ s a -> s{_gleLogStreamName = a});
 
 instance AWSRequest GetLogEvents where
         type Sv GetLogEvents = CloudWatchLogs
@@ -159,12 +159,12 @@ instance ToHeaders GetLogEvents where
 instance ToJSON GetLogEvents where
         toJSON GetLogEvents'{..}
           = object
-              ["startTime" .= _glerqStartTime,
-               "startFromHead" .= _glerqStartFromHead,
-               "nextToken" .= _glerqNextToken,
-               "endTime" .= _glerqEndTime, "limit" .= _glerqLimit,
-               "logGroupName" .= _glerqLogGroupName,
-               "logStreamName" .= _glerqLogStreamName]
+              ["startTime" .= _gleStartTime,
+               "startFromHead" .= _gleStartFromHead,
+               "nextToken" .= _gleNextToken,
+               "endTime" .= _gleEndTime, "limit" .= _gleLimit,
+               "logGroupName" .= _gleLogGroupName,
+               "logStreamName" .= _gleLogStreamName]
 
 instance ToPath GetLogEvents where
         toPath = const "/"

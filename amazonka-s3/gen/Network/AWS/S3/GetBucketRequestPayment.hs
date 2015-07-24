@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketRequestPayment
     -- ** Request constructor
     , getBucketRequestPayment
     -- ** Request lenses
-    , gbrprqBucket
+    , gbrpBucket
 
     -- * Response
     , GetBucketRequestPaymentResponse
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrprqBucket'
+-- * 'gbrpBucket'
 newtype GetBucketRequestPayment = GetBucketRequestPayment'
-    { _gbrprqBucket :: BucketName
+    { _gbrpBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketRequestPayment' smart constructor.
 getBucketRequestPayment :: BucketName -> GetBucketRequestPayment
 getBucketRequestPayment pBucket_ =
     GetBucketRequestPayment'
-    { _gbrprqBucket = pBucket_
+    { _gbrpBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gbrprqBucket :: Lens' GetBucketRequestPayment BucketName
-gbrprqBucket = lens _gbrprqBucket (\ s a -> s{_gbrprqBucket = a});
+gbrpBucket :: Lens' GetBucketRequestPayment BucketName
+gbrpBucket = lens _gbrpBucket (\ s a -> s{_gbrpBucket = a});
 
 instance AWSRequest GetBucketRequestPayment where
         type Sv GetBucketRequestPayment = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketRequestPayment where
 
 instance ToPath GetBucketRequestPayment where
         toPath GetBucketRequestPayment'{..}
-          = mconcat ["/", toText _gbrprqBucket]
+          = mconcat ["/", toText _gbrpBucket]
 
 instance ToQuery GetBucketRequestPayment where
         toQuery = const (mconcat ["requestPayment"])

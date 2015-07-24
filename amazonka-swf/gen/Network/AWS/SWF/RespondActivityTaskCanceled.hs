@@ -61,8 +61,8 @@ module Network.AWS.SWF.RespondActivityTaskCanceled
     -- ** Request constructor
     , respondActivityTaskCanceled
     -- ** Request lenses
-    , rrqDetails
-    , rrqTaskToken
+    , rDetails
+    , rTaskToken
 
     -- * Response
     , RespondActivityTaskCanceledResponse
@@ -79,25 +79,25 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrqDetails'
+-- * 'rDetails'
 --
--- * 'rrqTaskToken'
+-- * 'rTaskToken'
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled'
-    { _rrqDetails   :: !(Maybe Text)
-    , _rrqTaskToken :: !Text
+    { _rDetails   :: !(Maybe Text)
+    , _rTaskToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondActivityTaskCanceled' smart constructor.
 respondActivityTaskCanceled :: Text -> RespondActivityTaskCanceled
 respondActivityTaskCanceled pTaskToken_ =
     RespondActivityTaskCanceled'
-    { _rrqDetails = Nothing
-    , _rrqTaskToken = pTaskToken_
+    { _rDetails = Nothing
+    , _rTaskToken = pTaskToken_
     }
 
 -- | /Optional./ Information about the cancellation.
-rrqDetails :: Lens' RespondActivityTaskCanceled (Maybe Text)
-rrqDetails = lens _rrqDetails (\ s a -> s{_rrqDetails = a});
+rDetails :: Lens' RespondActivityTaskCanceled (Maybe Text)
+rDetails = lens _rDetails (\ s a -> s{_rDetails = a});
 
 -- | The @taskToken@ of the ActivityTask.
 --
@@ -105,8 +105,8 @@ rrqDetails = lens _rrqDetails (\ s a -> s{_rrqDetails = a});
 -- opaque value. If the task is passed to another process, its @taskToken@
 -- must also be passed. This enables it to provide its progress and respond
 -- with results.
-rrqTaskToken :: Lens' RespondActivityTaskCanceled Text
-rrqTaskToken = lens _rrqTaskToken (\ s a -> s{_rrqTaskToken = a});
+rTaskToken :: Lens' RespondActivityTaskCanceled Text
+rTaskToken = lens _rTaskToken (\ s a -> s{_rTaskToken = a});
 
 instance AWSRequest RespondActivityTaskCanceled where
         type Sv RespondActivityTaskCanceled = SWF
@@ -129,8 +129,7 @@ instance ToHeaders RespondActivityTaskCanceled where
 instance ToJSON RespondActivityTaskCanceled where
         toJSON RespondActivityTaskCanceled'{..}
           = object
-              ["details" .= _rrqDetails,
-               "taskToken" .= _rrqTaskToken]
+              ["details" .= _rDetails, "taskToken" .= _rTaskToken]
 
 instance ToPath RespondActivityTaskCanceled where
         toPath = const "/"

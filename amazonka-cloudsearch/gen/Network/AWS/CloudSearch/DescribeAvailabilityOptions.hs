@@ -32,8 +32,8 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     -- ** Request constructor
     , describeAvailabilityOptions
     -- ** Request lenses
-    , daorqDeployed
-    , daorqDomainName
+    , daoDeployed
+    , daoDomainName
 
     -- * Response
     , DescribeAvailabilityOptionsResponse
@@ -58,30 +58,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daorqDeployed'
+-- * 'daoDeployed'
 --
--- * 'daorqDomainName'
+-- * 'daoDomainName'
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
-    { _daorqDeployed   :: !(Maybe Bool)
-    , _daorqDomainName :: !Text
+    { _daoDeployed   :: !(Maybe Bool)
+    , _daoDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityOptions' smart constructor.
 describeAvailabilityOptions :: Text -> DescribeAvailabilityOptions
 describeAvailabilityOptions pDomainName_ =
     DescribeAvailabilityOptions'
-    { _daorqDeployed = Nothing
-    , _daorqDomainName = pDomainName_
+    { _daoDeployed = Nothing
+    , _daoDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-daorqDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
-daorqDeployed = lens _daorqDeployed (\ s a -> s{_daorqDeployed = a});
+daoDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
+daoDeployed = lens _daoDeployed (\ s a -> s{_daoDeployed = a});
 
 -- | The name of the domain you want to describe.
-daorqDomainName :: Lens' DescribeAvailabilityOptions Text
-daorqDomainName = lens _daorqDomainName (\ s a -> s{_daorqDomainName = a});
+daoDomainName :: Lens' DescribeAvailabilityOptions Text
+daoDomainName = lens _daoDomainName (\ s a -> s{_daoDomainName = a});
 
 instance AWSRequest DescribeAvailabilityOptions where
         type Sv DescribeAvailabilityOptions = CloudSearch
@@ -108,8 +108,8 @@ instance ToQuery DescribeAvailabilityOptions where
               ["Action" =:
                  ("DescribeAvailabilityOptions" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _daorqDeployed,
-               "DomainName" =: _daorqDomainName]
+               "Deployed" =: _daoDeployed,
+               "DomainName" =: _daoDomainName]
 
 -- | The result of a @DescribeAvailabilityOptions@ request. Indicates whether
 -- or not the Multi-AZ option is enabled for the domain specified in the

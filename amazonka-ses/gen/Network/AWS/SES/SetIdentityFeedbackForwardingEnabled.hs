@@ -39,8 +39,8 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     -- ** Request constructor
     , setIdentityFeedbackForwardingEnabled
     -- ** Request lenses
-    , sifferqIdentity
-    , sifferqForwardingEnabled
+    , siffeIdentity
+    , siffeForwardingEnabled
 
     -- * Response
     , SetIdentityFeedbackForwardingEnabledResponse
@@ -59,26 +59,26 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sifferqIdentity'
+-- * 'siffeIdentity'
 --
--- * 'sifferqForwardingEnabled'
+-- * 'siffeForwardingEnabled'
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
-    { _sifferqIdentity          :: !Text
-    , _sifferqForwardingEnabled :: !Bool
+    { _siffeIdentity          :: !Text
+    , _siffeForwardingEnabled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabled' smart constructor.
 setIdentityFeedbackForwardingEnabled :: Text -> Bool -> SetIdentityFeedbackForwardingEnabled
 setIdentityFeedbackForwardingEnabled pIdentity_ pForwardingEnabled_ =
     SetIdentityFeedbackForwardingEnabled'
-    { _sifferqIdentity = pIdentity_
-    , _sifferqForwardingEnabled = pForwardingEnabled_
+    { _siffeIdentity = pIdentity_
+    , _siffeForwardingEnabled = pForwardingEnabled_
     }
 
 -- | The identity for which to set bounce and complaint notification
 -- forwarding. Examples: @user\@example.com@, @example.com@.
-sifferqIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
-sifferqIdentity = lens _sifferqIdentity (\ s a -> s{_sifferqIdentity = a});
+siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
+siffeIdentity = lens _siffeIdentity (\ s a -> s{_siffeIdentity = a});
 
 -- | Sets whether Amazon SES will forward bounce and complaint notifications
 -- as email. @true@ specifies that Amazon SES will forward bounce and
@@ -87,8 +87,8 @@ sifferqIdentity = lens _sifferqIdentity (\ s a -> s{_sifferqIdentity = a});
 -- publish bounce and complaint notifications only through Amazon SNS. This
 -- value can only be set to @false@ when Amazon SNS topics are set for both
 -- @Bounce@ and @Complaint@ notification types.
-sifferqForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
-sifferqForwardingEnabled = lens _sifferqForwardingEnabled (\ s a -> s{_sifferqForwardingEnabled = a});
+siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
+siffeForwardingEnabled = lens _siffeForwardingEnabled (\ s a -> s{_siffeForwardingEnabled = a});
 
 instance AWSRequest
          SetIdentityFeedbackForwardingEnabled where
@@ -119,8 +119,8 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
                  ("SetIdentityFeedbackForwardingEnabled" ::
                     ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _sifferqIdentity,
-               "ForwardingEnabled" =: _sifferqForwardingEnabled]
+               "Identity" =: _siffeIdentity,
+               "ForwardingEnabled" =: _siffeForwardingEnabled]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.

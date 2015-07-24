@@ -29,8 +29,8 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
     -- ** Request constructor
     , updateServiceAccessPolicies
     -- ** Request lenses
-    , usaprqDomainName
-    , usaprqAccessPolicies
+    , usapDomainName
+    , usapAccessPolicies
 
     -- * Response
     , UpdateServiceAccessPoliciesResponse
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usaprqDomainName'
+-- * 'usapDomainName'
 --
--- * 'usaprqAccessPolicies'
+-- * 'usapAccessPolicies'
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
-    { _usaprqDomainName     :: !Text
-    , _usaprqAccessPolicies :: !Text
+    { _usapDomainName     :: !Text
+    , _usapAccessPolicies :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServiceAccessPolicies' smart constructor.
 updateServiceAccessPolicies :: Text -> Text -> UpdateServiceAccessPolicies
 updateServiceAccessPolicies pDomainName_ pAccessPolicies_ =
     UpdateServiceAccessPolicies'
-    { _usaprqDomainName = pDomainName_
-    , _usaprqAccessPolicies = pAccessPolicies_
+    { _usapDomainName = pDomainName_
+    , _usapAccessPolicies = pAccessPolicies_
     }
 
 -- | FIXME: Undocumented member.
-usaprqDomainName :: Lens' UpdateServiceAccessPolicies Text
-usaprqDomainName = lens _usaprqDomainName (\ s a -> s{_usaprqDomainName = a});
+usapDomainName :: Lens' UpdateServiceAccessPolicies Text
+usapDomainName = lens _usapDomainName (\ s a -> s{_usapDomainName = a});
 
 -- | The access rules you want to configure. These rules replace any existing
 -- rules.
-usaprqAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
-usaprqAccessPolicies = lens _usaprqAccessPolicies (\ s a -> s{_usaprqAccessPolicies = a});
+usapAccessPolicies :: Lens' UpdateServiceAccessPolicies Text
+usapAccessPolicies = lens _usapAccessPolicies (\ s a -> s{_usapAccessPolicies = a});
 
 instance AWSRequest UpdateServiceAccessPolicies where
         type Sv UpdateServiceAccessPolicies = CloudSearch
@@ -103,8 +103,8 @@ instance ToQuery UpdateServiceAccessPolicies where
               ["Action" =:
                  ("UpdateServiceAccessPolicies" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _usaprqDomainName,
-               "AccessPolicies" =: _usaprqAccessPolicies]
+               "DomainName" =: _usapDomainName,
+               "AccessPolicies" =: _usapAccessPolicies]
 
 -- | The result of an @UpdateServiceAccessPolicies@ request. Contains the new
 -- access policies.

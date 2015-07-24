@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.ListDevices
     -- ** Request constructor
     , listDevices
     -- ** Request lenses
-    , ldrqArn
-    , ldrqNextToken
+    , ldArn
+    , ldNextToken
 
     -- * Response
     , ListDevicesResponse
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrqArn'
+-- * 'ldArn'
 --
--- * 'ldrqNextToken'
+-- * 'ldNextToken'
 data ListDevices = ListDevices'
-    { _ldrqArn       :: !(Maybe Text)
-    , _ldrqNextToken :: !(Maybe Text)
+    { _ldArn       :: !(Maybe Text)
+    , _ldNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevices' smart constructor.
 listDevices :: ListDevices
 listDevices =
     ListDevices'
-    { _ldrqArn = Nothing
-    , _ldrqNextToken = Nothing
+    { _ldArn = Nothing
+    , _ldNextToken = Nothing
     }
 
 -- | The device types\' ARNs.
-ldrqArn :: Lens' ListDevices (Maybe Text)
-ldrqArn = lens _ldrqArn (\ s a -> s{_ldrqArn = a});
+ldArn :: Lens' ListDevices (Maybe Text)
+ldArn = lens _ldArn (\ s a -> s{_ldArn = a});
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-ldrqNextToken :: Lens' ListDevices (Maybe Text)
-ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
+ldNextToken :: Lens' ListDevices (Maybe Text)
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
 instance AWSRequest ListDevices where
         type Sv ListDevices = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListDevices where
 instance ToJSON ListDevices where
         toJSON ListDevices'{..}
           = object
-              ["arn" .= _ldrqArn, "nextToken" .= _ldrqNextToken]
+              ["arn" .= _ldArn, "nextToken" .= _ldNextToken]
 
 instance ToPath ListDevices where
         toPath = const "/"

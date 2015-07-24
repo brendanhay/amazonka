@@ -28,9 +28,9 @@ module Network.AWS.SSM.UpdateAssociationStatus
     -- ** Request constructor
     , updateAssociationStatus
     -- ** Request lenses
-    , uasrqName
-    , uasrqInstanceId
-    , uasrqAssociationStatus
+    , uasName
+    , uasInstanceId
+    , uasAssociationStatus
 
     -- * Response
     , UpdateAssociationStatusResponse
@@ -50,37 +50,37 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uasrqName'
+-- * 'uasName'
 --
--- * 'uasrqInstanceId'
+-- * 'uasInstanceId'
 --
--- * 'uasrqAssociationStatus'
+-- * 'uasAssociationStatus'
 data UpdateAssociationStatus = UpdateAssociationStatus'
-    { _uasrqName              :: !Text
-    , _uasrqInstanceId        :: !Text
-    , _uasrqAssociationStatus :: !AssociationStatus
+    { _uasName              :: !Text
+    , _uasInstanceId        :: !Text
+    , _uasAssociationStatus :: !AssociationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssociationStatus' smart constructor.
 updateAssociationStatus :: Text -> Text -> AssociationStatus -> UpdateAssociationStatus
 updateAssociationStatus pName_ pInstanceId_ pAssociationStatus_ =
     UpdateAssociationStatus'
-    { _uasrqName = pName_
-    , _uasrqInstanceId = pInstanceId_
-    , _uasrqAssociationStatus = pAssociationStatus_
+    { _uasName = pName_
+    , _uasInstanceId = pInstanceId_
+    , _uasAssociationStatus = pAssociationStatus_
     }
 
 -- | The name of the configuration document.
-uasrqName :: Lens' UpdateAssociationStatus Text
-uasrqName = lens _uasrqName (\ s a -> s{_uasrqName = a});
+uasName :: Lens' UpdateAssociationStatus Text
+uasName = lens _uasName (\ s a -> s{_uasName = a});
 
 -- | The ID of the instance.
-uasrqInstanceId :: Lens' UpdateAssociationStatus Text
-uasrqInstanceId = lens _uasrqInstanceId (\ s a -> s{_uasrqInstanceId = a});
+uasInstanceId :: Lens' UpdateAssociationStatus Text
+uasInstanceId = lens _uasInstanceId (\ s a -> s{_uasInstanceId = a});
 
 -- | The association status.
-uasrqAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
-uasrqAssociationStatus = lens _uasrqAssociationStatus (\ s a -> s{_uasrqAssociationStatus = a});
+uasAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
+uasAssociationStatus = lens _uasAssociationStatus (\ s a -> s{_uasAssociationStatus = a});
 
 instance AWSRequest UpdateAssociationStatus where
         type Sv UpdateAssociationStatus = SSM
@@ -106,9 +106,8 @@ instance ToHeaders UpdateAssociationStatus where
 instance ToJSON UpdateAssociationStatus where
         toJSON UpdateAssociationStatus'{..}
           = object
-              ["Name" .= _uasrqName,
-               "InstanceId" .= _uasrqInstanceId,
-               "AssociationStatus" .= _uasrqAssociationStatus]
+              ["Name" .= _uasName, "InstanceId" .= _uasInstanceId,
+               "AssociationStatus" .= _uasAssociationStatus]
 
 instance ToPath UpdateAssociationStatus where
         toPath = const "/"

@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     -- ** Request constructor
     , describeTimeBasedAutoScaling
     -- ** Request lenses
-    , dtbasrqInstanceIds
+    , dtbasInstanceIds
 
     -- * Response
     , DescribeTimeBasedAutoScalingResponse
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtbasrqInstanceIds'
+-- * 'dtbasInstanceIds'
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
-    { _dtbasrqInstanceIds :: [Text]
+    { _dtbasInstanceIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTimeBasedAutoScaling' smart constructor.
 describeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling
 describeTimeBasedAutoScaling =
     DescribeTimeBasedAutoScaling'
-    { _dtbasrqInstanceIds = mempty
+    { _dtbasInstanceIds = mempty
     }
 
 -- | An array of instance IDs.
-dtbasrqInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
-dtbasrqInstanceIds = lens _dtbasrqInstanceIds (\ s a -> s{_dtbasrqInstanceIds = a});
+dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
+dtbasInstanceIds = lens _dtbasInstanceIds (\ s a -> s{_dtbasInstanceIds = a});
 
 instance AWSRequest DescribeTimeBasedAutoScaling
          where
@@ -98,7 +98,7 @@ instance ToHeaders DescribeTimeBasedAutoScaling where
 
 instance ToJSON DescribeTimeBasedAutoScaling where
         toJSON DescribeTimeBasedAutoScaling'{..}
-          = object ["InstanceIds" .= _dtbasrqInstanceIds]
+          = object ["InstanceIds" .= _dtbasInstanceIds]
 
 instance ToPath DescribeTimeBasedAutoScaling where
         toPath = const "/"

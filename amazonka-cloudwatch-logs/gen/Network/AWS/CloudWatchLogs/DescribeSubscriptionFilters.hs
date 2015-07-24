@@ -34,10 +34,10 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     -- ** Request constructor
     , describeSubscriptionFilters
     -- ** Request lenses
-    , dsfrqFilterNamePrefix
-    , dsfrqNextToken
-    , dsfrqLimit
-    , dsfrqLogGroupName
+    , dsfFilterNamePrefix
+    , dsfNextToken
+    , dsfLimit
+    , dsfLogGroupName
 
     -- * Response
     , DescribeSubscriptionFiltersResponse
@@ -58,47 +58,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsfrqFilterNamePrefix'
+-- * 'dsfFilterNamePrefix'
 --
--- * 'dsfrqNextToken'
+-- * 'dsfNextToken'
 --
--- * 'dsfrqLimit'
+-- * 'dsfLimit'
 --
--- * 'dsfrqLogGroupName'
+-- * 'dsfLogGroupName'
 data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
-    { _dsfrqFilterNamePrefix :: !(Maybe Text)
-    , _dsfrqNextToken        :: !(Maybe Text)
-    , _dsfrqLimit            :: !(Maybe Nat)
-    , _dsfrqLogGroupName     :: !Text
+    { _dsfFilterNamePrefix :: !(Maybe Text)
+    , _dsfNextToken        :: !(Maybe Text)
+    , _dsfLimit            :: !(Maybe Nat)
+    , _dsfLogGroupName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubscriptionFilters' smart constructor.
 describeSubscriptionFilters :: Text -> DescribeSubscriptionFilters
 describeSubscriptionFilters pLogGroupName_ =
     DescribeSubscriptionFilters'
-    { _dsfrqFilterNamePrefix = Nothing
-    , _dsfrqNextToken = Nothing
-    , _dsfrqLimit = Nothing
-    , _dsfrqLogGroupName = pLogGroupName_
+    { _dsfFilterNamePrefix = Nothing
+    , _dsfNextToken = Nothing
+    , _dsfLimit = Nothing
+    , _dsfLogGroupName = pLogGroupName_
     }
 
 -- | Will only return subscription filters that match the provided
 -- filterNamePrefix. If you don\'t specify a value, no prefix filter is
 -- applied.
-dsfrqFilterNamePrefix :: Lens' DescribeSubscriptionFilters (Maybe Text)
-dsfrqFilterNamePrefix = lens _dsfrqFilterNamePrefix (\ s a -> s{_dsfrqFilterNamePrefix = a});
+dsfFilterNamePrefix :: Lens' DescribeSubscriptionFilters (Maybe Text)
+dsfFilterNamePrefix = lens _dsfFilterNamePrefix (\ s a -> s{_dsfFilterNamePrefix = a});
 
 -- | FIXME: Undocumented member.
-dsfrqNextToken :: Lens' DescribeSubscriptionFilters (Maybe Text)
-dsfrqNextToken = lens _dsfrqNextToken (\ s a -> s{_dsfrqNextToken = a});
+dsfNextToken :: Lens' DescribeSubscriptionFilters (Maybe Text)
+dsfNextToken = lens _dsfNextToken (\ s a -> s{_dsfNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsfrqLimit :: Lens' DescribeSubscriptionFilters (Maybe Natural)
-dsfrqLimit = lens _dsfrqLimit (\ s a -> s{_dsfrqLimit = a}) . mapping _Nat;
+dsfLimit :: Lens' DescribeSubscriptionFilters (Maybe Natural)
+dsfLimit = lens _dsfLimit (\ s a -> s{_dsfLimit = a}) . mapping _Nat;
 
 -- | The log group name for which subscription filters are to be listed.
-dsfrqLogGroupName :: Lens' DescribeSubscriptionFilters Text
-dsfrqLogGroupName = lens _dsfrqLogGroupName (\ s a -> s{_dsfrqLogGroupName = a});
+dsfLogGroupName :: Lens' DescribeSubscriptionFilters Text
+dsfLogGroupName = lens _dsfLogGroupName (\ s a -> s{_dsfLogGroupName = a});
 
 instance AWSRequest DescribeSubscriptionFilters where
         type Sv DescribeSubscriptionFilters = CloudWatchLogs
@@ -126,10 +126,9 @@ instance ToHeaders DescribeSubscriptionFilters where
 instance ToJSON DescribeSubscriptionFilters where
         toJSON DescribeSubscriptionFilters'{..}
           = object
-              ["filterNamePrefix" .= _dsfrqFilterNamePrefix,
-               "nextToken" .= _dsfrqNextToken,
-               "limit" .= _dsfrqLimit,
-               "logGroupName" .= _dsfrqLogGroupName]
+              ["filterNamePrefix" .= _dsfFilterNamePrefix,
+               "nextToken" .= _dsfNextToken, "limit" .= _dsfLimit,
+               "logGroupName" .= _dsfLogGroupName]
 
 instance ToPath DescribeSubscriptionFilters where
         toPath = const "/"

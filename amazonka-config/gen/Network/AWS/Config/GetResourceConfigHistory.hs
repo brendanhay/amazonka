@@ -37,13 +37,13 @@ module Network.AWS.Config.GetResourceConfigHistory
     -- ** Request constructor
     , getResourceConfigHistory
     -- ** Request lenses
-    , grchrqChronologicalOrder
-    , grchrqNextToken
-    , grchrqLimit
-    , grchrqLaterTime
-    , grchrqEarlierTime
-    , grchrqResourceType
-    , grchrqResourceId
+    , grchChronologicalOrder
+    , grchNextToken
+    , grchLimit
+    , grchLaterTime
+    , grchEarlierTime
+    , grchResourceType
+    , grchResourceId
 
     -- * Response
     , GetResourceConfigHistoryResponse
@@ -66,74 +66,74 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grchrqChronologicalOrder'
+-- * 'grchChronologicalOrder'
 --
--- * 'grchrqNextToken'
+-- * 'grchNextToken'
 --
--- * 'grchrqLimit'
+-- * 'grchLimit'
 --
--- * 'grchrqLaterTime'
+-- * 'grchLaterTime'
 --
--- * 'grchrqEarlierTime'
+-- * 'grchEarlierTime'
 --
--- * 'grchrqResourceType'
+-- * 'grchResourceType'
 --
--- * 'grchrqResourceId'
+-- * 'grchResourceId'
 data GetResourceConfigHistory = GetResourceConfigHistory'
-    { _grchrqChronologicalOrder :: !(Maybe ChronologicalOrder)
-    , _grchrqNextToken          :: !(Maybe Text)
-    , _grchrqLimit              :: !(Maybe Nat)
-    , _grchrqLaterTime          :: !(Maybe POSIX)
-    , _grchrqEarlierTime        :: !(Maybe POSIX)
-    , _grchrqResourceType       :: !ResourceType
-    , _grchrqResourceId         :: !Text
+    { _grchChronologicalOrder :: !(Maybe ChronologicalOrder)
+    , _grchNextToken          :: !(Maybe Text)
+    , _grchLimit              :: !(Maybe Nat)
+    , _grchLaterTime          :: !(Maybe POSIX)
+    , _grchEarlierTime        :: !(Maybe POSIX)
+    , _grchResourceType       :: !ResourceType
+    , _grchResourceId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetResourceConfigHistory' smart constructor.
 getResourceConfigHistory :: ResourceType -> Text -> GetResourceConfigHistory
 getResourceConfigHistory pResourceType_ pResourceId_ =
     GetResourceConfigHistory'
-    { _grchrqChronologicalOrder = Nothing
-    , _grchrqNextToken = Nothing
-    , _grchrqLimit = Nothing
-    , _grchrqLaterTime = Nothing
-    , _grchrqEarlierTime = Nothing
-    , _grchrqResourceType = pResourceType_
-    , _grchrqResourceId = pResourceId_
+    { _grchChronologicalOrder = Nothing
+    , _grchNextToken = Nothing
+    , _grchLimit = Nothing
+    , _grchLaterTime = Nothing
+    , _grchEarlierTime = Nothing
+    , _grchResourceType = pResourceType_
+    , _grchResourceId = pResourceId_
     }
 
 -- | The chronological order for configuration items listed. By default the
 -- results are listed in reverse chronological order.
-grchrqChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe ChronologicalOrder)
-grchrqChronologicalOrder = lens _grchrqChronologicalOrder (\ s a -> s{_grchrqChronologicalOrder = a});
+grchChronologicalOrder :: Lens' GetResourceConfigHistory (Maybe ChronologicalOrder)
+grchChronologicalOrder = lens _grchChronologicalOrder (\ s a -> s{_grchChronologicalOrder = a});
 
 -- | An optional parameter used for pagination of the results.
-grchrqNextToken :: Lens' GetResourceConfigHistory (Maybe Text)
-grchrqNextToken = lens _grchrqNextToken (\ s a -> s{_grchrqNextToken = a});
+grchNextToken :: Lens' GetResourceConfigHistory (Maybe Text)
+grchNextToken = lens _grchNextToken (\ s a -> s{_grchNextToken = a});
 
 -- | The maximum number of configuration items returned in each page. The
 -- default is 10. You cannot specify a limit greater than 100.
-grchrqLimit :: Lens' GetResourceConfigHistory (Maybe Natural)
-grchrqLimit = lens _grchrqLimit (\ s a -> s{_grchrqLimit = a}) . mapping _Nat;
+grchLimit :: Lens' GetResourceConfigHistory (Maybe Natural)
+grchLimit = lens _grchLimit (\ s a -> s{_grchLimit = a}) . mapping _Nat;
 
 -- | The time stamp that indicates a later time. If not specified, current
 -- time is taken.
-grchrqLaterTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
-grchrqLaterTime = lens _grchrqLaterTime (\ s a -> s{_grchrqLaterTime = a}) . mapping _Time;
+grchLaterTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
+grchLaterTime = lens _grchLaterTime (\ s a -> s{_grchLaterTime = a}) . mapping _Time;
 
 -- | The time stamp that indicates an earlier time. If not specified, the
 -- action returns paginated results that contain configuration items that
 -- start from when the first configuration item was recorded.
-grchrqEarlierTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
-grchrqEarlierTime = lens _grchrqEarlierTime (\ s a -> s{_grchrqEarlierTime = a}) . mapping _Time;
+grchEarlierTime :: Lens' GetResourceConfigHistory (Maybe UTCTime)
+grchEarlierTime = lens _grchEarlierTime (\ s a -> s{_grchEarlierTime = a}) . mapping _Time;
 
 -- | The resource type.
-grchrqResourceType :: Lens' GetResourceConfigHistory ResourceType
-grchrqResourceType = lens _grchrqResourceType (\ s a -> s{_grchrqResourceType = a});
+grchResourceType :: Lens' GetResourceConfigHistory ResourceType
+grchResourceType = lens _grchResourceType (\ s a -> s{_grchResourceType = a});
 
 -- | The ID of the resource (for example., @sg-xxxxxx@).
-grchrqResourceId :: Lens' GetResourceConfigHistory Text
-grchrqResourceId = lens _grchrqResourceId (\ s a -> s{_grchrqResourceId = a});
+grchResourceId :: Lens' GetResourceConfigHistory Text
+grchResourceId = lens _grchResourceId (\ s a -> s{_grchResourceId = a});
 
 instance AWSRequest GetResourceConfigHistory where
         type Sv GetResourceConfigHistory = Config
@@ -161,13 +161,12 @@ instance ToHeaders GetResourceConfigHistory where
 instance ToJSON GetResourceConfigHistory where
         toJSON GetResourceConfigHistory'{..}
           = object
-              ["chronologicalOrder" .= _grchrqChronologicalOrder,
-               "nextToken" .= _grchrqNextToken,
-               "limit" .= _grchrqLimit,
-               "laterTime" .= _grchrqLaterTime,
-               "earlierTime" .= _grchrqEarlierTime,
-               "resourceType" .= _grchrqResourceType,
-               "resourceId" .= _grchrqResourceId]
+              ["chronologicalOrder" .= _grchChronologicalOrder,
+               "nextToken" .= _grchNextToken, "limit" .= _grchLimit,
+               "laterTime" .= _grchLaterTime,
+               "earlierTime" .= _grchEarlierTime,
+               "resourceType" .= _grchResourceType,
+               "resourceId" .= _grchResourceId]
 
 instance ToPath GetResourceConfigHistory where
         toPath = const "/"

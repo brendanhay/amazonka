@@ -27,9 +27,9 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- ** Request constructor
     , describeNetworkInterfaces
     -- ** Request lenses
-    , dnisrqNetworkInterfaceIds
-    , dnisrqFilters
-    , dnisrqDryRun
+    , dnisNetworkInterfaceIds
+    , dnisFilters
+    , dnisDryRun
 
     -- * Response
     , DescribeNetworkInterfacesResponse
@@ -49,31 +49,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnisrqNetworkInterfaceIds'
+-- * 'dnisNetworkInterfaceIds'
 --
--- * 'dnisrqFilters'
+-- * 'dnisFilters'
 --
--- * 'dnisrqDryRun'
+-- * 'dnisDryRun'
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
-    { _dnisrqNetworkInterfaceIds :: !(Maybe [Text])
-    , _dnisrqFilters             :: !(Maybe [Filter])
-    , _dnisrqDryRun              :: !(Maybe Bool)
+    { _dnisNetworkInterfaceIds :: !(Maybe [Text])
+    , _dnisFilters             :: !(Maybe [Filter])
+    , _dnisDryRun              :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfaces' smart constructor.
 describeNetworkInterfaces :: DescribeNetworkInterfaces
 describeNetworkInterfaces =
     DescribeNetworkInterfaces'
-    { _dnisrqNetworkInterfaceIds = Nothing
-    , _dnisrqFilters = Nothing
-    , _dnisrqDryRun = Nothing
+    { _dnisNetworkInterfaceIds = Nothing
+    , _dnisFilters = Nothing
+    , _dnisDryRun = Nothing
     }
 
 -- | One or more network interface IDs.
 --
 -- Default: Describes all your network interfaces.
-dnisrqNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
-dnisrqNetworkInterfaceIds = lens _dnisrqNetworkInterfaceIds (\ s a -> s{_dnisrqNetworkInterfaceIds = a}) . _Default;
+dnisNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
+dnisNetworkInterfaceIds = lens _dnisNetworkInterfaceIds (\ s a -> s{_dnisNetworkInterfaceIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -183,15 +183,15 @@ dnisrqNetworkInterfaceIds = lens _dnisrqNetworkInterfaceIds (\ s a -> s{_dnisrqN
 --
 -- -   @vpc-id@ - The ID of the VPC for the network interface.
 --
-dnisrqFilters :: Lens' DescribeNetworkInterfaces [Filter]
-dnisrqFilters = lens _dnisrqFilters (\ s a -> s{_dnisrqFilters = a}) . _Default;
+dnisFilters :: Lens' DescribeNetworkInterfaces [Filter]
+dnisFilters = lens _dnisFilters (\ s a -> s{_dnisFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dnisrqDryRun :: Lens' DescribeNetworkInterfaces (Maybe Bool)
-dnisrqDryRun = lens _dnisrqDryRun (\ s a -> s{_dnisrqDryRun = a});
+dnisDryRun :: Lens' DescribeNetworkInterfaces (Maybe Bool)
+dnisDryRun = lens _dnisDryRun (\ s a -> s{_dnisDryRun = a});
 
 instance AWSRequest DescribeNetworkInterfaces where
         type Sv DescribeNetworkInterfaces = EC2
@@ -219,9 +219,9 @@ instance ToQuery DescribeNetworkInterfaces where
                  ("DescribeNetworkInterfaces" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "item" <$> _dnisrqNetworkInterfaceIds),
-               toQuery (toQueryList "Filter" <$> _dnisrqFilters),
-               "DryRun" =: _dnisrqDryRun]
+                 (toQueryList "item" <$> _dnisNetworkInterfaceIds),
+               toQuery (toQueryList "Filter" <$> _dnisFilters),
+               "DryRun" =: _dnisDryRun]
 
 -- | /See:/ 'describeNetworkInterfacesResponse' smart constructor.
 --

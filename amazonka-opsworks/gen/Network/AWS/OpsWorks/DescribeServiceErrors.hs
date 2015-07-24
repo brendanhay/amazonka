@@ -33,9 +33,9 @@ module Network.AWS.OpsWorks.DescribeServiceErrors
     -- ** Request constructor
     , describeServiceErrors
     -- ** Request lenses
-    , dserqInstanceId
-    , dserqServiceErrorIds
-    , dserqStackId
+    , dseInstanceId
+    , dseServiceErrorIds
+    , dseStackId
 
     -- * Response
     , DescribeServiceErrorsResponse
@@ -55,42 +55,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dserqInstanceId'
+-- * 'dseInstanceId'
 --
--- * 'dserqServiceErrorIds'
+-- * 'dseServiceErrorIds'
 --
--- * 'dserqStackId'
+-- * 'dseStackId'
 data DescribeServiceErrors = DescribeServiceErrors'
-    { _dserqInstanceId      :: !(Maybe Text)
-    , _dserqServiceErrorIds :: !(Maybe [Text])
-    , _dserqStackId         :: !(Maybe Text)
+    { _dseInstanceId      :: !(Maybe Text)
+    , _dseServiceErrorIds :: !(Maybe [Text])
+    , _dseStackId         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceErrors' smart constructor.
 describeServiceErrors :: DescribeServiceErrors
 describeServiceErrors =
     DescribeServiceErrors'
-    { _dserqInstanceId = Nothing
-    , _dserqServiceErrorIds = Nothing
-    , _dserqStackId = Nothing
+    { _dseInstanceId = Nothing
+    , _dseServiceErrorIds = Nothing
+    , _dseStackId = Nothing
     }
 
 -- | The instance ID. If you use this parameter, @DescribeServiceErrors@
 -- returns descriptions of the errors associated with the specified
 -- instance.
-dserqInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
-dserqInstanceId = lens _dserqInstanceId (\ s a -> s{_dserqInstanceId = a});
+dseInstanceId :: Lens' DescribeServiceErrors (Maybe Text)
+dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a});
 
 -- | An array of service error IDs. If you use this parameter,
 -- @DescribeServiceErrors@ returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
-dserqServiceErrorIds :: Lens' DescribeServiceErrors [Text]
-dserqServiceErrorIds = lens _dserqServiceErrorIds (\ s a -> s{_dserqServiceErrorIds = a}) . _Default;
+dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
+dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default;
 
 -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
 -- descriptions of the errors associated with the specified stack.
-dserqStackId :: Lens' DescribeServiceErrors (Maybe Text)
-dserqStackId = lens _dserqStackId (\ s a -> s{_dserqStackId = a});
+dseStackId :: Lens' DescribeServiceErrors (Maybe Text)
+dseStackId = lens _dseStackId (\ s a -> s{_dseStackId = a});
 
 instance AWSRequest DescribeServiceErrors where
         type Sv DescribeServiceErrors = OpsWorks
@@ -117,9 +117,9 @@ instance ToHeaders DescribeServiceErrors where
 instance ToJSON DescribeServiceErrors where
         toJSON DescribeServiceErrors'{..}
           = object
-              ["InstanceId" .= _dserqInstanceId,
-               "ServiceErrorIds" .= _dserqServiceErrorIds,
-               "StackId" .= _dserqStackId]
+              ["InstanceId" .= _dseInstanceId,
+               "ServiceErrorIds" .= _dseServiceErrorIds,
+               "StackId" .= _dseStackId]
 
 instance ToPath DescribeServiceErrors where
         toPath = const "/"

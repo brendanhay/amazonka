@@ -41,8 +41,8 @@ module Network.AWS.EC2.CreateKeyPair
     -- ** Request constructor
     , createKeyPair
     -- ** Request lenses
-    , ckprqDryRun
-    , ckprqKeyName
+    , ckpDryRun
+    , ckpKeyName
 
     -- * Response
     , CreateKeyPairResponse
@@ -64,34 +64,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ckprqDryRun'
+-- * 'ckpDryRun'
 --
--- * 'ckprqKeyName'
+-- * 'ckpKeyName'
 data CreateKeyPair = CreateKeyPair'
-    { _ckprqDryRun  :: !(Maybe Bool)
-    , _ckprqKeyName :: !Text
+    { _ckpDryRun  :: !(Maybe Bool)
+    , _ckpKeyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyPair' smart constructor.
 createKeyPair :: Text -> CreateKeyPair
 createKeyPair pKeyName_ =
     CreateKeyPair'
-    { _ckprqDryRun = Nothing
-    , _ckprqKeyName = pKeyName_
+    { _ckpDryRun = Nothing
+    , _ckpKeyName = pKeyName_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ckprqDryRun :: Lens' CreateKeyPair (Maybe Bool)
-ckprqDryRun = lens _ckprqDryRun (\ s a -> s{_ckprqDryRun = a});
+ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
+ckpDryRun = lens _ckpDryRun (\ s a -> s{_ckpDryRun = a});
 
 -- | A unique name for the key pair.
 --
 -- Constraints: Up to 255 ASCII characters
-ckprqKeyName :: Lens' CreateKeyPair Text
-ckprqKeyName = lens _ckprqKeyName (\ s a -> s{_ckprqKeyName = a});
+ckpKeyName :: Lens' CreateKeyPair Text
+ckpKeyName = lens _ckpKeyName (\ s a -> s{_ckpKeyName = a});
 
 instance AWSRequest CreateKeyPair where
         type Sv CreateKeyPair = EC2
@@ -116,7 +116,7 @@ instance ToQuery CreateKeyPair where
           = mconcat
               ["Action" =: ("CreateKeyPair" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ckprqDryRun, "KeyName" =: _ckprqKeyName]
+               "DryRun" =: _ckpDryRun, "KeyName" =: _ckpKeyName]
 
 -- | Describes a key pair.
 --

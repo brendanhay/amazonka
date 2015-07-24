@@ -40,8 +40,8 @@ module Network.AWS.SES.GetIdentityPolicies
     -- ** Request constructor
     , getIdentityPolicies
     -- ** Request lenses
-    , giprqIdentity
-    , giprqPolicyNames
+    , gipIdentity
+    , gipPolicyNames
 
     -- * Response
     , GetIdentityPoliciesResponse
@@ -64,20 +64,20 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giprqIdentity'
+-- * 'gipIdentity'
 --
--- * 'giprqPolicyNames'
+-- * 'gipPolicyNames'
 data GetIdentityPolicies = GetIdentityPolicies'
-    { _giprqIdentity    :: !Text
-    , _giprqPolicyNames :: ![Text]
+    { _gipIdentity    :: !Text
+    , _gipPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPolicies' smart constructor.
 getIdentityPolicies :: Text -> GetIdentityPolicies
 getIdentityPolicies pIdentity_ =
     GetIdentityPolicies'
-    { _giprqIdentity = pIdentity_
-    , _giprqPolicyNames = mempty
+    { _gipIdentity = pIdentity_
+    , _gipPolicyNames = mempty
     }
 
 -- | The identity for which the policies will be retrieved. You can specify
@@ -86,15 +86,15 @@ getIdentityPolicies pIdentity_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-giprqIdentity :: Lens' GetIdentityPolicies Text
-giprqIdentity = lens _giprqIdentity (\ s a -> s{_giprqIdentity = a});
+gipIdentity :: Lens' GetIdentityPolicies Text
+gipIdentity = lens _gipIdentity (\ s a -> s{_gipIdentity = a});
 
 -- | A list of the names of policies to be retrieved. You can retrieve a
 -- maximum of 20 policies at a time. If you do not know the names of the
 -- policies that are attached to the identity, you can use
 -- @ListIdentityPolicies@.
-giprqPolicyNames :: Lens' GetIdentityPolicies [Text]
-giprqPolicyNames = lens _giprqPolicyNames (\ s a -> s{_giprqPolicyNames = a});
+gipPolicyNames :: Lens' GetIdentityPolicies [Text]
+gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a});
 
 instance AWSRequest GetIdentityPolicies where
         type Sv GetIdentityPolicies = SES
@@ -120,9 +120,9 @@ instance ToQuery GetIdentityPolicies where
           = mconcat
               ["Action" =: ("GetIdentityPolicies" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _giprqIdentity,
+               "Identity" =: _gipIdentity,
                "PolicyNames" =:
-                 toQueryList "member" _giprqPolicyNames]
+                 toQueryList "member" _gipPolicyNames]
 
 -- | Represents a map of policy names to policies returned from a successful
 -- @GetIdentityPolicies@ request.

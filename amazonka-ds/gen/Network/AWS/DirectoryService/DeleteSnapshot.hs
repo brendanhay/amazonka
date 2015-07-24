@@ -27,7 +27,7 @@ module Network.AWS.DirectoryService.DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , dsrqSnapshotId
+    , dsSnapshotId
 
     -- * Response
     , DeleteSnapshotResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqSnapshotId'
+-- * 'dsSnapshotId'
 newtype DeleteSnapshot = DeleteSnapshot'
-    { _dsrqSnapshotId :: Text
+    { _dsSnapshotId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
 deleteSnapshot pSnapshotId_ =
     DeleteSnapshot'
-    { _dsrqSnapshotId = pSnapshotId_
+    { _dsSnapshotId = pSnapshotId_
     }
 
 -- | The identifier of the directory snapshot to be deleted.
-dsrqSnapshotId :: Lens' DeleteSnapshot Text
-dsrqSnapshotId = lens _dsrqSnapshotId (\ s a -> s{_dsrqSnapshotId = a});
+dsSnapshotId :: Lens' DeleteSnapshot Text
+dsSnapshotId = lens _dsSnapshotId (\ s a -> s{_dsSnapshotId = a});
 
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = DirectoryService
@@ -87,7 +87,7 @@ instance ToHeaders DeleteSnapshot where
 
 instance ToJSON DeleteSnapshot where
         toJSON DeleteSnapshot'{..}
-          = object ["SnapshotId" .= _dsrqSnapshotId]
+          = object ["SnapshotId" .= _dsSnapshotId]
 
 instance ToPath DeleteSnapshot where
         toPath = const "/"

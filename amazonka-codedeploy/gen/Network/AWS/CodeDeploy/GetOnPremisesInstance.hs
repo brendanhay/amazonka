@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.GetOnPremisesInstance
     -- ** Request constructor
     , getOnPremisesInstance
     -- ** Request lenses
-    , gopirqInstanceName
+    , gopiInstanceName
 
     -- * Response
     , GetOnPremisesInstanceResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gopirqInstanceName'
+-- * 'gopiInstanceName'
 newtype GetOnPremisesInstance = GetOnPremisesInstance'
-    { _gopirqInstanceName :: Text
+    { _gopiInstanceName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOnPremisesInstance' smart constructor.
 getOnPremisesInstance :: Text -> GetOnPremisesInstance
 getOnPremisesInstance pInstanceName_ =
     GetOnPremisesInstance'
-    { _gopirqInstanceName = pInstanceName_
+    { _gopiInstanceName = pInstanceName_
     }
 
 -- | The name of the on-premises instance to get information about
-gopirqInstanceName :: Lens' GetOnPremisesInstance Text
-gopirqInstanceName = lens _gopirqInstanceName (\ s a -> s{_gopirqInstanceName = a});
+gopiInstanceName :: Lens' GetOnPremisesInstance Text
+gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a});
 
 instance AWSRequest GetOnPremisesInstance where
         type Sv GetOnPremisesInstance = CodeDeploy
@@ -88,7 +88,7 @@ instance ToHeaders GetOnPremisesInstance where
 
 instance ToJSON GetOnPremisesInstance where
         toJSON GetOnPremisesInstance'{..}
-          = object ["instanceName" .= _gopirqInstanceName]
+          = object ["instanceName" .= _gopiInstanceName]
 
 instance ToPath GetOnPremisesInstance where
         toPath = const "/"

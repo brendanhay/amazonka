@@ -32,9 +32,9 @@ module Network.AWS.EC2.DescribeBundleTasks
     -- ** Request constructor
     , describeBundleTasks
     -- ** Request lenses
-    , dbtrqBundleIds
-    , dbtrqFilters
-    , dbtrqDryRun
+    , dbtBundleIds
+    , dbtFilters
+    , dbtDryRun
 
     -- * Response
     , DescribeBundleTasksResponse
@@ -54,31 +54,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbtrqBundleIds'
+-- * 'dbtBundleIds'
 --
--- * 'dbtrqFilters'
+-- * 'dbtFilters'
 --
--- * 'dbtrqDryRun'
+-- * 'dbtDryRun'
 data DescribeBundleTasks = DescribeBundleTasks'
-    { _dbtrqBundleIds :: !(Maybe [Text])
-    , _dbtrqFilters   :: !(Maybe [Filter])
-    , _dbtrqDryRun    :: !(Maybe Bool)
+    { _dbtBundleIds :: !(Maybe [Text])
+    , _dbtFilters   :: !(Maybe [Filter])
+    , _dbtDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBundleTasks' smart constructor.
 describeBundleTasks :: DescribeBundleTasks
 describeBundleTasks =
     DescribeBundleTasks'
-    { _dbtrqBundleIds = Nothing
-    , _dbtrqFilters = Nothing
-    , _dbtrqDryRun = Nothing
+    { _dbtBundleIds = Nothing
+    , _dbtFilters = Nothing
+    , _dbtDryRun = Nothing
     }
 
 -- | One or more bundle task IDs.
 --
 -- Default: Describes all your bundle tasks.
-dbtrqBundleIds :: Lens' DescribeBundleTasks [Text]
-dbtrqBundleIds = lens _dbtrqBundleIds (\ s a -> s{_dbtrqBundleIds = a}) . _Default;
+dbtBundleIds :: Lens' DescribeBundleTasks [Text]
+dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -105,15 +105,15 @@ dbtrqBundleIds = lens _dbtrqBundleIds (\ s a -> s{_dbtrqBundleIds = a}) . _Defau
 --
 -- -   @update-time@ - The time of the most recent update for the task.
 --
-dbtrqFilters :: Lens' DescribeBundleTasks [Filter]
-dbtrqFilters = lens _dbtrqFilters (\ s a -> s{_dbtrqFilters = a}) . _Default;
+dbtFilters :: Lens' DescribeBundleTasks [Filter]
+dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dbtrqDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
-dbtrqDryRun = lens _dbtrqDryRun (\ s a -> s{_dbtrqDryRun = a});
+dbtDryRun :: Lens' DescribeBundleTasks (Maybe Bool)
+dbtDryRun = lens _dbtDryRun (\ s a -> s{_dbtDryRun = a});
 
 instance AWSRequest DescribeBundleTasks where
         type Sv DescribeBundleTasks = EC2
@@ -139,9 +139,9 @@ instance ToQuery DescribeBundleTasks where
           = mconcat
               ["Action" =: ("DescribeBundleTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "BundleId" <$> _dbtrqBundleIds),
-               toQuery (toQueryList "Filter" <$> _dbtrqFilters),
-               "DryRun" =: _dbtrqDryRun]
+               toQuery (toQueryList "BundleId" <$> _dbtBundleIds),
+               toQuery (toQueryList "Filter" <$> _dbtFilters),
+               "DryRun" =: _dbtDryRun]
 
 -- | /See:/ 'describeBundleTasksResponse' smart constructor.
 --

@@ -28,8 +28,8 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     -- ** Request constructor
     , modifySnapshotCopyRetentionPeriod
     -- ** Request lenses
-    , mscrprqClusterIdentifier
-    , mscrprqRetentionPeriod
+    , mscrpClusterIdentifier
+    , mscrpRetentionPeriod
 
     -- * Response
     , ModifySnapshotCopyRetentionPeriodResponse
@@ -51,20 +51,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mscrprqClusterIdentifier'
+-- * 'mscrpClusterIdentifier'
 --
--- * 'mscrprqRetentionPeriod'
+-- * 'mscrpRetentionPeriod'
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
-    { _mscrprqClusterIdentifier :: !Text
-    , _mscrprqRetentionPeriod   :: !Int
+    { _mscrpClusterIdentifier :: !Text
+    , _mscrpRetentionPeriod   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySnapshotCopyRetentionPeriod' smart constructor.
 modifySnapshotCopyRetentionPeriod :: Text -> Int -> ModifySnapshotCopyRetentionPeriod
 modifySnapshotCopyRetentionPeriod pClusterIdentifier_ pRetentionPeriod_ =
     ModifySnapshotCopyRetentionPeriod'
-    { _mscrprqClusterIdentifier = pClusterIdentifier_
-    , _mscrprqRetentionPeriod = pRetentionPeriod_
+    { _mscrpClusterIdentifier = pClusterIdentifier_
+    , _mscrpRetentionPeriod = pRetentionPeriod_
     }
 
 -- | The unique identifier of the cluster for which you want to change the
@@ -73,8 +73,8 @@ modifySnapshotCopyRetentionPeriod pClusterIdentifier_ pRetentionPeriod_ =
 --
 -- Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
-mscrprqClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod Text
-mscrprqClusterIdentifier = lens _mscrprqClusterIdentifier (\ s a -> s{_mscrprqClusterIdentifier = a});
+mscrpClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod Text
+mscrpClusterIdentifier = lens _mscrpClusterIdentifier (\ s a -> s{_mscrpClusterIdentifier = a});
 
 -- | The number of days to retain automated snapshots in the destination
 -- region after they are copied from the source region.
@@ -85,8 +85,8 @@ mscrprqClusterIdentifier = lens _mscrprqClusterIdentifier (\ s a -> s{_mscrprqCl
 -- fall outside of the new retention period.
 --
 -- Constraints: Must be at least 1 and no more than 35.
-mscrprqRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod Int
-mscrprqRetentionPeriod = lens _mscrprqRetentionPeriod (\ s a -> s{_mscrprqRetentionPeriod = a});
+mscrpRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod Int
+mscrpRetentionPeriod = lens _mscrpRetentionPeriod (\ s a -> s{_mscrpRetentionPeriod = a});
 
 instance AWSRequest ModifySnapshotCopyRetentionPeriod
          where
@@ -116,8 +116,8 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
               ["Action" =:
                  ("ModifySnapshotCopyRetentionPeriod" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _mscrprqClusterIdentifier,
-               "RetentionPeriod" =: _mscrprqRetentionPeriod]
+               "ClusterIdentifier" =: _mscrpClusterIdentifier,
+               "RetentionPeriod" =: _mscrpRetentionPeriod]
 
 -- | /See:/ 'modifySnapshotCopyRetentionPeriodResponse' smart constructor.
 --

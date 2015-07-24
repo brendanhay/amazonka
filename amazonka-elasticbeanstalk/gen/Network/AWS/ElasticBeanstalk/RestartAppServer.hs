@@ -28,8 +28,8 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     -- ** Request constructor
     , restartAppServer
     -- ** Request lenses
-    , rasrqEnvironmentName
-    , rasrqEnvironmentId
+    , rasEnvironmentName
+    , rasEnvironmentId
 
     -- * Response
     , RestartAppServerResponse
@@ -48,20 +48,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rasrqEnvironmentName'
+-- * 'rasEnvironmentName'
 --
--- * 'rasrqEnvironmentId'
+-- * 'rasEnvironmentId'
 data RestartAppServer = RestartAppServer'
-    { _rasrqEnvironmentName :: !(Maybe Text)
-    , _rasrqEnvironmentId   :: !(Maybe Text)
+    { _rasEnvironmentName :: !(Maybe Text)
+    , _rasEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestartAppServer' smart constructor.
 restartAppServer :: RestartAppServer
 restartAppServer =
     RestartAppServer'
-    { _rasrqEnvironmentName = Nothing
-    , _rasrqEnvironmentId = Nothing
+    { _rasEnvironmentName = Nothing
+    , _rasEnvironmentId = Nothing
     }
 
 -- | The name of the environment to restart the server for.
@@ -69,16 +69,16 @@ restartAppServer =
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-rasrqEnvironmentName :: Lens' RestartAppServer (Maybe Text)
-rasrqEnvironmentName = lens _rasrqEnvironmentName (\ s a -> s{_rasrqEnvironmentName = a});
+rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
+rasEnvironmentName = lens _rasEnvironmentName (\ s a -> s{_rasEnvironmentName = a});
 
 -- | The ID of the environment to restart the server for.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-rasrqEnvironmentId :: Lens' RestartAppServer (Maybe Text)
-rasrqEnvironmentId = lens _rasrqEnvironmentId (\ s a -> s{_rasrqEnvironmentId = a});
+rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
+rasEnvironmentId = lens _rasEnvironmentId (\ s a -> s{_rasEnvironmentId = a});
 
 instance AWSRequest RestartAppServer where
         type Sv RestartAppServer = ElasticBeanstalk
@@ -97,8 +97,8 @@ instance ToQuery RestartAppServer where
           = mconcat
               ["Action" =: ("RestartAppServer" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _rasrqEnvironmentName,
-               "EnvironmentId" =: _rasrqEnvironmentId]
+               "EnvironmentName" =: _rasEnvironmentName,
+               "EnvironmentId" =: _rasEnvironmentId]
 
 -- | /See:/ 'restartAppServerResponse' smart constructor.
 data RestartAppServerResponse =

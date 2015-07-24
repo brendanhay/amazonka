@@ -37,7 +37,7 @@ module Network.AWS.SQS.PurgeQueue
     -- ** Request constructor
     , purgeQueue
     -- ** Request lenses
-    , pqrqQueueURL
+    , pqQueueURL
 
     -- * Response
     , PurgeQueueResponse
@@ -54,22 +54,22 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pqrqQueueURL'
+-- * 'pqQueueURL'
 newtype PurgeQueue = PurgeQueue'
-    { _pqrqQueueURL :: Text
+    { _pqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurgeQueue' smart constructor.
 purgeQueue :: Text -> PurgeQueue
 purgeQueue pQueueURL_ =
     PurgeQueue'
-    { _pqrqQueueURL = pQueueURL_
+    { _pqQueueURL = pQueueURL_
     }
 
 -- | The queue URL of the queue to delete the messages from when using the
 -- @PurgeQueue@ API.
-pqrqQueueURL :: Lens' PurgeQueue Text
-pqrqQueueURL = lens _pqrqQueueURL (\ s a -> s{_pqrqQueueURL = a});
+pqQueueURL :: Lens' PurgeQueue Text
+pqQueueURL = lens _pqQueueURL (\ s a -> s{_pqQueueURL = a});
 
 instance AWSRequest PurgeQueue where
         type Sv PurgeQueue = SQS
@@ -88,7 +88,7 @@ instance ToQuery PurgeQueue where
           = mconcat
               ["Action" =: ("PurgeQueue" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _pqrqQueueURL]
+               "QueueUrl" =: _pqQueueURL]
 
 -- | /See:/ 'purgeQueueResponse' smart constructor.
 data PurgeQueueResponse =

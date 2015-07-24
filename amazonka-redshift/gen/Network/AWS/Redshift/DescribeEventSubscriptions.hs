@@ -29,9 +29,9 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- ** Request constructor
     , describeEventSubscriptions
     -- ** Request lenses
-    , drqSubscriptionName
-    , drqMaxRecords
-    , drqMarker
+    , dSubscriptionName
+    , dMaxRecords
+    , dMarker
 
     -- * Response
     , DescribeEventSubscriptionsResponse
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqSubscriptionName'
+-- * 'dSubscriptionName'
 --
--- * 'drqMaxRecords'
+-- * 'dMaxRecords'
 --
--- * 'drqMarker'
+-- * 'dMarker'
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-    { _drqSubscriptionName :: !(Maybe Text)
-    , _drqMaxRecords       :: !(Maybe Int)
-    , _drqMarker           :: !(Maybe Text)
+    { _dSubscriptionName :: !(Maybe Text)
+    , _dMaxRecords       :: !(Maybe Int)
+    , _dMarker           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventSubscriptions' smart constructor.
 describeEventSubscriptions :: DescribeEventSubscriptions
 describeEventSubscriptions =
     DescribeEventSubscriptions'
-    { _drqSubscriptionName = Nothing
-    , _drqMaxRecords = Nothing
-    , _drqMarker = Nothing
+    { _dSubscriptionName = Nothing
+    , _dMaxRecords = Nothing
+    , _dMarker = Nothing
     }
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
-drqSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-drqSubscriptionName = lens _drqSubscriptionName (\ s a -> s{_drqSubscriptionName = a});
+dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -89,8 +89,8 @@ drqSubscriptionName = lens _drqSubscriptionName (\ s a -> s{_drqSubscriptionName
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-drqMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-drqMaxRecords = lens _drqMaxRecords (\ s a -> s{_drqMaxRecords = a});
+dMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
+dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeEventSubscriptions
@@ -98,15 +98,15 @@ drqMaxRecords = lens _drqMaxRecords (\ s a -> s{_drqMaxRecords = a});
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-drqMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
-drqMarker = lens _drqMarker (\ s a -> s{_drqMarker = a});
+dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
 instance AWSPager DescribeEventSubscriptions where
         page rq rs
           | stop (rs ^. desrsMarker) = Nothing
           | stop (rs ^. desrsEventSubscriptionsList) = Nothing
           | otherwise =
-            Just $ rq & drqMarker .~ rs ^. desrsMarker
+            Just $ rq & dMarker .~ rs ^. desrsMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = Redshift
@@ -135,9 +135,8 @@ instance ToQuery DescribeEventSubscriptions where
               ["Action" =:
                  ("DescribeEventSubscriptions" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "SubscriptionName" =: _drqSubscriptionName,
-               "MaxRecords" =: _drqMaxRecords,
-               "Marker" =: _drqMarker]
+               "SubscriptionName" =: _dSubscriptionName,
+               "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
 
 -- |
 --

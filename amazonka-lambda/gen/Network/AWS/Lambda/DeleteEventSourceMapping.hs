@@ -31,7 +31,7 @@ module Network.AWS.Lambda.DeleteEventSourceMapping
     -- ** Request constructor
     , deleteEventSourceMapping
     -- ** Request lenses
-    , desmrqUUId
+    , desmUUId
 
     -- * Response
     , EventSourceMappingConfiguration
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desmrqUUId'
+-- * 'desmUUId'
 newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
-    { _desmrqUUId :: Text
+    { _desmUUId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEventSourceMapping' smart constructor.
 deleteEventSourceMapping :: Text -> DeleteEventSourceMapping
 deleteEventSourceMapping pUUId_ =
     DeleteEventSourceMapping'
-    { _desmrqUUId = pUUId_
+    { _desmUUId = pUUId_
     }
 
 -- | The event source mapping ID.
-desmrqUUId :: Lens' DeleteEventSourceMapping Text
-desmrqUUId = lens _desmrqUUId (\ s a -> s{_desmrqUUId = a});
+desmUUId :: Lens' DeleteEventSourceMapping Text
+desmUUId = lens _desmUUId (\ s a -> s{_desmUUId = a});
 
 instance AWSRequest DeleteEventSourceMapping where
         type Sv DeleteEventSourceMapping = Lambda
@@ -87,7 +87,7 @@ instance ToPath DeleteEventSourceMapping where
         toPath DeleteEventSourceMapping'{..}
           = mconcat
               ["/2015-03-31/event-source-mappings/",
-               toText _desmrqUUId]
+               toText _desmUUId]
 
 instance ToQuery DeleteEventSourceMapping where
         toQuery = const mempty

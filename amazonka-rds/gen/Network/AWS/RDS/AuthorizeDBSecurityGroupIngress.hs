@@ -41,11 +41,11 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     -- ** Request constructor
     , authorizeDBSecurityGroupIngress
     -- ** Request lenses
-    , adsgirqEC2SecurityGroupOwnerId
-    , adsgirqEC2SecurityGroupName
-    , adsgirqCIdRIP
-    , adsgirqEC2SecurityGroupId
-    , adsgirqDBSecurityGroupName
+    , adsgiEC2SecurityGroupOwnerId
+    , adsgiEC2SecurityGroupName
+    , adsgiCIdRIP
+    , adsgiEC2SecurityGroupId
+    , adsgiDBSecurityGroupName
 
     -- * Response
     , AuthorizeDBSecurityGroupIngressResponse
@@ -67,32 +67,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'adsgirqEC2SecurityGroupOwnerId'
+-- * 'adsgiEC2SecurityGroupOwnerId'
 --
--- * 'adsgirqEC2SecurityGroupName'
+-- * 'adsgiEC2SecurityGroupName'
 --
--- * 'adsgirqCIdRIP'
+-- * 'adsgiCIdRIP'
 --
--- * 'adsgirqEC2SecurityGroupId'
+-- * 'adsgiEC2SecurityGroupId'
 --
--- * 'adsgirqDBSecurityGroupName'
+-- * 'adsgiDBSecurityGroupName'
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
-    { _adsgirqEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _adsgirqEC2SecurityGroupName    :: !(Maybe Text)
-    , _adsgirqCIdRIP                  :: !(Maybe Text)
-    , _adsgirqEC2SecurityGroupId      :: !(Maybe Text)
-    , _adsgirqDBSecurityGroupName     :: !Text
+    { _adsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _adsgiEC2SecurityGroupName    :: !(Maybe Text)
+    , _adsgiCIdRIP                  :: !(Maybe Text)
+    , _adsgiEC2SecurityGroupId      :: !(Maybe Text)
+    , _adsgiDBSecurityGroupName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeDBSecurityGroupIngress' smart constructor.
 authorizeDBSecurityGroupIngress :: Text -> AuthorizeDBSecurityGroupIngress
 authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
     AuthorizeDBSecurityGroupIngress'
-    { _adsgirqEC2SecurityGroupOwnerId = Nothing
-    , _adsgirqEC2SecurityGroupName = Nothing
-    , _adsgirqCIdRIP = Nothing
-    , _adsgirqEC2SecurityGroupId = Nothing
-    , _adsgirqDBSecurityGroupName = pDBSecurityGroupName_
+    { _adsgiEC2SecurityGroupOwnerId = Nothing
+    , _adsgiEC2SecurityGroupName = Nothing
+    , _adsgiCIdRIP = Nothing
+    , _adsgiEC2SecurityGroupId = Nothing
+    , _adsgiDBSecurityGroupName = pDBSecurityGroupName_
     }
 
 -- | AWS Account Number of the owner of the EC2 security group specified in
@@ -100,30 +100,30 @@ authorizeDBSecurityGroupIngress pDBSecurityGroupName_ =
 -- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
 -- be provided. Otherwise, EC2SecurityGroupOwnerId and either
 -- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-adsgirqEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgirqEC2SecurityGroupOwnerId = lens _adsgirqEC2SecurityGroupOwnerId (\ s a -> s{_adsgirqEC2SecurityGroupOwnerId = a});
+adsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiEC2SecurityGroupOwnerId = lens _adsgiEC2SecurityGroupOwnerId (\ s a -> s{_adsgiEC2SecurityGroupOwnerId = a});
 
 -- | Name of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
-adsgirqEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgirqEC2SecurityGroupName = lens _adsgirqEC2SecurityGroupName (\ s a -> s{_adsgirqEC2SecurityGroupName = a});
+adsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiEC2SecurityGroupName = lens _adsgiEC2SecurityGroupName (\ s a -> s{_adsgiEC2SecurityGroupName = a});
 
 -- | The IP range to authorize.
-adsgirqCIdRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgirqCIdRIP = lens _adsgirqCIdRIP (\ s a -> s{_adsgirqCIdRIP = a});
+adsgiCIdRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiCIdRIP = lens _adsgiCIdRIP (\ s a -> s{_adsgiCIdRIP = a});
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
-adsgirqEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgirqEC2SecurityGroupId = lens _adsgirqEC2SecurityGroupId (\ s a -> s{_adsgirqEC2SecurityGroupId = a});
+adsgiEC2SecurityGroupId :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiEC2SecurityGroupId = lens _adsgiEC2SecurityGroupId (\ s a -> s{_adsgiEC2SecurityGroupId = a});
 
 -- | The name of the DB security group to add authorization to.
-adsgirqDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress Text
-adsgirqDBSecurityGroupName = lens _adsgirqDBSecurityGroupName (\ s a -> s{_adsgirqDBSecurityGroupName = a});
+adsgiDBSecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress Text
+adsgiDBSecurityGroupName = lens _adsgiDBSecurityGroupName (\ s a -> s{_adsgiDBSecurityGroupName = a});
 
 instance AWSRequest AuthorizeDBSecurityGroupIngress
          where
@@ -153,12 +153,11 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
                  ("AuthorizeDBSecurityGroupIngress" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "EC2SecurityGroupOwnerId" =:
-                 _adsgirqEC2SecurityGroupOwnerId,
-               "EC2SecurityGroupName" =:
-                 _adsgirqEC2SecurityGroupName,
-               "CIDRIP" =: _adsgirqCIdRIP,
-               "EC2SecurityGroupId" =: _adsgirqEC2SecurityGroupId,
-               "DBSecurityGroupName" =: _adsgirqDBSecurityGroupName]
+                 _adsgiEC2SecurityGroupOwnerId,
+               "EC2SecurityGroupName" =: _adsgiEC2SecurityGroupName,
+               "CIDRIP" =: _adsgiCIdRIP,
+               "EC2SecurityGroupId" =: _adsgiEC2SecurityGroupId,
+               "DBSecurityGroupName" =: _adsgiDBSecurityGroupName]
 
 -- | /See:/ 'authorizeDBSecurityGroupIngressResponse' smart constructor.
 --

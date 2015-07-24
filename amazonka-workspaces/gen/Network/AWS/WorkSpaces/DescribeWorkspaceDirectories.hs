@@ -34,8 +34,8 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     -- ** Request constructor
     , describeWorkspaceDirectories
     -- ** Request lenses
-    , dwdrqNextToken
-    , dwdrqDirectoryIds
+    , dwdNextToken
+    , dwdDirectoryIds
 
     -- * Response
     , DescribeWorkspaceDirectoriesResponse
@@ -58,31 +58,31 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwdrqNextToken'
+-- * 'dwdNextToken'
 --
--- * 'dwdrqDirectoryIds'
+-- * 'dwdDirectoryIds'
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
-    { _dwdrqNextToken    :: !(Maybe Text)
-    , _dwdrqDirectoryIds :: !(Maybe (List1 Text))
+    { _dwdNextToken    :: !(Maybe Text)
+    , _dwdDirectoryIds :: !(Maybe (List1 Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkspaceDirectories' smart constructor.
 describeWorkspaceDirectories :: DescribeWorkspaceDirectories
 describeWorkspaceDirectories =
     DescribeWorkspaceDirectories'
-    { _dwdrqNextToken = Nothing
-    , _dwdrqDirectoryIds = Nothing
+    { _dwdNextToken = Nothing
+    , _dwdDirectoryIds = Nothing
     }
 
 -- | The @NextToken@ value from a previous call to this operation. Pass null
 -- if this is the first call.
-dwdrqNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
-dwdrqNextToken = lens _dwdrqNextToken (\ s a -> s{_dwdrqNextToken = a});
+dwdNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
+dwdNextToken = lens _dwdNextToken (\ s a -> s{_dwdNextToken = a});
 
 -- | An array of strings that contains the directory identifiers to retrieve
 -- information for. If this member is null, all directories are retrieved.
-dwdrqDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
-dwdrqDirectoryIds = lens _dwdrqDirectoryIds (\ s a -> s{_dwdrqDirectoryIds = a}) . mapping _List1;
+dwdDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
+dwdDirectoryIds = lens _dwdDirectoryIds (\ s a -> s{_dwdDirectoryIds = a}) . mapping _List1;
 
 instance AWSRequest DescribeWorkspaceDirectories
          where
@@ -111,8 +111,8 @@ instance ToHeaders DescribeWorkspaceDirectories where
 instance ToJSON DescribeWorkspaceDirectories where
         toJSON DescribeWorkspaceDirectories'{..}
           = object
-              ["NextToken" .= _dwdrqNextToken,
-               "DirectoryIds" .= _dwdrqDirectoryIds]
+              ["NextToken" .= _dwdNextToken,
+               "DirectoryIds" .= _dwdDirectoryIds]
 
 instance ToPath DescribeWorkspaceDirectories where
         toPath = const "/"

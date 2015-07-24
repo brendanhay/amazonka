@@ -29,7 +29,7 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     -- ** Request constructor
     , getIdentityPoolRoles
     -- ** Request lenses
-    , giprrqIdentityPoolId
+    , giprIdentityPoolId
 
     -- * Response
     , GetIdentityPoolRolesResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giprrqIdentityPoolId'
+-- * 'giprIdentityPoolId'
 newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
-    { _giprrqIdentityPoolId :: Text
+    { _giprIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolRoles' smart constructor.
 getIdentityPoolRoles :: Text -> GetIdentityPoolRoles
 getIdentityPoolRoles pIdentityPoolId_ =
     GetIdentityPoolRoles'
-    { _giprrqIdentityPoolId = pIdentityPoolId_
+    { _giprIdentityPoolId = pIdentityPoolId_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-giprrqIdentityPoolId :: Lens' GetIdentityPoolRoles Text
-giprrqIdentityPoolId = lens _giprrqIdentityPoolId (\ s a -> s{_giprrqIdentityPoolId = a});
+giprIdentityPoolId :: Lens' GetIdentityPoolRoles Text
+giprIdentityPoolId = lens _giprIdentityPoolId (\ s a -> s{_giprIdentityPoolId = a});
 
 instance AWSRequest GetIdentityPoolRoles where
         type Sv GetIdentityPoolRoles = CognitoIdentity
@@ -93,7 +93,7 @@ instance ToHeaders GetIdentityPoolRoles where
 
 instance ToJSON GetIdentityPoolRoles where
         toJSON GetIdentityPoolRoles'{..}
-          = object ["IdentityPoolId" .= _giprrqIdentityPoolId]
+          = object ["IdentityPoolId" .= _giprIdentityPoolId]
 
 instance ToPath GetIdentityPoolRoles where
         toPath = const "/"

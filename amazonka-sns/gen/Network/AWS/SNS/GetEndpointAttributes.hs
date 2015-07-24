@@ -30,7 +30,7 @@ module Network.AWS.SNS.GetEndpointAttributes
     -- ** Request constructor
     , getEndpointAttributes
     -- ** Request lenses
-    , gearqEndpointARN
+    , geaEndpointARN
 
     -- * Response
     , GetEndpointAttributesResponse
@@ -52,21 +52,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gearqEndpointARN'
+-- * 'geaEndpointARN'
 newtype GetEndpointAttributes = GetEndpointAttributes'
-    { _gearqEndpointARN :: Text
+    { _geaEndpointARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEndpointAttributes' smart constructor.
 getEndpointAttributes :: Text -> GetEndpointAttributes
 getEndpointAttributes pEndpointARN_ =
     GetEndpointAttributes'
-    { _gearqEndpointARN = pEndpointARN_
+    { _geaEndpointARN = pEndpointARN_
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
-gearqEndpointARN :: Lens' GetEndpointAttributes Text
-gearqEndpointARN = lens _gearqEndpointARN (\ s a -> s{_gearqEndpointARN = a});
+geaEndpointARN :: Lens' GetEndpointAttributes Text
+geaEndpointARN = lens _geaEndpointARN (\ s a -> s{_geaEndpointARN = a});
 
 instance AWSRequest GetEndpointAttributes where
         type Sv GetEndpointAttributes = SNS
@@ -92,7 +92,7 @@ instance ToQuery GetEndpointAttributes where
           = mconcat
               ["Action" =: ("GetEndpointAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "EndpointArn" =: _gearqEndpointARN]
+               "EndpointArn" =: _geaEndpointARN]
 
 -- | Response from GetEndpointAttributes of the EndpointArn.
 --

@@ -47,12 +47,12 @@ module Network.AWS.SWF.ListWorkflowTypes
     -- ** Request constructor
     , listWorkflowTypes
     -- ** Request lenses
-    , lwtrqNextPageToken
-    , lwtrqReverseOrder
-    , lwtrqName
-    , lwtrqMaximumPageSize
-    , lwtrqDomain
-    , lwtrqRegistrationStatus
+    , lwtNextPageToken
+    , lwtReverseOrder
+    , lwtName
+    , lwtMaximumPageSize
+    , lwtDomain
+    , lwtRegistrationStatus
 
     -- * Response
     , ListWorkflowTypesResponse
@@ -74,36 +74,36 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lwtrqNextPageToken'
+-- * 'lwtNextPageToken'
 --
--- * 'lwtrqReverseOrder'
+-- * 'lwtReverseOrder'
 --
--- * 'lwtrqName'
+-- * 'lwtName'
 --
--- * 'lwtrqMaximumPageSize'
+-- * 'lwtMaximumPageSize'
 --
--- * 'lwtrqDomain'
+-- * 'lwtDomain'
 --
--- * 'lwtrqRegistrationStatus'
+-- * 'lwtRegistrationStatus'
 data ListWorkflowTypes = ListWorkflowTypes'
-    { _lwtrqNextPageToken      :: !(Maybe Text)
-    , _lwtrqReverseOrder       :: !(Maybe Bool)
-    , _lwtrqName               :: !(Maybe Text)
-    , _lwtrqMaximumPageSize    :: !(Maybe Nat)
-    , _lwtrqDomain             :: !Text
-    , _lwtrqRegistrationStatus :: !RegistrationStatus
+    { _lwtNextPageToken      :: !(Maybe Text)
+    , _lwtReverseOrder       :: !(Maybe Bool)
+    , _lwtName               :: !(Maybe Text)
+    , _lwtMaximumPageSize    :: !(Maybe Nat)
+    , _lwtDomain             :: !Text
+    , _lwtRegistrationStatus :: !RegistrationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListWorkflowTypes' smart constructor.
 listWorkflowTypes :: Text -> RegistrationStatus -> ListWorkflowTypes
 listWorkflowTypes pDomain_ pRegistrationStatus_ =
     ListWorkflowTypes'
-    { _lwtrqNextPageToken = Nothing
-    , _lwtrqReverseOrder = Nothing
-    , _lwtrqName = Nothing
-    , _lwtrqMaximumPageSize = Nothing
-    , _lwtrqDomain = pDomain_
-    , _lwtrqRegistrationStatus = pRegistrationStatus_
+    { _lwtNextPageToken = Nothing
+    , _lwtReverseOrder = Nothing
+    , _lwtName = Nothing
+    , _lwtMaximumPageSize = Nothing
+    , _lwtDomain = pDomain_
+    , _lwtRegistrationStatus = pRegistrationStatus_
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -113,18 +113,18 @@ listWorkflowTypes pDomain_ pRegistrationStatus_ =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-lwtrqNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
-lwtrqNextPageToken = lens _lwtrqNextPageToken (\ s a -> s{_lwtrqNextPageToken = a});
+lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
+lwtNextPageToken = lens _lwtNextPageToken (\ s a -> s{_lwtNextPageToken = a});
 
 -- | When set to @true@, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the @name@ of
 -- the workflow types.
-lwtrqReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
-lwtrqReverseOrder = lens _lwtrqReverseOrder (\ s a -> s{_lwtrqReverseOrder = a});
+lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
+lwtReverseOrder = lens _lwtReverseOrder (\ s a -> s{_lwtReverseOrder = a});
 
 -- | If specified, lists the workflow type with this name.
-lwtrqName :: Lens' ListWorkflowTypes (Maybe Text)
-lwtrqName = lens _lwtrqName (\ s a -> s{_lwtrqName = a});
+lwtName :: Lens' ListWorkflowTypes (Maybe Text)
+lwtName = lens _lwtName (\ s a -> s{_lwtName = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -133,16 +133,16 @@ lwtrqName = lens _lwtrqName (\ s a -> s{_lwtrqName = a});
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
-lwtrqMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
-lwtrqMaximumPageSize = lens _lwtrqMaximumPageSize (\ s a -> s{_lwtrqMaximumPageSize = a}) . mapping _Nat;
+lwtMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
+lwtMaximumPageSize = lens _lwtMaximumPageSize (\ s a -> s{_lwtMaximumPageSize = a}) . mapping _Nat;
 
 -- | The name of the domain in which the workflow types have been registered.
-lwtrqDomain :: Lens' ListWorkflowTypes Text
-lwtrqDomain = lens _lwtrqDomain (\ s a -> s{_lwtrqDomain = a});
+lwtDomain :: Lens' ListWorkflowTypes Text
+lwtDomain = lens _lwtDomain (\ s a -> s{_lwtDomain = a});
 
 -- | Specifies the registration status of the workflow types to list.
-lwtrqRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
-lwtrqRegistrationStatus = lens _lwtrqRegistrationStatus (\ s a -> s{_lwtrqRegistrationStatus = a});
+lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
+lwtRegistrationStatus = lens _lwtRegistrationStatus (\ s a -> s{_lwtRegistrationStatus = a});
 
 instance AWSPager ListWorkflowTypes where
         page rq rs
@@ -150,7 +150,7 @@ instance AWSPager ListWorkflowTypes where
           | stop (rs ^. lwtrsTypeInfos) = Nothing
           | otherwise =
             Just $ rq &
-              lwtrqNextPageToken .~ rs ^. lwtrsNextPageToken
+              lwtNextPageToken .~ rs ^. lwtrsNextPageToken
 
 instance AWSRequest ListWorkflowTypes where
         type Sv ListWorkflowTypes = SWF
@@ -176,12 +176,12 @@ instance ToHeaders ListWorkflowTypes where
 instance ToJSON ListWorkflowTypes where
         toJSON ListWorkflowTypes'{..}
           = object
-              ["nextPageToken" .= _lwtrqNextPageToken,
-               "reverseOrder" .= _lwtrqReverseOrder,
-               "name" .= _lwtrqName,
-               "maximumPageSize" .= _lwtrqMaximumPageSize,
-               "domain" .= _lwtrqDomain,
-               "registrationStatus" .= _lwtrqRegistrationStatus]
+              ["nextPageToken" .= _lwtNextPageToken,
+               "reverseOrder" .= _lwtReverseOrder,
+               "name" .= _lwtName,
+               "maximumPageSize" .= _lwtMaximumPageSize,
+               "domain" .= _lwtDomain,
+               "registrationStatus" .= _lwtRegistrationStatus]
 
 instance ToPath ListWorkflowTypes where
         toPath = const "/"

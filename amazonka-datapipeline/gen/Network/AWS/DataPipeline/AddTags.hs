@@ -27,8 +27,8 @@ module Network.AWS.DataPipeline.AddTags
     -- ** Request constructor
     , addTags
     -- ** Request lenses
-    , atrqPipelineId
-    , atrqTags
+    , atPipelineId
+    , atTags
 
     -- * Response
     , AddTagsResponse
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrqPipelineId'
+-- * 'atPipelineId'
 --
--- * 'atrqTags'
+-- * 'atTags'
 data AddTags = AddTags'
-    { _atrqPipelineId :: !Text
-    , _atrqTags       :: ![Tag]
+    { _atPipelineId :: !Text
+    , _atTags       :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
 addTags pPipelineId_ =
     AddTags'
-    { _atrqPipelineId = pPipelineId_
-    , _atrqTags = mempty
+    { _atPipelineId = pPipelineId_
+    , _atTags = mempty
     }
 
 -- | The ID of the pipeline.
-atrqPipelineId :: Lens' AddTags Text
-atrqPipelineId = lens _atrqPipelineId (\ s a -> s{_atrqPipelineId = a});
+atPipelineId :: Lens' AddTags Text
+atPipelineId = lens _atPipelineId (\ s a -> s{_atPipelineId = a});
 
 -- | The tags to add, as key\/value pairs.
-atrqTags :: Lens' AddTags [Tag]
-atrqTags = lens _atrqTags (\ s a -> s{_atrqTags = a});
+atTags :: Lens' AddTags [Tag]
+atTags = lens _atTags (\ s a -> s{_atTags = a});
 
 instance AWSRequest AddTags where
         type Sv AddTags = DataPipeline
@@ -93,8 +93,7 @@ instance ToHeaders AddTags where
 instance ToJSON AddTags where
         toJSON AddTags'{..}
           = object
-              ["pipelineId" .= _atrqPipelineId,
-               "tags" .= _atrqTags]
+              ["pipelineId" .= _atPipelineId, "tags" .= _atTags]
 
 instance ToPath AddTags where
         toPath = const "/"

@@ -30,7 +30,7 @@ module Network.AWS.CognitoIdentity.DeleteIdentityPool
     -- ** Request constructor
     , deleteIdentityPool
     -- ** Request lenses
-    , drqIdentityPoolId
+    , dIdentityPoolId
 
     -- * Response
     , DeleteIdentityPoolResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqIdentityPoolId'
+-- * 'dIdentityPoolId'
 newtype DeleteIdentityPool = DeleteIdentityPool'
-    { _drqIdentityPoolId :: Text
+    { _dIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityPool' smart constructor.
 deleteIdentityPool :: Text -> DeleteIdentityPool
 deleteIdentityPool pIdentityPoolId_ =
     DeleteIdentityPool'
-    { _drqIdentityPoolId = pIdentityPoolId_
+    { _dIdentityPoolId = pIdentityPoolId_
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-drqIdentityPoolId :: Lens' DeleteIdentityPool Text
-drqIdentityPoolId = lens _drqIdentityPoolId (\ s a -> s{_drqIdentityPoolId = a});
+dIdentityPoolId :: Lens' DeleteIdentityPool Text
+dIdentityPoolId = lens _dIdentityPoolId (\ s a -> s{_dIdentityPoolId = a});
 
 instance AWSRequest DeleteIdentityPool where
         type Sv DeleteIdentityPool = CognitoIdentity
@@ -84,7 +84,7 @@ instance ToHeaders DeleteIdentityPool where
 
 instance ToJSON DeleteIdentityPool where
         toJSON DeleteIdentityPool'{..}
-          = object ["IdentityPoolId" .= _drqIdentityPoolId]
+          = object ["IdentityPoolId" .= _dIdentityPoolId]
 
 instance ToPath DeleteIdentityPool where
         toPath = const "/"

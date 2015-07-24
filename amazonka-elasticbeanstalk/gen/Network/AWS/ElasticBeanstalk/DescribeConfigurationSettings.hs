@@ -39,9 +39,9 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- ** Request constructor
     , describeConfigurationSettings
     -- ** Request lenses
-    , dcsrqTemplateName
-    , dcsrqEnvironmentName
-    , dcsrqApplicationName
+    , dcsTemplateName
+    , dcsEnvironmentName
+    , dcsApplicationName
 
     -- * Response
     , DescribeConfigurationSettingsResponse
@@ -64,24 +64,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrqTemplateName'
+-- * 'dcsTemplateName'
 --
--- * 'dcsrqEnvironmentName'
+-- * 'dcsEnvironmentName'
 --
--- * 'dcsrqApplicationName'
+-- * 'dcsApplicationName'
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-    { _dcsrqTemplateName    :: !(Maybe Text)
-    , _dcsrqEnvironmentName :: !(Maybe Text)
-    , _dcsrqApplicationName :: !Text
+    { _dcsTemplateName    :: !(Maybe Text)
+    , _dcsEnvironmentName :: !(Maybe Text)
+    , _dcsApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationSettings' smart constructor.
 describeConfigurationSettings :: Text -> DescribeConfigurationSettings
 describeConfigurationSettings pApplicationName_ =
     DescribeConfigurationSettings'
-    { _dcsrqTemplateName = Nothing
-    , _dcsrqEnvironmentName = Nothing
-    , _dcsrqApplicationName = pApplicationName_
+    { _dcsTemplateName = Nothing
+    , _dcsEnvironmentName = Nothing
+    , _dcsApplicationName = pApplicationName_
     }
 
 -- | The name of the configuration template to describe.
@@ -91,8 +91,8 @@ describeConfigurationSettings pApplicationName_ =
 -- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
 -- specify either, AWS Elastic Beanstalk returns a
 -- @MissingRequiredParameter@ error.
-dcsrqTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsrqTemplateName = lens _dcsrqTemplateName (\ s a -> s{_dcsrqTemplateName = a});
+dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
+dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
 
 -- | The name of the environment to describe.
 --
@@ -100,12 +100,12 @@ dcsrqTemplateName = lens _dcsrqTemplateName (\ s a -> s{_dcsrqTemplateName = a})
 -- If you specify both, AWS Elastic Beanstalk returns an
 -- @InvalidParameterCombination@ error. If you do not specify either, AWS
 -- Elastic Beanstalk returns @MissingRequiredParameter@ error.
-dcsrqEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsrqEnvironmentName = lens _dcsrqEnvironmentName (\ s a -> s{_dcsrqEnvironmentName = a});
+dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
+dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = a});
 
 -- | The application for the environment or configuration template.
-dcsrqApplicationName :: Lens' DescribeConfigurationSettings Text
-dcsrqApplicationName = lens _dcsrqApplicationName (\ s a -> s{_dcsrqApplicationName = a});
+dcsApplicationName :: Lens' DescribeConfigurationSettings Text
+dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = a});
 
 instance AWSRequest DescribeConfigurationSettings
          where
@@ -136,9 +136,9 @@ instance ToQuery DescribeConfigurationSettings where
               ["Action" =:
                  ("DescribeConfigurationSettings" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _dcsrqTemplateName,
-               "EnvironmentName" =: _dcsrqEnvironmentName,
-               "ApplicationName" =: _dcsrqApplicationName]
+               "TemplateName" =: _dcsTemplateName,
+               "EnvironmentName" =: _dcsEnvironmentName,
+               "ApplicationName" =: _dcsApplicationName]
 
 -- | The results from a request to change the configuration settings of an
 -- environment.

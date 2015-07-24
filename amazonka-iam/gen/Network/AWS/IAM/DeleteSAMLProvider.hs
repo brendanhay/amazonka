@@ -34,7 +34,7 @@ module Network.AWS.IAM.DeleteSAMLProvider
     -- ** Request constructor
     , deleteSAMLProvider
     -- ** Request lenses
-    , dsamlprqSAMLProviderARN
+    , dsamlpSAMLProviderARN
 
     -- * Response
     , DeleteSAMLProviderResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsamlprqSAMLProviderARN'
+-- * 'dsamlpSAMLProviderARN'
 newtype DeleteSAMLProvider = DeleteSAMLProvider'
-    { _dsamlprqSAMLProviderARN :: Text
+    { _dsamlpSAMLProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSAMLProvider' smart constructor.
 deleteSAMLProvider :: Text -> DeleteSAMLProvider
 deleteSAMLProvider pSAMLProviderARN_ =
     DeleteSAMLProvider'
-    { _dsamlprqSAMLProviderARN = pSAMLProviderARN_
+    { _dsamlpSAMLProviderARN = pSAMLProviderARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
-dsamlprqSAMLProviderARN :: Lens' DeleteSAMLProvider Text
-dsamlprqSAMLProviderARN = lens _dsamlprqSAMLProviderARN (\ s a -> s{_dsamlprqSAMLProviderARN = a});
+dsamlpSAMLProviderARN :: Lens' DeleteSAMLProvider Text
+dsamlpSAMLProviderARN = lens _dsamlpSAMLProviderARN (\ s a -> s{_dsamlpSAMLProviderARN = a});
 
 instance AWSRequest DeleteSAMLProvider where
         type Sv DeleteSAMLProvider = IAM
@@ -85,7 +85,7 @@ instance ToQuery DeleteSAMLProvider where
           = mconcat
               ["Action" =: ("DeleteSAMLProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "SAMLProviderArn" =: _dsamlprqSAMLProviderARN]
+               "SAMLProviderArn" =: _dsamlpSAMLProviderARN]
 
 -- | /See:/ 'deleteSAMLProviderResponse' smart constructor.
 data DeleteSAMLProviderResponse =

@@ -30,7 +30,7 @@ module Network.AWS.IAM.DeleteAccountAlias
     -- ** Request constructor
     , deleteAccountAlias
     -- ** Request lenses
-    , daarqAccountAlias
+    , daaAccountAlias
 
     -- * Response
     , DeleteAccountAliasResponse
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daarqAccountAlias'
+-- * 'daaAccountAlias'
 newtype DeleteAccountAlias = DeleteAccountAlias'
-    { _daarqAccountAlias :: Text
+    { _daaAccountAlias :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccountAlias' smart constructor.
 deleteAccountAlias :: Text -> DeleteAccountAlias
 deleteAccountAlias pAccountAlias_ =
     DeleteAccountAlias'
-    { _daarqAccountAlias = pAccountAlias_
+    { _daaAccountAlias = pAccountAlias_
     }
 
 -- | The name of the account alias to delete.
-daarqAccountAlias :: Lens' DeleteAccountAlias Text
-daarqAccountAlias = lens _daarqAccountAlias (\ s a -> s{_daarqAccountAlias = a});
+daaAccountAlias :: Lens' DeleteAccountAlias Text
+daaAccountAlias = lens _daaAccountAlias (\ s a -> s{_daaAccountAlias = a});
 
 instance AWSRequest DeleteAccountAlias where
         type Sv DeleteAccountAlias = IAM
@@ -81,7 +81,7 @@ instance ToQuery DeleteAccountAlias where
           = mconcat
               ["Action" =: ("DeleteAccountAlias" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "AccountAlias" =: _daarqAccountAlias]
+               "AccountAlias" =: _daaAccountAlias]
 
 -- | /See:/ 'deleteAccountAliasResponse' smart constructor.
 data DeleteAccountAliasResponse =

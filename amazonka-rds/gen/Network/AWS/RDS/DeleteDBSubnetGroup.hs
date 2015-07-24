@@ -30,7 +30,7 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
     -- ** Request constructor
     , deleteDBSubnetGroup
     -- ** Request lenses
-    , ddbsgrqDBSubnetGroupName
+    , ddbsgDBSubnetGroupName
 
     -- * Response
     , DeleteDBSubnetGroupResponse
@@ -49,16 +49,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbsgrqDBSubnetGroupName'
+-- * 'ddbsgDBSubnetGroupName'
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
-    { _ddbsgrqDBSubnetGroupName :: Text
+    { _ddbsgDBSubnetGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSubnetGroup' smart constructor.
 deleteDBSubnetGroup :: Text -> DeleteDBSubnetGroup
 deleteDBSubnetGroup pDBSubnetGroupName_ =
     DeleteDBSubnetGroup'
-    { _ddbsgrqDBSubnetGroupName = pDBSubnetGroupName_
+    { _ddbsgDBSubnetGroupName = pDBSubnetGroupName_
     }
 
 -- | The name of the database subnet group to delete.
@@ -70,8 +70,8 @@ deleteDBSubnetGroup pDBSubnetGroupName_ =
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddbsgrqDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
-ddbsgrqDBSubnetGroupName = lens _ddbsgrqDBSubnetGroupName (\ s a -> s{_ddbsgrqDBSubnetGroupName = a});
+ddbsgDBSubnetGroupName :: Lens' DeleteDBSubnetGroup Text
+ddbsgDBSubnetGroupName = lens _ddbsgDBSubnetGroupName (\ s a -> s{_ddbsgDBSubnetGroupName = a});
 
 instance AWSRequest DeleteDBSubnetGroup where
         type Sv DeleteDBSubnetGroup = RDS
@@ -91,7 +91,7 @@ instance ToQuery DeleteDBSubnetGroup where
           = mconcat
               ["Action" =: ("DeleteDBSubnetGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBSubnetGroupName" =: _ddbsgrqDBSubnetGroupName]
+               "DBSubnetGroupName" =: _ddbsgDBSubnetGroupName]
 
 -- | /See:/ 'deleteDBSubnetGroupResponse' smart constructor.
 data DeleteDBSubnetGroupResponse =

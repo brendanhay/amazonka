@@ -27,7 +27,7 @@ module Network.AWS.S3.GetBucketReplication
     -- ** Request constructor
     , getBucketReplication
     -- ** Request lenses
-    , gbrrqBucket
+    , gbrBucket
 
     -- * Response
     , GetBucketReplicationResponse
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrrqBucket'
+-- * 'gbrBucket'
 newtype GetBucketReplication = GetBucketReplication'
-    { _gbrrqBucket :: BucketName
+    { _gbrBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketReplication' smart constructor.
 getBucketReplication :: BucketName -> GetBucketReplication
 getBucketReplication pBucket_ =
     GetBucketReplication'
-    { _gbrrqBucket = pBucket_
+    { _gbrBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-gbrrqBucket :: Lens' GetBucketReplication BucketName
-gbrrqBucket = lens _gbrrqBucket (\ s a -> s{_gbrrqBucket = a});
+gbrBucket :: Lens' GetBucketReplication BucketName
+gbrBucket = lens _gbrBucket (\ s a -> s{_gbrBucket = a});
 
 instance AWSRequest GetBucketReplication where
         type Sv GetBucketReplication = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketReplication where
 
 instance ToPath GetBucketReplication where
         toPath GetBucketReplication'{..}
-          = mconcat ["/", toText _gbrrqBucket]
+          = mconcat ["/", toText _gbrBucket]
 
 instance ToQuery GetBucketReplication where
         toQuery = const (mconcat ["replication"])

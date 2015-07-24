@@ -33,9 +33,9 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     -- ** Request constructor
     , getAccountAuthorizationDetails
     -- ** Request lenses
-    , gaadrqMaxItems
-    , gaadrqMarker
-    , gaadrqFilter
+    , gaadMaxItems
+    , gaadMarker
+    , gaadFilter
 
     -- * Response
     , GetAccountAuthorizationDetailsResponse
@@ -60,24 +60,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaadrqMaxItems'
+-- * 'gaadMaxItems'
 --
--- * 'gaadrqMarker'
+-- * 'gaadMarker'
 --
--- * 'gaadrqFilter'
+-- * 'gaadFilter'
 data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
-    { _gaadrqMaxItems :: !(Maybe Nat)
-    , _gaadrqMarker   :: !(Maybe Text)
-    , _gaadrqFilter   :: !(Maybe [EntityType])
+    { _gaadMaxItems :: !(Maybe Nat)
+    , _gaadMarker   :: !(Maybe Text)
+    , _gaadFilter   :: !(Maybe [EntityType])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountAuthorizationDetails' smart constructor.
 getAccountAuthorizationDetails :: GetAccountAuthorizationDetails
 getAccountAuthorizationDetails =
     GetAccountAuthorizationDetails'
-    { _gaadrqMaxItems = Nothing
-    , _gaadrqMarker = Nothing
-    , _gaadrqFilter = Nothing
+    { _gaadMaxItems = Nothing
+    , _gaadMarker = Nothing
+    , _gaadFilter = Nothing
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -86,19 +86,19 @@ getAccountAuthorizationDetails =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-gaadrqMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
-gaadrqMaxItems = lens _gaadrqMaxItems (\ s a -> s{_gaadrqMaxItems = a}) . mapping _Nat;
+gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
+gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-gaadrqMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
-gaadrqMarker = lens _gaadrqMarker (\ s a -> s{_gaadrqMarker = a});
+gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
+gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 
 -- | A list of entity types (user, group, role, local managed policy, or AWS
 -- managed policy) for filtering the results.
-gaadrqFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
-gaadrqFilter = lens _gaadrqFilter (\ s a -> s{_gaadrqFilter = a}) . _Default;
+gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
+gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default;
 
 instance AWSRequest GetAccountAuthorizationDetails
          where
@@ -139,10 +139,9 @@ instance ToQuery GetAccountAuthorizationDetails where
               ["Action" =:
                  ("GetAccountAuthorizationDetails" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _gaadrqMaxItems,
-               "Marker" =: _gaadrqMarker,
+               "MaxItems" =: _gaadMaxItems, "Marker" =: _gaadMarker,
                "Filter" =:
-                 toQuery (toQueryList "member" <$> _gaadrqFilter)]
+                 toQuery (toQueryList "member" <$> _gaadFilter)]
 
 -- | Contains the response to a successful GetAccountAuthorizationDetails
 -- request.

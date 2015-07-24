@@ -27,9 +27,9 @@ module Network.AWS.CodeCommit.ListRepositories
     -- ** Request constructor
     , listRepositories
     -- ** Request lenses
-    , lrrqNextToken
-    , lrrqOrder
-    , lrrqSortBy
+    , lrNextToken
+    , lrOrder
+    , lrSortBy
 
     -- * Response
     , ListRepositoriesResponse
@@ -52,40 +52,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrrqNextToken'
+-- * 'lrNextToken'
 --
--- * 'lrrqOrder'
+-- * 'lrOrder'
 --
--- * 'lrrqSortBy'
+-- * 'lrSortBy'
 data ListRepositories = ListRepositories'
-    { _lrrqNextToken :: !(Maybe Text)
-    , _lrrqOrder     :: !(Maybe OrderEnum)
-    , _lrrqSortBy    :: !(Maybe SortByEnum)
+    { _lrNextToken :: !(Maybe Text)
+    , _lrOrder     :: !(Maybe OrderEnum)
+    , _lrSortBy    :: !(Maybe SortByEnum)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRepositories' smart constructor.
 listRepositories :: ListRepositories
 listRepositories =
     ListRepositories'
-    { _lrrqNextToken = Nothing
-    , _lrrqOrder = Nothing
-    , _lrrqSortBy = Nothing
+    { _lrNextToken = Nothing
+    , _lrOrder = Nothing
+    , _lrSortBy = Nothing
     }
 
 -- | An enumeration token that allows the operation to batch the results of
 -- the operation. Batch sizes are 1,000 for list repository operations.
 -- When the client sends the token back to AWS CodeCommit, another page of
 -- 1,000 records is retrieved.
-lrrqNextToken :: Lens' ListRepositories (Maybe Text)
-lrrqNextToken = lens _lrrqNextToken (\ s a -> s{_lrrqNextToken = a});
+lrNextToken :: Lens' ListRepositories (Maybe Text)
+lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
 
 -- | The order in which to sort the results of a list repositories operation.
-lrrqOrder :: Lens' ListRepositories (Maybe OrderEnum)
-lrrqOrder = lens _lrrqOrder (\ s a -> s{_lrrqOrder = a});
+lrOrder :: Lens' ListRepositories (Maybe OrderEnum)
+lrOrder = lens _lrOrder (\ s a -> s{_lrOrder = a});
 
 -- | The criteria used to sort the results of a list repositories operation.
-lrrqSortBy :: Lens' ListRepositories (Maybe SortByEnum)
-lrrqSortBy = lens _lrrqSortBy (\ s a -> s{_lrrqSortBy = a});
+lrSortBy :: Lens' ListRepositories (Maybe SortByEnum)
+lrSortBy = lens _lrSortBy (\ s a -> s{_lrSortBy = a});
 
 instance AWSRequest ListRepositories where
         type Sv ListRepositories = CodeCommit
@@ -112,8 +112,8 @@ instance ToHeaders ListRepositories where
 instance ToJSON ListRepositories where
         toJSON ListRepositories'{..}
           = object
-              ["nextToken" .= _lrrqNextToken,
-               "order" .= _lrrqOrder, "sortBy" .= _lrrqSortBy]
+              ["nextToken" .= _lrNextToken, "order" .= _lrOrder,
+               "sortBy" .= _lrSortBy]
 
 instance ToPath ListRepositories where
         toPath = const "/"

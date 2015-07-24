@@ -27,7 +27,7 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
     -- ** Request constructor
     , deleteClusterSubnetGroup
     -- ** Request lenses
-    , dcsgrqClusterSubnetGroupName
+    , dcsgClusterSubnetGroupName
 
     -- * Response
     , DeleteClusterSubnetGroupResponse
@@ -44,21 +44,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgrqClusterSubnetGroupName'
+-- * 'dcsgClusterSubnetGroupName'
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
-    { _dcsgrqClusterSubnetGroupName :: Text
+    { _dcsgClusterSubnetGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSubnetGroup' smart constructor.
 deleteClusterSubnetGroup :: Text -> DeleteClusterSubnetGroup
 deleteClusterSubnetGroup pClusterSubnetGroupName_ =
     DeleteClusterSubnetGroup'
-    { _dcsgrqClusterSubnetGroupName = pClusterSubnetGroupName_
+    { _dcsgClusterSubnetGroupName = pClusterSubnetGroupName_
     }
 
 -- | The name of the cluster subnet group name to be deleted.
-dcsgrqClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
-dcsgrqClusterSubnetGroupName = lens _dcsgrqClusterSubnetGroupName (\ s a -> s{_dcsgrqClusterSubnetGroupName = a});
+dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
+dcsgClusterSubnetGroupName = lens _dcsgClusterSubnetGroupName (\ s a -> s{_dcsgClusterSubnetGroupName = a});
 
 instance AWSRequest DeleteClusterSubnetGroup where
         type Sv DeleteClusterSubnetGroup = Redshift
@@ -81,7 +81,7 @@ instance ToQuery DeleteClusterSubnetGroup where
                  ("DeleteClusterSubnetGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "ClusterSubnetGroupName" =:
-                 _dcsgrqClusterSubnetGroupName]
+                 _dcsgClusterSubnetGroupName]
 
 -- | /See:/ 'deleteClusterSubnetGroupResponse' smart constructor.
 data DeleteClusterSubnetGroupResponse =

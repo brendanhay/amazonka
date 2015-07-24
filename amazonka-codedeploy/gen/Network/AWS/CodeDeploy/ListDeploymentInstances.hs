@@ -28,9 +28,9 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     -- ** Request constructor
     , listDeploymentInstances
     -- ** Request lenses
-    , ldirqInstanceStatusFilter
-    , ldirqNextToken
-    , ldirqDeploymentId
+    , ldiInstanceStatusFilter
+    , ldiNextToken
+    , ldiDeploymentId
 
     -- * Response
     , ListDeploymentInstancesResponse
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldirqInstanceStatusFilter'
+-- * 'ldiInstanceStatusFilter'
 --
--- * 'ldirqNextToken'
+-- * 'ldiNextToken'
 --
--- * 'ldirqDeploymentId'
+-- * 'ldiDeploymentId'
 data ListDeploymentInstances = ListDeploymentInstances'
-    { _ldirqInstanceStatusFilter :: !(Maybe [InstanceStatus])
-    , _ldirqNextToken            :: !(Maybe Text)
-    , _ldirqDeploymentId         :: !Text
+    { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
+    , _ldiNextToken            :: !(Maybe Text)
+    , _ldiDeploymentId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentInstances' smart constructor.
 listDeploymentInstances :: Text -> ListDeploymentInstances
 listDeploymentInstances pDeploymentId_ =
     ListDeploymentInstances'
-    { _ldirqInstanceStatusFilter = Nothing
-    , _ldirqNextToken = Nothing
-    , _ldirqDeploymentId = pDeploymentId_
+    { _ldiInstanceStatusFilter = Nothing
+    , _ldiNextToken = Nothing
+    , _ldiDeploymentId = pDeploymentId_
     }
 
 -- | A subset of instances to list, by status:
@@ -87,18 +87,18 @@ listDeploymentInstances pDeploymentId_ =
 --     deployments.
 -- -   Unknown: Include in the resulting list those instances with
 --     deployments in an unknown state.
-ldirqInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
-ldirqInstanceStatusFilter = lens _ldirqInstanceStatusFilter (\ s a -> s{_ldirqInstanceStatusFilter = a}) . _Default;
+ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
+ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default;
 
 -- | An identifier that was returned from the previous list deployment
 -- instances call, which can be used to return the next set of deployment
 -- instances in the list.
-ldirqNextToken :: Lens' ListDeploymentInstances (Maybe Text)
-ldirqNextToken = lens _ldirqNextToken (\ s a -> s{_ldirqNextToken = a});
+ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
+ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
 
 -- | The unique ID of a deployment.
-ldirqDeploymentId :: Lens' ListDeploymentInstances Text
-ldirqDeploymentId = lens _ldirqDeploymentId (\ s a -> s{_ldirqDeploymentId = a});
+ldiDeploymentId :: Lens' ListDeploymentInstances Text
+ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
 
 instance AWSRequest ListDeploymentInstances where
         type Sv ListDeploymentInstances = CodeDeploy
@@ -126,10 +126,9 @@ instance ToHeaders ListDeploymentInstances where
 instance ToJSON ListDeploymentInstances where
         toJSON ListDeploymentInstances'{..}
           = object
-              ["instanceStatusFilter" .=
-                 _ldirqInstanceStatusFilter,
-               "nextToken" .= _ldirqNextToken,
-               "deploymentId" .= _ldirqDeploymentId]
+              ["instanceStatusFilter" .= _ldiInstanceStatusFilter,
+               "nextToken" .= _ldiNextToken,
+               "deploymentId" .= _ldiDeploymentId]
 
 instance ToPath ListDeploymentInstances where
         toPath = const "/"

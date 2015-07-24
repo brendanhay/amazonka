@@ -27,9 +27,9 @@ module Network.AWS.CloudFront.ListInvalidations
     -- ** Request constructor
     , listInvalidations
     -- ** Request lenses
-    , lirqMaxItems
-    , lirqMarker
-    , lirqDistributionId
+    , liMaxItems
+    , liMarker
+    , liDistributionId
 
     -- * Response
     , ListInvalidationsResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirqMaxItems'
+-- * 'liMaxItems'
 --
--- * 'lirqMarker'
+-- * 'liMarker'
 --
--- * 'lirqDistributionId'
+-- * 'liDistributionId'
 data ListInvalidations = ListInvalidations'
-    { _lirqMaxItems       :: !(Maybe Text)
-    , _lirqMarker         :: !(Maybe Text)
-    , _lirqDistributionId :: !Text
+    { _liMaxItems       :: !(Maybe Text)
+    , _liMarker         :: !(Maybe Text)
+    , _liDistributionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInvalidations' smart constructor.
 listInvalidations :: Text -> ListInvalidations
 listInvalidations pDistributionId_ =
     ListInvalidations'
-    { _lirqMaxItems = Nothing
-    , _lirqMarker = Nothing
-    , _lirqDistributionId = pDistributionId_
+    { _liMaxItems = Nothing
+    , _liMarker = Nothing
+    , _liDistributionId = pDistributionId_
     }
 
 -- | The maximum number of invalidation batches you want in the response
 -- body.
-lirqMaxItems :: Lens' ListInvalidations (Maybe Text)
-lirqMaxItems = lens _lirqMaxItems (\ s a -> s{_lirqMaxItems = a});
+liMaxItems :: Lens' ListInvalidations (Maybe Text)
+liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 
 -- | Use this parameter when paginating results to indicate where to begin in
 -- your list of invalidation batches. Because the results are returned in
@@ -83,12 +83,12 @@ lirqMaxItems = lens _lirqMaxItems (\ s a -> s{_lirqMaxItems = a});
 -- on. To get the next page of results, set the Marker to the value of the
 -- NextMarker from the current page\'s response. This value is the same as
 -- the ID of the last invalidation batch on that page.
-lirqMarker :: Lens' ListInvalidations (Maybe Text)
-lirqMarker = lens _lirqMarker (\ s a -> s{_lirqMarker = a});
+liMarker :: Lens' ListInvalidations (Maybe Text)
+liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
 
 -- | The distribution\'s id.
-lirqDistributionId :: Lens' ListInvalidations Text
-lirqDistributionId = lens _lirqDistributionId (\ s a -> s{_lirqDistributionId = a});
+liDistributionId :: Lens' ListInvalidations Text
+liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
 
 instance AWSRequest ListInvalidations where
         type Sv ListInvalidations = CloudFront
@@ -107,13 +107,12 @@ instance ToPath ListInvalidations where
         toPath ListInvalidations'{..}
           = mconcat
               ["/2015-04-17/distribution/",
-               toText _lirqDistributionId, "/invalidation"]
+               toText _liDistributionId, "/invalidation"]
 
 instance ToQuery ListInvalidations where
         toQuery ListInvalidations'{..}
           = mconcat
-              ["MaxItems" =: _lirqMaxItems,
-               "Marker" =: _lirqMarker]
+              ["MaxItems" =: _liMaxItems, "Marker" =: _liMarker]
 
 -- | The returned result of the corresponding request.
 --

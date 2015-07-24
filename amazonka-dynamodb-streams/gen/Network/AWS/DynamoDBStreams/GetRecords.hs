@@ -37,8 +37,8 @@ module Network.AWS.DynamoDBStreams.GetRecords
     -- ** Request constructor
     , getRecords
     -- ** Request lenses
-    , grrqLimit
-    , grrqShardIterator
+    , grLimit
+    , grShardIterator
 
     -- * Response
     , GetRecordsResponse
@@ -61,32 +61,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrqLimit'
+-- * 'grLimit'
 --
--- * 'grrqShardIterator'
+-- * 'grShardIterator'
 data GetRecords = GetRecords'
-    { _grrqLimit         :: !(Maybe Nat)
-    , _grrqShardIterator :: !Text
+    { _grLimit         :: !(Maybe Nat)
+    , _grShardIterator :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRecords' smart constructor.
 getRecords :: Text -> GetRecords
 getRecords pShardIterator_ =
     GetRecords'
-    { _grrqLimit = Nothing
-    , _grrqShardIterator = pShardIterator_
+    { _grLimit = Nothing
+    , _grShardIterator = pShardIterator_
     }
 
 -- | The maximum number of records to return from the shard. The upper limit
 -- is 1000.
-grrqLimit :: Lens' GetRecords (Maybe Natural)
-grrqLimit = lens _grrqLimit (\ s a -> s{_grrqLimit = a}) . mapping _Nat;
+grLimit :: Lens' GetRecords (Maybe Natural)
+grLimit = lens _grLimit (\ s a -> s{_grLimit = a}) . mapping _Nat;
 
 -- | A shard iterator that was retrieved from a previous GetShardIterator
 -- operation. This iterator can be used to access the stream records in
 -- this shard.
-grrqShardIterator :: Lens' GetRecords Text
-grrqShardIterator = lens _grrqShardIterator (\ s a -> s{_grrqShardIterator = a});
+grShardIterator :: Lens' GetRecords Text
+grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a});
 
 instance AWSRequest GetRecords where
         type Sv GetRecords = DynamoDBStreams
@@ -113,8 +113,8 @@ instance ToHeaders GetRecords where
 instance ToJSON GetRecords where
         toJSON GetRecords'{..}
           = object
-              ["Limit" .= _grrqLimit,
-               "ShardIterator" .= _grrqShardIterator]
+              ["Limit" .= _grLimit,
+               "ShardIterator" .= _grShardIterator]
 
 instance ToPath GetRecords where
         toPath = const "/"

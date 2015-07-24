@@ -37,10 +37,10 @@ module Network.AWS.IAM.CreatePolicy
     -- ** Request constructor
     , createPolicy
     -- ** Request lenses
-    , cprqPath
-    , cprqDescription
-    , cprqPolicyName
-    , cprqPolicyDocument
+    , cpPath
+    , cpDescription
+    , cpPolicyName
+    , cpPolicyDocument
 
     -- * Response
     , CreatePolicyResponse
@@ -60,28 +60,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprqPath'
+-- * 'cpPath'
 --
--- * 'cprqDescription'
+-- * 'cpDescription'
 --
--- * 'cprqPolicyName'
+-- * 'cpPolicyName'
 --
--- * 'cprqPolicyDocument'
+-- * 'cpPolicyDocument'
 data CreatePolicy = CreatePolicy'
-    { _cprqPath           :: !(Maybe Text)
-    , _cprqDescription    :: !(Maybe Text)
-    , _cprqPolicyName     :: !Text
-    , _cprqPolicyDocument :: !Text
+    { _cpPath           :: !(Maybe Text)
+    , _cpDescription    :: !(Maybe Text)
+    , _cpPolicyName     :: !Text
+    , _cpPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicy' smart constructor.
 createPolicy :: Text -> Text -> CreatePolicy
 createPolicy pPolicyName_ pPolicyDocument_ =
     CreatePolicy'
-    { _cprqPath = Nothing
-    , _cprqDescription = Nothing
-    , _cprqPolicyName = pPolicyName_
-    , _cprqPolicyDocument = pPolicyDocument_
+    { _cpPath = Nothing
+    , _cpDescription = Nothing
+    , _cpPolicyName = pPolicyName_
+    , _cpPolicyDocument = pPolicyDocument_
     }
 
 -- | The path for the policy.
@@ -92,8 +92,8 @@ createPolicy pPolicyName_ pPolicyDocument_ =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cprqPath :: Lens' CreatePolicy (Maybe Text)
-cprqPath = lens _cprqPath (\ s a -> s{_cprqPath = a});
+cpPath :: Lens' CreatePolicy (Maybe Text)
+cpPath = lens _cpPath (\ s a -> s{_cpPath = a});
 
 -- | A friendly description of the policy.
 --
@@ -102,16 +102,16 @@ cprqPath = lens _cprqPath (\ s a -> s{_cprqPath = a});
 --
 -- The policy description is immutable. After a value is assigned, it
 -- cannot be changed.
-cprqDescription :: Lens' CreatePolicy (Maybe Text)
-cprqDescription = lens _cprqDescription (\ s a -> s{_cprqDescription = a});
+cpDescription :: Lens' CreatePolicy (Maybe Text)
+cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 
 -- | The name of the policy document.
-cprqPolicyName :: Lens' CreatePolicy Text
-cprqPolicyName = lens _cprqPolicyName (\ s a -> s{_cprqPolicyName = a});
+cpPolicyName :: Lens' CreatePolicy Text
+cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
 
 -- | The policy document.
-cprqPolicyDocument :: Lens' CreatePolicy Text
-cprqPolicyDocument = lens _cprqPolicyDocument (\ s a -> s{_cprqPolicyDocument = a});
+cpPolicyDocument :: Lens' CreatePolicy Text
+cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
 
 instance AWSRequest CreatePolicy where
         type Sv CreatePolicy = IAM
@@ -134,10 +134,9 @@ instance ToQuery CreatePolicy where
           = mconcat
               ["Action" =: ("CreatePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _cprqPath,
-               "Description" =: _cprqDescription,
-               "PolicyName" =: _cprqPolicyName,
-               "PolicyDocument" =: _cprqPolicyDocument]
+               "Path" =: _cpPath, "Description" =: _cpDescription,
+               "PolicyName" =: _cpPolicyName,
+               "PolicyDocument" =: _cpPolicyDocument]
 
 -- | Contains the response to a successful CreatePolicy request.
 --

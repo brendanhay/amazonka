@@ -46,8 +46,8 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     -- ** Request constructor
     , createSnapshotFromVolumeRecoveryPoint
     -- ** Request lenses
-    , csfvrprqVolumeARN
-    , csfvrprqSnapshotDescription
+    , csfvrpVolumeARN
+    , csfvrpSnapshotDescription
 
     -- * Response
     , CreateSnapshotFromVolumeRecoveryPointResponse
@@ -69,29 +69,29 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csfvrprqVolumeARN'
+-- * 'csfvrpVolumeARN'
 --
--- * 'csfvrprqSnapshotDescription'
+-- * 'csfvrpSnapshotDescription'
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrprqVolumeARN           :: !Text
-    , _csfvrprqSnapshotDescription :: !Text
+    { _csfvrpVolumeARN           :: !Text
+    , _csfvrpSnapshotDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPoint' smart constructor.
 createSnapshotFromVolumeRecoveryPoint :: Text -> Text -> CreateSnapshotFromVolumeRecoveryPoint
 createSnapshotFromVolumeRecoveryPoint pVolumeARN_ pSnapshotDescription_ =
     CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrprqVolumeARN = pVolumeARN_
-    , _csfvrprqSnapshotDescription = pSnapshotDescription_
+    { _csfvrpVolumeARN = pVolumeARN_
+    , _csfvrpSnapshotDescription = pSnapshotDescription_
     }
 
 -- | FIXME: Undocumented member.
-csfvrprqVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrprqVolumeARN = lens _csfvrprqVolumeARN (\ s a -> s{_csfvrprqVolumeARN = a});
+csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
+csfvrpVolumeARN = lens _csfvrpVolumeARN (\ s a -> s{_csfvrpVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-csfvrprqSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrprqSnapshotDescription = lens _csfvrprqSnapshotDescription (\ s a -> s{_csfvrprqSnapshotDescription = a});
+csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
+csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpSnapshotDescription = a});
 
 instance AWSRequest
          CreateSnapshotFromVolumeRecoveryPoint where
@@ -124,9 +124,8 @@ instance ToJSON CreateSnapshotFromVolumeRecoveryPoint
          where
         toJSON CreateSnapshotFromVolumeRecoveryPoint'{..}
           = object
-              ["VolumeARN" .= _csfvrprqVolumeARN,
-               "SnapshotDescription" .=
-                 _csfvrprqSnapshotDescription]
+              ["VolumeARN" .= _csfvrpVolumeARN,
+               "SnapshotDescription" .= _csfvrpSnapshotDescription]
 
 instance ToPath CreateSnapshotFromVolumeRecoveryPoint
          where

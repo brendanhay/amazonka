@@ -30,7 +30,7 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     -- ** Request constructor
     , getAccessKeyLastUsed
     -- ** Request lenses
-    , gaklurqAccessKeyId
+    , gakluAccessKeyId
 
     -- * Response
     , GetAccessKeyLastUsedResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaklurqAccessKeyId'
+-- * 'gakluAccessKeyId'
 newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
-    { _gaklurqAccessKeyId :: Text
+    { _gakluAccessKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccessKeyLastUsed' smart constructor.
 getAccessKeyLastUsed :: Text -> GetAccessKeyLastUsed
 getAccessKeyLastUsed pAccessKeyId_ =
     GetAccessKeyLastUsed'
-    { _gaklurqAccessKeyId = pAccessKeyId_
+    { _gakluAccessKeyId = pAccessKeyId_
     }
 
 -- | The identifier of an access key.
-gaklurqAccessKeyId :: Lens' GetAccessKeyLastUsed Text
-gaklurqAccessKeyId = lens _gaklurqAccessKeyId (\ s a -> s{_gaklurqAccessKeyId = a});
+gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
+gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a});
 
 instance AWSRequest GetAccessKeyLastUsed where
         type Sv GetAccessKeyLastUsed = IAM
@@ -90,7 +90,7 @@ instance ToQuery GetAccessKeyLastUsed where
           = mconcat
               ["Action" =: ("GetAccessKeyLastUsed" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "AccessKeyId" =: _gaklurqAccessKeyId]
+               "AccessKeyId" =: _gakluAccessKeyId]
 
 -- | Contains the response to a successful GetAccessKeyLastUsed request. It
 -- is also returned as a member of the AccessKeyMetaData structure returned

@@ -35,7 +35,7 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     -- ** Request constructor
     , deleteEvaluation
     -- ** Request lenses
-    , derqEvaluationId
+    , deEvaluationId
 
     -- * Response
     , DeleteEvaluationResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derqEvaluationId'
+-- * 'deEvaluationId'
 newtype DeleteEvaluation = DeleteEvaluation'
-    { _derqEvaluationId :: Text
+    { _deEvaluationId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEvaluation' smart constructor.
 deleteEvaluation :: Text -> DeleteEvaluation
 deleteEvaluation pEvaluationId_ =
     DeleteEvaluation'
-    { _derqEvaluationId = pEvaluationId_
+    { _deEvaluationId = pEvaluationId_
     }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
-derqEvaluationId :: Lens' DeleteEvaluation Text
-derqEvaluationId = lens _derqEvaluationId (\ s a -> s{_derqEvaluationId = a});
+deEvaluationId :: Lens' DeleteEvaluation Text
+deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a});
 
 instance AWSRequest DeleteEvaluation where
         type Sv DeleteEvaluation = MachineLearning
@@ -92,7 +92,7 @@ instance ToHeaders DeleteEvaluation where
 
 instance ToJSON DeleteEvaluation where
         toJSON DeleteEvaluation'{..}
-          = object ["EvaluationId" .= _derqEvaluationId]
+          = object ["EvaluationId" .= _deEvaluationId]
 
 instance ToPath DeleteEvaluation where
         toPath = const "/"

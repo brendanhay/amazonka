@@ -28,8 +28,8 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- ** Request constructor
     , addSourceIdentifierToSubscription
     -- ** Request lenses
-    , asitsrqSubscriptionName
-    , asitsrqSourceIdentifier
+    , asitsSubscriptionName
+    , asitsSourceIdentifier
 
     -- * Response
     , AddSourceIdentifierToSubscriptionResponse
@@ -51,26 +51,26 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asitsrqSubscriptionName'
+-- * 'asitsSubscriptionName'
 --
--- * 'asitsrqSourceIdentifier'
+-- * 'asitsSourceIdentifier'
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
-    { _asitsrqSubscriptionName :: !Text
-    , _asitsrqSourceIdentifier :: !Text
+    { _asitsSubscriptionName :: !Text
+    , _asitsSourceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddSourceIdentifierToSubscription' smart constructor.
 addSourceIdentifierToSubscription :: Text -> Text -> AddSourceIdentifierToSubscription
 addSourceIdentifierToSubscription pSubscriptionName_ pSourceIdentifier_ =
     AddSourceIdentifierToSubscription'
-    { _asitsrqSubscriptionName = pSubscriptionName_
-    , _asitsrqSourceIdentifier = pSourceIdentifier_
+    { _asitsSubscriptionName = pSubscriptionName_
+    , _asitsSourceIdentifier = pSourceIdentifier_
     }
 
 -- | The name of the RDS event notification subscription you want to add a
 -- source identifier to.
-asitsrqSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
-asitsrqSubscriptionName = lens _asitsrqSubscriptionName (\ s a -> s{_asitsrqSubscriptionName = a});
+asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
+asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscriptionName = a});
 
 -- | The identifier of the event source to be added. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens;
@@ -86,8 +86,8 @@ asitsrqSubscriptionName = lens _asitsrqSubscriptionName (\ s a -> s{_asitsrqSubs
 --     must be supplied.
 -- -   If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must
 --     be supplied.
-asitsrqSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
-asitsrqSourceIdentifier = lens _asitsrqSourceIdentifier (\ s a -> s{_asitsrqSourceIdentifier = a});
+asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
+asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
 
 instance AWSRequest AddSourceIdentifierToSubscription
          where
@@ -117,8 +117,8 @@ instance ToQuery AddSourceIdentifierToSubscription
               ["Action" =:
                  ("AddSourceIdentifierToSubscription" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SubscriptionName" =: _asitsrqSubscriptionName,
-               "SourceIdentifier" =: _asitsrqSourceIdentifier]
+               "SubscriptionName" =: _asitsSubscriptionName,
+               "SourceIdentifier" =: _asitsSourceIdentifier]
 
 -- | /See:/ 'addSourceIdentifierToSubscriptionResponse' smart constructor.
 --

@@ -29,7 +29,7 @@ module Network.AWS.CloudSearch.BuildSuggesters
     -- ** Request constructor
     , buildSuggesters
     -- ** Request lenses
-    , bsrqDomainName
+    , bsDomainName
 
     -- * Response
     , BuildSuggestersResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bsrqDomainName'
+-- * 'bsDomainName'
 newtype BuildSuggesters = BuildSuggesters'
-    { _bsrqDomainName :: Text
+    { _bsDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BuildSuggesters' smart constructor.
 buildSuggesters :: Text -> BuildSuggesters
 buildSuggesters pDomainName_ =
     BuildSuggesters'
-    { _bsrqDomainName = pDomainName_
+    { _bsDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
-bsrqDomainName :: Lens' BuildSuggesters Text
-bsrqDomainName = lens _bsrqDomainName (\ s a -> s{_bsrqDomainName = a});
+bsDomainName :: Lens' BuildSuggesters Text
+bsDomainName = lens _bsDomainName (\ s a -> s{_bsDomainName = a});
 
 instance AWSRequest BuildSuggesters where
         type Sv BuildSuggesters = CloudSearch
@@ -91,7 +91,7 @@ instance ToQuery BuildSuggesters where
           = mconcat
               ["Action" =: ("BuildSuggesters" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _bsrqDomainName]
+               "DomainName" =: _bsDomainName]
 
 -- | The result of a @BuildSuggester@ request. Contains a list of the fields
 -- used for suggestions.

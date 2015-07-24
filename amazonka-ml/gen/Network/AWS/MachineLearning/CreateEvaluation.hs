@@ -44,10 +44,10 @@ module Network.AWS.MachineLearning.CreateEvaluation
     -- ** Request constructor
     , createEvaluation
     -- ** Request lenses
-    , cerqEvaluationName
-    , cerqEvaluationId
-    , cerqMLModelId
-    , cerqEvaluationDataSourceId
+    , ceEvaluationName
+    , ceEvaluationId
+    , ceMLModelId
+    , ceEvaluationDataSourceId
 
     -- * Response
     , CreateEvaluationResponse
@@ -67,49 +67,49 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cerqEvaluationName'
+-- * 'ceEvaluationName'
 --
--- * 'cerqEvaluationId'
+-- * 'ceEvaluationId'
 --
--- * 'cerqMLModelId'
+-- * 'ceMLModelId'
 --
--- * 'cerqEvaluationDataSourceId'
+-- * 'ceEvaluationDataSourceId'
 data CreateEvaluation = CreateEvaluation'
-    { _cerqEvaluationName         :: !(Maybe Text)
-    , _cerqEvaluationId           :: !Text
-    , _cerqMLModelId              :: !Text
-    , _cerqEvaluationDataSourceId :: !Text
+    { _ceEvaluationName         :: !(Maybe Text)
+    , _ceEvaluationId           :: !Text
+    , _ceMLModelId              :: !Text
+    , _ceEvaluationDataSourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEvaluation' smart constructor.
 createEvaluation :: Text -> Text -> Text -> CreateEvaluation
 createEvaluation pEvaluationId_ pMLModelId_ pEvaluationDataSourceId_ =
     CreateEvaluation'
-    { _cerqEvaluationName = Nothing
-    , _cerqEvaluationId = pEvaluationId_
-    , _cerqMLModelId = pMLModelId_
-    , _cerqEvaluationDataSourceId = pEvaluationDataSourceId_
+    { _ceEvaluationName = Nothing
+    , _ceEvaluationId = pEvaluationId_
+    , _ceMLModelId = pMLModelId_
+    , _ceEvaluationDataSourceId = pEvaluationDataSourceId_
     }
 
 -- | A user-supplied name or description of the @Evaluation@.
-cerqEvaluationName :: Lens' CreateEvaluation (Maybe Text)
-cerqEvaluationName = lens _cerqEvaluationName (\ s a -> s{_cerqEvaluationName = a});
+ceEvaluationName :: Lens' CreateEvaluation (Maybe Text)
+ceEvaluationName = lens _ceEvaluationName (\ s a -> s{_ceEvaluationName = a});
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@.
-cerqEvaluationId :: Lens' CreateEvaluation Text
-cerqEvaluationId = lens _cerqEvaluationId (\ s a -> s{_cerqEvaluationId = a});
+ceEvaluationId :: Lens' CreateEvaluation Text
+ceEvaluationId = lens _ceEvaluationId (\ s a -> s{_ceEvaluationId = a});
 
 -- | The ID of the @MLModel@ to evaluate.
 --
 -- The schema used in creating the @MLModel@ must match the schema of the
 -- @DataSource@ used in the @Evaluation@.
-cerqMLModelId :: Lens' CreateEvaluation Text
-cerqMLModelId = lens _cerqMLModelId (\ s a -> s{_cerqMLModelId = a});
+ceMLModelId :: Lens' CreateEvaluation Text
+ceMLModelId = lens _ceMLModelId (\ s a -> s{_ceMLModelId = a});
 
 -- | The ID of the @DataSource@ for the evaluation. The schema of the
 -- @DataSource@ must match the schema used to create the @MLModel@.
-cerqEvaluationDataSourceId :: Lens' CreateEvaluation Text
-cerqEvaluationDataSourceId = lens _cerqEvaluationDataSourceId (\ s a -> s{_cerqEvaluationDataSourceId = a});
+ceEvaluationDataSourceId :: Lens' CreateEvaluation Text
+ceEvaluationDataSourceId = lens _ceEvaluationDataSourceId (\ s a -> s{_ceEvaluationDataSourceId = a});
 
 instance AWSRequest CreateEvaluation where
         type Sv CreateEvaluation = MachineLearning
@@ -133,11 +133,11 @@ instance ToHeaders CreateEvaluation where
 instance ToJSON CreateEvaluation where
         toJSON CreateEvaluation'{..}
           = object
-              ["EvaluationName" .= _cerqEvaluationName,
-               "EvaluationId" .= _cerqEvaluationId,
-               "MLModelId" .= _cerqMLModelId,
+              ["EvaluationName" .= _ceEvaluationName,
+               "EvaluationId" .= _ceEvaluationId,
+               "MLModelId" .= _ceMLModelId,
                "EvaluationDataSourceId" .=
-                 _cerqEvaluationDataSourceId]
+                 _ceEvaluationDataSourceId]
 
 instance ToPath CreateEvaluation where
         toPath = const "/"

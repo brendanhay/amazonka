@@ -43,16 +43,16 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- ** Request constructor
     , describeClusterSnapshots
     -- ** Request lenses
-    , dcssrqSnapshotIdentifier
-    , dcssrqTagValues
-    , dcssrqStartTime
-    , dcssrqTagKeys
-    , dcssrqClusterIdentifier
-    , dcssrqSnapshotType
-    , dcssrqMaxRecords
-    , dcssrqEndTime
-    , dcssrqMarker
-    , dcssrqOwnerAccount
+    , dcssSnapshotIdentifier
+    , dcssTagValues
+    , dcssStartTime
+    , dcssTagKeys
+    , dcssClusterIdentifier
+    , dcssSnapshotType
+    , dcssMaxRecords
+    , dcssEndTime
+    , dcssMarker
+    , dcssOwnerAccount
 
     -- * Response
     , DescribeClusterSnapshotsResponse
@@ -76,58 +76,58 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcssrqSnapshotIdentifier'
+-- * 'dcssSnapshotIdentifier'
 --
--- * 'dcssrqTagValues'
+-- * 'dcssTagValues'
 --
--- * 'dcssrqStartTime'
+-- * 'dcssStartTime'
 --
--- * 'dcssrqTagKeys'
+-- * 'dcssTagKeys'
 --
--- * 'dcssrqClusterIdentifier'
+-- * 'dcssClusterIdentifier'
 --
--- * 'dcssrqSnapshotType'
+-- * 'dcssSnapshotType'
 --
--- * 'dcssrqMaxRecords'
+-- * 'dcssMaxRecords'
 --
--- * 'dcssrqEndTime'
+-- * 'dcssEndTime'
 --
--- * 'dcssrqMarker'
+-- * 'dcssMarker'
 --
--- * 'dcssrqOwnerAccount'
+-- * 'dcssOwnerAccount'
 data DescribeClusterSnapshots = DescribeClusterSnapshots'
-    { _dcssrqSnapshotIdentifier :: !(Maybe Text)
-    , _dcssrqTagValues          :: !(Maybe [Text])
-    , _dcssrqStartTime          :: !(Maybe ISO8601)
-    , _dcssrqTagKeys            :: !(Maybe [Text])
-    , _dcssrqClusterIdentifier  :: !(Maybe Text)
-    , _dcssrqSnapshotType       :: !(Maybe Text)
-    , _dcssrqMaxRecords         :: !(Maybe Int)
-    , _dcssrqEndTime            :: !(Maybe ISO8601)
-    , _dcssrqMarker             :: !(Maybe Text)
-    , _dcssrqOwnerAccount       :: !(Maybe Text)
+    { _dcssSnapshotIdentifier :: !(Maybe Text)
+    , _dcssTagValues          :: !(Maybe [Text])
+    , _dcssStartTime          :: !(Maybe ISO8601)
+    , _dcssTagKeys            :: !(Maybe [Text])
+    , _dcssClusterIdentifier  :: !(Maybe Text)
+    , _dcssSnapshotType       :: !(Maybe Text)
+    , _dcssMaxRecords         :: !(Maybe Int)
+    , _dcssEndTime            :: !(Maybe ISO8601)
+    , _dcssMarker             :: !(Maybe Text)
+    , _dcssOwnerAccount       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSnapshots' smart constructor.
 describeClusterSnapshots :: DescribeClusterSnapshots
 describeClusterSnapshots =
     DescribeClusterSnapshots'
-    { _dcssrqSnapshotIdentifier = Nothing
-    , _dcssrqTagValues = Nothing
-    , _dcssrqStartTime = Nothing
-    , _dcssrqTagKeys = Nothing
-    , _dcssrqClusterIdentifier = Nothing
-    , _dcssrqSnapshotType = Nothing
-    , _dcssrqMaxRecords = Nothing
-    , _dcssrqEndTime = Nothing
-    , _dcssrqMarker = Nothing
-    , _dcssrqOwnerAccount = Nothing
+    { _dcssSnapshotIdentifier = Nothing
+    , _dcssTagValues = Nothing
+    , _dcssStartTime = Nothing
+    , _dcssTagKeys = Nothing
+    , _dcssClusterIdentifier = Nothing
+    , _dcssSnapshotType = Nothing
+    , _dcssMaxRecords = Nothing
+    , _dcssEndTime = Nothing
+    , _dcssMarker = Nothing
+    , _dcssOwnerAccount = Nothing
     }
 
 -- | The snapshot identifier of the snapshot about which to return
 -- information.
-dcssrqSnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcssrqSnapshotIdentifier = lens _dcssrqSnapshotIdentifier (\ s a -> s{_dcssrqSnapshotIdentifier = a});
+dcssSnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcssSnapshotIdentifier = lens _dcssSnapshotIdentifier (\ s a -> s{_dcssSnapshotIdentifier = a});
 
 -- | A tag value or values for which you want to return all matching cluster
 -- snapshots that are associated with the specified tag value or values.
@@ -135,8 +135,8 @@ dcssrqSnapshotIdentifier = lens _dcssrqSnapshotIdentifier (\ s a -> s{_dcssrqSna
 -- called @admin@ and @test@. If you specify both of these tag values in
 -- the request, Amazon Redshift returns a response with the snapshots that
 -- have either or both of these tag values associated with them.
-dcssrqTagValues :: Lens' DescribeClusterSnapshots [Text]
-dcssrqTagValues = lens _dcssrqTagValues (\ s a -> s{_dcssrqTagValues = a}) . _Default;
+dcssTagValues :: Lens' DescribeClusterSnapshots [Text]
+dcssTagValues = lens _dcssTagValues (\ s a -> s{_dcssTagValues = a}) . _Default;
 
 -- | A value that requests only snapshots created at or after the specified
 -- time. The time value is specified in ISO 8601 format. For more
@@ -144,8 +144,8 @@ dcssrqTagValues = lens _dcssrqTagValues (\ s a -> s{_dcssrqTagValues = a}) . _De
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: @2012-07-16T18:00:00Z@
-dcssrqStartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
-dcssrqStartTime = lens _dcssrqStartTime (\ s a -> s{_dcssrqStartTime = a}) . mapping _Time;
+dcssStartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
+dcssStartTime = lens _dcssStartTime (\ s a -> s{_dcssStartTime = a}) . mapping _Time;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- snapshots that are associated with the specified key or keys. For
@@ -153,20 +153,20 @@ dcssrqStartTime = lens _dcssrqStartTime (\ s a -> s{_dcssrqStartTime = a}) . map
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the snapshots
 -- that have either or both of these tag keys associated with them.
-dcssrqTagKeys :: Lens' DescribeClusterSnapshots [Text]
-dcssrqTagKeys = lens _dcssrqTagKeys (\ s a -> s{_dcssrqTagKeys = a}) . _Default;
+dcssTagKeys :: Lens' DescribeClusterSnapshots [Text]
+dcssTagKeys = lens _dcssTagKeys (\ s a -> s{_dcssTagKeys = a}) . _Default;
 
 -- | The identifier of the cluster for which information about snapshots is
 -- requested.
-dcssrqClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcssrqClusterIdentifier = lens _dcssrqClusterIdentifier (\ s a -> s{_dcssrqClusterIdentifier = a});
+dcssClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcssClusterIdentifier = lens _dcssClusterIdentifier (\ s a -> s{_dcssClusterIdentifier = a});
 
 -- | The type of snapshots for which you are requesting information. By
 -- default, snapshots of all types are returned.
 --
 -- Valid Values: @automated@ | @manual@
-dcssrqSnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcssrqSnapshotType = lens _dcssrqSnapshotType (\ s a -> s{_dcssrqSnapshotType = a});
+dcssSnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcssSnapshotType = lens _dcssSnapshotType (\ s a -> s{_dcssSnapshotType = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -177,8 +177,8 @@ dcssrqSnapshotType = lens _dcssrqSnapshotType (\ s a -> s{_dcssrqSnapshotType = 
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dcssrqMaxRecords :: Lens' DescribeClusterSnapshots (Maybe Int)
-dcssrqMaxRecords = lens _dcssrqMaxRecords (\ s a -> s{_dcssrqMaxRecords = a});
+dcssMaxRecords :: Lens' DescribeClusterSnapshots (Maybe Int)
+dcssMaxRecords = lens _dcssMaxRecords (\ s a -> s{_dcssMaxRecords = a});
 
 -- | A time value that requests only snapshots created at or before the
 -- specified time. The time value is specified in ISO 8601 format. For more
@@ -186,8 +186,8 @@ dcssrqMaxRecords = lens _dcssrqMaxRecords (\ s a -> s{_dcssrqMaxRecords = a});
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: @2012-07-16T18:00:00Z@
-dcssrqEndTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
-dcssrqEndTime = lens _dcssrqEndTime (\ s a -> s{_dcssrqEndTime = a}) . mapping _Time;
+dcssEndTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
+dcssEndTime = lens _dcssEndTime (\ s a -> s{_dcssEndTime = a}) . mapping _Time;
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSnapshots
@@ -195,22 +195,22 @@ dcssrqEndTime = lens _dcssrqEndTime (\ s a -> s{_dcssrqEndTime = a}) . mapping _
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-dcssrqMarker :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcssrqMarker = lens _dcssrqMarker (\ s a -> s{_dcssrqMarker = a});
+dcssMarker :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcssMarker = lens _dcssMarker (\ s a -> s{_dcssMarker = a});
 
 -- | The AWS customer account used to create or copy the snapshot. Use this
 -- field to filter the results to snapshots owned by a particular account.
 -- To describe snapshots you own, either specify your AWS customer account,
 -- or do not specify the parameter.
-dcssrqOwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
-dcssrqOwnerAccount = lens _dcssrqOwnerAccount (\ s a -> s{_dcssrqOwnerAccount = a});
+dcssOwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcssOwnerAccount = lens _dcssOwnerAccount (\ s a -> s{_dcssOwnerAccount = a});
 
 instance AWSPager DescribeClusterSnapshots where
         page rq rs
           | stop (rs ^. dcssrsMarker) = Nothing
           | stop (rs ^. dcssrsSnapshots) = Nothing
           | otherwise =
-            Just $ rq & dcssrqMarker .~ rs ^. dcssrsMarker
+            Just $ rq & dcssMarker .~ rs ^. dcssrsMarker
 
 instance AWSRequest DescribeClusterSnapshots where
         type Sv DescribeClusterSnapshots = Redshift
@@ -238,19 +238,17 @@ instance ToQuery DescribeClusterSnapshots where
               ["Action" =:
                  ("DescribeClusterSnapshots" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "SnapshotIdentifier" =: _dcssrqSnapshotIdentifier,
+               "SnapshotIdentifier" =: _dcssSnapshotIdentifier,
                "TagValues" =:
-                 toQuery
-                   (toQueryList "TagValue" <$> _dcssrqTagValues),
-               "StartTime" =: _dcssrqStartTime,
+                 toQuery (toQueryList "TagValue" <$> _dcssTagValues),
+               "StartTime" =: _dcssStartTime,
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dcssrqTagKeys),
-               "ClusterIdentifier" =: _dcssrqClusterIdentifier,
-               "SnapshotType" =: _dcssrqSnapshotType,
-               "MaxRecords" =: _dcssrqMaxRecords,
-               "EndTime" =: _dcssrqEndTime,
-               "Marker" =: _dcssrqMarker,
-               "OwnerAccount" =: _dcssrqOwnerAccount]
+                 toQuery (toQueryList "TagKey" <$> _dcssTagKeys),
+               "ClusterIdentifier" =: _dcssClusterIdentifier,
+               "SnapshotType" =: _dcssSnapshotType,
+               "MaxRecords" =: _dcssMaxRecords,
+               "EndTime" =: _dcssEndTime, "Marker" =: _dcssMarker,
+               "OwnerAccount" =: _dcssOwnerAccount]
 
 -- | Contains the output from the DescribeClusterSnapshots action.
 --

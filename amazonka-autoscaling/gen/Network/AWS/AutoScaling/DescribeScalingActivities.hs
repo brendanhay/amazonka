@@ -30,10 +30,10 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- ** Request constructor
     , describeScalingActivities
     -- ** Request lenses
-    , desrqNextToken
-    , desrqMaxRecords
-    , desrqAutoScalingGroupName
-    , desrqActivityIds
+    , desNextToken
+    , desMaxRecords
+    , desAutoScalingGroupName
+    , desActivityIds
 
     -- * Response
     , DescribeScalingActivitiesResponse
@@ -55,57 +55,57 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrqNextToken'
+-- * 'desNextToken'
 --
--- * 'desrqMaxRecords'
+-- * 'desMaxRecords'
 --
--- * 'desrqAutoScalingGroupName'
+-- * 'desAutoScalingGroupName'
 --
--- * 'desrqActivityIds'
+-- * 'desActivityIds'
 data DescribeScalingActivities = DescribeScalingActivities'
-    { _desrqNextToken            :: !(Maybe Text)
-    , _desrqMaxRecords           :: !(Maybe Int)
-    , _desrqAutoScalingGroupName :: !(Maybe Text)
-    , _desrqActivityIds          :: !(Maybe [Text])
+    { _desNextToken            :: !(Maybe Text)
+    , _desMaxRecords           :: !(Maybe Int)
+    , _desAutoScalingGroupName :: !(Maybe Text)
+    , _desActivityIds          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivities' smart constructor.
 describeScalingActivities :: DescribeScalingActivities
 describeScalingActivities =
     DescribeScalingActivities'
-    { _desrqNextToken = Nothing
-    , _desrqMaxRecords = Nothing
-    , _desrqAutoScalingGroupName = Nothing
-    , _desrqActivityIds = Nothing
+    { _desNextToken = Nothing
+    , _desMaxRecords = Nothing
+    , _desAutoScalingGroupName = Nothing
+    , _desActivityIds = Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-desrqNextToken :: Lens' DescribeScalingActivities (Maybe Text)
-desrqNextToken = lens _desrqNextToken (\ s a -> s{_desrqNextToken = a});
+desNextToken :: Lens' DescribeScalingActivities (Maybe Text)
+desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | The maximum number of items to return with this call.
-desrqMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
-desrqMaxRecords = lens _desrqMaxRecords (\ s a -> s{_desrqMaxRecords = a});
+desMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
+desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 
 -- | The name of the group.
-desrqAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
-desrqAutoScalingGroupName = lens _desrqAutoScalingGroupName (\ s a -> s{_desrqAutoScalingGroupName = a});
+desAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
+desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScalingGroupName = a});
 
 -- | The activity IDs of the desired scaling activities. If this list is
 -- omitted, all activities are described. If the @AutoScalingGroupName@
 -- parameter is provided, the results are limited to that group. The list
 -- of requested activities cannot contain more than 50 items. If unknown
 -- activities are requested, they are ignored with no error.
-desrqActivityIds :: Lens' DescribeScalingActivities [Text]
-desrqActivityIds = lens _desrqActivityIds (\ s a -> s{_desrqActivityIds = a}) . _Default;
+desActivityIds :: Lens' DescribeScalingActivities [Text]
+desActivityIds = lens _desActivityIds (\ s a -> s{_desActivityIds = a}) . _Default;
 
 instance AWSPager DescribeScalingActivities where
         page rq rs
           | stop (rs ^. dsasrsNextToken) = Nothing
           | stop (rs ^. dsasrsActivities) = Nothing
           | otherwise =
-            Just $ rq & desrqNextToken .~ rs ^. dsasrsNextToken
+            Just $ rq & desNextToken .~ rs ^. dsasrsNextToken
 
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling
@@ -132,11 +132,11 @@ instance ToQuery DescribeScalingActivities where
               ["Action" =:
                  ("DescribeScalingActivities" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "NextToken" =: _desrqNextToken,
-               "MaxRecords" =: _desrqMaxRecords,
-               "AutoScalingGroupName" =: _desrqAutoScalingGroupName,
+               "NextToken" =: _desNextToken,
+               "MaxRecords" =: _desMaxRecords,
+               "AutoScalingGroupName" =: _desAutoScalingGroupName,
                "ActivityIds" =:
-                 toQuery (toQueryList "member" <$> _desrqActivityIds)]
+                 toQuery (toQueryList "member" <$> _desActivityIds)]
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 --

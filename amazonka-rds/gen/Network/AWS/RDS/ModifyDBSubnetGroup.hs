@@ -28,9 +28,9 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- ** Request constructor
     , modifyDBSubnetGroup
     -- ** Request lenses
-    , mdsgrqDBSubnetGroupDescription
-    , mdsgrqDBSubnetGroupName
-    , mdsgrqSubnetIds
+    , mdsgDBSubnetGroupDescription
+    , mdsgDBSubnetGroupName
+    , mdsgSubnetIds
 
     -- * Response
     , ModifyDBSubnetGroupResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdsgrqDBSubnetGroupDescription'
+-- * 'mdsgDBSubnetGroupDescription'
 --
--- * 'mdsgrqDBSubnetGroupName'
+-- * 'mdsgDBSubnetGroupName'
 --
--- * 'mdsgrqSubnetIds'
+-- * 'mdsgSubnetIds'
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
-    { _mdsgrqDBSubnetGroupDescription :: !(Maybe Text)
-    , _mdsgrqDBSubnetGroupName        :: !Text
-    , _mdsgrqSubnetIds                :: ![Text]
+    { _mdsgDBSubnetGroupDescription :: !(Maybe Text)
+    , _mdsgDBSubnetGroupName        :: !Text
+    , _mdsgSubnetIds                :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyDBSubnetGroup' smart constructor.
 modifyDBSubnetGroup :: Text -> ModifyDBSubnetGroup
 modifyDBSubnetGroup pDBSubnetGroupName_ =
     ModifyDBSubnetGroup'
-    { _mdsgrqDBSubnetGroupDescription = Nothing
-    , _mdsgrqDBSubnetGroupName = pDBSubnetGroupName_
-    , _mdsgrqSubnetIds = mempty
+    { _mdsgDBSubnetGroupDescription = Nothing
+    , _mdsgDBSubnetGroupName = pDBSubnetGroupName_
+    , _mdsgSubnetIds = mempty
     }
 
 -- | The description for the DB subnet group.
-mdsgrqDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
-mdsgrqDBSubnetGroupDescription = lens _mdsgrqDBSubnetGroupDescription (\ s a -> s{_mdsgrqDBSubnetGroupDescription = a});
+mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
+mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_mdsgDBSubnetGroupDescription = a});
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
@@ -83,12 +83,12 @@ mdsgrqDBSubnetGroupDescription = lens _mdsgrqDBSubnetGroupDescription (\ s a -> 
 -- hyphens. Must not be \"Default\".
 --
 -- Example: @mySubnetgroup@
-mdsgrqDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
-mdsgrqDBSubnetGroupName = lens _mdsgrqDBSubnetGroupName (\ s a -> s{_mdsgrqDBSubnetGroupName = a});
+mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
+mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGroupName = a});
 
 -- | The EC2 subnet IDs for the DB subnet group.
-mdsgrqSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
-mdsgrqSubnetIds = lens _mdsgrqSubnetIds (\ s a -> s{_mdsgrqSubnetIds = a});
+mdsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
+mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a});
 
 instance AWSRequest ModifyDBSubnetGroup where
         type Sv ModifyDBSubnetGroup = RDS
@@ -113,10 +113,10 @@ instance ToQuery ModifyDBSubnetGroup where
               ["Action" =: ("ModifyDBSubnetGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "DBSubnetGroupDescription" =:
-                 _mdsgrqDBSubnetGroupDescription,
-               "DBSubnetGroupName" =: _mdsgrqDBSubnetGroupName,
+                 _mdsgDBSubnetGroupDescription,
+               "DBSubnetGroupName" =: _mdsgDBSubnetGroupName,
                "SubnetIds" =:
-                 toQueryList "SubnetIdentifier" _mdsgrqSubnetIds]
+                 toQueryList "SubnetIdentifier" _mdsgSubnetIds]
 
 -- | /See:/ 'modifyDBSubnetGroupResponse' smart constructor.
 --

@@ -31,7 +31,7 @@ module Network.AWS.ElasticTranscoder.DeletePipeline
     -- ** Request constructor
     , deletePipeline
     -- ** Request lenses
-    , drqId
+    , dId
 
     -- * Response
     , DeletePipelineResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqId'
+-- * 'dId'
 newtype DeletePipeline = DeletePipeline'
-    { _drqId :: Text
+    { _dId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
 deletePipeline pId_ =
     DeletePipeline'
-    { _drqId = pId_
+    { _dId = pId_
     }
 
 -- | The identifier of the pipeline that you want to delete.
-drqId :: Lens' DeletePipeline Text
-drqId = lens _drqId (\ s a -> s{_drqId = a});
+dId :: Lens' DeletePipeline Text
+dId = lens _dId (\ s a -> s{_dId = a});
 
 instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = ElasticTranscoder
@@ -82,7 +82,7 @@ instance ToHeaders DeletePipeline where
 
 instance ToPath DeletePipeline where
         toPath DeletePipeline'{..}
-          = mconcat ["/2012-09-25/pipelines/", toText _drqId]
+          = mconcat ["/2012-09-25/pipelines/", toText _dId]
 
 instance ToQuery DeletePipeline where
         toQuery = const mempty

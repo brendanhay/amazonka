@@ -28,9 +28,9 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     -- ** Request constructor
     , describeNetworkInterfaceAttribute
     -- ** Request lenses
-    , dniarqAttribute
-    , dniarqDryRun
-    , dniarqNetworkInterfaceId
+    , dniaAttribute
+    , dniaDryRun
+    , dniaNetworkInterfaceId
 
     -- * Response
     , DescribeNetworkInterfaceAttributeResponse
@@ -54,40 +54,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dniarqAttribute'
+-- * 'dniaAttribute'
 --
--- * 'dniarqDryRun'
+-- * 'dniaDryRun'
 --
--- * 'dniarqNetworkInterfaceId'
+-- * 'dniaNetworkInterfaceId'
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
-    { _dniarqAttribute          :: !(Maybe NetworkInterfaceAttribute)
-    , _dniarqDryRun             :: !(Maybe Bool)
-    , _dniarqNetworkInterfaceId :: !Text
+    { _dniaAttribute          :: !(Maybe NetworkInterfaceAttribute)
+    , _dniaDryRun             :: !(Maybe Bool)
+    , _dniaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfaceAttribute' smart constructor.
 describeNetworkInterfaceAttribute :: Text -> DescribeNetworkInterfaceAttribute
 describeNetworkInterfaceAttribute pNetworkInterfaceId_ =
     DescribeNetworkInterfaceAttribute'
-    { _dniarqAttribute = Nothing
-    , _dniarqDryRun = Nothing
-    , _dniarqNetworkInterfaceId = pNetworkInterfaceId_
+    { _dniaAttribute = Nothing
+    , _dniaDryRun = Nothing
+    , _dniaNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | The attribute of the network interface.
-dniarqAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
-dniarqAttribute = lens _dniarqAttribute (\ s a -> s{_dniarqAttribute = a});
+dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
+dniaAttribute = lens _dniaAttribute (\ s a -> s{_dniaAttribute = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dniarqDryRun :: Lens' DescribeNetworkInterfaceAttribute (Maybe Bool)
-dniarqDryRun = lens _dniarqDryRun (\ s a -> s{_dniarqDryRun = a});
+dniaDryRun :: Lens' DescribeNetworkInterfaceAttribute (Maybe Bool)
+dniaDryRun = lens _dniaDryRun (\ s a -> s{_dniaDryRun = a});
 
 -- | The ID of the network interface.
-dniarqNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
-dniarqNetworkInterfaceId = lens _dniarqNetworkInterfaceId (\ s a -> s{_dniarqNetworkInterfaceId = a});
+dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
+dniaNetworkInterfaceId = lens _dniaNetworkInterfaceId (\ s a -> s{_dniaNetworkInterfaceId = a});
 
 instance AWSRequest DescribeNetworkInterfaceAttribute
          where
@@ -122,9 +122,9 @@ instance ToQuery DescribeNetworkInterfaceAttribute
               ["Action" =:
                  ("DescribeNetworkInterfaceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Attribute" =: _dniarqAttribute,
-               "DryRun" =: _dniarqDryRun,
-               "NetworkInterfaceId" =: _dniarqNetworkInterfaceId]
+               "Attribute" =: _dniaAttribute,
+               "DryRun" =: _dniaDryRun,
+               "NetworkInterfaceId" =: _dniaNetworkInterfaceId]
 
 -- | /See:/ 'describeNetworkInterfaceAttributeResponse' smart constructor.
 --

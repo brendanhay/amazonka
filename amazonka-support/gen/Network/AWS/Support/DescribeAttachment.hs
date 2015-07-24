@@ -31,7 +31,7 @@ module Network.AWS.Support.DescribeAttachment
     -- ** Request constructor
     , describeAttachment
     -- ** Request lenses
-    , darqAttachmentId
+    , daAttachmentId
 
     -- * Response
     , DescribeAttachmentResponse
@@ -51,22 +51,22 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darqAttachmentId'
+-- * 'daAttachmentId'
 newtype DescribeAttachment = DescribeAttachment'
-    { _darqAttachmentId :: Text
+    { _daAttachmentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAttachment' smart constructor.
 describeAttachment :: Text -> DescribeAttachment
 describeAttachment pAttachmentId_ =
     DescribeAttachment'
-    { _darqAttachmentId = pAttachmentId_
+    { _daAttachmentId = pAttachmentId_
     }
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the
 -- DescribeCommunications operation.
-darqAttachmentId :: Lens' DescribeAttachment Text
-darqAttachmentId = lens _darqAttachmentId (\ s a -> s{_darqAttachmentId = a});
+daAttachmentId :: Lens' DescribeAttachment Text
+daAttachmentId = lens _daAttachmentId (\ s a -> s{_daAttachmentId = a});
 
 instance AWSRequest DescribeAttachment where
         type Sv DescribeAttachment = Support
@@ -91,7 +91,7 @@ instance ToHeaders DescribeAttachment where
 
 instance ToJSON DescribeAttachment where
         toJSON DescribeAttachment'{..}
-          = object ["attachmentId" .= _darqAttachmentId]
+          = object ["attachmentId" .= _daAttachmentId]
 
 instance ToPath DescribeAttachment where
         toPath = const "/"

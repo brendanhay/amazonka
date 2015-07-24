@@ -28,7 +28,7 @@ module Network.AWS.MachineLearning.GetEvaluation
     -- ** Request constructor
     , getEvaluation
     -- ** Request lenses
-    , gerqEvaluationId
+    , geEvaluationId
 
     -- * Response
     , GetEvaluationResponse
@@ -58,23 +58,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gerqEvaluationId'
+-- * 'geEvaluationId'
 newtype GetEvaluation = GetEvaluation'
-    { _gerqEvaluationId :: Text
+    { _geEvaluationId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEvaluation' smart constructor.
 getEvaluation :: Text -> GetEvaluation
 getEvaluation pEvaluationId_ =
     GetEvaluation'
-    { _gerqEvaluationId = pEvaluationId_
+    { _geEvaluationId = pEvaluationId_
     }
 
 -- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@
 -- is recorded and cataloged. The ID provides the means to access the
 -- information.
-gerqEvaluationId :: Lens' GetEvaluation Text
-gerqEvaluationId = lens _gerqEvaluationId (\ s a -> s{_gerqEvaluationId = a});
+geEvaluationId :: Lens' GetEvaluation Text
+geEvaluationId = lens _geEvaluationId (\ s a -> s{_geEvaluationId = a});
 
 instance AWSRequest GetEvaluation where
         type Sv GetEvaluation = MachineLearning
@@ -108,7 +108,7 @@ instance ToHeaders GetEvaluation where
 
 instance ToJSON GetEvaluation where
         toJSON GetEvaluation'{..}
-          = object ["EvaluationId" .= _gerqEvaluationId]
+          = object ["EvaluationId" .= _geEvaluationId]
 
 instance ToPath GetEvaluation where
         toPath = const "/"

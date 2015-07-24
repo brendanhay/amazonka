@@ -29,7 +29,7 @@ module Network.AWS.CloudSearch.IndexDocuments
     -- ** Request constructor
     , indexDocuments
     -- ** Request lenses
-    , idrqDomainName
+    , idDomainName
 
     -- * Response
     , IndexDocumentsResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'idrqDomainName'
+-- * 'idDomainName'
 newtype IndexDocuments = IndexDocuments'
-    { _idrqDomainName :: Text
+    { _idDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexDocuments' smart constructor.
 indexDocuments :: Text -> IndexDocuments
 indexDocuments pDomainName_ =
     IndexDocuments'
-    { _idrqDomainName = pDomainName_
+    { _idDomainName = pDomainName_
     }
 
 -- | FIXME: Undocumented member.
-idrqDomainName :: Lens' IndexDocuments Text
-idrqDomainName = lens _idrqDomainName (\ s a -> s{_idrqDomainName = a});
+idDomainName :: Lens' IndexDocuments Text
+idDomainName = lens _idDomainName (\ s a -> s{_idDomainName = a});
 
 instance AWSRequest IndexDocuments where
         type Sv IndexDocuments = CloudSearch
@@ -91,7 +91,7 @@ instance ToQuery IndexDocuments where
           = mconcat
               ["Action" =: ("IndexDocuments" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _idrqDomainName]
+               "DomainName" =: _idDomainName]
 
 -- | The result of an @IndexDocuments@ request. Contains the status of the
 -- indexing operation, including the fields being indexed.

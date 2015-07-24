@@ -27,12 +27,12 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- ** Request constructor
     , describeEnvironments
     -- ** Request lenses
-    , drqEnvironmentIds
-    , drqEnvironmentNames
-    , drqVersionLabel
-    , drqIncludedDeletedBackTo
-    , drqApplicationName
-    , drqIncludeDeleted
+    , dEnvironmentIds
+    , dEnvironmentNames
+    , dVersionLabel
+    , dIncludedDeletedBackTo
+    , dApplicationName
+    , dIncludeDeleted
 
     -- * Response
     , DescribeEnvironmentsResponse
@@ -54,62 +54,62 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqEnvironmentIds'
+-- * 'dEnvironmentIds'
 --
--- * 'drqEnvironmentNames'
+-- * 'dEnvironmentNames'
 --
--- * 'drqVersionLabel'
+-- * 'dVersionLabel'
 --
--- * 'drqIncludedDeletedBackTo'
+-- * 'dIncludedDeletedBackTo'
 --
--- * 'drqApplicationName'
+-- * 'dApplicationName'
 --
--- * 'drqIncludeDeleted'
+-- * 'dIncludeDeleted'
 data DescribeEnvironments = DescribeEnvironments'
-    { _drqEnvironmentIds        :: !(Maybe [Text])
-    , _drqEnvironmentNames      :: !(Maybe [Text])
-    , _drqVersionLabel          :: !(Maybe Text)
-    , _drqIncludedDeletedBackTo :: !(Maybe ISO8601)
-    , _drqApplicationName       :: !(Maybe Text)
-    , _drqIncludeDeleted        :: !(Maybe Bool)
+    { _dEnvironmentIds        :: !(Maybe [Text])
+    , _dEnvironmentNames      :: !(Maybe [Text])
+    , _dVersionLabel          :: !(Maybe Text)
+    , _dIncludedDeletedBackTo :: !(Maybe ISO8601)
+    , _dApplicationName       :: !(Maybe Text)
+    , _dIncludeDeleted        :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironments' smart constructor.
 describeEnvironments :: DescribeEnvironments
 describeEnvironments =
     DescribeEnvironments'
-    { _drqEnvironmentIds = Nothing
-    , _drqEnvironmentNames = Nothing
-    , _drqVersionLabel = Nothing
-    , _drqIncludedDeletedBackTo = Nothing
-    , _drqApplicationName = Nothing
-    , _drqIncludeDeleted = Nothing
+    { _dEnvironmentIds = Nothing
+    , _dEnvironmentNames = Nothing
+    , _dVersionLabel = Nothing
+    , _dIncludedDeletedBackTo = Nothing
+    , _dApplicationName = Nothing
+    , _dIncludeDeleted = Nothing
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified IDs.
-drqEnvironmentIds :: Lens' DescribeEnvironments [Text]
-drqEnvironmentIds = lens _drqEnvironmentIds (\ s a -> s{_drqEnvironmentIds = a}) . _Default;
+dEnvironmentIds :: Lens' DescribeEnvironments [Text]
+dEnvironmentIds = lens _dEnvironmentIds (\ s a -> s{_dEnvironmentIds = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified names.
-drqEnvironmentNames :: Lens' DescribeEnvironments [Text]
-drqEnvironmentNames = lens _drqEnvironmentNames (\ s a -> s{_drqEnvironmentNames = a}) . _Default;
+dEnvironmentNames :: Lens' DescribeEnvironments [Text]
+dEnvironmentNames = lens _dEnvironmentNames (\ s a -> s{_dEnvironmentNames = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application version.
-drqVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
-drqVersionLabel = lens _drqVersionLabel (\ s a -> s{_drqVersionLabel = a});
+dVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
+dVersionLabel = lens _dVersionLabel (\ s a -> s{_dVersionLabel = a});
 
 -- | If specified when @IncludeDeleted@ is set to @true@, then environments
 -- deleted after this date are displayed.
-drqIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
-drqIncludedDeletedBackTo = lens _drqIncludedDeletedBackTo (\ s a -> s{_drqIncludedDeletedBackTo = a}) . mapping _Time;
+dIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
+dIncludedDeletedBackTo = lens _dIncludedDeletedBackTo (\ s a -> s{_dIncludedDeletedBackTo = a}) . mapping _Time;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application.
-drqApplicationName :: Lens' DescribeEnvironments (Maybe Text)
-drqApplicationName = lens _drqApplicationName (\ s a -> s{_drqApplicationName = a});
+dApplicationName :: Lens' DescribeEnvironments (Maybe Text)
+dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
 -- | Indicates whether to include deleted environments:
 --
@@ -117,8 +117,8 @@ drqApplicationName = lens _drqApplicationName (\ s a -> s{_drqApplicationName = 
 -- @IncludedDeletedBackTo@ are displayed.
 --
 -- @false@: Do not include deleted environments.
-drqIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
-drqIncludeDeleted = lens _drqIncludeDeleted (\ s a -> s{_drqIncludeDeleted = a});
+dIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
+dIncludeDeleted = lens _dIncludeDeleted (\ s a -> s{_dIncludeDeleted = a});
 
 instance AWSRequest DescribeEnvironments where
         type Sv DescribeEnvironments = ElasticBeanstalk
@@ -145,15 +145,14 @@ instance ToQuery DescribeEnvironments where
               ["Action" =: ("DescribeEnvironments" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "EnvironmentIds" =:
-                 toQuery
-                   (toQueryList "member" <$> _drqEnvironmentIds),
+                 toQuery (toQueryList "member" <$> _dEnvironmentIds),
                "EnvironmentNames" =:
                  toQuery
-                   (toQueryList "member" <$> _drqEnvironmentNames),
-               "VersionLabel" =: _drqVersionLabel,
-               "IncludedDeletedBackTo" =: _drqIncludedDeletedBackTo,
-               "ApplicationName" =: _drqApplicationName,
-               "IncludeDeleted" =: _drqIncludeDeleted]
+                   (toQueryList "member" <$> _dEnvironmentNames),
+               "VersionLabel" =: _dVersionLabel,
+               "IncludedDeletedBackTo" =: _dIncludedDeletedBackTo,
+               "ApplicationName" =: _dApplicationName,
+               "IncludeDeleted" =: _dIncludeDeleted]
 
 -- | Result message containing a list of environment descriptions.
 --

@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.ListSamples
     -- ** Request constructor
     , listSamples
     -- ** Request lenses
-    , lsrqNextToken
-    , lsrqArn
+    , lsNextToken
+    , lsArn
 
     -- * Response
     , ListSamplesResponse
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrqNextToken'
+-- * 'lsNextToken'
 --
--- * 'lsrqArn'
+-- * 'lsArn'
 data ListSamples = ListSamples'
-    { _lsrqNextToken :: !(Maybe Text)
-    , _lsrqArn       :: !Text
+    { _lsNextToken :: !(Maybe Text)
+    , _lsArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSamples' smart constructor.
 listSamples :: Text -> ListSamples
 listSamples pArn_ =
     ListSamples'
-    { _lsrqNextToken = Nothing
-    , _lsrqArn = pArn_
+    { _lsNextToken = Nothing
+    , _lsArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lsrqNextToken :: Lens' ListSamples (Maybe Text)
-lsrqNextToken = lens _lsrqNextToken (\ s a -> s{_lsrqNextToken = a});
+lsNextToken :: Lens' ListSamples (Maybe Text)
+lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
 -- | The samples\' ARNs.
-lsrqArn :: Lens' ListSamples Text
-lsrqArn = lens _lsrqArn (\ s a -> s{_lsrqArn = a});
+lsArn :: Lens' ListSamples Text
+lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
 
 instance AWSRequest ListSamples where
         type Sv ListSamples = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListSamples where
 instance ToJSON ListSamples where
         toJSON ListSamples'{..}
           = object
-              ["nextToken" .= _lsrqNextToken, "arn" .= _lsrqArn]
+              ["nextToken" .= _lsNextToken, "arn" .= _lsArn]
 
 instance ToPath ListSamples where
         toPath = const "/"

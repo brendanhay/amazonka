@@ -29,7 +29,7 @@ module Network.AWS.EMR.DescribeCluster
     -- ** Request constructor
     , describeCluster
     -- ** Request lenses
-    , dcrqClusterId
+    , dcClusterId
 
     -- * Response
     , DescribeClusterResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrqClusterId'
+-- * 'dcClusterId'
 newtype DescribeCluster = DescribeCluster'
-    { _dcrqClusterId :: Text
+    { _dcClusterId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCluster' smart constructor.
 describeCluster :: Text -> DescribeCluster
 describeCluster pClusterId_ =
     DescribeCluster'
-    { _dcrqClusterId = pClusterId_
+    { _dcClusterId = pClusterId_
     }
 
 -- | The identifier of the cluster to describe.
-dcrqClusterId :: Lens' DescribeCluster Text
-dcrqClusterId = lens _dcrqClusterId (\ s a -> s{_dcrqClusterId = a});
+dcClusterId :: Lens' DescribeCluster Text
+dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a});
 
 instance AWSRequest DescribeCluster where
         type Sv DescribeCluster = EMR
@@ -88,7 +88,7 @@ instance ToHeaders DescribeCluster where
 
 instance ToJSON DescribeCluster where
         toJSON DescribeCluster'{..}
-          = object ["ClusterId" .= _dcrqClusterId]
+          = object ["ClusterId" .= _dcClusterId]
 
 instance ToPath DescribeCluster where
         toPath = const "/"

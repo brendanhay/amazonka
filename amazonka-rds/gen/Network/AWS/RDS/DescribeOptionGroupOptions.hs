@@ -27,11 +27,11 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- ** Request constructor
     , describeOptionGroupOptions
     -- ** Request lenses
-    , dogorqFilters
-    , dogorqMajorEngineVersion
-    , dogorqMaxRecords
-    , dogorqMarker
-    , dogorqEngineName
+    , dogoFilters
+    , dogoMajorEngineVersion
+    , dogoMaxRecords
+    , dogoMarker
+    , dogoEngineName
 
     -- * Response
     , DescribeOptionGroupOptionsResponse
@@ -55,42 +55,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogorqFilters'
+-- * 'dogoFilters'
 --
--- * 'dogorqMajorEngineVersion'
+-- * 'dogoMajorEngineVersion'
 --
--- * 'dogorqMaxRecords'
+-- * 'dogoMaxRecords'
 --
--- * 'dogorqMarker'
+-- * 'dogoMarker'
 --
--- * 'dogorqEngineName'
+-- * 'dogoEngineName'
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
-    { _dogorqFilters            :: !(Maybe [Filter])
-    , _dogorqMajorEngineVersion :: !(Maybe Text)
-    , _dogorqMaxRecords         :: !(Maybe Int)
-    , _dogorqMarker             :: !(Maybe Text)
-    , _dogorqEngineName         :: !Text
+    { _dogoFilters            :: !(Maybe [Filter])
+    , _dogoMajorEngineVersion :: !(Maybe Text)
+    , _dogoMaxRecords         :: !(Maybe Int)
+    , _dogoMarker             :: !(Maybe Text)
+    , _dogoEngineName         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOptionGroupOptions' smart constructor.
 describeOptionGroupOptions :: Text -> DescribeOptionGroupOptions
 describeOptionGroupOptions pEngineName_ =
     DescribeOptionGroupOptions'
-    { _dogorqFilters = Nothing
-    , _dogorqMajorEngineVersion = Nothing
-    , _dogorqMaxRecords = Nothing
-    , _dogorqMarker = Nothing
-    , _dogorqEngineName = pEngineName_
+    { _dogoFilters = Nothing
+    , _dogoMajorEngineVersion = Nothing
+    , _dogoMaxRecords = Nothing
+    , _dogoMarker = Nothing
+    , _dogoEngineName = pEngineName_
     }
 
 -- | This parameter is not currently supported.
-dogorqFilters :: Lens' DescribeOptionGroupOptions [Filter]
-dogorqFilters = lens _dogorqFilters (\ s a -> s{_dogorqFilters = a}) . _Default;
+dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
+dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a}) . _Default;
 
 -- | If specified, filters the results to include only options for the
 -- specified major engine version.
-dogorqMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
-dogorqMajorEngineVersion = lens _dogorqMajorEngineVersion (\ s a -> s{_dogorqMajorEngineVersion = a});
+dogoMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
+dogoMajorEngineVersion = lens _dogoMajorEngineVersion (\ s a -> s{_dogoMajorEngineVersion = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -100,26 +100,26 @@ dogorqMajorEngineVersion = lens _dogorqMajorEngineVersion (\ s a -> s{_dogorqMaj
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dogorqMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
-dogorqMaxRecords = lens _dogorqMaxRecords (\ s a -> s{_dogorqMaxRecords = a});
+dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
+dogoMaxRecords = lens _dogoMaxRecords (\ s a -> s{_dogoMaxRecords = a});
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-dogorqMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
-dogorqMarker = lens _dogorqMarker (\ s a -> s{_dogorqMarker = a});
+dogoMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
+dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a});
 
 -- | A required parameter. Options available for the given Engine name will
 -- be described.
-dogorqEngineName :: Lens' DescribeOptionGroupOptions Text
-dogorqEngineName = lens _dogorqEngineName (\ s a -> s{_dogorqEngineName = a});
+dogoEngineName :: Lens' DescribeOptionGroupOptions Text
+dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a});
 
 instance AWSPager DescribeOptionGroupOptions where
         page rq rs
           | stop (rs ^. dogorsMarker) = Nothing
           | stop (rs ^. dogorsOptionGroupOptions) = Nothing
           | otherwise =
-            Just $ rq & dogorqMarker .~ rs ^. dogorsMarker
+            Just $ rq & dogoMarker .~ rs ^. dogorsMarker
 
 instance AWSRequest DescribeOptionGroupOptions where
         type Sv DescribeOptionGroupOptions = RDS
@@ -149,11 +149,11 @@ instance ToQuery DescribeOptionGroupOptions where
                  ("DescribeOptionGroupOptions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dogorqFilters),
-               "MajorEngineVersion" =: _dogorqMajorEngineVersion,
-               "MaxRecords" =: _dogorqMaxRecords,
-               "Marker" =: _dogorqMarker,
-               "EngineName" =: _dogorqEngineName]
+                 toQuery (toQueryList "Filter" <$> _dogoFilters),
+               "MajorEngineVersion" =: _dogoMajorEngineVersion,
+               "MaxRecords" =: _dogoMaxRecords,
+               "Marker" =: _dogoMarker,
+               "EngineName" =: _dogoEngineName]
 
 -- |
 --

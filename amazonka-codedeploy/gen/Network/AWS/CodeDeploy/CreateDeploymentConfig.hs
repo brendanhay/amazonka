@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
     -- ** Request constructor
     , createDeploymentConfig
     -- ** Request lenses
-    , cdcrqMinimumHealthyHosts
-    , cdcrqDeploymentConfigName
+    , cdcMinimumHealthyHosts
+    , cdcDeploymentConfigName
 
     -- * Response
     , CreateDeploymentConfigResponse
@@ -50,20 +50,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdcrqMinimumHealthyHosts'
+-- * 'cdcMinimumHealthyHosts'
 --
--- * 'cdcrqDeploymentConfigName'
+-- * 'cdcDeploymentConfigName'
 data CreateDeploymentConfig = CreateDeploymentConfig'
-    { _cdcrqMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
-    , _cdcrqDeploymentConfigName :: !Text
+    { _cdcMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
+    , _cdcDeploymentConfigName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentConfig' smart constructor.
 createDeploymentConfig :: Text -> CreateDeploymentConfig
 createDeploymentConfig pDeploymentConfigName_ =
     CreateDeploymentConfig'
-    { _cdcrqMinimumHealthyHosts = Nothing
-    , _cdcrqDeploymentConfigName = pDeploymentConfigName_
+    { _cdcMinimumHealthyHosts = Nothing
+    , _cdcDeploymentConfigName = pDeploymentConfigName_
     }
 
 -- | The minimum number of healthy instances that should be available at any
@@ -84,12 +84,12 @@ createDeploymentConfig pDeploymentConfigName_ =
 --
 -- For example, to set a minimum of 95% healthy instances, specify a type
 -- of FLEET_PERCENT and a value of 95.
-cdcrqMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
-cdcrqMinimumHealthyHosts = lens _cdcrqMinimumHealthyHosts (\ s a -> s{_cdcrqMinimumHealthyHosts = a});
+cdcMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
+cdcMinimumHealthyHosts = lens _cdcMinimumHealthyHosts (\ s a -> s{_cdcMinimumHealthyHosts = a});
 
 -- | The name of the deployment configuration to create.
-cdcrqDeploymentConfigName :: Lens' CreateDeploymentConfig Text
-cdcrqDeploymentConfigName = lens _cdcrqDeploymentConfigName (\ s a -> s{_cdcrqDeploymentConfigName = a});
+cdcDeploymentConfigName :: Lens' CreateDeploymentConfig Text
+cdcDeploymentConfigName = lens _cdcDeploymentConfigName (\ s a -> s{_cdcDeploymentConfigName = a});
 
 instance AWSRequest CreateDeploymentConfig where
         type Sv CreateDeploymentConfig = CodeDeploy
@@ -115,8 +115,8 @@ instance ToHeaders CreateDeploymentConfig where
 instance ToJSON CreateDeploymentConfig where
         toJSON CreateDeploymentConfig'{..}
           = object
-              ["minimumHealthyHosts" .= _cdcrqMinimumHealthyHosts,
-               "deploymentConfigName" .= _cdcrqDeploymentConfigName]
+              ["minimumHealthyHosts" .= _cdcMinimumHealthyHosts,
+               "deploymentConfigName" .= _cdcDeploymentConfigName]
 
 instance ToPath CreateDeploymentConfig where
         toPath = const "/"

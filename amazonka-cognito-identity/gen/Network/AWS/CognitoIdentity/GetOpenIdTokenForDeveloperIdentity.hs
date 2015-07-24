@@ -43,10 +43,10 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     -- ** Request constructor
     , getOpenIdTokenForDeveloperIdentity
     -- ** Request lenses
-    , goitfdirqTokenDuration
-    , goitfdirqIdentityId
-    , goitfdirqIdentityPoolId
-    , goitfdirqLogins
+    , goitfdiTokenDuration
+    , goitfdiIdentityId
+    , goitfdiIdentityPoolId
+    , goitfdiLogins
 
     -- * Response
     , GetOpenIdTokenForDeveloperIdentityResponse
@@ -69,28 +69,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goitfdirqTokenDuration'
+-- * 'goitfdiTokenDuration'
 --
--- * 'goitfdirqIdentityId'
+-- * 'goitfdiIdentityId'
 --
--- * 'goitfdirqIdentityPoolId'
+-- * 'goitfdiIdentityPoolId'
 --
--- * 'goitfdirqLogins'
+-- * 'goitfdiLogins'
 data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
-    { _goitfdirqTokenDuration  :: !(Maybe Nat)
-    , _goitfdirqIdentityId     :: !(Maybe Text)
-    , _goitfdirqIdentityPoolId :: !Text
-    , _goitfdirqLogins         :: !(Map Text Text)
+    { _goitfdiTokenDuration  :: !(Maybe Nat)
+    , _goitfdiIdentityId     :: !(Maybe Text)
+    , _goitfdiIdentityPoolId :: !Text
+    , _goitfdiLogins         :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
 getOpenIdTokenForDeveloperIdentity :: Text -> GetOpenIdTokenForDeveloperIdentity
 getOpenIdTokenForDeveloperIdentity pIdentityPoolId_ =
     GetOpenIdTokenForDeveloperIdentity'
-    { _goitfdirqTokenDuration = Nothing
-    , _goitfdirqIdentityId = Nothing
-    , _goitfdirqIdentityPoolId = pIdentityPoolId_
-    , _goitfdirqLogins = mempty
+    { _goitfdiTokenDuration = Nothing
+    , _goitfdiIdentityId = Nothing
+    , _goitfdiIdentityPoolId = pIdentityPoolId_
+    , _goitfdiLogins = mempty
     }
 
 -- | The expiration time of the token, in seconds. You can specify a custom
@@ -102,16 +102,16 @@ getOpenIdTokenForDeveloperIdentity pIdentityPoolId_ =
 -- a token, as there are significant security implications: an attacker
 -- could use a leaked token to access your AWS resources for the token\'s
 -- duration.
-goitfdirqTokenDuration :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Natural)
-goitfdirqTokenDuration = lens _goitfdirqTokenDuration (\ s a -> s{_goitfdirqTokenDuration = a}) . mapping _Nat;
+goitfdiTokenDuration :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Natural)
+goitfdiTokenDuration = lens _goitfdiTokenDuration (\ s a -> s{_goitfdiTokenDuration = a}) . mapping _Nat;
 
 -- | A unique identifier in the format REGION:GUID.
-goitfdirqIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Text)
-goitfdirqIdentityId = lens _goitfdirqIdentityId (\ s a -> s{_goitfdirqIdentityId = a});
+goitfdiIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Text)
+goitfdiIdentityId = lens _goitfdiIdentityId (\ s a -> s{_goitfdiIdentityId = a});
 
 -- | An identity pool ID in the format REGION:GUID.
-goitfdirqIdentityPoolId :: Lens' GetOpenIdTokenForDeveloperIdentity Text
-goitfdirqIdentityPoolId = lens _goitfdirqIdentityPoolId (\ s a -> s{_goitfdirqIdentityPoolId = a});
+goitfdiIdentityPoolId :: Lens' GetOpenIdTokenForDeveloperIdentity Text
+goitfdiIdentityPoolId = lens _goitfdiIdentityPoolId (\ s a -> s{_goitfdiIdentityPoolId = a});
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens. Each name-value pair represents a user from a public provider or
@@ -123,8 +123,8 @@ goitfdirqIdentityPoolId = lens _goitfdirqIdentityPoolId (\ s a -> s{_goitfdirqId
 -- pool. The developer user identifier is an identifier from your backend
 -- that uniquely identifies a user. When you create an identity pool, you
 -- can specify the supported logins.
-goitfdirqLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
-goitfdirqLogins = lens _goitfdirqLogins (\ s a -> s{_goitfdirqLogins = a}) . _Map;
+goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
+goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Map;
 
 instance AWSRequest
          GetOpenIdTokenForDeveloperIdentity where
@@ -155,10 +155,10 @@ instance ToJSON GetOpenIdTokenForDeveloperIdentity
          where
         toJSON GetOpenIdTokenForDeveloperIdentity'{..}
           = object
-              ["TokenDuration" .= _goitfdirqTokenDuration,
-               "IdentityId" .= _goitfdirqIdentityId,
-               "IdentityPoolId" .= _goitfdirqIdentityPoolId,
-               "Logins" .= _goitfdirqLogins]
+              ["TokenDuration" .= _goitfdiTokenDuration,
+               "IdentityId" .= _goitfdiIdentityId,
+               "IdentityPoolId" .= _goitfdiIdentityPoolId,
+               "Logins" .= _goitfdiLogins]
 
 instance ToPath GetOpenIdTokenForDeveloperIdentity
          where

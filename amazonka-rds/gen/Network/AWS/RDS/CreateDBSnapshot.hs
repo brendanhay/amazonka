@@ -28,9 +28,9 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- ** Request constructor
     , createDBSnapshot
     -- ** Request lenses
-    , cdbsrqTags
-    , cdbsrqDBSnapshotIdentifier
-    , cdbsrqDBInstanceIdentifier
+    , cdbsTags
+    , cdbsDBSnapshotIdentifier
+    , cdbsDBInstanceIdentifier
 
     -- * Response
     , CreateDBSnapshotResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsrqTags'
+-- * 'cdbsTags'
 --
--- * 'cdbsrqDBSnapshotIdentifier'
+-- * 'cdbsDBSnapshotIdentifier'
 --
--- * 'cdbsrqDBInstanceIdentifier'
+-- * 'cdbsDBInstanceIdentifier'
 data CreateDBSnapshot = CreateDBSnapshot'
-    { _cdbsrqTags                 :: !(Maybe [Tag])
-    , _cdbsrqDBSnapshotIdentifier :: !Text
-    , _cdbsrqDBInstanceIdentifier :: !Text
+    { _cdbsTags                 :: !(Maybe [Tag])
+    , _cdbsDBSnapshotIdentifier :: !Text
+    , _cdbsDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSnapshot' smart constructor.
 createDBSnapshot :: Text -> Text -> CreateDBSnapshot
 createDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
     CreateDBSnapshot'
-    { _cdbsrqTags = Nothing
-    , _cdbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier_
-    , _cdbsrqDBInstanceIdentifier = pDBInstanceIdentifier_
+    { _cdbsTags = Nothing
+    , _cdbsDBSnapshotIdentifier = pDBSnapshotIdentifier_
+    , _cdbsDBInstanceIdentifier = pDBInstanceIdentifier_
     }
 
 -- | FIXME: Undocumented member.
-cdbsrqTags :: Lens' CreateDBSnapshot [Tag]
-cdbsrqTags = lens _cdbsrqTags (\ s a -> s{_cdbsrqTags = a}) . _Default;
+cdbsTags :: Lens' CreateDBSnapshot [Tag]
+cdbsTags = lens _cdbsTags (\ s a -> s{_cdbsTags = a}) . _Default;
 
 -- | The identifier for the DB snapshot.
 --
@@ -86,8 +86,8 @@ cdbsrqTags = lens _cdbsrqTags (\ s a -> s{_cdbsrqTags = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-snapshot-id@
-cdbsrqDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
-cdbsrqDBSnapshotIdentifier = lens _cdbsrqDBSnapshotIdentifier (\ s a -> s{_cdbsrqDBSnapshotIdentifier = a});
+cdbsDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
+cdbsDBSnapshotIdentifier = lens _cdbsDBSnapshotIdentifier (\ s a -> s{_cdbsDBSnapshotIdentifier = a});
 
 -- | The DB instance identifier. This is the unique key that identifies a DB
 -- instance.
@@ -97,8 +97,8 @@ cdbsrqDBSnapshotIdentifier = lens _cdbsrqDBSnapshotIdentifier (\ s a -> s{_cdbsr
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-cdbsrqDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
-cdbsrqDBInstanceIdentifier = lens _cdbsrqDBInstanceIdentifier (\ s a -> s{_cdbsrqDBInstanceIdentifier = a});
+cdbsDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
+cdbsDBInstanceIdentifier = lens _cdbsDBInstanceIdentifier (\ s a -> s{_cdbsDBInstanceIdentifier = a});
 
 instance AWSRequest CreateDBSnapshot where
         type Sv CreateDBSnapshot = RDS
@@ -121,12 +121,9 @@ instance ToQuery CreateDBSnapshot where
           = mconcat
               ["Action" =: ("CreateDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =:
-                 toQuery (toQueryList "Tag" <$> _cdbsrqTags),
-               "DBSnapshotIdentifier" =:
-                 _cdbsrqDBSnapshotIdentifier,
-               "DBInstanceIdentifier" =:
-                 _cdbsrqDBInstanceIdentifier]
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdbsTags),
+               "DBSnapshotIdentifier" =: _cdbsDBSnapshotIdentifier,
+               "DBInstanceIdentifier" =: _cdbsDBInstanceIdentifier]
 
 -- | /See:/ 'createDBSnapshotResponse' smart constructor.
 --

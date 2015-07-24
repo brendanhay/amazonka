@@ -28,9 +28,9 @@ module Network.AWS.S3.PutBucketLifecycle
     -- ** Request constructor
     , putBucketLifecycle
     -- ** Request lenses
-    , prqContentMD5
-    , prqLifecycleConfiguration
-    , prqBucket
+    , pContentMD5
+    , pLifecycleConfiguration
+    , pBucket
 
     -- * Response
     , PutBucketLifecycleResponse
@@ -47,37 +47,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prqContentMD5'
+-- * 'pContentMD5'
 --
--- * 'prqLifecycleConfiguration'
+-- * 'pLifecycleConfiguration'
 --
--- * 'prqBucket'
+-- * 'pBucket'
 data PutBucketLifecycle = PutBucketLifecycle'
-    { _prqContentMD5             :: !(Maybe Text)
-    , _prqLifecycleConfiguration :: !(Maybe LifecycleConfiguration)
-    , _prqBucket                 :: !BucketName
+    { _pContentMD5             :: !(Maybe Text)
+    , _pLifecycleConfiguration :: !(Maybe LifecycleConfiguration)
+    , _pBucket                 :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketLifecycle' smart constructor.
 putBucketLifecycle :: BucketName -> PutBucketLifecycle
 putBucketLifecycle pBucket_ =
     PutBucketLifecycle'
-    { _prqContentMD5 = Nothing
-    , _prqLifecycleConfiguration = Nothing
-    , _prqBucket = pBucket_
+    { _pContentMD5 = Nothing
+    , _pLifecycleConfiguration = Nothing
+    , _pBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-prqContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
-prqContentMD5 = lens _prqContentMD5 (\ s a -> s{_prqContentMD5 = a});
+pContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
+pContentMD5 = lens _pContentMD5 (\ s a -> s{_pContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-prqLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
-prqLifecycleConfiguration = lens _prqLifecycleConfiguration (\ s a -> s{_prqLifecycleConfiguration = a});
+pLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
+pLifecycleConfiguration = lens _pLifecycleConfiguration (\ s a -> s{_pLifecycleConfiguration = a});
 
 -- | FIXME: Undocumented member.
-prqBucket :: Lens' PutBucketLifecycle BucketName
-prqBucket = lens _prqBucket (\ s a -> s{_prqBucket = a});
+pBucket :: Lens' PutBucketLifecycle BucketName
+pBucket = lens _pBucket (\ s a -> s{_pBucket = a});
 
 instance AWSRequest PutBucketLifecycle where
         type Sv PutBucketLifecycle = S3
@@ -91,15 +91,15 @@ instance ToElement PutBucketLifecycle where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}LifecycleConfiguration"
               .
-              _prqLifecycleConfiguration
+              _pLifecycleConfiguration
 
 instance ToHeaders PutBucketLifecycle where
         toHeaders PutBucketLifecycle'{..}
-          = mconcat ["Content-MD5" =# _prqContentMD5]
+          = mconcat ["Content-MD5" =# _pContentMD5]
 
 instance ToPath PutBucketLifecycle where
         toPath PutBucketLifecycle'{..}
-          = mconcat ["/", toText _prqBucket]
+          = mconcat ["/", toText _pBucket]
 
 instance ToQuery PutBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])

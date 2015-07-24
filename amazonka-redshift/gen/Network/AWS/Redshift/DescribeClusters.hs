@@ -42,11 +42,11 @@ module Network.AWS.Redshift.DescribeClusters
     -- ** Request constructor
     , describeClusters
     -- ** Request lenses
-    , dcrqTagValues
-    , dcrqTagKeys
-    , dcrqClusterIdentifier
-    , dcrqMaxRecords
-    , dcrqMarker
+    , dcTagValues
+    , dcTagKeys
+    , dcClusterIdentifier
+    , dcMaxRecords
+    , dcMarker
 
     -- * Response
     , DescribeClustersResponse
@@ -70,32 +70,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrqTagValues'
+-- * 'dcTagValues'
 --
--- * 'dcrqTagKeys'
+-- * 'dcTagKeys'
 --
--- * 'dcrqClusterIdentifier'
+-- * 'dcClusterIdentifier'
 --
--- * 'dcrqMaxRecords'
+-- * 'dcMaxRecords'
 --
--- * 'dcrqMarker'
+-- * 'dcMarker'
 data DescribeClusters = DescribeClusters'
-    { _dcrqTagValues         :: !(Maybe [Text])
-    , _dcrqTagKeys           :: !(Maybe [Text])
-    , _dcrqClusterIdentifier :: !(Maybe Text)
-    , _dcrqMaxRecords        :: !(Maybe Int)
-    , _dcrqMarker            :: !(Maybe Text)
+    { _dcTagValues         :: !(Maybe [Text])
+    , _dcTagKeys           :: !(Maybe [Text])
+    , _dcClusterIdentifier :: !(Maybe Text)
+    , _dcMaxRecords        :: !(Maybe Int)
+    , _dcMarker            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
 describeClusters =
     DescribeClusters'
-    { _dcrqTagValues = Nothing
-    , _dcrqTagKeys = Nothing
-    , _dcrqClusterIdentifier = Nothing
-    , _dcrqMaxRecords = Nothing
-    , _dcrqMarker = Nothing
+    { _dcTagValues = Nothing
+    , _dcTagKeys = Nothing
+    , _dcClusterIdentifier = Nothing
+    , _dcMaxRecords = Nothing
+    , _dcMarker = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching clusters
@@ -104,8 +104,8 @@ describeClusters =
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the clusters that have
 -- either or both of these tag values associated with them.
-dcrqTagValues :: Lens' DescribeClusters [Text]
-dcrqTagValues = lens _dcrqTagValues (\ s a -> s{_dcrqTagValues = a}) . _Default;
+dcTagValues :: Lens' DescribeClusters [Text]
+dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching clusters
 -- that are associated with the specified key or keys. For example, suppose
@@ -113,15 +113,15 @@ dcrqTagValues = lens _dcrqTagValues (\ s a -> s{_dcrqTagValues = a}) . _Default;
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with the clusters that have either or
 -- both of these tag keys associated with them.
-dcrqTagKeys :: Lens' DescribeClusters [Text]
-dcrqTagKeys = lens _dcrqTagKeys (\ s a -> s{_dcrqTagKeys = a}) . _Default;
+dcTagKeys :: Lens' DescribeClusters [Text]
+dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a}) . _Default;
 
 -- | The unique identifier of a cluster whose properties you are requesting.
 -- This parameter is case sensitive.
 --
 -- The default is that all clusters defined for an account are returned.
-dcrqClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
-dcrqClusterIdentifier = lens _dcrqClusterIdentifier (\ s a -> s{_dcrqClusterIdentifier = a});
+dcClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
+dcClusterIdentifier = lens _dcClusterIdentifier (\ s a -> s{_dcClusterIdentifier = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -132,8 +132,8 @@ dcrqClusterIdentifier = lens _dcrqClusterIdentifier (\ s a -> s{_dcrqClusterIden
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dcrqMaxRecords :: Lens' DescribeClusters (Maybe Int)
-dcrqMaxRecords = lens _dcrqMaxRecords (\ s a -> s{_dcrqMaxRecords = a});
+dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
+dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusters request
@@ -144,15 +144,15 @@ dcrqMaxRecords = lens _dcrqMaxRecords (\ s a -> s{_dcrqMaxRecords = a});
 --
 -- Constraints: You can specify either the __ClusterIdentifier__ parameter
 -- or the __Marker__ parameter, but not both.
-dcrqMarker :: Lens' DescribeClusters (Maybe Text)
-dcrqMarker = lens _dcrqMarker (\ s a -> s{_dcrqMarker = a});
+dcMarker :: Lens' DescribeClusters (Maybe Text)
+dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
 
 instance AWSPager DescribeClusters where
         page rq rs
           | stop (rs ^. dcrsMarker) = Nothing
           | stop (rs ^. dcrsClusters) = Nothing
           | otherwise =
-            Just $ rq & dcrqMarker .~ rs ^. dcrsMarker
+            Just $ rq & dcMarker .~ rs ^. dcrsMarker
 
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = Redshift
@@ -179,12 +179,11 @@ instance ToQuery DescribeClusters where
               ["Action" =: ("DescribeClusters" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dcrqTagValues),
+                 toQuery (toQueryList "TagValue" <$> _dcTagValues),
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dcrqTagKeys),
-               "ClusterIdentifier" =: _dcrqClusterIdentifier,
-               "MaxRecords" =: _dcrqMaxRecords,
-               "Marker" =: _dcrqMarker]
+                 toQuery (toQueryList "TagKey" <$> _dcTagKeys),
+               "ClusterIdentifier" =: _dcClusterIdentifier,
+               "MaxRecords" =: _dcMaxRecords, "Marker" =: _dcMarker]
 
 -- | Contains the output from the DescribeClusters action.
 --

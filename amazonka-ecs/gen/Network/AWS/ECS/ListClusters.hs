@@ -27,8 +27,8 @@ module Network.AWS.ECS.ListClusters
     -- ** Request constructor
     , listClusters
     -- ** Request lenses
-    , lcrqNextToken
-    , lcrqMaxResults
+    , lcNextToken
+    , lcMaxResults
 
     -- * Response
     , ListClustersResponse
@@ -50,20 +50,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcrqNextToken'
+-- * 'lcNextToken'
 --
--- * 'lcrqMaxResults'
+-- * 'lcMaxResults'
 data ListClusters = ListClusters'
-    { _lcrqNextToken  :: !(Maybe Text)
-    , _lcrqMaxResults :: !(Maybe Int)
+    { _lcNextToken  :: !(Maybe Text)
+    , _lcMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
 listClusters =
     ListClusters'
-    { _lcrqNextToken = Nothing
-    , _lcrqMaxResults = Nothing
+    { _lcNextToken = Nothing
+    , _lcMaxResults = Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated @ListClusters@
@@ -71,8 +71,8 @@ listClusters =
 -- of that parameter. Pagination continues from the end of the previous
 -- results that returned the @nextToken@ value. This value is @null@ when
 -- there are no more results to return.
-lcrqNextToken :: Lens' ListClusters (Maybe Text)
-lcrqNextToken = lens _lcrqNextToken (\ s a -> s{_lcrqNextToken = a});
+lcNextToken :: Lens' ListClusters (Maybe Text)
+lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 
 -- | The maximum number of cluster results returned by @ListClusters@ in
 -- paginated output. When this parameter is used, @ListClusters@ only
@@ -82,15 +82,15 @@ lcrqNextToken = lens _lcrqNextToken (\ s a -> s{_lcrqNextToken = a});
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter is not used, then @ListClusters@ returns up to 100 results and
 -- a @nextToken@ value if applicable.
-lcrqMaxResults :: Lens' ListClusters (Maybe Int)
-lcrqMaxResults = lens _lcrqMaxResults (\ s a -> s{_lcrqMaxResults = a});
+lcMaxResults :: Lens' ListClusters (Maybe Int)
+lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a});
 
 instance AWSPager ListClusters where
         page rq rs
           | stop (rs ^. lcrsNextToken) = Nothing
           | stop (rs ^. lcrsClusterARNs) = Nothing
           | otherwise =
-            Just $ rq & lcrqNextToken .~ rs ^. lcrsNextToken
+            Just $ rq & lcNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListClusters where
         type Sv ListClusters = ECS
@@ -117,8 +117,8 @@ instance ToHeaders ListClusters where
 instance ToJSON ListClusters where
         toJSON ListClusters'{..}
           = object
-              ["nextToken" .= _lcrqNextToken,
-               "maxResults" .= _lcrqMaxResults]
+              ["nextToken" .= _lcNextToken,
+               "maxResults" .= _lcMaxResults]
 
 instance ToPath ListClusters where
         toPath = const "/"

@@ -30,7 +30,7 @@ module Network.AWS.SNS.ListTopics
     -- ** Request constructor
     , listTopics
     -- ** Request lenses
-    , ltrqNextToken
+    , ltNextToken
 
     -- * Response
     , ListTopicsResponse
@@ -52,28 +52,28 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrqNextToken'
+-- * 'ltNextToken'
 newtype ListTopics = ListTopics'
-    { _ltrqNextToken :: Maybe Text
+    { _ltNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTopics' smart constructor.
 listTopics :: ListTopics
 listTopics =
     ListTopics'
-    { _ltrqNextToken = Nothing
+    { _ltNextToken = Nothing
     }
 
 -- | Token returned by the previous @ListTopics@ request.
-ltrqNextToken :: Lens' ListTopics (Maybe Text)
-ltrqNextToken = lens _ltrqNextToken (\ s a -> s{_ltrqNextToken = a});
+ltNextToken :: Lens' ListTopics (Maybe Text)
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
 instance AWSPager ListTopics where
         page rq rs
           | stop (rs ^. ltrsNextToken) = Nothing
           | stop (rs ^. ltrsTopics) = Nothing
           | otherwise =
-            Just $ rq & ltrqNextToken .~ rs ^. ltrsNextToken
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTopics where
         type Sv ListTopics = SNS
@@ -99,7 +99,7 @@ instance ToQuery ListTopics where
           = mconcat
               ["Action" =: ("ListTopics" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _ltrqNextToken]
+               "NextToken" =: _ltNextToken]
 
 -- | Response for ListTopics action.
 --

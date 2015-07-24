@@ -30,8 +30,8 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- ** Request constructor
     , describeInstanceHealth
     -- ** Request lenses
-    , dihrqInstances
-    , dihrqLoadBalancerName
+    , dihInstances
+    , dihLoadBalancerName
 
     -- * Response
     , DescribeInstanceHealthResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dihrqInstances'
+-- * 'dihInstances'
 --
--- * 'dihrqLoadBalancerName'
+-- * 'dihLoadBalancerName'
 data DescribeInstanceHealth = DescribeInstanceHealth'
-    { _dihrqInstances        :: !(Maybe [Instance])
-    , _dihrqLoadBalancerName :: !Text
+    { _dihInstances        :: !(Maybe [Instance])
+    , _dihLoadBalancerName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceHealth' smart constructor.
 describeInstanceHealth :: Text -> DescribeInstanceHealth
 describeInstanceHealth pLoadBalancerName_ =
     DescribeInstanceHealth'
-    { _dihrqInstances = Nothing
-    , _dihrqLoadBalancerName = pLoadBalancerName_
+    { _dihInstances = Nothing
+    , _dihLoadBalancerName = pLoadBalancerName_
     }
 
 -- | The IDs of the instances.
-dihrqInstances :: Lens' DescribeInstanceHealth [Instance]
-dihrqInstances = lens _dihrqInstances (\ s a -> s{_dihrqInstances = a}) . _Default;
+dihInstances :: Lens' DescribeInstanceHealth [Instance]
+dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a}) . _Default;
 
 -- | The name of the load balancer.
-dihrqLoadBalancerName :: Lens' DescribeInstanceHealth Text
-dihrqLoadBalancerName = lens _dihrqLoadBalancerName (\ s a -> s{_dihrqLoadBalancerName = a});
+dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
+dihLoadBalancerName = lens _dihLoadBalancerName (\ s a -> s{_dihLoadBalancerName = a});
 
 instance AWSRequest DescribeInstanceHealth where
         type Sv DescribeInstanceHealth = ELB
@@ -101,8 +101,8 @@ instance ToQuery DescribeInstanceHealth where
                  ("DescribeInstanceHealth" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "Instances" =:
-                 toQuery (toQueryList "member" <$> _dihrqInstances),
-               "LoadBalancerName" =: _dihrqLoadBalancerName]
+                 toQuery (toQueryList "member" <$> _dihInstances),
+               "LoadBalancerName" =: _dihLoadBalancerName]
 
 -- | /See:/ 'describeInstanceHealthResponse' smart constructor.
 --

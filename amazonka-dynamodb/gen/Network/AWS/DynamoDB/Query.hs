@@ -54,23 +54,23 @@ module Network.AWS.DynamoDB.Query
     -- ** Request constructor
     , query
     -- ** Request lenses
-    , qrqProjectionExpression
-    , qrqKeyConditions
-    , qrqFilterExpression
-    , qrqQueryFilter
-    , qrqConsistentRead
-    , qrqExpressionAttributeNames
-    , qrqAttributesToGet
-    , qrqReturnConsumedCapacity
-    , qrqExpressionAttributeValues
-    , qrqScanIndexForward
-    , qrqLimit
-    , qrqSelect
-    , qrqConditionalOperator
-    , qrqKeyConditionExpression
-    , qrqExclusiveStartKey
-    , qrqIndexName
-    , qrqTableName
+    , qProjectionExpression
+    , qKeyConditions
+    , qFilterExpression
+    , qQueryFilter
+    , qConsistentRead
+    , qExpressionAttributeNames
+    , qAttributesToGet
+    , qReturnConsumedCapacity
+    , qExpressionAttributeValues
+    , qScanIndexForward
+    , qLimit
+    , qSelect
+    , qConditionalOperator
+    , qKeyConditionExpression
+    , qExclusiveStartKey
+    , qIndexName
+    , qTableName
 
     -- * Response
     , QueryResponse
@@ -97,80 +97,80 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'qrqProjectionExpression'
+-- * 'qProjectionExpression'
 --
--- * 'qrqKeyConditions'
+-- * 'qKeyConditions'
 --
--- * 'qrqFilterExpression'
+-- * 'qFilterExpression'
 --
--- * 'qrqQueryFilter'
+-- * 'qQueryFilter'
 --
--- * 'qrqConsistentRead'
+-- * 'qConsistentRead'
 --
--- * 'qrqExpressionAttributeNames'
+-- * 'qExpressionAttributeNames'
 --
--- * 'qrqAttributesToGet'
+-- * 'qAttributesToGet'
 --
--- * 'qrqReturnConsumedCapacity'
+-- * 'qReturnConsumedCapacity'
 --
--- * 'qrqExpressionAttributeValues'
+-- * 'qExpressionAttributeValues'
 --
--- * 'qrqScanIndexForward'
+-- * 'qScanIndexForward'
 --
--- * 'qrqLimit'
+-- * 'qLimit'
 --
--- * 'qrqSelect'
+-- * 'qSelect'
 --
--- * 'qrqConditionalOperator'
+-- * 'qConditionalOperator'
 --
--- * 'qrqKeyConditionExpression'
+-- * 'qKeyConditionExpression'
 --
--- * 'qrqExclusiveStartKey'
+-- * 'qExclusiveStartKey'
 --
--- * 'qrqIndexName'
+-- * 'qIndexName'
 --
--- * 'qrqTableName'
+-- * 'qTableName'
 data Query = Query'
-    { _qrqProjectionExpression      :: !(Maybe Text)
-    , _qrqKeyConditions             :: !(Maybe (Map Text Condition))
-    , _qrqFilterExpression          :: !(Maybe Text)
-    , _qrqQueryFilter               :: !(Maybe (Map Text Condition))
-    , _qrqConsistentRead            :: !(Maybe Bool)
-    , _qrqExpressionAttributeNames  :: !(Maybe (Map Text Text))
-    , _qrqAttributesToGet           :: !(Maybe (List1 Text))
-    , _qrqReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
-    , _qrqExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
-    , _qrqScanIndexForward          :: !(Maybe Bool)
-    , _qrqLimit                     :: !(Maybe Nat)
-    , _qrqSelect                    :: !(Maybe Select)
-    , _qrqConditionalOperator       :: !(Maybe ConditionalOperator)
-    , _qrqKeyConditionExpression    :: !(Maybe Text)
-    , _qrqExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
-    , _qrqIndexName                 :: !(Maybe Text)
-    , _qrqTableName                 :: !Text
+    { _qProjectionExpression      :: !(Maybe Text)
+    , _qKeyConditions             :: !(Maybe (Map Text Condition))
+    , _qFilterExpression          :: !(Maybe Text)
+    , _qQueryFilter               :: !(Maybe (Map Text Condition))
+    , _qConsistentRead            :: !(Maybe Bool)
+    , _qExpressionAttributeNames  :: !(Maybe (Map Text Text))
+    , _qAttributesToGet           :: !(Maybe (List1 Text))
+    , _qReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
+    , _qExpressionAttributeValues :: !(Maybe (Map Text AttributeValue))
+    , _qScanIndexForward          :: !(Maybe Bool)
+    , _qLimit                     :: !(Maybe Nat)
+    , _qSelect                    :: !(Maybe Select)
+    , _qConditionalOperator       :: !(Maybe ConditionalOperator)
+    , _qKeyConditionExpression    :: !(Maybe Text)
+    , _qExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
+    , _qIndexName                 :: !(Maybe Text)
+    , _qTableName                 :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Query' smart constructor.
 query :: Text -> Query
 query pTableName_ =
     Query'
-    { _qrqProjectionExpression = Nothing
-    , _qrqKeyConditions = Nothing
-    , _qrqFilterExpression = Nothing
-    , _qrqQueryFilter = Nothing
-    , _qrqConsistentRead = Nothing
-    , _qrqExpressionAttributeNames = Nothing
-    , _qrqAttributesToGet = Nothing
-    , _qrqReturnConsumedCapacity = Nothing
-    , _qrqExpressionAttributeValues = Nothing
-    , _qrqScanIndexForward = Nothing
-    , _qrqLimit = Nothing
-    , _qrqSelect = Nothing
-    , _qrqConditionalOperator = Nothing
-    , _qrqKeyConditionExpression = Nothing
-    , _qrqExclusiveStartKey = Nothing
-    , _qrqIndexName = Nothing
-    , _qrqTableName = pTableName_
+    { _qProjectionExpression = Nothing
+    , _qKeyConditions = Nothing
+    , _qFilterExpression = Nothing
+    , _qQueryFilter = Nothing
+    , _qConsistentRead = Nothing
+    , _qExpressionAttributeNames = Nothing
+    , _qAttributesToGet = Nothing
+    , _qReturnConsumedCapacity = Nothing
+    , _qExpressionAttributeValues = Nothing
+    , _qScanIndexForward = Nothing
+    , _qLimit = Nothing
+    , _qSelect = Nothing
+    , _qConditionalOperator = Nothing
+    , _qKeyConditionExpression = Nothing
+    , _qExclusiveStartKey = Nothing
+    , _qIndexName = Nothing
+    , _qTableName = pTableName_
     }
 
 -- | A string that identifies one or more attributes to retrieve from the
@@ -186,8 +186,8 @@ query pTableName_ =
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
-qrqProjectionExpression :: Lens' Query (Maybe Text)
-qrqProjectionExpression = lens _qrqProjectionExpression (\ s a -> s{_qrqProjectionExpression = a});
+qProjectionExpression :: Lens' Query (Maybe Text)
+qProjectionExpression = lens _qProjectionExpression (\ s a -> s{_qProjectionExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /KeyConditionExpression/ instead. Do not combine legacy
@@ -308,8 +308,8 @@ qrqProjectionExpression = lens _qrqProjectionExpression (\ s a -> s{_qrqProjecti
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters>
 -- in the /Amazon DynamoDB Developer Guide/.
-qrqKeyConditions :: Lens' Query (HashMap Text Condition)
-qrqKeyConditions = lens _qrqKeyConditions (\ s a -> s{_qrqKeyConditions = a}) . _Default . _Map;
+qKeyConditions :: Lens' Query (HashMap Text Condition)
+qKeyConditions = lens _qKeyConditions (\ s a -> s{_qKeyConditions = a}) . _Default . _Map;
 
 -- | A string that contains conditions that DynamoDB applies after the
 -- /Query/ operation, but before the data is returned to you. Items that do
@@ -325,8 +325,8 @@ qrqKeyConditions = lens _qrqKeyConditions (\ s a -> s{_qrqKeyConditions = a}) . 
 --
 -- /FilterExpression/ replaces the legacy /QueryFilter/ and
 -- /ConditionalOperator/ parameters.
-qrqFilterExpression :: Lens' Query (Maybe Text)
-qrqFilterExpression = lens _qrqFilterExpression (\ s a -> s{_qrqFilterExpression = a});
+qFilterExpression :: Lens' Query (Maybe Text)
+qFilterExpression = lens _qFilterExpression (\ s a -> s{_qFilterExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /FilterExpression/ instead. Do not combine legacy parameters
@@ -383,8 +383,8 @@ qrqFilterExpression = lens _qrqFilterExpression (\ s a -> s{_qrqFilterExpression
 --     <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Condition.html Condition>
 --     data type.
 --
-qrqQueryFilter :: Lens' Query (HashMap Text Condition)
-qrqQueryFilter = lens _qrqQueryFilter (\ s a -> s{_qrqQueryFilter = a}) . _Default . _Map;
+qQueryFilter :: Lens' Query (HashMap Text Condition)
+qQueryFilter = lens _qQueryFilter (\ s a -> s{_qQueryFilter = a}) . _Default . _Map;
 
 -- | Determines the read consistency model: If set to @true@, then the
 -- operation uses strongly consistent reads; otherwise, the operation uses
@@ -393,8 +393,8 @@ qrqQueryFilter = lens _qrqQueryFilter (\ s a -> s{_qrqQueryFilter = a}) . _Defau
 -- Strongly consistent reads are not supported on global secondary indexes.
 -- If you query a global secondary index with /ConsistentRead/ set to
 -- @true@, you will receive a /ValidationException/.
-qrqConsistentRead :: Lens' Query (Maybe Bool)
-qrqConsistentRead = lens _qrqConsistentRead (\ s a -> s{_qrqConsistentRead = a});
+qConsistentRead :: Lens' Query (Maybe Bool)
+qConsistentRead = lens _qConsistentRead (\ s a -> s{_qConsistentRead = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -433,8 +433,8 @@ qrqConsistentRead = lens _qrqConsistentRead (\ s a -> s{_qrqConsistentRead = a})
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-qrqExpressionAttributeNames :: Lens' Query (HashMap Text Text)
-qrqExpressionAttributeNames = lens _qrqExpressionAttributeNames (\ s a -> s{_qrqExpressionAttributeNames = a}) . _Default . _Map;
+qExpressionAttributeNames :: Lens' Query (HashMap Text Text)
+qExpressionAttributeNames = lens _qExpressionAttributeNames (\ s a -> s{_qExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ProjectionExpression/ instead. Do not combine legacy
@@ -467,12 +467,12 @@ qrqExpressionAttributeNames = lens _qrqExpressionAttributeNames (\ s a -> s{_qrq
 -- If you query a global secondary index, you can only request attributes
 -- that are projected into the index. Global secondary index queries cannot
 -- fetch attributes from the parent table.
-qrqAttributesToGet :: Lens' Query (Maybe (NonEmpty Text))
-qrqAttributesToGet = lens _qrqAttributesToGet (\ s a -> s{_qrqAttributesToGet = a}) . mapping _List1;
+qAttributesToGet :: Lens' Query (Maybe (NonEmpty Text))
+qAttributesToGet = lens _qAttributesToGet (\ s a -> s{_qAttributesToGet = a}) . mapping _List1;
 
 -- | FIXME: Undocumented member.
-qrqReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
-qrqReturnConsumedCapacity = lens _qrqReturnConsumedCapacity (\ s a -> s{_qrqReturnConsumedCapacity = a});
+qReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
+qReturnConsumedCapacity = lens _qReturnConsumedCapacity (\ s a -> s{_qReturnConsumedCapacity = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -493,8 +493,8 @@ qrqReturnConsumedCapacity = lens _qrqReturnConsumedCapacity (\ s a -> s{_qrqRetu
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-qrqExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
-qrqExpressionAttributeValues = lens _qrqExpressionAttributeValues (\ s a -> s{_qrqExpressionAttributeValues = a}) . _Default . _Map;
+qExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
+qExpressionAttributeValues = lens _qExpressionAttributeValues (\ s a -> s{_qExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | Specifies the order in which to return the query results - either
 -- ascending (@true@) or descending (@false@).
@@ -511,8 +511,8 @@ qrqExpressionAttributeValues = lens _qrqExpressionAttributeValues (\ s a -> s{_q
 -- If /ScanIndexForward/ is @false@, DynamoDB sorts the results in
 -- descending order by range key, and then returns the results to the
 -- client.
-qrqScanIndexForward :: Lens' Query (Maybe Bool)
-qrqScanIndexForward = lens _qrqScanIndexForward (\ s a -> s{_qrqScanIndexForward = a});
+qScanIndexForward :: Lens' Query (Maybe Bool)
+qScanIndexForward = lens _qScanIndexForward (\ s a -> s{_qScanIndexForward = a});
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the
@@ -526,8 +526,8 @@ qrqScanIndexForward = lens _qrqScanIndexForward (\ s a -> s{_qrqScanIndexForward
 -- see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
 -- in the /Amazon DynamoDB Developer Guide/.
-qrqLimit :: Lens' Query (Maybe Natural)
-qrqLimit = lens _qrqLimit (\ s a -> s{_qrqLimit = a}) . mapping _Nat;
+qLimit :: Lens' Query (Maybe Natural)
+qLimit = lens _qLimit (\ s a -> s{_qLimit = a}) . mapping _Nat;
 
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, the count of matching items, or in
@@ -574,8 +574,8 @@ qrqLimit = lens _qrqLimit (\ s a -> s{_qrqLimit = a}) . mapping _Nat;
 -- If you use the /ProjectionExpression/ parameter, then the value for
 -- /Select/ can only be @SPECIFIC_ATTRIBUTES@. Any other value for /Select/
 -- will return an error.
-qrqSelect :: Lens' Query (Maybe Select)
-qrqSelect = lens _qrqSelect (\ s a -> s{_qrqSelect = a});
+qSelect :: Lens' Query (Maybe Select)
+qSelect = lens _qSelect (\ s a -> s{_qSelect = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /FilterExpression/ instead. Do not combine legacy parameters
@@ -595,8 +595,8 @@ qrqSelect = lens _qrqSelect (\ s a -> s{_qrqSelect = a});
 -- The operation will succeed only if the entire map evaluates to true.
 --
 -- This parameter does not support attributes of type List or Map.
-qrqConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
-qrqConditionalOperator = lens _qrqConditionalOperator (\ s a -> s{_qrqConditionalOperator = a});
+qConditionalOperator :: Lens' Query (Maybe ConditionalOperator)
+qConditionalOperator = lens _qConditionalOperator (\ s a -> s{_qConditionalOperator = a});
 
 -- | The condition that specifies the key value(s) for items to be retrieved
 -- by the /Query/ action.
@@ -672,8 +672,8 @@ qrqConditionalOperator = lens _qrqConditionalOperator (\ s a -> s{_qrqConditiona
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- /KeyConditionExpression/ replaces the legacy /KeyConditions/ parameter.
-qrqKeyConditionExpression :: Lens' Query (Maybe Text)
-qrqKeyConditionExpression = lens _qrqKeyConditionExpression (\ s a -> s{_qrqKeyConditionExpression = a});
+qKeyConditionExpression :: Lens' Query (Maybe Text)
+qKeyConditionExpression = lens _qKeyConditionExpression (\ s a -> s{_qKeyConditionExpression = a});
 
 -- | The primary key of the first item that this operation will evaluate. Use
 -- the value that was returned for /LastEvaluatedKey/ in the previous
@@ -681,18 +681,18 @@ qrqKeyConditionExpression = lens _qrqKeyConditionExpression (\ s a -> s{_qrqKeyC
 --
 -- The data type for /ExclusiveStartKey/ must be String, Number or Binary.
 -- No set data types are allowed.
-qrqExclusiveStartKey :: Lens' Query (HashMap Text AttributeValue)
-qrqExclusiveStartKey = lens _qrqExclusiveStartKey (\ s a -> s{_qrqExclusiveStartKey = a}) . _Default . _Map;
+qExclusiveStartKey :: Lens' Query (HashMap Text AttributeValue)
+qExclusiveStartKey = lens _qExclusiveStartKey (\ s a -> s{_qExclusiveStartKey = a}) . _Default . _Map;
 
 -- | The name of an index to query. This index can be any local secondary
 -- index or global secondary index on the table. Note that if you use the
 -- /IndexName/ parameter, you must also provide /TableName./
-qrqIndexName :: Lens' Query (Maybe Text)
-qrqIndexName = lens _qrqIndexName (\ s a -> s{_qrqIndexName = a});
+qIndexName :: Lens' Query (Maybe Text)
+qIndexName = lens _qIndexName (\ s a -> s{_qIndexName = a});
 
 -- | The name of the table containing the requested items.
-qrqTableName :: Lens' Query Text
-qrqTableName = lens _qrqTableName (\ s a -> s{_qrqTableName = a});
+qTableName :: Lens' Query Text
+qTableName = lens _qTableName (\ s a -> s{_qTableName = a});
 
 instance AWSPager Query where
         page rq rs
@@ -700,7 +700,7 @@ instance AWSPager Query where
           | stop (rs ^. qrsItems) = Nothing
           | otherwise =
             Just $ rq &
-              qrqExclusiveStartKey .~ rs ^. qrsLastEvaluatedKey
+              qExclusiveStartKey .~ rs ^. qrsLastEvaluatedKey
 
 instance AWSRequest Query where
         type Sv Query = DynamoDB
@@ -729,26 +729,24 @@ instance ToHeaders Query where
 instance ToJSON Query where
         toJSON Query'{..}
           = object
-              ["ProjectionExpression" .= _qrqProjectionExpression,
-               "KeyConditions" .= _qrqKeyConditions,
-               "FilterExpression" .= _qrqFilterExpression,
-               "QueryFilter" .= _qrqQueryFilter,
-               "ConsistentRead" .= _qrqConsistentRead,
+              ["ProjectionExpression" .= _qProjectionExpression,
+               "KeyConditions" .= _qKeyConditions,
+               "FilterExpression" .= _qFilterExpression,
+               "QueryFilter" .= _qQueryFilter,
+               "ConsistentRead" .= _qConsistentRead,
                "ExpressionAttributeNames" .=
-                 _qrqExpressionAttributeNames,
-               "AttributesToGet" .= _qrqAttributesToGet,
-               "ReturnConsumedCapacity" .=
-                 _qrqReturnConsumedCapacity,
+                 _qExpressionAttributeNames,
+               "AttributesToGet" .= _qAttributesToGet,
+               "ReturnConsumedCapacity" .= _qReturnConsumedCapacity,
                "ExpressionAttributeValues" .=
-                 _qrqExpressionAttributeValues,
-               "ScanIndexForward" .= _qrqScanIndexForward,
-               "Limit" .= _qrqLimit, "Select" .= _qrqSelect,
-               "ConditionalOperator" .= _qrqConditionalOperator,
-               "KeyConditionExpression" .=
-                 _qrqKeyConditionExpression,
-               "ExclusiveStartKey" .= _qrqExclusiveStartKey,
-               "IndexName" .= _qrqIndexName,
-               "TableName" .= _qrqTableName]
+                 _qExpressionAttributeValues,
+               "ScanIndexForward" .= _qScanIndexForward,
+               "Limit" .= _qLimit, "Select" .= _qSelect,
+               "ConditionalOperator" .= _qConditionalOperator,
+               "KeyConditionExpression" .= _qKeyConditionExpression,
+               "ExclusiveStartKey" .= _qExclusiveStartKey,
+               "IndexName" .= _qIndexName,
+               "TableName" .= _qTableName]
 
 instance ToPath Query where
         toPath = const "/"

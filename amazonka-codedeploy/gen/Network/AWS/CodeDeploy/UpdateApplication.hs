@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.UpdateApplication
     -- ** Request constructor
     , updateApplication
     -- ** Request lenses
-    , uarqNewApplicationName
-    , uarqApplicationName
+    , uaNewApplicationName
+    , uaApplicationName
 
     -- * Response
     , UpdateApplicationResponse
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uarqNewApplicationName'
+-- * 'uaNewApplicationName'
 --
--- * 'uarqApplicationName'
+-- * 'uaApplicationName'
 data UpdateApplication = UpdateApplication'
-    { _uarqNewApplicationName :: !(Maybe Text)
-    , _uarqApplicationName    :: !(Maybe Text)
+    { _uaNewApplicationName :: !(Maybe Text)
+    , _uaApplicationName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApplication' smart constructor.
 updateApplication :: UpdateApplication
 updateApplication =
     UpdateApplication'
-    { _uarqNewApplicationName = Nothing
-    , _uarqApplicationName = Nothing
+    { _uaNewApplicationName = Nothing
+    , _uaApplicationName = Nothing
     }
 
 -- | The new name that you want to change the application to.
-uarqNewApplicationName :: Lens' UpdateApplication (Maybe Text)
-uarqNewApplicationName = lens _uarqNewApplicationName (\ s a -> s{_uarqNewApplicationName = a});
+uaNewApplicationName :: Lens' UpdateApplication (Maybe Text)
+uaNewApplicationName = lens _uaNewApplicationName (\ s a -> s{_uaNewApplicationName = a});
 
 -- | The current name of the application that you want to change.
-uarqApplicationName :: Lens' UpdateApplication (Maybe Text)
-uarqApplicationName = lens _uarqApplicationName (\ s a -> s{_uarqApplicationName = a});
+uaApplicationName :: Lens' UpdateApplication (Maybe Text)
+uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
 
 instance AWSRequest UpdateApplication where
         type Sv UpdateApplication = CodeDeploy
@@ -90,8 +90,8 @@ instance ToHeaders UpdateApplication where
 instance ToJSON UpdateApplication where
         toJSON UpdateApplication'{..}
           = object
-              ["newApplicationName" .= _uarqNewApplicationName,
-               "applicationName" .= _uarqApplicationName]
+              ["newApplicationName" .= _uaNewApplicationName,
+               "applicationName" .= _uaApplicationName]
 
 instance ToPath UpdateApplication where
         toPath = const "/"

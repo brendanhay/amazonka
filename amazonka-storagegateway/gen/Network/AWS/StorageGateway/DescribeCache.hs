@@ -31,7 +31,7 @@ module Network.AWS.StorageGateway.DescribeCache
     -- ** Request constructor
     , describeCache
     -- ** Request lenses
-    , dcrqGatewayARN
+    , dcGatewayARN
 
     -- * Response
     , DescribeCacheResponse
@@ -57,21 +57,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrqGatewayARN'
+-- * 'dcGatewayARN'
 newtype DescribeCache = DescribeCache'
-    { _dcrqGatewayARN :: Text
+    { _dcGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCache' smart constructor.
 describeCache :: Text -> DescribeCache
 describeCache pGatewayARN_ =
     DescribeCache'
-    { _dcrqGatewayARN = pGatewayARN_
+    { _dcGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-dcrqGatewayARN :: Lens' DescribeCache Text
-dcrqGatewayARN = lens _dcrqGatewayARN (\ s a -> s{_dcrqGatewayARN = a});
+dcGatewayARN :: Lens' DescribeCache Text
+dcGatewayARN = lens _dcGatewayARN (\ s a -> s{_dcGatewayARN = a});
 
 instance AWSRequest DescribeCache where
         type Sv DescribeCache = StorageGateway
@@ -101,7 +101,7 @@ instance ToHeaders DescribeCache where
 
 instance ToJSON DescribeCache where
         toJSON DescribeCache'{..}
-          = object ["GatewayARN" .= _dcrqGatewayARN]
+          = object ["GatewayARN" .= _dcGatewayARN]
 
 instance ToPath DescribeCache where
         toPath = const "/"

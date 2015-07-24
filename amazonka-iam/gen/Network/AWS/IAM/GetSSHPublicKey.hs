@@ -35,9 +35,9 @@ module Network.AWS.IAM.GetSSHPublicKey
     -- ** Request constructor
     , getSSHPublicKey
     -- ** Request lenses
-    , gspkrqUserName
-    , gspkrqSSHPublicKeyId
-    , gspkrqEncoding
+    , gspkUserName
+    , gspkSSHPublicKeyId
+    , gspkEncoding
 
     -- * Response
     , GetSSHPublicKeyResponse
@@ -57,39 +57,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gspkrqUserName'
+-- * 'gspkUserName'
 --
--- * 'gspkrqSSHPublicKeyId'
+-- * 'gspkSSHPublicKeyId'
 --
--- * 'gspkrqEncoding'
+-- * 'gspkEncoding'
 data GetSSHPublicKey = GetSSHPublicKey'
-    { _gspkrqUserName       :: !Text
-    , _gspkrqSSHPublicKeyId :: !Text
-    , _gspkrqEncoding       :: !EncodingType
+    { _gspkUserName       :: !Text
+    , _gspkSSHPublicKeyId :: !Text
+    , _gspkEncoding       :: !EncodingType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSSHPublicKey' smart constructor.
 getSSHPublicKey :: Text -> Text -> EncodingType -> GetSSHPublicKey
 getSSHPublicKey pUserName_ pSSHPublicKeyId_ pEncoding_ =
     GetSSHPublicKey'
-    { _gspkrqUserName = pUserName_
-    , _gspkrqSSHPublicKeyId = pSSHPublicKeyId_
-    , _gspkrqEncoding = pEncoding_
+    { _gspkUserName = pUserName_
+    , _gspkSSHPublicKeyId = pSSHPublicKeyId_
+    , _gspkEncoding = pEncoding_
     }
 
 -- | The name of the IAM user associated with the SSH public key.
-gspkrqUserName :: Lens' GetSSHPublicKey Text
-gspkrqUserName = lens _gspkrqUserName (\ s a -> s{_gspkrqUserName = a});
+gspkUserName :: Lens' GetSSHPublicKey Text
+gspkUserName = lens _gspkUserName (\ s a -> s{_gspkUserName = a});
 
 -- | The unique identifier for the SSH public key.
-gspkrqSSHPublicKeyId :: Lens' GetSSHPublicKey Text
-gspkrqSSHPublicKeyId = lens _gspkrqSSHPublicKeyId (\ s a -> s{_gspkrqSSHPublicKeyId = a});
+gspkSSHPublicKeyId :: Lens' GetSSHPublicKey Text
+gspkSSHPublicKeyId = lens _gspkSSHPublicKeyId (\ s a -> s{_gspkSSHPublicKeyId = a});
 
 -- | Specifies the public key encoding format to use in the response. To
 -- retrieve the public key in ssh-rsa format, use @SSH@. To retrieve the
 -- public key in PEM format, use @PEM@.
-gspkrqEncoding :: Lens' GetSSHPublicKey EncodingType
-gspkrqEncoding = lens _gspkrqEncoding (\ s a -> s{_gspkrqEncoding = a});
+gspkEncoding :: Lens' GetSSHPublicKey EncodingType
+gspkEncoding = lens _gspkEncoding (\ s a -> s{_gspkEncoding = a});
 
 instance AWSRequest GetSSHPublicKey where
         type Sv GetSSHPublicKey = IAM
@@ -112,9 +112,9 @@ instance ToQuery GetSSHPublicKey where
           = mconcat
               ["Action" =: ("GetSSHPublicKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _gspkrqUserName,
-               "SSHPublicKeyId" =: _gspkrqSSHPublicKeyId,
-               "Encoding" =: _gspkrqEncoding]
+               "UserName" =: _gspkUserName,
+               "SSHPublicKeyId" =: _gspkSSHPublicKeyId,
+               "Encoding" =: _gspkEncoding]
 
 -- | Contains the response to a successful GetSSHPublicKey request.
 --

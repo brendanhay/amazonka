@@ -44,10 +44,10 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- ** Request constructor
     , putLogEvents
     -- ** Request lenses
-    , plerqSequenceToken
-    , plerqLogGroupName
-    , plerqLogStreamName
-    , plerqLogEvents
+    , pleSequenceToken
+    , pleLogGroupName
+    , pleLogStreamName
+    , pleLogEvents
 
     -- * Response
     , PutLogEventsResponse
@@ -68,46 +68,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'plerqSequenceToken'
+-- * 'pleSequenceToken'
 --
--- * 'plerqLogGroupName'
+-- * 'pleLogGroupName'
 --
--- * 'plerqLogStreamName'
+-- * 'pleLogStreamName'
 --
--- * 'plerqLogEvents'
+-- * 'pleLogEvents'
 data PutLogEvents = PutLogEvents'
-    { _plerqSequenceToken :: !(Maybe Text)
-    , _plerqLogGroupName  :: !Text
-    , _plerqLogStreamName :: !Text
-    , _plerqLogEvents     :: !(List1 InputLogEvent)
+    { _pleSequenceToken :: !(Maybe Text)
+    , _pleLogGroupName  :: !Text
+    , _pleLogStreamName :: !Text
+    , _pleLogEvents     :: !(List1 InputLogEvent)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLogEvents' smart constructor.
 putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> PutLogEvents
 putLogEvents pLogGroupName_ pLogStreamName_ pLogEvents_ =
     PutLogEvents'
-    { _plerqSequenceToken = Nothing
-    , _plerqLogGroupName = pLogGroupName_
-    , _plerqLogStreamName = pLogStreamName_
-    , _plerqLogEvents = _List1 # pLogEvents_
+    { _pleSequenceToken = Nothing
+    , _pleLogGroupName = pLogGroupName_
+    , _pleLogStreamName = pLogStreamName_
+    , _pleLogEvents = _List1 # pLogEvents_
     }
 
 -- | A string token that must be obtained from the response of the previous
 -- @PutLogEvents@ request.
-plerqSequenceToken :: Lens' PutLogEvents (Maybe Text)
-plerqSequenceToken = lens _plerqSequenceToken (\ s a -> s{_plerqSequenceToken = a});
+pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
+pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
 
 -- | The name of the log group to put log events to.
-plerqLogGroupName :: Lens' PutLogEvents Text
-plerqLogGroupName = lens _plerqLogGroupName (\ s a -> s{_plerqLogGroupName = a});
+pleLogGroupName :: Lens' PutLogEvents Text
+pleLogGroupName = lens _pleLogGroupName (\ s a -> s{_pleLogGroupName = a});
 
 -- | The name of the log stream to put log events to.
-plerqLogStreamName :: Lens' PutLogEvents Text
-plerqLogStreamName = lens _plerqLogStreamName (\ s a -> s{_plerqLogStreamName = a});
+pleLogStreamName :: Lens' PutLogEvents Text
+pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a});
 
 -- | FIXME: Undocumented member.
-plerqLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
-plerqLogEvents = lens _plerqLogEvents (\ s a -> s{_plerqLogEvents = a}) . _List1;
+pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
+pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
 
 instance AWSRequest PutLogEvents where
         type Sv PutLogEvents = CloudWatchLogs
@@ -133,10 +133,10 @@ instance ToHeaders PutLogEvents where
 instance ToJSON PutLogEvents where
         toJSON PutLogEvents'{..}
           = object
-              ["sequenceToken" .= _plerqSequenceToken,
-               "logGroupName" .= _plerqLogGroupName,
-               "logStreamName" .= _plerqLogStreamName,
-               "logEvents" .= _plerqLogEvents]
+              ["sequenceToken" .= _pleSequenceToken,
+               "logGroupName" .= _pleLogGroupName,
+               "logStreamName" .= _pleLogStreamName,
+               "logEvents" .= _pleLogEvents]
 
 instance ToPath PutLogEvents where
         toPath = const "/"

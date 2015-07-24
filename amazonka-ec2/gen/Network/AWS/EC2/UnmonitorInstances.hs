@@ -30,8 +30,8 @@ module Network.AWS.EC2.UnmonitorInstances
     -- ** Request constructor
     , unmonitorInstances
     -- ** Request lenses
-    , uirqDryRun
-    , uirqInstanceIds
+    , uiDryRun
+    , uiInstanceIds
 
     -- * Response
     , UnmonitorInstancesResponse
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uirqDryRun'
+-- * 'uiDryRun'
 --
--- * 'uirqInstanceIds'
+-- * 'uiInstanceIds'
 data UnmonitorInstances = UnmonitorInstances'
-    { _uirqDryRun      :: !(Maybe Bool)
-    , _uirqInstanceIds :: ![Text]
+    { _uiDryRun      :: !(Maybe Bool)
+    , _uiInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnmonitorInstances' smart constructor.
 unmonitorInstances :: UnmonitorInstances
 unmonitorInstances =
     UnmonitorInstances'
-    { _uirqDryRun = Nothing
-    , _uirqInstanceIds = mempty
+    { _uiDryRun = Nothing
+    , _uiInstanceIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-uirqDryRun :: Lens' UnmonitorInstances (Maybe Bool)
-uirqDryRun = lens _uirqDryRun (\ s a -> s{_uirqDryRun = a});
+uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
+uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a});
 
 -- | One or more instance IDs.
-uirqInstanceIds :: Lens' UnmonitorInstances [Text]
-uirqInstanceIds = lens _uirqInstanceIds (\ s a -> s{_uirqInstanceIds = a});
+uiInstanceIds :: Lens' UnmonitorInstances [Text]
+uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a});
 
 instance AWSRequest UnmonitorInstances where
         type Sv UnmonitorInstances = EC2
@@ -102,8 +102,8 @@ instance ToQuery UnmonitorInstances where
           = mconcat
               ["Action" =: ("UnmonitorInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _uirqDryRun,
-               toQueryList "InstanceId" _uirqInstanceIds]
+               "DryRun" =: _uiDryRun,
+               toQueryList "InstanceId" _uiInstanceIds]
 
 -- | /See:/ 'unmonitorInstancesResponse' smart constructor.
 --

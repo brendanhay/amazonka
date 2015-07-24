@@ -30,8 +30,8 @@ module Network.AWS.Route53Domains.DeleteTagsForDomain
     -- ** Request constructor
     , deleteTagsForDomain
     -- ** Request lenses
-    , dtfdrqDomainName
-    , dtfdrqTagsToDelete
+    , dtfdDomainName
+    , dtfdTagsToDelete
 
     -- * Response
     , DeleteTagsForDomainResponse
@@ -52,20 +52,20 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtfdrqDomainName'
+-- * 'dtfdDomainName'
 --
--- * 'dtfdrqTagsToDelete'
+-- * 'dtfdTagsToDelete'
 data DeleteTagsForDomain = DeleteTagsForDomain'
-    { _dtfdrqDomainName   :: !Text
-    , _dtfdrqTagsToDelete :: ![Text]
+    { _dtfdDomainName   :: !Text
+    , _dtfdTagsToDelete :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTagsForDomain' smart constructor.
 deleteTagsForDomain :: Text -> DeleteTagsForDomain
 deleteTagsForDomain pDomainName_ =
     DeleteTagsForDomain'
-    { _dtfdrqDomainName = pDomainName_
-    , _dtfdrqTagsToDelete = mempty
+    { _dtfdDomainName = pDomainName_
+    , _dtfdTagsToDelete = mempty
     }
 
 -- | The domain for which you want to delete one or more tags.
@@ -83,8 +83,8 @@ deleteTagsForDomain pDomainName_ =
 -- an Internationalized Domain Name, you must convert the name to Punycode.
 --
 -- Required: Yes
-dtfdrqDomainName :: Lens' DeleteTagsForDomain Text
-dtfdrqDomainName = lens _dtfdrqDomainName (\ s a -> s{_dtfdrqDomainName = a});
+dtfdDomainName :: Lens' DeleteTagsForDomain Text
+dtfdDomainName = lens _dtfdDomainName (\ s a -> s{_dtfdDomainName = a});
 
 -- | A list of tag keys to delete.
 --
@@ -95,8 +95,8 @@ dtfdrqDomainName = lens _dtfdrqDomainName (\ s a -> s{_dtfdrqDomainName = a});
 -- Required: No
 --
 -- \'>
-dtfdrqTagsToDelete :: Lens' DeleteTagsForDomain [Text]
-dtfdrqTagsToDelete = lens _dtfdrqTagsToDelete (\ s a -> s{_dtfdrqTagsToDelete = a});
+dtfdTagsToDelete :: Lens' DeleteTagsForDomain [Text]
+dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a});
 
 instance AWSRequest DeleteTagsForDomain where
         type Sv DeleteTagsForDomain = Route53Domains
@@ -121,8 +121,8 @@ instance ToHeaders DeleteTagsForDomain where
 instance ToJSON DeleteTagsForDomain where
         toJSON DeleteTagsForDomain'{..}
           = object
-              ["DomainName" .= _dtfdrqDomainName,
-               "TagsToDelete" .= _dtfdrqTagsToDelete]
+              ["DomainName" .= _dtfdDomainName,
+               "TagsToDelete" .= _dtfdTagsToDelete]
 
 instance ToPath DeleteTagsForDomain where
         toPath = const "/"

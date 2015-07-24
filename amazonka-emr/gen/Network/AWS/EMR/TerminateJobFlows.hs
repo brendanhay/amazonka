@@ -36,7 +36,7 @@ module Network.AWS.EMR.TerminateJobFlows
     -- ** Request constructor
     , terminateJobFlows
     -- ** Request lenses
-    , tjfrqJobFlowIds
+    , tjfJobFlowIds
 
     -- * Response
     , TerminateJobFlowsResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tjfrqJobFlowIds'
+-- * 'tjfJobFlowIds'
 newtype TerminateJobFlows = TerminateJobFlows'
-    { _tjfrqJobFlowIds :: [Text]
+    { _tjfJobFlowIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateJobFlows' smart constructor.
 terminateJobFlows :: TerminateJobFlows
 terminateJobFlows =
     TerminateJobFlows'
-    { _tjfrqJobFlowIds = mempty
+    { _tjfJobFlowIds = mempty
     }
 
 -- | A list of job flows to be shutdown.
-tjfrqJobFlowIds :: Lens' TerminateJobFlows [Text]
-tjfrqJobFlowIds = lens _tjfrqJobFlowIds (\ s a -> s{_tjfrqJobFlowIds = a});
+tjfJobFlowIds :: Lens' TerminateJobFlows [Text]
+tjfJobFlowIds = lens _tjfJobFlowIds (\ s a -> s{_tjfJobFlowIds = a});
 
 instance AWSRequest TerminateJobFlows where
         type Sv TerminateJobFlows = EMR
@@ -88,7 +88,7 @@ instance ToHeaders TerminateJobFlows where
 
 instance ToJSON TerminateJobFlows where
         toJSON TerminateJobFlows'{..}
-          = object ["JobFlowIds" .= _tjfrqJobFlowIds]
+          = object ["JobFlowIds" .= _tjfJobFlowIds]
 
 instance ToPath TerminateJobFlows where
         toPath = const "/"

@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.GetJob
     -- ** Request constructor
     , getJob
     -- ** Request lenses
-    , gjrqArn
+    , gjArn
 
     -- * Response
     , GetJobResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjrqArn'
+-- * 'gjArn'
 newtype GetJob = GetJob'
-    { _gjrqArn :: Text
+    { _gjArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJob' smart constructor.
 getJob :: Text -> GetJob
 getJob pArn_ =
     GetJob'
-    { _gjrqArn = pArn_
+    { _gjArn = pArn_
     }
 
 -- | The job\'s ARN.
-gjrqArn :: Lens' GetJob Text
-gjrqArn = lens _gjrqArn (\ s a -> s{_gjrqArn = a});
+gjArn :: Lens' GetJob Text
+gjArn = lens _gjArn (\ s a -> s{_gjArn = a});
 
 instance AWSRequest GetJob where
         type Sv GetJob = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetJob where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetJob where
-        toJSON GetJob'{..} = object ["arn" .= _gjrqArn]
+        toJSON GetJob'{..} = object ["arn" .= _gjArn]
 
 instance ToPath GetJob where
         toPath = const "/"

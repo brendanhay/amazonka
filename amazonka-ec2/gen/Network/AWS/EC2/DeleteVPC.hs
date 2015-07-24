@@ -32,8 +32,8 @@ module Network.AWS.EC2.DeleteVPC
     -- ** Request constructor
     , deleteVPC
     -- ** Request lenses
-    , delrqDryRun
-    , delrqVPCId
+    , delDryRun
+    , delVPCId
 
     -- * Response
     , DeleteVPCResponse
@@ -50,32 +50,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrqDryRun'
+-- * 'delDryRun'
 --
--- * 'delrqVPCId'
+-- * 'delVPCId'
 data DeleteVPC = DeleteVPC'
-    { _delrqDryRun :: !(Maybe Bool)
-    , _delrqVPCId  :: !Text
+    { _delDryRun :: !(Maybe Bool)
+    , _delVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPC' smart constructor.
 deleteVPC :: Text -> DeleteVPC
 deleteVPC pVPCId_ =
     DeleteVPC'
-    { _delrqDryRun = Nothing
-    , _delrqVPCId = pVPCId_
+    { _delDryRun = Nothing
+    , _delVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-delrqDryRun :: Lens' DeleteVPC (Maybe Bool)
-delrqDryRun = lens _delrqDryRun (\ s a -> s{_delrqDryRun = a});
+delDryRun :: Lens' DeleteVPC (Maybe Bool)
+delDryRun = lens _delDryRun (\ s a -> s{_delDryRun = a});
 
 -- | The ID of the VPC.
-delrqVPCId :: Lens' DeleteVPC Text
-delrqVPCId = lens _delrqVPCId (\ s a -> s{_delrqVPCId = a});
+delVPCId :: Lens' DeleteVPC Text
+delVPCId = lens _delVPCId (\ s a -> s{_delVPCId = a});
 
 instance AWSRequest DeleteVPC where
         type Sv DeleteVPC = EC2
@@ -94,7 +94,7 @@ instance ToQuery DeleteVPC where
           = mconcat
               ["Action" =: ("DeleteVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _delrqDryRun, "VpcId" =: _delrqVPCId]
+               "DryRun" =: _delDryRun, "VpcId" =: _delVPCId]
 
 -- | /See:/ 'deleteVPCResponse' smart constructor.
 data DeleteVPCResponse =

@@ -27,11 +27,11 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- ** Request constructor
     , completeMultipartUpload
     -- ** Request lenses
-    , crqRequestPayer
-    , crqMultipartUpload
-    , crqBucket
-    , crqKey
-    , crqUploadId
+    , cRequestPayer
+    , cMultipartUpload
+    , cBucket
+    , cKey
+    , cUploadId
 
     -- * Response
     , CompleteMultipartUploadResponse
@@ -59,53 +59,53 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crqRequestPayer'
+-- * 'cRequestPayer'
 --
--- * 'crqMultipartUpload'
+-- * 'cMultipartUpload'
 --
--- * 'crqBucket'
+-- * 'cBucket'
 --
--- * 'crqKey'
+-- * 'cKey'
 --
--- * 'crqUploadId'
+-- * 'cUploadId'
 data CompleteMultipartUpload = CompleteMultipartUpload'
-    { _crqRequestPayer    :: !(Maybe RequestPayer)
-    , _crqMultipartUpload :: !(Maybe CompletedMultipartUpload)
-    , _crqBucket          :: !BucketName
-    , _crqKey             :: !ObjectKey
-    , _crqUploadId        :: !Text
+    { _cRequestPayer    :: !(Maybe RequestPayer)
+    , _cMultipartUpload :: !(Maybe CompletedMultipartUpload)
+    , _cBucket          :: !BucketName
+    , _cKey             :: !ObjectKey
+    , _cUploadId        :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: BucketName -> ObjectKey -> Text -> CompleteMultipartUpload
 completeMultipartUpload pBucket_ pKey_ pUploadId_ =
     CompleteMultipartUpload'
-    { _crqRequestPayer = Nothing
-    , _crqMultipartUpload = Nothing
-    , _crqBucket = pBucket_
-    , _crqKey = pKey_
-    , _crqUploadId = pUploadId_
+    { _cRequestPayer = Nothing
+    , _cMultipartUpload = Nothing
+    , _cBucket = pBucket_
+    , _cKey = pKey_
+    , _cUploadId = pUploadId_
     }
 
 -- | FIXME: Undocumented member.
-crqRequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
-crqRequestPayer = lens _crqRequestPayer (\ s a -> s{_crqRequestPayer = a});
+cRequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
+cRequestPayer = lens _cRequestPayer (\ s a -> s{_cRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-crqMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
-crqMultipartUpload = lens _crqMultipartUpload (\ s a -> s{_crqMultipartUpload = a});
+cMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
+cMultipartUpload = lens _cMultipartUpload (\ s a -> s{_cMultipartUpload = a});
 
 -- | FIXME: Undocumented member.
-crqBucket :: Lens' CompleteMultipartUpload BucketName
-crqBucket = lens _crqBucket (\ s a -> s{_crqBucket = a});
+cBucket :: Lens' CompleteMultipartUpload BucketName
+cBucket = lens _cBucket (\ s a -> s{_cBucket = a});
 
 -- | FIXME: Undocumented member.
-crqKey :: Lens' CompleteMultipartUpload ObjectKey
-crqKey = lens _crqKey (\ s a -> s{_crqKey = a});
+cKey :: Lens' CompleteMultipartUpload ObjectKey
+cKey = lens _cKey (\ s a -> s{_cKey = a});
 
 -- | FIXME: Undocumented member.
-crqUploadId :: Lens' CompleteMultipartUpload Text
-crqUploadId = lens _crqUploadId (\ s a -> s{_crqUploadId = a});
+cUploadId :: Lens' CompleteMultipartUpload Text
+cUploadId = lens _cUploadId (\ s a -> s{_cUploadId = a});
 
 instance AWSRequest CompleteMultipartUpload where
         type Sv CompleteMultipartUpload = S3
@@ -132,20 +132,19 @@ instance ToElement CompleteMultipartUpload where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}CompleteMultipartUpload"
               .
-              _crqMultipartUpload
+              _cMultipartUpload
 
 instance ToHeaders CompleteMultipartUpload where
         toHeaders CompleteMultipartUpload'{..}
-          = mconcat ["x-amz-request-payer" =# _crqRequestPayer]
+          = mconcat ["x-amz-request-payer" =# _cRequestPayer]
 
 instance ToPath CompleteMultipartUpload where
         toPath CompleteMultipartUpload'{..}
-          = mconcat
-              ["/", toText _crqBucket, "/", toText _crqKey]
+          = mconcat ["/", toText _cBucket, "/", toText _cKey]
 
 instance ToQuery CompleteMultipartUpload where
         toQuery CompleteMultipartUpload'{..}
-          = mconcat ["uploadId" =: _crqUploadId]
+          = mconcat ["uploadId" =: _cUploadId]
 
 -- | /See:/ 'completeMultipartUploadResponse' smart constructor.
 --

@@ -27,7 +27,7 @@ module Network.AWS.RDS.DeleteEventSubscription
     -- ** Request constructor
     , deleteEventSubscription
     -- ** Request lenses
-    , desrqSubscriptionName
+    , desSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrqSubscriptionName'
+-- * 'desSubscriptionName'
 newtype DeleteEventSubscription = DeleteEventSubscription'
-    { _desrqSubscriptionName :: Text
+    { _desSubscriptionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEventSubscription' smart constructor.
 deleteEventSubscription :: Text -> DeleteEventSubscription
 deleteEventSubscription pSubscriptionName_ =
     DeleteEventSubscription'
-    { _desrqSubscriptionName = pSubscriptionName_
+    { _desSubscriptionName = pSubscriptionName_
     }
 
 -- | The name of the RDS event notification subscription you want to delete.
-desrqSubscriptionName :: Lens' DeleteEventSubscription Text
-desrqSubscriptionName = lens _desrqSubscriptionName (\ s a -> s{_desrqSubscriptionName = a});
+desSubscriptionName :: Lens' DeleteEventSubscription Text
+desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a});
 
 instance AWSRequest DeleteEventSubscription where
         type Sv DeleteEventSubscription = RDS
@@ -88,7 +88,7 @@ instance ToQuery DeleteEventSubscription where
               ["Action" =:
                  ("DeleteEventSubscription" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SubscriptionName" =: _desrqSubscriptionName]
+               "SubscriptionName" =: _desSubscriptionName]
 
 -- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
 --

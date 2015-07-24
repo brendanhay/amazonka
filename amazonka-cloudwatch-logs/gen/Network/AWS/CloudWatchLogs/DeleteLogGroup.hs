@@ -28,7 +28,7 @@ module Network.AWS.CloudWatchLogs.DeleteLogGroup
     -- ** Request constructor
     , deleteLogGroup
     -- ** Request lenses
-    , dlgrqLogGroupName
+    , dlgLogGroupName
 
     -- * Response
     , DeleteLogGroupResponse
@@ -45,21 +45,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlgrqLogGroupName'
+-- * 'dlgLogGroupName'
 newtype DeleteLogGroup = DeleteLogGroup'
-    { _dlgrqLogGroupName :: Text
+    { _dlgLogGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogGroup' smart constructor.
 deleteLogGroup :: Text -> DeleteLogGroup
 deleteLogGroup pLogGroupName_ =
     DeleteLogGroup'
-    { _dlgrqLogGroupName = pLogGroupName_
+    { _dlgLogGroupName = pLogGroupName_
     }
 
 -- | The name of the log group to delete.
-dlgrqLogGroupName :: Lens' DeleteLogGroup Text
-dlgrqLogGroupName = lens _dlgrqLogGroupName (\ s a -> s{_dlgrqLogGroupName = a});
+dlgLogGroupName :: Lens' DeleteLogGroup Text
+dlgLogGroupName = lens _dlgLogGroupName (\ s a -> s{_dlgLogGroupName = a});
 
 instance AWSRequest DeleteLogGroup where
         type Sv DeleteLogGroup = CloudWatchLogs
@@ -78,7 +78,7 @@ instance ToHeaders DeleteLogGroup where
 
 instance ToJSON DeleteLogGroup where
         toJSON DeleteLogGroup'{..}
-          = object ["logGroupName" .= _dlgrqLogGroupName]
+          = object ["logGroupName" .= _dlgLogGroupName]
 
 instance ToPath DeleteLogGroup where
         toPath = const "/"

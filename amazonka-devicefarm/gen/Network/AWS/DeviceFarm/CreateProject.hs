@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.CreateProject
     -- ** Request constructor
     , createProject
     -- ** Request lenses
-    , cprqName
+    , cpName
 
     -- * Response
     , CreateProjectResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprqName'
+-- * 'cpName'
 newtype CreateProject = CreateProject'
-    { _cprqName :: Text
+    { _cpName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateProject' smart constructor.
 createProject :: Text -> CreateProject
 createProject pName_ =
     CreateProject'
-    { _cprqName = pName_
+    { _cpName = pName_
     }
 
 -- | The project\'s name.
-cprqName :: Lens' CreateProject Text
-cprqName = lens _cprqName (\ s a -> s{_cprqName = a});
+cpName :: Lens' CreateProject Text
+cpName = lens _cpName (\ s a -> s{_cpName = a});
 
 instance AWSRequest CreateProject where
         type Sv CreateProject = DeviceFarm
@@ -86,7 +86,7 @@ instance ToHeaders CreateProject where
 
 instance ToJSON CreateProject where
         toJSON CreateProject'{..}
-          = object ["name" .= _cprqName]
+          = object ["name" .= _cpName]
 
 instance ToPath CreateProject where
         toPath = const "/"

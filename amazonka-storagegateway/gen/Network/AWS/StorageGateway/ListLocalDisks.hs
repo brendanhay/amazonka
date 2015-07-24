@@ -36,7 +36,7 @@ module Network.AWS.StorageGateway.ListLocalDisks
     -- ** Request constructor
     , listLocalDisks
     -- ** Request lenses
-    , lldrqGatewayARN
+    , lldGatewayARN
 
     -- * Response
     , ListLocalDisksResponse
@@ -59,21 +59,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lldrqGatewayARN'
+-- * 'lldGatewayARN'
 newtype ListLocalDisks = ListLocalDisks'
-    { _lldrqGatewayARN :: Text
+    { _lldGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLocalDisks' smart constructor.
 listLocalDisks :: Text -> ListLocalDisks
 listLocalDisks pGatewayARN_ =
     ListLocalDisks'
-    { _lldrqGatewayARN = pGatewayARN_
+    { _lldGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-lldrqGatewayARN :: Lens' ListLocalDisks Text
-lldrqGatewayARN = lens _lldrqGatewayARN (\ s a -> s{_lldrqGatewayARN = a});
+lldGatewayARN :: Lens' ListLocalDisks Text
+lldGatewayARN = lens _lldGatewayARN (\ s a -> s{_lldGatewayARN = a});
 
 instance AWSRequest ListLocalDisks where
         type Sv ListLocalDisks = StorageGateway
@@ -98,7 +98,7 @@ instance ToHeaders ListLocalDisks where
 
 instance ToJSON ListLocalDisks where
         toJSON ListLocalDisks'{..}
-          = object ["GatewayARN" .= _lldrqGatewayARN]
+          = object ["GatewayARN" .= _lldGatewayARN]
 
 instance ToPath ListLocalDisks where
         toPath = const "/"

@@ -28,9 +28,9 @@ module Network.AWS.IAM.GetGroup
     -- ** Request constructor
     , getGroup
     -- ** Request lenses
-    , ggrqMaxItems
-    , ggrqMarker
-    , ggrqGroupName
+    , ggMaxItems
+    , ggMarker
+    , ggGroupName
 
     -- * Response
     , GetGroupResponse
@@ -54,24 +54,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ggrqMaxItems'
+-- * 'ggMaxItems'
 --
--- * 'ggrqMarker'
+-- * 'ggMarker'
 --
--- * 'ggrqGroupName'
+-- * 'ggGroupName'
 data GetGroup = GetGroup'
-    { _ggrqMaxItems  :: !(Maybe Nat)
-    , _ggrqMarker    :: !(Maybe Text)
-    , _ggrqGroupName :: !Text
+    { _ggMaxItems  :: !(Maybe Nat)
+    , _ggMarker    :: !(Maybe Text)
+    , _ggGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroup' smart constructor.
 getGroup :: Text -> GetGroup
 getGroup pGroupName_ =
     GetGroup'
-    { _ggrqMaxItems = Nothing
-    , _ggrqMarker = Nothing
-    , _ggrqGroupName = pGroupName_
+    { _ggMaxItems = Nothing
+    , _ggMarker = Nothing
+    , _ggGroupName = pGroupName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -80,25 +80,25 @@ getGroup pGroupName_ =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-ggrqMaxItems :: Lens' GetGroup (Maybe Natural)
-ggrqMaxItems = lens _ggrqMaxItems (\ s a -> s{_ggrqMaxItems = a}) . mapping _Nat;
+ggMaxItems :: Lens' GetGroup (Maybe Natural)
+ggMaxItems = lens _ggMaxItems (\ s a -> s{_ggMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-ggrqMarker :: Lens' GetGroup (Maybe Text)
-ggrqMarker = lens _ggrqMarker (\ s a -> s{_ggrqMarker = a});
+ggMarker :: Lens' GetGroup (Maybe Text)
+ggMarker = lens _ggMarker (\ s a -> s{_ggMarker = a});
 
 -- | The name of the group.
-ggrqGroupName :: Lens' GetGroup Text
-ggrqGroupName = lens _ggrqGroupName (\ s a -> s{_ggrqGroupName = a});
+ggGroupName :: Lens' GetGroup Text
+ggGroupName = lens _ggGroupName (\ s a -> s{_ggGroupName = a});
 
 instance AWSPager GetGroup where
         page rq rs
           | stop (rs ^. ggrsIsTruncated) = Nothing
           | isNothing (rs ^. ggrsMarker) = Nothing
           | otherwise =
-            Just $ rq & ggrqMarker .~ rs ^. ggrsMarker
+            Just $ rq & ggMarker .~ rs ^. ggrsMarker
 
 instance AWSRequest GetGroup where
         type Sv GetGroup = IAM
@@ -125,8 +125,8 @@ instance ToQuery GetGroup where
           = mconcat
               ["Action" =: ("GetGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _ggrqMaxItems, "Marker" =: _ggrqMarker,
-               "GroupName" =: _ggrqGroupName]
+               "MaxItems" =: _ggMaxItems, "Marker" =: _ggMarker,
+               "GroupName" =: _ggGroupName]
 
 -- | Contains the response to a successful GetGroup request.
 --

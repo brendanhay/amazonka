@@ -27,7 +27,7 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
     -- ** Request constructor
     , getStreamingDistributionConfig
     -- ** Request lenses
-    , gsdcrqId
+    , gsdcId
 
     -- * Response
     , GetStreamingDistributionConfigResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsdcrqId'
+-- * 'gsdcId'
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'
-    { _gsdcrqId :: Text
+    { _gsdcId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistributionConfig' smart constructor.
 getStreamingDistributionConfig :: Text -> GetStreamingDistributionConfig
 getStreamingDistributionConfig pId_ =
     GetStreamingDistributionConfig'
-    { _gsdcrqId = pId_
+    { _gsdcId = pId_
     }
 
 -- | The streaming distribution\'s id.
-gsdcrqId :: Lens' GetStreamingDistributionConfig Text
-gsdcrqId = lens _gsdcrqId (\ s a -> s{_gsdcrqId = a});
+gsdcId :: Lens' GetStreamingDistributionConfig Text
+gsdcId = lens _gsdcId (\ s a -> s{_gsdcId = a});
 
 instance AWSRequest GetStreamingDistributionConfig
          where
@@ -87,7 +87,7 @@ instance ToPath GetStreamingDistributionConfig where
         toPath GetStreamingDistributionConfig'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _gsdcrqId, "/config"]
+               toText _gsdcId, "/config"]
 
 instance ToQuery GetStreamingDistributionConfig where
         toQuery = const mempty

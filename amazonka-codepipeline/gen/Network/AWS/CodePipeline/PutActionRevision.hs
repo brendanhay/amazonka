@@ -28,10 +28,10 @@ module Network.AWS.CodePipeline.PutActionRevision
     -- ** Request constructor
     , putActionRevision
     -- ** Request lenses
-    , parrqPipelineName
-    , parrqStageName
-    , parrqActionName
-    , parrqActionRevision
+    , parPipelineName
+    , parStageName
+    , parActionName
+    , parActionRevision
 
     -- * Response
     , PutActionRevisionResponse
@@ -54,47 +54,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'parrqPipelineName'
+-- * 'parPipelineName'
 --
--- * 'parrqStageName'
+-- * 'parStageName'
 --
--- * 'parrqActionName'
+-- * 'parActionName'
 --
--- * 'parrqActionRevision'
+-- * 'parActionRevision'
 data PutActionRevision = PutActionRevision'
-    { _parrqPipelineName   :: !Text
-    , _parrqStageName      :: !Text
-    , _parrqActionName     :: !Text
-    , _parrqActionRevision :: !ActionRevision
+    { _parPipelineName   :: !Text
+    , _parStageName      :: !Text
+    , _parActionName     :: !Text
+    , _parActionRevision :: !ActionRevision
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutActionRevision' smart constructor.
 putActionRevision :: Text -> Text -> Text -> ActionRevision -> PutActionRevision
 putActionRevision pPipelineName_ pStageName_ pActionName_ pActionRevision_ =
     PutActionRevision'
-    { _parrqPipelineName = pPipelineName_
-    , _parrqStageName = pStageName_
-    , _parrqActionName = pActionName_
-    , _parrqActionRevision = pActionRevision_
+    { _parPipelineName = pPipelineName_
+    , _parStageName = pStageName_
+    , _parActionName = pActionName_
+    , _parActionRevision = pActionRevision_
     }
 
 -- | The name of the pipeline that will start processing the revision to the
 -- source.
-parrqPipelineName :: Lens' PutActionRevision Text
-parrqPipelineName = lens _parrqPipelineName (\ s a -> s{_parrqPipelineName = a});
+parPipelineName :: Lens' PutActionRevision Text
+parPipelineName = lens _parPipelineName (\ s a -> s{_parPipelineName = a});
 
 -- | The name of the stage that contains the action that will act upon the
 -- revision.
-parrqStageName :: Lens' PutActionRevision Text
-parrqStageName = lens _parrqStageName (\ s a -> s{_parrqStageName = a});
+parStageName :: Lens' PutActionRevision Text
+parStageName = lens _parStageName (\ s a -> s{_parStageName = a});
 
 -- | The name of the action that will process the revision.
-parrqActionName :: Lens' PutActionRevision Text
-parrqActionName = lens _parrqActionName (\ s a -> s{_parrqActionName = a});
+parActionName :: Lens' PutActionRevision Text
+parActionName = lens _parActionName (\ s a -> s{_parActionName = a});
 
 -- | FIXME: Undocumented member.
-parrqActionRevision :: Lens' PutActionRevision ActionRevision
-parrqActionRevision = lens _parrqActionRevision (\ s a -> s{_parrqActionRevision = a});
+parActionRevision :: Lens' PutActionRevision ActionRevision
+parActionRevision = lens _parActionRevision (\ s a -> s{_parActionRevision = a});
 
 instance AWSRequest PutActionRevision where
         type Sv PutActionRevision = CodePipeline
@@ -121,10 +121,10 @@ instance ToHeaders PutActionRevision where
 instance ToJSON PutActionRevision where
         toJSON PutActionRevision'{..}
           = object
-              ["pipelineName" .= _parrqPipelineName,
-               "stageName" .= _parrqStageName,
-               "actionName" .= _parrqActionName,
-               "actionRevision" .= _parrqActionRevision]
+              ["pipelineName" .= _parPipelineName,
+               "stageName" .= _parStageName,
+               "actionName" .= _parActionName,
+               "actionRevision" .= _parActionRevision]
 
 instance ToPath PutActionRevision where
         toPath = const "/"

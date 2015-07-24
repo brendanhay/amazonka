@@ -29,16 +29,16 @@ module Network.AWS.CloudSearch.DeleteSuggester
     -- ** Request constructor
     , deleteSuggester
     -- ** Request lenses
-    , dssrqDomainName
-    , dssrqSuggesterName
+    , ddDomainName
+    , ddSuggesterName
 
     -- * Response
     , DeleteSuggesterResponse
     -- ** Response constructor
     , deleteSuggesterResponse
     -- ** Response lenses
-    , dellrsStatus
-    , dellrsSuggester
+    , delersStatus
+    , delersSuggester
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -54,29 +54,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssrqDomainName'
+-- * 'ddDomainName'
 --
--- * 'dssrqSuggesterName'
+-- * 'ddSuggesterName'
 data DeleteSuggester = DeleteSuggester'
-    { _dssrqDomainName    :: !Text
-    , _dssrqSuggesterName :: !Text
+    { _ddDomainName    :: !Text
+    , _ddSuggesterName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSuggester' smart constructor.
 deleteSuggester :: Text -> Text -> DeleteSuggester
 deleteSuggester pDomainName_ pSuggesterName_ =
     DeleteSuggester'
-    { _dssrqDomainName = pDomainName_
-    , _dssrqSuggesterName = pSuggesterName_
+    { _ddDomainName = pDomainName_
+    , _ddSuggesterName = pSuggesterName_
     }
 
 -- | FIXME: Undocumented member.
-dssrqDomainName :: Lens' DeleteSuggester Text
-dssrqDomainName = lens _dssrqDomainName (\ s a -> s{_dssrqDomainName = a});
+ddDomainName :: Lens' DeleteSuggester Text
+ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
 
 -- | Specifies the name of the suggester you want to delete.
-dssrqSuggesterName :: Lens' DeleteSuggester Text
-dssrqSuggesterName = lens _dssrqSuggesterName (\ s a -> s{_dssrqSuggesterName = a});
+ddSuggesterName :: Lens' DeleteSuggester Text
+ddSuggesterName = lens _ddSuggesterName (\ s a -> s{_ddSuggesterName = a});
 
 instance AWSRequest DeleteSuggester where
         type Sv DeleteSuggester = CloudSearch
@@ -99,8 +99,8 @@ instance ToQuery DeleteSuggester where
           = mconcat
               ["Action" =: ("DeleteSuggester" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _dssrqDomainName,
-               "SuggesterName" =: _dssrqSuggesterName]
+               "DomainName" =: _ddDomainName,
+               "SuggesterName" =: _ddSuggesterName]
 
 -- | The result of a @DeleteSuggester@ request. Contains the status of the
 -- deleted suggester.
@@ -109,26 +109,26 @@ instance ToQuery DeleteSuggester where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dellrsStatus'
+-- * 'delersStatus'
 --
--- * 'dellrsSuggester'
+-- * 'delersSuggester'
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
-    { _dellrsStatus    :: !Int
-    , _dellrsSuggester :: !SuggesterStatus
+    { _delersStatus    :: !Int
+    , _delersSuggester :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
 deleteSuggesterResponse :: Int -> SuggesterStatus -> DeleteSuggesterResponse
 deleteSuggesterResponse pStatus_ pSuggester_ =
     DeleteSuggesterResponse'
-    { _dellrsStatus = pStatus_
-    , _dellrsSuggester = pSuggester_
+    { _delersStatus = pStatus_
+    , _delersSuggester = pSuggester_
     }
 
 -- | FIXME: Undocumented member.
-dellrsStatus :: Lens' DeleteSuggesterResponse Int
-dellrsStatus = lens _dellrsStatus (\ s a -> s{_dellrsStatus = a});
+delersStatus :: Lens' DeleteSuggesterResponse Int
+delersStatus = lens _delersStatus (\ s a -> s{_delersStatus = a});
 
 -- | The status of the suggester being deleted.
-dellrsSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
-dellrsSuggester = lens _dellrsSuggester (\ s a -> s{_dellrsSuggester = a});
+delersSuggester :: Lens' DeleteSuggesterResponse SuggesterStatus
+delersSuggester = lens _delersSuggester (\ s a -> s{_delersSuggester = a});

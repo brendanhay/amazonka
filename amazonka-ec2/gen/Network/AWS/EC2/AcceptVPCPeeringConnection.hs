@@ -31,8 +31,8 @@ module Network.AWS.EC2.AcceptVPCPeeringConnection
     -- ** Request constructor
     , acceptVPCPeeringConnection
     -- ** Request lenses
-    , avpcrqVPCPeeringConnectionId
-    , avpcrqDryRun
+    , avpcVPCPeeringConnectionId
+    , avpcDryRun
 
     -- * Response
     , AcceptVPCPeeringConnectionResponse
@@ -52,32 +52,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avpcrqVPCPeeringConnectionId'
+-- * 'avpcVPCPeeringConnectionId'
 --
--- * 'avpcrqDryRun'
+-- * 'avpcDryRun'
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
-    { _avpcrqVPCPeeringConnectionId :: !(Maybe Text)
-    , _avpcrqDryRun                 :: !(Maybe Bool)
+    { _avpcVPCPeeringConnectionId :: !(Maybe Text)
+    , _avpcDryRun                 :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcceptVPCPeeringConnection' smart constructor.
 acceptVPCPeeringConnection :: AcceptVPCPeeringConnection
 acceptVPCPeeringConnection =
     AcceptVPCPeeringConnection'
-    { _avpcrqVPCPeeringConnectionId = Nothing
-    , _avpcrqDryRun = Nothing
+    { _avpcVPCPeeringConnectionId = Nothing
+    , _avpcDryRun = Nothing
     }
 
 -- | The ID of the VPC peering connection.
-avpcrqVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
-avpcrqVPCPeeringConnectionId = lens _avpcrqVPCPeeringConnectionId (\ s a -> s{_avpcrqVPCPeeringConnectionId = a});
+avpcVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
+avpcVPCPeeringConnectionId = lens _avpcVPCPeeringConnectionId (\ s a -> s{_avpcVPCPeeringConnectionId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-avpcrqDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
-avpcrqDryRun = lens _avpcrqDryRun (\ s a -> s{_avpcrqDryRun = a});
+avpcDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
+avpcDryRun = lens _avpcDryRun (\ s a -> s{_avpcDryRun = a});
 
 instance AWSRequest AcceptVPCPeeringConnection where
         type Sv AcceptVPCPeeringConnection = EC2
@@ -104,8 +104,8 @@ instance ToQuery AcceptVPCPeeringConnection where
                  ("AcceptVPCPeeringConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "VpcPeeringConnectionId" =:
-                 _avpcrqVPCPeeringConnectionId,
-               "DryRun" =: _avpcrqDryRun]
+                 _avpcVPCPeeringConnectionId,
+               "DryRun" =: _avpcDryRun]
 
 -- | /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
 --

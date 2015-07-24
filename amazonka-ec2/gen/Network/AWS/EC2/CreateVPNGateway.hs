@@ -33,9 +33,9 @@ module Network.AWS.EC2.CreateVPNGateway
     -- ** Request constructor
     , createVPNGateway
     -- ** Request lenses
-    , cvgrqAvailabilityZone
-    , cvgrqDryRun
-    , cvgrqType
+    , cvgAvailabilityZone
+    , cvgDryRun
+    , cvgType
 
     -- * Response
     , CreateVPNGatewayResponse
@@ -55,40 +55,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvgrqAvailabilityZone'
+-- * 'cvgAvailabilityZone'
 --
--- * 'cvgrqDryRun'
+-- * 'cvgDryRun'
 --
--- * 'cvgrqType'
+-- * 'cvgType'
 data CreateVPNGateway = CreateVPNGateway'
-    { _cvgrqAvailabilityZone :: !(Maybe Text)
-    , _cvgrqDryRun           :: !(Maybe Bool)
-    , _cvgrqType             :: !GatewayType
+    { _cvgAvailabilityZone :: !(Maybe Text)
+    , _cvgDryRun           :: !(Maybe Bool)
+    , _cvgType             :: !GatewayType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNGateway' smart constructor.
 createVPNGateway :: GatewayType -> CreateVPNGateway
 createVPNGateway pType_ =
     CreateVPNGateway'
-    { _cvgrqAvailabilityZone = Nothing
-    , _cvgrqDryRun = Nothing
-    , _cvgrqType = pType_
+    { _cvgAvailabilityZone = Nothing
+    , _cvgDryRun = Nothing
+    , _cvgType = pType_
     }
 
 -- | The Availability Zone for the virtual private gateway.
-cvgrqAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
-cvgrqAvailabilityZone = lens _cvgrqAvailabilityZone (\ s a -> s{_cvgrqAvailabilityZone = a});
+cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
+cvgAvailabilityZone = lens _cvgAvailabilityZone (\ s a -> s{_cvgAvailabilityZone = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cvgrqDryRun :: Lens' CreateVPNGateway (Maybe Bool)
-cvgrqDryRun = lens _cvgrqDryRun (\ s a -> s{_cvgrqDryRun = a});
+cvgDryRun :: Lens' CreateVPNGateway (Maybe Bool)
+cvgDryRun = lens _cvgDryRun (\ s a -> s{_cvgDryRun = a});
 
 -- | The type of VPN connection this virtual private gateway supports.
-cvgrqType :: Lens' CreateVPNGateway GatewayType
-cvgrqType = lens _cvgrqType (\ s a -> s{_cvgrqType = a});
+cvgType :: Lens' CreateVPNGateway GatewayType
+cvgType = lens _cvgType (\ s a -> s{_cvgType = a});
 
 instance AWSRequest CreateVPNGateway where
         type Sv CreateVPNGateway = EC2
@@ -111,8 +111,8 @@ instance ToQuery CreateVPNGateway where
           = mconcat
               ["Action" =: ("CreateVPNGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AvailabilityZone" =: _cvgrqAvailabilityZone,
-               "DryRun" =: _cvgrqDryRun, "Type" =: _cvgrqType]
+               "AvailabilityZone" =: _cvgAvailabilityZone,
+               "DryRun" =: _cvgDryRun, "Type" =: _cvgType]
 
 -- | /See:/ 'createVPNGatewayResponse' smart constructor.
 --

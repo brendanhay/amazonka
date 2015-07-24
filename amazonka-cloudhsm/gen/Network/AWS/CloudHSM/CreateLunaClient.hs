@@ -27,8 +27,8 @@ module Network.AWS.CloudHSM.CreateLunaClient
     -- ** Request constructor
     , createLunaClient
     -- ** Request lenses
-    , clcrqLabel
-    , clcrqCertificate
+    , clcLabel
+    , clcCertificate
 
     -- * Response
     , CreateLunaClientResponse
@@ -50,30 +50,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clcrqLabel'
+-- * 'clcLabel'
 --
--- * 'clcrqCertificate'
+-- * 'clcCertificate'
 data CreateLunaClient = CreateLunaClient'
-    { _clcrqLabel       :: !(Maybe Text)
-    , _clcrqCertificate :: !Text
+    { _clcLabel       :: !(Maybe Text)
+    , _clcCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLunaClient' smart constructor.
 createLunaClient :: Text -> CreateLunaClient
 createLunaClient pCertificate_ =
     CreateLunaClient'
-    { _clcrqLabel = Nothing
-    , _clcrqCertificate = pCertificate_
+    { _clcLabel = Nothing
+    , _clcCertificate = pCertificate_
     }
 
 -- | The label for the client.
-clcrqLabel :: Lens' CreateLunaClient (Maybe Text)
-clcrqLabel = lens _clcrqLabel (\ s a -> s{_clcrqLabel = a});
+clcLabel :: Lens' CreateLunaClient (Maybe Text)
+clcLabel = lens _clcLabel (\ s a -> s{_clcLabel = a});
 
 -- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on
 -- the HSMs used by this client.
-clcrqCertificate :: Lens' CreateLunaClient Text
-clcrqCertificate = lens _clcrqCertificate (\ s a -> s{_clcrqCertificate = a});
+clcCertificate :: Lens' CreateLunaClient Text
+clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a});
 
 instance AWSRequest CreateLunaClient where
         type Sv CreateLunaClient = CloudHSM
@@ -98,8 +98,8 @@ instance ToHeaders CreateLunaClient where
 instance ToJSON CreateLunaClient where
         toJSON CreateLunaClient'{..}
           = object
-              ["Label" .= _clcrqLabel,
-               "Certificate" .= _clcrqCertificate]
+              ["Label" .= _clcLabel,
+               "Certificate" .= _clcCertificate]
 
 instance ToPath CreateLunaClient where
         toPath = const "/"

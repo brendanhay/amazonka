@@ -66,7 +66,7 @@ module Network.AWS.EFS.CreateFileSystem
     -- ** Request constructor
     , createFileSystem
     -- ** Request lenses
-    , cfsrqCreationToken
+    , cfsCreationToken
 
     -- * Response
     , FileSystemDescription
@@ -92,22 +92,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cfsrqCreationToken'
+-- * 'cfsCreationToken'
 newtype CreateFileSystem = CreateFileSystem'
-    { _cfsrqCreationToken :: Text
+    { _cfsCreationToken :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFileSystem' smart constructor.
 createFileSystem :: Text -> CreateFileSystem
 createFileSystem pCreationToken_ =
     CreateFileSystem'
-    { _cfsrqCreationToken = pCreationToken_
+    { _cfsCreationToken = pCreationToken_
     }
 
 -- | String of up to 64 ASCII characters. Amazon EFS uses this to ensure
 -- idempotent creation.
-cfsrqCreationToken :: Lens' CreateFileSystem Text
-cfsrqCreationToken = lens _cfsrqCreationToken (\ s a -> s{_cfsrqCreationToken = a});
+cfsCreationToken :: Lens' CreateFileSystem Text
+cfsCreationToken = lens _cfsCreationToken (\ s a -> s{_cfsCreationToken = a});
 
 instance AWSRequest CreateFileSystem where
         type Sv CreateFileSystem = EFS
@@ -120,7 +120,7 @@ instance ToHeaders CreateFileSystem where
 
 instance ToJSON CreateFileSystem where
         toJSON CreateFileSystem'{..}
-          = object ["CreationToken" .= _cfsrqCreationToken]
+          = object ["CreationToken" .= _cfsCreationToken]
 
 instance ToPath CreateFileSystem where
         toPath = const "/2015-02-01/file-systems"

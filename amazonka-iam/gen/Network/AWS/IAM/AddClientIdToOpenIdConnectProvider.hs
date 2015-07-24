@@ -31,8 +31,8 @@ module Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
     -- ** Request constructor
     , addClientIdToOpenIdConnectProvider
     -- ** Request lenses
-    , acitoicprqOpenIdConnectProviderARN
-    , acitoicprqClientId
+    , acitoicpOpenIdConnectProviderARN
+    , acitoicpClientId
 
     -- * Response
     , AddClientIdToOpenIdConnectProviderResponse
@@ -49,32 +49,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acitoicprqOpenIdConnectProviderARN'
+-- * 'acitoicpOpenIdConnectProviderARN'
 --
--- * 'acitoicprqClientId'
+-- * 'acitoicpClientId'
 data AddClientIdToOpenIdConnectProvider = AddClientIdToOpenIdConnectProvider'
-    { _acitoicprqOpenIdConnectProviderARN :: !Text
-    , _acitoicprqClientId                 :: !Text
+    { _acitoicpOpenIdConnectProviderARN :: !Text
+    , _acitoicpClientId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddClientIdToOpenIdConnectProvider' smart constructor.
 addClientIdToOpenIdConnectProvider :: Text -> Text -> AddClientIdToOpenIdConnectProvider
 addClientIdToOpenIdConnectProvider pOpenIdConnectProviderARN_ pClientId_ =
     AddClientIdToOpenIdConnectProvider'
-    { _acitoicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
-    , _acitoicprqClientId = pClientId_
+    { _acitoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN_
+    , _acitoicpClientId = pClientId_
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to add the client ID to. You can get a list of OIDC provider ARNs by
 -- using the ListOpenIDConnectProviders action.
-acitoicprqOpenIdConnectProviderARN :: Lens' AddClientIdToOpenIdConnectProvider Text
-acitoicprqOpenIdConnectProviderARN = lens _acitoicprqOpenIdConnectProviderARN (\ s a -> s{_acitoicprqOpenIdConnectProviderARN = a});
+acitoicpOpenIdConnectProviderARN :: Lens' AddClientIdToOpenIdConnectProvider Text
+acitoicpOpenIdConnectProviderARN = lens _acitoicpOpenIdConnectProviderARN (\ s a -> s{_acitoicpOpenIdConnectProviderARN = a});
 
 -- | The client ID (also known as audience) to add to the IAM OpenID Connect
 -- provider.
-acitoicprqClientId :: Lens' AddClientIdToOpenIdConnectProvider Text
-acitoicprqClientId = lens _acitoicprqClientId (\ s a -> s{_acitoicprqClientId = a});
+acitoicpClientId :: Lens' AddClientIdToOpenIdConnectProvider Text
+acitoicpClientId = lens _acitoicpClientId (\ s a -> s{_acitoicpClientId = a});
 
 instance AWSRequest
          AddClientIdToOpenIdConnectProvider where
@@ -102,8 +102,8 @@ instance ToQuery AddClientIdToOpenIdConnectProvider
                  ("AddClientIdToOpenIdConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
-                 _acitoicprqOpenIdConnectProviderARN,
-               "ClientID" =: _acitoicprqClientId]
+                 _acitoicpOpenIdConnectProviderARN,
+               "ClientID" =: _acitoicpClientId]
 
 -- | /See:/ 'addClientIdToOpenIdConnectProviderResponse' smart constructor.
 data AddClientIdToOpenIdConnectProviderResponse =

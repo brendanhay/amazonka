@@ -53,11 +53,11 @@ module Network.AWS.Glacier.ListParts
     -- ** Request constructor
     , listParts
     -- ** Request lenses
-    , lprqMarker
-    , lprqLimit
-    , lprqAccountId
-    , lprqVaultName
-    , lprqUploadId
+    , lpMarker
+    , lpLimit
+    , lpAccountId
+    , lpVaultName
+    , lpUploadId
 
     -- * Response
     , ListPartsResponse
@@ -86,32 +86,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprqMarker'
+-- * 'lpMarker'
 --
--- * 'lprqLimit'
+-- * 'lpLimit'
 --
--- * 'lprqAccountId'
+-- * 'lpAccountId'
 --
--- * 'lprqVaultName'
+-- * 'lpVaultName'
 --
--- * 'lprqUploadId'
+-- * 'lpUploadId'
 data ListParts = ListParts'
-    { _lprqMarker    :: !(Maybe Text)
-    , _lprqLimit     :: !(Maybe Text)
-    , _lprqAccountId :: !Text
-    , _lprqVaultName :: !Text
-    , _lprqUploadId  :: !Text
+    { _lpMarker    :: !(Maybe Text)
+    , _lpLimit     :: !(Maybe Text)
+    , _lpAccountId :: !Text
+    , _lpVaultName :: !Text
+    , _lpUploadId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListParts' smart constructor.
 listParts :: Text -> Text -> Text -> ListParts
 listParts pAccountId_ pVaultName_ pUploadId_ =
     ListParts'
-    { _lprqMarker = Nothing
-    , _lprqLimit = Nothing
-    , _lprqAccountId = pAccountId_
-    , _lprqVaultName = pVaultName_
-    , _lprqUploadId = pUploadId_
+    { _lpMarker = Nothing
+    , _lpLimit = Nothing
+    , _lpAccountId = pAccountId_
+    , _lpVaultName = pVaultName_
+    , _lpUploadId = pUploadId_
     }
 
 -- | An opaque string used for pagination. This value specifies the part at
@@ -119,30 +119,30 @@ listParts pAccountId_ pVaultName_ pUploadId_ =
 -- response of a previous List Parts response. You need only include the
 -- marker if you are continuing the pagination of results started in a
 -- previous List Parts request.
-lprqMarker :: Lens' ListParts (Maybe Text)
-lprqMarker = lens _lprqMarker (\ s a -> s{_lprqMarker = a});
+lpMarker :: Lens' ListParts (Maybe Text)
+lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
 -- | Specifies the maximum number of parts returned in the response body. If
 -- this value is not specified, the List Parts operation returns up to
 -- 1,000 uploads.
-lprqLimit :: Lens' ListParts (Maybe Text)
-lprqLimit = lens _lprqLimit (\ s a -> s{_lprqLimit = a});
+lpLimit :: Lens' ListParts (Maybe Text)
+lpLimit = lens _lpLimit (\ s a -> s{_lpLimit = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-lprqAccountId :: Lens' ListParts Text
-lprqAccountId = lens _lprqAccountId (\ s a -> s{_lprqAccountId = a});
+lpAccountId :: Lens' ListParts Text
+lpAccountId = lens _lpAccountId (\ s a -> s{_lpAccountId = a});
 
 -- | The name of the vault.
-lprqVaultName :: Lens' ListParts Text
-lprqVaultName = lens _lprqVaultName (\ s a -> s{_lprqVaultName = a});
+lpVaultName :: Lens' ListParts Text
+lpVaultName = lens _lpVaultName (\ s a -> s{_lpVaultName = a});
 
 -- | The upload ID of the multipart upload.
-lprqUploadId :: Lens' ListParts Text
-lprqUploadId = lens _lprqUploadId (\ s a -> s{_lprqUploadId = a});
+lpUploadId :: Lens' ListParts Text
+lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
 
 instance AWSRequest ListParts where
         type Sv ListParts = Glacier
@@ -167,14 +167,14 @@ instance ToHeaders ListParts where
 instance ToPath ListParts where
         toPath ListParts'{..}
           = mconcat
-              ["/", toText _lprqAccountId, "/vaults/",
-               toText _lprqVaultName, "/multipart-uploads/",
-               toText _lprqUploadId]
+              ["/", toText _lpAccountId, "/vaults/",
+               toText _lpVaultName, "/multipart-uploads/",
+               toText _lpUploadId]
 
 instance ToQuery ListParts where
         toQuery ListParts'{..}
           = mconcat
-              ["marker" =: _lprqMarker, "limit" =: _lprqLimit]
+              ["marker" =: _lpMarker, "limit" =: _lpLimit]
 
 -- | Contains the Amazon Glacier response to your request.
 --

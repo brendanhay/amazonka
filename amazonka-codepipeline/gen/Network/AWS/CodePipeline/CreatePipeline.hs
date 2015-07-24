@@ -27,7 +27,7 @@ module Network.AWS.CodePipeline.CreatePipeline
     -- ** Request constructor
     , createPipeline
     -- ** Request lenses
-    , cprqPipeline
+    , cpPipeline
 
     -- * Response
     , CreatePipelineResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprqPipeline'
+-- * 'cpPipeline'
 newtype CreatePipeline = CreatePipeline'
-    { _cprqPipeline :: PipelineDeclaration
+    { _cpPipeline :: PipelineDeclaration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: PipelineDeclaration -> CreatePipeline
 createPipeline pPipeline_ =
     CreatePipeline'
-    { _cprqPipeline = pPipeline_
+    { _cpPipeline = pPipeline_
     }
 
 -- | FIXME: Undocumented member.
-cprqPipeline :: Lens' CreatePipeline PipelineDeclaration
-cprqPipeline = lens _cprqPipeline (\ s a -> s{_cprqPipeline = a});
+cpPipeline :: Lens' CreatePipeline PipelineDeclaration
+cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a});
 
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = CodePipeline
@@ -87,7 +87,7 @@ instance ToHeaders CreatePipeline where
 
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
-          = object ["pipeline" .= _cprqPipeline]
+          = object ["pipeline" .= _cpPipeline]
 
 instance ToPath CreatePipeline where
         toPath = const "/"

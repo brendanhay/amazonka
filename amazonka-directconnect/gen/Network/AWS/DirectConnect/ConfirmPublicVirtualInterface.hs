@@ -32,7 +32,7 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     -- ** Request constructor
     , confirmPublicVirtualInterface
     -- ** Request lenses
-    , crqVirtualInterfaceId
+    , cVirtualInterfaceId
 
     -- * Response
     , ConfirmPublicVirtualInterfaceResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crqVirtualInterfaceId'
+-- * 'cVirtualInterfaceId'
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
-    { _crqVirtualInterfaceId :: Text
+    { _cVirtualInterfaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPublicVirtualInterface' smart constructor.
 confirmPublicVirtualInterface :: Text -> ConfirmPublicVirtualInterface
 confirmPublicVirtualInterface pVirtualInterfaceId_ =
     ConfirmPublicVirtualInterface'
-    { _crqVirtualInterfaceId = pVirtualInterfaceId_
+    { _cVirtualInterfaceId = pVirtualInterfaceId_
     }
 
 -- | FIXME: Undocumented member.
-crqVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
-crqVirtualInterfaceId = lens _crqVirtualInterfaceId (\ s a -> s{_crqVirtualInterfaceId = a});
+cVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
+cVirtualInterfaceId = lens _cVirtualInterfaceId (\ s a -> s{_cVirtualInterfaceId = a});
 
 instance AWSRequest ConfirmPublicVirtualInterface
          where
@@ -98,7 +98,7 @@ instance ToHeaders ConfirmPublicVirtualInterface
 instance ToJSON ConfirmPublicVirtualInterface where
         toJSON ConfirmPublicVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _crqVirtualInterfaceId]
+              ["virtualInterfaceId" .= _cVirtualInterfaceId]
 
 instance ToPath ConfirmPublicVirtualInterface where
         toPath = const "/"

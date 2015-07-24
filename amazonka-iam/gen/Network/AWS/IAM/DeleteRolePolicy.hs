@@ -34,8 +34,8 @@ module Network.AWS.IAM.DeleteRolePolicy
     -- ** Request constructor
     , deleteRolePolicy
     -- ** Request lenses
-    , delrqRoleName
-    , delrqPolicyName
+    , delRoleName
+    , delPolicyName
 
     -- * Response
     , DeleteRolePolicyResponse
@@ -52,30 +52,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delrqRoleName'
+-- * 'delRoleName'
 --
--- * 'delrqPolicyName'
+-- * 'delPolicyName'
 data DeleteRolePolicy = DeleteRolePolicy'
-    { _delrqRoleName   :: !Text
-    , _delrqPolicyName :: !Text
+    { _delRoleName   :: !Text
+    , _delPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRolePolicy' smart constructor.
 deleteRolePolicy :: Text -> Text -> DeleteRolePolicy
 deleteRolePolicy pRoleName_ pPolicyName_ =
     DeleteRolePolicy'
-    { _delrqRoleName = pRoleName_
-    , _delrqPolicyName = pPolicyName_
+    { _delRoleName = pRoleName_
+    , _delPolicyName = pPolicyName_
     }
 
 -- | The name (friendly name, not ARN) identifying the role that the policy
 -- is embedded in.
-delrqRoleName :: Lens' DeleteRolePolicy Text
-delrqRoleName = lens _delrqRoleName (\ s a -> s{_delrqRoleName = a});
+delRoleName :: Lens' DeleteRolePolicy Text
+delRoleName = lens _delRoleName (\ s a -> s{_delRoleName = a});
 
 -- | The name identifying the policy document to delete.
-delrqPolicyName :: Lens' DeleteRolePolicy Text
-delrqPolicyName = lens _delrqPolicyName (\ s a -> s{_delrqPolicyName = a});
+delPolicyName :: Lens' DeleteRolePolicy Text
+delPolicyName = lens _delPolicyName (\ s a -> s{_delPolicyName = a});
 
 instance AWSRequest DeleteRolePolicy where
         type Sv DeleteRolePolicy = IAM
@@ -94,8 +94,8 @@ instance ToQuery DeleteRolePolicy where
           = mconcat
               ["Action" =: ("DeleteRolePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _delrqRoleName,
-               "PolicyName" =: _delrqPolicyName]
+               "RoleName" =: _delRoleName,
+               "PolicyName" =: _delPolicyName]
 
 -- | /See:/ 'deleteRolePolicyResponse' smart constructor.
 data DeleteRolePolicyResponse =

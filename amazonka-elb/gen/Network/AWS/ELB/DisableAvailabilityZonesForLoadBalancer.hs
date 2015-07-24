@@ -39,8 +39,8 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
     , disableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
-    , dazflbrqLoadBalancerName
-    , dazflbrqAvailabilityZones
+    , dazflbLoadBalancerName
+    , dazflbAvailabilityZones
 
     -- * Response
     , DisableAvailabilityZonesForLoadBalancerResponse
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dazflbrqLoadBalancerName'
+-- * 'dazflbLoadBalancerName'
 --
--- * 'dazflbrqAvailabilityZones'
+-- * 'dazflbAvailabilityZones'
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer'
-    { _dazflbrqLoadBalancerName  :: !Text
-    , _dazflbrqAvailabilityZones :: ![Text]
+    { _dazflbLoadBalancerName  :: !Text
+    , _dazflbAvailabilityZones :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableAvailabilityZonesForLoadBalancer' smart constructor.
 disableAvailabilityZonesForLoadBalancer :: Text -> DisableAvailabilityZonesForLoadBalancer
 disableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
     DisableAvailabilityZonesForLoadBalancer'
-    { _dazflbrqLoadBalancerName = pLoadBalancerName_
-    , _dazflbrqAvailabilityZones = mempty
+    { _dazflbLoadBalancerName = pLoadBalancerName_
+    , _dazflbAvailabilityZones = mempty
     }
 
 -- | The name of the load balancer.
-dazflbrqLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
-dazflbrqLoadBalancerName = lens _dazflbrqLoadBalancerName (\ s a -> s{_dazflbrqLoadBalancerName = a});
+dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
+dazflbLoadBalancerName = lens _dazflbLoadBalancerName (\ s a -> s{_dazflbLoadBalancerName = a});
 
 -- | The Availability Zones.
-dazflbrqAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
-dazflbrqAvailabilityZones = lens _dazflbrqAvailabilityZones (\ s a -> s{_dazflbrqAvailabilityZones = a});
+dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
+dazflbAvailabilityZones = lens _dazflbAvailabilityZones (\ s a -> s{_dazflbAvailabilityZones = a});
 
 instance AWSRequest
          DisableAvailabilityZonesForLoadBalancer where
@@ -115,9 +115,9 @@ instance ToQuery
                  ("DisableAvailabilityZonesForLoadBalancer" ::
                     ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dazflbrqLoadBalancerName,
+               "LoadBalancerName" =: _dazflbLoadBalancerName,
                "AvailabilityZones" =:
-                 toQueryList "member" _dazflbrqAvailabilityZones]
+                 toQueryList "member" _dazflbAvailabilityZones]
 
 -- | /See:/ 'disableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 --

@@ -30,14 +30,14 @@ module Network.AWS.ECS.ListTasks
     -- ** Request constructor
     , listTasks
     -- ** Request lenses
-    , ltrqDesiredStatus
-    , ltrqCluster
-    , ltrqFamily
-    , ltrqNextToken
-    , ltrqStartedBy
-    , ltrqServiceName
-    , ltrqContainerInstance
-    , ltrqMaxResults
+    , ltDesiredStatus
+    , ltCluster
+    , ltFamily
+    , ltNextToken
+    , ltStartedBy
+    , ltServiceName
+    , ltContainerInstance
+    , ltMaxResults
 
     -- * Response
     , ListTasksResponse
@@ -59,44 +59,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrqDesiredStatus'
+-- * 'ltDesiredStatus'
 --
--- * 'ltrqCluster'
+-- * 'ltCluster'
 --
--- * 'ltrqFamily'
+-- * 'ltFamily'
 --
--- * 'ltrqNextToken'
+-- * 'ltNextToken'
 --
--- * 'ltrqStartedBy'
+-- * 'ltStartedBy'
 --
--- * 'ltrqServiceName'
+-- * 'ltServiceName'
 --
--- * 'ltrqContainerInstance'
+-- * 'ltContainerInstance'
 --
--- * 'ltrqMaxResults'
+-- * 'ltMaxResults'
 data ListTasks = ListTasks'
-    { _ltrqDesiredStatus     :: !(Maybe DesiredStatus)
-    , _ltrqCluster           :: !(Maybe Text)
-    , _ltrqFamily            :: !(Maybe Text)
-    , _ltrqNextToken         :: !(Maybe Text)
-    , _ltrqStartedBy         :: !(Maybe Text)
-    , _ltrqServiceName       :: !(Maybe Text)
-    , _ltrqContainerInstance :: !(Maybe Text)
-    , _ltrqMaxResults        :: !(Maybe Int)
+    { _ltDesiredStatus     :: !(Maybe DesiredStatus)
+    , _ltCluster           :: !(Maybe Text)
+    , _ltFamily            :: !(Maybe Text)
+    , _ltNextToken         :: !(Maybe Text)
+    , _ltStartedBy         :: !(Maybe Text)
+    , _ltServiceName       :: !(Maybe Text)
+    , _ltContainerInstance :: !(Maybe Text)
+    , _ltMaxResults        :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTasks' smart constructor.
 listTasks :: ListTasks
 listTasks =
     ListTasks'
-    { _ltrqDesiredStatus = Nothing
-    , _ltrqCluster = Nothing
-    , _ltrqFamily = Nothing
-    , _ltrqNextToken = Nothing
-    , _ltrqStartedBy = Nothing
-    , _ltrqServiceName = Nothing
-    , _ltrqContainerInstance = Nothing
-    , _ltrqMaxResults = Nothing
+    { _ltDesiredStatus = Nothing
+    , _ltCluster = Nothing
+    , _ltFamily = Nothing
+    , _ltNextToken = Nothing
+    , _ltStartedBy = Nothing
+    , _ltServiceName = Nothing
+    , _ltContainerInstance = Nothing
+    , _ltMaxResults = Nothing
     }
 
 -- | The task status that you want to filter the @ListTasks@ results with.
@@ -104,47 +104,47 @@ listTasks =
 -- tasks that are in the @STOPPED@ status, which can be useful for
 -- debugging tasks that are not starting properly or have died or finished.
 -- The default status filter is @RUNNING@.
-ltrqDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
-ltrqDesiredStatus = lens _ltrqDesiredStatus (\ s a -> s{_ltrqDesiredStatus = a});
+ltDesiredStatus :: Lens' ListTasks (Maybe DesiredStatus)
+ltDesiredStatus = lens _ltDesiredStatus (\ s a -> s{_ltDesiredStatus = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the tasks you want to list. If you do not specify a cluster, the
 -- default cluster is assumed..
-ltrqCluster :: Lens' ListTasks (Maybe Text)
-ltrqCluster = lens _ltrqCluster (\ s a -> s{_ltrqCluster = a});
+ltCluster :: Lens' ListTasks (Maybe Text)
+ltCluster = lens _ltCluster (\ s a -> s{_ltCluster = a});
 
 -- | The name of the family that you want to filter the @ListTasks@ results
 -- with. Specifying a @family@ will limit the results to tasks that belong
 -- to that family.
-ltrqFamily :: Lens' ListTasks (Maybe Text)
-ltrqFamily = lens _ltrqFamily (\ s a -> s{_ltrqFamily = a});
+ltFamily :: Lens' ListTasks (Maybe Text)
+ltFamily = lens _ltFamily (\ s a -> s{_ltFamily = a});
 
 -- | The @nextToken@ value returned from a previous paginated @ListTasks@
 -- request where @maxResults@ was used and the results exceeded the value
 -- of that parameter. Pagination continues from the end of the previous
 -- results that returned the @nextToken@ value. This value is @null@ when
 -- there are no more results to return.
-ltrqNextToken :: Lens' ListTasks (Maybe Text)
-ltrqNextToken = lens _ltrqNextToken (\ s a -> s{_ltrqNextToken = a});
+ltNextToken :: Lens' ListTasks (Maybe Text)
+ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
 
 -- | The @startedBy@ value that you want to filter the task results with.
 -- Specifying a @startedBy@ value will limit the results to tasks that were
 -- started with that value.
-ltrqStartedBy :: Lens' ListTasks (Maybe Text)
-ltrqStartedBy = lens _ltrqStartedBy (\ s a -> s{_ltrqStartedBy = a});
+ltStartedBy :: Lens' ListTasks (Maybe Text)
+ltStartedBy = lens _ltStartedBy (\ s a -> s{_ltStartedBy = a});
 
 -- | The name of the service that you want to filter the @ListTasks@ results
 -- with. Specifying a @serviceName@ will limit the results to tasks that
 -- belong to that service.
-ltrqServiceName :: Lens' ListTasks (Maybe Text)
-ltrqServiceName = lens _ltrqServiceName (\ s a -> s{_ltrqServiceName = a});
+ltServiceName :: Lens' ListTasks (Maybe Text)
+ltServiceName = lens _ltServiceName (\ s a -> s{_ltServiceName = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) of the
 -- container instance that you want to filter the @ListTasks@ results with.
 -- Specifying a @containerInstance@ will limit the results to tasks that
 -- belong to that container instance.
-ltrqContainerInstance :: Lens' ListTasks (Maybe Text)
-ltrqContainerInstance = lens _ltrqContainerInstance (\ s a -> s{_ltrqContainerInstance = a});
+ltContainerInstance :: Lens' ListTasks (Maybe Text)
+ltContainerInstance = lens _ltContainerInstance (\ s a -> s{_ltContainerInstance = a});
 
 -- | The maximum number of task results returned by @ListTasks@ in paginated
 -- output. When this parameter is used, @ListTasks@ only returns
@@ -154,15 +154,15 @@ ltrqContainerInstance = lens _ltrqContainerInstance (\ s a -> s{_ltrqContainerIn
 -- This value can be between 1 and 100. If this parameter is not used, then
 -- @ListTasks@ returns up to 100 results and a @nextToken@ value if
 -- applicable.
-ltrqMaxResults :: Lens' ListTasks (Maybe Int)
-ltrqMaxResults = lens _ltrqMaxResults (\ s a -> s{_ltrqMaxResults = a});
+ltMaxResults :: Lens' ListTasks (Maybe Int)
+ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a});
 
 instance AWSPager ListTasks where
         page rq rs
           | stop (rs ^. ltrsNextToken) = Nothing
           | stop (rs ^. ltrsTaskARNs) = Nothing
           | otherwise =
-            Just $ rq & ltrqNextToken .~ rs ^. ltrsNextToken
+            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTasks where
         type Sv ListTasks = ECS
@@ -188,13 +188,13 @@ instance ToHeaders ListTasks where
 instance ToJSON ListTasks where
         toJSON ListTasks'{..}
           = object
-              ["desiredStatus" .= _ltrqDesiredStatus,
-               "cluster" .= _ltrqCluster, "family" .= _ltrqFamily,
-               "nextToken" .= _ltrqNextToken,
-               "startedBy" .= _ltrqStartedBy,
-               "serviceName" .= _ltrqServiceName,
-               "containerInstance" .= _ltrqContainerInstance,
-               "maxResults" .= _ltrqMaxResults]
+              ["desiredStatus" .= _ltDesiredStatus,
+               "cluster" .= _ltCluster, "family" .= _ltFamily,
+               "nextToken" .= _ltNextToken,
+               "startedBy" .= _ltStartedBy,
+               "serviceName" .= _ltServiceName,
+               "containerInstance" .= _ltContainerInstance,
+               "maxResults" .= _ltMaxResults]
 
 instance ToPath ListTasks where
         toPath = const "/"

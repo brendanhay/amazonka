@@ -29,7 +29,7 @@ module Network.AWS.CloudSearch.CreateDomain
     -- ** Request constructor
     , createDomain
     -- ** Request lenses
-    , cdrqDomainName
+    , cdDomainName
 
     -- * Response
     , CreateDomainResponse
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrqDomainName'
+-- * 'cdDomainName'
 newtype CreateDomain = CreateDomain'
-    { _cdrqDomainName :: Text
+    { _cdDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
 createDomain pDomainName_ =
     CreateDomain'
-    { _cdrqDomainName = pDomainName_
+    { _cdDomainName = pDomainName_
     }
 
 -- | A name for the domain you are creating. Allowed characters are a-z
 -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with
 -- a letter or number and be at least 3 and no more than 28 characters
 -- long.
-cdrqDomainName :: Lens' CreateDomain Text
-cdrqDomainName = lens _cdrqDomainName (\ s a -> s{_cdrqDomainName = a});
+cdDomainName :: Lens' CreateDomain Text
+cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
 instance AWSRequest CreateDomain where
         type Sv CreateDomain = CloudSearch
@@ -92,7 +92,7 @@ instance ToQuery CreateDomain where
           = mconcat
               ["Action" =: ("CreateDomain" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _cdrqDomainName]
+               "DomainName" =: _cdDomainName]
 
 -- | The result of a @CreateDomainRequest@. Contains the status of a newly
 -- created domain.

@@ -30,9 +30,9 @@ module Network.AWS.EC2.DetachClassicLinkVPC
     -- ** Request constructor
     , detachClassicLinkVPC
     -- ** Request lenses
-    , dclvrqDryRun
-    , dclvrqInstanceId
-    , dclvrqVPCId
+    , dclvDryRun
+    , dclvInstanceId
+    , dclvVPCId
 
     -- * Response
     , DetachClassicLinkVPCResponse
@@ -52,40 +52,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dclvrqDryRun'
+-- * 'dclvDryRun'
 --
--- * 'dclvrqInstanceId'
+-- * 'dclvInstanceId'
 --
--- * 'dclvrqVPCId'
+-- * 'dclvVPCId'
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
-    { _dclvrqDryRun     :: !(Maybe Bool)
-    , _dclvrqInstanceId :: !Text
-    , _dclvrqVPCId      :: !Text
+    { _dclvDryRun     :: !(Maybe Bool)
+    , _dclvInstanceId :: !Text
+    , _dclvVPCId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachClassicLinkVPC' smart constructor.
 detachClassicLinkVPC :: Text -> Text -> DetachClassicLinkVPC
 detachClassicLinkVPC pInstanceId_ pVPCId_ =
     DetachClassicLinkVPC'
-    { _dclvrqDryRun = Nothing
-    , _dclvrqInstanceId = pInstanceId_
-    , _dclvrqVPCId = pVPCId_
+    { _dclvDryRun = Nothing
+    , _dclvInstanceId = pInstanceId_
+    , _dclvVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dclvrqDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
-dclvrqDryRun = lens _dclvrqDryRun (\ s a -> s{_dclvrqDryRun = a});
+dclvDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
+dclvDryRun = lens _dclvDryRun (\ s a -> s{_dclvDryRun = a});
 
 -- | The ID of the instance to unlink from the VPC.
-dclvrqInstanceId :: Lens' DetachClassicLinkVPC Text
-dclvrqInstanceId = lens _dclvrqInstanceId (\ s a -> s{_dclvrqInstanceId = a});
+dclvInstanceId :: Lens' DetachClassicLinkVPC Text
+dclvInstanceId = lens _dclvInstanceId (\ s a -> s{_dclvInstanceId = a});
 
 -- | The ID of the VPC to which the instance is linked.
-dclvrqVPCId :: Lens' DetachClassicLinkVPC Text
-dclvrqVPCId = lens _dclvrqVPCId (\ s a -> s{_dclvrqVPCId = a});
+dclvVPCId :: Lens' DetachClassicLinkVPC Text
+dclvVPCId = lens _dclvVPCId (\ s a -> s{_dclvVPCId = a});
 
 instance AWSRequest DetachClassicLinkVPC where
         type Sv DetachClassicLinkVPC = EC2
@@ -109,9 +109,9 @@ instance ToQuery DetachClassicLinkVPC where
           = mconcat
               ["Action" =: ("DetachClassicLinkVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dclvrqDryRun,
-               "InstanceId" =: _dclvrqInstanceId,
-               "VpcId" =: _dclvrqVPCId]
+               "DryRun" =: _dclvDryRun,
+               "InstanceId" =: _dclvInstanceId,
+               "VpcId" =: _dclvVPCId]
 
 -- | /See:/ 'detachClassicLinkVPCResponse' smart constructor.
 --

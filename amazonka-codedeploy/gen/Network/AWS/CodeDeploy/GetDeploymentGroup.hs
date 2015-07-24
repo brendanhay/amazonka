@@ -27,8 +27,8 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
     -- ** Request constructor
     , getDeploymentGroup
     -- ** Request lenses
-    , gdgrqApplicationName
-    , gdgrqDeploymentGroupName
+    , gdgApplicationName
+    , gdgDeploymentGroupName
 
     -- * Response
     , GetDeploymentGroupResponse
@@ -50,30 +50,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdgrqApplicationName'
+-- * 'gdgApplicationName'
 --
--- * 'gdgrqDeploymentGroupName'
+-- * 'gdgDeploymentGroupName'
 data GetDeploymentGroup = GetDeploymentGroup'
-    { _gdgrqApplicationName     :: !Text
-    , _gdgrqDeploymentGroupName :: !Text
+    { _gdgApplicationName     :: !Text
+    , _gdgDeploymentGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentGroup' smart constructor.
 getDeploymentGroup :: Text -> Text -> GetDeploymentGroup
 getDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
     GetDeploymentGroup'
-    { _gdgrqApplicationName = pApplicationName_
-    , _gdgrqDeploymentGroupName = pDeploymentGroupName_
+    { _gdgApplicationName = pApplicationName_
+    , _gdgDeploymentGroupName = pDeploymentGroupName_
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-gdgrqApplicationName :: Lens' GetDeploymentGroup Text
-gdgrqApplicationName = lens _gdgrqApplicationName (\ s a -> s{_gdgrqApplicationName = a});
+gdgApplicationName :: Lens' GetDeploymentGroup Text
+gdgApplicationName = lens _gdgApplicationName (\ s a -> s{_gdgApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-gdgrqDeploymentGroupName :: Lens' GetDeploymentGroup Text
-gdgrqDeploymentGroupName = lens _gdgrqDeploymentGroupName (\ s a -> s{_gdgrqDeploymentGroupName = a});
+gdgDeploymentGroupName :: Lens' GetDeploymentGroup Text
+gdgDeploymentGroupName = lens _gdgDeploymentGroupName (\ s a -> s{_gdgDeploymentGroupName = a});
 
 instance AWSRequest GetDeploymentGroup where
         type Sv GetDeploymentGroup = CodeDeploy
@@ -100,8 +100,8 @@ instance ToHeaders GetDeploymentGroup where
 instance ToJSON GetDeploymentGroup where
         toJSON GetDeploymentGroup'{..}
           = object
-              ["applicationName" .= _gdgrqApplicationName,
-               "deploymentGroupName" .= _gdgrqDeploymentGroupName]
+              ["applicationName" .= _gdgApplicationName,
+               "deploymentGroupName" .= _gdgDeploymentGroupName]
 
 instance ToPath GetDeploymentGroup where
         toPath = const "/"

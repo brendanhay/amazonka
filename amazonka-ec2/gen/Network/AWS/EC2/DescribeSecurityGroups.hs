@@ -34,10 +34,10 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- ** Request constructor
     , describeSecurityGroups
     -- ** Request lenses
-    , dsgsrqGroupNames
-    , dsgsrqFilters
-    , dsgsrqGroupIds
-    , dsgsrqDryRun
+    , dsgsGroupNames
+    , dsgsFilters
+    , dsgsGroupIds
+    , dsgsDryRun
 
     -- * Response
     , DescribeSecurityGroupsResponse
@@ -57,28 +57,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsgsrqGroupNames'
+-- * 'dsgsGroupNames'
 --
--- * 'dsgsrqFilters'
+-- * 'dsgsFilters'
 --
--- * 'dsgsrqGroupIds'
+-- * 'dsgsGroupIds'
 --
--- * 'dsgsrqDryRun'
+-- * 'dsgsDryRun'
 data DescribeSecurityGroups = DescribeSecurityGroups'
-    { _dsgsrqGroupNames :: !(Maybe [Text])
-    , _dsgsrqFilters    :: !(Maybe [Filter])
-    , _dsgsrqGroupIds   :: !(Maybe [Text])
-    , _dsgsrqDryRun     :: !(Maybe Bool)
+    { _dsgsGroupNames :: !(Maybe [Text])
+    , _dsgsFilters    :: !(Maybe [Filter])
+    , _dsgsGroupIds   :: !(Maybe [Text])
+    , _dsgsDryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSecurityGroups' smart constructor.
 describeSecurityGroups :: DescribeSecurityGroups
 describeSecurityGroups =
     DescribeSecurityGroups'
-    { _dsgsrqGroupNames = Nothing
-    , _dsgsrqFilters = Nothing
-    , _dsgsrqGroupIds = Nothing
-    , _dsgsrqDryRun = Nothing
+    { _dsgsGroupNames = Nothing
+    , _dsgsFilters = Nothing
+    , _dsgsGroupIds = Nothing
+    , _dsgsDryRun = Nothing
     }
 
 -- | [EC2-Classic and default VPC only] One or more security group names. You
@@ -87,8 +87,8 @@ describeSecurityGroups =
 -- describe security groups by name.
 --
 -- Default: Describes all your security groups.
-dsgsrqGroupNames :: Lens' DescribeSecurityGroups [Text]
-dsgsrqGroupNames = lens _dsgsrqGroupNames (\ s a -> s{_dsgsrqGroupNames = a}) . _Default;
+dsgsGroupNames :: Lens' DescribeSecurityGroups [Text]
+dsgsGroupNames = lens _dsgsGroupNames (\ s a -> s{_dsgsGroupNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -131,22 +131,22 @@ dsgsrqGroupNames = lens _dsgsrqGroupNames (\ s a -> s{_dsgsrqGroupNames = a}) . 
 -- -   @vpc-id@ - The ID of the VPC specified when the security group was
 --     created.
 --
-dsgsrqFilters :: Lens' DescribeSecurityGroups [Filter]
-dsgsrqFilters = lens _dsgsrqFilters (\ s a -> s{_dsgsrqFilters = a}) . _Default;
+dsgsFilters :: Lens' DescribeSecurityGroups [Filter]
+dsgsFilters = lens _dsgsFilters (\ s a -> s{_dsgsFilters = a}) . _Default;
 
 -- | One or more security group IDs. Required for security groups in a
 -- nondefault VPC.
 --
 -- Default: Describes all your security groups.
-dsgsrqGroupIds :: Lens' DescribeSecurityGroups [Text]
-dsgsrqGroupIds = lens _dsgsrqGroupIds (\ s a -> s{_dsgsrqGroupIds = a}) . _Default;
+dsgsGroupIds :: Lens' DescribeSecurityGroups [Text]
+dsgsGroupIds = lens _dsgsGroupIds (\ s a -> s{_dsgsGroupIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsgsrqDryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
-dsgsrqDryRun = lens _dsgsrqDryRun (\ s a -> s{_dsgsrqDryRun = a});
+dsgsDryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
+dsgsDryRun = lens _dsgsDryRun (\ s a -> s{_dsgsDryRun = a});
 
 instance AWSRequest DescribeSecurityGroups where
         type Sv DescribeSecurityGroups = EC2
@@ -174,10 +174,10 @@ instance ToQuery DescribeSecurityGroups where
                  ("DescribeSecurityGroups" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "GroupName" <$> _dsgsrqGroupNames),
-               toQuery (toQueryList "Filter" <$> _dsgsrqFilters),
-               toQuery (toQueryList "groupId" <$> _dsgsrqGroupIds),
-               "DryRun" =: _dsgsrqDryRun]
+                 (toQueryList "GroupName" <$> _dsgsGroupNames),
+               toQuery (toQueryList "Filter" <$> _dsgsFilters),
+               toQuery (toQueryList "groupId" <$> _dsgsGroupIds),
+               "DryRun" =: _dsgsDryRun]
 
 -- | /See:/ 'describeSecurityGroupsResponse' smart constructor.
 --

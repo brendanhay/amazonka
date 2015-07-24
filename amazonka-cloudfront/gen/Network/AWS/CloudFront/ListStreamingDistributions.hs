@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     -- ** Request constructor
     , listStreamingDistributions
     -- ** Request lenses
-    , lsdrqMaxItems
-    , lsdrqMarker
+    , lsdMaxItems
+    , lsdMarker
 
     -- * Response
     , ListStreamingDistributionsResponse
@@ -50,34 +50,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsdrqMaxItems'
+-- * 'lsdMaxItems'
 --
--- * 'lsdrqMarker'
+-- * 'lsdMarker'
 data ListStreamingDistributions = ListStreamingDistributions'
-    { _lsdrqMaxItems :: !(Maybe Text)
-    , _lsdrqMarker   :: !(Maybe Text)
+    { _lsdMaxItems :: !(Maybe Text)
+    , _lsdMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamingDistributions' smart constructor.
 listStreamingDistributions :: ListStreamingDistributions
 listStreamingDistributions =
     ListStreamingDistributions'
-    { _lsdrqMaxItems = Nothing
-    , _lsdrqMarker = Nothing
+    { _lsdMaxItems = Nothing
+    , _lsdMarker = Nothing
     }
 
 -- | The maximum number of streaming distributions you want in the response
 -- body.
-lsdrqMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
-lsdrqMaxItems = lens _lsdrqMaxItems (\ s a -> s{_lsdrqMaxItems = a});
+lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
+lsdMaxItems = lens _lsdMaxItems (\ s a -> s{_lsdMaxItems = a});
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of streaming distributions. The results include distributions in the
 -- list that occur after the marker. To get the next page of results, set
 -- the Marker to the value of the NextMarker from the current page\'s
 -- response (which is also the ID of the last distribution on that page).
-lsdrqMarker :: Lens' ListStreamingDistributions (Maybe Text)
-lsdrqMarker = lens _lsdrqMarker (\ s a -> s{_lsdrqMarker = a});
+lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
+lsdMarker = lens _lsdMarker (\ s a -> s{_lsdMarker = a});
 
 instance AWSRequest ListStreamingDistributions where
         type Sv ListStreamingDistributions = CloudFront
@@ -99,8 +99,7 @@ instance ToPath ListStreamingDistributions where
 instance ToQuery ListStreamingDistributions where
         toQuery ListStreamingDistributions'{..}
           = mconcat
-              ["MaxItems" =: _lsdrqMaxItems,
-               "Marker" =: _lsdrqMarker]
+              ["MaxItems" =: _lsdMaxItems, "Marker" =: _lsdMarker]
 
 -- | The returned result of the corresponding request.
 --

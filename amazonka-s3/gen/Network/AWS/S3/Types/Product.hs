@@ -540,45 +540,45 @@ instance FromXML DeleteMarkerEntry where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'doVersionId'
+-- * 'dVersionId'
 --
--- * 'doDeleteMarker'
+-- * 'dDeleteMarker'
 --
--- * 'doDeleteMarkerVersionId'
+-- * 'dDeleteMarkerVersionId'
 --
--- * 'doKey'
+-- * 'dKey'
 data DeletedObject = DeletedObject'
-    { _doVersionId             :: !(Maybe ObjectVersionId)
-    , _doDeleteMarker          :: !(Maybe Bool)
-    , _doDeleteMarkerVersionId :: !(Maybe Text)
-    , _doKey                   :: !(Maybe ObjectKey)
+    { _dVersionId             :: !(Maybe ObjectVersionId)
+    , _dDeleteMarker          :: !(Maybe Bool)
+    , _dDeleteMarkerVersionId :: !(Maybe Text)
+    , _dKey                   :: !(Maybe ObjectKey)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeletedObject' smart constructor.
 deletedObject :: DeletedObject
 deletedObject =
     DeletedObject'
-    { _doVersionId = Nothing
-    , _doDeleteMarker = Nothing
-    , _doDeleteMarkerVersionId = Nothing
-    , _doKey = Nothing
+    { _dVersionId = Nothing
+    , _dDeleteMarker = Nothing
+    , _dDeleteMarkerVersionId = Nothing
+    , _dKey = Nothing
     }
 
 -- | FIXME: Undocumented member.
-doVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
-doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a});
+dVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
+dVersionId = lens _dVersionId (\ s a -> s{_dVersionId = a});
 
 -- | FIXME: Undocumented member.
-doDeleteMarker :: Lens' DeletedObject (Maybe Bool)
-doDeleteMarker = lens _doDeleteMarker (\ s a -> s{_doDeleteMarker = a});
+dDeleteMarker :: Lens' DeletedObject (Maybe Bool)
+dDeleteMarker = lens _dDeleteMarker (\ s a -> s{_dDeleteMarker = a});
 
 -- | FIXME: Undocumented member.
-doDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
-doDeleteMarkerVersionId = lens _doDeleteMarkerVersionId (\ s a -> s{_doDeleteMarkerVersionId = a});
+dDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
+dDeleteMarkerVersionId = lens _dDeleteMarkerVersionId (\ s a -> s{_dDeleteMarkerVersionId = a});
 
 -- | FIXME: Undocumented member.
-doKey :: Lens' DeletedObject (Maybe ObjectKey)
-doKey = lens _doKey (\ s a -> s{_doKey = a});
+dKey :: Lens' DeletedObject (Maybe ObjectKey)
+dKey = lens _dKey (\ s a -> s{_dKey = a});
 
 instance FromXML DeletedObject where
         parseXML x

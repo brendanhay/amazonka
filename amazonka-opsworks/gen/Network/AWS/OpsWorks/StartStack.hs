@@ -33,7 +33,7 @@ module Network.AWS.OpsWorks.StartStack
     -- ** Request constructor
     , startStack
     -- ** Request lenses
-    , srqStackId
+    , staStackId
 
     -- * Response
     , StartStackResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqStackId'
+-- * 'staStackId'
 newtype StartStack = StartStack'
-    { _srqStackId :: Text
+    { _staStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartStack' smart constructor.
 startStack :: Text -> StartStack
 startStack pStackId_ =
     StartStack'
-    { _srqStackId = pStackId_
+    { _staStackId = pStackId_
     }
 
 -- | The stack ID.
-srqStackId :: Lens' StartStack Text
-srqStackId = lens _srqStackId (\ s a -> s{_srqStackId = a});
+staStackId :: Lens' StartStack Text
+staStackId = lens _staStackId (\ s a -> s{_staStackId = a});
 
 instance AWSRequest StartStack where
         type Sv StartStack = OpsWorks
@@ -83,7 +83,7 @@ instance ToHeaders StartStack where
 
 instance ToJSON StartStack where
         toJSON StartStack'{..}
-          = object ["StackId" .= _srqStackId]
+          = object ["StackId" .= _staStackId]
 
 instance ToPath StartStack where
         toPath = const "/"

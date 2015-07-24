@@ -50,7 +50,7 @@ module Network.AWS.StorageGateway.ShutdownGateway
     -- ** Request constructor
     , shutdownGateway
     -- ** Request lenses
-    , srqGatewayARN
+    , sGatewayARN
 
     -- * Response
     , ShutdownGatewayResponse
@@ -72,21 +72,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqGatewayARN'
+-- * 'sGatewayARN'
 newtype ShutdownGateway = ShutdownGateway'
-    { _srqGatewayARN :: Text
+    { _sGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ShutdownGateway' smart constructor.
 shutdownGateway :: Text -> ShutdownGateway
 shutdownGateway pGatewayARN_ =
     ShutdownGateway'
-    { _srqGatewayARN = pGatewayARN_
+    { _sGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-srqGatewayARN :: Lens' ShutdownGateway Text
-srqGatewayARN = lens _srqGatewayARN (\ s a -> s{_srqGatewayARN = a});
+sGatewayARN :: Lens' ShutdownGateway Text
+sGatewayARN = lens _sGatewayARN (\ s a -> s{_sGatewayARN = a});
 
 instance AWSRequest ShutdownGateway where
         type Sv ShutdownGateway = StorageGateway
@@ -110,7 +110,7 @@ instance ToHeaders ShutdownGateway where
 
 instance ToJSON ShutdownGateway where
         toJSON ShutdownGateway'{..}
-          = object ["GatewayARN" .= _srqGatewayARN]
+          = object ["GatewayARN" .= _sGatewayARN]
 
 instance ToPath ShutdownGateway where
         toPath = const "/"

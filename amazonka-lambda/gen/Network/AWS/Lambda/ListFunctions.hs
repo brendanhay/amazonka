@@ -32,8 +32,8 @@ module Network.AWS.Lambda.ListFunctions
     -- ** Request constructor
     , listFunctions
     -- ** Request lenses
-    , lfrqMaxItems
-    , lfrqMarker
+    , lfMaxItems
+    , lfMarker
 
     -- * Response
     , ListFunctionsResponse
@@ -55,39 +55,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lfrqMaxItems'
+-- * 'lfMaxItems'
 --
--- * 'lfrqMarker'
+-- * 'lfMarker'
 data ListFunctions = ListFunctions'
-    { _lfrqMaxItems :: !(Maybe Nat)
-    , _lfrqMarker   :: !(Maybe Text)
+    { _lfMaxItems :: !(Maybe Nat)
+    , _lfMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListFunctions' smart constructor.
 listFunctions :: ListFunctions
 listFunctions =
     ListFunctions'
-    { _lfrqMaxItems = Nothing
-    , _lfrqMarker = Nothing
+    { _lfMaxItems = Nothing
+    , _lfMarker = Nothing
     }
 
 -- | Optional integer. Specifies the maximum number of AWS Lambda functions
 -- to return in response. This parameter value must be greater than 0.
-lfrqMaxItems :: Lens' ListFunctions (Maybe Natural)
-lfrqMaxItems = lens _lfrqMaxItems (\ s a -> s{_lfrqMaxItems = a}) . mapping _Nat;
+lfMaxItems :: Lens' ListFunctions (Maybe Natural)
+lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. An opaque pagination token returned from a previous
 -- @ListFunctions@ operation. If present, indicates where to continue the
 -- listing.
-lfrqMarker :: Lens' ListFunctions (Maybe Text)
-lfrqMarker = lens _lfrqMarker (\ s a -> s{_lfrqMarker = a});
+lfMarker :: Lens' ListFunctions (Maybe Text)
+lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
 
 instance AWSPager ListFunctions where
         page rq rs
           | stop (rs ^. lfrsNextMarker) = Nothing
           | stop (rs ^. lfrsFunctions) = Nothing
           | otherwise =
-            Just $ rq & lfrqMarker .~ rs ^. lfrsNextMarker
+            Just $ rq & lfMarker .~ rs ^. lfrsNextMarker
 
 instance AWSRequest ListFunctions where
         type Sv ListFunctions = Lambda
@@ -110,8 +110,7 @@ instance ToPath ListFunctions where
 instance ToQuery ListFunctions where
         toQuery ListFunctions'{..}
           = mconcat
-              ["MaxItems" =: _lfrqMaxItems,
-               "Marker" =: _lfrqMarker]
+              ["MaxItems" =: _lfMaxItems, "Marker" =: _lfMarker]
 
 -- | Contains a list of AWS Lambda function configurations (see
 -- FunctionConfiguration.

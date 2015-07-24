@@ -31,9 +31,9 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     -- ** Request constructor
     , setIdentityPoolConfiguration
     -- ** Request lenses
-    , sipcrqCognitoStreams
-    , sipcrqPushSync
-    , sipcrqIdentityPoolId
+    , sipcCognitoStreams
+    , sipcPushSync
+    , sipcIdentityPoolId
 
     -- * Response
     , SetIdentityPoolConfigurationResponse
@@ -57,39 +57,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sipcrqCognitoStreams'
+-- * 'sipcCognitoStreams'
 --
--- * 'sipcrqPushSync'
+-- * 'sipcPushSync'
 --
--- * 'sipcrqIdentityPoolId'
+-- * 'sipcIdentityPoolId'
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
-    { _sipcrqCognitoStreams :: !(Maybe CognitoStreams)
-    , _sipcrqPushSync       :: !(Maybe PushSync)
-    , _sipcrqIdentityPoolId :: !Text
+    { _sipcCognitoStreams :: !(Maybe CognitoStreams)
+    , _sipcPushSync       :: !(Maybe PushSync)
+    , _sipcIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolConfiguration' smart constructor.
 setIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
 setIdentityPoolConfiguration pIdentityPoolId_ =
     SetIdentityPoolConfiguration'
-    { _sipcrqCognitoStreams = Nothing
-    , _sipcrqPushSync = Nothing
-    , _sipcrqIdentityPoolId = pIdentityPoolId_
+    { _sipcCognitoStreams = Nothing
+    , _sipcPushSync = Nothing
+    , _sipcIdentityPoolId = pIdentityPoolId_
     }
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
-sipcrqCognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
-sipcrqCognitoStreams = lens _sipcrqCognitoStreams (\ s a -> s{_sipcrqCognitoStreams = a});
+sipcCognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
+sipcCognitoStreams = lens _sipcCognitoStreams (\ s a -> s{_sipcCognitoStreams = a});
 
 -- | Options to apply to this identity pool for push synchronization.
-sipcrqPushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
-sipcrqPushSync = lens _sipcrqPushSync (\ s a -> s{_sipcrqPushSync = a});
+sipcPushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
+sipcPushSync = lens _sipcPushSync (\ s a -> s{_sipcPushSync = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. This is the ID of the pool to modify.
-sipcrqIdentityPoolId :: Lens' SetIdentityPoolConfiguration Text
-sipcrqIdentityPoolId = lens _sipcrqIdentityPoolId (\ s a -> s{_sipcrqIdentityPoolId = a});
+sipcIdentityPoolId :: Lens' SetIdentityPoolConfiguration Text
+sipcIdentityPoolId = lens _sipcIdentityPoolId (\ s a -> s{_sipcIdentityPoolId = a});
 
 instance AWSRequest SetIdentityPoolConfiguration
          where
@@ -115,13 +115,13 @@ instance ToHeaders SetIdentityPoolConfiguration where
 instance ToJSON SetIdentityPoolConfiguration where
         toJSON SetIdentityPoolConfiguration'{..}
           = object
-              ["CognitoStreams" .= _sipcrqCognitoStreams,
-               "PushSync" .= _sipcrqPushSync]
+              ["CognitoStreams" .= _sipcCognitoStreams,
+               "PushSync" .= _sipcPushSync]
 
 instance ToPath SetIdentityPoolConfiguration where
         toPath SetIdentityPoolConfiguration'{..}
           = mconcat
-              ["/identitypools/", toText _sipcrqIdentityPoolId,
+              ["/identitypools/", toText _sipcIdentityPoolId,
                "/configuration"]
 
 instance ToQuery SetIdentityPoolConfiguration where

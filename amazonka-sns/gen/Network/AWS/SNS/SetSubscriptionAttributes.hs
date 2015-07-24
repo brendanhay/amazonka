@@ -28,9 +28,9 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     -- ** Request constructor
     , setSubscriptionAttributes
     -- ** Request lenses
-    , ssarqAttributeValue
-    , ssarqSubscriptionARN
-    , ssarqAttributeName
+    , ssaAttributeValue
+    , ssaSubscriptionARN
+    , ssaAttributeName
 
     -- * Response
     , SetSubscriptionAttributesResponse
@@ -49,40 +49,40 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ssarqAttributeValue'
+-- * 'ssaAttributeValue'
 --
--- * 'ssarqSubscriptionARN'
+-- * 'ssaSubscriptionARN'
 --
--- * 'ssarqAttributeName'
+-- * 'ssaAttributeName'
 data SetSubscriptionAttributes = SetSubscriptionAttributes'
-    { _ssarqAttributeValue  :: !(Maybe Text)
-    , _ssarqSubscriptionARN :: !Text
-    , _ssarqAttributeName   :: !Text
+    { _ssaAttributeValue  :: !(Maybe Text)
+    , _ssaSubscriptionARN :: !Text
+    , _ssaAttributeName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetSubscriptionAttributes' smart constructor.
 setSubscriptionAttributes :: Text -> Text -> SetSubscriptionAttributes
 setSubscriptionAttributes pSubscriptionARN_ pAttributeName_ =
     SetSubscriptionAttributes'
-    { _ssarqAttributeValue = Nothing
-    , _ssarqSubscriptionARN = pSubscriptionARN_
-    , _ssarqAttributeName = pAttributeName_
+    { _ssaAttributeValue = Nothing
+    , _ssaSubscriptionARN = pSubscriptionARN_
+    , _ssaAttributeName = pAttributeName_
     }
 
 -- | The new value for the attribute in JSON format.
-ssarqAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
-ssarqAttributeValue = lens _ssarqAttributeValue (\ s a -> s{_ssarqAttributeValue = a});
+ssaAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
+ssaAttributeValue = lens _ssaAttributeValue (\ s a -> s{_ssaAttributeValue = a});
 
 -- | The ARN of the subscription to modify.
-ssarqSubscriptionARN :: Lens' SetSubscriptionAttributes Text
-ssarqSubscriptionARN = lens _ssarqSubscriptionARN (\ s a -> s{_ssarqSubscriptionARN = a});
+ssaSubscriptionARN :: Lens' SetSubscriptionAttributes Text
+ssaSubscriptionARN = lens _ssaSubscriptionARN (\ s a -> s{_ssaSubscriptionARN = a});
 
 -- | The name of the attribute you want to set. Only a subset of the
 -- subscriptions attributes are mutable.
 --
 -- Valid values: @DeliveryPolicy@ | @RawMessageDelivery@
-ssarqAttributeName :: Lens' SetSubscriptionAttributes Text
-ssarqAttributeName = lens _ssarqAttributeName (\ s a -> s{_ssarqAttributeName = a});
+ssaAttributeName :: Lens' SetSubscriptionAttributes Text
+ssaAttributeName = lens _ssaAttributeName (\ s a -> s{_ssaAttributeName = a});
 
 instance AWSRequest SetSubscriptionAttributes where
         type Sv SetSubscriptionAttributes = SNS
@@ -104,9 +104,9 @@ instance ToQuery SetSubscriptionAttributes where
               ["Action" =:
                  ("SetSubscriptionAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "AttributeValue" =: _ssarqAttributeValue,
-               "SubscriptionArn" =: _ssarqSubscriptionARN,
-               "AttributeName" =: _ssarqAttributeName]
+               "AttributeValue" =: _ssaAttributeValue,
+               "SubscriptionArn" =: _ssaSubscriptionARN,
+               "AttributeName" =: _ssaAttributeName]
 
 -- | /See:/ 'setSubscriptionAttributesResponse' smart constructor.
 data SetSubscriptionAttributesResponse =

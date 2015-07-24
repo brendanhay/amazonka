@@ -33,9 +33,9 @@ module Network.AWS.AutoScaling.DetachInstances
     -- ** Request constructor
     , detachInstances
     -- ** Request lenses
-    , dirqInstanceIds
-    , dirqAutoScalingGroupName
-    , dirqShouldDecrementDesiredCapacity
+    , diInstanceIds
+    , diAutoScalingGroupName
+    , diShouldDecrementDesiredCapacity
 
     -- * Response
     , DetachInstancesResponse
@@ -55,38 +55,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirqInstanceIds'
+-- * 'diInstanceIds'
 --
--- * 'dirqAutoScalingGroupName'
+-- * 'diAutoScalingGroupName'
 --
--- * 'dirqShouldDecrementDesiredCapacity'
+-- * 'diShouldDecrementDesiredCapacity'
 data DetachInstances = DetachInstances'
-    { _dirqInstanceIds                    :: !(Maybe [Text])
-    , _dirqAutoScalingGroupName           :: !Text
-    , _dirqShouldDecrementDesiredCapacity :: !Bool
+    { _diInstanceIds                    :: !(Maybe [Text])
+    , _diAutoScalingGroupName           :: !Text
+    , _diShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInstances' smart constructor.
 detachInstances :: Text -> Bool -> DetachInstances
 detachInstances pAutoScalingGroupName_ pShouldDecrementDesiredCapacity_ =
     DetachInstances'
-    { _dirqInstanceIds = Nothing
-    , _dirqAutoScalingGroupName = pAutoScalingGroupName_
-    , _dirqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
+    { _diInstanceIds = Nothing
+    , _diAutoScalingGroupName = pAutoScalingGroupName_
+    , _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity_
     }
 
 -- | One or more instance IDs.
-dirqInstanceIds :: Lens' DetachInstances [Text]
-dirqInstanceIds = lens _dirqInstanceIds (\ s a -> s{_dirqInstanceIds = a}) . _Default;
+diInstanceIds :: Lens' DetachInstances [Text]
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default;
 
 -- | The name of the group.
-dirqAutoScalingGroupName :: Lens' DetachInstances Text
-dirqAutoScalingGroupName = lens _dirqAutoScalingGroupName (\ s a -> s{_dirqAutoScalingGroupName = a});
+diAutoScalingGroupName :: Lens' DetachInstances Text
+diAutoScalingGroupName = lens _diAutoScalingGroupName (\ s a -> s{_diAutoScalingGroupName = a});
 
 -- | If @True@, the Auto Scaling group decrements the desired capacity value
 -- by the number of instances detached.
-dirqShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
-dirqShouldDecrementDesiredCapacity = lens _dirqShouldDecrementDesiredCapacity (\ s a -> s{_dirqShouldDecrementDesiredCapacity = a});
+diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
+diShouldDecrementDesiredCapacity = lens _diShouldDecrementDesiredCapacity (\ s a -> s{_diShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest DetachInstances where
         type Sv DetachInstances = AutoScaling
@@ -112,10 +112,10 @@ instance ToQuery DetachInstances where
               ["Action" =: ("DetachInstances" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _dirqInstanceIds),
-               "AutoScalingGroupName" =: _dirqAutoScalingGroupName,
+                 toQuery (toQueryList "member" <$> _diInstanceIds),
+               "AutoScalingGroupName" =: _diAutoScalingGroupName,
                "ShouldDecrementDesiredCapacity" =:
-                 _dirqShouldDecrementDesiredCapacity]
+                 _diShouldDecrementDesiredCapacity]
 
 -- | /See:/ 'detachInstancesResponse' smart constructor.
 --

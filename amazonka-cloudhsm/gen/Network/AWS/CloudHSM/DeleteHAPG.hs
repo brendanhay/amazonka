@@ -27,7 +27,7 @@ module Network.AWS.CloudHSM.DeleteHAPG
     -- ** Request constructor
     , deleteHAPG
     -- ** Request lenses
-    , dhrqHAPGARN
+    , dhHAPGARN
 
     -- * Response
     , DeleteHAPGResponse
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhrqHAPGARN'
+-- * 'dhHAPGARN'
 newtype DeleteHAPG = DeleteHAPG'
-    { _dhrqHAPGARN :: Text
+    { _dhHAPGARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHAPG' smart constructor.
 deleteHAPG :: Text -> DeleteHAPG
 deleteHAPG pHAPGARN_ =
     DeleteHAPG'
-    { _dhrqHAPGARN = pHAPGARN_
+    { _dhHAPGARN = pHAPGARN_
     }
 
 -- | The ARN of the high-availability partition group to delete.
-dhrqHAPGARN :: Lens' DeleteHAPG Text
-dhrqHAPGARN = lens _dhrqHAPGARN (\ s a -> s{_dhrqHAPGARN = a});
+dhHAPGARN :: Lens' DeleteHAPG Text
+dhHAPGARN = lens _dhHAPGARN (\ s a -> s{_dhHAPGARN = a});
 
 instance AWSRequest DeleteHAPG where
         type Sv DeleteHAPG = CloudHSM
@@ -84,7 +84,7 @@ instance ToHeaders DeleteHAPG where
 
 instance ToJSON DeleteHAPG where
         toJSON DeleteHAPG'{..}
-          = object ["HapgArn" .= _dhrqHAPGARN]
+          = object ["HapgArn" .= _dhHAPGARN]
 
 instance ToPath DeleteHAPG where
         toPath = const "/"

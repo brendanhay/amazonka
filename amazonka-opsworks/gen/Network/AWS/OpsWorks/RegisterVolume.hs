@@ -37,8 +37,8 @@ module Network.AWS.OpsWorks.RegisterVolume
     -- ** Request constructor
     , registerVolume
     -- ** Request lenses
-    , rvrqEC2VolumeId
-    , rvrqStackId
+    , rvEC2VolumeId
+    , rvStackId
 
     -- * Response
     , RegisterVolumeResponse
@@ -58,29 +58,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rvrqEC2VolumeId'
+-- * 'rvEC2VolumeId'
 --
--- * 'rvrqStackId'
+-- * 'rvStackId'
 data RegisterVolume = RegisterVolume'
-    { _rvrqEC2VolumeId :: !(Maybe Text)
-    , _rvrqStackId     :: !Text
+    { _rvEC2VolumeId :: !(Maybe Text)
+    , _rvStackId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterVolume' smart constructor.
 registerVolume :: Text -> RegisterVolume
 registerVolume pStackId_ =
     RegisterVolume'
-    { _rvrqEC2VolumeId = Nothing
-    , _rvrqStackId = pStackId_
+    { _rvEC2VolumeId = Nothing
+    , _rvStackId = pStackId_
     }
 
 -- | The Amazon EBS volume ID.
-rvrqEC2VolumeId :: Lens' RegisterVolume (Maybe Text)
-rvrqEC2VolumeId = lens _rvrqEC2VolumeId (\ s a -> s{_rvrqEC2VolumeId = a});
+rvEC2VolumeId :: Lens' RegisterVolume (Maybe Text)
+rvEC2VolumeId = lens _rvEC2VolumeId (\ s a -> s{_rvEC2VolumeId = a});
 
 -- | The stack ID.
-rvrqStackId :: Lens' RegisterVolume Text
-rvrqStackId = lens _rvrqStackId (\ s a -> s{_rvrqStackId = a});
+rvStackId :: Lens' RegisterVolume Text
+rvStackId = lens _rvStackId (\ s a -> s{_rvStackId = a});
 
 instance AWSRequest RegisterVolume where
         type Sv RegisterVolume = OpsWorks
@@ -104,8 +104,8 @@ instance ToHeaders RegisterVolume where
 instance ToJSON RegisterVolume where
         toJSON RegisterVolume'{..}
           = object
-              ["Ec2VolumeId" .= _rvrqEC2VolumeId,
-               "StackId" .= _rvrqStackId]
+              ["Ec2VolumeId" .= _rvEC2VolumeId,
+               "StackId" .= _rvStackId]
 
 instance ToPath RegisterVolume where
         toPath = const "/"

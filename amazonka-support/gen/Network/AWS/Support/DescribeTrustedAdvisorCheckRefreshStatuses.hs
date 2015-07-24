@@ -29,7 +29,7 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     -- ** Request constructor
     , describeTrustedAdvisorCheckRefreshStatuses
     -- ** Request lenses
-    , dtacrsrqCheckIds
+    , dtacrsCheckIds
 
     -- * Response
     , DescribeTrustedAdvisorCheckRefreshStatusesResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrsrqCheckIds'
+-- * 'dtacrsCheckIds'
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'
-    { _dtacrsrqCheckIds :: [Text]
+    { _dtacrsCheckIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatuses' smart constructor.
 describeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses
 describeTrustedAdvisorCheckRefreshStatuses =
     DescribeTrustedAdvisorCheckRefreshStatuses'
-    { _dtacrsrqCheckIds = mempty
+    { _dtacrsCheckIds = mempty
     }
 
 -- | The IDs of the Trusted Advisor checks.
-dtacrsrqCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
-dtacrsrqCheckIds = lens _dtacrsrqCheckIds (\ s a -> s{_dtacrsrqCheckIds = a});
+dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
+dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a});
 
 instance AWSRequest
          DescribeTrustedAdvisorCheckRefreshStatuses where
@@ -95,7 +95,7 @@ instance ToJSON
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toJSON
           DescribeTrustedAdvisorCheckRefreshStatuses'{..}
-          = object ["checkIds" .= _dtacrsrqCheckIds]
+          = object ["checkIds" .= _dtacrsCheckIds]
 
 instance ToPath
          DescribeTrustedAdvisorCheckRefreshStatuses where

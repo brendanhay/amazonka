@@ -30,9 +30,9 @@ module Network.AWS.IAM.ListGroups
     -- ** Request constructor
     , listGroups
     -- ** Request lenses
-    , lgrqPathPrefix
-    , lgrqMaxItems
-    , lgrqMarker
+    , lgPathPrefix
+    , lgMaxItems
+    , lgMarker
 
     -- * Response
     , ListGroupsResponse
@@ -55,24 +55,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgrqPathPrefix'
+-- * 'lgPathPrefix'
 --
--- * 'lgrqMaxItems'
+-- * 'lgMaxItems'
 --
--- * 'lgrqMarker'
+-- * 'lgMarker'
 data ListGroups = ListGroups'
-    { _lgrqPathPrefix :: !(Maybe Text)
-    , _lgrqMaxItems   :: !(Maybe Nat)
-    , _lgrqMarker     :: !(Maybe Text)
+    { _lgPathPrefix :: !(Maybe Text)
+    , _lgMaxItems   :: !(Maybe Nat)
+    , _lgMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroups' smart constructor.
 listGroups :: ListGroups
 listGroups =
     ListGroups'
-    { _lgrqPathPrefix = Nothing
-    , _lgrqMaxItems = Nothing
-    , _lgrqMarker = Nothing
+    { _lgPathPrefix = Nothing
+    , _lgMaxItems = Nothing
+    , _lgMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -81,8 +81,8 @@ listGroups =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all groups.
-lgrqPathPrefix :: Lens' ListGroups (Maybe Text)
-lgrqPathPrefix = lens _lgrqPathPrefix (\ s a -> s{_lgrqPathPrefix = a});
+lgPathPrefix :: Lens' ListGroups (Maybe Text)
+lgPathPrefix = lens _lgPathPrefix (\ s a -> s{_lgPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -90,21 +90,21 @@ lgrqPathPrefix = lens _lgrqPathPrefix (\ s a -> s{_lgrqPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lgrqMaxItems :: Lens' ListGroups (Maybe Natural)
-lgrqMaxItems = lens _lgrqMaxItems (\ s a -> s{_lgrqMaxItems = a}) . mapping _Nat;
+lgMaxItems :: Lens' ListGroups (Maybe Natural)
+lgMaxItems = lens _lgMaxItems (\ s a -> s{_lgMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lgrqMarker :: Lens' ListGroups (Maybe Text)
-lgrqMarker = lens _lgrqMarker (\ s a -> s{_lgrqMarker = a});
+lgMarker :: Lens' ListGroups (Maybe Text)
+lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
 instance AWSPager ListGroups where
         page rq rs
           | stop (rs ^. lgrsIsTruncated) = Nothing
           | isNothing (rs ^. lgrsMarker) = Nothing
           | otherwise =
-            Just $ rq & lgrqMarker .~ rs ^. lgrsMarker
+            Just $ rq & lgMarker .~ rs ^. lgrsMarker
 
 instance AWSRequest ListGroups where
         type Sv ListGroups = IAM
@@ -131,8 +131,8 @@ instance ToQuery ListGroups where
           = mconcat
               ["Action" =: ("ListGroups" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lgrqPathPrefix,
-               "MaxItems" =: _lgrqMaxItems, "Marker" =: _lgrqMarker]
+               "PathPrefix" =: _lgPathPrefix,
+               "MaxItems" =: _lgMaxItems, "Marker" =: _lgMarker]
 
 -- | Contains the response to a successful ListGroups request.
 --

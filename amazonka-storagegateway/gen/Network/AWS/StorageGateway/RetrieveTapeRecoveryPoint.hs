@@ -35,8 +35,8 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     -- ** Request constructor
     , retrieveTapeRecoveryPoint
     -- ** Request lenses
-    , rtrprqTapeARN
-    , rtrprqGatewayARN
+    , rtrpTapeARN
+    , rtrpGatewayARN
 
     -- * Response
     , RetrieveTapeRecoveryPointResponse
@@ -58,30 +58,30 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrprqTapeARN'
+-- * 'rtrpTapeARN'
 --
--- * 'rtrprqGatewayARN'
+-- * 'rtrpGatewayARN'
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
-    { _rtrprqTapeARN    :: !Text
-    , _rtrprqGatewayARN :: !Text
+    { _rtrpTapeARN    :: !Text
+    , _rtrpGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveTapeRecoveryPoint' smart constructor.
 retrieveTapeRecoveryPoint :: Text -> Text -> RetrieveTapeRecoveryPoint
 retrieveTapeRecoveryPoint pTapeARN_ pGatewayARN_ =
     RetrieveTapeRecoveryPoint'
-    { _rtrprqTapeARN = pTapeARN_
-    , _rtrprqGatewayARN = pGatewayARN_
+    { _rtrpTapeARN = pTapeARN_
+    , _rtrpGatewayARN = pGatewayARN_
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
 -- retrieve the recovery point.
-rtrprqTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
-rtrprqTapeARN = lens _rtrprqTapeARN (\ s a -> s{_rtrprqTapeARN = a});
+rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
+rtrpTapeARN = lens _rtrpTapeARN (\ s a -> s{_rtrpTapeARN = a});
 
 -- | FIXME: Undocumented member.
-rtrprqGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
-rtrprqGatewayARN = lens _rtrprqGatewayARN (\ s a -> s{_rtrprqGatewayARN = a});
+rtrpGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
+rtrpGatewayARN = lens _rtrpGatewayARN (\ s a -> s{_rtrpGatewayARN = a});
 
 instance AWSRequest RetrieveTapeRecoveryPoint where
         type Sv RetrieveTapeRecoveryPoint = StorageGateway
@@ -107,8 +107,8 @@ instance ToHeaders RetrieveTapeRecoveryPoint where
 instance ToJSON RetrieveTapeRecoveryPoint where
         toJSON RetrieveTapeRecoveryPoint'{..}
           = object
-              ["TapeARN" .= _rtrprqTapeARN,
-               "GatewayARN" .= _rtrprqGatewayARN]
+              ["TapeARN" .= _rtrpTapeARN,
+               "GatewayARN" .= _rtrpGatewayARN]
 
 instance ToPath RetrieveTapeRecoveryPoint where
         toPath = const "/"

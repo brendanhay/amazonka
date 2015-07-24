@@ -35,8 +35,8 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
     , enableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
-    , eazflbrqLoadBalancerName
-    , eazflbrqAvailabilityZones
+    , eazflbLoadBalancerName
+    , eazflbAvailabilityZones
 
     -- * Response
     , EnableAvailabilityZonesForLoadBalancerResponse
@@ -56,30 +56,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eazflbrqLoadBalancerName'
+-- * 'eazflbLoadBalancerName'
 --
--- * 'eazflbrqAvailabilityZones'
+-- * 'eazflbAvailabilityZones'
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'
-    { _eazflbrqLoadBalancerName  :: !Text
-    , _eazflbrqAvailabilityZones :: ![Text]
+    { _eazflbLoadBalancerName  :: !Text
+    , _eazflbAvailabilityZones :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableAvailabilityZonesForLoadBalancer' smart constructor.
 enableAvailabilityZonesForLoadBalancer :: Text -> EnableAvailabilityZonesForLoadBalancer
 enableAvailabilityZonesForLoadBalancer pLoadBalancerName_ =
     EnableAvailabilityZonesForLoadBalancer'
-    { _eazflbrqLoadBalancerName = pLoadBalancerName_
-    , _eazflbrqAvailabilityZones = mempty
+    { _eazflbLoadBalancerName = pLoadBalancerName_
+    , _eazflbAvailabilityZones = mempty
     }
 
 -- | The name of the load balancer.
-eazflbrqLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
-eazflbrqLoadBalancerName = lens _eazflbrqLoadBalancerName (\ s a -> s{_eazflbrqLoadBalancerName = a});
+eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
+eazflbLoadBalancerName = lens _eazflbLoadBalancerName (\ s a -> s{_eazflbLoadBalancerName = a});
 
 -- | The Availability Zones. These must be in the same region as the load
 -- balancer.
-eazflbrqAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
-eazflbrqAvailabilityZones = lens _eazflbrqAvailabilityZones (\ s a -> s{_eazflbrqAvailabilityZones = a});
+eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
+eazflbAvailabilityZones = lens _eazflbAvailabilityZones (\ s a -> s{_eazflbAvailabilityZones = a});
 
 instance AWSRequest
          EnableAvailabilityZonesForLoadBalancer where
@@ -112,9 +112,9 @@ instance ToQuery
                  ("EnableAvailabilityZonesForLoadBalancer" ::
                     ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _eazflbrqLoadBalancerName,
+               "LoadBalancerName" =: _eazflbLoadBalancerName,
                "AvailabilityZones" =:
-                 toQueryList "member" _eazflbrqAvailabilityZones]
+                 toQueryList "member" _eazflbAvailabilityZones]
 
 -- | /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 --

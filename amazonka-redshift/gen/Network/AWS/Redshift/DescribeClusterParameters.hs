@@ -39,10 +39,10 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- ** Request constructor
     , describeClusterParameters
     -- ** Request lenses
-    , dcprqMaxRecords
-    , dcprqMarker
-    , dcprqSource
-    , dcprqParameterGroupName
+    , dcpsMaxRecords
+    , dcpsMarker
+    , dcpsSource
+    , dcpsParameterGroupName
 
     -- * Response
     , DescribeClusterParametersResponse
@@ -64,28 +64,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcprqMaxRecords'
+-- * 'dcpsMaxRecords'
 --
--- * 'dcprqMarker'
+-- * 'dcpsMarker'
 --
--- * 'dcprqSource'
+-- * 'dcpsSource'
 --
--- * 'dcprqParameterGroupName'
+-- * 'dcpsParameterGroupName'
 data DescribeClusterParameters = DescribeClusterParameters'
-    { _dcprqMaxRecords         :: !(Maybe Int)
-    , _dcprqMarker             :: !(Maybe Text)
-    , _dcprqSource             :: !(Maybe Text)
-    , _dcprqParameterGroupName :: !Text
+    { _dcpsMaxRecords         :: !(Maybe Int)
+    , _dcpsMarker             :: !(Maybe Text)
+    , _dcpsSource             :: !(Maybe Text)
+    , _dcpsParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterParameters' smart constructor.
 describeClusterParameters :: Text -> DescribeClusterParameters
 describeClusterParameters pParameterGroupName_ =
     DescribeClusterParameters'
-    { _dcprqMaxRecords = Nothing
-    , _dcprqMarker = Nothing
-    , _dcprqSource = Nothing
-    , _dcprqParameterGroupName = pParameterGroupName_
+    { _dcpsMaxRecords = Nothing
+    , _dcpsMarker = Nothing
+    , _dcpsSource = Nothing
+    , _dcpsParameterGroupName = pParameterGroupName_
     }
 
 -- | The maximum number of response records to return in each call. If the
@@ -97,8 +97,8 @@ describeClusterParameters pParameterGroupName_ =
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dcprqMaxRecords :: Lens' DescribeClusterParameters (Maybe Int)
-dcprqMaxRecords = lens _dcprqMaxRecords (\ s a -> s{_dcprqMaxRecords = a});
+dcpsMaxRecords :: Lens' DescribeClusterParameters (Maybe Int)
+dcpsMaxRecords = lens _dcpsMaxRecords (\ s a -> s{_dcpsMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterParameters
@@ -106,8 +106,8 @@ dcprqMaxRecords = lens _dcprqMaxRecords (\ s a -> s{_dcprqMaxRecords = a});
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-dcprqMarker :: Lens' DescribeClusterParameters (Maybe Text)
-dcprqMarker = lens _dcprqMarker (\ s a -> s{_dcprqMarker = a});
+dcpsMarker :: Lens' DescribeClusterParameters (Maybe Text)
+dcpsMarker = lens _dcpsMarker (\ s a -> s{_dcpsMarker = a});
 
 -- | The parameter types to return. Specify @user@ to show parameters that
 -- are different form the default. Similarly, specify @engine-default@ to
@@ -116,19 +116,19 @@ dcprqMarker = lens _dcprqMarker (\ s a -> s{_dcprqMarker = a});
 -- Default: All parameter types returned.
 --
 -- Valid Values: @user@ | @engine-default@
-dcprqSource :: Lens' DescribeClusterParameters (Maybe Text)
-dcprqSource = lens _dcprqSource (\ s a -> s{_dcprqSource = a});
+dcpsSource :: Lens' DescribeClusterParameters (Maybe Text)
+dcpsSource = lens _dcpsSource (\ s a -> s{_dcpsSource = a});
 
 -- | The name of a cluster parameter group for which to return details.
-dcprqParameterGroupName :: Lens' DescribeClusterParameters Text
-dcprqParameterGroupName = lens _dcprqParameterGroupName (\ s a -> s{_dcprqParameterGroupName = a});
+dcpsParameterGroupName :: Lens' DescribeClusterParameters Text
+dcpsParameterGroupName = lens _dcpsParameterGroupName (\ s a -> s{_dcpsParameterGroupName = a});
 
 instance AWSPager DescribeClusterParameters where
         page rq rs
           | stop (rs ^. dcprsMarker) = Nothing
           | stop (rs ^. dcprsParameters) = Nothing
           | otherwise =
-            Just $ rq & dcprqMarker .~ rs ^. dcprsMarker
+            Just $ rq & dcpsMarker .~ rs ^. dcprsMarker
 
 instance AWSRequest DescribeClusterParameters where
         type Sv DescribeClusterParameters = Redshift
@@ -156,9 +156,9 @@ instance ToQuery DescribeClusterParameters where
               ["Action" =:
                  ("DescribeClusterParameters" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "MaxRecords" =: _dcprqMaxRecords,
-               "Marker" =: _dcprqMarker, "Source" =: _dcprqSource,
-               "ParameterGroupName" =: _dcprqParameterGroupName]
+               "MaxRecords" =: _dcpsMaxRecords,
+               "Marker" =: _dcpsMarker, "Source" =: _dcpsSource,
+               "ParameterGroupName" =: _dcpsParameterGroupName]
 
 -- | Contains the output from the DescribeClusterParameters action.
 --

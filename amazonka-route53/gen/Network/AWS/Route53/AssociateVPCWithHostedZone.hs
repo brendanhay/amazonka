@@ -36,9 +36,9 @@ module Network.AWS.Route53.AssociateVPCWithHostedZone
     -- ** Request constructor
     , associateVPCWithHostedZone
     -- ** Request lenses
-    , avwhzrqComment
-    , avwhzrqHostedZoneId
-    , avwhzrqVPC
+    , avwhzComment
+    , avwhzHostedZoneId
+    , avwhzVPC
 
     -- * Response
     , AssociateVPCWithHostedZoneResponse
@@ -61,41 +61,41 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avwhzrqComment'
+-- * 'avwhzComment'
 --
--- * 'avwhzrqHostedZoneId'
+-- * 'avwhzHostedZoneId'
 --
--- * 'avwhzrqVPC'
+-- * 'avwhzVPC'
 data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone'
-    { _avwhzrqComment      :: !(Maybe Text)
-    , _avwhzrqHostedZoneId :: !Text
-    , _avwhzrqVPC          :: !VPC
+    { _avwhzComment      :: !(Maybe Text)
+    , _avwhzHostedZoneId :: !Text
+    , _avwhzVPC          :: !VPC
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateVPCWithHostedZone' smart constructor.
 associateVPCWithHostedZone :: Text -> VPC -> AssociateVPCWithHostedZone
 associateVPCWithHostedZone pHostedZoneId_ pVPC_ =
     AssociateVPCWithHostedZone'
-    { _avwhzrqComment = Nothing
-    , _avwhzrqHostedZoneId = pHostedZoneId_
-    , _avwhzrqVPC = pVPC_
+    { _avwhzComment = Nothing
+    , _avwhzHostedZoneId = pHostedZoneId_
+    , _avwhzVPC = pVPC_
     }
 
 -- | /Optional:/ Any comments you want to include about a
 -- @AssociateVPCWithHostedZoneRequest@.
-avwhzrqComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
-avwhzrqComment = lens _avwhzrqComment (\ s a -> s{_avwhzrqComment = a});
+avwhzComment :: Lens' AssociateVPCWithHostedZone (Maybe Text)
+avwhzComment = lens _avwhzComment (\ s a -> s{_avwhzComment = a});
 
 -- | The ID of the hosted zone you want to associate your VPC with.
 --
 -- Note that you cannot associate a VPC with a hosted zone that doesn\'t
 -- have an existing VPC association.
-avwhzrqHostedZoneId :: Lens' AssociateVPCWithHostedZone Text
-avwhzrqHostedZoneId = lens _avwhzrqHostedZoneId (\ s a -> s{_avwhzrqHostedZoneId = a});
+avwhzHostedZoneId :: Lens' AssociateVPCWithHostedZone Text
+avwhzHostedZoneId = lens _avwhzHostedZoneId (\ s a -> s{_avwhzHostedZoneId = a});
 
 -- | The VPC that you want your hosted zone to be associated with.
-avwhzrqVPC :: Lens' AssociateVPCWithHostedZone VPC
-avwhzrqVPC = lens _avwhzrqVPC (\ s a -> s{_avwhzrqVPC = a});
+avwhzVPC :: Lens' AssociateVPCWithHostedZone VPC
+avwhzVPC = lens _avwhzVPC (\ s a -> s{_avwhzVPC = a});
 
 instance AWSRequest AssociateVPCWithHostedZone where
         type Sv AssociateVPCWithHostedZone = Route53
@@ -120,7 +120,7 @@ instance ToPath AssociateVPCWithHostedZone where
         toPath AssociateVPCWithHostedZone'{..}
           = mconcat
               ["/2013-04-01/hostedzone/",
-               toText _avwhzrqHostedZoneId, "/associatevpc"]
+               toText _avwhzHostedZoneId, "/associatevpc"]
 
 instance ToQuery AssociateVPCWithHostedZone where
         toQuery = const mempty
@@ -128,7 +128,7 @@ instance ToQuery AssociateVPCWithHostedZone where
 instance ToXML AssociateVPCWithHostedZone where
         toXML AssociateVPCWithHostedZone'{..}
           = mconcat
-              ["Comment" @= _avwhzrqComment, "VPC" @= _avwhzrqVPC]
+              ["Comment" @= _avwhzComment, "VPC" @= _avwhzVPC]
 
 -- | A complex type containing the response information for the request.
 --

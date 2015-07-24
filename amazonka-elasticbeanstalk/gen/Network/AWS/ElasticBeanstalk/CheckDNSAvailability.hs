@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     -- ** Request constructor
     , checkDNSAvailability
     -- ** Request lenses
-    , cdarqCNAMEPrefix
+    , cdaCNAMEPrefix
 
     -- * Response
     , CheckDNSAvailabilityResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdarqCNAMEPrefix'
+-- * 'cdaCNAMEPrefix'
 newtype CheckDNSAvailability = CheckDNSAvailability'
-    { _cdarqCNAMEPrefix :: Text
+    { _cdaCNAMEPrefix :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDNSAvailability' smart constructor.
 checkDNSAvailability :: Text -> CheckDNSAvailability
 checkDNSAvailability pCNAMEPrefix_ =
     CheckDNSAvailability'
-    { _cdarqCNAMEPrefix = pCNAMEPrefix_
+    { _cdaCNAMEPrefix = pCNAMEPrefix_
     }
 
 -- | The prefix used when this CNAME is reserved.
-cdarqCNAMEPrefix :: Lens' CheckDNSAvailability Text
-cdarqCNAMEPrefix = lens _cdarqCNAMEPrefix (\ s a -> s{_cdarqCNAMEPrefix = a});
+cdaCNAMEPrefix :: Lens' CheckDNSAvailability Text
+cdaCNAMEPrefix = lens _cdaCNAMEPrefix (\ s a -> s{_cdaCNAMEPrefix = a});
 
 instance AWSRequest CheckDNSAvailability where
         type Sv CheckDNSAvailability = ElasticBeanstalk
@@ -89,7 +89,7 @@ instance ToQuery CheckDNSAvailability where
           = mconcat
               ["Action" =: ("CheckDNSAvailability" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "CNAMEPrefix" =: _cdarqCNAMEPrefix]
+               "CNAMEPrefix" =: _cdaCNAMEPrefix]
 
 -- | Indicates if the specified CNAME is available.
 --

@@ -27,7 +27,7 @@ module Network.AWS.ECS.DescribeClusters
     -- ** Request constructor
     , describeClusters
     -- ** Request lenses
-    , dcrqClusters
+    , dcClusters
 
     -- * Response
     , DescribeClustersResponse
@@ -48,23 +48,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrqClusters'
+-- * 'dcClusters'
 newtype DescribeClusters = DescribeClusters'
-    { _dcrqClusters :: Maybe [Text]
+    { _dcClusters :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
 describeClusters =
     DescribeClusters'
-    { _dcrqClusters = Nothing
+    { _dcClusters = Nothing
     }
 
 -- | A space-separated list of cluster names or full cluster Amazon Resource
 -- Name (ARN) entries. If you do not specify a cluster, the default cluster
 -- is assumed.
-dcrqClusters :: Lens' DescribeClusters [Text]
-dcrqClusters = lens _dcrqClusters (\ s a -> s{_dcrqClusters = a}) . _Default;
+dcClusters :: Lens' DescribeClusters [Text]
+dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default;
 
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = ECS
@@ -90,7 +90,7 @@ instance ToHeaders DescribeClusters where
 
 instance ToJSON DescribeClusters where
         toJSON DescribeClusters'{..}
-          = object ["clusters" .= _dcrqClusters]
+          = object ["clusters" .= _dcClusters]
 
 instance ToPath DescribeClusters where
         toPath = const "/"

@@ -36,10 +36,10 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     -- ** Request constructor
     , describeSnapshots
     -- ** Request lenses
-    , dsrqDirectoryId
-    , dsrqNextToken
-    , dsrqSnapshotIds
-    , dsrqLimit
+    , dsDirectoryId
+    , dsNextToken
+    , dsSnapshotIds
+    , dsLimit
 
     -- * Response
     , DescribeSnapshotsResponse
@@ -62,48 +62,48 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrqDirectoryId'
+-- * 'dsDirectoryId'
 --
--- * 'dsrqNextToken'
+-- * 'dsNextToken'
 --
--- * 'dsrqSnapshotIds'
+-- * 'dsSnapshotIds'
 --
--- * 'dsrqLimit'
+-- * 'dsLimit'
 data DescribeSnapshots = DescribeSnapshots'
-    { _dsrqDirectoryId :: !(Maybe Text)
-    , _dsrqNextToken   :: !(Maybe Text)
-    , _dsrqSnapshotIds :: !(Maybe [Text])
-    , _dsrqLimit       :: !(Maybe Nat)
+    { _dsDirectoryId :: !(Maybe Text)
+    , _dsNextToken   :: !(Maybe Text)
+    , _dsSnapshotIds :: !(Maybe [Text])
+    , _dsLimit       :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
 describeSnapshots =
     DescribeSnapshots'
-    { _dsrqDirectoryId = Nothing
-    , _dsrqNextToken = Nothing
-    , _dsrqSnapshotIds = Nothing
-    , _dsrqLimit = Nothing
+    { _dsDirectoryId = Nothing
+    , _dsNextToken = Nothing
+    , _dsSnapshotIds = Nothing
+    , _dsLimit = Nothing
     }
 
 -- | The identifier of the directory to retrieve snapshot information for.
-dsrqDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
-dsrqDirectoryId = lens _dsrqDirectoryId (\ s a -> s{_dsrqDirectoryId = a});
+dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
+dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a});
 
 -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
 -- DescribeSnapshots. Pass null if this is the first call.
-dsrqNextToken :: Lens' DescribeSnapshots (Maybe Text)
-dsrqNextToken = lens _dsrqNextToken (\ s a -> s{_dsrqNextToken = a});
+dsNextToken :: Lens' DescribeSnapshots (Maybe Text)
+dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
 
 -- | A list of identifiers of the snapshots to obtain the information for. If
 -- this member is null or empty, all snapshots are returned using the
 -- /Limit/ and /NextToken/ members.
-dsrqSnapshotIds :: Lens' DescribeSnapshots [Text]
-dsrqSnapshotIds = lens _dsrqSnapshotIds (\ s a -> s{_dsrqSnapshotIds = a}) . _Default;
+dsSnapshotIds :: Lens' DescribeSnapshots [Text]
+dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default;
 
 -- | The maximum number of objects to return.
-dsrqLimit :: Lens' DescribeSnapshots (Maybe Natural)
-dsrqLimit = lens _dsrqLimit (\ s a -> s{_dsrqLimit = a}) . mapping _Nat;
+dsLimit :: Lens' DescribeSnapshots (Maybe Natural)
+dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = DirectoryService
@@ -130,10 +130,9 @@ instance ToHeaders DescribeSnapshots where
 instance ToJSON DescribeSnapshots where
         toJSON DescribeSnapshots'{..}
           = object
-              ["DirectoryId" .= _dsrqDirectoryId,
-               "NextToken" .= _dsrqNextToken,
-               "SnapshotIds" .= _dsrqSnapshotIds,
-               "Limit" .= _dsrqLimit]
+              ["DirectoryId" .= _dsDirectoryId,
+               "NextToken" .= _dsNextToken,
+               "SnapshotIds" .= _dsSnapshotIds, "Limit" .= _dsLimit]
 
 instance ToPath DescribeSnapshots where
         toPath = const "/"

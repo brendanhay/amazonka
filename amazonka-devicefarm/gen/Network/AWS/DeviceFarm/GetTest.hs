@@ -27,7 +27,7 @@ module Network.AWS.DeviceFarm.GetTest
     -- ** Request constructor
     , getTest
     -- ** Request lenses
-    , gtrqArn
+    , gtArn
 
     -- * Response
     , GetTestResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtrqArn'
+-- * 'gtArn'
 newtype GetTest = GetTest'
-    { _gtrqArn :: Text
+    { _gtArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTest' smart constructor.
 getTest :: Text -> GetTest
 getTest pArn_ =
     GetTest'
-    { _gtrqArn = pArn_
+    { _gtArn = pArn_
     }
 
 -- | The test\'s ARN.
-gtrqArn :: Lens' GetTest Text
-gtrqArn = lens _gtrqArn (\ s a -> s{_gtrqArn = a});
+gtArn :: Lens' GetTest Text
+gtArn = lens _gtArn (\ s a -> s{_gtArn = a});
 
 instance AWSRequest GetTest where
         type Sv GetTest = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetTest where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetTest where
-        toJSON GetTest'{..} = object ["arn" .= _gtrqArn]
+        toJSON GetTest'{..} = object ["arn" .= _gtArn]
 
 instance ToPath GetTest where
         toPath = const "/"

@@ -33,10 +33,10 @@ module Network.AWS.DynamoDBStreams.GetShardIterator
     -- ** Request constructor
     , getShardIterator
     -- ** Request lenses
-    , gsirqSequenceNumber
-    , gsirqStreamARN
-    , gsirqShardId
-    , gsirqShardIteratorType
+    , gsiSequenceNumber
+    , gsiStreamARN
+    , gsiShardId
+    , gsiShardIteratorType
 
     -- * Response
     , GetShardIteratorResponse
@@ -58,43 +58,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsirqSequenceNumber'
+-- * 'gsiSequenceNumber'
 --
--- * 'gsirqStreamARN'
+-- * 'gsiStreamARN'
 --
--- * 'gsirqShardId'
+-- * 'gsiShardId'
 --
--- * 'gsirqShardIteratorType'
+-- * 'gsiShardIteratorType'
 data GetShardIterator = GetShardIterator'
-    { _gsirqSequenceNumber    :: !(Maybe Text)
-    , _gsirqStreamARN         :: !Text
-    , _gsirqShardId           :: !Text
-    , _gsirqShardIteratorType :: !ShardIteratorType
+    { _gsiSequenceNumber    :: !(Maybe Text)
+    , _gsiStreamARN         :: !Text
+    , _gsiShardId           :: !Text
+    , _gsiShardIteratorType :: !ShardIteratorType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIterator' smart constructor.
 getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
 getShardIterator pStreamARN_ pShardId_ pShardIteratorType_ =
     GetShardIterator'
-    { _gsirqSequenceNumber = Nothing
-    , _gsirqStreamARN = pStreamARN_
-    , _gsirqShardId = pShardId_
-    , _gsirqShardIteratorType = pShardIteratorType_
+    { _gsiSequenceNumber = Nothing
+    , _gsiStreamARN = pStreamARN_
+    , _gsiShardId = pShardId_
+    , _gsiShardIteratorType = pShardIteratorType_
     }
 
 -- | The sequence number of a stream record in the shard from which to start
 -- reading.
-gsirqSequenceNumber :: Lens' GetShardIterator (Maybe Text)
-gsirqSequenceNumber = lens _gsirqSequenceNumber (\ s a -> s{_gsirqSequenceNumber = a});
+gsiSequenceNumber :: Lens' GetShardIterator (Maybe Text)
+gsiSequenceNumber = lens _gsiSequenceNumber (\ s a -> s{_gsiSequenceNumber = a});
 
 -- | The Amazon Resource Name (ARN) for the stream.
-gsirqStreamARN :: Lens' GetShardIterator Text
-gsirqStreamARN = lens _gsirqStreamARN (\ s a -> s{_gsirqStreamARN = a});
+gsiStreamARN :: Lens' GetShardIterator Text
+gsiStreamARN = lens _gsiStreamARN (\ s a -> s{_gsiStreamARN = a});
 
 -- | The identifier of the shard. The iterator will be returned for this
 -- shard ID.
-gsirqShardId :: Lens' GetShardIterator Text
-gsirqShardId = lens _gsirqShardId (\ s a -> s{_gsirqShardId = a});
+gsiShardId :: Lens' GetShardIterator Text
+gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
 
 -- | Determines how the shard iterator is used to start reading stream
 -- records from the shard:
@@ -115,8 +115,8 @@ gsirqShardId = lens _gsirqShardId (\ s a -> s{_gsirqShardId = a});
 --     the shard, so that you always read the most recent data in the
 --     shard.
 --
-gsirqShardIteratorType :: Lens' GetShardIterator ShardIteratorType
-gsirqShardIteratorType = lens _gsirqShardIteratorType (\ s a -> s{_gsirqShardIteratorType = a});
+gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
+gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a});
 
 instance AWSRequest GetShardIterator where
         type Sv GetShardIterator = DynamoDBStreams
@@ -141,10 +141,10 @@ instance ToHeaders GetShardIterator where
 instance ToJSON GetShardIterator where
         toJSON GetShardIterator'{..}
           = object
-              ["SequenceNumber" .= _gsirqSequenceNumber,
-               "StreamArn" .= _gsirqStreamARN,
-               "ShardId" .= _gsirqShardId,
-               "ShardIteratorType" .= _gsirqShardIteratorType]
+              ["SequenceNumber" .= _gsiSequenceNumber,
+               "StreamArn" .= _gsiStreamARN,
+               "ShardId" .= _gsiShardId,
+               "ShardIteratorType" .= _gsiShardIteratorType]
 
 instance ToPath GetShardIterator where
         toPath = const "/"

@@ -28,8 +28,8 @@ module Network.AWS.SQS.RemovePermission
     -- ** Request constructor
     , removePermission
     -- ** Request lenses
-    , rprqQueueURL
-    , rprqLabel
+    , rpQueueURL
+    , rpLabel
 
     -- * Response
     , RemovePermissionResponse
@@ -46,30 +46,30 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rprqQueueURL'
+-- * 'rpQueueURL'
 --
--- * 'rprqLabel'
+-- * 'rpLabel'
 data RemovePermission = RemovePermission'
-    { _rprqQueueURL :: !Text
-    , _rprqLabel    :: !Text
+    { _rpQueueURL :: !Text
+    , _rpLabel    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
 removePermission pQueueURL_ pLabel_ =
     RemovePermission'
-    { _rprqQueueURL = pQueueURL_
-    , _rprqLabel = pLabel_
+    { _rpQueueURL = pQueueURL_
+    , _rpLabel = pLabel_
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-rprqQueueURL :: Lens' RemovePermission Text
-rprqQueueURL = lens _rprqQueueURL (\ s a -> s{_rprqQueueURL = a});
+rpQueueURL :: Lens' RemovePermission Text
+rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
 
 -- | The identification of the permission to remove. This is the label added
 -- with the AddPermission action.
-rprqLabel :: Lens' RemovePermission Text
-rprqLabel = lens _rprqLabel (\ s a -> s{_rprqLabel = a});
+rpLabel :: Lens' RemovePermission Text
+rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
 
 instance AWSRequest RemovePermission where
         type Sv RemovePermission = SQS
@@ -88,7 +88,7 @@ instance ToQuery RemovePermission where
           = mconcat
               ["Action" =: ("RemovePermission" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _rprqQueueURL, "Label" =: _rprqLabel]
+               "QueueUrl" =: _rpQueueURL, "Label" =: _rpLabel]
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =

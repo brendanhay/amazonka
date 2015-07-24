@@ -31,8 +31,8 @@ module Network.AWS.EC2.RequestSpotFleet
     -- ** Request constructor
     , requestSpotFleet
     -- ** Request lenses
-    , rsfrqDryRun
-    , rsfrqSpotFleetRequestConfig
+    , rsfDryRun
+    , rsfSpotFleetRequestConfig
 
     -- * Response
     , RequestSpotFleetResponse
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsfrqDryRun'
+-- * 'rsfDryRun'
 --
--- * 'rsfrqSpotFleetRequestConfig'
+-- * 'rsfSpotFleetRequestConfig'
 data RequestSpotFleet = RequestSpotFleet'
-    { _rsfrqDryRun                 :: !(Maybe Bool)
-    , _rsfrqSpotFleetRequestConfig :: !SpotFleetRequestConfigData
+    { _rsfDryRun                 :: !(Maybe Bool)
+    , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotFleet' smart constructor.
 requestSpotFleet :: SpotFleetRequestConfigData -> RequestSpotFleet
 requestSpotFleet pSpotFleetRequestConfig_ =
     RequestSpotFleet'
-    { _rsfrqDryRun = Nothing
-    , _rsfrqSpotFleetRequestConfig = pSpotFleetRequestConfig_
+    { _rsfDryRun = Nothing
+    , _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rsfrqDryRun :: Lens' RequestSpotFleet (Maybe Bool)
-rsfrqDryRun = lens _rsfrqDryRun (\ s a -> s{_rsfrqDryRun = a});
+rsfDryRun :: Lens' RequestSpotFleet (Maybe Bool)
+rsfDryRun = lens _rsfDryRun (\ s a -> s{_rsfDryRun = a});
 
 -- | The configuration for the Spot fleet request.
-rsfrqSpotFleetRequestConfig :: Lens' RequestSpotFleet SpotFleetRequestConfigData
-rsfrqSpotFleetRequestConfig = lens _rsfrqSpotFleetRequestConfig (\ s a -> s{_rsfrqSpotFleetRequestConfig = a});
+rsfSpotFleetRequestConfig :: Lens' RequestSpotFleet SpotFleetRequestConfigData
+rsfSpotFleetRequestConfig = lens _rsfSpotFleetRequestConfig (\ s a -> s{_rsfSpotFleetRequestConfig = a});
 
 instance AWSRequest RequestSpotFleet where
         type Sv RequestSpotFleet = EC2
@@ -102,9 +102,9 @@ instance ToQuery RequestSpotFleet where
           = mconcat
               ["Action" =: ("RequestSpotFleet" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rsfrqDryRun,
+               "DryRun" =: _rsfDryRun,
                "SpotFleetRequestConfig" =:
-                 _rsfrqSpotFleetRequestConfig]
+                 _rsfSpotFleetRequestConfig]
 
 -- | Contains the output of RequestSpotFleet.
 --

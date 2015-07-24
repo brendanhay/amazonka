@@ -37,7 +37,7 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     -- ** Request constructor
     , describeWorkingStorage
     -- ** Request lenses
-    , dwsrqGatewayARN
+    , dwsGatewayARN
 
     -- * Response
     , DescribeWorkingStorageResponse
@@ -62,21 +62,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwsrqGatewayARN'
+-- * 'dwsGatewayARN'
 newtype DescribeWorkingStorage = DescribeWorkingStorage'
-    { _dwsrqGatewayARN :: Text
+    { _dwsGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkingStorage' smart constructor.
 describeWorkingStorage :: Text -> DescribeWorkingStorage
 describeWorkingStorage pGatewayARN_ =
     DescribeWorkingStorage'
-    { _dwsrqGatewayARN = pGatewayARN_
+    { _dwsGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-dwsrqGatewayARN :: Lens' DescribeWorkingStorage Text
-dwsrqGatewayARN = lens _dwsrqGatewayARN (\ s a -> s{_dwsrqGatewayARN = a});
+dwsGatewayARN :: Lens' DescribeWorkingStorage Text
+dwsGatewayARN = lens _dwsGatewayARN (\ s a -> s{_dwsGatewayARN = a});
 
 instance AWSRequest DescribeWorkingStorage where
         type Sv DescribeWorkingStorage = StorageGateway
@@ -104,7 +104,7 @@ instance ToHeaders DescribeWorkingStorage where
 
 instance ToJSON DescribeWorkingStorage where
         toJSON DescribeWorkingStorage'{..}
-          = object ["GatewayARN" .= _dwsrqGatewayARN]
+          = object ["GatewayARN" .= _dwsGatewayARN]
 
 instance ToPath DescribeWorkingStorage where
         toPath = const "/"

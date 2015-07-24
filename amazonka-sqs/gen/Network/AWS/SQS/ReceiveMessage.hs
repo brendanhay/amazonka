@@ -71,12 +71,12 @@ module Network.AWS.SQS.ReceiveMessage
     -- ** Request constructor
     , receiveMessage
     -- ** Request lenses
-    , rmrqVisibilityTimeout
-    , rmrqMessageAttributeNames
-    , rmrqWaitTimeSeconds
-    , rmrqAttributeNames
-    , rmrqMaxNumberOfMessages
-    , rmrqQueueURL
+    , rmVisibilityTimeout
+    , rmMessageAttributeNames
+    , rmWaitTimeSeconds
+    , rmAttributeNames
+    , rmMaxNumberOfMessages
+    , rmQueueURL
 
     -- * Response
     , ReceiveMessageResponse
@@ -96,43 +96,43 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rmrqVisibilityTimeout'
+-- * 'rmVisibilityTimeout'
 --
--- * 'rmrqMessageAttributeNames'
+-- * 'rmMessageAttributeNames'
 --
--- * 'rmrqWaitTimeSeconds'
+-- * 'rmWaitTimeSeconds'
 --
--- * 'rmrqAttributeNames'
+-- * 'rmAttributeNames'
 --
--- * 'rmrqMaxNumberOfMessages'
+-- * 'rmMaxNumberOfMessages'
 --
--- * 'rmrqQueueURL'
+-- * 'rmQueueURL'
 data ReceiveMessage = ReceiveMessage'
-    { _rmrqVisibilityTimeout     :: !(Maybe Int)
-    , _rmrqMessageAttributeNames :: !(Maybe [Text])
-    , _rmrqWaitTimeSeconds       :: !(Maybe Int)
-    , _rmrqAttributeNames        :: !(Maybe [QueueAttributeName])
-    , _rmrqMaxNumberOfMessages   :: !(Maybe Int)
-    , _rmrqQueueURL              :: !Text
+    { _rmVisibilityTimeout     :: !(Maybe Int)
+    , _rmMessageAttributeNames :: !(Maybe [Text])
+    , _rmWaitTimeSeconds       :: !(Maybe Int)
+    , _rmAttributeNames        :: !(Maybe [QueueAttributeName])
+    , _rmMaxNumberOfMessages   :: !(Maybe Int)
+    , _rmQueueURL              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReceiveMessage' smart constructor.
 receiveMessage :: Text -> ReceiveMessage
 receiveMessage pQueueURL_ =
     ReceiveMessage'
-    { _rmrqVisibilityTimeout = Nothing
-    , _rmrqMessageAttributeNames = Nothing
-    , _rmrqWaitTimeSeconds = Nothing
-    , _rmrqAttributeNames = Nothing
-    , _rmrqMaxNumberOfMessages = Nothing
-    , _rmrqQueueURL = pQueueURL_
+    { _rmVisibilityTimeout = Nothing
+    , _rmMessageAttributeNames = Nothing
+    , _rmWaitTimeSeconds = Nothing
+    , _rmAttributeNames = Nothing
+    , _rmMaxNumberOfMessages = Nothing
+    , _rmQueueURL = pQueueURL_
     }
 
 -- | The duration (in seconds) that the received messages are hidden from
 -- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
 -- request.
-rmrqVisibilityTimeout :: Lens' ReceiveMessage (Maybe Int)
-rmrqVisibilityTimeout = lens _rmrqVisibilityTimeout (\ s a -> s{_rmrqVisibilityTimeout = a});
+rmVisibilityTimeout :: Lens' ReceiveMessage (Maybe Int)
+rmVisibilityTimeout = lens _rmVisibilityTimeout (\ s a -> s{_rmVisibilityTimeout = a});
 
 -- | The name of the message attribute, where /N/ is the index. The message
 -- attribute name can contain the following characters: A-Z, a-z, 0-9,
@@ -147,14 +147,14 @@ rmrqVisibilityTimeout = lens _rmrqVisibilityTimeout (\ s a -> s{_rmrqVisibilityT
 -- receive, or you can return all of the attributes by specifying \"All\"
 -- or \".*\" in your request. You can also use \"foo.*\" to return all
 -- message attributes starting with the \"foo\" prefix.
-rmrqMessageAttributeNames :: Lens' ReceiveMessage [Text]
-rmrqMessageAttributeNames = lens _rmrqMessageAttributeNames (\ s a -> s{_rmrqMessageAttributeNames = a}) . _Default;
+rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
+rmMessageAttributeNames = lens _rmMessageAttributeNames (\ s a -> s{_rmMessageAttributeNames = a}) . _Default;
 
 -- | The duration (in seconds) for which the call will wait for a message to
 -- arrive in the queue before returning. If a message is available, the
 -- call will return sooner than WaitTimeSeconds.
-rmrqWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Int)
-rmrqWaitTimeSeconds = lens _rmrqWaitTimeSeconds (\ s a -> s{_rmrqWaitTimeSeconds = a});
+rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Int)
+rmWaitTimeSeconds = lens _rmWaitTimeSeconds (\ s a -> s{_rmWaitTimeSeconds = a});
 
 -- | A list of attributes that need to be returned along with each message.
 --
@@ -171,20 +171,20 @@ rmrqWaitTimeSeconds = lens _rmrqWaitTimeSeconds (\ s a -> s{_rmrqWaitTimeSeconds
 --     anonymous access is allowed) of the sender.
 -- -   @SentTimestamp@ - returns the time when the message was sent to the
 --     queue (epoch time in milliseconds).
-rmrqAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
-rmrqAttributeNames = lens _rmrqAttributeNames (\ s a -> s{_rmrqAttributeNames = a}) . _Default;
+rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
+rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a}) . _Default;
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to
 -- 10. Default is 1.
 --
 -- All of the messages are not necessarily returned.
-rmrqMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Int)
-rmrqMaxNumberOfMessages = lens _rmrqMaxNumberOfMessages (\ s a -> s{_rmrqMaxNumberOfMessages = a});
+rmMaxNumberOfMessages :: Lens' ReceiveMessage (Maybe Int)
+rmMaxNumberOfMessages = lens _rmMaxNumberOfMessages (\ s a -> s{_rmMaxNumberOfMessages = a});
 
 -- | The URL of the Amazon SQS queue to take action on.
-rmrqQueueURL :: Lens' ReceiveMessage Text
-rmrqQueueURL = lens _rmrqQueueURL (\ s a -> s{_rmrqQueueURL = a});
+rmQueueURL :: Lens' ReceiveMessage Text
+rmQueueURL = lens _rmQueueURL (\ s a -> s{_rmQueueURL = a});
 
 instance AWSRequest ReceiveMessage where
         type Sv ReceiveMessage = SQS
@@ -208,16 +208,15 @@ instance ToQuery ReceiveMessage where
           = mconcat
               ["Action" =: ("ReceiveMessage" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "VisibilityTimeout" =: _rmrqVisibilityTimeout,
+               "VisibilityTimeout" =: _rmVisibilityTimeout,
                toQuery
                  (toQueryList "MessageAttributeName" <$>
-                    _rmrqMessageAttributeNames),
-               "WaitTimeSeconds" =: _rmrqWaitTimeSeconds,
+                    _rmMessageAttributeNames),
+               "WaitTimeSeconds" =: _rmWaitTimeSeconds,
                toQuery
-                 (toQueryList "AttributeName" <$>
-                    _rmrqAttributeNames),
-               "MaxNumberOfMessages" =: _rmrqMaxNumberOfMessages,
-               "QueueUrl" =: _rmrqQueueURL]
+                 (toQueryList "AttributeName" <$> _rmAttributeNames),
+               "MaxNumberOfMessages" =: _rmMaxNumberOfMessages,
+               "QueueUrl" =: _rmQueueURL]
 
 -- | A list of received messages.
 --

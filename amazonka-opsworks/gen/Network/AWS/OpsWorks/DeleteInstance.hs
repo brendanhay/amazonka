@@ -37,9 +37,9 @@ module Network.AWS.OpsWorks.DeleteInstance
     -- ** Request constructor
     , deleteInstance
     -- ** Request lenses
-    , dirqDeleteVolumes
-    , dirqDeleteElasticIP
-    , dirqInstanceId
+    , diDeleteVolumes
+    , diDeleteElasticIP
+    , diInstanceId
 
     -- * Response
     , DeleteInstanceResponse
@@ -56,37 +56,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirqDeleteVolumes'
+-- * 'diDeleteVolumes'
 --
--- * 'dirqDeleteElasticIP'
+-- * 'diDeleteElasticIP'
 --
--- * 'dirqInstanceId'
+-- * 'diInstanceId'
 data DeleteInstance = DeleteInstance'
-    { _dirqDeleteVolumes   :: !(Maybe Bool)
-    , _dirqDeleteElasticIP :: !(Maybe Bool)
-    , _dirqInstanceId      :: !Text
+    { _diDeleteVolumes   :: !(Maybe Bool)
+    , _diDeleteElasticIP :: !(Maybe Bool)
+    , _diInstanceId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstance' smart constructor.
 deleteInstance :: Text -> DeleteInstance
 deleteInstance pInstanceId_ =
     DeleteInstance'
-    { _dirqDeleteVolumes = Nothing
-    , _dirqDeleteElasticIP = Nothing
-    , _dirqInstanceId = pInstanceId_
+    { _diDeleteVolumes = Nothing
+    , _diDeleteElasticIP = Nothing
+    , _diInstanceId = pInstanceId_
     }
 
 -- | Whether to delete the instance\'s Amazon EBS volumes.
-dirqDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
-dirqDeleteVolumes = lens _dirqDeleteVolumes (\ s a -> s{_dirqDeleteVolumes = a});
+diDeleteVolumes :: Lens' DeleteInstance (Maybe Bool)
+diDeleteVolumes = lens _diDeleteVolumes (\ s a -> s{_diDeleteVolumes = a});
 
 -- | Whether to delete the instance Elastic IP address.
-dirqDeleteElasticIP :: Lens' DeleteInstance (Maybe Bool)
-dirqDeleteElasticIP = lens _dirqDeleteElasticIP (\ s a -> s{_dirqDeleteElasticIP = a});
+diDeleteElasticIP :: Lens' DeleteInstance (Maybe Bool)
+diDeleteElasticIP = lens _diDeleteElasticIP (\ s a -> s{_diDeleteElasticIP = a});
 
 -- | The instance ID.
-dirqInstanceId :: Lens' DeleteInstance Text
-dirqInstanceId = lens _dirqInstanceId (\ s a -> s{_dirqInstanceId = a});
+diInstanceId :: Lens' DeleteInstance Text
+diInstanceId = lens _diInstanceId (\ s a -> s{_diInstanceId = a});
 
 instance AWSRequest DeleteInstance where
         type Sv DeleteInstance = OpsWorks
@@ -106,9 +106,9 @@ instance ToHeaders DeleteInstance where
 instance ToJSON DeleteInstance where
         toJSON DeleteInstance'{..}
           = object
-              ["DeleteVolumes" .= _dirqDeleteVolumes,
-               "DeleteElasticIp" .= _dirqDeleteElasticIP,
-               "InstanceId" .= _dirqInstanceId]
+              ["DeleteVolumes" .= _diDeleteVolumes,
+               "DeleteElasticIp" .= _diDeleteElasticIP,
+               "InstanceId" .= _diInstanceId]
 
 instance ToPath DeleteInstance where
         toPath = const "/"

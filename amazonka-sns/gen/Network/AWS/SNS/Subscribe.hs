@@ -30,9 +30,9 @@ module Network.AWS.SNS.Subscribe
     -- ** Request constructor
     , subscribe
     -- ** Request lenses
-    , srqEndpoint
-    , srqTopicARN
-    , srqProtocol
+    , subEndpoint
+    , subTopicARN
+    , subProtocol
 
     -- * Response
     , SubscribeResponse
@@ -54,24 +54,24 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srqEndpoint'
+-- * 'subEndpoint'
 --
--- * 'srqTopicARN'
+-- * 'subTopicARN'
 --
--- * 'srqProtocol'
+-- * 'subProtocol'
 data Subscribe = Subscribe'
-    { _srqEndpoint :: !(Maybe Endpoint)
-    , _srqTopicARN :: !Text
-    , _srqProtocol :: !Text
+    { _subEndpoint :: !(Maybe Endpoint)
+    , _subTopicARN :: !Text
+    , _subProtocol :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subscribe' smart constructor.
 subscribe :: Text -> Text -> Subscribe
 subscribe pTopicARN_ pProtocol_ =
     Subscribe'
-    { _srqEndpoint = Nothing
-    , _srqTopicARN = pTopicARN_
-    , _srqProtocol = pProtocol_
+    { _subEndpoint = Nothing
+    , _subTopicARN = pTopicARN_
+    , _subProtocol = pProtocol_
     }
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
@@ -89,12 +89,12 @@ subscribe pTopicARN_ pProtocol_ =
 --     queue
 -- -   For the @application@ protocol, the endpoint is the EndpointArn of a
 --     mobile app and device.
-srqEndpoint :: Lens' Subscribe (Maybe Endpoint)
-srqEndpoint = lens _srqEndpoint (\ s a -> s{_srqEndpoint = a});
+subEndpoint :: Lens' Subscribe (Maybe Endpoint)
+subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
 
 -- | The ARN of the topic you want to subscribe to.
-srqTopicARN :: Lens' Subscribe Text
-srqTopicARN = lens _srqTopicARN (\ s a -> s{_srqTopicARN = a});
+subTopicARN :: Lens' Subscribe Text
+subTopicARN = lens _subTopicARN (\ s a -> s{_subTopicARN = a});
 
 -- | The protocol you want to use. Supported protocols include:
 --
@@ -106,8 +106,8 @@ srqTopicARN = lens _srqTopicARN (\ s a -> s{_srqTopicARN = a});
 -- -   @sqs@ -- delivery of JSON-encoded message to an Amazon SQS queue
 -- -   @application@ -- delivery of JSON-encoded message to an EndpointArn
 --     for a mobile app and device.
-srqProtocol :: Lens' Subscribe Text
-srqProtocol = lens _srqProtocol (\ s a -> s{_srqProtocol = a});
+subProtocol :: Lens' Subscribe Text
+subProtocol = lens _subProtocol (\ s a -> s{_subProtocol = a});
 
 instance AWSRequest Subscribe where
         type Sv Subscribe = SNS
@@ -130,9 +130,9 @@ instance ToQuery Subscribe where
           = mconcat
               ["Action" =: ("Subscribe" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "Endpoint" =: _srqEndpoint,
-               "TopicArn" =: _srqTopicARN,
-               "Protocol" =: _srqProtocol]
+               "Endpoint" =: _subEndpoint,
+               "TopicArn" =: _subTopicARN,
+               "Protocol" =: _subProtocol]
 
 -- | Response for Subscribe action.
 --

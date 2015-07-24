@@ -33,9 +33,9 @@ module Network.AWS.EFS.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtrqMaxItems
-    , dtrqMarker
-    , dtrqFileSystemId
+    , dtMaxItems
+    , dtMarker
+    , dtFileSystemId
 
     -- * Response
     , DescribeTagsResponse
@@ -57,40 +57,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqMaxItems'
+-- * 'dtMaxItems'
 --
--- * 'dtrqMarker'
+-- * 'dtMarker'
 --
--- * 'dtrqFileSystemId'
+-- * 'dtFileSystemId'
 data DescribeTags = DescribeTags'
-    { _dtrqMaxItems     :: !(Maybe Nat)
-    , _dtrqMarker       :: !(Maybe Text)
-    , _dtrqFileSystemId :: !Text
+    { _dtMaxItems     :: !(Maybe Nat)
+    , _dtMarker       :: !(Maybe Text)
+    , _dtFileSystemId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: Text -> DescribeTags
 describeTags pFileSystemId_ =
     DescribeTags'
-    { _dtrqMaxItems = Nothing
-    , _dtrqMarker = Nothing
-    , _dtrqFileSystemId = pFileSystemId_
+    { _dtMaxItems = Nothing
+    , _dtMarker = Nothing
+    , _dtFileSystemId = pFileSystemId_
     }
 
 -- | Optional. Maximum number of file system tags to return in the response.
 -- It must be an integer with a value greater than zero.
-dtrqMaxItems :: Lens' DescribeTags (Maybe Natural)
-dtrqMaxItems = lens _dtrqMaxItems (\ s a -> s{_dtrqMaxItems = a}) . mapping _Nat;
+dtMaxItems :: Lens' DescribeTags (Maybe Natural)
+dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat;
 
 -- | Optional. String. Opaque pagination token returned from a previous
 -- @DescribeTags@ operation. If present, it specifies to continue the list
 -- from where the previous call left off.
-dtrqMarker :: Lens' DescribeTags (Maybe Text)
-dtrqMarker = lens _dtrqMarker (\ s a -> s{_dtrqMarker = a});
+dtMarker :: Lens' DescribeTags (Maybe Text)
+dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 
 -- | The ID of the file system whose tag set you want to retrieve.
-dtrqFileSystemId :: Lens' DescribeTags Text
-dtrqFileSystemId = lens _dtrqFileSystemId (\ s a -> s{_dtrqFileSystemId = a});
+dtFileSystemId :: Lens' DescribeTags Text
+dtFileSystemId = lens _dtFileSystemId (\ s a -> s{_dtFileSystemId = a});
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EFS
@@ -110,13 +110,12 @@ instance ToHeaders DescribeTags where
 instance ToPath DescribeTags where
         toPath DescribeTags'{..}
           = mconcat
-              ["/2015-02-01/tags/", toText _dtrqFileSystemId, "/"]
+              ["/2015-02-01/tags/", toText _dtFileSystemId, "/"]
 
 instance ToQuery DescribeTags where
         toQuery DescribeTags'{..}
           = mconcat
-              ["MaxItems" =: _dtrqMaxItems,
-               "Marker" =: _dtrqMarker]
+              ["MaxItems" =: _dtMaxItems, "Marker" =: _dtMarker]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --

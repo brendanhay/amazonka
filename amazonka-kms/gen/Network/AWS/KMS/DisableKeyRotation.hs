@@ -27,7 +27,7 @@ module Network.AWS.KMS.DisableKeyRotation
     -- ** Request constructor
     , disableKeyRotation
     -- ** Request lenses
-    , dkrrqKeyId
+    , dkrKeyId
 
     -- * Response
     , DisableKeyRotationResponse
@@ -44,16 +44,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkrrqKeyId'
+-- * 'dkrKeyId'
 newtype DisableKeyRotation = DisableKeyRotation'
-    { _dkrrqKeyId :: Text
+    { _dkrKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableKeyRotation' smart constructor.
 disableKeyRotation :: Text -> DisableKeyRotation
 disableKeyRotation pKeyId_ =
     DisableKeyRotation'
-    { _dkrrqKeyId = pKeyId_
+    { _dkrKeyId = pKeyId_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -63,8 +63,8 @@ disableKeyRotation pKeyId_ =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-dkrrqKeyId :: Lens' DisableKeyRotation Text
-dkrrqKeyId = lens _dkrrqKeyId (\ s a -> s{_dkrrqKeyId = a});
+dkrKeyId :: Lens' DisableKeyRotation Text
+dkrKeyId = lens _dkrKeyId (\ s a -> s{_dkrKeyId = a});
 
 instance AWSRequest DisableKeyRotation where
         type Sv DisableKeyRotation = KMS
@@ -84,7 +84,7 @@ instance ToHeaders DisableKeyRotation where
 
 instance ToJSON DisableKeyRotation where
         toJSON DisableKeyRotation'{..}
-          = object ["KeyId" .= _dkrrqKeyId]
+          = object ["KeyId" .= _dkrKeyId]
 
 instance ToPath DisableKeyRotation where
         toPath = const "/"

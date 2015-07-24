@@ -33,8 +33,8 @@ module Network.AWS.SDB.ListDomains
     -- ** Request constructor
     , listDomains
     -- ** Request lenses
-    , ldrqMaxNumberOfDomains
-    , ldrqNextToken
+    , ldMaxNumberOfDomains
+    , ldNextToken
 
     -- * Response
     , ListDomainsResponse
@@ -56,38 +56,38 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrqMaxNumberOfDomains'
+-- * 'ldMaxNumberOfDomains'
 --
--- * 'ldrqNextToken'
+-- * 'ldNextToken'
 data ListDomains = ListDomains'
-    { _ldrqMaxNumberOfDomains :: !(Maybe Int)
-    , _ldrqNextToken          :: !(Maybe Text)
+    { _ldMaxNumberOfDomains :: !(Maybe Int)
+    , _ldNextToken          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: ListDomains
 listDomains =
     ListDomains'
-    { _ldrqMaxNumberOfDomains = Nothing
-    , _ldrqNextToken = Nothing
+    { _ldMaxNumberOfDomains = Nothing
+    , _ldNextToken = Nothing
     }
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
-ldrqMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
-ldrqMaxNumberOfDomains = lens _ldrqMaxNumberOfDomains (\ s a -> s{_ldrqMaxNumberOfDomains = a});
+ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
+ldMaxNumberOfDomains = lens _ldMaxNumberOfDomains (\ s a -> s{_ldMaxNumberOfDomains = a});
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- domain names.
-ldrqNextToken :: Lens' ListDomains (Maybe Text)
-ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
+ldNextToken :: Lens' ListDomains (Maybe Text)
+ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
 instance AWSPager ListDomains where
         page rq rs
           | stop (rs ^. ldrsNextToken) = Nothing
           | stop (rs ^. ldrsDomainNames) = Nothing
           | otherwise =
-            Just $ rq & ldrqNextToken .~ rs ^. ldrsNextToken
+            Just $ rq & ldNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = SDB
@@ -112,8 +112,8 @@ instance ToQuery ListDomains where
           = mconcat
               ["Action" =: ("ListDomains" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "MaxNumberOfDomains" =: _ldrqMaxNumberOfDomains,
-               "NextToken" =: _ldrqNextToken]
+               "MaxNumberOfDomains" =: _ldMaxNumberOfDomains,
+               "NextToken" =: _ldNextToken]
 
 -- | /See:/ 'listDomainsResponse' smart constructor.
 --

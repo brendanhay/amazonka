@@ -27,7 +27,7 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     -- ** Request constructor
     , deleteVirtualInterface
     -- ** Request lenses
-    , drqVirtualInterfaceId
+    , dVirtualInterfaceId
 
     -- * Response
     , DeleteVirtualInterfaceResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqVirtualInterfaceId'
+-- * 'dVirtualInterfaceId'
 newtype DeleteVirtualInterface = DeleteVirtualInterface'
-    { _drqVirtualInterfaceId :: Text
+    { _dVirtualInterfaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualInterface' smart constructor.
 deleteVirtualInterface :: Text -> DeleteVirtualInterface
 deleteVirtualInterface pVirtualInterfaceId_ =
     DeleteVirtualInterface'
-    { _drqVirtualInterfaceId = pVirtualInterfaceId_
+    { _dVirtualInterfaceId = pVirtualInterfaceId_
     }
 
 -- | FIXME: Undocumented member.
-drqVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
-drqVirtualInterfaceId = lens _drqVirtualInterfaceId (\ s a -> s{_drqVirtualInterfaceId = a});
+dVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
+dVirtualInterfaceId = lens _dVirtualInterfaceId (\ s a -> s{_dVirtualInterfaceId = a});
 
 instance AWSRequest DeleteVirtualInterface where
         type Sv DeleteVirtualInterface = DirectConnect
@@ -90,7 +90,7 @@ instance ToHeaders DeleteVirtualInterface where
 instance ToJSON DeleteVirtualInterface where
         toJSON DeleteVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _drqVirtualInterfaceId]
+              ["virtualInterfaceId" .= _dVirtualInterfaceId]
 
 instance ToPath DeleteVirtualInterface where
         toPath = const "/"

@@ -40,8 +40,8 @@ module Network.AWS.IAM.GetRolePolicy
     -- ** Request constructor
     , getRolePolicy
     -- ** Request lenses
-    , grprqRoleName
-    , grprqPolicyName
+    , grpRoleName
+    , grpPolicyName
 
     -- * Response
     , GetRolePolicyResponse
@@ -63,29 +63,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grprqRoleName'
+-- * 'grpRoleName'
 --
--- * 'grprqPolicyName'
+-- * 'grpPolicyName'
 data GetRolePolicy = GetRolePolicy'
-    { _grprqRoleName   :: !Text
-    , _grprqPolicyName :: !Text
+    { _grpRoleName   :: !Text
+    , _grpPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRolePolicy' smart constructor.
 getRolePolicy :: Text -> Text -> GetRolePolicy
 getRolePolicy pRoleName_ pPolicyName_ =
     GetRolePolicy'
-    { _grprqRoleName = pRoleName_
-    , _grprqPolicyName = pPolicyName_
+    { _grpRoleName = pRoleName_
+    , _grpPolicyName = pPolicyName_
     }
 
 -- | The name of the role associated with the policy.
-grprqRoleName :: Lens' GetRolePolicy Text
-grprqRoleName = lens _grprqRoleName (\ s a -> s{_grprqRoleName = a});
+grpRoleName :: Lens' GetRolePolicy Text
+grpRoleName = lens _grpRoleName (\ s a -> s{_grpRoleName = a});
 
 -- | The name of the policy document to get.
-grprqPolicyName :: Lens' GetRolePolicy Text
-grprqPolicyName = lens _grprqPolicyName (\ s a -> s{_grprqPolicyName = a});
+grpPolicyName :: Lens' GetRolePolicy Text
+grpPolicyName = lens _grpPolicyName (\ s a -> s{_grpPolicyName = a});
 
 instance AWSRequest GetRolePolicy where
         type Sv GetRolePolicy = IAM
@@ -110,8 +110,8 @@ instance ToQuery GetRolePolicy where
           = mconcat
               ["Action" =: ("GetRolePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _grprqRoleName,
-               "PolicyName" =: _grprqPolicyName]
+               "RoleName" =: _grpRoleName,
+               "PolicyName" =: _grpPolicyName]
 
 -- | Contains the response to a successful GetRolePolicy request.
 --

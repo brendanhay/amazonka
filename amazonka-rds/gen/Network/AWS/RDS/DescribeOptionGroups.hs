@@ -27,12 +27,12 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- ** Request constructor
     , describeOptionGroups
     -- ** Request lenses
-    , dogrqFilters
-    , dogrqEngineName
-    , dogrqMajorEngineVersion
-    , dogrqMaxRecords
-    , dogrqMarker
-    , dogrqOptionGroupName
+    , dogFilters
+    , dogEngineName
+    , dogMajorEngineVersion
+    , dogMaxRecords
+    , dogMarker
+    , dogOptionGroupName
 
     -- * Response
     , DescribeOptionGroupsResponse
@@ -56,52 +56,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogrqFilters'
+-- * 'dogFilters'
 --
--- * 'dogrqEngineName'
+-- * 'dogEngineName'
 --
--- * 'dogrqMajorEngineVersion'
+-- * 'dogMajorEngineVersion'
 --
--- * 'dogrqMaxRecords'
+-- * 'dogMaxRecords'
 --
--- * 'dogrqMarker'
+-- * 'dogMarker'
 --
--- * 'dogrqOptionGroupName'
+-- * 'dogOptionGroupName'
 data DescribeOptionGroups = DescribeOptionGroups'
-    { _dogrqFilters            :: !(Maybe [Filter])
-    , _dogrqEngineName         :: !(Maybe Text)
-    , _dogrqMajorEngineVersion :: !(Maybe Text)
-    , _dogrqMaxRecords         :: !(Maybe Int)
-    , _dogrqMarker             :: !(Maybe Text)
-    , _dogrqOptionGroupName    :: !(Maybe Text)
+    { _dogFilters            :: !(Maybe [Filter])
+    , _dogEngineName         :: !(Maybe Text)
+    , _dogMajorEngineVersion :: !(Maybe Text)
+    , _dogMaxRecords         :: !(Maybe Int)
+    , _dogMarker             :: !(Maybe Text)
+    , _dogOptionGroupName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOptionGroups' smart constructor.
 describeOptionGroups :: DescribeOptionGroups
 describeOptionGroups =
     DescribeOptionGroups'
-    { _dogrqFilters = Nothing
-    , _dogrqEngineName = Nothing
-    , _dogrqMajorEngineVersion = Nothing
-    , _dogrqMaxRecords = Nothing
-    , _dogrqMarker = Nothing
-    , _dogrqOptionGroupName = Nothing
+    { _dogFilters = Nothing
+    , _dogEngineName = Nothing
+    , _dogMajorEngineVersion = Nothing
+    , _dogMaxRecords = Nothing
+    , _dogMarker = Nothing
+    , _dogOptionGroupName = Nothing
     }
 
 -- | This parameter is not currently supported.
-dogrqFilters :: Lens' DescribeOptionGroups [Filter]
-dogrqFilters = lens _dogrqFilters (\ s a -> s{_dogrqFilters = a}) . _Default;
+dogFilters :: Lens' DescribeOptionGroups [Filter]
+dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a}) . _Default;
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine.
-dogrqEngineName :: Lens' DescribeOptionGroups (Maybe Text)
-dogrqEngineName = lens _dogrqEngineName (\ s a -> s{_dogrqEngineName = a});
+dogEngineName :: Lens' DescribeOptionGroups (Maybe Text)
+dogEngineName = lens _dogEngineName (\ s a -> s{_dogEngineName = a});
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine version. If specified, then EngineName must
 -- also be specified.
-dogrqMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
-dogrqMajorEngineVersion = lens _dogrqMajorEngineVersion (\ s a -> s{_dogrqMajorEngineVersion = a});
+dogMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
+dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineVersion = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -111,26 +111,26 @@ dogrqMajorEngineVersion = lens _dogrqMajorEngineVersion (\ s a -> s{_dogrqMajorE
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dogrqMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
-dogrqMaxRecords = lens _dogrqMaxRecords (\ s a -> s{_dogrqMaxRecords = a});
+dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
+dogMaxRecords = lens _dogMaxRecords (\ s a -> s{_dogMaxRecords = a});
 
 -- | An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by @MaxRecords@.
-dogrqMarker :: Lens' DescribeOptionGroups (Maybe Text)
-dogrqMarker = lens _dogrqMarker (\ s a -> s{_dogrqMarker = a});
+dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
+dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a});
 
 -- | The name of the option group to describe. Cannot be supplied together
 -- with EngineName or MajorEngineVersion.
-dogrqOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
-dogrqOptionGroupName = lens _dogrqOptionGroupName (\ s a -> s{_dogrqOptionGroupName = a});
+dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
+dogOptionGroupName = lens _dogOptionGroupName (\ s a -> s{_dogOptionGroupName = a});
 
 instance AWSPager DescribeOptionGroups where
         page rq rs
           | stop (rs ^. dogrsMarker) = Nothing
           | stop (rs ^. dogrsOptionGroupsList) = Nothing
           | otherwise =
-            Just $ rq & dogrqMarker .~ rs ^. dogrsMarker
+            Just $ rq & dogMarker .~ rs ^. dogrsMarker
 
 instance AWSRequest DescribeOptionGroups where
         type Sv DescribeOptionGroups = RDS
@@ -158,12 +158,12 @@ instance ToQuery DescribeOptionGroups where
               ["Action" =: ("DescribeOptionGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dogrqFilters),
-               "EngineName" =: _dogrqEngineName,
-               "MajorEngineVersion" =: _dogrqMajorEngineVersion,
-               "MaxRecords" =: _dogrqMaxRecords,
-               "Marker" =: _dogrqMarker,
-               "OptionGroupName" =: _dogrqOptionGroupName]
+                 toQuery (toQueryList "Filter" <$> _dogFilters),
+               "EngineName" =: _dogEngineName,
+               "MajorEngineVersion" =: _dogMajorEngineVersion,
+               "MaxRecords" =: _dogMaxRecords,
+               "Marker" =: _dogMarker,
+               "OptionGroupName" =: _dogOptionGroupName]
 
 -- | List of option groups.
 --

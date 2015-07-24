@@ -27,12 +27,12 @@ module Network.AWS.EC2.ImportSnapshot
     -- ** Request constructor
     , importSnapshot
     -- ** Request lenses
-    , isrqDiskContainer
-    , isrqClientToken
-    , isrqRoleName
-    , isrqDryRun
-    , isrqDescription
-    , isrqClientData
+    , isDiskContainer
+    , isClientToken
+    , isRoleName
+    , isDryRun
+    , isDescription
+    , isClientData
 
     -- * Response
     , ImportSnapshotResponse
@@ -54,65 +54,65 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'isrqDiskContainer'
+-- * 'isDiskContainer'
 --
--- * 'isrqClientToken'
+-- * 'isClientToken'
 --
--- * 'isrqRoleName'
+-- * 'isRoleName'
 --
--- * 'isrqDryRun'
+-- * 'isDryRun'
 --
--- * 'isrqDescription'
+-- * 'isDescription'
 --
--- * 'isrqClientData'
+-- * 'isClientData'
 data ImportSnapshot = ImportSnapshot'
-    { _isrqDiskContainer :: !(Maybe SnapshotDiskContainer)
-    , _isrqClientToken   :: !(Maybe Text)
-    , _isrqRoleName      :: !(Maybe Text)
-    , _isrqDryRun        :: !(Maybe Bool)
-    , _isrqDescription   :: !(Maybe Text)
-    , _isrqClientData    :: !(Maybe ClientData)
+    { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
+    , _isClientToken   :: !(Maybe Text)
+    , _isRoleName      :: !(Maybe Text)
+    , _isDryRun        :: !(Maybe Bool)
+    , _isDescription   :: !(Maybe Text)
+    , _isClientData    :: !(Maybe ClientData)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportSnapshot' smart constructor.
 importSnapshot :: ImportSnapshot
 importSnapshot =
     ImportSnapshot'
-    { _isrqDiskContainer = Nothing
-    , _isrqClientToken = Nothing
-    , _isrqRoleName = Nothing
-    , _isrqDryRun = Nothing
-    , _isrqDescription = Nothing
-    , _isrqClientData = Nothing
+    { _isDiskContainer = Nothing
+    , _isClientToken = Nothing
+    , _isRoleName = Nothing
+    , _isDryRun = Nothing
+    , _isDescription = Nothing
+    , _isClientData = Nothing
     }
 
 -- | Information about the disk container.
-isrqDiskContainer :: Lens' ImportSnapshot (Maybe SnapshotDiskContainer)
-isrqDiskContainer = lens _isrqDiskContainer (\ s a -> s{_isrqDiskContainer = a});
+isDiskContainer :: Lens' ImportSnapshot (Maybe SnapshotDiskContainer)
+isDiskContainer = lens _isDiskContainer (\ s a -> s{_isDiskContainer = a});
 
 -- | Token to enable idempotency for VM import requests.
-isrqClientToken :: Lens' ImportSnapshot (Maybe Text)
-isrqClientToken = lens _isrqClientToken (\ s a -> s{_isrqClientToken = a});
+isClientToken :: Lens' ImportSnapshot (Maybe Text)
+isClientToken = lens _isClientToken (\ s a -> s{_isClientToken = a});
 
 -- | The name of the role to use when not using the default role,
 -- \'vmimport\'.
-isrqRoleName :: Lens' ImportSnapshot (Maybe Text)
-isrqRoleName = lens _isrqRoleName (\ s a -> s{_isrqRoleName = a});
+isRoleName :: Lens' ImportSnapshot (Maybe Text)
+isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-isrqDryRun :: Lens' ImportSnapshot (Maybe Bool)
-isrqDryRun = lens _isrqDryRun (\ s a -> s{_isrqDryRun = a});
+isDryRun :: Lens' ImportSnapshot (Maybe Bool)
+isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a});
 
 -- | The description string for the import snapshot task.
-isrqDescription :: Lens' ImportSnapshot (Maybe Text)
-isrqDescription = lens _isrqDescription (\ s a -> s{_isrqDescription = a});
+isDescription :: Lens' ImportSnapshot (Maybe Text)
+isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
 
 -- | The client-specific data.
-isrqClientData :: Lens' ImportSnapshot (Maybe ClientData)
-isrqClientData = lens _isrqClientData (\ s a -> s{_isrqClientData = a});
+isClientData :: Lens' ImportSnapshot (Maybe ClientData)
+isClientData = lens _isClientData (\ s a -> s{_isClientData = a});
 
 instance AWSRequest ImportSnapshot where
         type Sv ImportSnapshot = EC2
@@ -138,11 +138,11 @@ instance ToQuery ImportSnapshot where
           = mconcat
               ["Action" =: ("ImportSnapshot" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DiskContainer" =: _isrqDiskContainer,
-               "ClientToken" =: _isrqClientToken,
-               "RoleName" =: _isrqRoleName, "DryRun" =: _isrqDryRun,
-               "Description" =: _isrqDescription,
-               "ClientData" =: _isrqClientData]
+               "DiskContainer" =: _isDiskContainer,
+               "ClientToken" =: _isClientToken,
+               "RoleName" =: _isRoleName, "DryRun" =: _isDryRun,
+               "Description" =: _isDescription,
+               "ClientData" =: _isClientData]
 
 -- | /See:/ 'importSnapshotResponse' smart constructor.
 --

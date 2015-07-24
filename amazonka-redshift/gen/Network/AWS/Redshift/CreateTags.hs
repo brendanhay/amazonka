@@ -34,8 +34,8 @@ module Network.AWS.Redshift.CreateTags
     -- ** Request constructor
     , createTags
     -- ** Request lenses
-    , ctrqResourceName
-    , ctrqTags
+    , ctResourceName
+    , ctTags
 
     -- * Response
     , CreateTagsResponse
@@ -54,26 +54,26 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctrqResourceName'
+-- * 'ctResourceName'
 --
--- * 'ctrqTags'
+-- * 'ctTags'
 data CreateTags = CreateTags'
-    { _ctrqResourceName :: !Text
-    , _ctrqTags         :: ![Tag]
+    { _ctResourceName :: !Text
+    , _ctTags         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTags' smart constructor.
 createTags :: Text -> CreateTags
 createTags pResourceName_ =
     CreateTags'
-    { _ctrqResourceName = pResourceName_
-    , _ctrqTags = mempty
+    { _ctResourceName = pResourceName_
+    , _ctTags = mempty
     }
 
 -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
 -- For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
-ctrqResourceName :: Lens' CreateTags Text
-ctrqResourceName = lens _ctrqResourceName (\ s a -> s{_ctrqResourceName = a});
+ctResourceName :: Lens' CreateTags Text
+ctResourceName = lens _ctResourceName (\ s a -> s{_ctResourceName = a});
 
 -- | One or more name\/value pairs to add as tags to the specified resource.
 -- Each tag name is passed in with the parameter @Key@ and the
@@ -81,8 +81,8 @@ ctrqResourceName = lens _ctrqResourceName (\ s a -> s{_ctrqResourceName = a});
 -- and @Value@ parameters are separated by a comma (,). Separate multiple
 -- tags with a space. For example,
 -- @--tags \"Key\"=\"owner\",\"Value\"=\"admin\" \"Key\"=\"environment\",\"Value\"=\"test\" \"Key\"=\"version\",\"Value\"=\"1.0\"@.
-ctrqTags :: Lens' CreateTags [Tag]
-ctrqTags = lens _ctrqTags (\ s a -> s{_ctrqTags = a});
+ctTags :: Lens' CreateTags [Tag]
+ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
 
 instance AWSRequest CreateTags where
         type Sv CreateTags = Redshift
@@ -101,8 +101,8 @@ instance ToQuery CreateTags where
           = mconcat
               ["Action" =: ("CreateTags" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ResourceName" =: _ctrqResourceName,
-               "Tags" =: toQueryList "Tag" _ctrqTags]
+               "ResourceName" =: _ctResourceName,
+               "Tags" =: toQueryList "Tag" _ctTags]
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =

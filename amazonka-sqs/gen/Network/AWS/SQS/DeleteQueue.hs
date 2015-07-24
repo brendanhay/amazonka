@@ -44,7 +44,7 @@ module Network.AWS.SQS.DeleteQueue
     -- ** Request constructor
     , deleteQueue
     -- ** Request lenses
-    , dqrqQueueURL
+    , dqQueueURL
 
     -- * Response
     , DeleteQueueResponse
@@ -61,21 +61,21 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dqrqQueueURL'
+-- * 'dqQueueURL'
 newtype DeleteQueue = DeleteQueue'
-    { _dqrqQueueURL :: Text
+    { _dqQueueURL :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteQueue' smart constructor.
 deleteQueue :: Text -> DeleteQueue
 deleteQueue pQueueURL_ =
     DeleteQueue'
-    { _dqrqQueueURL = pQueueURL_
+    { _dqQueueURL = pQueueURL_
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-dqrqQueueURL :: Lens' DeleteQueue Text
-dqrqQueueURL = lens _dqrqQueueURL (\ s a -> s{_dqrqQueueURL = a});
+dqQueueURL :: Lens' DeleteQueue Text
+dqQueueURL = lens _dqQueueURL (\ s a -> s{_dqQueueURL = a});
 
 instance AWSRequest DeleteQueue where
         type Sv DeleteQueue = SQS
@@ -94,7 +94,7 @@ instance ToQuery DeleteQueue where
           = mconcat
               ["Action" =: ("DeleteQueue" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _dqrqQueueURL]
+               "QueueUrl" =: _dqQueueURL]
 
 -- | /See:/ 'deleteQueueResponse' smart constructor.
 data DeleteQueueResponse =

@@ -28,9 +28,9 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- ** Request constructor
     , describeAutoScalingGroups
     -- ** Request lenses
-    , dasgrqAutoScalingGroupNames
-    , dasgrqNextToken
-    , dasgrqMaxRecords
+    , dasgAutoScalingGroupNames
+    , dasgNextToken
+    , dasgMaxRecords
 
     -- * Response
     , DescribeAutoScalingGroupsResponse
@@ -52,45 +52,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasgrqAutoScalingGroupNames'
+-- * 'dasgAutoScalingGroupNames'
 --
--- * 'dasgrqNextToken'
+-- * 'dasgNextToken'
 --
--- * 'dasgrqMaxRecords'
+-- * 'dasgMaxRecords'
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
-    { _dasgrqAutoScalingGroupNames :: !(Maybe [Text])
-    , _dasgrqNextToken             :: !(Maybe Text)
-    , _dasgrqMaxRecords            :: !(Maybe Int)
+    { _dasgAutoScalingGroupNames :: !(Maybe [Text])
+    , _dasgNextToken             :: !(Maybe Text)
+    , _dasgMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingGroups' smart constructor.
 describeAutoScalingGroups :: DescribeAutoScalingGroups
 describeAutoScalingGroups =
     DescribeAutoScalingGroups'
-    { _dasgrqAutoScalingGroupNames = Nothing
-    , _dasgrqNextToken = Nothing
-    , _dasgrqMaxRecords = Nothing
+    { _dasgAutoScalingGroupNames = Nothing
+    , _dasgNextToken = Nothing
+    , _dasgMaxRecords = Nothing
     }
 
 -- | The group names.
-dasgrqAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
-dasgrqAutoScalingGroupNames = lens _dasgrqAutoScalingGroupNames (\ s a -> s{_dasgrqAutoScalingGroupNames = a}) . _Default;
+dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
+dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dasgrqNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
-dasgrqNextToken = lens _dasgrqNextToken (\ s a -> s{_dasgrqNextToken = a});
+dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
+dasgNextToken = lens _dasgNextToken (\ s a -> s{_dasgNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dasgrqMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
-dasgrqMaxRecords = lens _dasgrqMaxRecords (\ s a -> s{_dasgrqMaxRecords = a});
+dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
+dasgMaxRecords = lens _dasgMaxRecords (\ s a -> s{_dasgMaxRecords = a});
 
 instance AWSPager DescribeAutoScalingGroups where
         page rq rs
           | stop (rs ^. dasgrsNextToken) = Nothing
           | stop (rs ^. dasgrsAutoScalingGroups) = Nothing
           | otherwise =
-            Just $ rq & dasgrqNextToken .~ rs ^. dasgrsNextToken
+            Just $ rq & dasgNextToken .~ rs ^. dasgrsNextToken
 
 instance AWSRequest DescribeAutoScalingGroups where
         type Sv DescribeAutoScalingGroups = AutoScaling
@@ -120,9 +120,9 @@ instance ToQuery DescribeAutoScalingGroups where
                "AutoScalingGroupNames" =:
                  toQuery
                    (toQueryList "member" <$>
-                      _dasgrqAutoScalingGroupNames),
-               "NextToken" =: _dasgrqNextToken,
-               "MaxRecords" =: _dasgrqMaxRecords]
+                      _dasgAutoScalingGroupNames),
+               "NextToken" =: _dasgNextToken,
+               "MaxRecords" =: _dasgMaxRecords]
 
 -- | /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
 --

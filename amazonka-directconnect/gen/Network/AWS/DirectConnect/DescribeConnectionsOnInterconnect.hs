@@ -28,7 +28,7 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     -- ** Request constructor
     , describeConnectionsOnInterconnect
     -- ** Request lenses
-    , dcoirqInterconnectId
+    , dcoiInterconnectId
 
     -- * Response
     , Connections
@@ -50,16 +50,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcoirqInterconnectId'
+-- * 'dcoiInterconnectId'
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
-    { _dcoirqInterconnectId :: Text
+    { _dcoiInterconnectId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConnectionsOnInterconnect' smart constructor.
 describeConnectionsOnInterconnect :: Text -> DescribeConnectionsOnInterconnect
 describeConnectionsOnInterconnect pInterconnectId_ =
     DescribeConnectionsOnInterconnect'
-    { _dcoirqInterconnectId = pInterconnectId_
+    { _dcoiInterconnectId = pInterconnectId_
     }
 
 -- | ID of the interconnect on which a list of connection is provisioned.
@@ -67,8 +67,8 @@ describeConnectionsOnInterconnect pInterconnectId_ =
 -- Example: dxcon-abc123
 --
 -- Default: None
-dcoirqInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
-dcoirqInterconnectId = lens _dcoirqInterconnectId (\ s a -> s{_dcoirqInterconnectId = a});
+dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
+dcoiInterconnectId = lens _dcoiInterconnectId (\ s a -> s{_dcoiInterconnectId = a});
 
 instance AWSRequest DescribeConnectionsOnInterconnect
          where
@@ -93,7 +93,7 @@ instance ToHeaders DescribeConnectionsOnInterconnect
 instance ToJSON DescribeConnectionsOnInterconnect
          where
         toJSON DescribeConnectionsOnInterconnect'{..}
-          = object ["interconnectId" .= _dcoirqInterconnectId]
+          = object ["interconnectId" .= _dcoiInterconnectId]
 
 instance ToPath DescribeConnectionsOnInterconnect
          where

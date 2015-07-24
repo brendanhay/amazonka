@@ -29,9 +29,9 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- ** Request constructor
     , describeCacheSubnetGroups
     -- ** Request lenses
-    , dcsgrqCacheSubnetGroupName
-    , dcsgrqMaxRecords
-    , dcsgrqMarker
+    , dcsgCacheSubnetGroupName
+    , dcsgMaxRecords
+    , dcsgMarker
 
     -- * Response
     , DescribeCacheSubnetGroupsResponse
@@ -55,29 +55,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgrqCacheSubnetGroupName'
+-- * 'dcsgCacheSubnetGroupName'
 --
--- * 'dcsgrqMaxRecords'
+-- * 'dcsgMaxRecords'
 --
--- * 'dcsgrqMarker'
+-- * 'dcsgMarker'
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
-    { _dcsgrqCacheSubnetGroupName :: !(Maybe Text)
-    , _dcsgrqMaxRecords           :: !(Maybe Int)
-    , _dcsgrqMarker               :: !(Maybe Text)
+    { _dcsgCacheSubnetGroupName :: !(Maybe Text)
+    , _dcsgMaxRecords           :: !(Maybe Int)
+    , _dcsgMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSubnetGroups' smart constructor.
 describeCacheSubnetGroups :: DescribeCacheSubnetGroups
 describeCacheSubnetGroups =
     DescribeCacheSubnetGroups'
-    { _dcsgrqCacheSubnetGroupName = Nothing
-    , _dcsgrqMaxRecords = Nothing
-    , _dcsgrqMarker = Nothing
+    { _dcsgCacheSubnetGroupName = Nothing
+    , _dcsgMaxRecords = Nothing
+    , _dcsgMarker = Nothing
     }
 
 -- | The name of the cache subnet group to return details for.
-dcsgrqCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgrqCacheSubnetGroupName = lens _dcsgrqCacheSubnetGroupName (\ s a -> s{_dcsgrqCacheSubnetGroupName = a});
+dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
+dcsgCacheSubnetGroupName = lens _dcsgCacheSubnetGroupName (\ s a -> s{_dcsgCacheSubnetGroupName = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -86,22 +86,22 @@ dcsgrqCacheSubnetGroupName = lens _dcsgrqCacheSubnetGroupName (\ s a -> s{_dcsgr
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dcsgrqMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
-dcsgrqMaxRecords = lens _dcsgrqMaxRecords (\ s a -> s{_dcsgrqMaxRecords = a});
+dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
+dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dcsgrqMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
-dcsgrqMarker = lens _dcsgrqMarker (\ s a -> s{_dcsgrqMarker = a});
+dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
+dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
 
 instance AWSPager DescribeCacheSubnetGroups where
         page rq rs
           | stop (rs ^. dcsgrsMarker) = Nothing
           | stop (rs ^. dcsgrsCacheSubnetGroups) = Nothing
           | otherwise =
-            Just $ rq & dcsgrqMarker .~ rs ^. dcsgrsMarker
+            Just $ rq & dcsgMarker .~ rs ^. dcsgrsMarker
 
 instance AWSRequest DescribeCacheSubnetGroups where
         type Sv DescribeCacheSubnetGroups = ElastiCache
@@ -129,10 +129,9 @@ instance ToQuery DescribeCacheSubnetGroups where
               ["Action" =:
                  ("DescribeCacheSubnetGroups" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheSubnetGroupName" =:
-                 _dcsgrqCacheSubnetGroupName,
-               "MaxRecords" =: _dcsgrqMaxRecords,
-               "Marker" =: _dcsgrqMarker]
+               "CacheSubnetGroupName" =: _dcsgCacheSubnetGroupName,
+               "MaxRecords" =: _dcsgMaxRecords,
+               "Marker" =: _dcsgMarker]
 
 -- | Represents the output of a /DescribeCacheSubnetGroups/ action.
 --

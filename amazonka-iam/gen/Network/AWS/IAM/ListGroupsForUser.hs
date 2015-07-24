@@ -30,9 +30,9 @@ module Network.AWS.IAM.ListGroupsForUser
     -- ** Request constructor
     , listGroupsForUser
     -- ** Request lenses
-    , lgfurqMaxItems
-    , lgfurqMarker
-    , lgfurqUserName
+    , lgfuMaxItems
+    , lgfuMarker
+    , lgfuUserName
 
     -- * Response
     , ListGroupsForUserResponse
@@ -55,24 +55,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgfurqMaxItems'
+-- * 'lgfuMaxItems'
 --
--- * 'lgfurqMarker'
+-- * 'lgfuMarker'
 --
--- * 'lgfurqUserName'
+-- * 'lgfuUserName'
 data ListGroupsForUser = ListGroupsForUser'
-    { _lgfurqMaxItems :: !(Maybe Nat)
-    , _lgfurqMarker   :: !(Maybe Text)
-    , _lgfurqUserName :: !Text
+    { _lgfuMaxItems :: !(Maybe Nat)
+    , _lgfuMarker   :: !(Maybe Text)
+    , _lgfuUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsForUser' smart constructor.
 listGroupsForUser :: Text -> ListGroupsForUser
 listGroupsForUser pUserName_ =
     ListGroupsForUser'
-    { _lgfurqMaxItems = Nothing
-    , _lgfurqMarker = Nothing
-    , _lgfurqUserName = pUserName_
+    { _lgfuMaxItems = Nothing
+    , _lgfuMarker = Nothing
+    , _lgfuUserName = pUserName_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -81,25 +81,25 @@ listGroupsForUser pUserName_ =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lgfurqMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
-lgfurqMaxItems = lens _lgfurqMaxItems (\ s a -> s{_lgfurqMaxItems = a}) . mapping _Nat;
+lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
+lgfuMaxItems = lens _lgfuMaxItems (\ s a -> s{_lgfuMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lgfurqMarker :: Lens' ListGroupsForUser (Maybe Text)
-lgfurqMarker = lens _lgfurqMarker (\ s a -> s{_lgfurqMarker = a});
+lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
+lgfuMarker = lens _lgfuMarker (\ s a -> s{_lgfuMarker = a});
 
 -- | The name of the user to list groups for.
-lgfurqUserName :: Lens' ListGroupsForUser Text
-lgfurqUserName = lens _lgfurqUserName (\ s a -> s{_lgfurqUserName = a});
+lgfuUserName :: Lens' ListGroupsForUser Text
+lgfuUserName = lens _lgfuUserName (\ s a -> s{_lgfuUserName = a});
 
 instance AWSPager ListGroupsForUser where
         page rq rs
           | stop (rs ^. lgfursIsTruncated) = Nothing
           | isNothing (rs ^. lgfursMarker) = Nothing
           | otherwise =
-            Just $ rq & lgfurqMarker .~ rs ^. lgfursMarker
+            Just $ rq & lgfuMarker .~ rs ^. lgfursMarker
 
 instance AWSRequest ListGroupsForUser where
         type Sv ListGroupsForUser = IAM
@@ -126,9 +126,8 @@ instance ToQuery ListGroupsForUser where
           = mconcat
               ["Action" =: ("ListGroupsForUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lgfurqMaxItems,
-               "Marker" =: _lgfurqMarker,
-               "UserName" =: _lgfurqUserName]
+               "MaxItems" =: _lgfuMaxItems, "Marker" =: _lgfuMarker,
+               "UserName" =: _lgfuUserName]
 
 -- | Contains the response to a successful ListGroupsForUser request.
 --

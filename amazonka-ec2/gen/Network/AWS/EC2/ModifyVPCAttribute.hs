@@ -27,9 +27,9 @@ module Network.AWS.EC2.ModifyVPCAttribute
     -- ** Request constructor
     , modifyVPCAttribute
     -- ** Request lenses
-    , mvarqEnableDNSHostnames
-    , mvarqEnableDNSSupport
-    , mvarqVPCId
+    , mvaEnableDNSHostnames
+    , mvaEnableDNSSupport
+    , mvaVPCId
 
     -- * Response
     , ModifyVPCAttributeResponse
@@ -46,24 +46,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mvarqEnableDNSHostnames'
+-- * 'mvaEnableDNSHostnames'
 --
--- * 'mvarqEnableDNSSupport'
+-- * 'mvaEnableDNSSupport'
 --
--- * 'mvarqVPCId'
+-- * 'mvaVPCId'
 data ModifyVPCAttribute = ModifyVPCAttribute'
-    { _mvarqEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
-    , _mvarqEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
-    , _mvarqVPCId              :: !Text
+    { _mvaEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
+    , _mvaEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
+    , _mvaVPCId              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCAttribute' smart constructor.
 modifyVPCAttribute :: Text -> ModifyVPCAttribute
 modifyVPCAttribute pVPCId_ =
     ModifyVPCAttribute'
-    { _mvarqEnableDNSHostnames = Nothing
-    , _mvarqEnableDNSSupport = Nothing
-    , _mvarqVPCId = pVPCId_
+    { _mvaEnableDNSHostnames = Nothing
+    , _mvaEnableDNSSupport = Nothing
+    , _mvaVPCId = pVPCId_
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.
@@ -71,8 +71,8 @@ modifyVPCAttribute pVPCId_ =
 -- not.
 --
 -- You can only enable DNS hostnames if you also enable DNS support.
-mvarqEnableDNSHostnames :: Lens' ModifyVPCAttribute (Maybe AttributeBooleanValue)
-mvarqEnableDNSHostnames = lens _mvarqEnableDNSHostnames (\ s a -> s{_mvarqEnableDNSHostnames = a});
+mvaEnableDNSHostnames :: Lens' ModifyVPCAttribute (Maybe AttributeBooleanValue)
+mvaEnableDNSHostnames = lens _mvaEnableDNSHostnames (\ s a -> s{_mvaEnableDNSHostnames = a});
 
 -- | Indicates whether the DNS resolution is supported for the VPC. If
 -- enabled, queries to the Amazon provided DNS server at the
@@ -80,12 +80,12 @@ mvarqEnableDNSHostnames = lens _mvarqEnableDNSHostnames (\ s a -> s{_mvarqEnable
 -- the VPC network range \"plus two\" will succeed. If disabled, the Amazon
 -- provided DNS service in the VPC that resolves public DNS hostnames to IP
 -- addresses is not enabled.
-mvarqEnableDNSSupport :: Lens' ModifyVPCAttribute (Maybe AttributeBooleanValue)
-mvarqEnableDNSSupport = lens _mvarqEnableDNSSupport (\ s a -> s{_mvarqEnableDNSSupport = a});
+mvaEnableDNSSupport :: Lens' ModifyVPCAttribute (Maybe AttributeBooleanValue)
+mvaEnableDNSSupport = lens _mvaEnableDNSSupport (\ s a -> s{_mvaEnableDNSSupport = a});
 
 -- | The ID of the VPC.
-mvarqVPCId :: Lens' ModifyVPCAttribute Text
-mvarqVPCId = lens _mvarqVPCId (\ s a -> s{_mvarqVPCId = a});
+mvaVPCId :: Lens' ModifyVPCAttribute Text
+mvaVPCId = lens _mvaVPCId (\ s a -> s{_mvaVPCId = a});
 
 instance AWSRequest ModifyVPCAttribute where
         type Sv ModifyVPCAttribute = EC2
@@ -105,9 +105,9 @@ instance ToQuery ModifyVPCAttribute where
           = mconcat
               ["Action" =: ("ModifyVPCAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "EnableDnsHostnames" =: _mvarqEnableDNSHostnames,
-               "EnableDnsSupport" =: _mvarqEnableDNSSupport,
-               "VpcId" =: _mvarqVPCId]
+               "EnableDnsHostnames" =: _mvaEnableDNSHostnames,
+               "EnableDnsSupport" =: _mvaEnableDNSSupport,
+               "VpcId" =: _mvaVPCId]
 
 -- | /See:/ 'modifyVPCAttributeResponse' smart constructor.
 data ModifyVPCAttributeResponse =

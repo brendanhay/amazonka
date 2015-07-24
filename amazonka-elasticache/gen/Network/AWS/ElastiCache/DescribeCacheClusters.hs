@@ -50,10 +50,10 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- ** Request constructor
     , describeCacheClusters
     -- ** Request lenses
-    , drqCacheClusterId
-    , drqMaxRecords
-    , drqMarker
-    , drqShowCacheNodeInfo
+    , dCacheClusterId
+    , dMaxRecords
+    , dMarker
+    , dShowCacheNodeInfo
 
     -- * Response
     , DescribeCacheClustersResponse
@@ -77,35 +77,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqCacheClusterId'
+-- * 'dCacheClusterId'
 --
--- * 'drqMaxRecords'
+-- * 'dMaxRecords'
 --
--- * 'drqMarker'
+-- * 'dMarker'
 --
--- * 'drqShowCacheNodeInfo'
+-- * 'dShowCacheNodeInfo'
 data DescribeCacheClusters = DescribeCacheClusters'
-    { _drqCacheClusterId    :: !(Maybe Text)
-    , _drqMaxRecords        :: !(Maybe Int)
-    , _drqMarker            :: !(Maybe Text)
-    , _drqShowCacheNodeInfo :: !(Maybe Bool)
+    { _dCacheClusterId    :: !(Maybe Text)
+    , _dMaxRecords        :: !(Maybe Int)
+    , _dMarker            :: !(Maybe Text)
+    , _dShowCacheNodeInfo :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheClusters' smart constructor.
 describeCacheClusters :: DescribeCacheClusters
 describeCacheClusters =
     DescribeCacheClusters'
-    { _drqCacheClusterId = Nothing
-    , _drqMaxRecords = Nothing
-    , _drqMarker = Nothing
-    , _drqShowCacheNodeInfo = Nothing
+    { _dCacheClusterId = Nothing
+    , _dMaxRecords = Nothing
+    , _dMarker = Nothing
+    , _dShowCacheNodeInfo = Nothing
     }
 
 -- | The user-supplied cluster identifier. If this parameter is specified,
 -- only information about that specific cache cluster is returned. This
 -- parameter isn\'t case sensitive.
-drqCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
-drqCacheClusterId = lens _drqCacheClusterId (\ s a -> s{_drqCacheClusterId = a});
+dCacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
+dCacheClusterId = lens _dCacheClusterId (\ s a -> s{_dCacheClusterId = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -114,27 +114,26 @@ drqCacheClusterId = lens _drqCacheClusterId (\ s a -> s{_drqCacheClusterId = a})
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-drqMaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
-drqMaxRecords = lens _drqMaxRecords (\ s a -> s{_drqMaxRecords = a});
+dMaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
+dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-drqMarker :: Lens' DescribeCacheClusters (Maybe Text)
-drqMarker = lens _drqMarker (\ s a -> s{_drqMarker = a});
+dMarker :: Lens' DescribeCacheClusters (Maybe Text)
+dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
 
 -- | An optional flag that can be included in the DescribeCacheCluster
 -- request to retrieve information about the individual cache nodes.
-drqShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
-drqShowCacheNodeInfo = lens _drqShowCacheNodeInfo (\ s a -> s{_drqShowCacheNodeInfo = a});
+dShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
+dShowCacheNodeInfo = lens _dShowCacheNodeInfo (\ s a -> s{_dShowCacheNodeInfo = a});
 
 instance AWSPager DescribeCacheClusters where
         page rq rs
           | stop (rs ^. drsMarker) = Nothing
           | stop (rs ^. drsCacheClusters) = Nothing
-          | otherwise =
-            Just $ rq & drqMarker .~ rs ^. drsMarker
+          | otherwise = Just $ rq & dMarker .~ rs ^. drsMarker
 
 instance AWSRequest DescribeCacheClusters where
         type Sv DescribeCacheClusters = ElastiCache
@@ -161,10 +160,9 @@ instance ToQuery DescribeCacheClusters where
           = mconcat
               ["Action" =: ("DescribeCacheClusters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheClusterId" =: _drqCacheClusterId,
-               "MaxRecords" =: _drqMaxRecords,
-               "Marker" =: _drqMarker,
-               "ShowCacheNodeInfo" =: _drqShowCacheNodeInfo]
+               "CacheClusterId" =: _dCacheClusterId,
+               "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker,
+               "ShowCacheNodeInfo" =: _dShowCacheNodeInfo]
 
 -- | Represents the output of a /DescribeCacheClusters/ action.
 --

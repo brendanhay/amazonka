@@ -32,8 +32,8 @@ module Network.AWS.EC2.CreateRouteTable
     -- ** Request constructor
     , createRouteTable
     -- ** Request lenses
-    , crtrqDryRun
-    , crtrqVPCId
+    , crtDryRun
+    , crtVPCId
 
     -- * Response
     , CreateRouteTableResponse
@@ -53,32 +53,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crtrqDryRun'
+-- * 'crtDryRun'
 --
--- * 'crtrqVPCId'
+-- * 'crtVPCId'
 data CreateRouteTable = CreateRouteTable'
-    { _crtrqDryRun :: !(Maybe Bool)
-    , _crtrqVPCId  :: !Text
+    { _crtDryRun :: !(Maybe Bool)
+    , _crtVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteTable' smart constructor.
 createRouteTable :: Text -> CreateRouteTable
 createRouteTable pVPCId_ =
     CreateRouteTable'
-    { _crtrqDryRun = Nothing
-    , _crtrqVPCId = pVPCId_
+    { _crtDryRun = Nothing
+    , _crtVPCId = pVPCId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-crtrqDryRun :: Lens' CreateRouteTable (Maybe Bool)
-crtrqDryRun = lens _crtrqDryRun (\ s a -> s{_crtrqDryRun = a});
+crtDryRun :: Lens' CreateRouteTable (Maybe Bool)
+crtDryRun = lens _crtDryRun (\ s a -> s{_crtDryRun = a});
 
 -- | The ID of the VPC.
-crtrqVPCId :: Lens' CreateRouteTable Text
-crtrqVPCId = lens _crtrqVPCId (\ s a -> s{_crtrqVPCId = a});
+crtVPCId :: Lens' CreateRouteTable Text
+crtVPCId = lens _crtVPCId (\ s a -> s{_crtVPCId = a});
 
 instance AWSRequest CreateRouteTable where
         type Sv CreateRouteTable = EC2
@@ -101,7 +101,7 @@ instance ToQuery CreateRouteTable where
           = mconcat
               ["Action" =: ("CreateRouteTable" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _crtrqDryRun, "VpcId" =: _crtrqVPCId]
+               "DryRun" =: _crtDryRun, "VpcId" =: _crtVPCId]
 
 -- | /See:/ 'createRouteTableResponse' smart constructor.
 --

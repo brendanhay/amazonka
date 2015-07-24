@@ -32,8 +32,8 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     -- ** Request constructor
     , deleteConfigurationTemplate
     -- ** Request lenses
-    , dctrqApplicationName
-    , dctrqTemplateName
+    , dctApplicationName
+    , dctTemplateName
 
     -- * Response
     , DeleteConfigurationTemplateResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dctrqApplicationName'
+-- * 'dctApplicationName'
 --
--- * 'dctrqTemplateName'
+-- * 'dctTemplateName'
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
-    { _dctrqApplicationName :: !Text
-    , _dctrqTemplateName    :: !Text
+    { _dctApplicationName :: !Text
+    , _dctTemplateName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteConfigurationTemplate' smart constructor.
 deleteConfigurationTemplate :: Text -> Text -> DeleteConfigurationTemplate
 deleteConfigurationTemplate pApplicationName_ pTemplateName_ =
     DeleteConfigurationTemplate'
-    { _dctrqApplicationName = pApplicationName_
-    , _dctrqTemplateName = pTemplateName_
+    { _dctApplicationName = pApplicationName_
+    , _dctTemplateName = pTemplateName_
     }
 
 -- | The name of the application to delete the configuration template from.
-dctrqApplicationName :: Lens' DeleteConfigurationTemplate Text
-dctrqApplicationName = lens _dctrqApplicationName (\ s a -> s{_dctrqApplicationName = a});
+dctApplicationName :: Lens' DeleteConfigurationTemplate Text
+dctApplicationName = lens _dctApplicationName (\ s a -> s{_dctApplicationName = a});
 
 -- | The name of the configuration template to delete.
-dctrqTemplateName :: Lens' DeleteConfigurationTemplate Text
-dctrqTemplateName = lens _dctrqTemplateName (\ s a -> s{_dctrqTemplateName = a});
+dctTemplateName :: Lens' DeleteConfigurationTemplate Text
+dctTemplateName = lens _dctTemplateName (\ s a -> s{_dctTemplateName = a});
 
 instance AWSRequest DeleteConfigurationTemplate where
         type Sv DeleteConfigurationTemplate =
@@ -97,8 +97,8 @@ instance ToQuery DeleteConfigurationTemplate where
               ["Action" =:
                  ("DeleteConfigurationTemplate" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "ApplicationName" =: _dctrqApplicationName,
-               "TemplateName" =: _dctrqTemplateName]
+               "ApplicationName" =: _dctApplicationName,
+               "TemplateName" =: _dctTemplateName]
 
 -- | /See:/ 'deleteConfigurationTemplateResponse' smart constructor.
 data DeleteConfigurationTemplateResponse =

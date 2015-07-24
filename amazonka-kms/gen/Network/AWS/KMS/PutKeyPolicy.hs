@@ -27,9 +27,9 @@ module Network.AWS.KMS.PutKeyPolicy
     -- ** Request constructor
     , putKeyPolicy
     -- ** Request lenses
-    , pkprqKeyId
-    , pkprqPolicyName
-    , pkprqPolicy
+    , pkpKeyId
+    , pkpPolicyName
+    , pkpPolicy
 
     -- * Response
     , PutKeyPolicyResponse
@@ -46,24 +46,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pkprqKeyId'
+-- * 'pkpKeyId'
 --
--- * 'pkprqPolicyName'
+-- * 'pkpPolicyName'
 --
--- * 'pkprqPolicy'
+-- * 'pkpPolicy'
 data PutKeyPolicy = PutKeyPolicy'
-    { _pkprqKeyId      :: !Text
-    , _pkprqPolicyName :: !Text
-    , _pkprqPolicy     :: !Text
+    { _pkpKeyId      :: !Text
+    , _pkpPolicyName :: !Text
+    , _pkpPolicy     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutKeyPolicy' smart constructor.
 putKeyPolicy :: Text -> Text -> Text -> PutKeyPolicy
 putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
     PutKeyPolicy'
-    { _pkprqKeyId = pKeyId_
-    , _pkprqPolicyName = pPolicyName_
-    , _pkprqPolicy = pPolicy_
+    { _pkpKeyId = pKeyId_
+    , _pkpPolicyName = pPolicyName_
+    , _pkpPolicy = pPolicy_
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -73,17 +73,17 @@ putKeyPolicy pKeyId_ pPolicyName_ pPolicy_ =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-pkprqKeyId :: Lens' PutKeyPolicy Text
-pkprqKeyId = lens _pkprqKeyId (\ s a -> s{_pkprqKeyId = a});
+pkpKeyId :: Lens' PutKeyPolicy Text
+pkpKeyId = lens _pkpKeyId (\ s a -> s{_pkpKeyId = a});
 
 -- | Name of the policy to be attached. Currently, the only supported name is
 -- \"default\".
-pkprqPolicyName :: Lens' PutKeyPolicy Text
-pkprqPolicyName = lens _pkprqPolicyName (\ s a -> s{_pkprqPolicyName = a});
+pkpPolicyName :: Lens' PutKeyPolicy Text
+pkpPolicyName = lens _pkpPolicyName (\ s a -> s{_pkpPolicyName = a});
 
 -- | The policy, in JSON format, to be attached to the key.
-pkprqPolicy :: Lens' PutKeyPolicy Text
-pkprqPolicy = lens _pkprqPolicy (\ s a -> s{_pkprqPolicy = a});
+pkpPolicy :: Lens' PutKeyPolicy Text
+pkpPolicy = lens _pkpPolicy (\ s a -> s{_pkpPolicy = a});
 
 instance AWSRequest PutKeyPolicy where
         type Sv PutKeyPolicy = KMS
@@ -103,9 +103,9 @@ instance ToHeaders PutKeyPolicy where
 instance ToJSON PutKeyPolicy where
         toJSON PutKeyPolicy'{..}
           = object
-              ["KeyId" .= _pkprqKeyId,
-               "PolicyName" .= _pkprqPolicyName,
-               "Policy" .= _pkprqPolicy]
+              ["KeyId" .= _pkpKeyId,
+               "PolicyName" .= _pkpPolicyName,
+               "Policy" .= _pkpPolicy]
 
 instance ToPath PutKeyPolicy where
         toPath = const "/"

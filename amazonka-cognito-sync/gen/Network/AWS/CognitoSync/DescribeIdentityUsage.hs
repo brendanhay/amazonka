@@ -31,8 +31,8 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
     -- ** Request constructor
     , describeIdentityUsage
     -- ** Request lenses
-    , diurqIdentityPoolId
-    , diurqIdentityId
+    , diuIdentityPoolId
+    , diuIdentityId
 
     -- * Response
     , DescribeIdentityUsageResponse
@@ -54,33 +54,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diurqIdentityPoolId'
+-- * 'diuIdentityPoolId'
 --
--- * 'diurqIdentityId'
+-- * 'diuIdentityId'
 data DescribeIdentityUsage = DescribeIdentityUsage'
-    { _diurqIdentityPoolId :: !Text
-    , _diurqIdentityId     :: !Text
+    { _diuIdentityPoolId :: !Text
+    , _diuIdentityId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityUsage' smart constructor.
 describeIdentityUsage :: Text -> Text -> DescribeIdentityUsage
 describeIdentityUsage pIdentityPoolId_ pIdentityId_ =
     DescribeIdentityUsage'
-    { _diurqIdentityPoolId = pIdentityPoolId_
-    , _diurqIdentityId = pIdentityId_
+    { _diuIdentityPoolId = pIdentityPoolId_
+    , _diuIdentityId = pIdentityId_
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-diurqIdentityPoolId :: Lens' DescribeIdentityUsage Text
-diurqIdentityPoolId = lens _diurqIdentityPoolId (\ s a -> s{_diurqIdentityPoolId = a});
+diuIdentityPoolId :: Lens' DescribeIdentityUsage Text
+diuIdentityPoolId = lens _diuIdentityPoolId (\ s a -> s{_diuIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-diurqIdentityId :: Lens' DescribeIdentityUsage Text
-diurqIdentityId = lens _diurqIdentityId (\ s a -> s{_diurqIdentityId = a});
+diuIdentityId :: Lens' DescribeIdentityUsage Text
+diuIdentityId = lens _diuIdentityId (\ s a -> s{_diuIdentityId = a});
 
 instance AWSRequest DescribeIdentityUsage where
         type Sv DescribeIdentityUsage = CognitoSync
@@ -103,8 +103,8 @@ instance ToHeaders DescribeIdentityUsage where
 instance ToPath DescribeIdentityUsage where
         toPath DescribeIdentityUsage'{..}
           = mconcat
-              ["/identitypools/", toText _diurqIdentityPoolId,
-               "/identities/", toText _diurqIdentityId]
+              ["/identitypools/", toText _diuIdentityPoolId,
+               "/identities/", toText _diuIdentityId]
 
 instance ToQuery DescribeIdentityUsage where
         toQuery = const mempty

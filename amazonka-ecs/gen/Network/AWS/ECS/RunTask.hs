@@ -31,11 +31,11 @@ module Network.AWS.ECS.RunTask
     -- ** Request constructor
     , runTask
     -- ** Request lenses
-    , rtrqOverrides
-    , rtrqCluster
-    , rtrqCount
-    , rtrqStartedBy
-    , rtrqTaskDefinition
+    , rtOverrides
+    , rtCluster
+    , rtCount
+    , rtStartedBy
+    , rtTaskDefinition
 
     -- * Response
     , RunTaskResponse
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrqOverrides'
+-- * 'rtOverrides'
 --
--- * 'rtrqCluster'
+-- * 'rtCluster'
 --
--- * 'rtrqCount'
+-- * 'rtCount'
 --
--- * 'rtrqStartedBy'
+-- * 'rtStartedBy'
 --
--- * 'rtrqTaskDefinition'
+-- * 'rtTaskDefinition'
 data RunTask = RunTask'
-    { _rtrqOverrides      :: !(Maybe TaskOverride)
-    , _rtrqCluster        :: !(Maybe Text)
-    , _rtrqCount          :: !(Maybe Int)
-    , _rtrqStartedBy      :: !(Maybe Text)
-    , _rtrqTaskDefinition :: !Text
+    { _rtOverrides      :: !(Maybe TaskOverride)
+    , _rtCluster        :: !(Maybe Text)
+    , _rtCount          :: !(Maybe Int)
+    , _rtStartedBy      :: !(Maybe Text)
+    , _rtTaskDefinition :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunTask' smart constructor.
 runTask :: Text -> RunTask
 runTask pTaskDefinition_ =
     RunTask'
-    { _rtrqOverrides = Nothing
-    , _rtrqCluster = Nothing
-    , _rtrqCount = Nothing
-    , _rtrqStartedBy = Nothing
-    , _rtrqTaskDefinition = pTaskDefinition_
+    { _rtOverrides = Nothing
+    , _rtCluster = Nothing
+    , _rtCount = Nothing
+    , _rtStartedBy = Nothing
+    , _rtTaskDefinition = pTaskDefinition_
     }
 
 -- | A list of container overrides in JSON format that specify the name of a
@@ -94,21 +94,21 @@ runTask pTaskDefinition_ =
 --
 -- A total of 8192 characters are allowed for overrides. This limit
 -- includes the JSON formatting characters of the override structure.
-rtrqOverrides :: Lens' RunTask (Maybe TaskOverride)
-rtrqOverrides = lens _rtrqOverrides (\ s a -> s{_rtrqOverrides = a});
+rtOverrides :: Lens' RunTask (Maybe TaskOverride)
+rtOverrides = lens _rtOverrides (\ s a -> s{_rtOverrides = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to run your task on. If you do not specify a cluster, the
 -- default cluster is assumed..
-rtrqCluster :: Lens' RunTask (Maybe Text)
-rtrqCluster = lens _rtrqCluster (\ s a -> s{_rtrqCluster = a});
+rtCluster :: Lens' RunTask (Maybe Text)
+rtCluster = lens _rtCluster (\ s a -> s{_rtCluster = a});
 
 -- | The number of instantiations of the specified task that you would like
 -- to place on your cluster.
 --
 -- The @count@ parameter is limited to 10 tasks per call.
-rtrqCount :: Lens' RunTask (Maybe Int)
-rtrqCount = lens _rtrqCount (\ s a -> s{_rtrqCount = a});
+rtCount :: Lens' RunTask (Maybe Int)
+rtCount = lens _rtCount (\ s a -> s{_rtCount = a});
 
 -- | An optional tag specified when a task is started. For example if you
 -- automatically trigger a task to run a batch process job, you could apply
@@ -118,14 +118,14 @@ rtrqCount = lens _rtrqCount (\ s a -> s{_rtrqCount = a});
 --
 -- If a task is started by an Amazon ECS service, then the @startedBy@
 -- parameter contains the deployment ID of the service that starts it.
-rtrqStartedBy :: Lens' RunTask (Maybe Text)
-rtrqStartedBy = lens _rtrqStartedBy (\ s a -> s{_rtrqStartedBy = a});
+rtStartedBy :: Lens' RunTask (Maybe Text)
+rtStartedBy = lens _rtStartedBy (\ s a -> s{_rtStartedBy = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to run. If a @revision@
 -- is not specified, the latest @ACTIVE@ revision is used.
-rtrqTaskDefinition :: Lens' RunTask Text
-rtrqTaskDefinition = lens _rtrqTaskDefinition (\ s a -> s{_rtrqTaskDefinition = a});
+rtTaskDefinition :: Lens' RunTask Text
+rtTaskDefinition = lens _rtTaskDefinition (\ s a -> s{_rtTaskDefinition = a});
 
 instance AWSRequest RunTask where
         type Sv RunTask = ECS
@@ -152,10 +152,10 @@ instance ToHeaders RunTask where
 instance ToJSON RunTask where
         toJSON RunTask'{..}
           = object
-              ["overrides" .= _rtrqOverrides,
-               "cluster" .= _rtrqCluster, "count" .= _rtrqCount,
-               "startedBy" .= _rtrqStartedBy,
-               "taskDefinition" .= _rtrqTaskDefinition]
+              ["overrides" .= _rtOverrides,
+               "cluster" .= _rtCluster, "count" .= _rtCount,
+               "startedBy" .= _rtStartedBy,
+               "taskDefinition" .= _rtTaskDefinition]
 
 instance ToPath RunTask where
         toPath = const "/"

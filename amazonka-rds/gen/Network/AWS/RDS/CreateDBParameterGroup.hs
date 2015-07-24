@@ -49,10 +49,10 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- ** Request constructor
     , createDBParameterGroup
     -- ** Request lenses
-    , cdbpgrqTags
-    , cdbpgrqDBParameterGroupName
-    , cdbpgrqDBParameterGroupFamily
-    , cdbpgrqDescription
+    , cdbpgTags
+    , cdbpgDBParameterGroupName
+    , cdbpgDBParameterGroupFamily
+    , cdbpgDescription
 
     -- * Response
     , CreateDBParameterGroupResponse
@@ -74,33 +74,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbpgrqTags'
+-- * 'cdbpgTags'
 --
--- * 'cdbpgrqDBParameterGroupName'
+-- * 'cdbpgDBParameterGroupName'
 --
--- * 'cdbpgrqDBParameterGroupFamily'
+-- * 'cdbpgDBParameterGroupFamily'
 --
--- * 'cdbpgrqDescription'
+-- * 'cdbpgDescription'
 data CreateDBParameterGroup = CreateDBParameterGroup'
-    { _cdbpgrqTags                   :: !(Maybe [Tag])
-    , _cdbpgrqDBParameterGroupName   :: !Text
-    , _cdbpgrqDBParameterGroupFamily :: !Text
-    , _cdbpgrqDescription            :: !Text
+    { _cdbpgTags                   :: !(Maybe [Tag])
+    , _cdbpgDBParameterGroupName   :: !Text
+    , _cdbpgDBParameterGroupFamily :: !Text
+    , _cdbpgDescription            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBParameterGroup' smart constructor.
 createDBParameterGroup :: Text -> Text -> Text -> CreateDBParameterGroup
 createDBParameterGroup pDBParameterGroupName_ pDBParameterGroupFamily_ pDescription_ =
     CreateDBParameterGroup'
-    { _cdbpgrqTags = Nothing
-    , _cdbpgrqDBParameterGroupName = pDBParameterGroupName_
-    , _cdbpgrqDBParameterGroupFamily = pDBParameterGroupFamily_
-    , _cdbpgrqDescription = pDescription_
+    { _cdbpgTags = Nothing
+    , _cdbpgDBParameterGroupName = pDBParameterGroupName_
+    , _cdbpgDBParameterGroupFamily = pDBParameterGroupFamily_
+    , _cdbpgDescription = pDescription_
     }
 
 -- | FIXME: Undocumented member.
-cdbpgrqTags :: Lens' CreateDBParameterGroup [Tag]
-cdbpgrqTags = lens _cdbpgrqTags (\ s a -> s{_cdbpgrqTags = a}) . _Default;
+cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
+cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default;
 
 -- | The name of the DB parameter group.
 --
@@ -111,19 +111,19 @@ cdbpgrqTags = lens _cdbpgrqTags (\ s a -> s{_cdbpgrqTags = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- This value is stored as a lower-case string.
-cdbpgrqDBParameterGroupName :: Lens' CreateDBParameterGroup Text
-cdbpgrqDBParameterGroupName = lens _cdbpgrqDBParameterGroupName (\ s a -> s{_cdbpgrqDBParameterGroupName = a});
+cdbpgDBParameterGroupName :: Lens' CreateDBParameterGroup Text
+cdbpgDBParameterGroupName = lens _cdbpgDBParameterGroupName (\ s a -> s{_cdbpgDBParameterGroupName = a});
 
 -- | The DB parameter group family name. A DB parameter group can be
 -- associated with one and only one DB parameter group family, and can be
 -- applied only to a DB instance running a database engine and engine
 -- version compatible with that DB parameter group family.
-cdbpgrqDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
-cdbpgrqDBParameterGroupFamily = lens _cdbpgrqDBParameterGroupFamily (\ s a -> s{_cdbpgrqDBParameterGroupFamily = a});
+cdbpgDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
+cdbpgDBParameterGroupFamily = lens _cdbpgDBParameterGroupFamily (\ s a -> s{_cdbpgDBParameterGroupFamily = a});
 
 -- | The description for the DB parameter group.
-cdbpgrqDescription :: Lens' CreateDBParameterGroup Text
-cdbpgrqDescription = lens _cdbpgrqDescription (\ s a -> s{_cdbpgrqDescription = a});
+cdbpgDescription :: Lens' CreateDBParameterGroup Text
+cdbpgDescription = lens _cdbpgDescription (\ s a -> s{_cdbpgDescription = a});
 
 instance AWSRequest CreateDBParameterGroup where
         type Sv CreateDBParameterGroup = RDS
@@ -148,13 +148,11 @@ instance ToQuery CreateDBParameterGroup where
               ["Action" =:
                  ("CreateDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =:
-                 toQuery (toQueryList "Tag" <$> _cdbpgrqTags),
-               "DBParameterGroupName" =:
-                 _cdbpgrqDBParameterGroupName,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdbpgTags),
+               "DBParameterGroupName" =: _cdbpgDBParameterGroupName,
                "DBParameterGroupFamily" =:
-                 _cdbpgrqDBParameterGroupFamily,
-               "Description" =: _cdbpgrqDescription]
+                 _cdbpgDBParameterGroupFamily,
+               "Description" =: _cdbpgDescription]
 
 -- | /See:/ 'createDBParameterGroupResponse' smart constructor.
 --

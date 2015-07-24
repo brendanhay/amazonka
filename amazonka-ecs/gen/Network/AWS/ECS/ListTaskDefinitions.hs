@@ -29,11 +29,11 @@ module Network.AWS.ECS.ListTaskDefinitions
     -- ** Request constructor
     , listTaskDefinitions
     -- ** Request lenses
-    , ltdrqStatus
-    , ltdrqFamilyPrefix
-    , ltdrqNextToken
-    , ltdrqSort
-    , ltdrqMaxResults
+    , ltdStatus
+    , ltdFamilyPrefix
+    , ltdNextToken
+    , ltdSort
+    , ltdMaxResults
 
     -- * Response
     , ListTaskDefinitionsResponse
@@ -55,32 +55,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltdrqStatus'
+-- * 'ltdStatus'
 --
--- * 'ltdrqFamilyPrefix'
+-- * 'ltdFamilyPrefix'
 --
--- * 'ltdrqNextToken'
+-- * 'ltdNextToken'
 --
--- * 'ltdrqSort'
+-- * 'ltdSort'
 --
--- * 'ltdrqMaxResults'
+-- * 'ltdMaxResults'
 data ListTaskDefinitions = ListTaskDefinitions'
-    { _ltdrqStatus       :: !(Maybe TaskDefinitionStatus)
-    , _ltdrqFamilyPrefix :: !(Maybe Text)
-    , _ltdrqNextToken    :: !(Maybe Text)
-    , _ltdrqSort         :: !(Maybe SortOrder)
-    , _ltdrqMaxResults   :: !(Maybe Int)
+    { _ltdStatus       :: !(Maybe TaskDefinitionStatus)
+    , _ltdFamilyPrefix :: !(Maybe Text)
+    , _ltdNextToken    :: !(Maybe Text)
+    , _ltdSort         :: !(Maybe SortOrder)
+    , _ltdMaxResults   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitions' smart constructor.
 listTaskDefinitions :: ListTaskDefinitions
 listTaskDefinitions =
     ListTaskDefinitions'
-    { _ltdrqStatus = Nothing
-    , _ltdrqFamilyPrefix = Nothing
-    , _ltdrqNextToken = Nothing
-    , _ltdrqSort = Nothing
-    , _ltdrqMaxResults = Nothing
+    { _ltdStatus = Nothing
+    , _ltdFamilyPrefix = Nothing
+    , _ltdNextToken = Nothing
+    , _ltdSort = Nothing
+    , _ltdMaxResults = Nothing
     }
 
 -- | The task definition status that you want to filter the
@@ -89,22 +89,22 @@ listTaskDefinitions =
 -- view task definitions that are @INACTIVE@ as long as an active task or
 -- service still references them. If you paginate the resulting output, be
 -- sure to keep the @status@ value constant in each subsequent request.
-ltdrqStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
-ltdrqStatus = lens _ltdrqStatus (\ s a -> s{_ltdrqStatus = a});
+ltdStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
+ltdStatus = lens _ltdStatus (\ s a -> s{_ltdStatus = a});
 
 -- | The full family name that you want to filter the @ListTaskDefinitions@
 -- results with. Specifying a @familyPrefix@ will limit the listed task
 -- definitions to task definition revisions that belong to that family.
-ltdrqFamilyPrefix :: Lens' ListTaskDefinitions (Maybe Text)
-ltdrqFamilyPrefix = lens _ltdrqFamilyPrefix (\ s a -> s{_ltdrqFamilyPrefix = a});
+ltdFamilyPrefix :: Lens' ListTaskDefinitions (Maybe Text)
+ltdFamilyPrefix = lens _ltdFamilyPrefix (\ s a -> s{_ltdFamilyPrefix = a});
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListTaskDefinitions@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
-ltdrqNextToken :: Lens' ListTaskDefinitions (Maybe Text)
-ltdrqNextToken = lens _ltdrqNextToken (\ s a -> s{_ltdrqNextToken = a});
+ltdNextToken :: Lens' ListTaskDefinitions (Maybe Text)
+ltdNextToken = lens _ltdNextToken (\ s a -> s{_ltdNextToken = a});
 
 -- | The order in which to sort the results. Valid values are @ASC@ and
 -- @DESC@. By default (@ASC@), task definitions are listed
@@ -113,8 +113,8 @@ ltdrqNextToken = lens _ltdrqNextToken (\ s a -> s{_ltdrqNextToken = a});
 -- last. Setting this parameter to @DESC@ reverses the sort order on family
 -- name and revision so that the newest task definitions in a family are
 -- listed first.
-ltdrqSort :: Lens' ListTaskDefinitions (Maybe SortOrder)
-ltdrqSort = lens _ltdrqSort (\ s a -> s{_ltdrqSort = a});
+ltdSort :: Lens' ListTaskDefinitions (Maybe SortOrder)
+ltdSort = lens _ltdSort (\ s a -> s{_ltdSort = a});
 
 -- | The maximum number of task definition results returned by
 -- @ListTaskDefinitions@ in paginated output. When this parameter is used,
@@ -124,15 +124,15 @@ ltdrqSort = lens _ltdrqSort (\ s a -> s{_ltdrqSort = a});
 -- request with the returned @nextToken@ value. This value can be between 1
 -- and 100. If this parameter is not used, then @ListTaskDefinitions@
 -- returns up to 100 results and a @nextToken@ value if applicable.
-ltdrqMaxResults :: Lens' ListTaskDefinitions (Maybe Int)
-ltdrqMaxResults = lens _ltdrqMaxResults (\ s a -> s{_ltdrqMaxResults = a});
+ltdMaxResults :: Lens' ListTaskDefinitions (Maybe Int)
+ltdMaxResults = lens _ltdMaxResults (\ s a -> s{_ltdMaxResults = a});
 
 instance AWSPager ListTaskDefinitions where
         page rq rs
           | stop (rs ^. ltdrsNextToken) = Nothing
           | stop (rs ^. ltdrsTaskDefinitionARNs) = Nothing
           | otherwise =
-            Just $ rq & ltdrqNextToken .~ rs ^. ltdrsNextToken
+            Just $ rq & ltdNextToken .~ rs ^. ltdrsNextToken
 
 instance AWSRequest ListTaskDefinitions where
         type Sv ListTaskDefinitions = ECS
@@ -160,10 +160,10 @@ instance ToHeaders ListTaskDefinitions where
 instance ToJSON ListTaskDefinitions where
         toJSON ListTaskDefinitions'{..}
           = object
-              ["status" .= _ltdrqStatus,
-               "familyPrefix" .= _ltdrqFamilyPrefix,
-               "nextToken" .= _ltdrqNextToken, "sort" .= _ltdrqSort,
-               "maxResults" .= _ltdrqMaxResults]
+              ["status" .= _ltdStatus,
+               "familyPrefix" .= _ltdFamilyPrefix,
+               "nextToken" .= _ltdNextToken, "sort" .= _ltdSort,
+               "maxResults" .= _ltdMaxResults]
 
 instance ToPath ListTaskDefinitions where
         toPath = const "/"

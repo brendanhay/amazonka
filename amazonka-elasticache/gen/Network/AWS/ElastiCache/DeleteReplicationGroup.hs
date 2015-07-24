@@ -35,9 +35,9 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     -- ** Request constructor
     , deleteReplicationGroup
     -- ** Request lenses
-    , drgrqFinalSnapshotIdentifier
-    , drgrqRetainPrimaryCluster
-    , drgrqReplicationGroupId
+    , drgFinalSnapshotIdentifier
+    , drgRetainPrimaryCluster
+    , drgReplicationGroupId
 
     -- * Response
     , DeleteReplicationGroupResponse
@@ -59,42 +59,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drgrqFinalSnapshotIdentifier'
+-- * 'drgFinalSnapshotIdentifier'
 --
--- * 'drgrqRetainPrimaryCluster'
+-- * 'drgRetainPrimaryCluster'
 --
--- * 'drgrqReplicationGroupId'
+-- * 'drgReplicationGroupId'
 data DeleteReplicationGroup = DeleteReplicationGroup'
-    { _drgrqFinalSnapshotIdentifier :: !(Maybe Text)
-    , _drgrqRetainPrimaryCluster    :: !(Maybe Bool)
-    , _drgrqReplicationGroupId      :: !Text
+    { _drgFinalSnapshotIdentifier :: !(Maybe Text)
+    , _drgRetainPrimaryCluster    :: !(Maybe Bool)
+    , _drgReplicationGroupId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReplicationGroup' smart constructor.
 deleteReplicationGroup :: Text -> DeleteReplicationGroup
 deleteReplicationGroup pReplicationGroupId_ =
     DeleteReplicationGroup'
-    { _drgrqFinalSnapshotIdentifier = Nothing
-    , _drgrqRetainPrimaryCluster = Nothing
-    , _drgrqReplicationGroupId = pReplicationGroupId_
+    { _drgFinalSnapshotIdentifier = Nothing
+    , _drgRetainPrimaryCluster = Nothing
+    , _drgReplicationGroupId = pReplicationGroupId_
     }
 
 -- | The name of a final node group snapshot. ElastiCache creates the
 -- snapshot from the primary node in the cluster, rather than one of the
 -- replicas; this is to ensure that it captures the freshest data. After
 -- the final snapshot is taken, the cluster is immediately deleted.
-drgrqFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
-drgrqFinalSnapshotIdentifier = lens _drgrqFinalSnapshotIdentifier (\ s a -> s{_drgrqFinalSnapshotIdentifier = a});
+drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
+drgFinalSnapshotIdentifier = lens _drgFinalSnapshotIdentifier (\ s a -> s{_drgFinalSnapshotIdentifier = a});
 
 -- | If set to /true/, all of the read replicas will be deleted, but the
 -- primary node will be retained.
-drgrqRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
-drgrqRetainPrimaryCluster = lens _drgrqRetainPrimaryCluster (\ s a -> s{_drgrqRetainPrimaryCluster = a});
+drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
+drgRetainPrimaryCluster = lens _drgRetainPrimaryCluster (\ s a -> s{_drgRetainPrimaryCluster = a});
 
 -- | The identifier for the cluster to be deleted. This parameter is not case
 -- sensitive.
-drgrqReplicationGroupId :: Lens' DeleteReplicationGroup Text
-drgrqReplicationGroupId = lens _drgrqReplicationGroupId (\ s a -> s{_drgrqReplicationGroupId = a});
+drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
+drgReplicationGroupId = lens _drgReplicationGroupId (\ s a -> s{_drgReplicationGroupId = a});
 
 instance AWSRequest DeleteReplicationGroup where
         type Sv DeleteReplicationGroup = ElastiCache
@@ -120,9 +120,9 @@ instance ToQuery DeleteReplicationGroup where
                  ("DeleteReplicationGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "FinalSnapshotIdentifier" =:
-                 _drgrqFinalSnapshotIdentifier,
-               "RetainPrimaryCluster" =: _drgrqRetainPrimaryCluster,
-               "ReplicationGroupId" =: _drgrqReplicationGroupId]
+                 _drgFinalSnapshotIdentifier,
+               "RetainPrimaryCluster" =: _drgRetainPrimaryCluster,
+               "ReplicationGroupId" =: _drgReplicationGroupId]
 
 -- | /See:/ 'deleteReplicationGroupResponse' smart constructor.
 --

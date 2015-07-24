@@ -36,7 +36,7 @@ module Network.AWS.MachineLearning.DeleteBatchPrediction
     -- ** Request constructor
     , deleteBatchPrediction
     -- ** Request lenses
-    , dbprqBatchPredictionId
+    , dbpBatchPredictionId
 
     -- * Response
     , DeleteBatchPredictionResponse
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbprqBatchPredictionId'
+-- * 'dbpBatchPredictionId'
 newtype DeleteBatchPrediction = DeleteBatchPrediction'
-    { _dbprqBatchPredictionId :: Text
+    { _dbpBatchPredictionId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBatchPrediction' smart constructor.
 deleteBatchPrediction :: Text -> DeleteBatchPrediction
 deleteBatchPrediction pBatchPredictionId_ =
     DeleteBatchPrediction'
-    { _dbprqBatchPredictionId = pBatchPredictionId_
+    { _dbpBatchPredictionId = pBatchPredictionId_
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
-dbprqBatchPredictionId :: Lens' DeleteBatchPrediction Text
-dbprqBatchPredictionId = lens _dbprqBatchPredictionId (\ s a -> s{_dbprqBatchPredictionId = a});
+dbpBatchPredictionId :: Lens' DeleteBatchPrediction Text
+dbpBatchPredictionId = lens _dbpBatchPredictionId (\ s a -> s{_dbpBatchPredictionId = a});
 
 instance AWSRequest DeleteBatchPrediction where
         type Sv DeleteBatchPrediction = MachineLearning
@@ -96,7 +96,7 @@ instance ToHeaders DeleteBatchPrediction where
 instance ToJSON DeleteBatchPrediction where
         toJSON DeleteBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _dbprqBatchPredictionId]
+              ["BatchPredictionId" .= _dbpBatchPredictionId]
 
 instance ToPath DeleteBatchPrediction where
         toPath = const "/"

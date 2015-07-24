@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.ResetCache
     -- ** Request constructor
     , resetCache
     -- ** Request lenses
-    , rcrqGatewayARN
+    , rcGatewayARN
 
     -- * Response
     , ResetCacheResponse
@@ -59,21 +59,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcrqGatewayARN'
+-- * 'rcGatewayARN'
 newtype ResetCache = ResetCache'
-    { _rcrqGatewayARN :: Text
+    { _rcGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetCache' smart constructor.
 resetCache :: Text -> ResetCache
 resetCache pGatewayARN_ =
     ResetCache'
-    { _rcrqGatewayARN = pGatewayARN_
+    { _rcGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-rcrqGatewayARN :: Lens' ResetCache Text
-rcrqGatewayARN = lens _rcrqGatewayARN (\ s a -> s{_rcrqGatewayARN = a});
+rcGatewayARN :: Lens' ResetCache Text
+rcGatewayARN = lens _rcGatewayARN (\ s a -> s{_rcGatewayARN = a});
 
 instance AWSRequest ResetCache where
         type Sv ResetCache = StorageGateway
@@ -96,7 +96,7 @@ instance ToHeaders ResetCache where
 
 instance ToJSON ResetCache where
         toJSON ResetCache'{..}
-          = object ["GatewayARN" .= _rcrqGatewayARN]
+          = object ["GatewayARN" .= _rcGatewayARN]
 
 instance ToPath ResetCache where
         toPath = const "/"

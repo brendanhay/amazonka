@@ -27,10 +27,10 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- ** Request constructor
     , modifyOptionGroup
     -- ** Request lenses
-    , mogrqOptionsToInclude
-    , mogrqOptionsToRemove
-    , mogrqApplyImmediately
-    , mogrqOptionGroupName
+    , mogOptionsToInclude
+    , mogOptionsToRemove
+    , mogApplyImmediately
+    , mogOptionGroupName
 
     -- * Response
     , ModifyOptionGroupResponse
@@ -52,45 +52,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mogrqOptionsToInclude'
+-- * 'mogOptionsToInclude'
 --
--- * 'mogrqOptionsToRemove'
+-- * 'mogOptionsToRemove'
 --
--- * 'mogrqApplyImmediately'
+-- * 'mogApplyImmediately'
 --
--- * 'mogrqOptionGroupName'
+-- * 'mogOptionGroupName'
 data ModifyOptionGroup = ModifyOptionGroup'
-    { _mogrqOptionsToInclude :: !(Maybe [OptionConfiguration])
-    , _mogrqOptionsToRemove  :: !(Maybe [Text])
-    , _mogrqApplyImmediately :: !(Maybe Bool)
-    , _mogrqOptionGroupName  :: !Text
+    { _mogOptionsToInclude :: !(Maybe [OptionConfiguration])
+    , _mogOptionsToRemove  :: !(Maybe [Text])
+    , _mogApplyImmediately :: !(Maybe Bool)
+    , _mogOptionGroupName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyOptionGroup' smart constructor.
 modifyOptionGroup :: Text -> ModifyOptionGroup
 modifyOptionGroup pOptionGroupName_ =
     ModifyOptionGroup'
-    { _mogrqOptionsToInclude = Nothing
-    , _mogrqOptionsToRemove = Nothing
-    , _mogrqApplyImmediately = Nothing
-    , _mogrqOptionGroupName = pOptionGroupName_
+    { _mogOptionsToInclude = Nothing
+    , _mogOptionsToRemove = Nothing
+    , _mogApplyImmediately = Nothing
+    , _mogOptionGroupName = pOptionGroupName_
     }
 
 -- | Options in this list are added to the option group or, if already
 -- present, the specified configuration is used to update the existing
 -- configuration.
-mogrqOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
-mogrqOptionsToInclude = lens _mogrqOptionsToInclude (\ s a -> s{_mogrqOptionsToInclude = a}) . _Default;
+mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
+mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a}) . _Default;
 
 -- | Options in this list are removed from the option group.
-mogrqOptionsToRemove :: Lens' ModifyOptionGroup [Text]
-mogrqOptionsToRemove = lens _mogrqOptionsToRemove (\ s a -> s{_mogrqOptionsToRemove = a}) . _Default;
+mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
+mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a}) . _Default;
 
 -- | Indicates whether the changes should be applied immediately, or during
 -- the next maintenance window for each instance associated with the option
 -- group.
-mogrqApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
-mogrqApplyImmediately = lens _mogrqApplyImmediately (\ s a -> s{_mogrqApplyImmediately = a});
+mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
+mogApplyImmediately = lens _mogApplyImmediately (\ s a -> s{_mogApplyImmediately = a});
 
 -- | The name of the option group to be modified.
 --
@@ -98,8 +98,8 @@ mogrqApplyImmediately = lens _mogrqApplyImmediately (\ s a -> s{_mogrqApplyImmed
 -- TDE, cannot be removed from an option group, and that option group
 -- cannot be removed from a DB instance once it is associated with a DB
 -- instance
-mogrqOptionGroupName :: Lens' ModifyOptionGroup Text
-mogrqOptionGroupName = lens _mogrqOptionGroupName (\ s a -> s{_mogrqOptionGroupName = a});
+mogOptionGroupName :: Lens' ModifyOptionGroup Text
+mogOptionGroupName = lens _mogOptionGroupName (\ s a -> s{_mogOptionGroupName = a});
 
 instance AWSRequest ModifyOptionGroup where
         type Sv ModifyOptionGroup = RDS
@@ -125,12 +125,12 @@ instance ToQuery ModifyOptionGroup where
                "OptionsToInclude" =:
                  toQuery
                    (toQueryList "OptionConfiguration" <$>
-                      _mogrqOptionsToInclude),
+                      _mogOptionsToInclude),
                "OptionsToRemove" =:
                  toQuery
-                   (toQueryList "member" <$> _mogrqOptionsToRemove),
-               "ApplyImmediately" =: _mogrqApplyImmediately,
-               "OptionGroupName" =: _mogrqOptionGroupName]
+                   (toQueryList "member" <$> _mogOptionsToRemove),
+               "ApplyImmediately" =: _mogApplyImmediately,
+               "OptionGroupName" =: _mogOptionGroupName]
 
 -- | /See:/ 'modifyOptionGroupResponse' smart constructor.
 --

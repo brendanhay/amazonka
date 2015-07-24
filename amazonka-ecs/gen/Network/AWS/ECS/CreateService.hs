@@ -30,13 +30,13 @@ module Network.AWS.ECS.CreateService
     -- ** Request constructor
     , createService
     -- ** Request lenses
-    , csrqCluster
-    , csrqClientToken
-    , csrqLoadBalancers
-    , csrqRole
-    , csrqServiceName
-    , csrqTaskDefinition
-    , csrqDesiredCount
+    , cCluster
+    , cClientToken
+    , cLoadBalancers
+    , cRole
+    , cServiceName
+    , cTaskDefinition
+    , cDesiredCount
 
     -- * Response
     , CreateServiceResponse
@@ -56,83 +56,83 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrqCluster'
+-- * 'cCluster'
 --
--- * 'csrqClientToken'
+-- * 'cClientToken'
 --
--- * 'csrqLoadBalancers'
+-- * 'cLoadBalancers'
 --
--- * 'csrqRole'
+-- * 'cRole'
 --
--- * 'csrqServiceName'
+-- * 'cServiceName'
 --
--- * 'csrqTaskDefinition'
+-- * 'cTaskDefinition'
 --
--- * 'csrqDesiredCount'
+-- * 'cDesiredCount'
 data CreateService = CreateService'
-    { _csrqCluster        :: !(Maybe Text)
-    , _csrqClientToken    :: !(Maybe Text)
-    , _csrqLoadBalancers  :: !(Maybe [LoadBalancer])
-    , _csrqRole           :: !(Maybe Text)
-    , _csrqServiceName    :: !Text
-    , _csrqTaskDefinition :: !Text
-    , _csrqDesiredCount   :: !Int
+    { _cCluster        :: !(Maybe Text)
+    , _cClientToken    :: !(Maybe Text)
+    , _cLoadBalancers  :: !(Maybe [LoadBalancer])
+    , _cRole           :: !(Maybe Text)
+    , _cServiceName    :: !Text
+    , _cTaskDefinition :: !Text
+    , _cDesiredCount   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateService' smart constructor.
 createService :: Text -> Text -> Int -> CreateService
 createService pServiceName_ pTaskDefinition_ pDesiredCount_ =
     CreateService'
-    { _csrqCluster = Nothing
-    , _csrqClientToken = Nothing
-    , _csrqLoadBalancers = Nothing
-    , _csrqRole = Nothing
-    , _csrqServiceName = pServiceName_
-    , _csrqTaskDefinition = pTaskDefinition_
-    , _csrqDesiredCount = pDesiredCount_
+    { _cCluster = Nothing
+    , _cClientToken = Nothing
+    , _cLoadBalancers = Nothing
+    , _cRole = Nothing
+    , _cServiceName = pServiceName_
+    , _cTaskDefinition = pTaskDefinition_
+    , _cDesiredCount = pDesiredCount_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to run your service on. If you do not specify a cluster, the
 -- default cluster is assumed.
-csrqCluster :: Lens' CreateService (Maybe Text)
-csrqCluster = lens _csrqCluster (\ s a -> s{_csrqCluster = a});
+cCluster :: Lens' CreateService (Maybe Text)
+cCluster = lens _cCluster (\ s a -> s{_cCluster = a});
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. Up to 32 ASCII characters are allowed.
-csrqClientToken :: Lens' CreateService (Maybe Text)
-csrqClientToken = lens _csrqClientToken (\ s a -> s{_csrqClientToken = a});
+cClientToken :: Lens' CreateService (Maybe Text)
+cClientToken = lens _cClientToken (\ s a -> s{_cClientToken = a});
 
 -- | A list of load balancer objects, containing the load balancer name, the
 -- container name (as it appears in a container definition), and the
 -- container port to access from the load balancer.
-csrqLoadBalancers :: Lens' CreateService [LoadBalancer]
-csrqLoadBalancers = lens _csrqLoadBalancers (\ s a -> s{_csrqLoadBalancers = a}) . _Default;
+cLoadBalancers :: Lens' CreateService [LoadBalancer]
+cLoadBalancers = lens _cLoadBalancers (\ s a -> s{_cLoadBalancers = a}) . _Default;
 
 -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
 -- your Amazon ECS container agent to make calls to your load balancer on
 -- your behalf. This parameter is only required if you are using a load
 -- balancer with your service.
-csrqRole :: Lens' CreateService (Maybe Text)
-csrqRole = lens _csrqRole (\ s a -> s{_csrqRole = a});
+cRole :: Lens' CreateService (Maybe Text)
+cRole = lens _cRole (\ s a -> s{_cRole = a});
 
 -- | The name of your service. Up to 255 letters (uppercase and lowercase),
 -- numbers, hyphens, and underscores are allowed. Service names must be
 -- unique within a cluster, but you can have similarly named services in
 -- multiple clusters within a region or across multiple regions.
-csrqServiceName :: Lens' CreateService Text
-csrqServiceName = lens _csrqServiceName (\ s a -> s{_csrqServiceName = a});
+cServiceName :: Lens' CreateService Text
+cServiceName = lens _cServiceName (\ s a -> s{_cServiceName = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to run in your service.
 -- If a @revision@ is not specified, the latest @ACTIVE@ revision is used.
-csrqTaskDefinition :: Lens' CreateService Text
-csrqTaskDefinition = lens _csrqTaskDefinition (\ s a -> s{_csrqTaskDefinition = a});
+cTaskDefinition :: Lens' CreateService Text
+cTaskDefinition = lens _cTaskDefinition (\ s a -> s{_cTaskDefinition = a});
 
 -- | The number of instantiations of the specified task definition that you
 -- would like to place and keep running on your cluster.
-csrqDesiredCount :: Lens' CreateService Int
-csrqDesiredCount = lens _csrqDesiredCount (\ s a -> s{_csrqDesiredCount = a});
+cDesiredCount :: Lens' CreateService Int
+cDesiredCount = lens _cDesiredCount (\ s a -> s{_cDesiredCount = a});
 
 instance AWSRequest CreateService where
         type Sv CreateService = ECS
@@ -157,13 +157,12 @@ instance ToHeaders CreateService where
 instance ToJSON CreateService where
         toJSON CreateService'{..}
           = object
-              ["cluster" .= _csrqCluster,
-               "clientToken" .= _csrqClientToken,
-               "loadBalancers" .= _csrqLoadBalancers,
-               "role" .= _csrqRole,
-               "serviceName" .= _csrqServiceName,
-               "taskDefinition" .= _csrqTaskDefinition,
-               "desiredCount" .= _csrqDesiredCount]
+              ["cluster" .= _cCluster,
+               "clientToken" .= _cClientToken,
+               "loadBalancers" .= _cLoadBalancers, "role" .= _cRole,
+               "serviceName" .= _cServiceName,
+               "taskDefinition" .= _cTaskDefinition,
+               "desiredCount" .= _cDesiredCount]
 
 instance ToPath CreateService where
         toPath = const "/"

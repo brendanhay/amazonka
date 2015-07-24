@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.ListUniqueProblems
     -- ** Request constructor
     , listUniqueProblems
     -- ** Request lenses
-    , luprqNextToken
-    , luprqArn
+    , lupNextToken
+    , lupArn
 
     -- * Response
     , ListUniqueProblemsResponse
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'luprqNextToken'
+-- * 'lupNextToken'
 --
--- * 'luprqArn'
+-- * 'lupArn'
 data ListUniqueProblems = ListUniqueProblems'
-    { _luprqNextToken :: !(Maybe Text)
-    , _luprqArn       :: !Text
+    { _lupNextToken :: !(Maybe Text)
+    , _lupArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUniqueProblems' smart constructor.
 listUniqueProblems :: Text -> ListUniqueProblems
 listUniqueProblems pArn_ =
     ListUniqueProblems'
-    { _luprqNextToken = Nothing
-    , _luprqArn = pArn_
+    { _lupNextToken = Nothing
+    , _lupArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-luprqNextToken :: Lens' ListUniqueProblems (Maybe Text)
-luprqNextToken = lens _luprqNextToken (\ s a -> s{_luprqNextToken = a});
+lupNextToken :: Lens' ListUniqueProblems (Maybe Text)
+lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a});
 
 -- | The unique problems\' ARNs.
-luprqArn :: Lens' ListUniqueProblems Text
-luprqArn = lens _luprqArn (\ s a -> s{_luprqArn = a});
+lupArn :: Lens' ListUniqueProblems Text
+lupArn = lens _lupArn (\ s a -> s{_lupArn = a});
 
 instance AWSRequest ListUniqueProblems where
         type Sv ListUniqueProblems = DeviceFarm
@@ -103,7 +103,7 @@ instance ToHeaders ListUniqueProblems where
 instance ToJSON ListUniqueProblems where
         toJSON ListUniqueProblems'{..}
           = object
-              ["nextToken" .= _luprqNextToken, "arn" .= _luprqArn]
+              ["nextToken" .= _lupNextToken, "arn" .= _lupArn]
 
 instance ToPath ListUniqueProblems where
         toPath = const "/"

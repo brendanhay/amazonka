@@ -31,9 +31,9 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     -- ** Request constructor
     , setInstanceHealth
     -- ** Request lenses
-    , sihrqShouldRespectGracePeriod
-    , sihrqInstanceId
-    , sihrqHealthStatus
+    , sihShouldRespectGracePeriod
+    , sihInstanceId
+    , sihHealthStatus
 
     -- * Response
     , SetInstanceHealthResponse
@@ -50,24 +50,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sihrqShouldRespectGracePeriod'
+-- * 'sihShouldRespectGracePeriod'
 --
--- * 'sihrqInstanceId'
+-- * 'sihInstanceId'
 --
--- * 'sihrqHealthStatus'
+-- * 'sihHealthStatus'
 data SetInstanceHealth = SetInstanceHealth'
-    { _sihrqShouldRespectGracePeriod :: !(Maybe Bool)
-    , _sihrqInstanceId               :: !Text
-    , _sihrqHealthStatus             :: !Text
+    { _sihShouldRespectGracePeriod :: !(Maybe Bool)
+    , _sihInstanceId               :: !Text
+    , _sihHealthStatus             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetInstanceHealth' smart constructor.
 setInstanceHealth :: Text -> Text -> SetInstanceHealth
 setInstanceHealth pInstanceId_ pHealthStatus_ =
     SetInstanceHealth'
-    { _sihrqShouldRespectGracePeriod = Nothing
-    , _sihrqInstanceId = pInstanceId_
-    , _sihrqHealthStatus = pHealthStatus_
+    { _sihShouldRespectGracePeriod = Nothing
+    , _sihInstanceId = pInstanceId_
+    , _sihHealthStatus = pHealthStatus_
     }
 
 -- | If the Auto Scaling group of the specified instance has a
@@ -77,19 +77,19 @@ setInstanceHealth pInstanceId_ pHealthStatus_ =
 --
 -- For more information, see the @HealthCheckGracePeriod@ parameter
 -- description for CreateAutoScalingGroup.
-sihrqShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
-sihrqShouldRespectGracePeriod = lens _sihrqShouldRespectGracePeriod (\ s a -> s{_sihrqShouldRespectGracePeriod = a});
+sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
+sihShouldRespectGracePeriod = lens _sihShouldRespectGracePeriod (\ s a -> s{_sihShouldRespectGracePeriod = a});
 
 -- | The ID of the EC2 instance.
-sihrqInstanceId :: Lens' SetInstanceHealth Text
-sihrqInstanceId = lens _sihrqInstanceId (\ s a -> s{_sihrqInstanceId = a});
+sihInstanceId :: Lens' SetInstanceHealth Text
+sihInstanceId = lens _sihInstanceId (\ s a -> s{_sihInstanceId = a});
 
 -- | The health status of the instance. Set to @Healthy@ if you want the
 -- instance to remain in service. Set to @Unhealthy@ if you want the
 -- instance to be out of service. Auto Scaling will terminate and replace
 -- the unhealthy instance.
-sihrqHealthStatus :: Lens' SetInstanceHealth Text
-sihrqHealthStatus = lens _sihrqHealthStatus (\ s a -> s{_sihrqHealthStatus = a});
+sihHealthStatus :: Lens' SetInstanceHealth Text
+sihHealthStatus = lens _sihHealthStatus (\ s a -> s{_sihHealthStatus = a});
 
 instance AWSRequest SetInstanceHealth where
         type Sv SetInstanceHealth = AutoScaling
@@ -109,9 +109,9 @@ instance ToQuery SetInstanceHealth where
               ["Action" =: ("SetInstanceHealth" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "ShouldRespectGracePeriod" =:
-                 _sihrqShouldRespectGracePeriod,
-               "InstanceId" =: _sihrqInstanceId,
-               "HealthStatus" =: _sihrqHealthStatus]
+                 _sihShouldRespectGracePeriod,
+               "InstanceId" =: _sihInstanceId,
+               "HealthStatus" =: _sihHealthStatus]
 
 -- | /See:/ 'setInstanceHealthResponse' smart constructor.
 data SetInstanceHealthResponse =

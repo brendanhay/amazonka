@@ -28,8 +28,8 @@ module Network.AWS.KMS.RevokeGrant
     -- ** Request constructor
     , revokeGrant
     -- ** Request lenses
-    , rrqKeyId
-    , rrqGrantId
+    , rKeyId
+    , rGrantId
 
     -- * Response
     , RevokeGrantResponse
@@ -46,20 +46,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrqKeyId'
+-- * 'rKeyId'
 --
--- * 'rrqGrantId'
+-- * 'rGrantId'
 data RevokeGrant = RevokeGrant'
-    { _rrqKeyId   :: !Text
-    , _rrqGrantId :: !Text
+    { _rKeyId   :: !Text
+    , _rGrantId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeGrant' smart constructor.
 revokeGrant :: Text -> Text -> RevokeGrant
 revokeGrant pKeyId_ pGrantId_ =
     RevokeGrant'
-    { _rrqKeyId = pKeyId_
-    , _rrqGrantId = pGrantId_
+    { _rKeyId = pKeyId_
+    , _rGrantId = pGrantId_
     }
 
 -- | A unique identifier for the customer master key associated with the
@@ -70,12 +70,12 @@ revokeGrant pKeyId_ pGrantId_ =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-rrqKeyId :: Lens' RevokeGrant Text
-rrqKeyId = lens _rrqKeyId (\ s a -> s{_rrqKeyId = a});
+rKeyId :: Lens' RevokeGrant Text
+rKeyId = lens _rKeyId (\ s a -> s{_rKeyId = a});
 
 -- | Identifier of the grant to be revoked.
-rrqGrantId :: Lens' RevokeGrant Text
-rrqGrantId = lens _rrqGrantId (\ s a -> s{_rrqGrantId = a});
+rGrantId :: Lens' RevokeGrant Text
+rGrantId = lens _rGrantId (\ s a -> s{_rGrantId = a});
 
 instance AWSRequest RevokeGrant where
         type Sv RevokeGrant = KMS
@@ -94,8 +94,7 @@ instance ToHeaders RevokeGrant where
 
 instance ToJSON RevokeGrant where
         toJSON RevokeGrant'{..}
-          = object
-              ["KeyId" .= _rrqKeyId, "GrantId" .= _rrqGrantId]
+          = object ["KeyId" .= _rKeyId, "GrantId" .= _rGrantId]
 
 instance ToPath RevokeGrant where
         toPath = const "/"

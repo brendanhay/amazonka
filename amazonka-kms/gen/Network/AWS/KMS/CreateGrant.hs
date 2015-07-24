@@ -36,12 +36,12 @@ module Network.AWS.KMS.CreateGrant
     -- ** Request constructor
     , createGrant
     -- ** Request lenses
-    , cgrqRetiringPrincipal
-    , cgrqConstraints
-    , cgrqGrantTokens
-    , cgrqOperations
-    , cgrqKeyId
-    , cgrqGranteePrincipal
+    , cgRetiringPrincipal
+    , cgConstraints
+    , cgGrantTokens
+    , cgOperations
+    , cgKeyId
+    , cgGranteePrincipal
 
     -- * Response
     , CreateGrantResponse
@@ -62,52 +62,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cgrqRetiringPrincipal'
+-- * 'cgRetiringPrincipal'
 --
--- * 'cgrqConstraints'
+-- * 'cgConstraints'
 --
--- * 'cgrqGrantTokens'
+-- * 'cgGrantTokens'
 --
--- * 'cgrqOperations'
+-- * 'cgOperations'
 --
--- * 'cgrqKeyId'
+-- * 'cgKeyId'
 --
--- * 'cgrqGranteePrincipal'
+-- * 'cgGranteePrincipal'
 data CreateGrant = CreateGrant'
-    { _cgrqRetiringPrincipal :: !(Maybe Text)
-    , _cgrqConstraints       :: !(Maybe GrantConstraints)
-    , _cgrqGrantTokens       :: !(Maybe [Text])
-    , _cgrqOperations        :: !(Maybe [GrantOperation])
-    , _cgrqKeyId             :: !Text
-    , _cgrqGranteePrincipal  :: !Text
+    { _cgRetiringPrincipal :: !(Maybe Text)
+    , _cgConstraints       :: !(Maybe GrantConstraints)
+    , _cgGrantTokens       :: !(Maybe [Text])
+    , _cgOperations        :: !(Maybe [GrantOperation])
+    , _cgKeyId             :: !Text
+    , _cgGranteePrincipal  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGrant' smart constructor.
 createGrant :: Text -> Text -> CreateGrant
 createGrant pKeyId_ pGranteePrincipal_ =
     CreateGrant'
-    { _cgrqRetiringPrincipal = Nothing
-    , _cgrqConstraints = Nothing
-    , _cgrqGrantTokens = Nothing
-    , _cgrqOperations = Nothing
-    , _cgrqKeyId = pKeyId_
-    , _cgrqGranteePrincipal = pGranteePrincipal_
+    { _cgRetiringPrincipal = Nothing
+    , _cgConstraints = Nothing
+    , _cgGrantTokens = Nothing
+    , _cgOperations = Nothing
+    , _cgKeyId = pKeyId_
+    , _cgGranteePrincipal = pGranteePrincipal_
     }
 
 -- | Principal given permission to retire the grant. For more information,
 -- see RetireGrant.
-cgrqRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
-cgrqRetiringPrincipal = lens _cgrqRetiringPrincipal (\ s a -> s{_cgrqRetiringPrincipal = a});
+cgRetiringPrincipal :: Lens' CreateGrant (Maybe Text)
+cgRetiringPrincipal = lens _cgRetiringPrincipal (\ s a -> s{_cgRetiringPrincipal = a});
 
 -- | Specifies the conditions under which the actions specified by the
 -- @Operations@ parameter are allowed.
-cgrqConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
-cgrqConstraints = lens _cgrqConstraints (\ s a -> s{_cgrqConstraints = a});
+cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
+cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-cgrqGrantTokens :: Lens' CreateGrant [Text]
-cgrqGrantTokens = lens _cgrqGrantTokens (\ s a -> s{_cgrqGrantTokens = a}) . _Default;
+cgGrantTokens :: Lens' CreateGrant [Text]
+cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default;
 
 -- | List of operations permitted by the grant. This can be any combination
 -- of one or more of the following values:
@@ -120,8 +120,8 @@ cgrqGrantTokens = lens _cgrqGrantTokens (\ s a -> s{_cgrqGrantTokens = a}) . _De
 -- 6.  ReEncryptTo
 -- 7.  CreateGrant
 -- 8.  RetireGrant
-cgrqOperations :: Lens' CreateGrant [GrantOperation]
-cgrqOperations = lens _cgrqOperations (\ s a -> s{_cgrqOperations = a}) . _Default;
+cgOperations :: Lens' CreateGrant [GrantOperation]
+cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -130,13 +130,13 @@ cgrqOperations = lens _cgrqOperations (\ s a -> s{_cgrqOperations = a}) . _Defau
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-cgrqKeyId :: Lens' CreateGrant Text
-cgrqKeyId = lens _cgrqKeyId (\ s a -> s{_cgrqKeyId = a});
+cgKeyId :: Lens' CreateGrant Text
+cgKeyId = lens _cgKeyId (\ s a -> s{_cgKeyId = a});
 
 -- | Principal given permission by the grant to use the key identified by the
 -- @keyId@ parameter.
-cgrqGranteePrincipal :: Lens' CreateGrant Text
-cgrqGranteePrincipal = lens _cgrqGranteePrincipal (\ s a -> s{_cgrqGranteePrincipal = a});
+cgGranteePrincipal :: Lens' CreateGrant Text
+cgGranteePrincipal = lens _cgGranteePrincipal (\ s a -> s{_cgGranteePrincipal = a});
 
 instance AWSRequest CreateGrant where
         type Sv CreateGrant = KMS
@@ -161,12 +161,11 @@ instance ToHeaders CreateGrant where
 instance ToJSON CreateGrant where
         toJSON CreateGrant'{..}
           = object
-              ["RetiringPrincipal" .= _cgrqRetiringPrincipal,
-               "Constraints" .= _cgrqConstraints,
-               "GrantTokens" .= _cgrqGrantTokens,
-               "Operations" .= _cgrqOperations,
-               "KeyId" .= _cgrqKeyId,
-               "GranteePrincipal" .= _cgrqGranteePrincipal]
+              ["RetiringPrincipal" .= _cgRetiringPrincipal,
+               "Constraints" .= _cgConstraints,
+               "GrantTokens" .= _cgGrantTokens,
+               "Operations" .= _cgOperations, "KeyId" .= _cgKeyId,
+               "GranteePrincipal" .= _cgGranteePrincipal]
 
 instance ToPath CreateGrant where
         toPath = const "/"

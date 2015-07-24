@@ -28,8 +28,8 @@ module Network.AWS.EC2.DisableVGWRoutePropagation
     -- ** Request constructor
     , disableVGWRoutePropagation
     -- ** Request lenses
-    , dvrprqRouteTableId
-    , dvrprqGatewayId
+    , dvrpRouteTableId
+    , dvrpGatewayId
 
     -- * Response
     , DisableVGWRoutePropagationResponse
@@ -46,29 +46,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrprqRouteTableId'
+-- * 'dvrpRouteTableId'
 --
--- * 'dvrprqGatewayId'
+-- * 'dvrpGatewayId'
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
-    { _dvrprqRouteTableId :: !Text
-    , _dvrprqGatewayId    :: !Text
+    { _dvrpRouteTableId :: !Text
+    , _dvrpGatewayId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVGWRoutePropagation' smart constructor.
 disableVGWRoutePropagation :: Text -> Text -> DisableVGWRoutePropagation
 disableVGWRoutePropagation pRouteTableId_ pGatewayId_ =
     DisableVGWRoutePropagation'
-    { _dvrprqRouteTableId = pRouteTableId_
-    , _dvrprqGatewayId = pGatewayId_
+    { _dvrpRouteTableId = pRouteTableId_
+    , _dvrpGatewayId = pGatewayId_
     }
 
 -- | The ID of the route table.
-dvrprqRouteTableId :: Lens' DisableVGWRoutePropagation Text
-dvrprqRouteTableId = lens _dvrprqRouteTableId (\ s a -> s{_dvrprqRouteTableId = a});
+dvrpRouteTableId :: Lens' DisableVGWRoutePropagation Text
+dvrpRouteTableId = lens _dvrpRouteTableId (\ s a -> s{_dvrpRouteTableId = a});
 
 -- | The ID of the virtual private gateway.
-dvrprqGatewayId :: Lens' DisableVGWRoutePropagation Text
-dvrprqGatewayId = lens _dvrprqGatewayId (\ s a -> s{_dvrprqGatewayId = a});
+dvrpGatewayId :: Lens' DisableVGWRoutePropagation Text
+dvrpGatewayId = lens _dvrpGatewayId (\ s a -> s{_dvrpGatewayId = a});
 
 instance AWSRequest DisableVGWRoutePropagation where
         type Sv DisableVGWRoutePropagation = EC2
@@ -90,8 +90,8 @@ instance ToQuery DisableVGWRoutePropagation where
               ["Action" =:
                  ("DisableVGWRoutePropagation" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "RouteTableId" =: _dvrprqRouteTableId,
-               "GatewayId" =: _dvrprqGatewayId]
+               "RouteTableId" =: _dvrpRouteTableId,
+               "GatewayId" =: _dvrpGatewayId]
 
 -- | /See:/ 'disableVGWRoutePropagationResponse' smart constructor.
 data DisableVGWRoutePropagationResponse =

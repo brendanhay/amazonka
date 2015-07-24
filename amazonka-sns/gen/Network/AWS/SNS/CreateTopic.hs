@@ -32,7 +32,7 @@ module Network.AWS.SNS.CreateTopic
     -- ** Request constructor
     , createTopic
     -- ** Request lenses
-    , ctrqName
+    , ctName
 
     -- * Response
     , CreateTopicResponse
@@ -54,16 +54,16 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctrqName'
+-- * 'ctName'
 newtype CreateTopic = CreateTopic'
-    { _ctrqName :: Text
+    { _ctName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTopic' smart constructor.
 createTopic :: Text -> CreateTopic
 createTopic pName_ =
     CreateTopic'
-    { _ctrqName = pName_
+    { _ctName = pName_
     }
 
 -- | The name of the topic you want to create.
@@ -71,8 +71,8 @@ createTopic pName_ =
 -- Constraints: Topic names must be made up of only uppercase and lowercase
 -- ASCII letters, numbers, underscores, and hyphens, and must be between 1
 -- and 256 characters long.
-ctrqName :: Lens' CreateTopic Text
-ctrqName = lens _ctrqName (\ s a -> s{_ctrqName = a});
+ctName :: Lens' CreateTopic Text
+ctName = lens _ctName (\ s a -> s{_ctName = a});
 
 instance AWSRequest CreateTopic where
         type Sv CreateTopic = SNS
@@ -95,7 +95,7 @@ instance ToQuery CreateTopic where
           = mconcat
               ["Action" =: ("CreateTopic" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "Name" =: _ctrqName]
+               "Name" =: _ctName]
 
 -- | Response from CreateTopic action.
 --

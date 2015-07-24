@@ -27,7 +27,7 @@ module Network.AWS.IAM.GetServerCertificate
     -- ** Request constructor
     , getServerCertificate
     -- ** Request lenses
-    , gscrqServerCertificateName
+    , gscServerCertificateName
 
     -- * Response
     , GetServerCertificateResponse
@@ -47,22 +47,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gscrqServerCertificateName'
+-- * 'gscServerCertificateName'
 newtype GetServerCertificate = GetServerCertificate'
-    { _gscrqServerCertificateName :: Text
+    { _gscServerCertificateName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetServerCertificate' smart constructor.
 getServerCertificate :: Text -> GetServerCertificate
 getServerCertificate pServerCertificateName_ =
     GetServerCertificate'
-    { _gscrqServerCertificateName = pServerCertificateName_
+    { _gscServerCertificateName = pServerCertificateName_
     }
 
 -- | The name of the server certificate you want to retrieve information
 -- about.
-gscrqServerCertificateName :: Lens' GetServerCertificate Text
-gscrqServerCertificateName = lens _gscrqServerCertificateName (\ s a -> s{_gscrqServerCertificateName = a});
+gscServerCertificateName :: Lens' GetServerCertificate Text
+gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a});
 
 instance AWSRequest GetServerCertificate where
         type Sv GetServerCertificate = IAM
@@ -86,8 +86,7 @@ instance ToQuery GetServerCertificate where
           = mconcat
               ["Action" =: ("GetServerCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "ServerCertificateName" =:
-                 _gscrqServerCertificateName]
+               "ServerCertificateName" =: _gscServerCertificateName]
 
 -- | Contains the response to a successful GetServerCertificate request.
 --

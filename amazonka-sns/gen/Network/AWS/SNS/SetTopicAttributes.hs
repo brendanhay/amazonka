@@ -27,9 +27,9 @@ module Network.AWS.SNS.SetTopicAttributes
     -- ** Request constructor
     , setTopicAttributes
     -- ** Request lenses
-    , starqAttributeValue
-    , starqTopicARN
-    , starqAttributeName
+    , staAttributeValue
+    , staTopicARN
+    , staAttributeName
 
     -- * Response
     , SetTopicAttributesResponse
@@ -48,40 +48,40 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'starqAttributeValue'
+-- * 'staAttributeValue'
 --
--- * 'starqTopicARN'
+-- * 'staTopicARN'
 --
--- * 'starqAttributeName'
+-- * 'staAttributeName'
 data SetTopicAttributes = SetTopicAttributes'
-    { _starqAttributeValue :: !(Maybe Text)
-    , _starqTopicARN       :: !Text
-    , _starqAttributeName  :: !Text
+    { _staAttributeValue :: !(Maybe Text)
+    , _staTopicARN       :: !Text
+    , _staAttributeName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTopicAttributes' smart constructor.
 setTopicAttributes :: Text -> Text -> SetTopicAttributes
 setTopicAttributes pTopicARN_ pAttributeName_ =
     SetTopicAttributes'
-    { _starqAttributeValue = Nothing
-    , _starqTopicARN = pTopicARN_
-    , _starqAttributeName = pAttributeName_
+    { _staAttributeValue = Nothing
+    , _staTopicARN = pTopicARN_
+    , _staAttributeName = pAttributeName_
     }
 
 -- | The new value for the attribute.
-starqAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
-starqAttributeValue = lens _starqAttributeValue (\ s a -> s{_starqAttributeValue = a});
+staAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
+staAttributeValue = lens _staAttributeValue (\ s a -> s{_staAttributeValue = a});
 
 -- | The ARN of the topic to modify.
-starqTopicARN :: Lens' SetTopicAttributes Text
-starqTopicARN = lens _starqTopicARN (\ s a -> s{_starqTopicARN = a});
+staTopicARN :: Lens' SetTopicAttributes Text
+staTopicARN = lens _staTopicARN (\ s a -> s{_staTopicARN = a});
 
 -- | The name of the attribute you want to set. Only a subset of the topic\'s
 -- attributes are mutable.
 --
 -- Valid values: @Policy@ | @DisplayName@ | @DeliveryPolicy@
-starqAttributeName :: Lens' SetTopicAttributes Text
-starqAttributeName = lens _starqAttributeName (\ s a -> s{_starqAttributeName = a});
+staAttributeName :: Lens' SetTopicAttributes Text
+staAttributeName = lens _staAttributeName (\ s a -> s{_staAttributeName = a});
 
 instance AWSRequest SetTopicAttributes where
         type Sv SetTopicAttributes = SNS
@@ -101,9 +101,9 @@ instance ToQuery SetTopicAttributes where
           = mconcat
               ["Action" =: ("SetTopicAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "AttributeValue" =: _starqAttributeValue,
-               "TopicArn" =: _starqTopicARN,
-               "AttributeName" =: _starqAttributeName]
+               "AttributeValue" =: _staAttributeValue,
+               "TopicArn" =: _staTopicARN,
+               "AttributeName" =: _staAttributeName]
 
 -- | /See:/ 'setTopicAttributesResponse' smart constructor.
 data SetTopicAttributesResponse =

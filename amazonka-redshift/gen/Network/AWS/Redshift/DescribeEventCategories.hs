@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeEventCategories
     -- ** Request constructor
     , describeEventCategories
     -- ** Request lenses
-    , decrqSourceType
+    , decSourceType
 
     -- * Response
     , DescribeEventCategoriesResponse
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decrqSourceType'
+-- * 'decSourceType'
 newtype DescribeEventCategories = DescribeEventCategories'
-    { _decrqSourceType :: Maybe Text
+    { _decSourceType :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventCategories' smart constructor.
 describeEventCategories :: DescribeEventCategories
 describeEventCategories =
     DescribeEventCategories'
-    { _decrqSourceType = Nothing
+    { _decSourceType = Nothing
     }
 
 -- | The source type, such as cluster or parameter group, to which the
 -- described event categories apply.
 --
 -- Valid values: cluster, snapshot, parameter group, and security group.
-decrqSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decrqSourceType = lens _decrqSourceType (\ s a -> s{_decrqSourceType = a});
+decSourceType :: Lens' DescribeEventCategories (Maybe Text)
+decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
 instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = Redshift
@@ -96,7 +96,7 @@ instance ToQuery DescribeEventCategories where
               ["Action" =:
                  ("DescribeEventCategories" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "SourceType" =: _decrqSourceType]
+               "SourceType" =: _decSourceType]
 
 -- |
 --

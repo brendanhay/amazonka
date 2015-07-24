@@ -30,7 +30,7 @@ module Network.AWS.SQS.ListQueues
     -- ** Request constructor
     , listQueues
     -- ** Request lenses
-    , lqrqQueueNamePrefix
+    , lqQueueNamePrefix
 
     -- * Response
     , ListQueuesResponse
@@ -50,22 +50,22 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lqrqQueueNamePrefix'
+-- * 'lqQueueNamePrefix'
 newtype ListQueues = ListQueues'
-    { _lqrqQueueNamePrefix :: Maybe Text
+    { _lqQueueNamePrefix :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListQueues' smart constructor.
 listQueues :: ListQueues
 listQueues =
     ListQueues'
-    { _lqrqQueueNamePrefix = Nothing
+    { _lqQueueNamePrefix = Nothing
     }
 
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
-lqrqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
-lqrqQueueNamePrefix = lens _lqrqQueueNamePrefix (\ s a -> s{_lqrqQueueNamePrefix = a});
+lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
+lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a});
 
 instance AWSRequest ListQueues where
         type Sv ListQueues = SQS
@@ -89,7 +89,7 @@ instance ToQuery ListQueues where
           = mconcat
               ["Action" =: ("ListQueues" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueNamePrefix" =: _lqrqQueueNamePrefix]
+               "QueueNamePrefix" =: _lqQueueNamePrefix]
 
 -- | A list of your queues.
 --

@@ -28,8 +28,8 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- ** Request constructor
     , createApplication
     -- ** Request lenses
-    , carqDescription
-    , carqApplicationName
+    , caDescription
+    , caApplicationName
 
     -- * Response
     , ApplicationDescriptionMessage
@@ -50,33 +50,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carqDescription'
+-- * 'caDescription'
 --
--- * 'carqApplicationName'
+-- * 'caApplicationName'
 data CreateApplication = CreateApplication'
-    { _carqDescription     :: !(Maybe Text)
-    , _carqApplicationName :: !Text
+    { _caDescription     :: !(Maybe Text)
+    , _caApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
 createApplication pApplicationName_ =
     CreateApplication'
-    { _carqDescription = Nothing
-    , _carqApplicationName = pApplicationName_
+    { _caDescription = Nothing
+    , _caApplicationName = pApplicationName_
     }
 
 -- | Describes the application.
-carqDescription :: Lens' CreateApplication (Maybe Text)
-carqDescription = lens _carqDescription (\ s a -> s{_carqDescription = a});
+caDescription :: Lens' CreateApplication (Maybe Text)
+caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
 
 -- | The name of the application.
 --
 -- Constraint: This name must be unique within your account. If the
 -- specified name already exists, the action returns an
 -- @InvalidParameterValue@ error.
-carqApplicationName :: Lens' CreateApplication Text
-carqApplicationName = lens _carqApplicationName (\ s a -> s{_carqApplicationName = a});
+caApplicationName :: Lens' CreateApplication Text
+caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
 
 instance AWSRequest CreateApplication where
         type Sv CreateApplication = ElasticBeanstalk
@@ -98,5 +98,5 @@ instance ToQuery CreateApplication where
           = mconcat
               ["Action" =: ("CreateApplication" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Description" =: _carqDescription,
-               "ApplicationName" =: _carqApplicationName]
+               "Description" =: _caDescription,
+               "ApplicationName" =: _caApplicationName]

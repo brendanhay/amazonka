@@ -28,8 +28,8 @@ module Network.AWS.CodePipeline.ListActionTypes
     -- ** Request constructor
     , listActionTypes
     -- ** Request lenses
-    , latrqActionOwnerFilter
-    , latrqNextToken
+    , latActionOwnerFilter
+    , latNextToken
 
     -- * Response
     , ListActionTypesResponse
@@ -52,31 +52,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'latrqActionOwnerFilter'
+-- * 'latActionOwnerFilter'
 --
--- * 'latrqNextToken'
+-- * 'latNextToken'
 data ListActionTypes = ListActionTypes'
-    { _latrqActionOwnerFilter :: !(Maybe ActionOwner)
-    , _latrqNextToken         :: !(Maybe Text)
+    { _latActionOwnerFilter :: !(Maybe ActionOwner)
+    , _latNextToken         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListActionTypes' smart constructor.
 listActionTypes :: ListActionTypes
 listActionTypes =
     ListActionTypes'
-    { _latrqActionOwnerFilter = Nothing
-    , _latrqNextToken = Nothing
+    { _latActionOwnerFilter = Nothing
+    , _latNextToken = Nothing
     }
 
 -- | Filters the list of action types to those created by a specified entity.
-latrqActionOwnerFilter :: Lens' ListActionTypes (Maybe ActionOwner)
-latrqActionOwnerFilter = lens _latrqActionOwnerFilter (\ s a -> s{_latrqActionOwnerFilter = a});
+latActionOwnerFilter :: Lens' ListActionTypes (Maybe ActionOwner)
+latActionOwnerFilter = lens _latActionOwnerFilter (\ s a -> s{_latActionOwnerFilter = a});
 
 -- | An identifier that was returned from the previous list action types
 -- call, which can be used to return the next set of action types in the
 -- list.
-latrqNextToken :: Lens' ListActionTypes (Maybe Text)
-latrqNextToken = lens _latrqNextToken (\ s a -> s{_latrqNextToken = a});
+latNextToken :: Lens' ListActionTypes (Maybe Text)
+latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a});
 
 instance AWSRequest ListActionTypes where
         type Sv ListActionTypes = CodePipeline
@@ -102,8 +102,8 @@ instance ToHeaders ListActionTypes where
 instance ToJSON ListActionTypes where
         toJSON ListActionTypes'{..}
           = object
-              ["actionOwnerFilter" .= _latrqActionOwnerFilter,
-               "nextToken" .= _latrqNextToken]
+              ["actionOwnerFilter" .= _latActionOwnerFilter,
+               "nextToken" .= _latNextToken]
 
 instance ToPath ListActionTypes where
         toPath = const "/"

@@ -27,11 +27,11 @@ module Network.AWS.RDS.CreateOptionGroup
     -- ** Request constructor
     , createOptionGroup
     -- ** Request lenses
-    , cogrqTags
-    , cogrqOptionGroupName
-    , cogrqEngineName
-    , cogrqMajorEngineVersion
-    , cogrqOptionGroupDescription
+    , cogTags
+    , cogOptionGroupName
+    , cogEngineName
+    , cogMajorEngineVersion
+    , cogOptionGroupDescription
 
     -- * Response
     , CreateOptionGroupResponse
@@ -53,37 +53,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cogrqTags'
+-- * 'cogTags'
 --
--- * 'cogrqOptionGroupName'
+-- * 'cogOptionGroupName'
 --
--- * 'cogrqEngineName'
+-- * 'cogEngineName'
 --
--- * 'cogrqMajorEngineVersion'
+-- * 'cogMajorEngineVersion'
 --
--- * 'cogrqOptionGroupDescription'
+-- * 'cogOptionGroupDescription'
 data CreateOptionGroup = CreateOptionGroup'
-    { _cogrqTags                   :: !(Maybe [Tag])
-    , _cogrqOptionGroupName        :: !Text
-    , _cogrqEngineName             :: !Text
-    , _cogrqMajorEngineVersion     :: !Text
-    , _cogrqOptionGroupDescription :: !Text
+    { _cogTags                   :: !(Maybe [Tag])
+    , _cogOptionGroupName        :: !Text
+    , _cogEngineName             :: !Text
+    , _cogMajorEngineVersion     :: !Text
+    , _cogOptionGroupDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOptionGroup' smart constructor.
 createOptionGroup :: Text -> Text -> Text -> Text -> CreateOptionGroup
 createOptionGroup pOptionGroupName_ pEngineName_ pMajorEngineVersion_ pOptionGroupDescription_ =
     CreateOptionGroup'
-    { _cogrqTags = Nothing
-    , _cogrqOptionGroupName = pOptionGroupName_
-    , _cogrqEngineName = pEngineName_
-    , _cogrqMajorEngineVersion = pMajorEngineVersion_
-    , _cogrqOptionGroupDescription = pOptionGroupDescription_
+    { _cogTags = Nothing
+    , _cogOptionGroupName = pOptionGroupName_
+    , _cogEngineName = pEngineName_
+    , _cogMajorEngineVersion = pMajorEngineVersion_
+    , _cogOptionGroupDescription = pOptionGroupDescription_
     }
 
 -- | FIXME: Undocumented member.
-cogrqTags :: Lens' CreateOptionGroup [Tag]
-cogrqTags = lens _cogrqTags (\ s a -> s{_cogrqTags = a}) . _Default;
+cogTags :: Lens' CreateOptionGroup [Tag]
+cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default;
 
 -- | Specifies the name of the option group to be created.
 --
@@ -94,22 +94,22 @@ cogrqTags = lens _cogrqTags (\ s a -> s{_cogrqTags = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @myoptiongroup@
-cogrqOptionGroupName :: Lens' CreateOptionGroup Text
-cogrqOptionGroupName = lens _cogrqOptionGroupName (\ s a -> s{_cogrqOptionGroupName = a});
+cogOptionGroupName :: Lens' CreateOptionGroup Text
+cogOptionGroupName = lens _cogOptionGroupName (\ s a -> s{_cogOptionGroupName = a});
 
 -- | Specifies the name of the engine that this option group should be
 -- associated with.
-cogrqEngineName :: Lens' CreateOptionGroup Text
-cogrqEngineName = lens _cogrqEngineName (\ s a -> s{_cogrqEngineName = a});
+cogEngineName :: Lens' CreateOptionGroup Text
+cogEngineName = lens _cogEngineName (\ s a -> s{_cogEngineName = a});
 
 -- | Specifies the major version of the engine that this option group should
 -- be associated with.
-cogrqMajorEngineVersion :: Lens' CreateOptionGroup Text
-cogrqMajorEngineVersion = lens _cogrqMajorEngineVersion (\ s a -> s{_cogrqMajorEngineVersion = a});
+cogMajorEngineVersion :: Lens' CreateOptionGroup Text
+cogMajorEngineVersion = lens _cogMajorEngineVersion (\ s a -> s{_cogMajorEngineVersion = a});
 
 -- | The description of the option group.
-cogrqOptionGroupDescription :: Lens' CreateOptionGroup Text
-cogrqOptionGroupDescription = lens _cogrqOptionGroupDescription (\ s a -> s{_cogrqOptionGroupDescription = a});
+cogOptionGroupDescription :: Lens' CreateOptionGroup Text
+cogOptionGroupDescription = lens _cogOptionGroupDescription (\ s a -> s{_cogOptionGroupDescription = a});
 
 instance AWSRequest CreateOptionGroup where
         type Sv CreateOptionGroup = RDS
@@ -132,12 +132,12 @@ instance ToQuery CreateOptionGroup where
           = mconcat
               ["Action" =: ("CreateOptionGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cogrqTags),
-               "OptionGroupName" =: _cogrqOptionGroupName,
-               "EngineName" =: _cogrqEngineName,
-               "MajorEngineVersion" =: _cogrqMajorEngineVersion,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cogTags),
+               "OptionGroupName" =: _cogOptionGroupName,
+               "EngineName" =: _cogEngineName,
+               "MajorEngineVersion" =: _cogMajorEngineVersion,
                "OptionGroupDescription" =:
-                 _cogrqOptionGroupDescription]
+                 _cogOptionGroupDescription]
 
 -- | /See:/ 'createOptionGroupResponse' smart constructor.
 --

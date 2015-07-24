@@ -33,8 +33,8 @@ module Network.AWS.IAM.ChangePassword
     -- ** Request constructor
     , changePassword
     -- ** Request lenses
-    , cprqOldPassword
-    , cprqNewPassword
+    , cpOldPassword
+    , cpNewPassword
 
     -- * Response
     , ChangePasswordResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprqOldPassword'
+-- * 'cpOldPassword'
 --
--- * 'cprqNewPassword'
+-- * 'cpNewPassword'
 data ChangePassword = ChangePassword'
-    { _cprqOldPassword :: !(Sensitive Text)
-    , _cprqNewPassword :: !(Sensitive Text)
+    { _cpOldPassword :: !(Sensitive Text)
+    , _cpNewPassword :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangePassword' smart constructor.
 changePassword :: Text -> Text -> ChangePassword
 changePassword pOldPassword_ pNewPassword_ =
     ChangePassword'
-    { _cprqOldPassword = _Sensitive # pOldPassword_
-    , _cprqNewPassword = _Sensitive # pNewPassword_
+    { _cpOldPassword = _Sensitive # pOldPassword_
+    , _cpNewPassword = _Sensitive # pNewPassword_
     }
 
 -- | The IAM user\'s current password.
-cprqOldPassword :: Lens' ChangePassword Text
-cprqOldPassword = lens _cprqOldPassword (\ s a -> s{_cprqOldPassword = a}) . _Sensitive;
+cpOldPassword :: Lens' ChangePassword Text
+cpOldPassword = lens _cpOldPassword (\ s a -> s{_cpOldPassword = a}) . _Sensitive;
 
 -- | The new password. The new password must conform to the AWS account\'s
 -- password policy, if one exists.
-cprqNewPassword :: Lens' ChangePassword Text
-cprqNewPassword = lens _cprqNewPassword (\ s a -> s{_cprqNewPassword = a}) . _Sensitive;
+cpNewPassword :: Lens' ChangePassword Text
+cpNewPassword = lens _cpNewPassword (\ s a -> s{_cpNewPassword = a}) . _Sensitive;
 
 instance AWSRequest ChangePassword where
         type Sv ChangePassword = IAM
@@ -93,8 +93,8 @@ instance ToQuery ChangePassword where
           = mconcat
               ["Action" =: ("ChangePassword" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "OldPassword" =: _cprqOldPassword,
-               "NewPassword" =: _cprqNewPassword]
+               "OldPassword" =: _cpOldPassword,
+               "NewPassword" =: _cpNewPassword]
 
 -- | /See:/ 'changePasswordResponse' smart constructor.
 data ChangePasswordResponse =

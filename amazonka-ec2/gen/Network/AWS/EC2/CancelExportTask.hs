@@ -30,7 +30,7 @@ module Network.AWS.EC2.CancelExportTask
     -- ** Request constructor
     , cancelExportTask
     -- ** Request lenses
-    , cetrqExportTaskId
+    , cetExportTaskId
 
     -- * Response
     , CancelExportTaskResponse
@@ -47,22 +47,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cetrqExportTaskId'
+-- * 'cetExportTaskId'
 newtype CancelExportTask = CancelExportTask'
-    { _cetrqExportTaskId :: Text
+    { _cetExportTaskId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelExportTask' smart constructor.
 cancelExportTask :: Text -> CancelExportTask
 cancelExportTask pExportTaskId_ =
     CancelExportTask'
-    { _cetrqExportTaskId = pExportTaskId_
+    { _cetExportTaskId = pExportTaskId_
     }
 
 -- | The ID of the export task. This is the ID returned by
 -- @CreateInstanceExportTask@.
-cetrqExportTaskId :: Lens' CancelExportTask Text
-cetrqExportTaskId = lens _cetrqExportTaskId (\ s a -> s{_cetrqExportTaskId = a});
+cetExportTaskId :: Lens' CancelExportTask Text
+cetExportTaskId = lens _cetExportTaskId (\ s a -> s{_cetExportTaskId = a});
 
 instance AWSRequest CancelExportTask where
         type Sv CancelExportTask = EC2
@@ -81,7 +81,7 @@ instance ToQuery CancelExportTask where
           = mconcat
               ["Action" =: ("CancelExportTask" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ExportTaskId" =: _cetrqExportTaskId]
+               "ExportTaskId" =: _cetExportTaskId]
 
 -- | /See:/ 'cancelExportTaskResponse' smart constructor.
 data CancelExportTaskResponse =

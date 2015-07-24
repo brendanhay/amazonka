@@ -29,7 +29,7 @@ module Network.AWS.IAM.GetLoginProfile
     -- ** Request constructor
     , getLoginProfile
     -- ** Request lenses
-    , glprqUserName
+    , glpUserName
 
     -- * Response
     , GetLoginProfileResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'glprqUserName'
+-- * 'glpUserName'
 newtype GetLoginProfile = GetLoginProfile'
-    { _glprqUserName :: Text
+    { _glpUserName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLoginProfile' smart constructor.
 getLoginProfile :: Text -> GetLoginProfile
 getLoginProfile pUserName_ =
     GetLoginProfile'
-    { _glprqUserName = pUserName_
+    { _glpUserName = pUserName_
     }
 
 -- | The name of the user whose login profile you want to retrieve.
-glprqUserName :: Lens' GetLoginProfile Text
-glprqUserName = lens _glprqUserName (\ s a -> s{_glprqUserName = a});
+glpUserName :: Lens' GetLoginProfile Text
+glpUserName = lens _glpUserName (\ s a -> s{_glpUserName = a});
 
 instance AWSRequest GetLoginProfile where
         type Sv GetLoginProfile = IAM
@@ -86,7 +86,7 @@ instance ToQuery GetLoginProfile where
           = mconcat
               ["Action" =: ("GetLoginProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _glprqUserName]
+               "UserName" =: _glpUserName]
 
 -- | Contains the response to a successful GetLoginProfile request.
 --

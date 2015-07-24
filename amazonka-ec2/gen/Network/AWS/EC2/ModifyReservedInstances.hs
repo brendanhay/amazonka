@@ -34,9 +34,9 @@ module Network.AWS.EC2.ModifyReservedInstances
     -- ** Request constructor
     , modifyReservedInstances
     -- ** Request lenses
-    , mrirqClientToken
-    , mrirqReservedInstancesIds
-    , mrirqTargetConfigurations
+    , mriClientToken
+    , mriReservedInstancesIds
+    , mriTargetConfigurations
 
     -- * Response
     , ModifyReservedInstancesResponse
@@ -56,39 +56,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mrirqClientToken'
+-- * 'mriClientToken'
 --
--- * 'mrirqReservedInstancesIds'
+-- * 'mriReservedInstancesIds'
 --
--- * 'mrirqTargetConfigurations'
+-- * 'mriTargetConfigurations'
 data ModifyReservedInstances = ModifyReservedInstances'
-    { _mrirqClientToken          :: !(Maybe Text)
-    , _mrirqReservedInstancesIds :: ![Text]
-    , _mrirqTargetConfigurations :: ![ReservedInstancesConfiguration]
+    { _mriClientToken          :: !(Maybe Text)
+    , _mriReservedInstancesIds :: ![Text]
+    , _mriTargetConfigurations :: ![ReservedInstancesConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReservedInstances' smart constructor.
 modifyReservedInstances :: ModifyReservedInstances
 modifyReservedInstances =
     ModifyReservedInstances'
-    { _mrirqClientToken = Nothing
-    , _mrirqReservedInstancesIds = mempty
-    , _mrirqTargetConfigurations = mempty
+    { _mriClientToken = Nothing
+    , _mriReservedInstancesIds = mempty
+    , _mriTargetConfigurations = mempty
     }
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-mrirqClientToken :: Lens' ModifyReservedInstances (Maybe Text)
-mrirqClientToken = lens _mrirqClientToken (\ s a -> s{_mrirqClientToken = a});
+mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
+mriClientToken = lens _mriClientToken (\ s a -> s{_mriClientToken = a});
 
 -- | The IDs of the Reserved Instances to modify.
-mrirqReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
-mrirqReservedInstancesIds = lens _mrirqReservedInstancesIds (\ s a -> s{_mrirqReservedInstancesIds = a});
+mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
+mriReservedInstancesIds = lens _mriReservedInstancesIds (\ s a -> s{_mriReservedInstancesIds = a});
 
 -- | The configuration settings for the Reserved Instances to modify.
-mrirqTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
-mrirqTargetConfigurations = lens _mrirqTargetConfigurations (\ s a -> s{_mrirqTargetConfigurations = a});
+mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
+mriTargetConfigurations = lens _mriTargetConfigurations (\ s a -> s{_mriTargetConfigurations = a});
 
 instance AWSRequest ModifyReservedInstances where
         type Sv ModifyReservedInstances = EC2
@@ -114,10 +114,10 @@ instance ToQuery ModifyReservedInstances where
               ["Action" =:
                  ("ModifyReservedInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ClientToken" =: _mrirqClientToken,
+               "ClientToken" =: _mriClientToken,
                toQueryList "ReservedInstancesId"
-                 _mrirqReservedInstancesIds,
-               toQueryList "item" _mrirqTargetConfigurations]
+                 _mriReservedInstancesIds,
+               toQueryList "item" _mriTargetConfigurations]
 
 -- | /See:/ 'modifyReservedInstancesResponse' smart constructor.
 --

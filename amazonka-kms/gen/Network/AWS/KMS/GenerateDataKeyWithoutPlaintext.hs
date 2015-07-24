@@ -31,11 +31,11 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     -- ** Request constructor
     , generateDataKeyWithoutPlaintext
     -- ** Request lenses
-    , gdkwprqKeySpec
-    , gdkwprqEncryptionContext
-    , gdkwprqNumberOfBytes
-    , gdkwprqGrantTokens
-    , gdkwprqKeyId
+    , gdkwpKeySpec
+    , gdkwpEncryptionContext
+    , gdkwpNumberOfBytes
+    , gdkwpGrantTokens
+    , gdkwpKeyId
 
     -- * Response
     , GenerateDataKeyWithoutPlaintextResponse
@@ -56,54 +56,54 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdkwprqKeySpec'
+-- * 'gdkwpKeySpec'
 --
--- * 'gdkwprqEncryptionContext'
+-- * 'gdkwpEncryptionContext'
 --
--- * 'gdkwprqNumberOfBytes'
+-- * 'gdkwpNumberOfBytes'
 --
--- * 'gdkwprqGrantTokens'
+-- * 'gdkwpGrantTokens'
 --
--- * 'gdkwprqKeyId'
+-- * 'gdkwpKeyId'
 data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
-    { _gdkwprqKeySpec           :: !(Maybe DataKeySpec)
-    , _gdkwprqEncryptionContext :: !(Maybe (Map Text Text))
-    , _gdkwprqNumberOfBytes     :: !(Maybe Nat)
-    , _gdkwprqGrantTokens       :: !(Maybe [Text])
-    , _gdkwprqKeyId             :: !Text
+    { _gdkwpKeySpec           :: !(Maybe DataKeySpec)
+    , _gdkwpEncryptionContext :: !(Maybe (Map Text Text))
+    , _gdkwpNumberOfBytes     :: !(Maybe Nat)
+    , _gdkwpGrantTokens       :: !(Maybe [Text])
+    , _gdkwpKeyId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKeyWithoutPlaintext' smart constructor.
 generateDataKeyWithoutPlaintext :: Text -> GenerateDataKeyWithoutPlaintext
 generateDataKeyWithoutPlaintext pKeyId_ =
     GenerateDataKeyWithoutPlaintext'
-    { _gdkwprqKeySpec = Nothing
-    , _gdkwprqEncryptionContext = Nothing
-    , _gdkwprqNumberOfBytes = Nothing
-    , _gdkwprqGrantTokens = Nothing
-    , _gdkwprqKeyId = pKeyId_
+    { _gdkwpKeySpec = Nothing
+    , _gdkwpEncryptionContext = Nothing
+    , _gdkwpNumberOfBytes = Nothing
+    , _gdkwpGrantTokens = Nothing
+    , _gdkwpKeyId = pKeyId_
     }
 
 -- | Value that identifies the encryption algorithm and key size. Currently
 -- this can be AES_128 or AES_256.
-gdkwprqKeySpec :: Lens' GenerateDataKeyWithoutPlaintext (Maybe DataKeySpec)
-gdkwprqKeySpec = lens _gdkwprqKeySpec (\ s a -> s{_gdkwprqKeySpec = a});
+gdkwpKeySpec :: Lens' GenerateDataKeyWithoutPlaintext (Maybe DataKeySpec)
+gdkwpKeySpec = lens _gdkwpKeySpec (\ s a -> s{_gdkwpKeySpec = a});
 
 -- | Name:value pair that contains additional data to be authenticated during
 -- the encryption and decryption processes.
-gdkwprqEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (HashMap Text Text)
-gdkwprqEncryptionContext = lens _gdkwprqEncryptionContext (\ s a -> s{_gdkwprqEncryptionContext = a}) . _Default . _Map;
+gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (HashMap Text Text)
+gdkwpEncryptionContext = lens _gdkwpEncryptionContext (\ s a -> s{_gdkwpEncryptionContext = a}) . _Default . _Map;
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, 1024 and so on. We recommend that you use the @KeySpec@
 -- parameter instead.
-gdkwprqNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Natural)
-gdkwprqNumberOfBytes = lens _gdkwprqNumberOfBytes (\ s a -> s{_gdkwprqNumberOfBytes = a}) . mapping _Nat;
+gdkwpNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Natural)
+gdkwpNumberOfBytes = lens _gdkwpNumberOfBytes (\ s a -> s{_gdkwpNumberOfBytes = a}) . mapping _Nat;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-gdkwprqGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext [Text]
-gdkwprqGrantTokens = lens _gdkwprqGrantTokens (\ s a -> s{_gdkwprqGrantTokens = a}) . _Default;
+gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext [Text]
+gdkwpGrantTokens = lens _gdkwpGrantTokens (\ s a -> s{_gdkwpGrantTokens = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -116,8 +116,8 @@ gdkwprqGrantTokens = lens _gdkwprqGrantTokens (\ s a -> s{_gdkwprqGrantTokens = 
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-gdkwprqKeyId :: Lens' GenerateDataKeyWithoutPlaintext Text
-gdkwprqKeyId = lens _gdkwprqKeyId (\ s a -> s{_gdkwprqKeyId = a});
+gdkwpKeyId :: Lens' GenerateDataKeyWithoutPlaintext Text
+gdkwpKeyId = lens _gdkwpKeyId (\ s a -> s{_gdkwpKeyId = a});
 
 instance AWSRequest GenerateDataKeyWithoutPlaintext
          where
@@ -146,11 +146,11 @@ instance ToHeaders GenerateDataKeyWithoutPlaintext
 instance ToJSON GenerateDataKeyWithoutPlaintext where
         toJSON GenerateDataKeyWithoutPlaintext'{..}
           = object
-              ["KeySpec" .= _gdkwprqKeySpec,
-               "EncryptionContext" .= _gdkwprqEncryptionContext,
-               "NumberOfBytes" .= _gdkwprqNumberOfBytes,
-               "GrantTokens" .= _gdkwprqGrantTokens,
-               "KeyId" .= _gdkwprqKeyId]
+              ["KeySpec" .= _gdkwpKeySpec,
+               "EncryptionContext" .= _gdkwpEncryptionContext,
+               "NumberOfBytes" .= _gdkwpNumberOfBytes,
+               "GrantTokens" .= _gdkwpGrantTokens,
+               "KeyId" .= _gdkwpKeyId]
 
 instance ToPath GenerateDataKeyWithoutPlaintext where
         toPath = const "/"

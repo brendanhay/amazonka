@@ -31,8 +31,8 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- ** Request constructor
     , listSubscriptionsByTopic
     -- ** Request lenses
-    , lsbtrqNextToken
-    , lsbtrqTopicARN
+    , lsbtNextToken
+    , lsbtTopicARN
 
     -- * Response
     , ListSubscriptionsByTopicResponse
@@ -56,36 +56,36 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsbtrqNextToken'
+-- * 'lsbtNextToken'
 --
--- * 'lsbtrqTopicARN'
+-- * 'lsbtTopicARN'
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
-    { _lsbtrqNextToken :: !(Maybe Text)
-    , _lsbtrqTopicARN  :: !Text
+    { _lsbtNextToken :: !(Maybe Text)
+    , _lsbtTopicARN  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSubscriptionsByTopic' smart constructor.
 listSubscriptionsByTopic :: Text -> ListSubscriptionsByTopic
 listSubscriptionsByTopic pTopicARN_ =
     ListSubscriptionsByTopic'
-    { _lsbtrqNextToken = Nothing
-    , _lsbtrqTopicARN = pTopicARN_
+    { _lsbtNextToken = Nothing
+    , _lsbtTopicARN = pTopicARN_
     }
 
 -- | Token returned by the previous @ListSubscriptionsByTopic@ request.
-lsbtrqNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
-lsbtrqNextToken = lens _lsbtrqNextToken (\ s a -> s{_lsbtrqNextToken = a});
+lsbtNextToken :: Lens' ListSubscriptionsByTopic (Maybe Text)
+lsbtNextToken = lens _lsbtNextToken (\ s a -> s{_lsbtNextToken = a});
 
 -- | The ARN of the topic for which you wish to find subscriptions.
-lsbtrqTopicARN :: Lens' ListSubscriptionsByTopic Text
-lsbtrqTopicARN = lens _lsbtrqTopicARN (\ s a -> s{_lsbtrqTopicARN = a});
+lsbtTopicARN :: Lens' ListSubscriptionsByTopic Text
+lsbtTopicARN = lens _lsbtTopicARN (\ s a -> s{_lsbtTopicARN = a});
 
 instance AWSPager ListSubscriptionsByTopic where
         page rq rs
           | stop (rs ^. lsbtrsNextToken) = Nothing
           | stop (rs ^. lsbtrsSubscriptions) = Nothing
           | otherwise =
-            Just $ rq & lsbtrqNextToken .~ rs ^. lsbtrsNextToken
+            Just $ rq & lsbtNextToken .~ rs ^. lsbtrsNextToken
 
 instance AWSRequest ListSubscriptionsByTopic where
         type Sv ListSubscriptionsByTopic = SNS
@@ -113,8 +113,8 @@ instance ToQuery ListSubscriptionsByTopic where
               ["Action" =:
                  ("ListSubscriptionsByTopic" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _lsbtrqNextToken,
-               "TopicArn" =: _lsbtrqTopicARN]
+               "NextToken" =: _lsbtNextToken,
+               "TopicArn" =: _lsbtTopicARN]
 
 -- | Response for ListSubscriptionsByTopic action.
 --

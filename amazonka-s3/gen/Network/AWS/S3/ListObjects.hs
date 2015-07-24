@@ -29,12 +29,12 @@ module Network.AWS.S3.ListObjects
     -- ** Request constructor
     , listObjects
     -- ** Request lenses
-    , lorqPrefix
-    , lorqEncodingType
-    , lorqMarker
-    , lorqMaxKeys
-    , lorqDelimiter
-    , lorqBucket
+    , loPrefix
+    , loEncodingType
+    , loMarker
+    , loMaxKeys
+    , loDelimiter
+    , loBucket
 
     -- * Response
     , ListObjectsResponse
@@ -64,62 +64,62 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lorqPrefix'
+-- * 'loPrefix'
 --
--- * 'lorqEncodingType'
+-- * 'loEncodingType'
 --
--- * 'lorqMarker'
+-- * 'loMarker'
 --
--- * 'lorqMaxKeys'
+-- * 'loMaxKeys'
 --
--- * 'lorqDelimiter'
+-- * 'loDelimiter'
 --
--- * 'lorqBucket'
+-- * 'loBucket'
 data ListObjects = ListObjects'
-    { _lorqPrefix       :: !(Maybe Text)
-    , _lorqEncodingType :: !(Maybe EncodingType)
-    , _lorqMarker       :: !(Maybe Text)
-    , _lorqMaxKeys      :: !(Maybe Int)
-    , _lorqDelimiter    :: !(Maybe Char)
-    , _lorqBucket       :: !BucketName
+    { _loPrefix       :: !(Maybe Text)
+    , _loEncodingType :: !(Maybe EncodingType)
+    , _loMarker       :: !(Maybe Text)
+    , _loMaxKeys      :: !(Maybe Int)
+    , _loDelimiter    :: !(Maybe Char)
+    , _loBucket       :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListObjects' smart constructor.
 listObjects :: BucketName -> ListObjects
 listObjects pBucket_ =
     ListObjects'
-    { _lorqPrefix = Nothing
-    , _lorqEncodingType = Nothing
-    , _lorqMarker = Nothing
-    , _lorqMaxKeys = Nothing
-    , _lorqDelimiter = Nothing
-    , _lorqBucket = pBucket_
+    { _loPrefix = Nothing
+    , _loEncodingType = Nothing
+    , _loMarker = Nothing
+    , _loMaxKeys = Nothing
+    , _loDelimiter = Nothing
+    , _loBucket = pBucket_
     }
 
 -- | Limits the response to keys that begin with the specified prefix.
-lorqPrefix :: Lens' ListObjects (Maybe Text)
-lorqPrefix = lens _lorqPrefix (\ s a -> s{_lorqPrefix = a});
+loPrefix :: Lens' ListObjects (Maybe Text)
+loPrefix = lens _loPrefix (\ s a -> s{_loPrefix = a});
 
 -- | FIXME: Undocumented member.
-lorqEncodingType :: Lens' ListObjects (Maybe EncodingType)
-lorqEncodingType = lens _lorqEncodingType (\ s a -> s{_lorqEncodingType = a});
+loEncodingType :: Lens' ListObjects (Maybe EncodingType)
+loEncodingType = lens _loEncodingType (\ s a -> s{_loEncodingType = a});
 
 -- | Specifies the key to start with when listing objects in a bucket.
-lorqMarker :: Lens' ListObjects (Maybe Text)
-lorqMarker = lens _lorqMarker (\ s a -> s{_lorqMarker = a});
+loMarker :: Lens' ListObjects (Maybe Text)
+loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
-lorqMaxKeys :: Lens' ListObjects (Maybe Int)
-lorqMaxKeys = lens _lorqMaxKeys (\ s a -> s{_lorqMaxKeys = a});
+loMaxKeys :: Lens' ListObjects (Maybe Int)
+loMaxKeys = lens _loMaxKeys (\ s a -> s{_loMaxKeys = a});
 
 -- | A delimiter is a character you use to group keys.
-lorqDelimiter :: Lens' ListObjects (Maybe Char)
-lorqDelimiter = lens _lorqDelimiter (\ s a -> s{_lorqDelimiter = a});
+loDelimiter :: Lens' ListObjects (Maybe Char)
+loDelimiter = lens _loDelimiter (\ s a -> s{_loDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lorqBucket :: Lens' ListObjects BucketName
-lorqBucket = lens _lorqBucket (\ s a -> s{_lorqBucket = a});
+loBucket :: Lens' ListObjects BucketName
+loBucket = lens _loBucket (\ s a -> s{_loBucket = a});
 
 instance AWSPager ListObjects where
         page rq rs
@@ -131,7 +131,7 @@ instance AWSPager ListObjects where
             = Nothing
           | otherwise =
             Just $ rq &
-              lorqMarker .~
+              loMarker .~
                 rs ^.
                   choice (^. lorsNextMarker)
                     (^? (lorsContents . _last . oKey))
@@ -161,15 +161,15 @@ instance ToHeaders ListObjects where
 
 instance ToPath ListObjects where
         toPath ListObjects'{..}
-          = mconcat ["/", toText _lorqBucket]
+          = mconcat ["/", toText _loBucket]
 
 instance ToQuery ListObjects where
         toQuery ListObjects'{..}
           = mconcat
-              ["prefix" =: _lorqPrefix,
-               "encoding-type" =: _lorqEncodingType,
-               "marker" =: _lorqMarker, "max-keys" =: _lorqMaxKeys,
-               "delimiter" =: _lorqDelimiter]
+              ["prefix" =: _loPrefix,
+               "encoding-type" =: _loEncodingType,
+               "marker" =: _loMarker, "max-keys" =: _loMaxKeys,
+               "delimiter" =: _loDelimiter]
 
 -- | /See:/ 'listObjectsResponse' smart constructor.
 --

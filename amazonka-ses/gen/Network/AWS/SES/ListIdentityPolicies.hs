@@ -40,7 +40,7 @@ module Network.AWS.SES.ListIdentityPolicies
     -- ** Request constructor
     , listIdentityPolicies
     -- ** Request lenses
-    , liprqIdentity
+    , lipIdentity
 
     -- * Response
     , ListIdentityPoliciesResponse
@@ -63,16 +63,16 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liprqIdentity'
+-- * 'lipIdentity'
 newtype ListIdentityPolicies = ListIdentityPolicies'
-    { _liprqIdentity :: Text
+    { _lipIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPolicies' smart constructor.
 listIdentityPolicies :: Text -> ListIdentityPolicies
 listIdentityPolicies pIdentity_ =
     ListIdentityPolicies'
-    { _liprqIdentity = pIdentity_
+    { _lipIdentity = pIdentity_
     }
 
 -- | The identity that is associated with the policy for which the policies
@@ -82,8 +82,8 @@ listIdentityPolicies pIdentity_ =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-liprqIdentity :: Lens' ListIdentityPolicies Text
-liprqIdentity = lens _liprqIdentity (\ s a -> s{_liprqIdentity = a});
+lipIdentity :: Lens' ListIdentityPolicies Text
+lipIdentity = lens _lipIdentity (\ s a -> s{_lipIdentity = a});
 
 instance AWSRequest ListIdentityPolicies where
         type Sv ListIdentityPolicies = SES
@@ -109,7 +109,7 @@ instance ToQuery ListIdentityPolicies where
           = mconcat
               ["Action" =: ("ListIdentityPolicies" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _liprqIdentity]
+               "Identity" =: _lipIdentity]
 
 -- | Represents a list of policy names returned from a successful
 -- @ListIdentityPolicies@ request.

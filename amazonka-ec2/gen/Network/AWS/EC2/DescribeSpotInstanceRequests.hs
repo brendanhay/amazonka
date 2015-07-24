@@ -40,9 +40,9 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     -- ** Request constructor
     , describeSpotInstanceRequests
     -- ** Request lenses
-    , dsirrqFilters
-    , dsirrqSpotInstanceRequestIds
-    , dsirrqDryRun
+    , dsirFilters
+    , dsirSpotInstanceRequestIds
+    , dsirDryRun
 
     -- * Response
     , DescribeSpotInstanceRequestsResponse
@@ -64,24 +64,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsirrqFilters'
+-- * 'dsirFilters'
 --
--- * 'dsirrqSpotInstanceRequestIds'
+-- * 'dsirSpotInstanceRequestIds'
 --
--- * 'dsirrqDryRun'
+-- * 'dsirDryRun'
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
-    { _dsirrqFilters                :: !(Maybe [Filter])
-    , _dsirrqSpotInstanceRequestIds :: !(Maybe [Text])
-    , _dsirrqDryRun                 :: !(Maybe Bool)
+    { _dsirFilters                :: !(Maybe [Filter])
+    , _dsirSpotInstanceRequestIds :: !(Maybe [Text])
+    , _dsirDryRun                 :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotInstanceRequests' smart constructor.
 describeSpotInstanceRequests :: DescribeSpotInstanceRequests
 describeSpotInstanceRequests =
     DescribeSpotInstanceRequests'
-    { _dsirrqFilters = Nothing
-    , _dsirrqSpotInstanceRequestIds = Nothing
-    , _dsirrqDryRun = Nothing
+    { _dsirFilters = Nothing
+    , _dsirSpotInstanceRequestIds = Nothing
+    , _dsirDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -203,19 +203,19 @@ describeSpotInstanceRequests =
 --
 -- -   @valid-until@ - The end date of the request.
 --
-dsirrqFilters :: Lens' DescribeSpotInstanceRequests [Filter]
-dsirrqFilters = lens _dsirrqFilters (\ s a -> s{_dsirrqFilters = a}) . _Default;
+dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
+dsirFilters = lens _dsirFilters (\ s a -> s{_dsirFilters = a}) . _Default;
 
 -- | One or more Spot Instance request IDs.
-dsirrqSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
-dsirrqSpotInstanceRequestIds = lens _dsirrqSpotInstanceRequestIds (\ s a -> s{_dsirrqSpotInstanceRequestIds = a}) . _Default;
+dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
+dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirSpotInstanceRequestIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsirrqDryRun :: Lens' DescribeSpotInstanceRequests (Maybe Bool)
-dsirrqDryRun = lens _dsirrqDryRun (\ s a -> s{_dsirrqDryRun = a});
+dsirDryRun :: Lens' DescribeSpotInstanceRequests (Maybe Bool)
+dsirDryRun = lens _dsirDryRun (\ s a -> s{_dsirDryRun = a});
 
 instance AWSRequest DescribeSpotInstanceRequests
          where
@@ -243,11 +243,11 @@ instance ToQuery DescribeSpotInstanceRequests where
               ["Action" =:
                  ("DescribeSpotInstanceRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dsirrqFilters),
+               toQuery (toQueryList "Filter" <$> _dsirFilters),
                toQuery
                  (toQueryList "SpotInstanceRequestId" <$>
-                    _dsirrqSpotInstanceRequestIds),
-               "DryRun" =: _dsirrqDryRun]
+                    _dsirSpotInstanceRequestIds),
+               "DryRun" =: _dsirDryRun]
 
 -- | Contains the output of DescribeSpotInstanceRequests.
 --

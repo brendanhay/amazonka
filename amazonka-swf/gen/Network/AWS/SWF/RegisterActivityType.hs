@@ -55,16 +55,16 @@ module Network.AWS.SWF.RegisterActivityType
     -- ** Request constructor
     , registerActivityType
     -- ** Request lenses
-    , ratrqDefaultTaskScheduleToStartTimeout
-    , ratrqDefaultTaskList
-    , ratrqDefaultTaskPriority
-    , ratrqDefaultTaskHeartbeatTimeout
-    , ratrqDefaultTaskScheduleToCloseTimeout
-    , ratrqDefaultTaskStartToCloseTimeout
-    , ratrqDescription
-    , ratrqDomain
-    , ratrqName
-    , ratrqVersion
+    , ratDefaultTaskScheduleToStartTimeout
+    , ratDefaultTaskList
+    , ratDefaultTaskPriority
+    , ratDefaultTaskHeartbeatTimeout
+    , ratDefaultTaskScheduleToCloseTimeout
+    , ratDefaultTaskStartToCloseTimeout
+    , ratDescription
+    , ratDomain
+    , ratName
+    , ratVersion
 
     -- * Response
     , RegisterActivityTypeResponse
@@ -81,52 +81,52 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ratrqDefaultTaskScheduleToStartTimeout'
+-- * 'ratDefaultTaskScheduleToStartTimeout'
 --
--- * 'ratrqDefaultTaskList'
+-- * 'ratDefaultTaskList'
 --
--- * 'ratrqDefaultTaskPriority'
+-- * 'ratDefaultTaskPriority'
 --
--- * 'ratrqDefaultTaskHeartbeatTimeout'
+-- * 'ratDefaultTaskHeartbeatTimeout'
 --
--- * 'ratrqDefaultTaskScheduleToCloseTimeout'
+-- * 'ratDefaultTaskScheduleToCloseTimeout'
 --
--- * 'ratrqDefaultTaskStartToCloseTimeout'
+-- * 'ratDefaultTaskStartToCloseTimeout'
 --
--- * 'ratrqDescription'
+-- * 'ratDescription'
 --
--- * 'ratrqDomain'
+-- * 'ratDomain'
 --
--- * 'ratrqName'
+-- * 'ratName'
 --
--- * 'ratrqVersion'
+-- * 'ratVersion'
 data RegisterActivityType = RegisterActivityType'
-    { _ratrqDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
-    , _ratrqDefaultTaskList                   :: !(Maybe TaskList)
-    , _ratrqDefaultTaskPriority               :: !(Maybe Text)
-    , _ratrqDefaultTaskHeartbeatTimeout       :: !(Maybe Text)
-    , _ratrqDefaultTaskScheduleToCloseTimeout :: !(Maybe Text)
-    , _ratrqDefaultTaskStartToCloseTimeout    :: !(Maybe Text)
-    , _ratrqDescription                       :: !(Maybe Text)
-    , _ratrqDomain                            :: !Text
-    , _ratrqName                              :: !Text
-    , _ratrqVersion                           :: !Text
+    { _ratDefaultTaskScheduleToStartTimeout :: !(Maybe Text)
+    , _ratDefaultTaskList                   :: !(Maybe TaskList)
+    , _ratDefaultTaskPriority               :: !(Maybe Text)
+    , _ratDefaultTaskHeartbeatTimeout       :: !(Maybe Text)
+    , _ratDefaultTaskScheduleToCloseTimeout :: !(Maybe Text)
+    , _ratDefaultTaskStartToCloseTimeout    :: !(Maybe Text)
+    , _ratDescription                       :: !(Maybe Text)
+    , _ratDomain                            :: !Text
+    , _ratName                              :: !Text
+    , _ratVersion                           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterActivityType' smart constructor.
 registerActivityType :: Text -> Text -> Text -> RegisterActivityType
 registerActivityType pDomain_ pName_ pVersion_ =
     RegisterActivityType'
-    { _ratrqDefaultTaskScheduleToStartTimeout = Nothing
-    , _ratrqDefaultTaskList = Nothing
-    , _ratrqDefaultTaskPriority = Nothing
-    , _ratrqDefaultTaskHeartbeatTimeout = Nothing
-    , _ratrqDefaultTaskScheduleToCloseTimeout = Nothing
-    , _ratrqDefaultTaskStartToCloseTimeout = Nothing
-    , _ratrqDescription = Nothing
-    , _ratrqDomain = pDomain_
-    , _ratrqName = pName_
-    , _ratrqVersion = pVersion_
+    { _ratDefaultTaskScheduleToStartTimeout = Nothing
+    , _ratDefaultTaskList = Nothing
+    , _ratDefaultTaskPriority = Nothing
+    , _ratDefaultTaskHeartbeatTimeout = Nothing
+    , _ratDefaultTaskScheduleToCloseTimeout = Nothing
+    , _ratDefaultTaskStartToCloseTimeout = Nothing
+    , _ratDescription = Nothing
+    , _ratDomain = pDomain_
+    , _ratName = pName_
+    , _ratVersion = pVersion_
     }
 
 -- | If set, specifies the default maximum duration that a task of this
@@ -136,15 +136,15 @@ registerActivityType pDomain_ pName_ pVersion_ =
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
-ratrqDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratrqDefaultTaskScheduleToStartTimeout = lens _ratrqDefaultTaskScheduleToStartTimeout (\ s a -> s{_ratrqDefaultTaskScheduleToStartTimeout = a});
+ratDefaultTaskScheduleToStartTimeout :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskScheduleToStartTimeout = lens _ratDefaultTaskScheduleToStartTimeout (\ s a -> s{_ratDefaultTaskScheduleToStartTimeout = a});
 
 -- | If set, specifies the default task list to use for scheduling tasks of
 -- this activity type. This default task list is used if a task list is not
 -- provided when a task is scheduled through the @ScheduleActivityTask@
 -- Decision.
-ratrqDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
-ratrqDefaultTaskList = lens _ratrqDefaultTaskList (\ s a -> s{_ratrqDefaultTaskList = a});
+ratDefaultTaskList :: Lens' RegisterActivityType (Maybe TaskList)
+ratDefaultTaskList = lens _ratDefaultTaskList (\ s a -> s{_ratDefaultTaskList = a});
 
 -- | The default task priority to assign to the activity type. If not
 -- assigned, then \"0\" will be used. Valid values are integers that range
@@ -154,8 +154,8 @@ ratrqDefaultTaskList = lens _ratrqDefaultTaskList (\ s a -> s{_ratrqDefaultTaskL
 -- For more information about setting task priority, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon Simple Workflow Developer Guide/.
-ratrqDefaultTaskPriority :: Lens' RegisterActivityType (Maybe Text)
-ratrqDefaultTaskPriority = lens _ratrqDefaultTaskPriority (\ s a -> s{_ratrqDefaultTaskPriority = a});
+ratDefaultTaskPriority :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskPriority = lens _ratDefaultTaskPriority (\ s a -> s{_ratDefaultTaskPriority = a});
 
 -- | If set, specifies the default maximum time before which a worker
 -- processing a task of this type must report progress by calling
@@ -169,8 +169,8 @@ ratrqDefaultTaskPriority = lens _ratrqDefaultTaskPriority (\ s a -> s{_ratrqDefa
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
-ratrqDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratrqDefaultTaskHeartbeatTimeout = lens _ratrqDefaultTaskHeartbeatTimeout (\ s a -> s{_ratrqDefaultTaskHeartbeatTimeout = a});
+ratDefaultTaskHeartbeatTimeout :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskHeartbeatTimeout = lens _ratDefaultTaskHeartbeatTimeout (\ s a -> s{_ratDefaultTaskHeartbeatTimeout = a});
 
 -- | If set, specifies the default maximum duration for a task of this
 -- activity type. This default can be overridden when scheduling an
@@ -178,8 +178,8 @@ ratrqDefaultTaskHeartbeatTimeout = lens _ratrqDefaultTaskHeartbeatTimeout (\ s a
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
-ratrqDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratrqDefaultTaskScheduleToCloseTimeout = lens _ratrqDefaultTaskScheduleToCloseTimeout (\ s a -> s{_ratrqDefaultTaskScheduleToCloseTimeout = a});
+ratDefaultTaskScheduleToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskScheduleToCloseTimeout = lens _ratDefaultTaskScheduleToCloseTimeout (\ s a -> s{_ratDefaultTaskScheduleToCloseTimeout = a});
 
 -- | If set, specifies the default maximum duration that a worker can take to
 -- process tasks of this activity type. This default can be overridden when
@@ -187,16 +187,16 @@ ratrqDefaultTaskScheduleToCloseTimeout = lens _ratrqDefaultTaskScheduleToCloseTi
 --
 -- The duration is specified in seconds; an integer greater than or equal
 -- to 0. The value \"NONE\" can be used to specify unlimited duration.
-ratrqDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
-ratrqDefaultTaskStartToCloseTimeout = lens _ratrqDefaultTaskStartToCloseTimeout (\ s a -> s{_ratrqDefaultTaskStartToCloseTimeout = a});
+ratDefaultTaskStartToCloseTimeout :: Lens' RegisterActivityType (Maybe Text)
+ratDefaultTaskStartToCloseTimeout = lens _ratDefaultTaskStartToCloseTimeout (\ s a -> s{_ratDefaultTaskStartToCloseTimeout = a});
 
 -- | A textual description of the activity type.
-ratrqDescription :: Lens' RegisterActivityType (Maybe Text)
-ratrqDescription = lens _ratrqDescription (\ s a -> s{_ratrqDescription = a});
+ratDescription :: Lens' RegisterActivityType (Maybe Text)
+ratDescription = lens _ratDescription (\ s a -> s{_ratDescription = a});
 
 -- | The name of the domain in which this activity is to be registered.
-ratrqDomain :: Lens' RegisterActivityType Text
-ratrqDomain = lens _ratrqDomain (\ s a -> s{_ratrqDomain = a});
+ratDomain :: Lens' RegisterActivityType Text
+ratDomain = lens _ratDomain (\ s a -> s{_ratDomain = a});
 
 -- | The name of the activity type within the domain.
 --
@@ -204,8 +204,8 @@ ratrqDomain = lens _ratrqDomain (\ s a -> s{_ratrqDomain = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-ratrqName :: Lens' RegisterActivityType Text
-ratrqName = lens _ratrqName (\ s a -> s{_ratrqName = a});
+ratName :: Lens' RegisterActivityType Text
+ratName = lens _ratName (\ s a -> s{_ratName = a});
 
 -- | The version of the activity type.
 --
@@ -216,8 +216,8 @@ ratrqName = lens _ratrqName (\ s a -> s{_ratrqName = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-ratrqVersion :: Lens' RegisterActivityType Text
-ratrqVersion = lens _ratrqVersion (\ s a -> s{_ratrqVersion = a});
+ratVersion :: Lens' RegisterActivityType Text
+ratVersion = lens _ratVersion (\ s a -> s{_ratVersion = a});
 
 instance AWSRequest RegisterActivityType where
         type Sv RegisterActivityType = SWF
@@ -240,18 +240,18 @@ instance ToJSON RegisterActivityType where
         toJSON RegisterActivityType'{..}
           = object
               ["defaultTaskScheduleToStartTimeout" .=
-                 _ratrqDefaultTaskScheduleToStartTimeout,
-               "defaultTaskList" .= _ratrqDefaultTaskList,
-               "defaultTaskPriority" .= _ratrqDefaultTaskPriority,
+                 _ratDefaultTaskScheduleToStartTimeout,
+               "defaultTaskList" .= _ratDefaultTaskList,
+               "defaultTaskPriority" .= _ratDefaultTaskPriority,
                "defaultTaskHeartbeatTimeout" .=
-                 _ratrqDefaultTaskHeartbeatTimeout,
+                 _ratDefaultTaskHeartbeatTimeout,
                "defaultTaskScheduleToCloseTimeout" .=
-                 _ratrqDefaultTaskScheduleToCloseTimeout,
+                 _ratDefaultTaskScheduleToCloseTimeout,
                "defaultTaskStartToCloseTimeout" .=
-                 _ratrqDefaultTaskStartToCloseTimeout,
-               "description" .= _ratrqDescription,
-               "domain" .= _ratrqDomain, "name" .= _ratrqName,
-               "version" .= _ratrqVersion]
+                 _ratDefaultTaskStartToCloseTimeout,
+               "description" .= _ratDescription,
+               "domain" .= _ratDomain, "name" .= _ratName,
+               "version" .= _ratVersion]
 
 instance ToPath RegisterActivityType where
         toPath = const "/"

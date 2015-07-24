@@ -39,8 +39,8 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     -- ** Request constructor
     , describeVirtualInterfaces
     -- ** Request lenses
-    , dvirqConnectionId
-    , dvirqVirtualInterfaceId
+    , dviConnectionId
+    , dviVirtualInterfaceId
 
     -- * Response
     , DescribeVirtualInterfacesResponse
@@ -62,29 +62,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvirqConnectionId'
+-- * 'dviConnectionId'
 --
--- * 'dvirqVirtualInterfaceId'
+-- * 'dviVirtualInterfaceId'
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
-    { _dvirqConnectionId       :: !(Maybe Text)
-    , _dvirqVirtualInterfaceId :: !(Maybe Text)
+    { _dviConnectionId       :: !(Maybe Text)
+    , _dviVirtualInterfaceId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualInterfaces' smart constructor.
 describeVirtualInterfaces :: DescribeVirtualInterfaces
 describeVirtualInterfaces =
     DescribeVirtualInterfaces'
-    { _dvirqConnectionId = Nothing
-    , _dvirqVirtualInterfaceId = Nothing
+    { _dviConnectionId = Nothing
+    , _dviVirtualInterfaceId = Nothing
     }
 
 -- | FIXME: Undocumented member.
-dvirqConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dvirqConnectionId = lens _dvirqConnectionId (\ s a -> s{_dvirqConnectionId = a});
+dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
+dviConnectionId = lens _dviConnectionId (\ s a -> s{_dviConnectionId = a});
 
 -- | FIXME: Undocumented member.
-dvirqVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dvirqVirtualInterfaceId = lens _dvirqVirtualInterfaceId (\ s a -> s{_dvirqVirtualInterfaceId = a});
+dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
+dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a});
 
 instance AWSRequest DescribeVirtualInterfaces where
         type Sv DescribeVirtualInterfaces = DirectConnect
@@ -111,8 +111,8 @@ instance ToHeaders DescribeVirtualInterfaces where
 instance ToJSON DescribeVirtualInterfaces where
         toJSON DescribeVirtualInterfaces'{..}
           = object
-              ["connectionId" .= _dvirqConnectionId,
-               "virtualInterfaceId" .= _dvirqVirtualInterfaceId]
+              ["connectionId" .= _dviConnectionId,
+               "virtualInterfaceId" .= _dviVirtualInterfaceId]
 
 instance ToPath DescribeVirtualInterfaces where
         toPath = const "/"

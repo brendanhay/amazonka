@@ -27,8 +27,8 @@ module Network.AWS.ELB.RemoveTags
     -- ** Request constructor
     , removeTags
     -- ** Request lenses
-    , rtrqLoadBalancerNames
-    , rtrqTags
+    , rtLoadBalancerNames
+    , rtTags
 
     -- * Response
     , RemoveTagsResponse
@@ -47,30 +47,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrqLoadBalancerNames'
+-- * 'rtLoadBalancerNames'
 --
--- * 'rtrqTags'
+-- * 'rtTags'
 data RemoveTags = RemoveTags'
-    { _rtrqLoadBalancerNames :: ![Text]
-    , _rtrqTags              :: !(List1 TagKeyOnly)
+    { _rtLoadBalancerNames :: ![Text]
+    , _rtTags              :: !(List1 TagKeyOnly)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: NonEmpty TagKeyOnly -> RemoveTags
 removeTags pTags_ =
     RemoveTags'
-    { _rtrqLoadBalancerNames = mempty
-    , _rtrqTags = _List1 # pTags_
+    { _rtLoadBalancerNames = mempty
+    , _rtTags = _List1 # pTags_
     }
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
-rtrqLoadBalancerNames :: Lens' RemoveTags [Text]
-rtrqLoadBalancerNames = lens _rtrqLoadBalancerNames (\ s a -> s{_rtrqLoadBalancerNames = a});
+rtLoadBalancerNames :: Lens' RemoveTags [Text]
+rtLoadBalancerNames = lens _rtLoadBalancerNames (\ s a -> s{_rtLoadBalancerNames = a});
 
 -- | The list of tag keys to remove.
-rtrqTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
-rtrqTags = lens _rtrqTags (\ s a -> s{_rtrqTags = a}) . _List1;
+rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
+rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _List1;
 
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = ELB
@@ -93,8 +93,8 @@ instance ToQuery RemoveTags where
               ["Action" =: ("RemoveTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 toQueryList "member" _rtrqLoadBalancerNames,
-               "Tags" =: toQueryList "member" _rtrqTags]
+                 toQueryList "member" _rtLoadBalancerNames,
+               "Tags" =: toQueryList "member" _rtTags]
 
 -- | /See:/ 'removeTagsResponse' smart constructor.
 --

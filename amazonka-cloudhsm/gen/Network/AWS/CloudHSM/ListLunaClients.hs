@@ -32,7 +32,7 @@ module Network.AWS.CloudHSM.ListLunaClients
     -- ** Request constructor
     , listLunaClients
     -- ** Request lenses
-    , llcrqNextToken
+    , llcNextToken
 
     -- * Response
     , ListLunaClientsResponse
@@ -53,22 +53,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'llcrqNextToken'
+-- * 'llcNextToken'
 newtype ListLunaClients = ListLunaClients'
-    { _llcrqNextToken :: Maybe Text
+    { _llcNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLunaClients' smart constructor.
 listLunaClients :: ListLunaClients
 listLunaClients =
     ListLunaClients'
-    { _llcrqNextToken = Nothing
+    { _llcNextToken = Nothing
     }
 
 -- | The /NextToken/ value from a previous call to ListLunaClients. Pass null
 -- if this is the first call.
-llcrqNextToken :: Lens' ListLunaClients (Maybe Text)
-llcrqNextToken = lens _llcrqNextToken (\ s a -> s{_llcrqNextToken = a});
+llcNextToken :: Lens' ListLunaClients (Maybe Text)
+llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a});
 
 instance AWSRequest ListLunaClients where
         type Sv ListLunaClients = CloudHSM
@@ -93,7 +93,7 @@ instance ToHeaders ListLunaClients where
 
 instance ToJSON ListLunaClients where
         toJSON ListLunaClients'{..}
-          = object ["NextToken" .= _llcrqNextToken]
+          = object ["NextToken" .= _llcNextToken]
 
 instance ToPath ListLunaClients where
         toPath = const "/"

@@ -32,8 +32,8 @@ module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     -- ** Request constructor
     , getCredentialsForIdentity
     -- ** Request lenses
-    , gcfirqLogins
-    , gcfirqIdentityId
+    , gcfiLogins
+    , gcfiIdentityId
 
     -- * Response
     , GetCredentialsForIdentityResponse
@@ -56,30 +56,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcfirqLogins'
+-- * 'gcfiLogins'
 --
--- * 'gcfirqIdentityId'
+-- * 'gcfiIdentityId'
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
-    { _gcfirqLogins     :: !(Maybe (Map Text Text))
-    , _gcfirqIdentityId :: !Text
+    { _gcfiLogins     :: !(Maybe (Map Text Text))
+    , _gcfiIdentityId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialsForIdentity' smart constructor.
 getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
 getCredentialsForIdentity pIdentityId_ =
     GetCredentialsForIdentity'
-    { _gcfirqLogins = Nothing
-    , _gcfirqIdentityId = pIdentityId_
+    { _gcfiLogins = Nothing
+    , _gcfiIdentityId = pIdentityId_
     }
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-gcfirqLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
-gcfirqLogins = lens _gcfirqLogins (\ s a -> s{_gcfirqLogins = a}) . _Default . _Map;
+gcfiLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
+gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.
-gcfirqIdentityId :: Lens' GetCredentialsForIdentity Text
-gcfirqIdentityId = lens _gcfirqIdentityId (\ s a -> s{_gcfirqIdentityId = a});
+gcfiIdentityId :: Lens' GetCredentialsForIdentity Text
+gcfiIdentityId = lens _gcfiIdentityId (\ s a -> s{_gcfiIdentityId = a});
 
 instance AWSRequest GetCredentialsForIdentity where
         type Sv GetCredentialsForIdentity = CognitoIdentity
@@ -106,8 +106,8 @@ instance ToHeaders GetCredentialsForIdentity where
 instance ToJSON GetCredentialsForIdentity where
         toJSON GetCredentialsForIdentity'{..}
           = object
-              ["Logins" .= _gcfirqLogins,
-               "IdentityId" .= _gcfirqIdentityId]
+              ["Logins" .= _gcfiLogins,
+               "IdentityId" .= _gcfiIdentityId]
 
 instance ToPath GetCredentialsForIdentity where
         toPath = const "/"

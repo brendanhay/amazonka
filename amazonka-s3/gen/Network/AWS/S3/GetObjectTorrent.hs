@@ -27,9 +27,9 @@ module Network.AWS.S3.GetObjectTorrent
     -- ** Request constructor
     , getObjectTorrent
     -- ** Request lenses
-    , gotrqRequestPayer
-    , gotrqBucket
-    , gotrqKey
+    , gotRequestPayer
+    , gotBucket
+    , gotKey
 
     -- * Response
     , GetObjectTorrentResponse
@@ -50,37 +50,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gotrqRequestPayer'
+-- * 'gotRequestPayer'
 --
--- * 'gotrqBucket'
+-- * 'gotBucket'
 --
--- * 'gotrqKey'
+-- * 'gotKey'
 data GetObjectTorrent = GetObjectTorrent'
-    { _gotrqRequestPayer :: !(Maybe RequestPayer)
-    , _gotrqBucket       :: !BucketName
-    , _gotrqKey          :: !ObjectKey
+    { _gotRequestPayer :: !(Maybe RequestPayer)
+    , _gotBucket       :: !BucketName
+    , _gotKey          :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectTorrent' smart constructor.
 getObjectTorrent :: BucketName -> ObjectKey -> GetObjectTorrent
 getObjectTorrent pBucket_ pKey_ =
     GetObjectTorrent'
-    { _gotrqRequestPayer = Nothing
-    , _gotrqBucket = pBucket_
-    , _gotrqKey = pKey_
+    { _gotRequestPayer = Nothing
+    , _gotBucket = pBucket_
+    , _gotKey = pKey_
     }
 
 -- | FIXME: Undocumented member.
-gotrqRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
-gotrqRequestPayer = lens _gotrqRequestPayer (\ s a -> s{_gotrqRequestPayer = a});
+gotRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
+gotRequestPayer = lens _gotRequestPayer (\ s a -> s{_gotRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-gotrqBucket :: Lens' GetObjectTorrent BucketName
-gotrqBucket = lens _gotrqBucket (\ s a -> s{_gotrqBucket = a});
+gotBucket :: Lens' GetObjectTorrent BucketName
+gotBucket = lens _gotBucket (\ s a -> s{_gotBucket = a});
 
 -- | FIXME: Undocumented member.
-gotrqKey :: Lens' GetObjectTorrent ObjectKey
-gotrqKey = lens _gotrqKey (\ s a -> s{_gotrqKey = a});
+gotKey :: Lens' GetObjectTorrent ObjectKey
+gotKey = lens _gotKey (\ s a -> s{_gotKey = a});
 
 instance AWSRequest GetObjectTorrent where
         type Sv GetObjectTorrent = S3
@@ -96,13 +96,12 @@ instance AWSRequest GetObjectTorrent where
 
 instance ToHeaders GetObjectTorrent where
         toHeaders GetObjectTorrent'{..}
-          = mconcat
-              ["x-amz-request-payer" =# _gotrqRequestPayer]
+          = mconcat ["x-amz-request-payer" =# _gotRequestPayer]
 
 instance ToPath GetObjectTorrent where
         toPath GetObjectTorrent'{..}
           = mconcat
-              ["/", toText _gotrqBucket, "/", toText _gotrqKey]
+              ["/", toText _gotBucket, "/", toText _gotKey]
 
 instance ToQuery GetObjectTorrent where
         toQuery = const (mconcat ["torrent"])

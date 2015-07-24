@@ -27,8 +27,8 @@ module Network.AWS.DeviceFarm.ListUploads
     -- ** Request constructor
     , listUploads
     -- ** Request lenses
-    , lurqNextToken
-    , lurqArn
+    , luNextToken
+    , luArn
 
     -- * Response
     , ListUploadsResponse
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lurqNextToken'
+-- * 'luNextToken'
 --
--- * 'lurqArn'
+-- * 'luArn'
 data ListUploads = ListUploads'
-    { _lurqNextToken :: !(Maybe Text)
-    , _lurqArn       :: !Text
+    { _luNextToken :: !(Maybe Text)
+    , _luArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUploads' smart constructor.
 listUploads :: Text -> ListUploads
 listUploads pArn_ =
     ListUploads'
-    { _lurqNextToken = Nothing
-    , _lurqArn = pArn_
+    { _luNextToken = Nothing
+    , _luArn = pArn_
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lurqNextToken :: Lens' ListUploads (Maybe Text)
-lurqNextToken = lens _lurqNextToken (\ s a -> s{_lurqNextToken = a});
+luNextToken :: Lens' ListUploads (Maybe Text)
+luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a});
 
 -- | The uploads\' ARNs.
-lurqArn :: Lens' ListUploads Text
-lurqArn = lens _lurqArn (\ s a -> s{_lurqArn = a});
+luArn :: Lens' ListUploads Text
+luArn = lens _luArn (\ s a -> s{_luArn = a});
 
 instance AWSRequest ListUploads where
         type Sv ListUploads = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListUploads where
 instance ToJSON ListUploads where
         toJSON ListUploads'{..}
           = object
-              ["nextToken" .= _lurqNextToken, "arn" .= _lurqArn]
+              ["nextToken" .= _luNextToken, "arn" .= _luArn]
 
 instance ToPath ListUploads where
         toPath = const "/"

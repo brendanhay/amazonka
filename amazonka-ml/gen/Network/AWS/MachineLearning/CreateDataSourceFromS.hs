@@ -60,10 +60,10 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS
     -- ** Request constructor
     , createDataSourceFromS
     -- ** Request lenses
-    , cdsfsrqDataSourceName
-    , cdsfsrqComputeStatistics
-    , cdsfsrqDataSourceId
-    , cdsfsrqDataSpec
+    , cdsfsDataSourceName
+    , cdsfsComputeStatistics
+    , cdsfsDataSourceId
+    , cdsfsDataSpec
 
     -- * Response
     , CreateDataSourceFromSResponse
@@ -83,45 +83,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdsfsrqDataSourceName'
+-- * 'cdsfsDataSourceName'
 --
--- * 'cdsfsrqComputeStatistics'
+-- * 'cdsfsComputeStatistics'
 --
--- * 'cdsfsrqDataSourceId'
+-- * 'cdsfsDataSourceId'
 --
--- * 'cdsfsrqDataSpec'
+-- * 'cdsfsDataSpec'
 data CreateDataSourceFromS = CreateDataSourceFromS'
-    { _cdsfsrqDataSourceName    :: !(Maybe Text)
-    , _cdsfsrqComputeStatistics :: !(Maybe Bool)
-    , _cdsfsrqDataSourceId      :: !Text
-    , _cdsfsrqDataSpec          :: !S3DataSpec
+    { _cdsfsDataSourceName    :: !(Maybe Text)
+    , _cdsfsComputeStatistics :: !(Maybe Bool)
+    , _cdsfsDataSourceId      :: !Text
+    , _cdsfsDataSpec          :: !S3DataSpec
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromS' smart constructor.
 createDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
 createDataSourceFromS pDataSourceId_ pDataSpec_ =
     CreateDataSourceFromS'
-    { _cdsfsrqDataSourceName = Nothing
-    , _cdsfsrqComputeStatistics = Nothing
-    , _cdsfsrqDataSourceId = pDataSourceId_
-    , _cdsfsrqDataSpec = pDataSpec_
+    { _cdsfsDataSourceName = Nothing
+    , _cdsfsComputeStatistics = Nothing
+    , _cdsfsDataSourceId = pDataSourceId_
+    , _cdsfsDataSpec = pDataSpec_
     }
 
 -- | A user-supplied name or description of the @DataSource@.
-cdsfsrqDataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
-cdsfsrqDataSourceName = lens _cdsfsrqDataSourceName (\ s a -> s{_cdsfsrqDataSourceName = a});
+cdsfsDataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
+cdsfsDataSourceName = lens _cdsfsDataSourceName (\ s a -> s{_cdsfsDataSourceName = a});
 
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during an @MLModel@ training. This parameter
 -- must be set to @true@ if the @@DataSource@@ needs to be used for
 -- @MLModel@ training
-cdsfsrqComputeStatistics :: Lens' CreateDataSourceFromS (Maybe Bool)
-cdsfsrqComputeStatistics = lens _cdsfsrqComputeStatistics (\ s a -> s{_cdsfsrqComputeStatistics = a});
+cdsfsComputeStatistics :: Lens' CreateDataSourceFromS (Maybe Bool)
+cdsfsComputeStatistics = lens _cdsfsComputeStatistics (\ s a -> s{_cdsfsComputeStatistics = a});
 
 -- | A user-supplied identifier that uniquely identifies the @DataSource@.
-cdsfsrqDataSourceId :: Lens' CreateDataSourceFromS Text
-cdsfsrqDataSourceId = lens _cdsfsrqDataSourceId (\ s a -> s{_cdsfsrqDataSourceId = a});
+cdsfsDataSourceId :: Lens' CreateDataSourceFromS Text
+cdsfsDataSourceId = lens _cdsfsDataSourceId (\ s a -> s{_cdsfsDataSourceId = a});
 
 -- | The data specification of a @DataSource@:
 --
@@ -139,8 +139,8 @@ cdsfsrqDataSourceId = lens _cdsfsrqDataSourceId (\ s a -> s{_cdsfsrqDataSourceId
 --     Sample -
 --     @ \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"@
 --
-cdsfsrqDataSpec :: Lens' CreateDataSourceFromS S3DataSpec
-cdsfsrqDataSpec = lens _cdsfsrqDataSpec (\ s a -> s{_cdsfsrqDataSpec = a});
+cdsfsDataSpec :: Lens' CreateDataSourceFromS S3DataSpec
+cdsfsDataSpec = lens _cdsfsDataSpec (\ s a -> s{_cdsfsDataSpec = a});
 
 instance AWSRequest CreateDataSourceFromS where
         type Sv CreateDataSourceFromS = MachineLearning
@@ -166,10 +166,10 @@ instance ToHeaders CreateDataSourceFromS where
 instance ToJSON CreateDataSourceFromS where
         toJSON CreateDataSourceFromS'{..}
           = object
-              ["DataSourceName" .= _cdsfsrqDataSourceName,
-               "ComputeStatistics" .= _cdsfsrqComputeStatistics,
-               "DataSourceId" .= _cdsfsrqDataSourceId,
-               "DataSpec" .= _cdsfsrqDataSpec]
+              ["DataSourceName" .= _cdsfsDataSourceName,
+               "ComputeStatistics" .= _cdsfsComputeStatistics,
+               "DataSourceId" .= _cdsfsDataSourceId,
+               "DataSpec" .= _cdsfsDataSpec]
 
 instance ToPath CreateDataSourceFromS where
         toPath = const "/"

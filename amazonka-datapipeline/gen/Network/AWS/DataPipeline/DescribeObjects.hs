@@ -29,10 +29,10 @@ module Network.AWS.DataPipeline.DescribeObjects
     -- ** Request constructor
     , describeObjects
     -- ** Request lenses
-    , dorqEvaluateExpressions
-    , dorqMarker
-    , dorqPipelineId
-    , dorqObjectIds
+    , doEvaluateExpressions
+    , doMarker
+    , doPipelineId
+    , doObjectIds
 
     -- * Response
     , DescribeObjectsResponse
@@ -57,58 +57,58 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dorqEvaluateExpressions'
+-- * 'doEvaluateExpressions'
 --
--- * 'dorqMarker'
+-- * 'doMarker'
 --
--- * 'dorqPipelineId'
+-- * 'doPipelineId'
 --
--- * 'dorqObjectIds'
+-- * 'doObjectIds'
 data DescribeObjects = DescribeObjects'
-    { _dorqEvaluateExpressions :: !(Maybe Bool)
-    , _dorqMarker              :: !(Maybe Text)
-    , _dorqPipelineId          :: !Text
-    , _dorqObjectIds           :: ![Text]
+    { _doEvaluateExpressions :: !(Maybe Bool)
+    , _doMarker              :: !(Maybe Text)
+    , _doPipelineId          :: !Text
+    , _doObjectIds           :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeObjects' smart constructor.
 describeObjects :: Text -> DescribeObjects
 describeObjects pPipelineId_ =
     DescribeObjects'
-    { _dorqEvaluateExpressions = Nothing
-    , _dorqMarker = Nothing
-    , _dorqPipelineId = pPipelineId_
-    , _dorqObjectIds = mempty
+    { _doEvaluateExpressions = Nothing
+    , _doMarker = Nothing
+    , _doPipelineId = pPipelineId_
+    , _doObjectIds = mempty
     }
 
 -- | Indicates whether any expressions in the object should be evaluated when
 -- the object descriptions are returned.
-dorqEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
-dorqEvaluateExpressions = lens _dorqEvaluateExpressions (\ s a -> s{_dorqEvaluateExpressions = a});
+doEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
+doEvaluateExpressions = lens _doEvaluateExpressions (\ s a -> s{_doEvaluateExpressions = a});
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @DescribeObjects@ with the marker value from the previous call
 -- to retrieve the next set of results.
-dorqMarker :: Lens' DescribeObjects (Maybe Text)
-dorqMarker = lens _dorqMarker (\ s a -> s{_dorqMarker = a});
+doMarker :: Lens' DescribeObjects (Maybe Text)
+doMarker = lens _doMarker (\ s a -> s{_doMarker = a});
 
 -- | The ID of the pipeline that contains the object definitions.
-dorqPipelineId :: Lens' DescribeObjects Text
-dorqPipelineId = lens _dorqPipelineId (\ s a -> s{_dorqPipelineId = a});
+doPipelineId :: Lens' DescribeObjects Text
+doPipelineId = lens _doPipelineId (\ s a -> s{_doPipelineId = a});
 
 -- | The IDs of the pipeline objects that contain the definitions to be
 -- described. You can pass as many as 25 identifiers in a single call to
 -- @DescribeObjects@.
-dorqObjectIds :: Lens' DescribeObjects [Text]
-dorqObjectIds = lens _dorqObjectIds (\ s a -> s{_dorqObjectIds = a});
+doObjectIds :: Lens' DescribeObjects [Text]
+doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a});
 
 instance AWSPager DescribeObjects where
         page rq rs
           | stop (rs ^. dorsHasMoreResults) = Nothing
           | isNothing (rs ^. dorsMarker) = Nothing
           | otherwise =
-            Just $ rq & dorqMarker .~ rs ^. dorsMarker
+            Just $ rq & doMarker .~ rs ^. dorsMarker
 
 instance AWSRequest DescribeObjects where
         type Sv DescribeObjects = DataPipeline
@@ -134,10 +134,9 @@ instance ToHeaders DescribeObjects where
 instance ToJSON DescribeObjects where
         toJSON DescribeObjects'{..}
           = object
-              ["evaluateExpressions" .= _dorqEvaluateExpressions,
-               "marker" .= _dorqMarker,
-               "pipelineId" .= _dorqPipelineId,
-               "objectIds" .= _dorqObjectIds]
+              ["evaluateExpressions" .= _doEvaluateExpressions,
+               "marker" .= _doMarker, "pipelineId" .= _doPipelineId,
+               "objectIds" .= _doObjectIds]
 
 instance ToPath DescribeObjects where
         toPath = const "/"

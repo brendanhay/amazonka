@@ -29,8 +29,8 @@ module Network.AWS.DirectoryService.CreateSnapshot
     -- ** Request constructor
     , createSnapshot
     -- ** Request lenses
-    , csrqName
-    , csrqDirectoryId
+    , csName
+    , csDirectoryId
 
     -- * Response
     , CreateSnapshotResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrqName'
+-- * 'csName'
 --
--- * 'csrqDirectoryId'
+-- * 'csDirectoryId'
 data CreateSnapshot = CreateSnapshot'
-    { _csrqName        :: !(Maybe Text)
-    , _csrqDirectoryId :: !Text
+    { _csName        :: !(Maybe Text)
+    , _csDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
 createSnapshot pDirectoryId_ =
     CreateSnapshot'
-    { _csrqName = Nothing
-    , _csrqDirectoryId = pDirectoryId_
+    { _csName = Nothing
+    , _csDirectoryId = pDirectoryId_
     }
 
 -- | The descriptive name to apply to the snapshot.
-csrqName :: Lens' CreateSnapshot (Maybe Text)
-csrqName = lens _csrqName (\ s a -> s{_csrqName = a});
+csName :: Lens' CreateSnapshot (Maybe Text)
+csName = lens _csName (\ s a -> s{_csName = a});
 
 -- | The identifier of the directory to take a snapshot of.
-csrqDirectoryId :: Lens' CreateSnapshot Text
-csrqDirectoryId = lens _csrqDirectoryId (\ s a -> s{_csrqDirectoryId = a});
+csDirectoryId :: Lens' CreateSnapshot Text
+csDirectoryId = lens _csDirectoryId (\ s a -> s{_csDirectoryId = a});
 
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = DirectoryService
@@ -99,8 +99,7 @@ instance ToHeaders CreateSnapshot where
 instance ToJSON CreateSnapshot where
         toJSON CreateSnapshot'{..}
           = object
-              ["Name" .= _csrqName,
-               "DirectoryId" .= _csrqDirectoryId]
+              ["Name" .= _csName, "DirectoryId" .= _csDirectoryId]
 
 instance ToPath CreateSnapshot where
         toPath = const "/"

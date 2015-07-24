@@ -27,31 +27,31 @@ module Network.AWS.S3.PutObject
     -- ** Request constructor
     , putObject
     -- ** Request lenses
-    , porqContentLength
-    , porqExpires
-    , porqSSECustomerAlgorithm
-    , porqGrantReadACP
-    , porqSSECustomerKey
-    , porqRequestPayer
-    , porqGrantWriteACP
-    , porqWebsiteRedirectLocation
-    , porqGrantRead
-    , porqStorageClass
-    , porqContentEncoding
-    , porqSSEKMSKeyId
-    , porqGrantFullControl
-    , porqSSECustomerKeyMD5
-    , porqMetadata
-    , porqContentMD5
-    , porqCacheControl
-    , porqContentLanguage
-    , porqACL
-    , porqContentDisposition
-    , porqServerSideEncryption
-    , porqContentType
-    , porqBucket
-    , porqKey
-    , porqBody
+    , poContentLength
+    , poExpires
+    , poSSECustomerAlgorithm
+    , poGrantReadACP
+    , poSSECustomerKey
+    , poRequestPayer
+    , poGrantWriteACP
+    , poWebsiteRedirectLocation
+    , poGrantRead
+    , poStorageClass
+    , poContentEncoding
+    , poSSEKMSKeyId
+    , poGrantFullControl
+    , poSSECustomerKeyMD5
+    , poMetadata
+    , poContentMD5
+    , poCacheControl
+    , poContentLanguage
+    , poACL
+    , poContentDisposition
+    , poServerSideEncryption
+    , poContentType
+    , poBucket
+    , poKey
+    , poBody
 
     -- * Response
     , PutObjectResponse
@@ -78,231 +78,231 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'porqContentLength'
+-- * 'poContentLength'
 --
--- * 'porqExpires'
+-- * 'poExpires'
 --
--- * 'porqSSECustomerAlgorithm'
+-- * 'poSSECustomerAlgorithm'
 --
--- * 'porqGrantReadACP'
+-- * 'poGrantReadACP'
 --
--- * 'porqSSECustomerKey'
+-- * 'poSSECustomerKey'
 --
--- * 'porqRequestPayer'
+-- * 'poRequestPayer'
 --
--- * 'porqGrantWriteACP'
+-- * 'poGrantWriteACP'
 --
--- * 'porqWebsiteRedirectLocation'
+-- * 'poWebsiteRedirectLocation'
 --
--- * 'porqGrantRead'
+-- * 'poGrantRead'
 --
--- * 'porqStorageClass'
+-- * 'poStorageClass'
 --
--- * 'porqContentEncoding'
+-- * 'poContentEncoding'
 --
--- * 'porqSSEKMSKeyId'
+-- * 'poSSEKMSKeyId'
 --
--- * 'porqGrantFullControl'
+-- * 'poGrantFullControl'
 --
--- * 'porqSSECustomerKeyMD5'
+-- * 'poSSECustomerKeyMD5'
 --
--- * 'porqMetadata'
+-- * 'poMetadata'
 --
--- * 'porqContentMD5'
+-- * 'poContentMD5'
 --
--- * 'porqCacheControl'
+-- * 'poCacheControl'
 --
--- * 'porqContentLanguage'
+-- * 'poContentLanguage'
 --
--- * 'porqACL'
+-- * 'poACL'
 --
--- * 'porqContentDisposition'
+-- * 'poContentDisposition'
 --
--- * 'porqServerSideEncryption'
+-- * 'poServerSideEncryption'
 --
--- * 'porqContentType'
+-- * 'poContentType'
 --
--- * 'porqBucket'
+-- * 'poBucket'
 --
--- * 'porqKey'
+-- * 'poKey'
 --
--- * 'porqBody'
+-- * 'poBody'
 data PutObject = PutObject'
-    { _porqContentLength           :: !(Maybe Int)
-    , _porqExpires                 :: !(Maybe RFC822)
-    , _porqSSECustomerAlgorithm    :: !(Maybe Text)
-    , _porqGrantReadACP            :: !(Maybe Text)
-    , _porqSSECustomerKey          :: !(Maybe (Sensitive Text))
-    , _porqRequestPayer            :: !(Maybe RequestPayer)
-    , _porqGrantWriteACP           :: !(Maybe Text)
-    , _porqWebsiteRedirectLocation :: !(Maybe Text)
-    , _porqGrantRead               :: !(Maybe Text)
-    , _porqStorageClass            :: !(Maybe StorageClass)
-    , _porqContentEncoding         :: !(Maybe Text)
-    , _porqSSEKMSKeyId             :: !(Maybe (Sensitive Text))
-    , _porqGrantFullControl        :: !(Maybe Text)
-    , _porqSSECustomerKeyMD5       :: !(Maybe Text)
-    , _porqMetadata                :: !(Map Text Text)
-    , _porqContentMD5              :: !(Maybe Text)
-    , _porqCacheControl            :: !(Maybe Text)
-    , _porqContentLanguage         :: !(Maybe Text)
-    , _porqACL                     :: !(Maybe ObjectCannedACL)
-    , _porqContentDisposition      :: !(Maybe Text)
-    , _porqServerSideEncryption    :: !(Maybe ServerSideEncryption)
-    , _porqContentType             :: !(Maybe Text)
-    , _porqBucket                  :: !BucketName
-    , _porqKey                     :: !ObjectKey
-    , _porqBody                    :: !RqBody
+    { _poContentLength           :: !(Maybe Int)
+    , _poExpires                 :: !(Maybe RFC822)
+    , _poSSECustomerAlgorithm    :: !(Maybe Text)
+    , _poGrantReadACP            :: !(Maybe Text)
+    , _poSSECustomerKey          :: !(Maybe (Sensitive Text))
+    , _poRequestPayer            :: !(Maybe RequestPayer)
+    , _poGrantWriteACP           :: !(Maybe Text)
+    , _poWebsiteRedirectLocation :: !(Maybe Text)
+    , _poGrantRead               :: !(Maybe Text)
+    , _poStorageClass            :: !(Maybe StorageClass)
+    , _poContentEncoding         :: !(Maybe Text)
+    , _poSSEKMSKeyId             :: !(Maybe (Sensitive Text))
+    , _poGrantFullControl        :: !(Maybe Text)
+    , _poSSECustomerKeyMD5       :: !(Maybe Text)
+    , _poMetadata                :: !(Map Text Text)
+    , _poContentMD5              :: !(Maybe Text)
+    , _poCacheControl            :: !(Maybe Text)
+    , _poContentLanguage         :: !(Maybe Text)
+    , _poACL                     :: !(Maybe ObjectCannedACL)
+    , _poContentDisposition      :: !(Maybe Text)
+    , _poServerSideEncryption    :: !(Maybe ServerSideEncryption)
+    , _poContentType             :: !(Maybe Text)
+    , _poBucket                  :: !BucketName
+    , _poKey                     :: !ObjectKey
+    , _poBody                    :: !RqBody
     } deriving (Show,Generic)
 
 -- | 'PutObject' smart constructor.
 putObject :: BucketName -> ObjectKey -> RqBody -> PutObject
 putObject pBucket_ pKey_ pBody_ =
     PutObject'
-    { _porqContentLength = Nothing
-    , _porqExpires = Nothing
-    , _porqSSECustomerAlgorithm = Nothing
-    , _porqGrantReadACP = Nothing
-    , _porqSSECustomerKey = Nothing
-    , _porqRequestPayer = Nothing
-    , _porqGrantWriteACP = Nothing
-    , _porqWebsiteRedirectLocation = Nothing
-    , _porqGrantRead = Nothing
-    , _porqStorageClass = Nothing
-    , _porqContentEncoding = Nothing
-    , _porqSSEKMSKeyId = Nothing
-    , _porqGrantFullControl = Nothing
-    , _porqSSECustomerKeyMD5 = Nothing
-    , _porqMetadata = mempty
-    , _porqContentMD5 = Nothing
-    , _porqCacheControl = Nothing
-    , _porqContentLanguage = Nothing
-    , _porqACL = Nothing
-    , _porqContentDisposition = Nothing
-    , _porqServerSideEncryption = Nothing
-    , _porqContentType = Nothing
-    , _porqBucket = pBucket_
-    , _porqKey = pKey_
-    , _porqBody = pBody_
+    { _poContentLength = Nothing
+    , _poExpires = Nothing
+    , _poSSECustomerAlgorithm = Nothing
+    , _poGrantReadACP = Nothing
+    , _poSSECustomerKey = Nothing
+    , _poRequestPayer = Nothing
+    , _poGrantWriteACP = Nothing
+    , _poWebsiteRedirectLocation = Nothing
+    , _poGrantRead = Nothing
+    , _poStorageClass = Nothing
+    , _poContentEncoding = Nothing
+    , _poSSEKMSKeyId = Nothing
+    , _poGrantFullControl = Nothing
+    , _poSSECustomerKeyMD5 = Nothing
+    , _poMetadata = mempty
+    , _poContentMD5 = Nothing
+    , _poCacheControl = Nothing
+    , _poContentLanguage = Nothing
+    , _poACL = Nothing
+    , _poContentDisposition = Nothing
+    , _poServerSideEncryption = Nothing
+    , _poContentType = Nothing
+    , _poBucket = pBucket_
+    , _poKey = pKey_
+    , _poBody = pBody_
     }
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
-porqContentLength :: Lens' PutObject (Maybe Int)
-porqContentLength = lens _porqContentLength (\ s a -> s{_porqContentLength = a});
+poContentLength :: Lens' PutObject (Maybe Int)
+poContentLength = lens _poContentLength (\ s a -> s{_poContentLength = a});
 
 -- | The date and time at which the object is no longer cacheable.
-porqExpires :: Lens' PutObject (Maybe UTCTime)
-porqExpires = lens _porqExpires (\ s a -> s{_porqExpires = a}) . mapping _Time;
+poExpires :: Lens' PutObject (Maybe UTCTime)
+poExpires = lens _poExpires (\ s a -> s{_poExpires = a}) . mapping _Time;
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256, aws:kms).
-porqSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
-porqSSECustomerAlgorithm = lens _porqSSECustomerAlgorithm (\ s a -> s{_porqSSECustomerAlgorithm = a});
+poSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
+poSSECustomerAlgorithm = lens _poSSECustomerAlgorithm (\ s a -> s{_poSSECustomerAlgorithm = a});
 
 -- | Allows grantee to read the object ACL.
-porqGrantReadACP :: Lens' PutObject (Maybe Text)
-porqGrantReadACP = lens _porqGrantReadACP (\ s a -> s{_porqGrantReadACP = a});
+poGrantReadACP :: Lens' PutObject (Maybe Text)
+poGrantReadACP = lens _poGrantReadACP (\ s a -> s{_poGrantReadACP = a});
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side​-encryption​-customer-algorithm header.
-porqSSECustomerKey :: Lens' PutObject (Maybe Text)
-porqSSECustomerKey = lens _porqSSECustomerKey (\ s a -> s{_porqSSECustomerKey = a}) . mapping _Sensitive;
+poSSECustomerKey :: Lens' PutObject (Maybe Text)
+poSSECustomerKey = lens _poSSECustomerKey (\ s a -> s{_poSSECustomerKey = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-porqRequestPayer :: Lens' PutObject (Maybe RequestPayer)
-porqRequestPayer = lens _porqRequestPayer (\ s a -> s{_porqRequestPayer = a});
+poRequestPayer :: Lens' PutObject (Maybe RequestPayer)
+poRequestPayer = lens _poRequestPayer (\ s a -> s{_poRequestPayer = a});
 
 -- | Allows grantee to write the ACL for the applicable object.
-porqGrantWriteACP :: Lens' PutObject (Maybe Text)
-porqGrantWriteACP = lens _porqGrantWriteACP (\ s a -> s{_porqGrantWriteACP = a});
+poGrantWriteACP :: Lens' PutObject (Maybe Text)
+poGrantWriteACP = lens _poGrantWriteACP (\ s a -> s{_poGrantWriteACP = a});
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL.
 -- Amazon S3 stores the value of this header in the object metadata.
-porqWebsiteRedirectLocation :: Lens' PutObject (Maybe Text)
-porqWebsiteRedirectLocation = lens _porqWebsiteRedirectLocation (\ s a -> s{_porqWebsiteRedirectLocation = a});
+poWebsiteRedirectLocation :: Lens' PutObject (Maybe Text)
+poWebsiteRedirectLocation = lens _poWebsiteRedirectLocation (\ s a -> s{_poWebsiteRedirectLocation = a});
 
 -- | Allows grantee to read the object data and its metadata.
-porqGrantRead :: Lens' PutObject (Maybe Text)
-porqGrantRead = lens _porqGrantRead (\ s a -> s{_porqGrantRead = a});
+poGrantRead :: Lens' PutObject (Maybe Text)
+poGrantRead = lens _poGrantRead (\ s a -> s{_poGrantRead = a});
 
 -- | The type of storage to use for the object. Defaults to \'STANDARD\'.
-porqStorageClass :: Lens' PutObject (Maybe StorageClass)
-porqStorageClass = lens _porqStorageClass (\ s a -> s{_porqStorageClass = a});
+poStorageClass :: Lens' PutObject (Maybe StorageClass)
+poStorageClass = lens _poStorageClass (\ s a -> s{_poStorageClass = a});
 
 -- | Specifies what content encodings have been applied to the object and
 -- thus what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-porqContentEncoding :: Lens' PutObject (Maybe Text)
-porqContentEncoding = lens _porqContentEncoding (\ s a -> s{_porqContentEncoding = a});
+poContentEncoding :: Lens' PutObject (Maybe Text)
+poContentEncoding = lens _poContentEncoding (\ s a -> s{_poContentEncoding = a});
 
 -- | Specifies the AWS KMS key ID to use for object encryption. All GET and
 -- PUT requests for an object protected by AWS KMS will fail if not made
 -- via SSL or using SigV4. Documentation on configuring any of the
 -- officially supported AWS SDKs and CLI can be found at
 -- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/UsingAWSSDK.html#specify-signature-version
-porqSSEKMSKeyId :: Lens' PutObject (Maybe Text)
-porqSSEKMSKeyId = lens _porqSSEKMSKeyId (\ s a -> s{_porqSSEKMSKeyId = a}) . mapping _Sensitive;
+poSSEKMSKeyId :: Lens' PutObject (Maybe Text)
+poSSEKMSKeyId = lens _poSSEKMSKeyId (\ s a -> s{_poSSEKMSKeyId = a}) . mapping _Sensitive;
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
-porqGrantFullControl :: Lens' PutObject (Maybe Text)
-porqGrantFullControl = lens _porqGrantFullControl (\ s a -> s{_porqGrantFullControl = a});
+poGrantFullControl :: Lens' PutObject (Maybe Text)
+poGrantFullControl = lens _poGrantFullControl (\ s a -> s{_poGrantFullControl = a});
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-porqSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
-porqSSECustomerKeyMD5 = lens _porqSSECustomerKeyMD5 (\ s a -> s{_porqSSECustomerKeyMD5 = a});
+poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
+poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-porqMetadata :: Lens' PutObject (HashMap Text Text)
-porqMetadata = lens _porqMetadata (\ s a -> s{_porqMetadata = a}) . _Map;
+poMetadata :: Lens' PutObject (HashMap Text Text)
+poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . _Map;
 
 -- | FIXME: Undocumented member.
-porqContentMD5 :: Lens' PutObject (Maybe Text)
-porqContentMD5 = lens _porqContentMD5 (\ s a -> s{_porqContentMD5 = a});
+poContentMD5 :: Lens' PutObject (Maybe Text)
+poContentMD5 = lens _poContentMD5 (\ s a -> s{_poContentMD5 = a});
 
 -- | Specifies caching behavior along the request\/reply chain.
-porqCacheControl :: Lens' PutObject (Maybe Text)
-porqCacheControl = lens _porqCacheControl (\ s a -> s{_porqCacheControl = a});
+poCacheControl :: Lens' PutObject (Maybe Text)
+poCacheControl = lens _poCacheControl (\ s a -> s{_poCacheControl = a});
 
 -- | The language the content is in.
-porqContentLanguage :: Lens' PutObject (Maybe Text)
-porqContentLanguage = lens _porqContentLanguage (\ s a -> s{_porqContentLanguage = a});
+poContentLanguage :: Lens' PutObject (Maybe Text)
+poContentLanguage = lens _poContentLanguage (\ s a -> s{_poContentLanguage = a});
 
 -- | The canned ACL to apply to the object.
-porqACL :: Lens' PutObject (Maybe ObjectCannedACL)
-porqACL = lens _porqACL (\ s a -> s{_porqACL = a});
+poACL :: Lens' PutObject (Maybe ObjectCannedACL)
+poACL = lens _poACL (\ s a -> s{_poACL = a});
 
 -- | Specifies presentational information for the object.
-porqContentDisposition :: Lens' PutObject (Maybe Text)
-porqContentDisposition = lens _porqContentDisposition (\ s a -> s{_porqContentDisposition = a});
+poContentDisposition :: Lens' PutObject (Maybe Text)
+poContentDisposition = lens _poContentDisposition (\ s a -> s{_poContentDisposition = a});
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-porqServerSideEncryption :: Lens' PutObject (Maybe ServerSideEncryption)
-porqServerSideEncryption = lens _porqServerSideEncryption (\ s a -> s{_porqServerSideEncryption = a});
+poServerSideEncryption :: Lens' PutObject (Maybe ServerSideEncryption)
+poServerSideEncryption = lens _poServerSideEncryption (\ s a -> s{_poServerSideEncryption = a});
 
 -- | A standard MIME type describing the format of the object data.
-porqContentType :: Lens' PutObject (Maybe Text)
-porqContentType = lens _porqContentType (\ s a -> s{_porqContentType = a});
+poContentType :: Lens' PutObject (Maybe Text)
+poContentType = lens _poContentType (\ s a -> s{_poContentType = a});
 
 -- | FIXME: Undocumented member.
-porqBucket :: Lens' PutObject BucketName
-porqBucket = lens _porqBucket (\ s a -> s{_porqBucket = a});
+poBucket :: Lens' PutObject BucketName
+poBucket = lens _poBucket (\ s a -> s{_poBucket = a});
 
 -- | FIXME: Undocumented member.
-porqKey :: Lens' PutObject ObjectKey
-porqKey = lens _porqKey (\ s a -> s{_porqKey = a});
+poKey :: Lens' PutObject ObjectKey
+poKey = lens _poKey (\ s a -> s{_poKey = a});
 
 -- | Object data.
-porqBody :: Lens' PutObject RqBody
-porqBody = lens _porqBody (\ s a -> s{_porqBody = a});
+poBody :: Lens' PutObject RqBody
+poBody = lens _poBody (\ s a -> s{_poBody = a});
 
 instance AWSRequest PutObject where
         type Sv PutObject = S3
@@ -327,44 +327,43 @@ instance AWSRequest PutObject where
                      <*> (pure (fromEnum s)))
 
 instance ToBody PutObject where
-        toBody = _porqBody
+        toBody = _poBody
 
 instance ToHeaders PutObject where
         toHeaders PutObject'{..}
           = mconcat
-              ["Content-Length" =# _porqContentLength,
-               "Expires" =# _porqExpires,
+              ["Content-Length" =# _poContentLength,
+               "Expires" =# _poExpires,
                "x-amz-server-side-encryption-customer-algorithm" =#
-                 _porqSSECustomerAlgorithm,
-               "x-amz-grant-read-acp" =# _porqGrantReadACP,
+                 _poSSECustomerAlgorithm,
+               "x-amz-grant-read-acp" =# _poGrantReadACP,
                "x-amz-server-side-encryption-customer-key" =#
-                 _porqSSECustomerKey,
-               "x-amz-request-payer" =# _porqRequestPayer,
-               "x-amz-grant-write-acp" =# _porqGrantWriteACP,
+                 _poSSECustomerKey,
+               "x-amz-request-payer" =# _poRequestPayer,
+               "x-amz-grant-write-acp" =# _poGrantWriteACP,
                "x-amz-website-redirect-location" =#
-                 _porqWebsiteRedirectLocation,
-               "x-amz-grant-read" =# _porqGrantRead,
-               "x-amz-storage-class" =# _porqStorageClass,
-               "Content-Encoding" =# _porqContentEncoding,
+                 _poWebsiteRedirectLocation,
+               "x-amz-grant-read" =# _poGrantRead,
+               "x-amz-storage-class" =# _poStorageClass,
+               "Content-Encoding" =# _poContentEncoding,
                "x-amz-server-side-encryption-aws-kms-key-id" =#
-                 _porqSSEKMSKeyId,
-               "x-amz-grant-full-control" =# _porqGrantFullControl,
+                 _poSSEKMSKeyId,
+               "x-amz-grant-full-control" =# _poGrantFullControl,
                "x-amz-server-side-encryption-customer-key-MD5" =#
-                 _porqSSECustomerKeyMD5,
-               "x-amz-meta-" =# _porqMetadata,
-               "Content-MD5" =# _porqContentMD5,
-               "Cache-Control" =# _porqCacheControl,
-               "Content-Language" =# _porqContentLanguage,
-               "x-amz-acl" =# _porqACL,
-               "Content-Disposition" =# _porqContentDisposition,
+                 _poSSECustomerKeyMD5,
+               "x-amz-meta-" =# _poMetadata,
+               "Content-MD5" =# _poContentMD5,
+               "Cache-Control" =# _poCacheControl,
+               "Content-Language" =# _poContentLanguage,
+               "x-amz-acl" =# _poACL,
+               "Content-Disposition" =# _poContentDisposition,
                "x-amz-server-side-encryption" =#
-                 _porqServerSideEncryption,
-               "Content-Type" =# _porqContentType]
+                 _poServerSideEncryption,
+               "Content-Type" =# _poContentType]
 
 instance ToPath PutObject where
         toPath PutObject'{..}
-          = mconcat
-              ["/", toText _porqBucket, "/", toText _porqKey]
+          = mconcat ["/", toText _poBucket, "/", toText _poKey]
 
 instance ToQuery PutObject where
         toQuery = const mempty

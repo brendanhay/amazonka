@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
     -- ** Request constructor
     , deregisterOnPremisesInstance
     -- ** Request lenses
-    , dopirqInstanceName
+    , dopiInstanceName
 
     -- * Response
     , DeregisterOnPremisesInstanceResponse
@@ -46,21 +46,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dopirqInstanceName'
+-- * 'dopiInstanceName'
 newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
-    { _dopirqInstanceName :: Text
+    { _dopiInstanceName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterOnPremisesInstance' smart constructor.
 deregisterOnPremisesInstance :: Text -> DeregisterOnPremisesInstance
 deregisterOnPremisesInstance pInstanceName_ =
     DeregisterOnPremisesInstance'
-    { _dopirqInstanceName = pInstanceName_
+    { _dopiInstanceName = pInstanceName_
     }
 
 -- | The name of the on-premises instance to deregister.
-dopirqInstanceName :: Lens' DeregisterOnPremisesInstance Text
-dopirqInstanceName = lens _dopirqInstanceName (\ s a -> s{_dopirqInstanceName = a});
+dopiInstanceName :: Lens' DeregisterOnPremisesInstance Text
+dopiInstanceName = lens _dopiInstanceName (\ s a -> s{_dopiInstanceName = a});
 
 instance AWSRequest DeregisterOnPremisesInstance
          where
@@ -83,7 +83,7 @@ instance ToHeaders DeregisterOnPremisesInstance where
 
 instance ToJSON DeregisterOnPremisesInstance where
         toJSON DeregisterOnPremisesInstance'{..}
-          = object ["instanceName" .= _dopirqInstanceName]
+          = object ["instanceName" .= _dopiInstanceName]
 
 instance ToPath DeregisterOnPremisesInstance where
         toPath = const "/"

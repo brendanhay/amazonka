@@ -27,11 +27,11 @@ module Network.AWS.AutoScaling.ExecutePolicy
     -- ** Request constructor
     , executePolicy
     -- ** Request lenses
-    , eprqHonorCooldown
-    , eprqMetricValue
-    , eprqAutoScalingGroupName
-    , eprqBreachThreshold
-    , eprqPolicyName
+    , epHonorCooldown
+    , epMetricValue
+    , epAutoScalingGroupName
+    , epBreachThreshold
+    , epPolicyName
 
     -- * Response
     , ExecutePolicyResponse
@@ -48,32 +48,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eprqHonorCooldown'
+-- * 'epHonorCooldown'
 --
--- * 'eprqMetricValue'
+-- * 'epMetricValue'
 --
--- * 'eprqAutoScalingGroupName'
+-- * 'epAutoScalingGroupName'
 --
--- * 'eprqBreachThreshold'
+-- * 'epBreachThreshold'
 --
--- * 'eprqPolicyName'
+-- * 'epPolicyName'
 data ExecutePolicy = ExecutePolicy'
-    { _eprqHonorCooldown        :: !(Maybe Bool)
-    , _eprqMetricValue          :: !(Maybe Double)
-    , _eprqAutoScalingGroupName :: !(Maybe Text)
-    , _eprqBreachThreshold      :: !(Maybe Double)
-    , _eprqPolicyName           :: !Text
+    { _epHonorCooldown        :: !(Maybe Bool)
+    , _epMetricValue          :: !(Maybe Double)
+    , _epAutoScalingGroupName :: !(Maybe Text)
+    , _epBreachThreshold      :: !(Maybe Double)
+    , _epPolicyName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExecutePolicy' smart constructor.
 executePolicy :: Text -> ExecutePolicy
 executePolicy pPolicyName_ =
     ExecutePolicy'
-    { _eprqHonorCooldown = Nothing
-    , _eprqMetricValue = Nothing
-    , _eprqAutoScalingGroupName = Nothing
-    , _eprqBreachThreshold = Nothing
-    , _eprqPolicyName = pPolicyName_
+    { _epHonorCooldown = Nothing
+    , _epMetricValue = Nothing
+    , _epAutoScalingGroupName = Nothing
+    , _epBreachThreshold = Nothing
+    , _epPolicyName = pPolicyName_
     }
 
 -- | If this parameter is true, Auto Scaling waits for the cooldown period to
@@ -85,8 +85,8 @@ executePolicy pPolicyName_ =
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
-eprqHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
-eprqHonorCooldown = lens _eprqHonorCooldown (\ s a -> s{_eprqHonorCooldown = a});
+epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
+epHonorCooldown = lens _epHonorCooldown (\ s a -> s{_epHonorCooldown = a});
 
 -- | The metric value to compare to @BreachThreshold@. This enables you to
 -- execute a policy of type @StepScaling@ and determine which step
@@ -99,23 +99,23 @@ eprqHonorCooldown = lens _eprqHonorCooldown (\ s a -> s{_eprqHonorCooldown = a})
 --
 -- This parameter is required if the policy type is @StepScaling@ and not
 -- supported otherwise.
-eprqMetricValue :: Lens' ExecutePolicy (Maybe Double)
-eprqMetricValue = lens _eprqMetricValue (\ s a -> s{_eprqMetricValue = a});
+epMetricValue :: Lens' ExecutePolicy (Maybe Double)
+epMetricValue = lens _epMetricValue (\ s a -> s{_epMetricValue = a});
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-eprqAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
-eprqAutoScalingGroupName = lens _eprqAutoScalingGroupName (\ s a -> s{_eprqAutoScalingGroupName = a});
+epAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
+epAutoScalingGroupName = lens _epAutoScalingGroupName (\ s a -> s{_epAutoScalingGroupName = a});
 
 -- | The breach threshold for the alarm.
 --
 -- This parameter is required if the policy type is @StepScaling@ and not
 -- supported otherwise.
-eprqBreachThreshold :: Lens' ExecutePolicy (Maybe Double)
-eprqBreachThreshold = lens _eprqBreachThreshold (\ s a -> s{_eprqBreachThreshold = a});
+epBreachThreshold :: Lens' ExecutePolicy (Maybe Double)
+epBreachThreshold = lens _epBreachThreshold (\ s a -> s{_epBreachThreshold = a});
 
 -- | The name or ARN of the policy.
-eprqPolicyName :: Lens' ExecutePolicy Text
-eprqPolicyName = lens _eprqPolicyName (\ s a -> s{_eprqPolicyName = a});
+epPolicyName :: Lens' ExecutePolicy Text
+epPolicyName = lens _epPolicyName (\ s a -> s{_epPolicyName = a});
 
 instance AWSRequest ExecutePolicy where
         type Sv ExecutePolicy = AutoScaling
@@ -134,11 +134,11 @@ instance ToQuery ExecutePolicy where
           = mconcat
               ["Action" =: ("ExecutePolicy" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "HonorCooldown" =: _eprqHonorCooldown,
-               "MetricValue" =: _eprqMetricValue,
-               "AutoScalingGroupName" =: _eprqAutoScalingGroupName,
-               "BreachThreshold" =: _eprqBreachThreshold,
-               "PolicyName" =: _eprqPolicyName]
+               "HonorCooldown" =: _epHonorCooldown,
+               "MetricValue" =: _epMetricValue,
+               "AutoScalingGroupName" =: _epAutoScalingGroupName,
+               "BreachThreshold" =: _epBreachThreshold,
+               "PolicyName" =: _epPolicyName]
 
 -- | /See:/ 'executePolicyResponse' smart constructor.
 data ExecutePolicyResponse =

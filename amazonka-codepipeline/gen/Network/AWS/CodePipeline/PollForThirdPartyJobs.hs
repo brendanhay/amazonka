@@ -33,8 +33,8 @@ module Network.AWS.CodePipeline.PollForThirdPartyJobs
     -- ** Request constructor
     , pollForThirdPartyJobs
     -- ** Request lenses
-    , pftpjrqMaxBatchSize
-    , pftpjrqActionTypeId
+    , pftpjMaxBatchSize
+    , pftpjActionTypeId
 
     -- * Response
     , PollForThirdPartyJobsResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pftpjrqMaxBatchSize'
+-- * 'pftpjMaxBatchSize'
 --
--- * 'pftpjrqActionTypeId'
+-- * 'pftpjActionTypeId'
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
-    { _pftpjrqMaxBatchSize :: !(Maybe Nat)
-    , _pftpjrqActionTypeId :: !ActionTypeId
+    { _pftpjMaxBatchSize :: !(Maybe Nat)
+    , _pftpjActionTypeId :: !ActionTypeId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForThirdPartyJobs' smart constructor.
 pollForThirdPartyJobs :: ActionTypeId -> PollForThirdPartyJobs
 pollForThirdPartyJobs pActionTypeId_ =
     PollForThirdPartyJobs'
-    { _pftpjrqMaxBatchSize = Nothing
-    , _pftpjrqActionTypeId = pActionTypeId_
+    { _pftpjMaxBatchSize = Nothing
+    , _pftpjActionTypeId = pActionTypeId_
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
-pftpjrqMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
-pftpjrqMaxBatchSize = lens _pftpjrqMaxBatchSize (\ s a -> s{_pftpjrqMaxBatchSize = a}) . mapping _Nat;
+pftpjMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
+pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\ s a -> s{_pftpjMaxBatchSize = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-pftpjrqActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
-pftpjrqActionTypeId = lens _pftpjrqActionTypeId (\ s a -> s{_pftpjrqActionTypeId = a});
+pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
+pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a});
 
 instance AWSRequest PollForThirdPartyJobs where
         type Sv PollForThirdPartyJobs = CodePipeline
@@ -104,8 +104,8 @@ instance ToHeaders PollForThirdPartyJobs where
 instance ToJSON PollForThirdPartyJobs where
         toJSON PollForThirdPartyJobs'{..}
           = object
-              ["maxBatchSize" .= _pftpjrqMaxBatchSize,
-               "actionTypeId" .= _pftpjrqActionTypeId]
+              ["maxBatchSize" .= _pftpjMaxBatchSize,
+               "actionTypeId" .= _pftpjActionTypeId]
 
 instance ToPath PollForThirdPartyJobs where
         toPath = const "/"

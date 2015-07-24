@@ -50,12 +50,12 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- ** Request constructor
     , describeInstanceStatus
     -- ** Request lenses
-    , disrqIncludeAllInstances
-    , disrqFilters
-    , disrqNextToken
-    , disrqInstanceIds
-    , disrqDryRun
-    , disrqMaxResults
+    , disIncludeAllInstances
+    , disFilters
+    , disNextToken
+    , disInstanceIds
+    , disDryRun
+    , disMaxResults
 
     -- * Response
     , DescribeInstanceStatusResponse
@@ -77,44 +77,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disrqIncludeAllInstances'
+-- * 'disIncludeAllInstances'
 --
--- * 'disrqFilters'
+-- * 'disFilters'
 --
--- * 'disrqNextToken'
+-- * 'disNextToken'
 --
--- * 'disrqInstanceIds'
+-- * 'disInstanceIds'
 --
--- * 'disrqDryRun'
+-- * 'disDryRun'
 --
--- * 'disrqMaxResults'
+-- * 'disMaxResults'
 data DescribeInstanceStatus = DescribeInstanceStatus'
-    { _disrqIncludeAllInstances :: !(Maybe Bool)
-    , _disrqFilters             :: !(Maybe [Filter])
-    , _disrqNextToken           :: !(Maybe Text)
-    , _disrqInstanceIds         :: !(Maybe [Text])
-    , _disrqDryRun              :: !(Maybe Bool)
-    , _disrqMaxResults          :: !(Maybe Int)
+    { _disIncludeAllInstances :: !(Maybe Bool)
+    , _disFilters             :: !(Maybe [Filter])
+    , _disNextToken           :: !(Maybe Text)
+    , _disInstanceIds         :: !(Maybe [Text])
+    , _disDryRun              :: !(Maybe Bool)
+    , _disMaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceStatus' smart constructor.
 describeInstanceStatus :: DescribeInstanceStatus
 describeInstanceStatus =
     DescribeInstanceStatus'
-    { _disrqIncludeAllInstances = Nothing
-    , _disrqFilters = Nothing
-    , _disrqNextToken = Nothing
-    , _disrqInstanceIds = Nothing
-    , _disrqDryRun = Nothing
-    , _disrqMaxResults = Nothing
+    { _disIncludeAllInstances = Nothing
+    , _disFilters = Nothing
+    , _disNextToken = Nothing
+    , _disInstanceIds = Nothing
+    , _disDryRun = Nothing
+    , _disMaxResults = Nothing
     }
 
 -- | When @true@, includes the health status for all instances. When @false@,
 -- includes the health status for running instances only.
 --
 -- Default: @false@
-disrqIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
-disrqIncludeAllInstances = lens _disrqIncludeAllInstances (\ s a -> s{_disrqIncludeAllInstances = a});
+disIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
+disIncludeAllInstances = lens _disIncludeAllInstances (\ s a -> s{_disIncludeAllInstances = a});
 
 -- | One or more filters.
 --
@@ -158,27 +158,27 @@ disrqIncludeAllInstances = lens _disrqIncludeAllInstances (\ s a -> s{_disrqIncl
 --     @impaired@ | @initializing@ | @insufficient-data@ |
 --     @not-applicable@).
 --
-disrqFilters :: Lens' DescribeInstanceStatus [Filter]
-disrqFilters = lens _disrqFilters (\ s a -> s{_disrqFilters = a}) . _Default;
+disFilters :: Lens' DescribeInstanceStatus [Filter]
+disFilters = lens _disFilters (\ s a -> s{_disFilters = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
-disrqNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
-disrqNextToken = lens _disrqNextToken (\ s a -> s{_disrqNextToken = a});
+disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
+disNextToken = lens _disNextToken (\ s a -> s{_disNextToken = a});
 
 -- | One or more instance IDs.
 --
 -- Default: Describes all your instances.
 --
 -- Constraints: Maximum 100 explicitly specified instance IDs.
-disrqInstanceIds :: Lens' DescribeInstanceStatus [Text]
-disrqInstanceIds = lens _disrqInstanceIds (\ s a -> s{_disrqInstanceIds = a}) . _Default;
+disInstanceIds :: Lens' DescribeInstanceStatus [Text]
+disInstanceIds = lens _disInstanceIds (\ s a -> s{_disInstanceIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disrqDryRun :: Lens' DescribeInstanceStatus (Maybe Bool)
-disrqDryRun = lens _disrqDryRun (\ s a -> s{_disrqDryRun = a});
+disDryRun :: Lens' DescribeInstanceStatus (Maybe Bool)
+disDryRun = lens _disDryRun (\ s a -> s{_disDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
@@ -186,15 +186,15 @@ disrqDryRun = lens _disrqDryRun (\ s a -> s{_disrqDryRun = a});
 -- can be between 5 and 1000; if @MaxResults@ is given a value larger than
 -- 1000, only 1000 results are returned. You cannot specify this parameter
 -- and the instance IDs parameter in the same request.
-disrqMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
-disrqMaxResults = lens _disrqMaxResults (\ s a -> s{_disrqMaxResults = a});
+disMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
+disMaxResults = lens _disMaxResults (\ s a -> s{_disMaxResults = a});
 
 instance AWSPager DescribeInstanceStatus where
         page rq rs
           | stop (rs ^. disrsNextToken) = Nothing
           | stop (rs ^. disrsInstanceStatuses) = Nothing
           | otherwise =
-            Just $ rq & disrqNextToken .~ rs ^. disrsNextToken
+            Just $ rq & disNextToken .~ rs ^. disrsNextToken
 
 instance AWSRequest DescribeInstanceStatus where
         type Sv DescribeInstanceStatus = EC2
@@ -222,13 +222,13 @@ instance ToQuery DescribeInstanceStatus where
               ["Action" =:
                  ("DescribeInstanceStatus" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "IncludeAllInstances" =: _disrqIncludeAllInstances,
-               toQuery (toQueryList "Filter" <$> _disrqFilters),
-               "NextToken" =: _disrqNextToken,
+               "IncludeAllInstances" =: _disIncludeAllInstances,
+               toQuery (toQueryList "Filter" <$> _disFilters),
+               "NextToken" =: _disNextToken,
                toQuery
-                 (toQueryList "InstanceId" <$> _disrqInstanceIds),
-               "DryRun" =: _disrqDryRun,
-               "MaxResults" =: _disrqMaxResults]
+                 (toQueryList "InstanceId" <$> _disInstanceIds),
+               "DryRun" =: _disDryRun,
+               "MaxResults" =: _disMaxResults]
 
 -- | /See:/ 'describeInstanceStatusResponse' smart constructor.
 --

@@ -33,9 +33,9 @@ module Network.AWS.IAM.ListRoles
     -- ** Request constructor
     , listRoles
     -- ** Request lenses
-    , lrrqPathPrefix
-    , lrrqMaxItems
-    , lrrqMarker
+    , lrPathPrefix
+    , lrMaxItems
+    , lrMarker
 
     -- * Response
     , ListRolesResponse
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrrqPathPrefix'
+-- * 'lrPathPrefix'
 --
--- * 'lrrqMaxItems'
+-- * 'lrMaxItems'
 --
--- * 'lrrqMarker'
+-- * 'lrMarker'
 data ListRoles = ListRoles'
-    { _lrrqPathPrefix :: !(Maybe Text)
-    , _lrrqMaxItems   :: !(Maybe Nat)
-    , _lrrqMarker     :: !(Maybe Text)
+    { _lrPathPrefix :: !(Maybe Text)
+    , _lrMaxItems   :: !(Maybe Nat)
+    , _lrMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRoles' smart constructor.
 listRoles :: ListRoles
 listRoles =
     ListRoles'
-    { _lrrqPathPrefix = Nothing
-    , _lrrqMaxItems = Nothing
-    , _lrrqMarker = Nothing
+    { _lrPathPrefix = Nothing
+    , _lrMaxItems = Nothing
+    , _lrMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -84,8 +84,8 @@ listRoles =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all roles.
-lrrqPathPrefix :: Lens' ListRoles (Maybe Text)
-lrrqPathPrefix = lens _lrrqPathPrefix (\ s a -> s{_lrrqPathPrefix = a});
+lrPathPrefix :: Lens' ListRoles (Maybe Text)
+lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -93,21 +93,21 @@ lrrqPathPrefix = lens _lrrqPathPrefix (\ s a -> s{_lrrqPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lrrqMaxItems :: Lens' ListRoles (Maybe Natural)
-lrrqMaxItems = lens _lrrqMaxItems (\ s a -> s{_lrrqMaxItems = a}) . mapping _Nat;
+lrMaxItems :: Lens' ListRoles (Maybe Natural)
+lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lrrqMarker :: Lens' ListRoles (Maybe Text)
-lrrqMarker = lens _lrrqMarker (\ s a -> s{_lrrqMarker = a});
+lrMarker :: Lens' ListRoles (Maybe Text)
+lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
 
 instance AWSPager ListRoles where
         page rq rs
           | stop (rs ^. lrrsIsTruncated) = Nothing
           | isNothing (rs ^. lrrsMarker) = Nothing
           | otherwise =
-            Just $ rq & lrrqMarker .~ rs ^. lrrsMarker
+            Just $ rq & lrMarker .~ rs ^. lrrsMarker
 
 instance AWSRequest ListRoles where
         type Sv ListRoles = IAM
@@ -133,8 +133,8 @@ instance ToQuery ListRoles where
           = mconcat
               ["Action" =: ("ListRoles" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lrrqPathPrefix,
-               "MaxItems" =: _lrrqMaxItems, "Marker" =: _lrrqMarker]
+               "PathPrefix" =: _lrPathPrefix,
+               "MaxItems" =: _lrMaxItems, "Marker" =: _lrMarker]
 
 -- | Contains the response to a successful ListRoles request.
 --

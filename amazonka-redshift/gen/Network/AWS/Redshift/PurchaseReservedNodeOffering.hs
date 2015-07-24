@@ -36,8 +36,8 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     -- ** Request constructor
     , purchaseReservedNodeOffering
     -- ** Request lenses
-    , prnorqNodeCount
-    , prnorqReservedNodeOfferingId
+    , prnoNodeCount
+    , prnoReservedNodeOfferingId
 
     -- * Response
     , PurchaseReservedNodeOfferingResponse
@@ -59,32 +59,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prnorqNodeCount'
+-- * 'prnoNodeCount'
 --
--- * 'prnorqReservedNodeOfferingId'
+-- * 'prnoReservedNodeOfferingId'
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
-    { _prnorqNodeCount              :: !(Maybe Int)
-    , _prnorqReservedNodeOfferingId :: !Text
+    { _prnoNodeCount              :: !(Maybe Int)
+    , _prnoReservedNodeOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedNodeOffering' smart constructor.
 purchaseReservedNodeOffering :: Text -> PurchaseReservedNodeOffering
 purchaseReservedNodeOffering pReservedNodeOfferingId_ =
     PurchaseReservedNodeOffering'
-    { _prnorqNodeCount = Nothing
-    , _prnorqReservedNodeOfferingId = pReservedNodeOfferingId_
+    { _prnoNodeCount = Nothing
+    , _prnoReservedNodeOfferingId = pReservedNodeOfferingId_
     }
 
 -- | The number of reserved nodes you want to purchase.
 --
 -- Default: @1@
-prnorqNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
-prnorqNodeCount = lens _prnorqNodeCount (\ s a -> s{_prnorqNodeCount = a});
+prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
+prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a});
 
 -- | The unique identifier of the reserved node offering you want to
 -- purchase.
-prnorqReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
-prnorqReservedNodeOfferingId = lens _prnorqReservedNodeOfferingId (\ s a -> s{_prnorqReservedNodeOfferingId = a});
+prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
+prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\ s a -> s{_prnoReservedNodeOfferingId = a});
 
 instance AWSRequest PurchaseReservedNodeOffering
          where
@@ -111,9 +111,9 @@ instance ToQuery PurchaseReservedNodeOffering where
               ["Action" =:
                  ("PurchaseReservedNodeOffering" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "NodeCount" =: _prnorqNodeCount,
+               "NodeCount" =: _prnoNodeCount,
                "ReservedNodeOfferingId" =:
-                 _prnorqReservedNodeOfferingId]
+                 _prnoReservedNodeOfferingId]
 
 -- | /See:/ 'purchaseReservedNodeOfferingResponse' smart constructor.
 --

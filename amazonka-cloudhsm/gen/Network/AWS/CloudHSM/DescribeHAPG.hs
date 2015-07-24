@@ -27,7 +27,7 @@ module Network.AWS.CloudHSM.DescribeHAPG
     -- ** Request constructor
     , describeHAPG
     -- ** Request lenses
-    , dhapgrqHAPGARN
+    , dhapgHAPGARN
 
     -- * Response
     , DescribeHAPGResponse
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhapgrqHAPGARN'
+-- * 'dhapgHAPGARN'
 newtype DescribeHAPG = DescribeHAPG'
-    { _dhapgrqHAPGARN :: Text
+    { _dhapgHAPGARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHAPG' smart constructor.
 describeHAPG :: Text -> DescribeHAPG
 describeHAPG pHAPGARN_ =
     DescribeHAPG'
-    { _dhapgrqHAPGARN = pHAPGARN_
+    { _dhapgHAPGARN = pHAPGARN_
     }
 
 -- | The ARN of the high-availability partition group to describe.
-dhapgrqHAPGARN :: Lens' DescribeHAPG Text
-dhapgrqHAPGARN = lens _dhapgrqHAPGARN (\ s a -> s{_dhapgrqHAPGARN = a});
+dhapgHAPGARN :: Lens' DescribeHAPG Text
+dhapgHAPGARN = lens _dhapgHAPGARN (\ s a -> s{_dhapgHAPGARN = a});
 
 instance AWSRequest DescribeHAPG where
         type Sv DescribeHAPG = CloudHSM
@@ -103,7 +103,7 @@ instance ToHeaders DescribeHAPG where
 
 instance ToJSON DescribeHAPG where
         toJSON DescribeHAPG'{..}
-          = object ["HapgArn" .= _dhapgrqHAPGARN]
+          = object ["HapgArn" .= _dhapgHAPGARN]
 
 instance ToPath DescribeHAPG where
         toPath = const "/"

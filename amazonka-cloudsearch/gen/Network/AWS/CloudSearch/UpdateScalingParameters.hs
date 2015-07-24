@@ -35,8 +35,8 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
     -- ** Request constructor
     , updateScalingParameters
     -- ** Request lenses
-    , usprqDomainName
-    , usprqScalingParameters
+    , uspDomainName
+    , uspScalingParameters
 
     -- * Response
     , UpdateScalingParametersResponse
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usprqDomainName'
+-- * 'uspDomainName'
 --
--- * 'usprqScalingParameters'
+-- * 'uspScalingParameters'
 data UpdateScalingParameters = UpdateScalingParameters'
-    { _usprqDomainName        :: !Text
-    , _usprqScalingParameters :: !ScalingParameters
+    { _uspDomainName        :: !Text
+    , _uspScalingParameters :: !ScalingParameters
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateScalingParameters' smart constructor.
 updateScalingParameters :: Text -> ScalingParameters -> UpdateScalingParameters
 updateScalingParameters pDomainName_ pScalingParameters_ =
     UpdateScalingParameters'
-    { _usprqDomainName = pDomainName_
-    , _usprqScalingParameters = pScalingParameters_
+    { _uspDomainName = pDomainName_
+    , _uspScalingParameters = pScalingParameters_
     }
 
 -- | FIXME: Undocumented member.
-usprqDomainName :: Lens' UpdateScalingParameters Text
-usprqDomainName = lens _usprqDomainName (\ s a -> s{_usprqDomainName = a});
+uspDomainName :: Lens' UpdateScalingParameters Text
+uspDomainName = lens _uspDomainName (\ s a -> s{_uspDomainName = a});
 
 -- | FIXME: Undocumented member.
-usprqScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
-usprqScalingParameters = lens _usprqScalingParameters (\ s a -> s{_usprqScalingParameters = a});
+uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
+uspScalingParameters = lens _uspScalingParameters (\ s a -> s{_uspScalingParameters = a});
 
 instance AWSRequest UpdateScalingParameters where
         type Sv UpdateScalingParameters = CloudSearch
@@ -107,8 +107,8 @@ instance ToQuery UpdateScalingParameters where
               ["Action" =:
                  ("UpdateScalingParameters" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _usprqDomainName,
-               "ScalingParameters" =: _usprqScalingParameters]
+               "DomainName" =: _uspDomainName,
+               "ScalingParameters" =: _uspScalingParameters]
 
 -- | The result of a @UpdateScalingParameters@ request. Contains the status
 -- of the newly-configured scaling parameters.

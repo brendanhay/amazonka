@@ -46,8 +46,8 @@ module Network.AWS.EC2.GetConsoleOutput
     -- ** Request constructor
     , getConsoleOutput
     -- ** Request lenses
-    , gcorqDryRun
-    , gcorqInstanceId
+    , gcoDryRun
+    , gcoInstanceId
 
     -- * Response
     , GetConsoleOutputResponse
@@ -69,32 +69,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcorqDryRun'
+-- * 'gcoDryRun'
 --
--- * 'gcorqInstanceId'
+-- * 'gcoInstanceId'
 data GetConsoleOutput = GetConsoleOutput'
-    { _gcorqDryRun     :: !(Maybe Bool)
-    , _gcorqInstanceId :: !Text
+    { _gcoDryRun     :: !(Maybe Bool)
+    , _gcoInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConsoleOutput' smart constructor.
 getConsoleOutput :: Text -> GetConsoleOutput
 getConsoleOutput pInstanceId_ =
     GetConsoleOutput'
-    { _gcorqDryRun = Nothing
-    , _gcorqInstanceId = pInstanceId_
+    { _gcoDryRun = Nothing
+    , _gcoInstanceId = pInstanceId_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-gcorqDryRun :: Lens' GetConsoleOutput (Maybe Bool)
-gcorqDryRun = lens _gcorqDryRun (\ s a -> s{_gcorqDryRun = a});
+gcoDryRun :: Lens' GetConsoleOutput (Maybe Bool)
+gcoDryRun = lens _gcoDryRun (\ s a -> s{_gcoDryRun = a});
 
 -- | The ID of the instance.
-gcorqInstanceId :: Lens' GetConsoleOutput Text
-gcorqInstanceId = lens _gcorqInstanceId (\ s a -> s{_gcorqInstanceId = a});
+gcoInstanceId :: Lens' GetConsoleOutput Text
+gcoInstanceId = lens _gcoInstanceId (\ s a -> s{_gcoInstanceId = a});
 
 instance AWSRequest GetConsoleOutput where
         type Sv GetConsoleOutput = EC2
@@ -119,8 +119,8 @@ instance ToQuery GetConsoleOutput where
           = mconcat
               ["Action" =: ("GetConsoleOutput" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _gcorqDryRun,
-               "InstanceId" =: _gcorqInstanceId]
+               "DryRun" =: _gcoDryRun,
+               "InstanceId" =: _gcoInstanceId]
 
 -- | /See:/ 'getConsoleOutputResponse' smart constructor.
 --

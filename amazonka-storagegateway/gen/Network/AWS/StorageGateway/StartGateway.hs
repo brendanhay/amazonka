@@ -39,7 +39,7 @@ module Network.AWS.StorageGateway.StartGateway
     -- ** Request constructor
     , startGateway
     -- ** Request lenses
-    , sgrqGatewayARN
+    , sgGatewayARN
 
     -- * Response
     , StartGatewayResponse
@@ -61,21 +61,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sgrqGatewayARN'
+-- * 'sgGatewayARN'
 newtype StartGateway = StartGateway'
-    { _sgrqGatewayARN :: Text
+    { _sgGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartGateway' smart constructor.
 startGateway :: Text -> StartGateway
 startGateway pGatewayARN_ =
     StartGateway'
-    { _sgrqGatewayARN = pGatewayARN_
+    { _sgGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-sgrqGatewayARN :: Lens' StartGateway Text
-sgrqGatewayARN = lens _sgrqGatewayARN (\ s a -> s{_sgrqGatewayARN = a});
+sgGatewayARN :: Lens' StartGateway Text
+sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a});
 
 instance AWSRequest StartGateway where
         type Sv StartGateway = StorageGateway
@@ -99,7 +99,7 @@ instance ToHeaders StartGateway where
 
 instance ToJSON StartGateway where
         toJSON StartGateway'{..}
-          = object ["GatewayARN" .= _sgrqGatewayARN]
+          = object ["GatewayARN" .= _sgGatewayARN]
 
 instance ToPath StartGateway where
         toPath = const "/"

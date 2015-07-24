@@ -34,7 +34,7 @@ module Network.AWS.CodeCommit.GetRepository
     -- ** Request constructor
     , getRepository
     -- ** Request lenses
-    , grrqRepositoryName
+    , grRepositoryName
 
     -- * Response
     , GetRepositoryResponse
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrqRepositoryName'
+-- * 'grRepositoryName'
 newtype GetRepository = GetRepository'
-    { _grrqRepositoryName :: Text
+    { _grRepositoryName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRepository' smart constructor.
 getRepository :: Text -> GetRepository
 getRepository pRepositoryName_ =
     GetRepository'
-    { _grrqRepositoryName = pRepositoryName_
+    { _grRepositoryName = pRepositoryName_
     }
 
 -- | The name of the repository to get information about.
-grrqRepositoryName :: Lens' GetRepository Text
-grrqRepositoryName = lens _grrqRepositoryName (\ s a -> s{_grrqRepositoryName = a});
+grRepositoryName :: Lens' GetRepository Text
+grRepositoryName = lens _grRepositoryName (\ s a -> s{_grRepositoryName = a});
 
 instance AWSRequest GetRepository where
         type Sv GetRepository = CodeCommit
@@ -93,7 +93,7 @@ instance ToHeaders GetRepository where
 
 instance ToJSON GetRepository where
         toJSON GetRepository'{..}
-          = object ["repositoryName" .= _grrqRepositoryName]
+          = object ["repositoryName" .= _grRepositoryName]
 
 instance ToPath GetRepository where
         toPath = const "/"

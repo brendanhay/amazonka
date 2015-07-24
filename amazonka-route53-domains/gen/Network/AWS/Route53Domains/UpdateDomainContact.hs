@@ -34,10 +34,10 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     -- ** Request constructor
     , updateDomainContact
     -- ** Request lenses
-    , udcrqRegistrantContact
-    , udcrqAdminContact
-    , udcrqTechContact
-    , udcrqDomainName
+    , udcRegistrantContact
+    , udcAdminContact
+    , udcTechContact
+    , udcDomainName
 
     -- * Response
     , UpdateDomainContactResponse
@@ -59,28 +59,28 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udcrqRegistrantContact'
+-- * 'udcRegistrantContact'
 --
--- * 'udcrqAdminContact'
+-- * 'udcAdminContact'
 --
--- * 'udcrqTechContact'
+-- * 'udcTechContact'
 --
--- * 'udcrqDomainName'
+-- * 'udcDomainName'
 data UpdateDomainContact = UpdateDomainContact'
-    { _udcrqRegistrantContact :: !(Maybe (Sensitive ContactDetail))
-    , _udcrqAdminContact      :: !(Maybe (Sensitive ContactDetail))
-    , _udcrqTechContact       :: !(Maybe (Sensitive ContactDetail))
-    , _udcrqDomainName        :: !Text
+    { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
+    , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
+    , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
+    , _udcDomainName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContact' smart constructor.
 updateDomainContact :: Text -> UpdateDomainContact
 updateDomainContact pDomainName_ =
     UpdateDomainContact'
-    { _udcrqRegistrantContact = Nothing
-    , _udcrqAdminContact = Nothing
-    , _udcrqTechContact = Nothing
-    , _udcrqDomainName = pDomainName_
+    { _udcRegistrantContact = Nothing
+    , _udcAdminContact = Nothing
+    , _udcTechContact = Nothing
+    , _udcDomainName = pDomainName_
     }
 
 -- | Provides detailed contact information.
@@ -92,8 +92,8 @@ updateDomainContact pDomainName_ =
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-udcrqRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrqRegistrantContact = lens _udcrqRegistrantContact (\ s a -> s{_udcrqRegistrantContact = a}) . mapping _Sensitive;
+udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantContact = a}) . mapping _Sensitive;
 
 -- | Provides detailed contact information.
 --
@@ -104,8 +104,8 @@ udcrqRegistrantContact = lens _udcrqRegistrantContact (\ s a -> s{_udcrqRegistra
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-udcrqAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrqAdminContact = lens _udcrqAdminContact (\ s a -> s{_udcrqAdminContact = a}) . mapping _Sensitive;
+udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . mapping _Sensitive;
 
 -- | Provides detailed contact information.
 --
@@ -116,8 +116,8 @@ udcrqAdminContact = lens _udcrqAdminContact (\ s a -> s{_udcrqAdminContact = a})
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-udcrqTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcrqTechContact = lens _udcrqTechContact (\ s a -> s{_udcrqTechContact = a}) . mapping _Sensitive;
+udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mapping _Sensitive;
 
 -- | The name of a domain.
 --
@@ -130,8 +130,8 @@ udcrqTechContact = lens _udcrqTechContact (\ s a -> s{_udcrqTechContact = a}) . 
 -- are not supported.
 --
 -- Required: Yes
-udcrqDomainName :: Lens' UpdateDomainContact Text
-udcrqDomainName = lens _udcrqDomainName (\ s a -> s{_udcrqDomainName = a});
+udcDomainName :: Lens' UpdateDomainContact Text
+udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a});
 
 instance AWSRequest UpdateDomainContact where
         type Sv UpdateDomainContact = Route53Domains
@@ -157,10 +157,10 @@ instance ToHeaders UpdateDomainContact where
 instance ToJSON UpdateDomainContact where
         toJSON UpdateDomainContact'{..}
           = object
-              ["RegistrantContact" .= _udcrqRegistrantContact,
-               "AdminContact" .= _udcrqAdminContact,
-               "TechContact" .= _udcrqTechContact,
-               "DomainName" .= _udcrqDomainName]
+              ["RegistrantContact" .= _udcRegistrantContact,
+               "AdminContact" .= _udcAdminContact,
+               "TechContact" .= _udcTechContact,
+               "DomainName" .= _udcDomainName]
 
 instance ToPath UpdateDomainContact where
         toPath = const "/"

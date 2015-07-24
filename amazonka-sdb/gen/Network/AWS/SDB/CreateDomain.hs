@@ -35,7 +35,7 @@ module Network.AWS.SDB.CreateDomain
     -- ** Request constructor
     , createDomain
     -- ** Request lenses
-    , cdrqDomainName
+    , cdDomainName
 
     -- * Response
     , CreateDomainResponse
@@ -52,23 +52,23 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrqDomainName'
+-- * 'cdDomainName'
 newtype CreateDomain = CreateDomain'
-    { _cdrqDomainName :: Text
+    { _cdDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
 createDomain pDomainName_ =
     CreateDomain'
-    { _cdrqDomainName = pDomainName_
+    { _cdDomainName = pDomainName_
     }
 
 -- | The name of the domain to create. The name can range between 3 and 255
 -- characters and can contain the following characters: a-z, A-Z, 0-9,
 -- \'_\', \'-\', and \'.\'.
-cdrqDomainName :: Lens' CreateDomain Text
-cdrqDomainName = lens _cdrqDomainName (\ s a -> s{_cdrqDomainName = a});
+cdDomainName :: Lens' CreateDomain Text
+cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
 
 instance AWSRequest CreateDomain where
         type Sv CreateDomain = SDB
@@ -87,7 +87,7 @@ instance ToQuery CreateDomain where
           = mconcat
               ["Action" =: ("CreateDomain" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _cdrqDomainName]
+               "DomainName" =: _cdDomainName]
 
 -- | /See:/ 'createDomainResponse' smart constructor.
 data CreateDomainResponse =

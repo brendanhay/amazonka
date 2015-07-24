@@ -28,7 +28,7 @@ module Network.AWS.S3.GetBucketLogging
     -- ** Request constructor
     , getBucketLogging
     -- ** Request lenses
-    , getrqBucket
+    , getBucket
 
     -- * Response
     , GetBucketLoggingResponse
@@ -48,21 +48,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'getrqBucket'
+-- * 'getBucket'
 newtype GetBucketLogging = GetBucketLogging'
-    { _getrqBucket :: BucketName
+    { _getBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLogging' smart constructor.
 getBucketLogging :: BucketName -> GetBucketLogging
 getBucketLogging pBucket_ =
     GetBucketLogging'
-    { _getrqBucket = pBucket_
+    { _getBucket = pBucket_
     }
 
 -- | FIXME: Undocumented member.
-getrqBucket :: Lens' GetBucketLogging BucketName
-getrqBucket = lens _getrqBucket (\ s a -> s{_getrqBucket = a});
+getBucket :: Lens' GetBucketLogging BucketName
+getBucket = lens _getBucket (\ s a -> s{_getBucket = a});
 
 instance AWSRequest GetBucketLogging where
         type Sv GetBucketLogging = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketLogging where
 
 instance ToPath GetBucketLogging where
         toPath GetBucketLogging'{..}
-          = mconcat ["/", toText _getrqBucket]
+          = mconcat ["/", toText _getBucket]
 
 instance ToQuery GetBucketLogging where
         toQuery = const (mconcat ["logging"])

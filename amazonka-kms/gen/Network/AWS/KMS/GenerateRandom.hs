@@ -27,7 +27,7 @@ module Network.AWS.KMS.GenerateRandom
     -- ** Request constructor
     , generateRandom
     -- ** Request lenses
-    , grrqNumberOfBytes
+    , grNumberOfBytes
 
     -- * Response
     , GenerateRandomResponse
@@ -47,22 +47,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrqNumberOfBytes'
+-- * 'grNumberOfBytes'
 newtype GenerateRandom = GenerateRandom'
-    { _grrqNumberOfBytes :: Maybe Nat
+    { _grNumberOfBytes :: Maybe Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateRandom' smart constructor.
 generateRandom :: GenerateRandom
 generateRandom =
     GenerateRandom'
-    { _grrqNumberOfBytes = Nothing
+    { _grNumberOfBytes = Nothing
     }
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
-grrqNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
-grrqNumberOfBytes = lens _grrqNumberOfBytes (\ s a -> s{_grrqNumberOfBytes = a}) . mapping _Nat;
+grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
+grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat;
 
 instance AWSRequest GenerateRandom where
         type Sv GenerateRandom = KMS
@@ -85,7 +85,7 @@ instance ToHeaders GenerateRandom where
 
 instance ToJSON GenerateRandom where
         toJSON GenerateRandom'{..}
-          = object ["NumberOfBytes" .= _grrqNumberOfBytes]
+          = object ["NumberOfBytes" .= _grNumberOfBytes]
 
 instance ToPath GenerateRandom where
         toPath = const "/"

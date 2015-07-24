@@ -28,8 +28,8 @@ module Network.AWS.CodeCommit.GetBranch
     -- ** Request constructor
     , getBranch
     -- ** Request lenses
-    , gbrqBranchName
-    , gbrqRepositoryName
+    , gbBranchName
+    , gbRepositoryName
 
     -- * Response
     , GetBranchResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrqBranchName'
+-- * 'gbBranchName'
 --
--- * 'gbrqRepositoryName'
+-- * 'gbRepositoryName'
 data GetBranch = GetBranch'
-    { _gbrqBranchName     :: !(Maybe Text)
-    , _gbrqRepositoryName :: !(Maybe Text)
+    { _gbBranchName     :: !(Maybe Text)
+    , _gbRepositoryName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBranch' smart constructor.
 getBranch :: GetBranch
 getBranch =
     GetBranch'
-    { _gbrqBranchName = Nothing
-    , _gbrqRepositoryName = Nothing
+    { _gbBranchName = Nothing
+    , _gbRepositoryName = Nothing
     }
 
 -- | The name of the branch for which you want to retrieve information.
-gbrqBranchName :: Lens' GetBranch (Maybe Text)
-gbrqBranchName = lens _gbrqBranchName (\ s a -> s{_gbrqBranchName = a});
+gbBranchName :: Lens' GetBranch (Maybe Text)
+gbBranchName = lens _gbBranchName (\ s a -> s{_gbBranchName = a});
 
 -- | FIXME: Undocumented member.
-gbrqRepositoryName :: Lens' GetBranch (Maybe Text)
-gbrqRepositoryName = lens _gbrqRepositoryName (\ s a -> s{_gbrqRepositoryName = a});
+gbRepositoryName :: Lens' GetBranch (Maybe Text)
+gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
 
 instance AWSRequest GetBranch where
         type Sv GetBranch = CodeCommit
@@ -97,8 +97,8 @@ instance ToHeaders GetBranch where
 instance ToJSON GetBranch where
         toJSON GetBranch'{..}
           = object
-              ["branchName" .= _gbrqBranchName,
-               "repositoryName" .= _gbrqRepositoryName]
+              ["branchName" .= _gbBranchName,
+               "repositoryName" .= _gbRepositoryName]
 
 instance ToPath GetBranch where
         toPath = const "/"

@@ -34,10 +34,10 @@ module Network.AWS.ElasticTranscoder.TestRole
     -- ** Request constructor
     , testRole
     -- ** Request lenses
-    , trrqRole
-    , trrqInputBucket
-    , trrqOutputBucket
-    , trrqTopics
+    , trRole
+    , trInputBucket
+    , trOutputBucket
+    , trTopics
 
     -- * Response
     , TestRoleResponse
@@ -60,49 +60,49 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'trrqRole'
+-- * 'trRole'
 --
--- * 'trrqInputBucket'
+-- * 'trInputBucket'
 --
--- * 'trrqOutputBucket'
+-- * 'trOutputBucket'
 --
--- * 'trrqTopics'
+-- * 'trTopics'
 data TestRole = TestRole'
-    { _trrqRole         :: !Text
-    , _trrqInputBucket  :: !Text
-    , _trrqOutputBucket :: !Text
-    , _trrqTopics       :: ![Text]
+    { _trRole         :: !Text
+    , _trInputBucket  :: !Text
+    , _trOutputBucket :: !Text
+    , _trTopics       :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestRole' smart constructor.
 testRole :: Text -> Text -> Text -> TestRole
 testRole pRole_ pInputBucket_ pOutputBucket_ =
     TestRole'
-    { _trrqRole = pRole_
-    , _trrqInputBucket = pInputBucket_
-    , _trrqOutputBucket = pOutputBucket_
-    , _trrqTopics = mempty
+    { _trRole = pRole_
+    , _trInputBucket = pInputBucket_
+    , _trOutputBucket = pOutputBucket_
+    , _trTopics = mempty
     }
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to test.
-trrqRole :: Lens' TestRole Text
-trrqRole = lens _trrqRole (\ s a -> s{_trrqRole = a});
+trRole :: Lens' TestRole Text
+trRole = lens _trRole (\ s a -> s{_trRole = a});
 
 -- | The Amazon S3 bucket that contains media files to be transcoded. The
 -- action attempts to read from this bucket.
-trrqInputBucket :: Lens' TestRole Text
-trrqInputBucket = lens _trrqInputBucket (\ s a -> s{_trrqInputBucket = a});
+trInputBucket :: Lens' TestRole Text
+trInputBucket = lens _trInputBucket (\ s a -> s{_trInputBucket = a});
 
 -- | The Amazon S3 bucket that Elastic Transcoder will write transcoded media
 -- files to. The action attempts to read from this bucket.
-trrqOutputBucket :: Lens' TestRole Text
-trrqOutputBucket = lens _trrqOutputBucket (\ s a -> s{_trrqOutputBucket = a});
+trOutputBucket :: Lens' TestRole Text
+trOutputBucket = lens _trOutputBucket (\ s a -> s{_trOutputBucket = a});
 
 -- | The ARNs of one or more Amazon Simple Notification Service (Amazon SNS)
 -- topics that you want the action to send a test notification to.
-trrqTopics :: Lens' TestRole [Text]
-trrqTopics = lens _trrqTopics (\ s a -> s{_trrqTopics = a});
+trTopics :: Lens' TestRole [Text]
+trTopics = lens _trTopics (\ s a -> s{_trTopics = a});
 
 instance AWSRequest TestRole where
         type Sv TestRole = ElasticTranscoder
@@ -121,10 +121,9 @@ instance ToHeaders TestRole where
 instance ToJSON TestRole where
         toJSON TestRole'{..}
           = object
-              ["Role" .= _trrqRole,
-               "InputBucket" .= _trrqInputBucket,
-               "OutputBucket" .= _trrqOutputBucket,
-               "Topics" .= _trrqTopics]
+              ["Role" .= _trRole, "InputBucket" .= _trInputBucket,
+               "OutputBucket" .= _trOutputBucket,
+               "Topics" .= _trTopics]
 
 instance ToPath TestRole where
         toPath = const "/2012-09-25/roleTests"

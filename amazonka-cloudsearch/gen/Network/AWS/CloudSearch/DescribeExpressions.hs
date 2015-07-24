@@ -33,9 +33,9 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- ** Request constructor
     , describeExpressions
     -- ** Request lenses
-    , derqDeployed
-    , derqExpressionNames
-    , derqDomainName
+    , deDeployed
+    , deExpressionNames
+    , deDomainName
 
     -- * Response
     , DescribeExpressionsResponse
@@ -61,39 +61,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derqDeployed'
+-- * 'deDeployed'
 --
--- * 'derqExpressionNames'
+-- * 'deExpressionNames'
 --
--- * 'derqDomainName'
+-- * 'deDomainName'
 data DescribeExpressions = DescribeExpressions'
-    { _derqDeployed        :: !(Maybe Bool)
-    , _derqExpressionNames :: !(Maybe [Text])
-    , _derqDomainName      :: !Text
+    { _deDeployed        :: !(Maybe Bool)
+    , _deExpressionNames :: !(Maybe [Text])
+    , _deDomainName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExpressions' smart constructor.
 describeExpressions :: Text -> DescribeExpressions
 describeExpressions pDomainName_ =
     DescribeExpressions'
-    { _derqDeployed = Nothing
-    , _derqExpressionNames = Nothing
-    , _derqDomainName = pDomainName_
+    { _deDeployed = Nothing
+    , _deExpressionNames = Nothing
+    , _deDomainName = pDomainName_
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-derqDeployed :: Lens' DescribeExpressions (Maybe Bool)
-derqDeployed = lens _derqDeployed (\ s a -> s{_derqDeployed = a});
+deDeployed :: Lens' DescribeExpressions (Maybe Bool)
+deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a});
 
 -- | Limits the @DescribeExpressions@ response to the specified expressions.
 -- If not specified, all expressions are shown.
-derqExpressionNames :: Lens' DescribeExpressions [Text]
-derqExpressionNames = lens _derqExpressionNames (\ s a -> s{_derqExpressionNames = a}) . _Default;
+deExpressionNames :: Lens' DescribeExpressions [Text]
+deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-derqDomainName :: Lens' DescribeExpressions Text
-derqDomainName = lens _derqDomainName (\ s a -> s{_derqDomainName = a});
+deDomainName :: Lens' DescribeExpressions Text
+deDomainName = lens _deDomainName (\ s a -> s{_deDomainName = a});
 
 instance AWSRequest DescribeExpressions where
         type Sv DescribeExpressions = CloudSearch
@@ -119,11 +119,11 @@ instance ToQuery DescribeExpressions where
           = mconcat
               ["Action" =: ("DescribeExpressions" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _derqDeployed,
+               "Deployed" =: _deDeployed,
                "ExpressionNames" =:
                  toQuery
-                   (toQueryList "member" <$> _derqExpressionNames),
-               "DomainName" =: _derqDomainName]
+                   (toQueryList "member" <$> _deExpressionNames),
+               "DomainName" =: _deDomainName]
 
 -- | The result of a @DescribeExpressions@ request. Contains the expressions
 -- configured for the domain specified in the request.

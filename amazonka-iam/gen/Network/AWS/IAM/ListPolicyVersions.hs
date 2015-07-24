@@ -32,9 +32,9 @@ module Network.AWS.IAM.ListPolicyVersions
     -- ** Request constructor
     , listPolicyVersions
     -- ** Request lenses
-    , lpvrqMaxItems
-    , lpvrqMarker
-    , lpvrqPolicyARN
+    , lpvMaxItems
+    , lpvMarker
+    , lpvPolicyARN
 
     -- * Response
     , ListPolicyVersionsResponse
@@ -56,24 +56,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpvrqMaxItems'
+-- * 'lpvMaxItems'
 --
--- * 'lpvrqMarker'
+-- * 'lpvMarker'
 --
--- * 'lpvrqPolicyARN'
+-- * 'lpvPolicyARN'
 data ListPolicyVersions = ListPolicyVersions'
-    { _lpvrqMaxItems  :: !(Maybe Nat)
-    , _lpvrqMarker    :: !(Maybe Text)
-    , _lpvrqPolicyARN :: !Text
+    { _lpvMaxItems  :: !(Maybe Nat)
+    , _lpvMarker    :: !(Maybe Text)
+    , _lpvPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicyVersions' smart constructor.
 listPolicyVersions :: Text -> ListPolicyVersions
 listPolicyVersions pPolicyARN_ =
     ListPolicyVersions'
-    { _lpvrqMaxItems = Nothing
-    , _lpvrqMarker = Nothing
-    , _lpvrqPolicyARN = pPolicyARN_
+    { _lpvMaxItems = Nothing
+    , _lpvMarker = Nothing
+    , _lpvPolicyARN = pPolicyARN_
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -82,18 +82,18 @@ listPolicyVersions pPolicyARN_ =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lpvrqMaxItems :: Lens' ListPolicyVersions (Maybe Natural)
-lpvrqMaxItems = lens _lpvrqMaxItems (\ s a -> s{_lpvrqMaxItems = a}) . mapping _Nat;
+lpvMaxItems :: Lens' ListPolicyVersions (Maybe Natural)
+lpvMaxItems = lens _lpvMaxItems (\ s a -> s{_lpvMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lpvrqMarker :: Lens' ListPolicyVersions (Maybe Text)
-lpvrqMarker = lens _lpvrqMarker (\ s a -> s{_lpvrqMarker = a});
+lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
+lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
 
 -- | FIXME: Undocumented member.
-lpvrqPolicyARN :: Lens' ListPolicyVersions Text
-lpvrqPolicyARN = lens _lpvrqPolicyARN (\ s a -> s{_lpvrqPolicyARN = a});
+lpvPolicyARN :: Lens' ListPolicyVersions Text
+lpvPolicyARN = lens _lpvPolicyARN (\ s a -> s{_lpvPolicyARN = a});
 
 instance AWSRequest ListPolicyVersions where
         type Sv ListPolicyVersions = IAM
@@ -121,9 +121,8 @@ instance ToQuery ListPolicyVersions where
           = mconcat
               ["Action" =: ("ListPolicyVersions" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lpvrqMaxItems,
-               "Marker" =: _lpvrqMarker,
-               "PolicyArn" =: _lpvrqPolicyARN]
+               "MaxItems" =: _lpvMaxItems, "Marker" =: _lpvMarker,
+               "PolicyArn" =: _lpvPolicyARN]
 
 -- | Contains the response to a successful ListPolicyVersions request.
 --

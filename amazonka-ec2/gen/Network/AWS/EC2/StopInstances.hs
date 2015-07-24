@@ -60,9 +60,9 @@ module Network.AWS.EC2.StopInstances
     -- ** Request constructor
     , stopInstances
     -- ** Request lenses
-    , sirqForce
-    , sirqDryRun
-    , sirqInstanceIds
+    , siForce
+    , siDryRun
+    , siInstanceIds
 
     -- * Response
     , StopInstancesResponse
@@ -82,24 +82,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sirqForce'
+-- * 'siForce'
 --
--- * 'sirqDryRun'
+-- * 'siDryRun'
 --
--- * 'sirqInstanceIds'
+-- * 'siInstanceIds'
 data StopInstances = StopInstances'
-    { _sirqForce       :: !(Maybe Bool)
-    , _sirqDryRun      :: !(Maybe Bool)
-    , _sirqInstanceIds :: ![Text]
+    { _siForce       :: !(Maybe Bool)
+    , _siDryRun      :: !(Maybe Bool)
+    , _siInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstances' smart constructor.
 stopInstances :: StopInstances
 stopInstances =
     StopInstances'
-    { _sirqForce = Nothing
-    , _sirqDryRun = Nothing
-    , _sirqInstanceIds = mempty
+    { _siForce = Nothing
+    , _siDryRun = Nothing
+    , _siInstanceIds = mempty
     }
 
 -- | Forces the instances to stop. The instances do not have an opportunity
@@ -108,19 +108,19 @@ stopInstances =
 -- option is not recommended for Windows instances.
 --
 -- Default: @false@
-sirqForce :: Lens' StopInstances (Maybe Bool)
-sirqForce = lens _sirqForce (\ s a -> s{_sirqForce = a});
+siForce :: Lens' StopInstances (Maybe Bool)
+siForce = lens _siForce (\ s a -> s{_siForce = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-sirqDryRun :: Lens' StopInstances (Maybe Bool)
-sirqDryRun = lens _sirqDryRun (\ s a -> s{_sirqDryRun = a});
+siDryRun :: Lens' StopInstances (Maybe Bool)
+siDryRun = lens _siDryRun (\ s a -> s{_siDryRun = a});
 
 -- | One or more instance IDs.
-sirqInstanceIds :: Lens' StopInstances [Text]
-sirqInstanceIds = lens _sirqInstanceIds (\ s a -> s{_sirqInstanceIds = a});
+siInstanceIds :: Lens' StopInstances [Text]
+siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a});
 
 instance AWSRequest StopInstances where
         type Sv StopInstances = EC2
@@ -145,8 +145,8 @@ instance ToQuery StopInstances where
           = mconcat
               ["Action" =: ("StopInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Force" =: _sirqForce, "DryRun" =: _sirqDryRun,
-               toQueryList "InstanceId" _sirqInstanceIds]
+               "Force" =: _siForce, "DryRun" =: _siDryRun,
+               toQueryList "InstanceId" _siInstanceIds]
 
 -- | /See:/ 'stopInstancesResponse' smart constructor.
 --

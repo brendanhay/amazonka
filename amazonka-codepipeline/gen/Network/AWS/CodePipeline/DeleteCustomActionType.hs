@@ -32,9 +32,9 @@ module Network.AWS.CodePipeline.DeleteCustomActionType
     -- ** Request constructor
     , deleteCustomActionType
     -- ** Request lenses
-    , dcatrqCategory
-    , dcatrqProvider
-    , dcatrqVersion
+    , dcatCategory
+    , dcatProvider
+    , dcatVersion
 
     -- * Response
     , DeleteCustomActionTypeResponse
@@ -54,39 +54,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcatrqCategory'
+-- * 'dcatCategory'
 --
--- * 'dcatrqProvider'
+-- * 'dcatProvider'
 --
--- * 'dcatrqVersion'
+-- * 'dcatVersion'
 data DeleteCustomActionType = DeleteCustomActionType'
-    { _dcatrqCategory :: !ActionCategory
-    , _dcatrqProvider :: !Text
-    , _dcatrqVersion  :: !Text
+    { _dcatCategory :: !ActionCategory
+    , _dcatProvider :: !Text
+    , _dcatVersion  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCustomActionType' smart constructor.
 deleteCustomActionType :: ActionCategory -> Text -> Text -> DeleteCustomActionType
 deleteCustomActionType pCategory_ pProvider_ pVersion_ =
     DeleteCustomActionType'
-    { _dcatrqCategory = pCategory_
-    , _dcatrqProvider = pProvider_
-    , _dcatrqVersion = pVersion_
+    { _dcatCategory = pCategory_
+    , _dcatProvider = pProvider_
+    , _dcatVersion = pVersion_
     }
 
 -- | The category of the custom action that you want to delete, such as
 -- source or deploy.
-dcatrqCategory :: Lens' DeleteCustomActionType ActionCategory
-dcatrqCategory = lens _dcatrqCategory (\ s a -> s{_dcatrqCategory = a});
+dcatCategory :: Lens' DeleteCustomActionType ActionCategory
+dcatCategory = lens _dcatCategory (\ s a -> s{_dcatCategory = a});
 
 -- | The provider of the service used in the custom action, such as AWS
 -- CodeDeploy.
-dcatrqProvider :: Lens' DeleteCustomActionType Text
-dcatrqProvider = lens _dcatrqProvider (\ s a -> s{_dcatrqProvider = a});
+dcatProvider :: Lens' DeleteCustomActionType Text
+dcatProvider = lens _dcatProvider (\ s a -> s{_dcatProvider = a});
 
 -- | The version of the custom action to delete.
-dcatrqVersion :: Lens' DeleteCustomActionType Text
-dcatrqVersion = lens _dcatrqVersion (\ s a -> s{_dcatrqVersion = a});
+dcatVersion :: Lens' DeleteCustomActionType Text
+dcatVersion = lens _dcatVersion (\ s a -> s{_dcatVersion = a});
 
 instance AWSRequest DeleteCustomActionType where
         type Sv DeleteCustomActionType = CodePipeline
@@ -109,9 +109,9 @@ instance ToHeaders DeleteCustomActionType where
 instance ToJSON DeleteCustomActionType where
         toJSON DeleteCustomActionType'{..}
           = object
-              ["category" .= _dcatrqCategory,
-               "provider" .= _dcatrqProvider,
-               "version" .= _dcatrqVersion]
+              ["category" .= _dcatCategory,
+               "provider" .= _dcatProvider,
+               "version" .= _dcatVersion]
 
 instance ToPath DeleteCustomActionType where
         toPath = const "/"

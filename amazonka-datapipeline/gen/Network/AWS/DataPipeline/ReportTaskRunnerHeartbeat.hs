@@ -31,9 +31,9 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     -- ** Request constructor
     , reportTaskRunnerHeartbeat
     -- ** Request lenses
-    , rtrhrqHostname
-    , rtrhrqWorkerGroup
-    , rtrhrqTaskrunnerId
+    , rtrhHostname
+    , rtrhWorkerGroup
+    , rtrhTaskrunnerId
 
     -- * Response
     , ReportTaskRunnerHeartbeatResponse
@@ -55,37 +55,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrhrqHostname'
+-- * 'rtrhHostname'
 --
--- * 'rtrhrqWorkerGroup'
+-- * 'rtrhWorkerGroup'
 --
--- * 'rtrhrqTaskrunnerId'
+-- * 'rtrhTaskrunnerId'
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
-    { _rtrhrqHostname     :: !(Maybe Text)
-    , _rtrhrqWorkerGroup  :: !(Maybe Text)
-    , _rtrhrqTaskrunnerId :: !Text
+    { _rtrhHostname     :: !(Maybe Text)
+    , _rtrhWorkerGroup  :: !(Maybe Text)
+    , _rtrhTaskrunnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskRunnerHeartbeat' smart constructor.
 reportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
 reportTaskRunnerHeartbeat pTaskrunnerId_ =
     ReportTaskRunnerHeartbeat'
-    { _rtrhrqHostname = Nothing
-    , _rtrhrqWorkerGroup = Nothing
-    , _rtrhrqTaskrunnerId = pTaskrunnerId_
+    { _rtrhHostname = Nothing
+    , _rtrhWorkerGroup = Nothing
+    , _rtrhTaskrunnerId = pTaskrunnerId_
     }
 
 -- | The public DNS name of the task runner.
-rtrhrqHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhrqHostname = lens _rtrhrqHostname (\ s a -> s{_rtrhrqHostname = a});
+rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhHostname = lens _rtrhHostname (\ s a -> s{_rtrhHostname = a});
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
 -- are created. You can only specify a single value for @workerGroup@.
 -- There are no wildcard values permitted in @workerGroup@; the string must
 -- be an exact, case-sensitive, match.
-rtrhrqWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhrqWorkerGroup = lens _rtrhrqWorkerGroup (\ s a -> s{_rtrhrqWorkerGroup = a});
+rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a});
 
 -- | The ID of the task runner. This value should be unique across your AWS
 -- account. In the case of AWS Data Pipeline Task Runner launched on a
@@ -93,8 +93,8 @@ rtrhrqWorkerGroup = lens _rtrhrqWorkerGroup (\ s a -> s{_rtrhrqWorkerGroup = a})
 -- identifier when it launches the application. If you have written a
 -- custom task runner, you should assign a unique identifier for the task
 -- runner.
-rtrhrqTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
-rtrhrqTaskrunnerId = lens _rtrhrqTaskrunnerId (\ s a -> s{_rtrhrqTaskrunnerId = a});
+rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
+rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a});
 
 instance AWSRequest ReportTaskRunnerHeartbeat where
         type Sv ReportTaskRunnerHeartbeat = DataPipeline
@@ -120,9 +120,9 @@ instance ToHeaders ReportTaskRunnerHeartbeat where
 instance ToJSON ReportTaskRunnerHeartbeat where
         toJSON ReportTaskRunnerHeartbeat'{..}
           = object
-              ["hostname" .= _rtrhrqHostname,
-               "workerGroup" .= _rtrhrqWorkerGroup,
-               "taskrunnerId" .= _rtrhrqTaskrunnerId]
+              ["hostname" .= _rtrhHostname,
+               "workerGroup" .= _rtrhWorkerGroup,
+               "taskrunnerId" .= _rtrhTaskrunnerId]
 
 instance ToPath ReportTaskRunnerHeartbeat where
         toPath = const "/"

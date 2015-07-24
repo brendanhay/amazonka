@@ -35,9 +35,9 @@ module Network.AWS.OpsWorks.DescribeDeployments
     -- ** Request constructor
     , describeDeployments
     -- ** Request lenses
-    , ddrqAppId
-    , ddrqDeploymentIds
-    , ddrqStackId
+    , ddAppId
+    , ddDeploymentIds
+    , ddStackId
 
     -- * Response
     , DescribeDeploymentsResponse
@@ -57,42 +57,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrqAppId'
+-- * 'ddAppId'
 --
--- * 'ddrqDeploymentIds'
+-- * 'ddDeploymentIds'
 --
--- * 'ddrqStackId'
+-- * 'ddStackId'
 data DescribeDeployments = DescribeDeployments'
-    { _ddrqAppId         :: !(Maybe Text)
-    , _ddrqDeploymentIds :: !(Maybe [Text])
-    , _ddrqStackId       :: !(Maybe Text)
+    { _ddAppId         :: !(Maybe Text)
+    , _ddDeploymentIds :: !(Maybe [Text])
+    , _ddStackId       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeployments' smart constructor.
 describeDeployments :: DescribeDeployments
 describeDeployments =
     DescribeDeployments'
-    { _ddrqAppId = Nothing
-    , _ddrqDeploymentIds = Nothing
-    , _ddrqStackId = Nothing
+    { _ddAppId = Nothing
+    , _ddDeploymentIds = Nothing
+    , _ddStackId = Nothing
     }
 
 -- | The app ID. If you include this parameter, @DescribeDeployments@ returns
 -- a description of the commands associated with the specified app.
-ddrqAppId :: Lens' DescribeDeployments (Maybe Text)
-ddrqAppId = lens _ddrqAppId (\ s a -> s{_ddrqAppId = a});
+ddAppId :: Lens' DescribeDeployments (Maybe Text)
+ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a});
 
 -- | An array of deployment IDs to be described. If you include this
 -- parameter, @DescribeDeployments@ returns a description of the specified
 -- deployments. Otherwise, it returns a description of every deployment.
-ddrqDeploymentIds :: Lens' DescribeDeployments [Text]
-ddrqDeploymentIds = lens _ddrqDeploymentIds (\ s a -> s{_ddrqDeploymentIds = a}) . _Default;
+ddDeploymentIds :: Lens' DescribeDeployments [Text]
+ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _Default;
 
 -- | The stack ID. If you include this parameter, @DescribeDeployments@
 -- returns a description of the commands associated with the specified
 -- stack.
-ddrqStackId :: Lens' DescribeDeployments (Maybe Text)
-ddrqStackId = lens _ddrqStackId (\ s a -> s{_ddrqStackId = a});
+ddStackId :: Lens' DescribeDeployments (Maybe Text)
+ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a});
 
 instance AWSRequest DescribeDeployments where
         type Sv DescribeDeployments = OpsWorks
@@ -119,9 +119,9 @@ instance ToHeaders DescribeDeployments where
 instance ToJSON DescribeDeployments where
         toJSON DescribeDeployments'{..}
           = object
-              ["AppId" .= _ddrqAppId,
-               "DeploymentIds" .= _ddrqDeploymentIds,
-               "StackId" .= _ddrqStackId]
+              ["AppId" .= _ddAppId,
+               "DeploymentIds" .= _ddDeploymentIds,
+               "StackId" .= _ddStackId]
 
 instance ToPath DescribeDeployments where
         toPath = const "/"

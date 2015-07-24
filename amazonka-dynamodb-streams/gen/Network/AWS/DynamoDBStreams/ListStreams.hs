@@ -31,9 +31,9 @@ module Network.AWS.DynamoDBStreams.ListStreams
     -- ** Request constructor
     , listStreams
     -- ** Request lenses
-    , lsrqExclusiveStartStreamARN
-    , lsrqLimit
-    , lsrqTableName
+    , lsExclusiveStartStreamARN
+    , lsLimit
+    , lsTableName
 
     -- * Response
     , ListStreamsResponse
@@ -56,40 +56,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrqExclusiveStartStreamARN'
+-- * 'lsExclusiveStartStreamARN'
 --
--- * 'lsrqLimit'
+-- * 'lsLimit'
 --
--- * 'lsrqTableName'
+-- * 'lsTableName'
 data ListStreams = ListStreams'
-    { _lsrqExclusiveStartStreamARN :: !(Maybe Text)
-    , _lsrqLimit                   :: !(Maybe Nat)
-    , _lsrqTableName               :: !(Maybe Text)
+    { _lsExclusiveStartStreamARN :: !(Maybe Text)
+    , _lsLimit                   :: !(Maybe Nat)
+    , _lsTableName               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreams' smart constructor.
 listStreams :: ListStreams
 listStreams =
     ListStreams'
-    { _lsrqExclusiveStartStreamARN = Nothing
-    , _lsrqLimit = Nothing
-    , _lsrqTableName = Nothing
+    { _lsExclusiveStartStreamARN = Nothing
+    , _lsLimit = Nothing
+    , _lsTableName = Nothing
     }
 
 -- | The ARN (Amazon Resource Name) of the first item that this operation
 -- will evaluate. Use the value that was returned for
 -- @LastEvaluatedStreamArn@ in the previous operation.
-lsrqExclusiveStartStreamARN :: Lens' ListStreams (Maybe Text)
-lsrqExclusiveStartStreamARN = lens _lsrqExclusiveStartStreamARN (\ s a -> s{_lsrqExclusiveStartStreamARN = a});
+lsExclusiveStartStreamARN :: Lens' ListStreams (Maybe Text)
+lsExclusiveStartStreamARN = lens _lsExclusiveStartStreamARN (\ s a -> s{_lsExclusiveStartStreamARN = a});
 
 -- | The maximum number of streams to return. The upper limit is 100.
-lsrqLimit :: Lens' ListStreams (Maybe Natural)
-lsrqLimit = lens _lsrqLimit (\ s a -> s{_lsrqLimit = a}) . mapping _Nat;
+lsLimit :: Lens' ListStreams (Maybe Natural)
+lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
 
 -- | If this parameter is provided, then only the streams associated with
 -- this table name are returned.
-lsrqTableName :: Lens' ListStreams (Maybe Text)
-lsrqTableName = lens _lsrqTableName (\ s a -> s{_lsrqTableName = a});
+lsTableName :: Lens' ListStreams (Maybe Text)
+lsTableName = lens _lsTableName (\ s a -> s{_lsTableName = a});
 
 instance AWSRequest ListStreams where
         type Sv ListStreams = DynamoDBStreams
@@ -117,8 +117,8 @@ instance ToJSON ListStreams where
         toJSON ListStreams'{..}
           = object
               ["ExclusiveStartStreamArn" .=
-                 _lsrqExclusiveStartStreamARN,
-               "Limit" .= _lsrqLimit, "TableName" .= _lsrqTableName]
+                 _lsExclusiveStartStreamARN,
+               "Limit" .= _lsLimit, "TableName" .= _lsTableName]
 
 instance ToPath ListStreams where
         toPath = const "/"

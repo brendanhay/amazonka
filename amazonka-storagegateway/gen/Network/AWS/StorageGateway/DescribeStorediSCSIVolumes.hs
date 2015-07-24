@@ -30,7 +30,7 @@ module Network.AWS.StorageGateway.DescribeStorediSCSIVolumes
     -- ** Request constructor
     , describeStorediSCSIVolumes
     -- ** Request lenses
-    , dsscsivrqVolumeARNs
+    , dsscsivVolumeARNs
 
     -- * Response
     , DescribeStorediSCSIVolumesResponse
@@ -53,23 +53,23 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsscsivrqVolumeARNs'
+-- * 'dsscsivVolumeARNs'
 newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'
-    { _dsscsivrqVolumeARNs :: [Text]
+    { _dsscsivVolumeARNs :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStorediSCSIVolumes' smart constructor.
 describeStorediSCSIVolumes :: DescribeStorediSCSIVolumes
 describeStorediSCSIVolumes =
     DescribeStorediSCSIVolumes'
-    { _dsscsivrqVolumeARNs = mempty
+    { _dsscsivVolumeARNs = mempty
     }
 
 -- | An array of strings where each string represents the Amazon Resource
 -- Name (ARN) of a stored volume. All of the specified stored volumes must
 -- from the same gateway. Use ListVolumes to get volume ARNs for a gateway.
-dsscsivrqVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
-dsscsivrqVolumeARNs = lens _dsscsivrqVolumeARNs (\ s a -> s{_dsscsivrqVolumeARNs = a});
+dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
+dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a});
 
 instance AWSRequest DescribeStorediSCSIVolumes where
         type Sv DescribeStorediSCSIVolumes = StorageGateway
@@ -95,7 +95,7 @@ instance ToHeaders DescribeStorediSCSIVolumes where
 
 instance ToJSON DescribeStorediSCSIVolumes where
         toJSON DescribeStorediSCSIVolumes'{..}
-          = object ["VolumeARNs" .= _dsscsivrqVolumeARNs]
+          = object ["VolumeARNs" .= _dsscsivVolumeARNs]
 
 instance ToPath DescribeStorediSCSIVolumes where
         toPath = const "/"

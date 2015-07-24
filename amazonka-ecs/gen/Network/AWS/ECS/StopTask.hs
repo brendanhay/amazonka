@@ -27,8 +27,8 @@ module Network.AWS.ECS.StopTask
     -- ** Request constructor
     , stopTask
     -- ** Request lenses
-    , strqCluster
-    , strqTask
+    , stCluster
+    , stTask
 
     -- * Response
     , StopTaskResponse
@@ -48,32 +48,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'strqCluster'
+-- * 'stCluster'
 --
--- * 'strqTask'
+-- * 'stTask'
 data StopTask = StopTask'
-    { _strqCluster :: !(Maybe Text)
-    , _strqTask    :: !Text
+    { _stCluster :: !(Maybe Text)
+    , _stTask    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopTask' smart constructor.
 stopTask :: Text -> StopTask
 stopTask pTask_ =
     StopTask'
-    { _strqCluster = Nothing
-    , _strqTask = pTask_
+    { _stCluster = Nothing
+    , _stTask = pTask_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task you want to stop. If you do not specify a cluster, the
 -- default cluster is assumed..
-strqCluster :: Lens' StopTask (Maybe Text)
-strqCluster = lens _strqCluster (\ s a -> s{_strqCluster = a});
+stCluster :: Lens' StopTask (Maybe Text)
+stCluster = lens _stCluster (\ s a -> s{_stCluster = a});
 
 -- | The task UUIDs or full Amazon Resource Name (ARN) entry of the task you
 -- would like to stop.
-strqTask :: Lens' StopTask Text
-strqTask = lens _strqTask (\ s a -> s{_strqTask = a});
+stTask :: Lens' StopTask Text
+stTask = lens _stTask (\ s a -> s{_stTask = a});
 
 instance AWSRequest StopTask where
         type Sv StopTask = ECS
@@ -97,8 +97,7 @@ instance ToHeaders StopTask where
 
 instance ToJSON StopTask where
         toJSON StopTask'{..}
-          = object
-              ["cluster" .= _strqCluster, "task" .= _strqTask]
+          = object ["cluster" .= _stCluster, "task" .= _stTask]
 
 instance ToPath StopTask where
         toPath = const "/"

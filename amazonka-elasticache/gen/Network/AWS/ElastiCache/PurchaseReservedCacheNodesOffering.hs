@@ -28,9 +28,9 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     -- ** Request constructor
     , purchaseReservedCacheNodesOffering
     -- ** Request lenses
-    , prcnorqCacheNodeCount
-    , prcnorqReservedCacheNodeId
-    , prcnorqReservedCacheNodesOfferingId
+    , prcnoCacheNodeCount
+    , prcnoReservedCacheNodeId
+    , prcnoReservedCacheNodesOfferingId
 
     -- * Response
     , PurchaseReservedCacheNodesOfferingResponse
@@ -52,43 +52,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prcnorqCacheNodeCount'
+-- * 'prcnoCacheNodeCount'
 --
--- * 'prcnorqReservedCacheNodeId'
+-- * 'prcnoReservedCacheNodeId'
 --
--- * 'prcnorqReservedCacheNodesOfferingId'
+-- * 'prcnoReservedCacheNodesOfferingId'
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
-    { _prcnorqCacheNodeCount               :: !(Maybe Int)
-    , _prcnorqReservedCacheNodeId          :: !(Maybe Text)
-    , _prcnorqReservedCacheNodesOfferingId :: !Text
+    { _prcnoCacheNodeCount               :: !(Maybe Int)
+    , _prcnoReservedCacheNodeId          :: !(Maybe Text)
+    , _prcnoReservedCacheNodesOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedCacheNodesOffering' smart constructor.
 purchaseReservedCacheNodesOffering :: Text -> PurchaseReservedCacheNodesOffering
 purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ =
     PurchaseReservedCacheNodesOffering'
-    { _prcnorqCacheNodeCount = Nothing
-    , _prcnorqReservedCacheNodeId = Nothing
-    , _prcnorqReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId_
+    { _prcnoCacheNodeCount = Nothing
+    , _prcnoReservedCacheNodeId = Nothing
+    , _prcnoReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId_
     }
 
 -- | The number of cache node instances to reserve.
 --
 -- Default: @1@
-prcnorqCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
-prcnorqCacheNodeCount = lens _prcnorqCacheNodeCount (\ s a -> s{_prcnorqCacheNodeCount = a});
+prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
+prcnoCacheNodeCount = lens _prcnoCacheNodeCount (\ s a -> s{_prcnoCacheNodeCount = a});
 
 -- | A customer-specified identifier to track this reservation.
 --
 -- Example: myreservationID
-prcnorqReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
-prcnorqReservedCacheNodeId = lens _prcnorqReservedCacheNodeId (\ s a -> s{_prcnorqReservedCacheNodeId = a});
+prcnoReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
+prcnoReservedCacheNodeId = lens _prcnoReservedCacheNodeId (\ s a -> s{_prcnoReservedCacheNodeId = a});
 
 -- | The ID of the reserved cache node offering to purchase.
 --
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
-prcnorqReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
-prcnorqReservedCacheNodesOfferingId = lens _prcnorqReservedCacheNodesOfferingId (\ s a -> s{_prcnorqReservedCacheNodesOfferingId = a});
+prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
+prcnoReservedCacheNodesOfferingId = lens _prcnoReservedCacheNodesOfferingId (\ s a -> s{_prcnoReservedCacheNodesOfferingId = a});
 
 instance AWSRequest
          PurchaseReservedCacheNodesOffering where
@@ -119,10 +119,10 @@ instance ToQuery PurchaseReservedCacheNodesOffering
               ["Action" =:
                  ("PurchaseReservedCacheNodesOffering" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheNodeCount" =: _prcnorqCacheNodeCount,
-               "ReservedCacheNodeId" =: _prcnorqReservedCacheNodeId,
+               "CacheNodeCount" =: _prcnoCacheNodeCount,
+               "ReservedCacheNodeId" =: _prcnoReservedCacheNodeId,
                "ReservedCacheNodesOfferingId" =:
-                 _prcnorqReservedCacheNodesOfferingId]
+                 _prcnoReservedCacheNodesOfferingId]
 
 -- | /See:/ 'purchaseReservedCacheNodesOfferingResponse' smart constructor.
 --

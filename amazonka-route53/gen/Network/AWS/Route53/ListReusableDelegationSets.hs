@@ -37,8 +37,8 @@ module Network.AWS.Route53.ListReusableDelegationSets
     -- ** Request constructor
     , listReusableDelegationSets
     -- ** Request lenses
-    , lrdsrqMaxItems
-    , lrdsrqMarker
+    , lrdsMaxItems
+    , lrdsMarker
 
     -- * Response
     , ListReusableDelegationSetsResponse
@@ -74,32 +74,32 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrdsrqMaxItems'
+-- * 'lrdsMaxItems'
 --
--- * 'lrdsrqMarker'
+-- * 'lrdsMarker'
 data ListReusableDelegationSets = ListReusableDelegationSets'
-    { _lrdsrqMaxItems :: !(Maybe Text)
-    , _lrdsrqMarker   :: !(Maybe Text)
+    { _lrdsMaxItems :: !(Maybe Text)
+    , _lrdsMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListReusableDelegationSets' smart constructor.
 listReusableDelegationSets :: ListReusableDelegationSets
 listReusableDelegationSets =
     ListReusableDelegationSets'
-    { _lrdsrqMaxItems = Nothing
-    , _lrdsrqMarker = Nothing
+    { _lrdsMaxItems = Nothing
+    , _lrdsMarker = Nothing
     }
 
 -- | Specify the maximum number of reusable delegation sets to return per
 -- page of results.
-lrdsrqMaxItems :: Lens' ListReusableDelegationSets (Maybe Text)
-lrdsrqMaxItems = lens _lrdsrqMaxItems (\ s a -> s{_lrdsrqMaxItems = a});
+lrdsMaxItems :: Lens' ListReusableDelegationSets (Maybe Text)
+lrdsMaxItems = lens _lrdsMaxItems (\ s a -> s{_lrdsMaxItems = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lrdsrqMarker :: Lens' ListReusableDelegationSets (Maybe Text)
-lrdsrqMarker = lens _lrdsrqMarker (\ s a -> s{_lrdsrqMarker = a});
+lrdsMarker :: Lens' ListReusableDelegationSets (Maybe Text)
+lrdsMarker = lens _lrdsMarker (\ s a -> s{_lrdsMarker = a});
 
 instance AWSRequest ListReusableDelegationSets where
         type Sv ListReusableDelegationSets = Route53
@@ -126,8 +126,8 @@ instance ToPath ListReusableDelegationSets where
 instance ToQuery ListReusableDelegationSets where
         toQuery ListReusableDelegationSets'{..}
           = mconcat
-              ["maxitems" =: _lrdsrqMaxItems,
-               "marker" =: _lrdsrqMarker]
+              ["maxitems" =: _lrdsMaxItems,
+               "marker" =: _lrdsMarker]
 
 -- | A complex type that contains the response for the request.
 --

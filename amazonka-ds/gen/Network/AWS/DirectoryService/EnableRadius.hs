@@ -28,8 +28,8 @@ module Network.AWS.DirectoryService.EnableRadius
     -- ** Request constructor
     , enableRadius
     -- ** Request lenses
-    , errqDirectoryId
-    , errqRadiusSettings
+    , erDirectoryId
+    , erRadiusSettings
 
     -- * Response
     , EnableRadiusResponse
@@ -50,30 +50,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'errqDirectoryId'
+-- * 'erDirectoryId'
 --
--- * 'errqRadiusSettings'
+-- * 'erRadiusSettings'
 data EnableRadius = EnableRadius'
-    { _errqDirectoryId    :: !Text
-    , _errqRadiusSettings :: !RadiusSettings
+    { _erDirectoryId    :: !Text
+    , _erRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableRadius' smart constructor.
 enableRadius :: Text -> RadiusSettings -> EnableRadius
 enableRadius pDirectoryId_ pRadiusSettings_ =
     EnableRadius'
-    { _errqDirectoryId = pDirectoryId_
-    , _errqRadiusSettings = pRadiusSettings_
+    { _erDirectoryId = pDirectoryId_
+    , _erRadiusSettings = pRadiusSettings_
     }
 
 -- | The identifier of the directory to enable MFA for.
-errqDirectoryId :: Lens' EnableRadius Text
-errqDirectoryId = lens _errqDirectoryId (\ s a -> s{_errqDirectoryId = a});
+erDirectoryId :: Lens' EnableRadius Text
+erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
 
 -- | A RadiusSettings object that contains information about the RADIUS
 -- server.
-errqRadiusSettings :: Lens' EnableRadius RadiusSettings
-errqRadiusSettings = lens _errqRadiusSettings (\ s a -> s{_errqRadiusSettings = a});
+erRadiusSettings :: Lens' EnableRadius RadiusSettings
+erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
 
 instance AWSRequest EnableRadius where
         type Sv EnableRadius = DirectoryService
@@ -97,8 +97,8 @@ instance ToHeaders EnableRadius where
 instance ToJSON EnableRadius where
         toJSON EnableRadius'{..}
           = object
-              ["DirectoryId" .= _errqDirectoryId,
-               "RadiusSettings" .= _errqRadiusSettings]
+              ["DirectoryId" .= _erDirectoryId,
+               "RadiusSettings" .= _erRadiusSettings]
 
 instance ToPath EnableRadius where
         toPath = const "/"

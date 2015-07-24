@@ -27,12 +27,12 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- ** Request constructor
     , describeDBSnapshots
     -- ** Request lenses
-    , ddsrqFilters
-    , ddsrqDBSnapshotIdentifier
-    , ddsrqSnapshotType
-    , ddsrqDBInstanceIdentifier
-    , ddsrqMaxRecords
-    , ddsrqMarker
+    , ddsFilters
+    , ddsDBSnapshotIdentifier
+    , ddsSnapshotType
+    , ddsDBInstanceIdentifier
+    , ddsMaxRecords
+    , ddsMarker
 
     -- * Response
     , DescribeDBSnapshotsResponse
@@ -56,41 +56,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsrqFilters'
+-- * 'ddsFilters'
 --
--- * 'ddsrqDBSnapshotIdentifier'
+-- * 'ddsDBSnapshotIdentifier'
 --
--- * 'ddsrqSnapshotType'
+-- * 'ddsSnapshotType'
 --
--- * 'ddsrqDBInstanceIdentifier'
+-- * 'ddsDBInstanceIdentifier'
 --
--- * 'ddsrqMaxRecords'
+-- * 'ddsMaxRecords'
 --
--- * 'ddsrqMarker'
+-- * 'ddsMarker'
 data DescribeDBSnapshots = DescribeDBSnapshots'
-    { _ddsrqFilters              :: !(Maybe [Filter])
-    , _ddsrqDBSnapshotIdentifier :: !(Maybe Text)
-    , _ddsrqSnapshotType         :: !(Maybe Text)
-    , _ddsrqDBInstanceIdentifier :: !(Maybe Text)
-    , _ddsrqMaxRecords           :: !(Maybe Int)
-    , _ddsrqMarker               :: !(Maybe Text)
+    { _ddsFilters              :: !(Maybe [Filter])
+    , _ddsDBSnapshotIdentifier :: !(Maybe Text)
+    , _ddsSnapshotType         :: !(Maybe Text)
+    , _ddsDBInstanceIdentifier :: !(Maybe Text)
+    , _ddsMaxRecords           :: !(Maybe Int)
+    , _ddsMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSnapshots' smart constructor.
 describeDBSnapshots :: DescribeDBSnapshots
 describeDBSnapshots =
     DescribeDBSnapshots'
-    { _ddsrqFilters = Nothing
-    , _ddsrqDBSnapshotIdentifier = Nothing
-    , _ddsrqSnapshotType = Nothing
-    , _ddsrqDBInstanceIdentifier = Nothing
-    , _ddsrqMaxRecords = Nothing
-    , _ddsrqMarker = Nothing
+    { _ddsFilters = Nothing
+    , _ddsDBSnapshotIdentifier = Nothing
+    , _ddsSnapshotType = Nothing
+    , _ddsDBInstanceIdentifier = Nothing
+    , _ddsMaxRecords = Nothing
+    , _ddsMarker = Nothing
     }
 
 -- | This parameter is not currently supported.
-ddsrqFilters :: Lens' DescribeDBSnapshots [Filter]
-ddsrqFilters = lens _ddsrqFilters (\ s a -> s{_ddsrqFilters = a}) . _Default;
+ddsFilters :: Lens' DescribeDBSnapshots [Filter]
+ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default;
 
 -- | A specific DB snapshot identifier to describe. Cannot be used in
 -- conjunction with @DBInstanceIdentifier@. This value is stored as a
@@ -103,14 +103,14 @@ ddsrqFilters = lens _ddsrqFilters (\ s a -> s{_ddsrqFilters = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 -- -   If this is the identifier of an automated snapshot, the
 --     @SnapshotType@ parameter must also be specified.
-ddsrqDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
-ddsrqDBSnapshotIdentifier = lens _ddsrqDBSnapshotIdentifier (\ s a -> s{_ddsrqDBSnapshotIdentifier = a});
+ddsDBSnapshotIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsDBSnapshotIdentifier = lens _ddsDBSnapshotIdentifier (\ s a -> s{_ddsDBSnapshotIdentifier = a});
 
 -- | The type of snapshots that will be returned. Values can be \"automated\"
 -- or \"manual.\" If not specified, the returned results will include all
 -- snapshots types.
-ddsrqSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
-ddsrqSnapshotType = lens _ddsrqSnapshotType (\ s a -> s{_ddsrqSnapshotType = a});
+ddsSnapshotType :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsSnapshotType = lens _ddsSnapshotType (\ s a -> s{_ddsSnapshotType = a});
 
 -- | A DB instance identifier to retrieve the list of DB snapshots for.
 -- Cannot be used in conjunction with @DBSnapshotIdentifier@. This
@@ -121,8 +121,8 @@ ddsrqSnapshotType = lens _ddsrqSnapshotType (\ s a -> s{_ddsrqSnapshotType = a})
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddsrqDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
-ddsrqDBInstanceIdentifier = lens _ddsrqDBInstanceIdentifier (\ s a -> s{_ddsrqDBInstanceIdentifier = a});
+ddsDBInstanceIdentifier :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsDBInstanceIdentifier = lens _ddsDBInstanceIdentifier (\ s a -> s{_ddsDBInstanceIdentifier = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -132,22 +132,22 @@ ddsrqDBInstanceIdentifier = lens _ddsrqDBInstanceIdentifier (\ s a -> s{_ddsrqDB
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddsrqMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
-ddsrqMaxRecords = lens _ddsrqMaxRecords (\ s a -> s{_ddsrqMaxRecords = a});
+ddsMaxRecords :: Lens' DescribeDBSnapshots (Maybe Int)
+ddsMaxRecords = lens _ddsMaxRecords (\ s a -> s{_ddsMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBSnapshots@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-ddsrqMarker :: Lens' DescribeDBSnapshots (Maybe Text)
-ddsrqMarker = lens _ddsrqMarker (\ s a -> s{_ddsrqMarker = a});
+ddsMarker :: Lens' DescribeDBSnapshots (Maybe Text)
+ddsMarker = lens _ddsMarker (\ s a -> s{_ddsMarker = a});
 
 instance AWSPager DescribeDBSnapshots where
         page rq rs
           | stop (rs ^. ddsrsMarker) = Nothing
           | stop (rs ^. ddsrsDBSnapshots) = Nothing
           | otherwise =
-            Just $ rq & ddsrqMarker .~ rs ^. ddsrsMarker
+            Just $ rq & ddsMarker .~ rs ^. ddsrsMarker
 
 instance AWSRequest DescribeDBSnapshots where
         type Sv DescribeDBSnapshots = RDS
@@ -175,12 +175,12 @@ instance ToQuery DescribeDBSnapshots where
               ["Action" =: ("DescribeDBSnapshots" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddsrqFilters),
-               "DBSnapshotIdentifier" =: _ddsrqDBSnapshotIdentifier,
-               "SnapshotType" =: _ddsrqSnapshotType,
-               "DBInstanceIdentifier" =: _ddsrqDBInstanceIdentifier,
-               "MaxRecords" =: _ddsrqMaxRecords,
-               "Marker" =: _ddsrqMarker]
+                 toQuery (toQueryList "Filter" <$> _ddsFilters),
+               "DBSnapshotIdentifier" =: _ddsDBSnapshotIdentifier,
+               "SnapshotType" =: _ddsSnapshotType,
+               "DBInstanceIdentifier" =: _ddsDBInstanceIdentifier,
+               "MaxRecords" =: _ddsMaxRecords,
+               "Marker" =: _ddsMarker]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBSnapshots action.

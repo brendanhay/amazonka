@@ -30,7 +30,7 @@ module Network.AWS.ECS.DeleteCluster
     -- ** Request constructor
     , deleteCluster
     -- ** Request lenses
-    , dcrqCluster
+    , dcCluster
 
     -- * Response
     , DeleteClusterResponse
@@ -50,22 +50,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrqCluster'
+-- * 'dcCluster'
 newtype DeleteCluster = DeleteCluster'
-    { _dcrqCluster :: Text
+    { _dcCluster :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
 deleteCluster pCluster_ =
     DeleteCluster'
-    { _dcrqCluster = pCluster_
+    { _dcCluster = pCluster_
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to delete.
-dcrqCluster :: Lens' DeleteCluster Text
-dcrqCluster = lens _dcrqCluster (\ s a -> s{_dcrqCluster = a});
+dcCluster :: Lens' DeleteCluster Text
+dcCluster = lens _dcCluster (\ s a -> s{_dcCluster = a});
 
 instance AWSRequest DeleteCluster where
         type Sv DeleteCluster = ECS
@@ -89,7 +89,7 @@ instance ToHeaders DeleteCluster where
 
 instance ToJSON DeleteCluster where
         toJSON DeleteCluster'{..}
-          = object ["cluster" .= _dcrqCluster]
+          = object ["cluster" .= _dcCluster]
 
 instance ToPath DeleteCluster where
         toPath = const "/"

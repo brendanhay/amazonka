@@ -30,7 +30,7 @@ module Network.AWS.SNS.ListSubscriptions
     -- ** Request constructor
     , listSubscriptions
     -- ** Request lenses
-    , lsrqNextToken
+    , lsNextToken
 
     -- * Response
     , ListSubscriptionsResponse
@@ -54,28 +54,28 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrqNextToken'
+-- * 'lsNextToken'
 newtype ListSubscriptions = ListSubscriptions'
-    { _lsrqNextToken :: Maybe Text
+    { _lsNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSubscriptions' smart constructor.
 listSubscriptions :: ListSubscriptions
 listSubscriptions =
     ListSubscriptions'
-    { _lsrqNextToken = Nothing
+    { _lsNextToken = Nothing
     }
 
 -- | Token returned by the previous @ListSubscriptions@ request.
-lsrqNextToken :: Lens' ListSubscriptions (Maybe Text)
-lsrqNextToken = lens _lsrqNextToken (\ s a -> s{_lsrqNextToken = a});
+lsNextToken :: Lens' ListSubscriptions (Maybe Text)
+lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 
 instance AWSPager ListSubscriptions where
         page rq rs
           | stop (rs ^. lsrsNextToken) = Nothing
           | stop (rs ^. lsrsSubscriptions) = Nothing
           | otherwise =
-            Just $ rq & lsrqNextToken .~ rs ^. lsrsNextToken
+            Just $ rq & lsNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListSubscriptions where
         type Sv ListSubscriptions = SNS
@@ -101,7 +101,7 @@ instance ToQuery ListSubscriptions where
           = mconcat
               ["Action" =: ("ListSubscriptions" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _lsrqNextToken]
+               "NextToken" =: _lsNextToken]
 
 -- | Response for ListSubscriptions action
 --

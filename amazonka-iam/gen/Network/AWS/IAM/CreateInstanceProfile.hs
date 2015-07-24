@@ -34,8 +34,8 @@ module Network.AWS.IAM.CreateInstanceProfile
     -- ** Request constructor
     , createInstanceProfile
     -- ** Request lenses
-    , ciprqPath
-    , ciprqInstanceProfileName
+    , cipPath
+    , cipInstanceProfileName
 
     -- * Response
     , CreateInstanceProfileResponse
@@ -55,20 +55,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciprqPath'
+-- * 'cipPath'
 --
--- * 'ciprqInstanceProfileName'
+-- * 'cipInstanceProfileName'
 data CreateInstanceProfile = CreateInstanceProfile'
-    { _ciprqPath                :: !(Maybe Text)
-    , _ciprqInstanceProfileName :: !Text
+    { _cipPath                :: !(Maybe Text)
+    , _cipInstanceProfileName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceProfile' smart constructor.
 createInstanceProfile :: Text -> CreateInstanceProfile
 createInstanceProfile pInstanceProfileName_ =
     CreateInstanceProfile'
-    { _ciprqPath = Nothing
-    , _ciprqInstanceProfileName = pInstanceProfileName_
+    { _cipPath = Nothing
+    , _cipInstanceProfileName = pInstanceProfileName_
     }
 
 -- | The path to the instance profile. For more information about paths, see
@@ -77,12 +77,12 @@ createInstanceProfile pInstanceProfileName_ =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-ciprqPath :: Lens' CreateInstanceProfile (Maybe Text)
-ciprqPath = lens _ciprqPath (\ s a -> s{_ciprqPath = a});
+cipPath :: Lens' CreateInstanceProfile (Maybe Text)
+cipPath = lens _cipPath (\ s a -> s{_cipPath = a});
 
 -- | The name of the instance profile to create.
-ciprqInstanceProfileName :: Lens' CreateInstanceProfile Text
-ciprqInstanceProfileName = lens _ciprqInstanceProfileName (\ s a -> s{_ciprqInstanceProfileName = a});
+cipInstanceProfileName :: Lens' CreateInstanceProfile Text
+cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
 
 instance AWSRequest CreateInstanceProfile where
         type Sv CreateInstanceProfile = IAM
@@ -106,8 +106,8 @@ instance ToQuery CreateInstanceProfile where
           = mconcat
               ["Action" =: ("CreateInstanceProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _ciprqPath,
-               "InstanceProfileName" =: _ciprqInstanceProfileName]
+               "Path" =: _cipPath,
+               "InstanceProfileName" =: _cipInstanceProfileName]
 
 -- | Contains the response to a successful CreateInstanceProfile request.
 --

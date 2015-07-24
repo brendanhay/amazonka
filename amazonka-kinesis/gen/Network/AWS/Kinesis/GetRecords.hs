@@ -74,8 +74,8 @@ module Network.AWS.Kinesis.GetRecords
     -- ** Request constructor
     , getRecords
     -- ** Request lenses
-    , grrqLimit
-    , grrqShardIterator
+    , grLimit
+    , grShardIterator
 
     -- * Response
     , GetRecordsResponse
@@ -99,33 +99,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrqLimit'
+-- * 'grLimit'
 --
--- * 'grrqShardIterator'
+-- * 'grShardIterator'
 data GetRecords = GetRecords'
-    { _grrqLimit         :: !(Maybe Nat)
-    , _grrqShardIterator :: !Text
+    { _grLimit         :: !(Maybe Nat)
+    , _grShardIterator :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRecords' smart constructor.
 getRecords :: Text -> GetRecords
 getRecords pShardIterator_ =
     GetRecords'
-    { _grrqLimit = Nothing
-    , _grrqShardIterator = pShardIterator_
+    { _grLimit = Nothing
+    , _grShardIterator = pShardIterator_
     }
 
 -- | The maximum number of records to return. Specify a value of up to
 -- 10,000. If you specify a value that is greater than 10,000, GetRecords
 -- throws @InvalidArgumentException@.
-grrqLimit :: Lens' GetRecords (Maybe Natural)
-grrqLimit = lens _grrqLimit (\ s a -> s{_grrqLimit = a}) . mapping _Nat;
+grLimit :: Lens' GetRecords (Maybe Natural)
+grLimit = lens _grLimit (\ s a -> s{_grLimit = a}) . mapping _Nat;
 
 -- | The position in the shard from which you want to start sequentially
 -- reading data records. A shard iterator specifies this position using the
 -- sequence number of a data record in the shard.
-grrqShardIterator :: Lens' GetRecords Text
-grrqShardIterator = lens _grrqShardIterator (\ s a -> s{_grrqShardIterator = a});
+grShardIterator :: Lens' GetRecords Text
+grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a});
 
 instance AWSRequest GetRecords where
         type Sv GetRecords = Kinesis
@@ -152,8 +152,8 @@ instance ToHeaders GetRecords where
 instance ToJSON GetRecords where
         toJSON GetRecords'{..}
           = object
-              ["Limit" .= _grrqLimit,
-               "ShardIterator" .= _grrqShardIterator]
+              ["Limit" .= _grLimit,
+               "ShardIterator" .= _grShardIterator]
 
 instance ToPath GetRecords where
         toPath = const "/"

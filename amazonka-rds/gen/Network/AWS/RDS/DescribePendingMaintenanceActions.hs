@@ -28,10 +28,10 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     -- ** Request constructor
     , describePendingMaintenanceActions
     -- ** Request lenses
-    , dpmarqFilters
-    , dpmarqMaxRecords
-    , dpmarqMarker
-    , dpmarqResourceIdentifier
+    , dpmaFilters
+    , dpmaMaxRecords
+    , dpmaMarker
+    , dpmaResourceIdentifier
 
     -- * Response
     , DescribePendingMaintenanceActionsResponse
@@ -54,28 +54,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpmarqFilters'
+-- * 'dpmaFilters'
 --
--- * 'dpmarqMaxRecords'
+-- * 'dpmaMaxRecords'
 --
--- * 'dpmarqMarker'
+-- * 'dpmaMarker'
 --
--- * 'dpmarqResourceIdentifier'
+-- * 'dpmaResourceIdentifier'
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
-    { _dpmarqFilters            :: !(Maybe [Filter])
-    , _dpmarqMaxRecords         :: !(Maybe Int)
-    , _dpmarqMarker             :: !(Maybe Text)
-    , _dpmarqResourceIdentifier :: !(Maybe Text)
+    { _dpmaFilters            :: !(Maybe [Filter])
+    , _dpmaMaxRecords         :: !(Maybe Int)
+    , _dpmaMarker             :: !(Maybe Text)
+    , _dpmaResourceIdentifier :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePendingMaintenanceActions' smart constructor.
 describePendingMaintenanceActions :: DescribePendingMaintenanceActions
 describePendingMaintenanceActions =
     DescribePendingMaintenanceActions'
-    { _dpmarqFilters = Nothing
-    , _dpmarqMaxRecords = Nothing
-    , _dpmarqMarker = Nothing
-    , _dpmarqResourceIdentifier = Nothing
+    { _dpmaFilters = Nothing
+    , _dpmaMaxRecords = Nothing
+    , _dpmaMarker = Nothing
+    , _dpmaResourceIdentifier = Nothing
     }
 
 -- | A filter that specifies one or more resources to return pending
@@ -87,8 +87,8 @@ describePendingMaintenanceActions =
 --     Amazon Resource Names (ARNs). The results list will only include
 --     pending maintenance actions for the DB instances identified by these
 --     ARNs.
-dpmarqFilters :: Lens' DescribePendingMaintenanceActions [Filter]
-dpmarqFilters = lens _dpmarqFilters (\ s a -> s{_dpmarqFilters = a}) . _Default;
+dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
+dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -98,19 +98,19 @@ dpmarqFilters = lens _dpmarqFilters (\ s a -> s{_dpmarqFilters = a}) . _Default;
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dpmarqMaxRecords :: Lens' DescribePendingMaintenanceActions (Maybe Int)
-dpmarqMaxRecords = lens _dpmarqMaxRecords (\ s a -> s{_dpmarqMaxRecords = a});
+dpmaMaxRecords :: Lens' DescribePendingMaintenanceActions (Maybe Int)
+dpmaMaxRecords = lens _dpmaMaxRecords (\ s a -> s{_dpmaMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- @DescribePendingMaintenanceActions@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to a
 -- number of records specified by @MaxRecords@.
-dpmarqMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
-dpmarqMarker = lens _dpmarqMarker (\ s a -> s{_dpmarqMarker = a});
+dpmaMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
+dpmaMarker = lens _dpmaMarker (\ s a -> s{_dpmaMarker = a});
 
 -- | The ARN of a resource to return pending maintenance actions for.
-dpmarqResourceIdentifier :: Lens' DescribePendingMaintenanceActions (Maybe Text)
-dpmarqResourceIdentifier = lens _dpmarqResourceIdentifier (\ s a -> s{_dpmarqResourceIdentifier = a});
+dpmaResourceIdentifier :: Lens' DescribePendingMaintenanceActions (Maybe Text)
+dpmaResourceIdentifier = lens _dpmaResourceIdentifier (\ s a -> s{_dpmaResourceIdentifier = a});
 
 instance AWSRequest DescribePendingMaintenanceActions
          where
@@ -145,10 +145,10 @@ instance ToQuery DescribePendingMaintenanceActions
                  ("DescribePendingMaintenanceActions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dpmarqFilters),
-               "MaxRecords" =: _dpmarqMaxRecords,
-               "Marker" =: _dpmarqMarker,
-               "ResourceIdentifier" =: _dpmarqResourceIdentifier]
+                 toQuery (toQueryList "Filter" <$> _dpmaFilters),
+               "MaxRecords" =: _dpmaMaxRecords,
+               "Marker" =: _dpmaMarker,
+               "ResourceIdentifier" =: _dpmaResourceIdentifier]
 
 -- | Data returned from the __DescribePendingMaintenanceActions__ action.
 --

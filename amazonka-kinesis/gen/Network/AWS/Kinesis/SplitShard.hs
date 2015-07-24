@@ -75,9 +75,9 @@ module Network.AWS.Kinesis.SplitShard
     -- ** Request constructor
     , splitShard
     -- ** Request lenses
-    , ssrqStreamName
-    , ssrqShardToSplit
-    , ssrqNewStartingHashKey
+    , ssStreamName
+    , ssShardToSplit
+    , ssNewStartingHashKey
 
     -- * Response
     , SplitShardResponse
@@ -96,33 +96,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ssrqStreamName'
+-- * 'ssStreamName'
 --
--- * 'ssrqShardToSplit'
+-- * 'ssShardToSplit'
 --
--- * 'ssrqNewStartingHashKey'
+-- * 'ssNewStartingHashKey'
 data SplitShard = SplitShard'
-    { _ssrqStreamName         :: !Text
-    , _ssrqShardToSplit       :: !Text
-    , _ssrqNewStartingHashKey :: !Text
+    { _ssStreamName         :: !Text
+    , _ssShardToSplit       :: !Text
+    , _ssNewStartingHashKey :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SplitShard' smart constructor.
 splitShard :: Text -> Text -> Text -> SplitShard
 splitShard pStreamName_ pShardToSplit_ pNewStartingHashKey_ =
     SplitShard'
-    { _ssrqStreamName = pStreamName_
-    , _ssrqShardToSplit = pShardToSplit_
-    , _ssrqNewStartingHashKey = pNewStartingHashKey_
+    { _ssStreamName = pStreamName_
+    , _ssShardToSplit = pShardToSplit_
+    , _ssNewStartingHashKey = pNewStartingHashKey_
     }
 
 -- | The name of the stream for the shard split.
-ssrqStreamName :: Lens' SplitShard Text
-ssrqStreamName = lens _ssrqStreamName (\ s a -> s{_ssrqStreamName = a});
+ssStreamName :: Lens' SplitShard Text
+ssStreamName = lens _ssStreamName (\ s a -> s{_ssStreamName = a});
 
 -- | The shard ID of the shard to split.
-ssrqShardToSplit :: Lens' SplitShard Text
-ssrqShardToSplit = lens _ssrqShardToSplit (\ s a -> s{_ssrqShardToSplit = a});
+ssShardToSplit :: Lens' SplitShard Text
+ssShardToSplit = lens _ssShardToSplit (\ s a -> s{_ssShardToSplit = a});
 
 -- | A hash key value for the starting hash key of one of the child shards
 -- created by the split. The hash key range for a given shard constitutes a
@@ -132,8 +132,8 @@ ssrqShardToSplit = lens _ssrqShardToSplit (\ s a -> s{_ssrqShardToSplit = a});
 -- key values in hash key range are distributed to one of the child shards.
 -- All the lower hash key values in the range are distributed to the other
 -- child shard.
-ssrqNewStartingHashKey :: Lens' SplitShard Text
-ssrqNewStartingHashKey = lens _ssrqNewStartingHashKey (\ s a -> s{_ssrqNewStartingHashKey = a});
+ssNewStartingHashKey :: Lens' SplitShard Text
+ssNewStartingHashKey = lens _ssNewStartingHashKey (\ s a -> s{_ssNewStartingHashKey = a});
 
 instance AWSRequest SplitShard where
         type Sv SplitShard = Kinesis
@@ -153,9 +153,9 @@ instance ToHeaders SplitShard where
 instance ToJSON SplitShard where
         toJSON SplitShard'{..}
           = object
-              ["StreamName" .= _ssrqStreamName,
-               "ShardToSplit" .= _ssrqShardToSplit,
-               "NewStartingHashKey" .= _ssrqNewStartingHashKey]
+              ["StreamName" .= _ssStreamName,
+               "ShardToSplit" .= _ssShardToSplit,
+               "NewStartingHashKey" .= _ssNewStartingHashKey]
 
 instance ToPath SplitShard where
         toPath = const "/"

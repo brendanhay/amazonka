@@ -31,9 +31,9 @@ module Network.AWS.SNS.ConfirmSubscription
     -- ** Request constructor
     , confirmSubscription
     -- ** Request lenses
-    , csrqAuthenticateOnUnsubscribe
-    , csrqTopicARN
-    , csrqToken
+    , csAuthenticateOnUnsubscribe
+    , csTopicARN
+    , csToken
 
     -- * Response
     , ConfirmSubscriptionResponse
@@ -55,40 +55,40 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrqAuthenticateOnUnsubscribe'
+-- * 'csAuthenticateOnUnsubscribe'
 --
--- * 'csrqTopicARN'
+-- * 'csTopicARN'
 --
--- * 'csrqToken'
+-- * 'csToken'
 data ConfirmSubscription = ConfirmSubscription'
-    { _csrqAuthenticateOnUnsubscribe :: !(Maybe Text)
-    , _csrqTopicARN                  :: !Text
-    , _csrqToken                     :: !Text
+    { _csAuthenticateOnUnsubscribe :: !(Maybe Text)
+    , _csTopicARN                  :: !Text
+    , _csToken                     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmSubscription' smart constructor.
 confirmSubscription :: Text -> Text -> ConfirmSubscription
 confirmSubscription pTopicARN_ pToken_ =
     ConfirmSubscription'
-    { _csrqAuthenticateOnUnsubscribe = Nothing
-    , _csrqTopicARN = pTopicARN_
-    , _csrqToken = pToken_
+    { _csAuthenticateOnUnsubscribe = Nothing
+    , _csTopicARN = pTopicARN_
+    , _csToken = pToken_
     }
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value
 -- of this parameter is @true@ and the request has an AWS signature, then
 -- only the topic owner and the subscription owner can unsubscribe the
 -- endpoint. The unsubscribe action requires AWS authentication.
-csrqAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
-csrqAuthenticateOnUnsubscribe = lens _csrqAuthenticateOnUnsubscribe (\ s a -> s{_csrqAuthenticateOnUnsubscribe = a});
+csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
+csAuthenticateOnUnsubscribe = lens _csAuthenticateOnUnsubscribe (\ s a -> s{_csAuthenticateOnUnsubscribe = a});
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
-csrqTopicARN :: Lens' ConfirmSubscription Text
-csrqTopicARN = lens _csrqTopicARN (\ s a -> s{_csrqTopicARN = a});
+csTopicARN :: Lens' ConfirmSubscription Text
+csTopicARN = lens _csTopicARN (\ s a -> s{_csTopicARN = a});
 
 -- | Short-lived token sent to an endpoint during the @Subscribe@ action.
-csrqToken :: Lens' ConfirmSubscription Text
-csrqToken = lens _csrqToken (\ s a -> s{_csrqToken = a});
+csToken :: Lens' ConfirmSubscription Text
+csToken = lens _csToken (\ s a -> s{_csToken = a});
 
 instance AWSRequest ConfirmSubscription where
         type Sv ConfirmSubscription = SNS
@@ -113,8 +113,8 @@ instance ToQuery ConfirmSubscription where
               ["Action" =: ("ConfirmSubscription" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
                "AuthenticateOnUnsubscribe" =:
-                 _csrqAuthenticateOnUnsubscribe,
-               "TopicArn" =: _csrqTopicARN, "Token" =: _csrqToken]
+                 _csAuthenticateOnUnsubscribe,
+               "TopicArn" =: _csTopicARN, "Token" =: _csToken]
 
 -- | Response for ConfirmSubscriptions action.
 --

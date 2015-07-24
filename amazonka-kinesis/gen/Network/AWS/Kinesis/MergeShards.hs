@@ -66,9 +66,9 @@ module Network.AWS.Kinesis.MergeShards
     -- ** Request constructor
     , mergeShards
     -- ** Request lenses
-    , msrqStreamName
-    , msrqShardToMerge
-    , msrqAdjacentShardToMerge
+    , msStreamName
+    , msShardToMerge
+    , msAdjacentShardToMerge
 
     -- * Response
     , MergeShardsResponse
@@ -87,38 +87,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'msrqStreamName'
+-- * 'msStreamName'
 --
--- * 'msrqShardToMerge'
+-- * 'msShardToMerge'
 --
--- * 'msrqAdjacentShardToMerge'
+-- * 'msAdjacentShardToMerge'
 data MergeShards = MergeShards'
-    { _msrqStreamName           :: !Text
-    , _msrqShardToMerge         :: !Text
-    , _msrqAdjacentShardToMerge :: !Text
+    { _msStreamName           :: !Text
+    , _msShardToMerge         :: !Text
+    , _msAdjacentShardToMerge :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeShards' smart constructor.
 mergeShards :: Text -> Text -> Text -> MergeShards
 mergeShards pStreamName_ pShardToMerge_ pAdjacentShardToMerge_ =
     MergeShards'
-    { _msrqStreamName = pStreamName_
-    , _msrqShardToMerge = pShardToMerge_
-    , _msrqAdjacentShardToMerge = pAdjacentShardToMerge_
+    { _msStreamName = pStreamName_
+    , _msShardToMerge = pShardToMerge_
+    , _msAdjacentShardToMerge = pAdjacentShardToMerge_
     }
 
 -- | The name of the stream for the merge.
-msrqStreamName :: Lens' MergeShards Text
-msrqStreamName = lens _msrqStreamName (\ s a -> s{_msrqStreamName = a});
+msStreamName :: Lens' MergeShards Text
+msStreamName = lens _msStreamName (\ s a -> s{_msStreamName = a});
 
 -- | The shard ID of the shard to combine with the adjacent shard for the
 -- merge.
-msrqShardToMerge :: Lens' MergeShards Text
-msrqShardToMerge = lens _msrqShardToMerge (\ s a -> s{_msrqShardToMerge = a});
+msShardToMerge :: Lens' MergeShards Text
+msShardToMerge = lens _msShardToMerge (\ s a -> s{_msShardToMerge = a});
 
 -- | The shard ID of the adjacent shard for the merge.
-msrqAdjacentShardToMerge :: Lens' MergeShards Text
-msrqAdjacentShardToMerge = lens _msrqAdjacentShardToMerge (\ s a -> s{_msrqAdjacentShardToMerge = a});
+msAdjacentShardToMerge :: Lens' MergeShards Text
+msAdjacentShardToMerge = lens _msAdjacentShardToMerge (\ s a -> s{_msAdjacentShardToMerge = a});
 
 instance AWSRequest MergeShards where
         type Sv MergeShards = Kinesis
@@ -138,9 +138,9 @@ instance ToHeaders MergeShards where
 instance ToJSON MergeShards where
         toJSON MergeShards'{..}
           = object
-              ["StreamName" .= _msrqStreamName,
-               "ShardToMerge" .= _msrqShardToMerge,
-               "AdjacentShardToMerge" .= _msrqAdjacentShardToMerge]
+              ["StreamName" .= _msStreamName,
+               "ShardToMerge" .= _msShardToMerge,
+               "AdjacentShardToMerge" .= _msAdjacentShardToMerge]
 
 instance ToPath MergeShards where
         toPath = const "/"

@@ -30,11 +30,11 @@ module Network.AWS.EC2.DescribeMovingAddresses
     -- ** Request constructor
     , describeMovingAddresses
     -- ** Request lenses
-    , dmarqPublicIPs
-    , dmarqFilters
-    , dmarqNextToken
-    , dmarqDryRun
-    , dmarqMaxResults
+    , dmaPublicIPs
+    , dmaFilters
+    , dmaNextToken
+    , dmaDryRun
+    , dmaMaxResults
 
     -- * Response
     , DescribeMovingAddressesResponse
@@ -55,56 +55,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmarqPublicIPs'
+-- * 'dmaPublicIPs'
 --
--- * 'dmarqFilters'
+-- * 'dmaFilters'
 --
--- * 'dmarqNextToken'
+-- * 'dmaNextToken'
 --
--- * 'dmarqDryRun'
+-- * 'dmaDryRun'
 --
--- * 'dmarqMaxResults'
+-- * 'dmaMaxResults'
 data DescribeMovingAddresses = DescribeMovingAddresses'
-    { _dmarqPublicIPs  :: !(Maybe [Text])
-    , _dmarqFilters    :: !(Maybe [Filter])
-    , _dmarqNextToken  :: !(Maybe Text)
-    , _dmarqDryRun     :: !(Maybe Bool)
-    , _dmarqMaxResults :: !(Maybe Int)
+    { _dmaPublicIPs  :: !(Maybe [Text])
+    , _dmaFilters    :: !(Maybe [Filter])
+    , _dmaNextToken  :: !(Maybe Text)
+    , _dmaDryRun     :: !(Maybe Bool)
+    , _dmaMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMovingAddresses' smart constructor.
 describeMovingAddresses :: DescribeMovingAddresses
 describeMovingAddresses =
     DescribeMovingAddresses'
-    { _dmarqPublicIPs = Nothing
-    , _dmarqFilters = Nothing
-    , _dmarqNextToken = Nothing
-    , _dmarqDryRun = Nothing
-    , _dmarqMaxResults = Nothing
+    { _dmaPublicIPs = Nothing
+    , _dmaFilters = Nothing
+    , _dmaNextToken = Nothing
+    , _dmaDryRun = Nothing
+    , _dmaMaxResults = Nothing
     }
 
 -- | One or more Elastic IP addresses.
-dmarqPublicIPs :: Lens' DescribeMovingAddresses [Text]
-dmarqPublicIPs = lens _dmarqPublicIPs (\ s a -> s{_dmarqPublicIPs = a}) . _Default;
+dmaPublicIPs :: Lens' DescribeMovingAddresses [Text]
+dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default;
 
 -- | One or more filters.
 --
 -- -   @moving-status@ - The status of the Elastic IP address
 --     (@MovingToVpc@ | @RestoringToClassic@).
 --
-dmarqFilters :: Lens' DescribeMovingAddresses [Filter]
-dmarqFilters = lens _dmarqFilters (\ s a -> s{_dmarqFilters = a}) . _Default;
+dmaFilters :: Lens' DescribeMovingAddresses [Filter]
+dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default;
 
 -- | The token to use to retrieve the next page of results.
-dmarqNextToken :: Lens' DescribeMovingAddresses (Maybe Text)
-dmarqNextToken = lens _dmarqNextToken (\ s a -> s{_dmarqNextToken = a});
+dmaNextToken :: Lens' DescribeMovingAddresses (Maybe Text)
+dmaNextToken = lens _dmaNextToken (\ s a -> s{_dmaNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dmarqDryRun :: Lens' DescribeMovingAddresses (Maybe Bool)
-dmarqDryRun = lens _dmarqDryRun (\ s a -> s{_dmarqDryRun = a});
+dmaDryRun :: Lens' DescribeMovingAddresses (Maybe Bool)
+dmaDryRun = lens _dmaDryRun (\ s a -> s{_dmaDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
@@ -113,8 +113,8 @@ dmarqDryRun = lens _dmarqDryRun (\ s a -> s{_dmarqDryRun = a});
 -- this range, an error is returned.
 --
 -- Default: If no value is provided, the default is 1000.
-dmarqMaxResults :: Lens' DescribeMovingAddresses (Maybe Int)
-dmarqMaxResults = lens _dmarqMaxResults (\ s a -> s{_dmarqMaxResults = a});
+dmaMaxResults :: Lens' DescribeMovingAddresses (Maybe Int)
+dmaMaxResults = lens _dmaMaxResults (\ s a -> s{_dmaMaxResults = a});
 
 instance AWSRequest DescribeMovingAddresses where
         type Sv DescribeMovingAddresses = EC2
@@ -142,11 +142,10 @@ instance ToQuery DescribeMovingAddresses where
               ["Action" =:
                  ("DescribeMovingAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "item" <$> _dmarqPublicIPs),
-               toQuery (toQueryList "Filter" <$> _dmarqFilters),
-               "NextToken" =: _dmarqNextToken,
-               "DryRun" =: _dmarqDryRun,
-               "MaxResults" =: _dmarqMaxResults]
+               toQuery (toQueryList "item" <$> _dmaPublicIPs),
+               toQuery (toQueryList "Filter" <$> _dmaFilters),
+               "NextToken" =: _dmaNextToken, "DryRun" =: _dmaDryRun,
+               "MaxResults" =: _dmaMaxResults]
 
 -- | /See:/ 'describeMovingAddressesResponse' smart constructor.
 --

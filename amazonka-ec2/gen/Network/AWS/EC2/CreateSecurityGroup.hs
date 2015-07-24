@@ -55,10 +55,10 @@ module Network.AWS.EC2.CreateSecurityGroup
     -- ** Request constructor
     , createSecurityGroup
     -- ** Request lenses
-    , csgrqVPCId
-    , csgrqDryRun
-    , csgrqGroupName
-    , csgrqDescription
+    , csgVPCId
+    , csgDryRun
+    , csgGroupName
+    , csgDescription
 
     -- * Response
     , CreateSecurityGroupResponse
@@ -78,40 +78,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csgrqVPCId'
+-- * 'csgVPCId'
 --
--- * 'csgrqDryRun'
+-- * 'csgDryRun'
 --
--- * 'csgrqGroupName'
+-- * 'csgGroupName'
 --
--- * 'csgrqDescription'
+-- * 'csgDescription'
 data CreateSecurityGroup = CreateSecurityGroup'
-    { _csgrqVPCId       :: !(Maybe Text)
-    , _csgrqDryRun      :: !(Maybe Bool)
-    , _csgrqGroupName   :: !Text
-    , _csgrqDescription :: !Text
+    { _csgVPCId       :: !(Maybe Text)
+    , _csgDryRun      :: !(Maybe Bool)
+    , _csgGroupName   :: !Text
+    , _csgDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSecurityGroup' smart constructor.
 createSecurityGroup :: Text -> Text -> CreateSecurityGroup
 createSecurityGroup pGroupName_ pDescription_ =
     CreateSecurityGroup'
-    { _csgrqVPCId = Nothing
-    , _csgrqDryRun = Nothing
-    , _csgrqGroupName = pGroupName_
-    , _csgrqDescription = pDescription_
+    { _csgVPCId = Nothing
+    , _csgDryRun = Nothing
+    , _csgGroupName = pGroupName_
+    , _csgDescription = pDescription_
     }
 
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
-csgrqVPCId :: Lens' CreateSecurityGroup (Maybe Text)
-csgrqVPCId = lens _csgrqVPCId (\ s a -> s{_csgrqVPCId = a});
+csgVPCId :: Lens' CreateSecurityGroup (Maybe Text)
+csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-csgrqDryRun :: Lens' CreateSecurityGroup (Maybe Bool)
-csgrqDryRun = lens _csgrqDryRun (\ s a -> s{_csgrqDryRun = a});
+csgDryRun :: Lens' CreateSecurityGroup (Maybe Bool)
+csgDryRun = lens _csgDryRun (\ s a -> s{_csgDryRun = a});
 
 -- | The name of the security group.
 --
@@ -121,8 +121,8 @@ csgrqDryRun = lens _csgrqDryRun (\ s a -> s{_csgrqDryRun = a});
 --
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
 -- ._-:\/()#,\@[]+=&;{}!$*
-csgrqGroupName :: Lens' CreateSecurityGroup Text
-csgrqGroupName = lens _csgrqGroupName (\ s a -> s{_csgrqGroupName = a});
+csgGroupName :: Lens' CreateSecurityGroup Text
+csgGroupName = lens _csgGroupName (\ s a -> s{_csgGroupName = a});
 
 -- | A description for the security group. This is informational only.
 --
@@ -132,8 +132,8 @@ csgrqGroupName = lens _csgrqGroupName (\ s a -> s{_csgrqGroupName = a});
 --
 -- Constraints for EC2-VPC: a-z, A-Z, 0-9, spaces, and
 -- ._-:\/()#,\@[]+=&;{}!$*
-csgrqDescription :: Lens' CreateSecurityGroup Text
-csgrqDescription = lens _csgrqDescription (\ s a -> s{_csgrqDescription = a});
+csgDescription :: Lens' CreateSecurityGroup Text
+csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 
 instance AWSRequest CreateSecurityGroup where
         type Sv CreateSecurityGroup = EC2
@@ -157,9 +157,9 @@ instance ToQuery CreateSecurityGroup where
           = mconcat
               ["Action" =: ("CreateSecurityGroup" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "VpcId" =: _csgrqVPCId, "DryRun" =: _csgrqDryRun,
-               "GroupName" =: _csgrqGroupName,
-               "GroupDescription" =: _csgrqDescription]
+               "VpcId" =: _csgVPCId, "DryRun" =: _csgDryRun,
+               "GroupName" =: _csgGroupName,
+               "GroupDescription" =: _csgDescription]
 
 -- | /See:/ 'createSecurityGroupResponse' smart constructor.
 --

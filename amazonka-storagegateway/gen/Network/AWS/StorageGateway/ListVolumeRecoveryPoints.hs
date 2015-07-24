@@ -34,7 +34,7 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     -- ** Request constructor
     , listVolumeRecoveryPoints
     -- ** Request lenses
-    , lvrprqGatewayARN
+    , lvrpGatewayARN
 
     -- * Response
     , ListVolumeRecoveryPointsResponse
@@ -55,21 +55,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrprqGatewayARN'
+-- * 'lvrpGatewayARN'
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
-    { _lvrprqGatewayARN :: Text
+    { _lvrpGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeRecoveryPoints' smart constructor.
 listVolumeRecoveryPoints :: Text -> ListVolumeRecoveryPoints
 listVolumeRecoveryPoints pGatewayARN_ =
     ListVolumeRecoveryPoints'
-    { _lvrprqGatewayARN = pGatewayARN_
+    { _lvrpGatewayARN = pGatewayARN_
     }
 
 -- | FIXME: Undocumented member.
-lvrprqGatewayARN :: Lens' ListVolumeRecoveryPoints Text
-lvrprqGatewayARN = lens _lvrprqGatewayARN (\ s a -> s{_lvrprqGatewayARN = a});
+lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
+lvrpGatewayARN = lens _lvrpGatewayARN (\ s a -> s{_lvrpGatewayARN = a});
 
 instance AWSRequest ListVolumeRecoveryPoints where
         type Sv ListVolumeRecoveryPoints = StorageGateway
@@ -96,7 +96,7 @@ instance ToHeaders ListVolumeRecoveryPoints where
 
 instance ToJSON ListVolumeRecoveryPoints where
         toJSON ListVolumeRecoveryPoints'{..}
-          = object ["GatewayARN" .= _lvrprqGatewayARN]
+          = object ["GatewayARN" .= _lvrpGatewayARN]
 
 instance ToPath ListVolumeRecoveryPoints where
         toPath = const "/"

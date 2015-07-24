@@ -27,10 +27,10 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     -- ** Request constructor
     , purchaseReservedDBInstancesOffering
     -- ** Request lenses
-    , prdiorqDBInstanceCount
-    , prdiorqReservedDBInstanceId
-    , prdiorqTags
-    , prdiorqReservedDBInstancesOfferingId
+    , prdioDBInstanceCount
+    , prdioReservedDBInstanceId
+    , prdioTags
+    , prdioReservedDBInstancesOfferingId
 
     -- * Response
     , PurchaseReservedDBInstancesOfferingResponse
@@ -52,51 +52,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prdiorqDBInstanceCount'
+-- * 'prdioDBInstanceCount'
 --
--- * 'prdiorqReservedDBInstanceId'
+-- * 'prdioReservedDBInstanceId'
 --
--- * 'prdiorqTags'
+-- * 'prdioTags'
 --
--- * 'prdiorqReservedDBInstancesOfferingId'
+-- * 'prdioReservedDBInstancesOfferingId'
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
-    { _prdiorqDBInstanceCount               :: !(Maybe Int)
-    , _prdiorqReservedDBInstanceId          :: !(Maybe Text)
-    , _prdiorqTags                          :: !(Maybe [Tag])
-    , _prdiorqReservedDBInstancesOfferingId :: !Text
+    { _prdioDBInstanceCount               :: !(Maybe Int)
+    , _prdioReservedDBInstanceId          :: !(Maybe Text)
+    , _prdioTags                          :: !(Maybe [Tag])
+    , _prdioReservedDBInstancesOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedDBInstancesOffering' smart constructor.
 purchaseReservedDBInstancesOffering :: Text -> PurchaseReservedDBInstancesOffering
 purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId_ =
     PurchaseReservedDBInstancesOffering'
-    { _prdiorqDBInstanceCount = Nothing
-    , _prdiorqReservedDBInstanceId = Nothing
-    , _prdiorqTags = Nothing
-    , _prdiorqReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
+    { _prdioDBInstanceCount = Nothing
+    , _prdioReservedDBInstanceId = Nothing
+    , _prdioTags = Nothing
+    , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId_
     }
 
 -- | The number of instances to reserve.
 --
 -- Default: @1@
-prdiorqDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
-prdiorqDBInstanceCount = lens _prdiorqDBInstanceCount (\ s a -> s{_prdiorqDBInstanceCount = a});
+prdioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
+prdioDBInstanceCount = lens _prdioDBInstanceCount (\ s a -> s{_prdioDBInstanceCount = a});
 
 -- | Customer-specified identifier to track this reservation.
 --
 -- Example: myreservationID
-prdiorqReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
-prdiorqReservedDBInstanceId = lens _prdiorqReservedDBInstanceId (\ s a -> s{_prdiorqReservedDBInstanceId = a});
+prdioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
+prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a});
 
 -- | FIXME: Undocumented member.
-prdiorqTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
-prdiorqTags = lens _prdiorqTags (\ s a -> s{_prdiorqTags = a}) . _Default;
+prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
+prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default;
 
 -- | The ID of the Reserved DB instance offering to purchase.
 --
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
-prdiorqReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
-prdiorqReservedDBInstancesOfferingId = lens _prdiorqReservedDBInstancesOfferingId (\ s a -> s{_prdiorqReservedDBInstancesOfferingId = a});
+prdioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
+prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\ s a -> s{_prdioReservedDBInstancesOfferingId = a});
 
 instance AWSRequest
          PurchaseReservedDBInstancesOffering where
@@ -127,13 +127,11 @@ instance ToQuery PurchaseReservedDBInstancesOffering
                  ("PurchaseReservedDBInstancesOffering" ::
                     ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBInstanceCount" =: _prdiorqDBInstanceCount,
-               "ReservedDBInstanceId" =:
-                 _prdiorqReservedDBInstanceId,
-               "Tags" =:
-                 toQuery (toQueryList "Tag" <$> _prdiorqTags),
+               "DBInstanceCount" =: _prdioDBInstanceCount,
+               "ReservedDBInstanceId" =: _prdioReservedDBInstanceId,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _prdioTags),
                "ReservedDBInstancesOfferingId" =:
-                 _prdiorqReservedDBInstancesOfferingId]
+                 _prdioReservedDBInstancesOfferingId]
 
 -- | /See:/ 'purchaseReservedDBInstancesOfferingResponse' smart constructor.
 --

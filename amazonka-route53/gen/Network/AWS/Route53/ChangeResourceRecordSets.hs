@@ -57,8 +57,8 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     -- ** Request constructor
     , changeResourceRecordSets
     -- ** Request lenses
-    , crrsrqHostedZoneId
-    , crrsrqChangeBatch
+    , crrsHostedZoneId
+    , crrsChangeBatch
 
     -- * Response
     , ChangeResourceRecordSetsResponse
@@ -80,31 +80,31 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrsrqHostedZoneId'
+-- * 'crrsHostedZoneId'
 --
--- * 'crrsrqChangeBatch'
+-- * 'crrsChangeBatch'
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
-    { _crrsrqHostedZoneId :: !Text
-    , _crrsrqChangeBatch  :: !ChangeBatch
+    { _crrsHostedZoneId :: !Text
+    , _crrsChangeBatch  :: !ChangeBatch
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ChangeResourceRecordSets' smart constructor.
 changeResourceRecordSets :: Text -> ChangeBatch -> ChangeResourceRecordSets
 changeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
     ChangeResourceRecordSets'
-    { _crrsrqHostedZoneId = pHostedZoneId_
-    , _crrsrqChangeBatch = pChangeBatch_
+    { _crrsHostedZoneId = pHostedZoneId_
+    , _crrsChangeBatch = pChangeBatch_
     }
 
 -- | The ID of the hosted zone that contains the resource record sets that
 -- you want to change.
-crrsrqHostedZoneId :: Lens' ChangeResourceRecordSets Text
-crrsrqHostedZoneId = lens _crrsrqHostedZoneId (\ s a -> s{_crrsrqHostedZoneId = a});
+crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
+crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a});
 
 -- | A complex type that contains an optional comment and the @Changes@
 -- element.
-crrsrqChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
-crrsrqChangeBatch = lens _crrsrqChangeBatch (\ s a -> s{_crrsrqChangeBatch = a});
+crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
+crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a});
 
 instance AWSRequest ChangeResourceRecordSets where
         type Sv ChangeResourceRecordSets = Route53
@@ -128,15 +128,15 @@ instance ToHeaders ChangeResourceRecordSets where
 instance ToPath ChangeResourceRecordSets where
         toPath ChangeResourceRecordSets'{..}
           = mconcat
-              ["/2013-04-01/hostedzone/",
-               toText _crrsrqHostedZoneId, "/rrset/"]
+              ["/2013-04-01/hostedzone/", toText _crrsHostedZoneId,
+               "/rrset/"]
 
 instance ToQuery ChangeResourceRecordSets where
         toQuery = const mempty
 
 instance ToXML ChangeResourceRecordSets where
         toXML ChangeResourceRecordSets'{..}
-          = mconcat ["ChangeBatch" @= _crrsrqChangeBatch]
+          = mconcat ["ChangeBatch" @= _crrsChangeBatch]
 
 -- | A complex type containing the response for the request.
 --

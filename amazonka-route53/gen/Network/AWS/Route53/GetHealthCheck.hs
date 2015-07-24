@@ -28,7 +28,7 @@ module Network.AWS.Route53.GetHealthCheck
     -- ** Request constructor
     , getHealthCheck
     -- ** Request lenses
-    , ghcrqHealthCheckId
+    , ghcHealthCheckId
 
     -- * Response
     , GetHealthCheckResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghcrqHealthCheckId'
+-- * 'ghcHealthCheckId'
 newtype GetHealthCheck = GetHealthCheck'
-    { _ghcrqHealthCheckId :: Text
+    { _ghcHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheck' smart constructor.
 getHealthCheck :: Text -> GetHealthCheck
 getHealthCheck pHealthCheckId_ =
     GetHealthCheck'
-    { _ghcrqHealthCheckId = pHealthCheckId_
+    { _ghcHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check to retrieve.
-ghcrqHealthCheckId :: Lens' GetHealthCheck Text
-ghcrqHealthCheckId = lens _ghcrqHealthCheckId (\ s a -> s{_ghcrqHealthCheckId = a});
+ghcHealthCheckId :: Lens' GetHealthCheck Text
+ghcHealthCheckId = lens _ghcHealthCheckId (\ s a -> s{_ghcHealthCheckId = a});
 
 instance AWSRequest GetHealthCheck where
         type Sv GetHealthCheck = Route53
@@ -84,7 +84,7 @@ instance ToPath GetHealthCheck where
         toPath GetHealthCheck'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _ghcrqHealthCheckId]
+               toText _ghcHealthCheckId]
 
 instance ToQuery GetHealthCheck where
         toQuery = const mempty

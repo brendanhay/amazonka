@@ -31,9 +31,9 @@ module Network.AWS.EC2.DescribeVPNConnections
     -- ** Request constructor
     , describeVPNConnections
     -- ** Request lenses
-    , dvpncrqFilters
-    , dvpncrqVPNConnectionIds
-    , dvpncrqDryRun
+    , dvpncFilters
+    , dvpncVPNConnectionIds
+    , dvpncDryRun
 
     -- * Response
     , DescribeVPNConnectionsResponse
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpncrqFilters'
+-- * 'dvpncFilters'
 --
--- * 'dvpncrqVPNConnectionIds'
+-- * 'dvpncVPNConnectionIds'
 --
--- * 'dvpncrqDryRun'
+-- * 'dvpncDryRun'
 data DescribeVPNConnections = DescribeVPNConnections'
-    { _dvpncrqFilters          :: !(Maybe [Filter])
-    , _dvpncrqVPNConnectionIds :: !(Maybe [Text])
-    , _dvpncrqDryRun           :: !(Maybe Bool)
+    { _dvpncFilters          :: !(Maybe [Filter])
+    , _dvpncVPNConnectionIds :: !(Maybe [Text])
+    , _dvpncDryRun           :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNConnections' smart constructor.
 describeVPNConnections :: DescribeVPNConnections
 describeVPNConnections =
     DescribeVPNConnections'
-    { _dvpncrqFilters = Nothing
-    , _dvpncrqVPNConnectionIds = Nothing
-    , _dvpncrqDryRun = Nothing
+    { _dvpncFilters = Nothing
+    , _dvpncVPNConnectionIds = Nothing
+    , _dvpncDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -116,21 +116,21 @@ describeVPNConnections =
 -- -   @vpn-gateway-id@ - The ID of a virtual private gateway associated
 --     with the VPN connection.
 --
-dvpncrqFilters :: Lens' DescribeVPNConnections [Filter]
-dvpncrqFilters = lens _dvpncrqFilters (\ s a -> s{_dvpncrqFilters = a}) . _Default;
+dvpncFilters :: Lens' DescribeVPNConnections [Filter]
+dvpncFilters = lens _dvpncFilters (\ s a -> s{_dvpncFilters = a}) . _Default;
 
 -- | One or more VPN connection IDs.
 --
 -- Default: Describes your VPN connections.
-dvpncrqVPNConnectionIds :: Lens' DescribeVPNConnections [Text]
-dvpncrqVPNConnectionIds = lens _dvpncrqVPNConnectionIds (\ s a -> s{_dvpncrqVPNConnectionIds = a}) . _Default;
+dvpncVPNConnectionIds :: Lens' DescribeVPNConnections [Text]
+dvpncVPNConnectionIds = lens _dvpncVPNConnectionIds (\ s a -> s{_dvpncVPNConnectionIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvpncrqDryRun :: Lens' DescribeVPNConnections (Maybe Bool)
-dvpncrqDryRun = lens _dvpncrqDryRun (\ s a -> s{_dvpncrqDryRun = a});
+dvpncDryRun :: Lens' DescribeVPNConnections (Maybe Bool)
+dvpncDryRun = lens _dvpncDryRun (\ s a -> s{_dvpncDryRun = a});
 
 instance AWSRequest DescribeVPNConnections where
         type Sv DescribeVPNConnections = EC2
@@ -157,11 +157,11 @@ instance ToQuery DescribeVPNConnections where
               ["Action" =:
                  ("DescribeVPNConnections" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvpncrqFilters),
+               toQuery (toQueryList "Filter" <$> _dvpncFilters),
                toQuery
                  (toQueryList "VpnConnectionId" <$>
-                    _dvpncrqVPNConnectionIds),
-               "DryRun" =: _dvpncrqDryRun]
+                    _dvpncVPNConnectionIds),
+               "DryRun" =: _dvpncDryRun]
 
 -- | /See:/ 'describeVPNConnectionsResponse' smart constructor.
 --

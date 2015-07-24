@@ -43,8 +43,8 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     -- ** Request constructor
     , setIdentityDkimEnabled
     -- ** Request lenses
-    , siderqIdentity
-    , siderqDkimEnabled
+    , sideIdentity
+    , sideDkimEnabled
 
     -- * Response
     , SetIdentityDkimEnabledResponse
@@ -66,30 +66,30 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siderqIdentity'
+-- * 'sideIdentity'
 --
--- * 'siderqDkimEnabled'
+-- * 'sideDkimEnabled'
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
-    { _siderqIdentity    :: !Text
-    , _siderqDkimEnabled :: !Bool
+    { _sideIdentity    :: !Text
+    , _sideDkimEnabled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityDkimEnabled' smart constructor.
 setIdentityDkimEnabled :: Text -> Bool -> SetIdentityDkimEnabled
 setIdentityDkimEnabled pIdentity_ pDkimEnabled_ =
     SetIdentityDkimEnabled'
-    { _siderqIdentity = pIdentity_
-    , _siderqDkimEnabled = pDkimEnabled_
+    { _sideIdentity = pIdentity_
+    , _sideDkimEnabled = pDkimEnabled_
     }
 
 -- | The identity for which DKIM signing should be enabled or disabled.
-siderqIdentity :: Lens' SetIdentityDkimEnabled Text
-siderqIdentity = lens _siderqIdentity (\ s a -> s{_siderqIdentity = a});
+sideIdentity :: Lens' SetIdentityDkimEnabled Text
+sideIdentity = lens _sideIdentity (\ s a -> s{_sideIdentity = a});
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to
 -- enable DKIM signing for this identity; @false@ to disable it.
-siderqDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
-siderqDkimEnabled = lens _siderqDkimEnabled (\ s a -> s{_siderqDkimEnabled = a});
+sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
+sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a});
 
 instance AWSRequest SetIdentityDkimEnabled where
         type Sv SetIdentityDkimEnabled = SES
@@ -114,8 +114,8 @@ instance ToQuery SetIdentityDkimEnabled where
               ["Action" =:
                  ("SetIdentityDkimEnabled" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _siderqIdentity,
-               "DkimEnabled" =: _siderqDkimEnabled]
+               "Identity" =: _sideIdentity,
+               "DkimEnabled" =: _sideDkimEnabled]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.

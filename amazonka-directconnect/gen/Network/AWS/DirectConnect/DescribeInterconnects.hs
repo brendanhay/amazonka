@@ -30,7 +30,7 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     -- ** Request constructor
     , describeInterconnects
     -- ** Request lenses
-    , dirqInterconnectId
+    , diInterconnectId
 
     -- * Response
     , DescribeInterconnectsResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirqInterconnectId'
+-- * 'diInterconnectId'
 newtype DescribeInterconnects = DescribeInterconnects'
-    { _dirqInterconnectId :: Maybe Text
+    { _diInterconnectId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInterconnects' smart constructor.
 describeInterconnects :: DescribeInterconnects
 describeInterconnects =
     DescribeInterconnects'
-    { _dirqInterconnectId = Nothing
+    { _diInterconnectId = Nothing
     }
 
 -- | FIXME: Undocumented member.
-dirqInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
-dirqInterconnectId = lens _dirqInterconnectId (\ s a -> s{_dirqInterconnectId = a});
+diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
+diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a});
 
 instance AWSRequest DescribeInterconnects where
         type Sv DescribeInterconnects = DirectConnect
@@ -92,7 +92,7 @@ instance ToHeaders DescribeInterconnects where
 
 instance ToJSON DescribeInterconnects where
         toJSON DescribeInterconnects'{..}
-          = object ["interconnectId" .= _dirqInterconnectId]
+          = object ["interconnectId" .= _diInterconnectId]
 
 instance ToPath DescribeInterconnects where
         toPath = const "/"

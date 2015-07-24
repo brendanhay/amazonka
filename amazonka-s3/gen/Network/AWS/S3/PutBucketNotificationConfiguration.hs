@@ -27,8 +27,8 @@ module Network.AWS.S3.PutBucketNotificationConfiguration
     -- ** Request constructor
     , putBucketNotificationConfiguration
     -- ** Request lenses
-    , pbncrqBucket
-    , pbncrqNotificationConfiguration
+    , pbncBucket
+    , pbncNotificationConfiguration
 
     -- * Response
     , PutBucketNotificationConfigurationResponse
@@ -45,29 +45,29 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbncrqBucket'
+-- * 'pbncBucket'
 --
--- * 'pbncrqNotificationConfiguration'
+-- * 'pbncNotificationConfiguration'
 data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
-    { _pbncrqBucket                    :: !BucketName
-    , _pbncrqNotificationConfiguration :: !NotificationConfiguration
+    { _pbncBucket                    :: !BucketName
+    , _pbncNotificationConfiguration :: !NotificationConfiguration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketNotificationConfiguration' smart constructor.
 putBucketNotificationConfiguration :: BucketName -> NotificationConfiguration -> PutBucketNotificationConfiguration
 putBucketNotificationConfiguration pBucket_ pNotificationConfiguration_ =
     PutBucketNotificationConfiguration'
-    { _pbncrqBucket = pBucket_
-    , _pbncrqNotificationConfiguration = pNotificationConfiguration_
+    { _pbncBucket = pBucket_
+    , _pbncNotificationConfiguration = pNotificationConfiguration_
     }
 
 -- | FIXME: Undocumented member.
-pbncrqBucket :: Lens' PutBucketNotificationConfiguration BucketName
-pbncrqBucket = lens _pbncrqBucket (\ s a -> s{_pbncrqBucket = a});
+pbncBucket :: Lens' PutBucketNotificationConfiguration BucketName
+pbncBucket = lens _pbncBucket (\ s a -> s{_pbncBucket = a});
 
 -- | FIXME: Undocumented member.
-pbncrqNotificationConfiguration :: Lens' PutBucketNotificationConfiguration NotificationConfiguration
-pbncrqNotificationConfiguration = lens _pbncrqNotificationConfiguration (\ s a -> s{_pbncrqNotificationConfiguration = a});
+pbncNotificationConfiguration :: Lens' PutBucketNotificationConfiguration NotificationConfiguration
+pbncNotificationConfiguration = lens _pbncNotificationConfiguration (\ s a -> s{_pbncNotificationConfiguration = a});
 
 instance AWSRequest
          PutBucketNotificationConfiguration where
@@ -85,7 +85,7 @@ instance ToElement PutBucketNotificationConfiguration
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}NotificationConfiguration"
               .
-              _pbncrqNotificationConfiguration
+              _pbncNotificationConfiguration
 
 instance ToHeaders PutBucketNotificationConfiguration
          where
@@ -94,7 +94,7 @@ instance ToHeaders PutBucketNotificationConfiguration
 instance ToPath PutBucketNotificationConfiguration
          where
         toPath PutBucketNotificationConfiguration'{..}
-          = mconcat ["/", toText _pbncrqBucket]
+          = mconcat ["/", toText _pbncBucket]
 
 instance ToQuery PutBucketNotificationConfiguration
          where

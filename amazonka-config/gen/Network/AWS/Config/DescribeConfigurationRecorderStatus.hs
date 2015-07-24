@@ -31,7 +31,7 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
     -- ** Request constructor
     , describeConfigurationRecorderStatus
     -- ** Request lenses
-    , dcrsrqConfigurationRecorderNames
+    , dcrsConfigurationRecorderNames
 
     -- * Response
     , DescribeConfigurationRecorderStatusResponse
@@ -53,23 +53,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrsrqConfigurationRecorderNames'
+-- * 'dcrsConfigurationRecorderNames'
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
-    { _dcrsrqConfigurationRecorderNames :: Maybe [Text]
+    { _dcrsConfigurationRecorderNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecorderStatus' smart constructor.
 describeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus
 describeConfigurationRecorderStatus =
     DescribeConfigurationRecorderStatus'
-    { _dcrsrqConfigurationRecorderNames = Nothing
+    { _dcrsConfigurationRecorderNames = Nothing
     }
 
 -- | The name(s) of the configuration recorder. If the name is not specified,
 -- the action returns the current status of all the configuration recorders
 -- associated with the account.
-dcrsrqConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
-dcrsrqConfigurationRecorderNames = lens _dcrsrqConfigurationRecorderNames (\ s a -> s{_dcrsrqConfigurationRecorderNames = a}) . _Default;
+dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
+dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default;
 
 instance AWSRequest
          DescribeConfigurationRecorderStatus where
@@ -100,7 +100,7 @@ instance ToJSON DescribeConfigurationRecorderStatus
         toJSON DescribeConfigurationRecorderStatus'{..}
           = object
               ["ConfigurationRecorderNames" .=
-                 _dcrsrqConfigurationRecorderNames]
+                 _dcrsConfigurationRecorderNames]
 
 instance ToPath DescribeConfigurationRecorderStatus
          where

@@ -29,7 +29,7 @@ module Network.AWS.Route53.GetHealthCheckStatus
     -- ** Request constructor
     , getHealthCheckStatus
     -- ** Request lenses
-    , ghcsrqHealthCheckId
+    , ghcsHealthCheckId
 
     -- * Response
     , GetHealthCheckStatusResponse
@@ -52,22 +52,22 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghcsrqHealthCheckId'
+-- * 'ghcsHealthCheckId'
 newtype GetHealthCheckStatus = GetHealthCheckStatus'
-    { _ghcsrqHealthCheckId :: Text
+    { _ghcsHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckStatus' smart constructor.
 getHealthCheckStatus :: Text -> GetHealthCheckStatus
 getHealthCheckStatus pHealthCheckId_ =
     GetHealthCheckStatus'
-    { _ghcsrqHealthCheckId = pHealthCheckId_
+    { _ghcsHealthCheckId = pHealthCheckId_
     }
 
 -- | The ID of the health check for which you want to retrieve the most
 -- recent status.
-ghcsrqHealthCheckId :: Lens' GetHealthCheckStatus Text
-ghcsrqHealthCheckId = lens _ghcsrqHealthCheckId (\ s a -> s{_ghcsrqHealthCheckId = a});
+ghcsHealthCheckId :: Lens' GetHealthCheckStatus Text
+ghcsHealthCheckId = lens _ghcsHealthCheckId (\ s a -> s{_ghcsHealthCheckId = a});
 
 instance AWSRequest GetHealthCheckStatus where
         type Sv GetHealthCheckStatus = Route53
@@ -89,7 +89,7 @@ instance ToPath GetHealthCheckStatus where
         toPath GetHealthCheckStatus'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _ghcsrqHealthCheckId, "/status"]
+               toText _ghcsHealthCheckId, "/status"]
 
 instance ToQuery GetHealthCheckStatus where
         toQuery = const mempty

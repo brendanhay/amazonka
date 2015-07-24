@@ -31,9 +31,9 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     -- ** Request constructor
     , updateApplicationVersion
     -- ** Request lenses
-    , uavrqDescription
-    , uavrqApplicationName
-    , uavrqVersionLabel
+    , uavDescription
+    , uavApplicationName
+    , uavVersionLabel
 
     -- * Response
     , ApplicationVersionDescriptionMessage
@@ -54,43 +54,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uavrqDescription'
+-- * 'uavDescription'
 --
--- * 'uavrqApplicationName'
+-- * 'uavApplicationName'
 --
--- * 'uavrqVersionLabel'
+-- * 'uavVersionLabel'
 data UpdateApplicationVersion = UpdateApplicationVersion'
-    { _uavrqDescription     :: !(Maybe Text)
-    , _uavrqApplicationName :: !Text
-    , _uavrqVersionLabel    :: !Text
+    { _uavDescription     :: !(Maybe Text)
+    , _uavApplicationName :: !Text
+    , _uavVersionLabel    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApplicationVersion' smart constructor.
 updateApplicationVersion :: Text -> Text -> UpdateApplicationVersion
 updateApplicationVersion pApplicationName_ pVersionLabel_ =
     UpdateApplicationVersion'
-    { _uavrqDescription = Nothing
-    , _uavrqApplicationName = pApplicationName_
-    , _uavrqVersionLabel = pVersionLabel_
+    { _uavDescription = Nothing
+    , _uavApplicationName = pApplicationName_
+    , _uavVersionLabel = pVersionLabel_
     }
 
 -- | A new description for this release.
-uavrqDescription :: Lens' UpdateApplicationVersion (Maybe Text)
-uavrqDescription = lens _uavrqDescription (\ s a -> s{_uavrqDescription = a});
+uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
+uavDescription = lens _uavDescription (\ s a -> s{_uavDescription = a});
 
 -- | The name of the application associated with this version.
 --
 -- If no application is found with this name, @UpdateApplication@ returns
 -- an @InvalidParameterValue@ error.
-uavrqApplicationName :: Lens' UpdateApplicationVersion Text
-uavrqApplicationName = lens _uavrqApplicationName (\ s a -> s{_uavrqApplicationName = a});
+uavApplicationName :: Lens' UpdateApplicationVersion Text
+uavApplicationName = lens _uavApplicationName (\ s a -> s{_uavApplicationName = a});
 
 -- | The name of the version to update.
 --
 -- If no application version is found with this label, @UpdateApplication@
 -- returns an @InvalidParameterValue@ error.
-uavrqVersionLabel :: Lens' UpdateApplicationVersion Text
-uavrqVersionLabel = lens _uavrqVersionLabel (\ s a -> s{_uavrqVersionLabel = a});
+uavVersionLabel :: Lens' UpdateApplicationVersion Text
+uavVersionLabel = lens _uavVersionLabel (\ s a -> s{_uavVersionLabel = a});
 
 instance AWSRequest UpdateApplicationVersion where
         type Sv UpdateApplicationVersion = ElasticBeanstalk
@@ -113,6 +113,6 @@ instance ToQuery UpdateApplicationVersion where
               ["Action" =:
                  ("UpdateApplicationVersion" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Description" =: _uavrqDescription,
-               "ApplicationName" =: _uavrqApplicationName,
-               "VersionLabel" =: _uavrqVersionLabel]
+               "Description" =: _uavDescription,
+               "ApplicationName" =: _uavApplicationName,
+               "VersionLabel" =: _uavVersionLabel]

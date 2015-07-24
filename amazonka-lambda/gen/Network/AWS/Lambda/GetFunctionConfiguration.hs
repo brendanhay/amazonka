@@ -32,7 +32,7 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     -- ** Request constructor
     , getFunctionConfiguration
     -- ** Request lenses
-    , gfcrqFunctionName
+    , gfcFunctionName
 
     -- * Response
     , FunctionConfiguration
@@ -60,16 +60,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gfcrqFunctionName'
+-- * 'gfcFunctionName'
 newtype GetFunctionConfiguration = GetFunctionConfiguration'
-    { _gfcrqFunctionName :: Text
+    { _gfcFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFunctionConfiguration' smart constructor.
 getFunctionConfiguration :: Text -> GetFunctionConfiguration
 getFunctionConfiguration pFunctionName_ =
     GetFunctionConfiguration'
-    { _gfcrqFunctionName = pFunctionName_
+    { _gfcFunctionName = pFunctionName_
     }
 
 -- | The name of the Lambda function for which you want to retrieve the
@@ -83,8 +83,8 @@ getFunctionConfiguration pFunctionName_ =
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-gfcrqFunctionName :: Lens' GetFunctionConfiguration Text
-gfcrqFunctionName = lens _gfcrqFunctionName (\ s a -> s{_gfcrqFunctionName = a});
+gfcFunctionName :: Lens' GetFunctionConfiguration Text
+gfcFunctionName = lens _gfcFunctionName (\ s a -> s{_gfcFunctionName = a});
 
 instance AWSRequest GetFunctionConfiguration where
         type Sv GetFunctionConfiguration = Lambda
@@ -99,7 +99,7 @@ instance ToHeaders GetFunctionConfiguration where
 instance ToPath GetFunctionConfiguration where
         toPath GetFunctionConfiguration'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _gfcrqFunctionName,
+              ["/2015-03-31/functions/", toText _gfcFunctionName,
                "/versions/HEAD/configuration"]
 
 instance ToQuery GetFunctionConfiguration where

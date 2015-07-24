@@ -31,11 +31,11 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- ** Request constructor
     , describeConfigurationOptions
     -- ** Request lenses
-    , dcorqTemplateName
-    , dcorqEnvironmentName
-    , dcorqApplicationName
-    , dcorqOptions
-    , dcorqSolutionStackName
+    , dcoTemplateName
+    , dcoEnvironmentName
+    , dcoApplicationName
+    , dcoOptions
+    , dcoSolutionStackName
 
     -- * Response
     , DescribeConfigurationOptionsResponse
@@ -58,59 +58,59 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcorqTemplateName'
+-- * 'dcoTemplateName'
 --
--- * 'dcorqEnvironmentName'
+-- * 'dcoEnvironmentName'
 --
--- * 'dcorqApplicationName'
+-- * 'dcoApplicationName'
 --
--- * 'dcorqOptions'
+-- * 'dcoOptions'
 --
--- * 'dcorqSolutionStackName'
+-- * 'dcoSolutionStackName'
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
-    { _dcorqTemplateName      :: !(Maybe Text)
-    , _dcorqEnvironmentName   :: !(Maybe Text)
-    , _dcorqApplicationName   :: !(Maybe Text)
-    , _dcorqOptions           :: !(Maybe [OptionSpecification])
-    , _dcorqSolutionStackName :: !(Maybe Text)
+    { _dcoTemplateName      :: !(Maybe Text)
+    , _dcoEnvironmentName   :: !(Maybe Text)
+    , _dcoApplicationName   :: !(Maybe Text)
+    , _dcoOptions           :: !(Maybe [OptionSpecification])
+    , _dcoSolutionStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationOptions' smart constructor.
 describeConfigurationOptions :: DescribeConfigurationOptions
 describeConfigurationOptions =
     DescribeConfigurationOptions'
-    { _dcorqTemplateName = Nothing
-    , _dcorqEnvironmentName = Nothing
-    , _dcorqApplicationName = Nothing
-    , _dcorqOptions = Nothing
-    , _dcorqSolutionStackName = Nothing
+    { _dcoTemplateName = Nothing
+    , _dcoEnvironmentName = Nothing
+    , _dcoApplicationName = Nothing
+    , _dcoOptions = Nothing
+    , _dcoSolutionStackName = Nothing
     }
 
 -- | The name of the configuration template whose configuration options you
 -- want to describe.
-dcorqTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcorqTemplateName = lens _dcorqTemplateName (\ s a -> s{_dcorqTemplateName = a});
+dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
+dcoTemplateName = lens _dcoTemplateName (\ s a -> s{_dcoTemplateName = a});
 
 -- | The name of the environment whose configuration options you want to
 -- describe.
-dcorqEnvironmentName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcorqEnvironmentName = lens _dcorqEnvironmentName (\ s a -> s{_dcorqEnvironmentName = a});
+dcoEnvironmentName :: Lens' DescribeConfigurationOptions (Maybe Text)
+dcoEnvironmentName = lens _dcoEnvironmentName (\ s a -> s{_dcoEnvironmentName = a});
 
 -- | The name of the application associated with the configuration template
 -- or environment. Only needed if you want to describe the configuration
 -- options associated with either the configuration template or
 -- environment.
-dcorqApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcorqApplicationName = lens _dcorqApplicationName (\ s a -> s{_dcorqApplicationName = a});
+dcoApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
+dcoApplicationName = lens _dcoApplicationName (\ s a -> s{_dcoApplicationName = a});
 
 -- | If specified, restricts the descriptions to only the specified options.
-dcorqOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
-dcorqOptions = lens _dcorqOptions (\ s a -> s{_dcorqOptions = a}) . _Default;
+dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
+dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default;
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
-dcorqSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
-dcorqSolutionStackName = lens _dcorqSolutionStackName (\ s a -> s{_dcorqSolutionStackName = a});
+dcoSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
+dcoSolutionStackName = lens _dcoSolutionStackName (\ s a -> s{_dcoSolutionStackName = a});
 
 instance AWSRequest DescribeConfigurationOptions
          where
@@ -141,12 +141,12 @@ instance ToQuery DescribeConfigurationOptions where
               ["Action" =:
                  ("DescribeConfigurationOptions" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _dcorqTemplateName,
-               "EnvironmentName" =: _dcorqEnvironmentName,
-               "ApplicationName" =: _dcorqApplicationName,
+               "TemplateName" =: _dcoTemplateName,
+               "EnvironmentName" =: _dcoEnvironmentName,
+               "ApplicationName" =: _dcoApplicationName,
                "Options" =:
-                 toQuery (toQueryList "member" <$> _dcorqOptions),
-               "SolutionStackName" =: _dcorqSolutionStackName]
+                 toQuery (toQueryList "member" <$> _dcoOptions),
+               "SolutionStackName" =: _dcoSolutionStackName]
 
 -- | Describes the settings for a specified configuration set.
 --

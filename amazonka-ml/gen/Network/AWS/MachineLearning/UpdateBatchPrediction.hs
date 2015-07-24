@@ -30,8 +30,8 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     -- ** Request constructor
     , updateBatchPrediction
     -- ** Request lenses
-    , ubprqBatchPredictionId
-    , ubprqBatchPredictionName
+    , ubpBatchPredictionId
+    , ubpBatchPredictionName
 
     -- * Response
     , UpdateBatchPredictionResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ubprqBatchPredictionId'
+-- * 'ubpBatchPredictionId'
 --
--- * 'ubprqBatchPredictionName'
+-- * 'ubpBatchPredictionName'
 data UpdateBatchPrediction = UpdateBatchPrediction'
-    { _ubprqBatchPredictionId   :: !Text
-    , _ubprqBatchPredictionName :: !Text
+    { _ubpBatchPredictionId   :: !Text
+    , _ubpBatchPredictionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBatchPrediction' smart constructor.
 updateBatchPrediction :: Text -> Text -> UpdateBatchPrediction
 updateBatchPrediction pBatchPredictionId_ pBatchPredictionName_ =
     UpdateBatchPrediction'
-    { _ubprqBatchPredictionId = pBatchPredictionId_
-    , _ubprqBatchPredictionName = pBatchPredictionName_
+    { _ubpBatchPredictionId = pBatchPredictionId_
+    , _ubpBatchPredictionName = pBatchPredictionName_
     }
 
 -- | The ID assigned to the @BatchPrediction@ during creation.
-ubprqBatchPredictionId :: Lens' UpdateBatchPrediction Text
-ubprqBatchPredictionId = lens _ubprqBatchPredictionId (\ s a -> s{_ubprqBatchPredictionId = a});
+ubpBatchPredictionId :: Lens' UpdateBatchPrediction Text
+ubpBatchPredictionId = lens _ubpBatchPredictionId (\ s a -> s{_ubpBatchPredictionId = a});
 
 -- | A new user-supplied name or description of the @BatchPrediction@.
-ubprqBatchPredictionName :: Lens' UpdateBatchPrediction Text
-ubprqBatchPredictionName = lens _ubprqBatchPredictionName (\ s a -> s{_ubprqBatchPredictionName = a});
+ubpBatchPredictionName :: Lens' UpdateBatchPrediction Text
+ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a});
 
 instance AWSRequest UpdateBatchPrediction where
         type Sv UpdateBatchPrediction = MachineLearning
@@ -99,8 +99,8 @@ instance ToHeaders UpdateBatchPrediction where
 instance ToJSON UpdateBatchPrediction where
         toJSON UpdateBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _ubprqBatchPredictionId,
-               "BatchPredictionName" .= _ubprqBatchPredictionName]
+              ["BatchPredictionId" .= _ubpBatchPredictionId,
+               "BatchPredictionName" .= _ubpBatchPredictionName]
 
 instance ToPath UpdateBatchPrediction where
         toPath = const "/"

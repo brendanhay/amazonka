@@ -27,7 +27,7 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     -- ** Request constructor
     , batchGetDeployments
     -- ** Request lenses
-    , bgdrqDeploymentIds
+    , bgdDeploymentIds
 
     -- * Response
     , BatchGetDeploymentsResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgdrqDeploymentIds'
+-- * 'bgdDeploymentIds'
 newtype BatchGetDeployments = BatchGetDeployments'
-    { _bgdrqDeploymentIds :: Maybe [Text]
+    { _bgdDeploymentIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetDeployments' smart constructor.
 batchGetDeployments :: BatchGetDeployments
 batchGetDeployments =
     BatchGetDeployments'
-    { _bgdrqDeploymentIds = Nothing
+    { _bgdDeploymentIds = Nothing
     }
 
 -- | A list of deployment IDs, with multiple deployment IDs separated by
 -- spaces.
-bgdrqDeploymentIds :: Lens' BatchGetDeployments [Text]
-bgdrqDeploymentIds = lens _bgdrqDeploymentIds (\ s a -> s{_bgdrqDeploymentIds = a}) . _Default;
+bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
+bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default;
 
 instance AWSRequest BatchGetDeployments where
         type Sv BatchGetDeployments = CodeDeploy
@@ -90,7 +90,7 @@ instance ToHeaders BatchGetDeployments where
 
 instance ToJSON BatchGetDeployments where
         toJSON BatchGetDeployments'{..}
-          = object ["deploymentIds" .= _bgdrqDeploymentIds]
+          = object ["deploymentIds" .= _bgdDeploymentIds]
 
 instance ToPath BatchGetDeployments where
         toPath = const "/"

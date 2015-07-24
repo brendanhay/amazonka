@@ -34,8 +34,8 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     -- ** Request constructor
     , deleteCacheCluster
     -- ** Request lenses
-    , dccrqFinalSnapshotIdentifier
-    , dccrqCacheClusterId
+    , dccFinalSnapshotIdentifier
+    , dccCacheClusterId
 
     -- * Response
     , DeleteCacheClusterResponse
@@ -57,32 +57,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccrqFinalSnapshotIdentifier'
+-- * 'dccFinalSnapshotIdentifier'
 --
--- * 'dccrqCacheClusterId'
+-- * 'dccCacheClusterId'
 data DeleteCacheCluster = DeleteCacheCluster'
-    { _dccrqFinalSnapshotIdentifier :: !(Maybe Text)
-    , _dccrqCacheClusterId          :: !Text
+    { _dccFinalSnapshotIdentifier :: !(Maybe Text)
+    , _dccCacheClusterId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheCluster' smart constructor.
 deleteCacheCluster :: Text -> DeleteCacheCluster
 deleteCacheCluster pCacheClusterId_ =
     DeleteCacheCluster'
-    { _dccrqFinalSnapshotIdentifier = Nothing
-    , _dccrqCacheClusterId = pCacheClusterId_
+    { _dccFinalSnapshotIdentifier = Nothing
+    , _dccCacheClusterId = pCacheClusterId_
     }
 
 -- | The user-supplied name of a final cache cluster snapshot. This is the
 -- unique name that identifies the snapshot. ElastiCache creates the
 -- snapshot, and then deletes the cache cluster immediately afterward.
-dccrqFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
-dccrqFinalSnapshotIdentifier = lens _dccrqFinalSnapshotIdentifier (\ s a -> s{_dccrqFinalSnapshotIdentifier = a});
+dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
+dccFinalSnapshotIdentifier = lens _dccFinalSnapshotIdentifier (\ s a -> s{_dccFinalSnapshotIdentifier = a});
 
 -- | The cache cluster identifier for the cluster to be deleted. This
 -- parameter is not case sensitive.
-dccrqCacheClusterId :: Lens' DeleteCacheCluster Text
-dccrqCacheClusterId = lens _dccrqCacheClusterId (\ s a -> s{_dccrqCacheClusterId = a});
+dccCacheClusterId :: Lens' DeleteCacheCluster Text
+dccCacheClusterId = lens _dccCacheClusterId (\ s a -> s{_dccCacheClusterId = a});
 
 instance AWSRequest DeleteCacheCluster where
         type Sv DeleteCacheCluster = ElastiCache
@@ -107,8 +107,8 @@ instance ToQuery DeleteCacheCluster where
               ["Action" =: ("DeleteCacheCluster" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "FinalSnapshotIdentifier" =:
-                 _dccrqFinalSnapshotIdentifier,
-               "CacheClusterId" =: _dccrqCacheClusterId]
+                 _dccFinalSnapshotIdentifier,
+               "CacheClusterId" =: _dccCacheClusterId]
 
 -- | /See:/ 'deleteCacheClusterResponse' smart constructor.
 --

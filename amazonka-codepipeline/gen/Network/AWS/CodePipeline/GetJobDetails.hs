@@ -33,7 +33,7 @@ module Network.AWS.CodePipeline.GetJobDetails
     -- ** Request constructor
     , getJobDetails
     -- ** Request lenses
-    , gjdrqJobId
+    , gjdJobId
 
     -- * Response
     , GetJobDetailsResponse
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjdrqJobId'
+-- * 'gjdJobId'
 newtype GetJobDetails = GetJobDetails'
-    { _gjdrqJobId :: Text
+    { _gjdJobId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobDetails' smart constructor.
 getJobDetails :: Text -> GetJobDetails
 getJobDetails pJobId_ =
     GetJobDetails'
-    { _gjdrqJobId = pJobId_
+    { _gjdJobId = pJobId_
     }
 
 -- | The unique system-generated ID for the job.
-gjdrqJobId :: Lens' GetJobDetails Text
-gjdrqJobId = lens _gjdrqJobId (\ s a -> s{_gjdrqJobId = a});
+gjdJobId :: Lens' GetJobDetails Text
+gjdJobId = lens _gjdJobId (\ s a -> s{_gjdJobId = a});
 
 instance AWSRequest GetJobDetails where
         type Sv GetJobDetails = CodePipeline
@@ -93,7 +93,7 @@ instance ToHeaders GetJobDetails where
 
 instance ToJSON GetJobDetails where
         toJSON GetJobDetails'{..}
-          = object ["jobId" .= _gjdrqJobId]
+          = object ["jobId" .= _gjdJobId]
 
 instance ToPath GetJobDetails where
         toPath = const "/"

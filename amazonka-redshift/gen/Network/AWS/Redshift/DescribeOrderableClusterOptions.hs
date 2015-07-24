@@ -36,10 +36,10 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- ** Request constructor
     , describeOrderableClusterOptions
     -- ** Request lenses
-    , docorqMaxRecords
-    , docorqMarker
-    , docorqClusterVersion
-    , docorqNodeType
+    , docoMaxRecords
+    , docoMarker
+    , docoClusterVersion
+    , docoNodeType
 
     -- * Response
     , DescribeOrderableClusterOptionsResponse
@@ -63,28 +63,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'docorqMaxRecords'
+-- * 'docoMaxRecords'
 --
--- * 'docorqMarker'
+-- * 'docoMarker'
 --
--- * 'docorqClusterVersion'
+-- * 'docoClusterVersion'
 --
--- * 'docorqNodeType'
+-- * 'docoNodeType'
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
-    { _docorqMaxRecords     :: !(Maybe Int)
-    , _docorqMarker         :: !(Maybe Text)
-    , _docorqClusterVersion :: !(Maybe Text)
-    , _docorqNodeType       :: !(Maybe Text)
+    { _docoMaxRecords     :: !(Maybe Int)
+    , _docoMarker         :: !(Maybe Text)
+    , _docoClusterVersion :: !(Maybe Text)
+    , _docoNodeType       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOrderableClusterOptions' smart constructor.
 describeOrderableClusterOptions :: DescribeOrderableClusterOptions
 describeOrderableClusterOptions =
     DescribeOrderableClusterOptions'
-    { _docorqMaxRecords = Nothing
-    , _docorqMarker = Nothing
-    , _docorqClusterVersion = Nothing
-    , _docorqNodeType = Nothing
+    { _docoMaxRecords = Nothing
+    , _docoMarker = Nothing
+    , _docoClusterVersion = Nothing
+    , _docoNodeType = Nothing
     }
 
 -- | The maximum number of response records to return in each call. If the
@@ -96,8 +96,8 @@ describeOrderableClusterOptions =
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-docorqMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
-docorqMaxRecords = lens _docorqMaxRecords (\ s a -> s{_docorqMaxRecords = a});
+docoMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
+docoMaxRecords = lens _docoMaxRecords (\ s a -> s{_docoMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
@@ -106,8 +106,8 @@ docorqMaxRecords = lens _docorqMaxRecords (\ s a -> s{_docorqMaxRecords = a});
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the
 -- request.
-docorqMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docorqMarker = lens _docorqMarker (\ s a -> s{_docorqMarker = a});
+docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docoMarker = lens _docoMarker (\ s a -> s{_docoMarker = a});
 
 -- | The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version.
@@ -116,13 +116,13 @@ docorqMarker = lens _docorqMarker (\ s a -> s{_docorqMarker = a});
 --
 -- Constraints: Must be one of the version returned from
 -- DescribeClusterVersions.
-docorqClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docorqClusterVersion = lens _docorqClusterVersion (\ s a -> s{_docorqClusterVersion = a});
+docoClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docoClusterVersion = lens _docoClusterVersion (\ s a -> s{_docoClusterVersion = a});
 
 -- | The node type filter value. Specify this parameter to show only the
 -- available offerings matching the specified node type.
-docorqNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docorqNodeType = lens _docorqNodeType (\ s a -> s{_docorqNodeType = a});
+docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docoNodeType = lens _docoNodeType (\ s a -> s{_docoNodeType = a});
 
 instance AWSPager DescribeOrderableClusterOptions
          where
@@ -131,7 +131,7 @@ instance AWSPager DescribeOrderableClusterOptions
           | stop (rs ^. docorsOrderableClusterOptions) =
             Nothing
           | otherwise =
-            Just $ rq & docorqMarker .~ rs ^. docorsMarker
+            Just $ rq & docoMarker .~ rs ^. docorsMarker
 
 instance AWSRequest DescribeOrderableClusterOptions
          where
@@ -163,10 +163,10 @@ instance ToQuery DescribeOrderableClusterOptions
               ["Action" =:
                  ("DescribeOrderableClusterOptions" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "MaxRecords" =: _docorqMaxRecords,
-               "Marker" =: _docorqMarker,
-               "ClusterVersion" =: _docorqClusterVersion,
-               "NodeType" =: _docorqNodeType]
+               "MaxRecords" =: _docoMaxRecords,
+               "Marker" =: _docoMarker,
+               "ClusterVersion" =: _docoClusterVersion,
+               "NodeType" =: _docoNodeType]
 
 -- | Contains the output from the DescribeOrderableClusterOptions action.
 --

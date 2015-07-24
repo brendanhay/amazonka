@@ -27,13 +27,13 @@ module Network.AWS.S3.ListObjectVersions
     -- ** Request constructor
     , listObjectVersions
     -- ** Request lenses
-    , lovrqKeyMarker
-    , lovrqPrefix
-    , lovrqEncodingType
-    , lovrqVersionIdMarker
-    , lovrqMaxKeys
-    , lovrqDelimiter
-    , lovrqBucket
+    , lovKeyMarker
+    , lovPrefix
+    , lovEncodingType
+    , lovVersionIdMarker
+    , lovMaxKeys
+    , lovDelimiter
+    , lovBucket
 
     -- * Response
     , ListObjectVersionsResponse
@@ -66,70 +66,70 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lovrqKeyMarker'
+-- * 'lovKeyMarker'
 --
--- * 'lovrqPrefix'
+-- * 'lovPrefix'
 --
--- * 'lovrqEncodingType'
+-- * 'lovEncodingType'
 --
--- * 'lovrqVersionIdMarker'
+-- * 'lovVersionIdMarker'
 --
--- * 'lovrqMaxKeys'
+-- * 'lovMaxKeys'
 --
--- * 'lovrqDelimiter'
+-- * 'lovDelimiter'
 --
--- * 'lovrqBucket'
+-- * 'lovBucket'
 data ListObjectVersions = ListObjectVersions'
-    { _lovrqKeyMarker       :: !(Maybe Text)
-    , _lovrqPrefix          :: !(Maybe Text)
-    , _lovrqEncodingType    :: !(Maybe EncodingType)
-    , _lovrqVersionIdMarker :: !(Maybe Text)
-    , _lovrqMaxKeys         :: !(Maybe Int)
-    , _lovrqDelimiter       :: !(Maybe Char)
-    , _lovrqBucket          :: !BucketName
+    { _lovKeyMarker       :: !(Maybe Text)
+    , _lovPrefix          :: !(Maybe Text)
+    , _lovEncodingType    :: !(Maybe EncodingType)
+    , _lovVersionIdMarker :: !(Maybe Text)
+    , _lovMaxKeys         :: !(Maybe Int)
+    , _lovDelimiter       :: !(Maybe Char)
+    , _lovBucket          :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListObjectVersions' smart constructor.
 listObjectVersions :: BucketName -> ListObjectVersions
 listObjectVersions pBucket_ =
     ListObjectVersions'
-    { _lovrqKeyMarker = Nothing
-    , _lovrqPrefix = Nothing
-    , _lovrqEncodingType = Nothing
-    , _lovrqVersionIdMarker = Nothing
-    , _lovrqMaxKeys = Nothing
-    , _lovrqDelimiter = Nothing
-    , _lovrqBucket = pBucket_
+    { _lovKeyMarker = Nothing
+    , _lovPrefix = Nothing
+    , _lovEncodingType = Nothing
+    , _lovVersionIdMarker = Nothing
+    , _lovMaxKeys = Nothing
+    , _lovDelimiter = Nothing
+    , _lovBucket = pBucket_
     }
 
 -- | Specifies the key to start with when listing objects in a bucket.
-lovrqKeyMarker :: Lens' ListObjectVersions (Maybe Text)
-lovrqKeyMarker = lens _lovrqKeyMarker (\ s a -> s{_lovrqKeyMarker = a});
+lovKeyMarker :: Lens' ListObjectVersions (Maybe Text)
+lovKeyMarker = lens _lovKeyMarker (\ s a -> s{_lovKeyMarker = a});
 
 -- | Limits the response to keys that begin with the specified prefix.
-lovrqPrefix :: Lens' ListObjectVersions (Maybe Text)
-lovrqPrefix = lens _lovrqPrefix (\ s a -> s{_lovrqPrefix = a});
+lovPrefix :: Lens' ListObjectVersions (Maybe Text)
+lovPrefix = lens _lovPrefix (\ s a -> s{_lovPrefix = a});
 
 -- | FIXME: Undocumented member.
-lovrqEncodingType :: Lens' ListObjectVersions (Maybe EncodingType)
-lovrqEncodingType = lens _lovrqEncodingType (\ s a -> s{_lovrqEncodingType = a});
+lovEncodingType :: Lens' ListObjectVersions (Maybe EncodingType)
+lovEncodingType = lens _lovEncodingType (\ s a -> s{_lovEncodingType = a});
 
 -- | Specifies the object version you want to start listing from.
-lovrqVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
-lovrqVersionIdMarker = lens _lovrqVersionIdMarker (\ s a -> s{_lovrqVersionIdMarker = a});
+lovVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
+lovVersionIdMarker = lens _lovVersionIdMarker (\ s a -> s{_lovVersionIdMarker = a});
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
-lovrqMaxKeys :: Lens' ListObjectVersions (Maybe Int)
-lovrqMaxKeys = lens _lovrqMaxKeys (\ s a -> s{_lovrqMaxKeys = a});
+lovMaxKeys :: Lens' ListObjectVersions (Maybe Int)
+lovMaxKeys = lens _lovMaxKeys (\ s a -> s{_lovMaxKeys = a});
 
 -- | A delimiter is a character you use to group keys.
-lovrqDelimiter :: Lens' ListObjectVersions (Maybe Char)
-lovrqDelimiter = lens _lovrqDelimiter (\ s a -> s{_lovrqDelimiter = a});
+lovDelimiter :: Lens' ListObjectVersions (Maybe Char)
+lovDelimiter = lens _lovDelimiter (\ s a -> s{_lovDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lovrqBucket :: Lens' ListObjectVersions BucketName
-lovrqBucket = lens _lovrqBucket (\ s a -> s{_lovrqBucket = a});
+lovBucket :: Lens' ListObjectVersions BucketName
+lovBucket = lens _lovBucket (\ s a -> s{_lovBucket = a});
 
 instance AWSPager ListObjectVersions where
         page rq rs
@@ -138,11 +138,9 @@ instance AWSPager ListObjectVersions where
               isNothing (rs ^. lovrsNextVersionIdMarker)
             = Nothing
           | otherwise =
-            Just $ rq &
-              lovrqKeyMarker .~ rs ^. lovrsNextKeyMarker
+            Just $ rq & lovKeyMarker .~ rs ^. lovrsNextKeyMarker
               &
-              lovrqVersionIdMarker .~
-                rs ^. lovrsNextVersionIdMarker
+              lovVersionIdMarker .~ rs ^. lovrsNextVersionIdMarker
 
 instance AWSRequest ListObjectVersions where
         type Sv ListObjectVersions = S3
@@ -172,17 +170,17 @@ instance ToHeaders ListObjectVersions where
 
 instance ToPath ListObjectVersions where
         toPath ListObjectVersions'{..}
-          = mconcat ["/", toText _lovrqBucket]
+          = mconcat ["/", toText _lovBucket]
 
 instance ToQuery ListObjectVersions where
         toQuery ListObjectVersions'{..}
           = mconcat
-              ["key-marker" =: _lovrqKeyMarker,
-               "prefix" =: _lovrqPrefix,
-               "encoding-type" =: _lovrqEncodingType,
-               "version-id-marker" =: _lovrqVersionIdMarker,
-               "max-keys" =: _lovrqMaxKeys,
-               "delimiter" =: _lovrqDelimiter, "versions"]
+              ["key-marker" =: _lovKeyMarker,
+               "prefix" =: _lovPrefix,
+               "encoding-type" =: _lovEncodingType,
+               "version-id-marker" =: _lovVersionIdMarker,
+               "max-keys" =: _lovMaxKeys,
+               "delimiter" =: _lovDelimiter, "versions"]
 
 -- | /See:/ 'listObjectVersionsResponse' smart constructor.
 --

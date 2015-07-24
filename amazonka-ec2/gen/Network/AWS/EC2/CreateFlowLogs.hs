@@ -36,12 +36,12 @@ module Network.AWS.EC2.CreateFlowLogs
     -- ** Request constructor
     , createFlowLogs
     -- ** Request lenses
-    , cflrqClientToken
-    , cflrqResourceIds
-    , cflrqResourceType
-    , cflrqTrafficType
-    , cflrqLogGroupName
-    , cflrqDeliverLogsPermissionARN
+    , cflClientToken
+    , cflResourceIds
+    , cflResourceType
+    , cflTrafficType
+    , cflLogGroupName
+    , cflDeliverLogsPermissionARN
 
     -- * Response
     , CreateFlowLogsResponse
@@ -63,64 +63,64 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cflrqClientToken'
+-- * 'cflClientToken'
 --
--- * 'cflrqResourceIds'
+-- * 'cflResourceIds'
 --
--- * 'cflrqResourceType'
+-- * 'cflResourceType'
 --
--- * 'cflrqTrafficType'
+-- * 'cflTrafficType'
 --
--- * 'cflrqLogGroupName'
+-- * 'cflLogGroupName'
 --
--- * 'cflrqDeliverLogsPermissionARN'
+-- * 'cflDeliverLogsPermissionARN'
 data CreateFlowLogs = CreateFlowLogs'
-    { _cflrqClientToken              :: !(Maybe Text)
-    , _cflrqResourceIds              :: ![Text]
-    , _cflrqResourceType             :: !FlowLogsResourceType
-    , _cflrqTrafficType              :: !TrafficType
-    , _cflrqLogGroupName             :: !Text
-    , _cflrqDeliverLogsPermissionARN :: !Text
+    { _cflClientToken              :: !(Maybe Text)
+    , _cflResourceIds              :: ![Text]
+    , _cflResourceType             :: !FlowLogsResourceType
+    , _cflTrafficType              :: !TrafficType
+    , _cflLogGroupName             :: !Text
+    , _cflDeliverLogsPermissionARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFlowLogs' smart constructor.
 createFlowLogs :: FlowLogsResourceType -> TrafficType -> Text -> Text -> CreateFlowLogs
 createFlowLogs pResourceType_ pTrafficType_ pLogGroupName_ pDeliverLogsPermissionARN_ =
     CreateFlowLogs'
-    { _cflrqClientToken = Nothing
-    , _cflrqResourceIds = mempty
-    , _cflrqResourceType = pResourceType_
-    , _cflrqTrafficType = pTrafficType_
-    , _cflrqLogGroupName = pLogGroupName_
-    , _cflrqDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
+    { _cflClientToken = Nothing
+    , _cflResourceIds = mempty
+    , _cflResourceType = pResourceType_
+    , _cflTrafficType = pTrafficType_
+    , _cflLogGroupName = pLogGroupName_
+    , _cflDeliverLogsPermissionARN = pDeliverLogsPermissionARN_
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-cflrqClientToken :: Lens' CreateFlowLogs (Maybe Text)
-cflrqClientToken = lens _cflrqClientToken (\ s a -> s{_cflrqClientToken = a});
+cflClientToken :: Lens' CreateFlowLogs (Maybe Text)
+cflClientToken = lens _cflClientToken (\ s a -> s{_cflClientToken = a});
 
 -- | One or more subnet, network interface, or VPC IDs.
-cflrqResourceIds :: Lens' CreateFlowLogs [Text]
-cflrqResourceIds = lens _cflrqResourceIds (\ s a -> s{_cflrqResourceIds = a});
+cflResourceIds :: Lens' CreateFlowLogs [Text]
+cflResourceIds = lens _cflResourceIds (\ s a -> s{_cflResourceIds = a});
 
 -- | The type of resource on which to create the flow log.
-cflrqResourceType :: Lens' CreateFlowLogs FlowLogsResourceType
-cflrqResourceType = lens _cflrqResourceType (\ s a -> s{_cflrqResourceType = a});
+cflResourceType :: Lens' CreateFlowLogs FlowLogsResourceType
+cflResourceType = lens _cflResourceType (\ s a -> s{_cflResourceType = a});
 
 -- | The type of traffic to log.
-cflrqTrafficType :: Lens' CreateFlowLogs TrafficType
-cflrqTrafficType = lens _cflrqTrafficType (\ s a -> s{_cflrqTrafficType = a});
+cflTrafficType :: Lens' CreateFlowLogs TrafficType
+cflTrafficType = lens _cflTrafficType (\ s a -> s{_cflTrafficType = a});
 
 -- | The name of the CloudWatch log group.
-cflrqLogGroupName :: Lens' CreateFlowLogs Text
-cflrqLogGroupName = lens _cflrqLogGroupName (\ s a -> s{_cflrqLogGroupName = a});
+cflLogGroupName :: Lens' CreateFlowLogs Text
+cflLogGroupName = lens _cflLogGroupName (\ s a -> s{_cflLogGroupName = a});
 
 -- | The ARN for the IAM role that\'s used to post flow logs to a CloudWatch
 -- Logs log group.
-cflrqDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
-cflrqDeliverLogsPermissionARN = lens _cflrqDeliverLogsPermissionARN (\ s a -> s{_cflrqDeliverLogsPermissionARN = a});
+cflDeliverLogsPermissionARN :: Lens' CreateFlowLogs Text
+cflDeliverLogsPermissionARN = lens _cflDeliverLogsPermissionARN (\ s a -> s{_cflDeliverLogsPermissionARN = a});
 
 instance AWSRequest CreateFlowLogs where
         type Sv CreateFlowLogs = EC2
@@ -149,13 +149,13 @@ instance ToQuery CreateFlowLogs where
           = mconcat
               ["Action" =: ("CreateFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ClientToken" =: _cflrqClientToken,
-               toQueryList "item" _cflrqResourceIds,
-               "ResourceType" =: _cflrqResourceType,
-               "TrafficType" =: _cflrqTrafficType,
-               "LogGroupName" =: _cflrqLogGroupName,
+               "ClientToken" =: _cflClientToken,
+               toQueryList "item" _cflResourceIds,
+               "ResourceType" =: _cflResourceType,
+               "TrafficType" =: _cflTrafficType,
+               "LogGroupName" =: _cflLogGroupName,
                "DeliverLogsPermissionArn" =:
-                 _cflrqDeliverLogsPermissionARN]
+                 _cflDeliverLogsPermissionARN]
 
 -- | /See:/ 'createFlowLogsResponse' smart constructor.
 --

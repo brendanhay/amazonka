@@ -28,10 +28,10 @@ module Network.AWS.S3.DeleteObjects
     -- ** Request constructor
     , deleteObjects
     -- ** Request lenses
-    , drqMFA
-    , drqRequestPayer
-    , drqBucket
-    , drqDelete
+    , dosMFA
+    , dosRequestPayer
+    , dosBucket
+    , dosDelete
 
     -- * Response
     , DeleteObjectsResponse
@@ -53,46 +53,46 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqMFA'
+-- * 'dosMFA'
 --
--- * 'drqRequestPayer'
+-- * 'dosRequestPayer'
 --
--- * 'drqBucket'
+-- * 'dosBucket'
 --
--- * 'drqDelete'
+-- * 'dosDelete'
 data DeleteObjects = DeleteObjects'
-    { _drqMFA          :: !(Maybe Text)
-    , _drqRequestPayer :: !(Maybe RequestPayer)
-    , _drqBucket       :: !BucketName
-    , _drqDelete       :: !Delete
+    { _dosMFA          :: !(Maybe Text)
+    , _dosRequestPayer :: !(Maybe RequestPayer)
+    , _dosBucket       :: !BucketName
+    , _dosDelete       :: !Delete
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObjects' smart constructor.
 deleteObjects :: BucketName -> Delete -> DeleteObjects
 deleteObjects pBucket_ pDelete_ =
     DeleteObjects'
-    { _drqMFA = Nothing
-    , _drqRequestPayer = Nothing
-    , _drqBucket = pBucket_
-    , _drqDelete = pDelete_
+    { _dosMFA = Nothing
+    , _dosRequestPayer = Nothing
+    , _dosBucket = pBucket_
+    , _dosDelete = pDelete_
     }
 
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
-drqMFA :: Lens' DeleteObjects (Maybe Text)
-drqMFA = lens _drqMFA (\ s a -> s{_drqMFA = a});
+dosMFA :: Lens' DeleteObjects (Maybe Text)
+dosMFA = lens _dosMFA (\ s a -> s{_dosMFA = a});
 
 -- | FIXME: Undocumented member.
-drqRequestPayer :: Lens' DeleteObjects (Maybe RequestPayer)
-drqRequestPayer = lens _drqRequestPayer (\ s a -> s{_drqRequestPayer = a});
+dosRequestPayer :: Lens' DeleteObjects (Maybe RequestPayer)
+dosRequestPayer = lens _dosRequestPayer (\ s a -> s{_dosRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-drqBucket :: Lens' DeleteObjects BucketName
-drqBucket = lens _drqBucket (\ s a -> s{_drqBucket = a});
+dosBucket :: Lens' DeleteObjects BucketName
+dosBucket = lens _dosBucket (\ s a -> s{_dosBucket = a});
 
 -- | FIXME: Undocumented member.
-drqDelete :: Lens' DeleteObjects Delete
-drqDelete = lens _drqDelete (\ s a -> s{_drqDelete = a});
+dosDelete :: Lens' DeleteObjects Delete
+dosDelete = lens _dosDelete (\ s a -> s{_dosDelete = a});
 
 instance AWSRequest DeleteObjects where
         type Sv DeleteObjects = S3
@@ -112,17 +112,17 @@ instance ToElement DeleteObjects where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}Delete"
               .
-              _drqDelete
+              _dosDelete
 
 instance ToHeaders DeleteObjects where
         toHeaders DeleteObjects'{..}
           = mconcat
-              ["x-amz-mfa" =# _drqMFA,
-               "x-amz-request-payer" =# _drqRequestPayer]
+              ["x-amz-mfa" =# _dosMFA,
+               "x-amz-request-payer" =# _dosRequestPayer]
 
 instance ToPath DeleteObjects where
         toPath DeleteObjects'{..}
-          = mconcat ["/", toText _drqBucket]
+          = mconcat ["/", toText _dosBucket]
 
 instance ToQuery DeleteObjects where
         toQuery = const (mconcat ["delete"])

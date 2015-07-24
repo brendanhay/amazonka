@@ -34,9 +34,9 @@ module Network.AWS.DataPipeline.ActivatePipeline
     -- ** Request constructor
     , activatePipeline
     -- ** Request lenses
-    , aprqStartTimestamp
-    , aprqParameterValues
-    , aprqPipelineId
+    , apStartTimestamp
+    , apParameterValues
+    , apPipelineId
 
     -- * Response
     , ActivatePipelineResponse
@@ -57,38 +57,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aprqStartTimestamp'
+-- * 'apStartTimestamp'
 --
--- * 'aprqParameterValues'
+-- * 'apParameterValues'
 --
--- * 'aprqPipelineId'
+-- * 'apPipelineId'
 data ActivatePipeline = ActivatePipeline'
-    { _aprqStartTimestamp  :: !(Maybe POSIX)
-    , _aprqParameterValues :: !(Maybe [ParameterValue])
-    , _aprqPipelineId      :: !Text
+    { _apStartTimestamp  :: !(Maybe POSIX)
+    , _apParameterValues :: !(Maybe [ParameterValue])
+    , _apPipelineId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivatePipeline' smart constructor.
 activatePipeline :: Text -> ActivatePipeline
 activatePipeline pPipelineId_ =
     ActivatePipeline'
-    { _aprqStartTimestamp = Nothing
-    , _aprqParameterValues = Nothing
-    , _aprqPipelineId = pPipelineId_
+    { _apStartTimestamp = Nothing
+    , _apParameterValues = Nothing
+    , _apPipelineId = pPipelineId_
     }
 
 -- | The date and time to resume the pipeline. By default, the pipeline
 -- resumes from the last completed execution.
-aprqStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
-aprqStartTimestamp = lens _aprqStartTimestamp (\ s a -> s{_aprqStartTimestamp = a}) . mapping _Time;
+apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
+apStartTimestamp = lens _apStartTimestamp (\ s a -> s{_apStartTimestamp = a}) . mapping _Time;
 
 -- | A list of parameter values to pass to the pipeline at activation.
-aprqParameterValues :: Lens' ActivatePipeline [ParameterValue]
-aprqParameterValues = lens _aprqParameterValues (\ s a -> s{_aprqParameterValues = a}) . _Default;
+apParameterValues :: Lens' ActivatePipeline [ParameterValue]
+apParameterValues = lens _apParameterValues (\ s a -> s{_apParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
-aprqPipelineId :: Lens' ActivatePipeline Text
-aprqPipelineId = lens _aprqPipelineId (\ s a -> s{_aprqPipelineId = a});
+apPipelineId :: Lens' ActivatePipeline Text
+apPipelineId = lens _apPipelineId (\ s a -> s{_apPipelineId = a});
 
 instance AWSRequest ActivatePipeline where
         type Sv ActivatePipeline = DataPipeline
@@ -111,9 +111,9 @@ instance ToHeaders ActivatePipeline where
 instance ToJSON ActivatePipeline where
         toJSON ActivatePipeline'{..}
           = object
-              ["startTimestamp" .= _aprqStartTimestamp,
-               "parameterValues" .= _aprqParameterValues,
-               "pipelineId" .= _aprqPipelineId]
+              ["startTimestamp" .= _apStartTimestamp,
+               "parameterValues" .= _apParameterValues,
+               "pipelineId" .= _apPipelineId]
 
 instance ToPath ActivatePipeline where
         toPath = const "/"

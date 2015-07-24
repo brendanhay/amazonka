@@ -35,8 +35,8 @@ module Network.AWS.Glacier.SetDataRetrievalPolicy
     -- ** Request constructor
     , setDataRetrievalPolicy
     -- ** Request lenses
-    , sdrprqPolicy
-    , sdrprqAccountId
+    , sdrpPolicy
+    , sdrpAccountId
 
     -- * Response
     , SetDataRetrievalPolicyResponse
@@ -55,25 +55,25 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdrprqPolicy'
+-- * 'sdrpPolicy'
 --
--- * 'sdrprqAccountId'
+-- * 'sdrpAccountId'
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
-    { _sdrprqPolicy    :: !(Maybe DataRetrievalPolicy)
-    , _sdrprqAccountId :: !Text
+    { _sdrpPolicy    :: !(Maybe DataRetrievalPolicy)
+    , _sdrpAccountId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDataRetrievalPolicy' smart constructor.
 setDataRetrievalPolicy :: Text -> SetDataRetrievalPolicy
 setDataRetrievalPolicy pAccountId_ =
     SetDataRetrievalPolicy'
-    { _sdrprqPolicy = Nothing
-    , _sdrprqAccountId = pAccountId_
+    { _sdrpPolicy = Nothing
+    , _sdrpAccountId = pAccountId_
     }
 
 -- | The data retrieval policy in JSON format.
-sdrprqPolicy :: Lens' SetDataRetrievalPolicy (Maybe DataRetrievalPolicy)
-sdrprqPolicy = lens _sdrprqPolicy (\ s a -> s{_sdrprqPolicy = a});
+sdrpPolicy :: Lens' SetDataRetrievalPolicy (Maybe DataRetrievalPolicy)
+sdrpPolicy = lens _sdrpPolicy (\ s a -> s{_sdrpPolicy = a});
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
@@ -82,8 +82,8 @@ sdrprqPolicy = lens _sdrprqPolicy (\ s a -> s{_sdrprqPolicy = a});
 -- ID associated with the credentials used to sign the request. If you
 -- specify your Account ID, do not include any hyphens (apos-apos) in the
 -- ID.
-sdrprqAccountId :: Lens' SetDataRetrievalPolicy Text
-sdrprqAccountId = lens _sdrprqAccountId (\ s a -> s{_sdrprqAccountId = a});
+sdrpAccountId :: Lens' SetDataRetrievalPolicy Text
+sdrpAccountId = lens _sdrpAccountId (\ s a -> s{_sdrpAccountId = a});
 
 instance AWSRequest SetDataRetrievalPolicy where
         type Sv SetDataRetrievalPolicy = Glacier
@@ -98,12 +98,12 @@ instance ToHeaders SetDataRetrievalPolicy where
 
 instance ToJSON SetDataRetrievalPolicy where
         toJSON SetDataRetrievalPolicy'{..}
-          = object ["Policy" .= _sdrprqPolicy]
+          = object ["Policy" .= _sdrpPolicy]
 
 instance ToPath SetDataRetrievalPolicy where
         toPath SetDataRetrievalPolicy'{..}
           = mconcat
-              ["/", toText _sdrprqAccountId,
+              ["/", toText _sdrpAccountId,
                "/policies/data-retrieval"]
 
 instance ToQuery SetDataRetrievalPolicy where

@@ -33,7 +33,7 @@ module Network.AWS.CloudHSM.ListHSMs
     -- ** Request constructor
     , listHSMs
     -- ** Request lenses
-    , lhsmrqNextToken
+    , lhsmNextToken
 
     -- * Response
     , ListHSMsResponse
@@ -54,22 +54,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhsmrqNextToken'
+-- * 'lhsmNextToken'
 newtype ListHSMs = ListHSMs'
-    { _lhsmrqNextToken :: Maybe Text
+    { _lhsmNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHSMs' smart constructor.
 listHSMs :: ListHSMs
 listHSMs =
     ListHSMs'
-    { _lhsmrqNextToken = Nothing
+    { _lhsmNextToken = Nothing
     }
 
 -- | The /NextToken/ value from a previous call to ListHsms. Pass null if
 -- this is the first call.
-lhsmrqNextToken :: Lens' ListHSMs (Maybe Text)
-lhsmrqNextToken = lens _lhsmrqNextToken (\ s a -> s{_lhsmrqNextToken = a});
+lhsmNextToken :: Lens' ListHSMs (Maybe Text)
+lhsmNextToken = lens _lhsmNextToken (\ s a -> s{_lhsmNextToken = a});
 
 instance AWSRequest ListHSMs where
         type Sv ListHSMs = CloudHSM
@@ -93,7 +93,7 @@ instance ToHeaders ListHSMs where
 
 instance ToJSON ListHSMs where
         toJSON ListHSMs'{..}
-          = object ["NextToken" .= _lhsmrqNextToken]
+          = object ["NextToken" .= _lhsmNextToken]
 
 instance ToPath ListHSMs where
         toPath = const "/"

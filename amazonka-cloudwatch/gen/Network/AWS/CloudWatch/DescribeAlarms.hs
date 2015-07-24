@@ -30,12 +30,12 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- ** Request constructor
     , describeAlarms
     -- ** Request lenses
-    , darqAlarmNamePrefix
-    , darqActionPrefix
-    , darqNextToken
-    , darqStateValue
-    , darqAlarmNames
-    , darqMaxRecords
+    , daAlarmNamePrefix
+    , daActionPrefix
+    , daNextToken
+    , daStateValue
+    , daAlarmNames
+    , daMaxRecords
 
     -- * Response
     , DescribeAlarmsResponse
@@ -57,70 +57,70 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darqAlarmNamePrefix'
+-- * 'daAlarmNamePrefix'
 --
--- * 'darqActionPrefix'
+-- * 'daActionPrefix'
 --
--- * 'darqNextToken'
+-- * 'daNextToken'
 --
--- * 'darqStateValue'
+-- * 'daStateValue'
 --
--- * 'darqAlarmNames'
+-- * 'daAlarmNames'
 --
--- * 'darqMaxRecords'
+-- * 'daMaxRecords'
 data DescribeAlarms = DescribeAlarms'
-    { _darqAlarmNamePrefix :: !(Maybe Text)
-    , _darqActionPrefix    :: !(Maybe Text)
-    , _darqNextToken       :: !(Maybe Text)
-    , _darqStateValue      :: !(Maybe StateValue)
-    , _darqAlarmNames      :: !(Maybe [Text])
-    , _darqMaxRecords      :: !(Maybe Nat)
+    { _daAlarmNamePrefix :: !(Maybe Text)
+    , _daActionPrefix    :: !(Maybe Text)
+    , _daNextToken       :: !(Maybe Text)
+    , _daStateValue      :: !(Maybe StateValue)
+    , _daAlarmNames      :: !(Maybe [Text])
+    , _daMaxRecords      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarms' smart constructor.
 describeAlarms :: DescribeAlarms
 describeAlarms =
     DescribeAlarms'
-    { _darqAlarmNamePrefix = Nothing
-    , _darqActionPrefix = Nothing
-    , _darqNextToken = Nothing
-    , _darqStateValue = Nothing
-    , _darqAlarmNames = Nothing
-    , _darqMaxRecords = Nothing
+    { _daAlarmNamePrefix = Nothing
+    , _daActionPrefix = Nothing
+    , _daNextToken = Nothing
+    , _daStateValue = Nothing
+    , _daAlarmNames = Nothing
+    , _daMaxRecords = Nothing
     }
 
 -- | The alarm name prefix. @AlarmNames@ cannot be specified if this
 -- parameter is specified.
-darqAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
-darqAlarmNamePrefix = lens _darqAlarmNamePrefix (\ s a -> s{_darqAlarmNamePrefix = a});
+daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
+daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
 
 -- | The action name prefix.
-darqActionPrefix :: Lens' DescribeAlarms (Maybe Text)
-darqActionPrefix = lens _darqActionPrefix (\ s a -> s{_darqActionPrefix = a});
+daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
+daActionPrefix = lens _daActionPrefix (\ s a -> s{_daActionPrefix = a});
 
 -- | The token returned by a previous call to indicate that there is more
 -- data available.
-darqNextToken :: Lens' DescribeAlarms (Maybe Text)
-darqNextToken = lens _darqNextToken (\ s a -> s{_darqNextToken = a});
+daNextToken :: Lens' DescribeAlarms (Maybe Text)
+daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
 
 -- | The state value to be used in matching alarms.
-darqStateValue :: Lens' DescribeAlarms (Maybe StateValue)
-darqStateValue = lens _darqStateValue (\ s a -> s{_darqStateValue = a});
+daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
+daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a});
 
 -- | A list of alarm names to retrieve information for.
-darqAlarmNames :: Lens' DescribeAlarms [Text]
-darqAlarmNames = lens _darqAlarmNames (\ s a -> s{_darqAlarmNames = a}) . _Default;
+daAlarmNames :: Lens' DescribeAlarms [Text]
+daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default;
 
 -- | The maximum number of alarm descriptions to retrieve.
-darqMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
-darqMaxRecords = lens _darqMaxRecords (\ s a -> s{_darqMaxRecords = a}) . mapping _Nat;
+daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
+daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat;
 
 instance AWSPager DescribeAlarms where
         page rq rs
           | stop (rs ^. darsNextToken) = Nothing
           | stop (rs ^. darsMetricAlarms) = Nothing
           | otherwise =
-            Just $ rq & darqNextToken .~ rs ^. darsNextToken
+            Just $ rq & daNextToken .~ rs ^. darsNextToken
 
 instance AWSRequest DescribeAlarms where
         type Sv DescribeAlarms = CloudWatch
@@ -146,13 +146,13 @@ instance ToQuery DescribeAlarms where
           = mconcat
               ["Action" =: ("DescribeAlarms" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNamePrefix" =: _darqAlarmNamePrefix,
-               "ActionPrefix" =: _darqActionPrefix,
-               "NextToken" =: _darqNextToken,
-               "StateValue" =: _darqStateValue,
+               "AlarmNamePrefix" =: _daAlarmNamePrefix,
+               "ActionPrefix" =: _daActionPrefix,
+               "NextToken" =: _daNextToken,
+               "StateValue" =: _daStateValue,
                "AlarmNames" =:
-                 toQuery (toQueryList "member" <$> _darqAlarmNames),
-               "MaxRecords" =: _darqMaxRecords]
+                 toQuery (toQueryList "member" <$> _daAlarmNames),
+               "MaxRecords" =: _daMaxRecords]
 
 -- | The output for the DescribeAlarms action.
 --

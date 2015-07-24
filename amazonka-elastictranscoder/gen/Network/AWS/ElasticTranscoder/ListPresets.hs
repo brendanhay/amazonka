@@ -29,8 +29,8 @@ module Network.AWS.ElasticTranscoder.ListPresets
     -- ** Request constructor
     , listPresets
     -- ** Request lenses
-    , lrqAscending
-    , lrqPageToken
+    , lAscending
+    , lPageToken
 
     -- * Response
     , ListPresetsResponse
@@ -54,40 +54,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrqAscending'
+-- * 'lAscending'
 --
--- * 'lrqPageToken'
+-- * 'lPageToken'
 data ListPresets = ListPresets'
-    { _lrqAscending :: !(Maybe Text)
-    , _lrqPageToken :: !(Maybe Text)
+    { _lAscending :: !(Maybe Text)
+    , _lPageToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPresets' smart constructor.
 listPresets :: ListPresets
 listPresets =
     ListPresets'
-    { _lrqAscending = Nothing
-    , _lrqPageToken = Nothing
+    { _lAscending = Nothing
+    , _lPageToken = Nothing
     }
 
 -- | To list presets in chronological order by the date and time that they
 -- were created, enter @true@. To list presets in reverse chronological
 -- order, enter @false@.
-lrqAscending :: Lens' ListPresets (Maybe Text)
-lrqAscending = lens _lrqAscending (\ s a -> s{_lrqAscending = a});
+lAscending :: Lens' ListPresets (Maybe Text)
+lAscending = lens _lAscending (\ s a -> s{_lAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-lrqPageToken :: Lens' ListPresets (Maybe Text)
-lrqPageToken = lens _lrqPageToken (\ s a -> s{_lrqPageToken = a});
+lPageToken :: Lens' ListPresets (Maybe Text)
+lPageToken = lens _lPageToken (\ s a -> s{_lPageToken = a});
 
 instance AWSPager ListPresets where
         page rq rs
           | stop (rs ^. lrsNextPageToken) = Nothing
           | stop (rs ^. lrsPresets) = Nothing
           | otherwise =
-            Just $ rq & lrqPageToken .~ rs ^. lrsNextPageToken
+            Just $ rq & lPageToken .~ rs ^. lrsNextPageToken
 
 instance AWSRequest ListPresets where
         type Sv ListPresets = ElasticTranscoder
@@ -110,8 +110,8 @@ instance ToPath ListPresets where
 instance ToQuery ListPresets where
         toQuery ListPresets'{..}
           = mconcat
-              ["Ascending" =: _lrqAscending,
-               "PageToken" =: _lrqPageToken]
+              ["Ascending" =: _lAscending,
+               "PageToken" =: _lPageToken]
 
 -- | The @ListPresetsResponse@ structure.
 --

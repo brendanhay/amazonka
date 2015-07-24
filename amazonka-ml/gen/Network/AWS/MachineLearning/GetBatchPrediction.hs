@@ -28,7 +28,7 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     -- ** Request constructor
     , getBatchPrediction
     -- ** Request lenses
-    , gbprqBatchPredictionId
+    , gbpBatchPredictionId
 
     -- * Response
     , GetBatchPredictionResponse
@@ -58,21 +58,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbprqBatchPredictionId'
+-- * 'gbpBatchPredictionId'
 newtype GetBatchPrediction = GetBatchPrediction'
-    { _gbprqBatchPredictionId :: Text
+    { _gbpBatchPredictionId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBatchPrediction' smart constructor.
 getBatchPrediction :: Text -> GetBatchPrediction
 getBatchPrediction pBatchPredictionId_ =
     GetBatchPrediction'
-    { _gbprqBatchPredictionId = pBatchPredictionId_
+    { _gbpBatchPredictionId = pBatchPredictionId_
     }
 
 -- | An ID assigned to the @BatchPrediction@ at creation.
-gbprqBatchPredictionId :: Lens' GetBatchPrediction Text
-gbprqBatchPredictionId = lens _gbprqBatchPredictionId (\ s a -> s{_gbprqBatchPredictionId = a});
+gbpBatchPredictionId :: Lens' GetBatchPrediction Text
+gbpBatchPredictionId = lens _gbpBatchPredictionId (\ s a -> s{_gbpBatchPredictionId = a});
 
 instance AWSRequest GetBatchPrediction where
         type Sv GetBatchPrediction = MachineLearning
@@ -108,7 +108,7 @@ instance ToHeaders GetBatchPrediction where
 instance ToJSON GetBatchPrediction where
         toJSON GetBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _gbprqBatchPredictionId]
+              ["BatchPredictionId" .= _gbpBatchPredictionId]
 
 instance ToPath GetBatchPrediction where
         toPath = const "/"

@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.GetInvalidation
     -- ** Request constructor
     , getInvalidation
     -- ** Request lenses
-    , girqDistributionId
-    , girqId
+    , giDistributionId
+    , giId
 
     -- * Response
     , GetInvalidationResponse
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'girqDistributionId'
+-- * 'giDistributionId'
 --
--- * 'girqId'
+-- * 'giId'
 data GetInvalidation = GetInvalidation'
-    { _girqDistributionId :: !Text
-    , _girqId             :: !Text
+    { _giDistributionId :: !Text
+    , _giId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInvalidation' smart constructor.
 getInvalidation :: Text -> Text -> GetInvalidation
 getInvalidation pDistributionId_ pId_ =
     GetInvalidation'
-    { _girqDistributionId = pDistributionId_
-    , _girqId = pId_
+    { _giDistributionId = pDistributionId_
+    , _giId = pId_
     }
 
 -- | The distribution\'s id.
-girqDistributionId :: Lens' GetInvalidation Text
-girqDistributionId = lens _girqDistributionId (\ s a -> s{_girqDistributionId = a});
+giDistributionId :: Lens' GetInvalidation Text
+giDistributionId = lens _giDistributionId (\ s a -> s{_giDistributionId = a});
 
 -- | The invalidation\'s id.
-girqId :: Lens' GetInvalidation Text
-girqId = lens _girqId (\ s a -> s{_girqId = a});
+giId :: Lens' GetInvalidation Text
+giId = lens _giId (\ s a -> s{_giId = a});
 
 instance AWSRequest GetInvalidation where
         type Sv GetInvalidation = CloudFront
@@ -91,8 +91,8 @@ instance ToPath GetInvalidation where
         toPath GetInvalidation'{..}
           = mconcat
               ["/2015-04-17/distribution/",
-               toText _girqDistributionId, "/invalidation/",
-               toText _girqId]
+               toText _giDistributionId, "/invalidation/",
+               toText _giId]
 
 instance ToQuery GetInvalidation where
         toQuery = const mempty

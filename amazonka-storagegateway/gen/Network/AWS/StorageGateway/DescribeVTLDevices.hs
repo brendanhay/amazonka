@@ -31,10 +31,10 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     -- ** Request constructor
     , describeVTLDevices
     -- ** Request lenses
-    , dvtldrqMarker
-    , dvtldrqLimit
-    , dvtldrqVTLDeviceARNs
-    , dvtldrqGatewayARN
+    , dvtldMarker
+    , dvtldLimit
+    , dvtldVTLDeviceARNs
+    , dvtldGatewayARN
 
     -- * Response
     , DescribeVTLDevicesResponse
@@ -59,39 +59,39 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvtldrqMarker'
+-- * 'dvtldMarker'
 --
--- * 'dvtldrqLimit'
+-- * 'dvtldLimit'
 --
--- * 'dvtldrqVTLDeviceARNs'
+-- * 'dvtldVTLDeviceARNs'
 --
--- * 'dvtldrqGatewayARN'
+-- * 'dvtldGatewayARN'
 data DescribeVTLDevices = DescribeVTLDevices'
-    { _dvtldrqMarker        :: !(Maybe Text)
-    , _dvtldrqLimit         :: !(Maybe Nat)
-    , _dvtldrqVTLDeviceARNs :: !(Maybe [Text])
-    , _dvtldrqGatewayARN    :: !Text
+    { _dvtldMarker        :: !(Maybe Text)
+    , _dvtldLimit         :: !(Maybe Nat)
+    , _dvtldVTLDeviceARNs :: !(Maybe [Text])
+    , _dvtldGatewayARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVTLDevices' smart constructor.
 describeVTLDevices :: Text -> DescribeVTLDevices
 describeVTLDevices pGatewayARN_ =
     DescribeVTLDevices'
-    { _dvtldrqMarker = Nothing
-    , _dvtldrqLimit = Nothing
-    , _dvtldrqVTLDeviceARNs = Nothing
-    , _dvtldrqGatewayARN = pGatewayARN_
+    { _dvtldMarker = Nothing
+    , _dvtldLimit = Nothing
+    , _dvtldVTLDeviceARNs = Nothing
+    , _dvtldGatewayARN = pGatewayARN_
     }
 
 -- | An opaque string that indicates the position at which to begin
 -- describing the VTL devices.
-dvtldrqMarker :: Lens' DescribeVTLDevices (Maybe Text)
-dvtldrqMarker = lens _dvtldrqMarker (\ s a -> s{_dvtldrqMarker = a});
+dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
+dvtldMarker = lens _dvtldMarker (\ s a -> s{_dvtldMarker = a});
 
 -- | Specifies that the number of VTL devices described be limited to the
 -- specified number.
-dvtldrqLimit :: Lens' DescribeVTLDevices (Maybe Natural)
-dvtldrqLimit = lens _dvtldrqLimit (\ s a -> s{_dvtldrqLimit = a}) . mapping _Nat;
+dvtldLimit :: Lens' DescribeVTLDevices (Maybe Natural)
+dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . mapping _Nat;
 
 -- | An array of strings, where each string represents the Amazon Resource
 -- Name (ARN) of a VTL device.
@@ -99,19 +99,19 @@ dvtldrqLimit = lens _dvtldrqLimit (\ s a -> s{_dvtldrqLimit = a}) . mapping _Nat
 -- All of the specified VTL devices must be from the same gateway. If no
 -- VTL devices are specified, the result will contain all devices on the
 -- specified gateway.
-dvtldrqVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
-dvtldrqVTLDeviceARNs = lens _dvtldrqVTLDeviceARNs (\ s a -> s{_dvtldrqVTLDeviceARNs = a}) . _Default;
+dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
+dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvtldrqGatewayARN :: Lens' DescribeVTLDevices Text
-dvtldrqGatewayARN = lens _dvtldrqGatewayARN (\ s a -> s{_dvtldrqGatewayARN = a});
+dvtldGatewayARN :: Lens' DescribeVTLDevices Text
+dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a});
 
 instance AWSPager DescribeVTLDevices where
         page rq rs
           | stop (rs ^. dvtldrsMarker) = Nothing
           | stop (rs ^. dvtldrsVTLDevices) = Nothing
           | otherwise =
-            Just $ rq & dvtldrqMarker .~ rs ^. dvtldrsMarker
+            Just $ rq & dvtldMarker .~ rs ^. dvtldrsMarker
 
 instance AWSRequest DescribeVTLDevices where
         type Sv DescribeVTLDevices = StorageGateway
@@ -140,10 +140,9 @@ instance ToHeaders DescribeVTLDevices where
 instance ToJSON DescribeVTLDevices where
         toJSON DescribeVTLDevices'{..}
           = object
-              ["Marker" .= _dvtldrqMarker,
-               "Limit" .= _dvtldrqLimit,
-               "VTLDeviceARNs" .= _dvtldrqVTLDeviceARNs,
-               "GatewayARN" .= _dvtldrqGatewayARN]
+              ["Marker" .= _dvtldMarker, "Limit" .= _dvtldLimit,
+               "VTLDeviceARNs" .= _dvtldVTLDeviceARNs,
+               "GatewayARN" .= _dvtldGatewayARN]
 
 instance ToPath DescribeVTLDevices where
         toPath = const "/"

@@ -46,13 +46,13 @@ module Network.AWS.EC2.AssociateAddress
     -- ** Request constructor
     , associateAddress
     -- ** Request lenses
-    , arqInstanceId
-    , arqAllocationId
-    , arqNetworkInterfaceId
-    , arqAllowReassociation
-    , arqPrivateIPAddress
-    , arqPublicIP
-    , arqDryRun
+    , aasInstanceId
+    , aasAllocationId
+    , aasNetworkInterfaceId
+    , aasAllowReassociation
+    , aasPrivateIPAddress
+    , aasPublicIP
+    , aasDryRun
 
     -- * Response
     , AssociateAddressResponse
@@ -72,82 +72,82 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arqInstanceId'
+-- * 'aasInstanceId'
 --
--- * 'arqAllocationId'
+-- * 'aasAllocationId'
 --
--- * 'arqNetworkInterfaceId'
+-- * 'aasNetworkInterfaceId'
 --
--- * 'arqAllowReassociation'
+-- * 'aasAllowReassociation'
 --
--- * 'arqPrivateIPAddress'
+-- * 'aasPrivateIPAddress'
 --
--- * 'arqPublicIP'
+-- * 'aasPublicIP'
 --
--- * 'arqDryRun'
+-- * 'aasDryRun'
 data AssociateAddress = AssociateAddress'
-    { _arqInstanceId         :: !(Maybe Text)
-    , _arqAllocationId       :: !(Maybe Text)
-    , _arqNetworkInterfaceId :: !(Maybe Text)
-    , _arqAllowReassociation :: !(Maybe Bool)
-    , _arqPrivateIPAddress   :: !(Maybe Text)
-    , _arqPublicIP           :: !(Maybe Text)
-    , _arqDryRun             :: !(Maybe Bool)
+    { _aasInstanceId         :: !(Maybe Text)
+    , _aasAllocationId       :: !(Maybe Text)
+    , _aasNetworkInterfaceId :: !(Maybe Text)
+    , _aasAllowReassociation :: !(Maybe Bool)
+    , _aasPrivateIPAddress   :: !(Maybe Text)
+    , _aasPublicIP           :: !(Maybe Text)
+    , _aasDryRun             :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateAddress' smart constructor.
 associateAddress :: AssociateAddress
 associateAddress =
     AssociateAddress'
-    { _arqInstanceId = Nothing
-    , _arqAllocationId = Nothing
-    , _arqNetworkInterfaceId = Nothing
-    , _arqAllowReassociation = Nothing
-    , _arqPrivateIPAddress = Nothing
-    , _arqPublicIP = Nothing
-    , _arqDryRun = Nothing
+    { _aasInstanceId = Nothing
+    , _aasAllocationId = Nothing
+    , _aasNetworkInterfaceId = Nothing
+    , _aasAllowReassociation = Nothing
+    , _aasPrivateIPAddress = Nothing
+    , _aasPublicIP = Nothing
+    , _aasDryRun = Nothing
     }
 
 -- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC,
 -- you can specify either the instance ID or the network interface ID, but
 -- not both. The operation fails if you specify an instance ID unless
 -- exactly one network interface is attached.
-arqInstanceId :: Lens' AssociateAddress (Maybe Text)
-arqInstanceId = lens _arqInstanceId (\ s a -> s{_arqInstanceId = a});
+aasInstanceId :: Lens' AssociateAddress (Maybe Text)
+aasInstanceId = lens _aasInstanceId (\ s a -> s{_aasInstanceId = a});
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-arqAllocationId :: Lens' AssociateAddress (Maybe Text)
-arqAllocationId = lens _arqAllocationId (\ s a -> s{_arqAllocationId = a});
+aasAllocationId :: Lens' AssociateAddress (Maybe Text)
+aasAllocationId = lens _aasAllocationId (\ s a -> s{_aasAllocationId = a});
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than
 -- one network interface, you must specify a network interface ID.
-arqNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
-arqNetworkInterfaceId = lens _arqNetworkInterfaceId (\ s a -> s{_arqNetworkInterfaceId = a});
+aasNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
+aasNetworkInterfaceId = lens _aasNetworkInterfaceId (\ s a -> s{_aasNetworkInterfaceId = a});
 
 -- | [EC2-VPC] Allows an Elastic IP address that is already associated with
 -- an instance or network interface to be re-associated with the specified
 -- instance or network interface. Otherwise, the operation fails.
 --
 -- Default: @false@
-arqAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
-arqAllowReassociation = lens _arqAllowReassociation (\ s a -> s{_arqAllowReassociation = a});
+aasAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
+aasAllowReassociation = lens _aasAllowReassociation (\ s a -> s{_aasAllowReassociation = a});
 
 -- | [EC2-VPC] The primary or secondary private IP address to associate with
 -- the Elastic IP address. If no private IP address is specified, the
 -- Elastic IP address is associated with the primary private IP address.
-arqPrivateIPAddress :: Lens' AssociateAddress (Maybe Text)
-arqPrivateIPAddress = lens _arqPrivateIPAddress (\ s a -> s{_arqPrivateIPAddress = a});
+aasPrivateIPAddress :: Lens' AssociateAddress (Maybe Text)
+aasPrivateIPAddress = lens _aasPrivateIPAddress (\ s a -> s{_aasPrivateIPAddress = a});
 
 -- | The Elastic IP address. This is required for EC2-Classic.
-arqPublicIP :: Lens' AssociateAddress (Maybe Text)
-arqPublicIP = lens _arqPublicIP (\ s a -> s{_arqPublicIP = a});
+aasPublicIP :: Lens' AssociateAddress (Maybe Text)
+aasPublicIP = lens _aasPublicIP (\ s a -> s{_aasPublicIP = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-arqDryRun :: Lens' AssociateAddress (Maybe Bool)
-arqDryRun = lens _arqDryRun (\ s a -> s{_arqDryRun = a});
+aasDryRun :: Lens' AssociateAddress (Maybe Bool)
+aasDryRun = lens _aasDryRun (\ s a -> s{_aasDryRun = a});
 
 instance AWSRequest AssociateAddress where
         type Sv AssociateAddress = EC2
@@ -170,12 +170,12 @@ instance ToQuery AssociateAddress where
           = mconcat
               ["Action" =: ("AssociateAddress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceId" =: _arqInstanceId,
-               "AllocationId" =: _arqAllocationId,
-               "NetworkInterfaceId" =: _arqNetworkInterfaceId,
-               "AllowReassociation" =: _arqAllowReassociation,
-               "PrivateIpAddress" =: _arqPrivateIPAddress,
-               "PublicIp" =: _arqPublicIP, "DryRun" =: _arqDryRun]
+               "InstanceId" =: _aasInstanceId,
+               "AllocationId" =: _aasAllocationId,
+               "NetworkInterfaceId" =: _aasNetworkInterfaceId,
+               "AllowReassociation" =: _aasAllowReassociation,
+               "PrivateIpAddress" =: _aasPrivateIPAddress,
+               "PublicIp" =: _aasPublicIP, "DryRun" =: _aasDryRun]
 
 -- | /See:/ 'associateAddressResponse' smart constructor.
 --

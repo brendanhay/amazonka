@@ -31,7 +31,7 @@ module Network.AWS.DirectConnect.ConfirmConnection
     -- ** Request constructor
     , confirmConnection
     -- ** Request lenses
-    , ccrqConnectionId
+    , ccConnectionId
 
     -- * Response
     , ConfirmConnectionResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccrqConnectionId'
+-- * 'ccConnectionId'
 newtype ConfirmConnection = ConfirmConnection'
-    { _ccrqConnectionId :: Text
+    { _ccConnectionId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmConnection' smart constructor.
 confirmConnection :: Text -> ConfirmConnection
 confirmConnection pConnectionId_ =
     ConfirmConnection'
-    { _ccrqConnectionId = pConnectionId_
+    { _ccConnectionId = pConnectionId_
     }
 
 -- | FIXME: Undocumented member.
-ccrqConnectionId :: Lens' ConfirmConnection Text
-ccrqConnectionId = lens _ccrqConnectionId (\ s a -> s{_ccrqConnectionId = a});
+ccConnectionId :: Lens' ConfirmConnection Text
+ccConnectionId = lens _ccConnectionId (\ s a -> s{_ccConnectionId = a});
 
 instance AWSRequest ConfirmConnection where
         type Sv ConfirmConnection = DirectConnect
@@ -90,7 +90,7 @@ instance ToHeaders ConfirmConnection where
 
 instance ToJSON ConfirmConnection where
         toJSON ConfirmConnection'{..}
-          = object ["connectionId" .= _ccrqConnectionId]
+          = object ["connectionId" .= _ccConnectionId]
 
 instance ToPath ConfirmConnection where
         toPath = const "/"

@@ -154,9 +154,9 @@ module Network.AWS.Glacier.InitiateJob
     -- ** Request constructor
     , initiateJob
     -- ** Request lenses
-    , ijrqJobParameters
-    , ijrqAccountId
-    , ijrqVaultName
+    , ijJobParameters
+    , ijAccountId
+    , ijVaultName
 
     -- * Response
     , InitiateJobResponse
@@ -179,41 +179,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ijrqJobParameters'
+-- * 'ijJobParameters'
 --
--- * 'ijrqAccountId'
+-- * 'ijAccountId'
 --
--- * 'ijrqVaultName'
+-- * 'ijVaultName'
 data InitiateJob = InitiateJob'
-    { _ijrqJobParameters :: !(Maybe JobParameters)
-    , _ijrqAccountId     :: !Text
-    , _ijrqVaultName     :: !Text
+    { _ijJobParameters :: !(Maybe JobParameters)
+    , _ijAccountId     :: !Text
+    , _ijVaultName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateJob' smart constructor.
 initiateJob :: Text -> Text -> InitiateJob
 initiateJob pAccountId_ pVaultName_ =
     InitiateJob'
-    { _ijrqJobParameters = Nothing
-    , _ijrqAccountId = pAccountId_
-    , _ijrqVaultName = pVaultName_
+    { _ijJobParameters = Nothing
+    , _ijAccountId = pAccountId_
+    , _ijVaultName = pVaultName_
     }
 
 -- | Provides options for specifying job information.
-ijrqJobParameters :: Lens' InitiateJob (Maybe JobParameters)
-ijrqJobParameters = lens _ijrqJobParameters (\ s a -> s{_ijrqJobParameters = a});
+ijJobParameters :: Lens' InitiateJob (Maybe JobParameters)
+ijJobParameters = lens _ijJobParameters (\ s a -> s{_ijJobParameters = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-ijrqAccountId :: Lens' InitiateJob Text
-ijrqAccountId = lens _ijrqAccountId (\ s a -> s{_ijrqAccountId = a});
+ijAccountId :: Lens' InitiateJob Text
+ijAccountId = lens _ijAccountId (\ s a -> s{_ijAccountId = a});
 
 -- | The name of the vault.
-ijrqVaultName :: Lens' InitiateJob Text
-ijrqVaultName = lens _ijrqVaultName (\ s a -> s{_ijrqVaultName = a});
+ijVaultName :: Lens' InitiateJob Text
+ijVaultName = lens _ijVaultName (\ s a -> s{_ijVaultName = a});
 
 instance AWSRequest InitiateJob where
         type Sv InitiateJob = Glacier
@@ -231,13 +231,13 @@ instance ToHeaders InitiateJob where
 
 instance ToJSON InitiateJob where
         toJSON InitiateJob'{..}
-          = object ["jobParameters" .= _ijrqJobParameters]
+          = object ["jobParameters" .= _ijJobParameters]
 
 instance ToPath InitiateJob where
         toPath InitiateJob'{..}
           = mconcat
-              ["/", toText _ijrqAccountId, "/vaults/",
-               toText _ijrqVaultName, "/jobs"]
+              ["/", toText _ijAccountId, "/vaults/",
+               toText _ijVaultName, "/jobs"]
 
 instance ToQuery InitiateJob where
         toQuery = const mempty

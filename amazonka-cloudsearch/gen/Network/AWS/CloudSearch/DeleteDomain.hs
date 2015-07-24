@@ -30,7 +30,7 @@ module Network.AWS.CloudSearch.DeleteDomain
     -- ** Request constructor
     , deleteDomain
     -- ** Request lenses
-    , dddrqDomainName
+    , dddDomainName
 
     -- * Response
     , DeleteDomainResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dddrqDomainName'
+-- * 'dddDomainName'
 newtype DeleteDomain = DeleteDomain'
-    { _dddrqDomainName :: Text
+    { _dddDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
 deleteDomain pDomainName_ =
     DeleteDomain'
-    { _dddrqDomainName = pDomainName_
+    { _dddDomainName = pDomainName_
     }
 
 -- | The name of the domain you want to permanently delete.
-dddrqDomainName :: Lens' DeleteDomain Text
-dddrqDomainName = lens _dddrqDomainName (\ s a -> s{_dddrqDomainName = a});
+dddDomainName :: Lens' DeleteDomain Text
+dddDomainName = lens _dddDomainName (\ s a -> s{_dddDomainName = a});
 
 instance AWSRequest DeleteDomain where
         type Sv DeleteDomain = CloudSearch
@@ -90,7 +90,7 @@ instance ToQuery DeleteDomain where
           = mconcat
               ["Action" =: ("DeleteDomain" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _dddrqDomainName]
+               "DomainName" =: _dddDomainName]
 
 -- | The result of a @DeleteDomain@ request. Contains the status of a newly
 -- deleted domain, or no status if the domain has already been completely

@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.DeregisterVolume
     -- ** Request constructor
     , deregisterVolume
     -- ** Request lenses
-    , dvrqVolumeId
+    , dvVolumeId
 
     -- * Response
     , DeregisterVolumeResponse
@@ -52,23 +52,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrqVolumeId'
+-- * 'dvVolumeId'
 newtype DeregisterVolume = DeregisterVolume'
-    { _dvrqVolumeId :: Text
+    { _dvVolumeId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterVolume' smart constructor.
 deregisterVolume :: Text -> DeregisterVolume
 deregisterVolume pVolumeId_ =
     DeregisterVolume'
-    { _dvrqVolumeId = pVolumeId_
+    { _dvVolumeId = pVolumeId_
     }
 
 -- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned
 -- to the instance when you registered the volume with the stack, not the
 -- Amazon EC2 volume ID.
-dvrqVolumeId :: Lens' DeregisterVolume Text
-dvrqVolumeId = lens _dvrqVolumeId (\ s a -> s{_dvrqVolumeId = a});
+dvVolumeId :: Lens' DeregisterVolume Text
+dvVolumeId = lens _dvVolumeId (\ s a -> s{_dvVolumeId = a});
 
 instance AWSRequest DeregisterVolume where
         type Sv DeregisterVolume = OpsWorks
@@ -87,7 +87,7 @@ instance ToHeaders DeregisterVolume where
 
 instance ToJSON DeregisterVolume where
         toJSON DeregisterVolume'{..}
-          = object ["VolumeId" .= _dvrqVolumeId]
+          = object ["VolumeId" .= _dvVolumeId]
 
 instance ToPath DeregisterVolume where
         toPath = const "/"

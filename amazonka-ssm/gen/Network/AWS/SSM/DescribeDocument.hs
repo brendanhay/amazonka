@@ -27,7 +27,7 @@ module Network.AWS.SSM.DescribeDocument
     -- ** Request constructor
     , describeDocument
     -- ** Request lenses
-    , ddrqName
+    , ddName
 
     -- * Response
     , DescribeDocumentResponse
@@ -47,21 +47,21 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrqName'
+-- * 'ddName'
 newtype DescribeDocument = DescribeDocument'
-    { _ddrqName :: Text
+    { _ddName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDocument' smart constructor.
 describeDocument :: Text -> DescribeDocument
 describeDocument pName_ =
     DescribeDocument'
-    { _ddrqName = pName_
+    { _ddName = pName_
     }
 
 -- | The name of the configuration document.
-ddrqName :: Lens' DescribeDocument Text
-ddrqName = lens _ddrqName (\ s a -> s{_ddrqName = a});
+ddName :: Lens' DescribeDocument Text
+ddName = lens _ddName (\ s a -> s{_ddName = a});
 
 instance AWSRequest DescribeDocument where
         type Sv DescribeDocument = SSM
@@ -84,7 +84,7 @@ instance ToHeaders DescribeDocument where
 
 instance ToJSON DescribeDocument where
         toJSON DescribeDocument'{..}
-          = object ["Name" .= _ddrqName]
+          = object ["Name" .= _ddName]
 
 instance ToPath DescribeDocument where
         toPath = const "/"

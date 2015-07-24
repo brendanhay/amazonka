@@ -27,9 +27,9 @@ module Network.AWS.CodePipeline.EnableStageTransition
     -- ** Request constructor
     , enableStageTransition
     -- ** Request lenses
-    , estrqPipelineName
-    , estrqStageName
-    , estrqTransitionType
+    , estPipelineName
+    , estStageName
+    , estTransitionType
 
     -- * Response
     , EnableStageTransitionResponse
@@ -48,43 +48,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'estrqPipelineName'
+-- * 'estPipelineName'
 --
--- * 'estrqStageName'
+-- * 'estStageName'
 --
--- * 'estrqTransitionType'
+-- * 'estTransitionType'
 data EnableStageTransition = EnableStageTransition'
-    { _estrqPipelineName   :: !Text
-    , _estrqStageName      :: !Text
-    , _estrqTransitionType :: !StageTransitionType
+    { _estPipelineName   :: !Text
+    , _estStageName      :: !Text
+    , _estTransitionType :: !StageTransitionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableStageTransition' smart constructor.
 enableStageTransition :: Text -> Text -> StageTransitionType -> EnableStageTransition
 enableStageTransition pPipelineName_ pStageName_ pTransitionType_ =
     EnableStageTransition'
-    { _estrqPipelineName = pPipelineName_
-    , _estrqStageName = pStageName_
-    , _estrqTransitionType = pTransitionType_
+    { _estPipelineName = pPipelineName_
+    , _estStageName = pStageName_
+    , _estTransitionType = pTransitionType_
     }
 
 -- | The name of the pipeline in which you want to enable the flow of
 -- artifacts from one stage to another.
-estrqPipelineName :: Lens' EnableStageTransition Text
-estrqPipelineName = lens _estrqPipelineName (\ s a -> s{_estrqPipelineName = a});
+estPipelineName :: Lens' EnableStageTransition Text
+estPipelineName = lens _estPipelineName (\ s a -> s{_estPipelineName = a});
 
 -- | The name of the stage where you want to enable the transition of
 -- artifacts, either into the stage (inbound) or from that stage to the
 -- next stage (outbound).
-estrqStageName :: Lens' EnableStageTransition Text
-estrqStageName = lens _estrqStageName (\ s a -> s{_estrqStageName = a});
+estStageName :: Lens' EnableStageTransition Text
+estStageName = lens _estStageName (\ s a -> s{_estStageName = a});
 
 -- | Specifies whether artifacts will be allowed to enter the stage and be
 -- processed by the actions in that stage (inbound) or whether
 -- already-processed artifacts will be allowed to transition to the next
 -- stage (outbound).
-estrqTransitionType :: Lens' EnableStageTransition StageTransitionType
-estrqTransitionType = lens _estrqTransitionType (\ s a -> s{_estrqTransitionType = a});
+estTransitionType :: Lens' EnableStageTransition StageTransitionType
+estTransitionType = lens _estTransitionType (\ s a -> s{_estTransitionType = a});
 
 instance AWSRequest EnableStageTransition where
         type Sv EnableStageTransition = CodePipeline
@@ -106,9 +106,9 @@ instance ToHeaders EnableStageTransition where
 instance ToJSON EnableStageTransition where
         toJSON EnableStageTransition'{..}
           = object
-              ["pipelineName" .= _estrqPipelineName,
-               "stageName" .= _estrqStageName,
-               "transitionType" .= _estrqTransitionType]
+              ["pipelineName" .= _estPipelineName,
+               "stageName" .= _estStageName,
+               "transitionType" .= _estTransitionType]
 
 instance ToPath EnableStageTransition where
         toPath = const "/"

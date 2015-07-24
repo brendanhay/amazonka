@@ -48,8 +48,8 @@ module Network.AWS.Glacier.DescribeVault
     -- ** Request constructor
     , describeVault
     -- ** Request lenses
-    , dvrqAccountId
-    , dvrqVaultName
+    , dvAccountId
+    , dvVaultName
 
     -- * Response
     , DescribeVaultOutput
@@ -76,20 +76,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrqAccountId'
+-- * 'dvAccountId'
 --
--- * 'dvrqVaultName'
+-- * 'dvVaultName'
 data DescribeVault = DescribeVault'
-    { _dvrqAccountId :: !Text
-    , _dvrqVaultName :: !Text
+    { _dvAccountId :: !Text
+    , _dvVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVault' smart constructor.
 describeVault :: Text -> Text -> DescribeVault
 describeVault pAccountId_ pVaultName_ =
     DescribeVault'
-    { _dvrqAccountId = pAccountId_
-    , _dvrqVaultName = pVaultName_
+    { _dvAccountId = pAccountId_
+    , _dvVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -97,12 +97,12 @@ describeVault pAccountId_ pVaultName_ =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-dvrqAccountId :: Lens' DescribeVault Text
-dvrqAccountId = lens _dvrqAccountId (\ s a -> s{_dvrqAccountId = a});
+dvAccountId :: Lens' DescribeVault Text
+dvAccountId = lens _dvAccountId (\ s a -> s{_dvAccountId = a});
 
 -- | The name of the vault.
-dvrqVaultName :: Lens' DescribeVault Text
-dvrqVaultName = lens _dvrqVaultName (\ s a -> s{_dvrqVaultName = a});
+dvVaultName :: Lens' DescribeVault Text
+dvVaultName = lens _dvVaultName (\ s a -> s{_dvVaultName = a});
 
 instance AWSRequest DescribeVault where
         type Sv DescribeVault = Glacier
@@ -116,8 +116,8 @@ instance ToHeaders DescribeVault where
 instance ToPath DescribeVault where
         toPath DescribeVault'{..}
           = mconcat
-              ["/", toText _dvrqAccountId, "/vaults/",
-               toText _dvrqVaultName]
+              ["/", toText _dvAccountId, "/vaults/",
+               toText _dvVaultName]
 
 instance ToQuery DescribeVault where
         toQuery = const mempty

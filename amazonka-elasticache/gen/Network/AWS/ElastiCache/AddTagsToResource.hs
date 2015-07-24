@@ -38,8 +38,8 @@ module Network.AWS.ElastiCache.AddTagsToResource
     -- ** Request constructor
     , addTagsToResource
     -- ** Request lenses
-    , attrrqResourceName
-    , attrrqTags
+    , attrResourceName
+    , attrTags
 
     -- * Response
     , TagListMessage
@@ -60,31 +60,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attrrqResourceName'
+-- * 'attrResourceName'
 --
--- * 'attrrqTags'
+-- * 'attrTags'
 data AddTagsToResource = AddTagsToResource'
-    { _attrrqResourceName :: !Text
-    , _attrrqTags         :: ![Tag]
+    { _attrResourceName :: !Text
+    , _attrTags         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToResource' smart constructor.
 addTagsToResource :: Text -> AddTagsToResource
 addTagsToResource pResourceName_ =
     AddTagsToResource'
-    { _attrrqResourceName = pResourceName_
-    , _attrrqTags = mempty
+    { _attrResourceName = pResourceName_
+    , _attrTags = mempty
     }
 
 -- | The name of the resource to which the tags are to be added, for example
 -- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
-attrrqResourceName :: Lens' AddTagsToResource Text
-attrrqResourceName = lens _attrrqResourceName (\ s a -> s{_attrrqResourceName = a});
+attrResourceName :: Lens' AddTagsToResource Text
+attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
-attrrqTags :: Lens' AddTagsToResource [Tag]
-attrrqTags = lens _attrrqTags (\ s a -> s{_attrrqTags = a});
+attrTags :: Lens' AddTagsToResource [Tag]
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a});
 
 instance AWSRequest AddTagsToResource where
         type Sv AddTagsToResource = ElastiCache
@@ -105,5 +105,5 @@ instance ToQuery AddTagsToResource where
           = mconcat
               ["Action" =: ("AddTagsToResource" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "ResourceName" =: _attrrqResourceName,
-               "Tags" =: toQueryList "Tag" _attrrqTags]
+               "ResourceName" =: _attrResourceName,
+               "Tags" =: toQueryList "Tag" _attrTags]

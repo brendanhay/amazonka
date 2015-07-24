@@ -53,10 +53,10 @@ module Network.AWS.EC2.CreateCustomerGateway
     -- ** Request constructor
     , createCustomerGateway
     -- ** Request lenses
-    , ccgrqDryRun
-    , ccgrqType
-    , ccgrqPublicIP
-    , ccgrqBGPASN
+    , ccgDryRun
+    , ccgType
+    , ccgPublicIP
+    , ccgBGPASN
 
     -- * Response
     , CreateCustomerGatewayResponse
@@ -76,52 +76,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccgrqDryRun'
+-- * 'ccgDryRun'
 --
--- * 'ccgrqType'
+-- * 'ccgType'
 --
--- * 'ccgrqPublicIP'
+-- * 'ccgPublicIP'
 --
--- * 'ccgrqBGPASN'
+-- * 'ccgBGPASN'
 data CreateCustomerGateway = CreateCustomerGateway'
-    { _ccgrqDryRun   :: !(Maybe Bool)
-    , _ccgrqType     :: !GatewayType
-    , _ccgrqPublicIP :: !Text
-    , _ccgrqBGPASN   :: !Int
+    { _ccgDryRun   :: !(Maybe Bool)
+    , _ccgType     :: !GatewayType
+    , _ccgPublicIP :: !Text
+    , _ccgBGPASN   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomerGateway' smart constructor.
 createCustomerGateway :: GatewayType -> Text -> Int -> CreateCustomerGateway
 createCustomerGateway pType_ pPublicIP_ pBGPASN_ =
     CreateCustomerGateway'
-    { _ccgrqDryRun = Nothing
-    , _ccgrqType = pType_
-    , _ccgrqPublicIP = pPublicIP_
-    , _ccgrqBGPASN = pBGPASN_
+    { _ccgDryRun = Nothing
+    , _ccgType = pType_
+    , _ccgPublicIP = pPublicIP_
+    , _ccgBGPASN = pBGPASN_
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ccgrqDryRun :: Lens' CreateCustomerGateway (Maybe Bool)
-ccgrqDryRun = lens _ccgrqDryRun (\ s a -> s{_ccgrqDryRun = a});
+ccgDryRun :: Lens' CreateCustomerGateway (Maybe Bool)
+ccgDryRun = lens _ccgDryRun (\ s a -> s{_ccgDryRun = a});
 
 -- | The type of VPN connection that this customer gateway supports
 -- (@ipsec.1@).
-ccgrqType :: Lens' CreateCustomerGateway GatewayType
-ccgrqType = lens _ccgrqType (\ s a -> s{_ccgrqType = a});
+ccgType :: Lens' CreateCustomerGateway GatewayType
+ccgType = lens _ccgType (\ s a -> s{_ccgType = a});
 
 -- | The Internet-routable IP address for the customer gateway\'s outside
 -- interface. The address must be static.
-ccgrqPublicIP :: Lens' CreateCustomerGateway Text
-ccgrqPublicIP = lens _ccgrqPublicIP (\ s a -> s{_ccgrqPublicIP = a});
+ccgPublicIP :: Lens' CreateCustomerGateway Text
+ccgPublicIP = lens _ccgPublicIP (\ s a -> s{_ccgPublicIP = a});
 
 -- | For devices that support BGP, the customer gateway\'s BGP ASN.
 --
 -- Default: 65000
-ccgrqBGPASN :: Lens' CreateCustomerGateway Int
-ccgrqBGPASN = lens _ccgrqBGPASN (\ s a -> s{_ccgrqBGPASN = a});
+ccgBGPASN :: Lens' CreateCustomerGateway Int
+ccgBGPASN = lens _ccgBGPASN (\ s a -> s{_ccgBGPASN = a});
 
 instance AWSRequest CreateCustomerGateway where
         type Sv CreateCustomerGateway = EC2
@@ -145,9 +145,8 @@ instance ToQuery CreateCustomerGateway where
           = mconcat
               ["Action" =: ("CreateCustomerGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ccgrqDryRun, "Type" =: _ccgrqType,
-               "IpAddress" =: _ccgrqPublicIP,
-               "BgpAsn" =: _ccgrqBGPASN]
+               "DryRun" =: _ccgDryRun, "Type" =: _ccgType,
+               "IpAddress" =: _ccgPublicIP, "BgpAsn" =: _ccgBGPASN]
 
 -- | /See:/ 'createCustomerGatewayResponse' smart constructor.
 --

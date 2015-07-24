@@ -50,9 +50,9 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- ** Request constructor
     , describeReservedInstancesListings
     -- ** Request lenses
-    , drilrqFilters
-    , drilrqReservedInstancesId
-    , drilrqReservedInstancesListingId
+    , drilFilters
+    , drilReservedInstancesId
+    , drilReservedInstancesListingId
 
     -- * Response
     , DescribeReservedInstancesListingsResponse
@@ -72,24 +72,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drilrqFilters'
+-- * 'drilFilters'
 --
--- * 'drilrqReservedInstancesId'
+-- * 'drilReservedInstancesId'
 --
--- * 'drilrqReservedInstancesListingId'
+-- * 'drilReservedInstancesListingId'
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
-    { _drilrqFilters                    :: !(Maybe [Filter])
-    , _drilrqReservedInstancesId        :: !(Maybe Text)
-    , _drilrqReservedInstancesListingId :: !(Maybe Text)
+    { _drilFilters                    :: !(Maybe [Filter])
+    , _drilReservedInstancesId        :: !(Maybe Text)
+    , _drilReservedInstancesListingId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesListings' smart constructor.
 describeReservedInstancesListings :: DescribeReservedInstancesListings
 describeReservedInstancesListings =
     DescribeReservedInstancesListings'
-    { _drilrqFilters = Nothing
-    , _drilrqReservedInstancesId = Nothing
-    , _drilrqReservedInstancesListingId = Nothing
+    { _drilFilters = Nothing
+    , _drilReservedInstancesId = Nothing
+    , _drilReservedInstancesListingId = Nothing
     }
 
 -- | One or more filters.
@@ -104,16 +104,16 @@ describeReservedInstancesListings =
 --
 -- -   @status-message@ - The reason for the status.
 --
-drilrqFilters :: Lens' DescribeReservedInstancesListings [Filter]
-drilrqFilters = lens _drilrqFilters (\ s a -> s{_drilrqFilters = a}) . _Default;
+drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
+drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default;
 
 -- | One or more Reserved Instance IDs.
-drilrqReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilrqReservedInstancesId = lens _drilrqReservedInstancesId (\ s a -> s{_drilrqReservedInstancesId = a});
+drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
+drilReservedInstancesId = lens _drilReservedInstancesId (\ s a -> s{_drilReservedInstancesId = a});
 
 -- | One or more Reserved Instance Listing IDs.
-drilrqReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilrqReservedInstancesListingId = lens _drilrqReservedInstancesListingId (\ s a -> s{_drilrqReservedInstancesListingId = a});
+drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
+drilReservedInstancesListingId = lens _drilReservedInstancesListingId (\ s a -> s{_drilReservedInstancesListingId = a});
 
 instance AWSRequest DescribeReservedInstancesListings
          where
@@ -144,10 +144,10 @@ instance ToQuery DescribeReservedInstancesListings
               ["Action" =:
                  ("DescribeReservedInstancesListings" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drilrqFilters),
-               "ReservedInstancesId" =: _drilrqReservedInstancesId,
+               toQuery (toQueryList "Filter" <$> _drilFilters),
+               "ReservedInstancesId" =: _drilReservedInstancesId,
                "ReservedInstancesListingId" =:
-                 _drilrqReservedInstancesListingId]
+                 _drilReservedInstancesListingId]
 
 -- | /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
 --

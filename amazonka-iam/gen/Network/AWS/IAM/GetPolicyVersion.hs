@@ -38,8 +38,8 @@ module Network.AWS.IAM.GetPolicyVersion
     -- ** Request constructor
     , getPolicyVersion
     -- ** Request lenses
-    , gpvrqPolicyARN
-    , gpvrqVersionId
+    , gpvPolicyARN
+    , gpvVersionId
 
     -- * Response
     , GetPolicyVersionResponse
@@ -59,29 +59,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpvrqPolicyARN'
+-- * 'gpvPolicyARN'
 --
--- * 'gpvrqVersionId'
+-- * 'gpvVersionId'
 data GetPolicyVersion = GetPolicyVersion'
-    { _gpvrqPolicyARN :: !Text
-    , _gpvrqVersionId :: !Text
+    { _gpvPolicyARN :: !Text
+    , _gpvVersionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyVersion' smart constructor.
 getPolicyVersion :: Text -> Text -> GetPolicyVersion
 getPolicyVersion pPolicyARN_ pVersionId_ =
     GetPolicyVersion'
-    { _gpvrqPolicyARN = pPolicyARN_
-    , _gpvrqVersionId = pVersionId_
+    { _gpvPolicyARN = pPolicyARN_
+    , _gpvVersionId = pVersionId_
     }
 
 -- | FIXME: Undocumented member.
-gpvrqPolicyARN :: Lens' GetPolicyVersion Text
-gpvrqPolicyARN = lens _gpvrqPolicyARN (\ s a -> s{_gpvrqPolicyARN = a});
+gpvPolicyARN :: Lens' GetPolicyVersion Text
+gpvPolicyARN = lens _gpvPolicyARN (\ s a -> s{_gpvPolicyARN = a});
 
 -- | Identifies the policy version to retrieve.
-gpvrqVersionId :: Lens' GetPolicyVersion Text
-gpvrqVersionId = lens _gpvrqVersionId (\ s a -> s{_gpvrqVersionId = a});
+gpvVersionId :: Lens' GetPolicyVersion Text
+gpvVersionId = lens _gpvVersionId (\ s a -> s{_gpvVersionId = a});
 
 instance AWSRequest GetPolicyVersion where
         type Sv GetPolicyVersion = IAM
@@ -104,8 +104,8 @@ instance ToQuery GetPolicyVersion where
           = mconcat
               ["Action" =: ("GetPolicyVersion" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _gpvrqPolicyARN,
-               "VersionId" =: _gpvrqVersionId]
+               "PolicyArn" =: _gpvPolicyARN,
+               "VersionId" =: _gpvVersionId]
 
 -- | Contains the response to a successful GetPolicyVersion request.
 --

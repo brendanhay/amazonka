@@ -28,9 +28,9 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- ** Request constructor
     , describeNotificationConfigurations
     -- ** Request lenses
-    , dncrqAutoScalingGroupNames
-    , dncrqNextToken
-    , dncrqMaxRecords
+    , dncAutoScalingGroupNames
+    , dncNextToken
+    , dncMaxRecords
 
     -- * Response
     , DescribeNotificationConfigurationsResponse
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dncrqAutoScalingGroupNames'
+-- * 'dncAutoScalingGroupNames'
 --
--- * 'dncrqNextToken'
+-- * 'dncNextToken'
 --
--- * 'dncrqMaxRecords'
+-- * 'dncMaxRecords'
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
-    { _dncrqAutoScalingGroupNames :: !(Maybe [Text])
-    , _dncrqNextToken             :: !(Maybe Text)
-    , _dncrqMaxRecords            :: !(Maybe Int)
+    { _dncAutoScalingGroupNames :: !(Maybe [Text])
+    , _dncNextToken             :: !(Maybe Text)
+    , _dncMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNotificationConfigurations' smart constructor.
 describeNotificationConfigurations :: DescribeNotificationConfigurations
 describeNotificationConfigurations =
     DescribeNotificationConfigurations'
-    { _dncrqAutoScalingGroupNames = Nothing
-    , _dncrqNextToken = Nothing
-    , _dncrqMaxRecords = Nothing
+    { _dncAutoScalingGroupNames = Nothing
+    , _dncNextToken = Nothing
+    , _dncMaxRecords = Nothing
     }
 
 -- | The name of the group.
-dncrqAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
-dncrqAutoScalingGroupNames = lens _dncrqAutoScalingGroupNames (\ s a -> s{_dncrqAutoScalingGroupNames = a}) . _Default;
+dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
+dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dncrqNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
-dncrqNextToken = lens _dncrqNextToken (\ s a -> s{_dncrqNextToken = a});
+dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
+dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dncrqMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
-dncrqMaxRecords = lens _dncrqMaxRecords (\ s a -> s{_dncrqMaxRecords = a});
+dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
+dncMaxRecords = lens _dncMaxRecords (\ s a -> s{_dncMaxRecords = a});
 
 instance AWSPager DescribeNotificationConfigurations
          where
@@ -92,7 +92,7 @@ instance AWSPager DescribeNotificationConfigurations
           | stop (rs ^. dncrsNotificationConfigurations) =
             Nothing
           | otherwise =
-            Just $ rq & dncrqNextToken .~ rs ^. dncrsNextToken
+            Just $ rq & dncNextToken .~ rs ^. dncrsNextToken
 
 instance AWSRequest
          DescribeNotificationConfigurations where
@@ -127,10 +127,9 @@ instance ToQuery DescribeNotificationConfigurations
                "Version" =: ("2011-01-01" :: ByteString),
                "AutoScalingGroupNames" =:
                  toQuery
-                   (toQueryList "member" <$>
-                      _dncrqAutoScalingGroupNames),
-               "NextToken" =: _dncrqNextToken,
-               "MaxRecords" =: _dncrqMaxRecords]
+                   (toQueryList "member" <$> _dncAutoScalingGroupNames),
+               "NextToken" =: _dncNextToken,
+               "MaxRecords" =: _dncMaxRecords]
 
 -- | /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
 --

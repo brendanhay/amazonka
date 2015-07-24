@@ -33,7 +33,7 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     -- ** Request constructor
     , disableSnapshotCopy
     -- ** Request lenses
-    , dscrqClusterIdentifier
+    , dscClusterIdentifier
 
     -- * Response
     , DisableSnapshotCopyResponse
@@ -55,16 +55,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscrqClusterIdentifier'
+-- * 'dscClusterIdentifier'
 newtype DisableSnapshotCopy = DisableSnapshotCopy'
-    { _dscrqClusterIdentifier :: Text
+    { _dscClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableSnapshotCopy' smart constructor.
 disableSnapshotCopy :: Text -> DisableSnapshotCopy
 disableSnapshotCopy pClusterIdentifier_ =
     DisableSnapshotCopy'
-    { _dscrqClusterIdentifier = pClusterIdentifier_
+    { _dscClusterIdentifier = pClusterIdentifier_
     }
 
 -- | The unique identifier of the source cluster that you want to disable
@@ -72,8 +72,8 @@ disableSnapshotCopy pClusterIdentifier_ =
 --
 -- Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
-dscrqClusterIdentifier :: Lens' DisableSnapshotCopy Text
-dscrqClusterIdentifier = lens _dscrqClusterIdentifier (\ s a -> s{_dscrqClusterIdentifier = a});
+dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
+dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a});
 
 instance AWSRequest DisableSnapshotCopy where
         type Sv DisableSnapshotCopy = Redshift
@@ -97,7 +97,7 @@ instance ToQuery DisableSnapshotCopy where
           = mconcat
               ["Action" =: ("DisableSnapshotCopy" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _dscrqClusterIdentifier]
+               "ClusterIdentifier" =: _dscClusterIdentifier]
 
 -- | /See:/ 'disableSnapshotCopyResponse' smart constructor.
 --

@@ -37,12 +37,12 @@ module Network.AWS.SNS.Publish
     -- ** Request constructor
     , publish
     -- ** Request lenses
-    , prqMessageAttributes
-    , prqTargetARN
-    , prqSubject
-    , prqTopicARN
-    , prqMessageStructure
-    , prqMessage
+    , pMessageAttributes
+    , pTargetARN
+    , pSubject
+    , pTopicARN
+    , pMessageStructure
+    , pMessage
 
     -- * Response
     , PublishResponse
@@ -64,45 +64,45 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prqMessageAttributes'
+-- * 'pMessageAttributes'
 --
--- * 'prqTargetARN'
+-- * 'pTargetARN'
 --
--- * 'prqSubject'
+-- * 'pSubject'
 --
--- * 'prqTopicARN'
+-- * 'pTopicARN'
 --
--- * 'prqMessageStructure'
+-- * 'pMessageStructure'
 --
--- * 'prqMessage'
+-- * 'pMessage'
 data Publish = Publish'
-    { _prqMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _prqTargetARN         :: !(Maybe Text)
-    , _prqSubject           :: !(Maybe Text)
-    , _prqTopicARN          :: !(Maybe Text)
-    , _prqMessageStructure  :: !(Maybe Text)
-    , _prqMessage           :: !Text
+    { _pMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _pTargetARN         :: !(Maybe Text)
+    , _pSubject           :: !(Maybe Text)
+    , _pTopicARN          :: !(Maybe Text)
+    , _pMessageStructure  :: !(Maybe Text)
+    , _pMessage           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Publish' smart constructor.
 publish :: Text -> Publish
 publish pMessage_ =
     Publish'
-    { _prqMessageAttributes = Nothing
-    , _prqTargetARN = Nothing
-    , _prqSubject = Nothing
-    , _prqTopicARN = Nothing
-    , _prqMessageStructure = Nothing
-    , _prqMessage = pMessage_
+    { _pMessageAttributes = Nothing
+    , _pTargetARN = Nothing
+    , _pSubject = Nothing
+    , _pTopicARN = Nothing
+    , _pMessageStructure = Nothing
+    , _pMessage = pMessage_
     }
 
 -- | Message attributes for Publish action.
-prqMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
-prqMessageAttributes = lens _prqMessageAttributes (\ s a -> s{_prqMessageAttributes = a}) . _Default . _Map;
+pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
+pMessageAttributes = lens _pMessageAttributes (\ s a -> s{_pMessageAttributes = a}) . _Default . _Map;
 
 -- | Either TopicArn or EndpointArn, but not both.
-prqTargetARN :: Lens' Publish (Maybe Text)
-prqTargetARN = lens _prqTargetARN (\ s a -> s{_prqTargetARN = a});
+pTargetARN :: Lens' Publish (Maybe Text)
+pTargetARN = lens _pTargetARN (\ s a -> s{_pTargetARN = a});
 
 -- | Optional parameter to be used as the \"Subject\" line when the message
 -- is delivered to email endpoints. This field will also be included, if
@@ -111,12 +111,12 @@ prqTargetARN = lens _prqTargetARN (\ s a -> s{_prqTargetARN = a});
 -- Constraints: Subjects must be ASCII text that begins with a letter,
 -- number, or punctuation mark; must not include line breaks or control
 -- characters; and must be less than 100 characters long.
-prqSubject :: Lens' Publish (Maybe Text)
-prqSubject = lens _prqSubject (\ s a -> s{_prqSubject = a});
+pSubject :: Lens' Publish (Maybe Text)
+pSubject = lens _pSubject (\ s a -> s{_pSubject = a});
 
 -- | The topic you want to publish to.
-prqTopicARN :: Lens' Publish (Maybe Text)
-prqTopicARN = lens _prqTopicARN (\ s a -> s{_prqTopicARN = a});
+pTopicARN :: Lens' Publish (Maybe Text)
+pTopicARN = lens _pTopicARN (\ s a -> s{_pTopicARN = a});
 
 -- | Set @MessageStructure@ to @json@ if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
@@ -137,8 +137,8 @@ prqTopicARN = lens _prqTopicARN (\ s a -> s{_prqTopicARN = a});
 -- in the /Amazon Simple Notification Service Getting Started Guide/.
 --
 -- Valid value: @json@
-prqMessageStructure :: Lens' Publish (Maybe Text)
-prqMessageStructure = lens _prqMessageStructure (\ s a -> s{_prqMessageStructure = a});
+pMessageStructure :: Lens' Publish (Maybe Text)
+pMessageStructure = lens _pMessageStructure (\ s a -> s{_pMessageStructure = a});
 
 -- | The message you want to send to the topic.
 --
@@ -171,8 +171,8 @@ prqMessageStructure = lens _prqMessageStructure (\ s a -> s{_prqMessageStructure
 -- -   Duplicate keys are not allowed.
 -- -   Failure to parse or validate any key or value in the message will
 --     cause the @Publish@ call to return an error (no partial delivery).
-prqMessage :: Lens' Publish Text
-prqMessage = lens _prqMessage (\ s a -> s{_prqMessage = a});
+pMessage :: Lens' Publish Text
+pMessage = lens _pMessage (\ s a -> s{_pMessage = a});
 
 instance AWSRequest Publish where
         type Sv Publish = SNS
@@ -198,11 +198,11 @@ instance ToQuery Publish where
                "MessageAttributes" =:
                  toQuery
                    (toQueryMap "entry" "Name" "Value" <$>
-                      _prqMessageAttributes),
-               "TargetArn" =: _prqTargetARN,
-               "Subject" =: _prqSubject, "TopicArn" =: _prqTopicARN,
-               "MessageStructure" =: _prqMessageStructure,
-               "Message" =: _prqMessage]
+                      _pMessageAttributes),
+               "TargetArn" =: _pTargetARN, "Subject" =: _pSubject,
+               "TopicArn" =: _pTopicARN,
+               "MessageStructure" =: _pMessageStructure,
+               "Message" =: _pMessage]
 
 -- | Response for Publish action.
 --

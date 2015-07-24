@@ -33,8 +33,8 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
     -- ** Request constructor
     , getVaultAccessPolicy
     -- ** Request lenses
-    , gvaprqAccountId
-    , gvaprqVaultName
+    , gvapAccountId
+    , gvapVaultName
 
     -- * Response
     , GetVaultAccessPolicyResponse
@@ -56,20 +56,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gvaprqAccountId'
+-- * 'gvapAccountId'
 --
--- * 'gvaprqVaultName'
+-- * 'gvapVaultName'
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
-    { _gvaprqAccountId :: !Text
-    , _gvaprqVaultName :: !Text
+    { _gvapAccountId :: !Text
+    , _gvapVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultAccessPolicy' smart constructor.
 getVaultAccessPolicy :: Text -> Text -> GetVaultAccessPolicy
 getVaultAccessPolicy pAccountId_ pVaultName_ =
     GetVaultAccessPolicy'
-    { _gvaprqAccountId = pAccountId_
-    , _gvaprqVaultName = pVaultName_
+    { _gvapAccountId = pAccountId_
+    , _gvapVaultName = pVaultName_
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -77,12 +77,12 @@ getVaultAccessPolicy pAccountId_ pVaultName_ =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-gvaprqAccountId :: Lens' GetVaultAccessPolicy Text
-gvaprqAccountId = lens _gvaprqAccountId (\ s a -> s{_gvaprqAccountId = a});
+gvapAccountId :: Lens' GetVaultAccessPolicy Text
+gvapAccountId = lens _gvapAccountId (\ s a -> s{_gvapAccountId = a});
 
 -- | The name of the vault.
-gvaprqVaultName :: Lens' GetVaultAccessPolicy Text
-gvaprqVaultName = lens _gvaprqVaultName (\ s a -> s{_gvaprqVaultName = a});
+gvapVaultName :: Lens' GetVaultAccessPolicy Text
+gvapVaultName = lens _gvapVaultName (\ s a -> s{_gvapVaultName = a});
 
 instance AWSRequest GetVaultAccessPolicy where
         type Sv GetVaultAccessPolicy = Glacier
@@ -101,8 +101,8 @@ instance ToHeaders GetVaultAccessPolicy where
 instance ToPath GetVaultAccessPolicy where
         toPath GetVaultAccessPolicy'{..}
           = mconcat
-              ["/", toText _gvaprqAccountId, "/vaults/",
-               toText _gvaprqVaultName, "/access-policy"]
+              ["/", toText _gvapAccountId, "/vaults/",
+               toText _gvapVaultName, "/access-policy"]
 
 instance ToQuery GetVaultAccessPolicy where
         toQuery = const mempty

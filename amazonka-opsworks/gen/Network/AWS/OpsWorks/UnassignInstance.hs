@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.UnassignInstance
     -- ** Request constructor
     , unassignInstance
     -- ** Request lenses
-    , urqInstanceId
+    , uInstanceId
 
     -- * Response
     , UnassignInstanceResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urqInstanceId'
+-- * 'uInstanceId'
 newtype UnassignInstance = UnassignInstance'
-    { _urqInstanceId :: Text
+    { _uInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignInstance' smart constructor.
 unassignInstance :: Text -> UnassignInstance
 unassignInstance pInstanceId_ =
     UnassignInstance'
-    { _urqInstanceId = pInstanceId_
+    { _uInstanceId = pInstanceId_
     }
 
 -- | The instance ID.
-urqInstanceId :: Lens' UnassignInstance Text
-urqInstanceId = lens _urqInstanceId (\ s a -> s{_urqInstanceId = a});
+uInstanceId :: Lens' UnassignInstance Text
+uInstanceId = lens _uInstanceId (\ s a -> s{_uInstanceId = a});
 
 instance AWSRequest UnassignInstance where
         type Sv UnassignInstance = OpsWorks
@@ -86,7 +86,7 @@ instance ToHeaders UnassignInstance where
 
 instance ToJSON UnassignInstance where
         toJSON UnassignInstance'{..}
-          = object ["InstanceId" .= _urqInstanceId]
+          = object ["InstanceId" .= _uInstanceId]
 
 instance ToPath UnassignInstance where
         toPath = const "/"

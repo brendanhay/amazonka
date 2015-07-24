@@ -29,9 +29,9 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- ** Request constructor
     , describeCacheParameterGroups
     -- ** Request lenses
-    , dcpgrqCacheParameterGroupName
-    , dcpgrqMaxRecords
-    , dcpgrqMarker
+    , dcpgCacheParameterGroupName
+    , dcpgMaxRecords
+    , dcpgMarker
 
     -- * Response
     , DescribeCacheParameterGroupsResponse
@@ -55,29 +55,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcpgrqCacheParameterGroupName'
+-- * 'dcpgCacheParameterGroupName'
 --
--- * 'dcpgrqMaxRecords'
+-- * 'dcpgMaxRecords'
 --
--- * 'dcpgrqMarker'
+-- * 'dcpgMarker'
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
-    { _dcpgrqCacheParameterGroupName :: !(Maybe Text)
-    , _dcpgrqMaxRecords              :: !(Maybe Int)
-    , _dcpgrqMarker                  :: !(Maybe Text)
+    { _dcpgCacheParameterGroupName :: !(Maybe Text)
+    , _dcpgMaxRecords              :: !(Maybe Int)
+    , _dcpgMarker                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParameterGroups' smart constructor.
 describeCacheParameterGroups :: DescribeCacheParameterGroups
 describeCacheParameterGroups =
     DescribeCacheParameterGroups'
-    { _dcpgrqCacheParameterGroupName = Nothing
-    , _dcpgrqMaxRecords = Nothing
-    , _dcpgrqMarker = Nothing
+    { _dcpgCacheParameterGroupName = Nothing
+    , _dcpgMaxRecords = Nothing
+    , _dcpgMarker = Nothing
     }
 
 -- | The name of a specific cache parameter group to return details for.
-dcpgrqCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
-dcpgrqCacheParameterGroupName = lens _dcpgrqCacheParameterGroupName (\ s a -> s{_dcpgrqCacheParameterGroupName = a});
+dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
+dcpgCacheParameterGroupName = lens _dcpgCacheParameterGroupName (\ s a -> s{_dcpgCacheParameterGroupName = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -86,22 +86,22 @@ dcpgrqCacheParameterGroupName = lens _dcpgrqCacheParameterGroupName (\ s a -> s{
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dcpgrqMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
-dcpgrqMaxRecords = lens _dcpgrqMaxRecords (\ s a -> s{_dcpgrqMaxRecords = a});
+dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
+dcpgMaxRecords = lens _dcpgMaxRecords (\ s a -> s{_dcpgMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dcpgrqMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
-dcpgrqMarker = lens _dcpgrqMarker (\ s a -> s{_dcpgrqMarker = a});
+dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
+dcpgMarker = lens _dcpgMarker (\ s a -> s{_dcpgMarker = a});
 
 instance AWSPager DescribeCacheParameterGroups where
         page rq rs
           | stop (rs ^. dcpgrsMarker) = Nothing
           | stop (rs ^. dcpgrsCacheParameterGroups) = Nothing
           | otherwise =
-            Just $ rq & dcpgrqMarker .~ rs ^. dcpgrsMarker
+            Just $ rq & dcpgMarker .~ rs ^. dcpgrsMarker
 
 instance AWSRequest DescribeCacheParameterGroups
          where
@@ -132,9 +132,9 @@ instance ToQuery DescribeCacheParameterGroups where
                  ("DescribeCacheParameterGroups" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheParameterGroupName" =:
-                 _dcpgrqCacheParameterGroupName,
-               "MaxRecords" =: _dcpgrqMaxRecords,
-               "Marker" =: _dcpgrqMarker]
+                 _dcpgCacheParameterGroupName,
+               "MaxRecords" =: _dcpgMaxRecords,
+               "Marker" =: _dcpgMarker]
 
 -- | Represents the output of a /DescribeCacheParameterGroups/ action.
 --

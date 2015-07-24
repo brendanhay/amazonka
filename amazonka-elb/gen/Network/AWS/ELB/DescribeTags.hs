@@ -27,7 +27,7 @@ module Network.AWS.ELB.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtrqLoadBalancerNames
+    , dtLoadBalancerNames
 
     -- * Response
     , DescribeTagsResponse
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrqLoadBalancerNames'
+-- * 'dtLoadBalancerNames'
 newtype DescribeTags = DescribeTags'
-    { _dtrqLoadBalancerNames :: List1 Text
+    { _dtLoadBalancerNames :: List1 Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: NonEmpty Text -> DescribeTags
 describeTags pLoadBalancerNames_ =
     DescribeTags'
-    { _dtrqLoadBalancerNames = _List1 # pLoadBalancerNames_
+    { _dtLoadBalancerNames = _List1 # pLoadBalancerNames_
     }
 
 -- | The names of the load balancers.
-dtrqLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
-dtrqLoadBalancerNames = lens _dtrqLoadBalancerNames (\ s a -> s{_dtrqLoadBalancerNames = a}) . _List1;
+dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
+dtLoadBalancerNames = lens _dtLoadBalancerNames (\ s a -> s{_dtLoadBalancerNames = a}) . _List1;
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = ELB
@@ -87,7 +87,7 @@ instance ToQuery DescribeTags where
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 toQueryList "member" _dtrqLoadBalancerNames]
+                 toQueryList "member" _dtLoadBalancerNames]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --

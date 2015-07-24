@@ -28,9 +28,9 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     -- ** Request constructor
     , resetNetworkInterfaceAttribute
     -- ** Request lenses
-    , rniarqSourceDestCheck
-    , rniarqDryRun
-    , rniarqNetworkInterfaceId
+    , rniaSourceDestCheck
+    , rniaDryRun
+    , rniaNetworkInterfaceId
 
     -- * Response
     , ResetNetworkInterfaceAttributeResponse
@@ -47,40 +47,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rniarqSourceDestCheck'
+-- * 'rniaSourceDestCheck'
 --
--- * 'rniarqDryRun'
+-- * 'rniaDryRun'
 --
--- * 'rniarqNetworkInterfaceId'
+-- * 'rniaNetworkInterfaceId'
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
-    { _rniarqSourceDestCheck    :: !(Maybe Text)
-    , _rniarqDryRun             :: !(Maybe Bool)
-    , _rniarqNetworkInterfaceId :: !Text
+    { _rniaSourceDestCheck    :: !(Maybe Text)
+    , _rniaDryRun             :: !(Maybe Bool)
+    , _rniaNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetNetworkInterfaceAttribute' smart constructor.
 resetNetworkInterfaceAttribute :: Text -> ResetNetworkInterfaceAttribute
 resetNetworkInterfaceAttribute pNetworkInterfaceId_ =
     ResetNetworkInterfaceAttribute'
-    { _rniarqSourceDestCheck = Nothing
-    , _rniarqDryRun = Nothing
-    , _rniarqNetworkInterfaceId = pNetworkInterfaceId_
+    { _rniaSourceDestCheck = Nothing
+    , _rniaDryRun = Nothing
+    , _rniaNetworkInterfaceId = pNetworkInterfaceId_
     }
 
 -- | The source\/destination checking attribute. Resets the value to @true@.
-rniarqSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
-rniarqSourceDestCheck = lens _rniarqSourceDestCheck (\ s a -> s{_rniarqSourceDestCheck = a});
+rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
+rniaSourceDestCheck = lens _rniaSourceDestCheck (\ s a -> s{_rniaSourceDestCheck = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rniarqDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
-rniarqDryRun = lens _rniarqDryRun (\ s a -> s{_rniarqDryRun = a});
+rniaDryRun :: Lens' ResetNetworkInterfaceAttribute (Maybe Bool)
+rniaDryRun = lens _rniaDryRun (\ s a -> s{_rniaDryRun = a});
 
 -- | The ID of the network interface.
-rniarqNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
-rniarqNetworkInterfaceId = lens _rniarqNetworkInterfaceId (\ s a -> s{_rniarqNetworkInterfaceId = a});
+rniaNetworkInterfaceId :: Lens' ResetNetworkInterfaceAttribute Text
+rniaNetworkInterfaceId = lens _rniaNetworkInterfaceId (\ s a -> s{_rniaNetworkInterfaceId = a});
 
 instance AWSRequest ResetNetworkInterfaceAttribute
          where
@@ -104,9 +104,9 @@ instance ToQuery ResetNetworkInterfaceAttribute where
               ["Action" =:
                  ("ResetNetworkInterfaceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "SourceDestCheck" =: _rniarqSourceDestCheck,
-               "DryRun" =: _rniarqDryRun,
-               "NetworkInterfaceId" =: _rniarqNetworkInterfaceId]
+               "SourceDestCheck" =: _rniaSourceDestCheck,
+               "DryRun" =: _rniaDryRun,
+               "NetworkInterfaceId" =: _rniaNetworkInterfaceId]
 
 -- | /See:/ 'resetNetworkInterfaceAttributeResponse' smart constructor.
 data ResetNetworkInterfaceAttributeResponse =

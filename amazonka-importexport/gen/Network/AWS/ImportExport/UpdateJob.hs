@@ -31,11 +31,11 @@ module Network.AWS.ImportExport.UpdateJob
     -- ** Request constructor
     , updateJob
     -- ** Request lenses
-    , ujrqAPIVersion
-    , ujrqJobId
-    , ujrqManifest
-    , ujrqJobType
-    , ujrqValidateOnly
+    , ujAPIVersion
+    , ujJobId
+    , ujManifest
+    , ujJobType
+    , ujValidateOnly
 
     -- * Response
     , UpdateJobResponse
@@ -59,53 +59,53 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ujrqAPIVersion'
+-- * 'ujAPIVersion'
 --
--- * 'ujrqJobId'
+-- * 'ujJobId'
 --
--- * 'ujrqManifest'
+-- * 'ujManifest'
 --
--- * 'ujrqJobType'
+-- * 'ujJobType'
 --
--- * 'ujrqValidateOnly'
+-- * 'ujValidateOnly'
 data UpdateJob = UpdateJob'
-    { _ujrqAPIVersion   :: !(Maybe Text)
-    , _ujrqJobId        :: !Text
-    , _ujrqManifest     :: !Text
-    , _ujrqJobType      :: !JobType
-    , _ujrqValidateOnly :: !Bool
+    { _ujAPIVersion   :: !(Maybe Text)
+    , _ujJobId        :: !Text
+    , _ujManifest     :: !Text
+    , _ujJobType      :: !JobType
+    , _ujValidateOnly :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateJob' smart constructor.
 updateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
 updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
     UpdateJob'
-    { _ujrqAPIVersion = Nothing
-    , _ujrqJobId = pJobId_
-    , _ujrqManifest = pManifest_
-    , _ujrqJobType = pJobType_
-    , _ujrqValidateOnly = pValidateOnly_
+    { _ujAPIVersion = Nothing
+    , _ujJobId = pJobId_
+    , _ujManifest = pManifest_
+    , _ujJobType = pJobType_
+    , _ujValidateOnly = pValidateOnly_
     }
 
 -- | FIXME: Undocumented member.
-ujrqAPIVersion :: Lens' UpdateJob (Maybe Text)
-ujrqAPIVersion = lens _ujrqAPIVersion (\ s a -> s{_ujrqAPIVersion = a});
+ujAPIVersion :: Lens' UpdateJob (Maybe Text)
+ujAPIVersion = lens _ujAPIVersion (\ s a -> s{_ujAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-ujrqJobId :: Lens' UpdateJob Text
-ujrqJobId = lens _ujrqJobId (\ s a -> s{_ujrqJobId = a});
+ujJobId :: Lens' UpdateJob Text
+ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a});
 
 -- | FIXME: Undocumented member.
-ujrqManifest :: Lens' UpdateJob Text
-ujrqManifest = lens _ujrqManifest (\ s a -> s{_ujrqManifest = a});
+ujManifest :: Lens' UpdateJob Text
+ujManifest = lens _ujManifest (\ s a -> s{_ujManifest = a});
 
 -- | FIXME: Undocumented member.
-ujrqJobType :: Lens' UpdateJob JobType
-ujrqJobType = lens _ujrqJobType (\ s a -> s{_ujrqJobType = a});
+ujJobType :: Lens' UpdateJob JobType
+ujJobType = lens _ujJobType (\ s a -> s{_ujJobType = a});
 
 -- | FIXME: Undocumented member.
-ujrqValidateOnly :: Lens' UpdateJob Bool
-ujrqValidateOnly = lens _ujrqValidateOnly (\ s a -> s{_ujrqValidateOnly = a});
+ujValidateOnly :: Lens' UpdateJob Bool
+ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a});
 
 instance AWSRequest UpdateJob where
         type Sv UpdateJob = ImportExport
@@ -132,10 +132,9 @@ instance ToQuery UpdateJob where
               ["Operation=UpdateJob",
                "Action" =: ("UpdateJob" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _ujrqAPIVersion,
-               "JobId" =: _ujrqJobId, "Manifest" =: _ujrqManifest,
-               "JobType" =: _ujrqJobType,
-               "ValidateOnly" =: _ujrqValidateOnly]
+               "APIVersion" =: _ujAPIVersion, "JobId" =: _ujJobId,
+               "Manifest" =: _ujManifest, "JobType" =: _ujJobType,
+               "ValidateOnly" =: _ujValidateOnly]
 
 -- | Output structure for the UpateJob operation.
 --

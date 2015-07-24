@@ -28,8 +28,8 @@ module Network.AWS.Redshift.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , drqResourceName
-    , drqTagKeys
+    , dResourceName
+    , dTagKeys
 
     -- * Response
     , DeleteTagsResponse
@@ -48,30 +48,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drqResourceName'
+-- * 'dResourceName'
 --
--- * 'drqTagKeys'
+-- * 'dTagKeys'
 data DeleteTags = DeleteTags'
-    { _drqResourceName :: !Text
-    , _drqTagKeys      :: ![Text]
+    { _dResourceName :: !Text
+    , _dTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
 deleteTags pResourceName_ =
     DeleteTags'
-    { _drqResourceName = pResourceName_
-    , _drqTagKeys = mempty
+    { _dResourceName = pResourceName_
+    , _dTagKeys = mempty
     }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
 -- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
-drqResourceName :: Lens' DeleteTags Text
-drqResourceName = lens _drqResourceName (\ s a -> s{_drqResourceName = a});
+dResourceName :: Lens' DeleteTags Text
+dResourceName = lens _dResourceName (\ s a -> s{_dResourceName = a});
 
 -- | The tag key that you want to delete.
-drqTagKeys :: Lens' DeleteTags [Text]
-drqTagKeys = lens _drqTagKeys (\ s a -> s{_drqTagKeys = a});
+dTagKeys :: Lens' DeleteTags [Text]
+dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a});
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = Redshift
@@ -90,8 +90,8 @@ instance ToQuery DeleteTags where
           = mconcat
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ResourceName" =: _drqResourceName,
-               "TagKeys" =: toQueryList "TagKey" _drqTagKeys]
+               "ResourceName" =: _dResourceName,
+               "TagKeys" =: toQueryList "TagKey" _dTagKeys]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =

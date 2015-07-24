@@ -36,7 +36,7 @@ module Network.AWS.SSM.CreateAssociationBatch
     -- ** Request constructor
     , createAssociationBatch
     -- ** Request lenses
-    , cabrqEntries
+    , cabEntries
 
     -- * Response
     , CreateAssociationBatchResponse
@@ -57,21 +57,21 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cabrqEntries'
+-- * 'cabEntries'
 newtype CreateAssociationBatch = CreateAssociationBatch'
-    { _cabrqEntries :: [CreateAssociationBatchRequestEntry]
+    { _cabEntries :: [CreateAssociationBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociationBatch' smart constructor.
 createAssociationBatch :: CreateAssociationBatch
 createAssociationBatch =
     CreateAssociationBatch'
-    { _cabrqEntries = mempty
+    { _cabEntries = mempty
     }
 
 -- | One or more associations.
-cabrqEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
-cabrqEntries = lens _cabrqEntries (\ s a -> s{_cabrqEntries = a});
+cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
+cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a});
 
 instance AWSRequest CreateAssociationBatch where
         type Sv CreateAssociationBatch = SSM
@@ -97,7 +97,7 @@ instance ToHeaders CreateAssociationBatch where
 
 instance ToJSON CreateAssociationBatch where
         toJSON CreateAssociationBatch'{..}
-          = object ["Entries" .= _cabrqEntries]
+          = object ["Entries" .= _cabEntries]
 
 instance ToPath CreateAssociationBatch where
         toPath = const "/"

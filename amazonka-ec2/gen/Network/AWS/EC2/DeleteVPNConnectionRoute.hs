@@ -30,8 +30,8 @@ module Network.AWS.EC2.DeleteVPNConnectionRoute
     -- ** Request constructor
     , deleteVPNConnectionRoute
     -- ** Request lenses
-    , dvcrrqVPNConnectionId
-    , dvcrrqDestinationCIdRBlock
+    , dvcrVPNConnectionId
+    , dvcrDestinationCIdRBlock
 
     -- * Response
     , DeleteVPNConnectionRouteResponse
@@ -48,29 +48,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvcrrqVPNConnectionId'
+-- * 'dvcrVPNConnectionId'
 --
--- * 'dvcrrqDestinationCIdRBlock'
+-- * 'dvcrDestinationCIdRBlock'
 data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
-    { _dvcrrqVPNConnectionId      :: !Text
-    , _dvcrrqDestinationCIdRBlock :: !Text
+    { _dvcrVPNConnectionId      :: !Text
+    , _dvcrDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNConnectionRoute' smart constructor.
 deleteVPNConnectionRoute :: Text -> Text -> DeleteVPNConnectionRoute
 deleteVPNConnectionRoute pVPNConnectionId_ pDestinationCIdRBlock_ =
     DeleteVPNConnectionRoute'
-    { _dvcrrqVPNConnectionId = pVPNConnectionId_
-    , _dvcrrqDestinationCIdRBlock = pDestinationCIdRBlock_
+    { _dvcrVPNConnectionId = pVPNConnectionId_
+    , _dvcrDestinationCIdRBlock = pDestinationCIdRBlock_
     }
 
 -- | The ID of the VPN connection.
-dvcrrqVPNConnectionId :: Lens' DeleteVPNConnectionRoute Text
-dvcrrqVPNConnectionId = lens _dvcrrqVPNConnectionId (\ s a -> s{_dvcrrqVPNConnectionId = a});
+dvcrVPNConnectionId :: Lens' DeleteVPNConnectionRoute Text
+dvcrVPNConnectionId = lens _dvcrVPNConnectionId (\ s a -> s{_dvcrVPNConnectionId = a});
 
 -- | The CIDR block associated with the local subnet of the customer network.
-dvcrrqDestinationCIdRBlock :: Lens' DeleteVPNConnectionRoute Text
-dvcrrqDestinationCIdRBlock = lens _dvcrrqDestinationCIdRBlock (\ s a -> s{_dvcrrqDestinationCIdRBlock = a});
+dvcrDestinationCIdRBlock :: Lens' DeleteVPNConnectionRoute Text
+dvcrDestinationCIdRBlock = lens _dvcrDestinationCIdRBlock (\ s a -> s{_dvcrDestinationCIdRBlock = a});
 
 instance AWSRequest DeleteVPNConnectionRoute where
         type Sv DeleteVPNConnectionRoute = EC2
@@ -92,9 +92,8 @@ instance ToQuery DeleteVPNConnectionRoute where
               ["Action" =:
                  ("DeleteVPNConnectionRoute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "VpnConnectionId" =: _dvcrrqVPNConnectionId,
-               "DestinationCidrBlock" =:
-                 _dvcrrqDestinationCIdRBlock]
+               "VpnConnectionId" =: _dvcrVPNConnectionId,
+               "DestinationCidrBlock" =: _dvcrDestinationCIdRBlock]
 
 -- | /See:/ 'deleteVPNConnectionRouteResponse' smart constructor.
 data DeleteVPNConnectionRouteResponse =

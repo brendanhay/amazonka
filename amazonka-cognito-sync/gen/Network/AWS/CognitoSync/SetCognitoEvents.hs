@@ -34,8 +34,8 @@ module Network.AWS.CognitoSync.SetCognitoEvents
     -- ** Request constructor
     , setCognitoEvents
     -- ** Request lenses
-    , scerqIdentityPoolId
-    , scerqEvents
+    , sceIdentityPoolId
+    , sceEvents
 
     -- * Response
     , SetCognitoEventsResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'scerqIdentityPoolId'
+-- * 'sceIdentityPoolId'
 --
--- * 'scerqEvents'
+-- * 'sceEvents'
 data SetCognitoEvents = SetCognitoEvents'
-    { _scerqIdentityPoolId :: !Text
-    , _scerqEvents         :: !(Map Text Text)
+    { _sceIdentityPoolId :: !Text
+    , _sceEvents         :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetCognitoEvents' smart constructor.
 setCognitoEvents :: Text -> SetCognitoEvents
 setCognitoEvents pIdentityPoolId_ =
     SetCognitoEvents'
-    { _scerqIdentityPoolId = pIdentityPoolId_
-    , _scerqEvents = mempty
+    { _sceIdentityPoolId = pIdentityPoolId_
+    , _sceEvents = mempty
     }
 
 -- | The Cognito Identity Pool to use when configuring Cognito Events
-scerqIdentityPoolId :: Lens' SetCognitoEvents Text
-scerqIdentityPoolId = lens _scerqIdentityPoolId (\ s a -> s{_scerqIdentityPoolId = a});
+sceIdentityPoolId :: Lens' SetCognitoEvents Text
+sceIdentityPoolId = lens _sceIdentityPoolId (\ s a -> s{_sceIdentityPoolId = a});
 
 -- | The events to configure
-scerqEvents :: Lens' SetCognitoEvents (HashMap Text Text)
-scerqEvents = lens _scerqEvents (\ s a -> s{_scerqEvents = a}) . _Map;
+sceEvents :: Lens' SetCognitoEvents (HashMap Text Text)
+sceEvents = lens _sceEvents (\ s a -> s{_sceEvents = a}) . _Map;
 
 instance AWSRequest SetCognitoEvents where
         type Sv SetCognitoEvents = CognitoSync
@@ -95,12 +95,12 @@ instance ToHeaders SetCognitoEvents where
 
 instance ToJSON SetCognitoEvents where
         toJSON SetCognitoEvents'{..}
-          = object ["Events" .= _scerqEvents]
+          = object ["Events" .= _sceEvents]
 
 instance ToPath SetCognitoEvents where
         toPath SetCognitoEvents'{..}
           = mconcat
-              ["/identitypools/", toText _scerqIdentityPoolId,
+              ["/identitypools/", toText _sceIdentityPoolId,
                "/events"]
 
 instance ToQuery SetCognitoEvents where

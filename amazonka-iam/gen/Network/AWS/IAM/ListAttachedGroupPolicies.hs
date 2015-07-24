@@ -39,10 +39,10 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     -- ** Request constructor
     , listAttachedGroupPolicies
     -- ** Request lenses
-    , lagprqPathPrefix
-    , lagprqMaxItems
-    , lagprqMarker
-    , lagprqGroupName
+    , lagpPathPrefix
+    , lagpMaxItems
+    , lagpMarker
+    , lagpGroupName
 
     -- * Response
     , ListAttachedGroupPoliciesResponse
@@ -64,35 +64,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lagprqPathPrefix'
+-- * 'lagpPathPrefix'
 --
--- * 'lagprqMaxItems'
+-- * 'lagpMaxItems'
 --
--- * 'lagprqMarker'
+-- * 'lagpMarker'
 --
--- * 'lagprqGroupName'
+-- * 'lagpGroupName'
 data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
-    { _lagprqPathPrefix :: !(Maybe Text)
-    , _lagprqMaxItems   :: !(Maybe Nat)
-    , _lagprqMarker     :: !(Maybe Text)
-    , _lagprqGroupName  :: !Text
+    { _lagpPathPrefix :: !(Maybe Text)
+    , _lagpMaxItems   :: !(Maybe Nat)
+    , _lagpMarker     :: !(Maybe Text)
+    , _lagpGroupName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedGroupPolicies' smart constructor.
 listAttachedGroupPolicies :: Text -> ListAttachedGroupPolicies
 listAttachedGroupPolicies pGroupName_ =
     ListAttachedGroupPolicies'
-    { _lagprqPathPrefix = Nothing
-    , _lagprqMaxItems = Nothing
-    , _lagprqMarker = Nothing
-    , _lagprqGroupName = pGroupName_
+    { _lagpPathPrefix = Nothing
+    , _lagpMaxItems = Nothing
+    , _lagpMarker = Nothing
+    , _lagpGroupName = pGroupName_
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
 -- policies.
-lagprqPathPrefix :: Lens' ListAttachedGroupPolicies (Maybe Text)
-lagprqPathPrefix = lens _lagprqPathPrefix (\ s a -> s{_lagprqPathPrefix = a});
+lagpPathPrefix :: Lens' ListAttachedGroupPolicies (Maybe Text)
+lagpPathPrefix = lens _lagpPathPrefix (\ s a -> s{_lagpPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -100,19 +100,19 @@ lagprqPathPrefix = lens _lagprqPathPrefix (\ s a -> s{_lagprqPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lagprqMaxItems :: Lens' ListAttachedGroupPolicies (Maybe Natural)
-lagprqMaxItems = lens _lagprqMaxItems (\ s a -> s{_lagprqMaxItems = a}) . mapping _Nat;
+lagpMaxItems :: Lens' ListAttachedGroupPolicies (Maybe Natural)
+lagpMaxItems = lens _lagpMaxItems (\ s a -> s{_lagpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lagprqMarker :: Lens' ListAttachedGroupPolicies (Maybe Text)
-lagprqMarker = lens _lagprqMarker (\ s a -> s{_lagprqMarker = a});
+lagpMarker :: Lens' ListAttachedGroupPolicies (Maybe Text)
+lagpMarker = lens _lagpMarker (\ s a -> s{_lagpMarker = a});
 
 -- | The name (friendly name, not ARN) of the group to list attached policies
 -- for.
-lagprqGroupName :: Lens' ListAttachedGroupPolicies Text
-lagprqGroupName = lens _lagprqGroupName (\ s a -> s{_lagprqGroupName = a});
+lagpGroupName :: Lens' ListAttachedGroupPolicies Text
+lagpGroupName = lens _lagpGroupName (\ s a -> s{_lagpGroupName = a});
 
 instance AWSRequest ListAttachedGroupPolicies where
         type Sv ListAttachedGroupPolicies = IAM
@@ -141,10 +141,9 @@ instance ToQuery ListAttachedGroupPolicies where
               ["Action" =:
                  ("ListAttachedGroupPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lagprqPathPrefix,
-               "MaxItems" =: _lagprqMaxItems,
-               "Marker" =: _lagprqMarker,
-               "GroupName" =: _lagprqGroupName]
+               "PathPrefix" =: _lagpPathPrefix,
+               "MaxItems" =: _lagpMaxItems, "Marker" =: _lagpMarker,
+               "GroupName" =: _lagpGroupName]
 
 -- | Contains the response to a successful ListAttachedGroupPolicies request.
 --

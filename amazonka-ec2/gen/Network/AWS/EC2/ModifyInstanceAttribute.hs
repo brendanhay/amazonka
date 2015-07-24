@@ -33,21 +33,21 @@ module Network.AWS.EC2.ModifyInstanceAttribute
     -- ** Request constructor
     , modifyInstanceAttribute
     -- ** Request lenses
-    , mrqAttribute
-    , mrqGroups
-    , mrqSourceDestCheck
-    , mrqDisableAPITermination
-    , mrqRAMDisk
-    , mrqValue
-    , mrqKernel
-    , mrqInstanceType
-    , mrqEBSOptimized
-    , mrqUserData
-    , mrqSRIOVNetSupport
-    , mrqInstanceInitiatedShutdownBehavior
-    , mrqBlockDeviceMappings
-    , mrqDryRun
-    , mrqInstanceId
+    , mAttribute
+    , mGroups
+    , mSourceDestCheck
+    , mDisableAPITermination
+    , mRAMDisk
+    , mValue
+    , mKernel
+    , mInstanceType
+    , mEBSOptimized
+    , mUserData
+    , mSRIOVNetSupport
+    , mInstanceInitiatedShutdownBehavior
+    , mBlockDeviceMappings
+    , mDryRun
+    , mInstanceId
 
     -- * Response
     , ModifyInstanceAttributeResponse
@@ -64,135 +64,135 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mrqAttribute'
+-- * 'mAttribute'
 --
--- * 'mrqGroups'
+-- * 'mGroups'
 --
--- * 'mrqSourceDestCheck'
+-- * 'mSourceDestCheck'
 --
--- * 'mrqDisableAPITermination'
+-- * 'mDisableAPITermination'
 --
--- * 'mrqRAMDisk'
+-- * 'mRAMDisk'
 --
--- * 'mrqValue'
+-- * 'mValue'
 --
--- * 'mrqKernel'
+-- * 'mKernel'
 --
--- * 'mrqInstanceType'
+-- * 'mInstanceType'
 --
--- * 'mrqEBSOptimized'
+-- * 'mEBSOptimized'
 --
--- * 'mrqUserData'
+-- * 'mUserData'
 --
--- * 'mrqSRIOVNetSupport'
+-- * 'mSRIOVNetSupport'
 --
--- * 'mrqInstanceInitiatedShutdownBehavior'
+-- * 'mInstanceInitiatedShutdownBehavior'
 --
--- * 'mrqBlockDeviceMappings'
+-- * 'mBlockDeviceMappings'
 --
--- * 'mrqDryRun'
+-- * 'mDryRun'
 --
--- * 'mrqInstanceId'
+-- * 'mInstanceId'
 data ModifyInstanceAttribute = ModifyInstanceAttribute'
-    { _mrqAttribute                         :: !(Maybe InstanceAttributeName)
-    , _mrqGroups                            :: !(Maybe [Text])
-    , _mrqSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
-    , _mrqDisableAPITermination             :: !(Maybe AttributeBooleanValue)
-    , _mrqRAMDisk                           :: !(Maybe AttributeValue)
-    , _mrqValue                             :: !(Maybe Text)
-    , _mrqKernel                            :: !(Maybe AttributeValue)
-    , _mrqInstanceType                      :: !(Maybe AttributeValue)
-    , _mrqEBSOptimized                      :: !(Maybe AttributeBooleanValue)
-    , _mrqUserData                          :: !(Maybe BlobAttributeValue)
-    , _mrqSRIOVNetSupport                   :: !(Maybe AttributeValue)
-    , _mrqInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
-    , _mrqBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
-    , _mrqDryRun                            :: !(Maybe Bool)
-    , _mrqInstanceId                        :: !Text
+    { _mAttribute                         :: !(Maybe InstanceAttributeName)
+    , _mGroups                            :: !(Maybe [Text])
+    , _mSourceDestCheck                   :: !(Maybe AttributeBooleanValue)
+    , _mDisableAPITermination             :: !(Maybe AttributeBooleanValue)
+    , _mRAMDisk                           :: !(Maybe AttributeValue)
+    , _mValue                             :: !(Maybe Text)
+    , _mKernel                            :: !(Maybe AttributeValue)
+    , _mInstanceType                      :: !(Maybe AttributeValue)
+    , _mEBSOptimized                      :: !(Maybe AttributeBooleanValue)
+    , _mUserData                          :: !(Maybe BlobAttributeValue)
+    , _mSRIOVNetSupport                   :: !(Maybe AttributeValue)
+    , _mInstanceInitiatedShutdownBehavior :: !(Maybe AttributeValue)
+    , _mBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
+    , _mDryRun                            :: !(Maybe Bool)
+    , _mInstanceId                        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceAttribute' smart constructor.
 modifyInstanceAttribute :: Text -> ModifyInstanceAttribute
 modifyInstanceAttribute pInstanceId_ =
     ModifyInstanceAttribute'
-    { _mrqAttribute = Nothing
-    , _mrqGroups = Nothing
-    , _mrqSourceDestCheck = Nothing
-    , _mrqDisableAPITermination = Nothing
-    , _mrqRAMDisk = Nothing
-    , _mrqValue = Nothing
-    , _mrqKernel = Nothing
-    , _mrqInstanceType = Nothing
-    , _mrqEBSOptimized = Nothing
-    , _mrqUserData = Nothing
-    , _mrqSRIOVNetSupport = Nothing
-    , _mrqInstanceInitiatedShutdownBehavior = Nothing
-    , _mrqBlockDeviceMappings = Nothing
-    , _mrqDryRun = Nothing
-    , _mrqInstanceId = pInstanceId_
+    { _mAttribute = Nothing
+    , _mGroups = Nothing
+    , _mSourceDestCheck = Nothing
+    , _mDisableAPITermination = Nothing
+    , _mRAMDisk = Nothing
+    , _mValue = Nothing
+    , _mKernel = Nothing
+    , _mInstanceType = Nothing
+    , _mEBSOptimized = Nothing
+    , _mUserData = Nothing
+    , _mSRIOVNetSupport = Nothing
+    , _mInstanceInitiatedShutdownBehavior = Nothing
+    , _mBlockDeviceMappings = Nothing
+    , _mDryRun = Nothing
+    , _mInstanceId = pInstanceId_
     }
 
 -- | The name of the attribute.
-mrqAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
-mrqAttribute = lens _mrqAttribute (\ s a -> s{_mrqAttribute = a});
+mAttribute :: Lens' ModifyInstanceAttribute (Maybe InstanceAttributeName)
+mAttribute = lens _mAttribute (\ s a -> s{_mAttribute = a});
 
 -- | [EC2-VPC] Changes the security groups of the instance. You must specify
 -- at least one security group, even if it\'s just the default security
 -- group for the VPC. You must specify the security group ID, not the
 -- security group name.
-mrqGroups :: Lens' ModifyInstanceAttribute [Text]
-mrqGroups = lens _mrqGroups (\ s a -> s{_mrqGroups = a}) . _Default;
+mGroups :: Lens' ModifyInstanceAttribute [Text]
+mGroups = lens _mGroups (\ s a -> s{_mGroups = a}) . _Default;
 
 -- | Specifies whether source\/destination checking is enabled. A value of
 -- @true@ means that checking is enabled, and @false@ means checking is
 -- disabled. This value must be @false@ for a NAT instance to perform NAT.
-mrqSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-mrqSourceDestCheck = lens _mrqSourceDestCheck (\ s a -> s{_mrqSourceDestCheck = a});
+mSourceDestCheck :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
+mSourceDestCheck = lens _mSourceDestCheck (\ s a -> s{_mSourceDestCheck = a});
 
 -- | If the value is @true@, you can\'t terminate the instance using the
 -- Amazon EC2 console, CLI, or API; otherwise, you can.
-mrqDisableAPITermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-mrqDisableAPITermination = lens _mrqDisableAPITermination (\ s a -> s{_mrqDisableAPITermination = a});
+mDisableAPITermination :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
+mDisableAPITermination = lens _mDisableAPITermination (\ s a -> s{_mDisableAPITermination = a});
 
 -- | Changes the instance\'s RAM disk to the specified value. We recommend
 -- that you use PV-GRUB instead of kernels and RAM disks. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
-mrqRAMDisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mrqRAMDisk = lens _mrqRAMDisk (\ s a -> s{_mrqRAMDisk = a});
+mRAMDisk :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+mRAMDisk = lens _mRAMDisk (\ s a -> s{_mRAMDisk = a});
 
 -- | A new value for the attribute. Use only with the @kernel@, @ramdisk@,
 -- @userData@, @disableApiTermination@, or
 -- @intanceInitiateShutdownBehavior@ attribute.
-mrqValue :: Lens' ModifyInstanceAttribute (Maybe Text)
-mrqValue = lens _mrqValue (\ s a -> s{_mrqValue = a});
+mValue :: Lens' ModifyInstanceAttribute (Maybe Text)
+mValue = lens _mValue (\ s a -> s{_mValue = a});
 
 -- | Changes the instance\'s kernel to the specified value. We recommend that
 -- you use PV-GRUB instead of kernels and RAM disks. For more information,
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html PV-GRUB>.
-mrqKernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mrqKernel = lens _mrqKernel (\ s a -> s{_mrqKernel = a});
+mKernel :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+mKernel = lens _mKernel (\ s a -> s{_mKernel = a});
 
 -- | Changes the instance type to the specified value. For more information,
 -- see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types>.
 -- If the instance type is not valid, the error returned is
 -- @InvalidInstanceAttributeValue@.
-mrqInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mrqInstanceType = lens _mrqInstanceType (\ s a -> s{_mrqInstanceType = a});
+mInstanceType :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+mInstanceType = lens _mInstanceType (\ s a -> s{_mInstanceType = a});
 
 -- | Specifies whether the instance is optimized for EBS I\/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an
 -- optimized configuration stack to provide optimal EBS I\/O performance.
 -- This optimization isn\'t available with all instance types. Additional
 -- usage charges apply when using an EBS Optimized instance.
-mrqEBSOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
-mrqEBSOptimized = lens _mrqEBSOptimized (\ s a -> s{_mrqEBSOptimized = a});
+mEBSOptimized :: Lens' ModifyInstanceAttribute (Maybe AttributeBooleanValue)
+mEBSOptimized = lens _mEBSOptimized (\ s a -> s{_mEBSOptimized = a});
 
 -- | Changes the instance\'s user data to the specified value.
-mrqUserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
-mrqUserData = lens _mrqUserData (\ s a -> s{_mrqUserData = a});
+mUserData :: Lens' ModifyInstanceAttribute (Maybe BlobAttributeValue)
+mUserData = lens _mUserData (\ s a -> s{_mUserData = a});
 
 -- | Set to @simple@ to enable enhanced networking for the instance.
 --
@@ -200,14 +200,14 @@ mrqUserData = lens _mrqUserData (\ s a -> s{_mrqUserData = a});
 --
 -- This option is supported only for HVM instances. Specifying this option
 -- with a PV instance can make it unreachable.
-mrqSRIOVNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mrqSRIOVNetSupport = lens _mrqSRIOVNetSupport (\ s a -> s{_mrqSRIOVNetSupport = a});
+mSRIOVNetSupport :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+mSRIOVNetSupport = lens _mSRIOVNetSupport (\ s a -> s{_mSRIOVNetSupport = a});
 
 -- | Specifies whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for
 -- system shutdown).
-mrqInstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
-mrqInstanceInitiatedShutdownBehavior = lens _mrqInstanceInitiatedShutdownBehavior (\ s a -> s{_mrqInstanceInitiatedShutdownBehavior = a});
+mInstanceInitiatedShutdownBehavior :: Lens' ModifyInstanceAttribute (Maybe AttributeValue)
+mInstanceInitiatedShutdownBehavior = lens _mInstanceInitiatedShutdownBehavior (\ s a -> s{_mInstanceInitiatedShutdownBehavior = a});
 
 -- | Modifies the @DeleteOnTermination@ attribute for volumes that are
 -- currently attached. The volume must be owned by the caller. If no value
@@ -218,19 +218,19 @@ mrqInstanceInitiatedShutdownBehavior = lens _mrqInstanceInitiatedShutdownBehavio
 -- add them when you launch the instance. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the Block Device Mapping when Launching an Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-mrqBlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
-mrqBlockDeviceMappings = lens _mrqBlockDeviceMappings (\ s a -> s{_mrqBlockDeviceMappings = a}) . _Default;
+mBlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
+mBlockDeviceMappings = lens _mBlockDeviceMappings (\ s a -> s{_mBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-mrqDryRun :: Lens' ModifyInstanceAttribute (Maybe Bool)
-mrqDryRun = lens _mrqDryRun (\ s a -> s{_mrqDryRun = a});
+mDryRun :: Lens' ModifyInstanceAttribute (Maybe Bool)
+mDryRun = lens _mDryRun (\ s a -> s{_mDryRun = a});
 
 -- | The ID of the instance.
-mrqInstanceId :: Lens' ModifyInstanceAttribute Text
-mrqInstanceId = lens _mrqInstanceId (\ s a -> s{_mrqInstanceId = a});
+mInstanceId :: Lens' ModifyInstanceAttribute Text
+mInstanceId = lens _mInstanceId (\ s a -> s{_mInstanceId = a});
 
 instance AWSRequest ModifyInstanceAttribute where
         type Sv ModifyInstanceAttribute = EC2
@@ -252,22 +252,21 @@ instance ToQuery ModifyInstanceAttribute where
               ["Action" =:
                  ("ModifyInstanceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Attribute" =: _mrqAttribute,
-               toQuery (toQueryList "groupId" <$> _mrqGroups),
-               "SourceDestCheck" =: _mrqSourceDestCheck,
-               "DisableApiTermination" =: _mrqDisableAPITermination,
-               "Ramdisk" =: _mrqRAMDisk, "Value" =: _mrqValue,
-               "Kernel" =: _mrqKernel,
-               "InstanceType" =: _mrqInstanceType,
-               "EbsOptimized" =: _mrqEBSOptimized,
-               "UserData" =: _mrqUserData,
-               "SriovNetSupport" =: _mrqSRIOVNetSupport,
+               "Attribute" =: _mAttribute,
+               toQuery (toQueryList "groupId" <$> _mGroups),
+               "SourceDestCheck" =: _mSourceDestCheck,
+               "DisableApiTermination" =: _mDisableAPITermination,
+               "Ramdisk" =: _mRAMDisk, "Value" =: _mValue,
+               "Kernel" =: _mKernel,
+               "InstanceType" =: _mInstanceType,
+               "EbsOptimized" =: _mEBSOptimized,
+               "UserData" =: _mUserData,
+               "SriovNetSupport" =: _mSRIOVNetSupport,
                "InstanceInitiatedShutdownBehavior" =:
-                 _mrqInstanceInitiatedShutdownBehavior,
+                 _mInstanceInitiatedShutdownBehavior,
                toQuery
-                 (toQueryList "item" <$> _mrqBlockDeviceMappings),
-               "DryRun" =: _mrqDryRun,
-               "InstanceId" =: _mrqInstanceId]
+                 (toQueryList "item" <$> _mBlockDeviceMappings),
+               "DryRun" =: _mDryRun, "InstanceId" =: _mInstanceId]
 
 -- | /See:/ 'modifyInstanceAttributeResponse' smart constructor.
 data ModifyInstanceAttributeResponse =

@@ -27,10 +27,10 @@ module Network.AWS.RDS.CopyOptionGroup
     -- ** Request constructor
     , copyOptionGroup
     -- ** Request lenses
-    , crqTags
-    , crqSourceOptionGroupIdentifier
-    , crqTargetOptionGroupIdentifier
-    , crqTargetOptionGroupDescription
+    , cTags
+    , cSourceOptionGroupIdentifier
+    , cTargetOptionGroupIdentifier
+    , cTargetOptionGroupDescription
 
     -- * Response
     , CopyOptionGroupResponse
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crqTags'
+-- * 'cTags'
 --
--- * 'crqSourceOptionGroupIdentifier'
+-- * 'cSourceOptionGroupIdentifier'
 --
--- * 'crqTargetOptionGroupIdentifier'
+-- * 'cTargetOptionGroupIdentifier'
 --
--- * 'crqTargetOptionGroupDescription'
+-- * 'cTargetOptionGroupDescription'
 data CopyOptionGroup = CopyOptionGroup'
-    { _crqTags                         :: !(Maybe [Tag])
-    , _crqSourceOptionGroupIdentifier  :: !Text
-    , _crqTargetOptionGroupIdentifier  :: !Text
-    , _crqTargetOptionGroupDescription :: !Text
+    { _cTags                         :: !(Maybe [Tag])
+    , _cSourceOptionGroupIdentifier  :: !Text
+    , _cTargetOptionGroupIdentifier  :: !Text
+    , _cTargetOptionGroupDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyOptionGroup' smart constructor.
 copyOptionGroup :: Text -> Text -> Text -> CopyOptionGroup
 copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTargetOptionGroupDescription_ =
     CopyOptionGroup'
-    { _crqTags = Nothing
-    , _crqSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier_
-    , _crqTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier_
-    , _crqTargetOptionGroupDescription = pTargetOptionGroupDescription_
+    { _cTags = Nothing
+    , _cSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier_
+    , _cTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier_
+    , _cTargetOptionGroupDescription = pTargetOptionGroupDescription_
     }
 
 -- | FIXME: Undocumented member.
-crqTags :: Lens' CopyOptionGroup [Tag]
-crqTags = lens _crqTags (\ s a -> s{_crqTags = a}) . _Default;
+cTags :: Lens' CopyOptionGroup [Tag]
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
 
 -- | The identifier or ARN for the source option group.
 --
@@ -91,8 +91,8 @@ crqTags = lens _crqTags (\ s a -> s{_crqTags = a}) . _Default;
 -- -   If the source option group is in a different region than the copy,
 --     specify a valid option group ARN, for example
 --     @arn:aws:rds:us-west-2:123456789012:og:special-options@.
-crqSourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
-crqSourceOptionGroupIdentifier = lens _crqSourceOptionGroupIdentifier (\ s a -> s{_crqSourceOptionGroupIdentifier = a});
+cSourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
+cSourceOptionGroupIdentifier = lens _cSourceOptionGroupIdentifier (\ s a -> s{_cSourceOptionGroupIdentifier = a});
 
 -- | The identifier for the copied option group.
 --
@@ -104,12 +104,12 @@ crqSourceOptionGroupIdentifier = lens _crqSourceOptionGroupIdentifier (\ s a -> 
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-option-group@
-crqTargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
-crqTargetOptionGroupIdentifier = lens _crqTargetOptionGroupIdentifier (\ s a -> s{_crqTargetOptionGroupIdentifier = a});
+cTargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
+cTargetOptionGroupIdentifier = lens _cTargetOptionGroupIdentifier (\ s a -> s{_cTargetOptionGroupIdentifier = a});
 
 -- | The description for the copied option group.
-crqTargetOptionGroupDescription :: Lens' CopyOptionGroup Text
-crqTargetOptionGroupDescription = lens _crqTargetOptionGroupDescription (\ s a -> s{_crqTargetOptionGroupDescription = a});
+cTargetOptionGroupDescription :: Lens' CopyOptionGroup Text
+cTargetOptionGroupDescription = lens _cTargetOptionGroupDescription (\ s a -> s{_cTargetOptionGroupDescription = a});
 
 instance AWSRequest CopyOptionGroup where
         type Sv CopyOptionGroup = RDS
@@ -132,13 +132,13 @@ instance ToQuery CopyOptionGroup where
           = mconcat
               ["Action" =: ("CopyOptionGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _crqTags),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cTags),
                "SourceOptionGroupIdentifier" =:
-                 _crqSourceOptionGroupIdentifier,
+                 _cSourceOptionGroupIdentifier,
                "TargetOptionGroupIdentifier" =:
-                 _crqTargetOptionGroupIdentifier,
+                 _cTargetOptionGroupIdentifier,
                "TargetOptionGroupDescription" =:
-                 _crqTargetOptionGroupDescription]
+                 _cTargetOptionGroupDescription]
 
 -- | /See:/ 'copyOptionGroupResponse' smart constructor.
 --

@@ -28,9 +28,9 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- ** Request constructor
     , describeLaunchConfigurations
     -- ** Request lenses
-    , dlcrqLaunchConfigurationNames
-    , dlcrqNextToken
-    , dlcrqMaxRecords
+    , dlcLaunchConfigurationNames
+    , dlcNextToken
+    , dlcMaxRecords
 
     -- * Response
     , DescribeLaunchConfigurationsResponse
@@ -52,46 +52,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcrqLaunchConfigurationNames'
+-- * 'dlcLaunchConfigurationNames'
 --
--- * 'dlcrqNextToken'
+-- * 'dlcNextToken'
 --
--- * 'dlcrqMaxRecords'
+-- * 'dlcMaxRecords'
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
-    { _dlcrqLaunchConfigurationNames :: !(Maybe [Text])
-    , _dlcrqNextToken                :: !(Maybe Text)
-    , _dlcrqMaxRecords               :: !(Maybe Int)
+    { _dlcLaunchConfigurationNames :: !(Maybe [Text])
+    , _dlcNextToken                :: !(Maybe Text)
+    , _dlcMaxRecords               :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLaunchConfigurations' smart constructor.
 describeLaunchConfigurations :: DescribeLaunchConfigurations
 describeLaunchConfigurations =
     DescribeLaunchConfigurations'
-    { _dlcrqLaunchConfigurationNames = Nothing
-    , _dlcrqNextToken = Nothing
-    , _dlcrqMaxRecords = Nothing
+    { _dlcLaunchConfigurationNames = Nothing
+    , _dlcNextToken = Nothing
+    , _dlcMaxRecords = Nothing
     }
 
 -- | The launch configuration names.
-dlcrqLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
-dlcrqLaunchConfigurationNames = lens _dlcrqLaunchConfigurationNames (\ s a -> s{_dlcrqLaunchConfigurationNames = a}) . _Default;
+dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
+dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dlcrqNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
-dlcrqNextToken = lens _dlcrqNextToken (\ s a -> s{_dlcrqNextToken = a});
+dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
+dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a});
 
 -- | The maximum number of items to return with this call. The default is
 -- 100.
-dlcrqMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
-dlcrqMaxRecords = lens _dlcrqMaxRecords (\ s a -> s{_dlcrqMaxRecords = a});
+dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
+dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
 
 instance AWSPager DescribeLaunchConfigurations where
         page rq rs
           | stop (rs ^. dlcrsNextToken) = Nothing
           | stop (rs ^. dlcrsLaunchConfigurations) = Nothing
           | otherwise =
-            Just $ rq & dlcrqNextToken .~ rs ^. dlcrsNextToken
+            Just $ rq & dlcNextToken .~ rs ^. dlcrsNextToken
 
 instance AWSRequest DescribeLaunchConfigurations
          where
@@ -123,9 +123,9 @@ instance ToQuery DescribeLaunchConfigurations where
                "LaunchConfigurationNames" =:
                  toQuery
                    (toQueryList "member" <$>
-                      _dlcrqLaunchConfigurationNames),
-               "NextToken" =: _dlcrqNextToken,
-               "MaxRecords" =: _dlcrqMaxRecords]
+                      _dlcLaunchConfigurationNames),
+               "NextToken" =: _dlcNextToken,
+               "MaxRecords" =: _dlcMaxRecords]
 
 -- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
 --

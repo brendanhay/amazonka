@@ -52,8 +52,8 @@ module Network.AWS.SWF.DescribeActivityType
     -- ** Request constructor
     , describeActivityType
     -- ** Request lenses
-    , datrqDomain
-    , datrqActivityType
+    , datDomain
+    , datActivityType
 
     -- * Response
     , DescribeActivityTypeResponse
@@ -74,31 +74,31 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'datrqDomain'
+-- * 'datDomain'
 --
--- * 'datrqActivityType'
+-- * 'datActivityType'
 data DescribeActivityType = DescribeActivityType'
-    { _datrqDomain       :: !Text
-    , _datrqActivityType :: !ActivityType
+    { _datDomain       :: !Text
+    , _datActivityType :: !ActivityType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeActivityType' smart constructor.
 describeActivityType :: Text -> ActivityType -> DescribeActivityType
 describeActivityType pDomain_ pActivityType_ =
     DescribeActivityType'
-    { _datrqDomain = pDomain_
-    , _datrqActivityType = pActivityType_
+    { _datDomain = pDomain_
+    , _datActivityType = pActivityType_
     }
 
 -- | The name of the domain in which the activity type is registered.
-datrqDomain :: Lens' DescribeActivityType Text
-datrqDomain = lens _datrqDomain (\ s a -> s{_datrqDomain = a});
+datDomain :: Lens' DescribeActivityType Text
+datDomain = lens _datDomain (\ s a -> s{_datDomain = a});
 
 -- | The activity type to get information about. Activity types are
 -- identified by the @name@ and @version@ that were supplied when the
 -- activity was registered.
-datrqActivityType :: Lens' DescribeActivityType ActivityType
-datrqActivityType = lens _datrqActivityType (\ s a -> s{_datrqActivityType = a});
+datActivityType :: Lens' DescribeActivityType ActivityType
+datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
 
 instance AWSRequest DescribeActivityType where
         type Sv DescribeActivityType = SWF
@@ -125,8 +125,8 @@ instance ToHeaders DescribeActivityType where
 instance ToJSON DescribeActivityType where
         toJSON DescribeActivityType'{..}
           = object
-              ["domain" .= _datrqDomain,
-               "activityType" .= _datrqActivityType]
+              ["domain" .= _datDomain,
+               "activityType" .= _datActivityType]
 
 instance ToPath DescribeActivityType where
         toPath = const "/"

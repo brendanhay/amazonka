@@ -60,13 +60,13 @@ tests = testGroup "time"
     , testGroup "query"
         [ testGroup "serialise"
             [ testToQuery "rfc822"
-                "Fri%2C%2007%20Nov%202014%2004%3A42%3A13%20GMT" (time :: RFC822)
+                "x=Fri%2C%2007%20Nov%202014%2004%3A42%3A13%20GMT" (time :: RFC822)
 
             , testToQuery "iso8601"
-                "2014-11-07T04%3A42%3A13UTC" (time :: ISO8601)
+                "x=2014-11-07T04%3A42%3A13UTC" (time :: ISO8601)
 
             , testToQuery "aws"
-                "20141107T044213UTC" (time :: AWSTime)
+                "x=20141107T044213UTC" (time :: AWSTime)
             ]
         ]
 

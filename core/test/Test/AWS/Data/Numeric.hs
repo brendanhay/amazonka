@@ -11,11 +11,9 @@
 module Test.AWS.Data.Numeric (tests) where
 
 import           Control.Applicative
-import           Data.Aeson
 import           Network.AWS.Prelude
 import           Test.AWS.Util
 import           Test.Tasty
-import           Test.Tasty.HUnit
 
 tests :: TestTree
 tests = testGroup "numeric"

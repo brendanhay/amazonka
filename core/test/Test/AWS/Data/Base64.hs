@@ -28,7 +28,7 @@ tests = testGroup "base64"
         ]
 
     , testGroup "query"
-        [ testToQuery "serialise" (urlEncode True encoded) decoded
+        [ testToQuery "serialise" ("x=" <> urlEncode True encoded) decoded
         ]
 
     , testGroup "xml"

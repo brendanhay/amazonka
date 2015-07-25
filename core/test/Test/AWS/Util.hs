@@ -49,21 +49,21 @@ testFromText :: (FromText a, Show a, Eq a)
              -> Text
              -> a
              -> TestTree
-testFromText n t x = testCase n (fromText t @?= Right x)
+testFromText n t x = testCase n (Right x @?= fromText t)
 
 testToText :: (ToText a, Show a, Eq a)
            => TestName
            -> Text
            -> a
            -> TestTree
-testToText n t x = testCase n (toText x @?= t)
+testToText n t x = testCase n (t @?= toText x)
 
 testToQuery :: (ToQuery a, Show a, Eq a)
             => TestName
             -> ByteString
             -> a
             -> TestTree
-testToQuery n bs x = testCase n (toBS (toQuery (X x)) @?= "x=" <> bs)
+testToQuery n bs x = testCase n (bs @=? toBS (toQuery (X x)))
 
 testFromXML :: (FromXML a, Show a, Eq a)
             => TestName
@@ -71,7 +71,7 @@ testFromXML :: (FromXML a, Show a, Eq a)
             -> a
             -> TestTree
 testFromXML n bs x = testCase n $
-    (decodeXML ("<x>" <> bs <> "</x>") >>= parseXML) @?= Right (X x)
+     Right (X x) @?= (decodeXML ("<x>" <> bs <> "</x>") >>= parseXML)
 
 testToXML :: (ToXML a, Show a, Eq a)
           => TestName
@@ -79,7 +79,7 @@ testToXML :: (ToXML a, Show a, Eq a)
           -> a
           -> TestTree
 testToXML n bs x = testCase n $
-    (encodeXML (X x) @?= declXML <> "<x>" <> bs <> "</x>")
+    (declXML <> "<x>" <> bs <> "</x>") @?= encodeXML (X x)
 
 testFromJSON :: (FromJSON a, Show a, Eq a)
              => TestName
@@ -87,14 +87,14 @@ testFromJSON :: (FromJSON a, Show a, Eq a)
              -> a
              -> TestTree
 testFromJSON n bs x = testCase n $
-    eitherDecode' ("{\"x\":" <> bs <> "}") @?= Right (X x)
+    Right (X x) @?= eitherDecode' ("{\"x\":" <> bs <> "}")
 
 testToJSON :: (ToJSON a, Show a, Eq a)
            => TestName
            -> LazyByteString
            -> a
            -> TestTree
-testToJSON n bs x = testCase n (encode x @?= bs)
+testToJSON n bs x = testCase n (bs @?= encode x)
 
 str :: LazyByteString -> LazyByteString
 str bs = "\"" <> bs <> "\""

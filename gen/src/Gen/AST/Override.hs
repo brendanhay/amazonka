@@ -27,6 +27,7 @@ import           Control.Monad.State
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import           Data.Monoid
+import           Gen.AST.TypeOf
 import           Gen.Types
 
 data Env = Env
@@ -92,9 +93,8 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
     Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
 
     pointer :: Replace -> MemoS (Shape Related)
-    pointer r = do
-        let a = extract c & annId .~ n
-        save $ a :< Ptr (s ^. info) (r ^. replaceDeriving)
+    pointer r = save $
+        (extract c & annId .~ n) :< Ptr (s ^. info) (typeOf r)
 
     shape :: MemoS (Shape Related)
     shape = do

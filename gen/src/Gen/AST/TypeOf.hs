@@ -2,6 +2,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.AST.TypeOf
@@ -17,6 +18,7 @@
 module Gen.AST.TypeOf
     ( TypeOf (..)
     , derivingOf
+    , pointerTo
     , isEQ
     , typeDefault
     ) where
@@ -24,8 +26,7 @@ module Gen.AST.TypeOf
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
 import           Data.Foldable          (foldr')
-import qualified Data.HashSet           as Set
-import           Data.List              (delete, intersect)
+import           Data.List              (intersect)
 import           Data.Monoid
 import           Gen.Types
 
@@ -36,7 +37,11 @@ instance TypeOf TType where
     typeOf = id
 
 instance TypeOf Solved where
-    typeOf = view annType
+    typeOf = _annType
+
+instance TypeOf Replace where
+    typeOf Replace{..} =
+        TType (typeId _replaceName) (uniq (_replaceDeriving <> base))
 
 instance HasId a => TypeOf (Shape a) where
     typeOf (x :< s) = sensitive s (shape s)
@@ -44,7 +49,7 @@ instance HasId a => TypeOf (Shape a) where
         n = identifier x
 
         shape = \case
-            Ptr    _ ds          -> TType  (typeId n) (ptr ds)
+            Ptr _ t              -> t
             Struct st            -> TType  (typeId n) (struct st)
             Enum   {}            -> TType  (typeId n) (enum <> base)
             List (ListF i e)
@@ -59,8 +64,6 @@ instance HasId a => TypeOf (Shape a) where
             Blob | isStreaming i -> TStream
             l                    -> TLit l
 
-        ptr = uniq . mappend (DRead `delete` base) . Set.toList
-
         struct st
             | isStreaming st = stream
             | otherwise      = uniq $
@@ -71,9 +74,21 @@ instance HasId a => TypeOf (RefF (Shape a)) where
         | isStreaming r = TStream
         | otherwise     = typeOf (r ^. refAnn)
 
-
 isEQ :: TypeOf a => a -> Bool
 isEQ = elem DEq . derivingOf
+
+-- FIXME: this whole concept of pointers and limiting the recursion stack
+-- when calculating types is broken - there are plenty of more robust/sane
+-- ways to acheive this, revisit.
+pointerTo :: Id -> ShapeF a -> TType
+pointerTo n = \case
+    List (ListF i e)
+        | nonEmpty i     -> TList1 (t (_refShape e))
+        | otherwise      -> TList  (t (_refShape e))
+    Map (MapF _ k v)     -> TMap   (t (_refShape k)) (t (_refShape v))
+    _                    -> t n
+  where
+    t x = TType (typeId x) base
 
 derivingOf :: TypeOf a => a -> [Derive]
 derivingOf = uniq . typ . typeOf

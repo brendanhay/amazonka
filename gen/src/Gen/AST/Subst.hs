@@ -143,11 +143,6 @@ addStatus Output = go
         & refAnn      .~
             Related n mempty :< Lit emptyInfo Int
 
-  -- Previous variant used an actual http-types.Status, but
-  -- it ended up being fairly useless, preventing Read instances,
-  -- and requiring a http-types dependency everywhere.
-  -- Ptr emptyInfo (Set.fromList [DEq, DOrd, DShow, DEnum])
-
     n = mkId "Status"
 
 save :: Id -> Shape a -> MemoS a ()

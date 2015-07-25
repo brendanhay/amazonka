@@ -298,7 +298,7 @@ instance FromJSON (Info -> StructF ()) where
                   | otherwise = r
 
 data ShapeF a
-    = Ptr    Info (Set Derive)
+    = Ptr    Info TType
     | List   (ListF   a)
     | Map    (MapF    a)
     | Struct (StructF a)

@@ -72,7 +72,7 @@ toTextIgnore = either id id . Path.toText
 
 data Replace = Replace
     { _replaceName     :: Id
-    , _replaceDeriving :: Set Derive
+    , _replaceDeriving :: [Derive]
     } deriving (Eq, Show, Generic)
 
 makeLenses ''Replace

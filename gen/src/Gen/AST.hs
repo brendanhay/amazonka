@@ -31,7 +31,6 @@ import           Gen.AST.Prefix
 import           Gen.AST.Subst
 import           Gen.AST.TypeOf
 import           Gen.Formatting
-import           Gen.Text
 import           Gen.Types
 
 -- FIXME: Relations need to be updated by the solving step.
@@ -153,13 +152,9 @@ solve :: (Traversable t)
       => Config
       -> t (Shape Prefixed)
       -> t (Shape Solved)
-solve cfg = (`evalState` replaced def cfg)
+solve cfg = (`evalState` replaced typeOf cfg)
     . traverse (annotate Solved id (pure . typeOf))
  where
-    def x = TType
-        (x ^. replaceName     . to typeId)
-        (x ^. replaceDeriving . to Set.toList)
-
     replaced :: (Replace -> a) -> Config -> Map Id a
     replaced f =
           Map.fromList

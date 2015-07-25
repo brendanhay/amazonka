@@ -93,7 +93,7 @@ encrypt pKeyId_ pPlaintext_ =
     { _eEncryptionContext = Nothing
     , _eGrantTokens = Nothing
     , _eKeyId = pKeyId_
-    , _ePlaintext = _Sensitive # pPlaintext_
+    , _ePlaintext = _Sensitive . _Base64 # pPlaintext_
     }
 
 -- | Name\/value pair that specifies the encryption context to be used for

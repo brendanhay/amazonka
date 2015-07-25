@@ -26,5 +26,5 @@ diff e a =
             hPutStrLn eh (groom e) >> hClose eh
             hPutStrLn ah (groom a) >> hClose ah
             (_, !out, !err)
-                <- readProcessWithExitCode "colordiff" ["-U", "3", ep, ap] []
+                <- readProcessWithExitCode "diff" ["-U", "3", ep, ap] []
             return (out ++ "\n" ++ err)

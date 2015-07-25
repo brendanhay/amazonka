@@ -9,6 +9,7 @@
 
 module Main (main) where
 
+import qualified Test.AWS.Data.Base64  as Base64
 import qualified Test.AWS.Data.List    as List
 import qualified Test.AWS.Data.Numeric as Numeric
 import qualified Test.AWS.Data.Time    as Time
@@ -20,6 +21,7 @@ main = defaultMain $
         [ testGroup "primitives"
             [ Numeric.tests
             , Time.tests
+            , Base64.tests
             ]
 
         , testGroup "collections"

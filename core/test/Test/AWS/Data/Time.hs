@@ -1,6 +1,5 @@
 {-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE QuasiQuotes       #-}
 {-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Test.AWS.Data.Time
@@ -12,81 +11,145 @@
 
 module Test.AWS.Data.Time (tests) where
 
-import           Data.Aeson
 import           Network.AWS.Compat.Locale
 import           Network.AWS.Compat.Time
 import           Network.AWS.Prelude
 import           Test.AWS.Util
 import           Test.Tasty
-import           Test.Tasty.HUnit
 
 tests :: TestTree
 tests = testGroup "time"
-    [ testGroup "deserialise xml"
-        [ testCase "RFC822" $
-            assertXML "<T>Fri, 07 Nov 2014 04:42:13 GMT</T>" (ref :: RFC822)
-        , testCase "ISO8601" $
-            assertXML "<T>2014-11-07T04:42:13.000Z</T>" (ref :: ISO8601)
-        , testCase "AWS" $
-            assertXML "<T>20141107T044213Z</T>" (ref :: AWSTime)
-        , testCase "POSIX integer" $
-            assertXML "<T>1415335333</T>" (ref :: POSIX)
-        , testCase "POSIX scientific" $
-            assertXML "<T>1.415335333E9</T>" (ref :: POSIX)
+    [ testGroup "text"
+        [ testGroup "deserialise"
+            [ testFromText "rfc822"
+                "Fri, 07 Nov 2014 04:42:13 GMT" (time :: RFC822)
+
+            , testFromText "iso8601"
+                "2014-11-07T04:42:13.000Z" (time :: ISO8601)
+
+            , testFromText "aws"
+                "20141107T044213Z" (time :: AWSTime)
+
+            , testGroup "posix"
+                [ testFromText "integer"
+                    "1415335333" (time :: POSIX)
+
+                , testFromText "double"
+                    "1415335333.000" (time :: POSIX)
+
+                , testFromText "scientific"
+                    "1.415335333E9" (time :: POSIX)
+                ]
+            ]
+
+        , testGroup "serialise"
+            [ testToText "rfc822"
+                "Fri, 07 Nov 2014 04:42:13 GMT" (time :: RFC822)
+
+            , testToText "iso8601"
+                "2014-11-07T04:42:13UTC" (time :: ISO8601)
+
+            , testToText "aws"
+                "20141107T044213UTC" (time :: AWSTime)
+
+            , testToText "posix"
+                "1415335333" (time :: POSIX)
+            ]
         ]
-    , testGroup "deserialise json"
-        [ testCase "RFC822" $
-            assertJSON "{\"time_rfc\":\"Fri, 07 Nov 2014 04:42:13 GMT\"}"
-                       (defaultTimeItem {timeRFC = Just ref})
-        , testCase "ISO8601" $
-            assertJSON "{\"time_iso\":\"2014-11-07T04:42:13.000Z\"}"
-                       (defaultTimeItem {timeISO = Just ref})
-        , testCase "AWS" $
-            assertJSON "{\"time_aws\":\"20141107T044213Z\"}"
-                       (defaultTimeItem {timeAWS = Just ref})
-        , testCase "POSIX integer" $
-            assertJSON "{\"time_posix\":1415335333}"
-                       (defaultTimeItem {timePOSIX = Just ref})
-        , testCase "POSIX scientific" $
-            assertJSON "{\"time_posix\":1.415335333E9}"
-                       (defaultTimeItem {timePOSIX = Just ref})
+
+    , testGroup "query"
+        [ testGroup "serialise"
+            [ testToQuery "rfc822"
+                "Fri%2C%2007%20Nov%202014%2004%3A42%3A13%20GMT" (time :: RFC822)
+
+            , testToQuery "iso8601"
+                "2014-11-07T04%3A42%3A13UTC" (time :: ISO8601)
+
+            , testToQuery "aws"
+                "20141107T044213UTC" (time :: AWSTime)
+            ]
         ]
-    , testGroup "serialise json"
-        [ testCase "POSIX integer" $
-            (@?=) (encode $ defaultTimeItem {timePOSIX = Just ref})
-                  "{\"time_aws\":null,\"time_iso\":null,\
-                  \\"time_posix\":1415335333,\"time_rfc\":null}"
+
+    , testGroup "xml"
+        [ testGroup "deserialise"
+            [ testFromXML "rfc822"
+                "Fri, 07 Nov 2014 04:42:13 GMT" (time :: RFC822)
+
+            , testFromXML "iso8601"
+                "2014-11-07T04:42:13.000Z" (time :: ISO8601)
+
+            , testFromXML "aws"
+                "20141107T044213Z" (time :: AWSTime)
+
+            , testGroup "posix"
+                [ testFromXML "integer"
+                    "1415335333" (time :: POSIX)
+
+                , testFromXML "double"
+                    "1415335333.000" (time :: POSIX)
+
+                , testFromXML "scientific"
+                    "1.415335333E9" (time :: POSIX)
+                ]
+            ]
+
+        , testGroup "serialise"
+            [ testToXML "rfc822"
+                "Fri, 07 Nov 2014 04:42:13 GMT" (time :: RFC822)
+
+            , testToXML "iso8601"
+                "2014-11-07T04:42:13UTC" (time :: ISO8601)
+
+            , testToXML "aws"
+                "20141107T044213UTC" (time :: AWSTime)
+
+            , testToXML "posix"
+                "1415335333" (time :: POSIX)
+            ]
+        ]
+
+    , testGroup "json"
+        [ testGroup "deserialise"
+            [ testFromJSON "rfc822"
+                (str "Fri, 07 Nov 2014 04:42:13 GMT") (time :: RFC822)
+
+            , testFromJSON "iso8601"
+                (str "2014-11-07T04:42:13.000Z") (time :: ISO8601)
+
+            , testFromJSON "aws"
+                (str "20141107T044213Z") (time :: AWSTime)
+
+            , testGroup "posix"
+                [ testFromJSON "integer"
+                    "1415335333" (time :: POSIX)
+
+                , testFromJSON "double"
+                    "1415335333.000" (time :: POSIX)
+
+                , testFromJSON "scientific"
+                    "1.415335333E9" (time :: POSIX)
+                ]
+            ]
+
+        , testGroup "serialise"
+            [ testToJSON "rfc822"
+                (str "Fri, 07 Nov 2014 04:42:13 GMT") (time :: RFC822)
+
+            , testToJSON "iso8601"
+                (str "2014-11-07T04:42:13UTC") (time :: ISO8601)
+
+            , testToJSON "aws"
+                (str "20141107T044213UTC") (time :: AWSTime)
+
+            , testToJSON "posix"
+                "1415335333" (time :: POSIX)
+            ]
         ]
     ]
 
-ref :: Time a
-ref = Time $ fromMaybe (error "Unable to parse time") (parseTime locale format ts)
+time :: Time a
+time = Time . fromMaybe (error msg) $ parseTime defaultTimeLocale fmt ts
   where
-    locale = defaultTimeLocale
-    format = iso8601DateFormat (Just "%H:%M:%S")
-    ts = "2014-11-07T04:42:13"
-
-data TimeItem = TimeItem
-     { timeRFC   :: Maybe RFC822
-     , timeISO   :: Maybe ISO8601
-     , timeAWS   :: Maybe AWSTime
-     , timePOSIX :: Maybe POSIX
-     } deriving (Eq, Show)
-
-defaultTimeItem :: TimeItem
-defaultTimeItem = TimeItem Nothing Nothing Nothing Nothing
-
-instance ToJSON TimeItem where
-    toJSON TimeItem{..} = object
-        [ "time_rfc"   .= timeRFC
-        , "time_iso"   .= timeISO
-        , "time_aws"   .= timeAWS
-        , "time_posix" .= timePOSIX
-        ]
-
-instance FromJSON TimeItem where
-    parseJSON = withObject "TimeItem" $ \o -> TimeItem
-        <$> o .:? "time_rfc"
-        <*> o .:? "time_iso"
-        <*> o .:? "time_aws"
-        <*> o .:? "time_posix"
+    msg = "Unable to parse time: " ++ ts
+    fmt = (iso8601DateFormat (Just "%H:%M:%S"))
+    ts  = "2014-11-07T04:42:13"

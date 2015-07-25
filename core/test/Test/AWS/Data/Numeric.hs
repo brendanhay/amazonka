@@ -13,89 +13,117 @@ module Test.AWS.Data.Numeric (tests) where
 import           Control.Applicative
 import           Data.Aeson
 import           Network.AWS.Prelude
+import           Test.AWS.Util
 import           Test.Tasty
 import           Test.Tasty.HUnit
 
 tests :: TestTree
 tests = testGroup "numeric"
-    [ testGroup "JSON serialization"
-        [ testEncode encodeItems
-        , testDecode decodeItems
+    [ testGroup "json"
+        [ testGroup "deserialisation"
+            [ testFromJSON "natural"
+                "123" (Nat 123)
+
+            , testFromJSON "int"
+                (toLazyBS maxInt) maxInt
+
+            , testFromJSON "negative int"
+                (toLazyBS minInt) minInt
+
+            , testFromJSON "integer"
+                "891324" (891324 :: Integer)
+
+            , testFromJSON "negative integer"
+                "-998" (-998 :: Integer)
+
+            , testFromJSON "double"
+                "46.39212" (46.39212 :: Double)
+
+            , testFromJSON "negative double"
+                "-1.09231" (-1.09231 :: Double)
+
+            , testFromJSON "numeric text"
+                "\"22\"" ("22" :: Text)
+            ]
+
+        , testGroup "serialisation"
+            [ testToJSON "natural"
+                "123" (Nat 123)
+
+            , testToJSON "int"
+                (toLazyBS maxInt) maxInt
+
+            , testToJSON "negative int"
+                (toLazyBS minInt) minInt
+
+            , testToJSON "integer"
+                "891324" (891324 :: Integer)
+
+            , testToJSON "negative integer"
+                "-998" (-998 :: Integer)
+
+            , testToJSON "double"
+                "46.39212" (46.39212 :: Double)
+
+            , testToJSON "negative double"
+                "-1.09231" (-1.09231 :: Double)
+
+            , testToJSON "numeric string"
+                "\"22\"" ("22" :: String)
+            ]
+        ]
+
+    , testGroup "xml"
+        [ testGroup "deserialisation"
+            [ testFromXML "natural"
+                "123" (Nat 123)
+
+            , testFromXML "int"
+                (toLazyBS maxInt) maxInt
+
+            , testFromXML "negative int"
+                (toLazyBS minInt) minInt
+
+            , testFromXML "integer"
+                "891324" (891324 :: Integer)
+
+            , testFromXML "negative integer"
+                "-998" (-998 :: Integer)
+
+            , testFromXML "double"
+                "46.39212" (46.39212 :: Double)
+
+            , testFromXML "negative double"
+                "-1.09231" (-1.09231 :: Double)
+
+            , testFromXML "numeric string"
+                "22" ("22" :: Text)
+            ]
+
+        , testGroup "serialisation"
+            [ testToXML "natural"
+                "123" (Nat 123)
+
+            ,  testToXML "int"
+                (toLazyBS maxInt) maxInt
+
+            , testToXML "negative int"
+                (toLazyBS minInt) minInt
+
+            , testToXML "integer"
+                "891324" (891324 :: Integer)
+
+            , testToXML "negative integer"
+                "-998" (-998 :: Integer)
+
+            , testToXML "double"
+                "46.39212" (46.39212 :: Double)
+
+            , testToXML "negative double"
+                "-1.09231" (-1.09231 :: Double)
+
+            , testToXML "numeric text"
+                "22" ("22" :: Text)
+            ]
         ]
     ]
-
--- With a basic record, checks several serialization edge cases
--- between String, Int, and Nat values for numbers.
-data Item = Item
-     { itemNat :: Maybe Nat
-     , itemInt :: Maybe Int
-     , itemStr :: Maybe String
-     } deriving (Eq, Show)
-
-instance ToJSON Item where
-    toJSON Item{..} = object
-        [ "item_nat" .= itemNat
-        , "item_int" .= itemInt
-        , "item_str" .= itemStr
-        ]
-
-instance FromJSON Item where
-    parseJSON = withObject "Item" $ \o -> Item
-        <$> o .:? "item_nat"
-        <*> o .:? "item_int"
-        <*> o .:? "item_str"
-
-encodeItems :: [(Item, LazyByteString)]
-encodeItems =
-    [ ( Item (Just $ Nat 1) (Just 1) Nothing
-      , "{\"item_str\":null,\"item_nat\":1,\"item_int\":1}"
-      )
-
-    , ( Item (Just $ Nat 1) (Just 1) (Just "1")
-      , "{\"item_str\":\"1\",\"item_nat\":1,\"item_int\":1}"
-      )
-    ]
-
-testEncode :: [(Item, LazyByteString)] -> TestTree
-testEncode = testCase "Numeric JSON Encoding"
-    . mapM_ (\(input, e) -> e @=? encode input)
-
-decodeItems :: [(Maybe Item, LazyByteString)]
-decodeItems =
-    [ ( Just (Item (Just $ Nat 1) (Just 1) Nothing)
-      , "{\"item_nat\":1,\"item_int\":1}"
-      )
-
-    , ( Just (Item (Just $ Nat 1) (Just (-1)) (Just "1"))
-      , "{\"item_nat\":1,\"item_int\":-1, \"item_str\":\"1\"}"
-      )
-
-    , ( Nothing
-      , "{\"item_nat\":1,\"item_int\":-1, \"item_str\":1}"
-      )
-
-    , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)
-      , "{\"item_nat\":1,\"item_int\":-1}"
-      )
-
-    , ( Just (Item (Just $ Nat 1) (Just (-1)) Nothing)
-      , "{\"item_nat\":1.0,\"item_int\":-1}"
-      )
-
-    , ( Nothing
-      , "{\"item_nat\":-1,\"item_int\":1}"
-      )
-
-    , ( Nothing
-      , "{\"item_nat\":1.2,\"item_int\":1}"
-      )
-
-    , ( Nothing
-      , "{\"item_nat\":\"1\",\"item_int\":1}"
-      )
-    ]
-
-testDecode :: [(Maybe Item, LazyByteString)] -> TestTree
-testDecode = testCase "Numeric JSON Decoding" . mapM_ check
-  where
-    check (e, input) = e @=? (decode input :: Maybe Item)

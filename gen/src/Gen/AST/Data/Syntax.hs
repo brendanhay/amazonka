@@ -740,8 +740,8 @@ mapping t e = infixE e "." (go t)
         TMaybe     x            -> nest (go x)
         x                       -> maybeToList (iso x)
 
-    nest (x:xs) = app (var "mapping") x : xs
     nest []     = []
+    nest (x:xs) = [app (var "mapping") (infixE x "." xs)]
 
 iso :: TType -> Maybe Exp
 iso = \case

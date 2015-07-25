@@ -124,7 +124,7 @@ describeInterconnectsResponse pStatus_ =
 
 -- | A list of interconnects.
 dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
-dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default;
+dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dirsStatus :: Lens' DescribeInterconnectsResponse Int

@@ -238,7 +238,7 @@ crgEngineVersion = lens _crgEngineVersion (\ s a -> s{_crgEngineVersion = a});
 -- Use this parameter only when you are creating a replication group in an
 -- Amazon Virtual Private Cloud (VPC).
 crgSecurityGroupIds :: Lens' CreateReplicationGroup [Text]
-crgSecurityGroupIds = lens _crgSecurityGroupIds (\ s a -> s{_crgSecurityGroupIds = a}) . _Default;
+crgSecurityGroupIds = lens _crgSecurityGroupIds (\ s a -> s{_crgSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | This parameter is currently disabled.
 crgAutoMinorVersionUpgrade :: Lens' CreateReplicationGroup (Maybe Bool)
@@ -254,7 +254,7 @@ crgAutoMinorVersionUpgrade = lens _crgAutoMinorVersionUpgrade (\ s a -> s{_crgAu
 --
 -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
 crgSnapshotARNs :: Lens' CreateReplicationGroup [Text]
-crgSnapshotARNs = lens _crgSnapshotARNs (\ s a -> s{_crgSnapshotARNs = a}) . _Default;
+crgSnapshotARNs = lens _crgSnapshotARNs (\ s a -> s{_crgSnapshotARNs = a}) . _Default . _Coerce;
 
 -- | The name of the parameter group to associate with this replication
 -- group. If this argument is omitted, the default cache parameter group
@@ -351,7 +351,7 @@ crgSnapshotName = lens _crgSnapshotName (\ s a -> s{_crgSnapshotName = a});
 -- PreferredAvailabilityZones.member.2=us-west-2c
 -- PreferredAvailabilityZones.member.3=us-west-2c
 crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup [Text]
-crgPreferredCacheClusterAZs = lens _crgPreferredCacheClusterAZs (\ s a -> s{_crgPreferredCacheClusterAZs = a}) . _Default;
+crgPreferredCacheClusterAZs = lens _crgPreferredCacheClusterAZs (\ s a -> s{_crgPreferredCacheClusterAZs = a}) . _Default . _Coerce;
 
 -- | The number of cache clusters this replication group will initially have.
 --
@@ -375,12 +375,12 @@ crgNotificationTopicARN = lens _crgNotificationTopicARN (\ s a -> s{_crgNotifica
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
 crgTags :: Lens' CreateReplicationGroup [Tag]
-crgTags = lens _crgTags (\ s a -> s{_crgTags = a}) . _Default;
+crgTags = lens _crgTags (\ s a -> s{_crgTags = a}) . _Default . _Coerce;
 
 -- | A list of cache security group names to associate with this replication
 -- group.
 crgCacheSecurityGroupNames :: Lens' CreateReplicationGroup [Text]
-crgCacheSecurityGroupNames = lens _crgCacheSecurityGroupNames (\ s a -> s{_crgCacheSecurityGroupNames = a}) . _Default;
+crgCacheSecurityGroupNames = lens _crgCacheSecurityGroupNames (\ s a -> s{_crgCacheSecurityGroupNames = a}) . _Default . _Coerce;
 
 -- | The port number on which each member of the replication group will
 -- accept connections.

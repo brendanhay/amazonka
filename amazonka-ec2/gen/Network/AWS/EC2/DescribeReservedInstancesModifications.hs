@@ -117,11 +117,11 @@ describeReservedInstancesModifications =
 --     updated.
 --
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
-drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a}) . _Default;
+drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a}) . _Default . _Coerce;
 
 -- | IDs for the submitted modification request.
 drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
-drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a}) . _Default;
+drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a}) . _Default . _Coerce;
 
 -- | The token to retrieve the next page of results.
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
@@ -204,7 +204,7 @@ drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
 
 -- | The Reserved Instance modification information.
 drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
-drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default;
+drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drimrsStatus :: Lens' DescribeReservedInstancesModificationsResponse Int

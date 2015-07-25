@@ -185,4 +185,4 @@ lscrsStatus = lens _lscrsStatus (\ s a -> s{_lscrsStatus = a});
 
 -- | A list of server certificates.
 lscrsServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [ServerCertificateMetadata]
-lscrsServerCertificateMetadataList = lens _lscrsServerCertificateMetadataList (\ s a -> s{_lscrsServerCertificateMetadataList = a});
+lscrsServerCertificateMetadataList = lens _lscrsServerCertificateMetadataList (\ s a -> s{_lscrsServerCertificateMetadataList = a}) . _Coerce;

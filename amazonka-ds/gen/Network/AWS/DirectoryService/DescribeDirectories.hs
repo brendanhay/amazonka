@@ -96,7 +96,7 @@ ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
 ddDirectoryIds :: Lens' DescribeDirectories [Text]
-ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Default;
+ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Default . _Coerce;
 
 -- | The maximum number of items to return. If this value is zero, the
 -- maximum number of items is specified by the limitations of the
@@ -173,7 +173,7 @@ describeDirectoriesResponse pStatus_ =
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
 ddrsDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
-ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDirectoryDescriptions = a}) . _Default;
+ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDirectoryDescriptions = a}) . _Default . _Coerce;
 
 -- | If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to DescribeDirectories to

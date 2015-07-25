@@ -168,7 +168,7 @@ clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpda
 
 -- | An array containing the layer custom security group IDs.
 clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
-clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default;
+clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | A LifeCycleEventConfiguration object that you can use to configure the
 -- Shutdown event to specify an execution timeout and enable or disable
@@ -183,7 +183,7 @@ clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
 clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
-clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default;
+clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default . _Coerce;
 
 -- | Whether to disable auto healing for the layer.
 clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
@@ -191,7 +191,7 @@ clEnableAutoHealing = lens _clEnableAutoHealing (\ s a -> s{_clEnableAutoHealing
 
 -- | An array of @Package@ objects that describe the layer packages.
 clPackages :: Lens' CreateLayer [Text]
-clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default;
+clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default . _Coerce;
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.

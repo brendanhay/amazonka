@@ -81,11 +81,11 @@ validatePipelineDefinition pPipelineId_ =
 
 -- | The parameter objects used with the pipeline.
 vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
-vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a}) . _Default;
+vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a}) . _Default . _Coerce;
 
 -- | The parameter values used with the pipeline.
 vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
-vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a}) . _Default;
+vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a}) . _Default . _Coerce;
 
 -- | The ID of the pipeline.
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
@@ -94,7 +94,7 @@ vpdPipelineId = lens _vpdPipelineId (\ s a -> s{_vpdPipelineId = a});
 -- | The objects that define the pipeline changes to validate against the
 -- pipeline.
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
-vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a});
+vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a}) . _Coerce;
 
 instance AWSRequest ValidatePipelineDefinition where
         type Sv ValidatePipelineDefinition = DataPipeline
@@ -166,11 +166,11 @@ validatePipelineDefinitionResponse pStatus_ pErrored_ =
 
 -- | Any validation errors that were found.
 vpdrsValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
-vpdrsValidationErrors = lens _vpdrsValidationErrors (\ s a -> s{_vpdrsValidationErrors = a}) . _Default;
+vpdrsValidationErrors = lens _vpdrsValidationErrors (\ s a -> s{_vpdrsValidationErrors = a}) . _Default . _Coerce;
 
 -- | Any validation warnings that were found.
 vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
-vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default;
+vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 vpdrsStatus :: Lens' ValidatePipelineDefinitionResponse Int

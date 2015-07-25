@@ -87,7 +87,7 @@ awsGatewayARN = lens _awsGatewayARN (\ s a -> s{_awsGatewayARN = a});
 -- working storage. Each string have a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
 awsDiskIds :: Lens' AddWorkingStorage [Text]
-awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a});
+awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddWorkingStorage where
         type Sv AddWorkingStorage = StorageGateway

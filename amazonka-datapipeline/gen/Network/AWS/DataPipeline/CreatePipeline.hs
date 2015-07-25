@@ -86,7 +86,7 @@ cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
 cpTags :: Lens' CreatePipeline [Tag]
-cpTags = lens _cpTags (\ s a -> s{_cpTags = a}) . _Default;
+cpTags = lens _cpTags (\ s a -> s{_cpTags = a}) . _Default . _Coerce;
 
 -- | The name for the pipeline. You can use the same name for multiple
 -- pipelines associated with your AWS account, because AWS Data Pipeline

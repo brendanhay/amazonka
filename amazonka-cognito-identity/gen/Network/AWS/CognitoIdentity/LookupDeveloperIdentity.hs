@@ -207,7 +207,7 @@ ldirsIdentityId = lens _ldirsIdentityId (\ s a -> s{_ldirsIdentityId = a});
 -- identity ID. Cognito supports the association of multiple developer user
 -- identifiers with an identity ID.
 ldirsDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
-ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a -> s{_ldirsDeveloperUserIdentifierList = a}) . _Default;
+ldirsDeveloperUserIdentifierList = lens _ldirsDeveloperUserIdentifierList (\ s a -> s{_ldirsDeveloperUserIdentifierList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ldirsStatus :: Lens' LookupDeveloperIdentityResponse Int

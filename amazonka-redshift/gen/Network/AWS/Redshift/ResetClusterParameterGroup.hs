@@ -88,7 +88,7 @@ rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllP
 -- Constraints: A maximum of 20 parameters can be reset in a single
 -- request.
 rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
-rcpgParameters = lens _rcpgParameters (\ s a -> s{_rcpgParameters = a}) . _Default;
+rcpgParameters = lens _rcpgParameters (\ s a -> s{_rcpgParameters = a}) . _Default . _Coerce;
 
 -- | The name of the cluster parameter group to be reset.
 rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text

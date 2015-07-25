@@ -110,7 +110,7 @@ ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten
 
 -- | This parameter is not currently supported.
 ddlfFilters :: Lens' DescribeDBLogFiles [Filter]
-ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default;
+ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a pagination token
@@ -205,7 +205,7 @@ describeDBLogFilesResponse pStatus_ =
 
 -- | The DB log files returned.
 ddlfrsDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
-ddlfrsDescribeDBLogFiles = lens _ddlfrsDescribeDBLogFiles (\ s a -> s{_ddlfrsDescribeDBLogFiles = a}) . _Default;
+ddlfrsDescribeDBLogFiles = lens _ddlfrsDescribeDBLogFiles (\ s a -> s{_ddlfrsDescribeDBLogFiles = a}) . _Default . _Coerce;
 
 -- | A pagination token that can be used in a subsequent DescribeDBLogFiles
 -- request.

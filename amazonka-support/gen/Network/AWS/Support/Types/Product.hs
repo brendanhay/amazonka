@@ -45,8 +45,8 @@ attachment =
     }
 
 -- | The content of the attachment file.
-aData :: Lens' Attachment (Maybe Base64)
-aData = lens _aData (\ s a -> s{_aData = a});
+aData :: Lens' Attachment (Maybe ByteString)
+aData = lens _aData (\ s a -> s{_aData = a}) . mapping _Base64;
 
 -- | The name of the attachment file.
 aFileName :: Lens' Attachment (Maybe Text)
@@ -220,7 +220,7 @@ cdCaseId = lens _cdCaseId (\ s a -> s{_cdCaseId = a});
 
 -- | The email addresses that receive copies of communication about the case.
 cdCcEmailAddresses :: Lens' CaseDetails [Text]
-cdCcEmailAddresses = lens _cdCcEmailAddresses (\ s a -> s{_cdCcEmailAddresses = a}) . _Default;
+cdCcEmailAddresses = lens _cdCcEmailAddresses (\ s a -> s{_cdCcEmailAddresses = a}) . _Default . _Coerce;
 
 -- | The ID displayed for the case in the AWS Support Center. This is a
 -- numeric string.
@@ -361,7 +361,7 @@ cTimeCreated = lens _cTimeCreated (\ s a -> s{_cTimeCreated = a});
 
 -- | Information about the attachments to the case communication.
 cAttachmentSet :: Lens' Communication [AttachmentDetails]
-cAttachmentSet = lens _cAttachmentSet (\ s a -> s{_cAttachmentSet = a}) . _Default;
+cAttachmentSet = lens _cAttachmentSet (\ s a -> s{_cAttachmentSet = a}) . _Default . _Coerce;
 
 instance FromJSON Communication where
         parseJSON
@@ -401,7 +401,7 @@ rccNextToken = lens _rccNextToken (\ s a -> s{_rccNextToken = a});
 
 -- | The five most recent communications associated with the case.
 rccCommunications :: Lens' RecentCaseCommunications [Communication]
-rccCommunications = lens _rccCommunications (\ s a -> s{_rccCommunications = a}) . _Default;
+rccCommunications = lens _rccCommunications (\ s a -> s{_rccCommunications = a}) . _Default . _Coerce;
 
 instance FromJSON RecentCaseCommunications where
         parseJSON
@@ -483,7 +483,7 @@ supportService =
 -- Category names and codes are passed to AWS Support when you call
 -- CreateCase.
 ssCategories :: Lens' SupportService [Category]
-ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default;
+ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default . _Coerce;
 
 -- | The friendly name for an AWS service. The @Code@ element contains the
 -- corresponding code.
@@ -592,7 +592,7 @@ tacdCategory = lens _tacdCategory (\ s a -> s{_tacdCategory = a});
 -- __Metadata__ contains all the data that is shown in the Excel download,
 -- even in those cases where the UI shows just summary data.
 tacdMetadata :: Lens' TrustedAdvisorCheckDescription [Text]
-tacdMetadata = lens _tacdMetadata (\ s a -> s{_tacdMetadata = a});
+tacdMetadata = lens _tacdMetadata (\ s a -> s{_tacdMetadata = a}) . _Coerce;
 
 instance FromJSON TrustedAdvisorCheckDescription
          where
@@ -718,7 +718,7 @@ tacrCategorySpecificSummary = lens _tacrCategorySpecificSummary (\ s a -> s{_tac
 
 -- | The details about each resource listed in the check result.
 tacrFlaggedResources :: Lens' TrustedAdvisorCheckResult [TrustedAdvisorResourceDetail]
-tacrFlaggedResources = lens _tacrFlaggedResources (\ s a -> s{_tacrFlaggedResources = a});
+tacrFlaggedResources = lens _tacrFlaggedResources (\ s a -> s{_tacrFlaggedResources = a}) . _Coerce;
 
 instance FromJSON TrustedAdvisorCheckResult where
         parseJSON
@@ -909,7 +909,7 @@ tardResourceId = lens _tardResourceId (\ s a -> s{_tardResourceId = a});
 -- shown in the Excel download, even in those cases where the UI shows just
 -- summary data.
 tardMetadata :: Lens' TrustedAdvisorResourceDetail [Text]
-tardMetadata = lens _tardMetadata (\ s a -> s{_tardMetadata = a});
+tardMetadata = lens _tardMetadata (\ s a -> s{_tardMetadata = a}) . _Coerce;
 
 instance FromJSON TrustedAdvisorResourceDetail where
         parseJSON

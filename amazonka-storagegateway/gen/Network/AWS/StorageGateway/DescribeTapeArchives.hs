@@ -91,7 +91,7 @@ dtaLimit = lens _dtaLimit (\ s a -> s{_dtaLimit = a}) . mapping _Nat;
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
 -- the virtual tapes you want to describe.
 dtaTapeARNs :: Lens' DescribeTapeArchives [Text]
-dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default;
+dtaTapeARNs = lens _dtaTapeARNs (\ s a -> s{_dtaTapeARNs = a}) . _Default . _Coerce;
 
 instance AWSPager DescribeTapeArchives where
         page rq rs
@@ -167,7 +167,7 @@ describeTapeArchivesResponse pStatus_ =
 -- (ARNs) of the tapes, size of the tapes, status of the tapes, progress of
 -- the description and tape barcode.
 dtarsTapeArchives :: Lens' DescribeTapeArchivesResponse [TapeArchive]
-dtarsTapeArchives = lens _dtarsTapeArchives (\ s a -> s{_dtarsTapeArchives = a}) . _Default;
+dtarsTapeArchives = lens _dtarsTapeArchives (\ s a -> s{_dtarsTapeArchives = a}) . _Default . _Coerce;
 
 -- | An opaque string that indicates the position at which the virtual tapes
 -- that were fetched for description ended. Use this marker in your next

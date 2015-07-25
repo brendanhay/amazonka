@@ -171,7 +171,7 @@ drgrsMarker = lens _drgrsMarker (\ s a -> s{_drgrsMarker = a});
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
 drgrsReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
-drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default;
+drgrsReplicationGroups = lens _drgrsReplicationGroups (\ s a -> s{_drgrsReplicationGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drgrsStatus :: Lens' DescribeReplicationGroupsResponse Int

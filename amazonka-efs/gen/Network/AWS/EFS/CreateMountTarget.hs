@@ -185,7 +185,7 @@ cmtIPAddress = lens _cmtIPAddress (\ s a -> s{_cmtIPAddress = a});
 -- | Up to 5 VPC security group IDs, of the form \"sg-xxxxxxxx\". These must
 -- be for the same VPC as subnet specified.
 cmtSecurityGroups :: Lens' CreateMountTarget [Text]
-cmtSecurityGroups = lens _cmtSecurityGroups (\ s a -> s{_cmtSecurityGroups = a}) . _Default;
+cmtSecurityGroups = lens _cmtSecurityGroups (\ s a -> s{_cmtSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The ID of the file system for which to create the mount target.
 cmtFileSystemId :: Lens' CreateMountTarget Text

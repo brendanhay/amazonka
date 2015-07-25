@@ -86,7 +86,7 @@ setTerminationProtection pTerminationProtected_ =
 -- identifier is returned by RunJobFlow and can also be obtained from
 -- DescribeJobFlows .
 stpJobFlowIds :: Lens' SetTerminationProtection [Text]
-stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a});
+stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a}) . _Coerce;
 
 -- | A Boolean that indicates whether to protect the job flow and prevent the
 -- Amazon EC2 instances in the cluster from shutting down due to API calls,

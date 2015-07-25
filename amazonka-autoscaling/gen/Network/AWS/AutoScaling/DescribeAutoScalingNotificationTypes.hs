@@ -117,7 +117,7 @@ describeAutoScalingNotificationTypesResponse pStatus_ =
 -- -   @autoscaling:TEST_NOTIFICATION@
 --
 dasntrsAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
-dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default;
+dasntrsAutoScalingNotificationTypes = lens _dasntrsAutoScalingNotificationTypes (\ s a -> s{_dasntrsAutoScalingNotificationTypes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dasntrsStatus :: Lens' DescribeAutoScalingNotificationTypesResponse Int

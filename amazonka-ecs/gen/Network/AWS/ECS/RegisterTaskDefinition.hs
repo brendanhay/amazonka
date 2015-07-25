@@ -77,7 +77,7 @@ registerTaskDefinition pFamily_ =
 -- | A list of volume definitions in JSON format that containers in your task
 -- may use.
 rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
-rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a}) . _Default;
+rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a}) . _Default . _Coerce;
 
 -- | You must specify a @family@ for a task definition, which allows you to
 -- track multiple versions of the same task definition. You can think of
@@ -90,7 +90,7 @@ rtdFamily = lens _rtdFamily (\ s a -> s{_rtdFamily = a});
 -- | A list of container definitions in JSON format that describe the
 -- different containers that make up your task.
 rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
-rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a});
+rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a}) . _Coerce;
 
 instance AWSRequest RegisterTaskDefinition where
         type Sv RegisterTaskDefinition = ECS

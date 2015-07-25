@@ -64,7 +64,7 @@ describeApplications =
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
 daApplicationNames :: Lens' DescribeApplications [Text]
-daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default;
+daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeApplications where
         type Sv DescribeApplications = ElasticBeanstalk
@@ -118,7 +118,7 @@ describeApplicationsResponse pStatus_ =
 
 -- | This parameter contains a list of ApplicationDescription.
 darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
-darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default;
+darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 darsStatus :: Lens' DescribeApplicationsResponse Int

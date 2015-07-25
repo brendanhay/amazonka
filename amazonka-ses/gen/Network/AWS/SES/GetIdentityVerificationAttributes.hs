@@ -69,7 +69,7 @@ getIdentityVerificationAttributes =
 
 -- | A list of identities.
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
-givaIdentities = lens _givaIdentities (\ s a -> s{_givaIdentities = a});
+givaIdentities = lens _givaIdentities (\ s a -> s{_givaIdentities = a}) . _Coerce;
 
 instance AWSRequest GetIdentityVerificationAttributes
          where

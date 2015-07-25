@@ -745,13 +745,14 @@ mapping t e = infixE e "." (go t)
 
 iso :: TType -> Maybe Exp
 iso = \case
-    TLit Time        -> Just (var "_Time")
-    TNatural         -> Just (var "_Nat")
-    TSensitive   {}  -> Just (var "_Sensitive")
-    TList1       {}  -> Just (var "_List1")
-    TList  (TMap {}) -> Just (var "_Coerce")
-    TMap         {}  -> Just (var "_Map")
-    _                -> Nothing
+    TLit Time     -> Just (var "_Time")
+    TLit Blob     -> Just (var "_Base64")
+    TNatural      -> Just (var "_Nat")
+    TSensitive {} -> Just (var "_Sensitive")
+    TList1     {} -> Just (var "_List1")
+    TList      {} -> Just (var "_Coerce")
+    TMap       {} -> Just (var "_Map")
+    _             -> Nothing
 
 literal :: Bool -> Timestamp -> Lit -> Type
 literal i ts = \case
@@ -759,7 +760,8 @@ literal i ts = \case
     Long             -> tycon "Integer"
     Double           -> tycon "Double"
     Text             -> tycon "Text"
-    Blob             -> tycon "Base64"
+    Blob | i         -> tycon "Base64"
+         | otherwise -> tycon "ByteString"
     Bool             -> tycon "Bool"
     Time | i         -> tycon (tsToText ts)
          | otherwise -> tycon "UTCTime"

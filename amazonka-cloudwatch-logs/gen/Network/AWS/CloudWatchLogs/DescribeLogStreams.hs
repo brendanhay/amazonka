@@ -196,7 +196,7 @@ dlsrsNextToken = lens _dlsrsNextToken (\ s a -> s{_dlsrsNextToken = a});
 
 -- | FIXME: Undocumented member.
 dlsrsLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
-dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _Default;
+dlsrsLogStreams = lens _dlsrsLogStreams (\ s a -> s{_dlsrsLogStreams = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlsrsStatus :: Lens' DescribeLogStreamsResponse Int

@@ -69,7 +69,7 @@ describeLoadBasedAutoScaling =
 
 -- | An array of layer IDs.
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
-dlbasLayerIds = lens _dlbasLayerIds (\ s a -> s{_dlbasLayerIds = a});
+dlbasLayerIds = lens _dlbasLayerIds (\ s a -> s{_dlbasLayerIds = a}) . _Coerce;
 
 instance AWSRequest DescribeLoadBasedAutoScaling
          where
@@ -130,7 +130,7 @@ describeLoadBasedAutoScalingResponse pStatus_ =
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
 -- each layer\'s configuration.
 dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
-dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default;
+dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlbasrsStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int

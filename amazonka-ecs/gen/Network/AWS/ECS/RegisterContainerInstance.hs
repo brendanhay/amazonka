@@ -120,7 +120,7 @@ rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
 
 -- | The resources available on the instance.
 rciTotalResources :: Lens' RegisterContainerInstance [Resource]
-rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default;
+rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default . _Coerce;
 
 instance AWSRequest RegisterContainerInstance where
         type Sv RegisterContainerInstance = ECS

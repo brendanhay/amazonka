@@ -160,7 +160,7 @@ gpsrsCreated = lens _gpsrsCreated (\ s a -> s{_gpsrsCreated = a}) . mapping _Tim
 -- state, most recent run details, whether the stage is disabled, and other
 -- data.
 gpsrsStageStates :: Lens' GetPipelineStateResponse [StageState]
-gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . _Default;
+gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . _Default . _Coerce;
 
 -- | The date and time the pipeline was last updated, in timestamp format.
 gpsrsUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)

@@ -109,7 +109,7 @@ ddevDefaultOnly = lens _ddevDefaultOnly (\ s a -> s{_ddevDefaultOnly = a});
 
 -- | Not currently supported.
 ddevFilters :: Lens' DescribeDBEngineVersions [Filter]
-ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a}) . _Default;
+ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a}) . _Default . _Coerce;
 
 -- | The database engine to return.
 ddevEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
@@ -228,7 +228,7 @@ ddevrsMarker = lens _ddevrsMarker (\ s a -> s{_ddevrsMarker = a});
 
 -- | A list of @DBEngineVersion@ elements.
 ddevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
-ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default;
+ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ddevrsStatus :: Lens' DescribeDBEngineVersionsResponse Int

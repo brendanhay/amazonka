@@ -244,7 +244,7 @@ describeEventsResponse pStatus_ =
 
 -- | A list of Event instances.
 dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default;
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

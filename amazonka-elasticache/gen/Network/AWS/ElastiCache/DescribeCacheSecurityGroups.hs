@@ -164,7 +164,7 @@ describeCacheSecurityGroupsResponse pStatus_ =
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
 dcsgsrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
-dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgsrsCacheSecurityGroups = a}) . _Default;
+dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgsrsCacheSecurityGroups = a}) . _Default . _Coerce;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgsrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)

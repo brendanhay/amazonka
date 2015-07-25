@@ -89,7 +89,7 @@ deiInstanceId = lens _deiInstanceId (\ s a -> s{_deiInstanceId = a});
 -- Elastic IP addresses. Otherwise, it returns a description of every
 -- Elastic IP address.
 deiIPs :: Lens' DescribeElasticIPs [Text]
-deiIPs = lens _deiIPs (\ s a -> s{_deiIPs = a}) . _Default;
+deiIPs = lens _deiIPs (\ s a -> s{_deiIPs = a}) . _Default . _Coerce;
 
 -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
 -- a description of the Elastic IP addresses that are registered with the
@@ -156,7 +156,7 @@ describeElasticIPsResponse pStatus_ =
 -- | An @ElasticIps@ object that describes the specified Elastic IP
 -- addresses.
 deirsElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
-deirsElasticIPs = lens _deirsElasticIPs (\ s a -> s{_deirsElasticIPs = a}) . _Default;
+deirsElasticIPs = lens _deirsElasticIPs (\ s a -> s{_deirsElasticIPs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 deirsStatus :: Lens' DescribeElasticIPsResponse Int

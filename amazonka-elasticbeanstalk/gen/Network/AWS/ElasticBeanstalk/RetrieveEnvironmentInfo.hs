@@ -156,7 +156,7 @@ retrieveEnvironmentInfoResponse pStatus_ =
 
 -- | The EnvironmentInfoDescription of the environment.
 reirsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
-reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentInfo = a}) . _Default;
+reirsEnvironmentInfo = lens _reirsEnvironmentInfo (\ s a -> s{_reirsEnvironmentInfo = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 reirsStatus :: Lens' RetrieveEnvironmentInfoResponse Int

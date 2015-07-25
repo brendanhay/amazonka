@@ -96,7 +96,7 @@ dataRetrievalPolicy =
 -- only one rule, which contains a Strategy field and optionally a
 -- BytesPerHour field.
 drpRules :: Lens' DataRetrievalPolicy [DataRetrievalRule]
-drpRules = lens _drpRules (\ s a -> s{_drpRules = a}) . _Default;
+drpRules = lens _drpRules (\ s a -> s{_drpRules = a}) . _Default . _Coerce;
 
 instance FromJSON DataRetrievalPolicy where
         parseJSON
@@ -854,7 +854,7 @@ vncSNSTopic = lens _vncSNSTopic (\ s a -> s{_vncSNSTopic = a});
 -- | A list of one or more events for which Amazon Glacier will send a
 -- notification to the specified Amazon SNS topic.
 vncEvents :: Lens' VaultNotificationConfig [Text]
-vncEvents = lens _vncEvents (\ s a -> s{_vncEvents = a}) . _Default;
+vncEvents = lens _vncEvents (\ s a -> s{_vncEvents = a}) . _Default . _Coerce;
 
 instance FromJSON VaultNotificationConfig where
         parseJSON

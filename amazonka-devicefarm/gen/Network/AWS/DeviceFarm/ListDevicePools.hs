@@ -157,7 +157,7 @@ listDevicePoolsResponse pStatus_ =
 
 -- | Information about the device pools.
 ldprsDevicePools :: Lens' ListDevicePoolsResponse [DevicePool]
-ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . _Default;
+ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . _Default . _Coerce;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent

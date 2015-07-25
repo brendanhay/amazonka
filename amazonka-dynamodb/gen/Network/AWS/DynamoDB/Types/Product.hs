@@ -128,7 +128,7 @@ attributeValue =
 
 -- | A List of attribute values.
 avL :: Lens' AttributeValue [AttributeValue]
-avL = lens _avL (\ s a -> s{_avL = a}) . _Default;
+avL = lens _avL (\ s a -> s{_avL = a}) . _Default . _Coerce;
 
 -- | A Map of attribute values.
 avM :: Lens' AttributeValue (HashMap Text AttributeValue)
@@ -136,7 +136,7 @@ avM = lens _avM (\ s a -> s{_avM = a}) . _Default . _Map;
 
 -- | A Number Set data type.
 avNS :: Lens' AttributeValue [Text]
-avNS = lens _avNS (\ s a -> s{_avNS = a}) . _Default;
+avNS = lens _avNS (\ s a -> s{_avNS = a}) . _Default . _Coerce;
 
 -- | A Null data type.
 avNULL :: Lens' AttributeValue (Maybe Bool)
@@ -147,16 +147,16 @@ avN :: Lens' AttributeValue (Maybe Text)
 avN = lens _avN (\ s a -> s{_avN = a});
 
 -- | A Binary Set data type.
-avBS :: Lens' AttributeValue [Base64]
-avBS = lens _avBS (\ s a -> s{_avBS = a}) . _Default;
+avBS :: Lens' AttributeValue [ByteString]
+avBS = lens _avBS (\ s a -> s{_avBS = a}) . _Default . _Coerce;
 
 -- | A Binary data type.
-avB :: Lens' AttributeValue (Maybe Base64)
-avB = lens _avB (\ s a -> s{_avB = a});
+avB :: Lens' AttributeValue (Maybe ByteString)
+avB = lens _avB (\ s a -> s{_avB = a}) . mapping _Base64;
 
 -- | A String Set data type.
 avSS :: Lens' AttributeValue [Text]
-avSS = lens _avSS (\ s a -> s{_avSS = a}) . _Default;
+avSS = lens _avSS (\ s a -> s{_avSS = a}) . _Default . _Coerce;
 
 -- | A String data type.
 avS :: Lens' AttributeValue (Maybe Text)
@@ -383,7 +383,7 @@ condition pComparisonOperator_ =
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned
 -- when it compares binary values.
 cAttributeValueList :: Lens' Condition [AttributeValue]
-cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList = a}) . _Default;
+cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList = a}) . _Default . _Coerce;
 
 -- | A comparator for evaluating attributes. For example, equals, greater
 -- than, less than, etc.
@@ -805,7 +805,7 @@ expectedAttributeValue =
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
 -- in the /Amazon DynamoDB Developer Guide/.
 eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
-eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeValueList = a}) . _Default;
+eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeValueList = a}) . _Default . _Coerce;
 
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
 -- operation:
@@ -1285,7 +1285,7 @@ icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollection
 -- The estimate is subject to change over time; therefore, do not rely on
 -- the precision or accuracy of the estimate.
 icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
-icmSizeEstimateRangeGB = lens _icmSizeEstimateRangeGB (\ s a -> s{_icmSizeEstimateRangeGB = a}) . _Default;
+icmSizeEstimateRangeGB = lens _icmSizeEstimateRangeGB (\ s a -> s{_icmSizeEstimateRangeGB = a}) . _Default . _Coerce;
 
 instance FromJSON ItemCollectionMetrics where
         parseJSON
@@ -1982,7 +1982,7 @@ tdProvisionedThroughput = lens _tdProvisionedThroughput (\ s a -> s{_tdProvision
 -- -   /AttributeType/ - The data type for the attribute.
 --
 tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
-tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDefinitions = a}) . _Default;
+tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDefinitions = a}) . _Default . _Coerce;
 
 -- | The Amazon Resource Name (ARN) that uniquely identifies the latest
 -- stream for this table.
@@ -2108,7 +2108,7 @@ tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel
 -- If the table is in the @DELETING@ state, no information about indexes
 -- will be returned.
 tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
-tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a}) . _Default;
+tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a}) . _Default . _Coerce;
 
 -- | Represents one or more local secondary indexes on the table. Each index
 -- is scoped to a given hash key value. Tables with one or more local
@@ -2158,7 +2158,7 @@ tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalS
 -- If the table is in the @DELETING@ state, no information about indexes
 -- will be returned.
 tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
-tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a}) . _Default;
+tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a}) . _Default . _Coerce;
 
 -- | The date and time when the table was created, in
 -- <http://www.epochconverter.com/ UNIX epoch time> format.

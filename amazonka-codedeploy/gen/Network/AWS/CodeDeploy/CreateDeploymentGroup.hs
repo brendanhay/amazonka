@@ -132,15 +132,15 @@ cdgDeploymentConfigName = lens _cdgDeploymentConfigName (\ s a -> s{_cdgDeployme
 
 -- | The Amazon EC2 tags to filter on.
 cdgEc2TagFilters :: Lens' CreateDeploymentGroup [EC2TagFilter]
-cdgEc2TagFilters = lens _cdgEc2TagFilters (\ s a -> s{_cdgEc2TagFilters = a}) . _Default;
+cdgEc2TagFilters = lens _cdgEc2TagFilters (\ s a -> s{_cdgEc2TagFilters = a}) . _Default . _Coerce;
 
 -- | The on-premises instance tags to filter on.
 cdgOnPremisesInstanceTagFilters :: Lens' CreateDeploymentGroup [TagFilter]
-cdgOnPremisesInstanceTagFilters = lens _cdgOnPremisesInstanceTagFilters (\ s a -> s{_cdgOnPremisesInstanceTagFilters = a}) . _Default;
+cdgOnPremisesInstanceTagFilters = lens _cdgOnPremisesInstanceTagFilters (\ s a -> s{_cdgOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
 
 -- | A list of associated Auto Scaling groups.
 cdgAutoScalingGroups :: Lens' CreateDeploymentGroup [Text]
-cdgAutoScalingGroups = lens _cdgAutoScalingGroups (\ s a -> s{_cdgAutoScalingGroups = a}) . _Default;
+cdgAutoScalingGroups = lens _cdgAutoScalingGroups (\ s a -> s{_cdgAutoScalingGroups = a}) . _Default . _Coerce;
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.

@@ -148,7 +148,7 @@ listBootstrapActionsResponse pStatus_ =
 
 -- | The bootstrap actions associated with the cluster .
 lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
-lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default;
+lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default . _Coerce;
 
 -- | The pagination token that indicates the next set of results to retrieve
 -- .

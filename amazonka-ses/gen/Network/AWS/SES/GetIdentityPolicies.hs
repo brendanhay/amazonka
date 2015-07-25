@@ -94,7 +94,7 @@ gipIdentity = lens _gipIdentity (\ s a -> s{_gipIdentity = a});
 -- policies that are attached to the identity, you can use
 -- @ListIdentityPolicies@.
 gipPolicyNames :: Lens' GetIdentityPolicies [Text]
-gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a});
+gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a}) . _Coerce;
 
 instance AWSRequest GetIdentityPolicies where
         type Sv GetIdentityPolicies = SES

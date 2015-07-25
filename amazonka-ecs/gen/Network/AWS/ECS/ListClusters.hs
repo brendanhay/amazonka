@@ -153,7 +153,7 @@ listClustersResponse pStatus_ =
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster
 -- associated with your account.
 lcrsClusterARNs :: Lens' ListClustersResponse [Text]
-lcrsClusterARNs = lens _lcrsClusterARNs (\ s a -> s{_lcrsClusterARNs = a}) . _Default;
+lcrsClusterARNs = lens _lcrsClusterARNs (\ s a -> s{_lcrsClusterARNs = a}) . _Default . _Coerce;
 
 -- | The @nextToken@ value to include in a future @ListClusters@ request.
 -- When the results of a @ListClusters@ request exceed @maxResults@, this

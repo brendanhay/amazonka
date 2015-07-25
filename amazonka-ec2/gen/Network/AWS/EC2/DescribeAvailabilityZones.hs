@@ -79,7 +79,7 @@ describeAvailabilityZones =
 
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
-dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default;
+dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -95,7 +95,7 @@ dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default;
 --     @us-east-1a@).
 --
 dazFilters :: Lens' DescribeAvailabilityZones [Filter]
-dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default;
+dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -155,7 +155,7 @@ describeAvailabilityZonesResponse pStatus_ =
 
 -- | Information about one or more Availability Zones.
 dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
-dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabilityZones = a}) . _Default;
+dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dazrsStatus :: Lens' DescribeAvailabilityZonesResponse Int

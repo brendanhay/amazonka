@@ -113,7 +113,7 @@ updateTagsForDomain pDomainName_ =
 --     Required: Yes
 --
 utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
-utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default;
+utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default . _Coerce;
 
 -- | The domain for which you want to add or update tags.
 --

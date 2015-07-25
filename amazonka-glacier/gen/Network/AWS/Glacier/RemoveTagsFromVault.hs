@@ -74,7 +74,7 @@ removeTagsFromVault pAccountId_ pVaultName_ =
 
 -- | A list of tag keys. Each corresponding tag is removed from the vault.
 rtfvTagKeys :: Lens' RemoveTagsFromVault [Text]
-rtfvTagKeys = lens _rtfvTagKeys (\ s a -> s{_rtfvTagKeys = a}) . _Default;
+rtfvTagKeys = lens _rtfvTagKeys (\ s a -> s{_rtfvTagKeys = a}) . _Default . _Coerce;
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single

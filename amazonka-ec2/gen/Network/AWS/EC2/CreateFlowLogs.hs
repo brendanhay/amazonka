@@ -103,7 +103,7 @@ cflClientToken = lens _cflClientToken (\ s a -> s{_cflClientToken = a});
 
 -- | One or more subnet, network interface, or VPC IDs.
 cflResourceIds :: Lens' CreateFlowLogs [Text]
-cflResourceIds = lens _cflResourceIds (\ s a -> s{_cflResourceIds = a});
+cflResourceIds = lens _cflResourceIds (\ s a -> s{_cflResourceIds = a}) . _Coerce;
 
 -- | The type of resource on which to create the flow log.
 cflResourceType :: Lens' CreateFlowLogs FlowLogsResourceType
@@ -187,7 +187,7 @@ createFlowLogsResponse pStatus_ =
 
 -- | Information about the flow logs that could not be created successfully.
 cflrsUnsuccessful :: Lens' CreateFlowLogsResponse [UnsuccessfulItem]
-cflrsUnsuccessful = lens _cflrsUnsuccessful (\ s a -> s{_cflrsUnsuccessful = a}) . _Default;
+cflrsUnsuccessful = lens _cflrsUnsuccessful (\ s a -> s{_cflrsUnsuccessful = a}) . _Default . _Coerce;
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request.
@@ -196,7 +196,7 @@ cflrsClientToken = lens _cflrsClientToken (\ s a -> s{_cflrsClientToken = a});
 
 -- | The IDs of the flow logs.
 cflrsFlowLogIds :: Lens' CreateFlowLogsResponse [Text]
-cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _Default;
+cflrsFlowLogIds = lens _cflrsFlowLogIds (\ s a -> s{_cflrsFlowLogIds = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 cflrsStatus :: Lens' CreateFlowLogsResponse Int

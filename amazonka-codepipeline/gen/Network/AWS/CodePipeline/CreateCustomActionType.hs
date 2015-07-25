@@ -98,7 +98,7 @@ ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
 
 -- | The configuration properties for the custom action.
 ccatConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
-ccatConfigurationProperties = lens _ccatConfigurationProperties (\ s a -> s{_ccatConfigurationProperties = a}) . _Default;
+ccatConfigurationProperties = lens _ccatConfigurationProperties (\ s a -> s{_ccatConfigurationProperties = a}) . _Default . _Coerce;
 
 -- | The category of the custom action, such as a source action or a build
 -- action.

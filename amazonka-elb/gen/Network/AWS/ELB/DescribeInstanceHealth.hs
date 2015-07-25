@@ -69,7 +69,7 @@ describeInstanceHealth pLoadBalancerName_ =
 
 -- | The IDs of the instances.
 dihInstances :: Lens' DescribeInstanceHealth [Instance]
-dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a}) . _Default;
+dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a}) . _Default . _Coerce;
 
 -- | The name of the load balancer.
 dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
@@ -126,7 +126,7 @@ describeInstanceHealthResponse pStatus_ =
 
 -- | Information about the health of the instances.
 dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
-dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default;
+dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dihrsStatus :: Lens' DescribeInstanceHealthResponse Int

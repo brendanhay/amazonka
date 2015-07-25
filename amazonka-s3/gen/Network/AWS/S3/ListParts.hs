@@ -233,7 +233,7 @@ listPartsResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 lprsParts :: Lens' ListPartsResponse [Part]
-lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default;
+lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lprsRequestCharged :: Lens' ListPartsResponse (Maybe RequestCharged)

@@ -75,7 +75,7 @@ mcpgCacheParameterGroupName = lens _mcpgCacheParameterGroupName (\ s a -> s{_mcp
 -- must supply at least one parameter name and value; subsequent arguments
 -- are optional. A maximum of 20 parameters may be modified per request.
 mcpgParameterNameValues :: Lens' ModifyCacheParameterGroup [ParameterNameValue]
-mcpgParameterNameValues = lens _mcpgParameterNameValues (\ s a -> s{_mcpgParameterNameValues = a});
+mcpgParameterNameValues = lens _mcpgParameterNameValues (\ s a -> s{_mcpgParameterNameValues = a}) . _Coerce;
 
 instance AWSRequest ModifyCacheParameterGroup where
         type Sv ModifyCacheParameterGroup = ElastiCache

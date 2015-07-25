@@ -110,7 +110,7 @@ drdioProductDescription = lens _drdioProductDescription (\ s a -> s{_drdioProduc
 
 -- | This parameter is not currently supported.
 drdioFilters :: Lens' DescribeReservedDBInstancesOfferings [Filter]
-drdioFilters = lens _drdioFilters (\ s a -> s{_drdioFilters = a}) . _Default;
+drdioFilters = lens _drdioFilters (\ s a -> s{_drdioFilters = a}) . _Default . _Coerce;
 
 -- | The DB instance class filter value. Specify this parameter to show only
 -- the available offerings matching the specified DB instance class.
@@ -249,7 +249,7 @@ drdiorsMarker = lens _drdiorsMarker (\ s a -> s{_drdiorsMarker = a});
 
 -- | A list of reserved DB instance offerings.
 drdiorsReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
-drdiorsReservedDBInstancesOfferings = lens _drdiorsReservedDBInstancesOfferings (\ s a -> s{_drdiorsReservedDBInstancesOfferings = a}) . _Default;
+drdiorsReservedDBInstancesOfferings = lens _drdiorsReservedDBInstancesOfferings (\ s a -> s{_drdiorsReservedDBInstancesOfferings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drdiorsStatus :: Lens' DescribeReservedDBInstancesOfferingsResponse Int

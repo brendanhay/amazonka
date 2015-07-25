@@ -89,7 +89,7 @@ getIdentityDkimAttributes =
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
-gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a});
+gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a}) . _Coerce;
 
 instance AWSRequest GetIdentityDkimAttributes where
         type Sv GetIdentityDkimAttributes = SES

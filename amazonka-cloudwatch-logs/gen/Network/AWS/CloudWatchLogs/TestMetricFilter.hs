@@ -127,7 +127,7 @@ testMetricFilterResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
-tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default;
+tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 tmfrsStatus :: Lens' TestMetricFilterResponse Int

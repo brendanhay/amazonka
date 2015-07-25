@@ -247,7 +247,7 @@ cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
 -- VPC. Clusters that are created in a VPC use VPC security groups, which
 -- are listed by the __VpcSecurityGroups__ parameter.
 cClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
-cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecurityGroups = a}) . _Default;
+cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The number of days that automatic cluster snapshots are retained.
 cAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
@@ -286,7 +286,7 @@ cClusterPublicKey = lens _cClusterPublicKey (\ s a -> s{_cClusterPublicKey = a})
 -- | The list of cluster parameter groups that are associated with this
 -- cluster. Each parameter group in the list is returned with its status.
 cClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
-cClusterParameterGroups = lens _cClusterParameterGroups (\ s a -> s{_cClusterParameterGroups = a}) . _Default;
+cClusterParameterGroups = lens _cClusterParameterGroups (\ s a -> s{_cClusterParameterGroups = a}) . _Default . _Coerce;
 
 -- | The name of the Availability Zone in which the cluster is located.
 cAvailabilityZone :: Lens' Cluster (Maybe Text)
@@ -296,7 +296,7 @@ cAvailabilityZone = lens _cAvailabilityZone (\ s a -> s{_cAvailabilityZone = a})
 -- associated with the cluster. This parameter is returned only if the
 -- cluster is in a VPC.
 cVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
-cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = a}) . _Default;
+cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key used
 -- to encrypt data in the cluster.
@@ -355,11 +355,11 @@ cDBName = lens _cDBName (\ s a -> s{_cDBName = a});
 
 -- | The list of tags for the cluster.
 cTags :: Lens' Cluster [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
 -- | The nodes in a cluster.
 cClusterNodes :: Lens' Cluster [ClusterNode]
-cClusterNodes = lens _cClusterNodes (\ s a -> s{_cClusterNodes = a}) . _Default;
+cClusterNodes = lens _cClusterNodes (\ s a -> s{_cClusterNodes = a}) . _Default . _Coerce;
 
 instance FromXML Cluster where
         parseXML x
@@ -495,7 +495,7 @@ cpgParameterGroupName = lens _cpgParameterGroupName (\ s a -> s{_cpgParameterGro
 
 -- | The list of tags for the cluster parameter group.
 cpgTags :: Lens' ClusterParameterGroup [Tag]
-cpgTags = lens _cpgTags (\ s a -> s{_cpgTags = a}) . _Default;
+cpgTags = lens _cpgTags (\ s a -> s{_cpgTags = a}) . _Default . _Coerce;
 
 instance FromXML ClusterParameterGroup where
         parseXML x
@@ -580,7 +580,7 @@ clusterParameterGroupStatus =
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>
 -- in the /Amazon Redshift Cluster Management Guide/.
 cpgsClusterParameterStatusList :: Lens' ClusterParameterGroupStatus [ClusterParameterStatus]
-cpgsClusterParameterStatusList = lens _cpgsClusterParameterStatusList (\ s a -> s{_cpgsClusterParameterStatusList = a}) . _Default;
+cpgsClusterParameterStatusList = lens _cpgsClusterParameterStatusList (\ s a -> s{_cpgsClusterParameterStatusList = a}) . _Default . _Coerce;
 
 -- | The status of parameter updates.
 cpgsParameterApplyStatus :: Lens' ClusterParameterGroupStatus (Maybe Text)
@@ -703,12 +703,12 @@ cluClusterSecurityGroupName = lens _cluClusterSecurityGroupName (\ s a -> s{_clu
 -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
 -- associated with this cluster security group.
 cluIPRanges :: Lens' ClusterSecurityGroup [IPRange]
-cluIPRanges = lens _cluIPRanges (\ s a -> s{_cluIPRanges = a}) . _Default;
+cluIPRanges = lens _cluIPRanges (\ s a -> s{_cluIPRanges = a}) . _Default . _Coerce;
 
 -- | A list of EC2 security groups that are permitted to access clusters
 -- associated with this cluster security group.
 cluEC2SecurityGroups :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
-cluEC2SecurityGroups = lens _cluEC2SecurityGroups (\ s a -> s{_cluEC2SecurityGroups = a}) . _Default;
+cluEC2SecurityGroups = lens _cluEC2SecurityGroups (\ s a -> s{_cluEC2SecurityGroups = a}) . _Default . _Coerce;
 
 -- | A description of the security group.
 cluDescription :: Lens' ClusterSecurityGroup (Maybe Text)
@@ -716,7 +716,7 @@ cluDescription = lens _cluDescription (\ s a -> s{_cluDescription = a});
 
 -- | The list of tags for the cluster security group.
 cluTags :: Lens' ClusterSecurityGroup [Tag]
-cluTags = lens _cluTags (\ s a -> s{_cluTags = a}) . _Default;
+cluTags = lens _cluTags (\ s a -> s{_cluTags = a}) . _Default . _Coerce;
 
 instance FromXML ClusterSecurityGroup where
         parseXML x
@@ -860,7 +860,7 @@ csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
 -- | A list of the VPC Subnet elements.
 csgSubnets :: Lens' ClusterSubnetGroup [Subnet]
-csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default;
+csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default . _Coerce;
 
 -- | The name of the cluster subnet group.
 csgClusterSubnetGroupName :: Lens' ClusterSubnetGroup (Maybe Text)
@@ -877,7 +877,7 @@ csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 
 -- | The list of tags for the cluster subnet group.
 csgTags :: Lens' ClusterSubnetGroup [Tag]
-csgTags = lens _csgTags (\ s a -> s{_csgTags = a}) . _Default;
+csgTags = lens _csgTags (\ s a -> s{_csgTags = a}) . _Default . _Coerce;
 
 instance FromXML ClusterSubnetGroup where
         parseXML x
@@ -966,7 +966,7 @@ defaultClusterParameters =
 
 -- | The list of cluster default parameters.
 dcpParameters :: Lens' DefaultClusterParameters [Parameter]
-dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a}) . _Default;
+dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -1035,7 +1035,7 @@ esgEC2SecurityGroupName = lens _esgEC2SecurityGroupName (\ s a -> s{_esgEC2Secur
 
 -- | The list of tags for the EC2 security group.
 esgTags :: Lens' EC2SecurityGroup [Tag]
-esgTags = lens _esgTags (\ s a -> s{_esgTags = a}) . _Default;
+esgTags = lens _esgTags (\ s a -> s{_esgTags = a}) . _Default . _Coerce;
 
 instance FromXML EC2SecurityGroup where
         parseXML x
@@ -1180,7 +1180,7 @@ eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
 --
 -- Values: Configuration, Management, Monitoring, Security
 eEventCategories :: Lens' Event [Text]
-eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default;
+eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default . _Coerce;
 
 -- | The text of this event.
 eMessage :: Lens' Event (Maybe Text)
@@ -1229,7 +1229,7 @@ ecmSourceType = lens _ecmSourceType (\ s a -> s{_ecmSourceType = a});
 
 -- | The events in the event category.
 ecmEvents :: Lens' EventCategoriesMap [EventInfoMap]
-ecmEvents = lens _ecmEvents (\ s a -> s{_ecmEvents = a}) . _Default;
+ecmEvents = lens _ecmEvents (\ s a -> s{_ecmEvents = a}) . _Default . _Coerce;
 
 instance FromXML EventCategoriesMap where
         parseXML x
@@ -1278,7 +1278,7 @@ eimSeverity = lens _eimSeverity (\ s a -> s{_eimSeverity = a});
 
 -- | The category of an Amazon Redshift event.
 eimEventCategories :: Lens' EventInfoMap [Text]
-eimEventCategories = lens _eimEventCategories (\ s a -> s{_eimEventCategories = a}) . _Default;
+eimEventCategories = lens _eimEventCategories (\ s a -> s{_eimEventCategories = a}) . _Default . _Coerce;
 
 -- | The identifier of an Amazon Redshift event.
 eimEventId :: Lens' EventInfoMap (Maybe Text)
@@ -1402,16 +1402,16 @@ esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSub
 --
 -- Values: Configuration, Management, Monitoring, Security
 esEventCategoriesList :: Lens' EventSubscription [Text]
-esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default;
+esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default . _Coerce;
 
 -- | A list of the sources that publish events to the Amazon Redshift event
 -- notification subscription.
 esSourceIdsList :: Lens' EventSubscription [Text]
-esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default;
+esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default . _Coerce;
 
 -- | The list of tags for the event subscription.
 esTags :: Lens' EventSubscription [Tag]
-esTags = lens _esTags (\ s a -> s{_esTags = a}) . _Default;
+esTags = lens _esTags (\ s a -> s{_esTags = a}) . _Default . _Coerce;
 
 instance FromXML EventSubscription where
         parseXML x
@@ -1472,7 +1472,7 @@ hccHSMClientCertificatePublicKey = lens _hccHSMClientCertificatePublicKey (\ s a
 
 -- | The list of tags for the HSM client certificate.
 hccTags :: Lens' HSMClientCertificate [Tag]
-hccTags = lens _hccTags (\ s a -> s{_hccTags = a}) . _Default;
+hccTags = lens _hccTags (\ s a -> s{_hccTags = a}) . _Default . _Coerce;
 
 instance FromXML HSMClientCertificate where
         parseXML x
@@ -1539,7 +1539,7 @@ hcHSMIPAddress = lens _hcHSMIPAddress (\ s a -> s{_hcHSMIPAddress = a});
 
 -- | The list of tags for the HSM configuration.
 hcTags :: Lens' HSMConfiguration [Tag]
-hcTags = lens _hcTags (\ s a -> s{_hcTags = a}) . _Default;
+hcTags = lens _hcTags (\ s a -> s{_hcTags = a}) . _Default . _Coerce;
 
 instance FromXML HSMConfiguration where
         parseXML x
@@ -1639,7 +1639,7 @@ irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
 
 -- | The list of tags for the IP range.
 irTags :: Lens' IPRange [Tag]
-irTags = lens _irTags (\ s a -> s{_irTags = a}) . _Default;
+irTags = lens _irTags (\ s a -> s{_irTags = a}) . _Default . _Coerce;
 
 instance FromXML IPRange where
         parseXML x
@@ -1752,7 +1752,7 @@ orderableClusterOption =
 
 -- | A list of availability zones for the orderable cluster.
 ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
-ocoAvailabilityZones = lens _ocoAvailabilityZones (\ s a -> s{_ocoAvailabilityZones = a}) . _Default;
+ocoAvailabilityZones = lens _ocoAvailabilityZones (\ s a -> s{_ocoAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The cluster type, for example @multi-node@.
 ocoClusterType :: Lens' OrderableClusterOption (Maybe Text)
@@ -2122,7 +2122,7 @@ rnNodeType = lens _rnNodeType (\ s a -> s{_rnNodeType = a});
 
 -- | The recurring charges for the reserved node.
 rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
-rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a}) . _Default;
+rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The fixed cost Amazon Redshift charges you for this reserved node.
 rnFixedPrice :: Lens' ReservedNode (Maybe Double)
@@ -2221,7 +2221,7 @@ rnoNodeType = lens _rnoNodeType (\ s a -> s{_rnoNodeType = a});
 -- clusters using the node offering. Recurring charges are only in effect
 -- for heavy-utilization reserved nodes.
 rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
-rnoRecurringCharges = lens _rnoRecurringCharges (\ s a -> s{_rnoRecurringCharges = a}) . _Default;
+rnoRecurringCharges = lens _rnoRecurringCharges (\ s a -> s{_rnoRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The upfront fixed charge you will pay to purchase the specific reserved
 -- node offering.
@@ -2453,7 +2453,7 @@ snapshot =
 -- | The list of node types that this cluster snapshot is able to restore
 -- into.
 sRestorableNodeTypes :: Lens' Snapshot [Text]
-sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTypes = a}) . _Default;
+sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTypes = a}) . _Default . _Coerce;
 
 -- | The snapshot status. The value of the status depends on the API
 -- operation used.
@@ -2470,7 +2470,7 @@ sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 -- Returns @null@ if no accounts are authorized. Visible only to the
 -- snapshot owner.
 sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
-sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAccountsWithRestoreAccess = a}) . _Default;
+sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAccountsWithRestoreAccess = a}) . _Default . _Coerce;
 
 -- | The snapshot identifier that is provided in the request.
 sSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
@@ -2578,7 +2578,7 @@ sDBName = lens _sDBName (\ s a -> s{_sDBName = a});
 
 -- | The list of tags for the cluster snapshot.
 sTags :: Lens' Snapshot [Tag]
-sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default;
+sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 
 -- | The size of the incremental backup.
 sActualIncrementalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
@@ -2668,7 +2668,7 @@ scgSnapshotCopyGrantName = lens _scgSnapshotCopyGrantName (\ s a -> s{_scgSnapsh
 
 -- | A list of tag instances.
 scgTags :: Lens' SnapshotCopyGrant [Tag]
-scgTags = lens _scgTags (\ s a -> s{_scgTags = a}) . _Default;
+scgTags = lens _scgTags (\ s a -> s{_scgTags = a}) . _Default . _Coerce;
 
 instance FromXML SnapshotCopyGrant where
         parseXML x

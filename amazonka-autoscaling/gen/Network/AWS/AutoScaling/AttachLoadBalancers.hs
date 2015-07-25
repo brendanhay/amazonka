@@ -77,7 +77,7 @@ albAutoScalingGroupName = lens _albAutoScalingGroupName (\ s a -> s{_albAutoScal
 
 -- | One or more load balancer names.
 albLoadBalancerNames :: Lens' AttachLoadBalancers [Text]
-albLoadBalancerNames = lens _albLoadBalancerNames (\ s a -> s{_albLoadBalancerNames = a}) . _Default;
+albLoadBalancerNames = lens _albLoadBalancerNames (\ s a -> s{_albLoadBalancerNames = a}) . _Default . _Coerce;
 
 instance AWSRequest AttachLoadBalancers where
         type Sv AttachLoadBalancers = AutoScaling

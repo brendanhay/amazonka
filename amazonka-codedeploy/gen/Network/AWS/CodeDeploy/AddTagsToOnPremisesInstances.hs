@@ -68,11 +68,11 @@ addTagsToOnPremisesInstances =
 -- Keys and values are both required. Keys cannot be nulls or empty
 -- strings. Value-only tags are not allowed.
 attopiTags :: Lens' AddTagsToOnPremisesInstances [Tag]
-attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a});
+attopiTags = lens _attopiTags (\ s a -> s{_attopiTags = a}) . _Coerce;
 
 -- | The names of the on-premises instances to add tags to.
 attopiInstanceNames :: Lens' AddTagsToOnPremisesInstances [Text]
-attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames = a});
+attopiInstanceNames = lens _attopiInstanceNames (\ s a -> s{_attopiInstanceNames = a}) . _Coerce;
 
 instance AWSRequest AddTagsToOnPremisesInstances
          where

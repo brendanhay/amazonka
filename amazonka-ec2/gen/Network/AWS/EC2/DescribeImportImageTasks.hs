@@ -83,11 +83,11 @@ describeImportImageTasks =
 
 -- | One or more filters.
 diitFilters :: Lens' DescribeImportImageTasks [Filter]
-diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default;
+diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default . _Coerce;
 
 -- | A list of import image task IDs.
 diitImportTaskIds :: Lens' DescribeImportImageTasks [Text]
-diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a}) . _Default;
+diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a}) . _Default . _Coerce;
 
 -- | A token that indicates the next page of results.
 diitNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
@@ -164,7 +164,7 @@ describeImportImageTasksResponse pStatus_ =
 -- | A list of zero or more import image tasks that are currently active or
 -- were completed or canceled in the previous 7 days.
 diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
-diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default;
+diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default . _Coerce;
 
 -- | The token to use to get the next page of results. This value is @null@
 -- when there are no more results to return.

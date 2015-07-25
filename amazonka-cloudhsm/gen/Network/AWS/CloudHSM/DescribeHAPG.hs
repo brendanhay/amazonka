@@ -176,7 +176,7 @@ dhapgrsLastModifiedTimestamp = lens _dhapgrsLastModifiedTimestamp (\ s a -> s{_d
 
 -- | FIXME: Undocumented member.
 dhapgrsHSMsPendingRegistration :: Lens' DescribeHAPGResponse [Text]
-dhapgrsHSMsPendingRegistration = lens _dhapgrsHSMsPendingRegistration (\ s a -> s{_dhapgrsHSMsPendingRegistration = a}) . _Default;
+dhapgrsHSMsPendingRegistration = lens _dhapgrsHSMsPendingRegistration (\ s a -> s{_dhapgrsHSMsPendingRegistration = a}) . _Default . _Coerce;
 
 -- | The serial number of the high-availability partition group.
 dhapgrsHAPGSerial :: Lens' DescribeHAPGResponse (Maybe Text)
@@ -184,16 +184,16 @@ dhapgrsHAPGSerial = lens _dhapgrsHAPGSerial (\ s a -> s{_dhapgrsHAPGSerial = a})
 
 -- | FIXME: Undocumented member.
 dhapgrsHSMsPendingDeletion :: Lens' DescribeHAPGResponse [Text]
-dhapgrsHSMsPendingDeletion = lens _dhapgrsHSMsPendingDeletion (\ s a -> s{_dhapgrsHSMsPendingDeletion = a}) . _Default;
+dhapgrsHSMsPendingDeletion = lens _dhapgrsHSMsPendingDeletion (\ s a -> s{_dhapgrsHSMsPendingDeletion = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dhapgrsHSMsLastActionFailed :: Lens' DescribeHAPGResponse [Text]
-dhapgrsHSMsLastActionFailed = lens _dhapgrsHSMsLastActionFailed (\ s a -> s{_dhapgrsHSMsLastActionFailed = a}) . _Default;
+dhapgrsHSMsLastActionFailed = lens _dhapgrsHSMsLastActionFailed (\ s a -> s{_dhapgrsHSMsLastActionFailed = a}) . _Default . _Coerce;
 
 -- | The list of partition serial numbers that belong to the
 -- high-availability partition group.
 dhapgrsPartitionSerialList :: Lens' DescribeHAPGResponse [Text]
-dhapgrsPartitionSerialList = lens _dhapgrsPartitionSerialList (\ s a -> s{_dhapgrsPartitionSerialList = a}) . _Default;
+dhapgrsPartitionSerialList = lens _dhapgrsPartitionSerialList (\ s a -> s{_dhapgrsPartitionSerialList = a}) . _Default . _Coerce;
 
 -- | The ARN of the high-availability partition group.
 dhapgrsHAPGARN :: Lens' DescribeHAPGResponse (Maybe Text)

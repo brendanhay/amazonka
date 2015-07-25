@@ -112,7 +112,8 @@ test-suite tests
     ghc-options:       -Wall -threaded
 
     other-modules:
-          Test.AWS.Data.Numeric
+          Test.AWS.Data.Base64
+        , Test.AWS.Data.Numeric
         , Test.AWS.Data.List
         , Test.AWS.Data.Time
         , Test.AWS.Util
@@ -121,6 +122,8 @@ test-suite tests
           aeson
         , amazonka-core
         , base
+        , bytestring
+        , http-types
         , tasty
         , tasty-hunit
         , template-haskell

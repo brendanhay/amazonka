@@ -155,7 +155,7 @@ dwsrsGatewayARN = lens _dwsrsGatewayARN (\ s a -> s{_dwsrsGatewayARN = a});
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
 dwsrsDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
-dwsrsDiskIds = lens _dwsrsDiskIds (\ s a -> s{_dwsrsDiskIds = a}) . _Default;
+dwsrsDiskIds = lens _dwsrsDiskIds (\ s a -> s{_dwsrsDiskIds = a}) . _Default . _Coerce;
 
 -- | The total working storage in bytes allocated for the gateway. If no
 -- working storage is configured for the gateway, this field returns 0.

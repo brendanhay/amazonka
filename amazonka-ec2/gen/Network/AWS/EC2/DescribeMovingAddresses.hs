@@ -85,7 +85,7 @@ describeMovingAddresses =
 
 -- | One or more Elastic IP addresses.
 dmaPublicIPs :: Lens' DescribeMovingAddresses [Text]
-dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default;
+dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -93,7 +93,7 @@ dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default;
 --     (@MovingToVpc@ | @RestoringToClassic@).
 --
 dmaFilters :: Lens' DescribeMovingAddresses [Filter]
-dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default;
+dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default . _Coerce;
 
 -- | The token to use to retrieve the next page of results.
 dmaNextToken :: Lens' DescribeMovingAddresses (Maybe Text)
@@ -173,7 +173,7 @@ describeMovingAddressesResponse pStatus_ =
 
 -- | The status for each Elastic IP address.
 dmarsMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddressStatus]
-dmarsMovingAddressStatuses = lens _dmarsMovingAddressStatuses (\ s a -> s{_dmarsMovingAddressStatuses = a}) . _Default;
+dmarsMovingAddressStatuses = lens _dmarsMovingAddressStatuses (\ s a -> s{_dmarsMovingAddressStatuses = a}) . _Default . _Coerce;
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.

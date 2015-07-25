@@ -130,7 +130,7 @@ describeNetworkACLs =
 -- -   @vpc-id@ - The ID of the VPC for the network ACL.
 --
 dnaclFilters :: Lens' DescribeNetworkACLs [Filter]
-dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a}) . _Default;
+dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -143,7 +143,7 @@ dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
 --
 -- Default: Describes all your network ACLs.
 dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
-dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default;
+dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeNetworkACLs where
         type Sv DescribeNetworkACLs = EC2
@@ -195,7 +195,7 @@ describeNetworkACLsResponse pStatus_ =
 
 -- | Information about one or more network ACLs.
 dnarsNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
-dnarsNetworkACLs = lens _dnarsNetworkACLs (\ s a -> s{_dnarsNetworkACLs = a}) . _Default;
+dnarsNetworkACLs = lens _dnarsNetworkACLs (\ s a -> s{_dnarsNetworkACLs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dnarsStatus :: Lens' DescribeNetworkACLsResponse Int

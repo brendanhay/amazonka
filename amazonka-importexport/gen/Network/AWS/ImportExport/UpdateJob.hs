@@ -176,7 +176,7 @@ ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = 
 
 -- | FIXME: Undocumented member.
 ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
-ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default;
+ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ujrsStatus :: Lens' UpdateJobResponse Int

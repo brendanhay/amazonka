@@ -135,7 +135,7 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
 -- | A list of application names.
 larsApplications :: Lens' ListApplicationsResponse [Text]
-larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default;
+larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 larsStatus :: Lens' ListApplicationsResponse Int

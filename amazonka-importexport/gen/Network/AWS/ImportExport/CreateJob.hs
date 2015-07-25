@@ -209,7 +209,7 @@ cjrsWarningMessage = lens _cjrsWarningMessage (\ s a -> s{_cjrsWarningMessage = 
 
 -- | FIXME: Undocumented member.
 cjrsArtifactList :: Lens' CreateJobResponse [Artifact]
-cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default;
+cjrsArtifactList = lens _cjrsArtifactList (\ s a -> s{_cjrsArtifactList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 cjrsStatus :: Lens' CreateJobResponse Int

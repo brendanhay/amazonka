@@ -108,7 +108,7 @@ udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeployme
 -- | The replacement set of Amazon EC2 tags to filter on, if you want to
 -- change them.
 udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
-udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default;
+udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default . _Coerce;
 
 -- | The new name of the deployment group, if you want to change it.
 udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
@@ -117,12 +117,12 @@ udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewD
 -- | The replacement set of on-premises instance tags for filter on, if you
 -- want to change them.
 udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
-udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a}) . _Default;
+udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a}) . _Default . _Coerce;
 
 -- | The replacement list of Auto Scaling groups to be included in the
 -- deployment group, if you want to change them.
 udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
-udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default;
+udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default . _Coerce;
 
 -- | The application name corresponding to the deployment group to update.
 udgApplicationName :: Lens' UpdateDeploymentGroup Text
@@ -203,7 +203,7 @@ updateDeploymentGroupResponse pStatus_ =
 -- AWS account. If the output does contain data, AWS CodeDeploy could not
 -- remove some Auto Scaling lifecycle event hooks from the AWS account.
 udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
-udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default;
+udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 udgrsStatus :: Lens' UpdateDeploymentGroupResponse Int

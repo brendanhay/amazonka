@@ -148,7 +148,7 @@ larsTruncated = lens _larsTruncated (\ s a -> s{_larsTruncated = a});
 
 -- | A list of key aliases in the user\'s account.
 larsAliases :: Lens' ListAliasesResponse [AliasListEntry]
-larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default;
+larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce;
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination

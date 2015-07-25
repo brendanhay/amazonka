@@ -142,7 +142,7 @@ lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a});
 
 -- | Information about the uploads.
 lursUploads :: Lens' ListUploadsResponse [Upload]
-lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default;
+lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lursStatus :: Lens' ListUploadsResponse Int

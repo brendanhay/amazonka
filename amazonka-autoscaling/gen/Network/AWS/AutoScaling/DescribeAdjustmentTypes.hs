@@ -99,7 +99,7 @@ describeAdjustmentTypesResponse pStatus_ =
 
 -- | The policy adjustment types.
 datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
-datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default;
+datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 datrsStatus :: Lens' DescribeAdjustmentTypesResponse Int

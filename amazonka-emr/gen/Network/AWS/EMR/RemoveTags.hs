@@ -78,7 +78,7 @@ rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
 
 -- | A list of tag keys to remove from a resource.
 rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a});
+rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce;
 
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = EMR

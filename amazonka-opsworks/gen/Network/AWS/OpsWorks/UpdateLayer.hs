@@ -152,7 +152,7 @@ ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpda
 
 -- | An array containing the layer\'s custom security group IDs.
 ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
-ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomSecurityGroupIds = a}) . _Default;
+ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- |
 ulLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
@@ -178,7 +178,7 @@ ulCustomRecipes = lens _ulCustomRecipes (\ s a -> s{_ulCustomRecipes = a});
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
 ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
-ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default;
+ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default . _Coerce;
 
 -- | Whether to disable auto healing for the layer.
 ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
@@ -186,7 +186,7 @@ ulEnableAutoHealing = lens _ulEnableAutoHealing (\ s a -> s{_ulEnableAutoHealing
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
 ulPackages :: Lens' UpdateLayer [Text]
-ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a}) . _Default;
+ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a}) . _Default . _Coerce;
 
 -- | The layer name, which is used by the console.
 ulName :: Lens' UpdateLayer (Maybe Text)

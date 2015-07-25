@@ -84,7 +84,7 @@ csirDryRun = lens _csirDryRun (\ s a -> s{_csirDryRun = a});
 
 -- | One or more Spot Instance request IDs.
 csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
-csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirSpotInstanceRequestIds = a});
+csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirSpotInstanceRequestIds = a}) . _Coerce;
 
 instance AWSRequest CancelSpotInstanceRequests where
         type Sv CancelSpotInstanceRequests = EC2
@@ -139,7 +139,7 @@ cancelSpotInstanceRequestsResponse pStatus_ =
 
 -- | One or more Spot Instance requests.
 csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
-csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\ s a -> s{_csirrsCancelledSpotInstanceRequests = a}) . _Default;
+csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\ s a -> s{_csirrsCancelledSpotInstanceRequests = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 csirrsStatus :: Lens' CancelSpotInstanceRequestsResponse Int

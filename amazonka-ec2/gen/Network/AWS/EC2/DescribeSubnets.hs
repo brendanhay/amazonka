@@ -77,7 +77,7 @@ describeSubnets =
 --
 -- Default: Describes all your subnets.
 dsSubnetIds :: Lens' DescribeSubnets [Text]
-dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default;
+dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -117,7 +117,7 @@ dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default;
 -- -   @vpc-id@ - The ID of the VPC for the subnet.
 --
 dsFilters :: Lens' DescribeSubnets [Filter]
-dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a}) . _Default;
+dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -175,7 +175,7 @@ describeSubnetsResponse pStatus_ =
 
 -- | Information about one or more subnets.
 dsrsSubnets :: Lens' DescribeSubnetsResponse [Subnet]
-dsrsSubnets = lens _dsrsSubnets (\ s a -> s{_dsrsSubnets = a}) . _Default;
+dsrsSubnets = lens _dsrsSubnets (\ s a -> s{_dsrsSubnets = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsrsStatus :: Lens' DescribeSubnetsResponse Int

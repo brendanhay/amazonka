@@ -74,7 +74,7 @@ describeLoadBalancerPolicies =
 
 -- | The names of the policies.
 dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
-dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a}) . _Default;
+dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a}) . _Default . _Coerce;
 
 -- | The name of the load balancer.
 dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
@@ -133,7 +133,7 @@ describeLoadBalancerPoliciesResponse pStatus_ =
 
 -- | Information about the policies.
 dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
-dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default;
+dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlbprsStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int

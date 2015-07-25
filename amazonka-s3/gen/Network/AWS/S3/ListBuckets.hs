@@ -100,7 +100,7 @@ listBucketsResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 lbrsBuckets :: Lens' ListBucketsResponse [Bucket]
-lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default;
+lbrsBuckets = lens _lbrsBuckets (\ s a -> s{_lbrsBuckets = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lbrsOwner :: Lens' ListBucketsResponse (Maybe Owner)

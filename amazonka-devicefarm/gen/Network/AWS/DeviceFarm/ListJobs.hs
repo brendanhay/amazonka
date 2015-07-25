@@ -136,7 +136,7 @@ listJobsResponse pStatus_ =
 
 -- | Information about the jobs.
 ljrsJobs :: Lens' ListJobsResponse [Job]
-ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default;
+ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent

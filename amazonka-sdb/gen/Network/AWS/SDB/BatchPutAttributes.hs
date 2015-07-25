@@ -114,7 +114,7 @@ bpaDomainName = lens _bpaDomainName (\ s a -> s{_bpaDomainName = a});
 
 -- | A list of items on which to perform the operation.
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
-bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a});
+bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a}) . _Coerce;
 
 instance AWSRequest BatchPutAttributes where
         type Sv BatchPutAttributes = SDB

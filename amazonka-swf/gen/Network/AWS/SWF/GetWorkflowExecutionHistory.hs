@@ -227,4 +227,4 @@ gwehrsStatus = lens _gwehrsStatus (\ s a -> s{_gwehrsStatus = a});
 
 -- | The list of history events.
 gwehrsEvents :: Lens' GetWorkflowExecutionHistoryResponse [HistoryEvent]
-gwehrsEvents = lens _gwehrsEvents (\ s a -> s{_gwehrsEvents = a});
+gwehrsEvents = lens _gwehrsEvents (\ s a -> s{_gwehrsEvents = a}) . _Coerce;

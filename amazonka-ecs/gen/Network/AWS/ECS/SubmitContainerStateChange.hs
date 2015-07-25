@@ -94,7 +94,7 @@ submitContainerStateChange =
 
 -- | The network bindings of the container.
 scscNetworkBindings :: Lens' SubmitContainerStateChange [NetworkBinding]
-scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings = a}) . _Default;
+scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings = a}) . _Default . _Coerce;
 
 -- | The status of the state change request.
 scscStatus :: Lens' SubmitContainerStateChange (Maybe Text)

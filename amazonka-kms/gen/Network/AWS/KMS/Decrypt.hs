@@ -76,12 +76,12 @@ data Decrypt = Decrypt'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Decrypt' smart constructor.
-decrypt :: Base64 -> Decrypt
+decrypt :: ByteString -> Decrypt
 decrypt pCiphertextBlob_ =
     Decrypt'
     { _dEncryptionContext = Nothing
     , _dGrantTokens = Nothing
-    , _dCiphertextBlob = pCiphertextBlob_
+    , _dCiphertextBlob = _Base64 # pCiphertextBlob_
     }
 
 -- | The encryption context. If this was specified in the Encrypt function,
@@ -94,11 +94,11 @@ dEncryptionContext = lens _dEncryptionContext (\ s a -> s{_dEncryptionContext = 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 dGrantTokens :: Lens' Decrypt [Text]
-dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default;
+dGrantTokens = lens _dGrantTokens (\ s a -> s{_dGrantTokens = a}) . _Default . _Coerce;
 
 -- | Ciphertext to be decrypted. The blob includes metadata.
-dCiphertextBlob :: Lens' Decrypt Base64
-dCiphertextBlob = lens _dCiphertextBlob (\ s a -> s{_dCiphertextBlob = a});
+dCiphertextBlob :: Lens' Decrypt ByteString
+dCiphertextBlob = lens _dCiphertextBlob (\ s a -> s{_dCiphertextBlob = a}) . _Base64;
 
 instance AWSRequest Decrypt where
         type Sv Decrypt = KMS
@@ -164,8 +164,8 @@ drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 
 -- | Decrypted plaintext data. This value may not be returned if the customer
 -- master key is not available or if you didn\'t have permission to use it.
-drsPlaintext :: Lens' DecryptResponse (Maybe Base64)
-drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping _Sensitive;
+drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
+drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping _Sensitive . _Base64;
 
 -- | FIXME: Undocumented member.
 drsStatus :: Lens' DecryptResponse Int

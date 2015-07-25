@@ -137,11 +137,11 @@ uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
 -- specified one or more environment variables, you cannot modify the
 -- stack\'s Chef version.
 uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
-uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default;
+uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default . _Coerce;
 
 -- | The app\'s data sources.
 uaDataSources :: Lens' UpdateApp [DataSource]
-uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default;
+uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default . _Coerce;
 
 -- | A @Source@ object that specifies the app repository.
 uaAppSource :: Lens' UpdateApp (Maybe Source)
@@ -163,7 +163,7 @@ uaType = lens _uaType (\ s a -> s{_uaType = a});
 -- | The app\'s virtual host settings, with multiple domains separated by
 -- commas. For example: @\'www.example.com, example.com\'@
 uaDomains :: Lens' UpdateApp [Text]
-uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a}) . _Default;
+uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a}) . _Default . _Coerce;
 
 -- | A description of the app.
 uaDescription :: Lens' UpdateApp (Maybe Text)

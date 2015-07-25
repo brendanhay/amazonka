@@ -88,7 +88,7 @@ mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGro
 
 -- | The EC2 subnet IDs for the DB subnet group.
 mdsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
-mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a});
+mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest ModifyDBSubnetGroup where
         type Sv ModifyDBSubnetGroup = RDS

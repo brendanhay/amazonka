@@ -144,4 +144,4 @@ lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
 -- | A list of @ResourceTagSet@s containing tags associated with the
 -- specified resources.
 lrsResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
-lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a});
+lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a}) . _Coerce;

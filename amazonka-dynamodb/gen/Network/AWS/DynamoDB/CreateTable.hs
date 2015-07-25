@@ -147,7 +147,7 @@ createTable pTableName_ pKeySchema_ pProvisionedThroughput_ =
 --     units.
 --
 ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
-ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a}) . _Default;
+ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a}) . _Default . _Coerce;
 
 -- | One or more local secondary indexes (the maximum is five) to be created
 -- on the table. Each index is scoped to a given hash key value. There is a
@@ -188,7 +188,7 @@ ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalS
 --         counts as two distinct attributes when determining the total.
 --
 ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
-ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a}) . _Default;
+ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a}) . _Default . _Coerce;
 
 -- | The settings for DynamoDB Streams on the table. These settings consist
 -- of:
@@ -218,7 +218,7 @@ ctStreamSpecification = lens _ctStreamSpecification (\ s a -> s{_ctStreamSpecifi
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
 ctAttributeDefinitions :: Lens' CreateTable [AttributeDefinition]
-ctAttributeDefinitions = lens _ctAttributeDefinitions (\ s a -> s{_ctAttributeDefinitions = a});
+ctAttributeDefinitions = lens _ctAttributeDefinitions (\ s a -> s{_ctAttributeDefinitions = a}) . _Coerce;
 
 -- | The name of the table to create.
 ctTableName :: Lens' CreateTable Text

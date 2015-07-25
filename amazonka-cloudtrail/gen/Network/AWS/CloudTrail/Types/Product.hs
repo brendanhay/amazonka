@@ -71,7 +71,7 @@ eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
 
 -- | A list of resources referenced by the event returned.
 eResources :: Lens' Event [Resource]
-eResources = lens _eResources (\ s a -> s{_eResources = a}) . _Default;
+eResources = lens _eResources (\ s a -> s{_eResources = a}) . _Default . _Coerce;
 
 -- | A JSON string that contains a representation of the event returned.
 eCloudTrailEvent :: Lens' Event (Maybe Text)

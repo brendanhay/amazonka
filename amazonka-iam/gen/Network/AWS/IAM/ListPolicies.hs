@@ -217,7 +217,7 @@ lprsIsTruncated = lens _lprsIsTruncated (\ s a -> s{_lprsIsTruncated = a});
 
 -- | A list of policies.
 lprsPolicies :: Lens' ListPoliciesResponse [Policy]
-lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default;
+lprsPolicies = lens _lprsPolicies (\ s a -> s{_lprsPolicies = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lprsStatus :: Lens' ListPoliciesResponse Int

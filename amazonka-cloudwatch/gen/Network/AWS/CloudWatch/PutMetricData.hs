@@ -84,7 +84,7 @@ pmdNamespace = lens _pmdNamespace (\ s a -> s{_pmdNamespace = a});
 
 -- | A list of data describing the metric.
 pmdMetricData :: Lens' PutMetricData [MetricDatum]
-pmdMetricData = lens _pmdMetricData (\ s a -> s{_pmdMetricData = a});
+pmdMetricData = lens _pmdMetricData (\ s a -> s{_pmdMetricData = a}) . _Coerce;
 
 instance AWSRequest PutMetricData where
         type Sv PutMetricData = CloudWatch

@@ -123,7 +123,7 @@ paItemName = lens _paItemName (\ s a -> s{_paItemName = a});
 
 -- | The list of attributes.
 paAttributes :: Lens' PutAttributes [ReplaceableAttribute]
-paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a});
+paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Coerce;
 
 instance AWSRequest PutAttributes where
         type Sv PutAttributes = SDB

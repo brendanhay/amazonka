@@ -154,7 +154,7 @@ listJobsResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 ljrsJobs :: Lens' ListJobsResponse [Job]
-ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default;
+ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)

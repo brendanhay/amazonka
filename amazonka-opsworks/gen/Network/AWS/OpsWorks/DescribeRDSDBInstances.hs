@@ -72,7 +72,7 @@ describeRDSDBInstances pStackId_ =
 
 -- | An array containing the ARNs of the instances to be described.
 drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
-drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a}) . _Default;
+drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a}) . _Default . _Coerce;
 
 -- | The stack ID that the instances are registered with. The operation
 -- returns descriptions of all registered Amazon RDS instances.
@@ -137,7 +137,7 @@ describeRDSDBInstancesResponse pStatus_ =
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
 drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
-drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default;
+drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drdirsStatus :: Lens' DescribeRDSDBInstancesResponse Int

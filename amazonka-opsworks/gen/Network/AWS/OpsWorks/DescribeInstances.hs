@@ -81,7 +81,7 @@ describeInstances =
 -- @DescribeInstances@ returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
 diInstanceIds :: Lens' DescribeInstances [Text]
-diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default;
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default . _Coerce;
 
 -- | A stack ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified stack.
@@ -150,7 +150,7 @@ describeInstancesResponse pStatus_ =
 
 -- | An array of @Instance@ objects that describe the instances.
 dirsInstances :: Lens' DescribeInstancesResponse [Instance]
-dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default;
+dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dirsStatus :: Lens' DescribeInstancesResponse Int

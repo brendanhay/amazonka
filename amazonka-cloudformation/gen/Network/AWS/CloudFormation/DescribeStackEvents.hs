@@ -160,7 +160,7 @@ dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a});
 
 -- | A list of @StackEvents@ structures.
 dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
-dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default;
+dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsersStatus :: Lens' DescribeStackEventsResponse Int

@@ -71,7 +71,7 @@ getIdentityNotificationAttributes =
 -- @user\@example.com@, @example.com@,
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
-ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a});
+ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a}) . _Coerce;
 
 instance AWSRequest GetIdentityNotificationAttributes
          where

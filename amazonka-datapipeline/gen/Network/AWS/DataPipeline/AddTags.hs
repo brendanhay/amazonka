@@ -71,7 +71,7 @@ atPipelineId = lens _atPipelineId (\ s a -> s{_atPipelineId = a});
 
 -- | The tags to add, as key\/value pairs.
 atTags :: Lens' AddTags [Tag]
-atTags = lens _atTags (\ s a -> s{_atTags = a});
+atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 
 instance AWSRequest AddTags where
         type Sv AddTags = DataPipeline

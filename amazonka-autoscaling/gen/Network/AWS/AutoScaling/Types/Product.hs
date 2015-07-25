@@ -297,7 +297,7 @@ asgStatus = lens _asgStatus (\ s a -> s{_asgStatus = a});
 
 -- | The termination policies for the group.
 asgTerminationPolicies :: Lens' AutoScalingGroup [Text]
-asgTerminationPolicies = lens _asgTerminationPolicies (\ s a -> s{_asgTerminationPolicies = a}) . _Default;
+asgTerminationPolicies = lens _asgTerminationPolicies (\ s a -> s{_asgTerminationPolicies = a}) . _Default . _Coerce;
 
 -- | The amount of time that Auto Scaling waits before checking an
 -- instance\'s health status. The grace period begins when an instance
@@ -315,11 +315,11 @@ asgVPCZoneIdentifier = lens _asgVPCZoneIdentifier (\ s a -> s{_asgVPCZoneIdentif
 
 -- | The metrics enabled for the group.
 asgEnabledMetrics :: Lens' AutoScalingGroup [EnabledMetric]
-asgEnabledMetrics = lens _asgEnabledMetrics (\ s a -> s{_asgEnabledMetrics = a}) . _Default;
+asgEnabledMetrics = lens _asgEnabledMetrics (\ s a -> s{_asgEnabledMetrics = a}) . _Default . _Coerce;
 
 -- | The EC2 instances associated with the group.
 asgInstances :: Lens' AutoScalingGroup [Instance]
-asgInstances = lens _asgInstances (\ s a -> s{_asgInstances = a}) . _Default;
+asgInstances = lens _asgInstances (\ s a -> s{_asgInstances = a}) . _Default . _Coerce;
 
 -- | The Amazon Resource Name (ARN) of the group.
 asgAutoScalingGroupARN :: Lens' AutoScalingGroup (Maybe Text)
@@ -327,7 +327,7 @@ asgAutoScalingGroupARN = lens _asgAutoScalingGroupARN (\ s a -> s{_asgAutoScalin
 
 -- | The suspended processes associated with the group.
 asgSuspendedProcesses :: Lens' AutoScalingGroup [SuspendedProcess]
-asgSuspendedProcesses = lens _asgSuspendedProcesses (\ s a -> s{_asgSuspendedProcesses = a}) . _Default;
+asgSuspendedProcesses = lens _asgSuspendedProcesses (\ s a -> s{_asgSuspendedProcesses = a}) . _Default . _Coerce;
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
@@ -337,11 +337,11 @@ asgPlacementGroup = lens _asgPlacementGroup (\ s a -> s{_asgPlacementGroup = a})
 
 -- | One or more load balancers associated with the group.
 asgLoadBalancerNames :: Lens' AutoScalingGroup [Text]
-asgLoadBalancerNames = lens _asgLoadBalancerNames (\ s a -> s{_asgLoadBalancerNames = a}) . _Default;
+asgLoadBalancerNames = lens _asgLoadBalancerNames (\ s a -> s{_asgLoadBalancerNames = a}) . _Default . _Coerce;
 
 -- | The tags for the group.
 asgTags :: Lens' AutoScalingGroup [TagDescription]
-asgTags = lens _asgTags (\ s a -> s{_asgTags = a}) . _Default;
+asgTags = lens _asgTags (\ s a -> s{_asgTags = a}) . _Default . _Coerce;
 
 -- | The name of the group.
 asgAutoScalingGroupName :: Lens' AutoScalingGroup Text
@@ -725,7 +725,7 @@ filter' pName_ =
 
 -- | The value of the filter.
 fValues :: Lens' Filter [Text]
-fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default;
+fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default . _Coerce;
 
 -- | The name of the filter. The valid values are: @\"auto-scaling-group\"@,
 -- @\"key\"@, @\"value\"@, and @\"propagate-at-launch\"@.
@@ -924,7 +924,7 @@ launchConfiguration pLaunchConfigurationName_ pImageId_ pInstanceType_ pCreatedT
 
 -- | The security groups to associate with the instances.
 lcSecurityGroups :: Lens' LaunchConfiguration [Text]
-lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a}) . _Default;
+lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a}) . _Default . _Coerce;
 
 -- | Specifies whether the instances are associated with a public IP address
 -- (@true@) or not (@false@).
@@ -950,7 +950,7 @@ lcKeyName = lens _lcKeyName (\ s a -> s{_lcKeyName = a});
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration [Text]
-lcClassicLinkVPCSecurityGroups = lens _lcClassicLinkVPCSecurityGroups (\ s a -> s{_lcClassicLinkVPCSecurityGroups = a}) . _Default;
+lcClassicLinkVPCSecurityGroups = lens _lcClassicLinkVPCSecurityGroups (\ s a -> s{_lcClassicLinkVPCSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The ID of the RAM disk associated with the AMI.
 lcRAMDiskId :: Lens' LaunchConfiguration (Maybe Text)
@@ -995,7 +995,7 @@ lcPlacementTenancy = lens _lcPlacementTenancy (\ s a -> s{_lcPlacementTenancy = 
 -- | A block device mapping, which specifies the block devices for the
 -- instance.
 lcBlockDeviceMappings :: Lens' LaunchConfiguration [BlockDeviceMapping]
-lcBlockDeviceMappings = lens _lcBlockDeviceMappings (\ s a -> s{_lcBlockDeviceMappings = a}) . _Default;
+lcBlockDeviceMappings = lens _lcBlockDeviceMappings (\ s a -> s{_lcBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The name of the launch configuration.
 lcLaunchConfigurationName :: Lens' LaunchConfiguration Text
@@ -1482,7 +1482,7 @@ sPolicyType = lens _sPolicyType (\ s a -> s{_sPolicyType = a});
 -- | A set of adjustments that enable you to scale based on the size of the
 -- alarm breach.
 sStepAdjustments :: Lens' ScalingPolicy [StepAdjustment]
-sStepAdjustments = lens _sStepAdjustments (\ s a -> s{_sStepAdjustments = a}) . _Default;
+sStepAdjustments = lens _sStepAdjustments (\ s a -> s{_sStepAdjustments = a}) . _Default . _Coerce;
 
 -- | The adjustment type, which specifies how @ScalingAdjustment@ is
 -- interpreted. Valid values are @ChangeInCapacity@, @ExactCapacity@, and
@@ -1511,7 +1511,7 @@ sPolicyARN = lens _sPolicyARN (\ s a -> s{_sPolicyARN = a});
 
 -- | The CloudWatch alarms related to the policy.
 sAlarms :: Lens' ScalingPolicy [Alarm]
-sAlarms = lens _sAlarms (\ s a -> s{_sAlarms = a}) . _Default;
+sAlarms = lens _sAlarms (\ s a -> s{_sAlarms = a}) . _Default . _Coerce;
 
 -- | The aggregation type for the CloudWatch metrics. Valid values are
 -- @Minimum@, @Maximum@, and @Average@.
@@ -1585,7 +1585,7 @@ scalingProcessQuery pAutoScalingGroupName_ =
 -- -   @AddToLoadBalancer@
 --
 spqScalingProcesses :: Lens' ScalingProcessQuery [Text]
-spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses = a}) . _Default;
+spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses = a}) . _Default . _Coerce;
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 spqAutoScalingGroupName :: Lens' ScalingProcessQuery Text

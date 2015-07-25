@@ -75,7 +75,7 @@ dFileSystemId = lens _dFileSystemId (\ s a -> s{_dFileSystemId = a});
 
 -- | A list of tag keys to delete.
 dTagKeys :: Lens' DeleteTags [Text]
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a});
+dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Coerce;
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EFS

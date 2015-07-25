@@ -167,7 +167,7 @@ listContainerInstancesResponse pStatus_ =
 -- | The list of container instance full Amazon Resource Name (ARN) entries
 -- for each container instance associated with the specified cluster.
 lcirsContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
-lcirsContainerInstanceARNs = lens _lcirsContainerInstanceARNs (\ s a -> s{_lcirsContainerInstanceARNs = a}) . _Default;
+lcirsContainerInstanceARNs = lens _lcirsContainerInstanceARNs (\ s a -> s{_lcirsContainerInstanceARNs = a}) . _Default . _Coerce;
 
 -- | The @nextToken@ value to include in a future @ListContainerInstances@
 -- request. When the results of a @ListContainerInstances@ request exceed

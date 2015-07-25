@@ -111,7 +111,7 @@ describeVirtualGatewaysResponse pStatus_ =
 
 -- | A list of virtual private gateways.
 dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
-dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default;
+dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvgrsStatus :: Lens' DescribeVirtualGatewaysResponse Int

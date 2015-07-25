@@ -152,7 +152,7 @@ larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
 -- | The associations.
 larsAssociations :: Lens' ListAssociationsResponse [Association]
-larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default;
+larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 larsStatus :: Lens' ListAssociationsResponse Int

@@ -92,7 +92,7 @@ enableMetricsCollection pAutoScalingGroupName_ pGranularity_ =
 -- Note that the @GroupStandbyInstances@ metric is not enabled by default.
 -- You must explicitly request this metric.
 emcMetrics :: Lens' EnableMetricsCollection [Text]
-emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default;
+emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default . _Coerce;
 
 -- | The name or ARN of the Auto Scaling group.
 emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text

@@ -83,7 +83,7 @@ gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a});
 -- | A list of ARNs that identify the high-availability partition groups that
 -- are associated with the client.
 gcHAPGList :: Lens' GetConfig [Text]
-gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a});
+gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a}) . _Coerce;
 
 instance AWSRequest GetConfig where
         type Sv GetConfig = CloudHSM

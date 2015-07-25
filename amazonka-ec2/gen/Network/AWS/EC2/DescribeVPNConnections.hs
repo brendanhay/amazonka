@@ -117,13 +117,13 @@ describeVPNConnections =
 --     with the VPN connection.
 --
 dvpncFilters :: Lens' DescribeVPNConnections [Filter]
-dvpncFilters = lens _dvpncFilters (\ s a -> s{_dvpncFilters = a}) . _Default;
+dvpncFilters = lens _dvpncFilters (\ s a -> s{_dvpncFilters = a}) . _Default . _Coerce;
 
 -- | One or more VPN connection IDs.
 --
 -- Default: Describes your VPN connections.
 dvpncVPNConnectionIds :: Lens' DescribeVPNConnections [Text]
-dvpncVPNConnectionIds = lens _dvpncVPNConnectionIds (\ s a -> s{_dvpncVPNConnectionIds = a}) . _Default;
+dvpncVPNConnectionIds = lens _dvpncVPNConnectionIds (\ s a -> s{_dvpncVPNConnectionIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -185,7 +185,7 @@ describeVPNConnectionsResponse pStatus_ =
 
 -- | Information about one or more VPN connections.
 dvcrsVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
-dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections = a}) . _Default;
+dvcrsVPNConnections = lens _dvcrsVPNConnections (\ s a -> s{_dvcrsVPNConnections = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvcrsStatus :: Lens' DescribeVPNConnectionsResponse Int

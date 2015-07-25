@@ -76,7 +76,7 @@ dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a});
 -- | A space-separated list of container instance UUIDs or full Amazon
 -- Resource Name (ARN) entries.
 dciContainerInstances :: Lens' DescribeContainerInstances [Text]
-dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a});
+dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a}) . _Coerce;
 
 instance AWSRequest DescribeContainerInstances where
         type Sv DescribeContainerInstances = ECS
@@ -139,11 +139,11 @@ describeContainerInstancesResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 dcisrsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
-dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Default;
+dcisrsFailures = lens _dcisrsFailures (\ s a -> s{_dcisrsFailures = a}) . _Default . _Coerce;
 
 -- | The list of container instances.
 dcisrsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
-dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default;
+dcisrsContainerInstances = lens _dcisrsContainerInstances (\ s a -> s{_dcisrsContainerInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcisrsStatus :: Lens' DescribeContainerInstancesResponse Int

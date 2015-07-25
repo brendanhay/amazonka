@@ -156,7 +156,7 @@ lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
 -- | Lists the repositories called by the list repositories operation.
 lrrsRepositories :: Lens' ListRepositoriesResponse [RepositoryNameIdPair]
-lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default;
+lrrsRepositories = lens _lrrsRepositories (\ s a -> s{_lrrsRepositories = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lrrsStatus :: Lens' ListRepositoriesResponse Int

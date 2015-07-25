@@ -102,7 +102,7 @@ trOutputBucket = lens _trOutputBucket (\ s a -> s{_trOutputBucket = a});
 -- | The ARNs of one or more Amazon Simple Notification Service (Amazon SNS)
 -- topics that you want the action to send a test notification to.
 trTopics :: Lens' TestRole [Text]
-trTopics = lens _trTopics (\ s a -> s{_trTopics = a});
+trTopics = lens _trTopics (\ s a -> s{_trTopics = a}) . _Coerce;
 
 instance AWSRequest TestRole where
         type Sv TestRole = ElasticTranscoder
@@ -165,7 +165,7 @@ trrsSuccess = lens _trrsSuccess (\ s a -> s{_trrsSuccess = a});
 -- | If the @Success@ element contains @false@, this value is an array of one
 -- or more error messages that were generated during the test process.
 trrsMessages :: Lens' TestRoleResponse [Text]
-trrsMessages = lens _trrsMessages (\ s a -> s{_trrsMessages = a}) . _Default;
+trrsMessages = lens _trrsMessages (\ s a -> s{_trrsMessages = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 trrsStatus :: Lens' TestRoleResponse Int

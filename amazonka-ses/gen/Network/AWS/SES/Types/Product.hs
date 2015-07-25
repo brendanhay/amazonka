@@ -135,15 +135,15 @@ destination =
 
 -- | The BCC: field(s) of the message.
 dBCCAddresses :: Lens' Destination [Text]
-dBCCAddresses = lens _dBCCAddresses (\ s a -> s{_dBCCAddresses = a}) . _Default;
+dBCCAddresses = lens _dBCCAddresses (\ s a -> s{_dBCCAddresses = a}) . _Default . _Coerce;
 
 -- | The CC: field(s) of the message.
 dCCAddresses :: Lens' Destination [Text]
-dCCAddresses = lens _dCCAddresses (\ s a -> s{_dCCAddresses = a}) . _Default;
+dCCAddresses = lens _dCCAddresses (\ s a -> s{_dCCAddresses = a}) . _Default . _Coerce;
 
 -- | The To: field(s) of the message.
 dToAddresses :: Lens' Destination [Text]
-dToAddresses = lens _dToAddresses (\ s a -> s{_dToAddresses = a}) . _Default;
+dToAddresses = lens _dToAddresses (\ s a -> s{_dToAddresses = a}) . _Default . _Coerce;
 
 instance ToQuery Destination where
         toQuery Destination'{..}
@@ -193,7 +193,7 @@ identityDkimAttributes pDkimEnabled_ pDkimVerificationStatus_ =
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
-idaDkimTokens = lens _idaDkimTokens (\ s a -> s{_idaDkimTokens = a}) . _Default;
+idaDkimTokens = lens _idaDkimTokens (\ s a -> s{_idaDkimTokens = a}) . _Default . _Coerce;
 
 -- | True if DKIM signing is enabled for email sent from the identity; false
 -- otherwise.
@@ -362,10 +362,10 @@ newtype RawMessage = RawMessage'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RawMessage' smart constructor.
-rawMessage :: Base64 -> RawMessage
+rawMessage :: ByteString -> RawMessage
 rawMessage pData_ =
     RawMessage'
-    { _rmData = pData_
+    { _rmData = _Base64 # pData_
     }
 
 -- | The raw data of the message. The client must ensure that the message
@@ -385,8 +385,8 @@ rawMessage pData_ =
 --
 -- For more information, go to the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.
-rmData :: Lens' RawMessage Base64
-rmData = lens _rmData (\ s a -> s{_rmData = a});
+rmData :: Lens' RawMessage ByteString
+rmData = lens _rmData (\ s a -> s{_rmData = a}) . _Base64;
 
 instance ToQuery RawMessage where
         toQuery RawMessage'{..} = mconcat ["Data" =: _rmData]

@@ -188,7 +188,7 @@ describeImageAttributeResponse pStatus_ =
 
 -- | One or more launch permissions.
 diarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
-diarsLaunchPermissions = lens _diarsLaunchPermissions (\ s a -> s{_diarsLaunchPermissions = a}) . _Default;
+diarsLaunchPermissions = lens _diarsLaunchPermissions (\ s a -> s{_diarsLaunchPermissions = a}) . _Default . _Coerce;
 
 -- | The RAM disk ID.
 diarsRAMDiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
@@ -208,11 +208,11 @@ diarsImageId = lens _diarsImageId (\ s a -> s{_diarsImageId = a});
 
 -- | One or more product codes.
 diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
-diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default;
+diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default . _Coerce;
 
 -- | One or more block device mapping entries.
 diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default;
+diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | A description for the AMI.
 diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)

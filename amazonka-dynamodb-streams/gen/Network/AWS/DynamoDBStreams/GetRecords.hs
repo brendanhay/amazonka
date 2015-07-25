@@ -151,7 +151,7 @@ getRecordsResponse pStatus_ =
 -- | The stream records from the shard, which were retrieved using the shard
 -- iterator.
 grrsRecords :: Lens' GetRecordsResponse [Record]
-grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Default;
+grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Default . _Coerce;
 
 -- | The next position in the shard from which to start sequentially reading
 -- stream records. If set to @null@, the shard has been closed and the

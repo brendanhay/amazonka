@@ -143,11 +143,11 @@ describeVolumes =
 --     volumes, or @standard@ for Magnetic volumes.
 --
 desFilters :: Lens' DescribeVolumes [Filter]
-desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default;
+desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default . _Coerce;
 
 -- | One or more volume IDs.
 desVolumeIds :: Lens' DescribeVolumes [Text]
-desVolumeIds = lens _desVolumeIds (\ s a -> s{_desVolumeIds = a}) . _Default;
+desVolumeIds = lens _desVolumeIds (\ s a -> s{_desVolumeIds = a}) . _Default . _Coerce;
 
 -- | The @NextToken@ value returned from a previous paginated
 -- @DescribeVolumes@ request where @MaxResults@ was used and the results
@@ -239,7 +239,7 @@ dvvrsNextToken = lens _dvvrsNextToken (\ s a -> s{_dvvrsNextToken = a});
 
 -- | Information about the volumes.
 dvvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvvrsVolumes = lens _dvvrsVolumes (\ s a -> s{_dvvrsVolumes = a}) . _Default;
+dvvrsVolumes = lens _dvvrsVolumes (\ s a -> s{_dvvrsVolumes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvvrsStatus :: Lens' DescribeVolumesResponse Int

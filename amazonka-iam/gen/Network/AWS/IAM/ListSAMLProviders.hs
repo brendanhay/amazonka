@@ -102,7 +102,7 @@ listSAMLProvidersResponse pStatus_ =
 
 -- | The list of SAML providers for this account.
 lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
-lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default;
+lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lsamlprsStatus :: Lens' ListSAMLProvidersResponse Int

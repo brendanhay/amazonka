@@ -105,7 +105,7 @@ cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDevelo
 
 -- | A list of OpendID Connect provider ARNs.
 cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
-cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default;
+cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default . _Coerce;
 
 -- | A string that you provide.
 cipIdentityPoolName :: Lens' CreateIdentityPool Text

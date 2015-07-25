@@ -159,7 +159,7 @@ selectResponse pStatus_ =
 
 -- | A list of items that match the select expression.
 srsItems :: Lens' SelectResponse [Item]
-srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default;
+srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default . _Coerce;
 
 -- | An opaque token indicating that more items than @MaxNumberOfItems@ were
 -- matched, the response size exceeded 1 megabyte, or the execution time

@@ -114,7 +114,7 @@ risDescription = lens _risDescription (\ s a -> s{_risDescription = a});
 
 -- | One or more instances.
 risInstances :: Lens' ReportInstanceStatus [Text]
-risInstances = lens _risInstances (\ s a -> s{_risInstances = a});
+risInstances = lens _risInstances (\ s a -> s{_risInstances = a}) . _Coerce;
 
 -- | The status of all instances listed.
 risStatus :: Lens' ReportInstanceStatus ReportStatusType
@@ -149,7 +149,7 @@ risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
 -- -   @other@: [explain using the description parameter]
 --
 risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
-risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a});
+risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a}) . _Coerce;
 
 instance AWSRequest ReportInstanceStatus where
         type Sv ReportInstanceStatus = EC2

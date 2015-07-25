@@ -75,7 +75,7 @@ describeElasticLoadBalancers =
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
 delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
-delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default;
+delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default . _Coerce;
 
 -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
 -- instances.
@@ -142,7 +142,7 @@ describeElasticLoadBalancersResponse pStatus_ =
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified
 -- Elastic Load Balancing instances.
 delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
-delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default;
+delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 delbrsStatus :: Lens' DescribeElasticLoadBalancersResponse Int

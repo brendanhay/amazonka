@@ -258,7 +258,7 @@ drcnorsMarker = lens _drcnorsMarker (\ s a -> s{_drcnorsMarker = a});
 -- | A list of reserved cache node offerings. Each element in the list
 -- contains detailed information about one offering.
 drcnorsReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
-drcnorsReservedCacheNodesOfferings = lens _drcnorsReservedCacheNodesOfferings (\ s a -> s{_drcnorsReservedCacheNodesOfferings = a}) . _Default;
+drcnorsReservedCacheNodesOfferings = lens _drcnorsReservedCacheNodesOfferings (\ s a -> s{_drcnorsReservedCacheNodesOfferings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drcnorsStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int

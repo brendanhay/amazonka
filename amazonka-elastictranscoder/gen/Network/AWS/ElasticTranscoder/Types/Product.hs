@@ -708,12 +708,12 @@ cMergePolicy = lens _cMergePolicy (\ s a -> s{_cMergePolicy = a});
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
 cCaptionSources :: Lens' Captions [CaptionSource]
-cCaptionSources = lens _cCaptionSources (\ s a -> s{_cCaptionSources = a}) . _Default;
+cCaptionSources = lens _cCaptionSources (\ s a -> s{_cCaptionSources = a}) . _Default . _Coerce;
 
 -- | The array of file formats for the output captions. If you leave this
 -- value blank, Elastic Transcoder returns an error.
 cCaptionFormats :: Lens' Captions [CaptionFormat]
-cCaptionFormats = lens _cCaptionFormats (\ s a -> s{_cCaptionFormats = a}) . _Default;
+cCaptionFormats = lens _cCaptionFormats (\ s a -> s{_cCaptionFormats = a}) . _Default . _Coerce;
 
 instance FromJSON Captions where
         parseJSON
@@ -923,7 +923,7 @@ cjoPresetId = lens _cjoPresetId (\ s a -> s{_cjoPresetId = a});
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
 cjoComposition :: Lens' CreateJobOutput [Clip]
-cjoComposition = lens _cjoComposition (\ s a -> s{_cjoComposition = a}) . _Default;
+cjoComposition = lens _cjoComposition (\ s a -> s{_cjoComposition = a}) . _Default . _Coerce;
 
 -- | Information about the album art that you want Elastic Transcoder to add
 -- to the file during transcoding. You can specify up to twenty album
@@ -937,7 +937,7 @@ cjoAlbumArt = lens _cjoAlbumArt (\ s a -> s{_cjoAlbumArt = a});
 -- for each output. Settings for each watermark must be defined in the
 -- preset for the current output.
 cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
-cjoWatermarks = lens _cjoWatermarks (\ s a -> s{_cjoWatermarks = a}) . _Default;
+cjoWatermarks = lens _cjoWatermarks (\ s a -> s{_cjoWatermarks = a}) . _Default . _Coerce;
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
 -- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
@@ -1082,7 +1082,7 @@ cjpPlayReadyDrm = lens _cjpPlayReadyDrm (\ s a -> s{_cjpPlayReadyDrm = a});
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
 cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
-cjpOutputKeys = lens _cjpOutputKeys (\ s a -> s{_cjpOutputKeys = a}) . _Default;
+cjpOutputKeys = lens _cjpOutputKeys (\ s a -> s{_cjpOutputKeys = a}) . _Default . _Coerce;
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
@@ -1507,7 +1507,7 @@ jInput = lens _jInput (\ s a -> s{_jInput = a});
 -- creates the files for each output in the order in which you specify them
 -- in the job.
 jOutputs :: Lens' Job' [JobOutput]
-jOutputs = lens _jOutputs (\ s a -> s{_jOutputs = a}) . _Default;
+jOutputs = lens _jOutputs (\ s a -> s{_jOutputs = a}) . _Default . _Coerce;
 
 -- | User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
@@ -1555,7 +1555,7 @@ jId = lens _jId (\ s a -> s{_jId = a});
 --
 -- The maximum number of master playlists in a job is 30.
 jPlaylists :: Lens' Job' [Playlist]
-jPlaylists = lens _jPlaylists (\ s a -> s{_jPlaylists = a}) . _Default;
+jPlaylists = lens _jPlaylists (\ s a -> s{_jPlaylists = a}) . _Default . _Coerce;
 
 -- | Details about the timing of a job.
 jTiming :: Lens' Job' (Maybe Timing)
@@ -1626,7 +1626,7 @@ jaaMergePolicy = lens _jaaMergePolicy (\ s a -> s{_jaaMergePolicy = a});
 -- associated with an audio file, to a maximum of 20. Valid formats are
 -- @.jpg@ and @.png@
 jaaArtwork :: Lens' JobAlbumArt [Artwork]
-jaaArtwork = lens _jaaArtwork (\ s a -> s{_jaaArtwork = a}) . _Default;
+jaaArtwork = lens _jaaArtwork (\ s a -> s{_jaaArtwork = a}) . _Default . _Coerce;
 
 instance FromJSON JobAlbumArt where
         parseJSON
@@ -2030,7 +2030,7 @@ joPresetId = lens _joPresetId (\ s a -> s{_joPresetId = a});
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
 joComposition :: Lens' JobOutput [Clip]
-joComposition = lens _joComposition (\ s a -> s{_joComposition = a}) . _Default;
+joComposition = lens _joComposition (\ s a -> s{_joComposition = a}) . _Default . _Coerce;
 
 -- | The album art to be associated with the output file, if any.
 joAlbumArt :: Lens' JobOutput (Maybe JobAlbumArt)
@@ -2053,7 +2053,7 @@ joFileSize = lens _joFileSize (\ s a -> s{_joFileSize = a});
 -- watermark that you add will cover the first one, the third one will
 -- cover the second, and the fourth one will cover the third.
 joWatermarks :: Lens' JobOutput [JobWatermark]
-joWatermarks = lens _joWatermarks (\ s a -> s{_joWatermarks = a}) . _Default;
+joWatermarks = lens _joWatermarks (\ s a -> s{_joWatermarks = a}) . _Default . _Coerce;
 
 -- | Specifies the width of the output file in pixels.
 joWidth :: Lens' JobOutput (Maybe Int)
@@ -2330,7 +2330,7 @@ permission =
 --     permissions for the thumbnails that Elastic Transcoder adds to the
 --     Amazon S3 bucket.
 pAccess :: Lens' Permission [Text]
-pAccess = lens _pAccess (\ s a -> s{_pAccess = a}) . _Default;
+pAccess = lens _pAccess (\ s a -> s{_pAccess = a}) . _Default . _Coerce;
 
 -- | The type of value that appears in the Grantee object:
 --
@@ -2657,7 +2657,7 @@ pocStorageClass = lens _pocStorageClass (\ s a -> s{_pocStorageClass = a});
 -- the transcoded files and playlists to the owner of the role specified by
 -- @Role@, and grants no other permissions to any other user or group.
 pocPermissions :: Lens' PipelineOutputConfig [Permission]
-pocPermissions = lens _pocPermissions (\ s a -> s{_pocPermissions = a}) . _Default;
+pocPermissions = lens _pocPermissions (\ s a -> s{_pocPermissions = a}) . _Default . _Coerce;
 
 instance FromJSON PipelineOutputConfig where
         parseJSON
@@ -2885,7 +2885,7 @@ pStatus = lens _pStatus (\ s a -> s{_pStatus = a});
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
 pOutputKeys :: Lens' Playlist [Text]
-pOutputKeys = lens _pOutputKeys (\ s a -> s{_pOutputKeys = a}) . _Default;
+pOutputKeys = lens _pOutputKeys (\ s a -> s{_pOutputKeys = a}) . _Default . _Coerce;
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
@@ -3748,7 +3748,7 @@ vpDisplayAspectRatio = lens _vpDisplayAspectRatio (\ s a -> s{_vpDisplayAspectRa
 -- specify watermark settings in the preset, which allows you to use the
 -- same preset for up to four watermarks that have different dimensions.
 vpWatermarks :: Lens' VideoParameters [PresetWatermark]
-vpWatermarks = lens _vpWatermarks (\ s a -> s{_vpWatermarks = a}) . _Default;
+vpWatermarks = lens _vpWatermarks (\ s a -> s{_vpWatermarks = a}) . _Default . _Coerce;
 
 -- | The video codec for the output file. Valid values include @gif@,
 -- @H.264@, @mpeg2@, and @vp8@. You can only specify @vp8@ when the

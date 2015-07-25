@@ -70,12 +70,12 @@ data ImportKeyPair = ImportKeyPair'
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportKeyPair' smart constructor.
-importKeyPair :: Text -> Base64 -> ImportKeyPair
+importKeyPair :: Text -> ByteString -> ImportKeyPair
 importKeyPair pKeyName_ pPublicKeyMaterial_ =
     ImportKeyPair'
     { _ikpDryRun = Nothing
     , _ikpKeyName = pKeyName_
-    , _ikpPublicKeyMaterial = pPublicKeyMaterial_
+    , _ikpPublicKeyMaterial = _Base64 # pPublicKeyMaterial_
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -91,8 +91,8 @@ ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a});
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
-ikpPublicKeyMaterial :: Lens' ImportKeyPair Base64
-ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a});
+ikpPublicKeyMaterial :: Lens' ImportKeyPair ByteString
+ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a}) . _Base64;
 
 instance AWSRequest ImportKeyPair where
         type Sv ImportKeyPair = EC2

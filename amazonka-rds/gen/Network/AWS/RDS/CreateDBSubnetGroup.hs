@@ -79,7 +79,7 @@ createDBSubnetGroup pDBSubnetGroupName_ pDBSubnetGroupDescription_ =
 
 -- | FIXME: Undocumented member.
 cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
-cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default;
+cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default . _Coerce;
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
@@ -97,7 +97,7 @@ cdbsgDBSubnetGroupDescription = lens _cdbsgDBSubnetGroupDescription (\ s a -> s{
 
 -- | The EC2 Subnet IDs for the DB subnet group.
 cdbsgSubnetIds :: Lens' CreateDBSubnetGroup [Text]
-cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a});
+cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a}) . _Coerce;
 
 instance AWSRequest CreateDBSubnetGroup where
         type Sv CreateDBSubnetGroup = RDS

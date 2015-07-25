@@ -135,7 +135,7 @@ listBranchesResponse pStatus_ =
 
 -- | The list of branch names.
 lbrsBranches :: Lens' ListBranchesResponse [Text]
-lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default;
+lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default . _Coerce;
 
 -- | An enumeration token that returns the batch of the results.
 lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)

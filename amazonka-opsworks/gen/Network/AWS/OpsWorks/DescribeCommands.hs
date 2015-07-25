@@ -93,7 +93,7 @@ dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
 -- @DescribeCommands@ returns a description of the specified commands.
 -- Otherwise, it returns a description of every command.
 dcCommandIds :: Lens' DescribeCommands [Text]
-dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default;
+dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeCommands where
         type Sv DescribeCommands = OpsWorks
@@ -153,7 +153,7 @@ describeCommandsResponse pStatus_ =
 -- | An array of @Command@ objects that describe each of the specified
 -- commands.
 dcrsCommands :: Lens' DescribeCommandsResponse [Command]
-dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default;
+dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcrsStatus :: Lens' DescribeCommandsResponse Int

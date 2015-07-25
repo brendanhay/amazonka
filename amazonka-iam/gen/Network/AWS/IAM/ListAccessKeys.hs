@@ -187,4 +187,4 @@ lakrsStatus = lens _lakrsStatus (\ s a -> s{_lakrsStatus = a});
 
 -- | A list of access key metadata.
 lakrsAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
-lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a});
+lakrsAccessKeyMetadata = lens _lakrsAccessKeyMetadata (\ s a -> s{_lakrsAccessKeyMetadata = a}) . _Coerce;

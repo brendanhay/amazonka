@@ -81,7 +81,7 @@ slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBal
 -- | The names of the policies. If the list is empty, the current policy is
 -- removed from the listener.
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
-slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a});
+slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a}) . _Coerce;
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener
          where

@@ -203,7 +203,7 @@ describeCacheEngineVersionsResponse pStatus_ =
 -- | A list of cache engine version details. Each element in the list
 -- contains detailed information about one cache engine version.
 dcevrsCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
-dcevrsCacheEngineVersions = lens _dcevrsCacheEngineVersions (\ s a -> s{_dcevrsCacheEngineVersions = a}) . _Default;
+dcevrsCacheEngineVersions = lens _dcevrsCacheEngineVersions (\ s a -> s{_dcevrsCacheEngineVersions = a}) . _Default . _Coerce;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcevrsMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)

@@ -64,7 +64,7 @@ describeClusters =
 -- Name (ARN) entries. If you do not specify a cluster, the default cluster
 -- is assumed.
 dcClusters :: Lens' DescribeClusters [Text]
-dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default;
+dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = ECS
@@ -124,11 +124,11 @@ describeClustersResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 dcrsFailures :: Lens' DescribeClustersResponse [Failure]
-dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default;
+dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _Coerce;
 
 -- | The list of clusters.
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default;
+dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcrsStatus :: Lens' DescribeClustersResponse Int

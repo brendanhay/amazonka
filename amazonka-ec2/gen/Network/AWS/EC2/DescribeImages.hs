@@ -90,13 +90,13 @@ describeImages =
 -- (owner is the sender of the request). Omitting this option returns all
 -- images for which you have launch permissions, regardless of ownership.
 deseOwners :: Lens' DescribeImages [Text]
-deseOwners = lens _deseOwners (\ s a -> s{_deseOwners = a}) . _Default;
+deseOwners = lens _deseOwners (\ s a -> s{_deseOwners = a}) . _Default . _Coerce;
 
 -- | Scopes the images by users with explicit launch permissions. Specify an
 -- AWS account ID, @self@ (the sender of the request), or @all@ (public
 -- AMIs).
 deseExecutableUsers :: Lens' DescribeImages [Text]
-deseExecutableUsers = lens _deseExecutableUsers (\ s a -> s{_deseExecutableUsers = a}) . _Default;
+deseExecutableUsers = lens _deseExecutableUsers (\ s a -> s{_deseExecutableUsers = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -180,13 +180,13 @@ deseExecutableUsers = lens _deseExecutableUsers (\ s a -> s{_deseExecutableUsers
 --     @hvm@).
 --
 deseFilters :: Lens' DescribeImages [Filter]
-deseFilters = lens _deseFilters (\ s a -> s{_deseFilters = a}) . _Default;
+deseFilters = lens _deseFilters (\ s a -> s{_deseFilters = a}) . _Default . _Coerce;
 
 -- | One or more image IDs.
 --
 -- Default: Describes all images available to you.
 deseImageIds :: Lens' DescribeImages [Text]
-deseImageIds = lens _deseImageIds (\ s a -> s{_deseImageIds = a}) . _Default;
+deseImageIds = lens _deseImageIds (\ s a -> s{_deseImageIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -248,7 +248,7 @@ describeImagesResponse pStatus_ =
 
 -- | Information about one or more images.
 desrsImages :: Lens' DescribeImagesResponse [Image]
-desrsImages = lens _desrsImages (\ s a -> s{_desrsImages = a}) . _Default;
+desrsImages = lens _desrsImages (\ s a -> s{_desrsImages = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 desrsStatus :: Lens' DescribeImagesResponse Int

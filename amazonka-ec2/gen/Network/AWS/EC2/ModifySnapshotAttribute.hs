@@ -102,7 +102,7 @@ msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a});
 
 -- | The account ID to modify for the snapshot.
 msaUserIds :: Lens' ModifySnapshotAttribute [Text]
-msaUserIds = lens _msaUserIds (\ s a -> s{_msaUserIds = a}) . _Default;
+msaUserIds = lens _msaUserIds (\ s a -> s{_msaUserIds = a}) . _Default . _Coerce;
 
 -- | A JSON representation of the snapshot attribute modification.
 msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
@@ -110,7 +110,7 @@ msaCreateVolumePermission = lens _msaCreateVolumePermission (\ s a -> s{_msaCrea
 
 -- | The group to modify for the snapshot.
 msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
-msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a}) . _Default;
+msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a}) . _Default . _Coerce;
 
 -- | The type of operation to perform to the attribute.
 msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)

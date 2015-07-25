@@ -167,7 +167,7 @@ sreSourceARN = lens _sreSourceARN (\ s a -> s{_sreSourceARN = a});
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
 sreDestinations :: Lens' SendRawEmail [Text]
-sreDestinations = lens _sreDestinations (\ s a -> s{_sreDestinations = a}) . _Default;
+sreDestinations = lens _sreDestinations (\ s a -> s{_sreDestinations = a}) . _Default . _Coerce;
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy

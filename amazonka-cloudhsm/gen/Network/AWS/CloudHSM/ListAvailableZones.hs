@@ -105,7 +105,7 @@ listAvailableZonesResponse pStatus_ =
 -- | The list of Availability Zones that have available AWS CloudHSM
 -- capacity.
 lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
-lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default;
+lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lazrsStatus :: Lens' ListAvailableZonesResponse Int

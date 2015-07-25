@@ -76,7 +76,7 @@ aubGatewayARN = lens _aubGatewayARN (\ s a -> s{_aubGatewayARN = a});
 
 -- | FIXME: Undocumented member.
 aubDiskIds :: Lens' AddUploadBuffer [Text]
-aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a});
+aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a}) . _Coerce;
 
 instance AWSRequest AddUploadBuffer where
         type Sv AddUploadBuffer = StorageGateway

@@ -74,7 +74,7 @@ addTags pTags_ =
 
 -- | The name of the load balancer. You can specify one load balancer only.
 atLoadBalancerNames :: Lens' AddTags [Text]
-atLoadBalancerNames = lens _atLoadBalancerNames (\ s a -> s{_atLoadBalancerNames = a});
+atLoadBalancerNames = lens _atLoadBalancerNames (\ s a -> s{_atLoadBalancerNames = a}) . _Coerce;
 
 -- | The tags.
 atTags :: Lens' AddTags (NonEmpty Tag)

@@ -190,7 +190,7 @@ ccEngineVersion = lens _ccEngineVersion (\ s a -> s{_ccEngineVersion = a});
 
 -- | A list of cache nodes that are members of the cache cluster.
 ccCacheNodes :: Lens' CacheCluster [CacheNode]
-ccCacheNodes = lens _ccCacheNodes (\ s a -> s{_ccCacheNodes = a}) . _Default;
+ccCacheNodes = lens _ccCacheNodes (\ s a -> s{_ccCacheNodes = a}) . _Default . _Coerce;
 
 -- | The date and time when the cache cluster was created.
 ccCacheClusterCreateTime :: Lens' CacheCluster (Maybe UTCTime)
@@ -202,7 +202,7 @@ ccAutoMinorVersionUpgrade = lens _ccAutoMinorVersionUpgrade (\ s a -> s{_ccAutoM
 
 -- | A list of VPC Security Groups associated with the cache cluster.
 ccSecurityGroups :: Lens' CacheCluster [SecurityGroupMembership]
-ccSecurityGroups = lens _ccSecurityGroups (\ s a -> s{_ccSecurityGroups = a}) . _Default;
+ccSecurityGroups = lens _ccSecurityGroups (\ s a -> s{_ccSecurityGroups = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ccNotificationConfiguration :: Lens' CacheCluster (Maybe NotificationConfiguration)
@@ -232,7 +232,7 @@ ccEngine = lens _ccEngine (\ s a -> s{_ccEngine = a});
 -- | A list of cache security group elements, composed of name and status
 -- sub-elements.
 ccCacheSecurityGroups :: Lens' CacheCluster [CacheSecurityGroupMembership]
-ccCacheSecurityGroups = lens _ccCacheSecurityGroups (\ s a -> s{_ccCacheSecurityGroups = a}) . _Default;
+ccCacheSecurityGroups = lens _ccCacheSecurityGroups (\ s a -> s{_ccCacheSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The URL of the web page where you can download the latest ElastiCache
 -- client library.
@@ -569,7 +569,7 @@ cacheNodeTypeSpecificParameter =
 -- | A list of cache node types and their corresponding values for this
 -- parameter.
 cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter [CacheNodeTypeSpecificValue]
-cntspCacheNodeTypeSpecificValues = lens _cntspCacheNodeTypeSpecificValues (\ s a -> s{_cntspCacheNodeTypeSpecificValues = a}) . _Default;
+cntspCacheNodeTypeSpecificValues = lens _cntspCacheNodeTypeSpecificValues (\ s a -> s{_cntspCacheNodeTypeSpecificValues = a}) . _Default . _Coerce;
 
 -- | The earliest cache engine version to which the parameter can apply.
 cntspMinimumEngineVersion :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
@@ -759,7 +759,7 @@ cpgsCacheParameterGroupName = lens _cpgsCacheParameterGroupName (\ s a -> s{_cpg
 -- changes to be applied. A node ID is a numeric identifier (0001, 0002,
 -- etc.).
 cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus [Text]
-cpgsCacheNodeIdsToReboot = lens _cpgsCacheNodeIdsToReboot (\ s a -> s{_cpgsCacheNodeIdsToReboot = a}) . _Default;
+cpgsCacheNodeIdsToReboot = lens _cpgsCacheNodeIdsToReboot (\ s a -> s{_cpgsCacheNodeIdsToReboot = a}) . _Default . _Coerce;
 
 -- | The status of parameter updates.
 cpgsParameterApplyStatus :: Lens' CacheParameterGroupStatus (Maybe Text)
@@ -818,7 +818,7 @@ csgOwnerId = lens _csgOwnerId (\ s a -> s{_csgOwnerId = a});
 -- | A list of Amazon EC2 security groups that are associated with this cache
 -- security group.
 csgEC2SecurityGroups :: Lens' CacheSecurityGroup [EC2SecurityGroup]
-csgEC2SecurityGroups = lens _csgEC2SecurityGroups (\ s a -> s{_csgEC2SecurityGroups = a}) . _Default;
+csgEC2SecurityGroups = lens _csgEC2SecurityGroups (\ s a -> s{_csgEC2SecurityGroups = a}) . _Default . _Coerce;
 
 -- | The description of the cache security group.
 csgDescription :: Lens' CacheSecurityGroup (Maybe Text)
@@ -912,7 +912,7 @@ csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
 -- | A list of subnets associated with the cache subnet group.
 csgSubnets :: Lens' CacheSubnetGroup [Subnet]
-csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default;
+csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default . _Coerce;
 
 -- | The name of the cache subnet group.
 csgCacheSubnetGroupName :: Lens' CacheSubnetGroup (Maybe Text)
@@ -1050,11 +1050,11 @@ edCacheParameterGroupFamily = lens _edCacheParameterGroupFamily (\ s a -> s{_edC
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
 edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults [CacheNodeTypeSpecificParameter]
-edCacheNodeTypeSpecificParameters = lens _edCacheNodeTypeSpecificParameters (\ s a -> s{_edCacheNodeTypeSpecificParameters = a}) . _Default;
+edCacheNodeTypeSpecificParameters = lens _edCacheNodeTypeSpecificParameters (\ s a -> s{_edCacheNodeTypeSpecificParameters = a}) . _Default . _Coerce;
 
 -- | Contains a list of engine default parameters.
 edParameters :: Lens' EngineDefaults [Parameter]
-edParameters = lens _edParameters (\ s a -> s{_edParameters = a}) . _Default;
+edParameters = lens _edParameters (\ s a -> s{_edParameters = a}) . _Default . _Coerce;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 edMarker :: Lens' EngineDefaults (Maybe Text)
@@ -1172,7 +1172,7 @@ ngPrimaryEndpoint = lens _ngPrimaryEndpoint (\ s a -> s{_ngPrimaryEndpoint = a})
 -- | A list containing information about individual nodes within the node
 -- group.
 ngNodeGroupMembers :: Lens' NodeGroup [NodeGroupMember]
-ngNodeGroupMembers = lens _ngNodeGroupMembers (\ s a -> s{_ngNodeGroupMembers = a}) . _Default;
+ngNodeGroupMembers = lens _ngNodeGroupMembers (\ s a -> s{_ngNodeGroupMembers = a}) . _Default . _Coerce;
 
 -- | The identifier for the node group. A replication group contains only one
 -- node group; therefore, the node group ID is 0001.
@@ -1509,7 +1509,7 @@ pmvEngineVersion = lens _pmvEngineVersion (\ s a -> s{_pmvEngineVersion = a});
 -- from the cache cluster. A node ID is a numeric identifier (0001, 0002,
 -- etc.).
 pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues [Text]
-pmvCacheNodeIdsToRemove = lens _pmvCacheNodeIdsToRemove (\ s a -> s{_pmvCacheNodeIdsToRemove = a}) . _Default;
+pmvCacheNodeIdsToRemove = lens _pmvCacheNodeIdsToRemove (\ s a -> s{_pmvCacheNodeIdsToRemove = a}) . _Default . _Coerce;
 
 -- | The new number of cache nodes for the cache cluster.
 --
@@ -1612,7 +1612,7 @@ replicationGroup =
 -- | A single element list with information about the nodes in the
 -- replication group.
 rgNodeGroups :: Lens' ReplicationGroup [NodeGroup]
-rgNodeGroups = lens _rgNodeGroups (\ s a -> s{_rgNodeGroups = a}) . _Default;
+rgNodeGroups = lens _rgNodeGroups (\ s a -> s{_rgNodeGroups = a}) . _Default . _Coerce;
 
 -- | The current state of this replication group - /creating/, /available/,
 -- etc.
@@ -1627,7 +1627,7 @@ rgSnapshottingClusterId = lens _rgSnapshottingClusterId (\ s a -> s{_rgSnapshott
 -- | The names of all the cache clusters that are part of this replication
 -- group.
 rgMemberClusters :: Lens' ReplicationGroup [Text]
-rgMemberClusters = lens _rgMemberClusters (\ s a -> s{_rgMemberClusters = a}) . _Default;
+rgMemberClusters = lens _rgMemberClusters (\ s a -> s{_rgMemberClusters = a}) . _Default . _Coerce;
 
 -- | The identifier for the replication group.
 rgReplicationGroupId :: Lens' ReplicationGroup (Maybe Text)
@@ -1837,7 +1837,7 @@ rcnUsagePrice = lens _rcnUsagePrice (\ s a -> s{_rcnUsagePrice = a});
 
 -- | The recurring price charged to run this reserved cache node.
 rcnRecurringCharges :: Lens' ReservedCacheNode [RecurringCharge]
-rcnRecurringCharges = lens _rcnRecurringCharges (\ s a -> s{_rcnRecurringCharges = a}) . _Default;
+rcnRecurringCharges = lens _rcnRecurringCharges (\ s a -> s{_rcnRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The fixed price charged for this reserved cache node.
 rcnFixedPrice :: Lens' ReservedCacheNode (Maybe Double)
@@ -1962,7 +1962,7 @@ rcnoUsagePrice = lens _rcnoUsagePrice (\ s a -> s{_rcnoUsagePrice = a});
 
 -- | The recurring price charged to run this reserved cache node.
 rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering [RecurringCharge]
-rcnoRecurringCharges = lens _rcnoRecurringCharges (\ s a -> s{_rcnoRecurringCharges = a}) . _Default;
+rcnoRecurringCharges = lens _rcnoRecurringCharges (\ s a -> s{_rcnoRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The fixed price charged for this offering.
 rcnoFixedPrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
@@ -2228,7 +2228,7 @@ sCacheSubnetGroupName = lens _sCacheSubnetGroupName (\ s a -> s{_sCacheSubnetGro
 
 -- | A list of the cache nodes in the source cache cluster.
 sNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
-sNodeSnapshots = lens _sNodeSnapshots (\ s a -> s{_sNodeSnapshots = a}) . _Default;
+sNodeSnapshots = lens _sNodeSnapshots (\ s a -> s{_sNodeSnapshots = a}) . _Default . _Coerce;
 
 -- | The name of the Availability Zone in which the source cache cluster is
 -- located.
@@ -2394,7 +2394,7 @@ tagListMessage =
 
 -- | A list of cost allocation tags as key-value pairs.
 tlmTagList :: Lens' TagListMessage [Tag]
-tlmTagList = lens _tlmTagList (\ s a -> s{_tlmTagList = a}) . _Default;
+tlmTagList = lens _tlmTagList (\ s a -> s{_tlmTagList = a}) . _Default . _Coerce;
 
 instance FromXML TagListMessage where
         parseXML x

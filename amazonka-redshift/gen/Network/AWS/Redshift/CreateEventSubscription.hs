@@ -147,7 +147,7 @@ cesSeverity = lens _cesSeverity (\ s a -> s{_cesSeverity = a});
 --
 -- Values: Configuration, Management, Monitoring, Security
 cesEventCategories :: Lens' CreateEventSubscription [Text]
-cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a}) . _Default;
+cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a}) . _Default . _Coerce;
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All
 -- of the objects must be of the same type as was specified in the source
@@ -159,11 +159,11 @@ cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = 
 --
 -- Example: my-snapshot-20131010
 cesSourceIds :: Lens' CreateEventSubscription [Text]
-cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default;
+cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default . _Coerce;
 
 -- | A list of tag instances.
 cesTags :: Lens' CreateEventSubscription [Tag]
-cesTags = lens _cesTags (\ s a -> s{_cesTags = a}) . _Default;
+cesTags = lens _cesTags (\ s a -> s{_cesTags = a}) . _Default . _Coerce;
 
 -- | The name of the event subscription to be created.
 --

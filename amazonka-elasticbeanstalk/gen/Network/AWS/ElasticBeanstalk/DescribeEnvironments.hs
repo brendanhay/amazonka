@@ -89,12 +89,12 @@ describeEnvironments =
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified IDs.
 dEnvironmentIds :: Lens' DescribeEnvironments [Text]
-dEnvironmentIds = lens _dEnvironmentIds (\ s a -> s{_dEnvironmentIds = a}) . _Default;
+dEnvironmentIds = lens _dEnvironmentIds (\ s a -> s{_dEnvironmentIds = a}) . _Default . _Coerce;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified names.
 dEnvironmentNames :: Lens' DescribeEnvironments [Text]
-dEnvironmentNames = lens _dEnvironmentNames (\ s a -> s{_dEnvironmentNames = a}) . _Default;
+dEnvironmentNames = lens _dEnvironmentNames (\ s a -> s{_dEnvironmentNames = a}) . _Default . _Coerce;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application version.
@@ -178,7 +178,7 @@ describeEnvironmentsResponse pStatus_ =
 
 -- | Returns an EnvironmentDescription list.
 drsEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
-drsEnvironments = lens _drsEnvironments (\ s a -> s{_drsEnvironments = a}) . _Default;
+drsEnvironments = lens _drsEnvironments (\ s a -> s{_drsEnvironments = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drsStatus :: Lens' DescribeEnvironmentsResponse Int

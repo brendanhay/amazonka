@@ -110,7 +110,7 @@ createConfigurationTemplate pApplicationName_ pTemplateName_ =
 -- option to the requested value. The new value overrides the value
 -- obtained from the solution stack or the source configuration template.
 cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
-cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a}) . _Default;
+cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a}) . _Default . _Coerce;
 
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from
 -- the specified configuration template to create a new configuration.

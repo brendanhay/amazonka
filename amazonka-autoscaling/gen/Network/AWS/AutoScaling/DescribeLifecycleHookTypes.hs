@@ -105,7 +105,7 @@ describeLifecycleHookTypesResponse pStatus_ =
 -- -   @autoscaling:EC2_INSTANCE_TERMINATING@
 --
 dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
-dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default;
+dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlhtrsStatus :: Lens' DescribeLifecycleHookTypesResponse Int

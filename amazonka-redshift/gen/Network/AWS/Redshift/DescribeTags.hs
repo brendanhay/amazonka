@@ -136,7 +136,7 @@ dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a});
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
 dtTagValues :: Lens' DescribeTags [Text]
-dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a}) . _Default;
+dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a}) . _Default . _Coerce;
 
 -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
 -- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
@@ -150,7 +150,7 @@ dtResourceName = lens _dtResourceName (\ s a -> s{_dtResourceName = a});
 -- Amazon Redshift returns a response with all resources that have either
 -- or both of these tag keys associated with them.
 dtTagKeys :: Lens' DescribeTags [Text]
-dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a}) . _Default;
+dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a}) . _Default . _Coerce;
 
 -- | The maximum number or response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -238,7 +238,7 @@ dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
 
 -- | A list of tags with their associated resources.
 dtrsTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
-dtrsTaggedResources = lens _dtrsTaggedResources (\ s a -> s{_dtrsTaggedResources = a}) . _Default;
+dtrsTaggedResources = lens _dtrsTaggedResources (\ s a -> s{_dtrsTaggedResources = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtrsStatus :: Lens' DescribeTagsResponse Int

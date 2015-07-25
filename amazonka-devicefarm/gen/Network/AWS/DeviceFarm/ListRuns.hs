@@ -136,7 +136,7 @@ listRunsResponse pStatus_ =
 
 -- | Information about the runs.
 lrrsRuns :: Lens' ListRunsResponse [Run]
-lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default;
+lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default . _Coerce;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent

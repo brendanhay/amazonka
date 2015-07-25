@@ -158,7 +158,7 @@ container =
 
 -- | The network bindings associated with the container.
 cNetworkBindings :: Lens' Container [NetworkBinding]
-cNetworkBindings = lens _cNetworkBindings (\ s a -> s{_cNetworkBindings = a}) . _Default;
+cNetworkBindings = lens _cNetworkBindings (\ s a -> s{_cNetworkBindings = a}) . _Default . _Coerce;
 
 -- | The Amazon Resource Name (ARN) of the container.
 cContainerARN :: Lens' Container (Maybe Text)
@@ -272,15 +272,15 @@ cdImage = lens _cdImage (\ s a -> s{_cdImage = a});
 -- Docker @CMD@ parameter, see
 -- <https://docs.docker.com/reference/builder/#cmd>.
 cdCommand :: Lens' ContainerDefinition [Text]
-cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a}) . _Default;
+cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a}) . _Default . _Coerce;
 
 -- | Data volumes to mount from another container.
 cdVolumesFrom :: Lens' ContainerDefinition [VolumeFrom]
-cdVolumesFrom = lens _cdVolumesFrom (\ s a -> s{_cdVolumesFrom = a}) . _Default;
+cdVolumesFrom = lens _cdVolumesFrom (\ s a -> s{_cdVolumesFrom = a}) . _Default . _Coerce;
 
 -- | The environment variables to pass to a container.
 cdEnvironment :: Lens' ContainerDefinition [KeyValuePair]
-cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default;
+cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default . _Coerce;
 
 -- | Early versions of the Amazon ECS container agent do not properly handle
 -- @entryPoint@ parameters. If you have problems using @entryPoint@, update
@@ -291,11 +291,11 @@ cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default;
 -- on the Docker @ENTRYPOINT@ parameter, see
 -- <https://docs.docker.com/reference/builder/#entrypoint>.
 cdEntryPoint :: Lens' ContainerDefinition [Text]
-cdEntryPoint = lens _cdEntryPoint (\ s a -> s{_cdEntryPoint = a}) . _Default;
+cdEntryPoint = lens _cdEntryPoint (\ s a -> s{_cdEntryPoint = a}) . _Default . _Coerce;
 
 -- | The list of port mappings for the container.
 cdPortMappings :: Lens' ContainerDefinition [PortMapping]
-cdPortMappings = lens _cdPortMappings (\ s a -> s{_cdPortMappings = a}) . _Default;
+cdPortMappings = lens _cdPortMappings (\ s a -> s{_cdPortMappings = a}) . _Default . _Coerce;
 
 -- | The number of MiB of memory reserved for the container. If your
 -- container attempts to exceed the memory allocated here, the container is
@@ -311,7 +311,7 @@ cdName = lens _cdName (\ s a -> s{_cdName = a});
 
 -- | The mount points for data volumes in your container.
 cdMountPoints :: Lens' ContainerDefinition [MountPoint]
-cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default;
+cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default . _Coerce;
 
 -- | The @link@ parameter allows containers to communicate with each other
 -- without the need for port mappings, using the @name@ parameter. The
@@ -324,7 +324,7 @@ cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default;
 -- mappings. Network isolation is achieved on the container instance using
 -- security groups and VPC settings.
 cdLinks :: Lens' ContainerDefinition [Text]
-cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a}) . _Default;
+cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a}) . _Default . _Coerce;
 
 -- | If the @essential@ parameter of a container is marked as @true@, the
 -- failure of that container will stop the task. If the @essential@
@@ -469,7 +469,7 @@ ciRunningTasksCount = lens _ciRunningTasksCount (\ s a -> s{_ciRunningTasksCount
 -- | The remaining resources of the container instance that are available for
 -- new tasks.
 ciRemainingResources :: Lens' ContainerInstance [Resource]
-ciRemainingResources = lens _ciRemainingResources (\ s a -> s{_ciRemainingResources = a}) . _Default;
+ciRemainingResources = lens _ciRemainingResources (\ s a -> s{_ciRemainingResources = a}) . _Default . _Coerce;
 
 -- | The Amazon EC2 instance ID of the container instance.
 ciEc2InstanceId :: Lens' ContainerInstance (Maybe Text)
@@ -509,7 +509,7 @@ ciPendingTasksCount = lens _ciPendingTasksCount (\ s a -> s{_ciPendingTasksCount
 -- | The registered resources on the container instance that are in use by
 -- current tasks.
 ciRegisteredResources :: Lens' ContainerInstance [Resource]
-ciRegisteredResources = lens _ciRegisteredResources (\ s a -> s{_ciRegisteredResources = a}) . _Default;
+ciRegisteredResources = lens _ciRegisteredResources (\ s a -> s{_ciRegisteredResources = a}) . _Default . _Coerce;
 
 instance FromJSON ContainerInstance where
         parseJSON
@@ -555,14 +555,14 @@ containerOverride =
 -- | The command to send to the container that overrides the default command
 -- from the Docker image or the task definition.
 coCommand :: Lens' ContainerOverride [Text]
-coCommand = lens _coCommand (\ s a -> s{_coCommand = a}) . _Default;
+coCommand = lens _coCommand (\ s a -> s{_coCommand = a}) . _Default . _Coerce;
 
 -- | The environment variables to send to the container. You can add new
 -- environment variables, which are added to the container at launch, or
 -- you can override the existing environment variables from the Docker
 -- image or the task definition.
 coEnvironment :: Lens' ContainerOverride [KeyValuePair]
-coEnvironment = lens _coEnvironment (\ s a -> s{_coEnvironment = a}) . _Default;
+coEnvironment = lens _coEnvironment (\ s a -> s{_coEnvironment = a}) . _Default . _Coerce;
 
 -- | The name of the container that receives the override.
 coName :: Lens' ContainerOverride (Maybe Text)
@@ -669,7 +669,7 @@ csDesiredCount = lens _csDesiredCount (\ s a -> s{_csDesiredCount = a});
 -- container name (as it appears in a container definition), and the
 -- container port to access from the load balancer.
 csLoadBalancers :: Lens' ContainerService [LoadBalancer]
-csLoadBalancers = lens _csLoadBalancers (\ s a -> s{_csLoadBalancers = a}) . _Default;
+csLoadBalancers = lens _csLoadBalancers (\ s a -> s{_csLoadBalancers = a}) . _Default . _Coerce;
 
 -- | The number of tasks in the cluster that are in the @PENDING@ state.
 csPendingCount :: Lens' ContainerService (Maybe Int)
@@ -678,7 +678,7 @@ csPendingCount = lens _csPendingCount (\ s a -> s{_csPendingCount = a});
 -- | The event stream for your service. A maximum of 100 of the latest events
 -- are displayed.
 csEvents :: Lens' ContainerService [ServiceEvent]
-csEvents = lens _csEvents (\ s a -> s{_csEvents = a}) . _Default;
+csEvents = lens _csEvents (\ s a -> s{_csEvents = a}) . _Default . _Coerce;
 
 -- | A user-generated string that you can use to identify your service.
 csServiceName :: Lens' ContainerService (Maybe Text)
@@ -686,7 +686,7 @@ csServiceName = lens _csServiceName (\ s a -> s{_csServiceName = a});
 
 -- | The current state of deployments for the service.
 csDeployments :: Lens' ContainerService [Deployment]
-csDeployments = lens _csDeployments (\ s a -> s{_csDeployments = a}) . _Default;
+csDeployments = lens _csDeployments (\ s a -> s{_csDeployments = a}) . _Default . _Coerce;
 
 -- | The task definition to use for tasks in the service. This value is
 -- specified when the service is created with CreateService, and it can be
@@ -1233,7 +1233,7 @@ resource =
 -- | When the @stringSetValue@ type is set, the value of the resource must be
 -- a string type.
 rStringSetValue :: Lens' Resource [Text]
-rStringSetValue = lens _rStringSetValue (\ s a -> s{_rStringSetValue = a}) . _Default;
+rStringSetValue = lens _rStringSetValue (\ s a -> s{_rStringSetValue = a}) . _Default . _Coerce;
 
 -- | When the @integerValue@ type is set, the value of the resource must be
 -- an integer.
@@ -1405,7 +1405,7 @@ tLastStatus = lens _tLastStatus (\ s a -> s{_tLastStatus = a});
 
 -- | The containers associated with the task.
 tContainers :: Lens' Task [Container]
-tContainers = lens _tContainers (\ s a -> s{_tContainers = a}) . _Default;
+tContainers = lens _tContainers (\ s a -> s{_tContainers = a}) . _Default . _Coerce;
 
 -- | The tag specified when a task is started. If the task is started by an
 -- Amazon ECS service, then the @startedBy@ parameter contains the
@@ -1485,7 +1485,7 @@ tdFamily = lens _tdFamily (\ s a -> s{_tdFamily = a});
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
 tdContainerDefinitions :: Lens' TaskDefinition [ContainerDefinition]
-tdContainerDefinitions = lens _tdContainerDefinitions (\ s a -> s{_tdContainerDefinitions = a}) . _Default;
+tdContainerDefinitions = lens _tdContainerDefinitions (\ s a -> s{_tdContainerDefinitions = a}) . _Default . _Coerce;
 
 -- | The full Amazon Resource Name (ARN) of the of the task definition.
 tdTaskDefinitionARN :: Lens' TaskDefinition (Maybe Text)
@@ -1505,7 +1505,7 @@ tdRevision = lens _tdRevision (\ s a -> s{_tdRevision = a});
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
 tdVolumes :: Lens' TaskDefinition [Volume]
-tdVolumes = lens _tdVolumes (\ s a -> s{_tdVolumes = a}) . _Default;
+tdVolumes = lens _tdVolumes (\ s a -> s{_tdVolumes = a}) . _Default . _Coerce;
 
 instance FromJSON TaskDefinition where
         parseJSON
@@ -1538,7 +1538,7 @@ taskOverride =
 
 -- | One or more container overrides sent to a task.
 toContainerOverrides :: Lens' TaskOverride [ContainerOverride]
-toContainerOverrides = lens _toContainerOverrides (\ s a -> s{_toContainerOverrides = a}) . _Default;
+toContainerOverrides = lens _toContainerOverrides (\ s a -> s{_toContainerOverrides = a}) . _Default . _Coerce;
 
 instance FromJSON TaskOverride where
         parseJSON

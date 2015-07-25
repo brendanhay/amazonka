@@ -172,7 +172,7 @@ lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
 
 -- | List of vaults.
 lvrsVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
-lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default;
+lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lvrsStatus :: Lens' ListVaultsResponse Int

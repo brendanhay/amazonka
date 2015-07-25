@@ -284,7 +284,7 @@ lrrsrsStatus = lens _lrrsrsStatus (\ s a -> s{_lrrsrsStatus = a});
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.
 lrrsrsResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordSet]
-lrrsrsResourceRecordSets = lens _lrrsrsResourceRecordSets (\ s a -> s{_lrrsrsResourceRecordSets = a});
+lrrsrsResourceRecordSets = lens _lrrsrsResourceRecordSets (\ s a -> s{_lrrsrsResourceRecordSets = a}) . _Coerce;
 
 -- | A flag that indicates whether there are more resource record sets to be
 -- listed. If your results were truncated, you can make a follow-up request

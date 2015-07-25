@@ -81,7 +81,7 @@ listOnPremisesInstances =
 -- | The on-premises instance tags that will be used to restrict the
 -- corresponding on-premises instance names that are returned.
 lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
-lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default;
+lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default . _Coerce;
 
 -- | An identifier that was returned from the previous list on-premises
 -- instances call, which can be used to return the next set of on-premises
@@ -169,7 +169,7 @@ lopirsNextToken = lens _lopirsNextToken (\ s a -> s{_lopirsNextToken = a});
 
 -- | The list of matching on-premises instance names.
 lopirsInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
-lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames = a}) . _Default;
+lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lopirsStatus :: Lens' ListOnPremisesInstancesResponse Int

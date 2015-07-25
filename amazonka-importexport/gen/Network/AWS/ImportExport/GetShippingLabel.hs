@@ -162,7 +162,7 @@ gslStreet1 = lens _gslStreet1 (\ s a -> s{_gslStreet1 = a});
 
 -- | FIXME: Undocumented member.
 gslJobIds :: Lens' GetShippingLabel [Text]
-gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a});
+gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a}) . _Coerce;
 
 instance AWSRequest GetShippingLabel where
         type Sv GetShippingLabel = ImportExport

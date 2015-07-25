@@ -104,7 +104,7 @@ describeClusterSubnetGroups =
 -- subnet groups that have either or both of these tag values associated
 -- with them.
 dcsgsTagValues :: Lens' DescribeClusterSubnetGroups [Text]
-dcsgsTagValues = lens _dcsgsTagValues (\ s a -> s{_dcsgsTagValues = a}) . _Default;
+dcsgsTagValues = lens _dcsgsTagValues (\ s a -> s{_dcsgsTagValues = a}) . _Default . _Coerce;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- subnet groups that are associated with the specified key or keys. For
@@ -113,7 +113,7 @@ dcsgsTagValues = lens _dcsgsTagValues (\ s a -> s{_dcsgsTagValues = a}) . _Defau
 -- in the request, Amazon Redshift returns a response with the subnet
 -- groups that have either or both of these tag keys associated with them.
 dcsgsTagKeys :: Lens' DescribeClusterSubnetGroups [Text]
-dcsgsTagKeys = lens _dcsgsTagKeys (\ s a -> s{_dcsgsTagKeys = a}) . _Default;
+dcsgsTagKeys = lens _dcsgsTagKeys (\ s a -> s{_dcsgsTagKeys = a}) . _Default . _Coerce;
 
 -- | The name of the cluster subnet group for which information is requested.
 dcsgsClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
@@ -211,7 +211,7 @@ describeClusterSubnetGroupsResponse pStatus_ =
 
 -- | A list of ClusterSubnetGroup instances.
 dcsgrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
-dcsgrsClusterSubnetGroups = lens _dcsgrsClusterSubnetGroups (\ s a -> s{_dcsgrsClusterSubnetGroups = a}) . _Default;
+dcsgrsClusterSubnetGroups = lens _dcsgrsClusterSubnetGroups (\ s a -> s{_dcsgrsClusterSubnetGroups = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

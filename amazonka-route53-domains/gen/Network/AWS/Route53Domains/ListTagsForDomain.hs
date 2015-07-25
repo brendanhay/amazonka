@@ -144,4 +144,4 @@ ltfdrsStatus = lens _ltfdrsStatus (\ s a -> s{_ltfdrsStatus = a});
 --     Type: String
 --
 ltfdrsTagList :: Lens' ListTagsForDomainResponse [Tag]
-ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a});
+ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a}) . _Coerce;

@@ -76,7 +76,7 @@ ctFileSystemId = lens _ctFileSystemId (\ s a -> s{_ctFileSystemId = a});
 
 -- | An array of @Tag@ objects to add. Each @Tag@ object is a key-value pair.
 ctTags :: Lens' CreateTags [Tag]
-ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
+ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Coerce;
 
 instance AWSRequest CreateTags where
         type Sv CreateTags = EFS

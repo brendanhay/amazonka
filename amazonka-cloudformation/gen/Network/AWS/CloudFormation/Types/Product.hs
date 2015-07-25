@@ -142,7 +142,7 @@ parameterConstraints =
 
 -- | A list of values that are permitted for a parameter.
 pcAllowedValues :: Lens' ParameterConstraints [Text]
-pcAllowedValues = lens _pcAllowedValues (\ s a -> s{_pcAllowedValues = a}) . _Default;
+pcAllowedValues = lens _pcAllowedValues (\ s a -> s{_pcAllowedValues = a}) . _Default . _Coerce;
 
 instance FromXML ParameterConstraints where
         parseXML x
@@ -306,7 +306,7 @@ sLastUpdatedTime = lens _sLastUpdatedTime (\ s a -> s{_sLastUpdatedTime = a}) . 
 
 -- | SNS topic ARNs to which stack related events are published.
 sNotificationARNs :: Lens' Stack [Text]
-sNotificationARNs = lens _sNotificationARNs (\ s a -> s{_sNotificationARNs = a}) . _Default;
+sNotificationARNs = lens _sNotificationARNs (\ s a -> s{_sNotificationARNs = a}) . _Default . _Coerce;
 
 -- | Success\/failure message associated with the stack status.
 sStackStatusReason :: Lens' Stack (Maybe Text)
@@ -314,11 +314,11 @@ sStackStatusReason = lens _sStackStatusReason (\ s a -> s{_sStackStatusReason = 
 
 -- | A list of output structures.
 sOutputs :: Lens' Stack [Output]
-sOutputs = lens _sOutputs (\ s a -> s{_sOutputs = a}) . _Default;
+sOutputs = lens _sOutputs (\ s a -> s{_sOutputs = a}) . _Default . _Coerce;
 
 -- | A list of @Parameter@ structures.
 sParameters :: Lens' Stack [Parameter]
-sParameters = lens _sParameters (\ s a -> s{_sParameters = a}) . _Default;
+sParameters = lens _sParameters (\ s a -> s{_sParameters = a}) . _Default . _Coerce;
 
 -- | Unique identifier of the stack.
 sStackId :: Lens' Stack (Maybe Text)
@@ -326,7 +326,7 @@ sStackId = lens _sStackId (\ s a -> s{_sStackId = a});
 
 -- | The capabilities allowed in the stack.
 sCapabilities :: Lens' Stack [Capability]
-sCapabilities = lens _sCapabilities (\ s a -> s{_sCapabilities = a}) . _Default;
+sCapabilities = lens _sCapabilities (\ s a -> s{_sCapabilities = a}) . _Default . _Coerce;
 
 -- | User defined description associated with the stack.
 sDescription :: Lens' Stack (Maybe Text)
@@ -334,7 +334,7 @@ sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
 
 -- | A list of @Tag@s that specify cost allocation information for the stack.
 sTags :: Lens' Stack [Tag]
-sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default;
+sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 
 -- | The amount of time within which stack creation should complete.
 sTimeoutInMinutes :: Lens' Stack (Maybe Natural)

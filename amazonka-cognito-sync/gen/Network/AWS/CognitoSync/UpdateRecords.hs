@@ -111,7 +111,7 @@ updateRecords pIdentityPoolId_ pIdentityId_ pDatasetName_ pSyncSessionToken_ =
 
 -- | A list of patch operations.
 urRecordPatches :: Lens' UpdateRecords [RecordPatch]
-urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a}) . _Default;
+urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a}) . _Default . _Coerce;
 
 -- | The unique ID generated for this device by Cognito.
 urDeviceId :: Lens' UpdateRecords (Maybe Text)
@@ -203,7 +203,7 @@ updateRecordsResponse pStatus_ =
 
 -- | A list of records that have been updated.
 urrsRecords :: Lens' UpdateRecordsResponse [Record]
-urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default;
+urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 urrsStatus :: Lens' UpdateRecordsResponse Int

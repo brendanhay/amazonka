@@ -111,7 +111,7 @@ cdoDryRun = lens _cdoDryRun (\ s a -> s{_cdoDryRun = a});
 
 -- | A DHCP configuration option.
 cdoDHCPConfigurations :: Lens' CreateDHCPOptions [NewDHCPConfiguration]
-cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigurations = a});
+cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigurations = a}) . _Coerce;
 
 instance AWSRequest CreateDHCPOptions where
         type Sv CreateDHCPOptions = EC2

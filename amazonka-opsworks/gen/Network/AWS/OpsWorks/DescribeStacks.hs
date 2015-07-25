@@ -69,7 +69,7 @@ describeStacks =
 -- omit this parameter, @DescribeStacks@ returns a description of every
 -- stack.
 dsStackIds :: Lens' DescribeStacks [Text]
-dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default;
+dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = OpsWorks
@@ -124,7 +124,7 @@ describeStacksResponse pStatus_ =
 
 -- | An array of @Stack@ objects that describe the stacks.
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
-dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default;
+dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsrsStatus :: Lens' DescribeStacksResponse Int

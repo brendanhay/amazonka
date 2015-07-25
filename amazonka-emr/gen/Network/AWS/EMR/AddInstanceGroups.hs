@@ -69,7 +69,7 @@ addInstanceGroups pJobFlowId_ =
 
 -- | Instance Groups to add.
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
-aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a});
+aigInstanceGroups = lens _aigInstanceGroups (\ s a -> s{_aigInstanceGroups = a}) . _Coerce;
 
 -- | Job flow in which to add the instance groups.
 aigJobFlowId :: Lens' AddInstanceGroups Text
@@ -140,7 +140,7 @@ aigrsJobFlowId = lens _aigrsJobFlowId (\ s a -> s{_aigrsJobFlowId = a});
 
 -- | Instance group IDs of the newly created instance groups.
 aigrsInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
-aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default;
+aigrsInstanceGroupIds = lens _aigrsInstanceGroupIds (\ s a -> s{_aigrsInstanceGroupIds = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 aigrsStatus :: Lens' AddInstanceGroupsResponse Int

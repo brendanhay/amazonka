@@ -89,7 +89,7 @@ dassDeployed = lens _dassDeployed (\ s a -> s{_dassDeployed = a});
 
 -- | The analysis schemes you want to describe.
 dassAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
-dassAnalysisSchemeNames = lens _dassAnalysisSchemeNames (\ s a -> s{_dassAnalysisSchemeNames = a}) . _Default;
+dassAnalysisSchemeNames = lens _dassAnalysisSchemeNames (\ s a -> s{_dassAnalysisSchemeNames = a}) . _Default . _Coerce;
 
 -- | The name of the domain you want to describe.
 dassDomainName :: Lens' DescribeAnalysisSchemes Text
@@ -155,4 +155,4 @@ dasrsStatus = lens _dasrsStatus (\ s a -> s{_dasrsStatus = a});
 
 -- | The analysis scheme descriptions.
 dasrsAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-dasrsAnalysisSchemes = lens _dasrsAnalysisSchemes (\ s a -> s{_dasrsAnalysisSchemes = a});
+dasrsAnalysisSchemes = lens _dasrsAnalysisSchemes (\ s a -> s{_dasrsAnalysisSchemes = a}) . _Coerce;

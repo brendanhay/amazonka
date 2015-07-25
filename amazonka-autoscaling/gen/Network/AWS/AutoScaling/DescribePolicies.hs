@@ -86,7 +86,7 @@ describePolicies =
 -- the results are limited to that group. This list is limited to 50 items.
 -- If you specify an unknown policy name, it is ignored with no error.
 dpsPolicyNames :: Lens' DescribePolicies [Text]
-dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Default;
+dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -104,7 +104,7 @@ dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScal
 -- | One or more policy types. Valid values are @SimpleScaling@ and
 -- @StepScaling@.
 dpsPolicyTypes :: Lens' DescribePolicies [Text]
-dpsPolicyTypes = lens _dpsPolicyTypes (\ s a -> s{_dpsPolicyTypes = a}) . _Default;
+dpsPolicyTypes = lens _dpsPolicyTypes (\ s a -> s{_dpsPolicyTypes = a}) . _Default . _Coerce;
 
 instance AWSPager DescribePolicies where
         page rq rs
@@ -176,7 +176,7 @@ dprsNextToken = lens _dprsNextToken (\ s a -> s{_dprsNextToken = a});
 
 -- | The scaling policies.
 dprsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
-dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default;
+dprsScalingPolicies = lens _dprsScalingPolicies (\ s a -> s{_dprsScalingPolicies = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dprsStatus :: Lens' DescribePoliciesResponse Int

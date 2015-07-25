@@ -300,7 +300,7 @@ rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
 
 -- | FIXME: Undocumented member.
 rditpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
-rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a}) . _Default;
+rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a}) . _Default . _Coerce;
 
 -- | The port number on which the database accepts connections.
 --

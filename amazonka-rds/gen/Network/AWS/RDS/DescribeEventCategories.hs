@@ -79,7 +79,7 @@ decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
 -- | This parameter is not currently supported.
 decFilters :: Lens' DescribeEventCategories [Filter]
-decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default;
+decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = RDS
@@ -134,7 +134,7 @@ describeEventCategoriesResponse pStatus_ =
 
 -- | A list of EventCategoriesMap data types.
 decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
-decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default;
+decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 decrsStatus :: Lens' DescribeEventCategoriesResponse Int

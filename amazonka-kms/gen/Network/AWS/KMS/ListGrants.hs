@@ -165,7 +165,7 @@ lgrsTruncated = lens _lgrsTruncated (\ s a -> s{_lgrsTruncated = a});
 
 -- | A list of grants.
 lgrsGrants :: Lens' ListGrantsResponse [GrantListEntry]
-lgrsGrants = lens _lgrsGrants (\ s a -> s{_lgrsGrants = a}) . _Default;
+lgrsGrants = lens _lgrsGrants (\ s a -> s{_lgrsGrants = a}) . _Default . _Coerce;
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination

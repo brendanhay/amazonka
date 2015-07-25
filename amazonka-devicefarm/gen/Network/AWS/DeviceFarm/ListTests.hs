@@ -136,7 +136,7 @@ listTestsResponse pStatus_ =
 
 -- | Information about the tests.
 ltrsTests :: Lens' ListTestsResponse [Test]
-ltrsTests = lens _ltrsTests (\ s a -> s{_ltrsTests = a}) . _Default;
+ltrsTests = lens _ltrsTests (\ s a -> s{_ltrsTests = a}) . _Default . _Coerce;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent

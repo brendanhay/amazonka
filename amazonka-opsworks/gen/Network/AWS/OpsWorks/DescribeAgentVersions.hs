@@ -135,7 +135,7 @@ describeAgentVersionsResponse pStatus_ =
 -- Note that this value is the complete version number, not the abbreviated
 -- number used by the console.
 davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
-davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default;
+davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 davrsStatus :: Lens' DescribeAgentVersionsResponse Int

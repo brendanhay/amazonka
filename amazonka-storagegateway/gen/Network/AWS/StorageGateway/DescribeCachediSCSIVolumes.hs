@@ -67,7 +67,7 @@ describeCachediSCSIVolumes =
 
 -- | FIXME: Undocumented member.
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
-dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\ s a -> s{_dcscsivVolumeARNs = a});
+dcscsivVolumeARNs = lens _dcscsivVolumeARNs (\ s a -> s{_dcscsivVolumeARNs = a}) . _Coerce;
 
 instance AWSRequest DescribeCachediSCSIVolumes where
         type Sv DescribeCachediSCSIVolumes = StorageGateway
@@ -126,7 +126,7 @@ describeCachediSCSIVolumesResponse pStatus_ =
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
 dcscsivrsCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
-dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcscsivrsCachediSCSIVolumes = a}) . _Default;
+dcscsivrsCachediSCSIVolumes = lens _dcscsivrsCachediSCSIVolumes (\ s a -> s{_dcscsivrsCachediSCSIVolumes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcscsivrsStatus :: Lens' DescribeCachediSCSIVolumesResponse Int

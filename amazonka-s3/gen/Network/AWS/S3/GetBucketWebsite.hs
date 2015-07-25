@@ -134,7 +134,7 @@ gbwrsErrorDocument = lens _gbwrsErrorDocument (\ s a -> s{_gbwrsErrorDocument = 
 
 -- | FIXME: Undocumented member.
 gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default;
+gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)

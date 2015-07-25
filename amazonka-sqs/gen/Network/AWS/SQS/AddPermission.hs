@@ -111,7 +111,7 @@ apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers>
 -- in the /Amazon SQS Developer Guide/.
 apAWSAccountIds :: Lens' AddPermission [Text]
-apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a});
+apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a}) . _Coerce;
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values:
@@ -125,7 +125,7 @@ apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a});
 -- batch versions of those actions: @SendMessageBatch@,
 -- @DeleteMessageBatch@, and @ChangeMessageVisibilityBatch@.
 apActions :: Lens' AddPermission [Text]
-apActions = lens _apActions (\ s a -> s{_apActions = a});
+apActions = lens _apActions (\ s a -> s{_apActions = a}) . _Coerce;
 
 instance AWSRequest AddPermission where
         type Sv AddPermission = SQS

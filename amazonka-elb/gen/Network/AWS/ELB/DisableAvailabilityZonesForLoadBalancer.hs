@@ -82,7 +82,7 @@ dazflbLoadBalancerName = lens _dazflbLoadBalancerName (\ s a -> s{_dazflbLoadBal
 
 -- | The Availability Zones.
 dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
-dazflbAvailabilityZones = lens _dazflbAvailabilityZones (\ s a -> s{_dazflbAvailabilityZones = a});
+dazflbAvailabilityZones = lens _dazflbAvailabilityZones (\ s a -> s{_dazflbAvailabilityZones = a}) . _Coerce;
 
 instance AWSRequest
          DisableAvailabilityZonesForLoadBalancer where
@@ -141,7 +141,7 @@ disableAvailabilityZonesForLoadBalancerResponse pStatus_ =
 
 -- | The remaining Availability Zones for the load balancer.
 dazflbrsAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
-dazflbrsAvailabilityZones = lens _dazflbrsAvailabilityZones (\ s a -> s{_dazflbrsAvailabilityZones = a}) . _Default;
+dazflbrsAvailabilityZones = lens _dazflbrsAvailabilityZones (\ s a -> s{_dazflbrsAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dazflbrsStatus :: Lens' DisableAvailabilityZonesForLoadBalancerResponse Int

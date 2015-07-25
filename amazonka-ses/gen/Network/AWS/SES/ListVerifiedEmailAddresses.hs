@@ -110,7 +110,7 @@ listVerifiedEmailAddressesResponse pStatus_ =
 
 -- | A list of email addresses that have been verified.
 lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
-lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default;
+lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lvearsStatus :: Lens' ListVerifiedEmailAddressesResponse Int

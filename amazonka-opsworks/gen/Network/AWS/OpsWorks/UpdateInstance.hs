@@ -198,7 +198,7 @@ uiAutoScalingType = lens _uiAutoScalingType (\ s a -> s{_uiAutoScalingType = a})
 
 -- | The instance\'s layer IDs.
 uiLayerIds :: Lens' UpdateInstance [Text]
-uiLayerIds = lens _uiLayerIds (\ s a -> s{_uiLayerIds = a}) . _Default;
+uiLayerIds = lens _uiLayerIds (\ s a -> s{_uiLayerIds = a}) . _Default . _Coerce;
 
 -- | The instance architecture. Instance types do not necessarily support
 -- both architectures. For a list of the architectures that are supported

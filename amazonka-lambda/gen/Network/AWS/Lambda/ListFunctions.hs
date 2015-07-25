@@ -145,7 +145,7 @@ lfrsNextMarker = lens _lfrsNextMarker (\ s a -> s{_lfrsNextMarker = a});
 
 -- | A list of Lambda functions.
 lfrsFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
-lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default;
+lfrsFunctions = lens _lfrsFunctions (\ s a -> s{_lfrsFunctions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lfrsStatus :: Lens' ListFunctionsResponse Int

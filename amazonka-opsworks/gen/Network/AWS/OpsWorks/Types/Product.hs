@@ -157,11 +157,11 @@ appCreatedAt = lens _appCreatedAt (\ s a -> s{_appCreatedAt = a});
 -- cases, but if you do exceed it, you will cause an exception (API) with
 -- an \"Environment: is too large (maximum is 10KB)\" message.
 appEnvironment :: Lens' App [EnvironmentVariable]
-appEnvironment = lens _appEnvironment (\ s a -> s{_appEnvironment = a}) . _Default;
+appEnvironment = lens _appEnvironment (\ s a -> s{_appEnvironment = a}) . _Default . _Coerce;
 
 -- | The app\'s data sources.
 appDataSources :: Lens' App [DataSource]
-appDataSources = lens _appDataSources (\ s a -> s{_appDataSources = a}) . _Default;
+appDataSources = lens _appDataSources (\ s a -> s{_appDataSources = a}) . _Default . _Coerce;
 
 -- | The app ID.
 appAppId :: Lens' App (Maybe Text)
@@ -186,7 +186,7 @@ appType = lens _appType (\ s a -> s{_appType = a});
 -- | The app vhost settings with multiple domains separated by commas. For
 -- example: @\'www.example.com, example.com\'@
 appDomains :: Lens' App [Text]
-appDomains = lens _appDomains (\ s a -> s{_appDomains = a}) . _Default;
+appDomains = lens _appDomains (\ s a -> s{_appDomains = a}) . _Default . _Coerce;
 
 -- | The app stack ID.
 appStackId :: Lens' App (Maybe Text)
@@ -295,7 +295,7 @@ astThresholdsWaitTime = lens _astThresholdsWaitTime (\ s a -> s{_astThresholdsWa
 -- manually. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf>.
 astAlarms :: Lens' AutoScalingThresholds [Text]
-astAlarms = lens _astAlarms (\ s a -> s{_astAlarms = a}) . _Default;
+astAlarms = lens _astAlarms (\ s a -> s{_astAlarms = a}) . _Default . _Coerce;
 
 -- | The memory utilization threshold, as a percent of the available memory.
 astMemoryThreshold :: Lens' AutoScalingThresholds (Maybe Double)
@@ -726,7 +726,7 @@ dAppId = lens _dAppId (\ s a -> s{_dAppId = a});
 
 -- | The IDs of the target instances.
 dInstanceIds :: Lens' Deployment [Text]
-dInstanceIds = lens _dInstanceIds (\ s a -> s{_dInstanceIds = a}) . _Default;
+dInstanceIds = lens _dInstanceIds (\ s a -> s{_dInstanceIds = a}) . _Default . _Coerce;
 
 -- | Date when the deployment completed.
 dCompletedAt :: Lens' Deployment (Maybe Text)
@@ -1047,7 +1047,7 @@ elasticLoadBalancer =
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
 elbSubnetIds :: Lens' ElasticLoadBalancer [Text]
-elbSubnetIds = lens _elbSubnetIds (\ s a -> s{_elbSubnetIds = a}) . _Default;
+elbSubnetIds = lens _elbSubnetIds (\ s a -> s{_elbSubnetIds = a}) . _Default . _Coerce;
 
 -- | The VPC ID.
 elbVPCId :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -1055,7 +1055,7 @@ elbVPCId = lens _elbVPCId (\ s a -> s{_elbVPCId = a});
 
 -- | A list of Availability Zones.
 elbAvailabilityZones :: Lens' ElasticLoadBalancer [Text]
-elbAvailabilityZones = lens _elbAvailabilityZones (\ s a -> s{_elbAvailabilityZones = a}) . _Default;
+elbAvailabilityZones = lens _elbAvailabilityZones (\ s a -> s{_elbAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The instance\'s AWS region.
 elbRegion :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -1068,7 +1068,7 @@ elbElasticLoadBalancerName = lens _elbElasticLoadBalancerName (\ s a -> s{_elbEl
 -- | A list of the EC2 instances that the Elastic Load Balancing instance is
 -- managing traffic for.
 elbEC2InstanceIds :: Lens' ElasticLoadBalancer [Text]
-elbEC2InstanceIds = lens _elbEC2InstanceIds (\ s a -> s{_elbEC2InstanceIds = a}) . _Default;
+elbEC2InstanceIds = lens _elbEC2InstanceIds (\ s a -> s{_elbEC2InstanceIds = a}) . _Default . _Coerce;
 
 -- | The ID of the stack that the instance is associated with.
 elbStackId :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -1370,7 +1370,7 @@ iVirtualizationType = lens _iVirtualizationType (\ s a -> s{_iVirtualizationType
 
 -- | An array containing the instance security group IDs.
 iSecurityGroupIds :: Lens' Instance [Text]
-iSecurityGroupIds = lens _iSecurityGroupIds (\ s a -> s{_iSecurityGroupIds = a}) . _Default;
+iSecurityGroupIds = lens _iSecurityGroupIds (\ s a -> s{_iSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | The SSH key\'s RSA fingerprint.
 iSSHHostRsaKeyFingerprint :: Lens' Instance (Maybe Text)
@@ -1459,7 +1459,7 @@ iAutoScalingType = lens _iAutoScalingType (\ s a -> s{_iAutoScalingType = a});
 
 -- | An array containing the instance layer IDs.
 iLayerIds :: Lens' Instance [Text]
-iLayerIds = lens _iLayerIds (\ s a -> s{_iLayerIds = a}) . _Default;
+iLayerIds = lens _iLayerIds (\ s a -> s{_iLayerIds = a}) . _Default . _Coerce;
 
 -- | The instance architecture: \"i386\" or \"x86_64\".
 iArchitecture :: Lens' Instance (Maybe Architecture)
@@ -1494,7 +1494,7 @@ iRegisteredBy = lens _iRegisteredBy (\ s a -> s{_iRegisteredBy = a});
 -- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
 -- block device mappings.
 iBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
-iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default;
+iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The instance\'s root device type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
@@ -1886,7 +1886,7 @@ lInstallUpdatesOnBoot = lens _lInstallUpdatesOnBoot (\ s a -> s{_lInstallUpdates
 
 -- | An array containing the layer\'s custom security group IDs.
 lCustomSecurityGroupIds :: Lens' Layer [Text]
-lCustomSecurityGroupIds = lens _lCustomSecurityGroupIds (\ s a -> s{_lCustomSecurityGroupIds = a}) . _Default;
+lCustomSecurityGroupIds = lens _lCustomSecurityGroupIds (\ s a -> s{_lCustomSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
 -- configuration.
@@ -1913,7 +1913,7 @@ lCustomRecipes = lens _lCustomRecipes (\ s a -> s{_lCustomRecipes = a});
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
 lVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
-lVolumeConfigurations = lens _lVolumeConfigurations (\ s a -> s{_lVolumeConfigurations = a}) . _Default;
+lVolumeConfigurations = lens _lVolumeConfigurations (\ s a -> s{_lVolumeConfigurations = a}) . _Default . _Coerce;
 
 -- | Whether auto healing is disabled for the layer.
 lEnableAutoHealing :: Lens' Layer (Maybe Bool)
@@ -1921,7 +1921,7 @@ lEnableAutoHealing = lens _lEnableAutoHealing (\ s a -> s{_lEnableAutoHealing = 
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
 lPackages :: Lens' Layer [Text]
-lPackages = lens _lPackages (\ s a -> s{_lPackages = a}) . _Default;
+lPackages = lens _lPackages (\ s a -> s{_lPackages = a}) . _Default . _Coerce;
 
 -- | The layer name.
 lName :: Lens' Layer (Maybe Text)
@@ -1959,7 +1959,7 @@ lLayerId = lens _lLayerId (\ s a -> s{_lLayerId = a});
 
 -- | An array containing the layer\'s security group names.
 lDefaultSecurityGroupNames :: Lens' Layer [Text]
-lDefaultSecurityGroupNames = lens _lDefaultSecurityGroupNames (\ s a -> s{_lDefaultSecurityGroupNames = a}) . _Default;
+lDefaultSecurityGroupNames = lens _lDefaultSecurityGroupNames (\ s a -> s{_lDefaultSecurityGroupNames = a}) . _Default . _Coerce;
 
 -- | Whether to automatically assign an
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
@@ -2451,23 +2451,23 @@ recipes =
 
 -- | An array of custom recipe names to be run following a @setup@ event.
 rSetup :: Lens' Recipes [Text]
-rSetup = lens _rSetup (\ s a -> s{_rSetup = a}) . _Default;
+rSetup = lens _rSetup (\ s a -> s{_rSetup = a}) . _Default . _Coerce;
 
 -- | An array of custom recipe names to be run following a @undeploy@ event.
 rUndeploy :: Lens' Recipes [Text]
-rUndeploy = lens _rUndeploy (\ s a -> s{_rUndeploy = a}) . _Default;
+rUndeploy = lens _rUndeploy (\ s a -> s{_rUndeploy = a}) . _Default . _Coerce;
 
 -- | An array of custom recipe names to be run following a @shutdown@ event.
 rShutdown :: Lens' Recipes [Text]
-rShutdown = lens _rShutdown (\ s a -> s{_rShutdown = a}) . _Default;
+rShutdown = lens _rShutdown (\ s a -> s{_rShutdown = a}) . _Default . _Coerce;
 
 -- | An array of custom recipe names to be run following a @configure@ event.
 rConfigure :: Lens' Recipes [Text]
-rConfigure = lens _rConfigure (\ s a -> s{_rConfigure = a}) . _Default;
+rConfigure = lens _rConfigure (\ s a -> s{_rConfigure = a}) . _Default . _Coerce;
 
 -- | An array of custom recipe names to be run following a @deploy@ event.
 rDeploy :: Lens' Recipes [Text]
-rDeploy = lens _rDeploy (\ s a -> s{_rDeploy = a}) . _Default;
+rDeploy = lens _rDeploy (\ s a -> s{_rDeploy = a}) . _Default . _Coerce;
 
 instance FromJSON Recipes where
         parseJSON

@@ -87,7 +87,7 @@ pncTopicARN = lens _pncTopicARN (\ s a -> s{_pncTopicARN = a});
 -- details about notification types supported by Auto Scaling, see
 -- DescribeAutoScalingNotificationTypes.
 pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
-pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTypes = a});
+pncNotificationTypes = lens _pncNotificationTypes (\ s a -> s{_pncNotificationTypes = a}) . _Coerce;
 
 instance AWSRequest PutNotificationConfiguration
          where

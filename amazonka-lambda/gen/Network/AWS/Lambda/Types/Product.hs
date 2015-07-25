@@ -166,8 +166,8 @@ fcS3Key = lens _fcS3Key (\ s a -> s{_fcS3Key = a});
 -- information about creating a .zip file, go to
 -- <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions>
 -- in the /AWS Lambda Developer Guide/.
-fcZipFile :: Lens' FunctionCode (Maybe Base64)
-fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a});
+fcZipFile :: Lens' FunctionCode (Maybe ByteString)
+fcZipFile = lens _fcZipFile (\ s a -> s{_fcZipFile = a}) . mapping _Base64;
 
 -- | Amazon S3 bucket name where the .zip file containing your deployment
 -- package is stored. This bucket must reside in the same AWS region where

@@ -123,7 +123,7 @@ dcIncludeResolvedCases = lens _dcIncludeResolvedCases (\ s a -> s{_dcIncludeReso
 -- | A list of ID numbers of the support cases you want returned. The maximum
 -- number of cases is 100.
 dcCaseIdList :: Lens' DescribeCases [Text]
-dcCaseIdList = lens _dcCaseIdList (\ s a -> s{_dcCaseIdList = a}) . _Default;
+dcCaseIdList = lens _dcCaseIdList (\ s a -> s{_dcCaseIdList = a}) . _Default . _Coerce;
 
 -- | The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
@@ -235,7 +235,7 @@ describeCasesResponse pStatus_ =
 
 -- | The details for the cases that match the request.
 drsCases :: Lens' DescribeCasesResponse [CaseDetails]
-drsCases = lens _drsCases (\ s a -> s{_drsCases = a}) . _Default;
+drsCases = lens _drsCases (\ s a -> s{_drsCases = a}) . _Default . _Coerce;
 
 -- | A resumption point for pagination.
 drsNextToken :: Lens' DescribeCasesResponse (Maybe Text)

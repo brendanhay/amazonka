@@ -162,7 +162,7 @@ describeReservedNodesResponse pStatus_ =
 
 -- | The list of reserved nodes.
 drnrsReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
-drnrsReservedNodes = lens _drnrsReservedNodes (\ s a -> s{_drnrsReservedNodes = a}) . _Default;
+drnrsReservedNodes = lens _drnrsReservedNodes (\ s a -> s{_drnrsReservedNodes = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

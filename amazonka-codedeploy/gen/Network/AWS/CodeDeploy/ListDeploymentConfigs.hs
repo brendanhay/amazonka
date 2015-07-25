@@ -138,7 +138,7 @@ ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a});
 -- | A list of deployment configurations, including the built-in
 -- configurations such as CodeDeployDefault.OneAtATime.
 ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
-ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default;
+ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ldcrsStatus :: Lens' ListDeploymentConfigsResponse Int

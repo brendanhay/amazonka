@@ -174,7 +174,7 @@ dgirsGatewayARN = lens _dgirsGatewayARN (\ s a -> s{_dgirsGatewayARN = a});
 -- | A NetworkInterface array that contains descriptions of the gateway
 -- network interfaces.
 dgirsGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
-dgirsGatewayNetworkInterfaces = lens _dgirsGatewayNetworkInterfaces (\ s a -> s{_dgirsGatewayNetworkInterfaces = a}) . _Default;
+dgirsGatewayNetworkInterfaces = lens _dgirsGatewayNetworkInterfaces (\ s a -> s{_dgirsGatewayNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The date on which an update to the gateway is available. This date is in
 -- the time zone of the gateway. If the gateway is not available for an

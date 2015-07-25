@@ -63,7 +63,7 @@ batchGetOnPremisesInstances =
 
 -- | The names of the on-premises instances to get information about.
 bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
-bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default;
+bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default . _Coerce;
 
 instance AWSRequest BatchGetOnPremisesInstances where
         type Sv BatchGetOnPremisesInstances = CodeDeploy
@@ -121,7 +121,7 @@ batchGetOnPremisesInstancesResponse pStatus_ =
 
 -- | Information about the on-premises instances.
 bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
-bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default;
+bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 bgopirsStatus :: Lens' BatchGetOnPremisesInstancesResponse Int

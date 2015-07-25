@@ -249,7 +249,7 @@ gsrsCurrentManifest = lens _gsrsCurrentManifest (\ s a -> s{_gsrsCurrentManifest
 
 -- | FIXME: Undocumented member.
 gsrsArtifactList :: Lens' GetStatusResponse [Artifact]
-gsrsArtifactList = lens _gsrsArtifactList (\ s a -> s{_gsrsArtifactList = a}) . _Default;
+gsrsArtifactList = lens _gsrsArtifactList (\ s a -> s{_gsrsArtifactList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 gsrsLogBucket :: Lens' GetStatusResponse (Maybe Text)

@@ -69,7 +69,7 @@ describeStorediSCSIVolumes =
 -- Name (ARN) of a stored volume. All of the specified stored volumes must
 -- from the same gateway. Use ListVolumes to get volume ARNs for a gateway.
 dsscsivVolumeARNs :: Lens' DescribeStorediSCSIVolumes [Text]
-dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a});
+dsscsivVolumeARNs = lens _dsscsivVolumeARNs (\ s a -> s{_dsscsivVolumeARNs = a}) . _Coerce;
 
 instance AWSRequest DescribeStorediSCSIVolumes where
         type Sv DescribeStorediSCSIVolumes = StorageGateway
@@ -125,7 +125,7 @@ describeStorediSCSIVolumesResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 dsscsivrsStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
-dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default;
+dsscsivrsStorediSCSIVolumes = lens _dsscsivrsStorediSCSIVolumes (\ s a -> s{_dsscsivrsStorediSCSIVolumes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsscsivrsStatus :: Lens' DescribeStorediSCSIVolumesResponse Int

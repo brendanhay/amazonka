@@ -79,7 +79,7 @@ describeSpotFleetRequests =
 
 -- | The IDs of the Spot fleet requests.
 dsfrSpotFleetRequestIds :: Lens' DescribeSpotFleetRequests [Text]
-dsfrSpotFleetRequestIds = lens _dsfrSpotFleetRequestIds (\ s a -> s{_dsfrSpotFleetRequestIds = a}) . _Default;
+dsfrSpotFleetRequestIds = lens _dsfrSpotFleetRequestIds (\ s a -> s{_dsfrSpotFleetRequestIds = a}) . _Default . _Coerce;
 
 -- | The token for the next set of results.
 dsfrNextToken :: Lens' DescribeSpotFleetRequests (Maybe Text)
@@ -167,4 +167,4 @@ dsfrrsStatus = lens _dsfrrsStatus (\ s a -> s{_dsfrrsStatus = a});
 
 -- | Information about the configuration of your Spot fleet.
 dsfrrsSpotFleetRequestConfigs :: Lens' DescribeSpotFleetRequestsResponse [SpotFleetRequestConfig]
-dsfrrsSpotFleetRequestConfigs = lens _dsfrrsSpotFleetRequestConfigs (\ s a -> s{_dsfrrsSpotFleetRequestConfigs = a});
+dsfrrsSpotFleetRequestConfigs = lens _dsfrrsSpotFleetRequestConfigs (\ s a -> s{_dsfrrsSpotFleetRequestConfigs = a}) . _Coerce;

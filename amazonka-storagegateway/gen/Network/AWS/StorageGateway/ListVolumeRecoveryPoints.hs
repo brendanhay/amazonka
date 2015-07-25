@@ -130,7 +130,7 @@ listVolumeRecoveryPointsResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
-lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> s{_lvrprsVolumeRecoveryPointInfos = a}) . _Default;
+lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> s{_lvrprsVolumeRecoveryPointInfos = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)

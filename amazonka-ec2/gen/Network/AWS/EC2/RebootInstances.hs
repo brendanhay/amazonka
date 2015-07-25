@@ -80,7 +80,7 @@ rebDryRun = lens _rebDryRun (\ s a -> s{_rebDryRun = a});
 
 -- | One or more instance IDs.
 rebInstanceIds :: Lens' RebootInstances [Text]
-rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a});
+rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a}) . _Coerce;
 
 instance AWSRequest RebootInstances where
         type Sv RebootInstances = EC2

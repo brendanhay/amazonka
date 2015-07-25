@@ -90,7 +90,7 @@ dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a})
 
 -- | This parameter is not currently supported.
 dFilters :: Lens' DescribeEventSubscriptions [Filter]
-dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default;
+dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -177,7 +177,7 @@ describeEventSubscriptionsResponse pStatus_ =
 
 -- | A list of EventSubscriptions data types.
 desrsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default;
+desrsEventSubscriptionsList = lens _desrsEventSubscriptionsList (\ s a -> s{_desrsEventSubscriptionsList = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is

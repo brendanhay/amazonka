@@ -84,13 +84,13 @@ apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
 -- to the specified actions. The users must have AWS accounts, but do not
 -- need to be signed up for this service.
 apAWSAccountId :: Lens' AddPermission [Text]
-apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a});
+apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a}) . _Coerce;
 
 -- | The action you want to allow for the specified principal(s).
 --
 -- Valid values: any Amazon SNS action name.
 apActionName :: Lens' AddPermission [Text]
-apActionName = lens _apActionName (\ s a -> s{_apActionName = a});
+apActionName = lens _apActionName (\ s a -> s{_apActionName = a}) . _Coerce;
 
 instance AWSRequest AddPermission where
         type Sv AddPermission = SNS

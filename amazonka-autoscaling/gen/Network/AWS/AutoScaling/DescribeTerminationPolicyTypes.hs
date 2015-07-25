@@ -104,7 +104,7 @@ describeTerminationPolicyTypesResponse pStatus_ =
 -- @OldestLaunchConfiguration@, @NewestInstance@,
 -- @ClosestToNextInstanceHour@, and @Default@).
 dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
-dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default;
+dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtptrsStatus :: Lens' DescribeTerminationPolicyTypesResponse Int

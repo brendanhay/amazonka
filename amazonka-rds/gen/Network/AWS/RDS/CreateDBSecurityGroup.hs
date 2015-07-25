@@ -74,7 +74,7 @@ createDBSecurityGroup pDBSecurityGroupName_ pDBSecurityGroupDescription_ =
 
 -- | FIXME: Undocumented member.
 cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
-cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default;
+cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default . _Coerce;
 
 -- | The name for the DB security group. This value is stored as a lowercase
 -- string.

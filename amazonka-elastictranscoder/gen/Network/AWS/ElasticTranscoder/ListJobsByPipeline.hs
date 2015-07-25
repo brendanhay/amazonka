@@ -164,7 +164,7 @@ ljbprsNextPageToken = lens _ljbprsNextPageToken (\ s a -> s{_ljbprsNextPageToken
 
 -- | An array of @Job@ objects that are in the specified pipeline.
 ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job']
-ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default;
+ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ljbprsStatus :: Lens' ListJobsByPipelineResponse Int

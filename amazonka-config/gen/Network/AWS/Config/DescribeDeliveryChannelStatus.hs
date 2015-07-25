@@ -67,7 +67,7 @@ describeDeliveryChannelStatus =
 
 -- | A list of delivery channel names.
 ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
-ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliveryChannelNames = a}) . _Default;
+ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliveryChannelNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DescribeDeliveryChannelStatus
          where
@@ -128,7 +128,7 @@ describeDeliveryChannelStatusResponse pStatus_ =
 
 -- | A list that contains the status of a specified delivery channel.
 ddcsrsDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
-ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_ddcsrsDeliveryChannelsStatus = a}) . _Default;
+ddcsrsDeliveryChannelsStatus = lens _ddcsrsDeliveryChannelsStatus (\ s a -> s{_ddcsrsDeliveryChannelsStatus = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ddcsrsStatus :: Lens' DescribeDeliveryChannelStatusResponse Int

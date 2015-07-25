@@ -210,7 +210,7 @@ describeEventsResponse pStatus_ =
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
 dersEvents :: Lens' DescribeEventsResponse [Event]
-dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default;
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default . _Coerce;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dersMarker :: Lens' DescribeEventsResponse (Maybe Text)

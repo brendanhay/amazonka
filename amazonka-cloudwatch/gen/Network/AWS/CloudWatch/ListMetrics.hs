@@ -93,7 +93,7 @@ lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a});
 
 -- | A list of dimensions to filter against.
 lmDimensions :: Lens' ListMetrics [DimensionFilter]
-lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default;
+lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default . _Coerce;
 
 instance AWSPager ListMetrics where
         page rq rs
@@ -160,7 +160,7 @@ listMetricsResponse pStatus_ =
 
 -- | A list of metrics used to generate statistics for an AWS account.
 lmrsMetrics :: Lens' ListMetricsResponse [Metric]
-lmrsMetrics = lens _lmrsMetrics (\ s a -> s{_lmrsMetrics = a}) . _Default;
+lmrsMetrics = lens _lmrsMetrics (\ s a -> s{_lmrsMetrics = a}) . _Default . _Coerce;
 
 -- | A string that marks the start of the next batch of returned results.
 lmrsNextToken :: Lens' ListMetricsResponse (Maybe Text)

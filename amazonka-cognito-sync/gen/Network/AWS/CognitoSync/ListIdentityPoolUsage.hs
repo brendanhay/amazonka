@@ -148,7 +148,7 @@ listIdentityPoolUsageResponse pStatus_ =
 
 -- | Usage information for the identity pools.
 lipursIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
-lipursIdentityPoolUsages = lens _lipursIdentityPoolUsages (\ s a -> s{_lipursIdentityPoolUsages = a}) . _Default;
+lipursIdentityPoolUsages = lens _lipursIdentityPoolUsages (\ s a -> s{_lipursIdentityPoolUsages = a}) . _Default . _Coerce;
 
 -- | Total number of identities for the identity pool.
 lipursCount :: Lens' ListIdentityPoolUsageResponse (Maybe Int)

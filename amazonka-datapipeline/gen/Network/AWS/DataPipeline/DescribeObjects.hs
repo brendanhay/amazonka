@@ -101,7 +101,7 @@ doPipelineId = lens _doPipelineId (\ s a -> s{_doPipelineId = a});
 -- described. You can pass as many as 25 identifiers in a single call to
 -- @DescribeObjects@.
 doObjectIds :: Lens' DescribeObjects [Text]
-doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a});
+doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a}) . _Coerce;
 
 instance AWSPager DescribeObjects where
         page rq rs
@@ -190,4 +190,4 @@ dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});
 
 -- | An array of object definitions.
 dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
-dorsPipelineObjects = lens _dorsPipelineObjects (\ s a -> s{_dorsPipelineObjects = a});
+dorsPipelineObjects = lens _dorsPipelineObjects (\ s a -> s{_dorsPipelineObjects = a}) . _Coerce;

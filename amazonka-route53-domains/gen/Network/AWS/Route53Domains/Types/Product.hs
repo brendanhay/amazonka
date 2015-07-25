@@ -176,7 +176,7 @@ cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
 --
 -- Required: No
 cdExtraParams :: Lens' ContactDetail [ExtraParam]
-cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default;
+cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default . _Coerce;
 
 -- | The zip or postal code of the contact\'s address.
 --
@@ -497,7 +497,7 @@ nameserver pName_ =
 --
 -- Parent: @Nameservers@
 nGlueIPs :: Lens' Nameserver [Text]
-nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default;
+nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default . _Coerce;
 
 -- | The fully qualified host name of the name server.
 --

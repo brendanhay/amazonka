@@ -229,7 +229,7 @@ listObjectsResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 lorsContents :: Lens' ListObjectsResponse [Object]
-lorsContents = lens _lorsContents (\ s a -> s{_lorsContents = a}) . _Default;
+lorsContents = lens _lorsContents (\ s a -> s{_lorsContents = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lorsPrefix :: Lens' ListObjectsResponse (Maybe Text)
@@ -241,7 +241,7 @@ lorsEncodingType = lens _lorsEncodingType (\ s a -> s{_lorsEncodingType = a});
 
 -- | FIXME: Undocumented member.
 lorsCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
-lorsCommonPrefixes = lens _lorsCommonPrefixes (\ s a -> s{_lorsCommonPrefixes = a}) . _Default;
+lorsCommonPrefixes = lens _lorsCommonPrefixes (\ s a -> s{_lorsCommonPrefixes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lorsName :: Lens' ListObjectsResponse (Maybe BucketName)

@@ -228,7 +228,7 @@ drsInstanceId = lens _drsInstanceId (\ s a -> s{_drsInstanceId = a});
 
 -- | The security groups associated with the instance.
 drsGroups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
-drsGroups = lens _drsGroups (\ s a -> s{_drsGroups = a}) . _Default;
+drsGroups = lens _drsGroups (\ s a -> s{_drsGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether source\/destination checking is enabled. A value of
 -- @true@ means checking is enabled, and @false@ means checking is
@@ -278,11 +278,11 @@ drsInstanceInitiatedShutdownBehavior = lens _drsInstanceInitiatedShutdownBehavio
 
 -- | A list of product codes.
 drsProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
-drsProductCodes = lens _drsProductCodes (\ s a -> s{_drsProductCodes = a}) . _Default;
+drsProductCodes = lens _drsProductCodes (\ s a -> s{_drsProductCodes = a}) . _Default . _Coerce;
 
 -- | The block device mapping of the instance.
 drsBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
-drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDeviceMappings = a}) . _Default;
+drsBlockDeviceMappings = lens _drsBlockDeviceMappings (\ s a -> s{_drsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drsStatus :: Lens' DescribeInstanceAttributeResponse Int

@@ -69,7 +69,7 @@ describeApplicationVersions =
 -- | If specified, restricts the returned descriptions to only include ones
 -- that have the specified version labels.
 davsVersionLabels :: Lens' DescribeApplicationVersions [Text]
-davsVersionLabels = lens _davsVersionLabels (\ s a -> s{_davsVersionLabels = a}) . _Default;
+davsVersionLabels = lens _davsVersionLabels (\ s a -> s{_davsVersionLabels = a}) . _Default . _Coerce;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include ones that are associated with the specified application.
@@ -132,7 +132,7 @@ describeApplicationVersionsResponse pStatus_ =
 
 -- | A list of ApplicationVersionDescription .
 davrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
-davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default;
+davrsApplicationVersions = lens _davrsApplicationVersions (\ s a -> s{_davrsApplicationVersions = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 davrsStatus :: Lens' DescribeApplicationVersionsResponse Int

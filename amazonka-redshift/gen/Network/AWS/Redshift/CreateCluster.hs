@@ -197,7 +197,7 @@ ccHSMConfigurationIdentifier = lens _ccHSMConfigurationIdentifier (\ s a -> s{_c
 --
 -- Default: The default cluster security group for Amazon Redshift.
 ccClusterSecurityGroups :: Lens' CreateCluster [Text]
-ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSecurityGroups = a}) . _Default;
+ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
@@ -297,7 +297,7 @@ ccKMSKeyId = lens _ccKMSKeyId (\ s a -> s{_ccKMSKeyId = a});
 --
 -- Default: The default VPC security group is associated with the cluster.
 ccVPCSecurityGroupIds :: Lens' CreateCluster [Text]
-ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGroupIds = a}) . _Default;
+ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | The type of the cluster. When cluster type is specified as
 --
@@ -371,7 +371,7 @@ ccDBName = lens _ccDBName (\ s a -> s{_ccDBName = a});
 
 -- | A list of tag instances.
 ccTags :: Lens' CreateCluster [Tag]
-ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default;
+ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default . _Coerce;
 
 -- | The port number on which the cluster accepts incoming connections.
 --

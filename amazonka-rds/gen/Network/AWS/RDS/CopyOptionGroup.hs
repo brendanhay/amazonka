@@ -78,7 +78,7 @@ copyOptionGroup pSourceOptionGroupIdentifier_ pTargetOptionGroupIdentifier_ pTar
 
 -- | FIXME: Undocumented member.
 cTags :: Lens' CopyOptionGroup [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
 
 -- | The identifier or ARN for the source option group.
 --

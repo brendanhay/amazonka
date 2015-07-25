@@ -142,7 +142,7 @@ lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
 -- | Information about the samples.
 lsrsSamples :: Lens' ListSamplesResponse [Sample]
-lsrsSamples = lens _lsrsSamples (\ s a -> s{_lsrsSamples = a}) . _Default;
+lsrsSamples = lens _lsrsSamples (\ s a -> s{_lsrsSamples = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lsrsStatus :: Lens' ListSamplesResponse Int

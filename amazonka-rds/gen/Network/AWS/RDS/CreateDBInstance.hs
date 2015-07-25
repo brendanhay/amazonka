@@ -210,7 +210,7 @@ createDBInstance pDBInstanceIdentifier_ pAllocatedStorage_ pDBInstanceClass_ pEn
 --
 -- Default: The default DB security group for the database engine.
 cdiDBSecurityGroups :: Lens' CreateDBInstance [Text]
-cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups = a}) . _Default;
+cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The version number of the database engine to use.
 --
@@ -539,7 +539,7 @@ cdiDBParameterGroupName = lens _cdiDBParameterGroupName (\ s a -> s{_cdiDBParame
 -- Default: The default EC2 VPC security group for the DB subnet group\'s
 -- VPC.
 cdiVPCSecurityGroupIds :: Lens' CreateDBInstance [Text]
-cdiVPCSecurityGroupIds = lens _cdiVPCSecurityGroupIds (\ s a -> s{_cdiVPCSecurityGroupIds = a}) . _Default;
+cdiVPCSecurityGroupIds = lens _cdiVPCSecurityGroupIds (\ s a -> s{_cdiVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. You cannot set
 -- the AvailabilityZone parameter if the MultiAZ parameter is set to true.
@@ -608,7 +608,7 @@ cdiDBName = lens _cdiDBName (\ s a -> s{_cdiDBName = a});
 
 -- | FIXME: Undocumented member.
 cdiTags :: Lens' CreateDBInstance [Tag]
-cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a}) . _Default;
+cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a}) . _Default . _Coerce;
 
 -- | The port number on which the database accepts connections.
 --

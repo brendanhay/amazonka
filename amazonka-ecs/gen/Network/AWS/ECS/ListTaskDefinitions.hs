@@ -198,7 +198,7 @@ listTaskDefinitionsResponse pStatus_ =
 -- | The list of task definition Amazon Resource Name (ARN) entries for the
 -- @ListTaskDefintions@ request.
 ltdrsTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
-ltdrsTaskDefinitionARNs = lens _ltdrsTaskDefinitionARNs (\ s a -> s{_ltdrsTaskDefinitionARNs = a}) . _Default;
+ltdrsTaskDefinitionARNs = lens _ltdrsTaskDefinitionARNs (\ s a -> s{_ltdrsTaskDefinitionARNs = a}) . _Default . _Coerce;
 
 -- | The @nextToken@ value to include in a future @ListTaskDefinitions@
 -- request. When the results of a @ListTaskDefinitions@ request exceed

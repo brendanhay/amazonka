@@ -110,7 +110,7 @@ describeAccountAttributesResponse pStatus_ =
 -- a count of usage toward the quota maximum, and a maximum value for the
 -- quota.
 daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
-daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default;
+daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 daarsStatus :: Lens' DescribeAccountAttributesResponse Int

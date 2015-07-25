@@ -78,7 +78,7 @@ atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
 -- required key string with a maximum of 128 characters, and an optional
 -- value string with a maximum of 256 characters.
 atTags :: Lens' AddTags [Tag]
-atTags = lens _atTags (\ s a -> s{_atTags = a});
+atTags = lens _atTags (\ s a -> s{_atTags = a}) . _Coerce;
 
 instance AWSRequest AddTags where
         type Sv AddTags = EMR

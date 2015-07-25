@@ -102,7 +102,7 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 -- -   Failed: Include in the resulting list failed deployments.
 -- -   Aborted: Include in the resulting list aborted deployments.
 ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
-ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default;
+ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default . _Coerce;
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
@@ -184,7 +184,7 @@ ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | A list of deployment IDs.
 ldrsDeployments :: Lens' ListDeploymentsResponse [Text]
-ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default;
+ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ldrsStatus :: Lens' ListDeploymentsResponse Int

@@ -71,7 +71,7 @@ listTagsForResource pResourceName_ =
 
 -- | This parameter is not currently supported.
 ltfrFilters :: Lens' ListTagsForResource [Filter]
-ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default;
+ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default . _Coerce;
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
@@ -131,7 +131,7 @@ listTagsForResourceResponse pStatus_ =
 
 -- | List of tags returned by the ListTagsForResource operation.
 ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default;
+ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ltfrrsStatus :: Lens' ListTagsForResourceResponse Int

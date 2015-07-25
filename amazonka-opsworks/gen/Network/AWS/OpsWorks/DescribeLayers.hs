@@ -76,7 +76,7 @@ describeLayers =
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
 dlLayerIds :: Lens' DescribeLayers [Text]
-dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default;
+dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default . _Coerce;
 
 -- | The stack ID.
 dlStackId :: Lens' DescribeLayers (Maybe Text)
@@ -136,7 +136,7 @@ describeLayersResponse pStatus_ =
 
 -- | An array of @Layer@ objects that describe the layers.
 dlrsLayers :: Lens' DescribeLayersResponse [Layer]
-dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default;
+dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dlrsStatus :: Lens' DescribeLayersResponse Int

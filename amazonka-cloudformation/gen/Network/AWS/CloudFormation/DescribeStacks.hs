@@ -152,7 +152,7 @@ dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 
 -- | A list of stack structures.
 dsrsStacks :: Lens' DescribeStacksResponse [Stack]
-dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default;
+dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsrsStatus :: Lens' DescribeStacksResponse Int

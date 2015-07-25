@@ -45,7 +45,7 @@ accountAttribute =
 
 -- | One or more values for the account attribute.
 aaAttributeValues :: Lens' AccountAttribute [AccountAttributeValue]
-aaAttributeValues = lens _aaAttributeValues (\ s a -> s{_aaAttributeValues = a}) . _Default;
+aaAttributeValues = lens _aaAttributeValues (\ s a -> s{_aaAttributeValues = a}) . _Default . _Coerce;
 
 -- | The name of the account attribute.
 aaAttributeName :: Lens' AccountAttribute (Maybe Text)
@@ -323,7 +323,7 @@ azZoneName = lens _azZoneName (\ s a -> s{_azZoneName = a});
 
 -- | Any messages about the Availability Zone.
 azMessages :: Lens' AvailabilityZone [AvailabilityZoneMessage]
-azMessages = lens _azMessages (\ s a -> s{_azMessages = a}) . _Default;
+azMessages = lens _azMessages (\ s a -> s{_azMessages = a}) . _Default . _Coerce;
 
 instance FromXML AvailabilityZone where
         parseXML x
@@ -377,8 +377,8 @@ blobAttributeValue =
     }
 
 -- | FIXME: Undocumented member.
-bavValue :: Lens' BlobAttributeValue (Maybe Base64)
-bavValue = lens _bavValue (\ s a -> s{_bavValue = a});
+bavValue :: Lens' BlobAttributeValue (Maybe ByteString)
+bavValue = lens _bavValue (\ s a -> s{_bavValue = a}) . mapping _Base64;
 
 instance ToQuery BlobAttributeValue where
         toQuery BlobAttributeValue'{..}
@@ -768,7 +768,7 @@ cliInstanceId = lens _cliInstanceId (\ s a -> s{_cliInstanceId = a});
 
 -- | A list of security groups.
 cliGroups :: Lens' ClassicLinkInstance [GroupIdentifier]
-cliGroups = lens _cliGroups (\ s a -> s{_cliGroups = a}) . _Default;
+cliGroups = lens _cliGroups (\ s a -> s{_cliGroups = a}) . _Default . _Coerce;
 
 -- | The ID of the VPC.
 cliVPCId :: Lens' ClassicLinkInstance (Maybe Text)
@@ -776,7 +776,7 @@ cliVPCId = lens _cliVPCId (\ s a -> s{_cliVPCId = a});
 
 -- | Any tags assigned to the instance.
 cliTags :: Lens' ClassicLinkInstance [Tag]
-cliTags = lens _cliTags (\ s a -> s{_cliTags = a}) . _Default;
+cliTags = lens _cliTags (\ s a -> s{_cliTags = a}) . _Default . _Coerce;
 
 instance FromXML ClassicLinkInstance where
         parseXML x
@@ -905,7 +905,7 @@ ctExpirationTime = lens _ctExpirationTime (\ s a -> s{_ctExpirationTime = a});
 
 -- | Any tags assigned to the task.
 ctTags :: Lens' ConversionTask [Tag]
-ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Default;
+ctTags = lens _ctTags (\ s a -> s{_ctTags = a}) . _Default . _Coerce;
 
 -- | The ID of the conversion task.
 ctConversionTaskId :: Lens' ConversionTask Text
@@ -995,12 +995,12 @@ createVolumePermissionModifications =
 -- | Removes a specific AWS account ID or group from a volume\'s list of
 -- create volume permissions.
 cvpmRemove :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
-cvpmRemove = lens _cvpmRemove (\ s a -> s{_cvpmRemove = a}) . _Default;
+cvpmRemove = lens _cvpmRemove (\ s a -> s{_cvpmRemove = a}) . _Default . _Coerce;
 
 -- | Adds a specific AWS account ID or group to a volume\'s list of create
 -- volume permissions.
 cvpmAdd :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
-cvpmAdd = lens _cvpmAdd (\ s a -> s{_cvpmAdd = a}) . _Default;
+cvpmAdd = lens _cvpmAdd (\ s a -> s{_cvpmAdd = a}) . _Default . _Coerce;
 
 instance ToQuery CreateVolumePermissionModifications
          where
@@ -1049,7 +1049,7 @@ customerGateway pBGPASN_ pCustomerGatewayId_ pIPAddress_ pState_ pType_ =
 
 -- | Any tags assigned to the customer gateway.
 cgTags :: Lens' CustomerGateway [Tag]
-cgTags = lens _cgTags (\ s a -> s{_cgTags = a}) . _Default;
+cgTags = lens _cgTags (\ s a -> s{_cgTags = a}) . _Default . _Coerce;
 
 -- | The customer gateway\'s Border Gateway Protocol (BGP) Autonomous System
 -- Number (ASN).
@@ -1109,7 +1109,7 @@ dhcpConfiguration =
 
 -- | One or more values for the DHCP option.
 dcValues :: Lens' DHCPConfiguration [AttributeValue]
-dcValues = lens _dcValues (\ s a -> s{_dcValues = a}) . _Default;
+dcValues = lens _dcValues (\ s a -> s{_dcValues = a}) . _Default . _Coerce;
 
 -- | The name of a DHCP option.
 dcKey :: Lens' DHCPConfiguration (Maybe Text)
@@ -1150,7 +1150,7 @@ dhcpOptions =
 
 -- | One or more DHCP options in the set.
 doDHCPConfigurations :: Lens' DHCPOptions [DHCPConfiguration]
-doDHCPConfigurations = lens _doDHCPConfigurations (\ s a -> s{_doDHCPConfigurations = a}) . _Default;
+doDHCPConfigurations = lens _doDHCPConfigurations (\ s a -> s{_doDHCPConfigurations = a}) . _Default . _Coerce;
 
 -- | The ID of the set of DHCP options.
 doDHCPOptionsId :: Lens' DHCPOptions (Maybe Text)
@@ -1158,7 +1158,7 @@ doDHCPOptionsId = lens _doDHCPOptionsId (\ s a -> s{_doDHCPOptionsId = a});
 
 -- | Any tags assigned to the DHCP options set.
 doTags :: Lens' DHCPOptions [Tag]
-doTags = lens _doTags (\ s a -> s{_doTags = a}) . _Default;
+doTags = lens _doTags (\ s a -> s{_doTags = a}) . _Default . _Coerce;
 
 instance FromXML DHCPOptions where
         parseXML x
@@ -1851,7 +1851,7 @@ filter' pName_ =
 
 -- | One or more filter values. Filter values are case-sensitive.
 fValues :: Lens' Filter [Text]
-fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default;
+fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default . _Coerce;
 
 -- | The name of the filter. Filter names are case-sensitive.
 fName :: Lens' Filter Text
@@ -2220,7 +2220,7 @@ ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a});
 
 -- | One or more security group and AWS account ID pairs.
 ipUserIdGroupPairs :: Lens' IPPermission [UserIdGroupPair]
-ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = a}) . _Default;
+ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = a}) . _Default . _Coerce;
 
 -- | (Valid for AuthorizeSecurityGroupEgress, RevokeSecurityGroupEgress and
 -- DescribeSecurityGroups only) One or more prefix list IDs for an AWS
@@ -2228,7 +2228,7 @@ ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = 
 -- service that you want to access through a VPC endpoint from instances
 -- associated with the security group.
 ipPrefixListIds :: Lens' IPPermission [PrefixListId]
-ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a}) . _Default;
+ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a}) . _Default . _Coerce;
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code. A
 -- value of @-1@ indicates all ICMP codes for the specified ICMP type.
@@ -2237,7 +2237,7 @@ ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a});
 
 -- | One or more IP ranges.
 ipIPRanges :: Lens' IPPermission [IPRange]
-ipIPRanges = lens _ipIPRanges (\ s a -> s{_ipIPRanges = a}) . _Default;
+ipIPRanges = lens _ipIPRanges (\ s a -> s{_ipIPRanges = a}) . _Default . _Coerce;
 
 -- | The protocol.
 --
@@ -2450,7 +2450,7 @@ iCreationDate = lens _iCreationDate (\ s a -> s{_iCreationDate = a});
 
 -- | Any product codes associated with the AMI.
 iProductCodes :: Lens' Image [ProductCode]
-iProductCodes = lens _iProductCodes (\ s a -> s{_iProductCodes = a}) . _Default;
+iProductCodes = lens _iProductCodes (\ s a -> s{_iProductCodes = a}) . _Default . _Coerce;
 
 -- | The reason for the state change.
 iStateReason :: Lens' Image (Maybe StateReason)
@@ -2458,7 +2458,7 @@ iStateReason = lens _iStateReason (\ s a -> s{_iStateReason = a});
 
 -- | Any block device mapping entries.
 iBlockDeviceMappings :: Lens' Image [BlockDeviceMapping]
-iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default;
+iBlockDeviceMappings = lens _iBlockDeviceMappings (\ s a -> s{_iBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The description of the AMI that was provided during image creation.
 iDescription :: Lens' Image (Maybe Text)
@@ -2466,7 +2466,7 @@ iDescription = lens _iDescription (\ s a -> s{_iDescription = a});
 
 -- | Any tags assigned to the image.
 iTags :: Lens' Image [Tag]
-iTags = lens _iTags (\ s a -> s{_iTags = a}) . _Default;
+iTags = lens _iTags (\ s a -> s{_iTags = a}) . _Default . _Coerce;
 
 -- | The ID of the AMI.
 iImageId :: Lens' Image Text
@@ -2700,7 +2700,7 @@ iitLicenseType = lens _iitLicenseType (\ s a -> s{_iitLicenseType = a});
 
 -- | Information about the snapshots.
 iitSnapshotDetails :: Lens' ImportImageTask [SnapshotDetail]
-iitSnapshotDetails = lens _iitSnapshotDetails (\ s a -> s{_iitSnapshotDetails = a}) . _Default;
+iitSnapshotDetails = lens _iitSnapshotDetails (\ s a -> s{_iitSnapshotDetails = a}) . _Default . _Coerce;
 
 -- | A descriptive status message for the import image task.
 iitStatusMessage :: Lens' ImportImageTask (Maybe Text)
@@ -2805,7 +2805,7 @@ iilsAdditionalInfo = lens _iilsAdditionalInfo (\ s a -> s{_iilsAdditionalInfo = 
 
 -- | One or more security group names.
 iilsGroupNames :: Lens' ImportInstanceLaunchSpecification [Text]
-iilsGroupNames = lens _iilsGroupNames (\ s a -> s{_iilsGroupNames = a}) . _Default;
+iilsGroupNames = lens _iilsGroupNames (\ s a -> s{_iilsGroupNames = a}) . _Default . _Coerce;
 
 -- | [EC2-VPC] The ID of the subnet in which to launch the instance.
 iilsSubnetId :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
@@ -2813,7 +2813,7 @@ iilsSubnetId = lens _iilsSubnetId (\ s a -> s{_iilsSubnetId = a});
 
 -- | One or more security group IDs.
 iilsGroupIds :: Lens' ImportInstanceLaunchSpecification [Text]
-iilsGroupIds = lens _iilsGroupIds (\ s a -> s{_iilsGroupIds = a}) . _Default;
+iilsGroupIds = lens _iilsGroupIds (\ s a -> s{_iilsGroupIds = a}) . _Default . _Coerce;
 
 -- | The instance type. For more information about the instance types that
 -- you can import, see
@@ -2912,7 +2912,7 @@ iitdDescription = lens _iitdDescription (\ s a -> s{_iitdDescription = a});
 
 -- | One or more volumes.
 iitdVolumes :: Lens' ImportInstanceTaskDetails [ImportInstanceVolumeDetailItem]
-iitdVolumes = lens _iitdVolumes (\ s a -> s{_iitdVolumes = a});
+iitdVolumes = lens _iitdVolumes (\ s a -> s{_iitdVolumes = a}) . _Coerce;
 
 instance FromXML ImportInstanceTaskDetails where
         parseXML x
@@ -3282,7 +3282,7 @@ insPlatform = lens _insPlatform (\ s a -> s{_insPlatform = a});
 
 -- | One or more security groups for the instance.
 insSecurityGroups :: Lens' Instance [GroupIdentifier]
-insSecurityGroups = lens _insSecurityGroups (\ s a -> s{_insSecurityGroups = a}) . _Default;
+insSecurityGroups = lens _insSecurityGroups (\ s a -> s{_insSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The idempotency token you provided when you launched the instance.
 insClientToken :: Lens' Instance (Maybe Text)
@@ -3304,7 +3304,7 @@ insVPCId = lens _insVPCId (\ s a -> s{_insVPCId = a});
 
 -- | [EC2-VPC] One or more network interfaces for the instance.
 insNetworkInterfaces :: Lens' Instance [InstanceNetworkInterface]
-insNetworkInterfaces = lens _insNetworkInterfaces (\ s a -> s{_insNetworkInterfaces = a}) . _Default;
+insNetworkInterfaces = lens _insNetworkInterfaces (\ s a -> s{_insNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The name of the key pair, if this instance was launched with an
 -- associated key pair.
@@ -3358,7 +3358,7 @@ insPrivateIPAddress = lens _insPrivateIPAddress (\ s a -> s{_insPrivateIPAddress
 
 -- | The product codes attached to this instance.
 insProductCodes :: Lens' Instance [ProductCode]
-insProductCodes = lens _insProductCodes (\ s a -> s{_insProductCodes = a}) . _Default;
+insProductCodes = lens _insProductCodes (\ s a -> s{_insProductCodes = a}) . _Default . _Coerce;
 
 -- | The ID of the Spot Instance request.
 insSpotInstanceRequestId :: Lens' Instance (Maybe Text)
@@ -3376,7 +3376,7 @@ insStateReason = lens _insStateReason (\ s a -> s{_insStateReason = a});
 
 -- | Any block device mapping entries for the instance.
 insBlockDeviceMappings :: Lens' Instance [InstanceBlockDeviceMapping]
-insBlockDeviceMappings = lens _insBlockDeviceMappings (\ s a -> s{_insBlockDeviceMappings = a}) . _Default;
+insBlockDeviceMappings = lens _insBlockDeviceMappings (\ s a -> s{_insBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | The public IP address assigned to the instance.
 insPublicIPAddress :: Lens' Instance (Maybe Text)
@@ -3384,7 +3384,7 @@ insPublicIPAddress = lens _insPublicIPAddress (\ s a -> s{_insPublicIPAddress = 
 
 -- | Any tags assigned to the instance.
 insTags :: Lens' Instance [Tag]
-insTags = lens _insTags (\ s a -> s{_insTags = a}) . _Default;
+insTags = lens _insTags (\ s a -> s{_insTags = a}) . _Default . _Coerce;
 
 -- | The ID of the instance.
 insInstanceId :: Lens' Instance Text
@@ -3756,7 +3756,7 @@ instanceNetworkInterface =
 
 -- | The private IP addresses associated with the network interface.
 iniPrivateIPAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIPAddress]
-iniPrivateIPAddresses = lens _iniPrivateIPAddresses (\ s a -> s{_iniPrivateIPAddresses = a}) . _Default;
+iniPrivateIPAddresses = lens _iniPrivateIPAddresses (\ s a -> s{_iniPrivateIPAddresses = a}) . _Default . _Coerce;
 
 -- | The status of the network interface.
 iniStatus :: Lens' InstanceNetworkInterface (Maybe NetworkInterfaceStatus)
@@ -3764,7 +3764,7 @@ iniStatus = lens _iniStatus (\ s a -> s{_iniStatus = a});
 
 -- | One or more security groups.
 iniGroups :: Lens' InstanceNetworkInterface [GroupIdentifier]
-iniGroups = lens _iniGroups (\ s a -> s{_iniGroups = a}) . _Default;
+iniGroups = lens _iniGroups (\ s a -> s{_iniGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether to validate network traffic to or from this network
 -- interface.
@@ -4001,7 +4001,7 @@ instanceNetworkInterfaceSpecification =
 -- | One or more private IP addresses to assign to the network interface.
 -- Only one private IP address can be designated as primary.
 inisPrivateIPAddresses :: Lens' InstanceNetworkInterfaceSpecification [PrivateIPAddressSpecification]
-inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIPAddresses = a}) . _Default;
+inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIPAddresses = a}) . _Default . _Coerce;
 
 -- | If set to @true@, the interface is deleted when the instance is
 -- terminated. You can specify @true@ only if creating a new network
@@ -4012,7 +4012,7 @@ inisDeleteOnTermination = lens _inisDeleteOnTermination (\ s a -> s{_inisDeleteO
 -- | The IDs of the security groups for the network interface. Applies only
 -- if creating a network interface when launching an instance.
 inisGroups :: Lens' InstanceNetworkInterfaceSpecification [Text]
-inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a}) . _Default;
+inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether to assign a public IP address to an instance you
 -- launch in a VPC. The public IP address can only be assigned to a network
@@ -4292,7 +4292,7 @@ isAvailabilityZone = lens _isAvailabilityZone (\ s a -> s{_isAvailabilityZone = 
 
 -- | Any scheduled events associated with the instance.
 isEvents :: Lens' InstanceStatus [InstanceStatusEvent]
-isEvents = lens _isEvents (\ s a -> s{_isEvents = a}) . _Default;
+isEvents = lens _isEvents (\ s a -> s{_isEvents = a}) . _Default . _Coerce;
 
 -- | Reports impaired functionality that stems from issues internal to the
 -- instance, such as impaired reachability.
@@ -4441,7 +4441,7 @@ instanceStatusSummary pStatus_ =
 
 -- | The system instance health or application instance health.
 issDetails :: Lens' InstanceStatusSummary [InstanceStatusDetails]
-issDetails = lens _issDetails (\ s a -> s{_issDetails = a}) . _Default;
+issDetails = lens _issDetails (\ s a -> s{_issDetails = a}) . _Default . _Coerce;
 
 -- | The status.
 issStatus :: Lens' InstanceStatusSummary SummaryStatus
@@ -4482,11 +4482,11 @@ internetGateway pInternetGatewayId_ =
 
 -- | Any VPCs attached to the Internet gateway.
 igAttachments :: Lens' InternetGateway [InternetGatewayAttachment]
-igAttachments = lens _igAttachments (\ s a -> s{_igAttachments = a}) . _Default;
+igAttachments = lens _igAttachments (\ s a -> s{_igAttachments = a}) . _Default . _Coerce;
 
 -- | Any tags assigned to the Internet gateway.
 igTags :: Lens' InternetGateway [Tag]
-igTags = lens _igTags (\ s a -> s{_igTags = a}) . _Default;
+igTags = lens _igTags (\ s a -> s{_igTags = a}) . _Default . _Coerce;
 
 -- | The ID of the Internet gateway.
 igInternetGatewayId :: Lens' InternetGateway Text
@@ -4640,11 +4640,11 @@ launchPermissionModifications =
 -- | The AWS account ID to remove from the list of launch permissions for the
 -- AMI.
 lpmRemove :: Lens' LaunchPermissionModifications [LaunchPermission]
-lpmRemove = lens _lpmRemove (\ s a -> s{_lpmRemove = a}) . _Default;
+lpmRemove = lens _lpmRemove (\ s a -> s{_lpmRemove = a}) . _Default . _Coerce;
 
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
 lpmAdd :: Lens' LaunchPermissionModifications [LaunchPermission]
-lpmAdd = lens _lpmAdd (\ s a -> s{_lpmAdd = a}) . _Default;
+lpmAdd = lens _lpmAdd (\ s a -> s{_lpmAdd = a}) . _Default . _Coerce;
 
 instance ToQuery LaunchPermissionModifications where
         toQuery LaunchPermissionModifications'{..}
@@ -4731,11 +4731,11 @@ launchSpecification =
 -- EC2-Classic or a default VPC, you can specify the name or the ID of the
 -- security group.
 lsSecurityGroups :: Lens' LaunchSpecification [GroupIdentifier]
-lsSecurityGroups = lens _lsSecurityGroups (\ s a -> s{_lsSecurityGroups = a}) . _Default;
+lsSecurityGroups = lens _lsSecurityGroups (\ s a -> s{_lsSecurityGroups = a}) . _Default . _Coerce;
 
 -- | One or more network interfaces.
 lsNetworkInterfaces :: Lens' LaunchSpecification [InstanceNetworkInterfaceSpecification]
-lsNetworkInterfaces = lens _lsNetworkInterfaces (\ s a -> s{_lsNetworkInterfaces = a}) . _Default;
+lsNetworkInterfaces = lens _lsNetworkInterfaces (\ s a -> s{_lsNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The name of the key pair.
 lsKeyName :: Lens' LaunchSpecification (Maybe Text)
@@ -4785,7 +4785,7 @@ lsImageId = lens _lsImageId (\ s a -> s{_lsImageId = a});
 
 -- | One or more block device mapping entries.
 lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
-lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a}) . _Default;
+lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | Deprecated.
 lsAddressingType :: Lens' LaunchSpecification (Maybe Text)
@@ -4939,7 +4939,7 @@ networkACL =
 
 -- | One or more entries (rules) in the network ACL.
 naEntries :: Lens' NetworkACL [NetworkACLEntry]
-naEntries = lens _naEntries (\ s a -> s{_naEntries = a}) . _Default;
+naEntries = lens _naEntries (\ s a -> s{_naEntries = a}) . _Default . _Coerce;
 
 -- | The ID of the network ACL.
 naNetworkACLId :: Lens' NetworkACL (Maybe Text)
@@ -4951,7 +4951,7 @@ naVPCId = lens _naVPCId (\ s a -> s{_naVPCId = a});
 
 -- | Any associations between the network ACL and one or more subnets
 naAssociations :: Lens' NetworkACL [NetworkACLAssociation]
-naAssociations = lens _naAssociations (\ s a -> s{_naAssociations = a}) . _Default;
+naAssociations = lens _naAssociations (\ s a -> s{_naAssociations = a}) . _Default . _Coerce;
 
 -- | Indicates whether this is the default network ACL for the VPC.
 naIsDefault :: Lens' NetworkACL (Maybe Bool)
@@ -4959,7 +4959,7 @@ naIsDefault = lens _naIsDefault (\ s a -> s{_naIsDefault = a});
 
 -- | Any tags assigned to the network ACL.
 naTags :: Lens' NetworkACL [Tag]
-naTags = lens _naTags (\ s a -> s{_naTags = a}) . _Default;
+naTags = lens _naTags (\ s a -> s{_naTags = a}) . _Default . _Coerce;
 
 instance FromXML NetworkACL where
         parseXML x
@@ -5190,7 +5190,7 @@ networkInterface =
 
 -- | The private IP addresses associated with the network interface.
 niPrivateIPAddresses :: Lens' NetworkInterface [NetworkInterfacePrivateIPAddress]
-niPrivateIPAddresses = lens _niPrivateIPAddresses (\ s a -> s{_niPrivateIPAddresses = a}) . _Default;
+niPrivateIPAddresses = lens _niPrivateIPAddresses (\ s a -> s{_niPrivateIPAddresses = a}) . _Default . _Coerce;
 
 -- | The status of the network interface.
 niStatus :: Lens' NetworkInterface (Maybe NetworkInterfaceStatus)
@@ -5198,7 +5198,7 @@ niStatus = lens _niStatus (\ s a -> s{_niStatus = a});
 
 -- | Any security groups for the network interface.
 niGroups :: Lens' NetworkInterface [GroupIdentifier]
-niGroups = lens _niGroups (\ s a -> s{_niGroups = a}) . _Default;
+niGroups = lens _niGroups (\ s a -> s{_niGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether traffic to or from the instance is validated.
 niSourceDestCheck :: Lens' NetworkInterface (Maybe Bool)
@@ -5206,7 +5206,7 @@ niSourceDestCheck = lens _niSourceDestCheck (\ s a -> s{_niSourceDestCheck = a})
 
 -- | Any tags assigned to the network interface.
 niTagSet :: Lens' NetworkInterface [Tag]
-niTagSet = lens _niTagSet (\ s a -> s{_niTagSet = a}) . _Default;
+niTagSet = lens _niTagSet (\ s a -> s{_niTagSet = a}) . _Default . _Coerce;
 
 -- | The ID of the VPC.
 niVPCId :: Lens' NetworkInterface (Maybe Text)
@@ -5549,7 +5549,7 @@ newDHCPConfiguration =
 
 -- | FIXME: Undocumented member.
 ndcValues :: Lens' NewDHCPConfiguration [Text]
-ndcValues = lens _ndcValues (\ s a -> s{_ndcValues = a}) . _Default;
+ndcValues = lens _ndcValues (\ s a -> s{_ndcValues = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ndcKey :: Lens' NewDHCPConfiguration (Maybe Text)
@@ -5723,7 +5723,7 @@ prefixList =
 
 -- | The IP address range of the AWS service.
 plCIdRs :: Lens' PrefixList [Text]
-plCIdRs = lens _plCIdRs (\ s a -> s{_plCIdRs = a}) . _Default;
+plCIdRs = lens _plCIdRs (\ s a -> s{_plCIdRs = a}) . _Default . _Coerce;
 
 -- | The ID of the prefix.
 plPrefixListId :: Lens' PrefixList (Maybe Text)
@@ -6167,15 +6167,15 @@ requestSpotLaunchSpecification =
 
 -- | FIXME: Undocumented member.
 rslsSecurityGroupIds :: Lens' RequestSpotLaunchSpecification [Text]
-rslsSecurityGroupIds = lens _rslsSecurityGroupIds (\ s a -> s{_rslsSecurityGroupIds = a}) . _Default;
+rslsSecurityGroupIds = lens _rslsSecurityGroupIds (\ s a -> s{_rslsSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 rslsSecurityGroups :: Lens' RequestSpotLaunchSpecification [Text]
-rslsSecurityGroups = lens _rslsSecurityGroups (\ s a -> s{_rslsSecurityGroups = a}) . _Default;
+rslsSecurityGroups = lens _rslsSecurityGroups (\ s a -> s{_rslsSecurityGroups = a}) . _Default . _Coerce;
 
 -- | One or more network interfaces.
 rslsNetworkInterfaces :: Lens' RequestSpotLaunchSpecification [InstanceNetworkInterfaceSpecification]
-rslsNetworkInterfaces = lens _rslsNetworkInterfaces (\ s a -> s{_rslsNetworkInterfaces = a}) . _Default;
+rslsNetworkInterfaces = lens _rslsNetworkInterfaces (\ s a -> s{_rslsNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | The name of the key pair.
 rslsKeyName :: Lens' RequestSpotLaunchSpecification (Maybe Text)
@@ -6225,7 +6225,7 @@ rslsImageId = lens _rslsImageId (\ s a -> s{_rslsImageId = a});
 
 -- | One or more block device mapping entries.
 rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
-rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a}) . _Default;
+rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a}) . _Default . _Coerce;
 
 -- | Deprecated.
 rslsAddressingType :: Lens' RequestSpotLaunchSpecification (Maybe Text)
@@ -6294,11 +6294,11 @@ reservation pReservationId_ pOwnerId_ =
 
 -- | One or more security groups.
 rGroups :: Lens' Reservation [GroupIdentifier]
-rGroups = lens _rGroups (\ s a -> s{_rGroups = a}) . _Default;
+rGroups = lens _rGroups (\ s a -> s{_rGroups = a}) . _Default . _Coerce;
 
 -- | One or more instances.
 rInstances :: Lens' Reservation [Instance]
-rInstances = lens _rInstances (\ s a -> s{_rInstances = a}) . _Default;
+rInstances = lens _rInstances (\ s a -> s{_rInstances = a}) . _Default . _Coerce;
 
 -- | The ID of the requester that launched the instances on your behalf (for
 -- example, AWS Management Console or Auto Scaling).
@@ -6485,7 +6485,7 @@ riUsagePrice = lens _riUsagePrice (\ s a -> s{_riUsagePrice = a});
 
 -- | The recurring charge tag assigned to the resource.
 riRecurringCharges :: Lens' ReservedInstances [RecurringCharge]
-riRecurringCharges = lens _riRecurringCharges (\ s a -> s{_riRecurringCharges = a}) . _Default;
+riRecurringCharges = lens _riRecurringCharges (\ s a -> s{_riRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The tenancy of the reserved instance.
 riInstanceTenancy :: Lens' ReservedInstances (Maybe Tenancy)
@@ -6505,7 +6505,7 @@ riDuration = lens _riDuration (\ s a -> s{_riDuration = a});
 
 -- | Any tags assigned to the resource.
 riTags :: Lens' ReservedInstances [Tag]
-riTags = lens _riTags (\ s a -> s{_riTags = a}) . _Default;
+riTags = lens _riTags (\ s a -> s{_riTags = a}) . _Default . _Coerce;
 
 instance FromXML ReservedInstances where
         parseXML x
@@ -6694,7 +6694,7 @@ rilCreateDate = lens _rilCreateDate (\ s a -> s{_rilCreateDate = a}) . mapping _
 
 -- | The price of the Reserved Instance listing.
 rilPriceSchedules :: Lens' ReservedInstancesListing [PriceSchedule]
-rilPriceSchedules = lens _rilPriceSchedules (\ s a -> s{_rilPriceSchedules = a}) . _Default;
+rilPriceSchedules = lens _rilPriceSchedules (\ s a -> s{_rilPriceSchedules = a}) . _Default . _Coerce;
 
 -- | The reason for the current status of the Reserved Instance listing. The
 -- response can be blank.
@@ -6707,7 +6707,7 @@ rilReservedInstancesId = lens _rilReservedInstancesId (\ s a -> s{_rilReservedIn
 
 -- | The number of instances in this state.
 rilInstanceCounts :: Lens' ReservedInstancesListing [InstanceCount]
-rilInstanceCounts = lens _rilInstanceCounts (\ s a -> s{_rilInstanceCounts = a}) . _Default;
+rilInstanceCounts = lens _rilInstanceCounts (\ s a -> s{_rilInstanceCounts = a}) . _Default . _Coerce;
 
 -- | The ID of the Reserved Instance listing.
 rilReservedInstancesListingId :: Lens' ReservedInstancesListing (Maybe Text)
@@ -6715,7 +6715,7 @@ rilReservedInstancesListingId = lens _rilReservedInstancesListingId (\ s a -> s{
 
 -- | Any tags assigned to the resource.
 rilTags :: Lens' ReservedInstancesListing [Tag]
-rilTags = lens _rilTags (\ s a -> s{_rilTags = a}) . _Default;
+rilTags = lens _rilTags (\ s a -> s{_rilTags = a}) . _Default . _Coerce;
 
 instance FromXML ReservedInstancesListing where
         parseXML x
@@ -6789,7 +6789,7 @@ reservedInstancesModification =
 -- | Contains target configurations along with their corresponding new
 -- Reserved Instance IDs.
 rimModificationResults :: Lens' ReservedInstancesModification [ReservedInstancesModificationResult]
-rimModificationResults = lens _rimModificationResults (\ s a -> s{_rimModificationResults = a}) . _Default;
+rimModificationResults = lens _rimModificationResults (\ s a -> s{_rimModificationResults = a}) . _Default . _Coerce;
 
 -- | The status of the Reserved Instances modification request.
 rimStatus :: Lens' ReservedInstancesModification (Maybe Text)
@@ -6823,7 +6823,7 @@ rimReservedInstancesModificationId = lens _rimReservedInstancesModificationId (\
 
 -- | The IDs of one or more Reserved Instances.
 rimReservedInstancesIds :: Lens' ReservedInstancesModification [ReservedInstancesId]
-rimReservedInstancesIds = lens _rimReservedInstancesIds (\ s a -> s{_rimReservedInstancesIds = a}) . _Default;
+rimReservedInstancesIds = lens _rimReservedInstancesIds (\ s a -> s{_rimReservedInstancesIds = a}) . _Default . _Coerce;
 
 instance FromXML ReservedInstancesModification where
         parseXML x
@@ -6971,7 +6971,7 @@ rioAvailabilityZone = lens _rioAvailabilityZone (\ s a -> s{_rioAvailabilityZone
 
 -- | The pricing details of the Reserved Instance offering.
 rioPricingDetails :: Lens' ReservedInstancesOffering [PricingDetail]
-rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a}) . _Default;
+rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a}) . _Default . _Coerce;
 
 -- | The Reserved Instance offering type.
 rioOfferingType :: Lens' ReservedInstancesOffering (Maybe OfferingTypeValues)
@@ -6983,7 +6983,7 @@ rioUsagePrice = lens _rioUsagePrice (\ s a -> s{_rioUsagePrice = a});
 
 -- | The recurring charge tag assigned to the resource.
 rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
-rioRecurringCharges = lens _rioRecurringCharges (\ s a -> s{_rioRecurringCharges = a}) . _Default;
+rioRecurringCharges = lens _rioRecurringCharges (\ s a -> s{_rioRecurringCharges = a}) . _Default . _Coerce;
 
 -- | The ID of the Reserved Instance offering.
 rioReservedInstancesOfferingId :: Lens' ReservedInstancesOffering (Maybe Text)
@@ -7169,7 +7169,7 @@ routeTable =
 
 -- | The routes in the route table.
 rtRoutes :: Lens' RouteTable [Route]
-rtRoutes = lens _rtRoutes (\ s a -> s{_rtRoutes = a}) . _Default;
+rtRoutes = lens _rtRoutes (\ s a -> s{_rtRoutes = a}) . _Default . _Coerce;
 
 -- | The ID of the route table.
 rtRouteTableId :: Lens' RouteTable (Maybe Text)
@@ -7181,15 +7181,15 @@ rtVPCId = lens _rtVPCId (\ s a -> s{_rtVPCId = a});
 
 -- | Any virtual private gateway (VGW) propagating routes.
 rtPropagatingVGWs :: Lens' RouteTable [PropagatingVGW]
-rtPropagatingVGWs = lens _rtPropagatingVGWs (\ s a -> s{_rtPropagatingVGWs = a}) . _Default;
+rtPropagatingVGWs = lens _rtPropagatingVGWs (\ s a -> s{_rtPropagatingVGWs = a}) . _Default . _Coerce;
 
 -- | The associations between the route table and one or more subnets.
 rtAssociations :: Lens' RouteTable [RouteTableAssociation]
-rtAssociations = lens _rtAssociations (\ s a -> s{_rtAssociations = a}) . _Default;
+rtAssociations = lens _rtAssociations (\ s a -> s{_rtAssociations = a}) . _Default . _Coerce;
 
 -- | Any tags assigned to the route table.
 rtTags :: Lens' RouteTable [Tag]
-rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _Default;
+rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _Default . _Coerce;
 
 instance FromXML RouteTable where
         parseXML x
@@ -7334,8 +7334,8 @@ ssPrefix = lens _ssPrefix (\ s a -> s{_ssPrefix = a});
 
 -- | A Base64-encoded Amazon S3 upload policy that gives Amazon EC2
 -- permission to upload items into Amazon S3 on your behalf.
-ssUploadPolicy :: Lens' S3Storage (Maybe Base64)
-ssUploadPolicy = lens _ssUploadPolicy (\ s a -> s{_ssUploadPolicy = a});
+ssUploadPolicy :: Lens' S3Storage (Maybe ByteString)
+ssUploadPolicy = lens _ssUploadPolicy (\ s a -> s{_ssUploadPolicy = a}) . mapping _Base64;
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
 -- already own or a new bucket that Amazon EC2 creates on your behalf. If
@@ -7423,15 +7423,15 @@ sgVPCId = lens _sgVPCId (\ s a -> s{_sgVPCId = a});
 
 -- | One or more inbound rules associated with the security group.
 sgIPPermissions :: Lens' SecurityGroup [IPPermission]
-sgIPPermissions = lens _sgIPPermissions (\ s a -> s{_sgIPPermissions = a}) . _Default;
+sgIPPermissions = lens _sgIPPermissions (\ s a -> s{_sgIPPermissions = a}) . _Default . _Coerce;
 
 -- | [EC2-VPC] One or more outbound rules associated with the security group.
 sgIPPermissionsEgress :: Lens' SecurityGroup [IPPermission]
-sgIPPermissionsEgress = lens _sgIPPermissionsEgress (\ s a -> s{_sgIPPermissionsEgress = a}) . _Default;
+sgIPPermissionsEgress = lens _sgIPPermissionsEgress (\ s a -> s{_sgIPPermissionsEgress = a}) . _Default . _Coerce;
 
 -- | Any tags assigned to the security group.
 sgTags :: Lens' SecurityGroup [Tag]
-sgTags = lens _sgTags (\ s a -> s{_sgTags = a}) . _Default;
+sgTags = lens _sgTags (\ s a -> s{_sgTags = a}) . _Default . _Coerce;
 
 -- | The AWS account ID of the owner of the security group.
 sgOwnerId :: Lens' SecurityGroup Text
@@ -7541,7 +7541,7 @@ sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 
 -- | Any tags assigned to the snapshot.
 sTags :: Lens' Snapshot [Tag]
-sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default;
+sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default . _Coerce;
 
 -- | The ID of the snapshot.
 sSnapshotId :: Lens' Snapshot Text
@@ -8232,7 +8232,7 @@ sirValidFrom = lens _sirValidFrom (\ s a -> s{_sirValidFrom = a}) . mapping _Tim
 
 -- | Any tags assigned to the resource.
 sirTags :: Lens' SpotInstanceRequest [Tag]
-sirTags = lens _sirTags (\ s a -> s{_sirTags = a}) . _Default;
+sirTags = lens _sirTags (\ s a -> s{_sirTags = a}) . _Default . _Coerce;
 
 -- | The date and time when the Spot Instance request was created, in UTC
 -- format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
@@ -8584,7 +8584,7 @@ subnet pAvailabilityZone_ pAvailableIPAddressCount_ pCIdRBlock_ pDefaultForAz_ p
 
 -- | Any tags assigned to the subnet.
 subTags :: Lens' Subnet [Tag]
-subTags = lens _subTags (\ s a -> s{_subTags = a}) . _Default;
+subTags = lens _subTags (\ s a -> s{_subTags = a}) . _Default . _Coerce;
 
 -- | The Availability Zone of the subnet.
 subAvailabilityZone :: Lens' Subnet Text
@@ -9057,7 +9057,7 @@ vpc pCIdRBlock_ pDHCPOptionsId_ pInstanceTenancy_ pIsDefault_ pState_ pVPCId_ =
 
 -- | Any tags assigned to the VPC.
 vpcTags :: Lens' VPC [Tag]
-vpcTags = lens _vpcTags (\ s a -> s{_vpcTags = a}) . _Default;
+vpcTags = lens _vpcTags (\ s a -> s{_vpcTags = a}) . _Default . _Coerce;
 
 -- | The CIDR block for the VPC.
 vpcCIdRBlock :: Lens' VPC Text
@@ -9163,7 +9163,7 @@ vclVPCId = lens _vclVPCId (\ s a -> s{_vclVPCId = a});
 
 -- | Any tags assigned to the VPC.
 vclTags :: Lens' VPCClassicLink [Tag]
-vclTags = lens _vclTags (\ s a -> s{_vclTags = a}) . _Default;
+vclTags = lens _vclTags (\ s a -> s{_vclTags = a}) . _Default . _Coerce;
 
 -- | Indicates whether the VPC is enabled for ClassicLink.
 vclClassicLinkEnabled :: Lens' VPCClassicLink (Maybe Bool)
@@ -9245,7 +9245,7 @@ veVPCEndpointId = lens _veVPCEndpointId (\ s a -> s{_veVPCEndpointId = a});
 
 -- | One or more route tables associated with the endpoint.
 veRouteTableIds :: Lens' VPCEndpoint [Text]
-veRouteTableIds = lens _veRouteTableIds (\ s a -> s{_veRouteTableIds = a}) . _Default;
+veRouteTableIds = lens _veRouteTableIds (\ s a -> s{_veRouteTableIds = a}) . _Default . _Coerce;
 
 instance FromXML VPCEndpoint where
         parseXML x
@@ -9319,7 +9319,7 @@ vpcpcExpirationTime = lens _vpcpcExpirationTime (\ s a -> s{_vpcpcExpirationTime
 
 -- | Any tags assigned to the resource.
 vpcpcTags :: Lens' VPCPeeringConnection [Tag]
-vpcpcTags = lens _vpcpcTags (\ s a -> s{_vpcpcTags = a}) . _Default;
+vpcpcTags = lens _vpcpcTags (\ s a -> s{_vpcpcTags = a}) . _Default . _Coerce;
 
 instance FromXML VPCPeeringConnection where
         parseXML x
@@ -9469,7 +9469,7 @@ vpnConnection pVPNConnectionId_ pCustomerGatewayId_ pCustomerGatewayConfiguratio
 
 -- | The static routes associated with the VPN connection.
 vcRoutes :: Lens' VPNConnection [VPNStaticRoute]
-vcRoutes = lens _vcRoutes (\ s a -> s{_vcRoutes = a}) . _Default;
+vcRoutes = lens _vcRoutes (\ s a -> s{_vcRoutes = a}) . _Default . _Coerce;
 
 -- | The ID of the virtual private gateway at the AWS side of the VPN
 -- connection.
@@ -9482,11 +9482,11 @@ vcOptions = lens _vcOptions (\ s a -> s{_vcOptions = a});
 
 -- | Information about the VPN tunnel.
 vcVGWTelemetry :: Lens' VPNConnection [VGWTelemetry]
-vcVGWTelemetry = lens _vcVGWTelemetry (\ s a -> s{_vcVGWTelemetry = a}) . _Default;
+vcVGWTelemetry = lens _vcVGWTelemetry (\ s a -> s{_vcVGWTelemetry = a}) . _Default . _Coerce;
 
 -- | Any tags assigned to the VPN connection.
 vcTags :: Lens' VPNConnection [Tag]
-vcTags = lens _vcTags (\ s a -> s{_vcTags = a}) . _Default;
+vcTags = lens _vcTags (\ s a -> s{_vcTags = a}) . _Default . _Coerce;
 
 -- | The ID of the VPN connection.
 vcVPNConnectionId :: Lens' VPNConnection Text
@@ -9628,7 +9628,7 @@ vpnGateway =
 
 -- | Any VPCs attached to the virtual private gateway.
 vgVPCAttachments :: Lens' VPNGateway [VPCAttachment]
-vgVPCAttachments = lens _vgVPCAttachments (\ s a -> s{_vgVPCAttachments = a}) . _Default;
+vgVPCAttachments = lens _vgVPCAttachments (\ s a -> s{_vgVPCAttachments = a}) . _Default . _Coerce;
 
 -- | The current state of the virtual private gateway.
 vgState :: Lens' VPNGateway (Maybe VPNState)
@@ -9648,7 +9648,7 @@ vgType = lens _vgType (\ s a -> s{_vgType = a});
 
 -- | Any tags assigned to the virtual private gateway.
 vgTags :: Lens' VPNGateway [Tag]
-vgTags = lens _vgTags (\ s a -> s{_vgTags = a}) . _Default;
+vgTags = lens _vgTags (\ s a -> s{_vgTags = a}) . _Default . _Coerce;
 
 instance FromXML VPNGateway where
         parseXML x
@@ -9772,7 +9772,7 @@ volume pAvailabilityZone_ pCreateTime_ pEncrypted_ pSize_ pSnapshotId_ pState_ p
 
 -- | Information about the volume attachments.
 vAttachments :: Lens' Volume [VolumeAttachment]
-vAttachments = lens _vAttachments (\ s a -> s{_vAttachments = a}) . _Default;
+vAttachments = lens _vAttachments (\ s a -> s{_vAttachments = a}) . _Default . _Coerce;
 
 -- | The number of I\/O operations per second (IOPS) that the volume
 -- supports. For Provisioned IOPS (SSD) volumes, this represents the number
@@ -9800,7 +9800,7 @@ vKMSKeyId = lens _vKMSKeyId (\ s a -> s{_vKMSKeyId = a});
 
 -- | Any tags assigned to the volume.
 vTags :: Lens' Volume [Tag]
-vTags = lens _vTags (\ s a -> s{_vTags = a}) . _Default;
+vTags = lens _vTags (\ s a -> s{_vTags = a}) . _Default . _Coerce;
 
 -- | The Availability Zone for the volume.
 vAvailabilityZone :: Lens' Volume Text
@@ -10131,7 +10131,7 @@ vsiStatus = lens _vsiStatus (\ s a -> s{_vsiStatus = a});
 
 -- | The details of the volume status.
 vsiDetails :: Lens' VolumeStatusInfo [VolumeStatusDetails]
-vsiDetails = lens _vsiDetails (\ s a -> s{_vsiDetails = a}) . _Default;
+vsiDetails = lens _vsiDetails (\ s a -> s{_vsiDetails = a}) . _Default . _Coerce;
 
 instance FromXML VolumeStatusInfo where
         parseXML x
@@ -10180,7 +10180,7 @@ vsiVolumeStatus = lens _vsiVolumeStatus (\ s a -> s{_vsiVolumeStatus = a});
 
 -- | The details of the operation.
 vsiActions :: Lens' VolumeStatusItem [VolumeStatusAction]
-vsiActions = lens _vsiActions (\ s a -> s{_vsiActions = a}) . _Default;
+vsiActions = lens _vsiActions (\ s a -> s{_vsiActions = a}) . _Default . _Coerce;
 
 -- | The Availability Zone of the volume.
 vsiAvailabilityZone :: Lens' VolumeStatusItem (Maybe Text)
@@ -10188,7 +10188,7 @@ vsiAvailabilityZone = lens _vsiAvailabilityZone (\ s a -> s{_vsiAvailabilityZone
 
 -- | A list of events associated with the volume.
 vsiEvents :: Lens' VolumeStatusItem [VolumeStatusEvent]
-vsiEvents = lens _vsiEvents (\ s a -> s{_vsiEvents = a}) . _Default;
+vsiEvents = lens _vsiEvents (\ s a -> s{_vsiEvents = a}) . _Default . _Coerce;
 
 -- | The volume ID.
 vsiVolumeId :: Lens' VolumeStatusItem (Maybe Text)

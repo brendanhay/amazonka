@@ -125,7 +125,7 @@ getMetricStatistics pNamespace_ pMetricName_ pStartTime_ pEndTime_ pPeriod_ pSta
 
 -- | A list of dimensions describing qualities of the metric.
 gmsDimensions :: Lens' GetMetricStatistics [Dimension]
-gmsDimensions = lens _gmsDimensions (\ s a -> s{_gmsDimensions = a}) . _Default;
+gmsDimensions = lens _gmsDimensions (\ s a -> s{_gmsDimensions = a}) . _Default . _Coerce;
 
 -- | The unit for the metric.
 gmsUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
@@ -227,7 +227,7 @@ getMetricStatisticsResponse pStatus_ =
 
 -- | The datapoints for the specified metric.
 gmsrsDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
-gmsrsDatapoints = lens _gmsrsDatapoints (\ s a -> s{_gmsrsDatapoints = a}) . _Default;
+gmsrsDatapoints = lens _gmsrsDatapoints (\ s a -> s{_gmsrsDatapoints = a}) . _Default . _Coerce;
 
 -- | A label describing the specified metric.
 gmsrsLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)

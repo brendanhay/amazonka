@@ -95,11 +95,11 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 -- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@)
 --
 dFilter :: Lens' DescribeFlowLogs [Filter]
-dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default;
+dFilter = lens _dFilter (\ s a -> s{_dFilter = a}) . _Default . _Coerce;
 
 -- | One or more flow log IDs.
 dFlowLogIds :: Lens' DescribeFlowLogs [Text]
-dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default;
+dFlowLogIds = lens _dFlowLogIds (\ s a -> s{_dFlowLogIds = a}) . _Default . _Coerce;
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
@@ -170,7 +170,7 @@ dflsrsNextToken = lens _dflsrsNextToken (\ s a -> s{_dflsrsNextToken = a});
 
 -- | Information about the flow logs.
 dflsrsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
-dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default;
+dflsrsFlowLogs = lens _dflsrsFlowLogs (\ s a -> s{_dflsrsFlowLogs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dflsrsStatus :: Lens' DescribeFlowLogsResponse Int

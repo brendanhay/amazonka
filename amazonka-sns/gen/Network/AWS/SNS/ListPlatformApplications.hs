@@ -141,7 +141,7 @@ listPlatformApplicationsResponse pStatus_ =
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
 lparsPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
-lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPlatformApplications = a}) . _Default;
+lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPlatformApplications = a}) . _Default . _Coerce;
 
 -- | NextToken string is returned when calling ListPlatformApplications
 -- action if additional records are available after the first page results.

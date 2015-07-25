@@ -358,7 +358,7 @@ createPipelineResponse pStatus_ =
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
 crsWarnings :: Lens' CreatePipelineResponse [Warning]
-crsWarnings = lens _crsWarnings (\ s a -> s{_crsWarnings = a}) . _Default;
+crsWarnings = lens _crsWarnings (\ s a -> s{_crsWarnings = a}) . _Default . _Coerce;
 
 -- | A section of the response body that provides information about the
 -- pipeline that is created.

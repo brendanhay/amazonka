@@ -148,7 +148,7 @@ rmVisibilityTimeout = lens _rmVisibilityTimeout (\ s a -> s{_rmVisibilityTimeout
 -- or \".*\" in your request. You can also use \"foo.*\" to return all
 -- message attributes starting with the \"foo\" prefix.
 rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
-rmMessageAttributeNames = lens _rmMessageAttributeNames (\ s a -> s{_rmMessageAttributeNames = a}) . _Default;
+rmMessageAttributeNames = lens _rmMessageAttributeNames (\ s a -> s{_rmMessageAttributeNames = a}) . _Default . _Coerce;
 
 -- | The duration (in seconds) for which the call will wait for a message to
 -- arrive in the queue before returning. If a message is available, the
@@ -172,7 +172,7 @@ rmWaitTimeSeconds = lens _rmWaitTimeSeconds (\ s a -> s{_rmWaitTimeSeconds = a})
 -- -   @SentTimestamp@ - returns the time when the message was sent to the
 --     queue (epoch time in milliseconds).
 rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
-rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a}) . _Default;
+rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a}) . _Default . _Coerce;
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to
@@ -242,7 +242,7 @@ receiveMessageResponse pStatus_ =
 
 -- | A list of messages.
 rmrsMessages :: Lens' ReceiveMessageResponse [Message]
-rmrsMessages = lens _rmrsMessages (\ s a -> s{_rmrsMessages = a}) . _Default;
+rmrsMessages = lens _rmrsMessages (\ s a -> s{_rmrsMessages = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 rmrsStatus :: Lens' ReceiveMessageResponse Int

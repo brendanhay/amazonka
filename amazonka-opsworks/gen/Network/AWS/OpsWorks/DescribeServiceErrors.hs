@@ -85,7 +85,7 @@ dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a});
 -- @DescribeServiceErrors@ returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
 dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
-dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default;
+dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default . _Coerce;
 
 -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
 -- descriptions of the errors associated with the specified stack.
@@ -152,7 +152,7 @@ describeServiceErrorsResponse pStatus_ =
 -- | An array of @ServiceError@ objects that describe the specified service
 -- errors.
 dsersServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
-dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = a}) . _Default;
+dsersServiceErrors = lens _dsersServiceErrors (\ s a -> s{_dsersServiceErrors = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsersStatus :: Lens' DescribeServiceErrorsResponse Int

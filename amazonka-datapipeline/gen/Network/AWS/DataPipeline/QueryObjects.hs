@@ -191,7 +191,7 @@ qorsHasMoreResults = lens _qorsHasMoreResults (\ s a -> s{_qorsHasMoreResults = 
 
 -- | The identifiers that match the query selectors.
 qorsIds :: Lens' QueryObjectsResponse [Text]
-qorsIds = lens _qorsIds (\ s a -> s{_qorsIds = a}) . _Default;
+qorsIds = lens _qorsIds (\ s a -> s{_qorsIds = a}) . _Default . _Coerce;
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @QueryObjects@ again with this marker value. If the

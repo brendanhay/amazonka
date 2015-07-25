@@ -56,7 +56,7 @@ activeTrustedSigners pEnabled_ pQuantity_ =
 -- including trusted signers in the default cache behavior and in all of
 -- the other cache behaviors.
 atsItems :: Lens' ActiveTrustedSigners [Signer]
-atsItems = lens _atsItems (\ s a -> s{_atsItems = a}) . _Default;
+atsItems = lens _atsItems (\ s a -> s{_atsItems = a}) . _Default . _Coerce;
 
 -- | Each active trusted signer.
 atsEnabled :: Lens' ActiveTrustedSigners Bool
@@ -102,7 +102,7 @@ aliases pQuantity_ =
 -- | Optional: A complex type that contains CNAME elements, if any, for this
 -- distribution. If Quantity is 0, you can omit Items.
 aItems :: Lens' Aliases [Text]
-aItems = lens _aItems (\ s a -> s{_aItems = a}) . _Default;
+aItems = lens _aItems (\ s a -> s{_aItems = a}) . _Default . _Coerce;
 
 -- | The number of CNAMEs, if any, for this distribution.
 aQuantity :: Lens' Aliases Int
@@ -169,7 +169,7 @@ amQuantity = lens _amQuantity (\ s a -> s{_amQuantity = a});
 -- | A complex type that contains the HTTP methods that you want CloudFront
 -- to process and forward to your origin.
 amItems :: Lens' AllowedMethods [Method]
-amItems = lens _amItems (\ s a -> s{_amItems = a});
+amItems = lens _amItems (\ s a -> s{_amItems = a}) . _Coerce;
 
 instance FromXML AllowedMethods where
         parseXML x
@@ -390,7 +390,7 @@ cacheBehaviors pQuantity_ =
 -- | Optional: A complex type that contains cache behaviors for this
 -- distribution. If Quantity is 0, you can omit Items.
 cbItems :: Lens' CacheBehaviors [CacheBehavior]
-cbItems = lens _cbItems (\ s a -> s{_cbItems = a}) . _Default;
+cbItems = lens _cbItems (\ s a -> s{_cbItems = a}) . _Default . _Coerce;
 
 -- | The number of cache behaviors for this distribution.
 cbQuantity :: Lens' CacheBehaviors Int
@@ -448,7 +448,7 @@ cmQuantity = lens _cmQuantity (\ s a -> s{_cmQuantity = a});
 -- | A complex type that contains the HTTP methods that you want CloudFront
 -- to cache responses to.
 cmItems :: Lens' CachedMethods [Method]
-cmItems = lens _cmItems (\ s a -> s{_cmItems = a});
+cmItems = lens _cmItems (\ s a -> s{_cmItems = a}) . _Coerce;
 
 instance FromXML CachedMethods where
         parseXML x
@@ -605,7 +605,7 @@ cloudFrontOriginAccessIdentityList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ 
 -- element for each origin access identity that was created by the current
 -- AWS account.
 cfoailItems :: Lens' CloudFrontOriginAccessIdentityList [CloudFrontOriginAccessIdentitySummary]
-cfoailItems = lens _cfoailItems (\ s a -> s{_cfoailItems = a}) . _Default;
+cfoailItems = lens _cfoailItems (\ s a -> s{_cfoailItems = a}) . _Default . _Coerce;
 
 -- | If IsTruncated is true, this element is present and contains the value
 -- you can use for the Marker request parameter to continue listing your
@@ -722,7 +722,7 @@ cookieNames pQuantity_ =
 -- | Optional: A complex type that contains whitelisted cookies for this
 -- cache behavior. If Quantity is 0, you can omit Items.
 cnItems :: Lens' CookieNames [Text]
-cnItems = lens _cnItems (\ s a -> s{_cnItems = a}) . _Default;
+cnItems = lens _cnItems (\ s a -> s{_cnItems = a}) . _Default . _Coerce;
 
 -- | The number of whitelisted cookies for this cache behavior.
 cnQuantity :: Lens' CookieNames Int
@@ -897,7 +897,7 @@ customErrorResponses pQuantity_ =
 -- | Optional: A complex type that contains custom error responses for this
 -- distribution. If Quantity is 0, you can omit Items.
 cerItems :: Lens' CustomErrorResponses [CustomErrorResponse]
-cerItems = lens _cerItems (\ s a -> s{_cerItems = a}) . _Default;
+cerItems = lens _cerItems (\ s a -> s{_cerItems = a}) . _Default . _Coerce;
 
 -- | The number of custom error responses for this distribution.
 cerQuantity :: Lens' CustomErrorResponses Int
@@ -1430,7 +1430,7 @@ distributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
 -- | A complex type that contains one DistributionSummary element for each
 -- distribution that was created by the current AWS account.
 dlItems :: Lens' DistributionList [DistributionSummary]
-dlItems = lens _dlItems (\ s a -> s{_dlItems = a}) . _Default;
+dlItems = lens _dlItems (\ s a -> s{_dlItems = a}) . _Default . _Coerce;
 
 -- | If IsTruncated is true, this element is present and contains the value
 -- you can use for the Marker request parameter to continue listing your
@@ -1718,7 +1718,7 @@ geoRestriction pRestrictionType_ pQuantity_ =
 -- Standardization website. You can also refer to the country list in the
 -- CloudFront console, which includes both country names and codes.
 grItems :: Lens' GeoRestriction [Text]
-grItems = lens _grItems (\ s a -> s{_grItems = a}) . _Default;
+grItems = lens _grItems (\ s a -> s{_grItems = a}) . _Default . _Coerce;
 
 -- | The method that you want to use to restrict distribution of your content
 -- by country: - none: No geo restriction is enabled, meaning access to
@@ -1786,7 +1786,7 @@ headers pQuantity_ =
 -- that you want CloudFront to forward to the origin and to vary on for
 -- this cache behavior. If Quantity is 0, omit Items.
 hItems :: Lens' Headers [Text]
-hItems = lens _hItems (\ s a -> s{_hItems = a}) . _Default;
+hItems = lens _hItems (\ s a -> s{_hItems = a}) . _Default . _Coerce;
 
 -- | The number of different headers that you want CloudFront to forward to
 -- the origin and to vary on for this cache behavior. The maximum number of
@@ -1963,7 +1963,7 @@ invalidationList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
 -- | A complex type that contains one InvalidationSummary element for each
 -- invalidation batch that was created by the current AWS account.
 ilItems :: Lens' InvalidationList [InvalidationSummary]
-ilItems = lens _ilItems (\ s a -> s{_ilItems = a}) . _Default;
+ilItems = lens _ilItems (\ s a -> s{_ilItems = a}) . _Default . _Coerce;
 
 -- | If IsTruncated is true, this element is present and contains the value
 -- you can use for the Marker request parameter to continue listing your
@@ -2072,7 +2072,7 @@ keyPairIds pQuantity_ =
 -- | A complex type that lists the active CloudFront key pairs, if any, that
 -- are associated with AwsAccountNumber.
 kpiItems :: Lens' KeyPairIds [Text]
-kpiItems = lens _kpiItems (\ s a -> s{_kpiItems = a}) . _Default;
+kpiItems = lens _kpiItems (\ s a -> s{_kpiItems = a}) . _Default . _Coerce;
 
 -- | The number of active CloudFront key pairs for AwsAccountNumber.
 kpiQuantity :: Lens' KeyPairIds Int
@@ -2318,7 +2318,7 @@ paths pQuantity_ =
 -- | A complex type that contains a list of the objects that you want to
 -- invalidate.
 pItems :: Lens' Paths [Text]
-pItems = lens _pItems (\ s a -> s{_pItems = a}) . _Default;
+pItems = lens _pItems (\ s a -> s{_pItems = a}) . _Default . _Coerce;
 
 -- | The number of objects that you want to invalidate.
 pQuantity :: Lens' Paths Int
@@ -2745,7 +2745,7 @@ streamingDistributionList pMarker_ pMaxItems_ pIsTruncated_ pQuantity_ =
 -- | A complex type that contains one StreamingDistributionSummary element
 -- for each distribution that was created by the current AWS account.
 sdlItems :: Lens' StreamingDistributionList [StreamingDistributionSummary]
-sdlItems = lens _sdlItems (\ s a -> s{_sdlItems = a}) . _Default;
+sdlItems = lens _sdlItems (\ s a -> s{_sdlItems = a}) . _Default . _Coerce;
 
 -- | If IsTruncated is true, this element is present and contains the value
 -- you can use for the Marker request parameter to continue listing your
@@ -3010,7 +3010,7 @@ trustedSigners pEnabled_ pQuantity_ =
 -- | Optional: A complex type that contains trusted signers for this cache
 -- behavior. If Quantity is 0, you can omit Items.
 tsItems :: Lens' TrustedSigners [Text]
-tsItems = lens _tsItems (\ s a -> s{_tsItems = a}) . _Default;
+tsItems = lens _tsItems (\ s a -> s{_tsItems = a}) . _Default . _Coerce;
 
 -- | Specifies whether you want to require end users to use signed URLs to
 -- access the files specified by PathPattern and TargetOriginId.

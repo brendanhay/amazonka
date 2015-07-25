@@ -120,7 +120,7 @@ dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoS
 -- next set of items, repeat the call with the returned token in the
 -- @NextToken@ parameter.
 dsasScheduledActionNames :: Lens' DescribeScheduledActions [Text]
-dsasScheduledActionNames = lens _dsasScheduledActionNames (\ s a -> s{_dsasScheduledActionNames = a}) . _Default;
+dsasScheduledActionNames = lens _dsasScheduledActionNames (\ s a -> s{_dsasScheduledActionNames = a}) . _Default . _Coerce;
 
 instance AWSPager DescribeScheduledActions where
         page rq rs
@@ -191,7 +191,7 @@ describeScheduledActionsResponse pStatus_ =
 
 -- | The scheduled actions.
 dsarsScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
-dsarsScheduledUpdateGroupActions = lens _dsarsScheduledUpdateGroupActions (\ s a -> s{_dsarsScheduledUpdateGroupActions = a}) . _Default;
+dsarsScheduledUpdateGroupActions = lens _dsarsScheduledUpdateGroupActions (\ s a -> s{_dsarsScheduledUpdateGroupActions = a}) . _Default . _Coerce;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

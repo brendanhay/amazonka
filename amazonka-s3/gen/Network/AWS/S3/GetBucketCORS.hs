@@ -106,7 +106,7 @@ getBucketCORSResponse pStatus_ =
 
 -- | FIXME: Undocumented member.
 gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
-gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default;
+gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 gbcrsStatus :: Lens' GetBucketCORSResponse Int

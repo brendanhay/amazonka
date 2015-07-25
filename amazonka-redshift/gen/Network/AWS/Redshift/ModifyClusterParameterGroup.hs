@@ -84,7 +84,7 @@ mcpgParameterGroupName = lens _mcpgParameterGroupName (\ s a -> s{_mcpgParameter
 -- For the workload management (WLM) configuration, you must supply all the
 -- name-value pairs in the wlm_json_configuration parameter.
 mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
-mcpgParameters = lens _mcpgParameters (\ s a -> s{_mcpgParameters = a});
+mcpgParameters = lens _mcpgParameters (\ s a -> s{_mcpgParameters = a}) . _Coerce;
 
 instance AWSRequest ModifyClusterParameterGroup where
         type Sv ModifyClusterParameterGroup = Redshift

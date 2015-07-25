@@ -161,11 +161,11 @@ drsRequestCharged = lens _drsRequestCharged (\ s a -> s{_drsRequestCharged = a})
 
 -- | FIXME: Undocumented member.
 drsDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
-drsDeleted = lens _drsDeleted (\ s a -> s{_drsDeleted = a}) . _Default;
+drsDeleted = lens _drsDeleted (\ s a -> s{_drsDeleted = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drsErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
-drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default;
+drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 drsStatus :: Lens' DeleteObjectsResponse Int

@@ -78,7 +78,7 @@ describeBundleTasks =
 --
 -- Default: Describes all your bundle tasks.
 dbtBundleIds :: Lens' DescribeBundleTasks [Text]
-dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a}) . _Default;
+dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -106,7 +106,7 @@ dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a}) . _Default;
 -- -   @update-time@ - The time of the most recent update for the task.
 --
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
-dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a}) . _Default;
+dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -165,7 +165,7 @@ describeBundleTasksResponse pStatus_ =
 
 -- | Information about one or more bundle tasks.
 dbtrsBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
-dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . _Default;
+dbtrsBundleTasks = lens _dbtrsBundleTasks (\ s a -> s{_dbtrsBundleTasks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dbtrsStatus :: Lens' DescribeBundleTasksResponse Int

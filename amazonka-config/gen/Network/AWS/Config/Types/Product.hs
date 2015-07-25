@@ -264,7 +264,7 @@ ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = 
 
 -- | A list of related AWS resources.
 ciRelationships :: Lens' ConfigurationItem [Relationship]
-ciRelationships = lens _ciRelationships (\ s a -> s{_ciRelationships = a}) . _Default;
+ciRelationships = lens _ciRelationships (\ s a -> s{_ciRelationships = a}) . _Default . _Coerce;
 
 -- | The version number of the resource configuration.
 ciVersion :: Lens' ConfigurationItem (Maybe Text)
@@ -280,7 +280,7 @@ ciVersion = lens _ciVersion (\ s a -> s{_ciVersion = a});
 -- An empty field indicates that the current configuration was not
 -- initiated by any event.
 ciRelatedEvents :: Lens' ConfigurationItem [Text]
-ciRelatedEvents = lens _ciRelatedEvents (\ s a -> s{_ciRelatedEvents = a}) . _Default;
+ciRelatedEvents = lens _ciRelatedEvents (\ s a -> s{_ciRelatedEvents = a}) . _Default . _Coerce;
 
 -- | The description of the resource configuration.
 ciConfiguration :: Lens' ConfigurationItem (Maybe Text)
@@ -637,7 +637,7 @@ rgAllSupported = lens _rgAllSupported (\ s a -> s{_rgAllSupported = a});
 -- __resourceType Value__ column in the following topic:
 -- <http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types>.
 rgResourceTypes :: Lens' RecordingGroup [ResourceType]
-rgResourceTypes = lens _rgResourceTypes (\ s a -> s{_rgResourceTypes = a}) . _Default;
+rgResourceTypes = lens _rgResourceTypes (\ s a -> s{_rgResourceTypes = a}) . _Default . _Coerce;
 
 instance FromJSON RecordingGroup where
         parseJSON

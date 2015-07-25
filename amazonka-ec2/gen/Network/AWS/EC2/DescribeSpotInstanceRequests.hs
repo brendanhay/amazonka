@@ -204,11 +204,11 @@ describeSpotInstanceRequests =
 -- -   @valid-until@ - The end date of the request.
 --
 dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
-dsirFilters = lens _dsirFilters (\ s a -> s{_dsirFilters = a}) . _Default;
+dsirFilters = lens _dsirFilters (\ s a -> s{_dsirFilters = a}) . _Default . _Coerce;
 
 -- | One or more Spot Instance request IDs.
 dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
-dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirSpotInstanceRequestIds = a}) . _Default;
+dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirSpotInstanceRequestIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -273,7 +273,7 @@ describeSpotInstanceRequestsResponse pStatus_ =
 
 -- | One or more Spot Instance requests.
 dsirrsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
-dsirrsSpotInstanceRequests = lens _dsirrsSpotInstanceRequests (\ s a -> s{_dsirrsSpotInstanceRequests = a}) . _Default;
+dsirrsSpotInstanceRequests = lens _dsirrsSpotInstanceRequests (\ s a -> s{_dsirrsSpotInstanceRequests = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsirrsStatus :: Lens' DescribeSpotInstanceRequestsResponse Int

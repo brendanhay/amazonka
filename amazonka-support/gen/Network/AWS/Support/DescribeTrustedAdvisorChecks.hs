@@ -131,4 +131,4 @@ dtacrsStatus = lens _dtacrsStatus (\ s a -> s{_dtacrsStatus = a});
 
 -- | Information about all available Trusted Advisor checks.
 dtacrsChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-dtacrsChecks = lens _dtacrsChecks (\ s a -> s{_dtacrsChecks = a});
+dtacrsChecks = lens _dtacrsChecks (\ s a -> s{_dtacrsChecks = a}) . _Coerce;

@@ -210,7 +210,7 @@ glersNextForwardToken = lens _glersNextForwardToken (\ s a -> s{_glersNextForwar
 
 -- | FIXME: Undocumented member.
 glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
-glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default;
+glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 glersStatus :: Lens' GetLogEventsResponse Int

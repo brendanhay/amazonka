@@ -143,7 +143,7 @@ rebuildWorkspacesResponse pStatus_ =
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebuilt.
 rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
-rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default;
+rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 rwrsStatus :: Lens' RebuildWorkspacesResponse Int

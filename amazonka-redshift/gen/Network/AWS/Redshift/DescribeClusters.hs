@@ -105,7 +105,7 @@ describeClusters =
 -- request, Amazon Redshift returns a response with the clusters that have
 -- either or both of these tag values associated with them.
 dcTagValues :: Lens' DescribeClusters [Text]
-dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a}) . _Default;
+dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a}) . _Default . _Coerce;
 
 -- | A tag key or keys for which you want to return all matching clusters
 -- that are associated with the specified key or keys. For example, suppose
@@ -114,7 +114,7 @@ dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a}) . _Default;
 -- Amazon Redshift returns a response with the clusters that have either or
 -- both of these tag keys associated with them.
 dcTagKeys :: Lens' DescribeClusters [Text]
-dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a}) . _Default;
+dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a}) . _Default . _Coerce;
 
 -- | The unique identifier of a cluster whose properties you are requesting.
 -- This parameter is case sensitive.
@@ -222,7 +222,7 @@ dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
 -- | A list of Cluster objects, where each object describes one cluster.
 dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default;
+dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcrsStatus :: Lens' DescribeClustersResponse Int

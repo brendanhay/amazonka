@@ -96,8 +96,8 @@ iInvocationType :: Lens' Invoke (Maybe InvocationType)
 iInvocationType = lens _iInvocationType (\ s a -> s{_iInvocationType = a});
 
 -- | JSON that you want to provide to your Lambda function as input.
-iPayload :: Lens' Invoke (Maybe Base64)
-iPayload = lens _iPayload (\ s a -> s{_iPayload = a});
+iPayload :: Lens' Invoke (Maybe ByteString)
+iPayload = lens _iPayload (\ s a -> s{_iPayload = a}) . mapping _Base64;
 
 -- | You can set this optional parameter to \"Tail\" in the request only if
 -- you specify the @InvocationType@ parameter with value
@@ -217,8 +217,8 @@ irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a});
 -- describing the error. For the @Handled@ errors the Lambda function will
 -- report this message. For @Unhandled@ errors AWS Lambda reports the
 -- message.
-irsPayload :: Lens' InvokeResponse (Maybe Base64)
-irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a});
+irsPayload :: Lens' InvokeResponse (Maybe ByteString)
+irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a}) . mapping _Base64;
 
 -- | The HTTP status code will be in the 200 range for successful request.
 -- For the \"RequestResonse\" invocation type this status code will be 200.

@@ -99,7 +99,7 @@ dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat;
 -- specified, AWS Storage Gateway returns a description of all virtual
 -- tapes associated with the specified gateway.
 dtTapeARNs :: Lens' DescribeTapes [Text]
-dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default;
+dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtGatewayARN :: Lens' DescribeTapes Text
@@ -182,7 +182,7 @@ dtsrsMarker = lens _dtsrsMarker (\ s a -> s{_dtsrsMarker = a});
 
 -- | An array of virtual tape descriptions.
 dtsrsTapes :: Lens' DescribeTapesResponse [Tape]
-dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default;
+dtsrsTapes = lens _dtsrsTapes (\ s a -> s{_dtsrsTapes = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dtsrsStatus :: Lens' DescribeTapesResponse Int

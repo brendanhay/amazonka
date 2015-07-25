@@ -66,11 +66,11 @@ removeTagsFromOnPremisesInstances =
 
 -- | The tag key-value pairs to remove from the on-premises instances.
 rtfopiTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]
-rtfopiTags = lens _rtfopiTags (\ s a -> s{_rtfopiTags = a});
+rtfopiTags = lens _rtfopiTags (\ s a -> s{_rtfopiTags = a}) . _Coerce;
 
 -- | The names of the on-premises instances to remove tags from.
 rtfopiInstanceNames :: Lens' RemoveTagsFromOnPremisesInstances [Text]
-rtfopiInstanceNames = lens _rtfopiInstanceNames (\ s a -> s{_rtfopiInstanceNames = a});
+rtfopiInstanceNames = lens _rtfopiInstanceNames (\ s a -> s{_rtfopiInstanceNames = a}) . _Coerce;
 
 instance AWSRequest RemoveTagsFromOnPremisesInstances
          where

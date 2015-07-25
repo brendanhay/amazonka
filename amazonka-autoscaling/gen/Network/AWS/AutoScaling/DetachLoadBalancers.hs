@@ -75,7 +75,7 @@ dAutoScalingGroupName = lens _dAutoScalingGroupName (\ s a -> s{_dAutoScalingGro
 
 -- | One or more load balancer names.
 dLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
-dLoadBalancerNames = lens _dLoadBalancerNames (\ s a -> s{_dLoadBalancerNames = a}) . _Default;
+dLoadBalancerNames = lens _dLoadBalancerNames (\ s a -> s{_dLoadBalancerNames = a}) . _Default . _Coerce;
 
 instance AWSRequest DetachLoadBalancers where
         type Sv DetachLoadBalancers = AutoScaling

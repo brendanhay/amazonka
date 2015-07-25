@@ -116,7 +116,7 @@ drdiProductDescription = lens _drdiProductDescription (\ s a -> s{_drdiProductDe
 
 -- | This parameter is not currently supported.
 drdiFilters :: Lens' DescribeReservedDBInstances [Filter]
-drdiFilters = lens _drdiFilters (\ s a -> s{_drdiFilters = a}) . _Default;
+drdiFilters = lens _drdiFilters (\ s a -> s{_drdiFilters = a}) . _Default . _Coerce;
 
 -- | The reserved DB instance identifier filter value. Specify this parameter
 -- to show only the reservation that matches the specified reservation ID.
@@ -245,7 +245,7 @@ describeReservedDBInstancesResponse pStatus_ =
 
 -- | A list of reserved DB instances.
 drdirsReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
-drdirsReservedDBInstances = lens _drdirsReservedDBInstances (\ s a -> s{_drdirsReservedDBInstances = a}) . _Default;
+drdirsReservedDBInstances = lens _drdirsReservedDBInstances (\ s a -> s{_drdirsReservedDBInstances = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

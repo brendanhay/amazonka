@@ -76,7 +76,7 @@ clblLoadBalancerName = lens _clblLoadBalancerName (\ s a -> s{_clblLoadBalancerN
 
 -- | The listeners.
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
-clblListeners = lens _clblListeners (\ s a -> s{_clblListeners = a});
+clblListeners = lens _clblListeners (\ s a -> s{_clblListeners = a}) . _Coerce;
 
 instance AWSRequest CreateLoadBalancerListeners where
         type Sv CreateLoadBalancerListeners = ELB

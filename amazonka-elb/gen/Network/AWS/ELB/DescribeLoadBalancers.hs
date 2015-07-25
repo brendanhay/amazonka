@@ -84,7 +84,7 @@ dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
 
 -- | The names of the load balancers.
 dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
-dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a}) . _Default;
+dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a}) . _Default . _Coerce;
 
 instance AWSPager DescribeLoadBalancers where
         page rq rs
@@ -150,7 +150,7 @@ describeLoadBalancersResponse pStatus_ =
 
 -- | Information about the load balancers.
 dlbrsLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
-dlbrsLoadBalancerDescriptions = lens _dlbrsLoadBalancerDescriptions (\ s a -> s{_dlbrsLoadBalancerDescriptions = a}) . _Default;
+dlbrsLoadBalancerDescriptions = lens _dlbrsLoadBalancerDescriptions (\ s a -> s{_dlbrsLoadBalancerDescriptions = a}) . _Default . _Coerce;
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.

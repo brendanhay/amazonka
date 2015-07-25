@@ -124,7 +124,7 @@ mesSeverity = lens _mesSeverity (\ s a -> s{_mesSeverity = a});
 --
 -- Values: Configuration, Management, Monitoring, Security
 mesEventCategories :: Lens' ModifyEventSubscription [Text]
-mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default;
+mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default . _Coerce;
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All
 -- of the objects must be of the same type as was specified in the source
@@ -136,7 +136,7 @@ mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = 
 --
 -- Example: my-snapshot-20131010
 mesSourceIds :: Lens' ModifyEventSubscription [Text]
-mesSourceIds = lens _mesSourceIds (\ s a -> s{_mesSourceIds = a}) . _Default;
+mesSourceIds = lens _mesSourceIds (\ s a -> s{_mesSourceIds = a}) . _Default . _Coerce;
 
 -- | The name of the modified Amazon Redshift event notification
 -- subscription.

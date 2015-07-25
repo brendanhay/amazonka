@@ -92,7 +92,7 @@ describeVPCEndpoints =
 --     @available@ | @deleting@ | @deleted@)
 --
 dvpceFilters :: Lens' DescribeVPCEndpoints [Filter]
-dvpceFilters = lens _dvpceFilters (\ s a -> s{_dvpceFilters = a}) . _Default;
+dvpceFilters = lens _dvpceFilters (\ s a -> s{_dvpceFilters = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
@@ -101,7 +101,7 @@ dvpceNextToken = lens _dvpceNextToken (\ s a -> s{_dvpceNextToken = a});
 
 -- | One or more endpoint IDs.
 dvpceVPCEndpointIds :: Lens' DescribeVPCEndpoints [Text]
-dvpceVPCEndpointIds = lens _dvpceVPCEndpointIds (\ s a -> s{_dvpceVPCEndpointIds = a}) . _Default;
+dvpceVPCEndpointIds = lens _dvpceVPCEndpointIds (\ s a -> s{_dvpceVPCEndpointIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -182,7 +182,7 @@ dvpcersNextToken = lens _dvpcersNextToken (\ s a -> s{_dvpcersNextToken = a});
 
 -- | Information about the endpoints.
 dvpcersVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
-dvpcersVPCEndpoints = lens _dvpcersVPCEndpoints (\ s a -> s{_dvpcersVPCEndpoints = a}) . _Default;
+dvpcersVPCEndpoints = lens _dvpcersVPCEndpoints (\ s a -> s{_dvpcersVPCEndpoints = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvpcersStatus :: Lens' DescribeVPCEndpointsResponse Int

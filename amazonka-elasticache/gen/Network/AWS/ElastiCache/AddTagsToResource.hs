@@ -84,7 +84,7 @@ attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
 attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a});
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a}) . _Coerce;
 
 instance AWSRequest AddTagsToResource where
         type Sv AddTagsToResource = ElastiCache

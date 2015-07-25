@@ -143,7 +143,7 @@ describeChapCredentialsResponse pStatus_ =
 -- -   __TargetARN__: The Amazon Resource Name (ARN) of the storage volume.
 --
 dccrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
-dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredentials = a}) . _Default;
+dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredentials = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dccrsStatus :: Lens' DescribeChapCredentialsResponse Int

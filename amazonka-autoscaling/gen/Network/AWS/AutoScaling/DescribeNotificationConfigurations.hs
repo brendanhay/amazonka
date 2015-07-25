@@ -74,7 +74,7 @@ describeNotificationConfigurations =
 
 -- | The name of the group.
 dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
-dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a}) . _Default;
+dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a}) . _Default . _Coerce;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -166,4 +166,4 @@ dncrsStatus = lens _dncrsStatus (\ s a -> s{_dncrsStatus = a});
 
 -- | The notification configurations.
 dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
-dncrsNotificationConfigurations = lens _dncrsNotificationConfigurations (\ s a -> s{_dncrsNotificationConfigurations = a});
+dncrsNotificationConfigurations = lens _dncrsNotificationConfigurations (\ s a -> s{_dncrsNotificationConfigurations = a}) . _Coerce;

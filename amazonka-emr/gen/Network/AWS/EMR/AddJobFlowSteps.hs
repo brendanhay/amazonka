@@ -97,7 +97,7 @@ ajfsJobFlowId = lens _ajfsJobFlowId (\ s a -> s{_ajfsJobFlowId = a});
 
 -- | A list of StepConfig to be executed by the job flow.
 ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
-ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a});
+ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a}) . _Coerce;
 
 instance AWSRequest AddJobFlowSteps where
         type Sv AddJobFlowSteps = EMR
@@ -154,7 +154,7 @@ addJobFlowStepsResponse pStatus_ =
 
 -- | The identifiers of the list of steps added to the job flow.
 ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
-ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default;
+ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ajfsrsStatus :: Lens' AddJobFlowStepsResponse Int

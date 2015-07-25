@@ -206,7 +206,7 @@ grchrsNextToken = lens _grchrsNextToken (\ s a -> s{_grchrsNextToken = a});
 
 -- | A list that contains the configuration history of one or more resources.
 grchrsConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
-grchrsConfigurationItems = lens _grchrsConfigurationItems (\ s a -> s{_grchrsConfigurationItems = a}) . _Default;
+grchrsConfigurationItems = lens _grchrsConfigurationItems (\ s a -> s{_grchrsConfigurationItems = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 grchrsStatus :: Lens' GetResourceConfigHistoryResponse Int

@@ -73,7 +73,7 @@ describeNetworkInterfaces =
 --
 -- Default: Describes all your network interfaces.
 dnisNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
-dnisNetworkInterfaceIds = lens _dnisNetworkInterfaceIds (\ s a -> s{_dnisNetworkInterfaceIds = a}) . _Default;
+dnisNetworkInterfaceIds = lens _dnisNetworkInterfaceIds (\ s a -> s{_dnisNetworkInterfaceIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 --
@@ -184,7 +184,7 @@ dnisNetworkInterfaceIds = lens _dnisNetworkInterfaceIds (\ s a -> s{_dnisNetwork
 -- -   @vpc-id@ - The ID of the VPC for the network interface.
 --
 dnisFilters :: Lens' DescribeNetworkInterfaces [Filter]
-dnisFilters = lens _dnisFilters (\ s a -> s{_dnisFilters = a}) . _Default;
+dnisFilters = lens _dnisFilters (\ s a -> s{_dnisFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -245,7 +245,7 @@ describeNetworkInterfacesResponse pStatus_ =
 
 -- | Information about one or more network interfaces.
 dnirsNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
-dnirsNetworkInterfaces = lens _dnirsNetworkInterfaces (\ s a -> s{_dnirsNetworkInterfaces = a}) . _Default;
+dnirsNetworkInterfaces = lens _dnirsNetworkInterfaces (\ s a -> s{_dnirsNetworkInterfaces = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dnirsStatus :: Lens' DescribeNetworkInterfacesResponse Int

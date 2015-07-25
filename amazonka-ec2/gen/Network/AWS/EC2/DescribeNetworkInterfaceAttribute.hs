@@ -164,7 +164,7 @@ describeNetworkInterfaceAttributeResponse pStatus_ =
 
 -- | The security groups associated with the network interface.
 dniarsGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
-dniarsGroups = lens _dniarsGroups (\ s a -> s{_dniarsGroups = a}) . _Default;
+dniarsGroups = lens _dniarsGroups (\ s a -> s{_dniarsGroups = a}) . _Default . _Coerce;
 
 -- | Indicates whether source\/destination checking is enabled.
 dniarsSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)

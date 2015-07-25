@@ -108,7 +108,7 @@ utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvision
 -- indexes. If you are adding a new global secondary index to the table,
 -- /AttributeDefinitions/ must include the key element(s) of the new index.
 utAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
-utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a}) . _Default;
+utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a}) . _Default . _Coerce;
 
 -- | An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
@@ -124,7 +124,7 @@ utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDe
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
 -- in the /Amazon DynamoDB Developer Guide/.
 utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
-utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default;
+utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default . _Coerce;
 
 -- | Represents the DynamoDB Streams configuration for the table.
 --

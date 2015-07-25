@@ -94,7 +94,7 @@ describeSnapshotCopyGrants =
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
 dscgsTagValues :: Lens' DescribeSnapshotCopyGrants [Text]
-dscgsTagValues = lens _dscgsTagValues (\ s a -> s{_dscgsTagValues = a}) . _Default;
+dscgsTagValues = lens _dscgsTagValues (\ s a -> s{_dscgsTagValues = a}) . _Default . _Coerce;
 
 -- | A tag key or keys for which you want to return all matching resources
 -- that are associated with the specified key or keys. For example, suppose
@@ -103,7 +103,7 @@ dscgsTagValues = lens _dscgsTagValues (\ s a -> s{_dscgsTagValues = a}) . _Defau
 -- Amazon Redshift returns a response with all resources that have either
 -- or both of these tag keys associated with them.
 dscgsTagKeys :: Lens' DescribeSnapshotCopyGrants [Text]
-dscgsTagKeys = lens _dscgsTagKeys (\ s a -> s{_dscgsTagKeys = a}) . _Default;
+dscgsTagKeys = lens _dscgsTagKeys (\ s a -> s{_dscgsTagKeys = a}) . _Default . _Coerce;
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -197,7 +197,7 @@ describeSnapshotCopyGrantsResponse pStatus_ =
 
 -- | The list of snapshot copy grants.
 dscgrsSnapshotCopyGrants :: Lens' DescribeSnapshotCopyGrantsResponse [SnapshotCopyGrant]
-dscgrsSnapshotCopyGrants = lens _dscgrsSnapshotCopyGrants (\ s a -> s{_dscgrsSnapshotCopyGrants = a}) . _Default;
+dscgrsSnapshotCopyGrants = lens _dscgrsSnapshotCopyGrants (\ s a -> s{_dscgrsSnapshotCopyGrants = a}) . _Default . _Coerce;
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a @DescribeSnapshotCopyGrant@

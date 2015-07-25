@@ -100,7 +100,7 @@ createDBParameterGroup pDBParameterGroupName_ pDBParameterGroupFamily_ pDescript
 
 -- | FIXME: Undocumented member.
 cdbpgTags :: Lens' CreateDBParameterGroup [Tag]
-cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default;
+cdbpgTags = lens _cdbpgTags (\ s a -> s{_cdbpgTags = a}) . _Default . _Coerce;
 
 -- | The name of the DB parameter group.
 --

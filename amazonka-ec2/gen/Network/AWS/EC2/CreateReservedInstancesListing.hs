@@ -109,7 +109,7 @@ crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a})
 -- | A list specifying the price of the Reserved Instance for each month
 -- remaining in the Reserved Instance term.
 crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
-crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a});
+crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a}) . _Coerce;
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
 -- your listings. This helps avoid duplicate listings. For more
@@ -172,7 +172,7 @@ createReservedInstancesListingResponse pStatus_ =
 
 -- | Information about the Reserved Instances listing.
 crersReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
-crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default;
+crersReservedInstancesListings = lens _crersReservedInstancesListings (\ s a -> s{_crersReservedInstancesListings = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 crersStatus :: Lens' CreateReservedInstancesListingResponse Int

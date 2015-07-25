@@ -106,7 +106,7 @@ dodioEngineVersion = lens _dodioEngineVersion (\ s a -> s{_dodioEngineVersion = 
 
 -- | This parameter is not currently supported.
 dodioFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
-dodioFilters = lens _dodioFilters (\ s a -> s{_dodioFilters = a}) . _Default;
+dodioFilters = lens _dodioFilters (\ s a -> s{_dodioFilters = a}) . _Default . _Coerce;
 
 -- | The DB instance class filter value. Specify this parameter to show only
 -- the available offerings matching the specified DB instance class.
@@ -224,7 +224,7 @@ describeOrderableDBInstanceOptionsResponse pStatus_ =
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.
 dodiorsOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
-dodiorsOrderableDBInstanceOptions = lens _dodiorsOrderableDBInstanceOptions (\ s a -> s{_dodiorsOrderableDBInstanceOptions = a}) . _Default;
+dodiorsOrderableDBInstanceOptions = lens _dodiorsOrderableDBInstanceOptions (\ s a -> s{_dodiorsOrderableDBInstanceOptions = a}) . _Default . _Coerce;
 
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the

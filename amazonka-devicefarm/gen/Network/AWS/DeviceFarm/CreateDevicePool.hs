@@ -90,7 +90,7 @@ cdpName = lens _cdpName (\ s a -> s{_cdpName = a});
 
 -- | The device pool\'s rules.
 cdpRules :: Lens' CreateDevicePool [Rule]
-cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a});
+cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a}) . _Coerce;
 
 instance AWSRequest CreateDevicePool where
         type Sv CreateDevicePool = DeviceFarm

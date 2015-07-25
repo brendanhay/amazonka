@@ -220,7 +220,7 @@ tdAuthCode = lens _tdAuthCode (\ s a -> s{_tdAuthCode = a}) . mapping _Sensitive
 --
 -- Required: No
 tdNameservers :: Lens' TransferDomain [Nameserver]
-tdNameservers = lens _tdNameservers (\ s a -> s{_tdNameservers = a}) . _Default;
+tdNameservers = lens _tdNameservers (\ s a -> s{_tdNameservers = a}) . _Default . _Coerce;
 
 -- | The name of a domain.
 --

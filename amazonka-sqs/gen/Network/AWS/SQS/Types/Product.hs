@@ -366,12 +366,12 @@ messageAttributeValue pDataType_ =
 
 -- | Binary type attributes can store any binary data, for example,
 -- compressed data, encrypted data, or images.
-mavBinaryValue :: Lens' MessageAttributeValue (Maybe Base64)
-mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a});
+mavBinaryValue :: Lens' MessageAttributeValue (Maybe ByteString)
+mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a}) . mapping _Base64;
 
 -- | Not implemented. Reserved for future use.
 mavStringListValues :: Lens' MessageAttributeValue [Text]
-mavStringListValues = lens _mavStringListValues (\ s a -> s{_mavStringListValues = a}) . _Default;
+mavStringListValues = lens _mavStringListValues (\ s a -> s{_mavStringListValues = a}) . _Default . _Coerce;
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code
 -- values, see
@@ -380,8 +380,8 @@ mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 
 -- | Not implemented. Reserved for future use.
-mavBinaryListValues :: Lens' MessageAttributeValue [Base64]
-mavBinaryListValues = lens _mavBinaryListValues (\ s a -> s{_mavBinaryListValues = a}) . _Default;
+mavBinaryListValues :: Lens' MessageAttributeValue [ByteString]
+mavBinaryListValues = lens _mavBinaryListValues (\ s a -> s{_mavBinaryListValues = a}) . _Default . _Coerce;
 
 -- | Amazon SQS supports the following logical data types: String, Number,
 -- and Binary. In addition, you can append your own custom labels. For more

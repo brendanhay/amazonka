@@ -181,7 +181,7 @@ lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
 
 -- | FIXME: Undocumented member.
 lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
-lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default;
+lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lvrsStatus :: Lens' ListVolumesResponse Int

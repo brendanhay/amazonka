@@ -105,7 +105,7 @@ udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 --
 -- Required: Yes
 udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
-udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a});
+udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a}) . _Coerce;
 
 instance AWSRequest UpdateDomainNameservers where
         type Sv UpdateDomainNameservers = Route53Domains

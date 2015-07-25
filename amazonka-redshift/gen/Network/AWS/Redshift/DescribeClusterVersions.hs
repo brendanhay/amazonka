@@ -186,7 +186,7 @@ describeClusterVersionsResponse pStatus_ =
 
 -- | A list of @Version@ elements.
 dcvrsClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
-dcvrsClusterVersions = lens _dcvrsClusterVersions (\ s a -> s{_dcvrsClusterVersions = a}) . _Default;
+dcvrsClusterVersions = lens _dcvrsClusterVersions (\ s a -> s{_dcvrsClusterVersions = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

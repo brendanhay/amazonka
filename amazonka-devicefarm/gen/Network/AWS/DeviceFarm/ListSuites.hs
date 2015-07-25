@@ -141,7 +141,7 @@ lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 
 -- | Information about the suites.
 lrsSuites :: Lens' ListSuitesResponse [Suite]
-lrsSuites = lens _lrsSuites (\ s a -> s{_lrsSuites = a}) . _Default;
+lrsSuites = lens _lrsSuites (\ s a -> s{_lrsSuites = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 lrsStatus :: Lens' ListSuitesResponse Int

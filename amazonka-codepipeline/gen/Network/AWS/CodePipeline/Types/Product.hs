@@ -277,7 +277,7 @@ actionDeclaration pName_ pActionTypeId_ =
 -- | The name or ID of the result of the action declaration, such as a test
 -- or build artifact.
 adOutputArtifacts :: Lens' ActionDeclaration [OutputArtifact]
-adOutputArtifacts = lens _adOutputArtifacts (\ s a -> s{_adOutputArtifacts = a}) . _Default;
+adOutputArtifacts = lens _adOutputArtifacts (\ s a -> s{_adOutputArtifacts = a}) . _Default . _Coerce;
 
 -- | The order in which actions are run.
 adRunOrder :: Lens' ActionDeclaration (Maybe Natural)
@@ -290,7 +290,7 @@ adConfiguration = lens _adConfiguration (\ s a -> s{_adConfiguration = a}) . _De
 -- | The name or ID of the artifact consumed by the action, such as a test or
 -- build artifact.
 adInputArtifacts :: Lens' ActionDeclaration [InputArtifact]
-adInputArtifacts = lens _adInputArtifacts (\ s a -> s{_adInputArtifacts = a}) . _Default;
+adInputArtifacts = lens _adInputArtifacts (\ s a -> s{_adInputArtifacts = a}) . _Default . _Coerce;
 
 -- | The ARN of the IAM service role that will perform the declared action.
 -- This is assumed through the roleArn for the pipeline.
@@ -574,7 +574,7 @@ atSettings = lens _atSettings (\ s a -> s{_atSettings = a});
 
 -- | The configuration properties for the action type.
 atActionConfigurationProperties :: Lens' ActionType [ActionConfigurationProperty]
-atActionConfigurationProperties = lens _atActionConfigurationProperties (\ s a -> s{_atActionConfigurationProperties = a}) . _Default;
+atActionConfigurationProperties = lens _atActionConfigurationProperties (\ s a -> s{_atActionConfigurationProperties = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 atId :: Lens' ActionType ActionTypeId
@@ -1265,7 +1265,7 @@ jdContinuationToken = lens _jdContinuationToken (\ s a -> s{_jdContinuationToken
 
 -- | The output of the job.
 jdOutputArtifacts :: Lens' JobData [Artifact]
-jdOutputArtifacts = lens _jdOutputArtifacts (\ s a -> s{_jdOutputArtifacts = a}) . _Default;
+jdOutputArtifacts = lens _jdOutputArtifacts (\ s a -> s{_jdOutputArtifacts = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 jdArtifactCredentials :: Lens' JobData (Maybe AWSSessionCredentials)
@@ -1281,7 +1281,7 @@ jdActionTypeId = lens _jdActionTypeId (\ s a -> s{_jdActionTypeId = a});
 
 -- | The artifact supplied to the job.
 jdInputArtifacts :: Lens' JobData [Artifact]
-jdInputArtifacts = lens _jdInputArtifacts (\ s a -> s{_jdInputArtifacts = a}) . _Default;
+jdInputArtifacts = lens _jdInputArtifacts (\ s a -> s{_jdInputArtifacts = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 jdActionConfiguration :: Lens' JobData (Maybe ActionConfiguration)
@@ -1490,7 +1490,7 @@ pdArtifactStore = lens _pdArtifactStore (\ s a -> s{_pdArtifactStore = a});
 
 -- | The stage in which to perform the action.
 pdStages :: Lens' PipelineDeclaration [StageDeclaration]
-pdStages = lens _pdStages (\ s a -> s{_pdStages = a});
+pdStages = lens _pdStages (\ s a -> s{_pdStages = a}) . _Coerce;
 
 instance FromJSON PipelineDeclaration where
         parseJSON
@@ -1659,7 +1659,7 @@ stageDeclaration pName_ =
 
 -- | The gates included in a stage.
 sdBlockers :: Lens' StageDeclaration [BlockerDeclaration]
-sdBlockers = lens _sdBlockers (\ s a -> s{_sdBlockers = a}) . _Default;
+sdBlockers = lens _sdBlockers (\ s a -> s{_sdBlockers = a}) . _Default . _Coerce;
 
 -- | The name of the stage.
 sdName :: Lens' StageDeclaration Text
@@ -1667,7 +1667,7 @@ sdName = lens _sdName (\ s a -> s{_sdName = a});
 
 -- | The actions included in a stage.
 sdActions :: Lens' StageDeclaration [ActionDeclaration]
-sdActions = lens _sdActions (\ s a -> s{_sdActions = a});
+sdActions = lens _sdActions (\ s a -> s{_sdActions = a}) . _Coerce;
 
 instance FromJSON StageDeclaration where
         parseJSON
@@ -1716,7 +1716,7 @@ ssInboundTransitionState = lens _ssInboundTransitionState (\ s a -> s{_ssInbound
 
 -- | The state of the stage.
 ssActionStates :: Lens' StageState [ActionState]
-ssActionStates = lens _ssActionStates (\ s a -> s{_ssActionStates = a}) . _Default;
+ssActionStates = lens _ssActionStates (\ s a -> s{_ssActionStates = a}) . _Default . _Coerce;
 
 -- | The name of the stage.
 ssStageName :: Lens' StageState (Maybe Text)
@@ -1822,7 +1822,7 @@ tpjdContinuationToken = lens _tpjdContinuationToken (\ s a -> s{_tpjdContinuatio
 -- This name might be system-generated, such as \"MyBuiltApp\", or might be
 -- defined by the user when the action is created.
 tpjdOutputArtifacts :: Lens' ThirdPartyJobData [Artifact]
-tpjdOutputArtifacts = lens _tpjdOutputArtifacts (\ s a -> s{_tpjdOutputArtifacts = a}) . _Default;
+tpjdOutputArtifacts = lens _tpjdOutputArtifacts (\ s a -> s{_tpjdOutputArtifacts = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 tpjdArtifactCredentials :: Lens' ThirdPartyJobData (Maybe AWSSessionCredentials)
@@ -1842,7 +1842,7 @@ tpjdActionTypeId = lens _tpjdActionTypeId (\ s a -> s{_tpjdActionTypeId = a});
 -- must match the name of an output artifact generated by an action in an
 -- earlier action or stage of the pipeline.
 tpjdInputArtifacts :: Lens' ThirdPartyJobData [Artifact]
-tpjdInputArtifacts = lens _tpjdInputArtifacts (\ s a -> s{_tpjdInputArtifacts = a}) . _Default;
+tpjdInputArtifacts = lens _tpjdInputArtifacts (\ s a -> s{_tpjdInputArtifacts = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 tpjdActionConfiguration :: Lens' ThirdPartyJobData (Maybe ActionConfiguration)

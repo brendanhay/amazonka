@@ -174,7 +174,7 @@ cloneStack pSourceStackId_ pServiceRoleARN_ =
 
 -- | A list of source stack app IDs to be included in the cloned stack.
 cCloneAppIds :: Lens' CloneStack [Text]
-cCloneAppIds = lens _cCloneAppIds (\ s a -> s{_cCloneAppIds = a}) . _Default;
+cCloneAppIds = lens _cCloneAppIds (\ s a -> s{_cCloneAppIds = a}) . _Default . _Coerce;
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack\'s EC2 instances. For more information about IAM ARNs, see

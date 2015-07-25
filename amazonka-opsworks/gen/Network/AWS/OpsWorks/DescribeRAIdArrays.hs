@@ -86,7 +86,7 @@ draiaInstanceId = lens _draiaInstanceId (\ s a -> s{_draiaInstanceId = a});
 -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
 -- Otherwise, it returns a description of every array.
 draiaRAIdArrayIds :: Lens' DescribeRAIdArrays [Text]
-draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default;
+draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default . _Coerce;
 
 -- | The stack ID.
 draiaStackId :: Lens' DescribeRAIdArrays (Maybe Text)
@@ -151,7 +151,7 @@ describeRAIdArraysResponse pStatus_ =
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
 draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
-draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default;
+draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 draiarsStatus :: Lens' DescribeRAIdArraysResponse Int

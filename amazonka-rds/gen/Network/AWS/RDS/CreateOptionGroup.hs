@@ -83,7 +83,7 @@ createOptionGroup pOptionGroupName_ pEngineName_ pMajorEngineVersion_ pOptionGro
 
 -- | FIXME: Undocumented member.
 cogTags :: Lens' CreateOptionGroup [Tag]
-cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default;
+cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default . _Coerce;
 
 -- | Specifies the name of the option group to be created.
 --

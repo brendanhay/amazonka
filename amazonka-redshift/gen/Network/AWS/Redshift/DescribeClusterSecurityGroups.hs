@@ -107,7 +107,7 @@ describeClusterSecurityGroups =
 -- the security groups that have either or both of these tag values
 -- associated with them.
 dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
-dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a}) . _Default;
+dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a}) . _Default . _Coerce;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- security groups that are associated with the specified key or keys. For
@@ -116,7 +116,7 @@ dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a}) . _Default;
 -- in the request, Amazon Redshift returns a response with the security
 -- groups that have either or both of these tag keys associated with them.
 dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
-dcsgTagKeys = lens _dcsgTagKeys (\ s a -> s{_dcsgTagKeys = a}) . _Default;
+dcsgTagKeys = lens _dcsgTagKeys (\ s a -> s{_dcsgTagKeys = a}) . _Default . _Coerce;
 
 -- | The name of a cluster security group for which you are requesting
 -- details. You can specify either the __Marker__ parameter or a
@@ -223,7 +223,7 @@ describeClusterSecurityGroupsResponse pStatus_ =
 
 -- | A list of ClusterSecurityGroup instances.
 dcsgsrsClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
-dcsgsrsClusterSecurityGroups = lens _dcsgsrsClusterSecurityGroups (\ s a -> s{_dcsgsrsClusterSecurityGroups = a}) . _Default;
+dcsgsrsClusterSecurityGroups = lens _dcsgsrsClusterSecurityGroups (\ s a -> s{_dcsgsrsClusterSecurityGroups = a}) . _Default . _Coerce;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

@@ -148,7 +148,7 @@ mccEngineVersion = lens _mccEngineVersion (\ s a -> s{_mccEngineVersion = a});
 -- This parameter can be used only with clusters that are created in an
 -- Amazon Virtual Private Cloud (VPC).
 mccSecurityGroupIds :: Lens' ModifyCacheCluster [Text]
-mccSecurityGroupIds = lens _mccSecurityGroupIds (\ s a -> s{_mccSecurityGroupIds = a}) . _Default;
+mccSecurityGroupIds = lens _mccSecurityGroupIds (\ s a -> s{_mccSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | This parameter is currently disabled.
 mccAutoMinorVersionUpgrade :: Lens' ModifyCacheCluster (Maybe Bool)
@@ -213,7 +213,7 @@ mccCacheParameterGroupName = lens _mccCacheParameterGroupName (\ s a -> s{_mccCa
 -- Example:
 -- @NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c@
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
-mccNewAvailabilityZones = lens _mccNewAvailabilityZones (\ s a -> s{_mccNewAvailabilityZones = a}) . _Default;
+mccNewAvailabilityZones = lens _mccNewAvailabilityZones (\ s a -> s{_mccNewAvailabilityZones = a}) . _Default . _Coerce;
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of your cache cluster.
@@ -249,7 +249,7 @@ mccPreferredMaintenanceWindow = lens _mccPreferredMaintenanceWindow (\ s a -> s{
 -- and the number of cache nodes in this @ModifyCacheCluser@ call is 5, you
 -- must list 2 (7 - 5) cache node IDs to remove.
 mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
-mccCacheNodeIdsToRemove = lens _mccCacheNodeIdsToRemove (\ s a -> s{_mccCacheNodeIdsToRemove = a}) . _Default;
+mccCacheNodeIdsToRemove = lens _mccCacheNodeIdsToRemove (\ s a -> s{_mccCacheNodeIdsToRemove = a}) . _Default . _Coerce;
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
@@ -360,7 +360,7 @@ mccNumCacheNodes = lens _mccNumCacheNodes (\ s a -> s{_mccNumCacheNodes = a});
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
 mccCacheSecurityGroupNames :: Lens' ModifyCacheCluster [Text]
-mccCacheSecurityGroupNames = lens _mccCacheSecurityGroupNames (\ s a -> s{_mccCacheSecurityGroupNames = a}) . _Default;
+mccCacheSecurityGroupNames = lens _mccCacheSecurityGroupNames (\ s a -> s{_mccCacheSecurityGroupNames = a}) . _Default . _Coerce;
 
 -- | The cache cluster identifier. This value is stored as a lowercase
 -- string.

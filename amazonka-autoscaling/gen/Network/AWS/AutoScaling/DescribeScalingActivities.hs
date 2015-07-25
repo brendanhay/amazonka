@@ -98,7 +98,7 @@ desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScal
 -- of requested activities cannot contain more than 50 items. If unknown
 -- activities are requested, they are ignored with no error.
 desActivityIds :: Lens' DescribeScalingActivities [Text]
-desActivityIds = lens _desActivityIds (\ s a -> s{_desActivityIds = a}) . _Default;
+desActivityIds = lens _desActivityIds (\ s a -> s{_desActivityIds = a}) . _Default . _Coerce;
 
 instance AWSPager DescribeScalingActivities where
         page rq rs
@@ -173,4 +173,4 @@ dsasrsStatus = lens _dsasrsStatus (\ s a -> s{_dsasrsStatus = a});
 
 -- | The scaling activities.
 dsasrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
-dsasrsActivities = lens _dsasrsActivities (\ s a -> s{_dsasrsActivities = a});
+dsasrsActivities = lens _dsasrsActivities (\ s a -> s{_dsasrsActivities = a}) . _Coerce;

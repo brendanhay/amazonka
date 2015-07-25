@@ -99,7 +99,7 @@ dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
 -- this member is null or empty, all snapshots are returned using the
 -- /Limit/ and /NextToken/ members.
 dsSnapshotIds :: Lens' DescribeSnapshots [Text]
-dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default;
+dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default . _Coerce;
 
 -- | The maximum number of objects to return.
 dsLimit :: Lens' DescribeSnapshots (Maybe Natural)
@@ -178,7 +178,7 @@ dssrsNextToken = lens _dssrsNextToken (\ s a -> s{_dssrsNextToken = a});
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
 dssrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default;
+dssrsSnapshots = lens _dssrsSnapshots (\ s a -> s{_dssrsSnapshots = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dssrsStatus :: Lens' DescribeSnapshotsResponse Int

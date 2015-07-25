@@ -73,7 +73,7 @@ createOrUpdateTags =
 
 -- | One or more tags.
 coutTags :: Lens' CreateOrUpdateTags [Tag]
-coutTags = lens _coutTags (\ s a -> s{_coutTags = a});
+coutTags = lens _coutTags (\ s a -> s{_coutTags = a}) . _Coerce;
 
 instance AWSRequest CreateOrUpdateTags where
         type Sv CreateOrUpdateTags = AutoScaling

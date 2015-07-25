@@ -100,7 +100,7 @@ createOpenIdConnectProvider pURL_ =
 -- @CreateOpenIDConnectProviderRequest@ action accepts client IDs up to 255
 -- characters long.
 coicpClientIdList :: Lens' CreateOpenIdConnectProvider [Text]
-coicpClientIdList = lens _coicpClientIdList (\ s a -> s{_coicpClientIdList = a}) . _Default;
+coicpClientIdList = lens _coicpClientIdList (\ s a -> s{_coicpClientIdList = a}) . _Default . _Coerce;
 
 -- | The URL of the identity provider. The URL must begin with \"https:\/\/\"
 -- and should correspond to the @iss@ claim in the provider\'s OpenID
@@ -137,7 +137,7 @@ coicpURL = lens _coicpURL (\ s a -> s{_coicpURL = a});
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider>
 -- in the /Using IAM/ guide.
 coicpThumbprintList :: Lens' CreateOpenIdConnectProvider [Text]
-coicpThumbprintList = lens _coicpThumbprintList (\ s a -> s{_coicpThumbprintList = a});
+coicpThumbprintList = lens _coicpThumbprintList (\ s a -> s{_coicpThumbprintList = a}) . _Coerce;
 
 instance AWSRequest CreateOpenIdConnectProvider where
         type Sv CreateOpenIdConnectProvider = IAM

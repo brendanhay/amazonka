@@ -145,7 +145,7 @@ updateAutoScalingGroup pAutoScalingGroupName_ =
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
 uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
-uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default;
+uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default . _Coerce;
 
 -- | The amount of time, in seconds, that Auto Scaling waits before checking
 -- the health status of an instance. The grace period begins when the

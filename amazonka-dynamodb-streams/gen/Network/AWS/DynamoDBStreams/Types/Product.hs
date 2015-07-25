@@ -84,7 +84,7 @@ attributeValue =
 
 -- | A List data type.
 avL :: Lens' AttributeValue [AttributeValue]
-avL = lens _avL (\ s a -> s{_avL = a}) . _Default;
+avL = lens _avL (\ s a -> s{_avL = a}) . _Default . _Coerce;
 
 -- | A Map data type.
 avM :: Lens' AttributeValue (HashMap Text AttributeValue)
@@ -92,7 +92,7 @@ avM = lens _avM (\ s a -> s{_avM = a}) . _Default . _Map;
 
 -- | A Number Set data type.
 avNS :: Lens' AttributeValue [Text]
-avNS = lens _avNS (\ s a -> s{_avNS = a}) . _Default;
+avNS = lens _avNS (\ s a -> s{_avNS = a}) . _Default . _Coerce;
 
 -- | A Null data type.
 avNULL :: Lens' AttributeValue (Maybe Bool)
@@ -103,16 +103,16 @@ avN :: Lens' AttributeValue (Maybe Text)
 avN = lens _avN (\ s a -> s{_avN = a});
 
 -- | A Binary Set data type.
-avBS :: Lens' AttributeValue [Base64]
-avBS = lens _avBS (\ s a -> s{_avBS = a}) . _Default;
+avBS :: Lens' AttributeValue [ByteString]
+avBS = lens _avBS (\ s a -> s{_avBS = a}) . _Default . _Coerce;
 
 -- | A Binary data type.
-avB :: Lens' AttributeValue (Maybe Base64)
-avB = lens _avB (\ s a -> s{_avB = a});
+avB :: Lens' AttributeValue (Maybe ByteString)
+avB = lens _avB (\ s a -> s{_avB = a}) . mapping _Base64;
 
 -- | A String Set data type.
 avSS :: Lens' AttributeValue [Text]
-avSS = lens _avSS (\ s a -> s{_avSS = a}) . _Default;
+avSS = lens _avSS (\ s a -> s{_avSS = a}) . _Default . _Coerce;
 
 -- | A String data type.
 avS :: Lens' AttributeValue (Maybe Text)
@@ -533,7 +533,7 @@ sdStreamViewType = lens _sdStreamViewType (\ s a -> s{_sdStreamViewType = a});
 
 -- | The shards that comprise the stream.
 sdShards :: Lens' StreamDescription [Shard]
-sdShards = lens _sdShards (\ s a -> s{_sdShards = a}) . _Default;
+sdShards = lens _sdShards (\ s a -> s{_sdShards = a}) . _Default . _Coerce;
 
 -- | The DynamoDB table with which the stream is associated.
 sdTableName :: Lens' StreamDescription (Maybe Text)

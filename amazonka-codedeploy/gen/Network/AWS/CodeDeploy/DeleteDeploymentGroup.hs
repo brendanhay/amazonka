@@ -138,7 +138,7 @@ deleteDeploymentGroupResponse pStatus_ =
 -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
 ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
-ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default;
+ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 ddgrsStatus :: Lens' DeleteDeploymentGroupResponse Int

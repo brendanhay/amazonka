@@ -185,7 +185,7 @@ mcHSMConfigurationIdentifier = lens _mcHSMConfigurationIdentifier (\ s a -> s{_m
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
-mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSecurityGroups = a}) . _Default;
+mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSecurityGroups = a}) . _Default . _Coerce;
 
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
@@ -244,7 +244,7 @@ mcPreferredMaintenanceWindow = lens _mcPreferredMaintenanceWindow (\ s a -> s{_m
 -- | A list of virtual private cloud (VPC) security groups to be associated
 -- with the cluster.
 mcVPCSecurityGroupIds :: Lens' ModifyCluster [Text]
-mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGroupIds = a}) . _Default;
+mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGroupIds = a}) . _Default . _Coerce;
 
 -- | The new cluster type.
 --

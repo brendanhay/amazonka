@@ -113,7 +113,7 @@ cveDryRun = lens _cveDryRun (\ s a -> s{_cveDryRun = a});
 
 -- | One or more route table IDs.
 cveRouteTableIds :: Lens' CreateVPCEndpoint [Text]
-cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a}) . _Default;
+cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a}) . _Default . _Coerce;
 
 -- | The ID of the VPC in which the endpoint will be used.
 cveVPCId :: Lens' CreateVPCEndpoint Text

@@ -142,7 +142,7 @@ pspPolicyType = lens _pspPolicyType (\ s a -> s{_pspPolicyType = a});
 -- This parameter is required if the policy type is @StepScaling@ and not
 -- supported otherwise.
 pspStepAdjustments :: Lens' PutScalingPolicy [StepAdjustment]
-pspStepAdjustments = lens _pspStepAdjustments (\ s a -> s{_pspStepAdjustments = a}) . _Default;
+pspStepAdjustments = lens _pspStepAdjustments (\ s a -> s{_pspStepAdjustments = a}) . _Default . _Coerce;
 
 -- | The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number

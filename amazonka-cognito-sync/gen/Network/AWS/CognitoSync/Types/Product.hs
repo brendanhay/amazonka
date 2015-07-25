@@ -322,7 +322,7 @@ pushSync =
 
 -- | List of SNS platform application ARNs that could be used by clients.
 psApplicationARNs :: Lens' PushSync [Text]
-psApplicationARNs = lens _psApplicationARNs (\ s a -> s{_psApplicationARNs = a}) . _Default;
+psApplicationARNs = lens _psApplicationARNs (\ s a -> s{_psApplicationARNs = a}) . _Default . _Coerce;
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 -- developer.

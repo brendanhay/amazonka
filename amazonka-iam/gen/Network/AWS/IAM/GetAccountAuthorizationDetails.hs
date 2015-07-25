@@ -98,7 +98,7 @@ gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 -- | A list of entity types (user, group, role, local managed policy, or AWS
 -- managed policy) for filtering the results.
 gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
-gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default;
+gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default . _Coerce;
 
 instance AWSRequest GetAccountAuthorizationDetails
          where
@@ -188,15 +188,15 @@ getAccountAuthorizationDetailsResponse pStatus_ =
 
 -- | A list containing information about IAM roles.
 gaadrsRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
-gaadrsRoleDetailList = lens _gaadrsRoleDetailList (\ s a -> s{_gaadrsRoleDetailList = a}) . _Default;
+gaadrsRoleDetailList = lens _gaadrsRoleDetailList (\ s a -> s{_gaadrsRoleDetailList = a}) . _Default . _Coerce;
 
 -- | A list containing information about IAM groups.
 gaadrsGroupDetailList :: Lens' GetAccountAuthorizationDetailsResponse [GroupDetail]
-gaadrsGroupDetailList = lens _gaadrsGroupDetailList (\ s a -> s{_gaadrsGroupDetailList = a}) . _Default;
+gaadrsGroupDetailList = lens _gaadrsGroupDetailList (\ s a -> s{_gaadrsGroupDetailList = a}) . _Default . _Coerce;
 
 -- | A list containing information about IAM users.
 gaadrsUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
-gaadrsUserDetailList = lens _gaadrsUserDetailList (\ s a -> s{_gaadrsUserDetailList = a}) . _Default;
+gaadrsUserDetailList = lens _gaadrsUserDetailList (\ s a -> s{_gaadrsUserDetailList = a}) . _Default . _Coerce;
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -212,7 +212,7 @@ gaadrsIsTruncated = lens _gaadrsIsTruncated (\ s a -> s{_gaadrsIsTruncated = a})
 
 -- | A list containing information about managed policies.
 gaadrsPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
-gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Default;
+gaadrsPolicies = lens _gaadrsPolicies (\ s a -> s{_gaadrsPolicies = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 gaadrsStatus :: Lens' GetAccountAuthorizationDetailsResponse Int

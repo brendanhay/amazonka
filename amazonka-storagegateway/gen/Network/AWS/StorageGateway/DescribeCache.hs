@@ -159,7 +159,7 @@ dcrsGatewayARN = lens _dcrsGatewayARN (\ s a -> s{_dcrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
 dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
-dcrsDiskIds = lens _dcrsDiskIds (\ s a -> s{_dcrsDiskIds = a}) . _Default;
+dcrsDiskIds = lens _dcrsDiskIds (\ s a -> s{_dcrsDiskIds = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)

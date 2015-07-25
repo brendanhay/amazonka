@@ -107,7 +107,7 @@ cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 cgGrantTokens :: Lens' CreateGrant [Text]
-cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default;
+cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default . _Coerce;
 
 -- | List of operations permitted by the grant. This can be any combination
 -- of one or more of the following values:
@@ -121,7 +121,7 @@ cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default;
 -- 7.  CreateGrant
 -- 8.  RetireGrant
 cgOperations :: Lens' CreateGrant [GrantOperation]
-cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a}) . _Default;
+cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a}) . _Default . _Coerce;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.

@@ -184,4 +184,4 @@ lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
 
 -- | A list of roles.
 lrrsRoles :: Lens' ListRolesResponse [Role]
-lrrsRoles = lens _lrrsRoles (\ s a -> s{_lrrsRoles = a});
+lrrsRoles = lens _lrrsRoles (\ s a -> s{_lrrsRoles = a}) . _Coerce;

@@ -248,7 +248,7 @@ lrrsCount = lens _lrrsCount (\ s a -> s{_lrrsCount = a});
 
 -- | A list of all records.
 lrrsRecords :: Lens' ListRecordsResponse [Record]
-lrrsRecords = lens _lrrsRecords (\ s a -> s{_lrrsRecords = a}) . _Default;
+lrrsRecords = lens _lrrsRecords (\ s a -> s{_lrrsRecords = a}) . _Default . _Coerce;
 
 -- | A pagination token for obtaining the next page of results.
 lrrsNextToken :: Lens' ListRecordsResponse (Maybe Text)
@@ -260,7 +260,7 @@ lrrsSyncSessionToken = lens _lrrsSyncSessionToken (\ s a -> s{_lrrsSyncSessionTo
 
 -- | Names of merged datasets.
 lrrsMergedDatasetNames :: Lens' ListRecordsResponse [Text]
-lrrsMergedDatasetNames = lens _lrrsMergedDatasetNames (\ s a -> s{_lrrsMergedDatasetNames = a}) . _Default;
+lrrsMergedDatasetNames = lens _lrrsMergedDatasetNames (\ s a -> s{_lrrsMergedDatasetNames = a}) . _Default . _Coerce;
 
 -- | The user\/device that made the last change to this record.
 lrrsLastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)

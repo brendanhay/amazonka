@@ -180,4 +180,4 @@ lmdrsStatus = lens _lmdrsStatus (\ s a -> s{_lmdrsStatus = a});
 
 -- | A list of MFA devices.
 lmdrsMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
-lmdrsMFADevices = lens _lmdrsMFADevices (\ s a -> s{_lmdrsMFADevices = a});
+lmdrsMFADevices = lens _lmdrsMFADevices (\ s a -> s{_lmdrsMFADevices = a}) . _Coerce;

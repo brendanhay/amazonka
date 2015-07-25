@@ -201,7 +201,7 @@ cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupN
 
 -- | FIXME: Undocumented member.
 cdirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
-cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a}) . _Default;
+cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a}) . _Default . _Coerce;
 
 -- | The port number that the DB instance uses for connections.
 --

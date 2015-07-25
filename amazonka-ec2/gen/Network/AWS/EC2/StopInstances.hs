@@ -120,7 +120,7 @@ siDryRun = lens _siDryRun (\ s a -> s{_siDryRun = a});
 
 -- | One or more instance IDs.
 siInstanceIds :: Lens' StopInstances [Text]
-siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a});
+siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a}) . _Coerce;
 
 instance AWSRequest StopInstances where
         type Sv StopInstances = EC2
@@ -170,7 +170,7 @@ stopInstancesResponse pStatus_ =
 
 -- | Information about one or more stopped instances.
 sirsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
-sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default;
+sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 sirsStatus :: Lens' StopInstancesResponse Int

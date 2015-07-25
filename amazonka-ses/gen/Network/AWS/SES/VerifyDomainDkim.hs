@@ -147,4 +147,4 @@ vddrsStatus = lens _vddrsStatus (\ s a -> s{_vddrsStatus = a});
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 vddrsDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
-vddrsDkimTokens = lens _vddrsDkimTokens (\ s a -> s{_vddrsDkimTokens = a});
+vddrsDkimTokens = lens _vddrsDkimTokens (\ s a -> s{_vddrsDkimTokens = a}) . _Coerce;

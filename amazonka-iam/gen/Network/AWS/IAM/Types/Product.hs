@@ -420,7 +420,7 @@ gdGroupId = lens _gdGroupId (\ s a -> s{_gdGroupId = a});
 
 -- | A list of the inline policies embedded in the group.
 gdGroupPolicyList :: Lens' GroupDetail [PolicyDetail]
-gdGroupPolicyList = lens _gdGroupPolicyList (\ s a -> s{_gdGroupPolicyList = a}) . _Default;
+gdGroupPolicyList = lens _gdGroupPolicyList (\ s a -> s{_gdGroupPolicyList = a}) . _Default . _Coerce;
 
 -- | The friendly name that identifies the group.
 gdGroupName :: Lens' GroupDetail (Maybe Text)
@@ -428,7 +428,7 @@ gdGroupName = lens _gdGroupName (\ s a -> s{_gdGroupName = a});
 
 -- | A list of the managed policies attached to the group.
 gdAttachedManagedPolicies :: Lens' GroupDetail [AttachedPolicy]
-gdAttachedManagedPolicies = lens _gdAttachedManagedPolicies (\ s a -> s{_gdAttachedManagedPolicies = a}) . _Default;
+gdAttachedManagedPolicies = lens _gdAttachedManagedPolicies (\ s a -> s{_gdAttachedManagedPolicies = a}) . _Default . _Coerce;
 
 instance FromXML GroupDetail where
         parseXML x
@@ -523,7 +523,7 @@ ipCreateDate = lens _ipCreateDate (\ s a -> s{_ipCreateDate = a}) . _Time;
 
 -- | The role associated with the instance profile.
 ipRoles :: Lens' InstanceProfile [Role]
-ipRoles = lens _ipRoles (\ s a -> s{_ipRoles = a});
+ipRoles = lens _ipRoles (\ s a -> s{_ipRoles = a}) . _Coerce;
 
 instance FromXML InstanceProfile where
         parseXML x
@@ -742,7 +742,7 @@ mpdCreateDate = lens _mpdCreateDate (\ s a -> s{_mpdCreateDate = a}) . mapping _
 
 -- | A list containing information about the versions of the policy.
 mpdPolicyVersionList :: Lens' ManagedPolicyDetail [PolicyVersion]
-mpdPolicyVersionList = lens _mpdPolicyVersionList (\ s a -> s{_mpdPolicyVersionList = a}) . _Default;
+mpdPolicyVersionList = lens _mpdPolicyVersionList (\ s a -> s{_mpdPolicyVersionList = a}) . _Default . _Coerce;
 
 -- | Specifies whether the policy can be attached to an IAM user, group, or
 -- role.
@@ -1428,7 +1428,7 @@ rdPath = lens _rdPath (\ s a -> s{_rdPath = a});
 
 -- | FIXME: Undocumented member.
 rdInstanceProfileList :: Lens' RoleDetail [InstanceProfile]
-rdInstanceProfileList = lens _rdInstanceProfileList (\ s a -> s{_rdInstanceProfileList = a}) . _Default;
+rdInstanceProfileList = lens _rdInstanceProfileList (\ s a -> s{_rdInstanceProfileList = a}) . _Default . _Coerce;
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -1450,12 +1450,12 @@ rdRoleId = lens _rdRoleId (\ s a -> s{_rdRoleId = a});
 -- | A list of inline policies embedded in the role. These policies are the
 -- role\'s access (permissions) policies.
 rdRolePolicyList :: Lens' RoleDetail [PolicyDetail]
-rdRolePolicyList = lens _rdRolePolicyList (\ s a -> s{_rdRolePolicyList = a}) . _Default;
+rdRolePolicyList = lens _rdRolePolicyList (\ s a -> s{_rdRolePolicyList = a}) . _Default . _Coerce;
 
 -- | A list of managed policies attached to the role. These policies are the
 -- role\'s access (permissions) policies.
 rdAttachedManagedPolicies :: Lens' RoleDetail [AttachedPolicy]
-rdAttachedManagedPolicies = lens _rdAttachedManagedPolicies (\ s a -> s{_rdAttachedManagedPolicies = a}) . _Default;
+rdAttachedManagedPolicies = lens _rdAttachedManagedPolicies (\ s a -> s{_rdAttachedManagedPolicies = a}) . _Default . _Coerce;
 
 instance FromXML RoleDetail where
         parseXML x
@@ -2025,7 +2025,7 @@ udPath = lens _udPath (\ s a -> s{_udPath = a});
 
 -- | A list of IAM groups that the user is in.
 udGroupList :: Lens' UserDetail [Text]
-udGroupList = lens _udGroupList (\ s a -> s{_udGroupList = a}) . _Default;
+udGroupList = lens _udGroupList (\ s a -> s{_udGroupList = a}) . _Default . _Coerce;
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -2046,11 +2046,11 @@ udUserId = lens _udUserId (\ s a -> s{_udUserId = a});
 
 -- | A list of the inline policies embedded in the user.
 udUserPolicyList :: Lens' UserDetail [PolicyDetail]
-udUserPolicyList = lens _udUserPolicyList (\ s a -> s{_udUserPolicyList = a}) . _Default;
+udUserPolicyList = lens _udUserPolicyList (\ s a -> s{_udUserPolicyList = a}) . _Default . _Coerce;
 
 -- | A list of the managed policies attached to the user.
 udAttachedManagedPolicies :: Lens' UserDetail [AttachedPolicy]
-udAttachedManagedPolicies = lens _udAttachedManagedPolicies (\ s a -> s{_udAttachedManagedPolicies = a}) . _Default;
+udAttachedManagedPolicies = lens _udAttachedManagedPolicies (\ s a -> s{_udAttachedManagedPolicies = a}) . _Default . _Coerce;
 
 instance FromXML UserDetail where
         parseXML x
@@ -2108,14 +2108,14 @@ virtualMFADevice pSerialNumber_ =
 -- @AccountName@ is the user name if set (otherwise, the account ID
 -- otherwise), and @Base32String@ is the seed in Base32 format. The
 -- @Base32String@ value is Base64-encoded.
-vmdQRCodePNG :: Lens' VirtualMFADevice (Maybe Base64)
-vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping _Sensitive;
+vmdQRCodePNG :: Lens' VirtualMFADevice (Maybe ByteString)
+vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping _Sensitive . _Base64;
 
 -- | The Base32 seed defined as specified in
 -- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The @Base32StringSeed@ is
 -- Base64-encoded.
-vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe Base64)
-vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping _Sensitive;
+vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
+vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping _Sensitive . _Base64;
 
 -- | FIXME: Undocumented member.
 vmdUser :: Lens' VirtualMFADevice (Maybe User)

@@ -74,11 +74,11 @@ describeConversionTasks =
 
 -- | One or more conversion task IDs.
 dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default;
+dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default . _Coerce;
 
 -- | One or more filters.
 dctFilters :: Lens' DescribeConversionTasks [Filter]
-dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default;
+dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -139,7 +139,7 @@ describeConversionTasksResponse pStatus_ =
 
 -- | Information about the conversion tasks.
 dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
-dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default;
+dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dctrsStatus :: Lens' DescribeConversionTasksResponse Int

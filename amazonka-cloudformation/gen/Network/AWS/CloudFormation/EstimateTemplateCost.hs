@@ -73,7 +73,7 @@ estimateTemplateCost =
 
 -- | A list of @Parameter@ structures that specify input parameters.
 etcParameters :: Lens' EstimateTemplateCost [Parameter]
-etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default;
+etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default . _Coerce;
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to

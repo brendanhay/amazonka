@@ -70,7 +70,7 @@ upiaNetworkInterfaceId = lens _upiaNetworkInterfaceId (\ s a -> s{_upiaNetworkIn
 -- interface. You can specify this option multiple times to unassign more
 -- than one IP address.
 upiaPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
-upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIPAddresses = a});
+upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIPAddresses = a}) . _Coerce;
 
 instance AWSRequest UnassignPrivateIPAddresses where
         type Sv UnassignPrivateIPAddresses = EC2

@@ -79,7 +79,7 @@ describeServices =
 
 -- | A JSON-formatted list of service codes available for AWS services.
 dsServiceCodeList :: Lens' DescribeServices [Text]
-dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a}) . _Default;
+dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a}) . _Default . _Coerce;
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
@@ -145,7 +145,7 @@ describeServicesResponse pStatus_ =
 
 -- | A JSON-formatted list of AWS services.
 dsrsServices :: Lens' DescribeServicesResponse [SupportService]
-dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default;
+dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dsrsStatus :: Lens' DescribeServicesResponse Int

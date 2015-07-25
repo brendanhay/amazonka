@@ -176,12 +176,12 @@ rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
 
 -- | A list of steps to be executed by the job flow.
 rjfSteps :: Lens' RunJobFlow [StepConfig]
-rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a}) . _Default;
+rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a}) . _Default . _Coerce;
 
 -- | A list of bootstrap actions that will be run before Hadoop is started on
 -- the cluster nodes.
 rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
-rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions = a}) . _Default;
+rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions = a}) . _Default . _Coerce;
 
 -- | A list of strings that indicates third-party software to use with the
 -- job flow that accepts a user argument list. EMR accepts and forwards the
@@ -196,7 +196,7 @@ rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions
 --     \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition
 --     respectively.
 rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
-rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSupportedProducts = a}) . _Default;
+rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSupportedProducts = a}) . _Default . _Coerce;
 
 -- | The location in Amazon S3 to write the log files of the job flow. If a
 -- value is not provided, logs are not created.
@@ -211,7 +211,7 @@ rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
 -- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
 -- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
 rjfSupportedProducts :: Lens' RunJobFlow [Text]
-rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default;
+rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a}) . _Default . _Coerce;
 
 -- | Whether the job flow is visible to all IAM users of the AWS account
 -- associated with the job flow. If this value is set to @true@, all IAM
@@ -224,7 +224,7 @@ rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUs
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
 rjfTags :: Lens' RunJobFlow [Tag]
-rjfTags = lens _rjfTags (\ s a -> s{_rjfTags = a}) . _Default;
+rjfTags = lens _rjfTags (\ s a -> s{_rjfTags = a}) . _Default . _Coerce;
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access
 -- AWS resources on your behalf.

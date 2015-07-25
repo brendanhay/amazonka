@@ -177,7 +177,7 @@ listAttachedRolePoliciesResponse pStatus_ =
 
 -- | A list of the attached policies.
 larprsAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
-larprsAttachedPolicies = lens _larprsAttachedPolicies (\ s a -> s{_larprsAttachedPolicies = a}) . _Default;
+larprsAttachedPolicies = lens _larprsAttachedPolicies (\ s a -> s{_larprsAttachedPolicies = a}) . _Default . _Coerce;
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination

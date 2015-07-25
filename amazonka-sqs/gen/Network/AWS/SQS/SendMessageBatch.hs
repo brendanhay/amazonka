@@ -101,7 +101,7 @@ smbQueueURL = lens _smbQueueURL (\ s a -> s{_smbQueueURL = a});
 
 -- | A list of SendMessageBatchRequestEntry items.
 smbEntries :: Lens' SendMessageBatch [SendMessageBatchRequestEntry]
-smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a});
+smbEntries = lens _smbEntries (\ s a -> s{_smbEntries = a}) . _Coerce;
 
 instance AWSRequest SendMessageBatch where
         type Sv SendMessageBatch = SQS
@@ -164,9 +164,9 @@ smbrsStatus = lens _smbrsStatus (\ s a -> s{_smbrsStatus = a});
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrsSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
-smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a});
+smbrsSuccessful = lens _smbrsSuccessful (\ s a -> s{_smbrsSuccessful = a}) . _Coerce;
 
 -- | A list of BatchResultErrorEntry items with the error detail about each
 -- message that could not be enqueued.
 smbrsFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
-smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a});
+smbrsFailed = lens _smbrsFailed (\ s a -> s{_smbrsFailed = a}) . _Coerce;

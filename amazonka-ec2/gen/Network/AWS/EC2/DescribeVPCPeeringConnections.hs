@@ -113,13 +113,13 @@ describeVPCPeeringConnections =
 -- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.
 --
 dvpcpcFilters :: Lens' DescribeVPCPeeringConnections [Filter]
-dvpcpcFilters = lens _dvpcpcFilters (\ s a -> s{_dvpcpcFilters = a}) . _Default;
+dvpcpcFilters = lens _dvpcpcFilters (\ s a -> s{_dvpcpcFilters = a}) . _Default . _Coerce;
 
 -- | One or more VPC peering connection IDs.
 --
 -- Default: Describes all your VPC peering connections.
 dvpcpcVPCPeeringConnectionIds :: Lens' DescribeVPCPeeringConnections [Text]
-dvpcpcVPCPeeringConnectionIds = lens _dvpcpcVPCPeeringConnectionIds (\ s a -> s{_dvpcpcVPCPeeringConnectionIds = a}) . _Default;
+dvpcpcVPCPeeringConnectionIds = lens _dvpcpcVPCPeeringConnectionIds (\ s a -> s{_dvpcpcVPCPeeringConnectionIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -183,7 +183,7 @@ describeVPCPeeringConnectionsResponse pStatus_ =
 
 -- | Information about the VPC peering connections.
 dvpcpcrsVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
-dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\ s a -> s{_dvpcpcrsVPCPeeringConnections = a}) . _Default;
+dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\ s a -> s{_dvpcpcrsVPCPeeringConnections = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 dvpcpcrsStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int

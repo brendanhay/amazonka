@@ -140,4 +140,4 @@ liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
 
 -- | A list of names of policies that apply to the specified identity.
 liprsPolicyNames :: Lens' ListIdentityPoliciesResponse [Text]
-liprsPolicyNames = lens _liprsPolicyNames (\ s a -> s{_liprsPolicyNames = a});
+liprsPolicyNames = lens _liprsPolicyNames (\ s a -> s{_liprsPolicyNames = a}) . _Coerce;

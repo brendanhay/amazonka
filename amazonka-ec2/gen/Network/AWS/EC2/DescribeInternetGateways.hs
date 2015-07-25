@@ -94,13 +94,13 @@ describeInternetGateways =
 --     filter is independent of the @tag-key@ filter.
 --
 dFilters :: Lens' DescribeInternetGateways [Filter]
-dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default;
+dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default . _Coerce;
 
 -- | One or more Internet gateway IDs.
 --
 -- Default: Describes all your Internet gateways.
 dInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
-dInternetGatewayIds = lens _dInternetGatewayIds (\ s a -> s{_dInternetGatewayIds = a}) . _Default;
+dInternetGatewayIds = lens _dInternetGatewayIds (\ s a -> s{_dInternetGatewayIds = a}) . _Default . _Coerce;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -161,7 +161,7 @@ describeInternetGatewaysResponse pStatus_ =
 
 -- | Information about one or more Internet gateways.
 digrsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
-digrsInternetGateways = lens _digrsInternetGateways (\ s a -> s{_digrsInternetGateways = a}) . _Default;
+digrsInternetGateways = lens _digrsInternetGateways (\ s a -> s{_digrsInternetGateways = a}) . _Default . _Coerce;
 
 -- | FIXME: Undocumented member.
 digrsStatus :: Lens' DescribeInternetGatewaysResponse Int

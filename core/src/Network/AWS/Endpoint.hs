@@ -51,6 +51,8 @@ defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
 
         "emr"
             | virginia  -> global "elasticmapreduce.us-east-1.amazonaws.com"
+            | china     -> region "elasticmapreduce.cn-north-1.amazonaws.com.cn"
+            | frankfurt -> region "elasticmapreduce.eu-central-1.amazonaws.com"
             | otherwise -> region (reg <> ".elasticmapreduce.amazonaws.com")
 
         "sqs"
@@ -66,12 +68,12 @@ defaultEndpoint Service{..} r = go (CI.mk _svcPrefix)
         _   | china     -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com.cn")
             | otherwise -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com")
 
-    virginia = r == NorthVirginia
+    virginia  = r == NorthVirginia
+    frankfurt = r == Frankfurt
+    china     = r == Beijing
+    govcloud  = r == GovCloud || r == GovCloudFIPS
 
     s3 = r `Set.member` except
-
-    govcloud = "us-gov" `BS.isPrefixOf` reg
-    china    = "cn-"    `BS.isPrefixOf` reg
 
     region h = Endpoint { _endpointHost = h, _endpointScope = reg }
     global h = Endpoint { _endpointHost = h, _endpointScope = "us-east-1" }

@@ -12,7 +12,6 @@
 --
 module Network.AWS.Endpoint where
 
-import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import qualified Data.HashSet                as Set
 import           Data.Monoid

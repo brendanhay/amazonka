@@ -156,16 +156,22 @@ asgiCIdRIP = lens _asgiCIdRIP (\ s a -> s{_asgiCIdRIP = a});
 asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupName = lens _asgiGroupName (\ s a -> s{_asgiGroupName = a});
 
--- | The ID of the source security group. You can\'t specify this parameter
--- in combination with the following parameters: the CIDR IP address range,
--- the start of the port range, and the end of the port range.
+-- | [EC2-Classic, default VPC] The AWS account number for the source
+-- security group. For EC2-VPC, the source security group must be in the
+-- same VPC. You can\'t specify this parameter in combination with the
+-- following parameters: the CIDR IP address range, the IP protocol, the
+-- start of the port range, and the end of the port range. Creates rules
+-- that grant full ICMP, UDP, and TCP access. To create a rule with a
+-- specific IP protocol and port range, use a set of IP permissions
+-- instead.
 asgiSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupOwnerId = lens _asgiSourceSecurityGroupOwnerId (\ s a -> s{_asgiSourceSecurityGroupOwnerId = a});
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You
 -- can\'t specify this parameter in combination with the following
--- parameters: the CIDR IP address range, the start of the port range, and
--- the end of the port range.
+-- parameters: the CIDR IP address range, the start of the port range, the
+-- IP protocol, and the end of the port range. For EC2-VPC, the source
+-- security group must be in the same VPC.
 asgiSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiSourceSecurityGroupName = lens _asgiSourceSecurityGroupName (\ s a -> s{_asgiSourceSecurityGroupName = a});
 

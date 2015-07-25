@@ -1596,6 +1596,7 @@ eiEventDescription = lens _eiEventDescription (\ s a -> s{_eiEventDescription = 
 --
 -- -   @spotFleetRequestConfigurationInvalid@ - The configuration is not
 --     valid. For more information, see the description.
+--
 -- -   @spotInstanceCountLimitExceeded@ - You\'ve reached the limit on the
 --     number of Spot Instances that you can launch.
 --
@@ -4819,25 +4820,6 @@ instance FromXML LaunchSpecification where
                 <*> (x .@? "addressingType")
                 <*> (x .@? "placement")
 
-instance ToQuery LaunchSpecification where
-        toQuery LaunchSpecification'{..}
-          = mconcat
-              [toQuery (toQueryList "item" <$> _lsSecurityGroups),
-               toQuery
-                 (toQueryList "item" <$> _lsNetworkInterfaces),
-               "KeyName" =: _lsKeyName, "RamdiskId" =: _lsRAMDiskId,
-               "KernelId" =: _lsKernelId, "SubnetId" =: _lsSubnetId,
-               "InstanceType" =: _lsInstanceType,
-               "EbsOptimized" =: _lsEBSOptimized,
-               "UserData" =: _lsUserData,
-               "Monitoring" =: _lsMonitoring,
-               "IamInstanceProfile" =: _lsIAMInstanceProfile,
-               "ImageId" =: _lsImageId,
-               toQuery
-                 (toQueryList "item" <$> _lsBlockDeviceMappings),
-               "AddressingType" =: _lsAddressingType,
-               "Placement" =: _lsPlacement]
-
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'monitoring' smart constructor.
@@ -7533,9 +7515,9 @@ snapshot pSnapshotId_ pOwnerId_ pVolumeId_ pVolumeSize_ pDescription_ pStartTime
 sOwnerAlias :: Lens' Snapshot (Maybe Text)
 sOwnerAlias = lens _sOwnerAlias (\ s a -> s{_sOwnerAlias = a});
 
--- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
--- (CMK) that was used to protect the volume encryption key for the parent
--- volume.
+-- | The full ARN of the AWS Key Management Service (AWS KMS) customer master
+-- key (CMK) that was used to protect the volume encryption key for the
+-- parent volume.
 sKMSKeyId :: Lens' Snapshot (Maybe Text)
 sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 
@@ -7918,6 +7900,227 @@ instance FromXML SpotDatafeedSubscription where
                 <*> (x .@? "ownerId")
                 <*> (x .@? "fault")
 
+-- | Describes the launch specification for an instance.
+--
+-- /See:/ 'spotFleetLaunchSpecification' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sflsSecurityGroups'
+--
+-- * 'sflsNetworkInterfaces'
+--
+-- * 'sflsKeyName'
+--
+-- * 'sflsRAMDiskId'
+--
+-- * 'sflsKernelId'
+--
+-- * 'sflsSubnetId'
+--
+-- * 'sflsInstanceType'
+--
+-- * 'sflsEBSOptimized'
+--
+-- * 'sflsUserData'
+--
+-- * 'sflsMonitoring'
+--
+-- * 'sflsIAMInstanceProfile'
+--
+-- * 'sflsImageId'
+--
+-- * 'sflsBlockDeviceMappings'
+--
+-- * 'sflsAddressingType'
+--
+-- * 'sflsPlacement'
+data SpotFleetLaunchSpecification = SpotFleetLaunchSpecification'
+    { _sflsSecurityGroups      :: !(Maybe [GroupIdentifier])
+    , _sflsNetworkInterfaces   :: !(Maybe [InstanceNetworkInterfaceSpecification])
+    , _sflsKeyName             :: !(Maybe Text)
+    , _sflsRAMDiskId           :: !(Maybe Text)
+    , _sflsKernelId            :: !(Maybe Text)
+    , _sflsSubnetId            :: !(Maybe Text)
+    , _sflsInstanceType        :: !(Maybe InstanceType)
+    , _sflsEBSOptimized        :: !(Maybe Bool)
+    , _sflsUserData            :: !(Maybe Text)
+    , _sflsMonitoring          :: !(Maybe SpotFleetMonitoring)
+    , _sflsIAMInstanceProfile  :: !(Maybe IAMInstanceProfileSpecification)
+    , _sflsImageId             :: !(Maybe Text)
+    , _sflsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _sflsAddressingType      :: !(Maybe Text)
+    , _sflsPlacement           :: !(Maybe SpotPlacement)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SpotFleetLaunchSpecification' smart constructor.
+spotFleetLaunchSpecification :: SpotFleetLaunchSpecification
+spotFleetLaunchSpecification =
+    SpotFleetLaunchSpecification'
+    { _sflsSecurityGroups = Nothing
+    , _sflsNetworkInterfaces = Nothing
+    , _sflsKeyName = Nothing
+    , _sflsRAMDiskId = Nothing
+    , _sflsKernelId = Nothing
+    , _sflsSubnetId = Nothing
+    , _sflsInstanceType = Nothing
+    , _sflsEBSOptimized = Nothing
+    , _sflsUserData = Nothing
+    , _sflsMonitoring = Nothing
+    , _sflsIAMInstanceProfile = Nothing
+    , _sflsImageId = Nothing
+    , _sflsBlockDeviceMappings = Nothing
+    , _sflsAddressingType = Nothing
+    , _sflsPlacement = Nothing
+    }
+
+-- | One or more security groups. To request an instance in a nondefault VPC,
+-- you must specify the ID of the security group. To request an instance in
+-- EC2-Classic or a default VPC, you can specify the name or the ID of the
+-- security group.
+sflsSecurityGroups :: Lens' SpotFleetLaunchSpecification [GroupIdentifier]
+sflsSecurityGroups = lens _sflsSecurityGroups (\ s a -> s{_sflsSecurityGroups = a}) . _Default . _Coerce;
+
+-- | One or more network interfaces.
+sflsNetworkInterfaces :: Lens' SpotFleetLaunchSpecification [InstanceNetworkInterfaceSpecification]
+sflsNetworkInterfaces = lens _sflsNetworkInterfaces (\ s a -> s{_sflsNetworkInterfaces = a}) . _Default . _Coerce;
+
+-- | The name of the key pair.
+sflsKeyName :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsKeyName = lens _sflsKeyName (\ s a -> s{_sflsKeyName = a});
+
+-- | The ID of the RAM disk.
+sflsRAMDiskId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsRAMDiskId = lens _sflsRAMDiskId (\ s a -> s{_sflsRAMDiskId = a});
+
+-- | The ID of the kernel.
+sflsKernelId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsKernelId = lens _sflsKernelId (\ s a -> s{_sflsKernelId = a});
+
+-- | The ID of the subnet in which to launch the instance.
+sflsSubnetId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsSubnetId = lens _sflsSubnetId (\ s a -> s{_sflsSubnetId = a});
+
+-- | The instance type.
+sflsInstanceType :: Lens' SpotFleetLaunchSpecification (Maybe InstanceType)
+sflsInstanceType = lens _sflsInstanceType (\ s a -> s{_sflsInstanceType = a});
+
+-- | Indicates whether the instance is optimized for EBS I\/O. This
+-- optimization provides dedicated throughput to Amazon EBS and an
+-- optimized configuration stack to provide optimal EBS I\/O performance.
+-- This optimization isn\'t available with all instance types. Additional
+-- usage charges apply when using an EBS Optimized instance.
+--
+-- Default: @false@
+sflsEBSOptimized :: Lens' SpotFleetLaunchSpecification (Maybe Bool)
+sflsEBSOptimized = lens _sflsEBSOptimized (\ s a -> s{_sflsEBSOptimized = a});
+
+-- | The Base64-encoded MIME user data to make available to the instances.
+sflsUserData :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsUserData = lens _sflsUserData (\ s a -> s{_sflsUserData = a});
+
+-- | Enable or disable monitoring for the instance.
+sflsMonitoring :: Lens' SpotFleetLaunchSpecification (Maybe SpotFleetMonitoring)
+sflsMonitoring = lens _sflsMonitoring (\ s a -> s{_sflsMonitoring = a});
+
+-- | FIXME: Undocumented member.
+sflsIAMInstanceProfile :: Lens' SpotFleetLaunchSpecification (Maybe IAMInstanceProfileSpecification)
+sflsIAMInstanceProfile = lens _sflsIAMInstanceProfile (\ s a -> s{_sflsIAMInstanceProfile = a});
+
+-- | The ID of the AMI.
+sflsImageId :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsImageId = lens _sflsImageId (\ s a -> s{_sflsImageId = a});
+
+-- | One or more block device mapping entries.
+sflsBlockDeviceMappings :: Lens' SpotFleetLaunchSpecification [BlockDeviceMapping]
+sflsBlockDeviceMappings = lens _sflsBlockDeviceMappings (\ s a -> s{_sflsBlockDeviceMappings = a}) . _Default . _Coerce;
+
+-- | Deprecated.
+sflsAddressingType :: Lens' SpotFleetLaunchSpecification (Maybe Text)
+sflsAddressingType = lens _sflsAddressingType (\ s a -> s{_sflsAddressingType = a});
+
+-- | FIXME: Undocumented member.
+sflsPlacement :: Lens' SpotFleetLaunchSpecification (Maybe SpotPlacement)
+sflsPlacement = lens _sflsPlacement (\ s a -> s{_sflsPlacement = a});
+
+instance FromXML SpotFleetLaunchSpecification where
+        parseXML x
+          = SpotFleetLaunchSpecification' <$>
+              (x .@? "groupSet" .!@ mempty >>=
+                 may (parseXMLList "item"))
+                <*>
+                (x .@? "networkInterfaceSet" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "keyName")
+                <*> (x .@? "ramdiskId")
+                <*> (x .@? "kernelId")
+                <*> (x .@? "subnetId")
+                <*> (x .@? "instanceType")
+                <*> (x .@? "ebsOptimized")
+                <*> (x .@? "userData")
+                <*> (x .@? "monitoring")
+                <*> (x .@? "iamInstanceProfile")
+                <*> (x .@? "imageId")
+                <*>
+                (x .@? "blockDeviceMapping" .!@ mempty >>=
+                   may (parseXMLList "item"))
+                <*> (x .@? "addressingType")
+                <*> (x .@? "placement")
+
+instance ToQuery SpotFleetLaunchSpecification where
+        toQuery SpotFleetLaunchSpecification'{..}
+          = mconcat
+              [toQuery
+                 (toQueryList "item" <$> _sflsSecurityGroups),
+               toQuery
+                 (toQueryList "item" <$> _sflsNetworkInterfaces),
+               "KeyName" =: _sflsKeyName,
+               "RamdiskId" =: _sflsRAMDiskId,
+               "KernelId" =: _sflsKernelId,
+               "SubnetId" =: _sflsSubnetId,
+               "InstanceType" =: _sflsInstanceType,
+               "EbsOptimized" =: _sflsEBSOptimized,
+               "UserData" =: _sflsUserData,
+               "Monitoring" =: _sflsMonitoring,
+               "IamInstanceProfile" =: _sflsIAMInstanceProfile,
+               "ImageId" =: _sflsImageId,
+               toQuery
+                 (toQueryList "item" <$> _sflsBlockDeviceMappings),
+               "AddressingType" =: _sflsAddressingType,
+               "Placement" =: _sflsPlacement]
+
+-- | Describes whether monitoring is enabled.
+--
+-- /See:/ 'spotFleetMonitoring' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sfmEnabled'
+newtype SpotFleetMonitoring = SpotFleetMonitoring'
+    { _sfmEnabled :: Maybe Bool
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SpotFleetMonitoring' smart constructor.
+spotFleetMonitoring :: SpotFleetMonitoring
+spotFleetMonitoring =
+    SpotFleetMonitoring'
+    { _sfmEnabled = Nothing
+    }
+
+-- | Enables monitoring for the instance.
+--
+-- Default: @false@
+sfmEnabled :: Lens' SpotFleetMonitoring (Maybe Bool)
+sfmEnabled = lens _sfmEnabled (\ s a -> s{_sfmEnabled = a});
+
+instance FromXML SpotFleetMonitoring where
+        parseXML x
+          = SpotFleetMonitoring' <$> (x .@? "enabled")
+
+instance ToQuery SpotFleetMonitoring where
+        toQuery SpotFleetMonitoring'{..}
+          = mconcat ["Enabled" =: _sfmEnabled]
+
 -- | Describes a Spot fleet request.
 --
 -- /See:/ 'spotFleetRequestConfig' smart constructor.
@@ -7992,11 +8195,11 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     , _sfrcdSpotPrice                        :: !Text
     , _sfrcdTargetCapacity                   :: !Int
     , _sfrcdIAMFleetRole                     :: !Text
-    , _sfrcdLaunchSpecifications             :: !(List1 LaunchSpecification)
+    , _sfrcdLaunchSpecifications             :: !(List1 SpotFleetLaunchSpecification)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotFleetRequestConfigData' smart constructor.
-spotFleetRequestConfigData :: Text -> Int -> Text -> NonEmpty LaunchSpecification -> SpotFleetRequestConfigData
+spotFleetRequestConfigData :: Text -> Int -> Text -> NonEmpty SpotFleetLaunchSpecification -> SpotFleetRequestConfigData
 spotFleetRequestConfigData pSpotPrice_ pTargetCapacity_ pIAMFleetRole_ pLaunchSpecifications_ =
     SpotFleetRequestConfigData'
     { _sfrcdClientToken = Nothing
@@ -8050,7 +8253,7 @@ sfrcdIAMFleetRole :: Lens' SpotFleetRequestConfigData Text
 sfrcdIAMFleetRole = lens _sfrcdIAMFleetRole (\ s a -> s{_sfrcdIAMFleetRole = a});
 
 -- | Information about the launch specifications for the instances.
-sfrcdLaunchSpecifications :: Lens' SpotFleetRequestConfigData (NonEmpty LaunchSpecification)
+sfrcdLaunchSpecifications :: Lens' SpotFleetRequestConfigData (NonEmpty SpotFleetLaunchSpecification)
 sfrcdLaunchSpecifications = lens _sfrcdLaunchSpecifications (\ s a -> s{_sfrcdLaunchSpecifications = a}) . _List1;
 
 instance FromXML SpotFleetRequestConfigData where
@@ -9793,8 +9996,9 @@ vAttachments = lens _vAttachments (\ s a -> s{_vAttachments = a}) . _Default . _
 vIOPS :: Lens' Volume (Maybe Int)
 vIOPS = lens _vIOPS (\ s a -> s{_vIOPS = a});
 
--- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
--- (CMK) that was used to protect the volume encryption key for the volume.
+-- | The full ARN of the AWS Key Management Service (AWS KMS) customer master
+-- key (CMK) that was used to protect the volume encryption key for the
+-- volume.
 vKMSKeyId :: Lens' Volume (Maybe Text)
 vKMSKeyId = lens _vKMSKeyId (\ s a -> s{_vKMSKeyId = a});
 

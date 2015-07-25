@@ -119,8 +119,8 @@ cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a}) . 
 cveVPCId :: Lens' CreateVPCEndpoint Text
 cveVPCId = lens _cveVPCId (\ s a -> s{_cveVPCId = a});
 
--- | The AWS service name, in the form com.amazonaws.\<region>.\<service>. To
--- get a list of available services, use the DescribeVpcEndpointServices
+-- | The AWS service name, in the form @com.amazonaws.region.service@. To get
+-- a list of available services, use the DescribeVpcEndpointServices
 -- request.
 cveServiceName :: Lens' CreateVPCEndpoint Text
 cveServiceName = lens _cveServiceName (\ s a -> s{_cveServiceName = a});

@@ -26,8 +26,8 @@
 -- Copies of encrypted EBS snapshots remain encrypted. Copies of
 -- unencrypted snapshots remain unencrypted, unless the @Encrypted@ flag is
 -- specified during the snapshot copy operation. By default, encrypted
--- snapshot copies use the default AWS Key Management Service (KMS)
--- Customer Master Key (CMK); however, you can specify a non-default CMK
+-- snapshot copies use the default AWS Key Management Service (AWS KMS)
+-- customer master key (CMK); however, you can specify a non-default CMK
 -- with the @KmsKeyId@ parameter.
 --
 -- For more information, see
@@ -113,8 +113,8 @@ copySnapshot pSourceRegion_ pSourceSnapshotId_ =
 -- no way to create an unencrypted snapshot copy from an encrypted
 -- snapshot; however, you can encrypt a copy of an unencrypted snapshot
 -- with this flag. The default CMK for EBS is used unless a non-default AWS
--- Key Management Service (KMS) CMK is specified with @KmsKeyId@. For more
--- information, see
+-- Key Management Service (AWS KMS) CMK is specified with @KmsKeyId@. For
+-- more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 csEncrypted :: Lens' CopySnapshot (Maybe Bool)
@@ -147,7 +147,7 @@ csPresignedURL = lens _csPresignedURL (\ s a -> s{_csPresignedURL = a});
 csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
 csDestinationRegion = lens _csDestinationRegion (\ s a -> s{_csDestinationRegion = a});
 
--- | The full ARN of the AWS Key Management Service (KMS) CMK to use when
+-- | The full ARN of the AWS Key Management Service (AWS KMS) CMK to use when
 -- creating the snapshot copy. This parameter is only required if you want
 -- to use a non-default CMK; if this parameter is not specified, the
 -- default CMK for EBS is used. The ARN contains the @arn:aws:kms@

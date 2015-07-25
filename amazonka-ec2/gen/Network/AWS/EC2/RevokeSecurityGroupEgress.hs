@@ -133,14 +133,15 @@ rsgeToPort = lens _rsgeToPort (\ s a -> s{_rsgeToPort = a});
 rsgeCIdRIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeCIdRIP = lens _rsgeCIdRIP (\ s a -> s{_rsgeCIdRIP = a});
 
--- | The ID of the destination security group. You can\'t specify a
--- destination security group and a CIDR IP address range.
+-- | The AWS account number for a destination security group. To revoke
+-- outbound access to a destination security group, we recommend that you
+-- use a set of IP permissions instead.
 rsgeSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeSourceSecurityGroupOwnerId = lens _rsgeSourceSecurityGroupOwnerId (\ s a -> s{_rsgeSourceSecurityGroupOwnerId = a});
 
--- | [EC2-Classic, default VPC] The name of the destination security group.
--- You can\'t specify a destination security group and a CIDR IP address
--- range.
+-- | The name of a destination security group. To revoke outbound access to a
+-- destination security group, we recommend that you use a set of IP
+-- permissions instead.
 rsgeSourceSecurityGroupName :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeSourceSecurityGroupName = lens _rsgeSourceSecurityGroupName (\ s a -> s{_rsgeSourceSecurityGroupName = a});
 

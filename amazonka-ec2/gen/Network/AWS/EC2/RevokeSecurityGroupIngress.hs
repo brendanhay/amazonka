@@ -127,7 +127,8 @@ rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a})
 rsgiIPProtocol :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiIPProtocol = lens _rsgiIPProtocol (\ s a -> s{_rsgiIPProtocol = a});
 
--- | The ID of the security group.
+-- | The ID of the security group. Required for a security group in a
+-- nondefault VPC.
 rsgiGroupId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiGroupId = lens _rsgiGroupId (\ s a -> s{_rsgiGroupId = a});
 
@@ -146,16 +147,20 @@ rsgiCIdRIP = lens _rsgiCIdRIP (\ s a -> s{_rsgiCIdRIP = a});
 rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiGroupName = lens _rsgiGroupName (\ s a -> s{_rsgiGroupName = a});
 
--- | The ID of the source security group. You can\'t specify this parameter
--- in combination with the following parameters: the CIDR IP address range,
--- the start of the port range, and the end of the port range.
+-- | [EC2-Classic, default VPC] The AWS account ID of the source security
+-- group. For EC2-VPC, the source security group must be in the same VPC.
+-- You can\'t specify this parameter in combination with the following
+-- parameters: the CIDR IP address range, the IP protocol, the start of the
+-- port range, and the end of the port range. To revoke a specific rule for
+-- an IP protocol and port range, use a set of IP permissions instead.
 rsgiSourceSecurityGroupOwnerId :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupOwnerId = lens _rsgiSourceSecurityGroupOwnerId (\ s a -> s{_rsgiSourceSecurityGroupOwnerId = a});
 
 -- | [EC2-Classic, default VPC] The name of the source security group. You
 -- can\'t specify this parameter in combination with the following
--- parameters: the CIDR IP address range, the start of the port range, and
--- the end of the port range.
+-- parameters: the CIDR IP address range, the start of the port range, the
+-- IP protocol, and the end of the port range. For EC2-VPC, the source
+-- security group must be in the same VPC.
 rsgiSourceSecurityGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiSourceSecurityGroupName = lens _rsgiSourceSecurityGroupName (\ s a -> s{_rsgiSourceSecurityGroupName = a});
 

@@ -108,7 +108,7 @@ instance ToQuery DescribeCluster where
 data DescribeClusterResponse = DescribeClusterResponse'
     { _dcrsStatus  :: !Int
     , _dcrsCluster :: !Cluster
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterResponse' smart constructor.
 describeClusterResponse :: Int -> Cluster -> DescribeClusterResponse

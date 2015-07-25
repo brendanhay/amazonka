@@ -63,8 +63,10 @@ library
     exposed-modules:
           Network.AWS.Glacier
         , Network.AWS.Glacier.AbortMultipartUpload
+        , Network.AWS.Glacier.AbortVaultLock
         , Network.AWS.Glacier.AddTagsToVault
         , Network.AWS.Glacier.CompleteMultipartUpload
+        , Network.AWS.Glacier.CompleteVaultLock
         , Network.AWS.Glacier.CreateVault
         , Network.AWS.Glacier.DeleteArchive
         , Network.AWS.Glacier.DeleteVault
@@ -75,9 +77,11 @@ library
         , Network.AWS.Glacier.GetDataRetrievalPolicy
         , Network.AWS.Glacier.GetJobOutput
         , Network.AWS.Glacier.GetVaultAccessPolicy
+        , Network.AWS.Glacier.GetVaultLock
         , Network.AWS.Glacier.GetVaultNotifications
         , Network.AWS.Glacier.InitiateJob
         , Network.AWS.Glacier.InitiateMultipartUpload
+        , Network.AWS.Glacier.InitiateVaultLock
         , Network.AWS.Glacier.ListJobs
         , Network.AWS.Glacier.ListMultipartUploads
         , Network.AWS.Glacier.ListParts

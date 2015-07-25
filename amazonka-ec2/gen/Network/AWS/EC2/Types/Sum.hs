@@ -1087,24 +1087,6 @@ instance ToHeader ListingStatus
 instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
 
-data ModifySnapshotAttributeName =
-    CreateVolumePermission
-    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
-
-instance FromText ModifySnapshotAttributeName where
-    parser = takeLowerText >>= \case
-        "createvolumepermission" -> pure CreateVolumePermission
-        e -> fromTextError $ "Failure parsing ModifySnapshotAttributeName from value: '" <> e
-           <> "'. Accepted values: createvolumepermission"
-
-instance ToText ModifySnapshotAttributeName where
-    toText = \case
-        CreateVolumePermission -> "createvolumepermission"
-
-instance Hashable ModifySnapshotAttributeName
-instance ToQuery  ModifySnapshotAttributeName
-instance ToHeader ModifySnapshotAttributeName
-
 data MonitoringState
     = MSDisabling
     | MSEnabled

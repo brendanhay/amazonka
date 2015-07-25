@@ -74,7 +74,7 @@ import           Network.AWS.Response
 --
 -- * 'msaSnapshotId'
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-    { _msaAttribute              :: !(Maybe ModifySnapshotAttributeName)
+    { _msaAttribute              :: !(Maybe SnapshotAttributeName)
     , _msaUserIds                :: !(Maybe [Text])
     , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
     , _msaGroupNames             :: !(Maybe [Text])
@@ -97,7 +97,9 @@ modifySnapshotAttribute pSnapshotId_ =
     }
 
 -- | The snapshot attribute to modify.
-msaAttribute :: Lens' ModifySnapshotAttribute (Maybe ModifySnapshotAttributeName)
+--
+-- Only volume creation permissions may be modified at the customer level.
+msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a});
 
 -- | The account ID to modify for the snapshot.

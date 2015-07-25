@@ -52,6 +52,12 @@ import Test.AWS.Glacier.Internal
 --         , testDeleteVaultNotifications $
 --             deleteVaultNotifications
 --
+--         , testCompleteVaultLock $
+--             completeVaultLock
+--
+--         , testAbortVaultLock $
+--             abortVaultLock
+--
 --         , testListVaults $
 --             listVaults
 --
@@ -76,8 +82,14 @@ import Test.AWS.Glacier.Internal
 --         , testAbortMultipartUpload $
 --             abortMultipartUpload
 --
+--         , testGetVaultLock $
+--             getVaultLock
+--
 --         , testDescribeJob $
 --             describeJob
+--
+--         , testInitiateVaultLock $
+--             initiateVaultLock
 --
 --         , testGetVaultAccessPolicy $
 --             getVaultAccessPolicy
@@ -136,6 +148,12 @@ import Test.AWS.Glacier.Internal
 --         , testDeleteVaultNotificationsResponse $
 --             deleteVaultNotificationsResponse
 --
+--         , testCompleteVaultLockResponse $
+--             completeVaultLockResponse
+--
+--         , testAbortVaultLockResponse $
+--             abortVaultLockResponse
+--
 --         , testListVaultsResponse $
 --             listVaultsResponse
 --
@@ -160,8 +178,14 @@ import Test.AWS.Glacier.Internal
 --         , testAbortMultipartUploadResponse $
 --             abortMultipartUploadResponse
 --
+--         , testGetVaultLockResponse $
+--             getVaultLockResponse
+--
 --         , testDescribeJobResponse $
 --             glacierJobDescription
+--
+--         , testInitiateVaultLockResponse $
+--             initiateVaultLockResponse
 --
 --         , testGetVaultAccessPolicyResponse $
 --             getVaultAccessPolicyResponse
@@ -233,6 +257,16 @@ testDeleteVaultNotifications = req
     "DeleteVaultNotifications"
     "fixture/DeleteVaultNotifications"
 
+testCompleteVaultLock :: CompleteVaultLock -> TestTree
+testCompleteVaultLock = req
+    "CompleteVaultLock"
+    "fixture/CompleteVaultLock"
+
+testAbortVaultLock :: AbortVaultLock -> TestTree
+testAbortVaultLock = req
+    "AbortVaultLock"
+    "fixture/AbortVaultLock"
+
 testListVaults :: ListVaults -> TestTree
 testListVaults = req
     "ListVaults"
@@ -273,10 +307,20 @@ testAbortMultipartUpload = req
     "AbortMultipartUpload"
     "fixture/AbortMultipartUpload"
 
+testGetVaultLock :: GetVaultLock -> TestTree
+testGetVaultLock = req
+    "GetVaultLock"
+    "fixture/GetVaultLock"
+
 testDescribeJob :: DescribeJob -> TestTree
 testDescribeJob = req
     "DescribeJob"
     "fixture/DescribeJob"
+
+testInitiateVaultLock :: InitiateVaultLock -> TestTree
+testInitiateVaultLock = req
+    "InitiateVaultLock"
+    "fixture/InitiateVaultLock"
 
 testGetVaultAccessPolicy :: GetVaultAccessPolicy -> TestTree
 testGetVaultAccessPolicy = req
@@ -373,6 +417,18 @@ testDeleteVaultNotificationsResponse = res
     "fixture/DeleteVaultNotificationsResponse"
     (Proxy :: Proxy DeleteVaultNotifications)
 
+testCompleteVaultLockResponse :: CompleteVaultLockResponse -> TestTree
+testCompleteVaultLockResponse = res
+    "CompleteVaultLockResponse"
+    "fixture/CompleteVaultLockResponse"
+    (Proxy :: Proxy CompleteVaultLock)
+
+testAbortVaultLockResponse :: AbortVaultLockResponse -> TestTree
+testAbortVaultLockResponse = res
+    "AbortVaultLockResponse"
+    "fixture/AbortVaultLockResponse"
+    (Proxy :: Proxy AbortVaultLock)
+
 testListVaultsResponse :: ListVaultsResponse -> TestTree
 testListVaultsResponse = res
     "ListVaultsResponse"
@@ -415,11 +471,23 @@ testAbortMultipartUploadResponse = res
     "fixture/AbortMultipartUploadResponse"
     (Proxy :: Proxy AbortMultipartUpload)
 
+testGetVaultLockResponse :: GetVaultLockResponse -> TestTree
+testGetVaultLockResponse = res
+    "GetVaultLockResponse"
+    "fixture/GetVaultLockResponse"
+    (Proxy :: Proxy GetVaultLock)
+
 testDescribeJobResponse :: GlacierJobDescription -> TestTree
 testDescribeJobResponse = res
     "DescribeJobResponse"
     "fixture/DescribeJobResponse"
     (Proxy :: Proxy DescribeJob)
+
+testInitiateVaultLockResponse :: InitiateVaultLockResponse -> TestTree
+testInitiateVaultLockResponse = res
+    "InitiateVaultLockResponse"
+    "fixture/InitiateVaultLockResponse"
+    (Proxy :: Proxy InitiateVaultLock)
 
 testGetVaultAccessPolicyResponse :: GetVaultAccessPolicyResponse -> TestTree
 testGetVaultAccessPolicyResponse = res

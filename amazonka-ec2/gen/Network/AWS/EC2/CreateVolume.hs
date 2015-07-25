@@ -153,10 +153,10 @@ creIOPS = lens _creIOPS (\ s a -> s{_creIOPS = a});
 creEncrypted :: Lens' CreateVolume (Maybe Bool)
 creEncrypted = lens _creEncrypted (\ s a -> s{_creEncrypted = a});
 
--- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
--- (CMK) to use when creating the encrypted volume. This parameter is only
--- required if you want to use a non-default CMK; if this parameter is not
--- specified, the default CMK for EBS is used. The ARN contains the
+-- | The full ARN of the AWS Key Management Service (AWS KMS) customer master
+-- key (CMK) to use when creating the encrypted volume. This parameter is
+-- only required if you want to use a non-default CMK; if this parameter is
+-- not specified, the default CMK for EBS is used. The ARN contains the
 -- @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS
 -- account ID of the CMK owner, the @key@ namespace, and then the CMK ID.
 -- For example,

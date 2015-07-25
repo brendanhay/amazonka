@@ -74,21 +74,23 @@ module Network.AWS.EMR.Types
     -- * Cluster
     , Cluster
     , cluster
-    , cRequestedAMIVersion
-    , cEC2InstanceAttributes
-    , cNormalizedInstanceHours
-    , cLogURI
-    , cRunningAMIVersion
-    , cMasterPublicDNSName
-    , cAutoTerminate
-    , cTerminationProtected
-    , cVisibleToAllUsers
-    , cApplications
-    , cTags
-    , cServiceRole
-    , cId
-    , cName
-    , cStatus
+    , cluRequestedAMIVersion
+    , cluEC2InstanceAttributes
+    , cluNormalizedInstanceHours
+    , cluConfigurations
+    , cluReleaseLabel
+    , cluLogURI
+    , cluRunningAMIVersion
+    , cluMasterPublicDNSName
+    , cluAutoTerminate
+    , cluTerminationProtected
+    , cluVisibleToAllUsers
+    , cluApplications
+    , cluTags
+    , cluServiceRole
+    , cluId
+    , cluName
+    , cluStatus
 
     -- * ClusterStateChangeReason
     , ClusterStateChangeReason
@@ -121,9 +123,16 @@ module Network.AWS.EMR.Types
     -- * Command
     , Command
     , command
-    , comArgs
-    , comScriptPath
-    , comName
+    , cArgs
+    , cScriptPath
+    , cName
+
+    -- * Configuration
+    , Configuration
+    , configuration
+    , cConfigurations
+    , cClassification
+    , cProperties
 
     -- * EC2InstanceAttributes
     , EC2InstanceAttributes
@@ -171,6 +180,7 @@ module Network.AWS.EMR.Types
     , igBidPrice
     , igRequestedInstanceCount
     , igRunningInstanceCount
+    , igConfigurations
     , igInstanceGroupType
     , igInstanceType
     , igMarket
@@ -181,6 +191,7 @@ module Network.AWS.EMR.Types
     , InstanceGroupConfig
     , instanceGroupConfig
     , igcBidPrice
+    , igcConfigurations
     , igcMarket
     , igcName
     , igcInstanceRole

@@ -69,7 +69,7 @@ getDataRetrievalPolicy pAccountId_ =
 -- You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you
--- specify your Account ID, do not include any hyphens (apos-apos) in the
+-- specify your account ID, do not include any hyphens (apos-apos) in the
 -- ID.
 gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
 gdrpAccountId = lens _gdrpAccountId (\ s a -> s{_gdrpAccountId = a});

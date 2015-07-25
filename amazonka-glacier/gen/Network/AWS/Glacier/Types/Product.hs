@@ -824,6 +824,32 @@ instance ToJSON VaultAccessPolicy where
         toJSON VaultAccessPolicy'{..}
           = object ["Policy" .= _vapPolicy]
 
+-- | Contains the vault lock policy.
+--
+-- /See:/ 'vaultLockPolicy' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'vlpPolicy'
+newtype VaultLockPolicy = VaultLockPolicy'
+    { _vlpPolicy :: Maybe Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'VaultLockPolicy' smart constructor.
+vaultLockPolicy :: VaultLockPolicy
+vaultLockPolicy =
+    VaultLockPolicy'
+    { _vlpPolicy = Nothing
+    }
+
+-- | The vault lock policy.
+vlpPolicy :: Lens' VaultLockPolicy (Maybe Text)
+vlpPolicy = lens _vlpPolicy (\ s a -> s{_vlpPolicy = a});
+
+instance ToJSON VaultLockPolicy where
+        toJSON VaultLockPolicy'{..}
+          = object ["Policy" .= _vlpPolicy]
+
 -- | Represents a vault\'s notification configuration.
 --
 -- /See:/ 'vaultNotificationConfig' smart constructor.

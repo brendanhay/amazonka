@@ -36,6 +36,10 @@ import           Network.AWS.Prelude
 --     \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition,
 --     respectively.
 --
+-- In Amazon EMR releases 4.0 and greater, the only accepted parameter is
+-- the application name. To pass arguments to applications, you supply a
+-- configuration for each application.
+--
 -- /See:/ 'application' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -92,6 +96,13 @@ instance FromJSON Application where
                      <*> (x .:? "Name")
                      <*> (x .:? "Version"))
 
+instance ToJSON Application where
+        toJSON Application'{..}
+          = object
+              ["AdditionalInfo" .= _aAdditionalInfo,
+               "Args" .= _aArgs, "Name" .= _aName,
+               "Version" .= _aVersion]
+
 -- | Configuration of a bootstrap action.
 --
 -- /See:/ 'bootstrapActionConfig' smart constructor.
@@ -134,81 +145,89 @@ instance ToJSON BootstrapActionConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cRequestedAMIVersion'
+-- * 'cluRequestedAMIVersion'
 --
--- * 'cEC2InstanceAttributes'
+-- * 'cluEC2InstanceAttributes'
 --
--- * 'cNormalizedInstanceHours'
+-- * 'cluNormalizedInstanceHours'
 --
--- * 'cLogURI'
+-- * 'cluConfigurations'
 --
--- * 'cRunningAMIVersion'
+-- * 'cluReleaseLabel'
 --
--- * 'cMasterPublicDNSName'
+-- * 'cluLogURI'
 --
--- * 'cAutoTerminate'
+-- * 'cluRunningAMIVersion'
 --
--- * 'cTerminationProtected'
+-- * 'cluMasterPublicDNSName'
 --
--- * 'cVisibleToAllUsers'
+-- * 'cluAutoTerminate'
 --
--- * 'cApplications'
+-- * 'cluTerminationProtected'
 --
--- * 'cTags'
+-- * 'cluVisibleToAllUsers'
 --
--- * 'cServiceRole'
+-- * 'cluApplications'
 --
--- * 'cId'
+-- * 'cluTags'
 --
--- * 'cName'
+-- * 'cluServiceRole'
 --
--- * 'cStatus'
+-- * 'cluId'
+--
+-- * 'cluName'
+--
+-- * 'cluStatus'
 data Cluster = Cluster'
-    { _cRequestedAMIVersion     :: !(Maybe Text)
-    , _cEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
-    , _cNormalizedInstanceHours :: !(Maybe Int)
-    , _cLogURI                  :: !(Maybe Text)
-    , _cRunningAMIVersion       :: !(Maybe Text)
-    , _cMasterPublicDNSName     :: !(Maybe Text)
-    , _cAutoTerminate           :: !(Maybe Bool)
-    , _cTerminationProtected    :: !(Maybe Bool)
-    , _cVisibleToAllUsers       :: !(Maybe Bool)
-    , _cApplications            :: !(Maybe [Application])
-    , _cTags                    :: !(Maybe [Tag])
-    , _cServiceRole             :: !(Maybe Text)
-    , _cId                      :: !Text
-    , _cName                    :: !Text
-    , _cStatus                  :: !ClusterStatus
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _cluRequestedAMIVersion     :: !(Maybe Text)
+    , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
+    , _cluNormalizedInstanceHours :: !(Maybe Int)
+    , _cluConfigurations          :: !(Maybe [Configuration])
+    , _cluReleaseLabel            :: !(Maybe Text)
+    , _cluLogURI                  :: !(Maybe Text)
+    , _cluRunningAMIVersion       :: !(Maybe Text)
+    , _cluMasterPublicDNSName     :: !(Maybe Text)
+    , _cluAutoTerminate           :: !(Maybe Bool)
+    , _cluTerminationProtected    :: !(Maybe Bool)
+    , _cluVisibleToAllUsers       :: !(Maybe Bool)
+    , _cluApplications            :: !(Maybe [Application])
+    , _cluTags                    :: !(Maybe [Tag])
+    , _cluServiceRole             :: !(Maybe Text)
+    , _cluId                      :: !Text
+    , _cluName                    :: !Text
+    , _cluStatus                  :: !ClusterStatus
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Text -> Text -> ClusterStatus -> Cluster
 cluster pId_ pName_ pStatus_ =
     Cluster'
-    { _cRequestedAMIVersion = Nothing
-    , _cEC2InstanceAttributes = Nothing
-    , _cNormalizedInstanceHours = Nothing
-    , _cLogURI = Nothing
-    , _cRunningAMIVersion = Nothing
-    , _cMasterPublicDNSName = Nothing
-    , _cAutoTerminate = Nothing
-    , _cTerminationProtected = Nothing
-    , _cVisibleToAllUsers = Nothing
-    , _cApplications = Nothing
-    , _cTags = Nothing
-    , _cServiceRole = Nothing
-    , _cId = pId_
-    , _cName = pName_
-    , _cStatus = pStatus_
+    { _cluRequestedAMIVersion = Nothing
+    , _cluEC2InstanceAttributes = Nothing
+    , _cluNormalizedInstanceHours = Nothing
+    , _cluConfigurations = Nothing
+    , _cluReleaseLabel = Nothing
+    , _cluLogURI = Nothing
+    , _cluRunningAMIVersion = Nothing
+    , _cluMasterPublicDNSName = Nothing
+    , _cluAutoTerminate = Nothing
+    , _cluTerminationProtected = Nothing
+    , _cluVisibleToAllUsers = Nothing
+    , _cluApplications = Nothing
+    , _cluTags = Nothing
+    , _cluServiceRole = Nothing
+    , _cluId = pId_
+    , _cluName = pName_
+    , _cluStatus = pStatus_
     }
 
 -- | The AMI version requested for this cluster.
-cRequestedAMIVersion :: Lens' Cluster (Maybe Text)
-cRequestedAMIVersion = lens _cRequestedAMIVersion (\ s a -> s{_cRequestedAMIVersion = a});
+cluRequestedAMIVersion :: Lens' Cluster (Maybe Text)
+cluRequestedAMIVersion = lens _cluRequestedAMIVersion (\ s a -> s{_cluRequestedAMIVersion = a});
 
 -- | FIXME: Undocumented member.
-cEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
-cEC2InstanceAttributes = lens _cEC2InstanceAttributes (\ s a -> s{_cEC2InstanceAttributes = a});
+cluEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
+cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2InstanceAttributes = a});
 
 -- | An approximation of the cost of the job flow, represented in
 -- m1.small\/hours. This value is incremented one time for every hour an
@@ -216,34 +235,43 @@ cEC2InstanceAttributes = lens _cEC2InstanceAttributes (\ s a -> s{_cEC2InstanceA
 -- instance that is roughly four times more expensive would result in the
 -- normalized instance hours being incremented by four. This result is only
 -- an approximation and does not reflect the actual billing rate.
-cNormalizedInstanceHours :: Lens' Cluster (Maybe Int)
-cNormalizedInstanceHours = lens _cNormalizedInstanceHours (\ s a -> s{_cNormalizedInstanceHours = a});
+cluNormalizedInstanceHours :: Lens' Cluster (Maybe Int)
+cluNormalizedInstanceHours = lens _cluNormalizedInstanceHours (\ s a -> s{_cluNormalizedInstanceHours = a});
+
+-- | Amazon EMR releases 4.x or later.
+--
+-- The list of Configurations supplied to the EMR cluster.
+cluConfigurations :: Lens' Cluster [Configuration]
+cluConfigurations = lens _cluConfigurations (\ s a -> s{_cluConfigurations = a}) . _Default . _Coerce;
+
+-- | The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x
+-- AMIs, use amiVersion instead instead of ReleaseLabel.
+cluReleaseLabel :: Lens' Cluster (Maybe Text)
+cluReleaseLabel = lens _cluReleaseLabel (\ s a -> s{_cluReleaseLabel = a});
 
 -- | The path to the Amazon S3 location where logs for this cluster are
 -- stored.
-cLogURI :: Lens' Cluster (Maybe Text)
-cLogURI = lens _cLogURI (\ s a -> s{_cLogURI = a});
+cluLogURI :: Lens' Cluster (Maybe Text)
+cluLogURI = lens _cluLogURI (\ s a -> s{_cluLogURI = a});
 
--- | The AMI version running on this cluster. This differs from the requested
--- version only if the requested version is a meta version, such as
--- \"latest\".
-cRunningAMIVersion :: Lens' Cluster (Maybe Text)
-cRunningAMIVersion = lens _cRunningAMIVersion (\ s a -> s{_cRunningAMIVersion = a});
+-- | The AMI version running on this cluster.
+cluRunningAMIVersion :: Lens' Cluster (Maybe Text)
+cluRunningAMIVersion = lens _cluRunningAMIVersion (\ s a -> s{_cluRunningAMIVersion = a});
 
--- | The public DNS name of the master Ec2 instance.
-cMasterPublicDNSName :: Lens' Cluster (Maybe Text)
-cMasterPublicDNSName = lens _cMasterPublicDNSName (\ s a -> s{_cMasterPublicDNSName = a});
+-- | The public DNS name of the master EC2 instance.
+cluMasterPublicDNSName :: Lens' Cluster (Maybe Text)
+cluMasterPublicDNSName = lens _cluMasterPublicDNSName (\ s a -> s{_cluMasterPublicDNSName = a});
 
 -- | Specifies whether the cluster should terminate after completing all
 -- steps.
-cAutoTerminate :: Lens' Cluster (Maybe Bool)
-cAutoTerminate = lens _cAutoTerminate (\ s a -> s{_cAutoTerminate = a});
+cluAutoTerminate :: Lens' Cluster (Maybe Bool)
+cluAutoTerminate = lens _cluAutoTerminate (\ s a -> s{_cluAutoTerminate = a});
 
 -- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
 -- instances from being terminated by an API call or user intervention, or
 -- in the event of a cluster error.
-cTerminationProtected :: Lens' Cluster (Maybe Bool)
-cTerminationProtected = lens _cTerminationProtected (\ s a -> s{_cTerminationProtected = a});
+cluTerminationProtected :: Lens' Cluster (Maybe Bool)
+cluTerminationProtected = lens _cluTerminationProtected (\ s a -> s{_cluTerminationProtected = a});
 
 -- | Indicates whether the job flow is visible to all IAM users of the AWS
 -- account associated with the job flow. If this value is set to @true@,
@@ -251,33 +279,33 @@ cTerminationProtected = lens _cTerminationProtected (\ s a -> s{_cTerminationPro
 -- they have the proper policy permissions set. If this value is @false@,
 -- only the IAM user that created the cluster can view and manage it. This
 -- value can be changed using the SetVisibleToAllUsers action.
-cVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
-cVisibleToAllUsers = lens _cVisibleToAllUsers (\ s a -> s{_cVisibleToAllUsers = a});
+cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
+cluVisibleToAllUsers = lens _cluVisibleToAllUsers (\ s a -> s{_cluVisibleToAllUsers = a});
 
 -- | The applications installed on this cluster.
-cApplications :: Lens' Cluster [Application]
-cApplications = lens _cApplications (\ s a -> s{_cApplications = a}) . _Default . _Coerce;
+cluApplications :: Lens' Cluster [Application]
+cluApplications = lens _cluApplications (\ s a -> s{_cluApplications = a}) . _Default . _Coerce;
 
 -- | A list of tags associated with a cluster.
-cTags :: Lens' Cluster [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default . _Coerce;
+cluTags :: Lens' Cluster [Tag]
+cluTags = lens _cluTags (\ s a -> s{_cluTags = a}) . _Default . _Coerce;
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access
 -- AWS resources on your behalf.
-cServiceRole :: Lens' Cluster (Maybe Text)
-cServiceRole = lens _cServiceRole (\ s a -> s{_cServiceRole = a});
+cluServiceRole :: Lens' Cluster (Maybe Text)
+cluServiceRole = lens _cluServiceRole (\ s a -> s{_cluServiceRole = a});
 
 -- | The unique identifier for the cluster.
-cId :: Lens' Cluster Text
-cId = lens _cId (\ s a -> s{_cId = a});
+cluId :: Lens' Cluster Text
+cluId = lens _cluId (\ s a -> s{_cluId = a});
 
 -- | The name of the cluster.
-cName :: Lens' Cluster Text
-cName = lens _cName (\ s a -> s{_cName = a});
+cluName :: Lens' Cluster Text
+cluName = lens _cluName (\ s a -> s{_cluName = a});
 
 -- | The current status details about the cluster.
-cStatus :: Lens' Cluster ClusterStatus
-cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+cluStatus :: Lens' Cluster ClusterStatus
+cluStatus = lens _cluStatus (\ s a -> s{_cluStatus = a});
 
 instance FromJSON Cluster where
         parseJSON
@@ -287,6 +315,8 @@ instance FromJSON Cluster where
                    (x .:? "RequestedAmiVersion") <*>
                      (x .:? "Ec2InstanceAttributes")
                      <*> (x .:? "NormalizedInstanceHours")
+                     <*> (x .:? "Configurations" .!= mempty)
+                     <*> (x .:? "ReleaseLabel")
                      <*> (x .:? "LogUri")
                      <*> (x .:? "RunningAmiVersion")
                      <*> (x .:? "MasterPublicDnsName")
@@ -498,37 +528,37 @@ instance FromJSON ClusterTimeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'comArgs'
+-- * 'cArgs'
 --
--- * 'comScriptPath'
+-- * 'cScriptPath'
 --
--- * 'comName'
+-- * 'cName'
 data Command = Command'
-    { _comArgs       :: !(Maybe [Text])
-    , _comScriptPath :: !(Maybe Text)
-    , _comName       :: !(Maybe Text)
+    { _cArgs       :: !(Maybe [Text])
+    , _cScriptPath :: !(Maybe Text)
+    , _cName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Command' smart constructor.
 command :: Command
 command =
     Command'
-    { _comArgs = Nothing
-    , _comScriptPath = Nothing
-    , _comName = Nothing
+    { _cArgs = Nothing
+    , _cScriptPath = Nothing
+    , _cName = Nothing
     }
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
-comArgs :: Lens' Command [Text]
-comArgs = lens _comArgs (\ s a -> s{_comArgs = a}) . _Default . _Coerce;
+cArgs :: Lens' Command [Text]
+cArgs = lens _cArgs (\ s a -> s{_cArgs = a}) . _Default . _Coerce;
 
 -- | The Amazon S3 location of the command script.
-comScriptPath :: Lens' Command (Maybe Text)
-comScriptPath = lens _comScriptPath (\ s a -> s{_comScriptPath = a});
+cScriptPath :: Lens' Command (Maybe Text)
+cScriptPath = lens _cScriptPath (\ s a -> s{_cScriptPath = a});
 
 -- | The name of the command.
-comName :: Lens' Command (Maybe Text)
-comName = lens _comName (\ s a -> s{_comName = a});
+cName :: Lens' Command (Maybe Text)
+cName = lens _cName (\ s a -> s{_cName = a});
 
 instance FromJSON Command where
         parseJSON
@@ -537,6 +567,67 @@ instance FromJSON Command where
                  Command' <$>
                    (x .:? "Args" .!= mempty) <*> (x .:? "ScriptPath")
                      <*> (x .:? "Name"))
+
+-- | Amazon EMR releases 4.x or later.
+--
+-- Specifies a hardware and software configuration of the EMR cluster. This
+-- includes configurations for applications and software bundled with
+-- Amazon EMR. The Configuration object is a JSON object which is defined
+-- by a classification and a set of properties. Configurations can be
+-- nested, so a configuration may have its own Configuration objects
+-- listed.
+--
+-- /See:/ 'configuration' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cConfigurations'
+--
+-- * 'cClassification'
+--
+-- * 'cProperties'
+data Configuration = Configuration'
+    { _cConfigurations :: !(Maybe ConfigurationList)
+    , _cClassification :: !(Maybe Text)
+    , _cProperties     :: !(Maybe (Map Text Text))
+    } deriving (Eq,Show,Data,Typeable,Generic)
+
+-- | 'Configuration' smart constructor.
+configuration :: Configuration
+configuration =
+    Configuration'
+    { _cConfigurations = Nothing
+    , _cClassification = Nothing
+    , _cProperties = Nothing
+    }
+
+-- | A list of configurations you apply to this configuration object.
+cConfigurations :: Lens' Configuration (Maybe ConfigurationList)
+cConfigurations = lens _cConfigurations (\ s a -> s{_cConfigurations = a});
+
+-- | The classification of a configuration. For more information see,
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMR Configurations>.
+cClassification :: Lens' Configuration (Maybe Text)
+cClassification = lens _cClassification (\ s a -> s{_cClassification = a});
+
+-- | A set of properties supplied to the Configuration object.
+cProperties :: Lens' Configuration (HashMap Text Text)
+cProperties = lens _cProperties (\ s a -> s{_cProperties = a}) . _Default . _Map;
+
+instance FromJSON Configuration where
+        parseJSON
+          = withObject "Configuration"
+              (\ x ->
+                 Configuration' <$>
+                   (x .:? "Configurations") <*> (x .:? "Classification")
+                     <*> (x .:? "Properties" .!= mempty))
+
+instance ToJSON Configuration where
+        toJSON Configuration'{..}
+          = object
+              ["Configurations" .= _cConfigurations,
+               "Classification" .= _cClassification,
+               "Properties" .= _cProperties]
 
 -- | Provides information about the EC2 instances in a cluster grouped by
 -- category. For example, key name, subnet ID, IAM instance profile, and so
@@ -860,6 +951,8 @@ instance FromJSON Instance where
 --
 -- * 'igRunningInstanceCount'
 --
+-- * 'igConfigurations'
+--
 -- * 'igInstanceGroupType'
 --
 -- * 'igInstanceType'
@@ -874,12 +967,13 @@ data InstanceGroup = InstanceGroup'
     , _igBidPrice               :: !(Maybe Text)
     , _igRequestedInstanceCount :: !(Maybe Int)
     , _igRunningInstanceCount   :: !(Maybe Int)
+    , _igConfigurations         :: !(Maybe [Configuration])
     , _igInstanceGroupType      :: !(Maybe InstanceGroupType)
     , _igInstanceType           :: !(Maybe Text)
     , _igMarket                 :: !(Maybe MarketType)
     , _igName                   :: !(Maybe Text)
     , _igId                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroup' smart constructor.
 instanceGroup :: InstanceGroup
@@ -889,6 +983,7 @@ instanceGroup =
     , _igBidPrice = Nothing
     , _igRequestedInstanceCount = Nothing
     , _igRunningInstanceCount = Nothing
+    , _igConfigurations = Nothing
     , _igInstanceGroupType = Nothing
     , _igInstanceType = Nothing
     , _igMarket = Nothing
@@ -912,6 +1007,14 @@ igRequestedInstanceCount = lens _igRequestedInstanceCount (\ s a -> s{_igRequest
 -- | The number of instances currently running in this instance group.
 igRunningInstanceCount :: Lens' InstanceGroup (Maybe Int)
 igRunningInstanceCount = lens _igRunningInstanceCount (\ s a -> s{_igRunningInstanceCount = a});
+
+-- | Amazon EMR releases 4.x or later.
+--
+-- The list of configurations supplied for an EMR cluster instance group.
+-- You can specify a separate configuration for each instance group
+-- (master, core, and task).
+igConfigurations :: Lens' InstanceGroup [Configuration]
+igConfigurations = lens _igConfigurations (\ s a -> s{_igConfigurations = a}) . _Default . _Coerce;
 
 -- | The type of the instance group. Valid values are MASTER, CORE or TASK.
 igInstanceGroupType :: Lens' InstanceGroup (Maybe InstanceGroupType)
@@ -942,6 +1045,7 @@ instance FromJSON InstanceGroup where
                    (x .:? "Status") <*> (x .:? "BidPrice") <*>
                      (x .:? "RequestedInstanceCount")
                      <*> (x .:? "RunningInstanceCount")
+                     <*> (x .:? "Configurations" .!= mempty)
                      <*> (x .:? "InstanceGroupType")
                      <*> (x .:? "InstanceType")
                      <*> (x .:? "Market")
@@ -956,6 +1060,8 @@ instance FromJSON InstanceGroup where
 --
 -- * 'igcBidPrice'
 --
+-- * 'igcConfigurations'
+--
 -- * 'igcMarket'
 --
 -- * 'igcName'
@@ -966,19 +1072,21 @@ instance FromJSON InstanceGroup where
 --
 -- * 'igcInstanceCount'
 data InstanceGroupConfig = InstanceGroupConfig'
-    { _igcBidPrice      :: !(Maybe Text)
-    , _igcMarket        :: !(Maybe MarketType)
-    , _igcName          :: !(Maybe Text)
-    , _igcInstanceRole  :: !InstanceRoleType
-    , _igcInstanceType  :: !Text
-    , _igcInstanceCount :: !Int
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    { _igcBidPrice       :: !(Maybe Text)
+    , _igcConfigurations :: !(Maybe [Configuration])
+    , _igcMarket         :: !(Maybe MarketType)
+    , _igcName           :: !(Maybe Text)
+    , _igcInstanceRole   :: !InstanceRoleType
+    , _igcInstanceType   :: !Text
+    , _igcInstanceCount  :: !Int
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupConfig' smart constructor.
 instanceGroupConfig :: InstanceRoleType -> Text -> Int -> InstanceGroupConfig
 instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
     InstanceGroupConfig'
     { _igcBidPrice = Nothing
+    , _igcConfigurations = Nothing
     , _igcMarket = Nothing
     , _igcName = Nothing
     , _igcInstanceRole = pInstanceRole_
@@ -990,6 +1098,14 @@ instanceGroupConfig pInstanceRole_ pInstanceType_ pInstanceCount_ =
 -- launching nodes as Spot Instances, expressed in USD.
 igcBidPrice :: Lens' InstanceGroupConfig (Maybe Text)
 igcBidPrice = lens _igcBidPrice (\ s a -> s{_igcBidPrice = a});
+
+-- | Amazon EMR releases 4.x or later.
+--
+-- The list of configurations supplied for an EMR cluster instance group.
+-- You can specify a separate configuration for each instance group
+-- (master, core, and task).
+igcConfigurations :: Lens' InstanceGroupConfig [Configuration]
+igcConfigurations = lens _igcConfigurations (\ s a -> s{_igcConfigurations = a}) . _Default . _Coerce;
 
 -- | Market type of the Amazon EC2 instances used to create a cluster node.
 igcMarket :: Lens' InstanceGroupConfig (Maybe MarketType)
@@ -1014,8 +1130,9 @@ igcInstanceCount = lens _igcInstanceCount (\ s a -> s{_igcInstanceCount = a});
 instance ToJSON InstanceGroupConfig where
         toJSON InstanceGroupConfig'{..}
           = object
-              ["BidPrice" .= _igcBidPrice, "Market" .= _igcMarket,
-               "Name" .= _igcName,
+              ["BidPrice" .= _igcBidPrice,
+               "Configurations" .= _igcConfigurations,
+               "Market" .= _igcMarket, "Name" .= _igcName,
                "InstanceRole" .= _igcInstanceRole,
                "InstanceType" .= _igcInstanceType,
                "InstanceCount" .= _igcInstanceCount]
@@ -1381,7 +1498,7 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
     , _jficTerminationProtected           :: !(Maybe Bool)
     , _jficPlacement                      :: !(Maybe PlacementType)
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'JobFlowInstancesConfig' smart constructor.
 jobFlowInstancesConfig :: JobFlowInstancesConfig
@@ -1425,11 +1542,12 @@ jficEmrManagedSlaveSecurityGroup = lens _jficEmrManagedSlaveSecurityGroup (\ s a
 jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
 jficAdditionalSlaveSecurityGroups = lens _jficAdditionalSlaveSecurityGroups (\ s a -> s{_jficAdditionalSlaveSecurityGroups = a}) . _Default . _Coerce;
 
--- | The Hadoop version for the job flow. Valid inputs are \"0.18\",
--- \"0.20\", \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do
--- not set this value, the default of 0.18 is used, unless the AmiVersion
--- parameter is set in the RunJobFlow call, in which case the default
--- version of Hadoop for that AMI version is used.
+-- | The Hadoop version for the job flow. Valid inputs are \"0.18\"
+-- (deprecated), \"0.20\" (deprecated), \"0.20.205\" (deprecated),
+-- \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do not set this value, the
+-- default of 0.18 is used, unless the AmiVersion parameter is set in the
+-- RunJobFlow call, in which case the default version of Hadoop for that
+-- AMI version is used.
 jficHadoopVersion :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficHadoopVersion = lens _jficHadoopVersion (\ s a -> s{_jficHadoopVersion = a});
 
@@ -1462,7 +1580,7 @@ jficMasterInstanceType = lens _jficMasterInstanceType (\ s a -> s{_jficMasterIns
 jficInstanceGroups :: Lens' JobFlowInstancesConfig [InstanceGroupConfig]
 jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = a}) . _Default . _Coerce;
 
--- | Specifies whether the job flow should terminate after completing all
+-- | Specifies whether the job flow should be kept alive after completing all
 -- steps.
 jficKeepJobFlowAliveWhenNoSteps :: Lens' JobFlowInstancesConfig (Maybe Bool)
 jficKeepJobFlowAliveWhenNoSteps = lens _jficKeepJobFlowAliveWhenNoSteps (\ s a -> s{_jficKeepJobFlowAliveWhenNoSteps = a});
@@ -1727,7 +1845,8 @@ stepStateChangeReason =
     , _sscrMessage = Nothing
     }
 
--- | The programmable code for the state change reason.
+-- | The programmable code for the state change reason. Note: Currently, the
+-- service provides no code for the state change.
 sscrCode :: Lens' StepStateChangeReason (Maybe StepStateChangeReasonCode)
 sscrCode = lens _sscrCode (\ s a -> s{_sscrCode = a});
 

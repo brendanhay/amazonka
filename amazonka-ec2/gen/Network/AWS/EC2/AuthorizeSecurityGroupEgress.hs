@@ -144,14 +144,15 @@ asgeToPort = lens _asgeToPort (\ s a -> s{_asgeToPort = a});
 asgeCIdRIP :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeCIdRIP = lens _asgeCIdRIP (\ s a -> s{_asgeCIdRIP = a});
 
--- | The ID of the destination security group. You can\'t specify a
--- destination security group and a CIDR IP address range.
+-- | The AWS account number for a destination security group. To authorize
+-- outbound access to a destination security group, we recommend that you
+-- use a set of IP permissions instead.
 asgeSourceSecurityGroupOwnerId :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeSourceSecurityGroupOwnerId = lens _asgeSourceSecurityGroupOwnerId (\ s a -> s{_asgeSourceSecurityGroupOwnerId = a});
 
--- | [EC2-Classic, default VPC] The name of the destination security group.
--- You can\'t specify a destination security group and a CIDR IP address
--- range.
+-- | The name of a destination security group. To authorize outbound access
+-- to a destination security group, we recommend that you use a set of IP
+-- permissions instead.
 asgeSourceSecurityGroupName :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
 asgeSourceSecurityGroupName = lens _asgeSourceSecurityGroupName (\ s a -> s{_asgeSourceSecurityGroupName = a});
 

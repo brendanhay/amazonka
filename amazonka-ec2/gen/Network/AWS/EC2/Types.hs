@@ -114,9 +114,6 @@ module Network.AWS.EC2.Types
     -- * ListingStatus
     , ListingStatus (..)
 
-    -- * ModifySnapshotAttributeName
-    , ModifySnapshotAttributeName (..)
-
     -- * MonitoringState
     , MonitoringState (..)
 
@@ -1315,6 +1312,30 @@ module Network.AWS.EC2.Types
     , sdsBucket
     , sdsOwnerId
     , sdsFault
+
+    -- * SpotFleetLaunchSpecification
+    , SpotFleetLaunchSpecification
+    , spotFleetLaunchSpecification
+    , sflsSecurityGroups
+    , sflsNetworkInterfaces
+    , sflsKeyName
+    , sflsRAMDiskId
+    , sflsKernelId
+    , sflsSubnetId
+    , sflsInstanceType
+    , sflsEBSOptimized
+    , sflsUserData
+    , sflsMonitoring
+    , sflsIAMInstanceProfile
+    , sflsImageId
+    , sflsBlockDeviceMappings
+    , sflsAddressingType
+    , sflsPlacement
+
+    -- * SpotFleetMonitoring
+    , SpotFleetMonitoring
+    , spotFleetMonitoring
+    , sfmEnabled
 
     -- * SpotFleetRequestConfig
     , SpotFleetRequestConfig

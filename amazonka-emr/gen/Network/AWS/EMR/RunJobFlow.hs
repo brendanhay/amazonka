@@ -54,13 +54,16 @@ module Network.AWS.EMR.RunJobFlow
     -- ** Request lenses
     , rjfAMIVersion
     , rjfAdditionalInfo
+    , rjfConfigurations
     , rjfJobFlowRole
     , rjfSteps
     , rjfBootstrapActions
+    , rjfReleaseLabel
     , rjfNewSupportedProducts
     , rjfLogURI
     , rjfSupportedProducts
     , rjfVisibleToAllUsers
+    , rjfApplications
     , rjfTags
     , rjfServiceRole
     , rjfName
@@ -90,11 +93,15 @@ import           Network.AWS.Response
 --
 -- * 'rjfAdditionalInfo'
 --
+-- * 'rjfConfigurations'
+--
 -- * 'rjfJobFlowRole'
 --
 -- * 'rjfSteps'
 --
 -- * 'rjfBootstrapActions'
+--
+-- * 'rjfReleaseLabel'
 --
 -- * 'rjfNewSupportedProducts'
 --
@@ -103,6 +110,8 @@ import           Network.AWS.Response
 -- * 'rjfSupportedProducts'
 --
 -- * 'rjfVisibleToAllUsers'
+--
+-- * 'rjfApplications'
 --
 -- * 'rjfTags'
 --
@@ -114,18 +123,21 @@ import           Network.AWS.Response
 data RunJobFlow = RunJobFlow'
     { _rjfAMIVersion           :: !(Maybe Text)
     , _rjfAdditionalInfo       :: !(Maybe Text)
+    , _rjfConfigurations       :: !(Maybe [Configuration])
     , _rjfJobFlowRole          :: !(Maybe Text)
     , _rjfSteps                :: !(Maybe [StepConfig])
     , _rjfBootstrapActions     :: !(Maybe [BootstrapActionConfig])
+    , _rjfReleaseLabel         :: !(Maybe Text)
     , _rjfNewSupportedProducts :: !(Maybe [SupportedProductConfig])
     , _rjfLogURI               :: !(Maybe Text)
     , _rjfSupportedProducts    :: !(Maybe [Text])
     , _rjfVisibleToAllUsers    :: !(Maybe Bool)
+    , _rjfApplications         :: !(Maybe [Application])
     , _rjfTags                 :: !(Maybe [Tag])
     , _rjfServiceRole          :: !(Maybe Text)
     , _rjfName                 :: !Text
     , _rjfInstances            :: !JobFlowInstancesConfig
-    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'RunJobFlow' smart constructor.
 runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow
@@ -133,24 +145,29 @@ runJobFlow pName_ pInstances_ =
     RunJobFlow'
     { _rjfAMIVersion = Nothing
     , _rjfAdditionalInfo = Nothing
+    , _rjfConfigurations = Nothing
     , _rjfJobFlowRole = Nothing
     , _rjfSteps = Nothing
     , _rjfBootstrapActions = Nothing
+    , _rjfReleaseLabel = Nothing
     , _rjfNewSupportedProducts = Nothing
     , _rjfLogURI = Nothing
     , _rjfSupportedProducts = Nothing
     , _rjfVisibleToAllUsers = Nothing
+    , _rjfApplications = Nothing
     , _rjfTags = Nothing
     , _rjfServiceRole = Nothing
     , _rjfName = pName_
     , _rjfInstances = pInstances_
     }
 
--- | The version of the Amazon Machine Image (AMI) to use when launching
+-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
+-- greater, use ReleaseLabel.
+--
+-- The version of the Amazon Machine Image (AMI) to use when launching
 -- Amazon EC2 instances in the job flow. The following values are valid:
 --
--- -   \"latest\" (uses the latest AMI)
--- -   The version number of the AMI to use, for example, \"2.0\"
+-- -   The version number of the AMI to use, for example, \"2.0.\"
 --
 -- If the AMI supports multiple versions of Hadoop (for example, AMI 1.0
 -- supports both Hadoop 0.18 and 0.20) you can use the
@@ -168,6 +185,13 @@ rjfAMIVersion = lens _rjfAMIVersion (\ s a -> s{_rjfAMIVersion = a});
 rjfAdditionalInfo :: Lens' RunJobFlow (Maybe Text)
 rjfAdditionalInfo = lens _rjfAdditionalInfo (\ s a -> s{_rjfAdditionalInfo = a});
 
+-- | Amazon EMR releases 4.x or later.
+--
+-- The list of configurations supplied for the EMR cluster you are
+-- creating.
+rjfConfigurations :: Lens' RunJobFlow [Configuration]
+rjfConfigurations = lens _rjfConfigurations (\ s a -> s{_rjfConfigurations = a}) . _Default . _Coerce;
+
 -- | An IAM role for the job flow. The EC2 instances of the job flow assume
 -- this role. The default role is @EMRJobflowDefault@. In order to use the
 -- default role, you must have already created it using the CLI.
@@ -183,18 +207,35 @@ rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a}) . _Default . _Coerce;
 rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
 rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions = a}) . _Default . _Coerce;
 
--- | A list of strings that indicates third-party software to use with the
+-- | Amazon EMR releases 4.x or later.
+--
+-- The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x
+-- AMIs, use amiVersion instead instead of ReleaseLabel.
+rjfReleaseLabel :: Lens' RunJobFlow (Maybe Text)
+rjfReleaseLabel = lens _rjfReleaseLabel (\ s a -> s{_rjfReleaseLabel = a});
+
+-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
+-- greater, use Applications.
+--
+-- A list of strings that indicates third-party software to use with the
 -- job flow that accepts a user argument list. EMR accepts and forwards the
 -- argument list to the corresponding installation script as bootstrap
 -- action arguments. For more information, see
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-mapr.html Launch a Job Flow on the MapR Distribution for Hadoop>.
 -- Currently supported values are:
 --
--- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
--- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
+-- -   \"mapr-m3\" - launch the cluster using MapR M3 Edition.
+-- -   \"mapr-m5\" - launch the cluster using MapR M5 Edition.
 -- -   \"mapr\" with the user arguments specifying \"--edition,m3\" or
 --     \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition
 --     respectively.
+-- -   \"mapr-m7\" - launch the cluster using MapR M7 Edition.
+-- -   \"hunk\" - launch the cluster with the Hunk Big Data Analtics
+--     Platform.
+-- -   \"hue\"- launch the cluster with Hue installed.
+-- -   \"spark\" - launch the cluster with Apache Spark installed.
+-- -   \"ganglia\" - launch the cluster with the Ganglia Monitoring System
+--     installed.
 rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
 rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSupportedProducts = a}) . _Default . _Coerce;
 
@@ -203,7 +244,10 @@ rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSuppo
 rjfLogURI :: Lens' RunJobFlow (Maybe Text)
 rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
 
--- | A list of strings that indicates third-party software to use with the
+-- | For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and
+-- greater, use Applications.
+--
+-- A list of strings that indicates third-party software to use with the
 -- job flow. For more information, go to
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html Use Third Party Applications with Amazon EMR>.
 -- Currently supported values are:
@@ -220,6 +264,13 @@ rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProdu
 -- IAM user that created the job flow can view and manage it.
 rjfVisibleToAllUsers :: Lens' RunJobFlow (Maybe Bool)
 rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUsers = a});
+
+-- | Amazon EMR releases 4.x or later.
+--
+-- A list of applications for the cluster. Valid values are: \"Hadoop\",
+-- \"Hive\", \"Mahout\", \"Pig\", and \"Spark.\" They are case insensitive.
+rjfApplications :: Lens' RunJobFlow [Application]
+rjfApplications = lens _rjfApplications (\ s a -> s{_rjfApplications = a}) . _Default . _Coerce;
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
@@ -264,13 +315,16 @@ instance ToJSON RunJobFlow where
           = object
               ["AmiVersion" .= _rjfAMIVersion,
                "AdditionalInfo" .= _rjfAdditionalInfo,
+               "Configurations" .= _rjfConfigurations,
                "JobFlowRole" .= _rjfJobFlowRole,
                "Steps" .= _rjfSteps,
                "BootstrapActions" .= _rjfBootstrapActions,
+               "ReleaseLabel" .= _rjfReleaseLabel,
                "NewSupportedProducts" .= _rjfNewSupportedProducts,
                "LogUri" .= _rjfLogURI,
                "SupportedProducts" .= _rjfSupportedProducts,
                "VisibleToAllUsers" .= _rjfVisibleToAllUsers,
+               "Applications" .= _rjfApplications,
                "Tags" .= _rjfTags, "ServiceRole" .= _rjfServiceRole,
                "Name" .= _rjfName, "Instances" .= _rjfInstances]
 

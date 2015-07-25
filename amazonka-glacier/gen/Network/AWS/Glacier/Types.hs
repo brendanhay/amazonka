@@ -128,6 +128,11 @@ module Network.AWS.Glacier.Types
     , vaultAccessPolicy
     , vapPolicy
 
+    -- * VaultLockPolicy
+    , VaultLockPolicy
+    , vaultLockPolicy
+    , vlpPolicy
+
     -- * VaultNotificationConfig
     , VaultNotificationConfig
     , vaultNotificationConfig

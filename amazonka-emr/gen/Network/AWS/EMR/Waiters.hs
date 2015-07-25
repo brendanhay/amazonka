@@ -30,25 +30,25 @@ clusterRunning =
                              "RUNNING"
                              AcceptSuccess
                              (dcrsCluster .
-                              cStatus . csState . _Just . to toText)
+                              cluStatus . csState . _Just . to toText)
                        , matchAll
                              "WAITING"
                              AcceptSuccess
                              (dcrsCluster .
-                              cStatus . csState . _Just . to toText)
+                              cluStatus . csState . _Just . to toText)
                        , matchAll
                              "TERMINATING"
                              AcceptFailure
                              (dcrsCluster .
-                              cStatus . csState . _Just . to toText)
+                              cluStatus . csState . _Just . to toText)
                        , matchAll
                              "TERMINATED"
                              AcceptFailure
                              (dcrsCluster .
-                              cStatus . csState . _Just . to toText)
+                              cluStatus . csState . _Just . to toText)
                        , matchAll
                              "TERMINATED_WITH_ERRORS"
                              AcceptFailure
                              (dcrsCluster .
-                              cStatus . csState . _Just . to toText)]
+                              cluStatus . csState . _Just . to toText)]
     }

@@ -50,8 +50,10 @@ module Network.AWS.Glacier
     ) where
 
 import           Network.AWS.Glacier.AbortMultipartUpload     as Export
+import           Network.AWS.Glacier.AbortVaultLock           as Export
 import           Network.AWS.Glacier.AddTagsToVault           as Export
 import           Network.AWS.Glacier.CompleteMultipartUpload  as Export
+import           Network.AWS.Glacier.CompleteVaultLock        as Export
 import           Network.AWS.Glacier.CreateVault              as Export
 import           Network.AWS.Glacier.DeleteArchive            as Export
 import           Network.AWS.Glacier.DeleteVault              as Export
@@ -62,9 +64,11 @@ import           Network.AWS.Glacier.DescribeVault            as Export
 import           Network.AWS.Glacier.GetDataRetrievalPolicy   as Export
 import           Network.AWS.Glacier.GetJobOutput             as Export
 import           Network.AWS.Glacier.GetVaultAccessPolicy     as Export
+import           Network.AWS.Glacier.GetVaultLock             as Export
 import           Network.AWS.Glacier.GetVaultNotifications    as Export
 import           Network.AWS.Glacier.InitiateJob              as Export
 import           Network.AWS.Glacier.InitiateMultipartUpload  as Export
+import           Network.AWS.Glacier.InitiateVaultLock        as Export
 import           Network.AWS.Glacier.ListJobs                 as Export
 import           Network.AWS.Glacier.ListMultipartUploads     as Export
 import           Network.AWS.Glacier.ListParts                as Export

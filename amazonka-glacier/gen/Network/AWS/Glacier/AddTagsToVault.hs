@@ -48,7 +48,7 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | The input value for @AddTagsToVault@.
+-- | The input values for @AddTagsToVault@.
 --
 -- /See:/ 'addTagsToVault' smart constructor.
 --

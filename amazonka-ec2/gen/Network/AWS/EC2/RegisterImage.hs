@@ -18,9 +18,12 @@
 -- Portability : non-portable (GHC extensions)
 --
 -- Registers an AMI. When you\'re creating an AMI, this is the final step
--- you must complete before you can launch an instance from the AMI. For
--- more information about creating AMIs, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs>
+-- you must complete before you can launch an instance from the AMI. This
+-- step is required if you\'re creating an instance store-backed Linux or
+-- Windows AMI. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-instance-store.html Creating an Instance Store-Backed Linux AMI>
+-- and
+-- <http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Creating_InstanceStoreBacked_WinAMI.html Creating an Instance Store-Backed Windows AMI>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- For Amazon EBS-backed instances, CreateImage creates and registers the
@@ -29,8 +32,10 @@
 --
 -- You can also use @RegisterImage@ to create an Amazon EBS-backed AMI from
 -- a snapshot of a root device volume. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching an Instance from a Snapshot>
--- in the /Amazon Elastic Compute Cloud User Guide/.
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html Launching an Instance from a Backup>
+-- in the /Amazon Elastic Compute Cloud User Guide/. Note that although you
+-- can create a Windows AMI from a snapshot, you can\'t launch an instance
+-- from the AMI - use the CreateImage command instead.
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you
 -- make to an AMI backed by an instance store volume invalidates its

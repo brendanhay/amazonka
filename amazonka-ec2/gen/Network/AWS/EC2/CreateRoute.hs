@@ -50,7 +50,6 @@ module Network.AWS.EC2.CreateRoute
     -- ** Request lenses
     , crInstanceId
     , crVPCPeeringConnectionId
-    , crClientToken
     , crNetworkInterfaceId
     , crGatewayId
     , crDryRun
@@ -63,7 +62,6 @@ module Network.AWS.EC2.CreateRoute
     , createRouteResponse
     -- ** Response lenses
     , crrsReturn
-    , crrsClientToken
     , crrsStatus
     ) where
 
@@ -80,8 +78,6 @@ import           Network.AWS.Response
 --
 -- * 'crVPCPeeringConnectionId'
 --
--- * 'crClientToken'
---
 -- * 'crNetworkInterfaceId'
 --
 -- * 'crGatewayId'
@@ -94,7 +90,6 @@ import           Network.AWS.Response
 data CreateRoute = CreateRoute'
     { _crInstanceId             :: !(Maybe Text)
     , _crVPCPeeringConnectionId :: !(Maybe Text)
-    , _crClientToken            :: !(Maybe Text)
     , _crNetworkInterfaceId     :: !(Maybe Text)
     , _crGatewayId              :: !(Maybe Text)
     , _crDryRun                 :: !(Maybe Bool)
@@ -108,7 +103,6 @@ createRoute pRouteTableId_ pDestinationCIdRBlock_ =
     CreateRoute'
     { _crInstanceId = Nothing
     , _crVPCPeeringConnectionId = Nothing
-    , _crClientToken = Nothing
     , _crNetworkInterfaceId = Nothing
     , _crGatewayId = Nothing
     , _crDryRun = Nothing
@@ -124,12 +118,6 @@ crInstanceId = lens _crInstanceId (\ s a -> s{_crInstanceId = a});
 -- | The ID of a VPC peering connection.
 crVPCPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
 crVPCPeeringConnectionId = lens _crVPCPeeringConnectionId (\ s a -> s{_crVPCPeeringConnectionId = a});
-
--- | Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
-crClientToken :: Lens' CreateRoute (Maybe Text)
-crClientToken = lens _crClientToken (\ s a -> s{_crClientToken = a});
 
 -- | The ID of a network interface.
 crNetworkInterfaceId :: Lens' CreateRoute (Maybe Text)
@@ -164,8 +152,7 @@ instance AWSRequest CreateRoute where
           = receiveXML
               (\ s h x ->
                  CreateRouteResponse' <$>
-                   (x .@? "return") <*> (x .@? "clientToken") <*>
-                     (pure (fromEnum s)))
+                   (x .@? "return") <*> (pure (fromEnum s)))
 
 instance ToHeaders CreateRoute where
         toHeaders = const mempty
@@ -181,7 +168,6 @@ instance ToQuery CreateRoute where
                "InstanceId" =: _crInstanceId,
                "VpcPeeringConnectionId" =:
                  _crVPCPeeringConnectionId,
-               "ClientToken" =: _crClientToken,
                "NetworkInterfaceId" =: _crNetworkInterfaceId,
                "GatewayId" =: _crGatewayId, "DryRun" =: _crDryRun,
                "RouteTableId" =: _crRouteTableId,
@@ -193,13 +179,10 @@ instance ToQuery CreateRoute where
 --
 -- * 'crrsReturn'
 --
--- * 'crrsClientToken'
---
 -- * 'crrsStatus'
 data CreateRouteResponse = CreateRouteResponse'
-    { _crrsReturn      :: !(Maybe Bool)
-    , _crrsClientToken :: !(Maybe Text)
-    , _crrsStatus      :: !Int
+    { _crrsReturn :: !(Maybe Bool)
+    , _crrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteResponse' smart constructor.
@@ -207,18 +190,12 @@ createRouteResponse :: Int -> CreateRouteResponse
 createRouteResponse pStatus_ =
     CreateRouteResponse'
     { _crrsReturn = Nothing
-    , _crrsClientToken = Nothing
     , _crrsStatus = pStatus_
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
 crrsReturn :: Lens' CreateRouteResponse (Maybe Bool)
 crrsReturn = lens _crrsReturn (\ s a -> s{_crrsReturn = a});
-
--- | Unique, case-sensitive identifier you provide to ensure the idempotency
--- of the request.
-crrsClientToken :: Lens' CreateRouteResponse (Maybe Text)
-crrsClientToken = lens _crrsClientToken (\ s a -> s{_crrsClientToken = a});
 
 -- | FIXME: Undocumented member.
 crrsStatus :: Lens' CreateRouteResponse Int

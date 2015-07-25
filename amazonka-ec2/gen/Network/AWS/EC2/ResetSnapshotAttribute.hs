@@ -58,11 +58,11 @@ import           Network.AWS.Response
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
     { _rsaDryRun     :: !(Maybe Bool)
     , _rsaSnapshotId :: !Text
-    , _rsaAttribute  :: !ModifySnapshotAttributeName
+    , _rsaAttribute  :: !SnapshotAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetSnapshotAttribute' smart constructor.
-resetSnapshotAttribute :: Text -> ModifySnapshotAttributeName -> ResetSnapshotAttribute
+resetSnapshotAttribute :: Text -> SnapshotAttributeName -> ResetSnapshotAttribute
 resetSnapshotAttribute pSnapshotId_ pAttribute_ =
     ResetSnapshotAttribute'
     { _rsaDryRun = Nothing
@@ -83,7 +83,7 @@ rsaSnapshotId = lens _rsaSnapshotId (\ s a -> s{_rsaSnapshotId = a});
 
 -- | The attribute to reset. Currently, only the attribute for permission to
 -- create volumes can be reset.
-rsaAttribute :: Lens' ResetSnapshotAttribute ModifySnapshotAttributeName
+rsaAttribute :: Lens' ResetSnapshotAttribute SnapshotAttributeName
 rsaAttribute = lens _rsaAttribute (\ s a -> s{_rsaAttribute = a});
 
 instance AWSRequest ResetSnapshotAttribute where

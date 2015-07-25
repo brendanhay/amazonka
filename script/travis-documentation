@@ -2,8 +2,8 @@
 
 set -e
 
-if [ "$BUILD_BRANCH" != "develop" ]; then
-    echo "Ignoring documentation build for branch '$BUILD_BRANCH'."
+if [ "$TRAVIS_BRANCH" != "develop" ]; then
+    echo "Ignoring documentation build for branch '$TRAVIS_BRANCH'."
     exit 0
 fi
 

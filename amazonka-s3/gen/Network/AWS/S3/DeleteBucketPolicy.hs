@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'dbpBucket'
 newtype DeleteBucketPolicy = DeleteBucketPolicy'
     { _dbpBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketPolicy' smart constructor.
 deleteBucketPolicy :: BucketName -> DeleteBucketPolicy

@@ -50,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gbrpBucket'
 newtype GetBucketRequestPayment = GetBucketRequestPayment'
     { _gbrpBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketRequestPayment' smart constructor.
 getBucketRequestPayment :: BucketName -> GetBucketRequestPayment

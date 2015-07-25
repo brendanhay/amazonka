@@ -65,7 +65,7 @@ data DeleteObjects = DeleteObjects'
     , _dosRequestPayer :: !(Maybe RequestPayer)
     , _dosBucket       :: !BucketName
     , _dosDelete       :: !Delete
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObjects' smart constructor.
 deleteObjects :: BucketName -> Delete -> DeleteObjects
@@ -143,7 +143,7 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
     , _drsDeleted        :: !(Maybe [DeletedObject])
     , _drsErrors         :: !(Maybe [S3ServiceError])
     , _drsStatus         :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObjectsResponse' smart constructor.
 deleteObjectsResponse :: Int -> DeleteObjectsResponse

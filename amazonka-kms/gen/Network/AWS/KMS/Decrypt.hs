@@ -165,7 +165,7 @@ drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 -- | Decrypted plaintext data. This value may not be returned if the customer
 -- master key is not available or if you didn\'t have permission to use it.
 drsPlaintext :: Lens' DecryptResponse (Maybe ByteString)
-drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping _Sensitive . _Base64;
+drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
 -- | FIXME: Undocumented member.
 drsStatus :: Lens' DecryptResponse Int

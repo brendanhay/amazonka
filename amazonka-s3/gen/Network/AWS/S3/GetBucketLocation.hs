@@ -50,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gblBucket'
 newtype GetBucketLocation = GetBucketLocation'
     { _gblBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLocation' smart constructor.
 getBucketLocation :: BucketName -> GetBucketLocation
@@ -93,7 +93,7 @@ instance ToQuery GetBucketLocation where
 data GetBucketLocationResponse = GetBucketLocationResponse'
     { _getrsLocationConstraint :: !(Maybe Region)
     , _getrsStatus             :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLocationResponse' smart constructor.
 getBucketLocationResponse :: Int -> GetBucketLocationResponse

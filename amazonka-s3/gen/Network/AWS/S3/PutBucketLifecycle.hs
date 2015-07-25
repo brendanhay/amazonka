@@ -56,7 +56,7 @@ data PutBucketLifecycle = PutBucketLifecycle'
     { _pContentMD5             :: !(Maybe Text)
     , _pLifecycleConfiguration :: !(Maybe LifecycleConfiguration)
     , _pBucket                 :: !BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketLifecycle' smart constructor.
 putBucketLifecycle :: BucketName -> PutBucketLifecycle

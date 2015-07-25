@@ -70,7 +70,7 @@ data DeleteObject = DeleteObject'
     , _doRequestPayer :: !(Maybe RequestPayer)
     , _doBucket       :: !BucketName
     , _doKey          :: !ObjectKey
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObject' smart constructor.
 deleteObject :: BucketName -> ObjectKey -> DeleteObject
@@ -147,7 +147,7 @@ data DeleteObjectResponse = DeleteObjectResponse'
     , _dorsRequestCharged :: !(Maybe RequestCharged)
     , _dorsDeleteMarker   :: !(Maybe Bool)
     , _dorsStatus         :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObjectResponse' smart constructor.
 deleteObjectResponse :: Int -> DeleteObjectResponse

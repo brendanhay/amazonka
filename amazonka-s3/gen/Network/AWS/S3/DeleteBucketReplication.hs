@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'dbrBucket'
 newtype DeleteBucketReplication = DeleteBucketReplication'
     { _dbrBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketReplication' smart constructor.
 deleteBucketReplication :: BucketName -> DeleteBucketReplication

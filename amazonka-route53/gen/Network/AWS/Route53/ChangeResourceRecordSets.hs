@@ -86,7 +86,7 @@ import           Network.AWS.Route53.Types
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
     { _crrsHostedZoneId :: !Text
     , _crrsChangeBatch  :: !ChangeBatch
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeResourceRecordSets' smart constructor.
 changeResourceRecordSets :: Text -> ChangeBatch -> ChangeResourceRecordSets

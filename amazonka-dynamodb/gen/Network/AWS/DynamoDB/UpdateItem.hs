@@ -107,7 +107,7 @@ data UpdateItem = UpdateItem'
     , _uiExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
     , _uiTableName                   :: !Text
     , _uiKey                         :: !(Map Text AttributeValue)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateItem' smart constructor.
 updateItem :: Text -> UpdateItem
@@ -760,7 +760,7 @@ data UpdateItemResponse = UpdateItemResponse'
     , _uirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _uirsAttributes            :: !(Maybe (Map Text AttributeValue))
     , _uirsStatus                :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateItemResponse' smart constructor.
 updateItemResponse :: Int -> UpdateItemResponse

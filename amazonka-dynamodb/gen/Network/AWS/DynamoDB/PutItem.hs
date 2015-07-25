@@ -117,7 +117,7 @@ data PutItem = PutItem'
     , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
     , _piTableName                   :: !Text
     , _piItem                        :: !(Map Text AttributeValue)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutItem' smart constructor.
 putItem :: Text -> PutItem
@@ -581,7 +581,7 @@ data PutItemResponse = PutItemResponse'
     , _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
     , _pirsStatus                :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutItemResponse' smart constructor.
 putItemResponse :: Int -> PutItemResponse

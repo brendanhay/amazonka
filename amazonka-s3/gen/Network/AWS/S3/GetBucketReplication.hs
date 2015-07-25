@@ -50,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gbrBucket'
 newtype GetBucketReplication = GetBucketReplication'
     { _gbrBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketReplication' smart constructor.
 getBucketReplication :: BucketName -> GetBucketReplication
@@ -94,7 +94,7 @@ instance ToQuery GetBucketReplication where
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
     { _gbrrsReplicationConfiguration :: !(Maybe ReplicationConfiguration)
     , _gbrrsStatus                   :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketReplicationResponse' smart constructor.
 getBucketReplicationResponse :: Int -> GetBucketReplicationResponse

@@ -116,7 +116,7 @@ instance ToXML AliasTarget where
 data Change = Change'
     { _cAction            :: !ChangeAction
     , _cResourceRecordSet :: !ResourceRecordSet
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Change' smart constructor.
 change :: ChangeAction -> ResourceRecordSet -> Change
@@ -155,7 +155,7 @@ instance ToXML Change where
 data ChangeBatch = ChangeBatch'
     { _cbComment :: !(Maybe Text)
     , _cbChanges :: !(List1 Change)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeBatch' smart constructor.
 changeBatch :: NonEmpty Change -> ChangeBatch
@@ -844,7 +844,7 @@ data ResourceRecordSet = ResourceRecordSet'
     , _rrsName            :: !Text
     , _rrsType            :: !RecordType
     , _rrsResourceRecords :: !(List1 ResourceRecord)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResourceRecordSet' smart constructor.
 resourceRecordSet :: Text -> RecordType -> NonEmpty ResourceRecord -> ResourceRecordSet

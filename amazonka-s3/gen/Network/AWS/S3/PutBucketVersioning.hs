@@ -60,7 +60,7 @@ data PutBucketVersioning = PutBucketVersioning'
     , _pbvContentMD5              :: !(Maybe Text)
     , _pbvBucket                  :: !BucketName
     , _pbvVersioningConfiguration :: !VersioningConfiguration
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketVersioning' smart constructor.
 putBucketVersioning :: BucketName -> VersioningConfiguration -> PutBucketVersioning

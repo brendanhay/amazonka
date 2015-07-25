@@ -196,7 +196,7 @@ data Cluster = Cluster'
     , _cluId                      :: !Text
     , _cluName                    :: !Text
     , _cluStatus                  :: !ClusterStatus
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Text -> Text -> ClusterStatus -> Cluster
@@ -587,10 +587,10 @@ instance FromJSON Command where
 --
 -- * 'cProperties'
 data Configuration = Configuration'
-    { _cConfigurations :: !(Maybe ConfigurationList)
+    { _cConfigurations :: !(Maybe [Configuration])
     , _cClassification :: !(Maybe Text)
     , _cProperties     :: !(Maybe (Map Text Text))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Configuration' smart constructor.
 configuration :: Configuration
@@ -602,8 +602,8 @@ configuration =
     }
 
 -- | A list of configurations you apply to this configuration object.
-cConfigurations :: Lens' Configuration (Maybe ConfigurationList)
-cConfigurations = lens _cConfigurations (\ s a -> s{_cConfigurations = a});
+cConfigurations :: Lens' Configuration [Configuration]
+cConfigurations = lens _cConfigurations (\ s a -> s{_cConfigurations = a}) . _Default . _Coerce;
 
 -- | The classification of a configuration. For more information see,
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/EmrConfigurations.html Amazon EMR Configurations>.
@@ -619,7 +619,8 @@ instance FromJSON Configuration where
           = withObject "Configuration"
               (\ x ->
                  Configuration' <$>
-                   (x .:? "Configurations") <*> (x .:? "Classification")
+                   (x .:? "Configurations" .!= mempty) <*>
+                     (x .:? "Classification")
                      <*> (x .:? "Properties" .!= mempty))
 
 instance ToJSON Configuration where
@@ -973,7 +974,7 @@ data InstanceGroup = InstanceGroup'
     , _igMarket                 :: !(Maybe MarketType)
     , _igName                   :: !(Maybe Text)
     , _igId                     :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroup' smart constructor.
 instanceGroup :: InstanceGroup
@@ -1079,7 +1080,7 @@ data InstanceGroupConfig = InstanceGroupConfig'
     , _igcInstanceRole   :: !InstanceRoleType
     , _igcInstanceType   :: !Text
     , _igcInstanceCount  :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupConfig' smart constructor.
 instanceGroupConfig :: InstanceRoleType -> Text -> Int -> InstanceGroupConfig
@@ -1498,7 +1499,7 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
     , _jficTerminationProtected           :: !(Maybe Bool)
     , _jficPlacement                      :: !(Maybe PlacementType)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'JobFlowInstancesConfig' smart constructor.
 jobFlowInstancesConfig :: JobFlowInstancesConfig

@@ -91,7 +91,7 @@ data PutObjectACL = PutObjectACL'
     , _poaACL                 :: !(Maybe ObjectCannedACL)
     , _poaBucket              :: !BucketName
     , _poaKey                 :: !ObjectKey
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutObjectACL' smart constructor.
 putObjectACL :: BucketName -> ObjectKey -> PutObjectACL

@@ -137,7 +137,7 @@ data Scan = Scan'
     , _sExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
     , _sIndexName                 :: !(Maybe Text)
     , _sTableName                 :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Scan' smart constructor.
 scan :: Text -> Scan
@@ -549,7 +549,7 @@ data ScanResponse = ScanResponse'
     , _srsItems            :: !(Maybe [Map Text AttributeValue])
     , _srsConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _srsStatus           :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScanResponse' smart constructor.
 scanResponse :: Int -> ScanResponse

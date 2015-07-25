@@ -66,7 +66,7 @@ data AbortMultipartUpload = AbortMultipartUpload'
     , _amuBucket       :: !BucketName
     , _amuKey          :: !ObjectKey
     , _amuUploadId     :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: BucketName -> ObjectKey -> Text -> AbortMultipartUpload

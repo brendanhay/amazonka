@@ -56,7 +56,7 @@ data PutBucketPolicy = PutBucketPolicy'
     { _pbpContentMD5 :: !(Maybe Text)
     , _pbpBucket     :: !BucketName
     , _pbpPolicy     :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketPolicy' smart constructor.
 putBucketPolicy :: BucketName -> Text -> PutBucketPolicy

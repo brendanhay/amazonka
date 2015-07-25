@@ -53,7 +53,7 @@ import           Network.AWS.S3.Types
 -- * 'gbwBucket'
 newtype GetBucketWebsite = GetBucketWebsite'
     { _gbwBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketWebsite' smart constructor.
 getBucketWebsite :: BucketName -> GetBucketWebsite
@@ -111,7 +111,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
     , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
     , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
     , _gbwrsStatus                :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketWebsiteResponse' smart constructor.
 getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse

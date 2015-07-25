@@ -223,7 +223,7 @@ gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a});
 -- | Plaintext that contains the data key. Use this for encryption and
 -- decryption and then remove it from memory as soon as possible.
 gdkrsPlaintext :: Lens' GenerateDataKeyResponse (Maybe ByteString)
-gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mapping _Sensitive . _Base64;
+gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mapping (_Sensitive . _Base64);
 
 -- | Ciphertext that contains the encrypted data key. You must store the blob
 -- and enough information to reconstruct the encryption context so that the

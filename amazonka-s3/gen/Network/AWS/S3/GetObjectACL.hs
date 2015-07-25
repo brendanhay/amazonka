@@ -64,7 +64,7 @@ data GetObjectACL = GetObjectACL'
     , _goaRequestPayer :: !(Maybe RequestPayer)
     , _goaBucket       :: !BucketName
     , _goaKey          :: !ObjectKey
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectACL' smart constructor.
 getObjectACL :: BucketName -> ObjectKey -> GetObjectACL

@@ -74,7 +74,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     , _cBucket          :: !BucketName
     , _cKey             :: !ObjectKey
     , _cUploadId        :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: BucketName -> ObjectKey -> Text -> CompleteMultipartUpload
@@ -180,7 +180,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _crsStatus               :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUploadResponse' smart constructor.
 completeMultipartUploadResponse :: Int -> CompleteMultipartUploadResponse

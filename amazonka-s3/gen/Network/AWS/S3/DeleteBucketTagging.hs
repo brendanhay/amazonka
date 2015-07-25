@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'dbtBucket'
 newtype DeleteBucketTagging = DeleteBucketTagging'
     { _dbtBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketTagging' smart constructor.
 deleteBucketTagging :: BucketName -> DeleteBucketTagging

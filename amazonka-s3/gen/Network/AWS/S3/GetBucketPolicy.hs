@@ -50,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gbpBucket'
 newtype GetBucketPolicy = GetBucketPolicy'
     { _gbpBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketPolicy' smart constructor.
 getBucketPolicy :: BucketName -> GetBucketPolicy

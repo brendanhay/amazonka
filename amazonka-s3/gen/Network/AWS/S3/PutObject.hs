@@ -399,7 +399,7 @@ data PutObjectResponse = PutObjectResponse'
     , _porsSSECustomerKeyMD5    :: !(Maybe Text)
     , _porsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _porsStatus               :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutObjectResponse' smart constructor.
 putObjectResponse :: Int -> PutObjectResponse

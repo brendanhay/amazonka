@@ -66,7 +66,7 @@ data RestoreObject = RestoreObject'
     , _roRestoreRequest :: !(Maybe RestoreRequest)
     , _roBucket         :: !BucketName
     , _roKey            :: !ObjectKey
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreObject' smart constructor.
 restoreObject :: BucketName -> ObjectKey -> RestoreObject

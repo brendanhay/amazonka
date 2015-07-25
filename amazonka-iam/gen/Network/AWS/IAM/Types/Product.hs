@@ -2109,13 +2109,13 @@ virtualMFADevice pSerialNumber_ =
 -- otherwise), and @Base32String@ is the seed in Base32 format. The
 -- @Base32String@ value is Base64-encoded.
 vmdQRCodePNG :: Lens' VirtualMFADevice (Maybe ByteString)
-vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping _Sensitive . _Base64;
+vmdQRCodePNG = lens _vmdQRCodePNG (\ s a -> s{_vmdQRCodePNG = a}) . mapping (_Sensitive . _Base64);
 
 -- | The Base32 seed defined as specified in
 -- <http://www.ietf.org/rfc/rfc3548.txt RFC3548>. The @Base32StringSeed@ is
 -- Base64-encoded.
 vmdBase32StringSeed :: Lens' VirtualMFADevice (Maybe ByteString)
-vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping _Sensitive . _Base64;
+vmdBase32StringSeed = lens _vmdBase32StringSeed (\ s a -> s{_vmdBase32StringSeed = a}) . mapping (_Sensitive . _Base64);
 
 -- | FIXME: Undocumented member.
 vmdUser :: Lens' VirtualMFADevice (Maybe User)

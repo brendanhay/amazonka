@@ -177,7 +177,7 @@ data CopyObject = CopyObject'
     , _coBucket                         :: !BucketName
     , _coCopySource                     :: !Text
     , _coKey                            :: !ObjectKey
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyObject' smart constructor.
 copyObject :: BucketName -> Text -> ObjectKey -> CopyObject
@@ -471,7 +471,7 @@ data CopyObjectResponse = CopyObjectResponse'
     , _corsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _corsCopyObjectResult     :: !(Maybe CopyObjectResult)
     , _corsStatus               :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyObjectResponse' smart constructor.
 copyObjectResponse :: Int -> CopyObjectResponse

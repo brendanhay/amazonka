@@ -137,7 +137,7 @@ data RunJobFlow = RunJobFlow'
     , _rjfServiceRole          :: !(Maybe Text)
     , _rjfName                 :: !Text
     , _rjfInstances            :: !JobFlowInstancesConfig
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunJobFlow' smart constructor.
 runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow

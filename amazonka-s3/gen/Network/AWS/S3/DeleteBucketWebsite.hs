@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'dbwBucket'
 newtype DeleteBucketWebsite = DeleteBucketWebsite'
     { _dbwBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketWebsite' smart constructor.
 deleteBucketWebsite :: BucketName -> DeleteBucketWebsite

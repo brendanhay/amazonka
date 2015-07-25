@@ -55,7 +55,7 @@ data PutBucketTagging = PutBucketTagging'
     { _pbtContentMD5 :: !(Maybe Text)
     , _pbtBucket     :: !BucketName
     , _pbtTagging    :: !Tagging
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketTagging' smart constructor.
 putBucketTagging :: BucketName -> Tagging -> PutBucketTagging

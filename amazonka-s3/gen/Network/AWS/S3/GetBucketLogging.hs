@@ -51,7 +51,7 @@ import           Network.AWS.S3.Types
 -- * 'getBucket'
 newtype GetBucketLogging = GetBucketLogging'
     { _getBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLogging' smart constructor.
 getBucketLogging :: BucketName -> GetBucketLogging

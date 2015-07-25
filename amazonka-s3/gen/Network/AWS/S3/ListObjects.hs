@@ -82,7 +82,7 @@ data ListObjects = ListObjects'
     , _loMaxKeys      :: !(Maybe Int)
     , _loDelimiter    :: !(Maybe Char)
     , _loBucket       :: !BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListObjects' smart constructor.
 listObjects :: BucketName -> ListObjects
@@ -208,7 +208,7 @@ data ListObjectsResponse = ListObjectsResponse'
     , _lorsIsTruncated    :: !(Maybe Bool)
     , _lorsDelimiter      :: !(Maybe Char)
     , _lorsStatus         :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListObjectsResponse' smart constructor.
 listObjectsResponse :: Int -> ListObjectsResponse

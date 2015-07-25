@@ -245,7 +245,7 @@ data UploadPartResponse = UploadPartResponse'
     , _uprsSSECustomerKeyMD5    :: !(Maybe Text)
     , _uprsServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _uprsStatus               :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadPartResponse' smart constructor.
 uploadPartResponse :: Int -> UploadPartResponse

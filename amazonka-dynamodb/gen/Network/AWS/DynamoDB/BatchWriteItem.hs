@@ -138,7 +138,7 @@ data BatchWriteItem = BatchWriteItem'
     { _bwiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
     , _bwiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
     , _bwiRequestItems                :: !(Map Text (List1 WriteRequest))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItem' smart constructor.
 batchWriteItem :: BatchWriteItem
@@ -247,7 +247,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     , _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
     , _bwirsUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
     , _bwirsStatus                :: !Int
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItemResponse' smart constructor.
 batchWriteItemResponse :: Int -> BatchWriteItemResponse

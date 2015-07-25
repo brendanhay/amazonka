@@ -48,7 +48,7 @@ import           Network.AWS.S3.Types
 -- * 'hbBucket'
 newtype HeadBucket = HeadBucket'
     { _hbBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HeadBucket' smart constructor.
 headBucket :: BucketName -> HeadBucket

@@ -78,7 +78,7 @@ data CreateBucket = CreateBucket'
     , _cbGrantWrite                :: !(Maybe Text)
     , _cbACL                       :: !(Maybe BucketCannedACL)
     , _cbBucket                    :: !BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBucket' smart constructor.
 createBucket :: BucketName -> CreateBucket

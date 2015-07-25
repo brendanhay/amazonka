@@ -50,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gbcBucket'
 newtype GetBucketCORS = GetBucketCORS'
     { _gbcBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketCORS' smart constructor.
 getBucketCORS :: BucketName -> GetBucketCORS

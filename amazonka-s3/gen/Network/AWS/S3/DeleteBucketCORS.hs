@@ -47,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'dbcBucket'
 newtype DeleteBucketCORS = DeleteBucketCORS'
     { _dbcBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketCORS' smart constructor.
 deleteBucketCORS :: BucketName -> DeleteBucketCORS

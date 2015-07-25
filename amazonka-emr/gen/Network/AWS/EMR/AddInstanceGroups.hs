@@ -57,7 +57,7 @@ import           Network.AWS.Response
 data AddInstanceGroups = AddInstanceGroups'
     { _aigInstanceGroups :: ![InstanceGroupConfig]
     , _aigJobFlowId      :: !Text
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddInstanceGroups' smart constructor.
 addInstanceGroups :: Text -> AddInstanceGroups

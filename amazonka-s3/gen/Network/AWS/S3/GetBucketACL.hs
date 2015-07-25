@@ -51,7 +51,7 @@ import           Network.AWS.S3.Types
 -- * 'gbaBucket'
 newtype GetBucketACL = GetBucketACL'
     { _gbaBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketACL' smart constructor.
 getBucketACL :: BucketName -> GetBucketACL

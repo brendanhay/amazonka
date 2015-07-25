@@ -64,7 +64,7 @@ data AttributeValue = AttributeValue'
     , _avSS   :: !(Maybe [Text])
     , _avS    :: !(Maybe Text)
     , _avBOOL :: !(Maybe Bool)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttributeValue' smart constructor.
 attributeValue :: AttributeValue
@@ -207,7 +207,7 @@ data Record = Record'
     , _rEventName    :: !(Maybe OperationType)
     , _rEventSource  :: !(Maybe Text)
     , _rEventId      :: !(Maybe Text)
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Record
@@ -583,7 +583,7 @@ data StreamRecord = StreamRecord'
     , _srKeys           :: !(Maybe (Map Text AttributeValue))
     , _srOldImage       :: !(Maybe (Map Text AttributeValue))
     , _srNewImage       :: !(Maybe (Map Text AttributeValue))
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamRecord' smart constructor.
 streamRecord :: StreamRecord

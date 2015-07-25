@@ -49,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'dbBucket'
 newtype DeleteBucket = DeleteBucket'
     { _dbBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucket' smart constructor.
 deleteBucket :: BucketName -> DeleteBucket

@@ -59,7 +59,7 @@ data GetObjectTorrent = GetObjectTorrent'
     { _gotRequestPayer :: !(Maybe RequestPayer)
     , _gotBucket       :: !BucketName
     , _gotKey          :: !ObjectKey
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectTorrent' smart constructor.
 getObjectTorrent :: BucketName -> ObjectKey -> GetObjectTorrent

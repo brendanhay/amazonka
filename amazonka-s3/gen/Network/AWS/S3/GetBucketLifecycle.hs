@@ -50,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gBucket'
 newtype GetBucketLifecycle = GetBucketLifecycle'
     { _gBucket :: BucketName
-    } deriving (Eq,Show,Data,Typeable,Generic)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLifecycle' smart constructor.
 getBucketLifecycle :: BucketName -> GetBucketLifecycle

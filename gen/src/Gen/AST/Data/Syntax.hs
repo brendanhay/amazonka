@@ -748,7 +748,7 @@ iso = \case
     TLit Time     -> Just (var "_Time")
     TLit Blob     -> Just (var "_Base64")
     TNatural      -> Just (var "_Nat")
-    TSensitive {} -> Just (var "_Sensitive")
+    TSensitive x  -> Just (infixE (var "_Sensitive") "." (maybeToList (iso x)))
     TList1     {} -> Just (var "_List1")
     TList      {} -> Just (var "_Coerce")
     TMap       {} -> Just (var "_Map")

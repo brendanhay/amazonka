@@ -1,3 +1,4 @@
+{-# LANGUAGE DefaultSignatures #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- |
@@ -10,16 +11,19 @@
 --
 module Network.AWS.Data.Path where
 
-import           Data.ByteString.Char8 (ByteString)
-import qualified Data.ByteString.Char8 as BS
-import qualified Data.Foldable         as Fold
-import           Data.Monoid           (mempty)
-import           Data.Text             (Text)
+import qualified Data.ByteString.Char8       as BS
+import qualified Data.Foldable               as Fold
+import           Data.Monoid                 (mempty)
+import           Network.AWS.Data.ByteString
+import           Network.HTTP.Types.URI
 
 class ToPath a where
-    toPath :: a -> Text
+    toPath :: a -> ByteString
 
-instance ToPath Text where
+    default toPath :: ToByteString a => a -> ByteString
+    toPath = urlEncode False . toBS
+
+instance ToPath ByteString where
     toPath = id
 
 collapsePath :: ByteString -> ByteString

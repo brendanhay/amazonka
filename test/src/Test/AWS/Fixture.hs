@@ -127,7 +127,7 @@ data Req = Req
     } deriving (Eq, Show, Generic)
 
 mkReq :: Method -> ByteString -> SimpleQuery -> [Header] -> ByteString -> Req
-mkReq m p q h b = Req m p (sortKeys q) (sortKeys h) b
+mkReq m p q h = Req m p (sortKeys q) (sortKeys h)
 
 instance FromJSON Req where
     parseJSON = withObject "req" $ \o -> mkReq

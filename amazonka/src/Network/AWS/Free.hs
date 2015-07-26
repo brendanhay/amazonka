@@ -146,7 +146,7 @@ await :: (MonadFree Command m, AWSRequest a)
       => Wait a
       -> a
       -> m (Either Error (Rs a))
-await w = serviceFor (flip awaitWith w)
+await w = serviceFor (`awaitWith` w)
 
 -- | A variant of 'await' that allows specifying the 'Service' definition
 -- used to configure the request.

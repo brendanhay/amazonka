@@ -53,7 +53,7 @@ presign :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)
         -> Integer     -- ^ Expiry time in seconds.
         -> a           -- ^ Request to presign.
         -> m ClientRequest
-presign e t ex x = serviceFor (\s -> presignWith e s t ex) x
+presign e t ex = serviceFor (\s -> presignWith e s t ex)
 
 -- /Note:/ You can used "Network.AWS.Request.requestURL" to extract a fully
 -- signed URL from the request.

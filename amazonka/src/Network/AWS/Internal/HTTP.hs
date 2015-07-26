@@ -55,11 +55,11 @@ perform e@Env{..} svc x =
 
         logDebug _envLogger rs -- debug:ClientResponse
 
-        return $! Right rs
+        return (Right rs)
 
     err er = do
         logError _envLogger er  -- error:HttpException
-        return $! Left er
+        return (Left er)
 
 retrier :: MonadIO m
         => Env

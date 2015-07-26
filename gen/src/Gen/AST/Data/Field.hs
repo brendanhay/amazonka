@@ -66,7 +66,7 @@ instance TypeOf Field where
             TList {} -> True
             _        -> False
 
-        loc = (fieldLocation f) `elem` map Just
+        loc = fieldLocation f `elem` map Just
             [ Headers
             , Header
             ]

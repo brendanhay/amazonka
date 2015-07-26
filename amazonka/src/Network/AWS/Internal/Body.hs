@@ -1,5 +1,3 @@
-{-# LANGUAGE PackageImports #-}
-
 -- |
 -- Module      : Network.AWS.Internal.Body
 -- Copyright   : (c) 2013-2015 Brendan Hay

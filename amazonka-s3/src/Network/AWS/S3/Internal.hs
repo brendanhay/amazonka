@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
 
 -- Module      : Network.AWS.S3.Internal
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -17,31 +18,15 @@ module Network.AWS.S3.Internal
     , Region
     ) where
 
-import           Data.Data            (Data, Typeable)
+import qualified Data.ByteString       as BS
+import qualified Data.ByteString.Char8 as BS8
 import           Data.String
-import           GHC.Generics         (Generic)
 import           Network.AWS.Data.XML
 import           Network.AWS.Prelude
 
-newtype BucketName = BucketName Text
-    deriving
-        ( Eq
-        , Ord
-        , Read
-        , Show
-        , Data
-        , Typeable
-        , Generic
-        , IsString
-        , FromText
-        , ToText
-        , ToByteString
-        , FromXML
-        , ToXML
-        , ToQuery
-        )
+default (ByteString)
 
-newtype ObjectKey = ObjectKey Text
+newtype BucketName = BucketName Text
     deriving
         ( Eq
         , Ord
@@ -96,3 +81,43 @@ newtype ETag = ETag ByteString
         , ToXML
         , ToQuery
         )
+
+type Delimiter = Char
+
+data ObjectKey
+    = DecodedKey !Char [ByteString]
+    | EncodedKey ByteString
+      deriving (Eq, Ord, Read, Show, Data, Typeable, Generic)
+
+instance IsString ObjectKey where
+    fromString = objectKey '/' . fromString
+
+instance FromText ObjectKey where
+    parser = EncodedKey . toBS <$> takeText
+
+instance FromXML ObjectKey where
+    parseXML = parseXMLText "ObjectKey"
+
+instance ToByteString ObjectKey where toBS    = encoded
+instance ToText       ObjectKey where toText  = toText  . encoded
+instance ToQuery      ObjectKey where toQuery = toQuery . encoded
+instance ToBuilder    ObjectKey where build   = build   . encoded
+instance ToXML        ObjectKey where toXML   = toXMLText
+
+objectKey :: Char -> ByteString -> ObjectKey
+objectKey c = DecodedKey c . BS8.split c
+
+encoded :: ObjectKey -> ByteString
+encoded = \case
+    EncodedKey bs   -> bs
+    DecodedKey c xs ->
+        BS8.intercalate (BS8.singleton c) $
+            map (urlEncode False) xs
+
+decoded :: ObjectKey -> Either (Char -> ByteString) ByteString
+decoded = \case
+    DecodedKey c xs -> Right $ BS8.intercalate (BS8.singleton c) xs
+    EncodedKey bs   -> Left  $ \c ->
+        let w = toEnum (fromEnum c)
+         in BS.intercalate (BS.singleton w) $
+                map (urlDecode False) (BS.split w bs)

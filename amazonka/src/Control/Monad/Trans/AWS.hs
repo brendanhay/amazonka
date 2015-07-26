@@ -31,6 +31,8 @@ module Control.Monad.Trans.AWS
     -- * Running AWS Actions
       AWST
     , runAWST
+    -- ** Mocking
+    , pureAWST
 
     -- * Environment Setup
     , Credentials (..)
@@ -42,11 +44,6 @@ module Control.Monad.Trans.AWS
     , within
     , once
     , timeout
-
-    -- * EC2 Metadata
-    , metadata
-    , dynamic
-    , userdata
 
     -- * Sending Requests
     -- ** Synchronous
@@ -81,12 +78,11 @@ module Control.Monad.Trans.AWS
 import           Control.Applicative
 import           Control.Monad.Base
 import           Control.Monad.Catch          (MonadCatch)
-import           Control.Monad.Error.Class
+import           Control.Monad.Error.Class    (MonadError (..))
 import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.State.Class
 import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Except
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
@@ -165,6 +161,14 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
 
 runAWST :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWST m a -> m a
 runAWST e (AWST m) = runReaderT (evalProgramT m) (e ^. env)
+
+pureAWST :: Monad m
+         => (forall s a. Service s ->           a -> Either Error (Rs a))
+         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+         -> Env
+         -> AWST m b
+         -> m b
+pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) e
 
 {- $embedding
 The following is a more advanced example, of how you might embed Amazonka actions

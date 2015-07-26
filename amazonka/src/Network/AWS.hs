@@ -38,11 +38,6 @@ module Network.AWS
     , Env
     , newEnv
 
-    -- * EC2 Metadata
-    , metadata
-    , dynamic
-    , userdata
-
     -- * Sending Requests
     -- ** Synchronous
     , send
@@ -87,11 +82,9 @@ import           Control.Monad.Trans.Maybe
 import           Control.Monad.Trans.Resource
 import qualified Control.Monad.Writer.Lazy    as LW
 import qualified Control.Monad.Writer.Strict  as W
-import           Data.ByteString              (ByteString)
 import           Data.Conduit                 (Source)
 import           Data.Monoid
 import           Network.AWS.Auth
-import           Network.AWS.EC2.Metadata     (Dynamic, Metadata)
 import           Network.AWS.Env              (AWSEnv (..), Env, newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
@@ -99,7 +92,6 @@ import           Network.AWS.Pager
 import           Network.AWS.Presign
 import           Network.AWS.Types
 import           Network.AWS.Waiter
-import           Network.HTTP.Client          (HttpException)
 
 -- | A specialisation of the 'AWST' transformer.
 type AWS = AWST IO
@@ -147,17 +139,6 @@ once = liftAWS . AWST.once
 -- | Configure any HTTP connections to use this response timeout value.
 timeout :: MonadAWS m => Seconds -> AWS a -> m a
 timeout s = liftAWS . AWST.timeout s
-
--- | FIXME: add a note about using Network.AWS.EC2.Metadata directly
--- if you need it pre-AWS initialisation.
-metadata :: MonadAWS m => Metadata -> m (Either HttpException ByteString)
-metadata = liftAWS . AWST.metadata
-
-dynamic :: MonadAWS m => Dynamic -> m (Either HttpException ByteString)
-dynamic = liftAWS . AWST.dynamic
-
-userdata :: MonadAWS m => m (Either HttpException (Maybe ByteString))
-userdata = liftAWS AWST.userdata
 
 -- | Send a request, returning the associated response if successful,
 -- otherwise an 'Error'.

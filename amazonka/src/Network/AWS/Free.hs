@@ -26,47 +26,30 @@ import           Control.Monad.Trans.Free        (FreeT)
 import           Control.Monad.Trans.Free.Church
 import           Control.Monad.Trans.Resource
 import           Data.Conduit                    (Source, yield)
-import           Network.AWS.EC2.Metadata        (Dynamic, Metadata)
-import qualified Network.AWS.EC2.Metadata        as Meta
 import           Network.AWS.Env
 import           Network.AWS.Internal.HTTP
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
-import           Network.HTTP.Client             (HttpException)
 
 data Command r where
-    GetMetadata :: Metadata
-                -> (Either HttpException ByteString -> r)
-                -> Command r
+    Send  :: (AWSSigner (Sg s), AWSRequest a)
+          => Service s
+          -> a
+          -> (Either Error (Rs a) -> r)
+          -> Command r
 
-    GetDynamic  :: Dynamic
-                -> (Either HttpException ByteString -> r)
-                -> Command r
-
-    GetUserdata :: (Either HttpException (Maybe ByteString) -> r)
-                -> Command r
-
-    Send        :: (AWSSigner (Sg s), AWSRequest a)
-                => Service s
-                -> a
-                -> (Either Error (Rs a) -> r)
-                -> Command r
-
-    Await       :: (AWSSigner (Sg s), AWSRequest a)
-                => Service s
-                -> Wait a
-                -> a
-                -> (Either Error (Rs a) -> r)
-                -> Command r
+    Await :: (AWSSigner (Sg s), AWSRequest a)
+          => Service s
+          -> Wait a
+          -> a
+          -> (Either Error (Rs a) -> r)
+          -> Command r
 
 instance Functor Command where
     fmap f = \case
-        GetMetadata     x k -> GetMetadata     x (fmap f k)
-        GetDynamic      x k -> GetDynamic      x (fmap f k)
-        GetUserdata       k -> GetUserdata       (fmap f k)
-        Send        s   x k -> Send        s   x (fmap f k)
-        Await       s w x k -> Await       s w x (fmap f k)
+        Send  s   x k -> Send  s   x (fmap f k)
+        Await s w x k -> Await s w x (fmap f k)
 
 type ProgramT = FreeT Command
 
@@ -85,18 +68,6 @@ evalProgramT :: ( MonadCatch m
              -> m a
 evalProgramT = iterT go . toFT
   where
-    go (GetMetadata x k) = do
-        m <- view envManager
-        Meta.metadata m x >>= k
-
-    go (GetDynamic x k) = do
-        m <- view envManager
-        Meta.dynamic m x >>= k
-
-    go (GetUserdata k) = do
-        m <- view envManager
-        Meta.userdata m >>= k
-
     go (Send s (request -> x) k) = do
         e <- view env
         retrier e s x (perform e s x) >>= k . fmap snd
@@ -105,21 +76,15 @@ evalProgramT = iterT go . toFT
         e <- view env
         waiter e w x (perform e s x) >>= k . fmap snd
 
--- | FIXME: add a note about using Network.AWS.EC2.Metadata directly
--- if you need it pre-AWS initialisation.
-metadata :: MonadFree Command m
-         => Metadata
-         -> m (Either HttpException ByteString)
-metadata x = liftF $ GetMetadata x id
-
-dynamic :: MonadFree Command m
-        => Dynamic
-        -> m (Either HttpException ByteString)
-dynamic x = liftF $ GetDynamic x id
-
-userdata :: MonadFree Command m
-         => m (Either HttpException (Maybe ByteString))
-userdata = liftF $ GetUserdata id
+pureProgramT :: Monad m
+             => (forall s a. Service s ->           a -> Either Error (Rs a))
+             -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+             -> ProgramT m b
+             -> m b
+pureProgramT f g = iterT go . toFT
+  where
+    go (Send  s   x k) = k (f s   x)
+    go (Await s w x k) = k (g s w x)
 
 -- | Send a request, returning the associated response if successful,
 -- otherwise an 'Error'.

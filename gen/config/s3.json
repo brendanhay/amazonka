@@ -4,7 +4,8 @@
     "libraryName": "amazonka-s3",
     "extraDependencies": [
         "bytestring >= 0.9",
-        "containers >= 0.5"
+        "containers >= 0.5",
+        "lens       >= 4.4"
     ],
     "operationPlugins": {
         "DeleteObjects": ["contentMD5"],

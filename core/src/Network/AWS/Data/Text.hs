@@ -19,6 +19,7 @@ module Network.AWS.Data.Text
     , fromText
     , fromTextError
     , takeLowerText
+    , takeText
     , matchCI
 
     -- * Serialisation
@@ -62,6 +63,9 @@ fromText = A.parseOnly parser
 
 takeLowerText :: Parser Text
 takeLowerText = Text.toLower <$> A.takeText
+
+takeText :: Parser Text
+takeText = A.takeText
 
 matchCI :: Text -> a -> Parser a
 matchCI x y = A.asciiCI x <* A.endOfInput >> return y

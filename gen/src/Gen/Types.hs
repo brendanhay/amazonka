@@ -132,14 +132,15 @@ data Versions = Versions
 makeClassy ''Versions
 
 data Config = Config
-    { _libraryName      :: Text
-    , _referenceUrl     :: Text
-    , _operationUrl     :: Text
-    , _operationModules :: [NS]
-    , _operationPlugins :: Map Id [Text]
-    , _typeModules      :: [NS]
-    , _typeOverrides    :: Map Id Override
-    , _ignoredWaiters   :: Set Id
+    { _libraryName       :: Text
+    , _referenceUrl      :: Text
+    , _operationUrl      :: Text
+    , _operationModules  :: [NS]
+    , _operationPlugins  :: Map Id [Text]
+    , _typeModules       :: [NS]
+    , _typeOverrides     :: Map Id Override
+    , _ignoredWaiters    :: Set Id
+    , _extraDependencies :: [Text]
     }
 
 makeClassy ''Config
@@ -149,11 +150,12 @@ instance FromJSON Config where
         <$> o .:  "libraryName"
         <*> o .:  "referenceUrl"
         <*> o .:  "operationUrl"
-        <*> o .:? "operationModules" .!= mempty
-        <*> o .:? "operationPlugins" .!= mempty
-        <*> o .:? "typeModules"      .!= mempty
-        <*> o .:? "typeOverrides"    .!= mempty
-        <*> o .:? "ignoredWaiters"   .!= mempty
+        <*> o .:? "operationModules"  .!= mempty
+        <*> o .:? "operationPlugins"  .!= mempty
+        <*> o .:? "typeModules"       .!= mempty
+        <*> o .:? "typeOverrides"     .!= mempty
+        <*> o .:? "ignoredWaiters"    .!= mempty
+        <*> o .:? "extraDependencies" .!= mempty
 
 data Library = Library
     { _versions' :: Versions
@@ -181,24 +183,25 @@ instance ToJSON Library where
       where
         Object y = toJSON (l ^. metadata)
         Object x = object
-            [ "referenceUrl"     .= (l ^. referenceUrl)
-            , "operationUrl"     .= (l ^. operationUrl)
-            , "plainDescription" .= Desc 0 (l ^. documentation)
-            , "cabalDescription" .= Desc 4 (l ^. documentation)
-            , "documentation"    .= (l ^. documentation)
-            , "libraryName"      .= (l ^. libraryName)
-            , "libraryNamespace" .= (l ^. libraryNS)
-            , "libraryVersion"   .= (l ^. libraryVersion)
-            , "clientVersion"    .= (l ^. clientVersion)
-            , "coreVersion"      .= (l ^. coreVersion)
-            , "serviceInstance"  .= (l ^.  instance')
-            , "typeModules"      .= sort (l ^.  typeModules)
-            , "operationModules" .= sort (l ^.  operationModules)
-            , "exposedModules"   .= sort (l ^.  exposedModules)
-            , "otherModules"     .= sort (l ^.  otherModules)
-            , "operations"       .= (l ^.. operations . each)
-            , "shapes"           .= sort (l ^.. shapes . each)
-            , "waiters"          .= (l ^.. waiters . each)
+            [ "referenceUrl"      .= (l ^. referenceUrl)
+            , "operationUrl"      .= (l ^. operationUrl)
+            , "plainDescription"  .= Desc 0 (l ^. documentation)
+            , "cabalDescription"  .= Desc 4 (l ^. documentation)
+            , "documentation"     .= (l ^. documentation)
+            , "libraryName"       .= (l ^. libraryName)
+            , "libraryNamespace"  .= (l ^. libraryNS)
+            , "libraryVersion"    .= (l ^. libraryVersion)
+            , "clientVersion"     .= (l ^. clientVersion)
+            , "coreVersion"       .= (l ^. coreVersion)
+            , "serviceInstance"   .= (l ^.  instance')
+            , "typeModules"       .= sort (l ^. typeModules)
+            , "operationModules"  .= sort (l ^. operationModules)
+            , "exposedModules"    .= sort (l ^. exposedModules)
+            , "otherModules"      .= sort (l ^. otherModules)
+            , "extraDependencies" .= sort (l ^. extraDependencies)
+            , "operations"        .= (l ^.. operations . each)
+            , "shapes"            .= sort (l ^.. shapes . each)
+            , "waiters"           .= (l ^.. waiters . each)
             ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.

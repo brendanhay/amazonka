@@ -41,7 +41,9 @@ library
     build-depends:
           amazonka-core == {{ coreVersion }}.*
         , base          >= 4.7     && < 5
-        , bytestring    >= 0.9
+      {% for dep in extraDependencies %}
+        , {{ dep.value }}
+      {% endfor %}
 
 test-suite {{ libraryName }}-test
     type:              exitcode-stdio-1.0

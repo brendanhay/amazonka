@@ -42,9 +42,11 @@ instance ToText LifeCycleState where
         Deleted -> "deleted"
         Deleting -> "deleting"
 
-instance Hashable LifeCycleState
-instance ToQuery  LifeCycleState
-instance ToHeader LifeCycleState
+instance Hashable     LifeCycleState
+instance ToByteString LifeCycleState
+instance ToPath       LifeCycleState
+instance ToQuery      LifeCycleState
+instance ToHeader     LifeCycleState
 
 instance FromJSON LifeCycleState where
     parseJSON = parseJSONText "LifeCycleState"

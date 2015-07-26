@@ -123,7 +123,7 @@ instance ToHeaders RestoreObject where
 
 instance ToPath RestoreObject where
         toPath RestoreObject'{..}
-          = mconcat ["/", toText _roBucket, "/", toText _roKey]
+          = mconcat ["/", toPath _roBucket, "/", toPath _roKey]
 
 instance ToQuery RestoreObject where
         toQuery RestoreObject'{..}

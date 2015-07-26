@@ -173,8 +173,8 @@ instance ToHeaders GetJobOutput where
 instance ToPath GetJobOutput where
         toPath GetJobOutput'{..}
           = mconcat
-              ["/", toText _gjoAccountId, "/vaults/",
-               toText _gjoVaultName, "/jobs/", toText _gjoJobId,
+              ["/", toPath _gjoAccountId, "/vaults/",
+               toPath _gjoVaultName, "/jobs/", toPath _gjoJobId,
                "/output"]
 
 instance ToQuery GetJobOutput where

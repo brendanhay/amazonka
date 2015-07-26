@@ -36,9 +36,11 @@ instance ToText DirectorySize where
         Large -> "large"
         Small -> "small"
 
-instance Hashable DirectorySize
-instance ToQuery  DirectorySize
-instance ToHeader DirectorySize
+instance Hashable     DirectorySize
+instance ToByteString DirectorySize
+instance ToPath       DirectorySize
+instance ToQuery      DirectorySize
+instance ToHeader     DirectorySize
 
 instance ToJSON DirectorySize where
     toJSON = toJSONText
@@ -90,9 +92,11 @@ instance ToText DirectoryStage where
         DSRestoreFailed -> "restorefailed"
         DSRestoring -> "restoring"
 
-instance Hashable DirectoryStage
-instance ToQuery  DirectoryStage
-instance ToHeader DirectoryStage
+instance Hashable     DirectoryStage
+instance ToByteString DirectoryStage
+instance ToPath       DirectoryStage
+instance ToQuery      DirectoryStage
+instance ToHeader     DirectoryStage
 
 instance FromJSON DirectoryStage where
     parseJSON = parseJSONText "DirectoryStage"
@@ -114,9 +118,11 @@ instance ToText DirectoryType where
         ADConnector -> "adconnector"
         SimpleAD -> "simplead"
 
-instance Hashable DirectoryType
-instance ToQuery  DirectoryType
-instance ToHeader DirectoryType
+instance Hashable     DirectoryType
+instance ToByteString DirectoryType
+instance ToPath       DirectoryType
+instance ToQuery      DirectoryType
+instance ToHeader     DirectoryType
 
 instance FromJSON DirectoryType where
     parseJSON = parseJSONText "DirectoryType"
@@ -144,9 +150,11 @@ instance ToText RadiusAuthenticationProtocol where
         MsCHAPV2 -> "ms-chapv2"
         Pap -> "pap"
 
-instance Hashable RadiusAuthenticationProtocol
-instance ToQuery  RadiusAuthenticationProtocol
-instance ToHeader RadiusAuthenticationProtocol
+instance Hashable     RadiusAuthenticationProtocol
+instance ToByteString RadiusAuthenticationProtocol
+instance ToPath       RadiusAuthenticationProtocol
+instance ToQuery      RadiusAuthenticationProtocol
+instance ToHeader     RadiusAuthenticationProtocol
 
 instance ToJSON RadiusAuthenticationProtocol where
     toJSON = toJSONText
@@ -174,9 +182,11 @@ instance ToText RadiusStatus where
         Creating -> "creating"
         Failed -> "failed"
 
-instance Hashable RadiusStatus
-instance ToQuery  RadiusStatus
-instance ToHeader RadiusStatus
+instance Hashable     RadiusStatus
+instance ToByteString RadiusStatus
+instance ToPath       RadiusStatus
+instance ToQuery      RadiusStatus
+instance ToHeader     RadiusStatus
 
 instance FromJSON RadiusStatus where
     parseJSON = parseJSONText "RadiusStatus"
@@ -201,9 +211,11 @@ instance ToText SnapshotStatus where
         SSCreating -> "creating"
         SSFailed -> "failed"
 
-instance Hashable SnapshotStatus
-instance ToQuery  SnapshotStatus
-instance ToHeader SnapshotStatus
+instance Hashable     SnapshotStatus
+instance ToByteString SnapshotStatus
+instance ToPath       SnapshotStatus
+instance ToQuery      SnapshotStatus
+instance ToHeader     SnapshotStatus
 
 instance FromJSON SnapshotStatus where
     parseJSON = parseJSONText "SnapshotStatus"
@@ -225,9 +237,11 @@ instance ToText SnapshotType where
         Auto -> "auto"
         Manual -> "manual"
 
-instance Hashable SnapshotType
-instance ToQuery  SnapshotType
-instance ToHeader SnapshotType
+instance Hashable     SnapshotType
+instance ToByteString SnapshotType
+instance ToPath       SnapshotType
+instance ToQuery      SnapshotType
+instance ToHeader     SnapshotType
 
 instance FromJSON SnapshotType where
     parseJSON = parseJSONText "SnapshotType"

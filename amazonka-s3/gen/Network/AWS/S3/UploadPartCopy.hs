@@ -283,7 +283,7 @@ instance ToHeaders UploadPartCopy where
 instance ToPath UploadPartCopy where
         toPath UploadPartCopy'{..}
           = mconcat
-              ["/", toText _upcBucket, "/", toText _upcKey]
+              ["/", toPath _upcBucket, "/", toPath _upcKey]
 
 instance ToQuery UploadPartCopy where
         toQuery UploadPartCopy'{..}

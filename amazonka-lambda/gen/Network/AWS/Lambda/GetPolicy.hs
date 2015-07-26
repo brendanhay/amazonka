@@ -91,7 +91,7 @@ instance ToHeaders GetPolicy where
 instance ToPath GetPolicy where
         toPath GetPolicy'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _gpFunctionName,
+              ["/2015-03-31/functions/", toPath _gpFunctionName,
                "/versions/HEAD/policy"]
 
 instance ToQuery GetPolicy where

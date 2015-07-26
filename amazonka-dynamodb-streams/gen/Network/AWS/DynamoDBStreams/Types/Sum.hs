@@ -36,9 +36,11 @@ instance ToText KeyType where
         Hash -> "hash"
         Range -> "range"
 
-instance Hashable KeyType
-instance ToQuery  KeyType
-instance ToHeader KeyType
+instance Hashable     KeyType
+instance ToByteString KeyType
+instance ToPath       KeyType
+instance ToQuery      KeyType
+instance ToHeader     KeyType
 
 instance FromJSON KeyType where
     parseJSON = parseJSONText "KeyType"
@@ -63,9 +65,11 @@ instance ToText OperationType where
         Modify -> "modify"
         Remove -> "remove"
 
-instance Hashable OperationType
-instance ToQuery  OperationType
-instance ToHeader OperationType
+instance Hashable     OperationType
+instance ToByteString OperationType
+instance ToPath       OperationType
+instance ToQuery      OperationType
+instance ToHeader     OperationType
 
 instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"
@@ -93,9 +97,11 @@ instance ToText ShardIteratorType where
         Latest -> "latest"
         TrimHorizon -> "trim_horizon"
 
-instance Hashable ShardIteratorType
-instance ToQuery  ShardIteratorType
-instance ToHeader ShardIteratorType
+instance Hashable     ShardIteratorType
+instance ToByteString ShardIteratorType
+instance ToPath       ShardIteratorType
+instance ToQuery      ShardIteratorType
+instance ToHeader     ShardIteratorType
 
 instance ToJSON ShardIteratorType where
     toJSON = toJSONText
@@ -123,9 +129,11 @@ instance ToText StreamStatus where
         Enabled -> "enabled"
         Enabling -> "enabling"
 
-instance Hashable StreamStatus
-instance ToQuery  StreamStatus
-instance ToHeader StreamStatus
+instance Hashable     StreamStatus
+instance ToByteString StreamStatus
+instance ToPath       StreamStatus
+instance ToQuery      StreamStatus
+instance ToHeader     StreamStatus
 
 instance FromJSON StreamStatus where
     parseJSON = parseJSONText "StreamStatus"
@@ -153,9 +161,11 @@ instance ToText StreamViewType where
         NewImage -> "new_image"
         OldImage -> "old_image"
 
-instance Hashable StreamViewType
-instance ToQuery  StreamViewType
-instance ToHeader StreamViewType
+instance Hashable     StreamViewType
+instance ToByteString StreamViewType
+instance ToPath       StreamViewType
+instance ToQuery      StreamViewType
+instance ToHeader     StreamViewType
 
 instance FromJSON StreamViewType where
     parseJSON = parseJSONText "StreamViewType"

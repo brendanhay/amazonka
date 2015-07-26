@@ -205,7 +205,7 @@ instance ToHeaders ListResourceRecordSets where
 instance ToPath ListResourceRecordSets where
         toPath ListResourceRecordSets'{..}
           = mconcat
-              ["/2013-04-01/hostedzone/", toText _lrrsHostedZoneId,
+              ["/2013-04-01/hostedzone/", toPath _lrrsHostedZoneId,
                "/rrset"]
 
 instance ToQuery ListResourceRecordSets where

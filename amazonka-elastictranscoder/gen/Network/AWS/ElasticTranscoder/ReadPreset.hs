@@ -81,7 +81,7 @@ instance ToHeaders ReadPreset where
 
 instance ToPath ReadPreset where
         toPath ReadPreset'{..}
-          = mconcat ["/2012-09-25/presets/", toText _rpId]
+          = mconcat ["/2012-09-25/presets/", toPath _rpId]
 
 instance ToQuery ReadPreset where
         toQuery = const mempty

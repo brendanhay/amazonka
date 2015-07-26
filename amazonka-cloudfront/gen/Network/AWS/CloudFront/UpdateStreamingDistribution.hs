@@ -112,7 +112,7 @@ instance ToPath UpdateStreamingDistribution where
         toPath UpdateStreamingDistribution'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _usdId, "/config"]
+               toPath _usdId, "/config"]
 
 instance ToQuery UpdateStreamingDistribution where
         toQuery = const mempty

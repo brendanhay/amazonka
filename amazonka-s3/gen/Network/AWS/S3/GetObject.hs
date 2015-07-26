@@ -308,7 +308,7 @@ instance ToHeaders GetObject where
 
 instance ToPath GetObject where
         toPath GetObject'{..}
-          = mconcat ["/", toText _goBucket, "/", toText _goKey]
+          = mconcat ["/", toPath _goBucket, "/", toPath _goKey]
 
 instance ToQuery GetObject where
         toQuery GetObject'{..}

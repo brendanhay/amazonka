@@ -80,7 +80,7 @@ instance ToHeaders GetBucketLifecycle where
 
 instance ToPath GetBucketLifecycle where
         toPath GetBucketLifecycle'{..}
-          = mconcat ["/", toText _gBucket]
+          = mconcat ["/", toPath _gBucket]
 
 instance ToQuery GetBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])

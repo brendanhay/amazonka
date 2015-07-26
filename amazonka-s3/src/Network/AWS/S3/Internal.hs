@@ -41,23 +41,7 @@ newtype BucketName = BucketName Text
         , ToQuery
         )
 
-newtype ObjectKey = ObjectKey Text
-    deriving
-        ( Eq
-        , Ord
-        , Read
-        , Show
-        , Data
-        , Typeable
-        , Generic
-        , IsString
-        , FromText
-        , ToText
-        , ToByteString
-        , FromXML
-        , ToXML
-        , ToQuery
-        )
+instance ToPath BucketName
 
 newtype ObjectVersionId = ObjectVersionId Text
     deriving
@@ -76,6 +60,8 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToXML
         , ToQuery
         )
+
+instance ToPath ObjectVersionId
 
 -- FIXME: Add the difference between weak + strong ETags and their respective
 -- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
@@ -96,3 +82,49 @@ newtype ETag = ETag ByteString
         , ToXML
         , ToQuery
         )
+
+newtype ObjectKey = ObjectKey Text
+    deriving
+        ( Eq
+        , Ord
+        , Read
+        , Show
+        , Data
+        , Typeable
+        , Generic
+        , IsString
+        , FromText
+        , ToText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , ToQuery
+        )
+
+instance ToPath ObjectKey
+
+-- objectKey :: Delimiter -> ByteString -> ObjectKey
+-- objectKey c = DecodedKey c . splitKey c
+
+-- splitKey :: Delimiter -> ByteString -> Seq ByteString
+-- splitKey c = Seq.fromList . BS8.split c
+
+-- components :: Delimiter -> IndexedTraversal' Int ObjectKey ByteString
+-- components c f = \case
+--     DecodedKey _ xs -> DecodedKey c <$> traversed f xs
+--     RawKey       bs -> DecodedKey c <$> traversed f (splitKey c bs)
+
+-- _Last :: Delimiter -> Traversal' ObjectKey ByteString
+-- _Last c f = \case
+--     DecodedKey _ xs -> go xs
+--     RawKey       bs -> go (splitKey c bs)
+--   where
+--     go = fmap (DecodedKey c) . viewR right
+
+--     right (xs :> x) = (xs :>) <$> f x
+--     right EmptyR    = pure EmptyR
+
+
+-- Provide a traversal for components, last etc.
+
+-- Reintroduce some of the changes

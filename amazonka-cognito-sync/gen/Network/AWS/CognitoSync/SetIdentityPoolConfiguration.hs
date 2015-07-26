@@ -121,7 +121,7 @@ instance ToJSON SetIdentityPoolConfiguration where
 instance ToPath SetIdentityPoolConfiguration where
         toPath SetIdentityPoolConfiguration'{..}
           = mconcat
-              ["/identitypools/", toText _sipcIdentityPoolId,
+              ["/identitypools/", toPath _sipcIdentityPoolId,
                "/configuration"]
 
 instance ToQuery SetIdentityPoolConfiguration where

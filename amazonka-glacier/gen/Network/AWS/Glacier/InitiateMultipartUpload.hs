@@ -166,8 +166,8 @@ instance ToJSON InitiateMultipartUpload where
 instance ToPath InitiateMultipartUpload where
         toPath InitiateMultipartUpload'{..}
           = mconcat
-              ["/", toText _imuAccountId, "/vaults/",
-               toText _imuVaultName, "/multipart-uploads"]
+              ["/", toPath _imuAccountId, "/vaults/",
+               toPath _imuVaultName, "/multipart-uploads"]
 
 instance ToQuery InitiateMultipartUpload where
         toQuery = const mempty

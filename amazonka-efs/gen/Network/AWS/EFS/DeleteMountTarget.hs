@@ -98,7 +98,7 @@ instance ToPath DeleteMountTarget where
         toPath DeleteMountTarget'{..}
           = mconcat
               ["/2015-02-01/mount-targets/",
-               toText _dmtMountTargetId]
+               toPath _dmtMountTargetId]
 
 instance ToQuery DeleteMountTarget where
         toQuery = const mempty

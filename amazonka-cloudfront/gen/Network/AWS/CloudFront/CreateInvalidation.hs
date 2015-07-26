@@ -101,7 +101,7 @@ instance ToPath CreateInvalidation where
         toPath CreateInvalidation'{..}
           = mconcat
               ["/2015-04-17/distribution/",
-               toText _ciDistributionId, "/invalidation"]
+               toPath _ciDistributionId, "/invalidation"]
 
 instance ToQuery CreateInvalidation where
         toQuery = const mempty

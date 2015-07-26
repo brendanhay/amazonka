@@ -42,9 +42,11 @@ instance ToText AlgorithmicStemming where
         ASMinimal -> "minimal"
         ASNone -> "none"
 
-instance Hashable AlgorithmicStemming
-instance ToQuery  AlgorithmicStemming
-instance ToHeader AlgorithmicStemming
+instance Hashable     AlgorithmicStemming
+instance ToByteString AlgorithmicStemming
+instance ToPath       AlgorithmicStemming
+instance ToQuery      AlgorithmicStemming
+instance ToHeader     AlgorithmicStemming
 
 instance FromXML AlgorithmicStemming where
     parseXML = parseXMLText "AlgorithmicStemming"
@@ -167,9 +169,11 @@ instance ToText AnalysisSchemeLanguage where
         ZhHans -> "zh-hans"
         ZhHant -> "zh-hant"
 
-instance Hashable AnalysisSchemeLanguage
-instance ToQuery  AnalysisSchemeLanguage
-instance ToHeader AnalysisSchemeLanguage
+instance Hashable     AnalysisSchemeLanguage
+instance ToByteString AnalysisSchemeLanguage
+instance ToPath       AnalysisSchemeLanguage
+instance ToQuery      AnalysisSchemeLanguage
+instance ToHeader     AnalysisSchemeLanguage
 
 instance FromXML AnalysisSchemeLanguage where
     parseXML = parseXMLText "AnalysisSchemeLanguage"
@@ -222,9 +226,11 @@ instance ToText IndexFieldType where
         Text -> "text"
         TextArray -> "text-array"
 
-instance Hashable IndexFieldType
-instance ToQuery  IndexFieldType
-instance ToHeader IndexFieldType
+instance Hashable     IndexFieldType
+instance ToByteString IndexFieldType
+instance ToPath       IndexFieldType
+instance ToQuery      IndexFieldType
+instance ToHeader     IndexFieldType
 
 instance FromXML IndexFieldType where
     parseXML = parseXMLText "IndexFieldType"
@@ -264,9 +270,11 @@ instance ToText OptionState where
         Processing -> "processing"
         RequiresIndexDocuments -> "requiresindexdocuments"
 
-instance Hashable OptionState
-instance ToQuery  OptionState
-instance ToHeader OptionState
+instance Hashable     OptionState
+instance ToByteString OptionState
+instance ToPath       OptionState
+instance ToQuery      OptionState
+instance ToHeader     OptionState
 
 instance FromXML OptionState where
     parseXML = parseXMLText "OptionState"
@@ -308,9 +316,11 @@ instance ToText PartitionInstanceType where
         Search_M3_Medium -> "search.m3.medium"
         Search_M3_XLarge -> "search.m3.xlarge"
 
-instance Hashable PartitionInstanceType
-instance ToQuery  PartitionInstanceType
-instance ToHeader PartitionInstanceType
+instance Hashable     PartitionInstanceType
+instance ToByteString PartitionInstanceType
+instance ToPath       PartitionInstanceType
+instance ToQuery      PartitionInstanceType
+instance ToHeader     PartitionInstanceType
 
 instance FromXML PartitionInstanceType where
     parseXML = parseXMLText "PartitionInstanceType"
@@ -335,9 +345,11 @@ instance ToText SuggesterFuzzyMatching where
         Low -> "low"
         None -> "none"
 
-instance Hashable SuggesterFuzzyMatching
-instance ToQuery  SuggesterFuzzyMatching
-instance ToHeader SuggesterFuzzyMatching
+instance Hashable     SuggesterFuzzyMatching
+instance ToByteString SuggesterFuzzyMatching
+instance ToPath       SuggesterFuzzyMatching
+instance ToQuery      SuggesterFuzzyMatching
+instance ToHeader     SuggesterFuzzyMatching
 
 instance FromXML SuggesterFuzzyMatching where
     parseXML = parseXMLText "SuggesterFuzzyMatching"

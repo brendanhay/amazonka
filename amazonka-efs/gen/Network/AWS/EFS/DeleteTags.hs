@@ -93,7 +93,7 @@ instance ToJSON DeleteTags where
 instance ToPath DeleteTags where
         toPath DeleteTags'{..}
           = mconcat
-              ["/2015-02-01/delete-tags/", toText _dFileSystemId]
+              ["/2015-02-01/delete-tags/", toPath _dFileSystemId]
 
 instance ToQuery DeleteTags where
         toQuery = const mempty

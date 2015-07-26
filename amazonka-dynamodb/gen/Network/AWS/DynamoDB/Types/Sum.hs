@@ -39,9 +39,11 @@ instance ToText AttributeAction where
         Delete -> "delete"
         Put -> "put"
 
-instance Hashable AttributeAction
-instance ToQuery  AttributeAction
-instance ToHeader AttributeAction
+instance Hashable     AttributeAction
+instance ToByteString AttributeAction
+instance ToPath       AttributeAction
+instance ToQuery      AttributeAction
+instance ToHeader     AttributeAction
 
 instance ToJSON AttributeAction where
     toJSON = toJSONText
@@ -96,9 +98,11 @@ instance ToText ComparisonOperator where
         NotNull -> "not_null"
         Null -> "null"
 
-instance Hashable ComparisonOperator
-instance ToQuery  ComparisonOperator
-instance ToHeader ComparisonOperator
+instance Hashable     ComparisonOperator
+instance ToByteString ComparisonOperator
+instance ToPath       ComparisonOperator
+instance ToQuery      ComparisonOperator
+instance ToHeader     ComparisonOperator
 
 instance ToJSON ComparisonOperator where
     toJSON = toJSONText
@@ -120,9 +124,11 @@ instance ToText ConditionalOperator where
         And -> "and"
         OR -> "or"
 
-instance Hashable ConditionalOperator
-instance ToQuery  ConditionalOperator
-instance ToHeader ConditionalOperator
+instance Hashable     ConditionalOperator
+instance ToByteString ConditionalOperator
+instance ToPath       ConditionalOperator
+instance ToQuery      ConditionalOperator
+instance ToHeader     ConditionalOperator
 
 instance ToJSON ConditionalOperator where
     toJSON = toJSONText
@@ -150,9 +156,11 @@ instance ToText IndexStatus where
         ISDeleting -> "deleting"
         ISUpdating -> "updating"
 
-instance Hashable IndexStatus
-instance ToQuery  IndexStatus
-instance ToHeader IndexStatus
+instance Hashable     IndexStatus
+instance ToByteString IndexStatus
+instance ToPath       IndexStatus
+instance ToQuery      IndexStatus
+instance ToHeader     IndexStatus
 
 instance FromJSON IndexStatus where
     parseJSON = parseJSONText "IndexStatus"
@@ -174,9 +182,11 @@ instance ToText KeyType where
         Hash -> "hash"
         Range -> "range"
 
-instance Hashable KeyType
-instance ToQuery  KeyType
-instance ToHeader KeyType
+instance Hashable     KeyType
+instance ToByteString KeyType
+instance ToPath       KeyType
+instance ToQuery      KeyType
+instance ToHeader     KeyType
 
 instance ToJSON KeyType where
     toJSON = toJSONText
@@ -204,9 +214,11 @@ instance ToText ProjectionType where
         Include -> "include"
         KeysOnly -> "keys_only"
 
-instance Hashable ProjectionType
-instance ToQuery  ProjectionType
-instance ToHeader ProjectionType
+instance Hashable     ProjectionType
+instance ToByteString ProjectionType
+instance ToPath       ProjectionType
+instance ToQuery      ProjectionType
+instance ToHeader     ProjectionType
 
 instance ToJSON ProjectionType where
     toJSON = toJSONText
@@ -250,9 +262,11 @@ instance ToText ReturnConsumedCapacity where
         RCCNone -> "none"
         RCCTotal -> "total"
 
-instance Hashable ReturnConsumedCapacity
-instance ToQuery  ReturnConsumedCapacity
-instance ToHeader ReturnConsumedCapacity
+instance Hashable     ReturnConsumedCapacity
+instance ToByteString ReturnConsumedCapacity
+instance ToPath       ReturnConsumedCapacity
+instance ToQuery      ReturnConsumedCapacity
+instance ToHeader     ReturnConsumedCapacity
 
 instance ToJSON ReturnConsumedCapacity where
     toJSON = toJSONText
@@ -274,9 +288,11 @@ instance ToText ReturnItemCollectionMetrics where
         RICMNone -> "none"
         RICMSize -> "size"
 
-instance Hashable ReturnItemCollectionMetrics
-instance ToQuery  ReturnItemCollectionMetrics
-instance ToHeader ReturnItemCollectionMetrics
+instance Hashable     ReturnItemCollectionMetrics
+instance ToByteString ReturnItemCollectionMetrics
+instance ToPath       ReturnItemCollectionMetrics
+instance ToQuery      ReturnItemCollectionMetrics
+instance ToHeader     ReturnItemCollectionMetrics
 
 instance ToJSON ReturnItemCollectionMetrics where
     toJSON = toJSONText
@@ -307,9 +323,11 @@ instance ToText ReturnValue where
         UpdatedNew -> "updated_new"
         UpdatedOld -> "updated_old"
 
-instance Hashable ReturnValue
-instance ToQuery  ReturnValue
-instance ToHeader ReturnValue
+instance Hashable     ReturnValue
+instance ToByteString ReturnValue
+instance ToPath       ReturnValue
+instance ToQuery      ReturnValue
+instance ToHeader     ReturnValue
 
 instance ToJSON ReturnValue where
     toJSON = toJSONText
@@ -334,9 +352,11 @@ instance ToText ScalarAttributeType where
         N -> "n"
         S -> "s"
 
-instance Hashable ScalarAttributeType
-instance ToQuery  ScalarAttributeType
-instance ToHeader ScalarAttributeType
+instance Hashable     ScalarAttributeType
+instance ToByteString ScalarAttributeType
+instance ToPath       ScalarAttributeType
+instance ToQuery      ScalarAttributeType
+instance ToHeader     ScalarAttributeType
 
 instance ToJSON ScalarAttributeType where
     toJSON = toJSONText
@@ -367,9 +387,11 @@ instance ToText Select where
         Count -> "count"
         SpecificAttributes -> "specific_attributes"
 
-instance Hashable Select
-instance ToQuery  Select
-instance ToHeader Select
+instance Hashable     Select
+instance ToByteString Select
+instance ToPath       Select
+instance ToQuery      Select
+instance ToHeader     Select
 
 instance ToJSON Select where
     toJSON = toJSONText
@@ -397,9 +419,11 @@ instance ToText StreamViewType where
         SVTNewImage -> "new_image"
         SVTOldImage -> "old_image"
 
-instance Hashable StreamViewType
-instance ToQuery  StreamViewType
-instance ToHeader StreamViewType
+instance Hashable     StreamViewType
+instance ToByteString StreamViewType
+instance ToPath       StreamViewType
+instance ToQuery      StreamViewType
+instance ToHeader     StreamViewType
 
 instance ToJSON StreamViewType where
     toJSON = toJSONText
@@ -430,9 +454,11 @@ instance ToText TableStatus where
         Deleting -> "deleting"
         Updating -> "updating"
 
-instance Hashable TableStatus
-instance ToQuery  TableStatus
-instance ToHeader TableStatus
+instance Hashable     TableStatus
+instance ToByteString TableStatus
+instance ToPath       TableStatus
+instance ToQuery      TableStatus
+instance ToHeader     TableStatus
 
 instance FromJSON TableStatus where
     parseJSON = parseJSONText "TableStatus"

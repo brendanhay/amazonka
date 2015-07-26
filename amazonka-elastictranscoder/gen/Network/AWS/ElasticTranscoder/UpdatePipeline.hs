@@ -278,7 +278,7 @@ instance ToJSON UpdatePipeline where
 
 instance ToPath UpdatePipeline where
         toPath UpdatePipeline'{..}
-          = mconcat ["/2012-09-25/pipelines/", toText _upId]
+          = mconcat ["/2012-09-25/pipelines/", toPath _upId]
 
 instance ToQuery UpdatePipeline where
         toQuery = const mempty

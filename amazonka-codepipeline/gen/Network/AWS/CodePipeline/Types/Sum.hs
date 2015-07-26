@@ -45,9 +45,11 @@ instance ToText ActionCategory where
         Source -> "source"
         Test -> "test"
 
-instance Hashable ActionCategory
-instance ToQuery  ActionCategory
-instance ToHeader ActionCategory
+instance Hashable     ActionCategory
+instance ToByteString ActionCategory
+instance ToPath       ActionCategory
+instance ToQuery      ActionCategory
+instance ToHeader     ActionCategory
 
 instance ToJSON ActionCategory where
     toJSON = toJSONText
@@ -75,9 +77,11 @@ instance ToText ActionConfigurationPropertyType where
         Number -> "number"
         String -> "string"
 
-instance Hashable ActionConfigurationPropertyType
-instance ToQuery  ActionConfigurationPropertyType
-instance ToHeader ActionConfigurationPropertyType
+instance Hashable     ActionConfigurationPropertyType
+instance ToByteString ActionConfigurationPropertyType
+instance ToPath       ActionConfigurationPropertyType
+instance ToQuery      ActionConfigurationPropertyType
+instance ToHeader     ActionConfigurationPropertyType
 
 instance ToJSON ActionConfigurationPropertyType where
     toJSON = toJSONText
@@ -105,9 +109,11 @@ instance ToText ActionExecutionStatus where
         InProgress -> "inprogress"
         Succeeded -> "succeeded"
 
-instance Hashable ActionExecutionStatus
-instance ToQuery  ActionExecutionStatus
-instance ToHeader ActionExecutionStatus
+instance Hashable     ActionExecutionStatus
+instance ToByteString ActionExecutionStatus
+instance ToPath       ActionExecutionStatus
+instance ToQuery      ActionExecutionStatus
+instance ToHeader     ActionExecutionStatus
 
 instance FromJSON ActionExecutionStatus where
     parseJSON = parseJSONText "ActionExecutionStatus"
@@ -132,9 +138,11 @@ instance ToText ActionOwner where
         Custom -> "custom"
         ThirdParty -> "thirdparty"
 
-instance Hashable ActionOwner
-instance ToQuery  ActionOwner
-instance ToHeader ActionOwner
+instance Hashable     ActionOwner
+instance ToByteString ActionOwner
+instance ToPath       ActionOwner
+instance ToQuery      ActionOwner
+instance ToHeader     ActionOwner
 
 instance ToJSON ActionOwner where
     toJSON = toJSONText
@@ -156,9 +164,11 @@ instance ToText ArtifactLocationType where
     toText = \case
         ALTS3 -> "s3"
 
-instance Hashable ArtifactLocationType
-instance ToQuery  ArtifactLocationType
-instance ToHeader ArtifactLocationType
+instance Hashable     ArtifactLocationType
+instance ToByteString ArtifactLocationType
+instance ToPath       ArtifactLocationType
+instance ToQuery      ArtifactLocationType
+instance ToHeader     ArtifactLocationType
 
 instance FromJSON ArtifactLocationType where
     parseJSON = parseJSONText "ArtifactLocationType"
@@ -177,9 +187,11 @@ instance ToText ArtifactStoreType where
     toText = \case
         S3 -> "s3"
 
-instance Hashable ArtifactStoreType
-instance ToQuery  ArtifactStoreType
-instance ToHeader ArtifactStoreType
+instance Hashable     ArtifactStoreType
+instance ToByteString ArtifactStoreType
+instance ToPath       ArtifactStoreType
+instance ToQuery      ArtifactStoreType
+instance ToHeader     ArtifactStoreType
 
 instance ToJSON ArtifactStoreType where
     toJSON = toJSONText
@@ -201,9 +213,11 @@ instance ToText BlockerType where
     toText = \case
         Schedule -> "schedule"
 
-instance Hashable BlockerType
-instance ToQuery  BlockerType
-instance ToHeader BlockerType
+instance Hashable     BlockerType
+instance ToByteString BlockerType
+instance ToPath       BlockerType
+instance ToQuery      BlockerType
+instance ToHeader     BlockerType
 
 instance ToJSON BlockerType where
     toJSON = toJSONText
@@ -240,9 +254,11 @@ instance ToText FailureType where
         RevisionUnavailable -> "revisionunavailable"
         SystemUnavailable -> "systemunavailable"
 
-instance Hashable FailureType
-instance ToQuery  FailureType
-instance ToHeader FailureType
+instance Hashable     FailureType
+instance ToByteString FailureType
+instance ToPath       FailureType
+instance ToQuery      FailureType
+instance ToHeader     FailureType
 
 instance ToJSON FailureType where
     toJSON = toJSONText
@@ -279,9 +295,11 @@ instance ToText JobStatus where
         JSSucceeded -> "succeeded"
         JSTimedOut -> "timedout"
 
-instance Hashable JobStatus
-instance ToQuery  JobStatus
-instance ToHeader JobStatus
+instance Hashable     JobStatus
+instance ToByteString JobStatus
+instance ToPath       JobStatus
+instance ToQuery      JobStatus
+instance ToHeader     JobStatus
 
 instance FromJSON JobStatus where
     parseJSON = parseJSONText "JobStatus"
@@ -303,9 +321,11 @@ instance ToText StageTransitionType where
         Inbound -> "inbound"
         Outbound -> "outbound"
 
-instance Hashable StageTransitionType
-instance ToQuery  StageTransitionType
-instance ToHeader StageTransitionType
+instance Hashable     StageTransitionType
+instance ToByteString StageTransitionType
+instance ToPath       StageTransitionType
+instance ToQuery      StageTransitionType
+instance ToHeader     StageTransitionType
 
 instance ToJSON StageTransitionType where
     toJSON = toJSONText

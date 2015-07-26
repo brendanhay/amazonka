@@ -85,9 +85,16 @@ newtype ETag = ETag ByteString
 type Delimiter = Char
 
 data ObjectKey
-    = DecodedKey !Char [ByteString]
+    = DecodedKey !Delimiter [ByteString]
     | EncodedKey ByteString
-      deriving (Eq, Ord, Read, Show, Data, Typeable, Generic)
+      deriving (Ord, Read, Show, Data, Typeable, Generic)
+
+-- FIXME: suboptimal eq complexity
+instance Eq ObjectKey where
+    a == b =
+        case (a, b) of
+            (DecodedKey x xs, DecodedKey y ys) -> x == y && xs == ys
+            _                                  -> encodedKey a == encodedKey b
 
 instance IsString ObjectKey where
     fromString = objectKey '/' . fromString
@@ -98,26 +105,26 @@ instance FromText ObjectKey where
 instance FromXML ObjectKey where
     parseXML = parseXMLText "ObjectKey"
 
-instance ToByteString ObjectKey where toBS    = encoded
-instance ToText       ObjectKey where toText  = toText  . encoded
-instance ToQuery      ObjectKey where toQuery = toQuery . encoded
-instance ToBuilder    ObjectKey where build   = build   . encoded
+instance ToByteString ObjectKey where toBS    = encodedKey
+instance ToText       ObjectKey where toText  = toText  . encodedKey
+instance ToQuery      ObjectKey where toQuery = toQuery . encodedKey
+instance ToBuilder    ObjectKey where build   = build   . encodedKey
 instance ToXML        ObjectKey where toXML   = toXMLText
 
-objectKey :: Char -> ByteString -> ObjectKey
+objectKey :: Delimiter -> ByteString -> ObjectKey
 objectKey c = DecodedKey c . BS8.split c
 
-encoded :: ObjectKey -> ByteString
-encoded = \case
+encodedKey :: ObjectKey -> ByteString
+encodedKey = \case
     EncodedKey bs   -> bs
     DecodedKey c xs ->
         BS8.intercalate (BS8.singleton c) $
-            map (urlEncode False) xs
+            map (urlEncode True) xs
 
-decoded :: ObjectKey -> Either (Char -> ByteString) ByteString
-decoded = \case
+decodedKey :: ObjectKey -> Either (Delimiter -> ByteString) ByteString
+decodedKey = \case
     DecodedKey c xs -> Right $ BS8.intercalate (BS8.singleton c) xs
     EncodedKey bs   -> Left  $ \c ->
         let w = toEnum (fromEnum c)
          in BS.intercalate (BS.singleton w) $
-                map (urlDecode False) (BS.split w bs)
+                map (urlDecode True) (BS.split w bs)

@@ -83,7 +83,7 @@ instance ToHeaders DeletePreset where
 
 instance ToPath DeletePreset where
         toPath DeletePreset'{..}
-          = mconcat ["/2012-09-25/presets/", toText _dpId]
+          = mconcat ["/2012-09-25/presets/", toPath _dpId]
 
 instance ToQuery DeletePreset where
         toQuery = const mempty

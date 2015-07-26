@@ -21,7 +21,6 @@ module Network.AWS.S3.Internal
     ) where
 
 import           Control.Lens
-import qualified Data.ByteString       as BS
 import qualified Data.ByteString.Char8 as BS8
 import qualified Data.Foldable         as Fold
 import           Data.Sequence         as Seq
@@ -44,11 +43,13 @@ newtype BucketName = BucketName Text
         , IsString
         , FromText
         , ToText
-        , ToByteString
         , FromXML
         , ToXML
         , ToQuery
         )
+
+instance ToByteString BucketName
+instance ToPath       BucketName
 
 newtype ObjectVersionId = ObjectVersionId Text
     deriving
@@ -62,11 +63,13 @@ newtype ObjectVersionId = ObjectVersionId Text
         , IsString
         , FromText
         , ToText
-        , ToByteString
         , FromXML
         , ToXML
         , ToQuery
         )
+
+instance ToByteString ObjectVersionId
+instance ToPath       ObjectVersionId
 
 -- FIXME: Add the difference between weak + strong ETags and their respective
 -- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
@@ -95,16 +98,17 @@ data ObjectKey
     | RawKey     ByteString
       deriving (Ord, Read, Show, Data, Typeable, Generic)
 
--- FIXME: suboptimal eq complexity
+-- FIXME: suboptimal eq complexity due to comparison requiring encoded keys.
 instance Eq ObjectKey where
     a == b =
         case (a, b) of
             (DecodedKey x xs, DecodedKey y ys) -> x == y && xs == ys
-            _                                  -> encodeKey a == encodeKey b
+            (RawKey       x,  RawKey       y)  -> x == y
+            _                                  -> toBS a == toBS b
 
 -- FIXME: cause more problems than it's worth?
--- instance IsString ObjectKey where
---     fromString = objectKey '/' . fromString
+instance IsString ObjectKey where
+    fromString = objectKey '/' . fromString
 
 instance FromText ObjectKey where
     parser = RawKey . toBS <$> takeText
@@ -122,7 +126,7 @@ instance ToPath ObjectKey where
         RawKey       bs -> bs
         DecodedKey c xs ->
             BS8.intercalate (BS8.singleton c) $
-                map (urlEncode True) $
+                map (urlEncode False) $
                     Fold.toList xs
 
 instance ToText    ObjectKey where toText  = toText  . toBS

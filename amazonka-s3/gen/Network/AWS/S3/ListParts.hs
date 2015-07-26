@@ -158,7 +158,7 @@ instance ToHeaders ListParts where
 
 instance ToPath ListParts where
         toPath ListParts'{..}
-          = mconcat ["/", toText _lpBucket, "/", toText _lpKey]
+          = mconcat ["/", toPath _lpBucket, "/", toPath _lpKey]
 
 instance ToQuery ListParts where
         toQuery ListParts'{..}

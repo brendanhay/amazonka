@@ -72,7 +72,7 @@ instance ToHeaders DeleteBucketWebsite where
 
 instance ToPath DeleteBucketWebsite where
         toPath DeleteBucketWebsite'{..}
-          = mconcat ["/", toText _dbwBucket]
+          = mconcat ["/", toPath _dbwBucket]
 
 instance ToQuery DeleteBucketWebsite where
         toQuery = const (mconcat ["website"])

@@ -72,7 +72,7 @@ instance ToHeaders DeleteBucketTagging where
 
 instance ToPath DeleteBucketTagging where
         toPath DeleteBucketTagging'{..}
-          = mconcat ["/", toText _dbtBucket]
+          = mconcat ["/", toPath _dbtBucket]
 
 instance ToQuery DeleteBucketTagging where
         toQuery = const (mconcat ["tagging"])

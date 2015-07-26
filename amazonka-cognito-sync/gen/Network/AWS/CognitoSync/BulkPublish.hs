@@ -98,7 +98,7 @@ instance ToJSON BulkPublish where
 instance ToPath BulkPublish where
         toPath BulkPublish'{..}
           = mconcat
-              ["/identitypools/", toText _bpIdentityPoolId,
+              ["/identitypools/", toPath _bpIdentityPoolId,
                "/bulkpublish"]
 
 instance ToQuery BulkPublish where

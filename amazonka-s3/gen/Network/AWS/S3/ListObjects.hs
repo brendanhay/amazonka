@@ -80,7 +80,7 @@ data ListObjects = ListObjects'
     , _loEncodingType :: !(Maybe EncodingType)
     , _loMarker       :: !(Maybe Text)
     , _loMaxKeys      :: !(Maybe Int)
-    , _loDelimiter    :: !(Maybe Char)
+    , _loDelimiter    :: !(Maybe Delimiter)
     , _loBucket       :: !BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -114,7 +114,7 @@ loMaxKeys :: Lens' ListObjects (Maybe Int)
 loMaxKeys = lens _loMaxKeys (\ s a -> s{_loMaxKeys = a});
 
 -- | A delimiter is a character you use to group keys.
-loDelimiter :: Lens' ListObjects (Maybe Char)
+loDelimiter :: Lens' ListObjects (Maybe Delimiter)
 loDelimiter = lens _loDelimiter (\ s a -> s{_loDelimiter = a});
 
 -- | FIXME: Undocumented member.
@@ -161,7 +161,7 @@ instance ToHeaders ListObjects where
 
 instance ToPath ListObjects where
         toPath ListObjects'{..}
-          = mconcat ["/", toText _loBucket]
+          = mconcat ["/", toPath _loBucket]
 
 instance ToQuery ListObjects where
         toQuery ListObjects'{..}
@@ -206,7 +206,7 @@ data ListObjectsResponse = ListObjectsResponse'
     , _lorsNextMarker     :: !(Maybe Text)
     , _lorsMaxKeys        :: !(Maybe Int)
     , _lorsIsTruncated    :: !(Maybe Bool)
-    , _lorsDelimiter      :: !(Maybe Char)
+    , _lorsDelimiter      :: !(Maybe Delimiter)
     , _lorsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -272,7 +272,7 @@ lorsIsTruncated :: Lens' ListObjectsResponse (Maybe Bool)
 lorsIsTruncated = lens _lorsIsTruncated (\ s a -> s{_lorsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lorsDelimiter :: Lens' ListObjectsResponse (Maybe Char)
+lorsDelimiter :: Lens' ListObjectsResponse (Maybe Delimiter)
 lorsDelimiter = lens _lorsDelimiter (\ s a -> s{_lorsDelimiter = a});
 
 -- | FIXME: Undocumented member.

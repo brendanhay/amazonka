@@ -122,7 +122,7 @@ instance ToHeaders DeleteObjects where
 
 instance ToPath DeleteObjects where
         toPath DeleteObjects'{..}
-          = mconcat ["/", toText _dosBucket]
+          = mconcat ["/", toPath _dosBucket]
 
 instance ToQuery DeleteObjects where
         toQuery = const (mconcat ["delete"])

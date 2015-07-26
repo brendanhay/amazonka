@@ -73,7 +73,7 @@ instance ToHeaders DeleteBucket where
 
 instance ToPath DeleteBucket where
         toPath DeleteBucket'{..}
-          = mconcat ["/", toText _dbBucket]
+          = mconcat ["/", toPath _dbBucket]
 
 instance ToQuery DeleteBucket where
         toQuery = const mempty

@@ -84,7 +84,7 @@ data ListMultipartUploads = ListMultipartUploads'
     , _lmuEncodingType   :: !(Maybe EncodingType)
     , _lmuMaxUploads     :: !(Maybe Int)
     , _lmuUploadIdMarker :: !(Maybe Text)
-    , _lmuDelimiter      :: !(Maybe Char)
+    , _lmuDelimiter      :: !(Maybe Delimiter)
     , _lmuBucket         :: !BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -128,7 +128,7 @@ lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
 lmuUploadIdMarker = lens _lmuUploadIdMarker (\ s a -> s{_lmuUploadIdMarker = a});
 
 -- | Character you use to group keys.
-lmuDelimiter :: Lens' ListMultipartUploads (Maybe Char)
+lmuDelimiter :: Lens' ListMultipartUploads (Maybe Delimiter)
 lmuDelimiter = lens _lmuDelimiter (\ s a -> s{_lmuDelimiter = a});
 
 -- | FIXME: Undocumented member.
@@ -172,7 +172,7 @@ instance ToHeaders ListMultipartUploads where
 
 instance ToPath ListMultipartUploads where
         toPath ListMultipartUploads'{..}
-          = mconcat ["/", toText _lmuBucket]
+          = mconcat ["/", toPath _lmuBucket]
 
 instance ToQuery ListMultipartUploads where
         toQuery ListMultipartUploads'{..}
@@ -225,7 +225,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     , _lmursUploads            :: !(Maybe [MultipartUpload])
     , _lmursIsTruncated        :: !(Maybe Bool)
     , _lmursNextUploadIdMarker :: !(Maybe Text)
-    , _lmursDelimiter          :: !(Maybe Char)
+    , _lmursDelimiter          :: !(Maybe Delimiter)
     , _lmursStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -302,7 +302,7 @@ lmursNextUploadIdMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmursNextUploadIdMarker = lens _lmursNextUploadIdMarker (\ s a -> s{_lmursNextUploadIdMarker = a});
 
 -- | FIXME: Undocumented member.
-lmursDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Char)
+lmursDelimiter :: Lens' ListMultipartUploadsResponse (Maybe Delimiter)
 lmursDelimiter = lens _lmursDelimiter (\ s a -> s{_lmursDelimiter = a});
 
 -- | FIXME: Undocumented member.

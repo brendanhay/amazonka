@@ -157,7 +157,7 @@ instance ToHeaders CreateBucket where
 
 instance ToPath CreateBucket where
         toPath CreateBucket'{..}
-          = mconcat ["/", toText _cbBucket]
+          = mconcat ["/", toPath _cbBucket]
 
 instance ToQuery CreateBucket where
         toQuery = const mempty

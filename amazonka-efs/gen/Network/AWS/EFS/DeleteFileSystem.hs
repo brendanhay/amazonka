@@ -89,7 +89,7 @@ instance ToPath DeleteFileSystem where
         toPath DeleteFileSystem'{..}
           = mconcat
               ["/2015-02-01/file-systems/",
-               toText _delFileSystemId]
+               toPath _delFileSystemId]
 
 instance ToQuery DeleteFileSystem where
         toQuery = const mempty

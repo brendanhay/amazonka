@@ -92,7 +92,7 @@ instance ToPath GetHealthCheckLastFailureReason where
         toPath GetHealthCheckLastFailureReason'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _ghclfrHealthCheckId, "/lastfailurereason"]
+               toPath _ghclfrHealthCheckId, "/lastfailurereason"]
 
 instance ToQuery GetHealthCheckLastFailureReason
          where

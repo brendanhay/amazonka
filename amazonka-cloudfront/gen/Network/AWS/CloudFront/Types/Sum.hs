@@ -39,9 +39,11 @@ instance ToText GeoRestrictionType where
         None -> "none"
         Whitelist -> "whitelist"
 
-instance Hashable GeoRestrictionType
-instance ToQuery  GeoRestrictionType
-instance ToHeader GeoRestrictionType
+instance Hashable     GeoRestrictionType
+instance ToByteString GeoRestrictionType
+instance ToPath       GeoRestrictionType
+instance ToQuery      GeoRestrictionType
+instance ToHeader     GeoRestrictionType
 
 instance FromXML GeoRestrictionType where
     parseXML = parseXMLText "GeoRestrictionType"
@@ -69,9 +71,11 @@ instance ToText ItemSelection where
         ISNone -> "none"
         ISWhitelist -> "whitelist"
 
-instance Hashable ItemSelection
-instance ToQuery  ItemSelection
-instance ToHeader ItemSelection
+instance Hashable     ItemSelection
+instance ToByteString ItemSelection
+instance ToPath       ItemSelection
+instance ToQuery      ItemSelection
+instance ToHeader     ItemSelection
 
 instance FromXML ItemSelection where
     parseXML = parseXMLText "ItemSelection"
@@ -111,9 +115,11 @@ instance ToText Method where
         Post -> "post"
         Put -> "put"
 
-instance Hashable Method
-instance ToQuery  Method
-instance ToHeader Method
+instance Hashable     Method
+instance ToByteString Method
+instance ToPath       Method
+instance ToQuery      Method
+instance ToHeader     Method
 
 instance FromXML Method where
     parseXML = parseXMLText "Method"
@@ -138,9 +144,11 @@ instance ToText MinimumProtocolVersion where
         SSLV3 -> "sslv3"
         TLSV1 -> "tlsv1"
 
-instance Hashable MinimumProtocolVersion
-instance ToQuery  MinimumProtocolVersion
-instance ToHeader MinimumProtocolVersion
+instance Hashable     MinimumProtocolVersion
+instance ToByteString MinimumProtocolVersion
+instance ToPath       MinimumProtocolVersion
+instance ToQuery      MinimumProtocolVersion
+instance ToHeader     MinimumProtocolVersion
 
 instance FromXML MinimumProtocolVersion where
     parseXML = parseXMLText "MinimumProtocolVersion"
@@ -165,9 +173,11 @@ instance ToText OriginProtocolPolicy where
         HTTPOnly -> "http-only"
         MatchViewer -> "match-viewer"
 
-instance Hashable OriginProtocolPolicy
-instance ToQuery  OriginProtocolPolicy
-instance ToHeader OriginProtocolPolicy
+instance Hashable     OriginProtocolPolicy
+instance ToByteString OriginProtocolPolicy
+instance ToPath       OriginProtocolPolicy
+instance ToQuery      OriginProtocolPolicy
+instance ToHeader     OriginProtocolPolicy
 
 instance FromXML OriginProtocolPolicy where
     parseXML = parseXMLText "OriginProtocolPolicy"
@@ -195,9 +205,11 @@ instance ToText PriceClass where
         PriceClass200 -> "priceclass_200"
         PriceClassAll -> "priceclass_all"
 
-instance Hashable PriceClass
-instance ToQuery  PriceClass
-instance ToHeader PriceClass
+instance Hashable     PriceClass
+instance ToByteString PriceClass
+instance ToPath       PriceClass
+instance ToQuery      PriceClass
+instance ToHeader     PriceClass
 
 instance FromXML PriceClass where
     parseXML = parseXMLText "PriceClass"
@@ -222,9 +234,11 @@ instance ToText SSLSupportMethod where
         SNIOnly -> "sni-only"
         VIP -> "vip"
 
-instance Hashable SSLSupportMethod
-instance ToQuery  SSLSupportMethod
-instance ToHeader SSLSupportMethod
+instance Hashable     SSLSupportMethod
+instance ToByteString SSLSupportMethod
+instance ToPath       SSLSupportMethod
+instance ToQuery      SSLSupportMethod
+instance ToHeader     SSLSupportMethod
 
 instance FromXML SSLSupportMethod where
     parseXML = parseXMLText "SSLSupportMethod"
@@ -252,9 +266,11 @@ instance ToText ViewerProtocolPolicy where
         HTTPSOnly -> "https-only"
         RedirectToHTTPS -> "redirect-to-https"
 
-instance Hashable ViewerProtocolPolicy
-instance ToQuery  ViewerProtocolPolicy
-instance ToHeader ViewerProtocolPolicy
+instance Hashable     ViewerProtocolPolicy
+instance ToByteString ViewerProtocolPolicy
+instance ToPath       ViewerProtocolPolicy
+instance ToQuery      ViewerProtocolPolicy
+instance ToHeader     ViewerProtocolPolicy
 
 instance FromXML ViewerProtocolPolicy where
     parseXML = parseXMLText "ViewerProtocolPolicy"

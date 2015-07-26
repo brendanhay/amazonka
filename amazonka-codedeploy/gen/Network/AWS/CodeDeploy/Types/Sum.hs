@@ -39,9 +39,11 @@ instance ToText ApplicationRevisionSortBy where
         LastUsedTime -> "lastusedtime"
         RegisterTime -> "registertime"
 
-instance Hashable ApplicationRevisionSortBy
-instance ToQuery  ApplicationRevisionSortBy
-instance ToHeader ApplicationRevisionSortBy
+instance Hashable     ApplicationRevisionSortBy
+instance ToByteString ApplicationRevisionSortBy
+instance ToPath       ApplicationRevisionSortBy
+instance ToQuery      ApplicationRevisionSortBy
+instance ToHeader     ApplicationRevisionSortBy
 
 instance ToJSON ApplicationRevisionSortBy where
     toJSON = toJSONText
@@ -66,9 +68,11 @@ instance ToText BundleType where
         TGZ -> "tgz"
         Zip -> "zip"
 
-instance Hashable BundleType
-instance ToQuery  BundleType
-instance ToHeader BundleType
+instance Hashable     BundleType
+instance ToByteString BundleType
+instance ToPath       BundleType
+instance ToQuery      BundleType
+instance ToHeader     BundleType
 
 instance ToJSON BundleType where
     toJSON = toJSONText
@@ -126,9 +130,11 @@ instance ToText DeployErrorCode where
         Throttled -> "throttled"
         Timeout -> "timeout"
 
-instance Hashable DeployErrorCode
-instance ToQuery  DeployErrorCode
-instance ToHeader DeployErrorCode
+instance Hashable     DeployErrorCode
+instance ToByteString DeployErrorCode
+instance ToPath       DeployErrorCode
+instance ToQuery      DeployErrorCode
+instance ToHeader     DeployErrorCode
 
 instance FromJSON DeployErrorCode where
     parseJSON = parseJSONText "DeployErrorCode"
@@ -150,9 +156,11 @@ instance ToText DeploymentCreator where
         Autoscaling -> "autoscaling"
         User -> "user"
 
-instance Hashable DeploymentCreator
-instance ToQuery  DeploymentCreator
-instance ToHeader DeploymentCreator
+instance Hashable     DeploymentCreator
+instance ToByteString DeploymentCreator
+instance ToPath       DeploymentCreator
+instance ToQuery      DeploymentCreator
+instance ToHeader     DeploymentCreator
 
 instance FromJSON DeploymentCreator where
     parseJSON = parseJSONText "DeploymentCreator"
@@ -186,9 +194,11 @@ instance ToText DeploymentStatus where
         Stopped -> "stopped"
         Succeeded -> "succeeded"
 
-instance Hashable DeploymentStatus
-instance ToQuery  DeploymentStatus
-instance ToHeader DeploymentStatus
+instance Hashable     DeploymentStatus
+instance ToByteString DeploymentStatus
+instance ToPath       DeploymentStatus
+instance ToQuery      DeploymentStatus
+instance ToHeader     DeploymentStatus
 
 instance ToJSON DeploymentStatus where
     toJSON = toJSONText
@@ -216,9 +226,11 @@ instance ToText EC2TagFilterType where
         KeyOnly -> "key_only"
         ValueOnly -> "value_only"
 
-instance Hashable EC2TagFilterType
-instance ToQuery  EC2TagFilterType
-instance ToHeader EC2TagFilterType
+instance Hashable     EC2TagFilterType
+instance ToByteString EC2TagFilterType
+instance ToPath       EC2TagFilterType
+instance ToQuery      EC2TagFilterType
+instance ToHeader     EC2TagFilterType
 
 instance ToJSON EC2TagFilterType where
     toJSON = toJSONText
@@ -255,9 +267,11 @@ instance ToText InstanceStatus where
         ISSucceeded -> "succeeded"
         ISUnknown -> "unknown"
 
-instance Hashable InstanceStatus
-instance ToQuery  InstanceStatus
-instance ToHeader InstanceStatus
+instance Hashable     InstanceStatus
+instance ToByteString InstanceStatus
+instance ToPath       InstanceStatus
+instance ToQuery      InstanceStatus
+instance ToHeader     InstanceStatus
 
 instance ToJSON InstanceStatus where
     toJSON = toJSONText
@@ -294,9 +308,11 @@ instance ToText LifecycleErrorCode where
         Success -> "success"
         UnknownError -> "unknownerror"
 
-instance Hashable LifecycleErrorCode
-instance ToQuery  LifecycleErrorCode
-instance ToHeader LifecycleErrorCode
+instance Hashable     LifecycleErrorCode
+instance ToByteString LifecycleErrorCode
+instance ToPath       LifecycleErrorCode
+instance ToQuery      LifecycleErrorCode
+instance ToHeader     LifecycleErrorCode
 
 instance FromJSON LifecycleErrorCode where
     parseJSON = parseJSONText "LifecycleErrorCode"
@@ -330,9 +346,11 @@ instance ToText LifecycleEventStatus where
         LESSucceeded -> "succeeded"
         LESUnknown -> "unknown"
 
-instance Hashable LifecycleEventStatus
-instance ToQuery  LifecycleEventStatus
-instance ToHeader LifecycleEventStatus
+instance Hashable     LifecycleEventStatus
+instance ToByteString LifecycleEventStatus
+instance ToPath       LifecycleEventStatus
+instance ToQuery      LifecycleEventStatus
+instance ToHeader     LifecycleEventStatus
 
 instance FromJSON LifecycleEventStatus where
     parseJSON = parseJSONText "LifecycleEventStatus"
@@ -357,9 +375,11 @@ instance ToText ListStateFilterAction where
         Ignore -> "ignore"
         Include -> "include"
 
-instance Hashable ListStateFilterAction
-instance ToQuery  ListStateFilterAction
-instance ToHeader ListStateFilterAction
+instance Hashable     ListStateFilterAction
+instance ToByteString ListStateFilterAction
+instance ToPath       ListStateFilterAction
+instance ToQuery      ListStateFilterAction
+instance ToHeader     ListStateFilterAction
 
 instance ToJSON ListStateFilterAction where
     toJSON = toJSONText
@@ -381,9 +401,11 @@ instance ToText MinimumHealthyHostsType where
         FleetPercent -> "fleet_percent"
         HostCount -> "host_count"
 
-instance Hashable MinimumHealthyHostsType
-instance ToQuery  MinimumHealthyHostsType
-instance ToHeader MinimumHealthyHostsType
+instance Hashable     MinimumHealthyHostsType
+instance ToByteString MinimumHealthyHostsType
+instance ToPath       MinimumHealthyHostsType
+instance ToQuery      MinimumHealthyHostsType
+instance ToHeader     MinimumHealthyHostsType
 
 instance ToJSON MinimumHealthyHostsType where
     toJSON = toJSONText
@@ -408,9 +430,11 @@ instance ToText RegistrationStatus where
         Deregistered -> "deregistered"
         Registered -> "registered"
 
-instance Hashable RegistrationStatus
-instance ToQuery  RegistrationStatus
-instance ToHeader RegistrationStatus
+instance Hashable     RegistrationStatus
+instance ToByteString RegistrationStatus
+instance ToPath       RegistrationStatus
+instance ToQuery      RegistrationStatus
+instance ToHeader     RegistrationStatus
 
 instance ToJSON RegistrationStatus where
     toJSON = toJSONText
@@ -432,9 +456,11 @@ instance ToText RevisionLocationType where
         GitHub -> "github"
         S3 -> "s3"
 
-instance Hashable RevisionLocationType
-instance ToQuery  RevisionLocationType
-instance ToHeader RevisionLocationType
+instance Hashable     RevisionLocationType
+instance ToByteString RevisionLocationType
+instance ToPath       RevisionLocationType
+instance ToQuery      RevisionLocationType
+instance ToHeader     RevisionLocationType
 
 instance ToJSON RevisionLocationType where
     toJSON = toJSONText
@@ -459,9 +485,11 @@ instance ToText SortOrder where
         Ascending -> "ascending"
         Descending -> "descending"
 
-instance Hashable SortOrder
-instance ToQuery  SortOrder
-instance ToHeader SortOrder
+instance Hashable     SortOrder
+instance ToByteString SortOrder
+instance ToPath       SortOrder
+instance ToQuery      SortOrder
+instance ToHeader     SortOrder
 
 instance ToJSON SortOrder where
     toJSON = toJSONText
@@ -483,9 +511,11 @@ instance ToText StopStatus where
         SSPending -> "pending"
         SSSucceeded -> "succeeded"
 
-instance Hashable StopStatus
-instance ToQuery  StopStatus
-instance ToHeader StopStatus
+instance Hashable     StopStatus
+instance ToByteString StopStatus
+instance ToPath       StopStatus
+instance ToQuery      StopStatus
+instance ToHeader     StopStatus
 
 instance FromJSON StopStatus where
     parseJSON = parseJSONText "StopStatus"
@@ -510,9 +540,11 @@ instance ToText TagFilterType where
         TFTKeyOnly -> "key_only"
         TFTValueOnly -> "value_only"
 
-instance Hashable TagFilterType
-instance ToQuery  TagFilterType
-instance ToHeader TagFilterType
+instance Hashable     TagFilterType
+instance ToByteString TagFilterType
+instance ToPath       TagFilterType
+instance ToQuery      TagFilterType
+instance ToHeader     TagFilterType
 
 instance ToJSON TagFilterType where
     toJSON = toJSONText

@@ -104,7 +104,7 @@ instance ToJSON GetBulkPublishDetails where
 instance ToPath GetBulkPublishDetails where
         toPath GetBulkPublishDetails'{..}
           = mconcat
-              ["/identitypools/", toText _gbpdIdentityPoolId,
+              ["/identitypools/", toPath _gbpdIdentityPoolId,
                "/getBulkPublishDetails"]
 
 instance ToQuery GetBulkPublishDetails where

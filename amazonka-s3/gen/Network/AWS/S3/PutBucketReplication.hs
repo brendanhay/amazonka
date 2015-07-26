@@ -99,7 +99,7 @@ instance ToHeaders PutBucketReplication where
 
 instance ToPath PutBucketReplication where
         toPath PutBucketReplication'{..}
-          = mconcat ["/", toText _pbrBucket]
+          = mconcat ["/", toPath _pbrBucket]
 
 instance ToQuery PutBucketReplication where
         toQuery = const (mconcat ["replication"])

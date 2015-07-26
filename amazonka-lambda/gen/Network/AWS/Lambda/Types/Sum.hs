@@ -36,9 +36,11 @@ instance ToText EventSourcePosition where
         Latest -> "latest"
         TrimHorizon -> "trim_horizon"
 
-instance Hashable EventSourcePosition
-instance ToQuery  EventSourcePosition
-instance ToHeader EventSourcePosition
+instance Hashable     EventSourcePosition
+instance ToByteString EventSourcePosition
+instance ToPath       EventSourcePosition
+instance ToQuery      EventSourcePosition
+instance ToHeader     EventSourcePosition
 
 instance ToJSON EventSourcePosition where
     toJSON = toJSONText
@@ -63,9 +65,11 @@ instance ToText InvocationType where
         Event -> "event"
         RequestResponse -> "requestresponse"
 
-instance Hashable InvocationType
-instance ToQuery  InvocationType
-instance ToHeader InvocationType
+instance Hashable     InvocationType
+instance ToByteString InvocationType
+instance ToPath       InvocationType
+instance ToQuery      InvocationType
+instance ToHeader     InvocationType
 
 instance ToJSON InvocationType where
     toJSON = toJSONText
@@ -87,9 +91,11 @@ instance ToText LogType where
         None -> "none"
         Tail -> "tail"
 
-instance Hashable LogType
-instance ToQuery  LogType
-instance ToHeader LogType
+instance Hashable     LogType
+instance ToByteString LogType
+instance ToPath       LogType
+instance ToQuery      LogType
+instance ToHeader     LogType
 
 instance ToJSON LogType where
     toJSON = toJSONText
@@ -111,9 +117,11 @@ instance ToText Runtime where
         JAVA8 -> "java8"
         Nodejs -> "nodejs"
 
-instance Hashable Runtime
-instance ToQuery  Runtime
-instance ToHeader Runtime
+instance Hashable     Runtime
+instance ToByteString Runtime
+instance ToPath       Runtime
+instance ToQuery      Runtime
+instance ToHeader     Runtime
 
 instance ToJSON Runtime where
     toJSON = toJSONText

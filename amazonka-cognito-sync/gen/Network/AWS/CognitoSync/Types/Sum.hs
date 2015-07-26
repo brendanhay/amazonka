@@ -42,9 +42,11 @@ instance ToText BulkPublishStatus where
         NotStarted -> "not_started"
         Succeeded -> "succeeded"
 
-instance Hashable BulkPublishStatus
-instance ToQuery  BulkPublishStatus
-instance ToHeader BulkPublishStatus
+instance Hashable     BulkPublishStatus
+instance ToByteString BulkPublishStatus
+instance ToPath       BulkPublishStatus
+instance ToQuery      BulkPublishStatus
+instance ToHeader     BulkPublishStatus
 
 instance FromJSON BulkPublishStatus where
     parseJSON = parseJSONText "BulkPublishStatus"
@@ -66,9 +68,11 @@ instance ToText Operation where
         Remove -> "remove"
         Replace -> "replace"
 
-instance Hashable Operation
-instance ToQuery  Operation
-instance ToHeader Operation
+instance Hashable     Operation
+instance ToByteString Operation
+instance ToPath       Operation
+instance ToQuery      Operation
+instance ToHeader     Operation
 
 instance ToJSON Operation where
     toJSON = toJSONText
@@ -96,9 +100,11 @@ instance ToText Platform where
         APNSSandbox -> "apns_sandbox"
         GCM -> "gcm"
 
-instance Hashable Platform
-instance ToQuery  Platform
-instance ToHeader Platform
+instance Hashable     Platform
+instance ToByteString Platform
+instance ToPath       Platform
+instance ToQuery      Platform
+instance ToHeader     Platform
 
 instance ToJSON Platform where
     toJSON = toJSONText
@@ -120,9 +126,11 @@ instance ToText StreamingStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable StreamingStatus
-instance ToQuery  StreamingStatus
-instance ToHeader StreamingStatus
+instance Hashable     StreamingStatus
+instance ToByteString StreamingStatus
+instance ToPath       StreamingStatus
+instance ToQuery      StreamingStatus
+instance ToHeader     StreamingStatus
 
 instance ToJSON StreamingStatus where
     toJSON = toJSONText

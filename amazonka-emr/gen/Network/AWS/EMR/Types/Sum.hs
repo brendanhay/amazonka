@@ -42,9 +42,11 @@ instance ToText ActionOnFailure where
         TerminateCluster -> "terminate_cluster"
         TerminateJobFlow -> "terminate_job_flow"
 
-instance Hashable ActionOnFailure
-instance ToQuery  ActionOnFailure
-instance ToHeader ActionOnFailure
+instance Hashable     ActionOnFailure
+instance ToByteString ActionOnFailure
+instance ToPath       ActionOnFailure
+instance ToQuery      ActionOnFailure
+instance ToHeader     ActionOnFailure
 
 instance ToJSON ActionOnFailure where
     toJSON = toJSONText
@@ -84,9 +86,11 @@ instance ToText ClusterState where
         Terminating -> "terminating"
         Waiting -> "waiting"
 
-instance Hashable ClusterState
-instance ToQuery  ClusterState
-instance ToHeader ClusterState
+instance Hashable     ClusterState
+instance ToByteString ClusterState
+instance ToPath       ClusterState
+instance ToQuery      ClusterState
+instance ToHeader     ClusterState
 
 instance ToJSON ClusterState where
     toJSON = toJSONText
@@ -126,9 +130,11 @@ instance ToText ClusterStateChangeReasonCode where
         UserRequest -> "user_request"
         ValidationError -> "validation_error"
 
-instance Hashable ClusterStateChangeReasonCode
-instance ToQuery  ClusterStateChangeReasonCode
-instance ToHeader ClusterStateChangeReasonCode
+instance Hashable     ClusterStateChangeReasonCode
+instance ToByteString ClusterStateChangeReasonCode
+instance ToPath       ClusterStateChangeReasonCode
+instance ToQuery      ClusterStateChangeReasonCode
+instance ToHeader     ClusterStateChangeReasonCode
 
 instance FromJSON ClusterStateChangeReasonCode where
     parseJSON = parseJSONText "ClusterStateChangeReasonCode"
@@ -174,9 +180,11 @@ instance ToText InstanceGroupState where
         IGSTerminated -> "terminated"
         IGSTerminating -> "terminating"
 
-instance Hashable InstanceGroupState
-instance ToQuery  InstanceGroupState
-instance ToHeader InstanceGroupState
+instance Hashable     InstanceGroupState
+instance ToByteString InstanceGroupState
+instance ToPath       InstanceGroupState
+instance ToQuery      InstanceGroupState
+instance ToHeader     InstanceGroupState
 
 instance FromJSON InstanceGroupState where
     parseJSON = parseJSONText "InstanceGroupState"
@@ -204,9 +212,11 @@ instance ToText InstanceGroupStateChangeReasonCode where
         IGSCRCInternalError -> "internal_error"
         IGSCRCValidationError -> "validation_error"
 
-instance Hashable InstanceGroupStateChangeReasonCode
-instance ToQuery  InstanceGroupStateChangeReasonCode
-instance ToHeader InstanceGroupStateChangeReasonCode
+instance Hashable     InstanceGroupStateChangeReasonCode
+instance ToByteString InstanceGroupStateChangeReasonCode
+instance ToPath       InstanceGroupStateChangeReasonCode
+instance ToQuery      InstanceGroupStateChangeReasonCode
+instance ToHeader     InstanceGroupStateChangeReasonCode
 
 instance FromJSON InstanceGroupStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceGroupStateChangeReasonCode"
@@ -231,9 +241,11 @@ instance ToText InstanceGroupType where
         IGTMaster -> "master"
         IGTTask -> "task"
 
-instance Hashable InstanceGroupType
-instance ToQuery  InstanceGroupType
-instance ToHeader InstanceGroupType
+instance Hashable     InstanceGroupType
+instance ToByteString InstanceGroupType
+instance ToPath       InstanceGroupType
+instance ToQuery      InstanceGroupType
+instance ToHeader     InstanceGroupType
 
 instance ToJSON InstanceGroupType where
     toJSON = toJSONText
@@ -261,9 +273,11 @@ instance ToText InstanceRoleType where
         Master -> "master"
         Task -> "task"
 
-instance Hashable InstanceRoleType
-instance ToQuery  InstanceRoleType
-instance ToHeader InstanceRoleType
+instance Hashable     InstanceRoleType
+instance ToByteString InstanceRoleType
+instance ToPath       InstanceRoleType
+instance ToQuery      InstanceRoleType
+instance ToHeader     InstanceRoleType
 
 instance ToJSON InstanceRoleType where
     toJSON = toJSONText
@@ -294,9 +308,11 @@ instance ToText InstanceState where
         ISRunning -> "running"
         ISTerminated -> "terminated"
 
-instance Hashable InstanceState
-instance ToQuery  InstanceState
-instance ToHeader InstanceState
+instance Hashable     InstanceState
+instance ToByteString InstanceState
+instance ToPath       InstanceState
+instance ToQuery      InstanceState
+instance ToHeader     InstanceState
 
 instance FromJSON InstanceState where
     parseJSON = parseJSONText "InstanceState"
@@ -327,9 +343,11 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCInternalError -> "internal_error"
         ISCRCValidationError -> "validation_error"
 
-instance Hashable InstanceStateChangeReasonCode
-instance ToQuery  InstanceStateChangeReasonCode
-instance ToHeader InstanceStateChangeReasonCode
+instance Hashable     InstanceStateChangeReasonCode
+instance ToByteString InstanceStateChangeReasonCode
+instance ToPath       InstanceStateChangeReasonCode
+instance ToQuery      InstanceStateChangeReasonCode
+instance ToHeader     InstanceStateChangeReasonCode
 
 instance FromJSON InstanceStateChangeReasonCode where
     parseJSON = parseJSONText "InstanceStateChangeReasonCode"
@@ -351,9 +369,11 @@ instance ToText MarketType where
         OnDemand -> "on_demand"
         Spot -> "spot"
 
-instance Hashable MarketType
-instance ToQuery  MarketType
-instance ToHeader MarketType
+instance Hashable     MarketType
+instance ToByteString MarketType
+instance ToPath       MarketType
+instance ToQuery      MarketType
+instance ToHeader     MarketType
 
 instance ToJSON MarketType where
     toJSON = toJSONText
@@ -390,9 +410,11 @@ instance ToText StepState where
         SSPending -> "pending"
         SSRunning -> "running"
 
-instance Hashable StepState
-instance ToQuery  StepState
-instance ToHeader StepState
+instance Hashable     StepState
+instance ToByteString StepState
+instance ToPath       StepState
+instance ToQuery      StepState
+instance ToHeader     StepState
 
 instance ToJSON StepState where
     toJSON = toJSONText
@@ -414,9 +436,11 @@ instance ToText StepStateChangeReasonCode where
     toText = \case
         None -> "none"
 
-instance Hashable StepStateChangeReasonCode
-instance ToQuery  StepStateChangeReasonCode
-instance ToHeader StepStateChangeReasonCode
+instance Hashable     StepStateChangeReasonCode
+instance ToByteString StepStateChangeReasonCode
+instance ToPath       StepStateChangeReasonCode
+instance ToQuery      StepStateChangeReasonCode
+instance ToHeader     StepStateChangeReasonCode
 
 instance FromJSON StepStateChangeReasonCode where
     parseJSON = parseJSONText "StepStateChangeReasonCode"

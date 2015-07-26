@@ -94,7 +94,7 @@ instance ToHeaders PutBucketPolicy where
 
 instance ToPath PutBucketPolicy where
         toPath PutBucketPolicy'{..}
-          = mconcat ["/", toText _pbpBucket]
+          = mconcat ["/", toPath _pbpBucket]
 
 instance ToQuery PutBucketPolicy where
         toQuery = const (mconcat ["policy"])

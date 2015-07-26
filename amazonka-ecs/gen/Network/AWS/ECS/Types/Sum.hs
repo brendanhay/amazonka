@@ -48,9 +48,11 @@ instance ToText AgentUpdateStatus where
         AUSUpdated -> "updated"
         AUSUpdating -> "updating"
 
-instance Hashable AgentUpdateStatus
-instance ToQuery  AgentUpdateStatus
-instance ToHeader AgentUpdateStatus
+instance Hashable     AgentUpdateStatus
+instance ToByteString AgentUpdateStatus
+instance ToPath       AgentUpdateStatus
+instance ToQuery      AgentUpdateStatus
+instance ToHeader     AgentUpdateStatus
 
 instance FromJSON AgentUpdateStatus where
     parseJSON = parseJSONText "AgentUpdateStatus"
@@ -75,9 +77,11 @@ instance ToText DesiredStatus where
         Running -> "running"
         Stopped -> "stopped"
 
-instance Hashable DesiredStatus
-instance ToQuery  DesiredStatus
-instance ToHeader DesiredStatus
+instance Hashable     DesiredStatus
+instance ToByteString DesiredStatus
+instance ToPath       DesiredStatus
+instance ToQuery      DesiredStatus
+instance ToHeader     DesiredStatus
 
 instance ToJSON DesiredStatus where
     toJSON = toJSONText
@@ -99,9 +103,11 @@ instance ToText SortOrder where
         Asc -> "asc"
         Desc -> "desc"
 
-instance Hashable SortOrder
-instance ToQuery  SortOrder
-instance ToHeader SortOrder
+instance Hashable     SortOrder
+instance ToByteString SortOrder
+instance ToPath       SortOrder
+instance ToQuery      SortOrder
+instance ToHeader     SortOrder
 
 instance ToJSON SortOrder where
     toJSON = toJSONText
@@ -123,9 +129,11 @@ instance ToText TaskDefinitionStatus where
         Active -> "active"
         Inactive -> "inactive"
 
-instance Hashable TaskDefinitionStatus
-instance ToQuery  TaskDefinitionStatus
-instance ToHeader TaskDefinitionStatus
+instance Hashable     TaskDefinitionStatus
+instance ToByteString TaskDefinitionStatus
+instance ToPath       TaskDefinitionStatus
+instance ToQuery      TaskDefinitionStatus
+instance ToHeader     TaskDefinitionStatus
 
 instance ToJSON TaskDefinitionStatus where
     toJSON = toJSONText
@@ -150,9 +158,11 @@ instance ToText TransportProtocol where
         TCP -> "tcp"
         Udp -> "udp"
 
-instance Hashable TransportProtocol
-instance ToQuery  TransportProtocol
-instance ToHeader TransportProtocol
+instance Hashable     TransportProtocol
+instance ToByteString TransportProtocol
+instance ToPath       TransportProtocol
+instance ToQuery      TransportProtocol
+instance ToHeader     TransportProtocol
 
 instance ToJSON TransportProtocol where
     toJSON = toJSONText

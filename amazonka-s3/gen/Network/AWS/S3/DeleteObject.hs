@@ -125,7 +125,7 @@ instance ToHeaders DeleteObject where
 
 instance ToPath DeleteObject where
         toPath DeleteObject'{..}
-          = mconcat ["/", toText _doBucket, "/", toText _doKey]
+          = mconcat ["/", toPath _doBucket, "/", toPath _doKey]
 
 instance ToQuery DeleteObject where
         toQuery DeleteObject'{..}

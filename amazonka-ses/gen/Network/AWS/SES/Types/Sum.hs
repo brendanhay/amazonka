@@ -36,9 +36,11 @@ instance ToText IdentityType where
         Domain -> "domain"
         EmailAddress -> "emailaddress"
 
-instance Hashable IdentityType
-instance ToQuery  IdentityType
-instance ToHeader IdentityType
+instance Hashable     IdentityType
+instance ToByteString IdentityType
+instance ToPath       IdentityType
+instance ToQuery      IdentityType
+instance ToHeader     IdentityType
 
 data NotificationType
     = Delivery
@@ -60,9 +62,11 @@ instance ToText NotificationType where
         Complaint -> "complaint"
         Delivery -> "delivery"
 
-instance Hashable NotificationType
-instance ToQuery  NotificationType
-instance ToHeader NotificationType
+instance Hashable     NotificationType
+instance ToByteString NotificationType
+instance ToPath       NotificationType
+instance ToQuery      NotificationType
+instance ToHeader     NotificationType
 
 data VerificationStatus
     = NotStarted
@@ -90,9 +94,11 @@ instance ToText VerificationStatus where
         Success -> "success"
         TemporaryFailure -> "temporaryfailure"
 
-instance Hashable VerificationStatus
-instance ToQuery  VerificationStatus
-instance ToHeader VerificationStatus
+instance Hashable     VerificationStatus
+instance ToByteString VerificationStatus
+instance ToPath       VerificationStatus
+instance ToQuery      VerificationStatus
+instance ToHeader     VerificationStatus
 
 instance FromXML VerificationStatus where
     parseXML = parseXMLText "VerificationStatus"

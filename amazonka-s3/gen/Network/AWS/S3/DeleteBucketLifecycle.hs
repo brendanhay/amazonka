@@ -72,7 +72,7 @@ instance ToHeaders DeleteBucketLifecycle where
 
 instance ToPath DeleteBucketLifecycle where
         toPath DeleteBucketLifecycle'{..}
-          = mconcat ["/", toText _dblBucket]
+          = mconcat ["/", toPath _dblBucket]
 
 instance ToQuery DeleteBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])

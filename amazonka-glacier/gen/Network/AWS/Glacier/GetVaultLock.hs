@@ -123,8 +123,8 @@ instance ToHeaders GetVaultLock where
 instance ToPath GetVaultLock where
         toPath GetVaultLock'{..}
           = mconcat
-              ["/", toText _gvlAccountId, "/vaults/",
-               toText _gvlVaultName, "/lock-policy"]
+              ["/", toPath _gvlAccountId, "/vaults/",
+               toPath _gvlVaultName, "/lock-policy"]
 
 instance ToQuery GetVaultLock where
         toQuery = const mempty

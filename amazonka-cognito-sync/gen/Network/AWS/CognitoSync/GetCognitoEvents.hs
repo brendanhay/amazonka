@@ -90,7 +90,7 @@ instance ToHeaders GetCognitoEvents where
 instance ToPath GetCognitoEvents where
         toPath GetCognitoEvents'{..}
           = mconcat
-              ["/identitypools/", toText _gceIdentityPoolId,
+              ["/identitypools/", toPath _gceIdentityPoolId,
                "/events"]
 
 instance ToQuery GetCognitoEvents where

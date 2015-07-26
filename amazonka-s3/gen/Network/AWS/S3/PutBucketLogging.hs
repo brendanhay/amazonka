@@ -99,7 +99,7 @@ instance ToHeaders PutBucketLogging where
 
 instance ToPath PutBucketLogging where
         toPath PutBucketLogging'{..}
-          = mconcat ["/", toText _pblBucket]
+          = mconcat ["/", toPath _pblBucket]
 
 instance ToQuery PutBucketLogging where
         toQuery = const (mconcat ["logging"])

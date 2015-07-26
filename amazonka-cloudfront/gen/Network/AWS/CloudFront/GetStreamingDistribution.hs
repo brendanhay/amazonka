@@ -85,7 +85,7 @@ instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _gsdId]
+               toPath _gsdId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty

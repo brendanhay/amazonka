@@ -93,7 +93,7 @@ instance ToJSON CreateTags where
 instance ToPath CreateTags where
         toPath CreateTags'{..}
           = mconcat
-              ["/2015-02-01/create-tags/", toText _ctFileSystemId]
+              ["/2015-02-01/create-tags/", toPath _ctFileSystemId]
 
 instance ToQuery CreateTags where
         toQuery = const mempty

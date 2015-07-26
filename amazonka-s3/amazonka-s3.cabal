@@ -100,6 +100,7 @@ library
         , base          >= 4.7     && < 5
         , bytestring >= 0.9
         , containers >= 0.5
+        , lens       >= 4.4
 
 test-suite amazonka-s3-test
     type:              exitcode-stdio-1.0
@@ -115,10 +116,11 @@ test-suite amazonka-s3-test
           Test.AWS.S3
         , Test.AWS.Gen.S3
         , Test.AWS.S3.Internal
+        , Test.AWS.S3.ObjectKey
 
     build-depends:
           amazonka-core == 1.0.0
-        , amazonka-test
+        , amazonka-test == 1.0.0
         , amazonka-s3 == 1.0.0
         , base
         , bytestring

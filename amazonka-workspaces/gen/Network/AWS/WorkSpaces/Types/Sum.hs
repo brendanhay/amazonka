@@ -39,9 +39,11 @@ instance ToText Compute where
         Standard -> "standard"
         Value -> "value"
 
-instance Hashable Compute
-instance ToQuery  Compute
-instance ToHeader Compute
+instance Hashable     Compute
+instance ToByteString Compute
+instance ToPath       Compute
+instance ToQuery      Compute
+instance ToHeader     Compute
 
 instance FromJSON Compute where
     parseJSON = parseJSONText "Compute"
@@ -72,9 +74,11 @@ instance ToText WorkspaceDirectoryState where
         Registered -> "registered"
         Registering -> "registering"
 
-instance Hashable WorkspaceDirectoryState
-instance ToQuery  WorkspaceDirectoryState
-instance ToHeader WorkspaceDirectoryState
+instance Hashable     WorkspaceDirectoryState
+instance ToByteString WorkspaceDirectoryState
+instance ToPath       WorkspaceDirectoryState
+instance ToQuery      WorkspaceDirectoryState
+instance ToHeader     WorkspaceDirectoryState
 
 instance FromJSON WorkspaceDirectoryState where
     parseJSON = parseJSONText "WorkspaceDirectoryState"
@@ -96,9 +100,11 @@ instance ToText WorkspaceDirectoryType where
         AdConnector -> "ad_connector"
         SimpleAd -> "simple_ad"
 
-instance Hashable WorkspaceDirectoryType
-instance ToQuery  WorkspaceDirectoryType
-instance ToHeader WorkspaceDirectoryType
+instance Hashable     WorkspaceDirectoryType
+instance ToByteString WorkspaceDirectoryType
+instance ToPath       WorkspaceDirectoryType
+instance ToQuery      WorkspaceDirectoryType
+instance ToHeader     WorkspaceDirectoryType
 
 instance FromJSON WorkspaceDirectoryType where
     parseJSON = parseJSONText "WorkspaceDirectoryType"
@@ -144,9 +150,11 @@ instance ToText WorkspaceState where
         WSTerminating -> "terminating"
         WSUnhealthy -> "unhealthy"
 
-instance Hashable WorkspaceState
-instance ToQuery  WorkspaceState
-instance ToHeader WorkspaceState
+instance Hashable     WorkspaceState
+instance ToByteString WorkspaceState
+instance ToPath       WorkspaceState
+instance ToQuery      WorkspaceState
+instance ToHeader     WorkspaceState
 
 instance FromJSON WorkspaceState where
     parseJSON = parseJSONText "WorkspaceState"

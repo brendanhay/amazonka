@@ -39,9 +39,11 @@ instance ToText AssignmentStatusType where
         Assigned -> "assigned"
         Unassigned -> "unassigned"
 
-instance Hashable AssignmentStatusType
-instance ToQuery  AssignmentStatusType
-instance ToHeader AssignmentStatusType
+instance Hashable     AssignmentStatusType
+instance ToByteString AssignmentStatusType
+instance ToPath       AssignmentStatusType
+instance ToQuery      AssignmentStatusType
+instance ToHeader     AssignmentStatusType
 
 data EncodingType
     = Pem
@@ -60,9 +62,11 @@ instance ToText EncodingType where
         Pem -> "pem"
         SSH -> "ssh"
 
-instance Hashable EncodingType
-instance ToQuery  EncodingType
-instance ToHeader EncodingType
+instance Hashable     EncodingType
+instance ToByteString EncodingType
+instance ToPath       EncodingType
+instance ToQuery      EncodingType
+instance ToHeader     EncodingType
 
 data EntityType
     = Group
@@ -90,9 +94,11 @@ instance ToText EntityType where
         Role -> "role"
         User -> "user"
 
-instance Hashable EntityType
-instance ToQuery  EntityType
-instance ToHeader EntityType
+instance Hashable     EntityType
+instance ToByteString EntityType
+instance ToPath       EntityType
+instance ToQuery      EntityType
+instance ToHeader     EntityType
 
 data PolicyScopeType
     = AWS
@@ -114,9 +120,11 @@ instance ToText PolicyScopeType where
         All -> "all"
         Local -> "local"
 
-instance Hashable PolicyScopeType
-instance ToQuery  PolicyScopeType
-instance ToHeader PolicyScopeType
+instance Hashable     PolicyScopeType
+instance ToByteString PolicyScopeType
+instance ToPath       PolicyScopeType
+instance ToQuery      PolicyScopeType
+instance ToHeader     PolicyScopeType
 
 data ReportFormatType =
     TextCSV
@@ -132,9 +140,11 @@ instance ToText ReportFormatType where
     toText = \case
         TextCSV -> "text/csv"
 
-instance Hashable ReportFormatType
-instance ToQuery  ReportFormatType
-instance ToHeader ReportFormatType
+instance Hashable     ReportFormatType
+instance ToByteString ReportFormatType
+instance ToPath       ReportFormatType
+instance ToQuery      ReportFormatType
+instance ToHeader     ReportFormatType
 
 instance FromXML ReportFormatType where
     parseXML = parseXMLText "ReportFormatType"
@@ -159,9 +169,11 @@ instance ToText ReportStateType where
         Inprogress -> "inprogress"
         Started -> "started"
 
-instance Hashable ReportStateType
-instance ToQuery  ReportStateType
-instance ToHeader ReportStateType
+instance Hashable     ReportStateType
+instance ToByteString ReportStateType
+instance ToPath       ReportStateType
+instance ToQuery      ReportStateType
+instance ToHeader     ReportStateType
 
 instance FromXML ReportStateType where
     parseXML = parseXMLText "ReportStateType"
@@ -183,9 +195,11 @@ instance ToText StatusType where
         Active -> "active"
         Inactive -> "inactive"
 
-instance Hashable StatusType
-instance ToQuery  StatusType
-instance ToHeader StatusType
+instance Hashable     StatusType
+instance ToByteString StatusType
+instance ToPath       StatusType
+instance ToQuery      StatusType
+instance ToHeader     StatusType
 
 instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
@@ -276,9 +290,11 @@ instance ToText SummaryKeyType where
         UsersQuota -> "usersquota"
         VersionsPerPolicyQuota -> "versionsperpolicyquota"
 
-instance Hashable SummaryKeyType
-instance ToQuery  SummaryKeyType
-instance ToHeader SummaryKeyType
+instance Hashable     SummaryKeyType
+instance ToByteString SummaryKeyType
+instance ToPath       SummaryKeyType
+instance ToQuery      SummaryKeyType
+instance ToHeader     SummaryKeyType
 
 instance FromXML SummaryKeyType where
     parseXML = parseXMLText "SummaryKeyType"

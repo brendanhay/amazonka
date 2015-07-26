@@ -99,7 +99,7 @@ instance ToHeaders PutBucketLifecycle where
 
 instance ToPath PutBucketLifecycle where
         toPath PutBucketLifecycle'{..}
-          = mconcat ["/", toText _pBucket]
+          = mconcat ["/", toPath _pBucket]
 
 instance ToQuery PutBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])

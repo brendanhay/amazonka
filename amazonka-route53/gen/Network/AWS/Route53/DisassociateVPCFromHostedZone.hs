@@ -122,7 +122,7 @@ instance ToPath DisassociateVPCFromHostedZone where
         toPath DisassociateVPCFromHostedZone'{..}
           = mconcat
               ["/2013-04-01/hostedzone/",
-               toText _dvfhzHostedZoneId, "/disassociatevpc"]
+               toPath _dvfhzHostedZoneId, "/disassociatevpc"]
 
 instance ToQuery DisassociateVPCFromHostedZone where
         toQuery = const mempty

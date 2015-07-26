@@ -82,7 +82,7 @@ test-suite amazonka-ml-test
 
     build-depends:
           amazonka-core == 1.0.0
-        , amazonka-test
+        , amazonka-test == 1.0.0
         , amazonka-ml == 1.0.0
         , base
         , bytestring

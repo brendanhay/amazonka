@@ -42,9 +42,11 @@ instance ToText ComparisonOperator where
         LessThanOrEqualToThreshold -> "lessthanorequaltothreshold"
         LessThanThreshold -> "lessthanthreshold"
 
-instance Hashable ComparisonOperator
-instance ToQuery  ComparisonOperator
-instance ToHeader ComparisonOperator
+instance Hashable     ComparisonOperator
+instance ToByteString ComparisonOperator
+instance ToPath       ComparisonOperator
+instance ToQuery      ComparisonOperator
+instance ToHeader     ComparisonOperator
 
 instance FromXML ComparisonOperator where
     parseXML = parseXMLText "ComparisonOperator"
@@ -69,9 +71,11 @@ instance ToText HistoryItemType where
         ConfigurationUpdate -> "configurationupdate"
         StateUpdate -> "stateupdate"
 
-instance Hashable HistoryItemType
-instance ToQuery  HistoryItemType
-instance ToHeader HistoryItemType
+instance Hashable     HistoryItemType
+instance ToByteString HistoryItemType
+instance ToPath       HistoryItemType
+instance ToQuery      HistoryItemType
+instance ToHeader     HistoryItemType
 
 instance FromXML HistoryItemType where
     parseXML = parseXMLText "HistoryItemType"
@@ -168,9 +172,11 @@ instance ToText StandardUnit where
         Terabytes -> "terabytes"
         TerabytesSecond -> "terabytes/second"
 
-instance Hashable StandardUnit
-instance ToQuery  StandardUnit
-instance ToHeader StandardUnit
+instance Hashable     StandardUnit
+instance ToByteString StandardUnit
+instance ToPath       StandardUnit
+instance ToQuery      StandardUnit
+instance ToHeader     StandardUnit
 
 instance FromXML StandardUnit where
     parseXML = parseXMLText "StandardUnit"
@@ -195,9 +201,11 @@ instance ToText StateValue where
         InsufficientData -> "insufficient_data"
         OK -> "ok"
 
-instance Hashable StateValue
-instance ToQuery  StateValue
-instance ToHeader StateValue
+instance Hashable     StateValue
+instance ToByteString StateValue
+instance ToPath       StateValue
+instance ToQuery      StateValue
+instance ToHeader     StateValue
 
 instance FromXML StateValue where
     parseXML = parseXMLText "StateValue"
@@ -228,9 +236,11 @@ instance ToText Statistic where
         SampleCount -> "samplecount"
         Sum -> "sum"
 
-instance Hashable Statistic
-instance ToQuery  Statistic
-instance ToHeader Statistic
+instance Hashable     Statistic
+instance ToByteString Statistic
+instance ToPath       Statistic
+instance ToQuery      Statistic
+instance ToHeader     Statistic
 
 instance FromXML Statistic where
     parseXML = parseXMLText "Statistic"

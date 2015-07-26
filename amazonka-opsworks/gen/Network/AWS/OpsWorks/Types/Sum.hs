@@ -39,9 +39,11 @@ instance ToText AppAttributesKeys where
         DocumentRoot -> "documentroot"
         RailsEnv -> "railsenv"
 
-instance Hashable AppAttributesKeys
-instance ToQuery  AppAttributesKeys
-instance ToHeader AppAttributesKeys
+instance Hashable     AppAttributesKeys
+instance ToByteString AppAttributesKeys
+instance ToPath       AppAttributesKeys
+instance ToQuery      AppAttributesKeys
+instance ToHeader     AppAttributesKeys
 
 instance ToJSON AppAttributesKeys where
     toJSON = toJSONText
@@ -78,9 +80,11 @@ instance ToText AppType where
         Rails -> "rails"
         Static -> "static"
 
-instance Hashable AppType
-instance ToQuery  AppType
-instance ToHeader AppType
+instance Hashable     AppType
+instance ToByteString AppType
+instance ToPath       AppType
+instance ToQuery      AppType
+instance ToHeader     AppType
 
 instance ToJSON AppType where
     toJSON = toJSONText
@@ -105,9 +109,11 @@ instance ToText Architecture where
         I386 -> "i386"
         X86_64 -> "x86_64"
 
-instance Hashable Architecture
-instance ToQuery  Architecture
-instance ToHeader Architecture
+instance Hashable     Architecture
+instance ToByteString Architecture
+instance ToPath       Architecture
+instance ToQuery      Architecture
+instance ToHeader     Architecture
 
 instance ToJSON Architecture where
     toJSON = toJSONText
@@ -132,9 +138,11 @@ instance ToText AutoScalingType where
         Load -> "load"
         Timer -> "timer"
 
-instance Hashable AutoScalingType
-instance ToQuery  AutoScalingType
-instance ToHeader AutoScalingType
+instance Hashable     AutoScalingType
+instance ToByteString AutoScalingType
+instance ToPath       AutoScalingType
+instance ToQuery      AutoScalingType
+instance ToHeader     AutoScalingType
 
 instance ToJSON AutoScalingType where
     toJSON = toJSONText
@@ -189,9 +197,11 @@ instance ToText DeploymentCommandName where
         UpdateCustomCookbooks -> "update_custom_cookbooks"
         UpdateDependencies -> "update_dependencies"
 
-instance Hashable DeploymentCommandName
-instance ToQuery  DeploymentCommandName
-instance ToHeader DeploymentCommandName
+instance Hashable     DeploymentCommandName
+instance ToByteString DeploymentCommandName
+instance ToPath       DeploymentCommandName
+instance ToQuery      DeploymentCommandName
+instance ToHeader     DeploymentCommandName
 
 instance ToJSON DeploymentCommandName where
     toJSON = toJSONText
@@ -282,9 +292,11 @@ instance ToText LayerAttributesKeys where
         RubyVersion -> "rubyversion"
         RubygemsVersion -> "rubygemsversion"
 
-instance Hashable LayerAttributesKeys
-instance ToQuery  LayerAttributesKeys
-instance ToHeader LayerAttributesKeys
+instance Hashable     LayerAttributesKeys
+instance ToByteString LayerAttributesKeys
+instance ToPath       LayerAttributesKeys
+instance ToQuery      LayerAttributesKeys
+instance ToHeader     LayerAttributesKeys
 
 instance ToJSON LayerAttributesKeys where
     toJSON = toJSONText
@@ -333,9 +345,11 @@ instance ToText LayerType where
         RailsApp -> "rails-app"
         Web -> "web"
 
-instance Hashable LayerType
-instance ToQuery  LayerType
-instance ToHeader LayerType
+instance Hashable     LayerType
+instance ToByteString LayerType
+instance ToPath       LayerType
+instance ToQuery      LayerType
+instance ToHeader     LayerType
 
 instance ToJSON LayerType where
     toJSON = toJSONText
@@ -360,9 +374,11 @@ instance ToText RootDeviceType where
         EBS -> "ebs"
         InstanceStore -> "instance-store"
 
-instance Hashable RootDeviceType
-instance ToQuery  RootDeviceType
-instance ToHeader RootDeviceType
+instance Hashable     RootDeviceType
+instance ToByteString RootDeviceType
+instance ToPath       RootDeviceType
+instance ToQuery      RootDeviceType
+instance ToHeader     RootDeviceType
 
 instance ToJSON RootDeviceType where
     toJSON = toJSONText
@@ -393,9 +409,11 @@ instance ToText SourceType where
         S3 -> "s3"
         SVN -> "svn"
 
-instance Hashable SourceType
-instance ToQuery  SourceType
-instance ToHeader SourceType
+instance Hashable     SourceType
+instance ToByteString SourceType
+instance ToPath       SourceType
+instance ToQuery      SourceType
+instance ToHeader     SourceType
 
 instance ToJSON SourceType where
     toJSON = toJSONText
@@ -417,9 +435,11 @@ instance ToText StackAttributesKeys where
     toText = \case
         Color -> "color"
 
-instance Hashable StackAttributesKeys
-instance ToQuery  StackAttributesKeys
-instance ToHeader StackAttributesKeys
+instance Hashable     StackAttributesKeys
+instance ToByteString StackAttributesKeys
+instance ToPath       StackAttributesKeys
+instance ToQuery      StackAttributesKeys
+instance ToHeader     StackAttributesKeys
 
 instance ToJSON StackAttributesKeys where
     toJSON = toJSONText
@@ -444,9 +464,11 @@ instance ToText VirtualizationType where
         HVM -> "hvm"
         Paravirtual -> "paravirtual"
 
-instance Hashable VirtualizationType
-instance ToQuery  VirtualizationType
-instance ToHeader VirtualizationType
+instance Hashable     VirtualizationType
+instance ToByteString VirtualizationType
+instance ToPath       VirtualizationType
+instance ToQuery      VirtualizationType
+instance ToHeader     VirtualizationType
 
 instance FromJSON VirtualizationType where
     parseJSON = parseJSONText "VirtualizationType"
@@ -471,9 +493,11 @@ instance ToText VolumeType where
         IO1 -> "io1"
         Standard -> "standard"
 
-instance Hashable VolumeType
-instance ToQuery  VolumeType
-instance ToHeader VolumeType
+instance Hashable     VolumeType
+instance ToByteString VolumeType
+instance ToPath       VolumeType
+instance ToQuery      VolumeType
+instance ToHeader     VolumeType
 
 instance ToJSON VolumeType where
     toJSON = toJSONText

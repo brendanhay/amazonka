@@ -41,6 +41,7 @@ library
     build-depends:
           amazonka-core == {{ coreVersion }}.*
         , base          >= 4.7     && < 5
+        , bytestring    >= 0.9
 
 test-suite {{ libraryName }}-test
     type:              exitcode-stdio-1.0
@@ -59,7 +60,7 @@ test-suite {{ libraryName }}-test
 
     build-depends:
           amazonka-core == {{ coreVersion }}
-        , amazonka-test
+        , amazonka-test == {{ coreVersion }}
         , {{ libraryName }} == {{ libraryVersion }}
         , base
         , bytestring

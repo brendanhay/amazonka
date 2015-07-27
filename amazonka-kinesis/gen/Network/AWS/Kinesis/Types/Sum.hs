@@ -42,9 +42,11 @@ instance ToText ShardIteratorType where
         Latest -> "latest"
         TrimHorizon -> "trim_horizon"
 
-instance Hashable ShardIteratorType
-instance ToQuery  ShardIteratorType
-instance ToHeader ShardIteratorType
+instance Hashable     ShardIteratorType
+instance ToByteString ShardIteratorType
+instance ToPath       ShardIteratorType
+instance ToQuery      ShardIteratorType
+instance ToHeader     ShardIteratorType
 
 instance ToJSON ShardIteratorType where
     toJSON = toJSONText
@@ -72,9 +74,11 @@ instance ToText StreamStatus where
         Deleting -> "deleting"
         Updating -> "updating"
 
-instance Hashable StreamStatus
-instance ToQuery  StreamStatus
-instance ToHeader StreamStatus
+instance Hashable     StreamStatus
+instance ToByteString StreamStatus
+instance ToPath       StreamStatus
+instance ToQuery      StreamStatus
+instance ToHeader     StreamStatus
 
 instance FromJSON StreamStatus where
     parseJSON = parseJSONText "StreamStatus"

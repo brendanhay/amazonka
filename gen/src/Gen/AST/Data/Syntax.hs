@@ -533,7 +533,7 @@ toQueryE p = either pair field
     field = toGenericE p toQ "toQuery" toQMap toQList
 
 toPathE :: Either Text Field -> Exp
-toPathE = either str (app (var "toText") . var . fieldAccessor)
+toPathE = either str (app (var "toPath") . var . fieldAccessor)
 
 toBodyE :: Field -> Exp
 toBodyE = var . fieldAccessor

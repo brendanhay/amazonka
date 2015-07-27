@@ -17,9 +17,11 @@ instance ToText {{ shape.name }} where
         {{ ctor.key }} -> "{{ ctor.value }}"
       {% endfor %}
 
-instance Hashable {{ shape.name }}
-instance ToQuery  {{ shape.name }}
-instance ToHeader {{ shape.name }}
+instance Hashable     {{ shape.name }}
+instance ToByteString {{ shape.name }}
+instance ToPath       {{ shape.name }}
+instance ToQuery      {{ shape.name }}
+instance ToHeader     {{ shape.name }}
 {% for inst in shape.instances %}
   {% case inst.value %}
   {% when "ToQuery" %}

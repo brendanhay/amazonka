@@ -78,7 +78,7 @@ instance ToHeaders GetBucketPolicy where
 
 instance ToPath GetBucketPolicy where
         toPath GetBucketPolicy'{..}
-          = mconcat ["/", toText _gbpBucket]
+          = mconcat ["/", toPath _gbpBucket]
 
 instance ToQuery GetBucketPolicy where
         toQuery = const (mconcat ["policy"])

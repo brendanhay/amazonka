@@ -79,7 +79,7 @@ instance ToHeaders GetBucketCORS where
 
 instance ToPath GetBucketCORS where
         toPath GetBucketCORS'{..}
-          = mconcat ["/", toText _gbcBucket]
+          = mconcat ["/", toPath _gbcBucket]
 
 instance ToQuery GetBucketCORS where
         toQuery = const (mconcat ["cors"])

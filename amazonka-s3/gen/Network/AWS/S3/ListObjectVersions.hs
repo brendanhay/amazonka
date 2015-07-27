@@ -85,7 +85,7 @@ data ListObjectVersions = ListObjectVersions'
     , _lovEncodingType    :: !(Maybe EncodingType)
     , _lovVersionIdMarker :: !(Maybe Text)
     , _lovMaxKeys         :: !(Maybe Int)
-    , _lovDelimiter       :: !(Maybe Char)
+    , _lovDelimiter       :: !(Maybe Delimiter)
     , _lovBucket          :: !BucketName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -124,7 +124,7 @@ lovMaxKeys :: Lens' ListObjectVersions (Maybe Int)
 lovMaxKeys = lens _lovMaxKeys (\ s a -> s{_lovMaxKeys = a});
 
 -- | A delimiter is a character you use to group keys.
-lovDelimiter :: Lens' ListObjectVersions (Maybe Char)
+lovDelimiter :: Lens' ListObjectVersions (Maybe Delimiter)
 lovDelimiter = lens _lovDelimiter (\ s a -> s{_lovDelimiter = a});
 
 -- | FIXME: Undocumented member.
@@ -170,7 +170,7 @@ instance ToHeaders ListObjectVersions where
 
 instance ToPath ListObjectVersions where
         toPath ListObjectVersions'{..}
-          = mconcat ["/", toText _lovBucket]
+          = mconcat ["/", toPath _lovBucket]
 
 instance ToQuery ListObjectVersions where
         toQuery ListObjectVersions'{..}
@@ -226,7 +226,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     , _lovrsVersionIdMarker     :: !(Maybe Text)
     , _lovrsMaxKeys             :: !(Maybe Int)
     , _lovrsIsTruncated         :: !(Maybe Bool)
-    , _lovrsDelimiter           :: !(Maybe Char)
+    , _lovrsDelimiter           :: !(Maybe Delimiter)
     , _lovrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -305,7 +305,7 @@ lovrsIsTruncated :: Lens' ListObjectVersionsResponse (Maybe Bool)
 lovrsIsTruncated = lens _lovrsIsTruncated (\ s a -> s{_lovrsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lovrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Char)
+lovrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Delimiter)
 lovrsDelimiter = lens _lovrsDelimiter (\ s a -> s{_lovrsDelimiter = a});
 
 -- | FIXME: Undocumented member.

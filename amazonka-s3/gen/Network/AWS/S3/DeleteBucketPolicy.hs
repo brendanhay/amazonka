@@ -72,7 +72,7 @@ instance ToHeaders DeleteBucketPolicy where
 
 instance ToPath DeleteBucketPolicy where
         toPath DeleteBucketPolicy'{..}
-          = mconcat ["/", toText _dbpBucket]
+          = mconcat ["/", toPath _dbpBucket]
 
 instance ToQuery DeleteBucketPolicy where
         toQuery = const (mconcat ["policy"])

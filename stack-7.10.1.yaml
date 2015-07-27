@@ -1,4 +1,4 @@
-resolver:   nightly-2015-07-15
+resolver:   nightly-2015-07-25
 flags:      {}
 extra-deps:
   - groom-0.1.2
@@ -58,4 +58,3 @@ packages:
   - amazonka-support
   - amazonka-swf
   - amazonka-workspaces
-

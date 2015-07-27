@@ -120,10 +120,10 @@ instance ToJSON SubscribeToDataset where
 instance ToPath SubscribeToDataset where
         toPath SubscribeToDataset'{..}
           = mconcat
-              ["/identitypools/", toText _stdIdentityPoolId,
-               "/identities/", toText _stdIdentityId, "/datasets/",
-               toText _stdDatasetName, "/subscriptions/",
-               toText _stdDeviceId]
+              ["/identitypools/", toPath _stdIdentityPoolId,
+               "/identities/", toPath _stdIdentityId, "/datasets/",
+               toPath _stdDatasetName, "/subscriptions/",
+               toPath _stdDeviceId]
 
 instance ToQuery SubscribeToDataset where
         toQuery = const mempty

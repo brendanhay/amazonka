@@ -36,9 +36,11 @@ instance ToText CognitoErrorCode where
         AccessDenied -> "accessdenied"
         InternalServerError -> "internalservererror"
 
-instance Hashable CognitoErrorCode
-instance ToQuery  CognitoErrorCode
-instance ToHeader CognitoErrorCode
+instance Hashable     CognitoErrorCode
+instance ToByteString CognitoErrorCode
+instance ToPath       CognitoErrorCode
+instance ToQuery      CognitoErrorCode
+instance ToHeader     CognitoErrorCode
 
 instance FromJSON CognitoErrorCode where
     parseJSON = parseJSONText "CognitoErrorCode"

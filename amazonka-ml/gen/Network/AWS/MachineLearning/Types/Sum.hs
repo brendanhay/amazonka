@@ -38,9 +38,11 @@ instance ToText Algorithm where
     toText = \case
         Sgd -> "sgd"
 
-instance Hashable Algorithm
-instance ToQuery  Algorithm
-instance ToHeader Algorithm
+instance Hashable     Algorithm
+instance ToByteString Algorithm
+instance ToPath       Algorithm
+instance ToQuery      Algorithm
+instance ToHeader     Algorithm
 
 instance FromJSON Algorithm where
     parseJSON = parseJSONText "Algorithm"
@@ -97,9 +99,11 @@ instance ToText BatchPredictionFilterVariable where
         BatchName -> "name"
         BatchStatus -> "status"
 
-instance Hashable BatchPredictionFilterVariable
-instance ToQuery  BatchPredictionFilterVariable
-instance ToHeader BatchPredictionFilterVariable
+instance Hashable     BatchPredictionFilterVariable
+instance ToByteString BatchPredictionFilterVariable
+instance ToPath       BatchPredictionFilterVariable
+instance ToQuery      BatchPredictionFilterVariable
+instance ToHeader     BatchPredictionFilterVariable
 
 instance ToJSON BatchPredictionFilterVariable where
     toJSON = toJSONText
@@ -149,9 +153,11 @@ instance ToText DataSourceFilterVariable where
         DataName -> "name"
         DataStatus -> "status"
 
-instance Hashable DataSourceFilterVariable
-instance ToQuery  DataSourceFilterVariable
-instance ToHeader DataSourceFilterVariable
+instance Hashable     DataSourceFilterVariable
+instance ToByteString DataSourceFilterVariable
+instance ToPath       DataSourceFilterVariable
+instance ToQuery      DataSourceFilterVariable
+instance ToHeader     DataSourceFilterVariable
 
 instance ToJSON DataSourceFilterVariable where
     toJSON = toJSONText
@@ -176,9 +182,11 @@ instance ToText DetailsAttributes where
         Algorithm -> "algorithm"
         PredictiveModelType -> "predictivemodeltype"
 
-instance Hashable DetailsAttributes
-instance ToQuery  DetailsAttributes
-instance ToHeader DetailsAttributes
+instance Hashable     DetailsAttributes
+instance ToByteString DetailsAttributes
+instance ToPath       DetailsAttributes
+instance ToQuery      DetailsAttributes
+instance ToHeader     DetailsAttributes
 
 instance FromJSON DetailsAttributes where
     parseJSON = parseJSONText "DetailsAttributes"
@@ -216,9 +224,11 @@ instance ToText EntityStatus where
         Inprogress -> "inprogress"
         Pending -> "pending"
 
-instance Hashable EntityStatus
-instance ToQuery  EntityStatus
-instance ToHeader EntityStatus
+instance Hashable     EntityStatus
+instance ToByteString EntityStatus
+instance ToPath       EntityStatus
+instance ToQuery      EntityStatus
+instance ToHeader     EntityStatus
 
 instance FromJSON EntityStatus where
     parseJSON = parseJSONText "EntityStatus"
@@ -274,9 +284,11 @@ instance ToText EvaluationFilterVariable where
         EvalName -> "name"
         EvalStatus -> "status"
 
-instance Hashable EvaluationFilterVariable
-instance ToQuery  EvaluationFilterVariable
-instance ToHeader EvaluationFilterVariable
+instance Hashable     EvaluationFilterVariable
+instance ToByteString EvaluationFilterVariable
+instance ToPath       EvaluationFilterVariable
+instance ToQuery      EvaluationFilterVariable
+instance ToHeader     EvaluationFilterVariable
 
 instance ToJSON EvaluationFilterVariable where
     toJSON = toJSONText
@@ -322,9 +334,11 @@ instance ToText MLModelFilterVariable where
         MLMFVTrainingDataSourceId -> "trainingdatasourceid"
         MLMFVTrainingDataURI -> "trainingdatauri"
 
-instance Hashable MLModelFilterVariable
-instance ToQuery  MLModelFilterVariable
-instance ToHeader MLModelFilterVariable
+instance Hashable     MLModelFilterVariable
+instance ToByteString MLModelFilterVariable
+instance ToPath       MLModelFilterVariable
+instance ToQuery      MLModelFilterVariable
+instance ToHeader     MLModelFilterVariable
 
 instance ToJSON MLModelFilterVariable where
     toJSON = toJSONText
@@ -349,9 +363,11 @@ instance ToText MLModelType where
         Multiclass -> "multiclass"
         Regression -> "regression"
 
-instance Hashable MLModelType
-instance ToQuery  MLModelType
-instance ToHeader MLModelType
+instance Hashable     MLModelType
+instance ToByteString MLModelType
+instance ToPath       MLModelType
+instance ToQuery      MLModelType
+instance ToHeader     MLModelType
 
 instance ToJSON MLModelType where
     toJSON = toJSONText
@@ -382,9 +398,11 @@ instance ToText RealtimeEndpointStatus where
         RESReady -> "ready"
         RESUpdating -> "updating"
 
-instance Hashable RealtimeEndpointStatus
-instance ToQuery  RealtimeEndpointStatus
-instance ToHeader RealtimeEndpointStatus
+instance Hashable     RealtimeEndpointStatus
+instance ToByteString RealtimeEndpointStatus
+instance ToPath       RealtimeEndpointStatus
+instance ToQuery      RealtimeEndpointStatus
+instance ToHeader     RealtimeEndpointStatus
 
 instance FromJSON RealtimeEndpointStatus where
     parseJSON = parseJSONText "RealtimeEndpointStatus"
@@ -411,9 +429,11 @@ instance ToText SortOrder where
         Asc -> "asc"
         Dsc -> "dsc"
 
-instance Hashable SortOrder
-instance ToQuery  SortOrder
-instance ToHeader SortOrder
+instance Hashable     SortOrder
+instance ToByteString SortOrder
+instance ToPath       SortOrder
+instance ToQuery      SortOrder
+instance ToHeader     SortOrder
 
 instance ToJSON SortOrder where
     toJSON = toJSONText

@@ -71,9 +71,11 @@ instance ToText ConnectionState where
         CSRejected -> "rejected"
         CSRequested -> "requested"
 
-instance Hashable ConnectionState
-instance ToQuery  ConnectionState
-instance ToHeader ConnectionState
+instance Hashable     ConnectionState
+instance ToByteString ConnectionState
+instance ToPath       ConnectionState
+instance ToQuery      ConnectionState
+instance ToHeader     ConnectionState
 
 instance FromJSON ConnectionState where
     parseJSON = parseJSONText "ConnectionState"
@@ -118,9 +120,11 @@ instance ToText InterconnectState where
         ISPending -> "pending"
         ISRequested -> "requested"
 
-instance Hashable InterconnectState
-instance ToQuery  InterconnectState
-instance ToHeader InterconnectState
+instance Hashable     InterconnectState
+instance ToByteString InterconnectState
+instance ToPath       InterconnectState
+instance ToQuery      InterconnectState
+instance ToHeader     InterconnectState
 
 instance FromJSON InterconnectState where
     parseJSON = parseJSONText "InterconnectState"
@@ -179,9 +183,11 @@ instance ToText VirtualInterfaceState where
         Rejected -> "rejected"
         Verifying -> "verifying"
 
-instance Hashable VirtualInterfaceState
-instance ToQuery  VirtualInterfaceState
-instance ToHeader VirtualInterfaceState
+instance Hashable     VirtualInterfaceState
+instance ToByteString VirtualInterfaceState
+instance ToPath       VirtualInterfaceState
+instance ToQuery      VirtualInterfaceState
+instance ToHeader     VirtualInterfaceState
 
 instance FromJSON VirtualInterfaceState where
     parseJSON = parseJSONText "VirtualInterfaceState"

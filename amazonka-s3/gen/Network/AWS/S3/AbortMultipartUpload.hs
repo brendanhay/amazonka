@@ -113,7 +113,7 @@ instance ToHeaders AbortMultipartUpload where
 instance ToPath AbortMultipartUpload where
         toPath AbortMultipartUpload'{..}
           = mconcat
-              ["/", toText _amuBucket, "/", toText _amuKey]
+              ["/", toPath _amuBucket, "/", toPath _amuKey]
 
 instance ToQuery AbortMultipartUpload where
         toQuery AbortMultipartUpload'{..}

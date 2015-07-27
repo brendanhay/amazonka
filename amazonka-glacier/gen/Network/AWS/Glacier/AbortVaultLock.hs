@@ -106,8 +106,8 @@ instance ToHeaders AbortVaultLock where
 instance ToPath AbortVaultLock where
         toPath AbortVaultLock'{..}
           = mconcat
-              ["/", toText _avlAccountId, "/vaults/",
-               toText _avlVaultName, "/lock-policy"]
+              ["/", toPath _avlAccountId, "/vaults/",
+               toPath _avlVaultName, "/lock-policy"]
 
 instance ToQuery AbortVaultLock where
         toQuery = const mempty

@@ -36,9 +36,11 @@ instance ToText OrderBy where
         LastEventTime -> "lasteventtime"
         LogStreamName -> "logstreamname"
 
-instance Hashable OrderBy
-instance ToQuery  OrderBy
-instance ToHeader OrderBy
+instance Hashable     OrderBy
+instance ToByteString OrderBy
+instance ToPath       OrderBy
+instance ToQuery      OrderBy
+instance ToHeader     OrderBy
 
 instance ToJSON OrderBy where
     toJSON = toJSONText

@@ -363,7 +363,7 @@ instance ToHeaders PutObject where
 
 instance ToPath PutObject where
         toPath PutObject'{..}
-          = mconcat ["/", toText _poBucket, "/", toText _poKey]
+          = mconcat ["/", toPath _poBucket, "/", toPath _poKey]
 
 instance ToQuery PutObject where
         toQuery = const mempty

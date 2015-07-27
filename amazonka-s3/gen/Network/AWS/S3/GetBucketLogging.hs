@@ -79,7 +79,7 @@ instance ToHeaders GetBucketLogging where
 
 instance ToPath GetBucketLogging where
         toPath GetBucketLogging'{..}
-          = mconcat ["/", toText _getBucket]
+          = mconcat ["/", toPath _getBucket]
 
 instance ToQuery GetBucketLogging where
         toQuery = const (mconcat ["logging"])

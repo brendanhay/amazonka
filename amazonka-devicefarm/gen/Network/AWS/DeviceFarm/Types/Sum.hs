@@ -39,9 +39,11 @@ instance ToText ArtifactCategory where
         ACLog -> "log"
         ACScreenshot -> "screenshot"
 
-instance Hashable ArtifactCategory
-instance ToQuery  ArtifactCategory
-instance ToHeader ArtifactCategory
+instance Hashable     ArtifactCategory
+instance ToByteString ArtifactCategory
+instance ToPath       ArtifactCategory
+instance ToQuery      ArtifactCategory
+instance ToHeader     ArtifactCategory
 
 instance ToJSON ArtifactCategory where
     toJSON = toJSONText
@@ -105,9 +107,11 @@ instance ToText ArtifactType where
         ServiceLog -> "service_log"
         Unknown -> "unknown"
 
-instance Hashable ArtifactType
-instance ToQuery  ArtifactType
-instance ToHeader ArtifactType
+instance Hashable     ArtifactType
+instance ToByteString ArtifactType
+instance ToPath       ArtifactType
+instance ToQuery      ArtifactType
+instance ToHeader     ArtifactType
 
 instance FromJSON ArtifactType where
     parseJSON = parseJSONText "ArtifactType"
@@ -135,9 +139,11 @@ instance ToText DeviceAttribute where
         Manufacturer -> "manufacturer"
         Platform -> "platform"
 
-instance Hashable DeviceAttribute
-instance ToQuery  DeviceAttribute
-instance ToHeader DeviceAttribute
+instance Hashable     DeviceAttribute
+instance ToByteString DeviceAttribute
+instance ToPath       DeviceAttribute
+instance ToQuery      DeviceAttribute
+instance ToHeader     DeviceAttribute
 
 instance ToJSON DeviceAttribute where
     toJSON = toJSONText
@@ -162,9 +168,11 @@ instance ToText DeviceFormFactor where
         Phone -> "phone"
         Tablet -> "tablet"
 
-instance Hashable DeviceFormFactor
-instance ToQuery  DeviceFormFactor
-instance ToHeader DeviceFormFactor
+instance Hashable     DeviceFormFactor
+instance ToByteString DeviceFormFactor
+instance ToPath       DeviceFormFactor
+instance ToQuery      DeviceFormFactor
+instance ToHeader     DeviceFormFactor
 
 instance FromJSON DeviceFormFactor where
     parseJSON = parseJSONText "DeviceFormFactor"
@@ -183,9 +191,11 @@ instance ToText DevicePlatform where
     toText = \case
         Android -> "android"
 
-instance Hashable DevicePlatform
-instance ToQuery  DevicePlatform
-instance ToHeader DevicePlatform
+instance Hashable     DevicePlatform
+instance ToByteString DevicePlatform
+instance ToPath       DevicePlatform
+instance ToQuery      DevicePlatform
+instance ToHeader     DevicePlatform
 
 instance FromJSON DevicePlatform where
     parseJSON = parseJSONText "DevicePlatform"
@@ -207,9 +217,11 @@ instance ToText DevicePoolType where
         Curated -> "curated"
         Private -> "private"
 
-instance Hashable DevicePoolType
-instance ToQuery  DevicePoolType
-instance ToHeader DevicePoolType
+instance Hashable     DevicePoolType
+instance ToByteString DevicePoolType
+instance ToPath       DevicePoolType
+instance ToQuery      DevicePoolType
+instance ToHeader     DevicePoolType
 
 instance ToJSON DevicePoolType where
     toJSON = toJSONText
@@ -249,9 +261,11 @@ instance ToText ExecutionResult where
         ERStopped -> "stopped"
         ERWarned -> "warned"
 
-instance Hashable ExecutionResult
-instance ToQuery  ExecutionResult
-instance ToHeader ExecutionResult
+instance Hashable     ExecutionResult
+instance ToByteString ExecutionResult
+instance ToPath       ExecutionResult
+instance ToQuery      ExecutionResult
+instance ToHeader     ExecutionResult
 
 instance FromJSON ExecutionResult where
     parseJSON = parseJSONText "ExecutionResult"
@@ -282,9 +296,11 @@ instance ToText ExecutionStatus where
         Running -> "running"
         Scheduling -> "scheduling"
 
-instance Hashable ExecutionStatus
-instance ToQuery  ExecutionStatus
-instance ToHeader ExecutionStatus
+instance Hashable     ExecutionStatus
+instance ToByteString ExecutionStatus
+instance ToPath       ExecutionStatus
+instance ToQuery      ExecutionStatus
+instance ToHeader     ExecutionStatus
 
 instance FromJSON ExecutionStatus where
     parseJSON = parseJSONText "ExecutionStatus"
@@ -315,9 +331,11 @@ instance ToText RuleOperator where
         LessThan -> "less_than"
         NotIn -> "not_in"
 
-instance Hashable RuleOperator
-instance ToQuery  RuleOperator
-instance ToHeader RuleOperator
+instance Hashable     RuleOperator
+instance ToByteString RuleOperator
+instance ToPath       RuleOperator
+instance ToQuery      RuleOperator
+instance ToHeader     RuleOperator
 
 instance ToJSON RuleOperator where
     toJSON = toJSONText
@@ -387,9 +405,11 @@ instance ToText SampleType where
         Threads -> "threads"
         TxRate -> "tx_rate"
 
-instance Hashable SampleType
-instance ToQuery  SampleType
-instance ToHeader SampleType
+instance Hashable     SampleType
+instance ToByteString SampleType
+instance ToPath       SampleType
+instance ToQuery      SampleType
+instance ToHeader     SampleType
 
 instance FromJSON SampleType where
     parseJSON = parseJSONText "SampleType"
@@ -426,9 +446,11 @@ instance ToText TestType where
         Instrumentation -> "instrumentation"
         Uiautomator -> "uiautomator"
 
-instance Hashable TestType
-instance ToQuery  TestType
-instance ToHeader TestType
+instance Hashable     TestType
+instance ToByteString TestType
+instance ToPath       TestType
+instance ToQuery      TestType
+instance ToHeader     TestType
 
 instance ToJSON TestType where
     toJSON = toJSONText
@@ -459,9 +481,11 @@ instance ToText UploadStatus where
         USProcessing -> "processing"
         USSucceeded -> "succeeded"
 
-instance Hashable UploadStatus
-instance ToQuery  UploadStatus
-instance ToHeader UploadStatus
+instance Hashable     UploadStatus
+instance ToByteString UploadStatus
+instance ToPath       UploadStatus
+instance ToQuery      UploadStatus
+instance ToHeader     UploadStatus
 
 instance FromJSON UploadStatus where
     parseJSON = parseJSONText "UploadStatus"
@@ -498,9 +522,11 @@ instance ToText UploadType where
         InstrumentationTestPackage -> "instrumentation_test_package"
         UiautomatorTestPackage -> "uiautomator_test_package"
 
-instance Hashable UploadType
-instance ToQuery  UploadType
-instance ToHeader UploadType
+instance Hashable     UploadType
+instance ToByteString UploadType
+instance ToPath       UploadType
+instance ToQuery      UploadType
+instance ToHeader     UploadType
 
 instance ToJSON UploadType where
     toJSON = toJSONText

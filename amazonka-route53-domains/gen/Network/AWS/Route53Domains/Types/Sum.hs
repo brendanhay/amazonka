@@ -45,9 +45,11 @@ instance ToText ContactType where
         PublicBody -> "public_body"
         Reseller -> "reseller"
 
-instance Hashable ContactType
-instance ToQuery  ContactType
-instance ToHeader ContactType
+instance Hashable     ContactType
+instance ToByteString ContactType
+instance ToPath       ContactType
+instance ToQuery      ContactType
+instance ToHeader     ContactType
 
 instance ToJSON ContactType where
     toJSON = toJSONText
@@ -753,9 +755,11 @@ instance ToText CountryCode where
         ZM -> "zm"
         ZW -> "zw"
 
-instance Hashable CountryCode
-instance ToQuery  CountryCode
-instance ToHeader CountryCode
+instance Hashable     CountryCode
+instance ToByteString CountryCode
+instance ToPath       CountryCode
+instance ToQuery      CountryCode
+instance ToHeader     CountryCode
 
 instance ToJSON CountryCode where
     toJSON = toJSONText
@@ -798,9 +802,11 @@ instance ToText DomainAvailability where
         UnavailablePremium -> "unavailable_premium"
         UnavailableRestricted -> "unavailable_restricted"
 
-instance Hashable DomainAvailability
-instance ToQuery  DomainAvailability
-instance ToHeader DomainAvailability
+instance Hashable     DomainAvailability
+instance ToByteString DomainAvailability
+instance ToPath       DomainAvailability
+instance ToQuery      DomainAvailability
+instance ToHeader     DomainAvailability
 
 instance FromJSON DomainAvailability where
     parseJSON = parseJSONText "DomainAvailability"
@@ -876,9 +882,11 @@ instance ToText ExtraParamName where
         SgIdNumber -> "sg_id_number"
         VatNumber -> "vat_number"
 
-instance Hashable ExtraParamName
-instance ToQuery  ExtraParamName
-instance ToHeader ExtraParamName
+instance Hashable     ExtraParamName
+instance ToByteString ExtraParamName
+instance ToPath       ExtraParamName
+instance ToQuery      ExtraParamName
+instance ToHeader     ExtraParamName
 
 instance ToJSON ExtraParamName where
     toJSON = toJSONText
@@ -912,9 +920,11 @@ instance ToText OperationStatus where
         Submitted -> "submitted"
         Successful -> "successful"
 
-instance Hashable OperationStatus
-instance ToQuery  OperationStatus
-instance ToHeader OperationStatus
+instance Hashable     OperationStatus
+instance ToByteString OperationStatus
+instance ToPath       OperationStatus
+instance ToQuery      OperationStatus
+instance ToHeader     OperationStatus
 
 instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
@@ -951,9 +961,11 @@ instance ToText OperationType where
         UpdateDomainContact -> "update_domain_contact"
         UpdateNameserver -> "update_nameserver"
 
-instance Hashable OperationType
-instance ToQuery  OperationType
-instance ToHeader OperationType
+instance Hashable     OperationType
+instance ToByteString OperationType
+instance ToPath       OperationType
+instance ToQuery      OperationType
+instance ToHeader     OperationType
 
 instance FromJSON OperationType where
     parseJSON = parseJSONText "OperationType"

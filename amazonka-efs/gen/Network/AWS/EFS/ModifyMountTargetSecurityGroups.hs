@@ -106,7 +106,7 @@ instance ToPath ModifyMountTargetSecurityGroups where
         toPath ModifyMountTargetSecurityGroups'{..}
           = mconcat
               ["/2015-02-01/mount-targets/",
-               toText _mmtsgMountTargetId, "/security-groups"]
+               toPath _mmtsgMountTargetId, "/security-groups"]
 
 instance ToQuery ModifyMountTargetSecurityGroups
          where

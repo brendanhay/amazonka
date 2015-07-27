@@ -144,7 +144,7 @@ instance ToJSON UpdateFunctionCode where
 instance ToPath UpdateFunctionCode where
         toPath UpdateFunctionCode'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _uFunctionName,
+              ["/2015-03-31/functions/", toPath _uFunctionName,
                "/versions/HEAD/code"]
 
 instance ToQuery UpdateFunctionCode where

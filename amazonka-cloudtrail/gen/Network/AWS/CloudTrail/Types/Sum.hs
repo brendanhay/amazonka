@@ -45,9 +45,11 @@ instance ToText LookupAttributeKey where
         ResourceType -> "resourcetype"
         Username -> "username"
 
-instance Hashable LookupAttributeKey
-instance ToQuery  LookupAttributeKey
-instance ToHeader LookupAttributeKey
+instance Hashable     LookupAttributeKey
+instance ToByteString LookupAttributeKey
+instance ToPath       LookupAttributeKey
+instance ToQuery      LookupAttributeKey
+instance ToHeader     LookupAttributeKey
 
 instance ToJSON LookupAttributeKey where
     toJSON = toJSONText

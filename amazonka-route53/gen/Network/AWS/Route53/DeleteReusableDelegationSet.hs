@@ -90,7 +90,7 @@ instance ToHeaders DeleteReusableDelegationSet where
 instance ToPath DeleteReusableDelegationSet where
         toPath DeleteReusableDelegationSet'{..}
           = mconcat
-              ["/2013-04-01/delegationset/", toText _drdsId]
+              ["/2013-04-01/delegationset/", toPath _drdsId]
 
 instance ToQuery DeleteReusableDelegationSet where
         toQuery = const mempty

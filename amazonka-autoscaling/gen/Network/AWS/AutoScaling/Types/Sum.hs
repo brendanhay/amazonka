@@ -69,9 +69,11 @@ instance ToText LifecycleState where
         TerminatingProceed -> "terminating:proceed"
         TerminatingWait -> "terminating:wait"
 
-instance Hashable LifecycleState
-instance ToQuery  LifecycleState
-instance ToHeader LifecycleState
+instance Hashable     LifecycleState
+instance ToByteString LifecycleState
+instance ToPath       LifecycleState
+instance ToQuery      LifecycleState
+instance ToHeader     LifecycleState
 
 instance FromXML LifecycleState where
     parseXML = parseXMLText "LifecycleState"
@@ -120,9 +122,11 @@ instance ToText ScalingActivityStatusCode where
         WaitingForSpotInstanceId -> "waitingforspotinstanceid"
         WaitingForSpotInstanceRequestId -> "waitingforspotinstancerequestid"
 
-instance Hashable ScalingActivityStatusCode
-instance ToQuery  ScalingActivityStatusCode
-instance ToHeader ScalingActivityStatusCode
+instance Hashable     ScalingActivityStatusCode
+instance ToByteString ScalingActivityStatusCode
+instance ToPath       ScalingActivityStatusCode
+instance ToQuery      ScalingActivityStatusCode
+instance ToHeader     ScalingActivityStatusCode
 
 instance FromXML ScalingActivityStatusCode where
     parseXML = parseXMLText "ScalingActivityStatusCode"

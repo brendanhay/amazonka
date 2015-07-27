@@ -36,9 +36,11 @@ instance ToText ActionCode where
         ArchiveRetrieval -> "archiveretrieval"
         InventoryRetrieval -> "inventoryretrieval"
 
-instance Hashable ActionCode
-instance ToQuery  ActionCode
-instance ToHeader ActionCode
+instance Hashable     ActionCode
+instance ToByteString ActionCode
+instance ToPath       ActionCode
+instance ToQuery      ActionCode
+instance ToHeader     ActionCode
 
 instance FromJSON ActionCode where
     parseJSON = parseJSONText "ActionCode"
@@ -63,9 +65,11 @@ instance ToText StatusCode where
         InProgress -> "inprogress"
         Succeeded -> "succeeded"
 
-instance Hashable StatusCode
-instance ToQuery  StatusCode
-instance ToHeader StatusCode
+instance Hashable     StatusCode
+instance ToByteString StatusCode
+instance ToPath       StatusCode
+instance ToQuery      StatusCode
+instance ToHeader     StatusCode
 
 instance FromJSON StatusCode where
     parseJSON = parseJSONText "StatusCode"

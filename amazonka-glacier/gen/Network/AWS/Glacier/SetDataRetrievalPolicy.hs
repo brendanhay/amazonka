@@ -103,7 +103,7 @@ instance ToJSON SetDataRetrievalPolicy where
 instance ToPath SetDataRetrievalPolicy where
         toPath SetDataRetrievalPolicy'{..}
           = mconcat
-              ["/", toText _sdrpAccountId,
+              ["/", toPath _sdrpAccountId,
                "/policies/data-retrieval"]
 
 instance ToQuery SetDataRetrievalPolicy where

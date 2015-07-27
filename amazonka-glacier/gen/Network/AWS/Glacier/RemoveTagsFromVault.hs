@@ -105,8 +105,8 @@ instance ToJSON RemoveTagsFromVault where
 instance ToPath RemoveTagsFromVault where
         toPath RemoveTagsFromVault'{..}
           = mconcat
-              ["/", toText _rtfvAccountId, "/vaults/",
-               toText _rtfvVaultName, "/tags"]
+              ["/", toPath _rtfvAccountId, "/vaults/",
+               toPath _rtfvVaultName, "/tags"]
 
 instance ToQuery RemoveTagsFromVault where
         toQuery = const (mconcat ["operation=remove"])

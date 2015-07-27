@@ -88,7 +88,7 @@ test-suite amazonka-dynamodb-streams-test
 
     build-depends:
           amazonka-core == 1.0.0
-        , amazonka-test
+        , amazonka-test == 1.0.0
         , amazonka-dynamodb-streams == 1.0.0
         , base
         , bytestring

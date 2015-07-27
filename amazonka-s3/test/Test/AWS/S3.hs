@@ -19,10 +19,13 @@ import           Network.AWS.Prelude
 import           Network.AWS.S3
 import           Test.AWS.Gen.S3
 import           Test.AWS.Prelude
+import qualified Test.AWS.S3.ObjectKey as ObjectKey
 import           Test.Tasty
 
 tests :: [TestTree]
-tests = []
+tests =
+    [ ObjectKey.tests
+    ]
 
 fixtures :: [TestTree]
 fixtures =

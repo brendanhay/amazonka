@@ -36,9 +36,11 @@ instance ToText DataKeySpec where
         AES128 -> "aes_128"
         AES256 -> "aes_256"
 
-instance Hashable DataKeySpec
-instance ToQuery  DataKeySpec
-instance ToHeader DataKeySpec
+instance Hashable     DataKeySpec
+instance ToByteString DataKeySpec
+instance ToPath       DataKeySpec
+instance ToQuery      DataKeySpec
+instance ToHeader     DataKeySpec
 
 instance ToJSON DataKeySpec where
     toJSON = toJSONText
@@ -78,9 +80,11 @@ instance ToText GrantOperation where
         ReEncryptTo -> "reencryptto"
         RetireGrant -> "retiregrant"
 
-instance Hashable GrantOperation
-instance ToQuery  GrantOperation
-instance ToHeader GrantOperation
+instance Hashable     GrantOperation
+instance ToByteString GrantOperation
+instance ToPath       GrantOperation
+instance ToQuery      GrantOperation
+instance ToHeader     GrantOperation
 
 instance ToJSON GrantOperation where
     toJSON = toJSONText
@@ -102,9 +106,11 @@ instance ToText KeyUsageType where
     toText = \case
         EncryptDecrypt -> "encrypt_decrypt"
 
-instance Hashable KeyUsageType
-instance ToQuery  KeyUsageType
-instance ToHeader KeyUsageType
+instance Hashable     KeyUsageType
+instance ToByteString KeyUsageType
+instance ToPath       KeyUsageType
+instance ToQuery      KeyUsageType
+instance ToHeader     KeyUsageType
 
 instance ToJSON KeyUsageType where
     toJSON = toJSONText

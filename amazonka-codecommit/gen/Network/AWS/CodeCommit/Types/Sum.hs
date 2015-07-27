@@ -36,9 +36,11 @@ instance ToText OrderEnum where
         Ascending -> "ascending"
         Descending -> "descending"
 
-instance Hashable OrderEnum
-instance ToQuery  OrderEnum
-instance ToHeader OrderEnum
+instance Hashable     OrderEnum
+instance ToByteString OrderEnum
+instance ToPath       OrderEnum
+instance ToQuery      OrderEnum
+instance ToHeader     OrderEnum
 
 instance ToJSON OrderEnum where
     toJSON = toJSONText
@@ -60,9 +62,11 @@ instance ToText SortByEnum where
         LastModifiedDate -> "lastmodifieddate"
         RepositoryName -> "repositoryname"
 
-instance Hashable SortByEnum
-instance ToQuery  SortByEnum
-instance ToHeader SortByEnum
+instance Hashable     SortByEnum
+instance ToByteString SortByEnum
+instance ToPath       SortByEnum
+instance ToQuery      SortByEnum
+instance ToHeader     SortByEnum
 
 instance ToJSON SortByEnum where
     toJSON = toJSONText

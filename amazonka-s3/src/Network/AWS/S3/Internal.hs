@@ -3,6 +3,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultiWayIf                 #-}
 {-# LANGUAGE RankNTypes                 #-}
 
 -- |
@@ -18,12 +19,12 @@ module Network.AWS.S3.Internal
     , BucketName      (..)
     , ETag            (..)
     , ObjectVersionId (..)
-    , ObjectKey       (..)
     , Delimiter
-    , _Key
-    , segments
-    , _KeyHead
-    , _KeyLast
+    , ObjectKey       (..)
+    , _ObjectKey
+    , keyPrefix
+    , keyName
+    , keyComponents
     ) where
 
 import           Control.Lens
@@ -114,38 +115,76 @@ instance ToPath ObjectKey
 
 type Delimiter = Char
 
-_Key :: Iso' ObjectKey Text
-_Key = iso (\(ObjectKey k) -> k) ObjectKey
-{-# INLINE _Key #-}
+_ObjectKey :: Iso' ObjectKey Text
+_ObjectKey = iso (\(ObjectKey k) -> k) ObjectKey
+{-# INLINE _ObjectKey #-}
 
-segments :: Delimiter -> IndexedTraversal' Int ObjectKey Text
-segments c f k = joinKey c <$> traversed f (splitKey c k)
-{-# INLINE segments #-}
+-- FIXME: Note about laws for combining keyPrefix/keyName.
 
-_KeyHead :: Delimiter -> Traversal' ObjectKey Text
-_KeyHead c = _KeyCons c . _1
-{-# INLINE _KeyHead #-}
+-- | Traverse the prefix of an object key.
+--
+-- The prefix is classified as the entirety of the object key minus the name.
+-- A leading prefix in the presence of a name, and no other delimiters is
+-- interpreted as a blank prefix.
+--
+-- >>> "/home/jsmith/base.wiki" ^? keyPrefix '/'
+-- Just "/home/jsmith"
+--
+-- >>> "/home/jsmith/" ^? keyPrefix '/'
+-- Just "/home/jsmith"
+--
+-- >>> "/home" ^? keyPrefix '/'
+-- Nothing
+--
+-- >>> "/" ^? keyPrefix '/'
+-- Nothing
+--
+keyPrefix :: Delimiter -> Traversal' ObjectKey Text
+keyPrefix c = _ObjectKeySnoc True c . _1
+{-# INLINE keyPrefix #-}
 
-_KeyLast :: Delimiter -> Traversal' ObjectKey Text
-_KeyLast c = _KeySnoc c . _2
-{-# INLINE _KeyLast #-}
+-- | Traverse the name of an object key.
+---
+-- The name is classified as last path component based on the given delimiter.
+-- A trailing delimiter is interpreted as a blank name.
+--
+-- >>> "/home/jsmith/base.wiki" ^? keyName '/'
+-- Just "base.wiki"
+--
+-- >>> "/home/jsmith/" ^? keyName '/'
+-- Just ""
+--
+-- >>> "/home" ^? keyName '/'
+-- Just "home"
+--
+-- >>> "/" ^? keyName '/'
+-- Just ""
+--
+keyName :: Delimiter -> Traversal' ObjectKey Text
+keyName c = _ObjectKeySnoc False c . _2
+{-# INLINE keyName #-}
 
--- The following are modelled on the respective _Cons and _Snoc type classes:
+keyComponents :: Delimiter -> IndexedTraversal' Int ObjectKey Text
+keyComponents !c f (ObjectKey k) = cat <$> traversed f split
+  where
+    split = Text.split (== c) k
+    cat   = ObjectKey . Text.intercalate (Text.singleton c)
+{-# INLINE keyComponents #-}
 
-_KeyCons :: Delimiter -> Prism' ObjectKey (Text, [Text])
-_KeyCons c = prism (joinKey c . uncurry (:)) $ \k ->
-    case splitKey c k of
-        []     -> Left  k
-        (x:xs) -> Right (x, xs)
+-- | Modelled on the '_Snoc' type class from "Control.Lens.Cons".
+_ObjectKeySnoc :: Bool -> Delimiter -> Prism' ObjectKey (Text, Text)
+_ObjectKeySnoc dir !c = prism (ObjectKey . uncurry cat) split
+  where
+    split x@(ObjectKey k) =
+        let (h, t) = Text.breakOnEnd suf k
+         in if | Text.length h <= 1, dir -> Left x
+               | otherwise               -> Right (Text.dropEnd 1 h, t)
 
-_KeySnoc :: Delimiter -> Prism' ObjectKey ([Text], Text)
-_KeySnoc c = prism (\(xs, x) -> joinKey c (xs ++ [x])) $ \k ->
-    case splitKey c k of
-        [] -> Left  k
-        xs -> Right (init xs, last xs)
+    cat h t
+        | Text.null h             = t
+        | Text.null t             = h
+        | suf `Text.isSuffixOf` h = h <> t
+        | suf `Text.isPrefixOf` t = h <> t
+        | otherwise               = h <> suf <> t
 
-joinKey :: Char -> [Text] -> ObjectKey
-joinKey !c = ObjectKey . Text.intercalate (Text.singleton c)
-
-splitKey :: Char -> ObjectKey -> [Text]
-splitKey !c (ObjectKey k) = Text.split (== c) k
+    suf = Text.singleton c

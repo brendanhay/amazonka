@@ -11,29 +11,39 @@
 --
 module Network.AWS.Data.Path where
 
+import           Data.ByteString.Builder
 import qualified Data.ByteString.Char8       as BS8
 import qualified Data.Foldable               as Fold
+import           Data.List                   (intersperse)
+import           Data.Monoid
 import           Data.Monoid                 (mempty)
+import           Data.Text                   (Text)
 import           Network.AWS.Data.ByteString
 import           Network.HTTP.Types.URI
 
 class ToPath a where
-    toPath :: a -> ByteString
+    toPath :: a -> Builder
 
-    default toPath :: ToByteString a => a -> ByteString
-    toPath = encodePath . toBS
+    default toPath :: ToByteString a => a -> Builder
+    toPath = toPath . toBS
 
 instance ToPath ByteString where
-    toPath = id
+    toPath = mconcat
+        . intersperse "/"
+        . map (urlEncodeBuilder False)
+        . BS8.split '/'
 
-encodePath :: ByteString -> ByteString
-encodePath = BS8.intercalate "/" . map (urlEncode False) . BS8.split '/'
+instance ToPath Text where
+    toPath = toPath . toBS
+
+instance ToPath Builder where
+    toPath = id
 
 collapsePath :: ByteString -> ByteString
 collapsePath bs
     | BS8.null bs   = slash
     | BS8.null path = slash
-    | otherwise    = tl (hd path)
+    | otherwise     = tl (hd path)
   where
     path = BS8.intercalate slash
         . reverse
@@ -42,11 +52,11 @@ collapsePath bs
         $ BS8.split sep bs
 
     hd x | BS8.head x  == sep = x
-         | otherwise         = sep `BS8.cons` x
+         | otherwise          = sep `BS8.cons` x
 
     tl x | BS8.last x  == sep = x
          | BS8.last bs == sep = x `BS8.snoc` sep
-         | otherwise         = x
+         | otherwise          = x
 
     go acc c | c == dot  = acc
     go acc c | c == dots = remv acc c
@@ -63,4 +73,4 @@ collapsePath bs
 
     slash = BS8.singleton sep
 
-    sep  = '/'
+    sep = '/'

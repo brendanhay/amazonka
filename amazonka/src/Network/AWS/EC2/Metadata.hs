@@ -36,12 +36,13 @@ module Network.AWS.EC2.Metadata
 import           Control.Applicative
 import           Control.Exception
 import           Control.Monad.IO.Class
-import qualified Data.ByteString.Char8  as BS
-import qualified Data.ByteString.Lazy   as LBS
-import           Data.Maybe
+import           Data.ByteString.Builder    (Builder)
+import qualified Data.ByteString.Builder    as Build
+import qualified Data.ByteString.Char8      as BS8
+import qualified Data.ByteString.Lazy       as LBS
+import qualified Data.ByteString.Lazy.Char8 as LBS8
 import           Data.Monoid
-import qualified Data.Text              as Text
-import           Network.AWS.Prelude    hiding (request)
+import           Network.AWS.Prelude        hiding (request)
 import           Network.HTTP.Conduit
 
 data Dynamic
@@ -150,7 +151,7 @@ instance ToPath Metadata where
         LocalHostname    -> "local-hostname"
         LocalIPV4        -> "local-ipv4"
         MAC              -> "mac"
-        Network n m      -> "network/interfaces/macs/" <> n <> "/" <> toPath m
+        Network n m      -> "network/interfaces/macs/" <> toPath n <> "/" <> toPath m
         AvailabilityZone -> "placement/availability-zone"
         ProductCodes     -> "product-codes"
         PublicHostname   -> "public-hostname"
@@ -181,8 +182,8 @@ data Mapping
 instance ToPath Mapping where
     toPath = \case
         AMI         -> "ami"
-        EBS       n -> "ebs"       <> toText n
-        Ephemeral n -> "ephemeral" <> toText n
+        EBS       n -> "ebs"       <> build n
+        Ephemeral n -> "ephemeral" <> build n
         Root        -> "root"
         Swap        -> "root"
 
@@ -236,7 +237,7 @@ data Interface
 instance ToPath Interface where
     toPath = \case
         IDeviceNumber         -> "device-number"
-        IIPV4Associations ip  -> "ipv4-associations/" <> ip
+        IIPV4Associations ip  -> "ipv4-associations/" <> toPath ip
         ILocalHostname        -> "local-hostname"
         ILocalIPV4s           -> "local-ipv4s"
         IMAC                  -> "mac"
@@ -265,7 +266,7 @@ data Info
 instance ToPath Info where
     toPath = \case
         Info'                 -> "info"
-        SecurityCredentials r -> "security-credentials/" <> fromMaybe "" r
+        SecurityCredentials r -> "security-credentials/" <> maybe mempty toPath r
 
 -- | Test whether the host is running on EC2 by requesting the instance-data.
 isEC2 :: Manager -> IO Bool
@@ -304,21 +305,21 @@ userdata m = do
 
 get :: MonadIO m
     => Manager
-    -> Text
+    -> Builder
     -> m (Either HttpException ByteString)
 get m url = liftIO (req `catch` err)
   where
     req = Right . strip <$> request m url
 
     strip bs
-        | BS.isSuffixOf "\n" bs = BS.init bs
-        | otherwise             = bs
+        | BS8.isSuffixOf "\n" bs = BS8.init bs
+        | otherwise              = bs
 
     err :: HttpException -> IO (Either HttpException a)
     err = return . Left
 
-request :: Manager -> Text -> IO ByteString
+request :: Manager -> Builder -> IO ByteString
 request m url = do
-    rq <- parseUrl (Text.unpack url)
+    rq <- parseUrl . LBS8.unpack $ Build.toLazyByteString url
     rs <- httpLbs rq m
     return . LBS.toStrict $ responseBody rs

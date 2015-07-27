@@ -112,8 +112,8 @@ putBody x = defaultRequest x
 defaultRequest :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 defaultRequest x = Request
     { _rqMethod  = GET
-    , _rqPath    = toPath    x
-    , _rqQuery   = toQuery   x
+    , _rqPath    = toBS (toPath x)
+    , _rqQuery   = toQuery x
     , _rqHeaders = toHeaders x
     , _rqBody    = ""
     }

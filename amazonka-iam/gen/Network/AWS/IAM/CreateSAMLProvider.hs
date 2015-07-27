@@ -108,7 +108,7 @@ instance AWSRequest CreateSAMLProvider where
         type Sv CreateSAMLProvider = IAM
         type Rs CreateSAMLProvider =
              CreateSAMLProviderResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateSAMLProviderResult"
               (\ s h x ->

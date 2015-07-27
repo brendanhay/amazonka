@@ -100,7 +100,7 @@ instance AWSRequest DeleteReplicationGroup where
         type Sv DeleteReplicationGroup = ElastiCache
         type Rs DeleteReplicationGroup =
              DeleteReplicationGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DeleteReplicationGroupResult"
               (\ s h x ->

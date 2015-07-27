@@ -91,7 +91,7 @@ instance AWSRequest RebootCacheCluster where
         type Sv RebootCacheCluster = ElastiCache
         type Rs RebootCacheCluster =
              RebootCacheClusterResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "RebootCacheClusterResult"
               (\ s h x ->

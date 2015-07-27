@@ -113,7 +113,7 @@ instance AWSRequest ListInstanceProfiles where
         type Sv ListInstanceProfiles = IAM
         type Rs ListInstanceProfiles =
              ListInstanceProfilesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListInstanceProfilesResult"
               (\ s h x ->

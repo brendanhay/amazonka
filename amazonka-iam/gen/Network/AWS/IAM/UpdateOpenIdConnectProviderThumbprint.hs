@@ -94,7 +94,7 @@ instance AWSRequest
         type Sv UpdateOpenIdConnectProviderThumbprint = IAM
         type Rs UpdateOpenIdConnectProviderThumbprint =
              UpdateOpenIdConnectProviderThumbprintResponse
-        request = post
+        request = postQuery
         response
           = receiveNull
               UpdateOpenIdConnectProviderThumbprintResponse'

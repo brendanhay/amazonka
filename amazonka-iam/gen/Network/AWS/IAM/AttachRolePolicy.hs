@@ -84,7 +84,7 @@ arpPolicyARN = lens _arpPolicyARN (\ s a -> s{_arpPolicyARN = a});
 instance AWSRequest AttachRolePolicy where
         type Sv AttachRolePolicy = IAM
         type Rs AttachRolePolicy = AttachRolePolicyResponse
-        request = post
+        request = postQuery
         response = receiveNull AttachRolePolicyResponse'
 
 instance ToHeaders AttachRolePolicy where

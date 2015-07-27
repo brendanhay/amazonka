@@ -71,7 +71,7 @@ instance AWSRequest DeleteSAMLProvider where
         type Sv DeleteSAMLProvider = IAM
         type Rs DeleteSAMLProvider =
              DeleteSAMLProviderResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteSAMLProviderResponse'
 
 instance ToHeaders DeleteSAMLProvider where

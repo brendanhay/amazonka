@@ -71,7 +71,7 @@ instance AWSRequest ListDeadLetterSourceQueues where
         type Sv ListDeadLetterSourceQueues = SQS
         type Rs ListDeadLetterSourceQueues =
              ListDeadLetterSourceQueuesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "ListDeadLetterSourceQueuesResult"

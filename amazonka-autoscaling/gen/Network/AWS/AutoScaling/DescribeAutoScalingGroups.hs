@@ -96,7 +96,7 @@ instance AWSRequest DescribeAutoScalingGroups where
         type Sv DescribeAutoScalingGroups = AutoScaling
         type Rs DescribeAutoScalingGroups =
              DescribeAutoScalingGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeAutoScalingGroupsResult"
               (\ s h x ->

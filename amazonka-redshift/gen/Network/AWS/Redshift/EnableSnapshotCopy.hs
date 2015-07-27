@@ -111,7 +111,7 @@ instance AWSRequest EnableSnapshotCopy where
         type Sv EnableSnapshotCopy = Redshift
         type Rs EnableSnapshotCopy =
              EnableSnapshotCopyResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "EnableSnapshotCopyResult"
               (\ s h x ->

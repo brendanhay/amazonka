@@ -189,7 +189,7 @@ instance AWSRequest
              ElastiCache
         type Rs DescribeReservedCacheNodesOfferings =
              DescribeReservedCacheNodesOfferingsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeReservedCacheNodesOfferingsResult"

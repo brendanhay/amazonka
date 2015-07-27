@@ -82,7 +82,7 @@ instance AWSRequest
         type Sv RemoveClientIdFromOpenIdConnectProvider = IAM
         type Rs RemoveClientIdFromOpenIdConnectProvider =
              RemoveClientIdFromOpenIdConnectProviderResponse
-        request = post
+        request = postQuery
         response
           = receiveNull
               RemoveClientIdFromOpenIdConnectProviderResponse'

@@ -94,7 +94,7 @@ instance AWSRequest UpdateSSHPublicKey where
         type Sv UpdateSSHPublicKey = IAM
         type Rs UpdateSSHPublicKey =
              UpdateSSHPublicKeyResponse
-        request = post
+        request = postQuery
         response = receiveNull UpdateSSHPublicKeyResponse'
 
 instance ToHeaders UpdateSSHPublicKey where

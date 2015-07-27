@@ -71,7 +71,7 @@ grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a});
 instance AWSRequest GetRole where
         type Sv GetRole = IAM
         type Rs GetRole = GetRoleResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetRoleResult"
               (\ s h x ->

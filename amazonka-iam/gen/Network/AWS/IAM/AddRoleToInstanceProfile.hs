@@ -77,7 +77,7 @@ instance AWSRequest AddRoleToInstanceProfile where
         type Sv AddRoleToInstanceProfile = IAM
         type Rs AddRoleToInstanceProfile =
              AddRoleToInstanceProfileResponse
-        request = post
+        request = postQuery
         response
           = receiveNull AddRoleToInstanceProfileResponse'
 

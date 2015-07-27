@@ -78,7 +78,7 @@ drpPolicyARN = lens _drpPolicyARN (\ s a -> s{_drpPolicyARN = a});
 instance AWSRequest DetachRolePolicy where
         type Sv DetachRolePolicy = IAM
         type Rs DetachRolePolicy = DetachRolePolicyResponse
-        request = post
+        request = postQuery
         response = receiveNull DetachRolePolicyResponse'
 
 instance ToHeaders DetachRolePolicy where

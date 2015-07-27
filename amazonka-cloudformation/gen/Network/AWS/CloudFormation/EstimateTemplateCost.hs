@@ -100,7 +100,7 @@ instance AWSRequest EstimateTemplateCost where
         type Sv EstimateTemplateCost = CloudFormation
         type Rs EstimateTemplateCost =
              EstimateTemplateCostResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "EstimateTemplateCostResult"
               (\ s h x ->

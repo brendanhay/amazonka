@@ -118,7 +118,7 @@ instance AWSRequest ListAttachedGroupPolicies where
         type Sv ListAttachedGroupPolicies = IAM
         type Rs ListAttachedGroupPolicies =
              ListAttachedGroupPoliciesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListAttachedGroupPoliciesResult"
               (\ s h x ->

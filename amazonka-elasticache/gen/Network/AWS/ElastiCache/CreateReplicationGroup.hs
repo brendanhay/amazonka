@@ -406,7 +406,7 @@ instance AWSRequest CreateReplicationGroup where
         type Sv CreateReplicationGroup = ElastiCache
         type Rs CreateReplicationGroup =
              CreateReplicationGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateReplicationGroupResult"
               (\ s h x ->

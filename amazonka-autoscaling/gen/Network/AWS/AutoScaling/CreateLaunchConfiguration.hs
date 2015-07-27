@@ -328,7 +328,7 @@ instance AWSRequest CreateLaunchConfiguration where
         type Sv CreateLaunchConfiguration = AutoScaling
         type Rs CreateLaunchConfiguration =
              CreateLaunchConfigurationResponse
-        request = post
+        request = postQuery
         response
           = receiveNull CreateLaunchConfigurationResponse'
 

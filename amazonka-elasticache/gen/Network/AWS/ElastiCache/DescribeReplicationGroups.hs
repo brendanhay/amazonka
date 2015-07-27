@@ -112,7 +112,7 @@ instance AWSRequest DescribeReplicationGroups where
         type Sv DescribeReplicationGroups = ElastiCache
         type Rs DescribeReplicationGroups =
              DescribeReplicationGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeReplicationGroupsResult"
               (\ s h x ->

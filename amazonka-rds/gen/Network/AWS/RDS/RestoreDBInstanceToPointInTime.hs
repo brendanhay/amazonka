@@ -348,7 +348,7 @@ instance AWSRequest RestoreDBInstanceToPointInTime
         type Sv RestoreDBInstanceToPointInTime = RDS
         type Rs RestoreDBInstanceToPointInTime =
              RestoreDBInstanceToPointInTimeResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "RestoreDBInstanceToPointInTimeResult"

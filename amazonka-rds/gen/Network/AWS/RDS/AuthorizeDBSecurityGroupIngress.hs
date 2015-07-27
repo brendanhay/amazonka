@@ -130,7 +130,7 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress
         type Sv AuthorizeDBSecurityGroupIngress = RDS
         type Rs AuthorizeDBSecurityGroupIngress =
              AuthorizeDBSecurityGroupIngressResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "AuthorizeDBSecurityGroupIngressResult"

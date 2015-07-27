@@ -73,7 +73,7 @@ gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProvi
 instance AWSRequest GetSAMLProvider where
         type Sv GetSAMLProvider = IAM
         type Rs GetSAMLProvider = GetSAMLProviderResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetSAMLProviderResult"
               (\ s h x ->

@@ -123,7 +123,7 @@ instance AWSRequest DescribeDBParameterGroups where
         type Sv DescribeDBParameterGroups = RDS
         type Rs DescribeDBParameterGroups =
              DescribeDBParameterGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeDBParameterGroupsResult"
               (\ s h x ->

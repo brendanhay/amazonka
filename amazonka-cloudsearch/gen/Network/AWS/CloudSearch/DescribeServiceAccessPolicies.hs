@@ -89,7 +89,7 @@ instance AWSRequest DescribeServiceAccessPolicies
         type Sv DescribeServiceAccessPolicies = CloudSearch
         type Rs DescribeServiceAccessPolicies =
              DescribeServiceAccessPoliciesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeServiceAccessPoliciesResult"

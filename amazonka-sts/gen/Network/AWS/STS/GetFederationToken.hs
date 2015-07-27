@@ -190,7 +190,7 @@ instance AWSRequest GetFederationToken where
         type Sv GetFederationToken = STS
         type Rs GetFederationToken =
              GetFederationTokenResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetFederationTokenResult"
               (\ s h x ->

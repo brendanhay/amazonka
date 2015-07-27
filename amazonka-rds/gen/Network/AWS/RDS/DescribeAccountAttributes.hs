@@ -61,7 +61,7 @@ instance AWSRequest DescribeAccountAttributes where
         type Sv DescribeAccountAttributes = RDS
         type Rs DescribeAccountAttributes =
              DescribeAccountAttributesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeAccountAttributesResult"
               (\ s h x ->

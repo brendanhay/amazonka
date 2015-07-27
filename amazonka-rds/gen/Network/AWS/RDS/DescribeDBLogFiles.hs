@@ -147,7 +147,7 @@ instance AWSRequest DescribeDBLogFiles where
         type Sv DescribeDBLogFiles = RDS
         type Rs DescribeDBLogFiles =
              DescribeDBLogFilesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeDBLogFilesResult"
               (\ s h x ->

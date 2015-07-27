@@ -101,7 +101,7 @@ instance AWSRequest
         type Sv ListEndpointsByPlatformApplication = SNS
         type Rs ListEndpointsByPlatformApplication =
              ListEndpointsByPlatformApplicationResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "ListEndpointsByPlatformApplicationResult"

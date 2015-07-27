@@ -113,7 +113,7 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
         type Sv RevokeClusterSecurityGroupIngress = Redshift
         type Rs RevokeClusterSecurityGroupIngress =
              RevokeClusterSecurityGroupIngressResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "RevokeClusterSecurityGroupIngressResult"

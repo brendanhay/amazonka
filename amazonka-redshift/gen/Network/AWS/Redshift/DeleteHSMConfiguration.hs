@@ -66,7 +66,7 @@ instance AWSRequest DeleteHSMConfiguration where
         type Sv DeleteHSMConfiguration = Redshift
         type Rs DeleteHSMConfiguration =
              DeleteHSMConfigurationResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteHSMConfigurationResponse'
 

@@ -80,7 +80,7 @@ instance AWSRequest BatchDeleteAttributes where
         type Sv BatchDeleteAttributes = SDB
         type Rs BatchDeleteAttributes =
              BatchDeleteAttributesResponse
-        request = post
+        request = postQuery
         response = receiveNull BatchDeleteAttributesResponse'
 
 instance ToHeaders BatchDeleteAttributes where

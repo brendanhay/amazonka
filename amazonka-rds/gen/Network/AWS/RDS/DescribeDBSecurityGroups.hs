@@ -117,7 +117,7 @@ instance AWSRequest DescribeDBSecurityGroups where
         type Sv DescribeDBSecurityGroups = RDS
         type Rs DescribeDBSecurityGroups =
              DescribeDBSecurityGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeDBSecurityGroupsResult"
               (\ s h x ->

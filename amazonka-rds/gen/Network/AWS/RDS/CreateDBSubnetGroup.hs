@@ -103,7 +103,7 @@ instance AWSRequest CreateDBSubnetGroup where
         type Sv CreateDBSubnetGroup = RDS
         type Rs CreateDBSubnetGroup =
              CreateDBSubnetGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateDBSubnetGroupResult"
               (\ s h x ->

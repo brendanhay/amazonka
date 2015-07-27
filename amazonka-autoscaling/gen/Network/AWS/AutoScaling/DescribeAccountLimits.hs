@@ -59,7 +59,7 @@ instance AWSRequest DescribeAccountLimits where
         type Sv DescribeAccountLimits = AutoScaling
         type Rs DescribeAccountLimits =
              DescribeAccountLimitsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeAccountLimitsResult"
               (\ s h x ->

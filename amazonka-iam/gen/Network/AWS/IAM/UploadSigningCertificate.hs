@@ -95,7 +95,7 @@ instance AWSRequest UploadSigningCertificate where
         type Sv UploadSigningCertificate = IAM
         type Rs UploadSigningCertificate =
              UploadSigningCertificateResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "UploadSigningCertificateResult"
               (\ s h x ->

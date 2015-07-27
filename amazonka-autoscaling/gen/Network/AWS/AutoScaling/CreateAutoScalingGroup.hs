@@ -267,7 +267,7 @@ instance AWSRequest CreateAutoScalingGroup where
         type Sv CreateAutoScalingGroup = AutoScaling
         type Rs CreateAutoScalingGroup =
              CreateAutoScalingGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveNull CreateAutoScalingGroupResponse'
 

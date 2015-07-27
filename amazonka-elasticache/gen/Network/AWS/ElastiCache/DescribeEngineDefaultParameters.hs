@@ -113,7 +113,7 @@ instance AWSRequest DescribeEngineDefaultParameters
         type Sv DescribeEngineDefaultParameters = ElastiCache
         type Rs DescribeEngineDefaultParameters =
              DescribeEngineDefaultParametersResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeEngineDefaultParametersResult"

@@ -95,7 +95,7 @@ instance AWSRequest ResetCacheParameterGroup where
         type Sv ResetCacheParameterGroup = ElastiCache
         type Rs ResetCacheParameterGroup =
              CacheParameterGroupNameMessage
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ResetCacheParameterGroupResult"
               (\ s h x -> parseXML x)

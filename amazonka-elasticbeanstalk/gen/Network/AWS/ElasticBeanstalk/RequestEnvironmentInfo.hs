@@ -113,7 +113,7 @@ instance AWSRequest RequestEnvironmentInfo where
         type Sv RequestEnvironmentInfo = ElasticBeanstalk
         type Rs RequestEnvironmentInfo =
              RequestEnvironmentInfoResponse
-        request = post
+        request = postQuery
         response
           = receiveNull RequestEnvironmentInfoResponse'
 

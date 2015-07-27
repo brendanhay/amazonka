@@ -89,7 +89,7 @@ pmdMetricData = lens _pmdMetricData (\ s a -> s{_pmdMetricData = a}) . _Coerce;
 instance AWSRequest PutMetricData where
         type Sv PutMetricData = CloudWatch
         type Rs PutMetricData = PutMetricDataResponse
-        request = post
+        request = postQuery
         response = receiveNull PutMetricDataResponse'
 
 instance ToHeaders PutMetricData where

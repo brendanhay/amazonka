@@ -170,7 +170,7 @@ instance AWSRequest GetMetricStatistics where
         type Sv GetMetricStatistics = CloudWatch
         type Rs GetMetricStatistics =
              GetMetricStatisticsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetMetricStatisticsResult"
               (\ s h x ->

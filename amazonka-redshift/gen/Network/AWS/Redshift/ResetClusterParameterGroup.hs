@@ -98,7 +98,7 @@ instance AWSRequest ResetClusterParameterGroup where
         type Sv ResetClusterParameterGroup = Redshift
         type Rs ResetClusterParameterGroup =
              ClusterParameterGroupNameMessage
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "ResetClusterParameterGroupResult"

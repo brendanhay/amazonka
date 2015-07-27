@@ -68,7 +68,7 @@ instance AWSRequest GetServerCertificate where
         type Sv GetServerCertificate = IAM
         type Rs GetServerCertificate =
              GetServerCertificateResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetServerCertificateResult"
               (\ s h x ->

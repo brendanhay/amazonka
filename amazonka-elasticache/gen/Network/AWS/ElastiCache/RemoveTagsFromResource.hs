@@ -82,7 +82,7 @@ rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a}) . _Coerce;
 instance AWSRequest RemoveTagsFromResource where
         type Sv RemoveTagsFromResource = ElastiCache
         type Rs RemoveTagsFromResource = TagListMessage
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "RemoveTagsFromResourceResult"
               (\ s h x -> parseXML x)

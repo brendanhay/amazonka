@@ -100,7 +100,7 @@ instance AWSRequest GetIdentityPolicies where
         type Sv GetIdentityPolicies = SES
         type Rs GetIdentityPolicies =
              GetIdentityPoliciesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetIdentityPoliciesResult"
               (\ s h x ->

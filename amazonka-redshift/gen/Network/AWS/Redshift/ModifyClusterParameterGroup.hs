@@ -90,7 +90,7 @@ instance AWSRequest ModifyClusterParameterGroup where
         type Sv ModifyClusterParameterGroup = Redshift
         type Rs ModifyClusterParameterGroup =
              ClusterParameterGroupNameMessage
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "ModifyClusterParameterGroupResult"

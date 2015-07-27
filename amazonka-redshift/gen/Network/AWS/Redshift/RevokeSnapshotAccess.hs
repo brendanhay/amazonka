@@ -97,7 +97,7 @@ instance AWSRequest RevokeSnapshotAccess where
         type Sv RevokeSnapshotAccess = Redshift
         type Rs RevokeSnapshotAccess =
              RevokeSnapshotAccessResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "RevokeSnapshotAccessResult"
               (\ s h x ->

@@ -110,7 +110,7 @@ instance AWSRequest ListVirtualMFADevices where
         type Sv ListVirtualMFADevices = IAM
         type Rs ListVirtualMFADevices =
              ListVirtualMFADevicesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListVirtualMFADevicesResult"
               (\ s h x ->

@@ -71,7 +71,7 @@ instance AWSRequest DeleteCacheSecurityGroup where
         type Sv DeleteCacheSecurityGroup = ElastiCache
         type Rs DeleteCacheSecurityGroup =
              DeleteCacheSecurityGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteCacheSecurityGroupResponse'
 

@@ -98,7 +98,7 @@ instance AWSRequest ApplyPendingMaintenanceAction
         type Sv ApplyPendingMaintenanceAction = RDS
         type Rs ApplyPendingMaintenanceAction =
              ApplyPendingMaintenanceActionResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "ApplyPendingMaintenanceActionResult"

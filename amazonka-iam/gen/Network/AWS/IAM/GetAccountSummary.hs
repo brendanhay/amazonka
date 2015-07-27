@@ -58,7 +58,7 @@ getAccountSummary = GetAccountSummary'
 instance AWSRequest GetAccountSummary where
         type Sv GetAccountSummary = IAM
         type Rs GetAccountSummary = GetAccountSummaryResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "GetAccountSummaryResult"
               (\ s h x ->

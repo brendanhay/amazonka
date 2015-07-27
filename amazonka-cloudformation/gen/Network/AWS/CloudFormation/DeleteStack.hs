@@ -67,7 +67,7 @@ dsStackName = lens _dsStackName (\ s a -> s{_dsStackName = a});
 instance AWSRequest DeleteStack where
         type Sv DeleteStack = CloudFormation
         type Rs DeleteStack = DeleteStackResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteStackResponse'
 
 instance ToHeaders DeleteStack where

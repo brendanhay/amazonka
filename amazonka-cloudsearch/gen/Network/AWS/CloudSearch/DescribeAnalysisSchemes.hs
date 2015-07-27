@@ -99,7 +99,7 @@ instance AWSRequest DescribeAnalysisSchemes where
         type Sv DescribeAnalysisSchemes = CloudSearch
         type Rs DescribeAnalysisSchemes =
              DescribeAnalysisSchemesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeAnalysisSchemesResult"
               (\ s h x ->

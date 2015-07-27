@@ -79,7 +79,7 @@ instance AWSRequest CreateOrUpdateTags where
         type Sv CreateOrUpdateTags = AutoScaling
         type Rs CreateOrUpdateTags =
              CreateOrUpdateTagsResponse
-        request = post
+        request = postQuery
         response = receiveNull CreateOrUpdateTagsResponse'
 
 instance ToHeaders CreateOrUpdateTags where

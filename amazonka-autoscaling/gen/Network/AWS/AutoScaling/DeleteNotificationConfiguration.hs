@@ -75,7 +75,7 @@ instance AWSRequest DeleteNotificationConfiguration
         type Sv DeleteNotificationConfiguration = AutoScaling
         type Rs DeleteNotificationConfiguration =
              DeleteNotificationConfigurationResponse
-        request = post
+        request = postQuery
         response
           = receiveNull
               DeleteNotificationConfigurationResponse'

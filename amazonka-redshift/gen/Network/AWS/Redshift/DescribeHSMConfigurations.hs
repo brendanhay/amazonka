@@ -153,7 +153,7 @@ instance AWSRequest DescribeHSMConfigurations where
         type Sv DescribeHSMConfigurations = Redshift
         type Rs DescribeHSMConfigurations =
              DescribeHSMConfigurationsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeHsmConfigurationsResult"
               (\ s h x ->

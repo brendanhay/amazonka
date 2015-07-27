@@ -78,7 +78,7 @@ instance AWSRequest GetIdentityNotificationAttributes
         type Sv GetIdentityNotificationAttributes = SES
         type Rs GetIdentityNotificationAttributes =
              GetIdentityNotificationAttributesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "GetIdentityNotificationAttributesResult"

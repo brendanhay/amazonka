@@ -137,7 +137,7 @@ instance AWSRequest DescribeSnapshotCopyGrants where
         type Sv DescribeSnapshotCopyGrants = Redshift
         type Rs DescribeSnapshotCopyGrants =
              DescribeSnapshotCopyGrantsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeSnapshotCopyGrantsResult"

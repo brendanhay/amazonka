@@ -79,7 +79,7 @@ instance AWSRequest DisableSnapshotCopy where
         type Sv DisableSnapshotCopy = Redshift
         type Rs DisableSnapshotCopy =
              DisableSnapshotCopyResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DisableSnapshotCopyResult"
               (\ s h x ->

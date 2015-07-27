@@ -83,7 +83,7 @@ instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = RDS
         type Rs ListTagsForResource =
              ListTagsForResourceResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListTagsForResourceResult"
               (\ s h x ->

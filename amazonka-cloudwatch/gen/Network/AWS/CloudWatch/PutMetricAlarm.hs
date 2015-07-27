@@ -210,7 +210,7 @@ pmaComparisonOperator = lens _pmaComparisonOperator (\ s a -> s{_pmaComparisonOp
 instance AWSRequest PutMetricAlarm where
         type Sv PutMetricAlarm = CloudWatch
         type Rs PutMetricAlarm = PutMetricAlarmResponse
-        request = post
+        request = postQuery
         response = receiveNull PutMetricAlarmResponse'
 
 instance ToHeaders PutMetricAlarm where

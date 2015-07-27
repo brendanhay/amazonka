@@ -83,7 +83,7 @@ instance AWSRequest UpdateServiceAccessPolicies where
         type Sv UpdateServiceAccessPolicies = CloudSearch
         type Rs UpdateServiceAccessPolicies =
              UpdateServiceAccessPoliciesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "UpdateServiceAccessPoliciesResult"

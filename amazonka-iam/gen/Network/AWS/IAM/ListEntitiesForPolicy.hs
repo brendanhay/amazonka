@@ -130,7 +130,7 @@ instance AWSRequest ListEntitiesForPolicy where
         type Sv ListEntitiesForPolicy = IAM
         type Rs ListEntitiesForPolicy =
              ListEntitiesForPolicyResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListEntitiesForPolicyResult"
               (\ s h x ->

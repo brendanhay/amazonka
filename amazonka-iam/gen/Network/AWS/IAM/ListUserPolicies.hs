@@ -111,7 +111,7 @@ instance AWSPager ListUserPolicies where
 instance AWSRequest ListUserPolicies where
         type Sv ListUserPolicies = IAM
         type Rs ListUserPolicies = ListUserPoliciesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListUserPoliciesResult"
               (\ s h x ->

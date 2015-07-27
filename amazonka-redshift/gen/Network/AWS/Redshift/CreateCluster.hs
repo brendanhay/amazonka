@@ -441,7 +441,7 @@ ccMasterUserPassword = lens _ccMasterUserPassword (\ s a -> s{_ccMasterUserPassw
 instance AWSRequest CreateCluster where
         type Sv CreateCluster = Redshift
         type Rs CreateCluster = CreateClusterResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateClusterResult"
               (\ s h x ->

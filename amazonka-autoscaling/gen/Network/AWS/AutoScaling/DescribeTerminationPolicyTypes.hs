@@ -55,7 +55,7 @@ instance AWSRequest DescribeTerminationPolicyTypes
         type Sv DescribeTerminationPolicyTypes = AutoScaling
         type Rs DescribeTerminationPolicyTypes =
              DescribeTerminationPolicyTypesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeTerminationPolicyTypesResult"

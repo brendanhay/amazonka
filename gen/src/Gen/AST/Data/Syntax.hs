@@ -298,8 +298,8 @@ requestD :: HasMetadata a f
 requestD c m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
     [ assocD (identifier a) "Sv" (m ^. serviceAbbrev)
     , assocD (identifier a) "Rs" (typeId (identifier b))
-    , funD "request"  (requestF c h a as)
-    , funD "response" (responseE (m ^. protocol) b bs)
+    , funD "request"  (requestF  c (m ^. protocol) h a as)
+    , funD "response" (responseE   (m ^. protocol) b bs)
     ]
 
 responseE :: Protocol -> Ref -> [Field] -> Exp
@@ -608,24 +608,28 @@ inputNames, outputNames :: Protocol -> Field -> Names
 inputNames  p f = Proto.nestedNames p Input  (f ^. fieldId) (f ^. fieldRef)
 outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
-requestF :: Config -> HTTP Identity -> Ref -> [Inst] -> Exp
-requestF c h r is = maybe v (Fold.foldr' plugin v) ps
+requestF :: Config -> Protocol -> HTTP Identity -> Ref -> [Inst] -> Exp
+requestF c p h r is = maybe v (Fold.foldr' plugin v) ps
   where
     plugin x = infixApp (var x) "."
 
     ps = Map.lookup (identifier r) (c ^. operationPlugins)
 
     v = var
-      . mappend (methodToText (h ^. method))
+      . mappend (methodToText m)
       . fromMaybe mempty
       . listToMaybe
       $ mapMaybe f is
 
     f = \case
-        ToBody    {} -> Just "Body"
-        ToJSON    {} -> Just "JSON"
-        ToElement {} -> Just "XML"
-        _            -> Nothing
+        ToBody    {}  -> Just "Body"
+        ToJSON    {}  -> Just "JSON"
+        ToElement {}  -> Just "XML"
+        _ | p == Query
+          , m == POST -> Just "Query"
+        _             -> Nothing
+
+    m = h ^. method
 
 -- FIXME: take method into account for responses, such as HEAD etc, particuarly
 -- when the body might be totally empty.

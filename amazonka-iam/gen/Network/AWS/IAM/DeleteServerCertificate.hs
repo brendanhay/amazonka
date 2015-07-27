@@ -75,7 +75,7 @@ instance AWSRequest DeleteServerCertificate where
         type Sv DeleteServerCertificate = IAM
         type Rs DeleteServerCertificate =
              DeleteServerCertificateResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteServerCertificateResponse'
 

@@ -92,7 +92,7 @@ instance AWSRequest DisableMetricsCollection where
         type Sv DisableMetricsCollection = AutoScaling
         type Rs DisableMetricsCollection =
              DisableMetricsCollectionResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DisableMetricsCollectionResponse'
 

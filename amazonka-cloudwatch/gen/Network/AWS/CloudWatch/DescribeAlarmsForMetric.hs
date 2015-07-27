@@ -113,7 +113,7 @@ instance AWSRequest DescribeAlarmsForMetric where
         type Sv DescribeAlarmsForMetric = CloudWatch
         type Rs DescribeAlarmsForMetric =
              DescribeAlarmsForMetricResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeAlarmsForMetricResult"
               (\ s h x ->

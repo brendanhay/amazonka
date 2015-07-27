@@ -64,7 +64,7 @@ instance AWSRequest DeleteClusterSubnetGroup where
         type Sv DeleteClusterSubnetGroup = Redshift
         type Rs DeleteClusterSubnetGroup =
              DeleteClusterSubnetGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteClusterSubnetGroupResponse'
 

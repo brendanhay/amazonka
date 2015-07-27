@@ -77,7 +77,7 @@ instance AWSRequest DeleteDBSubnetGroup where
         type Sv DeleteDBSubnetGroup = RDS
         type Rs DeleteDBSubnetGroup =
              DeleteDBSubnetGroupResponse
-        request = post
+        request = postQuery
         response = receiveNull DeleteDBSubnetGroupResponse'
 
 instance ToHeaders DeleteDBSubnetGroup where

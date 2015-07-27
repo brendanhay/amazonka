@@ -162,7 +162,7 @@ instance AWSRequest DescribeClusterParameterGroups
         type Sv DescribeClusterParameterGroups = Redshift
         type Rs DescribeClusterParameterGroups =
              DescribeClusterParameterGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeClusterParameterGroupsResult"

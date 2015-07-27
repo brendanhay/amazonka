@@ -79,7 +79,7 @@ instance AWSRequest DescribeInstanceHealth where
         type Sv DescribeInstanceHealth = ELB
         type Rs DescribeInstanceHealth =
              DescribeInstanceHealthResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeInstanceHealthResult"
               (\ s h x ->

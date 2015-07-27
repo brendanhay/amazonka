@@ -331,7 +331,7 @@ mcClusterIdentifier = lens _mcClusterIdentifier (\ s a -> s{_mcClusterIdentifier
 instance AWSRequest ModifyCluster where
         type Sv ModifyCluster = Redshift
         type Rs ModifyCluster = ModifyClusterResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ModifyClusterResult"
               (\ s h x ->

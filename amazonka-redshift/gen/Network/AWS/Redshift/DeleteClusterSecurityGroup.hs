@@ -73,7 +73,7 @@ instance AWSRequest DeleteClusterSecurityGroup where
         type Sv DeleteClusterSecurityGroup = Redshift
         type Rs DeleteClusterSecurityGroup =
              DeleteClusterSecurityGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteClusterSecurityGroupResponse'
 

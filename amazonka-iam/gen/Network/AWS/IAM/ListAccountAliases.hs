@@ -99,7 +99,7 @@ instance AWSRequest ListAccountAliases where
         type Sv ListAccountAliases = IAM
         type Rs ListAccountAliases =
              ListAccountAliasesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListAccountAliasesResult"
               (\ s h x ->

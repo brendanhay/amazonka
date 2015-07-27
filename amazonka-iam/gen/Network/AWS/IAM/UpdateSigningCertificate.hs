@@ -92,7 +92,7 @@ instance AWSRequest UpdateSigningCertificate where
         type Sv UpdateSigningCertificate = IAM
         type Rs UpdateSigningCertificate =
              UpdateSigningCertificateResponse
-        request = post
+        request = postQuery
         response
           = receiveNull UpdateSigningCertificateResponse'
 

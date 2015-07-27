@@ -143,7 +143,7 @@ instance AWSRequest DescribeCacheEngineVersions where
         type Sv DescribeCacheEngineVersions = ElastiCache
         type Rs DescribeCacheEngineVersions =
              DescribeCacheEngineVersionsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeCacheEngineVersionsResult"

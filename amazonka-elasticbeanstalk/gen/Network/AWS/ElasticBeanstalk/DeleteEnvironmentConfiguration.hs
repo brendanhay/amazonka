@@ -84,7 +84,7 @@ instance AWSRequest DeleteEnvironmentConfiguration
              ElasticBeanstalk
         type Rs DeleteEnvironmentConfiguration =
              DeleteEnvironmentConfigurationResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteEnvironmentConfigurationResponse'
 

@@ -226,7 +226,7 @@ instance AWSRequest AssumeRoleWithWebIdentity where
         type Sv AssumeRoleWithWebIdentity = STS
         type Rs AssumeRoleWithWebIdentity =
              AssumeRoleWithWebIdentityResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "AssumeRoleWithWebIdentityResult"
               (\ s h x ->

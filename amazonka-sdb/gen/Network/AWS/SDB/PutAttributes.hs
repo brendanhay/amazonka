@@ -128,7 +128,7 @@ paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Coerce;
 instance AWSRequest PutAttributes where
         type Sv PutAttributes = SDB
         type Rs PutAttributes = PutAttributesResponse
-        request = post
+        request = postQuery
         response = receiveNull PutAttributesResponse'
 
 instance ToHeaders PutAttributes where

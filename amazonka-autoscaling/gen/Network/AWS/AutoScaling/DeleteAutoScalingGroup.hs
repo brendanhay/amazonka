@@ -82,7 +82,7 @@ instance AWSRequest DeleteAutoScalingGroup where
         type Sv DeleteAutoScalingGroup = AutoScaling
         type Rs DeleteAutoScalingGroup =
              DeleteAutoScalingGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveNull DeleteAutoScalingGroupResponse'
 

@@ -116,7 +116,7 @@ instance AWSPager DescribePolicies where
 instance AWSRequest DescribePolicies where
         type Sv DescribePolicies = AutoScaling
         type Rs DescribePolicies = DescribePoliciesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribePoliciesResult"
               (\ s h x ->

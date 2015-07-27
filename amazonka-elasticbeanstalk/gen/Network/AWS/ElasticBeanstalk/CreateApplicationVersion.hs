@@ -142,7 +142,7 @@ instance AWSRequest CreateApplicationVersion where
         type Sv CreateApplicationVersion = ElasticBeanstalk
         type Rs CreateApplicationVersion =
              ApplicationVersionDescriptionMessage
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateApplicationVersionResult"
               (\ s h x -> parseXML x)

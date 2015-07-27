@@ -136,7 +136,7 @@ instance AWSRequest DescribeOptionGroups where
         type Sv DescribeOptionGroups = RDS
         type Rs DescribeOptionGroups =
              DescribeOptionGroupsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeOptionGroupsResult"
               (\ s h x ->

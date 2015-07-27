@@ -98,7 +98,7 @@ instance AWSRequest SetPlatformApplicationAttributes
         type Sv SetPlatformApplicationAttributes = SNS
         type Rs SetPlatformApplicationAttributes =
              SetPlatformApplicationAttributesResponse
-        request = post
+        request = postQuery
         response
           = receiveNull
               SetPlatformApplicationAttributesResponse'

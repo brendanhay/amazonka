@@ -96,7 +96,7 @@ instance AWSRequest CreateCacheSubnetGroup where
         type Sv CreateCacheSubnetGroup = ElastiCache
         type Rs CreateCacheSubnetGroup =
              CreateCacheSubnetGroupResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateCacheSubnetGroupResult"
               (\ s h x ->

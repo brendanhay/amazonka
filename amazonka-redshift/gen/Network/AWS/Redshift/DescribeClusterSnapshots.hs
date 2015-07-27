@@ -216,7 +216,7 @@ instance AWSRequest DescribeClusterSnapshots where
         type Sv DescribeClusterSnapshots = Redshift
         type Rs DescribeClusterSnapshots =
              DescribeClusterSnapshotsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeClusterSnapshotsResult"
               (\ s h x ->

@@ -88,7 +88,7 @@ instance AWSRequest CreateInstanceProfile where
         type Sv CreateInstanceProfile = IAM
         type Rs CreateInstanceProfile =
              CreateInstanceProfileResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "CreateInstanceProfileResult"
               (\ s h x ->

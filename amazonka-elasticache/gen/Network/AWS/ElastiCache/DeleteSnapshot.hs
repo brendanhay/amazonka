@@ -70,7 +70,7 @@ dSnapshotName = lens _dSnapshotName (\ s a -> s{_dSnapshotName = a});
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = ElastiCache
         type Rs DeleteSnapshot = DeleteSnapshotResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DeleteSnapshotResult"
               (\ s h x ->

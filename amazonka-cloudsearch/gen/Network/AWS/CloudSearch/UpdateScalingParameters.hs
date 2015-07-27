@@ -88,7 +88,7 @@ instance AWSRequest UpdateScalingParameters where
         type Sv UpdateScalingParameters = CloudSearch
         type Rs UpdateScalingParameters =
              UpdateScalingParametersResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "UpdateScalingParametersResult"
               (\ s h x ->

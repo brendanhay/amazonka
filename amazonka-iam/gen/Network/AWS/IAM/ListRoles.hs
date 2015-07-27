@@ -112,7 +112,7 @@ instance AWSPager ListRoles where
 instance AWSRequest ListRoles where
         type Sv ListRoles = IAM
         type Rs ListRoles = ListRolesResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "ListRolesResult"
               (\ s h x ->

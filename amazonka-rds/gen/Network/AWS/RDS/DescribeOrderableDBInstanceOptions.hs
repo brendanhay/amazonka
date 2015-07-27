@@ -159,7 +159,7 @@ instance AWSRequest
         type Sv DescribeOrderableDBInstanceOptions = RDS
         type Rs DescribeOrderableDBInstanceOptions =
              DescribeOrderableDBInstanceOptionsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "DescribeOrderableDBInstanceOptionsResult"

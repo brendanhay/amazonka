@@ -66,7 +66,7 @@ dtLoadBalancerNames = lens _dtLoadBalancerNames (\ s a -> s{_dtLoadBalancerNames
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = ELB
         type Rs DescribeTags = DescribeTagsResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper "DescribeTagsResult"
               (\ s h x ->

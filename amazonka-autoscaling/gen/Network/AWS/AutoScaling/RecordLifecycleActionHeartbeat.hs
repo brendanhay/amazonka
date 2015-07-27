@@ -108,7 +108,7 @@ instance AWSRequest RecordLifecycleActionHeartbeat
         type Sv RecordLifecycleActionHeartbeat = AutoScaling
         type Rs RecordLifecycleActionHeartbeat =
              RecordLifecycleActionHeartbeatResponse
-        request = post
+        request = postQuery
         response
           = receiveXMLWrapper
               "RecordLifecycleActionHeartbeatResult"

@@ -3,9 +3,8 @@
     "operationUrl": "http://docs.aws.amazon.com/AmazonS3/latest/API/",
     "libraryName": "amazonka-s3",
     "extraDependencies": [
-        "bytestring >= 0.9",
-        "containers >= 0.5",
-        "lens       >= 4.4"
+        "text >= 1.1",
+        "lens >= 4.4"
     ],
     "operationPlugins": {
         "DeleteObjects": ["contentMD5"],

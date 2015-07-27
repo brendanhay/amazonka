@@ -21,6 +21,7 @@ module Network.AWS.S3.Internal
     , ETag            (..)
     , ObjectVersionId (..)
     , ObjectKey       (..)
+    , Delimiter
     , _Key
     , segments
     , _KeyHead
@@ -113,31 +114,33 @@ newtype ObjectKey = ObjectKey Text
 
 instance ToPath ObjectKey
 
+type Delimiter = Char
+
 _Key :: Iso' ObjectKey Text
 _Key = iso (\(ObjectKey k) -> k) ObjectKey
 {-# INLINE _Key #-}
 
-segments :: Char -> IndexedTraversal' Int ObjectKey Text
+segments :: Delimiter -> IndexedTraversal' Int ObjectKey Text
 segments c f k = joinKey c <$> traversed f (splitKey c k)
 {-# INLINE segments #-}
 
-_KeyHead :: Char -> Traversal' ObjectKey Text
+_KeyHead :: Delimiter -> Traversal' ObjectKey Text
 _KeyHead c = _KeyCons c . _1
 {-# INLINE _KeyHead #-}
 
-_KeyLast :: Char -> Traversal' ObjectKey Text
+_KeyLast :: Delimiter -> Traversal' ObjectKey Text
 _KeyLast c = _KeySnoc c . _2
 {-# INLINE _KeyLast #-}
 
 -- The following are modelled on the respective _Cons and _Snoc type classes:
 
-_KeyCons :: Char -> Prism' ObjectKey (Text, [Text])
+_KeyCons :: Delimiter -> Prism' ObjectKey (Text, [Text])
 _KeyCons c = prism (joinKey c . uncurry (:)) $ \k ->
     case splitKey c k of
         []     -> Left  k
         (x:xs) -> Right (x, xs)
 
-_KeySnoc :: Char -> Prism' ObjectKey ([Text], Text)
+_KeySnoc :: Delimiter -> Prism' ObjectKey ([Text], Text)
 _KeySnoc c = prism (\(xs, x) -> joinKey c (xs ++ [x])) $ \k ->
     case splitKey c k of
         [] -> Left  k

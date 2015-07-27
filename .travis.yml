@@ -96,7 +96,6 @@ branches:
   only:
     - master
     - develop
-    - '/^feature\/.*$/'
 
 before_install:
   - export PATH=/opt/ghc/$GHCVER/bin:$PATH

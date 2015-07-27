@@ -164,6 +164,7 @@ keyName :: Delimiter -> Traversal' ObjectKey Text
 keyName c = _ObjectKeySnoc False c . _2
 {-# INLINE keyName #-}
 
+-- | Traverse the path components of an object key using the specified delimiter.
 keyComponents :: Delimiter -> IndexedTraversal' Int ObjectKey Text
 keyComponents !c f (ObjectKey k) = cat <$> traversed f split
   where

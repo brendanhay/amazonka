@@ -20,17 +20,17 @@ tests :: TestTree
 tests = testGroup "object key"
     [ testGroup "encoding"
         [ testCase "without delimiters" $
-            "key" @=? toPath (objectKey '%' "key")
+            "key" @=? toBS (toPath (ObjectKey "key"))
 
         , testCase "without leading prefix" $
-            "some/obj%23ect" @=? toPath (objectKey '/' "some/obj#ect")
+            "some/obj%23ect" @=? toBS (toPath (ObjectKey "some/obj#ect"))
 
         , testCase "custom delimiter" $
-            "^some^obj%25ect^foo" @=?
-                 toPath (objectKey '^' "^some^obj%ect^foo")
+            "%5Esome%5Eobj%25ect%5Efoo" @=?
+                 toBS (toPath (ObjectKey "^some^obj%ect^foo"))
 
         , testCase "leading prefix" $
              "/some=1/path%20to/foo=bar/object%20here" @=?
-                 toPath (objectKey '/' "/some=1/path to/foo=bar/object here")
+                 toBS (toPath (ObjectKey "/some=1/path to/foo=bar/object here"))
         ]
     ]

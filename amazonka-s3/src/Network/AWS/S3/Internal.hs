@@ -1,6 +1,9 @@
+{-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE RankNTypes                 #-}
 
 -- Module      : Network.AWS.S3.Internal
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -13,13 +16,20 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.S3.Internal
-    ( module Network.AWS.S3.Internal
-    , Region
+    ( Region
+    , BucketName      (..)
+    , ETag            (..)
+    , ObjectVersionId (..)
+    , ObjectKey       (..)
+    , _Key
+    , segments
+    , _KeyHead
+    , _KeyLast
     ) where
 
-import           Data.Data            (Data, Typeable)
+import           Control.Lens
 import           Data.String
-import           GHC.Generics         (Generic)
+import qualified Data.Text            as Text
 import           Network.AWS.Data.XML
 import           Network.AWS.Prelude
 
@@ -43,26 +53,6 @@ newtype BucketName = BucketName Text
 
 instance ToPath BucketName
 
-newtype ObjectVersionId = ObjectVersionId Text
-    deriving
-        ( Eq
-        , Ord
-        , Read
-        , Show
-        , Data
-        , Typeable
-        , Generic
-        , IsString
-        , FromText
-        , ToText
-        , ToByteString
-        , FromXML
-        , ToXML
-        , ToQuery
-        )
-
-instance ToPath ObjectVersionId
-
 -- FIXME: Add the difference between weak + strong ETags and their respective
 -- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
 newtype ETag = ETag ByteString
@@ -82,6 +72,26 @@ newtype ETag = ETag ByteString
         , ToXML
         , ToQuery
         )
+
+newtype ObjectVersionId = ObjectVersionId Text
+    deriving
+        ( Eq
+        , Ord
+        , Read
+        , Show
+        , Data
+        , Typeable
+        , Generic
+        , IsString
+        , FromText
+        , ToText
+        , ToByteString
+        , FromXML
+        , ToXML
+        , ToQuery
+        )
+
+instance ToPath ObjectVersionId
 
 newtype ObjectKey = ObjectKey Text
     deriving
@@ -103,28 +113,38 @@ newtype ObjectKey = ObjectKey Text
 
 instance ToPath ObjectKey
 
--- objectKey :: Delimiter -> ByteString -> ObjectKey
--- objectKey c = DecodedKey c . splitKey c
+_Key :: Iso' ObjectKey Text
+_Key = iso (\(ObjectKey k) -> k) ObjectKey
+{-# INLINE _Key #-}
 
--- splitKey :: Delimiter -> ByteString -> Seq ByteString
--- splitKey c = Seq.fromList . BS8.split c
+segments :: Char -> IndexedTraversal' Int ObjectKey Text
+segments c f k = joinKey c <$> traversed f (splitKey c k)
+{-# INLINE segments #-}
 
--- components :: Delimiter -> IndexedTraversal' Int ObjectKey ByteString
--- components c f = \case
---     DecodedKey _ xs -> DecodedKey c <$> traversed f xs
---     RawKey       bs -> DecodedKey c <$> traversed f (splitKey c bs)
+_KeyHead :: Char -> Traversal' ObjectKey Text
+_KeyHead c = _KeyCons c . _1
+{-# INLINE _KeyHead #-}
 
--- _Last :: Delimiter -> Traversal' ObjectKey ByteString
--- _Last c f = \case
---     DecodedKey _ xs -> go xs
---     RawKey       bs -> go (splitKey c bs)
---   where
---     go = fmap (DecodedKey c) . viewR right
+_KeyLast :: Char -> Traversal' ObjectKey Text
+_KeyLast c = _KeySnoc c . _2
+{-# INLINE _KeyLast #-}
 
---     right (xs :> x) = (xs :>) <$> f x
---     right EmptyR    = pure EmptyR
+-- The following are modelled on the respective _Cons and _Snoc type classes:
 
+_KeyCons :: Char -> Prism' ObjectKey (Text, [Text])
+_KeyCons c = prism (joinKey c . uncurry (:)) $ \k ->
+    case splitKey c k of
+        []     -> Left  k
+        (x:xs) -> Right (x, xs)
 
--- Provide a traversal for components, last etc.
+_KeySnoc :: Char -> Prism' ObjectKey ([Text], Text)
+_KeySnoc c = prism (\(xs, x) -> joinKey c (xs ++ [x])) $ \k ->
+    case splitKey c k of
+        [] -> Left  k
+        xs -> Right (init xs, last xs)
 
--- Reintroduce some of the changes
+joinKey :: Char -> [Text] -> ObjectKey
+joinKey !c = ObjectKey . Text.intercalate (Text.singleton c)
+
+splitKey :: Char -> ObjectKey -> [Text]
+splitKey !c (ObjectKey k) = Text.split (== c) k

@@ -59,18 +59,19 @@ instance ToByteString QueryString where
     toBS = intercalate . sort . enc Nothing
       where
         enc k = \case
-            QList xs           -> concatMap (enc k) xs
+            QList xs          -> concatMap (enc k) xs
 
             QPair (urlEncode True -> k') x
-                | Just n <- k -> enc (Just $ n <> "." <> k') x
-                | otherwise   -> enc (Just k')               x
+                | Just n <- k -> enc (Just $ n <> "." <> k') x -- <prev>.key <recur>
+                | otherwise   -> enc (Just k')               x -- key <recur>
 
             QValue (Just (urlEncode True -> v))
-                | Just n <- k -> [n <> vsep <> v]
-                | otherwise   -> [v <> vsep]
+                | Just n <- k -> [n <> vsep <> v] -- key=value
+                | otherwise   -> [v]              -- value
 
-            _   | Just n <- k -> [n <> vsep]
-                | otherwise   -> []
+            _   | Just n <- k -> [n <> vsep]      -- key=
+                                                  -- note: this case required for request signing
+                | otherwise   -> []               -- []
 
         intercalate []     = mempty
         intercalate [x]    = x

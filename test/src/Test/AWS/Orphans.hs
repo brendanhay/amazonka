@@ -15,8 +15,9 @@
 module Test.AWS.Orphans where
 
 import           Data.Aeson
-import qualified Data.HashMap.Strict as Map
-import qualified Data.Text.Encoding  as Text
+import qualified Data.CaseInsensitive as CI
+import qualified Data.HashMap.Strict  as Map
+import qualified Data.Text.Encoding   as Text
 import           Network.AWS.Prelude
 
 instance FromJSON ByteString where

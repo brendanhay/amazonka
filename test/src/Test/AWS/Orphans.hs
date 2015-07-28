@@ -15,24 +15,9 @@
 module Test.AWS.Orphans where
 
 import           Data.Aeson
-import           Data.Bifunctor
-import           Data.ByteString            (ByteString)
-import qualified Data.ByteString.Char8      as BS8
-import           Data.CaseInsensitive       (CI)
-import qualified Data.CaseInsensitive       as CI
-import           Data.HashMap.Strict        (HashMap)
-import qualified Data.HashMap.Strict        as Map
-import           Data.Monoid
-import qualified Data.Text                  as Text
-import qualified Data.Text.Encoding         as Text
-import           GHC.Exts                   (toList)
-import           Network.AWS.Data.List1
-import           Network.AWS.Data.Map
-import           Network.AWS.Data.Numeric
-import           Network.AWS.Data.Sensitive
+import qualified Data.HashMap.Strict as Map
+import qualified Data.Text.Encoding  as Text
 import           Network.AWS.Prelude
-import           Network.HTTP.Types
-import           Numeric.Natural
 
 instance FromJSON ByteString where
     parseJSON = withText "bytestring" (either fail pure . fromText)

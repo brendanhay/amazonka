@@ -15,11 +15,6 @@
                 "Marker"
             ]
         },
-        "ResourceRecordSet": {
-            "required": [
-                "ResourceRecords"
-            ]
-        },
         "ResourceRecordSetRegion": {
             "replaced_by": "Region"
         },

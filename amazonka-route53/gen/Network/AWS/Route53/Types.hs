@@ -170,6 +170,7 @@ module Network.AWS.Route53.Types
     -- * ResourceRecordSet
     , ResourceRecordSet
     , resourceRecordSet
+    , rrsResourceRecords
     , rrsTTL
     , rrsAliasTarget
     , rrsWeight
@@ -180,7 +181,6 @@ module Network.AWS.Route53.Types
     , rrsGeoLocation
     , rrsName
     , rrsType
-    , rrsResourceRecords
 
     -- * ResourceTagSet
     , ResourceTagSet

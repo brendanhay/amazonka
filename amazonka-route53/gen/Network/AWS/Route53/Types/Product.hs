@@ -811,6 +811,8 @@ instance ToXML ResourceRecord where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'rrsResourceRecords'
+--
 -- * 'rrsTTL'
 --
 -- * 'rrsAliasTarget'
@@ -830,10 +832,9 @@ instance ToXML ResourceRecord where
 -- * 'rrsName'
 --
 -- * 'rrsType'
---
--- * 'rrsResourceRecords'
 data ResourceRecordSet = ResourceRecordSet'
-    { _rrsTTL             :: !(Maybe Nat)
+    { _rrsResourceRecords :: !(Maybe (List1 ResourceRecord))
+    , _rrsTTL             :: !(Maybe Nat)
     , _rrsAliasTarget     :: !(Maybe AliasTarget)
     , _rrsWeight          :: !(Maybe Nat)
     , _rrsSetIdentifier   :: !(Maybe Text)
@@ -843,14 +844,14 @@ data ResourceRecordSet = ResourceRecordSet'
     , _rrsGeoLocation     :: !(Maybe GeoLocation)
     , _rrsName            :: !Text
     , _rrsType            :: !RecordType
-    , _rrsResourceRecords :: !(List1 ResourceRecord)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResourceRecordSet' smart constructor.
-resourceRecordSet :: Text -> RecordType -> NonEmpty ResourceRecord -> ResourceRecordSet
-resourceRecordSet pName_ pType_ pResourceRecords_ =
+resourceRecordSet :: Text -> RecordType -> ResourceRecordSet
+resourceRecordSet pName_ pType_ =
     ResourceRecordSet'
-    { _rrsTTL = Nothing
+    { _rrsResourceRecords = Nothing
+    , _rrsTTL = Nothing
     , _rrsAliasTarget = Nothing
     , _rrsWeight = Nothing
     , _rrsSetIdentifier = Nothing
@@ -860,8 +861,12 @@ resourceRecordSet pName_ pType_ pResourceRecords_ =
     , _rrsGeoLocation = Nothing
     , _rrsName = pName_
     , _rrsType = pType_
-    , _rrsResourceRecords = _List1 # pResourceRecords_
     }
+
+-- | A complex type that contains the resource records for the current
+-- resource record set.
+rrsResourceRecords :: Lens' ResourceRecordSet (Maybe (NonEmpty ResourceRecord))
+rrsResourceRecords = lens _rrsResourceRecords (\ s a -> s{_rrsResourceRecords = a}) . mapping _List1;
 
 -- | The cache time to live for the current resource record set.
 rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
@@ -931,16 +936,14 @@ rrsName = lens _rrsName (\ s a -> s{_rrsName = a});
 rrsType :: Lens' ResourceRecordSet RecordType
 rrsType = lens _rrsType (\ s a -> s{_rrsType = a});
 
--- | A complex type that contains the resource records for the current
--- resource record set.
-rrsResourceRecords :: Lens' ResourceRecordSet (NonEmpty ResourceRecord)
-rrsResourceRecords = lens _rrsResourceRecords (\ s a -> s{_rrsResourceRecords = a}) . _List1;
-
 instance FromXML ResourceRecordSet where
         parseXML x
           = ResourceRecordSet' <$>
-              (x .@? "TTL") <*> (x .@? "AliasTarget") <*>
-                (x .@? "Weight")
+              (x .@? "ResourceRecords" .!@ mempty >>=
+                 may (parseXMLList1 "ResourceRecord"))
+                <*> (x .@? "TTL")
+                <*> (x .@? "AliasTarget")
+                <*> (x .@? "Weight")
                 <*> (x .@? "SetIdentifier")
                 <*> (x .@? "Failover")
                 <*> (x .@? "HealthCheckId")
@@ -948,23 +951,21 @@ instance FromXML ResourceRecordSet where
                 <*> (x .@? "GeoLocation")
                 <*> (x .@ "Name")
                 <*> (x .@ "Type")
-                <*>
-                (x .@? "ResourceRecords" .!@ mempty >>=
-                   parseXMLList1 "ResourceRecord")
 
 instance ToXML ResourceRecordSet where
         toXML ResourceRecordSet'{..}
           = mconcat
-              ["TTL" @= _rrsTTL, "AliasTarget" @= _rrsAliasTarget,
+              ["ResourceRecords" @=
+                 toXML
+                   (toXMLList "ResourceRecord" <$> _rrsResourceRecords),
+               "TTL" @= _rrsTTL, "AliasTarget" @= _rrsAliasTarget,
                "Weight" @= _rrsWeight,
                "SetIdentifier" @= _rrsSetIdentifier,
                "Failover" @= _rrsFailover,
                "HealthCheckId" @= _rrsHealthCheckId,
                "Region" @= _rrsRegion,
                "GeoLocation" @= _rrsGeoLocation, "Name" @= _rrsName,
-               "Type" @= _rrsType,
-               "ResourceRecords" @=
-                 toXMLList "ResourceRecord" _rrsResourceRecords]
+               "Type" @= _rrsType]
 
 -- | A complex type containing a resource and its associated tags.
 --

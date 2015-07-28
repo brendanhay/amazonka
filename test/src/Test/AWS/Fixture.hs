@@ -81,7 +81,7 @@ req n f e = testCase n $ do
         return $! mkReq
             (method x)
             (path   x)
-            (parseSimpleQuery (queryString x))
+            (queryString x)
             (requestHeaders x)
             b
 
@@ -121,19 +121,19 @@ time = $(mkTime "2009-10-28T22:32:00Z")
 data Req = Req
     { _method  :: Method
     , _path    :: ByteString
-    , _query   :: SimpleQuery
+    , _query   :: ByteString
     , _headers :: [Header]
     , _body    :: ByteString
     } deriving (Eq, Show, Generic)
 
-mkReq :: Method -> ByteString -> SimpleQuery -> [Header] -> ByteString -> Req
-mkReq m p q h = Req m p (sortKeys q) (sortKeys h)
+mkReq :: Method -> ByteString -> ByteString -> [Header] -> ByteString -> Req
+mkReq m p q h = Req m p q (sortKeys h)
 
 instance FromJSON Req where
     parseJSON = withObject "req" $ \o -> mkReq
         <$> o .: "method"
-        <*> (o .:? "path"    .!= "/"
-        <*> (o .:? "query"   .!= mempty <&> Map.toList)
+        <*> (o .:? "path"    .!= "/")
+        <*> (o .:? "query"   .!= "?")
         <*> (o .:? "headers" .!= mempty <&> Map.toList)
         <*> (o .:? "body"    .!= mempty)
 

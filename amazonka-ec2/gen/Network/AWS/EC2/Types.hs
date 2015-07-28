@@ -1,13 +1,13 @@
-{-# LANGUAGE DataKinds                   #-}
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
-{-# LANGUAGE LambdaCase                  #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
-{-# LANGUAGE ViewPatterns                #-}
+{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -1627,10 +1627,10 @@ module Network.AWS.EC2.Types
     , module Network.AWS.EC2.Internal
     ) where
 
-import Network.AWS.Prelude
-import Network.AWS.Signing
-import Network.AWS.EC2.Internal
 import qualified GHC.Exts
+import           Network.AWS.EC2.Internal
+import           Network.AWS.Prelude
+import           Network.AWS.Signing
 
 -- | Version @2015-04-15@ of the Amazon Elastic Compute Cloud service.
 data EC2
@@ -7577,6 +7577,11 @@ data InstanceType
     | M3_Large    -- ^ m3.large
     | M3_Medium   -- ^ m3.medium
     | M3_XLarge   -- ^ m3.xlarge
+    | M4_Large    -- ^ m4.large
+    | M4_XLarge   -- ^ m4.xlarge
+    | M4_2XLarge  -- ^ m4.2xlarge
+    | M4_4XLarge  -- ^ m4.4xlarge
+    | M4_10XLarge -- ^ m4.10xlarge
     | R3_2XLarge  -- ^ r3.2xlarge
     | R3_4XLarge  -- ^ r3.4xlarge
     | R3_8XLarge  -- ^ r3.8xlarge
@@ -7586,6 +7591,7 @@ data InstanceType
     | T2_Medium   -- ^ t2.medium
     | T2_Micro    -- ^ t2.micro
     | T2_Small    -- ^ t2.small
+    | T2_Large    -- ^ t2.large
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable InstanceType
@@ -7630,6 +7636,11 @@ instance FromText InstanceType where
         "m3.large"    -> pure M3_Large
         "m3.medium"   -> pure M3_Medium
         "m3.xlarge"   -> pure M3_XLarge
+        "m4.large"    -> pure M4_Large
+        "m4.xlarge"   -> pure M4_XLarge
+        "m4.2xlarge"  -> pure M4_2XLarge
+        "m4.4xlarge"  -> pure M4_4XLarge
+        "m4.10xlarge" -> pure M4_10XLarge
         "r3.2xlarge"  -> pure R3_2XLarge
         "r3.4xlarge"  -> pure R3_4XLarge
         "r3.8xlarge"  -> pure R3_8XLarge
@@ -7639,6 +7650,7 @@ instance FromText InstanceType where
         "t2.medium"   -> pure T2_Medium
         "t2.micro"    -> pure T2_Micro
         "t2.small"    -> pure T2_Small
+        "t2.large"    -> pure T2_Large
         e             -> fail $
             "Failure parsing InstanceType from " ++ show e
 
@@ -7682,6 +7694,11 @@ instance ToText InstanceType where
         M3_Large    -> "m3.large"
         M3_Medium   -> "m3.medium"
         M3_XLarge   -> "m3.xlarge"
+        M4_Large    -> "m4.large"
+        M4_XLarge   -> "m4.xlarge"
+        M4_2XLarge  -> "m4.2xlarge"
+        M4_4XLarge  -> "m4.4xlarge"
+        M4_10XLarge -> "m4.10xlarge"
         R3_2XLarge  -> "r3.2xlarge"
         R3_4XLarge  -> "r3.4xlarge"
         R3_8XLarge  -> "r3.8xlarge"
@@ -7691,6 +7708,7 @@ instance ToText InstanceType where
         T2_Medium   -> "t2.medium"
         T2_Micro    -> "t2.micro"
         T2_Small    -> "t2.small"
+        T2_Large    -> "t2.large"
 
 instance ToByteString InstanceType
 instance ToHeader     InstanceType

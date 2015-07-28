@@ -32,7 +32,7 @@ executable amazonka-gen
         , case-insensitive
         , directory
         , ede                  >= 0.2.8.2
-        , errors
+        , errors               == 2.*
         , filepath
         , hashable
         , jason

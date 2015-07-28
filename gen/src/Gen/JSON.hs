@@ -1,6 +1,6 @@
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE ViewPatterns         #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
@@ -16,19 +16,20 @@
 
 module Gen.JSON where
 
-import           Control.Error
-import qualified Data.Aeson       as A
-import           Data.Function    (on)
+import           Control.Error        (Script)
+import           Control.Monad.Except
+import qualified Data.Aeson           as A
+import           Data.Function        (on)
 import           Data.Jason.Types
 import           Data.List
 import           Data.Monoid
 
 parse :: FromJSON a => Object -> Script a
-parse = hoistEither . parseEither parseJSON . Object
+parse = either throwError return . parseEither parseJSON . Object
 
 toEnv :: (Show a, A.ToJSON a) => a -> Script A.Object
-toEnv (A.toJSON -> A.Object o) = right o
-toEnv e                        = left $
+toEnv (A.toJSON -> A.Object o) = return o
+toEnv e                        = throwError $
     "Failed to extract JSON Object from: " ++ show e
 
 merge :: [Object] -> Object

@@ -131,11 +131,11 @@ mkReq m p q h = Req m p (sortKeys q) (sortKeys h)
 
 instance FromJSON Req where
     parseJSON = withObject "req" $ \o -> mkReq
-        <$> o .:  "method"
-        <*> o .:  "path"
-        <*> (o .: "query"   <&> Map.toList)
-        <*> (o .: "headers" <&> Map.toList)
-        <*> o .:? "body"    .!= mempty
+        <$> o .: "method"
+        <*> o .: "path"
+        <*> (o .:? "query"   .!= mempty <&> Map.toList)
+        <*> (o .:? "headers" .!= mempty <&> Map.toList)
+        <*> (o .:? "body"    .!= mempty)
 
 sortKeys :: Ord a => [(a, b)] -> [(a, b)]
 sortKeys = sortBy (comparing fst)

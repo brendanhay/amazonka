@@ -1,6 +1,5 @@
 ---
 method: POST
-path:   /
 headers:
   Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=1b5db977afd6d07cbade281149b73e4bff214460b1e60bac40317989ca5e0b4c
   Host:                  queue.amazonaws.com
